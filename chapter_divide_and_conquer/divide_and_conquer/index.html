@@ -3416,7 +3416,7 @@
 <li><strong>分</strong>：递归地将原数组（原问题）划分为两个子数组（子问题），直到子数组只剩一个元素（最小子问题）。</li>
 <li><strong>治</strong>：从底至顶地将有序的子数组（子问题的解）进行合并，从而得到有序的原数组（原问题的解）。</li>
 </ol>
-<p><a class="glightbox" href="../divide_and_conquer.assets/divide_and_conquer_merge_sort.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="归并排序的分治策略" src="../divide_and_conquer.assets/divide_and_conquer_merge_sort.png" /></a></p>
+<p><a class="glightbox" href="../divide_and_conquer.assets/divide_and_conquer_merge_sort.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="归并排序的分治策略" class="animation-figure" src="../divide_and_conquer.assets/divide_and_conquer_merge_sort.png" /></a></p>
 <p align="center"> 图 12-1 &nbsp; 归并排序的分治策略 </p>
 
 <h2 id="1211">12.1.1 &nbsp; 如何判断分治问题<a class="headerlink" href="#1211" title="Permanent link">&para;</a></h2>
@@ -3440,7 +3440,7 @@
 <div class="arithmatex">\[
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 \]</div>
-<p><a class="glightbox" href="../divide_and_conquer.assets/divide_and_conquer_bubble_sort.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="划分数组前后的冒泡排序" src="../divide_and_conquer.assets/divide_and_conquer_bubble_sort.png" /></a></p>
+<p><a class="glightbox" href="../divide_and_conquer.assets/divide_and_conquer_bubble_sort.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="划分数组前后的冒泡排序" class="animation-figure" src="../divide_and_conquer.assets/divide_and_conquer_bubble_sort.png" /></a></p>
 <p align="center"> 图 12-2 &nbsp; 划分数组前后的冒泡排序 </p>
 
 <p>接下来，我们计算以下不等式，其左边和右边分别为划分前和划分后的操作总数：</p>
@@ -3458,7 +3458,7 @@ n(n - 4) &amp; &gt; 0
 <p>我们知道，分治生成的子问题是相互独立的，<strong>因此通常可以并行解决</strong>。也就是说，分治不仅可以降低算法的时间复杂度，<strong>还有利于操作系统的并行优化</strong>。</p>
 <p>并行优化在多核或多处理器的环境中尤其有效，因为系统可以同时处理多个子问题，更加充分地利用计算资源，从而显著减少总体的运行时间。</p>
 <p>比如在图 12-3 所示的“桶排序”中，我们将海量的数据平均分配到各个桶中，则可所有桶的排序任务分散到各个计算单元，完成后再进行结果合并。</p>
-<p><a class="glightbox" href="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="桶排序的并行计算" src="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" /></a></p>
+<p><a class="glightbox" href="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="桶排序的并行计算" class="animation-figure" src="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" /></a></p>
 <p align="center"> 图 12-3 &nbsp; 桶排序的并行计算 </p>
 
 <h2 id="1213">12.1.3 &nbsp; 分治常见应用<a class="headerlink" href="#1213" title="Permanent link">&para;</a></h2>

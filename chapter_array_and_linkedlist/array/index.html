@@ -3477,7 +3477,7 @@
 <!-- Page content -->
 <h1 id="41">4.1 &nbsp; 数组<a class="headerlink" href="#41" title="Permanent link">&para;</a></h1>
 <p>「数组 array」是一种线性数据结构，其将相同类型元素存储在连续的内存空间中。我们将元素在数组中的位置称为该元素的「索引 index」。图 4-1 展示了数组的主要术语和概念。</p>
-<p><a class="glightbox" href="../array.assets/array_definition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="数组定义与存储方式" src="../array.assets/array_definition.png" /></a></p>
+<p><a class="glightbox" href="../array.assets/array_definition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="数组定义与存储方式" class="animation-figure" src="../array.assets/array_definition.png" /></a></p>
 <p align="center"> 图 4-1 &nbsp; 数组定义与存储方式 </p>
 
 <h2 id="411">4.1.1 &nbsp; 数组常用操作<a class="headerlink" href="#411" title="Permanent link">&para;</a></h2>
@@ -3568,7 +3568,7 @@
 </div>
 <h3 id="2">2. &nbsp; 访问元素<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>数组元素被存储在连续的内存空间中，这意味着计算数组元素的内存地址非常容易。给定数组内存地址（即首元素内存地址）和某个元素的索引，我们可以使用图 4-2 所示的公式计算得到该元素的内存地址，从而直接访问此元素。</p>
-<p><a class="glightbox" href="../array.assets/array_memory_location_calculation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="数组元素的内存地址计算" src="../array.assets/array_memory_location_calculation.png" /></a></p>
+<p><a class="glightbox" href="../array.assets/array_memory_location_calculation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="数组元素的内存地址计算" class="animation-figure" src="../array.assets/array_memory_location_calculation.png" /></a></p>
 <p align="center"> 图 4-2 &nbsp; 数组元素的内存地址计算 </p>
 
 <p>观察图 4-2 ，我们发现数组首个元素的索引为 <span class="arithmatex">\(0\)</span> ，这似乎有些反直觉，因为从 <span class="arithmatex">\(1\)</span> 开始计数会更自然。但从地址计算公式的角度看，<strong>索引的含义本质上是内存地址的偏移量</strong>。首个元素的地址偏移量是 <span class="arithmatex">\(0\)</span> ，因此它的索引为 <span class="arithmatex">\(0\)</span> 也是合理的。</p>
@@ -3711,7 +3711,7 @@
 </div>
 <h3 id="3">3. &nbsp; 插入元素<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>数组元素在内存中是“紧挨着的”，它们之间没有空间再存放任何数据。如图 4-3 所示，如果想要在数组中间插入一个元素，则需要将该元素之后的所有元素都向后移动一位，之后再把元素赋值给该索引。</p>
-<p><a class="glightbox" href="../array.assets/array_insert_element.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="数组插入元素示例" src="../array.assets/array_insert_element.png" /></a></p>
+<p><a class="glightbox" href="../array.assets/array_insert_element.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="数组插入元素示例" class="animation-figure" src="../array.assets/array_insert_element.png" /></a></p>
 <p align="center"> 图 4-3 &nbsp; 数组插入元素示例 </p>
 
 <p>值得注意的是，由于数组的长度是固定的，因此插入一个元素必定会导致数组尾部元素的“丢失”。我们将这个问题的解决方案留在列表章节中讨论。</p>
@@ -3864,7 +3864,7 @@
 </div>
 <h3 id="4">4. &nbsp; 删除元素<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>同理，如图 4-4 所示，若想要删除索引 <span class="arithmatex">\(i\)</span> 处的元素，则需要把索引 <span class="arithmatex">\(i\)</span> 之后的元素都向前移动一位。</p>
-<p><a class="glightbox" href="../array.assets/array_remove_element.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="数组删除元素示例" src="../array.assets/array_remove_element.png" /></a></p>
+<p><a class="glightbox" href="../array.assets/array_remove_element.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="数组删除元素示例" class="animation-figure" src="../array.assets/array_remove_element.png" /></a></p>
 <p align="center"> 图 4-4 &nbsp; 数组删除元素示例 </p>
 
 <p>请注意，删除元素完成后，原先末尾的元素变得“无意义”了，所以我们无须特意去修改它。</p>

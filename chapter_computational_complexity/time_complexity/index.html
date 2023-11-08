@@ -3954,7 +3954,7 @@
 <li>算法 <code>B</code> 中的打印操作需要循环 <span class="arithmatex">\(n\)</span> 次，算法运行时间随着 <span class="arithmatex">\(n\)</span> 增大呈线性增长。此算法的时间复杂度被称为“线性阶”。</li>
 <li>算法 <code>C</code> 中的打印操作需要循环 <span class="arithmatex">\(1000000\)</span> 次，虽然运行时间很长，但它与输入数据大小 <span class="arithmatex">\(n\)</span> 无关。因此 <code>C</code> 的时间复杂度和 <code>A</code> 相同，仍为“常数阶”。</li>
 </ul>
-<p><a class="glightbox" href="../time_complexity.assets/time_complexity_simple_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="算法 A、B 和 C 的时间增长趋势" src="../time_complexity.assets/time_complexity_simple_example.png" /></a></p>
+<p><a class="glightbox" href="../time_complexity.assets/time_complexity_simple_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="算法 A、B 和 C 的时间增长趋势" class="animation-figure" src="../time_complexity.assets/time_complexity_simple_example.png" /></a></p>
 <p align="center"> 图 2-7 &nbsp; 算法 A、B 和 C 的时间增长趋势 </p>
 
 <p>相较于直接统计算法运行时间，时间复杂度分析有哪些特点呢？</p>
@@ -4124,7 +4124,7 @@ T(n) = 3 + 2n
 <p>若存在正实数 <span class="arithmatex">\(c\)</span> 和实数 <span class="arithmatex">\(n_0\)</span> ，使得对于所有的 <span class="arithmatex">\(n &gt; n_0\)</span> ，均有 <span class="arithmatex">\(T(n) \leq c \cdot f(n)\)</span> ，则可认为 <span class="arithmatex">\(f(n)\)</span> 给出了 <span class="arithmatex">\(T(n)\)</span> 的一个渐近上界，记为 <span class="arithmatex">\(T(n) = O(f(n))\)</span> 。</p>
 </div>
 <p>如图 2-8 所示，计算渐近上界就是寻找一个函数 <span class="arithmatex">\(f(n)\)</span> ，使得当 <span class="arithmatex">\(n\)</span> 趋向于无穷大时，<span class="arithmatex">\(T(n)\)</span> 和 <span class="arithmatex">\(f(n)\)</span> 处于相同的增长级别，仅相差一个常数项 <span class="arithmatex">\(c\)</span> 的倍数。</p>
-<p><a class="glightbox" href="../time_complexity.assets/asymptotic_upper_bound.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="函数的渐近上界" src="../time_complexity.assets/asymptotic_upper_bound.png" /></a></p>
+<p><a class="glightbox" href="../time_complexity.assets/asymptotic_upper_bound.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="函数的渐近上界" class="animation-figure" src="../time_complexity.assets/asymptotic_upper_bound.png" /></a></p>
 <p align="center"> 图 2-8 &nbsp; 函数的渐近上界 </p>
 
 <h2 id="233">2.3.3 &nbsp; 推算方法<a class="headerlink" href="#233" title="Permanent link">&para;</a></h2>
@@ -4399,7 +4399,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 \text{常数阶} &lt; \text{对数阶} &lt; \text{线性阶} &lt; \text{线性对数阶} &lt; \text{平方阶} &lt; \text{指数阶} &lt; \text{阶乘阶}
 \end{aligned}
 \]</div>
-<p><a class="glightbox" href="../time_complexity.assets/time_complexity_common_types.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="常见的时间复杂度类型" src="../time_complexity.assets/time_complexity_common_types.png" /></a></p>
+<p><a class="glightbox" href="../time_complexity.assets/time_complexity_common_types.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="常见的时间复杂度类型" class="animation-figure" src="../time_complexity.assets/time_complexity_common_types.png" /></a></p>
 <p align="center"> 图 2-9 &nbsp; 常见的时间复杂度类型 </p>
 
 <h3 id="1-o1">1. &nbsp; 常数阶 <span class="arithmatex">\(O(1)\)</span><a class="headerlink" href="#1-o1" title="Permanent link">&para;</a></h3>
@@ -5000,7 +5000,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </div>
 </div>
 <p>图 2-10 对比了常数阶、线性阶和平方阶三种时间复杂度。</p>
-<p><a class="glightbox" href="../time_complexity.assets/time_complexity_constant_linear_quadratic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="常数阶、线性阶和平方阶的时间复杂度" src="../time_complexity.assets/time_complexity_constant_linear_quadratic.png" /></a></p>
+<p><a class="glightbox" href="../time_complexity.assets/time_complexity_constant_linear_quadratic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="常数阶、线性阶和平方阶的时间复杂度" class="animation-figure" src="../time_complexity.assets/time_complexity_constant_linear_quadratic.png" /></a></p>
 <p align="center"> 图 2-10 &nbsp; 常数阶、线性阶和平方阶的时间复杂度 </p>
 
 <p>以冒泡排序为例，外层循环执行 <span class="arithmatex">\(n - 1\)</span> 次，内层循环执行 <span class="arithmatex">\(n-1\)</span>、<span class="arithmatex">\(n-2\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(1\)</span> 次，平均为 <span class="arithmatex">\(n / 2\)</span> 次，因此时间复杂度为 <span class="arithmatex">\(O((n - 1) n / 2) = O(n^2)\)</span> 。</p>
@@ -5461,7 +5461,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </div>
 </div>
 </div>
-<p><a class="glightbox" href="../time_complexity.assets/time_complexity_exponential.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="指数阶的时间复杂度" src="../time_complexity.assets/time_complexity_exponential.png" /></a></p>
+<p><a class="glightbox" href="../time_complexity.assets/time_complexity_exponential.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="指数阶的时间复杂度" class="animation-figure" src="../time_complexity.assets/time_complexity_exponential.png" /></a></p>
 <p align="center"> 图 2-11 &nbsp; 指数阶的时间复杂度 </p>
 
 <p>在实际算法中，指数阶常出现于递归函数中。例如在以下代码中，其递归地一分为二，经过 <span class="arithmatex">\(n\)</span> 次分裂后停止：</p>
@@ -5727,7 +5727,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </div>
 </div>
 </div>
-<p><a class="glightbox" href="../time_complexity.assets/time_complexity_logarithmic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="对数阶的时间复杂度" src="../time_complexity.assets/time_complexity_logarithmic.png" /></a></p>
+<p><a class="glightbox" href="../time_complexity.assets/time_complexity_logarithmic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="对数阶的时间复杂度" class="animation-figure" src="../time_complexity.assets/time_complexity_logarithmic.png" /></a></p>
 <p align="center"> 图 2-12 &nbsp; 对数阶的时间复杂度 </p>
 
 <p>与指数阶类似，对数阶也常出现于递归函数中。以下代码形成了一个高度为 <span class="arithmatex">\(\log_2 n\)</span> 的递归树：</p>
@@ -6009,7 +6009,7 @@ O(\log_m n) = O(\log_k n / \log_k m) = O(\log_k n)
 </div>
 </div>
 <p>图 2-13 展示了线性对数阶的生成方式。二叉树的每一层的操作总数都为 <span class="arithmatex">\(n\)</span> ，树共有 <span class="arithmatex">\(\log_2 n + 1\)</span> 层，因此时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。</p>
-<p><a class="glightbox" href="../time_complexity.assets/time_complexity_logarithmic_linear.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="线性对数阶的时间复杂度" src="../time_complexity.assets/time_complexity_logarithmic_linear.png" /></a></p>
+<p><a class="glightbox" href="../time_complexity.assets/time_complexity_logarithmic_linear.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="线性对数阶的时间复杂度" class="animation-figure" src="../time_complexity.assets/time_complexity_logarithmic_linear.png" /></a></p>
 <p align="center"> 图 2-13 &nbsp; 线性对数阶的时间复杂度 </p>
 
 <p>主流排序算法的时间复杂度通常为 <span class="arithmatex">\(O(n \log n)\)</span> ，例如快速排序、归并排序、堆排序等。</p>
@@ -6187,7 +6187,7 @@ n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 </div>
 </div>
 </div>
-<p><a class="glightbox" href="../time_complexity.assets/time_complexity_factorial.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="阶乘阶的时间复杂度" src="../time_complexity.assets/time_complexity_factorial.png" /></a></p>
+<p><a class="glightbox" href="../time_complexity.assets/time_complexity_factorial.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="阶乘阶的时间复杂度" class="animation-figure" src="../time_complexity.assets/time_complexity_factorial.png" /></a></p>
 <p align="center"> 图 2-14 &nbsp; 阶乘阶的时间复杂度 </p>
 
 <p>请注意，因为当 <span class="arithmatex">\(n \geq 4\)</span> 时恒有 <span class="arithmatex">\(n! &gt; 2^n\)</span> ，所以阶乘阶比指数阶增长得更快，在 <span class="arithmatex">\(n\)</span> 较大时也是不可接受的。</p>

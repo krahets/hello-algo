@@ -3365,7 +3365,7 @@
 <li><strong>补码</strong>：正数的补码与其原码相同，负数的补码是在其反码的基础上加 <span class="arithmatex">\(1\)</span> 。</li>
 </ul>
 <p>图 3-4 展示了原码、反码和补码之间的转换方法。</p>
-<p><a class="glightbox" href="../number_encoding.assets/1s_2s_complement.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="原码、反码与补码之间的相互转换" src="../number_encoding.assets/1s_2s_complement.png" /></a></p>
+<p><a class="glightbox" href="../number_encoding.assets/1s_2s_complement.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="原码、反码与补码之间的相互转换" class="animation-figure" src="../number_encoding.assets/1s_2s_complement.png" /></a></p>
 <p align="center"> 图 3-4 &nbsp; 原码、反码与补码之间的相互转换 </p>
 
 <p>「原码 true form」虽然最直观，但存在一些局限性。一方面，<strong>负数的原码不能直接用于运算</strong>。例如在原码下计算 <span class="arithmatex">\(1 + (-2)\)</span> ，得到的结果是 <span class="arithmatex">\(-3\)</span> ，这显然是不对的。</p>
@@ -3447,7 +3447,7 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 (1 + \mathrm{N}) = &amp; (1 + \sum_{i=1}^{23} b_{23-i} 2^{-i}) \subset [1, 2 - 2^{-23}]
 \end{aligned}
 \]</div>
-<p><a class="glightbox" href="../number_encoding.assets/ieee_754_float.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="IEEE 754 标准下的 float 的计算示例" src="../number_encoding.assets/ieee_754_float.png" /></a></p>
+<p><a class="glightbox" href="../number_encoding.assets/ieee_754_float.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="IEEE 754 标准下的 float 的计算示例" class="animation-figure" src="../number_encoding.assets/ieee_754_float.png" /></a></p>
 <p align="center"> 图 3-5 &nbsp; IEEE 754 标准下的 float 的计算示例 </p>
 
 <p>观察图 3-5 ，给定一个示例数据 <span class="arithmatex">\(\mathrm{S} = 0\)</span> ， <span class="arithmatex">\(\mathrm{E} = 124\)</span> ，<span class="arithmatex">\(\mathrm{N} = 2^{-2} + 2^{-3} = 0.375\)</span> ，则有：</p>

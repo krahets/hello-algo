@@ -3436,7 +3436,7 @@
 <p>图和树都需要应用搜索算法来实现遍历操作。图的遍历方式可分为两种：「广度优先遍历 breadth-first traversal」和「深度优先遍历 depth-first traversal」。它们也常被称为「广度优先搜索 breadth-first search」和「深度优先搜索 depth-first search」，简称 BFS 和 DFS 。</p>
 <h2 id="931">9.3.1 &nbsp; 广度优先遍历<a class="headerlink" href="#931" title="Permanent link">&para;</a></h2>
 <p><strong>广度优先遍历是一种由近及远的遍历方式，从某个节点出发，始终优先访问距离最近的顶点，并一层层向外扩张</strong>。如图 9-9 所示，从左上角顶点出发，先遍历该顶点的所有邻接顶点，然后遍历下一个顶点的所有邻接顶点，以此类推，直至所有顶点访问完毕。</p>
-<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图的广度优先遍历" src="../graph_traversal.assets/graph_bfs.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图的广度优先遍历" class="animation-figure" src="../graph_traversal.assets/graph_bfs.png" /></a></p>
 <p align="center"> 图 9-9 &nbsp; 图的广度优先遍历 </p>
 
 <h3 id="1">1. &nbsp; 算法实现<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
@@ -3823,37 +3823,37 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label><label for="__tabbed_2_9">&lt;9&gt;</label><label for="__tabbed_2_10">&lt;10&gt;</label><label for="__tabbed_2_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图的广度优先遍历步骤" src="../graph_traversal.assets/graph_bfs_step1.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图的广度优先遍历步骤" class="animation-figure" src="../graph_traversal.assets/graph_bfs_step1.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step2" src="../graph_traversal.assets/graph_bfs_step2.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step2" class="animation-figure" src="../graph_traversal.assets/graph_bfs_step2.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step3" src="../graph_traversal.assets/graph_bfs_step3.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step3" class="animation-figure" src="../graph_traversal.assets/graph_bfs_step3.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step4" src="../graph_traversal.assets/graph_bfs_step4.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step4" class="animation-figure" src="../graph_traversal.assets/graph_bfs_step4.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step5" src="../graph_traversal.assets/graph_bfs_step5.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step5" class="animation-figure" src="../graph_traversal.assets/graph_bfs_step5.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step6" src="../graph_traversal.assets/graph_bfs_step6.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step6" class="animation-figure" src="../graph_traversal.assets/graph_bfs_step6.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step7" src="../graph_traversal.assets/graph_bfs_step7.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step7" class="animation-figure" src="../graph_traversal.assets/graph_bfs_step7.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step8" src="../graph_traversal.assets/graph_bfs_step8.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step8" class="animation-figure" src="../graph_traversal.assets/graph_bfs_step8.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step9" src="../graph_traversal.assets/graph_bfs_step9.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step9" class="animation-figure" src="../graph_traversal.assets/graph_bfs_step9.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step10" src="../graph_traversal.assets/graph_bfs_step10.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step10" class="animation-figure" src="../graph_traversal.assets/graph_bfs_step10.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step11" src="../graph_traversal.assets/graph_bfs_step11.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_bfs_step11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_bfs_step11" class="animation-figure" src="../graph_traversal.assets/graph_bfs_step11.png" /></a></p>
 </div>
 </div>
 </div>
@@ -3868,7 +3868,7 @@
 <p><strong>空间复杂度：</strong> 列表 <code>res</code> ，哈希表 <code>visited</code> ，队列 <code>que</code> 中的顶点数量最多为 <span class="arithmatex">\(|V|\)</span> ，使用 <span class="arithmatex">\(O(|V|)\)</span> 空间。</p>
 <h2 id="932">9.3.2 &nbsp; 深度优先遍历<a class="headerlink" href="#932" title="Permanent link">&para;</a></h2>
 <p><strong>深度优先遍历是一种优先走到底、无路可走再回头的遍历方式</strong>。如图 9-11 所示，从左上角顶点出发，访问当前顶点的某个邻接顶点，直到走到尽头时返回，再继续走到尽头并返回，以此类推，直至所有顶点遍历完成。</p>
-<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图的深度优先遍历" src="../graph_traversal.assets/graph_dfs.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图的深度优先遍历" class="animation-figure" src="../graph_traversal.assets/graph_dfs.png" /></a></p>
 <p align="center"> 图 9-11 &nbsp; 图的深度优先遍历 </p>
 
 <h3 id="1_1">1. &nbsp; 算法实现<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
@@ -4206,37 +4206,37 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:11"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label><label for="__tabbed_4_10">&lt;10&gt;</label><label for="__tabbed_4_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图的深度优先遍历步骤" src="../graph_traversal.assets/graph_dfs_step1.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图的深度优先遍历步骤" class="animation-figure" src="../graph_traversal.assets/graph_dfs_step1.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step2" src="../graph_traversal.assets/graph_dfs_step2.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step2" class="animation-figure" src="../graph_traversal.assets/graph_dfs_step2.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step3" src="../graph_traversal.assets/graph_dfs_step3.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step3" class="animation-figure" src="../graph_traversal.assets/graph_dfs_step3.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step4" src="../graph_traversal.assets/graph_dfs_step4.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step4" class="animation-figure" src="../graph_traversal.assets/graph_dfs_step4.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step5" src="../graph_traversal.assets/graph_dfs_step5.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step5" class="animation-figure" src="../graph_traversal.assets/graph_dfs_step5.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step6" src="../graph_traversal.assets/graph_dfs_step6.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step6" class="animation-figure" src="../graph_traversal.assets/graph_dfs_step6.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step7" src="../graph_traversal.assets/graph_dfs_step7.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step7" class="animation-figure" src="../graph_traversal.assets/graph_dfs_step7.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step8" src="../graph_traversal.assets/graph_dfs_step8.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step8" class="animation-figure" src="../graph_traversal.assets/graph_dfs_step8.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step9" src="../graph_traversal.assets/graph_dfs_step9.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step9" class="animation-figure" src="../graph_traversal.assets/graph_dfs_step9.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step10" src="../graph_traversal.assets/graph_dfs_step10.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step10" class="animation-figure" src="../graph_traversal.assets/graph_dfs_step10.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step11" src="../graph_traversal.assets/graph_dfs_step11.png" /></a></p>
+<p><a class="glightbox" href="../graph_traversal.assets/graph_dfs_step11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="graph_dfs_step11" class="animation-figure" src="../graph_traversal.assets/graph_dfs_step11.png" /></a></p>
 </div>
 </div>
 </div>

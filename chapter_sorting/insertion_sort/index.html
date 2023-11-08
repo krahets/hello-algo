@@ -3369,7 +3369,7 @@
 <p>「插入排序 insertion sort」是一种简单的排序算法，它的工作原理与手动整理一副牌的过程非常相似。</p>
 <p>具体来说，我们在未排序区间选择一个基准元素，将该元素与其左侧已排序区间的元素逐一比较大小，并将该元素插入到正确的位置。</p>
 <p>图 11-6 展示了数组插入元素的操作流程。设基准元素为 <code>base</code> ，我们需要将从目标索引到 <code>base</code> 之间的所有元素向右移动一位，然后再将 <code>base</code> 赋值给目标索引。</p>
-<p><a class="glightbox" href="../insertion_sort.assets/insertion_operation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="单次插入操作" src="../insertion_sort.assets/insertion_operation.png" /></a></p>
+<p><a class="glightbox" href="../insertion_sort.assets/insertion_operation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="单次插入操作" class="animation-figure" src="../insertion_sort.assets/insertion_operation.png" /></a></p>
 <p align="center"> 图 11-6 &nbsp; 单次插入操作 </p>
 
 <h2 id="1141">11.4.1 &nbsp; 算法流程<a class="headerlink" href="#1141" title="Permanent link">&para;</a></h2>
@@ -3380,7 +3380,7 @@
 <li>选取第 3 个元素作为 <code>base</code> ，将其插入到正确位置后，<strong>数组的前 3 个元素已排序</strong>。</li>
 <li>以此类推，在最后一轮中，选取最后一个元素作为 <code>base</code> ，将其插入到正确位置后，<strong>所有元素均已排序</strong>。</li>
 </ol>
-<p><a class="glightbox" href="../insertion_sort.assets/insertion_sort_overview.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="插入排序流程" src="../insertion_sort.assets/insertion_sort_overview.png" /></a></p>
+<p><a class="glightbox" href="../insertion_sort.assets/insertion_sort_overview.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="插入排序流程" class="animation-figure" src="../insertion_sort.assets/insertion_sort_overview.png" /></a></p>
 <p align="center"> 图 11-7 &nbsp; 插入排序流程 </p>
 
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>

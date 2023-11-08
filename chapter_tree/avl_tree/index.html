@@ -3558,11 +3558,11 @@
 <h1 id="75-avl">7.5 &nbsp; AVL 树 *<a class="headerlink" href="#75-avl" title="Permanent link">&para;</a></h1>
 <p>在二叉搜索树章节中，我们提到了在多次插入和删除操作后，二叉搜索树可能退化为链表。这种情况下，所有操作的时间复杂度将从 <span class="arithmatex">\(O(\log n)\)</span> 恶化为 <span class="arithmatex">\(O(n)\)</span> 。</p>
 <p>如图 7-24 所示，经过两次删除节点操作，这个二叉搜索树便会退化为链表。</p>
-<p><a class="glightbox" href="../avl_tree.assets/avltree_degradation_from_removing_node.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="AVL 树在删除节点后发生退化" src="../avl_tree.assets/avltree_degradation_from_removing_node.png" /></a></p>
+<p><a class="glightbox" href="../avl_tree.assets/avltree_degradation_from_removing_node.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="AVL 树在删除节点后发生退化" class="animation-figure" src="../avl_tree.assets/avltree_degradation_from_removing_node.png" /></a></p>
 <p align="center"> 图 7-24 &nbsp; AVL 树在删除节点后发生退化 </p>
 
 <p>再例如，在图 7-25 的完美二叉树中插入两个节点后，树将严重向左倾斜，查找操作的时间复杂度也随之恶化。</p>
-<p><a class="glightbox" href="../avl_tree.assets/avltree_degradation_from_inserting_node.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="AVL 树在插入节点后发生退化" src="../avl_tree.assets/avltree_degradation_from_inserting_node.png" /></a></p>
+<p><a class="glightbox" href="../avl_tree.assets/avltree_degradation_from_inserting_node.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="AVL 树在插入节点后发生退化" class="animation-figure" src="../avl_tree.assets/avltree_degradation_from_inserting_node.png" /></a></p>
 <p align="center"> 图 7-25 &nbsp; AVL 树在插入节点后发生退化 </p>
 
 <p>G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorithm for the organization of information" 中提出了「AVL 树」。论文中详细描述了一系列操作，确保在持续添加和删除节点后，AVL 树不会退化，从而使得各种操作的时间复杂度保持在 <span class="arithmatex">\(O(\log n)\)</span> 级别。换句话说，在需要频繁进行增删查改操作的场景中，AVL 树能始终保持高效的数据操作性能，具有很好的应用价值。</p>
@@ -4086,23 +4086,23 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="../avl_tree.assets/avltree_right_rotate_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="右旋操作步骤" src="../avl_tree.assets/avltree_right_rotate_step1.png" /></a></p>
+<p><a class="glightbox" href="../avl_tree.assets/avltree_right_rotate_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="右旋操作步骤" class="animation-figure" src="../avl_tree.assets/avltree_right_rotate_step1.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../avl_tree.assets/avltree_right_rotate_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="avltree_right_rotate_step2" src="../avl_tree.assets/avltree_right_rotate_step2.png" /></a></p>
+<p><a class="glightbox" href="../avl_tree.assets/avltree_right_rotate_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="avltree_right_rotate_step2" class="animation-figure" src="../avl_tree.assets/avltree_right_rotate_step2.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../avl_tree.assets/avltree_right_rotate_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="avltree_right_rotate_step3" src="../avl_tree.assets/avltree_right_rotate_step3.png" /></a></p>
+<p><a class="glightbox" href="../avl_tree.assets/avltree_right_rotate_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="avltree_right_rotate_step3" class="animation-figure" src="../avl_tree.assets/avltree_right_rotate_step3.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../avl_tree.assets/avltree_right_rotate_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="avltree_right_rotate_step4" src="../avl_tree.assets/avltree_right_rotate_step4.png" /></a></p>
+<p><a class="glightbox" href="../avl_tree.assets/avltree_right_rotate_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="avltree_right_rotate_step4" class="animation-figure" src="../avl_tree.assets/avltree_right_rotate_step4.png" /></a></p>
 </div>
 </div>
 </div>
 <p align="center"> 图 7-26 &nbsp; 右旋操作步骤 </p>
 
 <p>如图 7-27 所示，当节点 <code>child</code> 有右子节点（记为 <code>grandChild</code> ）时，需要在右旋中添加一步：将 <code>grandChild</code> 作为 <code>node</code> 的左子节点。</p>
-<p><a class="glightbox" href="../avl_tree.assets/avltree_right_rotate_with_grandchild.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="有 grandChild 的右旋操作" src="../avl_tree.assets/avltree_right_rotate_with_grandchild.png" /></a></p>
+<p><a class="glightbox" href="../avl_tree.assets/avltree_right_rotate_with_grandchild.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="有 grandChild 的右旋操作" class="animation-figure" src="../avl_tree.assets/avltree_right_rotate_with_grandchild.png" /></a></p>
 <p align="center"> 图 7-27 &nbsp; 有 grandChild 的右旋操作 </p>
 
 <p>“向右旋转”是一种形象化的说法，实际上需要通过修改节点指针来实现，代码如下所示。</p>
@@ -4309,11 +4309,11 @@
 </div>
 <h3 id="2_1">2. &nbsp; 左旋<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
 <p>相应的，如果考虑上述失衡二叉树的“镜像”，则需要执行图 7-28 所示的“左旋”操作。</p>
-<p><a class="glightbox" href="../avl_tree.assets/avltree_left_rotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="左旋操作" src="../avl_tree.assets/avltree_left_rotate.png" /></a></p>
+<p><a class="glightbox" href="../avl_tree.assets/avltree_left_rotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="左旋操作" class="animation-figure" src="../avl_tree.assets/avltree_left_rotate.png" /></a></p>
 <p align="center"> 图 7-28 &nbsp; 左旋操作 </p>
 
 <p>同理，如图 7-29 所示，当节点 <code>child</code> 有左子节点（记为 <code>grandChild</code> ）时，需要在左旋中添加一步：将 <code>grandChild</code> 作为 <code>node</code> 的右子节点。</p>
-<p><a class="glightbox" href="../avl_tree.assets/avltree_left_rotate_with_grandchild.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="有 grandChild 的左旋操作" src="../avl_tree.assets/avltree_left_rotate_with_grandchild.png" /></a></p>
+<p><a class="glightbox" href="../avl_tree.assets/avltree_left_rotate_with_grandchild.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="有 grandChild 的左旋操作" class="animation-figure" src="../avl_tree.assets/avltree_left_rotate_with_grandchild.png" /></a></p>
 <p align="center"> 图 7-29 &nbsp; 有 grandChild 的左旋操作 </p>
 
 <p>可以观察到，<strong>右旋和左旋操作在逻辑上是镜像对称的，它们分别解决的两种失衡情况也是对称的</strong>。基于对称性，我们只需将右旋的实现代码中的所有的 <code>left</code> 替换为 <code>right</code> ，将所有的 <code>right</code> 替换为 <code>left</code> ，即可得到左旋的实现代码。</p>
@@ -4520,17 +4520,17 @@
 </div>
 <h3 id="3">3. &nbsp; 先左旋后右旋<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>对于图 7-30 中的失衡节点 3 ，仅使用左旋或右旋都无法使子树恢复平衡。此时需要先对 <code>child</code> 执行“左旋”，再对 <code>node</code> 执行“右旋”。</p>
-<p><a class="glightbox" href="../avl_tree.assets/avltree_left_right_rotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="先左旋后右旋" src="../avl_tree.assets/avltree_left_right_rotate.png" /></a></p>
+<p><a class="glightbox" href="../avl_tree.assets/avltree_left_right_rotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="先左旋后右旋" class="animation-figure" src="../avl_tree.assets/avltree_left_right_rotate.png" /></a></p>
 <p align="center"> 图 7-30 &nbsp; 先左旋后右旋 </p>
 
 <h3 id="4">4. &nbsp; 先右旋后左旋<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>如图 7-31 所示，对于上述失衡二叉树的镜像情况，需要先对 <code>child</code> 执行“右旋”，然后对 <code>node</code> 执行“左旋”。</p>
-<p><a class="glightbox" href="../avl_tree.assets/avltree_right_left_rotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="先右旋后左旋" src="../avl_tree.assets/avltree_right_left_rotate.png" /></a></p>
+<p><a class="glightbox" href="../avl_tree.assets/avltree_right_left_rotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="先右旋后左旋" class="animation-figure" src="../avl_tree.assets/avltree_right_left_rotate.png" /></a></p>
 <p align="center"> 图 7-31 &nbsp; 先右旋后左旋 </p>
 
 <h3 id="5">5. &nbsp; 旋转的选择<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
 <p>图 7-32 展示的四种失衡情况与上述案例逐个对应，分别需要采用右旋、左旋、先右后左、先左后右的旋转操作。</p>
-<p><a class="glightbox" href="../avl_tree.assets/avltree_rotation_cases.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="AVL 树的四种旋转情况" src="../avl_tree.assets/avltree_rotation_cases.png" /></a></p>
+<p><a class="glightbox" href="../avl_tree.assets/avltree_rotation_cases.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="AVL 树的四种旋转情况" class="animation-figure" src="../avl_tree.assets/avltree_rotation_cases.png" /></a></p>
 <p align="center"> 图 7-32 &nbsp; AVL 树的四种旋转情况 </p>
 
 <p>如下表所示，我们通过判断失衡节点的平衡因子以及较高一侧子节点的平衡因子的正负号，来确定失衡节点属于图 7-32 中的哪种情况。</p>

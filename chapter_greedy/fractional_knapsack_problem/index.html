@@ -3370,7 +3370,7 @@
 <p class="admonition-title">Question</p>
 <p>给定 <span class="arithmatex">\(n\)</span> 个物品，第 <span class="arithmatex">\(i\)</span> 个物品的重量为 <span class="arithmatex">\(wgt[i-1]\)</span>、价值为 <span class="arithmatex">\(val[i-1]\)</span> ，和一个容量为 <span class="arithmatex">\(cap\)</span> 的背包。每个物品只能选择一次，<strong>但可以选择物品的一部分，价值根据选择的重量比例计算</strong>，问在不超过背包容量下背包中物品的最大价值。</p>
 </div>
-<p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="分数背包问题的示例数据" src="../fractional_knapsack_problem.assets/fractional_knapsack_example.png" /></a></p>
+<p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="分数背包问题的示例数据" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_example.png" /></a></p>
 <p align="center"> 图 15-3 &nbsp; 分数背包问题的示例数据 </p>
 
 <p>分数背包和 0-1 背包整体上非常相似，状态包含当前物品 <span class="arithmatex">\(i\)</span> 和容量 <span class="arithmatex">\(c\)</span> ，目标是求不超过背包容量下的最大价值。</p>
@@ -3379,7 +3379,7 @@
 <li>对于物品 <span class="arithmatex">\(i\)</span> ，它在单位重量下的价值为 <span class="arithmatex">\(val[i-1] / wgt[i-1]\)</span> ，简称为单位价值。</li>
 <li>假设放入一部分物品 <span class="arithmatex">\(i\)</span> ，重量为 <span class="arithmatex">\(w\)</span> ，则背包增加的价值为 <span class="arithmatex">\(w \times val[i-1] / wgt[i-1]\)</span> 。</li>
 </ol>
-<p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="物品在单位重量下的价值" src="../fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" /></a></p>
+<p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="物品在单位重量下的价值" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" /></a></p>
 <p align="center"> 图 15-4 &nbsp; 物品在单位重量下的价值 </p>
 
 <h3 id="1">1. &nbsp; 贪心策略确定<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
@@ -3389,7 +3389,7 @@
 <li>遍历所有物品，<strong>每轮贪心地选择单位价值最高的物品</strong>。</li>
 <li>若剩余背包容量不足，则使用当前物品的一部分填满背包即可。</li>
 </ol>
-<p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="分数背包的贪心策略" src="../fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" /></a></p>
+<p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="分数背包的贪心策略" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" /></a></p>
 <p align="center"> 图 15-5 &nbsp; 分数背包的贪心策略 </p>
 
 <h3 id="2">2. &nbsp; 代码实现<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
@@ -3811,7 +3811,7 @@
 <p>现在从背包中拿出单位重量的任意物品，并替换为单位重量的物品 <span class="arithmatex">\(x\)</span> 。由于物品 <span class="arithmatex">\(x\)</span> 的单位价值最高，因此替换后的总价值一定大于 <code>res</code> 。<strong>这与 <code>res</code> 是最优解矛盾，说明最优解中必须包含物品 <span class="arithmatex">\(x\)</span></strong> 。</p>
 <p>对于该解中的其他物品，我们也可以构建出上述矛盾。总而言之，<strong>单位价值更大的物品总是更优选择</strong>，这说明贪心策略是有效的。</p>
 <p>如图 15-6 所示，如果将物品重量和物品单位价值分别看作一个 2D 图表的横轴和纵轴，则分数背包问题可被转化为“求在有限横轴区间下的最大围成面积”。这个类比可以帮助我们从几何角度理解贪心策略的有效性。</p>
-<p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="分数背包问题的几何表示" src="../fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" /></a></p>
+<p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="分数背包问题的几何表示" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" /></a></p>
 <p align="center"> 图 15-6 &nbsp; 分数背包问题的几何表示 </p>
 
 <!-- Source file information -->

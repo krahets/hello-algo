@@ -3370,7 +3370,7 @@
 <p class="admonition-title">Question</p>
 <p>给定一个正整数 <span class="arithmatex">\(n\)</span> ，将其切分为至少两个正整数的和，求切分后所有整数的乘积最大是多少。</p>
 </div>
-<p><a class="glightbox" href="../max_product_cutting_problem.assets/max_product_cutting_definition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="最大切分乘积的问题定义" src="../max_product_cutting_problem.assets/max_product_cutting_definition.png" /></a></p>
+<p><a class="glightbox" href="../max_product_cutting_problem.assets/max_product_cutting_definition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="最大切分乘积的问题定义" class="animation-figure" src="../max_product_cutting_problem.assets/max_product_cutting_definition.png" /></a></p>
 <p align="center"> 图 15-13 &nbsp; 最大切分乘积的问题定义 </p>
 
 <p>假设我们将 <span class="arithmatex">\(n\)</span> 切分为 <span class="arithmatex">\(m\)</span> 个整数因子，其中第 <span class="arithmatex">\(i\)</span> 个因子记为 <span class="arithmatex">\(n_i\)</span> ，即</p>
@@ -3393,13 +3393,13 @@ n &amp; \geq 4
 \]</div>
 <p>如图 15-14 所示，当 <span class="arithmatex">\(n \geq 4\)</span> 时，切分出一个 <span class="arithmatex">\(2\)</span> 后乘积会变大，<strong>这说明大于等于 <span class="arithmatex">\(4\)</span> 的整数都应该被切分</strong>。</p>
 <p><strong>贪心策略一</strong>：如果切分方案中包含 <span class="arithmatex">\(\geq 4\)</span> 的因子，那么它就应该被继续切分。最终的切分方案只应出现 <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(3\)</span> 这三种因子。</p>
-<p><a class="glightbox" href="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="切分导致乘积变大" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png" /></a></p>
+<p><a class="glightbox" href="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="切分导致乘积变大" class="animation-figure" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png" /></a></p>
 <p align="center"> 图 15-14 &nbsp; 切分导致乘积变大 </p>
 
 <p>接下来思考哪个因子是最优的。在 <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(3\)</span> 这三个因子中，显然 <span class="arithmatex">\(1\)</span> 是最差的，因为 <span class="arithmatex">\(1 \times (n-1) &lt; n\)</span> 恒成立，即切分出 <span class="arithmatex">\(1\)</span> 反而会导致乘积减小。</p>
 <p>如图 15-15 所示，当 <span class="arithmatex">\(n = 6\)</span> 时，有 <span class="arithmatex">\(3 \times 3 &gt; 2 \times 2 \times 2\)</span> 。<strong>这意味着切分出 <span class="arithmatex">\(3\)</span> 比切分出 <span class="arithmatex">\(2\)</span> 更优</strong>。</p>
 <p><strong>贪心策略二</strong>：在切分方案中，最多只应存在两个 <span class="arithmatex">\(2\)</span> 。因为三个 <span class="arithmatex">\(2\)</span> 总是可以被替换为两个 <span class="arithmatex">\(3\)</span> ，从而获得更大乘积。</p>
-<p><a class="glightbox" href="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="最优切分因子" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png" /></a></p>
+<p><a class="glightbox" href="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="最优切分因子" class="animation-figure" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png" /></a></p>
 <p align="center"> 图 15-15 &nbsp; 最优切分因子 </p>
 
 <p>总结以上，可推出以下贪心策略。</p>
@@ -3671,7 +3671,7 @@ n = 3 a + b
 </div>
 </div>
 </div>
-<p><a class="glightbox" href="../max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="最大切分乘积的计算方法" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png" /></a></p>
+<p><a class="glightbox" href="../max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="最大切分乘积的计算方法" class="animation-figure" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png" /></a></p>
 <p align="center"> 图 15-16 &nbsp; 最大切分乘积的计算方法 </p>
 
 <p><strong>时间复杂度取决于编程语言的幂运算的实现方法</strong>。以 Python 为例，常用的幂计算函数有三种。</p>

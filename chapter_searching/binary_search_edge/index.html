@@ -3570,7 +3570,7 @@
 <h3 id="1">1. &nbsp; 复用查找左边界<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>实际上，我们可以利用查找最左元素的函数来查找最右元素，具体方法为：<strong>将查找最右一个 <code>target</code> 转化为查找最左一个 <code>target + 1</code></strong>。</p>
 <p>如图 10-7 所示，查找完成后，指针 <span class="arithmatex">\(i\)</span> 指向最左一个 <code>target + 1</code>（如果存在），而 <span class="arithmatex">\(j\)</span> 指向最右一个 <code>target</code> ，<strong>因此返回 <span class="arithmatex">\(j\)</span> 即可</strong>。</p>
-<p><a class="glightbox" href="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="将查找右边界转化为查找左边界" src="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" /></a></p>
+<p><a class="glightbox" href="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="将查找右边界转化为查找左边界" class="animation-figure" src="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" /></a></p>
 <p align="center"> 图 10-7 &nbsp; 将查找右边界转化为查找左边界 </p>
 
 <p>请注意，返回的插入点是 <span class="arithmatex">\(i\)</span> ，因此需要将其减 <span class="arithmatex">\(1\)</span> ，从而获得 <span class="arithmatex">\(j\)</span> 。</p>
@@ -3763,7 +3763,7 @@
 <li>查找最左一个 <code>target</code> ：可以转化为查找 <code>target - 0.5</code> ，并返回指针 <span class="arithmatex">\(i\)</span> 。</li>
 <li>查找最右一个 <code>target</code> ：可以转化为查找 <code>target + 0.5</code> ，并返回指针 <span class="arithmatex">\(j\)</span> 。</li>
 </ul>
-<p><a class="glightbox" href="../binary_search_edge.assets/binary_search_edge_by_element.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="将查找边界转化为查找元素" src="../binary_search_edge.assets/binary_search_edge_by_element.png" /></a></p>
+<p><a class="glightbox" href="../binary_search_edge.assets/binary_search_edge_by_element.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="将查找边界转化为查找元素" class="animation-figure" src="../binary_search_edge.assets/binary_search_edge_by_element.png" /></a></p>
 <p align="center"> 图 10-8 &nbsp; 将查找边界转化为查找元素 </p>
 
 <p>代码在此省略，值得注意以下两点。</p>

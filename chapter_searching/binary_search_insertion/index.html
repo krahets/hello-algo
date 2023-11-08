@@ -3358,7 +3358,7 @@
 <p class="admonition-title">Question</p>
 <p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的有序数组 <code>nums</code> 和一个元素 <code>target</code> ，数组不存在重复元素。现将 <code>target</code> 插入到数组 <code>nums</code> 中，并保持其有序性。若数组中已存在元素 <code>target</code> ，则插入到其左方。请返回插入后 <code>target</code> 在数组中的索引。</p>
 </div>
-<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="二分查找插入点示例数据" src="../binary_search_insertion.assets/binary_search_insertion_example.png" /></a></p>
+<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="二分查找插入点示例数据" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_example.png" /></a></p>
 <p align="center"> 图 10-4 &nbsp; 二分查找插入点示例数据 </p>
 
 <p>如果想要复用上节的二分查找代码，则需要回答以下两个问题。</p>
@@ -3602,7 +3602,7 @@
 <li>执行二分查找，得到任意一个 <code>target</code> 的索引，记为 <span class="arithmatex">\(k\)</span> 。</li>
 <li>从索引 <span class="arithmatex">\(k\)</span> 开始，向左进行线性遍历，当找到最左边的 <code>target</code> 时返回。</li>
 </ol>
-<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_naive.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="线性查找重复元素的插入点" src="../binary_search_insertion.assets/binary_search_insertion_naive.png" /></a></p>
+<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_naive.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="线性查找重复元素的插入点" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_naive.png" /></a></p>
 <p align="center"> 图 10-5 &nbsp; 线性查找重复元素的插入点 </p>
 
 <p>此方法虽然可用，但其包含线性查找，因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。当数组中存在很多重复的 <code>target</code> 时，该方法效率很低。</p>
@@ -3615,28 +3615,28 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:8"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="二分查找重复元素的插入点的步骤" src="../binary_search_insertion.assets/binary_search_insertion_step1.png" /></a></p>
+<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="二分查找重复元素的插入点的步骤" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step1.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step2" src="../binary_search_insertion.assets/binary_search_insertion_step2.png" /></a></p>
+<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step2" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step2.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step3" src="../binary_search_insertion.assets/binary_search_insertion_step3.png" /></a></p>
+<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step3" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step3.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step4" src="../binary_search_insertion.assets/binary_search_insertion_step4.png" /></a></p>
+<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step4" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step4.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step5" src="../binary_search_insertion.assets/binary_search_insertion_step5.png" /></a></p>
+<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step5" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step5.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step6" src="../binary_search_insertion.assets/binary_search_insertion_step6.png" /></a></p>
+<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step6" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step6.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step7" src="../binary_search_insertion.assets/binary_search_insertion_step7.png" /></a></p>
+<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step7" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step7.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step8" src="../binary_search_insertion.assets/binary_search_insertion_step8.png" /></a></p>
+<p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_step8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_insertion_step8" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step8.png" /></a></p>
 </div>
 </div>
 </div>

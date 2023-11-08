@@ -3374,7 +3374,7 @@
 <h2 id="831">8.3.1 &nbsp; 方法一：遍历选择<a class="headerlink" href="#831" title="Permanent link">&para;</a></h2>
 <p>我们可以进行图 8-6 所示的 <span class="arithmatex">\(k\)</span> 轮遍历，分别在每轮中提取第 <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(k\)</span> 大的元素，时间复杂度为 <span class="arithmatex">\(O(nk)\)</span> 。</p>
 <p>此方法只适用于 <span class="arithmatex">\(k \ll n\)</span> 的情况，因为当 <span class="arithmatex">\(k\)</span> 与 <span class="arithmatex">\(n\)</span> 比较接近时，其时间复杂度趋向于 <span class="arithmatex">\(O(n^2)\)</span> ，非常耗时。</p>
-<p><a class="glightbox" href="../top_k.assets/top_k_traversal.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="遍历寻找最大的 k 个元素" src="../top_k.assets/top_k_traversal.png" /></a></p>
+<p><a class="glightbox" href="../top_k.assets/top_k_traversal.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="遍历寻找最大的 k 个元素" class="animation-figure" src="../top_k.assets/top_k_traversal.png" /></a></p>
 <p align="center"> 图 8-6 &nbsp; 遍历寻找最大的 k 个元素 </p>
 
 <div class="admonition tip">
@@ -3384,7 +3384,7 @@
 <h2 id="832">8.3.2 &nbsp; 方法二：排序<a class="headerlink" href="#832" title="Permanent link">&para;</a></h2>
 <p>如图 8-7 所示，我们可以先对数组 <code>nums</code> 进行排序，再返回最右边的 <span class="arithmatex">\(k\)</span> 个元素，时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。</p>
 <p>显然，该方法“超额”完成任务了，因为我们只需要找出最大的 <span class="arithmatex">\(k\)</span> 个元素即可，而不需要排序其他元素。</p>
-<p><a class="glightbox" href="../top_k.assets/top_k_sorting.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="排序寻找最大的 k 个元素" src="../top_k.assets/top_k_sorting.png" /></a></p>
+<p><a class="glightbox" href="../top_k.assets/top_k_sorting.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="排序寻找最大的 k 个元素" class="animation-figure" src="../top_k.assets/top_k_sorting.png" /></a></p>
 <p align="center"> 图 8-7 &nbsp; 排序寻找最大的 k 个元素 </p>
 
 <h2 id="833">8.3.3 &nbsp; 方法三：堆<a class="headerlink" href="#833" title="Permanent link">&para;</a></h2>
@@ -3398,31 +3398,31 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:9"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="../top_k.assets/top_k_heap_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="基于堆寻找最大的 k 个元素" src="../top_k.assets/top_k_heap_step1.png" /></a></p>
+<p><a class="glightbox" href="../top_k.assets/top_k_heap_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="基于堆寻找最大的 k 个元素" class="animation-figure" src="../top_k.assets/top_k_heap_step1.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../top_k.assets/top_k_heap_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step2" src="../top_k.assets/top_k_heap_step2.png" /></a></p>
+<p><a class="glightbox" href="../top_k.assets/top_k_heap_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step2" class="animation-figure" src="../top_k.assets/top_k_heap_step2.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../top_k.assets/top_k_heap_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step3" src="../top_k.assets/top_k_heap_step3.png" /></a></p>
+<p><a class="glightbox" href="../top_k.assets/top_k_heap_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step3" class="animation-figure" src="../top_k.assets/top_k_heap_step3.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../top_k.assets/top_k_heap_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step4" src="../top_k.assets/top_k_heap_step4.png" /></a></p>
+<p><a class="glightbox" href="../top_k.assets/top_k_heap_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step4" class="animation-figure" src="../top_k.assets/top_k_heap_step4.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../top_k.assets/top_k_heap_step5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step5" src="../top_k.assets/top_k_heap_step5.png" /></a></p>
+<p><a class="glightbox" href="../top_k.assets/top_k_heap_step5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step5" class="animation-figure" src="../top_k.assets/top_k_heap_step5.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../top_k.assets/top_k_heap_step6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step6" src="../top_k.assets/top_k_heap_step6.png" /></a></p>
+<p><a class="glightbox" href="../top_k.assets/top_k_heap_step6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step6" class="animation-figure" src="../top_k.assets/top_k_heap_step6.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../top_k.assets/top_k_heap_step7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step7" src="../top_k.assets/top_k_heap_step7.png" /></a></p>
+<p><a class="glightbox" href="../top_k.assets/top_k_heap_step7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step7" class="animation-figure" src="../top_k.assets/top_k_heap_step7.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../top_k.assets/top_k_heap_step8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step8" src="../top_k.assets/top_k_heap_step8.png" /></a></p>
+<p><a class="glightbox" href="../top_k.assets/top_k_heap_step8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step8" class="animation-figure" src="../top_k.assets/top_k_heap_step8.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../top_k.assets/top_k_heap_step9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step9" src="../top_k.assets/top_k_heap_step9.png" /></a></p>
+<p><a class="glightbox" href="../top_k.assets/top_k_heap_step9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="top_k_heap_step9" class="animation-figure" src="../top_k.assets/top_k_heap_step9.png" /></a></p>
 </div>
 </div>
 </div>

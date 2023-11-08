@@ -3543,7 +3543,7 @@
 </ul>
 <p>将上述两者相乘，可得到建堆过程的时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。<strong>但这个估算结果并不准确，因为我们没有考虑到二叉树底层节点数量远多于顶层节点的性质</strong>。</p>
 <p>接下来我们来进行更为准确的计算。为了减小计算难度，假设给定一个节点数量为 <span class="arithmatex">\(n\)</span> ，高度为 <span class="arithmatex">\(h\)</span> 的“完美二叉树”，该假设不会影响计算结果的正确性。</p>
-<p><a class="glightbox" href="../build_heap.assets/heapify_operations_count.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="完美二叉树的各层节点数量" src="../build_heap.assets/heapify_operations_count.png" /></a></p>
+<p><a class="glightbox" href="../build_heap.assets/heapify_operations_count.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="完美二叉树的各层节点数量" class="animation-figure" src="../build_heap.assets/heapify_operations_count.png" /></a></p>
 <p align="center"> 图 8-5 &nbsp; 完美二叉树的各层节点数量 </p>
 
 <p>如图 8-5 所示，节点“从顶至底堆化”的最大迭代次数等于该节点到叶节点的距离，而该距离正是“节点高度”。因此，我们可以将各层的“节点数量 <span class="arithmatex">\(\times\)</span> 节点高度”求和，<strong>从而得到所有节点的堆化迭代次数的总和</strong>。</p>

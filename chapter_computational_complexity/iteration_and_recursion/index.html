@@ -3627,7 +3627,7 @@
 </div>
 </div>
 <p>图 2-1 展示了该求和函数的流程框图。</p>
-<p><a class="glightbox" href="../iteration_and_recursion.assets/iteration.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="求和函数的流程框图" src="../iteration_and_recursion.assets/iteration.png" /></a></p>
+<p><a class="glightbox" href="../iteration_and_recursion.assets/iteration.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="求和函数的流程框图" class="animation-figure" src="../iteration_and_recursion.assets/iteration.png" /></a></p>
 <p align="center"> 图 2-1 &nbsp; 求和函数的流程框图 </p>
 
 <p>此求和函数的操作数量与输入数据大小 <span class="arithmatex">\(n\)</span> 成正比，或者说成“线性关系”。实际上，<strong>时间复杂度描述的就是这个“线性关系”</strong>。相关内容将会在下一节中详细介绍。</p>
@@ -4195,7 +4195,7 @@
 </div>
 </div>
 <p>图 2-2 给出了该嵌套循环的流程框图。</p>
-<p><a class="glightbox" href="../iteration_and_recursion.assets/nested_iteration.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="嵌套循环的流程框图" src="../iteration_and_recursion.assets/nested_iteration.png" /></a></p>
+<p><a class="glightbox" href="../iteration_and_recursion.assets/nested_iteration.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="嵌套循环的流程框图" class="animation-figure" src="../iteration_and_recursion.assets/nested_iteration.png" /></a></p>
 <p align="center"> 图 2-2 &nbsp; 嵌套循环的流程框图 </p>
 
 <p>在这种情况下，函数的操作数量与 <span class="arithmatex">\(n^2\)</span> 成正比，或者说算法运行时间和输入数据大小 <span class="arithmatex">\(n\)</span> 成“平方关系”。</p>
@@ -4374,7 +4374,7 @@
 </div>
 </div>
 <p>图 2-3 展示了该函数的递归过程。</p>
-<p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_sum.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="求和函数的递归过程" src="../iteration_and_recursion.assets/recursion_sum.png" /></a></p>
+<p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_sum.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="求和函数的递归过程" class="animation-figure" src="../iteration_and_recursion.assets/recursion_sum.png" /></a></p>
 <p align="center"> 图 2-3 &nbsp; 求和函数的递归过程 </p>
 
 <p>虽然从计算角度看，迭代与递归可以得到相同的结果，<strong>但它们代表了两种完全不同的思考和解决问题的范式</strong>。</p>
@@ -4394,7 +4394,7 @@
 <li>递归调用函数会产生额外的开销。<strong>因此递归通常比循环的时间效率更低</strong>。</li>
 </ul>
 <p>如图 2-4 所示，在触发终止条件前，同时存在 <span class="arithmatex">\(n\)</span> 个未返回的递归函数，<strong>递归深度为 <span class="arithmatex">\(n\)</span></strong> 。</p>
-<p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_sum_depth.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="递归调用深度" src="../iteration_and_recursion.assets/recursion_sum_depth.png" /></a></p>
+<p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_sum_depth.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="递归调用深度" class="animation-figure" src="../iteration_and_recursion.assets/recursion_sum_depth.png" /></a></p>
 <p align="center"> 图 2-4 &nbsp; 递归调用深度 </p>
 
 <p>在实际中，编程语言允许的递归深度通常是有限的，过深的递归可能导致栈溢出报错。</p>
@@ -4546,7 +4546,7 @@
 <li><strong>普通递归</strong>：求和操作是在“归”的过程中执行的，每层返回后都要再执行一次求和操作。</li>
 <li><strong>尾递归</strong>：求和操作是在“递”的过程中执行的，“归”的过程只需层层返回。</li>
 </ul>
-<p><a class="glightbox" href="../iteration_and_recursion.assets/tail_recursion_sum.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="尾递归过程" src="../iteration_and_recursion.assets/tail_recursion_sum.png" /></a></p>
+<p><a class="glightbox" href="../iteration_and_recursion.assets/tail_recursion_sum.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="尾递归过程" class="animation-figure" src="../iteration_and_recursion.assets/tail_recursion_sum.png" /></a></p>
 <p align="center"> 图 2-5 &nbsp; 尾递归过程 </p>
 
 <div class="admonition tip">
@@ -4726,7 +4726,7 @@
 </div>
 </div>
 <p>观察以上代码，我们在函数内递归调用了两个函数，<strong>这意味着从一个调用产生了两个调用分支</strong>。如图 2-6 所示，这样不断递归调用下去，最终将产生一个层数为 <span class="arithmatex">\(n\)</span> 的「递归树 recursion tree」。</p>
-<p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="斐波那契数列的递归树" src="../iteration_and_recursion.assets/recursion_tree.png" /></a></p>
+<p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="斐波那契数列的递归树" class="animation-figure" src="../iteration_and_recursion.assets/recursion_tree.png" /></a></p>
 <p align="center"> 图 2-6 &nbsp; 斐波那契数列的递归树 </p>
 
 <p>本质上看，递归体现“将问题分解为更小子问题”的思维范式，这种分治策略是至关重要的。</p>
