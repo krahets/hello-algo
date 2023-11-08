@@ -5,13 +5,10 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && 
     sed -i 's/security.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
     sed -i 's/ports.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
 
-RUN apt-get update
+RUN apt-get update && apt-get install -y wget
 
-# 设置需要安装的语言，使用空格隔开
-# Set the languages to be installed, separated by spaces
-ARG LANGS="python cpp"
-
-# Available languages：python cpp java
+# Install languages environment
+ARG LANGS
 RUN for LANG in $LANGS; do \
         case "$LANG" in \
             python) \
@@ -21,6 +18,11 @@ RUN for LANG in $LANGS; do \
                 apt-get install -y g++ gdb ;; \
             java) \
                 apt-get install -y openjdk-17-jdk ;; \
+            csharp) \
+                wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+                dpkg -i packages-microsoft-prod.deb && \
+                apt-get update && \
+                apt-get install -y dotnet-sdk-6.0 ;; \
             # More languages...
             *) \
                 echo "Warning: No installation workflow for $LANG" ;; \
