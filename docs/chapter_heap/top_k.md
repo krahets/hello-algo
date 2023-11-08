@@ -16,7 +16,7 @@ comments: true
 
 此方法只适用于 $k \ll n$ 的情况，因为当 $k$ 与 $n$ 比较接近时，其时间复杂度趋向于 $O(n^2)$ ，非常耗时。
 
-![遍历寻找最大的 k 个元素](top_k.assets/top_k_traversal.png)
+![遍历寻找最大的 k 个元素](top_k.assets/top_k_traversal.png){ class="animation-figure" }
 
 <p align="center"> 图 8-6 &nbsp; 遍历寻找最大的 k 个元素 </p>
 
@@ -30,7 +30,7 @@ comments: true
 
 显然，该方法“超额”完成任务了，因为我们只需要找出最大的 $k$ 个元素即可，而不需要排序其他元素。
 
-![排序寻找最大的 k 个元素](top_k.assets/top_k_sorting.png)
+![排序寻找最大的 k 个元素](top_k.assets/top_k_sorting.png){ class="animation-figure" }
 
 <p align="center"> 图 8-7 &nbsp; 排序寻找最大的 k 个元素 </p>
 
@@ -44,31 +44,31 @@ comments: true
 4. 遍历完成后，堆中保存的就是最大的 $k$ 个元素。
 
 === "<1>"
-    ![基于堆寻找最大的 k 个元素](top_k.assets/top_k_heap_step1.png)
+    ![基于堆寻找最大的 k 个元素](top_k.assets/top_k_heap_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.png)
+    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.png)
+    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.png)
+    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.png)
+    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.png)
+    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.png)
+    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.png){ class="animation-figure" }
 
 === "<8>"
-    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.png)
+    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.png){ class="animation-figure" }
 
 === "<9>"
-    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.png)
+    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.png){ class="animation-figure" }
 
 <p align="center"> 图 8-8 &nbsp; 基于堆寻找最大的 k 个元素 </p>
 

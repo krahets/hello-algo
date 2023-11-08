@@ -206,7 +206,7 @@ comments: true
     [class]{}-[func]{preOrder}
     ```
 
-![在前序遍历中搜索节点](backtracking_algorithm.assets/preorder_find_nodes.png)
+![在前序遍历中搜索节点](backtracking_algorithm.assets/preorder_find_nodes.png){ class="animation-figure" }
 
 <p align="center"> 图 13-1 &nbsp; 在前序遍历中搜索节点 </p>
 
@@ -477,37 +477,37 @@ comments: true
 观察图 13-2 所示的过程，**我们可以将尝试和回退理解为“前进”与“撤销”**，两个操作是互为逆向的。
 
 === "<1>"
-    ![尝试与回退](backtracking_algorithm.assets/preorder_find_paths_step1.png)
+    ![尝试与回退](backtracking_algorithm.assets/preorder_find_paths_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.png)
+    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.png)
+    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.png)
+    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.png)
+    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.png)
+    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.png)
+    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.png){ class="animation-figure" }
 
 === "<8>"
-    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.png)
+    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.png){ class="animation-figure" }
 
 === "<9>"
-    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.png)
+    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.png){ class="animation-figure" }
 
 === "<10>"
-    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.png)
+    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.png){ class="animation-figure" }
 
 === "<11>"
-    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
+    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png){ class="animation-figure" }
 
 <p align="center"> 图 13-2 &nbsp; 尝试与回退 </p>
 
@@ -781,7 +781,7 @@ comments: true
 
 剪枝是一个非常形象的名词。如图 13-3 所示，在搜索过程中，**我们“剪掉”了不满足约束条件的搜索分支**，避免许多无意义的尝试，从而提高了搜索效率。
 
-![根据约束条件剪枝](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
+![根据约束条件剪枝](backtracking_algorithm.assets/preorder_find_constrained_paths.png){ class="animation-figure" }
 
 <p align="center"> 图 13-3 &nbsp; 根据约束条件剪枝 </p>
 
@@ -1657,7 +1657,7 @@ comments: true
 
 根据题意，我们在找到值为 $7$ 的节点后应该继续搜索，**因此需要将记录解之后的 `return` 语句删除**。图 13-4 对比了保留或删除 `return` 语句的搜索过程。
 
-![保留与删除 return 的搜索过程对比](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
+![保留与删除 return 的搜索过程对比](backtracking_algorithm.assets/backtrack_remove_return_or_not.png){ class="animation-figure" }
 
 <p align="center"> 图 13-4 &nbsp; 保留与删除 return 的搜索过程对比 </p>
 

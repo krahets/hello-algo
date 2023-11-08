@@ -15,7 +15,7 @@ comments: true
 - **线性数据结构**：数组、链表、栈、队列、哈希表。
 - **非线性数据结构**：树、堆、图、哈希表。
 
-![线性与非线性数据结构](classification_of_data_structure.assets/classification_logic_structure.png)
+![线性与非线性数据结构](classification_of_data_structure.assets/classification_logic_structure.png){ class="animation-figure" }
 
 <p align="center"> 图 3-1 &nbsp; 线性与非线性数据结构 </p>
 
@@ -33,7 +33,7 @@ comments: true
 
 **系统通过内存地址来访问目标位置的数据**。如图 3-2 所示，计算机根据特定规则为表格中的每个单元格分配编号，确保每个内存空间都有唯一的内存地址。有了这些地址，程序便可以访问内存中的数据。
 
-![内存条、内存空间、内存地址](classification_of_data_structure.assets/computer_memory_location.png)
+![内存条、内存空间、内存地址](classification_of_data_structure.assets/computer_memory_location.png){ class="animation-figure" }
 
 <p align="center"> 图 3-2 &nbsp; 内存条、内存空间、内存地址 </p>
 
@@ -41,7 +41,7 @@ comments: true
 
 如图 3-3 所示，**物理结构反映了数据在计算机内存中的存储方式**，可分为连续空间存储（数组）和分散空间存储（链表）。物理结构从底层决定了数据的访问、更新、增删等操作方法，同时在时间效率和空间效率方面呈现出互补的特点。
 
-![连续空间存储与分散空间存储](classification_of_data_structure.assets/classification_phisical_structure.png)
+![连续空间存储与分散空间存储](classification_of_data_structure.assets/classification_phisical_structure.png){ class="animation-figure" }
 
 <p align="center"> 图 3-3 &nbsp; 连续空间存储与分散空间存储 </p>
 

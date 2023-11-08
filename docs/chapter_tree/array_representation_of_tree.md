@@ -14,7 +14,7 @@ comments: true
 
 根据层序遍历的特性，我们可以推导出父节点索引与子节点索引之间的“映射公式”：**若节点的索引为 $i$ ，则该节点的左子节点索引为 $2i + 1$ ，右子节点索引为 $2i + 2$** 。图 7-12 展示了各个节点索引之间的映射关系。
 
-![完美二叉树的数组表示](array_representation_of_tree.assets/array_representation_binary_tree.png)
+![完美二叉树的数组表示](array_representation_of_tree.assets/array_representation_binary_tree.png){ class="animation-figure" }
 
 <p align="center"> 图 7-12 &nbsp; 完美二叉树的数组表示 </p>
 
@@ -26,7 +26,7 @@ comments: true
 
 如图 7-13 所示，给定一个非完美二叉树，上述的数组表示方法已经失效。
 
-![层序遍历序列对应多种二叉树可能性](array_representation_of_tree.assets/array_representation_without_empty.png)
+![层序遍历序列对应多种二叉树可能性](array_representation_of_tree.assets/array_representation_without_empty.png){ class="animation-figure" }
 
 <p align="center"> 图 7-13 &nbsp; 层序遍历序列对应多种二叉树可能性 </p>
 
@@ -126,7 +126,7 @@ comments: true
 
     ```
 
-![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png)
+![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png){ class="animation-figure" }
 
 <p align="center"> 图 7-14 &nbsp; 任意类型二叉树的数组表示 </p>
 
@@ -134,7 +134,7 @@ comments: true
 
 这意味着使用数组表示完全二叉树时，可以省略存储所有 $\text{None}$ ，非常方便。图 7-15 给出了一个例子。
 
-![完全二叉树的数组表示](array_representation_of_tree.assets/array_representation_complete_binary_tree.png)
+![完全二叉树的数组表示](array_representation_of_tree.assets/array_representation_complete_binary_tree.png){ class="animation-figure" }
 
 <p align="center"> 图 7-15 &nbsp; 完全二叉树的数组表示 </p>
 

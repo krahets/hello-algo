@@ -17,7 +17,7 @@ comments: true
 
 在原始哈希表中，每个桶仅能存储一个键值对。「链式地址 separate chaining」将单个元素转换为链表，将键值对作为链表节点，将所有发生冲突的键值对都存储在同一链表中。图 6-5 展示了一个链式地址哈希表的例子。
 
-![链式地址哈希表](hash_collision.assets/hash_table_chaining.png)
+![链式地址哈希表](hash_collision.assets/hash_table_chaining.png){ class="animation-figure" }
 
 <p align="center"> 图 6-5 &nbsp; 链式地址哈希表 </p>
 
@@ -1333,7 +1333,7 @@ comments: true
 
 图 6-6 展示了开放寻址（线性探测）哈希表的键值对分布。根据此哈希函数，最后两位相同的 `key` 都会被映射到相同的桶。而通过线性探测，它们被依次存储在该桶以及之下的桶中。
 
-![开放寻址和线性探测](hash_collision.assets/hash_table_linear_probing.png)
+![开放寻址和线性探测](hash_collision.assets/hash_table_linear_probing.png){ class="animation-figure" }
 
 <p align="center"> 图 6-6 &nbsp; 开放寻址和线性探测 </p>
 
@@ -1341,7 +1341,7 @@ comments: true
 
 值得注意的是，**我们不能在开放寻址哈希表中直接删除元素**。这是因为删除元素会在数组内产生一个空桶 $\text{None}$ ，而当查询元素时，线性探测到该空桶就会返回，因此在该空桶之下的元素都无法再被访问到，程序可能误判这些元素不存在。
 
-![在开放寻址中删除元素导致的查询问题](hash_collision.assets/hash_table_open_addressing_deletion.png)
+![在开放寻址中删除元素导致的查询问题](hash_collision.assets/hash_table_open_addressing_deletion.png){ class="animation-figure" }
 
 <p align="center"> 图 6-7 &nbsp; 在开放寻址中删除元素导致的查询问题 </p>
 

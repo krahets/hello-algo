@@ -22,7 +22,7 @@ comments: true
 2. 修改 Markdown 源文件内容，检查内容的正确性，并尽量保持排版格式的统一。
 3. 在页面底部填写修改说明，然后点击“Propose file change”按钮。页面跳转后，点击“Create pull request”按钮即可发起拉取请求。
 
-![页面编辑按键](contribution.assets/edit_markdown.png)
+![页面编辑按键](contribution.assets/edit_markdown.png){ class="animation-figure" }
 
 <p align="center"> 图 16-1 &nbsp; 页面编辑按键 </p>
 

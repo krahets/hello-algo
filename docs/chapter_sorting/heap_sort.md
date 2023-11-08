@@ -29,40 +29,40 @@ comments: true
     实际上，元素出堆操作中也包含第 `2.` 和 `3.` 步，只是多了一个弹出元素的步骤。
 
 === "<1>"
-    ![堆排序步骤](heap_sort.assets/heap_sort_step1.png)
+    ![堆排序步骤](heap_sort.assets/heap_sort_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.png)
+    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.png)
+    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.png)
+    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.png)
+    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.png)
+    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.png)
+    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.png){ class="animation-figure" }
 
 === "<8>"
-    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.png)
+    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.png){ class="animation-figure" }
 
 === "<9>"
-    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.png)
+    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.png){ class="animation-figure" }
 
 === "<10>"
-    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.png)
+    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.png){ class="animation-figure" }
 
 === "<11>"
-    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.png)
+    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.png){ class="animation-figure" }
 
 === "<12>"
-    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.png)
+    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.png){ class="animation-figure" }
 
 <p align="center"> 图 11-12 &nbsp; 堆排序步骤 </p>
 

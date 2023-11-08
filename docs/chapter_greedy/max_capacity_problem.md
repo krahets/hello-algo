@@ -12,7 +12,7 @@ comments: true
     
     请在数组中选择两个隔板，使得组成的容器的容量最大，返回最大容量。
 
-![最大容量问题的示例数据](max_capacity_problem.assets/max_capacity_example.png)
+![最大容量问题的示例数据](max_capacity_problem.assets/max_capacity_example.png){ class="animation-figure" }
 
 <p align="center"> 图 15-7 &nbsp; 最大容量问题的示例数据 </p>
 
@@ -30,7 +30,7 @@ $$
 
 这道题还有更高效率的解法。如图 15-8 所示，现选取一个状态 $[i, j]$ ，其满足索引 $i < j$ 且高度 $ht[i] < ht[j]$ ，即 $i$ 为短板、$j$ 为长板。
 
-![初始状态](max_capacity_problem.assets/max_capacity_initial_state.png)
+![初始状态](max_capacity_problem.assets/max_capacity_initial_state.png){ class="animation-figure" }
 
 <p align="center"> 图 15-8 &nbsp; 初始状态 </p>
 
@@ -38,13 +38,13 @@ $$
 
 这是因为在移动长板 $j$ 后，宽度 $j-i$ 肯定变小；而高度由短板决定，因此高度只可能不变（ $i$ 仍为短板）或变小（移动后的 $j$ 成为短板）。
 
-![向内移动长板后的状态](max_capacity_problem.assets/max_capacity_moving_long_board.png)
+![向内移动长板后的状态](max_capacity_problem.assets/max_capacity_moving_long_board.png){ class="animation-figure" }
 
 <p align="center"> 图 15-9 &nbsp; 向内移动长板后的状态 </p>
 
 反向思考，**我们只有向内收缩短板 $i$ ，才有可能使容量变大**。因为虽然宽度一定变小，**但高度可能会变大**（移动后的短板 $i$ 可能会变长）。例如在图 15-10 中，移动短板后面积变大。
 
-![向内移动短板后的状态](max_capacity_problem.assets/max_capacity_moving_short_board.png)
+![向内移动短板后的状态](max_capacity_problem.assets/max_capacity_moving_short_board.png){ class="animation-figure" }
 
 <p align="center"> 图 15-10 &nbsp; 向内移动短板后的状态 </p>
 
@@ -58,31 +58,31 @@ $$
 4. 循环执行第 `2.` 和 `3.` 步，直至 $i$ 和 $j$ 相遇时结束。
 
 === "<1>"
-    ![最大容量问题的贪心过程](max_capacity_problem.assets/max_capacity_greedy_step1.png)
+    ![最大容量问题的贪心过程](max_capacity_problem.assets/max_capacity_greedy_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.png)
+    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.png)
+    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.png)
+    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.png)
+    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.png)
+    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.png)
+    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.png){ class="animation-figure" }
 
 === "<8>"
-    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.png)
+    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.png){ class="animation-figure" }
 
 === "<9>"
-    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png)
+    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png){ class="animation-figure" }
 
 <p align="center"> 图 15-11 &nbsp; 最大容量问题的贪心过程 </p>
 
@@ -384,7 +384,7 @@ $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![移动短板导致被跳过的状态](max_capacity_problem.assets/max_capacity_skipped_states.png)
+![移动短板导致被跳过的状态](max_capacity_problem.assets/max_capacity_skipped_states.png){ class="animation-figure" }
 
 <p align="center"> 图 15-12 &nbsp; 移动短板导致被跳过的状态 </p>
 

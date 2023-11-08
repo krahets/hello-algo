@@ -211,7 +211,7 @@ comments: true
 
 如图 10-7 所示，查找完成后，指针 $i$ 指向最左一个 `target + 1`（如果存在），而 $j$ 指向最右一个 `target` ，**因此返回 $j$ 即可**。
 
-![将查找右边界转化为查找左边界](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png)
+![将查找右边界转化为查找左边界](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png){ class="animation-figure" }
 
 <p align="center"> 图 10-7 &nbsp; 将查找右边界转化为查找左边界 </p>
 
@@ -428,7 +428,7 @@ comments: true
 - 查找最左一个 `target` ：可以转化为查找 `target - 0.5` ，并返回指针 $i$ 。
 - 查找最右一个 `target` ：可以转化为查找 `target + 0.5` ，并返回指针 $j$ 。
 
-![将查找边界转化为查找元素](binary_search_edge.assets/binary_search_edge_by_element.png)
+![将查找边界转化为查找元素](binary_search_edge.assets/binary_search_edge_by_element.png){ class="animation-figure" }
 
 <p align="center"> 图 10-8 &nbsp; 将查找边界转化为查找元素 </p>
 

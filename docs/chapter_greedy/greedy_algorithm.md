@@ -19,7 +19,7 @@ comments: true
 
 本题的贪心策略如图 15-1 所示。给定目标金额，**我们贪心地选择不大于且最接近它的硬币**，不断循环该步骤，直至凑出目标金额为止。
 
-![零钱兑换的贪心策略](greedy_algorithm.assets/coin_change_greedy_strategy.png)
+![零钱兑换的贪心策略](greedy_algorithm.assets/coin_change_greedy_strategy.png){ class="animation-figure" }
 
 <p align="center"> 图 15-1 &nbsp; 零钱兑换的贪心策略 </p>
 
@@ -299,7 +299,7 @@ comments: true
 - **反例 $coins = [1, 20, 50]$**：假设 $amt = 60$ ，贪心算法只能找到 $50 + 1 \times 10$ 的兑换组合，共计 $11$ 枚硬币，但动态规划可以找到最优解 $20 + 20 + 20$ ，仅需 $3$ 枚硬币。
 - **反例 $coins = [1, 49, 50]$**：假设 $amt = 98$ ，贪心算法只能找到 $50 + 1 \times 48$ 的兑换组合，共计 $49$ 枚硬币，但动态规划可以找到最优解 $49 + 49$ ，仅需 $2$ 枚硬币。
 
-![贪心无法找出最优解的示例](greedy_algorithm.assets/coin_change_greedy_vs_dp.png)
+![贪心无法找出最优解的示例](greedy_algorithm.assets/coin_change_greedy_vs_dp.png){ class="animation-figure" }
 
 <p align="center"> 图 15-2 &nbsp; 贪心无法找出最优解的示例 </p>
 

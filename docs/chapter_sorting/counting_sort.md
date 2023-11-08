@@ -14,7 +14,7 @@ comments: true
 2. **借助 `counter` 统计 `nums` 中各数字的出现次数**，其中 `counter[num]` 对应数字 `num` 的出现次数。统计方法很简单，只需遍历 `nums`（设当前数字为 `num`），每轮将 `counter[num]` 增加 $1$ 即可。
 3. **由于 `counter` 的各个索引天然有序，因此相当于所有数字已经被排序好了**。接下来，我们遍历 `counter` ，根据各数字的出现次数，将它们按从小到大的顺序填入 `nums` 即可。
 
-![计数排序流程](counting_sort.assets/counting_sort_overview.png)
+![计数排序流程](counting_sort.assets/counting_sort_overview.png){ class="animation-figure" }
 
 <p align="center"> 图 11-16 &nbsp; 计数排序流程 </p>
 
@@ -339,28 +339,28 @@ $$
 遍历完成后，数组 `res` 中就是排序好的结果，最后使用 `res` 覆盖原数组 `nums` 即可。图 11-17 展示了完整的计数排序流程。
 
 === "<1>"
-    ![计数排序步骤](counting_sort.assets/counting_sort_step1.png)
+    ![计数排序步骤](counting_sort.assets/counting_sort_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.png)
+    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.png)
+    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.png)
+    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.png)
+    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.png)
+    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.png)
+    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.png){ class="animation-figure" }
 
 === "<8>"
-    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.png)
+    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.png){ class="animation-figure" }
 
 <p align="center"> 图 11-17 &nbsp; 计数排序步骤 </p>
 

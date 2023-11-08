@@ -14,7 +14,7 @@ comments: true
 
 考虑直接遍历所有可能的组合。如图 10-9 所示，我们开启一个两层循环，在每轮中判断两个整数的和是否为 `target` ，若是则返回它们的索引。
 
-![线性查找求解两数之和](replace_linear_by_hashing.assets/two_sum_brute_force.png)
+![线性查找求解两数之和](replace_linear_by_hashing.assets/two_sum_brute_force.png){ class="animation-figure" }
 
 <p align="center"> 图 10-9 &nbsp; 线性查找求解两数之和 </p>
 
@@ -237,13 +237,13 @@ comments: true
 2. 将键值对 `nums[i]` 和索引 `i` 添加进哈希表。
 
 === "<1>"
-    ![辅助哈希表求解两数之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
+    ![辅助哈希表求解两数之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png)
+    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png)
+    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png){ class="animation-figure" }
 
 <p align="center"> 图 10-10 &nbsp; 辅助哈希表求解两数之和 </p>
 

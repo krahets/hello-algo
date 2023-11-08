@@ -462,7 +462,7 @@ $$
 - 算法 `B` 中的打印操作需要循环 $n$ 次，算法运行时间随着 $n$ 增大呈线性增长。此算法的时间复杂度被称为“线性阶”。
 - 算法 `C` 中的打印操作需要循环 $1000000$ 次，虽然运行时间很长，但它与输入数据大小 $n$ 无关。因此 `C` 的时间复杂度和 `A` 相同，仍为“常数阶”。
 
-![算法 A、B 和 C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.png)
+![算法 A、B 和 C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.png){ class="animation-figure" }
 
 <p align="center"> 图 2-7 &nbsp; 算法 A、B 和 C 的时间增长趋势 </p>
 
@@ -661,7 +661,7 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
 
 如图 2-8 所示，计算渐近上界就是寻找一个函数 $f(n)$ ，使得当 $n$ 趋向于无穷大时，$T(n)$ 和 $f(n)$ 处于相同的增长级别，仅相差一个常数项 $c$ 的倍数。
 
-![函数的渐近上界](time_complexity.assets/asymptotic_upper_bound.png)
+![函数的渐近上界](time_complexity.assets/asymptotic_upper_bound.png){ class="animation-figure" }
 
 <p align="center"> 图 2-8 &nbsp; 函数的渐近上界 </p>
 
@@ -950,7 +950,7 @@ O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
 \end{aligned}
 $$
 
-![常见的时间复杂度类型](time_complexity.assets/time_complexity_common_types.png)
+![常见的时间复杂度类型](time_complexity.assets/time_complexity_common_types.png){ class="animation-figure" }
 
 <p align="center"> 图 2-9 &nbsp; 常见的时间复杂度类型 </p>
 
@@ -1642,7 +1642,7 @@ $$
 
 图 2-10 对比了常数阶、线性阶和平方阶三种时间复杂度。
 
-![常数阶、线性阶和平方阶的时间复杂度](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![常数阶、线性阶和平方阶的时间复杂度](time_complexity.assets/time_complexity_constant_linear_quadratic.png){ class="animation-figure" }
 
 <p align="center"> 图 2-10 &nbsp; 常数阶、线性阶和平方阶的时间复杂度 </p>
 
@@ -2148,7 +2148,7 @@ $$
     }
     ```
 
-![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.png)
+![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.png){ class="animation-figure" }
 
 <p align="center"> 图 2-11 &nbsp; 指数阶的时间复杂度 </p>
 
@@ -2460,7 +2460,7 @@ $$
     }
     ```
 
-![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png)
+![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png){ class="animation-figure" }
 
 <p align="center"> 图 2-12 &nbsp; 对数阶的时间复杂度 </p>
 
@@ -2790,7 +2790,7 @@ $$
 
 图 2-13 展示了线性对数阶的生成方式。二叉树的每一层的操作总数都为 $n$ ，树共有 $\log_2 n + 1$ 层，因此时间复杂度为 $O(n \log n)$ 。
 
-![线性对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![线性对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic_linear.png){ class="animation-figure" }
 
 <p align="center"> 图 2-13 &nbsp; 线性对数阶的时间复杂度 </p>
 
@@ -2994,7 +2994,7 @@ $$
     }
     ```
 
-![阶乘阶的时间复杂度](time_complexity.assets/time_complexity_factorial.png)
+![阶乘阶的时间复杂度](time_complexity.assets/time_complexity_factorial.png){ class="animation-figure" }
 
 <p align="center"> 图 2-14 &nbsp; 阶乘阶的时间复杂度 </p>
 

@@ -44,7 +44,7 @@ comments: true
 
 给定大小为 $n$ 的一组数据，我们可以使用线性搜索、二分查找、树查找、哈希查找等多种方法在该数据中搜索目标元素。各个方法的工作原理如图 10-11 所示。
 
-![多种搜索策略](searching_algorithm_revisited.assets/searching_algorithms.png)
+![多种搜索策略](searching_algorithm_revisited.assets/searching_algorithms.png){ class="animation-figure" }
 
 <p align="center"> 图 10-11 &nbsp; 多种搜索策略 </p>
 

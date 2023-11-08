@@ -8,7 +8,7 @@ comments: true
 
     给定一个正整数 $n$ ，将其切分为至少两个正整数的和，求切分后所有整数的乘积最大是多少。
 
-![最大切分乘积的问题定义](max_product_cutting_problem.assets/max_product_cutting_definition.png)
+![最大切分乘积的问题定义](max_product_cutting_problem.assets/max_product_cutting_definition.png){ class="animation-figure" }
 
 <p align="center"> 图 15-13 &nbsp; 最大切分乘积的问题定义 </p>
 
@@ -42,7 +42,7 @@ $$
 
 **贪心策略一**：如果切分方案中包含 $\geq 4$ 的因子，那么它就应该被继续切分。最终的切分方案只应出现 $1$、$2$、$3$ 这三种因子。
 
-![切分导致乘积变大](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png)
+![切分导致乘积变大](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png){ class="animation-figure" }
 
 <p align="center"> 图 15-14 &nbsp; 切分导致乘积变大 </p>
 
@@ -52,7 +52,7 @@ $$
 
 **贪心策略二**：在切分方案中，最多只应存在两个 $2$ 。因为三个 $2$ 总是可以被替换为两个 $3$ ，从而获得更大乘积。
 
-![最优切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png)
+![最优切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png){ class="animation-figure" }
 
 <p align="center"> 图 15-15 &nbsp; 最优切分因子 </p>
 
@@ -349,7 +349,7 @@ $$
     [class]{}-[func]{maxProductCutting}
     ```
 
-![最大切分乘积的计算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png)
+![最大切分乘积的计算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png){ class="animation-figure" }
 
 <p align="center"> 图 15-16 &nbsp; 最大切分乘积的计算方法 </p>
 

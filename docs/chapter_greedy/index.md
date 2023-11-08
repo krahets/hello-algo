@@ -7,7 +7,7 @@ icon: material/head-heart-outline
 
 <div class="center-table" markdown>
 
-![贪心](../assets/covers/chapter_greedy.jpg){ width="600" }
+![贪心](../assets/covers/chapter_greedy.jpg){ class="cover-image" }
 
 </div>
 

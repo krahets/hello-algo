@@ -184,7 +184,7 @@ comments: true
 
 图 2-1 展示了该求和函数的流程框图。
 
-![求和函数的流程框图](iteration_and_recursion.assets/iteration.png)
+![求和函数的流程框图](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
 
 <p align="center"> 图 2-1 &nbsp; 求和函数的流程框图 </p>
 
@@ -823,7 +823,7 @@ comments: true
 
 图 2-2 给出了该嵌套循环的流程框图。
 
-![嵌套循环的流程框图](iteration_and_recursion.assets/nested_iteration.png)
+![嵌套循环的流程框图](iteration_and_recursion.assets/nested_iteration.png){ class="animation-figure" }
 
 <p align="center"> 图 2-2 &nbsp; 嵌套循环的流程框图 </p>
 
@@ -1028,7 +1028,7 @@ comments: true
 
 图 2-3 展示了该函数的递归过程。
 
-![求和函数的递归过程](iteration_and_recursion.assets/recursion_sum.png)
+![求和函数的递归过程](iteration_and_recursion.assets/recursion_sum.png){ class="animation-figure" }
 
 <p align="center"> 图 2-3 &nbsp; 求和函数的递归过程 </p>
 
@@ -1051,7 +1051,7 @@ comments: true
 
 如图 2-4 所示，在触发终止条件前，同时存在 $n$ 个未返回的递归函数，**递归深度为 $n$** 。
 
-![递归调用深度](iteration_and_recursion.assets/recursion_sum_depth.png)
+![递归调用深度](iteration_and_recursion.assets/recursion_sum_depth.png){ class="animation-figure" }
 
 <p align="center"> 图 2-4 &nbsp; 递归调用深度 </p>
 
@@ -1227,7 +1227,7 @@ comments: true
 - **普通递归**：求和操作是在“归”的过程中执行的，每层返回后都要再执行一次求和操作。
 - **尾递归**：求和操作是在“递”的过程中执行的，“归”的过程只需层层返回。
 
-![尾递归过程](iteration_and_recursion.assets/tail_recursion_sum.png)
+![尾递归过程](iteration_and_recursion.assets/tail_recursion_sum.png){ class="animation-figure" }
 
 <p align="center"> 图 2-5 &nbsp; 尾递归过程 </p>
 
@@ -1432,7 +1432,7 @@ comments: true
 
 观察以上代码，我们在函数内递归调用了两个函数，**这意味着从一个调用产生了两个调用分支**。如图 2-6 所示，这样不断递归调用下去，最终将产生一个层数为 $n$ 的「递归树 recursion tree」。
 
-![斐波那契数列的递归树](iteration_and_recursion.assets/recursion_tree.png)
+![斐波那契数列的递归树](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
 
 <p align="center"> 图 2-6 &nbsp; 斐波那契数列的递归树 </p>
 

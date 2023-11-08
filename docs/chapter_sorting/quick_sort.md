@@ -13,31 +13,31 @@ comments: true
 3. 循环执行步骤 `2.` ，直到 `i` 和 `j` 相遇时停止，最后将基准数交换至两个子数组的分界线。
 
 === "<1>"
-    ![哨兵划分步骤](quick_sort.assets/pivot_division_step1.png)
+    ![哨兵划分步骤](quick_sort.assets/pivot_division_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.png)
+    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.png)
+    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.png)
+    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.png)
+    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.png)
+    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.png)
+    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.png){ class="animation-figure" }
 
 === "<8>"
-    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.png)
+    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.png){ class="animation-figure" }
 
 === "<9>"
-    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png)
+    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png){ class="animation-figure" }
 
 <p align="center"> 图 11-8 &nbsp; 哨兵划分步骤 </p>
 
@@ -366,7 +366,7 @@ comments: true
 2. 然后，对左子数组和右子数组分别递归执行“哨兵划分”。
 3. 持续递归，直至子数组长度为 1 时终止，从而完成整个数组的排序。
 
-![快速排序流程](quick_sort.assets/quick_sort_overview.png)
+![快速排序流程](quick_sort.assets/quick_sort_overview.png){ class="animation-figure" }
 
 <p align="center"> 图 11-9 &nbsp; 快速排序流程 </p>
 

@@ -6,7 +6,7 @@ comments: true
 
 在队列中，我们仅能在头部删除或在尾部添加元素。如图 5-7 所示，「双向队列 double-ended queue」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
 
-![双向队列的操作](deque.assets/deque_operations.png)
+![双向队列的操作](deque.assets/deque_operations.png){ class="animation-figure" }
 
 <p align="center"> 图 5-7 &nbsp; 双向队列的操作 </p>
 
@@ -365,19 +365,19 @@ comments: true
 如图 5-8 所示，我们将双向链表的头节点和尾节点视为双向队列的队首和队尾，同时实现在两端添加和删除节点的功能。
 
 === "LinkedListDeque"
-    ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque.png)
+    ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque.png){ class="animation-figure" }
 
 === "pushLast()"
-    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_push_last.png)
+    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_push_last.png){ class="animation-figure" }
 
 === "pushFirst()"
-    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_push_first.png)
+    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_push_first.png){ class="animation-figure" }
 
 === "popLast()"
-    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_pop_last.png)
+    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_pop_last.png){ class="animation-figure" }
 
 === "popFirst()"
-    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_pop_first.png)
+    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_pop_first.png){ class="animation-figure" }
 
 <p align="center"> 图 5-8 &nbsp; 基于链表实现双向队列的入队出队操作 </p>
 
@@ -2008,19 +2008,19 @@ comments: true
 如图 5-9 所示，与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。
 
 === "ArrayDeque"
-    ![基于数组实现双向队列的入队出队操作](deque.assets/array_deque.png)
+    ![基于数组实现双向队列的入队出队操作](deque.assets/array_deque.png){ class="animation-figure" }
 
 === "pushLast()"
-    ![array_deque_push_last](deque.assets/array_deque_push_last.png)
+    ![array_deque_push_last](deque.assets/array_deque_push_last.png){ class="animation-figure" }
 
 === "pushFirst()"
-    ![array_deque_push_first](deque.assets/array_deque_push_first.png)
+    ![array_deque_push_first](deque.assets/array_deque_push_first.png){ class="animation-figure" }
 
 === "popLast()"
-    ![array_deque_pop_last](deque.assets/array_deque_pop_last.png)
+    ![array_deque_pop_last](deque.assets/array_deque_pop_last.png){ class="animation-figure" }
 
 === "popFirst()"
-    ![array_deque_pop_first](deque.assets/array_deque_pop_first.png)
+    ![array_deque_pop_first](deque.assets/array_deque_pop_first.png){ class="animation-figure" }
 
 <p align="center"> 图 5-9 &nbsp; 基于数组实现双向队列的入队出队操作 </p>
 

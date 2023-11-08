@@ -40,7 +40,7 @@ comments: true
 
 图 12-4 展示了在数组中二分查找元素 $6$ 的分治过程。
 
-![二分查找的分治过程](binary_search_recur.assets/binary_search_recur.png)
+![二分查找的分治过程](binary_search_recur.assets/binary_search_recur.png){ class="animation-figure" }
 
 <p align="center"> 图 12-4 &nbsp; 二分查找的分治过程 </p>
 

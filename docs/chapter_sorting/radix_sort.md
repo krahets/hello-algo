@@ -16,7 +16,7 @@ comments: true
 2. 对学号的第 $k$ 位执行“计数排序”。完成后，数据会根据第 $k$ 位从小到大排序。
 3. 将 $k$ 增加 $1$ ，然后返回步骤 `2.` 继续迭代，直到所有位都排序完成后结束。
 
-![基数排序算法流程](radix_sort.assets/radix_sort_overview.png)
+![基数排序算法流程](radix_sort.assets/radix_sort_overview.png){ class="animation-figure" }
 
 <p align="center"> 图 11-18 &nbsp; 基数排序算法流程 </p>
 

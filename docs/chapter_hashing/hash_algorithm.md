@@ -8,7 +8,7 @@ comments: true
 
 如果哈希冲突过于频繁，哈希表的性能则会急剧劣化。如图 6-8 所示，对于链地址哈希表，理想情况下键值对平均分布在各个桶中，达到最佳查询效率；最差情况下所有键值对都被存储到同一个桶中，时间复杂度退化至 $O(n)$ 。
 
-![哈希冲突的最佳与最差情况](hash_algorithm.assets/hash_collision_best_worst_condition.png)
+![哈希冲突的最佳与最差情况](hash_algorithm.assets/hash_collision_best_worst_condition.png){ class="animation-figure" }
 
 <p align="center"> 图 6-8 &nbsp; 哈希冲突的最佳与最差情况 </p>
 

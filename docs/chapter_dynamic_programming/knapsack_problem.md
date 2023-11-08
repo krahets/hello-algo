@@ -14,7 +14,7 @@ comments: true
 
 观察图 14-17 ，由于物品编号 $i$ 从 $1$ 开始计数，数组索引从 $0$ 开始计数，因此物品 $i$ 对应重量 $wgt[i-1]$ 和价值 $val[i-1]$ 。
 
-![0-1 背包的示例数据](knapsack_problem.assets/knapsack_example.png)
+![0-1 背包的示例数据](knapsack_problem.assets/knapsack_example.png){ class="animation-figure" }
 
 <p align="center"> 图 14-17 &nbsp; 0-1 背包的示例数据 </p>
 
@@ -320,7 +320,7 @@ $$
 
 观察递归树，容易发现其中存在重叠子问题，例如 $dp[1, 10]$ 等。而当物品较多、背包容量较大，尤其是相同重量的物品较多时，重叠子问题的数量将会大幅增多。
 
-![0-1 背包的暴力搜索递归树](knapsack_problem.assets/knapsack_dfs.png)
+![0-1 背包的暴力搜索递归树](knapsack_problem.assets/knapsack_dfs.png){ class="animation-figure" }
 
 <p align="center"> 图 14-18 &nbsp; 0-1 背包的暴力搜索递归树 </p>
 
@@ -656,7 +656,7 @@ $$
 
 图 14-19 展示了在记忆化递归中被剪掉的搜索分支。
 
-![0-1 背包的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.png)
+![0-1 背包的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.png){ class="animation-figure" }
 
 <p align="center"> 图 14-19 &nbsp; 0-1 背包的记忆化搜索递归树 </p>
 
@@ -969,46 +969,46 @@ $$
 如图 14-20 所示，时间复杂度和空间复杂度都由数组 `dp` 大小决定，即 $O(n \times cap)$ 。
 
 === "<1>"
-    ![0-1 背包的动态规划过程](knapsack_problem.assets/knapsack_dp_step1.png)
+    ![0-1 背包的动态规划过程](knapsack_problem.assets/knapsack_dp_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.png)
+    ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![knapsack_dp_step3](knapsack_problem.assets/knapsack_dp_step3.png)
+    ![knapsack_dp_step3](knapsack_problem.assets/knapsack_dp_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![knapsack_dp_step4](knapsack_problem.assets/knapsack_dp_step4.png)
+    ![knapsack_dp_step4](knapsack_problem.assets/knapsack_dp_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![knapsack_dp_step5](knapsack_problem.assets/knapsack_dp_step5.png)
+    ![knapsack_dp_step5](knapsack_problem.assets/knapsack_dp_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![knapsack_dp_step6](knapsack_problem.assets/knapsack_dp_step6.png)
+    ![knapsack_dp_step6](knapsack_problem.assets/knapsack_dp_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![knapsack_dp_step7](knapsack_problem.assets/knapsack_dp_step7.png)
+    ![knapsack_dp_step7](knapsack_problem.assets/knapsack_dp_step7.png){ class="animation-figure" }
 
 === "<8>"
-    ![knapsack_dp_step8](knapsack_problem.assets/knapsack_dp_step8.png)
+    ![knapsack_dp_step8](knapsack_problem.assets/knapsack_dp_step8.png){ class="animation-figure" }
 
 === "<9>"
-    ![knapsack_dp_step9](knapsack_problem.assets/knapsack_dp_step9.png)
+    ![knapsack_dp_step9](knapsack_problem.assets/knapsack_dp_step9.png){ class="animation-figure" }
 
 === "<10>"
-    ![knapsack_dp_step10](knapsack_problem.assets/knapsack_dp_step10.png)
+    ![knapsack_dp_step10](knapsack_problem.assets/knapsack_dp_step10.png){ class="animation-figure" }
 
 === "<11>"
-    ![knapsack_dp_step11](knapsack_problem.assets/knapsack_dp_step11.png)
+    ![knapsack_dp_step11](knapsack_problem.assets/knapsack_dp_step11.png){ class="animation-figure" }
 
 === "<12>"
-    ![knapsack_dp_step12](knapsack_problem.assets/knapsack_dp_step12.png)
+    ![knapsack_dp_step12](knapsack_problem.assets/knapsack_dp_step12.png){ class="animation-figure" }
 
 === "<13>"
-    ![knapsack_dp_step13](knapsack_problem.assets/knapsack_dp_step13.png)
+    ![knapsack_dp_step13](knapsack_problem.assets/knapsack_dp_step13.png){ class="animation-figure" }
 
 === "<14>"
-    ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.png)
+    ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.png){ class="animation-figure" }
 
 <p align="center"> 图 14-20 &nbsp; 0-1 背包的动态规划过程 </p>
 
@@ -1024,22 +1024,22 @@ $$
 图 14-21 展示了在单个数组下从第 $i = 1$ 行转换至第 $i = 2$ 行的过程。请思考正序遍历和倒序遍历的区别。
 
 === "<1>"
-    ![0-1 背包的空间优化后的动态规划过程](knapsack_problem.assets/knapsack_dp_comp_step1.png)
+    ![0-1 背包的空间优化后的动态规划过程](knapsack_problem.assets/knapsack_dp_comp_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.png)
+    ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![knapsack_dp_comp_step3](knapsack_problem.assets/knapsack_dp_comp_step3.png)
+    ![knapsack_dp_comp_step3](knapsack_problem.assets/knapsack_dp_comp_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![knapsack_dp_comp_step4](knapsack_problem.assets/knapsack_dp_comp_step4.png)
+    ![knapsack_dp_comp_step4](knapsack_problem.assets/knapsack_dp_comp_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![knapsack_dp_comp_step5](knapsack_problem.assets/knapsack_dp_comp_step5.png)
+    ![knapsack_dp_comp_step5](knapsack_problem.assets/knapsack_dp_comp_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.png)
+    ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.png){ class="animation-figure" }
 
 <p align="center"> 图 14-21 &nbsp; 0-1 背包的空间优化后的动态规划过程 </p>
 

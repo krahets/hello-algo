@@ -41,7 +41,7 @@ comments: true
 
 图 14-10 展示了一个例子，给定网格的最小路径和为 $13$ 。
 
-![最小路径和示例数据](dp_solution_pipeline.assets/min_path_sum_example.png)
+![最小路径和示例数据](dp_solution_pipeline.assets/min_path_sum_example.png){ class="animation-figure" }
 
 <p align="center"> 图 14-10 &nbsp; 最小路径和示例数据 </p>
 
@@ -53,7 +53,7 @@ comments: true
 
 至此，我们就得到了图 14-11 所示的二维 $dp$ 矩阵，其尺寸与输入网格 $grid$ 相同。
 
-![状态定义与 dp 表](dp_solution_pipeline.assets/min_path_sum_solution_step1.png)
+![状态定义与 dp 表](dp_solution_pipeline.assets/min_path_sum_solution_step1.png){ class="animation-figure" }
 
 <p align="center"> 图 14-11 &nbsp; 状态定义与 dp 表 </p>
 
@@ -73,7 +73,7 @@ $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
-![最优子结构与状态转移方程](dp_solution_pipeline.assets/min_path_sum_solution_step2.png)
+![最优子结构与状态转移方程](dp_solution_pipeline.assets/min_path_sum_solution_step2.png){ class="animation-figure" }
 
 <p align="center"> 图 14-12 &nbsp; 最优子结构与状态转移方程 </p>
 
@@ -89,7 +89,7 @@ $$
 
 如图 14-13 所示，由于每个格子是由其左方格子和上方格子转移而来，因此我们使用采用循环来遍历矩阵，外循环遍历各行、内循环遍历各列。
 
-![边界条件与状态转移顺序](dp_solution_pipeline.assets/min_path_sum_solution_step3.png)
+![边界条件与状态转移顺序](dp_solution_pipeline.assets/min_path_sum_solution_step3.png){ class="animation-figure" }
 
 <p align="center"> 图 14-13 &nbsp; 边界条件与状态转移顺序 </p>
 
@@ -368,7 +368,7 @@ $$
 
 本质上看，造成重叠子问题的原因为：**存在多条路径可以从左上角到达某一单元格**。
 
-![暴力搜索递归树](dp_solution_pipeline.assets/min_path_sum_dfs.png)
+![暴力搜索递归树](dp_solution_pipeline.assets/min_path_sum_dfs.png){ class="animation-figure" }
 
 <p align="center"> 图 14-14 &nbsp; 暴力搜索递归树 </p>
 
@@ -697,7 +697,7 @@ $$
 
 如图 14-15 所示，在引入记忆化后，所有子问题的解只需计算一次，因此时间复杂度取决于状态总数，即网格尺寸 $O(nm)$ 。
 
-![记忆化搜索递归树](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png)
+![记忆化搜索递归树](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png){ class="animation-figure" }
 
 <p align="center"> 图 14-15 &nbsp; 记忆化搜索递归树 </p>
 
@@ -1039,40 +1039,40 @@ $$
 数组 `dp` 大小为 $n \times m$ ，**因此空间复杂度为 $O(nm)$** 。
 
 === "<1>"
-    ![最小路径和的动态规划过程](dp_solution_pipeline.assets/min_path_sum_dp_step1.png)
+    ![最小路径和的动态规划过程](dp_solution_pipeline.assets/min_path_sum_dp_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.png)
+    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.png)
+    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.png)
+    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.png)
+    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.png)
+    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.png)
+    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.png){ class="animation-figure" }
 
 === "<8>"
-    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.png)
+    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.png){ class="animation-figure" }
 
 === "<9>"
-    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.png)
+    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.png){ class="animation-figure" }
 
 === "<10>"
-    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.png)
+    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.png){ class="animation-figure" }
 
 === "<11>"
-    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.png)
+    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.png){ class="animation-figure" }
 
 === "<12>"
-    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png)
+    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png){ class="animation-figure" }
 
 <p align="center"> 图 14-16 &nbsp; 最小路径和的动态规划过程 </p>
 

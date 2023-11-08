@@ -177,7 +177,7 @@ comments: true
 
 如果你在阅读本书时，发现某段内容提供了图 0-2 所示的动画或图解，**请以图为主、以文字为辅**，综合两者来理解内容。
 
-![动画图解示例](../index.assets/animation.gif)
+![动画图解示例](../index.assets/animation.gif){ class="animation-figure" }
 
 <p align="center"> 图 0-2 &nbsp; 动画图解示例 </p>
 
@@ -189,7 +189,7 @@ comments: true
 
 与阅读代码相比，编写代码的过程往往能带来更多收获。**动手学，才是真的学**。
 
-![运行代码示例](../index.assets/running_code.gif)
+![运行代码示例](../index.assets/running_code.gif){ class="animation-figure" }
 
 <p align="center"> 图 0-3 &nbsp; 运行代码示例 </p>
 
@@ -205,13 +205,13 @@ git clone https://github.com/krahets/hello-algo.git
 
 当然，你也可以在图 0-4 所示的位置，点击“Download ZIP”直接下载代码压缩包，然后在本地解压即可。
 
-![克隆仓库与下载代码](suggestions.assets/download_code.png)
+![克隆仓库与下载代码](suggestions.assets/download_code.png){ class="animation-figure" }
 
 <p align="center"> 图 0-4 &nbsp; 克隆仓库与下载代码 </p>
 
 **第三步：运行源代码**。如图 0-5 所示，对于顶部标有文件名称的代码块，我们可以在仓库的 `codes` 文件夹内找到对应的源代码文件。源代码文件可一键运行，将帮助你节省不必要的调试时间，让你能够专注于学习内容。
 
-![代码块与对应的源代码文件](suggestions.assets/code_md_to_repo.png)
+![代码块与对应的源代码文件](suggestions.assets/code_md_to_repo.png){ class="animation-figure" }
 
 <p align="center"> 图 0-5 &nbsp; 代码块与对应的源代码文件 </p>
 
@@ -221,7 +221,7 @@ git clone https://github.com/krahets/hello-algo.git
 
 如图 0-6 所示，每篇文章的底部都配有评论区。希望你能多关注评论区的内容。一方面，你可以了解大家遇到的问题，从而查漏补缺，激发更深入的思考。另一方面，期待你能慷慨地回答其他小伙伴的问题，分享您的见解，帮助他人进步。
 
-![评论区示例](../index.assets/comment.gif)
+![评论区示例](../index.assets/comment.gif){ class="animation-figure" }
 
 <p align="center"> 图 0-6 &nbsp; 评论区示例 </p>
 
@@ -235,6 +235,6 @@ git clone https://github.com/krahets/hello-algo.git
 
 如图 0-7 所示，本书内容主要涵盖“第一阶段”，旨在帮助你更高效地展开第二和第三阶段的学习。
 
-![算法学习路线](suggestions.assets/learning_route.png)
+![算法学习路线](suggestions.assets/learning_route.png){ class="animation-figure" }
 
 <p align="center"> 图 0-7 &nbsp; 算法学习路线 </p>

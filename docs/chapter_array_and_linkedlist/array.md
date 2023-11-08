@@ -6,7 +6,7 @@ comments: true
 
 「数组 array」是一种线性数据结构，其将相同类型元素存储在连续的内存空间中。我们将元素在数组中的位置称为该元素的「索引 index」。图 4-1 展示了数组的主要术语和概念。
 
-![数组定义与存储方式](array.assets/array_definition.png)
+![数组定义与存储方式](array.assets/array_definition.png){ class="animation-figure" }
 
 <p align="center"> 图 4-1 &nbsp; 数组定义与存储方式 </p>
 
@@ -123,7 +123,7 @@ comments: true
 
 数组元素被存储在连续的内存空间中，这意味着计算数组元素的内存地址非常容易。给定数组内存地址（即首元素内存地址）和某个元素的索引，我们可以使用图 4-2 所示的公式计算得到该元素的内存地址，从而直接访问此元素。
 
-![数组元素的内存地址计算](array.assets/array_memory_location_calculation.png)
+![数组元素的内存地址计算](array.assets/array_memory_location_calculation.png){ class="animation-figure" }
 
 <p align="center"> 图 4-2 &nbsp; 数组元素的内存地址计算 </p>
 
@@ -291,7 +291,7 @@ comments: true
 
 数组元素在内存中是“紧挨着的”，它们之间没有空间再存放任何数据。如图 4-3 所示，如果想要在数组中间插入一个元素，则需要将该元素之后的所有元素都向后移动一位，之后再把元素赋值给该索引。
 
-![数组插入元素示例](array.assets/array_insert_element.png)
+![数组插入元素示例](array.assets/array_insert_element.png){ class="animation-figure" }
 
 <p align="center"> 图 4-3 &nbsp; 数组插入元素示例 </p>
 
@@ -468,7 +468,7 @@ comments: true
 
 同理，如图 4-4 所示，若想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。
 
-![数组删除元素示例](array.assets/array_remove_element.png)
+![数组删除元素示例](array.assets/array_remove_element.png){ class="animation-figure" }
 
 <p align="center"> 图 4-4 &nbsp; 数组删除元素示例 </p>
 

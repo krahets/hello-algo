@@ -8,7 +8,7 @@ comments: true
 
     给定一个二叉树的前序遍历 `preorder` 和中序遍历 `inorder` ，请从中构建二叉树，返回二叉树的根节点。假设二叉树中没有值重复的节点。
 
-![构建二叉树的示例数据](build_binary_tree_problem.assets/build_tree_example.png)
+![构建二叉树的示例数据](build_binary_tree_problem.assets/build_tree_example.png){ class="animation-figure" }
 
 <p align="center"> 图 12-5 &nbsp; 构建二叉树的示例数据 </p>
 
@@ -35,7 +35,7 @@ comments: true
 2. 查找根节点 3 在 `inorder` 中的索引，利用该索引可将 `inorder` 划分为 `[ 9 | 3 ｜ 1 2 7 ]` 。
 3. 根据 `inorder` 划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 `preorder` 划分为 `[ 3 | 9 | 2 1 7 ]` 。
 
-![在前序和中序遍历中划分子树](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
+![在前序和中序遍历中划分子树](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png){ class="animation-figure" }
 
 <p align="center"> 图 12-6 &nbsp; 在前序和中序遍历中划分子树 </p>
 
@@ -63,7 +63,7 @@ comments: true
 
 请注意，右子树根节点索引中的 $(m-l)$ 的含义是“左子树的节点数量”，建议配合图 12-7 理解。
 
-![根节点和左右子树的索引区间表示](build_binary_tree_problem.assets/build_tree_division_pointers.png)
+![根节点和左右子树的索引区间表示](build_binary_tree_problem.assets/build_tree_division_pointers.png){ class="animation-figure" }
 
 <p align="center"> 图 12-7 &nbsp; 根节点和左右子树的索引区间表示 </p>
 
@@ -448,37 +448,37 @@ comments: true
 图 12-8 展示了构建二叉树的递归过程，各个节点是在向下“递”的过程中建立的，而各条边（即引用）是在向上“归”的过程中建立的。
 
 === "<1>"
-    ![构建二叉树的递归过程](build_binary_tree_problem.assets/built_tree_step1.png)
+    ![构建二叉树的递归过程](build_binary_tree_problem.assets/built_tree_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.png)
+    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.png)
+    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.png)
+    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.png)
+    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.png)
+    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.png)
+    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.png){ class="animation-figure" }
 
 === "<8>"
-    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.png)
+    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.png){ class="animation-figure" }
 
 === "<9>"
-    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.png)
+    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.png){ class="animation-figure" }
 
 <p align="center"> 图 12-8 &nbsp; 构建二叉树的递归过程 </p>
 
 每个递归函数内的前序遍历 `preorder` 和中序遍历 `inorder` 的划分结果如图 12-9 所示。
 
-![每个递归函数中的划分结果](build_binary_tree_problem.assets/built_tree_overall.png)
+![每个递归函数中的划分结果](build_binary_tree_problem.assets/built_tree_overall.png){ class="animation-figure" }
 
 <p align="center"> 图 12-9 &nbsp; 每个递归函数中的划分结果 </p>
 

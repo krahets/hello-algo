@@ -24,7 +24,7 @@ comments: true
 
 在分析一段程序的空间复杂度时，**我们通常统计暂存数据、栈帧空间和输出数据三部分**。
 
-![算法使用的相关空间](space_complexity.assets/space_types.png)
+![算法使用的相关空间](space_complexity.assets/space_types.png){ class="animation-figure" }
 
 <p align="center"> 图 2-15 &nbsp; 算法使用的相关空间 </p>
 
@@ -717,7 +717,7 @@ O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
 \end{aligned}
 $$
 
-![常见的空间复杂度类型](space_complexity.assets/space_complexity_common_types.png)
+![常见的空间复杂度类型](space_complexity.assets/space_complexity_common_types.png){ class="animation-figure" }
 
 <p align="center"> 图 2-16 &nbsp; 常见的空间复杂度类型 </p>
 
@@ -1463,7 +1463,7 @@ $$
     }
     ```
 
-![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png)
+![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png){ class="animation-figure" }
 
 <p align="center"> 图 2-17 &nbsp; 递归函数产生的线性阶空间复杂度 </p>
 
@@ -1842,7 +1842,7 @@ $$
     }
     ```
 
-![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png)
+![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png){ class="animation-figure" }
 
 <p align="center"> 图 2-18 &nbsp; 递归函数产生的平方阶空间复杂度 </p>
 
@@ -2015,7 +2015,7 @@ $$
     }
     ```
 
-![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.png)
+![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.png){ class="animation-figure" }
 
 <p align="center"> 图 2-19 &nbsp; 满二叉树产生的指数阶空间复杂度 </p>
 

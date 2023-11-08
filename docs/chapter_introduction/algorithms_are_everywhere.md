@@ -15,19 +15,19 @@ comments: true
 3. 不断重复步骤 `1.` 和 步骤 `2.` ，直至找到拼音首字母为 $r$ 的页码为止。
 
 === "<1>"
-    ![查字典步骤](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
+    ![查字典步骤](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png){ class="animation-figure" }
 
 <p align="center"> 图 1-1 &nbsp; 查字典步骤 </p>
 
@@ -39,7 +39,7 @@ comments: true
 2. 在无序部分抽出一张扑克牌，插入至有序部分的正确位置；完成后最左 2 张扑克已经有序。
 3. 不断循环步骤 `2.` ，每一轮将一张扑克牌从无序部分插入至有序部分，直至所有扑克牌都有序。
 
-![扑克排序步骤](algorithms_are_everywhere.assets/playing_cards_sorting.png)
+![扑克排序步骤](algorithms_are_everywhere.assets/playing_cards_sorting.png){ class="animation-figure" }
 
 <p align="center"> 图 1-2 &nbsp; 扑克排序步骤 </p>
 
@@ -53,7 +53,7 @@ comments: true
 4. 从剩余可选项中拿出最大的 $1$ 元，剩余 $1 - 1 = 0$ 元。
 5. 完成找零，方案为 $20 + 10 + 1 = 31$ 元。
 
-![货币找零过程](algorithms_are_everywhere.assets/greedy_change.png)
+![货币找零过程](algorithms_are_everywhere.assets/greedy_change.png){ class="animation-figure" }
 
 <p align="center"> 图 1-3 &nbsp; 货币找零过程 </p>
 

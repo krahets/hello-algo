@@ -7,7 +7,7 @@ icon: material/set-split
 
 <div class="center-table" markdown>
 
-![分治](../assets/covers/chapter_divide_and_conquer.jpg){ width="600" }
+![分治](../assets/covers/chapter_divide_and_conquer.jpg){ class="cover-image" }
 
 </div>
 

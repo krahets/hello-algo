@@ -16,7 +16,7 @@ $$
 
 如果将顶点看作节点，将边看作连接各个节点的引用（指针），我们就可以将图看作是一种从链表拓展而来的数据结构。如图 9-1 所示，**相较于线性关系（链表）和分治关系（树），网络关系（图）的自由度更高**，从而更为复杂。
 
-![链表、树、图之间的关系](graph.assets/linkedlist_tree_graph.png)
+![链表、树、图之间的关系](graph.assets/linkedlist_tree_graph.png){ class="animation-figure" }
 
 <p align="center"> 图 9-1 &nbsp; 链表、树、图之间的关系 </p>
 
@@ -27,7 +27,7 @@ $$
 - 在无向图中，边表示两顶点之间的“双向”连接关系，例如微信或 QQ 中的“好友关系”。
 - 在有向图中，边具有方向性，即 $A \rightarrow B$ 和 $A \leftarrow B$ 两个方向的边是相互独立的，例如微博或抖音上的“关注”与“被关注”关系。
 
-![有向图与无向图](graph.assets/directed_graph.png)
+![有向图与无向图](graph.assets/directed_graph.png){ class="animation-figure" }
 
 <p align="center"> 图 9-2 &nbsp; 有向图与无向图 </p>
 
@@ -36,13 +36,13 @@ $$
 - 对于连通图，从某个顶点出发，可以到达其余任意顶点。
 - 对于非连通图，从某个顶点出发，至少有一个顶点无法到达。
 
-![连通图与非连通图](graph.assets/connected_graph.png)
+![连通图与非连通图](graph.assets/connected_graph.png){ class="animation-figure" }
 
 <p align="center"> 图 9-3 &nbsp; 连通图与非连通图 </p>
 
 我们还可以为边添加“权重”变量，从而得到图 9-4 所示的「有权图 weighted graph」。例如在王者荣耀等手游中，系统会根据共同游戏时间来计算玩家之间的“亲密度”，这种亲密度网络就可以用有权图来表示。
 
-![有权图与无权图](graph.assets/weighted_graph.png)
+![有权图与无权图](graph.assets/weighted_graph.png){ class="animation-figure" }
 
 <p align="center"> 图 9-4 &nbsp; 有权图与无权图 </p>
 
@@ -62,7 +62,7 @@ $$
 
 如图 9-5 所示，设邻接矩阵为 $M$、顶点列表为 $V$ ，那么矩阵元素 $M[i, j] = 1$ 表示顶点 $V[i]$ 到顶点 $V[j]$ 之间存在边，反之 $M[i, j] = 0$ 表示两顶点之间无边。
 
-![图的邻接矩阵表示](graph.assets/adjacency_matrix.png)
+![图的邻接矩阵表示](graph.assets/adjacency_matrix.png){ class="animation-figure" }
 
 <p align="center"> 图 9-5 &nbsp; 图的邻接矩阵表示 </p>
 
@@ -78,7 +78,7 @@ $$
 
 「邻接表 adjacency list」使用 $n$ 个链表来表示图，链表节点表示顶点。第 $i$ 条链表对应顶点 $i$ ，其中存储了该顶点的所有邻接顶点（即与该顶点相连的顶点）。图 9-6 展示了一个使用邻接表存储的图的示例。
 
-![图的邻接表表示](graph.assets/adjacency_list.png)
+![图的邻接表表示](graph.assets/adjacency_list.png){ class="animation-figure" }
 
 <p align="center"> 图 9-6 &nbsp; 图的邻接表表示 </p>
 

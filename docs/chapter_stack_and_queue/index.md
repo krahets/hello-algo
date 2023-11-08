@@ -7,7 +7,7 @@ icon: material/stack-overflow
 
 <div class="center-table" markdown>
 
-![栈与队列](../assets/covers/chapter_stack_and_queue.jpg){ width="600" }
+![栈与队列](../assets/covers/chapter_stack_and_queue.jpg){ class="cover-image" }
 
 </div>
 

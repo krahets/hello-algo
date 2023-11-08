@@ -20,7 +20,7 @@ comments: true
 
 图 3-4 展示了原码、反码和补码之间的转换方法。
 
-![原码、反码与补码之间的相互转换](number_encoding.assets/1s_2s_complement.png)
+![原码、反码与补码之间的相互转换](number_encoding.assets/1s_2s_complement.png){ class="animation-figure" }
 
 <p align="center"> 图 3-4 &nbsp; 原码、反码与补码之间的相互转换 </p>
 
@@ -129,7 +129,7 @@ $$
 \end{aligned}
 $$
 
-![IEEE 754 标准下的 float 的计算示例](number_encoding.assets/ieee_754_float.png)
+![IEEE 754 标准下的 float 的计算示例](number_encoding.assets/ieee_754_float.png){ class="animation-figure" }
 
 <p align="center"> 图 3-5 &nbsp; IEEE 754 标准下的 float 的计算示例 </p>
 

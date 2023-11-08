@@ -9,7 +9,7 @@ comments: true
 - 「大顶堆 max heap」：任意节点的值 $\geq$ 其子节点的值。
 - 「小顶堆 min heap」：任意节点的值 $\leq$ 其子节点的值。
 
-![小顶堆与大顶堆](heap.assets/min_heap_and_max_heap.png)
+![小顶堆与大顶堆](heap.assets/min_heap_and_max_heap.png){ class="animation-figure" }
 
 <p align="center"> 图 8-1 &nbsp; 小顶堆与大顶堆 </p>
 
@@ -367,7 +367,7 @@ comments: true
 
 如图 8-2 所示，给定索引 $i$ ，其左子节点索引为 $2i + 1$ ，右子节点索引为 $2i + 2$ ，父节点索引为 $(i - 1) / 2$（向下取整）。当索引越界时，表示空节点或节点不存在。
 
-![堆的表示与存储](heap.assets/representation_of_heap.png)
+![堆的表示与存储](heap.assets/representation_of_heap.png){ class="animation-figure" }
 
 <p align="center"> 图 8-2 &nbsp; 堆的表示与存储 </p>
 
@@ -718,31 +718,31 @@ comments: true
 考虑从入堆节点开始，**从底至顶执行堆化**。如图 8-3 所示，我们比较插入节点与其父节点的值，如果插入节点更大，则将它们交换。然后继续执行此操作，从底至顶修复堆中的各个节点，直至越过根节点或遇到无须交换的节点时结束。
 
 === "<1>"
-    ![元素入堆步骤](heap.assets/heap_push_step1.png)
+    ![元素入堆步骤](heap.assets/heap_push_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![heap_push_step2](heap.assets/heap_push_step2.png)
+    ![heap_push_step2](heap.assets/heap_push_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![heap_push_step3](heap.assets/heap_push_step3.png)
+    ![heap_push_step3](heap.assets/heap_push_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![heap_push_step4](heap.assets/heap_push_step4.png)
+    ![heap_push_step4](heap.assets/heap_push_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![heap_push_step5](heap.assets/heap_push_step5.png)
+    ![heap_push_step5](heap.assets/heap_push_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![heap_push_step6](heap.assets/heap_push_step6.png)
+    ![heap_push_step6](heap.assets/heap_push_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![heap_push_step7](heap.assets/heap_push_step7.png)
+    ![heap_push_step7](heap.assets/heap_push_step7.png){ class="animation-figure" }
 
 === "<8>"
-    ![heap_push_step8](heap.assets/heap_push_step8.png)
+    ![heap_push_step8](heap.assets/heap_push_step8.png){ class="animation-figure" }
 
 === "<9>"
-    ![heap_push_step9](heap.assets/heap_push_step9.png)
+    ![heap_push_step9](heap.assets/heap_push_step9.png){ class="animation-figure" }
 
 <p align="center"> 图 8-3 &nbsp; 元素入堆步骤 </p>
 
@@ -1095,34 +1095,34 @@ comments: true
 如图 8-4 所示，**“从顶至底堆化”的操作方向与“从底至顶堆化”相反**，我们将根节点的值与其两个子节点的值进行比较，将最大的子节点与根节点交换。然后循环执行此操作，直到越过叶节点或遇到无须交换的节点时结束。
 
 === "<1>"
-    ![堆顶元素出堆步骤](heap.assets/heap_pop_step1.png)
+    ![堆顶元素出堆步骤](heap.assets/heap_pop_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![heap_pop_step2](heap.assets/heap_pop_step2.png)
+    ![heap_pop_step2](heap.assets/heap_pop_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![heap_pop_step3](heap.assets/heap_pop_step3.png)
+    ![heap_pop_step3](heap.assets/heap_pop_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![heap_pop_step4](heap.assets/heap_pop_step4.png)
+    ![heap_pop_step4](heap.assets/heap_pop_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![heap_pop_step5](heap.assets/heap_pop_step5.png)
+    ![heap_pop_step5](heap.assets/heap_pop_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![heap_pop_step6](heap.assets/heap_pop_step6.png)
+    ![heap_pop_step6](heap.assets/heap_pop_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![heap_pop_step7](heap.assets/heap_pop_step7.png)
+    ![heap_pop_step7](heap.assets/heap_pop_step7.png){ class="animation-figure" }
 
 === "<8>"
-    ![heap_pop_step8](heap.assets/heap_pop_step8.png)
+    ![heap_pop_step8](heap.assets/heap_pop_step8.png){ class="animation-figure" }
 
 === "<9>"
-    ![heap_pop_step9](heap.assets/heap_pop_step9.png)
+    ![heap_pop_step9](heap.assets/heap_pop_step9.png){ class="animation-figure" }
 
 === "<10>"
-    ![heap_pop_step10](heap.assets/heap_pop_step10.png)
+    ![heap_pop_step10](heap.assets/heap_pop_step10.png){ class="animation-figure" }
 
 <p align="center"> 图 8-4 &nbsp; 堆顶元素出堆步骤 </p>
 

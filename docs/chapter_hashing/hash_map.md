@@ -8,7 +8,7 @@ comments: true
 
 如图 6-1 所示，给定 $n$ 个学生，每个学生都有“姓名”和“学号”两项数据。假如我们希望实现“输入一个学号，返回对应的姓名”的查询功能，则可以采用图 6-1 所示的哈希表来实现。
 
-![哈希表的抽象表示](hash_map.assets/hash_table_lookup.png)
+![哈希表的抽象表示](hash_map.assets/hash_table_lookup.png){ class="animation-figure" }
 
 <p align="center"> 图 6-1 &nbsp; 哈希表的抽象表示 </p>
 
@@ -493,7 +493,7 @@ index = hash(key) % capacity
 
 设数组长度 `capacity = 100`、哈希算法 `hash(key) = key` ，易得哈希函数为 `key % 100` 。图 6-2 以 `key` 学号和 `value` 姓名为例，展示了哈希函数的工作原理。
 
-![哈希函数工作原理](hash_map.assets/hash_function.png)
+![哈希函数工作原理](hash_map.assets/hash_function.png){ class="animation-figure" }
 
 <p align="center"> 图 6-2 &nbsp; 哈希函数工作原理 </p>
 
@@ -1650,7 +1650,7 @@ index = hash(key) % capacity
 
 如图 6-3 所示，两个学号指向了同一个姓名，这显然是不对的。我们将这种多个输入对应同一输出的情况称为「哈希冲突 hash collision」。
 
-![哈希冲突示例](hash_map.assets/hash_collision.png)
+![哈希冲突示例](hash_map.assets/hash_collision.png){ class="animation-figure" }
 
 <p align="center"> 图 6-3 &nbsp; 哈希冲突示例 </p>
 
@@ -1658,7 +1658,7 @@ index = hash(key) % capacity
 
 如图 6-4 所示，扩容前键值对 `(136, A)` 和 `(236, D)` 发生冲突，扩容后冲突消失。
 
-![哈希表扩容](hash_map.assets/hash_table_reshash.png)
+![哈希表扩容](hash_map.assets/hash_table_reshash.png){ class="animation-figure" }
 
 <p align="center"> 图 6-4 &nbsp; 哈希表扩容 </p>
 

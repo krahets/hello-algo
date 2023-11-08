@@ -7,7 +7,7 @@ icon: material/sort-ascending
 
 <div class="center-table" markdown>
 
-![排序](../assets/covers/chapter_sorting.jpg){ width="600" }
+![排序](../assets/covers/chapter_sorting.jpg){ class="cover-image" }
 
 </div>
 

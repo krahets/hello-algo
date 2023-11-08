@@ -7,7 +7,7 @@ icon: material/table-search
 
 <div class="center-table" markdown>
 
-![哈希表](../assets/covers/chapter_hashing.jpg){ width="600" }
+![哈希表](../assets/covers/chapter_hashing.jpg){ class="cover-image" }
 
 </div>
 
