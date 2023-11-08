@@ -35,7 +35,9 @@ def show_trunks(p: Trunk | None):
     print(p.str, end="")
 
 
-def print_tree(root: TreeNode | None, prev: Trunk | None = None, is_right: bool = False):
+def print_tree(
+    root: TreeNode | None, prev: Trunk | None = None, is_right: bool = False
+):
     """
     Print a binary tree
     This tree printer is borrowed from TECHIE DELIGHT
