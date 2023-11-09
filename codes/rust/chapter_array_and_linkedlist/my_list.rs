@@ -42,13 +42,13 @@ impl MyList {
     /* 访问元素 */
     pub fn get(&self, index: usize) -> i32 {
         // 索引如果越界则抛出异常，下同
-        if index < 0 || index >= self.size {panic!("索引越界")};
+        if index >= self.size {panic!("索引越界")};
         return self.arr[index];
     }
 
     /* 更新元素 */
     pub fn set(&mut self, index: usize, num: i32) {
-        if index < 0 || index >= self.size {panic!("索引越界")};
+        if index >= self.size {panic!("索引越界")};
         self.arr[index] = num;
     }
 
@@ -65,7 +65,7 @@ impl MyList {
 
     /* 中间插入元素 */
     pub fn insert(&mut self, index: usize, num: i32) {
-        if index < 0 || index >= self.size() {panic!("索引越界")};
+        if index >= self.size() {panic!("索引越界")};
         // 元素数量超出容量时，触发扩容机制
         if self.size == self.capacity() {
             self.extend_capacity();
@@ -81,7 +81,7 @@ impl MyList {
 
     /* 删除元素 */
     pub fn remove(&mut self, index: usize) -> i32 {
-        if index < 0 || index >= self.size() {panic!("索引越界")};
+        if index >= self.size() {panic!("索引越界")};
         let num = self.arr[index];
         // 将索引 index 之后的元素都向前移动一位
         for j in (index..self.size - 1) {
