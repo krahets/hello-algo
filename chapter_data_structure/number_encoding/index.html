@@ -3368,7 +3368,7 @@
 <p><a class="glightbox" href="../number_encoding.assets/1s_2s_complement.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="原码、反码与补码之间的相互转换" class="animation-figure" src="../number_encoding.assets/1s_2s_complement.png" /></a></p>
 <p align="center"> 图 3-4 &nbsp; 原码、反码与补码之间的相互转换 </p>
 
-<p>「原码 true form」虽然最直观，但存在一些局限性。一方面，<strong>负数的原码不能直接用于运算</strong>。例如在原码下计算 <span class="arithmatex">\(1 + (-2)\)</span> ，得到的结果是 <span class="arithmatex">\(-3\)</span> ，这显然是不对的。</p>
+<p>「原码 sign–magnitude」虽然最直观，但存在一些局限性。一方面，<strong>负数的原码不能直接用于运算</strong>。例如在原码下计算 <span class="arithmatex">\(1 + (-2)\)</span> ，得到的结果是 <span class="arithmatex">\(-3\)</span> ，这显然是不对的。</p>
 <div class="arithmatex">\[
 \begin{aligned}
 &amp; 1 + (-2) \newline
@@ -3377,7 +3377,7 @@
 &amp; \rightarrow -3
 \end{aligned}
 \]</div>
-<p>为了解决此问题，计算机引入了「反码 1's complement code」。如果我们先将原码转换为反码，并在反码下计算 <span class="arithmatex">\(1 + (-2)\)</span> ，最后将结果从反码转化回原码，则可得到正确结果 <span class="arithmatex">\(-1\)</span> 。</p>
+<p>为了解决此问题，计算机引入了「反码 1's complement」。如果我们先将原码转换为反码，并在反码下计算 <span class="arithmatex">\(1 + (-2)\)</span> ，最后将结果从反码转化回原码，则可得到正确结果 <span class="arithmatex">\(-1\)</span> 。</p>
 <div class="arithmatex">\[
 \begin{aligned}
 &amp; 1 + (-2) \newline
@@ -3395,7 +3395,7 @@
 -0 &amp; \rightarrow 1000 \; 0000
 \end{aligned}
 \]</div>
-<p>与原码一样，反码也存在正负零歧义问题，因此计算机进一步引入了「补码 2's complement code」。我们先来观察一下负零的原码、反码、补码的转换过程：</p>
+<p>与原码一样，反码也存在正负零歧义问题，因此计算机进一步引入了「补码 2's complement」。我们先来观察一下负零的原码、反码、补码的转换过程：</p>
 <div class="arithmatex">\[
 \begin{aligned}
 -0 \rightarrow \; &amp; 1000 \; 0000 \; \text{(原码)} \newline

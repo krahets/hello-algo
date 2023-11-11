@@ -3381,7 +3381,7 @@
 <div class="admonition question">
 <p class="admonition-title">删除节点后，是否需要把 <code>P.next</code> 设为 <span class="arithmatex">\(\text{None}\)</span> 呢？</p>
 <p>不修改 <code>P.next</code> 也可以。从该链表的角度看，从头节点遍历到尾节点已经遇不到 <code>P</code> 了。这意味着节点 <code>P</code> 已经从链表中删除了，此时节点 <code>P</code> 指向哪里都不会对这条链表产生影响了。</p>
-<p>从垃圾回收的角度看，对于 Java、Python、Go 等拥有自动垃圾回收的语言来说，节点 <code>P</code> 是否被回收取决于是否有仍存在指向它的引用，而不是 <code>P.next</code> 的值。在 C 和 C++ 等语言中，我们需要手动释放节点内存。</p>
+<p>从垃圾回收的角度看，对于 Java、Python、Go 等拥有自动垃圾回收的语言来说，节点 <code>P</code> 是否被回收取决于是否仍存在指向它的引用，而不是 <code>P.next</code> 的值。在 C 和 C++ 等语言中，我们需要手动释放节点内存。</p>
 </div>
 <div class="admonition question">
 <p class="admonition-title">在链表中插入和删除操作的时间复杂度是 <span class="arithmatex">\(O(1)\)</span> 。但是增删之前都需要 <span class="arithmatex">\(O(n)\)</span> 查找元素，那为什么时间复杂度不是 <span class="arithmatex">\(O(n)\)</span> 呢？</p>
