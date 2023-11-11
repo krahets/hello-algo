@@ -52,7 +52,7 @@ function traverse(nums) {
     for (let i = 0; i < nums.length; i++) {
         count++;
     }
-    // 直接遍历数组
+    // 直接遍历数组元素
     for (const num of nums) {
         count += 1;
     }

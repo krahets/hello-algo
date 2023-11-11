@@ -54,7 +54,7 @@ void traverse(List nums) {
   for (var i = 0; i < nums.length; i++) {
     count++;
   }
-  // 直接遍历数组
+  // 直接遍历数组元素
   for (var num in nums) {
     count++;
   }

@@ -54,7 +54,7 @@ fn traverse(nums: &[i32]) {
     for _ in 0..nums.len() {
         _count += 1;
     }
-    // 直接遍历数组
+    // 直接遍历数组元素
     for _ in nums {
         _count += 1;
     }

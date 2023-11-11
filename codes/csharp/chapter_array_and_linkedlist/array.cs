@@ -52,7 +52,7 @@ public class array {
         for (int i = 0; i < nums.Length; i++) {
             count++;
         }
-        // 直接遍历数组
+        // 直接遍历数组元素
         foreach (int num in nums) {
             count++;
         }

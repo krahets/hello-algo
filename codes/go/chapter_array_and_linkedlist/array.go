@@ -55,7 +55,7 @@ func traverse(nums []int) {
 		count++
 	}
 	count = 0
-	// 直接遍历数组
+	// 直接遍历数组元素
 	for range nums {
 		count++
 	}

@@ -51,7 +51,7 @@ func traverse(nums: [Int]) {
     for _ in nums.indices {
         count += 1
     }
-    // 直接遍历数组
+    // 直接遍历数组元素
     for _ in nums {
         count += 1
     }

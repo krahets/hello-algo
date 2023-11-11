@@ -51,7 +51,7 @@ def traverse(nums: list[int]):
     # 通过索引遍历数组
     for i in range(len(nums)):
         count += 1
-    # 直接遍历数组
+    # 直接遍历数组元素
     for num in nums:
         count += 1
     # 同时遍历数据索引和元素

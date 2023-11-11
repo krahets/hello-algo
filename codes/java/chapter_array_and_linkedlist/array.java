@@ -56,7 +56,7 @@ public class array {
         for (int i = 0; i < nums.length; i++) {
             count++;
         }
-        // 直接遍历数组
+        // 直接遍历数组元素
         for (int num : nums) {
             count++;
         }

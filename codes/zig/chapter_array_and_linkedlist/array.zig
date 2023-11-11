@@ -54,7 +54,7 @@ pub fn traverse(nums: []i32) void {
         count += 1;
     }
     count = 0;
-    // 直接遍历数组
+    // 直接遍历数组元素
     for (nums) |_| {
         count += 1;
     }
