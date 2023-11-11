@@ -637,13 +637,14 @@ comments: true
         count = 0
         # 通过索引遍历数组
         for i in range(len(nums)):
-            count += 1
-        # 直接遍历数组
+            count += nums[i]
+        # 直接遍历数组元素
         for num in nums:
-            count += 1
+            count += num
         # 同时遍历数据索引和元素
         for i, num in enumerate(nums):
-            count += 1
+            count += nums[i]
+            count += num
     ```
 
 === "C++"
@@ -654,7 +655,7 @@ comments: true
         int count = 0;
         // 通过索引遍历数组
         for (int i = 0; i < size; i++) {
-            count++;
+            count += nums[i];
         }
     }
     ```
@@ -667,11 +668,11 @@ comments: true
         int count = 0;
         // 通过索引遍历数组
         for (int i = 0; i < nums.length; i++) {
-            count++;
+            count += nums[i];
         }
-        // 直接遍历数组
+        // 直接遍历数组元素
         for (int num : nums) {
-            count++;
+            count += num;
         }
     }
     ```
@@ -684,11 +685,11 @@ comments: true
         int count = 0;
         // 通过索引遍历数组
         for (int i = 0; i < nums.Length; i++) {
-            count++;
+            count += nums[i];
         }
-        // 直接遍历数组
+        // 直接遍历数组元素
         foreach (int num in nums) {
-            count++;
+            count += num;
         }
     }
     ```
@@ -701,12 +702,17 @@ comments: true
         count := 0
         // 通过索引遍历数组
         for i := 0; i < len(nums); i++ {
-            count++
+            count += nums[i]
         }
         count = 0
-        // 直接遍历数组
-        for range nums {
-            count++
+        // 直接遍历数组元素
+        for _, num := range nums {
+            count += num
+        }
+        // 同时遍历数据索引和元素
+        for i, num := range nums {
+            count += nums[i]
+            count += num
         }
     }
     ```
@@ -718,12 +724,12 @@ comments: true
     func traverse(nums: [Int]) {
         var count = 0
         // 通过索引遍历数组
-        for _ in nums.indices {
-            count += 1
+        for i in nums.indices {
+            count += nums[i]
         }
-        // 直接遍历数组
-        for _ in nums {
-            count += 1
+        // 直接遍历数组元素
+        for num in nums {
+            count += num
         }
     }
     ```
@@ -736,11 +742,11 @@ comments: true
         let count = 0;
         // 通过索引遍历数组
         for (let i = 0; i < nums.length; i++) {
-            count++;
+            count += nums[i];
         }
-        // 直接遍历数组
+        // 直接遍历数组元素
         for (const num of nums) {
-            count += 1;
+            count += num;
         }
     }
     ```
@@ -753,11 +759,11 @@ comments: true
         let count = 0;
         // 通过索引遍历数组
         for (let i = 0; i < nums.length; i++) {
-            count++;
+            count += nums[i];
         }
-        // 直接遍历数组
+        // 直接遍历数组元素
         for (const num of nums) {
-            count += 1;
+            count += num;
         }
     }
     ```
@@ -770,15 +776,15 @@ comments: true
       var count = 0;
       // 通过索引遍历数组
       for (var i = 0; i < nums.length; i++) {
-        count++;
+        count += nums[i];
       }
-      // 直接遍历数组
+      // 直接遍历数组元素
       for (var num in nums) {
-        count++;
+        count += nums[i];
       }
       // 通过 forEach 方法遍历数组
       nums.forEach((element) {
-        count++;
+        count += element;
       });
     }
     ```
@@ -790,12 +796,12 @@ comments: true
     fn traverse(nums: &[i32]) {
         let mut _count = 0;
         // 通过索引遍历数组
-        for _ in 0..nums.len() {
-            _count += 1;
+        for i in 0..nums.len() {
+            _count += nums[i];
         }
-        // 直接遍历数组
-        for _ in nums {
-            _count += 1;
+        // 直接遍历数组元素
+        for num in nums {
+            _count += num;
         }
     }
     ```
@@ -808,7 +814,7 @@ comments: true
         int count = 0;
         // 通过索引遍历数组
         for (int i = 0; i < size; i++) {
-            count++;
+            count += nums[i];
         }
     }
     ```
@@ -822,12 +828,12 @@ comments: true
         // 通过索引遍历数组
         var i: i32 = 0;
         while (i < nums.len) : (i += 1) {
-            count += 1;
+            count += nums[i];
         }
         count = 0;
-        // 直接遍历数组
-        for (nums) |_| {
-            count += 1;
+        // 直接遍历数组元素
+        for (nums) |num| {
+            count += num;
         }
     }
     ```
