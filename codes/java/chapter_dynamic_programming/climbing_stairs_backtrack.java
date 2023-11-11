@@ -18,7 +18,7 @@ public class climbing_stairs_backtrack {
         for (Integer choice : choices) {
             // 剪枝：不允许越过第 n 阶
             if (state + choice > n)
-                break;
+                continue;
             // 尝试：做出选择，更新状态
             backtrack(choices, state + choice, n, res);
             // 回退

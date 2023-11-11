@@ -14,7 +14,7 @@ func backtrack(choices: [Int], state: Int, n: Int, res: inout [Int]) {
     for choice in choices {
         // 剪枝：不允许越过第 n 阶
         if state + choice > n {
-            break
+            continue
         }
         backtrack(choices: choices, state: state + choice, n: n, res: &res)
     }

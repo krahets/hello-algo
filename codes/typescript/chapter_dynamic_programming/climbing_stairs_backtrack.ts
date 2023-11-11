@@ -16,7 +16,7 @@ function backtrack(
     // 遍历所有选择
     for (const choice of choices) {
         // 剪枝：不允许越过第 n 阶
-        if (state + choice > n) break;
+        if (state + choice > n) continue;
         // 尝试：做出选择，更新状态
         backtrack(choices, state + choice, n, res);
         // 回退
