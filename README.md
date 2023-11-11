@@ -1,7 +1,6 @@
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/hello_algo_header.png" width="450">
-  </a>
+    <img src="https://www.hello-algo.com/index.assets/hello_algo_header.png" width="450"></a>
 </p>
 
 <p align="center">
@@ -12,11 +11,9 @@
 
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.png" width="155">
-  </a>
+    <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.png" width="155"></a>
   <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_dark.png" width="155">
-  </a>
+    <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_dark.png" width="155"></a>
 </p>
 
 <p align="center">
