@@ -14,7 +14,7 @@ hide:
 
 <h2 align="center">Hello Algo</h2>
 
-<p align="center"> Data Structures and Algorithms: Animated Illutrations and Off-the-Shelf Code </p>
+<p align="center"> Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code </p>
 
 <p align="center">
   <a href="https://github.com/krahets/hello-algo">
