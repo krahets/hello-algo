@@ -52,7 +52,7 @@ void traverse(int *nums, int size) {
     int count = 0;
     // 通过索引遍历数组
     for (int i = 0; i < size; i++) {
-        count++;
+        count += nums[i];
     }
 }
 

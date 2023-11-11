@@ -42,14 +42,13 @@ enum List {
 
         /* 通过索引遍历列表 */
         var count = 0
-        for _ in nums.indices {
-            count += 1
+        for i in nums.indices {
+            count += nums[i]
         }
-
         /* 直接遍历列表元素 */
         count = 0
-        for _ in nums {
-            count += 1
+        for x in nums {
+            count += x
         }
 
         /* 拼接两个列表 */

@@ -48,12 +48,12 @@ func remove(nums: inout [Int], index: Int) {
 func traverse(nums: [Int]) {
     var count = 0
     // 通过索引遍历数组
-    for _ in nums.indices {
-        count += 1
+    for i in nums.indices {
+        count += nums[i]
     }
     // 直接遍历数组元素
-    for _ in nums {
-        count += 1
+    for num in nums {
+        count += num
     }
 }
 

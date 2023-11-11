@@ -52,15 +52,15 @@ void traverse(List nums) {
   var count = 0;
   // 通过索引遍历数组
   for (var i = 0; i < nums.length; i++) {
-    count++;
+    count += nums[i];
   }
   // 直接遍历数组元素
   for (var num in nums) {
-    count++;
+    count += nums[i];
   }
   // 通过 forEach 方法遍历数组
   nums.forEach((element) {
-    count++;
+    count += element;
   });
 }
 
