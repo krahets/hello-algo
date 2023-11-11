@@ -54,11 +54,10 @@ pub fn main() !void {
     while (i < nums.items.len) : (i += 1) {
         count += nums[i];
     }
-
     // 直接遍历列表元素
     count = 0;
-    for (nums.items) |num| {
-        count += num;
+    for (nums.items) |x| {
+        count += x;
     }
 
     // 拼接两个列表
