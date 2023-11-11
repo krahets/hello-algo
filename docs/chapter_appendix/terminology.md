@@ -17,13 +17,13 @@
 | 递归树         | recursion tree                 |
 | 大 $O$ 记号    | big-$O$ notation               |
 | 渐近上界       | asymptotic upper bound         |
-| 原码           | true form                      |
-| 反码           | 1's complement code            |
-| 补码           | 2's complement code            |
+| 原码           | sign–magnitude                 |
+| 反码           | 1's complement                 |
+| 补码           | 2's complement                 |
 | 数组           | array                          |
 | 索引           | index                          |
 | 链表           | linked list                    |
-| 链表节点       | linked list node, list node     |
+| 链表节点       | linked list node, list node    |
 | 列表           | list                           |
 | 动态数组       | dynamic array                  |
 | 栈             | stack                          |
@@ -56,8 +56,8 @@
 | 完全二叉树     | complete binary tree           |
 | 完满二叉树     | full binary tree               |
 | 平衡二叉树     | balanced binary tree           |
-| AVL 树        | AVL tree                       |
-| 红黑树         | red-black tree                |
+| AVL 树         | AVL tree                       |
+| 红黑树         | red-black tree                 |
 | 层序遍历       | level-order traversal          |
 | 广度优先遍历   | breadth-first traversal        |
 | 深度优先遍历   | depth-first traversal          |
