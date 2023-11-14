@@ -43,7 +43,7 @@ Complexity analysis illustrates the relationship between the time (and space) re
 
 Complexity analysis provides us with a 'ruler' for evaluating the efficiency of algorithms, enabling us to measure the time and space resources required to execute a given algorithm and to compare the efficiency of different algorithms.
 
-Complexity is a mathematical concept that might seem abstract and somewhat challenging for beginners. From this perspective, introducing complexity analysis at the very beginning may not be the most suitable approach. However, when discussing the characteristics of a particular data structure or algorithm, analyzing its operational speed and space usage is often unavoidable.
+Complexity is a mathematical concept that might seem abstract and somewhat challenging for beginners. From this perspective, introducing complexity analysis at the very beginning may not be the most suitable approach. However, when discussing the characteristics of a particular data structure or algorithm, analyzing its operational speed and space usage is often inevitable.
 
 Therefore, it is recommended that before diving deeply into data structures and algorithms, **one should first gain a basic understanding of complexity analysis. This foundational knowledge will facilitate the complexity analysis of simple algorithms.**
 
