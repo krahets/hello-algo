@@ -12,7 +12,7 @@ In other words, once the ability to solve the problem is established, the effici
 
 In short, our goal is to design data structures and algorithms that are both "fast and economical". Effectively evaluating algorithm efficiency is crucial, as it allows for the comparison of different algorithms and guides the design and optimization process.
 
-There are mainly two methods for assessing efficiency: practical testing and theoretical estimation.
+There are mainly two approaches for assessing efficiency: practical testing and theoretical estimation.
 
 ## Practical Testing
 
