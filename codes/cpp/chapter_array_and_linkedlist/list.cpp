@@ -14,8 +14,8 @@ int main() {
     printVector(nums);
 
     /* 访问元素 */
-    int x = nums[1];
-    cout << "访问索引 1 处的元素，得到 x = " << x << endl;
+    int num = nums[1];
+    cout << "访问索引 1 处的元素，得到 num = " << num << endl;
 
     /* 更新元素 */
     nums[1] = 0;
@@ -49,13 +49,12 @@ int main() {
     /* 通过索引遍历列表 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
-        count++;
+        count += nums[i];
     }
-
     /* 直接遍历列表元素 */
     count = 0;
-    for (int n : nums) {
-        count++;
+    for (int x : nums) {
+        count += x;
     }
 
     /* 拼接两个列表 */

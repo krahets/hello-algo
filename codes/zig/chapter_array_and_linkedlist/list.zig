@@ -52,13 +52,12 @@ pub fn main() !void {
     var count: i32 = 0;
     var i: i32 = 0;
     while (i < nums.items.len) : (i += 1) {
-        count += 1;
+        count += nums[i];
     }
-
     // 直接遍历列表元素
     count = 0;
-    for (nums.items) |_| {
-        count += 1;
+    for (nums.items) |x| {
+        count += x;
     }
 
     // 拼接两个列表

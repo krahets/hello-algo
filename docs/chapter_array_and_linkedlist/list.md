@@ -494,12 +494,11 @@
     # 通过索引遍历列表
     count = 0
     for i in range(len(nums)):
-        count += 1
+        count += nums[i]
 
     # 直接遍历列表元素
-    count = 0
     for num in nums:
-        count += 1
+        count += num
     ```
 
 === "C++"
@@ -508,13 +507,13 @@
     /* 通过索引遍历列表 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
-        count++;
+        count += nums[i];
     }
 
     /* 直接遍历列表元素 */
     count = 0;
     for (int num : nums) {
-        count++;
+        count += num;
     }
     ```
 
@@ -524,13 +523,12 @@
     /* 通过索引遍历列表 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
-        count++;
+        count += nums.get(i);
     }
 
     /* 直接遍历列表元素 */
-    count = 0;
     for (int num : nums) {
-        count++;
+        count += num;
     }
     ```
 
@@ -540,13 +538,13 @@
     /* 通过索引遍历列表 */
     int count = 0;
     for (int i = 0; i < nums.Count; i++) {
-        count++;
+        count += nums[i];
     }
 
     /* 直接遍历列表元素 */
     count = 0;
     foreach (int num in nums) {
-        count++;
+        count += num;
     }
     ```
 
@@ -556,13 +554,13 @@
     /* 通过索引遍历列表 */
     count := 0
     for i := 0; i < len(nums); i++ {
-        count++
+        count += nums[i]
     }
 
     /* 直接遍历列表元素 */
     count = 0
-    for range nums {
-        count++
+    for _, num := range nums {
+        count += num
     }
     ```
 
@@ -571,14 +569,14 @@
     ```swift title="list.swift"
     /* 通过索引遍历列表 */
     var count = 0
-    for _ in nums.indices {
-        count += 1
+    for i in nums.indices {
+        count += nums[i]
     }
 
     /* 直接遍历列表元素 */
     count = 0
-    for _ in nums {
-        count += 1
+    for num in nums {
+        count += num
     }
     ```
 
@@ -588,13 +586,13 @@
     /* 通过索引遍历列表 */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
-        count++;
+        count += nums[i];
     }
 
     /* 直接遍历列表元素 */
     count = 0;
     for (const num of nums) {
-        count++;
+        count += num;
     }
     ```
 
@@ -604,13 +602,13 @@
     /* 通过索引遍历列表 */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
-        count++;
+        count += nums[i];
     }
 
     /* 直接遍历列表元素 */
     count = 0;
     for (const num of nums) {
-        count++;
+        count += num;
     }
     ```
 
@@ -619,30 +617,30 @@
     ```dart title="list.dart"
     /* 通过索引遍历列表 */
     int count = 0;
-    for (int i = 0; i < nums.length; i++) {
-        count++;
+    for (var i = 0; i < nums.length; i++) {
+        count += nums[i];
     }
-
+    
     /* 直接遍历列表元素 */
     count = 0;
-    for (int num in nums) {
-        count++;
+    for (var num in nums) {
+        count += num;
     }
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* 通过索引遍历列表 */
-    let mut count = 0;
-    for (index, value) in nums.iter().enumerate() {
-        count += 1;
+    // 通过索引遍历列表
+    let mut _count = 0;
+    for i in 0..nums.len() {
+        _count += nums[i];
     }
 
-    /* 直接遍历列表元素 */
-    let mut count = 0;
-    for value in nums.iter() {
-        count += 1;
+    // 直接遍历列表元素
+    _count = 0;
+    for num in &nums {
+        _count += num;
     }
     ```
 
@@ -659,13 +657,13 @@
     var count: i32 = 0;
     var i: i32 = 0;
     while (i < nums.items.len) : (i += 1) {
-        count += 1;
+        count += nums[i];
     }
 
     // 直接遍历列表元素
     count = 0;
-    for (nums.items) |_| {
-        count += 1;
+    for (nums.items) |num| {
+        count += num;
     }
     ```
 

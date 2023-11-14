@@ -1,7 +1,6 @@
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/hello_algo_header.png" width="450">
-  </a>
+    <img src="https://www.hello-algo.com/index.assets/hello_algo_header.png" width="450"></a>
 </p>
 
 <p align="center">
@@ -12,11 +11,9 @@
 
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.png" width="155">
-  </a>
+    <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.png" width="155"></a>
   <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_dark.png" width="155">
-  </a>
+    <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_dark.png" width="155"></a>
 </p>
 
 <p align="center">
@@ -66,7 +63,7 @@
 
 - [内容修正](https://www.hello-algo.com/chapter_appendix/contribution/)：请您协助修正或在评论区指出语法错误、内容缺失、文字歧义、无效链接或代码 bug 等问题。
 - [代码转译](https://github.com/krahets/hello-algo/issues/15)：期待您贡献各种语言代码，已支持 Python、Java、C++、Go、JavaScript 等 12 门编程语言。
-- [整书翻译](https://github.com/krahets/hello-algo/tree/en)：诚邀您加入我们的中译英小组，成员主要来自计算机相关专业、英语专业和英文母语者。
+- [Chinese-to-English](https://github.com/krahets/hello-algo/tree/en)：诚邀您加入我们的翻译小组，成员主要来自计算机相关专业、英语专业和英文母语者。
 
 欢迎您提出宝贵意见和建议，如有任何问题请提交 Issues 或微信联系 `krahets-jyd` 。
 

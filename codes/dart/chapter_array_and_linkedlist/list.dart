@@ -43,12 +43,12 @@ void main() {
   /* 通过索引遍历列表 */
   int count = 0;
   for (var i = 0; i < nums.length; i++) {
-    count++;
+    count += nums[i];
   }
   /* 直接遍历列表元素 */
   count = 0;
-  for (var n in nums) {
-    count++;
+  for (var x in nums) {
+    count += x;
   }
 
   /* 拼接两个列表 */

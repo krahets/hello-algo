@@ -39,13 +39,12 @@ console.log(`删除索引 3 处的元素，得到 nums = ${nums}`);
 /* 通过索引遍历列表 */
 let count = 0;
 for (let i = 0; i < nums.length; i++) {
-    count++;
+    count += nums[i];
 }
-
 /* 直接遍历列表元素 */
 count = 0;
-for (const n of nums) {
-    count++;
+for (const x of nums) {
+    count += x;
 }
 
 /* 拼接两个列表 */

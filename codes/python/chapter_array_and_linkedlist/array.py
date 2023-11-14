@@ -50,13 +50,14 @@ def traverse(nums: list[int]):
     count = 0
     # 通过索引遍历数组
     for i in range(len(nums)):
-        count += 1
-    # 直接遍历数组
+        count += nums[i]
+    # 直接遍历数组元素
     for num in nums:
-        count += 1
+        count += num
     # 同时遍历数据索引和元素
     for i, num in enumerate(nums):
-        count += 1
+        count += nums[i]
+        count += num
 
 
 def find(nums: list[int], target: int) -> int:

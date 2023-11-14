@@ -50,11 +50,11 @@ public class array {
         int count = 0;
         // 通过索引遍历数组
         for (int i = 0; i < nums.Length; i++) {
-            count++;
+            count += nums[i];
         }
-        // 直接遍历数组
+        // 直接遍历数组元素
         foreach (int num in nums) {
-            count++;
+            count += num;
         }
     }
 

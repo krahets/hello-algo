@@ -16,7 +16,7 @@ void backtrack(int *choices, int state, int n, int *res, int len) {
         int choice = choices[i];
         // 剪枝：不允许越过第 n 阶
         if (state + choice > n)
-            break;
+            continue;
         // 尝试：做出选择，更新状态
         backtrack(choices, state + choice, n, res, len);
         // 回退

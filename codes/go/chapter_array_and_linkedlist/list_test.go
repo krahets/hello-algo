@@ -47,13 +47,12 @@ func TestList(t *testing.T) {
 	/* 通过索引遍历列表 */
 	count := 0
 	for i := 0; i < len(nums); i++ {
-		count++
+		count += nums[i]
 	}
-
 	/* 直接遍历列表元素 */
 	count = 0
-	for range nums {
-		count++
+	for _, x := range nums {
+		count += x
 	}
 
 	/* 拼接两个列表 */
