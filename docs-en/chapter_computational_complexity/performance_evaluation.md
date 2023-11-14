@@ -2,8 +2,8 @@
 
 In algorithm design, we aim to achieve two goals in succession:
 
-1. **Finding a Solution to the Problem**: The algorithm needs to reliably find the correct solution within the specified input range. This is our initial, more straightforward objective.
-2. **Seeking the Optimal Solution**: There may be multiple ways to solve the same problem, and our goal is to find the most efficient algorithm possible. This is the more advanced and challenging goal.
+1. **Finding a Solution to the Problem**: The algorithm needs to reliably find the correct solution within the specified input range.
+2. **Seeking the Optimal Solution**: There may be multiple ways to solve the same problem, and our goal is to find the most efficient algorithm possible.
 
 In other words, once the ability to solve the problem is established, the efficiency of the algorithm emerges as the main benchmark for assessing its quality, which includes the following two aspects.
 
