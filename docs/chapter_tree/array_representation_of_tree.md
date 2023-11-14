@@ -732,7 +732,7 @@ comments: true
 
         /* 获取索引为 i 节点的父节点的索引 */
         parent(i) {
-            return (i - 1) / 2;
+            return Math.floor((i - 1) / 2); // 向下取整
         }
 
         /* 层序遍历 */
@@ -818,7 +818,7 @@ comments: true
 
         /* 获取索引为 i 节点的父节点的索引 */
         parent(i: number): number {
-            return (i - 1) / 2;
+            return Math.floor((i - 1) / 2); // 向下取整
         }
 
         /* 层序遍历 */

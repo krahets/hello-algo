@@ -158,7 +158,7 @@ comments: true
 
     /* 构造函数 */
     ListNode *newListNode(int val) {
-        ListNode *node, *next;
+        ListNode *node;
         node = (ListNode *) malloc(sizeof(ListNode));
         node->val = val;
         node->next = NULL;
@@ -1285,7 +1285,7 @@ comments: true
 
     /* 构造函数 */
     ListNode *newListNode(int val) {
-        ListNode *node, *next;
+        ListNode *node;
         node = (ListNode *) malloc(sizeof(ListNode));
         node->val = val;
         node->next = NULL;

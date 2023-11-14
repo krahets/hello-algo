@@ -239,7 +239,7 @@ comments: true
 
     ```dart title="array.dart"
     /* 随机访问元素 */
-    int randomAccess(List nums) {
+    int randomAccess(List<int> nums) {
       // 在区间 [0, nums.length) 中随机抽取一个数字
       int randomIndex = Random().nextInt(nums.length);
       // 获取并返回随机元素
@@ -411,7 +411,7 @@ comments: true
 
     ```dart title="array.dart"
     /* 在数组的索引 index 处插入元素 num */
-    void insert(List nums, int num, int index) {
+    void insert(List<int> nums, int num, int index) {
       // 把索引 index 以及之后的所有元素向后移动一位
       for (var i = nums.length - 1; i > index; i--) {
         nums[i] = nums[i - 1];
@@ -573,7 +573,7 @@ comments: true
 
     ```dart title="array.dart"
     /* 删除索引 index 处元素 */
-    void remove(List nums, int index) {
+    void remove(List<int> nums, int index) {
       // 把索引 index 之后的所有元素向前移动一位
       for (var i = index; i < nums.length - 1; i++) {
         nums[i] = nums[i + 1];
@@ -772,19 +772,19 @@ comments: true
 
     ```dart title="array.dart"
     /* 遍历数组元素 */
-    void traverse(List nums) {
-      var count = 0;
+    void traverse(List<int> nums) {
+      int count = 0;
       // 通过索引遍历数组
       for (var i = 0; i < nums.length; i++) {
         count += nums[i];
       }
       // 直接遍历数组元素
-      for (var num in nums) {
-        count += nums[i];
+      for (int num in nums) {
+        count += num;
       }
       // 通过 forEach 方法遍历数组
-      nums.forEach((element) {
-        count += element;
+      nums.forEach((num) {
+        count += num;
       });
     }
     ```
@@ -954,7 +954,7 @@ comments: true
 
     ```dart title="array.dart"
     /* 在数组中查找指定元素 */
-    int find(List nums, int target) {
+    int find(List<int> nums, int target) {
       for (var i = 0; i < nums.length; i++) {
         if (nums[i] == target) return i;
       }
@@ -1143,7 +1143,7 @@ comments: true
 
     ```dart title="array.dart"
     /* 扩展数组长度 */
-    List extend(List nums, int enlarge) {
+    List<int> extend(List<int> nums, int enlarge) {
       // 初始化一个扩展长度后的数组
       List<int> res = List.filled(nums.length + enlarge, 0);
       // 将原数组中的所有元素复制到新数组

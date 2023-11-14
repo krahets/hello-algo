@@ -288,7 +288,7 @@ comments: true
     stack.push(4);
 
     /* 访问栈顶元素 */
-    let top = stack[stack.len() - 1];
+    let top = stack.last().unwrap();
 
     /* 元素出栈 */
     let pop = stack.pop().unwrap();
