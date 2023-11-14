@@ -20,7 +20,7 @@ Let's consider a scenario where we have two algorithms, `A` and `B`, both capabl
 
 On one hand, it's challenging to eliminate the interference of the test environment. Hardware configurations can significantly affect the performance of algorithms. For instance, on one computer, Algorithm `A` might run faster than Algorithm `B`, but the results could be the opposite on another computer with different specifications. This means we would need to conduct tests on a variety of machines and calculate an average efficiency, which is impractical.
 
-On the other hand, conducting comprehensive tests is resource-intensive. The efficiency of algorithms can vary with different volumes of input data. For example, with smaller data sets, Algorithm A might run faster than Algorithm B; however, this could change with larger data sets. Therefore, to reach a convincing conclusion, it's necessary to test a range of data sizes, which requires significant computational resources.
+Furthermore, conducting comprehensive tests is resource-intensive. The efficiency of algorithms can vary with different volumes of input data. For example, with smaller data sets, Algorithm A might run faster than Algorithm B; however, this could change with larger data sets. Therefore, to reach a convincing conclusion, it's necessary to test a range of data sizes, which requires excessive computational resources.
 
 ## Theoretical Estimation
 
