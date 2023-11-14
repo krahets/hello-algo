@@ -56,7 +56,7 @@ void traverse(List nums) {
   }
   // 直接遍历数组元素
   for (var num in nums) {
-    count += nums[i];
+    count += num;
   }
   // 通过 forEach 方法遍历数组
   nums.forEach((element) {
