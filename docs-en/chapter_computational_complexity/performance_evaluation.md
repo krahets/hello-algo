@@ -8,7 +8,7 @@ In algorithm design, we aim to achieve two goals in succession:
 In other words, once the ability to solve the problem is established, the efficiency of the algorithm emerges as the main benchmark for assessing its quality, which includes the following two aspects.
 
 - **Time Efficiency**: The speed at which an algorithm runs.
-- **Space Efficiency**: The amount of memory space the algorithm occupies.
+- **Space Efficiency**: The amount of memory space the algorithm consumes.
 
 In short, our goal is to design data structures and algorithms that are both "fast and economical". Effectively evaluating algorithm efficiency is crucial, as it allows for the comparison of different algorithms and guides the design and optimization process.
 
