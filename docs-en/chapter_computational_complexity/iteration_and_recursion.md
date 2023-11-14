@@ -1,62 +1,64 @@
-# Iteration vs. Recursion
+# Iteration and Recursion
 
-In data structures and algorithms, it is common to repeat a task, which is closely related to the complexity of the algorithm. There are two basic program structures that we usually use to repeat a task: iteration and recursion.
+In algorithms, repeatedly performing a task is quite common and closely linked to complexity analysis. Therefore, before diving into the details of time complexity and space complexity, let's first understand how to implement repetitive task execution in programming, focusing on two fundamental control structures: iteration and recursion.
 
 ## Iteration
 
-An "iteration iteration" is a control structure that repeats a task. In iteration, a program repeats the execution of a piece of code until the condition is no longer satisfied.
+"Iteration" is a control structure used to repeatedly execute a task. In an iterative process, a program repeatedly executes a block of code as long as a certain condition is met, ceasing once this condition is no longer satisfied.
 
 ### For Loops
 
-`for` loops are one of the most common forms of iteration, **suitable when the number of iterations is known in advance**.
+The `for` loop is one of the most common forms of iteration, and **it's particularly suitable when the number of iterations is known in advance**.
 
-The following function implements the summation $1 + 2 + \dots + n$ based on a `for` loop, and the result is recorded using the variable `res`. Note that `range(a, b)` in Python corresponds to a "left-closed-right-open" interval, which is traversed in the range $a, a + 1, \dots, b-1$.
+The following function implements summation $1 + 2 + \dots + n$ using a `for` loop, with the sum being recorded in the variable `res`. Note that in Python, `range(a, b)` corresponds to a "left-closed, right-open" interval, meaning it includes numbers in the sequence from $a, a + 1, \dots$, up to $b-1$, but not $b$ itself.
 
 ```src
 [file]{iteration}-[class]{}-[func]{for_loop}
 ```
 
-The figure below shows the flow block diagram of this summation function.
+Figure 2-1 shows the flowchart for this summation function.
 
 ![Flow block diagram of the summation function](iteration_and_recursion.assets/iteration.png)
+<div align="center">Figure 2-1: Flowchart of the Summation Function</div>
 
-The number of operations in this summation function is proportional to the size of the input data $n$, or a "linear relationship". In fact, **time complexity describes this "linear relationship"**. This is described in more detail in the next section.
+The number of operations in this summation function is proportional to the size of the input data $n$, or in other words, it has a "linear relationship." In fact, this "linear relationship" is what time complexity describes. This topic will be discussed in more detail in the next section.
 
-### While Loop
+### While Loops
 
-Similar to a `for` loop, a `while` loop is a way to implement iteration. In a `while` loop, the program first checks the condition at each turn, and if the condition is true, it continues, otherwise it ends the loop.
+Similar to `for` loops, `while` loops are another approach for implementing iteration. In a `while` loop, the program checks a condition at the beginning of each iteration; if the condition is true, the execution continues, otherwise, the loop ends.
 
-Below, we use a `while` loop to realize the summation $1 + 2 + \dots + n$ .
+Next, let's use a `while` loop to implement the summation of $1 + 2 + \dots + n$.
 
 ```src
 [file]{iteration}-[class]{}-[func]{while_loop}
 ```
 
-In `while` loops, since the steps of initializing and updating condition variables are independent of the loop structure, **it has more degrees of freedom than `for` loops**.
+**`While` loops provide more flexibility than `for` loops**, especially since they allow for custom initialization and modification of the condition variable at each step.
 
-For example, in the following code, the condition variable $i$ is updated twice per round, which is not convenient to implement with a `for` loop.
+For example, in the following code, the condition variable $i$ is updated twice in each iteration, a scenario that would be less convenient to implement with a `for` loop
 
 ```src
 [file]{iteration}-[class]{}-[func]{while_loop_ii}
 ```
 
-Overall, **`for` loops have more compact code and `while` loops are more flexible**, and both can implement iteration structures. The choice of which one to use should be based on the needs of the particular problem.
+Overall, **`for` loops tend to be more concise, while `while` loops offer more flexibility**. Both can be used to implement iterative structures, and the choice between them should be based on the specific requirements of the problem at hand.
 
 ### Nested Loops
 
-We can nest one loop structure inside another, using the `for` loop as an example:
+Nested loops involve placing one loop structure within another. Taking `for` loops as an example:
 
 ```src
 [file]{iteration}-[class]{}-[func]{nested_for_loop}
 ```
 
-The figure below gives the block diagram of the flow of this nested loop.
+Figure 2-2 provides the flowchart for such a nested loop structure.
 
 ![Block diagram of the flow of nested loops](iteration_and_recursion.assets/nested_iteration.png)
+<div align="center">Figure 2-2: Flowchart of the Nested Loop</div>
 
-In this case, the number of operations of the function is proportional to $n^2$, or the algorithm's running time is "squared" to the size of the input data $n$.
+In such cases, the number of operations of the function is proportional to $n^2$, meaning the algorithm's runtime and the size of the input data $n$ have a 'quadratic relationship.'
 
-We can continue to add nested loops, and each nest is a "dimension up", which will increase the time complexity to "cubic relations", "quadratic relations", and so on.
+We can further increase the complexity by adding more nested loops, each level of nesting effectively "increasing the dimension," which raises the time complexity to "cubic," "quartic," and so on.
 
 ## Recursion
 
