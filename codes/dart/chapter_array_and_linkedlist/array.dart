@@ -49,7 +49,7 @@ void remove(List nums, int index) {
 
 /* 遍历数组元素 */
 void traverse(List nums) {
-  var count = 0;
+  int count = 0;
   // 通过索引遍历数组
   for (var i = 0; i < nums.length; i++) {
     count += nums[i];
