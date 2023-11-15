@@ -13,8 +13,8 @@ void main() {
   print('列表 nums = $nums');
 
   /* 访问元素 */
-  int num = nums[1];
-  print('访问索引 1 处的元素，得到 num = $num');
+  int _num = nums[1];
+  print('访问索引 1 处的元素，得到 _num = $_num');
 
   /* 更新元素 */
   nums[1] = 0;
