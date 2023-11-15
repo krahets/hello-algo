@@ -62,36 +62,37 @@ We can further increase the complexity by adding more nested loops, each level o
 
 ## Recursion
 
- "Recursion recursion is an algorithmic strategy to solve a problem by calling the function itself. It consists of two main phases.
+Recursion is an algorithmic strategy where a function solves a problem by calling itself. It primarily involves two phases:
 
-1. **recursive**: the program calls itself deeper and deeper, usually passing smaller or simpler arguments, until a "termination condition" is reached.
-2. **Recursion**: After the "termination condition" is triggered, the program returns from the deepest level of the recursion function, level by level, aggregating the results of each level.
+1. **Recursive Descent**: This is where the program repeatedly calls itself, often with progressively smaller or simpler arguments, moving towards the "base case" or "termination point." This phase is characterized by the function venturing deeper into successive levels of recursion.
+2. **Backtracking** or **Recursive Ascent**: After reaching the "base case," the function begins its ascent, retracing its steps back from the deepest level of recursion. During this phase, it consolidates or processes the results from each recursive call as it returns to the initial call.
 
-And from an implementation point of view, recursion code contains three main elements.
+From an implementation standpoint, recursive code typically includes three main elements:
 
-1. **Termination condition**: used to decide when to switch from "recursive" to "inductive".
-2. **Recursion call**: corresponds to "recursion", where the function calls itself, usually with smaller or more simplified input parameters.
-3. **return result**: corresponds to "return", returning the result of the current recursion level to the previous one.
+1. **Base Case** or **Termination Condition**: This serves as the stopping criterion for the recursion, indicating when the function should cease deeper recursive calls and begin its ascent or backtracking.
+2. **Recursive Invocation**: This aligns with the "Recursive Descent" phase, where the function continues to call itself, typically with altered parameters, delving deeper into the recursion.
+3. **Result Propagation**: This is associated with the 'Backtracking' or 'Recursive Ascent' phase, where the outcome from each recursive depth is passed back up to the preceding level, ultimately culminating at the initial call.
 
-Observe the following code, we only need to call the function `recur(n)` , and the calculation of $1 + 2 + \dots + n$ is done:
+Consider the following code, where simply calling the function `recur(n)` can compute the sum of $1 + 2 + \dots + n$:
 
 ```src
 [file]{recursion}-[class]{}-[func]{recur}
 ```
 
-The figure below shows the recursion of the function.
+Figure 2-3 illustrates the recursive process of this function.
 
 ![Recursion process for the summation function](iteration_and_recursion.assets/recursion_sum.png)
+<div align="center">Figure 2-3: The Recursive Process of the Summation Function</div>
 
-Although iteration and recursion can yield the same results from a computational point of view, **they represent two completely different paradigms for thinking about and solving problems**.
+While iteration and recursion can yield the same results from a computational standpoint, **they represent two distinct paradigms of thinking and problem-solving.**
 
-- **Iteration**: solving problems "from the bottom up". Start with the most basic steps and repeat or add to them until the task is completed.
-- **Recursion**: solving problems "from the top down". The original problem is broken down into smaller subproblems that have the same form as the original problem. Next, the subproblem continues to be broken down into smaller subproblems until it stops at the base case (the solution to the base case is known).
+- **Iteration**: This approach is 'bottom-up.' It starts with the most fundamental steps and then repeatedly applies or accumulates these steps until the task is complete. 
+- **Recursion**: sThis method is 'top-down.' It breaks the original problem down into smaller subproblems, each resembling the original problem in form. These subproblems are further decomposed into even smaller parts, continuing until reaching the base case (whose solution is known).
 
-As an example of the above summation function, set the problem $f(n) = 1 + 2 + \dots + n$ .
+Let's take the earlier example of the summation function, defined as $f(n) = 1 + 2 + \dots + n$.
 
-- **Iteration**: the summation process is simulated in a loop, iterating from $1$ to $n$ and executing the summation operation in each round to find $f(n)$.
-- **Recursion**: decompose the problem into subproblems $f(n) = n + f(n-1)$ and keep (recursively) decomposing until the base case $f(1) = 1$ terminates.
+- **Iteration**: In this approach, we simulate the summation process within a loop. Starting from $1$ and traversing to $n$, we perform the summation operation in each iteration to eventually compute $f(n)$.
+- **Recursion**: Here, the problem is broken down into a subproblem: $f(n) = n + f(n-1)$. This decomposition continues recursively until reaching the base case, $f(1) = 1$, at which point the recursion terminates.
 
 ### Call The Stack
 
