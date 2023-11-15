@@ -86,8 +86,8 @@ Figure 2-3 illustrates the recursive process of this function.
 
 While iteration and recursion can yield the same results from a computational standpoint, **they represent two distinct paradigms of thinking and problem-solving.**
 
-- **Iteration**: This approach is 'bottom-up.' It starts with the most fundamental steps and then repeatedly applies or accumulates these steps until the task is complete. 
-- **Recursion**: sThis method is 'top-down.' It breaks the original problem down into smaller subproblems, each resembling the original problem in form. These subproblems are further decomposed into even smaller parts, continuing until reaching the base case (whose solution is known).
+- **Iteration**: This approach is "bottom-up." It starts with the most fundamental steps and then repeatedly applies or accumulates these steps until the task is complete. 
+- **Recursion**: sThis method is "top-down." It breaks the original problem down into smaller subproblems, each resembling the original problem in form. These subproblems are further decomposed into even smaller parts, continuing until reaching the base case (whose solution is known).
 
 Let's take the earlier example of the summation function, defined as $f(n) = 1 + 2 + \dots + n$.
 
