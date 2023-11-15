@@ -10,20 +10,20 @@ import 'dart:math';
 void countingSortNaive(List<int> nums) {
   // 1. 统计数组最大元素 m
   int m = 0;
-  for (int num in nums) {
-    m = max(m, num);
+  for (int _num in nums) {
+    m = max(m, _num);
   }
   // 2. 统计各数字的出现次数
-  // counter[num] 代表 num 的出现次数
+  // counter[_num] 代表 _num 的出现次数
   List<int> counter = List.filled(m + 1, 0);
-  for (int num in nums) {
-    counter[num]++;
+  for (int _num in nums) {
+    counter[_num]++;
   }
   // 3. 遍历 counter ，将各元素填入原数组 nums
   int i = 0;
-  for (int num = 0; num < m + 1; num++) {
-    for (int j = 0; j < counter[num]; j++, i++) {
-      nums[i] = num;
+  for (int _num = 0; _num < m + 1; _num++) {
+    for (int j = 0; j < counter[_num]; j++, i++) {
+      nums[i] = _num;
     }
   }
 }
@@ -33,17 +33,17 @@ void countingSortNaive(List<int> nums) {
 void countingSort(List<int> nums) {
   // 1. 统计数组最大元素 m
   int m = 0;
-  for (int num in nums) {
-    m = max(m, num);
+  for (int _num in nums) {
+    m = max(m, _num);
   }
   // 2. 统计各数字的出现次数
-  // counter[num] 代表 num 的出现次数
+  // counter[_num] 代表 _num 的出现次数
   List<int> counter = List.filled(m + 1, 0);
-  for (int num in nums) {
-    counter[num]++;
+  for (int _num in nums) {
+    counter[_num]++;
   }
   // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
-  // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+  // 即 counter[_num]-1 是 _num 在 res 中最后一次出现的索引
   for (int i = 0; i < m; i++) {
     counter[i + 1] += counter[i];
   }
@@ -52,9 +52,9 @@ void countingSort(List<int> nums) {
   int n = nums.length;
   List<int> res = List.filled(n, 0);
   for (int i = n - 1; i >= 0; i--) {
-    int num = nums[i];
-    res[counter[num] - 1] = num; // 将 num 放置到对应索引处
-    counter[num]--; // 令前缀和自减 1 ，得到下次放置 num 的索引
+    int _num = nums[i];
+    res[counter[_num] - 1] = _num; // 将 _num 放置到对应索引处
+    counter[_num]--; // 令前缀和自减 1 ，得到下次放置 _num 的索引
   }
   // 使用结果数组 res 覆盖原数组 nums
   nums.setAll(0, res);

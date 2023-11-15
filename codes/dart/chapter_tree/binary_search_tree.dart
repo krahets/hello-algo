@@ -23,15 +23,15 @@ class BinarySearchTree {
   }
 
   /* 查找节点 */
-  TreeNode? search(int num) {
+  TreeNode? search(int _num) {
     TreeNode? cur = _root;
     // 循环查找，越过叶节点后跳出
     while (cur != null) {
       // 目标节点在 cur 的右子树中
-      if (cur.val < num)
+      if (cur.val < _num)
         cur = cur.right;
       // 目标节点在 cur 的左子树中
-      else if (cur.val > num)
+      else if (cur.val > _num)
         cur = cur.left;
       // 找到目标节点，跳出循环
       else
@@ -42,10 +42,10 @@ class BinarySearchTree {
   }
 
   /* 插入节点 */
-  void insert(int num) {
+  void insert(int _num) {
     // 若树为空，则初始化根节点
     if (_root == null) {
-      _root = TreeNode(num);
+      _root = TreeNode(_num);
       return;
     }
     TreeNode? cur = _root;
@@ -53,25 +53,25 @@ class BinarySearchTree {
     // 循环查找，越过叶节点后跳出
     while (cur != null) {
       // 找到重复节点，直接返回
-      if (cur.val == num) return;
+      if (cur.val == _num) return;
       pre = cur;
       // 插入位置在 cur 的右子树中
-      if (cur.val < num)
+      if (cur.val < _num)
         cur = cur.right;
       // 插入位置在 cur 的左子树中
       else
         cur = cur.left;
     }
     // 插入节点
-    TreeNode? node = TreeNode(num);
-    if (pre!.val < num)
+    TreeNode? node = TreeNode(_num);
+    if (pre!.val < _num)
       pre.right = node;
     else
       pre.left = node;
   }
 
   /* 删除节点 */
-  void remove(int num) {
+  void remove(int _num) {
     // 若树为空，直接提前返回
     if (_root == null) return;
     TreeNode? cur = _root;
@@ -79,10 +79,10 @@ class BinarySearchTree {
     // 循环查找，越过叶节点后跳出
     while (cur != null) {
       // 找到待删除节点，跳出循环
-      if (cur.val == num) break;
+      if (cur.val == _num) break;
       pre = cur;
       // 待删除节点在 cur 的右子树中
-      if (cur.val < num)
+      if (cur.val < _num)
         cur = cur.right;
       // 待删除节点在 cur 的左子树中
       else
@@ -125,8 +125,8 @@ void main() {
   BinarySearchTree bst = BinarySearchTree();
   // 请注意，不同的插入顺序会生成不同的二叉树，该序列可以生成一个完美二叉树
   List<int> nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];
-  for (int num in nums) {
-    bst.insert(num);
+  for (int _num in nums) {
+    bst.insert(_num);
   }
   print("\n初始化的二叉树为\n");
   printTree(bst.getRoot());
