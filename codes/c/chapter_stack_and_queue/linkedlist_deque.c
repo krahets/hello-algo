@@ -153,7 +153,7 @@ int popLast(LinkedListDeque *deque) {
 
 /* 打印队列 */
 void printLinkedListDeque(LinkedListDeque *deque) {
-    int arr[deque->queSize];
+    int *arr = malloc(sizeof(int) * deque->queSize);
     // 拷贝链表中的数据到数组
     int i;
     DoublyListNode *node;
@@ -162,6 +162,7 @@ void printLinkedListDeque(LinkedListDeque *deque) {
         node = node->next;
     }
     printArray(arr, deque->queSize);
+    free(arr);
 }
 
 /* Driver Code */

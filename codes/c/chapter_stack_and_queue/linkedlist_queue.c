@@ -77,7 +77,7 @@ void pop(LinkedListQueue *queue) {
 
 /* 打印队列 */
 void printLinkedListQueue(LinkedListQueue *queue) {
-    int arr[queue->queSize];
+    int *arr = malloc(sizeof(int) * queue->queSize);
     // 拷贝链表中的数据到数组
     int i;
     ListNode *node;
@@ -86,6 +86,7 @@ void printLinkedListQueue(LinkedListQueue *queue) {
         node = node->next;
     }
     printArray(arr, queue->queSize);
+    free(arr);
 }
 
 /* Driver Code */

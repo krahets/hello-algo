@@ -19,49 +19,33 @@ extern "C" {
 #endif
 
 /* Print an Array */
-static void printArray(int arr[], int size) {
-    printf("[");
-    if (arr != NULL && size != 0) {
-        for (int i = 0; i < size - 1; i++) {
-            if (arr[i] != INT_MAX) {
-                printf("%d, ", arr[i]);
-            } else {
-                printf("NULL, ");
-            }
-        }
-        if (arr[size - 1] != INT_MAX) {
-            printf("%d]\n", arr[size - 1]);
-        } else {
-            printf("NULL]\n");
-        }
-    } else {
-        printf("]\n");
+void printArray(int arr[], int size) {
+    if (arr == NULL || size == 0) {
+        printf("[]");
+        return;
     }
+    printf("[");
+    for (int i = 0; i < size - 1; i++) {
+        printf("%d, ", arr[i]);
+    }
+    printf("%d]\n", arr[size - 1]);
 }
 
 /* Print an Array */
-static void printArrayFloat(float arr[], int size) {
-    printf("[");
-    if (arr != NULL && size != 0) {
-        for (int i = 0; i < size - 1; i++) {
-            if (arr[i] != INT_MAX) {
-                printf("%.2f, ", arr[i]);
-            } else {
-                printf("NULL, ");
-            }
-        }
-        if (arr[size - 1] != INT_MAX) {
-            printf("%.2f]\n", arr[size - 1]);
-        } else {
-            printf("NULL]\n");
-        }
-    } else {
-        printf("]");
+void printArrayFloat(float arr[], int size) {
+    if (arr == NULL || size == 0) {
+        printf("[]");
+        return;
     }
+    printf("[");
+    for (int i = 0; i < size - 1; i++) {
+        printf("%.2f, ", arr[i]);
+    }
+    printf("%.2f]\n", arr[size - 1]);
 }
 
 /* Print a linked list */
-static void printLinkedList(ListNode *node) {
+void printLinkedList(ListNode *node) {
     if (node == NULL) {
         return;
     }
@@ -95,7 +79,7 @@ void showTrunks(Trunk *trunk) {
 }
 
 /* Help to print a binary tree, hide more details */
-static void printTreeHelper(TreeNode *node, Trunk *prev, bool isRight) {
+void printTreeHelper(TreeNode *node, Trunk *prev, bool isRight) {
     if (node == NULL) {
         return;
     }
@@ -123,12 +107,12 @@ static void printTreeHelper(TreeNode *node, Trunk *prev, bool isRight) {
 }
 
 /* Print a binary tree */
-static void printTree(TreeNode *root) {
+void printTree(TreeNode *root) {
     printTreeHelper(root, NULL, false);
 }
 
 /* Print a Heap */
-static void printHeap(int arr[], int size) {
+void printHeap(int arr[], int size) {
     TreeNode *root;
     printf("堆的数组表示：");
     printArray(arr, size);
