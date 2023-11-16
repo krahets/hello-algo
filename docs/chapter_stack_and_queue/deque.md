@@ -1417,8 +1417,8 @@ comments: true
       }
 
       /* 入队操作 */
-      void push(int num, bool isFront) {
-        final ListNode node = ListNode(num);
+      void push(int _num, bool isFront) {
+        final ListNode node = ListNode(_num);
         if (isEmpty()) {
           // 若链表为空，则令 _front 和 _rear 都指向 node
           _front = _rear = node;
@@ -1439,13 +1439,13 @@ comments: true
       }
 
       /* 队首入队 */
-      void pushFirst(int num) {
-        push(num, true);
+      void pushFirst(int _num) {
+        push(_num, true);
       }
 
       /* 队尾入队 */
-      void pushLast(int num) {
-        push(num, false);
+      void pushLast(int _num) {
+        push(_num, false);
       }
 
       /* 出队操作 */
@@ -1831,7 +1831,7 @@ comments: true
 
     /* 打印队列 */
     void printLinkedListDeque(LinkedListDeque *deque) {
-        int arr[deque->queSize];
+        int *arr = malloc(sizeof(int) * deque->queSize);
         // 拷贝链表中的数据到数组
         int i;
         DoublyListNode *node;
@@ -1840,6 +1840,7 @@ comments: true
             node = node->next;
         }
         printArray(arr, deque->queSize);
+        free(arr);
     }
     ```
 
@@ -2927,44 +2928,44 @@ comments: true
       }
 
       /* 队首入队 */
-      void pushFirst(int num) {
+      void pushFirst(int _num) {
         if (_queSize == capacity()) {
           throw Exception("双向队列已满");
         }
         // 队首指针向左移动一位
         // 通过取余操作，实现 _front 越过数组头部后回到尾部
         _front = index(_front - 1);
-        // 将 num 添加至队首
-        _nums[_front] = num;
+        // 将 _num 添加至队首
+        _nums[_front] = _num;
         _queSize++;
       }
 
       /* 队尾入队 */
-      void pushLast(int num) {
+      void pushLast(int _num) {
         if (_queSize == capacity()) {
           throw Exception("双向队列已满");
         }
         // 计算尾指针，指向队尾索引 + 1
         int rear = index(_front + _queSize);
-        // 将 num 添加至队尾
-        _nums[rear] = num;
+        // 将 _num 添加至队尾
+        _nums[rear] = _num;
         _queSize++;
       }
 
       /* 队首出队 */
       int popFirst() {
-        int num = peekFirst();
+        int _num = peekFirst();
         // 队首指针向右移动一位
         _front = index(_front + 1);
         _queSize--;
-        return num;
+        return _num;
       }
 
       /* 队尾出队 */
       int popLast() {
-        int num = peekLast();
+        int _num = peekLast();
         _queSize--;
-        return num;
+        return _num;
       }
 
       /* 访问队首元素 */
@@ -3217,16 +3218,6 @@ comments: true
         int num = peekLast(deque);
         deque->queSize--;
         return num;
-    }
-
-    /* 打印队列 */
-    void printArrayDeque(ArrayDeque *deque) {
-        int arr[deque->queSize];
-        // 拷贝
-        for (int i = 0, j = deque->front; i < deque->queSize; i++, j++) {
-            arr[i] = deque->nums[j % deque->queCapacity];
-        }
-        printArray(arr, deque->queSize);
     }
     ```
 

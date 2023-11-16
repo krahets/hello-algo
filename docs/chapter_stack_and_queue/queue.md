@@ -900,9 +900,9 @@ comments: true
       }
 
       /* 入队 */
-      void push(int num) {
-        // 尾节点后添加 num
-        final node = ListNode(num);
+      void push(int _num) {
+        // 尾节点后添加 _num
+        final node = ListNode(_num);
         // 如果队列为空，则令头、尾节点都指向该节点
         if (_front == null) {
           _front = node;
@@ -917,11 +917,11 @@ comments: true
 
       /* 出队 */
       int pop() {
-        final int num = peek();
+        final int _num = peek();
         // 删除头节点
         _front = _front!.next;
         _queSize--;
-        return num;
+        return _num;
       }
 
       /* 访问队首元素 */
@@ -1101,7 +1101,7 @@ comments: true
 
     /* 打印队列 */
     void printLinkedListQueue(LinkedListQueue *queue) {
-        int arr[queue->queSize];
+        int *arr = malloc(sizeof(int) * queue->queSize);
         // 拷贝链表中的数据到数组
         int i;
         ListNode *node;
@@ -1110,6 +1110,7 @@ comments: true
             node = node->next;
         }
         printArray(arr, queue->queSize);
+        free(arr);
     }
     ```
 
@@ -1825,25 +1826,25 @@ comments: true
       }
 
       /* 入队 */
-      void push(int num) {
+      void push(int _num) {
         if (_queSize == capaCity()) {
           throw Exception("队列已满");
         }
         // 计算尾指针，指向队尾索引 + 1
         // 通过取余操作，实现 rear 越过数组尾部后回到头部
         int rear = (_front + _queSize) % capaCity();
-        // 将 num 添加至队尾
-        _nums[rear] = num;
+        // 将 _num 添加至队尾
+        _nums[rear] = _num;
         _queSize++;
       }
 
       /* 出队 */
       int pop() {
-        int num = peek();
+        int _num = peek();
         // 队首指针向后移动一位，若越过尾部则返回到数组头部
         _front = (_front + 1) % capaCity();
         _queSize--;
-        return num;
+        return _num;
       }
 
       /* 访问队首元素 */
@@ -2016,16 +2017,6 @@ comments: true
         // 队首指针向后移动一位，若越过尾部则返回到数组头部
         queue->front = (queue->front + 1) % queue->queCapacity;
         queue->queSize--;
-    }
-
-    /* 打印队列 */
-    void printArrayQueue(ArrayQueue *queue) {
-        int arr[queue->queSize];
-        // 拷贝
-        for (int i = 0, j = queue->front; i < queue->queSize; i++, j++) {
-            arr[i] = queue->nums[j % queue->queCapacity];
-        }
-        printArray(arr, queue->queSize);
     }
     ```
 

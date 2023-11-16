@@ -291,7 +291,7 @@ $$
         int no = knapsackDFS(wgt, val, i - 1, c);
         int yes = knapsackDFS(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1];
         // 返回两种方案中价值更大的那一个
-        return max(no, yes);
+        return myMax(no, yes);
     }
     ```
 
@@ -606,7 +606,7 @@ $$
 
     ```c title="knapsack.c"
     /* 0-1 背包：记忆化搜索 */
-    int knapsackDFSMem(int wgt[], int val[], int memCols, int mem[][memCols], int i, int c) {
+    int knapsackDFSMem(int wgt[], int val[], int memCols, int **mem, int i, int c) {
         // 若已选完所有物品或背包无容量，则返回价值 0
         if (i == 0 || c == 0) {
             return 0;
@@ -623,7 +623,7 @@ $$
         int no = knapsackDFSMem(wgt, val, memCols, mem, i - 1, c);
         int yes = knapsackDFSMem(wgt, val, memCols, mem, i - 1, c - wgt[i - 1]) + val[i - 1];
         // 记录并返回两种方案中价值更大的那一个
-        mem[i][c] = max(no, yes);
+        mem[i][c] = myMax(no, yes);
         return mem[i][c];
     }
     ```
@@ -924,8 +924,10 @@ $$
     int knapsackDP(int wgt[], int val[], int cap, int wgtSize) {
         int n = wgtSize;
         // 初始化 dp 表
-        int dp[n + 1][cap + 1];
-        memset(dp, 0, sizeof(dp));
+        int **dp = malloc((n + 1) * sizeof(int *));
+        for (int i = 0; i <= n; i++) {
+            dp[i] = calloc(cap + 1, sizeof(int));
+        }
         // 状态转移
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
@@ -934,11 +936,16 @@ $$
                     dp[i][c] = dp[i - 1][c];
                 } else {
                     // 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1]);
+                    dp[i][c] = myMax(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1]);
                 }
             }
         }
-        return dp[n][cap];
+        int res = dp[n][cap];
+        // 释放内存
+        for (int i = 0; i <= n; i++) {
+            free(dp[i]);
+        }
+        return res;
     }
     ```
 
@@ -1278,19 +1285,21 @@ $$
     int knapsackDPComp(int wgt[], int val[], int cap, int wgtSize) {
         int n = wgtSize;
         // 初始化 dp 表
-        int dp[cap + 1];
-        memset(dp, 0, sizeof(dp));
+        int *dp = calloc(cap + 1, sizeof(int));
         // 状态转移
         for (int i = 1; i <= n; i++) {
             // 倒序遍历
             for (int c = cap; c >= 1; c--) {
                 if (wgt[i - 1] <= c) {
                     // 不选和选物品 i 这两种方案的较大值
-                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+                    dp[c] = myMax(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
                 }
             }
         }
-        return dp[cap];
+        int res = dp[cap];
+        // 释放内存
+        free(dp);
+        return res;
     }
     ```
 

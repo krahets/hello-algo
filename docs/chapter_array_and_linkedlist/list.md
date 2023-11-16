@@ -1713,22 +1713,22 @@ comments: true
       }
 
       /* 更新元素 */
-      void set(int index, int num) {
+      void set(int index, int _num) {
         if (index >= _size) throw RangeError('索引越界');
-        _arr[index] = num;
+        _arr[index] = _num;
       }
 
       /* 尾部添加元素 */
-      void add(int num) {
+      void add(int _num) {
         // 元素数量超出容量时，触发扩容机制
         if (_size == _capacity) extendCapacity();
-        _arr[_size] = num;
+        _arr[_size] = _num;
         // 更新元素数量
         _size++;
       }
 
       /* 中间插入元素 */
-      void insert(int index, int num) {
+      void insert(int index, int _num) {
         if (index >= _size) throw RangeError('索引越界');
         // 元素数量超出容量时，触发扩容机制
         if (_size == _capacity) extendCapacity();
@@ -1736,7 +1736,7 @@ comments: true
         for (var j = _size - 1; j >= index; j--) {
           _arr[j + 1] = _arr[j];
         }
-        _arr[index] = num;
+        _arr[index] = _num;
         // 更新元素数量
         _size++;
       }
@@ -1744,7 +1744,7 @@ comments: true
       /* 删除元素 */
       int remove(int index) {
         if (index >= _size) throw RangeError('索引越界');
-        int num = _arr[index];
+        int _num = _arr[index];
         // 将索引 index 之后的元素都向前移动一位
         for (var j = index; j < _size - 1; j++) {
           _arr[j] = _arr[j + 1];
@@ -1752,7 +1752,7 @@ comments: true
         // 更新元素数量
         _size--;
         // 返回被删除元素
-        return num;
+        return _num;
       }
 
       /* 列表扩容 */

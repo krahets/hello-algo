@@ -827,8 +827,8 @@ comments: true
       }
 
       /* 入栈 */
-      void push(int num) {
-        final ListNode node = ListNode(num);
+      void push(int _num) {
+        final ListNode node = ListNode(_num);
         node.next = _stackPeek;
         _stackPeek = node;
         _stkSize++;
@@ -836,10 +836,10 @@ comments: true
 
       /* 出栈 */
       int pop() {
-        final int num = peek();
+        final int _num = peek();
         _stackPeek = _stackPeek!.next;
         _stkSize--;
-        return num;
+        return _num;
       }
 
       /* 访问栈顶元素 */
@@ -1495,8 +1495,8 @@ comments: true
       }
 
       /* 入栈 */
-      void push(int num) {
-        _stack.add(num);
+      void push(int _num) {
+        _stack.add(_num);
       }
 
       /* 出栈 */

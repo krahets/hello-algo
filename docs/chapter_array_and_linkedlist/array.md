@@ -410,14 +410,14 @@ comments: true
 === "Dart"
 
     ```dart title="array.dart"
-    /* 在数组的索引 index 处插入元素 num */
-    void insert(List<int> nums, int num, int index) {
+    /* 在数组的索引 index 处插入元素 _num */
+    void insert(List<int> nums, int _num, int index) {
       // 把索引 index 以及之后的所有元素向后移动一位
       for (var i = nums.length - 1; i > index; i--) {
         nums[i] = nums[i - 1];
       }
-      // 将 num 赋给 index 处元素
-      nums[index] = num;
+      // 将 _num 赋给 index 处元素
+      nums[index] = _num;
     }
     ```
 
@@ -779,12 +779,12 @@ comments: true
         count += nums[i];
       }
       // 直接遍历数组元素
-      for (int num in nums) {
-        count += num;
+      for (int _num in nums) {
+        count += _num;
       }
       // 通过 forEach 方法遍历数组
-      nums.forEach((num) {
-        count += num;
+      nums.forEach((_num) {
+        count += _num;
       });
     }
     ```

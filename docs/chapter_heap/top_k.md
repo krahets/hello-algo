@@ -392,7 +392,7 @@ comments: true
     int *topKHeap(int *nums, int sizeNums, int k) {
         // 初始化小顶堆
         // 请注意：我们将堆中所有元素取反，从而用大顶堆来模拟小顶堆
-        int empty[0];
+        int *empty = (int *)malloc(0);
         MaxHeap *maxHeap = newMaxHeap(empty, 0);
         // 将数组的前 k 个元素入堆
         for (int i = 0; i < k; i++) {

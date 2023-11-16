@@ -387,8 +387,10 @@ $$
     ```c title="edit_distance.c"
     /* 编辑距离：动态规划 */
     int editDistanceDP(char *s, char *t, int n, int m) {
-        int dp[n + 1][m + 1];
-        memset(dp, 0, sizeof(dp));
+        int **dp = malloc((n + 1) * sizeof(int *));
+        for (int i = 0; i <= n; i++) {
+            dp[i] = calloc(m + 1, sizeof(int));
+        }
         // 状态转移：首行首列
         for (int i = 1; i <= n; i++) {
             dp[i][0] = i;
@@ -404,11 +406,16 @@ $$
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
                     // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                    dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                    dp[i][j] = myMin(myMin(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
                 }
             }
         }
-        return dp[n][m];
+        int res = dp[n][m];
+        // 释放内存
+        for (int i = 0; i <= n; i++) {
+            free(dp[i]);
+        }
+        return res;
     }
     ```
 
@@ -832,8 +839,7 @@ $$
     ```c title="edit_distance.c"
     /* 编辑距离：空间优化后的动态规划 */
     int editDistanceDPComp(char *s, char *t, int n, int m) {
-        int dp[m + 1];
-        memset(dp, 0, sizeof(dp));
+        int *dp = calloc(m + 1, sizeof(int));
         // 状态转移：首行
         for (int j = 1; j <= m; j++) {
             dp[j] = j;
@@ -851,12 +857,15 @@ $$
                     dp[j] = leftup;
                 } else {
                     // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                    dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1;
+                    dp[j] = myMin(myMin(dp[j - 1], dp[j]), leftup) + 1;
                 }
                 leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
             }
         }
-        return dp[m];
+        int res = dp[m];
+        // 释放内存
+        free(dp);
+        return res;
     }
     ```
 

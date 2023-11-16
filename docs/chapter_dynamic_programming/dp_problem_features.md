@@ -264,15 +264,18 @@ $$
         if (n == 1 || n == 2)
             return cost[n];
         // 初始化 dp 表，用于存储子问题的解
-        int dp[n + 1];
+        int *dp = calloc(n + 1, sizeof(int));
         // 初始状态：预设最小子问题的解
         dp[1] = cost[1];
         dp[2] = cost[2];
         // 状态转移：从较小子问题逐步求解较大子问题
         for (int i = 3; i <= n; i++) {
-            dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
+            dp[i] = myMin(dp[i - 1], dp[i - 2]) + cost[i];
         }
-        return dp[n];
+        int res = dp[n];
+        // 释放内存
+        free(dp);
+        return res;
     }
     ```
 
@@ -503,7 +506,7 @@ $$
         int a = cost[1], b = cost[2];
         for (int i = 3; i <= n; i++) {
             int tmp = b;
-            b = min(a, tmp) + cost[i];
+            b = myMin(a, tmp) + cost[i];
             a = tmp;
         }
         return b;
@@ -815,8 +818,10 @@ $$
             return 1;
         }
         // 初始化 dp 表，用于存储子问题的解
-        int dp[n + 1][3];
-        memset(dp, 0, sizeof(dp));
+        int **dp = malloc((n + 1) * sizeof(int *));
+        for (int i = 0; i <= n; i++) {
+            dp[i] = calloc(3, sizeof(int));
+        }
         // 初始状态：预设最小子问题的解
         dp[1][1] = 1;
         dp[1][2] = 0;
@@ -827,7 +832,13 @@ $$
             dp[i][1] = dp[i - 1][2];
             dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
         }
-        return dp[n][1] + dp[n][2];
+        int res = dp[n][1] + dp[n][2];
+        // 释放内存
+        for (int i = 0; i <= n; i++) {
+            free(dp[i]);
+        }
+        free(dp);
+        return res;
     }
     ```
 
