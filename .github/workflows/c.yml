@@ -6,10 +6,10 @@ name: C
 on:
   push:
     branches: ["main"]
-    paths: ["codes/c/**/*.{c,h}"]
+    paths: ["codes/c/**/*.c", "codes/c/**/*.h"]
   pull_request:
     branches: ["main"]
-    paths: ["codes/c/**/*.{c,h}"]
+    paths: ["codes/c/**/*.c", "codes/c/**/*.h"]
   workflow_dispatch:
 
 jobs:

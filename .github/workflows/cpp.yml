@@ -6,10 +6,10 @@ name: C++
 on:
   push:
     branches: ["main"]
-    paths: ["codes/cpp/**/*.{cpp,hpp}"]
+    paths: ["codes/cpp/**/*.cpp", "codes/cpp/**/*.hpp"]
   pull_request:
     branches: ["main"]
-    paths: ["codes/cpp/**/*.{cpp,hpp}"]
+    paths: ["codes/cpp/**/*.cpp", "codes/cpp/**/*.hpp"]
   workflow_dispatch:
 
 jobs:
