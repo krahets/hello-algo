@@ -74,7 +74,7 @@ public class array {
     /* Driver Code */
     public static void main(String[] args) {
         /* 初始化数组 */
-        int[] ar = new int[5];
+        int[] arr = new int[5];
         System.out.println("数组 arr = " + Arrays.toString(arr));
         int[] nums = { 1, 3, 2, 5, 4 };
         System.out.println("数组 nums = " + Arrays.toString(nums));
