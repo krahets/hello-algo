@@ -29,7 +29,7 @@ int knapsackDFS(int wgt[], int val[], int i, int c) {
 }
 
 /* 0-1 背包：记忆化搜索 */
-int knapsackDFSMem(int wgt[], int val[], int memCols, int mem[][memCols], int i, int c) {
+int knapsackDFSMem(int wgt[], int val[], int memCols, int **mem, int i, int c) {
     // 若已选完所有物品或背包无容量，则返回价值 0
     if (i == 0 || c == 0) {
         return 0;
@@ -54,8 +54,10 @@ int knapsackDFSMem(int wgt[], int val[], int memCols, int mem[][memCols], int i,
 int knapsackDP(int wgt[], int val[], int cap, int wgtSize) {
     int n = wgtSize;
     // 初始化 dp 表
-    int dp[n + 1][cap + 1];
-    memset(dp, 0, sizeof(dp));
+    int **dp = malloc((n + 1) * sizeof(int *));
+    for (int i = 0; i <= n; i++) {
+        dp[i] = calloc(cap + 1, sizeof(int));
+    }
     // 状态转移
     for (int i = 1; i <= n; i++) {
         for (int c = 1; c <= cap; c++) {
@@ -68,15 +70,19 @@ int knapsackDP(int wgt[], int val[], int cap, int wgtSize) {
             }
         }
     }
-    return dp[n][cap];
+    int res = dp[n][cap];
+    // 释放内存
+    for (int i = 0; i <= n; i++) {
+        free(dp[i]);
+    }
+    return res;
 }
 
 /* 0-1 背包：空间优化后的动态规划 */
 int knapsackDPComp(int wgt[], int val[], int cap, int wgtSize) {
     int n = wgtSize;
     // 初始化 dp 表
-    int dp[cap + 1];
-    memset(dp, 0, sizeof(dp));
+    int *dp = calloc(cap + 1, sizeof(int));
     // 状态转移
     for (int i = 1; i <= n; i++) {
         // 倒序遍历
@@ -87,7 +93,10 @@ int knapsackDPComp(int wgt[], int val[], int cap, int wgtSize) {
             }
         }
     }
-    return dp[cap];
+    int res = dp[cap];
+    // 释放内存
+    free(dp);
+    return res;
 }
 
 /* Driver Code */
@@ -103,10 +112,18 @@ int main() {
     printf("不超过背包容量的最大物品价值为 %d\n", res);
 
     // 记忆化搜索
-    int mem[n + 1][cap + 1];
-    memset(mem, -1, sizeof(mem));
+    int **mem = malloc((n + 1) * sizeof(int *));
+    for (int i = 0; i <= n; i++) {
+        mem[i] = malloc((cap + 1) * sizeof(int));
+        memset(mem[i], -1, (cap + 1) * sizeof(int));
+    }
     res = knapsackDFSMem(wgt, val, cap + 1, mem, n, cap);
     printf("不超过背包容量的最大物品价值为 %d\n", res);
+    // 释放内存
+    for (int i = 0; i <= n; i++) {
+        free(mem[i]);
+    }
+    free(mem);
 
     // 动态规划
     res = knapsackDP(wgt, val, cap, wgtSize);

@@ -12,8 +12,10 @@ int climbingStairsConstraintDP(int n) {
         return 1;
     }
     // 初始化 dp 表，用于存储子问题的解
-    int dp[n + 1][3];
-    memset(dp, 0, sizeof(dp));
+    int **dp = malloc((n + 1) * sizeof(int *));
+    for (int i = 0; i <= n; i++) {
+        dp[i] = calloc(3, sizeof(int));
+    }
     // 初始状态：预设最小子问题的解
     dp[1][1] = 1;
     dp[1][2] = 0;
@@ -24,7 +26,13 @@ int climbingStairsConstraintDP(int n) {
         dp[i][1] = dp[i - 1][2];
         dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
     }
-    return dp[n][1] + dp[n][2];
+    int res = dp[n][1] + dp[n][2];
+    // 释放内存
+    for (int i = 0; i <= n; i++) {
+        free(dp[i]);
+    }
+    free(dp);
+    return res;
 }
 
 /* Driver Code */

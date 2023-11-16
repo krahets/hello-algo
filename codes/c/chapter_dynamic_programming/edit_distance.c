@@ -34,7 +34,7 @@ int editDistanceDFS(char *s, char *t, int i, int j) {
 }
 
 /* 编辑距离：记忆化搜索 */
-int editDistanceDFSMem(char *s, char *t, int memCols, int mem[][memCols], int i, int j) {
+int editDistanceDFSMem(char *s, char *t, int memCols, int **mem, int i, int j) {
     // 若 s 和 t 都为空，则返回 0
     if (i == 0 && j == 0)
         return 0;
@@ -61,8 +61,10 @@ int editDistanceDFSMem(char *s, char *t, int memCols, int mem[][memCols], int i,
 
 /* 编辑距离：动态规划 */
 int editDistanceDP(char *s, char *t, int n, int m) {
-    int dp[n + 1][m + 1];
-    memset(dp, 0, sizeof(dp));
+    int **dp = malloc((n + 1) * sizeof(int *));
+    for (int i = 0; i <= n; i++) {
+        dp[i] = calloc(m + 1, sizeof(int));
+    }
     // 状态转移：首行首列
     for (int i = 1; i <= n; i++) {
         dp[i][0] = i;
@@ -82,13 +84,17 @@ int editDistanceDP(char *s, char *t, int n, int m) {
             }
         }
     }
-    return dp[n][m];
+    int res = dp[n][m];
+    // 释放内存
+    for (int i = 0; i <= n; i++) {
+        free(dp[i]);
+    }
+    return res;
 }
 
 /* 编辑距离：空间优化后的动态规划 */
 int editDistanceDPComp(char *s, char *t, int n, int m) {
-    int dp[m + 1];
-    memset(dp, 0, sizeof(dp));
+    int *dp = calloc(m + 1, sizeof(int));
     // 状态转移：首行
     for (int j = 1; j <= m; j++) {
         dp[j] = j;
@@ -111,7 +117,10 @@ int editDistanceDPComp(char *s, char *t, int n, int m) {
             leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
         }
     }
-    return dp[m];
+    int res = dp[m];
+    // 释放内存
+    free(dp);
+    return res;
 }
 
 /* Driver Code */
@@ -125,10 +134,18 @@ int main() {
     printf("将 %s 更改为 %s 最少需要编辑 %d 步\n", s, t, res);
 
     // 记忆化搜索
-    int mem[n + 1][m + 1];
-    memset(mem, -1, sizeof(mem));
+    int **mem = malloc((n + 1) * sizeof(int *));
+    for (int i = 0; i <= n; i++) {
+        mem[i] = malloc((m + 1) * sizeof(int));
+        memset(mem[i], -1, (m + 1) * sizeof(int));
+    }
     res = editDistanceDFSMem(s, t, m + 1, mem, n, m);
     printf("将 %s 更改为 %s 最少需要编辑 %d 步\n", s, t, res);
+    // 释放内存
+    for (int i = 0; i <= n; i++) {
+        free(mem[i]);
+    }
+    free(mem);
 
     // 动态规划
     res = editDistanceDP(s, t, n, m);

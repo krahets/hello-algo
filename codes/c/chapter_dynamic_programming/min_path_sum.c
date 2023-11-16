@@ -29,7 +29,7 @@ int minPathSumDFS(int gridCols, int grid[][gridCols], int i, int j) {
 }
 
 /* 最小路径和：记忆化搜索 */
-int minPathSumDFSMem(int gridCols, int grid[][gridCols], int mem[][gridCols], int i, int j) {
+int minPathSumDFSMem(int gridCols, int grid[][gridCols], int **mem, int i, int j) {
     // 若为左上角单元格，则终止搜索
     if (i == 0 && j == 0) {
         return grid[0][0];
@@ -53,7 +53,10 @@ int minPathSumDFSMem(int gridCols, int grid[][gridCols], int mem[][gridCols], in
 /* 最小路径和：动态规划 */
 int minPathSumDP(int gridCols, int grid[][gridCols], int n, int m) {
     // 初始化 dp 表
-    int dp[n][m];
+    int **dp = malloc(n * sizeof(int *));
+    for (int i = 0; i < n; i++) {
+        dp[i] = calloc(m, sizeof(int));
+    }
     dp[0][0] = grid[0][0];
     // 状态转移：首行
     for (int j = 1; j < m; j++) {
@@ -69,13 +72,18 @@ int minPathSumDP(int gridCols, int grid[][gridCols], int n, int m) {
             dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
         }
     }
-    return dp[n - 1][m - 1];
+    int res = dp[n - 1][m - 1];
+    // 释放内存
+    for (int i = 0; i < n; i++) {
+        free(dp[i]);
+    }
+    return res;
 }
 
 /* 最小路径和：空间优化后的动态规划 */
 int minPathSumDPComp(int gridCols, int grid[][gridCols], int n, int m) {
     // 初始化 dp 表
-    int dp[m];
+    int *dp = calloc(m, sizeof(int));
     // 状态转移：首行
     dp[0] = grid[0][0];
     for (int j = 1; j < m; j++) {
@@ -90,7 +98,10 @@ int minPathSumDPComp(int gridCols, int grid[][gridCols], int n, int m) {
             dp[j] = min(dp[j - 1], dp[j]) + grid[i][j];
         }
     }
-    return dp[m - 1];
+    int res = dp[m - 1];
+    // 释放内存
+    free(dp);
+    return res;
 }
 
 /* Driver Code */
@@ -103,10 +114,18 @@ int main() {
     printf("从左上角到右下角的最小路径和为 %d\n", res);
 
     // 记忆化搜索
-    int mem[n][m];
-    memset(mem, -1, sizeof(mem));
+    int **mem = malloc(n * sizeof(int *));
+    for (int i = 0; i < n; i++) {
+        mem[i] = malloc(m * sizeof(int));
+        memset(mem[i], -1, m * sizeof(int));
+    }
     res = minPathSumDFSMem(m, grid, mem, n - 1, m - 1);
     printf("从左上角到右下角的最小路径和为 %d\n", res);
+    // 释放内存
+    for (int i = 0; i < n; i++) {
+        free(mem[i]);
+    }
+    free(mem);
 
     // 动态规划
     res = minPathSumDP(m, grid, n, m);

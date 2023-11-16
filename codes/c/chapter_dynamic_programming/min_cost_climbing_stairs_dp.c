@@ -17,7 +17,7 @@ int minCostClimbingStairsDP(int cost[], int costSize) {
     if (n == 1 || n == 2)
         return cost[n];
     // 初始化 dp 表，用于存储子问题的解
-    int dp[n + 1];
+    int *dp = calloc(n + 1, sizeof(int));
     // 初始状态：预设最小子问题的解
     dp[1] = cost[1];
     dp[2] = cost[2];
@@ -25,7 +25,10 @@ int minCostClimbingStairsDP(int cost[], int costSize) {
     for (int i = 3; i <= n; i++) {
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
     }
-    return dp[n];
+    int res = dp[n];
+    // 释放内存
+    free(dp);
+    return res;
 }
 
 /* 爬楼梯最小代价：空间优化后的动态规划 */
@@ -46,14 +49,8 @@ int minCostClimbingStairsDPComp(int cost[], int costSize) {
 int main() {
     int cost[] = {0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1};
     int costSize = sizeof(cost) / sizeof(cost[0]);
-    printf("输入楼梯的代价列表为 [");
-    for (int i = 0; i < costSize; i++) {
-        if (i != costSize - 1)
-            printf("%d, ", cost[i]);
-        else
-            printf("%d", cost[i]);
-    }
-    printf("]\n");
+    printf("输入楼梯的代价列表为：");
+    printArray(cost, costSize);
 
     int res = minCostClimbingStairsDP(cost, costSize);
     printf("爬完楼梯的最低代价为 %d\n", res);

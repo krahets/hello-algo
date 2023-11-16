@@ -9,7 +9,7 @@
 vector<TreeNode *> res;
 
 /* 前序遍历：例题一 */
-static void preOrder(TreeNode *root) {
+void preOrder(TreeNode *root) {
     if (root == nullptr) {
         return;
     }

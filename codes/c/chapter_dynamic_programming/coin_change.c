@@ -16,8 +16,10 @@ int coinChangeDP(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
     int MAX = amt + 1;
     // 初始化 dp 表
-    int dp[n + 1][amt + 1];
-    memset(dp, 0, sizeof(dp));
+    int **dp = malloc((n + 1) * sizeof(int *));
+    for (int i = 0; i <= n; i++) {
+        dp[i] = calloc(amt + 1, sizeof(int));
+    }
     // 状态转移：首行首列
     for (int a = 1; a <= amt; a++) {
         dp[0][a] = MAX;
@@ -34,7 +36,13 @@ int coinChangeDP(int coins[], int amt, int coinsSize) {
             }
         }
     }
-    return dp[n][amt] != MAX ? dp[n][amt] : -1;
+    int res = dp[n][amt] != MAX ? dp[n][amt] : -1;
+    // 释放内存
+    for (int i = 0; i <= n; i++) {
+        free(dp[i]);
+    }
+    free(dp);
+    return res;
 }
 
 /* 零钱兑换：空间优化后的动态规划 */
@@ -42,8 +50,7 @@ int coinChangeDPComp(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
     int MAX = amt + 1;
     // 初始化 dp 表
-    int dp[amt + 1];
-    memset(dp, MAX, sizeof(dp));
+    int *dp = calloc(amt + 1, sizeof(int));
     dp[0] = 0;
     // 状态转移
     for (int i = 1; i <= n; i++) {
@@ -57,7 +64,10 @@ int coinChangeDPComp(int coins[], int amt, int coinsSize) {
             }
         }
     }
-    return dp[amt] != MAX ? dp[amt] : -1;
+    int res = dp[amt] != MAX ? dp[amt] : -1;
+    // 释放内存
+    free(dp);
+    return res;
 }
 
 /* Driver code */
