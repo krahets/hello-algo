@@ -7,7 +7,7 @@
 #include "../utils/common.h"
 
 /* 求最小值 */
-int min(int a, int b) {
+int myMin(int a, int b) {
     return a < b ? a : b;
 }
 
@@ -23,7 +23,7 @@ int minCostClimbingStairsDP(int cost[], int costSize) {
     dp[2] = cost[2];
     // 状态转移：从较小子问题逐步求解较大子问题
     for (int i = 3; i <= n; i++) {
-        dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
+        dp[i] = myMin(dp[i - 1], dp[i - 2]) + cost[i];
     }
     int res = dp[n];
     // 释放内存
@@ -39,7 +39,7 @@ int minCostClimbingStairsDPComp(int cost[], int costSize) {
     int a = cost[1], b = cost[2];
     for (int i = 3; i <= n; i++) {
         int tmp = b;
-        b = min(a, tmp) + cost[i];
+        b = myMin(a, tmp) + cost[i];
         a = tmp;
     }
     return b;

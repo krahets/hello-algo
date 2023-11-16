@@ -36,7 +36,7 @@ int main() {
     preOrder(root);
 
     printf("\n输出所有值为 7 的节点\n");
-    int vals[resSize];
+    int *vals = malloc(resSize * sizeof(int));
     for (int i = 0; i < resSize; i++) {
         vals[i] = res[i]->val;
     }
@@ -44,5 +44,6 @@ int main() {
 
     // 释放内存
     freeMemoryTree(root);
+    free(vals);
     return 0;
 }

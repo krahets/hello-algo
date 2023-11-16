@@ -7,7 +7,7 @@
 #include "../utils/common.h"
 
 /* 求最小值 */
-int min(int a, int b) {
+int myMin(int a, int b) {
     return a < b ? a : b;
 }
 
@@ -25,7 +25,7 @@ int minPathSumDFS(int gridCols, int grid[][gridCols], int i, int j) {
     int up = minPathSumDFS(gridCols, grid, i - 1, j);
     int left = minPathSumDFS(gridCols, grid, i, j - 1);
     // 返回从左上角到 (i, j) 的最小路径代价
-    return min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
+    return myMin(left, up) != INT_MAX ? myMin(left, up) + grid[i][j] : INT_MAX;
 }
 
 /* 最小路径和：记忆化搜索 */
@@ -46,7 +46,7 @@ int minPathSumDFSMem(int gridCols, int grid[][gridCols], int **mem, int i, int j
     int up = minPathSumDFSMem(gridCols, grid, mem, i - 1, j);
     int left = minPathSumDFSMem(gridCols, grid, mem, i, j - 1);
     // 记录并返回左上角到 (i, j) 的最小路径代价
-    mem[i][j] = min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
+    mem[i][j] = myMin(left, up) != INT_MAX ? myMin(left, up) + grid[i][j] : INT_MAX;
     return mem[i][j];
 }
 
@@ -69,7 +69,7 @@ int minPathSumDP(int gridCols, int grid[][gridCols], int n, int m) {
     // 状态转移：其余行列
     for (int i = 1; i < n; i++) {
         for (int j = 1; j < m; j++) {
-            dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+            dp[i][j] = myMin(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
         }
     }
     int res = dp[n - 1][m - 1];
@@ -95,7 +95,7 @@ int minPathSumDPComp(int gridCols, int grid[][gridCols], int n, int m) {
         dp[0] = dp[0] + grid[i][0];
         // 状态转移：其余列
         for (int j = 1; j < m; j++) {
-            dp[j] = min(dp[j - 1], dp[j]) + grid[i][j];
+            dp[j] = myMin(dp[j - 1], dp[j]) + grid[i][j];
         }
     }
     int res = dp[m - 1];

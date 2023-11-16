@@ -7,7 +7,7 @@
 #include "../utils/common.h"
 
 /* 求最小值 */
-int min(int a, int b) {
+int myMin(int a, int b) {
     return a < b ? a : b;
 }
 
@@ -32,7 +32,7 @@ int coinChangeDP(int coins[], int amt, int coinsSize) {
                 dp[i][a] = dp[i - 1][a];
             } else {
                 // 不选和选硬币 i 这两种方案的较小值
-                dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
+                dp[i][a] = myMin(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
             }
         }
     }
@@ -60,7 +60,7 @@ int coinChangeDPComp(int coins[], int amt, int coinsSize) {
                 dp[a] = dp[a];
             } else {
                 // 不选和选硬币 i 这两种方案的较小值
-                dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1);
+                dp[a] = myMin(dp[a], dp[a - coins[i - 1]] + 1);
             }
         }
     }

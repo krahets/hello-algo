@@ -7,7 +7,7 @@
 #include "../utils/common.h"
 
 /* 求最大值 */
-int max(int a, int b) {
+int myMax(int a, int b) {
     return a > b ? a : b;
 }
 
@@ -27,7 +27,7 @@ int unboundedKnapsackDP(int wgt[], int val[], int cap, int wgtSize) {
                 dp[i][c] = dp[i - 1][c];
             } else {
                 // 不选和选物品 i 这两种方案的较大值
-                dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
+                dp[i][c] = myMax(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
             }
         }
     }
@@ -52,7 +52,7 @@ int unboundedKnapsackDPComp(int wgt[], int val[], int cap, int wgtSize) {
                 dp[c] = dp[c];
             } else {
                 // 不选和选物品 i 这两种方案的较大值
-                dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+                dp[c] = myMax(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
             }
         }
     }

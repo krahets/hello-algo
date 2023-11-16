@@ -7,7 +7,7 @@
 #include "../utils/common.h"
 
 /* 求最大值 */
-int max(int a, int b) {
+int myMax(int a, int b) {
     return a > b ? a : b;
 }
 
@@ -25,7 +25,7 @@ int knapsackDFS(int wgt[], int val[], int i, int c) {
     int no = knapsackDFS(wgt, val, i - 1, c);
     int yes = knapsackDFS(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1];
     // 返回两种方案中价值更大的那一个
-    return max(no, yes);
+    return myMax(no, yes);
 }
 
 /* 0-1 背包：记忆化搜索 */
@@ -46,7 +46,7 @@ int knapsackDFSMem(int wgt[], int val[], int memCols, int **mem, int i, int c) {
     int no = knapsackDFSMem(wgt, val, memCols, mem, i - 1, c);
     int yes = knapsackDFSMem(wgt, val, memCols, mem, i - 1, c - wgt[i - 1]) + val[i - 1];
     // 记录并返回两种方案中价值更大的那一个
-    mem[i][c] = max(no, yes);
+    mem[i][c] = myMax(no, yes);
     return mem[i][c];
 }
 
@@ -66,7 +66,7 @@ int knapsackDP(int wgt[], int val[], int cap, int wgtSize) {
                 dp[i][c] = dp[i - 1][c];
             } else {
                 // 不选和选物品 i 这两种方案的较大值
-                dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1]);
+                dp[i][c] = myMax(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1]);
             }
         }
     }
@@ -89,7 +89,7 @@ int knapsackDPComp(int wgt[], int val[], int cap, int wgtSize) {
         for (int c = cap; c >= 1; c--) {
             if (wgt[i - 1] <= c) {
                 // 不选和选物品 i 这两种方案的较大值
-                dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+                dp[c] = myMax(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
             }
         }
     }
