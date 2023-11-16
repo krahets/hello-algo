@@ -64,8 +64,8 @@
 
     ```go title="list_test.go"
     /* 初始化列表 */
-    // 无初始值 
-    nums1 := []int{}  
+    // 无初始值
+    nums1 := []int{}
     // 有初始值
     nums := []int{1, 3, 2, 5, 4}
     ```
