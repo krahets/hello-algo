@@ -1,15 +1,15 @@
 # This starter workflow is for a CMake project running on multiple platforms. There is a different starter workflow if you just want a single platform.
 # See: https://github.com/actions/starter-workflows/blob/main/ci/cmake-single-platform.yml
 
-name: C
+name: C++
 
 on:
   push:
     branches: ["main"]
-    paths: ["codes/c/**/*.{c,h}"]
+    paths: ["codes/cpp/**/*.{cpp,hpp}"]
   pull_request:
     branches: ["main"]
-    paths: ["codes/c/**/*.{c,h}"]
+    paths: ["codes/cpp/**/*.{cpp,hpp}"]
   workflow_dispatch:
 
 jobs:
@@ -55,18 +55,18 @@ jobs:
         # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
         # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
         run: >
-          cmake -B ${{ github.workspace }}/codes/c/build
+          cmake -B ${{ github.workspace }}/codes/cpp/build
           -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
           -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-          -S ${{ github.workspace }}/codes/c
+          -S ${{ github.workspace }}/codes/cpp
 
       - name: Build
         # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
-        run: cmake --build ${{ github.workspace }}/codes/c/build --config ${{ matrix.build_type }}
+        run: cmake --build ${{ github.workspace }}/codes/cpp/build --config ${{ matrix.build_type }}
 
       - name: Test
-        working-directory: ${{ github.workspace }}/codes/c/build
+        working-directory: ${{ github.workspace }}/codes/cpp/build
         # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
         # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
         run: ctest --build-config ${{ matrix.build_type }}
