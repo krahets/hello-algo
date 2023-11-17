@@ -94,42 +94,44 @@ Let's take the earlier example of the summation function, defined as $f(n) = 1 +
 - **Iteration**: In this approach, we simulate the summation process within a loop. Starting from $1$ and traversing to $n$, we perform the summation operation in each iteration to eventually compute $f(n)$.
 - **Recursion**: Here, the problem is broken down into a subproblem: $f(n) = n + f(n-1)$. This decomposition continues recursively until reaching the base case, $f(1) = 1$, at which point the recursion terminates.
 
-### Call The Stack
+### Call Stack
 
-Each time a recursion function calls itself, the system allocates memory for the newly opened function to store local variables, call addresses, other information, and so on. This results in two things.
+Every time a recursive function calls itself, the system allocates memory for the newly initiated function to store local variables, the return address, and other relevant information. This leads to two primary outcomes:
 
-- The context data for a function is stored in an area of memory called "stack frame space" and is not freed until the function returns. As a result, **recursion is usually more memory-intensive than iteration**.
-- Recursion calls to functions incur additional overhead. **Therefore recursion is usually less time efficient than loops**.
+- **Memory Allocation for Context Data**: The context data for each function is stored in a memory area known as the 'stack frame.' This memory is not freed until the function returns. As a result, recursion generally consumes more memory space than iteration.
+- **Overhead of Recursive Calls**: Each recursive function call incurs additional overhead. Therefore, in terms of time efficiency, recursion is usually less efficient than loops.
 
-As shown in the figure below, before the termination condition is triggered, there are $n$ unreturned recursion functions at the same time, **with a recursion depth of $n$** .
+As illustrated in Figure 2-4, before the termination condition is triggered, there are $n$ recursive functions pending return, **resulting in a recursion depth of $n$**.
 
 ![Recursion call depth](iteration_and_recursion.assets/recursion_sum_depth.png)
+<div align="center">Figure 2-4: Recursive Call Depth</div>
 
-In practice, the depth of recursion allowed by a programming language is usually limited, and too deep a recursion may result in a stack overflow error.
+In practice, the depth of recursion allowed in programming languages is usually limited. Excessively deep recursion can lead to a stack overflow error.
 
 ### Tail Recursion
 
-Interestingly, **if a function makes a recursion call only at the last step before returning**, the function can be optimized by the compiler or interpreter to be comparable to iteration in terms of space efficiency. This situation is called "tail recursion tail recursion".
+Interestingly, **if a function performs its recursive call as the very last step before returning**, it can be optimized by the compiler or interpreter to be as space-efficient as iteration. This scenario is known as "tail recursion."
 
-- **Ordinary recursion**: when a function returns to a function at a higher level, it needs to continue executing the code, so the system needs to save the context of the previous call.
-- **tail recursion**: the recursion call is the last operation before the function returns, which means that the function does not need to continue with other operations after returning to the previous level, so the system does not need to save the context of the previous function.
+- **Ordinary Recursion**: In standard recursion, when the function returns to the previous level, it continues to execute more code, requiring the system to save the context of the previous call.
+- **Tail Recursion**: Here, the recursive call is the final operation before the function returns. This means that upon returning to the previous level, no further actions are needed, so the system doesn't need to save the context of the previous level.
 
-In the case of calculating $1 + 2 + \dots + n$, for example, we can implement tail recursion by setting the result variable `res` as a function parameter.
+Taking the summation of $1 + 2 + \dots + n$ as an example, we can implement tail recursion by making the result variable `res` a parameter of the function.
 
 ```src
 [file]{recursion}-[class]{}-[func]{tail_recur}
 ```
 
-The execution of tail recursion is shown in the figure below. Comparing normal recursion and tail recursion, the execution point of the summation operation is different.
+The execution process of tail recursion, as shown in Figure 2-5, differs significantly from that of ordinary recursion in terms of when the summation operation is performed:
 
-- **Ordinary recursion**: the summing operation is performed during the "return" process, and the summing operation is performed again after returning from each level.
-- **Tail recursion**: the summing operation is performed in a "recursion" process, the "recursion" process simply returns in levels.
+- **Ordinary Recursion**: The summation occurs during the "Backtracking" or "Recursive Ascent" phase, with the summing operation being executed each time the function returns from a deeper recursive level.
+- **Tail Recursion**: The summation happens during the "Recursive Descent," and the "Backtracking" or "Recursive Ascent" phase simply involves returning through the levels without additional operations.
 
 ![tail recursion process](iteration_and_recursion.assets/tail_recursion_sum.png)
+<div align="center">Figure 2-5: Tail Recursion Process</div>
 
 !!! tip
 
-    Note that many compilers or interpreters do not support tail recursion optimization. For example, Python does not support tail recursion optimization by default, so even if a function is tail recursive, you may still encounter stack overflow problems.
+    Please note that many compilers or interpreters do not support tail recursion optimization. For instance, Python does not support tail recursion optimization by default. Therefore, even if a function is in the form of tail recursion, it may still encounter stack overflow issues.
 
 ### Recursion Tree
 
