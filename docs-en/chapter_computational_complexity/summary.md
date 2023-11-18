@@ -8,7 +8,7 @@
 - We can evaluate the efficiency of an algorithm through real-world testing. Still, it isn't easy to eliminate the side effects from the testing environment, and it consumes a lot of computational resources.
 - Complexity analysis overcomes the drawbacks of real-world testing. The analysis results can apply to all operating platforms and reveal the algorithm's efficiency with different data sizes.
 
-**Time complexity*
+**Time complexity**
 
 - Time complexity is used to measure the trend of the algorithm's running time with data volume growth, which can effectively evaluate the algorithm's efficiency. However, it may fail in some cases, such as when the input volume is small or the time complexities are similar, making it hard to compare the algorithm's efficiency accurately.
 - The worst time complexity is denoted by big $O$ notation, which corresponds to the asymptotic upper bound of the function, reflecting the growth rate in the number of operations $T(n)$ as $n$ tends to positive infinity.
