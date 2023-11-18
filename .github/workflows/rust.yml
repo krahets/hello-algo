@@ -1,0 +1,27 @@
+name: Rust
+
+on:
+  push:
+    branches: ["main"]
+    paths: ["codes/rust/**/*.rs", "codes/rust/Cargo.toml"]
+  pull_request:
+    branches: ["main"]
+    paths: ["codes/rust/**/*.rs", "codes/rust/Cargo.toml"]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: brndnmtthws/rust-action-rustup@v1
+        with:
+            toolchain: nightly
+      
+      - uses: actions/checkout@v4
+      
+      - name: Build
+        run: cargo build --manifest-path=codes/rust/Cargo.toml && cargo build --manifest-path=codes/rust/Cargo.toml --release
