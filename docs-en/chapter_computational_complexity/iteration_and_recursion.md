@@ -135,65 +135,65 @@ The execution process of tail recursion, as shown in Figure 2-5, differs signifi
 
 ### Recursion Tree
 
-When dealing with algorithmic problems related to divide and conquer, recursion is often more intuitive and easier to read than iteration. Take the Fibonacci sequence as an example.
+When dealing with algorithms related to "divide and conquer," recursion often offers a more intuitive approach and produces more readable code than iteration. Take the "Fibonacci sequence" as an example.
 
 !!! question
 
-    Given a Fibonacci series $0, 1, 1, 2, 3, 5, 8, 13, \dots$ , find the $n$th number of the series.
+    Given a Fibonacci sequence $0, 1, 1, 2, 3, 5, 8, 13, \dots$, we want to find the $n$th number in the series.
 
-Let the $n$th number of the Fibonacci series be $f(n)$ , which leads to two easy conclusions.
+Let's denote the $n$th number of the Fibonacci sequence as $f(n)$, It follows two simple rules:
 
-- The first two numbers of the series are $f(1) = 0$ and $f(2) = 1$.
-- Each number in the series is the sum of the previous two numbers, i.e. $f(n) = f(n - 1) + f(n - 2)$ .
+- The first two numbers of the sequence are $f(1) = 0$ and $f(2) = 1$.
+- Each number in the series is the sum of the two preceding ones, i.e., $f(n) = f(n - 1) + f(n - 2)$.
 
-Recursion code can be written by making recursion calls according to the recursion relationship, using the first two numbers as termination conditions. Call `fib(n)` to get the $n$th number of the Fibonacci series.
+By following this recursive relationship and using the first two numbers as the base case, we can write recursive code. Calling `fib(n)` retrieves the $n$th number in the Fibonacci sequence.
 
 ```src
 [file]{recursion}-[class]{}-[func]{fib}
 ```
-
-Looking at the above code, we have recursively called two functions within a function, **this means that from one call, two call branches are created**. As shown in the figure below, this recursion will result in a recursion tree with the number of levels $n$.
+Upon examining this code, we notice that **each function call recursively triggers two more calls, creating two branches from a single call**. As illustrated in Figure 2-6, this process of recursive calling eventually forms a "recursion tree" with $n$ levels.
 
 ![Recursion tree for Fibonacci series](iteration_and_recursion.assets/recursion_tree.png)
+<div align="center">Figure 2-6: Fibonacci Sequence Recursion Tree</div>
 
-Essentially, recursion embodies the paradigm of "breaking down a problem into smaller sub-problems", and this divide and conquer strategy is essential.
+At its core, recursion embodies the paradigm of "breaking down a problem into smaller subproblems." This divide and conquer strategy is crucial.
 
-- From an algorithmic point of view, many important algorithmic strategies such as searching, sorting algorithm, backtracking, divide and conquer, dynamic programming, etc. directly or indirectly apply this way of thinking.
-- From a data structure point of view, recursion is naturally suited to problems related to linked lists, trees and graphs because they are well suited to be analyzed with the idea of partitioning.
+- From an algorithmic perspective, many essential strategies like searching, sorting, backtracking, divide and conquer, and dynamic programming either directly or indirectly utilize this approach. 
+- From a data structure standpoint, recursion is inherently suitable for dealing with linked lists, trees, and graphs, as these structures lend themselves well to analysis through divide and conquer strategy.
 
-## Compare The Two
+## Comparison of Iteration and Recursion
 
-To summarize the above, as shown in the table below, iteration and recursion differ in implementation, performance and applicability.
+Summarizing the content above, as shown in Table 2-1, iteration and recursion differ in their implementation, performance, and applicability.
 
-<p align="center"> Table <id> &nbsp; Comparison of iteration and recursion features </p>
+<p align="center"> Table 2-1<id> &nbsp; Comparison of Characteristics Between Iteration and Recursion </p>
 
-|                     | iteration                                               | recursion                                                                                                                             |
+| Aspect              | Iteration                                               | Recursion                                                                                                                             |
 | ------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| implementation      | circular structure                                      | function call itself                                                                                                                  |
-| time-efficient      | typically efficient, no function call overhead          | overhead on every function call                                                                                                       |
-| Memory Usage        | Usually uses a fixed size of memory space               | Cumulative function calls may use a lot of stack frame space                                                                          |
-| Applicable Problems | For simple cyclic tasks, code is intuitive and readable | For sub-problem decomposition, such as trees, graphs, divide and conquer, backtracking, etc., the code structure is concise and clear |
+| Implementation      | Loop structures	                                        | Function calling itself                                                                                                               |
+| Time Efficiency     | Generally higher efficiency, no overhead from function calls | Overhead incurred with each function call                                                                                                     |
+| Memory Usage        | Usually utilizes fixed-size memory space              | Accumulative function calls can consume substantial stack frame space                                                                          |
+| Applicable Problems | Suitable for straightforward looping tasks, offers intuitive and readable code | Best for decomposing into subproblems, like in trees, graphs, divide and conquer, backtracking, etc., resulting in simple and clear code structure |
 
 !!! tip
 
-    If you find the following solutions difficult to understand, you can review them after reading the "Stack" chapter.
+    If you find the content below challenging, consider revisiting it after reading the chapter on "Stacks."
 
-So what is the intrinsic connection between iteration and recursion? In the case of the recursive function described above, the summing operation takes place in the "return" phase of the recursion. This means that the function that is initially called is actually the last to complete its summing operation, **This mechanism works in the same way as the stack's "first in, last out" principle**.
+So, what intrinsic connection exists between iteration and recursion? Taking the aforementioned recursive function as an example, the summation operation occurs during the "Recursive Ascent" phase. This means that the initially called function is actually the last to complete its summing operation, **a mechanism that mirrors the "Last In, First Out" (LIFO) principle of stacks, showcasing a parallel in their workings.**
 
-In fact, recursion terms like "call stack" and "stack frame space" already imply a close relationship between recursion and the stack.
+In fact, recursion-related terms like "call stack" and "stack frame space" already hint at the close relationship between recursion and stacks.
 
-1. **Recursive**: When a function is called, the system allocates a new stack frame on the "call stack" for the function, which is used to store the function's local variables, parameters, return address, and other data.
-2. **Return to**: When a function completes execution and returns, the corresponding stack frame is removed from the "call stack", restoring the function's previous execution environment.
+1. **Descending (Recursive Call)**: When a function is called, the system allocates a new stack frame on the "call stack" for that function. This frame is used to store the function’s local variables, parameters, and return address.
+2. **Ascending (Returning from Call)**: When a function completes execution and returns, its corresponding stack frame is removed from the "call stack," restoring the execution environment of the previous function.
 
-Thus, **we can use an explicit stack to model the behavior of the call stack**, thus transforming recursion into an iteration form:
+Therefore, **we can use an explicit stack to simulate the behavior of the call stack**, thereby transforming recursion into an iterative form.
 
 ```src
 [file]{recursion}-[class]{}-[func]{for_loop_recur}
 ```
 
-Observing the code above, it becomes more complex when recursion is converted to iteration. Although iteration and recursion can be converted to each other in many cases, it is not always worth doing so for two reasons.
+Upon examining the code, we see that once recursion is converted to iteration, the code becomes more complex. Although iteration and recursion are often interchangeable, the conversion isn't always advisable for a couple of reasons:
 
-- The transformed code may be more difficult to understand and less readable.
-- For some complex problems, simulating the behavior of the system call stack can be very difficult.
+- The transformed code may become harder to understand and less readable.
+- For certain complex problems, simulating the behavior of the system call stack can be quite challenging.
 
-In short, **the choice of iteration or recursion depends on the nature of the particular problem**. In programming practice, it is crucial to weigh the advantages and disadvantages of both and choose the appropriate method based on the context.
+In conclusion, **whether to choose iteration or recursion depends on the specific nature of the problem**. In programming practice, it's crucial to weigh the pros and cons of both and choose the most suitable approach for the situation at hand.
