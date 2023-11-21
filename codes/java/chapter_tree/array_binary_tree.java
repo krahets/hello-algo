@@ -63,15 +63,15 @@ class ArrayBinaryTree {
         if (val(i) == null)
             return;
         // 前序遍历
-        if (order == "pre")
+        if ("pre".equals(order))
             res.add(val(i));
         dfs(left(i), order, res);
         // 中序遍历
-        if (order == "in")
+        if ("in".equals(order))
             res.add(val(i));
         dfs(right(i), order, res);
         // 后序遍历
-        if (order == "post")
+        if ("post".equals(order))
             res.add(val(i));
     }
 
