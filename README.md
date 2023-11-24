@@ -44,7 +44,7 @@
 
 ## About
 
-This project aims to create a free, open-source, and beginner-friendly crash course for data structures and algorithms.
+This open-source project aims to create a free and beginner-friendly crash course for data structures and algorithms.
 
 - Animated illustrations, easy-to-understand content, and a smooth learning curve help beginners explore the "knowledge map" of data structures and algorithms.
 - Run code with just one click, helping readers improve their programming skills and understand the working principle of algorithms and the underlying implementation of data structures.
@@ -68,11 +68,11 @@ This open-source book is continuously being updated, and we welcome your partici
 
 - [Content Correction](https://www.hello-algo.com/chapter_appendix/contribution/): Please help us correct or point out mistakes in the comments section such as grammatical errors, missing content, ambiguities, invalid links, or code bugs.
 - [Code Transpilation](https://github.com/krahets/hello-algo/issues/15): We look forward to your contributions in various programming languages. We currently support 12 languages including Python, Java, C++, Go, and JavaScript.
-- [Chinese-to-English](https://github.com/krahets/hello-algo/tree/en): We would love to invite you to join our translation team. The members are mainly from computer science related fields, English majors, and native English speakers.
+- [Chinese-to-English](https://github.com/krahets/hello-algo/tree/en): We would love to invite you to join our translation team. The members are mainly from computer-science-related fields, English majors, and native English speakers.
 
 We welcome your valuable suggestions and feedback. If you have any questions, please submit Issues or reach out via WeChat: `krahets-jyd`.
 
-We would like to dedicate our thank to all the contributors of this book. It is their selfless dedication that has made this book better. They are:
+We would like to dedicate our thanks to all the contributors of this book. It is their selfless dedication that has made this book better. They are:
 
 <p align="left">
     <a href="https://github.com/krahets/hello-algo/graphs/contributors">
