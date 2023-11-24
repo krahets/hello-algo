@@ -24,17 +24,17 @@ public class ArrayBinaryTree(List<int?> arr) {
     }
 
     /* 获取索引为 i 节点的左子节点的索引 */
-    public static int Left(int i) {
+    public int Left(int i) {
         return 2 * i + 1;
     }
 
     /* 获取索引为 i 节点的右子节点的索引 */
-    public static int Right(int i) {
+    public int Right(int i) {
         return 2 * i + 2;
     }
 
     /* 获取索引为 i 节点的父节点的索引 */
-    public static int Parent(int i) {
+    public int Parent(int i) {
         return (i - 1) / 2;
     }
 
@@ -108,9 +108,9 @@ public class array_binary_tree {
 
         // 访问节点
         int i = 1;
-        int l = ArrayBinaryTree.Left(i);
-        int r = ArrayBinaryTree.Right(i);
-        int p = ArrayBinaryTree.Parent(i);
+        int l = abt.Left(i);
+        int r = abt.Right(i);
+        int p = abt.Parent(i);
         Console.WriteLine("\n当前节点的索引为 " + i + " ，值为 " + abt.Val(i));
         Console.WriteLine("其左子节点的索引为 " + l + " ，值为 " + (abt.Val(l).HasValue ? abt.Val(l) : "null"));
         Console.WriteLine("其右子节点的索引为 " + r + " ，值为 " + (abt.Val(r).HasValue ? abt.Val(r) : "null"));
