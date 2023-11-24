@@ -52,10 +52,9 @@
 
     ```csharp title=""
     /* 链表节点类 */
-    class ListNode {
-        int val;         // 节点值
-        ListNode next;   // 指向下一节点的引用
-        ListNode(int x) => val = x;  //构造函数
+    class ListNode(int x) {  //构造函数
+        int val = x;         // 节点值
+        ListNode? next;      // 指向下一节点的引用
     }
     ```
 
@@ -496,11 +495,10 @@
 
     ```csharp title=""
     /* 双向链表节点类 */
-    class ListNode {
-        int val;        // 节点值
+    class ListNode(int x) {  // 构造函数
+        int val = x;    // 节点值
         ListNode next;  // 指向后继节点的引用
         ListNode prev;  // 指向前驱节点的引用
-        ListNode(int x) => val = x;  // 构造函数
     }
     ```
 
