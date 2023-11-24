@@ -13,8 +13,8 @@ class GraphAdjMat {
 
     /* 构造函数 */
     public GraphAdjMat(int[] vertices, int[][] edges) {
-        this.vertices = new List<int>();
-        this.adjMat = new List<List<int>>();
+        this.vertices = [];
+        this.adjMat = [];
         // 添加顶点
         foreach (int val in vertices) {
             AddVertex(val);
@@ -97,10 +97,16 @@ public class graph_adjacency_matrix {
     public void Test() {
         /* 初始化无向图 */
         // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-        int[] vertices = { 1, 3, 2, 5, 4 };
-        int[][] edges = new int[][] { new int[] { 0, 1 }, new int[] { 0, 3 },
-                                      new int[] { 1, 2 }, new int[] { 2, 3 },
-                                      new int[] { 2, 4 }, new int[] { 3, 4 } };
+        int[] vertices = [1, 3, 2, 5, 4];
+        int[][] edges = 
+        [
+            [0, 1],
+            [0, 3],
+            [1, 2],
+            [2, 3],
+            [2, 4],
+            [3, 4]
+        ];
         GraphAdjMat graph = new(vertices, edges);
         Console.WriteLine("\n初始化后，图为");
         graph.Print();

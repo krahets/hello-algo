@@ -78,7 +78,7 @@ public class array {
         // 初始化数组
         int[] arr = new int[5];
         Console.WriteLine("数组 arr = " + ToString(arr));
-        int[] nums = { 1, 3, 2, 5, 4 };
+        int[] nums = [1, 3, 2, 5, 4];
         Console.WriteLine("数组 nums = " + ToString(nums));
 
         // 随机访问

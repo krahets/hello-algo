@@ -45,7 +45,7 @@ public class heap_sort {
 
     [Test]
     public void Test() {
-        int[] nums = { 4, 1, 3, 1, 5, 2 };
+        int[] nums = [4, 1, 3, 1, 5, 2];
         HeapSort(nums);
         Console.WriteLine("堆排序完成后 nums = " + string.Join(" ", nums));
     }

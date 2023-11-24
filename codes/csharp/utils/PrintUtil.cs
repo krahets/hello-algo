@@ -6,14 +6,9 @@
 
 namespace hello_algo.utils;
 
-public class Trunk {
-    public Trunk? prev;
-    public string str;
-
-    public Trunk(Trunk? prev, string str) {
-        this.prev = prev;
-        this.str = str;
-    }
+public class Trunk(Trunk? prev, string str) {
+    public Trunk? prev = prev;
+    public string str = str;
 };
 
 public static class PrintUtil {
@@ -45,8 +40,8 @@ public static class PrintUtil {
     }
 
     /* Print a linked list */
-    public static void PrintLinkedList(ListNode head) {
-        List<string> list = new();
+    public static void PrintLinkedList(ListNode? head) {
+        List<string> list = [];
         while (head != null) {
             list.Add(head.val.ToString());
             head = head.next;
@@ -115,10 +110,10 @@ public static class PrintUtil {
     /* Print a heap */
     public static void PrintHeap(Queue<int> queue) {
         Console.Write("堆的数组表示：");
-        List<int> list = queue.ToList();
+        List<int> list = [.. queue];
         Console.WriteLine(string.Join(',', list));
         Console.WriteLine("堆的树状表示：");
-        TreeNode tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
+        TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }
 
@@ -126,13 +121,13 @@ public static class PrintUtil {
     public static void PrintHeap(PriorityQueue<int, int> queue) {
         var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
         Console.Write("堆的数组表示：");
-        List<int> list = new();
+        List<int> list = [];
         while (newQueue.TryDequeue(out int element, out _)) {
             list.Add(element);
         }
         Console.WriteLine("堆的树状表示：");
         Console.WriteLine(string.Join(',', list.ToList()));
-        TreeNode tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
+        TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }
 }

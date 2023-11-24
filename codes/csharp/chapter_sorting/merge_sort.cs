@@ -49,7 +49,7 @@ public class merge_sort {
     [Test]
     public void Test() {
         /* 归并排序 */
-        int[] nums = { 7, 3, 2, 6, 0, 1, 5, 4 };
+        int[] nums = [7, 3, 2, 6, 0, 1, 5, 4];
         MergeSort(nums, 0, nums.Length - 1);
         Console.WriteLine("归并排序完成后 nums = " + string.Join(",", nums));
     }

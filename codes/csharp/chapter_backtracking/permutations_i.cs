@@ -33,14 +33,14 @@ public class permutations_i {
 
     /* 全排列 I */
     static List<List<int>> PermutationsI(int[] nums) {
-        List<List<int>> res = new();
-        Backtrack(new List<int>(), nums, new bool[nums.Length], res);
+        List<List<int>> res = [];
+        Backtrack([], nums, new bool[nums.Length], res);
         return res;
     }
 
     [Test]
     public void Test() {
-        int[] nums = { 1, 2, 3 };
+        int[] nums = [1, 2, 3];
 
         List<List<int>> res = PermutationsI(nums);
 

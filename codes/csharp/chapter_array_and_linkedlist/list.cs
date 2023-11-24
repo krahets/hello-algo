@@ -11,8 +11,8 @@ public class list {
     public void Test() {
 
         /* 初始化列表 */
-        int[] numbers = new int[] { 1, 3, 2, 5, 4 };
-        List<int> nums = numbers.ToList();
+        int[] numbers = [1, 3, 2, 5, 4];
+        List<int> nums = [.. numbers];
         Console.WriteLine("列表 nums = " + string.Join(",", nums));
 
         /* 访问元素 */
@@ -55,7 +55,7 @@ public class list {
         }
 
         /* 拼接两个列表 */
-        List<int> nums1 = new() { 6, 8, 7, 10, 9 };
+        List<int> nums1 = [6, 8, 7, 10, 9];
         nums.AddRange(nums1);
         Console.WriteLine("将列表 nums1 拼接到 nums 之后，得到 nums = " + string.Join(",", nums));
 

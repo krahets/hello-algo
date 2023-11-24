@@ -33,17 +33,17 @@ public class subset_sum_i {
 
     /* 求解子集和 I */
     public static List<List<int>> SubsetSumI(int[] nums, int target) {
-        List<int> state = new(); // 状态（子集）
+        List<int> state = []; // 状态（子集）
         Array.Sort(nums); // 对 nums 进行排序
         int start = 0; // 遍历起始点
-        List<List<int>> res = new(); // 结果列表（子集列表）
+        List<List<int>> res = []; // 结果列表（子集列表）
         Backtrack(state, target, nums, start, res);
         return res;
     }
 
     [Test]
     public void Test() {
-        int[] nums = { 3, 4, 5 };
+        int[] nums = [3, 4, 5];
         int target = 9;
         List<List<int>> res = SubsetSumI(nums, target);
         Console.WriteLine("输入数组 nums = " + string.Join(", ", nums) + ", target = " + target);

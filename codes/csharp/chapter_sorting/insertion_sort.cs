@@ -23,7 +23,7 @@ public class insertion_sort {
 
     [Test]
     public void Test() {
-        int[] nums = { 4, 1, 3, 1, 5, 2 };
+        int[] nums = [4, 1, 3, 1, 5, 2];
         InsertionSort(nums);
         Console.WriteLine("插入排序完成后 nums = " + string.Join(",", nums));
     }

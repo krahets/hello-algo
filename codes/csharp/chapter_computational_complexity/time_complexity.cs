@@ -7,9 +7,9 @@
 namespace hello_algo.chapter_computational_complexity;
 
 public class time_complexity {
-    void Algorithm(int n) {
+    public static void Algorithm(int n) {
         int a = 1;  // +0（技巧 1）
-        a = a + n;  // +0（技巧 1）
+        a += n;  // +0（技巧 1）
                     // +n（技巧 2）
         for (int i = 0; i < 5 * n + 1; i++) {
             Console.WriteLine(0);
@@ -23,17 +23,19 @@ public class time_complexity {
     }
 
     // 算法 A 时间复杂度：常数阶
-    void AlgorithmA(int n) {
+    public static void AlgorithmA(int n) {
         Console.WriteLine(0);
     }
+
     // 算法 B 时间复杂度：线性阶
-    void AlgorithmB(int n) {
+    public static void AlgorithmB(int n) {
         for (int i = 0; i < n; i++) {
             Console.WriteLine(0);
         }
     }
+
     // 算法 C 时间复杂度：常数阶
-    void AlgorithmC(int n) {
+    public static void AlgorithmC(int n) {
         for (int i = 0; i < 1000000; i++) {
             Console.WriteLine(0);
         }
@@ -119,7 +121,7 @@ public class time_complexity {
     static int Logarithmic(float n) {
         int count = 0;
         while (n > 1) {
-            n = n / 2;
+            n /= 2;
             count++;
         }
         return count;

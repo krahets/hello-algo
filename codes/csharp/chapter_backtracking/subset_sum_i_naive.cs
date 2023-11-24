@@ -31,16 +31,16 @@ public class subset_sum_i_naive {
 
     /* 求解子集和 I（包含重复子集） */
     public static List<List<int>> SubsetSumINaive(int[] nums, int target) {
-        List<int> state = new(); // 状态（子集）
+        List<int> state = []; // 状态（子集）
         int total = 0; // 子集和
-        List<List<int>> res = new(); // 结果列表（子集列表）
+        List<List<int>> res = []; // 结果列表（子集列表）
         Backtrack(state, target, total, nums, res);
         return res;
     }
 
     [Test]
     public void Test() {
-        int[] nums = { 3, 4, 5 };
+        int[] nums = [3, 4, 5];
         int target = 9;
         List<List<int>> res = SubsetSumINaive(nums, target);
         Console.WriteLine("输入数组 nums = " + string.Join(", ", nums) + ", target = " + target);

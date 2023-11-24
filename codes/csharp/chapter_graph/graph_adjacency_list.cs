@@ -13,7 +13,7 @@ public class GraphAdjList {
 
     /* 构造函数 */
     public GraphAdjList(Vertex[][] edges) {
-        this.adjList = new Dictionary<Vertex, List<Vertex>>();
+        this.adjList = [];
         // 添加所有顶点和边
         foreach (Vertex[] edge in edges) {
             AddVertex(edge[0]);
@@ -29,20 +29,23 @@ public class GraphAdjList {
 
     /* 添加边 */
     public void AddEdge(Vertex vet1, Vertex vet2) {
-        if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
+        if (!adjList.TryGetValue(vet1, out List<Vertex>? vectors1)
+            || !adjList.TryGetValue(vet2, out List<Vertex>? vectors2)
+            || vet1 == vet2)
             throw new InvalidOperationException();
-        // 添加边 vet1 - vet2
-        adjList[vet1].Add(vet2);
-        adjList[vet2].Add(vet1);
+        vectors1.Add(vet2);
+        vectors2.Add(vet1);
     }
 
     /* 删除边 */
     public void RemoveEdge(Vertex vet1, Vertex vet2) {
-        if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
+        if (!adjList.TryGetValue(vet1, out List<Vertex>? vectors1)
+            || !adjList.TryGetValue(vet2, out List<Vertex>? vectors2)
+            || vet1 == vet2)
             throw new InvalidOperationException();
         // 删除边 vet1 - vet2
-        adjList[vet1].Remove(vet2);
-        adjList[vet2].Remove(vet1);
+        vectors1.Remove(vet2);
+        vectors2.Remove(vet1);
     }
 
     /* 添加顶点 */
@@ -50,7 +53,7 @@ public class GraphAdjList {
         if (adjList.ContainsKey(vet))
             return;
         // 在邻接表中添加一个新链表
-        adjList.Add(vet, new List<Vertex>());
+        adjList.Add(vet, []);
     }
 
     /* 删除顶点 */
@@ -69,7 +72,7 @@ public class GraphAdjList {
     public void Print() {
         Console.WriteLine("邻接表 =");
         foreach (KeyValuePair<Vertex, List<Vertex>> pair in adjList) {
-            List<int> tmp = new();
+            List<int> tmp = [];
             foreach (Vertex vertex in pair.Value)
                 tmp.Add(vertex.val);
             Console.WriteLine(pair.Key.val + ": [" + string.Join(", ", tmp) + "],");
@@ -81,10 +84,16 @@ public class graph_adjacency_list {
     [Test]
     public void Test() {
         /* 初始化无向图 */
-        Vertex[] v = Vertex.ValsToVets(new int[] { 1, 3, 2, 5, 4 });
-        Vertex[][] edges = new Vertex[][] { new Vertex[] { v[0], v[1] }, new Vertex[] { v[0], v[3] },
-                                            new Vertex[] { v[1], v[2] }, new Vertex[] { v[2], v[3] },
-                                            new Vertex[] { v[2], v[4] }, new Vertex[] { v[3], v[4] } };
+        Vertex[] v = Vertex.ValsToVets([1, 3, 2, 5, 4]);
+        Vertex[][] edges =
+        [
+            [v[0], v[1]],
+            [v[0], v[3]],
+            [v[1], v[2]],
+            [v[2], v[3]],
+            [v[2], v[4]],
+            [v[3], v[4]] 
+        ];
         GraphAdjList graph = new(edges);
         Console.WriteLine("\n初始化后，图为");
         graph.Print();

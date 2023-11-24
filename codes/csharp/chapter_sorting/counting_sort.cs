@@ -66,11 +66,11 @@ public class counting_sort {
 
     [Test]
     public void Test() {
-        int[] nums = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
+        int[] nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4];
         CountingSortNaive(nums);
         Console.WriteLine("计数排序（无法排序对象）完成后 nums = " + string.Join(" ", nums));
 
-        int[] nums1 = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
+        int[] nums1 = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4];
         CountingSort(nums1);
         Console.WriteLine("计数排序完成后 nums1 = " + string.Join(" ", nums));
     }

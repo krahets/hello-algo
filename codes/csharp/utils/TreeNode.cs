@@ -7,16 +7,11 @@
 namespace hello_algo.utils;
 
 /* 二叉树节点类 */
-public class TreeNode {
-    public int val;        // 节点值
+public class TreeNode(int? x) {
+    public int? val = x;        // 节点值
     public int height;     // 节点高度
     public TreeNode? left;  // 左子节点引用
     public TreeNode? right; // 右子节点引用
-
-    /* 构造方法 */
-    public TreeNode(int x) {
-        val = x;
-    }
 
     // 序列化编码规则请参考：
     // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
@@ -39,7 +34,7 @@ public class TreeNode {
         if (i < 0 || i >= arr.Count || !arr[i].HasValue) {
             return null;
         }
-        TreeNode root = new(arr[i].Value) {
+        TreeNode root = new(arr[i]) {
             left = ListToTreeDFS(arr, 2 * i + 1),
             right = ListToTreeDFS(arr, 2 * i + 2)
         };
@@ -65,7 +60,7 @@ public class TreeNode {
 
     /* 将二叉树序列化为列表 */
     public static List<int?> TreeToList(TreeNode root) {
-        List<int?> res = new();
+        List<int?> res = [];
         TreeToListDFS(root, 0, res);
         return res;
     }

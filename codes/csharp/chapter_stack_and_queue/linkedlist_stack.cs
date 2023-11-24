@@ -37,7 +37,7 @@ class LinkedListStack {
     /* 出栈 */
     public int Pop() {
         int num = Peek();
-        stackPeek = stackPeek.next;
+        stackPeek = stackPeek!.next;
         stkSize--;
         return num;
     }
@@ -46,18 +46,18 @@ class LinkedListStack {
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
-        return stackPeek.val;
+        return stackPeek!.val;
     }
 
     /* 将 List 转化为 Array 并返回 */
     public int[] ToArray() {
         if (stackPeek == null)
-            return Array.Empty<int>();
+            return [];
 
-        ListNode node = stackPeek;
+        ListNode? node = stackPeek;
         int[] res = new int[Size()];
         for (int i = res.Length - 1; i >= 0; i--) {
-            res[i] = node.val;
+            res[i] = node!.val;
             node = node.next;
         }
         return res;

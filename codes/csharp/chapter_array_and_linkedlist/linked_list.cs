@@ -23,7 +23,7 @@ public class linked_list {
     }
 
     /* 访问链表中索引为 index 的节点 */
-    public static ListNode? Access(ListNode head, int index) {
+    public static ListNode? Access(ListNode? head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
                 return null;
@@ -33,7 +33,7 @@ public class linked_list {
     }
 
     /* 在链表中查找值为 target 的首个节点 */
-    public static int Find(ListNode head, int target) {
+    public static int Find(ListNode? head, int target) {
         int index = 0;
         while (head != null) {
             if (head.val == target)

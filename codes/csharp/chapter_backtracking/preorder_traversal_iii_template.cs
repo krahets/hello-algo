@@ -46,7 +46,7 @@ public class preorder_traversal_iii_template {
                 // 尝试：做出选择，更新状态
                 MakeChoice(state, choice);
                 // 进行下一轮选择
-                Backtrack(state, new List<TreeNode> { choice.left, choice.right }, res);
+                Backtrack(state, [choice.left!, choice.right!], res);
                 // 回退：撤销选择，恢复到之前的状态
                 UndoChoice(state, choice);
             }
@@ -55,14 +55,14 @@ public class preorder_traversal_iii_template {
 
     [Test]
     public void Test() {
-        TreeNode root = TreeNode.ListToTree(new List<int?> { 1, 7, 3, 4, 5, 6, 7 });
+        TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
         Console.WriteLine("\n初始化二叉树");
         PrintUtil.PrintTree(root);
 
         // 回溯算法
-        List<List<TreeNode>> res = new();
-        List<TreeNode> choices = new() { root };
-        Backtrack(new List<TreeNode>(), choices, res);
+        List<List<TreeNode>> res = [];
+        List<TreeNode> choices = [root!];
+        Backtrack([], choices, res);
 
         Console.WriteLine("\n输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点");
         foreach (List<TreeNode> path in res) {

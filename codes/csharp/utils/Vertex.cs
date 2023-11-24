@@ -7,11 +7,8 @@
 namespace hello_algo.utils;
 
 /* 顶点类 */
-public class Vertex {
-    public int val;
-    public Vertex(int val) {
-        this.val = val;
-    }
+public class Vertex(int val) {
+    public int val = val;
 
     /* 输入值列表 vals ，返回顶点列表 vets */
     public static Vertex[] ValsToVets(int[] vals) {
@@ -24,7 +21,7 @@ public class Vertex {
 
     /* 输入顶点列表 vets ，返回值列表 vals */
     public static List<int> VetsToVals(List<Vertex> vets) {
-        List<int> vals = new();
+        List<int> vals = [];
         foreach (Vertex vet in vets) {
             vals.Add(vet.val);
         }

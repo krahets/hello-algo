@@ -28,7 +28,7 @@ public class top_k {
 
     [Test]
     public void Test() {
-        int[] nums = { 1, 7, 6, 3, 2 };
+        int[] nums = [1, 7, 6, 3, 2];
         int k = 3;
         PriorityQueue<int, int> res = TopKHeap(nums, k);
         Console.WriteLine("最大的 " + k + " 个元素为");

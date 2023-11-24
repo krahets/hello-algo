@@ -13,7 +13,7 @@ class MaxHeap {
 
     /* 构造函数，建立空堆 */
     public MaxHeap() {
-        maxHeap = new List<int>();
+        maxHeap = [];
     }
 
     /* 构造函数，根据输入列表建堆 */
@@ -28,17 +28,17 @@ class MaxHeap {
     }
 
     /* 获取左子节点索引 */
-    int Left(int i) {
+    static int Left(int i) {
         return 2 * i + 1;
     }
 
     /* 获取右子节点索引 */
-    int Right(int i) {
+    static int Right(int i) {
         return 2 * i + 2;
     }
 
     /* 获取父节点索引 */
-    int Parent(int i) {
+    static int Parent(int i) {
         return (i - 1) / 2; // 向下整除
     }
 
@@ -130,7 +130,7 @@ public class my_heap {
     [Test]
     public void Test() {
         /* 初始化大顶堆 */
-        MaxHeap maxHeap = new(new int[] { 9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2 });
+        MaxHeap maxHeap = new([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
         Console.WriteLine("\n输入列表并建堆后");
         maxHeap.Print();
 

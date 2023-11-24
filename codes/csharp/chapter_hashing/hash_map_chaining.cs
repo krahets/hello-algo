@@ -22,7 +22,7 @@ class HashMapChaining {
         extendRatio = 2;
         buckets = new List<List<Pair>>(capacity);
         for (int i = 0; i < capacity; i++) {
-            buckets.Add(new List<Pair>());
+            buckets.Add([]);
         }
     }
 
@@ -89,7 +89,7 @@ class HashMapChaining {
         capacity *= extendRatio;
         buckets = new List<List<Pair>>(capacity);
         for (int i = 0; i < capacity; i++) {
-            buckets.Add(new List<Pair>());
+            buckets.Add([]);
         }
         size = 0;
         // 将键值对从原哈希表搬运至新哈希表
@@ -103,7 +103,7 @@ class HashMapChaining {
     /* 打印哈希表 */
     public void Print() {
         foreach (List<Pair> bucket in buckets) {
-            List<string> res = new();
+            List<string> res = [];
             foreach (Pair pair in bucket) {
                 res.Add(pair.key + " -> " + pair.val);
             }

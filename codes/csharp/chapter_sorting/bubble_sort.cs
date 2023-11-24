@@ -40,11 +40,11 @@ public class bubble_sort {
 
     [Test]
     public void Test() {
-        int[] nums = { 4, 1, 3, 1, 5, 2 };
+        int[] nums = [4, 1, 3, 1, 5, 2];
         BubbleSort(nums);
         Console.WriteLine("冒泡排序完成后  nums = " + string.Join(",", nums));
 
-        int[] nums1 = { 4, 1, 3, 1, 5, 2 };
+        int[] nums1 = [4, 1, 3, 1, 5, 2];
         BubbleSortWithFlag(nums1);
         Console.WriteLine("冒泡排序完成后 nums1 = " + string.Join(",", nums1));
     }

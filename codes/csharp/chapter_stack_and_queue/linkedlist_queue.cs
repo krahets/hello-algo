@@ -55,18 +55,18 @@ class LinkedListQueue {
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
-        return front.val;
+        return front!.val;
     }
 
     /* 将链表转化为 Array 并返回 */
     public int[] ToArray() {
         if (front == null)
-            return Array.Empty<int>();
+            return [];
 
-        ListNode node = front;
+        ListNode? node = front;
         int[] res = new int[Size()];
         for (int i = 0; i < res.Length; i++) {
-            res[i] = node.val;
+            res[i] = node!.val;
             node = node.next;
         }
         return res;
