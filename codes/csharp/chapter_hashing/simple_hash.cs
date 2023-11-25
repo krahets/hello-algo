@@ -8,7 +8,7 @@ namespace hello_algo.chapter_hashing;
 
 public class simple_hash {
     /* 加法哈希 */
-    public static int AddHash(string key) {
+    int AddHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
         foreach (char c in key) {
@@ -18,7 +18,7 @@ public class simple_hash {
     }
 
     /* 乘法哈希 */
-    public static int MulHash(string key) {
+    int MulHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
         foreach (char c in key) {
@@ -28,7 +28,7 @@ public class simple_hash {
     }
 
     /* 异或哈希 */
-    public static int XorHash(string key) {
+    int XorHash(string key) {
         int hash = 0;
         const int MODULUS = 1000000007;
         foreach (char c in key) {
@@ -38,7 +38,7 @@ public class simple_hash {
     }
 
     /* 旋转哈希 */
-    public static int RotHash(string key) {
+    int RotHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
         foreach (char c in key) {

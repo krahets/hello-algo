@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class min_cost_climbing_stairs_dp {
     /* 爬楼梯最小代价：动态规划 */
-    public static int MinCostClimbingStairsDP(int[] cost) {
+    int MinCostClimbingStairsDP(int[] cost) {
         int n = cost.Length - 1;
         if (n == 1 || n == 2)
             return cost[n];
@@ -25,7 +25,7 @@ public class min_cost_climbing_stairs_dp {
     }
 
     /* 爬楼梯最小代价：空间优化后的动态规划 */
-    public static int MinCostClimbingStairsDPComp(int[] cost) {
+    int MinCostClimbingStairsDPComp(int[] cost) {
         int n = cost.Length - 1;
         if (n == 1 || n == 2)
             return cost[n];

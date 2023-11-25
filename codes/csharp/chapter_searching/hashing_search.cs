@@ -8,14 +8,14 @@ namespace hello_algo.chapter_searching;
 
 public class hashing_search {
     /* 哈希查找（数组） */
-    static int HashingSearchArray(Dictionary<int, int> map, int target) {
+    int HashingSearchArray(Dictionary<int, int> map, int target) {
         // 哈希表的 key: 目标元素，value: 索引
         // 若哈希表中无此 key ，返回 -1
         return map.GetValueOrDefault(target, -1);
     }
 
     /* 哈希查找（链表） */
-    static ListNode? HashingSearchLinkedList(Dictionary<int, ListNode> map, int target) {
+    ListNode? HashingSearchLinkedList(Dictionary<int, ListNode> map, int target) {
 
         // 哈希表的 key: 目标节点值，value: 节点对象
         // 若哈希表中无此 key ，返回 null

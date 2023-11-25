@@ -8,8 +8,8 @@ namespace hello_algo.chapter_stack_and_queue;
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
-    private ListNode? front, rear;  // 头节点 front ，尾节点 rear 
-    private int queSize = 0;
+    ListNode? front, rear;  // 头节点 front ，尾节点 rear 
+    int queSize = 0;
 
     public LinkedListQueue() {
         front = null;

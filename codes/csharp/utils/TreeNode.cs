@@ -30,7 +30,7 @@ public class TreeNode(int? x) {
     //             \——— 8
 
     /* 将列表反序列化为二叉树：递归 */
-    private static TreeNode? ListToTreeDFS(List<int?> arr, int i) {
+    static TreeNode? ListToTreeDFS(List<int?> arr, int i) {
         if (i < 0 || i >= arr.Count || !arr[i].HasValue) {
             return null;
         }
@@ -47,7 +47,7 @@ public class TreeNode(int? x) {
     }
 
     /* 将二叉树序列化为列表：递归 */
-    private static void TreeToListDFS(TreeNode? root, int i, List<int?> res) {
+    static void TreeToListDFS(TreeNode? root, int i, List<int?> res) {
         if (root == null)
             return;
         while (i >= res.Count) {

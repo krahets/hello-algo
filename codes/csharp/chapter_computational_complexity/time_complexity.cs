@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_computational_complexity;
 
 public class time_complexity {
-    public static void Algorithm(int n) {
+    void Algorithm(int n) {
         int a = 1;  // +0（技巧 1）
         a += n;  // +0（技巧 1）
                     // +n（技巧 2）
@@ -23,26 +23,26 @@ public class time_complexity {
     }
 
     // 算法 A 时间复杂度：常数阶
-    public static void AlgorithmA(int n) {
+    void AlgorithmA(int n) {
         Console.WriteLine(0);
     }
 
     // 算法 B 时间复杂度：线性阶
-    public static void AlgorithmB(int n) {
+    void AlgorithmB(int n) {
         for (int i = 0; i < n; i++) {
             Console.WriteLine(0);
         }
     }
 
     // 算法 C 时间复杂度：常数阶
-    public static void AlgorithmC(int n) {
+    void AlgorithmC(int n) {
         for (int i = 0; i < 1000000; i++) {
             Console.WriteLine(0);
         }
     }
 
     /* 常数阶 */
-    static int Constant(int n) {
+    int Constant(int n) {
         int count = 0;
         int size = 100000;
         for (int i = 0; i < size; i++)
@@ -51,7 +51,7 @@ public class time_complexity {
     }
 
     /* 线性阶 */
-    static int Linear(int n) {
+    int Linear(int n) {
         int count = 0;
         for (int i = 0; i < n; i++)
             count++;
@@ -59,7 +59,7 @@ public class time_complexity {
     }
 
     /* 线性阶（遍历数组） */
-    static int ArrayTraversal(int[] nums) {
+    int ArrayTraversal(int[] nums) {
         int count = 0;
         // 循环次数与数组长度成正比
         foreach (int num in nums) {
@@ -69,7 +69,7 @@ public class time_complexity {
     }
 
     /* 平方阶 */
-    static int Quadratic(int n) {
+    int Quadratic(int n) {
         int count = 0;
         // 循环次数与数组长度成平方关系
         for (int i = 0; i < n; i++) {
@@ -81,7 +81,7 @@ public class time_complexity {
     }
 
     /* 平方阶（冒泡排序） */
-    static int BubbleSort(int[] nums) {
+    int BubbleSort(int[] nums) {
         int count = 0;  // 计数器
         // 外循环：未排序区间为 [0, i]
         for (int i = nums.Length - 1; i > 0; i--) {
@@ -98,7 +98,7 @@ public class time_complexity {
     }
 
     /* 指数阶（循环实现） */
-    static int Exponential(int n) {
+    int Exponential(int n) {
         int count = 0, bas = 1;
         // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
         for (int i = 0; i < n; i++) {
@@ -112,13 +112,13 @@ public class time_complexity {
     }
 
     /* 指数阶（递归实现） */
-    static int ExpRecur(int n) {
+    int ExpRecur(int n) {
         if (n == 1) return 1;
         return ExpRecur(n - 1) + ExpRecur(n - 1) + 1;
     }
 
     /* 对数阶（循环实现） */
-    static int Logarithmic(float n) {
+    int Logarithmic(float n) {
         int count = 0;
         while (n > 1) {
             n /= 2;
@@ -128,13 +128,13 @@ public class time_complexity {
     }
 
     /* 对数阶（递归实现） */
-    static int LogRecur(float n) {
+    int LogRecur(float n) {
         if (n <= 1) return 0;
         return LogRecur(n / 2) + 1;
     }
 
     /* 线性对数阶 */
-    static int LinearLogRecur(float n) {
+    int LinearLogRecur(float n) {
         if (n <= 1) return 1;
         int count = LinearLogRecur(n / 2) + LinearLogRecur(n / 2);
         for (int i = 0; i < n; i++) {
@@ -144,7 +144,7 @@ public class time_complexity {
     }
 
     /* 阶乘阶（递归实现） */
-    static int FactorialRecur(int n) {
+    int FactorialRecur(int n) {
         if (n == 0) return 1;
         int count = 0;
         // 从 1 个分裂出 n 个

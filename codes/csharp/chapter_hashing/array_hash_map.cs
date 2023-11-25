@@ -14,7 +14,7 @@ class Pair(int key, string val) {
 
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
-    private readonly List<Pair?> buckets;
+    List<Pair?> buckets;
     public ArrayHashMap() {
         // 初始化数组，包含 100 个桶
         buckets = [];
@@ -24,7 +24,7 @@ class ArrayHashMap {
     }
 
     /* 哈希函数 */
-    private static int HashFunc(int key) {
+    int HashFunc(int key) {
         int index = key % 100;
         return index;
     }

@@ -9,7 +9,7 @@ namespace hello_algo.chapter_tree;
 public class binary_tree_bfs {
 
     /* 层序遍历 */
-    public static List<int> LevelOrder(TreeNode root) {
+    List<int> LevelOrder(TreeNode root) {
         // 初始化队列，加入根节点
         Queue<TreeNode> queue = new();
         queue.Enqueue(root);

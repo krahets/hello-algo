@@ -8,32 +8,32 @@ namespace hello_algo.chapter_backtracking;
 
 public class preorder_traversal_iii_template {
     /* 判断当前状态是否为解 */
-    static bool IsSolution(List<TreeNode> state) {
+    bool IsSolution(List<TreeNode> state) {
         return state.Count != 0 && state[^1].val == 7;
     }
 
     /* 记录解 */
-    static void RecordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
+    void RecordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
         res.Add(new List<TreeNode>(state));
     }
 
     /* 判断在当前状态下，该选择是否合法 */
-    static bool IsValid(List<TreeNode> state, TreeNode choice) {
+    bool IsValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
 
     /* 更新状态 */
-    static void MakeChoice(List<TreeNode> state, TreeNode choice) {
+    void MakeChoice(List<TreeNode> state, TreeNode choice) {
         state.Add(choice);
     }
 
     /* 恢复状态 */
-    static void UndoChoice(List<TreeNode> state, TreeNode choice) {
+    void UndoChoice(List<TreeNode> state, TreeNode choice) {
         state.RemoveAt(state.Count - 1);
     }
 
     /* 回溯算法：例题三 */
-    static void Backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
+    void Backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
         // 检查是否为解
         if (IsSolution(state)) {
             // 记录解

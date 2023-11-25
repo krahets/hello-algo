@@ -9,7 +9,7 @@ namespace hello_algo.chapter_graph;
 public class graph_bfs {
     /* 广度优先遍历 BFS */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-    public static List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
+    List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
         List<Vertex> res = [];
         // 哈希表，用于记录已被访问过的顶点

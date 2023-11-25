@@ -8,7 +8,7 @@ namespace hello_algo.chapter_backtracking;
 
 public class permutations_ii {
     /* 回溯算法：全排列 II */
-    static void Backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
+    void Backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
         // 当状态长度等于元素数量时，记录解
         if (state.Count == choices.Length) {
             res.Add(new List<int>(state));
@@ -34,7 +34,7 @@ public class permutations_ii {
     }
 
     /* 全排列 II */
-    static List<List<int>> PermutationsII(int[] nums) {
+    List<List<int>> PermutationsII(int[] nums) {
         List<List<int>> res = [];
         Backtrack([], nums, new bool[nums.Length], res);
         return res;

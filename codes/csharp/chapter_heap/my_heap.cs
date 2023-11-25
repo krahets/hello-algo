@@ -9,7 +9,7 @@ namespace hello_algo.chapter_heap;
 /* 大顶堆 */
 class MaxHeap {
     // 使用列表而非数组，这样无须考虑扩容问题
-    private readonly List<int> maxHeap;
+    List<int> maxHeap;
 
     /* 构造函数，建立空堆 */
     public MaxHeap() {
@@ -28,17 +28,17 @@ class MaxHeap {
     }
 
     /* 获取左子节点索引 */
-    static int Left(int i) {
+    int Left(int i) {
         return 2 * i + 1;
     }
 
     /* 获取右子节点索引 */
-    static int Right(int i) {
+    int Right(int i) {
         return 2 * i + 2;
     }
 
     /* 获取父节点索引 */
-    static int Parent(int i) {
+    int Parent(int i) {
         return (i - 1) / 2; // 向下整除
     }
 

@@ -26,6 +26,9 @@ dotnet_diagnostic.CS8981.severity = silent
 # IDE1006: Naming Styles
 dotnet_diagnostic.IDE1006.severity = silent
 
+# CA1822: Mark members as static
+dotnet_diagnostic.CA1822.severity = silent
+
 [*.{cs,vb}]
 #### Naming styles ####
 
@@ -77,3 +80,9 @@ dotnet_style_operator_placement_when_wrapping = beginning_of_line
 tab_width = 4
 indent_size = 4
 end_of_line = crlf
+
+# IDE0040: Add accessibility modifiers
+dotnet_diagnostic.IDE0040.severity = silent
+
+# IDE0044: Add readonly modifier
+dotnet_diagnostic.IDE0044.severity = silent

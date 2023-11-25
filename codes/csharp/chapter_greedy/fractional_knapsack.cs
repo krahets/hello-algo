@@ -14,7 +14,7 @@ class Item(int w, int v) {
 
 public class fractional_knapsack {
     /* 分数背包：贪心 */
-    public static double FractionalKnapsack(int[] wgt, int[] val, int cap) {
+    double FractionalKnapsack(int[] wgt, int[] val, int cap) {
         // 创建物品列表，包含两个属性：重量、价值
         Item[] items = new Item[wgt.Length];
         for (int i = 0; i < wgt.Length; i++) {

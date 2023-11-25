@@ -13,7 +13,7 @@ public class GraphAdjList {
 
     /* 构造函数 */
     public GraphAdjList(Vertex[][] edges) {
-        this.adjList = [];
+        adjList = [];
         // 添加所有顶点和边
         foreach (Vertex[] edge in edges) {
             AddVertex(edge[0]);
@@ -23,29 +23,26 @@ public class GraphAdjList {
     }
 
     /* 获取顶点数量 */
-    public int Size() {
+    int Size() {
         return adjList.Count;
     }
 
     /* 添加边 */
     public void AddEdge(Vertex vet1, Vertex vet2) {
-        if (!adjList.TryGetValue(vet1, out List<Vertex>? vectors1)
-            || !adjList.TryGetValue(vet2, out List<Vertex>? vectors2)
-            || vet1 == vet2)
+        if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
             throw new InvalidOperationException();
-        vectors1.Add(vet2);
-        vectors2.Add(vet1);
+        // 添加边 vet1 - vet2
+        adjList[vet1].Add(vet2);
+        adjList[vet2].Add(vet1);
     }
 
     /* 删除边 */
     public void RemoveEdge(Vertex vet1, Vertex vet2) {
-        if (!adjList.TryGetValue(vet1, out List<Vertex>? vectors1)
-            || !adjList.TryGetValue(vet2, out List<Vertex>? vectors2)
-            || vet1 == vet2)
+        if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
             throw new InvalidOperationException();
         // 删除边 vet1 - vet2
-        vectors1.Remove(vet2);
-        vectors2.Remove(vet1);
+        adjList[vet1].Remove(vet2);
+        adjList[vet2].Remove(vet1);
     }
 
     /* 添加顶点 */

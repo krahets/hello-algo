@@ -9,7 +9,7 @@ namespace hello_algo.chapter_sorting;
 public class counting_sort {
     /* 计数排序 */
     // 简单实现，无法用于排序对象
-    public static void CountingSortNaive(int[] nums) {
+    void CountingSortNaive(int[] nums) {
         // 1. 统计数组最大元素 m
         int m = 0;
         foreach (int num in nums) {
@@ -32,7 +32,7 @@ public class counting_sort {
 
     /* 计数排序 */
     // 完整实现，可排序对象，并且是稳定排序
-    static void CountingSort(int[] nums) {
+    void CountingSort(int[] nums) {
         // 1. 统计数组最大元素 m
         int m = 0;
         foreach (int num in nums) {

@@ -8,7 +8,7 @@ namespace hello_algo.chapter_sorting;
 
 public class bucket_sort {
     /* 桶排序 */
-    public static void BucketSort(float[] nums) {
+    void BucketSort(float[] nums) {
         // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
         int k = nums.Length / 2;
         List<List<float>> buckets = [];

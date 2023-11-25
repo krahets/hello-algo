@@ -8,7 +8,7 @@ namespace hello_algo.chapter_divide_and_conquer;
 
 public class build_tree {
     /* 构建二叉树：分治 */
-    public static TreeNode? DFS(int[] preorder, Dictionary<int, int> inorderMap, int i, int l, int r) {
+    TreeNode? DFS(int[] preorder, Dictionary<int, int> inorderMap, int i, int l, int r) {
         // 子树区间为空时终止
         if (r - l < 0)
             return null;
@@ -25,7 +25,7 @@ public class build_tree {
     }
 
     /* 构建二叉树 */
-    public static TreeNode? BuildTree(int[] preorder, int[] inorder) {
+    TreeNode? BuildTree(int[] preorder, int[] inorder) {
         // 初始化哈希表，存储 inorder 元素到索引的映射
         Dictionary<int, int> inorderMap = [];
         for (int i = 0; i < inorder.Length; i++) {

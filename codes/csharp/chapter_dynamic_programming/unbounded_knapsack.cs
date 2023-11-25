@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class unbounded_knapsack {
     /* 完全背包：动态规划 */
-    public static int UnboundedKnapsackDP(int[] wgt, int[] val, int cap) {
+    int UnboundedKnapsackDP(int[] wgt, int[] val, int cap) {
         int n = wgt.Length;
         // 初始化 dp 表
         int[,] dp = new int[n + 1, cap + 1];
@@ -28,7 +28,7 @@ public class unbounded_knapsack {
     }
 
     /* 完全背包：空间优化后的动态规划 */
-    public static int UnboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
+    int UnboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
         int n = wgt.Length;
         // 初始化 dp 表
         int[] dp = new int[cap + 1];

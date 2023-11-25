@@ -8,7 +8,7 @@ namespace hello_algo.chapter_greedy;
 
 public class max_capacity {
     /* 最大容量：贪心 */
-    public static int MaxCapacity(int[] ht) {
+    int MaxCapacity(int[] ht) {
         // 初始化 i, j 分列数组两端
         int i = 0, j = ht.Length - 1;
         // 初始最大容量为 0

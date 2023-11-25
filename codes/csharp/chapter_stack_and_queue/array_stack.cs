@@ -8,7 +8,7 @@ namespace hello_algo.chapter_stack_and_queue;
 
 /* 基于数组实现的栈 */
 class ArrayStack {
-    private readonly List<int> stack;
+    List<int> stack;
     public ArrayStack() {
         // 初始化列表（动态数组）
         stack = [];

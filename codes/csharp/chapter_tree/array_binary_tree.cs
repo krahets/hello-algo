@@ -8,7 +8,7 @@ namespace hello_algo.chapter_tree;
 
 /* 数组表示下的二叉树类 */
 public class ArrayBinaryTree(List<int?> arr) {
-    private readonly List<int?> tree = new(arr);
+    List<int?> tree = new(arr);
 
     /* 节点数量 */
     public int Size() {
@@ -50,7 +50,7 @@ public class ArrayBinaryTree(List<int?> arr) {
     }
 
     /* 深度优先遍历 */
-    private void DFS(int i, string order, List<int> res) {
+    void DFS(int i, string order, List<int> res) {
         // 若为空位，则返回
         if (!Val(i).HasValue)
             return;

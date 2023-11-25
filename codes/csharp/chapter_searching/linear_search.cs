@@ -8,7 +8,7 @@ namespace hello_algo.chapter_searching;
 
 public class linear_search {
     /* 线性查找（数组） */
-    static int LinearSearchArray(int[] nums, int target) {
+    int LinearSearchArray(int[] nums, int target) {
         // 遍历数组
         for (int i = 0; i < nums.Length; i++) {
             // 找到目标元素，返回其索引
@@ -20,7 +20,7 @@ public class linear_search {
     }
 
     /* 线性查找（链表） */
-    static ListNode? LinearSearchLinkedList(ListNode? head, int target) {
+    ListNode? LinearSearchLinkedList(ListNode? head, int target) {
         // 遍历链表
         while (head != null) {
             // 找到目标节点，返回之

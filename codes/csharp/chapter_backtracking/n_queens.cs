@@ -8,7 +8,7 @@ namespace hello_algo.chapter_backtracking;
 
 public class n_queens {
     /* 回溯算法：N 皇后 */
-    static void Backtrack(int row, int n, List<List<string>> state, List<List<List<string>>> res,
+    void Backtrack(int row, int n, List<List<string>> state, List<List<List<string>>> res,
             bool[] cols, bool[] diags1, bool[] diags2) {
         // 当放置完所有行时，记录解
         if (row == n) {
@@ -39,7 +39,7 @@ public class n_queens {
     }
 
     /* 求解 N 皇后 */
-    static List<List<List<string>>> NQueens(int n) {
+    List<List<List<string>>> NQueens(int n) {
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         List<List<string>> state = [];
         for (int i = 0; i < n; i++) {

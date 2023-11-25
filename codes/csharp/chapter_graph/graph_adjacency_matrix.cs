@@ -8,8 +8,8 @@ namespace hello_algo.chapter_graph;
 
 /* 基于邻接矩阵实现的无向图类 */
 class GraphAdjMat {
-    readonly List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    readonly List<List<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
+    List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+    List<List<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
     /* 构造函数 */
     public GraphAdjMat(int[] vertices, int[][] edges) {
@@ -27,7 +27,7 @@ class GraphAdjMat {
     }
 
     /* 获取顶点数量 */
-    public int Size() {
+    int Size() {
         return vertices.Count;
     }
 

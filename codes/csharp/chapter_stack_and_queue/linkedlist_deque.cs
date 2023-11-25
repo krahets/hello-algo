@@ -15,8 +15,8 @@ public class ListNode(int val) {
 
 /* 基于双向链表实现的双向队列 */
 public class LinkedListDeque {
-    private ListNode? front, rear; // 头节点 front, 尾节点 rear
-    private int queSize = 0;      // 双向队列的长度
+    ListNode? front, rear; // 头节点 front, 尾节点 rear
+    int queSize = 0;      // 双向队列的长度
 
     public LinkedListDeque() {
         front = null;
@@ -34,7 +34,7 @@ public class LinkedListDeque {
     }
 
     /* 入队操作 */
-    private void Push(int num, bool isFront) {
+    void Push(int num, bool isFront) {
         ListNode node = new(num);
         // 若链表为空，则令 front, rear 都指向 node
         if (IsEmpty()) {
@@ -70,7 +70,7 @@ public class LinkedListDeque {
     }
 
     /* 出队操作 */
-    private int? Pop(bool isFront) {
+    int? Pop(bool isFront) {
         if (IsEmpty())
             throw new Exception();
         int? val;

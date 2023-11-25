@@ -7,10 +7,10 @@
 namespace hello_algo.chapter_backtracking;
 
 public class preorder_traversal_i_compact {
-    static readonly List<TreeNode> res = [];
+    List<TreeNode> res = [];
 
     /* 前序遍历：例题一 */
-    static void PreOrder(TreeNode? root) {
+    void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }

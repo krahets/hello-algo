@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_tree;
 
 public class binary_tree_dfs {
-    readonly List<int> list = [];
+    List<int> list = [];
 
     /* 前序遍历 */
     void PreOrder(TreeNode? root) {

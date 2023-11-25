@@ -8,7 +8,7 @@ namespace hello_algo.chapter_greedy;
 
 public class coin_change_greedy {
     /* 零钱兑换：贪心 */
-    public static int CoinChangeGreedy(int[] coins, int amt) {
+    int CoinChangeGreedy(int[] coins, int amt) {
         // 假设 coins 列表有序
         int i = coins.Length - 1;
         int count = 0;

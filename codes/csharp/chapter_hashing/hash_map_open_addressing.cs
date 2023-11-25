@@ -8,12 +8,12 @@ namespace hello_algo.chapter_hashing;
 
 /* 开放寻址哈希表 */
 class HashMapOpenAddressing {
-    private int size; // 键值对数量
-    private int capacity = 4; // 哈希表容量
-    private readonly double loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
-    private readonly int extendRatio = 2; // 扩容倍数
-    private Pair[] buckets; // 桶数组
-    private readonly Pair TOMBSTONE = new(-1, "-1"); // 删除标记
+    int size; // 键值对数量
+    int capacity = 4; // 哈希表容量
+    double loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
+    int extendRatio = 2; // 扩容倍数
+    Pair[] buckets; // 桶数组
+    Pair TOMBSTONE = new(-1, "-1"); // 删除标记
 
     /* 构造方法 */
     public HashMapOpenAddressing() {
@@ -22,17 +22,17 @@ class HashMapOpenAddressing {
     }
 
     /* 哈希函数 */
-    private int HashFunc(int key) {
+    int HashFunc(int key) {
         return key % capacity;
     }
 
     /* 负载因子 */
-    private double LoadFactor() {
+    double LoadFactor() {
         return (double)size / capacity;
     }
 
     /* 搜索 key 对应的桶索引 */
-    private int FindBucket(int key) {
+    int FindBucket(int key) {
         int index = HashFunc(key);
         int firstTombstone = -1;
         // 线性探测，当遇到空桶时跳出
@@ -100,7 +100,7 @@ class HashMapOpenAddressing {
     }
 
     /* 扩容哈希表 */
-    private void Extend() {
+    void Extend() {
         // 暂存原哈希表
         Pair[] bucketsTmp = buckets;
         // 初始化扩容后的新哈希表
