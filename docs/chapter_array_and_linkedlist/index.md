@@ -18,4 +18,5 @@ icon: material/view-list-outline
 - [4.1 &nbsp; 数组](https://www.hello-algo.com/chapter_array_and_linkedlist/array/)
 - [4.2 &nbsp; 链表](https://www.hello-algo.com/chapter_array_and_linkedlist/linked_list/)
 - [4.3 &nbsp; 列表](https://www.hello-algo.com/chapter_array_and_linkedlist/list/)
-- [4.4 &nbsp; 小结](https://www.hello-algo.com/chapter_array_and_linkedlist/summary/)
+- [4.4 &nbsp; 内存与缓存 *](https://www.hello-algo.com/chapter_array_and_linkedlist/ram_and_cache/)
+- [4.5 &nbsp; 小结](https://www.hello-algo.com/chapter_array_and_linkedlist/summary/)

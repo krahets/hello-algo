@@ -371,7 +371,7 @@ comments: true
     /* 在数组的索引 index 处插入元素 num */
     func insert(nums: inout [Int], num: Int, index: Int) {
         // 把索引 index 以及之后的所有元素向后移动一位
-        for i in sequence(first: nums.count - 1, next: { $0 > index + 1 ? $0 - 1 : nil }) {
+        for i in nums.indices.dropFirst(index).reversed() {
             nums[i] = nums[i - 1]
         }
         // 将 num 赋给 index 处元素
@@ -537,9 +537,8 @@ comments: true
     ```swift title="array.swift"
     /* 删除索引 index 处元素 */
     func remove(nums: inout [Int], index: Int) {
-        let count = nums.count
         // 把索引 index 之后的所有元素向前移动一位
-        for i in sequence(first: index, next: { $0 < count - 1 - 1 ? $0 + 1 : nil }) {
+        for i in nums.indices.dropFirst(index).dropLast() {
             nums[i] = nums[i + 1]
         }
     }
