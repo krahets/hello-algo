@@ -92,7 +92,7 @@ void pairSet(ArrayHashMap *hmap, MapSet *set) {
     for (i = 0; i < HASHTABLE_CAPACITY; i++) {
         if (hmap->buckets[i] != NULL) {
             entries[index].key = hmap->buckets[i]->key;
-            entries[index].val = malloc(strlen(hmap->buckets[i]->val + 1));
+            entries[index].val = malloc(strlen(hmap->buckets[i]->val) + 1);
             strcpy(entries[index].val, hmap->buckets[i]->val);
             index++;
         }
