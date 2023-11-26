@@ -98,10 +98,9 @@
 
     ```csharp title=""
     /* 类 */
-    class Node {
-        int val;
+    class Node(int x) {
+        int val = x;
         Node next;
-        Node(int x) { val = x; }
     }
 
     /* 函数 */
@@ -113,7 +112,7 @@
     int Algorithm(int n) {        // 输入数据
         const int a = 0;          // 暂存数据（常量）
         int b = 0;                // 暂存数据（变量）
-        Node node = new(0);  // 暂存数据（对象）
+        Node node = new(0);       // 暂存数据（对象）
         int c = Function();       // 栈帧空间（调用函数）
         return a + b + c;         // 输出数据
     }

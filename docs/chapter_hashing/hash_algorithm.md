@@ -211,7 +211,7 @@ $$
     int hashStr = str.GetHashCode();
     // 字符串 Hello 算法 的哈希值为 -586107568;
 
-    object[] arr = { 12836, "小哈" };
+    object[] arr = [12836, "小哈"];
     int hashTup = arr.GetHashCode();
     // 数组 [12836, 小哈] 的哈希值为 42931033;
 

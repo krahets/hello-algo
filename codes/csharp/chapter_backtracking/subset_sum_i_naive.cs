@@ -8,7 +8,7 @@ namespace hello_algo.chapter_backtracking;
 
 public class subset_sum_i_naive {
     /* 回溯算法：子集和 I */
-    public static void Backtrack(List<int> state, int target, int total, int[] choices, List<List<int>> res) {
+    void Backtrack(List<int> state, int target, int total, int[] choices, List<List<int>> res) {
         // 子集和等于 target 时，记录解
         if (total == target) {
             res.Add(new List<int>(state));
@@ -30,17 +30,17 @@ public class subset_sum_i_naive {
     }
 
     /* 求解子集和 I（包含重复子集） */
-    public static List<List<int>> SubsetSumINaive(int[] nums, int target) {
-        List<int> state = new(); // 状态（子集）
+    List<List<int>> SubsetSumINaive(int[] nums, int target) {
+        List<int> state = []; // 状态（子集）
         int total = 0; // 子集和
-        List<List<int>> res = new(); // 结果列表（子集列表）
+        List<List<int>> res = []; // 结果列表（子集列表）
         Backtrack(state, target, total, nums, res);
         return res;
     }
 
     [Test]
     public void Test() {
-        int[] nums = { 3, 4, 5 };
+        int[] nums = [3, 4, 5];
         int target = 9;
         List<List<int>> res = SubsetSumINaive(nums, target);
         Console.WriteLine("输入数组 nums = " + string.Join(", ", nums) + ", target = " + target);

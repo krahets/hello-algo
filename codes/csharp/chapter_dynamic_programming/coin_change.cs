@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class coin_change {
     /* 零钱兑换：动态规划 */
-    public int CoinChangeDP(int[] coins, int amt) {
+    int CoinChangeDP(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
         // 初始化 dp 表
@@ -33,7 +33,7 @@ public class coin_change {
     }
 
     /* 零钱兑换：空间优化后的动态规划 */
-    public int CoinChangeDPComp(int[] coins, int amt) {
+    int CoinChangeDPComp(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
         // 初始化 dp 表
@@ -57,7 +57,7 @@ public class coin_change {
 
     [Test]
     public void Test() {
-        int[] coins = { 1, 2, 5 };
+        int[] coins = [1, 2, 5];
         int amt = 4;
 
         // 动态规划

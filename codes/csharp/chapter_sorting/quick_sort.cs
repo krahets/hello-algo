@@ -135,17 +135,17 @@ public class quick_sort {
     [Test]
     public void Test() {
         /* 快速排序 */
-        int[] nums = { 2, 4, 1, 0, 3, 5 };
+        int[] nums = [2, 4, 1, 0, 3, 5];
         quickSort.QuickSort(nums, 0, nums.Length - 1);
         Console.WriteLine("快速排序完成后 nums = " + string.Join(",", nums));
 
         /* 快速排序（中位基准数优化） */
-        int[] nums1 = { 2, 4, 1, 0, 3, 5 };
+        int[] nums1 = [2, 4, 1, 0, 3, 5];
         QuickSortMedian.QuickSort(nums1, 0, nums1.Length - 1);
         Console.WriteLine("快速排序（中位基准数优化）完成后 nums1 = " + string.Join(",", nums1));
 
         /* 快速排序（尾递归优化） */
-        int[] nums2 = { 2, 4, 1, 0, 3, 5 };
+        int[] nums2 = [2, 4, 1, 0, 3, 5];
         QuickSortTailCall.QuickSort(nums2, 0, nums2.Length - 1);
         Console.WriteLine("快速排序（尾递归优化）完成后 nums2 = " + string.Join(",", nums2));
     }

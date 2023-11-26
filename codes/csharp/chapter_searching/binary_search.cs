@@ -8,7 +8,7 @@ namespace hello_algo.chapter_searching;
 
 public class binary_search {
     /* 二分查找（双闭区间） */
-    static int BinarySearch(int[] nums, int target) {
+    int BinarySearch(int[] nums, int target) {
         // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
         int i = 0, j = nums.Length - 1;
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
@@ -26,7 +26,7 @@ public class binary_search {
     }
 
     /* 二分查找（左闭右开） */
-    static int BinarySearchLCRO(int[] nums, int target) {
+    int BinarySearchLCRO(int[] nums, int target) {
         // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         int i = 0, j = nums.Length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -46,7 +46,7 @@ public class binary_search {
     [Test]
     public void Test() {
         int target = 6;
-        int[] nums = { 1, 3, 6, 8, 12, 15, 23, 26, 31, 35 };
+        int[] nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
 
         /* 二分查找（双闭区间） */
         int index = BinarySearch(nums, target);

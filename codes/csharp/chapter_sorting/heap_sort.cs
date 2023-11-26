@@ -8,7 +8,7 @@ namespace hello_algo.chapter_sorting;
 
 public class heap_sort {
     /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
-    public static void SiftDown(int[] nums, int n, int i) {
+    void SiftDown(int[] nums, int n, int i) {
         while (true) {
             // 判断节点 i, l, r 中值最大的节点，记为 ma
             int l = 2 * i + 1;
@@ -29,7 +29,7 @@ public class heap_sort {
     }
 
     /* 堆排序 */
-    public static void HeapSort(int[] nums) {
+    void HeapSort(int[] nums) {
         // 建堆操作：堆化除叶节点以外的其他所有节点
         for (int i = nums.Length / 2 - 1; i >= 0; i--) {
             SiftDown(nums, nums.Length, i);
@@ -45,7 +45,7 @@ public class heap_sort {
 
     [Test]
     public void Test() {
-        int[] nums = { 4, 1, 3, 1, 5, 2 };
+        int[] nums = [4, 1, 3, 1, 5, 2];
         HeapSort(nums);
         Console.WriteLine("堆排序完成后 nums = " + string.Join(" ", nums));
     }

@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class climbing_stairs_dfs_mem {
     /* 记忆化搜索 */
-    public int DFS(int i, int[] mem) {
+    int DFS(int i, int[] mem) {
         // 已知 dp[1] 和 dp[2] ，返回之
         if (i == 1 || i == 2)
             return i;
@@ -23,7 +23,7 @@ public class climbing_stairs_dfs_mem {
     }
 
     /* 爬楼梯：记忆化搜索 */
-    public int ClimbingStairsDFSMem(int n) {
+    int ClimbingStairsDFSMem(int n) {
         // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
         int[] mem = new int[n + 1];
         Array.Fill(mem, -1);

@@ -8,10 +8,10 @@ namespace hello_algo.chapter_stack_and_queue;
 
 /* 基于数组实现的栈 */
 class ArrayStack {
-    private readonly List<int> stack;
+    List<int> stack;
     public ArrayStack() {
         // 初始化列表（动态数组）
-        stack = new();
+        stack = [];
     }
 
     /* 获取栈的长度 */
@@ -47,7 +47,7 @@ class ArrayStack {
 
     /* 将 List 转化为 Array 并返回 */
     public int[] ToArray() {
-        return stack.ToArray();
+        return [.. stack];
     }
 }
 

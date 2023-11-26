@@ -8,7 +8,7 @@ namespace hello_algo.chapter_graph;
 
 public class graph_dfs {
     /* 深度优先遍历 DFS 辅助函数 */
-    public void DFS(GraphAdjList graph, HashSet<Vertex> visited, List<Vertex> res, Vertex vet) {
+    void DFS(GraphAdjList graph, HashSet<Vertex> visited, List<Vertex> res, Vertex vet) {
         res.Add(vet);     // 记录访问顶点
         visited.Add(vet); // 标记该顶点已被访问
         // 遍历该顶点的所有邻接顶点
@@ -23,11 +23,11 @@ public class graph_dfs {
 
     /* 深度优先遍历 DFS */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-    public List<Vertex> GraphDFS(GraphAdjList graph, Vertex startVet) {
+    List<Vertex> GraphDFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
-        List<Vertex> res = new();
+        List<Vertex> res = [];
         // 哈希表，用于记录已被访问过的顶点
-        HashSet<Vertex> visited = new();
+        HashSet<Vertex> visited = [];
         DFS(graph, visited, res, startVet);
         return res;
     }
@@ -35,12 +35,12 @@ public class graph_dfs {
     [Test]
     public void Test() {
         /* 初始化无向图 */
-        Vertex[] v = Vertex.ValsToVets(new int[7] { 0, 1, 2, 3, 4, 5, 6 });
-        Vertex[][] edges = new Vertex[6][]
-        {
-            new Vertex[2] { v[0], v[1] }, new Vertex[2] { v[0], v[3] }, new Vertex[2] { v[1], v[2] },
-            new Vertex[2] { v[2], v[5] }, new Vertex[2] { v[4], v[5] }, new Vertex[2] { v[5], v[6] },
-        };
+        Vertex[] v = Vertex.ValsToVets([0, 1, 2, 3, 4, 5, 6]);
+        Vertex[][] edges =
+        [
+            [v[0], v[1]], [v[0], v[3]], [v[1], v[2]],
+            [v[2], v[5]], [v[4], v[5]], [v[5], v[6]],
+        ];
 
         GraphAdjList graph = new(edges);
         Console.WriteLine("\n初始化后，图为");

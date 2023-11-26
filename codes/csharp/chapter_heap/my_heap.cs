@@ -9,11 +9,11 @@ namespace hello_algo.chapter_heap;
 /* 大顶堆 */
 class MaxHeap {
     // 使用列表而非数组，这样无须考虑扩容问题
-    private readonly List<int> maxHeap;
+    List<int> maxHeap;
 
     /* 构造函数，建立空堆 */
     public MaxHeap() {
-        maxHeap = new List<int>();
+        maxHeap = [];
     }
 
     /* 构造函数，根据输入列表建堆 */
@@ -130,7 +130,7 @@ public class my_heap {
     [Test]
     public void Test() {
         /* 初始化大顶堆 */
-        MaxHeap maxHeap = new(new int[] { 9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2 });
+        MaxHeap maxHeap = new([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
         Console.WriteLine("\n输入列表并建堆后");
         maxHeap.Print();
 

@@ -54,10 +54,10 @@
     ```csharp title="list.cs"
     /* 初始化列表 */
     // 无初始值
-    List<int> nums1 = new();
+    List<int> nums1 = [];
     // 有初始值
-    int[] numbers = new int[] { 1, 3, 2, 5, 4 };
-    List<int> nums = numbers.ToList();
+    int[] numbers = [1, 3, 2, 5, 4];
+    List<int> nums = [.. numbers];
     ```
 
 === "Go"
@@ -700,7 +700,7 @@
 
     ```csharp title="list.cs"
     /* 拼接两个列表 */
-    List<int> nums1 = new() { 6, 8, 7, 10, 9 };
+    List<int> nums1 = [6, 8, 7, 10, 9];
     nums.AddRange(nums1);  // 将列表 nums1 拼接到 nums 之后
     ```
 

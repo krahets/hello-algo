@@ -99,7 +99,7 @@ class BinarySearchTree {
             TreeNode? child = cur.left ?? cur.right;
             // 删除节点 cur
             if (cur != root) {
-                if (pre.left == cur)
+                if (pre!.left == cur)
                     pre.left = child;
                 else
                     pre.right = child;
@@ -116,7 +116,7 @@ class BinarySearchTree {
                 tmp = tmp.left;
             }
             // 递归删除节点 tmp
-            Remove(tmp.val);
+            Remove(tmp.val!.Value);
             // 用 tmp 覆盖 cur
             cur.val = tmp.val;
         }
@@ -129,7 +129,7 @@ public class binary_search_tree {
         /* 初始化二叉搜索树 */
         BinarySearchTree bst = new();
         // 请注意，不同的插入顺序会生成不同的二叉树，该序列可以生成一个完美二叉树
-        int[] nums = { 8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15 };
+        int[] nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];
         foreach (int num in nums) {
             bst.Insert(num);
         }
@@ -139,7 +139,7 @@ public class binary_search_tree {
 
         /* 查找节点 */
         TreeNode? node = bst.Search(7);
-        Console.WriteLine("\n查找到的节点对象为 " + node + "，节点值 = " + node.val);
+        Console.WriteLine("\n查找到的节点对象为 " + node + "，节点值 = " + node?.val);
 
         /* 插入节点 */
         bst.Insert(16);

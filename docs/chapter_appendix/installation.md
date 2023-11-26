@@ -35,7 +35,7 @@
 
 ### C# 环境
 
-1. 下载并安装 [.Net 6.0](https://dotnet.microsoft.com/en-us/download) 。
+1. 下载并安装 [.Net 8.0](https://dotnet.microsoft.com/en-us/download) 。
 2. 在 VSCode 的插件市场中搜索 `C# Dev Kit` ，安装 C# Dev Kit （[配置教程](https://code.visualstudio.com/docs/csharp/get-started)）。
 3. 也可使用 Visual Studio（[安装教程](https://learn.microsoft.com/zh-cn/visualstudio/install/install-visual-studio?view=vs-2022)）。
 

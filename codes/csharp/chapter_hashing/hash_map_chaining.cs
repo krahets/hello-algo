@@ -10,8 +10,8 @@ namespace hello_algo.chapter_hashing;
 class HashMapChaining {
     int size; // 键值对数量
     int capacity; // 哈希表容量
-    readonly double loadThres; // 触发扩容的负载因子阈值
-    readonly int extendRatio; // 扩容倍数
+    double loadThres; // 触发扩容的负载因子阈值
+    int extendRatio; // 扩容倍数
     List<List<Pair>> buckets; // 桶数组
 
     /* 构造方法 */
@@ -22,17 +22,17 @@ class HashMapChaining {
         extendRatio = 2;
         buckets = new List<List<Pair>>(capacity);
         for (int i = 0; i < capacity; i++) {
-            buckets.Add(new List<Pair>());
+            buckets.Add([]);
         }
     }
 
     /* 哈希函数 */
-    private int HashFunc(int key) {
+    int HashFunc(int key) {
         return key % capacity;
     }
 
     /* 负载因子 */
-    private double LoadFactor() {
+    double LoadFactor() {
         return (double)size / capacity;
     }
 
@@ -82,14 +82,14 @@ class HashMapChaining {
     }
 
     /* 扩容哈希表 */
-    private void Extend() {
+    void Extend() {
         // 暂存原哈希表
         List<List<Pair>> bucketsTmp = buckets;
         // 初始化扩容后的新哈希表
         capacity *= extendRatio;
         buckets = new List<List<Pair>>(capacity);
         for (int i = 0; i < capacity; i++) {
-            buckets.Add(new List<Pair>());
+            buckets.Add([]);
         }
         size = 0;
         // 将键值对从原哈希表搬运至新哈希表
@@ -103,7 +103,7 @@ class HashMapChaining {
     /* 打印哈希表 */
     public void Print() {
         foreach (List<Pair> bucket in buckets) {
-            List<string> res = new();
+            List<string> res = [];
             foreach (Pair pair in bucket) {
                 res.Add(pair.key + " -> " + pair.val);
             }

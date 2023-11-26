@@ -7,19 +7,14 @@
 namespace hello_algo.chapter_greedy;
 
 /* 物品 */
-class Item {
-    public int w; // 物品重量
-    public int v; // 物品价值
-
-    public Item(int w, int v) {
-        this.w = w;
-        this.v = v;
-    }
+class Item(int w, int v) {
+    public int w = w; // 物品重量
+    public int v = v; // 物品价值
 }
 
 public class fractional_knapsack {
     /* 分数背包：贪心 */
-    public double FractionalKnapsack(int[] wgt, int[] val, int cap) {
+    double FractionalKnapsack(int[] wgt, int[] val, int cap) {
         // 创建物品列表，包含两个属性：重量、价值
         Item[] items = new Item[wgt.Length];
         for (int i = 0; i < wgt.Length; i++) {
@@ -46,8 +41,8 @@ public class fractional_knapsack {
 
     [Test]
     public void Test() {
-        int[] wgt = { 10, 20, 30, 40, 50 };
-        int[] val = { 50, 120, 150, 210, 240 };
+        int[] wgt = [10, 20, 30, 40, 50];
+        int[] val = [50, 120, 150, 210, 240];
         int cap = 50;
 
         // 贪心算法
