@@ -1,12 +1,12 @@
 # Time Complexity
 
-Runtime can be a visual and accurate reflection of the efficiency of an algorithm. What should we do if we want to accurately predict the runtime of a piece of code?
+Runtime can intuitively and accurately reflect the efficiency of an algorithm. But how can we accurately estimate the runtime of a code segment?
 
-1. **Determine the running platform**, including hardware configuration, programming language, system environment, etc., all of which affect the efficiency of the code.
-2. **Evaluates the running time** required for various computational operations, e.g., the addition operation `+` takes 1 ns, the multiplication operation `*` takes 10 ns, the print operation `print()` takes 5 ns, and so on.
-3. **Counts all the computational operations in the code** and sums the execution times of all the operations to get the runtime.
+1. **Identify the Running Platform**: This includes hardware configurations, programming language, system environment, etc., as these factors influence the efficiency of code execution.
+2. **Evaluate the Runtime of Various Computational Operations**: For instance, an addition operation `+` might take 1 ns, a multiplication operation `*` might take 10 ns, a print operation `print()` might take 5 ns, etc.
+3. **Count All Computational Operations in the Code**: Then sum the execution times of all these operations to estimate the total runtime.
 
-For example, in the following code, the input data size is $n$ :
+For example, consider the following code with input data size $n$ : 
 
 === "Python"
 
@@ -185,20 +185,19 @@ For example, in the following code, the input data size is $n$ :
         }
     }
     ```
-
-Based on the above method, the algorithm running time can be obtained as $6n + 12$ ns :
+Using the above approach, we could calculate the algorithm's runtime to be $6n+12$ ns:
 
 $$
 1 + 1 + 10 + (1 + 5) \times n = 6n + 12
 $$
 
-In practice, however, **statistical algorithm runtimes are neither reasonable nor realistic**. First, we do not want to tie the estimation time to the operation platform, because the algorithm needs to run on a variety of different platforms. Second, it is difficult for us to be informed of the runtime of each operation, which makes the prediction process extremely difficult.
+However, in reality, **calculating an algorithm's runtime this way is neither practical nor reasonable**. Firstly, we don't want to tie our time estimates to a specific running platform, as algorithms need to run on a variety of platforms. Secondly, it’s difficult to know the exact runtime of each operation, which complicates the estimation process.
 
-## Trends In Statistical Time Growth
+## Tracking Time Growth Trends
 
-The time complexity analysis counts not the algorithm running time, **but the tendency of the algorithm running time to increase as the amount of data gets larger**.
+Time complexity analysis doesn't measure the exact runtime of an algorithm; **instead, it tracks the trend of how runtime grows as the data volume increases**.
 
-The concept of "time-growing trend" is rather abstract, so let's try to understand it through an example. Suppose the size of the input data is $n$, and given three algorithmic functions `A`, `B` and `C`:
+The concept of "time growth trend" is somewhat abstract, so let's understand it through an example. Suppose the input data size is $n$, and consider three algorithm functions `A`, `B`, and `C`:
 
 === "Python"
 
@@ -452,11 +451,11 @@ The concept of "time-growing trend" is rather abstract, so let's try to understa
     }
     ```
 
-The figure below shows the time complexity of the above three algorithmic functions.
+Figure 2-7 illustrates the time complexities of these three algorithm functions.
 
-- Algorithm `A` has only $1$ print operations, and the running time of the algorithm does not increase with $n$. We call the time complexity of this algorithm "constant order".
-- The print operation in algorithm `B` requires $n$ cycles, and the running time of the algorithm increases linearly with $n$. The time complexity of this algorithm is called "linear order".
-- The print operation in algorithm `C` requires $1000000$ loops, which is a long runtime, but it is independent of the size of the input data $n$. Therefore, the time complexity of `C` is the same as that of `A`, which is still of "constant order".
+- Algorithm `A` involves only $1$ print operation. Its runtime does not increase as $n$ grows. We classify this algorithm's time complexity as "constant order."
+- Algorithm `B` requires a print operation to loop $n$ times. Its runtime grows linearly as $n$ increases, making its time complexity "linear order."
+- Algorithm `C` needs to loop the print operation $1000000$ times. Although its runtime is lengthy, it is independent of the input data size $n$. Thus, the time complexity of `C` is the same as `A`, still "constant order."
 
 ![Time growth trends for algorithms A, B and C](time_complexity.assets/time_complexity_simple_example.png)
 
