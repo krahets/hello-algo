@@ -8,7 +8,7 @@ namespace hello_algo.chapter_searching;
 
 public class binary_search_insertion {
     /* 二分查找插入点（无重复元素） */
-    public static int BinarySearchInsertionSimple(int[] nums, int target) {
+    public int BinarySearchInsertionSimple(int[] nums, int target) {
         int i = 0, j = nums.Length - 1; // 初始化双闭区间 [0, n-1]
         while (i <= j) {
             int m = i + (j - i) / 2; // 计算中点索引 m
@@ -25,7 +25,7 @@ public class binary_search_insertion {
     }
 
     /* 二分查找插入点（存在重复元素） */
-    public static int BinarySearchInsertion(int[] nums, int target) {
+    public int BinarySearchInsertion(int[] nums, int target) {
         int i = 0, j = nums.Length - 1; // 初始化双闭区间 [0, n-1]
         while (i <= j) {
             int m = i + (j - i) / 2; // 计算中点索引 m
