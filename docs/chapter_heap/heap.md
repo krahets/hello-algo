@@ -197,7 +197,7 @@ comments: true
     bool isEmpty = maxHeap.Count == 0;
 
     /* 输入列表并建堆 */
-    minHeap = new PriorityQueue<int, int>(new List<(int, int)> { (1, 1), (3, 3), (2, 2), (5, 5), (4, 4), });
+    minHeap = new PriorityQueue<int, int>([(1, 1), (3, 3), (2, 2), (5, 5), (4, 4)]);
     ```
 
 === "Go"

@@ -58,10 +58,9 @@ comments: true
 
     ```csharp title=""
     /* 链表节点类 */
-    class ListNode {
-        int val;         // 节点值
-        ListNode next;   // 指向下一节点的引用
-        ListNode(int x) => val = x;  //构造函数
+    class ListNode(int x) {  //构造函数
+        int val = x;         // 节点值
+        ListNode? next;      // 指向下一节点的引用
     }
     ```
 
@@ -774,7 +773,7 @@ comments: true
 
     ```csharp title="linked_list.cs"
     /* 访问链表中索引为 index 的节点 */
-    ListNode? Access(ListNode head, int index) {
+    ListNode? Access(ListNode? head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
                 return null;
@@ -953,7 +952,7 @@ comments: true
 
     ```csharp title="linked_list.cs"
     /* 在链表中查找值为 target 的首个节点 */
-    int Find(ListNode head, int target) {
+    int Find(ListNode? head, int target) {
         int index = 0;
         while (head != null) {
             if (head.val == target)
@@ -1162,11 +1161,10 @@ comments: true
 
     ```csharp title=""
     /* 双向链表节点类 */
-    class ListNode {
-        int val;        // 节点值
+    class ListNode(int x) {  // 构造函数
+        int val = x;    // 节点值
         ListNode next;  // 指向后继节点的引用
         ListNode prev;  // 指向前驱节点的引用
-        ListNode(int x) => val = x;  // 构造函数
     }
     ```
 

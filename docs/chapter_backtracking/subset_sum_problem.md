@@ -154,9 +154,9 @@ comments: true
 
     /* 求解子集和 I（包含重复子集） */
     List<List<int>> SubsetSumINaive(int[] nums, int target) {
-        List<int> state = new(); // 状态（子集）
+        List<int> state = []; // 状态（子集）
         int total = 0; // 子集和
-        List<List<int>> res = new(); // 结果列表（子集列表）
+        List<List<int>> res = []; // 结果列表（子集列表）
         Backtrack(state, target, total, nums, res);
         return res;
     }
@@ -609,10 +609,10 @@ comments: true
 
     /* 求解子集和 I */
     List<List<int>> SubsetSumI(int[] nums, int target) {
-        List<int> state = new(); // 状态（子集）
+        List<int> state = []; // 状态（子集）
         Array.Sort(nums); // 对 nums 进行排序
         int start = 0; // 遍历起始点
-        List<List<int>> res = new(); // 结果列表（子集列表）
+        List<List<int>> res = []; // 结果列表（子集列表）
         Backtrack(state, target, nums, start, res);
         return res;
     }
@@ -1093,10 +1093,10 @@ comments: true
 
     /* 求解子集和 II */
     List<List<int>> SubsetSumII(int[] nums, int target) {
-        List<int> state = new(); // 状态（子集）
+        List<int> state = []; // 状态（子集）
         Array.Sort(nums); // 对 nums 进行排序
         int start = 0; // 遍历起始点
-        List<List<int>> res = new(); // 结果列表（子集列表）
+        List<List<int>> res = []; // 结果列表（子集列表）
         Backtrack(state, target, nums, start, res);
         return res;
     }

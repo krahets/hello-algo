@@ -104,10 +104,9 @@ comments: true
 
     ```csharp title=""
     /* 类 */
-    class Node {
-        int val;
+    class Node(int x) {
+        int val = x;
         Node next;
-        Node(int x) { val = x; }
     }
 
     /* 函数 */
@@ -119,7 +118,7 @@ comments: true
     int Algorithm(int n) {        // 输入数据
         const int a = 0;          // 暂存数据（常量）
         int b = 0;                // 暂存数据（变量）
-        Node node = new(0);  // 暂存数据（对象）
+        Node node = new(0);       // 暂存数据（对象）
         int c = Function();       // 栈帧空间（调用函数）
         return a + b + c;         // 输出数据
     }
@@ -1123,12 +1122,12 @@ $$
         // 长度为 n 的数组占用 O(n) 空间
         int[] nums = new int[n];
         // 长度为 n 的列表占用 O(n) 空间
-        List<ListNode> nodes = new();
+        List<ListNode> nodes = [];
         for (int i = 0; i < n; i++) {
             nodes.Add(new ListNode(i));
         }
         // 长度为 n 的哈希表占用 O(n) 空间
-        Dictionary<int, string> map = new();
+        Dictionary<int, string> map = [];
         for (int i = 0; i < n; i++) {
             map.Add(i, i.ToString());
         }
@@ -1524,9 +1523,9 @@ $$
         // 矩阵占用 O(n^2) 空间
         int[,] numMatrix = new int[n, n];
         // 二维列表占用 O(n^2) 空间
-        List<List<int>> numList = new();
+        List<List<int>> numList = [];
         for (int i = 0; i < n; i++) {
-            List<int> tmp = new();
+            List<int> tmp = [];
             for (int j = 0; j < n; j++) {
                 tmp.Add(0);
             }

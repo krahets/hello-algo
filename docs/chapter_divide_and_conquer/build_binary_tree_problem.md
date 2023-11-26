@@ -172,7 +172,7 @@ comments: true
 
     ```csharp title="build_tree.cs"
     /* 构建二叉树：分治 */
-    TreeNode DFS(int[] preorder, Dictionary<int, int> inorderMap, int i, int l, int r) {
+    TreeNode? DFS(int[] preorder, Dictionary<int, int> inorderMap, int i, int l, int r) {
         // 子树区间为空时终止
         if (r - l < 0)
             return null;
@@ -189,13 +189,13 @@ comments: true
     }
 
     /* 构建二叉树 */
-    TreeNode BuildTree(int[] preorder, int[] inorder) {
+    TreeNode? BuildTree(int[] preorder, int[] inorder) {
         // 初始化哈希表，存储 inorder 元素到索引的映射
-        Dictionary<int, int> inorderMap = new();
+        Dictionary<int, int> inorderMap = [];
         for (int i = 0; i < inorder.Length; i++) {
             inorderMap.TryAdd(inorder[i], i);
         }
-        TreeNode root = DFS(preorder, inorderMap, 0, 0, inorder.Length - 1);
+        TreeNode? root = DFS(preorder, inorderMap, 0, 0, inorder.Length - 1);
         return root;
     }
     ```

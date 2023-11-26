@@ -155,14 +155,9 @@ comments: true
 
     ```csharp title="fractional_knapsack.cs"
     /* 物品 */
-    class Item {
-        public int w; // 物品重量
-        public int v; // 物品价值
-
-        public Item(int w, int v) {
-            this.w = w;
-            this.v = v;
-        }
+    class Item(int w, int v) {
+        public int w = w; // 物品重量
+        public int v = v; // 物品价值
     }
 
     /* 分数背包：贪心 */

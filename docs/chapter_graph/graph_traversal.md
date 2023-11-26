@@ -121,9 +121,9 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
-        List<Vertex> res = new();
+        List<Vertex> res = [];
         // 哈希表，用于记录已被访问过的顶点
-        HashSet<Vertex> visited = new() { startVet };
+        HashSet<Vertex> visited = [startVet];
         // 队列用于实现 BFS
         Queue<Vertex> que = new();
         que.Enqueue(startVet);
@@ -579,9 +579,9 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     List<Vertex> GraphDFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
-        List<Vertex> res = new();
+        List<Vertex> res = [];
         // 哈希表，用于记录已被访问过的顶点
-        HashSet<Vertex> visited = new();
+        HashSet<Vertex> visited = [];
         DFS(graph, visited, res, startVet);
         return res;
     }

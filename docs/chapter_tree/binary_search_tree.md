@@ -980,7 +980,7 @@ comments: true
             TreeNode? child = cur.left ?? cur.right;
             // 删除节点 cur
             if (cur != root) {
-                if (pre.left == cur)
+                if (pre!.left == cur)
                     pre.left = child;
                 else
                     pre.right = child;
@@ -997,7 +997,7 @@ comments: true
                 tmp = tmp.left;
             }
             // 递归删除节点 tmp
-            Remove(tmp.val);
+            Remove(tmp.val!.Value);
             // 用 tmp 覆盖 cur
             cur.val = tmp.val;
         }

@@ -359,8 +359,8 @@ comments: true
     class HashMapChaining {
         int size; // 键值对数量
         int capacity; // 哈希表容量
-        readonly double loadThres; // 触发扩容的负载因子阈值
-        readonly int extendRatio; // 扩容倍数
+        double loadThres; // 触发扩容的负载因子阈值
+        int extendRatio; // 扩容倍数
         List<List<Pair>> buckets; // 桶数组
 
         /* 构造方法 */
@@ -371,17 +371,17 @@ comments: true
             extendRatio = 2;
             buckets = new List<List<Pair>>(capacity);
             for (int i = 0; i < capacity; i++) {
-                buckets.Add(new List<Pair>());
+                buckets.Add([]);
             }
         }
 
         /* 哈希函数 */
-        private int HashFunc(int key) {
+        int HashFunc(int key) {
             return key % capacity;
         }
 
         /* 负载因子 */
-        private double LoadFactor() {
+        double LoadFactor() {
             return (double)size / capacity;
         }
 
@@ -431,14 +431,14 @@ comments: true
         }
 
         /* 扩容哈希表 */
-        private void Extend() {
+        void Extend() {
             // 暂存原哈希表
             List<List<Pair>> bucketsTmp = buckets;
             // 初始化扩容后的新哈希表
             capacity *= extendRatio;
             buckets = new List<List<Pair>>(capacity);
             for (int i = 0; i < capacity; i++) {
-                buckets.Add(new List<Pair>());
+                buckets.Add([]);
             }
             size = 0;
             // 将键值对从原哈希表搬运至新哈希表
@@ -452,7 +452,7 @@ comments: true
         /* 打印哈希表 */
         public void Print() {
             foreach (List<Pair> bucket in buckets) {
-                List<string> res = new();
+                List<string> res = [];
                 foreach (Pair pair in bucket) {
                     res.Add(pair.key + " -> " + pair.val);
                 }
@@ -1727,12 +1727,12 @@ comments: true
     ```csharp title="hash_map_open_addressing.cs"
     /* 开放寻址哈希表 */
     class HashMapOpenAddressing {
-        private int size; // 键值对数量
-        private int capacity = 4; // 哈希表容量
-        private readonly double loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
-        private readonly int extendRatio = 2; // 扩容倍数
-        private Pair[] buckets; // 桶数组
-        private readonly Pair TOMBSTONE = new(-1, "-1"); // 删除标记
+        int size; // 键值对数量
+        int capacity = 4; // 哈希表容量
+        double loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
+        int extendRatio = 2; // 扩容倍数
+        Pair[] buckets; // 桶数组
+        Pair TOMBSTONE = new(-1, "-1"); // 删除标记
 
         /* 构造方法 */
         public HashMapOpenAddressing() {
@@ -1741,17 +1741,17 @@ comments: true
         }
 
         /* 哈希函数 */
-        private int HashFunc(int key) {
+        int HashFunc(int key) {
             return key % capacity;
         }
 
         /* 负载因子 */
-        private double LoadFactor() {
+        double LoadFactor() {
             return (double)size / capacity;
         }
 
         /* 搜索 key 对应的桶索引 */
-        private int FindBucket(int key) {
+        int FindBucket(int key) {
             int index = HashFunc(key);
             int firstTombstone = -1;
             // 线性探测，当遇到空桶时跳出
@@ -1819,7 +1819,7 @@ comments: true
         }
 
         /* 扩容哈希表 */
-        private void Extend() {
+        void Extend() {
             // 暂存原哈希表
             Pair[] bucketsTmp = buckets;
             // 初始化扩容后的新哈希表

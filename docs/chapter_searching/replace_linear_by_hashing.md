@@ -75,10 +75,10 @@ comments: true
         for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {
                 if (nums[i] + nums[j] == target)
-                    return new int[] { i, j };
+                    return [i, j];
             }
         }
-        return Array.Empty<int>();
+        return [];
     }
     ```
 
@@ -309,15 +309,15 @@ comments: true
     int[] TwoSumHashTable(int[] nums, int target) {
         int size = nums.Length;
         // 辅助哈希表，空间复杂度 O(n)
-        Dictionary<int, int> dic = new();
+        Dictionary<int, int> dic = [];
         // 单层循环，时间复杂度 O(n)
         for (int i = 0; i < size; i++) {
             if (dic.ContainsKey(target - nums[i])) {
-                return new int[] { dic[target - nums[i]], i };
+                return [dic[target - nums[i]], i];
             }
             dic.Add(nums[i], i);
         }
-        return Array.Empty<int>();
+        return [];
     }
     ```
 

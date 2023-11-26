@@ -985,20 +985,7 @@ comments: true
             return right;
     }
 
-    /* 快速排序类（中位基准数优化） */
-    // 选取三个元素的中位数
-    int medianThree(int nums[], int left, int mid, int right) {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
-            return left;
-        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-            return mid;
-        else
-            return right;
-    }
-
-    // 哨兵划分（三数取中值）
+    /* 哨兵划分（三数取中值） */ 
     int partitionMedian(int nums[], int left, int right) {
         // 选取三个候选元素的中位数
         int med = medianThree(nums, left, (left + right) / 2, right);

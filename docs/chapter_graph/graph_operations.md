@@ -291,13 +291,13 @@ comments: true
     ```csharp title="graph_adjacency_matrix.cs"
     /* 基于邻接矩阵实现的无向图类 */
     class GraphAdjMat {
-        readonly List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-        readonly List<List<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
+        List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        List<List<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
         /* 构造函数 */
         public GraphAdjMat(int[] vertices, int[][] edges) {
-            this.vertices = new List<int>();
-            this.adjMat = new List<List<int>>();
+            this.vertices = [];
+            this.adjMat = [];
             // 添加顶点
             foreach (int val in vertices) {
                 AddVertex(val);
@@ -310,7 +310,7 @@ comments: true
         }
 
         /* 获取顶点数量 */
-        public int Size() {
+        int Size() {
             return vertices.Count;
         }
 
@@ -1311,7 +1311,7 @@ comments: true
 
         /* 构造函数 */
         public GraphAdjList(Vertex[][] edges) {
-            this.adjList = new Dictionary<Vertex, List<Vertex>>();
+            adjList = [];
             // 添加所有顶点和边
             foreach (Vertex[] edge in edges) {
                 AddVertex(edge[0]);
@@ -1321,7 +1321,7 @@ comments: true
         }
 
         /* 获取顶点数量 */
-        public int Size() {
+        int Size() {
             return adjList.Count;
         }
 
@@ -1348,7 +1348,7 @@ comments: true
             if (adjList.ContainsKey(vet))
                 return;
             // 在邻接表中添加一个新链表
-            adjList.Add(vet, new List<Vertex>());
+            adjList.Add(vet, []);
         }
 
         /* 删除顶点 */
@@ -1367,7 +1367,7 @@ comments: true
         public void Print() {
             Console.WriteLine("邻接表 =");
             foreach (KeyValuePair<Vertex, List<Vertex>> pair in adjList) {
-                List<int> tmp = new();
+                List<int> tmp = [];
                 foreach (Vertex vertex in pair.Value)
                     tmp.Add(vertex.val);
                 Console.WriteLine(pair.Key.val + ": [" + string.Join(", ", tmp) + "],");

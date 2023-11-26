@@ -547,8 +547,8 @@ comments: true
     ```csharp title="linkedlist_queue.cs"
     /* 基于链表实现的队列 */
     class LinkedListQueue {
-        private ListNode? front, rear;  // 头节点 front ，尾节点 rear 
-        private int queSize = 0;
+        ListNode? front, rear;  // 头节点 front ，尾节点 rear 
+        int queSize = 0;
 
         public LinkedListQueue() {
             front = null;
@@ -594,18 +594,18 @@ comments: true
         public int Peek() {
             if (IsEmpty())
                 throw new Exception();
-            return front.val;
+            return front!.val;
         }
 
         /* 将链表转化为 Array 并返回 */
         public int[] ToArray() {
             if (front == null)
-                return Array.Empty<int>();
+                return [];
 
-            ListNode node = front;
+            ListNode? node = front;
             int[] res = new int[Size()];
             for (int i = 0; i < res.Length; i++) {
-                res[i] = node.val;
+                res[i] = node!.val;
                 node = node.next;
             }
             return res;
@@ -1445,9 +1445,9 @@ comments: true
     ```csharp title="array_queue.cs"
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
-        private readonly int[] nums;  // 用于存储队列元素的数组
-        private int front;   // 队首指针，指向队首元素
-        private int queSize; // 队列长度
+        int[] nums;  // 用于存储队列元素的数组
+        int front;   // 队首指针，指向队首元素
+        int queSize; // 队列长度
 
         public ArrayQueue(int capacity) {
             nums = new int[capacity];
@@ -1455,7 +1455,7 @@ comments: true
         }
 
         /* 获取队列的容量 */
-        public int Capacity() {
+        int Capacity() {
             return nums.Length;
         }
 

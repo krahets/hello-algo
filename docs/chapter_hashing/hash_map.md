@@ -776,28 +776,24 @@ index = hash(key) % capacity
 
     ```csharp title="array_hash_map.cs"
     /* 键值对 int->string */
-    class Pair {
-        public int key;
-        public string val;
-        public Pair(int key, string val) {
-            this.key = key;
-            this.val = val;
-        }
+    class Pair(int key, string val) {
+        public int key = key;
+        public string val = val;
     }
 
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
-        private readonly List<Pair?> buckets;
+        List<Pair?> buckets;
         public ArrayHashMap() {
             // 初始化数组，包含 100 个桶
-            buckets = new();
+            buckets = [];
             for (int i = 0; i < 100; i++) {
                 buckets.Add(null);
             }
         }
 
         /* 哈希函数 */
-        private int HashFunc(int key) {
+        int HashFunc(int key) {
             int index = key % 100;
             return index;
         }
@@ -826,7 +822,7 @@ index = hash(key) % capacity
 
         /* 获取所有键值对 */
         public List<Pair> PairSet() {
-            List<Pair> pairSet = new();
+            List<Pair> pairSet = [];
             foreach (Pair? pair in buckets) {
                 if (pair != null)
                     pairSet.Add(pair);
@@ -836,7 +832,7 @@ index = hash(key) % capacity
 
         /* 获取所有键 */
         public List<int> KeySet() {
-            List<int> keySet = new();
+            List<int> keySet = [];
             foreach (Pair? pair in buckets) {
                 if (pair != null)
                     keySet.Add(pair.key);
@@ -846,7 +842,7 @@ index = hash(key) % capacity
 
         /* 获取所有值 */
         public List<string> ValueSet() {
-            List<string> valueSet = new();
+            List<string> valueSet = [];
             foreach (Pair? pair in buckets) {
                 if (pair != null)
                     valueSet.Add(pair.val);
@@ -1462,7 +1458,7 @@ index = hash(key) % capacity
         for (i = 0; i < HASHTABLE_CAPACITY; i++) {
             if (hmap->buckets[i] != NULL) {
                 entries[index].key = hmap->buckets[i]->key;
-                entries[index].val = malloc(strlen(hmap->buckets[i]->val + 1));
+                entries[index].val = malloc(strlen(hmap->buckets[i]->val) + 1);
                 strcpy(entries[index].val, hmap->buckets[i]->val);
                 index++;
             }

@@ -518,8 +518,8 @@ comments: true
     ```csharp title="linkedlist_stack.cs"
     /* 基于链表实现的栈 */
     class LinkedListStack {
-        private ListNode? stackPeek;  // 将头节点作为栈顶
-        private int stkSize = 0;   // 栈的长度
+        ListNode? stackPeek;  // 将头节点作为栈顶
+        int stkSize = 0;   // 栈的长度
 
         public LinkedListStack() {
             stackPeek = null;
@@ -547,7 +547,7 @@ comments: true
         /* 出栈 */
         public int Pop() {
             int num = Peek();
-            stackPeek = stackPeek.next;
+            stackPeek = stackPeek!.next;
             stkSize--;
             return num;
         }
@@ -556,18 +556,18 @@ comments: true
         public int Peek() {
             if (IsEmpty())
                 throw new Exception();
-            return stackPeek.val;
+            return stackPeek!.val;
         }
 
         /* 将 List 转化为 Array 并返回 */
         public int[] ToArray() {
             if (stackPeek == null)
-                return Array.Empty<int>();
+                return [];
 
-            ListNode node = stackPeek;
+            ListNode? node = stackPeek;
             int[] res = new int[Size()];
             for (int i = res.Length - 1; i >= 0; i--) {
-                res[i] = node.val;
+                res[i] = node!.val;
                 node = node.next;
             }
             return res;
@@ -1237,10 +1237,10 @@ comments: true
     ```csharp title="array_stack.cs"
     /* 基于数组实现的栈 */
     class ArrayStack {
-        private readonly List<int> stack;
+        List<int> stack;
         public ArrayStack() {
             // 初始化列表（动态数组）
-            stack = new();
+            stack = [];
         }
 
         /* 获取栈的长度 */
@@ -1276,7 +1276,7 @@ comments: true
 
         /* 将 List 转化为 Array 并返回 */
         public int[] ToArray() {
-            return stack.ToArray();
+            return [.. stack];
         }
     }
     ```

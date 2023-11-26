@@ -187,8 +187,8 @@ comments: true
 
     /* 全排列 I */
     List<List<int>> PermutationsI(int[] nums) {
-        List<List<int>> res = new();
-        Backtrack(new List<int>(), nums, new bool[nums.Length], res);
+        List<List<int>> res = [];
+        Backtrack([], nums, new bool[nums.Length], res);
         return res;
     }
     ```
@@ -623,7 +623,7 @@ comments: true
             return;
         }
         // 遍历所有选择
-        ISet<int> duplicated = new HashSet<int>();
+        HashSet<int> duplicated = [];
         for (int i = 0; i < choices.Length; i++) {
             int choice = choices[i];
             // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
@@ -643,8 +643,8 @@ comments: true
 
     /* 全排列 II */
     List<List<int>> PermutationsII(int[] nums) {
-        List<List<int>> res = new();
-        Backtrack(new List<int>(), nums, new bool[nums.Length], res);
+        List<List<int>> res = [];
+        Backtrack([], nums, new bool[nums.Length], res);
         return res;
     }
     ```

@@ -126,9 +126,9 @@ comments: true
 
     /* 爬楼梯：回溯 */
     int ClimbingStairsBacktrack(int n) {
-        List<int> choices = new() { 1, 2 }; // 可选择向上爬 1 或 2 阶
+        List<int> choices = [1, 2]; // 可选择向上爬 1 或 2 阶
         int state = 0; // 从第 0 阶开始爬
-        List<int> res = new() { 0 }; // 使用 res[0] 记录方案数量
+        List<int> res = [0]; // 使用 res[0] 记录方案数量
         Backtrack(choices, state, n, res);
         return res[0];
     }

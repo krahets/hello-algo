@@ -61,7 +61,7 @@ comments: true
     ```csharp title=""
     /* 二叉树的数组表示 */
     // 使用 int? 可空类型 ，就可以使用 null 来标记空位
-    int?[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
+    int?[] tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 === "Go"
@@ -410,13 +410,8 @@ comments: true
 
     ```csharp title="array_binary_tree.cs"
     /* 数组表示下的二叉树类 */
-    class ArrayBinaryTree {
-        private readonly List<int?> tree;
-
-        /* 构造方法 */
-        public ArrayBinaryTree(List<int?> arr) {
-            tree = new List<int?>(arr);
-        }
+    class ArrayBinaryTree(List<int?> arr) {
+        List<int?> tree = new(arr);
 
         /* 节点数量 */
         public int Size() {
@@ -448,50 +443,50 @@ comments: true
 
         /* 层序遍历 */
         public List<int> LevelOrder() {
-            List<int> res = new();
+            List<int> res = [];
             // 直接遍历数组
             for (int i = 0; i < Size(); i++) {
                 if (Val(i).HasValue)
-                    res.Add(Val(i).Value);
+                    res.Add(Val(i)!.Value);
             }
             return res;
         }
 
         /* 深度优先遍历 */
-        private void DFS(int i, string order, List<int> res) {
+        void DFS(int i, string order, List<int> res) {
             // 若为空位，则返回
             if (!Val(i).HasValue)
                 return;
             // 前序遍历
             if (order == "pre")
-                res.Add(Val(i).Value);
+                res.Add(Val(i)!.Value);
             DFS(Left(i), order, res);
             // 中序遍历
             if (order == "in")
-                res.Add(Val(i).Value);
+                res.Add(Val(i)!.Value);
             DFS(Right(i), order, res);
             // 后序遍历
             if (order == "post")
-                res.Add(Val(i).Value);
+                res.Add(Val(i)!.Value);
         }
 
         /* 前序遍历 */
         public List<int> PreOrder() {
-            List<int> res = new();
+            List<int> res = [];
             DFS(0, "pre", res);
             return res;
         }
 
         /* 中序遍历 */
         public List<int> InOrder() {
-            List<int> res = new();
+            List<int> res = [];
             DFS(0, "in", res);
             return res;
         }
 
         /* 后序遍历 */
         public List<int> PostOrder() {
-            List<int> res = new();
+            List<int> res = [];
             DFS(0, "post", res);
             return res;
         }

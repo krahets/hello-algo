@@ -71,12 +71,11 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 
     ```csharp title=""
     /* AVL 树节点类 */
-    class TreeNode {
-        public int val;          // 节点值
-        public int height;       // 节点高度
-        public TreeNode? left;   // 左子节点
-        public TreeNode? right;  // 右子节点
-        public TreeNode(int x) { val = x; }
+    class TreeNode(int? x) {
+        public int? val = x;    // 节点值
+        public int height;      // 节点高度
+        public TreeNode? left;  // 左子节点引用
+        public TreeNode? right; // 右子节点引用
     }
     ```
 
@@ -689,7 +688,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
     ```csharp title="avl_tree.cs"
     /* 右旋操作 */
     TreeNode? RightRotate(TreeNode? node) {
-        TreeNode? child = node.left;
+        TreeNode? child = node?.left;
         TreeNode? grandChild = child?.right;
         // 以 child 为原点，将 node 向右旋转
         child.right = node;
@@ -926,7 +925,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
     ```csharp title="avl_tree.cs"
     /* 左旋操作 */
     TreeNode? LeftRotate(TreeNode? node) {
-        TreeNode? child = node.right;
+        TreeNode? child = node?.right;
         TreeNode? grandChild = child?.left;
         // 以 child 为原点，将 node 向左旋转
         child.left = node;
@@ -1236,23 +1235,23 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
         int balanceFactorInt = BalanceFactor(node);
         // 左偏树
         if (balanceFactorInt > 1) {
-            if (BalanceFactor(node.left) >= 0) {
+            if (BalanceFactor(node?.left) >= 0) {
                 // 右旋
                 return RightRotate(node);
             } else {
                 // 先左旋后右旋
-                node.left = LeftRotate(node?.left);
+                node!.left = LeftRotate(node!.left);
                 return RightRotate(node);
             }
         }
         // 右偏树
         if (balanceFactorInt < -1) {
-            if (BalanceFactor(node.right) <= 0) {
+            if (BalanceFactor(node?.right) <= 0) {
                 // 左旋
                 return LeftRotate(node);
             } else {
                 // 先右旋后左旋
-                node.right = RightRotate(node?.right);
+                node!.right = RightRotate(node!.right);
                 return LeftRotate(node);
             }
         }
@@ -2059,7 +2058,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
                 while (temp.left != null) {
                     temp = temp.left;
                 }
-                node.right = RemoveHelper(node.right, temp.val);
+                node.right = RemoveHelper(node.right, temp.val!.Value);
                 node.val = temp.val;
             }
         }

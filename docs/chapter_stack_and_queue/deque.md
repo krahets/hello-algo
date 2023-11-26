@@ -777,22 +777,16 @@ comments: true
 
     ```csharp title="linkedlist_deque.cs"
     /* 双向链表节点 */
-    class ListNode {
-        public int val;       // 节点值
-        public ListNode? next; // 后继节点引用
-        public ListNode? prev; // 前驱节点引用
-
-        public ListNode(int val) {
-            this.val = val;
-            prev = null;
-            next = null;
-        }
+    class ListNode(int val) {
+        public int val = val;       // 节点值
+        public ListNode? next = null; // 后继节点引用
+        public ListNode? prev = null; // 前驱节点引用
     }
 
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
-        private ListNode? front, rear; // 头节点 front, 尾节点 rear
-        private int queSize = 0;      // 双向队列的长度
+        ListNode? front, rear; // 头节点 front, 尾节点 rear
+        int queSize = 0;      // 双向队列的长度
 
         public LinkedListDeque() {
             front = null;
@@ -810,7 +804,7 @@ comments: true
         }
 
         /* 入队操作 */
-        private void Push(int num, bool isFront) {
+        void Push(int num, bool isFront) {
             ListNode node = new(num);
             // 若链表为空，则令 front, rear 都指向 node
             if (IsEmpty()) {
@@ -820,14 +814,14 @@ comments: true
             // 队首入队操作
             else if (isFront) {
                 // 将 node 添加至链表头部
-                front.prev = node;
+                front!.prev = node;
                 node.next = front;
                 front = node; // 更新头节点                           
             }
             // 队尾入队操作
             else {
                 // 将 node 添加至链表尾部
-                rear.next = node;
+                rear!.next = node;
                 node.prev = rear;
                 rear = node;  // 更新尾节点
             }
@@ -846,7 +840,7 @@ comments: true
         }
 
         /* 出队操作 */
-        private int? Pop(bool isFront) {
+        int? Pop(bool isFront) {
             if (IsEmpty())
                 throw new Exception();
             int? val;
@@ -857,7 +851,7 @@ comments: true
                 ListNode? fNext = front?.next;
                 if (fNext != null) {
                     fNext.prev = null;
-                    front.next = null;
+                    front!.next = null;
                 }
                 front = fNext;   // 更新头节点
             }
@@ -868,7 +862,7 @@ comments: true
                 ListNode? rPrev = rear?.prev;
                 if (rPrev != null) {
                     rPrev.next = null;
-                    rear.prev = null;
+                    rear!.prev = null;
                 }
                 rear = rPrev;    // 更新尾节点
             }
@@ -2343,18 +2337,18 @@ comments: true
     ```csharp title="array_deque.cs"
     /* 基于环形数组实现的双向队列 */
     class ArrayDeque {
-        private readonly int[] nums;  // 用于存储双向队列元素的数组
-        private int front;   // 队首指针，指向队首元素
-        private int queSize; // 双向队列长度
+        int[] nums;  // 用于存储双向队列元素的数组
+        int front;   // 队首指针，指向队首元素
+        int queSize; // 双向队列长度
 
         /* 构造方法 */
         public ArrayDeque(int capacity) {
-            this.nums = new int[capacity];
+            nums = new int[capacity];
             front = queSize = 0;
         }
 
         /* 获取双向队列的容量 */
-        public int Capacity() {
+        int Capacity() {
             return nums.Length;
         }
 
@@ -2369,7 +2363,7 @@ comments: true
         }
 
         /* 计算环形数组索引 */
-        private int Index(int i) {
+        int Index(int i) {
             // 通过取余操作实现数组首尾相连
             // 当 i 越过数组尾部后，回到头部
             // 当 i 越过数组头部后，回到尾部

@@ -96,10 +96,10 @@ comments: true
         Queue<TreeNode> queue = new();
         queue.Enqueue(root);
         // 初始化一个列表，用于保存遍历序列
-        List<int> list = new();
+        List<int> list = [];
         while (queue.Count != 0) {
             TreeNode node = queue.Dequeue(); // 队列出队
-            list.Add(node.val);              // 保存节点值
+            list.Add(node.val!.Value);       // 保存节点值
             if (node.left != null)
                 queue.Enqueue(node.left);    // 左子节点入队
             if (node.right != null)
@@ -449,7 +449,7 @@ comments: true
     void PreOrder(TreeNode? root) {
         if (root == null) return;
         // 访问优先级：根节点 -> 左子树 -> 右子树
-        list.Add(root.val);
+        list.Add(root.val!.Value);
         PreOrder(root.left);
         PreOrder(root.right);
     }
@@ -459,7 +459,7 @@ comments: true
         if (root == null) return;
         // 访问优先级：左子树 -> 根节点 -> 右子树
         InOrder(root.left);
-        list.Add(root.val);
+        list.Add(root.val!.Value);
         InOrder(root.right);
     }
 
@@ -469,7 +469,7 @@ comments: true
         // 访问优先级：左子树 -> 右子树 -> 根节点
         PostOrder(root.left);
         PostOrder(root.right);
-        list.Add(root.val);
+        list.Add(root.val!.Value);
     }
     ```
 

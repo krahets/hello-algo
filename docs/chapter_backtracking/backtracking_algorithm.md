@@ -66,7 +66,7 @@ comments: true
 
     ```csharp title="preorder_traversal_i_compact.cs"
     /* 前序遍历：例题一 */
-    void PreOrder(TreeNode root) {
+    void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
@@ -288,7 +288,7 @@ comments: true
 
     ```csharp title="preorder_traversal_ii_compact.cs"
     /* 前序遍历：例题二 */
-    void PreOrder(TreeNode root) {
+    void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
@@ -588,7 +588,7 @@ comments: true
 
     ```csharp title="preorder_traversal_iii_compact.cs"
     /* 前序遍历：例题三 */
-    void PreOrder(TreeNode root) {
+    void PreOrder(TreeNode? root) {
         // 剪枝
         if (root == null || root.val == 3) {
             return;
@@ -1267,7 +1267,7 @@ comments: true
                 // 尝试：做出选择，更新状态
                 MakeChoice(state, choice);
                 // 进行下一轮选择
-                Backtrack(state, new List<TreeNode> { choice.left, choice.right }, res);
+                Backtrack(state, [choice.left!, choice.right!], res);
                 // 回退：撤销选择，恢复到之前的状态
                 UndoChoice(state, choice);
             }
