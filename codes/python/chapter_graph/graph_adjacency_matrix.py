@@ -14,14 +14,11 @@ from modules import Vertex, print_matrix
 class GraphAdjMat:
     """基于邻接矩阵实现的无向图类"""
 
-    # 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    vertices: list[int] = []
-    # 邻接矩阵，行列索引对应“顶点索引”
-    adj_mat: list[list[int]] = []
-
     def __init__(self, vertices: list[int], edges: list[list[int]]):
         """构造方法"""
+        # 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
         self.vertices: list[int] = []
+        # 邻接矩阵，行列索引对应“顶点索引”
         self.adj_mat: list[list[int]] = []
         # 添加顶点
         for val in vertices:

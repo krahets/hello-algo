@@ -79,7 +79,7 @@ void insert(MyList *nums, int index, int num) {
 
 /* 删除元素 */
 // 注意：stdio.h 占用了 remove 关键词
-int removeNum(MyList *nums, int index) {
+int removeItem(MyList *nums, int index) {
     assert(index >= 0 && index < size(nums));
     int num = nums->arr[index];
     for (int i = index; i < size(nums) - 1; i++) {
@@ -133,7 +133,7 @@ int main() {
     printArray(toArray(nums), size(nums));
 
     /* 删除元素 */
-    removeNum(nums, 3);
+    removeItem(nums, 3);
     printf("删除索引 3 处的元素，得到 nums = ");
     printArray(toArray(nums), size(nums));
 

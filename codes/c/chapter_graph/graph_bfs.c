@@ -6,156 +6,111 @@
 
 #include "graph_adjacency_list.c"
 
-/* 哈希表 */
+// 假设节点最大数量为 100
+#define MAX_SIZE 100
+
+/* 节点队列结构体 */
 typedef struct {
-    unsigned int size;
-    unsigned int *array;
-} HashTable;
-
-/* 初始化哈希表 */
-HashTable *newHash(unsigned int size) {
-    HashTable *h = (HashTable *)malloc(sizeof(HashTable));
-    h->array = (unsigned int *)malloc(sizeof(unsigned int) * size);
-    memset(h->array, 0, sizeof(unsigned int) * size);
-    h->size = size;
-    return h;
-}
-
-/* 标记索引过的顶点 */
-void hashMark(HashTable *h, int index) {
-    h->array[index % h->size] = 1;
-}
-
-/* 查询顶点是否已被标记 */
-int hashQuery(HashTable *h, int index) {
-    // 若顶点已被标记，则返回 1
-    if (h->array[index % h->size] == 1) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
-/* 释放哈希表内存 */
-void freeHash(HashTable *h) {
-    free(h->array);
-    free(h);
-}
-
-/* 队列 */
-typedef struct {
-    Vertex **list;
-    unsigned int size;
-    int head;
-    int tail;
+    Vertex *vertices[MAX_SIZE];
+    int front, rear, size;
 } Queue;
 
-/* 初始化队列 */
-Queue *newQueue(unsigned int size) {
+/* 构造函数 */
+Queue *newQueue() {
     Queue *q = (Queue *)malloc(sizeof(Queue));
-    q->size = size;
-    q->list = (Vertex **)malloc(sizeof(Vertex *) * size);
-    q->head = 0;
-    q->tail = 0;
-
+    q->front = q->rear = q->size = 0;
     return q;
 }
 
-/* 入队 */
-void queuePush(Queue *q, Vertex *vet) {
-    q->list[q->tail] = vet;
-    q->tail++;
+/* 判断队列是否为空 */
+int isEmpty(Queue *q) {
+    return q->size == 0;
 }
 
-/* 出队 */
-void queuePop(Queue *q) {
-    q->head++;
+/* 入队操作 */
+void enqueue(Queue *q, Vertex *vet) {
+    q->vertices[q->rear] = vet;
+    q->rear = (q->rear + 1) % MAX_SIZE;
+    q->size++;
 }
 
-/* 队首元素 */
-Vertex *queueTop(Queue *q) {
-    return q->list[q->head];
+/* 出队操作 */
+Vertex *dequeue(Queue *q) {
+    Vertex *vet = q->vertices[q->front];
+    q->front = (q->front + 1) % MAX_SIZE;
+    q->size--;
+    return vet;
 }
 
-/* 释放队列内存 */
-void freeQueue(Queue *q) {
-    free(q->list);
-    free(q);
+/* 检查顶点是否已被访问 */
+int isVisited(Vertex **visited, int size, Vertex *vet) {
+    // 遍历查找节点，使用 O(n) 时间
+    for (int i = 0; i < size; i++) {
+        if (visited[i] == vet)
+            return 1;
+    }
+    return 0;
 }
 
-/* 广度优先遍历 */
+/* 广度优先遍历 BFS */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-Vertex **graphBFS(GraphAdjList *t, Vertex *startVet) {
-    // 顶点遍历序列
-    Vertex **res = (Vertex **)malloc(sizeof(Vertex *) * t->size);
-    memset(res, 0, sizeof(Vertex *) * t->size);
+void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize, Vertex **visited, int *visitedSize) {
     // 队列用于实现 BFS
-    Queue *que = newQueue(t->size);
-    // 哈希表，用于记录已被访问过的顶点
-    HashTable *visited = newHash(t->size);
-    int resIndex = 0;
-    queuePush(que, startVet);         // 将第一个元素入队
-    hashMark(visited, startVet->pos); // 标记第一个入队的顶点
+    Queue *queue = newQueue();
+    enqueue(queue, startVet);
+    visited[(*visitedSize)++] = startVet;
     // 以顶点 vet 为起点，循环直至访问完所有顶点
-    while (que->head < que->tail) {
-        // 遍历该顶点的边链表，将所有与该顶点有连接的，并且未被标记的顶点入队
-        Node *n = queueTop(que)->list->head->next;
-        while (n != 0) {
-            // 查询哈希表，若该索引的顶点已入队，则跳过，否则入队并标记
-            if (hashQuery(visited, n->val->pos) == 1) {
-                n = n->next;
-                continue; // 跳过已被访问过的顶点
+    while (!isEmpty(queue)) {
+        Vertex *vet = dequeue(queue); // 队首顶点出队
+        res[(*resSize)++] = vet;      // 记录访问顶点
+        // 遍历该顶点的所有邻接顶点
+        AdjListNode *node = findNode(graph, vet);
+        while (node != NULL) {
+            // 跳过已被访问过的顶点
+            if (!isVisited(visited, *visitedSize, node->vertex)) {
+                enqueue(queue, node->vertex);             // 只入队未访问的顶点
+                visited[(*visitedSize)++] = node->vertex; // 标记该顶点已被访问
             }
-            queuePush(que, n->val);         // 只入队未访问的顶点
-            hashMark(visited, n->val->pos); // 标记该顶点已被访问
+            node = node->next;
         }
-        // 队首元素存入数组
-        res[resIndex] = queueTop(que); // 队首顶点加入顶点遍历序列
-        resIndex++;
-        queuePop(que); // 队首元素出队
     }
     // 释放内存
-    freeQueue(que);
-    freeHash(visited);
-    resIndex = 0;
-    // 返回顶点遍历序列
-    return res;
+    free(queue);
 }
 
 /* Driver Code */
 int main() {
-    /* 初始化无向图 */
-    GraphAdjList *graph = newGraphAdjList(3);
-    // 初始化顶点
-    for (int i = 0; i < 10; i++) {
-        addVertex(graph, i);
+    // 初始化无向图
+    int vals[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int size = sizeof(vals) / sizeof(vals[0]);
+    Vertex **v = valsToVets(vals, size);
+    Vertex *edges[][2] = {{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]}, {v[1], v[4]}, {v[2], v[5]}, {v[3], v[4]},
+                          {v[3], v[6]}, {v[4], v[5]}, {v[4], v[7]}, {v[5], v[8]}, {v[6], v[7]}, {v[7], v[8]}};
+    int egdeSize = sizeof(edges) / sizeof(edges[0]);
+    GraphAdjList *graph = newGraphAdjList();
+    // 添加所有顶点和边
+    for (int i = 0; i < size; i++) {
+        addVertex(graph, v[i]);
     }
-    // 初始化边
-    addEdge(graph, 0, 1);
-    addEdge(graph, 0, 3);
-    addEdge(graph, 1, 2);
-    addEdge(graph, 1, 4);
-    addEdge(graph, 2, 5);
-    addEdge(graph, 3, 4);
-    addEdge(graph, 3, 6);
-    addEdge(graph, 4, 5);
-    addEdge(graph, 4, 7);
-    addEdge(graph, 5, 8);
-    addEdge(graph, 6, 7);
-    addEdge(graph, 7, 8);
-    printf("\n初始化后，图为:\n");
+    for (int i = 0; i < egdeSize; i++) {
+        addEdge(graph, edges[i][0], edges[i][1]);
+    }
+    printf("\n初始化后，图为\n");
     printGraph(graph);
+
+    // 广度优先遍历 BFS
+    // 顶点遍历序列
+    Vertex *res[MAX_SIZE];
+    int resSize = 0;
+    // 用于记录已被访问过的顶点
+    Vertex *visited[MAX_SIZE];
+    int visitedSize = 0;
+    graphBFS(graph, v[0], res, &resSize, visited, &visitedSize);
     printf("\n广度优先遍历（BFS）顶点序列为\n");
-    Vertex **vets = graphBFS(graph, graph->vertices[0]);
+    printArray(vetsToVals(res, resSize), resSize);
 
-    // 打印广度优先遍历数组
-    printf("[");
-    printf("%d", vets[0]->val);
-    for (int i = 1; i < graph->size && vets[i] != 0; i++) {
-        printf(", %d", vets[i]->val);
-    }
-    printf("]\n");
-    free(vets);
-
+    // 释放内存
+    delGraphAdjList(graph);
+    free(v);
     return 0;
 }

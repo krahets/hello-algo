@@ -28,7 +28,7 @@ func extend(nums: [Int], enlarge: Int) -> [Int] {
 /* 在数组的索引 index 处插入元素 num */
 func insert(nums: inout [Int], num: Int, index: Int) {
     // 把索引 index 以及之后的所有元素向后移动一位
-    for i in sequence(first: nums.count - 1, next: { $0 > index + 1 ? $0 - 1 : nil }) {
+    for i in nums.indices.dropFirst(index).reversed() {
         nums[i] = nums[i - 1]
     }
     // 将 num 赋给 index 处元素
@@ -37,9 +37,8 @@ func insert(nums: inout [Int], num: Int, index: Int) {
 
 /* 删除索引 index 处元素 */
 func remove(nums: inout [Int], index: Int) {
-    let count = nums.count
     // 把索引 index 之后的所有元素向前移动一位
-    for i in sequence(first: index, next: { $0 < count - 1 - 1 ? $0 + 1 : nil }) {
+    for i in nums.indices.dropFirst(index).dropLast() {
         nums[i] = nums[i + 1]
     }
 }
@@ -48,12 +47,12 @@ func remove(nums: inout [Int], index: Int) {
 func traverse(nums: [Int]) {
     var count = 0
     // 通过索引遍历数组
-    for _ in nums.indices {
-        count += 1
+    for i in nums.indices {
+        count += nums[i]
     }
-    // 直接遍历数组
-    for _ in nums {
-        count += 1
+    // 直接遍历数组元素
+    for num in nums {
+        count += num
     }
 }
 

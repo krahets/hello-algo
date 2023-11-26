@@ -9,7 +9,7 @@
 #define MAX_SIZE 100
 
 // 辅助数组，用于存储遍历序列
-int *arr;
+int arr[MAX_SIZE];
 
 /* 前序遍历 */
 void preOrder(TreeNode *root, int *size) {
@@ -53,7 +53,6 @@ int main() {
 
     /* 前序遍历 */
     // 初始化辅助数组
-    arr = (int *)malloc(sizeof(int) * MAX_SIZE);
     size = 0;
     preOrder(root, &size);
     printf("前序遍历的节点打印序列 = ");
@@ -71,5 +70,6 @@ int main() {
     printf("后序遍历的节点打印序列 = ");
     printArray(arr, size);
 
+    freeMemoryTree(root);
     return 0;
 }

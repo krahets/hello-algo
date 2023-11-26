@@ -38,16 +38,13 @@ if __name__ == "__main__":
     nums.pop(3)
     print("\n删除索引 3 处的元素，得到 nums =", nums)
 
-    # 遍历列表
-    tmp = []
+    # 通过索引遍历列表
+    count = 0
     for i in range(len(nums)):
-        tmp.append(nums[i])
-    print(f"\n通过索引遍历列表得到 tmp = {tmp}")
-
-    tmp.clear()
+        count += nums[i]
+    # 直接遍历列表元素
     for num in nums:
-        tmp.append(num)
-    print(f"\n直接遍历列表元素得到 tmp = {tmp}")
+        count += num
 
     # 拼接两个列表
     nums1 = [6, 8, 7, 10, 9]

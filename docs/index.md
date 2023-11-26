@@ -8,8 +8,8 @@ hide:
 <h1 align="center">  </h1>
 
 <p align="center">
-  <img src="index.assets/conceptual_rendering.png" width="250">
-  <img src="index.assets/hello_algo_mindmap_tp.png" width="400">
+  <img src="index.assets/conceptual_rendering.png" width="200">
+  <img src="index.assets/hello_algo_mindmap_tp.png" width="320">
 </p>
 
 <h2 align="center"> 《 Hello 算法 》</h2>
@@ -18,12 +18,32 @@ hide:
 
 <p align="center">
   <a href="https://github.com/krahets/hello-algo">
-    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/krahets/hello-algo?style=social&link=https%3A%2F%2Fgithub.com%2Fkrahets%2Fhello-algo">
+    <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/krahets/hello-algo?style=social&link=https%3A%2F%2Fgithub.com%2Fkrahets%2Fhello-algo">
+  </a>
+  &nbsp;
+  <a href="https://github.com/krahets/hello-algo/releases">
+    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/krahets/hello-algo/total?style=social&logo=gitbook&logoColor=black&label=Downloads">
   </a>
   &nbsp;
   <a href="https://github.com/krahets/hello-algo">
     <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/krahets/hello-algo?style=social&logo=git&logoColor=%23101010">
   </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB">
+  <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C">
+  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02">
+  <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4">
+  <img src="https://img.shields.io/badge/Go-snow?logo=go&logoColor=00ADD8">
+  <img src="https://img.shields.io/badge/Swift-snow?logo=swift&logoColor=F05138">
+  <img src="https://img.shields.io/badge/JavaScript-snow?logo=javascript&logoColor=E9CE30">
+  <img src="https://img.shields.io/badge/TypeScript-snow?logo=typescript&logoColor=3178C6">
+  <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2">
+  <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000">
+  <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC">
+  <img src="https://img.shields.io/badge/Zig-snow?logo=zig&logoColor=F7A41D">
+  <img src="https://img.shields.io/badge/Stay%20Tuned-snow">
 </p>
 
 ---
@@ -59,7 +79,7 @@ hide:
 
 <h3 align="center"> 代码一键运行 </h3>
 
-<p align="center"> 提供各个算法与数据结构的简洁实现与测试样例，皆可直接运行</br>支持 Java、C++、Python、Go、JS、TS、C#、Swift、Rust、Dart、Zig 等语言 </p>
+<p align="center"> 提供各个算法与数据结构的简洁实现与测试样例，皆可直接运行</br>支持 Python、C++、Java、C#、Go、Swift、JS、TS、Dart、Rust、C、Zig 等语言 </p>
 
 ![running_code](index.assets/running_code.gif)
 
@@ -90,6 +110,8 @@ hide:
 两眼一抹黑地刷题似乎是最受欢迎的方法，简单直接且有效。刷题就如同玩“扫雷”游戏，自学能力强的同学能够顺利地将地雷逐个排掉，而基础不足的同学很可能被炸的满头是包，并在挫折中步步退缩。通读教材书籍也是一种常见做法，但对于面向求职的同学来说，毕业季、投递简历、准备笔试面试已经占据了大部分精力，厚重的书籍往往变成了一项艰巨的挑战。
 
 如果你也面临类似的困扰，那么很幸运这本书找到了你。本书是我对此问题的给出的答案，即使不是最优解，也至少是一次积极的尝试。这本书虽然不足以让你直接拿到 Offer ，但会引导你探索数据结构与算法的“知识地图”，带你了解不同“地雷”的形状大小和分布位置，让你掌握各种“排雷方法”。有了这些本领，相信你可以更加自如地应对刷题和阅读文献，逐步构建起完整的知识体系。
+
+我深深赞同费曼先生所言：“Knowledge isn't free. You have to pay attention.”从这个意义上看，这本书并非完全“免费”。为了不辜负你为本书所付出的宝贵“注意力”，我会尽我所能，投入最大的“注意力”来完成这本书的创作。
 
 <h3 align="left"> 作者简介 </h3>
 

@@ -51,12 +51,12 @@ pub fn traverse(nums: []i32) void {
     // 通过索引遍历数组
     var i: i32 = 0;
     while (i < nums.len) : (i += 1) {
-        count += 1;
+        count += nums[i];
     }
     count = 0;
-    // 直接遍历数组
-    for (nums) |_| {
-        count += 1;
+    // 直接遍历数组元素
+    for (nums) |num| {
+        count += num;
     }
 }
 

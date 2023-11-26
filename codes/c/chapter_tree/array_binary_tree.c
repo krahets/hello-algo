@@ -6,19 +6,25 @@
 
 #include "../utils/common.h"
 
-/* 数组表示下的二叉树结构 */
+/* 数组表示下的二叉树结构体 */
 typedef struct {
     int *tree;
     int size;
 } ArrayBinaryTree;
 
-/* 构造方法 */
-ArrayBinaryTree *createArrayBinaryTree(int *arr, int arrSize) {
+/* 构造函数 */
+ArrayBinaryTree *newArrayBinaryTree(int *arr, int arrSize) {
     ArrayBinaryTree *abt = (ArrayBinaryTree *)malloc(sizeof(ArrayBinaryTree));
     abt->tree = malloc(sizeof(int) * arrSize);
     memcpy(abt->tree, arr, sizeof(int) * arrSize);
     abt->size = arrSize;
     return abt;
+}
+
+/* 析构函数 */
+void delArrayBinaryTree(ArrayBinaryTree *abt) {
+    free(abt->tree);
+    free(abt);
 }
 
 /* 节点数量 */
@@ -120,7 +126,7 @@ int main() {
     printf("二叉树的链表表示：\n");
     printTree(root);
 
-    ArrayBinaryTree *abt = createArrayBinaryTree(arr, arrSize);
+    ArrayBinaryTree *abt = newArrayBinaryTree(arr, arrSize);
 
     // 访问节点
     int i = 1;
@@ -155,8 +161,6 @@ int main() {
     free(res);
 
     // 释放内存
-    free(root);
-    free(abt);
-
+    delArrayBinaryTree(abt);
     return 0;
 }

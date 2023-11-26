@@ -38,5 +38,6 @@ int main() {
     printf("删除节点 P 后\n");
     printTree(n1);
 
+    freeMemoryTree(n1);
     return 0;
 }

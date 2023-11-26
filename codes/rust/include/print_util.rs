@@ -57,7 +57,7 @@ pub fn print_tree(root: &Rc<RefCell<TreeNode>>) {
     _print_tree(Some(root), None, false);
 }
 
-fn _print_tree(root: Option<&Rc<RefCell<TreeNode>>>, prev: Option<&Trunk>, is_left: bool) {
+fn _print_tree(root: Option<&Rc<RefCell<TreeNode>>>, prev: Option<&Trunk>, is_right: bool) {
     if let Some(node) = root {
         let mut prev_str = "    ";
         let trunk = Trunk { prev, str: Cell::new(prev_str) };
@@ -65,7 +65,7 @@ fn _print_tree(root: Option<&Rc<RefCell<TreeNode>>>, prev: Option<&Trunk>, is_le
 
         if  prev.is_none() {
             trunk.str.set("———");
-        } else if is_left {
+        } else if is_right {
             trunk.str.set("/———");
             prev_str = "   |";
         } else {

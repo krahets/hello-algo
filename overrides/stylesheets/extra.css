@@ -25,7 +25,7 @@
   --md-default-fg-color: #adbac7;
   --md-default-bg-color: #22272e;
 
-  --md-code-bg-color: #1D2126;
+  --md-code-bg-color: #1d2126;
   --md-code-fg-color: #adbac7;
 
   --md-accent-fg-color: #aaa;
@@ -41,6 +41,23 @@
 /* https://github.com/squidfunk/mkdocs-material/issues/4832#issuecomment-1374891676 */
 .md-nav__link[for] {
   color: var(--md-default-fg-color) !important;
+}
+
+/* Figure class */
+.animation-figure {
+  border-radius: 0.63rem;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Cover image class */
+.cover-image {
+  width: 28rem;
+  height: auto;
+  border-radius: 0.3rem;
+  box-shadow: var(--md-shadow-z2);
+  display: block;
+  margin: 0 auto;
 }
 
 /* Center Markdown Tables (requires md_in_html extension) */
@@ -80,12 +97,6 @@
 
 .md-typeset h5 {
   text-transform: none;
-}
-
-/* Image align center */
-.center {
-  display: block;
-  margin: 0 auto;
 }
 
 /* font-family setting for Win10 */

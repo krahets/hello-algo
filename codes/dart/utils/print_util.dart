@@ -42,7 +42,7 @@ void printLinkedList(ListNode? head) {
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
-void printTree(TreeNode? root, [Trunk? prev = null, bool isLeft = false]) {
+void printTree(TreeNode? root, [Trunk? prev = null, bool isRight = false]) {
   if (root == null) {
     return;
   }
@@ -54,7 +54,7 @@ void printTree(TreeNode? root, [Trunk? prev = null, bool isLeft = false]) {
 
   if (prev == null) {
     trunk.str = '———';
-  } else if (isLeft) {
+  } else if (isRight) {
     trunk.str = '/———';
     prev_str = '   |';
   } else {

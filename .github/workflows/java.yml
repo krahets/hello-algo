@@ -1,0 +1,29 @@
+# # This workflow will install OpenJDK and build the Java project
+# For more information see: https://github.com/actions/setup-java
+
+name: Java
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: ["codes/java/**/*.java"]
+  pull_request:
+    branches: [ "main" ]
+    paths: ["codes/java/**/*.java"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        java: [ '11', '17' ]
+    name: Java ${{ matrix.Java }} sample
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
+      - run: javac -d codes/java/build codes/java/**/*.java

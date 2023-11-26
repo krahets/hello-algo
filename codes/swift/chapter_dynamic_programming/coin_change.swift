@@ -18,7 +18,7 @@ func coinChangeDP(coins: [Int], amt: Int) -> Int {
     for i in stride(from: 1, through: n, by: 1) {
         for a in stride(from: 1, through: amt, by: 1) {
             if coins[i - 1] > a {
-                // 若超过背包容量，则不选硬币 i
+                // 若超过目标金额，则不选硬币 i
                 dp[i][a] = dp[i - 1][a]
             } else {
                 // 不选和选硬币 i 这两种方案的较小值
@@ -40,7 +40,7 @@ func coinChangeDPComp(coins: [Int], amt: Int) -> Int {
     for i in stride(from: 1, through: n, by: 1) {
         for a in stride(from: 1, through: amt, by: 1) {
             if coins[i - 1] > a {
-                // 若超过背包容量，则不选硬币 i
+                // 若超过目标金额，则不选硬币 i
                 dp[a] = dp[a]
             } else {
                 // 不选和选硬币 i 这两种方案的较小值

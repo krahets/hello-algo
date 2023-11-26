@@ -64,7 +64,7 @@ public static class PrintUtil {
     }
 
     /* Print a binary tree */
-    public static void PrintTree(TreeNode? root, Trunk? prev, bool isLeft) {
+    public static void PrintTree(TreeNode? root, Trunk? prev, bool isRight) {
         if (root == null) {
             return;
         }
@@ -76,7 +76,7 @@ public static class PrintUtil {
 
         if (prev == null) {
             trunk.str = "———";
-        } else if (isLeft) {
+        } else if (isRight) {
             trunk.str = "/———";
             prev_str = "   |";
         } else {

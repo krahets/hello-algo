@@ -82,5 +82,7 @@ int main() {
     int index = find(n0, 2);
     printf("链表中值为 2 的节点的索引 = %d\r\n", index);
 
+    // 释放内存
+    freeMemoryLinkedList(n0);
     return 0;
 }

@@ -32,8 +32,8 @@ typedef struct {
     Node **buckets;   // 桶数组
 } HashMapChaining;
 
-/* 构造方法 */
-HashMapChaining *initHashMapChaining() {
+/* 构造函数 */
+HashMapChaining *newHashMapChaining() {
     HashMapChaining *hashMap = (HashMapChaining *)malloc(sizeof(HashMapChaining));
     hashMap->size = 0;
     hashMap->capacity = 4;
@@ -46,15 +46,15 @@ HashMapChaining *initHashMapChaining() {
     return hashMap;
 }
 
-/* 析构方法 */
-void freeHashMapChaining(HashMapChaining *hashMap) {
+/* 析构函数 */
+void delHashMapChaining(HashMapChaining *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Node *cur = hashMap->buckets[i];
         while (cur) {
-            Node *temp = cur;
+            Node *tmp = cur;
             cur = cur->next;
-            free(temp->pair);
-            free(temp);
+            free(tmp->pair);
+            free(tmp);
         }
     }
     free(hashMap->buckets);
@@ -144,7 +144,7 @@ void put(HashMapChaining *hashMap, int key, const char *val) {
 }
 
 /* 删除操作 */
-void removeKey(HashMapChaining *hashMap, int key) {
+void removeItem(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     Node *cur = hashMap->buckets[index];
     Node *pre = NULL;
@@ -183,7 +183,7 @@ void print(HashMapChaining *hashMap) {
 /* Driver Code */
 int main() {
     /* 初始化哈希表 */
-    HashMapChaining *hashMap = initHashMapChaining();
+    HashMapChaining *hashMap = newHashMapChaining();
 
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
@@ -202,12 +202,12 @@ int main() {
 
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
-    removeKey(hashMap, 12836);
+    removeItem(hashMap, 12836);
     printf("\n删除学号 12836 后，哈希表为\nKey -> Value\n");
     print(hashMap);
 
     /* 释放哈希表空间 */
-    freeHashMapChaining(hashMap);
+    delHashMapChaining(hashMap);
 
     return 0;
 }

@@ -55,7 +55,7 @@ void traverse(int *nums, int size) {
     int count = 0;
     // 通过索引遍历数组
     for (int i = 0; i < size; i++) {
-        count++;
+        count += nums[i];
     }
 }
 
@@ -76,7 +76,7 @@ int main() {
     printf("数组 arr = ");
     printArray(arr, size);
 
-    int nums[5] = {1, 3, 2, 5, 4};
+    int nums[] = {1, 3, 2, 5, 4};
     printf("数组 nums = ");
     printArray(nums, size);
 

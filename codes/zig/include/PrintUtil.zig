@@ -101,7 +101,7 @@ pub fn showTrunks(p: ?*Trunk) void {
 
 // The interface of the tree printer
 // Print a binary tree
-pub fn printTree(root: ?*TreeNode(i32), prev: ?*Trunk, isLeft: bool) !void {
+pub fn printTree(root: ?*TreeNode(i32), prev: ?*Trunk, isRight: bool) !void {
     if (root == null) {
         return;
     }
@@ -113,7 +113,7 @@ pub fn printTree(root: ?*TreeNode(i32), prev: ?*Trunk, isLeft: bool) !void {
    
     if (prev == null) {
         trunk.str = "———";
-    } else if (isLeft) {
+    } else if (isRight) {
         trunk.str = "/———";
         prev_str = "   |";
     } else {

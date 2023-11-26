@@ -9,7 +9,7 @@ site_dir: site
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
 edit_uri: tree/main/docs
-version: 1.0.0b5
+version: 1.0.0b6
 
 # Copyright
 copyright: Copyright &copy; 2022 - 2023 Krahets
@@ -60,7 +60,7 @@ theme:
     text: Noto Sans SC
     code: Fira Code
   favicon: assets/images/favicon.png
-  logo: assets/images/logo.png
+  logo: assets/images/logo.svg
   icon:
     logo: logo
     repo: fontawesome/brands/github
@@ -167,7 +167,6 @@ nav:
     # [icon: material/timer-sand]
     - chapter_computational_complexity/index.md
     - 2.1 &nbsp; 算法效率评估: chapter_computational_complexity/performance_evaluation.md
-    # [status: new]
     - 2.2 &nbsp; 迭代与递归: chapter_computational_complexity/iteration_and_recursion.md
     - 2.3 &nbsp; 时间复杂度: chapter_computational_complexity/time_complexity.md
     - 2.4 &nbsp; 空间复杂度: chapter_computational_complexity/space_complexity.md
@@ -186,7 +185,9 @@ nav:
     - 4.1 &nbsp; 数组: chapter_array_and_linkedlist/array.md
     - 4.2 &nbsp; 链表: chapter_array_and_linkedlist/linked_list.md
     - 4.3 &nbsp; 列表: chapter_array_and_linkedlist/list.md
-    - 4.4 &nbsp; 小结: chapter_array_and_linkedlist/summary.md
+    # [status: new]
+    - 4.4 &nbsp; 内存与缓存 *: chapter_array_and_linkedlist/ram_and_cache.md
+    - 4.5 &nbsp; 小结: chapter_array_and_linkedlist/summary.md
   - 第 5 章 &nbsp; 栈与队列:
     # [icon: material/stack-overflow]
     - chapter_stack_and_queue/index.md
@@ -286,5 +287,7 @@ nav:
     - chapter_appendix/index.md
     - 16.1 &nbsp; 编程环境安装: chapter_appendix/installation.md
     - 16.2 &nbsp; 一起参与创作: chapter_appendix/contribution.md
+    # [status: new]
+    - 16.3 &nbsp; 术语表: chapter_appendix/terminology.md
   - 参考文献:
     - chapter_reference/index.md

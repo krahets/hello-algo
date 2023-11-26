@@ -51,12 +51,12 @@ fn remove(nums: &mut Vec<i32>, index: usize) {
 fn traverse(nums: &[i32]) {
     let mut _count = 0;
     // 通过索引遍历数组
-    for _ in 0..nums.len() {
-        _count += 1;
+    for i in 0..nums.len() {
+        _count += nums[i];
     }
-    // 直接遍历数组
-    for _ in nums {
-        _count += 1;
+    // 直接遍历数组元素
+    for num in nums {
+        _count += num;
     }
 }
 
