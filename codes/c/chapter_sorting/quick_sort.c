@@ -62,7 +62,7 @@ int medianThree(int nums[], int left, int mid, int right) {
         return right;
 }
 
-// 哨兵划分（三数取中值）
+/* 哨兵划分（三数取中值） */ 
 int partitionMedian(int nums[], int left, int right) {
     // 选取三个候选元素的中位数
     int med = medianThree(nums, left, (left + right) / 2, right);
