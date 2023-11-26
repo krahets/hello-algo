@@ -458,6 +458,7 @@ Figure 2-7 illustrates the time complexities of these three algorithm functions.
 - Algorithm `C` needs to loop the print operation $1000000$ times. Although its runtime is lengthy, it is independent of the input data size $n$. Thus, the time complexity of `C` is the same as `A`, still "constant order."
 
 ![Time growth trends for algorithms A, B and C](time_complexity.assets/time_complexity_simple_example.png)
+<p align="center">Figure 2-7: Time Complexity of Algorithm Functions A, B, and C</p>
 
 What are the characteristics of time complexity analysis compared to direct statistical algorithmic running time?
 
