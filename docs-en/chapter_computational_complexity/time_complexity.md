@@ -460,15 +460,15 @@ Figure 2-7 illustrates the time complexities of these three algorithm functions.
 ![Time growth trends for algorithms A, B and C](time_complexity.assets/time_complexity_simple_example.png)
 <p align="center">Figure 2-7: Time Complexity of Algorithm Functions A, B, and C</p>
 
-What are the characteristics of time complexity analysis compared to direct statistical algorithmic running time?
+What are the characteristics of time complexity analysis compared to directly measuring algorithm runtime?
 
-- The **time complexity can effectively evaluate the efficiency of an algorithm**. For example, the running time of algorithm `B` increases linearly and is slower than algorithm `A` for $n > 1$ and slower than algorithm `C` for $n > 1,000,000$. In fact, as long as the input data size $n$ is large enough, algorithms with "constant order" of complexity will always outperform algorithms with "linear order", which is exactly what the time complexity trend means.
-- The **time complexity of the projection method is simpler**. Obviously, neither the running platform nor the type of computational operation is related to the growth trend of the running time of the algorithm. Therefore, in the time complexity analysis, we can simply consider the execution time of all computation operations as the same "unit time", and thus simplify the "statistics of the running time of computation operations" to the "statistics of the number of computation operations", which is the same as the "statistics of the number of computation operations". The difficulty of the estimation is greatly reduced by considering the execution time of all operations as the same "unit time".
-- There are also some limitations of **time complexity**. For example, although algorithms `A` and `C` have the same time complexity, the actual running time varies greatly. Similarly, although the time complexity of algorithm `B` is higher than that of `C` , algorithm `B` significantly outperforms algorithm `C` when the size of the input data $n$ is small. In these cases, it is difficult to judge the efficiency of an algorithm based on time complexity alone. Of course, despite the above problems, complexity analysis is still the most effective and commonly used method to judge the efficiency of algorithms.
+- **Effective Evaluation of Algorithm Efficiency**: For instance, Algorithm `B`'s runtime grows linearly. It is slower than Algorithm `A` when $n > 1$ and slower than Algorithm `C` when $n > 1,000,000$. In fact, as long as the input data size $n$ is sufficiently large, an algorithm with "constant order" complexity will always be superior to one with "linear order" complexity. This illustrates the meaning conveyed by the trend of time growth.
+- **Simpler Estimation Approach**: Clearly, the running platform and types of computational operations are irrelevant to the trend of runtime growth. Thus, in time complexity analysis, we can simply treat the execution time of all computational operations as the same "unit time." This approach simplifies the estimation process from "counting the execution times of operations" to "counting the number of operations", significantly reducing the difficulty of estimation.
+- **Limitations of Time Complexity Analysis**: While time complexity offers valuable insights, it has its constraints. For instance, even though Algorithms `A` and `C` have the same time complexity, their actual runtimes can vary significantly. Similarly, even though Algorithm `B` has a higher time complexity than `C`, it is clearly superior when the input data size is small. In these cases, it's difficult to judge the efficiency of algorithms solely based on their time complexity. Nevertheless, despite these issues, complexity analysis remains the most effective and commonly used method for assessing algorithm efficiency.
 
-## Functions Asymptotic Upper Bounds
+## Asymptotic Upper Bound of a Function
 
-Given a function with input size $n$:
+Consider a function with an input size $n$:
 
 === "Python"
 
@@ -637,41 +637,42 @@ Given a function with input size $n$:
     }
     ```
 
-Let the number of operations of the algorithm be a function of the size of the input data $n$, denoted as $T(n)$ , then the number of operations of the above function is:
+Suppose the number of operations of the algorithm is a function of the input data size $n$, denoted as $T(n)$. Then, the operation count for the above function is:
 
 $$
 T(n) = 3 + 2n
 $$
 
-$T(n)$ is a primary function, which indicates that the trend of its running time growth is linear, and thus its time complexity is of linear order.
+Since $T(n)$ is a linear function, indicating that its runtime trend is linear, its time complexity is of linear order.
 
-We denote the time complexity of the linear order as $O(n)$ , and this mathematical notation is called the "big $O$ notation big-$O$ notation", which denotes the "asymptotic upper bound" of the function $T(n)$.
+We denote linear order time complexity as $O(n)$, a mathematical symbol known as "Big $O$ notation." It represents the "asymptotic upper bound" of the function $T(n)$.
 
-Time complexity analysis is essentially the computation of asymptotic upper bounds on the "number of operations function $T(n)$", which has a clear mathematical definition.
+Essentially, time complexity analysis calculates the asymptotic upper bound of the "operation count function $T(n)$" and has a precise mathematical definition.
 
-!!! abstract "Function asymptotic upper bound"
+!!! abstract "Asymptotic Upper Bound"
 
-    If there exists a positive real number $c$ and a real number $n_0$ such that $T(n) \leq c \cdot f(n)$ for all $n > n_0$ , then it can be argued that $f(n)$ gives an asymptotic upper bound on $T(n)$ , denoted as $T(n) = O(f(n))$ .
+    If there exists a positive real number $c$ and a real number $n_0$ such that for all $n > n_0$, it holds that $T(n) \leq c \cdot f(n)$, then we can consider $f(n)$ to provide an asymptotic upper bound for $T(n)$, denoted as $T(n) = O(f(n))$.
 
-As shown in the figure below, computing the asymptotic upper bound is a matter of finding a function $f(n)$ such that $T(n)$ and $f(n)$ are at the same growth level as $n$ tends to infinity, differing only by a multiple of the constant term $c$.
+As illustrated in Figure 2-8, calculating the asymptotic upper bound involves finding a function $f(n)$ such that, as $n$ approaches infinity, $T(n)$ and $f(n)$ are of the same order of growth, differing only by a constant factor $c$.
 
 ![asymptotic upper bound of function](time_complexity.assets/asymptotic_upper_bound.png)
+<p align="center">Figure 2-8: Asymptotic Upper Bound of a Function</p>
 
-## Method Of Projection
+## Estimation Approach
 
-Asymptotic upper bounds are a bit heavy on math, so don't worry if you feel you don't have a full solution. Because in practice, we only need to master the projection method, and the mathematical meaning can be gradually comprehended.
+The concept of the asymptotic upper bound might seem mathematically dense, but don’t worry if you don’t fully grasp it yet. In practical applications, understanding the estimation approach is enough to gradually comprehend its mathematical significance.
 
-By definition, after determining $f(n)$, we can get the time complexity $O(f(n))$. So how to determine the asymptotic upper bound $f(n)$? The overall is divided into two steps: first count the number of operations, and then determine the asymptotic upper bound.
+Once $f(n)$ is determined according to the definition, we can derive the time complexity $O(f(n))$. So, how do we determine the asymptotic upper bound $f(n)$? It generally involves two steps: first, counting the number of operations, and then determining the asymptotic upper bound.
 
-### The First Step: Counting The Number Of Operations
+### First Step: Counting the Number of Operations
 
-For the code, it is sufficient to calculate from top to bottom line by line. However, since the constant term $c \cdot f(n)$ in the above $c \cdot f(n)$ can take any size, **the various coefficients and constant terms in the number of operations $T(n)$ can be ignored**. Based on this principle, the following counting simplification techniques can be summarized.
+Analyze the code line by line from top to bottom. However, since the constant $c$ in $c \cdot f(n)$ can be any size, **various coefficients and constants in $T(n)$ can be disregarded**. Based on this principle, we can summarize the following simplification techniques for counting:
 
-1. **Ignore the constant terms in $T(n)$**. Since none of them are related to $n$, they have no effect on the time complexity.
-2. **omits all coefficients**. For example, loops $2n$ times, $5n + 1$ times, etc., can be simplified and notated as $n$ times because the coefficients before $n$ have no effect on the time complexity.
-3. **Use multiplication** when loops are nested. The total number of operations is equal to the product of the number of operations of the outer and inner levels of the loop, and each level of the loop can still be nested by applying the techniques in points `1.` and `2.` respectively.
+1. **Ignore constant terms in $T(n)$**. Since they are unrelated to $n$ and do not impact time complexity.
+2. **Omit all coefficients**. For example, looping $2n$ times or $5n + 1$ times can be simplified to $n$ times, as the coefficients before $n$ have no impact on time complexity.
+3. **Multiply when dealing with nested loops**. The total number of operations equals the product of the number of operations in the outer and inner loops, and each loop can still apply the first and second techniques separately.
 
-Given a function, we can use the above trick to count the number of operations.
+Given a function, we can use these techniques to count the number of operations.
 
 === "Python"
 
@@ -901,13 +902,13 @@ Given a function, we can use the above trick to count the number of operations.
     }
     ```
 
-The following equations show the statistical results before and after using the above technique, both of which were introduced with a time complexity of $O(n^2)$ .
+The following formula shows the counting results before and after using these techniques, both leading to the same time complexity of $O(n^2)$.
 
 $$
 \begin{aligned}
-T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{complete statistics (-.-|||)} \newline
+T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{Comprehensive Counting (-.-|||)} \newline
 & = 2n^2 + 7n + 3 \newline
-T(n) & = n^2 + n & \text{Lazy Stats (o.O)}
+T(n) & = n^2 + n & \text{Shortcut Counting (o.O)}
 \end{aligned}
 $$
 
