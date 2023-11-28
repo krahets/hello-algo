@@ -1,4 +1,4 @@
-# Getting To Know The Algorithm For The First Time
+# Introduction to Algorithms
 
 <div class="center-table" markdown>
 
@@ -8,6 +8,6 @@
 
 !!! abstract
 
-    A young girl dances, intertwining with the data, a melody of algorithms fluttering from her skirts.
+     A graceful maiden dances, intertwined with the data, her skirt swaying to the melody of algorithms.
    
-    She invites you to dance, so follow her lead and step into the world of algorithms full of logic and beauty.
+    She invites you to a dance, follow her steps, and enter the world of algorithms full of logic and beauty.
