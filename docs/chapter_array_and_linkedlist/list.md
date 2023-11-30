@@ -264,14 +264,14 @@
     # 清空列表
     nums.clear()
 
-    # 尾部添加元素
+    # 在尾部添加元素
     nums.append(1)
     nums.append(3)
     nums.append(2)
     nums.append(5)
     nums.append(4)
 
-    # 中间插入元素
+    # 在中间插入元素
     nums.insert(3, 6)  # 在索引 3 处插入数字 6
 
     # 删除元素
@@ -284,14 +284,14 @@
     /* 清空列表 */
     nums.clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
     nums.push_back(5);
     nums.push_back(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(nums.begin() + 3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -304,14 +304,14 @@
     /* 清空列表 */
     nums.clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
     nums.add(5);
     nums.add(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.add(3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -324,14 +324,14 @@
     /* 清空列表 */
     nums.Clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.Add(1);
     nums.Add(3);
     nums.Add(2);
     nums.Add(5);
     nums.Add(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.Insert(3, 6);
 
     /* 删除元素 */
@@ -344,14 +344,14 @@
     /* 清空列表 */
     nums = nil
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums = append(nums, 1)
     nums = append(nums, 3)
     nums = append(nums, 2)
     nums = append(nums, 5)
     nums = append(nums, 4)
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -364,14 +364,14 @@
     /* 清空列表 */
     nums.removeAll()
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.append(1)
     nums.append(3)
     nums.append(2)
     nums.append(5)
     nums.append(4)
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(6, at: 3) // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -384,14 +384,14 @@
     /* 清空列表 */
     nums.length = 0;
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.splice(3, 0, 6);
 
     /* 删除元素 */
@@ -404,14 +404,14 @@
     /* 清空列表 */
     nums.length = 0;
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.splice(3, 0, 6);
 
     /* 删除元素 */
@@ -424,14 +424,14 @@
     /* 清空列表 */
     nums.clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
     nums.add(5);
     nums.add(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(3, 6); // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -444,14 +444,14 @@
     /* 清空列表 */
     nums.clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -470,14 +470,14 @@
     // 清空列表
     nums.clearRetainingCapacity();
 
-    // 尾部添加元素
+    // 在尾部添加元素
     try nums.append(1);
     try nums.append(3);
     try nums.append(2);
     try nums.append(5);
     try nums.append(4);
 
-    // 中间插入元素
+    // 在中间插入元素
     try nums.insert(3, 6); // 在索引 3 处插入数字 6
 
     // 删除元素

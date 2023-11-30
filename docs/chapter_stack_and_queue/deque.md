@@ -24,8 +24,10 @@
 === "Python"
 
     ```python title="deque.py"
+    from collections import deque
+
     # 初始化双向队列
-    deque: deque[int] = collections.deque()
+    deque: deque[int] = deque()
     
     # 元素入队
     deque.append(2)      # 添加至队尾

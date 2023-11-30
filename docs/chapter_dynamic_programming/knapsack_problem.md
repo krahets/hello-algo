@@ -76,7 +76,7 @@ $$
 [file]{knapsack}-[class]{}-[func]{knapsack_dfs_mem}
 ```
 
-下图展示了在记忆化递归中被剪掉的搜索分支。
+下图展示了在记忆化搜索中被剪掉的搜索分支。
 
 ![0-1 背包的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.png)
 

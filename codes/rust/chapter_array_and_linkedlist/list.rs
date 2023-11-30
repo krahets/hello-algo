@@ -27,7 +27,7 @@ fn main() {
     print!("\n清空列表后 nums = ");
     print_util::print_array(&nums);
 
-    // 尾部添加元素
+    // 在尾部添加元素
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -36,7 +36,7 @@ fn main() {
     print!("\n添加元素后 nums = ");
     print_util::print_array(&nums);
 
-    // 中间插入元素
+    // 在中间插入元素
     nums.insert(3, 6);
     print!("\n在索引 3 处插入数字 6 ，得到 nums = ");
     print_util::print_array(&nums);

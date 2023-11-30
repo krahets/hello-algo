@@ -27,7 +27,7 @@ int main() {
     cout << "清空列表后 nums = ";
     printVector(nums);
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
@@ -36,7 +36,7 @@ int main() {
     cout << "添加元素后 nums = ";
     printVector(nums);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(nums.begin() + 3, 6);
     cout << "在索引 3 处插入数字 6 ，得到 nums = ";
     printVector(nums);

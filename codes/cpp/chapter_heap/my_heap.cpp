@@ -24,7 +24,7 @@ class MaxHeap {
 
     /* 获取父节点索引 */
     int parent(int i) {
-        return (i - 1) / 2; // 向下取整
+        return (i - 1) / 2; // 向下整除
     }
 
     /* 从节点 i 开始，从底至顶堆化 */

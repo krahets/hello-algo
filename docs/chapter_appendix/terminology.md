@@ -26,6 +26,11 @@
 | 链表节点       | linked list node, list node    |
 | 列表           | list                           |
 | 动态数组       | dynamic array                  |
+| 硬盘           | hard disk                      |
+| 内存           | random-access memory(RAM)      |
+| 缓存           | cache memory                   |
+| 缓存未命中     | cache miss                     |
+| 缓存命中率     | cache hit rate                 |
 | 栈             | stack                          |
 | 队列           | queue                          |
 | 双向队列       | double-ended queue             |

@@ -27,7 +27,7 @@ public class list {
         nums.Clear();
         Console.WriteLine("清空列表后 nums = " + string.Join(",", nums));
 
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         nums.Add(1);
         nums.Add(3);
         nums.Add(2);
@@ -35,7 +35,7 @@ public class list {
         nums.Add(4);
         Console.WriteLine("添加元素后 nums = " + string.Join(",", nums));
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         nums.Insert(3, 6);
         Console.WriteLine("在索引 3 处插入数字 6 ，得到 nums = " + string.Join(",", nums));
 

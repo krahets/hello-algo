@@ -29,7 +29,7 @@ pub fn main() !void {
     std.debug.print("\n清空列表后 nums = ", .{});
     inc.PrintUtil.printList(i32, nums);
 
-    // 尾部添加元素
+    // 在尾部添加元素
     try nums.append(1);
     try nums.append(3);
     try nums.append(2);
@@ -38,7 +38,7 @@ pub fn main() !void {
     std.debug.print("\n添加元素后 nums = ", .{});
     inc.PrintUtil.printList(i32, nums);
 
-    // 中间插入元素
+    // 在中间插入元素
     try nums.insert(3, 6);
     std.debug.print("\n在索引 3 处插入数字 6 ，得到 nums = ", .{});
     inc.PrintUtil.printList(i32, nums);
