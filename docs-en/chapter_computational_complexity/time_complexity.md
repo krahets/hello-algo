@@ -912,15 +912,15 @@ T(n) & = n^2 + n & \text{Shortcut Counting (o.O)}
 \end{aligned}
 $$
 
-### Step 2: Judging The Asymptotic Upper Bounds
+### Second Step: Determining the Asymptotic Upper Bound
 
-**The time complexity is determined by the highest order term in the polynomial $T(n)$**. This is because as $n$ tends to infinity, the highest order term will play a dominant role and the effects of all other terms can be ignored.
+**The time complexity of a polynomial T(n) is determined by its highest-order term**. This is because, as $n$ approaches infinity, the highest-order term becomes dominant, and the influence of other terms can be disregarded.
 
-The table below shows some examples, some of which have exaggerated values to emphasize the conclusion that "the coefficients can't touch the order". As $n$ tends to infinity, these constants become irrelevant.
+Table 2-2 shows some examples, including some exaggerated values to emphasize the conclusion that "coefficients do not alter the order." When $n$ becomes infinitely large, these constants become insignificant.
 
-<p align="center"> Table <id> &nbsp; Time complexity corresponding to different number of operations </p>
+<p align="center"> Table <2-2> &nbsp; Time Complexities for Different Operation Counts </p>
 
-| number of operations $T(n)$ | time complexity $O(f(n))$ |
+| Operation Count $T(n)$ | Time Complexity $O(f(n))$ |
 | --------------------------- | ------------------------- |
 | $100000$                    | $O(1)$                    |
 | $3n + 2$                    | $O(n)$                    |
@@ -930,22 +930,23 @@ The table below shows some examples, some of which have exaggerated values to em
 
 ## Common Types
 
-Let the input data size be $n$ , the common types of time complexity are shown in the figure below (in descending order).
+With the input data size denoted as $n$, common types of time complexities are shown in Figure 2-9, arranged in ascending order of complexity:
 
 $$
 \begin{aligned}
 O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
-\text{constant order} < \text{logarithmic order} < \text{linear order} < \text{linear logarithmic order} < \text{square order} < \text{exponential order} < \text{multiplication order}
+\text{Constant Order} < \text{Logarithmic Order} < \text{Linear Order} < \text{Linear-Logarithmic Order} < \text{Quadratic Order} < \text{Exponential Order} < \text{Factorial Order}
 \end{aligned}
 $$
 
 ![Common time complexity types](time_complexity.assets/time_complexity_common_types.png)
+<p align="center">Figure 2-9: Common Types of Time Complexity</p>
 
 ### Constant Order $O(1)$
 
-The number of operations of the constant order is independent of the input data size $n$, i.e., it does not change with $n$.
+In constant order complexity, the number of operations is independent of the size of the input data $n$; it does not change as $n$ varies.
 
-In the following function, although the number of operations `size` may be large, the time complexity is still $O(1)$ because it is independent of the input data size $n$ :
+In the following function, although the operation count `size` may be large, since it is unrelated to the input data size $n$, the time complexity remains $O(1)$ :
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{constant}
@@ -953,13 +954,13 @@ In the following function, although the number of operations `size` may be large
 
 ### Linear Order $O(N)$
 
-The number of operations in a linear order grows in linear steps relative to the input data size $n$. Linear orders are usually found in single level loops:
+In linear order complexity, the number of operations grows linearly relative to the input data size $n$. Linear order often appears in single-layer loops:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{linear}
 ```
 
-The time complexity of operations such as traversing an array and traversing a linked list is $O(n)$ , where $n$ is the length of the array or linked list:
+Operations like traversing an array or a linked list have a time complexity of $O(n)$, where $n$ is the length of the array or list:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{array_traversal}
