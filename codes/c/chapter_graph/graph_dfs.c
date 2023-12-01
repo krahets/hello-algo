@@ -27,7 +27,7 @@ void dfs(GraphAdjList *graph, Vertex **res, int *resSize, Vertex *vet) {
     // 遍历该顶点的所有邻接顶点
     AdjListNode *node = findNode(graph, vet);
     while (node != NULL) {
-        // 跳过已被访问过的顶点
+        // 跳过已被访问的顶点
         if (!isVisited(res, *resSize, node->vertex)) {
             // 递归访问邻接顶点
             dfs(graph, res, resSize, node->vertex);

@@ -76,7 +76,7 @@ func (g *graphAdjMat) addEdge(i, j int) {
 	if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
 		fmt.Errorf("%s", "Index Out Of Bounds Exception")
 	}
-	// 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+	// 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
 	g.adjMat[i][j] = 1
 	g.adjMat[j][i] = 1
 }

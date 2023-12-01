@@ -68,7 +68,7 @@ class GraphAdjMat {
         // 索引越界与相等处理
         if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
             throw new IndexOutOfRangeException();
-        // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+        // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
     }

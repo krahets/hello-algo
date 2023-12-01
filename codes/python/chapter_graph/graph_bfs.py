@@ -29,7 +29,7 @@ def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
         # 遍历该顶点的所有邻接顶点
         for adj_vet in graph.adj_list[vet]:
             if adj_vet in visited:
-                continue  # 跳过已被访问过的顶点
+                continue  # 跳过已被访问的顶点
             que.append(adj_vet)  # 只入队未访问的顶点
             visited.add(adj_vet)  # 标记该顶点已被访问
     # 返回顶点遍历序列

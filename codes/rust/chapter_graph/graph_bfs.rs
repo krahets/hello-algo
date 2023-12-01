@@ -29,7 +29,7 @@ fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
         if let Some(adj_vets) = graph.adj_list.get(&vet) {
             for &adj_vet in adj_vets {
                 if visited.contains(&adj_vet) {
-                    continue; // 跳过已被访问过的顶点
+                    continue; // 跳过已被访问的顶点
                 }
                 que.push_back(adj_vet); // 只入队未访问的顶点
                 visited.insert(adj_vet); // 标记该顶点已被访问

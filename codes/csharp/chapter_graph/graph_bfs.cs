@@ -23,7 +23,7 @@ public class graph_bfs {
             res.Add(vet);               // 记录访问顶点
             foreach (Vertex adjVet in graph.adjList[vet]) {
                 if (visited.Contains(adjVet)) {
-                    continue;          // 跳过已被访问过的顶点
+                    continue;          // 跳过已被访问的顶点
                 }
                 que.Enqueue(adjVet);   // 只入队未访问的顶点
                 visited.Add(adjVet);   // 标记该顶点已被访问
