@@ -4,7 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
     private arr: Array<number>; // 数组（存储列表元素）
     private _capacity: number = 10; // 列表容量

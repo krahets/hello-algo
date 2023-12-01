@@ -6,7 +6,7 @@
 
 namespace hello_algo.chapter_array_and_linkedlist;
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
     private int[] arr;           // 数组（存储列表元素）
     private int arrCapacity = 10;    // 列表容量

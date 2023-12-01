@@ -12,7 +12,7 @@ class Pair(int key, string val) {
     public string val = val;
 }
 
-/* 基于数组简易实现的哈希表 */
+/* 基于数组实现的哈希表 */
 class ArrayHashMap {
     List<Pair?> buckets;
     public ArrayHashMap() {

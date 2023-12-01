@@ -8,7 +8,7 @@ package chapter_array_and_linkedlist;
 
 import java.util.*;
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
     private int[] arr; // 数组（存储列表元素）
     private int capacity = 10; // 列表容量

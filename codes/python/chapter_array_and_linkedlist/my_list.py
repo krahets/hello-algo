@@ -6,7 +6,7 @@ Author: Krahets (krahets@163.com)
 
 
 class MyList:
-    """列表类简易实现"""
+    """列表类"""
 
     def __init__(self):
         """构造方法"""

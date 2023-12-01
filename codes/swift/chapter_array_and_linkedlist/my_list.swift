@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
     private var arr: [Int] // 数组（存储列表元素）
     private var _capacity = 10 // 列表容量

@@ -4,7 +4,7 @@
 
 package chapter_array_and_linkedlist
 
-/* 列表类简易实现 */
+/* 列表类 */
 type myList struct {
 	arrCapacity int
 	arr         []int

@@ -4,7 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
     #arr = new Array(); // 数组（存储列表元素）
     #capacity = 10; // 列表容量

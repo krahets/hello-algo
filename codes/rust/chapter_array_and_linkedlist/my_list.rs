@@ -6,7 +6,7 @@
 
 include!("../include/include.rs");
 
-/* 列表类简易实现 */
+/* 列表类 */
 #[allow(dead_code)]
 struct MyList {
     arr: Vec<i32>,       // 数组（存储列表元素）

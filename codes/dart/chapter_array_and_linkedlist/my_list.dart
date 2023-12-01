@@ -4,7 +4,7 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
   late List<int> _arr; // 数组（存储列表元素）
   int _capacity = 10; // 列表容量

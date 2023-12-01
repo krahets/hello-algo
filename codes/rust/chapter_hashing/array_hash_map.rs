@@ -10,7 +10,7 @@ pub struct Pair {
     pub key: i32,
     pub val: String,
 }
-/* 基于数组简易实现的哈希表 */
+/* 基于数组实现的哈希表 */
 pub struct ArrayHashMap {
     buckets: Vec<Option<Pair>>
 }

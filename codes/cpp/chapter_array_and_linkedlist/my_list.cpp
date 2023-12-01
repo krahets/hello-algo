@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
   private:
     int *arr;             // 数组（存储列表元素）

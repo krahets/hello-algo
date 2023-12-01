@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 列表类简易实现 */
+/* 列表类 */
 typedef struct {
     int *arr;        // 数组（存储列表元素）
     int capacity;    // 列表容量
