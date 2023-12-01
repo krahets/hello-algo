@@ -16,7 +16,7 @@ func coinChangeIIDP(coins []int, amt int) int {
 	for i := 0; i <= n; i++ {
 		dp[i][0] = 1
 	}
-	// 状态转移：其余行列
+	// 状态转移：其余行和列
 	for i := 1; i <= n; i++ {
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {

@@ -27,7 +27,7 @@ public class climbing_stairs_backtrack {
 
     /* 爬楼梯：回溯 */
     public static int climbingStairsBacktrack(int n) {
-        List<Integer> choices = Arrays.asList(1, 2); // 可选择向上爬 1 或 2 阶
+        List<Integer> choices = Arrays.asList(1, 2); // 可选择向上爬 1 阶或 2 阶
         int state = 0; // 从第 0 阶开始爬
         List<Integer> res = new ArrayList<>();
         res.add(0); // 使用 res[0] 记录方案数量

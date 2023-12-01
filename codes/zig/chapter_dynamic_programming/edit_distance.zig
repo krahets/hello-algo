@@ -73,7 +73,7 @@ fn editDistanceDP(comptime s: []const u8, comptime t: []const u8) i32 {
     for (1..m + 1) |j| {
         dp[0][j] = @intCast(j);
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for (1..n + 1) |i| {
         for (1..m + 1) |j| {
             if (s[i - 1] == t[j - 1]) {

@@ -14,7 +14,7 @@ def coin_change_dp(coins: list[int], amt: int) -> int:
     # 状态转移：首行首列
     for a in range(1, amt + 1):
         dp[0][a] = MAX
-    # 状态转移：其余行列
+    # 状态转移：其余行和列
     for i in range(1, n + 1):
         for a in range(1, amt + 1):
             if coins[i - 1] > a:

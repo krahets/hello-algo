@@ -6,11 +6,11 @@
 
 /* 0-1 背包：暴力搜索 */
 fn knapsack_dfs(wgt: &[i32], val: &[i32], i: usize, c: usize) -> i32 {
-    // 若已选完所有物品或背包无容量，则返回价值 0
+    // 若已选完所有物品或背包无剩余容量，则返回价值 0
     if i == 0 || c == 0 {
         return 0;
     }
-    // 若超过背包容量，则只能不放入背包
+    // 若超过背包容量，则只能选择不放入背包
     if wgt[i - 1] > c as i32 {
         return knapsack_dfs(wgt, val, i - 1, c);
     }
@@ -23,7 +23,7 @@ fn knapsack_dfs(wgt: &[i32], val: &[i32], i: usize, c: usize) -> i32 {
 
 /* 0-1 背包：记忆化搜索 */
 fn knapsack_dfs_mem(wgt: &[i32], val: &[i32], mem: &mut Vec<Vec<i32>>, i: usize, c: usize) -> i32 {
-    // 若已选完所有物品或背包无容量，则返回价值 0
+    // 若已选完所有物品或背包无剩余容量，则返回价值 0
     if i == 0 || c == 0 {
         return 0;
     }
@@ -31,7 +31,7 @@ fn knapsack_dfs_mem(wgt: &[i32], val: &[i32], mem: &mut Vec<Vec<i32>>, i: usize,
     if mem[i][c] != -1 {
         return mem[i][c];
     }
-    // 若超过背包容量，则只能不放入背包
+    // 若超过背包容量，则只能选择不放入背包
     if wgt[i - 1] > c as i32 {
         return knapsack_dfs_mem(wgt, val, mem, i - 1, c);
     }

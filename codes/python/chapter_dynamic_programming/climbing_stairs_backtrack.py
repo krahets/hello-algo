@@ -22,7 +22,7 @@ def backtrack(choices: list[int], state: int, n: int, res: list[int]) -> int:
 
 def climbing_stairs_backtrack(n: int) -> int:
     """爬楼梯：回溯"""
-    choices = [1, 2]  # 可选择向上爬 1 或 2 阶
+    choices = [1, 2]  # 可选择向上爬 1 阶或 2 阶
     state = 0  # 从第 0 阶开始爬
     res = [0]  # 使用 res[0] 记录方案数量
     backtrack(choices, state, n, res)

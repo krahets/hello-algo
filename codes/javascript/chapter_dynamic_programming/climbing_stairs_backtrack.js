@@ -20,7 +20,7 @@ function backtrack(choices, state, n, res) {
 
 /* 爬楼梯：回溯 */
 function climbingStairsBacktrack(n) {
-    const choices = [1, 2]; // 可选择向上爬 1 或 2 阶
+    const choices = [1, 2]; // 可选择向上爬 1 阶或 2 阶
     const state = 0; // 从第 0 阶开始爬
     const res = new Map();
     res.set(0, 0); // 使用 res[0] 记录方案数量

@@ -17,7 +17,7 @@ def random_access(nums: list[int]) -> int:
 
 
 # 请注意，Python 的 list 是动态数组，可以直接扩展
-# 为了方便学习，本函数将 list 看作是长度不可变的数组
+# 为了方便学习，本函数将 list 看作长度不可变的数组
 def extend(nums: list[int], enlarge: int) -> list[int]:
     """扩展数组长度"""
     # 初始化一个扩展长度后的数组

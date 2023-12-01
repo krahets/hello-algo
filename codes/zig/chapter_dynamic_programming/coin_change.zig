@@ -14,7 +14,7 @@ fn coinChangeDP(comptime coins: []i32, comptime amt: usize) i32 {
     for (1..amt + 1) |a| {
         dp[0][a] = max;
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for (1..n + 1) |i| {
         for (1..amt + 1) |a| {
             if (coins[i - 1] > @as(i32, @intCast(a))) {

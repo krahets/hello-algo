@@ -62,7 +62,7 @@ func minPathSumDP(grid [][]int) int {
 	for i := 1; i < n; i++ {
 		dp[i][0] = dp[i-1][0] + grid[i][0]
 	}
-	// 状态转移：其余行列
+	// 状态转移：其余行和列
 	for i := 1; i < n; i++ {
 		for j := 1; j < m; j++ {
 			dp[i][j] = int(math.Min(float64(dp[i][j-1]), float64(dp[i-1][j]))) + grid[i][j]
@@ -81,7 +81,7 @@ func minPathSumDPComp(grid [][]int) int {
 	for j := 1; j < m; j++ {
 		dp[j] = dp[j-1] + grid[0][j]
 	}
-	// 状态转移：其余行列
+	// 状态转移：其余行和列
 	for i := 1; i < n; i++ {
 		// 状态转移：首列
 		dp[0] = dp[0] + grid[i][0]

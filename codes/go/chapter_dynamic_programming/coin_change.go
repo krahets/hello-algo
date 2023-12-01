@@ -19,7 +19,7 @@ func coinChangeDP(coins []int, amt int) int {
 	for a := 1; a <= amt; a++ {
 		dp[0][a] = max
 	}
-	// 状态转移：其余行列
+	// 状态转移：其余行和列
 	for i := 1; i <= n; i++ {
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {

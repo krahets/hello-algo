@@ -25,7 +25,7 @@ void backtrack(vector<int> &choices, int state, int n, vector<int> &res) {
 
 /* 爬楼梯：回溯 */
 int climbingStairsBacktrack(int n) {
-    vector<int> choices = {1, 2}; // 可选择向上爬 1 或 2 阶
+    vector<int> choices = {1, 2}; // 可选择向上爬 1 阶或 2 阶
     int state = 0;                // 从第 0 阶开始爬
     vector<int> res = {0};        // 使用 res[0] 记录方案数量
     backtrack(choices, state, n, res);

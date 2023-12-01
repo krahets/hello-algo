@@ -22,7 +22,7 @@ void backtrack(List<int> choices, int state, int n, List<int> res) {
 
 /* 爬楼梯：回溯 */
 int climbingStairsBacktrack(int n) {
-  List<int> choices = [1, 2]; // 可选择向上爬 1 或 2 阶
+  List<int> choices = [1, 2]; // 可选择向上爬 1 阶或 2 阶
   int state = 0; // 从第 0 阶开始爬
   List<int> res = [];
   res.add(0); // 使用 res[0] 记录方案数量

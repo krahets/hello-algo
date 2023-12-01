@@ -24,7 +24,7 @@ func backtrack(choices []int, state, n int, res []int) {
 
 /* 爬楼梯：回溯 */
 func climbingStairsBacktrack(n int) int {
-	// 可选择向上爬 1 或 2 阶
+	// 可选择向上爬 1 阶或 2 阶
 	choices := []int{1, 2}
 	// 从第 0 阶开始爬
 	state := 0
