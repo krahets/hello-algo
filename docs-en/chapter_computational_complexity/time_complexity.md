@@ -966,21 +966,22 @@ Operations like traversing an array or a linked list have a time complexity of $
 [file]{time_complexity}-[class]{}-[func]{array_traversal}
 ```
 
-It is worth noting that **Input data size $n$ needs to be determined specifically** according to the type of input data. For example, in the first example, the variable $n$ is the input data size; in the second example, the array length $n$ is the data size.
+It's important to note that **the size of the input data $n$ should be determined based on the type of input**. For instance, in the first example, the variable $n$ represents the size of the input data; in the second example, the length of the array $n$ is the data size.
 
-### Squared Order $O(N^2)$
+### Quadratic Order $O(N^2)$
 
-The number of operations in the square order grows in square steps with respect to the size of the input data $n$. The squared order is usually found in nested loops, where both the outer and inner levels are $O(n)$ and therefore overall $O(n^2)$:
+The number of operations in a quadratic order increases as the square of the input data size $n$. This typically occurs in nested loops, where both the outer and inner loops are $O(n)$, leading to an overall complexity of $O(n^2)$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{quadratic}
 ```
 
-The figure below compares the three time complexities of constant order, linear order and squared order.
+Figure 2-10 compares the constant, linear, and quadratic orders of time complexity.
 
 ![Time complexity of constant, linear and quadratic orders](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+<p align="center">Figure 2-10: Time Complexity of Constant, Linear, and Quadratic Orders</p>
 
-Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the inner loop executes $n-1$, $n-2$, $\dots$, $2$, $1$ times, which averages out to $n / 2$ times, resulting in a time complexity of $O((n - 1) n / 2) = O(n^2)$ .
+For example, in bubble sort, the outer loop runs $n - 1$ times, and the inner loop runs $n-1$, $n-2$, $\dots$, $2$, $1$ times on average, which is about $n / 2$ times, making the time complexity $O((n - 1) n / 2) = O(n^2)$.
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{bubble_sort}
@@ -988,107 +989,111 @@ Taking bubble sort as an example, the outer loop executes $n - 1$ times, and the
 
 ## Exponential Order $O(2^N)$
 
-Cell division in biology is a typical example of exponential growth: the initial state is $1$ cells, after one round of division it becomes $2$, after two rounds of division it becomes $4$, and so on, after $n$ rounds of division there are $2^n$ cells.
+A classic example of exponential order growth is biological "cell division": starting with $1$ cell, it divides into $2$ cells after one round, $4$ cells after two rounds, and so on, resulting in $2^n$ cells after $n$ rounds.
 
-The figure below and the following code simulate the process of cell division with a time complexity of $O(2^n)$ .
+Figure 2-11 and the following code simulate the cell division process, with a time complexity of $O(2^n)$.
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
 ![time complexity of exponential order](time_complexity.assets/time_complexity_exponential.png)
+<p align="center">Figure 2-11: Time Complexity of Exponential Order</p>
 
-In practical algorithms, exponential orders are often found in recursion functions. For example, in the following code, it recursively splits in two and stops after $n$ splits:
+In practical algorithms, exponential order often appears in recursive functions. For example, in the following code, the function recursively splits in two, stopping after $n$ divisions:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{exp_recur}
 ```
 
-Exponential order grows very rapidly and is more common in exhaustive methods (brute force search, backtracking, etc.). For problems with large data sizes, exponential order is unacceptable and usually requires the use of algorithms such as dynamic programming or greedy algorithms to solve.
+Exponential growth is very rapid and commonly seen in exhaustive methods (brute-force search, backtracking, etc.). For large-scale data, exponential order is not feasible, and algorithms like dynamic programming or greedy methods are typically employed instead.
 
 ### Logarithmic Order $O(\Log N)$
 
-In contrast to the exponential order, the logarithmic order reflects the "each round is reduced to half" case. Let the input data size be $n$, and since each round is reduced to half, the number of loops is $\log_2 n$, which is the inverse function of $2^n$.
+Contrasting with exponential order, logarithmic order reflects a "halving each round" scenario. If the input data size is $n$, and it halves every round, the number of loops is $\log_2 n$, which is the inverse function of $2^n$.
 
-The figure below and the code below simulate the process of "reducing each round to half" with a time complexity of $O(\log_2 n)$, which is abbreviated as $O(\log n)$.
+Figure 2-12 and the following code simulate the "halving each round" process, with a time complexity of $O(\log_2 n)$, commonly simplified to $O(\log n)$.
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
 ![time complexity of logarithmic order](time_complexity.assets/time_complexity_logarithmic.png)
+<p align="center">Figure 2-12: Time Complexity of Logarithmic Order</p>
 
-Similar to the exponential order, the logarithmic order is often found in recursion functions. The following code forms a recursion tree of height $\log_2 n$:
+Similar to exponential order, logarithmic order also often appears in recursive functions. The following code forms a recursive tree with a height of $\log_2 n$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{log_recur}
 ```
 
-Logarithmic order is often found in algorithms based on the divide and conquer strategy, which reflects the algorithmic ideas of "dividing one into many" and "simplifying the complexity into simplicity". It grows slowly and is the second most desirable time complexity after constant order.
+Logarithmic order is typically found in "divide and conquer" algorithms and embodies the principle of "splitting into many" and "simplifying the complex." It is a slowly growing order, second only to constant order in desirability.
 
 !!! tip "What is the base of $O(\log n)$?"
 
-    To be precise, the corresponding time complexity of "one divided into $m$" is $O(\log_m n)$ . And by using the logarithmic permutation formula, we can get equal time complexity with different bases:
+    Strictly speaking, a "split into $m$ parts" corresponds to a time complexity of $O(\log_m n)$. However, using the logarithm base change formula, we find equivalent time complexities with different bases:
 
     $$
     O(\log_m n) = O(\log_k n / \log_k m) = O(\log_k n)
     $$
 
-    That is, the base $m$ can be converted without affecting the complexity. Therefore we usually omit the base $m$ and write the logarithmic order directly as $O(\log n)$.
+    This means the base $m$ can be changed without affecting the complexity. Therefore, we usually omit the base $m$ and simply denote logarithmic order as $O(\log n)$.
 
-### Linear Logarithmic Order $O(N \Log N)$
+### Linear-Logarithmic Order $O(N \Log N)$
 
-The linear logarithmic order is often found in nested loops, and the time complexity of the two levels of loops is $O(\log n)$ and $O(n)$ respectively. The related code is as follows:
+Linear-logarithmic order often occurs in nested loops, with the time complexities of the two layers being $O(\log n)$ and $O(n)$, respectively. Related code is as follows:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{linear_log_recur}
 ```
 
-The figure below shows how the linear logarithmic order is generated. The total number of operations at each level of the binary tree is $n$ , and the tree has a total of $\log_2 n + 1$ levels, resulting in a time complexity of $O(n\log n)$ .
+Figure 2-13 illustrates the formation of linear-logarithmic order. In a binary tree, each layer has $n$ operations, and the tree has $\log_2 n + 1$ layers, so the time complexity is $O(n\log n)$.
 
 ![Time complexity of linear logarithmic order](time_complexity.assets/time_complexity_logarithmic_linear.png)
+<p align="center">Figure 2-13: Time Complexity of Linear-Logarithmic Order</p>
 
-Mainstream sorting algorithms typically have a time complexity of $O(n \log n)$ , such as quick sort, merge sort, heap sort, etc.
+The time complexity of mainstream sorting algorithms is often $O(n \log n)$, including quicksort, merge sort, heap sort, and others.
 
-### The Factorial Order $O(N!)$
+### Factorial Order $O(N!)$
 
-The factorial order corresponds to the mathematical "permutations problem". Given $n$ elements that do not repeat each other, find all possible permutations of them, the number of permutations being:
+Factorial order corresponds to the mathematical concept of “full permutation.” Given $n$ distinct elements, the number of possible permutations is:
 
 $$
 n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 $$
 
-Factorials are usually implemented using recursion. As shown in the figure below and in the code below, the first level splits $n$, the second level splits $n - 1$, and so on, until the splitting stops at the $n$th level:
+Factorial is typically implemented using recursion. As shown in Figure 2-14 and the following code, the first layer splits into $n$ parts, the second layer into $n - 1$ parts, and so on, stopping after $n$ layers:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
 ![Time complexity of the factorial order](time_complexity.assets/time_complexity_factorial.png)
+<p align="center">Figure 2-14: Time Complexity of Factorial Order</p>
 
-Note that since there is always $n! > 2^n$ when $n \geq 4$, the factorial order grows faster than the exponential order, and is also unacceptable when $n$ is large.
+Note that because $n! > 2^n$ for $n \geq 4$, factorial order grows faster than exponential order and is also unacceptable for large $n$.
 
-## Worst, Best, Average Time Complexity
+## Worst, Best, and Average Time Complexity
 
-**The time efficiency of algorithms is often not fixed, but is related to the distribution of the input data**. Suppose an array `nums` of length $n$ is input, where `nums` consists of numbers from $1$ to $n$, each of which occurs only once; however, the order of the elements is randomly upset, and the goal of the task is to return the index of element $1$. We can draw the following conclusion.
+**The time efficiency of an algorithm often varies and depends on the distribution of the input data**. Suppose we have an array `nums` of length $n$, composed of numbers from $1$ to $n$, each appearing only once but in a random order, and the task is to return the index of the element $1$. We can draw the following conclusions:
 
-- When `nums = [? , ? , ... , 1]` , i.e., when the end element is $1$, a complete traversal of the array is required, **to reach the worst time complexity $O(n)$** .
-- When `nums = [1, ? , ? , ...]` , i.e., when the first element is $1$ , there is no need to continue traversing the array no matter how long it is, **reaching the optimal time complexity $\Omega(1)$** .
+- When `nums = [? , ? , ... , 1]`, i.e., when the last element is $1$, it necessitates traversing the entire array, **leading to the worst-case time complexity of $O(n)$**.
+- When `nums = [1, ? , ? , ...]`, i.e., when the first element is $1$, there's no need for further traversal regardless of array length, **achieving the best-case time complexity**.
 
-The "worst time complexity" corresponds to the asymptotic upper bound of the function and is denoted by the large $O$ notation. Correspondingly, the "optimal time complexity" corresponds to the asymptotic lower bound of the function and is denoted in $\Omega$ notation:
+The "worst-case time complexity" corresponds to the asymptotic upper bound, represented by the Big $O$ notation. Correspondingly, the "best-case time complexity" relates to the asymptotic lower bound, denoted by the $\Omega$ notation. 
 
 ```src
 [file]{worst_best_time_complexity}-[class]{}-[func]{find_one}
 ```
 
-It is worth stating that we rarely use the optimal time complexity in practice because it is usually only attainable with a small probability and may be somewhat misleading. **whereas the worst time complexity is more practical because it gives a safe value for efficiency and allows us to use the algorithm with confidence**.
+It's important to note that best-case time complexity is seldom used in practice, as it usually represents an outcome that occurs under a very small probability, which can be misleading. **The worst-case time complexity is more practical, as it provides a "safe" efficiency level, ensuring the reliable use of the algorithm**.
 
-From the above examples, it can be seen that the worst or best time complexity only occurs in "special data distributions", and the probability of these cases may be very small, which does not truly reflect the efficiency of the algorithm. In contrast, **the average time complexity of can reflect the efficiency of the algorithm under random input data**, which is denoted by the $\Theta$ notation.
+From the example, it's clear that worst or best-case time complexities only occur in "special data distributions," which may have a low probability and don't truly reflect the algorithm's efficiency. In contrast, **the average time complexity reveals the algorithm's efficiency with random input data** and is denoted by the $\Theta$ notation.
 
-For some algorithms, we can simply derive the average case under a random data distribution. For example, in the above example, since the input array is scrambled, the probability of an element $1$ appearing at any index is equal, so the average number of loops of the algorithm is half of the length of the array $n / 2$ , and the average time complexity is $\Theta(n / 2) = \Theta(n)$ .
+For some algorithms, we can straightforwardly calculate the average case under random data distribution. For instance, in the previous example, since the input array is shuffled, the probability of element $1$ appearing at any index is equal, making the average number of iterations half the array's length $n / 2$, resulting in an average time complexity of $\Theta(n / 2) = \Theta(n)$.
 
-However, for more complex algorithms, calculating the average time complexity is often difficult because it is hard to analyze the overall mathematical expectation given the data distribution. In this case, we usually use the worst time complexity as a criterion for the efficiency of the algorithm.
+However, calculating the average time complexity for more complex algorithms is often challenging due to the difficulty in analyzing the overall mathematical expectations under data distributions. In these cases, the worst-case time complexity is commonly used as the standard for assessing algorithm efficiency.
 
-!!! question "Why do you rarely see the $\Theta$ symbol?"
+!!! question "Why is the $\Theta$ Symbol Rarely Seen?"
 
-    Perhaps because the $O$ symbol is so catchy, we often use it to denote average time complexity. However, this practice is not standardized in the strict sense. In this book and other sources, if you encounter a statement like "average time complexity $O(n)$", please understand it as $\Theta(n)$.
+    Possibly due to the prevalence and ease of use of the Big $O$ notation, it is often used to represent average time complexity. However, strictly speaking, this usage is not accurate. In this book and other materials, if you come across expressions like "average time complexity $O(n)$", they should be interpreted as $\Theta(n)$.
