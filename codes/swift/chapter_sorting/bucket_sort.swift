@@ -11,7 +11,7 @@ func bucketSort(nums: inout [Double]) {
     var buckets = (0 ..< k).map { _ in [Double]() }
     // 1. 将数组元素分配到各个桶中
     for num in nums {
-        // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+        // 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
         let i = Int(num * Double(k))
         // 将 num 添加进桶 i
         buckets[i].append(num)

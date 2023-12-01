@@ -34,7 +34,7 @@ void bucketSort(float nums[], int size) {
 
     // 1. 将数组元素分配到各个桶中
     for (int i = 0; i < size; i++) {
-        // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+        // 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
         int bucket_idx = nums[i] * k;
         int j = 0;
         // 如果桶中有数据且数据小于当前值 nums[i], 要将其放到当前桶的后面，相当于 cpp 中的 push_back

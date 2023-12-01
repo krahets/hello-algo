@@ -14,7 +14,7 @@ function bucketSort(nums: number[]): void {
     }
     // 1. 将数组元素分配到各个桶中
     for (const num of nums) {
-        // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+        // 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
         const i = Math.floor(num * k);
         // 将 num 添加进桶 i
         buckets[i].push(num);
