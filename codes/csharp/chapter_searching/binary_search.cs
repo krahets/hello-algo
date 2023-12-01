@@ -25,9 +25,9 @@ public class binary_search {
         return -1;
     }
 
-    /* 二分查找（左闭右开） */
+    /* 二分查找（左闭右开区间） */
     int BinarySearchLCRO(int[] nums, int target) {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         int i = 0, j = nums.Length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
@@ -52,7 +52,7 @@ public class binary_search {
         int index = BinarySearch(nums, target);
         Console.WriteLine("目标元素 6 的索引 = " + index);
 
-        /* 二分查找（左闭右开） */
+        /* 二分查找（左闭右开区间） */
         index = BinarySearchLCRO(nums, target);
         Console.WriteLine("目标元素 6 的索引 = " + index);
     }

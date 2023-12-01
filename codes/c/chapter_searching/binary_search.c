@@ -24,9 +24,9 @@ int binarySearch(int *nums, int len, int target) {
     return -1;
 }
 
-/* 二分查找（左闭右开） */
+/* 二分查找（左闭右开区间） */
 int binarySearchLCRO(int *nums, int len, int target) {
-    // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+    // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     int i = 0, j = len;
     // 循环，当搜索区间为空时跳出（当 i = j 时为空）
     while (i < j) {
@@ -51,7 +51,7 @@ int main() {
     int index = binarySearch(nums, 10, target);
     printf("目标元素 6 的索引 = %d\n", index);
 
-    /* 二分查找（左闭右开） */
+    /* 二分查找（左闭右开区间） */
     index = binarySearchLCRO(nums, 10, target);
     printf("目标元素 6 的索引 = %d\n", index);
 

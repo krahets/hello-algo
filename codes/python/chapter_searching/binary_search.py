@@ -23,8 +23,8 @@ def binary_search(nums: list[int], target: int) -> int:
 
 
 def binary_search_lcro(nums: list[int], target: int) -> int:
-    """二分查找（左闭右开）"""
-    # 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+    """二分查找（左闭右开区间）"""
+    # 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     i, j = 0, len(nums)
     # 循环，当搜索区间为空时跳出（当 i = j 时为空）
     while i < j:
@@ -47,6 +47,6 @@ if __name__ == "__main__":
     index: int = binary_search(nums, target)
     print("目标元素 6 的索引 = ", index)
 
-    # 二分查找（左闭右开）
+    # 二分查找（左闭右开区间）
     index: int = binary_search_lcro(nums, target)
     print("目标元素 6 的索引 = ", index)
