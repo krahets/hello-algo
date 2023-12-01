@@ -16,7 +16,7 @@ public class hanota {
         tar.Add(pan);
     }
 
-    /* 求解汉诺塔：问题 f(i) */
+    /* 求解汉诺塔问题 f(i) */
     void DFS(int i, List<int> src, List<int> buf, List<int> tar) {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if (i == 1) {
@@ -31,7 +31,7 @@ public class hanota {
         DFS(i - 1, buf, src, tar);
     }
 
-    /* 求解汉诺塔 */
+    /* 求解汉诺塔问题 */
     void SolveHanota(List<int> A, List<int> B, List<int> C) {
         int n = A.Count;
         // 将 A 顶部 n 个圆盘借助 B 移到 C

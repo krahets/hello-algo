@@ -16,7 +16,7 @@ func move(src, tar *list.List) {
 	src.Remove(pan)
 }
 
-/* 求解汉诺塔：问题 f(i) */
+/* 求解汉诺塔问题 f(i) */
 func dfsHanota(i int, src, buf, tar *list.List) {
 	// 若 src 只剩下一个圆盘，则直接将其移到 tar
 	if i == 1 {
@@ -31,7 +31,7 @@ func dfsHanota(i int, src, buf, tar *list.List) {
 	dfsHanota(i-1, buf, src, tar)
 }
 
-/* 求解汉诺塔 */
+/* 求解汉诺塔问题 */
 func solveHanota(A, B, C *list.List) {
 	n := A.Len()
 	// 将 A 顶部 n 个圆盘借助 B 移到 C

@@ -20,7 +20,7 @@ void move(int *src, int *srcSize, int *tar, int *tarSize) {
     (*tarSize)++;
 }
 
-/* 求解汉诺塔：问题 f(i) */
+/* 求解汉诺塔问题 f(i) */
 void dfs(int i, int *src, int *srcSize, int *buf, int *bufSize, int *tar, int *tarSize) {
     // 若 src 只剩下一个圆盘，则直接将其移到 tar
     if (i == 1) {
@@ -35,7 +35,7 @@ void dfs(int i, int *src, int *srcSize, int *buf, int *bufSize, int *tar, int *t
     dfs(i - 1, buf, bufSize, src, srcSize, tar, tarSize);
 }
 
-/* 求解汉诺塔 */
+/* 求解汉诺塔问题 */
 void solveHanota(int *A, int *ASize, int *B, int *BSize, int *C, int *CSize) {
     // 将 A 顶部 n 个圆盘借助 B 移到 C
     dfs(*ASize, A, ASize, B, BSize, C, CSize);
