@@ -85,7 +85,7 @@ class MaxHeap {
         // 判空处理
         if (IsEmpty())
             throw new IndexOutOfRangeException();
-        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
         Swap(0, Size() - 1);
         // 删除节点
         int val = maxHeap.Last();

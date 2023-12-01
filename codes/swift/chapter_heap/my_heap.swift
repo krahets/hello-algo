@@ -86,7 +86,7 @@ class MaxHeap {
         if isEmpty() {
             fatalError("堆为空")
         }
-        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
         swap(i: 0, j: size() - 1)
         // 删除节点
         let val = maxHeap.remove(at: size() - 1)

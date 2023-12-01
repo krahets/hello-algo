@@ -37,7 +37,7 @@ func heapSort(nums: inout [Int]) {
     }
     // 从堆中提取最大元素，循环 n-1 轮
     for i in stride(from: nums.count - 1, to: 0, by: -1) {
-        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
         nums.swapAt(0, i)
         // 以根节点为起点，从顶至底进行堆化
         siftDown(nums: &nums, n: i, i: 0)

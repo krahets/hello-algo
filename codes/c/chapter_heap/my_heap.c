@@ -99,7 +99,7 @@ int pop(MaxHeap *maxHeap) {
         printf("heap is empty!");
         return INT_MAX;
     }
-    // 交换根节点与最右叶节点（即交换首元素与尾元素）
+    // 交换根节点与最右叶节点（交换首元素与尾元素）
     swap(maxHeap, 0, size(maxHeap) - 1);
     // 删除节点
     int val = maxHeap->data[maxHeap->size - 1];
