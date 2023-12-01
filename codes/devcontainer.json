@@ -1,0 +1,8 @@
+{
+    "name": "hello-algo-code",
+    "extensions": [
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        // List other extensions you want
+    ]
+}
