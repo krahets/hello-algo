@@ -34,7 +34,7 @@ comments: true
 
 ## 6.1.1 &nbsp; 哈希表常用操作
 
-哈希表的常见操作包括：初始化、查询操作、添加键值对和删除键值对等。
+哈希表的常见操作包括：初始化、查询操作、添加键值对和删除键值对等，示例代码如下：
 
 === "Python"
 
@@ -283,7 +283,7 @@ comments: true
 
     ```
 
-哈希表有三种常用遍历方式：遍历键值对、遍历键和遍历值。
+哈希表有三种常用的遍历方式：遍历键值对、遍历键和遍历值。示例代码如下：
 
 === "Python"
 
@@ -478,7 +478,7 @@ comments: true
 
 我们先考虑最简单的情况，**仅用一个数组来实现哈希表**。在哈希表中，我们将数组中的每个空位称为「桶 bucket」，每个桶可存储一个键值对。因此，查询操作就是找到 `key` 对应的桶，并在桶中获取 `value` 。
 
-那么，如何基于 `key` 来定位对应的桶呢？这是通过「哈希函数 hash function」实现的。哈希函数的作用是将一个较大的输入空间映射到一个较小的输出空间。在哈希表中，输入空间是所有 `key` ，输出空间是所有桶（数组索引）。换句话说，输入一个 `key` ，**我们可以通过哈希函数得到该 `key` 对应的键值对在数组中的存储位置**。
+那么，如何基于 `key` 定位对应的桶呢？这是通过「哈希函数 hash function」实现的。哈希函数的作用是将一个较大的输入空间映射到一个较小的输出空间。在哈希表中，输入空间是所有 `key` ，输出空间是所有桶（数组索引）。换句话说，输入一个 `key` ，**我们可以通过哈希函数得到该 `key` 对应的键值对在数组中的存储位置**。
 
 输入一个 `key` ，哈希函数的计算过程分为以下两步。
 
@@ -510,7 +510,7 @@ index = hash(key) % capacity
             self.val = val
 
     class ArrayHashMap:
-        """基于数组简易实现的哈希表"""
+        """基于数组实现的哈希表"""
 
         def __init__(self):
             """构造方法"""
@@ -587,7 +587,7 @@ index = hash(key) % capacity
         }
     };
 
-    /* 基于数组简易实现的哈希表 */
+    /* 基于数组实现的哈希表 */
     class ArrayHashMap {
       private:
         vector<Pair *> buckets;
@@ -692,7 +692,7 @@ index = hash(key) % capacity
         }
     }
 
-    /* 基于数组简易实现的哈希表 */
+    /* 基于数组实现的哈希表 */
     class ArrayHashMap {
         private List<Pair> buckets;
 
@@ -781,7 +781,7 @@ index = hash(key) % capacity
         public string val = val;
     }
 
-    /* 基于数组简易实现的哈希表 */
+    /* 基于数组实现的哈希表 */
     class ArrayHashMap {
         List<Pair?> buckets;
         public ArrayHashMap() {
@@ -868,7 +868,7 @@ index = hash(key) % capacity
         val string
     }
 
-    /* 基于数组简易实现的哈希表 */
+    /* 基于数组实现的哈希表 */
     type arrayHashMap struct {
         buckets []*pair
     }
@@ -971,7 +971,7 @@ index = hash(key) % capacity
         }
     }
 
-    /* 基于数组简易实现的哈希表 */
+    /* 基于数组实现的哈希表 */
     class ArrayHashMap {
         private var buckets: [Pair?] = []
 
@@ -1062,7 +1062,7 @@ index = hash(key) % capacity
         }
     }
 
-    /* 基于数组简易实现的哈希表 */
+    /* 基于数组实现的哈希表 */
     class ArrayHashMap {
         #buckets;
         constructor() {
@@ -1153,7 +1153,7 @@ index = hash(key) % capacity
         }
     }
 
-    /* 基于数组简易实现的哈希表 */
+    /* 基于数组实现的哈希表 */
     class ArrayHashMap {
         private readonly buckets: (Pair | null)[];
 
@@ -1241,7 +1241,7 @@ index = hash(key) % capacity
       Pair(this.key, this.val);
     }
 
-    /* 基于数组简易实现的哈希表 */
+    /* 基于数组实现的哈希表 */
     class ArrayHashMap {
       late List<Pair?> _buckets;
 
@@ -1331,7 +1331,7 @@ index = hash(key) % capacity
         pub val: String,
     }
 
-    /* 基于数组简易实现的哈希表 */
+    /* 基于数组实现的哈希表 */
     pub struct ArrayHashMap {
         buckets: Vec<Option<Pair>>
     }
@@ -1402,7 +1402,7 @@ index = hash(key) % capacity
         char *val;
     } Pair;
 
-    /* 基于数组简易实现的哈希表 */
+    /* 基于数组实现的哈希表 */
     typedef struct {
         Pair *buckets[HASHTABLE_CAPACITY];
     } ArrayHashMap;
@@ -1540,7 +1540,7 @@ index = hash(key) % capacity
         }
     };
 
-    // 基于数组简易实现的哈希表
+    // 基于数组实现的哈希表
     fn ArrayHashMap(comptime T: type) type {
         return struct {
             bucket: ?std.ArrayList(?T) = null,
@@ -1635,7 +1635,7 @@ index = hash(key) % capacity
 
 ## 6.1.3 &nbsp; 哈希冲突与扩容
 
-本质上看，哈希函数的作用是将所有 `key` 构成的输入空间映射到数组所有索引构成的输出空间，而输入空间往往远大于输出空间。因此，**理论上一定存在“多个输入对应相同输出”的情况**。
+从本质上看，哈希函数的作用是将所有 `key` 构成的输入空间映射到数组所有索引构成的输出空间，而输入空间往往远大于输出空间。因此，**理论上一定存在“多个输入对应相同输出”的情况**。
 
 对于上述示例中的哈希函数，当输入的 `key` 后两位相同时，哈希函数的输出结果也相同。例如，查询学号为 12836 和 20336 的两个学生时，我们得到：
 
@@ -1658,6 +1658,6 @@ index = hash(key) % capacity
 
 <p align="center"> 图 6-4 &nbsp; 哈希表扩容 </p>
 
-类似于数组扩容，哈希表扩容需将所有键值对从原哈希表迁移至新哈希表，非常耗时。并且由于哈希表容量 `capacity` 改变，我们需要通过哈希函数来重新计算所有键值对的存储位置，这进一步提高了扩容过程的计算开销。为此，编程语言通常会预留足够大的哈希表容量，防止频繁扩容。
+类似于数组扩容，哈希表扩容需将所有键值对从原哈希表迁移至新哈希表，非常耗时；并且由于哈希表容量 `capacity` 改变，我们需要通过哈希函数来重新计算所有键值对的存储位置，这进一步提高了扩容过程的计算开销。为此，编程语言通常会预留足够大的哈希表容量，防止频繁扩容。
 
-「负载因子 load factor」是哈希表的一个重要概念，其定义为哈希表的元素数量除以桶数量，用于衡量哈希冲突的严重程度，**也常被作为哈希表扩容的触发条件**。例如在 Java 中，当负载因子超过 $0.75$ 时，系统会将哈希表容量扩展为原先的 $2$ 倍。
+「负载因子 load factor」是哈希表的一个重要概念，其定义为哈希表的元素数量除以桶数量，用于衡量哈希冲突的严重程度，**也常作为哈希表扩容的触发条件**。例如在 Java 中，当负载因子超过 $0.75$ 时，系统会将哈希表扩容至原先的 $2$ 倍。

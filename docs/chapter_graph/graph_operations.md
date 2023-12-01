@@ -32,7 +32,7 @@ comments: true
 
 <p align="center"> 图 9-7 &nbsp; 邻接矩阵的初始化、增删边、增删顶点 </p>
 
-以下是基于邻接矩阵表示图的实现代码。
+以下是基于邻接矩阵表示图的实现代码：
 
 === "Python"
 
@@ -88,7 +88,7 @@ comments: true
             # 索引越界与相等处理
             if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
                 raise IndexError()
-            # 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            # 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
             self.adj_mat[i][j] = 1
             self.adj_mat[j][i] = 1
 
@@ -170,7 +170,7 @@ comments: true
             if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
                 throw out_of_range("顶点不存在");
             }
-            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
             adjMat[i][j] = 1;
             adjMat[j][i] = 1;
         }
@@ -261,7 +261,7 @@ comments: true
             // 索引越界与相等处理
             if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
                 throw new IndexOutOfBoundsException();
-            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
             adjMat.get(i).set(j, 1);
             adjMat.get(j).set(i, 1);
         }
@@ -351,7 +351,7 @@ comments: true
             // 索引越界与相等处理
             if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
                 throw new IndexOutOfRangeException();
-            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
             adjMat[i][j] = 1;
             adjMat[j][i] = 1;
         }
@@ -449,7 +449,7 @@ comments: true
         if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
             fmt.Errorf("%s", "Index Out Of Bounds Exception")
         }
-        // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+        // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
         g.adjMat[i][j] = 1
         g.adjMat[j][i] = 1
     }
@@ -539,7 +539,7 @@ comments: true
             if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
                 fatalError("越界")
             }
-            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
             adjMat[i][j] = 1
             adjMat[j][i] = 1
         }
@@ -633,7 +633,7 @@ comments: true
             if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
                 throw new RangeError('Index Out Of Bounds Exception');
             }
-            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) === (j, i)
+            // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) === (j, i)
             this.adjMat[i][j] = 1;
             this.adjMat[j][i] = 1;
         }
@@ -725,7 +725,7 @@ comments: true
             if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
                 throw new RangeError('Index Out Of Bounds Exception');
             }
-            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) === (j, i)
+            // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) === (j, i)
             this.adjMat[i][j] = 1;
             this.adjMat[j][i] = 1;
         }
@@ -813,7 +813,7 @@ comments: true
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
           throw IndexError;
         }
-        // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+        // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
       }
@@ -909,7 +909,7 @@ comments: true
             if i >= self.size() || j >= self.size() || i == j {
                 panic!("index error")
             }
-            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
             self.adj_mat[i][j] = 1;
             self.adj_mat[j][i] = 1;
         }
@@ -1087,7 +1087,7 @@ comments: true
 
         def __init__(self, edges: list[list[Vertex]]):
             """构造方法"""
-            # 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+            # 邻接表，key：顶点，value：该顶点的所有邻接顶点
             self.adj_list = dict[Vertex, list[Vertex]]()
             # 添加所有顶点和边
             for edge in edges:
@@ -1147,7 +1147,7 @@ comments: true
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
       public:
-        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        // 邻接表，key：顶点，value：该顶点的所有邻接顶点
         unordered_map<Vertex *, vector<Vertex *>> adjList;
 
         /* 在 vector 中删除指定节点 */
@@ -1231,7 +1231,7 @@ comments: true
     ```java title="graph_adjacency_list.java"
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        // 邻接表，key：顶点，value：该顶点的所有邻接顶点
         Map<Vertex, List<Vertex>> adjList;
 
         /* 构造方法 */
@@ -1306,7 +1306,7 @@ comments: true
     ```csharp title="graph_adjacency_list.cs"
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        // 邻接表，key：顶点，value：该顶点的所有邻接顶点
         public Dictionary<Vertex, List<Vertex>> adjList;
 
         /* 构造函数 */
@@ -1381,7 +1381,7 @@ comments: true
     ```go title="graph_adjacency_list.go"
     /* 基于邻接表实现的无向图类 */
     type graphAdjList struct {
-        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        // 邻接表，key：顶点，value：该顶点的所有邻接顶点
         adjList map[Vertex][]Vertex
     }
 
@@ -1472,7 +1472,7 @@ comments: true
     ```swift title="graph_adjacency_list.swift"
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        // 邻接表，key：顶点，value：该顶点的所有邻接顶点
         public private(set) var adjList: [Vertex: [Vertex]]
 
         /* 构造方法 */
@@ -1552,7 +1552,7 @@ comments: true
     ```javascript title="graph_adjacency_list.js"
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        // 邻接表，key：顶点，value：该顶点的所有邻接顶点
         adjList;
 
         /* 构造方法 */
@@ -1641,7 +1641,7 @@ comments: true
     ```typescript title="graph_adjacency_list.ts"
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        // 邻接表，key：顶点，value：该顶点的所有邻接顶点
         adjList: Map<Vertex, Vertex[]>;
 
         /* 构造方法 */
@@ -1730,7 +1730,7 @@ comments: true
     ```dart title="graph_adjacency_list.dart"
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-      // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+      // 邻接表，key：顶点，value：该顶点的所有邻接顶点
       Map<Vertex, List<Vertex>> adjList = {};
 
       /* 构造方法 */
@@ -1810,7 +1810,7 @@ comments: true
     ```rust title="graph_adjacency_list.rs"
     /* 基于邻接表实现的无向图类型 */
     pub struct GraphAdjList {
-        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        // 邻接表，key：顶点，value：该顶点的所有邻接顶点
         pub adj_list: HashMap<Vertex, Vec<Vertex>>,
     }
 
@@ -2067,7 +2067,7 @@ comments: true
 
 ## 9.2.3 &nbsp; 效率对比
 
-设图中共有 $n$ 个顶点和 $m$ 条边，表 9-2 对比了邻接矩阵和邻接表的时间和空间效率。
+设图中共有 $n$ 个顶点和 $m$ 条边，表 9-2 对比了邻接矩阵和邻接表的时间效率和空间效率。
 
 <p align="center"> 表 9-2 &nbsp; 邻接矩阵与邻接表对比 </p>
 
@@ -2084,4 +2084,4 @@ comments: true
 
 </div>
 
-观察表 9-2 ，似乎邻接表（哈希表）的时间与空间效率最优。但实际上，在邻接矩阵中操作边的效率更高，只需要一次数组访问或赋值操作即可。综合来看，邻接矩阵体现了“以空间换时间”的原则，而邻接表体现了“以时间换空间”的原则。
+观察表 9-2 ，似乎邻接表（哈希表）的时间效率与空间效率最优。但实际上，在邻接矩阵中操作边的效率更高，只需一次数组访问或赋值操作即可。综合来看，邻接矩阵体现了“以空间换时间”的原则，而邻接表体现了“以时间换空间”的原则。

@@ -4,7 +4,7 @@ comments: true
 
 # 11.10 &nbsp; 基数排序
 
-上一节我们介绍了计数排序，它适用于数据量 $n$ 较大但数据范围 $m$ 较小的情况。假设我们需要对 $n = 10^6$ 个学号进行排序，而学号是一个 $8$ 位数字，这意味着数据范围 $m = 10^8$ 非常大，使用计数排序需要分配大量内存空间，而基数排序可以避免这种情况。
+上一节介绍了计数排序，它适用于数据量 $n$ 较大但数据范围 $m$ 较小的情况。假设我们需要对 $n = 10^6$ 个学号进行排序，而学号是一个 $8$ 位数字，这意味着数据范围 $m = 10^8$ 非常大，使用计数排序需要分配大量内存空间，而基数排序可以避免这种情况。
 
 「基数排序 radix sort」的核心思想与计数排序一致，也通过统计个数来实现排序。在此基础上，基数排序利用数字各位之间的递进关系，依次对每一位进行排序，从而得到最终的排序结果。
 
@@ -20,7 +20,7 @@ comments: true
 
 <p align="center"> 图 11-18 &nbsp; 基数排序算法流程 </p>
 
-下面来剖析代码实现。对于一个 $d$ 进制的数字 $x$ ，要获取其第 $k$ 位 $x_k$ ，可以使用以下计算公式：
+下面剖析代码实现。对于一个 $d$ 进制的数字 $x$ ，要获取其第 $k$ 位 $x_k$ ，可以使用以下计算公式：
 
 $$
 x_k = \lfloor\frac{x}{d^{k-1}}\rfloor \bmod d
@@ -28,7 +28,7 @@ $$
 
 其中 $\lfloor a \rfloor$ 表示对浮点数 $a$ 向下取整，而 $\bmod \: d$ 表示对 $d$ 取余。对于学号数据，$d = 10$ 且 $k \in [1, 8]$ 。
 
-此外，我们需要小幅改动计数排序代码，使之可以根据数字的第 $k$ 位进行排序。
+此外，我们需要小幅改动计数排序代码，使之可以根据数字的第 $k$ 位进行排序：
 
 === "Python"
 
@@ -40,7 +40,7 @@ $$
 
     def counting_sort_digit(nums: list[int], exp: int):
         """计数排序（根据 nums 第 k 位排序）"""
-        # 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        # 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         counter = [0] * 10
         n = len(nums)
         # 统计 0~9 各数字的出现次数
@@ -87,7 +87,7 @@ $$
 
     /* 计数排序（根据 nums 第 k 位排序） */
     void countingSortDigit(vector<int> &nums, int exp) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         vector<int> counter(10, 0);
         int n = nums.size();
         // 统计 0~9 各数字的出现次数
@@ -137,7 +137,7 @@ $$
 
     /* 计数排序（根据 nums 第 k 位排序） */
     void countingSortDigit(int[] nums, int exp) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         int[] counter = new int[10];
         int n = nums.length;
         // 统计 0~9 各数字的出现次数
@@ -190,7 +190,7 @@ $$
 
     /* 计数排序（根据 nums 第 k 位排序） */
     void CountingSortDigit(int[] nums, int exp) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         int[] counter = new int[10];
         int n = nums.Length;
         // 统计 0~9 各数字的出现次数
@@ -245,7 +245,7 @@ $$
 
     /* 计数排序（根据 nums 第 k 位排序） */
     func countingSortDigit(nums []int, exp int) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         counter := make([]int, 10)
         n := len(nums)
         // 统计 0~9 各数字的出现次数
@@ -302,7 +302,7 @@ $$
 
     /* 计数排序（根据 nums 第 k 位排序） */
     func countingSortDigit(nums: inout [Int], exp: Int) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         var counter = Array(repeating: 0, count: 10)
         let n = nums.count
         // 统计 0~9 各数字的出现次数
@@ -359,7 +359,7 @@ $$
 
     /* 计数排序（根据 nums 第 k 位排序） */
     function countingSortDigit(nums, exp) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         const counter = new Array(10).fill(0);
         const n = nums.length;
         // 统计 0~9 各数字的出现次数
@@ -416,7 +416,7 @@ $$
 
     /* 计数排序（根据 nums 第 k 位排序） */
     function countingSortDigit(nums: number[], exp: number): void {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         const counter = new Array(10).fill(0);
         const n = nums.length;
         // 统计 0~9 各数字的出现次数
@@ -473,7 +473,7 @@ $$
 
     /* 计数排序（根据 nums 第 k 位排序） */
     void countingSortDigit(List<int> nums, int exp) {
-      // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+      // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
       List<int> counter = List<int>.filled(10, 0);
       int n = nums.length;
       // 统计 0~9 各数字的出现次数
@@ -524,7 +524,7 @@ $$
 
     /* 计数排序（根据 nums 第 k 位排序） */
     fn counting_sort_digit(nums: &mut [i32], exp: i32) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         let mut counter = [0; 10];
         let n = nums.len();
         // 统计 0~9 各数字的出现次数
@@ -574,7 +574,7 @@ $$
 
     /* 计数排序（根据 nums 第 k 位排序） */
     void countingSortDigit(int nums[], int size, int exp) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         int *counter = (int *)malloc((sizeof(int) * 10));
         // 统计 0~9 各数字的出现次数
         for (int i = 0; i < size; i++) {
@@ -631,7 +631,7 @@ $$
 
     // 计数排序（根据 nums 第 k 位排序）
     fn countingSortDigit(nums: []i32, exp: i32) !void {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
         // defer mem_arena.deinit();
         const mem_allocator = mem_arena.allocator();
@@ -686,7 +686,7 @@ $$
 
 !!! question "为什么从最低位开始排序？"
 
-    在连续的排序轮次中，后一轮排序会覆盖前一轮排序的结果。举例来说，如果第一轮排序结果 $a < b$ ，而第二轮排序结果 $a > b$ ，那么第二轮的结果将取代第一轮的结果。由于数字的高位优先级高于低位，我们应该先排序低位再排序高位。
+    在连续的排序轮次中，后一轮排序会覆盖前一轮排序的结果。举例来说，如果第一轮排序结果 $a < b$ ，而第二轮排序结果 $a > b$ ，那么第二轮的结果将取代第一轮的结果。由于数字的高位优先级高于低位，因此应该先排序低位再排序高位。
 
 ## 11.10.2 &nbsp; 算法特性
 

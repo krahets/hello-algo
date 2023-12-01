@@ -4,10 +4,10 @@ comments: true
 
 # 4.3 &nbsp; 列表
 
-「列表 list」是一个抽象的数据结构概念，它表示元素的有序集合，支持元素访问、修改、添加、删除和遍历等操作，无需使用者考虑容量限制的问题。列表可以基于链表或数组实现。
+「列表 list」是一个抽象的数据结构概念，它表示元素的有序集合，支持元素访问、修改、添加、删除和遍历等操作，无须使用者考虑容量限制的问题。列表可以基于链表或数组实现。
 
-- 链表天然可以被看作是一个列表，其支持元素增删查改操作，并且可以灵活动态扩容。
-- 数组也支持元素增删查改，但由于其长度不可变，因此只能被看作是一个具有长度限制的列表。
+- 链表天然可以被看作一个列表，其支持元素增删查改操作，并且可以灵活动态扩容。
+- 数组也支持元素增删查改，但由于其长度不可变，因此只能被看作一个具有长度限制的列表。
 
 当使用数组实现列表时，**长度不可变的性质会导致列表的实用性降低**。这是因为我们通常无法事先确定需要存储多少数据，从而难以选择合适的列表长度。若长度过小，则很可能无法满足使用需求；若长度过大，则会造成内存空间的浪费。
 
@@ -19,7 +19,7 @@ comments: true
 
 ### 1. &nbsp; 初始化列表
 
-我们通常使用“无初始值”和“有初始值”这两种初始化方法。
+我们通常使用“无初始值”和“有初始值”这两种初始化方法：
 
 === "Python"
 
@@ -268,14 +268,14 @@ comments: true
     # 清空列表
     nums.clear()
 
-    # 尾部添加元素
+    # 在尾部添加元素
     nums.append(1)
     nums.append(3)
     nums.append(2)
     nums.append(5)
     nums.append(4)
 
-    # 中间插入元素
+    # 在中间插入元素
     nums.insert(3, 6)  # 在索引 3 处插入数字 6
 
     # 删除元素
@@ -288,14 +288,14 @@ comments: true
     /* 清空列表 */
     nums.clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
     nums.push_back(5);
     nums.push_back(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(nums.begin() + 3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -308,14 +308,14 @@ comments: true
     /* 清空列表 */
     nums.clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
     nums.add(5);
     nums.add(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.add(3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -328,14 +328,14 @@ comments: true
     /* 清空列表 */
     nums.Clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.Add(1);
     nums.Add(3);
     nums.Add(2);
     nums.Add(5);
     nums.Add(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.Insert(3, 6);
 
     /* 删除元素 */
@@ -348,14 +348,14 @@ comments: true
     /* 清空列表 */
     nums = nil
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums = append(nums, 1)
     nums = append(nums, 3)
     nums = append(nums, 2)
     nums = append(nums, 5)
     nums = append(nums, 4)
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -368,14 +368,14 @@ comments: true
     /* 清空列表 */
     nums.removeAll()
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.append(1)
     nums.append(3)
     nums.append(2)
     nums.append(5)
     nums.append(4)
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(6, at: 3) // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -388,14 +388,14 @@ comments: true
     /* 清空列表 */
     nums.length = 0;
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.splice(3, 0, 6);
 
     /* 删除元素 */
@@ -408,14 +408,14 @@ comments: true
     /* 清空列表 */
     nums.length = 0;
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.splice(3, 0, 6);
 
     /* 删除元素 */
@@ -428,14 +428,14 @@ comments: true
     /* 清空列表 */
     nums.clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
     nums.add(5);
     nums.add(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(3, 6); // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -448,14 +448,14 @@ comments: true
     /* 清空列表 */
     nums.clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -474,14 +474,14 @@ comments: true
     // 清空列表
     nums.clearRetainingCapacity();
 
-    // 尾部添加元素
+    // 在尾部添加元素
     try nums.append(1);
     try nums.append(3);
     try nums.append(2);
     try nums.append(5);
     try nums.append(4);
 
-    // 中间插入元素
+    // 在中间插入元素
     try nums.insert(3, 6); // 在索引 3 处插入数字 6
 
     // 删除元素
@@ -673,7 +673,7 @@ comments: true
 
 ### 5. &nbsp; 拼接列表
 
-给定一个新列表 `nums1` ，我们可以将该列表拼接到原列表的尾部。
+给定一个新列表 `nums1` ，我们可以将其拼接到原列表的尾部。
 
 === "Python"
 
@@ -774,7 +774,7 @@ comments: true
 
 ### 6. &nbsp; 排序列表
 
-完成列表排序后，我们便可以使用在数组类算法题中经常考察的“二分查找”和“双指针”算法。
+完成列表排序后，我们便可以使用在数组类算法题中经常考查的“二分查找”和“双指针”算法。
 
 === "Python"
 
@@ -861,29 +861,29 @@ comments: true
 
 ## 4.3.2 &nbsp; 列表实现
 
-许多编程语言都提供内置的列表，例如 Java、C++、Python 等。它们的实现比较复杂，各个参数的设定也非常有考究，例如初始容量、扩容倍数等。感兴趣的读者可以查阅源码进行学习。
+许多编程语言内置了列表，例如 Java、C++、Python 等。它们的实现比较复杂，各个参数的设定也非常考究，例如初始容量、扩容倍数等。感兴趣的读者可以查阅源码进行学习。
 
 为了加深对列表工作原理的理解，我们尝试实现一个简易版列表，包括以下三个重点设计。
 
 - **初始容量**：选取一个合理的数组初始容量。在本示例中，我们选择 10 作为初始容量。
 - **数量记录**：声明一个变量 `size` ，用于记录列表当前元素数量，并随着元素插入和删除实时更新。根据此变量，我们可以定位列表尾部，以及判断是否需要扩容。
-- **扩容机制**：若插入元素时列表容量已满，则需要进行扩容。首先根据扩容倍数创建一个更大的数组，再将当前数组的所有元素依次移动至新数组。在本示例中，我们规定每次将数组扩容至之前的 2 倍。
+- **扩容机制**：若插入元素时列表容量已满，则需要进行扩容。先根据扩容倍数创建一个更大的数组，再将当前数组的所有元素依次移动至新数组。在本示例中，我们规定每次将数组扩容至之前的 2 倍。
 
 === "Python"
 
     ```python title="my_list.py"
     class MyList:
-        """列表类简易实现"""
+        """列表类"""
 
         def __init__(self):
             """构造方法"""
             self._capacity: int = 10  # 列表容量
             self._arr: list[int] = [0] * self._capacity  # 数组（存储列表元素）
-            self._size: int = 0  # 列表长度（即当前元素数量）
+            self._size: int = 0  # 列表长度（当前元素数量）
             self._extend_ratio: int = 2  # 每次列表扩容的倍数
 
         def size(self) -> int:
-            """获取列表长度（即当前元素数量）"""
+            """获取列表长度（当前元素数量）"""
             return self._size
 
         def capacity(self) -> int:
@@ -904,7 +904,7 @@ comments: true
             self._arr[index] = num
 
         def add(self, num: int):
-            """尾部添加元素"""
+            """在尾部添加元素"""
             # 元素数量超出容量时，触发扩容机制
             if self.size() == self.capacity():
                 self.extend_capacity()
@@ -912,7 +912,7 @@ comments: true
             self._size += 1
 
         def insert(self, num: int, index: int):
-            """中间插入元素"""
+            """在中间插入元素"""
             if index < 0 or index >= self._size:
                 raise IndexError("索引越界")
             # 元素数量超出容量时，触发扩容机制
@@ -953,12 +953,12 @@ comments: true
 === "C++"
 
     ```cpp title="my_list.cpp"
-    /* 列表类简易实现 */
+    /* 列表类 */
     class MyList {
       private:
         int *arr;             // 数组（存储列表元素）
         int arrCapacity = 10; // 列表容量
-        int arrSize = 0;      // 列表长度（即当前元素数量）
+        int arrSize = 0;      // 列表长度（当前元素数量）
         int extendRatio = 2;   // 每次列表扩容的倍数
 
       public:
@@ -972,7 +972,7 @@ comments: true
             delete[] arr;
         }
 
-        /* 获取列表长度（即当前元素数量）*/
+        /* 获取列表长度（当前元素数量）*/
         int size() {
             return arrSize;
         }
@@ -997,7 +997,7 @@ comments: true
             arr[index] = num;
         }
 
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         void add(int num) {
             // 元素数量超出容量时，触发扩容机制
             if (size() == capacity())
@@ -1007,7 +1007,7 @@ comments: true
             arrSize++;
         }
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         void insert(int index, int num) {
             if (index < 0 || index >= size())
                 throw out_of_range("索引越界");
@@ -1068,11 +1068,11 @@ comments: true
 === "Java"
 
     ```java title="my_list.java"
-    /* 列表类简易实现 */
+    /* 列表类 */
     class MyList {
         private int[] arr; // 数组（存储列表元素）
         private int capacity = 10; // 列表容量
-        private int size = 0; // 列表长度（即当前元素数量）
+        private int size = 0; // 列表长度（当前元素数量）
         private int extendRatio = 2; // 每次列表扩容的倍数
 
         /* 构造方法 */
@@ -1080,7 +1080,7 @@ comments: true
             arr = new int[capacity];
         }
 
-        /* 获取列表长度（即当前元素数量） */
+        /* 获取列表长度（当前元素数量） */
         public int size() {
             return size;
         }
@@ -1105,7 +1105,7 @@ comments: true
             arr[index] = num;
         }
 
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         public void add(int num) {
             // 元素数量超出容量时，触发扩容机制
             if (size == capacity())
@@ -1115,7 +1115,7 @@ comments: true
             size++;
         }
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         public void insert(int index, int num) {
             if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("索引越界");
@@ -1170,11 +1170,11 @@ comments: true
 === "C#"
 
     ```csharp title="my_list.cs"
-    /* 列表类简易实现 */
+    /* 列表类 */
     class MyList {
         private int[] arr;           // 数组（存储列表元素）
         private int arrCapacity = 10;    // 列表容量
-        private int arrSize = 0;         // 列表长度（即当前元素数量）
+        private int arrSize = 0;         // 列表长度（当前元素数量）
         private readonly int extendRatio = 2;  // 每次列表扩容的倍数
 
         /* 构造方法 */
@@ -1182,7 +1182,7 @@ comments: true
             arr = new int[arrCapacity];
         }
 
-        /* 获取列表长度（即当前元素数量）*/
+        /* 获取列表长度（当前元素数量）*/
         public int Size() {
             return arrSize;
         }
@@ -1207,7 +1207,7 @@ comments: true
             arr[index] = num;
         }
 
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         public void Add(int num) {
             // 元素数量超出容量时，触发扩容机制
             if (arrSize == arrCapacity)
@@ -1217,7 +1217,7 @@ comments: true
             arrSize++;
         }
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         public void Insert(int index, int num) {
             if (index < 0 || index >= arrSize)
                 throw new IndexOutOfRangeException("索引越界");
@@ -1271,7 +1271,7 @@ comments: true
 === "Go"
 
     ```go title="my_list.go"
-    /* 列表类简易实现 */
+    /* 列表类 */
     type myList struct {
         arrCapacity int
         arr         []int
@@ -1284,12 +1284,12 @@ comments: true
         return &myList{
             arrCapacity: 10,              // 列表容量
             arr:         make([]int, 10), // 数组（存储列表元素）
-            arrSize:     0,               // 列表长度（即当前元素数量）
+            arrSize:     0,               // 列表长度（当前元素数量）
             extendRatio: 2,               // 每次列表扩容的倍数
         }
     }
 
-    /* 获取列表长度（即当前元素数量） */
+    /* 获取列表长度（当前元素数量） */
     func (l *myList) size() int {
         return l.arrSize
     }
@@ -1316,7 +1316,7 @@ comments: true
         l.arr[index] = num
     }
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     func (l *myList) add(num int) {
         // 元素数量超出容量时，触发扩容机制
         if l.arrSize == l.arrCapacity {
@@ -1327,7 +1327,7 @@ comments: true
         l.arrSize++
     }
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     func (l *myList) insert(num, index int) {
         if index < 0 || index >= l.arrSize {
             panic("索引越界")
@@ -1379,11 +1379,11 @@ comments: true
 === "Swift"
 
     ```swift title="my_list.swift"
-    /* 列表类简易实现 */
+    /* 列表类 */
     class MyList {
         private var arr: [Int] // 数组（存储列表元素）
         private var _capacity = 10 // 列表容量
-        private var _size = 0 // 列表长度（即当前元素数量）
+        private var _size = 0 // 列表长度（当前元素数量）
         private let extendRatio = 2 // 每次列表扩容的倍数
 
         /* 构造方法 */
@@ -1391,7 +1391,7 @@ comments: true
             arr = Array(repeating: 0, count: _capacity)
         }
 
-        /* 获取列表长度（即当前元素数量）*/
+        /* 获取列表长度（当前元素数量）*/
         func size() -> Int {
             _size
         }
@@ -1418,7 +1418,7 @@ comments: true
             arr[index] = num
         }
 
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         func add(num: Int) {
             // 元素数量超出容量时，触发扩容机制
             if _size == _capacity {
@@ -1429,7 +1429,7 @@ comments: true
             _size += 1
         }
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         func insert(index: Int, num: Int) {
             if index < 0 || index >= _size {
                 fatalError("索引越界")
@@ -1486,11 +1486,11 @@ comments: true
 === "JS"
 
     ```javascript title="my_list.js"
-    /* 列表类简易实现 */
+    /* 列表类 */
     class MyList {
         #arr = new Array(); // 数组（存储列表元素）
         #capacity = 10; // 列表容量
-        #size = 0; // 列表长度（即当前元素数量）
+        #size = 0; // 列表长度（当前元素数量）
         #extendRatio = 2; // 每次列表扩容的倍数
 
         /* 构造方法 */
@@ -1498,7 +1498,7 @@ comments: true
             this.#arr = new Array(this.#capacity);
         }
 
-        /* 获取列表长度（即当前元素数量）*/
+        /* 获取列表长度（当前元素数量）*/
         size() {
             return this.#size;
         }
@@ -1521,7 +1521,7 @@ comments: true
             this.#arr[index] = num;
         }
 
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         add(num) {
             // 如果长度等于容量，则需要扩容
             if (this.#size === this.#capacity) {
@@ -1532,7 +1532,7 @@ comments: true
             this.#size++;
         }
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         insert(index, num) {
             if (index < 0 || index >= this.#size) throw new Error('索引越界');
             // 元素数量超出容量时，触发扩容机制
@@ -1588,11 +1588,11 @@ comments: true
 === "TS"
 
     ```typescript title="my_list.ts"
-    /* 列表类简易实现 */
+    /* 列表类 */
     class MyList {
         private arr: Array<number>; // 数组（存储列表元素）
         private _capacity: number = 10; // 列表容量
-        private _size: number = 0; // 列表长度（即当前元素数量）
+        private _size: number = 0; // 列表长度（当前元素数量）
         private extendRatio: number = 2; // 每次列表扩容的倍数
 
         /* 构造方法 */
@@ -1600,7 +1600,7 @@ comments: true
             this.arr = new Array(this._capacity);
         }
 
-        /* 获取列表长度（即当前元素数量）*/
+        /* 获取列表长度（当前元素数量）*/
         public size(): number {
             return this._size;
         }
@@ -1623,7 +1623,7 @@ comments: true
             this.arr[index] = num;
         }
 
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         public add(num: number): void {
             // 如果长度等于容量，则需要扩容
             if (this._size === this._capacity) this.extendCapacity();
@@ -1632,7 +1632,7 @@ comments: true
             this._size++;
         }
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         public insert(index: number, num: number): void {
             if (index < 0 || index >= this._size) throw new Error('索引越界');
             // 元素数量超出容量时，触发扩容机制
@@ -1688,11 +1688,11 @@ comments: true
 === "Dart"
 
     ```dart title="my_list.dart"
-    /* 列表类简易实现 */
+    /* 列表类 */
     class MyList {
       late List<int> _arr; // 数组（存储列表元素）
       int _capacity = 10; // 列表容量
-      int _size = 0; // 列表长度（即当前元素数量）
+      int _size = 0; // 列表长度（当前元素数量）
       int _extendRatio = 2; // 每次列表扩容的倍数
 
       /* 构造方法 */
@@ -1700,7 +1700,7 @@ comments: true
         _arr = List.filled(_capacity, 0);
       }
 
-      /* 获取列表长度（即当前元素数量）*/
+      /* 获取列表长度（当前元素数量）*/
       int size() => _size;
 
       /* 获取列表容量 */
@@ -1718,7 +1718,7 @@ comments: true
         _arr[index] = _num;
       }
 
-      /* 尾部添加元素 */
+      /* 在尾部添加元素 */
       void add(int _num) {
         // 元素数量超出容量时，触发扩容机制
         if (_size == _capacity) extendCapacity();
@@ -1727,7 +1727,7 @@ comments: true
         _size++;
       }
 
-      /* 中间插入元素 */
+      /* 在中间插入元素 */
       void insert(int index, int _num) {
         if (index >= _size) throw RangeError('索引越界');
         // 元素数量超出容量时，触发扩容机制
@@ -1781,12 +1781,12 @@ comments: true
 === "Rust"
 
     ```rust title="my_list.rs"
-    /* 列表类简易实现 */
+    /* 列表类 */
     #[allow(dead_code)]
     struct MyList {
         arr: Vec<i32>,       // 数组（存储列表元素）
         capacity: usize,      // 列表容量
-        size: usize,          // 列表长度（即当前元素数量）
+        size: usize,          // 列表长度（当前元素数量）
         extend_ratio: usize,  // 每次列表扩容的倍数
     }
 
@@ -1804,7 +1804,7 @@ comments: true
             }
         }
 
-        /* 获取列表长度（即当前元素数量）*/
+        /* 获取列表长度（当前元素数量）*/
         pub fn size(&self) -> usize {
             return self.size;
         }
@@ -1827,7 +1827,7 @@ comments: true
             self.arr[index] = num;
         }
 
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         pub fn add(&mut self, num: i32) {
             // 元素数量超出容量时，触发扩容机制
             if self.size == self.capacity() {
@@ -1838,7 +1838,7 @@ comments: true
             self.size += 1;
         }
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         pub fn insert(&mut self, index: usize, num: i32) {
             if index >= self.size() {panic!("索引越界")};
             // 元素数量超出容量时，触发扩容机制
@@ -1892,7 +1892,7 @@ comments: true
 === "C"
 
     ```c title="my_list.c"
-    /* 列表类简易实现 */
+    /* 列表类 */
     typedef struct {
         int *arr;        // 数组（存储列表元素）
         int capacity;    // 列表容量
@@ -1938,7 +1938,7 @@ comments: true
         nums->arr[index] = num;
     }
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     void add(MyList *nums, int num) {
         if (size(nums) == capacity(nums)) {
             extendCapacity(nums); // 扩容
@@ -1947,7 +1947,7 @@ comments: true
         nums->size++;
     }
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     void insert(MyList *nums, int index, int num) {
         assert(index >= 0 && index < size(nums));
         // 元素数量超出容量时，触发扩容机制
@@ -2001,14 +2001,14 @@ comments: true
 === "Zig"
 
     ```zig title="my_list.zig"
-    // 列表类简易实现
+    // 列表类
     fn MyList(comptime T: type) type {
         return struct {
             const Self = @This();
             
             arr: []T = undefined,                        // 数组（存储列表元素）
             arrCapacity: usize = 10,                     // 列表容量
-            numSize: usize = 0,                           // 列表长度（即当前元素数量）
+            numSize: usize = 0,                           // 列表长度（当前元素数量）
             extendRatio: usize = 2,                       // 每次列表扩容的倍数
             mem_arena: ?std.heap.ArenaAllocator = null,
             mem_allocator: std.mem.Allocator = undefined, // 内存分配器
@@ -2029,7 +2029,7 @@ comments: true
                 self.mem_arena.?.deinit();
             }
 
-            // 获取列表长度（即当前元素数量）
+            // 获取列表长度（当前元素数量）
             pub fn size(self: *Self) usize {
                 return self.numSize;
             }
@@ -2053,7 +2053,7 @@ comments: true
                 self.arr[index] = num;
             }  
 
-            // 尾部添加元素
+            // 在尾部添加元素
             pub fn add(self: *Self, num: T) !void {
                 // 元素数量超出容量时，触发扩容机制
                 if (self.size() == self.capacity()) try self.extendCapacity();
@@ -2062,7 +2062,7 @@ comments: true
                 self.numSize += 1;
             }  
 
-            // 中间插入元素
+            // 在中间插入元素
             pub fn insert(self: *Self, index: usize, num: T) !void {
                 if (index < 0 or index >= self.size()) @panic("索引越界");
                 // 元素数量超出容量时，触发扩容机制

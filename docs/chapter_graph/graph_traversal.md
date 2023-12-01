@@ -4,13 +4,13 @@ comments: true
 
 # 9.3 &nbsp; 图的遍历
 
-树代表的是“一对多”的关系，而图则具有更高的自由度，可以表示任意的“多对多”关系。因此，我们可以把树看作是图的一种特例。显然，**树的遍历操作也是图的遍历操作的一种特例**。
+树代表的是“一对多”的关系，而图则具有更高的自由度，可以表示任意的“多对多”关系。因此，我们可以把树看作图的一种特例。显然，**树的遍历操作也是图的遍历操作的一种特例**。
 
 图和树都需要应用搜索算法来实现遍历操作。图的遍历方式可分为两种：「广度优先遍历 breadth-first traversal」和「深度优先遍历 depth-first traversal」。它们也常被称为「广度优先搜索 breadth-first search」和「深度优先搜索 depth-first search」，简称 BFS 和 DFS 。
 
 ## 9.3.1 &nbsp; 广度优先遍历
 
-**广度优先遍历是一种由近及远的遍历方式，从某个节点出发，始终优先访问距离最近的顶点，并一层层向外扩张**。如图 9-9 所示，从左上角顶点出发，先遍历该顶点的所有邻接顶点，然后遍历下一个顶点的所有邻接顶点，以此类推，直至所有顶点访问完毕。
+**广度优先遍历是一种由近及远的遍历方式，从某个节点出发，始终优先访问距离最近的顶点，并一层层向外扩张**。如图 9-9 所示，从左上角顶点出发，首先遍历该顶点的所有邻接顶点，然后遍历下一个顶点的所有邻接顶点，以此类推，直至所有顶点访问完毕。
 
 ![图的广度优先遍历](graph_traversal.assets/graph_bfs.png){ class="animation-figure" }
 
@@ -18,11 +18,11 @@ comments: true
 
 ### 1. &nbsp; 算法实现
 
-BFS 通常借助队列来实现。队列具有“先入先出”的性质，这与 BFS 的“由近及远”的思想异曲同工。
+BFS 通常借助队列来实现，代码如下所示。队列具有“先入先出”的性质，这与 BFS 的“由近及远”的思想异曲同工。
 
 1. 将遍历起始顶点 `startVet` 加入队列，并开启循环。
 2. 在循环的每轮迭代中，弹出队首顶点并记录访问，然后将该顶点的所有邻接顶点加入到队列尾部。
-3. 循环步骤 `2.` ，直到所有顶点被访问完成后结束。
+3. 循环步骤 `2.` ，直到所有顶点被访问完毕后结束。
 
 为了防止重复遍历顶点，我们需要借助一个哈希表 `visited` 来记录哪些节点已被访问。
 
@@ -45,7 +45,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
             # 遍历该顶点的所有邻接顶点
             for adj_vet in graph.adj_list[vet]:
                 if adj_vet in visited:
-                    continue  # 跳过已被访问过的顶点
+                    continue  # 跳过已被访问的顶点
                 que.append(adj_vet)  # 只入队未访问的顶点
                 visited.add(adj_vet)  # 标记该顶点已被访问
         # 返回顶点遍历序列
@@ -73,7 +73,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
             // 遍历该顶点的所有邻接顶点
             for (auto adjVet : graph.adjList[vet]) {
                 if (visited.count(adjVet))
-                    continue;            // 跳过已被访问过的顶点
+                    continue;            // 跳过已被访问的顶点
                 que.push(adjVet);        // 只入队未访问的顶点
                 visited.emplace(adjVet); // 标记该顶点已被访问
             }
@@ -104,7 +104,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
             // 遍历该顶点的所有邻接顶点
             for (Vertex adjVet : graph.adjList.get(vet)) {
                 if (visited.contains(adjVet))
-                    continue;        // 跳过已被访问过的顶点
+                    continue;        // 跳过已被访问的顶点
                 que.offer(adjVet);   // 只入队未访问的顶点
                 visited.add(adjVet); // 标记该顶点已被访问
             }
@@ -133,7 +133,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
             res.Add(vet);               // 记录访问顶点
             foreach (Vertex adjVet in graph.adjList[vet]) {
                 if (visited.Contains(adjVet)) {
-                    continue;          // 跳过已被访问过的顶点
+                    continue;          // 跳过已被访问的顶点
                 }
                 que.Enqueue(adjVet);   // 只入队未访问的顶点
                 visited.Add(adjVet);   // 标记该顶点已被访问
@@ -200,7 +200,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
             // 遍历该顶点的所有邻接顶点
             for adjVet in graph.adjList[vet] ?? [] {
                 if visited.contains(adjVet) {
-                    continue // 跳过已被访问过的顶点
+                    continue // 跳过已被访问的顶点
                 }
                 que.append(adjVet) // 只入队未访问的顶点
                 visited.insert(adjVet) // 标记该顶点已被访问
@@ -231,7 +231,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
             // 遍历该顶点的所有邻接顶点
             for (const adjVet of graph.adjList.get(vet) ?? []) {
                 if (visited.has(adjVet)) {
-                    continue; // 跳过已被访问过的顶点
+                    continue; // 跳过已被访问的顶点
                 }
                 que.push(adjVet); // 只入队未访问的顶点
                 visited.add(adjVet); // 标记该顶点已被访问
@@ -262,7 +262,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
             // 遍历该顶点的所有邻接顶点
             for (const adjVet of graph.adjList.get(vet) ?? []) {
                 if (visited.has(adjVet)) {
-                    continue; // 跳过已被访问过的顶点
+                    continue; // 跳过已被访问的顶点
                 }
                 que.push(adjVet); // 只入队未访问
                 visited.add(adjVet); // 标记该顶点已被访问
@@ -294,7 +294,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
         // 遍历该顶点的所有邻接顶点
         for (Vertex adjVet in graph.adjList[vet]!) {
           if (visited.contains(adjVet)) {
-            continue; // 跳过已被访问过的顶点
+            continue; // 跳过已被访问的顶点
           }
           que.add(adjVet); // 只入队未访问的顶点
           visited.add(adjVet); // 标记该顶点已被访问
@@ -327,7 +327,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
             if let Some(adj_vets) = graph.adj_list.get(&vet) {
                 for &adj_vet in adj_vets {
                     if visited.contains(&adj_vet) {
-                        continue; // 跳过已被访问过的顶点
+                        continue; // 跳过已被访问的顶点
                     }
                     que.push_back(adj_vet); // 只入队未访问的顶点
                     visited.insert(adj_vet); // 标记该顶点已被访问
@@ -399,7 +399,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
             // 遍历该顶点的所有邻接顶点
             AdjListNode *node = findNode(graph, vet);
             while (node != NULL) {
-                // 跳过已被访问过的顶点
+                // 跳过已被访问的顶点
                 if (!isVisited(visited, *visitedSize, node->vertex)) {
                     enqueue(queue, node->vertex);             // 只入队未访问的顶点
                     visited[(*visitedSize)++] = node->vertex; // 标记该顶点已被访问
@@ -457,13 +457,13 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 
 !!! question "广度优先遍历的序列是否唯一？"
 
-    不唯一。广度优先遍历只要求按“由近及远”的顺序遍历，**而多个相同距离的顶点的遍历顺序是允许被任意打乱的**。以图 9-10 为例，顶点 $1$、$3$ 的访问顺序可以交换、顶点 $2$、$4$、$6$ 的访问顺序也可以任意交换。
+    不唯一。广度优先遍历只要求按“由近及远”的顺序遍历，**而多个相同距离的顶点的遍历顺序允许被任意打乱**。以图 9-10 为例，顶点 $1$、$3$ 的访问顺序可以交换，顶点 $2$、$4$、$6$ 的访问顺序也可以任意交换。
 
 ### 2. &nbsp; 复杂度分析
 
-**时间复杂度：** 所有顶点都会入队并出队一次，使用 $O(|V|)$ 时间；在遍历邻接顶点的过程中，由于是无向图，因此所有边都会被访问 $2$ 次，使用 $O(2|E|)$ 时间；总体使用 $O(|V| + |E|)$ 时间。
+**时间复杂度**：所有顶点都会入队并出队一次，使用 $O(|V|)$ 时间；在遍历邻接顶点的过程中，由于是无向图，因此所有边都会被访问 $2$ 次，使用 $O(2|E|)$ 时间；总体使用 $O(|V| + |E|)$ 时间。
 
-**空间复杂度：** 列表 `res` ，哈希表 `visited` ，队列 `que` 中的顶点数量最多为 $|V|$ ，使用 $O(|V|)$ 空间。
+**空间复杂度**：列表 `res` ，哈希表 `visited` ，队列 `que` 中的顶点数量最多为 $|V|$ ，使用 $O(|V|)$ 空间。
 
 ## 9.3.2 &nbsp; 深度优先遍历
 
@@ -475,7 +475,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 
 ### 1. &nbsp; 算法实现
 
-这种“走到尽头再返回”的算法范式通常基于递归来实现。与广度优先遍历类似，在深度优先遍历中我们也需要借助一个哈希表 `visited` 来记录已被访问的顶点，以避免重复访问顶点。
+这种“走到尽头再返回”的算法范式通常基于递归来实现。与广度优先遍历类似，在深度优先遍历中，我们也需要借助一个哈希表 `visited` 来记录已被访问的顶点，以避免重复访问顶点。
 
 === "Python"
 
@@ -487,7 +487,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
         # 遍历该顶点的所有邻接顶点
         for adjVet in graph.adj_list[vet]:
             if adjVet in visited:
-                continue  # 跳过已被访问过的顶点
+                continue  # 跳过已被访问的顶点
             # 递归访问邻接顶点
             dfs(graph, visited, res, adjVet)
 
@@ -512,7 +512,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
         // 遍历该顶点的所有邻接顶点
         for (Vertex *adjVet : graph.adjList[vet]) {
             if (visited.count(adjVet))
-                continue; // 跳过已被访问过的顶点
+                continue; // 跳过已被访问的顶点
             // 递归访问邻接顶点
             dfs(graph, visited, res, adjVet);
         }
@@ -540,7 +540,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
         // 遍历该顶点的所有邻接顶点
         for (Vertex adjVet : graph.adjList.get(vet)) {
             if (visited.contains(adjVet))
-                continue; // 跳过已被访问过的顶点
+                continue; // 跳过已被访问的顶点
             // 递归访问邻接顶点
             dfs(graph, visited, res, adjVet);
         }
@@ -568,7 +568,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
         // 遍历该顶点的所有邻接顶点
         foreach (Vertex adjVet in graph.adjList[vet]) {
             if (visited.Contains(adjVet)) {
-                continue; // 跳过已被访问过的顶点                             
+                continue; // 跳过已被访问的顶点                             
             }
             // 递归访问邻接顶点
             DFS(graph, visited, res, adjVet);
@@ -628,7 +628,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
         // 遍历该顶点的所有邻接顶点
         for adjVet in graph.adjList[vet] ?? [] {
             if visited.contains(adjVet) {
-                continue // 跳过已被访问过的顶点
+                continue // 跳过已被访问的顶点
             }
             // 递归访问邻接顶点
             dfs(graph: graph, visited: &visited, res: &res, vet: adjVet)
@@ -658,7 +658,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
         // 遍历该顶点的所有邻接顶点
         for (const adjVet of graph.adjList.get(vet)) {
             if (visited.has(adjVet)) {
-                continue; // 跳过已被访问过的顶点
+                continue; // 跳过已被访问的顶点
             }
             // 递归访问邻接顶点
             dfs(graph, visited, res, adjVet);
@@ -692,7 +692,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
         // 遍历该顶点的所有邻接顶点
         for (const adjVet of graph.adjList.get(vet)) {
             if (visited.has(adjVet)) {
-                continue; // 跳过已被访问过的顶点
+                continue; // 跳过已被访问的顶点
             }
             // 递归访问邻接顶点
             dfs(graph, visited, res, adjVet);
@@ -726,7 +726,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
       // 遍历该顶点的所有邻接顶点
       for (Vertex adjVet in graph.adjList[vet]!) {
         if (visited.contains(adjVet)) {
-          continue; // 跳过已被访问过的顶点
+          continue; // 跳过已被访问的顶点
         }
         // 递归访问邻接顶点
         dfs(graph, visited, res, adjVet);
@@ -755,7 +755,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
         if let Some(adj_vets) = graph.adj_list.get(&vet) {
             for &adj_vet in adj_vets {
                 if visited.contains(&adj_vet) {
-                    continue; // 跳过已被访问过的顶点
+                    continue; // 跳过已被访问的顶点
                 }
                 // 递归访问邻接顶点
                 dfs(graph, visited, res, adj_vet);
@@ -797,7 +797,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
         // 遍历该顶点的所有邻接顶点
         AdjListNode *node = findNode(graph, vet);
         while (node != NULL) {
-            // 跳过已被访问过的顶点
+            // 跳过已被访问的顶点
             if (!isVisited(res, *resSize, node->vertex)) {
                 // 递归访问邻接顶点
                 dfs(graph, res, resSize, node->vertex);
@@ -824,9 +824,9 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 深度优先遍历的算法流程如图 9-12 所示。
 
 - **直虚线代表向下递推**，表示开启了一个新的递归方法来访问新顶点。
-- **曲虚线代表向上回溯**，表示此递归方法已经返回，回溯到了开启此递归方法的位置。
+- **曲虚线代表向上回溯**，表示此递归方法已经返回，回溯到了开启此方法的位置。
 
-为了加深理解，建议将图示与代码结合起来，在脑中（或者用笔画下来）模拟整个 DFS 过程，包括每个递归方法何时开启、何时返回。
+为了加深理解，建议将图 9-12 与代码结合起来，在脑中模拟（或者用笔画下来）整个 DFS 过程，包括每个递归方法何时开启、何时返回。
 
 === "<1>"
     ![图的深度优先遍历步骤](graph_traversal.assets/graph_dfs_step1.png){ class="animation-figure" }
@@ -867,10 +867,10 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 
     与广度优先遍历类似，深度优先遍历序列的顺序也不是唯一的。给定某顶点，先往哪个方向探索都可以，即邻接顶点的顺序可以任意打乱，都是深度优先遍历。
     
-    以树的遍历为例，“根 $\rightarrow$ 左 $\rightarrow$ 右”、“左 $\rightarrow$ 根 $\rightarrow$ 右”、“左 $\rightarrow$ 右 $\rightarrow$ 根”分别对应前序、中序、后序遍历，它们展示了三种不同的遍历优先级，然而这三者都属于深度优先遍历。
+    以树的遍历为例，“根 $\rightarrow$ 左 $\rightarrow$ 右”“左 $\rightarrow$ 根 $\rightarrow$ 右”“左 $\rightarrow$ 右 $\rightarrow$ 根”分别对应前序、中序、后序遍历，它们展示了三种遍历优先级，然而这三者都属于深度优先遍历。
 
 ### 2. &nbsp; 复杂度分析
 
-**时间复杂度：** 所有顶点都会被访问 $1$ 次，使用 $O(|V|)$ 时间；所有边都会被访问 $2$ 次，使用 $O(2|E|)$ 时间；总体使用 $O(|V| + |E|)$ 时间。
+**时间复杂度**：所有顶点都会被访问 $1$ 次，使用 $O(|V|)$ 时间；所有边都会被访问 $2$ 次，使用 $O(2|E|)$ 时间；总体使用 $O(|V| + |E|)$ 时间。
 
-**空间复杂度：** 列表 `res` ，哈希表 `visited` 顶点数量最多为 $|V|$ ，递归深度最大为 $|V|$ ，因此使用 $O(|V|)$ 空间。
+**空间复杂度**：列表 `res` ，哈希表 `visited` 顶点数量最多为 $|V|$ ，递归深度最大为 $|V|$ ，因此使用 $O(|V|)$ 空间。

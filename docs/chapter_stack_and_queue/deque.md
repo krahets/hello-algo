@@ -4,7 +4,7 @@ comments: true
 
 # 5.3 &nbsp; 双向队列
 
-在队列中，我们仅能在头部删除或在尾部添加元素。如图 5-7 所示，「双向队列 double-ended queue」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
+在队列中，我们仅能删除头部元素或在尾部添加元素。如图 5-7 所示，「双向队列 double-ended queue」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
 
 ![双向队列的操作](deque.assets/deque_operations.png){ class="animation-figure" }
 
@@ -29,13 +29,15 @@ comments: true
 
 </div>
 
-同样地，我们可以直接使用编程语言中已实现的双向队列类。
+同样地，我们可以直接使用编程语言中已实现的双向队列类：
 
 === "Python"
 
     ```python title="deque.py"
+    from collections import deque
+
     # 初始化双向队列
-    deque: deque[int] = collections.deque()
+    deque: deque[int] = deque()
     
     # 元素入队
     deque.append(2)      # 添加至队尾
@@ -381,7 +383,7 @@ comments: true
 
 <p align="center"> 图 5-8 &nbsp; 基于链表实现双向队列的入队出队操作 </p>
 
-实现代码如下所示。
+实现代码如下所示：
 
 === "Python"
 
@@ -415,7 +417,7 @@ comments: true
         def push(self, num: int, is_front: bool):
             """入队操作"""
             node = ListNode(num)
-            # 若链表为空，则令 front, rear 都指向 node
+            # 若链表为空，则令 front 和 rear 都指向 node
             if self.is_empty():
                 self._front = self._rear = node
             # 队首入队操作
@@ -542,7 +544,7 @@ comments: true
         /* 入队操作 */
         void push(int num, bool isFront) {
             DoublyListNode *node = new DoublyListNode(num);
-            // 若链表为空，则令 front, rear 都指向 node
+            // 若链表为空，则令 front 和 rear 都指向 node
             if (isEmpty())
                 front = rear = node;
             // 队首入队操作
@@ -677,7 +679,7 @@ comments: true
         /* 入队操作 */
         private void push(int num, boolean isFront) {
             ListNode node = new ListNode(num);
-            // 若链表为空，则令 front, rear 都指向 node
+            // 若链表为空，则令 front 和 rear 都指向 node
             if (isEmpty())
                 front = rear = node;
             // 队首入队操作
@@ -806,7 +808,7 @@ comments: true
         /* 入队操作 */
         void Push(int num, bool isFront) {
             ListNode node = new(num);
-            // 若链表为空，则令 front, rear 都指向 node
+            // 若链表为空，则令 front 和 rear 都指向 node
             if (IsEmpty()) {
                 front = node;
                 rear = node;
@@ -1026,7 +1028,7 @@ comments: true
         /* 入队操作 */
         private func push(num: Int, isFront: Bool) {
             let node = ListNode(val: num)
-            // 若链表为空，则令 front, rear 都指向 node
+            // 若链表为空，则令 front 和 rear 都指向 node
             if isEmpty() {
                 front = node
                 rear = node
@@ -1154,7 +1156,7 @@ comments: true
         /* 队尾入队操作 */
         pushLast(val) {
             const node = new ListNode(val);
-            // 若链表为空，则令 front, rear 都指向 node
+            // 若链表为空，则令 front 和 rear 都指向 node
             if (this.#queSize === 0) {
                 this.#front = node;
                 this.#rear = node;
@@ -1170,7 +1172,7 @@ comments: true
         /* 队首入队操作 */
         pushFirst(val) {
             const node = new ListNode(val);
-            // 若链表为空，则令 front, rear 都指向 node
+            // 若链表为空，则令 front 和 rear 都指向 node
             if (this.#queSize === 0) {
                 this.#front = node;
                 this.#rear = node;
@@ -1281,7 +1283,7 @@ comments: true
         /* 队尾入队操作 */
         pushLast(val: number): void {
             const node: ListNode = new ListNode(val);
-            // 若链表为空，则令 front, rear 都指向 node
+            // 若链表为空，则令 front 和 rear 都指向 node
             if (this.queSize === 0) {
                 this.front = node;
                 this.rear = node;
@@ -1297,7 +1299,7 @@ comments: true
         /* 队首入队操作 */
         pushFirst(val: number): void {
             const node: ListNode = new ListNode(val);
-            // 若链表为空，则令 front, rear 都指向 node
+            // 若链表为空，则令 front 和 rear 都指向 node
             if (this.queSize === 0) {
                 this.front = node;
                 this.rear = node;
@@ -1560,7 +1562,7 @@ comments: true
             // 队首入队操作
             if is_front {
                 match self.front.take() {
-                    // 若链表为空，则令 front, rear 都指向 node
+                    // 若链表为空，则令 front 和 rear 都指向 node
                     None => {
                         self.rear = Some(node.clone());
                         self.front = Some(node);
@@ -1576,7 +1578,7 @@ comments: true
             // 队尾入队操作
             else {
                 match self.rear.take() {
-                    // 若链表为空，则令 front, rear 都指向 node
+                    // 若链表为空，则令 front 和 rear 都指向 node
                     None => {
                         self.front = Some(node.clone());
                         self.rear = Some(node);
@@ -1739,7 +1741,7 @@ comments: true
     /* 入队 */
     void push(LinkedListDeque *deque, int num, bool isFront) {
         DoublyListNode *node = newDoublyListNode(num);
-        // 若链表为空，则令 front, rear 都指向node
+        // 若链表为空，则令 front 和 rear 都指向node
         if (empty(deque)) {
             deque->front = deque->rear = node;
         }
@@ -1901,7 +1903,7 @@ comments: true
             pub fn push(self: *Self, num: T, is_front: bool) !void {
                 var node = try self.mem_allocator.create(ListNode(T));
                 node.init(num);
-                // 若链表为空，则令 front, rear 都指向 node
+                // 若链表为空，则令 front 和 rear 都指向 node
                 if (self.isEmpty()) {
                     self.front = node;
                     self.rear = node;
@@ -2019,7 +2021,7 @@ comments: true
 
 <p align="center"> 图 5-9 &nbsp; 基于数组实现双向队列的入队出队操作 </p>
 
-在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法。
+在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法：
 
 === "Python"
 
@@ -3225,4 +3227,4 @@ comments: true
 
 双向队列兼具栈与队列的逻辑，**因此它可以实现这两者的所有应用场景，同时提供更高的自由度**。
 
-我们知道，软件的“撤销”功能通常使用栈来实现：系统将每次更改操作 `push` 到栈中，然后通过 `pop` 实现撤销。然而，考虑到系统资源的限制，软件通常会限制撤销的步数（例如仅允许保存 $50$ 步）。当栈的长度超过 $50$ 时，软件需要在栈底（即队首）执行删除操作。**但栈无法实现该功能，此时就需要使用双向队列来替代栈**。请注意，“撤销”的核心逻辑仍然遵循栈的先入后出原则，只是双向队列能够更加灵活地实现一些额外逻辑。
+我们知道，软件的“撤销”功能通常使用栈来实现：系统将每次更改操作 `push` 到栈中，然后通过 `pop` 实现撤销。然而，考虑到系统资源的限制，软件通常会限制撤销的步数（例如仅允许保存 $50$ 步）。当栈的长度超过 $50$ 时，软件需要在栈底（队首）执行删除操作。**但栈无法实现该功能，此时就需要使用双向队列来替代栈**。请注意，“撤销”的核心逻辑仍然遵循栈的先入后出原则，只是双向队列能够更加灵活地实现一些额外逻辑。

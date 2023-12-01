@@ -8,9 +8,9 @@ comments: true
 
 !!! question
 
-    给定三根柱子，记为 `A`、`B` 和 `C` 。起始状态下，柱子 `A` 上套着 $n$ 个圆盘，它们从上到下按照从小到大的顺序排列。我们的任务是要把这 $n$ 个圆盘移到柱子 `C` 上，并保持它们的原有顺序不变。在移动圆盘的过程中，需要遵守以下规则。
+    给定三根柱子，记为 `A`、`B` 和 `C` 。起始状态下，柱子 `A` 上套着 $n$ 个圆盘，它们从上到下按照从小到大的顺序排列。我们的任务是要把这 $n$ 个圆盘移到柱子 `C` 上，并保持它们的原有顺序不变（如图 12-10 所示）。在移动圆盘的过程中，需要遵守以下规则。
     
-    1. 圆盘只能从一个柱子顶部拿出，从另一个柱子顶部放入。
+    1. 圆盘只能从一根柱子顶部拿出，从另一根柱子顶部放入。
     2. 每次只能移动一个圆盘。
     3. 小圆盘必须时刻位于大圆盘之上。
 
@@ -18,7 +18,7 @@ comments: true
 
 <p align="center"> 图 12-10 &nbsp; 汉诺塔问题示例 </p>
 
-**我们将规模为 $i$ 的汉诺塔问题记做 $f(i)$** 。例如 $f(3)$ 代表将 $3$ 个圆盘从 `A` 移动至 `C` 的汉诺塔问题。
+**我们将规模为 $i$ 的汉诺塔问题记作 $f(i)$** 。例如 $f(3)$ 代表将 $3$ 个圆盘从 `A` 移动至 `C` 的汉诺塔问题。
 
 ### 1. &nbsp; 考虑基本情况
 
@@ -58,11 +58,11 @@ comments: true
 
 对于问题 $f(3)$ ，即当有三个圆盘时，情况变得稍微复杂了一些。
 
-因为已知 $f(1)$ 和 $f(2)$ 的解，所以我们可从分治角度思考，**将 `A` 顶部的两个圆盘看做一个整体**，执行图 12-13 所示的步骤。这样三个圆盘就被顺利地从 `A` 移动至 `C` 了。
+因为已知 $f(1)$ 和 $f(2)$ 的解，所以我们可从分治角度思考，**将 `A` 顶部的两个圆盘看作一个整体**，执行图 12-13 所示的步骤。这样三个圆盘就被顺利地从 `A` 移至 `C` 了。
 
-1. 令 `B` 为目标柱、`C` 为缓冲柱，将两个圆盘从 `A` 移动至 `B` 。
+1. 令 `B` 为目标柱、`C` 为缓冲柱，将两个圆盘从 `A` 移至 `B` 。
 2. 将 `A` 中剩余的一个圆盘从 `A` 直接移动至 `C` 。
-3. 令 `C` 为目标柱、`A` 为缓冲柱，将两个圆盘从 `B` 移动至 `C` 。
+3. 令 `C` 为目标柱、`A` 为缓冲柱，将两个圆盘从 `B` 移至 `C` 。
 
 === "<1>"
     ![规模为 3 问题的解](hanota_problem.assets/hanota_f3_step1.png){ class="animation-figure" }
@@ -78,9 +78,9 @@ comments: true
 
 <p align="center"> 图 12-13 &nbsp; 规模为 3 问题的解 </p>
 
-本质上看，**我们将问题 $f(3)$ 划分为两个子问题 $f(2)$ 和子问题 $f(1)$** 。按顺序解决这三个子问题之后，原问题随之得到解决。这说明子问题是独立的，而且解是可以合并的。
+从本质上看，**我们将问题 $f(3)$ 划分为两个子问题 $f(2)$ 和子问题 $f(1)$** 。按顺序解决这三个子问题之后，原问题随之得到解决。这说明子问题是独立的，而且解可以合并。
 
-至此，我们可总结出图 12-14 所示的汉诺塔问题的分治策略：将原问题 $f(n)$ 划分为两个子问题 $f(n-1)$ 和一个子问题 $f(1)$ ，并按照以下顺序解决这三个子问题。
+至此，我们可总结出图 12-14 所示的解决汉诺塔问题的分治策略：将原问题 $f(n)$ 划分为两个子问题 $f(n-1)$ 和一个子问题 $f(1)$ ，并按照以下顺序解决这三个子问题。
 
 1. 将 $n-1$ 个圆盘借助 `C` 从 `A` 移至 `B` 。
 2. 将剩余 $1$ 个圆盘从 `A` 直接移至 `C` 。
@@ -88,13 +88,13 @@ comments: true
 
 对于这两个子问题 $f(n-1)$ ，**可以通过相同的方式进行递归划分**，直至达到最小子问题 $f(1)$ 。而 $f(1)$ 的解是已知的，只需一次移动操作即可。
 
-![汉诺塔问题的分治策略](hanota_problem.assets/hanota_divide_and_conquer.png){ class="animation-figure" }
+![解决汉诺塔问题的分治策略](hanota_problem.assets/hanota_divide_and_conquer.png){ class="animation-figure" }
 
-<p align="center"> 图 12-14 &nbsp; 汉诺塔问题的分治策略 </p>
+<p align="center"> 图 12-14 &nbsp; 解决汉诺塔问题的分治策略 </p>
 
 ### 3. &nbsp; 代码实现
 
-在代码中，我们声明一个递归函数 `dfs(i, src, buf, tar)` ，它的作用是将柱 `src` 顶部的 $i$ 个圆盘借助缓冲柱 `buf` 移动至目标柱 `tar` 。
+在代码中，我们声明一个递归函数 `dfs(i, src, buf, tar)` ，它的作用是将柱 `src` 顶部的 $i$ 个圆盘借助缓冲柱 `buf` 移动至目标柱 `tar` ：
 
 === "Python"
 
@@ -107,7 +107,7 @@ comments: true
         tar.append(pan)
 
     def dfs(i: int, src: list[int], buf: list[int], tar: list[int]):
-        """求解汉诺塔：问题 f(i)"""
+        """求解汉诺塔问题 f(i)"""
         # 若 src 只剩下一个圆盘，则直接将其移到 tar
         if i == 1:
             move(src, tar)
@@ -120,7 +120,7 @@ comments: true
         dfs(i - 1, buf, src, tar)
 
     def solve_hanota(A: list[int], B: list[int], C: list[int]):
-        """求解汉诺塔"""
+        """求解汉诺塔问题"""
         n = len(A)
         # 将 A 顶部 n 个圆盘借助 B 移到 C
         dfs(n, A, B, C)
@@ -138,7 +138,7 @@ comments: true
         tar.push_back(pan);
     }
 
-    /* 求解汉诺塔：问题 f(i) */
+    /* 求解汉诺塔问题 f(i) */
     void dfs(int i, vector<int> &src, vector<int> &buf, vector<int> &tar) {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if (i == 1) {
@@ -153,7 +153,7 @@ comments: true
         dfs(i - 1, buf, src, tar);
     }
 
-    /* 求解汉诺塔 */
+    /* 求解汉诺塔问题 */
     void solveHanota(vector<int> &A, vector<int> &B, vector<int> &C) {
         int n = A.size();
         // 将 A 顶部 n 个圆盘借助 B 移到 C
@@ -172,7 +172,7 @@ comments: true
         tar.add(pan);
     }
 
-    /* 求解汉诺塔：问题 f(i) */
+    /* 求解汉诺塔问题 f(i) */
     void dfs(int i, List<Integer> src, List<Integer> buf, List<Integer> tar) {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if (i == 1) {
@@ -187,7 +187,7 @@ comments: true
         dfs(i - 1, buf, src, tar);
     }
 
-    /* 求解汉诺塔 */
+    /* 求解汉诺塔问题 */
     void solveHanota(List<Integer> A, List<Integer> B, List<Integer> C) {
         int n = A.size();
         // 将 A 顶部 n 个圆盘借助 B 移到 C
@@ -207,7 +207,7 @@ comments: true
         tar.Add(pan);
     }
 
-    /* 求解汉诺塔：问题 f(i) */
+    /* 求解汉诺塔问题 f(i) */
     void DFS(int i, List<int> src, List<int> buf, List<int> tar) {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if (i == 1) {
@@ -222,7 +222,7 @@ comments: true
         DFS(i - 1, buf, src, tar);
     }
 
-    /* 求解汉诺塔 */
+    /* 求解汉诺塔问题 */
     void SolveHanota(List<int> A, List<int> B, List<int> C) {
         int n = A.Count;
         // 将 A 顶部 n 个圆盘借助 B 移到 C
@@ -243,7 +243,7 @@ comments: true
         src.Remove(pan)
     }
 
-    /* 求解汉诺塔：问题 f(i) */
+    /* 求解汉诺塔问题 f(i) */
     func dfsHanota(i int, src, buf, tar *list.List) {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if i == 1 {
@@ -258,7 +258,7 @@ comments: true
         dfsHanota(i-1, buf, src, tar)
     }
 
-    /* 求解汉诺塔 */
+    /* 求解汉诺塔问题 */
     func solveHanota(A, B, C *list.List) {
         n := A.Len()
         // 将 A 顶部 n 个圆盘借助 B 移到 C
@@ -277,7 +277,7 @@ comments: true
         tar.append(pan)
     }
 
-    /* 求解汉诺塔：问题 f(i) */
+    /* 求解汉诺塔问题 f(i) */
     func dfs(i: Int, src: inout [Int], buf: inout [Int], tar: inout [Int]) {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if i == 1 {
@@ -292,7 +292,7 @@ comments: true
         dfs(i: i - 1, src: &buf, buf: &src, tar: &tar)
     }
 
-    /* 求解汉诺塔 */
+    /* 求解汉诺塔问题 */
     func solveHanota(A: inout [Int], B: inout [Int], C: inout [Int]) {
         let n = A.count
         // 列表尾部是柱子顶部
@@ -312,7 +312,7 @@ comments: true
         tar.push(pan);
     }
 
-    /* 求解汉诺塔：问题 f(i) */
+    /* 求解汉诺塔问题 f(i) */
     function dfs(i, src, buf, tar) {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if (i === 1) {
@@ -327,7 +327,7 @@ comments: true
         dfs(i - 1, buf, src, tar);
     }
 
-    /* 求解汉诺塔 */
+    /* 求解汉诺塔问题 */
     function solveHanota(A, B, C) {
         const n = A.length;
         // 将 A 顶部 n 个圆盘借助 B 移到 C
@@ -346,7 +346,7 @@ comments: true
         tar.push(pan);
     }
 
-    /* 求解汉诺塔：问题 f(i) */
+    /* 求解汉诺塔问题 f(i) */
     function dfs(i: number, src: number[], buf: number[], tar: number[]): void {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if (i === 1) {
@@ -361,7 +361,7 @@ comments: true
         dfs(i - 1, buf, src, tar);
     }
 
-    /* 求解汉诺塔 */
+    /* 求解汉诺塔问题 */
     function solveHanota(A: number[], B: number[], C: number[]): void {
         const n = A.length;
         // 将 A 顶部 n 个圆盘借助 B 移到 C
@@ -380,7 +380,7 @@ comments: true
       tar.add(pan);
     }
 
-    /* 求解汉诺塔：问题 f(i) */
+    /* 求解汉诺塔问题 f(i) */
     void dfs(int i, List<int> src, List<int> buf, List<int> tar) {
       // 若 src 只剩下一个圆盘，则直接将其移到 tar
       if (i == 1) {
@@ -395,7 +395,7 @@ comments: true
       dfs(i - 1, buf, src, tar);
     }
 
-    /* 求解汉诺塔 */
+    /* 求解汉诺塔问题 */
     void solveHanota(List<int> A, List<int> B, List<int> C) {
       int n = A.length;
       // 将 A 顶部 n 个圆盘借助 B 移到 C
@@ -414,7 +414,7 @@ comments: true
         tar.push(pan);
     }
 
-    /* 求解汉诺塔：问题 f(i) */
+    /* 求解汉诺塔问题 f(i) */
     fn dfs(i: i32, src: &mut Vec<i32>, buf: &mut Vec<i32>, tar: &mut Vec<i32>) {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if i == 1 {
@@ -429,7 +429,7 @@ comments: true
         dfs(i - 1, buf, src, tar);
     }
 
-    /* 求解汉诺塔 */
+    /* 求解汉诺塔问题 */
     fn solve_hanota(A: &mut Vec<i32>, B: &mut Vec<i32>, C: &mut Vec<i32>) {
         let n = A.len() as i32;
         // 将 A 顶部 n 个圆盘借助 B 移到 C
@@ -451,7 +451,7 @@ comments: true
         (*tarSize)++;
     }
 
-    /* 求解汉诺塔：问题 f(i) */
+    /* 求解汉诺塔问题 f(i) */
     void dfs(int i, int *src, int *srcSize, int *buf, int *bufSize, int *tar, int *tarSize) {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if (i == 1) {
@@ -466,7 +466,7 @@ comments: true
         dfs(i - 1, buf, bufSize, src, srcSize, tar, tarSize);
     }
 
-    /* 求解汉诺塔 */
+    /* 求解汉诺塔问题 */
     void solveHanota(int *A, int *ASize, int *B, int *BSize, int *C, int *CSize) {
         // 将 A 顶部 n 个圆盘借助 B 移到 C
         dfs(*ASize, A, ASize, B, BSize, C, CSize);
@@ -483,7 +483,7 @@ comments: true
     [class]{}-[func]{solveHanota}
     ```
 
-如图 12-15 所示，汉诺塔问题形成一个高度为 $n$ 的递归树，每个节点代表一个子问题、对应一个开启的 `dfs()` 函数，**因此时间复杂度为 $O(2^n)$ ，空间复杂度为 $O(n)$** 。
+如图 12-15 所示，汉诺塔问题形成一棵高度为 $n$ 的递归树，每个节点代表一个子问题，对应一个开启的 `dfs()` 函数，**因此时间复杂度为 $O(2^n)$ ，空间复杂度为 $O(n)$** 。
 
 ![汉诺塔问题的递归树](hanota_problem.assets/hanota_recursive_tree.png){ class="animation-figure" }
 
@@ -491,6 +491,6 @@ comments: true
 
 !!! quote
 
-    汉诺塔问题源自一种古老的传说故事。在古印度的一个寺庙里，僧侣们有三根高大的钻石柱子，以及 $64$ 个大小不一的金圆盘。僧侣们不断地移动原盘，他们相信在最后一个圆盘被正确放置的那一刻，这个世界就会结束。
+    汉诺塔问题源自一个古老的传说。在古印度的一个寺庙里，僧侣们有三根高大的钻石柱子，以及 $64$ 个大小不一的金圆盘。僧侣们不断地移动圆盘，他们相信在最后一个圆盘被正确放置的那一刻，这个世界就会结束。
 
     然而，即使僧侣们每秒钟移动一次，总共需要大约 $2^{64} \approx 1.84×10^{19}$ 秒，合约 $5850$ 亿年，远远超过了现在对宇宙年龄的估计。所以，倘若这个传说是真的，我们应该不需要担心世界末日的到来。

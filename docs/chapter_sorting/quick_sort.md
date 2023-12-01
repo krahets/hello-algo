@@ -52,7 +52,7 @@ comments: true
     ```python title="quick_sort.py"
     def partition(self, nums: list[int], left: int, right: int) -> int:
         """哨兵划分"""
-        # 以 nums[left] 作为基准数
+        # 以 nums[left] 为基准数
         i, j = left, right
         while i < j:
             while i < j and nums[j] >= nums[left]:
@@ -78,7 +78,7 @@ comments: true
 
     /* 哨兵划分 */
     int partition(vector<int> &nums, int left, int right) {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
@@ -104,7 +104,7 @@ comments: true
 
     /* 哨兵划分 */
     int partition(int[] nums, int left, int right) {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
@@ -128,7 +128,7 @@ comments: true
 
     /* 哨兵划分 */
     int Partition(int[] nums, int left, int right) {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
@@ -147,7 +147,7 @@ comments: true
     ```go title="quick_sort.go"
     /* 哨兵划分 */
     func (q *quickSort) partition(nums []int, left, right int) int {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         i, j := left, right
         for i < j {
             for i < j && nums[j] >= nums[left] {
@@ -177,7 +177,7 @@ comments: true
 
     /* 哨兵划分 */
     func partition(nums: inout [Int], left: Int, right: Int) -> Int {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         var i = left
         var j = right
         while i < j {
@@ -206,7 +206,7 @@ comments: true
 
     /* 哨兵划分 */
     partition(nums, left, right) {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         let i = left,
             j = right;
         while (i < j) {
@@ -236,7 +236,7 @@ comments: true
 
     /* 哨兵划分 */
     partition(nums: number[], left: number, right: number): number {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         let i = left,
             j = right;
         while (i < j) {
@@ -266,7 +266,7 @@ comments: true
 
     /* 哨兵划分 */
     int _partition(List<int> nums, int left, int right) {
-      // 以 nums[left] 作为基准数
+      // 以 nums[left] 为基准数
       int i = left, j = right;
       while (i < j) {
         while (i < j && nums[j] >= nums[left]) j--; // 从右向左找首个小于基准数的元素
@@ -283,7 +283,7 @@ comments: true
     ```rust title="quick_sort.rs"
     /* 哨兵划分 */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         let (mut i, mut j) = (left, right);
         while i < j {
             while i < j && nums[j] >= nums[left] {
@@ -312,7 +312,7 @@ comments: true
     /* 快速排序类 */
     // 快速排序类-哨兵划分
     int partition(int nums[], int left, int right) {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left]) {
@@ -345,7 +345,7 @@ comments: true
 
     // 哨兵划分
     fn partition(nums: []i32, left: usize, right: usize) usize {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         var i = left;
         var j = right;
         while (i < j) {
@@ -537,7 +537,7 @@ comments: true
     /* 快速排序类 */
     // 快速排序类-哨兵划分
     int partition(int nums[], int left, int right) {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left]) {
@@ -588,17 +588,17 @@ comments: true
 
 ## 11.5.2 &nbsp; 算法特性
 
-- **时间复杂度 $O(n \log n)$、自适应排序**：在平均情况下，哨兵划分的递归层数为 $\log n$ ，每层中的总循环数为 $n$ ，总体使用 $O(n \log n)$ 时间。在最差情况下，每轮哨兵划分操作都将长度为 $n$ 的数组划分为长度为 $0$ 和 $n - 1$ 的两个子数组，此时递归层数达到 $n$ 层，每层中的循环数为 $n$ ，总体使用 $O(n^2)$ 时间。
+- **时间复杂度 $O(n \log n)$、自适应排序**：在平均情况下，哨兵划分的递归层数为 $\log n$ ，每层中的总循环数为 $n$ ，总体使用 $O(n \log n)$ 时间。在最差情况下，每轮哨兵划分操作都将长度为 $n$ 的数组划分为长度为 $0$ 和 $n - 1$ 的两个子数组，此时递归层数达到 $n$ ，每层中的循环数为 $n$ ，总体使用 $O(n^2)$ 时间。
 - **空间复杂度 $O(n)$、原地排序**：在输入数组完全倒序的情况下，达到最差递归深度 $n$ ，使用 $O(n)$ 栈帧空间。排序操作是在原数组上进行的，未借助额外数组。
 - **非稳定排序**：在哨兵划分的最后一步，基准数可能会被交换至相等元素的右侧。
 
-## 11.5.3 &nbsp; 快排为什么快？
+## 11.5.3 &nbsp; 快速排序为什么快
 
 从名称上就能看出，快速排序在效率方面应该具有一定的优势。尽管快速排序的平均时间复杂度与“归并排序”和“堆排序”相同，但通常快速排序的效率更高，主要有以下原因。
 
 - **出现最差情况的概率很低**：虽然快速排序的最差时间复杂度为 $O(n^2)$ ，没有归并排序稳定，但在绝大多数情况下，快速排序能在 $O(n \log n)$ 的时间复杂度下运行。
 - **缓存使用效率高**：在执行哨兵划分操作时，系统可将整个子数组加载到缓存，因此访问元素的效率较高。而像“堆排序”这类算法需要跳跃式访问元素，从而缺乏这一特性。
-- **复杂度的常数系数低**：在上述三种算法中，快速排序的比较、赋值、交换等操作的总数量最少。这与“插入排序”比“冒泡排序”更快的原因类似。
+- **复杂度的常数系数小**：在上述三种算法中，快速排序的比较、赋值、交换等操作的总数量最少。这与“插入排序”比“冒泡排序”更快的原因类似。
 
 ## 11.5.4 &nbsp; 基准数优化
 
@@ -609,6 +609,8 @@ comments: true
 需要注意的是，编程语言通常生成的是“伪随机数”。如果我们针对伪随机数序列构建一个特定的测试样例，那么快速排序的效率仍然可能劣化。
 
 为了进一步改进，我们可以在数组中选取三个候选元素（通常为数组的首、尾、中点元素），**并将这三个候选元素的中位数作为基准数**。这样一来，基准数“既不太小也不太大”的概率将大幅提升。当然，我们还可以选取更多候选元素，以进一步提高算法的稳健性。采用这种方法后，时间复杂度劣化至 $O(n^2)$ 的概率大大降低。
+
+示例代码如下：
 
 === "Python"
 
@@ -625,11 +627,11 @@ comments: true
 
     def partition(self, nums: list[int], left: int, right: int) -> int:
         """哨兵划分（三数取中值）"""
-        # 以 nums[left] 作为基准数
+        # 以 nums[left] 为基准数
         med = self.median_three(nums, left, (left + right) // 2, right)
         # 将中位数交换至数组最左端
         nums[left], nums[med] = nums[med], nums[left]
-        # 以 nums[left] 作为基准数
+        # 以 nums[left] 为基准数
         i, j = left, right
         while i < j:
             while i < j and nums[j] >= nums[left]:
@@ -664,7 +666,7 @@ comments: true
         int med = medianThree(nums, left, (left + right) / 2, right);
         // 将中位数交换至数组最左端
         swap(nums, left, med);
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
@@ -699,7 +701,7 @@ comments: true
         int med = medianThree(nums, left, (left + right) / 2, right);
         // 将中位数交换至数组最左端
         swap(nums, left, med);
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
@@ -734,7 +736,7 @@ comments: true
         int med = MedianThree(nums, left, (left + right) / 2, right);
         // 将中位数交换至数组最左端
         Swap(nums, left, med);
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
@@ -765,11 +767,11 @@ comments: true
 
     /* 哨兵划分（三数取中值）*/
     func (q *quickSortMedian) partition(nums []int, left, right int) int {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         med := q.medianThree(nums, left, (left+right)/2, right)
         // 将中位数交换至数组最左端
         nums[left], nums[med] = nums[med], nums[left]
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         i, j := left, right
         for i < j {
             for i < j && nums[j] >= nums[left] {
@@ -835,7 +837,7 @@ comments: true
         );
         // 将中位数交换至数组最左端
         this.swap(nums, left, med);
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         let i = left,
             j = right;
         while (i < j) {
@@ -882,7 +884,7 @@ comments: true
         );
         // 将中位数交换至数组最左端
         this.swap(nums, left, med);
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         let i = left,
             j = right;
         while (i < j) {
@@ -920,7 +922,7 @@ comments: true
       int med = _medianThree(nums, left, (left + right) ~/ 2, right);
       // 将中位数交换至数组最左端
       _swap(nums, left, med);
-      // 以 nums[left] 作为基准数
+      // 以 nums[left] 为基准数
       int i = left, j = right;
       while (i < j) {
         while (i < j && nums[j] >= nums[left]) j--; // 从右向左找首个小于基准数的元素
@@ -953,7 +955,7 @@ comments: true
         let med = Self::median_three(nums, left, (left + right) / 2, right);
         // 将中位数交换至数组最左端
         nums.swap(left, med);
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         let (mut i, mut j) = (left, right);
         while i < j {
             while i < j && nums[j] >= nums[left] {
@@ -991,7 +993,7 @@ comments: true
         int med = medianThree(nums, left, (left + right) / 2, right);
         // 将中位数交换至数组最左端
         swap(nums, left, med);
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
@@ -1027,7 +1029,7 @@ comments: true
         var med = medianThree(nums, left, (left + right) / 2, right);
         // 将中位数交换至数组最左端
         swap(nums, left, med);
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         var i = left;
         var j = right;
         while (i < j) {
@@ -1044,7 +1046,7 @@ comments: true
 
 **在某些输入下，快速排序可能占用空间较多**。以完全倒序的输入数组为例，设递归中的子数组长度为 $m$ ，每轮哨兵划分操作都将产生长度为 $0$ 的左子数组和长度为 $m - 1$ 的右子数组，这意味着每一层递归调用减少的问题规模非常小（只减少一个元素），递归树的高度会达到 $n - 1$ ，此时需要占用 $O(n)$ 大小的栈帧空间。
 
-为了防止栈帧空间的累积，我们可以在每轮哨兵排序完成后，比较两个子数组的长度，**仅对较短的子数组进行递归**。由于较短子数组的长度不会超过 $n / 2$ ，因此这种方法能确保递归深度不超过 $\log n$ ，从而将最差空间复杂度优化至 $O(\log n)$ 。
+为了防止栈帧空间的累积，我们可以在每轮哨兵排序完成后，比较两个子数组的长度，**仅对较短的子数组进行递归**。由于较短子数组的长度不会超过 $n / 2$ ，因此这种方法能确保递归深度不超过 $\log n$ ，从而将最差空间复杂度优化至 $O(\log n)$ 。代码如下所示：
 
 === "Python"
 
@@ -1055,7 +1057,7 @@ comments: true
         while left < right:
             # 哨兵划分操作
             pivot = self.partition(nums, left, right)
-            # 对两个子数组中较短的那个执行快排
+            # 对两个子数组中较短的那个执行快速排序
             if pivot - left < right - pivot:
                 self.quick_sort(nums, left, pivot - 1)  # 递归排序左子数组
                 left = pivot + 1  # 剩余未排序区间为 [pivot + 1, right]
@@ -1073,7 +1075,7 @@ comments: true
         while (left < right) {
             // 哨兵划分操作
             int pivot = partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if (pivot - left < right - pivot) {
                 quickSort(nums, left, pivot - 1); // 递归排序左子数组
                 left = pivot + 1;                 // 剩余未排序区间为 [pivot + 1, right]
@@ -1094,7 +1096,7 @@ comments: true
         while (left < right) {
             // 哨兵划分操作
             int pivot = partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if (pivot - left < right - pivot) {
                 quickSort(nums, left, pivot - 1); // 递归排序左子数组
                 left = pivot + 1; // 剩余未排序区间为 [pivot + 1, right]
@@ -1115,7 +1117,7 @@ comments: true
         while (left < right) {
             // 哨兵划分操作
             int pivot = Partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if (pivot - left < right - pivot) {
                 QuickSort(nums, left, pivot - 1);  // 递归排序左子数组
                 left = pivot + 1;  // 剩余未排序区间为 [pivot + 1, right]
@@ -1136,7 +1138,7 @@ comments: true
         for left < right {
             // 哨兵划分操作
             pivot := q.partition(nums, left, right)
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if pivot-left < right-pivot {
                 q.quickSort(nums, left, pivot-1) // 递归排序左子数组
                 left = pivot + 1                 // 剩余未排序区间为 [pivot + 1, right]
@@ -1159,7 +1161,7 @@ comments: true
         while left < right {
             // 哨兵划分操作
             let pivot = partition(nums: &nums, left: left, right: right)
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if (pivot - left) < (right - pivot) {
                 quickSortTailCall(nums: &nums, left: left, right: pivot - 1) // 递归排序左子数组
                 left = pivot + 1 // 剩余未排序区间为 [pivot + 1, right]
@@ -1180,7 +1182,7 @@ comments: true
         while (left < right) {
             // 哨兵划分操作
             let pivot = this.partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if (pivot - left < right - pivot) {
                 this.quickSort(nums, left, pivot - 1); // 递归排序左子数组
                 left = pivot + 1; // 剩余未排序区间为 [pivot + 1, right]
@@ -1201,7 +1203,7 @@ comments: true
         while (left < right) {
             // 哨兵划分操作
             let pivot = this.partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if (pivot - left < right - pivot) {
                 this.quickSort(nums, left, pivot - 1); // 递归排序左子数组
                 left = pivot + 1; // 剩余未排序区间为 [pivot + 1, right]
@@ -1222,7 +1224,7 @@ comments: true
       while (left < right) {
         // 哨兵划分操作
         int pivot = _partition(nums, left, right);
-        // 对两个子数组中较短的那个执行快排
+        // 对两个子数组中较短的那个执行快速排序
         if (pivot - left < right - pivot) {
           quickSort(nums, left, pivot - 1); // 递归排序左子数组
           left = pivot + 1; // 剩余未排序区间为 [pivot + 1, right]
@@ -1243,7 +1245,7 @@ comments: true
         while left < right {
             // 哨兵划分操作
             let pivot = Self::partition(nums, left as usize, right as usize) as i32;
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if  pivot - left < right - pivot {
                 Self::quick_sort(left, pivot - 1, nums);  // 递归排序左子数组
                 left = pivot + 1;  // 剩余未排序区间为 [pivot + 1, right]
@@ -1265,7 +1267,7 @@ comments: true
         while (left < right) {
             // 哨兵划分操作
             int pivot = partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if (pivot - left < right - pivot) {
                 quickSortTailCall(nums, left, pivot - 1); // 递归排序左子数组
                 left = pivot + 1;                         // 剩余未排序区间为 [pivot + 1, right]
@@ -1288,7 +1290,7 @@ comments: true
         while (left < right) {
             // 哨兵划分操作
             var pivot = partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if (pivot - left < right - pivot) {
                 quickSort(nums, left, pivot - 1);   // 递归排序左子数组
                 left = pivot + 1;                   // 剩余未排序区间为 [pivot + 1, right]

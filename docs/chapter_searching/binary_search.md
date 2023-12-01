@@ -4,11 +4,11 @@ comments: true
 
 # 10.1 &nbsp; 二分查找
 
-「二分查找 binary search」是一种基于分治策略的高效搜索算法。它利用数据的有序性，每轮减少一半搜索范围，直至找到目标元素或搜索区间为空为止。
+「二分查找 binary search」是一种基于分治策略的高效搜索算法。它利用数据的有序性，每轮缩小一半搜索范围，直至找到目标元素或搜索区间为空为止。
 
 !!! question
 
-    给定一个长度为 $n$ 的数组 `nums` ，元素按从小到大的顺序排列，数组不包含重复元素。请查找并返回元素 `target` 在该数组中的索引。若数组不包含该元素，则返回 $-1$ 。
+    给定一个长度为 $n$ 的数组 `nums` ，元素按从小到大的顺序排列且不重复。请查找并返回元素 `target` 在该数组中的索引。若数组不包含该元素，则返回 $-1$ 。示例如图 10-1 所示。
 
 ![二分查找示例数据](binary_search.assets/binary_search_example.png){ class="animation-figure" }
 
@@ -50,6 +50,8 @@ comments: true
 <p align="center"> 图 10-2 &nbsp; 二分查找流程 </p>
 
 值得注意的是，由于 $i$ 和 $j$ 都是 `int` 类型，**因此 $i + j$ 可能会超出 `int` 类型的取值范围**。为了避免大数越界，我们通常采用公式 $m = \lfloor {i + (j - i) / 2} \rfloor$ 来计算中点。
+
+代码如下所示：
 
 === "Python"
 
@@ -338,16 +340,16 @@ comments: true
 
 ## 10.1.1 &nbsp; 区间表示方法
 
-除了上述的双闭区间外，常见的区间表示还有“左闭右开”区间，定义为 $[0, n)$ ，即左边界包含自身，右边界不包含自身。在该表示下，区间 $[i, j]$ 在 $i = j$ 时为空。
+除了上述双闭区间外，常见的区间表示还有“左闭右开”区间，定义为 $[0, n)$ ，即左边界包含自身，右边界不包含自身。在该表示下，区间 $[i, j]$ 在 $i = j$ 时为空。
 
-我们可以基于该表示实现具有相同功能的二分查找算法。
+我们可以基于该表示实现具有相同功能的二分查找算法：
 
 === "Python"
 
     ```python title="binary_search.py"
     def binary_search_lcro(nums: list[int], target: int) -> int:
-        """二分查找（左闭右开）"""
-        # 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        """二分查找（左闭右开区间）"""
+        # 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         i, j = 0, len(nums)
         # 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while i < j:
@@ -364,9 +366,9 @@ comments: true
 === "C++"
 
     ```cpp title="binary_search.cpp"
-    /* 二分查找（左闭右开） */
+    /* 二分查找（左闭右开区间） */
     int binarySearchLCRO(vector<int> &nums, int target) {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         int i = 0, j = nums.size();
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
@@ -386,9 +388,9 @@ comments: true
 === "Java"
 
     ```java title="binary_search.java"
-    /* 二分查找（左闭右开） */
+    /* 二分查找（左闭右开区间） */
     int binarySearchLCRO(int[] nums, int target) {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         int i = 0, j = nums.length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
@@ -408,9 +410,9 @@ comments: true
 === "C#"
 
     ```csharp title="binary_search.cs"
-    /* 二分查找（左闭右开） */
+    /* 二分查找（左闭右开区间） */
     int BinarySearchLCRO(int[] nums, int target) {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         int i = 0, j = nums.Length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
@@ -430,9 +432,9 @@ comments: true
 === "Go"
 
     ```go title="binary_search.go"
-    /* 二分查找（左闭右开） */
+    /* 二分查找（左闭右开区间） */
     func binarySearchLCRO(nums []int, target int) int {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         i, j := 0, len(nums)
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         for i < j {
@@ -453,9 +455,9 @@ comments: true
 === "Swift"
 
     ```swift title="binary_search.swift"
-    /* 二分查找（左闭右开） */
+    /* 二分查找（左闭右开区间） */
     func binarySearchLCRO(nums: [Int], target: Int) -> Int {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         var i = 0
         var j = nums.count
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -477,9 +479,9 @@ comments: true
 === "JS"
 
     ```javascript title="binary_search.js"
-    /* 二分查找（左闭右开） */
+    /* 二分查找（左闭右开区间） */
     function binarySearchLCRO(nums, target) {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         let i = 0,
             j = nums.length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -503,9 +505,9 @@ comments: true
 === "TS"
 
     ```typescript title="binary_search.ts"
-    /* 二分查找（左闭右开） */
+    /* 二分查找（左闭右开区间） */
     function binarySearchLCRO(nums: number[], target: number): number {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         let i = 0,
             j = nums.length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -532,7 +534,7 @@ comments: true
     ```dart title="binary_search.dart"
     /* 二分查找（左闭右开区间） */
     int binarySearchLCRO(List<int> nums, int target) {
-      // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+      // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
       int i = 0, j = nums.length;
       // 循环，当搜索区间为空时跳出（当 i = j 时为空）
       while (i < j) {
@@ -556,9 +558,9 @@ comments: true
 === "Rust"
 
     ```rust title="binary_search.rs"
-    /* 二分查找（左闭右开） */
+    /* 二分查找（左闭右开区间） */
     fn binary_search_lcro(nums: &[i32], target: i32) -> i32 {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         let mut i = 0;
         let mut j = nums.len() as i32;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -580,9 +582,9 @@ comments: true
 === "C"
 
     ```c title="binary_search.c"
-    /* 二分查找（左闭右开） */
+    /* 二分查找（左闭右开区间） */
     int binarySearchLCRO(int *nums, int len, int target) {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         int i = 0, j = len;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
@@ -602,9 +604,9 @@ comments: true
 === "Zig"
 
     ```zig title="binary_search.zig"
-    // 二分查找（左闭右开）
+    // 二分查找（左闭右开区间）
     fn binarySearchLCRO(comptime T: type, nums: std.ArrayList(T), target: T) T {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         var i: usize = 0;
         var j: usize = nums.items.len;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -625,7 +627,7 @@ comments: true
 
 如图 10-3 所示，在两种区间表示下，二分查找算法的初始化、循环条件和缩小区间操作皆有所不同。
 
-由于“双闭区间”表示中的左右边界都被定义为闭区间，因此指针 $i$ 和 $j$ 缩小区间操作也是对称的。这样更不容易出错，**因此一般建议采用“双闭区间”的写法**。
+由于“双闭区间”表示中的左右边界都被定义为闭区间，因此通过指针 $i$ 和指针 $j$ 缩小区间的操作也是对称的。这样更不容易出错，**因此一般建议采用“双闭区间”的写法**。
 
 ![两种区间定义](binary_search.assets/binary_search_ranges.png){ class="animation-figure" }
 
@@ -642,4 +644,4 @@ comments: true
 
 - 二分查找仅适用于有序数据。若输入数据无序，为了使用二分查找而专门进行排序，得不偿失。因为排序算法的时间复杂度通常为 $O(n \log n)$ ，比线性查找和二分查找都更高。对于频繁插入元素的场景，为保持数组有序性，需要将元素插入到特定位置，时间复杂度为 $O(n)$ ，也是非常昂贵的。
 - 二分查找仅适用于数组。二分查找需要跳跃式（非连续地）访问元素，而在链表中执行跳跃式访问的效率较低，因此不适合应用在链表或基于链表实现的数据结构。
-- 小数据量下，线性查找性能更佳。在线性查找中，每轮只需要 1 次判断操作；而在二分查找中，需要 1 次加法、1 次除法、1 ~ 3 次判断操作、1 次加法（减法），共 4 ~ 6 个单元操作；因此，当数据量 $n$ 较小时，线性查找反而比二分查找更快。
+- 小数据量下，线性查找性能更佳。在线性查找中，每轮只需 1 次判断操作；而在二分查找中，需要 1 次加法、1 次除法、1 ~ 3 次判断操作、1 次加法（减法），共 4 ~ 6 个单元操作；因此，当数据量 $n$ 较小时，线性查找反而比二分查找更快。

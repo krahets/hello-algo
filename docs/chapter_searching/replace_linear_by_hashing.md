@@ -12,18 +12,20 @@ comments: true
 
 ## 10.4.1 &nbsp; 线性查找：以时间换空间
 
-考虑直接遍历所有可能的组合。如图 10-9 所示，我们开启一个两层循环，在每轮中判断两个整数的和是否为 `target` ，若是则返回它们的索引。
+考虑直接遍历所有可能的组合。如图 10-9 所示，我们开启一个两层循环，在每轮中判断两个整数的和是否为 `target` ，若是，则返回它们的索引。
 
 ![线性查找求解两数之和](replace_linear_by_hashing.assets/two_sum_brute_force.png){ class="animation-figure" }
 
 <p align="center"> 图 10-9 &nbsp; 线性查找求解两数之和 </p>
+
+代码如下所示：
 
 === "Python"
 
     ```python title="two_sum.py"
     def two_sum_brute_force(nums: list[int], target: int) -> list[int]:
         """方法一：暴力枚举"""
-        # 两层循环，时间复杂度 O(n^2)
+        # 两层循环，时间复杂度为 O(n^2)
         for i in range(len(nums) - 1):
             for j in range(i + 1, len(nums)):
                 if nums[i] + nums[j] == target:
@@ -37,7 +39,7 @@ comments: true
     /* 方法一：暴力枚举 */
     vector<int> twoSumBruteForce(vector<int> &nums, int target) {
         int size = nums.size();
-        // 两层循环，时间复杂度 O(n^2)
+        // 两层循环，时间复杂度为 O(n^2)
         for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {
                 if (nums[i] + nums[j] == target)
@@ -54,7 +56,7 @@ comments: true
     /* 方法一：暴力枚举 */
     int[] twoSumBruteForce(int[] nums, int target) {
         int size = nums.length;
-        // 两层循环，时间复杂度 O(n^2)
+        // 两层循环，时间复杂度为 O(n^2)
         for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {
                 if (nums[i] + nums[j] == target)
@@ -71,7 +73,7 @@ comments: true
     /* 方法一：暴力枚举 */
     int[] TwoSumBruteForce(int[] nums, int target) {
         int size = nums.Length;
-        // 两层循环，时间复杂度 O(n^2)
+        // 两层循环，时间复杂度为 O(n^2)
         for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {
                 if (nums[i] + nums[j] == target)
@@ -88,7 +90,7 @@ comments: true
     /* 方法一：暴力枚举 */
     func twoSumBruteForce(nums []int, target int) []int {
         size := len(nums)
-        // 两层循环，时间复杂度 O(n^2)
+        // 两层循环，时间复杂度为 O(n^2)
         for i := 0; i < size-1; i++ {
             for j := i + 1; i < size; j++ {
                 if nums[i]+nums[j] == target {
@@ -105,7 +107,7 @@ comments: true
     ```swift title="two_sum.swift"
     /* 方法一：暴力枚举 */
     func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
-        // 两层循环，时间复杂度 O(n^2)
+        // 两层循环，时间复杂度为 O(n^2)
         for i in nums.indices.dropLast() {
             for j in nums.indices.dropFirst(i + 1) {
                 if nums[i] + nums[j] == target {
@@ -123,7 +125,7 @@ comments: true
     /* 方法一：暴力枚举 */
     function twoSumBruteForce(nums, target) {
         const n = nums.length;
-        // 两层循环，时间复杂度 O(n^2)
+        // 两层循环，时间复杂度为 O(n^2)
         for (let i = 0; i < n; i++) {
             for (let j = i + 1; j < n; j++) {
                 if (nums[i] + nums[j] === target) {
@@ -141,7 +143,7 @@ comments: true
     /* 方法一：暴力枚举 */
     function twoSumBruteForce(nums: number[], target: number): number[] {
         const n = nums.length;
-        // 两层循环，时间复杂度 O(n^2)
+        // 两层循环，时间复杂度为 O(n^2)
         for (let i = 0; i < n; i++) {
             for (let j = i + 1; j < n; j++) {
                 if (nums[i] + nums[j] === target) {
@@ -159,7 +161,7 @@ comments: true
     /* 方法一： 暴力枚举 */
     List<int> twoSumBruteForce(List<int> nums, int target) {
       int size = nums.length;
-      // 两层循环，时间复杂度 O(n^2)
+      // 两层循环，时间复杂度为 O(n^2)
       for (var i = 0; i < size - 1; i++) {
         for (var j = i + 1; j < size; j++) {
           if (nums[i] + nums[j] == target) return [i, j];
@@ -175,7 +177,7 @@ comments: true
     /* 方法一：暴力枚举 */
     pub fn two_sum_brute_force(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
         let size = nums.len();
-        // 两层循环，时间复杂度 O(n^2)
+        // 两层循环，时间复杂度为 O(n^2)
         for i in 0..size - 1 {
             for j in i + 1..size {
                 if nums[i] + nums[j] == target {
@@ -214,7 +216,7 @@ comments: true
     fn twoSumBruteForce(nums: []i32, target: i32) ?[2]i32 {
         var size: usize = nums.len;
         var i: usize = 0;
-        // 两层循环，时间复杂度 O(n^2)
+        // 两层循环，时间复杂度为 O(n^2)
         while (i < size - 1) : (i += 1) {
             var j = i + 1;
             while (j < size) : (j += 1) {
@@ -233,7 +235,7 @@ comments: true
 
 考虑借助一个哈希表，键值对分别为数组元素和元素索引。循环遍历数组，每轮执行图 10-10 所示的步骤。
 
-1. 判断数字 `target - nums[i]` 是否在哈希表中，若是则直接返回这两个元素的索引。
+1. 判断数字 `target - nums[i]` 是否在哈希表中，若是，则直接返回这两个元素的索引。
 2. 将键值对 `nums[i]` 和索引 `i` 添加进哈希表。
 
 === "<1>"
@@ -247,16 +249,16 @@ comments: true
 
 <p align="center"> 图 10-10 &nbsp; 辅助哈希表求解两数之和 </p>
 
-实现代码如下所示，仅需单层循环即可。
+实现代码如下所示，仅需单层循环即可：
 
 === "Python"
 
     ```python title="two_sum.py"
     def two_sum_hash_table(nums: list[int], target: int) -> list[int]:
         """方法二：辅助哈希表"""
-        # 辅助哈希表，空间复杂度 O(n)
+        # 辅助哈希表，空间复杂度为 O(n)
         dic = {}
-        # 单层循环，时间复杂度 O(n)
+        # 单层循环，时间复杂度为 O(n)
         for i in range(len(nums)):
             if target - nums[i] in dic:
                 return [dic[target - nums[i]], i]
@@ -270,9 +272,9 @@ comments: true
     /* 方法二：辅助哈希表 */
     vector<int> twoSumHashTable(vector<int> &nums, int target) {
         int size = nums.size();
-        // 辅助哈希表，空间复杂度 O(n)
+        // 辅助哈希表，空间复杂度为 O(n)
         unordered_map<int, int> dic;
-        // 单层循环，时间复杂度 O(n)
+        // 单层循环，时间复杂度为 O(n)
         for (int i = 0; i < size; i++) {
             if (dic.find(target - nums[i]) != dic.end()) {
                 return {dic[target - nums[i]], i};
@@ -289,9 +291,9 @@ comments: true
     /* 方法二：辅助哈希表 */
     int[] twoSumHashTable(int[] nums, int target) {
         int size = nums.length;
-        // 辅助哈希表，空间复杂度 O(n)
+        // 辅助哈希表，空间复杂度为 O(n)
         Map<Integer, Integer> dic = new HashMap<>();
-        // 单层循环，时间复杂度 O(n)
+        // 单层循环，时间复杂度为 O(n)
         for (int i = 0; i < size; i++) {
             if (dic.containsKey(target - nums[i])) {
                 return new int[] { dic.get(target - nums[i]), i };
@@ -308,9 +310,9 @@ comments: true
     /* 方法二：辅助哈希表 */
     int[] TwoSumHashTable(int[] nums, int target) {
         int size = nums.Length;
-        // 辅助哈希表，空间复杂度 O(n)
+        // 辅助哈希表，空间复杂度为 O(n)
         Dictionary<int, int> dic = [];
-        // 单层循环，时间复杂度 O(n)
+        // 单层循环，时间复杂度为 O(n)
         for (int i = 0; i < size; i++) {
             if (dic.ContainsKey(target - nums[i])) {
                 return [dic[target - nums[i]], i];
@@ -326,9 +328,9 @@ comments: true
     ```go title="two_sum.go"
     /* 方法二：辅助哈希表 */
     func twoSumHashTable(nums []int, target int) []int {
-        // 辅助哈希表，空间复杂度 O(n)
+        // 辅助哈希表，空间复杂度为 O(n)
         hashTable := map[int]int{}
-        // 单层循环，时间复杂度 O(n)
+        // 单层循环，时间复杂度为 O(n)
         for idx, val := range nums {
             if preIdx, ok := hashTable[target-val]; ok {
                 return []int{preIdx, idx}
@@ -344,9 +346,9 @@ comments: true
     ```swift title="two_sum.swift"
     /* 方法二：辅助哈希表 */
     func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
-        // 辅助哈希表，空间复杂度 O(n)
+        // 辅助哈希表，空间复杂度为 O(n)
         var dic: [Int: Int] = [:]
-        // 单层循环，时间复杂度 O(n)
+        // 单层循环，时间复杂度为 O(n)
         for i in nums.indices {
             if let j = dic[target - nums[i]] {
                 return [j, i]
@@ -362,9 +364,9 @@ comments: true
     ```javascript title="two_sum.js"
     /* 方法二：辅助哈希表 */
     function twoSumHashTable(nums, target) {
-        // 辅助哈希表，空间复杂度 O(n)
+        // 辅助哈希表，空间复杂度为 O(n)
         let m = {};
-        // 单层循环，时间复杂度 O(n)
+        // 单层循环，时间复杂度为 O(n)
         for (let i = 0; i < nums.length; i++) {
             if (m[target - nums[i]] !== undefined) {
                 return [m[target - nums[i]], i];
@@ -381,9 +383,9 @@ comments: true
     ```typescript title="two_sum.ts"
     /* 方法二：辅助哈希表 */
     function twoSumHashTable(nums: number[], target: number): number[] {
-        // 辅助哈希表，空间复杂度 O(n)
+        // 辅助哈希表，空间复杂度为 O(n)
         let m: Map<number, number> = new Map();
-        // 单层循环，时间复杂度 O(n)
+        // 单层循环，时间复杂度为 O(n)
         for (let i = 0; i < nums.length; i++) {
             let index = m.get(target - nums[i]);
             if (index !== undefined) {
@@ -402,9 +404,9 @@ comments: true
     /* 方法二： 辅助哈希表 */
     List<int> twoSumHashTable(List<int> nums, int target) {
       int size = nums.length;
-      // 辅助哈希表，空间复杂度 O(n)
+      // 辅助哈希表，空间复杂度为 O(n)
       Map<int, int> dic = HashMap();
-      // 单层循环，时间复杂度 O(n)
+      // 单层循环，时间复杂度为 O(n)
       for (var i = 0; i < size; i++) {
         if (dic.containsKey(target - nums[i])) {
           return [dic[target - nums[i]]!, i];
@@ -420,9 +422,9 @@ comments: true
     ```rust title="two_sum.rs"
     /* 方法二：辅助哈希表 */
     pub fn two_sum_hash_table(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
-        // 辅助哈希表，空间复杂度 O(n)
+        // 辅助哈希表，空间复杂度为 O(n)
         let mut dic = HashMap::new();
-        // 单层循环，时间复杂度 O(n)
+        // 单层循环，时间复杂度为 O(n)
         for (i, num) in nums.iter().enumerate() {
             match dic.get(&(target - num)) {
                 Some(v) => return Some(vec![*v as i32, i as i32]),
@@ -486,11 +488,11 @@ comments: true
     // 方法二：辅助哈希表
     fn twoSumHashTable(nums: []i32, target: i32) !?[2]i32 {
         var size: usize = nums.len;
-        // 辅助哈希表，空间复杂度 O(n)
+        // 辅助哈希表，空间复杂度为 O(n)
         var dic = std.AutoHashMap(i32, i32).init(std.heap.page_allocator);
         defer dic.deinit();
         var i: usize = 0;
-        // 单层循环，时间复杂度 O(n)
+        // 单层循环，时间复杂度为 O(n)
         while (i < size) : (i += 1) {
             if (dic.contains(target - nums[i])) {
                 return [_]i32{dic.get(target - nums[i]).?, @intCast(i)};
@@ -501,6 +503,6 @@ comments: true
     }
     ```
 
-此方法通过哈希查找将时间复杂度从 $O(n^2)$ 降低至 $O(n)$ ，大幅提升运行效率。
+此方法通过哈希查找将时间复杂度从 $O(n^2)$ 降至 $O(n)$ ，大幅提升运行效率。
 
 由于需要维护一个额外的哈希表，因此空间复杂度为 $O(n)$ 。**尽管如此，该方法的整体时空效率更为均衡，因此它是本题的最优解法**。

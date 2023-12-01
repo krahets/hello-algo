@@ -10,7 +10,7 @@ comments: true
 
 !!! question
 
-    给定 $n$ 个物品，第 $i$ 个物品的重量为 $wgt[i-1]$、价值为 $val[i-1]$ ，和一个容量为 $cap$ 的背包。每个物品只能选择一次，问在不超过背包容量下能放入物品的最大价值。
+    给定 $n$ 个物品，第 $i$ 个物品的重量为 $wgt[i-1]$、价值为 $val[i-1]$ ，和一个容量为 $cap$ 的背包。每个物品只能选择一次，问在限定背包容量下能放入物品的最大价值。
 
 观察图 14-17 ，由于物品编号 $i$ 从 $1$ 开始计数，数组索引从 $0$ 开始计数，因此物品 $i$ 对应重量 $wgt[i-1]$ 和价值 $val[i-1]$ 。
 
@@ -18,9 +18,9 @@ comments: true
 
 <p align="center"> 图 14-17 &nbsp; 0-1 背包的示例数据 </p>
 
-我们可以将 0-1 背包问题看作是一个由 $n$ 轮决策组成的过程，每个物体都有不放入和放入两种决策，因此该问题是满足决策树模型的。
+我们可以将 0-1 背包问题看作一个由 $n$ 轮决策组成的过程，对于每个物体都有不放入和放入两种决策，因此该问题满足决策树模型。
 
-该问题的目标是求解“在限定背包容量下的最大价值”，因此较大概率是个动态规划问题。
+该问题的目标是求解“在限定背包容量下能放入物品的最大价值”，因此较大概率是一个动态规划问题。
 
 **第一步：思考每轮的决策，定义状态，从而得到 $dp$ 表**
 
@@ -35,9 +35,9 @@ comments: true
 当我们做出物品 $i$ 的决策后，剩余的是前 $i-1$ 个物品的决策，可分为以下两种情况。
 
 - **不放入物品 $i$** ：背包容量不变，状态变化为 $[i-1, c]$ 。
-- **放入物品 $i$** ：背包容量减小 $wgt[i-1]$ ，价值增加 $val[i-1]$ ，状态变化为 $[i-1, c-wgt[i-1]]$ 。
+- **放入物品 $i$** ：背包容量减少 $wgt[i-1]$ ，价值增加 $val[i-1]$ ，状态变化为 $[i-1, c-wgt[i-1]]$ 。
 
-上述分析向我们揭示了本题的最优子结构：**最大价值 $dp[i, c]$ 等于不放入物品 $i$ 和放入物品 $i$ 两种方案中的价值更大的那一个**。由此可推出状态转移方程：
+上述分析向我们揭示了本题的最优子结构：**最大价值 $dp[i, c]$ 等于不放入物品 $i$ 和放入物品 $i$ 两种方案中价值更大的那一个**。由此可推导出状态转移方程：
 
 $$
 dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
@@ -60,17 +60,17 @@ $$
 - **递归参数**：状态 $[i, c]$ 。
 - **返回值**：子问题的解 $dp[i, c]$ 。
 - **终止条件**：当物品编号越界 $i = 0$ 或背包剩余容量为 $0$ 时，终止递归并返回价值 $0$ 。
-- **剪枝**：若当前物品重量超出背包剩余容量，则只能不放入背包。
+- **剪枝**：若当前物品重量超出背包剩余容量，则只能选择不放入背包。
 
 === "Python"
 
     ```python title="knapsack.py"
     def knapsack_dfs(wgt: list[int], val: list[int], i: int, c: int) -> int:
         """0-1 背包：暴力搜索"""
-        # 若已选完所有物品或背包无容量，则返回价值 0
+        # 若已选完所有物品或背包无剩余容量，则返回价值 0
         if i == 0 or c == 0:
             return 0
-        # 若超过背包容量，则只能不放入背包
+        # 若超过背包容量，则只能选择不放入背包
         if wgt[i - 1] > c:
             return knapsack_dfs(wgt, val, i - 1, c)
         # 计算不放入和放入物品 i 的最大价值
@@ -85,11 +85,11 @@ $$
     ```cpp title="knapsack.cpp"
     /* 0-1 背包：暴力搜索 */
     int knapsackDFS(vector<int> &wgt, vector<int> &val, int i, int c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i == 0 || c == 0) {
             return 0;
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
             return knapsackDFS(wgt, val, i - 1, c);
         }
@@ -106,11 +106,11 @@ $$
     ```java title="knapsack.java"
     /* 0-1 背包：暴力搜索 */
     int knapsackDFS(int[] wgt, int[] val, int i, int c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i == 0 || c == 0) {
             return 0;
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
             return knapsackDFS(wgt, val, i - 1, c);
         }
@@ -127,11 +127,11 @@ $$
     ```csharp title="knapsack.cs"
     /* 0-1 背包：暴力搜索 */
     int KnapsackDFS(int[] weight, int[] val, int i, int c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i == 0 || c == 0) {
             return 0;
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (weight[i - 1] > c) {
             return KnapsackDFS(weight, val, i - 1, c);
         }
@@ -148,11 +148,11 @@ $$
     ```go title="knapsack.go"
     /* 0-1 背包：暴力搜索 */
     func knapsackDFS(wgt, val []int, i, c int) int {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if i == 0 || c == 0 {
             return 0
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if wgt[i-1] > c {
             return knapsackDFS(wgt, val, i-1, c)
         }
@@ -169,11 +169,11 @@ $$
     ```swift title="knapsack.swift"
     /* 0-1 背包：暴力搜索 */
     func knapsackDFS(wgt: [Int], val: [Int], i: Int, c: Int) -> Int {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if i == 0 || c == 0 {
             return 0
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if wgt[i - 1] > c {
             return knapsackDFS(wgt: wgt, val: val, i: i - 1, c: c)
         }
@@ -190,11 +190,11 @@ $$
     ```javascript title="knapsack.js"
     /* 0-1 背包：暴力搜索 */
     function knapsackDFS(wgt, val, i, c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i === 0 || c === 0) {
             return 0;
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
             return knapsackDFS(wgt, val, i - 1, c);
         }
@@ -216,11 +216,11 @@ $$
         i: number,
         c: number
     ): number {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i === 0 || c === 0) {
             return 0;
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
             return knapsackDFS(wgt, val, i - 1, c);
         }
@@ -237,11 +237,11 @@ $$
     ```dart title="knapsack.dart"
     /* 0-1 背包：暴力搜索 */
     int knapsackDFS(List<int> wgt, List<int> val, int i, int c) {
-      // 若已选完所有物品或背包无容量，则返回价值 0
+      // 若已选完所有物品或背包无剩余容量，则返回价值 0
       if (i == 0 || c == 0) {
         return 0;
       }
-      // 若超过背包容量，则只能不放入背包
+      // 若超过背包容量，则只能选择不放入背包
       if (wgt[i - 1] > c) {
         return knapsackDFS(wgt, val, i - 1, c);
       }
@@ -258,11 +258,11 @@ $$
     ```rust title="knapsack.rs"
     /* 0-1 背包：暴力搜索 */
     fn knapsack_dfs(wgt: &[i32], val: &[i32], i: usize, c: usize) -> i32 {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if i == 0 || c == 0 {
             return 0;
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if wgt[i - 1] > c as i32 {
             return knapsack_dfs(wgt, val, i - 1, c);
         }
@@ -279,11 +279,11 @@ $$
     ```c title="knapsack.c"
     /* 0-1 背包：暴力搜索 */
     int knapsackDFS(int wgt[], int val[], int i, int c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i == 0 || c == 0) {
             return 0;
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
             return knapsackDFS(wgt, val, i - 1, c);
         }
@@ -300,11 +300,11 @@ $$
     ```zig title="knapsack.zig"
     // 0-1 背包：暴力搜索
     fn knapsackDFS(wgt: []i32, val: []i32, i: usize, c: usize) i32 {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i == 0 or c == 0) {
             return 0;
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
             return knapsackDFS(wgt, val, i - 1, c);
         }
@@ -320,15 +320,15 @@ $$
 
 观察递归树，容易发现其中存在重叠子问题，例如 $dp[1, 10]$ 等。而当物品较多、背包容量较大，尤其是相同重量的物品较多时，重叠子问题的数量将会大幅增多。
 
-![0-1 背包的暴力搜索递归树](knapsack_problem.assets/knapsack_dfs.png){ class="animation-figure" }
+![0-1 背包问题的暴力搜索递归树](knapsack_problem.assets/knapsack_dfs.png){ class="animation-figure" }
 
-<p align="center"> 图 14-18 &nbsp; 0-1 背包的暴力搜索递归树 </p>
+<p align="center"> 图 14-18 &nbsp; 0-1 背包问题的暴力搜索递归树 </p>
 
 ### 2. &nbsp; 方法二：记忆化搜索
 
 为了保证重叠子问题只被计算一次，我们借助记忆列表 `mem` 来记录子问题的解，其中 `mem[i][c]` 对应 $dp[i, c]$ 。
 
-引入记忆化之后，**时间复杂度取决于子问题数量**，也就是 $O(n \times cap)$ 。
+引入记忆化之后，**时间复杂度取决于子问题数量**，也就是 $O(n \times cap)$ 。实现代码如下：
 
 === "Python"
 
@@ -337,13 +337,13 @@ $$
         wgt: list[int], val: list[int], mem: list[list[int]], i: int, c: int
     ) -> int:
         """0-1 背包：记忆化搜索"""
-        # 若已选完所有物品或背包无容量，则返回价值 0
+        # 若已选完所有物品或背包无剩余容量，则返回价值 0
         if i == 0 or c == 0:
             return 0
         # 若已有记录，则直接返回
         if mem[i][c] != -1:
             return mem[i][c]
-        # 若超过背包容量，则只能不放入背包
+        # 若超过背包容量，则只能选择不放入背包
         if wgt[i - 1] > c:
             return knapsack_dfs_mem(wgt, val, mem, i - 1, c)
         # 计算不放入和放入物品 i 的最大价值
@@ -359,7 +359,7 @@ $$
     ```cpp title="knapsack.cpp"
     /* 0-1 背包：记忆化搜索 */
     int knapsackDFSMem(vector<int> &wgt, vector<int> &val, vector<vector<int>> &mem, int i, int c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i == 0 || c == 0) {
             return 0;
         }
@@ -367,7 +367,7 @@ $$
         if (mem[i][c] != -1) {
             return mem[i][c];
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
             return knapsackDFSMem(wgt, val, mem, i - 1, c);
         }
@@ -385,7 +385,7 @@ $$
     ```java title="knapsack.java"
     /* 0-1 背包：记忆化搜索 */
     int knapsackDFSMem(int[] wgt, int[] val, int[][] mem, int i, int c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i == 0 || c == 0) {
             return 0;
         }
@@ -393,7 +393,7 @@ $$
         if (mem[i][c] != -1) {
             return mem[i][c];
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
             return knapsackDFSMem(wgt, val, mem, i - 1, c);
         }
@@ -411,7 +411,7 @@ $$
     ```csharp title="knapsack.cs"
     /* 0-1 背包：记忆化搜索 */
     int KnapsackDFSMem(int[] weight, int[] val, int[][] mem, int i, int c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i == 0 || c == 0) {
             return 0;
         }
@@ -419,7 +419,7 @@ $$
         if (mem[i][c] != -1) {
             return mem[i][c];
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (weight[i - 1] > c) {
             return KnapsackDFSMem(weight, val, mem, i - 1, c);
         }
@@ -437,7 +437,7 @@ $$
     ```go title="knapsack.go"
     /* 0-1 背包：记忆化搜索 */
     func knapsackDFSMem(wgt, val []int, mem [][]int, i, c int) int {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if i == 0 || c == 0 {
             return 0
         }
@@ -445,7 +445,7 @@ $$
         if mem[i][c] != -1 {
             return mem[i][c]
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if wgt[i-1] > c {
             return knapsackDFSMem(wgt, val, mem, i-1, c)
         }
@@ -463,7 +463,7 @@ $$
     ```swift title="knapsack.swift"
     /* 0-1 背包：记忆化搜索 */
     func knapsackDFSMem(wgt: [Int], val: [Int], mem: inout [[Int]], i: Int, c: Int) -> Int {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if i == 0 || c == 0 {
             return 0
         }
@@ -471,7 +471,7 @@ $$
         if mem[i][c] != -1 {
             return mem[i][c]
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if wgt[i - 1] > c {
             return knapsackDFSMem(wgt: wgt, val: val, mem: &mem, i: i - 1, c: c)
         }
@@ -489,7 +489,7 @@ $$
     ```javascript title="knapsack.js"
     /* 0-1 背包：记忆化搜索 */
     function knapsackDFSMem(wgt, val, mem, i, c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i === 0 || c === 0) {
             return 0;
         }
@@ -497,7 +497,7 @@ $$
         if (mem[i][c] !== -1) {
             return mem[i][c];
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
             return knapsackDFSMem(wgt, val, mem, i - 1, c);
         }
@@ -522,7 +522,7 @@ $$
         i: number,
         c: number
     ): number {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i === 0 || c === 0) {
             return 0;
         }
@@ -530,7 +530,7 @@ $$
         if (mem[i][c] !== -1) {
             return mem[i][c];
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
             return knapsackDFSMem(wgt, val, mem, i - 1, c);
         }
@@ -555,7 +555,7 @@ $$
       int i,
       int c,
     ) {
-      // 若已选完所有物品或背包无容量，则返回价值 0
+      // 若已选完所有物品或背包无剩余容量，则返回价值 0
       if (i == 0 || c == 0) {
         return 0;
       }
@@ -563,7 +563,7 @@ $$
       if (mem[i][c] != -1) {
         return mem[i][c];
       }
-      // 若超过背包容量，则只能不放入背包
+      // 若超过背包容量，则只能选择不放入背包
       if (wgt[i - 1] > c) {
         return knapsackDFSMem(wgt, val, mem, i - 1, c);
       }
@@ -581,7 +581,7 @@ $$
     ```rust title="knapsack.rs"
     /* 0-1 背包：记忆化搜索 */
     fn knapsack_dfs_mem(wgt: &[i32], val: &[i32], mem: &mut Vec<Vec<i32>>, i: usize, c: usize) -> i32 {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if i == 0 || c == 0 {
             return 0;
         }
@@ -589,7 +589,7 @@ $$
         if mem[i][c] != -1 {
             return mem[i][c];
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if wgt[i - 1] > c as i32 {
             return knapsack_dfs_mem(wgt, val, mem, i - 1, c);
         }
@@ -607,7 +607,7 @@ $$
     ```c title="knapsack.c"
     /* 0-1 背包：记忆化搜索 */
     int knapsackDFSMem(int wgt[], int val[], int memCols, int **mem, int i, int c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i == 0 || c == 0) {
             return 0;
         }
@@ -615,7 +615,7 @@ $$
         if (mem[i][c] != -1) {
             return mem[i][c];
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
             return knapsackDFSMem(wgt, val, memCols, mem, i - 1, c);
         }
@@ -633,7 +633,7 @@ $$
     ```zig title="knapsack.zig"
     // 0-1 背包：记忆化搜索
     fn knapsackDFSMem(wgt: []i32, val: []i32, mem: anytype, i: usize, c: usize) i32 {
-        // 若已选完所有物品或背包无容量，则返回价值 0
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
         if (i == 0 or c == 0) {
             return 0;
         }
@@ -641,7 +641,7 @@ $$
         if (mem[i][c] != -1) {
             return mem[i][c];
         }
-        // 若超过背包容量，则只能不放入背包
+        // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
             return knapsackDFSMem(wgt, val, mem, i - 1, c);
         }
@@ -654,15 +654,15 @@ $$
     }
     ```
 
-图 14-19 展示了在记忆化递归中被剪掉的搜索分支。
+图 14-19 展示了在记忆化搜索中被剪掉的搜索分支。
 
-![0-1 背包的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.png){ class="animation-figure" }
+![0-1 背包问题的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.png){ class="animation-figure" }
 
-<p align="center"> 图 14-19 &nbsp; 0-1 背包的记忆化搜索递归树 </p>
+<p align="center"> 图 14-19 &nbsp; 0-1 背包问题的记忆化搜索递归树 </p>
 
 ### 3. &nbsp; 方法三：动态规划
 
-动态规划实质上就是在状态转移中填充 $dp$ 表的过程，代码如下所示。
+动态规划实质上就是在状态转移中填充 $dp$ 表的过程，代码如下所示：
 
 === "Python"
 
@@ -976,7 +976,7 @@ $$
 如图 14-20 所示，时间复杂度和空间复杂度都由数组 `dp` 大小决定，即 $O(n \times cap)$ 。
 
 === "<1>"
-    ![0-1 背包的动态规划过程](knapsack_problem.assets/knapsack_dp_step1.png){ class="animation-figure" }
+    ![0-1 背包问题的动态规划过程](knapsack_problem.assets/knapsack_dp_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.png){ class="animation-figure" }
@@ -1017,13 +1017,13 @@ $$
 === "<14>"
     ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.png){ class="animation-figure" }
 
-<p align="center"> 图 14-20 &nbsp; 0-1 背包的动态规划过程 </p>
+<p align="center"> 图 14-20 &nbsp; 0-1 背包问题的动态规划过程 </p>
 
 ### 4. &nbsp; 空间优化
 
-由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 $O(n^2)$ 将低至 $O(n)$ 。
+由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 $O(n^2)$ 降至 $O(n)$ 。
 
-进一步思考，我们是否可以仅用一个数组实现空间优化呢？观察可知，每个状态都是由正上方或左上方的格子转移过来的。假设只有一个数组，当开始遍历第 $i$ 行时，该数组存储的仍然是第 $i-1$ 行的状态。
+进一步思考，我们能否仅用一个数组实现空间优化呢？观察可知，每个状态都是由正上方或左上方的格子转移过来的。假设只有一个数组，当开始遍历第 $i$ 行时，该数组存储的仍然是第 $i-1$ 行的状态。
 
 - 如果采取正序遍历，那么遍历到 $dp[i, j]$ 时，左上方 $dp[i-1, 1]$ ~ $dp[i-1, j-1]$ 值可能已经被覆盖，此时就无法得到正确的状态转移结果。
 - 如果采取倒序遍历，则不会发生覆盖问题，状态转移可以正确进行。
@@ -1050,7 +1050,7 @@ $$
 
 <p align="center"> 图 14-21 &nbsp; 0-1 背包的空间优化后的动态规划过程 </p>
 
-在代码实现中，我们仅需将数组 `dp` 的第一维 $i$ 直接删除，并且把内循环更改为倒序遍历即可。
+在代码实现中，我们仅需将数组 `dp` 的第一维 $i$ 直接删除，并且把内循环更改为倒序遍历即可：
 
 === "Python"
 
