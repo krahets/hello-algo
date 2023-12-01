@@ -34,12 +34,12 @@ def insert(nums: list[int], num: int, index: int):
     # 把索引 index 以及之后的所有元素向后移动一位
     for i in range(len(nums) - 1, index, -1):
         nums[i] = nums[i - 1]
-    # 将 num 赋给 index 处元素
+    # 将 num 赋给 index 处的元素
     nums[index] = num
 
 
 def remove(nums: list[int], index: int):
-    """删除索引 index 处元素"""
+    """删除索引 index 处的元素"""
     # 把索引 index 之后的所有元素向前移动一位
     for i in range(index, len(nums) - 1):
         nums[i] = nums[i + 1]

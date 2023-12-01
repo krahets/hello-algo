@@ -33,11 +33,11 @@ public class array {
         for (int i = nums.Length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
-        // 将 num 赋给 index 处元素
+        // 将 num 赋给 index 处的元素
         nums[index] = num;
     }
 
-    /* 删除索引 index 处元素 */
+    /* 删除索引 index 处的元素 */
     void Remove(int[] nums, int index) {
         // 把索引 index 之后的所有元素向前移动一位
         for (int i = index; i < nums.Length - 1; i++) {

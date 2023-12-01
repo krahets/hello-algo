@@ -223,7 +223,7 @@
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # 构建引用指向（即指针）
+    # 构建节点对象之间的引用（指针）
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -240,7 +240,7 @@
     TreeNode* n3 = new TreeNode(3);
     TreeNode* n4 = new TreeNode(4);
     TreeNode* n5 = new TreeNode(5);
-    // 构建引用指向（即指针）
+    // 构建节点对象之间的引用（指针）
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -256,7 +256,7 @@
     TreeNode n3 = new TreeNode(3);
     TreeNode n4 = new TreeNode(4);
     TreeNode n5 = new TreeNode(5);
-    // 构建引用指向（即指针）
+    // 构建节点对象之间的引用（指针）
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -273,7 +273,7 @@
     TreeNode n3 = new(3);
     TreeNode n4 = new(4);
     TreeNode n5 = new(5);
-    // 构建引用指向（即指针）
+    // 构建节点对象之间的引用（指针）
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -290,7 +290,7 @@
     n3 := NewTreeNode(3)
     n4 := NewTreeNode(4)
     n5 := NewTreeNode(5)
-    // 构建引用指向（即指针）
+    // 构建节点对象之间的引用（指针）
     n1.Left = n2
     n1.Right = n3
     n2.Left = n4
@@ -306,7 +306,7 @@
     let n3 = TreeNode(x: 3)
     let n4 = TreeNode(x: 4)
     let n5 = TreeNode(x: 5)
-    // 构建引用指向（即指针）
+    // 构建节点对象之间的引用（指针）
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -323,7 +323,7 @@
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // 构建引用指向（即指针）
+    // 构建节点对象之间的引用（指针）
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -340,7 +340,7 @@
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // 构建引用指向（即指针）
+    // 构建节点对象之间的引用（指针）
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -357,7 +357,7 @@
     TreeNode n3 = new TreeNode(3);
     TreeNode n4 = new TreeNode(4);
     TreeNode n5 = new TreeNode(5);
-    // 构建引用指向（即指针）
+    // 构建节点对象之间的引用（指针）
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -373,7 +373,7 @@
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // 构建引用指向（即指针）
+    // 构建节点对象之间的引用（指针）
     n1.borrow_mut().left = Some(n2.clone());
     n1.borrow_mut().right = Some(n3);
     n2.borrow_mut().left = Some(n4);
@@ -390,7 +390,7 @@
     TreeNode *n3 = newTreeNode(3);
     TreeNode *n4 = newTreeNode(4);
     TreeNode *n5 = newTreeNode(5);
-    // 构建引用指向（即指针）
+    // 构建节点对象之间的引用（指针）
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
