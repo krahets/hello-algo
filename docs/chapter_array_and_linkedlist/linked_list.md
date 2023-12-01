@@ -183,7 +183,7 @@
 
 ### 初始化链表
 
-建立链表分为两步，第一步是初始化各个节点对象，第二步是构建节点对象之间的引用关系。初始化完成后，我们就可以从链表的头节点出发，通过引用指向 `next` 依次访问所有节点。
+建立链表分为两步，第一步是初始化各个节点对象，第二步是构建节点之间的引用关系。初始化完成后，我们就可以从链表的头节点出发，通过引用指向 `next` 依次访问所有节点。
 
 === "Python"
 
@@ -195,7 +195,7 @@
     n2 = ListNode(2)
     n3 = ListNode(5)
     n4 = ListNode(4)
-    # 构建节点对象之间的引用
+    # 构建节点之间的引用
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -212,7 +212,7 @@
     ListNode* n2 = new ListNode(2);
     ListNode* n3 = new ListNode(5);
     ListNode* n4 = new ListNode(4);
-    // 构建节点对象之间的引用
+    // 构建节点之间的引用
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -229,7 +229,7 @@
     ListNode n2 = new ListNode(2);
     ListNode n3 = new ListNode(5);
     ListNode n4 = new ListNode(4);
-    // 构建节点对象之间的引用
+    // 构建节点之间的引用
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -246,7 +246,7 @@
     ListNode n2 = new(2);
     ListNode n3 = new(5);
     ListNode n4 = new(4);
-    // 构建节点对象之间的引用
+    // 构建节点之间的引用
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -263,7 +263,7 @@
     n2 := NewListNode(2)
     n3 := NewListNode(5)
     n4 := NewListNode(4)
-    // 构建节点对象之间的引用
+    // 构建节点之间的引用
     n0.Next = n1
     n1.Next = n2
     n2.Next = n3
@@ -280,7 +280,7 @@
     let n2 = ListNode(x: 2)
     let n3 = ListNode(x: 5)
     let n4 = ListNode(x: 4)
-    // 构建节点对象之间的引用
+    // 构建节点之间的引用
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -297,7 +297,7 @@
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // 构建节点对象之间的引用
+    // 构建节点之间的引用
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -314,7 +314,7 @@
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // 构建节点对象之间的引用
+    // 构建节点之间的引用
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -331,7 +331,7 @@
     ListNode n2 = ListNode(2);
     ListNode n3 = ListNode(5);
     ListNode n4 = ListNode(4);
-    // 构建节点对象之间的引用
+    // 构建节点之间的引用
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -349,7 +349,7 @@
     let n3 = Rc::new(RefCell::new(ListNode { val: 5, next: None }));
     let n4 = Rc::new(RefCell::new(ListNode { val: 4, next: None }));
 
-    // 构建节点对象之间的引用
+    // 构建节点之间的引用
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
@@ -366,7 +366,7 @@
     ListNode* n2 = newListNode(2);
     ListNode* n3 = newListNode(5);
     ListNode* n4 = newListNode(4);
-    // 构建节点对象之间的引用
+    // 构建节点之间的引用
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -383,7 +383,7 @@
     var n2 = inc.ListNode(i32){.val = 2};
     var n3 = inc.ListNode(i32){.val = 5};
     var n4 = inc.ListNode(i32){.val = 4};
-    // 构建节点对象之间的引用
+    // 构建节点之间的引用
     n0.next = &n1;
     n1.next = &n2;
     n2.next = &n3;
