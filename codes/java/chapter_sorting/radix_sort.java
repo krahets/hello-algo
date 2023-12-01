@@ -17,7 +17,7 @@ public class radix_sort {
 
     /* 计数排序（根据 nums 第 k 位排序） */
     static void countingSortDigit(int[] nums, int exp) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         int[] counter = new int[10];
         int n = nums.length;
         // 统计 0~9 各数字的出现次数

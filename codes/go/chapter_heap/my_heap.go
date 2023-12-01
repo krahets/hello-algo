@@ -100,7 +100,7 @@ func (h *maxHeap) pop() any {
 		fmt.Println("error")
 		return nil
 	}
-	// 交换根节点与最右叶节点（即交换首元素与尾元素）
+	// 交换根节点与最右叶节点（交换首元素与尾元素）
 	h.swap(0, h.size()-1)
 	// 删除节点
 	val := h.data[len(h.data)-1]

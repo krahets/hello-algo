@@ -38,7 +38,7 @@ class LinkedListDeque {
     /* 入队操作 */
     private func push(num: Int, isFront: Bool) {
         let node = ListNode(val: num)
-        // 若链表为空，则令 front, rear 都指向 node
+        // 若链表为空，则令 front 和 rear 都指向 node
         if isEmpty() {
             front = node
             rear = node

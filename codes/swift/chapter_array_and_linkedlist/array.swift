@@ -31,11 +31,11 @@ func insert(nums: inout [Int], num: Int, index: Int) {
     for i in nums.indices.dropFirst(index).reversed() {
         nums[i] = nums[i - 1]
     }
-    // 将 num 赋给 index 处元素
+    // 将 num 赋给 index 处的元素
     nums[index] = num
 }
 
-/* 删除索引 index 处元素 */
+/* 删除索引 index 处的元素 */
 func remove(nums: inout [Int], index: Int) {
     // 把索引 index 之后的所有元素向前移动一位
     for i in nums.indices.dropFirst(index).dropLast() {

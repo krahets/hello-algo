@@ -6,17 +6,17 @@ Author: Krahets (krahets@163.com)
 
 
 class MyList:
-    """列表类简易实现"""
+    """列表类"""
 
     def __init__(self):
         """构造方法"""
         self._capacity: int = 10  # 列表容量
         self._arr: list[int] = [0] * self._capacity  # 数组（存储列表元素）
-        self._size: int = 0  # 列表长度（即当前元素数量）
+        self._size: int = 0  # 列表长度（当前元素数量）
         self._extend_ratio: int = 2  # 每次列表扩容的倍数
 
     def size(self) -> int:
-        """获取列表长度（即当前元素数量）"""
+        """获取列表长度（当前元素数量）"""
         return self._size
 
     def capacity(self) -> int:
@@ -37,7 +37,7 @@ class MyList:
         self._arr[index] = num
 
     def add(self, num: int):
-        """尾部添加元素"""
+        """在尾部添加元素"""
         # 元素数量超出容量时，触发扩容机制
         if self.size() == self.capacity():
             self.extend_capacity()
@@ -45,7 +45,7 @@ class MyList:
         self._size += 1
 
     def insert(self, num: int, index: int):
-        """中间插入元素"""
+        """在中间插入元素"""
         if index < 0 or index >= self._size:
             raise IndexError("索引越界")
         # 元素数量超出容量时，触发扩容机制
@@ -87,7 +87,7 @@ class MyList:
 if __name__ == "__main__":
     # 初始化列表
     nums = MyList()
-    # 尾部添加元素
+    # 在尾部添加元素
     nums.add(1)
     nums.add(3)
     nums.add(2)
@@ -95,7 +95,7 @@ if __name__ == "__main__":
     nums.add(4)
     print(f"列表 nums = {nums.to_array()} ，容量 = {nums.capacity()} ，长度 = {nums.size()}")
 
-    # 中间插入元素
+    # 在中间插入元素
     nums.insert(6, index=3)
     print("在索引 3 处插入数字 6 ，得到 nums =", nums.to_array())
 

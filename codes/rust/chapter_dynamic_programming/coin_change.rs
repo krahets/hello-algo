@@ -14,7 +14,7 @@ fn coin_change_dp(coins: &[i32], amt: usize) -> i32 {
     for a in 1..= amt {
         dp[0][a] = max;
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for i in 1..=n {
         for a in 1..=amt {
             if coins[i - 1] > a as i32 {

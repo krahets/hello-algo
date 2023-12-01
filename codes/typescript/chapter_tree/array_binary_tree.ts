@@ -42,7 +42,7 @@ class ArrayBinaryTree {
 
     /* 获取索引为 i 节点的父节点的索引 */
     parent(i: number): number {
-        return Math.floor((i - 1) / 2); // 向下取整
+        return Math.floor((i - 1) / 2); // 向下整除
     }
 
     /* 层序遍历 */

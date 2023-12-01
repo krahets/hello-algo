@@ -14,7 +14,7 @@ func coinChangeDP(coins: [Int], amt: Int) -> Int {
     for a in stride(from: 1, through: amt, by: 1) {
         dp[0][a] = MAX
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for i in stride(from: 1, through: n, by: 1) {
         for a in stride(from: 1, through: amt, by: 1) {
             if coins[i - 1] > a {

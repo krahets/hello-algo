@@ -14,7 +14,7 @@ let n1 = new TreeNode(1),
     n3 = new TreeNode(3),
     n4 = new TreeNode(4),
     n5 = new TreeNode(5);
-// 构建引用指向（即指针）
+// 构建节点之间的引用（指针）
 n1.left = n2;
 n1.right = n3;
 n2.left = n4;

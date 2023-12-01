@@ -23,7 +23,7 @@ func graphBFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
         // 遍历该顶点的所有邻接顶点
         for adjVet in graph.adjList[vet] ?? [] {
             if visited.contains(adjVet) {
-                continue // 跳过已被访问过的顶点
+                continue // 跳过已被访问的顶点
             }
             que.append(adjVet) // 只入队未访问的顶点
             visited.insert(adjVet) // 标记该顶点已被访问

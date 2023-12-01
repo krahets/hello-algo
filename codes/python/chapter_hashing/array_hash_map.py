@@ -14,7 +14,7 @@ class Pair:
 
 
 class ArrayHashMap:
-    """基于数组简易实现的哈希表"""
+    """基于数组实现的哈希表"""
 
     def __init__(self):
         """构造方法"""

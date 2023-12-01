@@ -8,7 +8,7 @@ namespace hello_algo.chapter_graph;
 
 /* 基于邻接表实现的无向图类 */
 public class GraphAdjList {
-    // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+    // 邻接表，key：顶点，value：该顶点的所有邻接顶点
     public Dictionary<Vertex, List<Vertex>> adjList;
 
     /* 构造函数 */

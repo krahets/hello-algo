@@ -66,7 +66,7 @@ function editDistanceDP(s, t) {
     for (let j = 1; j <= m; j++) {
         dp[0][j] = j;
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for (let i = 1; i <= n; i++) {
         for (let j = 1; j <= m; j++) {
             if (s.charAt(i - 1) === t.charAt(j - 1)) {

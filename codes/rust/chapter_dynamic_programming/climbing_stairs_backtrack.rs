@@ -20,7 +20,7 @@ fn backtrack(choices: &[i32], state: i32, n: i32, res: &mut [i32]) {
 
 /* 爬楼梯：回溯 */
 fn climbing_stairs_backtrack(n: usize) -> i32 {
-    let choices = vec![ 1, 2 ]; // 可选择向上爬 1 或 2 阶
+    let choices = vec![ 1, 2 ]; // 可选择向上爬 1 阶或 2 阶
     let state = 0; // 从第 0 阶开始爬
     let mut res = Vec::new();
     res.push(0); // 使用 res[0] 记录方案数量

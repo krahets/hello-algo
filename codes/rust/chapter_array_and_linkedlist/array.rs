@@ -35,11 +35,11 @@ fn insert(nums: &mut Vec<i32>, num: i32, index: usize) {
     for i in (index + 1..nums.len()).rev() {
         nums[i] = nums[i - 1];
     }
-    // 将 num 赋给 index 处元素
+    // 将 num 赋给 index 处的元素
     nums[index] = num;
 }
 
-/* 删除索引 index 处元素 */
+/* 删除索引 index 处的元素 */
 fn remove(nums: &mut Vec<i32>, index: usize) {
     // 把索引 index 之后的所有元素向前移动一位
     for i in index..nums.len() - 1 {

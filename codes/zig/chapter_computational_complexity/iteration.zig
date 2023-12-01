@@ -31,7 +31,7 @@ fn whileLoop(n: i32) i32 {
 fn whileLoopII(n: i32) i32 {
     var res: i32 = 0;
     var i: i32 = 1; // 初始化条件变量
-    // 循环求和 1, 4, ...
+    // 循环求和 1, 4, 10, ...
     while (i <= n) {
         res += @intCast(i);
         // 更新条件变量

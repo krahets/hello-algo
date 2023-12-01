@@ -42,7 +42,7 @@ class LinkedListDeque {
     /* 入队操作 */
     private void push(int num, boolean isFront) {
         ListNode node = new ListNode(num);
-        // 若链表为空，则令 front, rear 都指向 node
+        // 若链表为空，则令 front 和 rear 都指向 node
         if (isEmpty())
             front = rear = node;
         // 队首入队操作

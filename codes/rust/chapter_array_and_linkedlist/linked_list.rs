@@ -57,7 +57,7 @@ fn main() {
     let n2 = ListNode::new(2);
     let n3 = ListNode::new(5);
     let n4 = ListNode::new(4);
-    // 构建引用指向
+    // 构建节点之间的引用
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());

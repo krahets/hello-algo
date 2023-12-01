@@ -14,7 +14,7 @@ func swap(nums: inout [Int], i: Int, j: Int) {
 /* 快速排序类 */
 /* 哨兵划分 */
 func partition(nums: inout [Int], left: Int, right: Int) -> Int {
-    // 以 nums[left] 作为基准数
+    // 以 nums[left] 为基准数
     var i = left
     var j = right
     while i < j {
@@ -87,7 +87,7 @@ func quickSortTailCall(nums: inout [Int], left: Int, right: Int) {
     while left < right {
         // 哨兵划分操作
         let pivot = partition(nums: &nums, left: left, right: right)
-        // 对两个子数组中较短的那个执行快排
+        // 对两个子数组中较短的那个执行快速排序
         if (pivot - left) < (right - pivot) {
             quickSortTailCall(nums: &nums, left: left, right: pivot - 1) // 递归排序左子数组
             left = pivot + 1 // 剩余未排序区间为 [pivot + 1, right]

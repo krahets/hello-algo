@@ -93,7 +93,7 @@ impl MaxHeap {
         if self.is_empty() {
             panic!("index out of bounds");
         }
-        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
         self.swap(0, self.size() - 1);
         // 删除节点
         let val = self.max_heap.remove(self.size() - 1);

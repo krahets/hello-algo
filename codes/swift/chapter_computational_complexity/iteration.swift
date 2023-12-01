@@ -30,7 +30,7 @@ func whileLoop(n: Int) -> Int {
 func whileLoopII(n: Int) -> Int {
     var res = 0
     var i = 1 // 初始化条件变量
-    // 循环求和 1, 4, ...
+    // 循环求和 1, 4, 10, ...
     while i <= n {
         res += i
         // 更新条件变量

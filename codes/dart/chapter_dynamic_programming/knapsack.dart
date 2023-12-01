@@ -8,11 +8,11 @@ import 'dart:math';
 
 /* 0-1 背包：暴力搜索 */
 int knapsackDFS(List<int> wgt, List<int> val, int i, int c) {
-  // 若已选完所有物品或背包无容量，则返回价值 0
+  // 若已选完所有物品或背包无剩余容量，则返回价值 0
   if (i == 0 || c == 0) {
     return 0;
   }
-  // 若超过背包容量，则只能不放入背包
+  // 若超过背包容量，则只能选择不放入背包
   if (wgt[i - 1] > c) {
     return knapsackDFS(wgt, val, i - 1, c);
   }
@@ -31,7 +31,7 @@ int knapsackDFSMem(
   int i,
   int c,
 ) {
-  // 若已选完所有物品或背包无容量，则返回价值 0
+  // 若已选完所有物品或背包无剩余容量，则返回价值 0
   if (i == 0 || c == 0) {
     return 0;
   }
@@ -39,7 +39,7 @@ int knapsackDFSMem(
   if (mem[i][c] != -1) {
     return mem[i][c];
   }
-  // 若超过背包容量，则只能不放入背包
+  // 若超过背包容量，则只能选择不放入背包
   if (wgt[i - 1] > c) {
     return knapsackDFSMem(wgt, val, mem, i - 1, c);
   }

@@ -19,7 +19,7 @@ def dfs(graph: GraphAdjList, visited: set[Vertex], res: list[Vertex], vet: Verte
     # 遍历该顶点的所有邻接顶点
     for adjVet in graph.adj_list[vet]:
         if adjVet in visited:
-            continue  # 跳过已被访问过的顶点
+            continue  # 跳过已被访问的顶点
         # 递归访问邻接顶点
         dfs(graph, visited, res, adjVet)
 

@@ -14,7 +14,7 @@ public class graph_dfs {
         // 遍历该顶点的所有邻接顶点
         foreach (Vertex adjVet in graph.adjList[vet]) {
             if (visited.Contains(adjVet)) {
-                continue; // 跳过已被访问过的顶点                             
+                continue; // 跳过已被访问的顶点                             
             }
             // 递归访问邻接顶点
             DFS(graph, visited, res, adjVet);

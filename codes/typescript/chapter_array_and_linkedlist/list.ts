@@ -20,7 +20,7 @@ console.log(`将索引 1 处的元素更新为 0 ，得到 nums = ${nums}`);
 nums.length = 0;
 console.log(`清空列表后 nums = ${nums}`);
 
-/* 尾部添加元素 */
+/* 在尾部添加元素 */
 nums.push(1);
 nums.push(3);
 nums.push(2);
@@ -28,7 +28,7 @@ nums.push(5);
 nums.push(4);
 console.log(`添加元素后 nums = ${nums}`);
 
-/* 中间插入元素 */
+/* 在中间插入元素 */
 nums.splice(3, 0, 6);
 console.log(`在索引 3 处插入数字 6 ，得到 nums = ${nums}`);
 

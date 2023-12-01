@@ -24,7 +24,7 @@ void main() {
   nums.clear();
   print('清空列表后 nums = $nums');
 
-  /* 尾部添加元素 */
+  /* 在尾部添加元素 */
   nums.add(1);
   nums.add(3);
   nums.add(2);
@@ -32,7 +32,7 @@ void main() {
   nums.add(4);
   print('添加元素后 nums = $nums');
 
-  /* 中间插入元素 */
+  /* 在中间插入元素 */
   nums.insert(3, 6);
   print('在索引 3 处插入数字 6 ，得到 nums = $nums');
 

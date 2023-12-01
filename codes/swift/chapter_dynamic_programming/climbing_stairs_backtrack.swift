@@ -22,7 +22,7 @@ func backtrack(choices: [Int], state: Int, n: Int, res: inout [Int]) {
 
 /* 爬楼梯：回溯 */
 func climbingStairsBacktrack(n: Int) -> Int {
-    let choices = [1, 2] // 可选择向上爬 1 或 2 阶
+    let choices = [1, 2] // 可选择向上爬 1 阶或 2 阶
     let state = 0 // 从第 0 阶开始爬
     var res: [Int] = []
     res.append(0) // 使用 res[0] 记录方案数量

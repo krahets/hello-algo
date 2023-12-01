@@ -17,7 +17,7 @@ def random_access(nums: list[int]) -> int:
 
 
 # 请注意，Python 的 list 是动态数组，可以直接扩展
-# 为了方便学习，本函数将 list 看作是长度不可变的数组
+# 为了方便学习，本函数将 list 看作长度不可变的数组
 def extend(nums: list[int], enlarge: int) -> list[int]:
     """扩展数组长度"""
     # 初始化一个扩展长度后的数组
@@ -34,12 +34,12 @@ def insert(nums: list[int], num: int, index: int):
     # 把索引 index 以及之后的所有元素向后移动一位
     for i in range(len(nums) - 1, index, -1):
         nums[i] = nums[i - 1]
-    # 将 num 赋给 index 处元素
+    # 将 num 赋给 index 处的元素
     nums[index] = num
 
 
 def remove(nums: list[int], index: int):
-    """删除索引 index 处元素"""
+    """删除索引 index 处的元素"""
     # 把索引 index 之后的所有元素向前移动一位
     for i in range(index, len(nums) - 1):
         nums[i] = nums[i + 1]

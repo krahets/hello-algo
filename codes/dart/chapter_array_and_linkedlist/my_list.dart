@@ -4,11 +4,11 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
   late List<int> _arr; // 数组（存储列表元素）
   int _capacity = 10; // 列表容量
-  int _size = 0; // 列表长度（即当前元素数量）
+  int _size = 0; // 列表长度（当前元素数量）
   int _extendRatio = 2; // 每次列表扩容的倍数
 
   /* 构造方法 */
@@ -16,7 +16,7 @@ class MyList {
     _arr = List.filled(_capacity, 0);
   }
 
-  /* 获取列表长度（即当前元素数量）*/
+  /* 获取列表长度（当前元素数量）*/
   int size() => _size;
 
   /* 获取列表容量 */
@@ -34,7 +34,7 @@ class MyList {
     _arr[index] = _num;
   }
 
-  /* 尾部添加元素 */
+  /* 在尾部添加元素 */
   void add(int _num) {
     // 元素数量超出容量时，触发扩容机制
     if (_size == _capacity) extendCapacity();
@@ -43,7 +43,7 @@ class MyList {
     _size++;
   }
 
-  /* 中间插入元素 */
+  /* 在中间插入元素 */
   void insert(int index, int _num) {
     if (index >= _size) throw RangeError('索引越界');
     // 元素数量超出容量时，触发扩容机制
@@ -97,7 +97,7 @@ class MyList {
 void main() {
   /* 初始化列表 */
   MyList nums = MyList();
-  /* 尾部添加元素 */
+  /* 在尾部添加元素 */
   nums.add(1);
   nums.add(3);
   nums.add(2);
@@ -106,7 +106,7 @@ void main() {
   print(
       '列表 nums = ${nums.toArray()} ，容量 = ${nums.capacity()} ，长度 = ${nums.size()}');
 
-  /* 中间插入元素 */
+  /* 在中间插入元素 */
   nums.insert(3, 6);
   print('在索引 3 处插入数字 6 ，得到 nums = ${nums.toArray()}');
 

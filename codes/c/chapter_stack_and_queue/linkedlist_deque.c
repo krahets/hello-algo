@@ -67,7 +67,7 @@ bool empty(LinkedListDeque *deque) {
 /* 入队 */
 void push(LinkedListDeque *deque, int num, bool isFront) {
     DoublyListNode *node = newDoublyListNode(num);
-    // 若链表为空，则令 front, rear 都指向node
+    // 若链表为空，则令 front 和 rear 都指向node
     if (empty(deque)) {
         deque->front = deque->rear = node;
     }

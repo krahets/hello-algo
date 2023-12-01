@@ -95,7 +95,7 @@ pub fn MaxHeap(comptime T: type) type {
         pub fn pop(self: *Self) !T {
             // 判断处理
             if (self.isEmpty()) unreachable;
-            // 交换根节点与最右叶节点（即交换首元素与尾元素）
+            // 交换根节点与最右叶节点（交换首元素与尾元素）
             try self.swap(0, self.size() - 1);
             // 删除节点
             var val = self.max_heap.?.pop();

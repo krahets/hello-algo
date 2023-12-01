@@ -39,7 +39,7 @@ void insert(List<int> nums, int _num, int index) {
   nums[index] = _num;
 }
 
-/* 删除索引 index 处元素 */
+/* 删除索引 index 处的元素 */
 void remove(List<int> nums, int index) {
   // 把索引 index 之后的所有元素向前移动一位
   for (var i = index; i < nums.length - 1; i++) {

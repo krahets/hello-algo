@@ -4,11 +4,11 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
     #arr = new Array(); // 数组（存储列表元素）
     #capacity = 10; // 列表容量
-    #size = 0; // 列表长度（即当前元素数量）
+    #size = 0; // 列表长度（当前元素数量）
     #extendRatio = 2; // 每次列表扩容的倍数
 
     /* 构造方法 */
@@ -16,7 +16,7 @@ class MyList {
         this.#arr = new Array(this.#capacity);
     }
 
-    /* 获取列表长度（即当前元素数量）*/
+    /* 获取列表长度（当前元素数量）*/
     size() {
         return this.#size;
     }
@@ -39,7 +39,7 @@ class MyList {
         this.#arr[index] = num;
     }
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     add(num) {
         // 如果长度等于容量，则需要扩容
         if (this.#size === this.#capacity) {
@@ -50,7 +50,7 @@ class MyList {
         this.#size++;
     }
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     insert(index, num) {
         if (index < 0 || index >= this.#size) throw new Error('索引越界');
         // 元素数量超出容量时，触发扩容机制
@@ -105,7 +105,7 @@ class MyList {
 /* Driver Code */
 /* 初始化列表 */
 const nums = new MyList();
-/* 尾部添加元素 */
+/* 在尾部添加元素 */
 nums.add(1);
 nums.add(3);
 nums.add(2);
@@ -115,7 +115,7 @@ console.log(
     `列表 nums = ${nums.toArray()} ，容量 = ${nums.capacity()} ，长度 = ${nums.size()}`
 );
 
-/* 中间插入元素 */
+/* 在中间插入元素 */
 nums.insert(3, 6);
 console.log(`在索引 3 处插入数字 6 ，得到 nums = ${nums.toArray()}`);
 

@@ -57,7 +57,7 @@ public class linked_list {
         ListNode n2 = new ListNode(2);
         ListNode n3 = new ListNode(5);
         ListNode n4 = new ListNode(4);
-        // 构建引用指向
+        // 构建节点之间的引用
         n0.next = n1;
         n1.next = n2;
         n2.next = n3;

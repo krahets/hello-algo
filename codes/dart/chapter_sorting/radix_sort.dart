@@ -12,7 +12,7 @@ int digit(int _num, int exp) {
 
 /* 计数排序（根据 nums 第 k 位排序） */
 void countingSortDigit(List<int> nums, int exp) {
-  // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+  // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
   List<int> counter = List<int>.filled(10, 0);
   int n = nums.length;
   // 统计 0~9 各数字的出现次数

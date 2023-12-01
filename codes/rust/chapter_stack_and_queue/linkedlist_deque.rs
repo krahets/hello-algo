@@ -59,7 +59,7 @@ impl<T: Copy> LinkedListDeque<T> {
         // 队首入队操作
         if is_front {
             match self.front.take() {
-                // 若链表为空，则令 front, rear 都指向 node
+                // 若链表为空，则令 front 和 rear 都指向 node
                 None => {
                     self.rear = Some(node.clone());
                     self.front = Some(node);
@@ -75,7 +75,7 @@ impl<T: Copy> LinkedListDeque<T> {
         // 队尾入队操作
         else {
             match self.rear.take() {
-                // 若链表为空，则令 front, rear 都指向 node
+                // 若链表为空，则令 front 和 rear 都指向 node
                 None => {
                     self.front = Some(node.clone());
                     self.rear = Some(node);

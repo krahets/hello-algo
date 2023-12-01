@@ -36,7 +36,7 @@ function heapSort(nums: number[]): void {
     }
     // 从堆中提取最大元素，循环 n-1 轮
     for (let i = nums.length - 1; i > 0; i--) {
-        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
         [nums[0], nums[i]] = [nums[i], nums[0]];
         // 以根节点为起点，从顶至底进行堆化
         siftDown(nums, i, 0);

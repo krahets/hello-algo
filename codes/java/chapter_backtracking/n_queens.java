@@ -26,7 +26,7 @@ public class n_queens {
             // 计算该格子对应的主对角线和副对角线
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state.get(row).set(col, "Q");
@@ -52,8 +52,8 @@ public class n_queens {
             state.add(row);
         }
         boolean[] cols = new boolean[n]; // 记录列是否有皇后
-        boolean[] diags1 = new boolean[2 * n - 1]; // 记录主对角线是否有皇后
-        boolean[] diags2 = new boolean[2 * n - 1]; // 记录副对角线是否有皇后
+        boolean[] diags1 = new boolean[2 * n - 1]; // 记录主对角线上是否有皇后
+        boolean[] diags2 = new boolean[2 * n - 1]; // 记录副对角线上是否有皇后
         List<List<List<String>>> res = new ArrayList<>();
 
         backtrack(0, n, state, res, cols, diags1, diags2);

@@ -6,12 +6,12 @@
 
 include!("../include/include.rs");
 
-/* 列表类简易实现 */
+/* 列表类 */
 #[allow(dead_code)]
 struct MyList {
     arr: Vec<i32>,       // 数组（存储列表元素）
     capacity: usize,      // 列表容量
-    size: usize,          // 列表长度（即当前元素数量）
+    size: usize,          // 列表长度（当前元素数量）
     extend_ratio: usize,  // 每次列表扩容的倍数
 }
 
@@ -29,7 +29,7 @@ impl MyList {
         }
     }
 
-    /* 获取列表长度（即当前元素数量）*/
+    /* 获取列表长度（当前元素数量）*/
     pub fn size(&self) -> usize {
         return self.size;
     }
@@ -52,7 +52,7 @@ impl MyList {
         self.arr[index] = num;
     }
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     pub fn add(&mut self, num: i32) {
         // 元素数量超出容量时，触发扩容机制
         if self.size == self.capacity() {
@@ -63,7 +63,7 @@ impl MyList {
         self.size += 1;
     }
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     pub fn insert(&mut self, index: usize, num: i32) {
         if index >= self.size() {panic!("索引越界")};
         // 元素数量超出容量时，触发扩容机制
@@ -117,7 +117,7 @@ impl MyList {
 fn main() {
     /* 初始化列表 */
     let mut nums = MyList::new(10);
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -127,7 +127,7 @@ fn main() {
     print_util::print_array(&nums.to_array());
     print!(" ，容量 = {} ，长度 = {}", nums.capacity(), nums.size());
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(3, 6);
     print!("\n在索引 3 处插入数字 6 ，得到 nums = ");
     print_util::print_array(&nums.to_array());

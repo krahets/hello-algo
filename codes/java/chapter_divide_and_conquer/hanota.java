@@ -17,7 +17,7 @@ public class hanota {
         tar.add(pan);
     }
 
-    /* 求解汉诺塔：问题 f(i) */
+    /* 求解汉诺塔问题 f(i) */
     static void dfs(int i, List<Integer> src, List<Integer> buf, List<Integer> tar) {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if (i == 1) {
@@ -32,7 +32,7 @@ public class hanota {
         dfs(i - 1, buf, src, tar);
     }
 
-    /* 求解汉诺塔 */
+    /* 求解汉诺塔问题 */
     static void solveHanota(List<Integer> A, List<Integer> B, List<Integer> C) {
         int n = A.size();
         // 将 A 顶部 n 个圆盘借助 B 移到 C

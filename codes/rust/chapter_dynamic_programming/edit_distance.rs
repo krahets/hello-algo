@@ -58,7 +58,7 @@ fn edit_distance_dp(s: &str, t: &str) -> i32 {
     for j in 1..m {
         dp[0][j] = j as i32;
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for i in 1..=n {
         for j in 1..=m {
             if s.chars().nth(i - 1) == t.chars().nth(j - 1) {

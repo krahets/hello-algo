@@ -25,7 +25,7 @@ vector<Vertex *> graphBFS(GraphAdjList &graph, Vertex *startVet) {
         // 遍历该顶点的所有邻接顶点
         for (auto adjVet : graph.adjList[vet]) {
             if (visited.count(adjVet))
-                continue;            // 跳过已被访问过的顶点
+                continue;            // 跳过已被访问的顶点
             que.push(adjVet);        // 只入队未访问的顶点
             visited.emplace(adjVet); // 标记该顶点已被访问
         }

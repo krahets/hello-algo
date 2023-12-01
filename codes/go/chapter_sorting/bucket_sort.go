@@ -16,7 +16,7 @@ func bucketSort(nums []float64) {
 	}
 	// 1. 将数组元素分配到各个桶中
 	for _, num := range nums {
-		// 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+		// 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
 		i := int(num * float64(k))
 		// 将 num 添加进桶 i
 		buckets[i] = append(buckets[i], num)

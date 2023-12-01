@@ -35,7 +35,7 @@ func whileLoopII(n int) int {
 	res := 0
 	// 初始化条件变量
 	i := 1
-	// 循环求和 1, 4, ...
+	// 循环求和 1, 4, 10, ...
 	for i <= n {
 		res += i
 		// 更新条件变量

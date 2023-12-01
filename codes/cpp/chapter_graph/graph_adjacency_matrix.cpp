@@ -65,7 +65,7 @@ class GraphAdjMat {
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
             throw out_of_range("顶点不存在");
         }
-        // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+        // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
     }
