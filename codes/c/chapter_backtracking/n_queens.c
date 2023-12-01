@@ -26,7 +26,7 @@ void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int 
         // 计算该格子对应的主对角线和副对角线
         int diag1 = row - col + n - 1;
         int diag2 = row + col;
-        // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+        // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
             // 尝试：将皇后放置在该格子
             state[row][col] = 'Q';
@@ -51,8 +51,8 @@ char ***nQueens(int n, int *returnSize) {
         state[i][n] = '\0';
     }
     bool cols[MAX_SIZE] = {false};           // 记录列是否有皇后
-    bool diags1[2 * MAX_SIZE - 1] = {false}; // 记录主对角线是否有皇后
-    bool diags2[2 * MAX_SIZE - 1] = {false}; // 记录副对角线是否有皇后
+    bool diags1[2 * MAX_SIZE - 1] = {false}; // 记录主对角线上是否有皇后
+    bool diags2[2 * MAX_SIZE - 1] = {false}; // 记录副对角线上是否有皇后
 
     char ***res = (char ***)malloc(sizeof(char **) * MAX_SIZE);
     *returnSize = 0;
