@@ -2266,7 +2266,7 @@
       
         <li class="md-nav__item">
   <a href="#1163" class="md-nav__link">
-    11.6.3 &nbsp; 链表排序 *
+    11.6.3 &nbsp; 链表排序
   </a>
   
 </li>
@@ -3335,7 +3335,7 @@
       
         <li class="md-nav__item">
   <a href="#1163" class="md-nav__link">
-    11.6.3 &nbsp; 链表排序 *
+    11.6.3 &nbsp; 链表排序
   </a>
   
 </li>
@@ -3408,7 +3408,7 @@
 <p>如图 11-11 所示，“划分阶段”从顶至底递归地将数组从中点切分为两个子数组。</p>
 <ol>
 <li>计算数组中点 <code>mid</code> ，递归划分左子数组（区间 <code>[left, mid]</code> ）和右子数组（区间 <code>[mid + 1, right]</code> ）。</li>
-<li>递归执行步骤 <code>1.</code> ，直至子数组区间长度为 1 时，终止递归划分。</li>
+<li>递归执行步骤 <code>1.</code> ，直至子数组区间长度为 1 时终止。</li>
 </ol>
 <p>“合并阶段”从底至顶地将左子数组和右子数组合并为一个有序数组。需要注意的是，从长度为 1 的子数组开始合并，合并阶段中的每个子数组都是有序的。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label><label for="__tabbed_1_10">&lt;10&gt;</label></div>
@@ -3452,6 +3452,7 @@
 <li><strong>后序遍历</strong>：先递归左子树，再递归右子树，最后处理根节点。</li>
 <li><strong>归并排序</strong>：先递归左子数组，再递归右子数组，最后处理合并。</li>
 </ul>
+<p>归并排序的实现如以下代码所示。请注意，<code>nums</code> 的待合并区间为 <code>[left, right]</code> ，而 <code>tmp</code> 的对应区间为 <code>[0, right - left]</code> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4004,20 +4005,19 @@
 </div>
 </div>
 </div>
-<p>值得注意的是，<code>nums</code> 的待合并区间为 <code>[left, right]</code> ，而 <code>tmp</code> 的对应区间为 <code>[0, right - left]</code> 。</p>
 <h2 id="1162">11.6.2 &nbsp; 算法特性<a class="headerlink" href="#1162" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span>、非自适应排序</strong>：划分产生高度为 <span class="arithmatex">\(\log n\)</span> 的递归树，每层合并的总操作数量为 <span class="arithmatex">\(n\)</span> ，因此总体时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。</li>
 <li><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span>、非原地排序</strong>：递归深度为 <span class="arithmatex">\(\log n\)</span> ，使用 <span class="arithmatex">\(O(\log n)\)</span> 大小的栈帧空间。合并操作需要借助辅助数组实现，使用 <span class="arithmatex">\(O(n)\)</span> 大小的额外空间。</li>
 <li><strong>稳定排序</strong>：在合并过程中，相等元素的次序保持不变。</li>
 </ul>
-<h2 id="1163">11.6.3 &nbsp; 链表排序 *<a class="headerlink" href="#1163" title="Permanent link">&para;</a></h2>
+<h2 id="1163">11.6.3 &nbsp; 链表排序<a class="headerlink" href="#1163" title="Permanent link">&para;</a></h2>
 <p>对于链表，归并排序相较于其他排序算法具有显著优势，<strong>可以将链表排序任务的空间复杂度优化至 <span class="arithmatex">\(O(1)\)</span></strong> 。</p>
 <ul>
-<li><strong>划分阶段</strong>：可以通过使用“迭代”替代“递归”来实现链表划分工作，从而省去递归使用的栈帧空间。</li>
+<li><strong>划分阶段</strong>：可以使用“迭代”替代“递归”来实现链表划分工作，从而省去递归使用的栈帧空间。</li>
 <li><strong>合并阶段</strong>：在链表中，节点增删操作仅需改变引用（指针）即可实现，因此合并阶段（将两个短有序链表合并为一个长有序链表）无须创建额外链表。</li>
 </ul>
-<p>具体实现细节比较复杂，有兴趣的同学可以查阅相关资料进行学习。</p>
+<p>具体实现细节比较复杂，有兴趣的读者可以查阅相关资料进行学习。</p>
 
 <!-- Source file information -->
 

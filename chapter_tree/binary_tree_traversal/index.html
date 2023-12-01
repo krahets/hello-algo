@@ -3466,12 +3466,12 @@
 <p>二叉树常见的遍历方式包括层序遍历、前序遍历、中序遍历和后序遍历等。</p>
 <h2 id="721">7.2.1 &nbsp; 层序遍历<a class="headerlink" href="#721" title="Permanent link">&para;</a></h2>
 <p>如图 7-9 所示，「层序遍历 level-order traversal」从顶部到底部逐层遍历二叉树，并在每一层按照从左到右的顺序访问节点。</p>
-<p>层序遍历本质上属于「广度优先遍历 breadth-first traversal」，它体现了一种“一圈一圈向外扩展”的逐层遍历方式。</p>
+<p>层序遍历本质上属于「广度优先遍历 breadth-first traversal, BFS」，它体现了一种“一圈一圈向外扩展”的逐层遍历方式。</p>
 <p><a class="glightbox" href="../binary_tree_traversal.assets/binary_tree_bfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="二叉树的层序遍历" class="animation-figure" src="../binary_tree_traversal.assets/binary_tree_bfs.png" /></a></p>
 <p align="center"> 图 7-9 &nbsp; 二叉树的层序遍历 </p>
 
 <h3 id="1">1. &nbsp; 代码实现<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>广度优先遍历通常借助“队列”来实现。队列遵循“先进先出”的规则，而广度优先遍历则遵循“逐层推进”的规则，两者背后的思想是一致的。</p>
+<p>广度优先遍历通常借助“队列”来实现。队列遵循“先进先出”的规则，而广度优先遍历则遵循“逐层推进”的规则，两者背后的思想是一致的。实现代码如下：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3760,10 +3760,10 @@
 <li><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：在最差情况下，即满二叉树时，遍历到最底层之前，队列中最多同时存在 <span class="arithmatex">\((n + 1) / 2\)</span> 个节点，占用 <span class="arithmatex">\(O(n)\)</span> 空间。</li>
 </ul>
 <h2 id="722">7.2.2 &nbsp; 前序、中序、后序遍历<a class="headerlink" href="#722" title="Permanent link">&para;</a></h2>
-<p>相应地，前序、中序和后序遍历都属于「深度优先遍历 depth-first traversal」，它体现了一种“先走到尽头，再回溯继续”的遍历方式。</p>
-<p>图 7-10 展示了对二叉树进行深度优先遍历的工作原理。<strong>深度优先遍历就像是绕着整个二叉树的外围“走”一圈</strong>，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。</p>
-<p><a class="glightbox" href="../binary_tree_traversal.assets/binary_tree_dfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="二叉搜索树的前、中、后序遍历" class="animation-figure" src="../binary_tree_traversal.assets/binary_tree_dfs.png" /></a></p>
-<p align="center"> 图 7-10 &nbsp; 二叉搜索树的前、中、后序遍历 </p>
+<p>相应地，前序、中序和后序遍历都属于「深度优先遍历 depth-first traversal, DFS」，它体现了一种“先走到尽头，再回溯继续”的遍历方式。</p>
+<p>图 7-10 展示了对二叉树进行深度优先遍历的工作原理。<strong>深度优先遍历就像是绕着整棵二叉树的外围“走”一圈</strong>，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。</p>
+<p><a class="glightbox" href="../binary_tree_traversal.assets/binary_tree_dfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="二叉搜索树的前序、中序、后序遍历" class="animation-figure" src="../binary_tree_traversal.assets/binary_tree_dfs.png" /></a></p>
+<p align="center"> 图 7-10 &nbsp; 二叉搜索树的前序、中序、后序遍历 </p>
 
 <h3 id="1_1">1. &nbsp; 代码实现<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
 <p>深度优先搜索通常基于递归实现：</p>
@@ -4158,9 +4158,9 @@
 </div>
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>深度优先搜索也可以基于迭代实现，有兴趣的同学可以自行研究。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>深度优先搜索也可以基于迭代实现，有兴趣的读者可以自行研究。</p>
 </div>
 <p>图 7-11 展示了前序遍历二叉树的递归过程，其可分为“递”和“归”两个逆向的部分。</p>
 <ol>

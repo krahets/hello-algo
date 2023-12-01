@@ -3398,32 +3398,32 @@
 <h1 id="152">15.2 &nbsp; 分数背包问题<a class="headerlink" href="#152" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>给定 <span class="arithmatex">\(n\)</span> 个物品，第 <span class="arithmatex">\(i\)</span> 个物品的重量为 <span class="arithmatex">\(wgt[i-1]\)</span>、价值为 <span class="arithmatex">\(val[i-1]\)</span> ，和一个容量为 <span class="arithmatex">\(cap\)</span> 的背包。每个物品只能选择一次，<strong>但可以选择物品的一部分，价值根据选择的重量比例计算</strong>，问在不超过背包容量下背包中物品的最大价值。</p>
+<p>给定 <span class="arithmatex">\(n\)</span> 个物品，第 <span class="arithmatex">\(i\)</span> 个物品的重量为 <span class="arithmatex">\(wgt[i-1]\)</span>、价值为 <span class="arithmatex">\(val[i-1]\)</span> ，和一个容量为 <span class="arithmatex">\(cap\)</span> 的背包。每个物品只能选择一次，<strong>但可以选择物品的一部分，价值根据选择的重量比例计算</strong>，问在限定背包容量下背包中物品的最大价值。示例如图 15-3 所示。</p>
 </div>
 <p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="分数背包问题的示例数据" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_example.png" /></a></p>
 <p align="center"> 图 15-3 &nbsp; 分数背包问题的示例数据 </p>
 
-<p>分数背包和 0-1 背包整体上非常相似，状态包含当前物品 <span class="arithmatex">\(i\)</span> 和容量 <span class="arithmatex">\(c\)</span> ，目标是求不超过背包容量下的最大价值。</p>
-<p>不同点在于，本题允许只选择物品的一部分。如图 15-4 所示，<strong>我们可以对物品任意地进行切分，并按照重量比例来计算物品价值</strong>。</p>
+<p>分数背包问题和 0-1 背包问题整体上非常相似，状态包含当前物品 <span class="arithmatex">\(i\)</span> 和容量 <span class="arithmatex">\(c\)</span> ，目标是求限定背包容量下的最大价值。</p>
+<p>不同点在于，本题允许只选择物品的一部分。如图 15-4 所示，<strong>我们可以对物品任意地进行切分，并按照重量比例来计算相应价值</strong>。</p>
 <ol>
-<li>对于物品 <span class="arithmatex">\(i\)</span> ，它在单位重量下的价值为 <span class="arithmatex">\(val[i-1] / wgt[i-1]\)</span> ，简称为单位价值。</li>
+<li>对于物品 <span class="arithmatex">\(i\)</span> ，它在单位重量下的价值为 <span class="arithmatex">\(val[i-1] / wgt[i-1]\)</span> ，简称单位价值。</li>
 <li>假设放入一部分物品 <span class="arithmatex">\(i\)</span> ，重量为 <span class="arithmatex">\(w\)</span> ，则背包增加的价值为 <span class="arithmatex">\(w \times val[i-1] / wgt[i-1]\)</span> 。</li>
 </ol>
 <p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="物品在单位重量下的价值" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" /></a></p>
 <p align="center"> 图 15-4 &nbsp; 物品在单位重量下的价值 </p>
 
 <h3 id="1">1. &nbsp; 贪心策略确定<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>最大化背包内物品总价值，<strong>本质上是要最大化单位重量下的物品价值</strong>。由此便可推出图 15-5 所示的贪心策略。</p>
+<p>最大化背包内物品总价值，<strong>本质上是最大化单位重量下的物品价值</strong>。由此便可推理出图 15-5 所示的贪心策略。</p>
 <ol>
 <li>将物品按照单位价值从高到低进行排序。</li>
 <li>遍历所有物品，<strong>每轮贪心地选择单位价值最高的物品</strong>。</li>
-<li>若剩余背包容量不足，则使用当前物品的一部分填满背包即可。</li>
+<li>若剩余背包容量不足，则使用当前物品的一部分填满背包。</li>
 </ol>
-<p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="分数背包的贪心策略" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" /></a></p>
-<p align="center"> 图 15-5 &nbsp; 分数背包的贪心策略 </p>
+<p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="分数背包问题的贪心策略" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" /></a></p>
+<p align="center"> 图 15-5 &nbsp; 分数背包问题的贪心策略 </p>
 
 <h3 id="2">2. &nbsp; 代码实现<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>我们建立了一个物品类 <code>Item</code> ，以便将物品按照单位价值进行排序。循环进行贪心选择，当背包已满时跳出并返回解。</p>
+<p>我们建立了一个物品类 <code>Item</code> ，以便将物品按照单位价值进行排序。循环进行贪心选择，当背包已满时跳出并返回解：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3829,13 +3829,13 @@
 </div>
 </div>
 </div>
-<p>最差情况下，需要遍历整个物品列表，<strong>因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> ，其中 <span class="arithmatex">\(n\)</span> 为物品数量。</p>
+<p>在最差情况下，需要遍历整个物品列表，<strong>因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> ，其中 <span class="arithmatex">\(n\)</span> 为物品数量。</p>
 <p>由于初始化了一个 <code>Item</code> 对象列表，<strong>因此空间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。</p>
 <h3 id="3">3. &nbsp; 正确性证明<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>采用反证法。假设物品 <span class="arithmatex">\(x\)</span> 是单位价值最高的物品，使用某算法求得最大价值为 <code>res</code> ，但该解中不包含物品 <span class="arithmatex">\(x\)</span> 。</p>
 <p>现在从背包中拿出单位重量的任意物品，并替换为单位重量的物品 <span class="arithmatex">\(x\)</span> 。由于物品 <span class="arithmatex">\(x\)</span> 的单位价值最高，因此替换后的总价值一定大于 <code>res</code> 。<strong>这与 <code>res</code> 是最优解矛盾，说明最优解中必须包含物品 <span class="arithmatex">\(x\)</span></strong> 。</p>
 <p>对于该解中的其他物品，我们也可以构建出上述矛盾。总而言之，<strong>单位价值更大的物品总是更优选择</strong>，这说明贪心策略是有效的。</p>
-<p>如图 15-6 所示，如果将物品重量和物品单位价值分别看作一个 2D 图表的横轴和纵轴，则分数背包问题可被转化为“求在有限横轴区间下的最大围成面积”。这个类比可以帮助我们从几何角度理解贪心策略的有效性。</p>
+<p>如图 15-6 所示，如果将物品重量和物品单位价值分别看作一张二维图表的横轴和纵轴，则分数背包问题可转化为“求在有限横轴区间下的最大围成面积”。这个类比可以帮助我们从几何角度理解贪心策略的有效性。</p>
 <p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="分数背包问题的几何表示" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" /></a></p>
 <p align="center"> 图 15-6 &nbsp; 分数背包问题的几何表示 </p>
 

@@ -3586,20 +3586,20 @@
 
 <!-- Page content -->
 <h1 id="75-avl">7.5 &nbsp; AVL 树 *<a class="headerlink" href="#75-avl" title="Permanent link">&para;</a></h1>
-<p>在二叉搜索树章节中，我们提到了在多次插入和删除操作后，二叉搜索树可能退化为链表。这种情况下，所有操作的时间复杂度将从 <span class="arithmatex">\(O(\log n)\)</span> 恶化为 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<p>如图 7-24 所示，经过两次删除节点操作，这个二叉搜索树便会退化为链表。</p>
+<p>在“二叉搜索树”章节中，我们提到，在多次插入和删除操作后，二叉搜索树可能退化为链表。在这种情况下，所有操作的时间复杂度将从 <span class="arithmatex">\(O(\log n)\)</span> 恶化为 <span class="arithmatex">\(O(n)\)</span> 。</p>
+<p>如图 7-24 所示，经过两次删除节点操作，这棵二叉搜索树便会退化为链表。</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_degradation_from_removing_node.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="AVL 树在删除节点后发生退化" class="animation-figure" src="../avl_tree.assets/avltree_degradation_from_removing_node.png" /></a></p>
 <p align="center"> 图 7-24 &nbsp; AVL 树在删除节点后发生退化 </p>
 
-<p>再例如，在图 7-25 的完美二叉树中插入两个节点后，树将严重向左倾斜，查找操作的时间复杂度也随之恶化。</p>
+<p>再例如，在图 7-25 所示的完美二叉树中插入两个节点后，树将严重向左倾斜，查找操作的时间复杂度也随之恶化。</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_degradation_from_inserting_node.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="AVL 树在插入节点后发生退化" class="animation-figure" src="../avl_tree.assets/avltree_degradation_from_inserting_node.png" /></a></p>
 <p align="center"> 图 7-25 &nbsp; AVL 树在插入节点后发生退化 </p>
 
-<p>G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorithm for the organization of information" 中提出了「AVL 树」。论文中详细描述了一系列操作，确保在持续添加和删除节点后，AVL 树不会退化，从而使得各种操作的时间复杂度保持在 <span class="arithmatex">\(O(\log n)\)</span> 级别。换句话说，在需要频繁进行增删查改操作的场景中，AVL 树能始终保持高效的数据操作性能，具有很好的应用价值。</p>
+<p>1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在论文 "An algorithm for the organization of information" 中提出了「AVL 树」。论文中详细描述了一系列操作，确保在持续添加和删除节点后，AVL 树不会退化，从而使得各种操作的时间复杂度保持在 <span class="arithmatex">\(O(\log n)\)</span> 级别。换句话说，在需要频繁进行增删查改操作的场景中，AVL 树能始终保持高效的数据操作性能，具有很好的应用价值。</p>
 <h2 id="751-avl">7.5.1 &nbsp; AVL 树常见术语<a class="headerlink" href="#751-avl" title="Permanent link">&para;</a></h2>
 <p>AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉树的所有性质，因此也被称为「平衡二叉搜索树 balanced binary search tree」。</p>
 <h3 id="1">1. &nbsp; 节点高度<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>由于 AVL 树的相关操作需要获取节点高度，因此我们需要为节点类添加 <code>height</code> 变量。</p>
+<p>由于 AVL 树的相关操作需要获取节点高度，因此我们需要为节点类添加 <code>height</code> 变量：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3766,7 +3766,7 @@
 </div>
 </div>
 </div>
-<p>“节点高度”是指从该节点到其最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 0 ，而空节点的高度为 -1 。我们将创建两个工具函数，分别用于获取和更新节点的高度。</p>
+<p>“节点高度”是指从该节点到其最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 <span class="arithmatex">\(0\)</span> ，而空节点的高度为 <span class="arithmatex">\(-1\)</span> 。我们将创建两个工具函数，分别用于获取和更新节点的高度：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3968,7 +3968,7 @@
 </div>
 </div>
 <h3 id="2">2. &nbsp; 节点平衡因子<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>节点的「平衡因子 balance factor」定义为节点左子树的高度减去右子树的高度，同时规定空节点的平衡因子为 0 。我们同样将获取节点平衡因子的功能封装成函数，方便后续使用。</p>
+<p>节点的「平衡因子 balance factor」定义为节点左子树的高度减去右子树的高度，同时规定空节点的平衡因子为 <span class="arithmatex">\(0\)</span> 。我们同样将获取节点平衡因子的功能封装成函数，方便后续使用：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4109,9 +4109,9 @@
 </div>
 <h2 id="752-avl">7.5.2 &nbsp; AVL 树旋转<a class="headerlink" href="#752-avl" title="Permanent link">&para;</a></h2>
 <p>AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中序遍历序列的前提下，使失衡节点重新恢复平衡。换句话说，<strong>旋转操作既能保持“二叉搜索树”的性质，也能使树重新变为“平衡二叉树”</strong>。</p>
-<p>我们将平衡因子绝对值 <span class="arithmatex">\(&gt; 1\)</span> 的节点称为“失衡节点”。根据节点失衡情况的不同，旋转操作分为四种：右旋、左旋、先右旋后左旋、先左旋后右旋。下面我们将详细介绍这些旋转操作。</p>
+<p>我们将平衡因子绝对值 <span class="arithmatex">\(&gt; 1\)</span> 的节点称为“失衡节点”。根据节点失衡情况的不同，旋转操作分为四种：右旋、左旋、先右旋后左旋、先左旋后右旋。下面详细介绍这些旋转操作。</p>
 <h3 id="1_1">1. &nbsp; 右旋<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
-<p>如图 7-26 所示，节点下方为平衡因子。从底至顶看，二叉树中首个失衡节点是“节点 3”。我们关注以该失衡节点为根节点的子树，将该节点记为 <code>node</code> ，其左子节点记为 <code>child</code> ，执行“右旋”操作。完成右旋后，子树已经恢复平衡，并且仍然保持二叉搜索树的特性。</p>
+<p>如图 7-26 所示，节点下方为平衡因子。从底至顶看，二叉树中首个失衡节点是“节点 3”。我们关注以该失衡节点为根节点的子树，将该节点记为 <code>node</code> ，其左子节点记为 <code>child</code> ，执行“右旋”操作。完成右旋后，子树恢复平衡，并且仍然保持二叉搜索树的性质。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4134,7 +4134,7 @@
 <p><a class="glightbox" href="../avl_tree.assets/avltree_right_rotate_with_grandchild.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="有 grandChild 的右旋操作" class="animation-figure" src="../avl_tree.assets/avltree_right_rotate_with_grandchild.png" /></a></p>
 <p align="center"> 图 7-27 &nbsp; 有 grandChild 的右旋操作 </p>
 
-<p>“向右旋转”是一种形象化的说法，实际上需要通过修改节点指针来实现，代码如下所示。</p>
+<p>“向右旋转”是一种形象化的说法，实际上需要通过修改节点指针来实现，代码如下所示：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Java</label><label for="__tabbed_5_4">C#</label><label for="__tabbed_5_5">Go</label><label for="__tabbed_5_6">Swift</label><label for="__tabbed_5_7">JS</label><label for="__tabbed_5_8">TS</label><label for="__tabbed_5_9">Dart</label><label for="__tabbed_5_10">Rust</label><label for="__tabbed_5_11">C</label><label for="__tabbed_5_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4337,7 +4337,7 @@
 </div>
 </div>
 <h3 id="2_1">2. &nbsp; 左旋<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
-<p>相应的，如果考虑上述失衡二叉树的“镜像”，则需要执行图 7-28 所示的“左旋”操作。</p>
+<p>相应地，如果考虑上述失衡二叉树的“镜像”，则需要执行图 7-28 所示的“左旋”操作。</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_left_rotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="左旋操作" class="animation-figure" src="../avl_tree.assets/avltree_left_rotate.png" /></a></p>
 <p align="center"> 图 7-28 &nbsp; 左旋操作 </p>
 
@@ -4345,7 +4345,7 @@
 <p><a class="glightbox" href="../avl_tree.assets/avltree_left_rotate_with_grandchild.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="有 grandChild 的左旋操作" class="animation-figure" src="../avl_tree.assets/avltree_left_rotate_with_grandchild.png" /></a></p>
 <p align="center"> 图 7-29 &nbsp; 有 grandChild 的左旋操作 </p>
 
-<p>可以观察到，<strong>右旋和左旋操作在逻辑上是镜像对称的，它们分别解决的两种失衡情况也是对称的</strong>。基于对称性，我们只需将右旋的实现代码中的所有的 <code>left</code> 替换为 <code>right</code> ，将所有的 <code>right</code> 替换为 <code>left</code> ，即可得到左旋的实现代码。</p>
+<p>可以观察到，<strong>右旋和左旋操作在逻辑上是镜像对称的，它们分别解决的两种失衡情况也是对称的</strong>。基于对称性，我们只需将右旋的实现代码中的所有的 <code>left</code> 替换为 <code>right</code> ，将所有的 <code>right</code> 替换为 <code>left</code> ，即可得到左旋的实现代码：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Java</label><label for="__tabbed_6_4">C#</label><label for="__tabbed_6_5">Go</label><label for="__tabbed_6_6">Swift</label><label for="__tabbed_6_7">JS</label><label for="__tabbed_6_8">TS</label><label for="__tabbed_6_9">Dart</label><label for="__tabbed_6_10">Rust</label><label for="__tabbed_6_11">C</label><label for="__tabbed_6_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4553,12 +4553,12 @@
 <p align="center"> 图 7-30 &nbsp; 先左旋后右旋 </p>
 
 <h3 id="4">4. &nbsp; 先右旋后左旋<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>如图 7-31 所示，对于上述失衡二叉树的镜像情况，需要先对 <code>child</code> 执行“右旋”，然后对 <code>node</code> 执行“左旋”。</p>
+<p>如图 7-31 所示，对于上述失衡二叉树的镜像情况，需要先对 <code>child</code> 执行“右旋”，再对 <code>node</code> 执行“左旋”。</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_right_left_rotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="先右旋后左旋" class="animation-figure" src="../avl_tree.assets/avltree_right_left_rotate.png" /></a></p>
 <p align="center"> 图 7-31 &nbsp; 先右旋后左旋 </p>
 
 <h3 id="5">5. &nbsp; 旋转的选择<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
-<p>图 7-32 展示的四种失衡情况与上述案例逐个对应，分别需要采用右旋、左旋、先右后左、先左后右的旋转操作。</p>
+<p>图 7-32 展示的四种失衡情况与上述案例逐个对应，分别需要采用右旋、先左旋后右旋、先右旋后左旋、左旋的操作。</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_rotation_cases.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="AVL 树的四种旋转情况" class="animation-figure" src="../avl_tree.assets/avltree_rotation_cases.png" /></a></p>
 <p align="center"> 图 7-32 &nbsp; AVL 树的四种旋转情况 </p>
 
@@ -4576,29 +4576,29 @@
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(&gt; 1\)</span> （即左偏树）</td>
+<td><span class="arithmatex">\(&gt; 1\)</span> （左偏树）</td>
 <td><span class="arithmatex">\(\geq 0\)</span></td>
 <td>右旋</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(&gt; 1\)</span> （即左偏树）</td>
+<td><span class="arithmatex">\(&gt; 1\)</span> （左偏树）</td>
 <td><span class="arithmatex">\(&lt;0\)</span></td>
 <td>先左旋后右旋</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(&lt; -1\)</span> （即右偏树）</td>
+<td><span class="arithmatex">\(&lt; -1\)</span> （右偏树）</td>
 <td><span class="arithmatex">\(\leq 0\)</span></td>
 <td>左旋</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(&lt; -1\)</span> （即右偏树）</td>
+<td><span class="arithmatex">\(&lt; -1\)</span> （右偏树）</td>
 <td><span class="arithmatex">\(&gt;0\)</span></td>
 <td>先右旋后左旋</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>为了便于使用，我们将旋转操作封装成一个函数。<strong>有了这个函数，我们就能对各种失衡情况进行旋转，使失衡节点重新恢复平衡</strong>。</p>
+<p>为了便于使用，我们将旋转操作封装成一个函数。<strong>有了这个函数，我们就能对各种失衡情况进行旋转，使失衡节点重新恢复平衡</strong>。代码如下所示：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:12"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><input id="__tabbed_7_5" name="__tabbed_7" type="radio" /><input id="__tabbed_7_6" name="__tabbed_7" type="radio" /><input id="__tabbed_7_7" name="__tabbed_7" type="radio" /><input id="__tabbed_7_8" name="__tabbed_7" type="radio" /><input id="__tabbed_7_9" name="__tabbed_7" type="radio" /><input id="__tabbed_7_10" name="__tabbed_7" type="radio" /><input id="__tabbed_7_11" name="__tabbed_7" type="radio" /><input id="__tabbed_7_12" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">C++</label><label for="__tabbed_7_3">Java</label><label for="__tabbed_7_4">C#</label><label for="__tabbed_7_5">Go</label><label for="__tabbed_7_6">Swift</label><label for="__tabbed_7_7">JS</label><label for="__tabbed_7_8">TS</label><label for="__tabbed_7_9">Dart</label><label for="__tabbed_7_10">Rust</label><label for="__tabbed_7_11">C</label><label for="__tabbed_7_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4990,7 +4990,7 @@
 </div>
 <h2 id="753-avl">7.5.3 &nbsp; AVL 树常用操作<a class="headerlink" href="#753-avl" title="Permanent link">&para;</a></h2>
 <h3 id="1_2">1. &nbsp; 插入节点<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
-<p>AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区别在于，在 AVL 树中插入节点后，从该节点到根节点的路径上可能会出现一系列失衡节点。因此，<strong>我们需要从这个节点开始，自底向上执行旋转操作，使所有失衡节点恢复平衡</strong>。</p>
+<p>AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区别在于，在 AVL 树中插入节点后，从该节点到根节点的路径上可能会出现一系列失衡节点。因此，<strong>我们需要从这个节点开始，自底向上执行旋转操作，使所有失衡节点恢复平衡</strong>。代码如下所示：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:12"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><input id="__tabbed_8_5" name="__tabbed_8" type="radio" /><input id="__tabbed_8_6" name="__tabbed_8" type="radio" /><input id="__tabbed_8_7" name="__tabbed_8" type="radio" /><input id="__tabbed_8_8" name="__tabbed_8" type="radio" /><input id="__tabbed_8_9" name="__tabbed_8" type="radio" /><input id="__tabbed_8_10" name="__tabbed_8" type="radio" /><input id="__tabbed_8_11" name="__tabbed_8" type="radio" /><input id="__tabbed_8_12" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Python</label><label for="__tabbed_8_2">C++</label><label for="__tabbed_8_3">Java</label><label for="__tabbed_8_4">C#</label><label for="__tabbed_8_5">Go</label><label for="__tabbed_8_6">Swift</label><label for="__tabbed_8_7">JS</label><label for="__tabbed_8_8">TS</label><label for="__tabbed_8_9">Dart</label><label for="__tabbed_8_10">Rust</label><label for="__tabbed_8_11">C</label><label for="__tabbed_8_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5320,7 +5320,7 @@
 </div>
 </div>
 <h3 id="2_2">2. &nbsp; 删除节点<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
-<p>类似地，在二叉搜索树的删除节点方法的基础上，需要从底至顶地执行旋转操作，使所有失衡节点恢复平衡。</p>
+<p>类似地，在二叉搜索树的删除节点方法的基础上，需要从底至顶执行旋转操作，使所有失衡节点恢复平衡。代码如下所示：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:12"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><input id="__tabbed_9_5" name="__tabbed_9" type="radio" /><input id="__tabbed_9_6" name="__tabbed_9" type="radio" /><input id="__tabbed_9_7" name="__tabbed_9" type="radio" /><input id="__tabbed_9_8" name="__tabbed_9" type="radio" /><input id="__tabbed_9_9" name="__tabbed_9" type="radio" /><input id="__tabbed_9_10" name="__tabbed_9" type="radio" /><input id="__tabbed_9_11" name="__tabbed_9" type="radio" /><input id="__tabbed_9_12" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Python</label><label for="__tabbed_9_2">C++</label><label for="__tabbed_9_3">Java</label><label for="__tabbed_9_4">C#</label><label for="__tabbed_9_5">Go</label><label for="__tabbed_9_6">Swift</label><label for="__tabbed_9_7">JS</label><label for="__tabbed_9_8">TS</label><label for="__tabbed_9_9">Dart</label><label for="__tabbed_9_10">Rust</label><label for="__tabbed_9_11">C</label><label for="__tabbed_9_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

@@ -3508,8 +3508,8 @@
 <h2 id="221">2.2.1 &nbsp; 迭代<a class="headerlink" href="#221" title="Permanent link">&para;</a></h2>
 <p>「迭代 iteration」是一种重复执行某个任务的控制结构。在迭代中，程序会在满足一定的条件下重复执行某段代码，直到这个条件不再满足。</p>
 <h3 id="1-for">1. &nbsp; for 循环<a class="headerlink" href="#1-for" title="Permanent link">&para;</a></h3>
-<p><code>for</code> 循环是最常见的迭代形式之一，<strong>适合预先知道迭代次数时使用</strong>。</p>
-<p>以下函数基于 <code>for</code> 循环实现了求和 <span class="arithmatex">\(1 + 2 + \dots + n\)</span> ，求和结果使用变量 <code>res</code> 记录。需要注意的是，Python 中 <code>range(a, b)</code> 对应的区间是“左闭右开”的，对应的遍历范围为 <span class="arithmatex">\(a, a + 1, \dots, b-1\)</span> 。</p>
+<p><code>for</code> 循环是最常见的迭代形式之一，<strong>适合在预先知道迭代次数时使用</strong>。</p>
+<p>以下函数基于 <code>for</code> 循环实现了求和 <span class="arithmatex">\(1 + 2 + \dots + n\)</span> ，求和结果使用变量 <code>res</code> 记录。需要注意的是，Python 中 <code>range(a, b)</code> 对应的区间是“左闭右开”的，对应的遍历范围为 <span class="arithmatex">\(a, a + 1, \dots, b-1\)</span> ：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3656,14 +3656,14 @@
 </div>
 </div>
 </div>
-<p>图 2-1 展示了该求和函数的流程框图。</p>
+<p>图 2-1 是该求和函数的流程框图。</p>
 <p><a class="glightbox" href="../iteration_and_recursion.assets/iteration.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="求和函数的流程框图" class="animation-figure" src="../iteration_and_recursion.assets/iteration.png" /></a></p>
 <p align="center"> 图 2-1 &nbsp; 求和函数的流程框图 </p>
 
 <p>此求和函数的操作数量与输入数据大小 <span class="arithmatex">\(n\)</span> 成正比，或者说成“线性关系”。实际上，<strong>时间复杂度描述的就是这个“线性关系”</strong>。相关内容将会在下一节中详细介绍。</p>
 <h3 id="2-while">2. &nbsp; while 循环<a class="headerlink" href="#2-while" title="Permanent link">&para;</a></h3>
-<p>与 <code>for</code> 循环类似，<code>while</code> 循环也是一种实现迭代的方法。在 <code>while</code> 循环中，程序每轮都会先检查条件，如果条件为真则继续执行，否则就结束循环。</p>
-<p>下面，我们用 <code>while</code> 循环来实现求和 <span class="arithmatex">\(1 + 2 + \dots + n\)</span> 。</p>
+<p>与 <code>for</code> 循环类似，<code>while</code> 循环也是一种实现迭代的方法。在 <code>while</code> 循环中，程序每轮都会先检查条件，如果条件为真，则继续执行，否则就结束循环。</p>
+<p>下面我们用 <code>while</code> 循环来实现求和 <span class="arithmatex">\(1 + 2 + \dots + n\)</span> ：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3836,8 +3836,8 @@
 </div>
 </div>
 </div>
-<p><strong><code>while</code> 循环比 <code>for</code> 循环的自由度更高</strong>。在 <code>while</code> 循环中，我们可以自由设计条件变量的初始化和更新步骤。</p>
-<p>例如在以下代码中，条件变量 <span class="arithmatex">\(i\)</span> 每轮进行了两次更新，这种情况就不太方便用 <code>for</code> 循环实现。</p>
+<p><strong><code>while</code> 循环比 <code>for</code> 循环的自由度更高</strong>。在 <code>while</code> 循环中，我们可以自由地设计条件变量的初始化和更新步骤。</p>
+<p>例如在以下代码中，条件变量 <span class="arithmatex">\(i\)</span> 每轮进行两次更新，这种情况就不太方便用 <code>for</code> 循环实现：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3845,7 +3845,7 @@
 <a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;while 循环（两次更新）&quot;&quot;&quot;</span>
 <a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
 <a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 初始化条件变量</span>
-<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="c1"># 循环求和 1, 4, ...</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="c1"># 循环求和 1, 4, 10, ...</span>
 <a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
 <a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>        <span class="n">res</span> <span class="o">+=</span> <span class="n">i</span>
 <a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>        <span class="c1"># 更新条件变量</span>
@@ -3859,7 +3859,7 @@
 <a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">whileLoopII</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 初始化条件变量</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, ...</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, 10, ...</span>
 <a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">        </span><span class="c1">// 更新条件变量</span>
@@ -3875,7 +3875,7 @@
 <a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">whileLoopII</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 初始化条件变量</span>
-<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, ...</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, 10, ...</span>
 <a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="w">        </span><span class="c1">// 更新条件变量</span>
@@ -3908,7 +3908,7 @@
 <a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">    </span><span class="nx">res</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">    </span><span class="c1">// 初始化条件变量</span>
 <a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">    </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span>
-<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, ...</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, 10, ...</span>
 <a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">        </span><span class="nx">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">i</span>
 <a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">        </span><span class="c1">// 更新条件变量</span>
@@ -3924,7 +3924,7 @@
 <a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="kd">func</span> <span class="nf">whileLoopII</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
 <a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>    <span class="kd">var</span> <span class="nv">res</span> <span class="p">=</span> <span class="mi">0</span>
 <a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>    <span class="kd">var</span> <span class="nv">i</span> <span class="p">=</span> <span class="mi">1</span> <span class="c1">// 初始化条件变量</span>
-<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    <span class="c1">// 循环求和 1, 4, ...</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    <span class="c1">// 循环求和 1, 4, 10, ...</span>
 <a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="p">{</span>
 <a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>        <span class="n">res</span> <span class="o">+=</span> <span class="n">i</span>
 <a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>        <span class="c1">// 更新条件变量</span>
@@ -3940,7 +3940,7 @@
 <a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">whileLoopII</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 初始化条件变量</span>
-<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, ...</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, 10, ...</span>
 <a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w">        </span><span class="nx">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">i</span><span class="p">;</span>
 <a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="w">        </span><span class="c1">// 更新条件变量</span>
@@ -3956,7 +3956,7 @@
 <a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">whileLoopII</span><span class="p">(</span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 初始化条件变量</span>
-<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, ...</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, 10, ...</span>
 <a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="w">        </span><span class="nx">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">i</span><span class="p">;</span>
 <a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="w">        </span><span class="c1">// 更新条件变量</span>
@@ -3972,7 +3972,7 @@
 <a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">whileLoopII</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
 <a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 初始化条件变量</span>
-<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">  </span><span class="c1">// 循环求和 1, 4, ...</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">  </span><span class="c1">// 循环求和 1, 4, 10, ...</span>
 <a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="w">    </span><span class="c1">// 更新条件变量</span>
@@ -3988,7 +3988,7 @@
 <a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="k">fn</span> <span class="nf">while_loop_ii</span><span class="p">(</span><span class="n">n</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span>
 <a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 初始化条件变量</span>
-<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, ...</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, 10, ...</span>
 <a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="w">        </span><span class="c1">// 更新条件变量</span>
@@ -4004,7 +4004,7 @@
 <a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">whileLoopII</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 初始化条件变量</span>
-<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, ...</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, 10, ...</span>
 <a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a><span class="w">        </span><span class="c1">// 更新条件变量</span>
@@ -4020,7 +4020,7 @@
 <a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="k">fn</span><span class="w"> </span><span class="n">whileLoopII</span><span class="p">(</span><span class="n">n</span><span class="o">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">res</span><span class="o">:</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 初始化条件变量</span>
-<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, ...</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">    </span><span class="c1">// 循环求和 1, 4, 10, ...</span>
 <a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nb">@intCast</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">        </span><span class="c1">// 更新条件变量</span>
@@ -4035,7 +4035,7 @@
 </div>
 <p>总的来说，<strong><code>for</code> 循环的代码更加紧凑，<code>while</code> 循环更加灵活</strong>，两者都可以实现迭代结构。选择使用哪一个应该根据特定问题的需求来决定。</p>
 <h3 id="3">3. &nbsp; 嵌套循环<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>我们可以在一个循环结构内嵌套另一个循环结构，以 <code>for</code> 循环为例：</p>
+<p>我们可以在一个循环结构内嵌套另一个循环结构，下面以 <code>for</code> 循环为例：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:12"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4224,12 +4224,12 @@
 </div>
 </div>
 </div>
-<p>图 2-2 给出了该嵌套循环的流程框图。</p>
+<p>图 2-2 是该嵌套循环的流程框图。</p>
 <p><a class="glightbox" href="../iteration_and_recursion.assets/nested_iteration.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="嵌套循环的流程框图" class="animation-figure" src="../iteration_and_recursion.assets/nested_iteration.png" /></a></p>
 <p align="center"> 图 2-2 &nbsp; 嵌套循环的流程框图 </p>
 
 <p>在这种情况下，函数的操作数量与 <span class="arithmatex">\(n^2\)</span> 成正比，或者说算法运行时间和输入数据大小 <span class="arithmatex">\(n\)</span> 成“平方关系”。</p>
-<p>我们可以继续添加嵌套循环，每一次嵌套都是一次“升维”，将会使时间复杂度提高至“立方关系”、“四次方关系”、以此类推。</p>
+<p>我们可以继续添加嵌套循环，每一次嵌套都是一次“升维”，将会使时间复杂度提高至“立方关系”“四次方关系”，以此类推。</p>
 <h2 id="222">2.2.2 &nbsp; 递归<a class="headerlink" href="#222" title="Permanent link">&para;</a></h2>
 <p>「递归 recursion」是一种算法策略，通过函数调用自身来解决问题。它主要包含两个阶段。</p>
 <ol>
@@ -4412,7 +4412,7 @@
 <li><strong>迭代</strong>：“自下而上”地解决问题。从最基础的步骤开始，然后不断重复或累加这些步骤，直到任务完成。</li>
 <li><strong>递归</strong>：“自上而下”地解决问题。将原问题分解为更小的子问题，这些子问题和原问题具有相同的形式。接下来将子问题继续分解为更小的子问题，直到基本情况时停止（基本情况的解是已知的）。</li>
 </ul>
-<p>以上述的求和函数为例，设问题 <span class="arithmatex">\(f(n) = 1 + 2 + \dots + n\)</span> 。</p>
+<p>以上述求和函数为例，设问题 <span class="arithmatex">\(f(n) = 1 + 2 + \dots + n\)</span> 。</p>
 <ul>
 <li><strong>迭代</strong>：在循环中模拟求和过程，从 <span class="arithmatex">\(1\)</span> 遍历到 <span class="arithmatex">\(n\)</span> ，每轮执行求和操作，即可求得 <span class="arithmatex">\(f(n)\)</span> 。</li>
 <li><strong>递归</strong>：将问题分解为子问题 <span class="arithmatex">\(f(n) = n + f(n-1)\)</span> ，不断（递归地）分解下去，直至基本情况 <span class="arithmatex">\(f(1) = 1\)</span> 时终止。</li>
@@ -4427,14 +4427,14 @@
 <p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_sum_depth.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="递归调用深度" class="animation-figure" src="../iteration_and_recursion.assets/recursion_sum_depth.png" /></a></p>
 <p align="center"> 图 2-4 &nbsp; 递归调用深度 </p>
 
-<p>在实际中，编程语言允许的递归深度通常是有限的，过深的递归可能导致栈溢出报错。</p>
+<p>在实际中，编程语言允许的递归深度通常是有限的，过深的递归可能导致栈溢出错误。</p>
 <h3 id="2">2. &nbsp; 尾递归<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>有趣的是，<strong>如果函数在返回前的最后一步才进行递归调用</strong>，则该函数可以被编译器或解释器优化，使其在空间效率上与迭代相当。这种情况被称为「尾递归 tail recursion」。</p>
 <ul>
 <li><strong>普通递归</strong>：当函数返回到上一层级的函数后，需要继续执行代码，因此系统需要保存上一层调用的上下文。</li>
-<li><strong>尾递归</strong>：递归调用是函数返回前的最后一个操作，这意味着函数返回到上一层级后，无需继续执行其他操作，因此系统无需保存上一层函数的上下文。</li>
+<li><strong>尾递归</strong>：递归调用是函数返回前的最后一个操作，这意味着函数返回到上一层级后，无须继续执行其他操作，因此系统无须保存上一层函数的上下文。</li>
 </ul>
-<p>以计算 <span class="arithmatex">\(1 + 2 + \dots + n\)</span> 为例，我们可以将结果变量 <code>res</code> 设为函数参数，从而实现尾递归。</p>
+<p>以计算 <span class="arithmatex">\(1 + 2 + \dots + n\)</span> 为例，我们可以将结果变量 <code>res</code> 设为函数参数，从而实现尾递归：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Java</label><label for="__tabbed_6_4">C#</label><label for="__tabbed_6_5">Go</label><label for="__tabbed_6_6">Swift</label><label for="__tabbed_6_7">JS</label><label for="__tabbed_6_8">TS</label><label for="__tabbed_6_9">Dart</label><label for="__tabbed_6_10">Rust</label><label for="__tabbed_6_11">C</label><label for="__tabbed_6_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4571,7 +4571,7 @@
 </div>
 </div>
 </div>
-<p>尾递归的执行过程如图 2-5 所示。对比普通递归和尾递归，求和操作的执行点是不同的。</p>
+<p>尾递归的执行过程如图 2-5 所示。对比普通递归和尾递归，两者的求和操作的执行点是不同的。</p>
 <ul>
 <li><strong>普通递归</strong>：求和操作是在“归”的过程中执行的，每层返回后都要再执行一次求和操作。</li>
 <li><strong>尾递归</strong>：求和操作是在“递”的过程中执行的，“归”的过程只需层层返回。</li>
@@ -4581,7 +4581,7 @@
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>请注意，许多编译器或解释器并不支持尾递归优化。例如，Python 默认不支持尾递归优化，因此即使函数是尾递归形式，但仍然可能会遇到栈溢出问题。</p>
+<p>请注意，许多编译器或解释器并不支持尾递归优化。例如，Python 默认不支持尾递归优化，因此即使函数是尾递归形式，仍然可能会遇到栈溢出问题。</p>
 </div>
 <h3 id="3_1">3. &nbsp; 递归树<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
 <p>当处理与“分治”相关的算法问题时，递归往往比迭代的思路更加直观、代码更加易读。以“斐波那契数列”为例。</p>
@@ -4594,7 +4594,7 @@
 <li>数列的前两个数字为 <span class="arithmatex">\(f(1) = 0\)</span> 和 <span class="arithmatex">\(f(2) = 1\)</span> 。</li>
 <li>数列中的每个数字是前两个数字的和，即 <span class="arithmatex">\(f(n) = f(n - 1) + f(n - 2)\)</span> 。</li>
 </ul>
-<p>按照递推关系进行递归调用，将前两个数字作为终止条件，便可写出递归代码。调用 <code>fib(n)</code> 即可得到斐波那契数列的第 <span class="arithmatex">\(n\)</span> 个数字。</p>
+<p>按照递推关系进行递归调用，将前两个数字作为终止条件，便可写出递归代码。调用 <code>fib(n)</code> 即可得到斐波那契数列的第 <span class="arithmatex">\(n\)</span> 个数字：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:12"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><input id="__tabbed_7_5" name="__tabbed_7" type="radio" /><input id="__tabbed_7_6" name="__tabbed_7" type="radio" /><input id="__tabbed_7_7" name="__tabbed_7" type="radio" /><input id="__tabbed_7_8" name="__tabbed_7" type="radio" /><input id="__tabbed_7_9" name="__tabbed_7" type="radio" /><input id="__tabbed_7_10" name="__tabbed_7" type="radio" /><input id="__tabbed_7_11" name="__tabbed_7" type="radio" /><input id="__tabbed_7_12" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">C++</label><label for="__tabbed_7_3">Java</label><label for="__tabbed_7_4">C#</label><label for="__tabbed_7_5">Go</label><label for="__tabbed_7_6">Swift</label><label for="__tabbed_7_7">JS</label><label for="__tabbed_7_8">TS</label><label for="__tabbed_7_9">Dart</label><label for="__tabbed_7_10">Rust</label><label for="__tabbed_7_11">C</label><label for="__tabbed_7_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4755,13 +4755,13 @@
 </div>
 </div>
 </div>
-<p>观察以上代码，我们在函数内递归调用了两个函数，<strong>这意味着从一个调用产生了两个调用分支</strong>。如图 2-6 所示，这样不断递归调用下去，最终将产生一个层数为 <span class="arithmatex">\(n\)</span> 的「递归树 recursion tree」。</p>
+<p>观察以上代码，我们在函数内递归调用了两个函数，<strong>这意味着从一个调用产生了两个调用分支</strong>。如图 2-6 所示，这样不断递归调用下去，最终将产生一棵层数为 <span class="arithmatex">\(n\)</span> 的「递归树 recursion tree」。</p>
 <p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="斐波那契数列的递归树" class="animation-figure" src="../iteration_and_recursion.assets/recursion_tree.png" /></a></p>
 <p align="center"> 图 2-6 &nbsp; 斐波那契数列的递归树 </p>
 
-<p>本质上看，递归体现“将问题分解为更小子问题”的思维范式，这种分治策略是至关重要的。</p>
+<p>从本质上看，递归体现了“将问题分解为更小子问题”的思维范式，这种分治策略至关重要。</p>
 <ul>
-<li>从算法角度看，搜索、排序、回溯、分治、动态规划等许多重要算法策略都直接或间接地应用这种思维方式。</li>
+<li>从算法角度看，搜索、排序、回溯、分治、动态规划等许多重要算法策略直接或间接地应用了这种思维方式。</li>
 <li>从数据结构角度看，递归天然适合处理链表、树和图的相关问题，因为它们非常适合用分治思想进行分析。</li>
 </ul>
 <h2 id="223">2.2.3 &nbsp; 两者对比<a class="headerlink" href="#223" title="Permanent link">&para;</a></h2>

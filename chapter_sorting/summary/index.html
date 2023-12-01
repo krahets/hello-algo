@@ -3385,7 +3385,7 @@
 <h3 id="1">1. &nbsp; 重点回顾<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>冒泡排序通过交换相邻元素来实现排序。通过添加一个标志位来实现提前返回，我们可以将冒泡排序的最佳时间复杂度优化到 <span class="arithmatex">\(O(n)\)</span> 。</li>
-<li>插入排序每轮将未排序区间内的元素插入到已排序区间的正确位置，从而完成排序。虽然插入排序的时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ，但由于单元操作相对较少，它在小数据量的排序任务中非常受欢迎。</li>
+<li>插入排序每轮将未排序区间内的元素插入到已排序区间的正确位置，从而完成排序。虽然插入排序的时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ，但由于单元操作相对较少，因此在小数据量的排序任务中非常受欢迎。</li>
 <li>快速排序基于哨兵划分操作实现排序。在哨兵划分中，有可能每次都选取到最差的基准数，导致时间复杂度劣化至 <span class="arithmatex">\(O(n^2)\)</span> 。引入中位数基准数或随机基准数可以降低这种劣化的概率。尾递归方法可以有效地减少递归深度，将空间复杂度优化到 <span class="arithmatex">\(O(\log n)\)</span> 。</li>
 <li>归并排序包括划分和合并两个阶段，典型地体现了分治策略。在归并排序中，排序数组需要创建辅助数组，空间复杂度为 <span class="arithmatex">\(O(n)\)</span> ；然而排序链表的空间复杂度可以优化至 <span class="arithmatex">\(O(1)\)</span> 。</li>
 <li>桶排序包含三个步骤：数据分桶、桶内排序和合并结果。它同样体现了分治策略，适用于数据体量很大的情况。桶排序的关键在于对数据进行平均分配。</li>
@@ -3399,9 +3399,9 @@
 
 <h3 id="2-q-a">2. &nbsp; Q &amp; A<a class="headerlink" href="#2-q-a" title="Permanent link">&para;</a></h3>
 <div class="admonition question">
-<p class="admonition-title">排序算法稳定性在什么情况下是必须的？</p>
-<p>在现实中，我们有可能是在对象的某个属性上进行排序。例如，学生有姓名和身高两个属性，我们希望实现一个多级排序/</p>
-<p>先按照姓名进行排序，得到 <code>(A, 180) (B, 185) (C, 170) (D, 170)</code> ；接下来对身高进行排序。由于排序算法不稳定，我们可能得到 <code>(D, 170) (C, 170) (A, 180) (B, 185)</code> 。</p>
+<p class="admonition-title">排序算法稳定性在什么情况下是必需的？</p>
+<p>在现实中，我们有可能是基于对象的某个属性进行排序。例如，学生有姓名和身高两个属性，我们希望实现一个多级排序：</p>
+<p>先按照姓名进行排序，得到 <code>(A, 180) (B, 185) (C, 170) (D, 170)</code> ；再对身高进行排序。由于排序算法不稳定，因此可能得到 <code>(D, 170) (C, 170) (A, 180) (B, 185)</code> 。</p>
 <p>可以发现，学生 D 和 C 的位置发生了交换，姓名的有序性被破坏了，而这是我们不希望看到的。</p>
 </div>
 <div class="admonition question">
@@ -3413,12 +3413,12 @@
 </div>
 <div class="admonition question">
 <p class="admonition-title">关于尾递归优化，为什么选短的数组能保证递归深度不超过 <span class="arithmatex">\(\log n\)</span> ？</p>
-<p>递归深度就是当前未返回的递归方法的数量。每轮哨兵划分我们将原数组划分为两个子数组。在尾递归优化后，向下递归的子数组长度最大为原数组的一半长度。假设最差情况，一直为一半长度，那么最终的递归深度就是 <span class="arithmatex">\(\log n\)</span> 。</p>
-<p>回顾原始的快速排序，我们有可能会连续地递归长度较大的数组，最差情况下为 <span class="arithmatex">\(n\)</span>、<span class="arithmatex">\(n - 1\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(1\)</span> ，递归深度为 <span class="arithmatex">\(n\)</span> 。尾递归优化可以避免这种情况的出现。</p>
+<p>递归深度就是当前未返回的递归方法的数量。每轮哨兵划分我们将原数组划分为两个子数组。在尾递归优化后，向下递归的子数组长度最大为原数组长度的一半。假设最差情况，一直为一半长度，那么最终的递归深度就是 <span class="arithmatex">\(\log n\)</span> 。</p>
+<p>回顾原始的快速排序，我们有可能会连续地递归长度较大的数组，最差情况下为 <span class="arithmatex">\(n\)</span>、<span class="arithmatex">\(n - 1\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(1\)</span> ，递归深度为 <span class="arithmatex">\(n\)</span> 。尾递归优化可以避免这种情况出现。</p>
 </div>
 <div class="admonition question">
 <p class="admonition-title">当数组中所有元素都相等时，快速排序的时间复杂度是 <span class="arithmatex">\(O(n^2)\)</span> 吗？该如何处理这种退化情况？</p>
-<p>是的。这种情况可以考虑通过哨兵划分将数组划分为三个部分：小于、等于、大于基准数。仅向下递归小于和大于的两部分。在该方法下，输入元素全部相等的数组，仅一轮哨兵划分即可完成排序。</p>
+<p>是的。对于这种情况，可以考虑通过哨兵划分将数组划分为三个部分：小于、等于、大于基准数。仅向下递归小于和大于的两部分。在该方法下，输入元素全部相等的数组，仅一轮哨兵划分即可完成排序。</p>
 </div>
 <div class="admonition question">
 <p class="admonition-title">桶排序的最差时间复杂度为什么是 <span class="arithmatex">\(O(n^2)\)</span> ？</p>

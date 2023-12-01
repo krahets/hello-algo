@@ -3499,7 +3499,7 @@
 </div>
 <p align="center"> 图 7-17 &nbsp; 二叉搜索树查找节点示例 </p>
 
-<p>二叉搜索树的查找操作与二分查找算法的工作原理一致，都是每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
+<p>二叉搜索树的查找操作与二分查找算法的工作原理一致，都是每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 <span class="arithmatex">\(O(\log n)\)</span> 时间。示例代码如下：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4160,9 +4160,9 @@
 </div>
 <p>与查找节点相同，插入节点使用 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
 <h3 id="3">3. &nbsp; 删除节点<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>先在二叉树中查找到目标节点，再将其从二叉树中删除。</p>
+<p>先在二叉树中查找到目标节点，再将其删除。</p>
 <p>与插入节点类似，我们需要保证在删除操作完成后，二叉搜索树的“左子树 &lt; 根节点 &lt; 右子树”的性质仍然满足。</p>
-<p>因此，我们需要根据目标节点的子节点数量，共分为 0、1 和 2 这三种情况，执行对应的删除节点操作。</p>
+<p>因此，我们根据目标节点的子节点数量，分 0、1 和 2 三种情况，执行对应的删除节点操作。</p>
 <p>如图 7-19 所示，当待删除节点的度为 <span class="arithmatex">\(0\)</span> 时，表示该节点是叶节点，可以直接删除。</p>
 <p><a class="glightbox" href="../binary_search_tree.assets/bst_remove_case1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="在二叉搜索树中删除节点（度为 0 ）" class="animation-figure" src="../binary_search_tree.assets/bst_remove_case1.png" /></a></p>
 <p align="center"> 图 7-19 &nbsp; 在二叉搜索树中删除节点（度为 0 ） </p>
@@ -4171,11 +4171,11 @@
 <p><a class="glightbox" href="../binary_search_tree.assets/bst_remove_case2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="在二叉搜索树中删除节点（度为 1 ）" class="animation-figure" src="../binary_search_tree.assets/bst_remove_case2.png" /></a></p>
 <p align="center"> 图 7-20 &nbsp; 在二叉搜索树中删除节点（度为 1 ） </p>
 
-<p>当待删除节点的度为 <span class="arithmatex">\(2\)</span> 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左 <span class="arithmatex">\(&lt;\)</span> 根 <span class="arithmatex">\(&lt;\)</span> 右”的性质，<strong>因此这个节点可以是右子树的最小节点或左子树的最大节点</strong>。</p>
-<p>假设我们选择右子树的最小节点（即中序遍历的下一个节点），则删除操作流程如图 7-21 所示。</p>
+<p>当待删除节点的度为 <span class="arithmatex">\(2\)</span> 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左子树 <span class="arithmatex">\(&lt;\)</span> 根节点 <span class="arithmatex">\(&lt;\)</span> 右子树”的性质，<strong>因此这个节点可以是右子树的最小节点或左子树的最大节点</strong>。</p>
+<p>假设我们选择右子树的最小节点（中序遍历的下一个节点），则删除操作流程如图 7-21 所示。</p>
 <ol>
 <li>找到待删除节点在“中序遍历序列”中的下一个节点，记为 <code>tmp</code> 。</li>
-<li>将 <code>tmp</code> 的值覆盖待删除节点的值，并在树中递归删除节点 <code>tmp</code> 。</li>
+<li>用 <code>tmp</code> 的值覆盖待删除节点的值，并在树中递归删除节点 <code>tmp</code> 。</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
@@ -4195,7 +4195,7 @@
 </div>
 <p align="center"> 图 7-21 &nbsp; 在二叉搜索树中删除节点（度为 2 ） </p>
 
-<p>删除节点操作同样使用 <span class="arithmatex">\(O(\log n)\)</span> 时间，其中查找待删除节点需要 <span class="arithmatex">\(O(\log n)\)</span> 时间，获取中序遍历后继节点需要 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
+<p>删除节点操作同样使用 <span class="arithmatex">\(O(\log n)\)</span> 时间，其中查找待删除节点需要 <span class="arithmatex">\(O(\log n)\)</span> 时间，获取中序遍历后继节点需要 <span class="arithmatex">\(O(\log n)\)</span> 时间。示例代码如下：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Java</label><label for="__tabbed_5_4">C#</label><label for="__tabbed_5_5">Go</label><label for="__tabbed_5_6">Swift</label><label for="__tabbed_5_7">JS</label><label for="__tabbed_5_8">TS</label><label for="__tabbed_5_9">Dart</label><label for="__tabbed_5_10">Rust</label><label for="__tabbed_5_11">C</label><label for="__tabbed_5_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4854,7 +4854,7 @@
 <p align="center"> 图 7-22 &nbsp; 二叉搜索树的中序遍历序列 </p>
 
 <h2 id="742">7.4.2 &nbsp; 二叉搜索树的效率<a class="headerlink" href="#742" title="Permanent link">&para;</a></h2>
-<p>给定一组数据，我们考虑使用数组或二叉搜索树存储。观察表 7-2 ，二叉搜索树的各项操作的时间复杂度都是对数阶，具有稳定且高效的性能表现。只有在高频添加、低频查找删除的数据适用场景下，数组比二叉搜索树的效率更高。</p>
+<p>给定一组数据，我们考虑使用数组或二叉搜索树存储。观察表 7-2 ，二叉搜索树的各项操作的时间复杂度都是对数阶，具有稳定且高效的性能。只有在高频添加、低频查找删除数据的场景下，数组比二叉搜索树的效率更高。</p>
 <p align="center"> 表 7-2 &nbsp; 数组与搜索树的效率对比 </p>
 
 <div class="center-table">
@@ -4887,8 +4887,8 @@
 </div>
 <p>在理想情况下，二叉搜索树是“平衡”的，这样就可以在 <span class="arithmatex">\(\log n\)</span> 轮循环内查找任意节点。</p>
 <p>然而，如果我们在二叉搜索树中不断地插入和删除节点，可能导致二叉树退化为图 7-23 所示的链表，这时各种操作的时间复杂度也会退化为 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<p><a class="glightbox" href="../binary_search_tree.assets/bst_degradation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="二叉搜索树的退化" class="animation-figure" src="../binary_search_tree.assets/bst_degradation.png" /></a></p>
-<p align="center"> 图 7-23 &nbsp; 二叉搜索树的退化 </p>
+<p><a class="glightbox" href="../binary_search_tree.assets/bst_degradation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="二叉搜索树退化" class="animation-figure" src="../binary_search_tree.assets/bst_degradation.png" /></a></p>
+<p align="center"> 图 7-23 &nbsp; 二叉搜索树退化 </p>
 
 <h2 id="743">7.4.3 &nbsp; 二叉搜索树常见应用<a class="headerlink" href="#743" title="Permanent link">&para;</a></h2>
 <ul>

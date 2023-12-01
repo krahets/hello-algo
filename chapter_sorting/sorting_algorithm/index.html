@@ -3382,16 +3382,16 @@
 
 <!-- Page content -->
 <h1 id="111">11.1 &nbsp; 排序算法<a class="headerlink" href="#111" title="Permanent link">&para;</a></h1>
-<p>「排序算法 sorting algorithm」用于对一组数据按照特定顺序进行排列。排序算法有着广泛的应用，因为有序数据通常能够被更有效地查找、分析和处理。</p>
+<p>「排序算法 sorting algorithm」用于对一组数据按照特定顺序进行排列。排序算法有着广泛的应用，因为有序数据通常能够被更高效地查找、分析和处理。</p>
 <p>如图 11-1 所示，排序算法中的数据类型可以是整数、浮点数、字符或字符串等。排序的判断规则可根据需求设定，如数字大小、字符 ASCII 码顺序或自定义规则。</p>
 <p><a class="glightbox" href="../sorting_algorithm.assets/sorting_examples.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="数据类型和判断规则示例" class="animation-figure" src="../sorting_algorithm.assets/sorting_examples.png" /></a></p>
 <p align="center"> 图 11-1 &nbsp; 数据类型和判断规则示例 </p>
 
 <h2 id="1111">11.1.1 &nbsp; 评价维度<a class="headerlink" href="#1111" title="Permanent link">&para;</a></h2>
-<p><strong>运行效率</strong>：我们期望排序算法的时间复杂度尽量低，且总体操作数量较少（即时间复杂度中的常数项降低）。对于大数据量情况，运行效率显得尤为重要。</p>
+<p><strong>运行效率</strong>：我们期望排序算法的时间复杂度尽量低，且总体操作数量较少（时间复杂度中的常数项变小）。对于大数据量的情况，运行效率显得尤为重要。</p>
 <p><strong>就地性</strong>：顾名思义，「原地排序」通过在原数组上直接操作实现排序，无须借助额外的辅助数组，从而节省内存。通常情况下，原地排序的数据搬运操作较少，运行速度也更快。</p>
 <p><strong>稳定性</strong>：「稳定排序」在完成排序后，相等元素在数组中的相对顺序不发生改变。</p>
-<p>稳定排序是多级排序场景的必要条件。假设我们有一个存储学生信息的表格，第 1 列和第 2 列分别是姓名和年龄。在这种情况下，「非稳定排序」可能导致输入数据的有序性丧失。</p>
+<p>稳定排序是多级排序场景的必要条件。假设我们有一个存储学生信息的表格，第 1 列和第 2 列分别是姓名和年龄。在这种情况下，「非稳定排序」可能导致输入数据的有序性丧失：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 输入数据是按照姓名排序好的</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># (name, age)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;A&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
@@ -3409,9 +3409,9 @@
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;C&#39;</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
 </code></pre></div>
-<p><strong>自适应性</strong>：「自适应排序」的时间复杂度会受输入数据的影响，即最佳、最差、平均时间复杂度并不完全相等。</p>
+<p><strong>自适应性</strong>：「自适应排序」的时间复杂度会受输入数据的影响，即最佳时间复杂度、最差时间复杂度、平均时间复杂度并不完全相等。</p>
 <p>自适应性需要根据具体情况来评估。如果最差时间复杂度差于平均时间复杂度，说明排序算法在某些数据下性能可能劣化，因此被视为负面属性；而如果最佳时间复杂度优于平均时间复杂度，则被视为正面属性。</p>
-<p><strong>是否基于比较</strong>：「基于比较的排序」依赖于比较运算符（<span class="arithmatex">\(&lt;\)</span>、<span class="arithmatex">\(=\)</span>、<span class="arithmatex">\(&gt;\)</span>）来判断元素的相对顺序，从而排序整个数组，理论最优时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。而「非比较排序」不使用比较运算符，时间复杂度可达 <span class="arithmatex">\(O(n)\)</span> ，但其通用性相对较差。</p>
+<p><strong>是否基于比较</strong>：「基于比较的排序」依赖比较运算符（<span class="arithmatex">\(&lt;\)</span>、<span class="arithmatex">\(=\)</span>、<span class="arithmatex">\(&gt;\)</span>）来判断元素的相对顺序，从而排序整个数组，理论最优时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。而「非比较排序」不使用比较运算符，时间复杂度可达 <span class="arithmatex">\(O(n)\)</span> ，但其通用性相对较差。</p>
 <h2 id="1112">11.1.2 &nbsp; 理想排序算法<a class="headerlink" href="#1112" title="Permanent link">&para;</a></h2>
 <p><strong>运行快、原地、稳定、正向自适应、通用性好</strong>。显然，迄今为止尚未发现兼具以上所有特性的排序算法。因此，在选择排序算法时，需要根据具体的数据特点和问题需求来决定。</p>
 <p>接下来，我们将共同学习各种排序算法，并基于上述评价维度对各个排序算法的优缺点进行分析。</p>

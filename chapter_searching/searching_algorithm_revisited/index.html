@@ -3407,7 +3407,7 @@
 <p>暴力搜索通过遍历数据结构的每个元素来定位目标元素。</p>
 <ul>
 <li>“线性搜索”适用于数组和链表等线性数据结构。它从数据结构的一端开始，逐个访问元素，直到找到目标元素或到达另一端仍没有找到目标元素为止。</li>
-<li>“广度优先搜索”和“深度优先搜索”是图和树的两种遍历策略。广度优先搜索从初始节点开始逐层搜索，由近及远地访问各个节点。深度优先搜索是从初始节点开始，沿着一条路径走到头为止，再回溯并尝试其他路径，直到遍历完整个数据结构。</li>
+<li>“广度优先搜索”和“深度优先搜索”是图和树的两种遍历策略。广度优先搜索从初始节点开始逐层搜索，由近及远地访问各个节点。深度优先搜索从初始节点开始，沿着一条路径走到头，再回溯并尝试其他路径，直到遍历完整个数据结构。</li>
 </ul>
 <p>暴力搜索的优点是简单且通用性好，<strong>无须对数据做预处理和借助额外的数据结构</strong>。</p>
 <p>然而，<strong>此类算法的时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> ，其中 <span class="arithmatex">\(n\)</span> 为元素数量，因此在数据量较大的情况下性能较差。</p>
@@ -3419,13 +3419,13 @@
 <li>“树查找”在特定的树结构（例如二叉搜索树）中，基于比较节点值来快速排除节点，从而定位目标元素。</li>
 </ul>
 <p>此类算法的优点是效率高，<strong>时间复杂度可达到 <span class="arithmatex">\(O(\log n)\)</span> 甚至 <span class="arithmatex">\(O(1)\)</span></strong> 。</p>
-<p>然而，<strong>使用这些算法往往需要对数据进行预处理</strong>。例如，二分查找需要预先对数组进行排序，哈希查找和树查找都需要借助额外的数据结构，维护这些数据结构也需要额外的时间和空间开支。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>自适应搜索算法常被称为查找算法，<strong>主要关注在特定数据结构中快速检索目标元素</strong>。</p>
+<p>然而，<strong>使用这些算法往往需要对数据进行预处理</strong>。例如，二分查找需要预先对数组进行排序，哈希查找和树查找都需要借助额外的数据结构，维护这些数据结构也需要额外的时间和空间开销。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>自适应搜索算法常被称为查找算法，<strong>主要用于在特定数据结构中快速检索目标元素</strong>。</p>
 </div>
 <h2 id="1053">10.5.3 &nbsp; 搜索方法选取<a class="headerlink" href="#1053" title="Permanent link">&para;</a></h2>
-<p>给定大小为 <span class="arithmatex">\(n\)</span> 的一组数据，我们可以使用线性搜索、二分查找、树查找、哈希查找等多种方法在该数据中搜索目标元素。各个方法的工作原理如图 10-11 所示。</p>
+<p>给定大小为 <span class="arithmatex">\(n\)</span> 的一组数据，我们可以使用线性搜索、二分查找、树查找、哈希查找等多种方法从中搜索目标元素。各个方法的工作原理如图 10-11 所示。</p>
 <p><a class="glightbox" href="../searching_algorithm_revisited.assets/searching_algorithms.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="多种搜索策略" class="animation-figure" src="../searching_algorithm_revisited.assets/searching_algorithms.png" /></a></p>
 <p align="center"> 图 10-11 &nbsp; 多种搜索策略 </p>
 

@@ -3407,7 +3407,7 @@
 <p>在本章的前两节中，我们探讨了数组和链表这两种基础且重要的数据结构，它们分别代表了“连续存储”和“分散存储”这两种不同的物理结构。</p>
 <p>实际上，<strong>物理结构在很大程度上决定了程序对内存和缓存的使用效率</strong>，进而影响算法程序的整体性能。</p>
 <h2 id="441">4.4.1 &nbsp; 计算机存储设备<a class="headerlink" href="#441" title="Permanent link">&para;</a></h2>
-<p>计算机中包括三种不同类型的存储设备：硬盘、内存、缓存。表 4-2 展示了它们在计算机系统中的不同角色和性能特点。</p>
+<p>计算机中包括三种不同类型的存储设备：「硬盘 hard disk」、「内存 random-access memory, RAM」、「缓存 cache memory」。表 4-2 展示了它们在计算机系统中的不同角色和性能特点。</p>
 <p align="center"> 表 4-2 &nbsp; 计算机的存储设备 </p>
 
 <div class="center-table">
@@ -3415,9 +3415,9 @@
 <thead>
 <tr>
 <th></th>
-<th>硬盘 Hard Disk</th>
-<th>内存 RAM</th>
-<th>缓存 Cache</th>
+<th>硬盘</th>
+<th>内存</th>
+<th>缓存</th>
 </tr>
 </thead>
 <tbody>
@@ -3467,7 +3467,7 @@
 <p>计算机的存储层次结构体现了速度、容量和成本三者之间的精妙平衡。实际上，这种权衡普遍存在于所有工业领域，它要求我们在不同的优势和限制之间找到最佳的平衡点。</p>
 </div>
 <p>总的来说，<strong>硬盘用于长期存储大量数据，内存用于临时存储程序运行中正在处理的数据，而缓存则用于存储经常访问的数据和指令</strong>，以提高程序运行效率。这三者共同协作，确保计算机系统的高效运行。</p>
-<p>如图 4-10 所示，在程序运行时，数据会从硬盘中被读取到内存中，供给 CPU 计算使用。缓存可以看作是 CPU 的一部分，<strong>它通过智能地从内存加载数据</strong>，给 CPU 提供高速的数据读取，从而显著提升程序的执行效率，减少对较慢的内存的依赖。</p>
+<p>如图 4-10 所示，在程序运行时，数据会从硬盘中被读取到内存中，供给 CPU 计算使用。缓存可以看作 CPU 的一部分，<strong>它通过智能地从内存加载数据</strong>，给 CPU 提供高速的数据读取，从而显著提升程序的执行效率，减少对较慢的内存的依赖。</p>
 <p><a class="glightbox" href="../ram_and_cache.assets/computer_storage_devices.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="硬盘、内存和缓存之间的数据流通" class="animation-figure" src="../ram_and_cache.assets/computer_storage_devices.png" /></a></p>
 <p align="center"> 图 4-10 &nbsp; 硬盘、内存和缓存之间的数据流通 </p>
 

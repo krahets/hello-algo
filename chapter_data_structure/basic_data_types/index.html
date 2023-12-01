@@ -3316,21 +3316,21 @@
 
 <!-- Page content -->
 <h1 id="32">3.2 &nbsp; 基本数据类型<a class="headerlink" href="#32" title="Permanent link">&para;</a></h1>
-<p>谈及计算机中的数据，我们会想到文本、图片、视频、语音、3D 模型等各种形式。尽管这些数据的组织形式各异，但它们都由各种基本数据类型构成。</p>
-<p><strong>基本数据类型是 CPU 可以直接进行运算的类型</strong>，在算法中直接被使用，主要包括以下几种类型。</p>
+<p>当谈及计算机中的数据时，我们会想到文本、图片、视频、语音、3D 模型等各种形式。尽管这些数据的组织形式各异，但它们都由各种基本数据类型构成。</p>
+<p><strong>基本数据类型是 CPU 可以直接进行运算的类型</strong>，在算法中直接被使用，主要包括以下几种。</p>
 <ul>
 <li>整数类型 <code>byte</code>、<code>short</code>、<code>int</code>、<code>long</code> 。</li>
 <li>浮点数类型 <code>float</code>、<code>double</code> ，用于表示小数。</li>
-<li>字符类型 <code>char</code> ，用于表示各种语言的字母、标点符号、甚至表情符号等。</li>
+<li>字符类型 <code>char</code> ，用于表示各种语言的字母、标点符号甚至表情符号等。</li>
 <li>布尔类型 <code>bool</code> ，用于表示“是”与“否”判断。</li>
 </ul>
-<p><strong>基本数据类型以二进制的形式存储在计算机中</strong>。一个二进制位即为 <span class="arithmatex">\(1\)</span> 比特。在绝大多数现代系统中，<span class="arithmatex">\(1\)</span> 字节（byte）由 <span class="arithmatex">\(8\)</span> 比特（bits）组成。</p>
+<p><strong>基本数据类型以二进制的形式存储在计算机中</strong>。一个二进制位即为 <span class="arithmatex">\(1\)</span> 比特。在绝大多数现代操作系统中，<span class="arithmatex">\(1\)</span> 字节（byte）由 <span class="arithmatex">\(8\)</span> 比特（bit）组成。</p>
 <p>基本数据类型的取值范围取决于其占用的空间大小。下面以 Java 为例。</p>
 <ul>
 <li>整数类型 <code>byte</code> 占用 <span class="arithmatex">\(1\)</span> byte = <span class="arithmatex">\(8\)</span> bits ，可以表示 <span class="arithmatex">\(2^{8}\)</span> 个数字。</li>
 <li>整数类型 <code>int</code> 占用 <span class="arithmatex">\(4\)</span> bytes = <span class="arithmatex">\(32\)</span> bits ，可以表示 <span class="arithmatex">\(2^{32}\)</span> 个数字。</li>
 </ul>
-<p>表 3-1 列举了 Java 中各种基本数据类型的占用空间、取值范围和默认值。此表格无须硬背，大致理解即可，需要时可以通过查表来回忆。</p>
+<p>表 3-1 列举了 Java 中各种基本数据类型的占用空间、取值范围和默认值。此表格无须死记硬背，大致理解即可，需要时可以通过查表来回忆。</p>
 <p align="center"> 表 3-1 &nbsp; 基本数据类型的占用空间和取值范围 </p>
 
 <div class="center-table">
@@ -3384,7 +3384,7 @@
 <td>4 bytes</td>
 <td><span class="arithmatex">\(1.175 \times 10^{-38}\)</span></td>
 <td><span class="arithmatex">\(3.403 \times 10^{38}\)</span></td>
-<td><span class="arithmatex">\(0.0f\)</span></td>
+<td><span class="arithmatex">\(0.0\text{f}\)</span></td>
 </tr>
 <tr>
 <td></td>
@@ -3418,10 +3418,10 @@
 <li>在 Python 中，整数类型 <code>int</code> 可以是任意大小，只受限于可用内存；浮点数 <code>float</code> 是双精度 64 位；没有 <code>char</code> 类型，单个字符实际上是长度为 1 的字符串 <code>str</code> 。</li>
 <li>C 和 C++ 未明确规定基本数据类型大小，而因实现和平台各异。表 3-1 遵循 LP64 <a href="https://en.cppreference.com/w/cpp/language/types#Properties">数据模型</a>，其用于包括 Linux 和 macOS 在内的 Unix 64 位操作系统。</li>
 <li>字符 <code>char</code> 的大小在 C 和 C++ 中为 1 字节，在大多数编程语言中取决于特定的字符编码方法，详见“字符编码”章节。</li>
-<li>即使表示布尔量仅需 1 位（<span class="arithmatex">\(0\)</span> 或 <span class="arithmatex">\(1\)</span>），它在内存中通常被存储为 1 字节。这是因为现代计算机 CPU 通常将 1 字节作为最小寻址内存单元。</li>
+<li>即使表示布尔量仅需 1 位（<span class="arithmatex">\(0\)</span> 或 <span class="arithmatex">\(1\)</span>），它在内存中通常存储为 1 字节。这是因为现代计算机 CPU 通常将 1 字节作为最小寻址内存单元。</li>
 </ul>
-<p>那么，基本数据类型与数据结构之间有什么联系呢？我们知道，数据结构是在计算机中组织与存储数据的方式。它的主语是“结构”而非“数据”。</p>
-<p>如果想要表示“一排数字”，我们自然会想到使用数组。这是因为数组的线性结构可以表示数字的相邻关系和顺序关系，但至于存储的内容是整数 <code>int</code>、小数 <code>float</code> 或是字符 <code>char</code> ，则与“数据结构”无关。</p>
+<p>那么，基本数据类型与数据结构之间有什么联系呢？我们知道，数据结构是在计算机中组织与存储数据的方式。这句话的主语是“结构”而非“数据”。</p>
+<p>如果想表示“一排数字”，我们自然会想到使用数组。这是因为数组的线性结构可以表示数字的相邻关系和顺序关系，但至于存储的内容是整数 <code>int</code>、小数 <code>float</code> 或是字符 <code>char</code> ，则与“数据结构”无关。</p>
 <p>换句话说，<strong>基本数据类型提供了数据的“内容类型”，而数据结构提供了数据的“组织方式”</strong>。例如以下代码，我们用相同的数据结构（数组）来存储与表示不同的基本数据类型，包括 <code>int</code>、<code>float</code>、<code>char</code>、<code>bool</code> 等。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
@@ -3429,7 +3429,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 使用多种基本数据类型来初始化数组</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">numbers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">decimals</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Python 的字符应被看作长度为一的字符串</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Python 的字符实际上是长度为 1 的字符串</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">characters</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">bools</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Python 的列表可以自由存储各种基本数据类型和对象引用</span>

@@ -3450,10 +3450,10 @@
 
 <!-- Page content -->
 <h1 id="62">6.2 &nbsp; 哈希冲突<a class="headerlink" href="#62" title="Permanent link">&para;</a></h1>
-<p>上节提到，<strong>通常情况下哈希函数的输入空间远大于输出空间</strong>，因此理论上哈希冲突是不可避免的。比如，输入空间为全体整数，输出空间为数组容量大小，则必然有多个整数映射至同一桶索引。</p>
-<p>哈希冲突会导致查询结果错误，严重影响哈希表的可用性。为解决该问题，我们可以每当遇到哈希冲突时就进行哈希表扩容，直至冲突消失为止。此方法简单粗暴且有效，但效率太低，因为哈希表扩容需要进行大量的数据搬运与哈希值计算。为了提升效率，我们可以采用以下策略。</p>
+<p>上一节提到，<strong>通常情况下哈希函数的输入空间远大于输出空间</strong>，因此理论上哈希冲突是不可避免的。比如，输入空间为全体整数，输出空间为数组容量大小，则必然有多个整数映射至同一桶索引。</p>
+<p>哈希冲突会导致查询结果错误，严重影响哈希表的可用性。为解决该问题，我们可以每当遇到哈希冲突就进行哈希表扩容，直至冲突消失为止。此方法简单粗暴且有效，但效率太低，因为哈希表扩容需要进行大量的数据搬运与哈希值计算。为了提升效率，我们可以采用以下策略。</p>
 <ol>
-<li>改良哈希表数据结构，<strong>使得哈希表可以在存在哈希冲突时正常工作</strong>。</li>
+<li>改良哈希表数据结构，<strong>使得哈希表可以在出现哈希冲突时正常工作</strong>。</li>
 <li>仅在必要时，即当哈希冲突比较严重时，才执行扩容操作。</li>
 </ol>
 <p>哈希表的结构改良方法主要包括“链式地址”和“开放寻址”。</p>
@@ -3465,8 +3465,8 @@
 <p>基于链式地址实现的哈希表的操作方法发生了以下变化。</p>
 <ul>
 <li><strong>查询元素</strong>：输入 <code>key</code> ，经过哈希函数得到桶索引，即可访问链表头节点，然后遍历链表并对比 <code>key</code> 以查找目标键值对。</li>
-<li><strong>添加元素</strong>：先通过哈希函数访问链表头节点，然后将节点（即键值对）添加到链表中。</li>
-<li><strong>删除元素</strong>：根据哈希函数的结果访问链表头部，接着遍历链表以查找目标节点，并将其删除。</li>
+<li><strong>添加元素</strong>：首先通过哈希函数访问链表头节点，然后将节点（键值对）添加到链表中。</li>
+<li><strong>删除元素</strong>：根据哈希函数的结果访问链表头部，接着遍历链表以查找目标节点并将其删除。</li>
 </ul>
 <p>链式地址存在以下局限性。</p>
 <ul>
@@ -3476,7 +3476,7 @@
 <p>以下代码给出了链式地址哈希表的简单实现，需要注意两点。</p>
 <ul>
 <li>使用列表（动态数组）代替链表，从而简化代码。在这种设定下，哈希表（数组）包含多个桶，每个桶都是一个列表。</li>
-<li>以下实现包含哈希表扩容方法。当负载因子超过 <span class="arithmatex">\(\frac{2}{3}\)</span> 时，我们将哈希表扩容至 <span class="arithmatex">\(2\)</span> 倍。</li>
+<li>以下实现包含哈希表扩容方法。当负载因子超过 <span class="arithmatex">\(\frac{2}{3}\)</span> 时，我们将哈希表扩容至原先的 <span class="arithmatex">\(2\)</span> 倍。</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
@@ -4654,7 +4654,7 @@
 <a id="__codelineno-10-82" name="__codelineno-10-82" href="#__codelineno-10-82"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-10-83" name="__codelineno-10-83" href="#__codelineno-10-83"></a><span class="w">        </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
 <a id="__codelineno-10-84" name="__codelineno-10-84" href="#__codelineno-10-84"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-10-85" name="__codelineno-10-85" href="#__codelineno-10-85"></a><span class="w">    </span><span class="c1">// 若无该 key ，则将键值对添加至尾部</span>
+<a id="__codelineno-10-85" name="__codelineno-10-85" href="#__codelineno-10-85"></a><span class="w">    </span><span class="c1">// 若无该 key ，则将键值对添加至链表头部</span>
 <a id="__codelineno-10-86" name="__codelineno-10-86" href="#__codelineno-10-86"></a><span class="w">    </span><span class="n">Pair</span><span class="w"> </span><span class="o">*</span><span class="n">newPair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Pair</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Pair</span><span class="p">));</span>
 <a id="__codelineno-10-87" name="__codelineno-10-87" href="#__codelineno-10-87"></a><span class="w">    </span><span class="n">newPair</span><span class="o">-&gt;</span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
 <a id="__codelineno-10-88" name="__codelineno-10-88" href="#__codelineno-10-88"></a><span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">newPair</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
@@ -4740,7 +4740,7 @@
 <p>值得注意的是，当链表很长时，查询效率 <span class="arithmatex">\(O(n)\)</span> 很差。<strong>此时可以将链表转换为“AVL 树”或“红黑树”</strong>，从而将查询操作的时间复杂度优化至 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
 <h2 id="622">6.2.2 &nbsp; 开放寻址<a class="headerlink" href="#622" title="Permanent link">&para;</a></h2>
 <p>「开放寻址 open addressing」不引入额外的数据结构，而是通过“多次探测”来处理哈希冲突，探测方式主要包括线性探测、平方探测、多次哈希等。</p>
-<p>下面将主要以线性探测为例，介绍开放寻址哈希表的工作机制与代码实现。</p>
+<p>下面以线性探测为例，介绍开放寻址哈希表的工作机制。</p>
 <h3 id="1">1. &nbsp; 线性探测<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>线性探测采用固定步长的线性搜索来进行探测，其操作方法与普通哈希表有所不同。</p>
 <ul>
@@ -4759,7 +4759,7 @@
 <p>为了解决该问题，我们可以采用「懒删除 lazy deletion」机制：它不直接从哈希表中移除元素，<strong>而是利用一个常量 <code>TOMBSTONE</code> 来标记这个桶</strong>。在该机制下，<span class="arithmatex">\(\text{None}\)</span> 和 <code>TOMBSTONE</code> 都代表空桶，都可以放置键值对。但不同的是，线性探测到 <code>TOMBSTONE</code> 时应该继续遍历，因为其之下可能还存在键值对。</p>
 <p>然而，<strong>懒删除可能会加速哈希表的性能退化</strong>。这是因为每次删除操作都会产生一个删除标记，随着 <code>TOMBSTONE</code> 的增加，搜索时间也会增加，因为线性探测可能需要跳过多个 <code>TOMBSTONE</code> 才能找到目标元素。</p>
 <p>为此，考虑在线性探测中记录遇到的首个 <code>TOMBSTONE</code> 的索引，并将搜索到的目标元素与该 <code>TOMBSTONE</code> 交换位置。这样做的好处是当每次查询或添加元素时，元素会被移动至距离理想位置（探测起始点）更近的桶，从而优化查询效率。</p>
-<p>以下代码实现了一个包含懒删除的开放寻址（线性探测）哈希表。为了更加充分地使用哈希表的空间，我们将哈希表看作是一个“环形数组”，当越过数组尾部时，回到头部继续遍历。</p>
+<p>以下代码实现了一个包含懒删除的开放寻址（线性探测）哈希表。为了更加充分地使用哈希表的空间，我们将哈希表看作一个“环形数组”，当越过数组尾部时，回到头部继续遍历。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5293,7 +5293,7 @@
 <a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a><span class="w">    </span><span class="c1">// 线性探测，从 index 开始向后遍历</span>
 <a id="__codelineno-16-41" name="__codelineno-16-41" href="#__codelineno-16-41"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">capacity</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-42" name="__codelineno-16-42" href="#__codelineno-16-42"></a><span class="w">        </span><span class="c1">// 计算桶索引，越过尾部返回头部</span>
-<a id="__codelineno-16-43" name="__codelineno-16-43" href="#__codelineno-16-43"></a><span class="w">        </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="nx">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">capacity</span>
+<a id="__codelineno-16-43" name="__codelineno-16-43" href="#__codelineno-16-43"></a><span class="w">        </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="nx">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">capacity</span>
 <a id="__codelineno-16-44" name="__codelineno-16-44" href="#__codelineno-16-44"></a><span class="w">        </span><span class="c1">// 若遇到空桶，说明无此 key ，则返回 null</span>
 <a id="__codelineno-16-45" name="__codelineno-16-45" href="#__codelineno-16-45"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">buckets</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="nx">pair</span><span class="p">{})</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-46" name="__codelineno-16-46" href="#__codelineno-16-46"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;</span>
@@ -5341,7 +5341,7 @@
 <a id="__codelineno-16-88" name="__codelineno-16-88" href="#__codelineno-16-88"></a><span class="w">    </span><span class="c1">// 线性探测，从 index 开始向后遍历</span>
 <a id="__codelineno-16-89" name="__codelineno-16-89" href="#__codelineno-16-89"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">capacity</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-90" name="__codelineno-16-90" href="#__codelineno-16-90"></a><span class="w">        </span><span class="c1">// 计算桶索引，越过尾部返回头部</span>
-<a id="__codelineno-16-91" name="__codelineno-16-91" href="#__codelineno-16-91"></a><span class="w">        </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="nx">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">capacity</span>
+<a id="__codelineno-16-91" name="__codelineno-16-91" href="#__codelineno-16-91"></a><span class="w">        </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="nx">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">capacity</span>
 <a id="__codelineno-16-92" name="__codelineno-16-92" href="#__codelineno-16-92"></a><span class="w">        </span><span class="c1">// 若遇到空桶，说明无此 key ，则直接返回</span>
 <a id="__codelineno-16-93" name="__codelineno-16-93" href="#__codelineno-16-93"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">buckets</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="nx">pair</span><span class="p">{})</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-94" name="__codelineno-16-94" href="#__codelineno-16-94"></a><span class="w">            </span><span class="k">return</span>
@@ -6240,12 +6240,12 @@
 <li>由于平方的增长，平方探测可能不会探测整个哈希表，这意味着即使哈希表中有空桶，平方探测也可能无法访问到它。</li>
 </ul>
 <h3 id="3">3. &nbsp; 多次哈希<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>多次哈希使用多个哈希函数 <span class="arithmatex">\(f_1(x)\)</span>、<span class="arithmatex">\(f_2(x)\)</span>、<span class="arithmatex">\(f_3(x)\)</span>、<span class="arithmatex">\(\dots\)</span> 进行探测。</p>
+<p>顾名思义，多次哈希方法使用多个哈希函数 <span class="arithmatex">\(f_1(x)\)</span>、<span class="arithmatex">\(f_2(x)\)</span>、<span class="arithmatex">\(f_3(x)\)</span>、<span class="arithmatex">\(\dots\)</span> 进行探测。</p>
 <ul>
 <li><strong>插入元素</strong>：若哈希函数 <span class="arithmatex">\(f_1(x)\)</span> 出现冲突，则尝试 <span class="arithmatex">\(f_2(x)\)</span> ，以此类推，直到找到空桶后插入元素。</li>
-<li><strong>查找元素</strong>：在相同的哈希函数顺序下进行查找，直到找到目标元素时返回；或当遇到空桶或已尝试所有哈希函数，说明哈希表中不存在该元素，则返回 <span class="arithmatex">\(\text{None}\)</span> 。</li>
+<li><strong>查找元素</strong>：在相同的哈希函数顺序下进行查找，直到找到目标元素时返回；若遇到空桶或已尝试所有哈希函数，说明哈希表中不存在该元素，则返回 <span class="arithmatex">\(\text{None}\)</span> 。</li>
 </ul>
-<p>与线性探测相比，多次哈希方法不易产生聚集，但多个哈希函数会增加额外的计算量。</p>
+<p>与线性探测相比，多次哈希方法不易产生聚集，但多个哈希函数会带来额外的计算量。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>请注意，开放寻址（线性探测、平方探测和多次哈希）哈希表都存在“不能直接删除元素”的问题。</p>
@@ -6253,9 +6253,9 @@
 <h2 id="623">6.2.3 &nbsp; 编程语言的选择<a class="headerlink" href="#623" title="Permanent link">&para;</a></h2>
 <p>各个编程语言采取了不同的哈希表实现策略，以下举几个例子。</p>
 <ul>
-<li>Java 采用链式地址。自 JDK 1.8 以来，当 HashMap 内数组长度达到 64 且链表长度达到 8 时，链表会被转换为红黑树以提升查找性能。</li>
 <li>Python 采用开放寻址。字典 dict 使用伪随机数进行探测。</li>
-<li>Golang 采用链式地址。Go 规定每个桶最多存储 8 个键值对，超出容量则连接一个溢出桶。当溢出桶过多时，会执行一次特殊的等量扩容操作，以确保性能。</li>
+<li>Java 采用链式地址。自 JDK 1.8 以来，当 HashMap 内数组长度达到 64 且链表长度达到 8 时，链表会转换为红黑树以提升查找性能。</li>
+<li>Go 采用链式地址。Go 规定每个桶最多存储 8 个键值对，超出容量则连接一个溢出桶。当溢出桶过多时，会执行一次特殊的等量扩容操作，以确保性能。</li>
 </ul>
 
 <!-- Source file information -->

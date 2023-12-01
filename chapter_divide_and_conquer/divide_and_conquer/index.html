@@ -3452,21 +3452,21 @@
 <h2 id="1211">12.1.1 &nbsp; 如何判断分治问题<a class="headerlink" href="#1211" title="Permanent link">&para;</a></h2>
 <p>一个问题是否适合使用分治解决，通常可以参考以下几个判断依据。</p>
 <ol>
-<li><strong>问题可以被分解</strong>：原问题可以被分解成规模更小、类似的子问题，以及能够以相同方式递归地进行划分。</li>
-<li><strong>子问题是独立的</strong>：子问题之间是没有重叠的，互相没有依赖，可以被独立解决。</li>
-<li><strong>子问题的解可以被合并</strong>：原问题的解通过合并子问题的解得来。</li>
+<li><strong>问题可以分解</strong>：原问题可以分解成规模更小、类似的子问题，以及能够以相同方式递归地进行划分。</li>
+<li><strong>子问题是独立的</strong>：子问题之间没有重叠，互不依赖，可以独立解决。</li>
+<li><strong>子问题的解可以合并</strong>：原问题的解通过合并子问题的解得来。</li>
 </ol>
-<p>显然，归并排序是满足以上三条判断依据的。</p>
+<p>显然，归并排序满足以上三条判断依据。</p>
 <ol>
-<li><strong>问题可以被分解</strong>：递归地将数组（原问题）划分为两个子数组（子问题）。</li>
+<li><strong>问题可以分解</strong>：递归地将数组（原问题）划分为两个子数组（子问题）。</li>
 <li><strong>子问题是独立的</strong>：每个子数组都可以独立地进行排序（子问题可以独立进行求解）。</li>
-<li><strong>子问题的解可以被合并</strong>：两个有序子数组（子问题的解）可以被合并为一个有序数组（原问题的解）。</li>
+<li><strong>子问题的解可以合并</strong>：两个有序子数组（子问题的解）可以合并为一个有序数组（原问题的解）。</li>
 </ol>
 <h2 id="1212">12.1.2 &nbsp; 通过分治提升效率<a class="headerlink" href="#1212" title="Permanent link">&para;</a></h2>
-<p>分治不仅可以有效地解决算法问题，<strong>往往还可以带来算法效率的提升</strong>。在排序算法中，快速排序、归并排序、堆排序相较于选择、冒泡、插入排序更快，就是因为它们应用了分治策略。</p>
+<p><strong>分治不仅可以有效地解决算法问题，往往还可以提升算法效率</strong>。在排序算法中，快速排序、归并排序、堆排序相较于选择、冒泡、插入排序更快，就是因为它们应用了分治策略。</p>
 <p>那么，我们不禁发问：<strong>为什么分治可以提升算法效率，其底层逻辑是什么</strong>？换句话说，将大问题分解为多个子问题、解决子问题、将子问题的解合并为原问题的解，这几步的效率为什么比直接解决原问题的效率更高？这个问题可以从操作数量和并行计算两方面来讨论。</p>
 <h3 id="1">1. &nbsp; 操作数量优化<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>以“冒泡排序”为例，其处理一个长度为 <span class="arithmatex">\(n\)</span> 的数组需要 <span class="arithmatex">\(O(n^2)\)</span> 时间。假设我们按照图 12-2 所示的方式，将数组从中点分为两个子数组，则划分需要 <span class="arithmatex">\(O(n)\)</span> 时间，排序每个子数组需要 <span class="arithmatex">\(O((n / 2)^2)\)</span> 时间，合并两个子数组需要 <span class="arithmatex">\(O(n)\)</span> 时间，总体时间复杂度为：</p>
+<p>以“冒泡排序”为例，其处理一个长度为 <span class="arithmatex">\(n\)</span> 的数组需要 <span class="arithmatex">\(O(n^2)\)</span> 时间。假设我们按照图 12-2 所示的方式，将数组从中点处分为两个子数组，则划分需要 <span class="arithmatex">\(O(n)\)</span> 时间，排序每个子数组需要 <span class="arithmatex">\(O((n / 2)^2)\)</span> 时间，合并两个子数组需要 <span class="arithmatex">\(O(n)\)</span> 时间，总体时间复杂度为：</p>
 <div class="arithmatex">\[
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 \]</div>
@@ -3482,33 +3482,33 @@ n(n - 4) &amp; &gt; 0
 \end{aligned}
 \]</div>
 <p><strong>这意味着当 <span class="arithmatex">\(n &gt; 4\)</span> 时，划分后的操作数量更少，排序效率应该更高</strong>。请注意，划分后的时间复杂度仍然是平方阶 <span class="arithmatex">\(O(n^2)\)</span> ，只是复杂度中的常数项变小了。</p>
-<p>进一步想，<strong>如果我们把子数组不断地再从中点划分为两个子数组</strong>，直至子数组只剩一个元素时停止划分呢？这种思路实际上就是“归并排序”，时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。</p>
+<p>进一步想，<strong>如果我们把子数组不断地再从中点处划分为两个子数组</strong>，直至子数组只剩一个元素时停止划分呢？这种思路实际上就是“归并排序”，时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。</p>
 <p>再思考，<strong>如果我们多设置几个划分点</strong>，将原数组平均划分为 <span class="arithmatex">\(k\)</span> 个子数组呢？这种情况与“桶排序”非常类似，它非常适合排序海量数据，理论上时间复杂度可以达到 <span class="arithmatex">\(O(n + k)\)</span> 。</p>
 <h3 id="2">2. &nbsp; 并行计算优化<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>我们知道，分治生成的子问题是相互独立的，<strong>因此通常可以并行解决</strong>。也就是说，分治不仅可以降低算法的时间复杂度，<strong>还有利于操作系统的并行优化</strong>。</p>
 <p>并行优化在多核或多处理器的环境中尤其有效，因为系统可以同时处理多个子问题，更加充分地利用计算资源，从而显著减少总体的运行时间。</p>
-<p>比如在图 12-3 所示的“桶排序”中，我们将海量的数据平均分配到各个桶中，则可所有桶的排序任务分散到各个计算单元，完成后再进行结果合并。</p>
+<p>比如在图 12-3 所示的“桶排序”中，我们将海量的数据平均分配到各个桶中，则可所有桶的排序任务分散到各个计算单元，完成后再合并结果。</p>
 <p><a class="glightbox" href="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="桶排序的并行计算" class="animation-figure" src="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" /></a></p>
 <p align="center"> 图 12-3 &nbsp; 桶排序的并行计算 </p>
 
 <h2 id="1213">12.1.3 &nbsp; 分治常见应用<a class="headerlink" href="#1213" title="Permanent link">&para;</a></h2>
 <p>一方面，分治可以用来解决许多经典算法问题。</p>
 <ul>
-<li><strong>寻找最近点对</strong>：该算法首先将点集分成两部分，然后分别找出两部分中的最近点对，最后再找出跨越两部分的最近点对。</li>
-<li><strong>大整数乘法</strong>：例如 Karatsuba 算法，它是将大整数乘法分解为几个较小的整数的乘法和加法。</li>
-<li><strong>矩阵乘法</strong>：例如 Strassen 算法，它是将大矩阵乘法分解为多个小矩阵的乘法和加法。</li>
-<li><strong>汉诺塔问题</strong>：汉诺塔问题可以视为典型的分治策略，通过递归解决。</li>
-<li><strong>求解逆序对</strong>：在一个序列中，如果前面的数字大于后面的数字，那么这两个数字构成一个逆序对。求解逆序对问题可以通过分治的思想，借助归并排序进行求解。</li>
+<li><strong>寻找最近点对</strong>：该算法首先将点集分成两部分，然后分别找出两部分中的最近点对，最后找出跨越两部分的最近点对。</li>
+<li><strong>大整数乘法</strong>：例如 Karatsuba 算法，它将大整数乘法分解为几个较小的整数的乘法和加法。</li>
+<li><strong>矩阵乘法</strong>：例如 Strassen 算法，它将大矩阵乘法分解为多个小矩阵的乘法和加法。</li>
+<li><strong>汉诺塔问题</strong>：汉诺塔问题可以通过递归解决，这是典型的分治策略应用。</li>
+<li><strong>求解逆序对</strong>：在一个序列中，如果前面的数字大于后面的数字，那么这两个数字构成一个逆序对。求解逆序对问题可以利用分治的思想，借助归并排序进行求解。</li>
 </ul>
 <p>另一方面，分治在算法和数据结构的设计中应用非常广泛。</p>
 <ul>
-<li><strong>二分查找</strong>：二分查找是将有序数组从中点索引分为两部分，然后根据目标值与中间元素值比较结果，决定排除哪一半区间，然后在剩余区间执行相同的二分操作。</li>
-<li><strong>归并排序</strong>：文章开头已介绍，不再赘述。</li>
-<li><strong>快速排序</strong>：快速排序是选取一个基准值，然后把数组分为两个子数组，一个子数组的元素比基准值小，另一子数组的元素比基准值大，然后再对这两部分进行相同的划分操作，直至子数组只剩下一个元素。</li>
+<li><strong>二分查找</strong>：二分查找是将有序数组从中点索引处分为两部分，然后根据目标值与中间元素值比较结果，决定排除哪一半区间，并在剩余区间执行相同的二分操作。</li>
+<li><strong>归并排序</strong>：本节开头已介绍，不再赘述。</li>
+<li><strong>快速排序</strong>：快速排序是选取一个基准值，然后把数组分为两个子数组，一个子数组的元素比基准值小，另一子数组的元素比基准值大，再对这两部分进行相同的划分操作，直至子数组只剩下一个元素。</li>
 <li><strong>桶排序</strong>：桶排序的基本思想是将数据分散到多个桶，然后对每个桶内的元素进行排序，最后将各个桶的元素依次取出，从而得到一个有序数组。</li>
-<li><strong>树</strong>：例如二叉搜索树、AVL 树、红黑树、B 树、B+ 树等，它们的查找、插入和删除等操作都可以视为分治的应用。</li>
+<li><strong>树</strong>：例如二叉搜索树、AVL 树、红黑树、B 树、B+ 树等，它们的查找、插入和删除等操作都可以视为分治策略的应用。</li>
 <li><strong>堆</strong>：堆是一种特殊的完全二叉树，其各种操作，如插入、删除和堆化，实际上都隐含了分治的思想。</li>
-<li><strong>哈希表</strong>：虽然哈希表来并不直接应用分治，但某些哈希冲突解决策略间接应用了分治策略，例如，链式地址中的长链表会被转化为红黑树，以提升查询效率。</li>
+<li><strong>哈希表</strong>：虽然哈希表来并不直接应用分治，但某些哈希冲突解决方案间接应用了分治策略，例如，链式地址中的长链表会被转化为红黑树，以提升查询效率。</li>
 </ul>
 <p>可以看出，<strong>分治是一种“润物细无声”的算法思想</strong>，隐含在各种算法与数据结构之中。</p>
 

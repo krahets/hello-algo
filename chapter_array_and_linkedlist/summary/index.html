@@ -3387,7 +3387,7 @@
 <li>数组和链表是两种基本的数据结构，分别代表数据在计算机内存中的两种存储方式：连续空间存储和分散空间存储。两者的特点呈现出互补的特性。</li>
 <li>数组支持随机访问、占用内存较少；但插入和删除元素效率低，且初始化后长度不可变。</li>
 <li>链表通过更改引用（指针）实现高效的节点插入与删除，且可以灵活调整长度；但节点访问效率低、占用内存较多。</li>
-<li>常见的链表类型包括单向链表、循环链表、双向链表，它们分别具有各自的应用场景。</li>
+<li>常见的链表类型包括单向链表、环形链表、双向链表，它们分别具有各自的应用场景。</li>
 <li>列表是一种支持增删查改的元素有序集合，通常基于动态数组实现，其保留了数组的优势，同时可以灵活调整长度。</li>
 <li>列表的出现大幅地提高了数组的实用性，但可能导致部分内存空间浪费。</li>
 <li>程序运行时，数据主要存储在内存中。数组提供更高的内存空间效率，而链表则在内存使用上更加灵活。</li>
@@ -3407,22 +3407,22 @@
 <div class="admonition question">
 <p class="admonition-title">为什么数组要求相同类型的元素，而在链表中却没有强调同类型呢？</p>
 <p>链表由节点组成，节点之间通过引用（指针）连接，各个节点可以存储不同类型的数据，例如 int、double、string、object 等。</p>
-<p>相对地，数组元素则必须是相同类型的，这样才能通过计算偏移量来获取对应元素位置。例如，如果数组同时包含 int 和 long 两种类型，单个元素分别占用 4 bytes 和 8 bytes ，那么此时就不能用以下公式计算偏移量了，因为数组中包含了两种长度的元素。</p>
+<p>相对地，数组元素则必须是相同类型的，这样才能通过计算偏移量来获取对应元素位置。例如，数组同时包含 int 和 long 两种类型，单个元素分别占用 4 bytes 和 8 bytes ，此时就不能用以下公式计算偏移量了，因为数组中包含了两种长度的元素。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引</span>
 </code></pre></div>
 </div>
 <div class="admonition question">
 <p class="admonition-title">删除节点后，是否需要把 <code>P.next</code> 设为 <span class="arithmatex">\(\text{None}\)</span> 呢？</p>
-<p>不修改 <code>P.next</code> 也可以。从该链表的角度看，从头节点遍历到尾节点已经遇不到 <code>P</code> 了。这意味着节点 <code>P</code> 已经从链表中删除了，此时节点 <code>P</code> 指向哪里都不会对这条链表产生影响了。</p>
-<p>从垃圾回收的角度看，对于 Java、Python、Go 等拥有自动垃圾回收的语言来说，节点 <code>P</code> 是否被回收取决于是否仍存在指向它的引用，而不是 <code>P.next</code> 的值。在 C 和 C++ 等语言中，我们需要手动释放节点内存。</p>
+<p>不修改 <code>P.next</code> 也可以。从该链表的角度看，从头节点遍历到尾节点已经不会遇到 <code>P</code> 了。这意味着节点 <code>P</code> 已经从链表中删除了，此时节点 <code>P</code> 指向哪里都不会对该链表产生影响。</p>
+<p>从垃圾回收的角度看，对于 Java、Python、Go 等拥有自动垃圾回收机制的语言来说，节点 <code>P</code> 是否被回收取决于是否仍存在指向它的引用，而不是 <code>P.next</code> 的值。在 C 和 C++ 等语言中，我们需要手动释放节点内存。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">在链表中插入和删除操作的时间复杂度是 <span class="arithmatex">\(O(1)\)</span> 。但是增删之前都需要 <span class="arithmatex">\(O(n)\)</span> 查找元素，那为什么时间复杂度不是 <span class="arithmatex">\(O(n)\)</span> 呢？</p>
-<p>如果是先查找元素、再删除元素，确实是 <span class="arithmatex">\(O(n)\)</span> 。然而，链表的 <span class="arithmatex">\(O(1)\)</span> 增删的优势可以在其他应用上得到体现。例如，双向队列适合使用链表实现，我们维护一个指针变量始终指向头节点、尾节点，每次插入与删除操作都是 <span class="arithmatex">\(O(1)\)</span> 。</p>
+<p class="admonition-title">在链表中插入和删除操作的时间复杂度是 <span class="arithmatex">\(O(1)\)</span> 。但是增删之前都需要 <span class="arithmatex">\(O(n)\)</span> 的时间查找元素，那为什么时间复杂度不是 <span class="arithmatex">\(O(n)\)</span> 呢？</p>
+<p>如果是先查找元素、再删除元素，时间复杂度确实是 <span class="arithmatex">\(O(n)\)</span> 。然而，链表的 <span class="arithmatex">\(O(1)\)</span> 增删的优势可以在其他应用上得到体现。例如，双向队列适合使用链表实现，我们维护一个指针变量始终指向头节点、尾节点，每次插入与删除操作都是 <span class="arithmatex">\(O(1)\)</span> 。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">图片“链表定义与存储方式”中，浅蓝色的存储节点指针是占用一块内存地址吗？还是和节点值各占一半呢？</p>
-<p>文中的示意图只是定性表示，定量表示需要根据具体情况进行分析。</p>
+<p class="admonition-title">图“链表定义与存储方式”中，浅蓝色的存储节点指针是占用一块内存地址吗？还是和节点值各占一半呢？</p>
+<p>该示意图只是定性表示，定量表示需要根据具体情况进行分析。</p>
 <ul>
 <li>不同类型的节点值占用的空间是不同的，比如 int、long、double 和实例对象等。</li>
 <li>指针变量占用的内存空间大小根据所使用的操作系统及编译环境而定，大多为 8 字节或 4 字节。</li>
@@ -3433,20 +3433,20 @@
 <p>如果添加元素时超出列表长度，则需要先扩容列表再添加。系统会申请一块新的内存，并将原列表的所有元素搬运过去，这时候时间复杂度就会是 <span class="arithmatex">\(O(n)\)</span> 。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">“列表的出现大大提升了数组的实用性，但副作用是会造成部分内存空间浪费”，这里的空间浪费是指额外增加的变量如容量、长度、扩容倍数所占的内存吗？</p>
-<p>这里的空间浪费主要有两方面含义：一方面，列表都会设定一个初始长度，我们不一定需要用这么多。另一方面，为了防止频繁扩容，扩容一般都会乘以一个系数，比如 <span class="arithmatex">\(\times 1.5\)</span> 。这样一来，也会出现很多空位，我们通常不能完全填满它们。</p>
+<p class="admonition-title">“列表的出现极大地提高了数组的实用性，但可能导致部分内存空间浪费”，这里的空间浪费是指额外增加的变量如容量、长度、扩容倍数所占的内存吗？</p>
+<p>这里的空间浪费主要有两方面含义：一方面，列表都会设定一个初始长度，我们不一定需要用这么多；另一方面，为了防止频繁扩容，扩容一般会乘以一个系数，比如 <span class="arithmatex">\(\times 1.5\)</span> 。这样一来，也会出现很多空位，我们通常不能完全填满它们。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">在 Python 中初始化 <code>n = [1, 2, 3]</code> 后，这 3 个元素的地址是相连的，但是初始化 <code>m = [2, 1, 3]</code> 会发现它们每个元素的 id 并不是连续的，而是分别跟 <code>n</code> 中的相同。这些元素地址不连续，那么 <code>m</code> 还是数组吗？</p>
-<p>假如把列表元素换成链表节点 <code>n = [n1, n2, n3, n4, n5]</code> ，通常情况下这五个节点对象也是被分散存储在内存各处的。然而，给定一个列表索引，我们仍然可以在 <span class="arithmatex">\(O(1)\)</span> 时间内获取到节点内存地址，从而访问到对应的节点。这是因为数组中存储的是节点的引用，而非节点本身。</p>
-<p>与许多语言不同的是，在 Python 中数字也被包装为对象，列表中存储的不是数字本身，而是对数字的引用。因此，我们会发现两个数组中的相同数字拥有同一个 id ，并且这些数字的内存地址是无须连续的。</p>
+<p class="admonition-title">在 Python 中初始化 <code>n = [1, 2, 3]</code> 后，这 3 个元素的地址是相连的，但是初始化 <code>m = [2, 1, 3]</code> 会发现它们每个元素的 id 并不是连续的，而是分别跟 <code>n</code> 中的相同。这些元素的地址不连续，那么 <code>m</code> 还是数组吗？</p>
+<p>假如把列表元素换成链表节点 <code>n = [n1, n2, n3, n4, n5]</code> ，通常情况下这 5 个节点对象也分散存储在内存各处。然而，给定一个列表索引，我们仍然可以在 <span class="arithmatex">\(O(1)\)</span> 时间内获取节点内存地址，从而访问到对应的节点。这是因为数组中存储的是节点的引用，而非节点本身。</p>
+<p>与许多语言不同，Python 中的数字也被包装为对象，列表中存储的不是数字本身，而是对数字的引用。因此，我们会发现两个数组中的相同数字拥有同一个 id ，并且这些数字的内存地址无须连续。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">C++ STL 里面的 <code>std::list</code> 已经实现了双向链表，但好像一些算法的书上都不怎么直接用这个，是不是有什么局限性呢?</p>
-<p>一方面，我们往往更青睐使用数组实现算法，而只有在必要时才使用链表，主要有两个原因。</p>
+<p class="admonition-title">C++ STL 里面的 <code>std::list</code> 已经实现了双向链表，但好像一些算法书上不怎么直接使用它，是不是因为有什么局限性呢？</p>
+<p>一方面，我们往往更青睐使用数组实现算法，而只在必要时才使用链表，主要有两个原因。</p>
 <ul>
 <li>空间开销：由于每个元素需要两个额外的指针（一个用于前一个元素，一个用于后一个元素），所以 <code>std::list</code> 通常比 <code>std::vector</code> 更占用空间。</li>
-<li>缓存不友好：由于数据不是连续存放的，<code>std::list</code> 对缓存的利用率较低。一般情况下，<code>std::vector</code> 的性能会更好。</li>
+<li>缓存不友好：由于数据不是连续存放的，因此 <code>std::list</code> 对缓存的利用率较低。一般情况下，<code>std::vector</code> 的性能会更好。</li>
 </ul>
 <p>另一方面，必要使用链表的情况主要是二叉树和图。栈和队列往往会使用编程语言提供的 <code>stack</code> 和 <code>queue</code> ，而非链表。</p>
 </div>

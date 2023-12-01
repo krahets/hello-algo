@@ -3574,7 +3574,7 @@
 
 <!-- Page content -->
 <h1 id="23">2.3 &nbsp; 时间复杂度<a class="headerlink" href="#23" title="Permanent link">&para;</a></h1>
-<p>运行时间可以直观且准确地反映算法的效率。如果我们想要准确预估一段代码的运行时间，应该如何操作呢？</p>
+<p>运行时间可以直观且准确地反映算法的效率。如果我们想准确预估一段代码的运行时间，应该如何操作呢？</p>
 <ol>
 <li><strong>确定运行平台</strong>，包括硬件配置、编程语言、系统环境等，这些因素都会影响代码的运行效率。</li>
 <li><strong>评估各种计算操作所需的运行时间</strong>，例如加法操作 <code>+</code> 需要 1 ns ，乘法操作 <code>*</code> 需要 10 ns ，打印操作 <code>print()</code> 需要 5 ns 等。</li>
@@ -3739,14 +3739,14 @@
 </div>
 </div>
 </div>
-<p>根据以上方法，可以得到算法运行时间为 <span class="arithmatex">\((6n + 12)\)</span> ns ：</p>
+<p>根据以上方法，可以得到算法的运行时间为 <span class="arithmatex">\((6n + 12)\)</span> ns ：</p>
 <div class="arithmatex">\[
 1 + 1 + 10 + (1 + 5) \times n = 6n + 12
 \]</div>
 <p>但实际上，<strong>统计算法的运行时间既不合理也不现实</strong>。首先，我们不希望将预估时间和运行平台绑定，因为算法需要在各种不同的平台上运行。其次，我们很难获知每种操作的运行时间，这给预估过程带来了极大的难度。</p>
 <h2 id="231">2.3.1 &nbsp; 统计时间增长趋势<a class="headerlink" href="#231" title="Permanent link">&para;</a></h2>
 <p>时间复杂度分析统计的不是算法运行时间，<strong>而是算法运行时间随着数据量变大时的增长趋势</strong>。</p>
-<p>“时间增长趋势”这个概念比较抽象，我们通过一个例子来加以理解。假设输入数据大小为 <span class="arithmatex">\(n\)</span> ，给定三个算法函数 <code>A</code>、<code>B</code> 和 <code>C</code> ：</p>
+<p>“时间增长趋势”这个概念比较抽象，我们通过一个例子来加以理解。假设输入数据大小为 <span class="arithmatex">\(n\)</span> ，给定三个算法 <code>A</code>、<code>B</code> 和 <code>C</code> ：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3987,10 +3987,10 @@
 <p><a class="glightbox" href="../time_complexity.assets/time_complexity_simple_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="算法 A、B 和 C 的时间增长趋势" class="animation-figure" src="../time_complexity.assets/time_complexity_simple_example.png" /></a></p>
 <p align="center"> 图 2-7 &nbsp; 算法 A、B 和 C 的时间增长趋势 </p>
 
-<p>相较于直接统计算法运行时间，时间复杂度分析有哪些特点呢？</p>
+<p>相较于直接统计算法的运行时间，时间复杂度分析有哪些特点呢？</p>
 <ul>
-<li><strong>时间复杂度能够有效评估算法效率</strong>。例如，算法 <code>B</code> 的运行时间呈线性增长，在 <span class="arithmatex">\(n &gt; 1\)</span> 时比算法 <code>A</code> 更慢，在 <span class="arithmatex">\(n &gt; 1000000\)</span> 时比算法 <code>C</code> 更慢。事实上，只要输入数据大小 <span class="arithmatex">\(n\)</span> 足够大，复杂度为“常数阶”的算法一定优于“线性阶”的算法，这正是时间增长趋势所表达的含义。</li>
-<li><strong>时间复杂度的推算方法更简便</strong>。显然，运行平台和计算操作类型都与算法运行时间的增长趋势无关。因此在时间复杂度分析中，我们可以简单地将所有计算操作的执行时间视为相同的“单位时间”，从而将“计算操作的运行时间的统计”简化为“计算操作的数量的统计”，这样一来估算难度就大大降低了。</li>
+<li><strong>时间复杂度能够有效评估算法效率</strong>。例如，算法 <code>B</code> 的运行时间呈线性增长，在 <span class="arithmatex">\(n &gt; 1\)</span> 时比算法 <code>A</code> 更慢，在 <span class="arithmatex">\(n &gt; 1000000\)</span> 时比算法 <code>C</code> 更慢。事实上，只要输入数据大小 <span class="arithmatex">\(n\)</span> 足够大，复杂度为“常数阶”的算法一定优于“线性阶”的算法，这正是时间增长趋势的含义。</li>
+<li><strong>时间复杂度的推算方法更简便</strong>。显然，运行平台和计算操作类型都与算法运行时间的增长趋势无关。因此在时间复杂度分析中，我们可以简单地将所有计算操作的执行时间视为相同的“单位时间”，从而将“计算操作运行时间统计”简化为“计算操作数量统计”，这样一来估算难度就大大降低了。</li>
 <li><strong>时间复杂度也存在一定的局限性</strong>。例如，尽管算法 <code>A</code> 和 <code>C</code> 的时间复杂度相同，但实际运行时间差别很大。同样，尽管算法 <code>B</code> 的时间复杂度比 <code>C</code> 高，但在输入数据大小 <span class="arithmatex">\(n\)</span> 较小时，算法 <code>B</code> 明显优于算法 <code>C</code> 。在这些情况下，我们很难仅凭时间复杂度判断算法效率的高低。当然，尽管存在上述问题，复杂度分析仍然是评判算法效率最有效且常用的方法。</li>
 </ul>
 <h2 id="232">2.3.2 &nbsp; 函数渐近上界<a class="headerlink" href="#232" title="Permanent link">&para;</a></h2>
@@ -4142,13 +4142,13 @@
 </div>
 </div>
 </div>
-<p>设算法的操作数量是一个关于输入数据大小 <span class="arithmatex">\(n\)</span> 的函数，记为 <span class="arithmatex">\(T(n)\)</span> ，则以上函数的的操作数量为：</p>
+<p>设算法的操作数量是一个关于输入数据大小 <span class="arithmatex">\(n\)</span> 的函数，记为 <span class="arithmatex">\(T(n)\)</span> ，则以上函数的操作数量为：</p>
 <div class="arithmatex">\[
 T(n) = 3 + 2n
 \]</div>
 <p><span class="arithmatex">\(T(n)\)</span> 是一次函数，说明其运行时间的增长趋势是线性的，因此它的时间复杂度是线性阶。</p>
 <p>我们将线性阶的时间复杂度记为 <span class="arithmatex">\(O(n)\)</span> ，这个数学符号称为「大 <span class="arithmatex">\(O\)</span> 记号 big-<span class="arithmatex">\(O\)</span> notation」，表示函数 <span class="arithmatex">\(T(n)\)</span> 的「渐近上界 asymptotic upper bound」。</p>
-<p>时间复杂度分析本质上是计算“操作数量函数 <span class="arithmatex">\(T(n)\)</span>”的渐近上界，其具有明确的数学定义。</p>
+<p>时间复杂度分析本质上是计算“操作数量 <span class="arithmatex">\(T(n)\)</span>”的渐近上界，它具有明确的数学定义。</p>
 <div class="admonition abstract">
 <p class="admonition-title">函数渐近上界</p>
 <p>若存在正实数 <span class="arithmatex">\(c\)</span> 和实数 <span class="arithmatex">\(n_0\)</span> ，使得对于所有的 <span class="arithmatex">\(n &gt; n_0\)</span> ，均有 <span class="arithmatex">\(T(n) \leq c \cdot f(n)\)</span> ，则可认为 <span class="arithmatex">\(f(n)\)</span> 给出了 <span class="arithmatex">\(T(n)\)</span> 的一个渐近上界，记为 <span class="arithmatex">\(T(n) = O(f(n))\)</span> 。</p>
@@ -4158,16 +4158,16 @@ T(n) = 3 + 2n
 <p align="center"> 图 2-8 &nbsp; 函数的渐近上界 </p>
 
 <h2 id="233">2.3.3 &nbsp; 推算方法<a class="headerlink" href="#233" title="Permanent link">&para;</a></h2>
-<p>渐近上界的数学味儿有点重，如果你感觉没有完全理解，也无须担心。因为在实际使用中，我们只需要掌握推算方法，数学意义就可以逐渐领悟。</p>
+<p>渐近上界的数学味儿有点重，如果你感觉没有完全理解，也无须担心。我们可以先掌握推算方法，在不断的实践中，就可以逐渐领悟其数学意义。</p>
 <p>根据定义，确定 <span class="arithmatex">\(f(n)\)</span> 之后，我们便可得到时间复杂度 <span class="arithmatex">\(O(f(n))\)</span> 。那么如何确定渐近上界 <span class="arithmatex">\(f(n)\)</span> 呢？总体分为两步：首先统计操作数量，然后判断渐近上界。</p>
 <h3 id="1">1. &nbsp; 第一步：统计操作数量<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>针对代码，逐行从上到下计算即可。然而，由于上述 <span class="arithmatex">\(c \cdot f(n)\)</span> 中的常数项 <span class="arithmatex">\(c\)</span> 可以取任意大小，<strong>因此操作数量 <span class="arithmatex">\(T(n)\)</span> 中的各种系数、常数项都可以被忽略</strong>。根据此原则，可以总结出以下计数简化技巧。</p>
+<p>针对代码，逐行从上到下计算即可。然而，由于上述 <span class="arithmatex">\(c \cdot f(n)\)</span> 中的常数项 <span class="arithmatex">\(c\)</span> 可以取任意大小，<strong>因此操作数量 <span class="arithmatex">\(T(n)\)</span> 中的各种系数、常数项都可以忽略</strong>。根据此原则，可以总结出以下计数简化技巧。</p>
 <ol>
 <li><strong>忽略 <span class="arithmatex">\(T(n)\)</span> 中的常数项</strong>。因为它们都与 <span class="arithmatex">\(n\)</span> 无关，所以对时间复杂度不产生影响。</li>
 <li><strong>省略所有系数</strong>。例如，循环 <span class="arithmatex">\(2n\)</span> 次、<span class="arithmatex">\(5n + 1\)</span> 次等，都可以简化记为 <span class="arithmatex">\(n\)</span> 次，因为 <span class="arithmatex">\(n\)</span> 前面的系数对时间复杂度没有影响。</li>
 <li><strong>循环嵌套时使用乘法</strong>。总操作数量等于外层循环和内层循环操作数量之积，每一层循环依然可以分别套用第 <code>1.</code> 点和第 <code>2.</code> 点的技巧。</li>
 </ol>
-<p>给定一个函数，我们可以用上述技巧来统计操作数量。</p>
+<p>给定一个函数，我们可以用上述技巧来统计操作数量：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:12"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4376,7 +4376,7 @@ T(n) = 3 + 2n
 </div>
 </div>
 </div>
-<p>以下公式展示了使用上述技巧前后的统计结果，两者推出的时间复杂度都为 <span class="arithmatex">\(O(n^2)\)</span> 。</p>
+<p>以下公式展示了使用上述技巧前后的统计结果，两者推算出的时间复杂度都为 <span class="arithmatex">\(O(n^2)\)</span> 。</p>
 <div class="arithmatex">\[
 \begin{aligned}
 T(n) &amp; = 2n(n + 1) + (5n + 1) + 2 &amp; \text{完整统计 (-.-|||)} \newline
@@ -4385,7 +4385,7 @@ T(n) &amp; = n^2 + n &amp; \text{偷懒统计 (o.O)}
 \end{aligned}
 \]</div>
 <h3 id="2">2. &nbsp; 第二步：判断渐近上界<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p><strong>时间复杂度由多项式 <span class="arithmatex">\(T(n)\)</span> 中最高阶的项来决定</strong>。这是因为在 <span class="arithmatex">\(n\)</span> 趋于无穷大时，最高阶的项将发挥主导作用，其他项的影响都可以被忽略。</p>
+<p><strong>时间复杂度由 <span class="arithmatex">\(T(n)\)</span> 中最高阶的项来决定</strong>。这是因为在 <span class="arithmatex">\(n\)</span> 趋于无穷大时，最高阶的项将发挥主导作用，其他项的影响都可以忽略。</p>
 <p>表 2-2 展示了一些例子，其中一些夸张的值是为了强调“系数无法撼动阶数”这一结论。当 <span class="arithmatex">\(n\)</span> 趋于无穷大时，这些常数变得无足轻重。</p>
 <p align="center"> 表 2-2 &nbsp; 不同操作数量对应的时间复杂度 </p>
 
@@ -4857,7 +4857,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </div>
 <p>值得注意的是，<strong>输入数据大小 <span class="arithmatex">\(n\)</span> 需根据输入数据的类型来具体确定</strong>。比如在第一个示例中，变量 <span class="arithmatex">\(n\)</span> 为输入数据大小；在第二个示例中，数组长度 <span class="arithmatex">\(n\)</span> 为数据大小。</p>
 <h3 id="3-on2">3. &nbsp; 平方阶 <span class="arithmatex">\(O(n^2)\)</span><a class="headerlink" href="#3-on2" title="Permanent link">&para;</a></h3>
-<p>平方阶的操作数量相对于输入数据大小 <span class="arithmatex">\(n\)</span> 以平方级别增长。平方阶通常出现在嵌套循环中，外层循环和内层循环都为 <span class="arithmatex">\(O(n)\)</span> ，因此总体为 <span class="arithmatex">\(O(n^2)\)</span> ：</p>
+<p>平方阶的操作数量相对于输入数据大小 <span class="arithmatex">\(n\)</span> 以平方级别增长。平方阶通常出现在嵌套循环中，外层循环和内层循环的时间复杂度都为 <span class="arithmatex">\(O(n)\)</span> ，因此总体的时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:12"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><input id="__tabbed_8_5" name="__tabbed_8" type="radio" /><input id="__tabbed_8_6" name="__tabbed_8" type="radio" /><input id="__tabbed_8_7" name="__tabbed_8" type="radio" /><input id="__tabbed_8_8" name="__tabbed_8" type="radio" /><input id="__tabbed_8_9" name="__tabbed_8" type="radio" /><input id="__tabbed_8_10" name="__tabbed_8" type="radio" /><input id="__tabbed_8_11" name="__tabbed_8" type="radio" /><input id="__tabbed_8_12" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Python</label><label for="__tabbed_8_2">C++</label><label for="__tabbed_8_3">Java</label><label for="__tabbed_8_4">C#</label><label for="__tabbed_8_5">Go</label><label for="__tabbed_8_6">Swift</label><label for="__tabbed_8_7">JS</label><label for="__tabbed_8_8">TS</label><label for="__tabbed_8_9">Dart</label><label for="__tabbed_8_10">Rust</label><label for="__tabbed_8_11">C</label><label for="__tabbed_8_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5033,7 +5033,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 <p><a class="glightbox" href="../time_complexity.assets/time_complexity_constant_linear_quadratic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="常数阶、线性阶和平方阶的时间复杂度" class="animation-figure" src="../time_complexity.assets/time_complexity_constant_linear_quadratic.png" /></a></p>
 <p align="center"> 图 2-10 &nbsp; 常数阶、线性阶和平方阶的时间复杂度 </p>
 
-<p>以冒泡排序为例，外层循环执行 <span class="arithmatex">\(n - 1\)</span> 次，内层循环执行 <span class="arithmatex">\(n-1\)</span>、<span class="arithmatex">\(n-2\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(1\)</span> 次，平均为 <span class="arithmatex">\(n / 2\)</span> 次，因此时间复杂度为 <span class="arithmatex">\(O((n - 1) n / 2) = O(n^2)\)</span> 。</p>
+<p>以冒泡排序为例，外层循环执行 <span class="arithmatex">\(n - 1\)</span> 次，内层循环执行 <span class="arithmatex">\(n-1\)</span>、<span class="arithmatex">\(n-2\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(1\)</span> 次，平均为 <span class="arithmatex">\(n / 2\)</span> 次，因此时间复杂度为 <span class="arithmatex">\(O((n - 1) n / 2) = O(n^2)\)</span> ：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:12"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><input id="__tabbed_9_5" name="__tabbed_9" type="radio" /><input id="__tabbed_9_6" name="__tabbed_9" type="radio" /><input id="__tabbed_9_7" name="__tabbed_9" type="radio" /><input id="__tabbed_9_8" name="__tabbed_9" type="radio" /><input id="__tabbed_9_9" name="__tabbed_9" type="radio" /><input id="__tabbed_9_10" name="__tabbed_9" type="radio" /><input id="__tabbed_9_11" name="__tabbed_9" type="radio" /><input id="__tabbed_9_12" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Python</label><label for="__tabbed_9_2">C++</label><label for="__tabbed_9_3">Java</label><label for="__tabbed_9_4">C#</label><label for="__tabbed_9_5">Go</label><label for="__tabbed_9_6">Swift</label><label for="__tabbed_9_7">JS</label><label for="__tabbed_9_8">TS</label><label for="__tabbed_9_9">Dart</label><label for="__tabbed_9_10">Rust</label><label for="__tabbed_9_11">C</label><label for="__tabbed_9_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5604,10 +5604,10 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </div>
 </div>
 </div>
-<p>指数阶增长非常迅速，在穷举法（暴力搜索、回溯等）中比较常见。对于数据规模较大的问题，指数阶是不可接受的，通常需要使用动态规划或贪心等算法来解决。</p>
+<p>指数阶增长非常迅速，在穷举法（暴力搜索、回溯等）中比较常见。对于数据规模较大的问题，指数阶是不可接受的，通常需要使用动态规划或贪心算法等来解决。</p>
 <h3 id="5-olog-n">5. &nbsp; 对数阶 <span class="arithmatex">\(O(\log n)\)</span><a class="headerlink" href="#5-olog-n" title="Permanent link">&para;</a></h3>
 <p>与指数阶相反，对数阶反映了“每轮缩减到一半”的情况。设输入数据大小为 <span class="arithmatex">\(n\)</span> ，由于每轮缩减到一半，因此循环次数是 <span class="arithmatex">\(\log_2 n\)</span> ，即 <span class="arithmatex">\(2^n\)</span> 的反函数。</p>
-<p>图 2-12 和以下代码模拟了“每轮缩减到一半”的过程，时间复杂度为 <span class="arithmatex">\(O(\log_2 n)\)</span> ，简记为 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
+<p>图 2-12 和以下代码模拟了“每轮缩减到一半”的过程，时间复杂度为 <span class="arithmatex">\(O(\log_2 n)\)</span> ，简记为 <span class="arithmatex">\(O(\log n)\)</span> ：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:12"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><input id="__tabbed_12_4" name="__tabbed_12" type="radio" /><input id="__tabbed_12_5" name="__tabbed_12" type="radio" /><input id="__tabbed_12_6" name="__tabbed_12" type="radio" /><input id="__tabbed_12_7" name="__tabbed_12" type="radio" /><input id="__tabbed_12_8" name="__tabbed_12" type="radio" /><input id="__tabbed_12_9" name="__tabbed_12" type="radio" /><input id="__tabbed_12_10" name="__tabbed_12" type="radio" /><input id="__tabbed_12_11" name="__tabbed_12" type="radio" /><input id="__tabbed_12_12" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Python</label><label for="__tabbed_12_2">C++</label><label for="__tabbed_12_3">Java</label><label for="__tabbed_12_4">C#</label><label for="__tabbed_12_5">Go</label><label for="__tabbed_12_6">Swift</label><label for="__tabbed_12_7">JS</label><label for="__tabbed_12_8">TS</label><label for="__tabbed_12_9">Dart</label><label for="__tabbed_12_10">Rust</label><label for="__tabbed_12_11">C</label><label for="__tabbed_12_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5760,7 +5760,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 <p><a class="glightbox" href="../time_complexity.assets/time_complexity_logarithmic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="对数阶的时间复杂度" class="animation-figure" src="../time_complexity.assets/time_complexity_logarithmic.png" /></a></p>
 <p align="center"> 图 2-12 &nbsp; 对数阶的时间复杂度 </p>
 
-<p>与指数阶类似，对数阶也常出现于递归函数中。以下代码形成了一个高度为 <span class="arithmatex">\(\log_2 n\)</span> 的递归树：</p>
+<p>与指数阶类似，对数阶也常出现于递归函数中。以下代码形成了一棵高度为 <span class="arithmatex">\(\log_2 n\)</span> 的递归树：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="13:12"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><input id="__tabbed_13_4" name="__tabbed_13" type="radio" /><input id="__tabbed_13_5" name="__tabbed_13" type="radio" /><input id="__tabbed_13_6" name="__tabbed_13" type="radio" /><input id="__tabbed_13_7" name="__tabbed_13" type="radio" /><input id="__tabbed_13_8" name="__tabbed_13" type="radio" /><input id="__tabbed_13_9" name="__tabbed_13" type="radio" /><input id="__tabbed_13_10" name="__tabbed_13" type="radio" /><input id="__tabbed_13_11" name="__tabbed_13" type="radio" /><input id="__tabbed_13_12" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Python</label><label for="__tabbed_13_2">C++</label><label for="__tabbed_13_3">Java</label><label for="__tabbed_13_4">C#</label><label for="__tabbed_13_5">Go</label><label for="__tabbed_13_6">Swift</label><label for="__tabbed_13_7">JS</label><label for="__tabbed_13_8">TS</label><label for="__tabbed_13_9">Dart</label><label for="__tabbed_13_10">Rust</label><label for="__tabbed_13_11">C</label><label for="__tabbed_13_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5873,7 +5873,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 <p>对数阶常出现于基于分治策略的算法中，体现了“一分为多”和“化繁为简”的算法思想。它增长缓慢，是仅次于常数阶的理想的时间复杂度。</p>
 <div class="admonition tip">
 <p class="admonition-title"><span class="arithmatex">\(O(\log n)\)</span> 的底数是多少？</p>
-<p>准确来说，“一分为 <span class="arithmatex">\(m\)</span>”对应的时间复杂度是 <span class="arithmatex">\(O(\log_m n)\)</span> 。而通过对数换底公式，我们可以得到具有不同底数的、相等的时间复杂度：</p>
+<p>准确来说，“一分为 <span class="arithmatex">\(m\)</span>”对应的时间复杂度是 <span class="arithmatex">\(O(\log_m n)\)</span> 。而通过对数换底公式，我们可以得到具有不同底数、相等的时间复杂度：</p>
 <div class="arithmatex">\[
 O(\log_m n) = O(\log_k n / \log_k m) = O(\log_k n)
 \]</div>
@@ -6556,12 +6556,12 @@ n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 </div>
 </div>
 <p>值得说明的是，我们在实际中很少使用最佳时间复杂度，因为通常只有在很小概率下才能达到，可能会带来一定的误导性。<strong>而最差时间复杂度更为实用，因为它给出了一个效率安全值</strong>，让我们可以放心地使用算法。</p>
-<p>从上述示例可以看出，最差或最佳时间复杂度只出现于“特殊的数据分布”，这些情况的出现概率可能很小，并不能真实地反映算法运行效率。相比之下，<strong>平均时间复杂度可以体现算法在随机输入数据下的运行效率</strong>，用 <span class="arithmatex">\(\Theta\)</span> 记号来表示。</p>
+<p>从上述示例可以看出，最差时间复杂度和最佳时间复杂度只出现于“特殊的数据分布”，这些情况的出现概率可能很小，并不能真实地反映算法运行效率。相比之下，<strong>平均时间复杂度可以体现算法在随机输入数据下的运行效率</strong>，用 <span class="arithmatex">\(\Theta\)</span> 记号来表示。</p>
 <p>对于部分算法，我们可以简单地推算出随机数据分布下的平均情况。比如上述示例，由于输入数组是被打乱的，因此元素 <span class="arithmatex">\(1\)</span> 出现在任意索引的概率都是相等的，那么算法的平均循环次数就是数组长度的一半 <span class="arithmatex">\(n / 2\)</span> ，平均时间复杂度为 <span class="arithmatex">\(\Theta(n / 2) = \Theta(n)\)</span> 。</p>
-<p>但对于较为复杂的算法，计算平均时间复杂度往往是比较困难的，因为很难分析出在数据分布下的整体数学期望。在这种情况下，我们通常使用最差时间复杂度作为算法效率的评判标准。</p>
+<p>但对于较为复杂的算法，计算平均时间复杂度往往比较困难，因为很难分析出在数据分布下的整体数学期望。在这种情况下，我们通常使用最差时间复杂度作为算法效率的评判标准。</p>
 <div class="admonition question">
 <p class="admonition-title">为什么很少看到 <span class="arithmatex">\(\Theta\)</span> 符号？</p>
-<p>可能由于 <span class="arithmatex">\(O\)</span> 符号过于朗朗上口，我们常常使用它来表示平均时间复杂度。但从严格意义上看，这种做法并不规范。在本书和其他资料中，若遇到类似“平均时间复杂度 <span class="arithmatex">\(O(n)\)</span>”的表述，请将其直接理解为 <span class="arithmatex">\(\Theta(n)\)</span> 。</p>
+<p>可能由于 <span class="arithmatex">\(O\)</span> 符号过于朗朗上口，因此我们常常使用它来表示平均时间复杂度。但从严格意义上讲，这种做法并不规范。在本书和其他资料中，若遇到类似“平均时间复杂度 <span class="arithmatex">\(O(n)\)</span>”的表述，请将其直接理解为 <span class="arithmatex">\(\Theta(n)\)</span> 。</p>
 </div>
 
 <!-- Source file information -->

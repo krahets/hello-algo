@@ -3398,7 +3398,7 @@
 <h1 id="114">11.4 &nbsp; 插入排序<a class="headerlink" href="#114" title="Permanent link">&para;</a></h1>
 <p>「插入排序 insertion sort」是一种简单的排序算法，它的工作原理与手动整理一副牌的过程非常相似。</p>
 <p>具体来说，我们在未排序区间选择一个基准元素，将该元素与其左侧已排序区间的元素逐一比较大小，并将该元素插入到正确的位置。</p>
-<p>图 11-6 展示了数组插入元素的操作流程。设基准元素为 <code>base</code> ，我们需要将从目标索引到 <code>base</code> 之间的所有元素向右移动一位，然后再将 <code>base</code> 赋值给目标索引。</p>
+<p>图 11-6 展示了数组插入元素的操作流程。设基准元素为 <code>base</code> ，我们需要将从目标索引到 <code>base</code> 之间的所有元素向右移动一位，然后将 <code>base</code> 赋值给目标索引。</p>
 <p><a class="glightbox" href="../insertion_sort.assets/insertion_operation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="单次插入操作" class="animation-figure" src="../insertion_sort.assets/insertion_operation.png" /></a></p>
 <p align="center"> 图 11-6 &nbsp; 单次插入操作 </p>
 
@@ -3413,6 +3413,7 @@
 <p><a class="glightbox" href="../insertion_sort.assets/insertion_sort_overview.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="插入排序流程" class="animation-figure" src="../insertion_sort.assets/insertion_sort_overview.png" /></a></p>
 <p align="center"> 图 11-7 &nbsp; 插入排序流程 </p>
 
+<p>示例代码如下：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3616,14 +3617,14 @@
 </div>
 <h2 id="1142">11.4.2 &nbsp; 算法特性<a class="headerlink" href="#1142" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>时间复杂度 <span class="arithmatex">\(O(n^2)\)</span>、自适应排序</strong>：最差情况下，每次插入操作分别需要循环 <span class="arithmatex">\(n - 1\)</span>、<span class="arithmatex">\(n-2\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(1\)</span> 次，求和得到 <span class="arithmatex">\((n - 1) n / 2\)</span> ，因此时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> 。在遇到有序数据时，插入操作会提前终止。当输入数组完全有序时，插入排序达到最佳时间复杂度 <span class="arithmatex">\(O(n)\)</span> 。</li>
+<li><strong>时间复杂度 <span class="arithmatex">\(O(n^2)\)</span>、自适应排序</strong>：在最差情况下，每次插入操作分别需要循环 <span class="arithmatex">\(n - 1\)</span>、<span class="arithmatex">\(n-2\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(1\)</span> 次，求和得到 <span class="arithmatex">\((n - 1) n / 2\)</span> ，因此时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> 。在遇到有序数据时，插入操作会提前终止。当输入数组完全有序时，插入排序达到最佳时间复杂度 <span class="arithmatex">\(O(n)\)</span> 。</li>
 <li><strong>空间复杂度 <span class="arithmatex">\(O(1)\)</span>、原地排序</strong>：指针 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 使用常数大小的额外空间。</li>
 <li><strong>稳定排序</strong>：在插入操作过程中，我们会将元素插入到相等元素的右侧，不会改变它们的顺序。</li>
 </ul>
 <h2 id="1143">11.4.3 &nbsp; 插入排序优势<a class="headerlink" href="#1143" title="Permanent link">&para;</a></h2>
-<p>插入排序的时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ，而我们即将学习的快速排序的时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。尽管插入排序的时间复杂度相比快速排序更高，<strong>但在数据量较小的情况下，插入排序通常更快</strong>。</p>
-<p>这个结论与线性查找和二分查找的适用情况的结论类似。快速排序这类 <span class="arithmatex">\(O(n \log n)\)</span> 的算法属于基于分治的排序算法，往往包含更多单元计算操作。而在数据量较小时，<span class="arithmatex">\(n^2\)</span> 和 <span class="arithmatex">\(n \log n\)</span> 的数值比较接近，复杂度不占主导作用；每轮中的单元操作数量起到决定性因素。</p>
-<p>实际上，许多编程语言（例如 Java）的内置排序函数都采用了插入排序，大致思路为：对于长数组，采用基于分治的排序算法，例如快速排序；对于短数组，直接使用插入排序。</p>
+<p>插入排序的时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ，而我们即将学习的快速排序的时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。尽管插入排序的时间复杂度更高，<strong>但在数据量较小的情况下，插入排序通常更快</strong>。</p>
+<p>这个结论与线性查找和二分查找的适用情况的结论类似。快速排序这类 <span class="arithmatex">\(O(n \log n)\)</span> 的算法属于基于分治策略的排序算法，往往包含更多单元计算操作。而在数据量较小时，<span class="arithmatex">\(n^2\)</span> 和 <span class="arithmatex">\(n \log n\)</span> 的数值比较接近，复杂度不占主导地位；每轮中的单元操作数量起到决定性作用。</p>
+<p>实际上，许多编程语言（例如 Java）的内置排序函数采用了插入排序，大致思路为：对于长数组，采用基于分治策略的排序算法，例如快速排序；对于短数组，直接使用插入排序。</p>
 <p>虽然冒泡排序、选择排序和插入排序的时间复杂度都为 <span class="arithmatex">\(O(n^2)\)</span> ，但在实际情况中，<strong>插入排序的使用频率显著高于冒泡排序和选择排序</strong>，主要有以下原因。</p>
 <ul>
 <li>冒泡排序基于元素交换实现，需要借助一个临时变量，共涉及 3 个单元操作；插入排序基于元素赋值实现，仅需 1 个单元操作。因此，<strong>冒泡排序的计算开销通常比插入排序更高</strong>。</li>

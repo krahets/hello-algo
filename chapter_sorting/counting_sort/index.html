@@ -3414,13 +3414,14 @@
 <h2 id="1191">11.9.1 &nbsp; 简单实现<a class="headerlink" href="#1191" title="Permanent link">&para;</a></h2>
 <p>先来看一个简单的例子。给定一个长度为 <span class="arithmatex">\(n\)</span> 的数组 <code>nums</code> ，其中的元素都是“非负整数”，计数排序的整体流程如图 11-16 所示。</p>
 <ol>
-<li>遍历数组，找出数组中的最大数字，记为 <span class="arithmatex">\(m\)</span> ，然后创建一个长度为 <span class="arithmatex">\(m + 1\)</span> 的辅助数组 <code>counter</code> 。</li>
+<li>遍历数组，找出其中的最大数字，记为 <span class="arithmatex">\(m\)</span> ，然后创建一个长度为 <span class="arithmatex">\(m + 1\)</span> 的辅助数组 <code>counter</code> 。</li>
 <li><strong>借助 <code>counter</code> 统计 <code>nums</code> 中各数字的出现次数</strong>，其中 <code>counter[num]</code> 对应数字 <code>num</code> 的出现次数。统计方法很简单，只需遍历 <code>nums</code>（设当前数字为 <code>num</code>），每轮将 <code>counter[num]</code> 增加 <span class="arithmatex">\(1\)</span> 即可。</li>
-<li><strong>由于 <code>counter</code> 的各个索引天然有序，因此相当于所有数字已经被排序好了</strong>。接下来，我们遍历 <code>counter</code> ，根据各数字的出现次数，将它们按从小到大的顺序填入 <code>nums</code> 即可。</li>
+<li><strong>由于 <code>counter</code> 的各个索引天然有序，因此相当于所有数字已经排序好了</strong>。接下来，我们遍历 <code>counter</code> ，根据各数字出现次数从小到大的顺序填入 <code>nums</code> 即可。</li>
 </ol>
 <p><a class="glightbox" href="../counting_sort.assets/counting_sort_overview.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="计数排序流程" class="animation-figure" src="../counting_sort.assets/counting_sort_overview.png" /></a></p>
 <p align="center"> 图 11-16 &nbsp; 计数排序流程 </p>
 
+<p>代码如下所示：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3704,10 +3705,10 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">计数排序与桶排序的联系</p>
-<p>从桶排序的角度看，我们可以将计数排序中的计数数组 <code>counter</code> 的每个索引视为一个桶，将统计数量的过程看作是将各个元素分配到对应的桶中。本质上，计数排序是桶排序在整型数据下的一个特例。</p>
+<p>从桶排序的角度看，我们可以将计数排序中的计数数组 <code>counter</code> 的每个索引视为一个桶，将统计数量的过程看作将各个元素分配到对应的桶中。本质上，计数排序是桶排序在整型数据下的一个特例。</p>
 </div>
 <h2 id="1192">11.9.2 &nbsp; 完整实现<a class="headerlink" href="#1192" title="Permanent link">&para;</a></h2>
-<p>细心的同学可能发现，<strong>如果输入数据是对象，上述步骤 <code>3.</code> 就失效了</strong>。假设输入数据是商品对象，我们想要按照商品价格（类的成员变量）对商品进行排序，而上述算法只能给出价格的排序结果。</p>
+<p>细心的读者可能发现了，<strong>如果输入数据是对象，上述步骤 <code>3.</code> 就失效了</strong>。假设输入数据是商品对象，我们想按照商品价格（类的成员变量）对商品进行排序，而上述算法只能给出价格的排序结果。</p>
 <p>那么如何才能得到原数据的排序结果呢？我们首先计算 <code>counter</code> 的“前缀和”。顾名思义，索引 <code>i</code> 处的前缀和 <code>prefix[i]</code> 等于数组前 <code>i</code> 个元素之和：</p>
 <div class="arithmatex">\[
 \text{prefix}[i] = \sum_{j=0}^i \text{counter[j]}
@@ -3748,7 +3749,7 @@
 </div>
 <p align="center"> 图 11-17 &nbsp; 计数排序步骤 </p>
 
-<p>计数排序的实现代码如下所示。</p>
+<p>计数排序的实现代码如下所示：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4144,8 +4145,8 @@
 <li><strong>稳定排序</strong>：由于向 <code>res</code> 中填充元素的顺序是“从右向左”的，因此倒序遍历 <code>nums</code> 可以避免改变相等元素之间的相对位置，从而实现稳定排序。实际上，正序遍历 <code>nums</code> 也可以得到正确的排序结果，但结果是非稳定的。</li>
 </ul>
 <h2 id="1194">11.9.4 &nbsp; 局限性<a class="headerlink" href="#1194" title="Permanent link">&para;</a></h2>
-<p>看到这里，你也许会觉得计数排序非常巧妙，仅通过统计数量就可以实现高效的排序工作。然而，使用计数排序的前置条件相对较为严格。</p>
-<p><strong>计数排序只适用于非负整数</strong>。若想要将其用于其他类型的数据，需要确保这些数据可以被转换为非负整数，并且在转换过程中不能改变各个元素之间的相对大小关系。例如，对于包含负数的整数数组，可以先给所有数字加上一个常数，将全部数字转化为正数，排序完成后再转换回去即可。</p>
+<p>看到这里，你也许会觉得计数排序非常巧妙，仅通过统计数量就可以实现高效的排序。然而，使用计数排序的前置条件相对较为严格。</p>
+<p><strong>计数排序只适用于非负整数</strong>。若想将其用于其他类型的数据，需要确保这些数据可以转换为非负整数，并且在转换过程中不能改变各个元素之间的相对大小关系。例如，对于包含负数的整数数组，可以先给所有数字加上一个常数，将全部数字转化为正数，排序完成后再转换回去。</p>
 <p><strong>计数排序适用于数据量大但数据范围较小的情况</strong>。比如，在上述示例中 <span class="arithmatex">\(m\)</span> 不能太大，否则会占用过多空间。而当 <span class="arithmatex">\(n \ll m\)</span> 时，计数排序使用 <span class="arithmatex">\(O(m)\)</span> 时间，可能比 <span class="arithmatex">\(O(n \log n)\)</span> 的排序算法还要慢。</p>
 
 <!-- Source file information -->

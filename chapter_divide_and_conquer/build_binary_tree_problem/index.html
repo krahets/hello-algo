@@ -3412,21 +3412,21 @@
 <h1 id="123">12.3 &nbsp; 构建二叉树问题<a class="headerlink" href="#123" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>给定一个二叉树的前序遍历 <code>preorder</code> 和中序遍历 <code>inorder</code> ，请从中构建二叉树，返回二叉树的根节点。假设二叉树中没有值重复的节点。</p>
+<p>给定一棵二叉树的前序遍历 <code>preorder</code> 和中序遍历 <code>inorder</code> ，请从中构建二叉树，返回二叉树的根节点。假设二叉树中没有值重复的节点。</p>
 </div>
 <p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="构建二叉树的示例数据" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_example.png" /></a></p>
 <p align="center"> 图 12-5 &nbsp; 构建二叉树的示例数据 </p>
 
 <h3 id="1">1. &nbsp; 判断是否为分治问题<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>原问题定义为从 <code>preorder</code> 和 <code>inorder</code> 构建二叉树，其是一个典型的分治问题。</p>
+<p>原问题定义为从 <code>preorder</code> 和 <code>inorder</code> 构建二叉树，是一个典型的分治问题。</p>
 <ul>
-<li><strong>问题可以被分解</strong>：从分治的角度切入，我们可以将原问题划分为两个子问题：构建左子树、构建右子树，加上一步操作：初始化根节点。而对于每个子树（子问题），我们仍然可以复用以上划分方法，将其划分为更小的子树（子问题），直至达到最小子问题（空子树）时终止。</li>
-<li><strong>子问题是独立的</strong>：左子树和右子树是相互独立的，它们之间没有交集。在构建左子树时，我们只需要关注中序遍历和前序遍历中与左子树对应的部分。右子树同理。</li>
+<li><strong>问题可以分解</strong>：从分治的角度切入，我们可以将原问题划分为两个子问题：构建左子树、构建右子树，加上一步操作：初始化根节点。而对于每棵子树（子问题），我们仍然可以复用以上划分方法，将其划分为更小的子树（子问题），直至达到最小子问题（空子树）时终止。</li>
+<li><strong>子问题是独立的</strong>：左子树和右子树是相互独立的，它们之间没有交集。在构建左子树时，我们只需关注中序遍历和前序遍历中与左子树对应的部分。右子树同理。</li>
 <li><strong>子问题的解可以合并</strong>：一旦得到了左子树和右子树（子问题的解），我们就可以将它们链接到根节点上，得到原问题的解。</li>
 </ul>
 <h3 id="2">2. &nbsp; 如何划分子树<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>根据以上分析，这道题是可以使用分治来求解的，<strong>但如何通过前序遍历 <code>preorder</code> 和中序遍历 <code>inorder</code> 来划分左子树和右子树呢</strong>？</p>
-<p>根据定义，<code>preorder</code> 和 <code>inorder</code> 都可以被划分为三个部分。</p>
+<p>根据以上分析，这道题可以使用分治来求解，<strong>但如何通过前序遍历 <code>preorder</code> 和中序遍历 <code>inorder</code> 来划分左子树和右子树呢</strong>？</p>
+<p>根据定义，<code>preorder</code> 和 <code>inorder</code> 都可以划分为三个部分。</p>
 <ul>
 <li>前序遍历：<code>[ 根节点 | 左子树 | 右子树 ]</code> ，例如图 12-5 的树对应 <code>[ 3 | 9 | 2 1 7 ]</code> 。</li>
 <li>中序遍历：<code>[ 左子树 | 根节点 ｜ 右子树 ]</code> ，例如图 12-5 的树对应 <code>[ 9 | 3 | 1 2 7 ]</code> 。</li>
@@ -3437,8 +3437,8 @@
 <li>查找根节点 3 在 <code>inorder</code> 中的索引，利用该索引可将 <code>inorder</code> 划分为 <code>[ 9 | 3 ｜ 1 2 7 ]</code> 。</li>
 <li>根据 <code>inorder</code> 划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 <code>preorder</code> 划分为 <code>[ 3 | 9 | 2 1 7 ]</code> 。</li>
 </ol>
-<p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="在前序和中序遍历中划分子树" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" /></a></p>
-<p align="center"> 图 12-6 &nbsp; 在前序和中序遍历中划分子树 </p>
+<p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="在前序遍历和中序遍历中划分子树" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" /></a></p>
+<p align="center"> 图 12-6 &nbsp; 在前序遍历和中序遍历中划分子树 </p>
 
 <h3 id="3">3. &nbsp; 基于变量描述子树区间<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>根据以上划分方法，<strong>我们已经得到根节点、左子树、右子树在 <code>preorder</code> 和 <code>inorder</code> 中的索引区间</strong>。而为了描述这些索引区间，我们需要借助几个指针变量。</p>
@@ -3448,7 +3448,7 @@
 <li>将当前树在 <code>inorder</code> 中的索引区间记为 <span class="arithmatex">\([l, r]\)</span> 。</li>
 </ul>
 <p>如表 12-1 所示，通过以上变量即可表示根节点在 <code>preorder</code> 中的索引，以及子树在 <code>inorder</code> 中的索引区间。</p>
-<p align="center"> 表 12-1 &nbsp; 根节点和子树在前序和中序遍历中的索引 </p>
+<p align="center"> 表 12-1 &nbsp; 根节点和子树在前序遍历和中序遍历中的索引 </p>
 
 <div class="center-table">
 <table>
@@ -3483,7 +3483,7 @@
 <p align="center"> 图 12-7 &nbsp; 根节点和左右子树的索引区间表示 </p>
 
 <h3 id="4">4. &nbsp; 代码实现<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>为了提升查询 <span class="arithmatex">\(m\)</span> 的效率，我们借助一个哈希表 <code>hmap</code> 来存储数组 <code>inorder</code> 中元素到索引的映射。</p>
+<p>为了提升查询 <span class="arithmatex">\(m\)</span> 的效率，我们借助一个哈希表 <code>hmap</code> 来存储数组 <code>inorder</code> 中元素到索引的映射：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3838,7 +3838,7 @@
 </div>
 </div>
 </div>
-<p>图 12-8 展示了构建二叉树的递归过程，各个节点是在向下“递”的过程中建立的，而各条边（即引用）是在向上“归”的过程中建立的。</p>
+<p>图 12-8 展示了构建二叉树的递归过程，各个节点是在向下“递”的过程中建立的，而各条边（引用）是在向上“归”的过程中建立的。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:9"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label><label for="__tabbed_2_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3877,7 +3877,7 @@
 <p align="center"> 图 12-9 &nbsp; 每个递归函数中的划分结果 </p>
 
 <p>设树的节点数量为 <span class="arithmatex">\(n\)</span> ，初始化每一个节点（执行一个递归函数 <code>dfs()</code> ）使用 <span class="arithmatex">\(O(1)\)</span> 时间。<strong>因此总体时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。</p>
-<p>哈希表存储 <code>inorder</code> 元素到索引的映射，空间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。最差情况下，即二叉树退化为链表时，递归深度达到 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 的栈帧空间。<strong>因此总体空间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。</p>
+<p>哈希表存储 <code>inorder</code> 元素到索引的映射，空间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。在最差情况下，即二叉树退化为链表时，递归深度达到 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 的栈帧空间。<strong>因此总体空间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。</p>
 
 <!-- Source file information -->
 
