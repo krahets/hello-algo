@@ -177,7 +177,7 @@ comments: true
 
 如果你在阅读本书时，发现某段内容提供了如图 0-2 所示的动画或图解，**请以图为主、以文字为辅**，综合两者来理解内容。
 
-![动画图解示例](../index.assets/animation.gif){ class="animation-figure" }
+![动画图解示例](../index.assets/animation_light.gif){ class="animation-figure" }
 
 <p align="center"> 图 0-2 &nbsp; 动画图解示例 </p>
 
@@ -189,7 +189,7 @@ comments: true
 
 与阅读代码相比，编写代码的过程往往能带来更多收获。**动手学，才是真的学**。
 
-![运行代码示例](../index.assets/running_code.gif){ class="animation-figure" }
+![运行代码示例](../index.assets/running_code_light.gif){ class="animation-figure" }
 
 <p align="center"> 图 0-3 &nbsp; 运行代码示例 </p>
 
@@ -223,7 +223,7 @@ git clone https://github.com/krahets/hello-algo.git
 
 如图 0-6 所示，每个章节的底部都配有评论区。希望你能多关注评论区的内容。一方面，你可以了解大家遇到的问题，从而查漏补缺，激发更深入的思考。另一方面，期待你能慷慨地回答其他小伙伴的问题，分享你的见解，帮助他人进步。
 
-![评论区示例](../index.assets/comment.gif){ class="animation-figure" }
+![评论区示例](../index.assets/comment_light.gif){ class="animation-figure" }
 
 <p align="center"> 图 0-6 &nbsp; 评论区示例 </p>
 
