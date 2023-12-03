@@ -52,7 +52,7 @@ hide:
 
 !!! quote
 
-    “一本通俗易懂的数据结构与算法入门书，引导读者手脑并用地学习，强烈推荐算法初学者阅读！”
+    “一本通俗易懂的数据结构与算法入门书，引导读者手脑并用地学习，强烈推荐算法初学者阅读。”
 
     **—— 邓俊辉，清华大学计算机系教授**
 
@@ -68,7 +68,7 @@ hide:
 
 <p align="center"> 内容清晰易懂、学习曲线平滑</br>电脑、平板、手机全终端阅读 </p>
 
-![algorithm_animation](index.assets/animation.gif)
+<img src="index.assets/animation.gif" class="cover-image" style="width: 100%; border-radius: 0.5rem;">
 
 !!! quote ""
 
@@ -81,7 +81,7 @@ hide:
 
 <p align="center"> 提供各个算法与数据结构的简洁实现与测试样例，皆可直接运行</br>支持 Python、C++、Java、C#、Go、Swift、JS、TS、Dart、Rust、C、Zig 等语言 </p>
 
-![running_code](index.assets/running_code.gif)
+<img src="index.assets/running_code.gif" class="cover-image" style="width: 100%; border-radius: 0.5rem;">
 
 !!! quote ""
 
@@ -94,7 +94,7 @@ hide:
 
 <p align="center"> 鼓励小伙伴们互帮互助、共同成长</br>提问与评论一般能在两日内得到回复 </p>
 
-![comment](index.assets/comment.gif)
+<img src="index.assets/comment.gif" class="cover-image" style="width: 100%; border-radius: 0.5rem;">
 
 !!! quote ""
 
@@ -146,5 +146,3 @@ hide:
         </tbody>
     </table>
 </div>
-
----
