@@ -38,7 +38,7 @@
   <img src="https://img.shields.io/badge/Stay%20Tuned-snow">
 </p>
 
-> **Important**
+> [!Important]
 >
 > We are working on Chinese-to-English translation. For more information please see [#914](https://github.com/krahets/hello-algo/issues/914).
 
