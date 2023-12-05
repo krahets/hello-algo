@@ -99,6 +99,10 @@
   text-transform: none;
 }
 
+.md-typeset svg {
+  fill: var(--md-primary-bg-color);
+}
+
 /* font-family setting for Win10 */
 body {
   --md-text-font-family: -apple-system, BlinkMacSystemFont,
@@ -128,4 +132,34 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 100%; /* Default to full width */
+}
+
+/* rounded button */
+.rounded-button {
+  display: inline-flex; /* Use flexbox for alignment */
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center items horizontally */
+  border-radius: 100px; /* Circular corners */
+  padding: 9px 18px; /* Padding around the text */
+  margin: 0.15em 0;
+  border: none; /* Removes default border */
+  background-color: #52bbb1; /* Background color */
+  color: #1d1d20 !important; /* Text color */
+  font-size: 0.85em; /* Font size */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove underline from anchor text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  box-shadow: var(--md-shadow-z1);
+}
+
+.rounded-button:hover {
+  background-color: #399188; /* Darker shade on hover */
+}
+
+.rounded-button svg {
+  fill: #1d1d20; /* Fill SVG icon with text color */
+  width: 1.2em;
+  height: auto;
+  margin-right: 0.5em; /* Add some space between the SVG icon and the text */
 }
