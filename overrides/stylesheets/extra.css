@@ -119,3 +119,13 @@ body {
 [data-md-color-scheme="slate"] .md-typeset video {
   filter: brightness(0.85) invert(0.05);
 }
+
+/* landing page */
+.responsive-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%; /* Default to full width */
+}
