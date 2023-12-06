@@ -15,7 +15,10 @@
   --md-admonition-fg-color: #1d1d20;
 
   --md-typeset-color: #1d1d20;
-  --md-typeset-a-color: #2aa996;
+  --md-typeset-a-color: #349890;
+
+  --md-typeset-btn-color: #55aea6;
+  --md-typeset-btn-hover-color: #52bbb1;
 }
 
 [data-md-color-scheme="slate"] {
@@ -35,7 +38,10 @@
   --md-footer-fg-color: #adbac7;
 
   --md-typeset-color: #adbac7;
-  --md-typeset-a-color: #21c8b8 !important;
+  --md-typeset-a-color: #52bbb1 !important;
+
+  --md-typeset-btn-color: #52bbb1;
+  --md-typeset-btn-hover-color: #55aea6;
 }
 
 /* https://github.com/squidfunk/mkdocs-material/issues/4832#issuecomment-1374891676 */
@@ -99,10 +105,6 @@
   text-transform: none;
 }
 
-.md-typeset svg {
-  fill: var(--md-primary-bg-color);
-}
-
 /* font-family setting for Win10 */
 body {
   --md-text-font-family: -apple-system, BlinkMacSystemFont,
@@ -125,12 +127,11 @@ body {
 }
 
 /* landing page */
-.responsive-div {
+.header-img-div {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 100%; /* Default to full width */
 }
 
@@ -143,22 +144,20 @@ body {
   padding: 9px 18px; /* Padding around the text */
   margin: 0.15em 0;
   border: none; /* Removes default border */
-  background-color: #52bbb1; /* Background color */
-  color: #1d1d20 !important; /* Text color */
+  background-color: var(--md-typeset-btn-color); /* Background color */
+  color: var(--md-primary-fg-color) !important; /* Text color */
   font-size: 0.85em; /* Font size */
   text-align: center; /* Center the text */
   text-decoration: none; /* Remove underline from anchor text */
   cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s; /* Smooth transition for background color */
-  box-shadow: var(--md-shadow-z1);
 }
 
 .rounded-button:hover {
-  background-color: #399188; /* Darker shade on hover */
+  background-color: var(--md-typeset-btn-hover-color);
 }
 
 .rounded-button svg {
-  fill: #1d1d20; /* Fill SVG icon with text color */
+  fill: var(--md-primary-fg-color); /* Fill SVG icon with text color */
   width: 1.2em;
   height: auto;
   margin-right: 0.5em; /* Add some space between the SVG icon and the text */
