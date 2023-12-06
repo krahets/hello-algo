@@ -15,7 +15,10 @@
   --md-admonition-fg-color: #1d1d20;
 
   --md-typeset-color: #1d1d20;
-  --md-typeset-a-color: #2aa996;
+  --md-typeset-a-color: #349890;
+
+  --md-typeset-btn-color: #55aea6;
+  --md-typeset-btn-hover-color: #52bbb1;
 }
 
 [data-md-color-scheme="slate"] {
@@ -35,7 +38,10 @@
   --md-footer-fg-color: #adbac7;
 
   --md-typeset-color: #adbac7;
-  --md-typeset-a-color: #21c8b8 !important;
+  --md-typeset-a-color: #52bbb1 !important;
+
+  --md-typeset-btn-color: #52bbb1;
+  --md-typeset-btn-hover-color: #55aea6;
 }
 
 /* https://github.com/squidfunk/mkdocs-material/issues/4832#issuecomment-1374891676 */
@@ -118,4 +124,41 @@ body {
 [data-md-color-scheme="slate"] .md-typeset svg,
 [data-md-color-scheme="slate"] .md-typeset video {
   filter: brightness(0.85) invert(0.05);
+}
+
+/* landing page */
+.header-img-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%; /* Default to full width */
+}
+
+/* rounded button */
+.rounded-button {
+  display: inline-flex; /* Use flexbox for alignment */
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center items horizontally */
+  border-radius: 100px; /* Circular corners */
+  padding: 9px 18px; /* Padding around the text */
+  margin: 0.15em 0;
+  border: none; /* Removes default border */
+  background-color: var(--md-typeset-btn-color); /* Background color */
+  color: var(--md-primary-fg-color) !important; /* Text color */
+  font-size: 0.85em; /* Font size */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove underline from anchor text */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.rounded-button:hover {
+  background-color: var(--md-typeset-btn-hover-color);
+}
+
+.rounded-button svg {
+  fill: var(--md-primary-fg-color); /* Fill SVG icon with text color */
+  width: 1.2em;
+  height: auto;
+  margin-right: 0.5em; /* Add some space between the SVG icon and the text */
 }
