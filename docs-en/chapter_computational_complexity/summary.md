@@ -14,7 +14,7 @@
 - The worst time complexity is denoted by big $O$ notation, which corresponds to the asymptotic upper bound of the function, reflecting the growth rate in the number of operations $T(n)$ as $n$ tends to positive infinity.
 - The estimation of time complexity involves two steps: first, counting the number of operations, and then determining the asymptotic upper bound.
 - Common time complexities, from lowest to highest, are $O(1)$, $O(\log n)$, $O(n)$, $O(n \log n)$, $O(n^2)$, $O(2^n)$, and $O(n!)$.
-- The time complexity of certain algorithms is not fixed and depends on the distribution of the input data. The time complexity can be categorized into worst, best, and average. The best time complexity is rarely used because the input data must meet strict conditions to achieve the best-case.
+- The time complexity of certain algorithms is not fixed and depends on the distribution of the input data. The time complexity can be categorized into worst-case, best-case, and average. The best-case time complexity is rarely used because the input data must meet strict conditions to achieve the best-case.
 - The average time complexity reflects the efficiency of an algorithm with random data inputs, which is closest to the performance of algorithms in real-world scenarios. Calculating the average time complexity requires statistical analysis of input data and a synthesized mathematical expectation.
 
 **Space Complexity**
