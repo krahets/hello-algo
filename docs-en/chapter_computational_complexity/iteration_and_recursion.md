@@ -4,7 +4,7 @@ In algorithms, repeatedly performing a task is quite common and closely linked t
 
 ## Iteration
 
-"Iteration" is a control structure used to repeatedly execute a task. In an iterative process, a program repeatedly executes a block of code as long as a certain condition is met, ceasing once this condition is no longer satisfied.
+"Iteration" is a control structure used to repeatedly execute a task. In an iterative process, a program executes a block of code repeatedly until certain conditions are met, ceasing once this condition is no longer satisfied.
 
 ### For Loops
 
