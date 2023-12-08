@@ -10,7 +10,7 @@ In algorithms, repeatedly performing a task is quite common and closely linked t
 
 The `for` loop is one of the most common forms of iteration, and **it's particularly suitable when the number of iterations is known in advance**.
 
-The following function implements summation $1 + 2 + \dots + n$ using a `for` loop, with the sum being recorded in the variable `res`. Note that in Python, `range(a, b)` corresponds to a "left-closed, right-open" interval, meaning it includes numbers in the sequence from $a, a + 1, \dots$, up to $b-1$, but not $b$ itself.
+The following function implements summation $1 + 2 + \dots + n$ using a `for` loop, with the sum being recorded in the variable `res`. Note that in Python, `range(a, b)` creates a range from $a$ up to but not including $b$, making it an exclusive range. This means it includes numbers starting from $a$ up to $b−1$, but excludes $b$ itself.
 
 ```src
 [file]{iteration}-[class]{}-[func]{for_loop}
