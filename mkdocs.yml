@@ -30,7 +30,7 @@ theme:
     # - header.autohide
     # - navigation.expand
     - navigation.indexes
-    - navigation.instant
+    # - navigation.instant
     # - navigation.prune
     # - navigation.sections
     # - navigation.tabs
