@@ -9,7 +9,7 @@
 /* 冒泡排序 */
 void bubbleSort(int nums[], int size) {
     // 外循环：未排序区间为 [0, i]
-    for (int i = 0; i < size - 1; i++) {
+    for (int i = size - 1; i > 0; i--) {
         // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
         for (int j = 0; j < size - 1 - i; j++) {
             if (nums[j] > nums[j + 1]) {
@@ -24,7 +24,7 @@ void bubbleSort(int nums[], int size) {
 /* 冒泡排序（标志优化）*/
 void bubbleSortWithFlag(int nums[], int size) {
     // 外循环：未排序区间为 [0, i]
-    for (int i = 0; i < size - 1; i++) {
+    for (int i = size - 1; i > 0; i--) {
         bool flag = false;
         // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
         for (int j = 0; j < size - 1 - i; j++) {
