@@ -34,7 +34,7 @@ Next, let's use a `while` loop to implement the summation of $1 + 2 + \dots + n$
 
 **`While` loops provide more flexibility than `for` loops**, especially since they allow for custom initialization and modification of the condition variable at each step.
 
-For example, in the following code, the condition variable $i$ is updated twice in each iteration, a scenario that would be less convenient to implement with a `for` loop
+For example, in the following code, the condition variable $i$ is updated twice in each iteration, a scenario that would be less convenient to implement with a `for` loop.
 
 ```src
 [file]{iteration}-[class]{}-[func]{while_loop_ii}
