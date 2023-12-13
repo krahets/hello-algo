@@ -1,6 +1,6 @@
 # 术语表
 
-下表列出了书中出现的重要术语。建议你同时记住它们的中英文叫法，以便阅读英文文献。
+下表列出了书中出现的重要术语。建议读者同时记住它们的中英文叫法，以便阅读英文文献。
 
 <p align="center"> 表 <id> &nbsp; 数据结构与算法的重要名词 </p>
 
@@ -18,7 +18,7 @@
 | 大             | big-                           | 优先队列       | priority queue              |
 | 记号           | notation                       |                |                             |
 | 渐近上界       | asymptotic upper bound         | 堆化           | heapify                     |
-| 原码           | sign–magnitude                 | 图             | graph                       |
+| 原码           | sign-magnitude                 | 图             | graph                       |
 | 反码           | 1’s complement                 | 顶点           | vertex                      |
 | 补码           | 2’s complement                 | 无向图         | undirected graph            |
 | 数组           | array                          | 有向图         | directed graph              |

@@ -1,4 +1,4 @@
-# Follow the PEP 585 – Type Hinting Generics In Standard Collections
+# Follow the PEP 585 - Type Hinting Generics In Standard Collections
 # https://peps.python.org/pep-0585/
 from __future__ import annotations
 
