@@ -141,7 +141,7 @@ When dealing with algorithms related to "divide and conquer," recursion often of
 
     Given a Fibonacci sequence $0, 1, 1, 2, 3, 5, 8, 13, \dots$, we want to find the $n$th number in the series.
 
-Let's denote the $n$th number of the Fibonacci sequence as $f(n)$, It follows two simple rules:
+Let's denote the $n$th number of the Fibonacci sequence as $f(n)$. It follows two simple rules:
 
 - The first two numbers of the sequence are $f(1) = 0$ and $f(2) = 1$.
 - Each number in the series is the sum of the two preceding ones, i.e., $f(n) = f(n - 1) + f(n - 2)$.
