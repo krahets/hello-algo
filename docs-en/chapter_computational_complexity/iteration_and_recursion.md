@@ -1,6 +1,6 @@
 # Iteration and Recursion
 
-In algorithms, repeatedly performing a task is quite common and closely linked to complexity analysis. Therefore, before diving into the details of time complexity and space complexity, let's first understand how to implement repetitive tasks in programming, focusing on two fundamental control structures: iteration and recursion.
+In algorithms, the repeated execution of a task is quite common and is closely related to the analysis of complexity. Therefore, before delving into the concepts of time complexity and space complexity, let's first explore how to implement repetitive task execution in programming. This involves understanding two fundamental programming control structures: iteration and recursion.
 
 ## Iteration
 
