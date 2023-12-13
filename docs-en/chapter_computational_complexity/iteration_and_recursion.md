@@ -159,7 +159,7 @@ At its core, recursion embodies the paradigm of "breaking down a problem into sm
 
 Summarizing the content above, as shown in Table 2-1, iteration and recursion differ in their implementation, performance, and applicability.
 
-<p align="center"> Table 2-1<id> &nbsp; Comparison of Characteristics Between Iteration and Recursion </p>
+<p align="center"> Table <id> &nbsp; Comparison of Characteristics Between Iteration and Recursion </p>
 
 | Aspect              | Iteration                                               | Recursion                                                                                                                             |
 | ------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
