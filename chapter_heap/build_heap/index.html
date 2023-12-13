@@ -3535,12 +3535,12 @@
 <h2 id="822">8.2.2 &nbsp; 通过遍历堆化实现<a class="headerlink" href="#822" title="Permanent link">&para;</a></h2>
 <p>实际上，我们可以实现一种更为高效的建堆方法，共分为两步。</p>
 <ol>
-<li>将列表所有元素原封不动添加到堆中，此时堆的性质尚未得到满足。</li>
-<li>倒序遍历堆（即层序遍历的倒序），依次对每个非叶节点执行“从顶至底堆化”。</li>
+<li>将列表所有元素原封不动地添加到堆中，此时堆的性质尚未得到满足。</li>
+<li>倒序遍历堆（层序遍历的倒序），依次对每个非叶节点执行“从顶至底堆化”。</li>
 </ol>
 <p><strong>每当堆化一个节点后，以该节点为根节点的子树就形成一个合法的子堆</strong>。而由于是倒序遍历，因此堆是“自下而上”构建的。</p>
 <p>之所以选择倒序遍历，是因为这样能够保证当前节点之下的子树已经是合法的子堆，这样堆化当前节点才是有效的。</p>
-<p>值得说明的是，<strong>叶节点没有子节点，天然就是合法的子堆，因此无须堆化</strong>。如以下代码所示，最后一个非叶节点是最后一个节点的父节点，我们从它开始倒序遍历并执行堆化。</p>
+<p>值得说明的是，<strong>由于叶节点没有子节点，因此它们天然就是合法的子堆，无须堆化</strong>。如以下代码所示，最后一个非叶节点是最后一个节点的父节点，我们从它开始倒序遍历并执行堆化：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

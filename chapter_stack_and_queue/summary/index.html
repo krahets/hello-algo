@@ -3532,7 +3532,7 @@
 </div>
 <div class="admonition question">
 <p class="admonition-title">撤销（undo）和反撤销（redo）具体是如何实现的？</p>
-<p>使用两个堆栈，栈 <code>A</code> 用于撤销，栈 <code>B</code> 用于反撤销。</p>
+<p>使用两个栈，栈 <code>A</code> 用于撤销，栈 <code>B</code> 用于反撤销。</p>
 <ol>
 <li>每当用户执行一个操作，将这个操作压入栈 <code>A</code> ，并清空栈 <code>B</code> 。</li>
 <li>当用户执行“撤销”时，从栈 <code>A</code> 中弹出最近的操作，并将其压入栈 <code>B</code> 。</li>
