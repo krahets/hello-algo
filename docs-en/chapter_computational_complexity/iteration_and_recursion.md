@@ -53,7 +53,6 @@ Nested loops involve placing one loop structure within another. Taking `for` loo
 The figure below provides the flowchart for such a nested loop structure.
 
 ![Block diagram of the flow of nested loops](iteration_and_recursion.assets/nested_iteration.png)
-<div align="center">Figure 2-2: Flowchart of the Nested Loop</div>
 
 In such cases, the number of operations of the function is proportional to $n^2$, meaning the algorithm's runtime and the size of the input data $n$ have a 'quadratic relationship.'
 
