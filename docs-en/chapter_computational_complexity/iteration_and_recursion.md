@@ -185,7 +185,7 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
 [file]{recursion}-[class]{}-[func]{for_loop_recur}
 ```
 
-Upon examining the code, we see that once recursion is converted to iteration, the code becomes more complex. Although iteration and recursion are often interchangeable, the conversion isn't always advisable for a couple of reasons:
+Upon examining the code, we see that once recursion is converted to iteration, the code becomes more complex. Although iteration and recursion are often interchangeable, the conversion isn't always advisable for a couple of reasons.
 
 - The transformed code may become harder to understand and less readable.
 - For certain complex problems, simulating the behavior of the system call stack can be quite challenging.
