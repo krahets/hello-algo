@@ -16,7 +16,7 @@ The following function implements summation $1 + 2 + \dots + n$ using a `for` lo
 [file]{iteration}-[class]{}-[func]{for_loop}
 ```
 
-Figure 2-1 shows the flowchart for this summation function.
+The figure below shows the flowchart for this summation function.
 
 ![Flow block diagram of the summation function](iteration_and_recursion.assets/iteration.png)
 
@@ -77,10 +77,9 @@ Consider the following code, where simply calling the function `recur(n)` can co
 [file]{recursion}-[class]{}-[func]{recur}
 ```
 
-Figure 2-3 illustrates the recursive process of this function.
+The figure below illustrates the recursive process of this function.
 
 ![Recursion process for the summation function](iteration_and_recursion.assets/recursion_sum.png)
-<div align="center">Figure 2-3: The Recursive Process of the Summation Function</div>
 
 While iteration and recursion can yield the same results from a computational standpoint, **they represent two distinct paradigms of thinking and problem-solving.**
 
@@ -99,10 +98,9 @@ Every time a recursive function calls itself, the system allocates memory for th
 - **Memory Allocation for Context Data**: The context data for each function is stored in a memory area known as the 'stack frame.' This memory is not freed until the function returns. As a result, recursion generally consumes more memory space than iteration.
 - **Overhead of Recursive Calls**: Each recursive function call incurs additional overhead. Therefore, in terms of time efficiency, recursion is usually less efficient than loops.
 
-As illustrated in Figure 2-4, before the termination condition is triggered, there are $n$ recursive functions pending return, **resulting in a recursion depth of $n$**.
+As illustrated in the figure below, before the termination condition is triggered, there are $n$ recursive functions pending return, **resulting in a recursion depth of $n$**.
 
 ![Recursion call depth](iteration_and_recursion.assets/recursion_sum_depth.png)
-<div align="center">Figure 2-4: Recursive Call Depth</div>
 
 In practice, the depth of recursion allowed in programming languages is usually limited. Excessively deep recursion can lead to a stack overflow error.
 
@@ -119,13 +117,12 @@ Taking the summation of $1 + 2 + \dots + n$ as an example, we can implement tail
 [file]{recursion}-[class]{}-[func]{tail_recur}
 ```
 
-The execution process of tail recursion, as shown in Figure 2-5, differs significantly from that of ordinary recursion in terms of when the summation operation is performed:
+The execution process of tail recursion, as shown in the figure below, differs significantly from that of ordinary recursion in terms of when the summation operation is performed:
 
 - **Ordinary Recursion**: The summation occurs during the "Backtracking" or "Recursive Ascent" phase, with the summing operation being executed each time the function returns from a deeper recursive level.
 - **Tail Recursion**: The summation happens during the "Recursive Descent," and the "Backtracking" or "Recursive Ascent" phase simply involves returning through the levels without additional operations.
 
 ![tail recursion process](iteration_and_recursion.assets/tail_recursion_sum.png)
-<div align="center">Figure 2-5: Tail Recursion Process</div>
 
 !!! tip
 
@@ -149,10 +146,9 @@ By following this recursive relationship and using the first two numbers as the 
 ```src
 [file]{recursion}-[class]{}-[func]{fib}
 ```
-Upon examining this code, we notice that **each function call recursively triggers two more calls, creating two branches from a single call**. As illustrated in Figure 2-6, this process of recursive calling eventually forms a "recursion tree" with $n$ levels.
+Upon examining this code, we notice that **each function call recursively triggers two more calls, creating two branches from a single call**. As illustrated in the figure below, this process of recursive calling eventually forms a "recursion tree" with $n$ levels.
 
 ![Recursion tree for Fibonacci series](iteration_and_recursion.assets/recursion_tree.png)
-<div align="center">Figure 2-6: Fibonacci Sequence Recursion Tree</div>
 
 At its core, recursion embodies the paradigm of "breaking down a problem into smaller subproblems." This divide and conquer strategy is crucial.
 
