@@ -19,7 +19,6 @@ The following function implements summation $1 + 2 + \dots + n$ using a `for` lo
 Figure 2-1 shows the flowchart for this summation function.
 
 ![Flow block diagram of the summation function](iteration_and_recursion.assets/iteration.png)
-<div align="center">Figure 2-1: Flowchart of the Summation Function</div>
 
 The number of operations in this summation function is proportional to the size of the input data $n$, or in other words, it has a "linear relationship." In fact, this "linear relationship" is what time complexity describes. This topic will be discussed in more detail in the next section.
 
