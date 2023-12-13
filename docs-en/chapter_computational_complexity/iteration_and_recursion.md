@@ -130,7 +130,7 @@ The execution process of tail recursion, as shown in the figure below, differs s
 
 ### Recursion Tree
 
-When dealing with algorithms related to "divide and conquer," recursion often offers a more intuitive approach and produces more readable code than iteration. Take the "Fibonacci sequence" as an example.
+When dealing with algorithms related to divide and conquer, recursion often offers a more intuitive approach and produces more readable code than iteration. Take the "Fibonacci sequence" as an example.
 
 !!! question
 
