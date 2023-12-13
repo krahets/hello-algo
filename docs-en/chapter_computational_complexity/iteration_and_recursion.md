@@ -81,7 +81,7 @@ The figure below illustrates the recursive process of this function.
 
 ![Recursion process for the summation function](iteration_and_recursion.assets/recursion_sum.png)
 
-While iteration and recursion can yield the same results from a computational standpoint, **they represent two distinct paradigms of thinking and problem-solving.**
+While iteration and recursion can yield the same results from a computational standpoint, **they represent two distinct paradigms of thinking and problem-solving**.
 
 - **Iteration**: This approach is "bottom-up." It starts with the most fundamental steps and then repeatedly applies or accumulates these steps until the task is complete. 
 - **Recursion**: sThis method is "top-down." It breaks the original problem down into smaller subproblems, each resembling the original problem in form. These subproblems are further decomposed into even smaller parts, continuing until reaching the base case (whose solution is known).
