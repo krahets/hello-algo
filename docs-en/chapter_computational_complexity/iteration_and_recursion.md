@@ -51,7 +51,7 @@ Nested loops involve placing one loop structure within another. Taking `for` loo
 [file]{iteration}-[class]{}-[func]{nested_for_loop}
 ```
 
-Figure 2-2 provides the flowchart for such a nested loop structure.
+The figure below provides the flowchart for such a nested loop structure.
 
 ![Block diagram of the flow of nested loops](iteration_and_recursion.assets/nested_iteration.png)
 <div align="center">Figure 2-2: Flowchart of the Nested Loop</div>
