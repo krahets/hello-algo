@@ -15,8 +15,7 @@
 | 递归           | recursion                      | 堆             | heap                        |
 | 尾递归         | tail recursion                 | 大顶堆         | max heap                    |
 | 递归树         | recursion tree                 | 小顶堆         | min heap                    |
-| 大             | big-                           | 优先队列       | priority queue              |
-| 记号           | notation                       |                |                             |
+| 大 $O$ 记号    | big-$O$ notation               | 优先队列       | priority queue              |
 | 渐近上界       | asymptotic upper bound         | 堆化           | heapify                     |
 | 原码           | sign-magnitude                 | 图             | graph                       |
 | 反码           | 1’s complement                 | 顶点           | vertex                      |
