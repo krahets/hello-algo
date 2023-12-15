@@ -63,8 +63,6 @@ hide:
 
 ---
 
-<h2 align="center"> 推荐语 </h2>
-
 <div style="display: flex;">
   <div class="admonition quote" style="flex: 1; margin-right: 0.4rem;">
     <p class="admonition-title">Quote</p>
