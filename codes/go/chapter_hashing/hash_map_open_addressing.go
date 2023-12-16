@@ -88,6 +88,7 @@ func (m *hashMapOpenAddressing) put(key int, val string) {
 		// 若遇到指定 key ，则更新对应 val
 		if m.buckets[j].key == key {
 			m.buckets[j].val = val
+			return
 		}
 	}
 }
