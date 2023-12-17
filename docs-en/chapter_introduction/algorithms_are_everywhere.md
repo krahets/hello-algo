@@ -4,11 +4,11 @@ When we hear the word "algorithm", we naturally think of mathematics. However, m
 
 Before we formally discuss algorithms, an interesting fact is worth sharing: **you have already learned many algorithms unconsciously and have become accustomed to applying them in your daily life**. Below, I will give a few specific examples to prove this point.
 
-**Example 1: Looking Up a Dictionary**. In a dictionary, each Chinese character corresponds to a pinyin, and the dictionary is arranged in alphabetical order of pinyin. Suppose we need to find a character with a pinyin begins with the letter $r$. This is typically accomplished in the following way:
+**Example 1: Looking Up a Dictionary**. In a standard dictionary, each word corresponds to a phonetic transcription and the dictionary is organized alphabetically based on these transcriptions. Let's say we're looking for a word that begins with the letter $r$. This is typically done in the following way:
 
 1. Open the dictionary around its midpoint and note the first letter on that page, assuming it to be $m$.
-2. Given that $r$ follows $m$ in the pinyin alphabet, we eliminate the first half of the dictionary and narrow the search to the second half.
-3. Iterate steps `1.` and `2.` until you find the page where the pinyin begins with $r$.
+2. Given the sequence of words following the initial letter $m$, estimate where words starting with the letter $r$ might be located within the alphabetical order.
+3. Iterate steps `1.` and `2.` until you find the page where the word begins with the letter $r$.
 
 === "<1>"
     ![Dictionary search step](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
