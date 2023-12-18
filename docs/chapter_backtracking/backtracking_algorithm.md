@@ -317,7 +317,7 @@ comments: true
         *path = append(*path, root)
         if root.Val.(int) == 7 {
             // 记录解
-            *res = append(*res, *path)
+            *res = append(*res, append([]*TreeNode{}, *path...))
         }
         preOrderII(root.Left, res, path)
         preOrderII(root.Right, res, path)

@@ -498,7 +498,7 @@ comments: true
 
     /* 负载因子 */
     func (m *hashMapChaining) loadFactor() float64 {
-        return float64(m.size / m.capacity)
+        return float64(m.size) / float64(m.capacity)
     }
 
     /* 查询操作 */
@@ -523,9 +523,9 @@ comments: true
         }
         idx := m.hashFunc(key)
         // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
-        for _, p := range m.buckets[idx] {
-            if p.key == key {
-                p.val = val
+        for i := range m.buckets[idx] {
+            if m.buckets[idx][i].key == key {
+                m.buckets[idx][i].val = val
                 return
             }
         }
@@ -1931,6 +1931,7 @@ comments: true
             // 若遇到指定 key ，则更新对应 val
             if m.buckets[j].key == key {
                 m.buckets[j].val = val
+                return
             }
         }
     }
