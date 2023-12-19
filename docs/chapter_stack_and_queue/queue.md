@@ -446,7 +446,7 @@ comments: true
         }
 
         /* 出队 */
-        void pop() {
+        int pop() {
             int num = peek();
             // 删除头节点
             ListNode *tmp = front;
@@ -454,6 +454,7 @@ comments: true
             // 释放内存
             delete tmp;
             queSize--;
+            return num;
         }
 
         /* 访问队首元素 */
@@ -1093,12 +1094,13 @@ comments: true
     }
 
     /* 出队 */
-    void pop(LinkedListQueue *queue) {
+    int pop(LinkedListQueue *queue) {
         int num = peek(queue);
         ListNode *tmp = queue->front;
         queue->front = queue->front->next;
         free(tmp);
         queue->queSize--;
+        return num;
     }
 
     /* 打印队列 */
@@ -1345,11 +1347,12 @@ comments: true
         }
 
         /* 出队 */
-        void pop() {
+        int pop() {
             int num = peek();
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
             front = (front + 1) % queCapacity;
             queSize--;
+            return num;
         }
 
         /* 访问队首元素 */
@@ -2014,11 +2017,12 @@ comments: true
     }
 
     /* 出队 */
-    void pop(ArrayQueue *queue) {
+    int pop(ArrayQueue *queue) {
         int num = peek(queue);
         // 队首指针向后移动一位，若越过尾部则返回到数组头部
         queue->front = (queue->front + 1) % queue->queCapacity;
         queue->queSize--;
+        return num;
     }
     ```
 

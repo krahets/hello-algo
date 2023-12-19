@@ -426,13 +426,14 @@ comments: true
         }
 
         /* 出栈 */
-        void pop() {
+        int pop() {
             int num = top();
             ListNode *tmp = stackTop;
             stackTop = stackTop->next;
             // 释放内存
             delete tmp;
             stkSize--;
+            return num;
         }
 
         /* 访问栈顶元素 */
@@ -962,26 +963,16 @@ comments: true
 
     /* 获取栈的长度 */
     int size(LinkedListStack *s) {
-        assert(s);
         return s->size;
     }
 
     /* 判断栈是否为空 */
     bool isEmpty(LinkedListStack *s) {
-        assert(s);
         return size(s) == 0;
-    }
-
-    /* 访问栈顶元素 */
-    int peek(LinkedListStack *s) {
-        assert(s);
-        assert(size(s) != 0);
-        return s->top->val;
     }
 
     /* 入栈 */
     void push(LinkedListStack *s, int num) {
-        assert(s);
         ListNode *node = (ListNode *)malloc(sizeof(ListNode));
         node->next = s->top; // 更新新加节点指针域
         node->val = num;     // 更新新加节点数据域
@@ -989,13 +980,17 @@ comments: true
         s->size++;           // 更新栈大小
     }
 
-    /* 出栈 */
-    int pop(LinkedListStack *s) {
+    /* 访问栈顶元素 */
+    int peek(LinkedListStack *s) {
         if (s->size == 0) {
-            printf("stack is empty.\n");
+            printf("栈为空\n");
             return INT_MAX;
         }
-        assert(s);
+        return s->top->val;
+    }
+
+    /* 出栈 */
+    int pop(LinkedListStack *s) {
         int val = peek(s);
         ListNode *tmp = s->top;
         s->top = s->top->next;
@@ -1165,9 +1160,10 @@ comments: true
         }
 
         /* 出栈 */
-        void pop() {
-            int oldTop = top();
+        int pop() {
+            int num = top();
             stack.pop_back();
+            return num;
         }
 
         /* 访问栈顶元素 */
@@ -1607,7 +1603,7 @@ comments: true
     /* 入栈 */
     void push(ArrayStack *stack, int num) {
         if (stack->size == MAX_SIZE) {
-            printf("stack is full.\n");
+            printf("栈已满\n");
             return;
         }
         stack->data[stack->size] = num;
@@ -1617,7 +1613,7 @@ comments: true
     /* 访问栈顶元素 */
     int peek(ArrayStack *stack) {
         if (stack->size == 0) {
-            printf("stack is empty.\n");
+            printf("栈为空\n");
             return INT_MAX;
         }
         return stack->data[stack->size - 1];
@@ -1625,10 +1621,6 @@ comments: true
 
     /* 出栈 */
     int pop(ArrayStack *stack) {
-        if (stack->size == 0) {
-            printf("stack is empty.\n");
-            return INT_MAX;
-        }
         int val = peek(stack);
         stack->size--;
         return val;
