@@ -32,26 +32,16 @@ void delLinkedListStack(LinkedListStack *s) {
 
 /* 获取栈的长度 */
 int size(LinkedListStack *s) {
-    assert(s);
     return s->size;
 }
 
 /* 判断栈是否为空 */
 bool isEmpty(LinkedListStack *s) {
-    assert(s);
     return size(s) == 0;
-}
-
-/* 访问栈顶元素 */
-int peek(LinkedListStack *s) {
-    assert(s);
-    assert(size(s) != 0);
-    return s->top->val;
 }
 
 /* 入栈 */
 void push(LinkedListStack *s, int num) {
-    assert(s);
     ListNode *node = (ListNode *)malloc(sizeof(ListNode));
     node->next = s->top; // 更新新加节点指针域
     node->val = num;     // 更新新加节点数据域
@@ -59,13 +49,17 @@ void push(LinkedListStack *s, int num) {
     s->size++;           // 更新栈大小
 }
 
-/* 出栈 */
-int pop(LinkedListStack *s) {
+/* 访问栈顶元素 */
+int peek(LinkedListStack *s) {
     if (s->size == 0) {
-        printf("stack is empty.\n");
+        printf("栈为空\n");
         return INT_MAX;
     }
-    assert(s);
+    return s->top->val;
+}
+
+/* 出栈 */
+int pop(LinkedListStack *s) {
     int val = peek(s);
     ListNode *tmp = s->top;
     s->top = s->top->next;

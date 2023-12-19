@@ -67,12 +67,13 @@ int peek(LinkedListQueue *queue) {
 }
 
 /* 出队 */
-void pop(LinkedListQueue *queue) {
+int pop(LinkedListQueue *queue) {
     int num = peek(queue);
     ListNode *tmp = queue->front;
     queue->front = queue->front->next;
     free(tmp);
     queue->queSize--;
+    return num;
 }
 
 /* 打印队列 */
@@ -108,7 +109,7 @@ int main() {
     printf("队首元素 peek = %d\r\n", peekNum);
 
     /* 元素出队 */
-    pop(queue);
+    peekNum = pop(queue);
     printf("出队元素 pop = %d ，出队后 queue = ", peekNum);
     printLinkedListQueue(queue);
 

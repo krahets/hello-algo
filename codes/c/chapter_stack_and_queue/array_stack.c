@@ -42,7 +42,7 @@ bool isEmpty(ArrayStack *stack) {
 /* 入栈 */
 void push(ArrayStack *stack, int num) {
     if (stack->size == MAX_SIZE) {
-        printf("stack is full.\n");
+        printf("栈已满\n");
         return;
     }
     stack->data[stack->size] = num;
@@ -52,7 +52,7 @@ void push(ArrayStack *stack, int num) {
 /* 访问栈顶元素 */
 int peek(ArrayStack *stack) {
     if (stack->size == 0) {
-        printf("stack is empty.\n");
+        printf("栈为空\n");
         return INT_MAX;
     }
     return stack->data[stack->size - 1];
@@ -60,10 +60,6 @@ int peek(ArrayStack *stack) {
 
 /* 出栈 */
 int pop(ArrayStack *stack) {
-    if (stack->size == 0) {
-        printf("stack is empty.\n");
-        return INT_MAX;
-    }
     int val = peek(stack);
     stack->size--;
     return val;
