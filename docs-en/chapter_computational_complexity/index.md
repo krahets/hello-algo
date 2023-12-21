@@ -2,7 +2,7 @@
 
 <div class="center-table" markdown>
 
-![complexity_analysis](../assets/covers/chapter_complexity_analysis.jpg){ width="600" }
+![complexity_analysis](../assets/covers/chapter_complexity_analysis.jpg)
 
 </div>
 

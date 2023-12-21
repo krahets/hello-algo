@@ -2,7 +2,7 @@
 
 <div class="center-table" markdown>
 
-![Preface](../assets/covers/chapter_preface.jpg){ width="600" }
+![Preface](../assets/covers/chapter_preface.jpg)
 
 </div>
 

@@ -2,7 +2,7 @@
 
 <div class="center-table" markdown>
 
-![A first look at the algorithm](../assets/covers/chapter_introduction.jpg){ width="600" }
+![A first look at the algorithm](../assets/covers/chapter_introduction.jpg)
 
 </div>
 
