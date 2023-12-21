@@ -1,5 +1,3 @@
-<h4 align="left">English | <strong><a href="https://github.com/krahets/hello-algo">中文</a></strong></h4>
-
 <p align="center">
   <a href="https://www.hello-algo.com/en/">
     <img src="https://www.hello-algo.com/en/index.assets/hello_algo_header.png" width="450">
@@ -14,11 +12,11 @@
 
 <p align="center">
   <a href="https://www.hello-algo.com/en/">
-    <img src="https://www.hello-algo.com/en/index.assets/btn_read_online_dark.svg" width="155"></a>
+    <img src="https://www.hello-algo.com/en/index.assets/btn_read_online_dark.svg" width="120"></a>
   <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="https://www.hello-algo.com/en/index.assets/btn_download_pdf_dark.svg" width="155"></a>
-  <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="https://www.hello-algo.com/en/index.assets/btn_chinese_edition_dark.svg" width="155"></a>
+    <img src="https://www.hello-algo.com/en/index.assets/btn_download_pdf_dark.svg" width="120"></a>
+  <a href="https://github.com/krahets/hello-algo">
+    <img src="https://www.hello-algo.com/en/index.assets/btn_chinese_edition_dark.svg" width="120"></a>
 </p>
 
 <p align="center">
