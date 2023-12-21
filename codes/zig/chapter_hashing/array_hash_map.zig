@@ -18,7 +18,7 @@ const Pair = struct {
     }
 };
 
-// 基于数组简易实现的哈希表
+// 基于数组实现的哈希表
 pub fn ArrayHashMap(comptime T: type) type {
     return struct {
         bucket: ?std.ArrayList(?T) = null,

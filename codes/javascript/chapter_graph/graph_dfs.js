@@ -15,7 +15,7 @@ function dfs(graph, visited, res, vet) {
     // 遍历该顶点的所有邻接顶点
     for (const adjVet of graph.adjList.get(vet)) {
         if (visited.has(adjVet)) {
-            continue; // 跳过已被访问过的顶点
+            continue; // 跳过已被访问的顶点
         }
         // 递归访问邻接顶点
         dfs(graph, visited, res, adjVet);

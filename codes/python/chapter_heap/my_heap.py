@@ -75,7 +75,7 @@ class MaxHeap:
         # 判空处理
         if self.is_empty():
             raise IndexError("堆为空")
-        # 交换根节点与最右叶节点（即交换首元素与尾元素）
+        # 交换根节点与最右叶节点（交换首元素与尾元素）
         self.swap(0, self.size() - 1)
         # 删除节点
         val = self.max_heap.pop()

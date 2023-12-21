@@ -7,13 +7,13 @@
 namespace hello_algo.chapter_heap;
 
 public class heap {
-    public void TestPush(PriorityQueue<int, int> heap, int val) {
+    void TestPush(PriorityQueue<int, int> heap, int val) {
         heap.Enqueue(val, val); // 元素入堆
         Console.WriteLine($"\n元素 {val} 入堆后\n");
         PrintUtil.PrintHeap(heap);
     }
 
-    public void TestPop(PriorityQueue<int, int> heap) {
+    void TestPop(PriorityQueue<int, int> heap) {
         int val = heap.Dequeue(); // 堆顶元素出堆
         Console.WriteLine($"\n堆顶元素 {val} 出堆后\n");
         PrintUtil.PrintHeap(heap);

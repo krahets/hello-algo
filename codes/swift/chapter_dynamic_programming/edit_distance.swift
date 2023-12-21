@@ -73,7 +73,7 @@ func editDistanceDP(s: String, t: String) -> Int {
     for j in stride(from: 1, through: m, by: 1) {
         dp[0][j] = j
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for i in stride(from: 1, through: n, by: 1) {
         for j in stride(from: 1, through: m, by: 1) {
             if s.utf8CString[i - 1] == t.utf8CString[j - 1] {

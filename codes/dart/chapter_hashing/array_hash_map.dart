@@ -11,7 +11,7 @@ class Pair {
   Pair(this.key, this.val);
 }
 
-/* 基于数组简易实现的哈希表 */
+/* 基于数组实现的哈希表 */
 class ArrayHashMap {
   late List<Pair?> _buckets;
 

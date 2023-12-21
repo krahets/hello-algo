@@ -21,7 +21,7 @@ typedef struct {
     int len;
 } MapSet;
 
-/* 基于数组简易实现的哈希表 */
+/* 基于数组实现的哈希表 */
 typedef struct {
     Pair *buckets[HASHTABLE_CAPACITY];
 } ArrayHashMap;
@@ -92,7 +92,7 @@ void pairSet(ArrayHashMap *hmap, MapSet *set) {
     for (i = 0; i < HASHTABLE_CAPACITY; i++) {
         if (hmap->buckets[i] != NULL) {
             entries[index].key = hmap->buckets[i]->key;
-            entries[index].val = malloc(strlen(hmap->buckets[i]->val + 1));
+            entries[index].val = malloc(strlen(hmap->buckets[i]->val) + 1);
             strcpy(entries[index].val, hmap->buckets[i]->val);
             index++;
         }

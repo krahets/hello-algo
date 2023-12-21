@@ -8,9 +8,9 @@ namespace hello_algo.chapter_stack_and_queue;
 
 /* 基于环形数组实现的队列 */
 class ArrayQueue {
-    private readonly int[] nums;  // 用于存储队列元素的数组
-    private int front;   // 队首指针，指向队首元素
-    private int queSize; // 队列长度
+    int[] nums;  // 用于存储队列元素的数组
+    int front;   // 队首指针，指向队首元素
+    int queSize; // 队列长度
 
     public ArrayQueue(int capacity) {
         nums = new int[capacity];
@@ -18,7 +18,7 @@ class ArrayQueue {
     }
 
     /* 获取队列的容量 */
-    public int Capacity() {
+    int Capacity() {
         return nums.Length;
     }
 

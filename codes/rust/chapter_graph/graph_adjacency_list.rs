@@ -10,7 +10,7 @@ use std::collections::HashMap;
 
 /* 基于邻接表实现的无向图类型 */
 pub struct GraphAdjList {
-    // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+    // 邻接表，key：顶点，value：该顶点的所有邻接顶点
     pub adj_list: HashMap<Vertex, Vec<Vertex>>,
 }
 

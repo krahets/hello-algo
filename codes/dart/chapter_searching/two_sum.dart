@@ -9,7 +9,7 @@ import 'dart:collection';
 /* 方法一： 暴力枚举 */
 List<int> twoSumBruteForce(List<int> nums, int target) {
   int size = nums.length;
-  // 两层循环，时间复杂度 O(n^2)
+  // 两层循环，时间复杂度为 O(n^2)
   for (var i = 0; i < size - 1; i++) {
     for (var j = i + 1; j < size; j++) {
       if (nums[i] + nums[j] == target) return [i, j];
@@ -21,9 +21,9 @@ List<int> twoSumBruteForce(List<int> nums, int target) {
 /* 方法二： 辅助哈希表 */
 List<int> twoSumHashTable(List<int> nums, int target) {
   int size = nums.length;
-  // 辅助哈希表，空间复杂度 O(n)
+  // 辅助哈希表，空间复杂度为 O(n)
   Map<int, int> dic = HashMap();
-  // 单层循环，时间复杂度 O(n)
+  // 单层循环，时间复杂度为 O(n)
   for (var i = 0; i < size; i++) {
     if (dic.containsKey(target - nums[i])) {
       return [dic[target - nums[i]]!, i];

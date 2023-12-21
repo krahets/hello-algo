@@ -8,9 +8,9 @@ import '../chapter_stack_and_queue/linkedlist_deque.dart';
 
 /* Driver Code */
 void main() {
-  int num = 3;
-  int hashNum = num.hashCode;
-  print("整数 $num 的哈希值为 $hashNum");
+  int _num = 3;
+  int hashNum = _num.hashCode;
+  print("整数 $_num 的哈希值为 $hashNum");
 
   bool bol = true;
   int hashBol = bol.hashCode;

@@ -8,7 +8,7 @@ namespace hello_algo.chapter_divide_and_conquer;
 
 public class hanota {
     /* 移动一个圆盘 */
-    public void Move(List<int> src, List<int> tar) {
+    void Move(List<int> src, List<int> tar) {
         // 从 src 顶部拿出一个圆盘
         int pan = src[^1];
         src.RemoveAt(src.Count - 1);
@@ -16,8 +16,8 @@ public class hanota {
         tar.Add(pan);
     }
 
-    /* 求解汉诺塔：问题 f(i) */
-    public void DFS(int i, List<int> src, List<int> buf, List<int> tar) {
+    /* 求解汉诺塔问题 f(i) */
+    void DFS(int i, List<int> src, List<int> buf, List<int> tar) {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if (i == 1) {
             Move(src, tar);
@@ -31,8 +31,8 @@ public class hanota {
         DFS(i - 1, buf, src, tar);
     }
 
-    /* 求解汉诺塔 */
-    public void SolveHanota(List<int> A, List<int> B, List<int> C) {
+    /* 求解汉诺塔问题 */
+    void SolveHanota(List<int> A, List<int> B, List<int> C) {
         int n = A.Count;
         // 将 A 顶部 n 个圆盘借助 B 移到 C
         DFS(n, A, B, C);
@@ -41,9 +41,9 @@ public class hanota {
     [Test]
     public void Test() {
         // 列表尾部是柱子顶部
-        List<int> A = new() { 5, 4, 3, 2, 1 };
-        List<int> B = new();
-        List<int> C = new();
+        List<int> A = [5, 4, 3, 2, 1];
+        List<int> B = [];
+        List<int> C = [];
         Console.WriteLine("初始状态下：");
         Console.WriteLine("A = " + string.Join(", ", A));
         Console.WriteLine("B = " + string.Join(", ", B));

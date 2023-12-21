@@ -56,11 +56,12 @@ class ArrayQueue {
     }
 
     /* 出队 */
-    void pop() {
+    int pop() {
         int num = peek();
         // 队首指针向后移动一位，若越过尾部则返回到数组头部
         front = (front + 1) % queCapacity;
         queSize--;
+        return num;
     }
 
     /* 访问队首元素 */
@@ -101,7 +102,7 @@ int main() {
     cout << "队首元素 peek = " << peek << endl;
 
     /* 元素出队 */
-    queue->pop();
+    peek = queue->pop();
     cout << "出队元素 pop = " << peek << "，出队后 queue = ";
     printVector(queue->toVector());
 

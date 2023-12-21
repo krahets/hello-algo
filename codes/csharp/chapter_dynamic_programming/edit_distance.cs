@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class edit_distance {
     /* 编辑距离：暴力搜索 */
-    public int EditDistanceDFS(string s, string t, int i, int j) {
+    int EditDistanceDFS(string s, string t, int i, int j) {
         // 若 s 和 t 都为空，则返回 0
         if (i == 0 && j == 0)
             return 0;
@@ -30,7 +30,7 @@ public class edit_distance {
     }
 
     /* 编辑距离：记忆化搜索 */
-    public int EditDistanceDFSMem(string s, string t, int[][] mem, int i, int j) {
+    int EditDistanceDFSMem(string s, string t, int[][] mem, int i, int j) {
         // 若 s 和 t 都为空，则返回 0
         if (i == 0 && j == 0)
             return 0;
@@ -56,7 +56,7 @@ public class edit_distance {
     }
 
     /* 编辑距离：动态规划 */
-    public int EditDistanceDP(string s, string t) {
+    int EditDistanceDP(string s, string t) {
         int n = s.Length, m = t.Length;
         int[,] dp = new int[n + 1, m + 1];
         // 状态转移：首行首列
@@ -66,7 +66,7 @@ public class edit_distance {
         for (int j = 1; j <= m; j++) {
             dp[0, j] = j;
         }
-        // 状态转移：其余行列
+        // 状态转移：其余行和列
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (s[i - 1] == t[j - 1]) {
@@ -82,7 +82,7 @@ public class edit_distance {
     }
 
     /* 编辑距离：空间优化后的动态规划 */
-    public int EditDistanceDPComp(string s, string t) {
+    int EditDistanceDPComp(string s, string t) {
         int n = s.Length, m = t.Length;
         int[] dp = new int[m + 1];
         // 状态转移：首行

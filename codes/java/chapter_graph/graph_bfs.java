@@ -28,7 +28,7 @@ public class graph_bfs {
             // 遍历该顶点的所有邻接顶点
             for (Vertex adjVet : graph.adjList.get(vet)) {
                 if (visited.contains(adjVet))
-                    continue;        // 跳过已被访问过的顶点
+                    continue;        // 跳过已被访问的顶点
                 que.offer(adjVet);   // 只入队未访问的顶点
                 visited.add(adjVet); // 标记该顶点已被访问
             }

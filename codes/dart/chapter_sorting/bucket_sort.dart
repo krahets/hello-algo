@@ -11,11 +11,11 @@ void bucketSort(List<double> nums) {
   List<List<double>> buckets = List.generate(k, (index) => []);
 
   // 1. 将数组元素分配到各个桶中
-  for (double num in nums) {
-    // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-    int i = (num * k).toInt();
-    // 将 num 添加进桶 bucket_idx
-    buckets[i].add(num);
+  for (double _num in nums) {
+    // 输入数据范围为 [0, 1)，使用 _num * k 映射到索引范围 [0, k-1]
+    int i = (_num * k).toInt();
+    // 将 _num 添加进桶 bucket_idx
+    buckets[i].add(_num);
   }
   // 2. 对各个桶执行排序
   for (List<double> bucket in buckets) {
@@ -24,8 +24,8 @@ void bucketSort(List<double> nums) {
   // 3. 遍历桶合并结果
   int i = 0;
   for (List<double> bucket in buckets) {
-    for (double num in bucket) {
-      nums[i++] = num;
+    for (double _num in bucket) {
+      nums[i++] = _num;
     }
   }
 }

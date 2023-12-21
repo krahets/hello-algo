@@ -52,7 +52,7 @@ class LinkedListQueue {
     }
 
     /* 出队 */
-    void pop() {
+    int pop() {
         int num = peek();
         // 删除头节点
         ListNode *tmp = front;
@@ -60,6 +60,7 @@ class LinkedListQueue {
         // 释放内存
         delete tmp;
         queSize--;
+        return num;
     }
 
     /* 访问队首元素 */
@@ -100,7 +101,7 @@ int main() {
     cout << "队首元素 peek = " << peek << endl;
 
     /* 元素出队 */
-    queue->pop();
+    peek = queue->pop();
     cout << "出队元素 pop = " << peek << "，出队后 queue = ";
     printVector(queue->toVector());
 

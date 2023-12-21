@@ -14,7 +14,7 @@ func backtrack(choices []int, state, n int, res []int) {
 	for _, choice := range choices {
 		// 剪枝：不允许越过第 n 阶
 		if state+choice > n {
-			break
+			continue
 		}
 		// 尝试：做出选择，更新状态
 		backtrack(choices, state+choice, n, res)
@@ -24,7 +24,7 @@ func backtrack(choices []int, state, n int, res []int) {
 
 /* 爬楼梯：回溯 */
 func climbingStairsBacktrack(n int) int {
-	// 可选择向上爬 1 或 2 阶
+	// 可选择向上爬 1 阶或 2 阶
 	choices := []int{1, 2}
 	// 从第 0 阶开始爬
 	state := 0

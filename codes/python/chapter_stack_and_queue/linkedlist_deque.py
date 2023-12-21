@@ -35,7 +35,7 @@ class LinkedListDeque:
     def push(self, num: int, is_front: bool):
         """入队操作"""
         node = ListNode(num)
-        # 若链表为空，则令 front, rear 都指向 node
+        # 若链表为空，则令 front 和 rear 都指向 node
         if self.is_empty():
             self._front = self._rear = node
         # 队首入队操作

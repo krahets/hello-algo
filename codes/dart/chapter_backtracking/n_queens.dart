@@ -28,7 +28,7 @@ void backtrack(
     // 计算该格子对应的主对角线和副对角线
     int diag1 = row - col + n - 1;
     int diag2 = row + col;
-    // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+    // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
     if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
       // 尝试：将皇后放置在该格子
       state[row][col] = "Q";
@@ -51,8 +51,8 @@ List<List<List<String>>> nQueens(int n) {
   // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
   List<List<String>> state = List.generate(n, (index) => List.filled(n, "#"));
   List<bool> cols = List.filled(n, false); // 记录列是否有皇后
-  List<bool> diags1 = List.filled(2 * n - 1, false); // 记录主对角线是否有皇后
-  List<bool> diags2 = List.filled(2 * n - 1, false); // 记录副对角线是否有皇后
+  List<bool> diags1 = List.filled(2 * n - 1, false); // 记录主对角线上是否有皇后
+  List<bool> diags2 = List.filled(2 * n - 1, false); // 记录副对角线上是否有皇后
   List<List<List<String>>> res = [];
 
   backtrack(0, n, state, res, cols, diags1, diags2);

@@ -72,7 +72,7 @@ impl GraphAdjMat {
         if i >= self.size() || j >= self.size() || i == j {
             panic!("index error")
         }
-        // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+        // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
         self.adj_mat[i][j] = 1;
         self.adj_mat[j][i] = 1;
     }

@@ -1,21 +1,21 @@
 # 列表
 
-「列表 list」是一个抽象的数据结构概念，它表示元素的有序集合，支持元素访问、修改、添加、删除和遍历等操作，无需使用者考虑容量限制的问题。列表可以基于链表或数组实现。
+「列表 list」是一个抽象的数据结构概念，它表示元素的有序集合，支持元素访问、修改、添加、删除和遍历等操作，无须使用者考虑容量限制的问题。列表可以基于链表或数组实现。
 
-- 链表天然可以被看作是一个列表，其支持元素增删查改操作，并且可以灵活动态扩容。
-- 数组也支持元素增删查改，但由于其长度不可变，因此只能被看作是一个具有长度限制的列表。
+- 链表天然可以看作一个列表，其支持元素增删查改操作，并且可以灵活动态扩容。
+- 数组也支持元素增删查改，但由于其长度不可变，因此只能看作一个具有长度限制的列表。
 
-当使用数组实现列表时，**长度不可变的性质会导致列表的实用性降低**。这是因为我们通常无法事先确定需要存储多少数据，从而难以选择合适的列表长度。若长度过小，则很可能无法满足使用需求；若长度过大，则会造成内存空间的浪费。
+当使用数组实现列表时，**长度不可变的性质会导致列表的实用性降低**。这是因为我们通常无法事先确定需要存储多少数据，从而难以选择合适的列表长度。若长度过小，则很可能无法满足使用需求；若长度过大，则会造成内存空间浪费。
 
 为解决此问题，我们可以使用「动态数组 dynamic array」来实现列表。它继承了数组的各项优点，并且可以在程序运行过程中进行动态扩容。
 
-实际上，**许多编程语言中的标准库提供的列表都是基于动态数组实现的**，例如 Python 中的 `list` 、Java 中的 `ArrayList` 、C++ 中的 `vector` 和 C# 中的 `List` 等。在接下来的讨论中，我们将把“列表”和“动态数组”视为等同的概念。
+实际上，**许多编程语言中的标准库提供的列表是基于动态数组实现的**，例如 Python 中的 `list` 、Java 中的 `ArrayList` 、C++ 中的 `vector` 和 C# 中的 `List` 等。在接下来的讨论中，我们将把“列表”和“动态数组”视为等同的概念。
 
 ## 列表常用操作
 
 ### 初始化列表
 
-我们通常使用“无初始值”和“有初始值”这两种初始化方法。
+我们通常使用“无初始值”和“有初始值”这两种初始化方法：
 
 === "Python"
 
@@ -54,10 +54,10 @@
     ```csharp title="list.cs"
     /* 初始化列表 */
     // 无初始值
-    List<int> nums1 = new();
+    List<int> nums1 = [];
     // 有初始值
-    int[] numbers = new int[] { 1, 3, 2, 5, 4 };
-    List<int> nums = numbers.ToList();
+    int[] numbers = [1, 3, 2, 5, 4];
+    List<int> nums = [.. numbers];
     ```
 
 === "Go"
@@ -65,7 +65,7 @@
     ```go title="list_test.go"
     /* 初始化列表 */
     // 无初始值
-    nums1 := []int
+    nums1 := []int{}
     // 有初始值
     nums := []int{1, 3, 2, 5, 4}
     ```
@@ -264,14 +264,14 @@
     # 清空列表
     nums.clear()
 
-    # 尾部添加元素
+    # 在尾部添加元素
     nums.append(1)
     nums.append(3)
     nums.append(2)
     nums.append(5)
     nums.append(4)
 
-    # 中间插入元素
+    # 在中间插入元素
     nums.insert(3, 6)  # 在索引 3 处插入数字 6
 
     # 删除元素
@@ -284,14 +284,14 @@
     /* 清空列表 */
     nums.clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
     nums.push_back(5);
     nums.push_back(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(nums.begin() + 3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -304,14 +304,14 @@
     /* 清空列表 */
     nums.clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
     nums.add(5);
     nums.add(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.add(3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -324,14 +324,14 @@
     /* 清空列表 */
     nums.Clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.Add(1);
     nums.Add(3);
     nums.Add(2);
     nums.Add(5);
     nums.Add(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.Insert(3, 6);
 
     /* 删除元素 */
@@ -344,14 +344,14 @@
     /* 清空列表 */
     nums = nil
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums = append(nums, 1)
     nums = append(nums, 3)
     nums = append(nums, 2)
     nums = append(nums, 5)
     nums = append(nums, 4)
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -364,14 +364,14 @@
     /* 清空列表 */
     nums.removeAll()
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.append(1)
     nums.append(3)
     nums.append(2)
     nums.append(5)
     nums.append(4)
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(6, at: 3) // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -384,14 +384,14 @@
     /* 清空列表 */
     nums.length = 0;
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.splice(3, 0, 6);
 
     /* 删除元素 */
@@ -404,14 +404,14 @@
     /* 清空列表 */
     nums.length = 0;
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.splice(3, 0, 6);
 
     /* 删除元素 */
@@ -424,14 +424,14 @@
     /* 清空列表 */
     nums.clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
     nums.add(5);
     nums.add(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(3, 6); // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -444,14 +444,14 @@
     /* 清空列表 */
     nums.clear();
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
@@ -470,14 +470,14 @@
     // 清空列表
     nums.clearRetainingCapacity();
 
-    // 尾部添加元素
+    // 在尾部添加元素
     try nums.append(1);
     try nums.append(3);
     try nums.append(2);
     try nums.append(5);
     try nums.append(4);
 
-    // 中间插入元素
+    // 在中间插入元素
     try nums.insert(3, 6); // 在索引 3 处插入数字 6
 
     // 删除元素
@@ -494,12 +494,11 @@
     # 通过索引遍历列表
     count = 0
     for i in range(len(nums)):
-        count += 1
+        count += nums[i]
 
     # 直接遍历列表元素
-    count = 0
     for num in nums:
-        count += 1
+        count += num
     ```
 
 === "C++"
@@ -508,13 +507,13 @@
     /* 通过索引遍历列表 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
-        count++;
+        count += nums[i];
     }
 
     /* 直接遍历列表元素 */
     count = 0;
     for (int num : nums) {
-        count++;
+        count += num;
     }
     ```
 
@@ -524,13 +523,12 @@
     /* 通过索引遍历列表 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
-        count++;
+        count += nums.get(i);
     }
 
     /* 直接遍历列表元素 */
-    count = 0;
     for (int num : nums) {
-        count++;
+        count += num;
     }
     ```
 
@@ -540,13 +538,13 @@
     /* 通过索引遍历列表 */
     int count = 0;
     for (int i = 0; i < nums.Count; i++) {
-        count++;
+        count += nums[i];
     }
 
     /* 直接遍历列表元素 */
     count = 0;
     foreach (int num in nums) {
-        count++;
+        count += num;
     }
     ```
 
@@ -556,13 +554,13 @@
     /* 通过索引遍历列表 */
     count := 0
     for i := 0; i < len(nums); i++ {
-        count++
+        count += nums[i]
     }
 
     /* 直接遍历列表元素 */
     count = 0
-    for range nums {
-        count++
+    for _, num := range nums {
+        count += num
     }
     ```
 
@@ -571,14 +569,14 @@
     ```swift title="list.swift"
     /* 通过索引遍历列表 */
     var count = 0
-    for _ in nums.indices {
-        count += 1
+    for i in nums.indices {
+        count += nums[i]
     }
 
     /* 直接遍历列表元素 */
     count = 0
-    for _ in nums {
-        count += 1
+    for num in nums {
+        count += num
     }
     ```
 
@@ -588,13 +586,13 @@
     /* 通过索引遍历列表 */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
-        count++;
+        count += nums[i];
     }
 
     /* 直接遍历列表元素 */
     count = 0;
     for (const num of nums) {
-        count++;
+        count += num;
     }
     ```
 
@@ -604,13 +602,13 @@
     /* 通过索引遍历列表 */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
-        count++;
+        count += nums[i];
     }
 
     /* 直接遍历列表元素 */
     count = 0;
     for (const num of nums) {
-        count++;
+        count += num;
     }
     ```
 
@@ -619,30 +617,30 @@
     ```dart title="list.dart"
     /* 通过索引遍历列表 */
     int count = 0;
-    for (int i = 0; i < nums.length; i++) {
-        count++;
+    for (var i = 0; i < nums.length; i++) {
+        count += nums[i];
     }
-
+    
     /* 直接遍历列表元素 */
     count = 0;
-    for (int num in nums) {
-        count++;
+    for (var num in nums) {
+        count += num;
     }
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* 通过索引遍历列表 */
-    let mut count = 0;
-    for (index, value) in nums.iter().enumerate() {
-        count += 1;
+    // 通过索引遍历列表
+    let mut _count = 0;
+    for i in 0..nums.len() {
+        _count += nums[i];
     }
 
-    /* 直接遍历列表元素 */
-    let mut count = 0;
-    for value in nums.iter() {
-        count += 1;
+    // 直接遍历列表元素
+    _count = 0;
+    for num in &nums {
+        _count += num;
     }
     ```
 
@@ -659,19 +657,19 @@
     var count: i32 = 0;
     var i: i32 = 0;
     while (i < nums.items.len) : (i += 1) {
-        count += 1;
+        count += nums[i];
     }
 
     // 直接遍历列表元素
     count = 0;
-    for (nums.items) |_| {
-        count += 1;
+    for (nums.items) |num| {
+        count += num;
     }
     ```
 
 ### 拼接列表
 
-给定一个新列表 `nums1` ，我们可以将该列表拼接到原列表的尾部。
+给定一个新列表 `nums1` ，我们可以将其拼接到原列表的尾部。
 
 === "Python"
 
@@ -702,7 +700,7 @@
 
     ```csharp title="list.cs"
     /* 拼接两个列表 */
-    List<int> nums1 = new() { 6, 8, 7, 10, 9 };
+    List<int> nums1 = [6, 8, 7, 10, 9];
     nums.AddRange(nums1);  // 将列表 nums1 拼接到 nums 之后
     ```
 
@@ -772,7 +770,7 @@
 
 ### 排序列表
 
-完成列表排序后，我们便可以使用在数组类算法题中经常考察的“二分查找”和“双指针”算法。
+完成列表排序后，我们便可以使用在数组类算法题中经常考查的“二分查找”和“双指针”算法。
 
 === "Python"
 
@@ -859,13 +857,13 @@
 
 ## 列表实现
 
-许多编程语言都提供内置的列表，例如 Java、C++、Python 等。它们的实现比较复杂，各个参数的设定也非常有考究，例如初始容量、扩容倍数等。感兴趣的读者可以查阅源码进行学习。
+许多编程语言内置了列表，例如 Java、C++、Python 等。它们的实现比较复杂，各个参数的设定也非常考究，例如初始容量、扩容倍数等。感兴趣的读者可以查阅源码进行学习。
 
 为了加深对列表工作原理的理解，我们尝试实现一个简易版列表，包括以下三个重点设计。
 
 - **初始容量**：选取一个合理的数组初始容量。在本示例中，我们选择 10 作为初始容量。
 - **数量记录**：声明一个变量 `size` ，用于记录列表当前元素数量，并随着元素插入和删除实时更新。根据此变量，我们可以定位列表尾部，以及判断是否需要扩容。
-- **扩容机制**：若插入元素时列表容量已满，则需要进行扩容。首先根据扩容倍数创建一个更大的数组，再将当前数组的所有元素依次移动至新数组。在本示例中，我们规定每次将数组扩容至之前的 2 倍。
+- **扩容机制**：若插入元素时列表容量已满，则需要进行扩容。先根据扩容倍数创建一个更大的数组，再将当前数组的所有元素依次移动至新数组。在本示例中，我们规定每次将数组扩容至之前的 2 倍。
 
 ```src
 [file]{my_list}-[class]{my_list}-[func]{}

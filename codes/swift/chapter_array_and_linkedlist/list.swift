@@ -24,7 +24,7 @@ enum List {
         nums.removeAll()
         print("清空列表后 nums = \(nums)")
 
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         nums.append(1)
         nums.append(3)
         nums.append(2)
@@ -32,7 +32,7 @@ enum List {
         nums.append(4)
         print("添加元素后 nums = \(nums)")
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         nums.insert(6, at: 3)
         print("在索引 3 处插入数字 6 ，得到 nums = \(nums)")
 
@@ -42,14 +42,13 @@ enum List {
 
         /* 通过索引遍历列表 */
         var count = 0
-        for _ in nums.indices {
-            count += 1
+        for i in nums.indices {
+            count += nums[i]
         }
-
         /* 直接遍历列表元素 */
         count = 0
-        for _ in nums {
-            count += 1
+        for x in nums {
+            count += x
         }
 
         /* 拼接两个列表 */

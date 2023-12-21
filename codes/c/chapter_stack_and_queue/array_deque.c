@@ -111,16 +111,6 @@ int popLast(ArrayDeque *deque) {
     return num;
 }
 
-/* 打印队列 */
-void printArrayDeque(ArrayDeque *deque) {
-    int arr[deque->queSize];
-    // 拷贝
-    for (int i = 0, j = deque->front; i < deque->queSize; i++, j++) {
-        arr[i] = deque->nums[j % deque->queCapacity];
-    }
-    printArray(arr, deque->queSize);
-}
-
 /* Driver Code */
 int main() {
     /* 初始化队列 */
@@ -130,7 +120,7 @@ int main() {
     pushLast(deque, 2);
     pushLast(deque, 5);
     printf("双向队列 deque = ");
-    printArrayDeque(deque);
+    printArray(deque->nums, deque->queSize);
 
     /* 访问元素 */
     int peekFirstNum = peekFirst(deque);
@@ -141,18 +131,18 @@ int main() {
     /* 元素入队 */
     pushLast(deque, 4);
     printf("元素 4 队尾入队后 deque = ");
-    printArrayDeque(deque);
+    printArray(deque->nums, deque->queSize);
     pushFirst(deque, 1);
     printf("元素 1 队首入队后 deque = ");
-    printArrayDeque(deque);
+    printArray(deque->nums, deque->queSize);
 
     /* 元素出队 */
     int popLastNum = popLast(deque);
     printf("队尾出队元素 = %d ，队尾出队后 deque= ", popLastNum);
-    printArrayDeque(deque);
+    printArray(deque->nums, deque->queSize);
     int popFirstNum = popFirst(deque);
     printf("队首出队元素 = %d ，队首出队后 deque= ", popFirstNum);
-    printArrayDeque(deque);
+    printArray(deque->nums, deque->queSize);
 
     /* 获取队列的长度 */
     int dequeSize = size(deque);

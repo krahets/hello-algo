@@ -89,7 +89,7 @@ class MaxHeap {
         // 判空处理
         if (isEmpty())
             throw new IndexOutOfBoundsException();
-        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
         swap(0, size() - 1);
         // 删除节点
         int val = maxHeap.remove(size() - 1);

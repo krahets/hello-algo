@@ -22,8 +22,8 @@ class ArrayStack {
   }
 
   /* 入栈 */
-  void push(int num) {
-    _stack.add(num);
+  void push(int _num) {
+    _stack.add(_num);
   }
 
   /* 出栈 */

@@ -132,7 +132,7 @@ void put(HashMapChaining *hashMap, int key, const char *val) {
         }
         cur = cur->next;
     }
-    // 若无该 key ，则将键值对添加至尾部
+    // 若无该 key ，则将键值对添加至链表头部
     Pair *newPair = (Pair *)malloc(sizeof(Pair));
     newPair->key = key;
     strcpy(newPair->val, val);

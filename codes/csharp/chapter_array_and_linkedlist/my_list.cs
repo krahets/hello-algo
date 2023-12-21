@@ -6,11 +6,11 @@
 
 namespace hello_algo.chapter_array_and_linkedlist;
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
     private int[] arr;           // 数组（存储列表元素）
     private int arrCapacity = 10;    // 列表容量
-    private int arrSize = 0;         // 列表长度（即当前元素数量）
+    private int arrSize = 0;         // 列表长度（当前元素数量）
     private readonly int extendRatio = 2;  // 每次列表扩容的倍数
 
     /* 构造方法 */
@@ -18,7 +18,7 @@ class MyList {
         arr = new int[arrCapacity];
     }
 
-    /* 获取列表长度（即当前元素数量）*/
+    /* 获取列表长度（当前元素数量）*/
     public int Size() {
         return arrSize;
     }
@@ -43,7 +43,7 @@ class MyList {
         arr[index] = num;
     }
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     public void Add(int num) {
         // 元素数量超出容量时，触发扩容机制
         if (arrSize == arrCapacity)
@@ -53,7 +53,7 @@ class MyList {
         arrSize++;
     }
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     public void Insert(int index, int num) {
         if (index < 0 || index >= arrSize)
             throw new IndexOutOfRangeException("索引越界");
@@ -108,7 +108,7 @@ public class my_list {
     public void Test() {
         /* 初始化列表 */
         MyList nums = new();
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         nums.Add(1);
         nums.Add(3);
         nums.Add(2);
@@ -117,7 +117,7 @@ public class my_list {
         Console.WriteLine("列表 nums = " + string.Join(",", nums.ToArray()) +
                            " ，容量 = " + nums.Capacity() + " ，长度 = " + nums.Size());
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         nums.Insert(3, 6);
         Console.WriteLine("在索引 3 处插入数字 6 ，得到 nums = " + string.Join(",", nums.ToArray()));
 

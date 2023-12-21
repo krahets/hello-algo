@@ -17,7 +17,7 @@ struct Pair {
     }
 };
 
-/* 基于数组简易实现的哈希表 */
+/* 基于数组实现的哈希表 */
 class ArrayHashMap {
   private:
     vector<Pair *> buckets;

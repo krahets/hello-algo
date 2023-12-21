@@ -15,7 +15,7 @@ void main() {
   TreeNode n3 = TreeNode(3);
   TreeNode n4 = TreeNode(4);
   TreeNode n5 = TreeNode(5);
-  // 构建引用指向（即指针）
+  // 构建节点之间的引用（指针）
   n1.left = n2;
   n1.right = n3;
   n2.left = n4;

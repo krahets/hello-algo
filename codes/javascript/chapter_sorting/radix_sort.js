@@ -12,7 +12,7 @@ function digit(num, exp) {
 
 /* 计数排序（根据 nums 第 k 位排序） */
 function countingSortDigit(nums, exp) {
-    // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+    // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
     const counter = new Array(10).fill(0);
     const n = nums.length;
     // 统计 0~9 各数字的出现次数

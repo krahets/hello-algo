@@ -35,11 +35,11 @@ func insert(nums []int, num int, index int) {
 	for i := len(nums) - 1; i > index; i-- {
 		nums[i] = nums[i-1]
 	}
-	// 将 num 赋给 index 处元素
+	// 将 num 赋给 index 处的元素
 	nums[index] = num
 }
 
-/* 删除索引 index 处元素 */
+/* 删除索引 index 处的元素 */
 func remove(nums []int, index int) {
 	// 把索引 index 之后的所有元素向前移动一位
 	for i := index; i < len(nums)-1; i++ {
@@ -52,12 +52,17 @@ func traverse(nums []int) {
 	count := 0
 	// 通过索引遍历数组
 	for i := 0; i < len(nums); i++ {
-		count++
+		count += nums[i]
 	}
 	count = 0
-	// 直接遍历数组
-	for range nums {
-		count++
+	// 直接遍历数组元素
+	for _, num := range nums {
+		count += num
+	}
+	// 同时遍历数据索引和元素
+	for i, num := range nums {
+		count += nums[i]
+		count += num
 	}
 }
 

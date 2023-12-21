@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.8", "3.10"]
+        python-version: ["3.10", "3.11"]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
@@ -36,6 +36,6 @@ jobs:
       - name: Lint with black
         run: |
           black codes/python
-      - name: Build with py_compile
+      - name: Test python code
         run: |
-          python codes/python/build.py
+          python codes/python/test_all.py

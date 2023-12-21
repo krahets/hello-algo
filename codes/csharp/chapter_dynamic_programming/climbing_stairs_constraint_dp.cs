@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class climbing_stairs_constraint_dp {
     /* 带约束爬楼梯：动态规划 */
-    public int ClimbingStairsConstraintDP(int n) {
+    int ClimbingStairsConstraintDP(int n) {
         if (n == 1 || n == 2) {
             return 1;
         }

@@ -69,7 +69,7 @@ class GraphAdjMat {
         if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
             throw new RangeError('Index Out Of Bounds Exception');
         }
-        // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) === (j, i)
+        // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) === (j, i)
         this.adjMat[i][j] = 1;
         this.adjMat[j][i] = 1;
     }

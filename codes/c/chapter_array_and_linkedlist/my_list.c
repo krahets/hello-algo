@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 列表类简易实现 */
+/* 列表类 */
 typedef struct {
     int *arr;        // 数组（存储列表元素）
     int capacity;    // 列表容量
@@ -54,7 +54,7 @@ void set(MyList *nums, int index, int num) {
     nums->arr[index] = num;
 }
 
-/* 尾部添加元素 */
+/* 在尾部添加元素 */
 void add(MyList *nums, int num) {
     if (size(nums) == capacity(nums)) {
         extendCapacity(nums); // 扩容
@@ -63,7 +63,7 @@ void add(MyList *nums, int num) {
     nums->size++;
 }
 
-/* 中间插入元素 */
+/* 在中间插入元素 */
 void insert(MyList *nums, int index, int num) {
     assert(index >= 0 && index < size(nums));
     // 元素数量超出容量时，触发扩容机制
@@ -117,7 +117,7 @@ int *toArray(MyList *nums) {
 int main() {
     /* 初始化列表 */
     MyList *nums = newMyList();
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     add(nums, 1);
     add(nums, 3);
     add(nums, 2);
@@ -127,7 +127,7 @@ int main() {
     printArray(toArray(nums), size(nums));
     printf("容量 = %d ，长度 = %d\n", capacity(nums), size(nums));
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     insert(nums, 3, 6);
     printf("在索引 3 处插入数字 6 ，得到 nums = ");
     printArray(toArray(nums), size(nums));

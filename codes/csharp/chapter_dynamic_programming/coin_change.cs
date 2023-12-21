@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class coin_change {
     /* 零钱兑换：动态规划 */
-    public int CoinChangeDP(int[] coins, int amt) {
+    int CoinChangeDP(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
         // 初始化 dp 表
@@ -17,11 +17,11 @@ public class coin_change {
         for (int a = 1; a <= amt; a++) {
             dp[0, a] = MAX;
         }
-        // 状态转移：其余行列
+        // 状态转移：其余行和列
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i, a] = dp[i - 1, a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -33,7 +33,7 @@ public class coin_change {
     }
 
     /* 零钱兑换：空间优化后的动态规划 */
-    public int CoinChangeDPComp(int[] coins, int amt) {
+    int CoinChangeDPComp(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
         // 初始化 dp 表
@@ -44,7 +44,7 @@ public class coin_change {
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -57,7 +57,7 @@ public class coin_change {
 
     [Test]
     public void Test() {
-        int[] coins = { 1, 2, 5 };
+        int[] coins = [1, 2, 5];
         int amt = 4;
 
         // 动态规划

@@ -15,7 +15,7 @@ function randomAccess(nums) {
 
 /* 扩展数组长度 */
 // 请注意，JavaScript 的 Array 是动态数组，可以直接扩展
-// 为了方便学习，本函数将 Array 看作是长度不可变的数组
+// 为了方便学习，本函数将 Array 看作长度不可变的数组
 function extend(nums, enlarge) {
     // 初始化一个扩展长度后的数组
     const res = new Array(nums.length + enlarge).fill(0);
@@ -33,11 +33,11 @@ function insert(nums, num, index) {
     for (let i = nums.length - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
-    // 将 num 赋给 index 处元素
+    // 将 num 赋给 index 处的元素
     nums[index] = num;
 }
 
-/* 删除索引 index 处元素 */
+/* 删除索引 index 处的元素 */
 function remove(nums, index) {
     // 把索引 index 之后的所有元素向前移动一位
     for (let i = index; i < nums.length - 1; i++) {
@@ -50,11 +50,11 @@ function traverse(nums) {
     let count = 0;
     // 通过索引遍历数组
     for (let i = 0; i < nums.length; i++) {
-        count++;
+        count += nums[i];
     }
-    // 直接遍历数组
+    // 直接遍历数组元素
     for (const num of nums) {
-        count += 1;
+        count += num;
     }
 }
 

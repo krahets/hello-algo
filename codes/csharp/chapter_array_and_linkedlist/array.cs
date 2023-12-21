@@ -6,7 +6,7 @@ namespace hello_algo.chapter_array_and_linkedlist;
 
 public class array {
     /* 随机访问元素 */
-    public static int RandomAccess(int[] nums) {
+    int RandomAccess(int[] nums) {
         Random random = new();
         // 在区间 [0, nums.Length) 中随机抽取一个数字
         int randomIndex = random.Next(nums.Length);
@@ -16,7 +16,7 @@ public class array {
     }
 
     /* 扩展数组长度 */
-    public static int[] Extend(int[] nums, int enlarge) {
+    int[] Extend(int[] nums, int enlarge) {
         // 初始化一个扩展长度后的数组
         int[] res = new int[nums.Length + enlarge];
         // 将原数组中的所有元素复制到新数组
@@ -28,17 +28,17 @@ public class array {
     }
 
     /* 在数组的索引 index 处插入元素 num */
-    public static void Insert(int[] nums, int num, int index) {
+    void Insert(int[] nums, int num, int index) {
         // 把索引 index 以及之后的所有元素向后移动一位
         for (int i = nums.Length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
-        // 将 num 赋给 index 处元素
+        // 将 num 赋给 index 处的元素
         nums[index] = num;
     }
 
-    /* 删除索引 index 处元素 */
-    public static void Remove(int[] nums, int index) {
+    /* 删除索引 index 处的元素 */
+    void Remove(int[] nums, int index) {
         // 把索引 index 之后的所有元素向前移动一位
         for (int i = index; i < nums.Length - 1; i++) {
             nums[i] = nums[i + 1];
@@ -46,20 +46,20 @@ public class array {
     }
 
     /* 遍历数组 */
-    public static void Traverse(int[] nums) {
+    void Traverse(int[] nums) {
         int count = 0;
         // 通过索引遍历数组
         for (int i = 0; i < nums.Length; i++) {
-            count++;
+            count += nums[i];
         }
-        // 直接遍历数组
+        // 直接遍历数组元素
         foreach (int num in nums) {
-            count++;
+            count += num;
         }
     }
 
     /* 在数组中查找指定元素 */
-    public static int Find(int[] nums, int target) {
+    int Find(int[] nums, int target) {
         for (int i = 0; i < nums.Length; i++) {
             if (nums[i] == target)
                 return i;
@@ -68,17 +68,17 @@ public class array {
     }
 
     /* 辅助函数,数组转字符串 */
-    public static string ToString(int[] nums) {
+    string ToString(int[] nums) {
         return string.Join(",", nums);
     }
 
 
     [Test]
-    public static void Test() {
+    public void Test() {
         // 初始化数组
         int[] arr = new int[5];
         Console.WriteLine("数组 arr = " + ToString(arr));
-        int[] nums = { 1, 3, 2, 5, 4 };
+        int[] nums = [1, 3, 2, 5, 4];
         Console.WriteLine("数组 nums = " + ToString(nums));
 
         // 随机访问

@@ -17,7 +17,7 @@ fn main() {
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // 构建引用指向（即指针）
+    // 构建节点之间的引用（指针）
     n1.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().right = Some(Rc::clone(&n3));
     n2.borrow_mut().left = Some(Rc::clone(&n4));

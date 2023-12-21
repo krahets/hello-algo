@@ -7,22 +7,16 @@
 namespace hello_algo.chapter_stack_and_queue;
 
 /* 双向链表节点 */
-public class ListNode {
-    public int val;       // 节点值
-    public ListNode? next; // 后继节点引用
-    public ListNode? prev; // 前驱节点引用
-
-    public ListNode(int val) {
-        this.val = val;
-        prev = null;
-        next = null;
-    }
+public class ListNode(int val) {
+    public int val = val;       // 节点值
+    public ListNode? next = null; // 后继节点引用
+    public ListNode? prev = null; // 前驱节点引用
 }
 
 /* 基于双向链表实现的双向队列 */
 public class LinkedListDeque {
-    private ListNode? front, rear; // 头节点 front, 尾节点 rear
-    private int queSize = 0;      // 双向队列的长度
+    ListNode? front, rear; // 头节点 front, 尾节点 rear
+    int queSize = 0;      // 双向队列的长度
 
     public LinkedListDeque() {
         front = null;
@@ -40,9 +34,9 @@ public class LinkedListDeque {
     }
 
     /* 入队操作 */
-    private void Push(int num, bool isFront) {
+    void Push(int num, bool isFront) {
         ListNode node = new(num);
-        // 若链表为空，则令 front, rear 都指向 node
+        // 若链表为空，则令 front 和 rear 都指向 node
         if (IsEmpty()) {
             front = node;
             rear = node;
@@ -50,14 +44,14 @@ public class LinkedListDeque {
         // 队首入队操作
         else if (isFront) {
             // 将 node 添加至链表头部
-            front.prev = node;
+            front!.prev = node;
             node.next = front;
             front = node; // 更新头节点                           
         }
         // 队尾入队操作
         else {
             // 将 node 添加至链表尾部
-            rear.next = node;
+            rear!.next = node;
             node.prev = rear;
             rear = node;  // 更新尾节点
         }
@@ -76,7 +70,7 @@ public class LinkedListDeque {
     }
 
     /* 出队操作 */
-    private int? Pop(bool isFront) {
+    int? Pop(bool isFront) {
         if (IsEmpty())
             throw new Exception();
         int? val;
@@ -87,7 +81,7 @@ public class LinkedListDeque {
             ListNode? fNext = front?.next;
             if (fNext != null) {
                 fNext.prev = null;
-                front.next = null;
+                front!.next = null;
             }
             front = fNext;   // 更新头节点
         }
@@ -98,7 +92,7 @@ public class LinkedListDeque {
             ListNode? rPrev = rear?.prev;
             if (rPrev != null) {
                 rPrev.next = null;
-                rear.prev = null;
+                rear!.prev = null;
             }
             rear = rPrev;    // 更新尾节点
         }

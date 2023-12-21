@@ -115,7 +115,7 @@ class MinHeap {
   int pop() {
     // 判空处理
     if (isEmpty()) throw Exception('堆为空');
-    // 交换根节点与最右叶节点（即交换首元素与尾元素）
+    // 交换根节点与最右叶节点（交换首元素与尾元素）
     _swap(0, size() - 1);
     // 删除节点
     int val = _minHeap.removeLast();

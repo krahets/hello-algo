@@ -4,7 +4,7 @@
 
 package chapter_array_and_linkedlist
 
-/* 列表类简易实现 */
+/* 列表类 */
 type myList struct {
 	arrCapacity int
 	arr         []int
@@ -17,12 +17,12 @@ func newMyList() *myList {
 	return &myList{
 		arrCapacity: 10,              // 列表容量
 		arr:         make([]int, 10), // 数组（存储列表元素）
-		arrSize:     0,               // 列表长度（即当前元素数量）
+		arrSize:     0,               // 列表长度（当前元素数量）
 		extendRatio: 2,               // 每次列表扩容的倍数
 	}
 }
 
-/* 获取列表长度（即当前元素数量） */
+/* 获取列表长度（当前元素数量） */
 func (l *myList) size() int {
 	return l.arrSize
 }
@@ -49,7 +49,7 @@ func (l *myList) set(num, index int) {
 	l.arr[index] = num
 }
 
-/* 尾部添加元素 */
+/* 在尾部添加元素 */
 func (l *myList) add(num int) {
 	// 元素数量超出容量时，触发扩容机制
 	if l.arrSize == l.arrCapacity {
@@ -60,7 +60,7 @@ func (l *myList) add(num int) {
 	l.arrSize++
 }
 
-/* 中间插入元素 */
+/* 在中间插入元素 */
 func (l *myList) insert(num, index int) {
 	if index < 0 || index >= l.arrSize {
 		panic("索引越界")

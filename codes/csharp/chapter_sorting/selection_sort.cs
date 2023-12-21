@@ -8,7 +8,7 @@ namespace hello_algo.chapter_sorting;
 
 public class selection_sort {
     /* 选择排序 */
-    public static void SelectionSort(int[] nums) {
+    void SelectionSort(int[] nums) {
         int n = nums.Length;
         // 外循环：未排序区间为 [i, n-1]
         for (int i = 0; i < n - 1; i++) {
@@ -25,7 +25,7 @@ public class selection_sort {
 
     [Test]
     public void Test() {
-        int[] nums = { 4, 1, 3, 1, 5, 2 };
+        int[] nums = [4, 1, 3, 1, 5, 2];
         SelectionSort(nums);
         Console.WriteLine("选择排序完成后 nums = " + string.Join(" ", nums));
     }

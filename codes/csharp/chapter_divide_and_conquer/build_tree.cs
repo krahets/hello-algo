@@ -8,7 +8,7 @@ namespace hello_algo.chapter_divide_and_conquer;
 
 public class build_tree {
     /* 构建二叉树：分治 */
-    public TreeNode DFS(int[] preorder, Dictionary<int, int> inorderMap, int i, int l, int r) {
+    TreeNode? DFS(int[] preorder, Dictionary<int, int> inorderMap, int i, int l, int r) {
         // 子树区间为空时终止
         if (r - l < 0)
             return null;
@@ -25,24 +25,24 @@ public class build_tree {
     }
 
     /* 构建二叉树 */
-    public TreeNode BuildTree(int[] preorder, int[] inorder) {
+    TreeNode? BuildTree(int[] preorder, int[] inorder) {
         // 初始化哈希表，存储 inorder 元素到索引的映射
-        Dictionary<int, int> inorderMap = new();
+        Dictionary<int, int> inorderMap = [];
         for (int i = 0; i < inorder.Length; i++) {
             inorderMap.TryAdd(inorder[i], i);
         }
-        TreeNode root = DFS(preorder, inorderMap, 0, 0, inorder.Length - 1);
+        TreeNode? root = DFS(preorder, inorderMap, 0, 0, inorder.Length - 1);
         return root;
     }
 
     [Test]
     public void Test() {
-        int[] preorder = { 3, 9, 2, 1, 7 };
-        int[] inorder = { 9, 3, 1, 2, 7 };
+        int[] preorder = [3, 9, 2, 1, 7];
+        int[] inorder = [9, 3, 1, 2, 7];
         Console.WriteLine("前序遍历 = " + string.Join(", ", preorder));
         Console.WriteLine("中序遍历 = " + string.Join(", ", inorder));
 
-        TreeNode root = BuildTree(preorder, inorder);
+        TreeNode? root = BuildTree(preorder, inorder);
         Console.WriteLine("构建的二叉树为：");
         PrintUtil.PrintTree(root);
     }

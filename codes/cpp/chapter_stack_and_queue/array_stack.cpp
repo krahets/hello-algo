@@ -28,9 +28,10 @@ class ArrayStack {
     }
 
     /* 出栈 */
-    void pop() {
-        int oldTop = top();
+    int pop() {
+        int num = top();
         stack.pop_back();
+        return num;
     }
 
     /* 访问栈顶元素 */
@@ -65,7 +66,7 @@ int main() {
     cout << "栈顶元素 top = " << top << endl;
 
     /* 元素出栈 */
-    stack->pop();
+    top = stack->pop();
     cout << "出栈元素 pop = " << top << "，出栈后 stack = ";
     printVector(stack->toVector());
 

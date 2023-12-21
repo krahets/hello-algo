@@ -15,7 +15,7 @@ class QuickSort {
 
   /* 哨兵划分 */
   static int _partition(List<int> nums, int left, int right) {
-    // 以 nums[left] 作为基准数
+    // 以 nums[left] 为基准数
     int i = left, j = right;
     while (i < j) {
       while (i < j && nums[j] >= nums[left]) j--; // 从右向左找首个小于基准数的元素
@@ -65,7 +65,7 @@ class QuickSortMedian {
     int med = _medianThree(nums, left, (left + right) ~/ 2, right);
     // 将中位数交换至数组最左端
     _swap(nums, left, med);
-    // 以 nums[left] 作为基准数
+    // 以 nums[left] 为基准数
     int i = left, j = right;
     while (i < j) {
       while (i < j && nums[j] >= nums[left]) j--; // 从右向左找首个小于基准数的元素
@@ -99,7 +99,7 @@ class QuickSortTailCall {
 
   /* 哨兵划分 */
   static int _partition(List<int> nums, int left, int right) {
-    // 以 nums[left] 作为基准数
+    // 以 nums[left] 为基准数
     int i = left, j = right;
     while (i < j) {
       while (i < j && nums[j] >= nums[left]) j--; // 从右向左找首个小于基准数的元素
@@ -116,7 +116,7 @@ class QuickSortTailCall {
     while (left < right) {
       // 哨兵划分操作
       int pivot = _partition(nums, left, right);
-      // 对两个子数组中较短的那个执行快排
+      // 对两个子数组中较短的那个执行快速排序
       if (pivot - left < right - pivot) {
         quickSort(nums, left, pivot - 1); // 递归排序左子数组
         left = pivot + 1; // 剩余未排序区间为 [pivot + 1, right]

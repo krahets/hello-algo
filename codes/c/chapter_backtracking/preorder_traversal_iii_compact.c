@@ -47,12 +47,13 @@ int main() {
 
     printf("\n输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点\n");
     for (int i = 0; i < resSize; ++i) {
-        int vals[MAX_SIZE];
+        int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;
         for (int j = 0; res[i][j] != NULL; ++j) {
             vals[size++] = res[i][j]->val;
         }
         printArray(vals, size);
+        free(vals);
     }
 
     // 释放内存

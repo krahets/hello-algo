@@ -29,7 +29,7 @@ int linear(int n) {
 int arrayTraversal(List<int> nums) {
   int count = 0;
   // 循环次数与数组长度成正比
-  for (var num in nums) {
+  for (var _num in nums) {
     count++;
   }
   return count;

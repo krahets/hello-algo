@@ -32,7 +32,7 @@ class LinkedListDeque {
     /* 队尾入队操作 */
     pushLast(val) {
         const node = new ListNode(val);
-        // 若链表为空，则令 front, rear 都指向 node
+        // 若链表为空，则令 front 和 rear 都指向 node
         if (this.#queSize === 0) {
             this.#front = node;
             this.#rear = node;
@@ -48,7 +48,7 @@ class LinkedListDeque {
     /* 队首入队操作 */
     pushFirst(val) {
         const node = new ListNode(val);
-        // 若链表为空，则令 front, rear 都指向 node
+        // 若链表为空，则令 front 和 rear 都指向 node
         if (this.#queSize === 0) {
             this.#front = node;
             this.#rear = node;

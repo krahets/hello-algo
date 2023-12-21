@@ -66,7 +66,7 @@ void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize,
         // 遍历该顶点的所有邻接顶点
         AdjListNode *node = findNode(graph, vet);
         while (node != NULL) {
-            // 跳过已被访问过的顶点
+            // 跳过已被访问的顶点
             if (!isVisited(visited, *visitedSize, node->vertex)) {
                 enqueue(queue, node->vertex);             // 只入队未访问的顶点
                 visited[(*visitedSize)++] = node->vertex; // 标记该顶点已被访问

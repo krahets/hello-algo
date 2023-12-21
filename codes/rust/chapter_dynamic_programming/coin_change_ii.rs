@@ -17,7 +17,7 @@ fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
     for i in 1..=n {
         for a in 1..=amt {
             if coins[i - 1] > a as i32 {
-                // 若超过背包容量，则不选硬币 i
+                // 若超过目标金额，则不选硬币 i
                 dp[i][a] = dp[i - 1][a];
             } else {
                 // 不选和选硬币 i 这两种方案的较小值
@@ -38,7 +38,7 @@ fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
     for i in 1..=n {
         for a in 1..=amt {
             if coins[i - 1] > a as i32 {
-                // 若超过背包容量，则不选硬币 i
+                // 若超过目标金额，则不选硬币 i
                 dp[a] = dp[a];
             } else {
                 // 不选和选硬币 i 这两种方案的较小值

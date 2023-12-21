@@ -12,7 +12,7 @@ func move(src: inout [Int], tar: inout [Int]) {
     tar.append(pan)
 }
 
-/* 求解汉诺塔：问题 f(i) */
+/* 求解汉诺塔问题 f(i) */
 func dfs(i: Int, src: inout [Int], buf: inout [Int], tar: inout [Int]) {
     // 若 src 只剩下一个圆盘，则直接将其移到 tar
     if i == 1 {
@@ -27,7 +27,7 @@ func dfs(i: Int, src: inout [Int], buf: inout [Int], tar: inout [Int]) {
     dfs(i: i - 1, src: &buf, buf: &src, tar: &tar)
 }
 
-/* 求解汉诺塔 */
+/* 求解汉诺塔问题 */
 func solveHanota(A: inout [Int], B: inout [Int], C: inout [Int]) {
     let n = A.count
     // 列表尾部是柱子顶部

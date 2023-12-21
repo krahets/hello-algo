@@ -6,14 +6,14 @@ namespace hello_algo.chapter_array_and_linkedlist;
 
 public class linked_list {
     /* 在链表的节点 n0 之后插入节点 P */
-    public static void Insert(ListNode n0, ListNode P) {
+    void Insert(ListNode n0, ListNode P) {
         ListNode? n1 = n0.next;
         P.next = n1;
         n0.next = P;
     }
 
     /* 删除链表的节点 n0 之后的首个节点 */
-    public static void Remove(ListNode n0) {
+    void Remove(ListNode n0) {
         if (n0.next == null)
             return;
         // n0 -> P -> n1
@@ -23,7 +23,7 @@ public class linked_list {
     }
 
     /* 访问链表中索引为 index 的节点 */
-    public static ListNode? Access(ListNode head, int index) {
+    ListNode? Access(ListNode? head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
                 return null;
@@ -33,7 +33,7 @@ public class linked_list {
     }
 
     /* 在链表中查找值为 target 的首个节点 */
-    public static int Find(ListNode head, int target) {
+    int Find(ListNode? head, int target) {
         int index = 0;
         while (head != null) {
             if (head.val == target)
@@ -54,7 +54,7 @@ public class linked_list {
         ListNode n2 = new(2);
         ListNode n3 = new(5);
         ListNode n4 = new(4);
-        // 构建引用指向
+        // 构建节点之间的引用
         n0.next = n1;
         n1.next = n2;
         n2.next = n3;
