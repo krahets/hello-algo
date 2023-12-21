@@ -316,14 +316,14 @@ When analyzing the space complexity of a piece of program, **three parts are usu
 
 ## Calculation Method
 
-The calculation method for space complexity is pretty similar to time complexity, with the only difference being that the focus shifts from "operation count" to "space usage size."
+The calculation method for space complexity is pretty similar to time complexity, with the only difference being that the focus shifts from "operation count" to "space usage size".
 
 On top of that, unlike time complexity, **we usually only focus on the worst-case space complexity**. This is because memory space is a hard requirement, and we have to make sure that there is enough memory space reserved for all possibilities incurred by input data.
 
 Looking at the following code, the "worst" in worst-case space complexity has two layers of meaning.
 
-1. **Based on the worst-case input data**: when $n < 10$, the space complexity is $O(1)$; however, when $n > 10$, the initialized array `nums` occupies $O(n)$ space; thus the worst-case space complexity is $O(n)$ .
-2. **Based on the peak memory during algorithm execution**: for example, the program occupies $O(1)$ space until the last line is executed; when the array `nums` is initialized, the program occupies $O(n)$ space; thus the worst-case space complexity is $O(n)$ .
+1. **Based on the worst-case input data**: when $n < 10$, the space complexity is $O(1)$; however, when $n > 10$, the initialized array `nums` occupies $O(n)$ space; thus the worst-case space complexity is $O(n)$.
+2. **Based on the peak memory during algorithm execution**: for example, the program occupies $O(1)$ space until the last line is executed; when the array `nums` is initialized, the program occupies $O(n)$ space; thus the worst-case space complexity is $O(n)$.
 
 === "Python"
 
@@ -702,7 +702,7 @@ Looking at the following code, the "worst" in worst-case space complexity has tw
 
 ## Common Types
 
-Assuming the input data size is $n$ , the figure illustrates common types of space complexity (ordered from low to high).
+Assuming the input data size is $n$, the figure illustrates common types of space complexity (ordered from low to high).
 
 $$
 \begin{aligned}
@@ -747,7 +747,7 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 [file]{space_complexity}-[class]{}-[func]{quadratic}
 ```
 
-As shown in the figure below, the recursion depth of this function is $n$ , and an array is initialized in each recursion function with lengths $n$, $n-1$, $\dots$, $2$, $1$ , and an average length of $n / 2$ , thus occupying $O(n^2)$ space overall:
+As shown in the figure below, the recursion depth of this function is $n$, and an array is initialized in each recursion function with lengths $n$, $n-1$, $\dots$, $2$, $1$, and an average length of $n / 2$, thus occupying $O(n^2)$ space overall:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
@@ -775,6 +775,6 @@ Another example is to convert a number into a string. Given a positive integer $
 
 Ideally, we would like to optimize both the time complexity and the space complexity of an algorithm. However, in reality, simultaneously optimizing time and space complexity is often challenging.
 
-**Reducing time complexity usually comes at the expense of increasing space complexity, and vice versa**. The approach of sacrificing memory space to improve algorithm speed is known as "trading space for time," while the opposite is called "trading time for space."
+**Reducing time complexity usually comes at the expense of increasing space complexity, and vice versa**. The approach of sacrificing memory space to improve algorithm speed is known as "trading space for time", while the opposite is called "trading time for space".
 
 The choice between these approaches depends on which aspect we prioritize. In most cases, time is more valuable than space, so "trading space for time" is usually the more common strategy. Of course, in situations with large data volumes, controlling space complexity is also crucial.
