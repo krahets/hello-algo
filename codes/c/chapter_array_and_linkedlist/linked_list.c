@@ -28,9 +28,10 @@ void removeItem(ListNode *n0) {
 
 /* 访问链表中索引为 index 的节点 */
 ListNode *access(ListNode *head, int index) {
-    while (head && head->next && index) {
+    for (int i = 0; i < index; i++) {
+        if (head == NULL)
+            return NULL;
         head = head->next;
-        index--;
     }
     return head;
 }
