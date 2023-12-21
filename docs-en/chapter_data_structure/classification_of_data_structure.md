@@ -4,7 +4,7 @@ Common data structures include arrays, linked lists, stacks, queues, hash tables
 
 ## Logical Structures: Linear And Non-linear
 
-**Logical structures reveal logical relationships between data elements**. In arrays and linked lists, data are arranged in a sequential order, reflecting the linear relationship between data; while in trees, data are arranged hierarchically from the top down, showing the derived relationship between ancestors and descendants; and graphs are composed of nodes and edges, reflecting the complex network relationship.
+**Logical structures reveal logical relationships between data elements**. In arrays and linked lists, data are arranged in sequential order, reflecting the linear relationship between data; while in trees, data are arranged hierarchically from the top down, showing the derived relationship between ancestors and descendants; and graphs are composed of nodes and edges, reflecting the complex network relationship.
 
 As shown in the figure below, logical structures can further be divided into "linear data structure" and "non-linear data structure". Linear data structures are more intuitive, meaning that the data are arranged linearly in terms of logical relationships; non-linear data structures, on the other hand, are arranged non-linearly.
 
@@ -31,7 +31,7 @@ Non-linear data structures can be further divided into tree and graph structures
 
     It is worth noting that comparing memory to the Excel sheet is a simplified analogy. The actual memory working mechanism is more complicated, involving the concepts of address, space, memory management, cache mechanism, virtual and physical memory.
 
-Memory is a shared resource for all programs, and when a block of memory is occupied by one program, it cannot be used by other programs at the same time. **Therefore, memory resources are important consideration in the design of data structures and algorithms**. For example, the algorithm's peak memory usage should not exceed the remaining free memory of the system; if there is a lack of contiguous memory blocks, then the data structure chosen must be able to be stored in non-contiguous memory blocks.
+Memory is a shared resource for all programs, and when a block of memory is occupied by one program, it cannot be used by other programs at the same time. **Therefore, considering memory resources is crucial in designing data structures and algorithms**. For example, the algorithm's peak memory usage should not exceed the remaining free memory of the system; if there is a lack of contiguous memory blocks, then the data structure chosen must be able to be stored in non-contiguous memory blocks.
 
 As shown in the figure below, **Physical structure reflects the way data is stored in computer memory and it can be divided into consecutive space storage (arrays) and distributed space storage (linked lists)**. The physical structure determines how data is accessed, updated, added, deleted, etc. Logical and physical structure complement each other in terms of time efficiency and space efficiency.
 
@@ -42,7 +42,7 @@ As shown in the figure below, **Physical structure reflects the way data is stor
 - **Array-based structures**: stacks, queues, hash tables, trees, heaps, graphs, matrices, tensors (arrays of dimension $\geq 3$), and so on.
 - **Linked list-based structures**: stacks, queues, hash tables, trees, heaps, graphs, etc.
 
-Data structures based on arrays are also known as "static data structures", which means that such structures' length remains fixed after initialization. In contrast, data structures based on linked lists are called "dynamic data structures", meaning that their length can be adjusted during program execution after initialization.
+Data structures based on arrays are also known as "static data structures", which means that such structures' length remains constant after initialization. In contrast, data structures based on linked lists are called "dynamic data structures", meaning that their length can be adjusted during program execution after initialization.
 
 !!! tip
 
