@@ -1,8 +1,8 @@
 <h4 align="left">English | <strong><a href="https://github.com/krahets/hello-algo">中文</a></strong></h4>
 
 <p align="center">
-  <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/hello_algo_header.png" width="450">
+  <a href="https://www.hello-algo.com/en/">
+    <img src="https://www.hello-algo.com/en/index.assets/hello_algo_header.png" width="450">
   </a>
 </p>
 
@@ -13,15 +13,17 @@
 </p>
 
 <p align="center">
-  <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.svg" width="155"></a>
+  <a href="https://www.hello-algo.com/en/">
+    <img src="https://www.hello-algo.com/en/index.assets/btn_read_online_dark.svg" width="155"></a>
   <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_dark.svg" width="155"></a>
+    <img src="https://www.hello-algo.com/en/index.assets/btn_download_pdf_dark.svg" width="155"></a>
+  <a href="https://github.com/krahets/hello-algo/releases">
+    <img src="https://www.hello-algo.com/en/index.assets/btn_chinese_edition_dark.svg" width="155"></a>
 </p>
 
 <p align="center">
-  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="396">
-  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="396">
+  <img src="https://www.hello-algo.com/en/index.assets/animation.gif" width="396">
+  <img src="https://www.hello-algo.com/en/index.assets/running_code.gif" width="396">
 </p>
 
 <p align="center">
@@ -68,7 +70,7 @@ If you find this book helpful, please give it a Star :star: to support us, thank
 
 This open-source book is continuously being updated, and we welcome your participation in this project to provide better learning content for readers.
 
-- [Content Correction](https://www.hello-algo.com/chapter_appendix/contribution/): Please help us correct or point out mistakes in the comments section such as grammatical errors, missing content, ambiguities, invalid links, or code bugs.
+- [Content Correction](https://www.hello-algo.com/en/chapter_appendix/contribution/): Please help us correct or point out mistakes in the comments section such as grammatical errors, missing content, ambiguities, invalid links, or code bugs.
 - [Code Transpilation](https://github.com/krahets/hello-algo/issues/15): We look forward to your contributions in various programming languages. We currently support 12 languages including Python, Java, C++, Go, and JavaScript.
 - [Chinese-to-English](https://github.com/krahets/hello-algo/tree/en): We would love to invite you to join our translation team. The members are mainly from computer-science-related fields, English majors, and native English speakers.
 
