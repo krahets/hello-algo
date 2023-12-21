@@ -160,5 +160,5 @@ nav:
   #   - 16.2 Contributing to the Creation: chapter_appendix/contribution.md
   #   # [status: new]
   #   - 16.3 &nbsp; Terminology: chapter_appendix/terminology.md
-  - References:
-    - chapter_reference/index.md
+  # - References:
+  #   - chapter_reference/index.md

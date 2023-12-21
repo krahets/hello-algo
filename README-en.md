@@ -56,7 +56,7 @@ If you find this book helpful, please give it a Star :star: to support us, thank
 
 ## Endorsements
 
-> "An easy-to-understand introductory book on data structures and algorithms, which guides readers to learn by minds-on and hands-on. Strongly recommended for algorithm beginners!"
+> "An easy-to-understand book on data structures and algorithms, which guides readers to learn by minds-on and hands-on. Strongly recommended for algorithm beginners!"
 >
 > **—— Junhui Deng, Professor of Computer Science, Tsinghua University**
 
