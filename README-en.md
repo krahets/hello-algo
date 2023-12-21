@@ -1,3 +1,5 @@
+<h4 align="left">English | <strong><a href="https://github.com/krahets/hello-algo">中文</a></strong></h4>
+
 <p align="center">
   <a href="https://www.hello-algo.com/">
     <img src="https://www.hello-algo.com/index.assets/hello_algo_header.png" width="450">
