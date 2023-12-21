@@ -7,7 +7,7 @@ icon: material/timer-sand
 
 <div class="center-table" markdown>
 
-![complexity_analysis](../assets/covers/chapter_complexity_analysis.jpg){ width="600" }{ class="cover-image" }
+![complexity_analysis](../assets/covers/chapter_complexity_analysis.jpg){ class="cover-image" }
 
 </div>
 

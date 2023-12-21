@@ -7,7 +7,7 @@ icon: material/book-open-outline
 
 <div class="center-table" markdown>
 
-![Preface](../assets/covers/chapter_preface.jpg){ width="600" }{ class="cover-image" }
+![Preface](../assets/covers/chapter_preface.jpg){ class="cover-image" }
 
 </div>
 

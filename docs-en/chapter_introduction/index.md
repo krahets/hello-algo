@@ -7,7 +7,7 @@ icon: material/calculator-variant-outline
 
 <div class="center-table" markdown>
 
-![A first look at the algorithm](../assets/covers/chapter_introduction.jpg){ width="600" }{ class="cover-image" }
+![A first look at the algorithm](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
 
 </div>
 
