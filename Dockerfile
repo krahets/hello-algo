@@ -6,12 +6,15 @@ RUN pip install mkdocs-material==9.4.1 mkdocs-glightbox
 
 WORKDIR /hello-algo
 
-COPY docs ./build/docs
 COPY overrides ./build/overrides
+COPY docs ./build/docs
+COPY docs-en ./build/docs-en
 COPY mkdocs.yml ./mkdocs.yml
+COPY mkdocs-en.yml ./mkdocs-en.yml
 
-RUN mkdocs build
+RUN mkdocs build -f mkdocs.yml
+RUN mkdocs build -f mkdocs-en.yml
 
+WORKDIR /app/site
 EXPOSE 8000
-
-CMD ["mkdocs", "serve", "-a", "0.0.0.0:8000"]
+CMD ["python", "-m", "http.server", "8000"]

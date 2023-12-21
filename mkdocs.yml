@@ -71,9 +71,9 @@ extra:
     - name: 中文
       link: /
       lang: zh
-    # - name: English
-    #   link: /en/
-    #   lang: en
+    - name: English
+      link: /en/
+      lang: en
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/krahets

@@ -14,6 +14,8 @@
     <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.svg" width="155"></a>
   <a href="https://github.com/krahets/hello-algo/releases">
     <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_dark.svg" width="155"></a>
+  <a href="https://github.com/krahets/hello-algo/blob/master/README-en.md">
+    <img src="https://www.hello-algo.com/index.assets/btn_english_edition_dark.svg" width="155"></a>
 </p>
 
 <p align="center">
