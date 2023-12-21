@@ -37,13 +37,13 @@ The skill of looking up a dictionary, essential for elementary school students, 
 
 The above method of organizing playing cards is essentially the "insertion sort" algorithm, which is very efficient for small datasets. Many programming languages' sorting library functions include insertion sort.
 
-**Example 3: Making Change**. Suppose we buy goods worth $69$ yuan at a supermarket and give the cashier $100$ yuan, then the cashier needs to give us $31$ in change. They would naturally complete the thought process as shown below.
+**Example 3: Making Change**. Suppose we buy goods worth $69$ yuan at a supermarket and give the cashier $100$ yuan, then the cashier needs to give us $31$ yuan in change. They would naturally complete the thought process as shown below.
 
-1. The options are currencies smaller than $31$, including $1$ yuan, $5$ yuan, $10$ yuan, and $20$ yuan.
-2. Take out the largest $20$ yuan from the options, leaving $31 - 20 = 11$ yuan.
-3. Take out the largest $10$ yuan from the remaining options, leaving $11 - 10 = 1$ yuan.
-4. Take out the largest $1$ yuan from the remaining options, leaving $1 - 1 = 0$ yuan.
-5. Complete the change-making, with the solution being $20 + 10 + 1 = 31$ yuan.
+1. The options are currencies smaller than $31$, including $1$, $5$, $10$, and $20$.
+2. Take out the largest $20$ from the options, leaving $31 - 20 = 11$.
+3. Take out the largest $10$ from the remaining options, leaving $11 - 10 = 1$.
+4. Take out the largest $1$ from the remaining options, leaving $1 - 1 = 0$.
+5. Complete the change-making, with the solution being $20 + 10 + 1 = 31$.
 
 ![Change making process](algorithms_are_everywhere.assets/greedy_change.png)
 
