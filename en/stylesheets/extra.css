@@ -1,0 +1,164 @@
+/* Color Settings */
+/* https://github.com/squidfunk/mkdocs-material/blob/6b5035f5580f97532d664e3d1babf5f320e88ee9/src/assets/stylesheets/main/_colors.scss */
+/* https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#custom-colors */
+:root > * {
+  --md-primary-fg-color: #ffffff;
+  --md-primary-bg-color: #1d1d20;
+
+  --md-default-fg-color: #1d1d20;
+  --md-default-bg-color: #ffffff;
+
+  --md-code-fg-color: #1d1d20;
+
+  --md-accent-fg-color: #999;
+
+  --md-admonition-fg-color: #1d1d20;
+
+  --md-typeset-color: #1d1d20;
+  --md-typeset-a-color: #349890;
+
+  --md-typeset-btn-color: #55aea6;
+  --md-typeset-btn-hover-color: #52bbb1;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #22272e;
+  --md-primary-bg-color: #adbac7;
+
+  --md-default-fg-color: #adbac7;
+  --md-default-bg-color: #22272e;
+
+  --md-code-bg-color: #1d2126;
+  --md-code-fg-color: #adbac7;
+
+  --md-accent-fg-color: #aaa;
+
+  --md-admonition-fg-color: #adbac7;
+
+  --md-footer-fg-color: #adbac7;
+
+  --md-typeset-color: #adbac7;
+  --md-typeset-a-color: #52bbb1 !important;
+
+  --md-typeset-btn-color: #52bbb1;
+  --md-typeset-btn-hover-color: #55aea6;
+}
+
+/* https://github.com/squidfunk/mkdocs-material/issues/4832#issuecomment-1374891676 */
+.md-nav__link[for] {
+  color: var(--md-default-fg-color) !important;
+}
+
+/* Figure class */
+.animation-figure {
+  border-radius: 0.63rem;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Cover image class */
+.cover-image {
+  width: 28rem;
+  height: auto;
+  border-radius: 0.3rem;
+  box-shadow: var(--md-shadow-z2);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Center Markdown Tables (requires md_in_html extension) */
+.center-table {
+  text-align: center;
+}
+
+/* Reset alignment for table cells */
+.md-typeset .center-table :is(td, th):not([align]) {
+  text-align: initial;
+}
+
+/* Font size */
+.md-typeset {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.md-typeset pre {
+  font-size: 0.95em;
+}
+
+/* Markdown Header */
+/* https://github.com/squidfunk/mkdocs-material/blob/dcab57dd1cced4b77875c1aa1b53467c62709d31/src/assets/stylesheets/main/_typeset.scss */
+.md-typeset h1 {
+  font-weight: 400;
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset h2 {
+  font-weight: 400;
+}
+
+.md-typeset h3 {
+  font-weight: 500;
+}
+
+.md-typeset h5 {
+  text-transform: none;
+}
+
+/* font-family setting for Win10 */
+body {
+  --md-text-font-family: -apple-system, BlinkMacSystemFont,
+    var(--md-text-font, _), Helvetica, Arial, sans-serif;
+  --md-code-font-family: var(--md-code-font, _), SFMono-Regular, Consolas, Menlo,
+    -apple-system, BlinkMacSystemFont, var(--md-text-font, _), monospace;
+}
+
+/* max height of code block */
+/* https://github.com/squidfunk/mkdocs-material/issues/3444 */
+.md-typeset pre > code {
+  max-height: 25rem;
+}
+
+/* Make the picture not glare in dark theme */
+[data-md-color-scheme="slate"] .md-typeset img,
+[data-md-color-scheme="slate"] .md-typeset svg,
+[data-md-color-scheme="slate"] .md-typeset video {
+  filter: brightness(0.85) invert(0.05);
+}
+
+/* landing page */
+.header-img-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%; /* Default to full width */
+}
+
+/* rounded button */
+.rounded-button {
+  display: inline-flex; /* Use flexbox for alignment */
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center items horizontally */
+  border-radius: 100px; /* Circular corners */
+  padding: 9px 18px; /* Padding around the text */
+  margin: 0.15em 0;
+  border: none; /* Removes default border */
+  background-color: var(--md-typeset-btn-color); /* Background color */
+  color: var(--md-primary-fg-color) !important; /* Text color */
+  font-size: 0.85em; /* Font size */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove underline from anchor text */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.rounded-button:hover {
+  background-color: var(--md-typeset-btn-hover-color);
+}
+
+.rounded-button svg {
+  fill: var(--md-primary-fg-color); /* Fill SVG icon with text color */
+  width: 1.2em;
+  height: auto;
+  margin-right: 0.5em; /* Add some space between the SVG icon and the text */
+}
