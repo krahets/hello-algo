@@ -62,7 +62,7 @@ If you find this book helpful, please give it a Star :star: to support us, thank
 >
 > **—— Junhui Deng, Professor of Computer Science, Tsinghua University**
 
-> "If I had *Hello Algo* when I was learning data structures and algorithms, it would have been 10 times easier!"
+> "If I had 'Hello Algo' when I was learning data structures and algorithms, it would have been 10 times easier!"
 >
 > **—— Mu Li, Senior Principal Scientist, Amazon**
 
