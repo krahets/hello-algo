@@ -1,24 +1,24 @@
 # Space Complexity
 
-"Space complexity is a measure of how the amount of memory space an algorithm occupies grows as the amount of data grows. This concept is very similar to time complexity, just replace "runtime" with "memory space".
+The space complexity is used to measure the growth trend of memory consumption as the scale of data increases for an algorithm solution. This concept is analogous to time complexity by replacing "runtime" with "memory space".
 
 ## Algorithmic Correlation Space
 
-The main types of memory space used by algorithms during operation include the following.
+The memory space used by algorithms during its execution include the following types.
 
-- **Input Space**: used to store the input data for the algorithm.
-- **Staging Space**: used to store data such as variables, objects, function contexts, etc. of the algorithm during runtime.
-- **Output Space**: used to store the output data of the algorithm.
+- **Input Space**: Used to store the input data for the algorithm.
+- **Temporary Space**: Used to store variables, objects, function contexts, and other data of the algorithm during runtime.
+- **Output Space**: Used to store the output data of the algorithm.
 
-In general, the statistical range of space complexity is "staging space" plus "output space".
+In general, the "Input Space" is excluded from the statistics of space complexity.
 
-The staging space can be further divided into three sections.
+The **Temporary Space** can be further divided into three parts.
 
-- **Staging Data**: used to save various constants, variables, objects, etc. during the running of the algorithm.
-- **Stack frame space**: used to hold the context data of the called function. The system creates a stack frame at the top of the stack each time a function is called, and the stack frame space is freed when the function returns.
-- **Instruction space**: used to hold compiled program instructions, usually ignored in practical statistics.
+- **Temporary Data**: Used to store various constants, variables, objects, etc., during the the algorithm's execution.
+- **Stack Frame Space**: Used to hold the context data of the called function. The system creates a stack frame at the top of the stack each time a function is called, and the stack frame space is freed when the function returns.
+- **Instruction Space**: Used to hold compiled program instructions, usually ignored in practical statistics.
 
-When analyzing the space complexity of a piece of program, **we usually count three parts**: transient data, stack frame space and output data.
+When analyzing the space complexity of a piece of program, **three parts are usually taken into account: Temporary Data, Stack Frame Space and Output Data**.
 
 ![Associated spaces used by the algorithm](space_complexity.assets/space_types.png)
 
@@ -28,20 +28,20 @@ When analyzing the space complexity of a piece of program, **we usually count th
     class Node:
         """Classes""""
         def __init__(self, x: int):
-            self.val: int = x # node value
-            self.next: Node | None = None # reference to the next node
+            self.val: int = x               # node value
+            self.next: Node | None = None   # reference to the next node
 
     def function() -> int:
-        """"Function"""""
+        """"Functions"""""
         # Perform certain operations...
         return 0
 
-    def algorithm(n) -> int: # input data
-        A = 0 # Temporary storage of data (constant, usually in uppercase)
-        b = 0 # Temporary data (variable)
-        node = Node(0) # temporary data (object)
-        c = function() # Stack frame space (call function)
-        return A + b + c # output data
+    def algorithm(n) -> int:    # input data
+        A = 0                   # temporary data (constant, usually in uppercase)
+        b = 0                   # temporary data (variable)
+        node = Node(0)          # temporary data (object)
+        c = function()          # Stack frame space (call function)
+        return A + b + c        # output data
     ```
 
 === "C++"
@@ -60,12 +60,12 @@ When analyzing the space complexity of a piece of program, **we usually count th
         return 0;
     }
 
-    int algorithm(int n) { // input data
-        const int a = 0; // temporary data (constant)
-        int b = 0; // temporary data (variable)
-        Node* node = new Node(0); // temporary data (object)
-        int c = func(); // stack frame space (call function)
-        return a + b + c; // output data
+    int algorithm(int n) {          // input data
+        const int a = 0;            // temporary data (constant)
+        int b = 0;                  // temporary data (variable)
+        Node* node = new Node(0);   // temporary data (object)
+        int c = func();             // stack frame space (call function)
+        return a + b + c;           // output data
     }
     ```
 
@@ -85,12 +85,12 @@ When analyzing the space complexity of a piece of program, **we usually count th
         return 0;
     }
    
-    int algorithm(int n) { // input data
-        final int a = 0; // temporary data (constant)
-        int b = 0; // temporary data (variable)
-        Node node = new Node(0); // temporary data (object)
-        int c = function(); // stack frame space (call function)
-        return a + b + c; // output data
+    int algorithm(int n) {          // input data
+        final int a = 0;            // temporary data (constant)
+        int b = 0;                  // temporary data (variable)
+        Node node = new Node(0);    // temporary data (object)
+        int c = function();         // stack frame space (call function)
+        return a + b + c;           // output data
     }
     ```
 
@@ -110,12 +110,12 @@ When analyzing the space complexity of a piece of program, **we usually count th
         return 0;
     }
 
-    int Algorithm(int n) { // input data
-        const int a = 0; // temporary data (constant)
-        int b = 0; // temporary data (variable)
+    int Algorithm(int n) {  // input data
+        const int a = 0;    // temporary data (constant)
+        int b = 0;          // temporary data (variable)
         Node node = new(0); // temporary data (object)
         int c = Function(); // stack frame space (call function)
-        return a + b + c; // output data
+        return a + b + c;   // output data
     }
     ```
 
@@ -140,11 +140,11 @@ When analyzing the space complexity of a piece of program, **we usually count th
     }
 
     func algorithm(n int) int { // input data
-        const a = 0 // temporary data (constant)
-        b := 0 // temporary storage of data (variable)
-        newNode(0) // temporary data (object)
-        c := function() // stack frame space (call function)
-        return a + b + c // output data
+        const a = 0             // temporary data (constant)
+        b := 0                  // temporary storage of data (variable)
+        newNode(0)              // temporary data (object)
+        c := function()         // stack frame space (call function)
+        return a + b + c        // output data
     }
     ```
 
@@ -168,11 +168,11 @@ When analyzing the space complexity of a piece of program, **we usually count th
     }
 
     func algorithm(n: Int) -> Int { // input data
-        let a = 0 // temporary data (constant)
-        var b = 0 // temporary data (variable)
-        let node = Node(x: 0) // temporary data (object)
-        let c = function() // stack frame space (call function)
-        return a + b + c // output data
+        let a = 0                   // temporary data (constant)
+        var b = 0                   // temporary data (variable)
+        let node = Node(x: 0)       // temporary data (object)
+        let c = function()          // stack frame space (call function)
+        return a + b + c            // output data
     }
     ```
 
@@ -185,7 +185,7 @@ When analyzing the space complexity of a piece of program, **we usually count th
         next;
         constructor(val) {
             this.val = val === undefined ? 0 : val; // node value
-            this.next = null; // reference to the next node
+            this.next = null;                       // reference to the next node
         }
     }
 
@@ -195,12 +195,12 @@ When analyzing the space complexity of a piece of program, **we usually count th
         return 0;
     }
 
-    function algorithm(n) { // input data
-        const a = 0; // temporary data (constant)
-        let b = 0; // temporary data (variable)
-        const node = new Node(0); // temporary data (object)
-        const c = constFunc(); // Stack frame space (calling function)
-        return a + b + c; // output data
+    function algorithm(n) {         // input data
+        const a = 0;                // temporary data (constant)
+        let b = 0;                  // temporary data (variable)
+        const node = new Node(0);   // temporary data (object)
+        const c = constFunc();      // Stack frame space (calling function)
+        return a + b + c;           // output data
     }
     ```
 
@@ -213,7 +213,7 @@ When analyzing the space complexity of a piece of program, **we usually count th
         next: Node | null;
         constructor(val?: number) {
             this.val = val === undefined ? 0 : val; // node value
-            this.next = null; // reference to the next node
+            this.next = null;                       // reference to the next node
         }
     }
 
@@ -224,11 +224,11 @@ When analyzing the space complexity of a piece of program, **we usually count th
     }
 
     function algorithm(n: number): number { // input data
-        const a = 0; // temporary data (constant)
-        let b = 0; // temporary data (variable)
-        const node = new Node(0); // temporary data (object)
-        const c = constFunc(); // Stack frame space (calling function)
-        return a + b + c; // output data
+        const a = 0;                        // temporary data (constant)
+        let b = 0;                          // temporary data (variable)
+        const node = new Node(0);           // temporary data (object)
+        const c = constFunc();              // Stack frame space (calling function)
+        return a + b + c;                   // output data
     }
     ```
 
@@ -248,12 +248,12 @@ When analyzing the space complexity of a piece of program, **we usually count th
       return 0;
     }
 
-    int algorithm(int n) { // input data
-      const int a = 0; // temporary data (constant)
-      int b = 0; // temporary data (variable)
-      Node node = Node(0); // temporary data (object)
-      int c = function(); // stack frame space (call function)
-      return a + b + c; // output data
+    int algorithm(int n) {  // input data
+      const int a = 0;      // temporary data (constant)
+      int b = 0;            // temporary data (variable)
+      Node node = Node(0);  // temporary data (object)
+      int c = function();   // stack frame space (call function)
+      return a + b + c;     // output data
     }
     ```
 
@@ -282,12 +282,12 @@ When analyzing the space complexity of a piece of program, **we usually count th
         return 0;
     }
 
-    fn algorithm(n: i32) -> i32 { // input data
-        const a: i32 = 0; // temporary data (constant)
-        let mut b = 0; // temporary data (variable)
-        let node = Node::new(0); // temporary data (object)
-        let c = function(); // stack frame space (call function)
-        return a + b + c; // output data
+    fn algorithm(n: i32) -> i32 {   // input data
+        const a: i32 = 0;           // temporary data (constant)
+        let mut b = 0;              // temporary data (variable)
+        let node = Node::new(0);    // temporary data (object)
+        let c = function();         // stack frame space (call function)
+        return a + b + c;           // output data
     }
     ```
 
@@ -300,11 +300,11 @@ When analyzing the space complexity of a piece of program, **we usually count th
         return 0;
     }
 
-    int algorithm(int n) { // input data
-        const int a = 0; // temporary data (constant)
-        int b = 0; // temporary data (variable)
-        int c = func(); // stack frame space (call function)
-        return a + b + c; // output data
+    int algorithm(int n) {  // input data
+        const int a = 0;    // temporary data (constant)
+        int b = 0;          // temporary data (variable)
+        int c = func();     // stack frame space (call function)
+        return a + b + c;   // output data
     }
     ```
 
@@ -314,16 +314,16 @@ When analyzing the space complexity of a piece of program, **we usually count th
 
     ```
 
-## Method Of Projection
+## Calculation Method
 
-Space complexity is derived in much the same way as time complexity, simply by changing the statistic from "number of operations" to "amount of space used".
+The calculation method for space complexity is pretty similar to time complexity, with the only difference being that the focus shifts from "operation count" to "space usage size".
 
-And unlike time complexity, **we usually focus only on the worst space complexity**. This is because memory space is a hard requirement and we have to make sure that there is enough memory space reserved under all input data.
+On top of that, unlike time complexity, **we usually only focus on the worst-case space complexity**. This is because memory space is a hard requirement, and we have to make sure that there is enough memory space reserved for all possibilities incurred by input data.
 
-Looking at the following code, the "worst" in worst space complexity has two levels of meaning.
+Looking at the following code, the "worst" in worst-case space complexity has two layers of meaning.
 
-1. **whichever is the worst input data**: when $n < 10$, the space complexity is $O(1)$; however, when $n > 10$, the initialized array `nums` occupies $O(n)$ space; thus the worst space complexity is $O(n)$ .
-2. **in terms of peak memory during the run of the algorithm**: for example, the program occupies $O(1)$ space until the last line is executed; when the array `nums` is initialized, the program occupies $O(n)$ space; thus the worst space complexity is $O(n)$ .
+1. **Based on the worst-case input data**: when $n < 10$, the space complexity is $O(1)$; however, when $n > 10$, the initialized array `nums` occupies $O(n)$ space; thus the worst-case space complexity is $O(n)$.
+2. **Based on the peak memory during algorithm execution**: for example, the program occupies $O(1)$ space until the last line is executed; when the array `nums` is initialized, the program occupies $O(n)$ space; thus the worst-case space complexity is $O(n)$.
 
 === "Python"
 
@@ -460,10 +460,10 @@ Looking at the following code, the "worst" in worst space complexity has two lev
 
     ```
 
-**In recursion functions, care needs to be taken to count the stack frame space**. For example in the following code:
+**In recursion functions, it is important to take into count the measurement of stack frame space**. For example in the following code:
 
 - The function `loop()` calls $n$ times `function()` in a loop, and each round of `function()` returns and frees stack frame space, so the space complexity is still $O(1)$.
-- The recursion function `recur()` will have $n$ unreturned `recur()` at the same time during runtime, thus occupying $O(n)$ of stack frame space.
+- The recursion function `recur()` will have $n$ unreturned `recur()` during runtime, thus occupying $O(n)$ of stack frame space.
 
 === "Python"
 
@@ -702,7 +702,7 @@ Looking at the following code, the "worst" in worst space complexity has two lev
 
 ## Common Types
 
-Let the input data size be $n$ , the figure below shows the common types of space complexity (ordered from low to high).
+Assuming the input data size is $n$, the figure illustrates common types of space complexity (ordered from low to high).
 
 $$
 \begin{aligned}
@@ -715,9 +715,9 @@ $$
 
 ### Constant Order $O(1)$
 
-Constant orders are common for constants, variables, and objects whose quantity is unrelated to the size of the input data $n$.
+Constant order is common for constants, variables, and objects whose quantity is unrelated to the size of the input data $n$.
 
-Note that memory occupied by initializing a variable or calling a function in a loop is freed when it enters the next loop, so there is no accumulation of occupied space and the space complexity remains $O(1)$ :
+It is important to note that memory occupied by initializing a variable or calling a function in a loop is released once the next iteration begins. Therefore, there is no accumulation of occupied space and the space complexity remains $O(1)$ :
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{constant}
@@ -725,7 +725,7 @@ Note that memory occupied by initializing a variable or calling a function in a 
 
 ### Linear Order $O(N)$
 
-Linear orders are commonly found in arrays, linked lists, stacks, queues, etc. where the number of elements is proportional to $n$:
+Linear order is commonly found in arrays, linked lists, stacks, queues, and similar structures where the number of elements is proportional to $n$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{linear}
@@ -739,15 +739,15 @@ As shown in the figure below, the depth of recursion for this function is $n$, w
 
 ![Linear order space complexity generated by recursion function](space_complexity.assets/space_complexity_recursive_linear.png)
 
-### Squared Order $O(N^2)$
+### Quadratic Order $O(N^2)$
 
-The squared order is common in matrices and graphs, where the number of elements is squared with $n$:
+Quadratic order is common in matrices and graphs, where the number of elements is in a square relationship with $n$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic}
 ```
 
-As shown in the figure below, the recursion depth of this function is $n$ , and an array is initialized in each recursion function with lengths $n$, $n-1$, $\dots$, $2$, $1$ , and an average length of $n / 2$ , thus occupying $O(n^2)$ space overall:
+As shown in the figure below, the recursion depth of this function is $n$, and an array is initialized in each recursion function with lengths $n$, $n-1$, $\dots$, $2$, $1$, and an average length of $n / 2$, thus occupying $O(n^2)$ space overall:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
@@ -767,14 +767,14 @@ Exponential order is common in binary trees. Looking at the figure below, a "ful
 
 ### Logarithmic Order $O(\Log N)$
 
-Logarithmic order is commonly used in divide and conquer algorithms. For example, in a merge sort, an array of length $n$ is input, and each round of recursion divides the array in half from its midpoint to form a recursion tree of height $\log n$, using $O(\log n)$ stack frame space.
+Logarithmic order is commonly used in divide and conquer algorithms. For example, in a merge sort, given an array of length $n$ as the input, each round of recursion divides the array in half from its midpoint to form a recursion tree of height $\log n$, using $O(\log n)$ stack frame space.
 
-Another example is to convert a number into a string, input a positive integer $n$ which has the number of bits $\log_{10} n + 1$, i.e., the corresponding length of the string is $\log_{10} n + 1$, so the space complexity is $O(\log_{10} n + 1) = O(\log n)$.
+Another example is to convert a number into a string. Given a positive integer $n$ with a digit count of $\log_{10} n + 1$, the corresponding string length is $\log_{10} n + 1$. Therefore, the space complexity is $O(\log_{10} n + 1) = O(\log n)$.
 
 ## Weighing Time And Space
 
-Ideally, we would like to optimize both the time complexity and the space complexity of an algorithm. In practice, however, optimizing both time complexity and space complexity at the same time is usually very difficult.
+Ideally, we would like to optimize both the time complexity and the space complexity of an algorithm. However, in reality, simultaneously optimizing time and space complexity is often challenging.
 
-**Reducing time complexity usually comes at the cost of increasing space complexity, and vice versa**. We refer to the idea of sacrificing memory space to increase the speed of an algorithm as "space for time"; the opposite is called "time for space".
+**Reducing time complexity usually comes at the expense of increasing space complexity, and vice versa**. The approach of sacrificing memory space to improve algorithm speed is known as "trading space for time", while the opposite is called "trading time for space".
 
-The choice of thinking depends on what we value more. In most cases, time is more valuable than space, so "space for time" is usually the more common strategy. Of course, it is also important to control the space complexity in case of large amount of data.
+The choice between these approaches depends on which aspect we prioritize. In most cases, time is more valuable than space, so "trading space for time" is usually the more common strategy. Of course, in situations with large data volumes, controlling space complexity is also crucial.
