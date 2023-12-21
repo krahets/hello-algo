@@ -34,9 +34,9 @@ nav:
     # [icon: material/calculator-variant-outline]
     - chapter_introduction/index.md
     - 1.1 Algorithms Are Everywhere: chapter_introduction/algorithms_are_everywhere.md
-    - 1.2 What is Algorithms: chapter_introduction/what_is_dsa.md
+    - 1.2 What Is Algorithms: chapter_introduction/what_is_dsa.md
     - 1.3 Summary: chapter_introduction/summary.md
-  - Chapter 2. Computational Complexity:
+  - Chapter 2. Complexity Analysis:
     # [icon: material/timer-sand]
     - chapter_computational_complexity/index.md
     - 2.1 Evaluating Algorithm Efficiency: chapter_computational_complexity/performance_evaluation.md
