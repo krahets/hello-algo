@@ -3,7 +3,7 @@ comments: true
 icon: material/timer-sand
 ---
 
-# 第 2 章 &nbsp; Complexity Analysis
+# Chapter 2. &nbsp; Complexity Analysis
 
 <div class="center-table" markdown>
 

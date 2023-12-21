@@ -3,7 +3,7 @@ comments: true
 icon: material/book-open-outline
 ---
 
-# 第 0 章 &nbsp; Preface
+# Chapter 0. &nbsp; Preface
 
 <div class="center-table" markdown>
 
