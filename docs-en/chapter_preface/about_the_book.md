@@ -40,6 +40,6 @@ During the creation of this book, I received help from many people, including bu
 
 During the writing process, I read many textbooks and articles on data structures and algorithms. These works provide excellent models for this book and ensure the accuracy and quality of its contents. I would like to thank all my teachers and predecessors for their outstanding contributions!
 
-This book promotes a hands-on approach to learning, and in this respect is heavily inspired by ["Hands-On Learning for Depth"](https://github.com/d2l-ai/d2l-zh). I highly recommend this excellent book to all readers.
+This book promotes a hands-on approach to learning, and in this respect is heavily inspired by ["Dive into Deep Learning"](https://github.com/d2l-ai/d2l-zh). I highly recommend this excellent book to you.
 
-A heartfelt thank you to my parents, it is your constant support and encouragement that gives me the opportunity to do this fun-filled thing.
+**A heartfelt thank you to my parents, it is your constant support and encouragement that gives me the opportunity to do this fun-filled thing**.
