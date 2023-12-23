@@ -1,14 +1,14 @@
 # The Book
 
-The aim of this project is to create an open source, free, beginner-friendly crash course on data structures and algorithms.
+This open-source project aims to create a free, beginner-friendly crash course on data structures and algorithms.
 
 - Animated illustrations, structured delivery for data structures and algorithms, with easy-to-understand content, and a smooth learning curve.
 - Run code with just one click, supporting Java, C++, Python, Go, JS, TS, C#, Swift, Rust, Dart, Zig and other languages.
-- Readers are encouraged to help each other in the comment and discussion section for each chapter, questions and comments are usually answered within two days.
+- Readers are encouraged to help each other in the discussion area for each section, questions and comments are usually answered within two days.
 
 ## Target Readers
 
-If you are a beginner to algorithms, you have never learned algorithms before, or you have accumulated some experience in algorithms, but you only have a vague understanding of data structures and algorithms, and you are constantly jumping between "Yep" and "hmm", then this book is for you!
+If you are a beginner to algorithms, you have never learned algorithms before, or you have accumulated some experience in algorithms, but you only have a vague understanding of data structures and algorithms, and you are constantly jumping between "yep" and "hmm", then this book is for you!
 
 If you have already accumulated some experience in algorithms and are familiar with most types of questions, then this book can help you review and organize your algorithm knowledge map, and the source code in our repository can be used as a "algorithm toolkit" or "algorithm cheat sheet".
 
