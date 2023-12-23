@@ -7,7 +7,7 @@ Before we formally discuss algorithms, an interesting fact is worth sharing: **y
 **Example 1: Looking Up a Dictionary**. In an English dictionary, words are listed alphabetically. Suppose we're searching for a word that starts with the letter $r$. This is typically done in the following way:
 
 1. Open the dictionary around its midpoint and note the first letter on that page, assuming it to be $m$.
-2. Since $r$ comes after $m$ in the pinyin alphabet, we exclude the first half of the dictionary and narrow the search to the second half.
+2. Since $r$ comes after $m$ in the alphabet, we exclude the first half of the dictionary and narrow the search to the second half.
 3. Iterate steps `1.` and `2.` until you find the page where the word begins with the letter $r$.
 
 === "<1>"
