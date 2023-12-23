@@ -2,16 +2,16 @@
 
 !!! tip
 
-    For the best reading experience, it is recommended that you read through this section.
+    It is recommended that you go through this section to get the best reading experience.
 
-## Conventions Of Style
+## Conventions Of Writing Style
 
-- Those labeled `*` after the title are optional chapters with relatively difficult content. If you have limited time, it is advisable to skip them.
-- Proper nouns and words and phrases with specific meanings are marked with `"double quotes"` to avoid ambiguity.
-- Important proper nouns and their English translations are marked with `" "` in parentheses, e.g. `"array array"` . It is recommended to memorize them for reading the literature.
+- Chapters marked with an asterisk (`*``) after the title are supplementary and more challenging. If you have limited time, it is advisable to skip them.
+- Key technical terms and their English equivalents are enclosed in `「 」` brackets, for example, `「array」`. It's advisable to familiarize yourself with these for better comprehension of technical texts.
+- Proprietary terms and words with specific meanings are indicated with “quotation marks” to avoid ambiguity.
 - **Bolded text** Indicates key content or summary statements, which deserve special attention.
 - When it comes to terms that are inconsistent between programming languages, this book follows Python, for example using $\text{None}$ to mean "empty".
-- This book partially abandons the specification of annotations in programming languages in exchange for a more compact layout of the content. There are three main types of annotations: title annotations, content annotations, and multi-line annotations.
+- This book partially abandons the specification of annotations in programming languages in exchange for a more compact layout of the content. Comments are categorized into three types: title comments, content comments, and multiline comments.
 
 === "Python"
 
@@ -167,21 +167,21 @@
     // Annotation
     ```
 
-## Learn Efficiently In Animated Graphic Solutions
+## Efficient Learning via Animated and Graphical Illustrations
 
-Compared with text, videos and pictures have a higher degree of information density and structure and are easier to understand. In this book, **key and difficult knowledge will be presented mainly in the form of animations and graphs**, while the text serves as an explanation and supplement to the animations and graphs.
+Compared with text, videos and pictures have a higher density of information and are more structured, making them easier to understand. In this book, **essential and complex concepts are primarily presented through animations and illustrations**, while the text serves as an explanation and supplement to the animations and graphs.
 
-If, while reading the book, you find that a particular paragraph provides an animation or a graphic solution as shown below, **please use the figure as the primary source and the text as a supplement and synthesize the two to understand the content**.
+When encountering sections in this book that include animations or graphical illustrations, as exemplified below, **please use the visual elements as the primary source and the text as a supplement. Synthesize the both source to understand the content**.
 
 ![Example animation](../index.assets/animation.gif)
 
-## Deeper Understanding In Code Practice
+## Deepen Understanding through Code Practice
 
-The companion code for this book is hosted in the [GitHub repository](https://github.com/krahets/hello-algo). As shown in the figure below, **the source code is accompanied by test samples that can be run with a single click**.
+The accompanying code for this book is hosted in the [GitHub repository](https://github.com/krahets/hello-algo). As shown in the figure below, **the source code is accompanied by test samples that can be run with a single click**.
 
-If time permits, **it is recommended that you refer to the code and knock it through on your own**. If you have limited time to study, please read through and run all the code at least once.
+If time permits, **it is advisable to manually replicate the code examples**. For those with limited study time, at a minimum, thoroughly review and execute all code examples provided.
 
-The process of writing code is often more rewarding than reading it. **Learning by doing is really learning**.
+The process of writing code is often more rewarding than reading it. **Learning by doing is the real way to learn**.
 
 ![Running code example](../index.assets/running_code.gif)
 
@@ -195,29 +195,29 @@ The preliminaries for running the code are divided into three main steps.
 git clone https://github.com/krahets/hello-algo.git
 ```
 
-Of course, you can also in the location shown in the figure below, click "Download ZIP" directly download the code zip, and then in the local solution.
+Of course, you can also click the "Download ZIP" button at the location shown in the figure below to directly download the code as a compressed ZIP file. Then, you can simply extract it locally.
 
 ![Clone repository with download code](suggestions.assets/download_code.png)
 
-**Step 3: Run the source code**. As shown in the figure below, for the code block labeled with the file name at the top, we can find the corresponding source code file in the `codes` folder of the repository. The source code files can be run with a single click, which will help you save unnecessary debugging time and allow you to focus on what you are learning.
+**Step 3: Run the source code**. As shown in the figure below, for the code block labeled with the file name at the top, we can find the corresponding source code file in the `codes` folder of the repository. The source code files can be executed with a single click, which will help you save unnecessary debugging time and allow you to focus on learning content.
 
 ![Code block with corresponding source file](suggestions.assets/code_md_to_repo.png)
 
 ## Growing Together In Questioning And Discussion
 
-While reading this book, please don't skip over the points that you didn't learn. **Feel free to ask your questions in the comment section**. We will be happy to answer them and can usually respond within two days.
+While reading this book, please don't skip over the points that you didn't learn. **Feel free to post your questions in the comment section**. We will be happy to answer them and can usually respond within two days.
 
-As you can see in the figure below, each post comes with a comment section at the bottom. I hope you'll pay more attention to the comments section. On the one hand, you can learn about the problems that people encounter, so as to check the gaps and stimulate deeper thinking. On the other hand, we expect you to generously answer other partners' questions, share your insights, and help others improve.
+As you can see in the figure below, each chapter has a comment section at the bottom. I hope you'll pay more attention to the comments section. On the one hand, you can learn about the problems others have encountered, which can help you identify gaps in your knowledge and inspire deeper thinking. On the other hand, we expect you to generously answer other readers' questions, share your insights, and help others improve.
 
 ![Example of comment section](../index.assets/comment.gif)
 
-## Algorithm Learning Route
+## Algorithm Learning Path
 
-From a general point of view, we can divide the process of learning data structures and algorithms into three stages.
+Overall, we can divide the process of learning data structures and algorithms into three stages.
 
 1. **Introduction to Algorithms**. We need to familiarize ourselves with the characteristics and usage of various data structures and learn about the principles, processes, uses and efficiency of different algorithms.
-2. **Brush up on algorithm questions**. It is recommended to start brushing from popular topics, such as [Sword to Offer](https://leetcode.cn/studyplan/coding-interviews/) and [LeetCode Hot 100](https://leetcode.cn/studyplan/top-100- liked/), first accumulate at least 100 questions to familiarize yourself with mainstream algorithmic problems. Forgetfulness can be a challenge when first brushing up, but rest assured that this is normal. We can follow the "Ebbinghaus Forgetting Curve" to review the questions, and usually after 3-5 rounds of repetitions, we will be able to memorize them.
-3. **Build the knowledge system**. In terms of learning, we can read algorithm column articles, solution frameworks and algorithm textbooks to continuously enrich the knowledge system. In terms of brushing, we can try to adopt advanced brushing strategies, such as categorizing by topic, multiple solutions, multiple solutions, etc. Related brushing tips can be found in various communities.
+2. **Practicing Algorithm Problems**. It is recommended to start from popular problems, such as [Sword to Offer](https://leetcode.cn/studyplan/coding-interviews/) and [LeetCode Hot 100](https://leetcode.cn/studyplan/top-100- liked/), and accumulate at least 100 questions to familiarize yourself with mainstream algorithmic problems. Forgetfulness can be a challenge when you start practicing, but rest assured that this is normal. We can follow the "Ebbinghaus Forgetting Curve" to review the questions, and usually after 3-5 rounds of repetitions, we will be able to memorize them.
+3. **Building the knowledge system**. In terms of learning, we can read algorithm column articles, solution frameworks and algorithm textbooks to continuously enrich the knowledge system. In terms of practicing, we can try advanced strategies, such as categorizing by topic, multiple solutions for single problem,  and one solution for multiple problems, etc. Insights on these strategies can be found in various communities.
 
 As shown in the figure below, this book mainly covers "Phase 1" and is designed to help you start Phase 2 and 3 more efficiently.
 
