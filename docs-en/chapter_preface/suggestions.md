@@ -187,9 +187,9 @@ The process of writing code is often more rewarding than reading it. **Learning 
 
 Setting up to run the code involves three main steps.
 
-**Step 1: Install a Local Programming Environment**. Follow the [tutorial](https://www.hello-algo.com/chapter_appendix/installation/) in the appendix for installation, or skip this step if already installed.
+**Step 1: Install a local programming environment**. Follow the [tutorial](https://www.hello-algo.com/chapter_appendix/installation/) in the appendix for installation, or skip this step if already installed.
 
-**Step 2: Clone or Download the Code Repository**. Visit the [GitHub Repository](https://github.com/krahets/hello-algo).
+**Step 2: clone or download the code repository**. Visit the [GitHub Repository](https://github.com/krahets/hello-algo).
 
 If [Git](https://git-scm.com/downloads) is installed, use the following command to clone the repository:
 
@@ -199,11 +199,11 @@ git clone https://github.com/krahets/hello-algo.git
 
 Of course, you can also click the "Download ZIP" button at the location shown in the figure below to directly download the code as a compressed ZIP file. Then, you can simply extract it locally.
 
-![Clone repository with download code](suggestions.assets/download_code.png)
+![Cloning Repository and Downloading Code](suggestions.assets/download_code.png)
 
-**Step 3: Run the source code**. As shown in the figure below, for the code block labeled with the file name at the top, we can find the corresponding source code file in the `codes` folder of the repository. The source code files can be executed with a single click, which will help you save unnecessary debugging time and allow you to focus on learning content.
+**Step 3: Run the source code**. As shown in the figure below, for the code block labeled with the file name at the top, we can find the corresponding source code file in the `codes` folder of the repository. These files can be executed with a single click, which will help you save unnecessary debugging time and allow you to focus on learning.
 
-![Code block with corresponding source file](suggestions.assets/code_md_to_repo.png)
+![Code Block and Corresponding Source Code File](suggestions.assets/code_md_to_repo.png)
 
 ## Growing Together In Questioning And Discussion
 
