@@ -2,50 +2,51 @@
 comments: true
 ---
 
-# 0.1 &nbsp; The Book
+# 0.1 &nbsp; About This Book
 
-The aim of this project is to create an open source, free, novice-friendly introductory tutorial on data structures and algorithms.
+This open-source project aims to create a free, and beginner-friendly crash course on data structures and algorithms.
 
-- Animated graphs are used throughout the book to structure the knowledge of data structures and algorithms in a way that is clear and easy to understand with a smooth learning curve.
-- The source code of the algorithms can be run with a single click, supporting Java, C++, Python, Go, JS, TS, C#, Swift, Rust, Dart, Zig and other languages.
-- Readers are encouraged to help each other and make progress in the chapter discussion forums, and questions and comments can usually be answered within two days.
+- Using animated illustrations, it delivers structured insights into data structures and algorithmic concepts, ensuring comprehensibility and a smooth learning curve.
+- Run code with just one click, supporting Java, C++, Python, Go, JS, TS, C#, Swift, Rust, Dart, Zig and other languages.
+- Readers are encouraged to engage with each other in the discussion area for each section, questions and comments are usually answered within two days.
 
-## 0.1.1 &nbsp; Target Readers
+## 0.1.1 &nbsp; Target Audience
 
-If you are a beginner to algorithms, have never touched an algorithm before, or already have some experience brushing up on data structures and algorithms, and have a vague understanding of data structures and algorithms, repeatedly jumping sideways between what you can and can't do, then this book is just for you!
+If you are new to algorithms with limited exposure, or you have accumulated some experience in algorithms, but you only have a vague understanding of data structures and algorithms, and you are constantly jumping between "yep" and "hmm", then this book is for you!
 
-If you have already accumulated a certain amount of questions and are familiar with most of the question types, then this book can help you review and organize the algorithm knowledge system, and the repository source code can be used as a "brushing tool library" or "algorithm dictionary".
+If you have already accumulated a certain amount of problem-solving experience, and are familiar with most types of problems, then this book can help you review and organize your algorithm knowledge system. The repository's source code can be used as a "problem-solving toolkit" or an "algorithm cheat sheet".
 
-If you are an algorithm expert, we look forward to receiving your valuable suggestions or [participate in the creation together](https://www.hello-algo.com/chapter_appendix/contribution/).
+If you are an algorithm expert, we look forward to receiving your valuable suggestions, or [join us and collaborate](https://www.hello-algo.com/chapter_appendix/contribution/).
 
-!!! success "precondition"
+!!! success "Prerequisites"
 
-    You will need to have at least a basic knowledge of programming in any language and be able to read and write simple code.
+    You should know how to write and read simple code in at least one programming language.
 
 ## 0.1.2 &nbsp; Content Structure
 
-The main contents of the book are shown in the Figure 0-1 .
+The main content of the book is shown in the following figure.
 
-- **Complexity Analysis**: dimensions and methods of evaluation of data structures and algorithms. Methods of deriving time complexity, space complexity, common types, examples, etc.
-- **Data Structures**: basic data types, classification methods of data structures. Definition, advantages and disadvantages, common operations, common types, typical applications, implementation methods of data structures such as arrays, linked lists, stacks, queues, hash tables, trees, heaps, graphs, etc.
-- **Algorithms**: definitions, advantages and disadvantages, efficiency, application scenarios, solution steps, sample topics of search, sorting algorithms, divide and conquer, backtracking algorithms, dynamic programming, greedy algorithms, and more.
+- **Complexity Analysis**: explores aspects and methods for evaluating data structures and algorithms. Covers methods of deriving time complexity and space complexity, along with common types and examples.
+- **Data Structures**: focuses on fundamental data types, classification methods, definitions, pros and cons, common operations, types, applications, and implementation methods of data structures such as array, linked list, stack, queue, hash table, tree, heap, graph, etc.
+- **Algorithms**: defines algorithms, discusses their pros and cons, efficiency, application scenarios, problem-solving steps, and includes sample questions for various algorithms such as search, sorting, divide and conquer, backtracking, dynamic programming, greedy algorithms, and more.
 
-![Hello Algo content structure](about_the_book.assets/hello_algo_mindmap.jpg){ class="animation-figure" }
+![Main Content of the Book](about_the_book.assets/hello_algo_mindmap.jpg){ class="animation-figure" }
 
-<p align="center"> Figure 0-1 &nbsp; Hello Algo content structure </p>
+<p align="center"> Figure 0-1 &nbsp; Main Content of the Book </p>
 
 ## 0.1.3 &nbsp; Acknowledgements
 
-During the creation of this book, I received help from many people, including but not limited to:
+Throughout the creation of this book, numerous individuals provided invaluable assistance, including but not limited to:
 
-- Thank you to my mentor at the company, Dr. Shih Lee, for encouraging me to "get moving" during one of our conversations, which strengthened my resolve to write this book.
-- I would like to thank my girlfriend Bubbles for being the first reader of this book, and for making many valuable suggestions from the perspective of an algorithm whiz, making this book more suitable for newbies.
-- Thanks to Tengbao, Qibao, and Feibao for coming up with a creative name for this book that evokes fond memories of writing the first line of code "Hello World!".
-- Thanks to Sutong for designing the beautiful cover and logo for this book and patiently revising it many times under my OCD.
-- Thanks to @squidfunk for writing layout suggestions and for developing the open source documentation theme [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material/tree/master).
+- Thanks to my mentor at the company, Dr. Xi Li, who encouraged me in a conversation to "get moving fast," which solidified my determination to write this book;
+- Thanks to my girlfriend Paopao, as the first reader of this book, for offering many valuable suggestions from the perspective of a beginner in algorithms, making this book more suitable for newbies;
+- Thanks to Tengbao, Qibao, and Feibao for coming up with a creative name for this book, evoking everyone's fond memories of writing their first line of code "Hello World!";
+- Thanks to Xiaoquan for providing professional help in intellectual property, which has played a significant role in the development of this open-source book;
+- Thanks to Sutong for designing a beautiful cover and logo for this book, and for patiently making multiple revisions under my insistence;
+- Thanks to @squidfunk for providing writing and typesetting suggestions, as well as his developed open-source documentation theme [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material/tree/master).
 
-During the writing process, I read many textbooks and articles on data structures and algorithms. These works provide excellent models for this book and ensure the accuracy and quality of its contents. I would like to thank all my teachers and predecessors for their outstanding contributions!
+Throughout the writing journey, I delved into numerous textbooks and articles on data structures and algorithms. These works served as exemplary models, ensuring the accuracy and quality of this book's content. I extend my gratitude to all who preceded me for their invaluable contributions!
 
-This book promotes a hands-on approach to learning, and in this respect is heavily inspired by ["Dive into Deep Learning"](https://github.com/d2l-ai/d2l-zh). I highly recommend this excellent book to you.
+This book advocates a combination of hands-on and minds-on learning, inspired in this regard by ["Dive into Deep Learning"](https://github.com/d2l-ai/d2l-zh). I highly recommend this excellent book to all readers.
 
-**A heartfelt thank you to my parents, it is your constant support and encouragement that gives me the opportunity to do this fun-filled thing**.
+**Heartfelt thanks to my parents, whose ongoing support and encouragement have allowed me to do this interesting work**.

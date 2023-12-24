@@ -247,24 +247,20 @@ comments: true
 
     ```rust title="binary_search_tree.rs"
     /* 查找节点 */
-    pub fn search(&self, num: i32) -> Option<TreeNodeRc> {
+    pub fn search(&self, num: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
-
         // 循环查找，越过叶节点后跳出
         while let Some(node) = cur.clone() {
-            // 目标节点在 cur 的右子树中
-            if node.borrow().val < num {
-                cur = node.borrow().right.clone();
-            }
-            // 目标节点在 cur 的左子树中
-            else if node.borrow().val > num {
-                cur = node.borrow().left.clone();
-            }
-            // 找到目标节点，跳出循环
-            else {
-                break;
+            match num.cmp(&node.borrow().val) {
+                // 目标节点在 cur 的右子树中
+                Ordering::Greater => cur = node.borrow().right.clone(),
+                // 目标节点在 cur 的左子树中
+                Ordering::Less => cur = node.borrow().left.clone(),
+                // 找到目标节点，跳出循环
+                Ordering::Equal => break,
             }
         }
+
         // 返回目标节点
         cur
     }
@@ -644,27 +640,28 @@ comments: true
         let mut pre = None;
         // 循环查找，越过叶节点后跳出
         while let Some(node) = cur.clone() {
-            // 找到重复节点，直接返回
-            if node.borrow().val == num {
-                return;
-            }
-            // 插入位置在 cur 的右子树中
-            pre = cur.clone();
-            if node.borrow().val < num {
-                cur = node.borrow().right.clone();
-            }
-            // 插入位置在 cur 的左子树中
-            else {
-                cur = node.borrow().left.clone();
+            match num.cmp(&node.borrow().val) {
+                // 找到重复节点，直接返回
+                Ordering::Equal => return,
+                // 插入位置在 cur 的右子树中
+                Ordering::Greater => {
+                    pre = cur.clone();
+                    cur = node.borrow().right.clone();
+                }
+                // 插入位置在 cur 的左子树中
+                Ordering::Less => {
+                    pre = cur.clone();
+                    cur = node.borrow().left.clone();
+                }
             }
         }
         // 插入节点
-        let node = TreeNode::new(num);
         let pre = pre.unwrap();
-        if pre.borrow().val < num {
-            pre.borrow_mut().right = Some(Rc::clone(&node));
+        let node = Some(TreeNode::new(num));
+        if num > pre.borrow().val {
+            pre.borrow_mut().right = node;
         } else {
-            pre.borrow_mut().left = Some(Rc::clone(&node));
+            pre.borrow_mut().left = node;
         }
     }
     ```
@@ -1295,18 +1292,19 @@ comments: true
         let mut pre = None;
         // 循环查找，越过叶节点后跳出
         while let Some(node) = cur.clone() {
-            // 找到待删除节点，跳出循环
-            if node.borrow().val == num {
-                break;
-            }
-            // 待删除节点在 cur 的右子树中
-            pre = cur.clone();
-            if node.borrow().val < num {
-                cur = node.borrow().right.clone();
-            }
-            // 待删除节点在 cur 的左子树中
-            else {
-                cur = node.borrow().left.clone();
+            match num.cmp(&node.borrow().val) {
+                // 找到待删除节点，跳出循环
+                Ordering::Equal => break,
+                // 待删除节点在 cur 的右子树中
+                Ordering::Greater => {
+                    pre = cur.clone();
+                    cur = node.borrow().right.clone();
+                }
+                // 待删除节点在 cur 的左子树中
+                Ordering::Less => {
+                    pre = cur.clone();
+                    cur = node.borrow().left.clone();
+                }
             }
         }
         // 若无待删除节点，则直接返回
@@ -1314,40 +1312,43 @@ comments: true
             return;
         }
         let cur = cur.unwrap();
-        // 子节点数量 = 0 or 1
-        if cur.borrow().left.is_none() || cur.borrow().right.is_none() {
-            // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
-            let child = cur.borrow().left.clone().or_else(|| cur.borrow().right.clone());
-            let pre = pre.unwrap();
-            let left = pre.borrow().left.clone().unwrap();
-            // 删除节点 cur
-            if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
-                if Rc::ptr_eq(&left, &cur) {
-                    pre.borrow_mut().left = child;
+        let (left_child, right_child) = (cur.borrow().left.clone(), cur.borrow().right.clone());
+        match (left_child.clone(), right_child.clone()) {
+            // 子节点数量 = 0 or 1
+            (None, None) | (Some(_), None) | (None, Some(_)) => {
+                // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
+                let child = left_child.or(right_child);
+                let pre = pre.unwrap();
+                // 删除节点 cur
+                if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
+                    let left = pre.borrow().left.clone();
+                    if left.is_some() && Rc::ptr_eq(&left.as_ref().unwrap(), &cur) {
+                        pre.borrow_mut().left = child;
+                    } else {
+                        pre.borrow_mut().right = child;
+                    }
                 } else {
-                    pre.borrow_mut().right = child;
-                }
-            } else {
-                // 若删除节点为根节点，则重新指定根节点
-                self.root = child;
-            }
-        }
-        // 子节点数量 = 2
-        else {
-            // 获取中序遍历中 cur 的下一个节点
-            let mut tmp = cur.borrow().right.clone();
-            while let Some(node) = tmp.clone() {
-                if node.borrow().left.is_some() {
-                    tmp = node.borrow().left.clone();
-                } else {
-                    break;
+                    // 若删除节点为根节点，则重新指定根节点
+                    self.root = child;
                 }
             }
-            let tmpval = tmp.unwrap().borrow().val;
-            // 递归删除节点 tmp
-            self.remove(tmpval);
-            // 用 tmp 覆盖 cur
-            cur.borrow_mut().val = tmpval;
+            // 子节点数量 = 2
+            (Some(_), Some(_)) => {
+                // 获取中序遍历中 cur 的下一个节点
+                let mut tmp = cur.borrow().right.clone();
+                while let Some(node) = tmp.clone() {
+                    if node.borrow().left.is_some() {
+                        tmp = node.borrow().left.clone();
+                    } else {
+                        break;
+                    }
+                }
+                let tmpval = tmp.unwrap().borrow().val;
+                // 递归删除节点 tmp
+                self.remove(tmpval);
+                // 用 tmp 覆盖 cur
+                cur.borrow_mut().val = tmpval;
+            }
         }
     }
     ```

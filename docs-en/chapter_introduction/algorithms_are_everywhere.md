@@ -2,48 +2,48 @@
 comments: true
 ---
 
-# 1.1 &nbsp; Algorithms Are Everywhere
+# 1.1 &nbsp; Algorithms are Everywhere
 
-When we hear the word "algorithm", we naturally think of mathematics. However, many algorithms do not involve complex mathematics but rely more on basic logic, which is ubiquitous in our daily lives.
+When we hear the word "algorithm," we naturally think of mathematics. However, many algorithms do not involve complex mathematics but rely more on basic logic, which can be seen everywhere in our daily lives.
 
-Before we formally discuss algorithms, an interesting fact is worth sharing: **you have already learned many algorithms unconsciously and have become accustomed to applying them in your daily life**. Below, I will give a few specific examples to prove this point.
+Before formally discussing algorithms, there's an interesting fact worth sharing: **you have already unconsciously learned many algorithms and have become accustomed to applying them in your daily life**. Here, I will give a few specific examples to prove this point.
 
-**Example 1: Looking Up a Dictionary**. In a standard dictionary, each word corresponds to a phonetic transcription and the dictionary is organized alphabetically based on these transcriptions. Let's say we're looking for a word that begins with the letter $r$. This is typically done in the following way:
+**Example 1: Looking Up a Dictionary**. In an English dictionary, words are listed alphabetically. Suppose we're searching for a word that starts with the letter $r$. This is typically done in the following way:
 
-1. Open the dictionary around its midpoint and note the first letter on that page, assuming it to be $m$.
-2. Given the sequence of words following the initial letter $m$, estimate where words starting with the letter $r$ might be located within the alphabetical order.
-3. Iterate steps `1.` and `2.` until you find the page where the word begins with the letter $r$.
+1. Open the dictionary to about halfway and check the first letter on the page, let's say the letter is $m$.
+2. Since $r$ comes after $m$ in the alphabet, we can ignore the first half of the dictionary and focus on the latter half.
+3. Repeat steps `1.` and `2.` until you find the page where the word starts with $r$.
 
 === "<1>"
-    ![Dictionary search step](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png){ class="animation-figure" }
+    ![Process of Looking Up a Dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png){ class="animation-figure" }
+    ![Binary Search in Dictionary Step 2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png){ class="animation-figure" }
+    ![Binary Search in Dictionary Step 3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png){ class="animation-figure" }
+    ![Binary Search in Dictionary Step 4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png){ class="animation-figure" }
+    ![Binary Search in Dictionary Step 5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png){ class="animation-figure" }
 
-<p align="center"> Figure 1-1 &nbsp; Dictionary search step </p>
+<p align="center"> Figure 1-1 &nbsp; Process of Looking Up a Dictionary </p>
 
-The skill of looking up a dictionary, essential for elementary school students, is actually the renowned binary search algorithm. Through the lens of data structures, we can view the dictionary as a sorted "array"; while from an algorithmic perspective, the series of operations in looking up a dictionary can be seen as "binary search".
+This essential skill for elementary students, looking up a dictionary, is actually the famous "Binary Search" algorithm. From a data structure perspective, we can consider the dictionary as a sorted "array"; from an algorithmic perspective, the series of actions taken to look up a word in the dictionary can be viewed as "Binary Search."
 
-**Example 2: Organizing Playing Cards**. When playing cards, we need to arrange the cards in ascending order each game, as shown in the following process.
+**Example 2: Organizing Playing Cards**. When playing cards, we need to arrange the cards in our hand in ascending order, as shown in the following process.
 
-1. Divide the playing cards into "ordered" and "unordered" parts, assuming initially that the leftmost card is already ordered.
-2. Take out a card from the unordered part and insert it into the correct position in the ordered part; once completed, the leftmost two cards will be in an ordered sequence.
-3. Continue the loop described in step `2.`, each iteration involving insertion of one card from the unordered segment into the ordered portion, until all cards are appropriately ordered.
+1. Divide the playing cards into "ordered" and "unordered" sections, assuming initially the leftmost card is already in order.
+2. Take out a card from the unordered section and insert it into the correct position in the ordered section; after this, the leftmost two cards are in order.
+3. Continue to repeat step `2.` until all cards are in order.
 
-![Playing cards sorting process](algorithms_are_everywhere.assets/playing_cards_sorting.png){ class="animation-figure" }
+![Playing Cards Sorting Process](algorithms_are_everywhere.assets/playing_cards_sorting.png){ class="animation-figure" }
 
-<p align="center"> Figure 1-2 &nbsp; Playing cards sorting process </p>
+<p align="center"> Figure 1-2 &nbsp; Playing Cards Sorting Process </p>
 
-The above method of organizing playing cards is essentially the "insertion sort" algorithm, which is very efficient for small datasets. Many programming languages' sorting library functions include insertion sort.
+The above method of organizing playing cards is essentially the "Insertion Sort" algorithm, which is very efficient for small datasets. Many programming languages' sorting functions include the insertion sort.
 
 **Example 3: Making Change**. Suppose we buy goods worth $69$ yuan at a supermarket and give the cashier $100$ yuan, then the cashier needs to give us $31$ yuan in change. They would naturally complete the thought process as shown below.
 
@@ -57,9 +57,9 @@ The above method of organizing playing cards is essentially the "insertion sort"
 
 <p align="center"> Figure 1-3 &nbsp; Change making process </p>
 
-In the aforementioned steps, at each stage, we make the optimal choice (utilizing the highest denomination possible), ultimately deriving at a feasible change-making approach. From the perspective of data structures and algorithms, this approach is essentially a "greedy" algorithm.
+In the above steps, we make the best choice at each step (using the largest denomination possible), ultimately resulting in a feasible change-making plan. From the perspective of data structures and algorithms, this method is essentially a "Greedy" algorithm.
 
-From preparing a dish to traversing interstellar realms, virtually every problem-solving endeavor relies on algorithms. The emergence of computers enables us to store data structures in memory and write code to call CPUs and GPUs to execute algorithms. Consequently, we can transfer real-life predicaments to computers, efficiently addressing a myriad of complex issues.
+From cooking a meal to interstellar travel, almost all problem-solving involves algorithms. The advent of computers allows us to store data structures in memory and write code to call the CPU and GPU to execute algorithms. In this way, we can transfer real-life problems to computers, solving various complex issues more efficiently.
 
 !!! tip
 

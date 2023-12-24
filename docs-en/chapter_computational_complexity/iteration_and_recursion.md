@@ -2,19 +2,19 @@
 comments: true
 ---
 
-# 2.2 &nbsp; Iteration vs. Recursion
+# 2.2 &nbsp; Iteration and Recursion
 
-In data structures and algorithms, it is common to repeat a task, which is closely related to the complexity of the algorithm. There are two basic program structures that we usually use to repeat a task: iteration and recursion.
+In algorithms, repeatedly performing a task is common and closely related to complexity analysis. Therefore, before introducing time complexity and space complexity, let's first understand how to implement task repetition in programs, focusing on two basic programming control structures: iteration and recursion.
 
 ## 2.2.1 &nbsp; Iteration
 
-An "iteration iteration" is a control structure that repeats a task. In iteration, a program repeats the execution of a piece of code until the condition is no longer satisfied.
+"Iteration" is a control structure for repeatedly performing a task. In iteration, a program repeats a block of code as long as a certain condition is met, until this condition is no longer satisfied.
 
-### 1. &nbsp; For Loops
+### 1. &nbsp; for Loop
 
-`for` loops are one of the most common forms of iteration, **suitable when the number of iterations is known in advance**.
+The `for` loop is one of the most common forms of iteration, **suitable for use when the number of iterations is known in advance**.
 
-The following function implements the summation $1 + 2 + \dots + n$ based on a `for` loop, and the result is recorded using the variable `res`. Note that `range(a, b)` in Python corresponds to a "left-closed-right-open" interval, which is traversed in the range $a, a + 1, \dots, b-1$.
+The following function implements the sum $1 + 2 + \dots + n$ using a `for` loop, with the sum result recorded in the variable `res`. Note that in Python, `range(a, b)` corresponds to a "left-closed, right-open" interval, covering $a, a + 1, \dots, b-1$:
 
 === "Python"
 
@@ -182,19 +182,19 @@ The following function implements the summation $1 + 2 + \dots + n$ based on a `
     } 
     ```
 
-The Figure 2-1  shows the flow block diagram of this summation function.
+The flowchart below represents this sum function.
 
-![Flow block diagram of the summation function](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
+![Flowchart of the Sum Function](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
 
-<p align="center"> Figure 2-1 &nbsp; Flow block diagram of the summation function </p>
+<p align="center"> Figure 2-1 &nbsp; Flowchart of the Sum Function </p>
 
-The number of operations in this summation function is proportional to the size of the input data $n$, or a "linear relationship". In fact, **time complexity describes this "linear relationship"**. This is described in more detail in the next section.
+The number of operations in this sum function is proportional to the input data size $n$, or in other words, it has a "linear relationship". This is actually what **time complexity describes**. This topic will be detailed in the next section.
 
-### 2. &nbsp; While Loop
+### 2. &nbsp; while Loop
 
-Similar to a `for` loop, a `while` loop is a way to implement iteration. In a `while` loop, the program first checks the condition at each turn, and if the condition is true, it continues, otherwise it ends the loop.
+Similar to the `for` loop, the `while` loop is another method to implement iteration. In a `while` loop, the program checks the condition in each round; if the condition is true, it continues, otherwise, the loop ends.
 
-Below, we use a `while` loop to realize the summation $1 + 2 + \dots + n$ .
+Below we use a `while` loop to implement the sum $1 + 2 + \dots + n$:
 
 === "Python"
 
@@ -388,9 +388,9 @@ Below, we use a `while` loop to realize the summation $1 + 2 + \dots + n$ .
     }
     ```
 
-In `while` loops, since the steps of initializing and updating condition variables are independent of the loop structure, **it has more degrees of freedom than `for` loops**.
+**The `while` loop is more flexible than the `for` loop**. In a `while` loop, we can freely design the initialization and update steps of the condition variable.
 
-For example, in the following code, the condition variable $i$ is updated twice per round, which is not convenient to implement with a `for` loop.
+For example, in the following code, the condition variable $i$ is updated twice in each round, which would be inconvenient to implement with a `for` loop:
 
 === "Python"
 
@@ -607,11 +607,11 @@ For example, in the following code, the condition variable $i$ is updated twice 
     }
     ```
 
-Overall, **`for` loops have more compact code and `while` loops are more flexible**, and both can implement iteration structures. The choice of which one to use should be based on the needs of the particular problem.
+Overall, **`for` loops are more concise, while `while` loops are more flexible**. Both can implement iterative structures. Which one to use should be determined based on the specific requirements of the problem.
 
 ### 3. &nbsp; Nested Loops
 
-We can nest one loop structure inside another, using the `for` loop as an example:
+We can nest one loop structure within another. Below is an example using `for` loops:
 
 === "Python"
 
@@ -821,30 +821,30 @@ We can nest one loop structure inside another, using the `for` loop as an exampl
     }
     ```
 
-The Figure 2-2  gives the block diagram of the flow of this nested loop.
+The flowchart below represents this nested loop.
 
-![Block diagram of the flow of nested loops](iteration_and_recursion.assets/nested_iteration.png){ class="animation-figure" }
+![Flowchart of the Nested Loop](iteration_and_recursion.assets/nested_iteration.png){ class="animation-figure" }
 
-<p align="center"> Figure 2-2 &nbsp; Block diagram of the flow of nested loops </p>
+<p align="center"> Figure 2-2 &nbsp; Flowchart of the Nested Loop </p>
 
-In this case, the number of operations of the function is proportional to $n^2$, or the algorithm's running time is "squared" to the size of the input data $n$.
+In this case, the number of operations in the function is proportional to $n^2$, or the algorithm's running time and the input data size $n$ have a "quadratic relationship".
 
-We can continue to add nested loops, and each nest is a "dimension up", which will increase the time complexity to "cubic relations", "quadratic relations", and so on.
+We can continue adding nested loops, each nesting is a "dimensional escalation," which will increase the time complexity to "cubic," "quartic," and so on.
 
 ## 2.2.2 &nbsp; Recursion
 
- "Recursion recursion is an algorithmic strategy to solve a problem by calling the function itself. It consists of two main phases.
+"Recursion" is an algorithmic strategy that solves problems by having a function call itself. It mainly consists of two phases.
 
-1. **recursive**: the program calls itself deeper and deeper, usually passing smaller or simpler arguments, until a "termination condition" is reached.
-2. **Recursion**: After the "termination condition" is triggered, the program returns from the deepest level of the recursion function, level by level, aggregating the results of each level.
+1. **Recursion**: The program continuously calls itself, usually with smaller or more simplified parameters, until reaching a "termination condition."
+2. **Return**: Upon triggering the "termination condition," the program begins to return from the deepest recursive function, aggregating the results of each layer.
 
-And from an implementation point of view, recursion code contains three main elements.
+From an implementation perspective, recursive code mainly includes three elements.
 
-1. **Termination condition**: used to decide when to switch from "recursive" to "inductive".
-2. **Recursion call**: corresponds to "recursion", where the function calls itself, usually with smaller or more simplified input parameters.
-3. **return result**: corresponds to "return", returning the result of the current recursion level to the previous one.
+1. **Termination Condition**: Determines when to switch from "recursion" to "return."
+2. **Recursive Call**: Corresponds to "recursion," where the function calls itself, usually with smaller or more simplified parameters.
+3. **Return Result**: Corresponds to "return," where the result of the current recursion level is returned to the previous layer.
 
-Observe the following code, we only need to call the function `recur(n)` , and the calculation of $1 + 2 + \dots + n$ is done:
+Observe the following code, where calling the function `recur(n)` completes the computation of $1 + 2 + \dots + n$:
 
 === "Python"
 
@@ -1026,45 +1026,45 @@ Observe the following code, we only need to call the function `recur(n)` , and t
     }
     ```
 
-The Figure 2-3  shows the recursion of the function.
+The Figure 2-3  shows the recursive process of this function.
 
-![Recursion process for the summation function](iteration_and_recursion.assets/recursion_sum.png){ class="animation-figure" }
+![Recursive Process of the Sum Function](iteration_and_recursion.assets/recursion_sum.png){ class="animation-figure" }
 
-<p align="center"> Figure 2-3 &nbsp; Recursion process for the summation function </p>
+<p align="center"> Figure 2-3 &nbsp; Recursive Process of the Sum Function </p>
 
-Although iteration and recursion can yield the same results from a computational point of view, **they represent two completely different paradigms for thinking about and solving problems**.
+Although iteration and recursion can achieve the same results from a computational standpoint, **they represent two entirely different paradigms of thinking and solving problems**.
 
-- **Iteration**: solving problems "from the bottom up". Start with the most basic steps and repeat or add to them until the task is completed.
-- **Recursion**: solving problems "from the top down". The original problem is broken down into smaller subproblems that have the same form as the original problem. Next, the subproblem continues to be broken down into smaller subproblems until it stops at the base case (the solution to the base case is known).
+- **Iteration**: Solves problems "from the bottom up." It starts with the most basic steps, then repeatedly adds or accumulates these steps until the task is complete.
+- **Recursion**: Solves problems "from the top down." It breaks down the original problem into smaller sub-problems, each of which has the same form as the original problem. These sub-problems are then further decomposed into even smaller sub-problems, stopping at the base case (whose solution is known).
 
-As an example of the above summation function, set the problem $f(n) = 1 + 2 + \dots + n$ .
+Taking the sum function as an example, let's define the problem as $f(n) = 1 + 2 + \dots + n$.
 
-- **Iteration**: the summation process is simulated in a loop, iterating from $1$ to $n$ and executing the summation operation in each round to find $f(n)$.
-- **Recursion**: decompose the problem into subproblems $f(n) = n + f(n-1)$ and keep (recursively) decomposing until the base case $f(1) = 1$ terminates.
+- **Iteration**: In a loop, simulate the summing process, iterating from $1$ to $n$, performing the sum operation in each round, to obtain $f(n)$.
+- **Recursion**: Break down the problem into sub-problems $f(n) = n + f(n-1)$, continuously (recursively) decomposing until reaching the base case $f(1) = 1$ and then stopping.
 
-### 1. &nbsp; Call The Stack
+### 1. &nbsp; Call Stack
 
-Each time a recursion function calls itself, the system allocates memory for the newly opened function to store local variables, call addresses, other information, and so on. This results in two things.
+Each time a recursive function calls itself, the system allocates memory for the newly initiated function to store local variables, call addresses, and other information. This leads to two main consequences.
 
-- The context data for a function is stored in an area of memory called "stack frame space" and is not freed until the function returns. As a result, **recursion is usually more memory-intensive than iteration**.
-- Recursion calls to functions incur additional overhead. **Therefore recursion is usually less time efficient than loops**.
+- The function's context data is stored in a memory area called "stack frame space" and is only released after the function returns. Therefore, **recursion generally consumes more memory space than iteration**.
+- Recursive calls introduce additional overhead. **Hence, recursion is usually less time-efficient than loops**.
 
-As shown in the Figure 2-4 , before the termination condition is triggered, there are $n$ unreturned recursion functions at the same time, **with a recursion depth of $n$** .
+As shown in the Figure 2-4 , there are $n$ unreturned recursive functions before triggering the termination condition, indicating a **recursion depth of $n$**.
 
-![Recursion call depth](iteration_and_recursion.assets/recursion_sum_depth.png){ class="animation-figure" }
+![Recursion Call Depth](iteration_and_recursion.assets/recursion_sum_depth.png){ class="animation-figure" }
 
-<p align="center"> Figure 2-4 &nbsp; Recursion call depth </p>
+<p align="center"> Figure 2-4 &nbsp; Recursion Call Depth </p>
 
-In practice, the depth of recursion allowed by a programming language is usually limited, and too deep a recursion may result in a stack overflow error.
+In practice, the depth of recursion allowed by programming languages is usually limited, and excessively deep recursion can lead to stack overflow errors.
 
 ### 2. &nbsp; Tail Recursion
 
-Interestingly, **if a function makes a recursion call only at the last step before returning**, the function can be optimized by the compiler or interpreter to be comparable to iteration in terms of space efficiency. This situation is called "tail recursion tail recursion".
+Interestingly, **if a function makes its recursive call as the last step before returning**, it can be optimized by compilers or interpreters to be as space-efficient as iteration. This scenario is known as "tail recursion".
 
-- **Ordinary recursion**: when a function returns to a function at a higher level, it needs to continue executing the code, so the system needs to save the context of the previous call.
-- **tail recursion**: the recursion call is the last operation before the function returns, which means that the function does not need to continue with other operations after returning to the previous level, so the system does not need to save the context of the previous function.
+- **Regular Recursion**: The function needs to perform more code after returning to the previous level, so the system needs to save the context of the previous call.
+- **Tail Recursion**: The recursive call is the last operation before the function returns, meaning no further actions are required upon returning to the previous level, so the system doesn't need to save the context of the previous level's function.
 
-In the case of calculating $1 + 2 + \dots + n$, for example, we can implement tail recursion by setting the result variable `res` as a function parameter.
+For example, in calculating $1 + 2 + \dots + n$, we can make the result variable `res` a parameter of the function, thereby achieving tail recursion:
 
 === "Python"
 
@@ -1222,33 +1222,33 @@ In the case of calculating $1 + 2 + \dots + n$, for example, we can implement ta
     }
     ```
 
-The execution of tail recursion is shown in the Figure 2-5 . Comparing normal recursion and tail recursion, the execution point of the summation operation is different.
+The execution process of tail recursion is shown in the following figure. Comparing regular recursion and tail recursion, the point of the summation operation is different.
 
-- **Ordinary recursion**: the summing operation is performed during the "return" process, and the summing operation is performed again after returning from each level.
-- **Tail recursion**: the summing operation is performed in a "recursion" process, the "recursion" process simply returns in levels.
+- **Regular Recursion**: The summation operation occurs during the "return" phase, requiring another summation after each layer returns.
+- **Tail Recursion**: The summation operation occurs during the "recursion" phase, and the "return" phase only involves returning through each layer.
 
-![tail recursion process](iteration_and_recursion.assets/tail_recursion_sum.png){ class="animation-figure" }
+![Tail Recursion Process](iteration_and_recursion.assets/tail_recursion_sum.png){ class="animation-figure" }
 
-<p align="center"> Figure 2-5 &nbsp; tail recursion process </p>
+<p align="center"> Figure 2-5 &nbsp; Tail Recursion Process </p>
 
 !!! tip
 
-    Note that many compilers or interpreters do not support tail recursion optimization. For example, Python does not support tail recursion optimization by default, so even if a function is tail recursive, you may still encounter stack overflow problems.
+    Note that many compilers or interpreters do not support tail recursion optimization. For example, Python does not support tail recursion optimization by default, so even if the function is in the form of tail recursion, it may still encounter stack overflow issues.
 
 ### 3. &nbsp; Recursion Tree
 
-When dealing with algorithmic problems related to divide and conquer, recursion is often more intuitive and easier to read than iteration. Take the Fibonacci sequence as an example.
+When dealing with algorithms related to "divide and conquer", recursion often offers a more intuitive approach and more readable code than iteration. Take the "Fibonacci sequence" as an example.
 
 !!! question
 
-    Given a Fibonacci series $0, 1, 1, 2, 3, 5, 8, 13, \dots$ , find the $n$th number of the series.
+    Given a Fibonacci sequence $0, 1, 1, 2, 3, 5, 8, 13, \dots$, find the $n$th number in the sequence.
 
-Let the $n$th number of the Fibonacci series be $f(n)$ , which leads to two easy conclusions.
+Let the $n$th number of the Fibonacci sequence be $f(n)$, it's easy to deduce two conclusions:
 
-- The first two numbers of the series are $f(1) = 0$ and $f(2) = 1$.
-- Each number in the series is the sum of the previous two numbers, i.e. $f(n) = f(n - 1) + f(n - 2)$ .
+- The first two numbers of the sequence are $f(1) = 0$ and $f(2) = 1$.
+- Each number in the sequence is the sum of the two preceding ones, that is, $f(n) = f(n - 1) + f(n - 2)$.
 
-Recursion code can be written by making recursion calls according to the recursion relationship, using the first two numbers as termination conditions. Call `fib(n)` to get the $n$th number of the Fibonacci series.
+Using the recursive relation, and considering the first two numbers as termination conditions, we can write the recursive code. Calling `fib(n)` will yield the $n$th number of the Fibonacci sequence:
 
 === "Python"
 
@@ -1430,46 +1430,46 @@ Recursion code can be written by making recursion calls according to the recursi
     }
     ```
 
-Looking at the above code, we have recursively called two functions within a function, **this means that from one call, two call branches are created**. As shown in the Figure 2-6 , this recursion will result in a recursion tree with the number of levels $n$.
+Observing the above code, we see that it recursively calls two functions within itself, **meaning that one call generates two branching calls**. As illustrated below, this continuous recursive calling eventually creates a "recursion tree" with a depth of $n$.
 
-![Recursion tree for Fibonacci series](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
+![Fibonacci Sequence Recursion Tree](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
 
-<p align="center"> Figure 2-6 &nbsp; Recursion tree for Fibonacci series </p>
+<p align="center"> Figure 2-6 &nbsp; Fibonacci Sequence Recursion Tree </p>
 
-Essentially, recursion embodies the paradigm of "breaking down a problem into smaller sub-problems", and this divide and conquer strategy is essential.
+Fundamentally, recursion embodies the paradigm of "breaking down a problem into smaller sub-problems." This divide-and-conquer strategy is crucial.
 
-- From an algorithmic point of view, many important algorithmic strategies such as searching, sorting algorithm, backtracking, divide and conquer, dynamic programming, etc. directly or indirectly apply this way of thinking.
-- From a data structure point of view, recursion is naturally suited to problems related to linked lists, trees and graphs because they are well suited to be analyzed with the idea of partitioning.
+- From an algorithmic perspective, many important strategies like searching, sorting, backtracking, divide-and-conquer, and dynamic programming directly or indirectly use this way of thinking.
+- From a data structure perspective, recursion is naturally suited for dealing with linked lists, trees, and graphs, as they are well suited for analysis using the divide-and-conquer approach.
 
-## 2.2.3 &nbsp; Compare The Two
+## 2.2.3 &nbsp; Comparison
 
-To summarize the above, as shown in the Table 2-1 , iteration and recursion differ in implementation, performance and applicability.
+Summarizing the above content, the following table shows the differences between iteration and recursion in terms of implementation, performance, and applicability.
 
-<p align="center"> Table 2-1 &nbsp; Comparison of iteration and recursion features </p>
+<p align="center"> Table: Comparison of Iteration and Recursion Characteristics </p>
 
 <div class="center-table" markdown>
 
-|                     | iteration                                               | recursion                                                                                                                             |
-| ------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| implementation      | circular structure                                      | function call itself                                                                                                                  |
-| time-efficient      | typically efficient, no function call overhead          | overhead on every function call                                                                                                       |
-| Memory Usage        | Usually uses a fixed size of memory space               | Cumulative function calls may use a lot of stack frame space                                                                          |
-| Applicable Problems | For simple cyclic tasks, code is intuitive and readable | For sub-problem decomposition, such as trees, graphs, divide and conquer, backtracking, etc., the code structure is concise and clear |
+|                   | Iteration                                                   | Recursion                                                                                                                        |
+| ----------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Approach          | Loop structure                                              | Function calls itself                                                                                                            |
+| Time Efficiency   | Generally higher efficiency, no function call overhead      | Each function call generates overhead                                                                                            |
+| Memory Usage      | Typically uses a fixed size of memory space                 | Accumulative function calls can use a substantial amount of stack frame space                                                    |
+| Suitable Problems | Suitable for simple loop tasks, intuitive and readable code | Suitable for problem decomposition, like trees, graphs, divide-and-conquer, backtracking, etc., concise and clear code structure |
 
 </div>
 
 !!! tip
 
-    If you find the following solutions difficult to understand, you can review them after reading the "Stack" chapter.
+    If you find the following content difficult to understand, consider revisiting it after reading the "Stack" chapter.
 
-So what is the intrinsic connection between iteration and recursion? In the case of the recursive function described above, the summing operation takes place in the "return" phase of the recursion. This means that the function that is initially called is actually the last to complete its summing operation, **This mechanism works in the same way as the stack's "first in, last out" principle**.
+So, what is the intrinsic connection between iteration and recursion? Taking the above recursive function as an example, the summation operation occurs during the recursion's "return" phase. This means that the initially called function is actually the last to complete its summation operation, **mirroring the "last in, first out" principle of a stack**.
 
-In fact, recursion terms like "call stack" and "stack frame space" already imply a close relationship between recursion and the stack.
+In fact, recursive terms like "call stack" and "stack frame space" hint at the close relationship between recursion and stacks.
 
-1. **Recursive**: When a function is called, the system allocates a new stack frame on the "call stack" for the function, which is used to store the function's local variables, parameters, return address, and other data.
-2. **Return to**: When a function completes execution and returns, the corresponding stack frame is removed from the "call stack", restoring the function's previous execution environment.
+1. **Recursion**: When a function is called, the system allocates a new stack frame on the "call stack" for that function, storing local variables, parameters, return addresses, and other data.
+2. **Return**: When a function completes execution and returns, the corresponding stack frame is removed from the "call stack," restoring the execution environment of the previous function.
 
-Thus, **we can use an explicit stack to model the behavior of the call stack**, thus transforming recursion into an iteration form:
+Therefore, **we can use an explicit stack to simulate the behavior of the call stack**, thus transforming recursion into an iterative form:
 
 === "Python"
 
@@ -1748,9 +1748,9 @@ Thus, **we can use an explicit stack to model the behavior of the call stack**, 
     }
     ```
 
-Observing the code above, it becomes more complex when recursion is converted to iteration. Although iteration and recursion can be converted to each other in many cases, it is not always worth doing so for two reasons.
+Observing the above code, when recursion is transformed into iteration, the code becomes more complex. Although iteration and recursion can often be transformed into each other, it's not always advisable to do so for two reasons:
 
-- The transformed code may be more difficult to understand and less readable.
-- For some complex problems, simulating the behavior of the system call stack can be very difficult.
+- The transformed code may become harder to understand and less readable.
+- For some complex problems, simulating the behavior of the system's call stack can be quite challenging.
 
-In short, **the choice of iteration or recursion depends on the nature of the particular problem**. In programming practice, it is crucial to weigh the advantages and disadvantages of both and choose the appropriate method based on the context.
+In summary, **choosing between iteration and recursion depends on the nature of the specific problem**. In programming practice, weighing the pros and cons of each and choosing the appropriate method for the situation is essential.

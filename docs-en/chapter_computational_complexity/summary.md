@@ -4,50 +4,50 @@ comments: true
 
 # 2.5 &nbsp; Summary
 
-### 1. &nbsp; Highlights
+### 1. &nbsp; Key Review
 
-**Evaluation of Algorithm Efficiency**
+**Algorithm Efficiency Assessment**
 
-- Time and space efficiency are the two leading evaluation indicators to measure an algorithm.
-- We can evaluate the efficiency of an algorithm through real-world testing. Still, it isn't easy to eliminate the side effects from the testing environment, and it consumes a lot of computational resources.
-- Complexity analysis overcomes the drawbacks of real-world testing. The analysis results can apply to all operating platforms and reveal the algorithm's efficiency under variant data scales.
+- Time efficiency and space efficiency are the two main criteria for assessing the merits of an algorithm.
+- We can assess algorithm efficiency through actual testing, but it's challenging to eliminate the influence of the test environment, and it consumes substantial computational resources.
+- Complexity analysis can overcome the disadvantages of actual testing. Its results are applicable across all operating platforms and can reveal the efficiency of algorithms at different data scales.
 
 **Time Complexity**
 
-- Time complexity is used to measure the trend of algorithm running time as the data size grows., which can effectively evaluate the algorithm's efficiency. However, it may fail in some cases, such as when the input volume is small or the time complexities are similar, making it difficult to precisely compare the efficiency of algorithms.
-- The worst time complexity is denoted by big $O$ notation, which corresponds to the asymptotic upper bound of the function, reflecting the growth rate in the number of operations $T(n)$ as $n$ tends to positive infinity.
-- The estimation of time complexity involves two steps: first, counting the number of operations, and then determining the asymptotic upper bound.
-- Common time complexities, from lowest to highest, are $O(1)$, $O(\log n)$, $O(n)$, $O(n \log n)$, $O(n^2)$, $O(2^n)$, and $O(n!)$.
-- The time complexity of certain algorithms is not fixed and depends on the distribution of the input data. The time complexity can be categorized into worst-case, best-case, and average. The best-case time complexity is rarely used because the input data must meet strict conditions to achieve the best-case.
-- The average time complexity reflects the efficiency of an algorithm with random data inputs, which is closest to the performance of algorithms in real-world scenarios. Calculating the average time complexity requires statistical analysis of input data and a synthesized mathematical expectation.
+- Time complexity measures the trend of an algorithm's running time with the increase in data volume, effectively assessing algorithm efficiency. However, it can fail in certain cases, such as with small input data volumes or when time complexities are the same, making it challenging to precisely compare the efficiency of algorithms.
+- Worst-case time complexity is denoted using big O notation, representing the asymptotic upper bound, reflecting the growth level of the number of operations $T(n)$ as $n$ approaches infinity.
+- Calculating time complexity involves two steps: first counting the number of operations, then determining the asymptotic upper bound.
+- Common time complexities, arranged from low to high, include $O(1)$, $O(\log n)$, $O(n)$, $O(n \log n)$, $O(n^2)$, $O(2^n)$, and $O(n!)$, among others.
+- The time complexity of some algorithms is not fixed and depends on the distribution of input data. Time complexities are divided into worst, best, and average cases. The best case is rarely used because input data generally needs to meet strict conditions to achieve the best case.
+- Average time complexity reflects the efficiency of an algorithm under random data inputs, closely resembling the algorithm's performance in actual applications. Calculating average time complexity requires accounting for the distribution of input data and the subsequent mathematical expectation.
 
 **Space Complexity**
 
-- Space complexity serves a similar purpose to time complexity and is used to measure the trend of space occupied by an algorithm as the data volume increases.
-- The memory space associated with the operation of an algorithm can be categorized into input space, temporary space, and output space. Normally, the input space is not considered when determining space complexity. The temporary space can be classified into instruction space, data space, and stack frame space, and the stack frame space usually only affects the space complexity for recursion functions.
-- We mainly focus on the worst-case space complexity, which refers to the measurement of an algorithm's space usage when given the worst-case input data and during the worst-case execution scenario.
-- Common space complexities are $O(1)$, $O(\log n)$, $O(n)$, $O(n^2)$ and $O(2^n)$ from lowest to highest.
+- Space complexity, similar to time complexity, measures the trend of memory space occupied by an algorithm with the increase in data volume.
+- The relevant memory space used during the algorithm's execution can be divided into input space, temporary space, and output space. Generally, input space is not included in space complexity calculations. Temporary space can be divided into temporary data, stack frame space, and instruction space, where stack frame space usually affects space complexity only in recursive functions.
+- We usually focus only on the worst-case space complexity, which means calculating the space complexity of the algorithm under the worst input data and at the worst moment of operation.
+- Common space complexities, arranged from low to high, include $O(1)$, $O(\log n)$, $O(n)$, $O(n^2)$, and $O(2^n)$, among others.
 
 ### 2. &nbsp; Q & A
 
 !!! question "Is the space complexity of tail recursion $O(1)$?"
 
-    Theoretically, the space complexity of a tail recursion function can be optimized to $O(1)$. However, most programming languages (e.g., Java, Python, C++, Go, C#, etc.) do not support auto-optimization for tail recursion, so the space complexity is usually considered as $O(n)$.
+    Theoretically, the space complexity of a tail-recursive function can be optimized to $O(1)$. However, most programming languages (such as Java, Python, C++, Go, C#) do not support automatic optimization of tail recursion, so it's generally considered to have a space complexity of $O(n)$.
 
-!!! question "What is the difference between the terms function and method?"
+!!! question "What is the difference between the terms 'function' and 'method'?"
 
-    A *function* can be executed independently, and all arguments are passed explicitly. A *method* is associated with an object and is implicitly passed to the object that calls it, allowing it to operate on the data contained within an instance of a class.
+    A "function" can be executed independently, with all parameters passed explicitly. A "method" is associated with an object and is implicitly passed to the object calling it, able to operate on the data contained within an instance of a class.
 
-    Let's illustrate with a few common programming languages.
+    Here are some examples from common programming languages:
 
-    - C is a procedural programming language without object-oriented concepts, so it has only functions. However, we can simulate object-oriented programming by creating structures (struct), and the functions associated with structures are equivalent to methods in other languages.
-    - Java and C# are object-oriented programming languages, and blocks of code (methods) are typically part of a class. Static methods behave like a function because it is bound to the class and cannot access specific instance variables.
-    - Both C++ and Python support both procedural programming (functions) and object-oriented programming (methods).
+    - C is a procedural programming language without object-oriented concepts, so it only has functions. However, we can simulate object-oriented programming by creating structures (struct), and functions associated with these structures are equivalent to methods in other programming languages.
+    - Java and C# are object-oriented programming languages where code blocks (methods) are typically part of a class. Static methods behave like functions because they are bound to the class and cannot access specific instance variables.
+    - C++ and Python support both procedural programming (functions) and object-oriented programming (methods).
 
-!!! question "Does the figure "Common Types of Space Complexity" reflect the absolute size of the occupied space?"
+!!! question "Does the 'Common Types of Space Complexity' figure reflect the absolute size of occupied space?"
 
-    No, that figure shows the space complexity, which reflects the growth trend, not the absolute size of the space occupied.
-   
-    For example, if you take $n = 8$ , the values of each curve do not align with the function because each curve contains a constant term used to compress the range of values to a visually comfortable range.
+    No, the figure shows space complexities, which reflect growth trends, not the absolute size of the occupied space.
 
-    In practice, since we usually don't know each method's "constant term" complexity, it is generally impossible to choose the optimal solution for $n = 8$ based on complexity alone. But it's easier to choose for $n = 8^5$ as the growth trend is already dominant.
+    If you take $n = 8$, you might find that the values of each curve don't correspond to their functions. This is because each curve includes a constant term, intended to compress the value range into a visually comfortable range.
+
+    In practice, since we usually don't know the "constant term" complexity of each method, it's generally not possible to choose the best solution for $n = 8$ based solely on complexity. However, for $n = 8^5$, it's much easier to choose, as the growth trend becomes dominant.
