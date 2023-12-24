@@ -1,26 +1,28 @@
 # Space Complexity
 
-The space complexity is used to measure the growth trend of memory consumption as the scale of data increases for an algorithm solution. This concept is analogous to time complexity by replacing "runtime" with "memory space".
+"Space complexity" is used to measure the growth trend of the memory space occupied by an algorithm as the amount of data increases. This concept is very similar to time complexity, except that "running time" is replaced with "occupied memory space".
 
-## Algorithmic Correlation Space
+## Space Related to Algorithms
 
-The memory space used by algorithms during its execution include the following types.
+The memory space used by an algorithm during its execution mainly includes the following types.
 
-- **Input Space**: Used to store the input data for the algorithm.
-- **Temporary Space**: Used to store variables, objects, function contexts, and other data of the algorithm during runtime.
+- **Input Space**: Used to store the input data of the algorithm.
+- **Temporary Space**: Used to store variables, objects, function contexts, and other data during the algorithm's execution.
 - **Output Space**: Used to store the output data of the algorithm.
 
-In general, the "Input Space" is excluded from the statistics of space complexity.
+Generally, the scope of space complexity statistics includes both "Temporary Space" and "Output Space".
 
-The **Temporary Space** can be further divided into three parts.
+Temporary space can be further divided into three parts.
 
-- **Temporary Data**: Used to store various constants, variables, objects, etc., during the the algorithm's execution.
-- **Stack Frame Space**: Used to hold the context data of the called function. The system creates a stack frame at the top of the stack each time a function is called, and the stack frame space is freed when the function returns.
-- **Instruction Space**: Used to hold compiled program instructions, usually ignored in practical statistics.
+- **Temporary Data**: Used to save various constants, variables, objects, etc., during the algorithm's execution.
+- **Stack Frame Space**: Used to save the context data of the called function. The system creates a stack frame at the top of the stack each time a function is called, and the stack frame space is released after the function returns.
+- **Instruction Space**: Used to store compiled program instructions, which are usually negligible in actual statistics.
 
-When analyzing the space complexity of a piece of program, **three parts are usually taken into account: Temporary Data, Stack Frame Space and Output Data**.
+When analyzing the space complexity of a program, **we typically count the Temporary Data, Stack Frame Space, and Output Data**, as shown in the figure below.
 
-![Associated spaces used by the algorithm](space_complexity.assets/space_types.png)
+![Space Types Used in Algorithms](space_complexity.assets/space_types.png)
+
+The relevant code is as follows:
 
 === "Python"
 
@@ -316,14 +318,14 @@ When analyzing the space complexity of a piece of program, **three parts are usu
 
 ## Calculation Method
 
-The calculation method for space complexity is pretty similar to time complexity, with the only difference being that the focus shifts from "operation count" to "space usage size".
+The method for calculating space complexity is roughly similar to that of time complexity, with the only change being the shift of the statistical object from "number of operations" to "size of used space".
 
-On top of that, unlike time complexity, **we usually only focus on the worst-case space complexity**. This is because memory space is a hard requirement, and we have to make sure that there is enough memory space reserved for all possibilities incurred by input data.
+However, unlike time complexity, **we usually only focus on the worst-case space complexity**. This is because memory space is a hard requirement, and we must ensure that there is enough memory space reserved under all input data.
 
-Looking at the following code, the "worst" in worst-case space complexity has two layers of meaning.
+Consider the following code, the term "worst-case" in worst-case space complexity has two meanings.
 
-1. **Based on the worst-case input data**: when $n < 10$, the space complexity is $O(1)$; however, when $n > 10$, the initialized array `nums` occupies $O(n)$ space; thus the worst-case space complexity is $O(n)$.
-2. **Based on the peak memory during algorithm execution**: for example, the program occupies $O(1)$ space until the last line is executed; when the array `nums` is initialized, the program occupies $O(n)$ space; thus the worst-case space complexity is $O(n)$.
+1. **Based on the worst input data**: When $n < 10$, the space complexity is $O(1)$; but when $n > 10$, the initialized array `nums` occupies $O(n)$ space, thus the worst-case space complexity is $O(n)$.
+2. **Based on the peak memory used during the algorithm's execution**: For example, before executing the last line, the program occupies $O(1)$ space; when initializing the array `nums`, the program occupies $O(n)$ space, hence the worst-case space complexity is $O(n)$.
 
 === "Python"
 
@@ -460,10 +462,7 @@ Looking at the following code, the "worst" in worst-case space complexity has tw
 
     ```
 
-**In recursion functions, it is important to take into count the measurement of stack frame space**. For example in the following code:
-
-- The function `loop()` calls $n$ times `function()` in a loop, and each round of `function()` returns and frees stack frame space, so the space complexity is still $O(1)$.
-- The recursion function `recur()` will have $n$ unreturned `recur()` during runtime, thus occupying $O(n)$ of stack frame space.
+**In recursive functions, stack frame space must be taken into count**. Consider the following code:
 
 === "Python"
 
@@ -700,81 +699,86 @@ Looking at the following code, the "worst" in worst-case space complexity has tw
 
     ```
 
+The time complexity of both `loop()` and `recur()` functions is $O(n)$, but their space complexities differ.
+
+- The `loop()` function calls `function()` $n$ times in a loop, where each iteration's `function()` returns and releases its stack frame space, so the space complexity remains $O(1)$.
+- The recursive function `recur()` will have $n$ instances of unreturned `recur()` existing simultaneously during its execution, thus occupying $O(n)$ stack frame space.
+
 ## Common Types
 
-Assuming the input data size is $n$, the figure illustrates common types of space complexity (ordered from low to high).
+Let the size of the input data be $n$, the following chart displays common types of space complexities (arranged from low to high).
 
 $$
 \begin{aligned}
 O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
-\text{constant order} < \text{logarithmic order} < \text{linear order} < \text{square order} < \text{exponential order}
+\text{Constant Order} < \text{Logarithmic Order} < \text{Linear Order} < \text{Quadratic Order} < \text{Exponential Order}
 \end{aligned}
 $$
 
-![Common space complexity types](space_complexity.assets/space_complexity_common_types.png)
+![Common Types of Space Complexity](space_complexity.assets/space_complexity_common_types.png)
 
 ### Constant Order $O(1)$
 
-Constant order is common for constants, variables, and objects whose quantity is unrelated to the size of the input data $n$.
+Constant order is common in constants, variables, objects that are independent of the size of input data $n$.
 
-It is important to note that memory occupied by initializing a variable or calling a function in a loop is released once the next iteration begins. Therefore, there is no accumulation of occupied space and the space complexity remains $O(1)$ :
+Note that memory occupied by initializing variables or calling functions in a loop, which is released upon entering the next cycle, does not accumulate over space, thus the space complexity remains $O(1)$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{constant}
 ```
 
-### Linear Order $O(N)$
+### Linear Order $O(n)$
 
-Linear order is commonly found in arrays, linked lists, stacks, queues, and similar structures where the number of elements is proportional to $n$:
+Linear order is common in arrays, linked lists, stacks, queues, etc., where the number of elements is proportional to $n$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{linear}
 ```
 
-As shown in the figure below, the depth of recursion for this function is $n$, which means that there are $n$ unreturned `linear_recur()` functions at the same time, using $O(n)$ size stack frame space:
+As shown below, this function's recursive depth is $n$, meaning there are $n$ instances of unreturned `linear_recur()` function, using $O(n)$ size of stack frame space:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{linear_recur}
 ```
 
-![Linear order space complexity generated by recursion function](space_complexity.assets/space_complexity_recursive_linear.png)
+![Recursive Function Generating Linear Order Space Complexity](space_complexity.assets/space_complexity_recursive_linear.png)
 
-### Quadratic Order $O(N^2)$
+### Quadratic Order $O(n^2)$
 
-Quadratic order is common in matrices and graphs, where the number of elements is in a square relationship with $n$:
+Quadratic order is common in matrices and graphs, where the number of elements is quadratic to $n$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic}
 ```
 
-As shown in the figure below, the recursion depth of this function is $n$, and an array is initialized in each recursion function with lengths $n$, $n-1$, $\dots$, $2$, $1$, and an average length of $n / 2$, thus occupying $O(n^2)$ space overall:
+As shown below, the recursive depth of this function is $n$, and in each recursive call, an array is initialized with lengths $n$, $n-1$, $\dots$, $2$, $1$, averaging $n/2$, thus overall occupying $O(n^2)$ space:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
 ```
 
-![Square-order space complexity generated by the recursion function](space_complexity.assets/space_complexity_recursive_quadratic.png)
+![Recursive Function Generating Quadratic Order Space Complexity](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
-### Exponential Order $O(2^N)$
+### Exponential Order $O(2^n)$
 
-Exponential order is common in binary trees. Looking at the figure below, a "full binary tree" of degree $n$ has $2^n - 1$ nodes, occupying $O(2^n)$ space:
+Exponential order is common in binary trees. Observe the below image, a "full binary tree" with $n$ levels has $2^n - 1$ nodes, occupying $O(2^n)$ space:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{build_tree}
 ```
 
-![Exponential order space complexity generated by a full binary tree](space_complexity.assets/space_complexity_exponential.png)
+![Full Binary Tree Generating Exponential Order Space Complexity](space_complexity.assets/space_complexity_exponential.png)
 
-### Logarithmic Order $O(\Log N)$
+### Logarithmic Order $O(\log n)$
 
-Logarithmic order is commonly used in divide and conquer algorithms. For example, in a merge sort, given an array of length $n$ as the input, each round of recursion divides the array in half from its midpoint to form a recursion tree of height $\log n$, using $O(\log n)$ stack frame space.
+Logarithmic order is common in divide-and-conquer algorithms. For example, in merge sort, an array of length $n$ is recursively divided in half each round, forming a recursion tree of height $\log n$, using $O(\log n)$ stack frame space.
 
-Another example is to convert a number into a string. Given a positive integer $n$ with a digit count of $\log_{10} n + 1$, the corresponding string length is $\log_{10} n + 1$. Therefore, the space complexity is $O(\log_{10} n + 1) = O(\log n)$.
+Another example is converting a number to a string. Given a positive integer $n$, its number of digits is $\log_{10} n + 1$, corresponding to the length of the string, thus the space complexity is $O(\log_{10} n + 1) = O(\log n)$.
 
-## Weighing Time And Space
+## Balancing Time and Space
 
-Ideally, we would like to optimize both the time complexity and the space complexity of an algorithm. However, in reality, simultaneously optimizing time and space complexity is often challenging.
+Ideally, we aim for both time complexity and space complexity to be optimal. However, in practice, optimizing both simultaneously is often difficult.
 
-**Reducing time complexity usually comes at the expense of increasing space complexity, and vice versa**. The approach of sacrificing memory space to improve algorithm speed is known as "trading space for time", while the opposite is called "trading time for space".
+**Lowering time complexity usually comes at the cost of increased space complexity, and vice versa**. The approach of sacrificing memory space to improve algorithm speed is known as "space-time tradeoff"; the reverse is known as "time-space tradeoff".
 
-The choice between these approaches depends on which aspect we prioritize. In most cases, time is more valuable than space, so "trading space for time" is usually the more common strategy. Of course, in situations with large data volumes, controlling space complexity is also crucial.
+The choice depends on which aspect we value more. In most cases, time is more precious than space, so "space-time tradeoff" is often the more common strategy. Of course, controlling space complexity is also very important when dealing with large volumes of data.
