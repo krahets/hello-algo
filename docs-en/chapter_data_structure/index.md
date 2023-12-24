@@ -8,6 +8,6 @@
 
 !!! abstract
 
-    Data structures are like a solid and varied framework.
+    Data structures resemble a stable and diverse framework.
    
-    It provides a blueprint for the orderly organization of data upon which algorithms can come alive.
+    They serve as a blueprint for organizing data orderly, enabling algorithms to come to life upon this foundation.
