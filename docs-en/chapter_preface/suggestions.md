@@ -185,11 +185,13 @@ The process of writing code is often more rewarding than reading it. **Learning 
 
 ![Running Code Example](../index.assets/running_code.gif)
 
-The preliminaries for running the code are divided into three main steps.
+Setting up to run the code involves three main steps.
 
-**Step 1: Install the local programming environment**. Please refer to [Appendix Tutorial](https://www.hello-algo.com/chapter_appendix/installation/) for installation, or skip this step if already installed.
+**Step 1: Install a Local Programming Environment**. Follow the [tutorial](https://www.hello-algo.com/chapter_appendix/installation/) in the appendix for installation, or skip this step if already installed.
 
-**Step 2: Clone or download the code repository**. If [Git](https://git-scm.com/downloads) is already installed, you can clone this repository with the following command.
+**Step 2: Clone or Download the Code Repository**. Visit the [GitHub Repository](https://github.com/krahets/hello-algo).
+
+If [Git](https://git-scm.com/downloads) is installed, use the following command to clone the repository:
 
 ```shell
 git clone https://github.com/krahets/hello-algo.git
