@@ -61,6 +61,11 @@ hide:
   <img src="https://img.shields.io/badge/Stay%20Tuned-snow">
 </p>
 
+<div class="admonition example" style="max-width: 800px;margin: 0 auto;">
+  <p class="admonition-title">The English edition is brewing...</p>
+  <p>Feel free to engage in Chinese-to-English translation and pull request review! For guidelines, please see <a href="https://github.com/krahets/hello-algo/issues/914">#914</a>.</p>
+</div>
+
 ---
 
 <h3 align="center">Endorsements</h3>
