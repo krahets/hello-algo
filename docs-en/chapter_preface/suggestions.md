@@ -171,9 +171,9 @@
 
 Compared with text, videos and pictures have a higher density of information and are more structured, making them easier to understand. In this book, **essential and complex concepts are primarily presented through animations and illustrations**, while the text serves as an explanation and supplement to the animations and graphs.
 
-When encountering sections in this book that include animations or graphical illustrations, as exemplified below, **please use the visual elements as the primary source and the text as a supplement. Synthesize the both source to understand the content**.
+When encountering sections in this book that include animations or graphical illustrations, as exemplified below, **please use the visual elements as the primary source and the text as a supplement. Synthesize both sources to understand the content**.
 
-![Example animation](../index.assets/animation.gif)
+![Animation Illustration Example](../index.assets/animation.gif)
 
 ## Deepen Understanding through Code Practice
 
@@ -183,7 +183,7 @@ If time permits, **it is advisable to manually replicate the code examples**. Fo
 
 The process of writing code is often more rewarding than reading it. **Learning by doing is the real way to learn**.
 
-![Running code example](../index.assets/running_code.gif)
+![Running Code Example](../index.assets/running_code.gif)
 
 The preliminaries for running the code are divided into three main steps.
 
@@ -209,16 +209,16 @@ While reading this book, please don't skip over the points that you didn't learn
 
 As you can see in the figure below, each chapter has a comment section at the bottom. I hope you'll pay more attention to the comments section. On the one hand, you can learn about the problems others have encountered, which can help you identify gaps in your knowledge and inspire deeper thinking. On the other hand, we expect you to generously answer other readers' questions, share your insights, and help others improve.
 
-![Example of comment section](../index.assets/comment.gif)
+![Comment Section Example](../index.assets/comment.gif)
 
 ## Algorithm Learning Path
 
 Overall, we can divide the process of learning data structures and algorithms into three stages.
 
-1. **Introduction to Algorithms**. We need to familiarize ourselves with the characteristics and usage of various data structures and learn about the principles, processes, uses and efficiency of different algorithms.
+1. **Introduction to Algorithms**. We need to familiarize ourselves with the characteristics and usage of various data structures and learn about the principles, processes, uses, and efficiency of different algorithms.
 2. **Practicing Algorithm Problems**. It is recommended to start from popular problems, such as [Sword to Offer](https://leetcode.cn/studyplan/coding-interviews/) and [LeetCode Hot 100](https://leetcode.cn/studyplan/top-100- liked/), and accumulate at least 100 questions to familiarize yourself with mainstream algorithmic problems. Forgetfulness can be a challenge when you start practicing, but rest assured that this is normal. We can follow the "Ebbinghaus Forgetting Curve" to review the questions, and usually after 3-5 rounds of repetitions, we will be able to memorize them.
-3. **Building the knowledge system**. In terms of learning, we can read algorithm column articles, solution frameworks and algorithm textbooks to continuously enrich the knowledge system. In terms of practicing, we can try advanced strategies, such as categorizing by topic, multiple solutions for single problem,  and one solution for multiple problems, etc. Insights on these strategies can be found in various communities.
+3. **Building the knowledge system**. In terms of learning, we can read algorithm column articles, solution frameworks, and algorithm textbooks to continuously enrich the knowledge system. In terms of practicing, we can try advanced strategies, such as categorizing by topic, multiple solutions for a single problem,  and one solution for multiple problems, etc. Insights on these strategies can be found in various communities.
 
 As shown in the figure below, this book mainly covers "Phase 1" and is designed to help you start Phase 2 and 3 more efficiently.
 
-![algorithm learning route](suggestions.assets/learning_route.png)
+![Algorithm Learning Path](suggestions.assets/learning_route.png)
