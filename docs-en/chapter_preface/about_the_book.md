@@ -32,15 +32,15 @@ The main content of the book is shown in the following figure.
 
 Throughout the creation of this book, numerous individuals provided invaluable assistance, including but not limited to:
 
-- Thanks to my mentor at the company, Dr. Li Xi, who encouraged me in a conversation to "get moving fast," which solidified my determination to write this book;
-- Thanks to my girlfriend Pao Pao, as the first reader of this book, for offering many valuable suggestions from the perspective of a beginner in algorithms, making this book more suitable for newbies;
+- Thanks to my mentor at the company, Dr. Xi Li, who encouraged me in a conversation to "get moving fast," which solidified my determination to write this book;
+- Thanks to my girlfriend Paopao, as the first reader of this book, for offering many valuable suggestions from the perspective of a beginner in algorithms, making this book more suitable for newbies;
 - Thanks to Tengbao, Qibao, and Feibao for coming up with a creative name for this book, evoking everyone's fond memories of writing their first line of code "Hello World!";
-- Thanks to Xiao Quan for providing professional help in intellectual property, which has played a significant role in the development of this open-source book;
-- Thanks to Su Tong for designing a beautiful cover and logo for this book, and for patiently making multiple revisions under my insistence;
+- Thanks to Xiaoquan for providing professional help in intellectual property, which has played a significant role in the development of this open-source book;
+- Thanks to Sutong for designing a beautiful cover and logo for this book, and for patiently making multiple revisions under my insistence;
 - Thanks to @squidfunk for providing writing and typesetting suggestions, as well as his developed open-source documentation theme [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material/tree/master).
 
 Throughout the writing journey, I delved into numerous textbooks and articles on data structures and algorithms. These works served as exemplary models, ensuring the accuracy and quality of this book's content. I extend my gratitude to all who preceded me for their invaluable contributions!
 
-This book advocates a combination of hands-on and conceptual learning , inspired in this regard by ["Dive into Deep Learning"](https://github.com/d2l-ai/d2l-zh). I highly recommend this excellent book to all readers.
+This book advocates a combination of hands-on and minds-on learning, inspired in this regard by ["Dive into Deep Learning"](https://github.com/d2l-ai/d2l-zh). I highly recommend this excellent book to all readers.
 
 **Heartfelt thanks to my parents, whose ongoing support and encouragement have allowed me to do this interesting work**.
