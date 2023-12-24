@@ -739,9 +739,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#241-algorithmic-correlation-space" class="md-nav__link">
+  <a href="#241-space-related-to-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
-      2.4.1 &nbsp; Algorithmic Correlation Space
+      2.4.1 &nbsp; Space Related to Algorithms
     </span>
   </a>
   
@@ -778,7 +778,7 @@
           <li class="md-nav__item">
   <a href="#2-linear-order-on" class="md-nav__link">
     <span class="md-ellipsis">
-      2. &nbsp; Linear Order \(O(N)\)
+      2. &nbsp; Linear Order \(O(n)\)
     </span>
   </a>
   
@@ -787,7 +787,7 @@
           <li class="md-nav__item">
   <a href="#3-quadratic-order-on2" class="md-nav__link">
     <span class="md-ellipsis">
-      3. &nbsp; Quadratic Order \(O(N^2)\)
+      3. &nbsp; Quadratic Order \(O(n^2)\)
     </span>
   </a>
   
@@ -796,7 +796,7 @@
           <li class="md-nav__item">
   <a href="#4-exponential-order-o2n" class="md-nav__link">
     <span class="md-ellipsis">
-      4. &nbsp; Exponential Order \(O(2^N)\)
+      4. &nbsp; Exponential Order \(O(2^n)\)
     </span>
   </a>
   
@@ -805,7 +805,7 @@
           <li class="md-nav__item">
   <a href="#5-logarithmic-order-olog-n" class="md-nav__link">
     <span class="md-ellipsis">
-      5. &nbsp; Logarithmic Order \(O(\Log N)\)
+      5. &nbsp; Logarithmic Order \(O(\log n)\)
     </span>
   </a>
   
@@ -817,9 +817,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#244-weighing-time-and-space" class="md-nav__link">
+  <a href="#244-balancing-time-and-space" class="md-nav__link">
     <span class="md-ellipsis">
-      2.4.4 &nbsp; Weighing Time And Space
+      2.4.4 &nbsp; Balancing Time and Space
     </span>
   </a>
   
@@ -889,9 +889,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#241-algorithmic-correlation-space" class="md-nav__link">
+  <a href="#241-space-related-to-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
-      2.4.1 &nbsp; Algorithmic Correlation Space
+      2.4.1 &nbsp; Space Related to Algorithms
     </span>
   </a>
   
@@ -928,7 +928,7 @@
           <li class="md-nav__item">
   <a href="#2-linear-order-on" class="md-nav__link">
     <span class="md-ellipsis">
-      2. &nbsp; Linear Order \(O(N)\)
+      2. &nbsp; Linear Order \(O(n)\)
     </span>
   </a>
   
@@ -937,7 +937,7 @@
           <li class="md-nav__item">
   <a href="#3-quadratic-order-on2" class="md-nav__link">
     <span class="md-ellipsis">
-      3. &nbsp; Quadratic Order \(O(N^2)\)
+      3. &nbsp; Quadratic Order \(O(n^2)\)
     </span>
   </a>
   
@@ -946,7 +946,7 @@
           <li class="md-nav__item">
   <a href="#4-exponential-order-o2n" class="md-nav__link">
     <span class="md-ellipsis">
-      4. &nbsp; Exponential Order \(O(2^N)\)
+      4. &nbsp; Exponential Order \(O(2^n)\)
     </span>
   </a>
   
@@ -955,7 +955,7 @@
           <li class="md-nav__item">
   <a href="#5-logarithmic-order-olog-n" class="md-nav__link">
     <span class="md-ellipsis">
-      5. &nbsp; Logarithmic Order \(O(\Log N)\)
+      5. &nbsp; Logarithmic Order \(O(\log n)\)
     </span>
   </a>
   
@@ -967,9 +967,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#244-weighing-time-and-space" class="md-nav__link">
+  <a href="#244-balancing-time-and-space" class="md-nav__link">
     <span class="md-ellipsis">
-      2.4.4 &nbsp; Weighing Time And Space
+      2.4.4 &nbsp; Balancing Time and Space
     </span>
   </a>
   
@@ -1012,25 +1012,26 @@
 
 <!-- Page content -->
 <h1 id="24-space-complexity">2.4 &nbsp; Space Complexity<a class="headerlink" href="#24-space-complexity" title="Permanent link">&para;</a></h1>
-<p>The space complexity is used to measure the growth trend of memory consumption as the scale of data increases for an algorithm solution. This concept is analogous to time complexity by replacing "runtime" with "memory space".</p>
-<h2 id="241-algorithmic-correlation-space">2.4.1 &nbsp; Algorithmic Correlation Space<a class="headerlink" href="#241-algorithmic-correlation-space" title="Permanent link">&para;</a></h2>
-<p>The memory space used by algorithms during its execution include the following types.</p>
+<p>"Space complexity" is used to measure the growth trend of the memory space occupied by an algorithm as the amount of data increases. This concept is very similar to time complexity, except that "running time" is replaced with "occupied memory space".</p>
+<h2 id="241-space-related-to-algorithms">2.4.1 &nbsp; Space Related to Algorithms<a class="headerlink" href="#241-space-related-to-algorithms" title="Permanent link">&para;</a></h2>
+<p>The memory space used by an algorithm during its execution mainly includes the following types.</p>
 <ul>
-<li><strong>Input Space</strong>: Used to store the input data for the algorithm.</li>
-<li><strong>Temporary Space</strong>: Used to store variables, objects, function contexts, and other data of the algorithm during runtime.</li>
+<li><strong>Input Space</strong>: Used to store the input data of the algorithm.</li>
+<li><strong>Temporary Space</strong>: Used to store variables, objects, function contexts, and other data during the algorithm's execution.</li>
 <li><strong>Output Space</strong>: Used to store the output data of the algorithm.</li>
 </ul>
-<p>In general, the "Input Space" is excluded from the statistics of space complexity.</p>
-<p>The <strong>Temporary Space</strong> can be further divided into three parts.</p>
+<p>Generally, the scope of space complexity statistics includes both "Temporary Space" and "Output Space".</p>
+<p>Temporary space can be further divided into three parts.</p>
 <ul>
-<li><strong>Temporary Data</strong>: Used to store various constants, variables, objects, etc., during the the algorithm's execution.</li>
-<li><strong>Stack Frame Space</strong>: Used to hold the context data of the called function. The system creates a stack frame at the top of the stack each time a function is called, and the stack frame space is freed when the function returns.</li>
-<li><strong>Instruction Space</strong>: Used to hold compiled program instructions, usually ignored in practical statistics.</li>
+<li><strong>Temporary Data</strong>: Used to save various constants, variables, objects, etc., during the algorithm's execution.</li>
+<li><strong>Stack Frame Space</strong>: Used to save the context data of the called function. The system creates a stack frame at the top of the stack each time a function is called, and the stack frame space is released after the function returns.</li>
+<li><strong>Instruction Space</strong>: Used to store compiled program instructions, which are usually negligible in actual statistics.</li>
 </ul>
-<p>When analyzing the space complexity of a piece of program, <strong>three parts are usually taken into account: Temporary Data, Stack Frame Space and Output Data</strong>.</p>
-<p><a class="glightbox" href="../space_complexity.assets/space_types.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Associated spaces used by the algorithm" class="animation-figure" src="../space_complexity.assets/space_types.png" /></a></p>
-<p align="center"> Figure 2-15 &nbsp; Associated spaces used by the algorithm </p>
+<p>When analyzing the space complexity of a program, <strong>we typically count the Temporary Data, Stack Frame Space, and Output Data</strong>, as shown in the Figure 2-15 .</p>
+<p><a class="glightbox" href="../space_complexity.assets/space_types.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Space Types Used in Algorithms" class="animation-figure" src="../space_complexity.assets/space_types.png" /></a></p>
+<p align="center"> Figure 2-15 &nbsp; Space Types Used in Algorithms </p>
 
+<p>The relevant code is as follows:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1304,12 +1305,12 @@
 </div>
 </div>
 <h2 id="242-calculation-method">2.4.2 &nbsp; Calculation Method<a class="headerlink" href="#242-calculation-method" title="Permanent link">&para;</a></h2>
-<p>The calculation method for space complexity is pretty similar to time complexity, with the only difference being that the focus shifts from "operation count" to "space usage size".</p>
-<p>On top of that, unlike time complexity, <strong>we usually only focus on the worst-case space complexity</strong>. This is because memory space is a hard requirement, and we have to make sure that there is enough memory space reserved for all possibilities incurred by input data.</p>
-<p>Looking at the following code, the "worst" in worst-case space complexity has two layers of meaning.</p>
+<p>The method for calculating space complexity is roughly similar to that of time complexity, with the only change being the shift of the statistical object from "number of operations" to "size of used space".</p>
+<p>However, unlike time complexity, <strong>we usually only focus on the worst-case space complexity</strong>. This is because memory space is a hard requirement, and we must ensure that there is enough memory space reserved under all input data.</p>
+<p>Consider the following code, the term "worst-case" in worst-case space complexity has two meanings.</p>
 <ol>
-<li><strong>Based on the worst-case input data</strong>: when <span class="arithmatex">\(n &lt; 10\)</span>, the space complexity is <span class="arithmatex">\(O(1)\)</span>; however, when <span class="arithmatex">\(n &gt; 10\)</span>, the initialized array <code>nums</code> occupies <span class="arithmatex">\(O(n)\)</span> space; thus the worst-case space complexity is <span class="arithmatex">\(O(n)\)</span>.</li>
-<li><strong>Based on the peak memory during algorithm execution</strong>: for example, the program occupies <span class="arithmatex">\(O(1)\)</span> space until the last line is executed; when the array <code>nums</code> is initialized, the program occupies <span class="arithmatex">\(O(n)\)</span> space; thus the worst-case space complexity is <span class="arithmatex">\(O(n)\)</span>.</li>
+<li><strong>Based on the worst input data</strong>: When <span class="arithmatex">\(n &lt; 10\)</span>, the space complexity is <span class="arithmatex">\(O(1)\)</span>; but when <span class="arithmatex">\(n &gt; 10\)</span>, the initialized array <code>nums</code> occupies <span class="arithmatex">\(O(n)\)</span> space, thus the worst-case space complexity is <span class="arithmatex">\(O(n)\)</span>.</li>
+<li><strong>Based on the peak memory used during the algorithm's execution</strong>: For example, before executing the last line, the program occupies <span class="arithmatex">\(O(1)\)</span> space; when initializing the array <code>nums</code>, the program occupies <span class="arithmatex">\(O(n)\)</span> space, hence the worst-case space complexity is <span class="arithmatex">\(O(n)\)</span>.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Zig</label></div>
 <div class="tabbed-content">
@@ -1426,11 +1427,7 @@
 </div>
 </div>
 </div>
-<p><strong>In recursion functions, it is important to take into count the measurement of stack frame space</strong>. For example in the following code:</p>
-<ul>
-<li>The function <code>loop()</code> calls <span class="arithmatex">\(n\)</span> times <code>function()</code> in a loop, and each round of <code>function()</code> returns and frees stack frame space, so the space complexity is still <span class="arithmatex">\(O(1)\)</span>.</li>
-<li>The recursion function <code>recur()</code> will have <span class="arithmatex">\(n\)</span> unreturned <code>recur()</code> during runtime, thus occupying <span class="arithmatex">\(O(n)\)</span> of stack frame space.</li>
-</ul>
+<p><strong>In recursive functions, stack frame space must be taken into count</strong>. Consider the following code:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1646,20 +1643,25 @@
 </div>
 </div>
 </div>
+<p>The time complexity of both <code>loop()</code> and <code>recur()</code> functions is <span class="arithmatex">\(O(n)\)</span>, but their space complexities differ.</p>
+<ul>
+<li>The <code>loop()</code> function calls <code>function()</code> <span class="arithmatex">\(n\)</span> times in a loop, where each iteration's <code>function()</code> returns and releases its stack frame space, so the space complexity remains <span class="arithmatex">\(O(1)\)</span>.</li>
+<li>The recursive function <code>recur()</code> will have <span class="arithmatex">\(n\)</span> instances of unreturned <code>recur()</code> existing simultaneously during its execution, thus occupying <span class="arithmatex">\(O(n)\)</span> stack frame space.</li>
+</ul>
 <h2 id="243-common-types">2.4.3 &nbsp; Common Types<a class="headerlink" href="#243-common-types" title="Permanent link">&para;</a></h2>
-<p>Assuming the input data size is <span class="arithmatex">\(n\)</span>, the figure illustrates common types of space complexity (ordered from low to high).</p>
+<p>Let the size of the input data be <span class="arithmatex">\(n\)</span>, the following chart displays common types of space complexities (arranged from low to high).</p>
 <div class="arithmatex">\[
 \begin{aligned}
 O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
-\text{constant order} &lt; \text{logarithmic order} &lt; \text{linear order} &lt; \text{square order} &lt; \text{exponential order}
+\text{Constant Order} &lt; \text{Logarithmic Order} &lt; \text{Linear Order} &lt; \text{Quadratic Order} &lt; \text{Exponential Order}
 \end{aligned}
 \]</div>
-<p><a class="glightbox" href="../space_complexity.assets/space_complexity_common_types.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Common space complexity types" class="animation-figure" src="../space_complexity.assets/space_complexity_common_types.png" /></a></p>
-<p align="center"> Figure 2-16 &nbsp; Common space complexity types </p>
+<p><a class="glightbox" href="../space_complexity.assets/space_complexity_common_types.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Common Types of Space Complexity" class="animation-figure" src="../space_complexity.assets/space_complexity_common_types.png" /></a></p>
+<p align="center"> Figure 2-16 &nbsp; Common Types of Space Complexity </p>
 
 <h3 id="1-constant-order-o1">1. &nbsp; Constant Order <span class="arithmatex">\(O(1)\)</span><a class="headerlink" href="#1-constant-order-o1" title="Permanent link">&para;</a></h3>
-<p>Constant order is common for constants, variables, and objects whose quantity is unrelated to the size of the input data <span class="arithmatex">\(n\)</span>.</p>
-<p>It is important to note that memory occupied by initializing a variable or calling a function in a loop is released once the next iteration begins. Therefore, there is no accumulation of occupied space and the space complexity remains <span class="arithmatex">\(O(1)\)</span> :</p>
+<p>Constant order is common in constants, variables, objects that are independent of the size of input data <span class="arithmatex">\(n\)</span>.</p>
+<p>Note that memory occupied by initializing variables or calling functions in a loop, which is released upon entering the next cycle, does not accumulate over space, thus the space complexity remains <span class="arithmatex">\(O(1)\)</span>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:12"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1971,8 +1973,8 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 </div>
 </div>
 </div>
-<h3 id="2-linear-order-on">2. &nbsp; Linear Order <span class="arithmatex">\(O(N)\)</span><a class="headerlink" href="#2-linear-order-on" title="Permanent link">&para;</a></h3>
-<p>Linear order is commonly found in arrays, linked lists, stacks, queues, and similar structures where the number of elements is proportional to <span class="arithmatex">\(n\)</span>:</p>
+<h3 id="2-linear-order-on">2. &nbsp; Linear Order <span class="arithmatex">\(O(n)\)</span><a class="headerlink" href="#2-linear-order-on" title="Permanent link">&para;</a></h3>
+<p>Linear order is common in arrays, linked lists, stacks, queues, etc., where the number of elements is proportional to <span class="arithmatex">\(n\)</span>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Java</label><label for="__tabbed_5_4">C#</label><label for="__tabbed_5_5">Go</label><label for="__tabbed_5_6">Swift</label><label for="__tabbed_5_7">JS</label><label for="__tabbed_5_8">TS</label><label for="__tabbed_5_9">Dart</label><label for="__tabbed_5_10">Rust</label><label for="__tabbed_5_11">C</label><label for="__tabbed_5_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2213,7 +2215,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 </div>
 </div>
 </div>
-<p>As shown in the Figure 2-17 , the depth of recursion for this function is <span class="arithmatex">\(n\)</span>, which means that there are <span class="arithmatex">\(n\)</span> unreturned <code>linear_recur()</code> functions at the same time, using <span class="arithmatex">\(O(n)\)</span> size stack frame space:</p>
+<p>As shown below, this function's recursive depth is <span class="arithmatex">\(n\)</span>, meaning there are <span class="arithmatex">\(n\)</span> instances of unreturned <code>linear_recur()</code> function, using <span class="arithmatex">\(O(n)\)</span> size of stack frame space:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Java</label><label for="__tabbed_6_4">C#</label><label for="__tabbed_6_5">Go</label><label for="__tabbed_6_6">Swift</label><label for="__tabbed_6_7">JS</label><label for="__tabbed_6_8">TS</label><label for="__tabbed_6_9">Dart</label><label for="__tabbed_6_10">Rust</label><label for="__tabbed_6_11">C</label><label for="__tabbed_6_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2333,11 +2335,11 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 </div>
 </div>
 </div>
-<p><a class="glightbox" href="../space_complexity.assets/space_complexity_recursive_linear.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Linear order space complexity generated by recursion function" class="animation-figure" src="../space_complexity.assets/space_complexity_recursive_linear.png" /></a></p>
-<p align="center"> Figure 2-17 &nbsp; Linear order space complexity generated by recursion function </p>
+<p><a class="glightbox" href="../space_complexity.assets/space_complexity_recursive_linear.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Recursive Function Generating Linear Order Space Complexity" class="animation-figure" src="../space_complexity.assets/space_complexity_recursive_linear.png" /></a></p>
+<p align="center"> Figure 2-17 &nbsp; Recursive Function Generating Linear Order Space Complexity </p>
 
-<h3 id="3-quadratic-order-on2">3. &nbsp; Quadratic Order <span class="arithmatex">\(O(N^2)\)</span><a class="headerlink" href="#3-quadratic-order-on2" title="Permanent link">&para;</a></h3>
-<p>Quadratic order is common in matrices and graphs, where the number of elements is in a square relationship with <span class="arithmatex">\(n\)</span>:</p>
+<h3 id="3-quadratic-order-on2">3. &nbsp; Quadratic Order <span class="arithmatex">\(O(n^2)\)</span><a class="headerlink" href="#3-quadratic-order-on2" title="Permanent link">&para;</a></h3>
+<p>Quadratic order is common in matrices and graphs, where the number of elements is quadratic to <span class="arithmatex">\(n\)</span>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:12"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><input id="__tabbed_7_5" name="__tabbed_7" type="radio" /><input id="__tabbed_7_6" name="__tabbed_7" type="radio" /><input id="__tabbed_7_7" name="__tabbed_7" type="radio" /><input id="__tabbed_7_8" name="__tabbed_7" type="radio" /><input id="__tabbed_7_9" name="__tabbed_7" type="radio" /><input id="__tabbed_7_10" name="__tabbed_7" type="radio" /><input id="__tabbed_7_11" name="__tabbed_7" type="radio" /><input id="__tabbed_7_12" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">C++</label><label for="__tabbed_7_3">Java</label><label for="__tabbed_7_4">C#</label><label for="__tabbed_7_5">Go</label><label for="__tabbed_7_6">Swift</label><label for="__tabbed_7_7">JS</label><label for="__tabbed_7_8">TS</label><label for="__tabbed_7_9">Dart</label><label for="__tabbed_7_10">Rust</label><label for="__tabbed_7_11">C</label><label for="__tabbed_7_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2530,7 +2532,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 </div>
 </div>
 </div>
-<p>As shown in the Figure 2-18 , the recursion depth of this function is <span class="arithmatex">\(n\)</span>, and an array is initialized in each recursion function with lengths <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(n-1\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(1\)</span>, and an average length of <span class="arithmatex">\(n / 2\)</span>, thus occupying <span class="arithmatex">\(O(n^2)\)</span> space overall:</p>
+<p>As shown below, the recursive depth of this function is <span class="arithmatex">\(n\)</span>, and in each recursive call, an array is initialized with lengths <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(n-1\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(1\)</span>, averaging <span class="arithmatex">\(n/2\)</span>, thus overall occupying <span class="arithmatex">\(O(n^2)\)</span> space:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:12"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><input id="__tabbed_8_5" name="__tabbed_8" type="radio" /><input id="__tabbed_8_6" name="__tabbed_8" type="radio" /><input id="__tabbed_8_7" name="__tabbed_8" type="radio" /><input id="__tabbed_8_8" name="__tabbed_8" type="radio" /><input id="__tabbed_8_9" name="__tabbed_8" type="radio" /><input id="__tabbed_8_10" name="__tabbed_8" type="radio" /><input id="__tabbed_8_11" name="__tabbed_8" type="radio" /><input id="__tabbed_8_12" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Python</label><label for="__tabbed_8_2">C++</label><label for="__tabbed_8_3">Java</label><label for="__tabbed_8_4">C#</label><label for="__tabbed_8_5">Go</label><label for="__tabbed_8_6">Swift</label><label for="__tabbed_8_7">JS</label><label for="__tabbed_8_8">TS</label><label for="__tabbed_8_9">Dart</label><label for="__tabbed_8_10">Rust</label><label for="__tabbed_8_11">C</label><label for="__tabbed_8_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2668,11 +2670,11 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 </div>
 </div>
 </div>
-<p><a class="glightbox" href="../space_complexity.assets/space_complexity_recursive_quadratic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Square-order space complexity generated by the recursion function" class="animation-figure" src="../space_complexity.assets/space_complexity_recursive_quadratic.png" /></a></p>
-<p align="center"> Figure 2-18 &nbsp; Square-order space complexity generated by the recursion function </p>
+<p><a class="glightbox" href="../space_complexity.assets/space_complexity_recursive_quadratic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Recursive Function Generating Quadratic Order Space Complexity" class="animation-figure" src="../space_complexity.assets/space_complexity_recursive_quadratic.png" /></a></p>
+<p align="center"> Figure 2-18 &nbsp; Recursive Function Generating Quadratic Order Space Complexity </p>
 
-<h3 id="4-exponential-order-o2n">4. &nbsp; Exponential Order <span class="arithmatex">\(O(2^N)\)</span><a class="headerlink" href="#4-exponential-order-o2n" title="Permanent link">&para;</a></h3>
-<p>Exponential order is common in binary trees. Looking at the Figure 2-19 , a "full binary tree" of degree <span class="arithmatex">\(n\)</span> has <span class="arithmatex">\(2^n - 1\)</span> nodes, occupying <span class="arithmatex">\(O(2^n)\)</span> space:</p>
+<h3 id="4-exponential-order-o2n">4. &nbsp; Exponential Order <span class="arithmatex">\(O(2^n)\)</span><a class="headerlink" href="#4-exponential-order-o2n" title="Permanent link">&para;</a></h3>
+<p>Exponential order is common in binary trees. Observe the below image, a "full binary tree" with <span class="arithmatex">\(n\)</span> levels has <span class="arithmatex">\(2^n - 1\)</span> nodes, occupying <span class="arithmatex">\(O(2^n)\)</span> space:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:12"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><input id="__tabbed_9_5" name="__tabbed_9" type="radio" /><input id="__tabbed_9_6" name="__tabbed_9" type="radio" /><input id="__tabbed_9_7" name="__tabbed_9" type="radio" /><input id="__tabbed_9_8" name="__tabbed_9" type="radio" /><input id="__tabbed_9_9" name="__tabbed_9" type="radio" /><input id="__tabbed_9_10" name="__tabbed_9" type="radio" /><input id="__tabbed_9_11" name="__tabbed_9" type="radio" /><input id="__tabbed_9_12" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Python</label><label for="__tabbed_9_2">C++</label><label for="__tabbed_9_3">Java</label><label for="__tabbed_9_4">C#</label><label for="__tabbed_9_5">Go</label><label for="__tabbed_9_6">Swift</label><label for="__tabbed_9_7">JS</label><label for="__tabbed_9_8">TS</label><label for="__tabbed_9_9">Dart</label><label for="__tabbed_9_10">Rust</label><label for="__tabbed_9_11">C</label><label for="__tabbed_9_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2818,16 +2820,16 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 </div>
 </div>
 </div>
-<p><a class="glightbox" href="../space_complexity.assets/space_complexity_exponential.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Exponential order space complexity generated by a full binary tree" class="animation-figure" src="../space_complexity.assets/space_complexity_exponential.png" /></a></p>
-<p align="center"> Figure 2-19 &nbsp; Exponential order space complexity generated by a full binary tree </p>
+<p><a class="glightbox" href="../space_complexity.assets/space_complexity_exponential.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Full Binary Tree Generating Exponential Order Space Complexity" class="animation-figure" src="../space_complexity.assets/space_complexity_exponential.png" /></a></p>
+<p align="center"> Figure 2-19 &nbsp; Full Binary Tree Generating Exponential Order Space Complexity </p>
 
-<h3 id="5-logarithmic-order-olog-n">5. &nbsp; Logarithmic Order <span class="arithmatex">\(O(\Log N)\)</span><a class="headerlink" href="#5-logarithmic-order-olog-n" title="Permanent link">&para;</a></h3>
-<p>Logarithmic order is commonly used in divide and conquer algorithms. For example, in a merge sort, given an array of length <span class="arithmatex">\(n\)</span> as the input, each round of recursion divides the array in half from its midpoint to form a recursion tree of height <span class="arithmatex">\(\log n\)</span>, using <span class="arithmatex">\(O(\log n)\)</span> stack frame space.</p>
-<p>Another example is to convert a number into a string. Given a positive integer <span class="arithmatex">\(n\)</span> with a digit count of <span class="arithmatex">\(\log_{10} n + 1\)</span>, the corresponding string length is <span class="arithmatex">\(\log_{10} n + 1\)</span>. Therefore, the space complexity is <span class="arithmatex">\(O(\log_{10} n + 1) = O(\log n)\)</span>.</p>
-<h2 id="244-weighing-time-and-space">2.4.4 &nbsp; Weighing Time And Space<a class="headerlink" href="#244-weighing-time-and-space" title="Permanent link">&para;</a></h2>
-<p>Ideally, we would like to optimize both the time complexity and the space complexity of an algorithm. However, in reality, simultaneously optimizing time and space complexity is often challenging.</p>
-<p><strong>Reducing time complexity usually comes at the expense of increasing space complexity, and vice versa</strong>. The approach of sacrificing memory space to improve algorithm speed is known as "trading space for time", while the opposite is called "trading time for space".</p>
-<p>The choice between these approaches depends on which aspect we prioritize. In most cases, time is more valuable than space, so "trading space for time" is usually the more common strategy. Of course, in situations with large data volumes, controlling space complexity is also crucial.</p>
+<h3 id="5-logarithmic-order-olog-n">5. &nbsp; Logarithmic Order <span class="arithmatex">\(O(\log n)\)</span><a class="headerlink" href="#5-logarithmic-order-olog-n" title="Permanent link">&para;</a></h3>
+<p>Logarithmic order is common in divide-and-conquer algorithms. For example, in merge sort, an array of length <span class="arithmatex">\(n\)</span> is recursively divided in half each round, forming a recursion tree of height <span class="arithmatex">\(\log n\)</span>, using <span class="arithmatex">\(O(\log n)\)</span> stack frame space.</p>
+<p>Another example is converting a number to a string. Given a positive integer <span class="arithmatex">\(n\)</span>, its number of digits is <span class="arithmatex">\(\log_{10} n + 1\)</span>, corresponding to the length of the string, thus the space complexity is <span class="arithmatex">\(O(\log_{10} n + 1) = O(\log n)\)</span>.</p>
+<h2 id="244-balancing-time-and-space">2.4.4 &nbsp; Balancing Time and Space<a class="headerlink" href="#244-balancing-time-and-space" title="Permanent link">&para;</a></h2>
+<p>Ideally, we aim for both time complexity and space complexity to be optimal. However, in practice, optimizing both simultaneously is often difficult.</p>
+<p><strong>Lowering time complexity usually comes at the cost of increased space complexity, and vice versa</strong>. The approach of sacrificing memory space to improve algorithm speed is known as "space-time tradeoff"; the reverse is known as "time-space tradeoff".</p>
+<p>The choice depends on which aspect we value more. In most cases, time is more precious than space, so "space-time tradeoff" is often the more common strategy. Of course, controlling space complexity is also very important when dealing with large volumes of data.</p>
 
 <!-- Source file information -->
 

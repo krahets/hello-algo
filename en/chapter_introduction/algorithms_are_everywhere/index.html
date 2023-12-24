@@ -799,47 +799,47 @@
 
 
 <!-- Page content -->
-<h1 id="11-algorithms-are-everywhere">1.1 &nbsp; Algorithms Are Everywhere<a class="headerlink" href="#11-algorithms-are-everywhere" title="Permanent link">&para;</a></h1>
-<p>When we hear the word "algorithm", we naturally think of mathematics. However, many algorithms do not involve complex mathematics but rely more on basic logic, which is ubiquitous in our daily lives.</p>
-<p>Before we formally discuss algorithms, an interesting fact is worth sharing: <strong>you have already learned many algorithms unconsciously and have become accustomed to applying them in your daily life</strong>. Below, I will give a few specific examples to prove this point.</p>
-<p><strong>Example 1: Looking Up a Dictionary</strong>. In a standard dictionary, each word corresponds to a phonetic transcription and the dictionary is organized alphabetically based on these transcriptions. Let's say we're looking for a word that begins with the letter <span class="arithmatex">\(r\)</span>. This is typically done in the following way:</p>
+<h1 id="11-algorithms-are-everywhere">1.1 &nbsp; Algorithms are Everywhere<a class="headerlink" href="#11-algorithms-are-everywhere" title="Permanent link">&para;</a></h1>
+<p>When we hear the word "algorithm," we naturally think of mathematics. However, many algorithms do not involve complex mathematics but rely more on basic logic, which can be seen everywhere in our daily lives.</p>
+<p>Before formally discussing algorithms, there's an interesting fact worth sharing: <strong>you have already unconsciously learned many algorithms and have become accustomed to applying them in your daily life</strong>. Here, I will give a few specific examples to prove this point.</p>
+<p><strong>Example 1: Looking Up a Dictionary</strong>. In an English dictionary, words are listed alphabetically. Suppose we're searching for a word that starts with the letter <span class="arithmatex">\(r\)</span>. This is typically done in the following way:</p>
 <ol>
-<li>Open the dictionary around its midpoint and note the first letter on that page, assuming it to be <span class="arithmatex">\(m\)</span>.</li>
-<li>Given the sequence of words following the initial letter <span class="arithmatex">\(m\)</span>, estimate where words starting with the letter <span class="arithmatex">\(r\)</span> might be located within the alphabetical order.</li>
-<li>Iterate steps <code>1.</code> and <code>2.</code> until you find the page where the word begins with the letter <span class="arithmatex">\(r\)</span>.</li>
+<li>Open the dictionary to about halfway and check the first letter on the page, let's say the letter is <span class="arithmatex">\(m\)</span>.</li>
+<li>Since <span class="arithmatex">\(r\)</span> comes after <span class="arithmatex">\(m\)</span> in the alphabet, we can ignore the first half of the dictionary and focus on the latter half.</li>
+<li>Repeat steps <code>1.</code> and <code>2.</code> until you find the page where the word starts with <span class="arithmatex">\(r\)</span>.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dictionary search step" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step1.png" /></a></p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Process of Looking Up a Dictionary" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step1.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_dictionary_step2" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step2.png" /></a></p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary Search in Dictionary Step 2" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step2.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_dictionary_step3" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step3.png" /></a></p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary Search in Dictionary Step 3" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step3.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_dictionary_step4" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step4.png" /></a></p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary Search in Dictionary Step 4" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step4.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="binary_search_dictionary_step5" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step5.png" /></a></p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary Search in Dictionary Step 5" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step5.png" /></a></p>
 </div>
 </div>
 </div>
-<p align="center"> Figure 1-1 &nbsp; Dictionary search step </p>
+<p align="center"> Figure 1-1 &nbsp; Process of Looking Up a Dictionary </p>
 
-<p>The skill of looking up a dictionary, essential for elementary school students, is actually the renowned binary search algorithm. Through the lens of data structures, we can view the dictionary as a sorted "array"; while from an algorithmic perspective, the series of operations in looking up a dictionary can be seen as "binary search".</p>
-<p><strong>Example 2: Organizing Playing Cards</strong>. When playing cards, we need to arrange the cards in ascending order each game, as shown in the following process.</p>
+<p>This essential skill for elementary students, looking up a dictionary, is actually the famous "Binary Search" algorithm. From a data structure perspective, we can consider the dictionary as a sorted "array"; from an algorithmic perspective, the series of actions taken to look up a word in the dictionary can be viewed as "Binary Search."</p>
+<p><strong>Example 2: Organizing Playing Cards</strong>. When playing cards, we need to arrange the cards in our hand in ascending order, as shown in the following process.</p>
 <ol>
-<li>Divide the playing cards into "ordered" and "unordered" parts, assuming initially that the leftmost card is already ordered.</li>
-<li>Take out a card from the unordered part and insert it into the correct position in the ordered part; once completed, the leftmost two cards will be in an ordered sequence.</li>
-<li>Continue the loop described in step <code>2.</code>, each iteration involving insertion of one card from the unordered segment into the ordered portion, until all cards are appropriately ordered.</li>
+<li>Divide the playing cards into "ordered" and "unordered" sections, assuming initially the leftmost card is already in order.</li>
+<li>Take out a card from the unordered section and insert it into the correct position in the ordered section; after this, the leftmost two cards are in order.</li>
+<li>Continue to repeat step <code>2.</code> until all cards are in order.</li>
 </ol>
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/playing_cards_sorting.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Playing cards sorting process" class="animation-figure" src="../algorithms_are_everywhere.assets/playing_cards_sorting.png" /></a></p>
-<p align="center"> Figure 1-2 &nbsp; Playing cards sorting process </p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/playing_cards_sorting.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Playing Cards Sorting Process" class="animation-figure" src="../algorithms_are_everywhere.assets/playing_cards_sorting.png" /></a></p>
+<p align="center"> Figure 1-2 &nbsp; Playing Cards Sorting Process </p>
 
-<p>The above method of organizing playing cards is essentially the "insertion sort" algorithm, which is very efficient for small datasets. Many programming languages' sorting library functions include insertion sort.</p>
+<p>The above method of organizing playing cards is essentially the "Insertion Sort" algorithm, which is very efficient for small datasets. Many programming languages' sorting functions include the insertion sort.</p>
 <p><strong>Example 3: Making Change</strong>. Suppose we buy goods worth <span class="arithmatex">\(69\)</span> yuan at a supermarket and give the cashier <span class="arithmatex">\(100\)</span> yuan, then the cashier needs to give us <span class="arithmatex">\(31\)</span> yuan in change. They would naturally complete the thought process as shown below.</p>
 <ol>
 <li>The options are currencies smaller than <span class="arithmatex">\(31\)</span>, including <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(5\)</span>, <span class="arithmatex">\(10\)</span>, and <span class="arithmatex">\(20\)</span>.</li>
@@ -851,8 +851,8 @@
 <p><a class="glightbox" href="../algorithms_are_everywhere.assets/greedy_change.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Change making process" class="animation-figure" src="../algorithms_are_everywhere.assets/greedy_change.png" /></a></p>
 <p align="center"> Figure 1-3 &nbsp; Change making process </p>
 
-<p>In the aforementioned steps, at each stage, we make the optimal choice (utilizing the highest denomination possible), ultimately deriving at a feasible change-making approach. From the perspective of data structures and algorithms, this approach is essentially a "greedy" algorithm.</p>
-<p>From preparing a dish to traversing interstellar realms, virtually every problem-solving endeavor relies on algorithms. The emergence of computers enables us to store data structures in memory and write code to call CPUs and GPUs to execute algorithms. Consequently, we can transfer real-life predicaments to computers, efficiently addressing a myriad of complex issues.</p>
+<p>In the above steps, we make the best choice at each step (using the largest denomination possible), ultimately resulting in a feasible change-making plan. From the perspective of data structures and algorithms, this method is essentially a "Greedy" algorithm.</p>
+<p>From cooking a meal to interstellar travel, almost all problem-solving involves algorithms. The advent of computers allows us to store data structures in memory and write code to call the CPU and GPU to execute algorithms. In this way, we can transfer real-life problems to computers, solving various complex issues more efficiently.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If concepts such as data structures, algorithms, arrays, and binary search still seem somewhat obsecure, I encourage you to continue reading. This book will gently guide you into the realm of understanding data structures and algorithms.</p>

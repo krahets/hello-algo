@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#22-iteration-vs-recursion" class="md-skip">
+        <a href="#22-iteration-and-recursion" class="md-skip">
           Skip to content
         </a>
       
@@ -707,9 +707,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-for-loops" class="md-nav__link">
+  <a href="#1-for-loop" class="md-nav__link">
     <span class="md-ellipsis">
-      1. &nbsp; For Loops
+      1. &nbsp; for Loop
     </span>
   </a>
   
@@ -718,7 +718,7 @@
           <li class="md-nav__item">
   <a href="#2-while-loop" class="md-nav__link">
     <span class="md-ellipsis">
-      2. &nbsp; While Loop
+      2. &nbsp; while Loop
     </span>
   </a>
   
@@ -749,9 +749,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-call-the-stack" class="md-nav__link">
+  <a href="#1-call-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      1. &nbsp; Call The Stack
+      1. &nbsp; Call Stack
     </span>
   </a>
   
@@ -781,9 +781,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#223-compare-the-two" class="md-nav__link">
+  <a href="#223-comparison" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2.3 &nbsp; Compare The Two
+      2.2.3 &nbsp; Comparison
     </span>
   </a>
   
@@ -905,9 +905,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-for-loops" class="md-nav__link">
+  <a href="#1-for-loop" class="md-nav__link">
     <span class="md-ellipsis">
-      1. &nbsp; For Loops
+      1. &nbsp; for Loop
     </span>
   </a>
   
@@ -916,7 +916,7 @@
           <li class="md-nav__item">
   <a href="#2-while-loop" class="md-nav__link">
     <span class="md-ellipsis">
-      2. &nbsp; While Loop
+      2. &nbsp; while Loop
     </span>
   </a>
   
@@ -947,9 +947,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-call-the-stack" class="md-nav__link">
+  <a href="#1-call-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      1. &nbsp; Call The Stack
+      1. &nbsp; Call Stack
     </span>
   </a>
   
@@ -979,9 +979,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#223-compare-the-two" class="md-nav__link">
+  <a href="#223-comparison" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2.3 &nbsp; Compare The Two
+      2.2.3 &nbsp; Comparison
     </span>
   </a>
   
@@ -1023,13 +1023,13 @@
 
 
 <!-- Page content -->
-<h1 id="22-iteration-vs-recursion">2.2 &nbsp; Iteration vs. Recursion<a class="headerlink" href="#22-iteration-vs-recursion" title="Permanent link">&para;</a></h1>
-<p>In data structures and algorithms, it is common to repeat a task, which is closely related to the complexity of the algorithm. There are two basic program structures that we usually use to repeat a task: iteration and recursion.</p>
+<h1 id="22-iteration-and-recursion">2.2 &nbsp; Iteration and Recursion<a class="headerlink" href="#22-iteration-and-recursion" title="Permanent link">&para;</a></h1>
+<p>In algorithms, repeatedly performing a task is common and closely related to complexity analysis. Therefore, before introducing time complexity and space complexity, let's first understand how to implement task repetition in programs, focusing on two basic programming control structures: iteration and recursion.</p>
 <h2 id="221-iteration">2.2.1 &nbsp; Iteration<a class="headerlink" href="#221-iteration" title="Permanent link">&para;</a></h2>
-<p>An "iteration iteration" is a control structure that repeats a task. In iteration, a program repeats the execution of a piece of code until the condition is no longer satisfied.</p>
-<h3 id="1-for-loops">1. &nbsp; For Loops<a class="headerlink" href="#1-for-loops" title="Permanent link">&para;</a></h3>
-<p><code>for</code> loops are one of the most common forms of iteration, <strong>suitable when the number of iterations is known in advance</strong>.</p>
-<p>The following function implements the summation <span class="arithmatex">\(1 + 2 + \dots + n\)</span> based on a <code>for</code> loop, and the result is recorded using the variable <code>res</code>. Note that <code>range(a, b)</code> in Python corresponds to a "left-closed-right-open" interval, which is traversed in the range <span class="arithmatex">\(a, a + 1, \dots, b-1\)</span>.</p>
+<p>"Iteration" is a control structure for repeatedly performing a task. In iteration, a program repeats a block of code as long as a certain condition is met, until this condition is no longer satisfied.</p>
+<h3 id="1-for-loop">1. &nbsp; for Loop<a class="headerlink" href="#1-for-loop" title="Permanent link">&para;</a></h3>
+<p>The <code>for</code> loop is one of the most common forms of iteration, <strong>suitable for use when the number of iterations is known in advance</strong>.</p>
+<p>The following function implements the sum <span class="arithmatex">\(1 + 2 + \dots + n\)</span> using a <code>for</code> loop, with the sum result recorded in the variable <code>res</code>. Note that in Python, <code>range(a, b)</code> corresponds to a "left-closed, right-open" interval, covering <span class="arithmatex">\(a, a + 1, \dots, b-1\)</span>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1176,14 +1176,14 @@
 </div>
 </div>
 </div>
-<p>The Figure 2-1  shows the flow block diagram of this summation function.</p>
-<p><a class="glightbox" href="../iteration_and_recursion.assets/iteration.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Flow block diagram of the summation function" class="animation-figure" src="../iteration_and_recursion.assets/iteration.png" /></a></p>
-<p align="center"> Figure 2-1 &nbsp; Flow block diagram of the summation function </p>
+<p>The flowchart below represents this sum function.</p>
+<p><a class="glightbox" href="../iteration_and_recursion.assets/iteration.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Flowchart of the Sum Function" class="animation-figure" src="../iteration_and_recursion.assets/iteration.png" /></a></p>
+<p align="center"> Figure 2-1 &nbsp; Flowchart of the Sum Function </p>
 
-<p>The number of operations in this summation function is proportional to the size of the input data <span class="arithmatex">\(n\)</span>, or a "linear relationship". In fact, <strong>time complexity describes this "linear relationship"</strong>. This is described in more detail in the next section.</p>
-<h3 id="2-while-loop">2. &nbsp; While Loop<a class="headerlink" href="#2-while-loop" title="Permanent link">&para;</a></h3>
-<p>Similar to a <code>for</code> loop, a <code>while</code> loop is a way to implement iteration. In a <code>while</code> loop, the program first checks the condition at each turn, and if the condition is true, it continues, otherwise it ends the loop.</p>
-<p>Below, we use a <code>while</code> loop to realize the summation <span class="arithmatex">\(1 + 2 + \dots + n\)</span> .</p>
+<p>The number of operations in this sum function is proportional to the input data size <span class="arithmatex">\(n\)</span>, or in other words, it has a "linear relationship". This is actually what <strong>time complexity describes</strong>. This topic will be detailed in the next section.</p>
+<h3 id="2-while-loop">2. &nbsp; while Loop<a class="headerlink" href="#2-while-loop" title="Permanent link">&para;</a></h3>
+<p>Similar to the <code>for</code> loop, the <code>while</code> loop is another method to implement iteration. In a <code>while</code> loop, the program checks the condition in each round; if the condition is true, it continues, otherwise, the loop ends.</p>
+<p>Below we use a <code>while</code> loop to implement the sum <span class="arithmatex">\(1 + 2 + \dots + n\)</span>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1356,8 +1356,8 @@
 </div>
 </div>
 </div>
-<p>In <code>while</code> loops, since the steps of initializing and updating condition variables are independent of the loop structure, <strong>it has more degrees of freedom than <code>for</code> loops</strong>.</p>
-<p>For example, in the following code, the condition variable <span class="arithmatex">\(i\)</span> is updated twice per round, which is not convenient to implement with a <code>for</code> loop.</p>
+<p><strong>The <code>while</code> loop is more flexible than the <code>for</code> loop</strong>. In a <code>while</code> loop, we can freely design the initialization and update steps of the condition variable.</p>
+<p>For example, in the following code, the condition variable <span class="arithmatex">\(i\)</span> is updated twice in each round, which would be inconvenient to implement with a <code>for</code> loop:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1553,9 +1553,9 @@
 </div>
 </div>
 </div>
-<p>Overall, <strong><code>for</code> loops have more compact code and <code>while</code> loops are more flexible</strong>, and both can implement iteration structures. The choice of which one to use should be based on the needs of the particular problem.</p>
+<p>Overall, <strong><code>for</code> loops are more concise, while <code>while</code> loops are more flexible</strong>. Both can implement iterative structures. Which one to use should be determined based on the specific requirements of the problem.</p>
 <h3 id="3-nested-loops">3. &nbsp; Nested Loops<a class="headerlink" href="#3-nested-loops" title="Permanent link">&para;</a></h3>
-<p>We can nest one loop structure inside another, using the <code>for</code> loop as an example:</p>
+<p>We can nest one loop structure within another. Below is an example using <code>for</code> loops:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:12"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1744,25 +1744,25 @@
 </div>
 </div>
 </div>
-<p>The Figure 2-2  gives the block diagram of the flow of this nested loop.</p>
-<p><a class="glightbox" href="../iteration_and_recursion.assets/nested_iteration.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Block diagram of the flow of nested loops" class="animation-figure" src="../iteration_and_recursion.assets/nested_iteration.png" /></a></p>
-<p align="center"> Figure 2-2 &nbsp; Block diagram of the flow of nested loops </p>
+<p>The flowchart below represents this nested loop.</p>
+<p><a class="glightbox" href="../iteration_and_recursion.assets/nested_iteration.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Flowchart of the Nested Loop" class="animation-figure" src="../iteration_and_recursion.assets/nested_iteration.png" /></a></p>
+<p align="center"> Figure 2-2 &nbsp; Flowchart of the Nested Loop </p>
 
-<p>In this case, the number of operations of the function is proportional to <span class="arithmatex">\(n^2\)</span>, or the algorithm's running time is "squared" to the size of the input data <span class="arithmatex">\(n\)</span>.</p>
-<p>We can continue to add nested loops, and each nest is a "dimension up", which will increase the time complexity to "cubic relations", "quadratic relations", and so on.</p>
+<p>In this case, the number of operations in the function is proportional to <span class="arithmatex">\(n^2\)</span>, or the algorithm's running time and the input data size <span class="arithmatex">\(n\)</span> have a "quadratic relationship".</p>
+<p>We can continue adding nested loops, each nesting is a "dimensional escalation," which will increase the time complexity to "cubic," "quartic," and so on.</p>
 <h2 id="222-recursion">2.2.2 &nbsp; Recursion<a class="headerlink" href="#222-recursion" title="Permanent link">&para;</a></h2>
-<p>"Recursion recursion is an algorithmic strategy to solve a problem by calling the function itself. It consists of two main phases.</p>
+<p>"Recursion" is an algorithmic strategy that solves problems by having a function call itself. It mainly consists of two phases.</p>
 <ol>
-<li><strong>recursive</strong>: the program calls itself deeper and deeper, usually passing smaller or simpler arguments, until a "termination condition" is reached.</li>
-<li><strong>Recursion</strong>: After the "termination condition" is triggered, the program returns from the deepest level of the recursion function, level by level, aggregating the results of each level.</li>
+<li><strong>Recursion</strong>: The program continuously calls itself, usually with smaller or more simplified parameters, until reaching a "termination condition."</li>
+<li><strong>Return</strong>: Upon triggering the "termination condition," the program begins to return from the deepest recursive function, aggregating the results of each layer.</li>
 </ol>
-<p>And from an implementation point of view, recursion code contains three main elements.</p>
+<p>From an implementation perspective, recursive code mainly includes three elements.</p>
 <ol>
-<li><strong>Termination condition</strong>: used to decide when to switch from "recursive" to "inductive".</li>
-<li><strong>Recursion call</strong>: corresponds to "recursion", where the function calls itself, usually with smaller or more simplified input parameters.</li>
-<li><strong>return result</strong>: corresponds to "return", returning the result of the current recursion level to the previous one.</li>
+<li><strong>Termination Condition</strong>: Determines when to switch from "recursion" to "return."</li>
+<li><strong>Recursive Call</strong>: Corresponds to "recursion," where the function calls itself, usually with smaller or more simplified parameters.</li>
+<li><strong>Return Result</strong>: Corresponds to "return," where the result of the current recursion level is returned to the previous layer.</li>
 </ol>
-<p>Observe the following code, we only need to call the function <code>recur(n)</code> , and the calculation of <span class="arithmatex">\(1 + 2 + \dots + n\)</span> is done:</p>
+<p>Observe the following code, where calling the function <code>recur(n)</code> completes the computation of <span class="arithmatex">\(1 + 2 + \dots + n\)</span>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Java</label><label for="__tabbed_5_4">C#</label><label for="__tabbed_5_5">Go</label><label for="__tabbed_5_6">Swift</label><label for="__tabbed_5_7">JS</label><label for="__tabbed_5_8">TS</label><label for="__tabbed_5_9">Dart</label><label for="__tabbed_5_10">Rust</label><label for="__tabbed_5_11">C</label><label for="__tabbed_5_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1923,38 +1923,38 @@
 </div>
 </div>
 </div>
-<p>The Figure 2-3  shows the recursion of the function.</p>
-<p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_sum.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Recursion process for the summation function" class="animation-figure" src="../iteration_and_recursion.assets/recursion_sum.png" /></a></p>
-<p align="center"> Figure 2-3 &nbsp; Recursion process for the summation function </p>
+<p>The Figure 2-3  shows the recursive process of this function.</p>
+<p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_sum.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Recursive Process of the Sum Function" class="animation-figure" src="../iteration_and_recursion.assets/recursion_sum.png" /></a></p>
+<p align="center"> Figure 2-3 &nbsp; Recursive Process of the Sum Function </p>
 
-<p>Although iteration and recursion can yield the same results from a computational point of view, <strong>they represent two completely different paradigms for thinking about and solving problems</strong>.</p>
+<p>Although iteration and recursion can achieve the same results from a computational standpoint, <strong>they represent two entirely different paradigms of thinking and solving problems</strong>.</p>
 <ul>
-<li><strong>Iteration</strong>: solving problems "from the bottom up". Start with the most basic steps and repeat or add to them until the task is completed.</li>
-<li><strong>Recursion</strong>: solving problems "from the top down". The original problem is broken down into smaller subproblems that have the same form as the original problem. Next, the subproblem continues to be broken down into smaller subproblems until it stops at the base case (the solution to the base case is known).</li>
+<li><strong>Iteration</strong>: Solves problems "from the bottom up." It starts with the most basic steps, then repeatedly adds or accumulates these steps until the task is complete.</li>
+<li><strong>Recursion</strong>: Solves problems "from the top down." It breaks down the original problem into smaller sub-problems, each of which has the same form as the original problem. These sub-problems are then further decomposed into even smaller sub-problems, stopping at the base case (whose solution is known).</li>
 </ul>
-<p>As an example of the above summation function, set the problem <span class="arithmatex">\(f(n) = 1 + 2 + \dots + n\)</span> .</p>
+<p>Taking the sum function as an example, let's define the problem as <span class="arithmatex">\(f(n) = 1 + 2 + \dots + n\)</span>.</p>
 <ul>
-<li><strong>Iteration</strong>: the summation process is simulated in a loop, iterating from <span class="arithmatex">\(1\)</span> to <span class="arithmatex">\(n\)</span> and executing the summation operation in each round to find <span class="arithmatex">\(f(n)\)</span>.</li>
-<li><strong>Recursion</strong>: decompose the problem into subproblems <span class="arithmatex">\(f(n) = n + f(n-1)\)</span> and keep (recursively) decomposing until the base case <span class="arithmatex">\(f(1) = 1\)</span> terminates.</li>
+<li><strong>Iteration</strong>: In a loop, simulate the summing process, iterating from <span class="arithmatex">\(1\)</span> to <span class="arithmatex">\(n\)</span>, performing the sum operation in each round, to obtain <span class="arithmatex">\(f(n)\)</span>.</li>
+<li><strong>Recursion</strong>: Break down the problem into sub-problems <span class="arithmatex">\(f(n) = n + f(n-1)\)</span>, continuously (recursively) decomposing until reaching the base case <span class="arithmatex">\(f(1) = 1\)</span> and then stopping.</li>
 </ul>
-<h3 id="1-call-the-stack">1. &nbsp; Call The Stack<a class="headerlink" href="#1-call-the-stack" title="Permanent link">&para;</a></h3>
-<p>Each time a recursion function calls itself, the system allocates memory for the newly opened function to store local variables, call addresses, other information, and so on. This results in two things.</p>
+<h3 id="1-call-stack">1. &nbsp; Call Stack<a class="headerlink" href="#1-call-stack" title="Permanent link">&para;</a></h3>
+<p>Each time a recursive function calls itself, the system allocates memory for the newly initiated function to store local variables, call addresses, and other information. This leads to two main consequences.</p>
 <ul>
-<li>The context data for a function is stored in an area of memory called "stack frame space" and is not freed until the function returns. As a result, <strong>recursion is usually more memory-intensive than iteration</strong>.</li>
-<li>Recursion calls to functions incur additional overhead. <strong>Therefore recursion is usually less time efficient than loops</strong>.</li>
+<li>The function's context data is stored in a memory area called "stack frame space" and is only released after the function returns. Therefore, <strong>recursion generally consumes more memory space than iteration</strong>.</li>
+<li>Recursive calls introduce additional overhead. <strong>Hence, recursion is usually less time-efficient than loops</strong>.</li>
 </ul>
-<p>As shown in the Figure 2-4 , before the termination condition is triggered, there are <span class="arithmatex">\(n\)</span> unreturned recursion functions at the same time, <strong>with a recursion depth of <span class="arithmatex">\(n\)</span></strong> .</p>
-<p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_sum_depth.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Recursion call depth" class="animation-figure" src="../iteration_and_recursion.assets/recursion_sum_depth.png" /></a></p>
-<p align="center"> Figure 2-4 &nbsp; Recursion call depth </p>
+<p>As shown in the Figure 2-4 , there are <span class="arithmatex">\(n\)</span> unreturned recursive functions before triggering the termination condition, indicating a <strong>recursion depth of <span class="arithmatex">\(n\)</span></strong>.</p>
+<p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_sum_depth.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Recursion Call Depth" class="animation-figure" src="../iteration_and_recursion.assets/recursion_sum_depth.png" /></a></p>
+<p align="center"> Figure 2-4 &nbsp; Recursion Call Depth </p>
 
-<p>In practice, the depth of recursion allowed by a programming language is usually limited, and too deep a recursion may result in a stack overflow error.</p>
+<p>In practice, the depth of recursion allowed by programming languages is usually limited, and excessively deep recursion can lead to stack overflow errors.</p>
 <h3 id="2-tail-recursion">2. &nbsp; Tail Recursion<a class="headerlink" href="#2-tail-recursion" title="Permanent link">&para;</a></h3>
-<p>Interestingly, <strong>if a function makes a recursion call only at the last step before returning</strong>, the function can be optimized by the compiler or interpreter to be comparable to iteration in terms of space efficiency. This situation is called "tail recursion tail recursion".</p>
+<p>Interestingly, <strong>if a function makes its recursive call as the last step before returning</strong>, it can be optimized by compilers or interpreters to be as space-efficient as iteration. This scenario is known as "tail recursion".</p>
 <ul>
-<li><strong>Ordinary recursion</strong>: when a function returns to a function at a higher level, it needs to continue executing the code, so the system needs to save the context of the previous call.</li>
-<li><strong>tail recursion</strong>: the recursion call is the last operation before the function returns, which means that the function does not need to continue with other operations after returning to the previous level, so the system does not need to save the context of the previous function.</li>
+<li><strong>Regular Recursion</strong>: The function needs to perform more code after returning to the previous level, so the system needs to save the context of the previous call.</li>
+<li><strong>Tail Recursion</strong>: The recursive call is the last operation before the function returns, meaning no further actions are required upon returning to the previous level, so the system doesn't need to save the context of the previous level's function.</li>
 </ul>
-<p>In the case of calculating <span class="arithmatex">\(1 + 2 + \dots + n\)</span>, for example, we can implement tail recursion by setting the result variable <code>res</code> as a function parameter.</p>
+<p>For example, in calculating <span class="arithmatex">\(1 + 2 + \dots + n\)</span>, we can make the result variable <code>res</code> a parameter of the function, thereby achieving tail recursion:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Java</label><label for="__tabbed_6_4">C#</label><label for="__tabbed_6_5">Go</label><label for="__tabbed_6_6">Swift</label><label for="__tabbed_6_7">JS</label><label for="__tabbed_6_8">TS</label><label for="__tabbed_6_9">Dart</label><label for="__tabbed_6_10">Rust</label><label for="__tabbed_6_11">C</label><label for="__tabbed_6_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2091,30 +2091,30 @@
 </div>
 </div>
 </div>
-<p>The execution of tail recursion is shown in the Figure 2-5 . Comparing normal recursion and tail recursion, the execution point of the summation operation is different.</p>
+<p>The execution process of tail recursion is shown in the following figure. Comparing regular recursion and tail recursion, the point of the summation operation is different.</p>
 <ul>
-<li><strong>Ordinary recursion</strong>: the summing operation is performed during the "return" process, and the summing operation is performed again after returning from each level.</li>
-<li><strong>Tail recursion</strong>: the summing operation is performed in a "recursion" process, the "recursion" process simply returns in levels.</li>
+<li><strong>Regular Recursion</strong>: The summation operation occurs during the "return" phase, requiring another summation after each layer returns.</li>
+<li><strong>Tail Recursion</strong>: The summation operation occurs during the "recursion" phase, and the "return" phase only involves returning through each layer.</li>
 </ul>
-<p><a class="glightbox" href="../iteration_and_recursion.assets/tail_recursion_sum.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="tail recursion process" class="animation-figure" src="../iteration_and_recursion.assets/tail_recursion_sum.png" /></a></p>
-<p align="center"> Figure 2-5 &nbsp; tail recursion process </p>
+<p><a class="glightbox" href="../iteration_and_recursion.assets/tail_recursion_sum.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Tail Recursion Process" class="animation-figure" src="../iteration_and_recursion.assets/tail_recursion_sum.png" /></a></p>
+<p align="center"> Figure 2-5 &nbsp; Tail Recursion Process </p>
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Note that many compilers or interpreters do not support tail recursion optimization. For example, Python does not support tail recursion optimization by default, so even if a function is tail recursive, you may still encounter stack overflow problems.</p>
+<p>Note that many compilers or interpreters do not support tail recursion optimization. For example, Python does not support tail recursion optimization by default, so even if the function is in the form of tail recursion, it may still encounter stack overflow issues.</p>
 </div>
 <h3 id="3-recursion-tree">3. &nbsp; Recursion Tree<a class="headerlink" href="#3-recursion-tree" title="Permanent link">&para;</a></h3>
-<p>When dealing with algorithmic problems related to divide and conquer, recursion is often more intuitive and easier to read than iteration. Take the Fibonacci sequence as an example.</p>
+<p>When dealing with algorithms related to "divide and conquer", recursion often offers a more intuitive approach and more readable code than iteration. Take the "Fibonacci sequence" as an example.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given a Fibonacci series <span class="arithmatex">\(0, 1, 1, 2, 3, 5, 8, 13, \dots\)</span> , find the <span class="arithmatex">\(n\)</span>th number of the series.</p>
+<p>Given a Fibonacci sequence <span class="arithmatex">\(0, 1, 1, 2, 3, 5, 8, 13, \dots\)</span>, find the <span class="arithmatex">\(n\)</span>th number in the sequence.</p>
 </div>
-<p>Let the <span class="arithmatex">\(n\)</span>th number of the Fibonacci series be <span class="arithmatex">\(f(n)\)</span> , which leads to two easy conclusions.</p>
+<p>Let the <span class="arithmatex">\(n\)</span>th number of the Fibonacci sequence be <span class="arithmatex">\(f(n)\)</span>, it's easy to deduce two conclusions:</p>
 <ul>
-<li>The first two numbers of the series are <span class="arithmatex">\(f(1) = 0\)</span> and <span class="arithmatex">\(f(2) = 1\)</span>.</li>
-<li>Each number in the series is the sum of the previous two numbers, i.e. <span class="arithmatex">\(f(n) = f(n - 1) + f(n - 2)\)</span> .</li>
+<li>The first two numbers of the sequence are <span class="arithmatex">\(f(1) = 0\)</span> and <span class="arithmatex">\(f(2) = 1\)</span>.</li>
+<li>Each number in the sequence is the sum of the two preceding ones, that is, <span class="arithmatex">\(f(n) = f(n - 1) + f(n - 2)\)</span>.</li>
 </ul>
-<p>Recursion code can be written by making recursion calls according to the recursion relationship, using the first two numbers as termination conditions. Call <code>fib(n)</code> to get the <span class="arithmatex">\(n\)</span>th number of the Fibonacci series.</p>
+<p>Using the recursive relation, and considering the first two numbers as termination conditions, we can write the recursive code. Calling <code>fib(n)</code> will yield the <span class="arithmatex">\(n\)</span>th number of the Fibonacci sequence:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:12"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><input id="__tabbed_7_5" name="__tabbed_7" type="radio" /><input id="__tabbed_7_6" name="__tabbed_7" type="radio" /><input id="__tabbed_7_7" name="__tabbed_7" type="radio" /><input id="__tabbed_7_8" name="__tabbed_7" type="radio" /><input id="__tabbed_7_9" name="__tabbed_7" type="radio" /><input id="__tabbed_7_10" name="__tabbed_7" type="radio" /><input id="__tabbed_7_11" name="__tabbed_7" type="radio" /><input id="__tabbed_7_12" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">C++</label><label for="__tabbed_7_3">Java</label><label for="__tabbed_7_4">C#</label><label for="__tabbed_7_5">Go</label><label for="__tabbed_7_6">Swift</label><label for="__tabbed_7_7">JS</label><label for="__tabbed_7_8">TS</label><label for="__tabbed_7_9">Dart</label><label for="__tabbed_7_10">Rust</label><label for="__tabbed_7_11">C</label><label for="__tabbed_7_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2275,63 +2275,63 @@
 </div>
 </div>
 </div>
-<p>Looking at the above code, we have recursively called two functions within a function, <strong>this means that from one call, two call branches are created</strong>. As shown in the Figure 2-6 , this recursion will result in a recursion tree with the number of levels <span class="arithmatex">\(n\)</span>.</p>
-<p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Recursion tree for Fibonacci series" class="animation-figure" src="../iteration_and_recursion.assets/recursion_tree.png" /></a></p>
-<p align="center"> Figure 2-6 &nbsp; Recursion tree for Fibonacci series </p>
+<p>Observing the above code, we see that it recursively calls two functions within itself, <strong>meaning that one call generates two branching calls</strong>. As illustrated below, this continuous recursive calling eventually creates a "recursion tree" with a depth of <span class="arithmatex">\(n\)</span>.</p>
+<p><a class="glightbox" href="../iteration_and_recursion.assets/recursion_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Fibonacci Sequence Recursion Tree" class="animation-figure" src="../iteration_and_recursion.assets/recursion_tree.png" /></a></p>
+<p align="center"> Figure 2-6 &nbsp; Fibonacci Sequence Recursion Tree </p>
 
-<p>Essentially, recursion embodies the paradigm of "breaking down a problem into smaller sub-problems", and this divide and conquer strategy is essential.</p>
+<p>Fundamentally, recursion embodies the paradigm of "breaking down a problem into smaller sub-problems." This divide-and-conquer strategy is crucial.</p>
 <ul>
-<li>From an algorithmic point of view, many important algorithmic strategies such as searching, sorting algorithm, backtracking, divide and conquer, dynamic programming, etc. directly or indirectly apply this way of thinking.</li>
-<li>From a data structure point of view, recursion is naturally suited to problems related to linked lists, trees and graphs because they are well suited to be analyzed with the idea of partitioning.</li>
+<li>From an algorithmic perspective, many important strategies like searching, sorting, backtracking, divide-and-conquer, and dynamic programming directly or indirectly use this way of thinking.</li>
+<li>From a data structure perspective, recursion is naturally suited for dealing with linked lists, trees, and graphs, as they are well suited for analysis using the divide-and-conquer approach.</li>
 </ul>
-<h2 id="223-compare-the-two">2.2.3 &nbsp; Compare The Two<a class="headerlink" href="#223-compare-the-two" title="Permanent link">&para;</a></h2>
-<p>To summarize the above, as shown in the Table 2-1 , iteration and recursion differ in implementation, performance and applicability.</p>
-<p align="center"> Table 2-1 &nbsp; Comparison of iteration and recursion features </p>
+<h2 id="223-comparison">2.2.3 &nbsp; Comparison<a class="headerlink" href="#223-comparison" title="Permanent link">&para;</a></h2>
+<p>Summarizing the above content, the following table shows the differences between iteration and recursion in terms of implementation, performance, and applicability.</p>
+<p align="center"> Table: Comparison of Iteration and Recursion Characteristics </p>
 
 <div class="center-table">
 <table>
 <thead>
 <tr>
 <th></th>
-<th>iteration</th>
-<th>recursion</th>
+<th>Iteration</th>
+<th>Recursion</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>implementation</td>
-<td>circular structure</td>
-<td>function call itself</td>
+<td>Approach</td>
+<td>Loop structure</td>
+<td>Function calls itself</td>
 </tr>
 <tr>
-<td>time-efficient</td>
-<td>typically efficient, no function call overhead</td>
-<td>overhead on every function call</td>
+<td>Time Efficiency</td>
+<td>Generally higher efficiency, no function call overhead</td>
+<td>Each function call generates overhead</td>
 </tr>
 <tr>
 <td>Memory Usage</td>
-<td>Usually uses a fixed size of memory space</td>
-<td>Cumulative function calls may use a lot of stack frame space</td>
+<td>Typically uses a fixed size of memory space</td>
+<td>Accumulative function calls can use a substantial amount of stack frame space</td>
 </tr>
 <tr>
-<td>Applicable Problems</td>
-<td>For simple cyclic tasks, code is intuitive and readable</td>
-<td>For sub-problem decomposition, such as trees, graphs, divide and conquer, backtracking, etc., the code structure is concise and clear</td>
+<td>Suitable Problems</td>
+<td>Suitable for simple loop tasks, intuitive and readable code</td>
+<td>Suitable for problem decomposition, like trees, graphs, divide-and-conquer, backtracking, etc., concise and clear code structure</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you find the following solutions difficult to understand, you can review them after reading the "Stack" chapter.</p>
+<p>If you find the following content difficult to understand, consider revisiting it after reading the "Stack" chapter.</p>
 </div>
-<p>So what is the intrinsic connection between iteration and recursion? In the case of the recursive function described above, the summing operation takes place in the "return" phase of the recursion. This means that the function that is initially called is actually the last to complete its summing operation, <strong>This mechanism works in the same way as the stack's "first in, last out" principle</strong>.</p>
-<p>In fact, recursion terms like "call stack" and "stack frame space" already imply a close relationship between recursion and the stack.</p>
+<p>So, what is the intrinsic connection between iteration and recursion? Taking the above recursive function as an example, the summation operation occurs during the recursion's "return" phase. This means that the initially called function is actually the last to complete its summation operation, <strong>mirroring the "last in, first out" principle of a stack</strong>.</p>
+<p>In fact, recursive terms like "call stack" and "stack frame space" hint at the close relationship between recursion and stacks.</p>
 <ol>
-<li><strong>Recursive</strong>: When a function is called, the system allocates a new stack frame on the "call stack" for the function, which is used to store the function's local variables, parameters, return address, and other data.</li>
-<li><strong>Return to</strong>: When a function completes execution and returns, the corresponding stack frame is removed from the "call stack", restoring the function's previous execution environment.</li>
+<li><strong>Recursion</strong>: When a function is called, the system allocates a new stack frame on the "call stack" for that function, storing local variables, parameters, return addresses, and other data.</li>
+<li><strong>Return</strong>: When a function completes execution and returns, the corresponding stack frame is removed from the "call stack," restoring the execution environment of the previous function.</li>
 </ol>
-<p>Thus, <strong>we can use an explicit stack to model the behavior of the call stack</strong>, thus transforming recursion into an iteration form:</p>
+<p>Therefore, <strong>we can use an explicit stack to simulate the behavior of the call stack</strong>, thus transforming recursion into an iterative form:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:12"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><input id="__tabbed_8_5" name="__tabbed_8" type="radio" /><input id="__tabbed_8_6" name="__tabbed_8" type="radio" /><input id="__tabbed_8_7" name="__tabbed_8" type="radio" /><input id="__tabbed_8_8" name="__tabbed_8" type="radio" /><input id="__tabbed_8_9" name="__tabbed_8" type="radio" /><input id="__tabbed_8_10" name="__tabbed_8" type="radio" /><input id="__tabbed_8_11" name="__tabbed_8" type="radio" /><input id="__tabbed_8_12" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Python</label><label for="__tabbed_8_2">C++</label><label for="__tabbed_8_3">Java</label><label for="__tabbed_8_4">C#</label><label for="__tabbed_8_5">Go</label><label for="__tabbed_8_6">Swift</label><label for="__tabbed_8_7">JS</label><label for="__tabbed_8_8">TS</label><label for="__tabbed_8_9">Dart</label><label for="__tabbed_8_10">Rust</label><label for="__tabbed_8_11">C</label><label for="__tabbed_8_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2589,12 +2589,12 @@
 </div>
 </div>
 </div>
-<p>Observing the code above, it becomes more complex when recursion is converted to iteration. Although iteration and recursion can be converted to each other in many cases, it is not always worth doing so for two reasons.</p>
+<p>Observing the above code, when recursion is transformed into iteration, the code becomes more complex. Although iteration and recursion can often be transformed into each other, it's not always advisable to do so for two reasons:</p>
 <ul>
-<li>The transformed code may be more difficult to understand and less readable.</li>
-<li>For some complex problems, simulating the behavior of the system call stack can be very difficult.</li>
+<li>The transformed code may become harder to understand and less readable.</li>
+<li>For some complex problems, simulating the behavior of the system's call stack can be quite challenging.</li>
 </ul>
-<p>In short, <strong>the choice of iteration or recursion depends on the nature of the particular problem</strong>. In programming practice, it is crucial to weigh the advantages and disadvantages of both and choose the appropriate method based on the context.</p>
+<p>In summary, <strong>choosing between iteration and recursion depends on the nature of the specific problem</strong>. In programming practice, weighing the pros and cons of each and choosing the appropriate method for the situation is essential.</p>
 
 <!-- Source file information -->
 
