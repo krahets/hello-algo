@@ -221,6 +221,6 @@ Overall, we can divide the process of learning data structures and algorithms in
 2. **Stage 2: Practicing algorithm problems**. It is recommended to start from popular problems, such as [Sword for Offer](https://leetcode.cn/studyplan/coding-interviews/) and [LeetCode Hot 100](https://leetcode.cn/studyplan/top-100- liked/), and accumulate at least 100 questions to familiarize yourself with mainstream algorithmic problems. Forgetfulness can be a challenge when you start practicing, but rest assured that this is normal. We can follow the "Ebbinghaus Forgetting Curve" to review the questions, and usually after 3~5 rounds of repetitions, we will be able to memorize them.
 3. **Stage 3: Building the knowledge system**. In terms of learning, we can read algorithm column articles, solution frameworks, and algorithm textbooks to continuously enrich the knowledge system. In terms of practicing, we can try advanced strategies, such as categorizing by topic, multiple solutions for a single problem,  and one solution for multiple problems, etc. Insights on these strategies can be found in various communities.
 
-As shown in the figure below, this book mainly covers “Stage One,” aiming to help you more efficiently embark on Stages Two and Three.
+As shown in the figure below, this book mainly covers “Stage 1,” aiming to help you more efficiently embark on Stages 2 and 3.
 
 ![Algorithm Learning Path](suggestions.assets/learning_route.png)
