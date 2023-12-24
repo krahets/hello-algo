@@ -11,11 +11,11 @@
 
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.svg" width="155"></a>
+    <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.svg" width="145"></a>
   <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_dark.svg" width="155"></a>
+    <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_dark.svg" width="145"></a>
   <a href="https://github.com/krahets/hello-algo/blob/master/README-en.md">
-    <img src="https://www.hello-algo.com/index.assets/btn_english_edition_dark.svg" width="155"></a>
+    <img src="https://www.hello-algo.com/index.assets/btn_english_edition_dark.svg" width="145"></a>
 </p>
 
 <p align="center">

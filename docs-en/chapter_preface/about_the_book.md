@@ -42,4 +42,4 @@ Throughout the writing journey, I delved into numerous textbooks and articles on
 
 This book advocates for a hands-on learning approach, and in this respect is heavily inspired by ["Dive into Deep Learning"](https://github.com/d2l-ai/d2l-zh). I highly recommend this excellent book to all readers.
 
-A heartfelt thank you to my parents, it is your constant support and encouragement that gives me the opportunity to do this fun-filled thing.
+**A heartfelt thank you to my parents, it is your constant support and encouragement that gives me the opportunity to do this fun-filled thing**.
