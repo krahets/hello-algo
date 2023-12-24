@@ -16,155 +16,155 @@
 === "Python"
 
     ```python title=""
-    """Header comments for labeling functions, classes, test samples, etc.""""
+    """Header comments for labeling functions, classes, test samples, etc""""
    
-    # Content comments for detailed code solutions
+    # Content comments for details
    
     """
-    multi-line
-    marginal notes
+    Multiline
+    comments
     """
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Content comments for details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "Java"
 
     ```java title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Content comments for details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Content comments for details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "Go"
 
     ```go title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Content comments for details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "Swift"
 
     ```swift title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Content comments for details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "JS"
 
     ```javascript title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Content comments for details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "TS"
 
     ```typescript title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Content comments for details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "Dart"
 
     ```dart title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Content comments for details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "Rust"
 
     ```rust title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
 
-    // Content comments for detailed code solutions.
+    // Content comments for details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "C"
 
     ```c title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Content comments for details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "Zig"
 
     ```zig title=""
-    // Header comments for labeling functions, classes, test samples, etc.
+    // Header comments for labeling functions, classes, test samples, etc
    
-    // Content comments for detailed code solutions.
+    // Content comments for details.
    
-    // Multi-line
-    // Annotation
+    // Multiline
+    // comments
     ```
 
 ## Efficient Learning via Animated and Graphical Illustrations
