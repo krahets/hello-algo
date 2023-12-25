@@ -6,11 +6,11 @@
 
 ## Conventions Of Writing Style
 
-- Chapters marked with an asterisk (`*``) after the title are supplementary and more challenging. If you have limited time, it is advisable to skip them.
+- Chapters marked with an asterisk * in their titles are optional and more challenging. If you are short on time, it is advisable to skip them.
 - Key technical terms and their English equivalents are enclosed in `「 」` brackets, for example, `「array」`. It's advisable to familiarize yourself with these for better comprehension of technical texts.
 - Proprietary terms and words with specific meanings are indicated with “quotation marks” to avoid ambiguity.
-- **Bolded text** Indicates key content or summary statements, which deserve special attention.
-- When it comes to terms that are inconsistent between programming languages, this book follows Python, for example using $\text{None}$ to mean "empty".
+- **Bolded text** indicates key content or summary statements, which deserve special attention.
+- When it comes to terms that are inconsistent between programming languages, this book follows Python, for example using $\text{None}$ to mean "null".
 - This book partially abandons the specification of annotations in programming languages in exchange for a more compact layout of the content. Comments are categorized into three types: title comments, content comments, and multiline comments.
 
 === "Python"
@@ -167,21 +167,21 @@
     // comments
     ```
 
-## Efficient Learning via Animated and Graphical Illustrations
+## Efficient Learning via Animated Illustrations
 
-Compared with text, videos and pictures have a higher density of information and are more structured, making them easier to understand. In this book, **essential and complex concepts are primarily presented through animations and illustrations**, while the text serves as an explanation and supplement to the animations and graphs.
+Compared with text, videos and pictures have a higher density of information and are more structured, making them easier to understand. In this book, **key and difficult concepts are mainly presented through animations and illustrations**, with text serving as explanations and supplements.
 
-When encountering sections in this book that include animations or graphical illustrations, as exemplified below, **please use the visual elements as the primary source and the text as a supplement. Synthesize both sources to understand the content**.
+When encountering content with animations or illustrations as shown in the figure below, **prioritize understanding the figure, with text as supplementary**, integrating both for a comprehensive understanding.
 
 ![Animation Illustration Example](../index.assets/animation.gif)
 
 ## Deepen Understanding through Code Practice
 
-The accompanying code for this book is hosted in the [GitHub repository](https://github.com/krahets/hello-algo). As shown in the figure below, **the source code is accompanied by test samples that can be run with a single click**.
+The source code of this book is hosted on the [GitHub Repository](https://github.com/krahets/hello-algo). As shown in the figure below, **the source code comes with test examples and can be executed with just a single click**.
 
-If time permits, **it is advisable to manually replicate the code examples**. For those with limited study time, at a minimum, thoroughly review and execute all code examples provided.
+If time permits, **it's recommended to type out the code yourself**. If pressed for time, at least read and run all the codes.
 
-The process of writing code is often more rewarding than reading it. **Learning by doing is the real way to learn**.
+Compared to just reading code, writing code often yields more learning. **Learning by doing is the real way to learn.**
 
 ![Running Code Example](../index.assets/running_code.gif)
 
@@ -197,7 +197,7 @@ If [Git](https://git-scm.com/downloads) is installed, use the following command 
 git clone https://github.com/krahets/hello-algo.git
 ```
 
-Of course, you can also click the "Download ZIP" button at the location shown in the figure below to directly download the code as a compressed ZIP file. Then, you can simply extract it locally.
+Alternatively, you can also click the "Download ZIP" button at the location shown in the figure below to directly download the code as a compressed ZIP file. Then, you can simply extract it locally.
 
 ![Cloning Repository and Downloading Code](suggestions.assets/download_code.png)
 
@@ -205,7 +205,7 @@ Of course, you can also click the "Download ZIP" button at the location shown in
 
 ![Code Block and Corresponding Source Code File](suggestions.assets/code_md_to_repo.png)
 
-## Growing Together In Questioning And Discussion
+## Learning Together in Discussion
 
 While reading this book, please don't skip over the points that you didn't learn. **Feel free to post your questions in the comment section**. We will be happy to answer them and can usually respond within two days.
 
