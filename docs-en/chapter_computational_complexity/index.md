@@ -19,7 +19,7 @@ icon: material/timer-sand
 
 ## 本章内容
 
-- [2.1 &nbsp; Evaluating Algorithm Efficiency](https://www.hello-algo.com/chapter_computational_complexity/performance_evaluation/)
+- [2.1 &nbsp; Algorithm Efficiency Assessment](https://www.hello-algo.com/chapter_computational_complexity/performance_evaluation/)
 - [2.2 &nbsp; Iteration and Recursion](https://www.hello-algo.com/chapter_computational_complexity/iteration_and_recursion/)
 - [2.3 &nbsp; Time Complexity](https://www.hello-algo.com/chapter_computational_complexity/time_complexity/)
 - [2.4 &nbsp; Space Complexity](https://www.hello-algo.com/chapter_computational_complexity/space_complexity/)

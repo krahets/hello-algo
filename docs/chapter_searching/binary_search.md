@@ -569,7 +569,7 @@ comments: true
             if nums[m as usize] < target {         // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
             } else if nums[m as usize] > target {  // 此情况说明 target 在区间 [i, m) 中
-                j = m - 1;
+                j = m;
             } else {                      // 找到目标元素，返回其索引
                 return m;
             }                       

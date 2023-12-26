@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 0.2 &nbsp; How To Read
+# 0.2 &nbsp; How to Read
 
 !!! tip
 

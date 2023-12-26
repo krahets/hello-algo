@@ -19,6 +19,6 @@ icon: material/calculator-variant-outline
 
 ## 本章内容
 
-- [1.1 &nbsp; Algorithms Are Everywhere](https://www.hello-algo.com/chapter_introduction/algorithms_are_everywhere/)
-- [1.2 &nbsp; What Is Algorithms](https://www.hello-algo.com/chapter_introduction/what_is_dsa/)
+- [1.1 &nbsp; Algorithms are Everywhere](https://www.hello-algo.com/chapter_introduction/algorithms_are_everywhere/)
+- [1.2 &nbsp; What is an Algorithm](https://www.hello-algo.com/chapter_introduction/what_is_dsa/)
 - [1.3 &nbsp; Summary](https://www.hello-algo.com/chapter_introduction/summary/)

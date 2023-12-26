@@ -19,6 +19,6 @@ icon: material/book-open-outline
 
 ## 本章内容
 
-- [0.1 &nbsp; The Book](https://www.hello-algo.com/chapter_preface/about_the_book/)
+- [0.1 &nbsp; About This Book](https://www.hello-algo.com/chapter_preface/about_the_book/)
 - [0.2 &nbsp; How to Read](https://www.hello-algo.com/chapter_preface/suggestions/)
 - [0.3 &nbsp; Summary](https://www.hello-algo.com/chapter_preface/summary/)
