@@ -1,4 +1,4 @@
-# How To Read
+# How to Read
 
 !!! tip
 
