@@ -13,23 +13,23 @@ When we think of data in computers, we imagine various forms like text, images, 
 
 The range of values for fundamental data types depends on the size of the space they occupy. Below, we take Java as an example.
 
-- The integer type `byte` occupies 1 byte = 8 bits and can represent \(2^8\) numbers.
-- The integer type `int` occupies 4 bytes = 32 bits and can represent \(2^{32}\) numbers.
+- The integer type `byte` occupies 1 byte = 8 bits and can represent $2^8$ numbers.
+- The integer type `int` occupies 4 bytes = 32 bits and can represent $2^{32}$ numbers.
 
 The following table lists the space occupied, value range, and default values of various fundamental data types in Java. This table does not need to be memorized, but understood roughly and referred to when needed.
 
 <p align="center"> Table <id> &nbsp; Space Occupied and Value Range of Fundamental Data Types </p>
 
-| Type    | Symbol   | Space Occupied | Minimum Value              | Maximum Value             | Default Value    |
-| ------- | -------- | -------------- | -------------------------- | ------------------------- | ---------------- |
-| Integer | `byte`   | 1 byte         | \(-2^7\) (\(-128\))        | \(2^7 - 1\) (\(127\))     | 0                |
-|         | `short`  | 2 bytes        | \(-2^{15}\)                | \(2^{15} - 1\)            | 0                |
-|         | `int`    | 4 bytes        | \(-2^{31}\)                | \(2^{31} - 1\)            | 0                |
-|         | `long`   | 8 bytes        | \(-2^{63}\)                | \(2^{63} - 1\)            | 0                |
-| Float   | `float`  | 4 bytes        | \(1.175 \times 10^{-38}\)  | \(3.403 \times 10^{38}\)  | \(0.0\text{f}\)  |
-|         | `double` | 8 bytes        | \(2.225 \times 10^{-308}\) | \(1.798 \times 10^{308}\) | 0.0              |
-| Char    | `char`   | 2 bytes        | 0                          | \(2^{16} - 1\)            | 0                |
-| Boolean | `bool`   | 1 byte         | \(\text{false}\)           | \(\text{true}\)           | \(\text{false}\) |
+| Type    | Symbol   | Space Occupied | Minimum Value            | Maximum Value           | Default Value  |
+| ------- | -------- | -------------- | ------------------------ | ----------------------- | -------------- |
+| Integer | `byte`   | 1 byte         | $-2^7$ ($-128$)          | $2^7 - 1$ ($127$)       | 0              |
+|         | `short`  | 2 bytes        | $-2^{15}$                | $2^{15} - 1$            | 0              |
+|         | `int`    | 4 bytes        | $-2^{31}$                | $2^{31} - 1$            | 0              |
+|         | `long`   | 8 bytes        | $-2^{63}$                | $2^{63} - 1$            | 0              |
+| Float   | `float`  | 4 bytes        | $1.175 \times 10^{-38}$  | $3.403 \times 10^{38}$  | $0.0\text{f}$  |
+|         | `double` | 8 bytes        | $2.225 \times 10^{-308}$ | $1.798 \times 10^{308}$ | 0.0            |
+| Char    | `char`   | 2 bytes        | 0                        | $2^{16} - 1$            | 0              |
+| Boolean | `bool`   | 1 byte         | $\text{false}$           | $\text{true}$           | $\text{false}$ |
 
 Please note that the above table is specific to Java's fundamental data types. Each programming language has its own data type definitions, and their space occupied, value ranges, and default values may differ.
 
