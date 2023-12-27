@@ -2,9 +2,7 @@
 
 Common data structures include arrays, linked lists, stacks, queues, hash tables, trees, heaps, and graphs. They can be classified into two dimensions: "Logical Structure" and "Physical Structure".
 
-
 ## Logical Structure: Linear and Non-Linear
-
 
 **The logical structures reveals the logical relationships between data elements**. In arrays and linked lists, data are arranged in a specific sequence, demonstrating the linear relationship between data; while in trees, data are arranged hierarchically from the top down, showing the derived relationship between "ancestors" and "descendants"; and graphs are composed of nodes and edges, reflecting the intricate network relationship.
 
@@ -31,7 +29,7 @@ Non-linear data structures can be further divided into tree structures and netwo
 
 ![Memory Stick, Memory Spaces, Memory Addresses](classification_of_data_structure.assets/computer_memory_location.png)
 
-!!! Tip
+!!! tip
 
 
     It is worth noting that comparing memory to an Excel spreadsheet is a simplified analogy. The actual memory working mechanism is more complex, involving concepts such as address, space, memory management, cache mechanism, virtual and physical memory.
@@ -49,10 +47,8 @@ As illustrated in the figure below, **the physical structure reflects the way da
 - **Array-based Implementations**: Stacks, Queues, Hash Tables, Trees, Heaps, Graphs, Matrices, Tensors (arrays with dimensions $\geq 3$).
 - **Linked List-based Implementations**: Stacks, Queues, Hash Tables, Trees, Heaps, Graphs, etc.
 
-
 Data structures implemented based on arrays are also called “Static Data Structures,” meaning their length cannot be changed after initialization. Conversely, those based on linked lists are called “Dynamic Data Structures,” which can still adjust their size during program execution.
 
-!!! Tip
-
+!!! tip
 
     If you find it challenging to comprehend the physical structure, it is recommended that you read the next chapter, "Arrays and Linked Lists," before revisiting this section.
