@@ -42,7 +42,7 @@
 
     ```csharp title="array.cs"
     /* 初始化数组 */
-    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
+    int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
     int[] nums = [1, 3, 2, 5, 4];
     ```
 
