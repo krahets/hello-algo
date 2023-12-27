@@ -2,11 +2,11 @@
 
 !!! note
 
-    In this book, chapters marked with an * symbol are optional reads. If you are short on time or find them challenging, you may skip these initially and return to them after completing the essential chapters.
+    In this book, chapters marked with an * symbol are optional to read. If you are short on time or find them challenging, you may skip these initially and return to them after completing the essential chapters.
 
 ## Integer Encoding
 
-In the table from the previous section, we noticed that all integer types can represent one more negative number than positive numbers, such as the `byte` range of $[-128, 127]$. This phenomenon, somewhat counterintuitive, is rooted in the concepts of sign-magnitude, one's complement, and two's complement encoding.
+In the table from the previous section, we noticed that all integer types can represent one more negative number than positive numbers, such as the `byte` range of $[-128, 127]$. This phenomenon seems counterintuitive, and its underlying reason involves knowledge of sign-magnitude, ones' complement, and two's complement.
 
 Firstly, it's important to note that **numbers are stored in computers using the two's complement form**. Before analyzing why this is the case, let's define these three encoding methods:
 
@@ -16,7 +16,7 @@ Firstly, it's important to note that **numbers are stored in computers using the
 
 The following diagram illustrates the conversions among sign-magnitude, one's complement, and two's complement:
 
-![Conversions between Sign-Magnitude, One's Complement, and Two's Complement](number_encoding.assets/1s_2s_complement.png)
+![Conversions between Sign-magnitude, One's Complement, and Two's Complement](number_encoding.assets/1s_2s_complement.png)
 
 Although sign-magnitude is the most intuitive, it has limitations. For one, **negative numbers in sign-magnitude cannot be directly used in calculations**. For example, in sign-magnitude, calculating $1 + (-2)$ results in $-3$, which is incorrect.
 
@@ -65,7 +65,7 @@ Adding $1$ to the one's complement of negative zero produces a carry, but with `
 
 One last puzzle is the $[-128, 127]$ range for `byte`, with an additional negative number, $-128$. We observe that for the interval $[-127, +127]$, all integers have corresponding sign-magnitude, one's complement, and two's complement, and these can be converted between each other.
 
-However, **the two's complement $1000 \; 0000$ is an exception without a corresponding sign-magnitude**. According to the conversion method, its sign-magnitude would be $0000 \; 0000$, which is a contradiction since this represents zero, and its two's complement should be itself. Computers designate this special two's complement $1000 \; 0000$ as representing $-128$. In fact, the calculation of $(-1) + (-127)$ in two's complement results in $-128$.
+However, **the two's complement $1000 \; 0000$ is an exception without a corresponding sign-magnitude**. According to the conversion method, its sign-magnitude would be $0000 \; 0000$, which is a contradiction because it represents zero, and its two's complement should be itself. Computers designate this special two's complement $1000 \; 0000$ as representing $-128$. In fact, the calculation of $(-1) + (-127)$ in two's complement results in $-128$.
 
 $$
 \begin{aligned}
