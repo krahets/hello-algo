@@ -6,7 +6,7 @@ comments: true
 
 树代表的是“一对多”的关系，而图则具有更高的自由度，可以表示任意的“多对多”关系。因此，我们可以把树看作图的一种特例。显然，**树的遍历操作也是图的遍历操作的一种特例**。
 
-图和树都需要应用搜索算法来实现遍历操作。图的遍历方式可分为两种：「广度优先遍历 breadth-first traversal」和「深度优先遍历 depth-first traversal」。它们也常被称为「广度优先搜索 breadth-first search」和「深度优先搜索 depth-first search」，简称 BFS 和 DFS 。
+图和树都需要应用搜索算法来实现遍历操作。图的遍历方式也可分为两种：「广度优先遍历」和「深度优先遍历」。
 
 ## 9.3.1 &nbsp; 广度优先遍历
 
@@ -30,7 +30,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 
     ```python title="graph_bfs.py"
     def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
-        """广度优先遍历 BFS"""
+        """广度优先遍历"""
         # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
         # 顶点遍历序列
         res = []
@@ -55,7 +55,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "C++"
 
     ```cpp title="graph_bfs.cpp"
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     vector<Vertex *> graphBFS(GraphAdjList &graph, Vertex *startVet) {
         // 顶点遍历序列
@@ -86,7 +86,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "Java"
 
     ```java title="graph_bfs.java"
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
@@ -117,7 +117,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "C#"
 
     ```csharp title="graph_bfs.cs"
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
@@ -148,7 +148,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "Go"
 
     ```go title="graph_bfs.go"
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     func graphBFS(g *graphAdjList, startVet Vertex) []Vertex {
         // 顶点遍历序列
@@ -184,7 +184,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "Swift"
 
     ```swift title="graph_bfs.swift"
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     func graphBFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
         // 顶点遍历序列
@@ -214,7 +214,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "JS"
 
     ```javascript title="graph_bfs.js"
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     function graphBFS(graph, startVet) {
         // 顶点遍历序列
@@ -245,7 +245,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "TS"
 
     ```typescript title="graph_bfs.ts"
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     function graphBFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
         // 顶点遍历序列
@@ -276,7 +276,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "Dart"
 
     ```dart title="graph_bfs.dart"
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
       // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
       // 顶点遍历序列
@@ -308,7 +308,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "Rust"
 
     ```rust title="graph_bfs.rs"
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
         // 顶点遍历序列
@@ -385,7 +385,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         return 0;
     }
 
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize, Vertex **visited, int *visitedSize) {
         // 队列用于实现 BFS
@@ -481,7 +481,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 
     ```python title="graph_dfs.py"
     def dfs(graph: GraphAdjList, visited: set[Vertex], res: list[Vertex], vet: Vertex):
-        """深度优先遍历 DFS 辅助函数"""
+        """深度优先遍历辅助函数"""
         res.append(vet)  # 记录访问顶点
         visited.add(vet)  # 标记该顶点已被访问
         # 遍历该顶点的所有邻接顶点
@@ -492,7 +492,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
             dfs(graph, visited, res, adjVet)
 
     def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
-        """深度优先遍历 DFS"""
+        """深度优先遍历"""
         # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
         # 顶点遍历序列
         res = []
@@ -505,7 +505,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "C++"
 
     ```cpp title="graph_dfs.cpp"
-    /* 深度优先遍历 DFS 辅助函数 */
+    /* 深度优先遍历辅助函数 */
     void dfs(GraphAdjList &graph, unordered_set<Vertex *> &visited, vector<Vertex *> &res, Vertex *vet) {
         res.push_back(vet);   // 记录访问顶点
         visited.emplace(vet); // 标记该顶点已被访问
@@ -518,7 +518,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         }
     }
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
         // 顶点遍历序列
@@ -533,7 +533,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "Java"
 
     ```java title="graph_dfs.java"
-    /* 深度优先遍历 DFS 辅助函数 */
+    /* 深度优先遍历辅助函数 */
     void dfs(GraphAdjList graph, Set<Vertex> visited, List<Vertex> res, Vertex vet) {
         res.add(vet);     // 记录访问顶点
         visited.add(vet); // 标记该顶点已被访问
@@ -546,7 +546,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         }
     }
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
@@ -561,7 +561,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "C#"
 
     ```csharp title="graph_dfs.cs"
-    /* 深度优先遍历 DFS 辅助函数 */
+    /* 深度优先遍历辅助函数 */
     void DFS(GraphAdjList graph, HashSet<Vertex> visited, List<Vertex> res, Vertex vet) {
         res.Add(vet);     // 记录访问顶点
         visited.Add(vet); // 标记该顶点已被访问
@@ -575,7 +575,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         }
     }
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     List<Vertex> GraphDFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
@@ -590,7 +590,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "Go"
 
     ```go title="graph_dfs.go"
-    /* 深度优先遍历 DFS 辅助函数 */
+    /* 深度优先遍历辅助函数 */
     func dfs(g *graphAdjList, visited map[Vertex]struct{}, res *[]Vertex, vet Vertex) {
         // append 操作会返回新的的引用，必须让原引用重新赋值为新slice的引用
         *res = append(*res, vet)
@@ -605,7 +605,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         }
     }
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     func graphDFS(g *graphAdjList, startVet Vertex) []Vertex {
         // 顶点遍历序列
@@ -621,7 +621,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "Swift"
 
     ```swift title="graph_dfs.swift"
-    /* 深度优先遍历 DFS 辅助函数 */
+    /* 深度优先遍历辅助函数 */
     func dfs(graph: GraphAdjList, visited: inout Set<Vertex>, res: inout [Vertex], vet: Vertex) {
         res.append(vet) // 记录访问顶点
         visited.insert(vet) // 标记该顶点已被访问
@@ -635,7 +635,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         }
     }
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     func graphDFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
         // 顶点遍历序列
@@ -650,7 +650,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "JS"
 
     ```javascript title="graph_dfs.js"
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     function dfs(graph, visited, res, vet) {
         res.push(vet); // 记录访问顶点
@@ -665,7 +665,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         }
     }
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     function graphDFS(graph, startVet) {
         // 顶点遍历序列
@@ -680,7 +680,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "TS"
 
     ```typescript title="graph_dfs.ts"
-    /* 深度优先遍历 DFS 辅助函数 */
+    /* 深度优先遍历辅助函数 */
     function dfs(
         graph: GraphAdjList,
         visited: Set<Vertex>,
@@ -699,7 +699,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         }
     }
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     function graphDFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
         // 顶点遍历序列
@@ -714,7 +714,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "Dart"
 
     ```dart title="graph_dfs.dart"
-    /* 深度优先遍历 DFS 辅助函数 */
+    /* 深度优先遍历辅助函数 */
     void dfs(
       GraphAdjList graph,
       Set<Vertex> visited,
@@ -733,7 +733,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
       }
     }
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
       // 顶点遍历序列
       List<Vertex> res = [];
@@ -747,7 +747,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 === "Rust"
 
     ```rust title="graph_dfs.rs"
-    /* 深度优先遍历 DFS 辅助函数 */
+    /* 深度优先遍历辅助函数 */
     fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex>, vet: Vertex) {
         res.push(vet); // 记录访问顶点
         visited.insert(vet); // 标记该顶点已被访问
@@ -763,7 +763,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         }
     }
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
         // 顶点遍历序列
@@ -790,7 +790,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         return 0;
     }
 
-    /* 深度优先遍历 DFS 辅助函数 */
+    /* 深度优先遍历辅助函数 */
     void dfs(GraphAdjList *graph, Vertex **res, int *resSize, Vertex *vet) {
         // 记录访问顶点
         res[(*resSize)++] = vet;
@@ -806,7 +806,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         }
     }
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     void graphDFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize) {
         dfs(graph, res, resSize, startVet);

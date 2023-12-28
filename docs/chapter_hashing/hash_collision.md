@@ -6,7 +6,7 @@ comments: true
 
 上一节提到，**通常情况下哈希函数的输入空间远大于输出空间**，因此理论上哈希冲突是不可避免的。比如，输入空间为全体整数，输出空间为数组容量大小，则必然有多个整数映射至同一桶索引。
 
-哈希冲突会导致查询结果错误，严重影响哈希表的可用性。为解决该问题，我们可以每当遇到哈希冲突就进行哈希表扩容，直至冲突消失为止。此方法简单粗暴且有效，但效率太低，因为哈希表扩容需要进行大量的数据搬运与哈希值计算。为了提升效率，我们可以采用以下策略。
+哈希冲突会导致查询结果错误，严重影响哈希表的可用性。为了解决该问题，每当遇到哈希冲突时，我们就进行哈希表扩容，直至冲突消失为止。此方法简单粗暴且有效，但效率太低，因为哈希表扩容需要进行大量的数据搬运与哈希值计算。为了提升效率，我们可以采用以下策略。
 
 1. 改良哈希表数据结构，**使得哈希表可以在出现哈希冲突时正常工作**。
 2. 仅在必要时，即当哈希冲突比较严重时，才执行扩容操作。
@@ -29,8 +29,8 @@ comments: true
 
 链式地址存在以下局限性。
 
-- **占用空间增大**，链表包含节点指针，它相比数组更加耗费内存空间。
-- **查询效率降低**，因为需要线性遍历链表来查找对应元素。
+- **占用空间增大**：链表包含节点指针，它相比数组更加耗费内存空间。
+- **查询效率降低**：因为需要线性遍历链表来查找对应元素。
 
 以下代码给出了链式地址哈希表的简单实现，需要注意两点。
 
@@ -63,11 +63,11 @@ comments: true
             """查询操作"""
             index = self.hash_func(key)
             bucket = self.buckets[index]
-            # 遍历桶，若找到 key 则返回对应 val
+            # 遍历桶，若找到 key ，则返回对应 val
             for pair in bucket:
                 if pair.key == key:
                     return pair.val
-            # 若未找到 key 则返回 None
+            # 若未找到 key ，则返回 None
             return None
 
         def put(self, key: int, val: str):
@@ -161,13 +161,13 @@ comments: true
         /* 查询操作 */
         string get(int key) {
             int index = hashFunc(key);
-            // 遍历桶，若找到 key 则返回对应 val
+            // 遍历桶，若找到 key ，则返回对应 val
             for (Pair *pair : buckets[index]) {
                 if (pair->key == key) {
                     return pair->val;
                 }
             }
-            // 若未找到 key 则返回空字符串
+            // 若未找到 key ，则返回空字符串
             return "";
         }
 
@@ -275,13 +275,13 @@ comments: true
         String get(int key) {
             int index = hashFunc(key);
             List<Pair> bucket = buckets.get(index);
-            // 遍历桶，若找到 key 则返回对应 val
+            // 遍历桶，若找到 key ，则返回对应 val
             for (Pair pair : bucket) {
                 if (pair.key == key) {
                     return pair.val;
                 }
             }
-            // 若未找到 key 则返回 null
+            // 若未找到 key ，则返回 null
             return null;
         }
 
@@ -388,13 +388,13 @@ comments: true
         /* 查询操作 */
         public string? Get(int key) {
             int index = HashFunc(key);
-            // 遍历桶，若找到 key 则返回对应 val
+            // 遍历桶，若找到 key ，则返回对应 val
             foreach (Pair pair in buckets[index]) {
                 if (pair.key == key) {
                     return pair.val;
                 }
             }
-            // 若未找到 key 则返回 null
+            // 若未找到 key ，则返回 null
             return null;
         }
 
@@ -505,13 +505,13 @@ comments: true
     func (m *hashMapChaining) get(key int) string {
         idx := m.hashFunc(key)
         bucket := m.buckets[idx]
-        // 遍历桶，若找到 key 则返回对应 val
+        // 遍历桶，若找到 key ，则返回对应 val
         for _, p := range bucket {
             if p.key == key {
                 return p.val
             }
         }
-        // 若未找到 key 则返回空字符串
+        // 若未找到 key ，则返回空字符串
         return ""
     }
 
@@ -625,13 +625,13 @@ comments: true
         func get(key: Int) -> String? {
             let index = hashFunc(key: key)
             let bucket = buckets[index]
-            // 遍历桶，若找到 key 则返回对应 val
+            // 遍历桶，若找到 key ，则返回对应 val
             for pair in bucket {
                 if pair.key == key {
                     return pair.val
                 }
             }
-            // 若未找到 key 则返回 nil
+            // 若未找到 key ，则返回 nil
             return nil
         }
 
@@ -729,13 +729,13 @@ comments: true
         get(key) {
             const index = this.#hashFunc(key);
             const bucket = this.#buckets[index];
-            // 遍历桶，若找到 key 则返回对应 val
+            // 遍历桶，若找到 key ，则返回对应 val
             for (const pair of bucket) {
                 if (pair.key === key) {
                     return pair.val;
                 }
             }
-            // 若未找到 key 则返回 null
+            // 若未找到 key ，则返回 null
             return null;
         }
 
@@ -837,13 +837,13 @@ comments: true
         get(key: number): string | null {
             const index = this.#hashFunc(key);
             const bucket = this.#buckets[index];
-            // 遍历桶，若找到 key 则返回对应 val
+            // 遍历桶，若找到 key ，则返回对应 val
             for (const pair of bucket) {
                 if (pair.key === key) {
                     return pair.val;
                 }
             }
-            // 若未找到 key 则返回 null
+            // 若未找到 key ，则返回 null
             return null;
         }
 
@@ -945,13 +945,13 @@ comments: true
       String? get(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets[index];
-        // 遍历桶，若找到 key 则返回对应 val
+        // 遍历桶，若找到 key ，则返回对应 val
         for (Pair pair in bucket) {
           if (pair.key == key) {
             return pair.val;
           }
         }
-        // 若未找到 key 则返回 null
+        // 若未找到 key ，则返回 null
         return null;
       }
 
@@ -1067,7 +1067,7 @@ comments: true
                 }
             }
 
-            // 若未找到 key 则返回 None
+            // 若未找到 key ，则返回 None
             None
         }
 
@@ -1133,14 +1133,14 @@ comments: true
             let index = self.hash_func(key);
             let bucket = &self.buckets[index];
 
-            // 遍历桶，若找到 key 则返回对应 val
+            // 遍历桶，若找到 key ，则返回对应 val
             for pair in bucket {
                 if pair.key == key {
                     return Some(&pair.val);
                 }
             }
 
-            // 若未找到 key 则返回 None
+            // 若未找到 key ，则返回 None
             None
         }
     }
@@ -1206,7 +1206,7 @@ comments: true
     /* 查询操作 */
     char *get(HashMapChaining *hashMap, int key) {
         int index = hashFunc(hashMap, key);
-        // 遍历桶，若找到 key 则返回对应 val
+        // 遍历桶，若找到 key ，则返回对应 val
         Node *cur = hashMap->buckets[index];
         while (cur) {
             if (cur->pair->key == key) {
@@ -1214,7 +1214,7 @@ comments: true
             }
             cur = cur->next;
         }
-        return ""; // 若未找到 key 则返回空字符串
+        return ""; // 若未找到 key ，则返回空字符串
     }
 
     /* 添加操作 */
@@ -1320,7 +1320,7 @@ comments: true
 
 ## 6.2.2 &nbsp; 开放寻址
 
-「开放寻址 open addressing」不引入额外的数据结构，而是通过“多次探测”来处理哈希冲突，探测方式主要包括线性探测、平方探测、多次哈希等。
+「开放寻址 open addressing」不引入额外的数据结构，而是通过“多次探测”来处理哈希冲突，探测方式主要包括线性探测、平方探测和多次哈希等。
 
 下面以线性探测为例，介绍开放寻址哈希表的工作机制。
 
@@ -1329,23 +1329,23 @@ comments: true
 线性探测采用固定步长的线性搜索来进行探测，其操作方法与普通哈希表有所不同。
 
 - **插入元素**：通过哈希函数计算桶索引，若发现桶内已有元素，则从冲突位置向后线性遍历（步长通常为 $1$ ），直至找到空桶，将元素插入其中。
-- **查找元素**：若发现哈希冲突，则使用相同步长向后线性遍历，直到找到对应元素，返回 `value` 即可；如果遇到空桶，说明目标元素不在哈希表中，返回 $\text{None}$ 。
+- **查找元素**：若发现哈希冲突，则使用相同步长向后进行线性遍历，直到找到对应元素，返回 `value` 即可；如果遇到空桶，说明目标元素不在哈希表中，返回 `None` 。
 
 图 6-6 展示了开放寻址（线性探测）哈希表的键值对分布。根据此哈希函数，最后两位相同的 `key` 都会被映射到相同的桶。而通过线性探测，它们被依次存储在该桶以及之下的桶中。
 
-![开放寻址和线性探测](hash_collision.assets/hash_table_linear_probing.png){ class="animation-figure" }
+![开放寻址（线性探测）哈希表的键值对分布](hash_collision.assets/hash_table_linear_probing.png){ class="animation-figure" }
 
-<p align="center"> 图 6-6 &nbsp; 开放寻址和线性探测 </p>
+<p align="center"> 图 6-6 &nbsp; 开放寻址（线性探测）哈希表的键值对分布 </p>
 
 然而，**线性探测容易产生“聚集现象”**。具体来说，数组中连续被占用的位置越长，这些连续位置发生哈希冲突的可能性越大，从而进一步促使该位置的聚堆生长，形成恶性循环，最终导致增删查改操作效率劣化。
 
-值得注意的是，**我们不能在开放寻址哈希表中直接删除元素**。这是因为删除元素会在数组内产生一个空桶 $\text{None}$ ，而当查询元素时，线性探测到该空桶就会返回，因此在该空桶之下的元素都无法再被访问到，程序可能误判这些元素不存在。
+值得注意的是，**我们不能在开放寻址哈希表中直接删除元素**。这是因为删除元素会在数组内产生一个空桶 `None` ，而当查询元素时，线性探测到该空桶就会返回，因此在该空桶之下的元素都无法再被访问到，程序可能误判这些元素不存在。
 
 ![在开放寻址中删除元素导致的查询问题](hash_collision.assets/hash_table_open_addressing_deletion.png){ class="animation-figure" }
 
 <p align="center"> 图 6-7 &nbsp; 在开放寻址中删除元素导致的查询问题 </p>
 
-为了解决该问题，我们可以采用「懒删除 lazy deletion」机制：它不直接从哈希表中移除元素，**而是利用一个常量 `TOMBSTONE` 来标记这个桶**。在该机制下，$\text{None}$ 和 `TOMBSTONE` 都代表空桶，都可以放置键值对。但不同的是，线性探测到 `TOMBSTONE` 时应该继续遍历，因为其之下可能还存在键值对。
+为了解决该问题，我们可以采用「懒删除 lazy deletion」机制：它不直接从哈希表中移除元素，**而是利用一个常量 `TOMBSTONE` 来标记这个桶**。在该机制下，`None` 和 `TOMBSTONE` 都代表空桶，都可以放置键值对。但不同的是，线性探测到 `TOMBSTONE` 时应该继续遍历，因为其之下可能还存在键值对。
 
 然而，**懒删除可能会加速哈希表的性能退化**。这是因为每次删除操作都会产生一个删除标记，随着 `TOMBSTONE` 的增加，搜索时间也会增加，因为线性探测可能需要跳过多个 `TOMBSTONE` 才能找到目标元素。
 
@@ -1382,9 +1382,9 @@ comments: true
             first_tombstone = -1
             # 线性探测，当遇到空桶时跳出
             while self.buckets[index] is not None:
-                # 若遇到 key ，返回对应桶索引
+                # 若遇到 key ，返回对应的桶索引
                 if self.buckets[index].key == key:
-                    # 若之前遇到了删除标记，则将键值对移动至该索引
+                    # 若之前遇到了删除标记，则将键值对移动至该索引处
                     if first_tombstone != -1:
                         self.buckets[first_tombstone] = self.buckets[index]
                         self.buckets[index] = self.TOMBSTONE
@@ -1393,7 +1393,7 @@ comments: true
                 # 记录遇到的首个删除标记
                 if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
                     first_tombstone = index
-                # 计算桶索引，越过尾部返回头部
+                # 计算桶索引，越过尾部则返回头部
                 index = (index + 1) % self.capacity
             # 若 key 不存在，则返回添加点的索引
             return index if first_tombstone == -1 else first_tombstone
@@ -1500,9 +1500,9 @@ comments: true
             int firstTombstone = -1;
             // 线性探测，当遇到空桶时跳出
             while (buckets[index] != nullptr) {
-                // 若遇到 key ，返回对应桶索引
+                // 若遇到 key ，返回对应的桶索引
                 if (buckets[index]->key == key) {
-                    // 若之前遇到了删除标记，则将键值对移动至该索引
+                    // 若之前遇到了删除标记，则将键值对移动至该索引处
                     if (firstTombstone != -1) {
                         buckets[firstTombstone] = buckets[index];
                         buckets[index] = TOMBSTONE;
@@ -1514,7 +1514,7 @@ comments: true
                 if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                     firstTombstone = index;
                 }
-                // 计算桶索引，越过尾部返回头部
+                // 计算桶索引，越过尾部则返回头部
                 index = (index + 1) % capacity;
             }
             // 若 key 不存在，则返回添加点的索引
@@ -1629,9 +1629,9 @@ comments: true
             int firstTombstone = -1;
             // 线性探测，当遇到空桶时跳出
             while (buckets[index] != null) {
-                // 若遇到 key ，返回对应桶索引
+                // 若遇到 key ，返回对应的桶索引
                 if (buckets[index].key == key) {
-                    // 若之前遇到了删除标记，则将键值对移动至该索引
+                    // 若之前遇到了删除标记，则将键值对移动至该索引处
                     if (firstTombstone != -1) {
                         buckets[firstTombstone] = buckets[index];
                         buckets[index] = TOMBSTONE;
@@ -1643,7 +1643,7 @@ comments: true
                 if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                     firstTombstone = index;
                 }
-                // 计算桶索引，越过尾部返回头部
+                // 计算桶索引，越过尾部则返回头部
                 index = (index + 1) % capacity;
             }
             // 若 key 不存在，则返回添加点的索引
@@ -1756,9 +1756,9 @@ comments: true
             int firstTombstone = -1;
             // 线性探测，当遇到空桶时跳出
             while (buckets[index] != null) {
-                // 若遇到 key ，返回对应桶索引
+                // 若遇到 key ，返回对应的桶索引
                 if (buckets[index].key == key) {
-                    // 若之前遇到了删除标记，则将键值对移动至该索引
+                    // 若之前遇到了删除标记，则将键值对移动至该索引处
                     if (firstTombstone != -1) {
                         buckets[firstTombstone] = buckets[index];
                         buckets[index] = TOMBSTONE;
@@ -1770,7 +1770,7 @@ comments: true
                 if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                     firstTombstone = index;
                 }
-                // 计算桶索引，越过尾部返回头部
+                // 计算桶索引，越过尾部则返回头部
                 index = (index + 1) % capacity;
             }
             // 若 key 不存在，则返回添加点的索引
@@ -1893,7 +1893,7 @@ comments: true
         idx := m.hashFunc(key)
         // 线性探测，从 index 开始向后遍历
         for i := 0; i < m.capacity; i++ {
-            // 计算桶索引，越过尾部返回头部
+            // 计算桶索引，越过尾部则返回头部
             j := (idx + i) % m.capacity
             // 若遇到空桶，说明无此 key ，则返回 null
             if m.buckets[j] == (pair{}) {
@@ -1904,7 +1904,7 @@ comments: true
                 return m.buckets[j].val
             }
         }
-        // 若未找到 key 则返回空字符串
+        // 若未找到 key ，则返回空字符串
         return ""
     }
 
@@ -1917,7 +1917,7 @@ comments: true
         idx := m.hashFunc(key)
         // 线性探测，从 index 开始向后遍历
         for i := 0; i < m.capacity; i++ {
-            // 计算桶索引，越过尾部返回头部
+            // 计算桶索引，越过尾部则返回头部
             j := (idx + i) % m.capacity
             // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
             if m.buckets[j] == (pair{}) || m.buckets[j] == m.removed {
@@ -1942,7 +1942,7 @@ comments: true
         // 遍历桶，从中删除键值对
         // 线性探测，从 index 开始向后遍历
         for i := 0; i < m.capacity; i++ {
-            // 计算桶索引，越过尾部返回头部
+            // 计算桶索引，越过尾部则返回头部
             j := (idx + i) % m.capacity
             // 若遇到空桶，说明无此 key ，则直接返回
             if m.buckets[j] == (pair{}) {
@@ -2024,9 +2024,9 @@ comments: true
             var firstTombstone = -1
             // 线性探测，当遇到空桶时跳出
             while buckets[index] != nil {
-                // 若遇到 key ，返回对应桶索引
+                // 若遇到 key ，返回对应的桶索引
                 if buckets[index]!.key == key {
-                    // 若之前遇到了删除标记，则将键值对移动至该索引
+                    // 若之前遇到了删除标记，则将键值对移动至该索引处
                     if firstTombstone != -1 {
                         buckets[firstTombstone] = buckets[index]
                         buckets[index] = TOMBSTONE
@@ -2038,7 +2038,7 @@ comments: true
                 if firstTombstone == -1 && buckets[index] == TOMBSTONE {
                     firstTombstone = index
                 }
-                // 计算桶索引，越过尾部返回头部
+                // 计算桶索引，越过尾部则返回头部
                 index = (index + 1) % capacity
             }
             // 若 key 不存在，则返回添加点的索引
@@ -2155,9 +2155,9 @@ comments: true
             let firstTombstone = -1;
             // 线性探测，当遇到空桶时跳出
             while (this.#buckets[index] !== null) {
-                // 若遇到 key ，返回对应桶索引
+                // 若遇到 key ，返回对应的桶索引
                 if (this.#buckets[index].key === key) {
-                    // 若之前遇到了删除标记，则将键值对移动至该索引
+                    // 若之前遇到了删除标记，则将键值对移动至该索引处
                     if (firstTombstone !== -1) {
                         this.#buckets[firstTombstone] = this.#buckets[index];
                         this.#buckets[index] = this.#TOMBSTONE;
@@ -2172,7 +2172,7 @@ comments: true
                 ) {
                     firstTombstone = index;
                 }
-                // 计算桶索引，越过尾部返回头部
+                // 计算桶索引，越过尾部则返回头部
                 index = (index + 1) % this.#capacity;
             }
             // 若 key 不存在，则返回添加点的索引
@@ -2298,9 +2298,9 @@ comments: true
             let firstTombstone = -1;
             // 线性探测，当遇到空桶时跳出
             while (this.buckets[index] !== null) {
-                // 若遇到 key ，返回对应桶索引
+                // 若遇到 key ，返回对应的桶索引
                 if (this.buckets[index]!.key === key) {
-                    // 若之前遇到了删除标记，则将键值对移动至该索引
+                    // 若之前遇到了删除标记，则将键值对移动至该索引处
                     if (firstTombstone !== -1) {
                         this.buckets[firstTombstone] = this.buckets[index];
                         this.buckets[index] = this.TOMBSTONE;
@@ -2315,7 +2315,7 @@ comments: true
                 ) {
                     firstTombstone = index;
                 }
-                // 计算桶索引，越过尾部返回头部
+                // 计算桶索引，越过尾部则返回头部
                 index = (index + 1) % this.capacity;
             }
             // 若 key 不存在，则返回添加点的索引
@@ -2437,9 +2437,9 @@ comments: true
         int firstTombstone = -1;
         // 线性探测，当遇到空桶时跳出
         while (_buckets[index] != null) {
-          // 若遇到 key ，返回对应桶索引
+          // 若遇到 key ，返回对应的桶索引
           if (_buckets[index]!.key == key) {
-            // 若之前遇到了删除标记，则将键值对移动至该索引
+            // 若之前遇到了删除标记，则将键值对移动至该索引处
             if (firstTombstone != -1) {
               _buckets[firstTombstone] = _buckets[index];
               _buckets[index] = _TOMBSTONE;
@@ -2451,7 +2451,7 @@ comments: true
           if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
             firstTombstone = index;
           }
-          // 计算桶索引，越过尾部返回头部
+          // 计算桶索引，越过尾部则返回头部
           index = (index + 1) % _capacity;
         }
         // 若 key 不存在，则返回添加点的索引
@@ -2587,7 +2587,7 @@ comments: true
                 if first_tombstone == -1 && self.buckets[index] == self.TOMBSTONE {
                     first_tombstone = index as i32;
                 }
-                // 计算桶索引，越过尾部返回头部
+                // 计算桶索引，越过尾部则返回头部
                 index = (index + 1) % self.capacity;
             }
             // 若 key 不存在，则返回添加点的索引
@@ -2725,9 +2725,9 @@ comments: true
         int firstTombstone = -1;
         // 线性探测，当遇到空桶时跳出
         while (hashMap->buckets[index] != NULL) {
-            // 若遇到 key ，返回对应桶索引
+            // 若遇到 key ，返回对应的桶索引
             if (hashMap->buckets[index]->key == key) {
-                // 若之前遇到了删除标记，则将键值对移动至该索引
+                // 若之前遇到了删除标记，则将键值对移动至该索引处
                 if (firstTombstone != -1) {
                     hashMap->buckets[firstTombstone] = hashMap->buckets[index];
                     hashMap->buckets[index] = hashMap->TOMBSTONE;
@@ -2739,7 +2739,7 @@ comments: true
             if (firstTombstone == -1 && hashMap->buckets[index] == hashMap->TOMBSTONE) {
                 firstTombstone = index;
             }
-            // 计算桶索引，越过尾部返回头部
+            // 计算桶索引，越过尾部则返回头部
             index = (index + 1) % hashMap->capacity;
         }
         // 若 key 不存在，则返回添加点的索引
@@ -2859,8 +2859,8 @@ comments: true
 
 顾名思义，多次哈希方法使用多个哈希函数 $f_1(x)$、$f_2(x)$、$f_3(x)$、$\dots$ 进行探测。
 
-- **插入元素**：若哈希函数 $f_1(x)$ 出现冲突，则尝试 $f_2(x)$ ，以此类推，直到找到空桶后插入元素。
-- **查找元素**：在相同的哈希函数顺序下进行查找，直到找到目标元素时返回；若遇到空桶或已尝试所有哈希函数，说明哈希表中不存在该元素，则返回 $\text{None}$ 。
+- **插入元素**：若哈希函数 $f_1(x)$ 出现冲突，则尝试 $f_2(x)$ ，以此类推，直到找到空位后插入元素。
+- **查找元素**：在相同的哈希函数顺序下进行查找，直到找到目标元素时返回；若遇到空位或已尝试所有哈希函数，说明哈希表中不存在该元素，则返回 `None` 。
 
 与线性探测相比，多次哈希方法不易产生聚集，但多个哈希函数会带来额外的计算量。
 
@@ -2872,6 +2872,6 @@ comments: true
 
 各种编程语言采取了不同的哈希表实现策略，下面举几个例子。
 
-- Python 采用开放寻址。字典 dict 使用伪随机数进行探测。
-- Java 采用链式地址。自 JDK 1.8 以来，当 HashMap 内数组长度达到 64 且链表长度达到 8 时，链表会转换为红黑树以提升查找性能。
-- Go 采用链式地址。Go 规定每个桶最多存储 8 个键值对，超出容量则连接一个溢出桶。当溢出桶过多时，会执行一次特殊的等量扩容操作，以确保性能。
+- Python 采用开放寻址。字典 `dict` 使用伪随机数进行探测。
+- Java 采用链式地址。自 JDK 1.8 以来，当 `HashMap` 内数组长度达到 64 且链表长度达到 8 时，链表会转换为红黑树以提升查找性能。
+- Go 采用链式地址。Go 规定每个桶最多存储 8 个键值对，超出容量则连接一个溢出桶；当溢出桶过多时，会执行一次特殊的等量扩容操作，以确保性能。

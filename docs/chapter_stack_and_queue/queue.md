@@ -20,11 +20,11 @@ comments: true
 
 <div class="center-table" markdown>
 
-| 方法名 | 描述                         | 时间复杂度 |
-| ------ | ---------------------------- | ---------- |
-| push() | 元素入队，即将元素添加至队尾 | $O(1)$     |
-| pop()  | 队首元素出队                 | $O(1)$     |
-| peek() | 访问队首元素                 | $O(1)$     |
+| 方法名   | 描述                         | 时间复杂度 |
+| -------- | ---------------------------- | ---------- |
+| `push()` | 元素入队，即将元素添加至队尾 | $O(1)$     |
+| `pop()`  | 队首元素出队                 | $O(1)$     |
+| `peek()` | 访问队首元素                 | $O(1)$     |
 
 </div>
 
@@ -320,7 +320,7 @@ comments: true
 
 ## 5.2.2 &nbsp; 队列实现
 
-为了实现队列，我们需要一种数据结构，可以在一端添加元素，并在另一端删除元素。链表和数组都符合要求。
+为了实现队列，我们需要一种数据结构，可以在一端添加元素，并在另一端删除元素，链表和数组都符合要求。
 
 ### 1. &nbsp; 基于链表的实现
 
@@ -361,7 +361,7 @@ comments: true
 
         def push(self, num: int):
             """入队"""
-            # 尾节点后添加 num
+            # 在尾节点后添加 num
             node = ListNode(num)
             # 如果队列为空，则令头、尾节点都指向该节点
             if self._front is None:
@@ -430,7 +430,7 @@ comments: true
 
         /* 入队 */
         void push(int num) {
-            // 尾节点后添加 num
+            // 在尾节点后添加 num
             ListNode *node = new ListNode(num);
             // 如果队列为空，则令头、尾节点都指向该节点
             if (front == nullptr) {
@@ -502,7 +502,7 @@ comments: true
 
         /* 入队 */
         public void push(int num) {
-            // 尾节点后添加 num
+            // 在尾节点后添加 num
             ListNode node = new ListNode(num);
             // 如果队列为空，则令头、尾节点都指向该节点
             if (front == null) {
@@ -570,7 +570,7 @@ comments: true
 
         /* 入队 */
         public void Push(int num) {
-            // 尾节点后添加 num
+            // 在尾节点后添加 num
             ListNode node = new(num);
             // 如果队列为空，则令头、尾节点都指向该节点
             if (front == null) {
@@ -695,7 +695,7 @@ comments: true
 
         /* 入队 */
         func push(num: Int) {
-            // 尾节点后添加 num
+            // 在尾节点后添加 num
             let node = ListNode(x: num)
             // 如果队列为空，则令头、尾节点都指向该节点
             if front == nil {
@@ -767,7 +767,7 @@ comments: true
 
         /* 入队 */
         push(num) {
-            // 尾节点后添加 num
+            // 在尾节点后添加 num
             const node = new ListNode(num);
             // 如果队列为空，则令头、尾节点都指向该节点
             if (!this.#front) {
@@ -835,7 +835,7 @@ comments: true
 
         /* 入队 */
         push(num: number): void {
-            // 尾节点后添加 num
+            // 在尾节点后添加 num
             const node = new ListNode(num);
             // 如果队列为空，则令头、尾节点都指向该节点
             if (!this.front) {
@@ -904,7 +904,7 @@ comments: true
 
       /* 入队 */
       void push(int _num) {
-        // 尾节点后添加 _num
+        // 在尾节点后添加 _num
         final node = ListNode(_num);
         // 如果队列为空，则令头、尾节点都指向该节点
         if (_front == null) {
@@ -980,7 +980,7 @@ comments: true
 
         /* 入队 */
         pub fn push(&mut self, num: T) {
-            // 尾节点后添加 num
+            // 在尾节点后添加 num
             let new_rear = ListNode::new(num);
             match self.rear.take() {
                 // 如果队列不为空，则将该节点添加到尾节点后
@@ -1167,7 +1167,7 @@ comments: true
 
             // 入队
             pub fn push(self: *Self, num: T) !void {
-                // 尾节点后添加 num
+                // 在尾节点后添加 num
                 var node = try self.mem_allocator.create(inc.ListNode(T));
                 node.init(num);
                 // 如果队列为空，则令头、尾节点都指向该节点
@@ -1263,8 +1263,8 @@ comments: true
             """入队"""
             if self._size == self.capacity():
                 raise IndexError("队列已满")
-            # 计算尾指针，指向队尾索引 + 1
-            # 通过取余操作，实现 rear 越过数组尾部后回到头部
+            # 计算队尾指针，指向队尾索引 + 1
+            # 通过取余操作实现 rear 越过数组尾部后回到头部
             rear: int = (self._front + self._size) % self.capacity()
             # 将 num 添加至队尾
             self._nums[rear] = num
@@ -1273,7 +1273,7 @@ comments: true
         def pop(self) -> int:
             """出队"""
             num: int = self.peek()
-            # 队首指针向后移动一位，若越过尾部则返回到数组头部
+            # 队首指针向后移动一位，若越过尾部，则返回到数组头部
             self._front = (self._front + 1) % self.capacity()
             self._size -= 1
             return num
@@ -1339,7 +1339,7 @@ comments: true
                 return;
             }
             // 计算队尾指针，指向队尾索引 + 1
-            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            // 通过取余操作实现 rear 越过数组尾部后回到头部
             int rear = (front + queSize) % queCapacity;
             // 将 num 添加至队尾
             nums[rear] = num;
@@ -1349,7 +1349,7 @@ comments: true
         /* 出队 */
         int pop() {
             int num = peek();
-            // 队首指针向后移动一位，若越过尾部则返回到数组头部
+            // 队首指针向后移动一位，若越过尾部，则返回到数组头部
             front = (front + 1) % queCapacity;
             queSize--;
             return num;
@@ -1409,8 +1409,8 @@ comments: true
                 System.out.println("队列已满");
                 return;
             }
-            // 计算尾指针，指向队尾索引 + 1
-            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            // 计算队尾指针，指向队尾索引 + 1
+            // 通过取余操作实现 rear 越过数组尾部后回到头部
             int rear = (front + queSize) % capacity();
             // 将 num 添加至队尾
             nums[rear] = num;
@@ -1420,7 +1420,7 @@ comments: true
         /* 出队 */
         public int pop() {
             int num = peek();
-            // 队首指针向后移动一位，若越过尾部则返回到数组头部
+            // 队首指针向后移动一位，若越过尾部，则返回到数组头部
             front = (front + 1) % capacity();
             queSize--;
             return num;
@@ -1480,8 +1480,8 @@ comments: true
                 Console.WriteLine("队列已满");
                 return;
             }
-            // 计算尾指针，指向队尾索引 + 1
-            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            // 计算队尾指针，指向队尾索引 + 1
+            // 通过取余操作实现 rear 越过数组尾部后回到头部
             int rear = (front + queSize) % Capacity();
             // 将 num 添加至队尾
             nums[rear] = num;
@@ -1491,7 +1491,7 @@ comments: true
         /* 出队 */
         public int Pop() {
             int num = Peek();
-            // 队首指针向后移动一位，若越过尾部则返回到数组头部
+            // 队首指针向后移动一位，若越过尾部，则返回到数组头部
             front = (front + 1) % Capacity();
             queSize--;
             return num;
@@ -1553,8 +1553,8 @@ comments: true
         if q.queSize == q.queCapacity {
             return
         }
-        // 计算尾指针，指向队尾索引 + 1
-        // 通过取余操作，实现 rear 越过数组尾部后回到头部
+        // 计算队尾指针，指向队尾索引 + 1
+        // 通过取余操作实现 rear 越过数组尾部后回到头部
         rear := (q.front + q.queSize) % q.queCapacity
         // 将 num 添加至队尾
         q.nums[rear] = num
@@ -1564,7 +1564,7 @@ comments: true
     /* 出队 */
     func (q *arrayQueue) pop() any {
         num := q.peek()
-        // 队首指针向后移动一位，若越过尾部则返回到数组头部
+        // 队首指针向后移动一位，若越过尾部，则返回到数组头部
         q.front = (q.front + 1) % q.queCapacity
         q.queSize--
         return num
@@ -1624,8 +1624,8 @@ comments: true
                 print("队列已满")
                 return
             }
-            // 计算尾指针，指向队尾索引 + 1
-            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            // 计算队尾指针，指向队尾索引 + 1
+            // 通过取余操作实现 rear 越过数组尾部后回到头部
             let rear = (front + queSize) % capacity()
             // 将 num 添加至队尾
             nums[rear] = num
@@ -1636,7 +1636,7 @@ comments: true
         @discardableResult
         func pop() -> Int {
             let num = peek()
-            // 队首指针向后移动一位，若越过尾部则返回到数组头部
+            // 队首指针向后移动一位，若越过尾部，则返回到数组头部
             front = (front + 1) % capacity()
             queSize -= 1
             return num
@@ -1696,8 +1696,8 @@ comments: true
                 console.log('队列已满');
                 return;
             }
-            // 计算尾指针，指向队尾索引 + 1
-            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            // 计算队尾指针，指向队尾索引 + 1
+            // 通过取余操作实现 rear 越过数组尾部后回到头部
             const rear = (this.#front + this.size) % this.capacity;
             // 将 num 添加至队尾
             this.#nums[rear] = num;
@@ -1707,7 +1707,7 @@ comments: true
         /* 出队 */
         pop() {
             const num = this.peek();
-            // 队首指针向后移动一位，若越过尾部则返回到数组头部
+            // 队首指针向后移动一位，若越过尾部，则返回到数组头部
             this.#front = (this.#front + 1) % this.capacity;
             this.#queSize--;
             return num;
@@ -1766,8 +1766,8 @@ comments: true
                 console.log('队列已满');
                 return;
             }
-            // 计算尾指针，指向队尾索引 + 1
-            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            // 计算队尾指针，指向队尾索引 + 1
+            // 通过取余操作实现 rear 越过数组尾部后回到头部
             const rear = (this.front + this.queSize) % this.capacity;
             // 将 num 添加至队尾
             this.nums[rear] = num;
@@ -1777,7 +1777,7 @@ comments: true
         /* 出队 */
         pop(): number {
             const num = this.peek();
-            // 队首指针向后移动一位，若越过尾部则返回到数组头部
+            // 队首指针向后移动一位，若越过尾部，则返回到数组头部
             this.front = (this.front + 1) % this.capacity;
             this.queSize--;
             return num;
@@ -1835,8 +1835,8 @@ comments: true
         if (_queSize == capaCity()) {
           throw Exception("队列已满");
         }
-        // 计算尾指针，指向队尾索引 + 1
-        // 通过取余操作，实现 rear 越过数组尾部后回到头部
+        // 计算队尾指针，指向队尾索引 + 1
+        // 通过取余操作实现 rear 越过数组尾部后回到头部
         int rear = (_front + _queSize) % capaCity();
         // 将 _num 添加至队尾
         _nums[rear] = _num;
@@ -1846,7 +1846,7 @@ comments: true
       /* 出队 */
       int pop() {
         int _num = peek();
-        // 队首指针向后移动一位，若越过尾部则返回到数组头部
+        // 队首指针向后移动一位，若越过尾部，则返回到数组头部
         _front = (_front + 1) % capaCity();
         _queSize--;
         return _num;
@@ -1915,8 +1915,8 @@ comments: true
                 println!("队列已满");
                 return;
             }
-            // 计算尾指针，指向队尾索引 + 1
-            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            // 计算队尾指针，指向队尾索引 + 1
+            // 通过取余操作实现 rear 越过数组尾部后回到头部
             let rear = (self.front + self.que_size) % self.que_capacity;
             // 将 num 添加至队尾
             self.nums[rear as usize] = num;
@@ -1926,7 +1926,7 @@ comments: true
         /* 出队 */
         fn pop(&mut self) -> i32 {
             let num = self.peek();
-            // 队首指针向后移动一位，若越过尾部则返回到数组头部
+            // 队首指针向后移动一位，若越过尾部，则返回到数组头部
             self.front = (self.front + 1) % self.que_capacity;
             self.que_size -= 1;
             num
@@ -2009,7 +2009,7 @@ comments: true
             return;
         }
         // 计算队尾指针，指向队尾索引 + 1
-        // 通过取余操作，实现 rear 越过数组尾部后回到头部
+        // 通过取余操作实现 rear 越过数组尾部后回到头部
         int rear = (queue->front + queue->queSize) % queue->queCapacity;
         // 将 num 添加至队尾
         queue->nums[rear] = num;
@@ -2019,7 +2019,7 @@ comments: true
     /* 出队 */
     int pop(ArrayQueue *queue) {
         int num = peek(queue);
-        // 队首指针向后移动一位，若越过尾部则返回到数组头部
+        // 队首指针向后移动一位，若越过尾部，则返回到数组头部
         queue->front = (queue->front + 1) % queue->queCapacity;
         queue->queSize--;
         return num;
@@ -2079,10 +2079,10 @@ comments: true
                     std.debug.print("队列已满\n", .{});
                     return;
                 }
-                // 计算尾指针，指向队尾索引 + 1
-                // 通过取余操作，实现 rear 越过数组尾部后回到头部
+                // 计算队尾指针，指向队尾索引 + 1
+                // 通过取余操作实现 rear 越过数组尾部后回到头部
                 var rear = (self.front + self.queSize) % self.capacity();
-                // 尾节点后添加 num
+                // 在尾节点后添加 num
                 self.nums[rear] = num;
                 self.queSize += 1;
             } 
@@ -2090,7 +2090,7 @@ comments: true
             // 出队
             pub fn pop(self: *Self) T {
                 var num = self.peek();
-                // 队首指针向后移动一位，若越过尾部则返回到数组头部
+                // 队首指针向后移动一位，若越过尾部，则返回到数组头部
                 self.front = (self.front + 1) % self.capacity();
                 self.queSize -= 1;
                 return num;

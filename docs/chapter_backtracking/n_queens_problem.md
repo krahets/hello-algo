@@ -14,7 +14,7 @@ comments: true
 
 <p align="center"> 图 13-15 &nbsp; 4 皇后问题的解 </p>
 
-图 13-16 展示了本题的三个约束条件：**多个皇后不能在同一行、同一列、同一对角线**。值得注意的是，对角线分为主对角线 `\` 和次对角线 `/` 两种。
+图 13-16 展示了本题的三个约束条件：**多个皇后不能在同一行、同一列、同一条对角线上**。值得注意的是，对角线分为主对角线 `\` 和次对角线 `/` 两种。
 
 ![n 皇后问题的约束条件](n_queens_problem.assets/n_queens_constraints.png){ class="animation-figure" }
 
@@ -71,10 +71,10 @@ comments: true
             return
         # 遍历所有列
         for col in range(n):
-            # 计算该格子对应的主对角线和副对角线
+            # 计算该格子对应的主对角线和次对角线
             diag1 = row - col + n - 1
             diag2 = row + col
-            # 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+            # 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
             if not cols[col] and not diags1[diag1] and not diags2[diag2]:
                 # 尝试：将皇后放置在该格子
                 state[row][col] = "Q"
@@ -91,7 +91,7 @@ comments: true
         state = [["#" for _ in range(n)] for _ in range(n)]
         cols = [False] * n  # 记录列是否有皇后
         diags1 = [False] * (2 * n - 1)  # 记录主对角线上是否有皇后
-        diags2 = [False] * (2 * n - 1)  # 记录副对角线上是否有皇后
+        diags2 = [False] * (2 * n - 1)  # 记录次对角线上是否有皇后
         res = []
         backtrack(0, n, state, res, cols, diags1, diags2)
 
@@ -111,10 +111,10 @@ comments: true
         }
         // 遍历所有列
         for (int col = 0; col < n; col++) {
-            // 计算该格子对应的主对角线和副对角线
+            // 计算该格子对应的主对角线和次对角线
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state[row][col] = "Q";
@@ -134,7 +134,7 @@ comments: true
         vector<vector<string>> state(n, vector<string>(n, "#"));
         vector<bool> cols(n, false);           // 记录列是否有皇后
         vector<bool> diags1(2 * n - 1, false); // 记录主对角线上是否有皇后
-        vector<bool> diags2(2 * n - 1, false); // 记录副对角线上是否有皇后
+        vector<bool> diags2(2 * n - 1, false); // 记录次对角线上是否有皇后
         vector<vector<vector<string>>> res;
 
         backtrack(0, n, state, res, cols, diags1, diags2);
@@ -160,10 +160,10 @@ comments: true
         }
         // 遍历所有列
         for (int col = 0; col < n; col++) {
-            // 计算该格子对应的主对角线和副对角线
+            // 计算该格子对应的主对角线和次对角线
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state.get(row).set(col, "Q");
@@ -190,7 +190,7 @@ comments: true
         }
         boolean[] cols = new boolean[n]; // 记录列是否有皇后
         boolean[] diags1 = new boolean[2 * n - 1]; // 记录主对角线上是否有皇后
-        boolean[] diags2 = new boolean[2 * n - 1]; // 记录副对角线上是否有皇后
+        boolean[] diags2 = new boolean[2 * n - 1]; // 记录次对角线上是否有皇后
         List<List<List<String>>> res = new ArrayList<>();
 
         backtrack(0, n, state, res, cols, diags1, diags2);
@@ -216,10 +216,10 @@ comments: true
         }
         // 遍历所有列
         for (int col = 0; col < n; col++) {
-            // 计算该格子对应的主对角线和副对角线
+            // 计算该格子对应的主对角线和次对角线
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state[row][col] = "Q";
@@ -246,7 +246,7 @@ comments: true
         }
         bool[] cols = new bool[n]; // 记录列是否有皇后
         bool[] diags1 = new bool[2 * n - 1]; // 记录主对角线上是否有皇后
-        bool[] diags2 = new bool[2 * n - 1]; // 记录副对角线上是否有皇后
+        bool[] diags2 = new bool[2 * n - 1]; // 记录次对角线上是否有皇后
         List<List<List<string>>> res = [];
 
         Backtrack(0, n, state, res, cols, diags1, diags2);
@@ -272,10 +272,10 @@ comments: true
         }
         // 遍历所有列
         for col := 0; col < n; col++ {
-            // 计算该格子对应的主对角线和副对角线
+            // 计算该格子对应的主对角线和次对角线
             diag1 := row - col + n - 1
             diag2 := row + col
-            // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
             if !(*cols)[col] && !(*diags1)[diag1] && !(*diags2)[diag2] {
                 // 尝试：将皇后放置在该格子
                 (*state)[row][col] = "Q"
@@ -303,10 +303,10 @@ comments: true
         }
         // 遍历所有列
         for col := 0; col < n; col++ {
-            // 计算该格子对应的主对角线和副对角线
+            // 计算该格子对应的主对角线和次对角线
             diag1 := row - col + n - 1
             diag2 := row + col
-            // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
             if !(*cols)[col] && !(*diags1)[diag1] && !(*diags2)[diag2] {
                 // 尝试：将皇后放置在该格子
                 (*state)[row][col] = "Q"
@@ -352,10 +352,10 @@ comments: true
         }
         // 遍历所有列
         for col in 0 ..< n {
-            // 计算该格子对应的主对角线和副对角线
+            // 计算该格子对应的主对角线和次对角线
             let diag1 = row - col + n - 1
             let diag2 = row + col
-            // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
             if !cols[col] && !diags1[diag1] && !diags2[diag2] {
                 // 尝试：将皇后放置在该格子
                 state[row][col] = "Q"
@@ -379,7 +379,7 @@ comments: true
         var state = Array(repeating: Array(repeating: "#", count: n), count: n)
         var cols = Array(repeating: false, count: n) // 记录列是否有皇后
         var diags1 = Array(repeating: false, count: 2 * n - 1) // 记录主对角线上是否有皇后
-        var diags2 = Array(repeating: false, count: 2 * n - 1) // 记录副对角线上是否有皇后
+        var diags2 = Array(repeating: false, count: 2 * n - 1) // 记录次对角线上是否有皇后
         var res: [[[String]]] = []
 
         backtrack(row: 0, n: n, state: &state, res: &res, cols: &cols, diags1: &diags1, diags2: &diags2)
@@ -400,10 +400,10 @@ comments: true
         }
         // 遍历所有列
         for (let col = 0; col < n; col++) {
-            // 计算该格子对应的主对角线和副对角线
+            // 计算该格子对应的主对角线和次对角线
             const diag1 = row - col + n - 1;
             const diag2 = row + col;
-            // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state[row][col] = 'Q';
@@ -423,7 +423,7 @@ comments: true
         const state = Array.from({ length: n }, () => Array(n).fill('#'));
         const cols = Array(n).fill(false); // 记录列是否有皇后
         const diags1 = Array(2 * n - 1).fill(false); // 记录主对角线上是否有皇后
-        const diags2 = Array(2 * n - 1).fill(false); // 记录副对角线上是否有皇后
+        const diags2 = Array(2 * n - 1).fill(false); // 记录次对角线上是否有皇后
         const res = [];
 
         backtrack(0, n, state, res, cols, diags1, diags2);
@@ -451,10 +451,10 @@ comments: true
         }
         // 遍历所有列
         for (let col = 0; col < n; col++) {
-            // 计算该格子对应的主对角线和副对角线
+            // 计算该格子对应的主对角线和次对角线
             const diag1 = row - col + n - 1;
             const diag2 = row + col;
-            // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state[row][col] = 'Q';
@@ -474,7 +474,7 @@ comments: true
         const state = Array.from({ length: n }, () => Array(n).fill('#'));
         const cols = Array(n).fill(false); // 记录列是否有皇后
         const diags1 = Array(2 * n - 1).fill(false); // 记录主对角线上是否有皇后
-        const diags2 = Array(2 * n - 1).fill(false); // 记录副对角线上是否有皇后
+        const diags2 = Array(2 * n - 1).fill(false); // 记录次对角线上是否有皇后
         const res: string[][][] = [];
 
         backtrack(0, n, state, res, cols, diags1, diags2);
@@ -506,10 +506,10 @@ comments: true
       }
       // 遍历所有列
       for (int col = 0; col < n; col++) {
-        // 计算该格子对应的主对角线和副对角线
+        // 计算该格子对应的主对角线和次对角线
         int diag1 = row - col + n - 1;
         int diag2 = row + col;
-        // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+        // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
           // 尝试：将皇后放置在该格子
           state[row][col] = "Q";
@@ -533,7 +533,7 @@ comments: true
       List<List<String>> state = List.generate(n, (index) => List.filled(n, "#"));
       List<bool> cols = List.filled(n, false); // 记录列是否有皇后
       List<bool> diags1 = List.filled(2 * n - 1, false); // 记录主对角线上是否有皇后
-      List<bool> diags2 = List.filled(2 * n - 1, false); // 记录副对角线上是否有皇后
+      List<bool> diags2 = List.filled(2 * n - 1, false); // 记录次对角线上是否有皇后
       List<List<List<String>>> res = [];
 
       backtrack(0, n, state, res, cols, diags1, diags2);
@@ -559,10 +559,10 @@ comments: true
         }
         // 遍历所有列
         for col in 0..n {
-            // 计算该格子对应的主对角线和副对角线
+            // 计算该格子对应的主对角线和次对角线
             let diag1 = row + n - 1 - col;
             let diag2 = row + col;
-            // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
             if !cols[col] && !diags1[diag1] && !diags2[diag2] {
                 // 尝试：将皇后放置在该格子
                 state.get_mut(row).unwrap()[col] = "Q".into();
@@ -589,7 +589,7 @@ comments: true
         }
         let mut cols = vec![false; n]; // 记录列是否有皇后
         let mut diags1 = vec![false; 2 * n - 1]; // 记录主对角线上是否有皇后
-        let mut diags2 = vec![false; 2 * n - 1]; // 记录副对角线上是否有皇后
+        let mut diags2 = vec![false; 2 * n - 1]; // 记录次对角线上是否有皇后
         let mut res: Vec<Vec<Vec<String>>> = Vec::new();
 
         backtrack(0, n, &mut state, &mut res, &mut cols, &mut diags1, &mut diags2);
@@ -616,10 +616,10 @@ comments: true
         }
         // 遍历所有列
         for (int col = 0; col < n; col++) {
-            // 计算该格子对应的主对角线和副对角线
+            // 计算该格子对应的主对角线和次对角线
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state[row][col] = 'Q';
@@ -645,7 +645,7 @@ comments: true
         }
         bool cols[MAX_SIZE] = {false};           // 记录列是否有皇后
         bool diags1[2 * MAX_SIZE - 1] = {false}; // 记录主对角线上是否有皇后
-        bool diags2[2 * MAX_SIZE - 1] = {false}; // 记录副对角线上是否有皇后
+        bool diags2[2 * MAX_SIZE - 1] = {false}; // 记录次对角线上是否有皇后
 
         char ***res = (char ***)malloc(sizeof(char **) * MAX_SIZE);
         *returnSize = 0;

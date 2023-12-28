@@ -48,11 +48,11 @@ $$
 
 <p align="center"> 图 15-10 &nbsp; 向内移动短板后的状态 </p>
 
-由此便可推出本题的贪心策略：初始化两指针分列容器两端，每轮向内收缩短板对应的指针，直至两指针相遇。
+由此便可推出本题的贪心策略：初始化两指针，使其分列容器两端，每轮向内收缩短板对应的指针，直至两指针相遇。
 
 图 15-11 展示了贪心策略的执行过程。
 
-1. 初始状态下，指针 $i$ 和 $j$ 分列与数组两端。
+1. 初始状态下，指针 $i$ 和 $j$ 分列数组两端。
 2. 计算当前状态的容量 $cap[i, j]$ ，并更新最大容量。
 3. 比较板 $i$ 和 板 $j$ 的高度，并将短板向内移动一格。
 4. 循环执行第 `2.` 步和第 `3.` 步，直至 $i$ 和 $j$ 相遇时结束。
@@ -97,7 +97,7 @@ $$
     ```python title="max_capacity.py"
     def max_capacity(ht: list[int]) -> int:
         """最大容量：贪心"""
-        # 初始化 i, j 分列数组两端
+        # 初始化 i, j，使其分列数组两端
         i, j = 0, len(ht) - 1
         # 初始最大容量为 0
         res = 0
@@ -119,7 +119,7 @@ $$
     ```cpp title="max_capacity.cpp"
     /* 最大容量：贪心 */
     int maxCapacity(vector<int> &ht) {
-        // 初始化 i, j 分列数组两端
+        // 初始化 i, j，使其分列数组两端
         int i = 0, j = ht.size() - 1;
         // 初始最大容量为 0
         int res = 0;
@@ -144,7 +144,7 @@ $$
     ```java title="max_capacity.java"
     /* 最大容量：贪心 */
     int maxCapacity(int[] ht) {
-        // 初始化 i, j 分列数组两端
+        // 初始化 i, j，使其分列数组两端
         int i = 0, j = ht.length - 1;
         // 初始最大容量为 0
         int res = 0;
@@ -169,7 +169,7 @@ $$
     ```csharp title="max_capacity.cs"
     /* 最大容量：贪心 */
     int MaxCapacity(int[] ht) {
-        // 初始化 i, j 分列数组两端
+        // 初始化 i, j，使其分列数组两端
         int i = 0, j = ht.Length - 1;
         // 初始最大容量为 0
         int res = 0;
@@ -194,7 +194,7 @@ $$
     ```go title="max_capacity.go"
     /* 最大容量：贪心 */
     func maxCapacity(ht []int) int {
-        // 初始化 i, j 分列数组两端
+        // 初始化 i, j，使其分列数组两端
         i, j := 0, len(ht)-1
         // 初始最大容量为 0
         res := 0
@@ -219,7 +219,7 @@ $$
     ```swift title="max_capacity.swift"
     /* 最大容量：贪心 */
     func maxCapacity(ht: [Int]) -> Int {
-        // 初始化 i, j 分列数组两端
+        // 初始化 i, j，使其分列数组两端
         var i = 0, j = ht.count - 1
         // 初始最大容量为 0
         var res = 0
@@ -244,7 +244,7 @@ $$
     ```javascript title="max_capacity.js"
     /* 最大容量：贪心 */
     function maxCapacity(ht) {
-        // 初始化 i, j 分列数组两端
+        // 初始化 i, j，使其分列数组两端
         let i = 0,
             j = ht.length - 1;
         // 初始最大容量为 0
@@ -270,7 +270,7 @@ $$
     ```typescript title="max_capacity.ts"
     /* 最大容量：贪心 */
     function maxCapacity(ht: number[]): number {
-        // 初始化 i, j 分列数组两端
+        // 初始化 i, j，使其分列数组两端
         let i = 0,
             j = ht.length - 1;
         // 初始最大容量为 0
@@ -296,7 +296,7 @@ $$
     ```dart title="max_capacity.dart"
     /* 最大容量：贪心 */
     int maxCapacity(List<int> ht) {
-      // 初始化 i, j 分列数组两端
+      // 初始化 i, j，使其分列数组两端
       int i = 0, j = ht.length - 1;
       // 初始最大容量为 0
       int res = 0;
@@ -321,7 +321,7 @@ $$
     ```rust title="max_capacity.rs"
     /* 最大容量：贪心 */
     fn max_capacity(ht: &[i32]) -> i32 {
-        // 初始化 i, j 分列数组两端
+        // 初始化 i, j，使其分列数组两端
         let mut i = 0;
         let mut j = ht.len() - 1;
         // 初始最大容量为 0
@@ -347,7 +347,7 @@ $$
     ```c title="max_capacity.c"
     /* 最大容量：贪心 */
     int maxCapacity(int ht[], int htLength) {
-        // 初始化 i, j 分列数组两端
+        // 初始化 i, j，使其分列数组两端
         int i = 0;
         int j = htLength - 1;
         // 初始最大容量为 0

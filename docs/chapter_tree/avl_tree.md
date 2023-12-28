@@ -4,7 +4,7 @@ comments: true
 
 # 7.5 &nbsp; AVL 树 *
 
-在“二叉搜索树”章节中，我们提到，在多次插入和删除操作后，二叉搜索树可能退化为链表。在这种情况下，所有操作的时间复杂度将从 $O(\log n)$ 恶化为 $O(n)$ 。
+在“二叉搜索树”章节中我们提到，在多次插入和删除操作后，二叉搜索树可能退化为链表。在这种情况下，所有操作的时间复杂度将从 $O(\log n)$ 劣化为 $O(n)$ 。
 
 如图 7-24 所示，经过两次删除节点操作，这棵二叉搜索树便会退化为链表。
 
@@ -12,13 +12,13 @@ comments: true
 
 <p align="center"> 图 7-24 &nbsp; AVL 树在删除节点后发生退化 </p>
 
-再例如，在图 7-25 所示的完美二叉树中插入两个节点后，树将严重向左倾斜，查找操作的时间复杂度也随之恶化。
+再例如，在图 7-25 所示的完美二叉树中插入两个节点后，树将严重向左倾斜，查找操作的时间复杂度也随之劣化。
 
 ![AVL 树在插入节点后发生退化](avl_tree.assets/avltree_degradation_from_inserting_node.png){ class="animation-figure" }
 
 <p align="center"> 图 7-25 &nbsp; AVL 树在插入节点后发生退化 </p>
 
-1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在论文 "An algorithm for the organization of information" 中提出了「AVL 树」。论文中详细描述了一系列操作，确保在持续添加和删除节点后，AVL 树不会退化，从而使得各种操作的时间复杂度保持在 $O(\log n)$ 级别。换句话说，在需要频繁进行增删查改操作的场景中，AVL 树能始终保持高效的数据操作性能，具有很好的应用价值。
+1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在论文“An algorithm for the organization of information”中提出了「AVL 树」。论文中详细描述了一系列操作，确保在持续添加和删除节点后，AVL 树不会退化，从而使得各种操作的时间复杂度保持在 $O(\log n)$ 级别。换句话说，在需要频繁进行增删查改操作的场景中，AVL 树能始终保持高效的数据操作性能，具有很好的应用价值。
 
 ## 7.5.1 &nbsp; AVL 树常见术语
 
@@ -214,7 +214,7 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 
     ```
 
-“节点高度”是指从该节点到其最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 $0$ ，而空节点的高度为 $-1$ 。我们将创建两个工具函数，分别用于获取和更新节点的高度：
+“节点高度”是指从该节点到它的最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 $0$ ，而空节点的高度为 $-1$ 。我们将创建两个工具函数，分别用于获取和更新节点的高度：
 
 === "Python"
 
@@ -622,11 +622,11 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 <p align="center"> 图 7-26 &nbsp; 右旋操作步骤 </p>
 
-如图 7-27 所示，当节点 `child` 有右子节点（记为 `grandChild` ）时，需要在右旋中添加一步：将 `grandChild` 作为 `node` 的左子节点。
+如图 7-27 所示，当节点 `child` 有右子节点（记为 `grand_child` ）时，需要在右旋中添加一步：将 `grand_child` 作为 `node` 的左子节点。
 
-![有 grandChild 的右旋操作](avl_tree.assets/avltree_right_rotate_with_grandchild.png){ class="animation-figure" }
+![有 grand_child 的右旋操作](avl_tree.assets/avltree_right_rotate_with_grandchild.png){ class="animation-figure" }
 
-<p align="center"> 图 7-27 &nbsp; 有 grandChild 的右旋操作 </p>
+<p align="center"> 图 7-27 &nbsp; 有 grand_child 的右旋操作 </p>
 
 “向右旋转”是一种形象化的说法，实际上需要通过修改节点指针来实现，代码如下所示：
 
@@ -859,11 +859,11 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 <p align="center"> 图 7-28 &nbsp; 左旋操作 </p>
 
-同理，如图 7-29 所示，当节点 `child` 有左子节点（记为 `grandChild` ）时，需要在左旋中添加一步：将 `grandChild` 作为 `node` 的右子节点。
+同理，如图 7-29 所示，当节点 `child` 有左子节点（记为 `grand_child` ）时，需要在左旋中添加一步：将 `grand_child` 作为 `node` 的右子节点。
 
-![有 grandChild 的左旋操作](avl_tree.assets/avltree_left_rotate_with_grandchild.png){ class="animation-figure" }
+![有 grand_child 的左旋操作](avl_tree.assets/avltree_left_rotate_with_grandchild.png){ class="animation-figure" }
 
-<p align="center"> 图 7-29 &nbsp; 有 grandChild 的左旋操作 </p>
+<p align="center"> 图 7-29 &nbsp; 有 grand_child 的左旋操作 </p>
 
 可以观察到，**右旋和左旋操作在逻辑上是镜像对称的，它们分别解决的两种失衡情况也是对称的**。基于对称性，我们只需将右旋的实现代码中的所有的 `left` 替换为 `right` ，将所有的 `right` 替换为 `left` ，即可得到左旋的实现代码：
 
@@ -1555,7 +1555,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         """递归插入节点（辅助方法）"""
         if node is None:
             return TreeNode(val)
-        # 1. 查找插入位置，并插入节点
+        # 1. 查找插入位置并插入节点
         if val < node.val:
             node.left = self.insert_helper(node.left, val)
         elif val > node.val:
@@ -1581,7 +1581,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     TreeNode *insertHelper(TreeNode *node, int val) {
         if (node == nullptr)
             return new TreeNode(val);
-        /* 1. 查找插入位置，并插入节点 */
+        /* 1. 查找插入位置并插入节点 */
         if (val < node->val)
             node->left = insertHelper(node->left, val);
         else if (val > node->val)
@@ -1608,7 +1608,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     TreeNode insertHelper(TreeNode node, int val) {
         if (node == null)
             return new TreeNode(val);
-        /* 1. 查找插入位置，并插入节点 */
+        /* 1. 查找插入位置并插入节点 */
         if (val < node.val)
             node.left = insertHelper(node.left, val);
         else if (val > node.val)
@@ -1634,7 +1634,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     /* 递归插入节点（辅助方法） */
     TreeNode? InsertHelper(TreeNode? node, int val) {
         if (node == null) return new TreeNode(val);
-        /* 1. 查找插入位置，并插入节点 */
+        /* 1. 查找插入位置并插入节点 */
         if (val < node.val)
             node.left = InsertHelper(node.left, val);
         else if (val > node.val)
@@ -1662,7 +1662,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         if node == nil {
             return NewTreeNode(val)
         }
-        /* 1. 查找插入位置，并插入节点 */
+        /* 1. 查找插入位置并插入节点 */
         if val < node.Val.(int) {
             node.Left = t.insertHelper(node.Left, val)
         } else if val > node.Val.(int) {
@@ -1694,7 +1694,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         if node == nil {
             return TreeNode(x: val)
         }
-        /* 1. 查找插入位置，并插入节点 */
+        /* 1. 查找插入位置并插入节点 */
         if val < node!.val {
             node?.left = insertHelper(node: node?.left, val: val)
         } else if val > node!.val {
@@ -1721,7 +1721,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     /* 递归插入节点（辅助方法） */
     #insertHelper(node, val) {
         if (node === null) return new TreeNode(val);
-        /* 1. 查找插入位置，并插入节点 */
+        /* 1. 查找插入位置并插入节点 */
         if (val < node.val) node.left = this.#insertHelper(node.left, val);
         else if (val > node.val)
             node.right = this.#insertHelper(node.right, val);
@@ -1745,7 +1745,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     /* 递归插入节点（辅助方法） */
     insertHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return new TreeNode(val);
-        /* 1. 查找插入位置，并插入节点 */
+        /* 1. 查找插入位置并插入节点 */
         if (val < node.val) {
             node.left = this.insertHelper(node.left, val);
         } else if (val > node.val) {
@@ -1772,7 +1772,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     /* 递归插入节点（辅助方法） */
     TreeNode? insertHelper(TreeNode? node, int val) {
       if (node == null) return TreeNode(val);
-      /* 1. 查找插入位置，并插入节点 */
+      /* 1. 查找插入位置并插入节点 */
       if (val < node.val)
         node.left = insertHelper(node.left, val);
       else if (val > node.val)
@@ -1799,7 +1799,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     fn insert_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. 查找插入位置，并插入节点 */
+                /* 1. 查找插入位置并插入节点 */
                 match {
                     let node_val = node.borrow().val;
                     node_val
@@ -1842,7 +1842,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         if (node == NULL) {
             return newTreeNode(val);
         }
-        /* 1. 查找插入位置，并插入节点 */
+        /* 1. 查找插入位置并插入节点 */
         if (val < node->val) {
             node->left = insertHelper(node->left, val);
         } else if (val > node->val) {
@@ -1876,7 +1876,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
             tmp_node.init(val);
             return tmp_node;
         }
-        // 1. 查找插入位置，并插入节点
+        // 1. 查找插入位置并插入节点
         if (val < node.?.val) {
             node.?.left = try self.insertHelper(node.?.left, val);
         } else if (val > node.?.val) {
@@ -1907,7 +1907,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         """递归删除节点（辅助方法）"""
         if node is None:
             return None
-        # 1. 查找节点，并删除之
+        # 1. 查找节点并删除
         if val < node.val:
             node.left = self.remove_helper(node.left, val)
         elif val > node.val:
@@ -1946,7 +1946,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     TreeNode *removeHelper(TreeNode *node, int val) {
         if (node == nullptr)
             return nullptr;
-        /* 1. 查找节点，并删除之 */
+        /* 1. 查找节点并删除 */
         if (val < node->val)
             node->left = removeHelper(node->left, val);
         else if (val > node->val)
@@ -1995,7 +1995,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     TreeNode removeHelper(TreeNode node, int val) {
         if (node == null)
             return null;
-        /* 1. 查找节点，并删除之 */
+        /* 1. 查找节点并删除 */
         if (val < node.val)
             node.left = removeHelper(node.left, val);
         else if (val > node.val)
@@ -2038,7 +2038,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     /* 递归删除节点（辅助方法） */
     TreeNode? RemoveHelper(TreeNode? node, int val) {
         if (node == null) return null;
-        /* 1. 查找节点，并删除之 */
+        /* 1. 查找节点并删除 */
         if (val < node.val)
             node.left = RemoveHelper(node.left, val);
         else if (val > node.val)
@@ -2083,7 +2083,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         if node == nil {
             return nil
         }
-        /* 1. 查找节点，并删除之 */
+        /* 1. 查找节点并删除 */
         if val < node.Val.(int) {
             node.Left = t.removeHelper(node.Left, val)
         } else if val > node.Val.(int) {
@@ -2134,7 +2134,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         if node == nil {
             return nil
         }
-        /* 1. 查找节点，并删除之 */
+        /* 1. 查找节点并删除 */
         if val < node!.val {
             node?.left = removeHelper(node: node?.left, val: val)
         } else if val > node!.val {
@@ -2179,7 +2179,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     /* 递归删除节点（辅助方法） */
     #removeHelper(node, val) {
         if (node === null) return null;
-        /* 1. 查找节点，并删除之 */
+        /* 1. 查找节点并删除 */
         if (val < node.val) node.left = this.#removeHelper(node.left, val);
         else if (val > node.val)
             node.right = this.#removeHelper(node.right, val);
@@ -2219,7 +2219,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     /* 递归删除节点（辅助方法） */
     removeHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return null;
-        /* 1. 查找节点，并删除之 */
+        /* 1. 查找节点并删除 */
         if (val < node.val) {
             node.left = this.removeHelper(node.left, val);
         } else if (val > node.val) {
@@ -2263,7 +2263,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     /* 递归删除节点（辅助方法） */
     TreeNode? removeHelper(TreeNode? node, int val) {
       if (node == null) return null;
-      /* 1. 查找节点，并删除之 */
+      /* 1. 查找节点并删除 */
       if (val < node.val)
         node.left = removeHelper(node.left, val);
       else if (val > node.val)
@@ -2307,7 +2307,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     fn remove_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. 查找节点，并删除之 */
+                /* 1. 查找节点并删除 */
                 if val < node.borrow().val {
                     let left = node.borrow().left.clone();
                     node.borrow_mut().left = Self::remove_helper(left, val);
@@ -2368,7 +2368,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         if (node == NULL) {
             return NULL;
         }
-        /* 1. 查找节点，并删除之 */
+        /* 1. 查找节点并删除 */
         if (val < node->val) {
             node->left = removeHelper(node->left, val);
         } else if (val > node->val) {
@@ -2418,7 +2418,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     fn removeHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) ?*inc.TreeNode(T) {
         var node = node_;
         if (node == null) return null;
-        // 1. 查找节点，并删除之
+        // 1. 查找节点并删除
         if (val < node.?.val) {
             node.?.left = self.removeHelper(node.?.left, val);
         } else if (val > node.?.val) {

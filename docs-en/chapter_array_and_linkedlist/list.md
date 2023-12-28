@@ -892,7 +892,7 @@ To deepen the understanding of how lists work, let's try implementing a simple v
 
         def get(self, index: int) -> int:
             """访问元素"""
-            # 索引如果越界则抛出异常，下同
+            # 索引如果越界，则抛出异常，下同
             if index < 0 or index >= self._size:
                 raise IndexError("索引越界")
             return self._arr[index]
@@ -935,12 +935,12 @@ To deepen the understanding of how lists work, let's try implementing a simple v
                 self._arr[j] = self._arr[j + 1]
             # 更新元素数量
             self._size -= 1
-            # 返回被删除元素
+            # 返回被删除的元素
             return num
 
         def extend_capacity(self):
             """列表扩容"""
-            # 新建一个长度为原数组 __extend_ratio 倍的新数组，并将原数组拷贝到新数组
+            # 新建一个长度为原数组 _extend_ratio 倍的新数组，并将原数组复制到新数组
             self._arr = self._arr + [0] * self.capacity() * (self._extend_ratio - 1)
             # 更新列表容量
             self._capacity = len(self._arr)
@@ -984,7 +984,7 @@ To deepen the understanding of how lists work, let's try implementing a simple v
 
         /* 访问元素 */
         int get(int index) {
-            // 索引如果越界则抛出异常，下同
+            // 索引如果越界，则抛出异常，下同
             if (index < 0 || index >= size())
                 throw out_of_range("索引越界");
             return arr[index];
@@ -1034,7 +1034,7 @@ To deepen the understanding of how lists work, let's try implementing a simple v
             }
             // 更新元素数量
             arrSize--;
-            // 返回被删除元素
+            // 返回被删除的元素
             return num;
         }
 
@@ -1092,7 +1092,7 @@ To deepen the understanding of how lists work, let's try implementing a simple v
 
         /* 访问元素 */
         public int get(int index) {
-            // 索引如果越界则抛出异常，下同
+            // 索引如果越界，则抛出异常，下同
             if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("索引越界");
             return arr[index];
@@ -1142,13 +1142,13 @@ To deepen the understanding of how lists work, let's try implementing a simple v
             }
             // 更新元素数量
             size--;
-            // 返回被删除元素
+            // 返回被删除的元素
             return num;
         }
 
         /* 列表扩容 */
         public void extendCapacity() {
-            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
+            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组
             arr = Arrays.copyOf(arr, capacity() * extendRatio);
             // 更新列表容量
             capacity = arr.length;
@@ -1194,7 +1194,7 @@ To deepen the understanding of how lists work, let's try implementing a simple v
 
         /* 访问元素 */
         public int Get(int index) {
-            // 索引如果越界则抛出异常，下同
+            // 索引如果越界，则抛出异常，下同
             if (index < 0 || index >= arrSize)
                 throw new IndexOutOfRangeException("索引越界");
             return arr[index];
@@ -1244,13 +1244,13 @@ To deepen the understanding of how lists work, let's try implementing a simple v
             }
             // 更新元素数量
             arrSize--;
-            // 返回被删除元素
+            // 返回被删除的元素
             return num;
         }
 
         /* 列表扩容 */
         public void ExtendCapacity() {
-            // 新建一个长度为 arrCapacity * extendRatio 的数组，并将原数组拷贝到新数组
+            // 新建一个长度为 arrCapacity * extendRatio 的数组，并将原数组复制到新数组
             Array.Resize(ref arr, arrCapacity * extendRatio);
             // 更新列表容量
             arrCapacity = arr.Length;
@@ -1301,7 +1301,7 @@ To deepen the understanding of how lists work, let's try implementing a simple v
 
     /* 访问元素 */
     func (l *myList) get(index int) int {
-        // 索引如果越界则抛出异常，下同
+        // 索引如果越界，则抛出异常，下同
         if index < 0 || index >= l.arrSize {
             panic("索引越界")
         }
@@ -1357,13 +1357,13 @@ To deepen the understanding of how lists work, let's try implementing a simple v
         }
         // 更新元素数量
         l.arrSize--
-        // 返回被删除元素
+        // 返回被删除的元素
         return num
     }
 
     /* 列表扩容 */
     func (l *myList) extendCapacity() {
-        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
+        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组
         l.arr = append(l.arr, make([]int, l.arrCapacity*(l.extendRatio-1))...)
         // 更新列表容量
         l.arrCapacity = len(l.arr)
@@ -1460,13 +1460,13 @@ To deepen the understanding of how lists work, let's try implementing a simple v
             }
             // 更新元素数量
             _size -= 1
-            // 返回被删除元素
+            // 返回被删除的元素
             return num
         }
 
         /* 列表扩容 */
         func extendCapacity() {
-            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
+            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组
             arr = arr + Array(repeating: 0, count: _capacity * (extendRatio - 1))
             // 更新列表容量
             _capacity = arr.count
@@ -1510,7 +1510,7 @@ To deepen the understanding of how lists work, let's try implementing a simple v
 
         /* 访问元素 */
         get(index) {
-            // 索引如果越界则抛出异常，下同
+            // 索引如果越界，则抛出异常，下同
             if (index < 0 || index >= this.#size) throw new Error('索引越界');
             return this.#arr[index];
         }
@@ -1558,13 +1558,13 @@ To deepen the understanding of how lists work, let's try implementing a simple v
             }
             // 更新元素数量
             this.#size--;
-            // 返回被删除元素
+            // 返回被删除的元素
             return num;
         }
 
         /* 列表扩容 */
         extendCapacity() {
-            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
+            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组
             this.#arr = this.#arr.concat(
                 new Array(this.capacity() * (this.#extendRatio - 1))
             );
@@ -1612,7 +1612,7 @@ To deepen the understanding of how lists work, let's try implementing a simple v
 
         /* 访问元素 */
         public get(index: number): number {
-            // 索引如果越界则抛出异常，下同
+            // 索引如果越界，则抛出异常，下同
             if (index < 0 || index >= this._size) throw new Error('索引越界');
             return this.arr[index];
         }
@@ -1658,13 +1658,13 @@ To deepen the understanding of how lists work, let's try implementing a simple v
             }
             // 更新元素数量
             this._size--;
-            // 返回被删除元素
+            // 返回被删除的元素
             return num;
         }
 
         /* 列表扩容 */
         public extendCapacity(): void {
-            // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
+            // 新建一个长度为 size 的数组，并将原数组复制到新数组
             this.arr = this.arr.concat(
                 new Array(this.capacity() * (this.extendRatio - 1))
             );
@@ -1751,7 +1751,7 @@ To deepen the understanding of how lists work, let's try implementing a simple v
         }
         // 更新元素数量
         _size--;
-        // 返回被删除元素
+        // 返回被删除的元素
         return _num;
       }
 
@@ -1759,7 +1759,7 @@ To deepen the understanding of how lists work, let's try implementing a simple v
       void extendCapacity() {
         // 新建一个长度为原数组 _extendRatio 倍的新数组
         final _newNums = List.filled(_capacity * _extendRatio, 0);
-        // 将原数组拷贝到新数组
+        // 将原数组复制到新数组
         List.copyRange(_newNums, 0, _arr);
         // 更新 _arr 的引用
         _arr = _newNums;
@@ -1816,7 +1816,7 @@ To deepen the understanding of how lists work, let's try implementing a simple v
 
         /* 访问元素 */
         pub fn get(&self, index: usize) -> i32 {
-            // 索引如果越界则抛出异常，下同
+            // 索引如果越界，则抛出异常，下同
             if index >= self.size {panic!("索引越界")};
             return self.arr[index];
         }
@@ -1864,13 +1864,13 @@ To deepen the understanding of how lists work, let's try implementing a simple v
             }
             // 更新元素数量
             self.size -= 1;
-            // 返回被删除元素
+            // 返回被删除的元素
             return num;
         }
 
         /* 列表扩容 */
         pub fn extend_capacity(&mut self) {
-            // 新建一个长度为原数组 extend_ratio 倍的新数组，并将原数组拷贝到新数组
+            // 新建一个长度为原数组 extend_ratio 倍的新数组，并将原数组复制到新数组
             let new_capacity = self.capacity * self.extend_ratio;
             self.arr.resize(new_capacity, 0);
             // 更新列表容量
@@ -2041,14 +2041,14 @@ To deepen the understanding of how lists work, let's try implementing a simple v
 
             // 访问元素
             pub fn get(self: *Self, index: usize) T {
-                // 索引如果越界则抛出异常，下同
+                // 索引如果越界，则抛出异常，下同
                 if (index < 0 or index >= self.size()) @panic("索引越界");
                 return self.arr[index];
             }  
 
             // 更新元素
             pub fn set(self: *Self, index: usize, num: T) void {
-                // 索引如果越界则抛出异常，下同
+                // 索引如果越界，则抛出异常，下同
                 if (index < 0 or index >= self.size()) @panic("索引越界");
                 self.arr[index] = num;
             }  
@@ -2088,13 +2088,13 @@ To deepen the understanding of how lists work, let's try implementing a simple v
                 }
                 // 更新元素数量
                 self.numSize -= 1;
-                // 返回被删除元素
+                // 返回被删除的元素
                 return num;
             }
 
             // 列表扩容
             pub fn extendCapacity(self: *Self) !void {
-                // 新建一个长度为 size * extendRatio 的数组，并将原数组拷贝到新数组
+                // 新建一个长度为 size * extendRatio 的数组，并将原数组复制到新数组
                 var newCapacity = self.capacity() * self.extendRatio;
                 var extend = try self.mem_allocator.alloc(T, newCapacity);
                 @memset(extend, @as(T, 0));

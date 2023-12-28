@@ -25,12 +25,12 @@ comments: true
 如图 12-11 所示，对于问题 $f(1)$ ，即当只有一个圆盘时，我们将它直接从 `A` 移动至 `C` 即可。
 
 === "<1>"
-    ![规模为 1 问题的解](hanota_problem.assets/hanota_f1_step1.png){ class="animation-figure" }
+    ![规模为 1 的问题的解](hanota_problem.assets/hanota_f1_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.png){ class="animation-figure" }
 
-<p align="center"> 图 12-11 &nbsp; 规模为 1 问题的解 </p>
+<p align="center"> 图 12-11 &nbsp; 规模为 1 的问题的解 </p>
 
 如图 12-12 所示，对于问题 $f(2)$ ，即当有两个圆盘时，**由于要时刻满足小圆盘在大圆盘之上，因此需要借助 `B` 来完成移动**。
 
@@ -39,7 +39,7 @@ comments: true
 3. 最后将小圆盘从 `B` 移至 `C` 。
 
 === "<1>"
-    ![规模为 2 问题的解](hanota_problem.assets/hanota_f2_step1.png){ class="animation-figure" }
+    ![规模为 2 的问题的解](hanota_problem.assets/hanota_f2_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.png){ class="animation-figure" }
@@ -50,7 +50,7 @@ comments: true
 === "<4>"
     ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.png){ class="animation-figure" }
 
-<p align="center"> 图 12-12 &nbsp; 规模为 2 问题的解 </p>
+<p align="center"> 图 12-12 &nbsp; 规模为 2 的问题的解 </p>
 
 解决问题 $f(2)$ 的过程可总结为：**将两个圆盘借助 `B` 从 `A` 移至 `C`** 。其中，`C` 称为目标柱、`B` 称为缓冲柱。
 
@@ -65,7 +65,7 @@ comments: true
 3. 令 `C` 为目标柱、`A` 为缓冲柱，将两个圆盘从 `B` 移至 `C` 。
 
 === "<1>"
-    ![规模为 3 问题的解](hanota_problem.assets/hanota_f3_step1.png){ class="animation-figure" }
+    ![规模为 3 的问题的解](hanota_problem.assets/hanota_f3_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.png){ class="animation-figure" }
@@ -76,9 +76,9 @@ comments: true
 === "<4>"
     ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.png){ class="animation-figure" }
 
-<p align="center"> 图 12-13 &nbsp; 规模为 3 问题的解 </p>
+<p align="center"> 图 12-13 &nbsp; 规模为 3 的问题的解 </p>
 
-从本质上看，**我们将问题 $f(3)$ 划分为两个子问题 $f(2)$ 和子问题 $f(1)$** 。按顺序解决这三个子问题之后，原问题随之得到解决。这说明子问题是独立的，而且解可以合并。
+从本质上看，**我们将问题 $f(3)$ 划分为两个子问题 $f(2)$ 和一个子问题 $f(1)$** 。按顺序解决这三个子问题之后，原问题随之得到解决。这说明子问题是独立的，而且解可以合并。
 
 至此，我们可总结出图 12-14 所示的解决汉诺塔问题的分治策略：将原问题 $f(n)$ 划分为两个子问题 $f(n-1)$ 和一个子问题 $f(1)$ ，并按照以下顺序解决这三个子问题。
 

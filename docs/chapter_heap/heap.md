@@ -6,8 +6,8 @@ comments: true
 
 「堆 heap」是一种满足特定条件的完全二叉树，主要可分为两种类型，如图 8-1 所示。
 
-- 「大顶堆 max heap」：任意节点的值 $\geq$ 其子节点的值。
 - 「小顶堆 min heap」：任意节点的值 $\leq$ 其子节点的值。
+- 「大顶堆 max heap」：任意节点的值 $\geq$ 其子节点的值。
 
 ![小顶堆与大顶堆](heap.assets/min_heap_and_max_heap.png){ class="animation-figure" }
 
@@ -17,11 +17,11 @@ comments: true
 
 - 最底层节点靠左填充，其他层的节点都被填满。
 - 我们将二叉树的根节点称为“堆顶”，将底层最靠右的节点称为“堆底”。
-- 对于大顶堆（小顶堆），堆顶元素（根节点）的值分别是最大（最小）的。
+- 对于大顶堆（小顶堆），堆顶元素（根节点）的值是最大（最小）的。
 
-## 8.1.1 &nbsp; 堆常用操作
+## 8.1.1 &nbsp; 堆的常用操作
 
-需要指出的是，许多编程语言提供的是「优先队列 priority queue」，这是一种抽象数据结构，定义为具有优先级排序的队列。
+需要指出的是，许多编程语言提供的是「优先队列 priority queue」，这是一种抽象的数据结构，定义为具有优先级排序的队列。
 
 实际上，**堆通常用于实现优先队列，大顶堆相当于元素按从大到小的顺序出队的优先队列**。从使用角度来看，我们可以将“优先队列”和“堆”看作等价的数据结构。因此，本书对两者不做特别区分，统一称作“堆”。
 
@@ -31,13 +31,13 @@ comments: true
 
 <div class="center-table" markdown>
 
-| 方法名    | 描述                                         | 时间复杂度  |
-| --------- | -------------------------------------------- | ----------- |
-| push()    | 元素入堆                                     | $O(\log n)$ |
-| pop()     | 堆顶元素出堆                                 | $O(\log n)$ |
-| peek()    | 访问堆顶元素（大 / 小顶堆分别为最大 / 小值） | $O(1)$      |
-| size()    | 获取堆的元素数量                             | $O(1)$      |
-| isEmpty() | 判断堆是否为空                               | $O(1)$      |
+| 方法名      | 描述                                             | 时间复杂度  |
+| ----------- | ------------------------------------------------ | ----------- |
+| `push()`    | 元素入堆                                         | $O(\log n)$ |
+| `pop()`     | 堆顶元素出堆                                     | $O(\log n)$ |
+| `peek()`    | 访问堆顶元素（对于大 / 小顶堆分别为最大 / 小值） | $O(1)$      |
+| `size()`    | 获取堆的元素数量                                 | $O(1)$      |
+| `isEmpty()` | 判断堆是否为空                                   | $O(1)$      |
 
 </div>
 
@@ -363,7 +363,7 @@ comments: true
 
 当使用数组表示二叉树时，元素代表节点值，索引代表节点在二叉树中的位置。**节点指针通过索引映射公式来实现**。
 
-如图 8-2 所示，给定索引 $i$ ，其左子节点索引为 $2i + 1$ ，右子节点索引为 $2i + 2$ ，父节点索引为 $(i - 1) / 2$（向下整除）。当索引越界时，表示空节点或节点不存在。
+如图 8-2 所示，给定索引 $i$ ，其左子节点的索引为 $2i + 1$ ，右子节点的索引为 $2i + 2$ ，父节点的索引为 $(i - 1) / 2$（向下整除）。当索引越界时，表示空节点或节点不存在。
 
 ![堆的表示与存储](heap.assets/representation_of_heap.png){ class="animation-figure" }
 
@@ -375,32 +375,32 @@ comments: true
 
     ```python title="my_heap.py"
     def left(self, i: int) -> int:
-        """获取左子节点索引"""
+        """获取左子节点的索引"""
         return 2 * i + 1
 
     def right(self, i: int) -> int:
-        """获取右子节点索引"""
+        """获取右子节点的索引"""
         return 2 * i + 2
 
     def parent(self, i: int) -> int:
-        """获取父节点索引"""
+        """获取父节点的索引"""
         return (i - 1) // 2  # 向下整除
     ```
 
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     int left(int i) {
         return 2 * i + 1;
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     int right(int i) {
         return 2 * i + 2;
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     int parent(int i) {
         return (i - 1) / 2; // 向下整除
     }
@@ -409,17 +409,17 @@ comments: true
 === "Java"
 
     ```java title="my_heap.java"
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     int left(int i) {
         return 2 * i + 1;
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     int right(int i) {
         return 2 * i + 2;
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     int parent(int i) {
         return (i - 1) / 2; // 向下整除
     }
@@ -428,17 +428,17 @@ comments: true
 === "C#"
 
     ```csharp title="my_heap.cs"
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     int Left(int i) {
         return 2 * i + 1;
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     int Right(int i) {
         return 2 * i + 2;
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     int Parent(int i) {
         return (i - 1) / 2; // 向下整除
     }
@@ -447,17 +447,17 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     func (h *maxHeap) left(i int) int {
         return 2*i + 1
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     func (h *maxHeap) right(i int) int {
         return 2*i + 2
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     func (h *maxHeap) parent(i int) int {
         // 向下整除
         return (i - 1) / 2
@@ -467,17 +467,17 @@ comments: true
 === "Swift"
 
     ```swift title="my_heap.swift"
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     func left(i: Int) -> Int {
         2 * i + 1
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     func right(i: Int) -> Int {
         2 * i + 2
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     func parent(i: Int) -> Int {
         (i - 1) / 2 // 向下整除
     }
@@ -486,17 +486,17 @@ comments: true
 === "JS"
 
     ```javascript title="my_heap.js"
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     #left(i) {
         return 2 * i + 1;
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     #right(i) {
         return 2 * i + 2;
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     #parent(i) {
         return Math.floor((i - 1) / 2); // 向下整除
     }
@@ -505,17 +505,17 @@ comments: true
 === "TS"
 
     ```typescript title="my_heap.ts"
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     left(i: number): number {
         return 2 * i + 1;
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     right(i: number): number {
         return 2 * i + 2;
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     parent(i: number): number {
         return Math.floor((i - 1) / 2); // 向下整除
     }
@@ -524,17 +524,17 @@ comments: true
 === "Dart"
 
     ```dart title="my_heap.dart"
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     int _left(int i) {
       return 2 * i + 1;
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     int _right(int i) {
       return 2 * i + 2;
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     int _parent(int i) {
       return (i - 1) ~/ 2; // 向下整除
     }
@@ -543,17 +543,17 @@ comments: true
 === "Rust"
 
     ```rust title="my_heap.rs"
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     fn left(i: usize) -> usize {
         2 * i + 1
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     fn right(i: usize) -> usize {
         2 * i + 2
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     fn parent(i: usize) -> usize {
         (i - 1) / 2 // 向下整除
     }
@@ -562,17 +562,17 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     int left(MaxHeap *maxHeap, int i) {
         return 2 * i + 1;
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     int right(MaxHeap *maxHeap, int i) {
         return 2 * i + 2;
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     int parent(MaxHeap *maxHeap, int i) {
         return (i - 1) / 2;
     }
@@ -581,17 +581,17 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
-    // 获取左子节点索引
+    // 获取左子节点的索引
     fn left(i: usize) usize {
         return 2 * i + 1;
     }
 
-    // 获取右子节点索引
+    // 获取右子节点的索引
     fn right(i: usize) usize {
         return 2 * i + 2;
     }
 
-    // 获取父节点索引
+    // 获取父节点的索引
     fn parent(i: usize) usize {
         // return (i - 1) / 2; // 向下整除
         return @divFloor(i - 1, 2);
@@ -711,7 +711,7 @@ comments: true
 
 ### 3. &nbsp; 元素入堆
 
-给定元素 `val` ，我们首先将其添加到堆底。添加之后，由于 val 可能大于堆中其他元素，堆的成立条件可能已被破坏，**因此需要修复从插入节点到根节点的路径上的各个节点**，这个操作被称为「堆化 heapify」。
+给定元素 `val` ，我们首先将其添加到堆底。添加之后，由于 `val` 可能大于堆中其他元素，堆的成立条件可能已被破坏，**因此需要修复从插入节点到根节点的路径上的各个节点**，这个操作被称为「堆化 heapify」。
 
 考虑从入堆节点开始，**从底至顶执行堆化**。如图 8-3 所示，我们比较插入节点与其父节点的值，如果插入节点更大，则将它们交换。然后继续执行此操作，从底至顶修复堆中的各个节点，直至越过根节点或遇到无须交换的节点时结束。
 
@@ -1597,7 +1597,7 @@ comments: true
     }
     ```
 
-## 8.1.3 &nbsp; 堆常见应用
+## 8.1.3 &nbsp; 堆的常见应用
 
 - **优先队列**：堆通常作为实现优先队列的首选数据结构，其入队和出队操作的时间复杂度均为 $O(\log n)$ ，而建队操作为 $O(n)$ ，这些操作都非常高效。
 - **堆排序**：给定一组数据，我们可以用它们建立一个堆，然后不断地执行元素出堆操作，从而得到有序数据。然而，我们通常会使用一种更优雅的方式实现堆排序，详见“堆排序”章节。

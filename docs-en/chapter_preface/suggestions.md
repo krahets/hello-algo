@@ -14,7 +14,7 @@ comments: true
 - Proper nouns and words and phrases with specific meanings are marked with `"double quotes"` to avoid ambiguity.
 - Important proper nouns and their English translations are marked with `" "` in parentheses, e.g. `"array array"` . It is recommended to memorize them for reading the literature.
 - **Bolded text** Indicates key content or summary statements, which deserve special attention.
-- When it comes to terms that are inconsistent between programming languages, this book follows Python, for example using $\text{None}$ to mean "empty".
+- When it comes to terms that are inconsistent between programming languages, this book follows Python, for example using `None` to mean "empty".
 - This book partially abandons the specification of annotations in programming languages in exchange for a more compact layout of the content. There are three main types of annotations: title annotations, content annotations, and multi-line annotations.
 
 === "Python"

@@ -35,7 +35,7 @@ comments: true
 
 设数组的长度为 $n$ ，冒泡排序的步骤如图 11-5 所示。
 
-1. 首先，对 $n$ 个元素执行“冒泡”，**将数组的最大元素交换至正确位置**，
+1. 首先，对 $n$ 个元素执行“冒泡”，**将数组的最大元素交换至正确位置**。
 2. 接下来，对剩余 $n - 1$ 个元素执行“冒泡”，**将第二大元素交换至正确位置**。
 3. 以此类推，经过 $n - 1$ 轮“冒泡”后，**前 $n - 1$ 大的元素都被交换至正确位置**。
 4. 仅剩的一个元素必定是最小元素，无须排序，因此数组排序完成。
@@ -299,7 +299,7 @@ comments: true
                     nums[j], nums[j + 1] = nums[j + 1], nums[j]
                     flag = True  # 记录交换元素
             if not flag:
-                break  # 此轮冒泡未交换任何元素，直接跳出
+                break  # 此轮“冒泡”未交换任何元素，直接跳出
     ```
 
 === "C++"
@@ -320,7 +320,7 @@ comments: true
                 }
             }
             if (!flag)
-                break; // 此轮冒泡未交换任何元素，直接跳出
+                break; // 此轮“冒泡”未交换任何元素，直接跳出
         }
     }
     ```
@@ -344,7 +344,7 @@ comments: true
                 }
             }
             if (!flag)
-                break; // 此轮冒泡未交换任何元素，直接跳出
+                break; // 此轮“冒泡”未交换任何元素，直接跳出
         }
     }
     ```
@@ -365,7 +365,7 @@ comments: true
                     flag = true;  // 记录交换元素
                 }
             }
-            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
+            if (!flag) break;     // 此轮“冒泡”未交换任何元素，直接跳出
         }
     }
     ```
@@ -386,7 +386,7 @@ comments: true
                     flag = true // 记录交换元素
                 }
             }
-            if flag == false { // 此轮冒泡未交换任何元素，直接跳出
+            if flag == false { // 此轮“冒泡”未交换任何元素，直接跳出
                 break
             }
         }
@@ -410,7 +410,7 @@ comments: true
                     flag = true // 记录交换元素
                 }
             }
-            if !flag { // 此轮冒泡未交换任何元素，直接跳出
+            if !flag { // 此轮“冒泡”未交换任何元素，直接跳出
                 break
             }
         }
@@ -435,7 +435,7 @@ comments: true
                     flag = true; // 记录交换元素
                 }
             }
-            if (!flag) break; // 此轮冒泡未交换任何元素，直接跳出
+            if (!flag) break; // 此轮“冒泡”未交换任何元素，直接跳出
         }
     }
     ```
@@ -458,7 +458,7 @@ comments: true
                     flag = true; // 记录交换元素
                 }
             }
-            if (!flag) break; // 此轮冒泡未交换任何元素，直接跳出
+            if (!flag) break; // 此轮“冒泡”未交换任何元素，直接跳出
         }
     }
     ```
@@ -481,7 +481,7 @@ comments: true
             flag = true; // 记录交换元素
           }
         }
-        if (!flag) break; // 此轮冒泡未交换任何元素，直接跳出
+        if (!flag) break; // 此轮“冒泡”未交换任何元素，直接跳出
       }
     }
     ```
@@ -504,7 +504,7 @@ comments: true
                     flag = true;  // 记录交换元素
                 }
             }
-            if !flag {break};  // 此轮冒泡未交换任何元素，直接跳出
+            if !flag {break};  // 此轮“冒泡”未交换任何元素，直接跳出
         }
     }
     ```
@@ -552,7 +552,7 @@ comments: true
                     flag = true;
                 }
             }
-            if (!flag) break;   // 此轮冒泡未交换任何元素，直接跳出
+            if (!flag) break;   // 此轮“冒泡”未交换任何元素，直接跳出
         }
     }
     ```

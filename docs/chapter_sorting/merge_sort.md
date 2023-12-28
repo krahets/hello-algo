@@ -66,12 +66,12 @@ comments: true
     ```python title="merge_sort.py"
     def merge(nums: list[int], left: int, mid: int, right: int):
         """合并左子数组和右子数组"""
-        # 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        # 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
         # 创建一个临时数组 tmp ，用于存放合并后的结果
         tmp = [0] * (right - left + 1)
         # 初始化左子数组和右子数组的起始索引
         i, j, k = left, mid + 1, 0
-        # 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        # 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
         while i <= mid and j <= right:
             if nums[i] <= nums[j]:
                 tmp[k] = nums[i]
@@ -111,12 +111,12 @@ comments: true
     ```cpp title="merge_sort.cpp"
     /* 合并左子数组和右子数组 */
     void merge(vector<int> &nums, int left, int mid, int right) {
-        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
         // 创建一个临时数组 tmp ，用于存放合并后的结果
         vector<int> tmp(right - left + 1);
         // 初始化左子数组和右子数组的起始索引
         int i = left, j = mid + 1, k = 0;
-        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j])
                 tmp[k++] = nums[i++];
@@ -155,12 +155,12 @@ comments: true
     ```java title="merge_sort.java"
     /* 合并左子数组和右子数组 */
     void merge(int[] nums, int left, int mid, int right) {
-        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
         // 创建一个临时数组 tmp ，用于存放合并后的结果
         int[] tmp = new int[right - left + 1];
         // 初始化左子数组和右子数组的起始索引
         int i = left, j = mid + 1, k = 0;
-        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j])
                 tmp[k++] = nums[i++];
@@ -199,12 +199,12 @@ comments: true
     ```csharp title="merge_sort.cs"
     /* 合并左子数组和右子数组 */
     void Merge(int[] nums, int left, int mid, int right) {
-        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
         // 创建一个临时数组 tmp ，用于存放合并后的结果
         int[] tmp = new int[right - left + 1];
         // 初始化左子数组和右子数组的起始索引
         int i = left, j = mid + 1, k = 0;
-        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j])
                 tmp[k++] = nums[i++];
@@ -242,12 +242,12 @@ comments: true
     ```go title="merge_sort.go"
     /* 合并左子数组和右子数组 */
     func merge(nums []int, left, mid, right int) {
-        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
         // 创建一个临时数组 tmp ，用于存放合并后的结果
         tmp := make([]int, right-left+1)
         // 初始化左子数组和右子数组的起始索引
         i, j, k := left, mid+1, 0
-        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
         for i <= mid && j <= right {
             if nums[i] <= nums[j] {
                 tmp[k] = nums[i]
@@ -295,12 +295,12 @@ comments: true
     ```swift title="merge_sort.swift"
     /* 合并左子数组和右子数组 */
     func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
-        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
         // 创建一个临时数组 tmp ，用于存放合并后的结果
         var tmp = Array(repeating: 0, count: right - left + 1)
         // 初始化左子数组和右子数组的起始索引
         var i = left, j = mid + 1, k = 0
-        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
         while i <= mid, j <= right {
             if nums[i] <= nums[j] {
                 tmp[k] = nums[i]
@@ -349,14 +349,14 @@ comments: true
     ```javascript title="merge_sort.js"
     /* 合并左子数组和右子数组 */
     function merge(nums, left, mid, right) {
-        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
         // 创建一个临时数组 tmp ，用于存放合并后的结果
         const tmp = new Array(right - left + 1);
         // 初始化左子数组和右子数组的起始索引
         let i = left,
             j = mid + 1,
             k = 0;
-        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j]) {
                 tmp[k++] = nums[i++];
@@ -395,14 +395,14 @@ comments: true
     ```typescript title="merge_sort.ts"
     /* 合并左子数组和右子数组 */
     function merge(nums: number[], left: number, mid: number, right: number): void {
-        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
         // 创建一个临时数组 tmp ，用于存放合并后的结果
         const tmp = new Array(right - left + 1);
         // 初始化左子数组和右子数组的起始索引
         let i = left,
             j = mid + 1,
             k = 0;
-        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j]) {
                 tmp[k++] = nums[i++];
@@ -441,12 +441,12 @@ comments: true
     ```dart title="merge_sort.dart"
     /* 合并左子数组和右子数组 */
     void merge(List<int> nums, int left, int mid, int right) {
-      // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+      // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
       // 创建一个临时数组 tmp ，用于存放合并后的结果
       List<int> tmp = List.filled(right - left + 1, 0);
       // 初始化左子数组和右子数组的起始索引
       int i = left, j = mid + 1, k = 0;
-      // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+      // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
       while (i <= mid && j <= right) {
         if (nums[i] <= nums[j])
           tmp[k++] = nums[i++];
@@ -484,13 +484,13 @@ comments: true
     ```rust title="merge_sort.rs"
     /* 合并左子数组和右子数组 */
     fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
-        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
         // 创建一个临时数组 tmp ，用于存放合并后的结果
         let tmp_size = right - left + 1;
         let mut tmp = vec![0; tmp_size];
         // 初始化左子数组和右子数组的起始索引
         let (mut i, mut j, mut k) = (left, mid + 1, 0);
-        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
         while i <= mid && j <= right {
             if nums[i] <= nums[j] {
                 tmp[k] = nums[j];
@@ -536,13 +536,13 @@ comments: true
     ```c title="merge_sort.c"
     /* 合并左子数组和右子数组 */
     void merge(int *nums, int left, int mid, int right) {
-        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
         // 创建一个临时数组 tmp ，用于存放合并后的结果
         int tmpSize = right - left + 1;
         int *tmp = (int *)malloc(tmpSize * sizeof(int));
         // 初始化左子数组和右子数组的起始索引
         int i = left, j = mid + 1, k = 0;
-        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j]) {
                 tmp[k++] = nums[i++];
@@ -635,8 +635,8 @@ comments: true
 
 ## 11.6.2 &nbsp; 算法特性
 
-- **时间复杂度 $O(n \log n)$、非自适应排序**：划分产生高度为 $\log n$ 的递归树，每层合并的总操作数量为 $n$ ，因此总体时间复杂度为 $O(n \log n)$ 。
-- **空间复杂度 $O(n)$、非原地排序**：递归深度为 $\log n$ ，使用 $O(\log n)$ 大小的栈帧空间。合并操作需要借助辅助数组实现，使用 $O(n)$ 大小的额外空间。
+- **时间复杂度为 $O(n \log n)$、非自适应排序**：划分产生高度为 $\log n$ 的递归树，每层合并的总操作数量为 $n$ ，因此总体时间复杂度为 $O(n \log n)$ 。
+- **空间复杂度为 $O(n)$、非原地排序**：递归深度为 $\log n$ ，使用 $O(\log n)$ 大小的栈帧空间。合并操作需要借助辅助数组实现，使用 $O(n)$ 大小的额外空间。
 - **稳定排序**：在合并过程中，相等元素的次序保持不变。
 
 ## 11.6.3 &nbsp; 链表排序

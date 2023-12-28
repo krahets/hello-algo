@@ -588,8 +588,8 @@ comments: true
 
 ## 11.5.2 &nbsp; 算法特性
 
-- **时间复杂度 $O(n \log n)$、自适应排序**：在平均情况下，哨兵划分的递归层数为 $\log n$ ，每层中的总循环数为 $n$ ，总体使用 $O(n \log n)$ 时间。在最差情况下，每轮哨兵划分操作都将长度为 $n$ 的数组划分为长度为 $0$ 和 $n - 1$ 的两个子数组，此时递归层数达到 $n$ ，每层中的循环数为 $n$ ，总体使用 $O(n^2)$ 时间。
-- **空间复杂度 $O(n)$、原地排序**：在输入数组完全倒序的情况下，达到最差递归深度 $n$ ，使用 $O(n)$ 栈帧空间。排序操作是在原数组上进行的，未借助额外数组。
+- **时间复杂度为 $O(n \log n)$、自适应排序**：在平均情况下，哨兵划分的递归层数为 $\log n$ ，每层中的总循环数为 $n$ ，总体使用 $O(n \log n)$ 时间。在最差情况下，每轮哨兵划分操作都将长度为 $n$ 的数组划分为长度为 $0$ 和 $n - 1$ 的两个子数组，此时递归层数达到 $n$ ，每层中的循环数为 $n$ ，总体使用 $O(n^2)$ 时间。
+- **空间复杂度为 $O(n)$、原地排序**：在输入数组完全倒序的情况下，达到最差递归深度 $n$ ，使用 $O(n)$ 栈帧空间。排序操作是在原数组上进行的，未借助额外数组。
 - **非稳定排序**：在哨兵划分的最后一步，基准数可能会被交换至相等元素的右侧。
 
 ## 11.5.3 &nbsp; 快速排序为什么快
@@ -616,7 +616,7 @@ comments: true
 
     ```python title="quick_sort.py"
     def median_three(self, nums: list[int], left: int, mid: int, right: int) -> int:
-        """选取三个元素的中位数"""
+        """选取三个候选元素的中位数"""
         # 此处使用异或运算来简化代码
         # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]):
@@ -648,7 +648,7 @@ comments: true
 === "C++"
 
     ```cpp title="quick_sort.cpp"
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     int medianThree(vector<int> &nums, int left, int mid, int right) {
         // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
@@ -683,7 +683,7 @@ comments: true
 === "Java"
 
     ```java title="quick_sort.java"
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     int medianThree(int[] nums, int left, int mid, int right) {
         // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
@@ -718,7 +718,7 @@ comments: true
 === "C#"
 
     ```csharp title="quick_sort.cs"
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     int MedianThree(int[] nums, int left, int mid, int right) {
         // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
@@ -753,7 +753,7 @@ comments: true
 === "Go"
 
     ```go title="quick_sort.go"
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     func (q *quickSortMedian) medianThree(nums []int, left, mid, right int) int {
         // 此处使用异或运算来简化代码（!= 在这里起到异或的作用）
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
@@ -792,7 +792,7 @@ comments: true
 === "Swift"
 
     ```swift title="quick_sort.swift"
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     func medianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
         if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
             return left
@@ -816,7 +816,7 @@ comments: true
 === "JS"
 
     ```javascript title="quick_sort.js"
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     medianThree(nums, left, mid, right) {
         // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
@@ -853,7 +853,7 @@ comments: true
 === "TS"
 
     ```typescript title="quick_sort.ts"
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     medianThree(
         nums: number[],
         left: number,
@@ -904,7 +904,7 @@ comments: true
 === "Dart"
 
     ```dart title="quick_sort.dart"
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     int _medianThree(List<int> nums, int left, int mid, int right) {
       // 此处使用异或运算来简化代码
       // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
@@ -937,7 +937,7 @@ comments: true
 === "Rust"
 
     ```rust title="quick_sort.rs"
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     fn median_three(nums: &mut [i32], left: usize, mid: usize, right: usize) -> usize {
         // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
@@ -975,7 +975,7 @@ comments: true
 
     ```c title="quick_sort.c"
     /* 快速排序类（中位基准数优化） */
-    // 选取三个元素的中位数
+    // 选取三个候选元素的中位数
     int medianThree(int nums[], int left, int mid, int right) {
         // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
@@ -1010,7 +1010,7 @@ comments: true
 === "Zig"
 
     ```zig title="quick_sort.zig"
-    // 选取三个元素的中位数
+    // 选取三个候选元素的中位数
     fn medianThree(nums: []i32, left: usize, mid: usize, right: usize) usize {
         // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1

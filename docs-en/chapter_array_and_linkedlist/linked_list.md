@@ -17,7 +17,7 @@ The design of a linked list allows its nodes to be scattered throughout memory, 
 Observing the image above, the fundamental unit of a linked list is the "node" object. Each node contains two pieces of data: the "value" of the node and the "reference" to the next node.
 
 - The first node of a linked list is known as the "head node", and the last one is called the "tail node".
-- The tail node points to "null", which is represented as $\text{null}$ in Java, $\text{nullptr}$ in C++, and $\text{None}$ in Python.
+- The tail node points to "null", which is represented as `null` in Java, `nullptr` in C++, and `None` in Python.
 - In languages that support pointers, like C, C++, Go, and Rust, the aforementioned "reference" should be replaced with a "pointer".
 
 As shown in the following code, a linked list node `ListNode`, apart from containing a value, also needs to store a reference (pointer). Therefore, **a linked list consumes more memory space than an array for the same amount of data**.

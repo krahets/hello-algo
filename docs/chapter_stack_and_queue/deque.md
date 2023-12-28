@@ -18,14 +18,14 @@ comments: true
 
 <div class="center-table" markdown>
 
-| 方法名      | 描述             | 时间复杂度 |
-| ----------- | ---------------- | ---------- |
-| pushFirst() | 将元素添加至队首 | $O(1)$     |
-| pushLast()  | 将元素添加至队尾 | $O(1)$     |
-| popFirst()  | 删除队首元素     | $O(1)$     |
-| popLast()   | 删除队尾元素     | $O(1)$     |
-| peekFirst() | 访问队首元素     | $O(1)$     |
-| peekLast()  | 访问队尾元素     | $O(1)$     |
+| 方法名        | 描述             | 时间复杂度 |
+| ------------- | ---------------- | ---------- |
+| `pushFirst()` | 将元素添加至队首 | $O(1)$     |
+| `pushLast()`  | 将元素添加至队尾 | $O(1)$     |
+| `popFirst()`  | 删除队首元素     | $O(1)$     |
+| `popLast()`   | 删除队尾元素     | $O(1)$     |
+| `peekFirst()` | 访问队首元素     | $O(1)$     |
+| `peekLast()`  | 访问队尾元素     | $O(1)$     |
 
 </div>
 
@@ -2060,7 +2060,7 @@ comments: true
                 print("双向队列已满")
                 return
             # 队首指针向左移动一位
-            # 通过取余操作，实现 front 越过数组头部后回到尾部
+            # 通过取余操作实现 front 越过数组头部后回到尾部
             self._front = self.index(self._front - 1)
             # 将 num 添加至队首
             self._nums[self._front] = num
@@ -2071,7 +2071,7 @@ comments: true
             if self._size == self.capacity():
                 print("双向队列已满")
                 return
-            # 计算尾指针，指向队尾索引 + 1
+            # 计算队尾指针，指向队尾索引 + 1
             rear = self.index(self._front + self._size)
             # 将 num 添加至队尾
             self._nums[rear] = num
@@ -2161,7 +2161,7 @@ comments: true
                 return;
             }
             // 队首指针向左移动一位
-            // 通过取余操作，实现 front 越过数组头部后回到尾部
+            // 通过取余操作实现 front 越过数组头部后回到尾部
             front = index(front - 1);
             // 将 num 添加至队首
             nums[front] = num;
@@ -2174,7 +2174,7 @@ comments: true
                 cout << "双向队列已满" << endl;
                 return;
             }
-            // 计算尾指针，指向队尾索引 + 1
+            // 计算队尾指针，指向队尾索引 + 1
             int rear = index(front + queSize);
             // 将 num 添加至队尾
             nums[rear] = num;
@@ -2270,7 +2270,7 @@ comments: true
                 return;
             }
             // 队首指针向左移动一位
-            // 通过取余操作，实现 front 越过数组头部后回到尾部
+            // 通过取余操作实现 front 越过数组头部后回到尾部
             front = index(front - 1);
             // 将 num 添加至队首
             nums[front] = num;
@@ -2283,7 +2283,7 @@ comments: true
                 System.out.println("双向队列已满");
                 return;
             }
-            // 计算尾指针，指向队尾索引 + 1
+            // 计算队尾指针，指向队尾索引 + 1
             int rear = index(front + queSize);
             // 将 num 添加至队尾
             nums[rear] = num;
@@ -2379,7 +2379,7 @@ comments: true
                 return;
             }
             // 队首指针向左移动一位
-            // 通过取余操作，实现 front 越过数组头部后回到尾部
+            // 通过取余操作实现 front 越过数组头部后回到尾部
             front = Index(front - 1);
             // 将 num 添加至队首
             nums[front] = num;
@@ -2392,7 +2392,7 @@ comments: true
                 Console.WriteLine("双向队列已满");
                 return;
             }
-            // 计算尾指针，指向队尾索引 + 1
+            // 计算队尾指针，指向队尾索引 + 1
             int rear = Index(front + queSize);
             // 将 num 添加至队尾
             nums[rear] = num;
@@ -2491,7 +2491,7 @@ comments: true
             return
         }
         // 队首指针向左移动一位
-        // 通过取余操作，实现 front 越过数组头部后回到尾部
+        // 通过取余操作实现 front 越过数组头部后回到尾部
         q.front = q.index(q.front - 1)
         // 将 num 添加至队首
         q.nums[q.front] = num
@@ -2504,7 +2504,7 @@ comments: true
             fmt.Println("双向队列已满")
             return
         }
-        // 计算尾指针，指向队尾索引 + 1
+        // 计算队尾指针，指向队尾索引 + 1
         rear := q.index(q.front + q.queSize)
         // 将 num 添加至队首
         q.nums[rear] = num
@@ -2603,7 +2603,7 @@ comments: true
                 return
             }
             // 队首指针向左移动一位
-            // 通过取余操作，实现 front 越过数组头部后回到尾部
+            // 通过取余操作实现 front 越过数组头部后回到尾部
             front = index(i: front - 1)
             // 将 num 添加至队首
             nums[front] = num
@@ -2616,7 +2616,7 @@ comments: true
                 print("双向队列已满")
                 return
             }
-            // 计算尾指针，指向队尾索引 + 1
+            // 计算队尾指针，指向队尾索引 + 1
             let rear = index(i: front + size())
             // 将 num 添加至队尾
             nums[rear] = num
@@ -2715,7 +2715,7 @@ comments: true
                 return;
             }
             // 队首指针向左移动一位
-            // 通过取余操作，实现 front 越过数组头部后回到尾部
+            // 通过取余操作实现 front 越过数组头部后回到尾部
             this.#front = this.index(this.#front - 1);
             // 将 num 添加至队首
             this.#nums[this.#front] = num;
@@ -2728,7 +2728,7 @@ comments: true
                 console.log('双向队列已满');
                 return;
             }
-            // 计算尾指针，指向队尾索引 + 1
+            // 计算队尾指针，指向队尾索引 + 1
             const rear = this.index(this.#front + this.#queSize);
             // 将 num 添加至队尾
             this.#nums[rear] = num;
@@ -2823,7 +2823,7 @@ comments: true
                 return;
             }
             // 队首指针向左移动一位
-            // 通过取余操作，实现 front 越过数组头部后回到尾部
+            // 通过取余操作实现 front 越过数组头部后回到尾部
             this.front = this.index(this.front - 1);
             // 将 num 添加至队首
             this.nums[this.front] = num;
@@ -2836,7 +2836,7 @@ comments: true
                 console.log('双向队列已满');
                 return;
             }
-            // 计算尾指针，指向队尾索引 + 1
+            // 计算队尾指针，指向队尾索引 + 1
             const rear: number = this.index(this.front + this.queSize);
             // 将 num 添加至队尾
             this.nums[rear] = num;
@@ -2929,7 +2929,7 @@ comments: true
           throw Exception("双向队列已满");
         }
         // 队首指针向左移动一位
-        // 通过取余操作，实现 _front 越过数组头部后回到尾部
+        // 通过取余操作实现 _front 越过数组头部后回到尾部
         _front = index(_front - 1);
         // 将 _num 添加至队首
         _nums[_front] = _num;
@@ -2941,7 +2941,7 @@ comments: true
         if (_queSize == capacity()) {
           throw Exception("双向队列已满");
         }
-        // 计算尾指针，指向队尾索引 + 1
+        // 计算队尾指针，指向队尾索引 + 1
         int rear = index(_front + _queSize);
         // 将 _num 添加至队尾
         _nums[rear] = _num;
@@ -3044,7 +3044,7 @@ comments: true
                 return
             }
             // 队首指针向左移动一位
-            // 通过取余操作，实现 front 越过数组头部后回到尾部
+            // 通过取余操作实现 front 越过数组头部后回到尾部
             self.front = self.index(self.front as i32 - 1);
             // 将 num 添加至队首
             self.nums[self.front] = num;
@@ -3057,7 +3057,7 @@ comments: true
                 println!("双向队列已满");
                 return
             }
-            // 计算尾指针，指向队尾索引 + 1
+            // 计算队尾指针，指向队尾索引 + 1
             let rear = self.index(self.front as i32 + self.que_size as i32);
             // 将 num 添加至队尾
             self.nums[rear] = num;
@@ -3165,7 +3165,7 @@ comments: true
             return;
         }
         // 队首指针向左移动一位
-        // 通过取余操作，实现 front 越过数组头部回到尾部
+        // 通过取余操作实现 front 越过数组头部回到尾部
         deque->front = dequeIndex(deque, deque->front - 1);
         // 将 num 添加到队首
         deque->nums[deque->front] = num;
@@ -3178,7 +3178,7 @@ comments: true
             printf("双向队列已满\r\n");
             return;
         }
-        // 计算尾指针，指向队尾索引 + 1
+        // 计算队尾指针，指向队尾索引 + 1
         int rear = dequeIndex(deque, deque->front + deque->queSize);
         // 将 num 添加至队尾
         deque->nums[rear] = num;

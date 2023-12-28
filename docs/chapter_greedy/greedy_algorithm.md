@@ -15,7 +15,7 @@ comments: true
 
 !!! question
 
-    给定 $n$ 种硬币，第 $i$ 种硬币的面值为 $coins[i - 1]$ ，目标金额为 $amt$ ，每种硬币可以重复选取，问能够凑出目标金额的最少硬币数量。如果无法凑出目标金额则返回 $-1$ 。
+    给定 $n$ 种硬币，第 $i$ 种硬币的面值为 $coins[i - 1]$ ，目标金额为 $amt$ ，每种硬币可以重复选取，问能够凑出目标金额的最少硬币数量。如果无法凑出目标金额，则返回 $-1$ 。
 
 本题采取的贪心策略如图 15-1 所示。给定目标金额，**我们贪心地选择不大于且最接近它的硬币**，不断循环该步骤，直至凑出目标金额为止。
 
@@ -23,7 +23,7 @@ comments: true
 
 <p align="center"> 图 15-1 &nbsp; 零钱兑换的贪心策略 </p>
 
-实现代码如下所示。你可能会不由地发出感叹：So clean ！贪心算法仅用约十行代码就解决了零钱兑换问题：
+实现代码如下所示：
 
 === "Python"
 
@@ -289,7 +289,9 @@ comments: true
     [class]{}-[func]{coinChangeGreedy}
     ```
 
-## 15.1.1 &nbsp; 贪心的优点与局限性
+你可能会不由地发出感叹：So clean ！贪心算法仅用约十行代码就解决了零钱兑换问题。
+
+## 15.1.1 &nbsp; 贪心算法的优点与局限性
 
 **贪心算法不仅操作直接、实现简单，而且通常效率也很高**。在以上代码中，记硬币最小面值为 $\min(coins)$ ，则贪心选择最多循环 $amt / \min(coins)$ 次，时间复杂度为 $O(amt / \min(coins))$ 。这比动态规划解法的时间复杂度 $O(n \times amt)$ 提升了一个数量级。
 
@@ -299,9 +301,9 @@ comments: true
 - **反例 $coins = [1, 20, 50]$**：假设 $amt = 60$ ，贪心算法只能找到 $50 + 1 \times 10$ 的兑换组合，共计 $11$ 枚硬币，但动态规划可以找到最优解 $20 + 20 + 20$ ，仅需 $3$ 枚硬币。
 - **反例 $coins = [1, 49, 50]$**：假设 $amt = 98$ ，贪心算法只能找到 $50 + 1 \times 48$ 的兑换组合，共计 $49$ 枚硬币，但动态规划可以找到最优解 $49 + 49$ ，仅需 $2$ 枚硬币。
 
-![贪心无法找出最优解的示例](greedy_algorithm.assets/coin_change_greedy_vs_dp.png){ class="animation-figure" }
+![贪心算法无法找出最优解的示例](greedy_algorithm.assets/coin_change_greedy_vs_dp.png){ class="animation-figure" }
 
-<p align="center"> 图 15-2 &nbsp; 贪心无法找出最优解的示例 </p>
+<p align="center"> 图 15-2 &nbsp; 贪心算法无法找出最优解的示例 </p>
 
 也就是说，对于零钱兑换问题，贪心算法无法保证找到全局最优解，并且有可能找到非常差的解。它更适合用动态规划解决。
 
@@ -329,9 +331,9 @@ comments: true
 
     有一篇论文给出了一个 $O(n^3)$ 时间复杂度的算法，用于判断一个硬币组合能否使用贪心算法找出任意金额的最优解。
 
-    Pearson, David. A polynomial-time algorithm for the change-making problem. Operations Research Letters 33.3 (2005): 231-234.
+    Pearson, D. A polynomial-time algorithm for the change-making problem[J]. Operations Research Letters, 2005, 33(3): 231-234.
 
-## 15.1.3 &nbsp; 贪心解题步骤
+## 15.1.3 &nbsp; 贪心算法解题步骤
 
 贪心问题的解决流程大体可分为以下三步。
 
@@ -348,7 +350,7 @@ comments: true
 
 然而，正确性证明也很可能不是一件易事。如若没有头绪，我们通常会选择面向测试用例进行代码调试，一步步修改与验证贪心策略。
 
-## 15.1.4 &nbsp; 贪心典型例题
+## 15.1.4 &nbsp; 贪心算法典型例题
 
 贪心算法常常应用在满足贪心选择性质和最优子结构的优化问题中，以下列举了一些典型的贪心算法问题。
 
