@@ -13,7 +13,7 @@ icon: material/view-list-outline
 
     The bricks of an array are neatly arranged, each closely connected to the next. In contrast, the bricks of a linked list are scattered, with vines of connections freely weaving through the gaps between bricks.
 
-## 本章内容
+## Chapter Contents
 
 - [4.1 &nbsp; Array](https://www.hello-algo.com/chapter_array_and_linkedlist/array/)
 - [4.2 &nbsp; Linked List](https://www.hello-algo.com/chapter_array_and_linkedlist/linked_list/)

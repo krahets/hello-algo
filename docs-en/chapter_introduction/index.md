@@ -17,7 +17,7 @@ icon: material/calculator-variant-outline
    
     She invites you to a dance, follow her steps, and enter the world of algorithms full of logic and beauty.
 
-## 本章内容
+## Chapter Contents
 
 - [1.1 &nbsp; Algorithms are Everywhere](https://www.hello-algo.com/chapter_introduction/algorithms_are_everywhere/)
 - [1.2 &nbsp; What is an Algorithm](https://www.hello-algo.com/chapter_introduction/what_is_dsa/)

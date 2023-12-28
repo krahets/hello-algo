@@ -17,7 +17,7 @@ icon: material/shape-outline
 
     They offer a blueprint for the orderly organization of data, upon which algorithms come to life.
 
-## 本章内容
+## Chapter Contents
 
 - [3.1 &nbsp; Classification of Data Structures](https://www.hello-algo.com/chapter_data_structure/classification_of_data_structure/)
 - [3.2 &nbsp; Fundamental Data Types](https://www.hello-algo.com/chapter_data_structure/basic_data_types/)
