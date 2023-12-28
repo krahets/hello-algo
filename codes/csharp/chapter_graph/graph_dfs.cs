@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_graph;
 
 public class graph_dfs {
-    /* 深度优先遍历 DFS 辅助函数 */
+    /* 深度优先遍历辅助函数 */
     void DFS(GraphAdjList graph, HashSet<Vertex> visited, List<Vertex> res, Vertex vet) {
         res.Add(vet);     // 记录访问顶点
         visited.Add(vet); // 标记该顶点已被访问
@@ -21,7 +21,7 @@ public class graph_dfs {
         }
     }
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     List<Vertex> GraphDFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
@@ -46,7 +46,7 @@ public class graph_dfs {
         Console.WriteLine("\n初始化后，图为");
         graph.Print();
 
-        /* 深度优先遍历 DFS */
+        /* 深度优先遍历 */
         List<Vertex> res = GraphDFS(graph, v[0]);
         Console.WriteLine("\n深度优先遍历（DFS）顶点序列为");
         Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));

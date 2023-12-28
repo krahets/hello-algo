@@ -173,7 +173,7 @@ int main() {
     print(hmap);
 
     /* 查询操作 */
-    // 向哈希表输入键 key ，得到值 value
+    // 向哈希表中输入键 key ，得到值 value
     const char *name = get(hmap, 15937);
     printf("\n输入学号 15937 ，查询到姓名 %s\n", name);
 

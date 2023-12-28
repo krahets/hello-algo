@@ -114,7 +114,7 @@ public class array_hash_map {
         map.print();
 
         /* 查询操作 */
-        // 向哈希表输入键 key ，得到值 value
+        // 向哈希表中输入键 key ，得到值 value
         String name = map.get(15937);
         System.out.println("\n输入学号 15937 ，查询到姓名 " + name);
 

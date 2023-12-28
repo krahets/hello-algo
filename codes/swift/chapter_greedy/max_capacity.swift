@@ -6,7 +6,7 @@
 
 /* 最大容量：贪心 */
 func maxCapacity(ht: [Int]) -> Int {
-    // 初始化 i, j 分列数组两端
+    // 初始化 i, j，使其分列数组两端
     var i = 0, j = ht.count - 1
     // 初始最大容量为 0
     var res = 0

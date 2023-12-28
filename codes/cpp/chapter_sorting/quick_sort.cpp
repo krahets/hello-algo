@@ -55,7 +55,7 @@ class QuickSortMedian {
         nums[j] = tmp;
     }
 
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     static int medianThree(vector<int> &nums, int left, int mid, int right) {
         // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1

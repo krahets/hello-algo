@@ -51,7 +51,7 @@ pub fn LinkedListQueue(comptime T: type) type {
 
         // 入队
         pub fn push(self: *Self, num: T) !void {
-            // 尾节点后添加 num
+            // 在尾节点后添加 num
             var node = try self.mem_allocator.create(inc.ListNode(T));
             node.init(num);
             // 如果队列为空，则令头、尾节点都指向该节点

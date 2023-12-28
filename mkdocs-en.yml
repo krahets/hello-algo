@@ -52,13 +52,14 @@ nav:
     - 3.3 Number Encoding *: chapter_data_structure/number_encoding.md
     - 3.4 Character Encoding *: chapter_data_structure/character_encoding.md
     - 3.5 Summary: chapter_data_structure/summary.md
-  # - Chapter 4. Array and Linked List:
-  #   # [icon: material/view-list-outline]
-  #   - chapter_array_and_linkedlist/index.md
-  #   - 4.1 Array: chapter_array_and_linkedlist/array.md
-  #   - 4.2 Linked List: chapter_array_and_linkedlist/linked_list.md
-  #   - 4.3 List: chapter_array_and_linkedlist/list.md
-  #   - 4.4 Summary: chapter_array_and_linkedlist/summary.md
+  - Chapter 4. Array and Linked List:
+    # [icon: material/view-list-outline]
+    - chapter_array_and_linkedlist/index.md
+    - 4.1 Array: chapter_array_and_linkedlist/array.md
+    - 4.2 Linked List: chapter_array_and_linkedlist/linked_list.md
+    - 4.3 List: chapter_array_and_linkedlist/list.md
+    - 4.4 Memory and Cache: chapter_array_and_linkedlist/ram_and_cache.md
+    - 4.5 Summary: chapter_array_and_linkedlist/summary.md
   # - Chapter 5. Stack and Queue:
   #   # [icon: material/stack-overflow]
   #   - chapter_stack_and_queue/index.md
@@ -87,7 +88,7 @@ nav:
   #   - chapter_heap/index.md
   #   - 8.1 Heap: chapter_heap/heap.md
   #   - 8.2 Building a Heap: chapter_heap/build_heap.md
-  #   - 8.3 Top-K Problem: chapter_heap/top_k.md
+  #   - 8.3 Top-k Problem: chapter_heap/top_k.md
   #   - 8.4 Summary: chapter_heap/summary.md
   # - Chapter 9. Graph:
   #   # [icon: material/graphql]

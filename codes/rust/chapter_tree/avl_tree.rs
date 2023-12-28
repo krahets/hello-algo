@@ -137,7 +137,7 @@ impl AVLTree {
     fn insert_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. 查找插入位置，并插入节点 */
+                /* 1. 查找插入位置并插入节点 */
                 match {
                     let node_val = node.borrow().val;
                     node_val
@@ -175,7 +175,7 @@ impl AVLTree {
     fn remove_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. 查找节点，并删除之 */
+                /* 1. 查找节点并删除 */
                 if val < node.borrow().val {
                     let left = node.borrow().left.clone();
                     node.borrow_mut().left = Self::remove_helper(left, val);

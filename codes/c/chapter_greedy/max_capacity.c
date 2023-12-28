@@ -17,7 +17,7 @@ int myMax(int a, int b) {
 
 /* 最大容量：贪心 */
 int maxCapacity(int ht[], int htLength) {
-    // 初始化 i, j 分列数组两端
+    // 初始化 i, j，使其分列数组两端
     int i = 0;
     int j = htLength - 1;
     // 初始最大容量为 0

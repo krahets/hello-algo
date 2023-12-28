@@ -25,7 +25,7 @@ class MyList:
 
     def get(self, index: int) -> int:
         """访问元素"""
-        # 索引如果越界则抛出异常，下同
+        # 索引如果越界，则抛出异常，下同
         if index < 0 or index >= self._size:
             raise IndexError("索引越界")
         return self._arr[index]
@@ -68,12 +68,12 @@ class MyList:
             self._arr[j] = self._arr[j + 1]
         # 更新元素数量
         self._size -= 1
-        # 返回被删除元素
+        # 返回被删除的元素
         return num
 
     def extend_capacity(self):
         """列表扩容"""
-        # 新建一个长度为原数组 __extend_ratio 倍的新数组，并将原数组拷贝到新数组
+        # 新建一个长度为原数组 _extend_ratio 倍的新数组，并将原数组复制到新数组
         self._arr = self._arr + [0] * self.capacity() * (self._extend_ratio - 1)
         # 更新列表容量
         self._capacity = len(self._arr)

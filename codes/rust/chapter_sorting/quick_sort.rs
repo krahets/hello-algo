@@ -44,7 +44,7 @@ impl QuickSort {
 struct QuickSortMedian;
 
 impl QuickSortMedian {
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     fn median_three(nums: &mut [i32], left: usize, mid: usize, right: usize) -> usize {
         // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1

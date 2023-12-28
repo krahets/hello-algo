@@ -53,7 +53,7 @@ impl ArrayDeque {
             return
         }
         // 队首指针向左移动一位
-        // 通过取余操作，实现 front 越过数组头部后回到尾部
+        // 通过取余操作实现 front 越过数组头部后回到尾部
         self.front = self.index(self.front as i32 - 1);
         // 将 num 添加至队首
         self.nums[self.front] = num;
@@ -66,7 +66,7 @@ impl ArrayDeque {
             println!("双向队列已满");
             return
         }
-        // 计算尾指针，指向队尾索引 + 1
+        // 计算队尾指针，指向队尾索引 + 1
         let rear = self.index(self.front as i32 + self.que_size as i32);
         // 将 num 添加至队尾
         self.nums[rear] = num;
