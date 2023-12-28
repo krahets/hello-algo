@@ -39,13 +39,13 @@ class HashMapChaining {
     /* 查询操作 */
     public string? Get(int key) {
         int index = HashFunc(key);
-        // 遍历桶，若找到 key 则返回对应 val
+        // 遍历桶，若找到 key ，则返回对应 val
         foreach (Pair pair in buckets[index]) {
             if (pair.key == key) {
                 return pair.val;
             }
         }
-        // 若未找到 key 则返回 null
+        // 若未找到 key ，则返回 null
         return null;
     }
 
@@ -131,7 +131,7 @@ public class hash_map_chaining {
         map.Print();
 
         /* 查询操作 */
-        // 向哈希表输入键 key ，得到值 value
+        // 向哈希表中输入键 key ，得到值 value
         string? name = map.Get(13276);
         Console.WriteLine("\n输入学号 13276 ，查询到姓名 " + name);
 

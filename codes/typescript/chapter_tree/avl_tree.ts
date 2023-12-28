@@ -102,7 +102,7 @@ class AVLTree {
     /* 递归插入节点（辅助方法） */
     private insertHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return new TreeNode(val);
-        /* 1. 查找插入位置，并插入节点 */
+        /* 1. 查找插入位置并插入节点 */
         if (val < node.val) {
             node.left = this.insertHelper(node.left, val);
         } else if (val > node.val) {
@@ -125,7 +125,7 @@ class AVLTree {
     /* 递归删除节点（辅助方法） */
     private removeHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return null;
-        /* 1. 查找节点，并删除之 */
+        /* 1. 查找节点并删除 */
         if (val < node.val) {
             node.left = this.removeHelper(node.left, val);
         } else if (val > node.val) {

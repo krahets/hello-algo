@@ -24,7 +24,7 @@ enum HashMap {
         PrintUtil.printHashMap(map: map)
 
         /* 查询操作 */
-        // 向哈希表输入键 key ，得到值 value
+        // 向哈希表中输入键 key ，得到值 value
         let name = map[15937]!
         print("\n输入学号 15937 ，查询到姓名 \(name)")
 

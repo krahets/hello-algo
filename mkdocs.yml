@@ -216,7 +216,7 @@ nav:
     - chapter_heap/index.md
     - 8.1 &nbsp; 堆: chapter_heap/heap.md
     - 8.2 &nbsp; 建堆操作: chapter_heap/build_heap.md
-    - 8.3 &nbsp; Top-K 问题: chapter_heap/top_k.md
+    - 8.3 &nbsp; Top-k 问题: chapter_heap/top_k.md
     - 8.4 &nbsp; 小结: chapter_heap/summary.md
   - 第 9 章 &nbsp; 图:
     # [icon: material/graphql]

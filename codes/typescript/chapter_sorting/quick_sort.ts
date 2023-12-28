@@ -55,7 +55,7 @@ class QuickSortMedian {
         nums[j] = tmp;
     }
 
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     medianThree(
         nums: number[],
         left: number,

@@ -6,13 +6,13 @@
 
 /* 合并左子数组和右子数组 */
 fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
-    // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+    // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
     // 创建一个临时数组 tmp ，用于存放合并后的结果
     let tmp_size = right - left + 1;
     let mut tmp = vec![0; tmp_size];
     // 初始化左子数组和右子数组的起始索引
     let (mut i, mut j, mut k) = (left, mid + 1, 0);
-    // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+    // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
     while i <= mid && j <= right {
         if nums[i] <= nums[j] {
             tmp[k] = nums[j];

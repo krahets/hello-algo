@@ -45,13 +45,13 @@ class HashMapChaining {
     get(key: number): string | null {
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
-        // 遍历桶，若找到 key 则返回对应 val
+        // 遍历桶，若找到 key ，则返回对应 val
         for (const pair of bucket) {
             if (pair.key === key) {
                 return pair.val;
             }
         }
-        // 若未找到 key 则返回 null
+        // 若未找到 key ，则返回 null
         return null;
     }
 
@@ -133,7 +133,7 @@ console.log('\n添加完成后，哈希表为\nKey -> Value');
 map.print();
 
 /* 查询操作 */
-// 向哈希表输入键 key ，得到值 value
+// 向哈希表中输入键 key ，得到值 value
 const name = map.get(13276);
 console.log('\n输入学号 13276 ，查询到姓名 ' + name);
 

@@ -34,7 +34,7 @@ func (l *myList) capacity() int {
 
 /* 访问元素 */
 func (l *myList) get(index int) int {
-	// 索引如果越界则抛出异常，下同
+	// 索引如果越界，则抛出异常，下同
 	if index < 0 || index >= l.arrSize {
 		panic("索引越界")
 	}
@@ -90,13 +90,13 @@ func (l *myList) remove(index int) int {
 	}
 	// 更新元素数量
 	l.arrSize--
-	// 返回被删除元素
+	// 返回被删除的元素
 	return num
 }
 
 /* 列表扩容 */
 func (l *myList) extendCapacity() {
-	// 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
+	// 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组
 	l.arr = append(l.arr, make([]int, l.arrCapacity*(l.extendRatio-1))...)
 	// 更新列表容量
 	l.arrCapacity = len(l.arr)

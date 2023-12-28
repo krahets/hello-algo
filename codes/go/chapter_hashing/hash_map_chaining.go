@@ -48,13 +48,13 @@ func (m *hashMapChaining) loadFactor() float64 {
 func (m *hashMapChaining) get(key int) string {
 	idx := m.hashFunc(key)
 	bucket := m.buckets[idx]
-	// 遍历桶，若找到 key 则返回对应 val
+	// 遍历桶，若找到 key ，则返回对应 val
 	for _, p := range bucket {
 		if p.key == key {
 			return p.val
 		}
 	}
-	// 若未找到 key 则返回空字符串
+	// 若未找到 key ，则返回空字符串
 	return ""
 }
 

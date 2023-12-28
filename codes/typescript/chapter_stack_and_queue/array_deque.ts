@@ -47,7 +47,7 @@ class ArrayDeque {
             return;
         }
         // 队首指针向左移动一位
-        // 通过取余操作，实现 front 越过数组头部后回到尾部
+        // 通过取余操作实现 front 越过数组头部后回到尾部
         this.front = this.index(this.front - 1);
         // 将 num 添加至队首
         this.nums[this.front] = num;
@@ -60,7 +60,7 @@ class ArrayDeque {
             console.log('双向队列已满');
             return;
         }
-        // 计算尾指针，指向队尾索引 + 1
+        // 计算队尾指针，指向队尾索引 + 1
         const rear: number = this.index(this.front + this.queSize);
         // 将 num 添加至队尾
         this.nums[rear] = num;

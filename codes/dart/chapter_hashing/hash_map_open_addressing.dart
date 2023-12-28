@@ -37,9 +37,9 @@ class HashMapOpenAddressing {
     int firstTombstone = -1;
     // 线性探测，当遇到空桶时跳出
     while (_buckets[index] != null) {
-      // 若遇到 key ，返回对应桶索引
+      // 若遇到 key ，返回对应的桶索引
       if (_buckets[index]!.key == key) {
-        // 若之前遇到了删除标记，则将键值对移动至该索引
+        // 若之前遇到了删除标记，则将键值对移动至该索引处
         if (firstTombstone != -1) {
           _buckets[firstTombstone] = _buckets[index];
           _buckets[index] = _TOMBSTONE;
@@ -51,7 +51,7 @@ class HashMapOpenAddressing {
       if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
         firstTombstone = index;
       }
-      // 计算桶索引，越过尾部返回头部
+      // 计算桶索引，越过尾部则返回头部
       index = (index + 1) % _capacity;
     }
     // 若 key 不存在，则返回添加点的索引
@@ -145,7 +145,7 @@ void main() {
   map.printHashMap();
 
   /* 查询操作 */
-  // 向哈希表输入键 key ，得到值 value
+  // 向哈希表中输入键 key ，得到值 value
   String? name = map.get(13276);
   print("\n输入学号 13276 ，查询到姓名 $name");
 

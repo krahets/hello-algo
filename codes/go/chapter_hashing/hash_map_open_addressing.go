@@ -50,7 +50,7 @@ func (m *hashMapOpenAddressing) get(key int) string {
 	idx := m.hashFunc(key)
 	// 线性探测，从 index 开始向后遍历
 	for i := 0; i < m.capacity; i++ {
-		// 计算桶索引，越过尾部返回头部
+		// 计算桶索引，越过尾部则返回头部
 		j := (idx + i) % m.capacity
 		// 若遇到空桶，说明无此 key ，则返回 null
 		if m.buckets[j] == (pair{}) {
@@ -61,7 +61,7 @@ func (m *hashMapOpenAddressing) get(key int) string {
 			return m.buckets[j].val
 		}
 	}
-	// 若未找到 key 则返回空字符串
+	// 若未找到 key ，则返回空字符串
 	return ""
 }
 
@@ -74,7 +74,7 @@ func (m *hashMapOpenAddressing) put(key int, val string) {
 	idx := m.hashFunc(key)
 	// 线性探测，从 index 开始向后遍历
 	for i := 0; i < m.capacity; i++ {
-		// 计算桶索引，越过尾部返回头部
+		// 计算桶索引，越过尾部则返回头部
 		j := (idx + i) % m.capacity
 		// 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
 		if m.buckets[j] == (pair{}) || m.buckets[j] == m.removed {
@@ -99,7 +99,7 @@ func (m *hashMapOpenAddressing) remove(key int) {
 	// 遍历桶，从中删除键值对
 	// 线性探测，从 index 开始向后遍历
 	for i := 0; i < m.capacity; i++ {
-		// 计算桶索引，越过尾部返回头部
+		// 计算桶索引，越过尾部则返回头部
 		j := (idx + i) % m.capacity
 		// 若遇到空桶，说明无此 key ，则直接返回
 		if m.buckets[j] == (pair{}) {

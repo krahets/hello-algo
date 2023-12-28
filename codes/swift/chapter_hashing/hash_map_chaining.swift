@@ -37,13 +37,13 @@ class HashMapChaining {
     func get(key: Int) -> String? {
         let index = hashFunc(key: key)
         let bucket = buckets[index]
-        // 遍历桶，若找到 key 则返回对应 val
+        // 遍历桶，若找到 key ，则返回对应 val
         for pair in bucket {
             if pair.key == key {
                 return pair.val
             }
         }
-        // 若未找到 key 则返回 nil
+        // 若未找到 key ，则返回 nil
         return nil
     }
 
@@ -124,7 +124,7 @@ enum _HashMapChaining {
         map.print()
 
         /* 查询操作 */
-        // 向哈希表输入键 key ，得到值 value
+        // 向哈希表中输入键 key ，得到值 value
         let name = map.get(key: 13276)
         print("\n输入学号 13276 ，查询到姓名 \(name!)")
 

@@ -19,7 +19,7 @@ console.info('\n添加完成后，哈希表为\nKey -> Value');
 console.info(map);
 
 /* 查询操作 */
-// 向哈希表输入键 key ，得到值 value
+// 向哈希表中输入键 key ，得到值 value
 let name = map.get(15937);
 console.info('\n输入学号 15937 ，查询到姓名 ' + name);
 

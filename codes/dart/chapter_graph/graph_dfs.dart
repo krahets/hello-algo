@@ -7,7 +7,7 @@
 import '../utils/vertex.dart';
 import 'graph_adjacency_list.dart';
 
-/* 深度优先遍历 DFS 辅助函数 */
+/* 深度优先遍历辅助函数 */
 void dfs(
   GraphAdjList graph,
   Set<Vertex> visited,
@@ -26,7 +26,7 @@ void dfs(
   }
 }
 
-/* 深度优先遍历 DFS */
+/* 深度优先遍历 */
 List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
   // 顶点遍历序列
   List<Vertex> res = [];
@@ -52,7 +52,7 @@ void main() {
   print("\n初始化后，图为");
   graph.printAdjList();
 
-  /* 深度优先遍历 DFS */
+  /* 深度优先遍历 */
   List<Vertex> res = graphDFS(graph, v[0]);
   print("\n深度优先遍历（DFS）顶点序列为");
   print(Vertex.vetsToVals(res));

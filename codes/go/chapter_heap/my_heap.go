@@ -33,17 +33,17 @@ func newMaxHeap(nums []any) *maxHeap {
 	return h
 }
 
-/* 获取左子节点索引 */
+/* 获取左子节点的索引 */
 func (h *maxHeap) left(i int) int {
 	return 2*i + 1
 }
 
-/* 获取右子节点索引 */
+/* 获取右子节点的索引 */
 func (h *maxHeap) right(i int) int {
 	return 2*i + 2
 }
 
-/* 获取父节点索引 */
+/* 获取父节点的索引 */
 func (h *maxHeap) parent(i int) int {
 	// 向下整除
 	return (i - 1) / 2

@@ -23,15 +23,15 @@ class MaxHeap:
             self.sift_down(i)
 
     def left(self, i: int) -> int:
-        """获取左子节点索引"""
+        """获取左子节点的索引"""
         return 2 * i + 1
 
     def right(self, i: int) -> int:
-        """获取右子节点索引"""
+        """获取右子节点的索引"""
         return 2 * i + 2
 
     def parent(self, i: int) -> int:
-        """获取父节点索引"""
+        """获取父节点的索引"""
         return (i - 1) // 2  # 向下整除
 
     def swap(self, i: int, j: int):
