@@ -27,7 +27,7 @@
 
 1. 前序遍历的首元素 3 是根节点的值。
 2. 查找根节点 3 在 `inorder` 中的索引，利用该索引可将 `inorder` 划分为 `[ 9 | 3 ｜ 1 2 7 ]` 。
-3. 根据 `inorder` 划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 `preorder` 划分为 `[ 3 | 9 | 2 1 7 ]` 。
+3. 根据 `inorder` 的划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 `preorder` 划分为 `[ 3 | 9 | 2 1 7 ]` 。
 
 ![在前序遍历和中序遍历中划分子树](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
 
