@@ -54,6 +54,7 @@
   border-radius: 0.63rem;
   display: block;
   margin: 0 auto;
+  box-shadow: var(--md-shadow-z2);
 }
 
 /* Cover image class */
