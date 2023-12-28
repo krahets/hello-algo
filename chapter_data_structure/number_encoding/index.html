@@ -897,7 +897,7 @@
         <li class="md-nav__item">
   <a href="#331" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3.1 &nbsp; 整数编码
+      3.3.1 &nbsp; 原码、反码和补码
     </span>
   </a>
   
@@ -1779,7 +1779,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3463,7 +3463,7 @@
         <li class="md-nav__item">
   <a href="#331" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3.1 &nbsp; 整数编码
+      3.3.1 &nbsp; 原码、反码和补码
     </span>
   </a>
   
@@ -3519,7 +3519,7 @@
 <p class="admonition-title">Note</p>
 <p>在本书中，标题带有 * 符号的是选读章节。如果你时间有限或感到理解困难，可以先跳过，等学完必读章节后再单独攻克。</p>
 </div>
-<h2 id="331">3.3.1 &nbsp; 整数编码<a class="headerlink" href="#331" title="Permanent link">&para;</a></h2>
+<h2 id="331">3.3.1 &nbsp; 原码、反码和补码<a class="headerlink" href="#331" title="Permanent link">&para;</a></h2>
 <p>在上一节的表格中我们发现，所有整数类型能够表示的负数都比正数多一个，例如 <code>byte</code> 的取值范围是 <span class="arithmatex">\([-128, 127]\)</span> 。这个现象比较反直觉，它的内在原因涉及原码、反码、补码的相关知识。</p>
 <p>首先需要指出，<strong>数字是以“补码”的形式存储在计算机中的</strong>。在分析这样做的原因之前，首先给出三者的定义。</p>
 <ul>
@@ -3584,16 +3584,16 @@
 <p>现在我们可以总结出计算机使用补码的原因：基于补码表示，计算机可以用同样的电路和操作来处理正数和负数的加法，不需要设计特殊的硬件电路来处理减法，并且无须特别处理正负零的歧义问题。这大大简化了硬件设计，提高了运算效率。</p>
 <p>补码的设计非常精妙，因篇幅关系我们就先介绍到这里，建议有兴趣的读者进一步深入了解。</p>
 <h2 id="332">3.3.2 &nbsp; 浮点数编码<a class="headerlink" href="#332" title="Permanent link">&para;</a></h2>
-<p>细心的你可能会发现：<code>int</code> 和 <code>float</code> 长度相同，都是 4 bytes ，但为什么 <code>float</code> 的取值范围远大于 <code>int</code> ？这非常反直觉，因为按理说 <code>float</code> 需要表示小数，取值范围应该变小才对。</p>
-<p>实际上，<strong>这是因为浮点数 <code>float</code> 采用了不同的表示方式</strong>。记一个 32-bit 长度的二进制数为：</p>
+<p>细心的你可能会发现：<code>int</code> 和 <code>float</code> 长度相同，都是 4 字节 ，但为什么 <code>float</code> 的取值范围远大于 <code>int</code> ？这非常反直觉，因为按理说 <code>float</code> 需要表示小数，取值范围应该变小才对。</p>
+<p>实际上，<strong>这是因为浮点数 <code>float</code> 采用了不同的表示方式</strong>。记一个 32 位长度的二进制数为：</p>
 <div class="arithmatex">\[
 b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 \]</div>
 <p>根据 IEEE 754 标准，32-bit 长度的 <code>float</code> 由以下三个部分构成。</p>
 <ul>
-<li>符号位 <span class="arithmatex">\(\mathrm{S}\)</span> ：占 1 bit ，对应 <span class="arithmatex">\(b_{31}\)</span> 。</li>
-<li>指数位 <span class="arithmatex">\(\mathrm{E}\)</span> ：占 8 bits ，对应 <span class="arithmatex">\(b_{30} b_{29} \ldots b_{23}\)</span> 。</li>
-<li>分数位 <span class="arithmatex">\(\mathrm{N}\)</span> ：占 23 bits ，对应 <span class="arithmatex">\(b_{22} b_{21} \ldots b_0\)</span> 。</li>
+<li>符号位 <span class="arithmatex">\(\mathrm{S}\)</span> ：占 1 位 ，对应 <span class="arithmatex">\(b_{31}\)</span> 。</li>
+<li>指数位 <span class="arithmatex">\(\mathrm{E}\)</span> ：占 8 位 ，对应 <span class="arithmatex">\(b_{30} b_{29} \ldots b_{23}\)</span> 。</li>
+<li>分数位 <span class="arithmatex">\(\mathrm{N}\)</span> ：占 23 位 ，对应 <span class="arithmatex">\(b_{22} b_{21} \ldots b_0\)</span> 。</li>
 </ul>
 <p>二进制数 <code>float</code> 对应值的计算方法为：</p>
 <div class="arithmatex">\[

@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3565,7 +3565,7 @@
 <h2 id="1131">11.3.1 &nbsp; 算法流程<a class="headerlink" href="#1131" title="Permanent link">&para;</a></h2>
 <p>设数组的长度为 <span class="arithmatex">\(n\)</span> ，冒泡排序的步骤如图 11-5 所示。</p>
 <ol>
-<li>首先，对 <span class="arithmatex">\(n\)</span> 个元素执行“冒泡”，<strong>将数组的最大元素交换至正确位置</strong>，</li>
+<li>首先，对 <span class="arithmatex">\(n\)</span> 个元素执行“冒泡”，<strong>将数组的最大元素交换至正确位置</strong>。</li>
 <li>接下来，对剩余 <span class="arithmatex">\(n - 1\)</span> 个元素执行“冒泡”，<strong>将第二大元素交换至正确位置</strong>。</li>
 <li>以此类推，经过 <span class="arithmatex">\(n - 1\)</span> 轮“冒泡”后，<strong>前 <span class="arithmatex">\(n - 1\)</span> 大的元素都被交换至正确位置</strong>。</li>
 <li>仅剩的一个元素必定是最小元素，无须排序，因此数组排序完成。</li>
@@ -3804,7 +3804,7 @@
 <a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>                <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
 <a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>                <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># 记录交换元素</span>
 <a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">flag</span><span class="p">:</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>            <span class="k">break</span>  <span class="c1"># 此轮冒泡未交换任何元素，直接跳出</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>            <span class="k">break</span>  <span class="c1"># 此轮“冒泡”未交换任何元素，直接跳出</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3823,7 +3823,7 @@
 <a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">            </span><span class="p">}</span>
 <a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span>
-<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">// 此轮冒泡未交换任何元素，直接跳出</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">// 此轮“冒泡”未交换任何元素，直接跳出</span>
 <a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="p">}</span>
 </code></pre></div>
@@ -3845,7 +3845,7 @@
 <a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">            </span><span class="p">}</span>
 <a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span>
-<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">// 此轮冒泡未交换任何元素，直接跳出</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">// 此轮“冒泡”未交换任何元素，直接跳出</span>
 <a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="p">}</span>
 </code></pre></div>
@@ -3864,7 +3864,7 @@
 <a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">                </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// 记录交换元素</span>
 <a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">            </span><span class="p">}</span>
 <a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w">     </span><span class="c1">// 此轮冒泡未交换任何元素，直接跳出</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w">     </span><span class="c1">// 此轮“冒泡”未交换任何元素，直接跳出</span>
 <a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="p">}</span>
 </code></pre></div>
@@ -3883,7 +3883,7 @@
 <a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">                </span><span class="nx">flag</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">// 记录交换元素</span>
 <a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">            </span><span class="p">}</span>
 <a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">flag</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 此轮冒泡未交换任何元素，直接跳出</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">flag</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 此轮“冒泡”未交换任何元素，直接跳出</span>
 <a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">            </span><span class="k">break</span>
 <a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">    </span><span class="p">}</span>
@@ -3905,7 +3905,7 @@
 <a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>                <span class="n">flag</span> <span class="p">=</span> <span class="kc">true</span> <span class="c1">// 记录交换元素</span>
 <a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>            <span class="p">}</span>
 <a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>        <span class="p">}</span>
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>        <span class="k">if</span> <span class="o">!</span><span class="n">flag</span> <span class="p">{</span> <span class="c1">// 此轮冒泡未交换任何元素，直接跳出</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>        <span class="k">if</span> <span class="o">!</span><span class="n">flag</span> <span class="p">{</span> <span class="c1">// 此轮“冒泡”未交换任何元素，直接跳出</span>
 <a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>            <span class="k">break</span>
 <a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>        <span class="p">}</span>
 <a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>    <span class="p">}</span>
@@ -3928,7 +3928,7 @@
 <a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">                </span><span class="nx">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// 记录交换元素</span>
 <a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">            </span><span class="p">}</span>
 <a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">flag</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">// 此轮冒泡未交换任何元素，直接跳出</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">flag</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">// 此轮“冒泡”未交换任何元素，直接跳出</span>
 <a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="p">}</span>
 </code></pre></div>
@@ -3949,7 +3949,7 @@
 <a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">                </span><span class="nx">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// 记录交换元素</span>
 <a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">            </span><span class="p">}</span>
 <a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">flag</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">// 此轮冒泡未交换任何元素，直接跳出</span>
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">flag</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">// 此轮“冒泡”未交换任何元素，直接跳出</span>
 <a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="p">}</span>
 </code></pre></div>
@@ -3970,7 +3970,7 @@
 <a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">        </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// 记录交换元素</span>
 <a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="w">      </span><span class="p">}</span>
 <a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">// 此轮冒泡未交换任何元素，直接跳出</span>
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">// 此轮“冒泡”未交换任何元素，直接跳出</span>
 <a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="p">}</span>
 </code></pre></div>
@@ -3991,7 +3991,7 @@
 <a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">                </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// 记录交换元素</span>
 <a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">            </span><span class="p">}</span>
 <a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="n">flag</span><span class="w"> </span><span class="p">{</span><span class="k">break</span><span class="p">};</span><span class="w">  </span><span class="c1">// 此轮冒泡未交换任何元素，直接跳出</span>
+<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="n">flag</span><span class="w"> </span><span class="p">{</span><span class="k">break</span><span class="p">};</span><span class="w">  </span><span class="c1">// 此轮“冒泡”未交换任何元素，直接跳出</span>
 <a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="p">}</span>
 </code></pre></div>
@@ -4035,7 +4035,7 @@
 <a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="w">                </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="w">            </span><span class="p">}</span>
 <a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w">   </span><span class="c1">// 此轮冒泡未交换任何元素，直接跳出</span>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w">   </span><span class="c1">// 此轮“冒泡”未交换任何元素，直接跳出</span>
 <a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a><span class="p">}</span>
 </code></pre></div>

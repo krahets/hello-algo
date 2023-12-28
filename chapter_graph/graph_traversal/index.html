@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3612,7 +3612,7 @@
 <!-- Page content -->
 <h1 id="93">9.3 &nbsp; 图的遍历<a class="headerlink" href="#93" title="Permanent link">&para;</a></h1>
 <p>树代表的是“一对多”的关系，而图则具有更高的自由度，可以表示任意的“多对多”关系。因此，我们可以把树看作图的一种特例。显然，<strong>树的遍历操作也是图的遍历操作的一种特例</strong>。</p>
-<p>图和树都需要应用搜索算法来实现遍历操作。图的遍历方式可分为两种：「广度优先遍历 breadth-first traversal」和「深度优先遍历 depth-first traversal」。它们也常被称为「广度优先搜索 breadth-first search」和「深度优先搜索 depth-first search」，简称 BFS 和 DFS 。</p>
+<p>图和树都需要应用搜索算法来实现遍历操作。图的遍历方式也可分为两种：「广度优先遍历」和「深度优先遍历」。</p>
 <h2 id="931">9.3.1 &nbsp; 广度优先遍历<a class="headerlink" href="#931" title="Permanent link">&para;</a></h2>
 <p><strong>广度优先遍历是一种由近及远的遍历方式，从某个节点出发，始终优先访问距离最近的顶点，并一层层向外扩张</strong>。如图 9-9 所示，从左上角顶点出发，首先遍历该顶点的所有邻接顶点，然后遍历下一个顶点的所有邻接顶点，以此类推，直至所有顶点访问完毕。</p>
 <p><a class="glightbox" href="../graph_traversal.assets/graph_bfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图的广度优先遍历" class="animation-figure" src="../graph_traversal.assets/graph_bfs.png" /></a></p>
@@ -3630,7 +3630,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">graph_bfs.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">graph_bfs</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">GraphAdjList</span><span class="p">,</span> <span class="n">start_vet</span><span class="p">:</span> <span class="n">Vertex</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Vertex</span><span class="p">]:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;广度优先遍历 BFS&quot;&quot;&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;广度优先遍历&quot;&quot;&quot;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="c1"># 顶点遍历序列</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
@@ -3653,7 +3653,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_bfs.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* 广度优先遍历 BFS */</span>
+<div class="highlight"><span class="filename">graph_bfs.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* 广度优先遍历 */</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">vector</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">graphBFS</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="o">&amp;</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="o">*</span><span class="n">startVet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -3682,7 +3682,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_bfs.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* 广度优先遍历 BFS */</span>
+<div class="highlight"><span class="filename">graph_bfs.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* 广度优先遍历 */</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">graphBFS</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="n">startVet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -3711,7 +3711,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_bfs.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* 广度优先遍历 BFS */</span>
+<div class="highlight"><span class="filename">graph_bfs.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* 广度优先遍历 */</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GraphBFS</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="n">startVet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -3740,7 +3740,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_bfs.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* 广度优先遍历 BFS */</span>
+<div class="highlight"><span class="filename">graph_bfs.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* 广度优先遍历 */</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">func</span><span class="w"> </span><span class="nx">graphBFS</span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="nx">graphAdjList</span><span class="p">,</span><span class="w"> </span><span class="nx">startVet</span><span class="w"> </span><span class="nx">Vertex</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="nx">Vertex</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -3774,7 +3774,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_bfs.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* 广度优先遍历 BFS */</span>
+<div class="highlight"><span class="filename">graph_bfs.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* 广度优先遍历 */</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">func</span> <span class="nf">graphBFS</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">GraphAdjList</span><span class="p">,</span> <span class="n">startVet</span><span class="p">:</span> <span class="n">Vertex</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="n">Vertex</span><span class="p">]</span> <span class="p">{</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="c1">// 顶点遍历序列</span>
@@ -3802,7 +3802,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_bfs.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* 广度优先遍历 BFS */</span>
+<div class="highlight"><span class="filename">graph_bfs.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* 广度优先遍历 */</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">graphBFS</span><span class="p">(</span><span class="nx">graph</span><span class="p">,</span><span class="w"> </span><span class="nx">startVet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -3831,7 +3831,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_bfs.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* 广度优先遍历 BFS */</span>
+<div class="highlight"><span class="filename">graph_bfs.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* 广度优先遍历 */</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">graphBFS</span><span class="p">(</span><span class="nx">graph</span><span class="o">:</span><span class="w"> </span><span class="kt">GraphAdjList</span><span class="p">,</span><span class="w"> </span><span class="nx">startVet</span><span class="o">:</span><span class="w"> </span><span class="kt">Vertex</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Vertex</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -3860,7 +3860,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_bfs.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* 广度优先遍历 BFS */</span>
+<div class="highlight"><span class="filename">graph_bfs.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* 广度优先遍历 */</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">graphBFS</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="n">startVet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="c1">// 顶点遍历序列</span>
@@ -3890,7 +3890,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_bfs.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* 广度优先遍历 BFS */</span>
+<div class="highlight"><span class="filename">graph_bfs.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* 广度优先遍历 */</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">fn</span> <span class="nf">graph_bfs</span><span class="p">(</span><span class="n">graph</span>: <span class="nc">GraphAdjList</span><span class="p">,</span><span class="w"> </span><span class="n">start_vet</span>: <span class="nc">Vertex</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -3965,7 +3965,7 @@
 <a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a><span class="p">}</span>
 <a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a>
-<a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a><span class="cm">/* 广度优先遍历 BFS */</span>
+<a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a><span class="cm">/* 广度优先遍历 */</span>
 <a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a><span class="kt">void</span><span class="w"> </span><span class="nf">graphBFS</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="o">*</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="o">*</span><span class="n">startVet</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="o">**</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">resSize</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="o">**</span><span class="n">visited</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">visitedSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a><span class="w">    </span><span class="c1">// 队列用于实现 BFS</span>
@@ -4056,7 +4056,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">graph_dfs.py</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">GraphAdjList</span><span class="p">,</span> <span class="n">visited</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="n">Vertex</span><span class="p">],</span> <span class="n">res</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Vertex</span><span class="p">],</span> <span class="n">vet</span><span class="p">:</span> <span class="n">Vertex</span><span class="p">):</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;深度优先遍历 DFS 辅助函数&quot;&quot;&quot;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;深度优先遍历辅助函数&quot;&quot;&quot;</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vet</span><span class="p">)</span>  <span class="c1"># 记录访问顶点</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vet</span><span class="p">)</span>  <span class="c1"># 标记该顶点已被访问</span>
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="c1"># 遍历该顶点的所有邻接顶点</span>
@@ -4067,7 +4067,7 @@
 <a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        <span class="n">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">adjVet</span><span class="p">)</span>
 <a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
 <a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="k">def</span> <span class="nf">graph_dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">GraphAdjList</span><span class="p">,</span> <span class="n">start_vet</span><span class="p">:</span> <span class="n">Vertex</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Vertex</span><span class="p">]:</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;深度优先遍历 DFS&quot;&quot;&quot;</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;深度优先遍历&quot;&quot;&quot;</span>
 <a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>    <span class="c1"># 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>    <span class="c1"># 顶点遍历序列</span>
 <a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
@@ -4078,7 +4078,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_dfs.cpp</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">/* 深度优先遍历 DFS 辅助函数 */</span>
+<div class="highlight"><span class="filename">graph_dfs.cpp</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">/* 深度优先遍历辅助函数 */</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="o">&amp;</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">visited</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="o">*</span><span class="n">vet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">vet</span><span class="p">);</span><span class="w">   </span><span class="c1">// 记录访问顶点</span>
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="n">visited</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n">vet</span><span class="p">);</span><span class="w"> </span><span class="c1">// 标记该顶点已被访问</span>
@@ -4091,7 +4091,7 @@
 <a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="p">}</span>
 <a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="cm">/* 深度优先遍历 DFS */</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="cm">/* 深度优先遍历 */</span>
 <a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="n">vector</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">graphDFS</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="o">&amp;</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="o">*</span><span class="n">startVet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -4104,7 +4104,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_dfs.java</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/* 深度优先遍历 DFS 辅助函数 */</span>
+<div class="highlight"><span class="filename">graph_dfs.java</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/* 深度优先遍历辅助函数 */</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">visited</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="n">vet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">vet</span><span class="p">);</span><span class="w">     </span><span class="c1">// 记录访问顶点</span>
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="n">visited</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">vet</span><span class="p">);</span><span class="w"> </span><span class="c1">// 标记该顶点已被访问</span>
@@ -4117,7 +4117,7 @@
 <a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="p">}</span>
 <a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>
-<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="cm">/* 深度优先遍历 DFS */</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="cm">/* 深度优先遍历 */</span>
 <a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">graphDFS</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="n">startVet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -4130,7 +4130,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_dfs.cs</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/* 深度优先遍历 DFS 辅助函数 */</span>
+<div class="highlight"><span class="filename">graph_dfs.cs</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/* 深度优先遍历辅助函数 */</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">void</span><span class="w"> </span><span class="nf">DFS</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">visited</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="n">vet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">vet</span><span class="p">);</span><span class="w">     </span><span class="c1">// 记录访问顶点</span>
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="n">visited</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">vet</span><span class="p">);</span><span class="w"> </span><span class="c1">// 标记该顶点已被访问</span>
@@ -4144,7 +4144,7 @@
 <a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="p">}</span>
 <a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="cm">/* 深度优先遍历 DFS */</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="cm">/* 深度优先遍历 */</span>
 <a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GraphDFS</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="n">startVet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -4157,7 +4157,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_dfs.go</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* 深度优先遍历 DFS 辅助函数 */</span>
+<div class="highlight"><span class="filename">graph_dfs.go</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* 深度优先遍历辅助函数 */</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="nx">graphAdjList</span><span class="p">,</span><span class="w"> </span><span class="nx">visited</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="nx">Vertex</span><span class="p">]</span><span class="kd">struct</span><span class="p">{},</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">*</span><span class="p">[]</span><span class="nx">Vertex</span><span class="p">,</span><span class="w"> </span><span class="nx">vet</span><span class="w"> </span><span class="nx">Vertex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="c1">// append 操作会返回新的的引用，必须让原引用重新赋值为新slice的引用</span>
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="o">*</span><span class="nx">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="o">*</span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">vet</span><span class="p">)</span>
@@ -4172,7 +4172,7 @@
 <a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="p">}</span>
 <a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>
-<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="cm">/* 深度优先遍历 DFS */</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="cm">/* 深度优先遍历 */</span>
 <a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="kd">func</span><span class="w"> </span><span class="nx">graphDFS</span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="nx">graphAdjList</span><span class="p">,</span><span class="w"> </span><span class="nx">startVet</span><span class="w"> </span><span class="nx">Vertex</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="nx">Vertex</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -4186,7 +4186,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_dfs.swift</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cm">/* 深度优先遍历 DFS 辅助函数 */</span>
+<div class="highlight"><span class="filename">graph_dfs.swift</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cm">/* 深度优先遍历辅助函数 */</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kd">func</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">GraphAdjList</span><span class="p">,</span> <span class="n">visited</span><span class="p">:</span> <span class="kr">inout</span> <span class="n">Set</span><span class="p">&lt;</span><span class="n">Vertex</span><span class="p">&gt;,</span> <span class="n">res</span><span class="p">:</span> <span class="kr">inout</span> <span class="p">[</span><span class="n">Vertex</span><span class="p">],</span> <span class="n">vet</span><span class="p">:</span> <span class="n">Vertex</span><span class="p">)</span> <span class="p">{</span>
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="n">res</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">vet</span><span class="p">)</span> <span class="c1">// 记录访问顶点</span>
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    <span class="n">visited</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="n">vet</span><span class="p">)</span> <span class="c1">// 标记该顶点已被访问</span>
@@ -4200,7 +4200,7 @@
 <a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>    <span class="p">}</span>
 <a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="p">}</span>
 <a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="cm">/* 深度优先遍历 DFS */</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="cm">/* 深度优先遍历 */</span>
 <a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="kd">func</span> <span class="nf">graphDFS</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">GraphAdjList</span><span class="p">,</span> <span class="n">startVet</span><span class="p">:</span> <span class="n">Vertex</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="n">Vertex</span><span class="p">]</span> <span class="p">{</span>
 <a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>    <span class="c1">// 顶点遍历序列</span>
@@ -4213,7 +4213,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_dfs.js</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cm">/* 深度优先遍历 DFS */</span>
+<div class="highlight"><span class="filename">graph_dfs.js</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cm">/* 深度优先遍历 */</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">graph</span><span class="p">,</span><span class="w"> </span><span class="nx">visited</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">vet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">vet</span><span class="p">);</span><span class="w"> </span><span class="c1">// 记录访问顶点</span>
@@ -4228,7 +4228,7 @@
 <a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="p">}</span>
 <a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>
-<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="cm">/* 深度优先遍历 DFS */</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="cm">/* 深度优先遍历 */</span>
 <a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="kd">function</span><span class="w"> </span><span class="nx">graphDFS</span><span class="p">(</span><span class="nx">graph</span><span class="p">,</span><span class="w"> </span><span class="nx">startVet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -4241,7 +4241,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_dfs.ts</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="cm">/* 深度优先遍历 DFS 辅助函数 */</span>
+<div class="highlight"><span class="filename">graph_dfs.ts</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="cm">/* 深度优先遍历辅助函数 */</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span>
 <a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="nx">graph</span><span class="o">:</span><span class="w"> </span><span class="kt">GraphAdjList</span><span class="p">,</span>
 <a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="nx">visited</span><span class="o">:</span><span class="w"> </span><span class="kt">Set</span><span class="o">&lt;</span><span class="nx">Vertex</span><span class="o">&gt;</span><span class="p">,</span>
@@ -4260,7 +4260,7 @@
 <a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="p">}</span>
 <a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>
-<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a><span class="cm">/* 深度优先遍历 DFS */</span>
+<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a><span class="cm">/* 深度优先遍历 */</span>
 <a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="kd">function</span><span class="w"> </span><span class="nx">graphDFS</span><span class="p">(</span><span class="nx">graph</span><span class="o">:</span><span class="w"> </span><span class="kt">GraphAdjList</span><span class="p">,</span><span class="w"> </span><span class="nx">startVet</span><span class="o">:</span><span class="w"> </span><span class="kt">Vertex</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Vertex</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -4273,7 +4273,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_dfs.dart</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="cm">/* 深度优先遍历 DFS 辅助函数 */</span>
+<div class="highlight"><span class="filename">graph_dfs.dart</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="cm">/* 深度优先遍历辅助函数 */</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span>
 <a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="n">GraphAdjList</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span>
 <a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">visited</span><span class="p">,</span>
@@ -4292,7 +4292,7 @@
 <a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="p">}</span>
 <a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>
-<a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="cm">/* 深度优先遍历 DFS */</span>
+<a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="cm">/* 深度优先遍历 */</span>
 <a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">graphDFS</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="n">startVet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a><span class="w">  </span><span class="c1">// 顶点遍历序列</span>
 <a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
@@ -4304,7 +4304,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_dfs.rs</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cm">/* 深度优先遍历 DFS 辅助函数 */</span>
+<div class="highlight"><span class="filename">graph_dfs.rs</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cm">/* 深度优先遍历辅助函数 */</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">fn</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">graph</span>: <span class="kp">&amp;</span><span class="nc">GraphAdjList</span><span class="p">,</span><span class="w"> </span><span class="n">visited</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">vet</span>: <span class="nc">Vertex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">vet</span><span class="p">);</span><span class="w"> </span><span class="c1">// 记录访问顶点</span>
 <a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="n">visited</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">vet</span><span class="p">);</span><span class="w"> </span><span class="c1">// 标记该顶点已被访问</span>
@@ -4320,7 +4320,7 @@
 <a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="p">}</span>
 <a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>
-<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="cm">/* 深度优先遍历 DFS */</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="cm">/* 深度优先遍历 */</span>
 <a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="k">fn</span> <span class="nf">graph_dfs</span><span class="p">(</span><span class="n">graph</span>: <span class="nc">GraphAdjList</span><span class="p">,</span><span class="w"> </span><span class="n">start_vet</span>: <span class="nc">Vertex</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="w">    </span><span class="c1">// 顶点遍历序列</span>
@@ -4345,7 +4345,7 @@
 <a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="p">}</span>
 <a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>
-<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="cm">/* 深度优先遍历 DFS 辅助函数 */</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="cm">/* 深度优先遍历辅助函数 */</span>
 <a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="o">*</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="o">**</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">resSize</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="o">*</span><span class="n">vet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="w">    </span><span class="c1">// 记录访问顶点</span>
 <a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">    </span><span class="n">res</span><span class="p">[(</span><span class="o">*</span><span class="n">resSize</span><span class="p">)</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vet</span><span class="p">;</span>
@@ -4361,7 +4361,7 @@
 <a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="p">}</span>
 <a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a>
-<a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a><span class="cm">/* 深度优先遍历 DFS */</span>
+<a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a><span class="cm">/* 深度优先遍历 */</span>
 <a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a><span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a><span class="kt">void</span><span class="w"> </span><span class="nf">graphDFS</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="o">*</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="o">*</span><span class="n">startVet</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="o">**</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">resSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">resSize</span><span class="p">,</span><span class="w"> </span><span class="n">startVet</span><span class="p">);</span>

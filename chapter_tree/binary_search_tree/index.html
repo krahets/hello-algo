@@ -1830,7 +1830,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3909,8 +3909,8 @@
 <h3 id="2">2. &nbsp; 插入节点<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>给定一个待插入元素 <code>num</code> ，为了保持二叉搜索树“左子树 &lt; 根节点 &lt; 右子树”的性质，插入操作流程如图 7-18 所示。</p>
 <ol>
-<li><strong>查找插入位置</strong>：与查找操作相似，从根节点出发，根据当前节点值和 <code>num</code> 的大小关系循环向下搜索，直到越过叶节点（遍历至 <span class="arithmatex">\(\text{None}\)</span> ）时跳出循环。</li>
-<li><strong>在该位置插入节点</strong>：初始化节点 <code>num</code> ，将该节点置于 <span class="arithmatex">\(\text{None}\)</span> 的位置。</li>
+<li><strong>查找插入位置</strong>：与查找操作相似，从根节点出发，根据当前节点值和 <code>num</code> 的大小关系循环向下搜索，直到越过叶节点（遍历至 <code>None</code> ）时跳出循环。</li>
+<li><strong>在该位置插入节点</strong>：初始化节点 <code>num</code> ，将该节点置于 <code>None</code> 的位置。</li>
 </ol>
 <p><a class="glightbox" href="../binary_search_tree.assets/bst_insert.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="在二叉搜索树中插入节点" class="animation-figure" src="../binary_search_tree.assets/bst_insert.png" /></a></p>
 <p align="center"> 图 7-18 &nbsp; 在二叉搜索树中插入节点 </p>
@@ -3918,7 +3918,7 @@
 <p>在代码实现中，需要注意以下两点。</p>
 <ul>
 <li>二叉搜索树不允许存在重复节点，否则将违反其定义。因此，若待插入节点在树中已存在，则不执行插入，直接返回。</li>
-<li>为了实现插入节点，我们需要借助节点 <code>pre</code> 保存上一轮循环的节点。这样在遍历至 <span class="arithmatex">\(\text{None}\)</span> 时，我们可以获取到其父节点，从而完成节点插入操作。</li>
+<li>为了实现插入节点，我们需要借助节点 <code>pre</code> 保存上一轮循环的节点。这样在遍历至 <code>None</code> 时，我们可以获取到其父节点，从而完成节点插入操作。</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Zig</label></div>
 <div class="tabbed-content">
@@ -4310,9 +4310,7 @@
 </div>
 <p>与查找节点相同，插入节点使用 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
 <h3 id="3">3. &nbsp; 删除节点<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>先在二叉树中查找到目标节点，再将其删除。</p>
-<p>与插入节点类似，我们需要保证在删除操作完成后，二叉搜索树的“左子树 &lt; 根节点 &lt; 右子树”的性质仍然满足。</p>
-<p>因此，我们根据目标节点的子节点数量，分 0、1 和 2 三种情况，执行对应的删除节点操作。</p>
+<p>先在二叉树中查找到目标节点，再将其删除。与插入节点类似，我们需要保证在删除操作完成后，二叉搜索树的“左子树 &lt; 根节点 &lt; 右子树”的性质仍然满足。因此，我们根据目标节点的子节点数量，分 0、1 和 2 三种情况，执行对应的删除节点操作。</p>
 <p>如图 7-19 所示，当待删除节点的度为 <span class="arithmatex">\(0\)</span> 时，表示该节点是叶节点，可以直接删除。</p>
 <p><a class="glightbox" href="../binary_search_tree.assets/bst_remove_case1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="在二叉搜索树中删除节点（度为 0 ）" class="animation-figure" src="../binary_search_tree.assets/bst_remove_case1.png" /></a></p>
 <p align="center"> 图 7-19 &nbsp; 在二叉搜索树中删除节点（度为 0 ） </p>

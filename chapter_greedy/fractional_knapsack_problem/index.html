@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3966,13 +3966,13 @@
 </div>
 </div>
 </div>
-<p>在最差情况下，需要遍历整个物品列表，<strong>因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> ，其中 <span class="arithmatex">\(n\)</span> 为物品数量。</p>
+<p>除排序之外，在最差情况下，需要遍历整个物品列表，<strong>因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> ，其中 <span class="arithmatex">\(n\)</span> 为物品数量。</p>
 <p>由于初始化了一个 <code>Item</code> 对象列表，<strong>因此空间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。</p>
 <h3 id="3">3. &nbsp; 正确性证明<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>采用反证法。假设物品 <span class="arithmatex">\(x\)</span> 是单位价值最高的物品，使用某算法求得最大价值为 <code>res</code> ，但该解中不包含物品 <span class="arithmatex">\(x\)</span> 。</p>
 <p>现在从背包中拿出单位重量的任意物品，并替换为单位重量的物品 <span class="arithmatex">\(x\)</span> 。由于物品 <span class="arithmatex">\(x\)</span> 的单位价值最高，因此替换后的总价值一定大于 <code>res</code> 。<strong>这与 <code>res</code> 是最优解矛盾，说明最优解中必须包含物品 <span class="arithmatex">\(x\)</span></strong> 。</p>
 <p>对于该解中的其他物品，我们也可以构建出上述矛盾。总而言之，<strong>单位价值更大的物品总是更优选择</strong>，这说明贪心策略是有效的。</p>
-<p>如图 15-6 所示，如果将物品重量和物品单位价值分别看作一张二维图表的横轴和纵轴，则分数背包问题可转化为“求在有限横轴区间下的最大围成面积”。这个类比可以帮助我们从几何角度理解贪心策略的有效性。</p>
+<p>如图 15-6 所示，如果将物品重量和物品单位价值分别看作一张二维图表的横轴和纵轴，则分数背包问题可转化为“求在有限横轴区间下围成的最大面积”。这个类比可以帮助我们从几何角度理解贪心策略的有效性。</p>
 <p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="分数背包问题的几何表示" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" /></a></p>
 <p align="center"> 图 15-6 &nbsp; 分数背包问题的几何表示 </p>
 

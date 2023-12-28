@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3125,7 +3125,7 @@
         <li class="md-nav__item">
   <a href="#1511" class="md-nav__link">
     <span class="md-ellipsis">
-      15.1.1 &nbsp; 贪心的优点与局限性
+      15.1.1 &nbsp; 贪心算法的优点与局限性
     </span>
   </a>
   
@@ -3143,7 +3143,7 @@
         <li class="md-nav__item">
   <a href="#1513" class="md-nav__link">
     <span class="md-ellipsis">
-      15.1.3 &nbsp; 贪心解题步骤
+      15.1.3 &nbsp; 贪心算法解题步骤
     </span>
   </a>
   
@@ -3152,7 +3152,7 @@
         <li class="md-nav__item">
   <a href="#1514" class="md-nav__link">
     <span class="md-ellipsis">
-      15.1.4 &nbsp; 贪心典型例题
+      15.1.4 &nbsp; 贪心算法典型例题
     </span>
   </a>
   
@@ -3481,7 +3481,7 @@
         <li class="md-nav__item">
   <a href="#1511" class="md-nav__link">
     <span class="md-ellipsis">
-      15.1.1 &nbsp; 贪心的优点与局限性
+      15.1.1 &nbsp; 贪心算法的优点与局限性
     </span>
   </a>
   
@@ -3499,7 +3499,7 @@
         <li class="md-nav__item">
   <a href="#1513" class="md-nav__link">
     <span class="md-ellipsis">
-      15.1.3 &nbsp; 贪心解题步骤
+      15.1.3 &nbsp; 贪心算法解题步骤
     </span>
   </a>
   
@@ -3508,7 +3508,7 @@
         <li class="md-nav__item">
   <a href="#1514" class="md-nav__link">
     <span class="md-ellipsis">
-      15.1.4 &nbsp; 贪心典型例题
+      15.1.4 &nbsp; 贪心算法典型例题
     </span>
   </a>
   
@@ -3560,13 +3560,13 @@
 <p>我们先通过例题“零钱兑换”了解贪心算法的工作原理。这道题已经在“完全背包问题”章节中介绍过，相信你对它并不陌生。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>给定 <span class="arithmatex">\(n\)</span> 种硬币，第 <span class="arithmatex">\(i\)</span> 种硬币的面值为 <span class="arithmatex">\(coins[i - 1]\)</span> ，目标金额为 <span class="arithmatex">\(amt\)</span> ，每种硬币可以重复选取，问能够凑出目标金额的最少硬币数量。如果无法凑出目标金额则返回 <span class="arithmatex">\(-1\)</span> 。</p>
+<p>给定 <span class="arithmatex">\(n\)</span> 种硬币，第 <span class="arithmatex">\(i\)</span> 种硬币的面值为 <span class="arithmatex">\(coins[i - 1]\)</span> ，目标金额为 <span class="arithmatex">\(amt\)</span> ，每种硬币可以重复选取，问能够凑出目标金额的最少硬币数量。如果无法凑出目标金额，则返回 <span class="arithmatex">\(-1\)</span> 。</p>
 </div>
 <p>本题采取的贪心策略如图 15-1 所示。给定目标金额，<strong>我们贪心地选择不大于且最接近它的硬币</strong>，不断循环该步骤，直至凑出目标金额为止。</p>
 <p><a class="glightbox" href="../greedy_algorithm.assets/coin_change_greedy_strategy.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="零钱兑换的贪心策略" class="animation-figure" src="../greedy_algorithm.assets/coin_change_greedy_strategy.png" /></a></p>
 <p align="center"> 图 15-1 &nbsp; 零钱兑换的贪心策略 </p>
 
-<p>实现代码如下所示。你可能会不由地发出感叹：So clean ！贪心算法仅用约十行代码就解决了零钱兑换问题：</p>
+<p>实现代码如下所示：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3811,7 +3811,8 @@
 </div>
 </div>
 </div>
-<h2 id="1511">15.1.1 &nbsp; 贪心的优点与局限性<a class="headerlink" href="#1511" title="Permanent link">&para;</a></h2>
+<p>你可能会不由地发出感叹：So clean ！贪心算法仅用约十行代码就解决了零钱兑换问题。</p>
+<h2 id="1511">15.1.1 &nbsp; 贪心算法的优点与局限性<a class="headerlink" href="#1511" title="Permanent link">&para;</a></h2>
 <p><strong>贪心算法不仅操作直接、实现简单，而且通常效率也很高</strong>。在以上代码中，记硬币最小面值为 <span class="arithmatex">\(\min(coins)\)</span> ，则贪心选择最多循环 <span class="arithmatex">\(amt / \min(coins)\)</span> 次，时间复杂度为 <span class="arithmatex">\(O(amt / \min(coins))\)</span> 。这比动态规划解法的时间复杂度 <span class="arithmatex">\(O(n \times amt)\)</span> 提升了一个数量级。</p>
 <p>然而，<strong>对于某些硬币面值组合，贪心算法并不能找到最优解</strong>。图 15-2 给出了两个示例。</p>
 <ul>
@@ -3819,8 +3820,8 @@
 <li><strong>反例 <span class="arithmatex">\(coins = [1, 20, 50]\)</span></strong>：假设 <span class="arithmatex">\(amt = 60\)</span> ，贪心算法只能找到 <span class="arithmatex">\(50 + 1 \times 10\)</span> 的兑换组合，共计 <span class="arithmatex">\(11\)</span> 枚硬币，但动态规划可以找到最优解 <span class="arithmatex">\(20 + 20 + 20\)</span> ，仅需 <span class="arithmatex">\(3\)</span> 枚硬币。</li>
 <li><strong>反例 <span class="arithmatex">\(coins = [1, 49, 50]\)</span></strong>：假设 <span class="arithmatex">\(amt = 98\)</span> ，贪心算法只能找到 <span class="arithmatex">\(50 + 1 \times 48\)</span> 的兑换组合，共计 <span class="arithmatex">\(49\)</span> 枚硬币，但动态规划可以找到最优解 <span class="arithmatex">\(49 + 49\)</span> ，仅需 <span class="arithmatex">\(2\)</span> 枚硬币。</li>
 </ul>
-<p><a class="glightbox" href="../greedy_algorithm.assets/coin_change_greedy_vs_dp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="贪心无法找出最优解的示例" class="animation-figure" src="../greedy_algorithm.assets/coin_change_greedy_vs_dp.png" /></a></p>
-<p align="center"> 图 15-2 &nbsp; 贪心无法找出最优解的示例 </p>
+<p><a class="glightbox" href="../greedy_algorithm.assets/coin_change_greedy_vs_dp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="贪心算法无法找出最优解的示例" class="animation-figure" src="../greedy_algorithm.assets/coin_change_greedy_vs_dp.png" /></a></p>
+<p align="center"> 图 15-2 &nbsp; 贪心算法无法找出最优解的示例 </p>
 
 <p>也就是说，对于零钱兑换问题，贪心算法无法保证找到全局最优解，并且有可能找到非常差的解。它更适合用动态规划解决。</p>
 <p>一般情况下，贪心算法的适用情况分以下两种。</p>
@@ -3841,9 +3842,9 @@
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
 <p>有一篇论文给出了一个 <span class="arithmatex">\(O(n^3)\)</span> 时间复杂度的算法，用于判断一个硬币组合能否使用贪心算法找出任意金额的最优解。</p>
-<p>Pearson, David. A polynomial-time algorithm for the change-making problem. Operations Research Letters 33.3 (2005): 231-234.</p>
+<p>Pearson, D. A polynomial-time algorithm for the change-making problem[J]. Operations Research Letters, 2005, 33(3): 231-234.</p>
 </div>
-<h2 id="1513">15.1.3 &nbsp; 贪心解题步骤<a class="headerlink" href="#1513" title="Permanent link">&para;</a></h2>
+<h2 id="1513">15.1.3 &nbsp; 贪心算法解题步骤<a class="headerlink" href="#1513" title="Permanent link">&para;</a></h2>
 <p>贪心问题的解决流程大体可分为以下三步。</p>
 <ol>
 <li><strong>问题分析</strong>：梳理与理解问题特性，包括状态定义、优化目标和约束条件等。这一步在回溯和动态规划中都有涉及。</li>
@@ -3857,7 +3858,7 @@
 </ul>
 <p>为了保证正确性，我们应该对贪心策略进行严谨的数学证明，<strong>通常需要用到反证法或数学归纳法</strong>。</p>
 <p>然而，正确性证明也很可能不是一件易事。如若没有头绪，我们通常会选择面向测试用例进行代码调试，一步步修改与验证贪心策略。</p>
-<h2 id="1514">15.1.4 &nbsp; 贪心典型例题<a class="headerlink" href="#1514" title="Permanent link">&para;</a></h2>
+<h2 id="1514">15.1.4 &nbsp; 贪心算法典型例题<a class="headerlink" href="#1514" title="Permanent link">&para;</a></h2>
 <p>贪心算法常常应用在满足贪心选择性质和最优子结构的优化问题中，以下列举了一些典型的贪心算法问题。</p>
 <ul>
 <li><strong>硬币找零问题</strong>：在某些硬币组合下，贪心算法总是可以得到最优解。</li>

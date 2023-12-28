@@ -1215,7 +1215,7 @@
         <li class="md-nav__item">
   <a href="#511" class="md-nav__link">
     <span class="md-ellipsis">
-      5.1.1 &nbsp; 栈常用操作
+      5.1.1 &nbsp; 栈的常用操作
     </span>
   </a>
   
@@ -1821,7 +1821,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3505,7 +3505,7 @@
         <li class="md-nav__item">
   <a href="#511" class="md-nav__link">
     <span class="md-ellipsis">
-      5.1.1 &nbsp; 栈常用操作
+      5.1.1 &nbsp; 栈的常用操作
     </span>
   </a>
   
@@ -3599,13 +3599,13 @@
 
 <!-- Page content -->
 <h1 id="51">5.1 &nbsp; 栈<a class="headerlink" href="#51" title="Permanent link">&para;</a></h1>
-<p>「栈 stack」是一种遵循先入后出的逻辑的线性数据结构。</p>
+<p>「栈 stack」是一种遵循先入后出逻辑的线性数据结构。</p>
 <p>我们可以将栈类比为桌面上的一摞盘子，如果想取出底部的盘子，则需要先将上面的盘子依次移走。我们将盘子替换为各种类型的元素（如整数、字符、对象等），就得到了栈这种数据结构。</p>
 <p>如图 5-1 所示，我们把堆叠元素的顶部称为“栈顶”，底部称为“栈底”。将把元素添加到栈顶的操作叫作“入栈”，删除栈顶元素的操作叫作“出栈”。</p>
 <p><a class="glightbox" href="../stack.assets/stack_operations.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="栈的先入后出规则" class="animation-figure" src="../stack.assets/stack_operations.png" /></a></p>
 <p align="center"> 图 5-1 &nbsp; 栈的先入后出规则 </p>
 
-<h2 id="511">5.1.1 &nbsp; 栈常用操作<a class="headerlink" href="#511" title="Permanent link">&para;</a></h2>
+<h2 id="511">5.1.1 &nbsp; 栈的常用操作<a class="headerlink" href="#511" title="Permanent link">&para;</a></h2>
 <p>栈的常用操作如表 5-1 所示，具体的方法名需要根据所使用的编程语言来确定。在此，我们以常见的 <code>push()</code>、<code>pop()</code>、<code>peek()</code> 命名为例。</p>
 <p align="center"> 表 5-1 &nbsp; 栈的操作效率 </p>
 
@@ -3620,17 +3620,17 @@
 </thead>
 <tbody>
 <tr>
-<td>push()</td>
+<td><code>push()</code></td>
 <td>元素入栈（添加至栈顶）</td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 </tr>
 <tr>
-<td>pop()</td>
+<td><code>pop()</code></td>
 <td>栈顶元素出栈</td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 </tr>
 <tr>
-<td>peek()</td>
+<td><code>peek()</code></td>
 <td>访问栈顶元素</td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 </tr>
@@ -3642,7 +3642,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">stack.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 初始化栈</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Python 没有内置的栈类，可以把 List 当作栈来使用 </span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Python 没有内置的栈类，可以把 list 当作栈来使用 </span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">stack</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 元素入栈</span>

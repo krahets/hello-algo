@@ -1827,7 +1827,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3615,7 +3615,7 @@
 <p>二叉树常见的遍历方式包括层序遍历、前序遍历、中序遍历和后序遍历等。</p>
 <h2 id="721">7.2.1 &nbsp; 层序遍历<a class="headerlink" href="#721" title="Permanent link">&para;</a></h2>
 <p>如图 7-9 所示，「层序遍历 level-order traversal」从顶部到底部逐层遍历二叉树，并在每一层按照从左到右的顺序访问节点。</p>
-<p>层序遍历本质上属于「广度优先遍历 breadth-first traversal, BFS」，它体现了一种“一圈一圈向外扩展”的逐层遍历方式。</p>
+<p>层序遍历本质上属于「广度优先遍历 breadth-first traversal」，也称「广度优先搜索 breadth-first search, BFS」，它体现了一种“一圈一圈向外扩展”的逐层遍历方式。</p>
 <p><a class="glightbox" href="../binary_tree_traversal.assets/binary_tree_bfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="二叉树的层序遍历" class="animation-figure" src="../binary_tree_traversal.assets/binary_tree_bfs.png" /></a></p>
 <p align="center"> 图 7-9 &nbsp; 二叉树的层序遍历 </p>
 
@@ -3905,11 +3905,11 @@
 </div>
 <h3 id="2">2. &nbsp; 复杂度分析<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>时间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：所有节点被访问一次，使用 <span class="arithmatex">\(O(n)\)</span> 时间，其中 <span class="arithmatex">\(n\)</span> 为节点数量。</li>
-<li><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：在最差情况下，即满二叉树时，遍历到最底层之前，队列中最多同时存在 <span class="arithmatex">\((n + 1) / 2\)</span> 个节点，占用 <span class="arithmatex">\(O(n)\)</span> 空间。</li>
+<li><strong>时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> ：所有节点被访问一次，使用 <span class="arithmatex">\(O(n)\)</span> 时间，其中 <span class="arithmatex">\(n\)</span> 为节点数量。</li>
+<li><strong>空间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> ：在最差情况下，即满二叉树时，遍历到最底层之前，队列中最多同时存在 <span class="arithmatex">\((n + 1) / 2\)</span> 个节点，占用 <span class="arithmatex">\(O(n)\)</span> 空间。</li>
 </ul>
 <h2 id="722">7.2.2 &nbsp; 前序、中序、后序遍历<a class="headerlink" href="#722" title="Permanent link">&para;</a></h2>
-<p>相应地，前序、中序和后序遍历都属于「深度优先遍历 depth-first traversal, DFS」，它体现了一种“先走到尽头，再回溯继续”的遍历方式。</p>
+<p>相应地，前序、中序和后序遍历都属于「深度优先遍历 depth-first traversal」，也称「深度优先搜索 depth-first search, DFS」，它体现了一种“先走到尽头，再回溯继续”的遍历方式。</p>
 <p>图 7-10 展示了对二叉树进行深度优先遍历的工作原理。<strong>深度优先遍历就像是绕着整棵二叉树的外围“走”一圈</strong>，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。</p>
 <p><a class="glightbox" href="../binary_tree_traversal.assets/binary_tree_dfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="二叉搜索树的前序、中序、后序遍历" class="animation-figure" src="../binary_tree_traversal.assets/binary_tree_dfs.png" /></a></p>
 <p align="center"> 图 7-10 &nbsp; 二叉搜索树的前序、中序、后序遍历 </p>
@@ -4357,8 +4357,8 @@
 
 <h3 id="2_1">2. &nbsp; 复杂度分析<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>时间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：所有节点被访问一次，使用 <span class="arithmatex">\(O(n)\)</span> 时间。</li>
-<li><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：在最差情况下，即树退化为链表时，递归深度达到 <span class="arithmatex">\(n\)</span> ，系统占用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。</li>
+<li><strong>时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> ：所有节点被访问一次，使用 <span class="arithmatex">\(O(n)\)</span> 时间。</li>
+<li><strong>空间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> ：在最差情况下，即树退化为链表时，递归深度达到 <span class="arithmatex">\(n\)</span> ，系统占用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。</li>
 </ul>
 
 <!-- Source file information -->

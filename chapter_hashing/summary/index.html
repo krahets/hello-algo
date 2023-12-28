@@ -1779,7 +1779,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3556,7 +3556,7 @@
 </div>
 <div class="admonition question">
 <p class="admonition-title">为什么哈希表扩容能够缓解哈希冲突？</p>
-<p>哈希函数的最后一步往往是对数组长度 <span class="arithmatex">\(n\)</span> 取余，让输出值落在数组索引范围内；在扩容后，数组长度 <span class="arithmatex">\(n\)</span> 发生变化，而 <code>key</code> 对应的索引也可能发生变化。原先落在同一个桶的多个 <code>key</code> ，在扩容后可能会被分配到多个桶中，从而实现哈希冲突的缓解。</p>
+<p>哈希函数的最后一步往往是对数组长度 <span class="arithmatex">\(n\)</span> 取模（取余），让输出值落在数组索引范围内；在扩容后，数组长度 <span class="arithmatex">\(n\)</span> 发生变化，而 <code>key</code> 对应的索引也可能发生变化。原先落在同一个桶的多个 <code>key</code> ，在扩容后可能会被分配到多个桶中，从而实现哈希冲突的缓解。</p>
 </div>
 
 <!-- Source file information -->

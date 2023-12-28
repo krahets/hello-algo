@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3576,7 +3576,7 @@
 <ol>
 <li>前序遍历的首元素 3 是根节点的值。</li>
 <li>查找根节点 3 在 <code>inorder</code> 中的索引，利用该索引可将 <code>inorder</code> 划分为 <code>[ 9 | 3 ｜ 1 2 7 ]</code> 。</li>
-<li>根据 <code>inorder</code> 划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 <code>preorder</code> 划分为 <code>[ 3 | 9 | 2 1 7 ]</code> 。</li>
+<li>根据 <code>inorder</code> 的划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 <code>preorder</code> 划分为 <code>[ 3 | 9 | 2 1 7 ]</code> 。</li>
 </ol>
 <p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="在前序遍历和中序遍历中划分子树" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" /></a></p>
 <p align="center"> 图 12-6 &nbsp; 在前序遍历和中序遍历中划分子树 </p>
@@ -3619,7 +3619,7 @@
 </tbody>
 </table>
 </div>
-<p>请注意，右子树根节点索引中的 <span class="arithmatex">\((m-l)\)</span> 的含义是“左子树的节点数量”，建议配合图 12-7 理解。</p>
+<p>请注意，右子树根节点索引中的 <span class="arithmatex">\((m-l)\)</span> 的含义是“左子树的节点数量”，建议结合图 12-7 理解。</p>
 <p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_division_pointers.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="根节点和左右子树的索引区间表示" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_division_pointers.png" /></a></p>
 <p align="center"> 图 12-7 &nbsp; 根节点和左右子树的索引区间表示 </p>
 

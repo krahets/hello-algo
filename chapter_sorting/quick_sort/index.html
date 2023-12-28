@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -4113,8 +4113,8 @@
 </div>
 <h2 id="1152">11.5.2 &nbsp; 算法特性<a class="headerlink" href="#1152" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span>、自适应排序</strong>：在平均情况下，哨兵划分的递归层数为 <span class="arithmatex">\(\log n\)</span> ，每层中的总循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。在最差情况下，每轮哨兵划分操作都将长度为 <span class="arithmatex">\(n\)</span> 的数组划分为长度为 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(n - 1\)</span> 的两个子数组，此时递归层数达到 <span class="arithmatex">\(n\)</span> ，每层中的循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n^2)\)</span> 时间。</li>
-<li><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span>、原地排序</strong>：在输入数组完全倒序的情况下，达到最差递归深度 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。排序操作是在原数组上进行的，未借助额外数组。</li>
+<li><strong>时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span>、自适应排序</strong>：在平均情况下，哨兵划分的递归层数为 <span class="arithmatex">\(\log n\)</span> ，每层中的总循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。在最差情况下，每轮哨兵划分操作都将长度为 <span class="arithmatex">\(n\)</span> 的数组划分为长度为 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(n - 1\)</span> 的两个子数组，此时递归层数达到 <span class="arithmatex">\(n\)</span> ，每层中的循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n^2)\)</span> 时间。</li>
+<li><strong>空间复杂度为 <span class="arithmatex">\(O(n)\)</span>、原地排序</strong>：在输入数组完全倒序的情况下，达到最差递归深度 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。排序操作是在原数组上进行的，未借助额外数组。</li>
 <li><strong>非稳定排序</strong>：在哨兵划分的最后一步，基准数可能会被交换至相等元素的右侧。</li>
 </ul>
 <h2 id="1153">11.5.3 &nbsp; 快速排序为什么快<a class="headerlink" href="#1153" title="Permanent link">&para;</a></h2>
@@ -4134,7 +4134,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">quick_sort.py</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">def</span> <span class="nf">median_three</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">left</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">mid</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;选取三个元素的中位数&quot;&quot;&quot;</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;选取三个候选元素的中位数&quot;&quot;&quot;</span>
 <a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    <span class="c1"># 此处使用异或运算来简化代码</span>
 <a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    <span class="c1"># 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1</span>
 <a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span> <span class="o">^</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]):</span>
@@ -4164,7 +4164,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">quick_sort.cpp</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="cm">/* 选取三个元素的中位数 */</span>
+<div class="highlight"><span class="filename">quick_sort.cpp</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="cm">/* 选取三个候选元素的中位数 */</span>
 <a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">medianThree</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span><span class="c1">// 此处使用异或运算来简化代码</span>
 <a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="c1">// 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1</span>
@@ -4197,7 +4197,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">quick_sort.java</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="cm">/* 选取三个元素的中位数 */</span>
+<div class="highlight"><span class="filename">quick_sort.java</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="cm">/* 选取三个候选元素的中位数 */</span>
 <a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">medianThree</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">    </span><span class="c1">// 此处使用异或运算来简化代码</span>
 <a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">    </span><span class="c1">// 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1</span>
@@ -4230,7 +4230,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">quick_sort.cs</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="cm">/* 选取三个元素的中位数 */</span>
+<div class="highlight"><span class="filename">quick_sort.cs</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="cm">/* 选取三个候选元素的中位数 */</span>
 <a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">MedianThree</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">    </span><span class="c1">// 此处使用异或运算来简化代码</span>
 <a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">    </span><span class="c1">// 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1</span>
@@ -4263,7 +4263,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">quick_sort.go</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="cm">/* 选取三个元素的中位数 */</span>
+<div class="highlight"><span class="filename">quick_sort.go</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="cm">/* 选取三个候选元素的中位数 */</span>
 <a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">quickSortMedian</span><span class="p">)</span><span class="w"> </span><span class="nx">medianThree</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">left</span><span class="p">,</span><span class="w"> </span><span class="nx">mid</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">    </span><span class="c1">// 此处使用异或运算来简化代码（!= 在这里起到异或的作用）</span>
 <a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">    </span><span class="c1">// 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1</span>
@@ -4300,7 +4300,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">quick_sort.swift</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="cm">/* 选取三个元素的中位数 */</span>
+<div class="highlight"><span class="filename">quick_sort.swift</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="cm">/* 选取三个候选元素的中位数 */</span>
 <a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="kd">func</span> <span class="nf">medianThree</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">],</span> <span class="kr">left</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">mid</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="kr">right</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
 <a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="kr">left</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span> <span class="o">!=</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="kr">left</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">[</span><span class="kr">right</span><span class="p">])</span> <span class="p">{</span>
 <a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>        <span class="k">return</span> <span class="kr">left</span>
@@ -4322,7 +4322,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">quick_sort.js</span><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="cm">/* 选取三个元素的中位数 */</span>
+<div class="highlight"><span class="filename">quick_sort.js</span><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="cm">/* 选取三个候选元素的中位数 */</span>
 <a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="nx">medianThree</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">left</span><span class="p">,</span><span class="w"> </span><span class="nx">mid</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">    </span><span class="c1">// 此处使用异或运算来简化代码</span>
 <a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="c1">// 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1</span>
@@ -4357,7 +4357,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">quick_sort.ts</span><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="cm">/* 选取三个元素的中位数 */</span>
+<div class="highlight"><span class="filename">quick_sort.ts</span><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="cm">/* 选取三个候选元素的中位数 */</span>
 <a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nx">medianThree</span><span class="p">(</span>
 <a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">    </span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span>
 <a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span>
@@ -4406,7 +4406,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">quick_sort.dart</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="cm">/* 选取三个元素的中位数 */</span>
+<div class="highlight"><span class="filename">quick_sort.dart</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="cm">/* 选取三个候选元素的中位数 */</span>
 <a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">_medianThree</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">  </span><span class="c1">// 此处使用异或运算来简化代码</span>
 <a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">  </span><span class="c1">// 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1</span>
@@ -4437,7 +4437,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">quick_sort.rs</span><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="cm">/* 选取三个元素的中位数 */</span>
+<div class="highlight"><span class="filename">quick_sort.rs</span><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="cm">/* 选取三个候选元素的中位数 */</span>
 <a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="k">fn</span> <span class="nf">median_three</span><span class="p">(</span><span class="n">nums</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="p">[</span><span class="kt">i32</span><span class="p">],</span><span class="w"> </span><span class="n">left</span>: <span class="kt">usize</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span>: <span class="kt">usize</span><span class="p">,</span><span class="w"> </span><span class="n">right</span>: <span class="kt">usize</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">usize</span> <span class="p">{</span>
 <a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span><span class="c1">// 此处使用异或运算来简化代码</span>
 <a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">    </span><span class="c1">// 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1</span>
@@ -4473,7 +4473,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">quick_sort.c</span><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="cm">/* 快速排序类（中位基准数优化） */</span>
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="c1">// 选取三个元素的中位数</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="c1">// 选取三个候选元素的中位数</span>
 <a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">medianThree</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nums</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">    </span><span class="c1">// 此处使用异或运算来简化代码</span>
 <a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="w">    </span><span class="c1">// 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1</span>
@@ -4506,7 +4506,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">quick_sort.zig</span><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c1">// 选取三个元素的中位数</span>
+<div class="highlight"><span class="filename">quick_sort.zig</span><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c1">// 选取三个候选元素的中位数</span>
 <a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="k">fn</span><span class="w"> </span><span class="n">medianThree</span><span class="p">(</span><span class="n">nums</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="p">)</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">    </span><span class="c1">// 此处使用异或运算来简化代码</span>
 <a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">    </span><span class="c1">// 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1</span>

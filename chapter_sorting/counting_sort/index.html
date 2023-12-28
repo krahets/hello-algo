@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -4281,8 +4281,8 @@
 </div>
 <h2 id="1193">11.9.3 &nbsp; 算法特性<a class="headerlink" href="#1193" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>时间复杂度 <span class="arithmatex">\(O(n + m)\)</span></strong> ：涉及遍历 <code>nums</code> 和遍历 <code>counter</code> ，都使用线性时间。一般情况下 <span class="arithmatex">\(n \gg m\)</span> ，时间复杂度趋于 <span class="arithmatex">\(O(n)\)</span> 。</li>
-<li><strong>空间复杂度 <span class="arithmatex">\(O(n + m)\)</span>、非原地排序</strong>：借助了长度分别为 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(m\)</span> 的数组 <code>res</code> 和 <code>counter</code> 。</li>
+<li><strong>时间复杂度为 <span class="arithmatex">\(O(n + m)\)</span></strong> ：涉及遍历 <code>nums</code> 和遍历 <code>counter</code> ，都使用线性时间。一般情况下 <span class="arithmatex">\(n \gg m\)</span> ，时间复杂度趋于 <span class="arithmatex">\(O(n)\)</span> 。</li>
+<li><strong>空间复杂度为 <span class="arithmatex">\(O(n + m)\)</span>、非原地排序</strong>：借助了长度分别为 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(m\)</span> 的数组 <code>res</code> 和 <code>counter</code> 。</li>
 <li><strong>稳定排序</strong>：由于向 <code>res</code> 中填充元素的顺序是“从右向左”的，因此倒序遍历 <code>nums</code> 可以避免改变相等元素之间的相对位置，从而实现稳定排序。实际上，正序遍历 <code>nums</code> 也可以得到正确的排序结果，但结果是非稳定的。</li>
 </ul>
 <h2 id="1194">11.9.4 &nbsp; 局限性<a class="headerlink" href="#1194" title="Permanent link">&para;</a></h2>

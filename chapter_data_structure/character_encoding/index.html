@@ -1806,7 +1806,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3575,7 +3575,7 @@
 <p><a class="glightbox" href="../character_encoding.assets/ascii_table.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="ASCII 码" class="animation-figure" src="../character_encoding.assets/ascii_table.png" /></a></p>
 <p align="center"> 图 3-6 &nbsp; ASCII 码 </p>
 
-<p>然而，<strong>ASCII 码仅能够表示英文</strong>。随着计算机的全球化，诞生了一种能够表示更多语言的字符集「EASCII」。它在 ASCII 的 7 位基础上扩展到 8 位，能够表示 256 个不同的字符。</p>
+<p>然而，<strong>ASCII 码仅能够表示英文</strong>。随着计算机的全球化，诞生了一种能够表示更多语言的「EASCII」字符集。它在 ASCII 的 7 位基础上扩展到 8 位，能够表示 256 个不同的字符。</p>
 <p>在世界范围内，陆续出现了一批适用于不同地区的 EASCII 字符集。这些字符集的前 128 个字符统一为 ASCII 码，后 128 个字符定义不同，以适应不同语言的需求。</p>
 <h2 id="342-gbk">3.4.2 &nbsp; GBK 字符集<a class="headerlink" href="#342-gbk" title="Permanent link">&para;</a></h2>
 <p>后来人们发现，<strong>EASCII 码仍然无法满足许多语言的字符数量要求</strong>。比如汉字有近十万个，光日常使用的就有几千个。中国国家标准总局于 1980 年发布了「GB2312」字符集，其收录了 6763 个汉字，基本满足了汉字的计算机处理需要。</p>
@@ -3612,7 +3612,7 @@
 <p>从存储空间占用的角度看，使用 UTF-8 表示英文字符非常高效，因为它仅需 1 字节；使用 UTF-16 编码某些非英文字符（例如中文）会更加高效，因为它仅需 2 字节，而 UTF-8 可能需要 3 字节。</p>
 <p>从兼容性的角度看，UTF-8 的通用性最佳，许多工具和库优先支持 UTF-8 。</p>
 <h2 id="345">3.4.5 &nbsp; 编程语言的字符编码<a class="headerlink" href="#345" title="Permanent link">&para;</a></h2>
-<p>对于以往的大多数编程语言，程序运行中的字符串都采用 UTF-16 或 UTF-32 这类等长的编码。在等长编码下，我们可以将字符串看作数组来处理，这种做法具有以下优点。</p>
+<p>对于以往的大多数编程语言，程序运行中的字符串都采用 UTF-16 或 UTF-32 这类等长编码。在等长编码下，我们可以将字符串看作数组来处理，这种做法具有以下优点。</p>
 <ul>
 <li><strong>随机访问</strong>：UTF-16 编码的字符串可以很容易地进行随机访问。UTF-8 是一种变长编码，要想找到第 <span class="arithmatex">\(i\)</span> 个字符，我们需要从字符串的开始处遍历到第 <span class="arithmatex">\(i\)</span> 个字符，这需要 <span class="arithmatex">\(O(n)\)</span> 的时间。</li>
 <li><strong>字符计数</strong>：与随机访问类似，计算 UTF-16 编码的字符串的长度也是 <span class="arithmatex">\(O(1)\)</span> 的操作。但是，计算 UTF-8 编码的字符串的长度需要遍历整个字符串。</li>

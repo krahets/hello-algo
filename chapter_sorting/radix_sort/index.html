@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3531,7 +3531,7 @@
 <div class="arithmatex">\[
 x_k = \lfloor\frac{x}{d^{k-1}}\rfloor \bmod d
 \]</div>
-<p>其中 <span class="arithmatex">\(\lfloor a \rfloor\)</span> 表示对浮点数 <span class="arithmatex">\(a\)</span> 向下取整，而 <span class="arithmatex">\(\bmod \: d\)</span> 表示对 <span class="arithmatex">\(d\)</span> 取余。对于学号数据，<span class="arithmatex">\(d = 10\)</span> 且 <span class="arithmatex">\(k \in [1, 8]\)</span> 。</p>
+<p>其中 <span class="arithmatex">\(\lfloor a \rfloor\)</span> 表示对浮点数 <span class="arithmatex">\(a\)</span> 向下取整，而 <span class="arithmatex">\(\bmod \: d\)</span> 表示对 <span class="arithmatex">\(d\)</span> 取模（取余）。对于学号数据，<span class="arithmatex">\(d = 10\)</span> 且 <span class="arithmatex">\(k \in [1, 8]\)</span> 。</p>
 <p>此外，我们需要小幅改动计数排序代码，使之可以根据数字的第 <span class="arithmatex">\(k\)</span> 位进行排序：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
@@ -4174,8 +4174,8 @@ x_k = \lfloor\frac{x}{d^{k-1}}\rfloor \bmod d
 <h2 id="11102">11.10.2 &nbsp; 算法特性<a class="headerlink" href="#11102" title="Permanent link">&para;</a></h2>
 <p>相较于计数排序，基数排序适用于数值范围较大的情况，<strong>但前提是数据必须可以表示为固定位数的格式，且位数不能过大</strong>。例如，浮点数不适合使用基数排序，因为其位数 <span class="arithmatex">\(k\)</span> 过大，可能导致时间复杂度 <span class="arithmatex">\(O(nk) \gg O(n^2)\)</span> 。</p>
 <ul>
-<li><strong>时间复杂度 <span class="arithmatex">\(O(nk)\)</span></strong>：设数据量为 <span class="arithmatex">\(n\)</span>、数据为 <span class="arithmatex">\(d\)</span> 进制、最大位数为 <span class="arithmatex">\(k\)</span> ，则对某一位执行计数排序使用 <span class="arithmatex">\(O(n + d)\)</span> 时间，排序所有 <span class="arithmatex">\(k\)</span> 位使用 <span class="arithmatex">\(O((n + d)k)\)</span> 时间。通常情况下，<span class="arithmatex">\(d\)</span> 和 <span class="arithmatex">\(k\)</span> 都相对较小，时间复杂度趋向 <span class="arithmatex">\(O(n)\)</span> 。</li>
-<li><strong>空间复杂度 <span class="arithmatex">\(O(n + d)\)</span>、非原地排序</strong>：与计数排序相同，基数排序需要借助长度为 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(d\)</span> 的数组 <code>res</code> 和 <code>counter</code> 。</li>
+<li><strong>时间复杂度为 <span class="arithmatex">\(O(nk)\)</span></strong>：设数据量为 <span class="arithmatex">\(n\)</span>、数据为 <span class="arithmatex">\(d\)</span> 进制、最大位数为 <span class="arithmatex">\(k\)</span> ，则对某一位执行计数排序使用 <span class="arithmatex">\(O(n + d)\)</span> 时间，排序所有 <span class="arithmatex">\(k\)</span> 位使用 <span class="arithmatex">\(O((n + d)k)\)</span> 时间。通常情况下，<span class="arithmatex">\(d\)</span> 和 <span class="arithmatex">\(k\)</span> 都相对较小，时间复杂度趋向 <span class="arithmatex">\(O(n)\)</span> 。</li>
+<li><strong>空间复杂度为 <span class="arithmatex">\(O(n + d)\)</span>、非原地排序</strong>：与计数排序相同，基数排序需要借助长度为 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(d\)</span> 的数组 <code>res</code> 和 <code>counter</code> 。</li>
 <li><strong>稳定排序</strong>：当计数排序稳定时，基数排序也稳定；当计数排序不稳定时，基数排序无法保证得到正确的排序结果。</li>
 </ul>
 

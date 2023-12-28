@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -4134,7 +4134,7 @@ dp[i] = dp[i-1] + dp[i-2]
 <p align="center"> 图 14-3 &nbsp; 爬楼梯对应递归树 </p>
 
 <p>观察图 14-3 ，<strong>指数阶的时间复杂度是“重叠子问题”导致的</strong>。例如 <span class="arithmatex">\(dp[9]\)</span> 被分解为 <span class="arithmatex">\(dp[8]\)</span> 和 <span class="arithmatex">\(dp[7]\)</span> ，<span class="arithmatex">\(dp[8]\)</span> 被分解为 <span class="arithmatex">\(dp[7]\)</span> 和 <span class="arithmatex">\(dp[6]\)</span> ，两者都包含子问题 <span class="arithmatex">\(dp[7]\)</span> 。</p>
-<p>以此类推，子问题中包含更小的重叠子问题，子子孙孙无穷尽也。绝大部分计算资源都浪费在这些重叠的问题上。</p>
+<p>以此类推，子问题中包含更小的重叠子问题，子子孙孙无穷尽也。绝大部分计算资源都浪费在这些重叠的子问题上。</p>
 <h2 id="1412">14.1.2 &nbsp; 方法二：记忆化搜索<a class="headerlink" href="#1412" title="Permanent link">&para;</a></h2>
 <p>为了提升算法效率，<strong>我们希望所有的重叠子问题都只被计算一次</strong>。为此，我们声明一个数组 <code>mem</code> 来记录每个子问题的解，并在搜索过程中将重叠子问题剪枝。</p>
 <ol>

@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3825,8 +3825,8 @@
 </div>
 </div>
 </div>
-<p><strong>时间复杂度 <span class="arithmatex">\(O(\log n)\)</span></strong> ：在二分循环中，区间每轮缩小一半，循环次数为 <span class="arithmatex">\(\log_2 n\)</span> 。</p>
-<p><strong>空间复杂度 <span class="arithmatex">\(O(1)\)</span></strong> ：指针 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 使用常数大小空间。</p>
+<p><strong>时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span></strong> ：在二分循环中，区间每轮缩小一半，循环次数为 <span class="arithmatex">\(\log_2 n\)</span> 。</p>
+<p><strong>空间复杂度为 <span class="arithmatex">\(O(1)\)</span></strong> ：指针 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 使用常数大小空间。</p>
 <h2 id="1011">10.1.1 &nbsp; 区间表示方法<a class="headerlink" href="#1011" title="Permanent link">&para;</a></h2>
 <p>除了上述双闭区间外，常见的区间表示还有“左闭右开”区间，定义为 <span class="arithmatex">\([0, n)\)</span> ，即左边界包含自身，右边界不包含自身。在该表示下，区间 <span class="arithmatex">\([i, j)\)</span> 在 <span class="arithmatex">\(i = j\)</span> 时为空。</p>
 <p>我们可以基于该表示实现具有相同功能的二分查找算法：</p>

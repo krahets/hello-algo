@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3901,9 +3901,9 @@
 <h2 id="1182">11.8.2 &nbsp; 算法特性<a class="headerlink" href="#1182" title="Permanent link">&para;</a></h2>
 <p>桶排序适用于处理体量很大的数据。例如，输入数据包含 100 万个元素，由于空间限制，系统内存无法一次性加载所有数据。此时，可以将数据分成 1000 个桶，然后分别对每个桶进行排序，最后将结果合并。</p>
 <ul>
-<li><strong>时间复杂度 <span class="arithmatex">\(O(n + k)\)</span></strong> ：假设元素在各个桶内平均分布，那么每个桶内的元素数量为 <span class="arithmatex">\(\frac{n}{k}\)</span> 。假设排序单个桶使用 <span class="arithmatex">\(O(\frac{n}{k} \log\frac{n}{k})\)</span> 时间，则排序所有桶使用 <span class="arithmatex">\(O(n \log\frac{n}{k})\)</span> 时间。<strong>当桶数量 <span class="arithmatex">\(k\)</span> 比较大时，时间复杂度则趋向于 <span class="arithmatex">\(O(n)\)</span></strong> 。合并结果时需要遍历所有桶和元素，花费 <span class="arithmatex">\(O(n + k)\)</span> 时间。</li>
+<li><strong>时间复杂度为 <span class="arithmatex">\(O(n + k)\)</span></strong> ：假设元素在各个桶内平均分布，那么每个桶内的元素数量为 <span class="arithmatex">\(\frac{n}{k}\)</span> 。假设排序单个桶使用 <span class="arithmatex">\(O(\frac{n}{k} \log\frac{n}{k})\)</span> 时间，则排序所有桶使用 <span class="arithmatex">\(O(n \log\frac{n}{k})\)</span> 时间。<strong>当桶数量 <span class="arithmatex">\(k\)</span> 比较大时，时间复杂度则趋向于 <span class="arithmatex">\(O(n)\)</span></strong> 。合并结果时需要遍历所有桶和元素，花费 <span class="arithmatex">\(O(n + k)\)</span> 时间。</li>
 <li><strong>自适应排序</strong>：在最差情况下，所有数据被分配到一个桶中，且排序该桶使用 <span class="arithmatex">\(O(n^2)\)</span> 时间。</li>
-<li><strong>空间复杂度 <span class="arithmatex">\(O(n + k)\)</span>、非原地排序</strong>：需要借助 <span class="arithmatex">\(k\)</span> 个桶和总共 <span class="arithmatex">\(n\)</span> 个元素的额外空间。</li>
+<li><strong>空间复杂度为 <span class="arithmatex">\(O(n + k)\)</span>、非原地排序</strong>：需要借助 <span class="arithmatex">\(k\)</span> 个桶和总共 <span class="arithmatex">\(n\)</span> 个元素的额外空间。</li>
 <li>桶排序是否稳定取决于排序桶内元素的算法是否稳定。</li>
 </ul>
 <h2 id="1183">11.8.3 &nbsp; 如何实现平均分配<a class="headerlink" href="#1183" title="Permanent link">&para;</a></h2>

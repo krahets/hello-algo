@@ -1848,7 +1848,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3662,8 +3662,8 @@
 <p>观察图 4-5 ，链表的组成单位是「节点 node」对象。每个节点都包含两项数据：节点的“值”和指向下一节点的“引用”。</p>
 <ul>
 <li>链表的首个节点被称为“头节点”，最后一个节点被称为“尾节点”。</li>
-<li>尾节点指向的是“空”，它在 Java、C++ 和 Python 中分别被记为 <span class="arithmatex">\(\text{null}\)</span>、<span class="arithmatex">\(\text{nullptr}\)</span> 和 <span class="arithmatex">\(\text{None}\)</span> 。</li>
-<li>在 C、C++、Go 和 Rust 等支持指针的语言中，上述的“引用”应被替换为“指针”。</li>
+<li>尾节点指向的是“空”，它在 Java、C++ 和 Python 中分别被记为 <code>null</code>、<code>nullptr</code> 和 <code>None</code> 。</li>
+<li>在 C、C++、Go 和 Rust 等支持指针的语言中，上述“引用”应被替换为“指针”。</li>
 </ul>
 <p>如以下代码所示，链表节点 <code>ListNode</code> 除了包含值，还需额外保存一个引用（指针）。因此在相同数据量下，<strong>链表比数组占用更多的内存空间</strong>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
@@ -4654,7 +4654,7 @@
 <h2 id="423">4.2.3 &nbsp; 常见链表类型<a class="headerlink" href="#423" title="Permanent link">&para;</a></h2>
 <p>如图 4-8 所示，常见的链表类型包括三种。</p>
 <ul>
-<li><strong>单向链表</strong>：即前面介绍的普通链表。单向链表的节点包含值和指向下一节点的引用两项数据。我们将首个节点称为头节点，将最后一个节点称为尾节点，尾节点指向空 <span class="arithmatex">\(\text{None}\)</span> 。</li>
+<li><strong>单向链表</strong>：即前面介绍的普通链表。单向链表的节点包含值和指向下一节点的引用两项数据。我们将首个节点称为头节点，将最后一个节点称为尾节点，尾节点指向空 <code>None</code> 。</li>
 <li><strong>环形链表</strong>：如果我们令单向链表的尾节点指向头节点（首尾相接），则得到一个环形链表。在环形链表中，任意节点都可以视作头节点。</li>
 <li><strong>双向链表</strong>：与单向链表相比，双向链表记录了两个方向的引用。双向链表的节点定义同时包含指向后继节点（下一个节点）和前驱节点（上一个节点）的引用（指针）。相较于单向链表，双向链表更具灵活性，可以朝两个方向遍历链表，但相应地也需要占用更多的内存空间。</li>
 </ul>

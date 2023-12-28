@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3533,8 +3533,7 @@
 <h3 id="2-q-a">2. &nbsp; Q &amp; A<a class="headerlink" href="#2-q-a" title="Permanent link">&para;</a></h3>
 <div class="admonition question">
 <p class="admonition-title">排序算法稳定性在什么情况下是必需的？</p>
-<p>在现实中，我们有可能是基于对象的某个属性进行排序。例如，学生有姓名和身高两个属性，我们希望实现一个多级排序：</p>
-<p>先按照姓名进行排序，得到 <code>(A, 180) (B, 185) (C, 170) (D, 170)</code> ；再对身高进行排序。由于排序算法不稳定，因此可能得到 <code>(D, 170) (C, 170) (A, 180) (B, 185)</code> 。</p>
+<p>在现实中，我们有可能基于对象的某个属性进行排序。例如，学生有姓名和身高两个属性，我们希望实现一个多级排序：先按照姓名进行排序，得到 <code>(A, 180) (B, 185) (C, 170) (D, 170)</code> ；再对身高进行排序。由于排序算法不稳定，因此可能得到 <code>(D, 170) (C, 170) (A, 180) (B, 185)</code> 。</p>
 <p>可以发现，学生 D 和 C 的位置发生了交换，姓名的有序性被破坏了，而这是我们不希望看到的。</p>
 </div>
 <div class="admonition question">

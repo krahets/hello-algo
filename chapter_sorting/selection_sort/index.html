@@ -1719,7 +1719,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-K 问题
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -3762,7 +3762,7 @@
 <h2 id="1121">11.2.1 &nbsp; 算法特性<a class="headerlink" href="#1121" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span>、非自适应排序</strong>：外循环共 <span class="arithmatex">\(n - 1\)</span> 轮，第一轮的未排序区间长度为 <span class="arithmatex">\(n\)</span> ，最后一轮的未排序区间长度为 <span class="arithmatex">\(2\)</span> ，即各轮外循环分别包含 <span class="arithmatex">\(n\)</span>、<span class="arithmatex">\(n - 1\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(3\)</span>、<span class="arithmatex">\(2\)</span> 轮内循环，求和为 <span class="arithmatex">\(\frac{(n - 1)(n + 2)}{2}\)</span> 。</li>
-<li><strong>空间复杂度 <span class="arithmatex">\(O(1)\)</span>、原地排序</strong>：指针 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 使用常数大小的额外空间。</li>
+<li><strong>空间复杂度为 <span class="arithmatex">\(O(1)\)</span>、原地排序</strong>：指针 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 使用常数大小的额外空间。</li>
 <li><strong>非稳定排序</strong>：如图 11-3 所示，元素 <code>nums[i]</code> 有可能被交换至与其相等的元素的右边，导致两者的相对顺序发生改变。</li>
 </ul>
 <p><a class="glightbox" href="../selection_sort.assets/selection_sort_instability.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="选择排序非稳定示例" class="animation-figure" src="../selection_sort.assets/selection_sort_instability.png" /></a></p>
