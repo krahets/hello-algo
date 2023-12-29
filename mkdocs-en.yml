@@ -27,38 +27,39 @@ nav:
   - Chapter 0. Preface:
     # [icon: material/book-open-outline]
     - chapter_preface/index.md
-    - 0.1 The Book: chapter_preface/about_the_book.md
+    - 0.1 About This Book: chapter_preface/about_the_book.md
     - 0.2 How to Read: chapter_preface/suggestions.md
     - 0.3 Summary: chapter_preface/summary.md
   - Chapter 1. Introduction to Algorithms:
     # [icon: material/calculator-variant-outline]
     - chapter_introduction/index.md
-    - 1.1 Algorithms Are Everywhere: chapter_introduction/algorithms_are_everywhere.md
-    - 1.2 What Is Algorithms: chapter_introduction/what_is_dsa.md
+    - 1.1 Algorithms are Everywhere: chapter_introduction/algorithms_are_everywhere.md
+    - 1.2 What is an Algorithm: chapter_introduction/what_is_dsa.md
     - 1.3 Summary: chapter_introduction/summary.md
   - Chapter 2. Complexity Analysis:
     # [icon: material/timer-sand]
     - chapter_computational_complexity/index.md
-    - 2.1 Evaluating Algorithm Efficiency: chapter_computational_complexity/performance_evaluation.md
+    - 2.1 Algorithm Efficiency Assessment: chapter_computational_complexity/performance_evaluation.md
     - 2.2 Iteration and Recursion: chapter_computational_complexity/iteration_and_recursion.md
     - 2.3 Time Complexity: chapter_computational_complexity/time_complexity.md
     - 2.4 Space Complexity: chapter_computational_complexity/space_complexity.md
     - 2.5 Summary: chapter_computational_complexity/summary.md
-  # - Chapter 3. Data Structure:
-  #   # [icon: material/shape-outline]
-  #   - chapter_data_structure/index.md
-  #   - 3.1 Classification of Data Structure: chapter_data_structure/classification_of_data_structure.md
-  #   - 3.2 Basic Data Types: chapter_data_structure/basic_data_types.md
-  #   - 3.3 Number Encoding *: chapter_data_structure/number_encoding.md
-  #   - 3.4 Character Encoding *: chapter_data_structure/character_encoding.md
-  #   - 3.5 Summary: chapter_data_structure/summary.md
-  # - Chapter 4. Array and Linked List:
-  #   # [icon: material/view-list-outline]
-  #   - chapter_array_and_linkedlist/index.md
-  #   - 4.1 Array: chapter_array_and_linkedlist/array.md
-  #   - 4.2 Linked List: chapter_array_and_linkedlist/linked_list.md
-  #   - 4.3 List: chapter_array_and_linkedlist/list.md
-  #   - 4.4 Summary: chapter_array_and_linkedlist/summary.md
+  - Chapter 3. Data Structures:
+    # [icon: material/shape-outline]
+    - chapter_data_structure/index.md
+    - 3.1 Classification of Data Structures: chapter_data_structure/classification_of_data_structure.md
+    - 3.2 Fundamental Data Types: chapter_data_structure/basic_data_types.md
+    - 3.3 Number Encoding *: chapter_data_structure/number_encoding.md
+    - 3.4 Character Encoding *: chapter_data_structure/character_encoding.md
+    - 3.5 Summary: chapter_data_structure/summary.md
+  - Chapter 4. Array and Linked List:
+    # [icon: material/view-list-outline]
+    - chapter_array_and_linkedlist/index.md
+    - 4.1 Array: chapter_array_and_linkedlist/array.md
+    - 4.2 Linked List: chapter_array_and_linkedlist/linked_list.md
+    - 4.3 List: chapter_array_and_linkedlist/list.md
+    - 4.4 Memory and Cache: chapter_array_and_linkedlist/ram_and_cache.md
+    - 4.5 Summary: chapter_array_and_linkedlist/summary.md
   # - Chapter 5. Stack and Queue:
   #   # [icon: material/stack-overflow]
   #   - chapter_stack_and_queue/index.md
@@ -87,7 +88,7 @@ nav:
   #   - chapter_heap/index.md
   #   - 8.1 Heap: chapter_heap/heap.md
   #   - 8.2 Building a Heap: chapter_heap/build_heap.md
-  #   - 8.3 Top-K Problem: chapter_heap/top_k.md
+  #   - 8.3 Top-k Problem: chapter_heap/top_k.md
   #   - 8.4 Summary: chapter_heap/summary.md
   # - Chapter 9. Graph:
   #   # [icon: material/graphql]

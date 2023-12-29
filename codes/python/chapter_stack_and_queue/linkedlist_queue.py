@@ -30,7 +30,7 @@ class LinkedListQueue:
 
     def push(self, num: int):
         """入队"""
-        # 尾节点后添加 num
+        # 在尾节点后添加 num
         node = ListNode(num)
         # 如果队列为空，则令头、尾节点都指向该节点
         if self._front is None:

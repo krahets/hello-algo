@@ -20,7 +20,7 @@ int isVisited(Vertex **res, int size, Vertex *vet) {
     return 0;
 }
 
-/* 深度优先遍历 DFS 辅助函数 */
+/* 深度优先遍历辅助函数 */
 void dfs(GraphAdjList *graph, Vertex **res, int *resSize, Vertex *vet) {
     // 记录访问顶点
     res[(*resSize)++] = vet;
@@ -36,7 +36,7 @@ void dfs(GraphAdjList *graph, Vertex **res, int *resSize, Vertex *vet) {
     }
 }
 
-/* 深度优先遍历 DFS */
+/* 深度优先遍历 */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 void graphDFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize) {
     dfs(graph, res, resSize, startVet);
@@ -61,7 +61,7 @@ int main() {
     printf("\n初始化后，图为\n");
     printGraph(graph);
 
-    // 深度优先遍历 DFS
+    // 深度优先遍历
     Vertex *res[MAX_SIZE];
     int resSize = 0;
     graphDFS(graph, v[0], res, &resSize);

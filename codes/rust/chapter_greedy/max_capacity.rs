@@ -6,7 +6,7 @@
 
 /* 最大容量：贪心 */
 fn max_capacity(ht: &[i32]) -> i32 {
-    // 初始化 i, j 分列数组两端
+    // 初始化 i, j，使其分列数组两端
     let mut i = 0;
     let mut j = ht.len() - 1;
     // 初始最大容量为 0

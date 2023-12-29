@@ -45,7 +45,7 @@ func quickSort(nums: inout [Int], left: Int, right: Int) {
 
 
 /* 快速排序类（中位基准数优化） */
-/* 选取三个元素的中位数 */
+/* 选取三个候选元素的中位数 */
 func medianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
     if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
         return left

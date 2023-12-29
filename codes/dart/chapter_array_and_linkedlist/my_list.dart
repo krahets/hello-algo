@@ -67,7 +67,7 @@ class MyList {
     }
     // 更新元素数量
     _size--;
-    // 返回被删除元素
+    // 返回被删除的元素
     return _num;
   }
 
@@ -75,7 +75,7 @@ class MyList {
   void extendCapacity() {
     // 新建一个长度为原数组 _extendRatio 倍的新数组
     final _newNums = List.filled(_capacity * _extendRatio, 0);
-    // 将原数组拷贝到新数组
+    // 将原数组复制到新数组
     List.copyRange(_newNums, 0, _arr);
     // 更新 _arr 的引用
     _arr = _newNums;

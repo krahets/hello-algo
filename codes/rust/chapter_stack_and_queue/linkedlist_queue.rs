@@ -39,7 +39,7 @@ impl<T: Copy> LinkedListQueue<T> {
 
     /* 入队 */
     pub fn push(&mut self, num: T) {
-        // 尾节点后添加 num
+        // 在尾节点后添加 num
         let new_rear = ListNode::new(num);
         match self.rear.take() {
             // 如果队列不为空，则将该节点添加到尾节点后

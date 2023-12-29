@@ -9,7 +9,7 @@ import 'dart:collection';
 import '../utils/vertex.dart';
 import 'graph_adjacency_list.dart';
 
-/* 广度优先遍历 BFS */
+/* 广度优先遍历 */
 List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
   // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
   // 顶点遍历序列
@@ -59,7 +59,7 @@ void main() {
   print("\n初始化后，图为");
   graph.printAdjList();
 
-  /* 广度优先遍历 BFS */
+  /* 广度优先遍历 */
   List<Vertex> res = graphBFS(graph, v[0]);
   print("\n广度优先遍历（BFS）顶点序列为");
   print(Vertex.vetsToVals(res));

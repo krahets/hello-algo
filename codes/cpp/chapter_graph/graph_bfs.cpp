@@ -7,7 +7,7 @@
 #include "../utils/common.hpp"
 #include "./graph_adjacency_list.cpp"
 
-/* 广度优先遍历 BFS */
+/* 广度优先遍历 */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 vector<Vertex *> graphBFS(GraphAdjList &graph, Vertex *startVet) {
     // 顶点遍历序列
@@ -45,7 +45,7 @@ int main() {
     cout << "\n初始化后，图为\\n";
     graph.print();
 
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     vector<Vertex *> res = graphBFS(graph, v[0]);
     cout << "\n广度优先遍历（BFS）顶点序列为" << endl;
     printVector(vetsToVals(res));

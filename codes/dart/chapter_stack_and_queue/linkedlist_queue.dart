@@ -29,7 +29,7 @@ class LinkedListQueue {
 
   /* 入队 */
   void push(int _num) {
-    // 尾节点后添加 _num
+    // 在尾节点后添加 _num
     final node = ListNode(_num);
     // 如果队列为空，则令头、尾节点都指向该节点
     if (_front == null) {
