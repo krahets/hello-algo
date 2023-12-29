@@ -15,8 +15,8 @@ icon: material/view-list-outline
 
 ## Chapter Contents
 
-- [4.1 &nbsp; Array](https://www.hello-algo.com/chapter_array_and_linkedlist/array/)
-- [4.2 &nbsp; Linked List](https://www.hello-algo.com/chapter_array_and_linkedlist/linked_list/)
-- [4.3 &nbsp; List](https://www.hello-algo.com/chapter_array_and_linkedlist/list/)
-- [4.4 &nbsp; Memory and Cache](https://www.hello-algo.com/chapter_array_and_linkedlist/ram_and_cache/)
-- [4.5 &nbsp; Summary](https://www.hello-algo.com/chapter_array_and_linkedlist/summary/)
+- [4.1 &nbsp; Array](https://www.hello-algo.com/en/chapter_array_and_linkedlist/array/)
+- [4.2 &nbsp; Linked List](https://www.hello-algo.com/en/chapter_array_and_linkedlist/linked_list/)
+- [4.3 &nbsp; List](https://www.hello-algo.com/en/chapter_array_and_linkedlist/list/)
+- [4.4 &nbsp; Memory and Cache](https://www.hello-algo.com/en/chapter_array_and_linkedlist/ram_and_cache/)
+- [4.5 &nbsp; Summary](https://www.hello-algo.com/en/chapter_array_and_linkedlist/summary/)
