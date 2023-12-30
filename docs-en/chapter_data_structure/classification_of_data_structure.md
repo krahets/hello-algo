@@ -1,23 +1,23 @@
 # Classification of Data Structures
 
-Common data structures include arrays, linked lists, stacks, queues, hash tables, trees, heaps, and graphs. They can be classified into two dimensions: "logical Structure" and "physical Structure".
+Common data structures include arrays, linked lists, stacks, queues, hash tables, trees, heaps, and graphs. They can be classified into two dimensions: "logical structure" and "physical structure".
 
 ## Logical Structure: Linear and Non-Linear
 
 **The logical structures reveals the logical relationships between data elements**. In arrays and linked lists, data are arranged in a specific sequence, demonstrating the linear relationship between data; while in trees, data are arranged hierarchically from the top down, showing the derived relationship between "ancestors" and "descendants"; and graphs are composed of nodes and edges, reflecting the intricate network relationship.
 
-As shown in the figure below, logical structures can be divided into two major categories: "Linear" and "Non-linear". Linear structures are more intuitive, indicating data is arranged linearly in logical relationships; non-linear structures, conversely, are arranged non-linearly.
+As shown in the figure below, logical structures can be divided into two major categories: "linear" and "non-linear". Linear structures are more intuitive, indicating data is arranged linearly in logical relationships; non-linear structures, conversely, are arranged non-linearly.
 
-- **linear data structures**: Arrays, Linked Lists, Stacks, Queues, Hash Tables, where elements have one-one relationships.
-- **non-Linear data structures**: Trees, Heaps, Graphs, Hash Tables.
+- **Linear Data Structures**: Arrays, Linked Lists, Stacks, Queues, Hash Tables, where elements have one-one relationships.
+- **Non-Linear Data Structures**: Trees, Heaps, Graphs, Hash Tables.
 
 ![Linear and Non-Linear Data Structures](classification_of_data_structure.assets/classification_logic_structure.png)
 
 Non-linear data structures can be further divided into tree structures and network structures.
 
-- **linear structures**: Arrays, linked lists, queues, stacks, and hash tables, where elements have a one-to-one sequential relationships.
-- **tree structures**: Trees, Heaps, Hash Tables, where elements have a one-to-many relationships.
-- **betwork structures**: Graphs, where elements have a many-to-many relationships.
+- **Linear Structures**: Arrays, linked lists, queues, stacks, and hash tables, where elements have a one-to-one sequential relationships.
+- **Tree Structures**: Trees, Heaps, Hash Tables, where elements have a one-to-many relationships.
+- **Network Structures**: Graphs, where elements have a many-to-many relationships.
 
 ## Physical Structure: Contiguous and Dispersed
 
@@ -38,8 +38,8 @@ As illustrated in the figure below, **the physical structure reflects the way da
 ![Contiguous Space Storage and Dispersed Space Storage](classification_of_data_structure.assets/classification_phisical_structure.png)
 
 **It is worth noting that all data structures are implemented based on arrays, linked lists, or a combination of both**. For example, stacks and queues can be implemented using either arrays or linked lists; while implementations of hash tables may involve both arrays and linked lists.
-- **array-based implementations**: Stacks, Queues, Hash Tables, Trees, Heaps, Graphs, Matrices, Tensors (arrays with dimensions $\geq 3$).
-- **linked-list based implementations**: Stacks, Queues, Hash Tables, Trees, Heaps, Graphs, etc.
+- **Array-based implementations**: Stacks, Queues, Hash Tables, Trees, Heaps, Graphs, Matrices, Tensors (arrays with dimensions $\geq 3$).
+- **Linked-list based implementations**: Stacks, Queues, Hash Tables, Trees, Heaps, Graphs, etc.
 
 Data structures implemented based on arrays are also called “Static Data Structures,” meaning their length cannot be changed after initialization. Conversely, those based on linked lists are called “Dynamic Data Structures,” which can still adjust their size during program execution.
 
