@@ -1,6 +1,6 @@
 // File: PrintUtil.zig
 // Created Time: 2023-01-07
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 pub const ListUtil = @import("ListNode.zig");
