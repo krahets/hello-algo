@@ -1,6 +1,6 @@
 # Arrays
 
-An "array" is a linear data structure that stores elements of the same type in contiguous memory spaces. We refer to the position of an element in an array as its "index". The figure below illustrates the primary terminology and concepts of an array.
+An "array" is a linear data structure that stores elements of the same type in contiguous memory spaces. The position of an element in an array is referred to as its "index". The figure below illustrates the primary terminology and concepts of an array.
 
 ![Array Definition and Storage Method](array.assets/array_definition.png)
 
@@ -115,7 +115,7 @@ Arrays can be initialized in two ways depending on the requirements: without ini
 
 ### Accessing Elements
 
-Elements in an array are stored in contiguous memory locations, simplifying the computation of an element's memory address. By using the formula depicted in Figure below and given the memory address of the array (specifically, the address of the first element) and an element's index, we can calculate the element's memory address, thereby enabling direct access to that element.
+Elements in an array are stored in contiguous memory spaces, simplifying the computation of an element's memory address. By using the formula depicted in Figure below and given the memory address of the array (specifically, the address of the first element) and an element's index, we can calculate the element's memory address, thereby enabling direct access to that element.
 
 ![Memory Address Calculation for Array Elements](array.assets/array_memory_location_calculation.png)
 
@@ -129,7 +129,7 @@ Accessing elements in an array is highly efficient, allowing us to randomly acce
 
 ### Inserting Elements
 
-As shown in the figure below, to insert an element in the middle of an array, all elements following the insertion point must be moved one position back to make room for the new element.
+Array elements are tightly packed in memory, leaving no space to accommodate additional data between them. As shown in the figure below, to insert an element in the middle of an array, all elements following the insertion point must be moved one position back to make room for the new element.
 
 ![Array Element Insertion Example](array.assets/array_insert_element.png)
 
