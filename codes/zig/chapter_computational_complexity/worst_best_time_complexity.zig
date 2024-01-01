@@ -1,6 +1,6 @@
 // File: worst_best_time_complexity.zig
 // Created Time: 2022-12-28
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");

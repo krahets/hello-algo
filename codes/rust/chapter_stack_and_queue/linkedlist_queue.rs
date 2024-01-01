@@ -1,7 +1,7 @@
 /*
  * File: linkedlist_queue.rs
  * Created Time: 2023-03-11
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");

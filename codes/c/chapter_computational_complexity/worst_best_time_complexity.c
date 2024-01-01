@@ -1,7 +1,7 @@
 /**
  * File: worst_best_time_complexity.c
  * Created Time: 2023-01-03
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 #include "../utils/common.h"
