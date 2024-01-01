@@ -2,23 +2,23 @@
 
 !!! tip
 
-    It is recommended that you go through this section to get the best reading experience.
+    For the best reading experience, it is recommended that you read through this section.
 
-## Conventions Of Writing Style
+## Writing Conventions
 
-- Chapters marked with an asterisk * in their titles are optional and more challenging. If you are short on time, it is advisable to skip them.
-- Key technical terms and their English equivalents are enclosed in `「 」` brackets, for example, `「array」`. It's advisable to familiarize yourself with these for better comprehension of technical texts.
+- Chapters marked with '*' after the title are optional and contain relatively challenging content. If you are short on time, it is advisable to skip them.
+- Key technical terms and their English equivalents are enclosed in **Bold** + *italics* brackets, for example, ***array***. It's advisable to familiarize yourself with these for better comprehension of technical texts.
 - Proprietary terms and words with specific meanings are indicated with “quotation marks” to avoid ambiguity.
 - **Bolded text** indicates key content or summary statements, which deserve special attention.
 - When it comes to terms that are inconsistent between programming languages, this book follows Python, for example using $\text{None}$ to mean "null".
-- This book partially abandons the specification of annotations in programming languages in exchange for a more compact layout of the content. Comments are categorized into three types: title comments, content comments, and multiline comments.
+- This book partially ignores the comment conventions for programming languages in exchange for a more compact layout of the content. The comments primarily consist of three types: title comments, content comments, and multi-line comments.
 
 === "Python"
 
     ```python title=""
     """Header comments for labeling functions, classes, test samples, etc""""
    
-    # Content comments for details
+    # Comments for explaining details
    
     """
     Multiline
@@ -31,7 +31,7 @@
     ```cpp title=""
     /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for details.
+    // Comments for explaining details.
    
     /**
      * Multiline
@@ -44,7 +44,7 @@
     ```java title=""
     /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for details.
+    // Comments for explaining details.
    
     /**
      * Multiline
@@ -57,7 +57,7 @@
     ```csharp title=""
     /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for details.
+    // Comments for explaining details.
    
     /**
      * Multiline
@@ -70,7 +70,7 @@
     ```go title=""
     /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for details.
+    // Comments for explaining details.
    
     /**
      * Multiline
@@ -83,7 +83,7 @@
     ```swift title=""
     /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for details.
+    // Comments for explaining details.
    
     /**
      * Multiline
@@ -96,7 +96,7 @@
     ```javascript title=""
     /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for details.
+    // Comments for explaining details.
    
     /**
      * Multiline
@@ -109,7 +109,7 @@
     ```typescript title=""
     /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for details.
+    // Comments for explaining details.
    
     /**
      * Multiline
@@ -122,7 +122,7 @@
     ```dart title=""
     /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for details.
+    // Comments for explaining details.
    
     /**
      * Multiline
@@ -135,7 +135,7 @@
     ```rust title=""
     /* Header comments for labeling functions, classes, test samples, etc */
 
-    // Content comments for details.
+    // Comments for explaining details.
    
     /**
      * Multiline
@@ -148,7 +148,7 @@
     ```c title=""
     /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for details.
+    // Comments for explaining details.
    
     /**
      * Multiline
@@ -161,7 +161,7 @@
     ```zig title=""
     // Header comments for labeling functions, classes, test samples, etc
    
-    // Content comments for details.
+    // Comments for explaining details.
    
     // Multiline
     // comments
@@ -175,7 +175,7 @@ When encountering content with animations or illustrations as shown in the figur
 
 ![Animation Illustration Example](../index.assets/animation.gif)
 
-## Deepen Understanding through Code Practice
+## Deepen Understanding through Coding Practice
 
 The source code of this book is hosted on the [GitHub Repository](https://github.com/krahets/hello-algo). As shown in the figure below, **the source code comes with test examples and can be executed with just a single click**.
 
@@ -209,13 +209,13 @@ Alternatively, you can also click the "Download ZIP" button at the location show
 
 While reading this book, please don't skip over the points that you didn't learn. **Feel free to post your questions in the comment section**. We will be happy to answer them and can usually respond within two days.
 
-As you can see in the figure below, each chapter has a comment section at the bottom. I hope you'll pay more attention to the comments section. On the one hand, you can learn about the problems others have encountered, which can help you identify gaps in your knowledge and inspire deeper thinking. On the other hand, we expect you to generously answer other readers' questions, share your insights, and help others improve.
+As illustrated in the figure below, each chapter features a comment section at the bottom. I encourage you to pay attention to these comments. They not only expose you to others' encountered problems, aiding in identifying knowledge gaps and sparking deeper contemplation, but also invite you to generously contribute by answering fellow readers' inquiries, sharing insights, and fostering mutual improvement.
 
 ![Comment Section Example](../index.assets/comment.gif)
 
 ## Algorithm Learning Path
 
-Overall, we can divide the process of learning data structures and algorithms into three stages.
+Overall, the journey of mastering data structures and algorithms can be divided into three stages:
 
 1. **Stage 1: Introduction to algorithms**. We need to familiarize ourselves with the characteristics and usage of various data structures and learn about the principles, processes, uses, and efficiency of different algorithms.
 2. **Stage 2: Practicing algorithm problems**. It is recommended to start from popular problems, such as [Sword for Offer](https://leetcode.cn/studyplan/coding-interviews/) and [LeetCode Hot 100](https://leetcode.cn/studyplan/top-100- liked/), and accumulate at least 100 questions to familiarize yourself with mainstream algorithmic problems. Forgetfulness can be a challenge when you start practicing, but rest assured that this is normal. We can follow the "Ebbinghaus Forgetting Curve" to review the questions, and usually after 3~5 rounds of repetitions, we will be able to memorize them.
