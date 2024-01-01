@@ -1,6 +1,6 @@
 // File: linear_search.zig
 // Created Time: 2023-01-13
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");

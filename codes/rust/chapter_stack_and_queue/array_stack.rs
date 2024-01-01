@@ -1,7 +1,7 @@
 /*
  * File: array_stack.rs
  * Created Time: 2023-02-05
- * Author: WSL0809 (wslzzy@outlook.com), sjinzh (sjinzh@gmail.com)
+ * Author: WSL0809 (wslzzy@outlook.com), codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");
