@@ -70,7 +70,7 @@ This open-source book is continuously being updated, and we welcome your partici
 
 - [Content Correction](https://www.hello-algo.com/en/chapter_appendix/contribution/): Please help us correct or point out mistakes in the comments section such as grammatical errors, missing content, ambiguities, invalid links, or code bugs.
 - [Code Transpilation](https://github.com/krahets/hello-algo/issues/15): We look forward to your contributions in various programming languages. We currently support 12 languages including Python, Java, C++, Go, and JavaScript.
-- [Chinese-to-English](https://github.com/krahets/hello-algo/issues/914): We would love to invite you to join our translation team. The members are mainly from computer-science-related fields, English majors, and native English speakers.
+- [Chinese-to-English](https://github.com/krahets/hello-algo/tree/en): We would love to invite you to join our translation team. The members are mainly from computer-science-related fields, English majors, and native English speakers.
 
 We welcome your valuable suggestions and feedback. If you have any questions, please submit Issues or reach out via WeChat: `krahets-jyd`.
 
