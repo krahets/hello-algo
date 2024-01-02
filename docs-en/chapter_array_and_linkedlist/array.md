@@ -1,6 +1,6 @@
 # Arrays
 
-An "array" is a linear data structure that stores elements of the same type in contiguous memory spaces. The position of an element in an array is referred to as its "index". The figure below illustrates the primary terminology and concepts of an array.
+An "array" is a linear data structure that operates as a lineup of similar items, stored together in a computer's memory in contiguous spaces. It's like a sequence that maintains organized storage. Each item in this lineup has its unique 'spot' known as an "index". Please refer to the figure below to observe how arrays work and grasp these key terms.
 
 ![Array Definition and Storage Method](array.assets/array_definition.png)
 
@@ -8,7 +8,7 @@ An "array" is a linear data structure that stores elements of the same type in c
 
 ### Initializing Arrays
 
-Arrays can be initialized in two ways depending on the requirements: without initial values or with given initial values. When initial values are not specified, most programming languages will initialize the array elements to $0$:
+Arrays can be initialized in two ways depending on the needs: either without initial values or with specified initial values. When initial values are not specified, most programming languages will set the array elements to $0$:
 
 === "Python"
 
@@ -115,11 +115,11 @@ Arrays can be initialized in two ways depending on the requirements: without ini
 
 ### Accessing Elements
 
-Elements in an array are stored in contiguous memory spaces, simplifying the computation of an element's memory address. By using the formula depicted in Figure below and given the memory address of the array (specifically, the address of the first element) and an element's index, we can calculate the element's memory address, thereby enabling direct access to that element.
+Elements in an array are stored in contiguous memory spaces, making it simpler to compute each element's memory address. The formula shown in the Figure below aids in determining an element's memory address, utilizing the array's memory address (specifically, the first element's address) and the element's index. This computation streamlines direct access to the desired element.
 
 ![Memory Address Calculation for Array Elements](array.assets/array_memory_location_calculation.png)
 
-As observed in the above image, it's worth noting that an array's indexing typically starts at $0$, which may initially seem counterintuitive since counting starts from $1$. However, in terms of the address calculation formula, **an index is essentially an offset from the memory address**. The offset for the first element's address is $0$, thus justifying its index as $0$.
+As observed in the above illustration, array indexing conventionally begins at $0$. While this might appear counterintuitive, considering counting usually starts at $1$, within the address calculation formula, **an index is essentially an offset from the memory address**. For the first element's address, this offset is $0$, validating its index as $0$.
 
 Accessing elements in an array is highly efficient, allowing us to randomly access any element in $O(1)$ time.
 
@@ -129,11 +129,11 @@ Accessing elements in an array is highly efficient, allowing us to randomly acce
 
 ### Inserting Elements
 
-Array elements are tightly packed in memory, leaving no space to accommodate additional data between them. As shown in the figure below, to insert an element in the middle of an array, all elements following the insertion point must be moved one position back to make room for the new element.
+Array elements are tightly packed in memory, with no space available to accommodate additional data between them. Illustrated in Figure below, inserting an element in the middle of an array necessitates shifting all subsequent elements back by one position to create room for the new element.
 
 ![Array Element Insertion Example](array.assets/array_insert_element.png)
 
-It's important to note that since the length of an array is constant, inserting an element will inevitably lead to the loss of the last element in the array. We will discuss the solutions to this problem in the "List" chapter.
+It's important to note that due to the fixed length of an array, inserting an element will unavoidably result in the loss of the last element in the array. Solutions to address this issue will be explored in the "List" chapter.
 
 ```src
 [file]{array}-[class]{}-[func]{insert}
@@ -145,7 +145,7 @@ Similarly, as depicted in the figure below, to delete an element at index $i$, a
 
 ![Array Element Deletion Example](array.assets/array_remove_element.png)
 
-Note that after deletion, the last element becomes "meaningless", thus requiring no specific modification.
+Please note that after deletion, the former last element becomes "meaningless," hence requiring no specific modification.
 
 ```src
 [file]{array}-[class]{}-[func]{remove}
@@ -179,7 +179,7 @@ Because arrays are linear data structures, this operation is commonly referred t
 
 In complex system environments, ensuring the availability of memory space after an array for safe capacity extension becomes challenging. Consequently, in most programming languages, **the length of an array is immutable**.
 
-To expand an array, we need to create a larger array and then copy the elements from the original array. This operation has a time complexity of $O(n)$ and can be time-consuming for large arrays. The code are as follows:
+To expand an array,  it's necessary to create a larger array and then copy the elements from the original array. This operation has a time complexity of $O(n)$ and can be time-consuming for large arrays. The code are as follows:
 
 ```src
 [file]{array}-[class]{}-[func]{extend}
