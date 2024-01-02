@@ -117,7 +117,7 @@ void removeItem(BinarySearchTree *bst, int num) {
         } else {
             pre->right = child;
         }
-         // 释放内存
+        // 释放内存
         free(cur);
     } else {
         /* 子节点数量 = 2 */
