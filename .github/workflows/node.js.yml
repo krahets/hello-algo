@@ -1,0 +1,41 @@
+name: JavaScript/TypeScript
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: ["codes/javascript/**/*.js", "codes/typescript/**/*.ts"]
+  pull_request:
+    branches: [ "main" ]
+    paths: ["codes/javascript/**/*.js", "codes/typescript/**/*.ts"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: codes/
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: ["20.x"]
+        directory: ["./javascript", "./typescript"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Init package.json
+      run: |
+        cd ${{ matrix.directory }}
+        npm init -y
+    - name: Install dependencies
+      run: npm install ${{ matrix.directory }}
+    - name: Build
+      run: npm run build ${{ matrix.directory }} --if-present
+    # - name: Test with ${{ matrix.directory }}
+    #   run: npm test ${{ matrix.directory }}
