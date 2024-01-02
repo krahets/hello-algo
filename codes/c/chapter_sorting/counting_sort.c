@@ -18,7 +18,7 @@ void countingSortNaive(int nums[], int size) {
     }
     // 2. 统计各数字的出现次数
     // counter[num] 代表 num 的出现次数
-    int *counter = calloc(m, sizeof(int));
+    int *counter = calloc(m + 1, sizeof(int));
     for (int i = 0; i < size; i++) {
         counter[nums[i]]++;
     }
