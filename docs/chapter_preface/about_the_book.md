@@ -36,6 +36,10 @@ comments: true
 
 ## 0.1.3 &nbsp; 致谢
 
+本书在开源社区众多贡献者的共同努力下不断完善。感谢每一位投入时间与精力的撰稿人，他们是（按照 GitHub 自动生成的顺序）：krahets、codingonion、nuomi1、Gonglja、Reanon、justin-tse、danielsss、hpstory、S-N-O-R-L-A-X、night-cruise、msk397、gvenusleo、RiverTwilight、gyt95、zhuoqinyue、Zuoxun、Xia-Sang、mingXta、FangYuan33、GN-Yu、IsChristina、xBLACKICEx、guowei-gong、Cathay-Chen、mgisr、JoseHung、qualifier1024、pengchzn、Guanngxu、longsizhuo、L-Super、what-is-me、yuan0221、lhxsm、Slone123c、WSL0809、longranger2、theNefelibatas、xiongsp、JeffersonHuang、hongyun-robot、K3v123、yuelinxin、a16su、gaofer、malone6、Wonderdch、xjr7670、DullSword、Horbin-Magician、NI-SW、reeswell、XC-Zero、XiaChuerwu、yd-j、iron-irax、huawuque404、MolDuM、Nigh、KorsChen、foursevenlove、52coder、bubble9um、youshaoXG、curly210102、gltianwen、fanchenggang、Transmigration-zhou、FloranceYeh、FreddieLi、ShiMaRing、lipusheng、Javesun99、JackYang-hellobobo、shanghai-Jerry、0130w、Keynman、psychelzh、logan-qiu、ZnYang2018、MwumLi、1ch0、Phoenix0415、qingpeng9802、Richard-Zhang1019、QiLOL、Suremotoo、Turing-1024-Lee、Evilrabbit520、GaochaoZhu、ZJKung、linzeyan、hezhizhen、ZongYangL、beintentional、czruby、coderlef、dshlstarr、szu17dmy、fbigm、gledfish、hts0000、boloboloda、iStig、jiaxianhua、wenjianmin、keshida、kilikilikid、lclc6、lwbaptx、liuxjerry、lucaswangdev、lyl625760、chadyi、noobcodemaker、selear、siqyka、syd168、4yDX3906、tao363、wangwang105、weibk、yabo083、yi427、yishangzhang、zhouLion、baagod、ElaBosak233、xb534、luluxia、yanedie、thomasq0 和 YangXuanyi。
+
+本书的代码审阅工作由 codingonion, Gonglja、gvenusleo、hpstory、justin‐tse、krahets、night-cruise、nuomi1 和 Reanon 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
+
 在本书的创作过程中，我得到了许多人的帮助。
 
 - 感谢我在公司的导师李汐博士，在一次畅谈中你鼓励我“快行动起来”，坚定了我写这本书的决心；
