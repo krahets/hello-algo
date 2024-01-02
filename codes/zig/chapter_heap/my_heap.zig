@@ -1,6 +1,6 @@
 // File: my_heap.zig
 // Created Time: 2023-01-14
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -30,17 +30,17 @@ pub fn MaxHeap(comptime T: type) type {
             if (self.max_heap != null) self.max_heap.?.deinit();
         }
 
-        // 获取左子节点索引
+        // 获取左子节点的索引
         fn left(i: usize) usize {
             return 2 * i + 1;
         }
 
-        // 获取右子节点索引
+        // 获取右子节点的索引
         fn right(i: usize) usize {
             return 2 * i + 2;
         }
 
-        // 获取父节点索引
+        // 获取父节点的索引
         fn parent(i: usize) usize {
             // return (i - 1) / 2; // 向下整除
             return @divFloor(i - 1, 2);

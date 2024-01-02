@@ -1,6 +1,6 @@
 // File: avl_tree.zig
 // Created Time: 2023-01-15
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -120,7 +120,7 @@ pub fn AVLTree(comptime T: type) type {
                 tmp_node.init(val);
                 return tmp_node;
             }
-            // 1. 查找插入位置，并插入节点
+            // 1. 查找插入位置并插入节点
             if (val < node.?.val) {
                 node.?.left = try self.insertHelper(node.?.left, val);
             } else if (val > node.?.val) {
@@ -144,7 +144,7 @@ pub fn AVLTree(comptime T: type) type {
         fn removeHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) ?*inc.TreeNode(T) {
             var node = node_;
             if (node == null) return null;
-            // 1. 查找节点，并删除之
+            // 1. 查找节点并删除
             if (val < node.?.val) {
                 node.?.left = self.removeHelper(node.?.left, val);
             } else if (val > node.?.val) {

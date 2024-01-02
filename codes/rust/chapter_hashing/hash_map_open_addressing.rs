@@ -64,7 +64,7 @@ impl HashMapOpenAddressing {
             if first_tombstone == -1 && self.buckets[index] == self.TOMBSTONE {
                 first_tombstone = index as i32;
             }
-            // 计算桶索引，越过尾部返回头部
+            // 计算桶索引，越过尾部则返回头部
             index = (index + 1) % self.capacity;
         }
         // 若 key 不存在，则返回添加点的索引
@@ -163,7 +163,7 @@ fn main() {
     hashmap.print();
 
     /* 查询操作 */
-    // 向哈希表输入键 key ，得到值 val
+    // 向哈希表中输入键 key ，得到值 val
     let name = hashmap.get(13276).unwrap();
     println!("\n输入学号 13276 ，查询到姓名 {}", name);
 

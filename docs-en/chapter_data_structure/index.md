@@ -1,13 +1,13 @@
-# Data Structure
+# Data Structures
 
 <div class="center-table" markdown>
 
-![data structure](../assets/covers/chapter_data_structure.jpg)
+![Data Structures](../assets/covers/chapter_data_structure.jpg)
 
 </div>
 
 !!! abstract
 
-    Data structures are like a solid and varied framework.
-   
-    It provides a blueprint for the orderly organization of data upon which algorithms can come alive.
+    Data structures serve as a robust and diverse framework.
+
+    They offer a blueprint for the orderly organization of data, upon which algorithms come to life.

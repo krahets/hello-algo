@@ -1,7 +1,7 @@
 /*
  * File: binary_search.rs
  * Created Time: 2023-02-05
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 /* 二分查找（双闭区间） */
@@ -35,7 +35,7 @@ fn binary_search_lcro(nums: &[i32], target: i32) -> i32 {
         if nums[m as usize] < target {         // 此情况说明 target 在区间 [m+1, j) 中
             i = m + 1;
         } else if nums[m as usize] > target {  // 此情况说明 target 在区间 [i, m) 中
-            j = m - 1;
+            j = m;
         } else {                      // 找到目标元素，返回其索引
             return m;
         }                       

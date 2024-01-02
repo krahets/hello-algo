@@ -23,7 +23,7 @@ A "data structure" is a way of organizing and storing data in a computer, with t
 
 ## Relationship Between Data Structures and Algorithms
 
-As shown in the diagram below, data structures and algorithms are highly related and closely integrated, specifically in the following three aspects:
+As shown in the figure below, data structures and algorithms are highly related and closely integrated, specifically in the following three aspects:
 
 - Data structures are the foundation of algorithms. They provide structured data storage and methods for manipulating data for algorithms.
 - Algorithms are the stage where data structures come into play. The data structure alone only stores data information; it is through the application of algorithms that specific problems can be solved.

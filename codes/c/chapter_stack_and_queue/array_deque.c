@@ -60,7 +60,7 @@ void pushFirst(ArrayDeque *deque, int num) {
         return;
     }
     // 队首指针向左移动一位
-    // 通过取余操作，实现 front 越过数组头部回到尾部
+    // 通过取余操作实现 front 越过数组头部回到尾部
     deque->front = dequeIndex(deque, deque->front - 1);
     // 将 num 添加到队首
     deque->nums[deque->front] = num;
@@ -73,7 +73,7 @@ void pushLast(ArrayDeque *deque, int num) {
         printf("双向队列已满\r\n");
         return;
     }
-    // 计算尾指针，指向队尾索引 + 1
+    // 计算队尾指针，指向队尾索引 + 1
     int rear = dequeIndex(deque, deque->front + deque->queSize);
     // 将 num 添加至队尾
     deque->nums[rear] = num;

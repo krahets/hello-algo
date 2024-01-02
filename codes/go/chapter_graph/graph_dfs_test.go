@@ -21,7 +21,7 @@ func TestGraphDFS(t *testing.T) {
 	fmt.Println("初始化后，图为:")
 	graph.print()
 
-	/* 深度优先遍历 DFS */
+	/* 深度优先遍历 */
 	res := graphDFS(graph, vets[0])
 	fmt.Println("深度优先遍历（DFS）顶点序列为:")
 	PrintSlice(VetsToVals(res))

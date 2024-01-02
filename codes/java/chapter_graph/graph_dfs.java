@@ -10,7 +10,7 @@ import java.util.*;
 import utils.*;
 
 public class graph_dfs {
-    /* 深度优先遍历 DFS 辅助函数 */
+    /* 深度优先遍历辅助函数 */
     static void dfs(GraphAdjList graph, Set<Vertex> visited, List<Vertex> res, Vertex vet) {
         res.add(vet);     // 记录访问顶点
         visited.add(vet); // 标记该顶点已被访问
@@ -23,7 +23,7 @@ public class graph_dfs {
         }
     }
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     static List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
@@ -43,7 +43,7 @@ public class graph_dfs {
         System.out.println("\n初始化后，图为");
         graph.print();
 
-        /* 深度优先遍历 DFS */
+        /* 深度优先遍历 */
         List<Vertex> res = graphDFS(graph, v[0]);
         System.out.println("\n深度优先遍历（DFS）顶点序列为");
         System.out.println(Vertex.vetsToVals(res));

@@ -18,10 +18,10 @@ func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, d
 	}
 	// 遍历所有列
 	for col := 0; col < n; col++ {
-		// 计算该格子对应的主对角线和副对角线
+		// 计算该格子对应的主对角线和次对角线
 		diag1 := row - col + n - 1
 		diag2 := row + col
-		// 剪枝：不允许该格子所在列、主对角线、副对角线上存在皇后
+		// 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
 		if !(*cols)[col] && !(*diags1)[diag1] && !(*diags2)[diag2] {
 			// 尝试：将皇后放置在该格子
 			(*state)[row][col] = "Q"

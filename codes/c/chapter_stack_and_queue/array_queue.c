@@ -58,7 +58,7 @@ void push(ArrayQueue *queue, int num) {
         return;
     }
     // 计算队尾指针，指向队尾索引 + 1
-    // 通过取余操作，实现 rear 越过数组尾部后回到头部
+    // 通过取余操作实现 rear 越过数组尾部后回到头部
     int rear = (queue->front + queue->queSize) % queue->queCapacity;
     // 将 num 添加至队尾
     queue->nums[rear] = num;
@@ -68,7 +68,7 @@ void push(ArrayQueue *queue, int num) {
 /* 出队 */
 int pop(ArrayQueue *queue) {
     int num = peek(queue);
-    // 队首指针向后移动一位，若越过尾部则返回到数组头部
+    // 队首指针向后移动一位，若越过尾部，则返回到数组头部
     queue->front = (queue->front + 1) % queue->queCapacity;
     queue->queSize--;
     return num;

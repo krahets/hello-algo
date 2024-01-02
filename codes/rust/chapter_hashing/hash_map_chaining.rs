@@ -56,7 +56,7 @@ impl HashMapChaining {
             }
         }
 
-        // 若未找到 key 则返回 None
+        // 若未找到 key ，则返回 None
         None
     }
 
@@ -122,14 +122,14 @@ impl HashMapChaining {
         let index = self.hash_func(key);
         let bucket = &self.buckets[index];
 
-        // 遍历桶，若找到 key 则返回对应 val
+        // 遍历桶，若找到 key ，则返回对应 val
         for pair in bucket {
             if pair.key == key {
                 return Some(&pair.val);
             }
         }
 
-        // 若未找到 key 则返回 None
+        // 若未找到 key ，则返回 None
         None
     }
 }
@@ -150,7 +150,7 @@ pub fn main() {
     map.print();
 
     /* 查询操作 */
-    // 向哈希表输入键 key ，得到值 value
+    // 向哈希表中输入键 key ，得到值 value
     println!("\n输入学号 13276,查询到姓名 {}", match map.get(13276) {
         Some(value) => value,
         None => "Not a valid Key"

@@ -7,7 +7,7 @@
 #include "../utils/common.hpp"
 #include "./graph_adjacency_list.cpp"
 
-/* 深度优先遍历 DFS 辅助函数 */
+/* 深度优先遍历辅助函数 */
 void dfs(GraphAdjList &graph, unordered_set<Vertex *> &visited, vector<Vertex *> &res, Vertex *vet) {
     res.push_back(vet);   // 记录访问顶点
     visited.emplace(vet); // 标记该顶点已被访问
@@ -20,7 +20,7 @@ void dfs(GraphAdjList &graph, unordered_set<Vertex *> &visited, vector<Vertex *>
     }
 }
 
-/* 深度优先遍历 DFS */
+/* 深度优先遍历 */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
     // 顶点遍历序列
@@ -41,7 +41,7 @@ int main() {
     cout << "\n初始化后，图为" << endl;
     graph.print();
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     vector<Vertex *> res = graphDFS(graph, v[0]);
     cout << "\n深度优先遍历（DFS）顶点序列为" << endl;
     printVector(vetsToVals(res));

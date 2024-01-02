@@ -61,6 +61,11 @@ hide:
   <img src="https://img.shields.io/badge/Stay%20Tuned-snow">
 </p>
 
+<div class="admonition example" style="max-width: 800px;margin: 0 auto;">
+  <p class="admonition-title">The English edition is brewing...</p>
+  <p>Feel free to engage in Chinese-to-English translation and pull request review! For guidelines, please see <a href="https://github.com/krahets/hello-algo/issues/914">#914</a>.</p>
+</div>
+
 ---
 
 <h3 align="center">Endorsements</h3>
@@ -154,11 +159,12 @@ This book is continuously improved with the joint efforts of many contributors f
     </a>
 </p>
 
-The code review work for this book was completed by Gonglja, gvenusleo, hpstory, justin‐tse, krahets, night-cruise, nuomi1, Reanon, and sjinzh (listed in alphabetical order). Thanks to them for their time and effort, ensuring the standardization and uniformity of the code in various languages.
+The code review work for this book was completed by codingonion, Gonglja, gvenusleo, hpstory, justin‐tse, krahets, night-cruise, nuomi1, and Reanon (listed in alphabetical order). Thanks to them for their time and effort, ensuring the standardization and uniformity of the code in various languages.
 
 <div class="center-table">
     <table style="border: none;">
         <tbody>
+          <td align="center" style="border: none;"><a href="https://github.com/codingonion"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/99076655?v=4" width="50px;" alt="codingonion"/></br><sub><b>codingonion</b></sub></a></br><sub>Rust, Zig</sub></td>
           <td align="center" style="border: none;"><a href="https://github.com/Gonglja"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/39959756?v=4" width="50px;" alt="Gonglja"/></br><sub><b>Gonglja</b></sub></a></br><sub>C, C++</sub></td>
           <td align="center" style="border: none;"><a href="https://github.com/gvenusleo"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/79075347?v=4" width="50px;" alt="gvenusleo"/></br><sub><b>gvenusleo</b></sub></a></br><sub>Dart</sub></td>
           <td align="center" style="border: none;"><a href="https://github.com/hpstory"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/33348162?v=4" width="50px;" alt="hpstory"/></br><sub><b>hpstory</b></sub></a></br><sub>C#</sub></td>
@@ -167,7 +173,6 @@ The code review work for this book was completed by Gonglja, gvenusleo, hpstory,
           <td align="center" style="border: none;"><a href="https://github.com/night-cruise"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/77157236?v=4" width="50px;" alt="night-cruise"/></br><sub><b>night-cruise</b></sub></a></br><sub>Rust</sub></td>
           <td align="center" style="border: none;"><a href="https://github.com/nuomi1"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/3739017?v=4" width="50px;" alt="nuomi1"/></br><sub><b>nuomi1</b></sub></a></br><sub>Swift</sub></td>
           <td align="center" style="border: none;"><a href="https://github.com/Reanon"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/22005836?v=4" width="50px;" alt="Reanon"/></br><sub><b>Reanon</b></sub></a></br><sub>Go, C</sub></td>
-          <td align="center" style="border: none;"><a href="https://github.com/sjinzh"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/99076655?v=4" width="50px;" alt="sjinzh"/></br><sub><b>sjinzh</b></sub></a></br><sub>Rust, Zig</sub></td>
         </tbody>
     </table>
 </div>

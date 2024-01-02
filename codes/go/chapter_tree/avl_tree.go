@@ -116,7 +116,7 @@ func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return NewTreeNode(val)
 	}
-	/* 1. 查找插入位置，并插入节点 */
+	/* 1. 查找插入位置并插入节点 */
 	if val < node.Val.(int) {
 		node.Left = t.insertHelper(node.Left, val)
 	} else if val > node.Val.(int) {
@@ -143,7 +143,7 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return nil
 	}
-	/* 1. 查找节点，并删除之 */
+	/* 1. 查找节点并删除 */
 	if val < node.Val.(int) {
 		node.Left = t.removeHelper(node.Left, val)
 	} else if val > node.Val.(int) {
