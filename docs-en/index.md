@@ -159,7 +159,7 @@ This book is continuously improved with the joint efforts of many contributors f
     </a>
 </p>
 
-The code review work for this book was completed by codingonion, Gonglja, gvenusleo, hpstory, justin‐tse, krahets, night-cruise, nuomi1 and Reanon (listed in alphabetical order). Thanks to them for their time and effort, ensuring the standardization and uniformity of the code in various languages.
+The code review work for this book was completed by codingonion, Gonglja, gvenusleo, hpstory, justin‐tse, krahets, night-cruise, nuomi1, and Reanon (listed in alphabetical order). Thanks to them for their time and effort, ensuring the standardization and uniformity of the code in various languages.
 
 <div class="center-table">
     <table style="border: none;">
