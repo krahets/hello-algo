@@ -7,7 +7,7 @@ When discussing data in computers, various forms like text, images, videos, voic
 - Integer types: `byte`, `short`, `int`, `long`.
 - Floating-point types: `float`, `double`, used to represent decimals.
 - Character type: `char`, used to represent letters, punctuation, and even emojis in various languages.
-- Boolean type: `bool`, used ro represent "yes" or "no" decisions.
+- Boolean type: `bool`, used to represent "yes" or "no" decisions.
 
 **Basic data types are stored in computers in binary form**. One binary digit is 1 bit. In most modern operating systems, 1 byte consists of 8 bits.
 
@@ -16,7 +16,7 @@ The range of values for basic data types depends on the size of the space they o
 - The integer type `byte` occupies 1 byte = 8 bits and can represent $2^8$ numbers.
 - The integer type `int` occupies 4 bytes = 32 bits and can represent $2^{32}$ numbers.
 
-The following table lists the space occupied, value range, and default values of various basic data types in Java. This table does not need to be memorized, but understood roughly and referred to when needed.
+The following table lists the space occupied, value range, and default values of various basic data types in Java. While memorizing this table isn't necessary, having a general understanding of it and referencing it when required is recommended.
 
 <p align="center"> Table <id> &nbsp; Space Occupied and Value Range of Basic Data Types </p>
 
@@ -31,7 +31,7 @@ The following table lists the space occupied, value range, and default values of
 | Char    | `char`   | 2 bytes        | 0                        | $2^{16} - 1$            | 0              |
 | Boolean | `bool`   | 1 byte         | $\text{false}$           | $\text{true}$           | $\text{false}$ |
 
-Please note that the above table is specific to Java's basic data types. Each programming language has its own data type definitions, and their space occupied, value ranges, and default values may differ.
+Please note that the above table is specific to Java's basic data types. Every programming language has its own data type definitions, which might differ in space occupied, value ranges, and default values.
 
 - In Python, the integer type `int` can be of any size, limited only by available memory; the floating-point `float` is double precision 64-bit; there is no `char` type, as a single character is actually a string `str` of length 1.
 - C and C++ do not specify the size of basic data types, it varies with implementation and platform. The above table follows the LP64 [data model](https://en.cppreference.com/w/cpp/language/types#Properties), used for Unix 64-bit operating systems including Linux and macOS.
