@@ -173,7 +173,7 @@ Compared with text, videos and pictures have a higher density of information and
 
 When encountering content with animations or illustrations as shown in the figure below, **prioritize understanding the figure, with text as supplementary**, integrating both for a comprehensive understanding.
 
-![Animation Illustration Example](../index.assets/animation.gif)
+![Animated Illustration Example](../index.assets/animation.gif)
 
 ## Deepen Understanding through Coding Practice
 
@@ -189,7 +189,7 @@ Setting up to run the code involves three main steps.
 
 **Step 1: Install a local programming environment**. Follow the [tutorial](https://www.hello-algo.com/chapter_appendix/installation/) in the appendix for installation, or skip this step if already installed.
 
-**Step 2: clone or download the code repository**. Visit the [GitHub Repository](https://github.com/krahets/hello-algo).
+**Step 2: Clone or download the code repository**. Visit the [GitHub Repository](https://github.com/krahets/hello-algo).
 
 If [Git](https://git-scm.com/downloads) is installed, use the following command to clone the repository:
 
