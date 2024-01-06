@@ -17,7 +17,7 @@ impl ArrayBinaryTree {
         Self { tree: arr }
     }
 
-    /* 节点数量 */
+    /* 数组长度 */
     fn size(&self) -> i32 {
         self.tree.len() as i32
     }

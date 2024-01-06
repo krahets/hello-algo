@@ -18,7 +18,7 @@ class ArrayBinaryTree {
         this.#tree = arr;
     }
 
-    /* 节点数量 */
+    /* 数组长度 */
     size(): number {
         return this.#tree.length;
     }
