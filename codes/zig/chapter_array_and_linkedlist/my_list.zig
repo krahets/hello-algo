@@ -85,7 +85,7 @@ pub fn MyList(comptime T: type) type {
         pub fn remove(self: *Self, index: usize) T {
             if (index < 0 or index >= self.size()) @panic("索引越界");
             var num = self.arr[index];
-            // 索引 i 之后的元素都向前移动一位
+            // 将索引 index 之后的元素都向前移动一位
             var j = index;
             while (j < self.size() - 1) : (j += 1) {
                 self.arr[j] = self.arr[j + 1];

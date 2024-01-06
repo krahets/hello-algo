@@ -63,7 +63,7 @@ class MyList:
         if index < 0 or index >= self._size:
             raise IndexError("索引越界")
         num = self._arr[index]
-        # 索引 i 之后的元素都向前移动一位
+        # 将索引 index 之后的元素都向前移动一位
         for j in range(index, self._size - 1):
             self._arr[j] = self._arr[j + 1]
         # 更新元素数量

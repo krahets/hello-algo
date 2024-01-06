@@ -79,7 +79,7 @@ class MyList {
             fatalError("索引越界")
         }
         let num = arr[index]
-        // 将索引 index 之后的元素都向前移动一位
+        // 将将索引 index 之后的元素都向前移动一位
         for j in index ..< (_size - 1) {
             arr[j] = arr[j + 1]
         }
