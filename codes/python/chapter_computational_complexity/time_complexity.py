@@ -5,7 +5,7 @@ Author: Krahets (krahets@163.com)
 """
 
 
-def constant(n) -> int:
+def constant(n: int) -> int:
     """常数阶"""
     count = 0
     size = 100000
@@ -14,7 +14,7 @@ def constant(n) -> int:
     return count
 
 
-def linear(n) -> int:
+def linear(n: int) -> int:
     """线性阶"""
     count = 0
     for _ in range(n):
@@ -31,7 +31,7 @@ def array_traversal(nums: list[int]) -> int:
     return count
 
 
-def quadratic(n) -> int:
+def quadratic(n: int) -> int:
     """平方阶"""
     count = 0
     # 循环次数与数组长度成平方关系
@@ -50,14 +50,14 @@ def bubble_sort(nums: list[int]) -> int:
         for j in range(i):
             if nums[j] > nums[j + 1]:
                 # 交换 nums[j] 与 nums[j + 1]
-                tmp = nums[j]
+                tmp: int = nums[j]
                 nums[j] = nums[j + 1]
                 nums[j + 1] = tmp
                 count += 3  # 元素交换包含 3 个单元操作
     return count
 
 
-def exponential(n) -> int:
+def exponential(n: int) -> int:
     """指数阶（循环实现）"""
     count = 0
     base = 1
@@ -70,7 +70,7 @@ def exponential(n) -> int:
     return count
 
 
-def exp_recur(n) -> int:
+def exp_recur(n: int) -> int:
     """指数阶（递归实现）"""
     if n == 1:
         return 1
@@ -97,13 +97,13 @@ def linear_log_recur(n: float) -> int:
     """线性对数阶"""
     if n <= 1:
         return 1
-    count = linear_log_recur(n // 2) + linear_log_recur(n // 2)
+    count: int = linear_log_recur(n // 2) + linear_log_recur(n // 2)
     for _ in range(n):
         count += 1
     return count
 
 
-def factorial_recur(n) -> int:
+def factorial_recur(n: int) -> int:
     """阶乘阶（递归实现）"""
     if n == 0:
         return 1
@@ -120,32 +120,32 @@ if __name__ == "__main__":
     n = 8
     print("输入数据大小 n =", n)
 
-    count = constant(n)
+    count: int = constant(n)
     print("常数阶的操作数量 =", count)
 
-    count = linear(n)
+    count: int = linear(n)
     print("线性阶的操作数量 =", count)
-    count = array_traversal([0] * n)
+    count: int = array_traversal([0] * n)
     print("线性阶（遍历数组）的操作数量 =", count)
 
-    count = quadratic(n)
+    count: int = quadratic(n)
     print("平方阶的操作数量 =", count)
     nums = [i for i in range(n, 0, -1)]  # [n, n-1, ..., 2, 1]
-    count = bubble_sort(nums)
+    count: int = bubble_sort(nums)
     print("平方阶（冒泡排序）的操作数量 =", count)
 
-    count = exponential(n)
+    count: int = exponential(n)
     print("指数阶（循环实现）的操作数量 =", count)
-    count = exp_recur(n)
+    count: int = exp_recur(n)
     print("指数阶（递归实现）的操作数量 =", count)
 
-    count = logarithmic(n)
+    count: int = logarithmic(n)
     print("对数阶（循环实现）的操作数量 =", count)
-    count = log_recur(n)
+    count: int = log_recur(n)
     print("对数阶（递归实现）的操作数量 =", count)
 
-    count = linear_log_recur(n)
+    count: int = linear_log_recur(n)
     print("线性对数阶（递归实现）的操作数量 =", count)
 
-    count = factorial_recur(n)
+    count: int = factorial_recur(n)
     print("阶乘阶（递归实现）的操作数量 =", count)
