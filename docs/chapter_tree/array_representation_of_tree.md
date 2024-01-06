@@ -154,7 +154,7 @@ comments: true
             self._tree = list(arr)
 
         def size(self):
-            """数组长度"""
+            """列表容量"""
             return len(self._tree)
 
         def val(self, i: int) -> int:
@@ -231,7 +231,7 @@ comments: true
             tree = arr;
         }
 
-        /* 数组长度 */
+        /* 列表容量 */
         int size() {
             return tree.size();
         }
@@ -326,7 +326,7 @@ comments: true
             tree = new ArrayList<>(arr);
         }
 
-        /* 数组长度 */
+        /* 列表容量 */
         public int size() {
             return tree.size();
         }
@@ -413,7 +413,7 @@ comments: true
     class ArrayBinaryTree(List<int?> arr) {
         List<int?> tree = new(arr);
 
-        /* 数组长度 */
+        /* 列表容量 */
         public int Size() {
             return tree.Count;
         }
@@ -508,7 +508,7 @@ comments: true
         }
     }
 
-    /* 数组长度 */
+    /* 列表容量 */
     func (abt *arrayBinaryTree) size() int {
         return len(abt.tree)
     }
@@ -605,7 +605,7 @@ comments: true
             tree = arr
         }
 
-        /* 数组长度 */
+        /* 列表容量 */
         func size() -> Int {
             tree.count
         }
@@ -703,7 +703,7 @@ comments: true
             this.#tree = arr;
         }
 
-        /* 数组长度 */
+        /* 列表容量 */
         size() {
             return this.#tree.length;
         }
@@ -789,7 +789,7 @@ comments: true
             this.#tree = arr;
         }
 
-        /* 数组长度 */
+        /* 列表容量 */
         size(): number {
             return this.#tree.length;
         }
@@ -873,7 +873,7 @@ comments: true
       /* 构造方法 */
       ArrayBinaryTree(this._tree);
 
-      /* 数组长度 */
+      /* 列表容量 */
       int size() {
         return _tree.length;
       }
@@ -972,7 +972,7 @@ comments: true
             Self { tree: arr }
         }
 
-        /* 数组长度 */
+        /* 列表容量 */
         fn size(&self) -> i32 {
             self.tree.len() as i32
         }
@@ -1083,7 +1083,7 @@ comments: true
         free(abt);
     }
 
-    /* 数组长度 */
+    /* 列表容量 */
     int size(ArrayBinaryTree *abt) {
         return abt->size;
     }
