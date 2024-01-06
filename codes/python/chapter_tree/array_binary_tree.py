@@ -19,7 +19,7 @@ class ArrayBinaryTree:
         self._tree = list(arr)
 
     def size(self):
-        """节点数量"""
+        """数组长度"""
         return len(self._tree)
 
     def val(self, i: int) -> int:

@@ -18,7 +18,7 @@ class ArrayBinaryTree {
         tree = new ArrayList<>(arr);
     }
 
-    /* 节点数量 */
+    /* 数组长度 */
     public int size() {
         return tree.size();
     }

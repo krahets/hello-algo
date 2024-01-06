@@ -14,7 +14,7 @@ class ArrayBinaryTree {
   /* 构造方法 */
   ArrayBinaryTree(this._tree);
 
-  /* 节点数量 */
+  /* 数组长度 */
   int size() {
     return _tree.length;
   }

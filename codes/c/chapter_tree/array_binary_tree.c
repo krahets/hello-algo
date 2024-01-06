@@ -27,7 +27,7 @@ void delArrayBinaryTree(ArrayBinaryTree *abt) {
     free(abt);
 }
 
-/* 节点数量 */
+/* 数组长度 */
 int size(ArrayBinaryTree *abt) {
     return abt->size;
 }
