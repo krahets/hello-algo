@@ -182,6 +182,8 @@ body {
 .md-typeset .admonition.pythontutor,
 .md-typeset details.pythontutor {
   border-color: var(--md-default-fg-color--lightest);
+  margin-top: 0;
+  margin-bottom: 1.5625em;
 }
 
 .md-typeset .admonition:focus-within,
