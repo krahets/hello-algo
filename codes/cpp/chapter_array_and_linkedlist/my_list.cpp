@@ -81,7 +81,7 @@ class MyList {
         if (index < 0 || index >= size())
             throw out_of_range("索引越界");
         int num = arr[index];
-        // 索引 i 之后的元素都向前移动一位
+        // 将索引 index 之后的元素都向前移动一位
         for (int j = index; j < size() - 1; j++) {
             arr[j] = arr[j + 1];
         }

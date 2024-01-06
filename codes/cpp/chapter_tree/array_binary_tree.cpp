@@ -14,7 +14,7 @@ class ArrayBinaryTree {
         tree = arr;
     }
 
-    /* 数组长度 */
+    /* 列表容量 */
     int size() {
         return tree.size();
     }

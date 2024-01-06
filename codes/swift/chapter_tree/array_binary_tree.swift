@@ -15,7 +15,7 @@ class ArrayBinaryTree {
         tree = arr
     }
 
-    /* 数组长度 */
+    /* 列表容量 */
     func size() -> Int {
         tree.count
     }

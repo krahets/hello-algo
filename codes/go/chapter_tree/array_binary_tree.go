@@ -16,7 +16,7 @@ func newArrayBinaryTree(arr []any) *arrayBinaryTree {
 	}
 }
 
-/* 数组长度 */
+/* 列表容量 */
 func (abt *arrayBinaryTree) size() int {
 	return len(abt.tree)
 }

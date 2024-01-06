@@ -10,7 +10,7 @@ namespace hello_algo.chapter_tree;
 public class ArrayBinaryTree(List<int?> arr) {
     List<int?> tree = new(arr);
 
-    /* 数组长度 */
+    /* 列表容量 */
     public int Size() {
         return tree.Count;
     }
