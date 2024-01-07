@@ -1,16 +1,16 @@
 # AVL 树 *
 
-在“二叉搜索树”章节中，我们提到，在多次插入和删除操作后，二叉搜索树可能退化为链表。在这种情况下，所有操作的时间复杂度将从 $O(\log n)$ 恶化为 $O(n)$ 。
+在“二叉搜索树”章节中我们提到，在多次插入和删除操作后，二叉搜索树可能退化为链表。在这种情况下，所有操作的时间复杂度将从 $O(\log n)$ 劣化为 $O(n)$ 。
 
 如下图所示，经过两次删除节点操作，这棵二叉搜索树便会退化为链表。
 
 ![AVL 树在删除节点后发生退化](avl_tree.assets/avltree_degradation_from_removing_node.png)
 
-再例如，在下图所示的完美二叉树中插入两个节点后，树将严重向左倾斜，查找操作的时间复杂度也随之恶化。
+再例如，在下图所示的完美二叉树中插入两个节点后，树将严重向左倾斜，查找操作的时间复杂度也随之劣化。
 
 ![AVL 树在插入节点后发生退化](avl_tree.assets/avltree_degradation_from_inserting_node.png)
 
-1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在论文 "An algorithm for the organization of information" 中提出了「AVL 树」。论文中详细描述了一系列操作，确保在持续添加和删除节点后，AVL 树不会退化，从而使得各种操作的时间复杂度保持在 $O(\log n)$ 级别。换句话说，在需要频繁进行增删查改操作的场景中，AVL 树能始终保持高效的数据操作性能，具有很好的应用价值。
+1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在论文“An algorithm for the organization of information”中提出了「AVL 树」。论文中详细描述了一系列操作，确保在持续添加和删除节点后，AVL 树不会退化，从而使得各种操作的时间复杂度保持在 $O(\log n)$ 级别。换句话说，在需要频繁进行增删查改操作的场景中，AVL 树能始终保持高效的数据操作性能，具有很好的应用价值。
 
 ## AVL 树常见术语
 
@@ -206,7 +206,7 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 
     ```
 
-“节点高度”是指从该节点到其最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 $0$ ，而空节点的高度为 $-1$ 。我们将创建两个工具函数，分别用于获取和更新节点的高度：
+“节点高度”是指从该节点到它的最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 $0$ ，而空节点的高度为 $-1$ 。我们将创建两个工具函数，分别用于获取和更新节点的高度：
 
 ```src
 [file]{avl_tree}-[class]{a_v_l_tree}-[func]{update_height}
@@ -246,9 +246,9 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "<4>"
     ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.png)
 
-如下图所示，当节点 `child` 有右子节点（记为 `grandChild` ）时，需要在右旋中添加一步：将 `grandChild` 作为 `node` 的左子节点。
+如下图所示，当节点 `child` 有右子节点（记为 `grand_child` ）时，需要在右旋中添加一步：将 `grand_child` 作为 `node` 的左子节点。
 
-![有 grandChild 的右旋操作](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
+![有 grand_child 的右旋操作](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
 
 “向右旋转”是一种形象化的说法，实际上需要通过修改节点指针来实现，代码如下所示：
 
@@ -262,9 +262,9 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 ![左旋操作](avl_tree.assets/avltree_left_rotate.png)
 
-同理，如下图所示，当节点 `child` 有左子节点（记为 `grandChild` ）时，需要在左旋中添加一步：将 `grandChild` 作为 `node` 的右子节点。
+同理，如下图所示，当节点 `child` 有左子节点（记为 `grand_child` ）时，需要在左旋中添加一步：将 `grand_child` 作为 `node` 的右子节点。
 
-![有 grandChild 的左旋操作](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
+![有 grand_child 的左旋操作](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
 
 可以观察到，**右旋和左旋操作在逻辑上是镜像对称的，它们分别解决的两种失衡情况也是对称的**。基于对称性，我们只需将右旋的实现代码中的所有的 `left` 替换为 `right` ，将所有的 `right` 替换为 `left` ，即可得到左旋的实现代码：
 

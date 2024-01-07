@@ -6,12 +6,12 @@
 
 /* 合并左子数组和右子数组 */
 func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
-    // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+    // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
     // 创建一个临时数组 tmp ，用于存放合并后的结果
     var tmp = Array(repeating: 0, count: right - left + 1)
     // 初始化左子数组和右子数组的起始索引
     var i = left, j = mid + 1, k = 0
-    // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+    // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
     while i <= mid, j <= right {
         if nums[i] <= nums[j] {
             tmp[k] = nums[i]

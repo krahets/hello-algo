@@ -1,7 +1,7 @@
 /*
  * File: worst_best_time_complexity.rs
  * Created Time: 2023-01-13
- * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
+ * Author: xBLACICEx (xBLACKICEx@outlook.com), codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");

@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_graph;
 
 public class graph_bfs {
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
@@ -50,7 +50,7 @@ public class graph_bfs {
         Console.WriteLine("\n初始化后，图为");
         graph.Print();
 
-        /* 广度优先遍历 BFS */
+        /* 广度优先遍历 */
         List<Vertex> res = GraphBFS(graph, v[0]);
         Console.WriteLine("\n广度优先遍历（BFS）顶点序列为");
         Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));

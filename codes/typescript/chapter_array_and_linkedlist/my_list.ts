@@ -28,7 +28,7 @@ class MyList {
 
     /* 访问元素 */
     public get(index: number): number {
-        // 索引如果越界则抛出异常，下同
+        // 索引如果越界，则抛出异常，下同
         if (index < 0 || index >= this._size) throw new Error('索引越界');
         return this.arr[index];
     }
@@ -68,19 +68,19 @@ class MyList {
     public remove(index: number): number {
         if (index < 0 || index >= this._size) throw new Error('索引越界');
         let num = this.arr[index];
-        // 将索引 index 之后的元素都向前移动一位
+        // 将将索引 index 之后的元素都向前移动一位
         for (let j = index; j < this._size - 1; j++) {
             this.arr[j] = this.arr[j + 1];
         }
         // 更新元素数量
         this._size--;
-        // 返回被删除元素
+        // 返回被删除的元素
         return num;
     }
 
     /* 列表扩容 */
     public extendCapacity(): void {
-        // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
+        // 新建一个长度为 size 的数组，并将原数组复制到新数组
         this.arr = this.arr.concat(
             new Array(this.capacity() * (this.extendRatio - 1))
         );

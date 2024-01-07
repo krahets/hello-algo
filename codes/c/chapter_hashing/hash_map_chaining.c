@@ -74,7 +74,7 @@ double loadFactor(HashMapChaining *hashMap) {
 /* 查询操作 */
 char *get(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
-    // 遍历桶，若找到 key 则返回对应 val
+    // 遍历桶，若找到 key ，则返回对应 val
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
@@ -82,7 +82,7 @@ char *get(HashMapChaining *hashMap, int key) {
         }
         cur = cur->next;
     }
-    return ""; // 若未找到 key 则返回空字符串
+    return ""; // 若未找到 key ，则返回空字符串
 }
 
 /* 添加操作 */
@@ -196,7 +196,7 @@ int main() {
     print(hashMap);
 
     /* 查询操作 */
-    // 向哈希表输入键 key ，得到值 value
+    // 向哈希表中输入键 key ，得到值 value
     char *name = get(hashMap, 13276);
     printf("\n输入学号 13276 ，查询到姓名 %s\n", name);
 

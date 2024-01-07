@@ -30,7 +30,7 @@ class MyList {
 
     /* 访问元素 */
     public int Get(int index) {
-        // 索引如果越界则抛出异常，下同
+        // 索引如果越界，则抛出异常，下同
         if (index < 0 || index >= arrSize)
             throw new IndexOutOfRangeException("索引越界");
         return arr[index];
@@ -74,19 +74,19 @@ class MyList {
         if (index < 0 || index >= arrSize)
             throw new IndexOutOfRangeException("索引越界");
         int num = arr[index];
-        // 将索引 index 之后的元素都向前移动一位
+        // 将将索引 index 之后的元素都向前移动一位
         for (int j = index; j < arrSize - 1; j++) {
             arr[j] = arr[j + 1];
         }
         // 更新元素数量
         arrSize--;
-        // 返回被删除元素
+        // 返回被删除的元素
         return num;
     }
 
     /* 列表扩容 */
     public void ExtendCapacity() {
-        // 新建一个长度为 arrCapacity * extendRatio 的数组，并将原数组拷贝到新数组
+        // 新建一个长度为 arrCapacity * extendRatio 的数组，并将原数组复制到新数组
         Array.Resize(ref arr, arrCapacity * extendRatio);
         // 更新列表容量
         arrCapacity = arr.Length;

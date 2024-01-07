@@ -1,7 +1,7 @@
 /*
  * File: min_cost_climbing_stairs_dp.rs
  * Created Time: 2023-07-09
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 use std::cmp;

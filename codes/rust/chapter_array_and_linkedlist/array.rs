@@ -1,7 +1,7 @@
 /*
  * File: array.rs
  * Created Time: 2023-01-15
- * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
+ * Author: xBLACICEx (xBLACKICEx@outlook.com), codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");

@@ -42,7 +42,7 @@ There are two ways to initialize arrays depending on the requirements: without i
 
     ```csharp title="array.cs"
     /* Initialize array */
-    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
+    int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
     int[] nums = [1, 3, 2, 5, 4];
     ```
 

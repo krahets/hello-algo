@@ -4,221 +4,223 @@
 
     For the best reading experience, it is recommended that you read through this section.
 
-## Conventions Of Style
+## Writing Conventions
 
-- Those labeled `*` after the title are optional chapters with relatively difficult content. If you have limited time, it is advisable to skip them.
-- Proper nouns and words and phrases with specific meanings are marked with `"double quotes"` to avoid ambiguity.
-- Important proper nouns and their English translations are marked with `" "` in parentheses, e.g. `"array array"` . It is recommended to memorize them for reading the literature.
-- **Bolded text** Indicates key content or summary statements, which deserve special attention.
-- When it comes to terms that are inconsistent between programming languages, this book follows Python, for example using $\text{None}$ to mean "empty".
-- This book partially abandons the specification of annotations in programming languages in exchange for a more compact layout of the content. There are three main types of annotations: title annotations, content annotations, and multi-line annotations.
+- Chapters marked with '*' after the title are optional and contain relatively challenging content. If you are short on time, it is advisable to skip them.
+- Key technical terms and their English equivalents are enclosed in **Bold** + *italics* brackets, for example, ***array***. It's advisable to familiarize yourself with these for better comprehension of technical texts.
+- Proprietary terms and words with specific meanings are indicated with “quotation marks” to avoid ambiguity.
+- **Bolded text** indicates key content or summary statements, which deserve special attention.
+- When it comes to terms that are inconsistent between programming languages, this book follows Python, for example using $\text{None}$ to mean "null".
+- This book partially ignores the comment conventions for programming languages in exchange for a more compact layout of the content. The comments primarily consist of three types: title comments, content comments, and multi-line comments.
 
 === "Python"
 
     ```python title=""
-    """Header comments for labeling functions, classes, test samples, etc.""""
+    """Header comments for labeling functions, classes, test samples, etc""""
    
-    # Content comments for detailed code solutions
+    # Comments for explaining details
    
     """
-    multi-line
-    marginal notes
+    Multiline
+    comments
     """
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Comments for explaining details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "Java"
 
     ```java title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Comments for explaining details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Comments for explaining details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "Go"
 
     ```go title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Comments for explaining details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "Swift"
 
     ```swift title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Comments for explaining details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "JS"
 
     ```javascript title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Comments for explaining details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "TS"
 
     ```typescript title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Comments for explaining details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "Dart"
 
     ```dart title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Comments for explaining details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "Rust"
 
     ```rust title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
 
-    // Content comments for detailed code solutions.
+    // Comments for explaining details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "C"
 
     ```c title=""
-    /* Header comments for labeling functions, classes, test samples, etc. */
+    /* Header comments for labeling functions, classes, test samples, etc */
    
-    // Content comments for detailed code solutions.
+    // Comments for explaining details.
    
     /**
-     * multi-line
-     * marginal notes
+     * Multiline
+     * comments
      */
     ```
 
 === "Zig"
 
     ```zig title=""
-    // Header comments for labeling functions, classes, test samples, etc.
+    // Header comments for labeling functions, classes, test samples, etc
    
-    // Content comments for detailed code solutions.
+    // Comments for explaining details.
    
-    // Multi-line
-    // Annotation
+    // Multiline
+    // comments
     ```
 
-## Learn Efficiently In Animated Graphic Solutions
+## Efficient Learning via Animated Illustrations
 
-Compared with text, videos and pictures have a higher degree of information density and structure and are easier to understand. In this book, **key and difficult knowledge will be presented mainly in the form of animations and graphs**, while the text serves as an explanation and supplement to the animations and graphs.
+Compared with text, videos and pictures have a higher density of information and are more structured, making them easier to understand. In this book, **key and difficult concepts are mainly presented through animations and illustrations**, with text serving as explanations and supplements.
 
-If, while reading the book, you find that a particular paragraph provides an animation or a graphic solution as shown below, **please use the figure as the primary source and the text as a supplement and synthesize the two to understand the content**.
+When encountering content with animations or illustrations as shown in the figure below, **prioritize understanding the figure, with text as supplementary**, integrating both for a comprehensive understanding.
 
-![Example animation](../index.assets/animation.gif)
+![Animated Illustration Example](../index.assets/animation.gif)
 
-## Deeper Understanding In Code Practice
+## Deepen Understanding through Coding Practice
 
-The companion code for this book is hosted in the [GitHub repository](https://github.com/krahets/hello-algo). As shown in the figure below, **the source code is accompanied by test samples that can be run with a single click**.
+The source code of this book is hosted on the [GitHub Repository](https://github.com/krahets/hello-algo). As shown in the figure below, **the source code comes with test examples and can be executed with just a single click**.
 
-If time permits, **it is recommended that you refer to the code and knock it through on your own**. If you have limited time to study, please read through and run all the code at least once.
+If time permits, **it's recommended to type out the code yourself**. If pressed for time, at least read and run all the codes.
 
-The process of writing code is often more rewarding than reading it. **Learning by doing is really learning**.
+Compared to just reading code, writing code often yields more learning. **Learning by doing is the real way to learn.**
 
-![Running code example](../index.assets/running_code.gif)
+![Running Code Example](../index.assets/running_code.gif)
 
-The preliminaries for running the code are divided into three main steps.
+Setting up to run the code involves three main steps.
 
-**Step 1: Install the local programming environment**. Please refer to [Appendix Tutorial](https://www.hello-algo.com/chapter_appendix/installation/) for installation, or skip this step if already installed.
+**Step 1: Install a local programming environment**. Follow the [tutorial](https://www.hello-algo.com/chapter_appendix/installation/) in the appendix for installation, or skip this step if already installed.
 
-**Step 2: Clone or download the code repository**. If [Git](https://git-scm.com/downloads) is already installed, you can clone this repository with the following command.
+**Step 2: Clone or download the code repository**. Visit the [GitHub Repository](https://github.com/krahets/hello-algo).
+
+If [Git](https://git-scm.com/downloads) is installed, use the following command to clone the repository:
 
 ```shell
 git clone https://github.com/krahets/hello-algo.git
 ```
 
-Of course, you can also in the location shown in the figure below, click "Download ZIP" directly download the code zip, and then in the local solution.
+Alternatively, you can also click the "Download ZIP" button at the location shown in the figure below to directly download the code as a compressed ZIP file. Then, you can simply extract it locally.
 
-![Clone repository with download code](suggestions.assets/download_code.png)
+![Cloning Repository and Downloading Code](suggestions.assets/download_code.png)
 
-**Step 3: Run the source code**. As shown in the figure below, for the code block labeled with the file name at the top, we can find the corresponding source code file in the `codes` folder of the repository. The source code files can be run with a single click, which will help you save unnecessary debugging time and allow you to focus on what you are learning.
+**Step 3: Run the source code**. As shown in the figure below, for the code block labeled with the file name at the top, we can find the corresponding source code file in the `codes` folder of the repository. These files can be executed with a single click, which will help you save unnecessary debugging time and allow you to focus on learning.
 
-![Code block with corresponding source file](suggestions.assets/code_md_to_repo.png)
+![Code Block and Corresponding Source Code File](suggestions.assets/code_md_to_repo.png)
 
-## Growing Together In Questioning And Discussion
+## Learning Together in Discussion
 
-While reading this book, please don't skip over the points that you didn't learn. **Feel free to ask your questions in the comment section**. We will be happy to answer them and can usually respond within two days.
+While reading this book, please don't skip over the points that you didn't learn. **Feel free to post your questions in the comment section**. We will be happy to answer them and can usually respond within two days.
 
-As you can see in the figure below, each post comes with a comment section at the bottom. I hope you'll pay more attention to the comments section. On the one hand, you can learn about the problems that people encounter, so as to check the gaps and stimulate deeper thinking. On the other hand, we expect you to generously answer other partners' questions, share your insights, and help others improve.
+As illustrated in the figure below, each chapter features a comment section at the bottom. I encourage you to pay attention to these comments. They not only expose you to others' encountered problems, aiding in identifying knowledge gaps and sparking deeper contemplation, but also invite you to generously contribute by answering fellow readers' inquiries, sharing insights, and fostering mutual improvement.
 
-![Example of comment section](../index.assets/comment.gif)
+![Comment Section Example](../index.assets/comment.gif)
 
-## Algorithm Learning Route
+## Algorithm Learning Path
 
-From a general point of view, we can divide the process of learning data structures and algorithms into three stages.
+Overall, the journey of mastering data structures and algorithms can be divided into three stages:
 
-1. **Introduction to Algorithms**. We need to familiarize ourselves with the characteristics and usage of various data structures and learn about the principles, processes, uses and efficiency of different algorithms.
-2. **Brush up on algorithm questions**. It is recommended to start brushing from popular topics, such as [Sword to Offer](https://leetcode.cn/studyplan/coding-interviews/) and [LeetCode Hot 100](https://leetcode.cn/studyplan/top-100- liked/), first accumulate at least 100 questions to familiarize yourself with mainstream algorithmic problems. Forgetfulness can be a challenge when first brushing up, but rest assured that this is normal. We can follow the "Ebbinghaus Forgetting Curve" to review the questions, and usually after 3-5 rounds of repetitions, we will be able to memorize them.
-3. **Build the knowledge system**. In terms of learning, we can read algorithm column articles, solution frameworks and algorithm textbooks to continuously enrich the knowledge system. In terms of brushing, we can try to adopt advanced brushing strategies, such as categorizing by topic, multiple solutions, multiple solutions, etc. Related brushing tips can be found in various communities.
+1. **Stage 1: Introduction to algorithms**. We need to familiarize ourselves with the characteristics and usage of various data structures and learn about the principles, processes, uses, and efficiency of different algorithms.
+2. **Stage 2: Practicing algorithm problems**. It is recommended to start from popular problems, such as [Sword for Offer](https://leetcode.cn/studyplan/coding-interviews/) and [LeetCode Hot 100](https://leetcode.cn/studyplan/top-100- liked/), and accumulate at least 100 questions to familiarize yourself with mainstream algorithmic problems. Forgetfulness can be a challenge when you start practicing, but rest assured that this is normal. We can follow the "Ebbinghaus Forgetting Curve" to review the questions, and usually after 3~5 rounds of repetitions, we will be able to memorize them.
+3. **Stage 3: Building the knowledge system**. In terms of learning, we can read algorithm column articles, solution frameworks, and algorithm textbooks to continuously enrich the knowledge system. In terms of practicing, we can try advanced strategies, such as categorizing by topic, multiple solutions for a single problem,  and one solution for multiple problems, etc. Insights on these strategies can be found in various communities.
 
-As shown in the figure below, this book mainly covers "Phase 1" and is designed to help you start Phase 2 and 3 more efficiently.
+As shown in the figure below, this book mainly covers “Stage 1,” aiming to help you more efficiently embark on Stages 2 and 3.
 
-![algorithm learning route](suggestions.assets/learning_route.png)
+![Algorithm Learning Path](suggestions.assets/learning_route.png)

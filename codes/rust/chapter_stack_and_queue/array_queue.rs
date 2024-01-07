@@ -44,8 +44,8 @@ impl ArrayQueue {
             println!("队列已满");
             return;
         }
-        // 计算尾指针，指向队尾索引 + 1
-        // 通过取余操作，实现 rear 越过数组尾部后回到头部
+        // 计算队尾指针，指向队尾索引 + 1
+        // 通过取余操作实现 rear 越过数组尾部后回到头部
         let rear = (self.front + self.que_size) % self.que_capacity;
         // 将 num 添加至队尾
         self.nums[rear as usize] = num;
@@ -55,7 +55,7 @@ impl ArrayQueue {
     /* 出队 */
     fn pop(&mut self) -> i32 {
         let num = self.peek();
-        // 队首指针向后移动一位，若越过尾部则返回到数组头部
+        // 队首指针向后移动一位，若越过尾部，则返回到数组头部
         self.front = (self.front + 1) % self.que_capacity;
         self.que_size -= 1;
         num

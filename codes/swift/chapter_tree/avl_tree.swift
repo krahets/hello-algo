@@ -99,7 +99,7 @@ class AVLTree {
         if node == nil {
             return TreeNode(x: val)
         }
-        /* 1. 查找插入位置，并插入节点 */
+        /* 1. 查找插入位置并插入节点 */
         if val < node!.val {
             node?.left = insertHelper(node: node?.left, val: val)
         } else if val > node!.val {
@@ -125,7 +125,7 @@ class AVLTree {
         if node == nil {
             return nil
         }
-        /* 1. 查找节点，并删除之 */
+        /* 1. 查找节点并删除 */
         if val < node!.val {
             node?.left = removeHelper(node: node?.left, val: val)
         } else if val > node!.val {

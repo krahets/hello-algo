@@ -20,12 +20,12 @@ function forLoopRecur(n: number): number {
     const stack: number[] = [];
     let res: number = 0;
     // 递：递归调用
-    for (let i = 1; i <= n; i++) {
+    for (let i = n; i > 0; i--) {
         // 通过“入栈操作”模拟“递”
         stack.push(i);
     }
     // 归：返回结果
-    while (stack.length) { 
+    while (stack.length) {
         // 通过“出栈操作”模拟“归”
         res += stack.pop();
     }
@@ -67,4 +67,4 @@ console.log(`尾递归函数的求和结果 res = ${res}`);
 res = fib(n);
 console.log(`斐波那契数列的第 ${n} 项为 ${res}`);
 
-export {};
+export { };

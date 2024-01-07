@@ -1,6 +1,6 @@
 // File: array_queue.zig
 // Created Time: 2023-01-15
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -55,10 +55,10 @@ pub fn ArrayQueue(comptime T: type) type {
                 std.debug.print("队列已满\n", .{});
                 return;
             }
-            // 计算尾指针，指向队尾索引 + 1
-            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            // 计算队尾指针，指向队尾索引 + 1
+            // 通过取余操作实现 rear 越过数组尾部后回到头部
             var rear = (self.front + self.queSize) % self.capacity();
-            // 尾节点后添加 num
+            // 在尾节点后添加 num
             self.nums[rear] = num;
             self.queSize += 1;
         } 
@@ -66,7 +66,7 @@ pub fn ArrayQueue(comptime T: type) type {
         // 出队
         pub fn pop(self: *Self) T {
             var num = self.peek();
-            // 队首指针向后移动一位，若越过尾部则返回到数组头部
+            // 队首指针向后移动一位，若越过尾部，则返回到数组头部
             self.front = (self.front + 1) % self.capacity();
             self.queSize -= 1;
             return num;

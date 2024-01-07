@@ -35,7 +35,7 @@ function bubbleSortWithFlag(nums) {
                 flag = true; // 记录交换元素
             }
         }
-        if (!flag) break; // 此轮冒泡未交换任何元素，直接跳出
+        if (!flag) break; // 此轮“冒泡”未交换任何元素，直接跳出
     }
 }
 

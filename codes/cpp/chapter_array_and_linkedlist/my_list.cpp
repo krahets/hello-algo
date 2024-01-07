@@ -37,7 +37,7 @@ class MyList {
 
     /* 访问元素 */
     int get(int index) {
-        // 索引如果越界则抛出异常，下同
+        // 索引如果越界，则抛出异常，下同
         if (index < 0 || index >= size())
             throw out_of_range("索引越界");
         return arr[index];
@@ -81,13 +81,13 @@ class MyList {
         if (index < 0 || index >= size())
             throw out_of_range("索引越界");
         int num = arr[index];
-        // 索引 i 之后的元素都向前移动一位
+        // 将索引 index 之后的元素都向前移动一位
         for (int j = index; j < size() - 1; j++) {
             arr[j] = arr[j + 1];
         }
         // 更新元素数量
         arrSize--;
-        // 返回被删除元素
+        // 返回被删除的元素
         return num;
     }
 

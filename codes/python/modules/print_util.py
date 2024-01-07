@@ -9,7 +9,7 @@ from .list_node import ListNode, linked_list_to_list
 
 
 def print_matrix(mat: list[list[int]]):
-    """Print a matrix"""
+    """打印矩阵"""
     s = []
     for arr in mat:
         s.append("  " + str(arr))
@@ -17,7 +17,7 @@ def print_matrix(mat: list[list[int]]):
 
 
 def print_linked_list(head: ListNode | None):
-    """Print a linked list"""
+    """打印链表"""
     arr: list[int] = linked_list_to_list(head)
     print(" -> ".join([str(a) for a in arr]))
 
@@ -39,7 +39,7 @@ def print_tree(
     root: TreeNode | None, prev: Trunk | None = None, is_right: bool = False
 ):
     """
-    Print a binary tree
+    打印二叉树
     This tree printer is borrowed from TECHIE DELIGHT
     https://www.techiedelight.com/c-program-print-binary-tree/
     """
@@ -68,13 +68,13 @@ def print_tree(
 
 
 def print_dict(hmap: dict):
-    """Print a dict"""
+    """打印字典"""
     for key, value in hmap.items():
         print(key, "->", value)
 
 
 def print_heap(heap: list[int]):
-    """Print a heap both in array and tree representations"""
+    """打印堆"""
     print("堆的数组表示：", heap)
     print("堆的树状表示：")
     root: TreeNode | None = list_to_tree(heap)

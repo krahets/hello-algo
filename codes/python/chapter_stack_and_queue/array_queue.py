@@ -30,8 +30,8 @@ class ArrayQueue:
         """入队"""
         if self._size == self.capacity():
             raise IndexError("队列已满")
-        # 计算尾指针，指向队尾索引 + 1
-        # 通过取余操作，实现 rear 越过数组尾部后回到头部
+        # 计算队尾指针，指向队尾索引 + 1
+        # 通过取余操作实现 rear 越过数组尾部后回到头部
         rear: int = (self._front + self._size) % self.capacity()
         # 将 num 添加至队尾
         self._nums[rear] = num
@@ -40,7 +40,7 @@ class ArrayQueue:
     def pop(self) -> int:
         """出队"""
         num: int = self.peek()
-        # 队首指针向后移动一位，若越过尾部则返回到数组头部
+        # 队首指针向后移动一位，若越过尾部，则返回到数组头部
         self._front = (self._front + 1) % self.capacity()
         self._size -= 1
         return num

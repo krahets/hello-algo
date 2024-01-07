@@ -30,7 +30,7 @@ def bubble_sort_with_flag(nums: list[int]):
                 nums[j], nums[j + 1] = nums[j + 1], nums[j]
                 flag = True  # 记录交换元素
         if not flag:
-            break  # 此轮冒泡未交换任何元素，直接跳出
+            break  # 此轮“冒泡”未交换任何元素，直接跳出
 
 
 """Driver Code"""
