@@ -129,7 +129,7 @@ Accessing elements in an array is highly efficient, allowing us to randomly acce
 
 ### Inserting Elements
 
-Array elements are tightly packed in memory, with no space available to accommodate additional data between them. Illustrated in Figure below, inserting an element in the middle of an array necessitates shifting all subsequent elements back by one position to create room for the new element.
+Array elements are tightly packed in memory, with no space available to accommodate additional data between them. Illustrated in Figure below, inserting an element in the middle of an array requires shifting all subsequent elements back by one position to create room for the new element.
 
 ![Array Element Insertion Example](array.assets/array_insert_element.png)
 
@@ -204,7 +204,7 @@ However, continuous space storage is a double-edged sword, with the following li
 Arrays are fundamental and widely used data structures. They find frequent application in various algorithms and serve in the implementation of complex data structures.
 
 - **Random Access**: Arrays are ideal for storing data when random sampling is required. By generating a random sequence based on indices, we can achieve random sampling efficiently.
-- **Sorting and Searching**: Arrays are the most commonly used data structure for sorting and searching algorithms.  Techniques like Quick sort, merge sort, binary search, etc., are primarily operate on arrays.
+- **Sorting and Searching**: Arrays are the most commonly used data structure for sorting and searching algorithms.  Techniques like quick sort, merge sort, binary search, etc., are primarily operate on arrays.
 - **Lookup Tables**: Arrays serve as efficient lookup tables for quick element or relationship retrieval. For instance, mapping characters to ASCII codes becomes seamless by using the ASCII code values as indices and storing corresponding elements in the array.
 - **Machine Learning**: Within the domain of neural networks, arrays play a pivotal role in executing crucial linear algebra operations involving vectors, matrices, and tensors. Arrays serve as the primary and most extensively used data structure in neural network programming.
 - **Data Structure Implementation**:  Arrays serve as the building blocks for implementing various data structures like stacks, queues, hash tables, heaps, graphs, etc. For instance, the adjacency matrix representation of a graph is essentially a two-dimensional array.
