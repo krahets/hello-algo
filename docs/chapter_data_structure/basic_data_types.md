@@ -146,7 +146,7 @@ comments: true
     ```rust title=""
     // 使用多种基本数据类型来初始化数组
     let numbers: Vec<i32> = vec![0; 5];
-    let decimals: Vec<f32> = vec![0.0, 5];
+    let decimals: Vec<f32> = vec![0.0; 5];
     let characters: Vec<char> = vec!['0'; 5];
     let bools: Vec<bool> = vec![false; 5];
     ```

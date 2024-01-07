@@ -197,9 +197,7 @@ comments: true
 
 **第一步：安装本地编程环境**。请参照附录所示的[教程](https://www.hello-algo.com/chapter_appendix/installation/)进行安装，如果已安装，则可跳过此步骤。
 
-**第二步：克隆或下载代码仓库**。前往 [GitHub 仓库](https://github.com/krahets/hello-algo)。
-
-如果已经安装 [Git](https://git-scm.com/downloads) ，可以通过以下命令克隆本仓库：
+**第二步：克隆或下载代码仓库**。前往 [GitHub 仓库](https://github.com/krahets/hello-algo)。如果已经安装 [Git](https://git-scm.com/downloads) ，可以通过以下命令克隆本仓库：
 
 ```shell
 git clone https://github.com/krahets/hello-algo.git
@@ -217,15 +215,21 @@ git clone https://github.com/krahets/hello-algo.git
 
 <p align="center"> 图 0-5 &nbsp; 代码块与对应的源代码文件 </p>
 
+除了本地运行代码，**网页版还支持 Python 代码的可视化运行**（基于 [pythontutor](https://pythontutor.com/) 实现）。如图 0-6 所示，你可以点击代码块下方的“可视化运行”来展开视图，观察算法代码的执行过程；也可以点击“全屏观看”，以获得更好的阅览体验。
+
+![Python 代码的可视化运行](suggestions.assets/pythontutor_example.png){ class="animation-figure" }
+
+<p align="center"> 图 0-6 &nbsp; Python 代码的可视化运行 </p>
+
 ## 0.2.4 &nbsp; 在提问讨论中共同成长
 
 在阅读本书时，请不要轻易跳过那些没学明白的知识点。**欢迎在评论区提出你的问题**，我和小伙伴们将竭诚为你解答，一般情况下可在两天内回复。
 
-如图 0-6 所示，网页版每个章节的底部都配有评论区。希望你能多关注评论区的内容。一方面，你可以了解大家遇到的问题，从而查漏补缺，激发更深入的思考。另一方面，期待你能慷慨地回答其他小伙伴的问题，分享你的见解，帮助他人进步。
+如图 0-7 所示，网页版每个章节的底部都配有评论区。希望你能多关注评论区的内容。一方面，你可以了解大家遇到的问题，从而查漏补缺，激发更深入的思考。另一方面，期待你能慷慨地回答其他小伙伴的问题，分享你的见解，帮助他人进步。
 
 ![评论区示例](../index.assets/comment.gif){ class="animation-figure" }
 
-<p align="center"> 图 0-6 &nbsp; 评论区示例 </p>
+<p align="center"> 图 0-7 &nbsp; 评论区示例 </p>
 
 ## 0.2.5 &nbsp; 算法学习路线
 
@@ -235,8 +239,8 @@ git clone https://github.com/krahets/hello-algo.git
 2. **阶段二：刷算法题**。建议从热门题目开刷，如“[剑指 Offer](https://leetcode.cn/studyplan/coding-interviews/)”和“[LeetCode Hot 100](https://leetcode.cn/studyplan/top-100-liked/)”，先积累至少 100 道题目，熟悉主流的算法问题。初次刷题时，“知识遗忘”可能是一个挑战，但请放心，这是很正常的。我们可以按照“艾宾浩斯遗忘曲线”来复习题目，通常在进行 3～5 轮的重复后，就能将其牢记在心。
 3. **阶段三：搭建知识体系**。在学习方面，我们可以阅读算法专栏文章、解题框架和算法教材，以不断丰富知识体系。在刷题方面，可以尝试采用进阶刷题策略，如按专题分类、一题多解、一解多题等，相关的刷题心得可以在各个社区找到。
 
-如图 0-7 所示，本书内容主要涵盖“阶段一”，旨在帮助你更高效地展开阶段二和阶段三的学习。
+如图 0-8 所示，本书内容主要涵盖“阶段一”，旨在帮助你更高效地展开阶段二和阶段三的学习。
 
 ![算法学习路线](suggestions.assets/learning_route.png){ class="animation-figure" }
 
-<p align="center"> 图 0-7 &nbsp; 算法学习路线 </p>
+<p align="center"> 图 0-8 &nbsp; 算法学习路线 </p>

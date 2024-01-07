@@ -6,11 +6,11 @@ comments: true
 
 !!! note
 
-    In this book, chapters marked with an * symbol are optional reads. If you are short on time or find them challenging, you may skip these initially and return to them after completing the essential chapters.
+    In this book, chapters marked with an asterisk '*' are optional readings. If you are short on time or find them challenging, you may skip these initially and return to them after completing the essential chapters.
 
 ## 3.3.1 &nbsp; Integer Encoding
 
-In the table from the previous section, we noticed that all integer types can represent one more negative number than positive numbers, such as the `byte` range of $[-128, 127]$. This phenomenon, somewhat counterintuitive, is rooted in the concepts of sign-magnitude, one's complement, and two's complement encoding.
+In the table from the previous section, we observed that all integer types can represent one more negative number than positive numbers, such as the `byte` range of $[-128, 127]$. This phenomenon seems counterintuitive, and its underlying reason involves knowledge of sign-magnitude, one's complement, and two's complement encoding.
 
 Firstly, it's important to note that **numbers are stored in computers using the two's complement form**. Before analyzing why this is the case, let's define these three encoding methods:
 
@@ -69,9 +69,9 @@ $$
 
 Adding $1$ to the one's complement of negative zero produces a carry, but with `byte` length being only 8 bits, the carried-over $1$ to the 9th bit is discarded. Therefore, **the two's complement of negative zero is $0000 \; 0000$**, the same as positive zero, thus resolving the ambiguity.
 
-One last puzzle is the $[-128, 127]$ range for `byte`, with an additional negative number, $-128$. We observe that for the interval $[-127, +127]$, all integers have corresponding sign-magnitude, one's complement, and two's complement, and these can be converted between each other.
+One last puzzle is the $[-128, 127]$ range for `byte`, with an additional negative number, $-128$. We observe that for the interval $[-127, +127]$, all integers have corresponding sign-magnitude, one's complement, and two's complement, allowing for mutual conversion between them.
 
-However, **the two's complement $1000 \; 0000$ is an exception without a corresponding sign-magnitude**. According to the conversion method, its sign-magnitude would be $0000 \; 0000$, which is a contradiction since this represents zero, and its two's complement should be itself. Computers designate this special two's complement $1000 \; 0000$ as representing $-128$. In fact, the calculation of $(-1) + (-127)$ in two's complement results in $-128$.
+However, **the two's complement $1000 \; 0000$ is an exception without a corresponding sign-magnitude**. According to the conversion method, its sign-magnitude would be $0000 \; 0000$, indicating zero. This presents a contradiction because its two's complement should represent itself. Computers designate this special two's complement $1000 \; 0000$ as representing $-128$. In fact, the calculation of $(-1) + (-127)$ in two's complement results in $-128$.
 
 $$
 \begin{aligned}
