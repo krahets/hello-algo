@@ -3524,27 +3524,19 @@
 <li>双向队列是一种具有更高自由度的队列，它允许在两端进行元素的添加和删除操作。</li>
 </ul>
 <h3 id="2-q-a">2. &nbsp; Q &amp; A<a class="headerlink" href="#2-q-a" title="Permanent link">&para;</a></h3>
-<div class="admonition question">
-<p class="admonition-title">浏览器的前进后退是否是双向链表实现？</p>
+<p><strong>Q</strong>：浏览器的前进后退是否是双向链表实现？</p>
 <p>浏览器的前进后退功能本质上是“栈”的体现。当用户访问一个新页面时，该页面会被添加到栈顶；当用户点击后退按钮时，该页面会从栈顶弹出。使用双向队列可以方便地实现一些额外操作，这个在“双向队列”章节有提到。</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">在出栈后，是否需要释放出栈节点的内存？</p>
+<p><strong>Q</strong>：在出栈后，是否需要释放出栈节点的内存？</p>
 <p>如果后续仍需要使用弹出节点，则不需要释放内存。若之后不需要用到，<code>Java</code> 和 <code>Python</code> 等语言拥有自动垃圾回收机制，因此不需要手动释放内存；在 <code>C</code> 和 <code>C++</code> 中需要手动释放内存。</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">双向队列像是两个栈拼接在了一起，它的用途是什么？</p>
+<p><strong>Q</strong>：双向队列像是两个栈拼接在了一起，它的用途是什么？</p>
 <p>双向队列就像是栈和队列的组合，或两个栈拼在了一起。它表现的是栈 + 队列的逻辑，因此可以实现栈与队列的所有应用，并且更加灵活。</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">撤销（undo）和反撤销（redo）具体是如何实现的？</p>
+<p><strong>Q</strong>：撤销（undo）和反撤销（redo）具体是如何实现的？</p>
 <p>使用两个栈，栈 <code>A</code> 用于撤销，栈 <code>B</code> 用于反撤销。</p>
 <ol>
 <li>每当用户执行一个操作，将这个操作压入栈 <code>A</code> ，并清空栈 <code>B</code> 。</li>
 <li>当用户执行“撤销”时，从栈 <code>A</code> 中弹出最近的操作，并将其压入栈 <code>B</code> 。</li>
 <li>当用户执行“反撤销”时，从栈 <code>B</code> 中弹出最近的操作，并将其压入栈 <code>A</code> 。</li>
 </ol>
-</div>
 
 <!-- Source file information -->
 
