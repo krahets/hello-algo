@@ -44,9 +44,9 @@ if __name__ == "__main__":
     nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
 
     # 二分查找（双闭区间）
-    index: int = binary_search(nums, target)
+    index = binary_search(nums, target)
     print("目标元素 6 的索引 = ", index)
 
     # 二分查找（左闭右开区间）
-    index: int = binary_search_lcro(nums, target)
+    index = binary_search_lcro(nums, target)
     print("目标元素 6 的索引 = ", index)

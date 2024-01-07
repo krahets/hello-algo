@@ -66,7 +66,8 @@ if __name__ == "__main__":
     print_linked_list(n0)
 
     # 插入节点
-    insert(n0, ListNode(0))
+    p = ListNode(0)
+    insert(n0, p)
     print("插入节点后的链表为")
     print_linked_list(n0)
 

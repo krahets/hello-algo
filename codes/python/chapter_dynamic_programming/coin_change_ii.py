@@ -48,7 +48,6 @@ def coin_change_ii_dp_comp(coins: list[int], amt: int) -> int:
 if __name__ == "__main__":
     coins = [1, 2, 5]
     amt = 5
-    n = len(coins)
 
     # 动态规划
     res = coin_change_ii_dp(coins, amt)
