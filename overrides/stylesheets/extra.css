@@ -206,3 +206,13 @@ body {
 .md-typeset summary:before {
   width: 1.25em;
 }
+
+.pythontutor-iframe {
+  width: 125%;
+  height: 125%;
+  max-width: 125% !important;
+  max-height: 125% !important;
+  transform: scale(0.8);
+  transform-origin: top left;
+  border: none;
+}
