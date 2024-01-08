@@ -1239,69 +1239,47 @@
 <li>Due to higher cache hit rates, arrays are generally more efficient than linked lists. When choosing a data structure, the appropriate choice should be made based on specific needs and scenarios.</li>
 </ul>
 <h3 id="2-q-a">2. &nbsp; Q &amp; A<a class="headerlink" href="#2-q-a" title="Permanent link">&para;</a></h3>
-<div class="admonition question">
-<p class="admonition-title">Does storing arrays on the stack versus the heap affect time and space efficiency?</p>
+<p><strong>Q</strong>: Does storing arrays on the stack versus the heap affect time and space efficiency?</p>
 <p>Arrays stored on both the stack and heap are stored in continuous memory spaces, and data operation efficiency is essentially the same. However, stacks and heaps have their own characteristics, leading to the following differences.</p>
 <ol>
 <li>Allocation and release efficiency: The stack is a smaller memory block, allocated automatically by the compiler; the heap memory is relatively larger and can be dynamically allocated in the code, more prone to fragmentation. Therefore, allocation and release operations on the heap are generally slower than on the stack.</li>
 <li>Size limitation: Stack memory is relatively small, while the heap size is generally limited by available memory. Therefore, the heap is more suitable for storing large arrays.</li>
 <li>Flexibility: The size of arrays on the stack needs to be determined at compile-time, while the size of arrays on the heap can be dynamically determined at runtime.</li>
 </ol>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Why do arrays require elements of the same type, while linked lists do not emphasize same-type elements?</p>
+<p><strong>Q</strong>: Why do arrays require elements of the same type, while linked lists do not emphasize same-type elements?</p>
 <p>Linked lists consist of nodes connected by references (pointers), and each node can store data of different types, such as int, double, string, object, etc.</p>
 <p>In contrast, array elements must be of the same type, allowing the calculation of offsets to access the corresponding element positions. For example, an array containing both int and long types, with single elements occupying 4 bytes and 8 bytes respectively, cannot use the following formula to calculate offsets, as the array contains elements of two different lengths.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Element memory address = Array memory address + Element length * Element index</span>
 </code></pre></div>
-</div>
-<div class="admonition question">
-<p class="admonition-title">After deleting a node, is it necessary to set <code>P.next</code> to <code>None</code>?</p>
+<p><strong>Q</strong>: After deleting a node, is it necessary to set <code>P.next</code> to <code>None</code>?</p>
 <p>Not modifying <code>P.next</code> is also acceptable. From the perspective of the linked list, traversing from the head node to the tail node will no longer encounter <code>P</code>. This means that node <code>P</code> has been effectively removed from the list, and where <code>P</code> points no longer affects the list.</p>
 <p>From a garbage collection perspective, for languages with automatic garbage collection mechanisms like Java, Python, and Go, whether node <code>P</code> is collected depends on whether there are still references pointing to it, not on the value of <code>P.next</code>. In languages like C and C++, we need to manually free the node's memory.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">In linked lists, the time complexity for insertion and deletion operations is <code>O(1)</code>. But searching for the element before insertion or deletion takes <code>O(n)</code> time, so why isn't the time complexity <code>O(n)</code>?</p>
+<p><strong>Q</strong>: In linked lists, the time complexity for insertion and deletion operations is <code>O(1)</code>. But searching for the element before insertion or deletion takes <code>O(n)</code> time, so why isn't the time complexity <code>O(n)</code>?</p>
 <p>If an element is searched first and then deleted, the time complexity is indeed <code>O(n)</code>. However, the <code>O(1)</code> advantage of linked lists in insertion and deletion can be realized in other applications. For example, in the implementation of double-ended queues using linked lists, we maintain pointers always pointing to the head and tail nodes, making each insertion and deletion operation <code>O(1)</code>.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">In the image 'Linked List Definition and Storage Method', do the light blue storage nodes occupy a single memory address, or do they share half with the node value?</p>
+<p><strong>Q</strong>: In the image "Linked List Definition and Storage Method", do the light blue storage nodes occupy a single memory address, or do they share half with the node value?</p>
 <p>The diagram is just a qualitative representation; quantitative analysis depends on specific situations.</p>
 <ul>
 <li>Different types of node values occupy different amounts of space, such as int, long, double, and object instances.</li>
 <li>The memory space occupied by pointer variables depends on the operating system and compilation environment used, usually 8 bytes or 4 bytes.</li>
 </ul>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Is adding elements to the end of a list always <code>O(1)</code>?</p>
+<p><strong>Q</strong>: Is adding elements to the end of a list always <code>O(1)</code>?</p>
 <p>If adding an element exceeds the list length, the list needs to be expanded first. The system will request a new memory block and move all elements of the original list over, in which case the time complexity becomes <code>O(n)</code>.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">The statement 'The emergence of lists greatly improves the practicality of arrays, but may lead to some memory space wastage' - does this refer to the memory occupied by additional variables like capacity, length, and expansion multiplier?</p>
+<p><strong>Q</strong>: The statement "The emergence of lists greatly improves the practicality of arrays, but may lead to some memory space wastage" - does this refer to the memory occupied by additional variables like capacity, length, and expansion multiplier?</p>
 <p>The space wastage here mainly refers to two aspects: on the one hand, lists are set with an initial length, which we may not always need; on the other hand, to prevent frequent expansion, expansion usually multiplies by a coefficient, such as <span class="arithmatex">\(\times 1.5\)</span>. This results in many empty slots, which we typically cannot fully fill.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">In Python, after initializing <code>n = [1, 2, 3]</code>, the addresses of these 3 elements are contiguous, but initializing <code>m = [2, 1, 3]</code> shows that each element's <code>id</code> is not consecutive but identical to those in <code>n</code>. If the addresses of these elements are not contiguous, is <code>m</code> still an array?</p>
+<p><strong>Q</strong>: In Python, after initializing <code>n = [1, 2, 3]</code>, the addresses of these 3 elements are contiguous, but initializing <code>m = [2, 1, 3]</code> shows that each element's <code>id</code> is not consecutive but identical to those in <code>n</code>. If the addresses of these elements are not contiguous, is <code>m</code> still an array?</p>
 <p>If we replace list elements with linked list nodes <code>n = [n1, n2, n3, n4, n5]</code>, these 5 node objects are also typically dispersed throughout memory. However, given a list index, we can still access the node's memory address in <code>O(1)</code> time, thereby accessing the corresponding node. This is because the array stores references to the nodes, not the nodes themselves.</p>
 <p>Unlike many languages, in Python, numbers are also wrapped as objects, and lists store references to these numbers, not the numbers themselves. Therefore, we find that the same number in two arrays has the same <code>id</code>, and these numbers' memory addresses need not be contiguous.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">The <code>std::list</code> in C++ STL has already implemented a doubly linked list, but it seems that some algorithm books don't directly use it. Is there any limitation?</p>
+<p><strong>Q</strong>: The <code>std::list</code> in C++ STL has already implemented a doubly linked list, but it seems that some algorithm books don't directly use it. Is there any limitation?</p>
 <p>On the one hand, we often prefer to use arrays to implement algorithms, only using linked lists when necessary, mainly for two reasons.</p>
 <ul>
 <li>Space overhead: Since each element requires two additional pointers (one for the previous element and one for the next), <code>std::list</code> usually occupies more space than <code>std::vector</code>.</li>
 <li>Cache unfriendly: As the data is not stored continuously, <code>std::list</code> has a lower cache utilization rate. Generally, <code>std::vector</code> performs better.</li>
 </ul>
 <p>On the other hand, linked lists are primarily necessary for binary trees and graphs. Stacks and queues are often implemented using the programming language's <code>stack</code> and <code>queue</code> classes, rather than linked lists.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Does initializing a list <code>res = [0] * self.size()</code> result in each element of <code>res</code> referencing the same address?</p>
+<p><strong>Q</strong>: Does initializing a list <code>res = [0] * self.size()</code> result in each element of <code>res</code> referencing the same address?</p>
 <p>No. However, this issue arises with two-dimensional arrays, for example, initializing a two-dimensional list <code>res = [[0] * self.size()]</code> would reference the same list <code>[0]</code> multiple times.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">In deleting a node, is it necessary to break the reference to its successor node?</p>
+<p><strong>Q</strong>: In deleting a node, is it necessary to break the reference to its successor node?</p>
 <p>From the perspective of data structures and algorithms (problem-solving), it's okay not to break the link, as long as the program's logic is correct. From the perspective of standard libraries, breaking the link is safer and more logically clear. If the link is not broken, and the deleted node is not properly recycled, it could affect the recycling of the successor node's memory.</p>
-</div>
 
 <!-- Source file information -->
 

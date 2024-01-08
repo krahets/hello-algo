@@ -1252,12 +1252,9 @@
 <li>Common space complexities, arranged from low to high, include <span class="arithmatex">\(O(1)\)</span>, <span class="arithmatex">\(O(\log n)\)</span>, <span class="arithmatex">\(O(n)\)</span>, <span class="arithmatex">\(O(n^2)\)</span>, and <span class="arithmatex">\(O(2^n)\)</span>, among others.</li>
 </ul>
 <h3 id="2-q-a">2. &nbsp; Q &amp; A<a class="headerlink" href="#2-q-a" title="Permanent link">&para;</a></h3>
-<div class="admonition question">
-<p class="admonition-title">Is the space complexity of tail recursion <span class="arithmatex">\(O(1)\)</span>?</p>
+<p><strong>Q</strong>: Is the space complexity of tail recursion <span class="arithmatex">\(O(1)\)</span>?</p>
 <p>Theoretically, the space complexity of a tail-recursive function can be optimized to <span class="arithmatex">\(O(1)\)</span>. However, most programming languages (such as Java, Python, C++, Go, C#) do not support automatic optimization of tail recursion, so it's generally considered to have a space complexity of <span class="arithmatex">\(O(n)\)</span>.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">What is the difference between the terms 'function' and 'method'?</p>
+<p><strong>Q</strong>: What is the difference between the terms "function" and "method"?</p>
 <p>A "function" can be executed independently, with all parameters passed explicitly. A "method" is associated with an object and is implicitly passed to the object calling it, able to operate on the data contained within an instance of a class.</p>
 <p>Here are some examples from common programming languages:</p>
 <ul>
@@ -1265,13 +1262,10 @@
 <li>Java and C# are object-oriented programming languages where code blocks (methods) are typically part of a class. Static methods behave like functions because they are bound to the class and cannot access specific instance variables.</li>
 <li>C++ and Python support both procedural programming (functions) and object-oriented programming (methods).</li>
 </ul>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Does the 'Common Types of Space Complexity' figure reflect the absolute size of occupied space?</p>
+<p><strong>Q</strong>: Does the "Common Types of Space Complexity" figure reflect the absolute size of occupied space?</p>
 <p>No, the figure shows space complexities, which reflect growth trends, not the absolute size of the occupied space.</p>
 <p>If you take <span class="arithmatex">\(n = 8\)</span>, you might find that the values of each curve don't correspond to their functions. This is because each curve includes a constant term, intended to compress the value range into a visually comfortable range.</p>
 <p>In practice, since we usually don't know the "constant term" complexity of each method, it's generally not possible to choose the best solution for <span class="arithmatex">\(n = 8\)</span> based solely on complexity. However, for <span class="arithmatex">\(n = 8^5\)</span>, it's much easier to choose, as the growth trend becomes dominant.</p>
-</div>
 
 <!-- Source file information -->
 
