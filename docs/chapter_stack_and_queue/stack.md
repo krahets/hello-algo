@@ -186,7 +186,7 @@
 
     ```javascript title="stack.js"
     /* 初始化栈 */
-    // Javascript 没有内置的栈类，可以把 Array 当作栈来使用 
+    // JavaScript 没有内置的栈类，可以把 Array 当作栈来使用 
     const stack = [];
     
     /* 元素入栈 */
@@ -213,7 +213,7 @@
 
     ```typescript title="stack.ts"
     /* 初始化栈 */
-    // Typescript 没有内置的栈类，可以把 Array 当作栈来使用 
+    // TypeScript 没有内置的栈类，可以把 Array 当作栈来使用 
     const stack: number[] = [];
     
     /* 元素入栈 */
