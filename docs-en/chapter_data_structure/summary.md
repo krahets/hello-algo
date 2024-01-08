@@ -19,19 +19,19 @@ comments: true
 
 ### 2. &nbsp; Q & A
 
-!!! question "Why does a hash table contain both linear and non-linear data structures?"
+**Q**: Why does a hash table contain both linear and non-linear data structures?
 
-    The underlying structure of a hash table is an array. To resolve hash collisions, we may use "chaining": each bucket in the array points to a linked list, which, when exceeding a certain threshold, might be transformed into a tree (usually a red-black tree).
-    From a storage perspective, the foundation of a hash table is an array, where each bucket slot might contain a value, a linked list, or a tree. Therefore, hash tables may contain both linear data structures (arrays, linked lists) and non-linear data structures (trees).
+The underlying structure of a hash table is an array. To resolve hash collisions, we may use "chaining": each bucket in the array points to a linked list, which, when exceeding a certain threshold, might be transformed into a tree (usually a red-black tree).
+From a storage perspective, the foundation of a hash table is an array, where each bucket slot might contain a value, a linked list, or a tree. Therefore, hash tables may contain both linear data structures (arrays, linked lists) and non-linear data structures (trees).
 
-!!! question "Is the length of the `char` type 1 byte?"
+**Q**: Is the length of the `char` type 1 byte?
 
-    The length of the `char` type is determined by the encoding method used by the programming language. For example, Java, JavaScript, TypeScript, and C# all use UTF-16 encoding (to save Unicode code points), so the length of the char type is 2 bytes.
+The length of the `char` type is determined by the encoding method used by the programming language. For example, Java, JavaScript, TypeScript, and C# all use UTF-16 encoding (to save Unicode code points), so the length of the char type is 2 bytes.
 
-!!! question "Is there ambiguity in calling data structures based on arrays 'static data structures'? Because operations like push and pop on stacks are 'dynamic.'"
+**Q**: Is there ambiguity in calling data structures based on arrays "static data structures"? Because operations like push and pop on stacks are "dynamic".
 
-    While stacks indeed allow for dynamic data operations, the data structure itself remains "static" (with unchangeable length). Even though data structures based on arrays can dynamically add or remove elements, their capacity is fixed. If the data volume exceeds the pre-allocated size, a new, larger array needs to be created, and the contents of the old array copied into it.
+While stacks indeed allow for dynamic data operations, the data structure itself remains "static" (with unchangeable length). Even though data structures based on arrays can dynamically add or remove elements, their capacity is fixed. If the data volume exceeds the pre-allocated size, a new, larger array needs to be created, and the contents of the old array copied into it.
 
-!!! question "When building stacks (queues) without specifying their size, why are they considered 'static data structures'?"
+**Q**: When building stacks (queues) without specifying their size, why are they considered "static data structures"?
 
-    In high-level programming languages, we don't need to manually specify the initial capacity of stacks (queues); this task is automatically handled internally by the class. For example, the initial capacity of Java's ArrayList is usually 10. Furthermore, the expansion operation is also implemented automatically. See the subsequent "List" chapter for details.
+In high-level programming languages, we don't need to manually specify the initial capacity of stacks (queues); this task is automatically handled internally by the class. For example, the initial capacity of Java's ArrayList is usually 10. Furthermore, the expansion operation is also implemented automatically. See the subsequent "List" chapter for details.
