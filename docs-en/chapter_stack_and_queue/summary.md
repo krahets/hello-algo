@@ -1,6 +1,10 @@
-# Summary
+---
+comments: true
+---
 
-### Key Review
+# 5.4 &nbsp; Summary
+
+### 1. &nbsp; Key Review
 
 - A stack is a data structure that follows the Last-In-First-Out (LIFO) principle and can be implemented using either arrays or linked lists.
 - In terms of time efficiency, the array implementation of a stack has higher average efficiency, but during expansion, the time complexity for a single push operation can degrade to $O(n)$. In contrast, the linked list implementation of a stack offers more stable efficiency.
@@ -8,7 +12,7 @@
 - A queue is a data structure that follows the First-In-First-Out (FIFO) principle, and it can also be implemented using either arrays or linked lists. The conclusions regarding time and space efficiency for queues are similar to those for stacks.
 - A double-ended queue is a more flexible type of queue that allows adding and removing elements from both ends.
 
-### Q & A
+### 2. &nbsp; Q & A
 
 **Q**: Is the browser's forward and backward functionality implemented with a doubly linked list?
 
