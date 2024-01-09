@@ -61,7 +61,7 @@ class MyList {
   int remove(int index) {
     if (index >= _size) throw RangeError('索引越界');
     int _num = _arr[index];
-    // 将索引 index 之后的元素都向前移动一位
+    // 将将索引 index 之后的元素都向前移动一位
     for (var j = index; j < _size - 1; j++) {
       _arr[j] = _arr[j + 1];
     }

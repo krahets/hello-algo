@@ -26,24 +26,24 @@
 
 ### Q & A
 
-!!! question "Is the space complexity of tail recursion $O(1)$?"
+**Q**: Is the space complexity of tail recursion $O(1)$?
 
-    Theoretically, the space complexity of a tail-recursive function can be optimized to $O(1)$. However, most programming languages (such as Java, Python, C++, Go, C#) do not support automatic optimization of tail recursion, so it's generally considered to have a space complexity of $O(n)$.
+Theoretically, the space complexity of a tail-recursive function can be optimized to $O(1)$. However, most programming languages (such as Java, Python, C++, Go, C#) do not support automatic optimization of tail recursion, so it's generally considered to have a space complexity of $O(n)$.
 
-!!! question "What is the difference between the terms 'function' and 'method'?"
+**Q**: What is the difference between the terms "function" and "method"?
 
-    A "function" can be executed independently, with all parameters passed explicitly. A "method" is associated with an object and is implicitly passed to the object calling it, able to operate on the data contained within an instance of a class.
+A "function" can be executed independently, with all parameters passed explicitly. A "method" is associated with an object and is implicitly passed to the object calling it, able to operate on the data contained within an instance of a class.
 
-    Here are some examples from common programming languages:
+Here are some examples from common programming languages:
 
-    - C is a procedural programming language without object-oriented concepts, so it only has functions. However, we can simulate object-oriented programming by creating structures (struct), and functions associated with these structures are equivalent to methods in other programming languages.
-    - Java and C# are object-oriented programming languages where code blocks (methods) are typically part of a class. Static methods behave like functions because they are bound to the class and cannot access specific instance variables.
-    - C++ and Python support both procedural programming (functions) and object-oriented programming (methods).
+- C is a procedural programming language without object-oriented concepts, so it only has functions. However, we can simulate object-oriented programming by creating structures (struct), and functions associated with these structures are equivalent to methods in other programming languages.
+- Java and C# are object-oriented programming languages where code blocks (methods) are typically part of a class. Static methods behave like functions because they are bound to the class and cannot access specific instance variables.
+- C++ and Python support both procedural programming (functions) and object-oriented programming (methods).
 
-!!! question "Does the 'Common Types of Space Complexity' figure reflect the absolute size of occupied space?"
+**Q**: Does the "Common Types of Space Complexity" figure reflect the absolute size of occupied space?
 
-    No, the figure shows space complexities, which reflect growth trends, not the absolute size of the occupied space.
+No, the figure shows space complexities, which reflect growth trends, not the absolute size of the occupied space.
 
-    If you take $n = 8$, you might find that the values of each curve don't correspond to their functions. This is because each curve includes a constant term, intended to compress the value range into a visually comfortable range.
+If you take $n = 8$, you might find that the values of each curve don't correspond to their functions. This is because each curve includes a constant term, intended to compress the value range into a visually comfortable range.
 
-    In practice, since we usually don't know the "constant term" complexity of each method, it's generally not possible to choose the best solution for $n = 8$ based solely on complexity. However, for $n = 8^5$, it's much easier to choose, as the growth trend becomes dominant.
+In practice, since we usually don't know the "constant term" complexity of each method, it's generally not possible to choose the best solution for $n = 8$ based solely on complexity. However, for $n = 8^5$, it's much easier to choose, as the growth trend becomes dominant.

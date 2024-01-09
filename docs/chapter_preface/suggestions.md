@@ -189,9 +189,7 @@
 
 **第一步：安装本地编程环境**。请参照附录所示的[教程](https://www.hello-algo.com/chapter_appendix/installation/)进行安装，如果已安装，则可跳过此步骤。
 
-**第二步：克隆或下载代码仓库**。前往 [GitHub 仓库](https://github.com/krahets/hello-algo)。
-
-如果已经安装 [Git](https://git-scm.com/downloads) ，可以通过以下命令克隆本仓库：
+**第二步：克隆或下载代码仓库**。前往 [GitHub 仓库](https://github.com/krahets/hello-algo)。如果已经安装 [Git](https://git-scm.com/downloads) ，可以通过以下命令克隆本仓库：
 
 ```shell
 git clone https://github.com/krahets/hello-algo.git
@@ -204,6 +202,10 @@ git clone https://github.com/krahets/hello-algo.git
 **第三步：运行源代码**。如下图所示，对于顶部标有文件名称的代码块，我们可以在仓库的 `codes` 文件夹内找到对应的源代码文件。源代码文件可一键运行，将帮助你节省不必要的调试时间，让你能够专注于学习内容。
 
 ![代码块与对应的源代码文件](suggestions.assets/code_md_to_repo.png)
+
+除了本地运行代码，**网页版还支持 Python 代码的可视化运行**（基于 [pythontutor](https://pythontutor.com/) 实现）。如下图所示，你可以点击代码块下方的“可视化运行”来展开视图，观察算法代码的执行过程；也可以点击“全屏观看”，以获得更好的阅览体验。
+
+![Python 代码的可视化运行](suggestions.assets/pythontutor_example.png)
 
 ## 在提问讨论中共同成长
 

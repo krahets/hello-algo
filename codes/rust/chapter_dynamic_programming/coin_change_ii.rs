@@ -20,7 +20,7 @@ fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
                 // 若超过目标金额，则不选硬币 i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // 不选和选硬币 i 这两种方案的较小值
+                // 不选和选硬币 i 这两种方案之和
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1] as usize];
             }
         }
@@ -41,7 +41,7 @@ fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
                 // 若超过目标金额，则不选硬币 i
                 dp[a] = dp[a];
             } else {
-                // 不选和选硬币 i 这两种方案的较小值
+                // 不选和选硬币 i 这两种方案之和
                 dp[a] = dp[a] + dp[a - coins[i - 1] as usize];
             }
         }

@@ -84,7 +84,7 @@ func (l *myList) remove(index int) int {
 		panic("索引越界")
 	}
 	num := l.arr[index]
-	// 索引 i 之后的元素都向前移动一位
+	// 将索引 index 之后的元素都向前移动一位
 	for j := index; j < l.arrSize-1; j++ {
 		l.arr[j] = l.arr[j+1]
 	}

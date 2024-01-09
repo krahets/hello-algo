@@ -6,7 +6,7 @@
 
 /* Driver Code */
 /* 初始化栈 */
-// Typescript 没有内置的栈类，可以把 Array 当作栈来使用
+// TypeScript 没有内置的栈类，可以把 Array 当作栈来使用
 const stack: number[] = [];
 
 /* 元素入栈 */

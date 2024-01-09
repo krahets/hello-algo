@@ -68,7 +68,7 @@ class MyList {
     public remove(index: number): number {
         if (index < 0 || index >= this._size) throw new Error('索引越界');
         let num = this.arr[index];
-        // 将索引 index 之后的元素都向前移动一位
+        // 将将索引 index 之后的元素都向前移动一位
         for (let j = index; j < this._size - 1; j++) {
             this.arr[j] = this.arr[j + 1];
         }
