@@ -34,7 +34,7 @@ func spaceConstant(n int) {
 	const a = 0
 	b := 0
 	nums := make([]int, 10000)
-	z := newNode(0)
+	node := newNode(0)
 	// 循环中的变量占用 O(1) 空间
 	var c int
 	for i := 0; i < n; i++ {
@@ -47,7 +47,7 @@ func spaceConstant(n int) {
 	b += 0
 	c += 0
 	nums[0] = 0
-	z.val = 0
+	node.val = 0
 }
 
 /* 线性阶 */
