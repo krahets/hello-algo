@@ -471,12 +471,12 @@
         return 0
 
     def loop(n: int):
-        """循环 O(1)"""
+        """循环的空间复杂度为 O(1)"""
         for _ in range(n):
             function()
 
     def recur(n: int) -> int:
-        """递归 O(n)"""
+        """递归的空间复杂度为 O(n)"""
         if n == 1: return
         return recur(n - 1)
     ```

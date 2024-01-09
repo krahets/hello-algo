@@ -12,17 +12,17 @@ class MaxHeap {
     // 使用动态数组，这样无须考虑扩容问题
     vector<int> maxHeap;
 
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     int left(int i) {
         return 2 * i + 1;
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     int right(int i) {
         return 2 * i + 2;
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     int parent(int i) {
         return (i - 1) / 2; // 向下整除
     }

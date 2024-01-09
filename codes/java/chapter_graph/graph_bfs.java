@@ -10,7 +10,7 @@ import java.util.*;
 import utils.*;
 
 public class graph_bfs {
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     static List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
@@ -47,7 +47,7 @@ public class graph_bfs {
         System.out.println("\n初始化后，图为");
         graph.print();
 
-        /* 广度优先遍历 BFS */
+        /* 广度优先遍历 */
         List<Vertex> res = graphBFS(graph, v[0]);
         System.out.println("\n广度优先遍历（BFS）顶点序列为");
         System.out.println(Vertex.vetsToVals(res));

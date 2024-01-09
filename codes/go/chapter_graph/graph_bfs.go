@@ -8,7 +8,7 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* 广度优先遍历 BFS */
+/* 广度优先遍历 */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 func graphBFS(g *graphAdjList, startVet Vertex) []Vertex {
 	// 顶点遍历序列

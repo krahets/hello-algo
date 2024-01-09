@@ -1,6 +1,6 @@
 // File: hash_map.zig
 // Created Time: 2023-01-13
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -23,7 +23,7 @@ pub fn main() !void {
     inc.PrintUtil.printHashMap(i32, []const u8, map);
 
     // 查询操作
-    // 向哈希表输入键 key ，得到值 value
+    // 向哈希表中输入键 key ，得到值 value
     var name = map.get(15937).?;
     std.debug.print("\n输入学号 15937 ，查询到姓名 {s}\n", .{name});
 

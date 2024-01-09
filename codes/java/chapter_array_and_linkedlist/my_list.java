@@ -32,7 +32,7 @@ class MyList {
 
     /* 访问元素 */
     public int get(int index) {
-        // 索引如果越界则抛出异常，下同
+        // 索引如果越界，则抛出异常，下同
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("索引越界");
         return arr[index];
@@ -82,13 +82,13 @@ class MyList {
         }
         // 更新元素数量
         size--;
-        // 返回被删除元素
+        // 返回被删除的元素
         return num;
     }
 
     /* 列表扩容 */
     public void extendCapacity() {
-        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
+        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组
         arr = Arrays.copyOf(arr, capacity() * extendRatio);
         // 更新列表容量
         capacity = arr.length;

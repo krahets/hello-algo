@@ -1,7 +1,7 @@
 /*
  * File: two_sum.rs
  * Created Time: 2023-01-14
- * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
+ * Author: xBLACICEx (xBLACKICEx@outlook.com), codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");

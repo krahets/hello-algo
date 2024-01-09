@@ -7,6 +7,8 @@ package chapter_computational_complexity
 import (
 	"fmt"
 	"strconv"
+
+	. "github.com/krahets/hello-algo/pkg"
 )
 
 /* 结构体 */
@@ -15,31 +17,9 @@ type node struct {
 	next *node
 }
 
-/* treeNode 二叉树 */
-type treeNode struct {
-	val   int
-	left  *treeNode
-	right *treeNode
-}
-
 /* 创建 node 结构体  */
 func newNode(val int) *node {
 	return &node{val: val}
-}
-
-/* 创建 treeNode 结构体 */
-func newTreeNode(val int) *treeNode {
-	return &treeNode{val: val}
-}
-
-/* 输出二叉树 */
-func printTree(root *treeNode) {
-	if root == nil {
-		return
-	}
-	fmt.Println(root.val)
-	printTree(root.left)
-	printTree(root.right)
 }
 
 /* 函数 */
@@ -54,7 +34,7 @@ func spaceConstant(n int) {
 	const a = 0
 	b := 0
 	nums := make([]int, 10000)
-	ListNode := newNode(0)
+	node := newNode(0)
 	// 循环中的变量占用 O(1) 空间
 	var c int
 	for i := 0; i < n; i++ {
@@ -64,7 +44,10 @@ func spaceConstant(n int) {
 	for i := 0; i < n; i++ {
 		function()
 	}
-	fmt.Println(a, b, nums, c, ListNode)
+	b += 0
+	c += 0
+	nums[0] = 0
+	node.val = 0
 }
 
 /* 线性阶 */
@@ -112,12 +95,12 @@ func spaceQuadraticRecur(n int) int {
 }
 
 /* 指数阶（建立满二叉树） */
-func buildTree(n int) *treeNode {
+func buildTree(n int) *TreeNode {
 	if n == 0 {
 		return nil
 	}
-	root := newTreeNode(0)
-	root.left = buildTree(n - 1)
-	root.right = buildTree(n - 1)
+	root := NewTreeNode(0)
+	root.Left = buildTree(n - 1)
+	root.Right = buildTree(n - 1)
 	return root
 }

@@ -101,7 +101,7 @@ class AVLTree:
         """递归插入节点（辅助方法）"""
         if node is None:
             return TreeNode(val)
-        # 1. 查找插入位置，并插入节点
+        # 1. 查找插入位置并插入节点
         if val < node.val:
             node.left = self.insert_helper(node.left, val)
         elif val > node.val:
@@ -122,7 +122,7 @@ class AVLTree:
         """递归删除节点（辅助方法）"""
         if node is None:
             return None
-        # 1. 查找节点，并删除之
+        # 1. 查找节点并删除
         if val < node.val:
             node.left = self.remove_helper(node.left, val)
         elif val > node.val:

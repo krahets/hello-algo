@@ -22,7 +22,7 @@ func TestGraphBFS(t *testing.T) {
 	fmt.Println("初始化后，图为:")
 	graph.print()
 
-	/* 广度优先遍历 BFS */
+	/* 广度优先遍历 */
 	res := graphBFS(graph, vets[0])
 	fmt.Println("广度优先遍历（BFS）顶点序列为:")
 	PrintSlice(VetsToVals(res))

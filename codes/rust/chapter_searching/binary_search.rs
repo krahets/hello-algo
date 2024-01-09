@@ -1,7 +1,7 @@
 /*
  * File: binary_search.rs
  * Created Time: 2023-02-05
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 /* 二分查找（双闭区间） */

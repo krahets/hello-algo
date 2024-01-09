@@ -1,7 +1,7 @@
 /*
  * File: permutations_i.rs
  * Created Time: 2023-07-15
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 /* 回溯算法：全排列 I */

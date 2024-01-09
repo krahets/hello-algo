@@ -26,7 +26,7 @@ class LinkedListQueue {
 
     /* 入队 */
     func push(num: Int) {
-        // 尾节点后添加 num
+        // 在尾节点后添加 num
         let node = ListNode(x: num)
         // 如果队列为空，则令头、尾节点都指向该节点
         if front == nil {

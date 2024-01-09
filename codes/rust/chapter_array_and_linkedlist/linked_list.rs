@@ -1,7 +1,7 @@
 /*
  * File: linked_list.rs
  * Created Time: 2023-03-05
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");

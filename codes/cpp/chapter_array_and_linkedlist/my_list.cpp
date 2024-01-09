@@ -37,7 +37,7 @@ class MyList {
 
     /* 访问元素 */
     int get(int index) {
-        // 索引如果越界则抛出异常，下同
+        // 索引如果越界，则抛出异常，下同
         if (index < 0 || index >= size())
             throw out_of_range("索引越界");
         return arr[index];
@@ -87,7 +87,7 @@ class MyList {
         }
         // 更新元素数量
         arrSize--;
-        // 返回被删除元素
+        // 返回被删除的元素
         return num;
     }
 

@@ -85,13 +85,13 @@ class MyList {
         }
         // 更新元素数量
         _size -= 1
-        // 返回被删除元素
+        // 返回被删除的元素
         return num
     }
 
     /* 列表扩容 */
     func extendCapacity() {
-        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
+        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组
         arr = arr + Array(repeating: 0, count: _capacity * (extendRatio - 1))
         // 更新列表容量
         _capacity = arr.count

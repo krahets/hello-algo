@@ -45,7 +45,7 @@ class ArrayDeque {
       throw Exception("双向队列已满");
     }
     // 队首指针向左移动一位
-    // 通过取余操作，实现 _front 越过数组头部后回到尾部
+    // 通过取余操作实现 _front 越过数组头部后回到尾部
     _front = index(_front - 1);
     // 将 _num 添加至队首
     _nums[_front] = _num;
@@ -57,7 +57,7 @@ class ArrayDeque {
     if (_queSize == capacity()) {
       throw Exception("双向队列已满");
     }
-    // 计算尾指针，指向队尾索引 + 1
+    // 计算队尾指针，指向队尾索引 + 1
     int rear = index(_front + _queSize);
     // 将 _num 添加至队尾
     _nums[rear] = _num;

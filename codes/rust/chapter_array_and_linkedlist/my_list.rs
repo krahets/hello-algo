@@ -1,7 +1,7 @@
 /*
  * File: my_list.rs
  * Created Time: 2023-03-11
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");
@@ -41,7 +41,7 @@ impl MyList {
 
     /* 访问元素 */
     pub fn get(&self, index: usize) -> i32 {
-        // 索引如果越界则抛出异常，下同
+        // 索引如果越界，则抛出异常，下同
         if index >= self.size {panic!("索引越界")};
         return self.arr[index];
     }
@@ -89,13 +89,13 @@ impl MyList {
         }
         // 更新元素数量
         self.size -= 1;
-        // 返回被删除元素
+        // 返回被删除的元素
         return num;
     }
 
     /* 列表扩容 */
     pub fn extend_capacity(&mut self) {
-        // 新建一个长度为原数组 extend_ratio 倍的新数组，并将原数组拷贝到新数组
+        // 新建一个长度为原数组 extend_ratio 倍的新数组，并将原数组复制到新数组
         let new_capacity = self.capacity * self.extend_ratio;
         self.arr.resize(new_capacity, 0);
         // 更新列表容量

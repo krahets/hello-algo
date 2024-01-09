@@ -1,6 +1,6 @@
 // File: min_cost_climbing_stairs_dp.zig
 // Created Time: 2023-07-15
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 
