@@ -6,7 +6,7 @@
 
 /* Driver Code */
 /* 初始化栈 */
-// Javascript 没有内置的栈类，可以把 Array 当作栈来使用
+// JavaScript 没有内置的栈类，可以把 Array 当作栈来使用
 const stack = [];
 
 /* 元素入栈 */
