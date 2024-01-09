@@ -60,13 +60,13 @@ nav:
     - 4.3 List: chapter_array_and_linkedlist/list.md
     - 4.4 Memory and Cache: chapter_array_and_linkedlist/ram_and_cache.md
     - 4.5 Summary: chapter_array_and_linkedlist/summary.md
-  # - Chapter 5. Stack and Queue:
-  #   # [icon: material/stack-overflow]
-  #   - chapter_stack_and_queue/index.md
-  #   - 5.1 Stack: chapter_stack_and_queue/stack.md
-  #   - 5.2 Queue: chapter_stack_and_queue/queue.md
-  #   - 5.3 Double-ended Queue: chapter_stack_and_queue/deque.md
-  #   - 5.4 Summary: chapter_stack_and_queue/summary.md
+  - Chapter 5. Stack and Queue:
+    # [icon: material/stack-overflow]
+    - chapter_stack_and_queue/index.md
+    - 5.1 Stack: chapter_stack_and_queue/stack.md
+    - 5.2 Queue: chapter_stack_and_queue/queue.md
+    - 5.3 Double-ended Queue: chapter_stack_and_queue/deque.md
+    - 5.4 Summary: chapter_stack_and_queue/summary.md
   # - Chapter 6. Hash Table:
   #   # [icon: material/table-search]
   #   - chapter_hashing/index.md
