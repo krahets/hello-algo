@@ -1,10 +1,10 @@
 # Stack
 
-"Stack" is a linear data structure that follows the principle of Last-In-First-Out (LIFO).
+A "Stack" is a linear data structure that follows the principle of Last-In-First-Out (LIFO).
 
-We can compare a stack to a pile of plates on a table. To access the bottom plate, one must remove the plates on top. If we replace the plates with various types of elements (such as integers, characters, objects, etc.), we obtain the data structure known as a stack.
+We can compare a stack to a pile of plates on a table. To access the bottom plate, one must first remove the plates on top. By replacing the plates with various types of elements (such as integers, characters, objects, etc.), we obtain the data structure known as a stack.
 
-As shown in the following figure, we refer to the top of the pile of elements as the "top of the stack" and the bottom as the "bottom of the stack." The operation of adding elements to the top of the stack is called "push," and the operation of removing the top element is called "pop."
+As shown in the figure below, we refer to the top of the pile of elements as the "top of the stack" and the bottom as the "bottom of the stack." The operation of adding elements to the top of the stack is called "push," and the operation of removing the top element is called "pop."
 
 ![Stack's Last-In-First-Out Rule](stack.assets/stack_operations.png)
 
@@ -308,9 +308,9 @@ Typically, we can directly use the stack class built into the programming langua
 
 ## Implementing a Stack
 
-To understand the mechanics of a stack more deeply, let's try implementing a stack class ourselves.
+To gain a deeper understanding of how a stack operates, let's try implementing a stack class ourselves.
 
-A stack follows the principle of Last-In-First-Out, which means we can only add or remove elements at the top of the stack. However, both arrays and linked lists allow adding and removing elements at any position, **therefore a stack can be seen as a restricted array or linked list**. In other words, we can "mask" some unrelated operations of arrays or linked lists to make their logic conform to the characteristics of a stack.
+A stack follows the principle of Last-In-First-Out, which means we can only add or remove elements at the top of the stack. However, both arrays and linked lists allow adding and removing elements at any position, **therefore a stack can be seen as a restricted array or linked list**. In other words, we can "abstract" some unrelated operations of arrays or linked lists to make their logic conform to the characteristics of a stack.
 
 ### Implementation Based on Linked List
 
@@ -360,7 +360,7 @@ Both implementations support all the operations defined in a stack. The array im
 
 **Time Efficiency**
 
-In the array-based implementation, both push and pop operations occur in pre-allocated continuous memory, which has good cache locality and therefore higher efficiency. However, if the push operation exceeds the array capacity, it triggers a resizing mechanism, making the time complexity of that push operation $O(n)$.
+In the array-based implementation, both push and pop operations occur in pre-allocated contiguous memory, which has good cache locality and therefore higher efficiency. However, if the push operation exceeds the array capacity, it triggers a resizing mechanism, making the time complexity of that push operation $O(n)$.
 
 In the linked list implementation, list expansion is very flexible, and there is no efficiency decrease issue as in array expansion. However, the push operation requires initializing a node object and modifying pointers, so its efficiency is relatively lower. If the elements being pushed are already node objects, then the initialization step can be skipped, improving efficiency.
 
