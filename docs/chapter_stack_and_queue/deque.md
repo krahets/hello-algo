@@ -360,16 +360,16 @@ comments: true
 === "LinkedListDeque"
     ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque.png){ class="animation-figure" }
 
-=== "pushLast()"
+=== "push_last()"
     ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_push_last.png){ class="animation-figure" }
 
-=== "pushFirst()"
+=== "push_first()"
     ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_push_first.png){ class="animation-figure" }
 
-=== "popLast()"
+=== "pop_last()"
     ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_pop_last.png){ class="animation-figure" }
 
-=== "popFirst()"
+=== "pop_first()"
     ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_pop_first.png){ class="animation-figure" }
 
 <p align="center"> 图 5-8 &nbsp; 基于链表实现双向队列的入队出队操作 </p>
@@ -1998,16 +1998,16 @@ comments: true
 === "ArrayDeque"
     ![基于数组实现双向队列的入队出队操作](deque.assets/array_deque.png){ class="animation-figure" }
 
-=== "pushLast()"
+=== "push_last()"
     ![array_deque_push_last](deque.assets/array_deque_push_last.png){ class="animation-figure" }
 
-=== "pushFirst()"
+=== "push_first()"
     ![array_deque_push_first](deque.assets/array_deque_push_first.png){ class="animation-figure" }
 
-=== "popLast()"
+=== "pop_last()"
     ![array_deque_pop_last](deque.assets/array_deque_pop_last.png){ class="animation-figure" }
 
-=== "popFirst()"
+=== "pop_first()"
     ![array_deque_pop_first](deque.assets/array_deque_pop_first.png){ class="animation-figure" }
 
 <p align="center"> 图 5-9 &nbsp; 基于数组实现双向队列的入队出队操作 </p>
