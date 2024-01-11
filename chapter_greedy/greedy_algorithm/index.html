@@ -3818,7 +3818,7 @@
 </details>
 <p>你可能会不由地发出感叹：So clean ！贪心算法仅用约十行代码就解决了零钱兑换问题。</p>
 <h2 id="1511">15.1.1 &nbsp; 贪心算法的优点与局限性<a class="headerlink" href="#1511" title="Permanent link">&para;</a></h2>
-<p><strong>贪心算法不仅操作直接、实现简单，而且通常效率也很高</strong>。在以上代码中，记硬币最小面值为 <span class="arithmatex">\(\min(coins)\)</span> ，则贪心选择最多循环 <span class="arithmatex">\(amt / \min(coins)\)</span> 次，时间复杂度为 <span class="arithmatex">\(O(amt / \min(coins))\)</span> 。这比动态规划解法的时间复杂度 <span class="arithmatex">\(O(n \times amt)\)</span> 降低了一个数量级。</p>
+<p><strong>贪心算法不仅操作直接、实现简单，而且通常效率也很高</strong>。在以上代码中，记硬币最小面值为 <span class="arithmatex">\(\min(coins)\)</span> ，则贪心选择最多循环 <span class="arithmatex">\(amt / \min(coins)\)</span> 次，时间复杂度为 <span class="arithmatex">\(O(amt / \min(coins))\)</span> 。这比动态规划解法的时间复杂度 <span class="arithmatex">\(O(n \times amt)\)</span> 小了一个数量级。</p>
 <p>然而，<strong>对于某些硬币面值组合，贪心算法并不能找到最优解</strong>。图 15-2 给出了两个示例。</p>
 <ul>
 <li><strong>正例 <span class="arithmatex">\(coins = [1, 5, 10, 20, 50, 100]\)</span></strong>：在该硬币组合下，给定任意 <span class="arithmatex">\(amt\)</span> ，贪心算法都可以找到最优解。</li>
