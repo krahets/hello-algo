@@ -8,8 +8,8 @@ hide:
 ---
 
 <div class="header-img-div" style="max-width: 500px;">
-  <img src="index.assets/conceptual_rendering.png" style="width: 37%; height: auto;">
-  <img src="index.assets/hello_algo_mindmap_tp.png" style="width: 63%; height: auto;">
+  <img src="index.assets/conceptual_rendering.png" style="width: 37%; height: auto; margin-right:15px;">
+  <img src="index.assets/hello_algo_mindmap_tp.png" style="width: 63%; height: auto; margin-left:15px;">
 </div>
 
 <h2 align="center">《 Hello 算法 》</h2>
