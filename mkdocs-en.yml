@@ -16,7 +16,7 @@ theme:
   language: en
   font:
     text: Roboto
-    code: Fira Code
+    code: Roboto Mono
 
 extra:
   status:
