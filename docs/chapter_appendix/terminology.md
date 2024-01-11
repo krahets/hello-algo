@@ -60,6 +60,6 @@
 | 完美二叉树     | perfect binary tree            | 背包问题       | knapsack problem            |
 | 完全二叉树     | complete binary tree           | 编辑距离问题   | edit distance problem       |
 | 完满二叉树     | full binary tree               | 贪心算法       | greedy algorithm            |
-| 平衡二叉树     | balanced binary tree           |                |                             |
+| 平衡二叉树     | balanced binary tree           |  队列前后    | front and rear of the queue  |
 | AVL 树         | AVL tree                       | 栈前后     | top and bottom of the stack          |
 | 红黑树         | red-black tree                 | 链表前后    | head and tail of the linked list     |

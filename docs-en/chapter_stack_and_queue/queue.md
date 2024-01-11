@@ -321,13 +321,13 @@ To implement a queue, we need a data structure that allows adding elements at on
 As shown in the figure below, we can consider the "head" and "tail" of a linked list as the "front" and "rear" of the queue, respectively. It is stipulated that nodes can only be added at the rear and removed at the front.
 
 === "LinkedListQueue"
-![Implementing Queue with Linked List for Enqueue and Dequeue Operations](queue.assets/linkedlist_queue.png)
+    ![Implementing Queue with Linked List for Enqueue and Dequeue Operations](queue.assets/linkedlist_queue.png)
 
 === "push()"
-![linkedlist_queue_push](queue.assets/linkedlist_queue_push.png)
+    ![linkedlist_queue_push](queue.assets/linkedlist_queue_push.png)
 
 === "pop()"
-![linkedlist_queue_pop](queue.assets/linkedlist_queue_pop.png)
+    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_pop.png)
 
 Below is the code for implementing a queue using a linked list:
 
@@ -349,15 +349,15 @@ With this design, **the effective interval of elements in the array is `[front, 
 Both enqueue and dequeue operations only require a single operation, each with a time complexity of $O(1)$.
 
 === "ArrayQueue"
-![Implementing Queue with Array for Enqueue and Dequeue Operations](queue.assets/array_queue.png)
+    ![Implementing Queue with Array for Enqueue and Dequeue Operations](queue.assets/array_queue.png)
 
 === "push()"
-![array_queue_push](queue.assets/array_queue_push.png)
+    ![array_queue_push](queue.assets/array_queue_push.png)
 
 === "pop()"
-![array_queue_pop](queue.assets/array_queue_pop.png)
+    ![array_queue_pop](queue.assets/array_queue_pop.png)
 
-You might notice a problem: as enqueue and dequeue operations are continuously performed, both `front` and `rear` move to the right and **will eventually reach the end of the array and can't move further**. To resolve this, we can treat the array as a 'circular array' where the ends are conceptually connected.
+You might notice a problem: as enqueue and dequeue operations are continuously performed, both `front` and `rear` move to the right and **will eventually reach the end of the array and can't move further**. To resolve this, we can treat the array as a "circular array" where the ends are conceptually connected.
 
 In a circular array, `front` or `rear` needs to loop back to the start of the array upon reaching the end. This cyclical pattern can be achieved with a "modulo operation" as shown in the code below:
 
