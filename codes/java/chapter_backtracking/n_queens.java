@@ -9,7 +9,7 @@ package chapter_backtracking;
 import java.util.*;
 
 public class n_queens {
-    /* 回溯算法：N 皇后 */
+    /* 回溯算法：n 皇后 */
     public static void backtrack(int row, int n, List<List<String>> state, List<List<List<String>>> res,
             boolean[] cols, boolean[] diags1, boolean[] diags2) {
         // 当放置完所有行时，记录解
@@ -40,7 +40,7 @@ public class n_queens {
         }
     }
 
-    /* 求解 N 皇后 */
+    /* 求解 n 皇后 */
     public static List<List<List<String>>> nQueens(int n) {
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         List<List<String>> state = new ArrayList<>();

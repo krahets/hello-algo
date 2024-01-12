@@ -14,7 +14,7 @@ def backtrack(
     diags1: list[bool],
     diags2: list[bool],
 ):
-    """回溯算法：N 皇后"""
+    """回溯算法：n 皇后"""
     # 当放置完所有行时，记录解
     if row == n:
         res.append([list(row) for row in state])
@@ -37,7 +37,7 @@ def backtrack(
 
 
 def n_queens(n: int) -> list[list[list[str]]]:
-    """求解 N 皇后"""
+    """求解 n 皇后"""
     # 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
     state = [["#" for _ in range(n)] for _ in range(n)]
     cols = [False] * n  # 记录列是否有皇后

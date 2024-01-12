@@ -4,7 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 回溯算法：N 皇后 */
+/* 回溯算法：n 皇后 */
 function backtrack(
     row: number,
     n: number,
@@ -38,7 +38,7 @@ function backtrack(
     }
 }
 
-/* 求解 N 皇后 */
+/* 求解 n 皇后 */
 function nQueens(n: number): string[][][] {
     // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
     const state = Array.from({ length: n }, () => Array(n).fill('#'));
