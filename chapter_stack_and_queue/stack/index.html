@@ -1266,7 +1266,7 @@
         <li class="md-nav__item">
   <a href="#514" class="md-nav__link">
     <span class="md-ellipsis">
-      5.1.4 &nbsp; 栈典型应用
+      5.1.4 &nbsp; 栈的典型应用
     </span>
   </a>
   
@@ -3556,7 +3556,7 @@
         <li class="md-nav__item">
   <a href="#514" class="md-nav__link">
     <span class="md-ellipsis">
-      5.1.4 &nbsp; 栈典型应用
+      5.1.4 &nbsp; 栈的典型应用
     </span>
   </a>
   
@@ -5259,7 +5259,7 @@
 <p>在初始化列表时，系统会为列表分配“初始容量”，该容量可能超出实际需求；并且，扩容机制通常是按照特定倍率（例如 2 倍）进行扩容的，扩容后的容量也可能超出实际需求。因此，<strong>基于数组实现的栈可能造成一定的空间浪费</strong>。</p>
 <p>然而，由于链表节点需要额外存储指针，<strong>因此链表节点占用的空间相对较大</strong>。</p>
 <p>综上，我们不能简单地确定哪种实现更加节省内存，需要针对具体情况进行分析。</p>
-<h2 id="514">5.1.4 &nbsp; 栈典型应用<a class="headerlink" href="#514" title="Permanent link">&para;</a></h2>
+<h2 id="514">5.1.4 &nbsp; 栈的典型应用<a class="headerlink" href="#514" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>浏览器中的后退与前进、软件中的撤销与反撤销</strong>。每当我们打开新的网页，浏览器就会对上一个网页执行入栈，这样我们就可以通过后退操作回到上一个网页。后退操作实际上是在执行出栈。如果要同时支持后退和前进，那么需要两个栈来配合实现。</li>
 <li><strong>程序内存管理</strong>。每次调用函数时，系统都会在栈顶添加一个栈帧，用于记录函数的上下文信息。在递归函数中，向下递推阶段会不断执行入栈操作，而向上回溯阶段则会不断执行出栈操作。</li>

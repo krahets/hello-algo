@@ -3585,7 +3585,7 @@
 <p>补码的设计非常精妙，因篇幅关系我们就先介绍到这里，建议有兴趣的读者进一步深入了解。</p>
 <h2 id="332">3.3.2 &nbsp; 浮点数编码<a class="headerlink" href="#332" title="Permanent link">&para;</a></h2>
 <p>细心的你可能会发现：<code>int</code> 和 <code>float</code> 长度相同，都是 4 字节 ，但为什么 <code>float</code> 的取值范围远大于 <code>int</code> ？这非常反直觉，因为按理说 <code>float</code> 需要表示小数，取值范围应该变小才对。</p>
-<p>实际上，<strong>这是因为浮点数 <code>float</code> 采用了不同的表示方式</strong>。记一个 32 位长度的二进制数为：</p>
+<p>实际上，<strong>这是因为浮点数 <code>float</code> 采用了不同的表示方式</strong>。记一个 32 比特长度的二进制数为：</p>
 <div class="arithmatex">\[
 b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 \]</div>
@@ -3618,7 +3618,7 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 \text { val } = (-1)^0 \times 2^{124 - 127} \times (1 + 0.375) = 0.171875
 \]</div>
 <p>现在我们可以回答最初的问题：<strong><code>float</code> 的表示方式包含指数位，导致其取值范围远大于 <code>int</code></strong> 。根据以上计算，<code>float</code> 可表示的最大正数为 <span class="arithmatex">\(2^{254 - 127} \times (2 - 2^{-23}) \approx 3.4 \times 10^{38}\)</span> ，切换符号位便可得到最小负数。</p>
-<p><strong>尽管浮点数 <code>float</code> 扩展了取值范围，但其副作用是牺牲了精度</strong>。整数类型 <code>int</code> 将全部 32 位用于表示数字，数字是均匀分布的；而由于指数位的存在，浮点数 <code>float</code> 的数值越大，相邻两个数字之间的差值就会趋向越大。</p>
+<p><strong>尽管浮点数 <code>float</code> 扩展了取值范围，但其副作用是牺牲了精度</strong>。整数类型 <code>int</code> 将全部 32 比特用于表示数字，数字是均匀分布的；而由于指数位的存在，浮点数 <code>float</code> 的数值越大，相邻两个数字之间的差值就会趋向越大。</p>
 <p>如表 3-2 所示，指数位 <span class="arithmatex">\(E = 0\)</span> 和 <span class="arithmatex">\(E = 255\)</span> 具有特殊含义，<strong>用于表示零、无穷大、<span class="arithmatex">\(\mathrm{NaN}\)</span> 等</strong>。</p>
 <p align="center"> 表 3-2 &nbsp; 指数位含义 </p>
 
