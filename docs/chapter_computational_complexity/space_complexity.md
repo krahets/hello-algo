@@ -848,7 +848,7 @@ $$
         const a = 0
         b := 0
         nums := make([]int, 10000)
-        ListNode := newNode(0)
+        node := newNode(0)
         // 循环中的变量占用 O(1) 空间
         var c int
         for i := 0; i < n; i++ {
@@ -858,7 +858,10 @@ $$
         for i := 0; i < n; i++ {
             function()
         }
-        fmt.Println(a, b, nums, c, ListNode)
+        b += 0
+        c += 0
+        nums[0] = 0
+        node.val = 0
     }
     ```
 
@@ -1937,13 +1940,13 @@ $$
 
     ```go title="space_complexity.go"
     /* 指数阶（建立满二叉树） */
-    func buildTree(n int) *treeNode {
+    func buildTree(n int) *TreeNode {
         if n == 0 {
             return nil
         }
-        root := newTreeNode(0)
-        root.left = buildTree(n - 1)
-        root.right = buildTree(n - 1)
+        root := NewTreeNode(0)
+        root.Left = buildTree(n - 1)
+        root.Right = buildTree(n - 1)
         return root
     }
     ```
