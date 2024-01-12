@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 13.4 &nbsp; N 皇后问题
+# 13.4 &nbsp; n 皇后问题
 
 !!! question
 
@@ -64,7 +64,7 @@ comments: true
         diags1: list[bool],
         diags2: list[bool],
     ):
-        """回溯算法：N 皇后"""
+        """回溯算法：n 皇后"""
         # 当放置完所有行时，记录解
         if row == n:
             res.append([list(row) for row in state])
@@ -86,7 +86,7 @@ comments: true
                 cols[col] = diags1[diag1] = diags2[diag2] = False
 
     def n_queens(n: int) -> list[list[list[str]]]:
-        """求解 N 皇后"""
+        """求解 n 皇后"""
         # 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         state = [["#" for _ in range(n)] for _ in range(n)]
         cols = [False] * n  # 记录列是否有皇后
@@ -101,7 +101,7 @@ comments: true
 === "C++"
 
     ```cpp title="n_queens.cpp"
-    /* 回溯算法：N 皇后 */
+    /* 回溯算法：n 皇后 */
     void backtrack(int row, int n, vector<vector<string>> &state, vector<vector<vector<string>>> &res, vector<bool> &cols,
                    vector<bool> &diags1, vector<bool> &diags2) {
         // 当放置完所有行时，记录解
@@ -128,7 +128,7 @@ comments: true
         }
     }
 
-    /* 求解 N 皇后 */
+    /* 求解 n 皇后 */
     vector<vector<vector<string>>> nQueens(int n) {
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         vector<vector<string>> state(n, vector<string>(n, "#"));
@@ -146,7 +146,7 @@ comments: true
 === "Java"
 
     ```java title="n_queens.java"
-    /* 回溯算法：N 皇后 */
+    /* 回溯算法：n 皇后 */
     void backtrack(int row, int n, List<List<String>> state, List<List<List<String>>> res,
             boolean[] cols, boolean[] diags1, boolean[] diags2) {
         // 当放置完所有行时，记录解
@@ -177,7 +177,7 @@ comments: true
         }
     }
 
-    /* 求解 N 皇后 */
+    /* 求解 n 皇后 */
     List<List<List<String>>> nQueens(int n) {
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         List<List<String>> state = new ArrayList<>();
@@ -202,7 +202,7 @@ comments: true
 === "C#"
 
     ```csharp title="n_queens.cs"
-    /* 回溯算法：N 皇后 */
+    /* 回溯算法：n 皇后 */
     void Backtrack(int row, int n, List<List<string>> state, List<List<List<string>>> res,
             bool[] cols, bool[] diags1, bool[] diags2) {
         // 当放置完所有行时，记录解
@@ -233,7 +233,7 @@ comments: true
         }
     }
 
-    /* 求解 N 皇后 */
+    /* 求解 n 皇后 */
     List<List<List<string>>> NQueens(int n) {
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         List<List<string>> state = [];
@@ -258,7 +258,7 @@ comments: true
 === "Go"
 
     ```go title="n_queens.go"
-    /* 回溯算法：N 皇后 */
+    /* 回溯算法：n 皇后 */
     func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, diags2 *[]bool) {
         // 当放置完所有行时，记录解
         if row == n {
@@ -289,37 +289,7 @@ comments: true
         }
     }
 
-    /* 回溯算法：N 皇后 */
-    func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, diags2 *[]bool) {
-        // 当放置完所有行时，记录解
-        if row == n {
-            newState := make([][]string, len(*state))
-            for i, _ := range newState {
-                newState[i] = make([]string, len((*state)[0]))
-                copy(newState[i], (*state)[i])
-
-            }
-            *res = append(*res, newState)
-        }
-        // 遍历所有列
-        for col := 0; col < n; col++ {
-            // 计算该格子对应的主对角线和次对角线
-            diag1 := row - col + n - 1
-            diag2 := row + col
-            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
-            if !(*cols)[col] && !(*diags1)[diag1] && !(*diags2)[diag2] {
-                // 尝试：将皇后放置在该格子
-                (*state)[row][col] = "Q"
-                (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = true, true, true
-                // 放置下一行
-                backtrack(row+1, n, state, res, cols, diags1, diags2)
-                // 回退：将该格子恢复为空位
-                (*state)[row][col] = "#"
-                (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = false, false, false
-            }
-        }
-    }
-
+    /* 求解 n 皇后 */
     func nQueens(n int) [][][]string {
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         state := make([][]string, n)
@@ -343,7 +313,7 @@ comments: true
 === "Swift"
 
     ```swift title="n_queens.swift"
-    /* 回溯算法：N 皇后 */
+    /* 回溯算法：n 皇后 */
     func backtrack(row: Int, n: Int, state: inout [[String]], res: inout [[[String]]], cols: inout [Bool], diags1: inout [Bool], diags2: inout [Bool]) {
         // 当放置完所有行时，记录解
         if row == n {
@@ -373,7 +343,7 @@ comments: true
         }
     }
 
-    /* 求解 N 皇后 */
+    /* 求解 n 皇后 */
     func nQueens(n: Int) -> [[[String]]] {
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         var state = Array(repeating: Array(repeating: "#", count: n), count: n)
@@ -391,7 +361,7 @@ comments: true
 === "JS"
 
     ```javascript title="n_queens.js"
-    /* 回溯算法：N 皇后 */
+    /* 回溯算法：n 皇后 */
     function backtrack(row, n, state, res, cols, diags1, diags2) {
         // 当放置完所有行时，记录解
         if (row === n) {
@@ -417,7 +387,7 @@ comments: true
         }
     }
 
-    /* 求解 N 皇后 */
+    /* 求解 n 皇后 */
     function nQueens(n) {
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         const state = Array.from({ length: n }, () => Array(n).fill('#'));
@@ -434,7 +404,7 @@ comments: true
 === "TS"
 
     ```typescript title="n_queens.ts"
-    /* 回溯算法：N 皇后 */
+    /* 回溯算法：n 皇后 */
     function backtrack(
         row: number,
         n: number,
@@ -468,7 +438,7 @@ comments: true
         }
     }
 
-    /* 求解 N 皇后 */
+    /* 求解 n 皇后 */
     function nQueens(n: number): string[][][] {
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         const state = Array.from({ length: n }, () => Array(n).fill('#'));
@@ -485,7 +455,7 @@ comments: true
 === "Dart"
 
     ```dart title="n_queens.dart"
-    /* 回溯算法：N 皇后 */
+    /* 回溯算法：n 皇后 */
     void backtrack(
       int row,
       int n,
@@ -527,7 +497,7 @@ comments: true
       }
     }
 
-    /* 求解 N 皇后 */
+    /* 求解 n 皇后 */
     List<List<List<String>>> nQueens(int n) {
       // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
       List<List<String>> state = List.generate(n, (index) => List.filled(n, "#"));
@@ -545,7 +515,7 @@ comments: true
 === "Rust"
 
     ```rust title="n_queens.rs"
-    /* 回溯算法：N 皇后 */
+    /* 回溯算法：n 皇后 */
     fn backtrack(row: usize, n: usize, state: &mut Vec<Vec<String>>, res: &mut Vec<Vec<Vec<String>>>,
         cols: &mut [bool], diags1: &mut [bool], diags2: &mut [bool]) {
         // 当放置完所有行时，记录解
@@ -576,7 +546,7 @@ comments: true
         }
     }
 
-    /* 求解 N 皇后 */
+    /* 求解 n 皇后 */
     fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         let mut state: Vec<Vec<String>> = Vec::new();
@@ -601,7 +571,7 @@ comments: true
 === "C"
 
     ```c title="n_queens.c"
-    /* 回溯算法：N 皇后 */
+    /* 回溯算法：n 皇后 */
     void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int *resSize, bool cols[MAX_SIZE],
                    bool diags1[2 * MAX_SIZE - 1], bool diags2[2 * MAX_SIZE - 1]) {
         // 当放置完所有行时，记录解
@@ -633,7 +603,7 @@ comments: true
         }
     }
 
-    /* 求解 N 皇后 */
+    /* 求解 n 皇后 */
     char ***nQueens(int n, int *returnSize) {
         char state[MAX_SIZE][MAX_SIZE];
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位

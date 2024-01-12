@@ -20,7 +20,7 @@ $$
 
 <p align="center"> 图 9-1 &nbsp; 链表、树、图之间的关系 </p>
 
-## 9.1.1 &nbsp; 图常见类型与术语
+## 9.1.1 &nbsp; 图的常见类型与术语
 
 根据边是否具有方向，可分为「无向图 undirected graph」和「有向图 directed graph」，如图 9-2 所示。
 
