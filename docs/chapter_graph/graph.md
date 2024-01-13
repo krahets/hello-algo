@@ -14,7 +14,7 @@ $$
 
 ![链表、树、图之间的关系](graph.assets/linkedlist_tree_graph.png)
 
-## 图常见类型与术语
+## 图的常见类型与术语
 
 根据边是否具有方向，可分为「无向图 undirected graph」和「有向图 directed graph」，如下图所示。
 

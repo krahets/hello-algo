@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 回溯算法：N 皇后 */
+/* 回溯算法：n 皇后 */
 void backtrack(int row, int n, vector<vector<string>> &state, vector<vector<vector<string>>> &res, vector<bool> &cols,
                vector<bool> &diags1, vector<bool> &diags2) {
     // 当放置完所有行时，记录解
@@ -33,7 +33,7 @@ void backtrack(int row, int n, vector<vector<string>> &state, vector<vector<vect
     }
 }
 
-/* 求解 N 皇后 */
+/* 求解 n 皇后 */
 vector<vector<vector<string>>> nQueens(int n) {
     // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
     vector<vector<string>> state(n, vector<string>(n, "#"));

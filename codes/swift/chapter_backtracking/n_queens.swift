@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 回溯算法：N 皇后 */
+/* 回溯算法：n 皇后 */
 func backtrack(row: Int, n: Int, state: inout [[String]], res: inout [[[String]]], cols: inout [Bool], diags1: inout [Bool], diags2: inout [Bool]) {
     // 当放置完所有行时，记录解
     if row == n {
@@ -34,7 +34,7 @@ func backtrack(row: Int, n: Int, state: inout [[String]], res: inout [[[String]]
     }
 }
 
-/* 求解 N 皇后 */
+/* 求解 n 皇后 */
 func nQueens(n: Int) -> [[[String]]] {
     // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
     var state = Array(repeating: Array(repeating: "#", count: n), count: n)

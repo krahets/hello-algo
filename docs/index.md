@@ -156,7 +156,7 @@ hide:
     </a>
 </p>
 
-本书的代码审阅工作由 codingonion、Gonglja、gvenusleo、hpstory、justin‐tse、krahets、night-cruise、nuomi1 和 Reanon 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
+本书的代码审阅工作由 codingonion、Gonglja、gvenusleo、hpstory、justin-tse、krahets、night-cruise、nuomi1 和 Reanon 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
 
 <div class="center-table">
     <table style="border: none;">

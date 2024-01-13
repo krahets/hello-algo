@@ -53,7 +53,7 @@
 | 根节点         | root node                      | 剪枝           | pruning                     |
 | 叶节点         | leaf node                      | 全排列问题     | permutations problem        |
 | 边             | edge                           | 子集和问题     | subset-sum problem          |
-| 层             | level                          | N 皇后问题     | N-queens problem            |
+| 层             | level                          | n 皇后问题     | n-queens problem            |
 | 度             | degree                         | 动态规划       | dynamic programming         |
 | 高度           | height                         | 初始状态       | initial state               |
 | 深度           | depth                          | 状态转移方程   | state-trasition equation    |

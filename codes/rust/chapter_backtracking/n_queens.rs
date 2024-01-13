@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 回溯算法：N 皇后 */
+/* 回溯算法：n 皇后 */
 fn backtrack(row: usize, n: usize, state: &mut Vec<Vec<String>>, res: &mut Vec<Vec<Vec<String>>>,
     cols: &mut [bool], diags1: &mut [bool], diags2: &mut [bool]) {
     // 当放置完所有行时，记录解
@@ -35,7 +35,7 @@ fn backtrack(row: usize, n: usize, state: &mut Vec<Vec<String>>, res: &mut Vec<V
     }
 }
 
-/* 求解 N 皇后 */
+/* 求解 n 皇后 */
 fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
     // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
     let mut state: Vec<Vec<String>> = Vec::new();

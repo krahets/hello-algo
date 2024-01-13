@@ -9,7 +9,7 @@ docs_dir: build/docs-en
 site_dir: site/en
 # Repository
 edit_uri: tree/main/docs-en
-version: 1.0.0b6
+version: 1.0.0
 
 # Configuration
 theme:
