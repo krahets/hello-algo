@@ -16,7 +16,7 @@
 
 **Q**: Does storing arrays on the stack versus the heap affect time and space efficiency?
 
-    Arrays stored on both the stack and heap are stored in contiguous memory spaces, and data operation efficiency is essentially the same. However, stacks and heaps have their own characteristics, leading to the following differences.
+Arrays stored on both the stack and heap are stored in contiguous memory spaces, and data operation efficiency is essentially the same. However, stacks and heaps have their own characteristics, leading to the following differences.
 
 1. Allocation and release efficiency: The stack is a smaller memory block, allocated automatically by the compiler; the heap memory is relatively larger and can be dynamically allocated in the code, more prone to fragmentation. Therefore, allocation and release operations on the heap are generally slower than on the stack.
 2. Size limitation: Stack memory is relatively small, while the heap size is generally limited by available memory. Therefore, the heap is more suitable for storing large arrays.
