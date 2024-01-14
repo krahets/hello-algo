@@ -37,7 +37,7 @@ We can directly use the ready-made queue classes in programming languages:
     que.append(5)
     que.append(4)
 
-    # Access the front element
+    # Access the first element
     front: int = que[0]
 
     # Dequeue an element
@@ -63,7 +63,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.push(5);
     queue.push(4);
 
-    /* Access the front element */
+    /* Access the first element*/
     int front = queue.front();
 
     /* Dequeue an element */
@@ -89,7 +89,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.offer(5);
     queue.offer(4);
 
-    /* Access the front element */
+    /* Access the first element */
     int peek = queue.peek();
 
     /* Dequeue an element */
@@ -115,7 +115,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.Enqueue(5);
     queue.Enqueue(4);
 
-    /* Access the front element */
+    /* Access the first element */
     int peek = queue.Peek();
 
     /* Dequeue an element */
@@ -142,7 +142,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.PushBack(5)
     queue.PushBack(4)
 
-    /* Access the front element */
+    /* Access the first element */
     peek := queue.Front()
 
     /* Dequeue an element */
@@ -170,7 +170,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.append(5)
     queue.append(4)
 
-    /* Access the front element */
+    /* Access the first element */
     let peek = queue.first!
 
     /* Dequeue an element */
@@ -198,7 +198,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.push(5);
     queue.push(4);
 
-    /* Access the front element */
+    /* Access the first element */
     const peek = queue[0];
 
     /* Dequeue an element */
@@ -226,7 +226,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.push(5);
     queue.push(4);
 
-    /* Access the front element */
+    /* Access the first element */
     const peek = queue[0];
 
     /* Dequeue an element */
@@ -254,7 +254,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.add(5);
     queue.add(4);
 
-    /* Access the front element */
+    /* Access the first element */
     int peek = queue.first;
 
     /* Dequeue an element */
@@ -281,7 +281,7 @@ We can directly use the ready-made queue classes in programming languages:
     deque.push_back(5);
     deque.push_back(4);
 
-    /* Access the front element */
+    /* Access the first element */
     if let Some(front) = deque.front() {
     }
 
@@ -316,7 +316,7 @@ We can directly use the ready-made queue classes in programming languages:
 
 To implement a queue, we need a data structure that allows adding elements at one end and removing them at the other. Both linked lists and arrays meet this requirement.
 
-### Implementation Based on Linked List
+### Implementation Based on a Linked List
 
 As shown in the figure below, we can consider the "head" and "tail" of a linked list as the "front" and "rear" of the queue, respectively. It is stipulated that nodes can only be added at the rear and removed at the front.
 
@@ -357,7 +357,7 @@ Both enqueue and dequeue operations only require a single operation, each with a
 === "pop()"
     ![array_queue_pop](queue.assets/array_queue_pop.png)
 
-You might notice a problem: as enqueue and dequeue operations are continuously performed, both `front` and `rear` move to the right and **will eventually reach the end of the array and can't move further**. To resolve this, we can treat the array as a "circular array" where the ends are conceptually connected.
+You might notice a problem: as enqueue and dequeue operations are continuously performed, both `front` and `rear` move to the right and **will eventually reach the end of the array and can't move further**. + To resolve this, we can treat the array as a "circular array" where connecting the end of the array back to its beginning.
 
 In a circular array, `front` or `rear` needs to loop back to the start of the array upon reaching the end. This cyclical pattern can be achieved with a "modulo operation" as shown in the code below:
 
