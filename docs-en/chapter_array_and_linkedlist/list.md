@@ -2,7 +2,7 @@
 
 A "list" is an abstract data structure concept, representing an ordered collection of elements. It provides operations such as element access, modification, addition, deletion, and iteration, without requiring users to consider capacity limitations. Lists can be implemented using linked lists or arrays.
 
-- A linked list inherently serves as a list, allowing for the addition, deletion, searching, and modification of elements. Additionally, it has the flexibility to dynamically adjust its length.
+- A linked list inherently serves as a list, allowing for the addition, deletion, searching, and modification of elements. Additionally, it has the flexibility to adjust its length dynamically.
 - Arrays also provide these operations, but due to their immutable length property, they can be considered as a list with a length limit.
 
 When implementing lists using arrays, **the immutable length property reduces their practicality**. This is due to the often unpredictable nature of data storage needs, making it challenging to select an appropriate list length. If the length is too small, it may not meet the requirements; if too large, it may waste memory space.
@@ -15,7 +15,7 @@ In fact, **many programming languages' standard libraries implement lists using 
 
 ### Initializing a List
 
-We typically use two methods of initialization: "without initial values" and "with initial values".
+We typically use two initialization methods: "without initial values" and "with initial values".
 
 === "Python"
 
@@ -857,13 +857,13 @@ Once the list is sorted, we can employ algorithms commonly used in array-related
 
 ## List Implementation
 
-Many programming languages come with built-in list structures, including Java, C++, Python, and others. Their implementations tend to be intricate, featuring carefully considered settings for various parameters, like initial capacity and expansion factors. Readers who are curious can delve into the source code for further learning.
+Many programming languages come with built-in list structures, including Java, C++, Python, etc. Their implementations tend to be intricate, featuring carefully considered settings for various parameters, like initial capacity and expansion factors. Readers who are curious can delve into the source code for further learning.
 
-To enhance our understanding of list mechanics, we will attempt to implement a simplified version of a list, focusing on three crucial design aspects:
+To enhance our understanding of how lists work, we will attempt to implement a simplified version of a list, focusing on three crucial design aspects:
 
 - **Initial Capacity**: Choose a reasonable initial capacity for the array. In this example, we choose 10 as the initial capacity.
 - **Size Recording**: Declare a variable `size` to record the current number of elements in the list, updating in real-time with element insertion and deletion. With this variable, we can locate the end of the list and determine whether expansion is needed.
-- **Expansion Mechanism**: If the list reaches full capacity upon an element insertion, an expansion process is required. This involves creating a larger array based on a predetermined expansion factor, and then transferring all elements from the current array to the new one. In this example, we stipulate that the array size should double with each expansion.
+- **Expansion Mechanism**: If the list reaches full capacity upon an element insertion, an expansion process is required. This involves creating a larger array based on the expansion factor, and then transferring all elements from the current array to the new one. In this example, we stipulate that the array size should double with each expansion.
 
 ```src
 [file]{my_list}-[class]{my_list}-[func]{}
