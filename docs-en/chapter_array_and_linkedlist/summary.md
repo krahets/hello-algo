@@ -2,9 +2,9 @@
 
 ### Key Review
 
-- Arrays and linked lists are two fundamental data structures, representing two storage methods in computer memory: continuous space storage and dispersed space storage. Their characteristics complement each other.
+- Arrays and linked lists are two basic data structures, representing two storage methods in computer memory: contiguous space storage and non-contiguous space storage. Their characteristics complement each other.
 - Arrays support random access and use less memory; however, they are inefficient in inserting and deleting elements and have a fixed length after initialization.
-- Linked lists implement efficient node insertion and deletion through changing references (pointers) and can flexibly adjust their length; however, they have lower node access efficiency and use more memory.
+- Linked lists implement efficient node insertion and deletion through changing references (pointers) and can flexibly adjust their length; however, they have lower node access efficiency and consume more memory.
 - Common types of linked lists include singly linked lists, circular linked lists, and doubly linked lists, each with its own application scenarios.
 - Lists are ordered collections of elements that support addition, deletion, and modification, typically implemented based on dynamic arrays, retaining the advantages of arrays while allowing flexible length adjustment.
 - The advent of lists significantly enhanced the practicality of arrays but may lead to some memory space wastage.
@@ -16,7 +16,7 @@
 
 **Q**: Does storing arrays on the stack versus the heap affect time and space efficiency?
 
-Arrays stored on both the stack and heap are stored in continuous memory spaces, and data operation efficiency is essentially the same. However, stacks and heaps have their own characteristics, leading to the following differences.
+Arrays stored on both the stack and heap are stored in contiguous memory spaces, and data operation efficiency is essentially the same. However, stacks and heaps have their own characteristics, leading to the following differences.
 
 1. Allocation and release efficiency: The stack is a smaller memory block, allocated automatically by the compiler; the heap memory is relatively larger and can be dynamically allocated in the code, more prone to fragmentation. Therefore, allocation and release operations on the heap are generally slower than on the stack.
 2. Size limitation: Stack memory is relatively small, while the heap size is generally limited by available memory. Therefore, the heap is more suitable for storing large arrays.
