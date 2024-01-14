@@ -7,12 +7,11 @@ hide:
   - edit
 ---
 
-<div class="header-img-div" style="max-width: 500px;">
-  <img src="index.assets/conceptual_rendering.png" style="width: 37%; height: auto; margin-left: 15px; margin-right: 15px;">
-  <img src="index.assets/hello_algo_mindmap_tp.png" style="width: 63%; height: auto; margin-left: 15px; margin-right: 15px;">
+<div class="header-img-div" style="max-width: 600px;">
+  <img src="index.assets/hello_algo_header.png" style="width: 100%; height: auto; margin-left: 15px; margin-right: 15px;">
 </div>
 
-<h2 align="center">《 Hello 算法 》</h2>
+<h2 align="center" style="margin-top: 25px;">《 Hello 算法 》</h2>
 
 <p align="center">动画图解、一键运行的数据结构与算法教程</p>
 
@@ -61,9 +60,7 @@ hide:
   <img src="https://img.shields.io/badge/Stay%20Tuned-snow">
 </p>
 
----
-
-<h3 align="center">推荐语</h3>
+<img src="index.assets/hello_algo_hero.jpg" class="cover-image" style="width: 100%;">
 
 <div style="display: flex;">
   <div class="admonition quote" style="flex: 1; margin-right: 0.4rem;">

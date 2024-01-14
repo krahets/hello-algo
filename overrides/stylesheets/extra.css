@@ -68,9 +68,9 @@
   width: 28rem;
   height: auto;
   border-radius: 0.3rem;
-  box-shadow: var(--md-shadow-z2);
   display: block;
   margin: 0 auto;
+  box-shadow: var(--md-shadow-z2);
 }
 
 /* Center Markdown Tables (requires md_in_html extension) */
