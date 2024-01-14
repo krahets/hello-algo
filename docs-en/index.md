@@ -7,12 +7,11 @@ hide:
   - edit
 ---
 
-<div class="header-img-div" style="max-width: 500px;">
-  <img src="index.assets/conceptual_rendering.png" style="width: 37%; height: auto;">
-  <img src="index.assets/hello_algo_mindmap_tp.png" style="width: 63%; height: auto;">
+<div class="header-img-div" style="max-width: 600px;">
+  <img src="index.assets/hello_algo_header.png" style="width: 100%; height: auto; margin-left: 15px; margin-right: 15px;">
 </div>
 
-<h2 align="center">Hello Algo</h2>
+<h2 align="center" style="margin-top: 25px;">Hello Algo</h2>
 
 <p align="center">Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code</p>
 
@@ -66,9 +65,7 @@ hide:
   <p>Feel free to engage in Chinese-to-English translation and pull request review! For guidelines, please see <a href="https://github.com/krahets/hello-algo/issues/914">#914</a>.</p>
 </div>
 
----
-
-<h3 align="center">Endorsements</h3>
+<img src="index.assets/hello_algo_hero.jpg" class="cover-image" style="width: 100%;">
 
 <div style="display: flex;">
   <div class="admonition quote" style="flex: 1; margin-right: 0.4rem;">
