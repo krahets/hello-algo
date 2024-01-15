@@ -105,8 +105,8 @@ hide:
 </div>
 
 <div class="admonition quote">
-  <p align="center">"追风赶月莫停留"</p>
-  <p align="center">“平芜尽处是春山”</p>
+  <p align="center">"Knowledge increases by sharing"</p>
+  <p align="center">“知识在分享中得以增长”</p>
 </div>
 
 ---
