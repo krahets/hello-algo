@@ -105,7 +105,7 @@ hide:
 </div>
 
 <div class="admonition quote">
-  <p align="center">"Knowledge increases by sharing"</p>
+  <p align="center">"Knowledge increases by sharing."</p>
   <p align="center">“知识在分享中得以增长”</p>
 </div>
 
