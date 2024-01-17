@@ -7,12 +7,11 @@ hide:
   - edit
 ---
 
-<div class="header-img-div" style="max-width: 500px;">
-  <img src="index.assets/conceptual_rendering.png" style="width: 37%; height: auto;">
-  <img src="index.assets/hello_algo_mindmap_tp.png" style="width: 63%; height: auto;">
+<div class="header-img-div" style="max-width: 600px;">
+  <img src="index.assets/hello_algo_header.png" style="width: 100%; height: auto; margin-left: 15px; margin-right: 15px;">
 </div>
 
-<h2 align="center">Hello Algo</h2>
+<h2 align="center" style="margin-top: 25px;">Hello Algo</h2>
 
 <p align="center">Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code</p>
 
@@ -45,30 +44,12 @@ hide:
   </a>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB">
-  <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C">
-  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02">
-  <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4">
-  <img src="https://img.shields.io/badge/Go-snow?logo=go&logoColor=00ADD8">
-  <img src="https://img.shields.io/badge/Swift-snow?logo=swift&logoColor=F05138">
-  <img src="https://img.shields.io/badge/JavaScript-snow?logo=javascript&logoColor=E9CE30">
-  <img src="https://img.shields.io/badge/TypeScript-snow?logo=typescript&logoColor=3178C6">
-  <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2">
-  <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000">
-  <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC">
-  <img src="https://img.shields.io/badge/Zig-snow?logo=zig&logoColor=F7A41D">
-  <img src="https://img.shields.io/badge/Stay%20Tuned-snow">
-</p>
-
 <div class="admonition example" style="max-width: 800px;margin: 0 auto;">
   <p class="admonition-title">The English edition is brewing...</p>
   <p>Feel free to engage in Chinese-to-English translation and pull request review! For guidelines, please see <a href="https://github.com/krahets/hello-algo/issues/914">#914</a>.</p>
 </div>
 
----
-
-<h3 align="center">Endorsements</h3>
+<img src="index.assets/hello_algo_hero.jpg" class="cover-image" style="width: 100%; margin-top: 27px;">
 
 <div style="display: flex;">
   <div class="admonition quote" style="flex: 1; margin-right: 0.4rem;">
@@ -127,8 +108,7 @@ hide:
 </div>
 
 <div class="admonition quote">
-  <p align="center">"Chase the wind and moon, never stopping"</p>
-  <p align="center">"Beyond the plains, there are spring mountains"</p>
+  <p align="center">"Knowledge increases by sharing."</p>
 </div>
 
 ---

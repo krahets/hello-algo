@@ -1,5 +1,10 @@
-If this PR is related to coding or code translation, please fill out the checklist and paste the console outputs to the PR.
+If this pull request (PR) pertains to **Chinese-to-English translation**, please confirm that you have read the contribution guidelines and complete the checklist below:
 
-- [ ] I've tested the code and ensured the outputs are the same as the outputs of reference code.
-- [ ] I've checked the code (formatting, comments, indentation, file header, etc) carefully.
-- [ ] The code does not rely on a particular environment or IDE and can be executed on a standard system (Win, macOS, Ubuntu).
+- [ ] This PR represents the translation of a single, complete document, or contains only bug fixes.
+- [ ] The translation accurately conveys the original meaning and intent of the Chinese version. If deviations exist, I have provided explanatory comments to clarify the reasons.
+
+If this pull request (PR) is associated with **coding or code transpilation**, please attach the relevant console outputs to the PR and complete the following checklist:
+
+- [ ] I have thoroughly reviewed the code, focusing on its formatting, comments, indentation, and file headers.
+- [ ] I have confirmed that the code execution outputs are consistent with those produced by the reference code (Python or Java).
+- [ ] The code is designed to be compatible on standard operating systems, including Windows, macOS, and Ubuntu.
