@@ -108,8 +108,7 @@ hide:
 </div>
 
 <div class="admonition quote">
-  <p align="center">"Chase the wind and moon, never stopping"</p>
-  <p align="center">"Beyond the plains, there are spring mountains"</p>
+  <p align="center">"Knowledge increases by sharing."</p>
 </div>
 
 ---
