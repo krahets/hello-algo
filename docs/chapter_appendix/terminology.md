@@ -35,7 +35,7 @@
 | 缓存命中率   | cache hit rate                 | 二分查找    | binary search               |
 | 栈       | stack                          | 搜索算法    | searching algorithm         |
 | 栈顶      | top of the stack               | 排序算法    | sorting algorithm           |
-| 栈尾      | bottom of the stack            | 选择排序    | selection sort              |
+| 栈底      | bottom of the stack            | 选择排序    | selection sort              |
 | 队列      | queue                          | 冒泡排序    | bubble sort                 |
 | 队首      | front of the queue             | 插入排序    | insertion sort              |
 | 队尾      | rear of the queue              | 快速排序    | quick sort                  |
