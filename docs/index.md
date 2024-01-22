@@ -144,7 +144,7 @@ hide:
 <section data-md-color-scheme="slate" class="home-div">
   <div class="section-content">
     <div style="margin-top: 2em; margin-bottom: 1em;">
-      <img src="index.assets/hello_algo_header.png" style="width: 100%; max-width: 750px;">
+      <img src="index.assets/hello_algo_header.png" style="width: 100%; max-width: 39em;">
     </div>
     <div style="margin: 0.5em auto;">
       <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB">
@@ -176,7 +176,7 @@ hide:
       <img class="device-on-hover" src="assets/hero/pdf_ipad.png" style="height: 100%; left: 60%; bottom: 0%;">
       <img class="device-on-hover" src="assets/hero/web_iphone.png" style="height: 57.27%; left: 2%; bottom: 0%;">
     </div>
-    <p style="margin-top: 2em;">提供网页版和 PDF 版，兼容 PC、平板或手机，随时随地阅读</p>
+    <p style="margin-top: 2em;">提供网页版和 PDF 版，兼容 PC、平板和手机，随时随地阅读</p>
   </div>
 </section>
 
@@ -185,11 +185,11 @@ hide:
   <div class="section-content">
     <h3 style="text-align: center; margin: 1em auto;">推荐语</h3>
     <div class="intro-container" style="margin-bottom: 1em;">
-      <div class="intro-text">
+      <div class="intro-text endor-text">
         <p style="margin-bottom: 0;">“一本通俗易懂的数据结构与算法入门书，引导读者手脑并用地学习，强烈推荐算法初学者阅读。”</p>
         <p style="font-weight: bold;">—— 邓俊辉，清华大学计算机系教授</p>
       </div>
-      <div class="intro-text">
+      <div class="intro-text endor-text">
         <p style="margin-bottom: 0;">“如果我当年学数据结构与算法的时候有《Hello 算法》，学起来应该会简单 10 倍！”</p>
         <p style="font-weight: bold;">—— 李沐，亚马逊资深首席科学家</p>
       </div>
@@ -348,7 +348,7 @@ hide:
       <h3>贡献者</h3>
       <p>本书在开源社区 130 多位贡献者的共同努力下不断完善，感谢他们付出的时间与精力！</p>
       <a href="https://github.com/krahets/hello-algo/graphs/contributors">
-        <img src="https://contrib.rocks/image?repo=krahets/hello-algo" style="width: 100%; max-width: 830px;">
+        <img src="https://contrib.rocks/image?repo=krahets/hello-algo" style="width: 100%; max-width: 38.5em;">
       </a>
     </div>
   </div>
