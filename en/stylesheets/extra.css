@@ -216,3 +216,183 @@ body {
   transform-origin: top left;
   border: none;
 }
+
+/* landing page container */
+.home-div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: 0.9rem;
+  padding: 2em;
+  text-align: center;
+}
+
+.section-content {
+  width: 100%;
+  height: auto;
+  max-width: 70vw;
+}
+
+.hero-btn {
+  margin: 0 0.1em;
+  padding: 0.5em 1.3em;
+  font-size: 0.85em;
+}
+
+/* hero image */
+.hero-image-div {
+  height: min(84vh, 75vw);
+  width: min(112vh, 100vw);
+  margin: 0 auto;
+  margin-top: -2.4rem;
+  padding: 0;
+  position: relative;
+  color: white;
+  font-size: min(2vh, 2.5vw);
+  font-weight: 500;
+}
+
+.hero-bg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+/* hover on the planets */
+.hero-on-hover {
+  width: auto;
+  position: absolute;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.hero-caption {
+  margin: 0;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+a:hover .hero-on-hover {
+  filter: brightness(1.2) saturate(1.1);
+  transform: scale(1.03);
+}
+
+a:hover .hero-caption {
+  color: var(--md-typeset-btn-color);
+}
+
+/* device */
+.device-on-hover {
+  width: auto;
+  position: absolute;
+  transition: transform 0.3s ease-in-out;
+}
+
+.device-on-hover:hover {
+  transform: scale(1.03);
+}
+
+/* brief intro */
+.intro-container {
+  display: flex;
+  align-items: center;
+  margin: 2em auto;
+}
+
+.intro-image {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 55%;
+  border-radius: 0.5em;
+  box-shadow: var(--md-shadow-z2);
+}
+
+.intro-text {
+  flex-grow: 1; /* 允许元素填充剩余空间 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  align-items: flex-start;
+  width: fit-content;
+  margin: 2em;
+}
+
+.intro-text > div {
+  align-self: flex-start;
+  width: auto;
+  margin: 0 auto;
+}
+
+.intro-quote {
+  color: var(--md-accent-fg-color);
+  font-weight: bold;
+}
+
+/* contributors table */
+.profile-div {
+  display: flex;
+  flex-wrap: wrap; /* 当空间不足时换行 */
+  justify-content: center; /* 居中对齐子元素 */
+  max-width: 1080px; /* 或其他最大宽度 */
+  margin: 1em auto;
+}
+
+.profile-cell {
+  flex: 1; /* 每个单元格均分空间 */
+  flex-basis: 15%;
+  margin: 1em 0.5em; /* 为了清晰间隔，可以根据需要调整 */
+  text-align: center; /* 文本居中 */
+}
+
+.profile-img {
+  width: 5em;
+  border-radius: 50%;
+  margin-bottom: 0.2em;
+}
+
+.contrib-image {
+  width: 45%;
+}
+
+/* Hide table of contents */
+@media screen and (max-width: 60em) {
+  .home-div {
+    font-size: 0.75rem;
+  }
+}
+
+/* Hide navigation */
+@media screen and (max-width: 76.25em) {
+  .section-content {
+    max-width: 95vw;
+  }
+
+  .intro-container {
+    flex-direction: column; /* 竖向布局 */
+  }
+
+  .intro-text {
+    width: auto;
+    order: 2;
+    margin: 0 auto;
+  }
+
+  .intro-image {
+    width: 100%; /* 占满屏幕宽度 */
+    order: 1;
+    margin-bottom: 1em;
+  }
+
+  .contrib-image {
+    width: 100%;
+  }
+
+  .profile-cell {
+    flex-basis: 25%;
+  }
+}
