@@ -288,6 +288,18 @@ a:hover .hero-caption {
   font-weight: bold;
 }
 
+/* code badge */
+.code-badge {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.code-badge img {
+  height: 1.07em;
+  width: auto;
+}
+
 /* device */
 .device-on-hover {
   width: auto;
