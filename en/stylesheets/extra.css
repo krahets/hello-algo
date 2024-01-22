@@ -274,10 +274,12 @@ body {
   margin: 0;
   position: absolute;
   transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap; /* prevent line breaks */
 }
 
 a:hover .hero-on-hover {
-  filter: brightness(1.15) saturate(1.1) drop-shadow(0 0 0.5rem rgba(255, 255, 255, 0.2));
+  filter: brightness(1.15) saturate(1.1)
+    drop-shadow(0 0 0.5rem rgba(255, 255, 255, 0.2));
   transform: scale(1.03);
 }
 
@@ -314,7 +316,7 @@ a:hover .hero-caption {
 }
 
 .intro-text {
-  flex-grow: 1; /* 允许元素填充剩余空间 */
+  flex-grow: 1; /* fill the space */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -349,7 +351,7 @@ a:hover .hero-caption {
 }
 
 .profile-cell {
-  flex: 1; /* 每个单元格均分空间 */
+  flex: 1; /* even distribution */
   flex-basis: 15%;
   margin: 1em 0.5em;
   text-align: center;
@@ -381,7 +383,7 @@ a:hover .hero-caption {
   }
 
   .intro-container {
-    flex-direction: column; /* 竖向布局 */
+    flex-direction: column;
   }
 
   .intro-text {
@@ -396,7 +398,7 @@ a:hover .hero-caption {
   }
 
   .intro-image {
-    width: 100%; /* 占满屏幕宽度 */
+    width: 100%;
     order: 1;
     margin-bottom: 1em;
   }
