@@ -277,22 +277,24 @@ body {
 }
 
 a:hover .hero-on-hover {
-  filter: brightness(1.2) saturate(1.1);
+  filter: brightness(1.15) saturate(1.1) drop-shadow(0 0 0.5rem rgba(255, 255, 255, 0.2));
   transform: scale(1.03);
 }
 
 a:hover .hero-caption {
   color: var(--md-typeset-btn-color);
+  font-weight: bold;
 }
 
 /* device */
 .device-on-hover {
   width: auto;
   position: absolute;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 .device-on-hover:hover {
+  filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.15));
   transform: scale(1.03);
 }
 
@@ -328,6 +330,10 @@ a:hover .hero-caption {
   margin: 0 auto;
 }
 
+.endor-text {
+  width: 50%;
+}
+
 .intro-quote {
   color: var(--md-accent-fg-color);
   font-weight: bold;
@@ -336,27 +342,29 @@ a:hover .hero-caption {
 /* contributors table */
 .profile-div {
   display: flex;
-  flex-wrap: wrap; /* 当空间不足时换行 */
-  justify-content: center; /* 居中对齐子元素 */
-  max-width: 1080px; /* 或其他最大宽度 */
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 720px;
   margin: 1em auto;
 }
 
 .profile-cell {
   flex: 1; /* 每个单元格均分空间 */
   flex-basis: 15%;
-  margin: 1em 0.5em; /* 为了清晰间隔，可以根据需要调整 */
-  text-align: center; /* 文本居中 */
+  margin: 1em 0.5em;
+  text-align: center;
 }
 
 .profile-img {
   width: 5em;
   border-radius: 50%;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.5em;
 }
 
-.contrib-image {
-  width: 45%;
+.giscus-container {
+  width: 50em;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 /* Hide table of contents */
@@ -382,6 +390,11 @@ a:hover .hero-caption {
     margin: 0 auto;
   }
 
+  .endor-text {
+    width: auto;
+    margin: 0 auto;
+  }
+
   .intro-image {
     width: 100%; /* 占满屏幕宽度 */
     order: 1;
@@ -392,6 +405,9 @@ a:hover .hero-caption {
     width: 100%;
   }
 
+  .profile-div {
+    max-width: 500px;
+  }
   .profile-cell {
     flex-basis: 25%;
   }
