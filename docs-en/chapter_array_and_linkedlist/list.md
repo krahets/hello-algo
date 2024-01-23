@@ -1,13 +1,13 @@
 # List
 
-A "list" is an abstract data structure concept, representing an ordered collection of elements. It provides operations such as element access, modification, addition, deletion, and iteration, without requiring users to consider capacity limitations. Lists can be implemented using linked lists or arrays.
+A "list" is an abstract data structure concept that represents an ordered collection of elements, supporting operations such as element access, modification, addition, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.
 
-- A linked list inherently serves as a list, allowing for the addition, deletion, searching, and modification of elements. Additionally, it has the flexibility to adjust its length dynamically.
-- Arrays also provide these operations, but due to their immutable length property, they can be considered as a list with a length limit.
+- A linked list inherently serves as a list, supporting operations for adding, deleting, searching, and modifying elements, with the flexibility to dynamically adjust its size.
+- Arrays also support these operations, but due to their immutable length, they can be considered as a list with a length limit.
 
-When implementing lists using arrays, **the immutable length property reduces their practicality**. This is due to the often unpredictable nature of data storage needs, making it challenging to select an appropriate list length. If the length is too small, it may not meet the requirements; if too large, it may waste memory space.
+When implementing lists using arrays, **the immutability of length reduces the practicality of the list**. This is because predicting the amount of data to be stored in advance is often challenging, making it difficult to choose an appropriate list length. If the length is too small, it may not meet the requirements; if too large, it may waste memory space.
 
-To address this issue, we can implement lists using a "dynamic array." It inherits the advantages of arrays and can dynamically expand during program execution.
+To solve this problem, we can implement lists using a "dynamic array." It inherits the advantages of arrays and can dynamically expand during program execution.
 
 In fact, **many programming languages' standard libraries implement lists using dynamic arrays**, such as Python's `list`, Java's `ArrayList`, C++'s `vector`, and C#'s `List`. In the following discussion, we will consider "list" and "dynamic array" as synonymous concepts.
 
@@ -256,7 +256,7 @@ Lists are essentially arrays, thus they can access and update elements in $O(1)$
 
 ### Inserting and Removing Elements
 
-Compared to arrays, lists offer more flexibility in adding and removing elements. While adding elements to the end of a list is an $O(1)$ operation, the time complexity for inserting and removing elements elsewhere in the list remains the same as in arrays, which is $O(n)$.
+Compared to arrays, lists offer more flexibility in adding and removing elements. While adding elements to the end of a list is an $O(1)$ operation, the efficiency of inserting and removing elements elsewhere in the list remains the same as in arrays, with a time complexity of $O(n)$.
 
 === "Python"
 
@@ -857,7 +857,7 @@ Once the list is sorted, we can employ algorithms commonly used in array-related
 
 ## List Implementation
 
-Many programming languages come with built-in list structures, including Java, C++, Python, etc. Their implementations tend to be intricate, featuring carefully considered settings for various parameters, like initial capacity and expansion factors. Readers who are curious can delve into the source code for further learning.
+Many programming languages come with lists, including Java, C++, Python, etc. Their implementations tend to be intricate, featuring carefully considered settings for various parameters, like initial capacity and expansion factors. Readers who are curious can delve into the source code for further learning.
 
 To enhance our understanding of how lists work, we will attempt to implement a simplified version of a list, focusing on three crucial design aspects:
 
