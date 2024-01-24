@@ -3520,18 +3520,17 @@
 <p><strong>逻辑结构揭示了数据元素之间的逻辑关系</strong>。在数组和链表中，数据按照一定顺序排列，体现了数据之间的线性关系；而在树中，数据从顶部向下按层次排列，表现出“祖先”与“后代”之间的派生关系；图则由节点和边构成，反映了复杂的网络关系。</p>
 <p>如图 3-1 所示，逻辑结构可分为“线性”和“非线性”两大类。线性结构比较直观，指数据在逻辑关系上呈线性排列；非线性结构则相反，呈非线性排列。</p>
 <ul>
-<li><strong>线性数据结构</strong>：数组、链表、栈、队列、哈希表。</li>
+<li><strong>线性数据结构</strong>：数组、链表、栈、队列、哈希表，元素之间是一对一的顺序关系。</li>
 <li><strong>非线性数据结构</strong>：树、堆、图、哈希表。</li>
+</ul>
+<p>非线性数据结构可以进一步划分为树形结构和网状结构。</p>
+<ul>
+<li><strong>树形结构</strong>：树、堆、哈希表，元素之间是一对多的关系。</li>
+<li><strong>网状结构</strong>：图，元素之间是多对多的关系。</li>
 </ul>
 <p><a class="glightbox" href="../classification_of_data_structure.assets/classification_logic_structure.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="线性数据结构与非线性数据结构" class="animation-figure" src="../classification_of_data_structure.assets/classification_logic_structure.png" /></a></p>
 <p align="center"> 图 3-1 &nbsp; 线性数据结构与非线性数据结构 </p>
 
-<p>非线性数据结构可以进一步划分为树形结构和网状结构。</p>
-<ul>
-<li><strong>线性结构</strong>：数组、链表、队列、栈、哈希表，元素之间是一对一的顺序关系。</li>
-<li><strong>树形结构</strong>：树、堆、哈希表，元素之间是一对多的关系。</li>
-<li><strong>网状结构</strong>：图，元素之间是多对多的关系。</li>
-</ul>
 <h2 id="312">3.1.2 &nbsp; 物理结构：连续与分散<a class="headerlink" href="#312" title="Permanent link">&para;</a></h2>
 <p><strong>当算法程序运行时，正在处理的数据主要存储在内存中</strong>。图 3-2 展示了一个计算机内存条，其中每个黑色方块都包含一块内存空间。我们可以将内存想象成一个巨大的 Excel 表格，其中每个单元格都可以存储一定大小的数据。</p>
 <p><strong>系统通过内存地址来访问目标位置的数据</strong>。如图 3-2 所示，计算机根据特定规则为表格中的每个单元格分配编号，确保每个内存空间都有唯一的内存地址。有了这些地址，程序便可以访问内存中的数据。</p>

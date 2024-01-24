@@ -5498,7 +5498,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 
 <h3 id="5-olog-n">5. &nbsp; 对数阶 <span class="arithmatex">\(O(\log n)\)</span><a class="headerlink" href="#5-olog-n" title="Permanent link">&para;</a></h3>
 <p>对数阶常见于分治算法。例如归并排序，输入长度为 <span class="arithmatex">\(n\)</span> 的数组，每轮递归将数组从中点处划分为两半，形成高度为 <span class="arithmatex">\(\log n\)</span> 的递归树，使用 <span class="arithmatex">\(O(\log n)\)</span> 栈帧空间。</p>
-<p>再例如将数字转化为字符串，输入一个正整数 <span class="arithmatex">\(n\)</span> ，它的位数为 <span class="arithmatex">\(\log_{10} n + 1\)</span> ，即对应字符串长度为 <span class="arithmatex">\(\log_{10} n + 1\)</span> ，因此空间复杂度为 <span class="arithmatex">\(O(\log_{10} n + 1) = O(\log n)\)</span> 。</p>
+<p>再例如将数字转化为字符串，输入一个正整数 <span class="arithmatex">\(n\)</span> ，它的位数为 <span class="arithmatex">\(\lfloor \log_{10} n \rfloor + 1\)</span> ，即对应字符串长度为 <span class="arithmatex">\(\lfloor \log_{10} n \rfloor + 1\)</span> ，因此空间复杂度为 <span class="arithmatex">\(O(\log_{10} n + 1) = O(\log n)\)</span> 。</p>
 <h2 id="244">2.4.4 &nbsp; 权衡时间与空间<a class="headerlink" href="#244" title="Permanent link">&para;</a></h2>
 <p>理想情况下，我们希望算法的时间复杂度和空间复杂度都能达到最优。然而在实际情况中，同时优化时间复杂度和空间复杂度通常非常困难。</p>
 <p><strong>降低时间复杂度通常需要以提升空间复杂度为代价，反之亦然</strong>。我们将牺牲内存空间来提升算法运行速度的思路称为“以空间换时间”；反之，则称为“以时间换空间”。</p>
