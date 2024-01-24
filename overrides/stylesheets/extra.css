@@ -293,7 +293,7 @@ body {
   padding: 0;
   position: relative;
   color: white;
-  font-size: min(2vh, 2.5vw);
+  font-size: min(1.8vh, 2.5vw);
   font-weight: 500;
 }
 

@@ -38,7 +38,7 @@ hide:
     <a href="/chapter_stack_and_queue/">
       <img class="hero-on-hover" src="assets/hero/chapter_stack_and_queue.png"
         style="height: 14.302%; left: 62.646%; top: 77.875%;">
-      <span class="hero-caption" style="left: 78.371%; top: 90.25%;">栈与队列</span>
+      <span class="hero-caption" style="left: 77.571%; top: 91.25%;">栈与队列</span>
     </a>
     <a href="/chapter_hashing/">
       <img class="hero-on-hover" src="assets/hero/chapter_hashing.png"
@@ -93,14 +93,14 @@ hide:
   </div>
 
   <!-- heading and buttons -->
-  <div style="width: 100%; position: absolute; transform: translateX(-50%); left: 50%; bottom: min(2vh, 3vw);">
+  <div style="width: 100%; position: absolute; transform: translateX(-50%); left: 50%; bottom: min(2vh, 3vw); pointer-events: none;">
     <img style="height: min(9vh, 12vw);"
       src="https://readme-typing-svg.demolab.com/?font=Noto+Sans+SC&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+%E7%AE%97%E6%B3%95+!"
       alt="hello-algo-typing-svg" />
     <p style="color: #fff; margin-top: max(-1vh, -2vw); margin-bottom: min(2vh, 3.5vw);">
       动画图解、一键运行的数据结构与算法教程
     </p>
-    <div>
+    <div style="pointer-events: auto;">
       <a href="/chapter_preface/" class="rounded-button">
         <svg xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
