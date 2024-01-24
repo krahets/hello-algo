@@ -204,7 +204,7 @@ body {
   background-color: var(--md-default-bg-color);
   color: var(--md-default-fg-color);
   font-size: 0.9rem;
-  padding: 2em;
+  padding: 3em 2em;
   text-align: center;
 }
 
@@ -221,7 +221,7 @@ body {
   justify-content: center;
   border-radius: 10em;
   margin: 0 0.1em;
-  padding: 0.5em 1.3em;
+  padding: 0.6em 1.3em;
   border: none;
   background-color: var(--md-typeset-btn-color);
   color: var(--md-primary-fg-color) !important;
@@ -234,9 +234,10 @@ body {
   background-color: var(--md-typeset-btn-hover-color);
 }
 
-.rounded-button p {
+.rounded-button span {
   margin: 0;
-  margin-bottom: 0.1em;
+  margin-bottom: 0.07em;
+  white-space: nowrap;
 }
 
 .rounded-button svg {
@@ -257,16 +258,20 @@ body {
 }
 
 .text-button {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   color: var(--md-typeset-btn-color);
   text-decoration: none;
-  margin: 0 1em;
 }
 
 .text-button:hover {
   text-decoration: underline;
+}
+
+.text-button span {
+  white-space: nowrap;
 }
 
 .text-button svg {

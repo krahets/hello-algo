@@ -23,72 +23,72 @@ hide:
       style="position: absolute; width: auto; height: 78.751%; left: 10.545%; top: 7.326%;">
     <a href="/chapter_introduction/">
       <img class="hero-on-hover" src="assets/hero/astronaut.png" style="height: 46.673%; left: 35.413%; top: 24.343%;">
-      <p class="hero-caption" style="left: 52.244%; top: 20.919%;">初识算法</p>
+      <span class="hero-caption" style="left: 52.244%; top: 20.919%;">初识算法</span>
     </a>
     <a href="/chapter_computational_complexity/">
       <img class="hero-on-hover" src="assets/hero/chapter_computational_complexity.png"
         style="height: 12.347%; left: 36.267%; top: 37.653%;">
-      <p class="hero-caption" style="left: 39.244%; top: 33.919%;">复杂度</p>
+      <span class="hero-caption" style="left: 39.244%; top: 33.919%;">复杂度</span>
     </a>
     <a href="/chapter_array_and_linkedlist/">
       <img class="hero-on-hover" src="assets/hero/chapter_array_and_linkedlist.png"
         style="height: 22.242%; left: 73.242%; top: 52.481%;">
-      <p class="hero-caption" style="left: 90.897%; top: 76.259%;">数组与链表</p>
+      <span class="hero-caption" style="left: 90.897%; top: 76.259%;">数组与链表</span>
     </a>
     <a href="/chapter_stack_and_queue/">
       <img class="hero-on-hover" src="assets/hero/chapter_stack_and_queue.png"
         style="height: 14.302%; left: 62.646%; top: 77.875%;">
-      <p class="hero-caption" style="left: 78.371%; top: 90.25%;">栈与队列</p>
+      <span class="hero-caption" style="left: 78.371%; top: 90.25%;">栈与队列</span>
     </a>
     <a href="/chapter_hashing/">
       <img class="hero-on-hover" src="assets/hero/chapter_hashing.png"
         style="height: 15.266%; left: 63.281%; top: 27.933%;">
-      <p class="hero-caption" style="left: 68.862%; top: 46.292%;">哈希表</p>
+      <span class="hero-caption" style="left: 68.862%; top: 46.292%;">哈希表</span>
     </a>
     <a href="/chapter_tree/">
       <img class="hero-on-hover" src="assets/hero/chapter_tree.png"
         style="height: 19.615%; left: 80.137%; top: 26.678%;">
-      <p class="hero-caption" style="left: 96.159%; top: 44.8%;">树</p>
+      <span class="hero-caption" style="left: 96.159%; top: 44.8%;">树</span>
     </a>
     <a href="/chapter_heap/">
       <img class="hero-on-hover" src="assets/hero/chapter_heap.png"
         style="height: 10.566%; left: 77.226%; top: 11.559%;">
-      <p class="hero-caption" style="left: 88.103%; top: 15.422%;">堆</p>
+      <span class="hero-caption" style="left: 88.103%; top: 15.422%;">堆</span>
     </a>
     <a href="/chapter_graph/">
       <img class="hero-on-hover" src="assets/hero/chapter_graph.png"
         style="height: 16.112%; left: 51.854%; top: 5.575%;">
-      <p class="hero-caption" style="left: 71.195%; top: 6.503%;">图</p>
+      <span class="hero-caption" style="left: 71.195%; top: 6.503%;">图</span>
     </a>
     <a href="/chapter_searching/">
       <img class="hero-on-hover" src="assets/hero/chapter_searching.png"
         style="height: 15.149%; left: 18.185%; top: 16.404%;">
-      <p class="hero-caption" style="left: 14.556%; top: 20.876%;">搜索</p>
+      <span class="hero-caption" style="left: 14.556%; top: 20.876%;">搜索</span>
     </a>
     <a href="/chapter_sorting/">
       <img class="hero-on-hover" src="assets/hero/chapter_sorting.png"
         style="height: 9.574%; left: 25.409%; top: 40.747%;">
-      <p class="hero-caption" style="left: 28.805%; top: 53.808%;">排序</p>
+      <span class="hero-caption" style="left: 28.805%; top: 53.808%;">排序</span>
     </a>
     <a href="/chapter_divide_and_conquer/">
       <img class="hero-on-hover" src="assets/hero/chapter_divide_and_conquer.png"
         style="height: 18.681%; left: 32.721%; top: 4.816%;">
-      <p class="hero-caption" style="left: 31.42%; top: 8.679%;">分治</p>
+      <span class="hero-caption" style="left: 31.42%; top: 8.679%;">分治</span>
     </a>
     <a href="/chapter_backtracking/">
       <img class="hero-on-hover" src="assets/hero/chapter_backtracking.png"
         style="height: 17.338%; left: 4.875%; top: 32.925%;">
-      <p class="hero-caption" style="left: 4.742%; top: 50.113%;">回溯</p>
+      <span class="hero-caption" style="left: 4.742%; top: 50.113%;">回溯</span>
     </a>
     <a href="/chapter_dynamic_programming/">
       <img class="hero-on-hover" src="assets/hero/chapter_dynamic_programming.png"
         style="height: 15.47%; left: 9.406%; top: 57.472%;">
-      <p class="hero-caption" style="left: 8.561%; top: 75.351%;">动态规划</p>
+      <span class="hero-caption" style="left: 8.561%; top: 75.351%;">动态规划</span>
     </a>
     <a href="/chapter_greedy/">
       <img class="hero-on-hover" src="assets/hero/chapter_greedy.png"
         style="height: 14.127%; left: 23.132%; top: 75.803%;">
-      <p class="hero-caption" style="left: 21.619%; top: 86.85%;">贪心</p>
+      <span class="hero-caption" style="left: 21.619%; top: 86.85%;">贪心</span>
     </a>
   </div>
 
@@ -107,7 +107,7 @@ hide:
           <path
             d="M160 96a96 96 0 1 1 192 0A96 96 0 1 1 160 96zm80 152V512l-48.4-24.2c-20.9-10.4-43.5-17-66.8-19.3l-96-9.6C12.5 457.2 0 443.5 0 427V224c0-17.7 14.3-32 32-32H62.3c63.6 0 125.6 19.6 177.7 56zm32 264V248c52.1-36.4 114.1-56 177.7-56H480c17.7 0 32 14.3 32 32V427c0 16.4-12.5 30.2-28.8 31.8l-96 9.6c-23.2 2.3-45.9 8.9-66.8 19.3L272 512z" />
         </svg>
-        <p>开始阅读</p>
+        <span>开始阅读</span>
       </a>
       <a href="https://github.com/krahets/hello-algo" class="rounded-button">
         <svg xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +116,7 @@ hide:
             d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
           </path>
         </svg>
-        <p>代码仓库</p>
+        <span>代码仓库</span>
       </a>
     </div>
     <!-- arrow -->
@@ -157,7 +157,7 @@ hide:
 <!-- Section: reading -->
 <section data-md-color-scheme="default" data-md-color-primary="white" class="home-div">
   <div class="section-content">
-    <div style="height: min(37vh, 33vw); width: min(75vh, 75vw); position: relative; margin: 1em auto;">
+    <div style="height: min(37vh, 33vw); width: min(75vh, 75vw); position: relative; margin: 0.5em auto;">
       <!-- devices -->
       <!-- mac height = 248.1 mm -->
       <!-- ipad height = 280.6mm -->
@@ -166,11 +166,11 @@ hide:
       <img class="device-on-hover" src="assets/hero/pdf_ipad.png" style="height: 100%; left: 60%; bottom: 0%;">
       <img class="device-on-hover" src="assets/hero/web_iphone.png" style="height: 57.27%; left: 2%; bottom: 0%;">
     </div>
-    <p style="margin-top: 2em;">提供网页版和 PDF 版，兼容 PC、平板和手机，随时随地阅读</p>
+    <p style="margin: 2em auto;">提供网页版和 PDF 版，兼容 PC、平板和手机，随时随地阅读</p>
     <div class="text-button-container">
       <a href="https://github.com/krahets/hello-algo/releases">
         <div class="text-button">
-          <p>下载 PDF</p>
+          <span>下载 PDF</span>
           <svg xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
             <path
@@ -186,7 +186,7 @@ hide:
 <section data-md-color-scheme="slate" data-md-color-primary="grey" class="home-div">
   <div class="section-content">
     <h3 style="text-align: center; margin: 1em auto;">推荐语</h3>
-    <div class="intro-container" style="margin-bottom: 1em;">
+    <div class="intro-container" style="margin: 0 auto;">
       <div class="intro-text endor-text">
         <p style="margin-bottom: 0;">“一本通俗易懂的数据结构与算法入门书，引导读者手脑并用地学习，强烈推荐算法初学者阅读。”</p>
         <p style="font-weight: bold;">—— 邓俊辉，清华大学计算机系教授</p>
