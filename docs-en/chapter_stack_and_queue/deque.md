@@ -577,8 +577,8 @@ The implementation code is as follows:
                 if (fNext != nullptr) {
                     fNext->prev = nullptr;
                     front->next = nullptr;
-                    delete front;
                 }
+                delete front;
                 front = fNext; // 更新头节点
             // 队尾出队操作
             } else {
@@ -588,8 +588,8 @@ The implementation code is as follows:
                 if (rPrev != nullptr) {
                     rPrev->next = nullptr;
                     rear->prev = nullptr;
-                    delete rear;
                 }
+                delete rear;
                 rear = rPrev; // 更新尾节点
             }
             queSize--; // 更新队列长度
