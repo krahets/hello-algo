@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.5">
     
     
       
@@ -1100,18 +1100,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-inserting-and-deleting-elements" class="md-nav__link">
+  <a href="#3-inserting-and-removing-elements" class="md-nav__link">
     <span class="md-ellipsis">
-      3. &nbsp; Inserting and Deleting Elements
+      3. &nbsp; Inserting and Removing Elements
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-traversing-the-list" class="md-nav__link">
+  <a href="#4-iterating-the-list" class="md-nav__link">
     <span class="md-ellipsis">
-      4. &nbsp; Traversing the List
+      4. &nbsp; Iterating the List
     </span>
   </a>
   
@@ -1416,18 +1416,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-inserting-and-deleting-elements" class="md-nav__link">
+  <a href="#3-inserting-and-removing-elements" class="md-nav__link">
     <span class="md-ellipsis">
-      3. &nbsp; Inserting and Deleting Elements
+      3. &nbsp; Inserting and Removing Elements
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-traversing-the-list" class="md-nav__link">
+  <a href="#4-iterating-the-list" class="md-nav__link">
     <span class="md-ellipsis">
-      4. &nbsp; Traversing the List
+      4. &nbsp; Iterating the List
     </span>
   </a>
   
@@ -1502,17 +1502,17 @@
 
 <!-- Page content -->
 <h1 id="43-list">4.3 &nbsp; List<a class="headerlink" href="#43-list" title="Permanent link">&para;</a></h1>
-<p>A "list" is an abstract data structure concept, representing an ordered collection of elements. It supports operations like element access, modification, addition, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.</p>
+<p>A "list" is an abstract data structure concept that represents an ordered collection of elements, supporting operations such as element access, modification, addition, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.</p>
 <ul>
-<li>A linked list naturally functions as a list, supporting operations for adding, deleting, searching, and modifying elements, and can dynamically adjust its size.</li>
-<li>Arrays also support these operations, but due to their fixed length, they can be considered as a list with a length limit.</li>
+<li>A linked list inherently serves as a list, supporting operations for adding, deleting, searching, and modifying elements, with the flexibility to dynamically adjust its size.</li>
+<li>Arrays also support these operations, but due to their immutable length, they can be considered as a list with a length limit.</li>
 </ul>
-<p>When using arrays to implement lists, <strong>the fixed length property reduces the practicality of the list</strong>. This is because we often cannot determine in advance how much data needs to be stored, making it difficult to choose an appropriate list length. If the length is too small, it may not meet the requirements; if too large, it may waste memory space.</p>
-<p>To solve this problem, we can use a "dynamic array" to implement lists. It inherits the advantages of arrays and can dynamically expand during program execution.</p>
+<p>When implementing lists using arrays, <strong>the immutability of length reduces the practicality of the list</strong>. This is because predicting the amount of data to be stored in advance is often challenging, making it difficult to choose an appropriate list length. If the length is too small, it may not meet the requirements; if too large, it may waste memory space.</p>
+<p>To solve this problem, we can implement lists using a "dynamic array." It inherits the advantages of arrays and can dynamically expand during program execution.</p>
 <p>In fact, <strong>many programming languages' standard libraries implement lists using dynamic arrays</strong>, such as Python's <code>list</code>, Java's <code>ArrayList</code>, C++'s <code>vector</code>, and C#'s <code>List</code>. In the following discussion, we will consider "list" and "dynamic array" as synonymous concepts.</p>
 <h2 id="431-common-list-operations">4.3.1 &nbsp; Common List Operations<a class="headerlink" href="#431-common-list-operations" title="Permanent link">&para;</a></h2>
 <h3 id="1-initializing-a-list">1. &nbsp; Initializing a List<a class="headerlink" href="#1-initializing-a-list" title="Permanent link">&para;</a></h3>
-<p>We typically use two methods of initialization: "without initial values" and "with initial values".</p>
+<p>We typically use two initialization methods: "without initial values" and "with initial values".</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1612,7 +1612,7 @@
 </div>
 </div>
 <h3 id="2-accessing-elements">2. &nbsp; Accessing Elements<a class="headerlink" href="#2-accessing-elements" title="Permanent link">&para;</a></h3>
-<p>Lists are essentially arrays, so accessing and updating elements can be done in <span class="arithmatex">\(O(1)\)</span> time, which is very efficient.</p>
+<p>Lists are essentially arrays, thus they can access and update elements in <span class="arithmatex">\(O(1)\)</span> time, which is very efficient.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1708,8 +1708,8 @@
 </div>
 </div>
 </div>
-<h3 id="3-inserting-and-deleting-elements">3. &nbsp; Inserting and Deleting Elements<a class="headerlink" href="#3-inserting-and-deleting-elements" title="Permanent link">&para;</a></h3>
-<p>Compared to arrays, lists can freely add and remove elements. Adding elements at the end of the list has a time complexity of <span class="arithmatex">\(O(1)\)</span>, but the efficiency of inserting and deleting elements is still the same as in arrays, with a time complexity of <span class="arithmatex">\(O(n)\)</span>.</p>
+<h3 id="3-inserting-and-removing-elements">3. &nbsp; Inserting and Removing Elements<a class="headerlink" href="#3-inserting-and-removing-elements" title="Permanent link">&para;</a></h3>
+<p>Compared to arrays, lists offer more flexibility in adding and removing elements. While adding elements to the end of a list is an <span class="arithmatex">\(O(1)\)</span> operation, the efficiency of inserting and removing elements elsewhere in the list remains the same as in arrays, with a time complexity of <span class="arithmatex">\(O(n)\)</span>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1916,8 +1916,8 @@
 </div>
 </div>
 </div>
-<h3 id="4-traversing-the-list">4. &nbsp; Traversing the List<a class="headerlink" href="#4-traversing-the-list" title="Permanent link">&para;</a></h3>
-<p>Like arrays, lists can be traversed based on index, or by directly iterating over each element.</p>
+<h3 id="4-iterating-the-list">4. &nbsp; Iterating the List<a class="headerlink" href="#4-iterating-the-list" title="Permanent link">&para;</a></h3>
+<p>Similar to arrays, lists can be iterated either by using indices or by directly iterating through each element.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:12"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2157,7 +2157,7 @@
 </div>
 </div>
 <h3 id="6-sorting-the-list">6. &nbsp; Sorting the List<a class="headerlink" href="#6-sorting-the-list" title="Permanent link">&para;</a></h3>
-<p>After sorting the list, we can use algorithms often tested in array-related algorithm problems, such as "binary search" and "two-pointer" algorithms.</p>
+<p>Once the list is sorted, we can employ algorithms commonly used in array-related algorithm problems, such as "binary search" and "two-pointer" algorithms.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Java</label><label for="__tabbed_6_4">C#</label><label for="__tabbed_6_5">Go</label><label for="__tabbed_6_6">Swift</label><label for="__tabbed_6_7">JS</label><label for="__tabbed_6_8">TS</label><label for="__tabbed_6_9">Dart</label><label for="__tabbed_6_10">Rust</label><label for="__tabbed_6_11">C</label><label for="__tabbed_6_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2222,12 +2222,12 @@
 </div>
 </div>
 <h2 id="432-list-implementation">4.3.2 &nbsp; List Implementation<a class="headerlink" href="#432-list-implementation" title="Permanent link">&para;</a></h2>
-<p>Many programming languages have built-in lists, such as Java, C++, Python, etc. Their implementations are quite complex, with very meticulous settings for parameters such as initial capacity and expansion multiplier. Interested readers can refer to the source code for learning.</p>
-<p>To deepen the understanding of how lists work, let's try implementing a simple version of a list, focusing on three key designs.</p>
+<p>Many programming languages come with built-in lists, including Java, C++, Python, etc. Their implementations tend to be intricate, featuring carefully considered settings for various parameters, like initial capacity and expansion factors. Readers who are curious can delve into the source code for further learning.</p>
+<p>To enhance our understanding of how lists work, we will attempt to implement a simplified version of a list, focusing on three crucial design aspects:</p>
 <ul>
 <li><strong>Initial Capacity</strong>: Choose a reasonable initial capacity for the array. In this example, we choose 10 as the initial capacity.</li>
 <li><strong>Size Recording</strong>: Declare a variable <code>size</code> to record the current number of elements in the list, updating in real-time with element insertion and deletion. With this variable, we can locate the end of the list and determine whether expansion is needed.</li>
-<li><strong>Expansion Mechanism</strong>: If the list's capacity is full when inserting an element, expansion is necessary. First, create a larger array based on the expansion multiplier, then move all elements of the current array to the new array. In this example, we define that each time the array will expand to twice its previous size.</li>
+<li><strong>Expansion Mechanism</strong>: If the list reaches full capacity upon an element insertion, an expansion process is required. This involves creating a larger array based on the expansion factor, and then transferring all elements from the current array to the new one. In this example, we stipulate that the array size should double with each expansion.</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:12"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><input id="__tabbed_7_5" name="__tabbed_7" type="radio" /><input id="__tabbed_7_6" name="__tabbed_7" type="radio" /><input id="__tabbed_7_7" name="__tabbed_7" type="radio" /><input id="__tabbed_7_8" name="__tabbed_7" type="radio" /><input id="__tabbed_7_9" name="__tabbed_7" type="radio" /><input id="__tabbed_7_10" name="__tabbed_7" type="radio" /><input id="__tabbed_7_11" name="__tabbed_7" type="radio" /><input id="__tabbed_7_12" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">C++</label><label for="__tabbed_7_3">Java</label><label for="__tabbed_7_4">C#</label><label for="__tabbed_7_5">Go</label><label for="__tabbed_7_6">Swift</label><label for="__tabbed_7_7">JS</label><label for="__tabbed_7_8">TS</label><label for="__tabbed_7_9">Dart</label><label for="__tabbed_7_10">Rust</label><label for="__tabbed_7_11">C</label><label for="__tabbed_7_12">Zig</label></div>
 <div class="tabbed-content">
@@ -3704,10 +3704,10 @@ aria-label="Footer"
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       
