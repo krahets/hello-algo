@@ -310,7 +310,7 @@ Typically, we can directly use the stack class built into the programming langua
 
 To gain a deeper understanding of how a stack operates, let's try implementing a stack class ourselves.
 
-A stack follows the principle of Last-In-First-Out, which means we can only add or remove elements at the top of the stack. However, both arrays and linked lists allow adding and removing elements at any position, **therefore a stack can be seen as a restricted array or linked list**. In other words, we can "abstract" some unrelated operations of arrays or linked lists to make their logic conform to the characteristics of a stack.
+A stack follows the principle of Last-In-First-Out, which means we can only add or remove elements at the top of the stack. However, both arrays and linked lists allow adding and removing elements at any position, **therefore a stack can be seen as a restricted array or linked list**. In other words, we can "shield" certain irrelevant operations of an array or linked list, aligning their external behavior with the characteristics of a stack.
 
 ### Implementation Based on Linked List
 
