@@ -250,7 +250,7 @@ hide:
             <h3 style="margin-left: 0.5em;">互助学习</h3>
           </div>
           <p style="margin: 0;">欢迎讨论与提问，读者间携手共进</p>
-          <p class="intro-quote">"Knowledge increases by sharing."</br>“知识在分享中得以增长”</p>
+          <p class="intro-quote">"Learning by teaching."</br>“教学相长”</p>
         </div>
       </div>
       <img class="intro-image" src="index.assets/comment.gif">
