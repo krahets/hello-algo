@@ -113,7 +113,7 @@ We know that the keys in a hash table can be of various data types such as integ
 
     Be aware that the definition and methods of the built-in hash value calculation functions in different programming languages vary.
 
-=== Python
+=== "Python"
 
     ```python title="built_in_hash.py"
     num = 3
@@ -141,7 +141,7 @@ We know that the keys in a hash table can be of various data types such as integ
     # Hash value of ListNode object at 0x1058fd810 is 274267521
     ```
 
-=== C++
+=== "C++"
 
     ```cpp title="built_in_hash.cpp"
     int num = 3;
@@ -164,7 +164,7 @@ We know that the keys in a hash table can be of various data types such as integ
     // Hash values for arrays and objects need to be implemented separately
     ```
 
-=== Java
+=== "Java"
 
     ```java title="built_in_hash.java"
     int num = 3;
@@ -192,7 +192,7 @@ We know that the keys in a hash table can be of various data types such as integ
     // Hash value of ListNode object utils.ListNode@7dc5e7b4 is 2110121908
     ```
 
-=== C#
+=== "C#"
 
     ```csharp title="built_in_hash.cs"
     int num = 3;
@@ -220,13 +220,13 @@ We know that the keys in a hash table can be of various data types such as integ
     // Hash value of ListNode object 0 is 39053774;
     ```
 
-=== Go
+=== "Go"
 
     ```go title="built_in_hash.go"
     // Go does not provide built-in hash code functions
     ```
 
-=== Swift
+=== "Swift"
 
     ```swift title="built_in_hash.swift"
     let num = 3
@@ -246,9 +246,7 @@ We know that the keys in a hash table can be of various data types such as integ
     // Hash value of string "Hello 算法" is -7850626797806988787
 
     let arr = [AnyHashable(12836), AnyHashable("小哈")]
-    let hashT
-
-    up = arr.hashValue
+    let hashTup = arr.hashValue
     // Hash value of array [AnyHashable(12836), AnyHashable("小哈")] is -2308633508154532996
 
     let obj = ListNode(x: 0)
@@ -256,19 +254,19 @@ We know that the keys in a hash table can be of various data types such as integ
     // Hash value of ListNode object utils.ListNode is -2434780518035996159
     ```
 
-=== JavaScript
+=== "JS"
 
     ```javascript title="built_in_hash.js"
     // JavaScript does not provide built-in hash code functions
     ```
 
-=== TypeScript
+=== "TS"
 
     ```typescript title="built_in_hash.ts"
     // TypeScript does not provide built-in hash code functions
     ```
 
-=== Dart
+=== "Dart"
 
     ```dart title="built_in_hash.dart"
     int num = 3;
@@ -296,7 +294,7 @@ We know that the keys in a hash table can be of various data types such as integ
     // Hash value of ListNode object Instance of 'ListNode' is 1033450432
     ```
 
-=== Rust
+=== "Rust"
 
     ```rust title="built_in_hash.rs"
     use std::collections::hash_map::DefaultHasher;
@@ -339,13 +337,13 @@ We know that the keys in a hash table can be of various data types such as integ
     // Hash value of ListNode object RefCell { value: ListNode { val: 42, next: None } } is 15387811073369036852
     ```
 
-=== C
+=== "C"
 
     ```c title="built_in_hash.c"
     // C does not provide built-in hash code functions
     ```
 
-=== Zig
+=== "Zig"
 
     ```zig title="built_in_hash.zig"
 
@@ -360,7 +358,3 @@ In many programming languages, **only immutable objects can serve as the `key` i
 Although the member variables of a custom object (such as a linked list node) are mutable, it is hashable. **This is because the hash value of an object is usually generated based on its memory address**, and even if the contents of the object change, the memory address remains the same, so the hash value remains unchanged.
 
 You might have noticed that the hash values output in different consoles are different. **This is because the Python interpreter adds a random salt to the string hash function each time it starts up**. This approach effectively prevents HashDoS attacks and enhances the security of the hash algorithm.
-
-# Hash Values in Different Programming Languages
-
-This section presents examples of how hash values can be computed for various data types in different programming languages.

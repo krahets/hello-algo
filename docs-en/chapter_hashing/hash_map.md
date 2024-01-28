@@ -26,7 +26,7 @@ Observations reveal that **the time complexity for adding, deleting, and queryin
 
 Common operations of a hash table include initialization, querying, adding key-value pairs, and deleting key-value pairs, etc. Example code is as follows:
 
-=== Python
+=== "Python"
 
     ```python title="hash_map.py"
     # Initialize hash table
@@ -49,7 +49,7 @@ Common operations of a hash table include initialization, querying, adding key-v
     hmap.pop(10583)
     ```
 
-=== C++
+=== "C++"
 
     ```cpp title="hash_map.cpp"
     /* Initialize hash table */
@@ -72,7 +72,7 @@ Common operations of a hash table include initialization, querying, adding key-v
     map.erase(10583);
     ```
 
-=== Java
+=== "Java"
 
     ```java title="hash_map.java"
     /* Initialize hash table */
@@ -95,7 +95,7 @@ Common operations of a hash table include initialization, querying, adding key-v
     map.remove(10583);
     ```
 
-=== C#
+=== "C#"
 
     ```csharp title="hash_map.cs"
     /* Initialize hash table */
@@ -118,7 +118,7 @@ Common operations of a hash table include initialization, querying, adding key-v
     map.Remove(10583);
     ```
 
-=== Go
+=== "Go"
 
     ```go title="hash_map_test.go"
     /* Initialize hash table */
@@ -141,7 +141,7 @@ Common operations of a hash table include initialization, querying, adding key-v
     delete(hmap, 10583)
     ```
 
-=== Swift
+=== "Swift"
 
     ```swift title="hash_map.swift"
     /* Initialize hash table */
@@ -164,7 +164,7 @@ Common operations of a hash table include initialization, querying, adding key-v
     map.removeValue(forKey: 10583)
     ```
 
-=== JavaScript
+=== "JS"
 
     ```javascript title="hash_map.js"
     /* Initialize hash table */
@@ -186,7 +186,7 @@ Common operations of a hash table include initialization, querying, adding key-v
     map.delete(10583);
     ```
 
-=== TypeScript
+=== "TS"
 
     ```typescript title="hash_map.ts"
     /* Initialize hash table */
@@ -213,7 +213,7 @@ Common operations of a hash table include initialization, querying, adding key-v
     console.info(map);
     ```
 
-=== Dart
+=== "Dart"
 
     ```dart title="hash_map.dart"
     /* Initialize hash table */
@@ -236,7 +236,7 @@ Common operations of a hash table include initialization, querying, adding key-v
     map.remove(10583);
     ```
 
-=== Rust
+=== "Rust"
 
     ```rust title="hash_map.rs"
     use std::collections::HashMap;
@@ -261,13 +261,13 @@ Common operations of a hash table include initialization, querying, adding key-v
     let _removed_value: Option<String> = map.remove(&10583);
     ```
 
-=== C
+=== "C"
 
     ```c title="hash_map.c"
     // C does not provide a built-in hash table
     ```
 
-=== Zig
+=== "Zig"
 
     ```zig title="hash_map.zig"
 
@@ -279,7 +279,7 @@ Common operations of a hash table include initialization, querying, adding key-v
 
 There are three common ways to traverse a hash table: traversing key-value pairs, keys, and values. Example code is as follows:
 
-=== Python
+=== "Python"
 
     ```python title="hash_map.py"
     # Traverse hash table
@@ -294,7 +294,7 @@ There are three common ways to traverse a hash table: traversing key-value pairs
         print(value)
     ```
 
-=== C++
+=== "C++"
 
     ```cpp title="hash_map.cpp"
     /* Traverse hash table */
@@ -308,7 +308,7 @@ There are three common ways to traverse a hash table: traversing key-value pairs
     }
     ```
 
-=== Java
+=== "Java"
 
     ```java title="hash_map.java"
     /* Traverse hash table */
@@ -326,7 +326,7 @@ There are three common ways to traverse a hash table: traversing key-value pairs
     }
     ```
 
-=== C#
+=== "C#"
 
     ```csharp title="hash_map.cs"
     /* Traverse hash table */
@@ -344,7 +344,7 @@ There are three common ways to traverse a hash table: traversing key-value pairs
     }
     ```
 
-=== Go
+=== "Go"
 
     ```go title="hash_map_test.go"
     /* Traverse hash table */
@@ -362,7 +362,7 @@ There are three common ways to traverse a hash table: traversing key-value pairs
     }
     ```
 
-=== Swift
+=== "Swift"
 
     ```swift title="hash_map.swift"
     /* Traverse hash table */
@@ -380,7 +380,7 @@ There are three common ways to traverse a hash table: traversing key-value pairs
     }
     ```
 
-=== JavaScript
+=== "JS"
 
     ```javascript title="hash_map.js"
     /* Traverse hash table */
@@ -398,7 +398,7 @@ There are three common ways to traverse a hash table: traversing key-value pairs
     }
     ```
 
-=== TypeScript
+=== "TS"
 
     ```typescript title="hash_map.ts"
     /* Traverse hash table */
@@ -416,7 +416,7 @@ There are three common ways to traverse a hash table: traversing key-value pairs
     }
     ```
 
-=== Dart
+=== "Dart"
 
     ```dart title="hash_map.dart"
     /* Traverse hash table */
@@ -436,7 +436,7 @@ There are three common ways to traverse a hash table: traversing key-value pairs
     });
     ```
 
-=== Rust
+=== "Rust"
 
     ```rust title="hash_map.rs"
     /* Traverse hash table */
@@ -456,19 +456,19 @@ There are three common ways to traverse a hash table: traversing key-value pairs
     }
     ```
 
-=== C
+=== "C"
 
     ```c title="hash_map.c"
     // C does not provide a built-in hash table
     ```
 
-=== Zig
+=== "Zig"
 
     ```zig title="hash_map.zig"
     // Zig example is not provided
     ```
 
-??? pythontutor "可视化运行"
+??? pythontutor "Code Visualization"
 
     https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&cumulative=false&curInstr=8&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
