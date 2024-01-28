@@ -67,13 +67,13 @@ nav:
     - 5.2 Queue: chapter_stack_and_queue/queue.md
     - 5.3 Double-ended Queue: chapter_stack_and_queue/deque.md
     - 5.4 Summary: chapter_stack_and_queue/summary.md
-  # - Chapter 6. Hash Table:
-  #   # [icon: material/table-search]
-  #   - chapter_hashing/index.md
-  #   - 6.1 Hash Table: chapter_hashing/hash_map.md
-  #   - 6.2 Hash Collision: chapter_hashing/hash_collision.md
-  #   - 6.3 Hash Algorithm: chapter_hashing/hash_algorithm.md
-  #   - 6.4 Summary: chapter_hashing/summary.md
+  - Chapter 6. Hash Table:
+    # [icon: material/table-search]
+    - chapter_hashing/index.md
+    - 6.1 Hash Table: chapter_hashing/hash_map.md
+    - 6.2 Hash Collision: chapter_hashing/hash_collision.md
+    - 6.3 Hash Algorithm: chapter_hashing/hash_algorithm.md
+    - 6.4 Summary: chapter_hashing/summary.md
   # - Chapter 7. Tree:
   #   # [icon: material/graph-outline]
   #   - chapter_tree/index.md

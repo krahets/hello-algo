@@ -316,7 +316,6 @@ $$
     let mut dec_hasher = DefaultHasher::new();
     dec.to_bits().hash(&mut dec_hasher);
     let hash_dec = dec_hasher.finish();
-    println!("小数 {} 的哈希值为 {}", dec, hash_dec);
     // 小数 3.14159 的哈希值为 2566941990314602357
 
     let str = "Hello 算法";
