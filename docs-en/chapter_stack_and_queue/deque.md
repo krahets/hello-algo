@@ -6,7 +6,7 @@ In a queue, we can only delete elements from the head or add elements to the tai
 
 ## Common Operations in Double-Ended Queue
 
-The common operations in a double-ended queue are listed below, and the specific method names depend on the programming language used.
+The common operations in a double-ended queue are listed below, and the names of specific methods depend on the programming language used.
 
 <p align="center"> Table <id> &nbsp; Efficiency of Double-Ended Queue Operations </p>
 
@@ -340,7 +340,7 @@ The implementation of a double-ended queue is similar to that of a regular queue
 
 ### Implementation Based on Doubly Linked List
 
-Recall from the previous section that we used a regular singly linked list to implement a queue, as it conveniently allows for deleting from the head (corresponding to dequeue operation) and adding new elements after the tail (corresponding to enqueue operation).
+Recall from the previous section that we used a regular singly linked list to implement a queue, as it conveniently allows for deleting from the head (corresponding to the dequeue operation) and adding new elements after the tail (corresponding to the enqueue operation).
 
 For a double-ended queue, both the head and the tail can perform enqueue and dequeue operations. In other words, a double-ended queue needs to implement operations in the opposite direction as well. For this, we use a "doubly linked list" as the underlying data structure of the double-ended queue.
 
@@ -394,6 +394,6 @@ The implementation only needs to add methods for "front enqueue" and "rear deque
 
 ## Applications of Double-Ended Queue
 
-The double-ended queue combines the logic of both stacks and queues, **thus it can implement all their respective use cases while offering greater flexibility**.
+The double-ended queue combines the logic of both stacks and queues, **thus, it can implement all their respective use cases while offering greater flexibility**.
 
-We know that the "undo" feature in software is typically implemented using a stack: the system `pushes` each change operation onto the stack, and then `pops` to implement undoing. However, considering the limitations of system resources, software often restricts the number of undo steps (for example, only allowing the last 50 steps). When the length of the stack exceeds 50, the software needs to perform a deletion operation at the bottom of the stack (the front of the queue). **But a regular stack cannot perform this function, which is where a double-ended queue becomes necessary**. Note that the core logic of "undo" still follows the Last-In-First-Out principle of a stack, but a double-ended queue can more flexibly implement some additional logic.
+We know that software's "undo" feature is typically implemented using a stack: the system `pushes` each change operation onto the stack and then `pops` to implement undoing. However, considering the limitations of system resources, software often restricts the number of undo steps (for example, only allowing the last 50 steps). When the stack length exceeds 50, the software needs to perform a deletion operation at the bottom of the stack (the front of the queue). **But a regular stack cannot perform this function, where a double-ended queue becomes necessary**. Note that the core logic of "undo" still follows the Last-In-First-Out principle of a stack, but a double-ended queue can more flexibly implement some additional logic.
