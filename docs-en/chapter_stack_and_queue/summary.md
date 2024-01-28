@@ -3,16 +3,16 @@
 ### Key Review
 
 - Stack is a data structure that follows the Last-In-First-Out (LIFO) principle and can be implemented using arrays or linked lists.
-- In terms of time efficiency, the array implementation of a stack has a higher average efficiency. However, during expansion, the time complexity for a single push operation can degrade to $O(n)$. In contrast, the linked list implementation of a stack offers more stable efficiency.
-- Regarding space efficiency, the array implementation of a stack may lead to a certain degree of space wastage. However, it's important to note that the memory space occupied by nodes in a linked list is generally larger than that for elements in an array.
+- In terms of time efficiency, the array implementation of the stack has a higher average efficiency. However, during expansion, the time complexity for a single push operation can degrade to $O(n)$. In contrast, the linked list implementation of a stack offers more stable efficiency.
+- Regarding space efficiency, the array implementation of the stack may lead to a certain degree of space wastage. However, it's important to note that the memory space occupied by nodes in a linked list is generally larger than that for elements in an array.
 - A queue is a data structure that follows the First-In-First-Out (FIFO) principle, and it can also be implemented using arrays or linked lists. The conclusions regarding time and space efficiency for queues are similar to those for stacks.
-- A double-ended queue(deque) is a more flexible type of queue that allows adding and removing elements at both ends.
+- A double-ended queue (deque) is a more flexible type of queue that allows adding and removing elements at both ends.
 
 ### Q & A
 
 **Q**: Is the browser's forward and backward functionality implemented with a doubly linked list?
 
-A browser's forward and backward navigation is essentially a manifestation of the "stack" concept. When a user visits a new page, the page is added to the top of the stack; when they click the back button, the page is popped from the top of the stack. A double-ended queue(deque) can conveniently implement some additional operations, as mentioned in the "Double-Ended Queue" section.
+A browser's forward and backward navigation is essentially a manifestation of the "stack" concept. When a user visits a new page, the page is added to the top of the stack; when they click the back button, the page is popped from the top of the stack. A double-ended queue (deque) can conveniently implement some additional operations, as mentioned in the "Double-Ended Queue" section.
 
 **Q**: After popping from a stack, is it necessary to free the memory of the popped node?
 
@@ -20,7 +20,7 @@ If the popped node will still be used later, it's not necessary to free its memo
 
 **Q**: A double-ended queue seems like two stacks joined together. What are its uses?
 
-A double-ended queue is a combination of a stack and a queue or two stacks joined together. It exhibits both stack and queue logic. Thus, it can implement all applications of stacks and queues, offering more flexibility.
+A double-ended queue, which is a combination of a stack and a queue or two stacks joined together, exhibits both stack and queue logic. Thus, it can implement all applications of stacks and queues while offering more flexibility.
 
 **Q**: How exactly are undo and redo implemented?
 
