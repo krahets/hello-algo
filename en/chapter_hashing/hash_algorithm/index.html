@@ -1,18 +1,18 @@
 
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="动画图解、一键运行的数据结构与算法教程">
+        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
       
       
         <meta name="author" content="Krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/chapter_hashing/hash_algorithm/">
+        <link rel="canonical" href="https://www.hello-algo.com/en/chapter_hashing/hash_algorithm/">
       
       
         <link rel="prev" href="../hash_collision/">
@@ -26,7 +26,7 @@
     
     
       
-        <title>6.3   哈希算法 - Hello 算法</title>
+        <title>6.3 Hash Algorithm - Hello Algo</title>
       
     
     
@@ -47,8 +47,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Fira Code"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -91,8 +91,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#63" class="md-skip">
-          跳转至
+        <a href="#63-hash-algorithms" class="md-skip">
+          Skip to content
         </a>
       
     </div>
@@ -106,8 +106,8 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="Hello 算法" class="md-header__button md-logo" aria-label="Hello 算法" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Hello Algo" class="md-header__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
 
@@ -120,13 +120,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Hello 算法
+            Hello Algo
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6.3 &nbsp; 哈希算法
+              6.3 Hash Algorithm
             
           </span>
         </div>
@@ -166,7 +166,7 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
+    <button class="md-header__button md-icon" aria-label="Select language">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
     </button>
     <div class="md-select__inner">
@@ -198,21 +198,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
@@ -225,7 +225,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -236,7 +236,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/krahets/hello-algo" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/krahets/hello-algo" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
@@ -270,18 +270,18 @@
 
 
 
-<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Hello 算法" class="md-nav__button md-logo" aria-label="Hello 算法" data-md-component="logo">
+    <a href="../.." title="Hello Algo" class="md-nav__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    Hello 算法
+    Hello Algo
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/krahets/hello-algo" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/krahets/hello-algo" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
@@ -333,7 +333,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 4H3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M3 19V6h8v13H3m18 0h-8V6h8v13m-7-9.5h6V11h-6V9.5m0 2.5h6v1.5h-6V12m0 2.5h6V16h-6v-1.5Z"/></svg>
   
   <span class="md-ellipsis">
-    第 0 章 &nbsp; 前言
+    Chapter 0. Preface
   </span>
   
 
@@ -349,7 +349,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            第 0 章 &nbsp; 前言
+            Chapter 0. Preface
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -366,7 +366,7 @@
         
   
   <span class="md-ellipsis">
-    0.1 &nbsp; 关于本书
+    0.1 About This Book
   </span>
   
 
@@ -387,7 +387,7 @@
         
   
   <span class="md-ellipsis">
-    0.2 &nbsp; 如何使用本书
+    0.2 How to Read
   </span>
   
 
@@ -408,7 +408,7 @@
         
   
   <span class="md-ellipsis">
-    0.3 &nbsp; 小结
+    0.3 Summary
   </span>
   
 
@@ -464,7 +464,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14v14M6.2 7.7h5v1.5h-5V7.7m6.8 8.1h5v1.5h-5v-1.5m0-2.6h5v1.5h-5v-1.5M8 18h1.5v-2h2v-1.5h-2v-2H8v2H6V16h2v2m6.1-7.1 1.4-1.4 1.4 1.4 1.1-1-1.4-1.4L18 7.1 16.9 6l-1.4 1.4L14.1 6 13 7.1l1.4 1.4L13 9.9l1.1 1Z"/></svg>
   
   <span class="md-ellipsis">
-    第 1 章 &nbsp; 初识算法
+    Chapter 1. Introduction to Algorithms
   </span>
   
 
@@ -480,7 +480,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            第 1 章 &nbsp; 初识算法
+            Chapter 1. Introduction to Algorithms
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -497,7 +497,7 @@
         
   
   <span class="md-ellipsis">
-    1.1 &nbsp; 算法无处不在
+    1.1 Algorithms are Everywhere
   </span>
   
 
@@ -518,7 +518,7 @@
         
   
   <span class="md-ellipsis">
-    1.2 &nbsp; 算法是什么
+    1.2 What is an Algorithm
   </span>
   
 
@@ -539,7 +539,7 @@
         
   
   <span class="md-ellipsis">
-    1.3 &nbsp; 小结
+    1.3 Summary
   </span>
   
 
@@ -599,7 +599,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"/></svg>
   
   <span class="md-ellipsis">
-    第 2 章 &nbsp; 复杂度分析
+    Chapter 2. Complexity Analysis
   </span>
   
 
@@ -615,7 +615,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            第 2 章 &nbsp; 复杂度分析
+            Chapter 2. Complexity Analysis
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -632,7 +632,7 @@
         
   
   <span class="md-ellipsis">
-    2.1 &nbsp; 算法效率评估
+    2.1 Algorithm Efficiency Assessment
   </span>
   
 
@@ -653,7 +653,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 &nbsp; 迭代与递归
+    2.2 Iteration and Recursion
   </span>
   
 
@@ -674,7 +674,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 &nbsp; 时间复杂度
+    2.3 Time Complexity
   </span>
   
 
@@ -695,7 +695,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 &nbsp; 空间复杂度
+    2.4 Space Complexity
   </span>
   
 
@@ -716,7 +716,7 @@
         
   
   <span class="md-ellipsis">
-    2.5 &nbsp; 小结
+    2.5 Summary
   </span>
   
 
@@ -776,7 +776,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 13.5v8H3v-8h8m-2 2H5v4h4v-4M12 2l5.5 9h-11L12 2m0 3.86L10.08 9h3.84L12 5.86M17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"/></svg>
   
   <span class="md-ellipsis">
-    第 3 章 &nbsp; 数据结构
+    Chapter 3. Data Structures
   </span>
   
 
@@ -792,7 +792,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            第 3 章 &nbsp; 数据结构
+            Chapter 3. Data Structures
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -809,7 +809,7 @@
         
   
   <span class="md-ellipsis">
-    3.1 &nbsp; 数据结构分类
+    3.1 Classification of Data Structures
   </span>
   
 
@@ -830,7 +830,7 @@
         
   
   <span class="md-ellipsis">
-    3.2 &nbsp; 基本数据类型
+    3.2 Fundamental Data Types
   </span>
   
 
@@ -851,7 +851,7 @@
         
   
   <span class="md-ellipsis">
-    3.3 &nbsp; 数字编码 *
+    3.3 Number Encoding *
   </span>
   
 
@@ -872,7 +872,7 @@
         
   
   <span class="md-ellipsis">
-    3.4 &nbsp; 字符编码 *
+    3.4 Character Encoding *
   </span>
   
 
@@ -893,7 +893,7 @@
         
   
   <span class="md-ellipsis">
-    3.5 &nbsp; 小结
+    3.5 Summary
   </span>
   
 
@@ -953,7 +953,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5v14h17V5H3m4 2v2H5V7h2m-2 6v-2h2v2H5m0 2h2v2H5v-2m13 2H9v-2h9v2m0-4H9v-2h9v2m0-4H9V7h9v2Z"/></svg>
   
   <span class="md-ellipsis">
-    第 4 章 &nbsp; 数组与链表
+    Chapter 4. Array and Linked List
   </span>
   
 
@@ -969,7 +969,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            第 4 章 &nbsp; 数组与链表
+            Chapter 4. Array and Linked List
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -986,7 +986,7 @@
         
   
   <span class="md-ellipsis">
-    4.1 &nbsp; 数组
+    4.1 Array
   </span>
   
 
@@ -1007,7 +1007,7 @@
         
   
   <span class="md-ellipsis">
-    4.2 &nbsp; 链表
+    4.2 Linked List
   </span>
   
 
@@ -1028,7 +1028,7 @@
         
   
   <span class="md-ellipsis">
-    4.3 &nbsp; 列表
+    4.3 List
   </span>
   
 
@@ -1049,16 +1049,8 @@
         
   
   <span class="md-ellipsis">
-    4.4 &nbsp; 内存与缓存 *
+    4.4 Memory and Cache
   </span>
-  
-    
-  
-  
-    <span class="md-status md-status--new" title="最近添加">
-    </span>
-  
-
   
 
       </a>
@@ -1078,7 +1070,7 @@
         
   
   <span class="md-ellipsis">
-    4.5 &nbsp; 小结
+    4.5 Summary
   </span>
   
 
@@ -1136,7 +1128,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38h12.56M6.77 14.32l.37-1.76 8.79 1.85-.37 1.76-8.79-1.85m1.16-4.21.76-1.61 8.14 3.78-.76 1.62-8.14-3.79m2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37-6.9-5.75m4.45-4.25L20 9.08l-1.44 1.07-5.36-7.21 1.44-1.07M6.59 18.41v-1.8h8.98v1.8H6.59Z"/></svg>
   
   <span class="md-ellipsis">
-    第 5 章 &nbsp; 栈与队列
+    Chapter 5. Stack and Queue
   </span>
   
 
@@ -1152,7 +1144,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            第 5 章 &nbsp; 栈与队列
+            Chapter 5. Stack and Queue
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1169,7 +1161,7 @@
         
   
   <span class="md-ellipsis">
-    5.1 &nbsp; 栈
+    5.1 Stack
   </span>
   
 
@@ -1190,7 +1182,7 @@
         
   
   <span class="md-ellipsis">
-    5.2 &nbsp; 队列
+    5.2 Queue
   </span>
   
 
@@ -1211,7 +1203,7 @@
         
   
   <span class="md-ellipsis">
-    5.3 &nbsp; 双向队列
+    5.3 Double-ended Queue
   </span>
   
 
@@ -1232,7 +1224,7 @@
         
   
   <span class="md-ellipsis">
-    5.4 &nbsp; 小结
+    5.4 Summary
   </span>
   
 
@@ -1292,7 +1284,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"/></svg>
   
   <span class="md-ellipsis">
-    第 6 章 &nbsp; 哈希表
+    Chapter 6. Hash Table
   </span>
   
 
@@ -1308,7 +1300,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            第 6 章 &nbsp; 哈希表
+            Chapter 6. Hash Table
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1325,7 +1317,7 @@
         
   
   <span class="md-ellipsis">
-    6.1 &nbsp; 哈希表
+    6.1 Hash Table
   </span>
   
 
@@ -1346,7 +1338,7 @@
         
   
   <span class="md-ellipsis">
-    6.2 &nbsp; 哈希冲突
+    6.2 Hash Collision
   </span>
   
 
@@ -1376,7 +1368,7 @@
           
   
   <span class="md-ellipsis">
-    6.3 &nbsp; 哈希算法
+    6.3 Hash Algorithm
   </span>
   
 
@@ -1387,7 +1379,7 @@
         
   
   <span class="md-ellipsis">
-    6.3 &nbsp; 哈希算法
+    6.3 Hash Algorithm
   </span>
   
 
@@ -1395,7 +1387,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -1404,41 +1396,32 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#631" class="md-nav__link">
+  <a href="#631-goals-of-hash-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
-      6.3.1 &nbsp; 哈希算法的目标
+      6.3.1 &nbsp; Goals of Hash Algorithms
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#632" class="md-nav__link">
+  <a href="#632-design-of-hash-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
-      6.3.2 &nbsp; 哈希算法的设计
+      6.3.2 &nbsp; Design of Hash Algorithms
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#633" class="md-nav__link">
+  <a href="#633-common-hash-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
-      6.3.3 &nbsp; 常见哈希算法
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#634" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.3.4 &nbsp; 数据结构的哈希值
+      6.3.3 &nbsp; Common Hash Algorithms
     </span>
   </a>
   
@@ -1464,7 +1447,7 @@
         
   
   <span class="md-ellipsis">
-    6.4 &nbsp; 小结
+    6.4 Summary
   </span>
   
 
@@ -1472,1977 +1455,6 @@
     </li>
   
 
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_tree/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 17c-.14 0-.26 0-.39.04L17.5 13.8c.45-.45.75-1.09.75-1.8a2.5 2.5 0 0 0-2.5-2.5c-.14 0-.25 0-.4.04L13.74 6.3c.47-.46.76-1.09.76-1.8a2.5 2.5 0 0 0-5 0c0 .7.29 1.34.76 1.79L8.65 9.54c-.15-.04-.26-.04-.4-.04a2.5 2.5 0 0 0-2.5 2.5c0 .71.29 1.34.75 1.79l-1.61 3.25C4.76 17 4.64 17 4.5 17a2.5 2.5 0 0 0 0 5A2.5 2.5 0 0 0 7 19.5c0-.7-.29-1.34-.76-1.79l1.62-3.25c.14.04.26.04.39.04s.25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0A2.5 2.5 0 0 0 12 17c-.13 0-.26 0-.39.04L10 13.8c.45-.45.75-1.09.75-1.8 0-.7-.29-1.33-.75-1.79l1.61-3.25c.13.04.26.04.39.04s.26 0 .39-.04L14 10.21a2.5 2.5 0 0 0 1.75 4.29c.13 0 .25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0-2.5-2.5m-15 3.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m8.5-1c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1M7.25 12c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1M11 4.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m3.75 7.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m4.75 8.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1Z"/></svg>
-  
-  <span class="md-ellipsis">
-    第 7 章 &nbsp; 树
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            第 7 章 &nbsp; 树
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_tree/binary_tree/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    7.1 &nbsp; 二叉树
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_tree/binary_tree_traversal/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    7.2 &nbsp; 二叉树遍历
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_tree/array_representation_of_tree/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    7.3 &nbsp; 二叉树数组表示
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_tree/binary_search_tree/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    7.4 &nbsp; 二叉搜索树
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_tree/avl_tree/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    7.5 &nbsp; AVL 树 *
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_tree/summary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    7.6 &nbsp; 小结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_heap/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 11 5.79V7H7a2 2 0 0 0-2 2v.71A2.5 2.5 0 0 0 3.5 12 2.5 2.5 0 0 0 5 14.29V15H4a2 2 0 0 0-2 2v1.21A2.5 2.5 0 0 0 .5 20.5 2.5 2.5 0 0 0 3 23a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 4 18.21V17h4v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 9 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17a2 2 0 0 0-2-2H7v-.71A2.5 2.5 0 0 0 8.5 12 2.5 2.5 0 0 0 7 9.71V9h10v.71A2.5 2.5 0 0 0 15.5 12a2.5 2.5 0 0 0 1.5 2.29V15h-1a2 2 0 0 0-2 2v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 15 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17h4v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 21 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17a2 2 0 0 0-2-2h-1v-.71A2.5 2.5 0 0 0 20.5 12 2.5 2.5 0 0 0 19 9.71V9a2 2 0 0 0-2-2h-4V5.79a2.5 2.5 0 0 0 1.5-2.29A2.5 2.5 0 0 0 12 1m0 1.5a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M6 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m12 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M3 19.5a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1Z"/></svg>
-  
-  <span class="md-ellipsis">
-    第 8 章 &nbsp; 堆
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            第 8 章 &nbsp; 堆
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_heap/heap/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    8.1 &nbsp; 堆
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_heap/build_heap/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    8.2 &nbsp; 建堆操作
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_heap/top_k/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    8.3 &nbsp; Top-k 问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_heap/summary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    8.4 &nbsp; 小结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_graph/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 5.37-.44-.06L6 14.9c.24.21.4.48.47.78h11.06c.07-.3.23-.57.47-.78l-5.56-9.59-.44.06M6.6 16.53l4.28 2.53c.29-.27.69-.43 1.12-.43.43 0 .83.16 1.12.43l4.28-2.53H6.6M12 22a1.68 1.68 0 0 1-1.68-1.68l.09-.56-4.3-2.55c-.31.36-.76.58-1.27.58a1.68 1.68 0 0 1-1.68-1.68c0-.79.53-1.45 1.26-1.64V9.36c-.83-.11-1.47-.82-1.47-1.68A1.68 1.68 0 0 1 4.63 6c.55 0 1.03.26 1.34.66l4.41-2.53-.06-.45c0-.93.75-1.68 1.68-1.68.93 0 1.68.75 1.68 1.68l-.06.45 4.41 2.53c.31-.4.79-.66 1.34-.66a1.68 1.68 0 0 1 1.68 1.68c0 .86-.64 1.57-1.47 1.68v5.11c.73.19 1.26.85 1.26 1.64a1.68 1.68 0 0 1-1.68 1.68c-.51 0-.96-.22-1.27-.58l-4.3 2.55.09.56A1.68 1.68 0 0 1 12 22M10.8 4.86 6.3 7.44l.02.24c0 .71-.44 1.32-1.06 1.57l.03 5.25 5.51-9.64m2.4 0 5.51 9.64.03-5.25c-.62-.25-1.06-.86-1.06-1.57l.02-.24-4.5-2.58Z"/></svg>
-  
-  <span class="md-ellipsis">
-    第 9 章 &nbsp; 图
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
-            <span class="md-nav__icon md-icon"></span>
-            第 9 章 &nbsp; 图
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_graph/graph/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    9.1 &nbsp; 图
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_graph/graph_operations/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    9.2 &nbsp; 图基础操作
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_graph/graph_traversal/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    9.3 &nbsp; 图的遍历
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_graph/summary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    9.4 &nbsp; 小结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_searching/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"/></svg>
-  
-  <span class="md-ellipsis">
-    第 10 章 &nbsp; 搜索
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
-            <span class="md-nav__icon md-icon"></span>
-            第 10 章 &nbsp; 搜索
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_searching/binary_search/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    10.1 &nbsp; 二分查找
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_searching/binary_search_insertion/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    10.2 &nbsp; 二分查找插入点
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_searching/binary_search_edge/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    10.3 &nbsp; 二分查找边界
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_searching/replace_linear_by_hashing/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    10.4 &nbsp; 哈希优化策略
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_searching/searching_algorithm_revisited/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    10.5 &nbsp; 重识搜索算法
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_searching/summary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    10.6 &nbsp; 小结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_sorting/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h3l-4 4-4-4h3V3h2M2 17h10v2H2M6 5v2H2V5m0 6h7v2H2v-2Z"/></svg>
-  
-  <span class="md-ellipsis">
-    第 11 章 &nbsp; 排序
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
-            <span class="md-nav__icon md-icon"></span>
-            第 11 章 &nbsp; 排序
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_sorting/sorting_algorithm/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11.1 &nbsp; 排序算法
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_sorting/selection_sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11.2 &nbsp; 选择排序
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_sorting/bubble_sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11.3 &nbsp; 冒泡排序
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_sorting/insertion_sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11.4 &nbsp; 插入排序
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_sorting/quick_sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11.5 &nbsp; 快速排序
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_sorting/merge_sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11.6 &nbsp; 归并排序
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_sorting/heap_sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11.7 &nbsp; 堆排序
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_sorting/bucket_sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11.8 &nbsp; 桶排序
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_sorting/counting_sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11.9 &nbsp; 计数排序
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_sorting/radix_sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11.10 &nbsp; 基数排序
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_sorting/summary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11.11 &nbsp; 小结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_divide_and_conquer/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7v2h5V7h-5M2 9v6h5V9H2m10 0v2H9v2h3v2l3-3-3-3m5 2v2h5v-2h-5m0 4v2h5v-2h-5Z"/></svg>
-  
-  <span class="md-ellipsis">
-    第 12 章 &nbsp; 分治
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_13" id="__nav_13_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
-            <span class="md-nav__icon md-icon"></span>
-            第 12 章 &nbsp; 分治
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_divide_and_conquer/divide_and_conquer/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    12.1 &nbsp; 分治算法
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_divide_and_conquer/binary_search_recur/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    12.2 &nbsp; 分治搜索策略
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_divide_and_conquer/build_binary_tree_problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    12.3 &nbsp; 构建树问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_divide_and_conquer/hanota_problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    12.4 &nbsp; 汉诺塔问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_divide_and_conquer/summary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    12.5 &nbsp; 小结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_backtracking/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 15a3 3 0 0 1 3 3 3 3 0 0 1-3 3 2.99 2.99 0 0 1-2.83-2H14v-2h1.17c.41-1.17 1.52-2 2.83-2m0 2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m0-9a1.43 1.43 0 0 0 1.43-1.43 1.43 1.43 0 1 0-2.86 0A1.43 1.43 0 0 0 18 8m0-5.43a4 4 0 0 1 4 4C22 9.56 18 14 18 14s-4-4.44-4-7.43a4 4 0 0 1 4-4M8.83 17H10v2H8.83A2.99 2.99 0 0 1 6 21a3 3 0 0 1-3-3c0-1.31.83-2.42 2-2.83V14h2v1.17c.85.3 1.53.98 1.83 1.83M6 17a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1M6 3a3 3 0 0 1 3 3c0 1.31-.83 2.42-2 2.83V10H5V8.83A2.99 2.99 0 0 1 3 6a3 3 0 0 1 3-3m0 2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m5 14v-2h2v2h-2m-4-6H5v-2h2v2Z"/></svg>
-  
-  <span class="md-ellipsis">
-    第 13 章 &nbsp; 回溯
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_14" id="__nav_14_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
-            <span class="md-nav__icon md-icon"></span>
-            第 13 章 &nbsp; 回溯
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_backtracking/backtracking_algorithm/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    13.1 &nbsp; 回溯算法
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_backtracking/permutations_problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    13.2 &nbsp; 全排列问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_backtracking/subset_sum_problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    13.3 &nbsp; 子集和问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_backtracking/n_queens_problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    13.4 &nbsp; N 皇后问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_backtracking/summary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    13.5 &nbsp; 小结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_dynamic_programming/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 15h-2v3c0 1.11-.89 2-2 2h-3v2l-3-3 3-3v2h3v-3h-2l3-3 3 3m0-11v4c0 1.1-.9 2-2 2H10v10c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2M4 8h4V4H4v4m0 2v4h4v-4H4m4 10v-4H4v4h4m6-12V4h-4v4h4m6-4h-4v4h4V4Z"/></svg>
-  
-  <span class="md-ellipsis">
-    第 14 章 &nbsp; 动态规划
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
-            <span class="md-nav__icon md-icon"></span>
-            第 14 章 &nbsp; 动态规划
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_dynamic_programming/intro_to_dynamic_programming/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    14.1 &nbsp; 初探动态规划
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_dynamic_programming/dp_problem_features/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    14.2 &nbsp; DP 问题特性
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_dynamic_programming/dp_solution_pipeline/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    14.3 &nbsp; DP 解题思路
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_dynamic_programming/knapsack_problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    14.4 &nbsp; 0-1 背包问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_dynamic_programming/unbounded_knapsack_problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    14.5 &nbsp; 完全背包问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_dynamic_programming/edit_distance_problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    14.6 &nbsp; 编辑距离问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_dynamic_programming/summary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    14.7 &nbsp; 小结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_greedy/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3c3.88 0 7 3.14 7 7 0 2.8-1.63 5.19-4 6.31V21H9v-3H8c-1.11 0-2-.89-2-2v-3H4.5c-.42 0-.66-.5-.42-.81L6 9.66A7.003 7.003 0 0 1 13 3m0-2C8.41 1 4.61 4.42 4.06 8.9L2.5 11h-.03l-.02.03c-.55.76-.62 1.76-.19 2.59.36.69 1 1.17 1.74 1.32V16c0 1.85 1.28 3.42 3 3.87V23h11v-5.5c2.5-1.67 4-4.44 4-7.5 0-4.97-4.04-9-9-9m4 7.83c0 1.54-1.36 2.77-3.42 4.64L13 14l-.58-.53C10.36 11.6 9 10.37 9 8.83c0-1.2.96-2.19 2.16-2.2h.04c.69 0 1.35.31 1.8.83.45-.52 1.11-.83 1.8-.83 1.2-.01 2.2.96 2.2 2.16v.04Z"/></svg>
-  
-  <span class="md-ellipsis">
-    第 15 章 &nbsp; 贪心
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_16" id="__nav_16_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
-            <span class="md-nav__icon md-icon"></span>
-            第 15 章 &nbsp; 贪心
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_greedy/greedy_algorithm/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    15.1 &nbsp; 贪心算法
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_greedy/fractional_knapsack_problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    15.2 &nbsp; 分数背包问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_greedy/max_capacity_problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    15.3 &nbsp; 最大容量问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    15.4 &nbsp; 最大切分乘积问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_greedy/summary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    15.5 &nbsp; 小结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_appendix/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 18h2v-2h-2v2m1-16A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-14a4 4 0 0 0-4 4h2a2 2 0 0 1 2-2 2 2 0 0 1 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5a4 4 0 0 0-4-4Z"/></svg>
-  
-  <span class="md-ellipsis">
-    第 16 章 &nbsp; 附录
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_17" id="__nav_17_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_17">
-            <span class="md-nav__icon md-icon"></span>
-            第 16 章 &nbsp; 附录
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_appendix/installation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    16.1 &nbsp; 编程环境安装
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_appendix/contribution/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    16.2 &nbsp; 一起参与创作
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_appendix/terminology/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    16.3 &nbsp; 术语表
-  </span>
-  
-    
-  
-  
-    <span class="md-status md-status--new" title="最近添加">
-    </span>
-  
-
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_reference/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    参考文献
-  </span>
-  
-
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_18">
-            <span class="md-nav__icon md-icon"></span>
-            参考文献
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
             
           </ul>
@@ -3465,7 +1477,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -3474,41 +1486,32 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#631" class="md-nav__link">
+  <a href="#631-goals-of-hash-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
-      6.3.1 &nbsp; 哈希算法的目标
+      6.3.1 &nbsp; Goals of Hash Algorithms
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#632" class="md-nav__link">
+  <a href="#632-design-of-hash-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
-      6.3.2 &nbsp; 哈希算法的设计
+      6.3.2 &nbsp; Design of Hash Algorithms
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#633" class="md-nav__link">
+  <a href="#633-common-hash-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
-      6.3.3 &nbsp; 常见哈希算法
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#634" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.3.4 &nbsp; 数据结构的哈希值
+      6.3.3 &nbsp; Common Hash Algorithms
     </span>
   </a>
   
@@ -3536,8 +1539,8 @@
   <!-- Edit button -->
   
     <a
-      href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_hashing/hash_algorithm.md"
-      title="编辑此页"
+      href="https://github.com/krahets/hello-algo/tree/main/docs-en/chapter_hashing/hash_algorithm.md"
+      title="Edit this page"
       class="md-content__button md-icon"
     >
       
@@ -3550,43 +1553,43 @@
 
 
 <!-- Page content -->
-<h1 id="63">6.3 &nbsp; 哈希算法<a class="headerlink" href="#63" title="Permanent link">&para;</a></h1>
-<p>前两节介绍了哈希表的工作原理和哈希冲突的处理方法。然而无论是开放寻址还是链式地址，<strong>它们只能保证哈希表可以在发生冲突时正常工作，而无法减少哈希冲突的发生</strong>。</p>
-<p>如果哈希冲突过于频繁，哈希表的性能则会急剧劣化。如图 6-8 所示，对于链式地址哈希表，理想情况下键值对均匀分布在各个桶中，达到最佳查询效率；最差情况下所有键值对都存储到同一个桶中，时间复杂度退化至 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<p><a class="glightbox" href="../hash_algorithm.assets/hash_collision_best_worst_condition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="哈希冲突的最佳情况与最差情况" class="animation-figure" src="../hash_algorithm.assets/hash_collision_best_worst_condition.png" /></a></p>
-<p align="center"> 图 6-8 &nbsp; 哈希冲突的最佳情况与最差情况 </p>
+<h1 id="63-hash-algorithms">6.3 &nbsp; Hash Algorithms<a class="headerlink" href="#63-hash-algorithms" title="Permanent link">&para;</a></h1>
+<p>The previous two sections introduced the working principle of hash tables and the methods to handle hash collisions. However, both open addressing and chaining can <strong>only ensure that the hash table functions normally when collisions occur, but cannot reduce the frequency of hash collisions</strong>.</p>
+<p>If hash collisions occur too frequently, the performance of the hash table will deteriorate drastically. As shown in the Figure 6-8 , for a chaining hash table, in the ideal case, the key-value pairs are evenly distributed across the buckets, achieving optimal query efficiency; in the worst case, all key-value pairs are stored in the same bucket, degrading the time complexity to <span class="arithmatex">\(O(n)\)</span>.</p>
+<p><a class="glightbox" href="../hash_algorithm.assets/hash_collision_best_worst_condition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Ideal and Worst Cases of Hash Collisions" class="animation-figure" src="../hash_algorithm.assets/hash_collision_best_worst_condition.png" /></a></p>
+<p align="center"> Figure 6-8 &nbsp; Ideal and Worst Cases of Hash Collisions </p>
 
-<p><strong>键值对的分布情况由哈希函数决定</strong>。回忆哈希函数的计算步骤，先计算哈希值，再对数组长度取模：</p>
+<p><strong>The distribution of key-value pairs is determined by the hash function</strong>. Recalling the steps of calculating a hash function, first compute the hash value, then modulo it by the array length:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
 </code></pre></div>
-<p>观察以上公式，当哈希表容量 <code>capacity</code> 固定时，<strong>哈希算法 <code>hash()</code> 决定了输出值</strong>，进而决定了键值对在哈希表中的分布情况。</p>
-<p>这意味着，为了降低哈希冲突的发生概率，我们应当将注意力集中在哈希算法 <code>hash()</code> 的设计上。</p>
-<h2 id="631">6.3.1 &nbsp; 哈希算法的目标<a class="headerlink" href="#631" title="Permanent link">&para;</a></h2>
-<p>为了实现“既快又稳”的哈希表数据结构，哈希算法应具备以下特点。</p>
+<p>Observing the above formula, when the hash table capacity <code>capacity</code> is fixed, <strong>the hash algorithm <code>hash()</code> determines the output value</strong>, thereby determining the distribution of key-value pairs in the hash table.</p>
+<p>This means that, to reduce the probability of hash collisions, we should focus on the design of the hash algorithm <code>hash()</code>.</p>
+<h2 id="631-goals-of-hash-algorithms">6.3.1 &nbsp; Goals of Hash Algorithms<a class="headerlink" href="#631-goals-of-hash-algorithms" title="Permanent link">&para;</a></h2>
+<p>To achieve a "fast and stable" hash table data structure, hash algorithms should have the following characteristics:</p>
 <ul>
-<li><strong>确定性</strong>：对于相同的输入，哈希算法应始终产生相同的输出。这样才能确保哈希表是可靠的。</li>
-<li><strong>效率高</strong>：计算哈希值的过程应该足够快。计算开销越小，哈希表的实用性越高。</li>
-<li><strong>均匀分布</strong>：哈希算法应使得键值对均匀分布在哈希表中。分布越均匀，哈希冲突的概率就越低。</li>
+<li><strong>Determinism</strong>: For the same input, the hash algorithm should always produce the same output. Only then can the hash table be reliable.</li>
+<li><strong>High Efficiency</strong>: The process of computing the hash value should be fast enough. The smaller the computational overhead, the more practical the hash table.</li>
+<li><strong>Uniform Distribution</strong>: The hash algorithm should ensure that key-value pairs are evenly distributed in the hash table. The more uniform the distribution, the lower the probability of hash collisions.</li>
 </ul>
-<p>实际上，哈希算法除了可以用于实现哈希表，还广泛应用于其他领域中。</p>
+<p>In fact, hash algorithms are not only used to implement hash tables but are also widely applied in other fields.</p>
 <ul>
-<li><strong>密码存储</strong>：为了保护用户密码的安全，系统通常不会直接存储用户的明文密码，而是存储密码的哈希值。当用户输入密码时，系统会对输入的密码计算哈希值，然后与存储的哈希值进行比较。如果两者匹配，那么密码就被视为正确。</li>
-<li><strong>数据完整性检查</strong>：数据发送方可以计算数据的哈希值并将其一同发送；接收方可以重新计算接收到的数据的哈希值，并与接收到的哈希值进行比较。如果两者匹配，那么数据就被视为完整。</li>
+<li><strong>Password Storage</strong>: To protect the security of user passwords, systems usually do not store the plaintext passwords but rather the hash values of the passwords. When a user enters a password, the system calculates the hash value of the input and compares it with the stored hash value. If they match, the password is considered correct.</li>
+<li><strong>Data Integrity Check</strong>: The data sender can calculate the hash value of the data and send it along; the receiver can recalculate the hash value of the received data and compare it with the received hash value. If they match, the data is considered intact.</li>
 </ul>
-<p>对于密码学的相关应用，为了防止从哈希值推导出原始密码等逆向工程，哈希算法需要具备更高等级的安全特性。</p>
+<p>For cryptographic applications, to prevent reverse engineering such as deducing the original password from the hash value, hash algorithms need higher-level security features.</p>
 <ul>
-<li><strong>单向性</strong>：无法通过哈希值反推出关于输入数据的任何信息。</li>
-<li><strong>抗碰撞性</strong>：应当极难找到两个不同的输入，使得它们的哈希值相同。</li>
-<li><strong>雪崩效应</strong>：输入的微小变化应当导致输出的显著且不可预测的变化。</li>
+<li><strong>Unidirectionality</strong>: It should be impossible to deduce any information about the input data from the hash value.</li>
+<li><strong>Collision Resistance</strong>: It should be extremely difficult to find two different inputs that produce the same hash value.</li>
+<li><strong>Avalanche Effect</strong>: Minor changes in the input should lead to significant and unpredictable changes in the output.</li>
 </ul>
-<p>请注意，<strong>“均匀分布”与“抗碰撞性”是两个独立的概念</strong>，满足均匀分布不一定满足抗碰撞性。例如，在随机输入 <code>key</code> 下，哈希函数 <code>key % 100</code> 可以产生均匀分布的输出。然而该哈希算法过于简单，所有后两位相等的 <code>key</code> 的输出都相同，因此我们可以很容易地从哈希值反推出可用的 <code>key</code> ，从而破解密码。</p>
-<h2 id="632">6.3.2 &nbsp; 哈希算法的设计<a class="headerlink" href="#632" title="Permanent link">&para;</a></h2>
-<p>哈希算法的设计是一个需要考虑许多因素的复杂问题。然而对于某些要求不高的场景，我们也能设计一些简单的哈希算法。</p>
+<p>Note that <strong>"Uniform Distribution" and "Collision Resistance" are two separate concepts</strong>. Satisfying uniform distribution does not necessarily mean collision resistance. For example, under random input <code>key</code>, the hash function <code>key % 100</code> can produce a uniformly distributed output. However, this hash algorithm is too simple, and all <code>key</code> with the same last two digits will have the same output, making it easy to deduce a usable <code>key</code> from the hash value, thereby cracking the password.</p>
+<h2 id="632-design-of-hash-algorithms">6.3.2 &nbsp; Design of Hash Algorithms<a class="headerlink" href="#632-design-of-hash-algorithms" title="Permanent link">&para;</a></h2>
+<p>The design of hash algorithms is a complex issue that requires consideration of many factors. However, for some less demanding scenarios, we can also design some simple hash algorithms.</p>
 <ul>
-<li><strong>加法哈希</strong>：对输入的每个字符的 ASCII 码进行相加，将得到的总和作为哈希值。</li>
-<li><strong>乘法哈希</strong>：利用乘法的不相关性，每轮乘以一个常数，将各个字符的 ASCII 码累积到哈希值中。</li>
-<li><strong>异或哈希</strong>：将输入数据的每个元素通过异或操作累积到一个哈希值中。</li>
-<li><strong>旋转哈希</strong>：将每个字符的 ASCII 码累积到一个哈希值中，每次累积之前都会对哈希值进行旋转操作。</li>
+<li><strong>Additive Hash</strong>: Add up the ASCII codes of each character in the input and use the total sum as the hash value.</li>
+<li><strong>Multiplicative Hash</strong>: Utilize the non-correlation of multiplication, multiplying each round by a constant, accumulating the ASCII codes of each character into the hash value.</li>
+<li><strong>XOR Hash</strong>: Accumulate the hash value by XORing each element of the input data.</li>
+<li><strong>Rotating Hash</strong>: Accumulate the ASCII code of each character into a hash value, performing a rotation operation on the hash value before each accumulation.</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
@@ -4083,13 +2086,13 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>可视化运行</summary>
+<summary>Code Visualization</summary>
 <p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E6%B3%95%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%98%E6%B3%95%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20*%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%BC%82%E6%88%96%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%97%8B%E8%BD%AC%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E6%B3%95%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%98%E6%B3%95%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22%E5%BC%82%E6%88%96%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E6%97%8B%E8%BD%AC%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E6%B3%95%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%98%E6%B3%95%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20*%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%BC%82%E6%88%96%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%97%8B%E8%BD%AC%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E6%B3%95%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%98%E6%B3%95%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22%E5%BC%82%E6%88%96%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E6%97%8B%E8%BD%AC%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 &gt;</a></div></p>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E6%B3%95%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%98%E6%B3%95%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20*%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%BC%82%E6%88%96%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%97%8B%E8%BD%AC%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E6%B3%95%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%98%E6%B3%95%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22%E5%BC%82%E6%88%96%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E6%97%8B%E8%BD%AC%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen &gt;</a></div></p>
 </details>
-<p>观察发现，每种哈希算法的最后一步都是对大质数 <span class="arithmatex">\(1000000007\)</span> 取模，以确保哈希值在合适的范围内。值得思考的是，为什么要强调对质数取模，或者说对合数取模的弊端是什么？这是一个有趣的问题。</p>
-<p>先抛出结论：<strong>使用大质数作为模数，可以最大化地保证哈希值的均匀分布</strong>。因为质数不与其他数字存在公约数，可以减少因取模操作而产生的周期性模式，从而避免哈希冲突。</p>
-<p>举个例子，假设我们选择合数 <span class="arithmatex">\(9\)</span> 作为模数，它可以被 <span class="arithmatex">\(3\)</span> 整除，那么所有可以被 <span class="arithmatex">\(3\)</span> 整除的 <code>key</code> 都会被映射到 <span class="arithmatex">\(0\)</span>、<span class="arithmatex">\(3\)</span>、<span class="arithmatex">\(6\)</span> 这三个哈希值。</p>
+<p>It is observed that the last step of each hash algorithm is to take the modulus of the large prime number <span class="arithmatex">\(1000000007\)</span> to ensure that the hash value is within an appropriate range. It is worth pondering why emphasis is placed on modulo a prime number, or what are the disadvantages of modulo a composite number? This is an interesting question.</p>
+<p>To conclude: <strong>Using a large prime number as the modulus can maximize the uniform distribution of hash values</strong>. Since a prime number does not share common factors with other numbers, it can reduce the periodic patterns caused by the modulo operation, thus avoiding hash collisions.</p>
+<p>For example, suppose we choose the composite number <span class="arithmatex">\(9\)</span> as the modulus, which can be divided by <span class="arithmatex">\(3\)</span>, then all <code>key</code> divisible by <span class="arithmatex">\(3\)</span> will be mapped to hash values <span class="arithmatex">\(0\)</span>, <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(6\)</span>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \text{modulus} &amp; = 9 \newline
@@ -4097,7 +2100,7 @@
 \text{hash} &amp; = \{ 0, 3, 6, 0, 3, 6, 0, 3, 6, 0, 3, 6,\dots \}
 \end{aligned}
 \]</div>
-<p>如果输入 <code>key</code> 恰好满足这种等差数列的数据分布，那么哈希值就会出现聚堆，从而加重哈希冲突。现在，假设将 <code>modulus</code> 替换为质数 <span class="arithmatex">\(13\)</span> ，由于 <code>key</code> 和 <code>modulus</code> 之间不存在公约数，因此输出的哈希值的均匀性会明显提升。</p>
+<p>If the input <code>key</code> happens to have this kind of arithmetic sequence distribution, then the hash values will cluster, thereby exacerbating hash collisions. Now, suppose we replace <code>modulus</code> with the prime number <span class="arithmatex">\(13\)</span>, since there are no common factors between <code>key</code> and <code>modulus</code>, the uniformity of the output hash values will be significantly improved.</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \text{modulus} &amp; = 13 \newline
@@ -4105,18 +2108,18 @@
 \text{hash} &amp; = \{ 0, 3, 6, 9, 12, 2, 5, 8, 11, 1, 4, 7, \dots \}
 \end{aligned}
 \]</div>
-<p>值得说明的是，如果能够保证 <code>key</code> 是随机均匀分布的，那么选择质数或者合数作为模数都可以，它们都能输出均匀分布的哈希值。而当 <code>key</code> 的分布存在某种周期性时，对合数取模更容易出现聚集现象。</p>
-<p>总而言之，我们通常选取质数作为模数，并且这个质数最好足够大，以尽可能消除周期性模式，提升哈希算法的稳健性。</p>
-<h2 id="633">6.3.3 &nbsp; 常见哈希算法<a class="headerlink" href="#633" title="Permanent link">&para;</a></h2>
-<p>不难发现，以上介绍的简单哈希算法都比较“脆弱”，远远没有达到哈希算法的设计目标。例如，由于加法和异或满足交换律，因此加法哈希和异或哈希无法区分内容相同但顺序不同的字符串，这可能会加剧哈希冲突，并引起一些安全问题。</p>
-<p>在实际中，我们通常会用一些标准哈希算法，例如 MD5、SHA-1、SHA-2 和 SHA-3 等。它们可以将任意长度的输入数据映射到恒定长度的哈希值。</p>
-<p>近一个世纪以来，哈希算法处在不断升级与优化的过程中。一部分研究人员努力提升哈希算法的性能，另一部分研究人员和黑客则致力于寻找哈希算法的安全性问题。表 6-2 展示了在实际应用中常见的哈希算法。</p>
+<p>It is worth noting that if the <code>key</code> is guaranteed to be randomly and uniformly distributed, then choosing a prime number or a composite number as the modulus can both produce uniformly distributed hash values. However, when the distribution of <code>key</code> has some periodicity, modulo a composite number is more likely to result in clustering.</p>
+<p>In summary, we usually choose a prime number as the modulus, and this prime number should be large enough to eliminate periodic patterns as much as possible, enhancing the robustness of the hash algorithm.</p>
+<h2 id="633-common-hash-algorithms">6.3.3 &nbsp; Common Hash Algorithms<a class="headerlink" href="#633-common-hash-algorithms" title="Permanent link">&para;</a></h2>
+<p>It is not hard to see that the simple hash algorithms mentioned above are quite "fragile" and far from reaching the design goals of hash algorithms. For example, since addition and XOR obey the commutative law, additive hash and XOR hash cannot distinguish strings with the same content but in different order, which may exacerbate hash collisions and cause security issues.</p>
+<p>In practice, we usually use some standard hash algorithms, such as MD5, SHA-1, SHA-2, and SHA-3. They can map input data of any length to a fixed-length hash value.</p>
+<p>Over the past century, hash algorithms have been in a continuous process of upgrading and optimization. Some researchers strive to improve the performance of hash algorithms, while others, including hackers, are dedicated to finding security issues in hash algorithms. The Table 6-2  shows hash algorithms commonly used in practical applications.</p>
 <ul>
-<li>MD5 和 SHA-1 已多次被成功攻击，因此它们被各类安全应用弃用。</li>
-<li>SHA-2 系列中的 SHA-256 是最安全的哈希算法之一，仍未出现成功的攻击案例，因此常用在各类安全应用与协议中。</li>
-<li>SHA-3 相较 SHA-2 的实现开销更低、计算效率更高，但目前使用覆盖度不如 SHA-2 系列。</li>
+<li>MD5 and SHA-1 have been successfully attacked multiple times and are thus abandoned in various security applications.</li>
+<li>SHA-2 series, especially SHA-256, is one of the most secure hash algorithms to date, with no successful attacks reported, hence commonly used in various security applications and protocols.</li>
+<li>SHA-3 has lower implementation costs and higher computational efficiency compared to SHA-2, but its current usage coverage is not as extensive as the SHA-2 series.</li>
 </ul>
-<p align="center"> 表 6-2 &nbsp; 常见的哈希算法 </p>
+<p align="center"> Table 6-2 &nbsp; Common Hash Algorithms </p>
 
 <div class="center-table">
 <table>
@@ -4131,218 +2134,218 @@
 </thead>
 <tbody>
 <tr>
-<td>推出时间</td>
+<td>Release Year</td>
 <td>1992</td>
 <td>1995</td>
 <td>2002</td>
 <td>2008</td>
 </tr>
 <tr>
-<td>输出长度</td>
+<td>Output Length</td>
 <td>128 bit</td>
 <td>160 bit</td>
 <td>256/512 bit</td>
 <td>224/256/384/512 bit</td>
 </tr>
 <tr>
-<td>哈希冲突</td>
-<td>较多</td>
-<td>较多</td>
-<td>很少</td>
-<td>很少</td>
+<td>Hash Collisions</td>
+<td>Frequent</td>
+<td>Frequent</td>
+<td>Rare</td>
+<td>Rare</td>
 </tr>
 <tr>
-<td>安全等级</td>
-<td>低，已被成功攻击</td>
-<td>低，已被成功攻击</td>
-<td>高</td>
-<td>高</td>
+<td>Security Level</td>
+<td>Low, has been successfully attacked</td>
+<td>Low, has been successfully attacked</td>
+<td>High</td>
+<td>High</td>
 </tr>
 <tr>
-<td>应用</td>
-<td>已被弃用，仍用于数据完整性检查</td>
-<td>已被弃用</td>
-<td>加密货币交易验证、数字签名等</td>
-<td>可用于替代 SHA-2</td>
+<td>Applications</td>
+<td>Abandoned, still used for data integrity checks</td>
+<td>Abandoned</td>
+<td>Cryptocurrency transaction verification, digital signatures, etc.</td>
+<td>Can be used to replace SHA-2</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h2 id="634">6.3.4 &nbsp; 数据结构的哈希值<a class="headerlink" href="#634" title="Permanent link">&para;</a></h2>
-<p>我们知道，哈希表的 <code>key</code> 可以是整数、小数或字符串等数据类型。编程语言通常会为这些数据类型提供内置的哈希算法，用于计算哈希表中的桶索引。以 Python 为例，我们可以调用 <code>hash()</code> 函数来计算各种数据类型的哈希值。</p>
+<h1 id="hash-values-in-data-structures">Hash Values in Data Structures<a class="headerlink" href="#hash-values-in-data-structures" title="Permanent link">&para;</a></h1>
+<p>We know that the keys in a hash table can be of various data types such as integers, decimals, or strings. Programming languages usually provide built-in hash algorithms for these data types to calculate the bucket indices in the hash table. Taking Python as an example, we can use the <code>hash()</code> function to compute the hash values for various data types.</p>
 <ul>
-<li>整数和布尔量的哈希值就是其本身。</li>
-<li>浮点数和字符串的哈希值计算较为复杂，有兴趣的读者请自行学习。</li>
-<li>元组的哈希值是对其中每一个元素进行哈希，然后将这些哈希值组合起来，得到单一的哈希值。</li>
-<li>对象的哈希值基于其内存地址生成。通过重写对象的哈希方法，可实现基于内容生成哈希值。</li>
+<li>The hash values of integers and booleans are their own values.</li>
+<li>The calculation of hash values for floating-point numbers and strings is more complex, and interested readers are encouraged to study this on their own.</li>
+<li>The hash value of a tuple is a combination of the hash values of each of its elements, resulting in a single hash value.</li>
+<li>The hash value of an object is generated based on its memory address. By overriding the hash method of an object, hash values can be generated based on content.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>请注意，不同编程语言的内置哈希值计算函数的定义和方法不同。</p>
+<p>Be aware that the definition and methods of the built-in hash value calculation functions in different programming languages vary.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.py</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">num</span> <span class="o">=</span> <span class="mi">3</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">hash_num</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># 整数 3 的哈希值为 3</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># Hash value of integer 3 is 3</span>
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
 <a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">bol</span> <span class="o">=</span> <span class="kc">True</span>
 <a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">hash_bol</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">bol</span><span class="p">)</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># 布尔量 True 的哈希值为 1</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># Hash value of boolean True is 1</span>
 <a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
 <a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="n">dec</span> <span class="o">=</span> <span class="mf">3.14159</span>
 <a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="n">hash_dec</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="c1"># 小数 3.14159 的哈希值为 326484311674566659</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="c1"># Hash value of decimal 3.14159 is 326484311674566659</span>
 <a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
 <a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Hello 算法&quot;</span>
 <a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="n">hash_str</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="c1"># 字符串“Hello 算法”的哈希值为 4617003410720528961</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="c1"># Hash value of string &quot;Hello 算法&quot; is 4617003410720528961</span>
 <a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
 <a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12836</span><span class="p">,</span> <span class="s2">&quot;小哈&quot;</span><span class="p">)</span>
 <a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="n">hash_tup</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
-<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="c1"># 元组 (12836, &#39;小哈&#39;) 的哈希值为 1029005403108185979</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="c1"># Hash value of tuple (12836, &#39;小哈&#39;) is 1029005403108185979</span>
 <a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>
 <a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="n">obj</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="n">hash_obj</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="c1"># 节点对象 &lt;ListNode object at 0x1058fd810&gt; 的哈希值为 274267521</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="c1"># Hash value of ListNode object at 0x1058fd810 is 274267521</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.cpp</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">num</span><span class="p">);</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1">// 整数 3 的哈希值为 3</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1">// Hash value of integer 3 is 3</span>
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">bol</span><span class="p">);</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1">// 布尔量 1 的哈希值为 1</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1">// Hash value of boolean 1 is 1</span>
 <a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
 <a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">dec</span><span class="p">);</span>
-<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="c1">// 小数 3.14159 的哈希值为 4614256650576692846</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="c1">// Hash value of decimal 3.14159 is 4614256650576692846</span>
 <a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
 <a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello 算法&quot;</span><span class="p">;</span>
 <a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">str</span><span class="p">);</span>
-<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1">// 字符串“Hello 算法”的哈希值为 15466937326284535026</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1">// Hash value of string &quot;Hello 算法&quot; is 15466937326284535026</span>
 <a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>
-<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="c1">// 在 C++ 中，内置 std:hash() 仅提供基本数据类型的哈希值计算</span>
-<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="c1">// 数组、对象的哈希值计算需要自行实现</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="c1">// In C++, built-in std::hash() only provides hash values for basic data types</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="c1">// Hash values for arrays and objects need to be implemented separately</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.java</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1">// 整数 3 的哈希值为 3</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1">// Hash value of integer 3 is 3</span>
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Boolean</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">bol</span><span class="p">);</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1">// 布尔量 true 的哈希值为 1231</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1">// Hash value of boolean true is 1231</span>
 <a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
 <a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">dec</span><span class="p">);</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1">// 小数 3.14159 的哈希值为 -1340954729</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1">// Hash value of decimal 3.14159 is -1340954729</span>
 <a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>
 <a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello 算法&quot;</span><span class="p">;</span>
 <a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="c1">// 字符串“Hello 算法”的哈希值为 -727081396</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="c1">// Hash value of string &quot;Hello 算法&quot; is -727081396</span>
 <a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
 <a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;小哈&quot;</span><span class="w"> </span><span class="p">};</span>
 <a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashTup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
-<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="c1">// 数组 [12836, 小哈] 的哈希值为 1151158</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="c1">// Hash value of array [12836, 小哈] is 1151158</span>
 <a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>
 <a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
-<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="c1">// 节点对象 utils.ListNode@7dc5e7b4 的哈希值为 2110121908</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="c1">// Hash value of ListNode object utils.ListNode@7dc5e7b4 is 2110121908</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.cs</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1">// 整数 3 的哈希值为 3;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1">// Hash value of integer 3 is 3;</span>
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
 <a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 <a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1">// 布尔量 true 的哈希值为 1;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1">// Hash value of boolean true is 1;</span>
 <a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
 <a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.14159</span><span class="p">;</span>
 <a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1">// 小数 3.14159 的哈希值为 -1340954729;</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1">// Hash value of decimal 3.14159 is -1340954729;</span>
 <a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
 <a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="kt">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello 算法&quot;</span><span class="p">;</span>
 <a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="c1">// 字符串“Hello 算法”的哈希值为 -586107568;</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="c1">// Hash value of string &quot;Hello 算法&quot; is -586107568;</span>
 <a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>
 <a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="kt">object</span><span class="p">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">12836</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;小哈&quot;</span><span class="p">];</span>
 <a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashTup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="c1">// 数组 [12836, 小哈] 的哈希值为 42931033;</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="c1">// Hash value of array [12836, 小哈] is 42931033;</span>
 <a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>
 <a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 <a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="c1">// 节点对象 0 的哈希值为 39053774;</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="c1">// Hash value of ListNode object 0 is 39053774;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.go</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// Go 未提供内置 hash code 函数</span>
+<div class="highlight"><span class="filename">built_in_hash.go</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// Go does not provide built-in hash code functions</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.swift</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">let</span> <span class="nv">num</span> <span class="p">=</span> <span class="mi">3</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kd">let</span> <span class="nv">hashNum</span> <span class="p">=</span> <span class="n">num</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="c1">// 整数 3 的哈希值为 9047044699613009734</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="c1">// Hash value of integer 3 is 9047044699613009734</span>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
 <a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="kd">let</span> <span class="nv">bol</span> <span class="p">=</span> <span class="kc">true</span>
 <a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="kd">let</span> <span class="nv">hashBol</span> <span class="p">=</span> <span class="n">bol</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="c1">// 布尔量 true 的哈希值为 -4431640247352757451</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="c1">// Hash value of boolean true is -4431640247352757451</span>
 <a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>
 <a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="kd">let</span> <span class="nv">dec</span> <span class="p">=</span> <span class="mf">3.14159</span>
 <a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="kd">let</span> <span class="nv">hashDec</span> <span class="p">=</span> <span class="n">dec</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="c1">// 小数 3.14159 的哈希值为 -2465384235396674631</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="c1">// Hash value of decimal 3.14159 is -2465384235396674631</span>
 <a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>
 <a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="kd">let</span> <span class="nv">str</span> <span class="p">=</span> <span class="s">&quot;Hello 算法&quot;</span>
 <a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="kd">let</span> <span class="nv">hashStr</span> <span class="p">=</span> <span class="n">str</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="c1">// 字符串“Hello 算法”的哈希值为 -7850626797806988787</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="c1">// Hash value of string &quot;Hello 算法&quot; is -7850626797806988787</span>
 <a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>
 <a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="kd">let</span> <span class="nv">arr</span> <span class="p">=</span> <span class="p">[</span><span class="n">AnyHashable</span><span class="p">(</span><span class="mi">12836</span><span class="p">),</span> <span class="n">AnyHashable</span><span class="p">(</span><span class="s">&quot;小哈&quot;</span><span class="p">)]</span>
 <a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="kd">let</span> <span class="nv">hashTup</span> <span class="p">=</span> <span class="n">arr</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="c1">// 数组 [AnyHashable(12836), AnyHashable(&quot;小哈&quot;)] 的哈希值为 -2308633508154532996</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="c1">// Hash value of array [AnyHashable(12836), AnyHashable(&quot;小哈&quot;)] is -2308633508154532996</span>
 <a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>
 <a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="kd">let</span> <span class="nv">obj</span> <span class="p">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="kd">let</span> <span class="nv">hashObj</span> <span class="p">=</span> <span class="n">obj</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="c1">// 节点对象 utils.ListNode 的哈希值为 -2434780518035996159</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="c1">// Hash value of ListNode object utils.ListNode is -2434780518035996159</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.js</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">// JavaScript 未提供内置 hash code 函数</span>
+<div class="highlight"><span class="filename">built_in_hash.js</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">// JavaScript does not provide built-in hash code functions</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.ts</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// TypeScript 未提供内置 hash code 函数</span>
+<div class="highlight"><span class="filename">built_in_hash.ts</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// TypeScript does not provide built-in hash code functions</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.dart</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kt">int</span><span class="w"> </span><span class="kt">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">num</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="c1">// 整数 3 的哈希值为 34803</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="c1">// Hash value of integer 3 is 34803</span>
 <a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
 <a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="c1">// 布尔值 true 的哈希值为 1231</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="c1">// Hash value of boolean true is 1231</span>
 <a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
 <a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.14159</span><span class="p">;</span>
 <a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="c1">// 小数 3.14159 的哈希值为 2570631074981783</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="c1">// Hash value of decimal 3.14159 is 2570631074981783</span>
 <a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>
 <a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="kt">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello 算法&quot;</span><span class="p">;</span>
 <a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="c1">// 字符串“Hello 算法”的哈希值为 468167534</span>
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="c1">// Hash value of string &quot;Hello 算法&quot; is 468167534</span>
 <a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>
 <a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="n">List</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">12836</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;小哈&quot;</span><span class="p">];</span>
 <a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashArr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="c1">// 数组 [12836, 小哈] 的哈希值为 976512528</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="c1">// Hash value of array [12836, 小哈] is 976512528</span>
 <a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>
 <a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 <a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a><span class="c1">// 节点对象 Instance of &#39;ListNode&#39; 的哈希值为 1033450432</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a><span class="c1">// Hash value of ListNode object Instance of &#39;ListNode&#39; is 1033450432</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4353,41 +2356,41 @@
 <a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">num_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span>::<span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="n">num</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">num_hasher</span><span class="p">);</span>
 <a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="c1">// 整数 3 的哈希值为 568126464209439262</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="c1">// Hash value of integer 3 is 568126464209439262</span>
 <a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
 <a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="kd">let</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">bol_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span>::<span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="n">bol</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">bol_hasher</span><span class="p">);</span>
 <a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="c1">// 布尔量 true 的哈希值为 4952851536318644461</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="c1">// Hash value of boolean true is 4952851536318644461</span>
 <a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>
 <a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="kd">let</span><span class="w"> </span><span class="n">dec</span>: <span class="kt">f32</span> <span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">dec_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span>::<span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="n">dec</span><span class="p">.</span><span class="n">to_bits</span><span class="p">().</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">dec_hasher</span><span class="p">);</span>
 <a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="c1">// 小数 3.14159 的哈希值为 2566941990314602357</span>
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="c1">// Hash value of decimal 3.14159 is 2566941990314602357</span>
 <a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>
 <a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="kd">let</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello 算法&quot;</span><span class="p">;</span>
 <a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">str_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span>::<span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="kt">str</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">str_hasher</span><span class="p">);</span>
 <a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="c1">// 字符串“Hello 算法”的哈希值为 16092673739211250988</span>
+<a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="c1">// Hash value of string &quot;Hello 算法&quot; is 16092673739211250988</span>
 <a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a>
 <a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a><span class="kd">let</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="s">&quot;小哈&quot;</span><span class="p">);</span>
 <a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">tup_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span>::<span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a><span class="n">arr</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">tup_hasher</span><span class="p">);</span>
 <a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tup_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a><span class="c1">// 元组 (12836, &quot;小哈&quot;) 的哈希值为 1885128010422702749</span>
+<a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a><span class="c1">// Hash value of tuple (12836, &quot;小哈&quot;) is 1885128010422702749</span>
 <a id="__codelineno-22-33" name="__codelineno-22-33" href="#__codelineno-22-33"></a>
 <a id="__codelineno-22-34" name="__codelineno-22-34" href="#__codelineno-22-34"></a><span class="kd">let</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span>::<span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 <a id="__codelineno-22-35" name="__codelineno-22-35" href="#__codelineno-22-35"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span>::<span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-22-36" name="__codelineno-22-36" href="#__codelineno-22-36"></a><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">val</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">hasher</span><span class="p">);</span>
 <a id="__codelineno-22-37" name="__codelineno-22-37" href="#__codelineno-22-37"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-22-38" name="__codelineno-22-38" href="#__codelineno-22-38"></a><span class="c1">// 节点对象 RefCell { value: ListNode { val: 42, next: None } } 的哈希值为15387811073369036852</span>
+<a id="__codelineno-22-38" name="__codelineno-22-38" href="#__codelineno-22-38"></a><span class="c1">// Hash value of ListNode object RefCell { value: ListNode { val: 42, next: None } } is 15387811073369036852</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.c</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1">// C 未提供内置 hash code 函数</span>
+<div class="highlight"><span class="filename">built_in_hash.c</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1">// C does not provide built-in hash code functions</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4397,13 +2400,13 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>可视化运行</summary>
+<summary>Code Visualization</summary>
 <p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 &gt;</a></div></p>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen &gt;</a></div></p>
 </details>
-<p>在许多编程语言中，<strong>只有不可变对象才可作为哈希表的 <code>key</code></strong> 。假如我们将列表（动态数组）作为 <code>key</code> ，当列表的内容发生变化时，它的哈希值也随之改变，我们就无法在哈希表中查询到原先的 <code>value</code> 了。</p>
-<p>虽然自定义对象（比如链表节点）的成员变量是可变的，但它是可哈希的。<strong>这是因为对象的哈希值通常是基于内存地址生成的</strong>，即使对象的内容发生了变化，但它的内存地址不变，哈希值仍然是不变的。</p>
-<p>细心的你可能发现在不同控制台中运行程序时，输出的哈希值是不同的。<strong>这是因为 Python 解释器在每次启动时，都会为字符串哈希函数加入一个随机的盐（salt）值</strong>。这种做法可以有效防止 HashDoS 攻击，提升哈希算法的安全性。</p>
+<p>In many programming languages, <strong>only immutable objects can serve as the <code>key</code> in a hash table</strong>. If we use a list (dynamic array) as a <code>key</code>, when the contents of the list change, its hash value also changes, and we would no longer be able to find the original <code>value</code> in the hash table.</p>
+<p>Although the member variables of a custom object (such as a linked list node) are mutable, it is hashable. <strong>This is because the hash value of an object is usually generated based on its memory address</strong>, and even if the contents of the object change, the memory address remains the same, so the hash value remains unchanged.</p>
+<p>You might have noticed that the hash values output in different consoles are different. <strong>This is because the Python interpreter adds a random salt to the string hash function each time it starts up</strong>. This approach effectively prevents HashDoS attacks and enhances the security of the hash algorithm.</p>
 
 <!-- Source file information -->
 
@@ -4416,7 +2419,7 @@
 <!-- Previous and next pages link -->
 <nav
 class="md-footer__inner md-grid"
-aria-label="页脚"
+aria-label="Footer"
 
 >
 
@@ -4426,7 +2429,7 @@ aria-label="页脚"
   <a
     href="../hash_collision/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="上一页: 6.2 &amp;nbsp; 哈希冲突"
+    aria-label="Previous: 6.2 Hash Collision"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -4435,10 +2438,10 @@ aria-label="页脚"
     </div>
     <div class="md-footer__title">
       <span class="md-footer__direction">
-        上一页
+        Previous
       </span>
       <div class="md-ellipsis">
-        6.2 &nbsp; 哈希冲突
+        6.2 Hash Collision
       </div>
     </div>
   </a>
@@ -4450,15 +2453,15 @@ aria-label="页脚"
   <a
     href="../summary/"
     class="md-footer__link md-footer__link--next"
-    aria-label="下一页: 6.4 &amp;nbsp; 小结"
+    aria-label="Next: 6.4 Summary"
     rel="next"
   >
     <div class="md-footer__title">
       <span class="md-footer__direction">
-        下一页
+        Next
       </span>
       <div class="md-ellipsis">
-        6.4 &nbsp; 小结
+        6.4 Summary
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -4476,7 +2479,7 @@ aria-label="页脚"
     
   
   
-  <h5 align="center" id="__comments">欢迎在评论区留下你的见解、问题或建议</h5>
+  <h5 align="center" id="__comments">Feel free to drop your insights, questions or suggestions</h5>
 
   <!-- Insert generated snippet here -->
   <script 
@@ -4491,7 +2494,7 @@ aria-label="页脚"
     data-emit-metadata="0"
     data-input-position="top"
     data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
+    data-lang="en"
     crossorigin="anonymous"
     async
   >
@@ -4539,7 +2542,7 @@ aria-label="页脚"
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
-  回到页面顶部
+  Back to top
 </button>
         
       </main>
@@ -4548,33 +2551,33 @@ aria-label="页脚"
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../hash_collision/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 6.2 &amp;nbsp; 哈希冲突">
+          <a href="../hash_collision/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 6.2 Hash Collision">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                上一页
+                Previous
               </span>
               <div class="md-ellipsis">
-                6.2 &nbsp; 哈希冲突
+                6.2 Hash Collision
               </div>
             </div>
           </a>
         
         
           
-          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: 6.4 &amp;nbsp; 小结">
+          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="Next: 6.4 Summary">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                下一页
+                Next
               </span>
               <div class="md-ellipsis">
-                6.4 &nbsp; 小结
+                6.4 Summary
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4644,7 +2647,7 @@ aria-label="页脚"
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>

@@ -292,9 +292,8 @@ body {
   margin-top: -2.4rem;
   padding: 0;
   position: relative;
-  color: white;
   font-size: min(1.8vh, 2.5vw);
-  font-weight: 500;
+  font-weight: normal;
 }
 
 .hero-bg {
@@ -316,6 +315,7 @@ body {
   position: absolute;
   transform: translateX(-50%) translateY(-50%);
   white-space: nowrap; /* prevent line breaks */
+  color: white;
 }
 
 a:hover .hero-on-hover {
@@ -333,7 +333,7 @@ a:hover .hero-caption {
 .code-badge {
   width: 100%;
   height: auto;
-  margin: 0 auto;
+  margin: 1em auto;
 }
 
 .code-badge img {

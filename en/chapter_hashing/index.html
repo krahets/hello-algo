@@ -12,28 +12,28 @@
         <meta name="author" content="Krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/en/chapter_data_structure/character_encoding/">
+        <link rel="canonical" href="https://www.hello-algo.com/en/chapter_hashing/">
       
       
-        <link rel="prev" href="../number_encoding/">
+        <link rel="prev" href="../chapter_stack_and_queue/summary/">
       
       
-        <link rel="next" href="../summary/">
+        <link rel="next" href="hash_map/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.5">
     
     
       
-        <title>3.4 Character Encoding * - Hello Algo</title>
+        <title>Chapter 6.   Hash Table - Hello Algo</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,16 +52,16 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
@@ -72,7 +72,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#34-character-encoding" class="md-skip">
+        <a href="#chapter-6-hash-table" class="md-skip">
           Skip to content
         </a>
       
@@ -107,9 +107,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Hello Algo" class="md-header__button md-logo" aria-label="Hello Algo" data-md-component="logo">
+    <a href=".." title="Hello Algo" class="md-header__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3.4 Character Encoding *
+              Chapter 6. &nbsp; Hash Table
             
           </span>
         </div>
@@ -272,9 +272,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Hello Algo" class="md-nav__button md-logo" aria-label="Hello Algo" data-md-component="logo">
+    <a href=".." title="Hello Algo" class="md-nav__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../assets/images/logo.svg" alt="logo">
 
     </a>
     Hello Algo
@@ -327,7 +327,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_preface/" class="md-nav__link ">
+            <a href="../chapter_preface/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 4H3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M3 19V6h8v13H3m18 0h-8V6h8v13m-7-9.5h6V11h-6V9.5m0 2.5h6v1.5h-6V12m0 2.5h6V16h-6v-1.5Z"/></svg>
@@ -362,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_preface/about_the_book/" class="md-nav__link">
+      <a href="../chapter_preface/about_the_book/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -383,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_preface/suggestions/" class="md-nav__link">
+      <a href="../chapter_preface/suggestions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -404,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_preface/summary/" class="md-nav__link">
+      <a href="../chapter_preface/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -458,7 +458,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_introduction/" class="md-nav__link ">
+            <a href="../chapter_introduction/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14v14M6.2 7.7h5v1.5h-5V7.7m6.8 8.1h5v1.5h-5v-1.5m0-2.6h5v1.5h-5v-1.5M8 18h1.5v-2h2v-1.5h-2v-2H8v2H6V16h2v2m6.1-7.1 1.4-1.4 1.4 1.4 1.1-1-1.4-1.4L18 7.1 16.9 6l-1.4 1.4L14.1 6 13 7.1l1.4 1.4L13 9.9l1.1 1Z"/></svg>
@@ -493,7 +493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_introduction/algorithms_are_everywhere/" class="md-nav__link">
+      <a href="../chapter_introduction/algorithms_are_everywhere/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -514,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_introduction/what_is_dsa/" class="md-nav__link">
+      <a href="../chapter_introduction/what_is_dsa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -535,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_introduction/summary/" class="md-nav__link">
+      <a href="../chapter_introduction/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -593,7 +593,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_computational_complexity/" class="md-nav__link ">
+            <a href="../chapter_computational_complexity/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"/></svg>
@@ -628,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_computational_complexity/performance_evaluation/" class="md-nav__link">
+      <a href="../chapter_computational_complexity/performance_evaluation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -649,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_computational_complexity/iteration_and_recursion/" class="md-nav__link">
+      <a href="../chapter_computational_complexity/iteration_and_recursion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -670,7 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_computational_complexity/time_complexity/" class="md-nav__link">
+      <a href="../chapter_computational_complexity/time_complexity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -691,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_computational_complexity/space_complexity/" class="md-nav__link">
+      <a href="../chapter_computational_complexity/space_complexity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -712,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_computational_complexity/summary/" class="md-nav__link">
+      <a href="../chapter_computational_complexity/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -737,8 +737,6 @@
       
   
   
-    
-  
   
   
     
@@ -762,17 +760,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../chapter_data_structure/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 13.5v8H3v-8h8m-2 2H5v4h4v-4M12 2l5.5 9h-11L12 2m0 3.86L10.08 9h3.84L12 5.86M17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"/></svg>
@@ -791,7 +789,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Chapter 3. Data Structures
@@ -807,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../classification_of_data_structure/" class="md-nav__link">
+      <a href="../chapter_data_structure/classification_of_data_structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -828,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basic_data_types/" class="md-nav__link">
+      <a href="../chapter_data_structure/basic_data_types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -849,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../number_encoding/" class="md-nav__link">
+      <a href="../chapter_data_structure/number_encoding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -867,30 +865,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    3.4 Character Encoding *
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../chapter_data_structure/character_encoding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -899,71 +877,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#341-ascii-character-set" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.1 &nbsp; ASCII Character Set
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#342-gbk-character-set" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.2 &nbsp; GBK Character Set
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#343-unicode-character-set" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.3 &nbsp; Unicode Character Set
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#344-utf-8-encoding" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.4 &nbsp; UTF-8 Encoding
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#345-character-encoding-in-programming-languages" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.5 &nbsp; Character Encoding in Programming Languages
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -976,7 +889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../summary/" class="md-nav__link">
+      <a href="../chapter_data_structure/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1034,7 +947,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_array_and_linkedlist/" class="md-nav__link ">
+            <a href="../chapter_array_and_linkedlist/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5v14h17V5H3m4 2v2H5V7h2m-2 6v-2h2v2H5m0 2h2v2H5v-2m13 2H9v-2h9v2m0-4H9v-2h9v2m0-4H9V7h9v2Z"/></svg>
@@ -1069,7 +982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_array_and_linkedlist/array/" class="md-nav__link">
+      <a href="../chapter_array_and_linkedlist/array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1090,7 +1003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_array_and_linkedlist/linked_list/" class="md-nav__link">
+      <a href="../chapter_array_and_linkedlist/linked_list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1111,7 +1024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_array_and_linkedlist/list/" class="md-nav__link">
+      <a href="../chapter_array_and_linkedlist/list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1132,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_array_and_linkedlist/ram_and_cache/" class="md-nav__link">
+      <a href="../chapter_array_and_linkedlist/ram_and_cache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1153,7 +1066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_array_and_linkedlist/summary/" class="md-nav__link">
+      <a href="../chapter_array_and_linkedlist/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1209,7 +1122,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_stack_and_queue/" class="md-nav__link ">
+            <a href="../chapter_stack_and_queue/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38h12.56M6.77 14.32l.37-1.76 8.79 1.85-.37 1.76-8.79-1.85m1.16-4.21.76-1.61 8.14 3.78-.76 1.62-8.14-3.79m2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37-6.9-5.75m4.45-4.25L20 9.08l-1.44 1.07-5.36-7.21 1.44-1.07M6.59 18.41v-1.8h8.98v1.8H6.59Z"/></svg>
@@ -1244,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_stack_and_queue/stack/" class="md-nav__link">
+      <a href="../chapter_stack_and_queue/stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1265,7 +1178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_stack_and_queue/queue/" class="md-nav__link">
+      <a href="../chapter_stack_and_queue/queue/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1286,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_stack_and_queue/deque/" class="md-nav__link">
+      <a href="../chapter_stack_and_queue/deque/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1307,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_stack_and_queue/summary/" class="md-nav__link">
+      <a href="../chapter_stack_and_queue/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1332,6 +1245,8 @@
       
   
   
+    
+  
   
   
     
@@ -1353,17 +1268,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_hashing/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"/></svg>
@@ -1376,13 +1291,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_7" id="__nav_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Chapter 6. Hash Table
@@ -1398,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_hashing/hash_map/" class="md-nav__link">
+      <a href="hash_map/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1419,7 +1334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_hashing/hash_collision/" class="md-nav__link">
+      <a href="hash_collision/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1440,7 +1355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_hashing/hash_algorithm/" class="md-nav__link">
+      <a href="hash_algorithm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1461,7 +1376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_hashing/summary/" class="md-nav__link">
+      <a href="summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1509,45 +1424,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#341-ascii-character-set" class="md-nav__link">
+  <a href="#chapter-contents" class="md-nav__link">
     <span class="md-ellipsis">
-      3.4.1 &nbsp; ASCII Character Set
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#342-gbk-character-set" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.2 &nbsp; GBK Character Set
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#343-unicode-character-set" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.3 &nbsp; Unicode Character Set
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#344-utf-8-encoding" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.4 &nbsp; UTF-8 Encoding
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#345-character-encoding-in-programming-languages" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.5 &nbsp; Character Encoding in Programming Languages
+      Chapter Contents
     </span>
   </a>
   
@@ -1575,7 +1454,7 @@
   <!-- Edit button -->
   
     <a
-      href="https://github.com/krahets/hello-algo/tree/main/docs-en/chapter_data_structure/character_encoding.md"
+      href="https://github.com/krahets/hello-algo/tree/main/docs-en/chapter_hashing/index.md"
       title="Edit this page"
       class="md-content__button md-icon"
     >
@@ -1589,70 +1468,22 @@
 
 
 <!-- Page content -->
-<h1 id="34-character-encoding">3.4 &nbsp; Character Encoding *<a class="headerlink" href="#34-character-encoding" title="Permanent link">&para;</a></h1>
-<p>In computers, all data is stored in binary form, and the character <code>char</code> is no exception. To represent characters, we need to establish a "character set" that defines a one-to-one correspondence between each character and binary numbers. With a character set, computers can convert binary numbers to characters by looking up a table.</p>
-<h2 id="341-ascii-character-set">3.4.1 &nbsp; ASCII Character Set<a class="headerlink" href="#341-ascii-character-set" title="Permanent link">&para;</a></h2>
-<p>The "ASCII code" is one of the earliest character sets, officially known as the American Standard Code for Information Interchange. It uses 7 binary digits (the lower 7 bits of a byte) to represent a character, allowing for a maximum of 128 different characters. As shown in the Figure 3-6 , ASCII includes uppercase and lowercase English letters, numbers 0 ~ 9, some punctuation marks, and some control characters (such as newline and tab).</p>
-<p><a class="glightbox" href="../character_encoding.assets/ascii_table.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="ASCII Code" class="animation-figure" src="../character_encoding.assets/ascii_table.png" /></a></p>
-<p align="center"> Figure 3-6 &nbsp; ASCII Code </p>
-
-<p>However, <strong>ASCII can only represent English characters</strong>. With the globalization of computers, a character set called "EASCII" was developed to represent more languages. It expands on the 7-bit basis of ASCII to 8 bits, enabling the representation of 256 different characters.</p>
-<p>Globally, a series of EASCII character sets for different regions emerged. The first 128 characters of these sets are uniformly ASCII, while the remaining 128 characters are defined differently to cater to various language requirements.</p>
-<h2 id="342-gbk-character-set">3.4.2 &nbsp; GBK Character Set<a class="headerlink" href="#342-gbk-character-set" title="Permanent link">&para;</a></h2>
-<p>Later, it was found that <strong>EASCII still could not meet the character requirements of many languages</strong>. For instance, there are nearly a hundred thousand Chinese characters, with several thousand used in everyday life. In 1980, China's National Standards Bureau released the "GB2312" character set, which included 6763 Chinese characters, essentially meeting the computer processing needs for Chinese.</p>
-<p>However, GB2312 could not handle some rare and traditional characters. The "GBK" character set, an expansion of GB2312, includes a total of 21886 Chinese characters. In the GBK encoding scheme, ASCII characters are represented with one byte, while Chinese characters use two bytes.</p>
-<h2 id="343-unicode-character-set">3.4.3 &nbsp; Unicode Character Set<a class="headerlink" href="#343-unicode-character-set" title="Permanent link">&para;</a></h2>
-<p>With the rapid development of computer technology and a plethora of character sets and encoding standards, numerous problems arose. On one hand, these character sets generally only defined characters for specific languages and could not function properly in multilingual environments. On the other hand, the existence of multiple character set standards for the same language caused garbled text when information was exchanged between computers using different encoding standards.</p>
-<p>Researchers of that era thought: <strong>What if we introduced a comprehensive character set that included all languages and symbols worldwide, wouldn't that solve the problems of cross-language environments and garbled text?</strong> Driven by this idea, the extensive character set, Unicode, was born.</p>
-<p>The Chinese name for "Unicode" is "统一码" (Unified Code), theoretically capable of accommodating over a million characters. It aims to incorporate characters from all over the world into a single set, providing a universal character set for processing and displaying various languages and reducing the issues of garbled text due to different encoding standards.</p>
-<p>Since its release in 1991, Unicode has continually expanded to include new languages and characters. As of September 2022, Unicode contains 149,186 characters, including characters, symbols, and even emojis from various languages. In the vast Unicode character set, commonly used characters occupy 2 bytes, while some rare characters take up 3 or even 4 bytes.</p>
-<p>Unicode is a universal character set that assigns a number (called a "code point") to each character, <strong>but it does not specify how these character code points should be stored in a computer</strong>. One might ask: When Unicode code points of varying lengths appear in a text, how does the system parse the characters? For example, given a 2-byte code, how does the system determine if it represents a single 2-byte character or two 1-byte characters?</p>
-<p>A straightforward solution to this problem is to store all characters as equal-length encodings. As shown in the Figure 3-7 , each character in "Hello" occupies 1 byte, while each character in "算法" (algorithm) occupies 2 bytes. We could encode all characters in "Hello 算法" as 2 bytes by padding the higher bits with zeros. This way, the system can parse a character every 2 bytes, recovering the content of the phrase.</p>
-<p><a class="glightbox" href="../character_encoding.assets/unicode_hello_algo.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Unicode Encoding Example" class="animation-figure" src="../character_encoding.assets/unicode_hello_algo.png" /></a></p>
-<p align="center"> Figure 3-7 &nbsp; Unicode Encoding Example </p>
-
-<p>However, as ASCII has shown us, encoding English only requires 1 byte. Using the above approach would double the space occupied by English text compared to ASCII encoding, which is a waste of memory space. Therefore, a more efficient Unicode encoding method is needed.</p>
-<h2 id="344-utf-8-encoding">3.4.4 &nbsp; UTF-8 Encoding<a class="headerlink" href="#344-utf-8-encoding" title="Permanent link">&para;</a></h2>
-<p>Currently, UTF-8 has become the most widely used Unicode encoding method internationally. <strong>It is a variable-length encoding</strong>, using 1 to 4 bytes to represent a character, depending on the complexity of the character. ASCII characters need only 1 byte, Latin and Greek letters require 2 bytes, commonly used Chinese characters need 3 bytes, and some other rare characters need 4 bytes.</p>
-<p>The encoding rules for UTF-8 are not complex and can be divided into two cases:</p>
+<h1 id="chapter-6-hash-table">Chapter 6. &nbsp; Hash Table<a class="headerlink" href="#chapter-6-hash-table" title="Permanent link">&para;</a></h1>
+<div class="center-table">
+<p><a class="glightbox" href="../assets/covers/chapter_hashing.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Hash Table" class="cover-image" src="../assets/covers/chapter_hashing.jpg" /></a></p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>In the world of computing, a hash table is like a wise librarian.</p>
+<p>He knows how to calculate index numbers, allowing it to quickly locate the target book.</p>
+</div>
+<h2 id="chapter-contents">Chapter Contents<a class="headerlink" href="#chapter-contents" title="Permanent link">&para;</a></h2>
 <ul>
-<li>For 1-byte characters, set the highest bit to <span class="arithmatex">\(0\)</span>, and the remaining 7 bits to the Unicode code point. Notably, ASCII characters occupy the first 128 code points in the Unicode set. This means that <strong>UTF-8 encoding is backward compatible with ASCII</strong>. This implies that UTF-8 can be used to parse ancient ASCII text.</li>
-<li>For characters of length <span class="arithmatex">\(n\)</span> bytes (where <span class="arithmatex">\(n &gt; 1\)</span>), set the highest <span class="arithmatex">\(n\)</span> bits of the first byte to <span class="arithmatex">\(1\)</span>, and the <span class="arithmatex">\((n + 1)^{\text{th}}\)</span> bit to <span class="arithmatex">\(0\)</span>; starting from the second byte, set the highest 2 bits of each byte to <span class="arithmatex">\(10\)</span>; the rest of the bits are used to fill the Unicode code point.</li>
+<li><a href="https://www.hello-algo.com/en/chapter_hashing/hash_map/">6.1 &nbsp; Hash Table</a></li>
+<li><a href="https://www.hello-algo.com/en/chapter_hashing/hash_collision/">6.2 &nbsp; Hash Collision</a></li>
+<li><a href="https://www.hello-algo.com/en/chapter_hashing/hash_algorithm/">6.3 &nbsp; Hash Algorithm</a></li>
+<li><a href="https://www.hello-algo.com/en/chapter_hashing/summary/">6.4 &nbsp; Summary</a></li>
 </ul>
-<p>The Figure 3-8  shows the UTF-8 encoding for "Hello算法". It can be observed that since the highest <span class="arithmatex">\(n\)</span> bits are set to <span class="arithmatex">\(1\)</span>, the system can determine the length of the character as <span class="arithmatex">\(n\)</span> by counting the number of highest bits set to <span class="arithmatex">\(1\)</span>.</p>
-<p>But why set the highest 2 bits of the remaining bytes to <span class="arithmatex">\(10\)</span>? Actually, this <span class="arithmatex">\(10\)</span> serves as a kind of checksum. If the system starts parsing text from an incorrect byte, the <span class="arithmatex">\(10\)</span> at the beginning of the byte can help the system quickly detect an anomaly.</p>
-<p>The reason for using <span class="arithmatex">\(10\)</span> as a checksum is that, under UTF-8 encoding rules, it's impossible for the highest two bits of a character to be <span class="arithmatex">\(10\)</span>. This can be proven by contradiction: If the highest two bits of a character are <span class="arithmatex">\(10\)</span>, it indicates that the character's length is <span class="arithmatex">\(1\)</span>, corresponding to ASCII. However, the highest bit of an ASCII character should be <span class="arithmatex">\(0\)</span>, contradicting the assumption.</p>
-<p><a class="glightbox" href="../character_encoding.assets/utf-8_hello_algo.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="UTF-8 Encoding Example" class="animation-figure" src="../character_encoding.assets/utf-8_hello_algo.png" /></a></p>
-<p align="center"> Figure 3-8 &nbsp; UTF-8 Encoding Example </p>
-
-<p>Apart from UTF-8, other common encoding methods include:</p>
-<ul>
-<li><strong>UTF-16 Encoding</strong>: Uses 2 or 4 bytes to represent a character. All ASCII characters and commonly used non-English characters are represented with 2 bytes; a few characters require 4 bytes. For 2-byte characters, the UTF-16 encoding is equal to the Unicode code point.</li>
-<li><strong>UTF-32 Encoding</strong>: Every character uses 4 bytes. This means UTF-32 occupies more space than UTF-8 and UTF-16, especially for texts with a high proportion of ASCII characters.</li>
-</ul>
-<p>From the perspective of storage space, UTF-8 is highly efficient for representing English characters, requiring only 1 byte; UTF-16 might be more efficient for encoding some non-English characters (like Chinese), as it requires only 2 bytes, while UTF-8 might need 3 bytes.</p>
-<p>From a compatibility standpoint, UTF-8 is the most versatile, with many tools and libraries supporting UTF-8 as a priority.</p>
-<h2 id="345-character-encoding-in-programming-languages">3.4.5 &nbsp; Character Encoding in Programming Languages<a class="headerlink" href="#345-character-encoding-in-programming-languages" title="Permanent link">&para;</a></h2>
-<p>In many classic programming languages, strings during program execution are encoded using fixed-length encodings like UTF-16 or UTF-32. This allows strings to be treated as arrays, offering several advantages:</p>
-<ul>
-<li><strong>Random Access</strong>: Strings encoded in UTF-16 can be accessed randomly with ease. For UTF-8, which is a variable-length encoding, locating the <span class="arithmatex">\(i^{th}\)</span> character requires traversing the string from the start to the <span class="arithmatex">\(i^{th}\)</span> position, taking <span class="arithmatex">\(O(n)\)</span> time.</li>
-<li><strong>Character Counting</strong>: Similar to random access, counting the number of characters in a UTF-16 encoded string is an <span class="arithmatex">\(O(1)\)</span> operation. However, counting characters in a UTF-8 encoded string requires traversing the entire string.</li>
-<li><strong>String Operations</strong>: Many string operations like splitting, concatenating, inserting, and deleting are easier on UTF-16 encoded strings. These operations generally require additional computation on UTF-8 encoded strings to ensure the validity of the UTF-8 encoding.</li>
-</ul>
-<p>The design of character encoding schemes in programming languages is an interesting topic involving various factors:</p>
-<ul>
-<li>Java’s <code>String</code> type uses UTF-16 encoding, with each character occupying 2 bytes. This was based on the initial belief that 16 bits were sufficient to represent all possible characters, a judgment later proven incorrect. As the Unicode standard expanded beyond 16 bits, characters in Java may now be represented by a pair of 16-bit values, known as “surrogate pairs.”</li>
-<li>JavaScript and TypeScript use UTF-16 encoding for similar reasons as Java. When JavaScript was first introduced by Netscape in 1995, Unicode was still in its early stages, and 16-bit encoding was sufficient to represent all Unicode characters.</li>
-<li>C# uses UTF-16 encoding, largely because the .NET platform, designed by Microsoft, and many Microsoft technologies, including the Windows operating system, extensively use UTF-16 encoding.</li>
-</ul>
-<p>Due to the underestimation of character counts, these languages had to resort to using "surrogate pairs" to represent Unicode characters exceeding 16 bits. This approach has its drawbacks: strings containing surrogate pairs may have characters occupying 2 or 4 bytes, losing the advantage of fixed-length encoding, and handling surrogate pairs adds to the complexity and debugging difficulty of programming.</p>
-<p>Owing to these reasons, some programming languages have adopted different encoding schemes:</p>
-<ul>
-<li>Python’s <code>str</code> type uses Unicode encoding with a flexible representation where the storage length of characters depends on the largest Unicode code point in the string. If all characters are ASCII, each character occupies 1 byte; if characters exceed ASCII but are within the Basic Multilingual Plane (BMP), each occupies 2 bytes; if characters exceed the BMP, each occupies 4 bytes.</li>
-<li>Go’s <code>string</code> type internally uses UTF-8 encoding. Go also provides the <code>rune</code> type for representing individual Unicode code points.</li>
-<li>Rust’s <code>str</code> and <code>String</code> types use UTF-8 encoding internally. Rust also offers the <code>char</code> type for individual Unicode code points.</li>
-</ul>
-<p>It’s important to note that the above discussion pertains to how strings are stored in programming languages, <strong>which is a different issue from how strings are stored in files or transmitted over networks</strong>. For file storage or network transmission, strings are usually encoded in UTF-8 format for optimal compatibility and space efficiency.</p>
 
 <!-- Source file information -->
 
@@ -1673,9 +1504,9 @@ aria-label="Footer"
 
   
   <a
-    href="../number_encoding/"
+    href="../chapter_stack_and_queue/summary/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="Previous: 3.3 Number Encoding *"
+    aria-label="Previous: 5.4 Summary"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -1687,7 +1518,7 @@ aria-label="Footer"
         Previous
       </span>
       <div class="md-ellipsis">
-        3.3 Number Encoding *
+        5.4 Summary
       </div>
     </div>
   </a>
@@ -1697,9 +1528,9 @@ aria-label="Footer"
 
   
   <a
-    href="../summary/"
+    href="hash_map/"
     class="md-footer__link md-footer__link--next"
-    aria-label="Next: 3.5 Summary"
+    aria-label="Next: 6.1 Hash Table"
     rel="next"
   >
     <div class="md-footer__title">
@@ -1707,7 +1538,7 @@ aria-label="Footer"
         Next
       </span>
       <div class="md-ellipsis">
-        3.5 Summary
+        6.1 Hash Table
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -1800,7 +1631,7 @@ aria-label="Footer"
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../number_encoding/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3.3 Number Encoding *">
+          <a href="../chapter_stack_and_queue/summary/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5.4 Summary">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1810,20 +1641,20 @@ aria-label="Footer"
                 Previous
               </span>
               <div class="md-ellipsis">
-                3.3 Number Encoding *
+                5.4 Summary
               </div>
             </div>
           </a>
         
         
           
-          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="Next: 3.5 Summary">
+          <a href="hash_map/" class="md-footer__link md-footer__link--next" aria-label="Next: 6.1 Hash Table">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                3.5 Summary
+                6.1 Hash Table
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1893,12 +1724,12 @@ aria-label="Footer"
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>
+      <script src="../assets/javascripts/bundle.c18c5fb9.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
