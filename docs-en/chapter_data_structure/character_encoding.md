@@ -1,26 +1,26 @@
 # Character Encoding *
 
-In the computer system, all data is stored in binary form, including characters (char). To represent characters, we need to develop a "character set" that defines a one-to-one mapping between each character and binary numbers. With the character set, computers can convert binary numbers to characters by looking up the table.
+In the computer system, all data is stored in binary form, and characters (represented by char) are no exception. To represent characters, we need to develop a "character set" that defines a one-to-one mapping between each character and binary numbers. With the character set, computers can convert binary numbers to characters by looking up the table.
 
 ## ASCII Character Set
 
-The "ASCII code" is one of the earliest character sets and stands for American Standard Code for Information Interchange. It uses 7 binary digits (the lower 7 bits of a byte) to represent a character, allowing for a maximum of 128 characters. As shown in the figure below, ASCII includes uppercase and lowercase English letters, numbers 0 ~ 9, various punctuation marks, and certain control characters (such as newline and tab).
+The "ASCII code" is one of the earliest character sets, officially known as the American Standard Code for Information Interchange. It uses 7 binary digits (the lower 7 bits of a byte) to represent a character, allowing for a maximum of 128 different characters. As shown in the figure below, ASCII includes uppercase and lowercase English letters, numbers 0 ~ 9, various punctuation marks, and certain control characters (such as newline and tab).
 
 ![ASCII Code](character_encoding.assets/ascii_table.png)
 
-However, **ASCII can only represent English characters**. With the globalization of computers, a character set called "EASCII" was developed to represent more languages. It expands from the 7-bit structure of ASCII to 8-bit and can represent 256 characters.
+However, **ASCII can only represent English characters**. With the globalization of computers, a character set called "EASCII" was developed to represent more languages. It expands from the 7-bit structure of ASCII to 8 bits, enabling the representation of 256 characters.
 
-Globally, a series of region-specific EASCII character sets have been introduced. The first 128 characters of these sets are consistent with the ASCII, while the remaining 128 characters are defined differently to accommodate the requirements of different languages.
+Globally, various region-specific EASCII character sets have been introduced. The first 128 characters of these sets are consistent with the ASCII, while the remaining 128 characters are defined differently to accommodate the requirements of different languages.
 
 ## GBK Character Set
 
-Later, it was found that **EASCII still could not meet the character requirements of many languages**. For instance, there are nearly a hundred thousand Chinese characters, with several thousand used regularly. In 1980, the Standardization Administration of China released the "GB2312" character set, which included 6763 Chinese characters, essentially fulfilling the computer processing needs of the Chinese.
+Later, it was found that **EASCII still could not meet the character requirements of many languages**. For instance, there are nearly a hundred thousand Chinese characters, with several thousand used regularly. In 1980, the Standardization Administration of China released the "GB2312" character set, which included 6763 Chinese characters, essentially fulfilling the computer processing needs for the Chinese language.
 
 However, GB2312 could not handle some rare and traditional characters. The "GBK" character set expands GB2312 and includes 21886 Chinese characters. In the GBK encoding scheme, ASCII characters are represented with one byte, while Chinese characters use two bytes.
 
 ## Unicode Character Set
 
-With the rapid evolution of computer technology and a plethora of character sets and encoding standards, numerous challenges arose. On the one hand, these character sets generally only defined characters for specific languages and could not function properly in multilingual environments. On the other hand, the existence of multiple character set standards for the same language caused garbled text when information was exchanged between computers using different encoding standards.
+With the rapid evolution of computer technology and a plethora of character sets and encoding standards, numerous problems arose. On the one hand, these character sets generally only defined characters for specific languages and could not function properly in multilingual environments. On the other hand, the existence of multiple character set standards for the same language caused garbled text when information was exchanged between computers using different encoding standards.
 
 Researchers of that era thought: **What if a comprehensive character set encompassing all global languages and symbols was developed? Wouldn't this resolve the issues associated with cross-linguistic environments and garbled text?** Inspired by this idea, the extensive character set, Unicode, was born.
 
