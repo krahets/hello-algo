@@ -2,55 +2,55 @@
 comments: true
 ---
 
-# 6.3 &nbsp; 哈希算法
+# 6.3 &nbsp; Hash Algorithms
 
-前两节介绍了哈希表的工作原理和哈希冲突的处理方法。然而无论是开放寻址还是链式地址，**它们只能保证哈希表可以在发生冲突时正常工作，而无法减少哈希冲突的发生**。
+The previous two sections introduced the working principle of hash tables and the methods to handle hash collisions. However, both open addressing and chaining can **only ensure that the hash table functions normally when collisions occur, but cannot reduce the frequency of hash collisions**.
 
-如果哈希冲突过于频繁，哈希表的性能则会急剧劣化。如图 6-8 所示，对于链式地址哈希表，理想情况下键值对均匀分布在各个桶中，达到最佳查询效率；最差情况下所有键值对都存储到同一个桶中，时间复杂度退化至 $O(n)$ 。
+If hash collisions occur too frequently, the performance of the hash table will deteriorate drastically. As shown in the Figure 6-8 , for a chaining hash table, in the ideal case, the key-value pairs are evenly distributed across the buckets, achieving optimal query efficiency; in the worst case, all key-value pairs are stored in the same bucket, degrading the time complexity to $O(n)$.
 
-![哈希冲突的最佳情况与最差情况](hash_algorithm.assets/hash_collision_best_worst_condition.png){ class="animation-figure" }
+![Ideal and Worst Cases of Hash Collisions](hash_algorithm.assets/hash_collision_best_worst_condition.png){ class="animation-figure" }
 
-<p align="center"> 图 6-8 &nbsp; 哈希冲突的最佳情况与最差情况 </p>
+<p align="center"> Figure 6-8 &nbsp; Ideal and Worst Cases of Hash Collisions </p>
 
-**键值对的分布情况由哈希函数决定**。回忆哈希函数的计算步骤，先计算哈希值，再对数组长度取模：
+**The distribution of key-value pairs is determined by the hash function**. Recalling the steps of calculating a hash function, first compute the hash value, then modulo it by the array length:
 
 ```shell
 index = hash(key) % capacity
 ```
 
-观察以上公式，当哈希表容量 `capacity` 固定时，**哈希算法 `hash()` 决定了输出值**，进而决定了键值对在哈希表中的分布情况。
+Observing the above formula, when the hash table capacity `capacity` is fixed, **the hash algorithm `hash()` determines the output value**, thereby determining the distribution of key-value pairs in the hash table.
 
-这意味着，为了降低哈希冲突的发生概率，我们应当将注意力集中在哈希算法 `hash()` 的设计上。
+This means that, to reduce the probability of hash collisions, we should focus on the design of the hash algorithm `hash()`.
 
-## 6.3.1 &nbsp; 哈希算法的目标
+## 6.3.1 &nbsp; Goals of Hash Algorithms
 
-为了实现“既快又稳”的哈希表数据结构，哈希算法应具备以下特点。
+To achieve a "fast and stable" hash table data structure, hash algorithms should have the following characteristics:
 
-- **确定性**：对于相同的输入，哈希算法应始终产生相同的输出。这样才能确保哈希表是可靠的。
-- **效率高**：计算哈希值的过程应该足够快。计算开销越小，哈希表的实用性越高。
-- **均匀分布**：哈希算法应使得键值对均匀分布在哈希表中。分布越均匀，哈希冲突的概率就越低。
+- **Determinism**: For the same input, the hash algorithm should always produce the same output. Only then can the hash table be reliable.
+- **High Efficiency**: The process of computing the hash value should be fast enough. The smaller the computational overhead, the more practical the hash table.
+- **Uniform Distribution**: The hash algorithm should ensure that key-value pairs are evenly distributed in the hash table. The more uniform the distribution, the lower the probability of hash collisions.
 
-实际上，哈希算法除了可以用于实现哈希表，还广泛应用于其他领域中。
+In fact, hash algorithms are not only used to implement hash tables but are also widely applied in other fields.
 
-- **密码存储**：为了保护用户密码的安全，系统通常不会直接存储用户的明文密码，而是存储密码的哈希值。当用户输入密码时，系统会对输入的密码计算哈希值，然后与存储的哈希值进行比较。如果两者匹配，那么密码就被视为正确。
-- **数据完整性检查**：数据发送方可以计算数据的哈希值并将其一同发送；接收方可以重新计算接收到的数据的哈希值，并与接收到的哈希值进行比较。如果两者匹配，那么数据就被视为完整。
+- **Password Storage**: To protect the security of user passwords, systems usually do not store the plaintext passwords but rather the hash values of the passwords. When a user enters a password, the system calculates the hash value of the input and compares it with the stored hash value. If they match, the password is considered correct.
+- **Data Integrity Check**: The data sender can calculate the hash value of the data and send it along; the receiver can recalculate the hash value of the received data and compare it with the received hash value. If they match, the data is considered intact.
 
-对于密码学的相关应用，为了防止从哈希值推导出原始密码等逆向工程，哈希算法需要具备更高等级的安全特性。
+For cryptographic applications, to prevent reverse engineering such as deducing the original password from the hash value, hash algorithms need higher-level security features.
 
-- **单向性**：无法通过哈希值反推出关于输入数据的任何信息。
-- **抗碰撞性**：应当极难找到两个不同的输入，使得它们的哈希值相同。
-- **雪崩效应**：输入的微小变化应当导致输出的显著且不可预测的变化。
+- **Unidirectionality**: It should be impossible to deduce any information about the input data from the hash value.
+- **Collision Resistance**: It should be extremely difficult to find two different inputs that produce the same hash value.
+- **Avalanche Effect**: Minor changes in the input should lead to significant and unpredictable changes in the output.
 
-请注意，**“均匀分布”与“抗碰撞性”是两个独立的概念**，满足均匀分布不一定满足抗碰撞性。例如，在随机输入 `key` 下，哈希函数 `key % 100` 可以产生均匀分布的输出。然而该哈希算法过于简单，所有后两位相等的 `key` 的输出都相同，因此我们可以很容易地从哈希值反推出可用的 `key` ，从而破解密码。
+Note that **"Uniform Distribution" and "Collision Resistance" are two separate concepts**. Satisfying uniform distribution does not necessarily mean collision resistance. For example, under random input `key`, the hash function `key % 100` can produce a uniformly distributed output. However, this hash algorithm is too simple, and all `key` with the same last two digits will have the same output, making it easy to deduce a usable `key` from the hash value, thereby cracking the password.
 
-## 6.3.2 &nbsp; 哈希算法的设计
+## 6.3.2 &nbsp; Design of Hash Algorithms
 
-哈希算法的设计是一个需要考虑许多因素的复杂问题。然而对于某些要求不高的场景，我们也能设计一些简单的哈希算法。
+The design of hash algorithms is a complex issue that requires consideration of many factors. However, for some less demanding scenarios, we can also design some simple hash algorithms.
 
-- **加法哈希**：对输入的每个字符的 ASCII 码进行相加，将得到的总和作为哈希值。
-- **乘法哈希**：利用乘法的不相关性，每轮乘以一个常数，将各个字符的 ASCII 码累积到哈希值中。
-- **异或哈希**：将输入数据的每个元素通过异或操作累积到一个哈希值中。
-- **旋转哈希**：将每个字符的 ASCII 码累积到一个哈希值中，每次累积之前都会对哈希值进行旋转操作。
+- **Additive Hash**: Add up the ASCII codes of each character in the input and use the total sum as the hash value.
+- **Multiplicative Hash**: Utilize the non-correlation of multiplication, multiplying each round by a constant, accumulating the ASCII codes of each character into the hash value.
+- **XOR Hash**: Accumulate the hash value by XORing each element of the input data.
+- **Rotating Hash**: Accumulate the ASCII code of each character into a hash value, performing a rotation operation on the hash value before each accumulation.
 
 === "Python"
 
@@ -566,16 +566,16 @@ index = hash(key) % capacity
     [class]{}-[func]{rotHash}
     ```
 
-??? pythontutor "可视化运行"
+??? pythontutor "Code Visualization"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E6%B3%95%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%98%E6%B3%95%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20*%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%BC%82%E6%88%96%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%97%8B%E8%BD%AC%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E6%B3%95%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%98%E6%B3%95%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22%E5%BC%82%E6%88%96%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E6%97%8B%E8%BD%AC%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E6%B3%95%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%98%E6%B3%95%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20*%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%BC%82%E6%88%96%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%97%8B%E8%BD%AC%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E6%B3%95%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%98%E6%B3%95%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22%E5%BC%82%E6%88%96%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E6%97%8B%E8%BD%AC%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E6%B3%95%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%98%E6%B3%95%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20*%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%BC%82%E6%88%96%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%97%8B%E8%BD%AC%E5%93%88%E5%B8%8C%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E6%B3%95%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%98%E6%B3%95%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22%E5%BC%82%E6%88%96%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E6%97%8B%E8%BD%AC%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20%7Bhash%7D%22%29%0A&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
-观察发现，每种哈希算法的最后一步都是对大质数 $1000000007$ 取模，以确保哈希值在合适的范围内。值得思考的是，为什么要强调对质数取模，或者说对合数取模的弊端是什么？这是一个有趣的问题。
+It is observed that the last step of each hash algorithm is to take the modulus of the large prime number $1000000007$ to ensure that the hash value is within an appropriate range. It is worth pondering why emphasis is placed on modulo a prime number, or what are the disadvantages of modulo a composite number? This is an interesting question.
 
-先抛出结论：**使用大质数作为模数，可以最大化地保证哈希值的均匀分布**。因为质数不与其他数字存在公约数，可以减少因取模操作而产生的周期性模式，从而避免哈希冲突。
+To conclude: **Using a large prime number as the modulus can maximize the uniform distribution of hash values**. Since a prime number does not share common factors with other numbers, it can reduce the periodic patterns caused by the modulo operation, thus avoiding hash collisions.
 
-举个例子，假设我们选择合数 $9$ 作为模数，它可以被 $3$ 整除，那么所有可以被 $3$ 整除的 `key` 都会被映射到 $0$、$3$、$6$ 这三个哈希值。
+For example, suppose we choose the composite number $9$ as the modulus, which can be divided by $3$, then all `key` divisible by $3$ will be mapped to hash values $0$, $3$, $6$.
 
 $$
 \begin{aligned}
@@ -585,7 +585,7 @@ $$
 \end{aligned}
 $$
 
-如果输入 `key` 恰好满足这种等差数列的数据分布，那么哈希值就会出现聚堆，从而加重哈希冲突。现在，假设将 `modulus` 替换为质数 $13$ ，由于 `key` 和 `modulus` 之间不存在公约数，因此输出的哈希值的均匀性会明显提升。
+If the input `key` happens to have this kind of arithmetic sequence distribution, then the hash values will cluster, thereby exacerbating hash collisions. Now, suppose we replace `modulus` with the prime number $13$, since there are no common factors between `key` and `modulus`, the uniformity of the output hash values will be significantly improved.
 
 $$
 \begin{aligned}
@@ -595,75 +595,75 @@ $$
 \end{aligned}
 $$
 
-值得说明的是，如果能够保证 `key` 是随机均匀分布的，那么选择质数或者合数作为模数都可以，它们都能输出均匀分布的哈希值。而当 `key` 的分布存在某种周期性时，对合数取模更容易出现聚集现象。
+It is worth noting that if the `key` is guaranteed to be randomly and uniformly distributed, then choosing a prime number or a composite number as the modulus can both produce uniformly distributed hash values. However, when the distribution of `key` has some periodicity, modulo a composite number is more likely to result in clustering.
 
-总而言之，我们通常选取质数作为模数，并且这个质数最好足够大，以尽可能消除周期性模式，提升哈希算法的稳健性。
+In summary, we usually choose a prime number as the modulus, and this prime number should be large enough to eliminate periodic patterns as much as possible, enhancing the robustness of the hash algorithm.
 
-## 6.3.3 &nbsp; 常见哈希算法
+## 6.3.3 &nbsp; Common Hash Algorithms
 
-不难发现，以上介绍的简单哈希算法都比较“脆弱”，远远没有达到哈希算法的设计目标。例如，由于加法和异或满足交换律，因此加法哈希和异或哈希无法区分内容相同但顺序不同的字符串，这可能会加剧哈希冲突，并引起一些安全问题。
+It is not hard to see that the simple hash algorithms mentioned above are quite "fragile" and far from reaching the design goals of hash algorithms. For example, since addition and XOR obey the commutative law, additive hash and XOR hash cannot distinguish strings with the same content but in different order, which may exacerbate hash collisions and cause security issues.
 
-在实际中，我们通常会用一些标准哈希算法，例如 MD5、SHA-1、SHA-2 和 SHA-3 等。它们可以将任意长度的输入数据映射到恒定长度的哈希值。
+In practice, we usually use some standard hash algorithms, such as MD5, SHA-1, SHA-2, and SHA-3. They can map input data of any length to a fixed-length hash value.
 
-近一个世纪以来，哈希算法处在不断升级与优化的过程中。一部分研究人员努力提升哈希算法的性能，另一部分研究人员和黑客则致力于寻找哈希算法的安全性问题。表 6-2 展示了在实际应用中常见的哈希算法。
+Over the past century, hash algorithms have been in a continuous process of upgrading and optimization. Some researchers strive to improve the performance of hash algorithms, while others, including hackers, are dedicated to finding security issues in hash algorithms. The Table 6-2  shows hash algorithms commonly used in practical applications.
 
-- MD5 和 SHA-1 已多次被成功攻击，因此它们被各类安全应用弃用。
-- SHA-2 系列中的 SHA-256 是最安全的哈希算法之一，仍未出现成功的攻击案例，因此常用在各类安全应用与协议中。
-- SHA-3 相较 SHA-2 的实现开销更低、计算效率更高，但目前使用覆盖度不如 SHA-2 系列。
+- MD5 and SHA-1 have been successfully attacked multiple times and are thus abandoned in various security applications.
+- SHA-2 series, especially SHA-256, is one of the most secure hash algorithms to date, with no successful attacks reported, hence commonly used in various security applications and protocols.
+- SHA-3 has lower implementation costs and higher computational efficiency compared to SHA-2, but its current usage coverage is not as extensive as the SHA-2 series.
 
-<p align="center"> 表 6-2 &nbsp; 常见的哈希算法 </p>
+<p align="center"> Table 6-2 &nbsp; Common Hash Algorithms </p>
 
 <div class="center-table" markdown>
 
-|          | MD5                            | SHA-1            | SHA-2                        | SHA-3               |
-| -------- | ------------------------------ | ---------------- | ---------------------------- | ------------------- |
-| 推出时间 | 1992                           | 1995             | 2002                         | 2008                |
-| 输出长度 | 128 bit                        | 160 bit          | 256/512 bit                  | 224/256/384/512 bit |
-| 哈希冲突 | 较多                           | 较多             | 很少                         | 很少                |
-| 安全等级 | 低，已被成功攻击               | 低，已被成功攻击 | 高                           | 高                  |
-| 应用     | 已被弃用，仍用于数据完整性检查 | 已被弃用         | 加密货币交易验证、数字签名等 | 可用于替代 SHA-2    |
+|                 | MD5                                             | SHA-1                               | SHA-2                                                             | SHA-3                        |
+| --------------- | ----------------------------------------------- | ----------------------------------- | ----------------------------------------------------------------- | ---------------------------- |
+| Release Year    | 1992                                            | 1995                                | 2002                                                              | 2008                         |
+| Output Length   | 128 bit                                         | 160 bit                             | 256/512 bit                                                       | 224/256/384/512 bit          |
+| Hash Collisions | Frequent                                        | Frequent                            | Rare                                                              | Rare                         |
+| Security Level  | Low, has been successfully attacked             | Low, has been successfully attacked | High                                                              | High                         |
+| Applications    | Abandoned, still used for data integrity checks | Abandoned                           | Cryptocurrency transaction verification, digital signatures, etc. | Can be used to replace SHA-2 |
 
 </div>
 
-## 6.3.4 &nbsp; 数据结构的哈希值
+# Hash Values in Data Structures
 
-我们知道，哈希表的 `key` 可以是整数、小数或字符串等数据类型。编程语言通常会为这些数据类型提供内置的哈希算法，用于计算哈希表中的桶索引。以 Python 为例，我们可以调用 `hash()` 函数来计算各种数据类型的哈希值。
+We know that the keys in a hash table can be of various data types such as integers, decimals, or strings. Programming languages usually provide built-in hash algorithms for these data types to calculate the bucket indices in the hash table. Taking Python as an example, we can use the `hash()` function to compute the hash values for various data types.
 
-- 整数和布尔量的哈希值就是其本身。
-- 浮点数和字符串的哈希值计算较为复杂，有兴趣的读者请自行学习。
-- 元组的哈希值是对其中每一个元素进行哈希，然后将这些哈希值组合起来，得到单一的哈希值。
-- 对象的哈希值基于其内存地址生成。通过重写对象的哈希方法，可实现基于内容生成哈希值。
+- The hash values of integers and booleans are their own values.
+- The calculation of hash values for floating-point numbers and strings is more complex, and interested readers are encouraged to study this on their own.
+- The hash value of a tuple is a combination of the hash values of each of its elements, resulting in a single hash value.
+- The hash value of an object is generated based on its memory address. By overriding the hash method of an object, hash values can be generated based on content.
 
 !!! tip
 
-    请注意，不同编程语言的内置哈希值计算函数的定义和方法不同。
+    Be aware that the definition and methods of the built-in hash value calculation functions in different programming languages vary.
 
 === "Python"
 
     ```python title="built_in_hash.py"
     num = 3
     hash_num = hash(num)
-    # 整数 3 的哈希值为 3
+    # Hash value of integer 3 is 3
 
     bol = True
     hash_bol = hash(bol)
-    # 布尔量 True 的哈希值为 1
+    # Hash value of boolean True is 1
 
     dec = 3.14159
     hash_dec = hash(dec)
-    # 小数 3.14159 的哈希值为 326484311674566659
+    # Hash value of decimal 3.14159 is 326484311674566659
 
     str = "Hello 算法"
     hash_str = hash(str)
-    # 字符串“Hello 算法”的哈希值为 4617003410720528961
+    # Hash value of string "Hello 算法" is 4617003410720528961
 
     tup = (12836, "小哈")
     hash_tup = hash(tup)
-    # 元组 (12836, '小哈') 的哈希值为 1029005403108185979
+    # Hash value of tuple (12836, '小哈') is 1029005403108185979
 
     obj = ListNode(0)
     hash_obj = hash(obj)
-    # 节点对象 <ListNode object at 0x1058fd810> 的哈希值为 274267521
+    # Hash value of ListNode object at 0x1058fd810 is 274267521
     ```
 
 === "C++"
@@ -671,22 +671,22 @@ $$
     ```cpp title="built_in_hash.cpp"
     int num = 3;
     size_t hashNum = hash<int>()(num);
-    // 整数 3 的哈希值为 3
+    // Hash value of integer 3 is 3
 
     bool bol = true;
     size_t hashBol = hash<bool>()(bol);
-    // 布尔量 1 的哈希值为 1
+    // Hash value of boolean 1 is 1
 
     double dec = 3.14159;
     size_t hashDec = hash<double>()(dec);
-    // 小数 3.14159 的哈希值为 4614256650576692846
+    // Hash value of decimal 3.14159 is 4614256650576692846
 
     string str = "Hello 算法";
     size_t hashStr = hash<string>()(str);
-    // 字符串“Hello 算法”的哈希值为 15466937326284535026
+    // Hash value of string "Hello 算法" is 15466937326284535026
 
-    // 在 C++ 中，内置 std:hash() 仅提供基本数据类型的哈希值计算
-    // 数组、对象的哈希值计算需要自行实现
+    // In C++, built-in std::hash() only provides hash values for basic data types
+    // Hash values for arrays and objects need to be implemented separately
     ```
 
 === "Java"
@@ -694,27 +694,27 @@ $$
     ```java title="built_in_hash.java"
     int num = 3;
     int hashNum = Integer.hashCode(num);
-    // 整数 3 的哈希值为 3
+    // Hash value of integer 3 is 3
 
     boolean bol = true;
     int hashBol = Boolean.hashCode(bol);
-    // 布尔量 true 的哈希值为 1231
+    // Hash value of boolean true is 1231
 
     double dec = 3.14159;
     int hashDec = Double.hashCode(dec);
-    // 小数 3.14159 的哈希值为 -1340954729
+    // Hash value of decimal 3.14159 is -1340954729
 
     String str = "Hello 算法";
     int hashStr = str.hashCode();
-    // 字符串“Hello 算法”的哈希值为 -727081396
+    // Hash value of string "Hello 算法" is -727081396
 
     Object[] arr = { 12836, "小哈" };
     int hashTup = Arrays.hashCode(arr);
-    // 数组 [12836, 小哈] 的哈希值为 1151158
+    // Hash value of array [12836, 小哈] is 1151158
 
     ListNode obj = new ListNode(0);
     int hashObj = obj.hashCode();
-    // 节点对象 utils.ListNode@7dc5e7b4 的哈希值为 2110121908
+    // Hash value of ListNode object utils.ListNode@7dc5e7b4 is 2110121908
     ```
 
 === "C#"
@@ -722,33 +722,33 @@ $$
     ```csharp title="built_in_hash.cs"
     int num = 3;
     int hashNum = num.GetHashCode();
-    // 整数 3 的哈希值为 3;
+    // Hash value of integer 3 is 3;
 
     bool bol = true;
     int hashBol = bol.GetHashCode();
-    // 布尔量 true 的哈希值为 1;
+    // Hash value of boolean true is 1;
 
     double dec = 3.14159;
     int hashDec = dec.GetHashCode();
-    // 小数 3.14159 的哈希值为 -1340954729;
+    // Hash value of decimal 3.14159 is -1340954729;
 
     string str = "Hello 算法";
     int hashStr = str.GetHashCode();
-    // 字符串“Hello 算法”的哈希值为 -586107568;
+    // Hash value of string "Hello 算法" is -586107568;
 
     object[] arr = [12836, "小哈"];
     int hashTup = arr.GetHashCode();
-    // 数组 [12836, 小哈] 的哈希值为 42931033;
+    // Hash value of array [12836, 小哈] is 42931033;
 
     ListNode obj = new(0);
     int hashObj = obj.GetHashCode();
-    // 节点对象 0 的哈希值为 39053774;
+    // Hash value of ListNode object 0 is 39053774;
     ```
 
 === "Go"
 
     ```go title="built_in_hash.go"
-    // Go 未提供内置 hash code 函数
+    // Go does not provide built-in hash code functions
     ```
 
 === "Swift"
@@ -756,39 +756,39 @@ $$
     ```swift title="built_in_hash.swift"
     let num = 3
     let hashNum = num.hashValue
-    // 整数 3 的哈希值为 9047044699613009734
+    // Hash value of integer 3 is 9047044699613009734
 
     let bol = true
     let hashBol = bol.hashValue
-    // 布尔量 true 的哈希值为 -4431640247352757451
+    // Hash value of boolean true is -4431640247352757451
 
     let dec = 3.14159
     let hashDec = dec.hashValue
-    // 小数 3.14159 的哈希值为 -2465384235396674631
+    // Hash value of decimal 3.14159 is -2465384235396674631
 
     let str = "Hello 算法"
     let hashStr = str.hashValue
-    // 字符串“Hello 算法”的哈希值为 -7850626797806988787
+    // Hash value of string "Hello 算法" is -7850626797806988787
 
     let arr = [AnyHashable(12836), AnyHashable("小哈")]
     let hashTup = arr.hashValue
-    // 数组 [AnyHashable(12836), AnyHashable("小哈")] 的哈希值为 -2308633508154532996
+    // Hash value of array [AnyHashable(12836), AnyHashable("小哈")] is -2308633508154532996
 
     let obj = ListNode(x: 0)
     let hashObj = obj.hashValue
-    // 节点对象 utils.ListNode 的哈希值为 -2434780518035996159
+    // Hash value of ListNode object utils.ListNode is -2434780518035996159
     ```
 
 === "JS"
 
     ```javascript title="built_in_hash.js"
-    // JavaScript 未提供内置 hash code 函数
+    // JavaScript does not provide built-in hash code functions
     ```
 
 === "TS"
 
     ```typescript title="built_in_hash.ts"
-    // TypeScript 未提供内置 hash code 函数
+    // TypeScript does not provide built-in hash code functions
     ```
 
 === "Dart"
@@ -796,27 +796,27 @@ $$
     ```dart title="built_in_hash.dart"
     int num = 3;
     int hashNum = num.hashCode;
-    // 整数 3 的哈希值为 34803
+    // Hash value of integer 3 is 34803
 
     bool bol = true;
     int hashBol = bol.hashCode;
-    // 布尔值 true 的哈希值为 1231
+    // Hash value of boolean true is 1231
 
     double dec = 3.14159;
     int hashDec = dec.hashCode;
-    // 小数 3.14159 的哈希值为 2570631074981783
+    // Hash value of decimal 3.14159 is 2570631074981783
 
     String str = "Hello 算法";
     int hashStr = str.hashCode;
-    // 字符串“Hello 算法”的哈希值为 468167534
+    // Hash value of string "Hello 算法" is 468167534
 
     List arr = [12836, "小哈"];
     int hashArr = arr.hashCode;
-    // 数组 [12836, 小哈] 的哈希值为 976512528
+    // Hash value of array [12836, 小哈] is 976512528
 
     ListNode obj = new ListNode(0);
     int hashObj = obj.hashCode;
-    // 节点对象 Instance of 'ListNode' 的哈希值为 1033450432
+    // Hash value of ListNode object Instance of 'ListNode' is 1033450432
     ```
 
 === "Rust"
@@ -824,48 +824,48 @@ $$
     ```rust title="built_in_hash.rs"
     use std::collections::hash_map::DefaultHasher;
     use std::hash::{Hash, Hasher};
-    
+
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
     let hash_num = num_hasher.finish();
-    // 整数 3 的哈希值为 568126464209439262
+    // Hash value of integer 3 is 568126464209439262
 
     let bol = true;
     let mut bol_hasher = DefaultHasher::new();
     bol.hash(&mut bol_hasher);
     let hash_bol = bol_hasher.finish();
-    // 布尔量 true 的哈希值为 4952851536318644461
+    // Hash value of boolean true is 4952851536318644461
 
     let dec: f32 = 3.14159;
     let mut dec_hasher = DefaultHasher::new();
     dec.to_bits().hash(&mut dec_hasher);
     let hash_dec = dec_hasher.finish();
-    // 小数 3.14159 的哈希值为 2566941990314602357
+    // Hash value of decimal 3.14159 is 2566941990314602357
 
     let str = "Hello 算法";
     let mut str_hasher = DefaultHasher::new();
     str.hash(&mut str_hasher);
     let hash_str = str_hasher.finish();
-    // 字符串“Hello 算法”的哈希值为 16092673739211250988
+    // Hash value of string "Hello 算法" is 16092673739211250988
 
     let arr = (&12836, &"小哈");
     let mut tup_hasher = DefaultHasher::new();
     arr.hash(&mut tup_hasher);
     let hash_tup = tup_hasher.finish();
-    // 元组 (12836, "小哈") 的哈希值为 1885128010422702749
+    // Hash value of tuple (12836, "小哈") is 1885128010422702749
 
     let node = ListNode::new(42);
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    // 节点对象 RefCell { value: ListNode { val: 42, next: None } } 的哈希值为15387811073369036852
+    // Hash value of ListNode object RefCell { value: ListNode { val: 42, next: None } } is 15387811073369036852
     ```
 
 === "C"
 
     ```c title="built_in_hash.c"
-    // C 未提供内置 hash code 函数
+    // C does not provide built-in hash code functions
     ```
 
 === "Zig"
@@ -874,13 +874,13 @@ $$
 
     ```
 
-??? pythontutor "可视化运行"
+??? pythontutor "Code Visualization"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
-在许多编程语言中，**只有不可变对象才可作为哈希表的 `key`** 。假如我们将列表（动态数组）作为 `key` ，当列表的内容发生变化时，它的哈希值也随之改变，我们就无法在哈希表中查询到原先的 `value` 了。
+In many programming languages, **only immutable objects can serve as the `key` in a hash table**. If we use a list (dynamic array) as a `key`, when the contents of the list change, its hash value also changes, and we would no longer be able to find the original `value` in the hash table.
 
-虽然自定义对象（比如链表节点）的成员变量是可变的，但它是可哈希的。**这是因为对象的哈希值通常是基于内存地址生成的**，即使对象的内容发生了变化，但它的内存地址不变，哈希值仍然是不变的。
+Although the member variables of a custom object (such as a linked list node) are mutable, it is hashable. **This is because the hash value of an object is usually generated based on its memory address**, and even if the contents of the object change, the memory address remains the same, so the hash value remains unchanged.
 
-细心的你可能发现在不同控制台中运行程序时，输出的哈希值是不同的。**这是因为 Python 解释器在每次启动时，都会为字符串哈希函数加入一个随机的盐（salt）值**。这种做法可以有效防止 HashDoS 攻击，提升哈希算法的安全性。
+You might have noticed that the hash values output in different consoles are different. **This is because the Python interpreter adds a random salt to the string hash function each time it starts up**. This approach effectively prevents HashDoS attacks and enhances the security of the hash algorithm.

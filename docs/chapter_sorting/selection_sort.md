@@ -241,6 +241,9 @@ comments: true
     ```rust title="selection_sort.rs"
     /* 选择排序 */
     fn selection_sort(nums: &mut [i32]) {
+        if nums.is_empty() {
+            return;
+        }
         let n = nums.len();
         // 外循环：未排序区间为 [i, n-1]
         for i in 0..n-1 {
