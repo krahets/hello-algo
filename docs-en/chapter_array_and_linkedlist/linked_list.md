@@ -8,7 +8,7 @@ The design of linked lists allows for their nodes to be distributed across memor
 
 ![Linked List Definition and Storage Method](linked_list.assets/linkedlist_definition.png)
 
-From the figure above, we see that the basic building block of a linked list is the "node" object. Each node comprises two key components: the node's "value" and a "reference" to the next node.
+As shown in the figure, we see that the basic building block of a linked list is the "node" object. Each node comprises two key components: the node's "value" and a "reference" to the next node.
 
 - The first node in a linked list is the "head node", and the final one is the "tail node".
 - The tail node points to "null", designated as `null` in Java, `nullptr` in C++, and `None` in Python.
@@ -390,11 +390,11 @@ Constructing a linked list is a two-step process: first, initializing each node 
     n3.next = &n4;
     ```
 
-An array is one cohesive variable, for instance, the array nums includes elements like nums[0], nums[1], and so on, whereas a linked list is made up of several distinct node objects. **We typically refer to a linked list by its head node**, for example, the linked list in the previous code snippet is referred to as `n0`.
+The array as a whole is a variable, for instance, the array `nums` includes elements like `nums[0]`, `nums[1]`, and so on, whereas a linked list is made up of several distinct node objects. **We typically refer to a linked list by its head node**, for example, the linked list in the previous code snippet is referred to as `n0`.
 
 ### Inserting a Node
 
-Inserting a node into a linked list is straightforward. As shown in Figure 4-6, let's assume we aim to insert a new node `P` between two adjacent nodes `n0` and `n1`. **This can be achieved by simply modifying two node references (pointers)**, resulting in a time complexity of $O(1)$.
+Inserting a node into a linked list is very easy. As shown in the figure, let's assume we aim to insert a new node `P` between two adjacent nodes `n0` and `n1`. **This can be achieved by simply modifying two node references (pointers)**, with a time complexity of $O(1)$.
 
 By comparison, inserting an element into an array has a time complexity of $O(n)$, which becomes less efficient when dealing with large data volumes.
 
@@ -406,7 +406,7 @@ By comparison, inserting an element into an array has a time complexity of $O(n)
 
 ### Deleting a Node
 
-As illustrated in Figure 4-7, deleting a node from a linked list is also straightforward, **involving only the modification of a single node's reference (pointer)**.
+As shown in the figure, deleting a node from a linked list is also very easy, **involving only the modification of a single node's reference (pointer)**.
 
 It's important to note that even though node `P` continues to point to `n1` after being deleted, it becomes inaccessible during linked list traversal. This effectively means that `P` is no longer a part of the linked list.
 
@@ -418,7 +418,7 @@ It's important to note that even though node `P` continues to point to `n1` afte
 
 ### Accessing Nodes
 
-**Accessing nodes in a linked list is less efficient**. As previously mentioned, any element in an array can be accessed in $O(1)$ time. In contrast, with a linked list, the process involves starting from the head node and sequentially traversing through the nodes until the desired node is found. In other words, to access the $i$-th node in a linked list, the program must iterate through $i - 1$ nodes, resulting in a time complexity of $O(n)$.
+**Accessing nodes in a linked list is less efficient**. As previously mentioned, any element in an array can be accessed in $O(1)$ time. In contrast, with a linked list, the program involves starting from the head node and sequentially traversing through the nodes until the desired node is found. In other words, to access the $i$-th node in a linked list, the program must iterate through $i - 1$ nodes, resulting in a time complexity of $O(n)$.
 
 ```src
 [file]{linked_list}-[class]{}-[func]{access}
@@ -449,7 +449,7 @@ The table below summarizes the characteristics of arrays and linked lists, and i
 
 ## Common Types of Linked Lists
 
-As illustrated in the image, there are three common types of linked lists.
+As shown in the figure, there are three common types of linked lists.
 
 - **Singly Linked List**: This is the standard linked list described earlier. Nodes in a singly linked list include a value and a reference to the next node. The first node is known as the head node, and the last node, which points to null (`None`), is the tail node.
 - **Circular Linked List**: This is formed when the tail node of a singly linked list points back to the head node, creating a loop. In a circular linked list, any node can function as the head node.
