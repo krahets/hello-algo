@@ -6,25 +6,21 @@ package chapter_computational_complexity
 
 import (
 	"testing"
+
+	. "github.com/krahets/hello-algo/pkg"
 )
 
 func TestSpaceComplexity(t *testing.T) {
-	/* ======= Test Case ======= */
 	n := 5
-
-	/* ====== Driver Code ====== */
 	// 常数阶
 	spaceConstant(n)
-
 	// 线性阶
 	spaceLinear(n)
 	spaceLinearRecur(n)
-
 	// 平方阶
 	spaceQuadratic(n)
 	spaceQuadraticRecur(n)
-
 	// 指数阶
 	root := buildTree(n)
-	printTree(root)
+	PrintTree(root)
 }

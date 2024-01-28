@@ -1,0 +1,36 @@
+name: Go
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: ["codes/go/**/*.go"]
+  pull_request:
+    branches: [ "main" ]
+    paths: ["codes/go/**/*.go"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Go ${{ matrix.go-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: codes/go/
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        go-version: ["1.19.x"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Go ${{ matrix.go-version }}
+      uses: actions/setup-go@v3
+      with:
+        go-version: ${{ matrix.go-version }}
+    - name: Check out code into the Go module directory
+      run: go get -v -t -d ./...
+    - name: Build
+      run: go build -v ./...
+    - name: Test with Go
+      run: go test -v ./...

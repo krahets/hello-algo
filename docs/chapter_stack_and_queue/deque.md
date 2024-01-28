@@ -10,14 +10,14 @@
 
 <p align="center"> 表 <id> &nbsp; 双向队列操作效率 </p>
 
-| 方法名        | 描述             | 时间复杂度 |
-| ------------- | ---------------- | ---------- |
-| `pushFirst()` | 将元素添加至队首 | $O(1)$     |
-| `pushLast()`  | 将元素添加至队尾 | $O(1)$     |
-| `popFirst()`  | 删除队首元素     | $O(1)$     |
-| `popLast()`   | 删除队尾元素     | $O(1)$     |
-| `peekFirst()` | 访问队首元素     | $O(1)$     |
-| `peekLast()`  | 访问队尾元素     | $O(1)$     |
+| 方法名         | 描述             | 时间复杂度 |
+| -------------- | ---------------- | ---------- |
+| `push_first()` | 将元素添加至队首 | $O(1)$     |
+| `push_last()`  | 将元素添加至队尾 | $O(1)$     |
+| `pop_first()`  | 删除队首元素     | $O(1)$     |
+| `pop_last()`   | 删除队尾元素     | $O(1)$     |
+| `peek_first()` | 访问队首元素     | $O(1)$     |
+| `peek_last()`  | 访问队尾元素     | $O(1)$     |
 
 同样地，我们可以直接使用编程语言中已实现的双向队列类：
 
@@ -349,16 +349,16 @@
 === "LinkedListDeque"
     ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque.png)
 
-=== "pushLast()"
+=== "push_last()"
     ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_push_last.png)
 
-=== "pushFirst()"
+=== "push_first()"
     ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_push_first.png)
 
-=== "popLast()"
+=== "pop_last()"
     ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_pop_last.png)
 
-=== "popFirst()"
+=== "pop_first()"
     ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_pop_first.png)
 
 实现代码如下所示：
@@ -374,16 +374,16 @@
 === "ArrayDeque"
     ![基于数组实现双向队列的入队出队操作](deque.assets/array_deque.png)
 
-=== "pushLast()"
+=== "push_last()"
     ![array_deque_push_last](deque.assets/array_deque_push_last.png)
 
-=== "pushFirst()"
+=== "push_first()"
     ![array_deque_push_first](deque.assets/array_deque_push_first.png)
 
-=== "popLast()"
+=== "pop_last()"
     ![array_deque_pop_last](deque.assets/array_deque_pop_last.png)
 
-=== "popFirst()"
+=== "pop_first()"
     ![array_deque_pop_first](deque.assets/array_deque_pop_first.png)
 
 在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法：

@@ -4,7 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 回溯算法：N 皇后 */
+/* 回溯算法：n 皇后 */
 void backtrack(
   int row,
   int n,
@@ -46,7 +46,7 @@ void backtrack(
   }
 }
 
-/* 求解 N 皇后 */
+/* 求解 n 皇后 */
 List<List<List<String>>> nQueens(int n) {
   // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
   List<List<String>> state = List.generate(n, (index) => List.filled(n, "#"));

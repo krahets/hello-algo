@@ -68,9 +68,9 @@
   width: 28rem;
   height: auto;
   border-radius: 0.3rem;
-  box-shadow: var(--md-shadow-z2);
   display: block;
   margin: 0 auto;
+  box-shadow: var(--md-shadow-z2);
 }
 
 /* Center Markdown Tables (requires md_in_html extension) */
@@ -112,6 +112,11 @@
   text-transform: none;
 }
 
+.md-typeset a:hover {
+  color: var(--md-typeset-a-color);
+  text-decoration: underline;
+}
+
 .md-typeset code {
   border-radius: 0.2rem;
 }
@@ -148,34 +153,6 @@ body {
   justify-content: center;
   margin: 0 auto;
   width: 100%; /* Default to full width */
-}
-
-/* rounded button */
-.rounded-button {
-  display: inline-flex; /* Use flexbox for alignment */
-  align-items: center; /* Align items vertically */
-  justify-content: center; /* Center items horizontally */
-  border-radius: 100px; /* Circular corners */
-  padding: 9px 18px; /* Padding around the text */
-  margin: 0.15em 0;
-  border: none; /* Removes default border */
-  background-color: var(--md-typeset-btn-color); /* Background color */
-  color: var(--md-primary-fg-color) !important; /* Text color */
-  font-size: 0.85em; /* Font size */
-  text-align: center; /* Center the text */
-  text-decoration: none; /* Remove underline from anchor text */
-  cursor: pointer; /* Pointer cursor on hover */
-}
-
-.rounded-button:hover {
-  background-color: var(--md-typeset-btn-hover-color);
-}
-
-.rounded-button svg {
-  fill: var(--md-primary-fg-color); /* Fill SVG icon with text color */
-  width: 1.2em;
-  height: auto;
-  margin-right: 0.5em; /* Add some space between the SVG icon and the text */
 }
 
 /* Admonition for python tutor */
@@ -215,4 +192,278 @@ body {
   transform: scale(0.8);
   transform-origin: top left;
   border: none;
+}
+
+/* landing page container */
+.home-div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: 0.9rem;
+  padding: 3em 2em;
+  text-align: center;
+}
+
+.section-content {
+  width: 100%;
+  height: auto;
+  max-width: 70vw;
+}
+
+/* rounded button */
+.rounded-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10em;
+  margin: 0 0.1em;
+  padding: 0.6em 1.3em;
+  border: none;
+  background-color: var(--md-typeset-btn-color);
+  color: var(--md-primary-fg-color) !important;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rounded-button:hover {
+  background-color: var(--md-typeset-btn-hover-color);
+}
+
+.rounded-button span {
+  margin: 0;
+  margin-bottom: 0.07em;
+  white-space: nowrap;
+}
+
+.rounded-button svg {
+  fill: var(--md-primary-fg-color);
+  width: auto;
+  height: 1.2em;
+  margin-right: 0.5em;
+}
+
+/* text button */
+.text-button-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: auto;
+  margin: 0 auto;
+}
+
+.text-button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--md-typeset-btn-color);
+  text-decoration: none;
+}
+
+.text-button:hover {
+  text-decoration: underline;
+}
+
+.text-button span {
+  white-space: nowrap;
+}
+
+.text-button svg {
+  display: inline-block;
+  fill: var(--md-typeset-btn-color);
+  width: auto;
+  height: 0.9em;
+  background-size: cover;
+  padding-top: 0.17em;
+  margin-left: 0.4em;
+}
+
+/* hero image */
+.hero-image-div {
+  height: min(84vh, 75vw);
+  width: min(112vh, 100vw);
+  margin: 0 auto;
+  margin-top: -2.4rem;
+  padding: 0;
+  position: relative;
+  color: white;
+  font-size: min(1.8vh, 2.5vw);
+  font-weight: 500;
+}
+
+.hero-bg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+/* hover on the planets */
+.hero-on-hover {
+  width: auto;
+  position: absolute;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.hero-caption {
+  margin: 0;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap; /* prevent line breaks */
+}
+
+a:hover .hero-on-hover {
+  filter: brightness(1.15) saturate(1.1)
+    drop-shadow(0 0 0.5rem rgba(255, 255, 255, 0.2));
+  transform: scale(1.03);
+}
+
+a:hover .hero-caption {
+  text-decoration: underline;
+  color: var(--md-typeset-btn-color);
+}
+
+/* code badge */
+.code-badge {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.code-badge img {
+  height: 1.07em;
+  width: auto;
+}
+
+/* device */
+.device-on-hover {
+  width: auto;
+  position: absolute;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.device-on-hover:hover {
+  filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.15));
+  transform: scale(1.03);
+}
+
+/* brief intro */
+.intro-container {
+  display: flex;
+  align-items: center;
+  margin: 2em auto;
+}
+
+.intro-image {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 55%;
+  border-radius: 0.5em;
+  box-shadow: var(--md-shadow-z2);
+}
+
+.intro-text {
+  flex-grow: 1; /* fill the space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  align-items: flex-start;
+  width: fit-content;
+  margin: 2em;
+}
+
+.intro-text > div {
+  align-self: flex-start;
+  width: auto;
+  margin: 0 auto;
+}
+
+.endor-text {
+  width: 50%;
+}
+
+.intro-quote {
+  color: var(--md-accent-fg-color);
+  font-weight: bold;
+}
+
+/* contributors table */
+.profile-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 720px;
+  margin: 1em auto;
+}
+
+.profile-cell {
+  flex: 1; /* even distribution */
+  flex-basis: 15%;
+  margin: 1em 0.5em;
+  text-align: center;
+}
+
+.profile-img {
+  width: 5em;
+  border-radius: 50%;
+  margin-bottom: 0.5em;
+}
+
+.giscus-container {
+  width: 50em;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Hide table of contents */
+@media screen and (max-width: 60em) {
+  .home-div {
+    font-size: 0.75rem;
+  }
+}
+
+/* Hide navigation */
+@media screen and (max-width: 76.25em) {
+  .section-content {
+    max-width: 95vw;
+  }
+
+  .intro-container {
+    flex-direction: column;
+  }
+
+  .intro-text {
+    width: auto;
+    order: 2;
+    margin: 0 auto;
+  }
+
+  .endor-text {
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .intro-image {
+    width: 100%;
+    order: 1;
+    margin-bottom: 1em;
+  }
+
+  .contrib-image {
+    width: 100%;
+  }
+
+  .profile-div {
+    max-width: 500px;
+  }
+  .profile-cell {
+    flex-basis: 25%;
+  }
 }

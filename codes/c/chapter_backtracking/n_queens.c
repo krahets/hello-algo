@@ -8,7 +8,7 @@
 
 #define MAX_SIZE 100
 
-/* 回溯算法：N 皇后 */
+/* 回溯算法：n 皇后 */
 void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int *resSize, bool cols[MAX_SIZE],
                bool diags1[2 * MAX_SIZE - 1], bool diags2[2 * MAX_SIZE - 1]) {
     // 当放置完所有行时，记录解
@@ -40,7 +40,7 @@ void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int 
     }
 }
 
-/* 求解 N 皇后 */
+/* 求解 n 皇后 */
 char ***nQueens(int n, int *returnSize) {
     char state[MAX_SIZE][MAX_SIZE];
     // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位

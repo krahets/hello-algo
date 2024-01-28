@@ -1,13 +1,13 @@
 # List
 
-A "list" is an abstract data structure concept, representing an ordered collection of elements. It supports operations like element access, modification, addition, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.
+A "list" is an abstract data structure concept that represents an ordered collection of elements, supporting operations such as element access, modification, addition, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.
 
-- A linked list naturally functions as a list, supporting operations for adding, deleting, searching, and modifying elements, and can dynamically adjust its size.
-- Arrays also support these operations, but due to their fixed length, they can be considered as a list with a length limit.
+- A linked list inherently serves as a list, supporting operations for adding, deleting, searching, and modifying elements, with the flexibility to dynamically adjust its size.
+- Arrays also support these operations, but due to their immutable length, they can be considered as a list with a length limit.
 
-When using arrays to implement lists, **the fixed length property reduces the practicality of the list**. This is because we often cannot determine in advance how much data needs to be stored, making it difficult to choose an appropriate list length. If the length is too small, it may not meet the requirements; if too large, it may waste memory space.
+When implementing lists using arrays, **the immutability of length reduces the practicality of the list**. This is because predicting the amount of data to be stored in advance is often challenging, making it difficult to choose an appropriate list length. If the length is too small, it may not meet the requirements; if too large, it may waste memory space.
 
-To solve this problem, we can use a "dynamic array" to implement lists. It inherits the advantages of arrays and can dynamically expand during program execution.
+To solve this problem, we can implement lists using a "dynamic array." It inherits the advantages of arrays and can dynamically expand during program execution.
 
 In fact, **many programming languages' standard libraries implement lists using dynamic arrays**, such as Python's `list`, Java's `ArrayList`, C++'s `vector`, and C#'s `List`. In the following discussion, we will consider "list" and "dynamic array" as synonymous concepts.
 
@@ -15,7 +15,7 @@ In fact, **many programming languages' standard libraries implement lists using 
 
 ### Initializing a List
 
-We typically use two methods of initialization: "without initial values" and "with initial values".
+We typically use two initialization methods: "without initial values" and "with initial values".
 
 === "Python"
 
@@ -137,7 +137,7 @@ We typically use two methods of initialization: "without initial values" and "wi
 
 ### Accessing Elements
 
-Lists are essentially arrays, so accessing and updating elements can be done in $O(1)$ time, which is very efficient.
+Lists are essentially arrays, thus they can access and update elements in $O(1)$ time, which is very efficient.
 
 === "Python"
 
@@ -254,9 +254,9 @@ Lists are essentially arrays, so accessing and updating elements can be done in 
     nums.items[1] = 0; // Update the element at index 1 to 0  
     ```
 
-### Inserting and Deleting Elements
+### Inserting and Removing Elements
 
-Compared to arrays, lists can freely add and remove elements. Adding elements at the end of the list has a time complexity of $O(1)$, but the efficiency of inserting and deleting elements is still the same as in arrays, with a time complexity of $O(n)$.
+Compared to arrays, lists offer more flexibility in adding and removing elements. While adding elements to the end of a list is an $O(1)$ operation, the efficiency of inserting and removing elements elsewhere in the list remains the same as in arrays, with a time complexity of $O(n)$.
 
 === "Python"
 
@@ -484,9 +484,9 @@ Compared to arrays, lists can freely add and remove elements. Adding elements at
     _ = nums.orderedRemove(3); // Remove the element at index 3
     ```
 
-### Traversing the List
+### Iterating the List
 
-Like arrays, lists can be traversed based on index, or by directly iterating over each element.
+Similar to arrays, lists can be iterated either by using indices or by directly iterating through each element.
 
 === "Python"
 
@@ -770,7 +770,7 @@ Given a new list `nums1`, we can append it to the end of the original list.
 
 ### Sorting the List
 
-After sorting the list, we can use algorithms often tested in array-related algorithm problems, such as "binary search" and "two-pointer" algorithms.
+Once the list is sorted, we can employ algorithms commonly used in array-related algorithm problems, such as "binary search" and "two-pointer" algorithms.
 
 === "Python"
 
@@ -857,13 +857,13 @@ After sorting the list, we can use algorithms often tested in array-related algo
 
 ## List Implementation
 
-Many programming languages have built-in lists, such as Java, C++, Python, etc. Their implementations are quite complex, with very meticulous settings for parameters such as initial capacity and expansion multiplier. Interested readers can refer to the source code for learning.
+Many programming languages come with built-in lists, including Java, C++, Python, etc. Their implementations tend to be intricate, featuring carefully considered settings for various parameters, like initial capacity and expansion factors. Readers who are curious can delve into the source code for further learning.
 
-To deepen the understanding of how lists work, let's try implementing a simple version of a list, focusing on three key designs.
+To enhance our understanding of how lists work, we will attempt to implement a simplified version of a list, focusing on three crucial design aspects:
 
 - **Initial Capacity**: Choose a reasonable initial capacity for the array. In this example, we choose 10 as the initial capacity.
 - **Size Recording**: Declare a variable `size` to record the current number of elements in the list, updating in real-time with element insertion and deletion. With this variable, we can locate the end of the list and determine whether expansion is needed.
-- **Expansion Mechanism**: If the list's capacity is full when inserting an element, expansion is necessary. First, create a larger array based on the expansion multiplier, then move all elements of the current array to the new array. In this example, we define that each time the array will expand to twice its previous size.
+- **Expansion Mechanism**: If the list reaches full capacity upon an element insertion, an expansion process is required. This involves creating a larger array based on the expansion factor, and then transferring all elements from the current array to the new one. In this example, we stipulate that the array size should double with each expansion.
 
 ```src
 [file]{my_list}-[class]{my_list}-[func]{}
