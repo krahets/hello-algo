@@ -1,14 +1,15 @@
 /**
  * File: my_list.kt
- * Created Time: 2024-1-25
- * Author:dcurtis
+ * Created Time: 2024-01-25
+ * Author: curtishd(1023632660@qq.com)
  */
+
 package chapter_array_and_linkedlist
 
 class MyList {
     private var arr: IntArray = intArrayOf() // 数组（存储列表元素）
     private var capacity = 10 // 列表容量
-    private var size = 0; // 列表长度（当前元素数量）
+    private var size = 0 // 列表长度（当前元素数量）
     private var extendRatio = 2 // 每次列表扩容的倍数
 
     /* 主构造函数初始化 */
@@ -90,7 +91,7 @@ class MyList {
 
     /* 将列表转换为数组 */
     fun toArray(): IntArray {
-        val size = size();
+        val size = size()
         // 仅转换有效长度范围内的列表元素
         val arr = IntArray(size)
         for (i in 0..<size) {

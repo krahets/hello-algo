@@ -1,12 +1,13 @@
 /**
  * File: list.kt
- * Created Time: 2024-1-25
- * Author:dcurtis
+ * Created Time: 2024-01-25
+ * Author: curtishd(1023632660@qq.com)
  */
+
 package chapter_array_and_linkedlist
 
+/* Driver Code */
 fun main() {
-    /* 初始化列表 */
     // 注意数组的元素类型是 int[] 的包装类 Integer[]
     val numbers = mutableListOf(1, 3, 2, 5, 4)
     val nums = ArrayList<Int>(numbers)
@@ -32,7 +33,6 @@ fun main() {
     nums.add(4)
     println("添加元素后 nums = $nums")
 
-
     /* 在中间插入元素 */
     nums.add(3, 6)
     println("在索引 3 处插入数字 6 ，得到 nums = $nums")
@@ -44,7 +44,7 @@ fun main() {
     /* 通过索引遍历列表 */
     var count = 0
     for (i in nums.indices) {
-        count += nums[i];
+        count += nums[i]
     }
 
     /* 直接遍历列表元素*/
