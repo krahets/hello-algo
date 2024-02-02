@@ -1,7 +1,7 @@
 /**
  * File: array.kt
  * Created Time: 2024-01-25
- * Author: curtishd(1023632660@qq.com)
+ * Author: curtishd (1023632660@qq.com)
  */
 
 package chapter_array_and_linkedlist
@@ -47,7 +47,7 @@ fun remove(nums: IntArray, index: Int) {
     }
 }
 
-/* 遍历数组*/
+/* 遍历数组 */
 fun traverse(nums: IntArray) {
     var count = 0
     // 通过索引遍历数组

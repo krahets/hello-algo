@@ -1,7 +1,7 @@
 /**
  * File: linked_list.kt
  * Created Time: 2024-01-25
- * Author: curtishd(1023632660@qq.com)
+ * Author: curtishd (1023632660@qq.com)
  */
 
 package chapter_array_and_linkedlist

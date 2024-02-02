@@ -1,14 +1,14 @@
 /**
  * File: list.kt
  * Created Time: 2024-01-25
- * Author: curtishd(1023632660@qq.com)
+ * Author: curtishd (1023632660@qq.com)
  */
 
 package chapter_array_and_linkedlist
 
 /* Driver Code */
 fun main() {
-    // 注意数组的元素类型是 int[] 的包装类 Integer[]
+    // 可变集合
     val numbers = mutableListOf(1, 3, 2, 5, 4)
     val nums = ArrayList<Int>(numbers)
     println("列表 nums = $nums")
@@ -47,7 +47,7 @@ fun main() {
         count += nums[i]
     }
 
-    /* 直接遍历列表元素*/
+    /* 直接遍历列表元素 */
     for (j in nums) {
         count += j
     }
@@ -61,5 +61,3 @@ fun main() {
     nums.sort() //排序后,列表元素从小到大排列
     println("排序列表后 nums = $nums")
 }
-
-
