@@ -1538,21 +1538,21 @@
 <h1 id="54-summary">5.4 &nbsp; Summary<a class="headerlink" href="#54-summary" title="Permanent link">&para;</a></h1>
 <h3 id="1-key-review">1. &nbsp; Key Review<a class="headerlink" href="#1-key-review" title="Permanent link">&para;</a></h3>
 <ul>
-<li>A stack is a data structure that follows the Last-In-First-Out (LIFO) principle and can be implemented using either arrays or linked lists.</li>
-<li>In terms of time efficiency, the array implementation of a stack has higher average efficiency, but during expansion, the time complexity for a single push operation can degrade to <span class="arithmatex">\(O(n)\)</span>. In contrast, the linked list implementation of a stack offers more stable efficiency.</li>
-<li>Regarding space efficiency, the array implementation of a stack may lead to some level of space wastage. However, it's important to note that the memory space occupied by nodes in a linked list is generally larger than that for elements in an array.</li>
-<li>A queue is a data structure that follows the First-In-First-Out (FIFO) principle, and it can also be implemented using either arrays or linked lists. The conclusions regarding time and space efficiency for queues are similar to those for stacks.</li>
-<li>A double-ended queue is a more flexible type of queue that allows adding and removing elements from both ends.</li>
+<li>Stack is a data structure that follows the Last-In-First-Out (LIFO) principle and can be implemented using arrays or linked lists.</li>
+<li>In terms of time efficiency, the array implementation of the stack has a higher average efficiency. However, during expansion, the time complexity for a single push operation can degrade to <span class="arithmatex">\(O(n)\)</span>. In contrast, the linked list implementation of a stack offers more stable efficiency.</li>
+<li>Regarding space efficiency, the array implementation of the stack may lead to a certain degree of space wastage. However, it's important to note that the memory space occupied by nodes in a linked list is generally larger than that for elements in an array.</li>
+<li>A queue is a data structure that follows the First-In-First-Out (FIFO) principle, and it can also be implemented using arrays or linked lists. The conclusions regarding time and space efficiency for queues are similar to those for stacks.</li>
+<li>A double-ended queue (deque) is a more flexible type of queue that allows adding and removing elements at both ends.</li>
 </ul>
 <h3 id="2-q-a">2. &nbsp; Q &amp; A<a class="headerlink" href="#2-q-a" title="Permanent link">&para;</a></h3>
 <p><strong>Q</strong>: Is the browser's forward and backward functionality implemented with a doubly linked list?</p>
-<p>The forward and backward functionality of a browser fundamentally represents the "stack" concept. When a user visits a new page, it is added to the top of the stack; when they click the back button, the page is popped from the top. A double-ended queue can conveniently implement some additional operations, as mentioned in the "Double-Ended Queue" section.</p>
+<p>A browser's forward and backward navigation is essentially a manifestation of the "stack" concept. When a user visits a new page, the page is added to the top of the stack; when they click the back button, the page is popped from the top of the stack. A double-ended queue (deque) can conveniently implement some additional operations, as mentioned in the "Double-Ended Queue" section.</p>
 <p><strong>Q</strong>: After popping from a stack, is it necessary to free the memory of the popped node?</p>
-<p>If the popped node will still be used later, it's not necessary to free its memory. In languages like Java and Python that have automatic garbage collection, manual memory release isn't required; in C and C++, manual memory release is necessary if the node will no longer be used.</p>
+<p>If the popped node will still be used later, it's not necessary to free its memory. In languages like Java and Python that have automatic garbage collection, manual memory release is not necessary; in C and C++, manual memory release is required.</p>
 <p><strong>Q</strong>: A double-ended queue seems like two stacks joined together. What are its uses?</p>
-<p>A double-ended queue is essentially a combination of a stack and a queue, or like two stacks joined together. It exhibits both stack and queue logic, therefore enabling the implementation of all applications of stacks and queues with added flexibility.</p>
+<p>A double-ended queue, which is a combination of a stack and a queue or two stacks joined together, exhibits both stack and queue logic. Thus, it can implement all applications of stacks and queues while offering more flexibility.</p>
 <p><strong>Q</strong>: How exactly are undo and redo implemented?</p>
-<p>Undo and redo are implemented using two stacks: Stack A for undo and Stack B for redo.</p>
+<p>Undo and redo operations are implemented using two stacks: Stack A for undo and Stack B for redo.</p>
 <ol>
 <li>Each time a user performs an operation, it is pushed onto Stack A, and Stack B is cleared.</li>
 <li>When the user executes an "undo", the most recent operation is popped from Stack A and pushed onto Stack B.</li>
