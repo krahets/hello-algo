@@ -1,7 +1,7 @@
 """
 File: merge_sort.py
 Created Time: 2022-11-25
-Author: timi (xisunyy@163.com), Krahets (krahets@163.com)
+Author: timi (xisunyy@163.com), krahets (krahets@163.com)
 """
 
 

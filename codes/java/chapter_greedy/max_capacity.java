@@ -1,7 +1,7 @@
 /**
  * File: max_capacity.java
  * Created Time: 2023-07-21
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_greedy;

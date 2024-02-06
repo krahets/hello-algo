@@ -1,7 +1,7 @@
 <!--
     File: array_queue.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{array_queue}-[class]{array_queue}-[func]{} -->

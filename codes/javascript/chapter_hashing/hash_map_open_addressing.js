@@ -1,7 +1,7 @@
 /**
  * File: hashMapOpenAddressing.js
  * Created Time: 2023-06-13
- * Author: yuan0221 (yl1452491917@gmail.com), Krahets (krahets@163.com)
+ * Author: yuan0221 (yl1452491917@gmail.com), krahets (krahets@163.com)
  */
 
 /* 键值对 Number -> String */

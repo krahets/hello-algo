@@ -1,7 +1,7 @@
 <!--
     File: preorder_traversal_iii_template.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{preorder_traversal_iii_template}-[class]{}-[func]{backtrack} -->

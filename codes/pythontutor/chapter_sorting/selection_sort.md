@@ -1,7 +1,7 @@
 <!--
     File: selection_sort.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{selection_sort}-[class]{}-[func]{selection_sort} -->

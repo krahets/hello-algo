@@ -1,7 +1,7 @@
 /**
  * File: heap.java
  * Created Time: 2023-01-07
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_heap;

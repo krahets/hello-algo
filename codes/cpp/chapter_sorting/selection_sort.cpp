@@ -1,7 +1,7 @@
 /**
  * File: selection_sort.cpp
  * Created Time: 2023-05-23
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"

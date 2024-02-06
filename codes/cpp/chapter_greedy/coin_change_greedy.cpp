@@ -1,7 +1,7 @@
 /**
  * File: coin_change_greedy.cpp
  * Created Time: 2023-07-20
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
