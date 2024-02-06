@@ -57,7 +57,7 @@
 
 /* Figure class */
 .animation-figure {
-  border-radius: 0.63rem;
+  border-radius: 0.3rem;
   display: block;
   margin: 0 auto;
   box-shadow: var(--md-shadow-z2);
