@@ -23,13 +23,13 @@ theme:
       accent: teal
       toggle:
         icon: material/theme-light-dark
-        name: Dark theme
+        name: Dark mode
     - scheme: slate
       primary: black
       accent: teal
       toggle:
         icon: material/theme-light-dark
-        name: Light theme
+        name: Light mode
 
 extra:
   status:
