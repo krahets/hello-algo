@@ -1,7 +1,7 @@
 <!--
     File: array_hash_map.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{array_hash_map}-[class]{array_hash_map}-[func]{} -->

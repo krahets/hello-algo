@@ -1,7 +1,7 @@
 # Project information
 site_name: Hello 算法
 site_url: https://www.hello-algo.com/
-site_author: Krahets
+site_author: krahets
 site_description: 动画图解、一键运行的数据结构与算法教程
 docs_dir: build/docs
 site_dir: site
@@ -12,7 +12,7 @@ edit_uri: tree/main/docs
 version: 1.0.0
 
 # Copyright
-copyright: Copyright &copy; 2022 - 2024 Krahets
+copyright: Copyright &copy; 2022-2024 krahets</br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
 
 # Configuration
 theme:

@@ -1,7 +1,7 @@
 <!--
     File: binary_search_recur.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{binary_search_recur}-[class]{}-[func]{binary_search} -->

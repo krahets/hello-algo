@@ -1,7 +1,7 @@
 <!--
     File: binary_tree_dfs.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{binary_tree_dfs}-[class]{}-[func]{post_order} -->

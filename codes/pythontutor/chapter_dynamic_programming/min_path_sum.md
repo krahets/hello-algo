@@ -1,7 +1,7 @@
 <!--
     File: min_path_sum.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{min_path_sum}-[class]{}-[func]{min_path_sum_dfs} -->

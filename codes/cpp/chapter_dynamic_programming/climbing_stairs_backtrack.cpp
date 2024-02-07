@@ -2,7 +2,7 @@
 /**
  * File: climbing_stairs_backtrack.cpp
  * Created Time: 2023-06-30
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"

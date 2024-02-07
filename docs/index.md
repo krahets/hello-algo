@@ -1,5 +1,5 @@
 ---
-comments: true
+comments: false
 glightbox: false
 hide:
   - footer
@@ -121,7 +121,7 @@ hide:
     </div>
     <!-- arrow -->
     <div style="text-align: center; margin-top: min(2.5vh, 3.5vw);">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="var(--md-default-fg-color)" height="2vh" width="auto"
+      <svg xmlns="http://www.w3.org/2000/svg" fill="var(--md-default-fg-color)" height="2vh"
         viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
         <path
           d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
@@ -155,27 +155,47 @@ hide:
 <!-- Section: reading -->
 <section data-md-color-scheme="default" data-md-color-primary="white" class="home-div">
   <div class="section-content">
-    <div style="height: min(37vh, 33vw); width: min(75vh, 75vw); position: relative; margin: 0.5em auto;">
+    <div class="reading-media">
       <!-- devices -->
+      <!-- book height = 250 mm -->
       <!-- mac height = 248.1 mm -->
       <!-- ipad height = 280.6mm -->
-      <!-- iphone height = 160.7mm -->
-      <img class="device-on-hover" src="assets/hero/web_mac.png" style="height: 88.42%; left: 5%; bottom: 5%;">
-      <img class="device-on-hover" src="assets/hero/pdf_ipad.png" style="height: 100%; left: 60%; bottom: 0%;">
-      <img class="device-on-hover" src="assets/hero/web_iphone.png" style="height: 57.27%; left: 2%; bottom: 0%;">
-    </div>
-    <p style="margin: 2em auto;">提供网页版和 PDF 版，兼容 PC、平板和手机，随时随地阅读</p>
-    <div class="text-button-container">
-      <a href="https://github.com/krahets/hello-algo/releases">
-        <div class="text-button">
-          <span>下载 PDF</span>
-          <svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
-          </svg>
+      <!-- iphone height = 160.7mm -->   
+      <div class="media-block">
+        <div style="height: 8.17%;"></div>
+        <img class="device-on-hover" style="height: 66.83%;" src="assets/hero/cover_render.png">
+        <div class="text-button" style="color: var(--md-accent-fg-color);">
+          <span>纸质书<br>（即将发布）</span>
         </div>
-      </a>
+      </div>
+      <div class="media-block">
+        <a href="/chapter_preface/">
+          <div style="height: 4.34%;"></div>
+          <img class="device-on-hover" style="height: 66.31%;" src="assets/hero/web_mac_iphone.png">
+          <div style="height: 4.34%;"></div>
+          <div class="text-button">
+            <span>在线阅读</span>
+            <svg xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+            </svg>
+          </div>
+        </a>
+      </div>
+      <div class="media-block">
+        <a href="https://github.com/krahets/hello-algo/releases">
+          <img class="device-on-hover" style="height: 75%;" src="assets/hero/pdf_ipad.png">
+          <div class="text-button">
+            <span>下载 PDF</span>
+            <svg xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+            </svg>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -266,7 +286,7 @@ hide:
       <div class="profile-div">
         <div class="profile-cell">
           <a href="https://github.com/krahets">
-            <img class="profile-img" src="https://avatars.githubusercontent.com/u/26993056?v=4" alt="krahets" />
+            <img class="profile-img" src="assets/avatar/avatar_yudongjin.jpg" alt="yudongjin" />
             <br><b>靳宇栋（@krahets）</b>
           </a>
         </div>
@@ -279,63 +299,63 @@ hide:
       <div class="profile-div">
         <div class="profile-cell">
           <a href="https://github.com/codingonion">
-            <img class="profile-img" src="https://avatars.githubusercontent.com/u/99076655?v=4" alt="codingonion" />
+            <img class="profile-img" src="assets/avatar/avatar_codingonion.jpg" alt="codingonion" />
             <br><b>codingonion</b>
             <br><sub>Zig, Rust</sub>
           </a>
         </div>
         <div class="profile-cell">
           <a href="https://github.com/Gonglja">
-            <img class="profile-img" src="https://avatars.githubusercontent.com/u/39959756?v=4" alt="Gonglja" />
+            <img class="profile-img" src="assets/avatar/avatar_Gonglja.jpg" alt="Gonglja" />
             <br><b>Gonglja</b>
             <br><sub>C, C++</sub>
           </a>
         </div>
         <div class="profile-cell">
           <a href="https://github.com/gvenusleo">
-            <img class="profile-img" src="https://avatars.githubusercontent.com/u/79075347?v=4" alt="gvenusleo" />
+            <img class="profile-img" src="assets/avatar/avatar_gvenusleo.jpg" alt="gvenusleo" />
             <br><b>gvenusleo</b>
             <br><sub>Dart</sub>
           </a>
         </div>
         <div class="profile-cell">
           <a href="https://github.com/hpstory">
-            <img class="profile-img" src="https://avatars.githubusercontent.com/u/33348162?v=4" alt="hpstory" />
+            <img class="profile-img" src="assets/avatar/avatar_hpstory.jpg" alt="hpstory" />
             <br><b>hpstory</b>
             <br><sub>C#</sub>
           </a>
         </div>
         <div class="profile-cell">
           <a href="https://github.com/justin-tse">
-            <img class="profile-img" src="https://avatars.githubusercontent.com/u/24556310?v=4" alt="justin-tse" />
+            <img class="profile-img" src="assets/avatar/avatar_justin-tse.jpg" alt="justin-tse" />
             <br><b>justin-tse</b>
             <br><sub>JS, TS</sub>
           </a>
         </div>
         <div class="profile-cell">
           <a href="https://github.com/krahets">
-            <img class="profile-img" src="https://avatars.githubusercontent.com/u/26993056?v=4" alt="krahets" />
+            <img class="profile-img" src="assets/avatar/avatar_krahets.jpg" alt="krahets" />
             <br><b>krahets</b>
             <br><sub>Python, Java</sub>
           </a>
         </div>
         <div class="profile-cell">
           <a href="https://github.com/night-cruise">
-            <img class="profile-img" src="https://avatars.githubusercontent.com/u/77157236?v=4" alt="night-cruise" />
+            <img class="profile-img" src="assets/avatar/avatar_night-cruise.jpg" alt="night-cruise" />
             <br><b>night-cruise</b>
             <br><sub>Rust</sub>
           </a>
         </div>
         <div class="profile-cell">
           <a href="https://github.com/nuomi1">
-            <img class="profile-img" src="https://avatars.githubusercontent.com/u/3739017?v=4" alt="nuomi1" />
+            <img class="profile-img" src="assets/avatar/avatar_nuomi1.jpg" alt="nuomi1" />
             <br><b>nuomi1</b>
             <br><sub>Swift</sub>
           </a>
         </div>
         <div class="profile-cell">
           <a href="https://github.com/Reanon">
-            <img class="profile-img" src="https://avatars.githubusercontent.com/u/22005836?v=4" alt="Reanon" />
+            <img class="profile-img" src="assets/avatar/avatar_Reanon.jpg" alt="Reanon" />
             <br><b>Reanon</b>
             <br><sub>Go, C</sub>
           </a>
@@ -351,5 +371,29 @@ hide:
         <img src="https://contrib.rocks/image?repo=krahets/hello-algo" style="width: 100%; max-width: 38.5em;">
       </a>
     </div>
+  </div>
+</section>
+
+<section data-md-color-scheme="default" data-md-color-primary="white" class="home-div">
+  <div class="section-content giscus-container">
+    <p>欢迎在评论区留下你的见解、问题或建议</p>
+    <!-- Insert generated snippet here -->
+    <script 
+      src="https://giscus.app/client.js"
+      data-repo="krahets/hello-algo"
+      data-repo-id="R_kgDOIXtSqw"
+      data-category="Announcements"
+      data-category-id="DIC_kwDOIXtSq84CSZk_"
+      data-mapping="pathname"
+      data-strict="1"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async
+    >
+    </script>
   </div>
 </section>

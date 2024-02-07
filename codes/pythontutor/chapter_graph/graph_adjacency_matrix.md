@@ -1,7 +1,7 @@
 <!--
     File: graph_adjacency_matrix.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{graph_adjacency_matrix}-[class]{graph_adj_mat}-[func]{} -->

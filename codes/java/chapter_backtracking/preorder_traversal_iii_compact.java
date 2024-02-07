@@ -1,7 +1,7 @@
 /**
  * File: preorder_traversal_iii_compact.java
  * Created Time: 2023-04-16
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_backtracking;

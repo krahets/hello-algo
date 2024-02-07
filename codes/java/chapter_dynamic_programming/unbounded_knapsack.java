@@ -1,7 +1,7 @@
 /**
  * File: unbounded_knapsack.java
  * Created Time: 2023-07-11
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_dynamic_programming;

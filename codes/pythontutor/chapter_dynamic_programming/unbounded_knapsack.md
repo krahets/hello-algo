@@ -1,7 +1,7 @@
 <!--
     File: unbounded_knapsack.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{unbounded_knapsack}-[class]{}-[func]{unbounded_knapsack_dp} -->

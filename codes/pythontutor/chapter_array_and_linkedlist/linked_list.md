@@ -1,7 +1,7 @@
 <!--
     File: linked_list.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{linked_list}-[class]{}-[func]{insert} -->

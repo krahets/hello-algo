@@ -1,7 +1,7 @@
 """
 File: print_util.py
 Created Time: 2021-12-11
-Author: Krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
+Author: krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
 """
 
 from .tree_node import TreeNode, list_to_tree

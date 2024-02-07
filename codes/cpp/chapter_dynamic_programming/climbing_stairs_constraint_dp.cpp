@@ -1,7 +1,7 @@
 /**
  * File: climbing_stairs_constraint_dp.cpp
  * Created Time: 2023-07-01
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
