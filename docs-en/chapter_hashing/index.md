@@ -8,6 +8,6 @@
 
 !!! abstract
 
-    In the world of computing, a hash table is like a wise librarian.
+    In the world of computing, a hash table is akin to an intelligent librarian.
     
-    He knows how to calculate index numbers, allowing it to quickly locate the target book.
+    It understands how to compute index numbers, enabling swift retrieval of the desired book.
