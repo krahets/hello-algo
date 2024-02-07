@@ -8,6 +8,9 @@
   --md-default-fg-color: #1d1d20;
   --md-default-bg-color: #ffffff;
 
+  --md-body-bg-color: #22272e;
+  --md-header-bg-color: rgba(255, 255, 255, 0.6);
+
   --md-code-fg-color: #1d1d20;
   --md-code-bg-color: #f5f5f5;
 
@@ -32,6 +35,9 @@
   --md-default-fg-color: #adbac7;
   --md-default-bg-color: #22272e;
 
+  --md-body-bg-color: #22272e;
+  --md-header-bg-color: rgba(34, 39, 46, 0.8);
+
   --md-code-fg-color: #adbac7;
   --md-code-bg-color: #1d2126;
 
@@ -42,12 +48,28 @@
   --md-footer-fg-color: #adbac7;
 
   --md-typeset-color: #adbac7;
-  --md-typeset-a-color: #52bbb1 !important;
+  --md-typeset-a-color: #52bbb1;
 
   --md-typeset-btn-color: #52bbb1;
   --md-typeset-btn-hover-color: #55aea6;
 
   --md-admonition-pythontutor-color: #30363f;
+}
+
+[data-md-color-scheme="slate"][data-md-color-primary="black"],
+[data-md-color-scheme="slate"][data-md-color-primary="white"] {
+  --md-typeset-a-color: #52bbb1;
+}
+
+[data-md-color-primary="black"] .md-header {
+  background-color: var(--md-header-bg-color);
+}
+
+.md-header {
+  box-shadow: none;
+  transition: none;
+  backdrop-filter: saturate(180%) blur(20px); /* Gaussian blur */
+  background-color: var(--md-header-bg-color);
 }
 
 /* https://github.com/squidfunk/mkdocs-material/issues/4832#issuecomment-1374891676 */
@@ -400,7 +422,7 @@ a:hover .hero-caption {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 720px;
+  max-width: 40em;
   margin: 1em auto;
 }
 
@@ -433,6 +455,17 @@ a:hover .hero-caption {
     height: 33vw;
   }
 
+  .contrib-image {
+    width: 100%;
+  }
+}
+
+/* Hide table of contents */
+@media screen and (max-width: 60em) {
+  .home-div {
+    font-size: 0.75rem;
+  }
+
   .intro-container {
     flex-direction: column;
   }
@@ -454,25 +487,14 @@ a:hover .hero-caption {
     margin-bottom: 1em;
   }
 
-  .contrib-image {
-    width: 100%;
+  .text-button {
+    margin: 0.7em auto;
   }
 
   .profile-div {
-    max-width: 500px;
+    max-width: 30em;
   }
   .profile-cell {
     flex-basis: 25%;
-  }
-}
-
-/* Hide table of contents */
-@media screen and (max-width: 60em) {
-  .home-div {
-    font-size: 0.75rem;
-  }
-
-  .text-button {
-    margin: 0.7em auto;
   }
 }
