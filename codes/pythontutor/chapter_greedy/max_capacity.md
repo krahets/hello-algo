@@ -1,7 +1,7 @@
 <!--
     File: max_capacity.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{max_capacity}-[class]{}-[func]{max_capacity} -->

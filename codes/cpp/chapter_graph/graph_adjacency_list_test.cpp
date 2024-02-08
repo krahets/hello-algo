@@ -1,7 +1,7 @@
 /**
  * File: graph_adjacency_list_test.cpp
  * Created Time: 2023-02-09
- * Author: what-is-me (whatisme@outlook.jp), Krahets (krahets@163.com)
+ * Author: what-is-me (whatisme@outlook.jp), krahets (krahets@163.com)
  */
 
 #include "./graph_adjacency_list.cpp"

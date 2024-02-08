@@ -125,7 +125,7 @@ I deeply agree with Professor Feynman's saying: "Knowledge isn't free. You have 
 
 <h3 align="left"> Author </h3>
 
-Yudong Jin([Krahets](https://leetcode.cn/u/jyd/)), Senior Algorithm Engineer in a top tech company, Master's degree from Shanghai Jiao Tong University. The highest-read blogger across the entire LeetCode, his published ["Illustration of Algorithm Data Structures"](https://leetcode.cn/leetbook/detail/illustration-of-algorithm/) has been subscribed to by over 300k.
+Yudong Jin([krahets](https://leetcode.cn/u/jyd/)), Senior Algorithm Engineer in a top tech company, Master's degree from Shanghai Jiao Tong University. The highest-read blogger across the entire LeetCode, his published ["Illustration of Algorithm Data Structures"](https://leetcode.cn/leetbook/detail/illustration-of-algorithm/) has been subscribed to by over 300k.
 
 ---
 

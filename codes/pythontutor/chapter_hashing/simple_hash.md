@@ -1,7 +1,7 @@
 <!--
     File: simple_hash.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{simple_hash}-[class]{}-[func]{rot_hash} -->

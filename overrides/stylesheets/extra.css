@@ -57,7 +57,7 @@
 
 /* Figure class */
 .animation-figure {
-  border-radius: 0.63rem;
+  border-radius: 0.3rem;
   display: block;
   margin: 0 auto;
   box-shadow: var(--md-shadow-z2);
@@ -247,27 +247,36 @@ body {
   margin-right: 0.5em;
 }
 
+/* device image */
+.device-on-hover {
+  width: auto;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+a:hover .device-on-hover {
+  filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.15));
+  transform: scale(1.02);
+}
+
 /* text button */
-.text-button-container {
-  width: 100%;
+.reading-media {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  height: auto;
-  margin: 0 auto;
+  align-items: flex-end;
+  height: 32vw;
+}
+
+.media-block {
+  height: 100%;
+  margin: 0 0.2em;
 }
 
 .text-button {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  width: auto;
   color: var(--md-typeset-btn-color);
   text-decoration: none;
-}
-
-.text-button:hover {
-  text-decoration: underline;
+  text-align: center;
+  margin: 2.7em auto;
 }
 
 .text-button span {
@@ -281,7 +290,11 @@ body {
   height: 0.9em;
   background-size: cover;
   padding-top: 0.17em;
-  margin-left: 0.4em;
+  margin-left: 0.15em;
+}
+
+a:hover .text-button span {
+  text-decoration: underline;
 }
 
 /* hero image */
@@ -339,18 +352,6 @@ a:hover .hero-caption {
 .code-badge img {
   height: 1.07em;
   width: auto;
-}
-
-/* device */
-.device-on-hover {
-  width: auto;
-  position: absolute;
-  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-
-.device-on-hover:hover {
-  filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.15));
-  transform: scale(1.03);
 }
 
 /* brief intro */
@@ -417,22 +418,19 @@ a:hover .hero-caption {
 }
 
 .giscus-container {
-  width: 50em;
+  width: 40em;
   max-width: 100%;
   margin: 0 auto;
-}
-
-/* Hide table of contents */
-@media screen and (max-width: 60em) {
-  .home-div {
-    font-size: 0.75rem;
-  }
 }
 
 /* Hide navigation */
 @media screen and (max-width: 76.25em) {
   .section-content {
     max-width: 95vw;
+  }
+
+  .reading-media {
+    height: 33vw;
   }
 
   .intro-container {
@@ -465,5 +463,16 @@ a:hover .hero-caption {
   }
   .profile-cell {
     flex-basis: 25%;
+  }
+}
+
+/* Hide table of contents */
+@media screen and (max-width: 60em) {
+  .home-div {
+    font-size: 0.75rem;
+  }
+
+  .text-button {
+    margin: 0.7em auto;
   }
 }

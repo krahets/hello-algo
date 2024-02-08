@@ -1,7 +1,7 @@
 /**
  * File: min_path_sum.cpp
  * Created Time: 2023-07-10
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"

@@ -1,7 +1,7 @@
 /**
  * File: array_deque.java
  * Created Time: 2023-02-16
- * Author: Krahets (krahets@163.com), FangYuan33 (374072213@qq.com)
+ * Author: krahets (krahets@163.com), FangYuan33 (374072213@qq.com)
  */
 
 package chapter_stack_and_queue;

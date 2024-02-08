@@ -1,7 +1,7 @@
 """
 File: built_in_hash.py
 Created Time: 2023-06-15
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 import sys

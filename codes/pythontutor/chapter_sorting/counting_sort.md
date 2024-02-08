@@ -1,7 +1,7 @@
 <!--
     File: counting_sort.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{counting_sort}-[class]{}-[func]{counting_sort_naive} -->

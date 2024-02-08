@@ -1,6 +1,6 @@
 // File: print_utils.go
 // Created Time: 2022-12-03
-// Author: Reanon (793584285@qq.com), Krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
+// Author: Reanon (793584285@qq.com), krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
 
 package pkg
 

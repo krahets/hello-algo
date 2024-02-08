@@ -1,7 +1,7 @@
 /**
  * File: hash_map_open_addressing.ts
  * Created Time: 2023-08-06
- * Author: yuan0221 (yl1452491917@gmail.com), Krahets (krahets@163.com)
+ * Author: yuan0221 (yl1452491917@gmail.com), krahets (krahets@163.com)
  */
 
 /* 键值对 Number -> String */

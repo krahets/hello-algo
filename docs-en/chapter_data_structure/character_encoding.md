@@ -64,7 +64,7 @@ From a compatibility perspective, UTF-8 is the most versatile, with many tools a
 
 ## Character Encoding in Programming Languages
 
- Historically, many programming languages utilized fixed-length encodings such as UTF-16 or UTF-32 for processing strings during program execution. This allows strings to be handled as arrays, offering several advantages:
+Historically, many programming languages utilized fixed-length encodings such as UTF-16 or UTF-32 for processing strings during program execution. This allows strings to be handled as arrays, offering several advantages:
 
 - **Random Access**: Strings encoded in UTF-16 can be accessed randomly with ease. For UTF-8, which is a variable-length encoding, locating the $i^{th}$ character requires traversing the string from the start to the $i^{th}$ position, taking $O(n)$ time.
 - **Character Counting**: Similar to random access, counting the number of characters in a UTF-16 encoded string is an $O(1)$ operation. However, counting characters in a UTF-8 encoded string requires traversing the entire string.

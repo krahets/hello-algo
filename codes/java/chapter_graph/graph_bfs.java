@@ -1,7 +1,7 @@
 /**
  * File: graph_bfs.java
  * Created Time: 2023-02-12
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_graph;

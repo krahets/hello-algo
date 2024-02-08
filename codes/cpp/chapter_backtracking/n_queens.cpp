@@ -1,7 +1,7 @@
 /**
  * File: n_queens.cpp
  * Created Time: 2023-05-04
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
