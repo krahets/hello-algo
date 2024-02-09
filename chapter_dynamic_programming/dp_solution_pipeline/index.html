@@ -3634,7 +3634,7 @@
 <p>本题的每一轮的决策就是从当前格子向下或向右走一步。设当前格子的行列索引为 <span class="arithmatex">\([i, j]\)</span> ，则向下或向右走一步后，索引变为 <span class="arithmatex">\([i+1, j]\)</span> 或 <span class="arithmatex">\([i, j+1]\)</span> 。因此，状态应包含行索引和列索引两个变量，记为 <span class="arithmatex">\([i, j]\)</span> 。</p>
 <p>状态 <span class="arithmatex">\([i, j]\)</span> 对应的子问题为：从起始点 <span class="arithmatex">\([0, 0]\)</span> 走到 <span class="arithmatex">\([i, j]\)</span> 的最小路径和，解记为 <span class="arithmatex">\(dp[i, j]\)</span> 。</p>
 <p>至此，我们就得到了图 14-11 所示的二维 <span class="arithmatex">\(dp\)</span> 矩阵，其尺寸与输入网格 <span class="arithmatex">\(grid\)</span> 相同。</p>
-<p><a class="glightbox" href="../dp_solution_pipeline.assets/min_path_sum_solution_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="状态定义与 dp 表" class="animation-figure" src="../dp_solution_pipeline.assets/min_path_sum_solution_step1.png" /></a></p>
+<p><a class="glightbox" href="../dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="状态定义与 dp 表" class="animation-figure" src="../dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png" /></a></p>
 <p align="center"> 图 14-11 &nbsp; 状态定义与 dp 表 </p>
 
 <div class="admonition note">
@@ -3648,7 +3648,7 @@
 <div class="arithmatex">\[
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 \]</div>
-<p><a class="glightbox" href="../dp_solution_pipeline.assets/min_path_sum_solution_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="最优子结构与状态转移方程" class="animation-figure" src="../dp_solution_pipeline.assets/min_path_sum_solution_step2.png" /></a></p>
+<p><a class="glightbox" href="../dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="最优子结构与状态转移方程" class="animation-figure" src="../dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png" /></a></p>
 <p align="center"> 图 14-12 &nbsp; 最优子结构与状态转移方程 </p>
 
 <div class="admonition note">
@@ -3659,7 +3659,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 <p><strong>第三步：确定边界条件和状态转移顺序</strong></p>
 <p>在本题中，处在首行的状态只能从其左边的状态得来，处在首列的状态只能从其上边的状态得来，因此首行 <span class="arithmatex">\(i = 0\)</span> 和首列 <span class="arithmatex">\(j = 0\)</span> 是边界条件。</p>
 <p>如图 14-13 所示，由于每个格子是由其左方格子和上方格子转移而来，因此我们使用循环来遍历矩阵，外循环遍历各行，内循环遍历各列。</p>
-<p><a class="glightbox" href="../dp_solution_pipeline.assets/min_path_sum_solution_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="边界条件与状态转移顺序" class="animation-figure" src="../dp_solution_pipeline.assets/min_path_sum_solution_step3.png" /></a></p>
+<p><a class="glightbox" href="../dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="边界条件与状态转移顺序" class="animation-figure" src="../dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png" /></a></p>
 <p align="center"> 图 14-13 &nbsp; 边界条件与状态转移顺序 </p>
 
 <div class="admonition note">
