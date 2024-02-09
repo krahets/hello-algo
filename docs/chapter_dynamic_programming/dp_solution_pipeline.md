@@ -53,7 +53,7 @@ comments: true
 
 至此，我们就得到了图 14-11 所示的二维 $dp$ 矩阵，其尺寸与输入网格 $grid$ 相同。
 
-![状态定义与 dp 表](dp_solution_pipeline.assets/min_path_sum_solution_step1.png){ class="animation-figure" }
+![状态定义与 dp 表](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png){ class="animation-figure" }
 
 <p align="center"> 图 14-11 &nbsp; 状态定义与 dp 表 </p>
 
@@ -73,7 +73,7 @@ $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
-![最优子结构与状态转移方程](dp_solution_pipeline.assets/min_path_sum_solution_step2.png){ class="animation-figure" }
+![最优子结构与状态转移方程](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png){ class="animation-figure" }
 
 <p align="center"> 图 14-12 &nbsp; 最优子结构与状态转移方程 </p>
 
@@ -89,7 +89,7 @@ $$
 
 如图 14-13 所示，由于每个格子是由其左方格子和上方格子转移而来，因此我们使用循环来遍历矩阵，外循环遍历各行，内循环遍历各列。
 
-![边界条件与状态转移顺序](dp_solution_pipeline.assets/min_path_sum_solution_step3.png){ class="animation-figure" }
+![边界条件与状态转移顺序](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png){ class="animation-figure" }
 
 <p align="center"> 图 14-13 &nbsp; 边界条件与状态转移顺序 </p>
 
