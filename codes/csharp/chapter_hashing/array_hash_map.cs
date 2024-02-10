@@ -17,7 +17,7 @@ class ArrayHashMap {
     List<Pair?> buckets;
     public ArrayHashMap() {
         // 初始化数组，包含 100 个桶
-        buckets = [];
+        buckets = new List<Pair?>();
         for (int i = 0; i < 100; i++) {
             buckets.Add(null);
         }
