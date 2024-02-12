@@ -14,7 +14,7 @@ As shown in the figure, we see that the basic building block of a linked list is
 - The tail node points to "null", designated as `null` in Java, `nullptr` in C++, and `None` in Python.
 - In languages that support pointers, like C, C++, Go, and Rust, this "reference" is typically implemented as a "pointer".
 
-As the code below illustrates, a ListNode in a linked list, besides holding a value, must also maintain an additional reference (or pointer). Therefore, **a linked list occupies more memory space than an array when storing the same quantity of data.**.
+As the code below illustrates, a `ListNode` in a linked list, besides holding a value, must also maintain an additional reference (or pointer). Therefore, **a linked list occupies more memory space than an array when storing the same quantity of data.**.
 
 === "Python"
 
