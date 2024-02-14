@@ -17,6 +17,19 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
+  palette:
+    - scheme: default
+      primary: white
+      accent: teal
+      toggle:
+        icon: material/theme-light-dark
+        name: Dark mode
+    - scheme: slate
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/theme-light-dark
+        name: Light mode
 
 extra:
   status:

@@ -148,7 +148,7 @@ hide:
       <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC">
       <img src="https://img.shields.io/badge/Zig-snow?logo=zig&logoColor=F7A41D">
     </div>
-    <p style="margin-top: 2em;">500 幅动画图解、12 种编程语言代码、2000 条社区问答，助你快速入门数据结构与算法</p>
+    <p style="margin-top: 2em;">500 幅动画图解、12 种编程语言代码、3000 条社区问答，助你快速入门数据结构与算法</p>
   </div>
 </section>
 

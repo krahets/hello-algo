@@ -321,13 +321,13 @@
 如下图所示，我们可以将链表的“头节点”和“尾节点”分别视为“队首”和“队尾”，规定队尾仅可添加节点，队首仅可删除节点。
 
 === "LinkedListQueue"
-    ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue.png)
+    ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue_step1.png)
 
 === "push()"
-    ![linkedlist_queue_push](queue.assets/linkedlist_queue_push.png)
+    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png)
 
 === "pop()"
-    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_pop.png)
+    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png)
 
 以下是用链表实现队列的代码：
 
@@ -349,13 +349,13 @@
 可以看到，入队和出队操作都只需进行一次操作，时间复杂度均为 $O(1)$ 。
 
 === "ArrayQueue"
-    ![基于数组实现队列的入队出队操作](queue.assets/array_queue.png)
+    ![基于数组实现队列的入队出队操作](queue.assets/array_queue_step1.png)
 
 === "push()"
-    ![array_queue_push](queue.assets/array_queue_push.png)
+    ![array_queue_push](queue.assets/array_queue_step2_push.png)
 
 === "pop()"
-    ![array_queue_pop](queue.assets/array_queue_pop.png)
+    ![array_queue_pop](queue.assets/array_queue_step3_pop.png)
 
 你可能会发现一个问题：在不断进行入队和出队的过程中，`front` 和 `rear` 都在向右移动，**当它们到达数组尾部时就无法继续移动了**。为了解决此问题，我们可以将数组视为首尾相接的“环形数组”。
 
