@@ -15,7 +15,7 @@ func isSolution(state *[]*TreeNode) bool {
 
 /* 记录解 */
 func recordSolution(state *[]*TreeNode, res *[][]*TreeNode) {
-	*res = append(*res, *state)
+	*res = append(*res, append([]*TreeNode{}, *state...))
 }
 
 /* 判断在当前状态下，该选择是否合法 */
