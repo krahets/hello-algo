@@ -319,13 +319,13 @@
 如下图所示，对于入栈操作，我们只需将元素插入链表头部，这种节点插入方法被称为“头插法”。而对于出栈操作，只需将头节点从链表中删除即可。
 
 === "LinkedListStack"
-    ![基于链表实现栈的入栈出栈操作](stack.assets/linkedlist_stack.png)
+    ![基于链表实现栈的入栈出栈操作](stack.assets/linkedlist_stack_step1.png)
 
 === "push()"
-    ![linkedlist_stack_push](stack.assets/linkedlist_stack_push.png)
+    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png)
 
 === "pop()"
-    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_pop.png)
+    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png)
 
 以下是基于链表实现栈的示例代码：
 
@@ -338,13 +338,13 @@
 使用数组实现栈时，我们可以将数组的尾部作为栈顶。如下图所示，入栈与出栈操作分别对应在数组尾部添加元素与删除元素，时间复杂度都为 $O(1)$ 。
 
 === "ArrayStack"
-    ![基于数组实现栈的入栈出栈操作](stack.assets/array_stack.png)
+    ![基于数组实现栈的入栈出栈操作](stack.assets/array_stack_step1.png)
 
 === "push()"
-    ![array_stack_push](stack.assets/array_stack_push.png)
+    ![array_stack_push](stack.assets/array_stack_step2_push.png)
 
 === "pop()"
-    ![array_stack_pop](stack.assets/array_stack_pop.png)
+    ![array_stack_pop](stack.assets/array_stack_step3_pop.png)
 
 由于入栈的元素可能会源源不断地增加，因此我们可以使用动态数组，这样就无须自行处理数组扩容问题。以下为示例代码：
 
