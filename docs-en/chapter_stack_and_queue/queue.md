@@ -357,7 +357,7 @@ Both enqueue and dequeue operations only require a single operation, each with a
 === "pop()"
     ![array_queue_pop](queue.assets/array_queue_pop.png)
 
-You might notice a problem: as enqueue and dequeue operations are continuously performed, both `front` and `rear` move to the right and **will eventually reach the end of the array and can't move further**. + To resolve this, we can treat the array as a "circular array" where connecting the end of the array back to its beginning.
+You might notice a problem: as enqueue and dequeue operations are continuously performed, both `front` and `rear` move to the right and **will eventually reach the end of the array and can't move further**. To resolve this, we can treat the array as a "circular array" where connecting the end of the array back to its beginning.
 
 In a circular array, `front` or `rear` needs to loop back to the start of the array upon reaching the end. This cyclical pattern can be achieved with a "modulo operation" as shown in the code below:
 
