@@ -629,7 +629,7 @@ comments: true
         *path = append(*path, root)
         if root.Val.(int) == 7 {
             // 记录解
-            *res = append(*res, *path)
+            *res = append(*res, append([]*TreeNode{}, *path...))
         }
         preOrderIII(root.Left, res, path)
         preOrderIII(root.Right, res, path)
@@ -1300,7 +1300,7 @@ comments: true
 
     /* 记录解 */
     func recordSolution(state *[]*TreeNode, res *[][]*TreeNode) {
-        *res = append(*res, *state)
+        *res = append(*res, append([]*TreeNode{}, *state...))
     }
 
     /* 判断在当前状态下，该选择是否合法 */
