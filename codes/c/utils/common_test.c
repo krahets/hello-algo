@@ -25,7 +25,7 @@ void testTreeNode() {
     printTree(root);
 
     // tree to arr
-    int *arr = treeToArray(root, size);
+    int *arr = treeToArray(root, &size);
     printArray(arr, size);
 }
 
