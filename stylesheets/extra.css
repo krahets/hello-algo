@@ -214,7 +214,7 @@ body {
   font-size: 0.75rem;
 }
 
-.md-banner svg {
+.md-banner .banner-svg svg {
   margin-right: 0.3rem;
   height: 0.63rem;
   fill: var(--md-default-fg-color);
