@@ -207,6 +207,19 @@ body {
   width: 1.25em;
 }
 
+/* header banner */
+.md-banner {
+  background-color: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: 0.75rem;
+}
+
+.md-banner svg {
+  margin-right: 0.3rem;
+  height: 0.63rem;
+  fill: var(--md-default-fg-color);
+}
+
 .pythontutor-iframe {
   width: 125%;
   height: 125%;
