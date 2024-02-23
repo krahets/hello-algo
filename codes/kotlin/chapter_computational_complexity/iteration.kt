@@ -4,7 +4,7 @@
  * Author: curtishd (1023632660@qq.com)
  */
 
-package chapter_computational_complexity.iteration
+package chapter_computational_complexity
 
 /* for 循环 */
 fun forLoop(n: Int): Int {
