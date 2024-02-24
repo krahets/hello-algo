@@ -77,10 +77,10 @@ We would like to dedicate our thanks to all the contributors of this book. It is
 
 <p align="left">
     <a href="https://github.com/krahets/hello-algo/graphs/contributors">
-        <img width="550" src="https://contrib.rocks/image?repo=krahets/hello-algo" />
+        <img width="770" src="https://contrib.rocks/image?repo=krahets/hello-algo&max=300&columns=16" />
     </a>
 </p>
 
 ## License
 
-The texts, code, images, photos, and videos in this repository are licensed under [CC BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+The texts, code, images, photos, and videos in this repository are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
