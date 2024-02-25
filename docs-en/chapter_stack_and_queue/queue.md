@@ -8,7 +8,7 @@ As shown in the figure below, we call the front of the queue the "head" and the 
 
 ## Common Operations on Queue
 
-The common operations on a queue are shown in the table below. Note that method names may vary across different programming languages. Here, we use the same naming convention as that for stacks.
+The common operations on a queue are shown in the table below. Note that method names may vary across different programming languages. Here, we use the same naming convention as that used for stacks.
 
 <p align="center"> Table <id> &nbsp; Efficiency of Queue Operations </p>
 
