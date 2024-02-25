@@ -67,5 +67,5 @@ Overall, **arrays have a higher cache hit rate and are generally more efficient 
 
 It should be noted that **high cache efficiency does not mean that arrays are always better than linked lists**. Which data structure to choose in actual applications should be based on specific requirements. For example, both arrays and linked lists can implement the "stack" data structure (which will be detailed in the next chapter), but they are suitable for different scenarios.
 
-- In algorithm problems, we tend to choose stacks based on arrays because they provide higher operational efficiency and random access capabilities, with the only cost being the need to pre-allocate a certain amount of memory space for the array.
+- In algorithm problems, we tend to choose stacks implemented based on arrays because they provide higher operational efficiency and random access capabilities, with the only cost being the need to pre-allocate a certain amount of memory space for the array.
 - If the data volume is very large, highly dynamic, and the expected size of the stack is difficult to estimate, then a stack based on a linked list is more appropriate. Linked lists can disperse a large amount of data in different parts of the memory and avoid the additional overhead of array expansion.
