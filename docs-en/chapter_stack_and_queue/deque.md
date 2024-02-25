@@ -37,11 +37,11 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
     deque.appendleft(1)
 
     # Access elements
-    front: int = deque[0]  # The First element
+    front: int = deque[0]  # The first element
     rear: int = deque[-1]  # The last element
 
     # Dequeue elements
-    pop_front: int = deque.popleft()  # The First element dequeued
+    pop_front: int = deque.popleft()  # The first element dequeued
     pop_rear: int = deque.pop()       # The last element dequeued
 
     # Get the length of the deque
@@ -65,11 +65,11 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
     deque.push_front(1);
 
     /* Access elements */
-    int front = deque.front(); // The First element
+    int front = deque.front(); // The first element
     int back = deque.back();   // The last element
 
     /* Dequeue elements */
-    deque.pop_front();  // The First element dequeued
+    deque.pop_front();  // The first element dequeued
     deque.pop_back();   // The last element dequeued
 
     /* Get the length of the deque */
@@ -93,11 +93,11 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
     deque.offerFirst(1);
 
     /* Access elements */
-    int peekFirst = deque.peekFirst();  // The First element
+    int peekFirst = deque.peekFirst();  // The first element
     int peekLast = deque.peekLast();    // The last element
 
     /* Dequeue elements */
-    int popFirst = deque.pollFirst();  // The First element dequeued
+    int popFirst = deque.pollFirst();  // The first element dequeued
     int popLast = deque.pollLast();    // The last element dequeued
 
     /* Get the length of the deque */
@@ -122,11 +122,11 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
     deque.AddFirst(1);
 
     /* Access elements */
-    int peekFirst = deque.First.Value;  // The First element
+    int peekFirst = deque.First.Value;  // The first element
     int peekLast = deque.Last.Value;    // The last element
 
     /* Dequeue elements */
-    deque.RemoveFirst();  // The First element dequeued
+    deque.RemoveFirst();  // The first element dequeued
     deque.RemoveLast();   // The last element dequeued
 
     /* Get the length of the deque */
@@ -151,11 +151,11 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
     deque.PushFront(1)
 
     /* Access elements */
-    front := deque.Front() // The First element
+    front := deque.Front() // The first element
     rear := deque.Back()   // The last element
 
     /* Dequeue elements */
-    deque.Remove(front)    // The First element dequeued
+    deque.Remove(front)    // The first element dequeued
     deque.Remove(rear)     // The last element dequeued
 
     /* Get the length of the deque */
@@ -180,12 +180,12 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
     deque.insert(1, at: 0)
 
     /* Access elements */
-    let peekFirst = deque.first! // The First element
+    let peekFirst = deque.first! // The first element
     let peekLast = deque.last!   // The last element
 
     /* Dequeue elements */
     // Using Array, popFirst has a complexity of O(n)
-    let popFirst = deque.removeFirst() // The First element dequeued
+    let popFirst = deque.removeFirst() // The first element dequeued
     let popLast = deque.removeLast()   // The last element dequeued
 
     /* Get the length of the deque */
@@ -211,12 +211,12 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
     deque.unshift(1);
 
     /* Access elements */
-    const peekFirst = deque[0]; // The First element
+    const peekFirst = deque[0]; // The first element
     const peekLast = deque[deque.length - 1]; // The last element
 
     /* Dequeue elements */
     // Note that shift() has a time complexity of O(n) as it's an array
-    const popFront = deque.shift(); // The First element dequeued
+    const popFront = deque.shift(); // The first element dequeued
     const popBack = deque.pop();    // The last element dequeued
 
     /* Get the length of the deque */
@@ -242,12 +242,12 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
     deque.unshift(1);
 
     /* Access elements */
-    const peekFirst: number = deque[0]; // The First element
+    const peekFirst: number = deque[0]; // The first element
     const peekLast: number = deque[deque.length - 1]; // The last element
 
     /* Dequeue elements */
     // Note that shift() has a time complexity of O(n) as it's an array
-    const popFront: number = deque.shift() as number; // The First element dequeued
+    const popFront: number = deque.shift() as number; // The first element dequeued
     const popBack: number = deque.pop() as number;    // The last element dequeued
 
     /* Get the length of the deque */
@@ -272,11 +272,11 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
     deque.addFirst(1);
 
     /* Access elements */
-    int peekFirst = deque.first; // The First element
+    int peekFirst = deque.first; // The first element
     int peekLast = deque.last;   // The last element
 
     /* Dequeue elements */
-    int popFirst = deque.removeFirst(); // The First element dequeued
+    int popFirst = deque.removeFirst(); // The first element dequeued
     int popLast = deque.removeLast();   // The last element dequeued
 
     /* Get the length of the deque */
@@ -300,13 +300,13 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
     deque.push_front(1);
 
     /* Access elements */
-    if let Some(front) = deque.front() { // The First element
+    if let Some(front) = deque.front() { // The first element
     }
     if let Some(rear) = deque.back() {   // The last element
     }
 
     /* Dequeue elements */
-    if let Some(pop_front) = deque.pop_front() { // The First element dequeued
+    if let Some(pop_front) = deque.pop_front() { // The first element dequeued
     }
     if let Some(pop_rear) = deque.pop_back() {   // The last element dequeued
     }
