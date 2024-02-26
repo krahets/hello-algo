@@ -4,7 +4,7 @@
  * Author: curtishd (1023632660@qq.com)
  */
 
-package chapter_computational_complexity.recursion
+package chapter_computational_complexity
 
 import java.util.*
 
