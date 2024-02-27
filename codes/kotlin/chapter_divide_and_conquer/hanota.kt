@@ -36,6 +36,7 @@ fun solveHanota(A: MutableList<Int>, B: MutableList<Int>, C: MutableList<Int>) {
     dfs(n, A, B, C)
 }
 
+/* Driver Code */
 fun main() {
     // 列表尾部是柱子顶部
     val A: MutableList<Int> = ArrayList(mutableListOf(5, 4, 3, 2, 1))
