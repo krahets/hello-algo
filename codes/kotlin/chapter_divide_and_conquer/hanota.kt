@@ -15,7 +15,12 @@ fun move(src: MutableList<Int>, tar: MutableList<Int>) {
 }
 
 /* 求解汉诺塔问题 f(i) */
-fun dfs(i: Int, src: MutableList<Int>, buf: MutableList<Int>, tar: MutableList<Int>) {
+fun dfs(
+    i: Int, 
+    src: MutableList<Int>, 
+    buf: MutableList<Int>, 
+    tar: MutableList<Int>
+) {
     // 若 src 只剩下一个圆盘，则直接将其移到 tar
     if (i == 1) {
         move(src, tar)
@@ -30,7 +35,11 @@ fun dfs(i: Int, src: MutableList<Int>, buf: MutableList<Int>, tar: MutableList<I
 }
 
 /* 求解汉诺塔问题 */
-fun solveHanota(A: MutableList<Int>, B: MutableList<Int>, C: MutableList<Int>) {
+fun solveHanota(
+    A: MutableList<Int>, 
+    B: MutableList<Int>, 
+    C: MutableList<Int>
+) {
     val n = A.size
     // 将 A 顶部 n 个圆盘借助 B 移到 C
     dfs(n, A, B, C)
