@@ -10,7 +10,13 @@ import utils.TreeNode
 import utils.printTree
 
 /* 构建二叉树：分治 */
-fun dfs(preorder: IntArray, inorderMap: Map<Int?, Int?>, i: Int, l: Int, r: Int): TreeNode? {
+fun dfs(
+    preorder: IntArray, 
+    inorderMap: Map<Int?, Int?>, 
+    i: Int, 
+    l: Int, 
+    r: Int
+): TreeNode? {
     // 子树区间为空时终止
     if (r - l < 0) return null
     // 初始化根节点
