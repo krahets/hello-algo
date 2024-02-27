@@ -4,7 +4,7 @@
  * Author: curtishd (1023632660@qq.com)
  */
 
-package chapter_computational_complexity
+package chapter_computational_complexity.worst_best_time_complexity
 
 /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
 fun randomNumbers(n: Int): Array<Int?> {

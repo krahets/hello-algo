@@ -4,7 +4,7 @@
  * Author: curtishd (1023632660@qq.com)
  */
 
-package chapter_backtracking
+package chapter_backtracking.n_queens
 
 /* 回溯算法：n 皇后 */
 fun backtrack(
