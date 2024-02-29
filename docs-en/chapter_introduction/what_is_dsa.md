@@ -39,7 +39,7 @@ As shown in the Figure 1-4 , data structures and algorithms are highly related a
 
 Data structures and algorithms can be likened to a set of building blocks, as illustrated in the Figure 1-5 . A building block set includes numerous pieces, accompanied by detailed assembly instructions. Following these instructions step by step allows us to construct an intricate block model.
 
-![Assembling blocks](what_is_dsa.assets/assembling_blocks.jpg){ class="animation-figure" }
+![Assembling blocks](what_is_dsa.assets/assembling_blocks.png){ class="animation-figure" }
 
 <p align="center"> Figure 1-5 &nbsp; Assembling blocks </p>
 
