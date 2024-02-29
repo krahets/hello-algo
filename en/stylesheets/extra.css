@@ -334,7 +334,7 @@ a:hover .text-button span {
 }
 
 /* hero image */
-.hero-image-div {
+.hero-div {
   height: min(84vh, 75vw);
   width: min(112vh, 100vw);
   margin: 0 auto;
@@ -353,13 +353,13 @@ a:hover .text-button span {
 }
 
 /* hover on the planets */
-.hero-on-hover {
+.hero-div > a > img {
   width: auto;
   position: absolute;
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
-.hero-caption {
+.hero-div > a > span {
   margin: 0;
   position: absolute;
   transform: translateX(-50%) translateY(-50%);
@@ -367,15 +367,25 @@ a:hover .text-button span {
   color: white;
 }
 
-a:hover .hero-on-hover {
+.hero-div > a:hover > img {
   filter: brightness(1.15) saturate(1.1)
     drop-shadow(0 0 0.5rem rgba(255, 255, 255, 0.2));
   transform: scale(1.03);
 }
 
-a:hover .hero-caption {
+.hero-div > a:hover > span {
   text-decoration: underline;
   color: var(--md-typeset-btn-color);
+}
+
+.heading-div {
+  width: 100%;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: min(2vh, 3vw);
+  pointer-events: none;
+  color: #fff;
 }
 
 /* code badge */
