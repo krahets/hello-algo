@@ -26,7 +26,6 @@ fun maxProductCutting(n: Int): Int {
         return 3.0.pow(a.toDouble()).toInt() * 2 * 2
     }
     // 当余数为 0 时，不做处理
-    // 当余数为 0 时，不做处理
     return 3.0.pow(a.toDouble()).toInt()
 }
 
