@@ -14,7 +14,7 @@ class HashMapChaining() {
     val extendRatio: Int // 扩容倍数
     var buckets: MutableList<MutableList<Pair>> // 桶数组
 
-    /* 构造函数 */
+    /* 构造方法 */
     init {
         size = 0
         capacity = 4
