@@ -330,13 +330,13 @@ When implementing a stack using a linked list, we can consider the head node of 
 As shown in the Figure 5-2 , for the push operation, we simply insert elements at the head of the linked list. This method of node insertion is known as "head insertion." For the pop operation, we just need to remove the head node from the list.
 
 === "LinkedListStack"
-    ![Implementing Stack with Linked List for Push and Pop Operations](stack.assets/linkedlist_stack.png){ class="animation-figure" }
+    ![Implementing Stack with Linked List for Push and Pop Operations](stack.assets/linkedlist_stack_step1.png){ class="animation-figure" }
 
 === "push()"
-    ![linkedlist_stack_push](stack.assets/linkedlist_stack_push.png){ class="animation-figure" }
+    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png){ class="animation-figure" }
 
 === "pop()"
-    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_pop.png){ class="animation-figure" }
+    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png){ class="animation-figure" }
 
 <p align="center"> Figure 5-2 &nbsp; Implementing Stack with Linked List for Push and Pop Operations </p>
 
@@ -1094,13 +1094,13 @@ Below is an example code for implementing a stack based on a linked list:
 When implementing a stack using an array, we can consider the end of the array as the top of the stack. As shown in the Figure 5-3 , push and pop operations correspond to adding and removing elements at the end of the array, respectively, both with a time complexity of $O(1)$.
 
 === "ArrayStack"
-    ![Implementing Stack with Array for Push and Pop Operations](stack.assets/array_stack.png){ class="animation-figure" }
+    ![Implementing Stack with Array for Push and Pop Operations](stack.assets/array_stack_step1.png){ class="animation-figure" }
 
 === "push()"
-    ![array_stack_push](stack.assets/array_stack_push.png){ class="animation-figure" }
+    ![array_stack_push](stack.assets/array_stack_step2_push.png){ class="animation-figure" }
 
 === "pop()"
-    ![array_stack_pop](stack.assets/array_stack_pop.png){ class="animation-figure" }
+    ![array_stack_pop](stack.assets/array_stack_step3_pop.png){ class="animation-figure" }
 
 <p align="center"> Figure 5-3 &nbsp; Implementing Stack with Array for Push and Pop Operations </p>
 

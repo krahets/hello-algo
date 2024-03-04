@@ -332,13 +332,13 @@ To implement a queue, we need a data structure that allows adding elements at on
 As shown in the Figure 5-5 , we can consider the "head node" and "tail node" of a linked list as the "head" and "tail" of the queue, respectively. We restrict the operations so that nodes can only be added at the tail and removed at the head.
 
 === "LinkedListQueue"
-    ![Implementing Queue with Linked List for Enqueue and Dequeue Operations](queue.assets/linkedlist_queue.png){ class="animation-figure" }
+    ![Implementing Queue with Linked List for Enqueue and Dequeue Operations](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
 
 === "push()"
-    ![linkedlist_queue_push](queue.assets/linkedlist_queue_push.png){ class="animation-figure" }
+    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png){ class="animation-figure" }
 
 === "pop()"
-    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_pop.png){ class="animation-figure" }
+    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png){ class="animation-figure" }
 
 <p align="center"> Figure 5-5 &nbsp; Implementing Queue with Linked List for Enqueue and Dequeue Operations </p>
 
@@ -1231,13 +1231,13 @@ With this design, **the effective interval of elements in the array is `[front, 
 Both enqueue and dequeue operations only require a single operation, each with a time complexity of $O(1)$.
 
 === "ArrayQueue"
-    ![Implementing Queue with Array for Enqueue and Dequeue Operations](queue.assets/array_queue.png){ class="animation-figure" }
+    ![Implementing Queue with Array for Enqueue and Dequeue Operations](queue.assets/array_queue_step1.png){ class="animation-figure" }
 
 === "push()"
-    ![array_queue_push](queue.assets/array_queue_push.png){ class="animation-figure" }
+    ![array_queue_push](queue.assets/array_queue_step2_push.png){ class="animation-figure" }
 
 === "pop()"
-    ![array_queue_pop](queue.assets/array_queue_pop.png){ class="animation-figure" }
+    ![array_queue_pop](queue.assets/array_queue_step3_pop.png){ class="animation-figure" }
 
 <p align="center"> Figure 5-6 &nbsp; Implementing Queue with Array for Enqueue and Dequeue Operations </p>
 

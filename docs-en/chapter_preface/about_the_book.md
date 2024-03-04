@@ -30,7 +30,7 @@ The main content of the book is shown in the following figure.
 - **Data Structures**: focuses on fundamental data types, classification methods, definitions, pros and cons, common operations, types, applications, and implementation methods of data structures such as array, linked list, stack, queue, hash table, tree, heap, graph, etc.
 - **Algorithms**: defines algorithms, discusses their pros and cons, efficiency, application scenarios, problem-solving steps, and includes sample questions for various algorithms such as search, sorting, divide and conquer, backtracking, dynamic programming, greedy algorithms, and more.
 
-![Main Content of the Book](about_the_book.assets/hello_algo_mindmap.jpg){ class="animation-figure" }
+![Main Content of the Book](about_the_book.assets/hello_algo_mindmap.png){ class="animation-figure" }
 
 <p align="center"> Figure 0-1 &nbsp; Main Content of the Book </p>
 
