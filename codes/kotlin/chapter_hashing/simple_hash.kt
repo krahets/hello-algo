@@ -1,5 +1,5 @@
 /**
- * File: kt
+ * File: simple_hash.kt
  * Created Time: 2024-01-25
  * Author: curtishd (1023632660@qq.com)
  */

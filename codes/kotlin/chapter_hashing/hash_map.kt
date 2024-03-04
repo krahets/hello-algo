@@ -8,6 +8,7 @@ package chapter_hashing
 
 import utils.printHashMap
 
+/* Driver Code */
 fun main() {
     /* 初始化哈希表 */
     val map: MutableMap<Int, String> = HashMap()

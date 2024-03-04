@@ -8,6 +8,7 @@ package chapter_hashing
 
 import utils.ListNode
 
+/* Driver Code */
 fun main() {
     val num = 3
     val hashNum = Integer.hashCode(num)
