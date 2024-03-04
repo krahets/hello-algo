@@ -347,19 +347,19 @@ For a double-ended queue, both the head and the tail can perform enqueue and deq
 As shown in the figure below, we treat the head and tail nodes of the doubly linked list as the front and rear of the double-ended queue, respectively, and implement the functionality to add and remove nodes at both ends.
 
 === "LinkedListDeque"
-    ![Implementing Double-Ended Queue with Doubly Linked List for Enqueue and Dequeue Operations](deque.assets/linkedlist_deque.png)
+    ![Implementing Double-Ended Queue with Doubly Linked List for Enqueue and Dequeue Operations](deque.assets/linkedlist_deque_step1.png)
 
 === "pushLast()"
-    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_push_last.png)
+    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.png)
 
 === "pushFirst()"
-    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_push_first.png)
+    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.png)
 
 === "popLast()"
-    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_pop_last.png)
+    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.png)
 
 === "popFirst()"
-    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_pop_first.png)
+    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.png)
 
 The implementation code is as follows:
 
@@ -372,19 +372,19 @@ The implementation code is as follows:
 As shown in the figure below, similar to implementing a queue with an array, we can also use a circular array to implement a double-ended queue.
 
 === "ArrayDeque"
-    ![Implementing Double-Ended Queue with Array for Enqueue and Dequeue Operations](deque.assets/array_deque.png)
+    ![Implementing Double-Ended Queue with Array for Enqueue and Dequeue Operations](deque.assets/array_deque_step1.png)
 
 === "pushLast()"
-    ![array_deque_push_last](deque.assets/array_deque_push_last.png)
+    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.png)
 
 === "pushFirst()"
-    ![array_deque_push_first](deque.assets/array_deque_push_first.png)
+    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.png)
 
 === "popLast()"
-    ![array_deque_pop_last](deque.assets/array_deque_pop_last.png)
+    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.png)
 
 === "popFirst()"
-    ![array_deque_pop_first](deque.assets/array_deque_pop_first.png)
+    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.png)
 
 The implementation only needs to add methods for "front enqueue" and "rear dequeue":
 
