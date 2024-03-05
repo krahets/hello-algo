@@ -2,7 +2,7 @@
 /**
  * File: time_complexity.php
  * Created Time: 2024-02-27
- * Author: skating (121826725@qq.com)
+ * Author: honghuabin (121826725@qq.com)
  */
 
 /* 函数 */
@@ -75,8 +75,7 @@ class TreeNode {
     public $left;
     public $right;
     public $val;
-    public function __construct($val)
-    {
+    public function __construct($val) {
         $this->val = $val;
     }
 }
@@ -90,6 +89,7 @@ function buildTree(int $n) {
     return $root;
 }
 
+/* Driver Code */
 $n = 5;
 // 常数阶
 constants($n);

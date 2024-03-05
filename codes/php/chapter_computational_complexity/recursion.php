@@ -2,7 +2,7 @@
 /**
  * File: recursion.php
  * Created Time: 2024-02-27
- * Author: skating (121826725@qq.com)
+ * Author: honghuabin (121826725@qq.com)
  */
 
 /* 递归 */
@@ -58,6 +58,7 @@ function forLoopRecur(int $n) {
     return $res;
 }
 
+/* Driver Code */
 $n = 5;
 
 $res = recur($n);

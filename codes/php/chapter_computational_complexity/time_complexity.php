@@ -2,7 +2,7 @@
 /**
  * File: time_complexity.php
  * Created Time: 2024-02-27
- * Author: skating (121826725@qq.com)
+ * Author: honghuabin (121826725@qq.com)
  */
 
 /* 常数阶 */
@@ -152,6 +152,7 @@ function findOne(array $nums) {
     return -1;
 }
 
+/* Driver Code */
 $n = 8;
 $nums = array(8,7,6,5,4,3,2,1);
 

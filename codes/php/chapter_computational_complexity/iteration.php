@@ -2,7 +2,7 @@
 /**
  * File: iteration.php
  * Created Time: 2024-02-27
- * Author: skating (121826725@qq.com)
+ * Author: honghuabin (121826725@qq.com)
  */
 
 /* for 循环 */
@@ -54,6 +54,7 @@ function nestedForLoop(int $n) {
     return $res;
 }
 
+/* Driver Code */
 $n = 5;
 
 $res = forLoop($n);
