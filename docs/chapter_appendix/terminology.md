@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 16.3 &nbsp; 术语表
