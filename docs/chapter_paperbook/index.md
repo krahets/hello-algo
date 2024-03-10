@@ -19,7 +19,7 @@ status: new
 以下视频展示了纸质书，并且包含一些我的思考：数据结构与算法的重要性、为什么在纸质书中选择 Python、对知识分享的理解等。（请给新人 UP 主个一键三连吧！谢谢～）
 
 <div class="video-container">
-    <iframe src="//player.bilibili.com/player.html?aid=1051597767&bvid=BV1QH4y157uC&cid=1462564112&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    <iframe src="//player.bilibili.com/player.html?aid=1051597767&bvid=BV1QH4y157uC&cid=1462564112&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
 以下是纸质书的一些快照：
