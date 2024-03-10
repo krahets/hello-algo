@@ -1,6 +1,7 @@
 ---
 comments: true
 icon: fontawesome/solid/book
+status: new
 ---
 
 # 纸质书介绍
