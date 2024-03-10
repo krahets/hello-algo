@@ -6,29 +6,29 @@ status: new
 
 # 纸质书介绍
 
-经过长时间的打磨，《Hello 算法》纸质书终于发布了！此时的心情可以用下面这首诗来形容：
+经过长时间的打磨，《Hello 算法》纸质书终于发布了！此时的心情可以用一句诗来形容：
 
-!!! quote
+<p align="center">追风赶月莫停留，平芜尽处是春山。</p>
 
-    追风赶月莫停留，平芜尽处是春山。
+![](index.assets/paper_book_overview.jpg){ class="animation-figure" }
 
-![](index.assets/paper_book_overview.jpg)
+以下视频展示了纸质书，并且包含我的一些思考：
 
-## 纸质书简介
+- 学习数据结构与算法的重要性。
+- 为什么在纸质书中选择 Python。
+- 对知识分享的理解。
 
-以下视频展示了纸质书，并且包含一些我的思考：数据结构与算法的重要性、为什么在纸质书中选择 Python、对知识分享的理解等。（请给新人 UP 主个一键三连吧！谢谢～）
+> 新人 UP 主，请多多关照、一键三连～谢谢！
 
 <div class="video-container">
     <iframe src="//player.bilibili.com/player.html?aid=1051597767&bvid=BV1QH4y157uC&cid=1462564112&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
-以下是纸质书的一些快照：
+附纸质书快照：
 
-![](index.assets/paper_book_chapter_heap.jpg)
+![](index.assets/paper_book_chapter_heap.jpg){ class="animation-figure" }
 
-![](index.assets/paper_book_toc.jpg)
-
-![](index.assets/paper_book_avl_tree.jpg)
+![](index.assets/paper_book_avl_tree.jpg){ class="animation-figure" }
 
 ## 优势与不足
 
@@ -50,18 +50,18 @@ status: new
 
 !!! tip
 
-    “印刷质量”和“价格”就像算法中的“时间效率”和“空间效率”，难以两全。而我认为，“印刷质量”对应的是“时间效率”，应当更被注重。
+    “印刷质量”和“价格”就像算法中的“时间效率”和“空间效率”，难以两全。而我认为，“印刷质量”对应的是“时间效率”，更应该被注重。
 
 ## 购买链接
 
-如果你对纸质书感兴趣，可以考虑入手一本。为大家争取到了新书 5 折优惠，请见[此链接](https://3.cn/-1Wwj1jq)或扫描以下二维码：
+如果你对纸质书感兴趣，可以考虑入手一本。我们为大家争取到了新书 5 折优惠，请见[此链接](https://3.cn/-1Wwj1jq)或扫描以下二维码：
 
-![](index.assets/book_jd_link.jpg)
+![](index.assets/book_jd_link.jpg){ class="animation-figure" }
 
 ## 尾记
 
-起初，我低估了纸质书出版的工作量，以为只要维护好了开源项目，纸质版就可以通过某些自动化手段生成出来。实践证明，一本书的底稿与达到出版标准仍有较长的距离。
+起初，我低估了纸质书出版的工作量，以为只要维护好了开源项目，纸质版就可以通过某些自动化手段生成出来。实践证明，纸质书的生产流程与开源项目的更新机制存在很大的不同，两者之间的转化需要做许多额外工作。
 
-纸质书的生产流程与开源项目的维护机制存在很大的不同，需要出版社（策划、编辑、设计、市场等）和作者的精诚合作、长期打磨，才能为读者呈现一份合格的出版物。在此，在此感谢图灵策划编辑王军花，以及人民邮电出版社和图灵社区每位参与本书出版流程的工作人员！
+一本书的初稿与达到出版标准的定稿之间仍有较长距离，需要出版社（策划、编辑、设计、市场等）与作者的通力合作、长期雕琢。在此，在此感谢图灵策划编辑王军花、以及人民邮电出版社和图灵社区每位参与本书出版流程的工作人员！
 
-**希望这本书能够帮助到你**！
+希望这本书能够帮助到你！
