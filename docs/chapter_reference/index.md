@@ -1,3 +1,7 @@
+---
+icon: material/bookshelf
+---
+
 # 参考文献
 
 [1] Thomas H. Cormen, et al. Introduction to Algorithms (3rd Edition).
