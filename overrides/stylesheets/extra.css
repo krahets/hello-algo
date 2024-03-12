@@ -207,6 +207,19 @@ body {
   width: 1.25em;
 }
 
+/* header banner */
+.md-banner {
+  background-color: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: 0.75rem;
+}
+
+.md-banner .banner-svg svg {
+  margin-right: 0.3rem;
+  height: 0.63rem;
+  fill: var(--md-default-fg-color);
+}
+
 .pythontutor-iframe {
   width: 125%;
   height: 125%;
@@ -321,7 +334,7 @@ a:hover .text-button span {
 }
 
 /* hero image */
-.hero-image-div {
+.hero-div {
   height: min(84vh, 75vw);
   width: min(112vh, 100vw);
   margin: 0 auto;
@@ -340,13 +353,13 @@ a:hover .text-button span {
 }
 
 /* hover on the planets */
-.hero-on-hover {
+.hero-div > a > img {
   width: auto;
   position: absolute;
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
-.hero-caption {
+.hero-div > a > span {
   margin: 0;
   position: absolute;
   transform: translateX(-50%) translateY(-50%);
@@ -354,15 +367,25 @@ a:hover .text-button span {
   color: white;
 }
 
-a:hover .hero-on-hover {
+.hero-div > a:hover > img {
   filter: brightness(1.15) saturate(1.1)
     drop-shadow(0 0 0.5rem rgba(255, 255, 255, 0.2));
   transform: scale(1.03);
 }
 
-a:hover .hero-caption {
+.hero-div > a:hover > span {
   text-decoration: underline;
   color: var(--md-typeset-btn-color);
+}
+
+.heading-div {
+  width: 100%;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: min(2vh, 3vw);
+  pointer-events: none;
+  color: #fff;
 }
 
 /* code badge */
@@ -498,4 +521,18 @@ a:hover .hero-caption {
   .profile-cell {
     flex-basis: 25%;
   }
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
