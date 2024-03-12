@@ -152,6 +152,6 @@ fun main() {
     print("\n堆元素数量为 $size\n")
 
     /* 判断堆是否为空 */
-    val isEmpty: Boolean = maxHeap.isEmpty()
+    val isEmpty = maxHeap.isEmpty()
     print("\n堆是否为空 $isEmpty\n")
 }
