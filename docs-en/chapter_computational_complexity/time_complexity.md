@@ -317,7 +317,7 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 
     // Time complexity of algorithm C: constant order
     func algorithmC(n: Int) {
-        for _ in 0 ..< 1000000 {
+        for _ in 0 ..< 1_000_000 {
             print(0)
         }
     }
