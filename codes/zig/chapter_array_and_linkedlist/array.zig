@@ -1,6 +1,6 @@
 // File: array.zig
 // Created Time: 2023-01-07
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -32,11 +32,11 @@ pub fn insert(nums: []i32, num: i32, index: usize) void {
     while (i > index) : (i -= 1) {
         nums[i] = nums[i - 1];
     }
-    // 将 num 赋给 index 处元素
+    // 将 num 赋给 index 处的元素
     nums[index] = num;
 }
 
-// 删除索引 index 处元素
+// 删除索引 index 处的元素
 pub fn remove(nums: []i32, index: usize) void {
     // 把索引 index 之后的所有元素向前移动一位
     var i = index;
@@ -51,12 +51,12 @@ pub fn traverse(nums: []i32) void {
     // 通过索引遍历数组
     var i: i32 = 0;
     while (i < nums.len) : (i += 1) {
-        count += 1;
+        count += nums[i];
     }
     count = 0;
-    // 直接遍历数组
-    for (nums) |_| {
-        count += 1;
+    // 直接遍历数组元素
+    for (nums) |num| {
+        count += num;
     }
 }
 

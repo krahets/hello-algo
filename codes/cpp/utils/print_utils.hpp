@@ -1,7 +1,7 @@
 /**
  * File: print_utils.hpp
  * Created Time: 2021-12-19
- * Author: Krahets (krahets@163.com), msk397 (machangxinq@gmail.com), LoneRanger(836253168@qq.com)
+ * Author: krahets (krahets@163.com), msk397 (machangxinq@gmail.com), LoneRanger(836253168@qq.com)
  */
 
 #pragma once
@@ -109,7 +109,7 @@ void showTrunks(Trunk *p) {
 }
 
 /* Print a binary tree */
-void printTree(TreeNode *root, Trunk *prev, bool isLeft) {
+void printTree(TreeNode *root, Trunk *prev, bool isRight) {
     if (root == nullptr) {
         return;
     }
@@ -121,7 +121,7 @@ void printTree(TreeNode *root, Trunk *prev, bool isLeft) {
 
     if (!prev) {
         trunk.str = "———";
-    } else if (isLeft) {
+    } else if (isRight) {
         trunk.str = "/———";
         prev_str = "   |";
     } else {

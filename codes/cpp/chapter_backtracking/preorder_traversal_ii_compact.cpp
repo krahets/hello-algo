@@ -1,7 +1,7 @@
 /**
  * File: preorder_traversal_ii_compact.cpp
  * Created Time: 2023-04-16
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -10,7 +10,7 @@ vector<TreeNode *> path;
 vector<vector<TreeNode *>> res;
 
 /* 前序遍历：例题二 */
-static void preOrder(TreeNode *root) {
+void preOrder(TreeNode *root) {
     if (root == nullptr) {
         return;
     }

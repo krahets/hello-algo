@@ -1,6 +1,6 @@
 // File: linkedlist_queue.zig
 // Created Time: 2023-01-15
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -51,7 +51,7 @@ pub fn LinkedListQueue(comptime T: type) type {
 
         // 入队
         pub fn push(self: *Self, num: T) !void {
-            // 尾节点后添加 num
+            // 在尾节点后添加 num
             var node = try self.mem_allocator.create(inc.ListNode(T));
             node.init(num);
             // 如果队列为空，则令头、尾节点都指向该节点

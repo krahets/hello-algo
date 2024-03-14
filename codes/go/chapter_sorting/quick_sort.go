@@ -15,7 +15,7 @@ type quickSortTailCall struct{}
 
 /* 哨兵划分 */
 func (q *quickSort) partition(nums []int, left, right int) int {
-	// 以 nums[left] 作为基准数
+	// 以 nums[left] 为基准数
 	i, j := left, right
 	for i < j {
 		for i < j && nums[j] >= nums[left] {
@@ -45,7 +45,7 @@ func (q *quickSort) quickSort(nums []int, left, right int) {
 	q.quickSort(nums, pivot+1, right)
 }
 
-/* 选取三个元素的中位数 */
+/* 选取三个候选元素的中位数 */
 func (q *quickSortMedian) medianThree(nums []int, left, mid, right int) int {
 	l, m, r := nums[left], nums[mid], nums[right]
 	if (l <= m && m <= r) || (r <= m && m <= l) {
@@ -59,11 +59,11 @@ func (q *quickSortMedian) medianThree(nums []int, left, mid, right int) int {
 
 /* 哨兵划分（三数取中值）*/
 func (q *quickSortMedian) partition(nums []int, left, right int) int {
-	// 以 nums[left] 作为基准数
+	// 以 nums[left] 为基准数
 	med := q.medianThree(nums, left, (left+right)/2, right)
 	// 将中位数交换至数组最左端
 	nums[left], nums[med] = nums[med], nums[left]
-	// 以 nums[left] 作为基准数
+	// 以 nums[left] 为基准数
 	i, j := left, right
 	for i < j {
 		for i < j && nums[j] >= nums[left] {
@@ -95,7 +95,7 @@ func (q *quickSortMedian) quickSort(nums []int, left, right int) {
 
 /* 哨兵划分 */
 func (q *quickSortTailCall) partition(nums []int, left, right int) int {
-	// 以 nums[left] 作为基准数
+	// 以 nums[left] 为基准数
 	i, j := left, right
 	for i < j {
 		for i < j && nums[j] >= nums[left] {
@@ -118,7 +118,7 @@ func (q *quickSortTailCall) quickSort(nums []int, left, right int) {
 	for left < right {
 		// 哨兵划分操作
 		pivot := q.partition(nums, left, right)
-		// 对两个子数组中较短的那个执行快排
+		// 对两个子数组中较短的那个执行快速排序
 		if pivot-left < right-pivot {
 			q.quickSort(nums, left, pivot-1) // 递归排序左子数组
 			left = pivot + 1                 // 剩余未排序区间为 [pivot + 1, right]

@@ -1,7 +1,7 @@
 /**
  * File: array_queue.java
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_stack_and_queue;
@@ -40,8 +40,8 @@ class ArrayQueue {
             System.out.println("队列已满");
             return;
         }
-        // 计算尾指针，指向队尾索引 + 1
-        // 通过取余操作，实现 rear 越过数组尾部后回到头部
+        // 计算队尾指针，指向队尾索引 + 1
+        // 通过取余操作实现 rear 越过数组尾部后回到头部
         int rear = (front + queSize) % capacity();
         // 将 num 添加至队尾
         nums[rear] = num;
@@ -51,7 +51,7 @@ class ArrayQueue {
     /* 出队 */
     public int pop() {
         int num = peek();
-        // 队首指针向后移动一位，若越过尾部则返回到数组头部
+        // 队首指针向后移动一位，若越过尾部，则返回到数组头部
         front = (front + 1) % capacity();
         queSize--;
         return num;

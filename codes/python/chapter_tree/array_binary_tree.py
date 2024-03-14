@@ -1,7 +1,7 @@
 """
 File: array_binary_tree.py
 Created Time: 2023-07-19
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 import sys
@@ -19,7 +19,7 @@ class ArrayBinaryTree:
         self._tree = list(arr)
 
     def size(self):
-        """节点数量"""
+        """列表容量"""
         return len(self._tree)
 
     def val(self, i: int) -> int:

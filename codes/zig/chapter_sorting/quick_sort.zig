@@ -1,6 +1,6 @@
 // File: quick_sort.zig
 // Created Time: 2023-01-15
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -17,7 +17,7 @@ const QuickSort = struct {
 
     // 哨兵划分
     pub fn partition(nums: []i32, left: usize, right: usize) usize {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         var i = left;
         var j = right;
         while (i < j) {
@@ -51,7 +51,7 @@ const QuickSortMedian = struct {
         nums[j] = tmp;
     }
 
-    // 选取三个元素的中位数
+    // 选取三个候选元素的中位数
     pub fn medianThree(nums: []i32, left: usize, mid: usize, right: usize) usize {
         var l = nums[left];
         var m = nums[mid];
@@ -69,7 +69,7 @@ const QuickSortMedian = struct {
         var med = medianThree(nums, left, (left + right) / 2, right);
         // 将中位数交换至数组最左端
         swap(nums, left, med);
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         var i = left;
         var j = right;
         while (i < j) {
@@ -106,7 +106,7 @@ const QuickSortTailCall = struct {
 
     // 哨兵划分
     pub fn partition(nums: []i32, left: usize, right: usize) usize {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         var i = left;
         var j = right;
         while (i < j) {
@@ -126,7 +126,7 @@ const QuickSortTailCall = struct {
         while (left < right) {
             // 哨兵划分操作
             var pivot = partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if (pivot - left < right - pivot) {
                 quickSort(nums, left, pivot - 1);   // 递归排序左子数组
                 left = pivot + 1;                   // 剩余未排序区间为 [pivot + 1, right]

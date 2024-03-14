@@ -1,7 +1,7 @@
 /**
  * File: array_binary_tree.cpp
  * Created Time: 2023-07-19
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -14,7 +14,7 @@ class ArrayBinaryTree {
         tree = arr;
     }
 
-    /* 节点数量 */
+    /* 列表容量 */
     int size() {
         return tree.size();
     }

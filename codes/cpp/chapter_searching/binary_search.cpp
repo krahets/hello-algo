@@ -1,7 +1,7 @@
 /**
  * File: binary_search.cpp
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -24,9 +24,9 @@ int binarySearch(vector<int> &nums, int target) {
     return -1;
 }
 
-/* 二分查找（左闭右开） */
+/* 二分查找（左闭右开区间） */
 int binarySearchLCRO(vector<int> &nums, int target) {
-    // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+    // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     int i = 0, j = nums.size();
     // 循环，当搜索区间为空时跳出（当 i = j 时为空）
     while (i < j) {
@@ -51,7 +51,7 @@ int main() {
     int index = binarySearch(nums, target);
     cout << "目标元素 6 的索引 = " << index << endl;
 
-    /* 二分查找（左闭右开） */
+    /* 二分查找（左闭右开区间） */
     index = binarySearchLCRO(nums, target);
     cout << "目标元素 6 的索引 = " << index << endl;
 

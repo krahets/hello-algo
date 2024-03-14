@@ -28,9 +28,10 @@ void removeItem(ListNode *n0) {
 
 /* 访问链表中索引为 index 的节点 */
 ListNode *access(ListNode *head, int index) {
-    while (head && head->next && index) {
+    for (int i = 0; i < index; i++) {
+        if (head == NULL)
+            return NULL;
         head = head->next;
-        index--;
     }
     return head;
 }
@@ -56,7 +57,7 @@ int main() {
     ListNode *n2 = newListNode(2);
     ListNode *n3 = newListNode(5);
     ListNode *n4 = newListNode(4);
-    // 构建引用指向
+    // 构建节点之间的引用
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -82,5 +83,7 @@ int main() {
     int index = find(n0, 2);
     printf("链表中值为 2 的节点的索引 = %d\r\n", index);
 
+    // 释放内存
+    freeMemoryLinkedList(n0);
     return 0;
 }

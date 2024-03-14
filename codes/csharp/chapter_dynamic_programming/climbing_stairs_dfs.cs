@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class climbing_stairs_dfs {
     /* 搜索 */
-    public int DFS(int i) {
+    int DFS(int i) {
         // 已知 dp[1] 和 dp[2] ，返回之
         if (i == 1 || i == 2)
             return i;
@@ -18,7 +18,7 @@ public class climbing_stairs_dfs {
     }
 
     /* 爬楼梯：搜索 */
-    public int ClimbingStairsDFS(int n) {
+    int ClimbingStairsDFS(int n) {
         return DFS(n);
     }
 

@@ -56,5 +56,6 @@ int main() {
     printf("构建的二叉树为：\n");
     printTree(root);
 
+    freeMemoryTree(root);
     return 0;
 }

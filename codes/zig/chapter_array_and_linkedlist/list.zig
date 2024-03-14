@@ -1,6 +1,6 @@
 // File: list.zig
 // Created Time: 2023-01-07
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -29,7 +29,7 @@ pub fn main() !void {
     std.debug.print("\n清空列表后 nums = ", .{});
     inc.PrintUtil.printList(i32, nums);
 
-    // 尾部添加元素
+    // 在尾部添加元素
     try nums.append(1);
     try nums.append(3);
     try nums.append(2);
@@ -38,7 +38,7 @@ pub fn main() !void {
     std.debug.print("\n添加元素后 nums = ", .{});
     inc.PrintUtil.printList(i32, nums);
 
-    // 中间插入元素
+    // 在中间插入元素
     try nums.insert(3, 6);
     std.debug.print("\n在索引 3 处插入数字 6 ，得到 nums = ", .{});
     inc.PrintUtil.printList(i32, nums);
@@ -52,13 +52,12 @@ pub fn main() !void {
     var count: i32 = 0;
     var i: i32 = 0;
     while (i < nums.items.len) : (i += 1) {
-        count += 1;
+        count += nums[i];
     }
-
     // 直接遍历列表元素
     count = 0;
-    for (nums.items) |_| {
-        count += 1;
+    for (nums.items) |x| {
+        count += x;
     }
 
     // 拼接两个列表

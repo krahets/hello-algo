@@ -1,7 +1,7 @@
 """
 File: array_deque.py
 Created Time: 2023-03-01
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 
@@ -39,7 +39,7 @@ class ArrayDeque:
             print("双向队列已满")
             return
         # 队首指针向左移动一位
-        # 通过取余操作，实现 front 越过数组头部后回到尾部
+        # 通过取余操作实现 front 越过数组头部后回到尾部
         self._front = self.index(self._front - 1)
         # 将 num 添加至队首
         self._nums[self._front] = num
@@ -50,7 +50,7 @@ class ArrayDeque:
         if self._size == self.capacity():
             print("双向队列已满")
             return
-        # 计算尾指针，指向队尾索引 + 1
+        # 计算队尾指针，指向队尾索引 + 1
         rear = self.index(self._front + self._size)
         # 将 num 添加至队尾
         self._nums[rear] = num

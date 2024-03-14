@@ -8,12 +8,12 @@ namespace hello_algo.chapter_graph;
 
 /* 基于邻接表实现的无向图类 */
 public class GraphAdjList {
-    // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+    // 邻接表，key：顶点，value：该顶点的所有邻接顶点
     public Dictionary<Vertex, List<Vertex>> adjList;
 
     /* 构造函数 */
     public GraphAdjList(Vertex[][] edges) {
-        this.adjList = new Dictionary<Vertex, List<Vertex>>();
+        adjList = [];
         // 添加所有顶点和边
         foreach (Vertex[] edge in edges) {
             AddVertex(edge[0]);
@@ -23,7 +23,7 @@ public class GraphAdjList {
     }
 
     /* 获取顶点数量 */
-    public int Size() {
+    int Size() {
         return adjList.Count;
     }
 
@@ -50,7 +50,7 @@ public class GraphAdjList {
         if (adjList.ContainsKey(vet))
             return;
         // 在邻接表中添加一个新链表
-        adjList.Add(vet, new List<Vertex>());
+        adjList.Add(vet, []);
     }
 
     /* 删除顶点 */
@@ -69,7 +69,7 @@ public class GraphAdjList {
     public void Print() {
         Console.WriteLine("邻接表 =");
         foreach (KeyValuePair<Vertex, List<Vertex>> pair in adjList) {
-            List<int> tmp = new();
+            List<int> tmp = [];
             foreach (Vertex vertex in pair.Value)
                 tmp.Add(vertex.val);
             Console.WriteLine(pair.Key.val + ": [" + string.Join(", ", tmp) + "],");
@@ -81,10 +81,16 @@ public class graph_adjacency_list {
     [Test]
     public void Test() {
         /* 初始化无向图 */
-        Vertex[] v = Vertex.ValsToVets(new int[] { 1, 3, 2, 5, 4 });
-        Vertex[][] edges = new Vertex[][] { new Vertex[] { v[0], v[1] }, new Vertex[] { v[0], v[3] },
-                                            new Vertex[] { v[1], v[2] }, new Vertex[] { v[2], v[3] },
-                                            new Vertex[] { v[2], v[4] }, new Vertex[] { v[3], v[4] } };
+        Vertex[] v = Vertex.ValsToVets([1, 3, 2, 5, 4]);
+        Vertex[][] edges =
+        [
+            [v[0], v[1]],
+            [v[0], v[3]],
+            [v[1], v[2]],
+            [v[2], v[3]],
+            [v[2], v[4]],
+            [v[3], v[4]] 
+        ];
         GraphAdjList graph = new(edges);
         Console.WriteLine("\n初始化后，图为");
         graph.Print();

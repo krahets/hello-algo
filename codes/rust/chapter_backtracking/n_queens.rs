@@ -1,10 +1,10 @@
 /*
  * File: n_queens.rs
  * Created Time: 2023-07-15
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 回溯算法：N 皇后 */
+/* 回溯算法：n 皇后 */
 fn backtrack(row: usize, n: usize, state: &mut Vec<Vec<String>>, res: &mut Vec<Vec<Vec<String>>>,
     cols: &mut [bool], diags1: &mut [bool], diags2: &mut [bool]) {
     // 当放置完所有行时，记录解
@@ -18,10 +18,10 @@ fn backtrack(row: usize, n: usize, state: &mut Vec<Vec<String>>, res: &mut Vec<V
     }
     // 遍历所有列
     for col in 0..n {
-        // 计算该格子对应的主对角线和副对角线
+        // 计算该格子对应的主对角线和次对角线
         let diag1 = row + n - 1 - col;
         let diag2 = row + col;
-        // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+        // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
         if !cols[col] && !diags1[diag1] && !diags2[diag2] {
             // 尝试：将皇后放置在该格子
             state.get_mut(row).unwrap()[col] = "Q".into();
@@ -35,7 +35,7 @@ fn backtrack(row: usize, n: usize, state: &mut Vec<Vec<String>>, res: &mut Vec<V
     }
 }
 
-/* 求解 N 皇后 */
+/* 求解 n 皇后 */
 fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
     // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
     let mut state: Vec<Vec<String>> = Vec::new();
@@ -47,8 +47,8 @@ fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
         state.push(row);
     }
     let mut cols = vec![false; n]; // 记录列是否有皇后
-    let mut diags1 = vec![false; 2 * n - 1]; // 记录主对角线是否有皇后
-    let mut diags2 = vec![false; 2 * n - 1]; // 记录副对角线是否有皇后
+    let mut diags1 = vec![false; 2 * n - 1]; // 记录主对角线上是否有皇后
+    let mut diags2 = vec![false; 2 * n - 1]; // 记录次对角线上是否有皇后
     let mut res: Vec<Vec<Vec<String>>> = Vec::new();
 
     backtrack(0, n, &mut state, &mut res, &mut cols, &mut diags1, &mut diags2);

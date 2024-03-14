@@ -31,7 +31,7 @@ func bubbleSortWithFlag(nums []int) {
 				flag = true // 记录交换元素
 			}
 		}
-		if flag == false { // 此轮冒泡未交换任何元素，直接跳出
+		if flag == false { // 此轮“冒泡”未交换任何元素，直接跳出
 			break
 		}
 	}

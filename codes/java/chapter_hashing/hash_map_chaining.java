@@ -1,7 +1,7 @@
 /**
  * File: hash_map_chaining.java
  * Created Time: 2023-06-13
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_hashing;
@@ -43,13 +43,13 @@ class HashMapChaining {
     String get(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // 遍历桶，若找到 key 则返回对应 val
+        // 遍历桶，若找到 key ，则返回对应 val
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 return pair.val;
             }
         }
-        // 若未找到 key 则返回 null
+        // 若未找到 key ，则返回 null
         return null;
     }
 
@@ -135,7 +135,7 @@ public class hash_map_chaining {
         map.print();
 
         /* 查询操作 */
-        // 向哈希表输入键 key ，得到值 value
+        // 向哈希表中输入键 key ，得到值 value
         String name = map.get(13276);
         System.out.println("\n输入学号 13276 ，查询到姓名 " + name);
 

@@ -1,4 +1,4 @@
-# 图基础操作
+# 图的基础操作
 
 图的基础操作可分为对“边”的操作和对“顶点”的操作。在“邻接矩阵”和“邻接表”两种表示方法下，实现方式有所不同。
 
@@ -12,21 +12,21 @@
 - **初始化**：传入 $n$ 个顶点，初始化长度为 $n$ 的顶点列表 `vertices` ，使用 $O(n)$ 时间；初始化 $n \times n$ 大小的邻接矩阵 `adjMat` ，使用 $O(n^2)$ 时间。
 
 === "初始化邻接矩阵"
-    ![邻接矩阵的初始化、增删边、增删顶点](graph_operations.assets/adjacency_matrix_initialization.png)
+    ![邻接矩阵的初始化、增删边、增删顶点](graph_operations.assets/adjacency_matrix_step1_initialization.png)
 
 === "添加边"
-    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_add_edge.png)
+    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.png)
 
 === "删除边"
-    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_remove_edge.png)
+    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.png)
 
 === "添加顶点"
-    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_add_vertex.png)
+    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.png)
 
 === "删除顶点"
-    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_remove_vertex.png)
+    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png)
 
-以下是基于邻接矩阵表示图的实现代码。
+以下是基于邻接矩阵表示图的实现代码：
 
 ```src
 [file]{graph_adjacency_matrix}-[class]{graph_adj_mat}-[func]{}
@@ -43,19 +43,19 @@
 - **初始化**：在邻接表中创建 $n$ 个顶点和 $2m$ 条边，使用 $O(n + m)$ 时间。
 
 === "初始化邻接表"
-    ![邻接表的初始化、增删边、增删顶点](graph_operations.assets/adjacency_list_initialization.png)
+    ![邻接表的初始化、增删边、增删顶点](graph_operations.assets/adjacency_list_step1_initialization.png)
 
 === "添加边"
-    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_add_edge.png)
+    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.png)
 
 === "删除边"
-    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_remove_edge.png)
+    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.png)
 
 === "添加顶点"
-    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_add_vertex.png)
+    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.png)
 
 === "删除顶点"
-    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_remove_vertex.png)
+    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.png)
 
 以下是邻接表的代码实现。对比上图，实际代码有以下不同。
 
@@ -70,7 +70,7 @@
 
 ## 效率对比
 
-设图中共有 $n$ 个顶点和 $m$ 条边，下表对比了邻接矩阵和邻接表的时间和空间效率。
+设图中共有 $n$ 个顶点和 $m$ 条边，下表对比了邻接矩阵和邻接表的时间效率和空间效率。
 
 <p align="center"> 表 <id> &nbsp; 邻接矩阵与邻接表对比 </p>
 
@@ -83,4 +83,4 @@
 | 删除顶点     | $O(n^2)$ | $O(n + m)$     | $O(n)$           |
 | 内存空间占用 | $O(n^2)$ | $O(n + m)$     | $O(n + m)$       |
 
-观察上表，似乎邻接表（哈希表）的时间与空间效率最优。但实际上，在邻接矩阵中操作边的效率更高，只需要一次数组访问或赋值操作即可。综合来看，邻接矩阵体现了“以空间换时间”的原则，而邻接表体现了“以时间换空间”的原则。
+观察上表，似乎邻接表（哈希表）的时间效率与空间效率最优。但实际上，在邻接矩阵中操作边的效率更高，只需一次数组访问或赋值操作即可。综合来看，邻接矩阵体现了“以空间换时间”的原则，而邻接表体现了“以时间换空间”的原则。

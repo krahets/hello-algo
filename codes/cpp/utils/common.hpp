@@ -1,7 +1,7 @@
 /**
  * File: common.hpp
  * Created Time: 2021-12-19
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #pragma once

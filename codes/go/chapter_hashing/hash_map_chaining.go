@@ -41,20 +41,20 @@ func (m *hashMapChaining) hashFunc(key int) int {
 
 /* 负载因子 */
 func (m *hashMapChaining) loadFactor() float64 {
-	return float64(m.size / m.capacity)
+	return float64(m.size) / float64(m.capacity)
 }
 
 /* 查询操作 */
 func (m *hashMapChaining) get(key int) string {
 	idx := m.hashFunc(key)
 	bucket := m.buckets[idx]
-	// 遍历桶，若找到 key 则返回对应 val
+	// 遍历桶，若找到 key ，则返回对应 val
 	for _, p := range bucket {
 		if p.key == key {
 			return p.val
 		}
 	}
-	// 若未找到 key 则返回空字符串
+	// 若未找到 key ，则返回空字符串
 	return ""
 }
 
@@ -66,9 +66,9 @@ func (m *hashMapChaining) put(key int, val string) {
 	}
 	idx := m.hashFunc(key)
 	// 遍历桶，若遇到指定 key ，则更新对应 val 并返回
-	for _, p := range m.buckets[idx] {
-		if p.key == key {
-			p.val = val
+	for i := range m.buckets[idx] {
+		if m.buckets[idx][i].key == key {
+			m.buckets[idx][i].val = val
 			return
 		}
 	}

@@ -62,5 +62,6 @@ int main() {
         index = binarySearchRightEdge(nums, sizeof(nums) / sizeof(nums[0]), targets[i]);
         printf("最右一个元素 %d 的索引为 %d\n", targets[i], index);
     }
+
     return 0;
 }

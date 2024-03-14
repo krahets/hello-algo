@@ -6,16 +6,22 @@
 
 #include "../utils/common.h"
 
-/* AVL Tree */
+/* AVL 树结构体 */
 typedef struct {
     TreeNode *root;
 } AVLTree;
 
-/* 构建 AVL 树 */
+/* 构造函数 */
 AVLTree *newAVLTree() {
     AVLTree *tree = (AVLTree *)malloc(sizeof(AVLTree));
     tree->root = NULL;
     return tree;
+}
+
+/* 析构函数 */
+void delAVLTree(AVLTree *tree) {
+    freeMemoryTree(tree->root);
+    free(tree);
 }
 
 /* 获取节点高度 */
@@ -114,7 +120,7 @@ TreeNode *insertHelper(TreeNode *node, int val) {
     if (node == NULL) {
         return newTreeNode(val);
     }
-    /* 1. 查找插入位置，并插入节点 */
+    /* 1. 查找插入位置并插入节点 */
     if (val < node->val) {
         node->left = insertHelper(node->left, val);
     } else if (val > node->val) {
@@ -142,7 +148,7 @@ TreeNode *removeHelper(TreeNode *node, int val) {
     if (node == NULL) {
         return NULL;
     }
-    /* 1. 查找节点，并删除之 */
+    /* 1. 查找节点并删除 */
     if (val < node->val) {
         node->left = removeHelper(node->left, val);
     } else if (val > node->val) {
@@ -247,5 +253,7 @@ int main() {
     TreeNode *node = search(tree, 7);
     printf("\n查找到的节点对象节点值 = %d \n", node->val);
 
+    // 释放内存
+    delAVLTree(tree);
     return 0;
 }

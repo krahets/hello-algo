@@ -1,7 +1,7 @@
 """
 File: heap.py
 Created Time: 2023-02-23
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 import sys

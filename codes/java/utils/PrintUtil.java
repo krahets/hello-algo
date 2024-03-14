@@ -1,7 +1,7 @@
 /**
  * File: PrintUtil.java
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package utils;
@@ -58,7 +58,7 @@ public class PrintUtil {
     }
 
     /* Print a binary tree */
-    public static void printTree(TreeNode root, Trunk prev, boolean isLeft) {
+    public static void printTree(TreeNode root, Trunk prev, boolean isRight) {
         if (root == null) {
             return;
         }
@@ -70,7 +70,7 @@ public class PrintUtil {
 
         if (prev == null) {
             trunk.str = "———";
-        } else if (isLeft) {
+        } else if (isRight) {
             trunk.str = "/———";
             prev_str = "   |";
         } else {

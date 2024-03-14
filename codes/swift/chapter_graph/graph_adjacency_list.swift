@@ -8,7 +8,7 @@ import utils
 
 /* 基于邻接表实现的无向图类 */
 public class GraphAdjList {
-    // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+    // 邻接表，key：顶点，value：该顶点的所有邻接顶点
     public private(set) var adjList: [Vertex: [Vertex]]
 
     /* 构造方法 */

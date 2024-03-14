@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class min_path_sum {
     /* 最小路径和：暴力搜索 */
-    public int MinPathSumDFS(int[][] grid, int i, int j) {
+    int MinPathSumDFS(int[][] grid, int i, int j) {
         // 若为左上角单元格，则终止搜索
         if (i == 0 && j == 0) {
             return grid[0][0];
@@ -25,7 +25,7 @@ public class min_path_sum {
     }
 
     /* 最小路径和：记忆化搜索 */
-    public int MinPathSumDFSMem(int[][] grid, int[][] mem, int i, int j) {
+    int MinPathSumDFSMem(int[][] grid, int[][] mem, int i, int j) {
         // 若为左上角单元格，则终止搜索
         if (i == 0 && j == 0) {
             return grid[0][0];
@@ -47,7 +47,7 @@ public class min_path_sum {
     }
 
     /* 最小路径和：动态规划 */
-    public int MinPathSumDP(int[][] grid) {
+    int MinPathSumDP(int[][] grid) {
         int n = grid.Length, m = grid[0].Length;
         // 初始化 dp 表
         int[,] dp = new int[n, m];
@@ -60,7 +60,7 @@ public class min_path_sum {
         for (int i = 1; i < n; i++) {
             dp[i, 0] = dp[i - 1, 0] + grid[i][0];
         }
-        // 状态转移：其余行列
+        // 状态转移：其余行和列
         for (int i = 1; i < n; i++) {
             for (int j = 1; j < m; j++) {
                 dp[i, j] = Math.Min(dp[i, j - 1], dp[i - 1, j]) + grid[i][j];
@@ -70,7 +70,7 @@ public class min_path_sum {
     }
 
     /* 最小路径和：空间优化后的动态规划 */
-    public int MinPathSumDPComp(int[][] grid) {
+    int MinPathSumDPComp(int[][] grid) {
         int n = grid.Length, m = grid[0].Length;
         // 初始化 dp 表
         int[] dp = new int[m];
@@ -94,12 +94,12 @@ public class min_path_sum {
     [Test]
     public void Test() {
         int[][] grid =
-        {
-            new int[4] { 1, 3, 1, 5 },
-            new int[4] { 2, 2, 4, 2 },
-            new int[4] { 5, 3, 2, 1 },
-            new int[4] { 4, 3, 5, 2 }
-        };
+        [
+            [1, 3, 1, 5],
+            [2, 2, 4, 2],
+            [5, 3, 2, 1],
+            [4, 3, 5, 2]
+        ];
 
         int n = grid.Length, m = grid[0].Length;
 

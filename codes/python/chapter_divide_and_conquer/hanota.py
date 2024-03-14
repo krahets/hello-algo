@@ -1,7 +1,7 @@
 """
 File: hanota.py
 Created Time: 2023-07-16
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 
@@ -14,7 +14,7 @@ def move(src: list[int], tar: list[int]):
 
 
 def dfs(i: int, src: list[int], buf: list[int], tar: list[int]):
-    """求解汉诺塔：问题 f(i)"""
+    """求解汉诺塔问题 f(i)"""
     # 若 src 只剩下一个圆盘，则直接将其移到 tar
     if i == 1:
         move(src, tar)
@@ -28,7 +28,7 @@ def dfs(i: int, src: list[int], buf: list[int], tar: list[int]):
 
 
 def solve_hanota(A: list[int], B: list[int], C: list[int]):
-    """求解汉诺塔"""
+    """求解汉诺塔问题"""
     n = len(A)
     # 将 A 顶部 n 个圆盘借助 B 移到 C
     dfs(n, A, B, C)

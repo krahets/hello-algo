@@ -8,13 +8,13 @@ namespace hello_algo.chapter_graph;
 
 /* 基于邻接矩阵实现的无向图类 */
 class GraphAdjMat {
-    readonly List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    readonly List<List<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
+    List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+    List<List<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
     /* 构造函数 */
     public GraphAdjMat(int[] vertices, int[][] edges) {
-        this.vertices = new List<int>();
-        this.adjMat = new List<List<int>>();
+        this.vertices = [];
+        this.adjMat = [];
         // 添加顶点
         foreach (int val in vertices) {
             AddVertex(val);
@@ -27,7 +27,7 @@ class GraphAdjMat {
     }
 
     /* 获取顶点数量 */
-    public int Size() {
+    int Size() {
         return vertices.Count;
     }
 
@@ -68,7 +68,7 @@ class GraphAdjMat {
         // 索引越界与相等处理
         if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
             throw new IndexOutOfRangeException();
-        // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+        // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
     }
@@ -97,10 +97,16 @@ public class graph_adjacency_matrix {
     public void Test() {
         /* 初始化无向图 */
         // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-        int[] vertices = { 1, 3, 2, 5, 4 };
-        int[][] edges = new int[][] { new int[] { 0, 1 }, new int[] { 0, 3 },
-                                      new int[] { 1, 2 }, new int[] { 2, 3 },
-                                      new int[] { 2, 4 }, new int[] { 3, 4 } };
+        int[] vertices = [1, 3, 2, 5, 4];
+        int[][] edges = 
+        [
+            [0, 1],
+            [0, 3],
+            [1, 2],
+            [2, 3],
+            [2, 4],
+            [3, 4]
+        ];
         GraphAdjMat graph = new(vertices, edges);
         Console.WriteLine("\n初始化后，图为");
         graph.Print();

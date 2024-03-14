@@ -1,7 +1,7 @@
 /**
  * File: hashMapOpenAddressing.js
  * Created Time: 2023-06-13
- * Author: yuan0221 (yl1452491917@gmail.com), Krahets (krahets@163.com)
+ * Author: yuan0221 (yl1452491917@gmail.com), krahets (krahets@163.com)
  */
 
 /* 键值对 Number -> String */
@@ -47,9 +47,9 @@ class HashMapOpenAddressing {
         let firstTombstone = -1;
         // 线性探测，当遇到空桶时跳出
         while (this.#buckets[index] !== null) {
-            // 若遇到 key ，返回对应桶索引
+            // 若遇到 key ，返回对应的桶索引
             if (this.#buckets[index].key === key) {
-                // 若之前遇到了删除标记，则将键值对移动至该索引
+                // 若之前遇到了删除标记，则将键值对移动至该索引处
                 if (firstTombstone !== -1) {
                     this.#buckets[firstTombstone] = this.#buckets[index];
                     this.#buckets[index] = this.#TOMBSTONE;
@@ -64,7 +64,7 @@ class HashMapOpenAddressing {
             ) {
                 firstTombstone = index;
             }
-            // 计算桶索引，越过尾部返回头部
+            // 计算桶索引，越过尾部则返回头部
             index = (index + 1) % this.#capacity;
         }
         // 若 key 不存在，则返回添加点的索引
@@ -166,7 +166,7 @@ console.log('\n添加完成后，哈希表为\nKey -> Value');
 hashmap.print();
 
 // 查询操作
-// 向哈希表输入键 key ，得到值 val
+// 向哈希表中输入键 key ，得到值 val
 const name = hashmap.get(13276);
 console.log('\n输入学号 13276 ，查询到姓名 ' + name);
 

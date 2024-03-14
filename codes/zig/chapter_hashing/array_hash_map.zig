@@ -1,6 +1,6 @@
 // File: array_hash_map.zig
 // Created Time: 2023-01-15
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -18,7 +18,7 @@ const Pair = struct {
     }
 };
 
-// 基于数组简易实现的哈希表
+// 基于数组实现的哈希表
 pub fn ArrayHashMap(comptime T: type) type {
     return struct {
         bucket: ?std.ArrayList(?T) = null,
@@ -128,7 +128,7 @@ pub fn main() !void {
     try map.print();
 
     // 查询操作
-    // 向哈希表输入键 key ，得到值 value
+    // 向哈希表中输入键 key ，得到值 value
     var name = map.get(15937);
     std.debug.print("\n输入学号 15937 ，查询到姓名 {s}\n", .{name});
 

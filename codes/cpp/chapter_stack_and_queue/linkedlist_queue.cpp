@@ -1,7 +1,7 @@
 /**
  * File: linkedlist_queue.cpp
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -36,7 +36,7 @@ class LinkedListQueue {
 
     /* 入队 */
     void push(int num) {
-        // 尾节点后添加 num
+        // 在尾节点后添加 num
         ListNode *node = new ListNode(num);
         // 如果队列为空，则令头、尾节点都指向该节点
         if (front == nullptr) {
@@ -52,7 +52,7 @@ class LinkedListQueue {
     }
 
     /* 出队 */
-    void pop() {
+    int pop() {
         int num = peek();
         // 删除头节点
         ListNode *tmp = front;
@@ -60,6 +60,7 @@ class LinkedListQueue {
         // 释放内存
         delete tmp;
         queSize--;
+        return num;
     }
 
     /* 访问队首元素 */
@@ -100,7 +101,7 @@ int main() {
     cout << "队首元素 peek = " << peek << endl;
 
     /* 元素出队 */
-    queue->pop();
+    peek = queue->pop();
     cout << "出队元素 pop = " << peek << "，出队后 queue = ";
     printVector(queue->toVector());
 

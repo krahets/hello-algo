@@ -20,17 +20,17 @@ class MaxHeap {
         }
     }
 
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     #left(i) {
         return 2 * i + 1;
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     #right(i) {
         return 2 * i + 2;
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     #parent(i) {
         return Math.floor((i - 1) / 2); // 向下整除
     }
@@ -83,7 +83,7 @@ class MaxHeap {
     pop() {
         // 判空处理
         if (this.isEmpty()) throw new Error('堆为空');
-        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
         this.#swap(0, this.size() - 1);
         // 删除节点
         const val = this.#maxHeap.pop();

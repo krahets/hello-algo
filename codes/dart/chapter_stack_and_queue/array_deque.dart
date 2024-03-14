@@ -40,44 +40,44 @@ class ArrayDeque {
   }
 
   /* 队首入队 */
-  void pushFirst(int num) {
+  void pushFirst(int _num) {
     if (_queSize == capacity()) {
       throw Exception("双向队列已满");
     }
     // 队首指针向左移动一位
-    // 通过取余操作，实现 _front 越过数组头部后回到尾部
+    // 通过取余操作实现 _front 越过数组头部后回到尾部
     _front = index(_front - 1);
-    // 将 num 添加至队首
-    _nums[_front] = num;
+    // 将 _num 添加至队首
+    _nums[_front] = _num;
     _queSize++;
   }
 
   /* 队尾入队 */
-  void pushLast(int num) {
+  void pushLast(int _num) {
     if (_queSize == capacity()) {
       throw Exception("双向队列已满");
     }
-    // 计算尾指针，指向队尾索引 + 1
+    // 计算队尾指针，指向队尾索引 + 1
     int rear = index(_front + _queSize);
-    // 将 num 添加至队尾
-    _nums[rear] = num;
+    // 将 _num 添加至队尾
+    _nums[rear] = _num;
     _queSize++;
   }
 
   /* 队首出队 */
   int popFirst() {
-    int num = peekFirst();
+    int _num = peekFirst();
     // 队首指针向右移动一位
     _front = index(_front + 1);
     _queSize--;
-    return num;
+    return _num;
   }
 
   /* 队尾出队 */
   int popLast() {
-    int num = peekLast();
+    int _num = peekLast();
     _queSize--;
-    return num;
+    return _num;
   }
 
   /* 访问队首元素 */

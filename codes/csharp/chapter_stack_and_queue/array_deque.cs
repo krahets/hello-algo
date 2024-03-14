@@ -8,18 +8,18 @@ namespace hello_algo.chapter_stack_and_queue;
 
 /* 基于环形数组实现的双向队列 */
 public class ArrayDeque {
-    private readonly int[] nums;  // 用于存储双向队列元素的数组
-    private int front;   // 队首指针，指向队首元素
-    private int queSize; // 双向队列长度
+    int[] nums;  // 用于存储双向队列元素的数组
+    int front;   // 队首指针，指向队首元素
+    int queSize; // 双向队列长度
 
     /* 构造方法 */
     public ArrayDeque(int capacity) {
-        this.nums = new int[capacity];
+        nums = new int[capacity];
         front = queSize = 0;
     }
 
     /* 获取双向队列的容量 */
-    public int Capacity() {
+    int Capacity() {
         return nums.Length;
     }
 
@@ -34,7 +34,7 @@ public class ArrayDeque {
     }
 
     /* 计算环形数组索引 */
-    private int Index(int i) {
+    int Index(int i) {
         // 通过取余操作实现数组首尾相连
         // 当 i 越过数组尾部后，回到头部
         // 当 i 越过数组头部后，回到尾部
@@ -48,7 +48,7 @@ public class ArrayDeque {
             return;
         }
         // 队首指针向左移动一位
-        // 通过取余操作，实现 front 越过数组头部后回到尾部
+        // 通过取余操作实现 front 越过数组头部后回到尾部
         front = Index(front - 1);
         // 将 num 添加至队首
         nums[front] = num;
@@ -61,7 +61,7 @@ public class ArrayDeque {
             Console.WriteLine("双向队列已满");
             return;
         }
-        // 计算尾指针，指向队尾索引 + 1
+        // 计算队尾指针，指向队尾索引 + 1
         int rear = Index(front + queSize);
         // 将 num 添加至队尾
         nums[rear] = num;

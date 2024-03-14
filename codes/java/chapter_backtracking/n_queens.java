@@ -1,7 +1,7 @@
 /**
  * File: n_queens.java
  * Created Time: 2023-05-04
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_backtracking;
@@ -9,7 +9,7 @@ package chapter_backtracking;
 import java.util.*;
 
 public class n_queens {
-    /* 回溯算法：N 皇后 */
+    /* 回溯算法：n 皇后 */
     public static void backtrack(int row, int n, List<List<String>> state, List<List<List<String>>> res,
             boolean[] cols, boolean[] diags1, boolean[] diags2) {
         // 当放置完所有行时，记录解
@@ -23,10 +23,10 @@ public class n_queens {
         }
         // 遍历所有列
         for (int col = 0; col < n; col++) {
-            // 计算该格子对应的主对角线和副对角线
+            // 计算该格子对应的主对角线和次对角线
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state.get(row).set(col, "Q");
@@ -40,7 +40,7 @@ public class n_queens {
         }
     }
 
-    /* 求解 N 皇后 */
+    /* 求解 n 皇后 */
     public static List<List<List<String>>> nQueens(int n) {
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         List<List<String>> state = new ArrayList<>();
@@ -52,8 +52,8 @@ public class n_queens {
             state.add(row);
         }
         boolean[] cols = new boolean[n]; // 记录列是否有皇后
-        boolean[] diags1 = new boolean[2 * n - 1]; // 记录主对角线是否有皇后
-        boolean[] diags2 = new boolean[2 * n - 1]; // 记录副对角线是否有皇后
+        boolean[] diags1 = new boolean[2 * n - 1]; // 记录主对角线上是否有皇后
+        boolean[] diags2 = new boolean[2 * n - 1]; // 记录次对角线上是否有皇后
         List<List<List<String>>> res = new ArrayList<>();
 
         backtrack(0, n, state, res, cols, diags1, diags2);

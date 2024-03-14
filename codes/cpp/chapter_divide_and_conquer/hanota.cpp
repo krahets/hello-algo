@@ -1,7 +1,7 @@
 /**
  * File: hanota.cpp
  * Created Time: 2023-07-17
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -15,7 +15,7 @@ void move(vector<int> &src, vector<int> &tar) {
     tar.push_back(pan);
 }
 
-/* 求解汉诺塔：问题 f(i) */
+/* 求解汉诺塔问题 f(i) */
 void dfs(int i, vector<int> &src, vector<int> &buf, vector<int> &tar) {
     // 若 src 只剩下一个圆盘，则直接将其移到 tar
     if (i == 1) {
@@ -30,7 +30,7 @@ void dfs(int i, vector<int> &src, vector<int> &buf, vector<int> &tar) {
     dfs(i - 1, buf, src, tar);
 }
 
-/* 求解汉诺塔 */
+/* 求解汉诺塔问题 */
 void solveHanota(vector<int> &A, vector<int> &B, vector<int> &C) {
     int n = A.size();
     // 将 A 顶部 n 个圆盘借助 B 移到 C

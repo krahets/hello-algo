@@ -1,7 +1,7 @@
 /**
  * File: quick_sort.cpp
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -18,7 +18,7 @@ class QuickSort {
 
     /* 哨兵划分 */
     static int partition(vector<int> &nums, int left, int right) {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
@@ -55,7 +55,7 @@ class QuickSortMedian {
         nums[j] = tmp;
     }
 
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     static int medianThree(vector<int> &nums, int left, int mid, int right) {
         int l = nums[left], m = nums[mid], r = nums[right];
         if ((l <= m && m <= r) || (r <= m && m <= l))
@@ -71,7 +71,7 @@ class QuickSortMedian {
         int med = medianThree(nums, left, (left + right) / 2, right);
         // 将中位数交换至数组最左端
         swap(nums, left, med);
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
@@ -110,7 +110,7 @@ class QuickSortTailCall {
 
     /* 哨兵划分 */
     static int partition(vector<int> &nums, int left, int right) {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
@@ -130,7 +130,7 @@ class QuickSortTailCall {
         while (left < right) {
             // 哨兵划分操作
             int pivot = partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if (pivot - left < right - pivot) {
                 quickSort(nums, left, pivot - 1); // 递归排序左子数组
                 left = pivot + 1;                 // 剩余未排序区间为 [pivot + 1, right]

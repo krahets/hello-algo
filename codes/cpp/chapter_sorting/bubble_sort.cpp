@@ -1,7 +1,7 @@
 /**
  * File: bubble_sort.cpp
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -36,7 +36,7 @@ void bubbleSortWithFlag(vector<int> &nums) {
             }
         }
         if (!flag)
-            break; // 此轮冒泡未交换任何元素，直接跳出
+            break; // 此轮“冒泡”未交换任何元素，直接跳出
     }
 }
 

@@ -44,12 +44,12 @@ function printTree(root: TreeNode | null) {
  * Print a binary tree
  * @param root
  * @param prev
- * @param isLeft
+ * @param isRight
  */
 function printTreeHelper(
     root: TreeNode | null,
     prev: Trunk | null,
-    isLeft: boolean
+    isRight: boolean
 ) {
     if (root === null) {
         return;
@@ -62,7 +62,7 @@ function printTreeHelper(
 
     if (prev === null) {
         trunk.str = '———';
-    } else if (isLeft) {
+    } else if (isRight) {
         trunk.str = '/———';
         prev_str = '   |';
     } else {

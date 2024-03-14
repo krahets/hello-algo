@@ -40,7 +40,7 @@ fn heap_sort(nums: &mut [i32]) {
     }
     // 从堆中提取最大元素，循环 n-1 轮
     for i in (1..=nums.len() - 1).rev() {
-        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
         let tmp = nums[0];
         nums[0] = nums[i];
         nums[i] = tmp;

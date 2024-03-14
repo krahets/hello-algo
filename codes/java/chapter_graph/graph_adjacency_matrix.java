@@ -1,7 +1,7 @@
 /**
  * File: graph_adjacency_matrix.java
  * Created Time: 2023-01-26
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_graph;
@@ -71,7 +71,7 @@ class GraphAdjMat {
         // 索引越界与相等处理
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
             throw new IndexOutOfBoundsException();
-        // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+        // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
         adjMat.get(i).set(j, 1);
         adjMat.get(j).set(i, 1);
     }

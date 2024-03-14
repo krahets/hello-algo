@@ -11,7 +11,7 @@ struct QuickSort;
 impl QuickSort {
     /* 哨兵划分 */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         let (mut i, mut j) = (left, right);
         while i < j {
             while i < j && nums[j] >= nums[left] {
@@ -44,7 +44,7 @@ impl QuickSort {
 struct QuickSortMedian;
 
 impl QuickSortMedian {
-    /* 选取三个元素的中位数 */
+    /* 选取三个候选元素的中位数 */
     fn median_three(nums: &mut [i32], left: usize, mid: usize, right: usize) -> usize {
         let l = nums[left],
             m = nums[mid],
@@ -60,7 +60,7 @@ impl QuickSortMedian {
         let med = Self::median_three(nums, left, (left + right) / 2, right);
         // 将中位数交换至数组最左端
         nums.swap(left, med);
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         let (mut i, mut j) = (left, right);
         while i < j {
             while i < j && nums[j] >= nums[left] {
@@ -95,7 +95,7 @@ struct QuickSortTailCall;
 impl QuickSortTailCall {
     /* 哨兵划分 */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
-        // 以 nums[left] 作为基准数
+        // 以 nums[left] 为基准数
         let (mut i, mut j) = (left, right);
         while i < j {
             while i < j && nums[j] >= nums[left] {
@@ -116,7 +116,7 @@ impl QuickSortTailCall {
         while left < right {
             // 哨兵划分操作
             let pivot = Self::partition(nums, left as usize, right as usize) as i32;
-            // 对两个子数组中较短的那个执行快排
+            // 对两个子数组中较短的那个执行快速排序
             if  pivot - left < right - pivot {
                 Self::quick_sort(left, pivot - 1, nums);  // 递归排序左子数组
                 left = pivot + 1;  // 剩余未排序区间为 [pivot + 1, right]

@@ -24,7 +24,7 @@ LinkedListQueue *newLinkedListQueue() {
 /* 析构函数 */
 void delLinkedListQueue(LinkedListQueue *queue) {
     // 释放所有节点
-    for (int i = 0; i < queue->queSize && queue->front != NULL; i++) {
+    while (queue->front != NULL) {
         ListNode *tmp = queue->front;
         queue->front = queue->front->next;
         free(tmp);
@@ -67,17 +67,18 @@ int peek(LinkedListQueue *queue) {
 }
 
 /* 出队 */
-void pop(LinkedListQueue *queue) {
+int pop(LinkedListQueue *queue) {
     int num = peek(queue);
     ListNode *tmp = queue->front;
     queue->front = queue->front->next;
     free(tmp);
     queue->queSize--;
+    return num;
 }
 
 /* 打印队列 */
 void printLinkedListQueue(LinkedListQueue *queue) {
-    int arr[queue->queSize];
+    int *arr = malloc(sizeof(int) * queue->queSize);
     // 拷贝链表中的数据到数组
     int i;
     ListNode *node;
@@ -86,6 +87,7 @@ void printLinkedListQueue(LinkedListQueue *queue) {
         node = node->next;
     }
     printArray(arr, queue->queSize);
+    free(arr);
 }
 
 /* Driver Code */
@@ -107,7 +109,7 @@ int main() {
     printf("队首元素 peek = %d\r\n", peekNum);
 
     /* 元素出队 */
-    pop(queue);
+    peekNum = pop(queue);
     printf("出队元素 pop = %d ，出队后 queue = ", peekNum);
     printLinkedListQueue(queue);
 

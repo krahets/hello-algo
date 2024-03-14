@@ -1,7 +1,7 @@
 /**
  * File: iteration.java
  * Created Time: 2023-08-24
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_computational_complexity;
@@ -33,7 +33,7 @@ public class iteration {
     static int whileLoopII(int n) {
         int res = 0;
         int i = 1; // 初始化条件变量
-        // 循环求和 1, 4, ...
+        // 循环求和 1, 4, 10, ...
         while (i <= n) {
             res += i;
             // 更新条件变量

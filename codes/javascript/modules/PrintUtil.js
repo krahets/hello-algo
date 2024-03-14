@@ -38,9 +38,9 @@ function printTree(root) {
  * Print a binary tree
  * @param root
  * @param prev
- * @param isLeft
+ * @param isRight
  */
-function printTree(root, prev, isLeft) {
+function printTree(root, prev, isRight) {
     if (root === null) {
         return;
     }
@@ -52,7 +52,7 @@ function printTree(root, prev, isLeft) {
 
     if (!prev) {
         trunk.str = '———';
-    } else if (isLeft) {
+    } else if (isRight) {
         trunk.str = '/———';
         prev_str = '   |';
     } else {

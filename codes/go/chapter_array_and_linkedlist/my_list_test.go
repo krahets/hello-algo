@@ -13,7 +13,7 @@ import (
 func TestMyList(t *testing.T) {
 	/* 初始化列表 */
 	nums := newMyList()
-	/* 尾部添加元素 */
+	/* 在尾部添加元素 */
 	nums.add(1)
 	nums.add(3)
 	nums.add(2)
@@ -21,7 +21,7 @@ func TestMyList(t *testing.T) {
 	nums.add(4)
 	fmt.Printf("列表 nums = %v ，容量 = %v ，长度 = %v\n", nums.toArray(), nums.capacity(), nums.size())
 
-	/* 中间插入元素 */
+	/* 在中间插入元素 */
 	nums.insert(6, 3)
 	fmt.Printf("在索引 3 处插入数字 6 ，得到 nums = %v\n", nums.toArray())
 

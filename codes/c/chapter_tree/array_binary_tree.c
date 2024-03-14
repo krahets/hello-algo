@@ -13,7 +13,7 @@ typedef struct {
 } ArrayBinaryTree;
 
 /* 构造函数 */
-ArrayBinaryTree *createArrayBinaryTree(int *arr, int arrSize) {
+ArrayBinaryTree *newArrayBinaryTree(int *arr, int arrSize) {
     ArrayBinaryTree *abt = (ArrayBinaryTree *)malloc(sizeof(ArrayBinaryTree));
     abt->tree = malloc(sizeof(int) * arrSize);
     memcpy(abt->tree, arr, sizeof(int) * arrSize);
@@ -21,7 +21,13 @@ ArrayBinaryTree *createArrayBinaryTree(int *arr, int arrSize) {
     return abt;
 }
 
-/* 节点数量 */
+/* 析构函数 */
+void delArrayBinaryTree(ArrayBinaryTree *abt) {
+    free(abt->tree);
+    free(abt);
+}
+
+/* 列表容量 */
 int size(ArrayBinaryTree *abt) {
     return abt->size;
 }
@@ -120,7 +126,7 @@ int main() {
     printf("二叉树的链表表示：\n");
     printTree(root);
 
-    ArrayBinaryTree *abt = createArrayBinaryTree(arr, arrSize);
+    ArrayBinaryTree *abt = newArrayBinaryTree(arr, arrSize);
 
     // 访问节点
     int i = 1;
@@ -155,8 +161,6 @@ int main() {
     free(res);
 
     // 释放内存
-    freeMemoryTree(root);
-    free(abt);
-
+    delArrayBinaryTree(abt);
     return 0;
 }

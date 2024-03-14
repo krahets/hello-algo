@@ -1,6 +1,6 @@
 // File: min_path_sum.zig
 // Created Time: 2023-07-15
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 
@@ -59,7 +59,7 @@ fn minPathSumDP(comptime grid: anytype) i32 {
     for (1..n) |i| {
         dp[i][0] = dp[i - 1][0] + grid[i][0];
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for (1..n) |i| {
         for (1..m) |j| {
             dp[i][j] = @min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];

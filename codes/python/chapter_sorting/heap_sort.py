@@ -1,7 +1,7 @@
 """
 File: heap_sort.py
 Created Time: 2023-05-24
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 
@@ -32,7 +32,7 @@ def heap_sort(nums: list[int]):
         sift_down(nums, len(nums), i)
     # 从堆中提取最大元素，循环 n-1 轮
     for i in range(len(nums) - 1, 0, -1):
-        # 交换根节点与最右叶节点（即交换首元素与尾元素）
+        # 交换根节点与最右叶节点（交换首元素与尾元素）
         nums[0], nums[i] = nums[i], nums[0]
         # 以根节点为起点，从顶至底进行堆化
         sift_down(nums, i, 0)

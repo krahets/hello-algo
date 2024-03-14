@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        dotnet-version: ["6.0.x"]
+        dotnet-version: ["8.0.x"]
 
     steps:
     - uses: actions/checkout@v4

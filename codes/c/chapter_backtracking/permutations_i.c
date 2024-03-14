@@ -1,7 +1,7 @@
 /**
  * File: permutations_i.c
  * Created Time: 2023-06-04
- * Author: Gonglja (glj0@outlook.com), Krahets (krahets@163.com)
+ * Author: Gonglja (glj0@outlook.com), krahets (krahets@163.com)
  */
 
 #include "../utils/common.h"

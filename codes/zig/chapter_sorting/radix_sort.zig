@@ -1,6 +1,6 @@
 // File: radix_sort.zig
 // Created Time: 2023-01-15
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -13,7 +13,7 @@ fn digit(num: i32, exp: i32) i32 {
 
 // 计数排序（根据 nums 第 k 位排序）
 fn countingSortDigit(nums: []i32, exp: i32) !void {
-    // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+    // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
     var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     // defer mem_arena.deinit();
     const mem_allocator = mem_arena.allocator();

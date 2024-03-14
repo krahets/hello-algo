@@ -1,6 +1,6 @@
 // File: linked_list.zig
 // Created Time: 2023-01-07
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -53,7 +53,7 @@ pub fn main() !void {
     var n2 = inc.ListNode(i32){.val = 2};
     var n3 = inc.ListNode(i32){.val = 5};
     var n4 = inc.ListNode(i32){.val = 4};
-    // 构建引用指向
+    // 构建节点之间的引用
     n0.next = &n1;
     n1.next = &n2;
     n2.next = &n3;

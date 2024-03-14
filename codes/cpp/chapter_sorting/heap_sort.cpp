@@ -1,7 +1,7 @@
 /**
  * File: heap_sort.cpp
  * Created Time: 2023-05-26
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -36,7 +36,7 @@ void heapSort(vector<int> &nums) {
     }
     // 从堆中提取最大元素，循环 n-1 轮
     for (int i = nums.size() - 1; i > 0; --i) {
-        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
         swap(nums[0], nums[i]);
         // 以根节点为起点，从顶至底进行堆化
         siftDown(nums, i, 0);

@@ -1,6 +1,6 @@
 // File: coin_change_ii.zig
 // Created Time: 2023-07-15
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 
@@ -17,7 +17,7 @@ fn coinChangeIIDP(comptime coins: []i32, comptime amt: usize) i32 {
     for (1..n + 1) |i| {
         for (1..amt + 1) |a| {
             if (coins[i - 1] > @as(i32, @intCast(a))) {
-                // 若超过背包容量，则不选硬币 i
+                // 若超过目标金额，则不选硬币 i
                 dp[i][a] = dp[i - 1][a];
             } else {
                 // 不选和选硬币 i 这两种方案的较小值
@@ -38,7 +38,7 @@ fn coinChangeIIDPComp(comptime coins: []i32, comptime amt: usize) i32 {
     for (1..n + 1) |i| {
         for (1..amt + 1) |a| {
             if (coins[i - 1] > @as(i32, @intCast(a))) {
-                // 若超过背包容量，则不选硬币 i
+                // 若超过目标金额，则不选硬币 i
                 dp[a] = dp[a];
             } else {
                 // 不选和选硬币 i 这两种方案的较小值

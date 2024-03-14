@@ -8,7 +8,7 @@ namespace hello_algo.chapter_computational_complexity;
 
 public class iteration {
     /* for 循环 */
-    public static int ForLoop(int n) {
+    int ForLoop(int n) {
         int res = 0;
         // 循环求和 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
@@ -18,7 +18,7 @@ public class iteration {
     }
 
     /* while 循环 */
-    public static int WhileLoop(int n) {
+    int WhileLoop(int n) {
         int res = 0;
         int i = 1; // 初始化条件变量
         // 循环求和 1, 2, ..., n-1, n
@@ -30,10 +30,10 @@ public class iteration {
     }
 
     /* while 循环（两次更新） */
-    public static int WhileLoopII(int n) {
+    int WhileLoopII(int n) {
         int res = 0;
         int i = 1; // 初始化条件变量
-        // 循环求和 1, 2, 4, 5...
+        // 循环求和 1, 4, 10, ...
         while (i <= n) {
             res += i;
             // 更新条件变量
@@ -44,7 +44,7 @@ public class iteration {
     }
 
     /* 双层 for 循环 */
-    public static string NestedForLoop(int n) {
+    string NestedForLoop(int n) {
         StringBuilder res = new();
         // 循环 i = 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {

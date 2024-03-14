@@ -1,7 +1,7 @@
 /**
  * File: graph_adjacency_list.cpp
  * Created Time: 2023-02-09
- * Author: what-is-me (whatisme@outlook.jp), Krahets (krahets@163.com)
+ * Author: what-is-me (whatisme@outlook.jp), krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -9,7 +9,7 @@
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
   public:
-    // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+    // 邻接表，key：顶点，value：该顶点的所有邻接顶点
     unordered_map<Vertex *, vector<Vertex *>> adjList;
 
     /* 在 vector 中删除指定节点 */

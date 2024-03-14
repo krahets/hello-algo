@@ -1,7 +1,7 @@
 """
 File: graph_adjacency_list.py
 Created Time: 2023-02-23
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 import sys
@@ -16,7 +16,7 @@ class GraphAdjList:
 
     def __init__(self, edges: list[list[Vertex]]):
         """构造方法"""
-        # 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        # 邻接表，key：顶点，value：该顶点的所有邻接顶点
         self.adj_list = dict[Vertex, list[Vertex]]()
         # 添加所有顶点和边
         for edge in edges:

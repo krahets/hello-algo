@@ -1,7 +1,7 @@
 /*
  * File: min_path_sum.rs
  * Created Time: 2023-07-09
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 /* 最小路径和：暴力搜索 */
@@ -57,7 +57,7 @@ fn min_path_sum_dp(grid: &Vec<Vec<i32>>) -> i32 {
     for i in 1..n {
         dp[i][0] = dp[i - 1][0] + grid[i][0];
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for i in 1..n {
         for j in 1..m {
             dp[i][j] = std::cmp::min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];

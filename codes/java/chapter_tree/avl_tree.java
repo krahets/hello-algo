@@ -1,7 +1,7 @@
 /**
  * File: avl_tree.java
  * Created Time: 2022-12-10
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_tree;
@@ -100,7 +100,7 @@ class AVLTree {
     private TreeNode insertHelper(TreeNode node, int val) {
         if (node == null)
             return new TreeNode(val);
-        /* 1. 查找插入位置，并插入节点 */
+        /* 1. 查找插入位置并插入节点 */
         if (val < node.val)
             node.left = insertHelper(node.left, val);
         else if (val > node.val)
@@ -123,7 +123,7 @@ class AVLTree {
     private TreeNode removeHelper(TreeNode node, int val) {
         if (node == null)
             return null;
-        /* 1. 查找节点，并删除之 */
+        /* 1. 查找节点并删除 */
         if (val < node.val)
             node.left = removeHelper(node.left, val);
         else if (val > node.val)

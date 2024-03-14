@@ -1,7 +1,7 @@
 """
 File: hash_map_chaining.py
 Created Time: 2023-06-13
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 import sys
@@ -34,11 +34,11 @@ class HashMapChaining:
         """查询操作"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # 遍历桶，若找到 key 则返回对应 val
+        # 遍历桶，若找到 key ，则返回对应 val
         for pair in bucket:
             if pair.key == key:
                 return pair.val
-        # 若未找到 key 则返回 None
+        # 若未找到 key ，则返回 None
         return None
 
     def put(self, key: int, val: str):
@@ -107,7 +107,7 @@ if __name__ == "__main__":
     hashmap.print()
 
     # 查询操作
-    # 向哈希表输入键 key ，得到值 value
+    # 向哈希表中输入键 key ，得到值 value
     name = hashmap.get(13276)
     print("\n输入学号 13276 ，查询到姓名 " + name)
 

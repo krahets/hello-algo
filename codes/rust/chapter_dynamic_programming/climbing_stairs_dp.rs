@@ -1,7 +1,7 @@
 /*
  * File: climbing_stairs_dp.rs
  * Created Time: 2023-07-09
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 /* 爬楼梯：动态规划 */

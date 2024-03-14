@@ -1,13 +1,13 @@
 """
 File: max_capacity.py
 Created Time: 2023-07-21
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 
 def max_capacity(ht: list[int]) -> int:
     """最大容量：贪心"""
-    # 初始化 i, j 分列数组两端
+    # 初始化 i, j，使其分列数组两端
     i, j = 0, len(ht) - 1
     # 初始最大容量为 0
     res = 0

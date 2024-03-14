@@ -1,7 +1,7 @@
 """
 File: hash_map_open_addressing.py
 Created Time: 2023-06-13
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 import sys
@@ -37,9 +37,9 @@ class HashMapOpenAddressing:
         first_tombstone = -1
         # 线性探测，当遇到空桶时跳出
         while self.buckets[index] is not None:
-            # 若遇到 key ，返回对应桶索引
+            # 若遇到 key ，返回对应的桶索引
             if self.buckets[index].key == key:
-                # 若之前遇到了删除标记，则将键值对移动至该索引
+                # 若之前遇到了删除标记，则将键值对移动至该索引处
                 if first_tombstone != -1:
                     self.buckets[first_tombstone] = self.buckets[index]
                     self.buckets[index] = self.TOMBSTONE
@@ -48,7 +48,7 @@ class HashMapOpenAddressing:
             # 记录遇到的首个删除标记
             if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
                 first_tombstone = index
-            # 计算桶索引，越过尾部返回头部
+            # 计算桶索引，越过尾部则返回头部
             index = (index + 1) % self.capacity
         # 若 key 不存在，则返回添加点的索引
         return index if first_tombstone == -1 else first_tombstone
@@ -127,7 +127,7 @@ if __name__ == "__main__":
     hashmap.print()
 
     # 查询操作
-    # 向哈希表输入键 key ，得到值 val
+    # 向哈希表中输入键 key ，得到值 val
     name = hashmap.get(13276)
     print("\n输入学号 13276 ，查询到姓名 " + name)
 

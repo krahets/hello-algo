@@ -1,7 +1,7 @@
 /**
  * File: heap_sort.java
  * Created Time: 2023-05-26
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_sorting;
@@ -40,7 +40,7 @@ public class heap_sort {
         }
         // 从堆中提取最大元素，循环 n-1 轮
         for (int i = nums.length - 1; i > 0; i--) {
-            // 交换根节点与最右叶节点（即交换首元素与尾元素）
+            // 交换根节点与最右叶节点（交换首元素与尾元素）
             int tmp = nums[0];
             nums[0] = nums[i];
             nums[i] = tmp;

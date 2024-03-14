@@ -2,7 +2,7 @@
 
 <div class="center-table" markdown>
 
-![搜索](../assets/covers/chapter_searching.jpg){ width="600" }
+![搜索](../assets/covers/chapter_searching.jpg)
 
 </div>
 

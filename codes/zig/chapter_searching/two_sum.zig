@@ -1,6 +1,6 @@
 // File: two_sum.zig
 // Created Time: 2023-01-07
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -9,7 +9,7 @@ const inc = @import("include");
 pub fn twoSumBruteForce(nums: []i32, target: i32) ?[2]i32 {
     var size: usize = nums.len;
     var i: usize = 0;
-    // 两层循环，时间复杂度 O(n^2)
+    // 两层循环，时间复杂度为 O(n^2)
     while (i < size - 1) : (i += 1) {
         var j = i + 1;
         while (j < size) : (j += 1) {
@@ -24,11 +24,11 @@ pub fn twoSumBruteForce(nums: []i32, target: i32) ?[2]i32 {
 // 方法二：辅助哈希表
 pub fn twoSumHashTable(nums: []i32, target: i32) !?[2]i32 {
     var size: usize = nums.len;
-    // 辅助哈希表，空间复杂度 O(n)
+    // 辅助哈希表，空间复杂度为 O(n)
     var dic = std.AutoHashMap(i32, i32).init(std.heap.page_allocator);
     defer dic.deinit();
     var i: usize = 0;
-    // 单层循环，时间复杂度 O(n)
+    // 单层循环，时间复杂度为 O(n)
     while (i < size) : (i += 1) {
         if (dic.contains(target - nums[i])) {
             return [_]i32{dic.get(target - nums[i]).?, @intCast(i)};

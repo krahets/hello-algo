@@ -6,12 +6,18 @@
 
 #include "../utils/common.h"
 
-#define MIN(a, b) (a < b ? a : b)
-#define MAX(a, b) (a > b ? a : b)
+/* 求最小值 */
+int myMin(int a, int b) {
+    return a < b ? a : b;
+}
+/* 求最大值 */
+int myMax(int a, int b) {
+    return a < b ? a : b;
+}
 
 /* 最大容量：贪心 */
 int maxCapacity(int ht[], int htLength) {
-    // 初始化 i, j 分列数组两端
+    // 初始化 i, j，使其分列数组两端
     int i = 0;
     int j = htLength - 1;
     // 初始最大容量为 0
@@ -19,8 +25,8 @@ int maxCapacity(int ht[], int htLength) {
     // 循环贪心选择，直至两板相遇
     while (i < j) {
         // 更新最大容量
-        int capacity = MIN(ht[i], ht[j]) * (j - i);
-        res = MAX(res, capacity);
+        int capacity = myMin(ht[i], ht[j]) * (j - i);
+        res = myMax(res, capacity);
         // 向内移动短板
         if (ht[i] < ht[j]) {
             i++;

@@ -1,7 +1,7 @@
 /*
  * File: linear_search.rs
  * Created Time: 2023-07-09
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");

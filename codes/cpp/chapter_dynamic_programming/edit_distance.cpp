@@ -1,7 +1,7 @@
 /**
  * File: edit_distance.cpp
  * Created Time: 2023-07-13
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -65,7 +65,7 @@ int editDistanceDP(string s, string t) {
     for (int j = 1; j <= m; j++) {
         dp[0][j] = j;
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (s[i - 1] == t[j - 1]) {

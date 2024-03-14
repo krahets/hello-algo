@@ -1,7 +1,7 @@
 /*
  * File: hash_map.rs
  * Created Time: 2023-02-05
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");
@@ -24,7 +24,7 @@ pub fn main() {
     print_util::print_hash_map(&map);
 
     // 查询操作
-    // 向哈希表输入键 key ，得到值 value
+    // 向哈希表中输入键 key ，得到值 value
     let name = map.get(&15937).copied().unwrap();
     println!("\n输入学号 15937 ，查询到姓名 {name}");
 

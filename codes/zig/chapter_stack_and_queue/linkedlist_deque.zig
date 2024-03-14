@@ -1,6 +1,6 @@
 // File: linkedlist_deque.zig
 // Created Time: 2023-01-15
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -65,7 +65,7 @@ pub fn LinkedListDeque(comptime T: type) type {
         pub fn push(self: *Self, num: T, is_front: bool) !void {
             var node = try self.mem_allocator.create(ListNode(T));
             node.init(num);
-            // 若链表为空，则令 front, rear 都指向 node
+            // 若链表为空，则令 front 和 rear 都指向 node
             if (self.isEmpty()) {
                 self.front = node;
                 self.rear = node;

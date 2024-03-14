@@ -1,17 +1,17 @@
 /*
  * File: my_list.rs
  * Created Time: 2023-03-11
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");
 
-/* 列表类简易实现 */
+/* 列表类 */
 #[allow(dead_code)]
 struct MyList {
     arr: Vec<i32>,       // 数组（存储列表元素）
     capacity: usize,      // 列表容量
-    size: usize,          // 列表长度（即当前元素数量）
+    size: usize,          // 列表长度（当前元素数量）
     extend_ratio: usize,  // 每次列表扩容的倍数
 }
 
@@ -29,7 +29,7 @@ impl MyList {
         }
     }
 
-    /* 获取列表长度（即当前元素数量）*/
+    /* 获取列表长度（当前元素数量）*/
     pub fn size(&self) -> usize {
         return self.size;
     }
@@ -41,18 +41,18 @@ impl MyList {
 
     /* 访问元素 */
     pub fn get(&self, index: usize) -> i32 {
-        // 索引如果越界则抛出异常，下同
-        if index < 0 || index >= self.size {panic!("索引越界")};
+        // 索引如果越界，则抛出异常，下同
+        if index >= self.size {panic!("索引越界")};
         return self.arr[index];
     }
 
     /* 更新元素 */
     pub fn set(&mut self, index: usize, num: i32) {
-        if index < 0 || index >= self.size {panic!("索引越界")};
+        if index >= self.size {panic!("索引越界")};
         self.arr[index] = num;
     }
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     pub fn add(&mut self, num: i32) {
         // 元素数量超出容量时，触发扩容机制
         if self.size == self.capacity() {
@@ -63,9 +63,9 @@ impl MyList {
         self.size += 1;
     }
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     pub fn insert(&mut self, index: usize, num: i32) {
-        if index < 0 || index >= self.size() {panic!("索引越界")};
+        if index >= self.size() {panic!("索引越界")};
         // 元素数量超出容量时，触发扩容机制
         if self.size == self.capacity() {
             self.extend_capacity();
@@ -81,21 +81,21 @@ impl MyList {
 
     /* 删除元素 */
     pub fn remove(&mut self, index: usize) -> i32 {
-        if index < 0 || index >= self.size() {panic!("索引越界")};
+        if index >= self.size() {panic!("索引越界")};
         let num = self.arr[index];
-        // 将索引 index 之后的元素都向前移动一位
+        // 将将索引 index 之后的元素都向前移动一位
         for j in (index..self.size - 1) {
             self.arr[j] = self.arr[j + 1];
         }
         // 更新元素数量
         self.size -= 1;
-        // 返回被删除元素
+        // 返回被删除的元素
         return num;
     }
 
     /* 列表扩容 */
     pub fn extend_capacity(&mut self) {
-        // 新建一个长度为原数组 extend_ratio 倍的新数组，并将原数组拷贝到新数组
+        // 新建一个长度为原数组 extend_ratio 倍的新数组，并将原数组复制到新数组
         let new_capacity = self.capacity * self.extend_ratio;
         self.arr.resize(new_capacity, 0);
         // 更新列表容量
@@ -117,7 +117,7 @@ impl MyList {
 fn main() {
     /* 初始化列表 */
     let mut nums = MyList::new(10);
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -127,7 +127,7 @@ fn main() {
     print_util::print_array(&nums.to_array());
     print!(" ，容量 = {} ，长度 = {}", nums.capacity(), nums.size());
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(3, 6);
     print!("\n在索引 3 处插入数字 6 ，得到 nums = ");
     print_util::print_array(&nums.to_array());

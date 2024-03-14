@@ -7,11 +7,11 @@
 namespace hello_algo.chapter_backtracking;
 
 public class preorder_traversal_ii_compact {
-    static List<TreeNode> path;
-    static List<List<TreeNode>> res;
+    List<TreeNode> path = [];
+    List<List<TreeNode>> res = [];
 
     /* 前序遍历：例题二 */
-    static void PreOrder(TreeNode root) {
+    void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
@@ -29,13 +29,11 @@ public class preorder_traversal_ii_compact {
 
     [Test]
     public void Test() {
-        TreeNode root = TreeNode.ListToTree(new List<int?> { 1, 7, 3, 4, 5, 6, 7 });
+        TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
         Console.WriteLine("\n初始化二叉树");
         PrintUtil.PrintTree(root);
 
         // 前序遍历
-        path = new List<TreeNode>();
-        res = new List<List<TreeNode>>();
         PreOrder(root);
 
         Console.WriteLine("\n输出所有根节点到节点 7 的路径");

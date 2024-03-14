@@ -9,11 +9,11 @@ namespace hello_algo.chapter_heap;
 /* 大顶堆 */
 class MaxHeap {
     // 使用列表而非数组，这样无须考虑扩容问题
-    private readonly List<int> maxHeap;
+    List<int> maxHeap;
 
     /* 构造函数，建立空堆 */
     public MaxHeap() {
-        maxHeap = new List<int>();
+        maxHeap = [];
     }
 
     /* 构造函数，根据输入列表建堆 */
@@ -27,17 +27,17 @@ class MaxHeap {
         }
     }
 
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     int Left(int i) {
         return 2 * i + 1;
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     int Right(int i) {
         return 2 * i + 2;
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     int Parent(int i) {
         return (i - 1) / 2; // 向下整除
     }
@@ -85,7 +85,7 @@ class MaxHeap {
         // 判空处理
         if (IsEmpty())
             throw new IndexOutOfRangeException();
-        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
         Swap(0, Size() - 1);
         // 删除节点
         int val = maxHeap.Last();
@@ -130,7 +130,7 @@ public class my_heap {
     [Test]
     public void Test() {
         /* 初始化大顶堆 */
-        MaxHeap maxHeap = new(new int[] { 9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2 });
+        MaxHeap maxHeap = new([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
         Console.WriteLine("\n输入列表并建堆后");
         maxHeap.Print();
 

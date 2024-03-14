@@ -14,7 +14,7 @@ int digit(int num, int exp) {
 
 /* 计数排序（根据 nums 第 k 位排序） */
 void countingSortDigit(int nums[], int size, int exp) {
-    // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+    // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
     int *counter = (int *)malloc((sizeof(int) * 10));
     // 统计 0~9 各数字的出现次数
     for (int i = 0; i < size; i++) {

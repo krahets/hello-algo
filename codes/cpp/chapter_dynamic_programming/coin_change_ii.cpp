@@ -1,7 +1,7 @@
 /**
  * File: coin_change_ii.cpp
  * Created Time: 2023-07-11
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -19,7 +19,7 @@ int coinChangeIIDP(vector<int> &coins, int amt) {
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 若超过背包容量，则不选硬币 i
+                // 若超过目标金额，则不选硬币 i
                 dp[i][a] = dp[i - 1][a];
             } else {
                 // 不选和选硬币 i 这两种方案之和
@@ -40,7 +40,7 @@ int coinChangeIIDPComp(vector<int> &coins, int amt) {
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 若超过背包容量，则不选硬币 i
+                // 若超过目标金额，则不选硬币 i
                 dp[a] = dp[a];
             } else {
                 // 不选和选硬币 i 这两种方案之和

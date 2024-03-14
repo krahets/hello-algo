@@ -6,39 +6,23 @@
 
 #include "../utils/common.h"
 
-/* 二叉搜索树 */
+/* 二叉搜索树结构体 */
 typedef struct {
     TreeNode *root;
 } BinarySearchTree;
 
-/* 比较器：从小到大排序 */
-int sortIntHelper(const void *a, const void *b) {
-    return (*(int *)a - *(int *)b);
-}
-
-/* 构建二叉搜索树 */
-TreeNode *buildTree(int nums[], int i, int j) {
-    if (i > j) {
-        return NULL;
-    }
-    // 将数组中间节点作为根节点
-    int mid = (i + j) / 2;
-    TreeNode *root = newTreeNode(nums[mid]);
-    // 递归建立左子树和右子树
-    root->left = buildTree(nums, i, mid - 1);
-    root->right = buildTree(nums, mid + 1, j);
-    return root;
-}
-
-BinarySearchTree *newBinarySearchTree(int nums[], int size) {
+/* 构造函数 */
+BinarySearchTree *newBinarySearchTree() {
+    // 初始化空树
     BinarySearchTree *bst = (BinarySearchTree *)malloc(sizeof(BinarySearchTree));
-    TreeNode *root;
-    // 从小到大排序数组
-    qsort(nums, size, sizeof(int), sortIntHelper);
-    // 构建二叉搜索树
-    root = buildTree(nums, 0, size - 1);
-    bst->root = root;
+    bst->root = NULL;
     return bst;
+}
+
+/* 析构函数 */
+void delBinarySearchTree(BinarySearchTree *bst) {
+    freeMemoryTree(bst->root);
+    free(bst);
 }
 
 /* 获取二叉树根节点 */
@@ -133,6 +117,8 @@ void removeItem(BinarySearchTree *bst, int num) {
         } else {
             pre->right = child;
         }
+        // 释放内存
+        free(cur);
     } else {
         /* 子节点数量 = 2 */
         // 获取中序遍历中 cur 的下一个节点
@@ -151,8 +137,11 @@ void removeItem(BinarySearchTree *bst, int num) {
 /* Driver Code */
 int main() {
     /* 初始化二叉搜索树 */
-    int nums[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-    BinarySearchTree *bst = newBinarySearchTree(nums, sizeof(nums) / sizeof(int));
+    int nums[] = {8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15};
+    BinarySearchTree *bst = newBinarySearchTree();
+    for (int i = 0; i < sizeof(nums) / sizeof(int); i++) {
+        insert(bst, nums[i]);
+    }
     printf("初始化的二叉树为\n");
     printTree(getRoot(bst));
 
@@ -177,7 +166,6 @@ int main() {
     printTree(getRoot(bst));
 
     // 释放内存
-    free(bst);
-
+    delBinarySearchTree(bst);
     return 0;
 }

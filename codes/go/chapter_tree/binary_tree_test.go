@@ -19,7 +19,7 @@ func TestBinaryTree(t *testing.T) {
 	n3 := NewTreeNode(3)
 	n4 := NewTreeNode(4)
 	n5 := NewTreeNode(5)
-	// 构建引用指向（即指针）
+	// 构建节点之间的引用（指针）
 	n1.Left = n2
 	n1.Right = n3
 	n2.Left = n4

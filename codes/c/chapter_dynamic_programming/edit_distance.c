@@ -7,12 +7,12 @@
 #include "../utils/common.h"
 
 /* 求最小值 */
-int min(int a, int b) {
+int myMin(int a, int b) {
     return a < b ? a : b;
 }
 
 /* 编辑距离：暴力搜索 */
-int editDistanceDFS(char *s, char *t, int i, int j) {
+int editDistanceDFS(char *s, char *t, int i, int j) {    
     // 若 s 和 t 都为空，则返回 0
     if (i == 0 && j == 0)
         return 0;
@@ -30,11 +30,11 @@ int editDistanceDFS(char *s, char *t, int i, int j) {
     int del = editDistanceDFS(s, t, i - 1, j);
     int replace = editDistanceDFS(s, t, i - 1, j - 1);
     // 返回最少编辑步数
-    return min(min(insert, del), replace) + 1;
+    return myMin(myMin(insert, del), replace) + 1;
 }
 
 /* 编辑距离：记忆化搜索 */
-int editDistanceDFSMem(char *s, char *t, int memCols, int mem[][memCols], int i, int j) {
+int editDistanceDFSMem(char *s, char *t, int memCols, int **mem, int i, int j) {
     // 若 s 和 t 都为空，则返回 0
     if (i == 0 && j == 0)
         return 0;
@@ -55,14 +55,16 @@ int editDistanceDFSMem(char *s, char *t, int memCols, int mem[][memCols], int i,
     int del = editDistanceDFSMem(s, t, memCols, mem, i - 1, j);
     int replace = editDistanceDFSMem(s, t, memCols, mem, i - 1, j - 1);
     // 记录并返回最少编辑步数
-    mem[i][j] = min(min(insert, del), replace) + 1;
+    mem[i][j] = myMin(myMin(insert, del), replace) + 1;
     return mem[i][j];
 }
 
 /* 编辑距离：动态规划 */
 int editDistanceDP(char *s, char *t, int n, int m) {
-    int dp[n + 1][m + 1];
-    memset(dp, 0, sizeof(dp));
+    int **dp = malloc((n + 1) * sizeof(int *));
+    for (int i = 0; i <= n; i++) {
+        dp[i] = calloc(m + 1, sizeof(int));
+    }
     // 状态转移：首行首列
     for (int i = 1; i <= n; i++) {
         dp[i][0] = i;
@@ -70,7 +72,7 @@ int editDistanceDP(char *s, char *t, int n, int m) {
     for (int j = 1; j <= m; j++) {
         dp[0][j] = j;
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (s[i - 1] == t[j - 1]) {
@@ -78,17 +80,21 @@ int editDistanceDP(char *s, char *t, int n, int m) {
                 dp[i][j] = dp[i - 1][j - 1];
             } else {
                 // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                dp[i][j] = myMin(myMin(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
             }
         }
     }
-    return dp[n][m];
+    int res = dp[n][m];
+    // 释放内存
+    for (int i = 0; i <= n; i++) {
+        free(dp[i]);
+    }
+    return res;
 }
 
 /* 编辑距离：空间优化后的动态规划 */
 int editDistanceDPComp(char *s, char *t, int n, int m) {
-    int dp[m + 1];
-    memset(dp, 0, sizeof(dp));
+    int *dp = calloc(m + 1, sizeof(int));
     // 状态转移：首行
     for (int j = 1; j <= m; j++) {
         dp[j] = j;
@@ -106,12 +112,15 @@ int editDistanceDPComp(char *s, char *t, int n, int m) {
                 dp[j] = leftup;
             } else {
                 // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1;
+                dp[j] = myMin(myMin(dp[j - 1], dp[j]), leftup) + 1;
             }
             leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
         }
     }
-    return dp[m];
+    int res = dp[m];
+    // 释放内存
+    free(dp);
+    return res;
 }
 
 /* Driver Code */
@@ -125,10 +134,18 @@ int main() {
     printf("将 %s 更改为 %s 最少需要编辑 %d 步\n", s, t, res);
 
     // 记忆化搜索
-    int mem[n + 1][m + 1];
-    memset(mem, -1, sizeof(mem));
+    int **mem = malloc((n + 1) * sizeof(int *));
+    for (int i = 0; i <= n; i++) {
+        mem[i] = malloc((m + 1) * sizeof(int));
+        memset(mem[i], -1, (m + 1) * sizeof(int));
+    }
     res = editDistanceDFSMem(s, t, m + 1, mem, n, m);
     printf("将 %s 更改为 %s 最少需要编辑 %d 步\n", s, t, res);
+    // 释放内存
+    for (int i = 0; i <= n; i++) {
+        free(mem[i]);
+    }
+    free(mem);
 
     // 动态规划
     res = editDistanceDP(s, t, n, m);

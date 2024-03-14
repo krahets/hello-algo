@@ -1,18 +1,18 @@
 /**
  * File: my_list.java
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_array_and_linkedlist;
 
 import java.util.*;
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
     private int[] arr; // 数组（存储列表元素）
     private int capacity = 10; // 列表容量
-    private int size = 0; // 列表长度（即当前元素数量）
+    private int size = 0; // 列表长度（当前元素数量）
     private int extendRatio = 2; // 每次列表扩容的倍数
 
     /* 构造方法 */
@@ -20,7 +20,7 @@ class MyList {
         arr = new int[capacity];
     }
 
-    /* 获取列表长度（即当前元素数量） */
+    /* 获取列表长度（当前元素数量） */
     public int size() {
         return size;
     }
@@ -32,7 +32,7 @@ class MyList {
 
     /* 访问元素 */
     public int get(int index) {
-        // 索引如果越界则抛出异常，下同
+        // 索引如果越界，则抛出异常，下同
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("索引越界");
         return arr[index];
@@ -45,7 +45,7 @@ class MyList {
         arr[index] = num;
     }
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     public void add(int num) {
         // 元素数量超出容量时，触发扩容机制
         if (size == capacity())
@@ -55,7 +55,7 @@ class MyList {
         size++;
     }
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     public void insert(int index, int num) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("索引越界");
@@ -76,19 +76,19 @@ class MyList {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("索引越界");
         int num = arr[index];
-        // 将索引 index 之后的元素都向前移动一位
+        // 将将索引 index 之后的元素都向前移动一位
         for (int j = index; j < size - 1; j++) {
             arr[j] = arr[j + 1];
         }
         // 更新元素数量
         size--;
-        // 返回被删除元素
+        // 返回被删除的元素
         return num;
     }
 
     /* 列表扩容 */
     public void extendCapacity() {
-        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
+        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组
         arr = Arrays.copyOf(arr, capacity() * extendRatio);
         // 更新列表容量
         capacity = arr.length;
@@ -111,7 +111,7 @@ public class my_list {
     public static void main(String[] args) {
         /* 初始化列表 */
         MyList nums = new MyList();
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         nums.add(1);
         nums.add(3);
         nums.add(2);
@@ -120,7 +120,7 @@ public class my_list {
         System.out.println("列表 nums = " + Arrays.toString(nums.toArray()) +
                 " ，容量 = " + nums.capacity() + " ，长度 = " + nums.size());
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         nums.insert(3, 6);
         System.out.println("在索引 3 处插入数字 6 ，得到 nums = " + Arrays.toString(nums.toArray()));
 

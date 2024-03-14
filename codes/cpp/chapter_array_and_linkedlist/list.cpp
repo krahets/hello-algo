@@ -1,7 +1,7 @@
 /**
  * File: list.cpp
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -14,8 +14,8 @@ int main() {
     printVector(nums);
 
     /* 访问元素 */
-    int x = nums[1];
-    cout << "访问索引 1 处的元素，得到 x = " << x << endl;
+    int num = nums[1];
+    cout << "访问索引 1 处的元素，得到 num = " << num << endl;
 
     /* 更新元素 */
     nums[1] = 0;
@@ -27,7 +27,7 @@ int main() {
     cout << "清空列表后 nums = ";
     printVector(nums);
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
@@ -36,7 +36,7 @@ int main() {
     cout << "添加元素后 nums = ";
     printVector(nums);
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums.insert(nums.begin() + 3, 6);
     cout << "在索引 3 处插入数字 6 ，得到 nums = ";
     printVector(nums);
@@ -49,13 +49,12 @@ int main() {
     /* 通过索引遍历列表 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
-        count++;
+        count += nums[i];
     }
-
     /* 直接遍历列表元素 */
     count = 0;
-    for (int n : nums) {
-        count++;
+    for (int x : nums) {
+        count += x;
     }
 
     /* 拼接两个列表 */

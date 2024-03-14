@@ -8,7 +8,7 @@ namespace hello_algo.chapter_computational_complexity;
 
 public class recursion {
     /* 递归 */
-    public int Recur(int n) {
+    int Recur(int n) {
         // 终止条件
         if (n == 1)
             return 1;
@@ -19,7 +19,7 @@ public class recursion {
     }
 
     /* 使用迭代模拟递归 */
-    public static int ForLoopRecur(int n) {
+    int ForLoopRecur(int n) {
         // 使用一个显式的栈来模拟系统调用栈
         Stack<int> stack = new();
         int res = 0;
@@ -38,7 +38,7 @@ public class recursion {
     }
 
     /* 尾递归 */
-    public int TailRecur(int n, int res) {
+    int TailRecur(int n, int res) {
         // 终止条件
         if (n == 0)
             return res;
@@ -47,7 +47,7 @@ public class recursion {
     }
 
     /* 斐波那契数列：递归 */
-    public int Fib(int n) {
+    int Fib(int n) {
         // 终止条件 f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1;

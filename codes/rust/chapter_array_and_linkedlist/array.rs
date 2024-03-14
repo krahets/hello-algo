@@ -1,7 +1,7 @@
 /*
  * File: array.rs
  * Created Time: 2023-01-15
- * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
+ * Author: xBLACICEx (xBLACKICEx@outlook.com), codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");
@@ -35,11 +35,11 @@ fn insert(nums: &mut Vec<i32>, num: i32, index: usize) {
     for i in (index + 1..nums.len()).rev() {
         nums[i] = nums[i - 1];
     }
-    // 将 num 赋给 index 处元素
+    // 将 num 赋给 index 处的元素
     nums[index] = num;
 }
 
-/* 删除索引 index 处元素 */
+/* 删除索引 index 处的元素 */
 fn remove(nums: &mut Vec<i32>, index: usize) {
     // 把索引 index 之后的所有元素向前移动一位
     for i in index..nums.len() - 1 {
@@ -51,12 +51,12 @@ fn remove(nums: &mut Vec<i32>, index: usize) {
 fn traverse(nums: &[i32]) {
     let mut _count = 0;
     // 通过索引遍历数组
-    for _ in 0..nums.len() {
-        _count += 1;
+    for i in 0..nums.len() {
+        _count += nums[i];
     }
-    // 直接遍历数组
-    for _ in nums {
-        _count += 1;
+    // 直接遍历数组元素
+    for num in nums {
+        _count += num;
     }
 }
 

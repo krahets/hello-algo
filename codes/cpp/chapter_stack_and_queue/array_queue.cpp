@@ -1,7 +1,7 @@
 /**
  * File: array_queue.cpp
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -48,7 +48,7 @@ class ArrayQueue {
             return;
         }
         // 计算队尾指针，指向队尾索引 + 1
-        // 通过取余操作，实现 rear 越过数组尾部后回到头部
+        // 通过取余操作实现 rear 越过数组尾部后回到头部
         int rear = (front + queSize) % queCapacity;
         // 将 num 添加至队尾
         nums[rear] = num;
@@ -56,11 +56,12 @@ class ArrayQueue {
     }
 
     /* 出队 */
-    void pop() {
+    int pop() {
         int num = peek();
-        // 队首指针向后移动一位，若越过尾部则返回到数组头部
+        // 队首指针向后移动一位，若越过尾部，则返回到数组头部
         front = (front + 1) % queCapacity;
         queSize--;
+        return num;
     }
 
     /* 访问队首元素 */
@@ -101,7 +102,7 @@ int main() {
     cout << "队首元素 peek = " << peek << endl;
 
     /* 元素出队 */
-    queue->pop();
+    peek = queue->pop();
     cout << "出队元素 pop = " << peek << "，出队后 queue = ";
     printVector(queue->toVector());
 

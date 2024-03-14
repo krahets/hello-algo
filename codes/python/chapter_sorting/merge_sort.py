@@ -1,18 +1,18 @@
 """
 File: merge_sort.py
 Created Time: 2022-11-25
-Author: timi (xisunyy@163.com), Krahets (krahets@163.com)
+Author: timi (xisunyy@163.com), krahets (krahets@163.com)
 """
 
 
 def merge(nums: list[int], left: int, mid: int, right: int):
     """合并左子数组和右子数组"""
-    # 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+    # 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
     # 创建一个临时数组 tmp ，用于存放合并后的结果
     tmp = [0] * (right - left + 1)
     # 初始化左子数组和右子数组的起始索引
     i, j, k = left, mid + 1, 0
-    # 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+    # 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
     while i <= mid and j <= right:
         if nums[i] <= nums[j]:
             tmp[k] = nums[i]

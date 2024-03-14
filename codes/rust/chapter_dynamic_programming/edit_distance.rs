@@ -1,7 +1,7 @@
 /*
  * File: edit_distance.rs
  * Created Time: 2023-07-09
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 /* 编辑距离：暴力搜索 */
@@ -58,7 +58,7 @@ fn edit_distance_dp(s: &str, t: &str) -> i32 {
     for j in 1..m {
         dp[0][j] = j as i32;
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for i in 1..=n {
         for j in 1..=m {
             if s.chars().nth(i - 1) == t.chars().nth(j - 1) {

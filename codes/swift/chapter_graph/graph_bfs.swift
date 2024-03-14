@@ -7,7 +7,7 @@
 import graph_adjacency_list_target
 import utils
 
-/* 广度优先遍历 BFS */
+/* 广度优先遍历 */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 func graphBFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
     // 顶点遍历序列
@@ -23,7 +23,7 @@ func graphBFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
         // 遍历该顶点的所有邻接顶点
         for adjVet in graph.adjList[vet] ?? [] {
             if visited.contains(adjVet) {
-                continue // 跳过已被访问过的顶点
+                continue // 跳过已被访问的顶点
             }
             que.append(adjVet) // 只入队未访问的顶点
             visited.insert(adjVet) // 标记该顶点已被访问
@@ -48,7 +48,7 @@ enum GraphBFS {
         print("\n初始化后，图为")
         graph.print()
 
-        /* 广度优先遍历 BFS */
+        /* 广度优先遍历 */
         let res = graphBFS(graph: graph, startVet: v[0])
         print("\n广度优先遍历（BFS）顶点序列为")
         print(Vertex.vetsToVals(vets: res))

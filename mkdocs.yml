@@ -1,7 +1,7 @@
 # Project information
 site_name: Hello 算法
 site_url: https://www.hello-algo.com/
-site_author: Krahets
+site_author: krahets
 site_description: 动画图解、一键运行的数据结构与算法教程
 docs_dir: build/docs
 site_dir: site
@@ -9,10 +9,10 @@ site_dir: site
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
 edit_uri: tree/main/docs
-version: 1.0.0b6
+version: 1.0.0
 
 # Copyright
-copyright: Copyright &copy; 2022 - 2023 Krahets
+copyright: Copyright &copy; 2022-2024 krahets</br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
 
 # Configuration
 theme:
@@ -20,7 +20,7 @@ theme:
   custom_dir: build/overrides
   language: zh
   features:
-    # - announce.dismiss
+    - announce.dismiss
     - content.action.edit
     # - content.action.view
     - content.code.annotate
@@ -30,7 +30,7 @@ theme:
     # - header.autohide
     # - navigation.expand
     - navigation.indexes
-    - navigation.instant
+    # - navigation.instant
     # - navigation.prune
     # - navigation.sections
     # - navigation.tabs
@@ -46,34 +46,34 @@ theme:
   palette:
     - scheme: default
       primary: white
-      # accent: indigo
+      accent: teal
       toggle:
         icon: material/theme-light-dark
-        name: Switch to dark mode
+        name: 深色模式
     - scheme: slate
-      primary: grey
-      # accent: indigo
+      primary: black
+      accent: teal
       toggle:
         icon: material/theme-light-dark
-        name: Switch to light mode
+        name: 浅色模式
   font:
     text: Noto Sans SC
     code: Fira Code
   favicon: assets/images/favicon.png
-  logo: assets/images/logo.png
+  logo: assets/images/logo.svg
   icon:
     logo: logo
     repo: fontawesome/brands/github
-    edit: material/file-edit-outline
+    edit: fontawesome/regular/pen-to-square
 
 extra:
   alternate:
     - name: 中文
       link: /
       lang: zh
-    # - name: English
-    #   link: /en/
-    #   lang: en
+    - name: English
+      link: /en/
+      lang: en
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/krahets
@@ -185,7 +185,9 @@ nav:
     - 4.1 &nbsp; 数组: chapter_array_and_linkedlist/array.md
     - 4.2 &nbsp; 链表: chapter_array_and_linkedlist/linked_list.md
     - 4.3 &nbsp; 列表: chapter_array_and_linkedlist/list.md
-    - 4.4 &nbsp; 小结: chapter_array_and_linkedlist/summary.md
+    # [status: new]
+    - 4.4 &nbsp; 内存与缓存 *: chapter_array_and_linkedlist/ram_and_cache.md
+    - 4.5 &nbsp; 小结: chapter_array_and_linkedlist/summary.md
   - 第 5 章 &nbsp; 栈与队列:
     # [icon: material/stack-overflow]
     - chapter_stack_and_queue/index.md
@@ -214,7 +216,7 @@ nav:
     - chapter_heap/index.md
     - 8.1 &nbsp; 堆: chapter_heap/heap.md
     - 8.2 &nbsp; 建堆操作: chapter_heap/build_heap.md
-    - 8.3 &nbsp; Top-K 问题: chapter_heap/top_k.md
+    - 8.3 &nbsp; Top-k 问题: chapter_heap/top_k.md
     - 8.4 &nbsp; 小结: chapter_heap/summary.md
   - 第 9 章 &nbsp; 图:
     # [icon: material/graphql]
@@ -285,7 +287,9 @@ nav:
     - chapter_appendix/index.md
     - 16.1 &nbsp; 编程环境安装: chapter_appendix/installation.md
     - 16.2 &nbsp; 一起参与创作: chapter_appendix/contribution.md
-    # [status: new]
-    - 16.3 &nbsp; 术语表: chapter_appendix/terminologies.md
+    - 16.3 &nbsp; 术语表: chapter_appendix/terminology.md
   - 参考文献:
     - chapter_reference/index.md
+  - 纸质书介绍:
+    # [status: new]
+    - chapter_paperbook/index.md

@@ -1,7 +1,7 @@
 /**
  * File: hash_map_open_addressing.java
  * Created Time: 2023-06-13
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_hashing;
@@ -37,9 +37,9 @@ class HashMapOpenAddressing {
         int firstTombstone = -1;
         // 线性探测，当遇到空桶时跳出
         while (buckets[index] != null) {
-            // 若遇到 key ，返回对应桶索引
+            // 若遇到 key ，返回对应的桶索引
             if (buckets[index].key == key) {
-                // 若之前遇到了删除标记，则将键值对移动至该索引
+                // 若之前遇到了删除标记，则将键值对移动至该索引处
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index];
                     buckets[index] = TOMBSTONE;
@@ -51,7 +51,7 @@ class HashMapOpenAddressing {
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index;
             }
-            // 计算桶索引，越过尾部返回头部
+            // 计算桶索引，越过尾部则返回头部
             index = (index + 1) % capacity;
         }
         // 若 key 不存在，则返回添加点的索引
@@ -145,7 +145,7 @@ public class hash_map_open_addressing {
         hashmap.print();
 
         // 查询操作
-        // 向哈希表输入键 key ，得到值 val
+        // 向哈希表中输入键 key ，得到值 val
         String name = hashmap.get(13276);
         System.out.println("\n输入学号 13276 ，查询到姓名 " + name);
 

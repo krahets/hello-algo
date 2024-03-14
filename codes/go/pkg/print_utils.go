@@ -1,6 +1,6 @@
 // File: print_utils.go
 // Created Time: 2022-12-03
-// Author: Reanon (793584285@qq.com), Krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
+// Author: Reanon (793584285@qq.com), krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
 
 package pkg
 
@@ -71,7 +71,7 @@ func PrintTree(root *TreeNode) {
 // printTreeHelper Help to print a binary tree, hide more details
 // This tree printer is borrowed from TECHIE DELIGHT
 // https://www.techiedelight.com/c-program-print-binary-tree/
-func printTreeHelper(root *TreeNode, prev *trunk, isLeft bool) {
+func printTreeHelper(root *TreeNode, prev *trunk, isRight bool) {
 	if root == nil {
 		return
 	}
@@ -80,7 +80,7 @@ func printTreeHelper(root *TreeNode, prev *trunk, isLeft bool) {
 	printTreeHelper(root.Right, trunk, true)
 	if prev == nil {
 		trunk.str = "———"
-	} else if isLeft {
+	} else if isRight {
 		trunk.str = "/———"
 		prevStr = "   |"
 	} else {

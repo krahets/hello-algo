@@ -7,7 +7,7 @@
 #include "../utils/common.h"
 
 /* 求最大值 */
-int max(int a, int b) {
+int myMax(int a, int b) {
     return a > b ? a : b;
 }
 
@@ -15,8 +15,10 @@ int max(int a, int b) {
 int unboundedKnapsackDP(int wgt[], int val[], int cap, int wgtSize) {
     int n = wgtSize;
     // 初始化 dp 表
-    int dp[n + 1][cap + 1];
-    memset(dp, 0, sizeof(dp));
+    int **dp = malloc((n + 1) * sizeof(int *));
+    for (int i = 0; i <= n; i++) {
+        dp[i] = calloc(cap + 1, sizeof(int));
+    }
     // 状态转移
     for (int i = 1; i <= n; i++) {
         for (int c = 1; c <= cap; c++) {
@@ -25,19 +27,23 @@ int unboundedKnapsackDP(int wgt[], int val[], int cap, int wgtSize) {
                 dp[i][c] = dp[i - 1][c];
             } else {
                 // 不选和选物品 i 这两种方案的较大值
-                dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
+                dp[i][c] = myMax(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
             }
         }
     }
-    return dp[n][cap];
+    int res = dp[n][cap];
+    // 释放内存
+    for (int i = 0; i <= n; i++) {
+        free(dp[i]);
+    }
+    return res;
 }
 
 /* 完全背包：空间优化后的动态规划 */
 int unboundedKnapsackDPComp(int wgt[], int val[], int cap, int wgtSize) {
     int n = wgtSize;
     // 初始化 dp 表
-    int dp[cap + 1];
-    memset(dp, 0, sizeof(dp));
+    int *dp = calloc(cap + 1, sizeof(int));
     // 状态转移
     for (int i = 1; i <= n; i++) {
         for (int c = 1; c <= cap; c++) {
@@ -46,11 +52,14 @@ int unboundedKnapsackDPComp(int wgt[], int val[], int cap, int wgtSize) {
                 dp[c] = dp[c];
             } else {
                 // 不选和选物品 i 这两种方案的较大值
-                dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+                dp[c] = myMax(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
             }
         }
     }
-    return dp[cap];
+    int res = dp[cap];
+    // 释放内存
+    free(dp);
+    return res;
 }
 
 /* Driver code */

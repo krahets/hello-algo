@@ -4,11 +4,11 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
     private arr: Array<number>; // 数组（存储列表元素）
     private _capacity: number = 10; // 列表容量
-    private _size: number = 0; // 列表长度（即当前元素数量）
+    private _size: number = 0; // 列表长度（当前元素数量）
     private extendRatio: number = 2; // 每次列表扩容的倍数
 
     /* 构造方法 */
@@ -16,7 +16,7 @@ class MyList {
         this.arr = new Array(this._capacity);
     }
 
-    /* 获取列表长度（即当前元素数量）*/
+    /* 获取列表长度（当前元素数量）*/
     public size(): number {
         return this._size;
     }
@@ -28,7 +28,7 @@ class MyList {
 
     /* 访问元素 */
     public get(index: number): number {
-        // 索引如果越界则抛出异常，下同
+        // 索引如果越界，则抛出异常，下同
         if (index < 0 || index >= this._size) throw new Error('索引越界');
         return this.arr[index];
     }
@@ -39,7 +39,7 @@ class MyList {
         this.arr[index] = num;
     }
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     public add(num: number): void {
         // 如果长度等于容量，则需要扩容
         if (this._size === this._capacity) this.extendCapacity();
@@ -48,7 +48,7 @@ class MyList {
         this._size++;
     }
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     public insert(index: number, num: number): void {
         if (index < 0 || index >= this._size) throw new Error('索引越界');
         // 元素数量超出容量时，触发扩容机制
@@ -68,19 +68,19 @@ class MyList {
     public remove(index: number): number {
         if (index < 0 || index >= this._size) throw new Error('索引越界');
         let num = this.arr[index];
-        // 将索引 index 之后的元素都向前移动一位
+        // 将将索引 index 之后的元素都向前移动一位
         for (let j = index; j < this._size - 1; j++) {
             this.arr[j] = this.arr[j + 1];
         }
         // 更新元素数量
         this._size--;
-        // 返回被删除元素
+        // 返回被删除的元素
         return num;
     }
 
     /* 列表扩容 */
     public extendCapacity(): void {
-        // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
+        // 新建一个长度为 size 的数组，并将原数组复制到新数组
         this.arr = this.arr.concat(
             new Array(this.capacity() * (this.extendRatio - 1))
         );
@@ -103,7 +103,7 @@ class MyList {
 /* Driver Code */
 /* 初始化列表 */
 const nums = new MyList();
-/* 尾部添加元素 */
+/* 在尾部添加元素 */
 nums.add(1);
 nums.add(3);
 nums.add(2);
@@ -113,7 +113,7 @@ console.log(
     `列表 nums = ${nums.toArray()} ，容量 = ${nums.capacity()} ，长度 = ${nums.size()}`
 );
 
-/* 中间插入元素 */
+/* 在中间插入元素 */
 nums.insert(3, 6);
 console.log(`在索引 3 处插入数字 6 ，得到 nums = ${nums.toArray()}`);
 

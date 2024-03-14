@@ -61,7 +61,7 @@ int minPathSumDP(List<List<int>> grid) {
   for (int i = 1; i < n; i++) {
     dp[i][0] = dp[i - 1][0] + grid[i][0];
   }
-  // 状态转移：其余行列
+  // 状态转移：其余行和列
   for (int i = 1; i < n; i++) {
     for (int j = 1; j < m; j++) {
       dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];

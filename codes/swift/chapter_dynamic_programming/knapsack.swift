@@ -6,11 +6,11 @@
 
 /* 0-1 背包：暴力搜索 */
 func knapsackDFS(wgt: [Int], val: [Int], i: Int, c: Int) -> Int {
-    // 若已选完所有物品或背包无容量，则返回价值 0
+    // 若已选完所有物品或背包无剩余容量，则返回价值 0
     if i == 0 || c == 0 {
         return 0
     }
-    // 若超过背包容量，则只能不放入背包
+    // 若超过背包容量，则只能选择不放入背包
     if wgt[i - 1] > c {
         return knapsackDFS(wgt: wgt, val: val, i: i - 1, c: c)
     }
@@ -23,7 +23,7 @@ func knapsackDFS(wgt: [Int], val: [Int], i: Int, c: Int) -> Int {
 
 /* 0-1 背包：记忆化搜索 */
 func knapsackDFSMem(wgt: [Int], val: [Int], mem: inout [[Int]], i: Int, c: Int) -> Int {
-    // 若已选完所有物品或背包无容量，则返回价值 0
+    // 若已选完所有物品或背包无剩余容量，则返回价值 0
     if i == 0 || c == 0 {
         return 0
     }
@@ -31,7 +31,7 @@ func knapsackDFSMem(wgt: [Int], val: [Int], mem: inout [[Int]], i: Int, c: Int) 
     if mem[i][c] != -1 {
         return mem[i][c]
     }
-    // 若超过背包容量，则只能不放入背包
+    // 若超过背包容量，则只能选择不放入背包
     if wgt[i - 1] > c {
         return knapsackDFSMem(wgt: wgt, val: val, mem: &mem, i: i - 1, c: c)
     }

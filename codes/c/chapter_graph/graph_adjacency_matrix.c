@@ -28,6 +28,11 @@ GraphAdjMat *newGraphAdjMat() {
     return graph;
 }
 
+/* 析构函数 */
+void delGraphAdjMat(GraphAdjMat *graph) {
+    free(graph);
+}
+
 /* 添加顶点 */
 void addVertex(GraphAdjMat *graph, int val) {
     if (graph->size == MAX_SIZE) {
@@ -139,7 +144,7 @@ int main() {
     printGraphAdjMat(graph);
 
     // 释放内存
-    free(graph);
+    delGraphAdjMat(graph);
 
     return 0;
 }

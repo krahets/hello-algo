@@ -1,7 +1,7 @@
 /**
  * File: array.java
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_array_and_linkedlist;
@@ -37,11 +37,11 @@ public class array {
         for (int i = nums.length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
-        // 将 num 赋给 index 处元素
+        // 将 num 赋给 index 处的元素
         nums[index] = num;
     }
 
-    /* 删除索引 index 处元素 */
+    /* 删除索引 index 处的元素 */
     static void remove(int[] nums, int index) {
         // 把索引 index 之后的所有元素向前移动一位
         for (int i = index; i < nums.length - 1; i++) {
@@ -54,11 +54,11 @@ public class array {
         int count = 0;
         // 通过索引遍历数组
         for (int i = 0; i < nums.length; i++) {
-            count++;
+            count += nums[i];
         }
-        // 直接遍历数组
+        // 直接遍历数组元素
         for (int num : nums) {
-            count++;
+            count += num;
         }
     }
 

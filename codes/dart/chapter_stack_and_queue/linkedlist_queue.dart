@@ -28,9 +28,9 @@ class LinkedListQueue {
   }
 
   /* 入队 */
-  void push(int num) {
-    // 尾节点后添加 num
-    final node = ListNode(num);
+  void push(int _num) {
+    // 在尾节点后添加 _num
+    final node = ListNode(_num);
     // 如果队列为空，则令头、尾节点都指向该节点
     if (_front == null) {
       _front = node;
@@ -45,11 +45,11 @@ class LinkedListQueue {
 
   /* 出队 */
   int pop() {
-    final int num = peek();
+    final int _num = peek();
     // 删除头节点
     _front = _front!.next;
     _queSize--;
-    return num;
+    return _num;
   }
 
   /* 访问队首元素 */

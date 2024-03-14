@@ -8,6 +8,7 @@ window.MathJax = {
   options: {
     ignoreHtmlClass: ".*|",
     processHtmlClass: "arithmatex",
+    enableMenu: false,
   },
 };
 

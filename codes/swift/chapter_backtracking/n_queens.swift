@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 回溯算法：N 皇后 */
+/* 回溯算法：n 皇后 */
 func backtrack(row: Int, n: Int, state: inout [[String]], res: inout [[[String]]], cols: inout [Bool], diags1: inout [Bool], diags2: inout [Bool]) {
     // 当放置完所有行时，记录解
     if row == n {
@@ -13,10 +13,10 @@ func backtrack(row: Int, n: Int, state: inout [[String]], res: inout [[[String]]
     }
     // 遍历所有列
     for col in 0 ..< n {
-        // 计算该格子对应的主对角线和副对角线
+        // 计算该格子对应的主对角线和次对角线
         let diag1 = row - col + n - 1
         let diag2 = row + col
-        // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+        // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
         if !cols[col] && !diags1[diag1] && !diags2[diag2] {
             // 尝试：将皇后放置在该格子
             state[row][col] = "Q"
@@ -34,13 +34,13 @@ func backtrack(row: Int, n: Int, state: inout [[String]], res: inout [[[String]]
     }
 }
 
-/* 求解 N 皇后 */
+/* 求解 n 皇后 */
 func nQueens(n: Int) -> [[[String]]] {
     // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
     var state = Array(repeating: Array(repeating: "#", count: n), count: n)
     var cols = Array(repeating: false, count: n) // 记录列是否有皇后
-    var diags1 = Array(repeating: false, count: 2 * n - 1) // 记录主对角线是否有皇后
-    var diags2 = Array(repeating: false, count: 2 * n - 1) // 记录副对角线是否有皇后
+    var diags1 = Array(repeating: false, count: 2 * n - 1) // 记录主对角线上是否有皇后
+    var diags2 = Array(repeating: false, count: 2 * n - 1) // 记录次对角线上是否有皇后
     var res: [[[String]]] = []
 
     backtrack(row: 0, n: n, state: &state, res: &res, cols: &cols, diags1: &diags1, diags2: &diags2)

@@ -1,7 +1,7 @@
 """
 File: list.py
 Created Time: 2022-11-25
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 """Driver Code"""
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     nums.clear()
     print("\n清空列表后 nums =", nums)
 
-    # 尾部添加元素
+    # 在尾部添加元素
     nums.append(1)
     nums.append(3)
     nums.append(2)
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     nums.append(4)
     print("\n添加元素后 nums =", nums)
 
-    # 中间插入元素
+    # 在中间插入元素
     nums.insert(3, 6)
     print("\n在索引 3 处插入数字 6 ，得到 nums =", nums)
 
@@ -38,16 +38,13 @@ if __name__ == "__main__":
     nums.pop(3)
     print("\n删除索引 3 处的元素，得到 nums =", nums)
 
-    # 遍历列表
-    tmp = []
+    # 通过索引遍历列表
+    count = 0
     for i in range(len(nums)):
-        tmp.append(nums[i])
-    print(f"\n通过索引遍历列表得到 tmp = {tmp}")
-
-    tmp.clear()
+        count += nums[i]
+    # 直接遍历列表元素
     for num in nums:
-        tmp.append(num)
-    print(f"\n直接遍历列表元素得到 tmp = {tmp}")
+        count += num
 
     # 拼接两个列表
     nums1 = [6, 8, 7, 10, 9]

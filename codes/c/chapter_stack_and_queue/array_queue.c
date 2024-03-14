@@ -27,7 +27,7 @@ ArrayQueue *newArrayQueue(int capacity) {
 /* 析构函数 */
 void delArrayQueue(ArrayQueue *queue) {
     free(queue->nums);
-    queue->queCapacity = 0;
+    free(queue);
 }
 
 /* 获取队列的容量 */
@@ -58,7 +58,7 @@ void push(ArrayQueue *queue, int num) {
         return;
     }
     // 计算队尾指针，指向队尾索引 + 1
-    // 通过取余操作，实现 rear 越过数组尾部后回到头部
+    // 通过取余操作实现 rear 越过数组尾部后回到头部
     int rear = (queue->front + queue->queSize) % queue->queCapacity;
     // 将 num 添加至队尾
     queue->nums[rear] = num;
@@ -66,21 +66,12 @@ void push(ArrayQueue *queue, int num) {
 }
 
 /* 出队 */
-void pop(ArrayQueue *queue) {
+int pop(ArrayQueue *queue) {
     int num = peek(queue);
-    // 队首指针向后移动一位，若越过尾部则返回到数组头部
+    // 队首指针向后移动一位，若越过尾部，则返回到数组头部
     queue->front = (queue->front + 1) % queue->queCapacity;
     queue->queSize--;
-}
-
-/* 打印队列 */
-void printArrayQueue(ArrayQueue *queue) {
-    int arr[queue->queSize];
-    // 拷贝
-    for (int i = 0, j = queue->front; i < queue->queSize; i++, j++) {
-        arr[i] = queue->nums[j % queue->queCapacity];
-    }
-    printArray(arr, queue->queSize);
+    return num;
 }
 
 /* Driver Code */
@@ -96,16 +87,16 @@ int main() {
     push(queue, 5);
     push(queue, 4);
     printf("队列 queue = ");
-    printArrayQueue(queue);
+    printArray(queue->nums, queue->queSize);
 
     /* 访问队首元素 */
     int peekNum = peek(queue);
     printf("队首元素 peek = %d\r\n", peekNum);
 
     /* 元素出队 */
-    pop(queue);
+    peekNum = pop(queue);
     printf("出队元素 pop = %d ，出队后 queue = ", peekNum);
-    printArrayQueue(queue);
+    printArray(queue->nums, queue->queSize);
 
     /* 获取队列的长度 */
     int queueSize = size(queue);
@@ -120,7 +111,7 @@ int main() {
         push(queue, i);
         pop(queue);
         printf("第 %d 轮入队 + 出队后 queue = ", i);
-        printArrayQueue(queue);
+        printArray(queue->nums, queue->queSize);
     }
 
     // 释放内存

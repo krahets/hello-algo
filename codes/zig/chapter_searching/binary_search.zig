@@ -1,6 +1,6 @@
 // File: binary_search.zig
 // Created Time: 2023-01-15
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -25,9 +25,9 @@ fn binarySearch(comptime T: type, nums: std.ArrayList(T), target: T) T {
     return -1;
 }
 
-// 二分查找（左闭右开）
+// 二分查找（左闭右开区间）
 fn binarySearchLCRO(comptime T: type, nums: std.ArrayList(T), target: T) T {
-    // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+    // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     var i: usize = 0;
     var j: usize = nums.items.len;
     // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -56,7 +56,7 @@ pub fn main() !void {
     var index = binarySearch(i32, nums, target);
     std.debug.print("目标元素 6 的索引 = {}\n", .{index});
 
-    // 二分查找（左闭右开）
+    // 二分查找（左闭右开区间）
     index = binarySearchLCRO(i32, nums, target);
     std.debug.print("目标元素 6 的索引 = {}\n", .{index});
 

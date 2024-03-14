@@ -12,7 +12,7 @@ type pair struct {
 	val string
 }
 
-/* 基于数组简易实现的哈希表 */
+/* 基于数组实现的哈希表 */
 type arrayHashMap struct {
 	buckets []*pair
 }

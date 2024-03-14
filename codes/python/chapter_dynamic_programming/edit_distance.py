@@ -1,7 +1,7 @@
 """
 File: edit_distancde.py
 Created Time: 2023-07-04
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 
@@ -62,7 +62,7 @@ def edit_distance_dp(s: str, t: str) -> int:
         dp[i][0] = i
     for j in range(1, m + 1):
         dp[0][j] = j
-    # 状态转移：其余行列
+    # 状态转移：其余行和列
     for i in range(1, n + 1):
         for j in range(1, m + 1):
             if s[i - 1] == t[j - 1]:

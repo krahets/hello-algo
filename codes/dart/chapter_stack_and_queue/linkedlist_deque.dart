@@ -35,8 +35,8 @@ class LinkedListDeque {
   }
 
   /* 入队操作 */
-  void push(int num, bool isFront) {
-    final ListNode node = ListNode(num);
+  void push(int _num, bool isFront) {
+    final ListNode node = ListNode(_num);
     if (isEmpty()) {
       // 若链表为空，则令 _front 和 _rear 都指向 node
       _front = _rear = node;
@@ -57,13 +57,13 @@ class LinkedListDeque {
   }
 
   /* 队首入队 */
-  void pushFirst(int num) {
-    push(num, true);
+  void pushFirst(int _num) {
+    push(_num, true);
   }
 
   /* 队尾入队 */
-  void pushLast(int num) {
-    push(num, false);
+  void pushLast(int _num) {
+    push(_num, false);
   }
 
   /* 出队操作 */

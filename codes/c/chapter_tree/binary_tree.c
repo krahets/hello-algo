@@ -15,7 +15,7 @@ int main() {
     TreeNode *n3 = newTreeNode(3);
     TreeNode *n4 = newTreeNode(4);
     TreeNode *n5 = newTreeNode(5);
-    // 构建引用指向（即指针）
+    // 构建节点之间的引用（指针）
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -38,5 +38,6 @@ int main() {
     printf("删除节点 P 后\n");
     printTree(n1);
 
+    freeMemoryTree(n1);
     return 0;
 }

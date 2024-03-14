@@ -1,7 +1,7 @@
 """
 File: iteration.py
 Created Time: 2023-08-24
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 
@@ -29,7 +29,7 @@ def while_loop_ii(n: int) -> int:
     """while 循环（两次更新）"""
     res = 0
     i = 1  # 初始化条件变量
-    # 循环求和 1, 4, ...
+    # 循环求和 1, 4, 10, ...
     while i <= n:
         res += i
         # 更新条件变量

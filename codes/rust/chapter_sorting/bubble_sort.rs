@@ -1,7 +1,7 @@
 /*
  * File: bubble_sort.rs
  * Created Time: 2023-02-05
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");
@@ -37,7 +37,7 @@ fn bubble_sort_with_flag(nums: &mut [i32]) {
                 flag = true;  // 记录交换元素
             }
         }
-        if !flag {break};  // 此轮冒泡未交换任何元素，直接跳出
+        if !flag {break};  // 此轮“冒泡”未交换任何元素，直接跳出
     }
 }
 

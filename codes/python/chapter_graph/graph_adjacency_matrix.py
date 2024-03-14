@@ -1,7 +1,7 @@
 """
 File: graph_adjacency_matrix.py
 Created Time: 2023-02-23
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 import sys
@@ -62,7 +62,7 @@ class GraphAdjMat:
         # 索引越界与相等处理
         if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
             raise IndexError()
-        # 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+        # 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
         self.adj_mat[i][j] = 1
         self.adj_mat[j][i] = 1
 

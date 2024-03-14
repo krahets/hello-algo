@@ -8,12 +8,12 @@ namespace hello_algo.chapter_hashing;
 
 /* 开放寻址哈希表 */
 class HashMapOpenAddressing {
-    private int size; // 键值对数量
-    private int capacity = 4; // 哈希表容量
-    private readonly double loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
-    private readonly int extendRatio = 2; // 扩容倍数
-    private Pair[] buckets; // 桶数组
-    private readonly Pair TOMBSTONE = new(-1, "-1"); // 删除标记
+    int size; // 键值对数量
+    int capacity = 4; // 哈希表容量
+    double loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
+    int extendRatio = 2; // 扩容倍数
+    Pair[] buckets; // 桶数组
+    Pair TOMBSTONE = new(-1, "-1"); // 删除标记
 
     /* 构造方法 */
     public HashMapOpenAddressing() {
@@ -22,24 +22,24 @@ class HashMapOpenAddressing {
     }
 
     /* 哈希函数 */
-    private int HashFunc(int key) {
+    int HashFunc(int key) {
         return key % capacity;
     }
 
     /* 负载因子 */
-    private double LoadFactor() {
+    double LoadFactor() {
         return (double)size / capacity;
     }
 
     /* 搜索 key 对应的桶索引 */
-    private int FindBucket(int key) {
+    int FindBucket(int key) {
         int index = HashFunc(key);
         int firstTombstone = -1;
         // 线性探测，当遇到空桶时跳出
         while (buckets[index] != null) {
-            // 若遇到 key ，返回对应桶索引
+            // 若遇到 key ，返回对应的桶索引
             if (buckets[index].key == key) {
-                // 若之前遇到了删除标记，则将键值对移动至该索引
+                // 若之前遇到了删除标记，则将键值对移动至该索引处
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index];
                     buckets[index] = TOMBSTONE;
@@ -51,7 +51,7 @@ class HashMapOpenAddressing {
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index;
             }
-            // 计算桶索引，越过尾部返回头部
+            // 计算桶索引，越过尾部则返回头部
             index = (index + 1) % capacity;
         }
         // 若 key 不存在，则返回添加点的索引
@@ -100,7 +100,7 @@ class HashMapOpenAddressing {
     }
 
     /* 扩容哈希表 */
-    private void Extend() {
+    void Extend() {
         // 暂存原哈希表
         Pair[] bucketsTmp = buckets;
         // 初始化扩容后的新哈希表
@@ -146,7 +146,7 @@ public class hash_map_open_addressing {
         map.Print();
 
         /* 查询操作 */
-        // 向哈希表输入键 key ，得到值 value
+        // 向哈希表中输入键 key ，得到值 value
         string? name = map.Get(13276);
         Console.WriteLine("\n输入学号 13276 ，查询到姓名 " + name);
 

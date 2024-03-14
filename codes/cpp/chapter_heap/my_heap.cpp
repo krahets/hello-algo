@@ -12,19 +12,19 @@ class MaxHeap {
     // 使用动态数组，这样无须考虑扩容问题
     vector<int> maxHeap;
 
-    /* 获取左子节点索引 */
+    /* 获取左子节点的索引 */
     int left(int i) {
         return 2 * i + 1;
     }
 
-    /* 获取右子节点索引 */
+    /* 获取右子节点的索引 */
     int right(int i) {
         return 2 * i + 2;
     }
 
-    /* 获取父节点索引 */
+    /* 获取父节点的索引 */
     int parent(int i) {
-        return (i - 1) / 2; // 向下取整
+        return (i - 1) / 2; // 向下整除
     }
 
     /* 从节点 i 开始，从底至顶堆化 */
@@ -100,7 +100,7 @@ class MaxHeap {
         if (isEmpty()) {
             throw out_of_range("堆为空");
         }
-        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
         swap(maxHeap[0], maxHeap[size() - 1]);
         // 删除节点
         maxHeap.pop_back();

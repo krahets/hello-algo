@@ -1,7 +1,7 @@
 /**
  * File: hash_map_chaining.c
  * Created Time: 2023-10-13
- * Author: SenMing (1206575349@qq.com), Krahets (krahets@163.com)
+ * Author: SenMing (1206575349@qq.com), krahets (krahets@163.com)
  */
 
 #include <stdio.h>
@@ -33,7 +33,7 @@ typedef struct {
 } HashMapChaining;
 
 /* 构造函数 */
-HashMapChaining *initHashMapChaining() {
+HashMapChaining *newHashMapChaining() {
     HashMapChaining *hashMap = (HashMapChaining *)malloc(sizeof(HashMapChaining));
     hashMap->size = 0;
     hashMap->capacity = 4;
@@ -47,14 +47,14 @@ HashMapChaining *initHashMapChaining() {
 }
 
 /* 析构函数 */
-void freeHashMapChaining(HashMapChaining *hashMap) {
+void delHashMapChaining(HashMapChaining *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Node *cur = hashMap->buckets[i];
         while (cur) {
-            Node *temp = cur;
+            Node *tmp = cur;
             cur = cur->next;
-            free(temp->pair);
-            free(temp);
+            free(tmp->pair);
+            free(tmp);
         }
     }
     free(hashMap->buckets);
@@ -74,7 +74,7 @@ double loadFactor(HashMapChaining *hashMap) {
 /* 查询操作 */
 char *get(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
-    // 遍历桶，若找到 key 则返回对应 val
+    // 遍历桶，若找到 key ，则返回对应 val
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
@@ -82,7 +82,7 @@ char *get(HashMapChaining *hashMap, int key) {
         }
         cur = cur->next;
     }
-    return ""; // 若未找到 key 则返回空字符串
+    return ""; // 若未找到 key ，则返回空字符串
 }
 
 /* 添加操作 */
@@ -132,7 +132,7 @@ void put(HashMapChaining *hashMap, int key, const char *val) {
         }
         cur = cur->next;
     }
-    // 若无该 key ，则将键值对添加至尾部
+    // 若无该 key ，则将键值对添加至链表头部
     Pair *newPair = (Pair *)malloc(sizeof(Pair));
     newPair->key = key;
     strcpy(newPair->val, val);
@@ -144,7 +144,7 @@ void put(HashMapChaining *hashMap, int key, const char *val) {
 }
 
 /* 删除操作 */
-void removeKey(HashMapChaining *hashMap, int key) {
+void removeItem(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     Node *cur = hashMap->buckets[index];
     Node *pre = NULL;
@@ -183,7 +183,7 @@ void print(HashMapChaining *hashMap) {
 /* Driver Code */
 int main() {
     /* 初始化哈希表 */
-    HashMapChaining *hashMap = initHashMapChaining();
+    HashMapChaining *hashMap = newHashMapChaining();
 
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
@@ -196,18 +196,18 @@ int main() {
     print(hashMap);
 
     /* 查询操作 */
-    // 向哈希表输入键 key ，得到值 value
+    // 向哈希表中输入键 key ，得到值 value
     char *name = get(hashMap, 13276);
     printf("\n输入学号 13276 ，查询到姓名 %s\n", name);
 
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
-    removeKey(hashMap, 12836);
+    removeItem(hashMap, 12836);
     printf("\n删除学号 12836 后，哈希表为\nKey -> Value\n");
     print(hashMap);
 
     /* 释放哈希表空间 */
-    freeHashMapChaining(hashMap);
+    delHashMapChaining(hashMap);
 
     return 0;
 }

@@ -16,11 +16,11 @@ function coinChangeDP(coins, amt) {
     for (let a = 1; a <= amt; a++) {
         dp[0][a] = MAX;
     }
-    // 状态转移：其余行列
+    // 状态转移：其余行和列
     for (let i = 1; i <= n; i++) {
         for (let a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 若超过背包容量，则不选硬币 i
+                // 若超过目标金额，则不选硬币 i
                 dp[i][a] = dp[i - 1][a];
             } else {
                 // 不选和选硬币 i 这两种方案的较小值
@@ -42,7 +42,7 @@ function coinChangeDPComp(coins, amt) {
     for (let i = 1; i <= n; i++) {
         for (let a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 若超过背包容量，则不选硬币 i
+                // 若超过目标金额，则不选硬币 i
                 dp[a] = dp[a];
             } else {
                 // 不选和选硬币 i 这两种方案的较小值

@@ -1,7 +1,7 @@
 /**
  * File: graph_adjacency_list.java
  * Created Time: 2023-01-26
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_graph;
@@ -11,7 +11,7 @@ import utils.*;
 
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
-    // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+    // 邻接表，key：顶点，value：该顶点的所有邻接顶点
     Map<Vertex, List<Vertex>> adjList;
 
     /* 构造方法 */

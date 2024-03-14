@@ -101,7 +101,7 @@ class AVLTree {
     /* 递归插入节点（辅助方法） */
     #insertHelper(node, val) {
         if (node === null) return new TreeNode(val);
-        /* 1. 查找插入位置，并插入节点 */
+        /* 1. 查找插入位置并插入节点 */
         if (val < node.val) node.left = this.#insertHelper(node.left, val);
         else if (val > node.val)
             node.right = this.#insertHelper(node.right, val);
@@ -121,7 +121,7 @@ class AVLTree {
     /* 递归删除节点（辅助方法） */
     #removeHelper(node, val) {
         if (node === null) return null;
-        /* 1. 查找节点，并删除之 */
+        /* 1. 查找节点并删除 */
         if (val < node.val) node.left = this.#removeHelper(node.left, val);
         else if (val > node.val)
             node.right = this.#removeHelper(node.right, val);

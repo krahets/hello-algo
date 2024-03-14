@@ -20,17 +20,17 @@ class MaxHeap {
     }
   }
 
-  /* 获取左子节点索引 */
+  /* 获取左子节点的索引 */
   int _left(int i) {
     return 2 * i + 1;
   }
 
-  /* 获取右子节点索引 */
+  /* 获取右子节点的索引 */
   int _right(int i) {
     return 2 * i + 2;
   }
 
-  /* 获取父节点索引 */
+  /* 获取父节点的索引 */
   int _parent(int i) {
     return (i - 1) ~/ 2; // 向下整除
   }
@@ -85,7 +85,7 @@ class MaxHeap {
   int pop() {
     // 判空处理
     if (isEmpty()) throw Exception('堆为空');
-    // 交换根节点与最右叶节点（即交换首元素与尾元素）
+    // 交换根节点与最右叶节点（交换首元素与尾元素）
     _swap(0, size() - 1);
     // 删除节点
     int val = _maxHeap.removeLast();

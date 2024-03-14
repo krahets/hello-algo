@@ -20,7 +20,7 @@ func TestLinkedList(t *testing.T) {
 	n3 := NewListNode(5)
 	n4 := NewListNode(4)
 
-	// 构建引用指向
+	// 构建节点之间的引用
 	n0.Next = n1
 	n1.Next = n2
 	n2.Next = n3

@@ -8,13 +8,13 @@ namespace hello_algo.chapter_sorting;
 
 public class merge_sort {
     /* 合并左子数组和右子数组 */
-    static void Merge(int[] nums, int left, int mid, int right) {
-        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+    void Merge(int[] nums, int left, int mid, int right) {
+        // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
         // 创建一个临时数组 tmp ，用于存放合并后的结果
         int[] tmp = new int[right - left + 1];
         // 初始化左子数组和右子数组的起始索引
         int i = left, j = mid + 1, k = 0;
-        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j])
                 tmp[k++] = nums[i++];
@@ -35,7 +35,7 @@ public class merge_sort {
     }
 
     /* 归并排序 */
-    static void MergeSort(int[] nums, int left, int right) {
+    void MergeSort(int[] nums, int left, int right) {
         // 终止条件
         if (left >= right) return;       // 当子数组长度为 1 时终止递归
         // 划分阶段
@@ -49,7 +49,7 @@ public class merge_sort {
     [Test]
     public void Test() {
         /* 归并排序 */
-        int[] nums = { 7, 3, 2, 6, 0, 1, 5, 4 };
+        int[] nums = [7, 3, 2, 6, 0, 1, 5, 4];
         MergeSort(nums, 0, nums.Length - 1);
         Console.WriteLine("归并排序完成后 nums = " + string.Join(",", nums));
     }

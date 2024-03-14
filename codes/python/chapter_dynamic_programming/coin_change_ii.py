@@ -1,7 +1,7 @@
 """
 File: coin_change_ii.py
 Created Time: 2023-07-10
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 
@@ -17,7 +17,7 @@ def coin_change_ii_dp(coins: list[int], amt: int) -> int:
     for i in range(1, n + 1):
         for a in range(1, amt + 1):
             if coins[i - 1] > a:
-                # 若超过背包容量，则不选硬币 i
+                # 若超过目标金额，则不选硬币 i
                 dp[i][a] = dp[i - 1][a]
             else:
                 # 不选和选硬币 i 这两种方案之和
@@ -36,7 +36,7 @@ def coin_change_ii_dp_comp(coins: list[int], amt: int) -> int:
         # 正序遍历
         for a in range(1, amt + 1):
             if coins[i - 1] > a:
-                # 若超过背包容量，则不选硬币 i
+                # 若超过目标金额，则不选硬币 i
                 dp[a] = dp[a]
             else:
                 # 不选和选硬币 i 这两种方案之和
@@ -48,7 +48,6 @@ def coin_change_ii_dp_comp(coins: list[int], amt: int) -> int:
 if __name__ == "__main__":
     coins = [1, 2, 5]
     amt = 5
-    n = len(coins)
 
     # 动态规划
     res = coin_change_ii_dp(coins, amt)

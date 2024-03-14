@@ -16,7 +16,7 @@ class ArrayBinaryTree {
         this.#tree = arr;
     }
 
-    /* 节点数量 */
+    /* 列表容量 */
     size() {
         return this.#tree.length;
     }
@@ -40,7 +40,7 @@ class ArrayBinaryTree {
 
     /* 获取索引为 i 节点的父节点的索引 */
     parent(i) {
-        return (i - 1) / 2;
+        return Math.floor((i - 1) / 2); // 向下整除
     }
 
     /* 层序遍历 */

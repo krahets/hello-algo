@@ -1,7 +1,7 @@
 /*
  * File: stack.rs
  * Created Time: 2023-02-05
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");
@@ -22,7 +22,7 @@ pub fn main() {
     print_util::print_array(&stack);
 
     // 访问栈顶元素
-    let peek = stack.get(stack.len() - 1).unwrap();
+    let peek = stack.last().unwrap();
     print!("\n栈顶元素 peek = {peek}");
 
     // 元素出栈

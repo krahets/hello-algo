@@ -1,7 +1,7 @@
 /**
  * File: hash_map_chaining.cpp
  * Created Time: 2023-06-13
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "./array_hash_map.cpp"
@@ -44,13 +44,13 @@ class HashMapChaining {
     /* 查询操作 */
     string get(int key) {
         int index = hashFunc(key);
-        // 遍历桶，若找到 key 则返回对应 val
+        // 遍历桶，若找到 key ，则返回对应 val
         for (Pair *pair : buckets[index]) {
             if (pair->key == key) {
                 return pair->val;
             }
         }
-        // 若未找到 key 则返回空字符串
+        // 若未找到 key ，则返回空字符串
         return "";
     }
 
@@ -136,7 +136,7 @@ int main() {
     map.print();
 
     /* 查询操作 */
-    // 向哈希表输入键 key ，得到值 value
+    // 向哈希表中输入键 key ，得到值 value
     string name = map.get(13276);
     cout << "\n输入学号 13276 ，查询到姓名 " << name << endl;
 

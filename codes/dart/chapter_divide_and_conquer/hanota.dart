@@ -12,7 +12,7 @@ void move(List<int> src, List<int> tar) {
   tar.add(pan);
 }
 
-/* 求解汉诺塔：问题 f(i) */
+/* 求解汉诺塔问题 f(i) */
 void dfs(int i, List<int> src, List<int> buf, List<int> tar) {
   // 若 src 只剩下一个圆盘，则直接将其移到 tar
   if (i == 1) {
@@ -27,7 +27,7 @@ void dfs(int i, List<int> src, List<int> buf, List<int> tar) {
   dfs(i - 1, buf, src, tar);
 }
 
-/* 求解汉诺塔 */
+/* 求解汉诺塔问题 */
 void solveHanota(List<int> A, List<int> B, List<int> C) {
   int n = A.length;
   // 将 A 顶部 n 个圆盘借助 B 移到 C

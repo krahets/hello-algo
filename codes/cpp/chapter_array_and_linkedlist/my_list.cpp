@@ -1,17 +1,17 @@
 /**
  * File: my_list.cpp
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
   private:
     int *arr;             // 数组（存储列表元素）
     int arrCapacity = 10; // 列表容量
-    int arrSize = 0;      // 列表长度（即当前元素数量）
+    int arrSize = 0;      // 列表长度（当前元素数量）
     int extendRatio = 2;   // 每次列表扩容的倍数
 
   public:
@@ -25,7 +25,7 @@ class MyList {
         delete[] arr;
     }
 
-    /* 获取列表长度（即当前元素数量）*/
+    /* 获取列表长度（当前元素数量）*/
     int size() {
         return arrSize;
     }
@@ -37,7 +37,7 @@ class MyList {
 
     /* 访问元素 */
     int get(int index) {
-        // 索引如果越界则抛出异常，下同
+        // 索引如果越界，则抛出异常，下同
         if (index < 0 || index >= size())
             throw out_of_range("索引越界");
         return arr[index];
@@ -50,7 +50,7 @@ class MyList {
         arr[index] = num;
     }
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     void add(int num) {
         // 元素数量超出容量时，触发扩容机制
         if (size() == capacity())
@@ -60,7 +60,7 @@ class MyList {
         arrSize++;
     }
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     void insert(int index, int num) {
         if (index < 0 || index >= size())
             throw out_of_range("索引越界");
@@ -81,13 +81,13 @@ class MyList {
         if (index < 0 || index >= size())
             throw out_of_range("索引越界");
         int num = arr[index];
-        // 索引 i 之后的元素都向前移动一位
+        // 将索引 index 之后的元素都向前移动一位
         for (int j = index; j < size() - 1; j++) {
             arr[j] = arr[j + 1];
         }
         // 更新元素数量
         arrSize--;
-        // 返回被删除元素
+        // 返回被删除的元素
         return num;
     }
 
@@ -121,7 +121,7 @@ class MyList {
 int main() {
     /* 初始化列表 */
     MyList *nums = new MyList();
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     nums->add(1);
     nums->add(3);
     nums->add(2);
@@ -132,7 +132,7 @@ int main() {
     printVector(vec);
     cout << "容量 = " << nums->capacity() << " ，长度 = " << nums->size() << endl;
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     nums->insert(3, 6);
     cout << "在索引 3 处插入数字 6 ，得到 nums = ";
     vec = nums->toVector();

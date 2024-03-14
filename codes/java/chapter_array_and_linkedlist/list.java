@@ -1,7 +1,7 @@
 /**
  * File: list.java
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_array_and_linkedlist;
@@ -17,8 +17,8 @@ public class list {
         System.out.println("列表 nums = " + nums);
 
         /* 访问元素 */
-        int x = nums.get(1);
-        System.out.println("访问索引 1 处的元素，得到 x = " + x);
+        int num = nums.get(1);
+        System.out.println("访问索引 1 处的元素，得到 num = " + num);
 
         /* 更新元素 */
         nums.set(1, 0);
@@ -28,7 +28,7 @@ public class list {
         nums.clear();
         System.out.println("清空列表后 nums = " + nums);
 
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         nums.add(1);
         nums.add(3);
         nums.add(2);
@@ -36,7 +36,7 @@ public class list {
         nums.add(4);
         System.out.println("添加元素后 nums = " + nums);
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         nums.add(3, 6);
         System.out.println("在索引 3 处插入数字 6 ，得到 nums = " + nums);
 
@@ -47,13 +47,11 @@ public class list {
         /* 通过索引遍历列表 */
         int count = 0;
         for (int i = 0; i < nums.size(); i++) {
-            count++;
+            count += nums.get(i);
         }
-
         /* 直接遍历列表元素 */
-        count = 0;
-        for (int num : nums) {
-            count++;
+        for (int x : nums) {
+            count += x;
         }
 
         /* 拼接两个列表 */

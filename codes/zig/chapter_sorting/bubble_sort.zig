@@ -1,6 +1,6 @@
 // File: bubble_sort.zig
 // Created Time: 2023-01-08
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -40,7 +40,7 @@ fn bubbleSortWithFlag(nums: []i32) void {
                 flag = true;
             }
         }
-        if (!flag) break;   // 此轮冒泡未交换任何元素，直接跳出
+        if (!flag) break;   // 此轮“冒泡”未交换任何元素，直接跳出
     }
 }
 

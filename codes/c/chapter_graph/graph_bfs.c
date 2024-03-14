@@ -52,7 +52,7 @@ int isVisited(Vertex **visited, int size, Vertex *vet) {
     return 0;
 }
 
-/* 广度优先遍历 BFS */
+/* 广度优先遍历 */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize, Vertex **visited, int *visitedSize) {
     // 队列用于实现 BFS
@@ -66,7 +66,7 @@ void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize,
         // 遍历该顶点的所有邻接顶点
         AdjListNode *node = findNode(graph, vet);
         while (node != NULL) {
-            // 跳过已被访问过的顶点
+            // 跳过已被访问的顶点
             if (!isVisited(visited, *visitedSize, node->vertex)) {
                 enqueue(queue, node->vertex);             // 只入队未访问的顶点
                 visited[(*visitedSize)++] = node->vertex; // 标记该顶点已被访问
@@ -98,7 +98,7 @@ int main() {
     printf("\n初始化后，图为\n");
     printGraph(graph);
 
-    // 广度优先遍历 BFS
+    // 广度优先遍历
     // 顶点遍历序列
     Vertex *res[MAX_SIZE];
     int resSize = 0;

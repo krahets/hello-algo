@@ -18,7 +18,7 @@ void countingSortNaive(int nums[], int size) {
     }
     // 2. 统计各数字的出现次数
     // counter[num] 代表 num 的出现次数
-    int *counter = malloc(sizeof(int) * m);
+    int *counter = calloc(m + 1, sizeof(int));
     for (int i = 0; i < size; i++) {
         counter[nums[i]]++;
     }
@@ -29,6 +29,8 @@ void countingSortNaive(int nums[], int size) {
             nums[i] = num;
         }
     }
+    // 4. 释放内存
+    free(counter);
 }
 
 /* 计数排序 */
@@ -43,7 +45,7 @@ void countingSort(int nums[], int size) {
     }
     // 2. 统计各数字的出现次数
     // counter[num] 代表 num 的出现次数
-    int *counter = malloc(sizeof(int) * m);
+    int *counter = calloc(m, sizeof(int));
     for (int i = 0; i < size; i++) {
         counter[nums[i]]++;
     }
@@ -62,6 +64,8 @@ void countingSort(int nums[], int size) {
     }
     // 使用结果数组 res 覆盖原数组 nums
     memcpy(nums, res, size * sizeof(int));
+    // 5. 释放内存
+    free(counter);
 }
 
 /* Driver Code */

@@ -8,8 +8,8 @@ namespace hello_algo.chapter_stack_and_queue;
 
 /* 基于链表实现的栈 */
 class LinkedListStack {
-    private ListNode? stackPeek;  // 将头节点作为栈顶
-    private int stkSize = 0;   // 栈的长度
+    ListNode? stackPeek;  // 将头节点作为栈顶
+    int stkSize = 0;   // 栈的长度
 
     public LinkedListStack() {
         stackPeek = null;
@@ -37,7 +37,7 @@ class LinkedListStack {
     /* 出栈 */
     public int Pop() {
         int num = Peek();
-        stackPeek = stackPeek.next;
+        stackPeek = stackPeek!.next;
         stkSize--;
         return num;
     }
@@ -46,18 +46,18 @@ class LinkedListStack {
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
-        return stackPeek.val;
+        return stackPeek!.val;
     }
 
     /* 将 List 转化为 Array 并返回 */
     public int[] ToArray() {
         if (stackPeek == null)
-            return Array.Empty<int>();
+            return [];
 
-        ListNode node = stackPeek;
+        ListNode? node = stackPeek;
         int[] res = new int[Size()];
         for (int i = res.Length - 1; i >= 0; i--) {
-            res[i] = node.val;
+            res[i] = node!.val;
             node = node.next;
         }
         return res;

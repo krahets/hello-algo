@@ -1,6 +1,6 @@
 // File: binary_tree.zig
 // Created Time: 2023-01-14
-// Author: sjinzh (sjinzh@gmail.com)
+// Author: codingonion (coderonion@gmail.com)
 
 const std = @import("std");
 const inc = @import("include");
@@ -14,7 +14,7 @@ pub fn main() !void {
     var n3 = inc.TreeNode(i32){ .val = 3 };
     var n4 = inc.TreeNode(i32){ .val = 4 };
     var n5 = inc.TreeNode(i32){ .val = 5 };
-    // 构建引用指向（即指针）
+    // 构建节点之间的引用（指针）
     n1.left = &n2;
     n1.right = &n3;
     n2.left = &n4;

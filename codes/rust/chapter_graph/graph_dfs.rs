@@ -10,7 +10,7 @@ use std::collections::HashSet;
 use graph_adjacency_list::GraphAdjList;
 use graph_adjacency_list::{Vertex, vets_to_vals, vals_to_vets};
 
-/* 深度优先遍历 DFS 辅助函数 */
+/* 深度优先遍历辅助函数 */
 fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex>, vet: Vertex) {
     res.push(vet); // 记录访问顶点
     visited.insert(vet); // 标记该顶点已被访问
@@ -18,7 +18,7 @@ fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex
     if let Some(adj_vets) = graph.adj_list.get(&vet) {
         for &adj_vet in adj_vets {
             if visited.contains(&adj_vet) {
-                continue; // 跳过已被访问过的顶点
+                continue; // 跳过已被访问的顶点
             }
             // 递归访问邻接顶点
             dfs(graph, visited, res, adj_vet);
@@ -26,7 +26,7 @@ fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex
     }
 }
 
-/* 深度优先遍历 DFS */
+/* 深度优先遍历 */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
     // 顶点遍历序列
@@ -54,7 +54,7 @@ fn main() {
     println!("\n初始化后，图为");
     graph.print();
 
-    /* 深度优先遍历 DFS */
+    /* 深度优先遍历 */
     let res = graph_dfs(graph, v[0]);
     println!("\n深度优先遍历（DFS）顶点序列为");
     println!("{:?}", vets_to_vals(res));

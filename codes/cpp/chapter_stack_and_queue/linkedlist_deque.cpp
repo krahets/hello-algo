@@ -1,7 +1,7 @@
 /**
  * File: linkedlist_deque.cpp
  * Created Time: 2023-03-02
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -50,7 +50,7 @@ class LinkedListDeque {
     /* 入队操作 */
     void push(int num, bool isFront) {
         DoublyListNode *node = new DoublyListNode(num);
-        // 若链表为空，则令 front, rear 都指向 node
+        // 若链表为空，则令 front 和 rear 都指向 node
         if (isEmpty())
             front = rear = node;
         // 队首入队操作
@@ -92,8 +92,8 @@ class LinkedListDeque {
             if (fNext != nullptr) {
                 fNext->prev = nullptr;
                 front->next = nullptr;
-                delete front;
             }
+            delete front;
             front = fNext; // 更新头节点
         // 队尾出队操作
         } else {
@@ -103,8 +103,8 @@ class LinkedListDeque {
             if (rPrev != nullptr) {
                 rPrev->next = nullptr;
                 rear->prev = nullptr;
-                delete rear;
             }
+            delete rear;
             rear = rPrev; // 更新尾节点
         }
         queSize--; // 更新队列长度

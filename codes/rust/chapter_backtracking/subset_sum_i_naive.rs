@@ -1,7 +1,7 @@
 /*
  * File: subset_sum_i_naive.rs
  * Created Time: 2023-07-09
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 /* 回溯算法：子集和 I */

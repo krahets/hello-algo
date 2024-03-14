@@ -1,16 +1,16 @@
 """
 File: knapsack.py
 Created Time: 2023-07-03
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 
 def knapsack_dfs(wgt: list[int], val: list[int], i: int, c: int) -> int:
     """0-1 背包：暴力搜索"""
-    # 若已选完所有物品或背包无容量，则返回价值 0
+    # 若已选完所有物品或背包无剩余容量，则返回价值 0
     if i == 0 or c == 0:
         return 0
-    # 若超过背包容量，则只能不放入背包
+    # 若超过背包容量，则只能选择不放入背包
     if wgt[i - 1] > c:
         return knapsack_dfs(wgt, val, i - 1, c)
     # 计算不放入和放入物品 i 的最大价值
@@ -24,13 +24,13 @@ def knapsack_dfs_mem(
     wgt: list[int], val: list[int], mem: list[list[int]], i: int, c: int
 ) -> int:
     """0-1 背包：记忆化搜索"""
-    # 若已选完所有物品或背包无容量，则返回价值 0
+    # 若已选完所有物品或背包无剩余容量，则返回价值 0
     if i == 0 or c == 0:
         return 0
     # 若已有记录，则直接返回
     if mem[i][c] != -1:
         return mem[i][c]
-    # 若超过背包容量，则只能不放入背包
+    # 若超过背包容量，则只能选择不放入背包
     if wgt[i - 1] > c:
         return knapsack_dfs_mem(wgt, val, mem, i - 1, c)
     # 计算不放入和放入物品 i 的最大价值

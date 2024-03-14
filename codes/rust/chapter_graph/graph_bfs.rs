@@ -10,7 +10,7 @@ use std::collections::{HashSet, VecDeque};
 use graph_adjacency_list::GraphAdjList;
 use graph_adjacency_list::{Vertex, vets_to_vals, vals_to_vets};
 
-/* 广度优先遍历 BFS */
+/* 广度优先遍历 */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
     // 顶点遍历序列
@@ -29,7 +29,7 @@ fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
         if let Some(adj_vets) = graph.adj_list.get(&vet) {
             for &adj_vet in adj_vets {
                 if visited.contains(&adj_vet) {
-                    continue; // 跳过已被访问过的顶点
+                    continue; // 跳过已被访问的顶点
                 }
                 que.push_back(adj_vet); // 只入队未访问的顶点
                 visited.insert(adj_vet); // 标记该顶点已被访问
@@ -62,7 +62,7 @@ fn main() {
     println!("\n初始化后，图为");
     graph.print();
 
-    /* 广度优先遍历 BFS */
+    /* 广度优先遍历 */
     let res = graph_bfs(graph, v[0]);
     println!("\n广度优先遍历（BFS）顶点序列为");
     println!("{:?}", vets_to_vals(res));

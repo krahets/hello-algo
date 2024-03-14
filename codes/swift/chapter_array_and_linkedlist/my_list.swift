@@ -4,11 +4,11 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 列表类简易实现 */
+/* 列表类 */
 class MyList {
     private var arr: [Int] // 数组（存储列表元素）
     private var _capacity = 10 // 列表容量
-    private var _size = 0 // 列表长度（即当前元素数量）
+    private var _size = 0 // 列表长度（当前元素数量）
     private let extendRatio = 2 // 每次列表扩容的倍数
 
     /* 构造方法 */
@@ -16,7 +16,7 @@ class MyList {
         arr = Array(repeating: 0, count: _capacity)
     }
 
-    /* 获取列表长度（即当前元素数量）*/
+    /* 获取列表长度（当前元素数量）*/
     func size() -> Int {
         _size
     }
@@ -43,7 +43,7 @@ class MyList {
         arr[index] = num
     }
 
-    /* 尾部添加元素 */
+    /* 在尾部添加元素 */
     func add(num: Int) {
         // 元素数量超出容量时，触发扩容机制
         if _size == _capacity {
@@ -54,7 +54,7 @@ class MyList {
         _size += 1
     }
 
-    /* 中间插入元素 */
+    /* 在中间插入元素 */
     func insert(index: Int, num: Int) {
         if index < 0 || index >= _size {
             fatalError("索引越界")
@@ -79,19 +79,19 @@ class MyList {
             fatalError("索引越界")
         }
         let num = arr[index]
-        // 将索引 index 之后的元素都向前移动一位
+        // 将将索引 index 之后的元素都向前移动一位
         for j in index ..< (_size - 1) {
             arr[j] = arr[j + 1]
         }
         // 更新元素数量
         _size -= 1
-        // 返回被删除元素
+        // 返回被删除的元素
         return num
     }
 
     /* 列表扩容 */
     func extendCapacity() {
-        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
+        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组
         arr = arr + Array(repeating: 0, count: _capacity * (extendRatio - 1))
         // 更新列表容量
         _capacity = arr.count
@@ -113,7 +113,7 @@ enum _MyList {
     static func main() {
         /* 初始化列表 */
         let nums = MyList()
-        /* 尾部添加元素 */
+        /* 在尾部添加元素 */
         nums.add(num: 1)
         nums.add(num: 3)
         nums.add(num: 2)
@@ -121,7 +121,7 @@ enum _MyList {
         nums.add(num: 4)
         print("列表 nums = \(nums.toArray()) ，容量 = \(nums.capacity()) ，长度 = \(nums.size())")
 
-        /* 中间插入元素 */
+        /* 在中间插入元素 */
         nums.insert(index: 3, num: 6)
         print("在索引 3 处插入数字 6 ，得到 nums = \(nums.toArray())")
 

@@ -1,7 +1,7 @@
 /*
  * File: preorder_traversal_i_compact.rs
  * Created Time: 2023-07-15
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: codingonion (coderonion@gmail.com)
  */
 
 include!("../include/include.rs");

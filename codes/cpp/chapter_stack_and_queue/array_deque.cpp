@@ -1,7 +1,7 @@
 /**
  * File: array_deque.cpp
  * Created Time: 2023-03-02
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -50,7 +50,7 @@ class ArrayDeque {
             return;
         }
         // 队首指针向左移动一位
-        // 通过取余操作，实现 front 越过数组头部后回到尾部
+        // 通过取余操作实现 front 越过数组头部后回到尾部
         front = index(front - 1);
         // 将 num 添加至队首
         nums[front] = num;
@@ -63,7 +63,7 @@ class ArrayDeque {
             cout << "双向队列已满" << endl;
             return;
         }
-        // 计算尾指针，指向队尾索引 + 1
+        // 计算队尾指针，指向队尾索引 + 1
         int rear = index(front + queSize);
         // 将 num 添加至队尾
         nums[rear] = num;

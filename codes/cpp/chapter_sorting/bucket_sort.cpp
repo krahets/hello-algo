@@ -1,7 +1,7 @@
 /**
  * File: bucket_sort.cpp
  * Created Time: 2023-03-30
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -13,7 +13,7 @@ void bucketSort(vector<float> &nums) {
     vector<vector<float>> buckets(k);
     // 1. 将数组元素分配到各个桶中
     for (float num : nums) {
-        // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+        // 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
         int i = num * k;
         // 将 num 添加进桶 bucket_idx
         buckets[i].push_back(num);

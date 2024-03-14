@@ -8,14 +8,14 @@ namespace hello_algo.chapter_sorting;
 
 public class radix_sort {
     /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */
-    static int Digit(int num, int exp) {
+    int Digit(int num, int exp) {
         // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
         return (num / exp) % 10;
     }
 
     /* 计数排序（根据 nums 第 k 位排序） */
-    static void CountingSortDigit(int[] nums, int exp) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+    void CountingSortDigit(int[] nums, int exp) {
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         int[] counter = new int[10];
         int n = nums.Length;
         // 统计 0~9 各数字的出现次数
@@ -42,7 +42,7 @@ public class radix_sort {
     }
 
     /* 基数排序 */
-    static void RadixSort(int[] nums) {
+    void RadixSort(int[] nums) {
         // 获取数组的最大元素，用于判断最大位数
         int m = int.MinValue;
         foreach (int num in nums) {
@@ -61,8 +61,8 @@ public class radix_sort {
     [Test]
     public void Test() {
         // 基数排序
-        int[] nums = { 10546151, 35663510, 42865989, 34862445, 81883077,
-            88906420, 72429244, 30524779, 82060337, 63832996 };
+        int[] nums = [ 10546151, 35663510, 42865989, 34862445, 81883077,
+            88906420, 72429244, 30524779, 82060337, 63832996 ];
         RadixSort(nums);
         Console.WriteLine("基数排序完成后 nums = " + string.Join(" ", nums));
     }

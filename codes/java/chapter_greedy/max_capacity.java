@@ -1,7 +1,7 @@
 /**
  * File: max_capacity.java
  * Created Time: 2023-07-21
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_greedy;
@@ -9,7 +9,7 @@ package chapter_greedy;
 public class max_capacity {
     /* 最大容量：贪心 */
     static int maxCapacity(int[] ht) {
-        // 初始化 i, j 分列数组两端
+        // 初始化 i, j，使其分列数组两端
         int i = 0, j = ht.length - 1;
         // 初始最大容量为 0
         int res = 0;
