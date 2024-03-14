@@ -6,7 +6,7 @@ package chapter_sorting
 
 /* 插入排序 */
 func insertionSort(nums []int) {
-	// 外循环：未排序区间为 [0, i]
+	// 外循环：已排序区间为 [0, i-1]
 	for i := 1; i < len(nums); i++ {
 		base := nums[i]
 		j := i - 1
