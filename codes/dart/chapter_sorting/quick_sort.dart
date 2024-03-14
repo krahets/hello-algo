@@ -49,14 +49,12 @@ class QuickSortMedian {
 
   /* 选取三个候选元素的中位数 */
   static int _medianThree(List<int> nums, int left, int mid, int right) {
-    // 此处使用异或运算来简化代码
-    // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-    if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
-      return left;
-    else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-      return mid;
-    else
-      return right;
+    int l = nums[left], m = nums[mid], r = nums[right];
+    if ((l <= m && m <= r) || (r <= m && m <= l))
+      return mid; // m 在 l 和 r 之间
+    if ((m <= l && l <= r) || (r <= l && l <= m))
+      return left; // l 在 m 和 r 之间
+    return right;
   }
 
   /* 哨兵划分（三数取中值） */

@@ -46,13 +46,13 @@ struct QuickSortMedian;
 impl QuickSortMedian {
     /* 选取三个候选元素的中位数 */
     fn median_three(nums: &mut [i32], left: usize, mid: usize, right: usize) -> usize {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]) {
-            return left;
-        } else if (nums[mid] < nums[left]) ^ (nums[mid] < nums[right]) {
-            return mid;
-        } 
+        let (mut l, mut m, mut r) = (nums[left], nums[mid], nums[right]);
+        if ((l <= m && m <= r) || (r <= m && m <= l)) {
+            return mid; // m 在 l 和 r 之间
+        }
+        if ((m <= l && l <= r) || (r <= l && l <= m)) {
+            return left; // l 在 m 和 r 之间
+        }
         right
     }
 
@@ -73,8 +73,8 @@ impl QuickSortMedian {
             }
             nums.swap(i, j); // 交换这两个元素
         }
-         nums.swap(i, left);  // 将基准数交换至两子数组的分界线
-         i                    // 返回基准数的索引
+        nums.swap(i, left);  // 将基准数交换至两子数组的分界线
+        i                    // 返回基准数的索引
     }
 
     /* 快速排序 */

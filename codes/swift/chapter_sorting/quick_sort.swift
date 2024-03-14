@@ -47,13 +47,16 @@ func quickSort(nums: inout [Int], left: Int, right: Int) {
 /* 快速排序类（中位基准数优化） */
 /* 选取三个候选元素的中位数 */
 func medianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
-    if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
-        return left
-    } else if (nums[mid] < nums[left]) != (nums[mid] < nums[right]) {
-        return mid
-    } else {
-        return right
+    let l = nums[left]
+    let m = nums[mid]
+    let r = nums[right]
+    if (l <= m && m <= r) || (r <= m && m <= l) {
+        return mid; // m 在 l 和 r 之间
     }
+    if (m <= l && l <= r) || (r <= l && l <= m) {
+        return left; // l 在 m 和 r 之间
+    }
+    return right;
 }
 
 /* 哨兵划分（三数取中值） */
