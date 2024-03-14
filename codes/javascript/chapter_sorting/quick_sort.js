@@ -58,8 +58,10 @@ class QuickSortMedian {
         let l = nums[left],
             m = nums[mid],
             r = nums[right];
-        if ((l <= m && m <= r) || (r <= m && m <= l)) return mid; // m 在 l 和 r 之间
-        if ((m <= l && l <= r) || (r <= l && l <= m)) return left; // l 在 m 和 r 之间
+        // m 在 l 和 r 之间
+        if ((l <= m && m <= r) || (r <= m && m <= l)) return mid;
+        // l 在 m 和 r 之间
+        if ((m <= l && l <= r) || (r <= l && l <= m)) return left;
         return right;
     }
 
