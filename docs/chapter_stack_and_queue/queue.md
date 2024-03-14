@@ -38,7 +38,7 @@
     que.append(4)
     
     # 访问队首元素
-    front: int = que[0];
+    front: int = que[0]
     
     # 元素出队
     pop: int = que.popleft()
