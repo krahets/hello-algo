@@ -627,12 +627,11 @@ comments: true
     ```python title="quick_sort.py"
     def median_three(self, nums: list[int], left: int, mid: int, right: int) -> int:
         """选取三个候选元素的中位数"""
-        # 此处使用异或运算来简化代码
-        # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]):
-            return left
-        elif (nums[mid] < nums[left]) ^ (nums[mid] < nums[right]):
-            return mid
+        l, m, r = nums[left], nums[mid], nums[right]
+        if (l <= m <= r) or (r <= m <= l):
+            return mid  # m 在 l 和 r 之间
+        if (m <= l <= r) or (r <= l <= m):
+            return left  # l 在 m 和 r 之间
         return right
 
     def partition(self, nums: list[int], left: int, right: int) -> int:
@@ -660,14 +659,12 @@ comments: true
     ```cpp title="quick_sort.cpp"
     /* 选取三个候选元素的中位数 */
     int medianThree(vector<int> &nums, int left, int mid, int right) {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
-            return left;
-        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-            return mid;
-        else
-            return right;
+        int l = nums[left], m = nums[mid], r = nums[right];
+        if ((l <= m && m <= r) || (r <= m && m <= l))
+            return mid; // m 在 l 和 r 之间
+        if ((m <= l && l <= r) || (r <= l && l <= m))
+            return left; // l 在 m 和 r 之间
+        return right;
     }
 
     /* 哨兵划分（三数取中值） */
@@ -695,14 +692,12 @@ comments: true
     ```java title="quick_sort.java"
     /* 选取三个候选元素的中位数 */
     int medianThree(int[] nums, int left, int mid, int right) {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
-            return left;
-        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-            return mid;
-        else
-            return right;
+        int l = nums[left], m = nums[mid], r = nums[right];
+        if ((l <= m && m <= r) || (r <= m && m <= l))
+            return mid; // m 在 l 和 r 之间
+        if ((m <= l && l <= r) || (r <= l && l <= m))
+            return left; // l 在 m 和 r 之间
+        return right;
     }
 
     /* 哨兵划分（三数取中值） */
@@ -730,14 +725,12 @@ comments: true
     ```csharp title="quick_sort.cs"
     /* 选取三个候选元素的中位数 */
     int MedianThree(int[] nums, int left, int mid, int right) {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
-            return left;
-        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-            return mid;
-        else
-            return right;
+        int l = nums[left], m = nums[mid], r = nums[right];
+        if ((l <= m && m <= r) || (r <= m && m <= l))
+            return mid; // m 在 l 和 r 之间
+        if ((m <= l && l <= r) || (r <= l && l <= m))
+            return left; // l 在 m 和 r 之间
+        return right;
     }
 
     /* 哨兵划分（三数取中值） */
@@ -765,12 +758,12 @@ comments: true
     ```go title="quick_sort.go"
     /* 选取三个候选元素的中位数 */
     func (q *quickSortMedian) medianThree(nums []int, left, mid, right int) int {
-        // 此处使用异或运算来简化代码（!= 在这里起到异或的作用）
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
-            return left
-        } else if (nums[mid] < nums[left]) != (nums[mid] < nums[right]) {
-            return mid
+        l, m, r := nums[left], nums[mid], nums[right]
+        if (l <= m && m <= r) || (r <= m && m <= l) {
+            return mid // m 在 l 和 r 之间
+        }
+        if (m <= l && l <= r) || (r <= l && l <= m) {
+            return left // l 在 m 和 r 之间
         }
         return right
     }
@@ -804,13 +797,16 @@ comments: true
     ```swift title="quick_sort.swift"
     /* 选取三个候选元素的中位数 */
     func medianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
-        if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
-            return left
-        } else if (nums[mid] < nums[left]) != (nums[mid] < nums[right]) {
-            return mid
-        } else {
-            return right
+        let l = nums[left]
+        let m = nums[mid]
+        let r = nums[right]
+        if (l <= m && m <= r) || (r <= m && m <= l) {
+            return mid; // m 在 l 和 r 之间
         }
+        if (m <= l && l <= r) || (r <= l && l <= m) {
+            return left; // l 在 m 和 r 之间
+        }
+        return right;
     }
 
     /* 哨兵划分（三数取中值） */
@@ -828,12 +824,14 @@ comments: true
     ```javascript title="quick_sort.js"
     /* 选取三个候选元素的中位数 */
     medianThree(nums, left, mid, right) {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right])) return left;
-        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-            return mid;
-        else return right;
+        let l = nums[left],
+            m = nums[mid],
+            r = nums[right];
+        // m 在 l 和 r 之间
+        if ((l <= m && m <= r) || (r <= m && m <= l)) return mid;
+        // l 在 m 和 r 之间
+        if ((m <= l && l <= r) || (r <= l && l <= m)) return left;
+        return right;
     }
 
     /* 哨兵划分（三数取中值） */
@@ -870,17 +868,14 @@ comments: true
         mid: number,
         right: number
     ): number {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if (Number(nums[left] < nums[mid]) ^ Number(nums[left] < nums[right])) {
-            return left;
-        } else if (
-            Number(nums[mid] < nums[left]) ^ Number(nums[mid] < nums[right])
-        ) {
-            return mid;
-        } else {
-            return right;
-        }
+        let l = nums[left],
+            m = nums[mid],
+            r = nums[right];
+        // m 在 l 和 r 之间
+        if ((l <= m && m <= r) || (r <= m && m <= l)) return mid;
+        // l 在 m 和 r 之间
+        if ((m <= l && l <= r) || (r <= l && l <= m)) return left;
+        return right;
     }
 
     /* 哨兵划分（三数取中值） */
@@ -916,14 +911,12 @@ comments: true
     ```dart title="quick_sort.dart"
     /* 选取三个候选元素的中位数 */
     int _medianThree(List<int> nums, int left, int mid, int right) {
-      // 此处使用异或运算来简化代码
-      // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-      if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
-        return left;
-      else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-        return mid;
-      else
-        return right;
+      int l = nums[left], m = nums[mid], r = nums[right];
+      if ((l <= m && m <= r) || (r <= m && m <= l))
+        return mid; // m 在 l 和 r 之间
+      if ((m <= l && l <= r) || (r <= l && l <= m))
+        return left; // l 在 m 和 r 之间
+      return right;
     }
 
     /* 哨兵划分（三数取中值） */
@@ -949,13 +942,13 @@ comments: true
     ```rust title="quick_sort.rs"
     /* 选取三个候选元素的中位数 */
     fn median_three(nums: &mut [i32], left: usize, mid: usize, right: usize) -> usize {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]) {
-            return left;
-        } else if (nums[mid] < nums[left]) ^ (nums[mid] < nums[right]) {
-            return mid;
-        } 
+        let (mut l, mut m, mut r) = (nums[left], nums[mid], nums[right]);
+        if ((l <= m && m <= r) || (r <= m && m <= l)) {
+            return mid; // m 在 l 和 r 之间
+        }
+        if ((m <= l && l <= r) || (r <= l && l <= m)) {
+            return left; // l 在 m 和 r 之间
+        }
         right
     }
 
@@ -976,8 +969,8 @@ comments: true
             }
             nums.swap(i, j); // 交换这两个元素
         }
-         nums.swap(i, left);  // 将基准数交换至两子数组的分界线
-         i                    // 返回基准数的索引
+        nums.swap(i, left);  // 将基准数交换至两子数组的分界线
+        i                    // 返回基准数的索引
     }
     ```
 
@@ -987,14 +980,12 @@ comments: true
     /* 快速排序类（中位基准数优化） */
     // 选取三个候选元素的中位数
     int medianThree(int nums[], int left, int mid, int right) {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
-            return left;
-        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-            return mid;
-        else
-            return right;
+        int l = nums[left], m = nums[mid], r = nums[right];
+        if ((l <= m && m <= r) || (r <= m && m <= l))
+            return mid; // m 在 l 和 r 之间
+        if ((m <= l && l <= r) || (r <= l && l <= m))
+            return left; // l 在 m 和 r 之间
+        return right;
     }
 
     /* 哨兵划分（三数取中值） */ 
@@ -1022,15 +1013,14 @@ comments: true
     ```zig title="quick_sort.zig"
     // 选取三个候选元素的中位数
     fn medianThree(nums: []i32, left: usize, mid: usize, right: usize) usize {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) != (nums[left] < nums[right])) {
-            return left;
-        } else if ((nums[mid] < nums[left]) != (nums[mid] < nums[right])) {
-            return mid;
-        } else {
-            return right;
-        }
+        var l = nums[left];
+        var m = nums[mid];
+        var r = nums[right];
+        if ((l <= m && m <= r) || (r <= m && m <= l))
+            return mid; // m 在 l 和 r 之间
+        if ((m <= l && l <= r) || (r <= l && l <= m))
+            return left; // l 在 m 和 r 之间
+        return right;
     }
 
     // 哨兵划分（三数取中值）
