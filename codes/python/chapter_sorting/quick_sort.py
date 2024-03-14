@@ -39,13 +39,12 @@ class QuickSortMedian:
     """快速排序类（中位基准数优化）"""
 
     def median_three(self, nums: list[int], left: int, mid: int, right: int) -> int:
-        """选取三个元素的中位数"""
-        # 此处使用异或运算来简化代码
-        # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]):
-            return left
-        elif (nums[mid] < nums[left]) ^ (nums[mid] < nums[right]):
-            return mid
+        """选取三个候选元素的中位数"""
+        l, m, r = nums[left], nums[mid], nums[right]
+        if (l <= m <= r) or (r <= m <= l):
+            return mid  # m 在 l 和 r 之间
+        if (m <= l <= r) or (r <= l <= m):
+            return left  # l 在 m 和 r 之间
         return right
 
     def partition(self, nums: list[int], left: int, right: int) -> int:
