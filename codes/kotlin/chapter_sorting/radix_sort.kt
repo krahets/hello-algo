@@ -43,8 +43,8 @@ fun radixSort(nums: IntArray) {
     // 获取数组的最大元素，用于判断最大位数
     var m = Int.MIN_VALUE
     for (num in nums) if (num > m) m = num
-    // 按照从低位到高位的顺序遍历
     var exp = 1
+    // 按照从低位到高位的顺序遍历
     while (exp <= m) {
         // 对数组元素的第 k 位执行计数排序
         // k = 1 -> exp = 1
