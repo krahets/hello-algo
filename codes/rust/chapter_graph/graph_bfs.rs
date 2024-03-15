@@ -6,9 +6,9 @@
 
 mod graph_adjacency_list;
 
-use std::collections::{HashSet, VecDeque};
 use graph_adjacency_list::GraphAdjList;
-use graph_adjacency_list::{Vertex, vets_to_vals, vals_to_vets};
+use graph_adjacency_list::{vals_to_vets, vets_to_vals, Vertex};
+use std::collections::{HashSet, VecDeque};
 
 /* 广度优先遍历 */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
@@ -25,7 +25,7 @@ fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
     while !que.is_empty() {
         let vet = que.pop_front().unwrap(); // 队首顶点出队
         res.push(vet); // 记录访问顶点
-                    // 遍历该顶点的所有邻接顶点
+                       // 遍历该顶点的所有邻接顶点
         if let Some(adj_vets) = graph.adj_list.get(&vet) {
             for &adj_vet in adj_vets {
                 if visited.contains(&adj_vet) {

@@ -13,10 +13,10 @@ fn selection_sort(nums: &mut [i32]) {
     }
     let n = nums.len();
     // 外循环：未排序区间为 [i, n-1]
-    for i in 0..n-1 {
+    for i in 0..n - 1 {
         // 内循环：找到未排序区间内的最小元素
         let mut k = i;
-        for j in i+1..n {
+        for j in i + 1..n {
             if nums[j] < nums[k] {
                 k = j; // 记录最小元素的索引
             }

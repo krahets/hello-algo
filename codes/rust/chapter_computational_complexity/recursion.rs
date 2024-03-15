@@ -4,7 +4,6 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-
 /* 递归 */
 fn recur(n: i32) -> i32 {
     // 终止条件
@@ -71,7 +70,7 @@ fn main() {
 
     res = tail_recur(n, 0);
     println!("\n尾递归函数的求和结果 res = {res}");
-    
+
     res = fib(n);
     println!("\n斐波那契数列的第 {n} 项为 {res}");
 }

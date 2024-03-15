@@ -7,11 +7,17 @@
 /* 编辑距离：暴力搜索 */
 fn edit_distance_dfs(s: &str, t: &str, i: usize, j: usize) -> i32 {
     // 若 s 和 t 都为空，则返回 0
-    if i == 0 && j == 0 { return 0; }
+    if i == 0 && j == 0 {
+        return 0;
+    }
     // 若 s 为空，则返回 t 长度
-    if i == 0 { return j as i32; }
+    if i == 0 {
+        return j as i32;
+    }
     // 若 t 为空，则返回 s 长度
-    if j == 0 {return i as i32; }
+    if j == 0 {
+        return i as i32;
+    }
     // 若两字符相等，则直接跳过此两字符
     if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
         return edit_distance_dfs(s, t, i - 1, j - 1);
@@ -27,13 +33,21 @@ fn edit_distance_dfs(s: &str, t: &str, i: usize, j: usize) -> i32 {
 /* 编辑距离：记忆化搜索 */
 fn edit_distance_dfs_mem(s: &str, t: &str, mem: &mut Vec<Vec<i32>>, i: usize, j: usize) -> i32 {
     // 若 s 和 t 都为空，则返回 0
-    if i == 0 && j == 0 { return 0; }
+    if i == 0 && j == 0 {
+        return 0;
+    }
     // 若 s 为空，则返回 t 长度
-    if i == 0 { return j as i32; }
+    if i == 0 {
+        return j as i32;
+    }
     // 若 t 为空，则返回 s 长度
-    if j == 0 {return i as i32; }
+    if j == 0 {
+        return i as i32;
+    }
     // 若已有记录，则直接返回之
-    if mem[i][j] != -1 { return mem[i][j]; }
+    if mem[i][j] != -1 {
+        return mem[i][j];
+    }
     // 若两字符相等，则直接跳过此两字符
     if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
         return edit_distance_dfs_mem(s, t, mem, i - 1, j - 1);
@@ -52,7 +66,7 @@ fn edit_distance_dp(s: &str, t: &str) -> i32 {
     let (n, m) = (s.len(), t.len());
     let mut dp = vec![vec![0; m + 1]; n + 1];
     // 状态转移：首行首列
-    for i in 1..= n {
+    for i in 1..=n {
         dp[i][0] = i as i32;
     }
     for j in 1..m {
@@ -66,7 +80,8 @@ fn edit_distance_dp(s: &str, t: &str) -> i32 {
                 dp[i][j] = dp[i - 1][j - 1];
             } else {
                 // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                dp[i][j] = std::cmp::min(std::cmp::min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                dp[i][j] =
+                    std::cmp::min(std::cmp::min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
             }
         }
     }
