@@ -43,9 +43,8 @@ fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
 /* 归并排序 */
 fn merge_sort(nums: &mut [i32], left: usize, right: usize) {
     // 终止条件
-    // 当子数组长度为 1 时终止递归
     if left >= right {
-        return;
+        return; // 当子数组长度为 1 时终止递归
     }
 
     // 划分阶段
