@@ -8,7 +8,6 @@ mod binary_search_insertion;
 
 use binary_search_insertion::binary_search_insertion;
 
-
 /* 二分查找最左一个 target */
 fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
     // 等价于查找 target 的插入点
@@ -48,4 +47,4 @@ fn main() {
         let index = binary_search_right_edge(&nums, target);
         println!("最右一个元素 {} 的索引为 {}", target, index);
     }
-} 
+}

@@ -37,7 +37,7 @@ fn permutations_i(nums: &mut [i32]) -> Vec<Vec<i32>> {
 
 /* Driver Code */
 pub fn main() {
-    let mut nums = [ 1, 2, 3 ];
+    let mut nums = [1, 2, 3];
 
     let res = permutations_i(&mut nums);
 

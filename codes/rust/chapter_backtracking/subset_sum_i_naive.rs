@@ -5,7 +5,13 @@
  */
 
 /* 回溯算法：子集和 I */
-fn backtrack(mut state: Vec<i32>, target: i32, total: i32, choices: &[i32], res: &mut Vec<Vec<i32>>) {
+fn backtrack(
+    mut state: Vec<i32>,
+    target: i32,
+    total: i32,
+    choices: &[i32],
+    res: &mut Vec<Vec<i32>>,
+) {
     // 子集和等于 target 时，记录解
     if total == target {
         res.push(state);
@@ -37,11 +43,11 @@ fn subset_sum_i_naive(nums: &[i32], target: i32) -> Vec<Vec<i32>> {
 
 /* Driver Code */
 pub fn main() {
-    let nums = [ 3, 4, 5 ];
+    let nums = [3, 4, 5];
     let target = 9;
 
     let res = subset_sum_i_naive(&nums, target);
-    
+
     println!("输入数组 nums = {:?}, target = {}", &nums, target);
     println!("所有和等于 {} 的子集 res = {:?}", target, &res);
     println!("请注意，该方法输出的结果包含重复集合");
