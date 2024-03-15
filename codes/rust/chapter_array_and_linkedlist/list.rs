@@ -60,7 +60,8 @@ fn main() {
     // 拼接两个列表
     let mut nums1 = vec![6, 8, 7, 10, 9];
     nums.append(&mut nums1); // append（移动） 之后 nums1 为空！
-                             // nums.extend(&nums1);   // extend（借用） nums1 能继续使用
+
+    // nums.extend(&nums1);   // extend（借用） nums1 能继续使用
     print!("\n将列表 nums1 拼接到 nums 之后，得到 nums = ");
     print_util::print_array(&nums);
 
