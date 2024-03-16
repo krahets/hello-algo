@@ -6,7 +6,7 @@
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Noto+Sans+SC&weight=500&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+%E7%AE%97%E6%B3%95+!" alt="hello-algo-typing-svg" />
   </br>
-  动画图解、一键运行的数据结构与算法教程
+  动画图解、一键运行的数据结构与算法教程.
 </p>
 
 <p align="center">
