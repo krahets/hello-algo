@@ -26,9 +26,9 @@ pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     };
     // n0 -> P -> n1
     let P = n0.borrow_mut().next.take();
-    if let Some(node) = P {
-        let n1 = node.borrow_mut().next.take();
-        n0.borrow_mut().next = n1;
+    if let Some(next) = P {
+        let nextnext = next.borrow_mut().next.take();
+        n0.borrow_mut().next = nextnext;
     }
 }
 
@@ -37,9 +37,10 @@ pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Rc<RefCell<ListN
     if index <= 0 {
         return head;
     };
-    if let Some(node) = &head.borrow_mut().next {
+    if let Some(node) = &head.borrow().next {
         return access(node.clone(), index - 1);
     }
+
     return head;
 }
 
@@ -73,7 +74,7 @@ fn main() {
 
     /* 插入节点 */
     insert(&n0, ListNode::new(0));
-    print!("插入节点后的链表为 ");
+    print!("插入节点0后的链表为 ");
     print_util::print_linked_list(&n0);
 
     /* 删除节点 */
