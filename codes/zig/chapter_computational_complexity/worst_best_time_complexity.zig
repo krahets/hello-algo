@@ -30,8 +30,7 @@ pub fn findOne(nums: []i32) i32 {
 
 // Driver Code
 pub fn main() !void {
-    var i: i32 = 0;
-    while (i < 10) : (i += 1) {
+    for (0..10) |_| {
         const n: usize = 100;
         var nums = randomNumbers(n);
         var index = findOne(&nums);
