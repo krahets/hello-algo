@@ -68,7 +68,7 @@ impl HashMapChaining {
         // 初始化扩容后的新哈希表
         self.capacity *= self.extend_ratio;
         self.buckets = vec![Vec::new(); self.capacity as usize];
-        self.size = 0;
+        self.size = buckets_tmp.len() as i32;
 
         // 将键值对从原哈希表搬运至新哈希表
         for bucket in buckets_tmp {
