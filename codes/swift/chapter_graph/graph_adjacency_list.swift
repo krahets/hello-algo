@@ -72,12 +72,9 @@ public class GraphAdjList {
     /* 打印邻接表 */
     public func print() {
         Swift.print("邻接表 =")
-        for pair in adjList {
-            var tmp: [Int] = []
-            for vertex in pair.value {
-                tmp.append(vertex.val)
-            }
-            Swift.print("\(pair.key.val): \(tmp),")
+        for (vertex, list) in adjList {
+            let list = list.map { $0.val }
+            Swift.print("\(vertex.val): \(list),")
         }
     }
 }
