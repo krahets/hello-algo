@@ -13,7 +13,7 @@ func backtrack(state: inout [Int], target: Int, choices: [Int], start: Int, res:
     }
     // 遍历所有选择
     // 剪枝二：从 start 开始遍历，避免生成重复子集
-    for i in stride(from: start, to: choices.count, by: 1) {
+    for i in choices.indices.dropFirst(start) {
         // 剪枝一：若子集和超过 target ，则直接结束循环
         // 这是因为数组已排序，后边元素更大，子集和一定超过 target
         if target - choices[i] < 0 {
