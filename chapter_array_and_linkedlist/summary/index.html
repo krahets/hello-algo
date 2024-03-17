@@ -116,7 +116,7 @@
         <path
             d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z" />
     </svg>
-    <span>纸质书已发布，详情请见<a href="/chapter_paperbook/">纸质书介绍</a></span>
+    <span>纸质书已发布，详情请见<a href="/chapter_paperbook/">这里</a></span>
 </div>
 
           </div>
@@ -3488,7 +3488,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96v320c0 53 43 96 96 96h320c17.7 0 32-14.3 32-32s-14.3-32-32-32v-64c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H96zm0 384h256v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16h192c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48h192c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
   
   <span class="md-ellipsis">
-    纸质书介绍
+    纸质书
   </span>
   
     
@@ -3507,7 +3507,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_19">
             <span class="md-nav__icon md-icon"></span>
-            纸质书介绍
+            纸质书
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3625,9 +3625,9 @@
 <p>相对地，数组元素则必须是相同类型的，这样才能通过计算偏移量来获取对应元素位置。例如，数组同时包含 <code>int</code> 和 <code>long</code> 两种类型，单个元素分别占用 4 字节 和 8 字节 ，此时就不能用以下公式计算偏移量了，因为数组中包含了两种“元素长度”。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 元素内存地址 = 数组内存地址（首元素内存地址） + 元素长度 * 元素索引</span>
 </code></pre></div>
-<p><strong>Q</strong>：删除节点后，是否需要把 <code>P.next</code> 设为 <code>None</code> 呢？</p>
+<p><strong>Q</strong>：删除节点 <code>P</code> 后，是否需要把 <code>P.next</code> 设为 <code>None</code> 呢？</p>
 <p>不修改 <code>P.next</code> 也可以。从该链表的角度看，从头节点遍历到尾节点已经不会遇到 <code>P</code> 了。这意味着节点 <code>P</code> 已经从链表中删除了，此时节点 <code>P</code> 指向哪里都不会对该链表产生影响。</p>
-<p>从垃圾回收的角度看，对于 Java、Python、Go 等拥有自动垃圾回收机制的语言来说，节点 <code>P</code> 是否被回收取决于是否仍存在指向它的引用，而不是 <code>P.next</code> 的值。在 C 和 C++ 等语言中，我们需要手动释放节点内存。</p>
+<p>从数据结构与算法（做题）的角度看，不断开没有关系，只要保证程序的逻辑是正确的就行。从标准库的角度看，断开更加安全、逻辑更加清晰。如果不断开，假设被删除节点未被正常回收，那么它会影响后继节点的内存回收。</p>
 <p><strong>Q</strong>：在链表中插入和删除操作的时间复杂度是 <span class="arithmatex">\(O(1)\)</span> 。但是增删之前都需要 <span class="arithmatex">\(O(n)\)</span> 的时间查找元素，那为什么时间复杂度不是 <span class="arithmatex">\(O(n)\)</span> 呢？</p>
 <p>如果是先查找元素、再删除元素，时间复杂度确实是 <span class="arithmatex">\(O(n)\)</span> 。然而，链表的 <span class="arithmatex">\(O(1)\)</span> 增删的优势可以在其他应用上得到体现。例如，双向队列适合使用链表实现，我们维护一个指针变量始终指向头节点、尾节点，每次插入与删除操作都是 <span class="arithmatex">\(O(1)\)</span> 。</p>
 <p><strong>Q</strong>：图“链表定义与存储方式”中，浅蓝色的存储节点指针是占用一块内存地址吗？还是和节点值各占一半呢？</p>
@@ -3652,8 +3652,6 @@
 <p>另一方面，必要使用链表的情况主要是二叉树和图。栈和队列往往会使用编程语言提供的 <code>stack</code> 和 <code>queue</code> ，而非链表。</p>
 <p><strong>Q</strong>：初始化列表 <code>res = [0] * self.size()</code> 操作，会导致 <code>res</code> 的每个元素引用相同的地址吗？</p>
 <p>不会。但二维数组会有这个问题，例如初始化二维列表 <code>res = [[0] * self.size()]</code> ，则多次引用了同一个列表 <code>[0]</code> 。</p>
-<p><strong>Q</strong>：在删除节点中，需要断开该节点与其后继节点之间的引用指向吗？</p>
-<p>从数据结构与算法（做题）的角度看，不断开没有关系，只要保证程序的逻辑是正确的就行。从标准库的角度看，断开更加安全、逻辑更加清晰。如果不断开，假设被删除节点未被正常回收，那么它会影响后继节点的内存回收。</p>
 
 <!-- Source file information -->
 

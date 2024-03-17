@@ -116,7 +116,7 @@
         <path
             d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z" />
     </svg>
-    <span>纸质书已发布，详情请见<a href="/chapter_paperbook/">纸质书介绍</a></span>
+    <span>纸质书已发布，详情请见<a href="/chapter_paperbook/">这里</a></span>
 </div>
 
           </div>
@@ -3521,7 +3521,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96v320c0 53 43 96 96 96h320c17.7 0 32-14.3 32-32s-14.3-32-32-32v-64c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H96zm0 384h256v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16h192c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48h192c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
   
   <span class="md-ellipsis">
-    纸质书介绍
+    纸质书
   </span>
   
     
@@ -3540,7 +3540,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_19">
             <span class="md-nav__icon md-icon"></span>
-            纸质书介绍
+            纸质书
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4595,9 +4595,9 @@
 <div class="highlight"><span class="filename">linkedlist_queue.rs</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cm">/* 基于链表实现的队列 */</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="cp">#[allow(dead_code)]</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">LinkedListQueue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="n">front</span>: <span class="nb">Option</span><span class="o">&lt;</span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">RefCell</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;&gt;</span><span class="p">,</span><span class="w">    </span><span class="c1">// 头节点 front</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="n">rear</span>: <span class="nb">Option</span><span class="o">&lt;</span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">RefCell</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;&gt;</span><span class="p">,</span><span class="w">     </span><span class="c1">// 尾节点 rear </span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="n">que_size</span>: <span class="kt">usize</span><span class="p">,</span><span class="w">                            </span><span class="c1">// 队列的长度</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="n">front</span>: <span class="nb">Option</span><span class="o">&lt;</span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">RefCell</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 头节点 front</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="n">rear</span>: <span class="nb">Option</span><span class="o">&lt;</span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">RefCell</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;&gt;</span><span class="p">,</span><span class="w">  </span><span class="c1">// 尾节点 rear</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="n">que_size</span>: <span class="kt">usize</span><span class="p">,</span><span class="w">                         </span><span class="c1">// 队列的长度</span>
 <a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">}</span>
 <a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
 <a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nb">Copy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">LinkedListQueue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
@@ -4605,7 +4605,7 @@
 <a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">        </span><span class="bp">Self</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">            </span><span class="n">front</span>: <span class="nb">None</span><span class="p">,</span>
 <a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">            </span><span class="n">rear</span>: <span class="nb">None</span><span class="p">,</span>
-<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">            </span><span class="n">que_size</span>: <span class="mi">0</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">            </span><span class="n">que_size</span>: <span class="mi">0</span><span class="p">,</span>
 <a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>
@@ -5501,10 +5501,10 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">array_queue.rs</span><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="cm">/* 基于环形数组实现的队列 */</span>
 <a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="k">struct</span> <span class="nc">ArrayQueue</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span><span class="n">nums</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w">     </span><span class="c1">// 用于存储队列元素的数组</span>
-<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">    </span><span class="n">front</span>: <span class="kt">i32</span><span class="p">,</span><span class="w">         </span><span class="c1">// 队首指针，指向队首元素</span>
-<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">    </span><span class="n">que_size</span>: <span class="kt">i32</span><span class="p">,</span><span class="w">      </span><span class="c1">// 队列长度</span>
-<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">    </span><span class="n">que_capacity</span>: <span class="kt">i32</span><span class="p">,</span><span class="w">  </span><span class="c1">// 队列容量</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span><span class="n">nums</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w">    </span><span class="c1">// 用于存储队列元素的数组</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">    </span><span class="n">front</span>: <span class="kt">i32</span><span class="p">,</span><span class="w">        </span><span class="c1">// 队首指针，指向队首元素</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">    </span><span class="n">que_size</span>: <span class="kt">i32</span><span class="p">,</span><span class="w">     </span><span class="c1">// 队列长度</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">    </span><span class="n">que_capacity</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="c1">// 队列容量</span>
 <a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="p">}</span>
 <a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>
 <a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="k">impl</span><span class="w"> </span><span class="n">ArrayQueue</span><span class="w"> </span><span class="p">{</span>
