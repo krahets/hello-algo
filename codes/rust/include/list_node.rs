@@ -1,8 +1,7 @@
 /*
  * File: list_node.rs
  * Created Time: 2023-03-05
- * Author: codingonion (coderonion@gmail.com)
- *         rongyi      (hiarongyi@gmail.com)
+ * Author: codingonion (coderonion@gmail.com), rongyi (hiarongyi@gmail.com)
  */
 
 use std::cell::RefCell;
