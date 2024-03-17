@@ -1002,7 +1002,7 @@ $$
         // 初始化 dp 表
         let mut dp = vec![vec![0; amt + 1]; n + 1];
         // 状态转移：首行首列
-        for a in 1..= amt {
+        for a in 1..=amt {
             dp[0][a] = max;
         }
         // 状态转移：其余行和列
@@ -1017,7 +1017,11 @@ $$
                 }
             }
         }
-        if dp[n][amt] != max { return dp[n][amt] as i32; } else { -1 }
+        if dp[n][amt] != max {
+            return dp[n][amt] as i32;
+        } else {
+            -1
+        }
     }
     ```
 
@@ -1412,7 +1416,11 @@ $$
                 }
             }
         }
-        if dp[amt] != max { return dp[amt] as i32; } else { -1 }
+        if dp[amt] != max {
+            return dp[amt] as i32;
+        } else {
+            -1
+        }
     }
     ```
 
@@ -1768,7 +1776,7 @@ $$
         // 初始化 dp 表
         let mut dp = vec![vec![0; amt + 1]; n + 1];
         // 初始化首列
-        for i in 0..= n {
+        for i in 0..=n {
             dp[i][0] = 1;
         }
         // 状态转移

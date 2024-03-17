@@ -354,7 +354,13 @@ comments: true
 
     ```rust title="subset_sum_i_naive.rs"
     /* 回溯算法：子集和 I */
-    fn backtrack(mut state: Vec<i32>, target: i32, total: i32, choices: &[i32], res: &mut Vec<Vec<i32>>) {
+    fn backtrack(
+        mut state: Vec<i32>,
+        target: i32,
+        total: i32,
+        choices: &[i32],
+        res: &mut Vec<Vec<i32>>,
+    ) {
         // 子集和等于 target 时，记录解
         if total == target {
             res.push(state);
@@ -830,7 +836,13 @@ comments: true
 
     ```rust title="subset_sum_i.rs"
     /* 回溯算法：子集和 I */
-    fn backtrack(mut state: Vec<i32>, target: i32, choices: &[i32], start: usize, res: &mut Vec<Vec<i32>>) {
+    fn backtrack(
+        mut state: Vec<i32>,
+        target: i32,
+        choices: &[i32],
+        start: usize,
+        res: &mut Vec<Vec<i32>>,
+    ) {
         // 子集和等于 target 时，记录解
         if target == 0 {
             res.push(state);
@@ -1344,7 +1356,13 @@ comments: true
 
     ```rust title="subset_sum_ii.rs"
     /* 回溯算法：子集和 II */
-    fn backtrack(mut state: Vec<i32>, target: i32, choices: &[i32], start: usize, res: &mut Vec<Vec<i32>>) {
+    fn backtrack(
+        mut state: Vec<i32>,
+        target: i32,
+        choices: &[i32],
+        start: usize,
+        res: &mut Vec<Vec<i32>>,
+    ) {
         // 子集和等于 target 时，记录解
         if target == 0 {
             res.push(state);

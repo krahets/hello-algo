@@ -360,7 +360,7 @@ $$
         let (n, m) = (s.len(), t.len());
         let mut dp = vec![vec![0; m + 1]; n + 1];
         // 状态转移：首行首列
-        for i in 1..= n {
+        for i in 1..=n {
             dp[i][0] = i as i32;
         }
         for j in 1..m {
@@ -374,7 +374,8 @@ $$
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
                     // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                    dp[i][j] = std::cmp::min(std::cmp::min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                    dp[i][j] =
+                        std::cmp::min(std::cmp::min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
                 }
             }
         }

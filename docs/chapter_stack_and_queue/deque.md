@@ -1523,9 +1523,9 @@ comments: true
     /* 基于双向链表实现的双向队列 */
     #[allow(dead_code)]
     pub struct LinkedListDeque<T> {
-        front: Option<Rc<RefCell<ListNode<T>>>>,    // 头节点 front
-        rear: Option<Rc<RefCell<ListNode<T>>>>,     // 尾节点 rear 
-        que_size: usize,                            // 双向队列的长度
+        front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点 front
+        rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点 rear
+        que_size: usize,                         // 双向队列的长度
     }
 
     impl<T: Copy> LinkedListDeque<T> {
@@ -1533,7 +1533,7 @@ comments: true
             Self {
                 front: None,
                 rear: None,
-                que_size: 0, 
+                que_size: 0,
             }
         }
 
@@ -1565,7 +1565,7 @@ comments: true
                         self.front = Some(node); // 更新头节点
                     }
                 }
-            } 
+            }
             // 队尾入队操作
             else {
                 match self.rear.take() {
@@ -1598,8 +1598,8 @@ comments: true
         /* 出队操作 */
         pub fn pop(&mut self, is_front: bool) -> Option<T> {
             // 若队列为空，直接返回 None
-            if self.is_empty() { 
-                return None 
+            if self.is_empty() {
+                return None;
             };
             // 队首出队操作
             if is_front {
@@ -1607,7 +1607,7 @@ comments: true
                     match old_front.borrow_mut().next.take() {
                         Some(new_front) => {
                             new_front.borrow_mut().prev.take();
-                            self.front = Some(new_front);   // 更新头节点
+                            self.front = Some(new_front); // 更新头节点
                         }
                         None => {
                             self.rear.take();
@@ -1616,15 +1616,14 @@ comments: true
                     self.que_size -= 1; // 更新队列长度
                     Rc::try_unwrap(old_front).ok().unwrap().into_inner().val
                 })
-            
-            } 
+            }
             // 队尾出队操作
             else {
                 self.rear.take().map(|old_rear| {
                     match old_rear.borrow_mut().prev.take() {
                         Some(new_rear) => {
                             new_rear.borrow_mut().next.take();
-                            self.rear = Some(new_rear);     // 更新尾节点
+                            self.rear = Some(new_rear); // 更新尾节点
                         }
                         None => {
                             self.front.take();
@@ -2990,9 +2989,9 @@ comments: true
     ```rust title="array_deque.rs"
     /* 基于环形数组实现的双向队列 */
     struct ArrayDeque {
-        nums: Vec<i32>,     // 用于存储双向队列元素的数组
-        front: usize,       // 队首指针，指向队首元素
-        que_size: usize,    // 双向队列长度
+        nums: Vec<i32>,  // 用于存储双向队列元素的数组
+        front: usize,    // 队首指针，指向队首元素
+        que_size: usize, // 双向队列长度
     }
 
     impl ArrayDeque {
@@ -3032,7 +3031,7 @@ comments: true
         pub fn push_first(&mut self, num: i32) {
             if self.que_size == self.capacity() {
                 println!("双向队列已满");
-                return
+                return;
             }
             // 队首指针向左移动一位
             // 通过取余操作实现 front 越过数组头部后回到尾部
@@ -3046,7 +3045,7 @@ comments: true
         pub fn push_last(&mut self, num: i32) {
             if self.que_size == self.capacity() {
                 println!("双向队列已满");
-                return
+                return;
             }
             // 计算队尾指针，指向队尾索引 + 1
             let rear = self.index(self.front as i32 + self.que_size as i32);
@@ -3073,18 +3072,22 @@ comments: true
 
         /* 访问队首元素 */
         fn peek_first(&self) -> i32 {
-            if self.is_empty() { panic!("双向队列为空") };
+            if self.is_empty() {
+                panic!("双向队列为空")
+            };
             self.nums[self.front]
         }
 
         /* 访问队尾元素 */
         fn peek_last(&self) -> i32 {
-            if self.is_empty() { panic!("双向队列为空") };
+            if self.is_empty() {
+                panic!("双向队列为空")
+            };
             // 计算尾元素索引
             let last = self.index(self.front as i32 + self.que_size as i32 - 1);
             self.nums[last]
         }
-        
+
         /* 返回数组用于打印 */
         fn to_array(&self) -> Vec<i32> {
             // 仅转换有效长度范围内的列表元素

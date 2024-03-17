@@ -323,7 +323,8 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         while !que.is_empty() {
             let vet = que.pop_front().unwrap(); // 队首顶点出队
             res.push(vet); // 记录访问顶点
-                        // 遍历该顶点的所有邻接顶点
+
+            // 遍历该顶点的所有邻接顶点
             if let Some(adj_vets) = graph.adj_list.get(&vet) {
                 for &adj_vet in adj_vets {
                     if visited.contains(&adj_vet) {

@@ -374,9 +374,17 @@ comments: true
 
     ```rust title="build_tree.rs"
     /* 构建二叉树：分治 */
-    fn dfs(preorder: &[i32], inorder_map: &HashMap<i32, i32>, i: i32, l: i32, r: i32) -> Option<Rc<RefCell<TreeNode>>> {
+    fn dfs(
+        preorder: &[i32],
+        inorder_map: &HashMap<i32, i32>,
+        i: i32,
+        l: i32,
+        r: i32,
+    ) -> Option<Rc<RefCell<TreeNode>>> {
         // 子树区间为空时终止
-        if r - l < 0 { return None; }
+        if r - l < 0 {
+            return None;
+        }
         // 初始化根节点
         let root = TreeNode::new(preorder[i as usize]);
         // 查询 m ，从而划分左右子树

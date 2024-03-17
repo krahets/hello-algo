@@ -296,11 +296,15 @@ comments: true
     /* 回溯 */
     fn backtrack(choices: &[i32], state: i32, n: i32, res: &mut [i32]) {
         // 当爬到第 n 阶时，方案数量加 1
-        if state == n { res[0] = res[0] + 1; }
+        if state == n {
+            res[0] = res[0] + 1;
+        }
         // 遍历所有选择
         for &choice in choices {
             // 剪枝：不允许越过第 n 阶
-            if state + choice > n { continue; }
+            if state + choice > n {
+                continue;
+            }
             // 尝试：做出选择，更新状态
             backtrack(choices, state + choice, n, res);
             // 回退
@@ -309,7 +313,7 @@ comments: true
 
     /* 爬楼梯：回溯 */
     fn climbing_stairs_backtrack(n: usize) -> i32 {
-        let choices = vec![ 1, 2 ]; // 可选择向上爬 1 阶或 2 阶
+        let choices = vec![1, 2]; // 可选择向上爬 1 阶或 2 阶
         let state = 0; // 从第 0 阶开始爬
         let mut res = Vec::new();
         res.push(0); // 使用 res[0] 记录方案数量
@@ -592,7 +596,9 @@ $$
     /* 搜索 */
     fn dfs(i: usize) -> i32 {
         // 已知 dp[1] 和 dp[2] ，返回之
-        if i == 1 || i == 2 { return i as i32; }
+        if i == 1 || i == 2 {
+            return i as i32;
+        }
         // dp[i] = dp[i-1] + dp[i-2]
         let count = dfs(i - 1) + dfs(i - 2);
         count
@@ -600,7 +606,7 @@ $$
 
     /* 爬楼梯：搜索 */
     fn climbing_stairs_dfs(n: usize) -> i32 {
-        dfs(n) 
+        dfs(n)
     }
     ```
 
@@ -908,9 +914,13 @@ $$
     /* 记忆化搜索 */
     fn dfs(i: usize, mem: &mut [i32]) -> i32 {
         // 已知 dp[1] 和 dp[2] ，返回之
-        if i == 1 || i == 2 { return i as i32; }
+        if i == 1 || i == 2 {
+            return i as i32;
+        }
         // 若存在记录 dp[i] ，则直接返回之
-        if mem[i] != -1 { return mem[i]; }
+        if mem[i] != -1 {
+            return mem[i];
+        }
         // dp[i] = dp[i-1] + dp[i-2]
         let count = dfs(i - 1, mem) + dfs(i - 2, mem);
         // 记录 dp[i]
@@ -1186,7 +1196,9 @@ $$
     /* 爬楼梯：动态规划 */
     fn climbing_stairs_dp(n: usize) -> i32 {
         // 已知 dp[1] 和 dp[2] ，返回之
-        if n == 1 || n == 2 { return n as i32; }
+        if n == 1 || n == 2 {
+            return n as i32;
+        }
         // 初始化 dp 表，用于存储子问题的解
         let mut dp = vec![-1; n + 1];
         // 初始状态：预设最小子问题的解
@@ -1420,7 +1432,9 @@ $$
     ```rust title="climbing_stairs_dp.rs"
     /* 爬楼梯：空间优化后的动态规划 */
     fn climbing_stairs_dp_comp(n: usize) -> i32 {
-        if n == 1 || n == 2 { return n as i32; }
+        if n == 1 || n == 2 {
+            return n as i32;
+        }
         let (mut a, mut b) = (1, 2);
         for _ in 3..=n {
             let tmp = b;

@@ -241,7 +241,9 @@ $$
     /* 爬楼梯最小代价：动态规划 */
     fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
         let n = cost.len() - 1;
-        if n == 1 || n == 2 { return cost[n]; }
+        if n == 1 || n == 2 {
+            return cost[n];
+        }
         // 初始化 dp 表，用于存储子问题的解
         let mut dp = vec![-1; n + 1];
         // 初始状态：预设最小子问题的解
@@ -489,7 +491,9 @@ $$
     /* 爬楼梯最小代价：空间优化后的动态规划 */
     fn min_cost_climbing_stairs_dp_comp(cost: &[i32]) -> i32 {
         let n = cost.len() - 1;
-        if n == 1 || n == 2 { return cost[n] };
+        if n == 1 || n == 2 {
+            return cost[n];
+        };
         let (mut a, mut b) = (cost[1], cost[2]);
         for i in 3..=n {
             let tmp = b;
@@ -802,7 +806,9 @@ $$
     ```rust title="climbing_stairs_constraint_dp.rs"
     /* 带约束爬楼梯：动态规划 */
     fn climbing_stairs_constraint_dp(n: usize) -> i32 {
-        if n == 1 || n == 2 { return 1 };
+        if n == 1 || n == 2 {
+            return 1;
+        };
         // 初始化 dp 表，用于存储子问题的解
         let mut dp = vec![vec![-1; 3]; n + 1];
         // 初始状态：预设最小子问题的解

@@ -517,7 +517,7 @@ comments: true
     /* 在链表的节点 n0 之后插入节点 P */
     #[allow(non_snake_case)]
     pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
-        let n1 =  n0.borrow_mut().next.take();
+        let n1 = n0.borrow_mut().next.take();
         P.borrow_mut().next = n1;
         n0.borrow_mut().next = Some(P);
     }
@@ -695,7 +695,9 @@ comments: true
     /* 删除链表的节点 n0 之后的首个节点 */
     #[allow(non_snake_case)]
     pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
-        if n0.borrow().next.is_none() {return};
+        if n0.borrow().next.is_none() {
+            return;
+        };
         // n0 -> P -> n1
         let P = n0.borrow_mut().next.take();
         if let Some(node) = P {
@@ -877,10 +879,13 @@ comments: true
     ```rust title="linked_list.rs"
     /* 访问链表中索引为 index 的节点 */
     pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Rc<RefCell<ListNode<T>>> {
-        if index <= 0 {return head};
-        if let Some(node) = &head.borrow_mut().next {
+        if index <= 0 {
+            return head;
+        };
+        if let Some(node) = &head.borrow().next {
             return access(node.clone(), index - 1);
         }
+
         return head;
     }
     ```
@@ -1076,7 +1081,9 @@ comments: true
     ```rust title="linked_list.rs"
     /* 在链表中查找值为 target 的首个节点 */
     pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T, index: i32) -> i32 {
-        if head.borrow().val == target {return index};
+        if head.borrow().val == target {
+            return index;
+        };
         if let Some(node) = &head.borrow_mut().next {
             return find(node.clone(), target, index + 1);
         }

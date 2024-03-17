@@ -469,7 +469,7 @@ index = hash(key) % capacity
         }
 
         hash as i32
-    } 
+    }
 
     /* 乘法哈希 */
     fn mul_hash(key: &str) -> i32 {

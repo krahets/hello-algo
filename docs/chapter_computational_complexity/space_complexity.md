@@ -978,7 +978,7 @@ $$
 
     ```rust title="space_complexity.rs"
     /* 函数 */
-    fn function() ->i32 {
+    fn function() -> i32 {
         // 执行某些操作
         return 0;
     }
@@ -1451,7 +1451,9 @@ $$
     /* 线性阶（递归实现） */
     fn linear_recur(n: i32) {
         println!("递归 n = {}", n);
-        if n == 1 {return};
+        if n == 1 {
+            return;
+        };
         linear_recur(n - 1);
     }
     ```
@@ -1833,7 +1835,9 @@ $$
     ```rust title="space_complexity.rs"
     /* 平方阶（递归实现） */
     fn quadratic_recur(n: i32) -> i32 {
-        if n <= 0 {return 0};
+        if n <= 0 {
+            return 0;
+        };
         // 数组 nums 长度为 n, n-1, ..., 2, 1
         let nums = vec![0; n as usize];
         println!("递归 n = {} 中的 nums 长度 = {}", n, nums.len());
@@ -2010,7 +2014,9 @@ $$
     ```rust title="space_complexity.rs"
     /* 指数阶（建立满二叉树） */
     fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
-        if n == 0 {return None};
+        if n == 0 {
+            return None;
+        };
         let root = TreeNode::new(0);
         root.borrow_mut().left = build_tree(n - 1);
         root.borrow_mut().right = build_tree(n - 1);

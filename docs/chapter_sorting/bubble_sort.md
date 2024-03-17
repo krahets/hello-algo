@@ -107,7 +107,7 @@ comments: true
     void BubbleSort(int[] nums) {
         // 外循环：未排序区间为 [0, i]
         for (int i = nums.Length - 1; i > 0; i--) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
@@ -143,7 +143,7 @@ comments: true
     func bubbleSort(nums: inout [Int]) {
         // 外循环：未排序区间为 [0, i]
         for i in stride(from: nums.count - 1, to: 0, by: -1) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
             for j in stride(from: 0, to: i, by: 1) {
                 if nums[j] > nums[j + 1] {
                     // 交换 nums[j] 与 nums[j + 1]
@@ -223,7 +223,7 @@ comments: true
     fn bubble_sort(nums: &mut [i32]) {
         // 外循环：未排序区间为 [0, i]
         for i in (1..nums.len()).rev() {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
             for j in 0..i {
                 if nums[j] > nums[j + 1] {
                     // 交换 nums[j] 与 nums[j + 1]
@@ -264,7 +264,7 @@ comments: true
         var i: usize = nums.len - 1;
         while (i > 0) : (i -= 1) {
             var j: usize = 0;
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
             while (j < i) : (j += 1) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
@@ -362,7 +362,7 @@ comments: true
         // 外循环：未排序区间为 [0, i]
         for (int i = nums.Length - 1; i > 0; i--) {
             bool flag = false; // 初始化标志位
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
@@ -499,17 +499,19 @@ comments: true
         // 外循环：未排序区间为 [0, i]
         for i in (1..nums.len()).rev() {
             let mut flag = false; // 初始化标志位
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
             for j in 0..i {
                 if nums[j] > nums[j + 1] {
                     // 交换 nums[j] 与 nums[j + 1]
                     let tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    flag = true;  // 记录交换元素
+                    flag = true; // 记录交换元素
                 }
             }
-            if !flag {break};  // 此轮“冒泡”未交换任何元素，直接跳出
+            if !flag {
+                break; // 此轮“冒泡”未交换任何元素，直接跳出
+            };
         }
     }
     ```
@@ -547,7 +549,7 @@ comments: true
         while (i > 0) : (i -= 1) {
             var flag = false;   // 初始化标志位
             var j: usize = 0;
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
             while (j < i) : (j += 1) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]

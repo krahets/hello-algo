@@ -1819,6 +1819,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
                     }
                 }
                 Self::update_height(Some(node.clone())); // 更新节点高度
+
                 /* 2. 执行旋转操作，使该子树重新恢复平衡 */
                 node = Self::rotate(Some(node)).unwrap();
                 // 返回子树的根节点
@@ -2343,6 +2344,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
                     node.borrow_mut().val = temp.borrow().val;
                 }
                 Self::update_height(Some(node.clone())); // 更新节点高度
+
                 /* 2. 执行旋转操作，使该子树重新恢复平衡 */
                 node = Self::rotate(Some(node)).unwrap();
                 // 返回子树的根节点

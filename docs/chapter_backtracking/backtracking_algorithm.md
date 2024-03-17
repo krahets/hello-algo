@@ -428,7 +428,11 @@ comments: true
 
     ```rust title="preorder_traversal_ii_compact.rs"
     /* 前序遍历：例题二 */
-    fn pre_order(res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>, path: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<Rc<RefCell<TreeNode>>>) {
+    fn pre_order(
+        res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
+        path: &mut Vec<Rc<RefCell<TreeNode>>>,
+        root: Option<Rc<RefCell<TreeNode>>>,
+    ) {
         if root.is_none() {
             return;
         }
@@ -442,7 +446,7 @@ comments: true
             pre_order(res, path, node.borrow().left.clone());
             pre_order(res, path, node.borrow().right.clone());
             // 回退
-            path.remove(path.len() -  1);
+            path.remove(path.len() - 1);
         }
     }
     ```
@@ -738,7 +742,11 @@ comments: true
 
     ```rust title="preorder_traversal_iii_compact.rs"
     /* 前序遍历：例题三 */
-    fn pre_order(res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>, path: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<Rc<RefCell<TreeNode>>>) {
+    fn pre_order(
+        res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
+        path: &mut Vec<Rc<RefCell<TreeNode>>>,
+        root: Option<Rc<RefCell<TreeNode>>>,
+    ) {
         // 剪枝
         if root.is_none() || root.as_ref().unwrap().borrow().val == 3 {
             return;
@@ -753,7 +761,7 @@ comments: true
             pre_order(res, path, node.borrow().left.clone());
             pre_order(res, path, node.borrow().right.clone());
             // 回退
-            path.remove(path.len() -  1);
+            path.remove(path.len() - 1);
         }
     }
     ```
@@ -1558,7 +1566,10 @@ comments: true
     }
 
     /* 记录解 */
-    fn record_solution(state: &mut Vec<Rc<RefCell<TreeNode>>>, res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>) {
+    fn record_solution(
+        state: &mut Vec<Rc<RefCell<TreeNode>>>,
+        res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
+    ) {
         res.push(state.clone());
     }
 
@@ -1578,7 +1589,11 @@ comments: true
     }
 
     /* 回溯算法：例题三 */
-    fn backtrack(state: &mut Vec<Rc<RefCell<TreeNode>>>, choices: &mut Vec<Rc<RefCell<TreeNode>>>, res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>) {
+    fn backtrack(
+        state: &mut Vec<Rc<RefCell<TreeNode>>>,
+        choices: &mut Vec<Rc<RefCell<TreeNode>>>,
+        res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
+    ) {
         // 检查是否为解
         if is_solution(state) {
             // 记录解
@@ -1591,7 +1606,14 @@ comments: true
                 // 尝试：做出选择，更新状态
                 make_choice(state, choice.clone());
                 // 进行下一轮选择
-                backtrack(state, &mut vec![choice.borrow().left.clone().unwrap(), choice.borrow().right.clone().unwrap()], res);
+                backtrack(
+                    state,
+                    &mut vec![
+                        choice.borrow().left.clone().unwrap(),
+                        choice.borrow().right.clone().unwrap(),
+                    ],
+                    res,
+                );
                 // 回退：撤销选择，恢复到之前的状态
                 undo_choice(state, choice.clone());
             }

@@ -433,7 +433,7 @@ comments: true
         for (i, num) in nums.iter().enumerate() {
             match dic.get(&(target - num)) {
                 Some(v) => return Some(vec![*v as i32, i as i32]),
-                None => dic.insert(num, i as i32)
+                None => dic.insert(num, i as i32),
             };
         }
         None

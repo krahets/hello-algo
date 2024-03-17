@@ -919,7 +919,10 @@ $$
                     dp[i][c] = dp[i - 1][c];
                 } else {
                     // 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = std::cmp::max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1] as usize] + val[i - 1]);
+                    dp[i][c] = std::cmp::max(
+                        dp[i - 1][c],
+                        dp[i - 1][c - wgt[i - 1] as usize] + val[i - 1],
+                    );
                 }
             }
         }

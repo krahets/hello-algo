@@ -1291,8 +1291,8 @@ comments: true
     /* 删除节点 */
     pub fn remove(&mut self, num: i32) {
         // 若树为空，直接提前返回
-        if self.root.is_none() { 
-            return; 
+        if self.root.is_none() {
+            return;
         }
         let mut cur = self.root.clone();
         let mut pre = None;

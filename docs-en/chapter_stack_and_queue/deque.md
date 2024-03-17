@@ -1522,9 +1522,9 @@ The implementation code is as follows:
     /* 基于双向链表实现的双向队列 */
     #[allow(dead_code)]
     pub struct LinkedListDeque<T> {
-        front: Option<Rc<RefCell<ListNode<T>>>>,    // 头节点 front
-        rear: Option<Rc<RefCell<ListNode<T>>>>,     // 尾节点 rear 
-        que_size: usize,                            // 双向队列的长度
+        front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点 front
+        rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点 rear
+        que_size: usize,                         // 双向队列的长度
     }
 
     impl<T: Copy> LinkedListDeque<T> {
@@ -1532,7 +1532,7 @@ The implementation code is as follows:
             Self {
                 front: None,
                 rear: None,
-                que_size: 0, 
+                que_size: 0,
             }
         }
 
@@ -1564,7 +1564,7 @@ The implementation code is as follows:
                         self.front = Some(node); // 更新头节点
                     }
                 }
-            } 
+            }
             // 队尾入队操作
             else {
                 match self.rear.take() {
@@ -1597,8 +1597,8 @@ The implementation code is as follows:
         /* 出队操作 */
         pub fn pop(&mut self, is_front: bool) -> Option<T> {
             // 若队列为空，直接返回 None
-            if self.is_empty() { 
-                return None 
+            if self.is_empty() {
+                return None;
             };
             // 队首出队操作
             if is_front {
@@ -1606,7 +1606,7 @@ The implementation code is as follows:
                     match old_front.borrow_mut().next.take() {
                         Some(new_front) => {
                             new_front.borrow_mut().prev.take();
-                            self.front = Some(new_front);   // 更新头节点
+                            self.front = Some(new_front); // 更新头节点
                         }
                         None => {
                             self.rear.take();
@@ -1615,15 +1615,14 @@ The implementation code is as follows:
                     self.que_size -= 1; // 更新队列长度
                     Rc::try_unwrap(old_front).ok().unwrap().into_inner().val
                 })
-            
-            } 
+            }
             // 队尾出队操作
             else {
                 self.rear.take().map(|old_rear| {
                     match old_rear.borrow_mut().prev.take() {
                         Some(new_rear) => {
                             new_rear.borrow_mut().next.take();
-                            self.rear = Some(new_rear);     // 更新尾节点
+                            self.rear = Some(new_rear); // 更新尾节点
                         }
                         None => {
                             self.front.take();

@@ -876,8 +876,8 @@ comments: true
     /* 基于链表实现的栈 */
     #[allow(dead_code)]
     pub struct LinkedListStack<T> {
-        stack_peek: Option<Rc<RefCell<ListNode<T>>>>,   // 将头节点作为栈顶
-        stk_size: usize,                                // 栈的长度
+        stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // 将头节点作为栈顶
+        stk_size: usize,                              // 栈的长度
     }
 
     impl<T: Copy> LinkedListStack<T> {
@@ -1537,7 +1537,9 @@ comments: true
     impl<T> ArrayStack<T> {
         /* 初始化栈 */
         fn new() -> ArrayStack<T> {
-            ArrayStack::<T> { stack: Vec::<T>::new() }
+            ArrayStack::<T> {
+                stack: Vec::<T>::new(),
+            }
         }
 
         /* 获取栈的长度 */
@@ -1565,7 +1567,9 @@ comments: true
 
         /* 访问栈顶元素 */
         fn peek(&self) -> Option<&T> {
-            if self.is_empty() { panic!("栈为空") };
+            if self.is_empty() {
+                panic!("栈为空")
+            };
             self.stack.last()
         }
 

@@ -151,7 +151,7 @@ comments: true
             res += i;
         }
         res
-    } 
+    }
     ```
 
 === "C"
@@ -352,6 +352,7 @@ comments: true
     fn while_loop(n: i32) -> i32 {
         let mut res = 0;
         let mut i = 1; // 初始化条件变量
+
         // 循环求和 1, 2, ..., n-1, n
         while i <= n {
             res += i;
@@ -570,6 +571,7 @@ comments: true
     fn while_loop_ii(n: i32) -> i32 {
         let mut res = 0;
         let mut i = 1; // 初始化条件变量
+
         // 循环求和 1, 4, 10, ...
         while i <= n {
             res += i;
