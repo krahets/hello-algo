@@ -6,9 +6,9 @@
 
 mod graph_adjacency_list;
 
-use std::collections::HashSet;
 use graph_adjacency_list::GraphAdjList;
-use graph_adjacency_list::{Vertex, vets_to_vals, vals_to_vets};
+use graph_adjacency_list::{vals_to_vets, vets_to_vals, Vertex};
+use std::collections::HashSet;
 
 /* 深度优先遍历辅助函数 */
 fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex>, vet: Vertex) {

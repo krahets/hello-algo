@@ -5,8 +5,15 @@
  */
 
 /* 回溯算法：n 皇后 */
-fn backtrack(row: usize, n: usize, state: &mut Vec<Vec<String>>, res: &mut Vec<Vec<Vec<String>>>,
-    cols: &mut [bool], diags1: &mut [bool], diags2: &mut [bool]) {
+fn backtrack(
+    row: usize,
+    n: usize,
+    state: &mut Vec<Vec<String>>,
+    res: &mut Vec<Vec<Vec<String>>>,
+    cols: &mut [bool],
+    diags1: &mut [bool],
+    diags2: &mut [bool],
+) {
     // 当放置完所有行时，记录解
     if row == n {
         let mut copy_state: Vec<Vec<String>> = Vec::new();
@@ -51,7 +58,15 @@ fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
     let mut diags2 = vec![false; 2 * n - 1]; // 记录次对角线上是否有皇后
     let mut res: Vec<Vec<Vec<String>>> = Vec::new();
 
-    backtrack(0, n, &mut state, &mut res, &mut cols, &mut diags1, &mut diags2);
+    backtrack(
+        0,
+        n,
+        &mut state,
+        &mut res,
+        &mut cols,
+        &mut diags1,
+        &mut diags2,
+    );
 
     res
 }

@@ -12,14 +12,13 @@ use array_hash_map::Pair;
 
 /* 开放寻址哈希表 */
 struct HashMapOpenAddressing {
-    size: usize,                    // 键值对数量
-    capacity: usize,                // 哈希表容量
-    load_thres: f64,                // 触发扩容的负载因子阈值
-    extend_ratio: usize,            // 扩容倍数
-    buckets: Vec<Option<Pair>>,     // 桶数组
-    TOMBSTONE: Option<Pair>,        // 删除标记
+    size: usize,                // 键值对数量
+    capacity: usize,            // 哈希表容量
+    load_thres: f64,            // 触发扩容的负载因子阈值
+    extend_ratio: usize,        // 扩容倍数
+    buckets: Vec<Option<Pair>>, // 桶数组
+    TOMBSTONE: Option<Pair>,    // 删除标记
 }
-
 
 impl HashMapOpenAddressing {
     /* 构造方法 */
@@ -30,7 +29,10 @@ impl HashMapOpenAddressing {
             load_thres: 2.0 / 3.0,
             extend_ratio: 2,
             buckets: vec![None; 4],
-            TOMBSTONE: Some(Pair {key: -1, val: "-1".to_string()}),
+            TOMBSTONE: Some(Pair {
+                key: -1,
+                val: "-1".to_string(),
+            }),
         }
     }
 
@@ -56,9 +58,9 @@ impl HashMapOpenAddressing {
                 if first_tombstone != -1 {
                     self.buckets[first_tombstone as usize] = self.buckets[index].take();
                     self.buckets[index] = self.TOMBSTONE.clone();
-                    return first_tombstone as usize;    // 返回移动后的桶索引
+                    return first_tombstone as usize; // 返回移动后的桶索引
                 }
-                return index;   // 返回桶索引
+                return index; // 返回桶索引
             }
             // 记录遇到的首个删除标记
             if first_tombstone == -1 && self.buckets[index] == self.TOMBSTONE {
@@ -68,7 +70,11 @@ impl HashMapOpenAddressing {
             index = (index + 1) % self.capacity;
         }
         // 若 key 不存在，则返回添加点的索引
-        if first_tombstone == -1 { index } else { first_tombstone as usize }
+        if first_tombstone == -1 {
+            index
+        } else {
+            first_tombstone as usize
+        }
     }
 
     /* 查询操作 */
