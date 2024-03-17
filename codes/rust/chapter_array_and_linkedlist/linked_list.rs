@@ -26,9 +26,9 @@ pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     };
     // n0 -> P -> n1
     let P = n0.borrow_mut().next.take();
-    if let Some(next) = P {
-        let nextnext = next.borrow_mut().next.take();
-        n0.borrow_mut().next = nextnext;
+    if let Some(node) = P {
+        let n1 = node.borrow_mut().next.take();
+        n0.borrow_mut().next = n1;
     }
 }
 
@@ -74,7 +74,7 @@ fn main() {
 
     /* 插入节点 */
     insert(&n0, ListNode::new(0));
-    print!("插入节点0后的链表为 ");
+    print!("插入节点后的链表为 ");
     print_util::print_linked_list(&n0);
 
     /* 删除节点 */
