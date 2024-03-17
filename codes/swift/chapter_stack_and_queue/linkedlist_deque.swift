@@ -19,15 +19,15 @@ class ListNode {
 class LinkedListDeque {
     private var front: ListNode? // 头节点 front
     private var rear: ListNode? // 尾节点 rear
-    private var queSize: Int // 双向队列的长度
+    private var _size: Int // 双向队列的长度
 
     init() {
-        queSize = 0
+        _size = 0
     }
 
     /* 获取双向队列的长度 */
     func size() -> Int {
-        queSize
+        _size
     }
 
     /* 判断双向队列是否为空 */
@@ -57,7 +57,7 @@ class LinkedListDeque {
             node.prev = rear
             rear = node // 更新尾节点
         }
-        queSize += 1 // 更新队列长度
+        _size += 1 // 更新队列长度
     }
 
     /* 队首入队 */
@@ -98,7 +98,7 @@ class LinkedListDeque {
             }
             rear = rPrev // 更新尾节点
         }
-        queSize -= 1 // 更新队列长度
+        _size -= 1 // 更新队列长度
         return val
     }
 
@@ -113,13 +113,19 @@ class LinkedListDeque {
     }
 
     /* 访问队首元素 */
-    func peekFirst() -> Int? {
-        isEmpty() ? nil : front?.val
+    func peekFirst() -> Int {
+        if isEmpty() {
+            fatalError("双向队列为空")
+        }
+        return front!.val
     }
 
     /* 访问队尾元素 */
-    func peekLast() -> Int? {
-        isEmpty() ? nil : rear?.val
+    func peekLast() -> Int {
+        if isEmpty() {
+            fatalError("双向队列为空")
+        }
+        return rear!.val
     }
 
     /* 返回数组用于打印 */
@@ -147,9 +153,9 @@ enum _LinkedListDeque {
 
         /* 访问元素 */
         let peekFirst = deque.peekFirst()
-        print("队首元素 peekFirst = \(peekFirst!)")
+        print("队首元素 peekFirst = \(peekFirst)")
         let peekLast = deque.peekLast()
-        print("队尾元素 peekLast = \(peekLast!)")
+        print("队尾元素 peekLast = \(peekLast)")
 
         /* 元素入队 */
         deque.pushLast(num: 4)
