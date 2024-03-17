@@ -11,7 +11,7 @@ func binarySearchLeftEdge(nums: [Int], target: Int) -> Int {
     // 等价于查找 target 的插入点
     let i = binarySearchInsertion(nums: nums, target: target)
     // 未找到 target ，返回 -1
-    if i == nums.count || nums[i] != target {
+    if i == nums.endIndex || nums[i] != target {
         return -1
     }
     // 找到 target ，返回索引 i
