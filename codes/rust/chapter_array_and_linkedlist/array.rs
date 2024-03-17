@@ -90,7 +90,7 @@ fn main() {
     // 长度扩展
     let mut nums = extend(nums, 3);
     print!("将数组长度扩展至 8 ，得到 nums = ");
-    print_util::print_array(&arr);
+    print_util::print_array(&nums);
 
     // 插入元素
     insert(&mut nums, 6, 3);
