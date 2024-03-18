@@ -40,11 +40,14 @@ fun quickSort(nums: IntArray, left: Int, right: Int) {
 
 /* 选取三个候选元素的中位数 */
 fun medianThree(nums: IntArray, left: Int, mid: Int, right: Int): Int {
-    // 此处使用异或运算来简化代码
-    // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-    return if ((nums[left] < nums[mid]) xor (nums[left] < nums[right])) left
-    else if ((nums[mid] < nums[left]) xor (nums[mid] < nums[right])) mid
-    else right
+    val l = nums[left]
+    val m = nums[mid]
+    val r = nums[right]
+    if ((m in l..r) || (m in r..l))
+        return mid  // m 在 l 和 r 之间
+    if ((l in m..r) || (l in r..m))
+        return left // l 在 m 和 r 之间
+    return right
 }
 
 /* 哨兵划分（三数取中值） */
@@ -52,7 +55,7 @@ fun partitionMedian(nums: IntArray, left: Int, right: Int): Int {
     // 选取三个候选元素的中位数
     val med = medianThree(nums, left, (left + right) / 2, right)
     // 将中位数交换至数组最左端
-    nums[left] = nums[med].also { nums[med] = nums[left] }
+    swap(nums, left, med)
     // 以 nums[left] 为基准数
     var i = left
     var j = right
