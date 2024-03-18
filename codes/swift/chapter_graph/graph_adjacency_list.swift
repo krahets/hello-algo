@@ -43,8 +43,8 @@ public class GraphAdjList {
             fatalError("参数错误")
         }
         // 删除边 vet1 - vet2
-        adjList[vet1]?.removeAll(where: { $0 == vet2 })
-        adjList[vet2]?.removeAll(where: { $0 == vet1 })
+        adjList[vet1]?.removeAll { $0 == vet2 }
+        adjList[vet2]?.removeAll { $0 == vet1 }
     }
 
     /* 添加顶点 */
@@ -65,7 +65,7 @@ public class GraphAdjList {
         adjList.removeValue(forKey: vet)
         // 遍历其他顶点的链表，删除所有包含 vet 的边
         for key in adjList.keys {
-            adjList[key]?.removeAll(where: { $0 == vet })
+            adjList[key]?.removeAll { $0 == vet }
         }
     }
 
