@@ -1,14 +1,14 @@
 # Queue
 
-"Queue" is a linear data structure that follows the First-In-First-Out (FIFO) rule. As the name suggests, a queue simulates the phenomenon of lining up, where newcomers join the back of the queue, and people at the front of the queue leave one by one.
+"Queue" is a linear data structure that follows the First-In-First-Out (FIFO) rule. As the name suggests, a queue simulates the phenomenon of lining up, where newcomers join the queue at the rear, and the person at the front leaves the queue first.
 
-As shown in the figure below, we call the front of the queue the "head" and the back the "tail." The operation of adding elements to the tail of the queue is termed "enqueue," and the operation of removing elements from the head is termed "dequeue."
+As shown in the figure below, we call the front of the queue the "head" and the back the "tail." The operation of adding elements to the rear of the queue is termed "enqueue," and the operation of removing elements from the front is termed "dequeue."
 
 ![Queue's First-In-First-Out Rule](queue.assets/queue_operations.png)
 
 ## Common Operations on Queue
 
-The common operations on a queue are shown in the table below. Note that method names may vary across different programming languages. Here, we adopt the same naming convention as used for stacks.
+The common operations on a queue are shown in the table below. Note that method names may vary across different programming languages. Here, we use the same naming convention as that used for stacks.
 
 <p align="center"> Table <id> &nbsp; Efficiency of Queue Operations </p>
 
@@ -37,7 +37,7 @@ We can directly use the ready-made queue classes in programming languages:
     que.append(5)
     que.append(4)
 
-    # Access the front element
+    # Access the first element
     front: int = que[0]
 
     # Dequeue an element
@@ -63,7 +63,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.push(5);
     queue.push(4);
 
-    /* Access the front element */
+    /* Access the first element*/
     int front = queue.front();
 
     /* Dequeue an element */
@@ -89,7 +89,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.offer(5);
     queue.offer(4);
 
-    /* Access the front element */
+    /* Access the first element */
     int peek = queue.peek();
 
     /* Dequeue an element */
@@ -115,7 +115,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.Enqueue(5);
     queue.Enqueue(4);
 
-    /* Access the front element */
+    /* Access the first element */
     int peek = queue.Peek();
 
     /* Dequeue an element */
@@ -142,7 +142,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.PushBack(5)
     queue.PushBack(4)
 
-    /* Access the front element */
+    /* Access the first element */
     peek := queue.Front()
 
     /* Dequeue an element */
@@ -170,7 +170,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.append(5)
     queue.append(4)
 
-    /* Access the front element */
+    /* Access the first element */
     let peek = queue.first!
 
     /* Dequeue an element */
@@ -198,7 +198,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.push(5);
     queue.push(4);
 
-    /* Access the front element */
+    /* Access the first element */
     const peek = queue[0];
 
     /* Dequeue an element */
@@ -226,7 +226,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.push(5);
     queue.push(4);
 
-    /* Access the front element */
+    /* Access the first element */
     const peek = queue[0];
 
     /* Dequeue an element */
@@ -254,7 +254,7 @@ We can directly use the ready-made queue classes in programming languages:
     queue.add(5);
     queue.add(4);
 
-    /* Access the front element */
+    /* Access the first element */
     int peek = queue.first;
 
     /* Dequeue an element */
@@ -281,7 +281,7 @@ We can directly use the ready-made queue classes in programming languages:
     deque.push_back(5);
     deque.push_back(4);
 
-    /* Access the front element */
+    /* Access the first element */
     if let Some(front) = deque.front() {
     }
 
@@ -316,9 +316,9 @@ We can directly use the ready-made queue classes in programming languages:
 
 To implement a queue, we need a data structure that allows adding elements at one end and removing them at the other. Both linked lists and arrays meet this requirement.
 
-### Implementation Based on Linked List
+### Implementation Based on a Linked List
 
-As shown in the figure below, we can consider the "head node" and "tail node" of a linked list as the "head" and "tail" of the queue, respectively. We restrict the operations so that nodes can only be added at the tail and removed at the head.
+As shown in the figure below, we can consider the "head node" and "tail node" of a linked list as the "front" and "rear" of the queue, respectively. It is stipulated that nodes can only be added at the rear and removed at the front.
 
 === "LinkedListQueue"
     ![Implementing Queue with Linked List for Enqueue and Dequeue Operations](queue.assets/linkedlist_queue_step1.png)
@@ -335,11 +335,11 @@ Below is the code for implementing a queue using a linked list:
 [file]{linkedlist_queue}-[class]{linked_list_queue}-[func]{}
 ```
 
-### Implementation Based on Array
+### Implementation Based on an Array
 
 Deleting the first element in an array has a time complexity of $O(n)$, which would make the dequeue operation inefficient. However, this problem can be cleverly avoided as follows.
 
-We can use a variable `front` to point to the index of the head element and maintain a `size` variable to record the length of the queue. Define `rear = front + size`, which points to the position right after the tail element.
+We use a variable `front` to indicate the index of the front element and maintain a variable `size` to record the queue's length. Define `rear = front + size`, which points to the position immediately following the tail element.
 
 With this design, **the effective interval of elements in the array is `[front, rear - 1]`**. The implementation methods for various operations are shown in the figure below.
 
@@ -357,15 +357,15 @@ Both enqueue and dequeue operations only require a single operation, each with a
 === "pop()"
     ![array_queue_pop](queue.assets/array_queue_step3_pop.png)
 
-You might notice a problem: as enqueue and dequeue operations are continuously performed, both `front` and `rear` move to the right and **will eventually reach the end of the array and can't move further**. To resolve this issue, we can treat the array as a "circular array."
+You might notice a problem: as enqueue and dequeue operations are continuously performed, both `front` and `rear` move to the right and **will eventually reach the end of the array and can't move further**. To resolve this, we can treat the array as a "circular array" where connecting the end of the array back to its beginning.
 
-For a circular array, `front` or `rear` needs to loop back to the start of the array upon reaching the end. This cyclical pattern can be achieved with a "modulo operation," as shown in the code below:
+In a circular array, `front` or `rear` needs to loop back to the start of the array upon reaching the end. This cyclical pattern can be achieved with a "modulo operation" as shown in the code below:
 
 ```src
 [file]{array_queue}-[class]{array_queue}-[func]{}
 ```
 
-The above implementation of the queue still has limitations: its length is fixed. However, this issue is not difficult to resolve. We can replace the array with a dynamic array to introduce an expansion mechanism. Interested readers can try to implement this themselves.
+The above implementation of the queue still has its limitations: its length is fixed. However, this issue is not difficult to resolve. We can replace the array with a dynamic array that can expand itself if needed. Interested readers can try to implement this themselves.
 
 The comparison of the two implementations is consistent with that of the stack and is not repeated here.
 

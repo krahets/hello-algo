@@ -4,7 +4,7 @@ icon: fontawesome/solid/book
 status: new
 ---
 
-# 纸质书介绍
+# 纸质书
 
 经过长时间的打磨，《Hello 算法》纸质书终于发布了！此时的心情可以用一句诗来形容：
 

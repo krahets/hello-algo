@@ -45,11 +45,11 @@ struct QuickSortMedian;
 impl QuickSortMedian {
     /* 选取三个候选元素的中位数 */
     fn median_three(nums: &mut [i32], left: usize, mid: usize, right: usize) -> usize {
-        let (mut l, mut m, mut r) = (nums[left], nums[mid], nums[right]);
-        if ((l <= m && m <= r) || (r <= m && m <= l)) {
+        let (l, m, r) = (nums[left], nums[mid], nums[right]);
+        if (l <= m && m <= r) || (r <= m && m <= l) {
             return mid; // m 在 l 和 r 之间
         }
-        if ((m <= l && l <= r) || (r <= l && l <= m)) {
+        if (m <= l && l <= r) || (r <= l && l <= m) {
             return left; // l 在 m 和 r 之间
         }
         right

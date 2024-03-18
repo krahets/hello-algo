@@ -37,9 +37,10 @@ pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Rc<RefCell<ListN
     if index <= 0 {
         return head;
     };
-    if let Some(node) = &head.borrow_mut().next {
+    if let Some(node) = &head.borrow().next {
         return access(node.clone(), index - 1);
     }
+
     return head;
 }
 
