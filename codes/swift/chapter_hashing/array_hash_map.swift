@@ -11,11 +11,8 @@ class ArrayHashMap {
     private var buckets: [Pair?]
 
     init() {
-        buckets = []
         // 初始化数组，包含 100 个桶
-        for _ in 0 ..< 100 {
-            buckets.append(nil)
-        }
+        buckets = Array(repeating: nil, count: 100)
     }
 
     /* 哈希函数 */
