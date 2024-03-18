@@ -36,7 +36,7 @@ func arrayTraversal(nums: [Int]) -> Int {
 /* 平方阶 */
 func quadratic(n: Int) -> Int {
     var count = 0
-    // 循环次数与数组长度成平方关系
+    // 循环次数与数据大小 n 成平方关系
     for _ in 0 ..< n {
         for _ in 0 ..< n {
             count += 1

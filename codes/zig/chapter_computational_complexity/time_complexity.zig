@@ -40,7 +40,7 @@ fn arrayTraversal(nums: []i32) i32 {
 fn quadratic(n: i32) i32 {
     var count: i32 = 0;
     var i: i32 = 0;
-    // 循环次数与数组长度成平方关系
+    // 循环次数与数据大小 n 成平方关系
     while (i < n) : (i += 1) {
         var j: i32 = 0;
         while (j < n) : (j += 1) {

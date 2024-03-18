@@ -37,7 +37,7 @@ fn array_traversal(nums: &[i32]) -> i32 {
 /* 平方阶 */
 fn quadratic(n: i32) -> i32 {
     let mut count = 0;
-    // 循环次数与数组长度成平方关系
+    // 循环次数与数据大小 n 成平方关系
     for _ in 0..n {
         for _ in 0..n {
             count += 1;
