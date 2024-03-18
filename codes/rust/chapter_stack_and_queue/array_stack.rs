@@ -36,10 +36,7 @@ impl<T> ArrayStack<T> {
 
     /* 出栈 */
     fn pop(&mut self) -> Option<T> {
-        match self.stack.pop() {
-            Some(num) => Some(num),
-            None => None,
-        }
+        self.stack.pop()
     }
 
     /* 访问栈顶元素 */
