@@ -104,11 +104,7 @@ class ArrayDeque {
     /* 返回数组用于打印 */
     func toArray() -> [Int] {
         // 仅转换有效长度范围内的列表元素
-        var res = Array(repeating: 0, count: size())
-        for (i, j) in sequence(first: (0, front), next: { $0 < self.size() - 1 ? ($0 + 1, $1 + 1) : nil }) {
-            res[i] = nums[index(i: j)]
-        }
-        return res
+        (front ..< front + size()).map { nums[index(i: $0)] }
     }
 }
 

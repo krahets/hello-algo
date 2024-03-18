@@ -67,11 +67,7 @@ class ArrayQueue {
     /* 返回数组 */
     func toArray() -> [Int] {
         // 仅转换有效长度范围内的列表元素
-        var res = Array(repeating: 0, count: size())
-        for (i, j) in sequence(first: (0, front), next: { $0 < self.size() - 1 ? ($0 + 1, $1 + 1) : nil }) {
-            res[i] = nums[j % capacity()]
-        }
-        return res
+        (front ..< front + size()).map { nums[$0 % capacity()] }
     }
 }
 
