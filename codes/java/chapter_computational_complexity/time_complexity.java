@@ -37,7 +37,7 @@ public class time_complexity {
     /* 平方阶 */
     static int quadratic(int n) {
         int count = 0;
-        // 循环次数与数组长度成平方关系
+        // 循环次数与数据大小 n 成平方关系
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;

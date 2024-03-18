@@ -37,7 +37,7 @@ fun arrayTraversal(nums: IntArray): Int {
 /* 平方阶 */
 fun quadratic(n: Int): Int {
     var count = 0
-    // 循环次数与数组长度成平方关系
+    // 循环次数与数据大小 n 成平方关系
     for (i in 0..<n) {
         for (j in 0..<n) {
             count++
