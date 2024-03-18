@@ -1,6 +1,6 @@
 # Queue
 
-"Queue" is a linear data structure that follows the First-In-First-Out (FIFO) rule. As the name suggests, a queue simulates the phenomenon of lining up, where newcomers join at the rear of the queue, and people at the front leave one by one.
+"Queue" is a linear data structure that follows the First-In-First-Out (FIFO) rule. As the name suggests, a queue simulates the phenomenon of lining up, where newcomers join the queue at the rear, and the person at the front leaves the queue first.
 
 As shown in the figure below, we call the front of the queue the "head" and the back the "tail." The operation of adding elements to the rear of the queue is termed "enqueue," and the operation of removing elements from the front is termed "dequeue."
 
@@ -318,7 +318,7 @@ To implement a queue, we need a data structure that allows adding elements at on
 
 ### Implementation Based on a Linked List
 
-As shown in the figure below, we can consider the "head" and "tail" of a linked list as the "front" and "rear" of the queue, respectively. It is stipulated that nodes can only be added at the rear and removed at the front.
+As shown in the figure below, we can consider the "head node" and "tail node" of a linked list as the "front" and "rear" of the queue, respectively. It is stipulated that nodes can only be added at the rear and removed at the front.
 
 === "LinkedListQueue"
     ![Implementing Queue with Linked List for Enqueue and Dequeue Operations](queue.assets/linkedlist_queue.png)
@@ -365,7 +365,7 @@ In a circular array, `front` or `rear` needs to loop back to the start of the ar
 [file]{array_queue}-[class]{array_queue}-[func]{}
 ```
 
-The above implementation of the queue still has its limitations: its length is fixed. However, this issue is not difficult to resolve. We can replace the array with a dynamic array that can resize itself. Interested readers can try to implement this themselves.
+The above implementation of the queue still has its limitations: its length is fixed. However, this issue is not difficult to resolve. We can replace the array with a dynamic array that can expand itself if needed. Interested readers can try to implement this themselves.
 
 The comparison of the two implementations is consistent with that of the stack and is not repeated here.
 
