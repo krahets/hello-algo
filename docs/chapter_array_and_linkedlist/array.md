@@ -113,6 +113,25 @@
     var nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
+=== "kotlin"
+
+```
+// 初始化数组
+val arr = arrayOf(1, 2, 3, 4, 5)
+//初始化数组，里面的元素是数组下标的两倍
+val arr = Array(5) { it * 2 }
+//以下也是如此
+//int数组
+val intArr = IntArray(5) { it * 2 }
+//long数组 
+val longArr = LongArray(5) { it * 2L }
+//float数组 
+val floatArr = FloatArray(5) { it * 2f }
+//创建五个全为0的int数组
+val intArr = IntArray(5) { 0 }
+//其他数组同样如此
+```
+
 ??? pythontutor "可视化运行"
 
     https://pythontutor.com/render.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0Aarr%20%3D%20%5B0%5D%20*%205%20%20%23%20%5B%200,%200,%200,%200,%200%20%5D%0Anums%20%3D%20%5B1,%203,%202,%205,%204%5D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
