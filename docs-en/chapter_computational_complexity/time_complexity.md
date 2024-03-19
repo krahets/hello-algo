@@ -1466,7 +1466,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
     def quadratic(n: int) -> int:
         """平方阶"""
         count = 0
-        # 循环次数与数组长度成平方关系
+        # 循环次数与数据大小 n 成平方关系
         for i in range(n):
             for j in range(n):
                 count += 1
@@ -1479,7 +1479,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
     /* 平方阶 */
     int quadratic(int n) {
         int count = 0;
-        // 循环次数与数组长度成平方关系
+        // 循环次数与数据大小 n 成平方关系
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1495,7 +1495,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
     /* 平方阶 */
     int quadratic(int n) {
         int count = 0;
-        // 循环次数与数组长度成平方关系
+        // 循环次数与数据大小 n 成平方关系
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1511,7 +1511,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
     /* 平方阶 */
     int Quadratic(int n) {
         int count = 0;
-        // 循环次数与数组长度成平方关系
+        // 循环次数与数据大小 n 成平方关系
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1527,7 +1527,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
     /* 平方阶 */
     func quadratic(n int) int {
         count := 0
-        // 循环次数与数组长度成平方关系
+        // 循环次数与数据大小 n 成平方关系
         for i := 0; i < n; i++ {
             for j := 0; j < n; j++ {
                 count++
@@ -1543,7 +1543,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
     /* 平方阶 */
     func quadratic(n: Int) -> Int {
         var count = 0
-        // 循环次数与数组长度成平方关系
+        // 循环次数与数据大小 n 成平方关系
         for _ in 0 ..< n {
             for _ in 0 ..< n {
                 count += 1
@@ -1559,7 +1559,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
     /* 平方阶 */
     function quadratic(n) {
         let count = 0;
-        // 循环次数与数组长度成平方关系
+        // 循环次数与数据大小 n 成平方关系
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 count++;
@@ -1575,7 +1575,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
     /* 平方阶 */
     function quadratic(n: number): number {
         let count = 0;
-        // 循环次数与数组长度成平方关系
+        // 循环次数与数据大小 n 成平方关系
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 count++;
@@ -1591,7 +1591,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
     /* 平方阶 */
     int quadratic(int n) {
       int count = 0;
-      // 循环次数与数组长度成平方关系
+      // 循环次数与数据大小 n 成平方关系
       for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
           count++;
@@ -1607,7 +1607,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
     /* 平方阶 */
     fn quadratic(n: i32) -> i32 {
         let mut count = 0;
-        // 循环次数与数组长度成平方关系
+        // 循环次数与数据大小 n 成平方关系
         for _ in 0..n {
             for _ in 0..n {
                 count += 1;
@@ -1623,7 +1623,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
     /* 平方阶 */
     int quadratic(int n) {
         int count = 0;
-        // 循环次数与数组长度成平方关系
+        // 循环次数与数据大小 n 成平方关系
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1640,7 +1640,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
     fn quadratic(n: i32) i32 {
         var count: i32 = 0;
         var i: i32 = 0;
-        // 循环次数与数组长度成平方关系
+        // 循环次数与数据大小 n 成平方关系
         while (i < n) : (i += 1) {
             var j: i32 = 0;
             while (j < n) : (j += 1) {
@@ -1653,8 +1653,8 @@ Quadratic order means the number of operations grows quadratically with the inpu
 
 ??? pythontutor "Code Visualization"
 
-    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B9%B3%E6%96%B9%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%AC%A1%E6%95%B0%E4%B8%8E%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%88%90%E5%B9%B3%E6%96%B9%E5%85%B3%E7%B3%BB%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20quadratic%28n%29%0A%20%20%20%20print%28%22%E5%B9%B3%E6%96%B9%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B9%B3%E6%96%B9%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%AC%A1%E6%95%B0%E4%B8%8E%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%88%90%E5%B9%B3%E6%96%B9%E5%85%B3%E7%B3%BB%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20quadratic%28n%29%0A%20%20%20%20print%28%22%E5%B9%B3%E6%96%B9%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B9%B3%E6%96%B9%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%AC%A1%E6%95%B0%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%E6%88%90%E5%B9%B3%E6%96%B9%E5%85%B3%E7%B3%BB%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20quadratic%28n%29%0A%20%20%20%20print%28%22%E5%B9%B3%E6%96%B9%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B9%B3%E6%96%B9%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%AC%A1%E6%95%B0%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%E6%88%90%E5%B9%B3%E6%96%B9%E5%85%B3%E7%B3%BB%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20quadratic%28n%29%0A%20%20%20%20print%28%22%E5%B9%B3%E6%96%B9%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 The following image compares constant order, linear order, and quadratic order time complexities.
 
