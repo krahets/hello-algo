@@ -1,0 +1,18 @@
+name: Kotlin
+on: 
+  push:
+    branches: [ "main" ]
+    paths: ["codes/kotlin/**/*.kt"]
+  pull_request:
+    branches: [ "main" ]
+    paths: ["codes/kotlin/**/*.kt"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps: 
+      - uses: actions/checkout@v2
+      - uses: fwilhe2/setup-kotlin@main
+      - run: kotlinc codes/kotlin/**/*.kt -include-runtime -d codes/kotlin/build/*.jar; java -jar codes/kotlin/build/*.jar
+
