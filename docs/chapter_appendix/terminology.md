@@ -9,7 +9,7 @@
 
 | English                        | 简体中文       | 繁体中文       |
 | ------------------------------ | -------------- | -------------- |
-| algorithm                      | 算法           | 算法           |
+| algorithm                      | 算法           | 演算法           |
 | data structure                 | 数据结构       | 資料結構       |
 | asymptotic complexity analysis | 渐近复杂度分析 | 漸近複雜度分析 |
 | time complexity                | 时间复杂度     | 時間複雜度     |
