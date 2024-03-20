@@ -1,30 +1,30 @@
 # Hash Table
 
-A "hash table", also known as a "hash map", achieves efficient element querying by establishing a mapping between keys and values. Specifically, when we input a `key` into the hash table, we can retrieve the corresponding `value` in $O(1)$ time.
+*Hash Table*, also known as *Hash Map*, achieves efficient querying by establishing a mapping between keys and values. Specifically, when we input a `key` into the hash table, we can get the corresponding `value` in $O(1)$ time complexity.
 
-As shown in the figure below, given $n$ students, each with two pieces of data: "name" and "student number". If we want to implement a query feature that returns the corresponding name when given a student number, we can use the hash table shown in the figure below.
+As figure shows below, given $n$ students, each with two attributes: "Name" and "Student ID". If we want to implement a query feature that returns the corresponding name of the given student ID, we can use the hash table shown in the figure below.
 
 ![Abstract representation of a hash table](hash_map.assets/hash_table_lookup.png)
 
-Apart from hash tables, arrays and linked lists can also be used to implement querying functions. Their efficiency is compared in the table below.
+Apart from hash tables, arrays and linked lists can also be used to querying. The efficiency is compared in the table below.
 
-- **Adding Elements**: Simply add the element to the end of the array (or linked list), using $O(1)$ time.
-- **Querying Elements**: Since the array (or linked list) is unordered, it requires traversing all the elements, using $O(n)$ time.
-- **Deleting Elements**: First, locate the element, then delete it from the array (or linked list), using $O(n)$ time.
+- **Add**: Simply add the element to the end of the array (or linked list), with time complexity $O(1)$.
+- **Query**: Since the array (or linked list) is unordered, it requires traversing all the elements, with time complexity $O(n)$.
+- **Delete**: First, find the element, then delete it from the array (or linked list), using $O(n)$ time.
 
 <p align="center"> Table <id> &nbsp; Comparison of Element Query Efficiency </p>
 
 |                | Array  | Linked List | Hash Table |
 | -------------- | ------ | ----------- | ---------- |
-| Find Element   | $O(n)$ | $O(n)$      | $O(1)$     |
-| Add Element    | $O(1)$ | $O(1)$      | $O(1)$     |
-| Delete Element | $O(n)$ | $O(n)$      | $O(1)$     |
+| Add    | $O(1)$ | $O(1)$      | $O(1)$     |
+| Query   | $O(n)$ | $O(n)$      | $O(1)$     |
+| Delete | $O(n)$ | $O(n)$      | $O(1)$     |
 
-Observations reveal that **the time complexity for adding, deleting, and querying in a hash table is $O(1)$**, which is highly efficient.
+It reveals that **the time complexity for adding, deleting, and querying in a hash table is $O(1)$**, which is highly efficient.
 
 ## Common Operations of Hash Table
 
-Common operations of a hash table include initialization, querying, adding key-value pairs, and deleting key-value pairs, etc. Example code is as follows:
+Common operations of a hash table include initialization, querying, adding key-value pairs, deleting key-value pairs and so on. Example is as follows:
 
 === "Python"
 
@@ -277,7 +277,7 @@ Common operations of a hash table include initialization, querying, adding key-v
 
     https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E8%BE%93%E5%85%A5%E9%94%AE%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&cumulative=false&curInstr=2&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-There are three common ways to traverse a hash table: traversing key-value pairs, keys, and values. Example code is as follows:
+There are three common ways to traverse a hash table: key-value pairs, keys and values. Example is as follows:
 
 === "Python"
 
@@ -474,9 +474,9 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 
 ## Simple Implementation of Hash Table
 
-First, let's consider the simplest case: **implementing a hash table using just an array**. In the hash table, each empty slot in the array is called a "bucket", and each bucket can store one key-value pair. Therefore, the query operation involves finding the bucket corresponding to the `key` and retrieving the `value` from it.
+First, let's consider the simplest case: **implementing hash table using array**. In the hash table, each empty slot in the array is called a "bucket", and each bucket can store one key-value pair. Therefore, the query operation involves finding the bucket of the `key` and get the `value` from the bucket.
 
-So, how do we locate the appropriate bucket based on the `key`? This is achieved through a "hash function". The role of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space is all possible keys, and the output space is all buckets (array indices). In other words, input a `key`, **and we can use the hash function to determine the storage location of the corresponding key-value pair in the array**.
+So, how do we find the appropriate bucket based on the `key`? This is achieved through a "hash function". The use of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space is all possible keys, and the output space is all buckets (array indices). In other words, input a `key`, **and we can use the hash function to locate the storage position of the corresponding key-value pair in the array**.
 
 The calculation process of the hash function for a given `key` is divided into the following two steps:
 
@@ -487,9 +487,9 @@ The calculation process of the hash function for a given `key` is divided into t
 index = hash(key) % capacity
 ```
 
-Afterward, we can use `index` to access the corresponding bucket in the hash table and thereby retrieve the `value`.
+Afterward, we can use `index` to access the corresponding bucket in the hash table and then get the `value`.
 
-Assuming array length `capacity = 100` and hash algorithm `hash(key) = key`, the hash function is `key % 100`. The figure below uses `key` as the student number and `value` as the name to demonstrate the working principle of the hash function.
+Assuming array length `capacity = 100` and hash algorithm `hash(key) = key`, the hash function is `key % 100`. The figure below uses `key` as the student Id and `value` as the name, it demonstrates how hash function works.
 
 ![Working principle of hash function](hash_map.assets/hash_function.png)
 
@@ -501,7 +501,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 
 ## Hash Collision and Resizing
 
-Fundamentally, the role of the hash function is to map the entire input space of all keys to the output space of all array indices. However, the input space is often much larger than the output space. Therefore, **theoretically, there must be situations where "multiple inputs correspond to the same output"**.
+Fundamentally, the hash function is to map the entire input space of all keys to the output space of all array indices. However, the input space is often much larger than the output space. Therefore, **theoretically, there must be situations where "multiple inputs mapping to the same output"**.
 
 For the hash function in the above example, if the last two digits of the input `key` are the same, the output of the hash function will also be the same. For example, when querying for students with student numbers 12836 and 20336, we find:
 
@@ -510,16 +510,16 @@ For the hash function in the above example, if the last two digits of the input 
 20336 % 100 = 36
 ```
 
-As shown in the figure below, both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is known as "hash collision".
+As shown in the figure below, both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs mapping to the same output is known as "hash collision".
 
 ![Example of hash collision](hash_map.assets/hash_collision.png)
 
-It is easy to understand that the larger the capacity $n$ of the hash table, the lower the probability of multiple keys being allocated to the same bucket, and the fewer the collisions. Therefore, **expanding the capacity of the hash table can reduce hash collisions**.
+It is easy to understand that the larger hash table is, the lower the probability of multiple keys being allocated to the same bucket, and the fewer the collisions. Therefore, **expanding the capacity of the hash table can reduce hash collisions**.
 
 As shown in the figure below, before expansion, key-value pairs `(136, A)` and `(236, D)` collided; after expansion, the collision is resolved.
 
 ![Hash table expansion](hash_map.assets/hash_table_reshash.png)
 
-Similar to array expansion, resizing a hash table requires migrating all key-value pairs from the original hash table to the new one, which is time-consuming. Furthermore, since the capacity `capacity` of the hash table changes, we need to recalculate the storage positions of all key-value pairs using the hash function, which adds to the computational overhead of the resizing process. Therefore, programming languages often reserve a sufficiently large capacity for the hash table to prevent frequent resizing.
+Similar to array expansion, resizing a hash table requires migrating all key-value pairs from the original hash table to the new one, which is time-consuming. Furthermore, since the `capacity` of the hash table changes, we need to recalculate the storage positions of all key-value pairs using the hash function, which adds to the computational overhead of the resizing process. Therefore, programming languages often reserve a sufficiently large capacity for the hash table to prevent frequent resizing.
 
-The "load factor" is an important concept for hash tables. It is defined as the ratio of the number of elements in the hash table to the number of buckets. It is used to measure the severity of hash collisions and **is often used as a trigger for resizing the hash table**. For example, in Java, when the load factor exceeds $0.75$, the system will resize the hash table to twice its original size.
+The ***Load Factor*** is an important concept for hash tables. It is defined as the ratio of the number of elements in the hash table to the number of buckets. It is used to measure the severity of hash collisions and **is often used as a trigger for resizing the hash table**. For example, in Java, when the load factor exceeds $0.75$, the system will resize the hash table to twice its original size.
