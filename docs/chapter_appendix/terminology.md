@@ -11,9 +11,14 @@
 | ------------------------------ | -------------- | -------------- |
 | algorithm                      | 算法           | 演算法         |
 | data structure                 | 数据结构       | 資料結構       |
+| code                           | 代码           | 程式碼         |
+| function                       | 函数           | 函式           |
+| method                         | 方法           | 方法           |
+| variable                       | 变量           | 變數           |
 | asymptotic complexity analysis | 渐近复杂度分析 | 漸近複雜度分析 |
 | time complexity                | 时间复杂度     | 時間複雜度     |
 | space complexity               | 空间复杂度     | 空間複雜度     |
+| loop                           | 循环           | 迴圈           |
 | iteration                      | 迭代           | 迭代           |
 | recursion                      | 递归           | 遞迴           |
 | tail recursion                 | 尾递归         | 尾遞迴         |
@@ -25,8 +30,8 @@
 | 2’s complement                 | 补码           | 補碼           |
 | array                          | 数组           | 陣列           |
 | index                          | 索引           | 索引           |
-| linked list                    | 链表           | 連結串列       |
-| linked list node, list node    | 链表节点       | 連結串列節點   |
+| linked list                    | 链表           | 鏈結串列       |
+| linked list node, list node    | 链表节点       | 鏈結串列節點   |
 | head node                      | 头节点         | 頭節點         |
 | tail node                      | 尾节点         | 尾節點         |
 | list                           | 列表           | 列表           |
@@ -112,7 +117,7 @@
 | counting sort                  | 计数排序       | 計數排序       |
 | radix sort                     | 基数排序       | 基數排序       |
 | divide and conquer             | 分治           | 分治           |
-| hanota problem                 | 汉诺塔问题     | 漢諾塔問題     |
+| hanota problem                 | 汉诺塔问题     | 河內塔問題     |
 | backtracking algorithm         | 回溯算法       | 回溯演算法     |
 | constraint                     | 约束           | 約束           |
 | solution                       | 解             | 解             |
