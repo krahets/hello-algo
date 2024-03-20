@@ -168,8 +168,6 @@ comments: true
 === "Swift"
 
     ```swift title="quick_sort.swift"
-    [class]{}-[func]{swap}
-
     /* 哨兵划分 */
     func partition(nums: inout [Int], left: Int, right: Int) -> Int {
         // 以 nums[left] 为基准数
