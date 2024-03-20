@@ -70,7 +70,7 @@
 | complete binary tree           | 完全二叉树     | 完全二元樹     |
 | full binary tree               | 完满二叉树     | 完滿二元樹     |
 | balanced binary tree           | 平衡二叉树     | 平衡二元樹     |
-| AVL tree                       | AVL  树        | AVL 樹         |
+| AVL tree                       | AVL 树         | AVL 樹         |
 | red-black tree                 | 红黑树         | 紅黑樹         |
 | level-order traversal          | 层序遍历       | 層序走訪       |
 | breadth-first traversal        | 广度优先遍历   | 廣度優先走訪   |
@@ -83,7 +83,7 @@
 | min heap                       | 小顶堆         | 小頂堆積       |
 | priority queue                 | 优先队列       | 優先佇列       |
 | heapify                        | 堆化           | 堆積化         |
-| top-$k$ problem                | Top-$k$  问题  | Top-$k$  問題  |
+| top-$k$ problem                | Top-$k$ 问题   | Top-$k$ 問題   |
 | graph                          | 图             | 圖             |
 | vertex                         | 顶点           | 頂點           |
 | undirected graph               | 无向图         | 無向圖         |
