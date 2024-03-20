@@ -317,7 +317,7 @@ $$
 
     // 算法 C 的时间复杂度：常数阶
     func algorithmC(n: Int) {
-        for _ in 0 ..< 1000000 {
+        for _ in 0 ..< 1_000_000 {
             print(0)
         }
     }
