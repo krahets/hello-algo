@@ -209,7 +209,7 @@ comments: true
             return
         }
         // 遍历所有选择
-        for i in stride(from: 0, to: choices.count, by: 1) {
+        for i in choices.indices {
             // 剪枝：若子集和超过 target ，则跳过该选择
             if total + choices[i] > target {
                 continue
@@ -680,7 +680,7 @@ comments: true
         }
         // 遍历所有选择
         // 剪枝二：从 start 开始遍历，避免生成重复子集
-        for i in stride(from: start, to: choices.count, by: 1) {
+        for i in choices.indices.dropFirst(start) {
             // 剪枝一：若子集和超过 target ，则直接结束循环
             // 这是因为数组已排序，后边元素更大，子集和一定超过 target
             if target - choices[i] < 0 {
@@ -1181,7 +1181,7 @@ comments: true
         // 遍历所有选择
         // 剪枝二：从 start 开始遍历，避免生成重复子集
         // 剪枝三：从 start 开始遍历，避免重复选择同一元素
-        for i in stride(from: start, to: choices.count, by: 1) {
+        for i in choices.indices.dropFirst(start) {
             // 剪枝一：若子集和超过 target ，则直接结束循环
             // 这是因为数组已排序，后边元素更大，子集和一定超过 target
             if target - choices[i] < 0 {

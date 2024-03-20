@@ -109,10 +109,10 @@ comments: true
 
     ```swift title=""
     // 使用多种基本数据类型来初始化数组
-    let numbers = Array(repeating: Int(), count: 5)
-    let decimals = Array(repeating: Double(), count: 5)
-    let characters = Array(repeating: Character("a"), count: 5)
-    let bools = Array(repeating: Bool(), count: 5)
+    let numbers = Array(repeating: 0, count: 5)
+    let decimals = Array(repeating: 0.0, count: 5)
+    let characters: [Character] = Array(repeating: "a", count: 5)
+    let bools = Array(repeating: false, count: 5)
     ```
 
 === "JS"

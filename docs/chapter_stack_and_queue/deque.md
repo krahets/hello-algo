@@ -1000,15 +1000,15 @@ comments: true
     class LinkedListDeque {
         private var front: ListNode? // 头节点 front
         private var rear: ListNode? // 尾节点 rear
-        private var queSize: Int // 双向队列的长度
+        private var _size: Int // 双向队列的长度
 
         init() {
-            queSize = 0
+            _size = 0
         }
 
         /* 获取双向队列的长度 */
         func size() -> Int {
-            queSize
+            _size
         }
 
         /* 判断双向队列是否为空 */
@@ -1038,7 +1038,7 @@ comments: true
                 node.prev = rear
                 rear = node // 更新尾节点
             }
-            queSize += 1 // 更新队列长度
+            _size += 1 // 更新队列长度
         }
 
         /* 队首入队 */
@@ -1079,7 +1079,7 @@ comments: true
                 }
                 rear = rPrev // 更新尾节点
             }
-            queSize -= 1 // 更新队列长度
+            _size -= 1 // 更新队列长度
             return val
         }
 
@@ -1094,13 +1094,19 @@ comments: true
         }
 
         /* 访问队首元素 */
-        func peekFirst() -> Int? {
-            isEmpty() ? nil : front?.val
+        func peekFirst() -> Int {
+            if isEmpty() {
+                fatalError("双向队列为空")
+            }
+            return front!.val
         }
 
         /* 访问队尾元素 */
-        func peekLast() -> Int? {
-            isEmpty() ? nil : rear?.val
+        func peekLast() -> Int {
+            if isEmpty() {
+                fatalError("双向队列为空")
+            }
+            return rear!.val
         }
 
         /* 返回数组用于打印 */
@@ -2554,13 +2560,13 @@ comments: true
     class ArrayDeque {
         private var nums: [Int] // 用于存储双向队列元素的数组
         private var front: Int // 队首指针，指向队首元素
-        private var queSize: Int // 双向队列长度
+        private var _size: Int // 双向队列长度
 
         /* 构造方法 */
         init(capacity: Int) {
             nums = Array(repeating: 0, count: capacity)
             front = 0
-            queSize = 0
+            _size = 0
         }
 
         /* 获取双向队列的容量 */
@@ -2570,7 +2576,7 @@ comments: true
 
         /* 获取双向队列的长度 */
         func size() -> Int {
-            queSize
+            _size
         }
 
         /* 判断双向队列是否为空 */
@@ -2597,7 +2603,7 @@ comments: true
             front = index(i: front - 1)
             // 将 num 添加至队首
             nums[front] = num
-            queSize += 1
+            _size += 1
         }
 
         /* 队尾入队 */
@@ -2610,7 +2616,7 @@ comments: true
             let rear = index(i: front + size())
             // 将 num 添加至队尾
             nums[rear] = num
-            queSize += 1
+            _size += 1
         }
 
         /* 队首出队 */
@@ -2618,14 +2624,14 @@ comments: true
             let num = peekFirst()
             // 队首指针向后移动一位
             front = index(i: front + 1)
-            queSize -= 1
+            _size -= 1
             return num
         }
 
         /* 队尾出队 */
         func popLast() -> Int {
             let num = peekLast()
-            queSize -= 1
+            _size -= 1
             return num
         }
 
@@ -2650,11 +2656,7 @@ comments: true
         /* 返回数组用于打印 */
         func toArray() -> [Int] {
             // 仅转换有效长度范围内的列表元素
-            var res = Array(repeating: 0, count: size())
-            for (i, j) in sequence(first: (0, front), next: { $0 < self.size() - 1 ? ($0 + 1, $1 + 1) : nil }) {
-                res[i] = nums[index(i: j)]
-            }
-            return res
+            (front ..< front + size()).map { nums[index(i: $0)] }
         }
     }
     ```

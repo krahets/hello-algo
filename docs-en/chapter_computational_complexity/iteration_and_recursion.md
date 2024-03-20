@@ -1631,7 +1631,7 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
         var stack: [Int] = []
         var res = 0
         // 递：递归调用
-        for i in stride(from: n, to: 0, by: -1) {
+        for i in (1 ... n).reversed() {
             // 通过“入栈操作”模拟“递”
             stack.append(i)
         }

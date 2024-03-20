@@ -1126,7 +1126,7 @@ $$
         dp[1] = 1
         dp[2] = 2
         // 状态转移：从较小子问题逐步求解较大子问题
-        for i in stride(from: 3, through: n, by: 1) {
+        for i in 3 ... n {
             dp[i] = dp[i - 1] + dp[i - 2]
         }
         return dp[n]
@@ -1370,7 +1370,7 @@ $$
         }
         var a = 1
         var b = 2
-        for _ in stride(from: 3, through: n, by: 1) {
+        for _ in 3 ... n {
             (a, b) = (b, a + b)
         }
         return b

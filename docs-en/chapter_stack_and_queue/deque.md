@@ -999,15 +999,15 @@ The implementation code is as follows:
     class LinkedListDeque {
         private var front: ListNode? // 头节点 front
         private var rear: ListNode? // 尾节点 rear
-        private var queSize: Int // 双向队列的长度
+        private var _size: Int // 双向队列的长度
 
         init() {
-            queSize = 0
+            _size = 0
         }
 
         /* 获取双向队列的长度 */
         func size() -> Int {
-            queSize
+            _size
         }
 
         /* 判断双向队列是否为空 */
@@ -1037,7 +1037,7 @@ The implementation code is as follows:
                 node.prev = rear
                 rear = node // 更新尾节点
             }
-            queSize += 1 // 更新队列长度
+            _size += 1 // 更新队列长度
         }
 
         /* 队首入队 */
@@ -1078,7 +1078,7 @@ The implementation code is as follows:
                 }
                 rear = rPrev // 更新尾节点
             }
-            queSize -= 1 // 更新队列长度
+            _size -= 1 // 更新队列长度
             return val
         }
 
@@ -1093,13 +1093,19 @@ The implementation code is as follows:
         }
 
         /* 访问队首元素 */
-        func peekFirst() -> Int? {
-            isEmpty() ? nil : front?.val
+        func peekFirst() -> Int {
+            if isEmpty() {
+                fatalError("双向队列为空")
+            }
+            return front!.val
         }
 
         /* 访问队尾元素 */
-        func peekLast() -> Int? {
-            isEmpty() ? nil : rear?.val
+        func peekLast() -> Int {
+            if isEmpty() {
+                fatalError("双向队列为空")
+            }
+            return rear!.val
         }
 
         /* 返回数组用于打印 */

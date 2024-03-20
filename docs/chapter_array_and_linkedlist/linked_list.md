@@ -644,7 +644,6 @@ comments: true
         let P = n0.next
         let n1 = P?.next
         n0.next = n1
-        P?.next = nil
     }
     ```
 

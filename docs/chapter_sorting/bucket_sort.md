@@ -203,7 +203,7 @@ comments: true
         for bucket in buckets {
             for num in bucket {
                 nums[i] = num
-                nums.formIndex(after: &i)
+                i += 1
             }
         }
     }

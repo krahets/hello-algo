@@ -1106,7 +1106,7 @@ comments: true
         // 子节点数量 = 0 or 1
         if cur?.left == nil || cur?.right == nil {
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
-            let child = cur?.left != nil ? cur?.left : cur?.right
+            let child = cur?.left ?? cur?.right
             // 删除节点 cur
             if cur !== root {
                 if pre?.left === cur {

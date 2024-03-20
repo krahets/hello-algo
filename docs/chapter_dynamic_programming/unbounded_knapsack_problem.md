@@ -166,8 +166,8 @@ $$
         // 初始化 dp 表
         var dp = Array(repeating: Array(repeating: 0, count: cap + 1), count: n + 1)
         // 状态转移
-        for i in stride(from: 1, through: n, by: 1) {
-            for c in stride(from: 1, through: cap, by: 1) {
+        for i in 1 ... n {
+            for c in 1 ... cap {
                 if wgt[i - 1] > c {
                     // 若超过背包容量，则不选物品 i
                     dp[i][c] = dp[i - 1][c]
@@ -506,8 +506,8 @@ $$
         // 初始化 dp 表
         var dp = Array(repeating: 0, count: cap + 1)
         // 状态转移
-        for i in stride(from: 1, through: n, by: 1) {
-            for c in stride(from: 1, through: cap, by: 1) {
+        for i in 1 ... n {
+            for c in 1 ... cap {
                 if wgt[i - 1] > c {
                     // 若超过背包容量，则不选物品 i
                     dp[c] = dp[c]
@@ -882,12 +882,12 @@ $$
         // 初始化 dp 表
         var dp = Array(repeating: Array(repeating: 0, count: amt + 1), count: n + 1)
         // 状态转移：首行首列
-        for a in stride(from: 1, through: amt, by: 1) {
+        for a in 1 ... amt {
             dp[0][a] = MAX
         }
         // 状态转移：其余行和列
-        for i in stride(from: 1, through: n, by: 1) {
-            for a in stride(from: 1, through: amt, by: 1) {
+        for i in 1 ... n {
+            for a in 1 ... amt {
                 if coins[i - 1] > a {
                     // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a]
@@ -1300,8 +1300,8 @@ $$
         var dp = Array(repeating: MAX, count: amt + 1)
         dp[0] = 0
         // 状态转移
-        for i in stride(from: 1, through: n, by: 1) {
-            for a in stride(from: 1, through: amt, by: 1) {
+        for i in 1 ... n {
+            for a in 1 ... amt {
                 if coins[i - 1] > a {
                     // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a]
@@ -1660,12 +1660,12 @@ $$
         // 初始化 dp 表
         var dp = Array(repeating: Array(repeating: 0, count: amt + 1), count: n + 1)
         // 初始化首列
-        for i in stride(from: 0, through: n, by: 1) {
+        for i in 0 ... n {
             dp[i][0] = 1
         }
         // 状态转移
-        for i in stride(from: 1, through: n, by: 1) {
-            for a in stride(from: 1, through: amt, by: 1) {
+        for i in 1 ... n {
+            for a in 1 ... amt {
                 if coins[i - 1] > a {
                     // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a]
@@ -2002,8 +2002,8 @@ $$
         var dp = Array(repeating: 0, count: amt + 1)
         dp[0] = 1
         // 状态转移
-        for i in stride(from: 1, through: n, by: 1) {
-            for a in stride(from: 1, through: amt, by: 1) {
+        for i in 1 ... n {
+            for a in 1 ... amt {
                 if coins[i - 1] > a {
                     // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a]

@@ -618,7 +618,7 @@ comments: true
 
         /* 负载因子 */
         func loadFactor() -> Double {
-            Double(size / capacity)
+            Double(size) / Double(capacity)
         }
 
         /* 查询操作 */
@@ -664,9 +664,10 @@ comments: true
             for (pairIndex, pair) in bucket.enumerated() {
                 if pair.key == key {
                     buckets[index].remove(at: pairIndex)
+                    size -= 1
+                    break
                 }
             }
-            size -= 1
         }
 
         /* 扩容哈希表 */
@@ -2004,7 +2005,7 @@ comments: true
 
         /* 负载因子 */
         func loadFactor() -> Double {
-            Double(size / capacity)
+            Double(size) / Double(capacity)
         }
 
         /* 搜索 key 对应的桶索引 */

@@ -745,6 +745,11 @@ In most programming languages, we can traverse an array either by using indices 
         for num in nums {
             count += num
         }
+        // 同时遍历数据索引和元素
+        for (i, num) in nums.enumerated() {
+            count += nums[i]
+            count += num
+        }
     }
     ```
 

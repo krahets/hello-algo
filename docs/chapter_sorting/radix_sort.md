@@ -304,7 +304,6 @@ $$
     func countingSortDigit(nums: inout [Int], exp: Int) {
         // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
         var counter = Array(repeating: 0, count: 10)
-        let n = nums.count
         // 统计 0~9 各数字的出现次数
         for i in nums.indices {
             let d = digit(num: nums[i], exp: exp) // 获取 nums[i] 第 k 位，记为 d
@@ -315,8 +314,8 @@ $$
             counter[i] += counter[i - 1]
         }
         // 倒序遍历，根据桶内统计结果，将各元素填入 res
-        var res = Array(repeating: 0, count: n)
-        for i in stride(from: n - 1, through: 0, by: -1) {
+        var res = Array(repeating: 0, count: nums.count)
+        for i in nums.indices.reversed() {
             let d = digit(num: nums[i], exp: exp)
             let j = counter[d] - 1 // 获取 d 在数组中的索引 j
             res[j] = nums[i] // 将当前元素填入索引 j

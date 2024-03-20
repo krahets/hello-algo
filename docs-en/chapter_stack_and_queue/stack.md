@@ -643,9 +643,11 @@ Below is an example code for implementing a stack based on a linked list:
     /* 基于链表实现的栈 */
     class LinkedListStack {
         private var _peek: ListNode? // 将头节点作为栈顶
-        private var _size = 0 // 栈的长度
+        private var _size: Int // 栈的长度
 
-        init() {}
+        init() {
+            _size = 0
+        }
 
         /* 获取栈的长度 */
         func size() -> Int {
@@ -685,8 +687,8 @@ Below is an example code for implementing a stack based on a linked list:
         /* 将 List 转化为 Array 并返回 */
         func toArray() -> [Int] {
             var node = _peek
-            var res = Array(repeating: 0, count: _size)
-            for i in sequence(first: res.count - 1, next: { $0 >= 0 + 1 ? $0 - 1 : nil }) {
+            var res = Array(repeating: 0, count: size())
+            for i in res.indices.reversed() {
                 res[i] = node!.val
                 node = node?.next
             }

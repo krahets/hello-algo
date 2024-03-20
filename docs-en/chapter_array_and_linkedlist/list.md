@@ -1382,12 +1382,15 @@ To enhance our understanding of how lists work, we will attempt to implement a s
     /* 列表类 */
     class MyList {
         private var arr: [Int] // 数组（存储列表元素）
-        private var _capacity = 10 // 列表容量
-        private var _size = 0 // 列表长度（当前元素数量）
-        private let extendRatio = 2 // 每次列表扩容的倍数
+        private var _capacity: Int // 列表容量
+        private var _size: Int // 列表长度（当前元素数量）
+        private let extendRatio: Int // 每次列表扩容的倍数
 
         /* 构造方法 */
         init() {
+            _capacity = 10
+            _size = 0
+            extendRatio = 2
             arr = Array(repeating: 0, count: _capacity)
         }
 
@@ -1404,7 +1407,7 @@ To enhance our understanding of how lists work, we will attempt to implement a s
         /* 访问元素 */
         func get(index: Int) -> Int {
             // 索引如果越界则抛出错误，下同
-            if index < 0 || index >= _size {
+            if index < 0 || index >= size() {
                 fatalError("索引越界")
             }
             return arr[index]
@@ -1412,7 +1415,7 @@ To enhance our understanding of how lists work, we will attempt to implement a s
 
         /* 更新元素 */
         func set(index: Int, num: Int) {
-            if index < 0 || index >= _size {
+            if index < 0 || index >= size() {
                 fatalError("索引越界")
             }
             arr[index] = num
@@ -1421,25 +1424,25 @@ To enhance our understanding of how lists work, we will attempt to implement a s
         /* 在尾部添加元素 */
         func add(num: Int) {
             // 元素数量超出容量时，触发扩容机制
-            if _size == _capacity {
+            if size() == capacity() {
                 extendCapacity()
             }
-            arr[_size] = num
+            arr[size()] = num
             // 更新元素数量
             _size += 1
         }
 
         /* 在中间插入元素 */
         func insert(index: Int, num: Int) {
-            if index < 0 || index >= _size {
+            if index < 0 || index >= size() {
                 fatalError("索引越界")
             }
             // 元素数量超出容量时，触发扩容机制
-            if _size == _capacity {
+            if size() == capacity() {
                 extendCapacity()
             }
             // 将索引 index 以及之后的元素都向后移动一位
-            for j in sequence(first: _size - 1, next: { $0 >= index + 1 ? $0 - 1 : nil }) {
+            for j in (index ..< size()).reversed() {
                 arr[j + 1] = arr[j]
             }
             arr[index] = num
@@ -1450,12 +1453,12 @@ To enhance our understanding of how lists work, we will attempt to implement a s
         /* 删除元素 */
         @discardableResult
         func remove(index: Int) -> Int {
-            if index < 0 || index >= _size {
+            if index < 0 || index >= size() {
                 fatalError("索引越界")
             }
             let num = arr[index]
             // 将将索引 index 之后的元素都向前移动一位
-            for j in index ..< (_size - 1) {
+            for j in index ..< (size() - 1) {
                 arr[j] = arr[j + 1]
             }
             // 更新元素数量
@@ -1467,18 +1470,14 @@ To enhance our understanding of how lists work, we will attempt to implement a s
         /* 列表扩容 */
         func extendCapacity() {
             // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组
-            arr = arr + Array(repeating: 0, count: _capacity * (extendRatio - 1))
+            arr = arr + Array(repeating: 0, count: capacity() * (extendRatio - 1))
             // 更新列表容量
             _capacity = arr.count
         }
 
         /* 将列表转换为数组 */
         func toArray() -> [Int] {
-            var arr = Array(repeating: 0, count: _size)
-            for i in 0 ..< _size {
-                arr[i] = get(index: i)
-            }
-            return arr
+            Array(arr.prefix(size()))
         }
     }
     ```

@@ -305,12 +305,11 @@ comments: true
             if nums[i] <= nums[j] {
                 tmp[k] = nums[i]
                 i += 1
-                k += 1
             } else {
                 tmp[k] = nums[j]
                 j += 1
-                k += 1
             }
+            k += 1
         }
         // 将左子数组和右子数组的剩余元素复制到临时数组中
         while i <= mid {

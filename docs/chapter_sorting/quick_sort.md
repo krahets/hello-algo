@@ -168,12 +168,7 @@ comments: true
 === "Swift"
 
     ```swift title="quick_sort.swift"
-    /* 元素交换 */
-    func swap(nums: inout [Int], i: Int, j: Int) {
-        let tmp = nums[i]
-        nums[i] = nums[j]
-        nums[j] = tmp
-    }
+    [class]{}-[func]{swap}
 
     /* 哨兵划分 */
     func partition(nums: inout [Int], left: Int, right: Int) -> Int {
@@ -187,9 +182,9 @@ comments: true
             while i < j, nums[i] <= nums[left] {
                 i += 1 // 从左向右找首个大于基准数的元素
             }
-            swap(nums: &nums, i: i, j: j) // 交换这两个元素
+            nums.swapAt(i, j) // 交换这两个元素
         }
-        swap(nums: &nums, i: i, j: left) // 将基准数交换至两子数组的分界线
+        nums.swapAt(i, left) // 将基准数交换至两子数组的分界线
         return i // 返回基准数的索引
     }
     ```
@@ -801,12 +796,12 @@ comments: true
         let m = nums[mid]
         let r = nums[right]
         if (l <= m && m <= r) || (r <= m && m <= l) {
-            return mid; // m 在 l 和 r 之间
+            return mid // m 在 l 和 r 之间
         }
         if (m <= l && l <= r) || (r <= l && l <= m) {
-            return left; // l 在 m 和 r 之间
+            return left // l 在 m 和 r 之间
         }
-        return right;
+        return right
     }
 
     /* 哨兵划分（三数取中值） */
@@ -814,7 +809,7 @@ comments: true
         // 选取三个候选元素的中位数
         let med = medianThree(nums: nums, left: left, mid: (left + right) / 2, right: right)
         // 将中位数交换至数组最左端
-        swap(nums: &nums, i: left, j: med)
+        nums.swapAt(left, med)
         return partition(nums: &nums, left: left, right: right)
     }
     ```

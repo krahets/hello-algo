@@ -311,7 +311,7 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
     /* 获取节点高度 */
     func height(node: TreeNode?) -> Int {
         // 空节点高度为 -1 ，叶节点高度为 0
-        node == nil ? -1 : node!.height
+        node?.height ?? -1
     }
 
     /* 更新节点高度 */
@@ -2142,7 +2142,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
             node?.right = removeHelper(node: node?.right, val: val)
         } else {
             if node?.left == nil || node?.right == nil {
-                let child = node?.left != nil ? node?.left : node?.right
+                let child = node?.left ?? node?.right
                 // 子节点数量 = 0 ，直接删除 node 并返回
                 if child == nil {
                     return nil

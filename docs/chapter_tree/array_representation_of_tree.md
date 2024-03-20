@@ -638,7 +638,7 @@ comments: true
         func levelOrder() -> [Int] {
             var res: [Int] = []
             // 直接遍历数组
-            for i in stride(from: 0, to: size(), by: 1) {
+            for i in 0 ..< size() {
                 if let val = val(i: i) {
                     res.append(val)
                 }

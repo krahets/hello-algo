@@ -140,7 +140,9 @@ comments: true
     ```swift title="binary_search_insertion.swift"
     /* 二分查找插入点（无重复元素） */
     func binarySearchInsertionSimple(nums: [Int], target: Int) -> Int {
-        var i = 0, j = nums.count - 1 // 初始化双闭区间 [0, n-1]
+        // 初始化双闭区间 [0, n-1]
+        var i = nums.startIndex
+        var j = nums.endIndex - 1
         while i <= j {
             let m = i + (j - i) / 2 // 计算中点索引 m
             if nums[m] < target {
@@ -445,7 +447,9 @@ comments: true
     ```swift title="binary_search_insertion.swift"
     /* 二分查找插入点（存在重复元素） */
     func binarySearchInsertion(nums: [Int], target: Int) -> Int {
-        var i = 0, j = nums.count - 1 // 初始化双闭区间 [0, n-1]
+        // 初始化双闭区间 [0, n-1]
+        var i = nums.startIndex
+        var j = nums.endIndex - 1
         while i <= j {
             let m = i + (j - i) / 2 // 计算中点索引 m
             if nums[m] < target {

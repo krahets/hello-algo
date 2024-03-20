@@ -224,9 +224,8 @@ comments: true
 
     /* 二分查找 */
     func binarySearch(nums: [Int], target: Int) -> Int {
-        let n = nums.count
         // 求解问题 f(0, n-1)
-        return dfs(nums: nums, target: target, i: 0, j: n - 1)
+        dfs(nums: nums, target: target, i: nums.startIndex, j: nums.endIndex - 1)
     }
     ```
 
