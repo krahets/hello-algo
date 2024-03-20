@@ -2913,105 +2913,104 @@
 <div class="highlight"><span class="filename">my_list.swift</span><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="cm">/* 列表类 */</span>
 <a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a><span class="kd">class</span> <span class="nc">MyList</span> <span class="p">{</span>
 <a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a>    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">arr</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="c1">// 数组（存储列表元素）</span>
-<a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a>    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">_capacity</span> <span class="p">=</span> <span class="mi">10</span> <span class="c1">// 列表容量</span>
-<a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a>    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">_size</span> <span class="p">=</span> <span class="mi">0</span> <span class="c1">// 列表长度（当前元素数量）</span>
-<a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a>    <span class="kd">private</span> <span class="kd">let</span> <span class="nv">extendRatio</span> <span class="p">=</span> <span class="mi">2</span> <span class="c1">// 每次列表扩容的倍数</span>
+<a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a>    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">_capacity</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 列表容量</span>
+<a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a>    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">_size</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 列表长度（当前元素数量）</span>
+<a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a>    <span class="kd">private</span> <span class="kd">let</span> <span class="nv">extendRatio</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 每次列表扩容的倍数</span>
 <a id="__codelineno-77-7" name="__codelineno-77-7" href="#__codelineno-77-7"></a>
 <a id="__codelineno-77-8" name="__codelineno-77-8" href="#__codelineno-77-8"></a>    <span class="cm">/* 构造方法 */</span>
 <a id="__codelineno-77-9" name="__codelineno-77-9" href="#__codelineno-77-9"></a>    <span class="kd">init</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-77-10" name="__codelineno-77-10" href="#__codelineno-77-10"></a>        <span class="n">arr</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">_capacity</span><span class="p">)</span>
-<a id="__codelineno-77-11" name="__codelineno-77-11" href="#__codelineno-77-11"></a>    <span class="p">}</span>
-<a id="__codelineno-77-12" name="__codelineno-77-12" href="#__codelineno-77-12"></a>
-<a id="__codelineno-77-13" name="__codelineno-77-13" href="#__codelineno-77-13"></a>    <span class="cm">/* 获取列表长度（当前元素数量）*/</span>
-<a id="__codelineno-77-14" name="__codelineno-77-14" href="#__codelineno-77-14"></a>    <span class="kd">func</span> <span class="nf">size</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
-<a id="__codelineno-77-15" name="__codelineno-77-15" href="#__codelineno-77-15"></a>        <span class="n">_size</span>
-<a id="__codelineno-77-16" name="__codelineno-77-16" href="#__codelineno-77-16"></a>    <span class="p">}</span>
-<a id="__codelineno-77-17" name="__codelineno-77-17" href="#__codelineno-77-17"></a>
-<a id="__codelineno-77-18" name="__codelineno-77-18" href="#__codelineno-77-18"></a>    <span class="cm">/* 获取列表容量 */</span>
-<a id="__codelineno-77-19" name="__codelineno-77-19" href="#__codelineno-77-19"></a>    <span class="kd">func</span> <span class="nf">capacity</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
-<a id="__codelineno-77-20" name="__codelineno-77-20" href="#__codelineno-77-20"></a>        <span class="n">_capacity</span>
-<a id="__codelineno-77-21" name="__codelineno-77-21" href="#__codelineno-77-21"></a>    <span class="p">}</span>
-<a id="__codelineno-77-22" name="__codelineno-77-22" href="#__codelineno-77-22"></a>
-<a id="__codelineno-77-23" name="__codelineno-77-23" href="#__codelineno-77-23"></a>    <span class="cm">/* 访问元素 */</span>
-<a id="__codelineno-77-24" name="__codelineno-77-24" href="#__codelineno-77-24"></a>    <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
-<a id="__codelineno-77-25" name="__codelineno-77-25" href="#__codelineno-77-25"></a>        <span class="c1">// 索引如果越界则抛出错误，下同</span>
-<a id="__codelineno-77-26" name="__codelineno-77-26" href="#__codelineno-77-26"></a>        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="n">_size</span> <span class="p">{</span>
-<a id="__codelineno-77-27" name="__codelineno-77-27" href="#__codelineno-77-27"></a>            <span class="bp">fatalError</span><span class="p">(</span><span class="s">&quot;索引越界&quot;</span><span class="p">)</span>
-<a id="__codelineno-77-28" name="__codelineno-77-28" href="#__codelineno-77-28"></a>        <span class="p">}</span>
-<a id="__codelineno-77-29" name="__codelineno-77-29" href="#__codelineno-77-29"></a>        <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-<a id="__codelineno-77-30" name="__codelineno-77-30" href="#__codelineno-77-30"></a>    <span class="p">}</span>
-<a id="__codelineno-77-31" name="__codelineno-77-31" href="#__codelineno-77-31"></a>
-<a id="__codelineno-77-32" name="__codelineno-77-32" href="#__codelineno-77-32"></a>    <span class="cm">/* 更新元素 */</span>
-<a id="__codelineno-77-33" name="__codelineno-77-33" href="#__codelineno-77-33"></a>    <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-77-34" name="__codelineno-77-34" href="#__codelineno-77-34"></a>        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="n">_size</span> <span class="p">{</span>
-<a id="__codelineno-77-35" name="__codelineno-77-35" href="#__codelineno-77-35"></a>            <span class="bp">fatalError</span><span class="p">(</span><span class="s">&quot;索引越界&quot;</span><span class="p">)</span>
-<a id="__codelineno-77-36" name="__codelineno-77-36" href="#__codelineno-77-36"></a>        <span class="p">}</span>
-<a id="__codelineno-77-37" name="__codelineno-77-37" href="#__codelineno-77-37"></a>        <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="n">num</span>
-<a id="__codelineno-77-38" name="__codelineno-77-38" href="#__codelineno-77-38"></a>    <span class="p">}</span>
-<a id="__codelineno-77-39" name="__codelineno-77-39" href="#__codelineno-77-39"></a>
-<a id="__codelineno-77-40" name="__codelineno-77-40" href="#__codelineno-77-40"></a>    <span class="cm">/* 在尾部添加元素 */</span>
-<a id="__codelineno-77-41" name="__codelineno-77-41" href="#__codelineno-77-41"></a>    <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">num</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-77-42" name="__codelineno-77-42" href="#__codelineno-77-42"></a>        <span class="c1">// 元素数量超出容量时，触发扩容机制</span>
-<a id="__codelineno-77-43" name="__codelineno-77-43" href="#__codelineno-77-43"></a>        <span class="k">if</span> <span class="n">_size</span> <span class="p">==</span> <span class="n">_capacity</span> <span class="p">{</span>
-<a id="__codelineno-77-44" name="__codelineno-77-44" href="#__codelineno-77-44"></a>            <span class="n">extendCapacity</span><span class="p">()</span>
-<a id="__codelineno-77-45" name="__codelineno-77-45" href="#__codelineno-77-45"></a>        <span class="p">}</span>
-<a id="__codelineno-77-46" name="__codelineno-77-46" href="#__codelineno-77-46"></a>        <span class="n">arr</span><span class="p">[</span><span class="n">_size</span><span class="p">]</span> <span class="p">=</span> <span class="n">num</span>
-<a id="__codelineno-77-47" name="__codelineno-77-47" href="#__codelineno-77-47"></a>        <span class="c1">// 更新元素数量</span>
-<a id="__codelineno-77-48" name="__codelineno-77-48" href="#__codelineno-77-48"></a>        <span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-77-49" name="__codelineno-77-49" href="#__codelineno-77-49"></a>    <span class="p">}</span>
-<a id="__codelineno-77-50" name="__codelineno-77-50" href="#__codelineno-77-50"></a>
-<a id="__codelineno-77-51" name="__codelineno-77-51" href="#__codelineno-77-51"></a>    <span class="cm">/* 在中间插入元素 */</span>
-<a id="__codelineno-77-52" name="__codelineno-77-52" href="#__codelineno-77-52"></a>    <span class="kd">func</span> <span class="nf">insert</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-77-53" name="__codelineno-77-53" href="#__codelineno-77-53"></a>        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="n">_size</span> <span class="p">{</span>
-<a id="__codelineno-77-54" name="__codelineno-77-54" href="#__codelineno-77-54"></a>            <span class="bp">fatalError</span><span class="p">(</span><span class="s">&quot;索引越界&quot;</span><span class="p">)</span>
-<a id="__codelineno-77-55" name="__codelineno-77-55" href="#__codelineno-77-55"></a>        <span class="p">}</span>
-<a id="__codelineno-77-56" name="__codelineno-77-56" href="#__codelineno-77-56"></a>        <span class="c1">// 元素数量超出容量时，触发扩容机制</span>
-<a id="__codelineno-77-57" name="__codelineno-77-57" href="#__codelineno-77-57"></a>        <span class="k">if</span> <span class="n">_size</span> <span class="p">==</span> <span class="n">_capacity</span> <span class="p">{</span>
-<a id="__codelineno-77-58" name="__codelineno-77-58" href="#__codelineno-77-58"></a>            <span class="n">extendCapacity</span><span class="p">()</span>
-<a id="__codelineno-77-59" name="__codelineno-77-59" href="#__codelineno-77-59"></a>        <span class="p">}</span>
-<a id="__codelineno-77-60" name="__codelineno-77-60" href="#__codelineno-77-60"></a>        <span class="c1">// 将索引 index 以及之后的元素都向后移动一位</span>
-<a id="__codelineno-77-61" name="__codelineno-77-61" href="#__codelineno-77-61"></a>        <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="n">sequence</span><span class="p">(</span><span class="bp">first</span><span class="p">:</span> <span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">next</span><span class="p">:</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&gt;=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">?</span> <span class="nv">$0</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">:</span> <span class="kc">nil</span> <span class="p">})</span> <span class="p">{</span>
-<a id="__codelineno-77-62" name="__codelineno-77-62" href="#__codelineno-77-62"></a>            <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-<a id="__codelineno-77-63" name="__codelineno-77-63" href="#__codelineno-77-63"></a>        <span class="p">}</span>
-<a id="__codelineno-77-64" name="__codelineno-77-64" href="#__codelineno-77-64"></a>        <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="n">num</span>
-<a id="__codelineno-77-65" name="__codelineno-77-65" href="#__codelineno-77-65"></a>        <span class="c1">// 更新元素数量</span>
-<a id="__codelineno-77-66" name="__codelineno-77-66" href="#__codelineno-77-66"></a>        <span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-77-67" name="__codelineno-77-67" href="#__codelineno-77-67"></a>    <span class="p">}</span>
-<a id="__codelineno-77-68" name="__codelineno-77-68" href="#__codelineno-77-68"></a>
-<a id="__codelineno-77-69" name="__codelineno-77-69" href="#__codelineno-77-69"></a>    <span class="cm">/* 删除元素 */</span>
-<a id="__codelineno-77-70" name="__codelineno-77-70" href="#__codelineno-77-70"></a>    <span class="p">@</span><span class="n">discardableResult</span>
-<a id="__codelineno-77-71" name="__codelineno-77-71" href="#__codelineno-77-71"></a>    <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
-<a id="__codelineno-77-72" name="__codelineno-77-72" href="#__codelineno-77-72"></a>        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="n">_size</span> <span class="p">{</span>
-<a id="__codelineno-77-73" name="__codelineno-77-73" href="#__codelineno-77-73"></a>            <span class="bp">fatalError</span><span class="p">(</span><span class="s">&quot;索引越界&quot;</span><span class="p">)</span>
-<a id="__codelineno-77-74" name="__codelineno-77-74" href="#__codelineno-77-74"></a>        <span class="p">}</span>
-<a id="__codelineno-77-75" name="__codelineno-77-75" href="#__codelineno-77-75"></a>        <span class="kd">let</span> <span class="nv">num</span> <span class="p">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-<a id="__codelineno-77-76" name="__codelineno-77-76" href="#__codelineno-77-76"></a>        <span class="c1">// 将将索引 index 之后的元素都向前移动一位</span>
-<a id="__codelineno-77-77" name="__codelineno-77-77" href="#__codelineno-77-77"></a>        <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="n">index</span> <span class="p">..</span><span class="o">&lt;</span> <span class="p">(</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-77-78" name="__codelineno-77-78" href="#__codelineno-77-78"></a>            <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-77-79" name="__codelineno-77-79" href="#__codelineno-77-79"></a>        <span class="p">}</span>
-<a id="__codelineno-77-80" name="__codelineno-77-80" href="#__codelineno-77-80"></a>        <span class="c1">// 更新元素数量</span>
-<a id="__codelineno-77-81" name="__codelineno-77-81" href="#__codelineno-77-81"></a>        <span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
-<a id="__codelineno-77-82" name="__codelineno-77-82" href="#__codelineno-77-82"></a>        <span class="c1">// 返回被删除的元素</span>
-<a id="__codelineno-77-83" name="__codelineno-77-83" href="#__codelineno-77-83"></a>        <span class="k">return</span> <span class="n">num</span>
-<a id="__codelineno-77-84" name="__codelineno-77-84" href="#__codelineno-77-84"></a>    <span class="p">}</span>
-<a id="__codelineno-77-85" name="__codelineno-77-85" href="#__codelineno-77-85"></a>
-<a id="__codelineno-77-86" name="__codelineno-77-86" href="#__codelineno-77-86"></a>    <span class="cm">/* 列表扩容 */</span>
-<a id="__codelineno-77-87" name="__codelineno-77-87" href="#__codelineno-77-87"></a>    <span class="kd">func</span> <span class="nf">extendCapacity</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-77-88" name="__codelineno-77-88" href="#__codelineno-77-88"></a>        <span class="c1">// 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组</span>
-<a id="__codelineno-77-89" name="__codelineno-77-89" href="#__codelineno-77-89"></a>        <span class="n">arr</span> <span class="p">=</span> <span class="n">arr</span> <span class="o">+</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">_capacity</span> <span class="o">*</span> <span class="p">(</span><span class="n">extendRatio</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
-<a id="__codelineno-77-90" name="__codelineno-77-90" href="#__codelineno-77-90"></a>        <span class="c1">// 更新列表容量</span>
-<a id="__codelineno-77-91" name="__codelineno-77-91" href="#__codelineno-77-91"></a>        <span class="n">_capacity</span> <span class="p">=</span> <span class="n">arr</span><span class="p">.</span><span class="bp">count</span>
-<a id="__codelineno-77-92" name="__codelineno-77-92" href="#__codelineno-77-92"></a>    <span class="p">}</span>
-<a id="__codelineno-77-93" name="__codelineno-77-93" href="#__codelineno-77-93"></a>
-<a id="__codelineno-77-94" name="__codelineno-77-94" href="#__codelineno-77-94"></a>    <span class="cm">/* 将列表转换为数组 */</span>
-<a id="__codelineno-77-95" name="__codelineno-77-95" href="#__codelineno-77-95"></a>    <span class="kd">func</span> <span class="nf">toArray</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">{</span>
-<a id="__codelineno-77-96" name="__codelineno-77-96" href="#__codelineno-77-96"></a>        <span class="kd">var</span> <span class="nv">arr</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">_size</span><span class="p">)</span>
-<a id="__codelineno-77-97" name="__codelineno-77-97" href="#__codelineno-77-97"></a>        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">_size</span> <span class="p">{</span>
-<a id="__codelineno-77-98" name="__codelineno-77-98" href="#__codelineno-77-98"></a>            <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="kr">get</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="n">i</span><span class="p">)</span>
-<a id="__codelineno-77-99" name="__codelineno-77-99" href="#__codelineno-77-99"></a>        <span class="p">}</span>
-<a id="__codelineno-77-100" name="__codelineno-77-100" href="#__codelineno-77-100"></a>        <span class="k">return</span> <span class="n">arr</span>
-<a id="__codelineno-77-101" name="__codelineno-77-101" href="#__codelineno-77-101"></a>    <span class="p">}</span>
-<a id="__codelineno-77-102" name="__codelineno-77-102" href="#__codelineno-77-102"></a><span class="p">}</span>
+<a id="__codelineno-77-10" name="__codelineno-77-10" href="#__codelineno-77-10"></a>        <span class="n">_capacity</span> <span class="p">=</span> <span class="mi">10</span>
+<a id="__codelineno-77-11" name="__codelineno-77-11" href="#__codelineno-77-11"></a>        <span class="n">_size</span> <span class="p">=</span> <span class="mi">0</span>
+<a id="__codelineno-77-12" name="__codelineno-77-12" href="#__codelineno-77-12"></a>        <span class="n">extendRatio</span> <span class="p">=</span> <span class="mi">2</span>
+<a id="__codelineno-77-13" name="__codelineno-77-13" href="#__codelineno-77-13"></a>        <span class="n">arr</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">_capacity</span><span class="p">)</span>
+<a id="__codelineno-77-14" name="__codelineno-77-14" href="#__codelineno-77-14"></a>    <span class="p">}</span>
+<a id="__codelineno-77-15" name="__codelineno-77-15" href="#__codelineno-77-15"></a>
+<a id="__codelineno-77-16" name="__codelineno-77-16" href="#__codelineno-77-16"></a>    <span class="cm">/* 获取列表长度（当前元素数量）*/</span>
+<a id="__codelineno-77-17" name="__codelineno-77-17" href="#__codelineno-77-17"></a>    <span class="kd">func</span> <span class="nf">size</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<a id="__codelineno-77-18" name="__codelineno-77-18" href="#__codelineno-77-18"></a>        <span class="n">_size</span>
+<a id="__codelineno-77-19" name="__codelineno-77-19" href="#__codelineno-77-19"></a>    <span class="p">}</span>
+<a id="__codelineno-77-20" name="__codelineno-77-20" href="#__codelineno-77-20"></a>
+<a id="__codelineno-77-21" name="__codelineno-77-21" href="#__codelineno-77-21"></a>    <span class="cm">/* 获取列表容量 */</span>
+<a id="__codelineno-77-22" name="__codelineno-77-22" href="#__codelineno-77-22"></a>    <span class="kd">func</span> <span class="nf">capacity</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<a id="__codelineno-77-23" name="__codelineno-77-23" href="#__codelineno-77-23"></a>        <span class="n">_capacity</span>
+<a id="__codelineno-77-24" name="__codelineno-77-24" href="#__codelineno-77-24"></a>    <span class="p">}</span>
+<a id="__codelineno-77-25" name="__codelineno-77-25" href="#__codelineno-77-25"></a>
+<a id="__codelineno-77-26" name="__codelineno-77-26" href="#__codelineno-77-26"></a>    <span class="cm">/* 访问元素 */</span>
+<a id="__codelineno-77-27" name="__codelineno-77-27" href="#__codelineno-77-27"></a>    <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<a id="__codelineno-77-28" name="__codelineno-77-28" href="#__codelineno-77-28"></a>        <span class="c1">// 索引如果越界则抛出错误，下同</span>
+<a id="__codelineno-77-29" name="__codelineno-77-29" href="#__codelineno-77-29"></a>        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="n">size</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-77-30" name="__codelineno-77-30" href="#__codelineno-77-30"></a>            <span class="bp">fatalError</span><span class="p">(</span><span class="s">&quot;索引越界&quot;</span><span class="p">)</span>
+<a id="__codelineno-77-31" name="__codelineno-77-31" href="#__codelineno-77-31"></a>        <span class="p">}</span>
+<a id="__codelineno-77-32" name="__codelineno-77-32" href="#__codelineno-77-32"></a>        <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<a id="__codelineno-77-33" name="__codelineno-77-33" href="#__codelineno-77-33"></a>    <span class="p">}</span>
+<a id="__codelineno-77-34" name="__codelineno-77-34" href="#__codelineno-77-34"></a>
+<a id="__codelineno-77-35" name="__codelineno-77-35" href="#__codelineno-77-35"></a>    <span class="cm">/* 更新元素 */</span>
+<a id="__codelineno-77-36" name="__codelineno-77-36" href="#__codelineno-77-36"></a>    <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-77-37" name="__codelineno-77-37" href="#__codelineno-77-37"></a>        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="n">size</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-77-38" name="__codelineno-77-38" href="#__codelineno-77-38"></a>            <span class="bp">fatalError</span><span class="p">(</span><span class="s">&quot;索引越界&quot;</span><span class="p">)</span>
+<a id="__codelineno-77-39" name="__codelineno-77-39" href="#__codelineno-77-39"></a>        <span class="p">}</span>
+<a id="__codelineno-77-40" name="__codelineno-77-40" href="#__codelineno-77-40"></a>        <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="n">num</span>
+<a id="__codelineno-77-41" name="__codelineno-77-41" href="#__codelineno-77-41"></a>    <span class="p">}</span>
+<a id="__codelineno-77-42" name="__codelineno-77-42" href="#__codelineno-77-42"></a>
+<a id="__codelineno-77-43" name="__codelineno-77-43" href="#__codelineno-77-43"></a>    <span class="cm">/* 在尾部添加元素 */</span>
+<a id="__codelineno-77-44" name="__codelineno-77-44" href="#__codelineno-77-44"></a>    <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">num</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-77-45" name="__codelineno-77-45" href="#__codelineno-77-45"></a>        <span class="c1">// 元素数量超出容量时，触发扩容机制</span>
+<a id="__codelineno-77-46" name="__codelineno-77-46" href="#__codelineno-77-46"></a>        <span class="k">if</span> <span class="n">size</span><span class="p">()</span> <span class="p">==</span> <span class="n">capacity</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-77-47" name="__codelineno-77-47" href="#__codelineno-77-47"></a>            <span class="n">extendCapacity</span><span class="p">()</span>
+<a id="__codelineno-77-48" name="__codelineno-77-48" href="#__codelineno-77-48"></a>        <span class="p">}</span>
+<a id="__codelineno-77-49" name="__codelineno-77-49" href="#__codelineno-77-49"></a>        <span class="n">arr</span><span class="p">[</span><span class="n">size</span><span class="p">()]</span> <span class="p">=</span> <span class="n">num</span>
+<a id="__codelineno-77-50" name="__codelineno-77-50" href="#__codelineno-77-50"></a>        <span class="c1">// 更新元素数量</span>
+<a id="__codelineno-77-51" name="__codelineno-77-51" href="#__codelineno-77-51"></a>        <span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-77-52" name="__codelineno-77-52" href="#__codelineno-77-52"></a>    <span class="p">}</span>
+<a id="__codelineno-77-53" name="__codelineno-77-53" href="#__codelineno-77-53"></a>
+<a id="__codelineno-77-54" name="__codelineno-77-54" href="#__codelineno-77-54"></a>    <span class="cm">/* 在中间插入元素 */</span>
+<a id="__codelineno-77-55" name="__codelineno-77-55" href="#__codelineno-77-55"></a>    <span class="kd">func</span> <span class="nf">insert</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-77-56" name="__codelineno-77-56" href="#__codelineno-77-56"></a>        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="n">size</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-77-57" name="__codelineno-77-57" href="#__codelineno-77-57"></a>            <span class="bp">fatalError</span><span class="p">(</span><span class="s">&quot;索引越界&quot;</span><span class="p">)</span>
+<a id="__codelineno-77-58" name="__codelineno-77-58" href="#__codelineno-77-58"></a>        <span class="p">}</span>
+<a id="__codelineno-77-59" name="__codelineno-77-59" href="#__codelineno-77-59"></a>        <span class="c1">// 元素数量超出容量时，触发扩容机制</span>
+<a id="__codelineno-77-60" name="__codelineno-77-60" href="#__codelineno-77-60"></a>        <span class="k">if</span> <span class="n">size</span><span class="p">()</span> <span class="p">==</span> <span class="n">capacity</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-77-61" name="__codelineno-77-61" href="#__codelineno-77-61"></a>            <span class="n">extendCapacity</span><span class="p">()</span>
+<a id="__codelineno-77-62" name="__codelineno-77-62" href="#__codelineno-77-62"></a>        <span class="p">}</span>
+<a id="__codelineno-77-63" name="__codelineno-77-63" href="#__codelineno-77-63"></a>        <span class="c1">// 将索引 index 以及之后的元素都向后移动一位</span>
+<a id="__codelineno-77-64" name="__codelineno-77-64" href="#__codelineno-77-64"></a>        <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="p">(</span><span class="n">index</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">size</span><span class="p">()).</span><span class="n">reversed</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-77-65" name="__codelineno-77-65" href="#__codelineno-77-65"></a>            <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+<a id="__codelineno-77-66" name="__codelineno-77-66" href="#__codelineno-77-66"></a>        <span class="p">}</span>
+<a id="__codelineno-77-67" name="__codelineno-77-67" href="#__codelineno-77-67"></a>        <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="n">num</span>
+<a id="__codelineno-77-68" name="__codelineno-77-68" href="#__codelineno-77-68"></a>        <span class="c1">// 更新元素数量</span>
+<a id="__codelineno-77-69" name="__codelineno-77-69" href="#__codelineno-77-69"></a>        <span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-77-70" name="__codelineno-77-70" href="#__codelineno-77-70"></a>    <span class="p">}</span>
+<a id="__codelineno-77-71" name="__codelineno-77-71" href="#__codelineno-77-71"></a>
+<a id="__codelineno-77-72" name="__codelineno-77-72" href="#__codelineno-77-72"></a>    <span class="cm">/* 删除元素 */</span>
+<a id="__codelineno-77-73" name="__codelineno-77-73" href="#__codelineno-77-73"></a>    <span class="p">@</span><span class="n">discardableResult</span>
+<a id="__codelineno-77-74" name="__codelineno-77-74" href="#__codelineno-77-74"></a>    <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<a id="__codelineno-77-75" name="__codelineno-77-75" href="#__codelineno-77-75"></a>        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="n">size</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-77-76" name="__codelineno-77-76" href="#__codelineno-77-76"></a>            <span class="bp">fatalError</span><span class="p">(</span><span class="s">&quot;索引越界&quot;</span><span class="p">)</span>
+<a id="__codelineno-77-77" name="__codelineno-77-77" href="#__codelineno-77-77"></a>        <span class="p">}</span>
+<a id="__codelineno-77-78" name="__codelineno-77-78" href="#__codelineno-77-78"></a>        <span class="kd">let</span> <span class="nv">num</span> <span class="p">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<a id="__codelineno-77-79" name="__codelineno-77-79" href="#__codelineno-77-79"></a>        <span class="c1">// 将将索引 index 之后的元素都向前移动一位</span>
+<a id="__codelineno-77-80" name="__codelineno-77-80" href="#__codelineno-77-80"></a>        <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="n">index</span> <span class="p">..</span><span class="o">&lt;</span> <span class="p">(</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-77-81" name="__codelineno-77-81" href="#__codelineno-77-81"></a>            <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-77-82" name="__codelineno-77-82" href="#__codelineno-77-82"></a>        <span class="p">}</span>
+<a id="__codelineno-77-83" name="__codelineno-77-83" href="#__codelineno-77-83"></a>        <span class="c1">// 更新元素数量</span>
+<a id="__codelineno-77-84" name="__codelineno-77-84" href="#__codelineno-77-84"></a>        <span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
+<a id="__codelineno-77-85" name="__codelineno-77-85" href="#__codelineno-77-85"></a>        <span class="c1">// 返回被删除的元素</span>
+<a id="__codelineno-77-86" name="__codelineno-77-86" href="#__codelineno-77-86"></a>        <span class="k">return</span> <span class="n">num</span>
+<a id="__codelineno-77-87" name="__codelineno-77-87" href="#__codelineno-77-87"></a>    <span class="p">}</span>
+<a id="__codelineno-77-88" name="__codelineno-77-88" href="#__codelineno-77-88"></a>
+<a id="__codelineno-77-89" name="__codelineno-77-89" href="#__codelineno-77-89"></a>    <span class="cm">/* 列表扩容 */</span>
+<a id="__codelineno-77-90" name="__codelineno-77-90" href="#__codelineno-77-90"></a>    <span class="kd">func</span> <span class="nf">extendCapacity</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-77-91" name="__codelineno-77-91" href="#__codelineno-77-91"></a>        <span class="c1">// 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组</span>
+<a id="__codelineno-77-92" name="__codelineno-77-92" href="#__codelineno-77-92"></a>        <span class="n">arr</span> <span class="p">=</span> <span class="n">arr</span> <span class="o">+</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">capacity</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="n">extendRatio</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-77-93" name="__codelineno-77-93" href="#__codelineno-77-93"></a>        <span class="c1">// 更新列表容量</span>
+<a id="__codelineno-77-94" name="__codelineno-77-94" href="#__codelineno-77-94"></a>        <span class="n">_capacity</span> <span class="p">=</span> <span class="n">arr</span><span class="p">.</span><span class="bp">count</span>
+<a id="__codelineno-77-95" name="__codelineno-77-95" href="#__codelineno-77-95"></a>    <span class="p">}</span>
+<a id="__codelineno-77-96" name="__codelineno-77-96" href="#__codelineno-77-96"></a>
+<a id="__codelineno-77-97" name="__codelineno-77-97" href="#__codelineno-77-97"></a>    <span class="cm">/* 将列表转换为数组 */</span>
+<a id="__codelineno-77-98" name="__codelineno-77-98" href="#__codelineno-77-98"></a>    <span class="kd">func</span> <span class="nf">toArray</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">{</span>
+<a id="__codelineno-77-99" name="__codelineno-77-99" href="#__codelineno-77-99"></a>        <span class="nb">Array</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="kr">prefix</span><span class="p">(</span><span class="n">size</span><span class="p">()))</span>
+<a id="__codelineno-77-100" name="__codelineno-77-100" href="#__codelineno-77-100"></a>    <span class="p">}</span>
+<a id="__codelineno-77-101" name="__codelineno-77-101" href="#__codelineno-77-101"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">

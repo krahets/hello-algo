@@ -4284,7 +4284,7 @@
 <a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
 <a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    <span class="cm">/* 负载因子 */</span>
 <a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>    <span class="kd">func</span> <span class="nf">loadFactor</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Double</span> <span class="p">{</span>
-<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>        <span class="nb">Double</span><span class="p">(</span><span class="n">size</span> <span class="o">/</span> <span class="n">capacity</span><span class="p">)</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>        <span class="nb">Double</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">/</span> <span class="nb">Double</span><span class="p">(</span><span class="n">capacity</span><span class="p">)</span>
 <a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>    <span class="p">}</span>
 <a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>
 <a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>    <span class="cm">/* 查询操作 */</span>
@@ -4330,35 +4330,36 @@
 <a id="__codelineno-5-68" name="__codelineno-5-68" href="#__codelineno-5-68"></a>        <span class="k">for</span> <span class="p">(</span><span class="n">pairIndex</span><span class="p">,</span> <span class="n">pair</span><span class="p">)</span> <span class="k">in</span> <span class="n">bucket</span><span class="p">.</span><span class="n">enumerated</span><span class="p">()</span> <span class="p">{</span>
 <a id="__codelineno-5-69" name="__codelineno-5-69" href="#__codelineno-5-69"></a>            <span class="k">if</span> <span class="n">pair</span><span class="p">.</span><span class="n">key</span> <span class="p">==</span> <span class="n">key</span> <span class="p">{</span>
 <a id="__codelineno-5-70" name="__codelineno-5-70" href="#__codelineno-5-70"></a>                <span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">].</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="n">pairIndex</span><span class="p">)</span>
-<a id="__codelineno-5-71" name="__codelineno-5-71" href="#__codelineno-5-71"></a>            <span class="p">}</span>
-<a id="__codelineno-5-72" name="__codelineno-5-72" href="#__codelineno-5-72"></a>        <span class="p">}</span>
-<a id="__codelineno-5-73" name="__codelineno-5-73" href="#__codelineno-5-73"></a>        <span class="n">size</span> <span class="o">-=</span> <span class="mi">1</span>
-<a id="__codelineno-5-74" name="__codelineno-5-74" href="#__codelineno-5-74"></a>    <span class="p">}</span>
-<a id="__codelineno-5-75" name="__codelineno-5-75" href="#__codelineno-5-75"></a>
-<a id="__codelineno-5-76" name="__codelineno-5-76" href="#__codelineno-5-76"></a>    <span class="cm">/* 扩容哈希表 */</span>
-<a id="__codelineno-5-77" name="__codelineno-5-77" href="#__codelineno-5-77"></a>    <span class="kd">func</span> <span class="nf">extend</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-5-78" name="__codelineno-5-78" href="#__codelineno-5-78"></a>        <span class="c1">// 暂存原哈希表</span>
-<a id="__codelineno-5-79" name="__codelineno-5-79" href="#__codelineno-5-79"></a>        <span class="kd">let</span> <span class="nv">bucketsTmp</span> <span class="p">=</span> <span class="n">buckets</span>
-<a id="__codelineno-5-80" name="__codelineno-5-80" href="#__codelineno-5-80"></a>        <span class="c1">// 初始化扩容后的新哈希表</span>
-<a id="__codelineno-5-81" name="__codelineno-5-81" href="#__codelineno-5-81"></a>        <span class="n">capacity</span> <span class="o">*=</span> <span class="n">extendRatio</span>
-<a id="__codelineno-5-82" name="__codelineno-5-82" href="#__codelineno-5-82"></a>        <span class="n">buckets</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="p">[],</span> <span class="bp">count</span><span class="p">:</span> <span class="n">capacity</span><span class="p">)</span>
-<a id="__codelineno-5-83" name="__codelineno-5-83" href="#__codelineno-5-83"></a>        <span class="n">size</span> <span class="p">=</span> <span class="mi">0</span>
-<a id="__codelineno-5-84" name="__codelineno-5-84" href="#__codelineno-5-84"></a>        <span class="c1">// 将键值对从原哈希表搬运至新哈希表</span>
-<a id="__codelineno-5-85" name="__codelineno-5-85" href="#__codelineno-5-85"></a>        <span class="k">for</span> <span class="n">bucket</span> <span class="k">in</span> <span class="n">bucketsTmp</span> <span class="p">{</span>
-<a id="__codelineno-5-86" name="__codelineno-5-86" href="#__codelineno-5-86"></a>            <span class="k">for</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">bucket</span> <span class="p">{</span>
-<a id="__codelineno-5-87" name="__codelineno-5-87" href="#__codelineno-5-87"></a>                <span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">pair</span><span class="p">.</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="n">pair</span><span class="p">.</span><span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-5-88" name="__codelineno-5-88" href="#__codelineno-5-88"></a>            <span class="p">}</span>
-<a id="__codelineno-5-89" name="__codelineno-5-89" href="#__codelineno-5-89"></a>        <span class="p">}</span>
-<a id="__codelineno-5-90" name="__codelineno-5-90" href="#__codelineno-5-90"></a>    <span class="p">}</span>
-<a id="__codelineno-5-91" name="__codelineno-5-91" href="#__codelineno-5-91"></a>
-<a id="__codelineno-5-92" name="__codelineno-5-92" href="#__codelineno-5-92"></a>    <span class="cm">/* 打印哈希表 */</span>
-<a id="__codelineno-5-93" name="__codelineno-5-93" href="#__codelineno-5-93"></a>    <span class="kd">func</span> <span class="nf">print</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-5-94" name="__codelineno-5-94" href="#__codelineno-5-94"></a>        <span class="k">for</span> <span class="n">bucket</span> <span class="k">in</span> <span class="n">buckets</span> <span class="p">{</span>
-<a id="__codelineno-5-95" name="__codelineno-5-95" href="#__codelineno-5-95"></a>            <span class="kd">let</span> <span class="nv">res</span> <span class="p">=</span> <span class="n">bucket</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="s">&quot;</span><span class="si">\(</span><span class="nv">$0</span><span class="p">.</span><span class="n">key</span><span class="si">)</span><span class="s"> -&gt; </span><span class="si">\(</span><span class="nv">$0</span><span class="p">.</span><span class="n">val</span><span class="si">)</span><span class="s">&quot;</span> <span class="p">}</span>
-<a id="__codelineno-5-96" name="__codelineno-5-96" href="#__codelineno-5-96"></a>            <span class="n">Swift</span><span class="p">.</span><span class="bp">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-5-97" name="__codelineno-5-97" href="#__codelineno-5-97"></a>        <span class="p">}</span>
-<a id="__codelineno-5-98" name="__codelineno-5-98" href="#__codelineno-5-98"></a>    <span class="p">}</span>
-<a id="__codelineno-5-99" name="__codelineno-5-99" href="#__codelineno-5-99"></a><span class="p">}</span>
+<a id="__codelineno-5-71" name="__codelineno-5-71" href="#__codelineno-5-71"></a>                <span class="n">size</span> <span class="o">-=</span> <span class="mi">1</span>
+<a id="__codelineno-5-72" name="__codelineno-5-72" href="#__codelineno-5-72"></a>                <span class="k">break</span>
+<a id="__codelineno-5-73" name="__codelineno-5-73" href="#__codelineno-5-73"></a>            <span class="p">}</span>
+<a id="__codelineno-5-74" name="__codelineno-5-74" href="#__codelineno-5-74"></a>        <span class="p">}</span>
+<a id="__codelineno-5-75" name="__codelineno-5-75" href="#__codelineno-5-75"></a>    <span class="p">}</span>
+<a id="__codelineno-5-76" name="__codelineno-5-76" href="#__codelineno-5-76"></a>
+<a id="__codelineno-5-77" name="__codelineno-5-77" href="#__codelineno-5-77"></a>    <span class="cm">/* 扩容哈希表 */</span>
+<a id="__codelineno-5-78" name="__codelineno-5-78" href="#__codelineno-5-78"></a>    <span class="kd">func</span> <span class="nf">extend</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-5-79" name="__codelineno-5-79" href="#__codelineno-5-79"></a>        <span class="c1">// 暂存原哈希表</span>
+<a id="__codelineno-5-80" name="__codelineno-5-80" href="#__codelineno-5-80"></a>        <span class="kd">let</span> <span class="nv">bucketsTmp</span> <span class="p">=</span> <span class="n">buckets</span>
+<a id="__codelineno-5-81" name="__codelineno-5-81" href="#__codelineno-5-81"></a>        <span class="c1">// 初始化扩容后的新哈希表</span>
+<a id="__codelineno-5-82" name="__codelineno-5-82" href="#__codelineno-5-82"></a>        <span class="n">capacity</span> <span class="o">*=</span> <span class="n">extendRatio</span>
+<a id="__codelineno-5-83" name="__codelineno-5-83" href="#__codelineno-5-83"></a>        <span class="n">buckets</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="p">[],</span> <span class="bp">count</span><span class="p">:</span> <span class="n">capacity</span><span class="p">)</span>
+<a id="__codelineno-5-84" name="__codelineno-5-84" href="#__codelineno-5-84"></a>        <span class="n">size</span> <span class="p">=</span> <span class="mi">0</span>
+<a id="__codelineno-5-85" name="__codelineno-5-85" href="#__codelineno-5-85"></a>        <span class="c1">// 将键值对从原哈希表搬运至新哈希表</span>
+<a id="__codelineno-5-86" name="__codelineno-5-86" href="#__codelineno-5-86"></a>        <span class="k">for</span> <span class="n">bucket</span> <span class="k">in</span> <span class="n">bucketsTmp</span> <span class="p">{</span>
+<a id="__codelineno-5-87" name="__codelineno-5-87" href="#__codelineno-5-87"></a>            <span class="k">for</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">bucket</span> <span class="p">{</span>
+<a id="__codelineno-5-88" name="__codelineno-5-88" href="#__codelineno-5-88"></a>                <span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">pair</span><span class="p">.</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="n">pair</span><span class="p">.</span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-5-89" name="__codelineno-5-89" href="#__codelineno-5-89"></a>            <span class="p">}</span>
+<a id="__codelineno-5-90" name="__codelineno-5-90" href="#__codelineno-5-90"></a>        <span class="p">}</span>
+<a id="__codelineno-5-91" name="__codelineno-5-91" href="#__codelineno-5-91"></a>    <span class="p">}</span>
+<a id="__codelineno-5-92" name="__codelineno-5-92" href="#__codelineno-5-92"></a>
+<a id="__codelineno-5-93" name="__codelineno-5-93" href="#__codelineno-5-93"></a>    <span class="cm">/* 打印哈希表 */</span>
+<a id="__codelineno-5-94" name="__codelineno-5-94" href="#__codelineno-5-94"></a>    <span class="kd">func</span> <span class="nf">print</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-5-95" name="__codelineno-5-95" href="#__codelineno-5-95"></a>        <span class="k">for</span> <span class="n">bucket</span> <span class="k">in</span> <span class="n">buckets</span> <span class="p">{</span>
+<a id="__codelineno-5-96" name="__codelineno-5-96" href="#__codelineno-5-96"></a>            <span class="kd">let</span> <span class="nv">res</span> <span class="p">=</span> <span class="n">bucket</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="s">&quot;</span><span class="si">\(</span><span class="nv">$0</span><span class="p">.</span><span class="n">key</span><span class="si">)</span><span class="s"> -&gt; </span><span class="si">\(</span><span class="nv">$0</span><span class="p">.</span><span class="n">val</span><span class="si">)</span><span class="s">&quot;</span> <span class="p">}</span>
+<a id="__codelineno-5-97" name="__codelineno-5-97" href="#__codelineno-5-97"></a>            <span class="n">Swift</span><span class="p">.</span><span class="bp">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-5-98" name="__codelineno-5-98" href="#__codelineno-5-98"></a>        <span class="p">}</span>
+<a id="__codelineno-5-99" name="__codelineno-5-99" href="#__codelineno-5-99"></a>    <span class="p">}</span>
+<a id="__codelineno-5-100" name="__codelineno-5-100" href="#__codelineno-5-100"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5636,7 +5637,7 @@
 <a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>
 <a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>    <span class="cm">/* 负载因子 */</span>
 <a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a>    <span class="kd">func</span> <span class="nf">loadFactor</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Double</span> <span class="p">{</span>
-<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>        <span class="nb">Double</span><span class="p">(</span><span class="n">size</span> <span class="o">/</span> <span class="n">capacity</span><span class="p">)</span>
+<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>        <span class="nb">Double</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">/</span> <span class="nb">Double</span><span class="p">(</span><span class="n">capacity</span><span class="p">)</span>
 <a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>    <span class="p">}</span>
 <a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a>
 <a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a>    <span class="cm">/* 搜索 key 对应的桶索引 */</span>

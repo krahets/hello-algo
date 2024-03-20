@@ -2616,15 +2616,15 @@
 <a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="kd">class</span> <span class="nc">LinkedListDeque</span> <span class="p">{</span>
 <a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">front</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">?</span> <span class="c1">// 头节点 front</span>
 <a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">rear</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">?</span> <span class="c1">// 尾节点 rear</span>
-<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">queSize</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 双向队列的长度</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">_size</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 双向队列的长度</span>
 <a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
 <a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>    <span class="kd">init</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>        <span class="n">queSize</span> <span class="p">=</span> <span class="mi">0</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>        <span class="n">_size</span> <span class="p">=</span> <span class="mi">0</span>
 <a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>    <span class="p">}</span>
 <a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>
 <a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>    <span class="cm">/* 获取双向队列的长度 */</span>
 <a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>    <span class="kd">func</span> <span class="nf">size</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
-<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>        <span class="n">queSize</span>
+<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>        <span class="n">_size</span>
 <a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>    <span class="p">}</span>
 <a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a>
 <a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>    <span class="cm">/* 判断双向队列是否为空 */</span>
@@ -2654,7 +2654,7 @@
 <a id="__codelineno-17-51" name="__codelineno-17-51" href="#__codelineno-17-51"></a>            <span class="n">node</span><span class="p">.</span><span class="n">prev</span> <span class="p">=</span> <span class="n">rear</span>
 <a id="__codelineno-17-52" name="__codelineno-17-52" href="#__codelineno-17-52"></a>            <span class="n">rear</span> <span class="p">=</span> <span class="n">node</span> <span class="c1">// 更新尾节点</span>
 <a id="__codelineno-17-53" name="__codelineno-17-53" href="#__codelineno-17-53"></a>        <span class="p">}</span>
-<a id="__codelineno-17-54" name="__codelineno-17-54" href="#__codelineno-17-54"></a>        <span class="n">queSize</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">// 更新队列长度</span>
+<a id="__codelineno-17-54" name="__codelineno-17-54" href="#__codelineno-17-54"></a>        <span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">// 更新队列长度</span>
 <a id="__codelineno-17-55" name="__codelineno-17-55" href="#__codelineno-17-55"></a>    <span class="p">}</span>
 <a id="__codelineno-17-56" name="__codelineno-17-56" href="#__codelineno-17-56"></a>
 <a id="__codelineno-17-57" name="__codelineno-17-57" href="#__codelineno-17-57"></a>    <span class="cm">/* 队首入队 */</span>
@@ -2695,7 +2695,7 @@
 <a id="__codelineno-17-92" name="__codelineno-17-92" href="#__codelineno-17-92"></a>            <span class="p">}</span>
 <a id="__codelineno-17-93" name="__codelineno-17-93" href="#__codelineno-17-93"></a>            <span class="n">rear</span> <span class="p">=</span> <span class="n">rPrev</span> <span class="c1">// 更新尾节点</span>
 <a id="__codelineno-17-94" name="__codelineno-17-94" href="#__codelineno-17-94"></a>        <span class="p">}</span>
-<a id="__codelineno-17-95" name="__codelineno-17-95" href="#__codelineno-17-95"></a>        <span class="n">queSize</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1">// 更新队列长度</span>
+<a id="__codelineno-17-95" name="__codelineno-17-95" href="#__codelineno-17-95"></a>        <span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1">// 更新队列长度</span>
 <a id="__codelineno-17-96" name="__codelineno-17-96" href="#__codelineno-17-96"></a>        <span class="k">return</span> <span class="n">val</span>
 <a id="__codelineno-17-97" name="__codelineno-17-97" href="#__codelineno-17-97"></a>    <span class="p">}</span>
 <a id="__codelineno-17-98" name="__codelineno-17-98" href="#__codelineno-17-98"></a>
@@ -2710,26 +2710,32 @@
 <a id="__codelineno-17-107" name="__codelineno-17-107" href="#__codelineno-17-107"></a>    <span class="p">}</span>
 <a id="__codelineno-17-108" name="__codelineno-17-108" href="#__codelineno-17-108"></a>
 <a id="__codelineno-17-109" name="__codelineno-17-109" href="#__codelineno-17-109"></a>    <span class="cm">/* 访问队首元素 */</span>
-<a id="__codelineno-17-110" name="__codelineno-17-110" href="#__codelineno-17-110"></a>    <span class="kd">func</span> <span class="nf">peekFirst</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">?</span> <span class="p">{</span>
-<a id="__codelineno-17-111" name="__codelineno-17-111" href="#__codelineno-17-111"></a>        <span class="bp">isEmpty</span><span class="p">()</span> <span class="p">?</span> <span class="kc">nil</span> <span class="p">:</span> <span class="n">front</span><span class="p">?.</span><span class="n">val</span>
-<a id="__codelineno-17-112" name="__codelineno-17-112" href="#__codelineno-17-112"></a>    <span class="p">}</span>
-<a id="__codelineno-17-113" name="__codelineno-17-113" href="#__codelineno-17-113"></a>
-<a id="__codelineno-17-114" name="__codelineno-17-114" href="#__codelineno-17-114"></a>    <span class="cm">/* 访问队尾元素 */</span>
-<a id="__codelineno-17-115" name="__codelineno-17-115" href="#__codelineno-17-115"></a>    <span class="kd">func</span> <span class="nf">peekLast</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">?</span> <span class="p">{</span>
-<a id="__codelineno-17-116" name="__codelineno-17-116" href="#__codelineno-17-116"></a>        <span class="bp">isEmpty</span><span class="p">()</span> <span class="p">?</span> <span class="kc">nil</span> <span class="p">:</span> <span class="n">rear</span><span class="p">?.</span><span class="n">val</span>
-<a id="__codelineno-17-117" name="__codelineno-17-117" href="#__codelineno-17-117"></a>    <span class="p">}</span>
-<a id="__codelineno-17-118" name="__codelineno-17-118" href="#__codelineno-17-118"></a>
-<a id="__codelineno-17-119" name="__codelineno-17-119" href="#__codelineno-17-119"></a>    <span class="cm">/* 返回数组用于打印 */</span>
-<a id="__codelineno-17-120" name="__codelineno-17-120" href="#__codelineno-17-120"></a>    <span class="kd">func</span> <span class="nf">toArray</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">{</span>
-<a id="__codelineno-17-121" name="__codelineno-17-121" href="#__codelineno-17-121"></a>        <span class="kd">var</span> <span class="nv">node</span> <span class="p">=</span> <span class="n">front</span>
-<a id="__codelineno-17-122" name="__codelineno-17-122" href="#__codelineno-17-122"></a>        <span class="kd">var</span> <span class="nv">res</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">size</span><span class="p">())</span>
-<a id="__codelineno-17-123" name="__codelineno-17-123" href="#__codelineno-17-123"></a>        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">res</span><span class="p">.</span><span class="bp">indices</span> <span class="p">{</span>
-<a id="__codelineno-17-124" name="__codelineno-17-124" href="#__codelineno-17-124"></a>            <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">node</span><span class="p">!.</span><span class="n">val</span>
-<a id="__codelineno-17-125" name="__codelineno-17-125" href="#__codelineno-17-125"></a>            <span class="n">node</span> <span class="p">=</span> <span class="n">node</span><span class="p">?.</span><span class="n">next</span>
-<a id="__codelineno-17-126" name="__codelineno-17-126" href="#__codelineno-17-126"></a>        <span class="p">}</span>
-<a id="__codelineno-17-127" name="__codelineno-17-127" href="#__codelineno-17-127"></a>        <span class="k">return</span> <span class="n">res</span>
-<a id="__codelineno-17-128" name="__codelineno-17-128" href="#__codelineno-17-128"></a>    <span class="p">}</span>
-<a id="__codelineno-17-129" name="__codelineno-17-129" href="#__codelineno-17-129"></a><span class="p">}</span>
+<a id="__codelineno-17-110" name="__codelineno-17-110" href="#__codelineno-17-110"></a>    <span class="kd">func</span> <span class="nf">peekFirst</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<a id="__codelineno-17-111" name="__codelineno-17-111" href="#__codelineno-17-111"></a>        <span class="k">if</span> <span class="bp">isEmpty</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-17-112" name="__codelineno-17-112" href="#__codelineno-17-112"></a>            <span class="bp">fatalError</span><span class="p">(</span><span class="s">&quot;双向队列为空&quot;</span><span class="p">)</span>
+<a id="__codelineno-17-113" name="__codelineno-17-113" href="#__codelineno-17-113"></a>        <span class="p">}</span>
+<a id="__codelineno-17-114" name="__codelineno-17-114" href="#__codelineno-17-114"></a>        <span class="k">return</span> <span class="n">front</span><span class="p">!.</span><span class="n">val</span>
+<a id="__codelineno-17-115" name="__codelineno-17-115" href="#__codelineno-17-115"></a>    <span class="p">}</span>
+<a id="__codelineno-17-116" name="__codelineno-17-116" href="#__codelineno-17-116"></a>
+<a id="__codelineno-17-117" name="__codelineno-17-117" href="#__codelineno-17-117"></a>    <span class="cm">/* 访问队尾元素 */</span>
+<a id="__codelineno-17-118" name="__codelineno-17-118" href="#__codelineno-17-118"></a>    <span class="kd">func</span> <span class="nf">peekLast</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<a id="__codelineno-17-119" name="__codelineno-17-119" href="#__codelineno-17-119"></a>        <span class="k">if</span> <span class="bp">isEmpty</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-17-120" name="__codelineno-17-120" href="#__codelineno-17-120"></a>            <span class="bp">fatalError</span><span class="p">(</span><span class="s">&quot;双向队列为空&quot;</span><span class="p">)</span>
+<a id="__codelineno-17-121" name="__codelineno-17-121" href="#__codelineno-17-121"></a>        <span class="p">}</span>
+<a id="__codelineno-17-122" name="__codelineno-17-122" href="#__codelineno-17-122"></a>        <span class="k">return</span> <span class="n">rear</span><span class="p">!.</span><span class="n">val</span>
+<a id="__codelineno-17-123" name="__codelineno-17-123" href="#__codelineno-17-123"></a>    <span class="p">}</span>
+<a id="__codelineno-17-124" name="__codelineno-17-124" href="#__codelineno-17-124"></a>
+<a id="__codelineno-17-125" name="__codelineno-17-125" href="#__codelineno-17-125"></a>    <span class="cm">/* 返回数组用于打印 */</span>
+<a id="__codelineno-17-126" name="__codelineno-17-126" href="#__codelineno-17-126"></a>    <span class="kd">func</span> <span class="nf">toArray</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">{</span>
+<a id="__codelineno-17-127" name="__codelineno-17-127" href="#__codelineno-17-127"></a>        <span class="kd">var</span> <span class="nv">node</span> <span class="p">=</span> <span class="n">front</span>
+<a id="__codelineno-17-128" name="__codelineno-17-128" href="#__codelineno-17-128"></a>        <span class="kd">var</span> <span class="nv">res</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">size</span><span class="p">())</span>
+<a id="__codelineno-17-129" name="__codelineno-17-129" href="#__codelineno-17-129"></a>        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">res</span><span class="p">.</span><span class="bp">indices</span> <span class="p">{</span>
+<a id="__codelineno-17-130" name="__codelineno-17-130" href="#__codelineno-17-130"></a>            <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">node</span><span class="p">!.</span><span class="n">val</span>
+<a id="__codelineno-17-131" name="__codelineno-17-131" href="#__codelineno-17-131"></a>            <span class="n">node</span> <span class="p">=</span> <span class="n">node</span><span class="p">?.</span><span class="n">next</span>
+<a id="__codelineno-17-132" name="__codelineno-17-132" href="#__codelineno-17-132"></a>        <span class="p">}</span>
+<a id="__codelineno-17-133" name="__codelineno-17-133" href="#__codelineno-17-133"></a>        <span class="k">return</span> <span class="n">res</span>
+<a id="__codelineno-17-134" name="__codelineno-17-134" href="#__codelineno-17-134"></a>    <span class="p">}</span>
+<a id="__codelineno-17-135" name="__codelineno-17-135" href="#__codelineno-17-135"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">

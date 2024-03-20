@@ -3988,7 +3988,35 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">heap.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Swift 未提供内置 Heap 类</span>
+<div class="highlight"><span class="filename">heap.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* 初始化堆 */</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">// Swift 的 Heap 类型同时支持最大堆和最小堆，且需要引入 swift-collections</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">var</span> <span class="nv">heap</span> <span class="p">=</span> <span class="n">Heap</span><span class="p">&lt;</span><span class="nb">Int</span><span class="p">&gt;()</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="cm">/* 元素入堆 */</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">heap</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">heap</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">heap</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">heap</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">heap</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="cm">/* 获取堆顶元素 */</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="kd">var</span> <span class="nv">peek</span> <span class="p">=</span> <span class="n">heap</span><span class="p">.</span><span class="bp">max</span><span class="p">()</span><span class="o">!</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="cm">/* 堆顶元素出堆 */</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="n">peek</span> <span class="p">=</span> <span class="n">heap</span><span class="p">.</span><span class="n">removeMax</span><span class="p">()</span> <span class="c1">// 5</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="n">peek</span> <span class="p">=</span> <span class="n">heap</span><span class="p">.</span><span class="n">removeMax</span><span class="p">()</span> <span class="c1">// 4</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="n">peek</span> <span class="p">=</span> <span class="n">heap</span><span class="p">.</span><span class="n">removeMax</span><span class="p">()</span> <span class="c1">// 3</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="n">peek</span> <span class="p">=</span> <span class="n">heap</span><span class="p">.</span><span class="n">removeMax</span><span class="p">()</span> <span class="c1">// 2</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="n">peek</span> <span class="p">=</span> <span class="n">heap</span><span class="p">.</span><span class="n">removeMax</span><span class="p">()</span> <span class="c1">// 1</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="cm">/* 获取堆大小 */</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="kd">let</span> <span class="nv">size</span> <span class="p">=</span> <span class="n">heap</span><span class="p">.</span><span class="bp">count</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="cm">/* 判断堆是否为空 */</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="kd">let</span> <span class="nv">isEmpty</span> <span class="p">=</span> <span class="n">heap</span><span class="p">.</span><span class="bp">isEmpty</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="cm">/* 输入列表并建堆 */</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="kd">let</span> <span class="nv">heap2</span> <span class="p">=</span> <span class="n">Heap</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
