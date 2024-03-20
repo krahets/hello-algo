@@ -9,7 +9,7 @@
 
 | English                        | 简体中文       | 繁体中文       |
 | ------------------------------ | -------------- | -------------- |
-| algorithm                      | 算法           | 演算法           |
+| algorithm                      | 算法           | 演算法         |
 | data structure                 | 数据结构       | 資料結構       |
 | asymptotic complexity analysis | 渐近复杂度分析 | 漸近複雜度分析 |
 | time complexity                | 时间复杂度     | 時間複雜度     |
@@ -78,11 +78,11 @@
 | binary search tree             | 二叉搜索树     | 二元搜尋樹     |
 | balanced binary search tree    | 平衡二叉搜索树 | 平衡二元搜尋樹 |
 | balance factor                 | 平衡因子       | 平衡因子       |
-| heap                           | 堆             | 堆             |
-| max heap                       | 大顶堆         | 大頂堆         |
-| min heap                       | 小顶堆         | 小頂堆         |
+| heap                           | 堆             | 堆積           |
+| max heap                       | 大顶堆         | 大頂堆積       |
+| min heap                       | 小顶堆         | 小頂堆積       |
 | priority queue                 | 优先队列       | 優先佇列       |
-| heapify                        | 堆化           | 堆化           |
+| heapify                        | 堆化           | 堆積化         |
 | top-$k$ problem                | Top-$k$  问题  | Top-$k$  問題  |
 | graph                          | 图             | 圖             |
 | vertex                         | 顶点           | 頂點           |
@@ -107,7 +107,7 @@
 | insertion sort                 | 插入排序       | 插入排序       |
 | quick sort                     | 快速排序       | 快速排序       |
 | merge sort                     | 归并排序       | 合併排序       |
-| heap sort                      | 堆排序         | 堆排序         |
+| heap sort                      | 堆排序         | 堆積排序       |
 | bucket sort                    | 桶排序         | 桶排序         |
 | counting sort                  | 计数排序       | 計數排序       |
 | radix sort                     | 基数排序       | 基數排序       |
@@ -126,4 +126,4 @@
 | state-trasition equation       | 状态转移方程   | 狀態轉移方程   |
 | knapsack problem               | 背包问题       | 背包問題       |
 | edit distance problem          | 编辑距离问题   | 編輯距離問題   |
-| greedy algorithm               | 贪心算法       | 貪心演算法     |
+| greedy algorithm               | 贪心算法       | 貪婪演算法     |
