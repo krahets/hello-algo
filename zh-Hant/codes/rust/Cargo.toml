@@ -1,0 +1,413 @@
+[package]
+name = "hello-algo-rust"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# Run Command: cargo run --bin time_complexity
+[[bin]]
+name = "time_complexity"
+path = "chapter_computational_complexity/time_complexity.rs"
+
+# Run Command: cargo run --bin worst_best_time_complexity
+[[bin]]
+name = "worst_best_time_complexity"
+path = "chapter_computational_complexity/worst_best_time_complexity.rs"
+
+# Run Command: cargo run --bin space_complexity
+[[bin]]
+name = "space_complexity"
+path = "chapter_computational_complexity/space_complexity.rs"
+
+# Run Command: cargo run --bin iteration
+[[bin]]
+name = "iteration"
+path = "chapter_computational_complexity/iteration.rs"
+
+# Run Command: cargo run --bin recursion
+[[bin]]
+name = "recursion"
+path = "chapter_computational_complexity/recursion.rs"
+
+# Run Command: cargo run --bin two_sum
+[[bin]]
+name = "two_sum"
+path = "chapter_searching/two_sum.rs"
+
+# Run Command: cargo run --bin array
+[[bin]]
+name = "array"
+path = "chapter_array_and_linkedlist/array.rs"
+
+# Run Command: cargo run --bin linked_list
+[[bin]]
+name = "linked_list"
+path = "chapter_array_and_linkedlist/linked_list.rs"
+
+# Run Command: cargo run --bin list
+[[bin]]
+name = "list"
+path = "chapter_array_and_linkedlist/list.rs"
+
+# Run Command: cargo run --bin my_list
+[[bin]]
+name = "my_list"
+path = "chapter_array_and_linkedlist/my_list.rs"
+
+# Run Command: cargo run --bin stack
+[[bin]]
+name = "stack"
+path = "chapter_stack_and_queue/stack.rs"
+
+# Run Command: cargo run --bin linkedlist_stack
+[[bin]]
+name = "linkedlist_stack"
+path = "chapter_stack_and_queue/linkedlist_stack.rs"
+
+# Run Command: cargo run --bin queue
+[[bin]]
+name = "queue"
+path = "chapter_stack_and_queue/queue.rs"
+
+# Run Command: cargo run --bin linkedlist_queue
+[[bin]]
+name = "linkedlist_queue"
+path = "chapter_stack_and_queue/linkedlist_queue.rs"
+
+# Run Command: cargo run --bin deque
+[[bin]]
+name = "deque"
+path = "chapter_stack_and_queue/deque.rs"
+
+# Run Command: cargo run --bin array_deque
+[[bin]]
+name = "array_deque"
+path = "chapter_stack_and_queue/array_deque.rs"
+
+# Run Command: cargo run --bin linkedlist_deque
+[[bin]]
+name = "linkedlist_deque"
+path = "chapter_stack_and_queue/linkedlist_deque.rs"
+
+# Run Command: cargo run --bin simple_hash
+[[bin]]
+name = "simple_hash"
+path = "chapter_hashing/simple_hash.rs"
+
+# Run Command: cargo run --bin hash_map
+[[bin]]
+name = "hash_map"
+path = "chapter_hashing/hash_map.rs"
+
+# Run Command: cargo run --bin array_hash_map
+[[bin]]
+name = "array_hash_map"
+path = "chapter_hashing/array_hash_map.rs"
+
+# Run Command: cargo run --bin build_in_hash
+[[bin]]
+name = "build_in_hash"
+path = "chapter_hashing/build_in_hash.rs"
+
+# Run Command: cargo run --bin hash_map_chaining
+[[bin]]
+name = "hash_map_chaining"
+path = "chapter_hashing/hash_map_chaining.rs"
+
+# Run Command: cargo run --bin hash_map_open_addressing
+[[bin]]
+name = "hash_map_open_addressing"
+path = "chapter_hashing/hash_map_open_addressing.rs"
+
+# Run Command: cargo run --bin binary_search
+[[bin]]
+name = "binary_search"
+path = "chapter_searching/binary_search.rs"
+
+# Run Command: cargo run --bin binary_search_edge
+[[bin]]
+name = "binary_search_edge"
+path = "chapter_searching/binary_search_edge.rs"
+
+# Run Command: cargo run --bin binary_search_insertion
+[[bin]]
+name = "binary_search_insertion"
+path = "chapter_searching/binary_search_insertion.rs"
+
+# Run Command: cargo run --bin bubble_sort
+[[bin]]
+name = "bubble_sort"
+path = "chapter_sorting/bubble_sort.rs"
+
+# Run Command: cargo run --bin insertion_sort
+[[bin]]
+name = "insertion_sort"
+path = "chapter_sorting/insertion_sort.rs"
+
+# Run Command: cargo run --bin quick_sort
+[[bin]]
+name = "quick_sort"
+path = "chapter_sorting/quick_sort.rs"
+
+# Run Command: cargo run --bin merge_sort
+[[bin]]
+name = "merge_sort"
+path = "chapter_sorting/merge_sort.rs"
+
+# Run Command: cargo run --bin selection_sort
+[[bin]]
+name = "selection_sort"
+path = "chapter_sorting/selection_sort.rs"
+
+# Run Command: cargo run --bin bucket_sort
+[[bin]]
+name = "bucket_sort"
+path = "chapter_sorting/bucket_sort.rs"
+
+# Run Command: cargo run --bin heap_sort
+[[bin]]
+name = "heap_sort"
+path = "chapter_sorting/heap_sort.rs"
+
+# Run Command: cargo run --bin counting_sort
+[[bin]]
+name = "counting_sort"
+path = "chapter_sorting/counting_sort.rs"
+
+# Run Command: cargo run --bin radix_sort
+[[bin]]
+name = "radix_sort"
+path = "chapter_sorting/radix_sort.rs"
+
+# Run Command: cargo run --bin array_stack
+[[bin]]
+name = "array_stack"
+path = "chapter_stack_and_queue/array_stack.rs"
+
+# Run Command: cargo run --bin array_queue
+[[bin]]
+name = "array_queue"
+path = "chapter_stack_and_queue/array_queue.rs"
+
+# Run Command: cargo run --bin array_binary_tree
+[[bin]]
+name = "array_binary_tree"
+path = "chapter_tree/array_binary_tree.rs"
+
+# Run Command: cargo run --bin avl_tree
+[[bin]]
+name = "avl_tree"
+path = "chapter_tree/avl_tree.rs"
+
+# Run Command: cargo run --bin binary_search_tree
+[[bin]]
+name = "binary_search_tree"
+path = "chapter_tree/binary_search_tree.rs"
+
+# Run Command: cargo run --bin binary_tree_bfs
+[[bin]]
+name = "binary_tree_bfs"
+path = "chapter_tree/binary_tree_bfs.rs"
+
+# Run Command: cargo run --bin binary_tree_dfs
+[[bin]]
+name = "binary_tree_dfs"
+path = "chapter_tree/binary_tree_dfs.rs"
+
+# Run Command: cargo run --bin binary_tree
+[[bin]]
+name = "binary_tree"
+path = "chapter_tree/binary_tree.rs"
+
+# Run Command: cargo run --bin heap
+[[bin]]
+name = "heap"
+path = "chapter_heap/heap.rs"
+
+# Run Command: cargo run --bin my_heap
+[[bin]]
+name = "my_heap"
+path = "chapter_heap/my_heap.rs"
+
+# Run Command: cargo run --bin top_k
+[[bin]]
+name = "top_k"
+path = "chapter_heap/top_k.rs"
+
+# Run Command: cargo run --bin graph_adjacency_list
+[[bin]]
+name = "graph_adjacency_list"
+path = "chapter_graph/graph_adjacency_list.rs"
+
+# Run Command: cargo run --bin graph_adjacency_matrix
+[[bin]]
+name = "graph_adjacency_matrix"
+path = "chapter_graph/graph_adjacency_matrix.rs"
+
+# Run Command: cargo run --bin graph_bfs
+[[bin]]
+name = "graph_bfs"
+path = "chapter_graph/graph_bfs.rs"
+
+# Run Command: cargo run --bin graph_dfs
+[[bin]]
+name = "graph_dfs"
+path = "chapter_graph/graph_dfs.rs"
+
+# Run Command: cargo run --bin linear_search
+[[bin]]
+name = "linear_search"
+path = "chapter_searching/linear_search.rs"
+
+# Run Command: cargo run --bin hashing_search
+[[bin]]
+name = "hashing_search"
+path = "chapter_searching/hashing_search.rs"
+
+# Run Command: cargo run --bin climbing_stairs_dfs
+[[bin]]
+name = "climbing_stairs_dfs"
+path = "chapter_dynamic_programming/climbing_stairs_dfs.rs"
+
+# Run Command: cargo run --bin climbing_stairs_dfs_mem
+[[bin]]
+name = "climbing_stairs_dfs_mem"
+path = "chapter_dynamic_programming/climbing_stairs_dfs_mem.rs"
+
+# Run Command: cargo run --bin climbing_stairs_dp
+[[bin]]
+name = "climbing_stairs_dp"
+path = "chapter_dynamic_programming/climbing_stairs_dp.rs"
+
+# Run Command: cargo run --bin min_cost_climbing_stairs_dp
+[[bin]]
+name = "min_cost_climbing_stairs_dp"
+path = "chapter_dynamic_programming/min_cost_climbing_stairs_dp.rs"
+
+# Run Command: cargo run --bin climbing_stairs_constraint_dp
+[[bin]]
+name = "climbing_stairs_constraint_dp"
+path = "chapter_dynamic_programming/climbing_stairs_constraint_dp.rs"
+
+# Run Command: cargo run --bin climbing_stairs_backtrack
+[[bin]]
+name = "climbing_stairs_backtrack"
+path = "chapter_dynamic_programming/climbing_stairs_backtrack.rs"
+
+# Run Command: cargo run --bin subset_sum_i_naive
+[[bin]]
+name = "subset_sum_i_naive"
+path = "chapter_backtracking/subset_sum_i_naive.rs"
+
+# Run Command: cargo run --bin subset_sum_i
+[[bin]]
+name = "subset_sum_i"
+path = "chapter_backtracking/subset_sum_i.rs"
+
+# Run Command: cargo run --bin subset_sum_ii
+[[bin]]
+name = "subset_sum_ii"
+path = "chapter_backtracking/subset_sum_ii.rs"
+
+# Run Command: cargo run --bin coin_change
+[[bin]]
+name = "coin_change"
+path = "chapter_dynamic_programming/coin_change.rs"
+
+# Run Command: cargo run --bin coin_change_ii
+[[bin]]
+name = "coin_change_ii"
+path = "chapter_dynamic_programming/coin_change_ii.rs"
+
+# Run Command: cargo run --bin unbounded_knapsack
+[[bin]]
+name = "unbounded_knapsack"
+path = "chapter_dynamic_programming/unbounded_knapsack.rs"
+
+# Run Command: cargo run --bin knapsack
+[[bin]]
+name = "knapsack"
+path = "chapter_dynamic_programming/knapsack.rs"
+
+# Run Command: cargo run --bin min_path_sum
+[[bin]]
+name = "min_path_sum"
+path = "chapter_dynamic_programming/min_path_sum.rs"
+
+# Run Command: cargo run --bin edit_distance
+[[bin]]
+name = "edit_distance"
+path = "chapter_dynamic_programming/edit_distance.rs"
+
+# Run Command: cargo run --bin n_queens
+[[bin]]
+name = "n_queens"
+path = "chapter_backtracking/n_queens.rs"
+
+# Run Command: cargo run --bin permutations_i
+[[bin]]
+name = "permutations_i"
+path = "chapter_backtracking/permutations_i.rs"
+
+# Run Command: cargo run --bin permutations_ii
+[[bin]]
+name = "permutations_ii"
+path = "chapter_backtracking/permutations_ii.rs"
+
+# Run Command: cargo run --bin preorder_traversal_i_compact
+[[bin]]
+name = "preorder_traversal_i_compact"
+path = "chapter_backtracking/preorder_traversal_i_compact.rs"
+
+# Run Command: cargo run --bin preorder_traversal_ii_compact
+[[bin]]
+name = "preorder_traversal_ii_compact"
+path = "chapter_backtracking/preorder_traversal_ii_compact.rs"
+
+# Run Command: cargo run --bin preorder_traversal_iii_compact
+[[bin]]
+name = "preorder_traversal_iii_compact"
+path = "chapter_backtracking/preorder_traversal_iii_compact.rs"
+
+# Run Command: cargo run --bin preorder_traversal_iii_template
+[[bin]]
+name = "preorder_traversal_iii_template"
+path = "chapter_backtracking/preorder_traversal_iii_template.rs"
+
+# Run Command: cargo run --bin binary_search_recur
+[[bin]]
+name = "binary_search_recur"
+path = "chapter_divide_and_conquer/binary_search_recur.rs"
+
+# Run Command: cargo run --bin hanota
+[[bin]]
+name = "hanota"
+path = "chapter_divide_and_conquer/hanota.rs"
+
+# Run Command: cargo run --bin build_tree
+[[bin]]
+name = "build_tree"
+path = "chapter_divide_and_conquer/build_tree.rs"
+
+# Run Command: cargo run --bin coin_change_greedy
+[[bin]]
+name = "coin_change_greedy"
+path = "chapter_greedy/coin_change_greedy.rs"
+
+# Run Command: cargo run --bin fractional_knapsack
+[[bin]]
+name = "fractional_knapsack"
+path = "chapter_greedy/fractional_knapsack.rs"
+
+# Run Command: cargo run --bin max_capacity
+[[bin]]
+name = "max_capacity"
+path = "chapter_greedy/max_capacity.rs"
+
+# Run Command: cargo run --bin max_product_cutting
+[[bin]]
+name = "max_product_cutting"
+path = "chapter_greedy/max_product_cutting.rs"
+
+[dependencies]
+rand = "0.8.5"
