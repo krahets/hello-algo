@@ -8,35 +8,35 @@ from collections import deque
 
 """Driver Code"""
 if __name__ == "__main__":
-    # 初始化双向队列
+    # 初始化雙向佇列
     deq: deque[int] = deque()
 
-    # 元素入队
-    deq.append(2)  # 添加至队尾
+    # 元素入列
+    deq.append(2)  # 新增至佇列尾
     deq.append(5)
     deq.append(4)
-    deq.appendleft(3)  # 添加至队首
+    deq.appendleft(3)  # 新增至佇列首
     deq.appendleft(1)
-    print("双向队列 deque =", deq)
+    print("雙向佇列 deque =", deq)
 
-    # 访问元素
-    front: int = deq[0]  # 队首元素
-    print("队首元素 front =", front)
-    rear: int = deq[-1]  # 队尾元素
-    print("队尾元素 rear =", rear)
+    # 訪問元素
+    front: int = deq[0]  # 佇列首元素
+    print("佇列首元素 front =", front)
+    rear: int = deq[-1]  # 佇列尾元素
+    print("佇列尾元素 rear =", rear)
 
-    # 元素出队
-    pop_front: int = deq.popleft()  # 队首元素出队
-    print("队首出队元素  pop_front =", pop_front)
-    print("队首出队后 deque =", deq)
-    pop_rear: int = deq.pop()  # 队尾元素出队
-    print("队尾出队元素  pop_rear =", pop_rear)
-    print("队尾出队后 deque =", deq)
+    # 元素出列
+    pop_front: int = deq.popleft()  # 佇列首元素出列
+    print("佇列首出列元素  pop_front =", pop_front)
+    print("佇列首出列後 deque =", deq)
+    pop_rear: int = deq.pop()  # 佇列尾元素出列
+    print("佇列尾出列元素  pop_rear =", pop_rear)
+    print("佇列尾出列後 deque =", deq)
 
-    # 获取双向队列的长度
+    # 獲取雙向佇列的長度
     size: int = len(deq)
-    print("双向队列长度 size =", size)
+    print("雙向佇列長度 size =", size)
 
-    # 判断双向队列是否为空
+    # 判斷雙向佇列是否為空
     is_empty: bool = len(deq) == 0
-    print("双向队列是否为空 =", is_empty)
+    print("雙向佇列是否為空 =", is_empty)

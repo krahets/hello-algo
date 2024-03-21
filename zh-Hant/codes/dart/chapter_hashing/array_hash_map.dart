@@ -4,29 +4,29 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 键值对 */
+/* 鍵值對 */
 class Pair {
   int key;
   String val;
   Pair(this.key, this.val);
 }
 
-/* 基于数组实现的哈希表 */
+/* 基於陣列實現的雜湊表 */
 class ArrayHashMap {
   late List<Pair?> _buckets;
 
   ArrayHashMap() {
-    // 初始化数组，包含 100 个桶
+    // 初始化陣列，包含 100 個桶
     _buckets = List.filled(100, null);
   }
 
-  /* 哈希函数 */
+  /* 雜湊函式 */
   int _hashFunc(int key) {
     final int index = key % 100;
     return index;
   }
 
-  /* 查询操作 */
+  /* 查詢操作 */
   String? get(int key) {
     final int index = _hashFunc(key);
     final Pair? pair = _buckets[index];
@@ -36,20 +36,20 @@ class ArrayHashMap {
     return pair.val;
   }
 
-  /* 添加操作 */
+  /* 新增操作 */
   void put(int key, String val) {
     final Pair pair = Pair(key, val);
     final int index = _hashFunc(key);
     _buckets[index] = pair;
   }
 
-  /* 删除操作 */
+  /* 刪除操作 */
   void remove(int key) {
     final int index = _hashFunc(key);
     _buckets[index] = null;
   }
 
-  /* 获取所有键值对 */
+  /* 獲取所有鍵值對 */
   List<Pair> pairSet() {
     List<Pair> pairSet = [];
     for (final Pair? pair in _buckets) {
@@ -60,7 +60,7 @@ class ArrayHashMap {
     return pairSet;
   }
 
-  /* 获取所有键 */
+  /* 獲取所有鍵 */
   List<int> keySet() {
     List<int> keySet = [];
     for (final Pair? pair in _buckets) {
@@ -71,7 +71,7 @@ class ArrayHashMap {
     return keySet;
   }
 
-  /* 获取所有值 */
+  /* 獲取所有值 */
   List<String> values() {
     List<String> valueSet = [];
     for (final Pair? pair in _buckets) {
@@ -82,7 +82,7 @@ class ArrayHashMap {
     return valueSet;
   }
 
-  /* 打印哈希表 */
+  /* 列印雜湊表 */
   void printHashMap() {
     for (final Pair kv in pairSet()) {
       print("${kv.key} -> ${kv.val}");
@@ -92,35 +92,35 @@ class ArrayHashMap {
 
 /* Driver Code */
 void main() {
-  /* 初始化哈希表 */
+  /* 初始化雜湊表 */
   final ArrayHashMap map = ArrayHashMap();
 
-  /* 添加操作 */
-  // 在哈希表中添加键值对 (key, value)
+  /* 新增操作 */
+  // 在雜湊表中新增鍵值對 (key, value)
   map.put(12836, "小哈");
-  map.put(15937, "小啰");
+  map.put(15937, "小囉");
   map.put(16750, "小算");
   map.put(13276, "小法");
-  map.put(10583, "小鸭");
-  print("\n添加完成后，哈希表为\nKey -> Value");
+  map.put(10583, "小鴨");
+  print("\n新增完成後，雜湊表為\nKey -> Value");
   map.printHashMap();
 
-  /* 查询操作 */
-  // 向哈希表中输入键 key ，得到值 value
+  /* 查詢操作 */
+  // 向雜湊表中輸入鍵 key ，得到值 value
   String? name = map.get(15937);
-  print("\n输入学号 15937 ，查询到姓名 $name");
+  print("\n輸入學號 15937 ，查詢到姓名 $name");
 
-  /* 删除操作 */
-  // 在哈希表中删除键值对 (key, value)
+  /* 刪除操作 */
+  // 在雜湊表中刪除鍵值對 (key, value)
   map.remove(10583);
-  print("\n删除 10583 后，哈希表为\nKey -> Value");
+  print("\n刪除 10583 後，雜湊表為\nKey -> Value");
   map.printHashMap();
 
-  /* 遍历哈希表 */
-  print("\n遍历键值对 Key->Value");
+  /* 走訪雜湊表 */
+  print("\n走訪鍵值對 Key->Value");
   map.pairSet().forEach((kv) => print("${kv.key} -> ${kv.val}"));
-  print("\n单独遍历键 Key");
+  print("\n單獨走訪鍵 Key");
   map.keySet().forEach((key) => print("$key"));
-  print("\n单独遍历值 Value");
+  print("\n單獨走訪值 Value");
   map.values().forEach((val) => print("$val"));
 }

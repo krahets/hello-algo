@@ -11,7 +11,7 @@ import (
 
 func TestMaxProductCutting(t *testing.T) {
 	n := 58
-	// 贪心算法
+	// 貪婪演算法
 	res := maxProductCutting(n)
-	fmt.Println("最大切分乘积为", res)
+	fmt.Println("最大切分乘積為", res)
 }

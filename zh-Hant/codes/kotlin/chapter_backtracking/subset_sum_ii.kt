@@ -8,7 +8,7 @@ package chapter_backtracking.subset_sum_ii
 
 import java.util.*
 
-/* 回溯算法：子集和 II */
+/* 回溯演算法：子集和 II */
 fun backtrack(
     state: MutableList<Int>,
     target: Int,
@@ -16,39 +16,39 @@ fun backtrack(
     start: Int,
     res: MutableList<List<Int>?>
 ) {
-    // 子集和等于 target 时，记录解
+    // 子集和等於 target 時，記錄解
     if (target == 0) {
         res.add(ArrayList(state))
         return
     }
-    // 遍历所有选择
-    // 剪枝二：从 start 开始遍历，避免生成重复子集
-    // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+    // 走訪所有選擇
+    // 剪枝二：從 start 開始走訪，避免生成重複子集
+    // 剪枝三：從 start 開始走訪，避免重複選擇同一元素
     for (i in start..<choices.size) {
-        // 剪枝一：若子集和超过 target ，则直接结束循环
-        // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+        // 剪枝一：若子集和超過 target ，則直接結束迴圈
+        // 這是因為陣列已排序，後邊元素更大，子集和一定超過 target
         if (target - choices[i] < 0) {
             break
         }
-        // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+        // 剪枝四：如果該元素與左邊元素相等，說明該搜尋分支重複，直接跳過
         if (i > start && choices[i] == choices[i - 1]) {
             continue
         }
-        // 尝试：做出选择，更新 target, start
+        // 嘗試：做出選擇，更新 target, start
         state.add(choices[i])
-        // 进行下一轮选择
+        // 進行下一輪選擇
         backtrack(state, target - choices[i], choices, i + 1, res)
-        // 回退：撤销选择，恢复到之前的状态
+        // 回退：撤銷選擇，恢復到之前的狀態
         state.removeAt(state.size - 1)
     }
 }
 
 /* 求解子集和 II */
 fun subsetSumII(nums: IntArray, target: Int): List<List<Int>?> {
-    val state: MutableList<Int> = ArrayList() // 状态（子集）
-    Arrays.sort(nums) // 对 nums 进行排序
-    val start = 0 // 遍历起始点
-    val res: MutableList<List<Int>?> = ArrayList() // 结果列表（子集列表）
+    val state: MutableList<Int> = ArrayList() // 狀態（子集）
+    Arrays.sort(nums) // 對 nums 進行排序
+    val start = 0 // 走訪起始點
+    val res: MutableList<List<Int>?> = ArrayList() // 結果串列（子集串列）
     backtrack(state, target, nums, start, res)
     return res
 }
@@ -60,6 +60,6 @@ fun main() {
 
     val res = subsetSumII(nums, target)
 
-    println("输入数组 nums = ${nums.contentToString()}, target = $target")
-    println("所有和等于 $target 的子集 res = $res")
+    println("輸入陣列 nums = ${nums.contentToString()}, target = $target")
+    println("所有和等於 $target 的子集 res = $res")
 }

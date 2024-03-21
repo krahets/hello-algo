@@ -6,31 +6,31 @@
 
 package chapter_backtracking.permutations_ii
 
-/* 回溯算法：全排列 II */
+/* 回溯演算法：全排列 II */
 fun backtrack(
     state: MutableList<Int>,
     choices: IntArray,
     selected: BooleanArray,
     res: MutableList<MutableList<Int>?>
 ) {
-    // 当状态长度等于元素数量时，记录解
+    // 當狀態長度等於元素數量時，記錄解
     if (state.size == choices.size) {
         res.add(ArrayList(state))
         return
     }
-    // 遍历所有选择
+    // 走訪所有選擇
     val duplicated: MutableSet<Int> = HashSet()
     for (i in choices.indices) {
         val choice = choices[i]
-        // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+        // 剪枝：不允許重複選擇元素 且 不允許重複選擇相等元素
         if (!selected[i] && !duplicated.contains(choice)) {
-            // 尝试：做出选择，更新状态
-            duplicated.add(choice) // 记录选择过的元素值
+            // 嘗試：做出選擇，更新狀態
+            duplicated.add(choice) // 記錄選擇過的元素值
             selected[i] = true
             state.add(choice)
-            // 进行下一轮选择
+            // 進行下一輪選擇
             backtrack(state, choices, selected, res)
-            // 回退：撤销选择，恢复到之前的状态
+            // 回退：撤銷選擇，恢復到之前的狀態
             selected[i] = false
             state.removeAt(state.size - 1)
         }
@@ -50,6 +50,6 @@ fun main() {
 
     val res = permutationsII(nums)
 
-    println("输入数组 nums = ${nums.contentToString()}")
+    println("輸入陣列 nums = ${nums.contentToString()}")
     println("所有排列 res = $res")
 }

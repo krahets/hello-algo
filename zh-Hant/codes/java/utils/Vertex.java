@@ -8,7 +8,7 @@ package utils;
 
 import java.util.*;
 
-/* 顶点类 */
+/* 頂點類 */
 public class Vertex {
     public int val;
 
@@ -16,7 +16,7 @@ public class Vertex {
         this.val = val;
     }
 
-    /* 输入值列表 vals ，返回顶点列表 vets */
+    /* 輸入值串列 vals ，返回頂點串列 vets */
     public static Vertex[] valsToVets(int[] vals) {
         Vertex[] vets = new Vertex[vals.length];
         for (int i = 0; i < vals.length; i++) {
@@ -25,7 +25,7 @@ public class Vertex {
         return vets;
     }
 
-    /* 输入顶点列表 vets ，返回值列表 vals */
+    /* 輸入頂點串列 vets ，返回值串列 vals */
     public static List<Integer> vetsToVals(List<Vertex> vets) {
         List<Integer> vals = new ArrayList<>();
         for (Vertex vet : vets) {

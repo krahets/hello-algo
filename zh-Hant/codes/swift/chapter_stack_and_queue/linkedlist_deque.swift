@@ -4,131 +4,131 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 双向链表节点 */
+/* 雙向鏈結串列節點 */
 class ListNode {
-    var val: Int // 节点值
-    var next: ListNode? // 后继节点引用
-    weak var prev: ListNode? // 前驱节点引用
+    var val: Int // 節點值
+    var next: ListNode? // 後繼節點引用
+    weak var prev: ListNode? // 前驅節點引用
 
     init(val: Int) {
         self.val = val
     }
 }
 
-/* 基于双向链表实现的双向队列 */
+/* 基於雙向鏈結串列實現的雙向佇列 */
 class LinkedListDeque {
-    private var front: ListNode? // 头节点 front
-    private var rear: ListNode? // 尾节点 rear
-    private var _size: Int // 双向队列的长度
+    private var front: ListNode? // 頭節點 front
+    private var rear: ListNode? // 尾節點 rear
+    private var _size: Int // 雙向佇列的長度
 
     init() {
         _size = 0
     }
 
-    /* 获取双向队列的长度 */
+    /* 獲取雙向佇列的長度 */
     func size() -> Int {
         _size
     }
 
-    /* 判断双向队列是否为空 */
+    /* 判斷雙向佇列是否為空 */
     func isEmpty() -> Bool {
         size() == 0
     }
 
-    /* 入队操作 */
+    /* 入列操作 */
     private func push(num: Int, isFront: Bool) {
         let node = ListNode(val: num)
-        // 若链表为空，则令 front 和 rear 都指向 node
+        // 若鏈結串列為空，則令 front 和 rear 都指向 node
         if isEmpty() {
             front = node
             rear = node
         }
-        // 队首入队操作
+        // 佇列首入列操作
         else if isFront {
-            // 将 node 添加至链表头部
+            // 將 node 新增至鏈結串列頭部
             front?.prev = node
             node.next = front
-            front = node // 更新头节点
+            front = node // 更新頭節點
         }
-        // 队尾入队操作
+        // 佇列尾入列操作
         else {
-            // 将 node 添加至链表尾部
+            // 將 node 新增至鏈結串列尾部
             rear?.next = node
             node.prev = rear
-            rear = node // 更新尾节点
+            rear = node // 更新尾節點
         }
-        _size += 1 // 更新队列长度
+        _size += 1 // 更新佇列長度
     }
 
-    /* 队首入队 */
+    /* 佇列首入列 */
     func pushFirst(num: Int) {
         push(num: num, isFront: true)
     }
 
-    /* 队尾入队 */
+    /* 佇列尾入列 */
     func pushLast(num: Int) {
         push(num: num, isFront: false)
     }
 
-    /* 出队操作 */
+    /* 出列操作 */
     private func pop(isFront: Bool) -> Int {
         if isEmpty() {
-            fatalError("双向队列为空")
+            fatalError("雙向佇列為空")
         }
         let val: Int
-        // 队首出队操作
+        // 佇列首出列操作
         if isFront {
-            val = front!.val // 暂存头节点值
-            // 删除头节点
+            val = front!.val // 暫存頭節點值
+            // 刪除頭節點
             let fNext = front?.next
             if fNext != nil {
                 fNext?.prev = nil
                 front?.next = nil
             }
-            front = fNext // 更新头节点
+            front = fNext // 更新頭節點
         }
-        // 队尾出队操作
+        // 佇列尾出列操作
         else {
-            val = rear!.val // 暂存尾节点值
-            // 删除尾节点
+            val = rear!.val // 暫存尾節點值
+            // 刪除尾節點
             let rPrev = rear?.prev
             if rPrev != nil {
                 rPrev?.next = nil
                 rear?.prev = nil
             }
-            rear = rPrev // 更新尾节点
+            rear = rPrev // 更新尾節點
         }
-        _size -= 1 // 更新队列长度
+        _size -= 1 // 更新佇列長度
         return val
     }
 
-    /* 队首出队 */
+    /* 佇列首出列 */
     func popFirst() -> Int {
         pop(isFront: true)
     }
 
-    /* 队尾出队 */
+    /* 佇列尾出列 */
     func popLast() -> Int {
         pop(isFront: false)
     }
 
-    /* 访问队首元素 */
+    /* 訪問佇列首元素 */
     func peekFirst() -> Int {
         if isEmpty() {
-            fatalError("双向队列为空")
+            fatalError("雙向佇列為空")
         }
         return front!.val
     }
 
-    /* 访问队尾元素 */
+    /* 訪問佇列尾元素 */
     func peekLast() -> Int {
         if isEmpty() {
-            fatalError("双向队列为空")
+            fatalError("雙向佇列為空")
         }
         return rear!.val
     }
 
-    /* 返回数组用于打印 */
+    /* 返回陣列用於列印 */
     func toArray() -> [Int] {
         var node = front
         var res = Array(repeating: 0, count: size())
@@ -144,37 +144,37 @@ class LinkedListDeque {
 enum _LinkedListDeque {
     /* Driver Code */
     static func main() {
-        /* 初始化双向队列 */
+        /* 初始化雙向佇列 */
         let deque = LinkedListDeque()
         deque.pushLast(num: 3)
         deque.pushLast(num: 2)
         deque.pushLast(num: 5)
-        print("双向队列 deque = \(deque.toArray())")
+        print("雙向佇列 deque = \(deque.toArray())")
 
-        /* 访问元素 */
+        /* 訪問元素 */
         let peekFirst = deque.peekFirst()
-        print("队首元素 peekFirst = \(peekFirst)")
+        print("佇列首元素 peekFirst = \(peekFirst)")
         let peekLast = deque.peekLast()
-        print("队尾元素 peekLast = \(peekLast)")
+        print("佇列尾元素 peekLast = \(peekLast)")
 
-        /* 元素入队 */
+        /* 元素入列 */
         deque.pushLast(num: 4)
-        print("元素 4 队尾入队后 deque = \(deque.toArray())")
+        print("元素 4 佇列尾入列後 deque = \(deque.toArray())")
         deque.pushFirst(num: 1)
-        print("元素 1 队首入队后 deque = \(deque.toArray())")
+        print("元素 1 佇列首入列後 deque = \(deque.toArray())")
 
-        /* 元素出队 */
+        /* 元素出列 */
         let popLast = deque.popLast()
-        print("队尾出队元素 = \(popLast)，队尾出队后 deque = \(deque.toArray())")
+        print("佇列尾出列元素 = \(popLast)，佇列尾出列後 deque = \(deque.toArray())")
         let popFirst = deque.popFirst()
-        print("队首出队元素 = \(popFirst)，队首出队后 deque = \(deque.toArray())")
+        print("佇列首出列元素 = \(popFirst)，佇列首出列後 deque = \(deque.toArray())")
 
-        /* 获取双向队列的长度 */
+        /* 獲取雙向佇列的長度 */
         let size = deque.size()
-        print("双向队列长度 size = \(size)")
+        print("雙向佇列長度 size = \(size)")
 
-        /* 判断双向队列是否为空 */
+        /* 判斷雙向佇列是否為空 */
         let isEmpty = deque.isEmpty()
-        print("双向队列是否为空 = \(isEmpty)")
+        print("雙向佇列是否為空 = \(isEmpty)")
     }
 }

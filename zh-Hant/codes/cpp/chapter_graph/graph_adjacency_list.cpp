@@ -6,13 +6,13 @@
 
 #include "../utils/common.hpp"
 
-/* 基于邻接表实现的无向图类 */
+/* 基於鄰接表實現的無向圖類 */
 class GraphAdjList {
   public:
-    // 邻接表，key：顶点，value：该顶点的所有邻接顶点
+    // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
     unordered_map<Vertex *, vector<Vertex *>> adjList;
 
-    /* 在 vector 中删除指定节点 */
+    /* 在 vector 中刪除指定節點 */
     void remove(vector<Vertex *> &vec, Vertex *vet) {
         for (int i = 0; i < vec.size(); i++) {
             if (vec[i] == vet) {
@@ -22,9 +22,9 @@ class GraphAdjList {
         }
     }
 
-    /* 构造方法 */
+    /* 構造方法 */
     GraphAdjList(const vector<vector<Vertex *>> &edges) {
-        // 添加所有顶点和边
+        // 新增所有頂點和邊
         for (const vector<Vertex *> &edge : edges) {
             addVertex(edge[0]);
             addVertex(edge[1]);
@@ -32,52 +32,52 @@ class GraphAdjList {
         }
     }
 
-    /* 获取顶点数量 */
+    /* 獲取頂點數量 */
     int size() {
         return adjList.size();
     }
 
-    /* 添加边 */
+    /* 新增邊 */
     void addEdge(Vertex *vet1, Vertex *vet2) {
         if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-            throw invalid_argument("不存在顶点");
-        // 添加边 vet1 - vet2
+            throw invalid_argument("不存在頂點");
+        // 新增邊 vet1 - vet2
         adjList[vet1].push_back(vet2);
         adjList[vet2].push_back(vet1);
     }
 
-    /* 删除边 */
+    /* 刪除邊 */
     void removeEdge(Vertex *vet1, Vertex *vet2) {
         if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-            throw invalid_argument("不存在顶点");
-        // 删除边 vet1 - vet2
+            throw invalid_argument("不存在頂點");
+        // 刪除邊 vet1 - vet2
         remove(adjList[vet1], vet2);
         remove(adjList[vet2], vet1);
     }
 
-    /* 添加顶点 */
+    /* 新增頂點 */
     void addVertex(Vertex *vet) {
         if (adjList.count(vet))
             return;
-        // 在邻接表中添加一个新链表
+        // 在鄰接表中新增一個新鏈結串列
         adjList[vet] = vector<Vertex *>();
     }
 
-    /* 删除顶点 */
+    /* 刪除頂點 */
     void removeVertex(Vertex *vet) {
         if (!adjList.count(vet))
-            throw invalid_argument("不存在顶点");
-        // 在邻接表中删除顶点 vet 对应的链表
+            throw invalid_argument("不存在頂點");
+        // 在鄰接表中刪除頂點 vet 對應的鏈結串列
         adjList.erase(vet);
-        // 遍历其他顶点的链表，删除所有包含 vet 的边
+        // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
         for (auto &adj : adjList) {
             remove(adj.second, vet);
         }
     }
 
-    /* 打印邻接表 */
+    /* 列印鄰接表 */
     void print() {
-        cout << "邻接表 =" << endl;
+        cout << "鄰接表 =" << endl;
         for (auto &adj : adjList) {
             const auto &key = adj.first;
             const auto &vec = adj.second;
@@ -87,4 +87,4 @@ class GraphAdjList {
     }
 };
 
-// 测试样例请见 graph_adjacency_list_test.cpp
+// 測試樣例請見 graph_adjacency_list_test.cpp

@@ -4,7 +4,7 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* 加法哈希 */
+/* 加法雜湊 */
 function addHash(key) {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -14,7 +14,7 @@ function addHash(key) {
     return hash;
 }
 
-/* 乘法哈希 */
+/* 乘法雜湊 */
 function mulHash(key) {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -24,7 +24,7 @@ function mulHash(key) {
     return hash;
 }
 
-/* 异或哈希 */
+/* 異或雜湊 */
 function xorHash(key) {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -34,7 +34,7 @@ function xorHash(key) {
     return hash & MODULUS;
 }
 
-/* 旋转哈希 */
+/* 旋轉雜湊 */
 function rotHash(key) {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -45,16 +45,16 @@ function rotHash(key) {
 }
 
 /* Driver Code */
-const key = 'Hello 算法';
+const key = 'Hello 演算法';
 
 let hash = addHash(key);
-console.log('加法哈希值为 ' + hash);
+console.log('加法雜湊值為 ' + hash);
 
 hash = mulHash(key);
-console.log('乘法哈希值为 ' + hash);
+console.log('乘法雜湊值為 ' + hash);
 
 hash = xorHash(key);
-console.log('异或哈希值为 ' + hash);
+console.log('異或雜湊值為 ' + hash);
 
 hash = rotHash(key);
-console.log('旋转哈希值为 ' + hash);
+console.log('旋轉雜湊值為 ' + hash);

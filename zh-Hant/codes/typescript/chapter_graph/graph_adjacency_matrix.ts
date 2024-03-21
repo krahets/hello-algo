@@ -4,80 +4,80 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-/* 基于邻接矩阵实现的无向图类 */
+/* 基於鄰接矩陣實現的無向圖類 */
 class GraphAdjMat {
-    vertices: number[]; // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    adjMat: number[][]; // 邻接矩阵，行列索引对应“顶点索引”
+    vertices: number[]; // 頂點串列，元素代表“頂點值”，索引代表“頂點索引”
+    adjMat: number[][]; // 鄰接矩陣，行列索引對應“頂點索引”
 
-    /* 构造函数 */
+    /* 構造函式 */
     constructor(vertices: number[], edges: number[][]) {
         this.vertices = [];
         this.adjMat = [];
-        // 添加顶点
+        // 新增頂點
         for (const val of vertices) {
             this.addVertex(val);
         }
-        // 添加边
-        // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+        // 新增邊
+        // 請注意，edges 元素代表頂點索引，即對應 vertices 元素索引
         for (const e of edges) {
             this.addEdge(e[0], e[1]);
         }
     }
 
-    /* 获取顶点数量 */
+    /* 獲取頂點數量 */
     size(): number {
         return this.vertices.length;
     }
 
-    /* 添加顶点 */
+    /* 新增頂點 */
     addVertex(val: number): void {
         const n: number = this.size();
-        // 向顶点列表中添加新顶点的值
+        // 向頂點串列中新增新頂點的值
         this.vertices.push(val);
-        // 在邻接矩阵中添加一行
+        // 在鄰接矩陣中新增一行
         const newRow: number[] = [];
         for (let j: number = 0; j < n; j++) {
             newRow.push(0);
         }
         this.adjMat.push(newRow);
-        // 在邻接矩阵中添加一列
+        // 在鄰接矩陣中新增一列
         for (const row of this.adjMat) {
             row.push(0);
         }
     }
 
-    /* 删除顶点 */
+    /* 刪除頂點 */
     removeVertex(index: number): void {
         if (index >= this.size()) {
             throw new RangeError('Index Out Of Bounds Exception');
         }
-        // 在顶点列表中移除索引 index 的顶点
+        // 在頂點串列中移除索引 index 的頂點
         this.vertices.splice(index, 1);
 
-        // 在邻接矩阵中删除索引 index 的行
+        // 在鄰接矩陣中刪除索引 index 的行
         this.adjMat.splice(index, 1);
-        // 在邻接矩阵中删除索引 index 的列
+        // 在鄰接矩陣中刪除索引 index 的列
         for (const row of this.adjMat) {
             row.splice(index, 1);
         }
     }
 
-    /* 添加边 */
-    // 参数 i, j 对应 vertices 元素索引
+    /* 新增邊 */
+    // 引數 i, j 對應 vertices 元素索引
     addEdge(i: number, j: number): void {
-        // 索引越界与相等处理
+        // 索引越界與相等處理
         if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
             throw new RangeError('Index Out Of Bounds Exception');
         }
-        // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) === (j, i)
+        // 在無向圖中，鄰接矩陣關於主對角線對稱，即滿足 (i, j) === (j, i)
         this.adjMat[i][j] = 1;
         this.adjMat[j][i] = 1;
     }
 
-    /* 删除边 */
-    // 参数 i, j 对应 vertices 元素索引
+    /* 刪除邊 */
+    // 引數 i, j 對應 vertices 元素索引
     removeEdge(i: number, j: number): void {
-        // 索引越界与相等处理
+        // 索引越界與相等處理
         if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
             throw new RangeError('Index Out Of Bounds Exception');
         }
@@ -85,16 +85,16 @@ class GraphAdjMat {
         this.adjMat[j][i] = 0;
     }
 
-    /* 打印邻接矩阵 */
+    /* 列印鄰接矩陣 */
     print(): void {
-        console.log('顶点列表 = ', this.vertices);
-        console.log('邻接矩阵 =', this.adjMat);
+        console.log('頂點串列 = ', this.vertices);
+        console.log('鄰接矩陣 =', this.adjMat);
     }
 }
 
 /* Driver Code */
-/* 初始化无向图 */
-// 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+/* 初始化無向圖 */
+// 請注意，edges 元素代表頂點索引，即對應 vertices 元素索引
 const vertices: number[] = [1, 3, 2, 5, 4];
 const edges: number[][] = [
     [0, 1],
@@ -105,30 +105,30 @@ const edges: number[][] = [
     [3, 4],
 ];
 const graph: GraphAdjMat = new GraphAdjMat(vertices, edges);
-console.log('\n初始化后，图为');
+console.log('\n初始化後，圖為');
 graph.print();
 
-/* 添加边 */
-// 顶点 1, 2 的索引分别为 0, 2
+/* 新增邊 */
+// 頂點 1, 2 的索引分別為 0, 2
 graph.addEdge(0, 2);
-console.log('\n添加边 1-2 后，图为');
+console.log('\n新增邊 1-2 後，圖為');
 graph.print();
 
-/* 删除边 */
-// 顶点 1, 3 的索引分别为 0, 1
+/* 刪除邊 */
+// 頂點 1, 3 的索引分別為 0, 1
 graph.removeEdge(0, 1);
-console.log('\n删除边 1-3 后，图为');
+console.log('\n刪除邊 1-3 後，圖為');
 graph.print();
 
-/* 添加顶点 */
+/* 新增頂點 */
 graph.addVertex(6);
-console.log('\n添加顶点 6 后，图为');
+console.log('\n新增頂點 6 後，圖為');
 graph.print();
 
-/* 删除顶点 */
-// 顶点 3 的索引为 1
+/* 刪除頂點 */
+// 頂點 3 的索引為 1
 graph.removeVertex(1);
-console.log('\n删除顶点 3 后，图为');
+console.log('\n刪除頂點 3 後，圖為');
 graph.print();
 
 export {};

@@ -15,15 +15,15 @@ extern "C" {
 
 #define MAX_NODE_SIZE 5000
 
-/* 二叉树节点结构体 */
+/* 二元樹節點結構體 */
 typedef struct TreeNode {
-    int val;                // 节点值
-    int height;             // 节点高度
-    struct TreeNode *left;  // 左子节点指针
-    struct TreeNode *right; // 右子节点指针
+    int val;                // 節點值
+    int height;             // 節點高度
+    struct TreeNode *left;  // 左子節點指標
+    struct TreeNode *right; // 右子節點指標
 } TreeNode;
 
-/* 构造函数 */
+/* 構造函式 */
 TreeNode *newTreeNode(int val) {
     TreeNode *node;
 
@@ -35,11 +35,11 @@ TreeNode *newTreeNode(int val) {
     return node;
 }
 
-// 序列化编码规则请参考：
+// 序列化編碼規則請參考：
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// 二叉树的数组表示：
+// 二元樹的陣列表示：
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-// 二叉树的链表表示：
+// 二元樹的鏈結串列表示：
 //             /——— 15
 //         /——— 7
 //     /——— 3
@@ -51,7 +51,7 @@ TreeNode *newTreeNode(int val) {
 //         \——— 4
 //             \——— 8
 
-/* 将列表反序列化为二叉树：递归 */
+/* 將串列反序列化為二元樹：遞迴 */
 TreeNode *arrayToTreeDFS(int *arr, int size, int i) {
     if (i < 0 || i >= size || arr[i] == INT_MAX) {
         return NULL;
@@ -63,12 +63,12 @@ TreeNode *arrayToTreeDFS(int *arr, int size, int i) {
     return root;
 }
 
-/* 将列表反序列化为二叉树 */
+/* 將串列反序列化為二元樹 */
 TreeNode *arrayToTree(int *arr, int size) {
     return arrayToTreeDFS(arr, size, 0);
 }
 
-/* 将二叉树序列化为列表：递归 */
+/* 將二元樹序列化為串列：遞迴 */
 void treeToArrayDFS(TreeNode *root, int i, int *res, int *size) {
     if (root == NULL) {
         return;
@@ -83,7 +83,7 @@ void treeToArrayDFS(TreeNode *root, int i, int *res, int *size) {
     treeToArrayDFS(root->right, 2 * i + 2, res, size);
 }
 
-/* 将二叉树序列化为列表 */
+/* 將二元樹序列化為串列 */
 int *treeToArray(TreeNode *root, int *size) {
     *size = 0;
     int *res = NULL;
@@ -91,7 +91,7 @@ int *treeToArray(TreeNode *root, int *size) {
     return res;
 }
 
-/* 释放二叉树内存 */
+/* 釋放二元樹記憶體 */
 void freeMemoryTree(TreeNode *root) {
     if (root == NULL)
         return;

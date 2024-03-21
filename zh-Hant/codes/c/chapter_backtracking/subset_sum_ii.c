@@ -9,18 +9,18 @@
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
-// 状态（子集）
+// 狀態（子集）
 int state[MAX_SIZE];
 int stateSize = 0;
 
-// 结果列表（子集列表）
+// 結果串列（子集串列）
 int res[MAX_RES_SIZE][MAX_SIZE];
 int resColSizes[MAX_RES_SIZE];
 int resSize = 0;
 
-/* 回溯算法：子集和 II */
+/* 回溯演算法：子集和 II */
 void backtrack(int target, int *choices, int choicesSize, int start) {
-    // 子集和等于 target 时，记录解
+    // 子集和等於 target 時，記錄解
     if (target == 0) {
         for (int i = 0; i < stateSize; i++) {
             res[resSize][i] = state[i];
@@ -28,38 +28,38 @@ void backtrack(int target, int *choices, int choicesSize, int start) {
         resColSizes[resSize++] = stateSize;
         return;
     }
-    // 遍历所有选择
-    // 剪枝二：从 start 开始遍历，避免生成重复子集
-    // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+    // 走訪所有選擇
+    // 剪枝二：從 start 開始走訪，避免生成重複子集
+    // 剪枝三：從 start 開始走訪，避免重複選擇同一元素
     for (int i = start; i < choicesSize; i++) {
-        // 剪枝一：若子集和超过 target ，则直接跳过
+        // 剪枝一：若子集和超過 target ，則直接跳過
         if (target - choices[i] < 0) {
             continue;
         }
-        // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+        // 剪枝四：如果該元素與左邊元素相等，說明該搜尋分支重複，直接跳過
         if (i > start && choices[i] == choices[i - 1]) {
             continue;
         }
-        // 尝试：做出选择，更新 target, start
+        // 嘗試：做出選擇，更新 target, start
         state[stateSize] = choices[i];
         stateSize++;
-        // 进行下一轮选择
+        // 進行下一輪選擇
         backtrack(target - choices[i], choices, choicesSize, i + 1);
-        // 回退：撤销选择，恢复到之前的状态
+        // 回退：撤銷選擇，恢復到之前的狀態
         stateSize--;
     }
 }
 
-/* 比较函数 */
+/* 比較函式 */
 int cmp(const void *a, const void *b) {
     return (*(int *)a - *(int *)b);
 }
 
 /* 求解子集和 II */
 void subsetSumII(int *nums, int numsSize, int target) {
-    // 对 nums 进行排序
+    // 對 nums 進行排序
     qsort(nums, numsSize, sizeof(int), cmp);
-    // 开始回溯
+    // 開始回溯
     backtrack(target, nums, numsSize, 0);
 }
 
@@ -71,10 +71,10 @@ int main() {
 
     subsetSumII(nums, numsSize, target);
 
-    printf("输入数组 nums = ");
+    printf("輸入陣列 nums = ");
     printArray(nums, numsSize);
     printf("target = %d\n", target);
-    printf("所有和等于 %d 的子集 res = \n", target);
+    printf("所有和等於 %d 的子集 res = \n", target);
     for (int i = 0; i < resSize; ++i) {
         printArray(res[i], resColSizes[i]);
     }

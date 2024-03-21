@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 零钱兑换 II：动态规划 */
+/* 零錢兌換 II：動態規劃 */
 int coinChangeIIDP(vector<int> &coins, int amt) {
     int n = coins.size();
     // 初始化 dp 表
@@ -15,14 +15,14 @@ int coinChangeIIDP(vector<int> &coins, int amt) {
     for (int i = 0; i <= n; i++) {
         dp[i][0] = 1;
     }
-    // 状态转移
+    // 狀態轉移
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 若超过目标金额，则不选硬币 i
+                // 若超過目標金額，則不選硬幣 i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // 不选和选硬币 i 这两种方案之和
+                // 不選和選硬幣 i 這兩種方案之和
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
             }
         }
@@ -30,20 +30,20 @@ int coinChangeIIDP(vector<int> &coins, int amt) {
     return dp[n][amt];
 }
 
-/* 零钱兑换 II：空间优化后的动态规划 */
+/* 零錢兌換 II：空間最佳化後的動態規劃 */
 int coinChangeIIDPComp(vector<int> &coins, int amt) {
     int n = coins.size();
     // 初始化 dp 表
     vector<int> dp(amt + 1, 0);
     dp[0] = 1;
-    // 状态转移
+    // 狀態轉移
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 若超过目标金额，则不选硬币 i
+                // 若超過目標金額，則不選硬幣 i
                 dp[a] = dp[a];
             } else {
-                // 不选和选硬币 i 这两种方案之和
+                // 不選和選硬幣 i 這兩種方案之和
                 dp[a] = dp[a] + dp[a - coins[i - 1]];
             }
         }
@@ -56,13 +56,13 @@ int main() {
     vector<int> coins = {1, 2, 5};
     int amt = 5;
 
-    // 动态规划
+    // 動態規劃
     int res = coinChangeIIDP(coins, amt);
-    cout << "凑出目标金额的硬币组合数量为 " << res << endl;
+    cout << "湊出目標金額的硬幣組合數量為 " << res << endl;
 
-    // 空间优化后的动态规划
+    // 空間最佳化後的動態規劃
     res = coinChangeIIDPComp(coins, amt);
-    cout << "凑出目标金额的硬币组合数量为 " << res << endl;
+    cout << "湊出目標金額的硬幣組合數量為 " << res << endl;
 
     return 0;
 }

@@ -6,31 +6,31 @@ package chapter_hashing
 
 import "fmt"
 
-/* 键值对 */
+/* 鍵值對 */
 type pair struct {
 	key int
 	val string
 }
 
-/* 基于数组实现的哈希表 */
+/* 基於陣列實現的雜湊表 */
 type arrayHashMap struct {
 	buckets []*pair
 }
 
-/* 初始化哈希表 */
+/* 初始化雜湊表 */
 func newArrayHashMap() *arrayHashMap {
-	// 初始化数组，包含 100 个桶
+	// 初始化陣列，包含 100 個桶
 	buckets := make([]*pair, 100)
 	return &arrayHashMap{buckets: buckets}
 }
 
-/* 哈希函数 */
+/* 雜湊函式 */
 func (a *arrayHashMap) hashFunc(key int) int {
 	index := key % 100
 	return index
 }
 
-/* 查询操作 */
+/* 查詢操作 */
 func (a *arrayHashMap) get(key int) string {
 	index := a.hashFunc(key)
 	pair := a.buckets[index]
@@ -40,21 +40,21 @@ func (a *arrayHashMap) get(key int) string {
 	return pair.val
 }
 
-/* 添加操作 */
+/* 新增操作 */
 func (a *arrayHashMap) put(key int, val string) {
 	pair := &pair{key: key, val: val}
 	index := a.hashFunc(key)
 	a.buckets[index] = pair
 }
 
-/* 删除操作 */
+/* 刪除操作 */
 func (a *arrayHashMap) remove(key int) {
 	index := a.hashFunc(key)
-	// 置为 nil ，代表删除
+	// 置為 nil ，代表刪除
 	a.buckets[index] = nil
 }
 
-/* 获取所有键对 */
+/* 獲取所有鍵對 */
 func (a *arrayHashMap) pairSet() []*pair {
 	var pairs []*pair
 	for _, pair := range a.buckets {
@@ -65,7 +65,7 @@ func (a *arrayHashMap) pairSet() []*pair {
 	return pairs
 }
 
-/* 获取所有键 */
+/* 獲取所有鍵 */
 func (a *arrayHashMap) keySet() []int {
 	var keys []int
 	for _, pair := range a.buckets {
@@ -76,7 +76,7 @@ func (a *arrayHashMap) keySet() []int {
 	return keys
 }
 
-/* 获取所有值 */
+/* 獲取所有值 */
 func (a *arrayHashMap) valueSet() []string {
 	var values []string
 	for _, pair := range a.buckets {
@@ -87,7 +87,7 @@ func (a *arrayHashMap) valueSet() []string {
 	return values
 }
 
-/* 打印哈希表 */
+/* 列印雜湊表 */
 func (a *arrayHashMap) print() {
 	for _, pair := range a.buckets {
 		if pair != nil {

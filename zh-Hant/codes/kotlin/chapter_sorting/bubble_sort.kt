@@ -6,34 +6,34 @@
 
 package chapter_sorting
 
-/* 冒泡排序 */
+/* 泡沫排序 */
 fun bubbleSort(nums: IntArray) {
-    // 外循环：未排序区间为 [0, i]
+    // 外迴圈：未排序區間為 [0, i]
     for (i in nums.size - 1 downTo 1) {
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+        // 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
         for (j in 0..<i) {
             if (nums[j] > nums[j + 1]) {
-                // 交换 nums[j] 与 nums[j + 1]
+                // 交換 nums[j] 與 nums[j + 1]
                 nums[j] = nums[j+1].also { nums[j+1] = nums[j] }
             }
         }
     }
 }
 
-/* 冒泡排序（标志优化） */
+/* 泡沫排序（標誌最佳化） */
 fun bubbleSortWithFlag(nums: IntArray) {
-    // 外循环：未排序区间为 [0, i]
+    // 外迴圈：未排序區間為 [0, i]
     for (i in nums.size - 1 downTo 1) {
-        var flag = false // 初始化标志位
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+        var flag = false // 初始化標誌位
+        // 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
         for (j in 0..<i) {
             if (nums[j] > nums[j + 1]) {
-                // 交换 nums[j] 与 nums[j + 1]
+                // 交換 nums[j] 與 nums[j + 1]
                 nums[j] = nums[j + 1].also { nums[j] = nums[j + 1] }
-                flag = true // 记录交换元素
+                flag = true // 記錄交換元素
             }
         }
-        if (!flag) break // 此轮“冒泡”未交换任何元素，直接跳出
+        if (!flag) break // 此輪“冒泡”未交換任何元素，直接跳出
     }
 }
 
@@ -41,9 +41,9 @@ fun bubbleSortWithFlag(nums: IntArray) {
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     bubbleSort(nums)
-    println("冒泡排序完成后 nums = ${nums.contentToString()}")
+    println("泡沫排序完成後 nums = ${nums.contentToString()}")
 
     val nums1 = intArrayOf(4, 1, 3, 1, 5, 2)
     bubbleSortWithFlag(nums1)
-    println("冒泡排序完成后 nums1 = ${nums1.contentToString()}")
+    println("泡沫排序完成後 nums1 = ${nums1.contentToString()}")
 }

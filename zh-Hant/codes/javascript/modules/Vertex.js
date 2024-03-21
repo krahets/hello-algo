@@ -4,14 +4,14 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-/* 顶点类 */
+/* 頂點類 */
 class Vertex {
     val;
     constructor(val) {
         this.val = val;
     }
 
-    /* 输入值列表 vals ，返回顶点列表 vets */
+    /* 輸入值串列 vals ，返回頂點串列 vets */
     static valsToVets(vals) {
         const vets = [];
         for (let i = 0; i < vals.length; i++) {
@@ -20,7 +20,7 @@ class Vertex {
         return vets;
     }
 
-    /* 输入顶点列表 vets ，返回值列表 vals */
+    /* 輸入頂點串列 vets ，返回值串列 vals */
     static vetsToVals(vets) {
         const vals = [];
         for (const vet of vets) {

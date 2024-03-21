@@ -40,7 +40,7 @@ ListNode *getListNode(ListNode *head, int val) {
 
 /* Free the memory allocated to a linked list */
 void freeMemoryLinkedList(ListNode *cur) {
-    // 释放内存
+    // 釋放記憶體
     ListNode *pre;
     while (cur != nullptr) {
         pre = cur;

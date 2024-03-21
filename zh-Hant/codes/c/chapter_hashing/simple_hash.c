@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 加法哈希 */
+/* 加法雜湊 */
 int addHash(char *key) {
     long long hash = 0;
     const int MODULUS = 1000000007;
@@ -16,7 +16,7 @@ int addHash(char *key) {
     return (int)hash;
 }
 
-/* 乘法哈希 */
+/* 乘法雜湊 */
 int mulHash(char *key) {
     long long hash = 0;
     const int MODULUS = 1000000007;
@@ -26,7 +26,7 @@ int mulHash(char *key) {
     return (int)hash;
 }
 
-/* 异或哈希 */
+/* 異或雜湊 */
 int xorHash(char *key) {
     int hash = 0;
     const int MODULUS = 1000000007;
@@ -37,7 +37,7 @@ int xorHash(char *key) {
     return hash & MODULUS;
 }
 
-/* 旋转哈希 */
+/* 旋轉雜湊 */
 int rotHash(char *key) {
     long long hash = 0;
     const int MODULUS = 1000000007;
@@ -53,16 +53,16 @@ int main() {
     char *key = "Hello dsad3241241dsa算123法";
 
     int hash = addHash(key);
-    printf("加法哈希值为 %d\n", hash);
+    printf("加法雜湊值為 %d\n", hash);
 
     hash = mulHash(key);
-    printf("乘法哈希值为 %d\n", hash);
+    printf("乘法雜湊值為 %d\n", hash);
 
     hash = xorHash(key);
-    printf("异或哈希值为 %d\n", hash);
+    printf("異或雜湊值為 %d\n", hash);
 
     hash = rotHash(key);
-    printf("旋转哈希值为 %d\n", hash);
+    printf("旋轉雜湊值為 %d\n", hash);
 
     return 0;
 }

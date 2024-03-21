@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 搜索 */
+/* 搜尋 */
 int dfs(int i) {
     // 已知 dp[1] 和 dp[2] ，返回之
     if (i == 1 || i == 2)
@@ -16,7 +16,7 @@ int dfs(int i) {
     return count;
 }
 
-/* 爬楼梯：搜索 */
+/* 爬樓梯：搜尋 */
 int climbingStairsDFS(int n) {
     return dfs(n);
 }
@@ -26,7 +26,7 @@ int main() {
     int n = 9;
 
     int res = climbingStairsDFS(n);
-    printf("爬 %d 阶楼梯共有 %d 种方案\n", n, res);
+    printf("爬 %d 階樓梯共有 %d 種方案\n", n, res);
 
     return 0;
 }

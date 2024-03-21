@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 加法哈希 */
+/* 加法雜湊 */
 func addHash(key: String) -> Int {
     var hash = 0
     let MODULUS = 1_000_000_007
@@ -16,7 +16,7 @@ func addHash(key: String) -> Int {
     return hash
 }
 
-/* 乘法哈希 */
+/* 乘法雜湊 */
 func mulHash(key: String) -> Int {
     var hash = 0
     let MODULUS = 1_000_000_007
@@ -28,7 +28,7 @@ func mulHash(key: String) -> Int {
     return hash
 }
 
-/* 异或哈希 */
+/* 異或雜湊 */
 func xorHash(key: String) -> Int {
     var hash = 0
     let MODULUS = 1_000_000_007
@@ -40,7 +40,7 @@ func xorHash(key: String) -> Int {
     return hash & MODULUS
 }
 
-/* 旋转哈希 */
+/* 旋轉雜湊 */
 func rotHash(key: String) -> Int {
     var hash = 0
     let MODULUS = 1_000_000_007
@@ -56,18 +56,18 @@ func rotHash(key: String) -> Int {
 enum SimpleHash {
     /* Driver Code */
     static func main() {
-        let key = "Hello 算法"
+        let key = "Hello 演算法"
 
         var hash = addHash(key: key)
-        print("加法哈希值为 \(hash)")
+        print("加法雜湊值為 \(hash)")
 
         hash = mulHash(key: key)
-        print("乘法哈希值为 \(hash)")
+        print("乘法雜湊值為 \(hash)")
 
         hash = xorHash(key: key)
-        print("异或哈希值为 \(hash)")
+        print("異或雜湊值為 \(hash)")
 
         hash = rotHash(key: key)
-        print("旋转哈希值为 \(hash)")
+        print("旋轉雜湊值為 \(hash)")
     }
 }

@@ -6,30 +6,30 @@ package chapter_dynamic_programming
 
 /* 回溯 */
 func backtrack(choices []int, state, n int, res []int) {
-	// 当爬到第 n 阶时，方案数量加 1
+	// 當爬到第 n 階時，方案數量加 1
 	if state == n {
 		res[0] = res[0] + 1
 	}
-	// 遍历所有选择
+	// 走訪所有選擇
 	for _, choice := range choices {
-		// 剪枝：不允许越过第 n 阶
+		// 剪枝：不允許越過第 n 階
 		if state+choice > n {
 			continue
 		}
-		// 尝试：做出选择，更新状态
+		// 嘗試：做出選擇，更新狀態
 		backtrack(choices, state+choice, n, res)
 		// 回退
 	}
 }
 
-/* 爬楼梯：回溯 */
+/* 爬樓梯：回溯 */
 func climbingStairsBacktrack(n int) int {
-	// 可选择向上爬 1 阶或 2 阶
+	// 可選擇向上爬 1 階或 2 階
 	choices := []int{1, 2}
-	// 从第 0 阶开始爬
+	// 從第 0 階開始爬
 	state := 0
 	res := make([]int, 1)
-	// 使用 res[0] 记录方案数量
+	// 使用 res[0] 記錄方案數量
 	res[0] = 0
 	backtrack(choices, state, n, res)
 	return res[0]

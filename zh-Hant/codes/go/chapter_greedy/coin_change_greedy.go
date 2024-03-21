@@ -4,22 +4,22 @@
 
 package chapter_greedy
 
-/* 零钱兑换：贪心 */
+/* 零錢兌換：貪婪 */
 func coinChangeGreedy(coins []int, amt int) int {
-	// 假设 coins 列表有序
+	// 假設 coins 串列有序
 	i := len(coins) - 1
 	count := 0
-	// 循环进行贪心选择，直到无剩余金额
+	// 迴圈進行貪婪選擇，直到無剩餘金額
 	for amt > 0 {
-		// 找到小于且最接近剩余金额的硬币
+		// 找到小於且最接近剩餘金額的硬幣
 		for i > 0 && coins[i] > amt {
 			i--
 		}
-		// 选择 coins[i]
+		// 選擇 coins[i]
 		amt -= coins[i]
 		count++
 	}
-	// 若未找到可行方案，则返回 -1
+	// 若未找到可行方案，則返回 -1
 	if amt != 0 {
 		return -1
 	}

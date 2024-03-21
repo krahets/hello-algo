@@ -6,14 +6,14 @@
 
 import utils
 
-/* 在链表的节点 n0 之后插入节点 P */
+/* 在鏈結串列的節點 n0 之後插入節點 P */
 func insert(n0: ListNode, P: ListNode) {
     let n1 = n0.next
     P.next = n1
     n0.next = P
 }
 
-/* 删除链表的节点 n0 之后的首个节点 */
+/* 刪除鏈結串列的節點 n0 之後的首個節點 */
 func remove(n0: ListNode) {
     if n0.next == nil {
         return
@@ -24,7 +24,7 @@ func remove(n0: ListNode) {
     n0.next = n1
 }
 
-/* 访问链表中索引为 index 的节点 */
+/* 訪問鏈結串列中索引為 index 的節點 */
 func access(head: ListNode, index: Int) -> ListNode? {
     var head: ListNode? = head
     for _ in 0 ..< index {
@@ -36,7 +36,7 @@ func access(head: ListNode, index: Int) -> ListNode? {
     return head
 }
 
-/* 在链表中查找值为 target 的首个节点 */
+/* 在鏈結串列中查詢值為 target 的首個節點 */
 func find(head: ListNode, target: Int) -> Int {
     var head: ListNode? = head
     var index = 0
@@ -54,37 +54,37 @@ func find(head: ListNode, target: Int) -> Int {
 enum LinkedList {
     /* Driver Code */
     static func main() {
-        /* 初始化链表 */
-        // 初始化各个节点
+        /* 初始化鏈結串列 */
+        // 初始化各個節點
         let n0 = ListNode(x: 1)
         let n1 = ListNode(x: 3)
         let n2 = ListNode(x: 2)
         let n3 = ListNode(x: 5)
         let n4 = ListNode(x: 4)
-        // 构建节点之间的引用
+        // 構建節點之間的引用
         n0.next = n1
         n1.next = n2
         n2.next = n3
         n3.next = n4
-        print("初始化的链表为")
+        print("初始化的鏈結串列為")
         PrintUtil.printLinkedList(head: n0)
 
-        /* 插入节点 */
+        /* 插入節點 */
         insert(n0: n0, P: ListNode(x: 0))
-        print("插入节点后的链表为")
+        print("插入節點後的鏈結串列為")
         PrintUtil.printLinkedList(head: n0)
 
-        /* 删除节点 */
+        /* 刪除節點 */
         remove(n0: n0)
-        print("删除节点后的链表为")
+        print("刪除節點後的鏈結串列為")
         PrintUtil.printLinkedList(head: n0)
 
-        /* 访问节点 */
+        /* 訪問節點 */
         let node = access(head: n0, index: 3)
-        print("链表中索引 3 处的节点的值 = \(node!.val)")
+        print("鏈結串列中索引 3 處的節點的值 = \(node!.val)")
 
-        /* 查找节点 */
+        /* 查詢節點 */
         let index = find(head: n0, target: 2)
-        print("链表中值为 2 的节点的索引 = \(index)")
+        print("鏈結串列中值為 2 的節點的索引 = \(index)")
     }
 }

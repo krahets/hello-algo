@@ -4,7 +4,7 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
-/* 零钱兑换 II：动态规划 */
+/* 零錢兌換 II：動態規劃 */
 function coinChangeIIDP(coins: Array<number>, amt: number): number {
     const n = coins.length;
     // 初始化 dp 表
@@ -15,14 +15,14 @@ function coinChangeIIDP(coins: Array<number>, amt: number): number {
     for (let i = 0; i <= n; i++) {
         dp[i][0] = 1;
     }
-    // 状态转移
+    // 狀態轉移
     for (let i = 1; i <= n; i++) {
         for (let a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 若超过目标金额，则不选硬币 i
+                // 若超過目標金額，則不選硬幣 i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // 不选和选硬币 i 这两种方案之和
+                // 不選和選硬幣 i 這兩種方案之和
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
             }
         }
@@ -30,20 +30,20 @@ function coinChangeIIDP(coins: Array<number>, amt: number): number {
     return dp[n][amt];
 }
 
-/* 零钱兑换 II：状态压缩后的动态规划 */
+/* 零錢兌換 II：狀態壓縮後的動態規劃 */
 function coinChangeIIDPComp(coins: Array<number>, amt: number): number {
     const n = coins.length;
     // 初始化 dp 表
     const dp = Array.from({ length: amt + 1 }, () => 0);
     dp[0] = 1;
-    // 状态转移
+    // 狀態轉移
     for (let i = 1; i <= n; i++) {
         for (let a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 若超过目标金额，则不选硬币 i
+                // 若超過目標金額，則不選硬幣 i
                 dp[a] = dp[a];
             } else {
-                // 不选和选硬币 i 这两种方案之和
+                // 不選和選硬幣 i 這兩種方案之和
                 dp[a] = dp[a] + dp[a - coins[i - 1]];
             }
         }
@@ -55,12 +55,12 @@ function coinChangeIIDPComp(coins: Array<number>, amt: number): number {
 const coins = [1, 2, 5];
 const amt = 5;
 
-// 动态规划
+// 動態規劃
 let res = coinChangeIIDP(coins, amt);
-console.log(`凑出目标金额的硬币组合数量为 ${res}`);
+console.log(`湊出目標金額的硬幣組合數量為 ${res}`);
 
-// 状态压缩后的动态规划
+// 狀態壓縮後的動態規劃
 res = coinChangeIIDPComp(coins, amt);
-console.log(`凑出目标金额的硬币组合数量为 ${res}`);
+console.log(`湊出目標金額的硬幣組合數量為 ${res}`);
 
 export {};

@@ -6,25 +6,25 @@
 
 include!("../include/include.rs");
 
-/* 数组表示下的二叉树类 */
+/* 陣列表示下的二元樹類 */
 struct ArrayBinaryTree {
     tree: Vec<Option<i32>>,
 }
 
 impl ArrayBinaryTree {
-    /* 构造方法 */
+    /* 構造方法 */
     fn new(arr: Vec<Option<i32>>) -> Self {
         Self { tree: arr }
     }
 
-    /* 列表容量 */
+    /* 串列容量 */
     fn size(&self) -> i32 {
         self.tree.len() as i32
     }
 
-    /* 获取索引为 i 节点的值 */
+    /* 獲取索引為 i 節點的值 */
     fn val(&self, i: i32) -> Option<i32> {
-        // 若索引越界，则返回 None ，代表空位
+        // 若索引越界，則返回 None ，代表空位
         if i < 0 || i >= self.size() {
             None
         } else {
@@ -32,25 +32,25 @@ impl ArrayBinaryTree {
         }
     }
 
-    /* 获取索引为 i 节点的左子节点的索引 */
+    /* 獲取索引為 i 節點的左子節點的索引 */
     fn left(&self, i: i32) -> i32 {
         2 * i + 1
     }
 
-    /* 获取索引为 i 节点的右子节点的索引 */
+    /* 獲取索引為 i 節點的右子節點的索引 */
     fn right(&self, i: i32) -> i32 {
         2 * i + 2
     }
 
-    /* 获取索引为 i 节点的父节点的索引 */
+    /* 獲取索引為 i 節點的父節點的索引 */
     fn parent(&self, i: i32) -> i32 {
         (i - 1) / 2
     }
 
-    /* 层序遍历 */
+    /* 層序走訪 */
     fn level_order(&self) -> Vec<i32> {
         let mut res = vec![];
-        // 直接遍历数组
+        // 直接走訪陣列
         for i in 0..self.size() {
             if let Some(val) = self.val(i) {
                 res.push(val)
@@ -59,43 +59,43 @@ impl ArrayBinaryTree {
         res
     }
 
-    /* 深度优先遍历 */
+    /* 深度優先走訪 */
     fn dfs(&self, i: i32, order: &str, res: &mut Vec<i32>) {
         if self.val(i).is_none() {
             return;
         }
         let val = self.val(i).unwrap();
-        // 前序遍历
+        // 前序走訪
         if order == "pre" {
             res.push(val);
         }
         self.dfs(self.left(i), order, res);
-        // 中序遍历
+        // 中序走訪
         if order == "in" {
             res.push(val);
         }
         self.dfs(self.right(i), order, res);
-        // 后序遍历
+        // 後序走訪
         if order == "post" {
             res.push(val);
         }
     }
 
-    /* 前序遍历 */
+    /* 前序走訪 */
     fn pre_order(&self) -> Vec<i32> {
         let mut res = vec![];
         self.dfs(0, "pre", &mut res);
         res
     }
 
-    /* 中序遍历 */
+    /* 中序走訪 */
     fn in_order(&self) -> Vec<i32> {
         let mut res = vec![];
         self.dfs(0, "in", &mut res);
         res
     }
 
-    /* 后序遍历 */
+    /* 後序走訪 */
     fn post_order(&self) -> Vec<i32> {
         let mut res = vec![];
         self.dfs(0, "post", &mut res);
@@ -105,8 +105,8 @@ impl ArrayBinaryTree {
 
 /* Driver Code */
 fn main() {
-    // 初始化二叉树
-    // 这里借助了一个从数组直接生成二叉树的函数
+    // 初始化二元樹
+    // 這裡藉助了一個從陣列直接生成二元樹的函式
     let arr = vec![
         Some(1),
         Some(2),
@@ -126,8 +126,8 @@ fn main() {
     ];
 
     let root = tree_node::vec_to_tree(arr.clone()).unwrap();
-    println!("\n初始化二叉树\n");
-    println!("二叉树的数组表示：");
+    println!("\n初始化二元樹\n");
+    println!("二元樹的陣列表示：");
     println!(
         "[{}]",
         arr.iter()
@@ -139,19 +139,19 @@ fn main() {
             .collect::<Vec<String>>()
             .join(", ")
     );
-    println!("二叉树的链表表示：");
+    println!("二元樹的鏈結串列表示：");
     print_util::print_tree(&root);
 
-    // 数组表示下的二叉树类
+    // 陣列表示下的二元樹類
     let abt = ArrayBinaryTree::new(arr);
 
-    // 访问节点
+    // 訪問節點
     let i = 1;
     let l = abt.left(i);
     let r = abt.right(i);
     let p = abt.parent(i);
     println!(
-        "\n当前节点的索引为 {} ，值为 {}",
+        "\n當前節點的索引為 {} ，值為 {}",
         i,
         if let Some(val) = abt.val(i) {
             format!("{val}")
@@ -160,7 +160,7 @@ fn main() {
         }
     );
     println!(
-        "其左子节点的索引为 {} ，值为 {}",
+        "其左子節點的索引為 {} ，值為 {}",
         l,
         if let Some(val) = abt.val(l) {
             format!("{val}")
@@ -169,7 +169,7 @@ fn main() {
         }
     );
     println!(
-        "其右子节点的索引为 {} ，值为 {}",
+        "其右子節點的索引為 {} ，值為 {}",
         r,
         if let Some(val) = abt.val(r) {
             format!("{val}")
@@ -178,7 +178,7 @@ fn main() {
         }
     );
     println!(
-        "其父节点的索引为 {} ，值为 {}",
+        "其父節點的索引為 {} ，值為 {}",
         p,
         if let Some(val) = abt.val(p) {
             format!("{val}")
@@ -187,13 +187,13 @@ fn main() {
         }
     );
 
-    // 遍历树
+    // 走訪樹
     let mut res = abt.level_order();
-    println!("\n层序遍历为：{:?}", res);
+    println!("\n層序走訪為：{:?}", res);
     res = abt.pre_order();
-    println!("前序遍历为：{:?}", res);
+    println!("前序走訪為：{:?}", res);
     res = abt.in_order();
-    println!("中序遍历为：{:?}", res);
+    println!("中序走訪為：{:?}", res);
     res = abt.post_order();
-    println!("后序遍历为：{:?}", res);
+    println!("後序走訪為：{:?}", res);
 }

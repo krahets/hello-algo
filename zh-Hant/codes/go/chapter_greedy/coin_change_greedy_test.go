@@ -10,26 +10,26 @@ import (
 )
 
 func TestCoinChangeGreedy(t *testing.T) {
-	// 贪心：能够保证找到全局最优解
+	// 貪婪：能夠保證找到全域性最優解
 	coins := []int{1, 5, 10, 20, 50, 100}
 	amt := 186
 	res := coinChangeGreedy(coins, amt)
 	fmt.Printf("coins = %v, amt = %d\n", coins, amt)
-	fmt.Printf("凑到 %d 所需的最少硬币数量为 %d\n", amt, res)
+	fmt.Printf("湊到 %d 所需的最少硬幣數量為 %d\n", amt, res)
 
-	// 贪心：无法保证找到全局最优解
+	// 貪婪：無法保證找到全域性最優解
 	coins = []int{1, 20, 50}
 	amt = 60
 	res = coinChangeGreedy(coins, amt)
 	fmt.Printf("coins = %v, amt = %d\n", coins, amt)
-	fmt.Printf("凑到 %d 所需的最少硬币数量为 %d\n", amt, res)
-	fmt.Println("实际上需要的最少数量为 3 ，即 20 + 20 + 20")
+	fmt.Printf("湊到 %d 所需的最少硬幣數量為 %d\n", amt, res)
+	fmt.Println("實際上需要的最少數量為 3 ，即 20 + 20 + 20")
 
-	// 贪心：无法保证找到全局最优解
+	// 貪婪：無法保證找到全域性最優解
 	coins = []int{1, 49, 50}
 	amt = 98
 	res = coinChangeGreedy(coins, amt)
 	fmt.Printf("coins = %v, amt = %d\n", coins, amt)
-	fmt.Printf("凑到 %d 所需的最少硬币数量为 %d\n", amt, res)
-	fmt.Println("实际上需要的最少数量为 2 ，即 49 + 49")
+	fmt.Printf("湊到 %d 所需的最少硬幣數量為 %d\n", amt, res)
+	fmt.Println("實際上需要的最少數量為 2 ，即 49 + 49")
 }

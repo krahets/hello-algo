@@ -6,55 +6,55 @@
 
 #include "../utils/common.h"
 
-/* 函数 */
+/* 函式 */
 int func() {
-    // 执行某些操作
+    // 執行某些操作
     return 0;
 }
 
-/* 常数阶 */
+/* 常數階 */
 void constant(int n) {
-    // 常量、变量、对象占用 O(1) 空间
+    // 常量、變數、物件佔用 O(1) 空間
     const int a = 0;
     int b = 0;
     int nums[1000];
     ListNode *node = newListNode(0);
     free(node);
-    // 循环中的变量占用 O(1) 空间
+    // 迴圈中的變數佔用 O(1) 空間
     for (int i = 0; i < n; i++) {
         int c = 0;
     }
-    // 循环中的函数占用 O(1) 空间
+    // 迴圈中的函式佔用 O(1) 空間
     for (int i = 0; i < n; i++) {
         func();
     }
 }
 
-/* 哈希表 */
+/* 雜湊表 */
 typedef struct {
     int key;
     int val;
-    UT_hash_handle hh; // 基于 uthash.h 实现
+    UT_hash_handle hh; // 基於 uthash.h 實現
 } HashTable;
 
-/* 线性阶 */
+/* 線性階 */
 void linear(int n) {
-    // 长度为 n 的数组占用 O(n) 空间
+    // 長度為 n 的陣列佔用 O(n) 空間
     int *nums = malloc(sizeof(int) * n);
     free(nums);
 
-    // 长度为 n 的列表占用 O(n) 空间
+    // 長度為 n 的串列佔用 O(n) 空間
     ListNode **nodes = malloc(sizeof(ListNode *) * n);
     for (int i = 0; i < n; i++) {
         nodes[i] = newListNode(i);
     }
-    // 内存释放
+    // 記憶體釋放
     for (int i = 0; i < n; i++) {
         free(nodes[i]);
     }
     free(nodes);
 
-    // 长度为 n 的哈希表占用 O(n) 空间
+    // 長度為 n 的雜湊表佔用 O(n) 空間
     HashTable *h = NULL;
     for (int i = 0; i < n; i++) {
         HashTable *tmp = malloc(sizeof(HashTable));
@@ -63,7 +63,7 @@ void linear(int n) {
         HASH_ADD_INT(h, key, tmp);
     }
 
-    // 内存释放
+    // 記憶體釋放
     HashTable *curr, *tmp;
     HASH_ITER(hh, h, curr, tmp) {
         HASH_DEL(h, curr);
@@ -71,17 +71,17 @@ void linear(int n) {
     }
 }
 
-/* 线性阶（递归实现） */
+/* 線性階（遞迴實現） */
 void linearRecur(int n) {
-    printf("递归 n = %d\r\n", n);
+    printf("遞迴 n = %d\r\n", n);
     if (n == 1)
         return;
     linearRecur(n - 1);
 }
 
-/* 平方阶 */
+/* 平方階 */
 void quadratic(int n) {
-    // 二维列表占用 O(n^2) 空间
+    // 二維串列佔用 O(n^2) 空間
     int **numMatrix = malloc(sizeof(int *) * n);
     for (int i = 0; i < n; i++) {
         int *tmp = malloc(sizeof(int) * n);
@@ -91,25 +91,25 @@ void quadratic(int n) {
         numMatrix[i] = tmp;
     }
 
-    // 内存释放
+    // 記憶體釋放
     for (int i = 0; i < n; i++) {
         free(numMatrix[i]);
     }
     free(numMatrix);
 }
 
-/* 平方阶（递归实现） */
+/* 平方階（遞迴實現） */
 int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     int *nums = malloc(sizeof(int) * n);
-    printf("递归 n = %d 中的 nums 长度 = %d\r\n", n, n);
+    printf("遞迴 n = %d 中的 nums 長度 = %d\r\n", n, n);
     int res = quadraticRecur(n - 1);
     free(nums);
     return res;
 }
 
-/* 指数阶（建立满二叉树） */
+/* 指數階（建立滿二元樹） */
 TreeNode *buildTree(int n) {
     if (n == 0)
         return NULL;
@@ -122,19 +122,19 @@ TreeNode *buildTree(int n) {
 /* Driver Code */
 int main() {
     int n = 5;
-    // 常数阶
+    // 常數階
     constant(n);
-    // 线性阶
+    // 線性階
     linear(n);
     linearRecur(n);
-    // 平方阶
+    // 平方階
     quadratic(n);
     quadraticRecur(n);
-    // 指数阶
+    // 指數階
     TreeNode *root = buildTree(n);
     printTree(root);
 
-    // 释放内存
+    // 釋放記憶體
     freeMemoryTree(root);
 
     return 0;

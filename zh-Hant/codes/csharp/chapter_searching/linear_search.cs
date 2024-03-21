@@ -7,28 +7,28 @@
 namespace hello_algo.chapter_searching;
 
 public class linear_search {
-    /* 线性查找（数组） */
+    /* 線性查詢（陣列） */
     int LinearSearchArray(int[] nums, int target) {
-        // 遍历数组
+        // 走訪陣列
         for (int i = 0; i < nums.Length; i++) {
-            // 找到目标元素，返回其索引
+            // 找到目標元素，返回其索引
             if (nums[i] == target)
                 return i;
         }
-        // 未找到目标元素，返回 -1
+        // 未找到目標元素，返回 -1
         return -1;
     }
 
-    /* 线性查找（链表） */
+    /* 線性查詢（鏈結串列） */
     ListNode? LinearSearchLinkedList(ListNode? head, int target) {
-        // 遍历链表
+        // 走訪鏈結串列
         while (head != null) {
-            // 找到目标节点，返回之
+            // 找到目標節點，返回之
             if (head.val == target)
                 return head;
             head = head.next;
         }
-        // 未找到目标节点，返回 null
+        // 未找到目標節點，返回 null
         return null;
     }
 
@@ -36,14 +36,14 @@ public class linear_search {
     public void Test() {
         int target = 3;
 
-        /* 在数组中执行线性查找 */
+        /* 在陣列中執行線性查詢 */
         int[] nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
         int index = LinearSearchArray(nums, target);
-        Console.WriteLine("目标元素 3 的索引 = " + index);
+        Console.WriteLine("目標元素 3 的索引 = " + index);
 
-        /* 在链表中执行线性查找 */
+        /* 在鏈結串列中執行線性查詢 */
         ListNode? head = ListNode.ArrToLinkedList(nums);
         ListNode? node = LinearSearchLinkedList(head, target);
-        Console.WriteLine("目标节点值 3 的对应节点对象为 " + node);
+        Console.WriteLine("目標節點值 3 的對應節點物件為 " + node);
     }
 }

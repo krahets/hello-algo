@@ -6,10 +6,10 @@
 
 package chapter_searching
 
-/* 方法一：暴力枚举 */
+/* 方法一：暴力列舉 */
 fun twoSumBruteForce(nums: IntArray, target: Int): IntArray {
     val size = nums.size
-    // 两层循环，时间复杂度为 O(n^2)
+    // 兩層迴圈，時間複雜度為 O(n^2)
     for (i in 0..<size - 1) {
         for (j in i + 1..<size) {
             if (nums[i] + nums[j] == target) return intArrayOf(i, j)
@@ -18,12 +18,12 @@ fun twoSumBruteForce(nums: IntArray, target: Int): IntArray {
     return IntArray(0)
 }
 
-/* 方法二：辅助哈希表 */
+/* 方法二：輔助雜湊表 */
 fun twoSumHashTable(nums: IntArray, target: Int): IntArray {
     val size = nums.size
-    // 辅助哈希表，空间复杂度为 O(n)
+    // 輔助雜湊表，空間複雜度為 O(n)
     val dic = HashMap<Int, Int>()
-    // 单层循环，时间复杂度为 O(n)
+    // 單層迴圈，時間複雜度為 O(n)
     for (i in 0..<size) {
         if (dic.containsKey(target - nums[i])) {
             return intArrayOf(dic[target - nums[i]]!!, i)

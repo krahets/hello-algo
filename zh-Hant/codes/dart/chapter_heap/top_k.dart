@@ -6,13 +6,13 @@
 
 import '../utils/print_util.dart';
 
-/* 基于堆查找数组中最大的 k 个元素 */
+/* 基於堆積查詢陣列中最大的 k 個元素 */
 MinHeap topKHeap(List<int> nums, int k) {
-  // 初始化小顶堆，将数组的前 k 个元素入堆
+  // 初始化小頂堆積，將陣列的前 k 個元素入堆積
   MinHeap heap = MinHeap(nums.sublist(0, k));
-  // 从第 k+1 个元素开始，保持堆的长度为 k
+  // 從第 k+1 個元素開始，保持堆積的長度為 k
   for (int i = k; i < nums.length; i++) {
-    // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+    // 若當前元素大於堆積頂元素，則將堆積頂元素出堆積、當前元素入堆積
     if (nums[i] > heap.peek()) {
       heap.pop();
       heap.push(nums[i]);
@@ -27,123 +27,123 @@ void main() {
   int k = 3;
 
   MinHeap res = topKHeap(nums, k);
-  print("最大的 $k 个元素为");
+  print("最大的 $k 個元素為");
   res.print();
 }
 
-/* 小顶堆 */
+/* 小頂堆積 */
 class MinHeap {
   late List<int> _minHeap;
 
-  /* 构造方法，根据输入列表建堆 */
+  /* 構造方法，根據輸入串列建堆積 */
   MinHeap(List<int> nums) {
-    // 将列表元素原封不动添加进堆
+    // 將串列元素原封不動新增進堆積
     _minHeap = nums;
-    // 堆化除叶节点以外的其他所有节点
+    // 堆積化除葉節點以外的其他所有節點
     for (int i = _parent(size() - 1); i >= 0; i--) {
       siftDown(i);
     }
   }
 
-  /* 返回堆中的元素 */
+  /* 返回堆積中的元素 */
   List<int> getHeap() {
     return _minHeap;
   }
 
-  /* 获取左子节点的索引 */
+  /* 獲取左子節點的索引 */
   int _left(int i) {
     return 2 * i + 1;
   }
 
-  /* 获取右子节点的索引 */
+  /* 獲取右子節點的索引 */
   int _right(int i) {
     return 2 * i + 2;
   }
 
-  /* 获取父节点的索引 */
+  /* 獲取父節點的索引 */
   int _parent(int i) {
     return (i - 1) ~/ 2; // 向下整除
   }
 
-  /* 交换元素 */
+  /* 交換元素 */
   void _swap(int i, int j) {
     int tmp = _minHeap[i];
     _minHeap[i] = _minHeap[j];
     _minHeap[j] = tmp;
   }
 
-  /* 获取堆大小 */
+  /* 獲取堆積大小 */
   int size() {
     return _minHeap.length;
   }
 
-  /* 判断堆是否为空 */
+  /* 判斷堆積是否為空 */
   bool isEmpty() {
     return size() == 0;
   }
 
-  /* 访问堆顶元素 */
+  /* 訪問堆積頂元素 */
   int peek() {
     return _minHeap[0];
   }
 
-  /* 元素入堆 */
+  /* 元素入堆積 */
   void push(int val) {
-    // 添加节点
+    // 新增節點
     _minHeap.add(val);
-    // 从底至顶堆化
+    // 從底至頂堆積化
     siftUp(size() - 1);
   }
 
-  /* 从节点 i 开始，从底至顶堆化 */
+  /* 從節點 i 開始，從底至頂堆積化 */
   void siftUp(int i) {
     while (true) {
-      // 获取节点 i 的父节点
+      // 獲取節點 i 的父節點
       int p = _parent(i);
-      // 当“越过根节点”或“节点无须修复”时，结束堆化
+      // 當“越過根節點”或“節點無須修復”時，結束堆積化
       if (p < 0 || _minHeap[i] >= _minHeap[p]) {
         break;
       }
-      // 交换两节点
+      // 交換兩節點
       _swap(i, p);
-      // 循环向上堆化
+      // 迴圈向上堆積化
       i = p;
     }
   }
 
-  /* 元素出堆 */
+  /* 元素出堆積 */
   int pop() {
-    // 判空处理
-    if (isEmpty()) throw Exception('堆为空');
-    // 交换根节点与最右叶节点（交换首元素与尾元素）
+    // 判空處理
+    if (isEmpty()) throw Exception('堆積為空');
+    // 交換根節點與最右葉節點（交換首元素與尾元素）
     _swap(0, size() - 1);
-    // 删除节点
+    // 刪除節點
     int val = _minHeap.removeLast();
-    // 从顶至底堆化
+    // 從頂至底堆積化
     siftDown(0);
-    // 返回堆顶元素
+    // 返回堆積頂元素
     return val;
   }
 
-  /* 从节点 i 开始，从顶至底堆化 */
+  /* 從節點 i 開始，從頂至底堆積化 */
   void siftDown(int i) {
     while (true) {
-      // 判断节点 i, l, r 中值最大的节点，记为 ma
+      // 判斷節點 i, l, r 中值最大的節點，記為 ma
       int l = _left(i);
       int r = _right(i);
       int mi = i;
       if (l < size() && _minHeap[l] < _minHeap[mi]) mi = l;
       if (r < size() && _minHeap[r] < _minHeap[mi]) mi = r;
-      // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+      // 若節點 i 最大或索引 l, r 越界，則無須繼續堆積化，跳出
       if (mi == i) break;
-      // 交换两节点
+      // 交換兩節點
       _swap(i, mi);
-      // 循环向下堆化
+      // 迴圈向下堆積化
       i = mi;
     }
   }
 
-  /* 打印堆（二叉树） */
+  /* 列印堆積（二元樹） */
   void print() {
     printHeap(_minHeap);
   }

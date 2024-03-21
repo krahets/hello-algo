@@ -10,40 +10,40 @@ namespace hello_algo.chapter_hashing;
 public class hash_map {
     [Test]
     public void Test() {
-        /* 初始化哈希表 */
+        /* 初始化雜湊表 */
         Dictionary<int, string> map = new() {
-            /* 添加操作 */
-            // 在哈希表中添加键值对 (key, value)
+            /* 新增操作 */
+            // 在雜湊表中新增鍵值對 (key, value)
             { 12836, "小哈" },
-            { 15937, "小啰" },
+            { 15937, "小囉" },
             { 16750, "小算" },
             { 13276, "小法" },
-            { 10583, "小鸭" }
+            { 10583, "小鴨" }
         };
-        Console.WriteLine("\n添加完成后，哈希表为\nKey -> Value");
+        Console.WriteLine("\n新增完成後，雜湊表為\nKey -> Value");
         PrintUtil.PrintHashMap(map);
 
-        /* 查询操作 */
-        // 向哈希表中输入键 key ，得到值 value
+        /* 查詢操作 */
+        // 向雜湊表中輸入鍵 key ，得到值 value
         string name = map[15937];
-        Console.WriteLine("\n输入学号 15937 ，查询到姓名 " + name);
+        Console.WriteLine("\n輸入學號 15937 ，查詢到姓名 " + name);
 
-        /* 删除操作 */
-        // 在哈希表中删除键值对 (key, value)
+        /* 刪除操作 */
+        // 在雜湊表中刪除鍵值對 (key, value)
         map.Remove(10583);
-        Console.WriteLine("\n删除 10583 后，哈希表为\nKey -> Value");
+        Console.WriteLine("\n刪除 10583 後，雜湊表為\nKey -> Value");
         PrintUtil.PrintHashMap(map);
 
-        /* 遍历哈希表 */
-        Console.WriteLine("\n遍历键值对 Key->Value");
+        /* 走訪雜湊表 */
+        Console.WriteLine("\n走訪鍵值對 Key->Value");
         foreach (var kv in map) {
             Console.WriteLine(kv.Key + " -> " + kv.Value);
         }
-        Console.WriteLine("\n单独遍历键 Key");
+        Console.WriteLine("\n單獨走訪鍵 Key");
         foreach (int key in map.Keys) {
             Console.WriteLine(key);
         }
-        Console.WriteLine("\n单独遍历值 Value");
+        Console.WriteLine("\n單獨走訪值 Value");
         foreach (string val in map.Values) {
             Console.WriteLine(val);
         }

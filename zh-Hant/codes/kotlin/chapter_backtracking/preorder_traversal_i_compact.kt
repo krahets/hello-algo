@@ -11,13 +11,13 @@ import utils.printTree
 
 var res: MutableList<TreeNode>? = null
 
-/* 前序遍历：例题一 */
+/* 前序走訪：例題一 */
 fun preOrder(root: TreeNode?) {
     if (root == null) {
         return
     }
     if (root.value == 7) {
-        // 记录解
+        // 記錄解
         res!!.add(root)
     }
     preOrder(root.left)
@@ -27,14 +27,14 @@ fun preOrder(root: TreeNode?) {
 /* Driver Code */
 fun main() {
     val root = TreeNode.listToTree(mutableListOf(1, 7, 3, 4, 5, 6, 7))
-    println("\n初始化二叉树")
+    println("\n初始化二元樹")
     printTree(root)
 
-    // 前序遍历
+    // 前序走訪
     res = ArrayList()
     preOrder(root)
 
-    println("\n输出所有值为 7 的节点")
+    println("\n輸出所有值為 7 的節點")
     val vals: MutableList<Int> = ArrayList()
     for (node in res as ArrayList<TreeNode>) {
         vals.add(node.value)

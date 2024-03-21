@@ -12,15 +12,15 @@ import (
 
 func TestSpaceComplexity(t *testing.T) {
 	n := 5
-	// 常数阶
+	// 常數階
 	spaceConstant(n)
-	// 线性阶
+	// 線性階
 	spaceLinear(n)
 	spaceLinearRecur(n)
-	// 平方阶
+	// 平方階
 	spaceQuadratic(n)
 	spaceQuadraticRecur(n)
-	// 指数阶
+	// 指數階
 	root := buildTree(n)
 	PrintTree(root)
 }

@@ -8,57 +8,57 @@ namespace hello_algo.chapter_heap;
 
 public class heap {
     void TestPush(PriorityQueue<int, int> heap, int val) {
-        heap.Enqueue(val, val); // 元素入堆
-        Console.WriteLine($"\n元素 {val} 入堆后\n");
+        heap.Enqueue(val, val); // 元素入堆積
+        Console.WriteLine($"\n元素 {val} 入堆積後\n");
         PrintUtil.PrintHeap(heap);
     }
 
     void TestPop(PriorityQueue<int, int> heap) {
-        int val = heap.Dequeue(); // 堆顶元素出堆
-        Console.WriteLine($"\n堆顶元素 {val} 出堆后\n");
+        int val = heap.Dequeue(); // 堆積頂元素出堆積
+        Console.WriteLine($"\n堆積頂元素 {val} 出堆積後\n");
         PrintUtil.PrintHeap(heap);
     }
 
     [Test]
     public void Test() {
-        /* 初始化堆 */
-        // 初始化小顶堆
+        /* 初始化堆積 */
+        // 初始化小頂堆積
         PriorityQueue<int, int> minHeap = new();
-        // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
+        // 初始化大頂堆積（使用 lambda 表示式修改 Comparator 即可）
         PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y - x));
-        Console.WriteLine("以下测试样例为大顶堆");
+        Console.WriteLine("以下測試樣例為大頂堆積");
 
-        /* 元素入堆 */
+        /* 元素入堆積 */
         TestPush(maxHeap, 1);
         TestPush(maxHeap, 3);
         TestPush(maxHeap, 2);
         TestPush(maxHeap, 5);
         TestPush(maxHeap, 4);
 
-        /* 获取堆顶元素 */
+        /* 獲取堆積頂元素 */
         int peek = maxHeap.Peek();
-        Console.WriteLine($"堆顶元素为 {peek}");
+        Console.WriteLine($"堆積頂元素為 {peek}");
 
-        /* 堆顶元素出堆 */
-        // 出堆元素会形成一个从大到小的序列
+        /* 堆積頂元素出堆積 */
+        // 出堆積元素會形成一個從大到小的序列
         TestPop(maxHeap);
         TestPop(maxHeap);
         TestPop(maxHeap);
         TestPop(maxHeap);
         TestPop(maxHeap);
 
-        /* 获取堆大小 */
+        /* 獲取堆積大小 */
         int size = maxHeap.Count;
-        Console.WriteLine($"堆元素数量为 {size}");
+        Console.WriteLine($"堆積元素數量為 {size}");
 
-        /* 判断堆是否为空 */
+        /* 判斷堆積是否為空 */
         bool isEmpty = maxHeap.Count == 0;
-        Console.WriteLine($"堆是否为空 {isEmpty}");
+        Console.WriteLine($"堆積是否為空 {isEmpty}");
 
-        /* 输入列表并建堆 */
+        /* 輸入串列並建堆積 */
         var list = new int[] { 1, 3, 2, 5, 4 };
         minHeap = new PriorityQueue<int, int>(list.Select(x => (x, x)));
-        Console.WriteLine("输入列表并建立小顶堆后");
+        Console.WriteLine("輸入串列並建立小頂堆積後");
         PrintUtil.PrintHeap(minHeap);
     }
 }

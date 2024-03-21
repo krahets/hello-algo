@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* 基于链表实现的队列 */
+/* 基於鏈結串列實現的佇列 */
 class LinkedListQueue {
   private:
-    ListNode *front, *rear; // 头节点 front ，尾节点 rear
+    ListNode *front, *rear; // 頭節點 front ，尾節點 rear
     int queSize;
 
   public:
@@ -20,30 +20,30 @@ class LinkedListQueue {
     }
 
     ~LinkedListQueue() {
-        // 遍历链表删除节点，释放内存
+        // 走訪鏈結串列刪除節點，釋放記憶體
         freeMemoryLinkedList(front);
     }
 
-    /* 获取队列的长度 */
+    /* 獲取佇列的長度 */
     int size() {
         return queSize;
     }
 
-    /* 判断队列是否为空 */
+    /* 判斷佇列是否為空 */
     bool isEmpty() {
         return queSize == 0;
     }
 
-    /* 入队 */
+    /* 入列 */
     void push(int num) {
-        // 在尾节点后添加 num
+        // 在尾節點後新增 num
         ListNode *node = new ListNode(num);
-        // 如果队列为空，则令头、尾节点都指向该节点
+        // 如果佇列為空，則令頭、尾節點都指向該節點
         if (front == nullptr) {
             front = node;
             rear = node;
         }
-        // 如果队列不为空，则将该节点添加到尾节点后
+        // 如果佇列不為空，則將該節點新增到尾節點後
         else {
             rear->next = node;
             rear = node;
@@ -51,26 +51,26 @@ class LinkedListQueue {
         queSize++;
     }
 
-    /* 出队 */
+    /* 出列 */
     int pop() {
         int num = peek();
-        // 删除头节点
+        // 刪除頭節點
         ListNode *tmp = front;
         front = front->next;
-        // 释放内存
+        // 釋放記憶體
         delete tmp;
         queSize--;
         return num;
     }
 
-    /* 访问队首元素 */
+    /* 訪問佇列首元素 */
     int peek() {
         if (size() == 0)
-            throw out_of_range("队列为空");
+            throw out_of_range("佇列為空");
         return front->val;
     }
 
-    /* 将链表转化为 Vector 并返回 */
+    /* 將鏈結串列轉化為 Vector 並返回 */
     vector<int> toVector() {
         ListNode *node = front;
         vector<int> res(size());
@@ -84,36 +84,36 @@ class LinkedListQueue {
 
 /* Driver Code */
 int main() {
-    /* 初始化队列 */
+    /* 初始化佇列 */
     LinkedListQueue *queue = new LinkedListQueue();
 
-    /* 元素入队 */
+    /* 元素入列 */
     queue->push(1);
     queue->push(3);
     queue->push(2);
     queue->push(5);
     queue->push(4);
-    cout << "队列 queue = ";
+    cout << "佇列 queue = ";
     printVector(queue->toVector());
 
-    /* 访问队首元素 */
+    /* 訪問佇列首元素 */
     int peek = queue->peek();
-    cout << "队首元素 peek = " << peek << endl;
+    cout << "佇列首元素 peek = " << peek << endl;
 
-    /* 元素出队 */
+    /* 元素出列 */
     peek = queue->pop();
-    cout << "出队元素 pop = " << peek << "，出队后 queue = ";
+    cout << "出列元素 pop = " << peek << "，出列後 queue = ";
     printVector(queue->toVector());
 
-    /* 获取队列的长度 */
+    /* 獲取佇列的長度 */
     int size = queue->size();
-    cout << "队列长度 size = " << size << endl;
+    cout << "佇列長度 size = " << size << endl;
 
-    /* 判断队列是否为空 */
+    /* 判斷佇列是否為空 */
     bool empty = queue->isEmpty();
-    cout << "队列是否为空 = " << empty << endl;
+    cout << "佇列是否為空 = " << empty << endl;
 
-    // 释放内存
+    // 釋放記憶體
     delete queue;
 
     return 0;

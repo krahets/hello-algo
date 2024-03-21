@@ -10,34 +10,34 @@ import (
 )
 
 func TestGraphAdjMat(t *testing.T) {
-	/* 初始化无向图 */
-	// 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+	/* 初始化無向圖 */
+	// 請注意，edges 元素代表頂點索引，即對應 vertices 元素索引
 	vertices := []int{1, 3, 2, 5, 4}
 	edges := [][]int{{0, 1}, {1, 2}, {2, 3}, {0, 3}, {2, 4}, {3, 4}}
 	graph := newGraphAdjMat(vertices, edges)
-	fmt.Println("初始化后，图为:")
+	fmt.Println("初始化後，圖為:")
 	graph.print()
 
-	/* 添加边 */
-	// 顶点 1, 2 的索引分别为 0, 2
+	/* 新增邊 */
+	// 頂點 1, 2 的索引分別為 0, 2
 	graph.addEdge(0, 2)
-	fmt.Println("添加边 1-2 后，图为")
+	fmt.Println("新增邊 1-2 後，圖為")
 	graph.print()
 
-	/* 删除边 */
-	// 顶点 1, 3 的索引分别为 0, 1
+	/* 刪除邊 */
+	// 頂點 1, 3 的索引分別為 0, 1
 	graph.removeEdge(0, 1)
-	fmt.Println("删除边 1-3 后，图为")
+	fmt.Println("刪除邊 1-3 後，圖為")
 	graph.print()
 
-	/* 添加顶点 */
+	/* 新增頂點 */
 	graph.addVertex(6)
-	fmt.Println("添加顶点 6 后，图为")
+	fmt.Println("新增頂點 6 後，圖為")
 	graph.print()
 
-	/* 删除顶点 */
-	// 顶点 3 的索引为 1
+	/* 刪除頂點 */
+	// 頂點 3 的索引為 1
 	graph.removeVertex(1)
-	fmt.Println("删除顶点 3 后，图为")
+	fmt.Println("刪除頂點 3 後，圖為")
 	graph.print()
 }

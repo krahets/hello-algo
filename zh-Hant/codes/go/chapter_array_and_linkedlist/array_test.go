@@ -5,8 +5,8 @@
 package chapter_array_and_linkedlist
 
 /**
-我们将 Go 中的 Slice 切片看作 Array 数组。因为这样可以
-降低理解成本，利于我们将关注点放在数据结构与算法上。
+我們將 Go 中的 Slice 切片看作 Array 陣列。因為這樣可以
+降低理解成本，利於我們將關注點放在資料結構與演算法上。
 */
 
 import (
@@ -16,35 +16,35 @@ import (
 
 /* Driver Code */
 func TestArray(t *testing.T) {
-	/* 初始化数组 */
+	/* 初始化陣列 */
 	var arr [5]int
-	fmt.Println("数组 arr =", arr)
-	// 在 Go 中，指定长度时（[5]int）为数组，不指定长度时（[]int）为切片
-	// 由于 Go 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
-	// 为了方便实现扩容 extend() 函数，以下将切片（Slice）看作数组（Array）
+	fmt.Println("陣列 arr =", arr)
+	// 在 Go 中，指定長度時（[5]int）為陣列，不指定長度時（[]int）為切片
+	// 由於 Go 的陣列被設計為在編譯期確定長度，因此只能使用常量來指定長度
+	// 為了方便實現擴容 extend() 函式，以下將切片（Slice）看作陣列（Array）
 	nums := []int{1, 3, 2, 5, 4}
-	fmt.Println("数组 nums =", nums)
+	fmt.Println("陣列 nums =", nums)
 
-	/* 随机访问 */
+	/* 隨機訪問 */
 	randomNum := randomAccess(nums)
-	fmt.Println("在 nums 中获取随机元素", randomNum)
+	fmt.Println("在 nums 中獲取隨機元素", randomNum)
 
-	/* 长度扩展 */
+	/* 長度擴充套件 */
 	nums = extend(nums, 3)
-	fmt.Println("将数组长度扩展至 8 ，得到 nums =", nums)
+	fmt.Println("將陣列長度擴充套件至 8 ，得到 nums =", nums)
 
 	/* 插入元素 */
 	insert(nums, 6, 3)
-	fmt.Println("在索引 3 处插入数字 6 ，得到 nums =", nums)
+	fmt.Println("在索引 3 處插入數字 6 ，得到 nums =", nums)
 
-	/* 删除元素 */
+	/* 刪除元素 */
 	remove(nums, 2)
-	fmt.Println("删除索引 2 处的元素，得到 nums =", nums)
+	fmt.Println("刪除索引 2 處的元素，得到 nums =", nums)
 
-	/* 遍历数组 */
+	/* 走訪陣列 */
 	traverse(nums)
 
-	/* 查找元素 */
+	/* 查詢元素 */
 	index := find(nums, 3)
-	fmt.Println("在 nums 中查找元素 3 ，得到索引 =", index)
+	fmt.Println("在 nums 中查詢元素 3 ，得到索引 =", index)
 }

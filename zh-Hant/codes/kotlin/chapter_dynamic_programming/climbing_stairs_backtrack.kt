@@ -13,24 +13,24 @@ fun backtrack(
     n: Int,
     res: MutableList<Int>
 ) {
-    // 当爬到第 n 阶时，方案数量加 1
+    // 當爬到第 n 階時，方案數量加 1
     if (state == n) res[0] = res[0] + 1
-    // 遍历所有选择
+    // 走訪所有選擇
     for (choice in choices) {
-        // 剪枝：不允许越过第 n 阶
+        // 剪枝：不允許越過第 n 階
         if (state + choice > n) continue
-        // 尝试：做出选择，更新状态
+        // 嘗試：做出選擇，更新狀態
         backtrack(choices, state + choice, n, res)
         // 回退
     }
 }
 
-/* 爬楼梯：回溯 */
+/* 爬樓梯：回溯 */
 fun climbingStairsBacktrack(n: Int): Int {
-    val choices = mutableListOf(1, 2) // 可选择向上爬 1 阶或 2 阶
-    val state = 0 // 从第 0 阶开始爬
+    val choices = mutableListOf(1, 2) // 可選擇向上爬 1 階或 2 階
+    val state = 0 // 從第 0 階開始爬
     val res = ArrayList<Int>()
-    res.add(0) // 使用 res[0] 记录方案数量
+    res.add(0) // 使用 res[0] 記錄方案數量
     backtrack(choices, state, n, res)
     return res[0]
 }
@@ -40,5 +40,5 @@ fun main() {
     val n = 9
 
     val res = climbingStairsBacktrack(n)
-    println("爬 $n 阶楼梯共有 $res 种方案")
+    println("爬 $n 階樓梯共有 $res 種方案")
 }

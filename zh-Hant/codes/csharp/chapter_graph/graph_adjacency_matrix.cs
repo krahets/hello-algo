@@ -6,88 +6,88 @@
 
 namespace hello_algo.chapter_graph;
 
-/* 基于邻接矩阵实现的无向图类 */
+/* 基於鄰接矩陣實現的無向圖類 */
 class GraphAdjMat {
-    List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    List<List<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
+    List<int> vertices;     // 頂點串列，元素代表“頂點值”，索引代表“頂點索引”
+    List<List<int>> adjMat; // 鄰接矩陣，行列索引對應“頂點索引”
 
-    /* 构造函数 */
+    /* 構造函式 */
     public GraphAdjMat(int[] vertices, int[][] edges) {
         this.vertices = [];
         this.adjMat = [];
-        // 添加顶点
+        // 新增頂點
         foreach (int val in vertices) {
             AddVertex(val);
         }
-        // 添加边
-        // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+        // 新增邊
+        // 請注意，edges 元素代表頂點索引，即對應 vertices 元素索引
         foreach (int[] e in edges) {
             AddEdge(e[0], e[1]);
         }
     }
 
-    /* 获取顶点数量 */
+    /* 獲取頂點數量 */
     int Size() {
         return vertices.Count;
     }
 
-    /* 添加顶点 */
+    /* 新增頂點 */
     public void AddVertex(int val) {
         int n = Size();
-        // 向顶点列表中添加新顶点的值
+        // 向頂點串列中新增新頂點的值
         vertices.Add(val);
-        // 在邻接矩阵中添加一行
+        // 在鄰接矩陣中新增一行
         List<int> newRow = new(n);
         for (int j = 0; j < n; j++) {
             newRow.Add(0);
         }
         adjMat.Add(newRow);
-        // 在邻接矩阵中添加一列
+        // 在鄰接矩陣中新增一列
         foreach (List<int> row in adjMat) {
             row.Add(0);
         }
     }
 
-    /* 删除顶点 */
+    /* 刪除頂點 */
     public void RemoveVertex(int index) {
         if (index >= Size())
             throw new IndexOutOfRangeException();
-        // 在顶点列表中移除索引 index 的顶点
+        // 在頂點串列中移除索引 index 的頂點
         vertices.RemoveAt(index);
-        // 在邻接矩阵中删除索引 index 的行
+        // 在鄰接矩陣中刪除索引 index 的行
         adjMat.RemoveAt(index);
-        // 在邻接矩阵中删除索引 index 的列
+        // 在鄰接矩陣中刪除索引 index 的列
         foreach (List<int> row in adjMat) {
             row.RemoveAt(index);
         }
     }
 
-    /* 添加边 */
-    // 参数 i, j 对应 vertices 元素索引
+    /* 新增邊 */
+    // 引數 i, j 對應 vertices 元素索引
     public void AddEdge(int i, int j) {
-        // 索引越界与相等处理
+        // 索引越界與相等處理
         if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
             throw new IndexOutOfRangeException();
-        // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
+        // 在無向圖中，鄰接矩陣關於主對角線對稱，即滿足 (i, j) == (j, i)
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
     }
 
-    /* 删除边 */
-    // 参数 i, j 对应 vertices 元素索引
+    /* 刪除邊 */
+    // 引數 i, j 對應 vertices 元素索引
     public void RemoveEdge(int i, int j) {
-        // 索引越界与相等处理
+        // 索引越界與相等處理
         if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
             throw new IndexOutOfRangeException();
         adjMat[i][j] = 0;
         adjMat[j][i] = 0;
     }
 
-    /* 打印邻接矩阵 */
+    /* 列印鄰接矩陣 */
     public void Print() {
-        Console.Write("顶点列表 = ");
+        Console.Write("頂點串列 = ");
         PrintUtil.PrintList(vertices);
-        Console.WriteLine("邻接矩阵 =");
+        Console.WriteLine("鄰接矩陣 =");
         PrintUtil.PrintMatrix(adjMat);
     }
 }
@@ -95,8 +95,8 @@ class GraphAdjMat {
 public class graph_adjacency_matrix {
     [Test]
     public void Test() {
-        /* 初始化无向图 */
-        // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+        /* 初始化無向圖 */
+        // 請注意，edges 元素代表頂點索引，即對應 vertices 元素索引
         int[] vertices = [1, 3, 2, 5, 4];
         int[][] edges = 
         [
@@ -108,30 +108,30 @@ public class graph_adjacency_matrix {
             [3, 4]
         ];
         GraphAdjMat graph = new(vertices, edges);
-        Console.WriteLine("\n初始化后，图为");
+        Console.WriteLine("\n初始化後，圖為");
         graph.Print();
 
-        /* 添加边 */
-        // 顶点 1, 2 的索引分别为 0, 2
+        /* 新增邊 */
+        // 頂點 1, 2 的索引分別為 0, 2
         graph.AddEdge(0, 2);
-        Console.WriteLine("\n添加边 1-2 后，图为");
+        Console.WriteLine("\n新增邊 1-2 後，圖為");
         graph.Print();
 
-        /* 删除边 */
-        // 顶点 1, 3 的索引分别为 0, 1
+        /* 刪除邊 */
+        // 頂點 1, 3 的索引分別為 0, 1
         graph.RemoveEdge(0, 1);
-        Console.WriteLine("\n删除边 1-3 后，图为");
+        Console.WriteLine("\n刪除邊 1-3 後，圖為");
         graph.Print();
 
-        /* 添加顶点 */
+        /* 新增頂點 */
         graph.AddVertex(6);
-        Console.WriteLine("\n添加顶点 6 后，图为");
+        Console.WriteLine("\n新增頂點 6 後，圖為");
         graph.Print();
 
-        /* 删除顶点 */
-        // 顶点 3 的索引为 1
+        /* 刪除頂點 */
+        // 頂點 3 的索引為 1
         graph.RemoveVertex(1);
-        Console.WriteLine("\n删除顶点 3 后，图为");
+        Console.WriteLine("\n刪除頂點 3 後，圖為");
         graph.Print();
     }
 }

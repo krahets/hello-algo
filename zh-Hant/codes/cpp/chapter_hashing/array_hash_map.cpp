@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 键值对 */
+/* 鍵值對 */
 struct Pair {
   public:
     int key;
@@ -17,32 +17,32 @@ struct Pair {
     }
 };
 
-/* 基于数组实现的哈希表 */
+/* 基於陣列實現的雜湊表 */
 class ArrayHashMap {
   private:
     vector<Pair *> buckets;
 
   public:
     ArrayHashMap() {
-        // 初始化数组，包含 100 个桶
+        // 初始化陣列，包含 100 個桶
         buckets = vector<Pair *>(100);
     }
 
     ~ArrayHashMap() {
-        // 释放内存
+        // 釋放記憶體
         for (const auto &bucket : buckets) {
             delete bucket;
         }
         buckets.clear();
     }
 
-    /* 哈希函数 */
+    /* 雜湊函式 */
     int hashFunc(int key) {
         int index = key % 100;
         return index;
     }
 
-    /* 查询操作 */
+    /* 查詢操作 */
     string get(int key) {
         int index = hashFunc(key);
         Pair *pair = buckets[index];
@@ -51,22 +51,22 @@ class ArrayHashMap {
         return pair->val;
     }
 
-    /* 添加操作 */
+    /* 新增操作 */
     void put(int key, string val) {
         Pair *pair = new Pair(key, val);
         int index = hashFunc(key);
         buckets[index] = pair;
     }
 
-    /* 删除操作 */
+    /* 刪除操作 */
     void remove(int key) {
         int index = hashFunc(key);
-        // 释放内存并置为 nullptr
+        // 釋放記憶體並置為 nullptr
         delete buckets[index];
         buckets[index] = nullptr;
     }
 
-    /* 获取所有键值对 */
+    /* 獲取所有鍵值對 */
     vector<Pair *> pairSet() {
         vector<Pair *> pairSet;
         for (Pair *pair : buckets) {
@@ -77,7 +77,7 @@ class ArrayHashMap {
         return pairSet;
     }
 
-    /* 获取所有键 */
+    /* 獲取所有鍵 */
     vector<int> keySet() {
         vector<int> keySet;
         for (Pair *pair : buckets) {
@@ -88,7 +88,7 @@ class ArrayHashMap {
         return keySet;
     }
 
-    /* 获取所有值 */
+    /* 獲取所有值 */
     vector<string> valueSet() {
         vector<string> valueSet;
         for (Pair *pair : buckets) {
@@ -99,7 +99,7 @@ class ArrayHashMap {
         return valueSet;
     }
 
-    /* 打印哈希表 */
+    /* 列印雜湊表 */
     void print() {
         for (Pair *kv : pairSet()) {
             cout << kv->key << " -> " << kv->val << endl;
@@ -107,4 +107,4 @@ class ArrayHashMap {
     }
 };
 
-// 测试样例请见 array_hash_map_test.cpp
+// 測試樣例請見 array_hash_map_test.cpp

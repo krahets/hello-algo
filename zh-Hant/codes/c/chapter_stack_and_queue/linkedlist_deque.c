@@ -6,14 +6,14 @@
 
 #include "../utils/common.h"
 
-/* 双向链表节点 */
+/* 雙向鏈結串列節點 */
 typedef struct DoublyListNode {
-    int val;                     // 节点值
-    struct DoublyListNode *next; // 后继节点
-    struct DoublyListNode *prev; // 前驱节点
+    int val;                     // 節點值
+    struct DoublyListNode *next; // 後繼節點
+    struct DoublyListNode *prev; // 前驅節點
 } DoublyListNode;
 
-/* 构造函数 */
+/* 構造函式 */
 DoublyListNode *newDoublyListNode(int num) {
     DoublyListNode *new = (DoublyListNode *)malloc(sizeof(DoublyListNode));
     new->val = num;
@@ -22,18 +22,18 @@ DoublyListNode *newDoublyListNode(int num) {
     return new;
 }
 
-/* 析构函数 */
+/* 析構函式 */
 void delDoublyListNode(DoublyListNode *node) {
     free(node);
 }
 
-/* 基于双向链表实现的双向队列 */
+/* 基於雙向鏈結串列實現的雙向佇列 */
 typedef struct {
-    DoublyListNode *front, *rear; // 头节点 front ，尾节点 rear
-    int queSize;                  // 双向队列的长度
+    DoublyListNode *front, *rear; // 頭節點 front ，尾節點 rear
+    int queSize;                  // 雙向佇列的長度
 } LinkedListDeque;
 
-/* 构造函数 */
+/* 構造函式 */
 LinkedListDeque *newLinkedListDeque() {
     LinkedListDeque *deque = (LinkedListDeque *)malloc(sizeof(LinkedListDeque));
     deque->front = NULL;
@@ -42,119 +42,119 @@ LinkedListDeque *newLinkedListDeque() {
     return deque;
 }
 
-/* 析构函数 */
+/* 析構函式 */
 void delLinkedListdeque(LinkedListDeque *deque) {
-    // 释放所有节点
+    // 釋放所有節點
     for (int i = 0; i < deque->queSize && deque->front != NULL; i++) {
         DoublyListNode *tmp = deque->front;
         deque->front = deque->front->next;
         free(tmp);
     }
-    // 释放 deque 结构体
+    // 釋放 deque 結構體
     free(deque);
 }
 
-/* 获取队列的长度 */
+/* 獲取佇列的長度 */
 int size(LinkedListDeque *deque) {
     return deque->queSize;
 }
 
-/* 判断队列是否为空 */
+/* 判斷佇列是否為空 */
 bool empty(LinkedListDeque *deque) {
     return (size(deque) == 0);
 }
 
-/* 入队 */
+/* 入列 */
 void push(LinkedListDeque *deque, int num, bool isFront) {
     DoublyListNode *node = newDoublyListNode(num);
-    // 若链表为空，则令 front 和 rear 都指向node
+    // 若鏈結串列為空，則令 front 和 rear 都指向node
     if (empty(deque)) {
         deque->front = deque->rear = node;
     }
-    // 队首入队操作
+    // 佇列首入列操作
     else if (isFront) {
-        // 将 node 添加至链表头部
+        // 將 node 新增至鏈結串列頭部
         deque->front->prev = node;
         node->next = deque->front;
-        deque->front = node; // 更新头节点
+        deque->front = node; // 更新頭節點
     }
-    // 队尾入队操作
+    // 佇列尾入列操作
     else {
-        // 将 node 添加至链表尾部
+        // 將 node 新增至鏈結串列尾部
         deque->rear->next = node;
         node->prev = deque->rear;
         deque->rear = node;
     }
-    deque->queSize++; // 更新队列长度
+    deque->queSize++; // 更新佇列長度
 }
 
-/* 队首入队 */
+/* 佇列首入列 */
 void pushFirst(LinkedListDeque *deque, int num) {
     push(deque, num, true);
 }
 
-/* 队尾入队 */
+/* 佇列尾入列 */
 void pushLast(LinkedListDeque *deque, int num) {
     push(deque, num, false);
 }
 
-/* 访问队首元素 */
+/* 訪問佇列首元素 */
 int peekFirst(LinkedListDeque *deque) {
     assert(size(deque) && deque->front);
     return deque->front->val;
 }
 
-/* 访问队尾元素 */
+/* 訪問佇列尾元素 */
 int peekLast(LinkedListDeque *deque) {
     assert(size(deque) && deque->rear);
     return deque->rear->val;
 }
 
-/* 出队 */
+/* 出列 */
 int pop(LinkedListDeque *deque, bool isFront) {
     if (empty(deque))
         return -1;
     int val;
-    // 队首出队操作
+    // 佇列首出列操作
     if (isFront) {
-        val = peekFirst(deque); // 暂存头节点值
+        val = peekFirst(deque); // 暫存頭節點值
         DoublyListNode *fNext = deque->front->next;
         if (fNext) {
             fNext->prev = NULL;
             deque->front->next = NULL;
             delDoublyListNode(deque->front);
         }
-        deque->front = fNext; // 更新头节点
+        deque->front = fNext; // 更新頭節點
     }
-    // 队尾出队操作
+    // 佇列尾出列操作
     else {
-        val = peekLast(deque); // 暂存尾节点值
+        val = peekLast(deque); // 暫存尾節點值
         DoublyListNode *rPrev = deque->rear->prev;
         if (rPrev) {
             rPrev->next = NULL;
             deque->rear->prev = NULL;
             delDoublyListNode(deque->rear);
         }
-        deque->rear = rPrev; // 更新尾节点
+        deque->rear = rPrev; // 更新尾節點
     }
-    deque->queSize--; // 更新队列长度
+    deque->queSize--; // 更新佇列長度
     return val;
 }
 
-/* 队首出队 */
+/* 佇列首出列 */
 int popFirst(LinkedListDeque *deque) {
     return pop(deque, true);
 }
 
-/* 队尾出队 */
+/* 佇列尾出列 */
 int popLast(LinkedListDeque *deque) {
     return pop(deque, false);
 }
 
-/* 打印队列 */
+/* 列印佇列 */
 void printLinkedListDeque(LinkedListDeque *deque) {
     int *arr = malloc(sizeof(int) * deque->queSize);
-    // 拷贝链表中的数据到数组
+    // 複製鏈結串列中的資料到陣列
     int i;
     DoublyListNode *node;
     for (i = 0, node = deque->front; i < deque->queSize; i++) {
@@ -167,45 +167,45 @@ void printLinkedListDeque(LinkedListDeque *deque) {
 
 /* Driver Code */
 int main() {
-    /* 初始化双向队列 */
+    /* 初始化雙向佇列 */
     LinkedListDeque *deque = newLinkedListDeque();
     pushLast(deque, 3);
     pushLast(deque, 2);
     pushLast(deque, 5);
-    printf("双向队列 deque = ");
+    printf("雙向佇列 deque = ");
     printLinkedListDeque(deque);
 
-    /* 访问元素 */
+    /* 訪問元素 */
     int peekFirstNum = peekFirst(deque);
-    printf("队首元素 peekFirst = %d\r\n", peekFirstNum);
+    printf("佇列首元素 peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("队首元素 peekLast = %d\r\n", peekLastNum);
+    printf("佇列首元素 peekLast = %d\r\n", peekLastNum);
 
-    /* 元素入队 */
+    /* 元素入列 */
     pushLast(deque, 4);
-    printf("元素 4 队尾入队后 deque =");
+    printf("元素 4 佇列尾入列後 deque =");
     printLinkedListDeque(deque);
     pushFirst(deque, 1);
-    printf("元素 1 队首入队后 deque =");
+    printf("元素 1 佇列首入列後 deque =");
     printLinkedListDeque(deque);
 
-    /* 元素出队 */
+    /* 元素出列 */
     int popLastNum = popLast(deque);
-    printf("队尾出队元素 popLast = %d ，队尾出队后 deque = ", popLastNum);
+    printf("佇列尾出列元素 popLast = %d ，佇列尾出列後 deque = ", popLastNum);
     printLinkedListDeque(deque);
     int popFirstNum = popFirst(deque);
-    printf("队首出队元素 popFirst = %d ，队首出队后 deque = ", popFirstNum);
+    printf("佇列首出列元素 popFirst = %d ，佇列首出列後 deque = ", popFirstNum);
     printLinkedListDeque(deque);
 
-    /* 获取队列的长度 */
+    /* 獲取佇列的長度 */
     int dequeSize = size(deque);
-    printf("双向队列长度 size = %d\r\n", dequeSize);
+    printf("雙向佇列長度 size = %d\r\n", dequeSize);
 
-    /* 判断队列是否为空 */
+    /* 判斷佇列是否為空 */
     bool isEmpty = empty(deque);
-    printf("双向队列是否为空 = %s\r\n", isEmpty ? "true" : "false");
+    printf("雙向佇列是否為空 = %s\r\n", isEmpty ? "true" : "false");
 
-    // 释放内存
+    // 釋放記憶體
     delLinkedListdeque(deque);
 
     return 0;

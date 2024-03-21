@@ -6,26 +6,26 @@
 
 import '../utils/list_node.dart';
 
-/* 基于链表类实现的栈 */
+/* 基於鏈結串列類實現的堆疊 */
 class LinkedListStack {
-  ListNode? _stackPeek; // 将头节点作为栈顶
-  int _stkSize = 0; // 栈的长度
+  ListNode? _stackPeek; // 將頭節點作為堆疊頂
+  int _stkSize = 0; // 堆疊的長度
 
   LinkedListStack() {
     _stackPeek = null;
   }
 
-  /* 获取栈的长度 */
+  /* 獲取堆疊的長度 */
   int size() {
     return _stkSize;
   }
 
-  /* 判断栈是否为空 */
+  /* 判斷堆疊是否為空 */
   bool isEmpty() {
     return _stkSize == 0;
   }
 
-  /* 入栈 */
+  /* 入堆疊 */
   void push(int _num) {
     final ListNode node = ListNode(_num);
     node.next = _stackPeek;
@@ -33,7 +33,7 @@ class LinkedListStack {
     _stkSize++;
   }
 
-  /* 出栈 */
+  /* 出堆疊 */
   int pop() {
     final int _num = peek();
     _stackPeek = _stackPeek!.next;
@@ -41,15 +41,15 @@ class LinkedListStack {
     return _num;
   }
 
-  /* 访问栈顶元素 */
+  /* 訪問堆疊頂元素 */
   int peek() {
     if (_stackPeek == null) {
-      throw Exception("栈为空");
+      throw Exception("堆疊為空");
     }
     return _stackPeek!.val;
   }
 
-  /* 将链表转化为 List 并返回 */
+  /* 將鏈結串列轉化為 List 並返回 */
   List<int> toList() {
     ListNode? node = _stackPeek;
     List<int> list = [];
@@ -64,30 +64,30 @@ class LinkedListStack {
 
 /* Driver Code */
 void main() {
-  /* 初始化栈 */
+  /* 初始化堆疊 */
   final LinkedListStack stack = LinkedListStack();
 
-  /* 元素入栈 */
+  /* 元素入堆疊 */
   stack.push(1);
   stack.push(3);
   stack.push(2);
   stack.push(5);
   stack.push(4);
-  print("栈 stack = ${stack.toList()}");
+  print("堆疊 stack = ${stack.toList()}");
 
-  /* 访问栈顶元素 */
+  /* 訪問堆疊頂元素 */
   final int peek = stack.peek();
-  print("栈顶元素 peek = $peek");
+  print("堆疊頂元素 peek = $peek");
 
-  /* 元素出栈 */
+  /* 元素出堆疊 */
   final int pop = stack.pop();
-  print("出栈元素 pop = $pop ，出栈后 stack = ${stack.toList()}");
+  print("出堆疊元素 pop = $pop ，出堆疊後 stack = ${stack.toList()}");
 
-  /* 获取栈的长度 */
+  /* 獲取堆疊的長度 */
   final int size = stack.size();
-  print("栈的长度 size = $size");
+  print("堆疊的長度 size = $size");
 
-  /* 判断是否为空 */
+  /* 判斷是否為空 */
   final bool isEmpty = stack.isEmpty();
-  print("栈是否为空 = $isEmpty");
+  print("堆疊是否為空 = $isEmpty");
 }

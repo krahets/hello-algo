@@ -6,9 +6,9 @@ package chapter_tree
 
 import . "github.com/krahets/hello-algo/pkg"
 
-/* AVL 树 */
+/* AVL */
 type aVLTree struct {
-	// 根节点
+	// 根節點
 	root *TreeNode
 }
 
@@ -16,20 +16,20 @@ func newAVLTree() *aVLTree {
 	return &aVLTree{root: nil}
 }
 
-/* 获取节点高度 */
+/* 獲取節點高度 */
 func (t *aVLTree) height(node *TreeNode) int {
-	// 空节点高度为 -1 ，叶节点高度为 0
+	// 空節點高度為 -1 ，葉節點高度為 0
 	if node != nil {
 		return node.Height
 	}
 	return -1
 }
 
-/* 更新节点高度 */
+/* 更新節點高度 */
 func (t *aVLTree) updateHeight(node *TreeNode) {
 	lh := t.height(node.Left)
 	rh := t.height(node.Right)
-	// 节点高度等于最高子树高度 + 1
+	// 節點高度等於最高子樹高度 + 1
 	if lh > rh {
 		node.Height = lh + 1
 	} else {
@@ -37,13 +37,13 @@ func (t *aVLTree) updateHeight(node *TreeNode) {
 	}
 }
 
-/* 获取平衡因子 */
+/* 獲取平衡因子 */
 func (t *aVLTree) balanceFactor(node *TreeNode) int {
-	// 空节点平衡因子为 0
+	// 空節點平衡因子為 0
 	if node == nil {
 		return 0
 	}
-	// 节点平衡因子 = 左子树高度 - 右子树高度
+	// 節點平衡因子 = 左子樹高度 - 右子樹高度
 	return t.height(node.Left) - t.height(node.Right)
 }
 
@@ -51,13 +51,13 @@ func (t *aVLTree) balanceFactor(node *TreeNode) int {
 func (t *aVLTree) rightRotate(node *TreeNode) *TreeNode {
 	child := node.Left
 	grandChild := child.Right
-	// 以 child 为原点，将 node 向右旋转
+	// 以 child 為原點，將 node 向右旋轉
 	child.Right = node
 	node.Left = grandChild
-	// 更新节点高度
+	// 更新節點高度
 	t.updateHeight(node)
 	t.updateHeight(child)
-	// 返回旋转后子树的根节点
+	// 返回旋轉後子樹的根節點
 	return child
 }
 
@@ -65,85 +65,85 @@ func (t *aVLTree) rightRotate(node *TreeNode) *TreeNode {
 func (t *aVLTree) leftRotate(node *TreeNode) *TreeNode {
 	child := node.Right
 	grandChild := child.Left
-	// 以 child 为原点，将 node 向左旋转
+	// 以 child 為原點，將 node 向左旋轉
 	child.Left = node
 	node.Right = grandChild
-	// 更新节点高度
+	// 更新節點高度
 	t.updateHeight(node)
 	t.updateHeight(child)
-	// 返回旋转后子树的根节点
+	// 返回旋轉後子樹的根節點
 	return child
 }
 
-/* 执行旋转操作，使该子树重新恢复平衡 */
+/* 執行旋轉操作，使該子樹重新恢復平衡 */
 func (t *aVLTree) rotate(node *TreeNode) *TreeNode {
-	// 获取节点 node 的平衡因子
-	// Go 推荐短变量，这里 bf 指代 t.balanceFactor
+	// 獲取節點 node 的平衡因子
+	// Go 推薦短變數，這裡 bf 指代 t.balanceFactor
 	bf := t.balanceFactor(node)
-	// 左偏树
+	// 左偏樹
 	if bf > 1 {
 		if t.balanceFactor(node.Left) >= 0 {
 			// 右旋
 			return t.rightRotate(node)
 		} else {
-			// 先左旋后右旋
+			// 先左旋後右旋
 			node.Left = t.leftRotate(node.Left)
 			return t.rightRotate(node)
 		}
 	}
-	// 右偏树
+	// 右偏樹
 	if bf < -1 {
 		if t.balanceFactor(node.Right) <= 0 {
 			// 左旋
 			return t.leftRotate(node)
 		} else {
-			// 先右旋后左旋
+			// 先右旋後左旋
 			node.Right = t.rightRotate(node.Right)
 			return t.leftRotate(node)
 		}
 	}
-	// 平衡树，无须旋转，直接返回
+	// 平衡樹，無須旋轉，直接返回
 	return node
 }
 
-/* 插入节点 */
+/* 插入節點 */
 func (t *aVLTree) insert(val int) {
 	t.root = t.insertHelper(t.root, val)
 }
 
-/* 递归插入节点（辅助函数） */
+/* 遞迴插入節點（輔助函式） */
 func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return NewTreeNode(val)
 	}
-	/* 1. 查找插入位置并插入节点 */
+	/* 1. 查詢插入位置並插入節點 */
 	if val < node.Val.(int) {
 		node.Left = t.insertHelper(node.Left, val)
 	} else if val > node.Val.(int) {
 		node.Right = t.insertHelper(node.Right, val)
 	} else {
-		// 重复节点不插入，直接返回
+		// 重複節點不插入，直接返回
 		return node
 	}
-	// 更新节点高度
+	// 更新節點高度
 	t.updateHeight(node)
-	/* 2. 执行旋转操作，使该子树重新恢复平衡 */
+	/* 2. 執行旋轉操作，使該子樹重新恢復平衡 */
 	node = t.rotate(node)
-	// 返回子树的根节点
+	// 返回子樹的根節點
 	return node
 }
 
-/* 删除节点 */
+/* 刪除節點 */
 func (t *aVLTree) remove(val int) {
 	t.root = t.removeHelper(t.root, val)
 }
 
-/* 递归删除节点（辅助函数） */
+/* 遞迴刪除節點（輔助函式） */
 func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return nil
 	}
-	/* 1. 查找节点并删除 */
+	/* 1. 查詢節點並刪除 */
 	if val < node.Val.(int) {
 		node.Left = t.removeHelper(node.Left, val)
 	} else if val > node.Val.(int) {
@@ -155,14 +155,14 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 				child = node.Right
 			}
 			if child == nil {
-				// 子节点数量 = 0 ，直接删除 node 并返回
+				// 子節點數量 = 0 ，直接刪除 node 並返回
 				return nil
 			} else {
-				// 子节点数量 = 1 ，直接删除 node
+				// 子節點數量 = 1 ，直接刪除 node
 				node = child
 			}
 		} else {
-			// 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+			// 子節點數量 = 2 ，則將中序走訪的下個節點刪除，並用該節點替換當前節點
 			temp := node.Right
 			for temp.Left != nil {
 				temp = temp.Left
@@ -171,30 +171,30 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 			node.Val = temp.Val
 		}
 	}
-	// 更新节点高度
+	// 更新節點高度
 	t.updateHeight(node)
-	/* 2. 执行旋转操作，使该子树重新恢复平衡 */
+	/* 2. 執行旋轉操作，使該子樹重新恢復平衡 */
 	node = t.rotate(node)
-	// 返回子树的根节点
+	// 返回子樹的根節點
 	return node
 }
 
-/* 查找节点 */
+/* 查詢節點 */
 func (t *aVLTree) search(val int) *TreeNode {
 	cur := t.root
-	// 循环查找，越过叶节点后跳出
+	// 迴圈查詢，越過葉節點後跳出
 	for cur != nil {
 		if cur.Val.(int) < val {
-			// 目标节点在 cur 的右子树中
+			// 目標節點在 cur 的右子樹中
 			cur = cur.Right
 		} else if cur.Val.(int) > val {
-			// 目标节点在 cur 的左子树中
+			// 目標節點在 cur 的左子樹中
 			cur = cur.Left
 		} else {
-			// 找到目标节点，跳出循环
+			// 找到目標節點，跳出迴圈
 			break
 		}
 	}
-	// 返回目标节点
+	// 返回目標節點
 	return cur
 }

@@ -12,5 +12,5 @@ import (
 func TestSelectionSort(t *testing.T) {
 	nums := []int{4, 1, 3, 1, 5, 2}
 	selectionSort(nums)
-	fmt.Println("选择排序完成后 nums = ", nums)
+	fmt.Println("選擇排序完成後 nums = ", nums)
 }

@@ -12,60 +12,60 @@ from modules import ListNode, TreeNode, print_tree
 
 
 def function() -> int:
-    """函数"""
-    # 执行某些操作
+    """函式"""
+    # 執行某些操作
     return 0
 
 
 def constant(n: int):
-    """常数阶"""
-    # 常量、变量、对象占用 O(1) 空间
+    """常數階"""
+    # 常量、變數、物件佔用 O(1) 空間
     a = 0
     nums = [0] * 10000
     node = ListNode(0)
-    # 循环中的变量占用 O(1) 空间
+    # 迴圈中的變數佔用 O(1) 空間
     for _ in range(n):
         c = 0
-    # 循环中的函数占用 O(1) 空间
+    # 迴圈中的函式佔用 O(1) 空間
     for _ in range(n):
         function()
 
 
 def linear(n: int):
-    """线性阶"""
-    # 长度为 n 的列表占用 O(n) 空间
+    """線性階"""
+    # 長度為 n 的串列佔用 O(n) 空間
     nums = [0] * n
-    # 长度为 n 的哈希表占用 O(n) 空间
+    # 長度為 n 的雜湊表佔用 O(n) 空間
     hmap = dict[int, str]()
     for i in range(n):
         hmap[i] = str(i)
 
 
 def linear_recur(n: int):
-    """线性阶（递归实现）"""
-    print("递归 n =", n)
+    """線性階（遞迴實現）"""
+    print("遞迴 n =", n)
     if n == 1:
         return
     linear_recur(n - 1)
 
 
 def quadratic(n: int):
-    """平方阶"""
-    # 二维列表占用 O(n^2) 空间
+    """平方階"""
+    # 二維串列佔用 O(n^2) 空間
     num_matrix = [[0] * n for _ in range(n)]
 
 
 def quadratic_recur(n: int) -> int:
-    """平方阶（递归实现）"""
+    """平方階（遞迴實現）"""
     if n <= 0:
         return 0
-    # 数组 nums 长度为 n, n-1, ..., 2, 1
+    # 陣列 nums 長度為 n, n-1, ..., 2, 1
     nums = [0] * n
     return quadratic_recur(n - 1)
 
 
 def build_tree(n: int) -> TreeNode | None:
-    """指数阶（建立满二叉树）"""
+    """指數階（建立滿二元樹）"""
     if n == 0:
         return None
     root = TreeNode(0)
@@ -77,14 +77,14 @@ def build_tree(n: int) -> TreeNode | None:
 """Driver Code"""
 if __name__ == "__main__":
     n = 5
-    # 常数阶
+    # 常數階
     constant(n)
-    # 线性阶
+    # 線性階
     linear(n)
     linear_recur(n)
-    # 平方阶
+    # 平方階
     quadratic(n)
     quadratic_recur(n)
-    # 指数阶
+    # 指數階
     root = build_tree(n)
     print_tree(root)

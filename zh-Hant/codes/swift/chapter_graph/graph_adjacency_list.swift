@@ -6,15 +6,15 @@
 
 import utils
 
-/* 基于邻接表实现的无向图类 */
+/* 基於鄰接表實現的無向圖類 */
 public class GraphAdjList {
-    // 邻接表，key：顶点，value：该顶点的所有邻接顶点
+    // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
     public private(set) var adjList: [Vertex: [Vertex]]
 
-    /* 构造方法 */
+    /* 構造方法 */
     public init(edges: [[Vertex]]) {
         adjList = [:]
-        // 添加所有顶点和边
+        // 新增所有頂點和邊
         for edge in edges {
             addVertex(vet: edge[0])
             addVertex(vet: edge[1])
@@ -22,56 +22,56 @@ public class GraphAdjList {
         }
     }
 
-    /* 获取顶点数量 */
+    /* 獲取頂點數量 */
     public func size() -> Int {
         adjList.count
     }
 
-    /* 添加边 */
+    /* 新增邊 */
     public func addEdge(vet1: Vertex, vet2: Vertex) {
         if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-            fatalError("参数错误")
+            fatalError("引數錯誤")
         }
-        // 添加边 vet1 - vet2
+        // 新增邊 vet1 - vet2
         adjList[vet1]?.append(vet2)
         adjList[vet2]?.append(vet1)
     }
 
-    /* 删除边 */
+    /* 刪除邊 */
     public func removeEdge(vet1: Vertex, vet2: Vertex) {
         if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-            fatalError("参数错误")
+            fatalError("引數錯誤")
         }
-        // 删除边 vet1 - vet2
+        // 刪除邊 vet1 - vet2
         adjList[vet1]?.removeAll { $0 == vet2 }
         adjList[vet2]?.removeAll { $0 == vet1 }
     }
 
-    /* 添加顶点 */
+    /* 新增頂點 */
     public func addVertex(vet: Vertex) {
         if adjList[vet] != nil {
             return
         }
-        // 在邻接表中添加一个新链表
+        // 在鄰接表中新增一個新鏈結串列
         adjList[vet] = []
     }
 
-    /* 删除顶点 */
+    /* 刪除頂點 */
     public func removeVertex(vet: Vertex) {
         if adjList[vet] == nil {
-            fatalError("参数错误")
+            fatalError("引數錯誤")
         }
-        // 在邻接表中删除顶点 vet 对应的链表
+        // 在鄰接表中刪除頂點 vet 對應的鏈結串列
         adjList.removeValue(forKey: vet)
-        // 遍历其他顶点的链表，删除所有包含 vet 的边
+        // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
         for key in adjList.keys {
             adjList[key]?.removeAll { $0 == vet }
         }
     }
 
-    /* 打印邻接表 */
+    /* 列印鄰接表 */
     public func print() {
-        Swift.print("邻接表 =")
+        Swift.print("鄰接表 =")
         for (vertex, list) in adjList {
             let list = list.map { $0.val }
             Swift.print("\(vertex.val): \(list),")
@@ -85,35 +85,35 @@ public class GraphAdjList {
 enum GraphAdjacencyList {
     /* Driver Code */
     static func main() {
-        /* 初始化无向图 */
+        /* 初始化無向圖 */
         let v = Vertex.valsToVets(vals: [1, 3, 2, 5, 4])
         let edges = [[v[0], v[1]], [v[0], v[3]], [v[1], v[2]], [v[2], v[3]], [v[2], v[4]], [v[3], v[4]]]
         let graph = GraphAdjList(edges: edges)
-        print("\n初始化后，图为")
+        print("\n初始化後，圖為")
         graph.print()
 
-        /* 添加边 */
-        // 顶点 1, 2 即 v[0], v[2]
+        /* 新增邊 */
+        // 頂點 1, 2 即 v[0], v[2]
         graph.addEdge(vet1: v[0], vet2: v[2])
-        print("\n添加边 1-2 后，图为")
+        print("\n新增邊 1-2 後，圖為")
         graph.print()
 
-        /* 删除边 */
-        // 顶点 1, 3 即 v[0], v[1]
+        /* 刪除邊 */
+        // 頂點 1, 3 即 v[0], v[1]
         graph.removeEdge(vet1: v[0], vet2: v[1])
-        print("\n删除边 1-3 后，图为")
+        print("\n刪除邊 1-3 後，圖為")
         graph.print()
 
-        /* 添加顶点 */
+        /* 新增頂點 */
         let v5 = Vertex(val: 6)
         graph.addVertex(vet: v5)
-        print("\n添加顶点 6 后，图为")
+        print("\n新增頂點 6 後，圖為")
         graph.print()
 
-        /* 删除顶点 */
-        // 顶点 3 即 v[1]
+        /* 刪除頂點 */
+        // 頂點 3 即 v[1]
         graph.removeVertex(vet: v[1])
-        print("\n删除顶点 3 后，图为")
+        print("\n刪除頂點 3 後，圖為")
         graph.print()
     }
 }

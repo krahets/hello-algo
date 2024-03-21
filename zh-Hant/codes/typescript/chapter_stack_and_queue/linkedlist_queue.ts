@@ -6,10 +6,10 @@
 
 import { ListNode } from '../modules/ListNode';
 
-/* 基于链表实现的队列 */
+/* 基於鏈結串列實現的佇列 */
 class LinkedListQueue {
-    private front: ListNode | null; // 头节点 front
-    private rear: ListNode | null; // 尾节点 rear
+    private front: ListNode | null; // 頭節點 front
+    private rear: ListNode | null; // 尾節點 rear
     private queSize: number = 0;
 
     constructor() {
@@ -17,25 +17,25 @@ class LinkedListQueue {
         this.rear = null;
     }
 
-    /* 获取队列的长度 */
+    /* 獲取佇列的長度 */
     get size(): number {
         return this.queSize;
     }
 
-    /* 判断队列是否为空 */
+    /* 判斷佇列是否為空 */
     isEmpty(): boolean {
         return this.size === 0;
     }
 
-    /* 入队 */
+    /* 入列 */
     push(num: number): void {
-        // 在尾节点后添加 num
+        // 在尾節點後新增 num
         const node = new ListNode(num);
-        // 如果队列为空，则令头、尾节点都指向该节点
+        // 如果佇列為空，則令頭、尾節點都指向該節點
         if (!this.front) {
             this.front = node;
             this.rear = node;
-            // 如果队列不为空，则将该节点添加到尾节点后
+            // 如果佇列不為空，則將該節點新增到尾節點後
         } else {
             this.rear!.next = node;
             this.rear = node;
@@ -43,23 +43,23 @@ class LinkedListQueue {
         this.queSize++;
     }
 
-    /* 出队 */
+    /* 出列 */
     pop(): number {
         const num = this.peek();
-        if (!this.front) throw new Error('队列为空');
-        // 删除头节点
+        if (!this.front) throw new Error('佇列為空');
+        // 刪除頭節點
         this.front = this.front.next;
         this.queSize--;
         return num;
     }
 
-    /* 访问队首元素 */
+    /* 訪問佇列首元素 */
     peek(): number {
-        if (this.size === 0) throw new Error('队列为空');
+        if (this.size === 0) throw new Error('佇列為空');
         return this.front!.val;
     }
 
-    /* 将链表转化为 Array 并返回 */
+    /* 將鏈結串列轉化為 Array 並返回 */
     toArray(): number[] {
         let node = this.front;
         const res = new Array<number>(this.size);
@@ -72,31 +72,31 @@ class LinkedListQueue {
 }
 
 /* Driver Code */
-/* 初始化队列 */
+/* 初始化佇列 */
 const queue = new LinkedListQueue();
 
-/* 元素入队 */
+/* 元素入列 */
 queue.push(1);
 queue.push(3);
 queue.push(2);
 queue.push(5);
 queue.push(4);
-console.log('队列 queue = ' + queue.toArray());
+console.log('佇列 queue = ' + queue.toArray());
 
-/* 访问队首元素 */
+/* 訪問佇列首元素 */
 const peek = queue.peek();
-console.log('队首元素 peek = ' + peek);
+console.log('佇列首元素 peek = ' + peek);
 
-/* 元素出队 */
+/* 元素出列 */
 const pop = queue.pop();
-console.log('出队元素 pop = ' + pop + '，出队后 queue = ' + queue.toArray());
+console.log('出列元素 pop = ' + pop + '，出列後 queue = ' + queue.toArray());
 
-/* 获取队列的长度 */
+/* 獲取佇列的長度 */
 const size = queue.size;
-console.log('队列长度 size = ' + size);
+console.log('佇列長度 size = ' + size);
 
-/* 判断队列是否为空 */
+/* 判斷佇列是否為空 */
 const isEmpty = queue.isEmpty();
-console.log('队列是否为空 = ' + isEmpty);
+console.log('佇列是否為空 = ' + isEmpty);
 
 export {};

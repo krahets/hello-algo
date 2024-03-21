@@ -6,68 +6,68 @@
 
 import utils
 
-/* 函数 */
+/* 函式 */
 @discardableResult
 func function() -> Int {
-    // 执行某些操作
+    // 執行某些操作
     return 0
 }
 
-/* 常数阶 */
+/* 常數階 */
 func constant(n: Int) {
-    // 常量、变量、对象占用 O(1) 空间
+    // 常量、變數、物件佔用 O(1) 空間
     let a = 0
     var b = 0
     let nums = Array(repeating: 0, count: 10000)
     let node = ListNode(x: 0)
-    // 循环中的变量占用 O(1) 空间
+    // 迴圈中的變數佔用 O(1) 空間
     for _ in 0 ..< n {
         let c = 0
     }
-    // 循环中的函数占用 O(1) 空间
+    // 迴圈中的函式佔用 O(1) 空間
     for _ in 0 ..< n {
         function()
     }
 }
 
-/* 线性阶 */
+/* 線性階 */
 func linear(n: Int) {
-    // 长度为 n 的数组占用 O(n) 空间
+    // 長度為 n 的陣列佔用 O(n) 空間
     let nums = Array(repeating: 0, count: n)
-    // 长度为 n 的列表占用 O(n) 空间
+    // 長度為 n 的串列佔用 O(n) 空間
     let nodes = (0 ..< n).map { ListNode(x: $0) }
-    // 长度为 n 的哈希表占用 O(n) 空间
+    // 長度為 n 的雜湊表佔用 O(n) 空間
     let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
 }
 
-/* 线性阶（递归实现） */
+/* 線性階（遞迴實現） */
 func linearRecur(n: Int) {
-    print("递归 n = \(n)")
+    print("遞迴 n = \(n)")
     if n == 1 {
         return
     }
     linearRecur(n: n - 1)
 }
 
-/* 平方阶 */
+/* 平方階 */
 func quadratic(n: Int) {
-    // 二维列表占用 O(n^2) 空间
+    // 二維串列佔用 O(n^2) 空間
     let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
 }
 
-/* 平方阶（递归实现） */
+/* 平方階（遞迴實現） */
 @discardableResult
 func quadraticRecur(n: Int) -> Int {
     if n <= 0 {
         return 0
     }
-    // 数组 nums 长度为 n, n-1, ..., 2, 1
+    // 陣列 nums 長度為 n, n-1, ..., 2, 1
     let nums = Array(repeating: 0, count: n)
-    print("递归 n = \(n) 中的 nums 长度 = \(nums.count)")
+    print("遞迴 n = \(n) 中的 nums 長度 = \(nums.count)")
     return quadraticRecur(n: n - 1)
 }
 
-/* 指数阶（建立满二叉树） */
+/* 指數階（建立滿二元樹） */
 func buildTree(n: Int) -> TreeNode? {
     if n == 0 {
         return nil
@@ -83,15 +83,15 @@ enum SpaceComplexity {
     /* Driver Code */
     static func main() {
         let n = 5
-        // 常数阶
+        // 常數階
         constant(n: n)
-        // 线性阶
+        // 線性階
         linear(n: n)
         linearRecur(n: n)
-        // 平方阶
+        // 平方階
         quadratic(n: n)
         quadraticRecur(n: n)
-        // 指数阶
+        // 指數階
         let root = buildTree(n: n)
         PrintUtil.printTree(root: root)
     }

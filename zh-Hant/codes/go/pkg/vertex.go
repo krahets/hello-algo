@@ -4,12 +4,12 @@
 
 package pkg
 
-// Vertex 顶点类
+// Vertex 頂點類
 type Vertex struct {
 	Val int
 }
 
-// NewVertex 构造函数
+// NewVertex 構造函式
 func NewVertex(val int) Vertex {
 	return Vertex{
 		Val: val,
@@ -34,17 +34,17 @@ func VetsToVals(vets []Vertex) []int {
 	return vals
 }
 
-// DeleteSliceElms 删除切片指定元素
+// DeleteSliceElms 刪除切片指定元素
 func DeleteSliceElms[T any](a []T, elms ...T) []T {
 	if len(a) == 0 || len(elms) == 0 {
 		return a
 	}
-	// 先将元素转为 set
+	// 先將元素轉為 set
 	m := make(map[any]struct{})
 	for _, v := range elms {
 		m[v] = struct{}{}
 	}
-	// 过滤掉指定元素
+	// 過濾掉指定元素
 	res := make([]T, 0, len(a))
 	for _, v := range a {
 		if _, ok := m[v]; !ok {

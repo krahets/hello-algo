@@ -10,26 +10,26 @@ class Item:
 
     def __init__(self, w: int, v: int):
         self.w = w  # 物品重量
-        self.v = v  # 物品价值
+        self.v = v  # 物品價值
 
 
 def fractional_knapsack(wgt: list[int], val: list[int], cap: int) -> int:
-    """分数背包：贪心"""
-    # 创建物品列表，包含两个属性：重量、价值
+    """分數背包：貪婪"""
+    # 建立物品串列，包含兩個屬性：重量、價值
     items = [Item(w, v) for w, v in zip(wgt, val)]
-    # 按照单位价值 item.v / item.w 从高到低进行排序
+    # 按照單位價值 item.v / item.w 從高到低進行排序
     items.sort(key=lambda item: item.v / item.w, reverse=True)
-    # 循环贪心选择
+    # 迴圈貪婪選擇
     res = 0
     for item in items:
         if item.w <= cap:
-            # 若剩余容量充足，则将当前物品整个装进背包
+            # 若剩餘容量充足，則將當前物品整個裝進背包
             res += item.v
             cap -= item.w
         else:
-            # 若剩余容量不足，则将当前物品的一部分装进背包
+            # 若剩餘容量不足，則將當前物品的一部分裝進背包
             res += (item.v / item.w) * cap
-            # 已无剩余容量，因此跳出循环
+            # 已無剩餘容量，因此跳出迴圈
             break
     return res
 
@@ -41,6 +41,6 @@ if __name__ == "__main__":
     cap = 50
     n = len(wgt)
 
-    # 贪心算法
+    # 貪婪演算法
     res = fractional_knapsack(wgt, val, cap)
-    print(f"不超过背包容量的最大物品价值为 {res}")
+    print(f"不超過背包容量的最大物品價值為 {res}")

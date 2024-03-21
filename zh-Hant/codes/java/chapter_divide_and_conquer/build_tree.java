@@ -10,26 +10,26 @@ import utils.*;
 import java.util.*;
 
 public class build_tree {
-    /* 构建二叉树：分治 */
+    /* 構建二元樹：分治 */
     static TreeNode dfs(int[] preorder, Map<Integer, Integer> inorderMap, int i, int l, int r) {
-        // 子树区间为空时终止
+        // 子樹區間為空時終止
         if (r - l < 0)
             return null;
-        // 初始化根节点
+        // 初始化根節點
         TreeNode root = new TreeNode(preorder[i]);
-        // 查询 m ，从而划分左右子树
+        // 查詢 m ，從而劃分左右子樹
         int m = inorderMap.get(preorder[i]);
-        // 子问题：构建左子树
+        // 子問題：構建左子樹
         root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
-        // 子问题：构建右子树
+        // 子問題：構建右子樹
         root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
-        // 返回根节点
+        // 返回根節點
         return root;
     }
 
-    /* 构建二叉树 */
+    /* 構建二元樹 */
     static TreeNode buildTree(int[] preorder, int[] inorder) {
-        // 初始化哈希表，存储 inorder 元素到索引的映射
+        // 初始化雜湊表，儲存 inorder 元素到索引的對映
         Map<Integer, Integer> inorderMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
             inorderMap.put(inorder[i], i);
@@ -41,11 +41,11 @@ public class build_tree {
     public static void main(String[] args) {
         int[] preorder = { 3, 9, 2, 1, 7 };
         int[] inorder = { 9, 3, 1, 2, 7 };
-        System.out.println("前序遍历 = " + Arrays.toString(preorder));
-        System.out.println("中序遍历 = " + Arrays.toString(inorder));
+        System.out.println("前序走訪 = " + Arrays.toString(preorder));
+        System.out.println("中序走訪 = " + Arrays.toString(inorder));
 
         TreeNode root = buildTree(preorder, inorder);
-        System.out.println("构建的二叉树为：");
+        System.out.println("構建的二元樹為：");
         PrintUtil.printTree(root);
     }
 }

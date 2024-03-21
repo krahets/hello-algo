@@ -18,7 +18,7 @@ func TestTwoSum(t *testing.T) {
 	// 方法一：暴力解法
 	res := twoSumBruteForce(nums, target)
 	fmt.Println("方法一 res =", res)
-	// 方法二：哈希表
+	// 方法二：雜湊表
 	res = twoSumHashTable(nums, target)
 	fmt.Println("方法二 res =", res)
 }

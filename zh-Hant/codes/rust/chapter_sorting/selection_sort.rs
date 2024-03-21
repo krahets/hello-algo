@@ -6,22 +6,22 @@
 
 include!("../include/include.rs");
 
-/* 选择排序 */
+/* 選擇排序 */
 fn selection_sort(nums: &mut [i32]) {
     if nums.is_empty() {
         return;
     }
     let n = nums.len();
-    // 外循环：未排序区间为 [i, n-1]
+    // 外迴圈：未排序區間為 [i, n-1]
     for i in 0..n - 1 {
-        // 内循环：找到未排序区间内的最小元素
+        // 內迴圈：找到未排序區間內的最小元素
         let mut k = i;
         for j in i + 1..n {
             if nums[j] < nums[k] {
-                k = j; // 记录最小元素的索引
+                k = j; // 記錄最小元素的索引
             }
         }
-        // 将该最小元素与未排序区间的首个元素交换
+        // 將該最小元素與未排序區間的首個元素交換
         nums.swap(i, k);
     }
 }
@@ -30,6 +30,6 @@ fn selection_sort(nums: &mut [i32]) {
 pub fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     selection_sort(&mut nums);
-    print!("\n选择排序完成后 nums = ");
+    print!("\n選擇排序完成後 nums = ");
     print_util::print_array(&nums);
 }

@@ -11,26 +11,26 @@ public class built_in_hash {
     public void Test() {
         int num = 3;
         int hashNum = num.GetHashCode();
-        Console.WriteLine("整数 " + num + " 的哈希值为 " + hashNum);
+        Console.WriteLine("整數 " + num + " 的雜湊值為 " + hashNum);
 
         bool bol = true;
         int hashBol = bol.GetHashCode();
-        Console.WriteLine("布尔量 " + bol + " 的哈希值为 " + hashBol);
+        Console.WriteLine("布林量 " + bol + " 的雜湊值為 " + hashBol);
 
         double dec = 3.14159;
         int hashDec = dec.GetHashCode();
-        Console.WriteLine("小数 " + dec + " 的哈希值为 " + hashDec);
+        Console.WriteLine("小數 " + dec + " 的雜湊值為 " + hashDec);
 
-        string str = "Hello 算法";
+        string str = "Hello 演算法";
         int hashStr = str.GetHashCode();
-        Console.WriteLine("字符串 " + str + " 的哈希值为 " + hashStr);
+        Console.WriteLine("字串 " + str + " 的雜湊值為 " + hashStr);
 
         object[] arr = [12836, "小哈"];
         int hashTup = arr.GetHashCode();
-        Console.WriteLine("数组 [" + string.Join(", ", arr) + "] 的哈希值为 " + hashTup);
+        Console.WriteLine("陣列 [" + string.Join(", ", arr) + "] 的雜湊值為 " + hashTup);
 
         ListNode obj = new(0);
         int hashObj = obj.GetHashCode();
-        Console.WriteLine("节点对象 " + obj + " 的哈希值为 " + hashObj);
+        Console.WriteLine("節點物件 " + obj + " 的雜湊值為 " + hashObj);
     }
 }

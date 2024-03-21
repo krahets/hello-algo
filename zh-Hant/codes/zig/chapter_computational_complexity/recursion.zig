@@ -4,30 +4,30 @@
  
 const std = @import("std");
 
-// 递归函数
+// 遞迴函式
 fn recur(n: i32) i32 {
-    // 终止条件
+    // 終止條件
     if (n == 1) {
         return 1;
     }
-    // 递：递归调用
+    // 遞：遞迴呼叫
     var res: i32 = recur(n - 1);
-    // 归：返回结果
+    // 歸：返回結果
     return n + res;
 }
 
-// 使用迭代模拟递归
+// 使用迭代模擬遞迴
 fn forLoopRecur(comptime n: i32) i32 {
-    // 使用一个显式的栈来模拟系统调用栈
+    // 使用一個顯式的堆疊來模擬系統呼叫堆疊
     var stack: [n]i32 = undefined;
     var res: i32 = 0;
-    // 递：递归调用
+    // 遞：遞迴呼叫
     var i: usize = n;
     while (i > 0) {
         stack[i - 1] = @intCast(i);
         i -= 1;
     }
-    // 归：返回结果
+    // 歸：返回結果
     var index: usize = n;
     while (index > 0) {
         index -= 1;
@@ -37,25 +37,25 @@ fn forLoopRecur(comptime n: i32) i32 {
     return res;
 }
 
-// 尾递归函数
+// 尾遞迴函式
 fn tailRecur(n: i32, res: i32) i32 {
-    // 终止条件
+    // 終止條件
     if (n == 0) {
         return res;
     }
-    // 尾递归调用
+    // 尾遞迴呼叫
     return tailRecur(n - 1, res + n);
 }
 
-// 斐波那契数列
+// 斐波那契數列
 fn fib(n: i32) i32 {
-    // 终止条件 f(1) = 0, f(2) = 1
+    // 終止條件 f(1) = 0, f(2) = 1
     if (n == 1 or n == 2) {
         return n - 1;
     }
-    // 递归调用 f(n) = f(n-1) + f(n-2)
+    // 遞迴呼叫 f(n) = f(n-1) + f(n-2)
     var res: i32 = fib(n - 1) + fib(n - 2);
-    // 返回结果 f(n)
+    // 返回結果 f(n)
     return res;
 }
 
@@ -65,14 +65,14 @@ pub fn main() !void {
     var res: i32 = 0;
 
     res = recur(n);
-    std.debug.print("\n递归函数的求和结果 res = {}\n", .{recur(n)});
+    std.debug.print("\n遞迴函式的求和結果 res = {}\n", .{recur(n)});
 
     res = forLoopRecur(n);
-    std.debug.print("\n使用迭代模拟递归的求和结果 res = {}\n", .{forLoopRecur(n)});
+    std.debug.print("\n使用迭代模擬遞迴的求和結果 res = {}\n", .{forLoopRecur(n)});
 
     res = tailRecur(n, 0);
-    std.debug.print("\n尾递归函数的求和结果 res = {}\n", .{tailRecur(n, 0)});
+    std.debug.print("\n尾遞迴函式的求和結果 res = {}\n", .{tailRecur(n, 0)});
 
     res = fib(n);
-    std.debug.print("\n斐波那契数列的第 {} 项为 {}\n", .{n, fib(n)});
+    std.debug.print("\n斐波那契數列的第 {} 項為 {}\n", .{n, fib(n)});
 }
