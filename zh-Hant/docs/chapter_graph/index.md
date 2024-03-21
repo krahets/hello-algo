@@ -1,13 +1,13 @@
-# 图
+# 圖
 
 <div class="center-table" markdown>
 
-![图](../assets/covers/chapter_graph.jpg)
+![圖](../assets/covers/chapter_graph.jpg)
 
 </div>
 
 !!! abstract
 
-    在生命旅途中，我们就像是一个个节点，被无数看不见的边相连。
+    在生命旅途中，我們就像是一個個節點，被無數看不見的邊相連。
     
-    每一次的相识与相离，都在这张巨大的网络图中留下独特的印记。
+    每一次的相識與相離，都在這張巨大的網路圖中留下獨特的印記。

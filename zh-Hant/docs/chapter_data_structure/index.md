@@ -1,13 +1,13 @@
-# 数据结构
+# 資料結構
 
 <div class="center-table" markdown>
 
-![数据结构](../assets/covers/chapter_data_structure.jpg)
+![資料結構](../assets/covers/chapter_data_structure.jpg)
 
 </div>
 
 !!! abstract
 
-    数据结构如同一副稳固而多样的框架。
+    資料結構如同一副穩固而多樣的框架。
     
-    它为数据的有序组织提供了蓝图，算法得以在此基础上生动起来。
+    它為資料的有序組織提供了藍圖，演算法得以在此基礎上生動起來。

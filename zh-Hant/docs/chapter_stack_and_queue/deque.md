@@ -1,327 +1,327 @@
-# 双向队列
+# 雙向佇列
 
-在队列中，我们仅能删除头部元素或在尾部添加元素。如下图所示，「双向队列 double-ended queue」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
+在佇列中，我們僅能刪除頭部元素或在尾部新增元素。如下圖所示，「雙向佇列 double-ended queue」提供了更高的靈活性，允許在頭部和尾部執行元素的新增或刪除操作。
 
-![双向队列的操作](deque.assets/deque_operations.png)
+![雙向佇列的操作](deque.assets/deque_operations.png)
 
-## 双向队列常用操作
+## 雙向佇列常用操作
 
-双向队列的常用操作如下表所示，具体的方法名称需要根据所使用的编程语言来确定。
+雙向佇列的常用操作如下表所示，具體的方法名稱需要根據所使用的程式語言來確定。
 
-<p align="center"> 表 <id> &nbsp; 双向队列操作效率 </p>
+<p align="center"> 表 <id> &nbsp; 雙向佇列操作效率 </p>
 
-| 方法名         | 描述             | 时间复杂度 |
+| 方法名         | 描述             | 時間複雜度 |
 | -------------- | ---------------- | ---------- |
-| `push_first()` | 将元素添加至队首 | $O(1)$     |
-| `push_last()`  | 将元素添加至队尾 | $O(1)$     |
-| `pop_first()`  | 删除队首元素     | $O(1)$     |
-| `pop_last()`   | 删除队尾元素     | $O(1)$     |
-| `peek_first()` | 访问队首元素     | $O(1)$     |
-| `peek_last()`  | 访问队尾元素     | $O(1)$     |
+| `push_first()` | 將元素新增至佇列首 | $O(1)$     |
+| `push_last()`  | 將元素新增至佇列尾 | $O(1)$     |
+| `pop_first()`  | 刪除佇列首元素     | $O(1)$     |
+| `pop_last()`   | 刪除佇列尾元素     | $O(1)$     |
+| `peek_first()` | 訪問佇列首元素     | $O(1)$     |
+| `peek_last()`  | 訪問佇列尾元素     | $O(1)$     |
 
-同样地，我们可以直接使用编程语言中已实现的双向队列类：
+同樣地，我們可以直接使用程式語言中已實現的雙向佇列類：
 
 === "Python"
 
     ```python title="deque.py"
     from collections import deque
 
-    # 初始化双向队列
+    # 初始化雙向佇列
     deque: deque[int] = deque()
     
-    # 元素入队
-    deque.append(2)      # 添加至队尾
+    # 元素入列
+    deque.append(2)      # 新增至佇列尾
     deque.append(5)
     deque.append(4)
-    deque.appendleft(3)  # 添加至队首
+    deque.appendleft(3)  # 新增至佇列首
     deque.appendleft(1)
     
-    # 访问元素
-    front: int = deque[0]  # 队首元素
-    rear: int = deque[-1]  # 队尾元素
+    # 訪問元素
+    front: int = deque[0]  # 佇列首元素
+    rear: int = deque[-1]  # 佇列尾元素
     
-    # 元素出队
-    pop_front: int = deque.popleft()  # 队首元素出队
-    pop_rear: int = deque.pop()       # 队尾元素出队
+    # 元素出列
+    pop_front: int = deque.popleft()  # 佇列首元素出列
+    pop_rear: int = deque.pop()       # 佇列尾元素出列
     
-    # 获取双向队列的长度
+    # 獲取雙向佇列的長度
     size: int = len(deque)
     
-    # 判断双向队列是否为空
+    # 判斷雙向佇列是否為空
     is_empty: bool = len(deque) == 0
     ```
 
 === "C++"
 
     ```cpp title="deque.cpp"
-    /* 初始化双向队列 */
+    /* 初始化雙向佇列 */
     deque<int> deque;
     
-    /* 元素入队 */
-    deque.push_back(2);   // 添加至队尾
+    /* 元素入列 */
+    deque.push_back(2);   // 新增至佇列尾
     deque.push_back(5);
     deque.push_back(4);
-    deque.push_front(3);  // 添加至队首
+    deque.push_front(3);  // 新增至佇列首
     deque.push_front(1);
     
-    /* 访问元素 */
-    int front = deque.front(); // 队首元素
-    int back = deque.back();   // 队尾元素
+    /* 訪問元素 */
+    int front = deque.front(); // 佇列首元素
+    int back = deque.back();   // 佇列尾元素
     
-    /* 元素出队 */
-    deque.pop_front();  // 队首元素出队
-    deque.pop_back();   // 队尾元素出队
+    /* 元素出列 */
+    deque.pop_front();  // 佇列首元素出列
+    deque.pop_back();   // 佇列尾元素出列
     
-    /* 获取双向队列的长度 */
+    /* 獲取雙向佇列的長度 */
     int size = deque.size();
     
-    /* 判断双向队列是否为空 */
+    /* 判斷雙向佇列是否為空 */
     bool empty = deque.empty();
     ```
 
 === "Java"
 
     ```java title="deque.java"
-    /* 初始化双向队列 */
+    /* 初始化雙向佇列 */
     Deque<Integer> deque = new LinkedList<>();
     
-    /* 元素入队 */
-    deque.offerLast(2);   // 添加至队尾
+    /* 元素入列 */
+    deque.offerLast(2);   // 新增至佇列尾
     deque.offerLast(5);
     deque.offerLast(4);
-    deque.offerFirst(3);  // 添加至队首
+    deque.offerFirst(3);  // 新增至佇列首
     deque.offerFirst(1);
     
-    /* 访问元素 */
-    int peekFirst = deque.peekFirst();  // 队首元素
-    int peekLast = deque.peekLast();    // 队尾元素
+    /* 訪問元素 */
+    int peekFirst = deque.peekFirst();  // 佇列首元素
+    int peekLast = deque.peekLast();    // 佇列尾元素
     
-    /* 元素出队 */
-    int popFirst = deque.pollFirst();  // 队首元素出队
-    int popLast = deque.pollLast();    // 队尾元素出队
+    /* 元素出列 */
+    int popFirst = deque.pollFirst();  // 佇列首元素出列
+    int popLast = deque.pollLast();    // 佇列尾元素出列
     
-    /* 获取双向队列的长度 */
+    /* 獲取雙向佇列的長度 */
     int size = deque.size();
     
-    /* 判断双向队列是否为空 */
+    /* 判斷雙向佇列是否為空 */
     boolean isEmpty = deque.isEmpty();
     ```
 
 === "C#"
 
     ```csharp title="deque.cs"
-    /* 初始化双向队列 */
-    // 在 C# 中，将链表 LinkedList 看作双向队列来使用
+    /* 初始化雙向佇列 */
+    // 在 C# 中，將鏈結串列 LinkedList 看作雙向佇列來使用
     LinkedList<int> deque = new();
     
-    /* 元素入队 */
-    deque.AddLast(2);   // 添加至队尾
+    /* 元素入列 */
+    deque.AddLast(2);   // 新增至佇列尾
     deque.AddLast(5);
     deque.AddLast(4);
-    deque.AddFirst(3);  // 添加至队首
+    deque.AddFirst(3);  // 新增至佇列首
     deque.AddFirst(1);
     
-    /* 访问元素 */
-    int peekFirst = deque.First.Value;  // 队首元素
-    int peekLast = deque.Last.Value;    // 队尾元素
+    /* 訪問元素 */
+    int peekFirst = deque.First.Value;  // 佇列首元素
+    int peekLast = deque.Last.Value;    // 佇列尾元素
     
-    /* 元素出队 */
-    deque.RemoveFirst();  // 队首元素出队
-    deque.RemoveLast();   // 队尾元素出队
+    /* 元素出列 */
+    deque.RemoveFirst();  // 佇列首元素出列
+    deque.RemoveLast();   // 佇列尾元素出列
     
-    /* 获取双向队列的长度 */
+    /* 獲取雙向佇列的長度 */
     int size = deque.Count;
     
-    /* 判断双向队列是否为空 */
+    /* 判斷雙向佇列是否為空 */
     bool isEmpty = deque.Count == 0;
     ```
 
 === "Go"
 
     ```go title="deque_test.go"
-    /* 初始化双向队列 */
-    // 在 Go 中，将 list 作为双向队列使用
+    /* 初始化雙向佇列 */
+    // 在 Go 中，將 list 作為雙向佇列使用
     deque := list.New()
     
-    /* 元素入队 */
-    deque.PushBack(2)      // 添加至队尾
+    /* 元素入列 */
+    deque.PushBack(2)      // 新增至佇列尾
     deque.PushBack(5)
     deque.PushBack(4)
-    deque.PushFront(3)     // 添加至队首
+    deque.PushFront(3)     // 新增至佇列首
     deque.PushFront(1)
     
-    /* 访问元素 */
-    front := deque.Front() // 队首元素
-    rear := deque.Back()   // 队尾元素
+    /* 訪問元素 */
+    front := deque.Front() // 佇列首元素
+    rear := deque.Back()   // 佇列尾元素
     
-    /* 元素出队 */
-    deque.Remove(front)    // 队首元素出队
-    deque.Remove(rear)     // 队尾元素出队
+    /* 元素出列 */
+    deque.Remove(front)    // 佇列首元素出列
+    deque.Remove(rear)     // 佇列尾元素出列
     
-    /* 获取双向队列的长度 */
+    /* 獲取雙向佇列的長度 */
     size := deque.Len()
     
-    /* 判断双向队列是否为空 */
+    /* 判斷雙向佇列是否為空 */
     isEmpty := deque.Len() == 0
     ```
 
 === "Swift"
 
     ```swift title="deque.swift"
-    /* 初始化双向队列 */
-    // Swift 没有内置的双向队列类，可以把 Array 当作双向队列来使用
+    /* 初始化雙向佇列 */
+    // Swift 沒有內建的雙向佇列類，可以把 Array 當作雙向佇列來使用
     var deque: [Int] = []
 
-    /* 元素入队 */
-    deque.append(2) // 添加至队尾
+    /* 元素入列 */
+    deque.append(2) // 新增至佇列尾
     deque.append(5)
     deque.append(4)
-    deque.insert(3, at: 0) // 添加至队首
+    deque.insert(3, at: 0) // 新增至佇列首
     deque.insert(1, at: 0)
 
-    /* 访问元素 */
-    let peekFirst = deque.first! // 队首元素
-    let peekLast = deque.last! // 队尾元素
+    /* 訪問元素 */
+    let peekFirst = deque.first! // 佇列首元素
+    let peekLast = deque.last! // 佇列尾元素
 
-    /* 元素出队 */
-    // 使用 Array 模拟时 popFirst 的复杂度为 O(n)
-    let popFirst = deque.removeFirst() // 队首元素出队
-    let popLast = deque.removeLast() // 队尾元素出队
+    /* 元素出列 */
+    // 使用 Array 模擬時 popFirst 的複雜度為 O(n)
+    let popFirst = deque.removeFirst() // 佇列首元素出列
+    let popLast = deque.removeLast() // 佇列尾元素出列
 
-    /* 获取双向队列的长度 */
+    /* 獲取雙向佇列的長度 */
     let size = deque.count
 
-    /* 判断双向队列是否为空 */
+    /* 判斷雙向佇列是否為空 */
     let isEmpty = deque.isEmpty
     ```
 
 === "JS"
 
     ```javascript title="deque.js"
-    /* 初始化双向队列 */
-    // JavaScript 没有内置的双端队列，只能把 Array 当作双端队列来使用
+    /* 初始化雙向佇列 */
+    // JavaScript 沒有內建的雙端佇列，只能把 Array 當作雙端佇列來使用
     const deque = [];
 
-    /* 元素入队 */
+    /* 元素入列 */
     deque.push(2);
     deque.push(5);
     deque.push(4);
-    // 请注意，由于是数组，unshift() 方法的时间复杂度为 O(n)
+    // 請注意，由於是陣列，unshift() 方法的時間複雜度為 O(n)
     deque.unshift(3);
     deque.unshift(1);
 
-    /* 访问元素 */
+    /* 訪問元素 */
     const peekFirst = deque[0];
     const peekLast = deque[deque.length - 1];
 
-    /* 元素出队 */
-    // 请注意，由于是数组，shift() 方法的时间复杂度为 O(n)
+    /* 元素出列 */
+    // 請注意，由於是陣列，shift() 方法的時間複雜度為 O(n)
     const popFront = deque.shift();
     const popBack = deque.pop();
 
-    /* 获取双向队列的长度 */
+    /* 獲取雙向佇列的長度 */
     const size = deque.length;
 
-    /* 判断双向队列是否为空 */
+    /* 判斷雙向佇列是否為空 */
     const isEmpty = size === 0;
     ```
 
 === "TS"
 
     ```typescript title="deque.ts"
-    /* 初始化双向队列 */
-    // TypeScript 没有内置的双端队列，只能把 Array 当作双端队列来使用
+    /* 初始化雙向佇列 */
+    // TypeScript 沒有內建的雙端佇列，只能把 Array 當作雙端佇列來使用
     const deque: number[] = [];
 
-    /* 元素入队 */
+    /* 元素入列 */
     deque.push(2);
     deque.push(5);
     deque.push(4);
-    // 请注意，由于是数组，unshift() 方法的时间复杂度为 O(n)
+    // 請注意，由於是陣列，unshift() 方法的時間複雜度為 O(n)
     deque.unshift(3);
     deque.unshift(1);
 
-    /* 访问元素 */
+    /* 訪問元素 */
     const peekFirst: number = deque[0];
     const peekLast: number = deque[deque.length - 1];
 
-    /* 元素出队 */
-    // 请注意，由于是数组，shift() 方法的时间复杂度为 O(n)
+    /* 元素出列 */
+    // 請注意，由於是陣列，shift() 方法的時間複雜度為 O(n)
     const popFront: number = deque.shift() as number;
     const popBack: number = deque.pop() as number;
 
-    /* 获取双向队列的长度 */
+    /* 獲取雙向佇列的長度 */
     const size: number = deque.length;
 
-    /* 判断双向队列是否为空 */
+    /* 判斷雙向佇列是否為空 */
     const isEmpty: boolean = size === 0;
     ```
 
 === "Dart"
 
     ```dart title="deque.dart"
-    /* 初始化双向队列 */
-    // 在 Dart 中，Queue 被定义为双向队列
+    /* 初始化雙向佇列 */
+    // 在 Dart 中，Queue 被定義為雙向佇列
     Queue<int> deque = Queue<int>();
 
-    /* 元素入队 */
-    deque.addLast(2);  // 添加至队尾
+    /* 元素入列 */
+    deque.addLast(2);  // 新增至佇列尾
     deque.addLast(5);
     deque.addLast(4);
-    deque.addFirst(3); // 添加至队首
+    deque.addFirst(3); // 新增至佇列首
     deque.addFirst(1);
 
-    /* 访问元素 */
-    int peekFirst = deque.first; // 队首元素
-    int peekLast = deque.last;   // 队尾元素
+    /* 訪問元素 */
+    int peekFirst = deque.first; // 佇列首元素
+    int peekLast = deque.last;   // 佇列尾元素
 
-    /* 元素出队 */
-    int popFirst = deque.removeFirst(); // 队首元素出队
-    int popLast = deque.removeLast();   // 队尾元素出队
+    /* 元素出列 */
+    int popFirst = deque.removeFirst(); // 佇列首元素出列
+    int popLast = deque.removeLast();   // 佇列尾元素出列
 
-    /* 获取双向队列的长度 */
+    /* 獲取雙向佇列的長度 */
     int size = deque.length;
 
-    /* 判断双向队列是否为空 */
+    /* 判斷雙向佇列是否為空 */
     bool isEmpty = deque.isEmpty;W
     ```
 
 === "Rust"
 
     ```rust title="deque.rs"
-    /* 初始化双向队列 */
+    /* 初始化雙向佇列 */
     let mut deque: VecDeque<u32> = VecDeque::new();
 
-    /* 元素入队 */
-    deque.push_back(2);  // 添加至队尾
+    /* 元素入列 */
+    deque.push_back(2);  // 新增至佇列尾
     deque.push_back(5);
     deque.push_back(4);
-    deque.push_front(3); // 添加至队首
+    deque.push_front(3); // 新增至佇列首
     deque.push_front(1);
 
-    /* 访问元素 */
-    if let Some(front) = deque.front() { // 队首元素
+    /* 訪問元素 */
+    if let Some(front) = deque.front() { // 佇列首元素
     }
-    if let Some(rear) = deque.back() {   // 队尾元素
-    }
-
-    /* 元素出队 */
-    if let Some(pop_front) = deque.pop_front() { // 队首元素出队
-    }
-    if let Some(pop_rear) = deque.pop_back() {   // 队尾元素出队
+    if let Some(rear) = deque.back() {   // 佇列尾元素
     }
 
-    /* 获取双向队列的长度 */
+    /* 元素出列 */
+    if let Some(pop_front) = deque.pop_front() { // 佇列首元素出列
+    }
+    if let Some(pop_rear) = deque.pop_back() {   // 佇列尾元素出列
+    }
+
+    /* 獲取雙向佇列的長度 */
     let size = deque.len();
 
-    /* 判断双向队列是否为空 */
+    /* 判斷雙向佇列是否為空 */
     let is_empty = deque.is_empty();
     ```
 
 === "C"
 
     ```c title="deque.c"
-    // C 未提供内置双向队列
+    // C 未提供內建雙向佇列
     ```
 
 === "Zig"
@@ -330,24 +330,24 @@
 
     ```
 
-??? pythontutor "可视化运行"
+??? pythontutor "視覺化執行"
 
     https://pythontutor.com/render.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20deq.append%282%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E5%B0%BE%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E9%A6%96%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%20rear%20%3D%22,%20rear%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_front%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_rear%20%3D%22,%20pop_rear%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-## 双向队列实现 *
+## 雙向佇列實現 *
 
-双向队列的实现与队列类似，可以选择链表或数组作为底层数据结构。
+雙向佇列的實現與佇列類似，可以選擇鏈結串列或陣列作為底層資料結構。
 
-### 基于双向链表的实现
+### 基於雙向鏈結串列的實現
 
-回顾上一节内容，我们使用普通单向链表来实现队列，因为它可以方便地删除头节点（对应出队操作）和在尾节点后添加新节点（对应入队操作）。
+回顧上一節內容，我們使用普通單向鏈結串列來實現佇列，因為它可以方便地刪除頭節點（對應出列操作）和在尾節點後新增新節點（對應入列操作）。
 
-对于双向队列而言，头部和尾部都可以执行入队和出队操作。换句话说，双向队列需要实现另一个对称方向的操作。为此，我们采用“双向链表”作为双向队列的底层数据结构。
+對於雙向佇列而言，頭部和尾部都可以執行入列和出列操作。換句話說，雙向佇列需要實現另一個對稱方向的操作。為此，我們採用“雙向鏈結串列”作為雙向佇列的底層資料結構。
 
-如下图所示，我们将双向链表的头节点和尾节点视为双向队列的队首和队尾，同时实现在两端添加和删除节点的功能。
+如下圖所示，我們將雙向鏈結串列的頭節點和尾節點視為雙向佇列的佇列首和佇列尾，同時實現在兩端新增和刪除節點的功能。
 
 === "LinkedListDeque"
-    ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque_step1.png)
+    ![基於鏈結串列實現雙向佇列的入列出列操作](deque.assets/linkedlist_deque_step1.png)
 
 === "push_last()"
     ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.png)
@@ -361,18 +361,18 @@
 === "pop_first()"
     ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.png)
 
-实现代码如下所示：
+實現程式碼如下所示：
 
 ```src
 [file]{linkedlist_deque}-[class]{linked_list_deque}-[func]{}
 ```
 
-### 基于数组的实现
+### 基於陣列的實現
 
-如下图所示，与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。
+如下圖所示，與基於陣列實現佇列類似，我們也可以使用環形陣列來實現雙向佇列。
 
 === "ArrayDeque"
-    ![基于数组实现双向队列的入队出队操作](deque.assets/array_deque_step1.png)
+    ![基於陣列實現雙向佇列的入列出列操作](deque.assets/array_deque_step1.png)
 
 === "push_last()"
     ![array_deque_push_last](deque.assets/array_deque_step2_push_last.png)
@@ -386,14 +386,14 @@
 === "pop_first()"
     ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.png)
 
-在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法：
+在佇列的實現基礎上，僅需增加“佇列首入列”和“佇列尾出列”的方法：
 
 ```src
 [file]{array_deque}-[class]{array_deque}-[func]{}
 ```
 
-## 双向队列应用
+## 雙向佇列應用
 
-双向队列兼具栈与队列的逻辑，**因此它可以实现这两者的所有应用场景，同时提供更高的自由度**。
+雙向佇列兼具堆疊與佇列的邏輯，**因此它可以實現這兩者的所有應用場景，同時提供更高的自由度**。
 
-我们知道，软件的“撤销”功能通常使用栈来实现：系统将每次更改操作 `push` 到栈中，然后通过 `pop` 实现撤销。然而，考虑到系统资源的限制，软件通常会限制撤销的步数（例如仅允许保存 $50$ 步）。当栈的长度超过 $50$ 时，软件需要在栈底（队首）执行删除操作。**但栈无法实现该功能，此时就需要使用双向队列来替代栈**。请注意，“撤销”的核心逻辑仍然遵循栈的先入后出原则，只是双向队列能够更加灵活地实现一些额外逻辑。
+我們知道，軟體的“撤銷”功能通常使用堆疊來實現：系統將每次更改操作 `push` 到堆疊中，然後透過 `pop` 實現撤銷。然而，考慮到系統資源的限制，軟體通常會限制撤銷的步數（例如僅允許儲存 $50$ 步）。當堆疊的長度超過 $50$ 時，軟體需要在堆疊底（佇列首）執行刪除操作。**但堆疊無法實現該功能，此時就需要使用雙向佇列來替代堆疊**。請注意，“撤銷”的核心邏輯仍然遵循堆疊的先入後出原則，只是雙向佇列能夠更加靈活地實現一些額外邏輯。

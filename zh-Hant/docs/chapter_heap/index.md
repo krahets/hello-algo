@@ -1,13 +1,13 @@
-# 堆
+# 堆積
 
 <div class="center-table" markdown>
 
-![堆](../assets/covers/chapter_heap.jpg)
+![堆積](../assets/covers/chapter_heap.jpg)
 
 </div>
 
 !!! abstract
 
-    堆就像是山岳峰峦，层叠起伏、形态各异。
+    堆積就像是山嶽峰巒，層疊起伏、形態各異。
     
-    座座山峰高低错落，而最高的山峰总是最先映入眼帘。
+    座座山峰高低錯落，而最高的山峰總是最先映入眼簾。
