@@ -12,7 +12,7 @@ function testPop(heap: Heap<number>) {
     console.log(heap.toArray());
 }
 
-// $ deno run -A heap.ts
+// $ deno run heap.ts
 (() => {
     /* 初始化堆 */
     // 初始化小顶堆

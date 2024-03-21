@@ -12,6 +12,9 @@ function testPop(heap) {
     console.log(heap.toArray());
 }
 
+// 通过将代码放在浏览器上的 <script type="module"> 中来执行代码
+// 或者
+// $ deno run heap.js
 (() => {
     /* 初始化堆 */
     // 初始化小顶堆
