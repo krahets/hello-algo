@@ -11,7 +11,7 @@ hide:
   <img src="index.assets/hello_algo_header.png" style="width: 100%; height: auto; margin-left: 15px; margin-right: 15px;">
 </div>
 
-<h2 align="center" style="margin-top: 25px;">Hello Algo</h2>
+<h2 align="center" style="margin-top: 25px;">Hello 演算法</h2>
 
 <p align="center">动画图解、一键运行的数据结构与算法教程</p>
 
@@ -43,8 +43,6 @@ hide:
 <div class="admonition example" style="max-width: 800px;margin: 0 auto;">
   <p class="admonition-title">The traditional Chinese version is under tested...</p>
 </div>
-
-<img src="index.assets/hello_algo_hero.jpg" class="cover-image" style="width: 100%; margin-top: 27px;">
 
 <div style="display: flex;">
   <div class="admonition quote" style="flex: 1; margin-right: 0.4rem;">
