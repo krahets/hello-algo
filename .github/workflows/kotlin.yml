@@ -10,9 +10,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ${{ matrix.os }}
+    strategy:
+      os: [ ubuntu-20.04, macos-latest, windows-latest ]
     steps: 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4.1.2
       - uses: fwilhe2/setup-kotlin@main
-      - run: kotlinc codes/kotlin/**/*.kt -include-runtime -d codes/kotlin/build/*.jar; java -jar codes/kotlin/build/*.jar
-
+        with:
+          install-native: true
+          version: "1.9.20"
+      - run: kotlinc codes/kotlin/**/*.kt -include-runtime -d codes/kotlin/build/test.jar; java -jar codes/kotlin/build/test.jar
