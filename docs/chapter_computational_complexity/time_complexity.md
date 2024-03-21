@@ -101,7 +101,7 @@
     ```javascript title=""
     // 在某运行平台下
     function algorithm(n) {
-        var a = 2; // 1 ns
+        let a = 2; // 1 ns
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
         // 循环 n 次
@@ -116,7 +116,7 @@
     ```typescript title=""
     // 在某运行平台下
     function algorithm(n: number): void {
-        var a: number = 2; // 1 ns
+        let a: number = 2; // 1 ns
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
         // 循环 n 次

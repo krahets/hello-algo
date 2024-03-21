@@ -69,16 +69,16 @@
 
     ```javascript title="array.js"
     /* 初始化数组 */
-    var arr = new Array(5).fill(0);
-    var nums = [1, 3, 2, 5, 4];
+    const arr = new Array(5).fill(0); // [0, 0, 0, 0, 0]
+    const nums = [1, 3, 2, 5, 4];
     ```
 
 === "TS"
 
     ```typescript title="array.ts"
     /* 初始化数组 */
-    let arr: number[] = new Array(5).fill(0);
-    let nums: number[] = [1, 3, 2, 5, 4];
+    const arr: number[] = new Array(5).fill(0); // [0, 0, 0, 0, 0]
+    const nums: number[] = [1, 3, 2, 5, 4];
     ```
 
 === "Dart"

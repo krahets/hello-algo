@@ -133,7 +133,7 @@ console.log('线性阶（遍历数组）的操作数量 = ' + count);
 
 count = quadratic(n);
 console.log('平方阶的操作数量 = ' + count);
-var nums = new Array(n);
+const nums = new Array(n);
 for (let i = 0; i < n; i++) nums[i] = n - i; // [n,n-1,...,2,1]
 count = bubbleSort(nums);
 console.log('平方阶（冒泡排序）的操作数量 = ' + count);

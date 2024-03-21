@@ -304,13 +304,79 @@
 === "JS"
 
     ```javascript title="heap.js"
-    // JavaScript 未提供内置 Heap 类
+    import { Heap } from 'https://esm.sh/heap-js@2.5.0';
+
+    /* 初始化堆 */
+    // 初始化小顶堆
+    const minHeap = new Heap();
+    // 初始化大顶堆
+    const maxHeap = new Heap(Heap.maxComparator);
+
+    /* 元素入堆 */
+    maxHeap.push(1);
+    maxHeap.push(3);
+    maxHeap.push(2);
+    maxHeap.push(5);
+    maxHeap.push(4);
+
+    /* 获取堆顶元素 */
+    let peek = maxHeap.peek(); // 5
+
+    /* 堆顶元素出堆 */
+    // 出堆元素会形成一个从大到小的序列
+    peek = maxHeap.poll(); // 5
+    peek = maxHeap.poll(); // 4
+    peek = maxHeap.poll(); // 3
+    peek = maxHeap.poll(); // 2
+    peek = maxHeap.poll(); // 1
+
+    /* 获取堆大小 */
+    const size = maxHeap.size();
+
+    /* 判断堆是否为空 */
+    const isEmpty = maxHeap.isEmpty();
+
+    /* 输入列表并建堆 */
+    minHeap.init([1, 3, 2, 5, 4]);
     ```
 
 === "TS"
 
     ```typescript title="heap.ts"
-    // TypeScript 未提供内置 Heap 类
+    import { Heap } from 'heap-js';
+
+    /* 初始化堆 */
+    // 初始化小顶堆
+    const minHeap = new Heap<number>();
+    // 初始化大顶堆
+    const maxHeap = new Heap<number>(Heap.maxComparator);
+
+    /* 元素入堆 */
+    maxHeap.push(1);
+    maxHeap.push(3);
+    maxHeap.push(2);
+    maxHeap.push(5);
+    maxHeap.push(4);
+
+    /* 获取堆顶元素 */
+    let peek = maxHeap.peek(); // 5
+
+    /* 堆顶元素出堆 */
+    // 出堆元素会形成一个从大到小的序列
+    peek = maxHeap.poll(); // 5
+    peek = maxHeap.poll(); // 4
+    peek = maxHeap.poll(); // 3
+    peek = maxHeap.poll(); // 2
+    peek = maxHeap.poll(); // 1
+
+    /* 获取堆大小 */
+    const size = maxHeap.size();
+
+    /* 判断堆是否为空 */
+    const isEmpty = maxHeap.isEmpty();
+
+    /* 输入列表并建堆 */
+    minHeap.init([1, 3, 2, 5, 4]);
     ```
 
 === "Dart"
