@@ -11,15 +11,15 @@
 extern "C" {
 #endif
 
-/* 定义向量类型 */
+/* 定義向量型別 */
 typedef struct vector {
-    int size;     // 当前向量的大小
-    int capacity; // 当前向量的容量
-    int depth;    // 当前向量的深度
-    void **data;  // 指向数据的指针数组
+    int size;     // 當前向量的大小
+    int capacity; // 當前向量的容量
+    int depth;    // 當前向量的深度
+    void **data;  // 指向資料的指標陣列
 } vector;
 
-/* 构造向量 */
+/* 構造向量 */
 vector *newVector() {
     vector *v = malloc(sizeof(vector));
     v->size = 0;
@@ -29,7 +29,7 @@ vector *newVector() {
     return v;
 }
 
-/* 构造向量，指定大小、元素默认值 */
+/* 構造向量，指定大小、元素預設值 */
 vector *_newVector(int size, void *elem, int elemSize) {
     vector *v = malloc(sizeof(vector));
     v->size = size;
@@ -44,7 +44,7 @@ vector *_newVector(int size, void *elem, int elemSize) {
     return v;
 }
 
-/* 析构向量 */
+/* 析構向量 */
 void delVector(vector *v) {
     if (v) {
         if (v->depth == 0) {
@@ -63,7 +63,7 @@ void delVector(vector *v) {
     }
 }
 
-/*  添加元素（拷贝方式）到向量尾部 */
+/*  新增元素（複製方式）到向量尾部 */
 void vectorPushback(vector *v, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         v->capacity *= 2;
@@ -74,7 +74,7 @@ void vectorPushback(vector *v, void *elem, int elemSize) {
     v->data[v->size++] = tmp;
 }
 
-/* 从向量尾部弹出元素 */
+/* 從向量尾部彈出元素 */
 void vectorPopback(vector *v) {
     if (v->size != 0) {
         free(v->data[v->size - 1]);
@@ -91,23 +91,23 @@ void vectorClear(vector *v) {
     v->data = malloc(v->capacity * sizeof(void *));
 }
 
-/* 获取向量的大小 */
+/* 獲取向量的大小 */
 int vectorSize(vector *v) {
     return v->size;
 }
 
-/* 获取向量的尾元素 */
+/* 獲取向量的尾元素 */
 void *vectorBack(vector *v) {
     int n = v->size;
     return n > 0 ? v->data[n - 1] : NULL;
 }
 
-/* 获取向量的头元素 */
+/* 獲取向量的頭元素 */
 void *vectorFront(vector *v) {
     return v->size > 0 ? v->data[0] : NULL;
 }
 
-/* 获取向量下标 pos 的元素 */
+/* 獲取向量下標 pos 的元素 */
 void *vectorAt(vector *v, int pos) {
     if (pos < 0 || pos >= v->size) {
         printf("vectorAt: out of range\n");
@@ -116,7 +116,7 @@ void *vectorAt(vector *v, int pos) {
     return v->data[pos];
 }
 
-/* 设置向量下标 pos 的元素 */
+/* 設定向量下標 pos 的元素 */
 void vectorSet(vector *v, int pos, void *elem, int elemSize) {
     if (pos < 0 || pos >= v->size) {
         printf("vectorSet: out of range\n");
@@ -128,19 +128,19 @@ void vectorSet(vector *v, int pos, void *elem, int elemSize) {
     v->data[pos] = tmp;
 }
 
-/* 向量扩容 */
+/* 向量擴容 */
 void vectorExpand(vector *v) {
     v->capacity *= 2;
     v->data = realloc(v->data, v->capacity * sizeof(void *));
 }
 
-/* 向量缩容 */
+/* 向量縮容 */
 void vectorShrink(vector *v) {
     v->capacity /= 2;
     v->data = realloc(v->data, v->capacity * sizeof(void *));
 }
 
-/* 在向量下标 pos 处插入元素 */
+/* 在向量下標 pos 處插入元素 */
 void vectorInsert(vector *v, int pos, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         vectorExpand(v);
@@ -154,7 +154,7 @@ void vectorInsert(vector *v, int pos, void *elem, int elemSize) {
     v->size++;
 }
 
-/* 删除向量下标 pos 处的元素 */
+/* 刪除向量下標 pos 處的元素 */
 void vectorErase(vector *v, int pos) {
     if (v->size != 0) {
         free(v->data[pos]);
@@ -165,19 +165,19 @@ void vectorErase(vector *v, int pos) {
     }
 }
 
-/* 向量交换元素 */
+/* 向量交換元素 */
 void vectorSwap(vector *v, int i, int j) {
     void *tmp = v->data[i];
     v->data[i] = v->data[j];
     v->data[j] = tmp;
 }
 
-/* 向量是否为空 */
+/* 向量是否為空 */
 bool vectorEmpty(vector *v) {
     return v->size == 0;
 }
 
-/* 向量是否已满 */
+/* 向量是否已滿 */
 bool vectorFull(vector *v) {
     return v->size == v->capacity;
 }
@@ -199,13 +199,13 @@ bool vectorEqual(vector *v1, vector *v2) {
     return true;
 }
 
-/* 对向量内部进行排序 */
+/* 對向量內部進行排序 */
 void vectorSort(vector *v, int (*cmp)(const void *, const void *)) {
     qsort(v->data, v->size, sizeof(void *), cmp);
 }
 
-/* 打印函数， 需传递一个打印变量的函数进来 */
-/* 当前仅支持打印深度为 1 的 vector */
+/* 列印函式， 需傳遞一個列印變數的函式進來 */
+/* 當前僅支援列印深度為 1 的 vector */
 void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     if (v) {
         if (v->depth == 0) {
@@ -235,7 +235,7 @@ void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     }
 }
 
-/* 当前仅支持打印深度为 2 的 vector */
+/* 當前僅支援列印深度為 2 的 vector */
 void printVectorMatrix(vector *vv, void (*printFunc)(vector *v, void *p)) {
     printf("[\n");
     for (int i = 0; i < vv->size; i++) {

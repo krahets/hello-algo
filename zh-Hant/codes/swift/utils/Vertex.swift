@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 顶点类 */
+/* 頂點類 */
 public class Vertex: Hashable {
     public var val: Int
 
@@ -20,12 +20,12 @@ public class Vertex: Hashable {
         hasher.combine(val)
     }
 
-    /* 输入值列表 vals ，返回顶点列表 vets */
+    /* 輸入值串列 vals ，返回頂點串列 vets */
     public static func valsToVets(vals: [Int]) -> [Vertex] {
         vals.map { Vertex(val: $0) }
     }
 
-    /* 输入顶点列表 vets ，返回值列表 vals */
+    /* 輸入頂點串列 vets ，返回值串列 vals */
     public static func vetsToVals(vets: [Vertex]) -> [Int] {
         vets.map { $0.val }
     }

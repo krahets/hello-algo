@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// 假设路径和结果长度不超过 100
+// 假設路徑和結果長度不超過 100
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
@@ -14,16 +14,16 @@ TreeNode *path[MAX_SIZE];
 TreeNode *res[MAX_RES_SIZE][MAX_SIZE];
 int pathSize = 0, resSize = 0;
 
-/* 前序遍历：例题三 */
+/* 前序走訪：例題三 */
 void preOrder(TreeNode *root) {
     // 剪枝
     if (root == NULL || root->val == 3) {
         return;
     }
-    // 尝试
+    // 嘗試
     path[pathSize++] = root;
     if (root->val == 7) {
-        // 记录解
+        // 記錄解
         for (int i = 0; i < pathSize; i++) {
             res[resSize][i] = path[i];
         }
@@ -39,13 +39,13 @@ void preOrder(TreeNode *root) {
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));
-    printf("\n初始化二叉树\n");
+    printf("\n初始化二元樹\n");
     printTree(root);
 
-    // 前序遍历
+    // 前序走訪
     preOrder(root);
 
-    printf("\n输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点\n");
+    printf("\n輸出所有根節點到節點 7 的路徑，要求路徑中不包含值為 3 的節點\n");
     for (int i = 0; i < resSize; ++i) {
         int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;
@@ -56,7 +56,7 @@ int main() {
         free(vals);
     }
 
-    // 释放内存
+    // 釋放記憶體
     freeMemoryTree(root);
     return 0;
 }

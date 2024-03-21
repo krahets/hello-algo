@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* 方法一：暴力枚举 */
+/* 方法一：暴力列舉 */
 vector<int> twoSumBruteForce(vector<int> &nums, int target) {
     int size = nums.size();
-    // 两层循环，时间复杂度为 O(n^2)
+    // 兩層迴圈，時間複雜度為 O(n^2)
     for (int i = 0; i < size - 1; i++) {
         for (int j = i + 1; j < size; j++) {
             if (nums[i] + nums[j] == target)
@@ -19,12 +19,12 @@ vector<int> twoSumBruteForce(vector<int> &nums, int target) {
     return {};
 }
 
-/* 方法二：辅助哈希表 */
+/* 方法二：輔助雜湊表 */
 vector<int> twoSumHashTable(vector<int> &nums, int target) {
     int size = nums.size();
-    // 辅助哈希表，空间复杂度为 O(n)
+    // 輔助雜湊表，空間複雜度為 O(n)
     unordered_map<int, int> dic;
-    // 单层循环，时间复杂度为 O(n)
+    // 單層迴圈，時間複雜度為 O(n)
     for (int i = 0; i < size; i++) {
         if (dic.find(target - nums[i]) != dic.end()) {
             return {dic[target - nums[i]], i};

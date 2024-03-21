@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_hashing;
 
 public class simple_hash {
-    /* 加法哈希 */
+    /* 加法雜湊 */
     int AddHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
@@ -17,7 +17,7 @@ public class simple_hash {
         return (int)hash;
     }
 
-    /* 乘法哈希 */
+    /* 乘法雜湊 */
     int MulHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
@@ -27,7 +27,7 @@ public class simple_hash {
         return (int)hash;
     }
 
-    /* 异或哈希 */
+    /* 異或雜湊 */
     int XorHash(string key) {
         int hash = 0;
         const int MODULUS = 1000000007;
@@ -37,7 +37,7 @@ public class simple_hash {
         return hash & MODULUS;
     }
 
-    /* 旋转哈希 */
+    /* 旋轉雜湊 */
     int RotHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
@@ -49,18 +49,18 @@ public class simple_hash {
 
     [Test]
     public void Test() {
-        string key = "Hello 算法";
+        string key = "Hello 演算法";
 
         int hash = AddHash(key);
-        Console.WriteLine("加法哈希值为 " + hash);
+        Console.WriteLine("加法雜湊值為 " + hash);
 
         hash = MulHash(key);
-        Console.WriteLine("乘法哈希值为 " + hash);
+        Console.WriteLine("乘法雜湊值為 " + hash);
 
         hash = XorHash(key);
-        Console.WriteLine("异或哈希值为 " + hash);
+        Console.WriteLine("異或雜湊值為 " + hash);
 
         hash = RotHash(key);
-        Console.WriteLine("旋转哈希值为 " + hash);
+        Console.WriteLine("旋轉雜湊值為 " + hash);
     }
 }

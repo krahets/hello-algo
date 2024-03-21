@@ -4,56 +4,56 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-/* 递归 */
+/* 遞迴 */
 fn recur(n: i32) -> i32 {
-    // 终止条件
+    // 終止條件
     if n == 1 {
         return 1;
     }
-    // 递：递归调用
+    // 遞：遞迴呼叫
     let res = recur(n - 1);
-    // 归：返回结果
+    // 歸：返回結果
     n + res
 }
 
-/* 使用迭代模拟递归 */
+/* 使用迭代模擬遞迴 */
 fn for_loop_recur(n: i32) -> i32 {
-    // 使用一个显式的栈来模拟系统调用栈
+    // 使用一個顯式的堆疊來模擬系統呼叫堆疊
     let mut stack = Vec::new();
     let mut res = 0;
-    // 递：递归调用
+    // 遞：遞迴呼叫
     for i in (1..=n).rev() {
-        // 通过“入栈操作”模拟“递”
+        // 透過“入堆疊操作”模擬“遞”
         stack.push(i);
     }
-    // 归：返回结果
+    // 歸：返回結果
     while !stack.is_empty() {
-        // 通过“出栈操作”模拟“归”
+        // 透過“出堆疊操作”模擬“歸”
         res += stack.pop().unwrap();
     }
     // res = 1+2+3+...+n
     res
 }
 
-/* 尾递归 */
+/* 尾遞迴 */
 fn tail_recur(n: i32, res: i32) -> i32 {
-    // 终止条件
+    // 終止條件
     if n == 0 {
         return res;
     }
-    // 尾递归调用
+    // 尾遞迴呼叫
     tail_recur(n - 1, res + n)
 }
 
-/* 斐波那契数列：递归 */
+/* 斐波那契數列：遞迴 */
 fn fib(n: i32) -> i32 {
-    // 终止条件 f(1) = 0, f(2) = 1
+    // 終止條件 f(1) = 0, f(2) = 1
     if n == 1 || n == 2 {
         return n - 1;
     }
-    // 递归调用 f(n) = f(n-1) + f(n-2)
+    // 遞迴呼叫 f(n) = f(n-1) + f(n-2)
     let res = fib(n - 1) + fib(n - 2);
-    // 返回结果
+    // 返回結果
     res
 }
 
@@ -63,14 +63,14 @@ fn main() {
     let mut res;
 
     res = recur(n);
-    println!("\n递归函数的求和结果 res = {res}");
+    println!("\n遞迴函式的求和結果 res = {res}");
 
     res = for_loop_recur(n);
-    println!("\n使用迭代模拟递归求和结果 res = {res}");
+    println!("\n使用迭代模擬遞迴求和結果 res = {res}");
 
     res = tail_recur(n, 0);
-    println!("\n尾递归函数的求和结果 res = {res}");
+    println!("\n尾遞迴函式的求和結果 res = {res}");
 
     res = fib(n);
-    println!("\n斐波那契数列的第 {n} 项为 {res}");
+    println!("\n斐波那契數列的第 {n} 項為 {res}");
 }

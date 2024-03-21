@@ -15,47 +15,47 @@ func TestBinarySearch(t *testing.T) {
 		nums     = []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
 		expected = 2
 	)
-	// 在数组中执行二分查找
+	// 在陣列中執行二分搜尋
 	actual := binarySearch(nums, target)
-	fmt.Println("目标元素 6 的索引 =", actual)
+	fmt.Println("目標元素 6 的索引 =", actual)
 	if actual != expected {
-		t.Errorf("目标元素 6 的索引 = %d, 应该为 %d", actual, expected)
+		t.Errorf("目標元素 6 的索引 = %d, 應該為 %d", actual, expected)
 	}
 }
 
 func TestBinarySearchEdge(t *testing.T) {
-	// 包含重复元素的数组
+	// 包含重複元素的陣列
 	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
-	fmt.Println("\n数组 nums = ", nums)
+	fmt.Println("\n陣列 nums = ", nums)
 
-	// 二分查找左边界和右边界
+	// 二分搜尋左邊界和右邊界
 	for _, target := range []int{6, 7} {
 		index := binarySearchLeftEdge(nums, target)
-		fmt.Println("最左一个元素", target, "的索引为", index)
+		fmt.Println("最左一個元素", target, "的索引為", index)
 
 		index = binarySearchRightEdge(nums, target)
-		fmt.Println("最右一个元素", target, "的索引为", index)
+		fmt.Println("最右一個元素", target, "的索引為", index)
 	}
 }
 
 func TestBinarySearchInsertion(t *testing.T) {
-	// 无重复元素的数组
+	// 無重複元素的陣列
 	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
-	fmt.Println("数组 nums =", nums)
+	fmt.Println("陣列 nums =", nums)
 
-	// 二分查找插入点
+	// 二分搜尋插入點
 	for _, target := range []int{6, 9} {
 		index := binarySearchInsertionSimple(nums, target)
-		fmt.Println("元素", target, "的插入点的索引为", index)
+		fmt.Println("元素", target, "的插入點的索引為", index)
 	}
 
-	// 包含重复元素的数组
+	// 包含重複元素的陣列
 	nums = []int{1, 3, 6, 6, 6, 6, 6, 10, 12, 15}
-	fmt.Println("\n数组 nums =", nums)
+	fmt.Println("\n陣列 nums =", nums)
 
-	// 二分查找插入点
+	// 二分搜尋插入點
 	for _, target := range []int{2, 6, 20} {
 		index := binarySearchInsertion(nums, target)
-		fmt.Println("元素", target, "的插入点的索引为", index)
+		fmt.Println("元素", target, "的插入點的索引為", index)
 	}
 }

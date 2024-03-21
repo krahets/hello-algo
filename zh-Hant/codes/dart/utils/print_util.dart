@@ -84,8 +84,8 @@ void showTrunks(Trunk? p) {
 
 /* Print a heap (PriorityQueue) */
 void printHeap(List<int> heap) {
-  print("堆的数组表示：$heap");
-  print("堆的树状表示：");
+  print("堆積的陣列表示：$heap");
+  print("堆積的樹狀表示：");
   TreeNode? root = listToTree(heap);
   printTree(root);
 }

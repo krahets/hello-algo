@@ -9,32 +9,32 @@ namespace hello_algo.chapter_stack_and_queue;
 public class stack {
     [Test]
     public void Test() {
-        /* 初始化栈 */
+        /* 初始化堆疊 */
         Stack<int> stack = new();
 
-        /* 元素入栈 */
+        /* 元素入堆疊 */
         stack.Push(1);
         stack.Push(3);
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // 请注意，stack.ToArray() 得到的是倒序序列，即索引 0 为栈顶
-        Console.WriteLine("栈 stack = " + string.Join(",", stack));
+        // 請注意，stack.ToArray() 得到的是倒序序列，即索引 0 為堆疊頂
+        Console.WriteLine("堆疊 stack = " + string.Join(",", stack));
 
-        /* 访问栈顶元素 */
+        /* 訪問堆疊頂元素 */
         int peek = stack.Peek();
-        Console.WriteLine("栈顶元素 peek = " + peek);
+        Console.WriteLine("堆疊頂元素 peek = " + peek);
 
-        /* 元素出栈 */
+        /* 元素出堆疊 */
         int pop = stack.Pop();
-        Console.WriteLine("出栈元素 pop = " + pop + "，出栈后 stack = " + string.Join(",", stack));
+        Console.WriteLine("出堆疊元素 pop = " + pop + "，出堆疊後 stack = " + string.Join(",", stack));
 
-        /* 获取栈的长度 */
+        /* 獲取堆疊的長度 */
         int size = stack.Count;
-        Console.WriteLine("栈的长度 size = " + size);
+        Console.WriteLine("堆疊的長度 size = " + size);
 
-        /* 判断是否为空 */
+        /* 判斷是否為空 */
         bool isEmpty = stack.Count == 0;
-        Console.WriteLine("栈是否为空 = " + isEmpty);
+        Console.WriteLine("堆疊是否為空 = " + isEmpty);
     }
 }

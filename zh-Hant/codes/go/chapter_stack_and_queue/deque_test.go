@@ -13,119 +13,119 @@ import (
 )
 
 func TestDeque(t *testing.T) {
-	/* 初始化双向队列 */
-	// 在 Go 中，将 list 作为双向队列使用
+	/* 初始化雙向佇列 */
+	// 在 Go 中，將 list 作為雙向佇列使用
 	deque := list.New()
 
-	/* 元素入队 */
+	/* 元素入列 */
 	deque.PushBack(2)
 	deque.PushBack(5)
 	deque.PushBack(4)
 	deque.PushFront(3)
 	deque.PushFront(1)
-	fmt.Print("双向队列 deque = ")
+	fmt.Print("雙向佇列 deque = ")
 	PrintList(deque)
 
-	/* 访问元素 */
+	/* 訪問元素 */
 	front := deque.Front()
-	fmt.Println("队首元素 front =", front.Value)
+	fmt.Println("佇列首元素 front =", front.Value)
 	rear := deque.Back()
-	fmt.Println("队尾元素 rear =", rear.Value)
+	fmt.Println("佇列尾元素 rear =", rear.Value)
 
-	/* 元素出队 */
+	/* 元素出列 */
 	deque.Remove(front)
-	fmt.Print("队首出队元素 front = ", front.Value, "，队首出队后 deque = ")
+	fmt.Print("佇列首出列元素 front = ", front.Value, "，佇列首出列後 deque = ")
 	PrintList(deque)
 	deque.Remove(rear)
-	fmt.Print("队尾出队元素 rear = ", rear.Value, "，队尾出队后 deque = ")
+	fmt.Print("佇列尾出列元素 rear = ", rear.Value, "，佇列尾出列後 deque = ")
 	PrintList(deque)
 
-	/* 获取双向队列的长度 */
+	/* 獲取雙向佇列的長度 */
 	size := deque.Len()
-	fmt.Println("双向队列长度 size =", size)
+	fmt.Println("雙向佇列長度 size =", size)
 
-	/* 判断双向队列是否为空 */
+	/* 判斷雙向佇列是否為空 */
 	isEmpty := deque.Len() == 0
-	fmt.Println("双向队列是否为空 =", isEmpty)
+	fmt.Println("雙向佇列是否為空 =", isEmpty)
 }
 
 func TestArrayDeque(t *testing.T) {
-	/* 初始化双向队列 */
-	// 在 Go 中，将 list 作为双向队列使用
+	/* 初始化雙向佇列 */
+	// 在 Go 中，將 list 作為雙向佇列使用
 	deque := newArrayDeque(16)
 
-	/* 元素入队 */
+	/* 元素入列 */
 	deque.pushLast(3)
 	deque.pushLast(2)
 	deque.pushLast(5)
-	fmt.Print("双向队列 deque = ")
+	fmt.Print("雙向佇列 deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 访问元素 */
+	/* 訪問元素 */
 	peekFirst := deque.peekFirst()
-	fmt.Println("队首元素 peekFirst =", peekFirst)
+	fmt.Println("佇列首元素 peekFirst =", peekFirst)
 	peekLast := deque.peekLast()
-	fmt.Println("队尾元素 peekLast =", peekLast)
+	fmt.Println("佇列尾元素 peekLast =", peekLast)
 
-	/* 元素入队 */
+	/* 元素入列 */
 	deque.pushLast(4)
-	fmt.Print("元素 4 队尾入队后 deque = ")
+	fmt.Print("元素 4 佇列尾入列後 deque = ")
 	PrintSlice(deque.toSlice())
 	deque.pushFirst(1)
-	fmt.Print("元素 1 队首入队后 deque = ")
+	fmt.Print("元素 1 佇列首入列後 deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 元素出队 */
+	/* 元素出列 */
 	popFirst := deque.popFirst()
-	fmt.Print("队首出队元素 popFirst = ", popFirst, "，队首出队后 deque = ")
+	fmt.Print("佇列首出列元素 popFirst = ", popFirst, "，佇列首出列後 deque = ")
 	PrintSlice(deque.toSlice())
 	popLast := deque.popLast()
-	fmt.Print("队尾出队元素 popLast = ", popLast, "，队尾出队后 deque = ")
+	fmt.Print("佇列尾出列元素 popLast = ", popLast, "，佇列尾出列後 deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 获取双向队列的长度 */
+	/* 獲取雙向佇列的長度 */
 	size := deque.size()
-	fmt.Println("双向队列长度 size =", size)
+	fmt.Println("雙向佇列長度 size =", size)
 
-	/* 判断双向队列是否为空 */
+	/* 判斷雙向佇列是否為空 */
 	isEmpty := deque.isEmpty()
-	fmt.Println("双向队列是否为空 =", isEmpty)
+	fmt.Println("雙向佇列是否為空 =", isEmpty)
 }
 
 func TestLinkedListDeque(t *testing.T) {
-	// 初始化队列
+	// 初始化佇列
 	deque := newLinkedListDeque()
 
-	// 元素入队
+	// 元素入列
 	deque.pushLast(2)
 	deque.pushLast(5)
 	deque.pushLast(4)
 	deque.pushFirst(3)
 	deque.pushFirst(1)
-	fmt.Print("队列 deque = ")
+	fmt.Print("佇列 deque = ")
 	PrintList(deque.toList())
 
-	// 访问队首元素
+	// 訪問佇列首元素
 	front := deque.peekFirst()
-	fmt.Println("队首元素 front =", front)
+	fmt.Println("佇列首元素 front =", front)
 	rear := deque.peekLast()
-	fmt.Println("队尾元素 rear =", rear)
+	fmt.Println("佇列尾元素 rear =", rear)
 
-	// 元素出队
+	// 元素出列
 	popFirst := deque.popFirst()
-	fmt.Print("队首出队元素 popFirst = ", popFirst, "，队首出队后 deque = ")
+	fmt.Print("佇列首出列元素 popFirst = ", popFirst, "，佇列首出列後 deque = ")
 	PrintList(deque.toList())
 	popLast := deque.popLast()
-	fmt.Print("队尾出队元素 popLast = ", popLast, "，队尾出队后 deque = ")
+	fmt.Print("佇列尾出列元素 popLast = ", popLast, "，佇列尾出列後 deque = ")
 	PrintList(deque.toList())
 
-	// 获取队的长度
+	// 獲取隊的長度
 	size := deque.size()
-	fmt.Println("队的长度 size =", size)
+	fmt.Println("隊的長度 size =", size)
 
-	// 判断是否为空
+	// 判斷是否為空
 	isEmpty := deque.isEmpty()
-	fmt.Println("队是否为空 =", isEmpty)
+	fmt.Println("隊是否為空 =", isEmpty)
 }
 
 // BenchmarkLinkedListDeque 67.92 ns/op in Mac M1 Pro

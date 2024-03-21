@@ -6,76 +6,76 @@
 
 import '../utils/print_util.dart';
 
-/* 基于邻接矩阵实现的无向图类 */
+/* 基於鄰接矩陣實現的無向圖類 */
 class GraphAdjMat {
-  List<int> vertices = []; // 顶点元素，元素代表“顶点值”，索引代表“顶点索引”
-  List<List<int>> adjMat = []; //邻接矩阵，行列索引对应“顶点索引”
+  List<int> vertices = []; // 頂點元素，元素代表“頂點值”，索引代表“頂點索引”
+  List<List<int>> adjMat = []; //鄰接矩陣，行列索引對應“頂點索引”
 
-  /* 构造方法 */
+  /* 構造方法 */
   GraphAdjMat(List<int> vertices, List<List<int>> edges) {
     this.vertices = [];
     this.adjMat = [];
-    // 添加顶点
+    // 新增頂點
     for (int val in vertices) {
       addVertex(val);
     }
-    // 添加边
-    // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+    // 新增邊
+    // 請注意，edges 元素代表頂點索引，即對應 vertices 元素索引
     for (List<int> e in edges) {
       addEdge(e[0], e[1]);
     }
   }
 
-  /* 获取顶点数量 */
+  /* 獲取頂點數量 */
   int size() {
     return vertices.length;
   }
 
-  /* 添加顶点 */
+  /* 新增頂點 */
   void addVertex(int val) {
     int n = size();
-    // 向顶点列表中添加新顶点的值
+    // 向頂點串列中新增新頂點的值
     vertices.add(val);
-    // 在邻接矩阵中添加一行
+    // 在鄰接矩陣中新增一行
     List<int> newRow = List.filled(n, 0, growable: true);
     adjMat.add(newRow);
-    // 在邻接矩阵中添加一列
+    // 在鄰接矩陣中新增一列
     for (List<int> row in adjMat) {
       row.add(0);
     }
   }
 
-  /* 删除顶点 */
+  /* 刪除頂點 */
   void removeVertex(int index) {
     if (index >= size()) {
       throw IndexError;
     }
-    // 在顶点列表中移除索引 index 的顶点
+    // 在頂點串列中移除索引 index 的頂點
     vertices.removeAt(index);
-    // 在邻接矩阵中删除索引 index 的行
+    // 在鄰接矩陣中刪除索引 index 的行
     adjMat.removeAt(index);
-    // 在邻接矩阵中删除索引 index 的列
+    // 在鄰接矩陣中刪除索引 index 的列
     for (List<int> row in adjMat) {
       row.removeAt(index);
     }
   }
 
-  /* 添加边 */
-  // 参数 i, j 对应 vertices 元素索引
+  /* 新增邊 */
+  // 引數 i, j 對應 vertices 元素索引
   void addEdge(int i, int j) {
-    // 索引越界与相等处理
+    // 索引越界與相等處理
     if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
       throw IndexError;
     }
-    // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
+    // 在無向圖中，鄰接矩陣關於主對角線對稱，即滿足 (i, j) == (j, i)
     adjMat[i][j] = 1;
     adjMat[j][i] = 1;
   }
 
-  /* 删除边 */
-  // 参数 i, j 对应 vertices 元素索引
+  /* 刪除邊 */
+  // 引數 i, j 對應 vertices 元素索引
   void removeEdge(int i, int j) {
-    // 索引越界与相等处理
+    // 索引越界與相等處理
     if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
       throw IndexError;
     }
@@ -83,18 +83,18 @@ class GraphAdjMat {
     adjMat[j][i] = 0;
   }
 
-  /* 打印邻接矩阵 */
+  /* 列印鄰接矩陣 */
   void printAdjMat() {
-    print("顶点列表 = $vertices");
-    print("邻接矩阵 = ");
+    print("頂點串列 = $vertices");
+    print("鄰接矩陣 = ");
     printMatrix(adjMat);
   }
 }
 
 /* Driver Code */
 void main() {
-  /* 初始化无向图 */
-  // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+  /* 初始化無向圖 */
+  // 請注意，edges 元素代表頂點索引，即對應 vertices 元素索引
   List<int> vertices = [1, 3, 2, 5, 4];
   List<List<int>> edges = [
     [0, 1],
@@ -105,29 +105,29 @@ void main() {
     [3, 4],
   ];
   GraphAdjMat graph = GraphAdjMat(vertices, edges);
-  print("\n初始化后，图为");
+  print("\n初始化後，圖為");
   graph.printAdjMat();
 
-  /* 添加边 */
-  // 顶点 1, 2 的索引分别为 0, 2
+  /* 新增邊 */
+  // 頂點 1, 2 的索引分別為 0, 2
   graph.addEdge(0, 2);
-  print("\n添加边 1-2 后，图为");
+  print("\n新增邊 1-2 後，圖為");
   graph.printAdjMat();
 
-  /* 删除边 */
-  // 顶点 1, 3 的索引分别为 0, 1
+  /* 刪除邊 */
+  // 頂點 1, 3 的索引分別為 0, 1
   graph.removeEdge(0, 1);
-  print("\n删除边 1-3 后，图为");
+  print("\n刪除邊 1-3 後，圖為");
   graph.printAdjMat();
 
-  /* 添加顶点 */
+  /* 新增頂點 */
   graph.addVertex(6);
-  print("\n添加顶点 6 后，图为");
+  print("\n新增頂點 6 後，圖為");
   graph.printAdjMat();
 
-  /* 删除顶点 */
-  // 顶点 3 的索引为 1
+  /* 刪除頂點 */
+  // 頂點 3 的索引為 1
   graph.removeVertex(1);
-  print("\n删除顶点 3 后，图为");
+  print("\n刪除頂點 3 後，圖為");
   graph.printAdjMat();
 }

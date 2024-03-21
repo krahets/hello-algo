@@ -8,23 +8,23 @@ Author: krahets (krahets@163.com)
 def backtrack(
     state: list[int], choices: list[int], selected: list[bool], res: list[list[int]]
 ):
-    """回溯算法：全排列 II"""
-    # 当状态长度等于元素数量时，记录解
+    """回溯演算法：全排列 II"""
+    # 當狀態長度等於元素數量時，記錄解
     if len(state) == len(choices):
         res.append(list(state))
         return
-    # 遍历所有选择
+    # 走訪所有選擇
     duplicated = set[int]()
     for i, choice in enumerate(choices):
-        # 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+        # 剪枝：不允許重複選擇元素 且 不允許重複選擇相等元素
         if not selected[i] and choice not in duplicated:
-            # 尝试：做出选择，更新状态
-            duplicated.add(choice)  # 记录选择过的元素值
+            # 嘗試：做出選擇，更新狀態
+            duplicated.add(choice)  # 記錄選擇過的元素值
             selected[i] = True
             state.append(choice)
-            # 进行下一轮选择
+            # 進行下一輪選擇
             backtrack(state, choices, selected, res)
-            # 回退：撤销选择，恢复到之前的状态
+            # 回退：撤銷選擇，恢復到之前的狀態
             selected[i] = False
             state.pop()
 
@@ -42,5 +42,5 @@ if __name__ == "__main__":
 
     res = permutations_ii(nums)
 
-    print(f"输入数组 nums = {nums}")
+    print(f"輸入陣列 nums = {nums}")
     print(f"所有排列 res = {res}")

@@ -24,7 +24,7 @@ func PrintList(list *list.List) {
 		return
 	}
 	e := list.Front()
-	// 强转为 string, 会影响效率
+	// 強轉為 string, 會影響效率
 	fmt.Print("[")
 	for e.Next() != nil {
 		fmt.Print(e.Value, " ")
@@ -42,9 +42,9 @@ func PrintMap[K comparable, V any](m map[K]V) {
 
 // PrintHeap Print a heap
 func PrintHeap(h []any) {
-	fmt.Printf("堆的数组表示：")
+	fmt.Printf("堆積的陣列表示：")
 	fmt.Printf("%v", h)
-	fmt.Printf("\n堆的树状表示：\n")
+	fmt.Printf("\n堆積的樹狀表示：\n")
 	root := SliceToTree(h)
 	PrintTree(root)
 }

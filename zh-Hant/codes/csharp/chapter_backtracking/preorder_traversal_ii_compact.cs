@@ -10,15 +10,15 @@ public class preorder_traversal_ii_compact {
     List<TreeNode> path = [];
     List<List<TreeNode>> res = [];
 
-    /* 前序遍历：例题二 */
+    /* 前序走訪：例題二 */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
-        // 尝试
+        // 嘗試
         path.Add(root);
         if (root.val == 7) {
-            // 记录解
+            // 記錄解
             res.Add(new List<TreeNode>(path));
         }
         PreOrder(root.left);
@@ -30,13 +30,13 @@ public class preorder_traversal_ii_compact {
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\n初始化二叉树");
+        Console.WriteLine("\n初始化二元樹");
         PrintUtil.PrintTree(root);
 
-        // 前序遍历
+        // 前序走訪
         PreOrder(root);
 
-        Console.WriteLine("\n输出所有根节点到节点 7 的路径");
+        Console.WriteLine("\n輸出所有根節點到節點 7 的路徑");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

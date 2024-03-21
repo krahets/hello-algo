@@ -12,5 +12,5 @@ import (
 func TestHeapSort(t *testing.T) {
 	nums := []int{4, 1, 3, 1, 5, 2}
 	heapSort(&nums)
-	fmt.Println("堆排序完成后 nums = ", nums)
+	fmt.Println("堆積排序完成後 nums = ", nums)
 }

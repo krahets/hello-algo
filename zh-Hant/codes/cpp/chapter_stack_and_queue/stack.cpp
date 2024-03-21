@@ -8,34 +8,34 @@
 
 /* Driver Code */
 int main() {
-    /* 初始化栈 */
+    /* 初始化堆疊 */
     stack<int> stack;
 
-    /* 元素入栈 */
+    /* 元素入堆疊 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    cout << "栈 stack = ";
+    cout << "堆疊 stack = ";
     printStack(stack);
 
-    /* 访问栈顶元素 */
+    /* 訪問堆疊頂元素 */
     int top = stack.top();
-    cout << "栈顶元素 top = " << top << endl;
+    cout << "堆疊頂元素 top = " << top << endl;
 
-    /* 元素出栈 */
-    stack.pop(); // 无返回值
-    cout << "出栈元素 pop = " << top << "，出栈后 stack = ";
+    /* 元素出堆疊 */
+    stack.pop(); // 無返回值
+    cout << "出堆疊元素 pop = " << top << "，出堆疊後 stack = ";
     printStack(stack);
 
-    /* 获取栈的长度 */
+    /* 獲取堆疊的長度 */
     int size = stack.size();
-    cout << "栈的长度 size = " << size << endl;
+    cout << "堆疊的長度 size = " << size << endl;
 
-    /* 判断是否为空 */
+    /* 判斷是否為空 */
     bool empty = stack.empty();
-    cout << "栈是否为空 = " << empty << endl;
+    cout << "堆疊是否為空 = " << empty << endl;
 
     return 0;
 }

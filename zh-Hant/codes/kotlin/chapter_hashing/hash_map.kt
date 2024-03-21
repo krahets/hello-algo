@@ -10,40 +10,40 @@ import utils.printHashMap
 
 /* Driver Code */
 fun main() {
-    /* 初始化哈希表 */
+    /* 初始化雜湊表 */
     val map: MutableMap<Int, String> = HashMap()
 
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
+    /* 新增操作 */
+    // 在雜湊表中新增鍵值對 (key, value)
     map[12836] = "小哈"
-    map[15937] = "小啰"
+    map[15937] = "小囉"
     map[16750] = "小算"
     map[13276] = "小法"
-    map[10583] = "小鸭"
-    println("\n添加完成后，哈希表为\nKey -> Value")
+    map[10583] = "小鴨"
+    println("\n新增完成後，雜湊表為\nKey -> Value")
     printHashMap(map)
 
-    /* 查询操作 */
-    // 向哈希表中输入键 key ，得到值 value
+    /* 查詢操作 */
+    // 向雜湊表中輸入鍵 key ，得到值 value
     val name = map[15937]
-    println("\n输入学号 15937 ，查询到姓名 $name")
+    println("\n輸入學號 15937 ，查詢到姓名 $name")
 
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)
+    /* 刪除操作 */
+    // 在雜湊表中刪除鍵值對 (key, value)
     map.remove(10583)
-    println("\n删除 10583 后，哈希表为\nKey -> Value")
+    println("\n刪除 10583 後，雜湊表為\nKey -> Value")
     printHashMap(map)
 
-    /* 遍历哈希表 */
-    println("\n遍历键值对 Key->Value")
+    /* 走訪雜湊表 */
+    println("\n走訪鍵值對 Key->Value")
     for ((key, value) in map) {
         println("$key -> $value")
     }
-    println("\n单独遍历键 Key")
+    println("\n單獨走訪鍵 Key")
     for (key in map.keys) {
         println(key)
     }
-    println("\n单独遍历值 Value")
+    println("\n單獨走訪值 Value")
     for (value in map.values) {
         println(value)
     }

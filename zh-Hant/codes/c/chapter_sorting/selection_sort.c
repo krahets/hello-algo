@@ -6,17 +6,17 @@
 
 #include "../utils/common.h"
 
-/* 选择排序 */
+/* 選擇排序 */
 void selectionSort(int nums[], int n) {
-    // 外循环：未排序区间为 [i, n-1]
+    // 外迴圈：未排序區間為 [i, n-1]
     for (int i = 0; i < n - 1; i++) {
-        // 内循环：找到未排序区间内的最小元素
+        // 內迴圈：找到未排序區間內的最小元素
         int k = i;
         for (int j = i + 1; j < n; j++) {
             if (nums[j] < nums[k])
-                k = j; // 记录最小元素的索引
+                k = j; // 記錄最小元素的索引
         }
-        // 将该最小元素与未排序区间的首个元素交换
+        // 將該最小元素與未排序區間的首個元素交換
         int temp = nums[i];
         nums[i] = nums[k];
         nums[k] = temp;
@@ -30,7 +30,7 @@ int main() {
 
     selectionSort(nums, n);
 
-    printf("选择排序完成后 nums = ");
+    printf("選擇排序完成後 nums = ");
     printArray(nums, n);
 
     return 0;

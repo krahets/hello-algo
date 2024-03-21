@@ -6,11 +6,11 @@
 
 #include "../utils/common.h"
 
-/* 冒泡排序 */
+/* 泡沫排序 */
 void bubbleSort(int nums[], int size) {
-    // 外循环：未排序区间为 [0, i]
+    // 外迴圈：未排序區間為 [0, i]
     for (int i = size - 1; i > 0; i--) {
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+        // 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
         for (int j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
                 int temp = nums[j];
@@ -21,12 +21,12 @@ void bubbleSort(int nums[], int size) {
     }
 }
 
-/* 冒泡排序（标志优化）*/
+/* 泡沫排序（標誌最佳化）*/
 void bubbleSortWithFlag(int nums[], int size) {
-    // 外循环：未排序区间为 [0, i]
+    // 外迴圈：未排序區間為 [0, i]
     for (int i = size - 1; i > 0; i--) {
         bool flag = false;
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+        // 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
         for (int j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
                 int temp = nums[j];
@@ -43,14 +43,14 @@ void bubbleSortWithFlag(int nums[], int size) {
 /* Driver Code */
 int main() {
     int nums[6] = {4, 1, 3, 1, 5, 2};
-    printf("冒泡排序后: ");
+    printf("泡沫排序後: ");
     bubbleSort(nums, 6);
     for (int i = 0; i < 6; i++) {
         printf("%d ", nums[i]);
     }
 
     int nums1[6] = {4, 1, 3, 1, 5, 2};
-    printf("\n优化版冒泡排序后: ");
+    printf("\n最佳化版泡沫排序後: ");
     bubbleSortWithFlag(nums1, 6);
     for (int i = 0; i < 6; i++) {
         printf("%d ", nums1[i]);

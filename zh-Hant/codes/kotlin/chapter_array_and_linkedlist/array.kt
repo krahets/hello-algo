@@ -8,59 +8,59 @@ package chapter_array_and_linkedlist
 
 import java.util.concurrent.ThreadLocalRandom
 
-/* 随机访问元素 */
+/* 隨機訪問元素 */
 fun randomAccess(nums: IntArray): Int {
-    // 在区间 [0, nums.size) 中随机抽取一个数字
+    // 在區間 [0, nums.size) 中隨機抽取一個數字
     val randomIndex = ThreadLocalRandom.current().nextInt(0, nums.size)
-    // 获取并返回随机元素
+    // 獲取並返回隨機元素
     val randomNum = nums[randomIndex]
     return randomNum
 }
 
-/* 扩展数组长度 */
+/* 擴充套件陣列長度 */
 fun extend(nums: IntArray, enlarge: Int): IntArray {
-    // 初始化一个扩展长度后的数组
+    // 初始化一個擴充套件長度後的陣列
     val res = IntArray(nums.size + enlarge)
-    // 将原数组中的所有元素复制到新数组
+    // 將原陣列中的所有元素複製到新陣列
     for (i in nums.indices) {
         res[i] = nums[i]
     }
-    // 返回扩展后的新数组
+    // 返回擴充套件後的新陣列
     return res
 }
 
-/* 在数组的索引 index 处插入元素 num */
+/* 在陣列的索引 index 處插入元素 num */
 fun insert(nums: IntArray, num: Int, index: Int) {
-    // 把索引 index 以及之后的所有元素向后移动一位
+    // 把索引 index 以及之後的所有元素向後移動一位
     for (i in nums.size - 1 downTo index + 1) {
         nums[i] = nums[i - 1]
     }
-    // 将 num 赋给 index 处的元素
+    // 將 num 賦給 index 處的元素
     nums[index] = num
 }
 
-/* 删除索引 index 处的元素 */
+/* 刪除索引 index 處的元素 */
 fun remove(nums: IntArray, index: Int) {
-    // 把索引 index 之后的所有元素向前移动一位
+    // 把索引 index 之後的所有元素向前移動一位
     for (i in index..<nums.size - 1) {
         nums[i] = nums[i + 1]
     }
 }
 
-/* 遍历数组 */
+/* 走訪陣列 */
 fun traverse(nums: IntArray) {
     var count = 0
-    // 通过索引遍历数组
+    // 透過索引走訪陣列
     for (i in nums.indices) {
         count += nums[i]
     }
-    // 直接遍历数组元素
+    // 直接走訪陣列元素
     for (j: Int in nums) {
         count += j
     }
 }
 
-/* 在数组中查找指定元素 */
+/* 在陣列中查詢指定元素 */
 fun find(nums: IntArray, target: Int): Int {
     for (i in nums.indices) {
         if (nums[i] == target) return i
@@ -70,32 +70,32 @@ fun find(nums: IntArray, target: Int): Int {
 
 /* Driver Code */
 fun main() {
-    /* 初始化数组 */
+    /* 初始化陣列 */
     val arr = IntArray(5)
-    println("数组 arr = ${arr.contentToString()}")
+    println("陣列 arr = ${arr.contentToString()}")
     var nums = intArrayOf(1, 3, 2, 5, 4)
-    println("数组 nums = ${nums.contentToString()}")
+    println("陣列 nums = ${nums.contentToString()}")
 
-    /* 随机访问 */
+    /* 隨機訪問 */
     val randomNum: Int = randomAccess(nums)
-    println("在 nums 中获取随机元素 $randomNum")
+    println("在 nums 中獲取隨機元素 $randomNum")
 
-    /* 长度扩展 */
+    /* 長度擴充套件 */
     nums = extend(nums, 3)
-    println("将数组长度扩展至 8 ，得到 nums = ${nums.contentToString()}")
+    println("將陣列長度擴充套件至 8 ，得到 nums = ${nums.contentToString()}")
 
     /* 插入元素 */
     insert(nums, 6, 3)
-    println("在索引 3 处插入数字 6 ，得到 nums = ${nums.contentToString()}")
+    println("在索引 3 處插入數字 6 ，得到 nums = ${nums.contentToString()}")
 
-    /* 删除元素 */
+    /* 刪除元素 */
     remove(nums, 2)
-    println("删除索引 2 处的元素，得到 nums = ${nums.contentToString()}")
+    println("刪除索引 2 處的元素，得到 nums = ${nums.contentToString()}")
 
-    /* 遍历数组 */
+    /* 走訪陣列 */
     traverse(nums)
 
-    /* 查找元素 */
+    /* 查詢元素 */
     val index: Int = find(nums, 3)
-    println("在 nums 中查找元素 3 ，得到索引 = $index")
+    println("在 nums 中查詢元素 3 ，得到索引 = $index")
 }

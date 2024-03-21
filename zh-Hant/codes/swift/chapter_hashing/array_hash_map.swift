@@ -6,58 +6,58 @@
 
 import utils
 
-/* 基于数组实现的哈希表 */
+/* 基於陣列實現的雜湊表 */
 class ArrayHashMap {
     private var buckets: [Pair?]
 
     init() {
-        // 初始化数组，包含 100 个桶
+        // 初始化陣列，包含 100 個桶
         buckets = Array(repeating: nil, count: 100)
     }
 
-    /* 哈希函数 */
+    /* 雜湊函式 */
     private func hashFunc(key: Int) -> Int {
         let index = key % 100
         return index
     }
 
-    /* 查询操作 */
+    /* 查詢操作 */
     func get(key: Int) -> String? {
         let index = hashFunc(key: key)
         let pair = buckets[index]
         return pair?.val
     }
 
-    /* 添加操作 */
+    /* 新增操作 */
     func put(key: Int, val: String) {
         let pair = Pair(key: key, val: val)
         let index = hashFunc(key: key)
         buckets[index] = pair
     }
 
-    /* 删除操作 */
+    /* 刪除操作 */
     func remove(key: Int) {
         let index = hashFunc(key: key)
-        // 置为 nil ，代表删除
+        // 置為 nil ，代表刪除
         buckets[index] = nil
     }
 
-    /* 获取所有键值对 */
+    /* 獲取所有鍵值對 */
     func pairSet() -> [Pair] {
         buckets.compactMap { $0 }
     }
 
-    /* 获取所有键 */
+    /* 獲取所有鍵 */
     func keySet() -> [Int] {
         buckets.compactMap { $0?.key }
     }
 
-    /* 获取所有值 */
+    /* 獲取所有值 */
     func valueSet() -> [String] {
         buckets.compactMap { $0?.val }
     }
 
-    /* 打印哈希表 */
+    /* 列印雜湊表 */
     func print() {
         for pair in pairSet() {
             Swift.print("\(pair.key) -> \(pair.val)")
@@ -69,40 +69,40 @@ class ArrayHashMap {
 enum _ArrayHashMap {
     /* Driver Code */
     static func main() {
-        /* 初始化哈希表 */
+        /* 初始化雜湊表 */
         let map = ArrayHashMap()
 
-        /* 添加操作 */
-        // 在哈希表中添加键值对 (key, value)
+        /* 新增操作 */
+        // 在雜湊表中新增鍵值對 (key, value)
         map.put(key: 12836, val: "小哈")
-        map.put(key: 15937, val: "小啰")
+        map.put(key: 15937, val: "小囉")
         map.put(key: 16750, val: "小算")
         map.put(key: 13276, val: "小法")
-        map.put(key: 10583, val: "小鸭")
-        print("\n添加完成后，哈希表为\nKey -> Value")
+        map.put(key: 10583, val: "小鴨")
+        print("\n新增完成後，雜湊表為\nKey -> Value")
         map.print()
 
-        /* 查询操作 */
-        // 向哈希表中输入键 key ，得到值 value
+        /* 查詢操作 */
+        // 向雜湊表中輸入鍵 key ，得到值 value
         let name = map.get(key: 15937)!
-        print("\n输入学号 15937 ，查询到姓名 \(name)")
+        print("\n輸入學號 15937 ，查詢到姓名 \(name)")
 
-        /* 删除操作 */
-        // 在哈希表中删除键值对 (key, value)
+        /* 刪除操作 */
+        // 在雜湊表中刪除鍵值對 (key, value)
         map.remove(key: 10583)
-        print("\n删除 10583 后，哈希表为\nKey -> Value")
+        print("\n刪除 10583 後，雜湊表為\nKey -> Value")
         map.print()
 
-        /* 遍历哈希表 */
-        print("\n遍历键值对 Key->Value")
+        /* 走訪雜湊表 */
+        print("\n走訪鍵值對 Key->Value")
         for pair in map.pairSet() {
             print("\(pair.key) -> \(pair.val)")
         }
-        print("\n单独遍历键 Key")
+        print("\n單獨走訪鍵 Key")
         for key in map.keySet() {
             print(key)
         }
-        print("\n单独遍历值 Value")
+        print("\n單獨走訪值 Value")
         for val in map.valueSet() {
             print(val)
         }

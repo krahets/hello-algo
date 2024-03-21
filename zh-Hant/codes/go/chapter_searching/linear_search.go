@@ -8,29 +8,29 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* 线性查找（数组） */
+/* 線性查詢（陣列） */
 func linearSearchArray(nums []int, target int) int {
-	// 遍历数组
+	// 走訪陣列
 	for i := 0; i < len(nums); i++ {
-		// 找到目标元素，返回其索引
+		// 找到目標元素，返回其索引
 		if nums[i] == target {
 			return i
 		}
 	}
-	// 未找到目标元素，返回 -1
+	// 未找到目標元素，返回 -1
 	return -1
 }
 
-/* 线性查找（链表） */
+/* 線性查詢（鏈結串列） */
 func linearSearchLinkedList(node *ListNode, target int) *ListNode {
-	// 遍历链表
+	// 走訪鏈結串列
 	for node != nil {
-		// 找到目标节点，返回之
+		// 找到目標節點，返回之
 		if node.Val == target {
 			return node
 		}
 		node = node.Next
 	}
-	// 未找到目标元素，返回 nil
+	// 未找到目標元素，返回 nil
 	return nil
 }

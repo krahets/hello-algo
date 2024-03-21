@@ -11,13 +11,13 @@
 extern "C" {
 #endif
 
-/* 链表节点结构体 */
+/* 鏈結串列節點結構體 */
 typedef struct ListNode {
-    int val;               // 节点值
-    struct ListNode *next; // 指向下一节点的引用
+    int val;               // 節點值
+    struct ListNode *next; // 指向下一節點的引用
 } ListNode;
 
-/* 构造函数，初始化一个新节点 */
+/* 構造函式，初始化一個新節點 */
 ListNode *newListNode(int val) {
     ListNode *node;
     node = (ListNode *)malloc(sizeof(ListNode));
@@ -51,7 +51,7 @@ ListNode *getListNode(ListNode *head, int val) {
 
 /* Free the memory allocated to a linked list */
 void freeMemoryLinkedList(ListNode *cur) {
-    // 释放内存
+    // 釋放記憶體
     ListNode *pre;
     while (cur != NULL) {
         pre = cur;

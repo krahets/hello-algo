@@ -5,8 +5,8 @@
  */
 
 public class ListNode: Hashable {
-    public var val: Int // 节点值
-    public var next: ListNode? // 后继节点引用
+    public var val: Int // 節點值
+    public var next: ListNode? // 後繼節點引用
 
     public init(x: Int) {
         val = x

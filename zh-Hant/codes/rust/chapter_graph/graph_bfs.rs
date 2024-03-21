@@ -10,40 +10,40 @@ use graph_adjacency_list::GraphAdjList;
 use graph_adjacency_list::{vals_to_vets, vets_to_vals, Vertex};
 use std::collections::{HashSet, VecDeque};
 
-/* 广度优先遍历 */
-// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+/* 廣度優先走訪 */
+// 使用鄰接表來表示圖，以便獲取指定頂點的所有鄰接頂點
 fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
-    // 顶点遍历序列
+    // 頂點走訪序列
     let mut res = vec![];
-    // 哈希表，用于记录已被访问过的顶点
+    // 雜湊表，用於記錄已被訪問過的頂點
     let mut visited = HashSet::new();
     visited.insert(start_vet);
-    // 队列用于实现 BFS
+    // 佇列用於實現 BFS
     let mut que = VecDeque::new();
     que.push_back(start_vet);
-    // 以顶点 vet 为起点，循环直至访问完所有顶点
+    // 以頂點 vet 為起點，迴圈直至訪問完所有頂點
     while !que.is_empty() {
-        let vet = que.pop_front().unwrap(); // 队首顶点出队
-        res.push(vet); // 记录访问顶点
+        let vet = que.pop_front().unwrap(); // 佇列首頂點出隊
+        res.push(vet); // 記錄訪問頂點
 
-        // 遍历该顶点的所有邻接顶点
+        // 走訪該頂點的所有鄰接頂點
         if let Some(adj_vets) = graph.adj_list.get(&vet) {
             for &adj_vet in adj_vets {
                 if visited.contains(&adj_vet) {
-                    continue; // 跳过已被访问的顶点
+                    continue; // 跳過已被訪問的頂點
                 }
-                que.push_back(adj_vet); // 只入队未访问的顶点
-                visited.insert(adj_vet); // 标记该顶点已被访问
+                que.push_back(adj_vet); // 只入列未訪問的頂點
+                visited.insert(adj_vet); // 標記該頂點已被訪問
             }
         }
     }
-    // 返回顶点遍历序列
+    // 返回頂點走訪序列
     res
 }
 
 /* Driver Code */
 fn main() {
-    /* 初始化无向图 */
+    /* 初始化無向圖 */
     let v = vals_to_vets(vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     let edges = vec![
         [v[0], v[1]],
@@ -60,11 +60,11 @@ fn main() {
         [v[7], v[8]],
     ];
     let graph = GraphAdjList::new(edges);
-    println!("\n初始化后，图为");
+    println!("\n初始化後，圖為");
     graph.print();
 
-    /* 广度优先遍历 */
+    /* 廣度優先走訪 */
     let res = graph_bfs(graph, v[0]);
-    println!("\n广度优先遍历（BFS）顶点序列为");
+    println!("\n廣度優先走訪（BFS）頂點序列為");
     println!("{:?}", vets_to_vals(res));
 }

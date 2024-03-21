@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 键值对 */
+/* 鍵值對 */
 public class Pair: Equatable {
     public var key: Int
     public var val: String

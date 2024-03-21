@@ -4,18 +4,18 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-/* 二叉树节点类 */
+/* 二元樹節點類 */
 class TreeNode {
-  int val; // 节点值
-  int height; // 节点高度
-  TreeNode? left; // 左子节点引用
-  TreeNode? right; // 右子节点引用
+  int val; // 節點值
+  int height; // 節點高度
+  TreeNode? left; // 左子節點引用
+  TreeNode? right; // 右子節點引用
 
-  /* 构造方法 */
+  /* 構造方法 */
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
 
-/* 将列表反序列化为二叉树：递归 */
+/* 將串列反序列化為二元樹：遞迴 */
 TreeNode? listToTreeDFS(List<int?> arr, int i) {
   if (i < 0 || i >= arr.length || arr[i] == null) {
     return null;
@@ -26,12 +26,12 @@ TreeNode? listToTreeDFS(List<int?> arr, int i) {
   return root;
 }
 
-/* 将列表反序列化为二叉树 */
+/* 將串列反序列化為二元樹 */
 TreeNode? listToTree(List<int?> arr) {
   return listToTreeDFS(arr, 0);
 }
 
-/* 将二叉树序列化为列表：递归 */
+/* 將二元樹序列化為串列：遞迴 */
 void treeToListDFS(TreeNode? root, int i, List<int?> res) {
   if (root == null) return;
   while (i >= res.length) {
@@ -42,7 +42,7 @@ void treeToListDFS(TreeNode? root, int i, List<int?> res) {
   treeToListDFS(root.right, 2 * i + 2, res);
 }
 
-/* 将二叉树序列化为列表 */
+/* 將二元樹序列化為串列 */
 List<int?> treeToList(TreeNode? root) {
   List<int?> res = [];
   treeToListDFS(root, 0, res);

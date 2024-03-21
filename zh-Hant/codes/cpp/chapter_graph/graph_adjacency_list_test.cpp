@@ -8,39 +8,39 @@
 
 /* Driver Code */
 int main() {
-    /* 初始化无向图 */
+    /* 初始化無向圖 */
     vector<Vertex *> v = valsToVets(vector<int>{1, 3, 2, 5, 4});
     vector<vector<Vertex *>> edges = {{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]},
                                       {v[2], v[3]}, {v[2], v[4]}, {v[3], v[4]}};
     GraphAdjList graph(edges);
-    cout << "\n初始化后，图为" << endl;
+    cout << "\n初始化後，圖為" << endl;
     graph.print();
 
-    /* 添加边 */
-    // 顶点 1, 2 即 v[0], v[2]
+    /* 新增邊 */
+    // 頂點 1, 2 即 v[0], v[2]
     graph.addEdge(v[0], v[2]);
-    cout << "\n添加边 1-2 后，图为" << endl;
+    cout << "\n新增邊 1-2 後，圖為" << endl;
     graph.print();
 
-    /* 删除边 */
-    // 顶点 1, 3 即 v[0], v[1]
+    /* 刪除邊 */
+    // 頂點 1, 3 即 v[0], v[1]
     graph.removeEdge(v[0], v[1]);
-    cout << "\n删除边 1-3 后，图为" << endl;
+    cout << "\n刪除邊 1-3 後，圖為" << endl;
     graph.print();
 
-    /* 添加顶点 */
+    /* 新增頂點 */
     Vertex *v5 = new Vertex(6);
     graph.addVertex(v5);
-    cout << "\n添加顶点 6 后，图为" << endl;
+    cout << "\n新增頂點 6 後，圖為" << endl;
     graph.print();
 
-    /* 删除顶点 */
-    // 顶点 3 即 v[1]
+    /* 刪除頂點 */
+    // 頂點 3 即 v[1]
     graph.removeVertex(v[1]);
-    cout << "\n删除顶点 3 后，图为" << endl;
+    cout << "\n刪除頂點 3 後，圖為" << endl;
     graph.print();
 
-    // 释放内存
+    // 釋放記憶體
     for (Vertex *vet : v) {
         delete vet;
     }

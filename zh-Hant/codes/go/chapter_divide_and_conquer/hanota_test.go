@@ -13,14 +13,14 @@ import (
 )
 
 func TestHanota(t *testing.T) {
-	// 列表尾部是柱子顶部
+	// 串列尾部是柱子頂部
 	A := list.New()
 	for i := 5; i > 0; i-- {
 		A.PushBack(i)
 	}
 	B := list.New()
 	C := list.New()
-	fmt.Println("初始状态下：")
+	fmt.Println("初始狀態下：")
 	fmt.Print("A = ")
 	PrintList(A)
 	fmt.Print("B = ")
@@ -30,7 +30,7 @@ func TestHanota(t *testing.T) {
 
 	solveHanota(A, B, C)
 
-	fmt.Println("圆盘移动完成后：")
+	fmt.Println("圓盤移動完成後：")
 	fmt.Print("A = ")
 	PrintList(A)
 	fmt.Print("B = ")

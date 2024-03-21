@@ -7,7 +7,7 @@
 package chapter_computational_complexity;
 
 public class time_complexity {
-    /* 常数阶 */
+    /* 常數階 */
     static int constant(int n) {
         int count = 0;
         int size = 100000;
@@ -16,7 +16,7 @@ public class time_complexity {
         return count;
     }
 
-    /* 线性阶 */
+    /* 線性階 */
     static int linear(int n) {
         int count = 0;
         for (int i = 0; i < n; i++)
@@ -24,20 +24,20 @@ public class time_complexity {
         return count;
     }
 
-    /* 线性阶（遍历数组） */
+    /* 線性階（走訪陣列） */
     static int arrayTraversal(int[] nums) {
         int count = 0;
-        // 循环次数与数组长度成正比
+        // 迴圈次數與陣列長度成正比
         for (int num : nums) {
             count++;
         }
         return count;
     }
 
-    /* 平方阶 */
+    /* 平方階 */
     static int quadratic(int n) {
         int count = 0;
-        // 循环次数与数据大小 n 成平方关系
+        // 迴圈次數與資料大小 n 成平方關係
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -46,29 +46,29 @@ public class time_complexity {
         return count;
     }
 
-    /* 平方阶（冒泡排序） */
+    /* 平方階（泡沫排序） */
     static int bubbleSort(int[] nums) {
-        int count = 0; // 计数器
-        // 外循环：未排序区间为 [0, i]
+        int count = 0; // 計數器
+        // 外迴圈：未排序區間為 [0, i]
         for (int i = nums.length - 1; i > 0; i--) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+            // 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
+                    // 交換 nums[j] 與 nums[j + 1]
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // 元素交换包含 3 个单元操作
+                    count += 3; // 元素交換包含 3 個單元操作
                 }
             }
         }
         return count;
     }
 
-    /* 指数阶（循环实现） */
+    /* 指數階（迴圈實現） */
     static int exponential(int n) {
         int count = 0, base = 1;
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+        // 細胞每輪一分為二，形成數列 1, 2, 4, 8, ..., 2^(n-1)
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < base; j++) {
                 count++;
@@ -79,14 +79,14 @@ public class time_complexity {
         return count;
     }
 
-    /* 指数阶（递归实现） */
+    /* 指數階（遞迴實現） */
     static int expRecur(int n) {
         if (n == 1)
             return 1;
         return expRecur(n - 1) + expRecur(n - 1) + 1;
     }
 
-    /* 对数阶（循环实现） */
+    /* 對數階（迴圈實現） */
     static int logarithmic(float n) {
         int count = 0;
         while (n > 1) {
@@ -96,14 +96,14 @@ public class time_complexity {
         return count;
     }
 
-    /* 对数阶（递归实现） */
+    /* 對數階（遞迴實現） */
     static int logRecur(float n) {
         if (n <= 1)
             return 0;
         return logRecur(n / 2) + 1;
     }
 
-    /* 线性对数阶 */
+    /* 線性對數階 */
     static int linearLogRecur(float n) {
         if (n <= 1)
             return 1;
@@ -114,12 +114,12 @@ public class time_complexity {
         return count;
     }
 
-    /* 阶乘阶（递归实现） */
+    /* 階乘階（遞迴實現） */
     static int factorialRecur(int n) {
         if (n == 0)
             return 1;
         int count = 0;
-        // 从 1 个分裂出 n 个
+        // 從 1 個分裂出 n 個
         for (int i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
@@ -128,40 +128,40 @@ public class time_complexity {
 
     /* Driver Code */
     public static void main(String[] args) {
-        // 可以修改 n 运行，体会一下各种复杂度的操作数量变化趋势
+        // 可以修改 n 執行，體會一下各種複雜度的運算元量變化趨勢
         int n = 8;
-        System.out.println("输入数据大小 n = " + n);
+        System.out.println("輸入資料大小 n = " + n);
 
         int count = constant(n);
-        System.out.println("常数阶的操作数量 = " + count);
+        System.out.println("常數階的運算元量 = " + count);
 
         count = linear(n);
-        System.out.println("线性阶的操作数量 = " + count);
+        System.out.println("線性階的運算元量 = " + count);
         count = arrayTraversal(new int[n]);
-        System.out.println("线性阶（遍历数组）的操作数量 = " + count);
+        System.out.println("線性階（走訪陣列）的運算元量 = " + count);
 
         count = quadratic(n);
-        System.out.println("平方阶的操作数量 = " + count);
+        System.out.println("平方階的運算元量 = " + count);
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
             nums[i] = n - i; // [n,n-1,...,2,1]
         count = bubbleSort(nums);
-        System.out.println("平方阶（冒泡排序）的操作数量 = " + count);
+        System.out.println("平方階（泡沫排序）的運算元量 = " + count);
 
         count = exponential(n);
-        System.out.println("指数阶（循环实现）的操作数量 = " + count);
+        System.out.println("指數階（迴圈實現）的運算元量 = " + count);
         count = expRecur(n);
-        System.out.println("指数阶（递归实现）的操作数量 = " + count);
+        System.out.println("指數階（遞迴實現）的運算元量 = " + count);
 
         count = logarithmic((float) n);
-        System.out.println("对数阶（循环实现）的操作数量 = " + count);
+        System.out.println("對數階（迴圈實現）的運算元量 = " + count);
         count = logRecur((float) n);
-        System.out.println("对数阶（递归实现）的操作数量 = " + count);
+        System.out.println("對數階（遞迴實現）的運算元量 = " + count);
 
         count = linearLogRecur((float) n);
-        System.out.println("线性对数阶（递归实现）的操作数量 = " + count);
+        System.out.println("線性對數階（遞迴實現）的運算元量 = " + count);
 
         count = factorialRecur(n);
-        System.out.println("阶乘阶（递归实现）的操作数量 = " + count);
+        System.out.println("階乘階（遞迴實現）的運算元量 = " + count);
     }
 }

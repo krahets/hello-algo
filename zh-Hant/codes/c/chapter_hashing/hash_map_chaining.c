@@ -8,31 +8,31 @@
 #include <stdlib.h>
 #include <string.h>
 
-// 假设 val 最大长度为 100
+// 假設 val 最大長度為 100
 #define MAX_SIZE 100
 
-/* 键值对 */
+/* 鍵值對 */
 typedef struct {
     int key;
     char val[MAX_SIZE];
 } Pair;
 
-/* 链表节点 */
+/* 鏈結串列節點 */
 typedef struct Node {
     Pair *pair;
     struct Node *next;
 } Node;
 
-/* 链式地址哈希表 */
+/* 鏈式位址雜湊表 */
 typedef struct {
-    int size;         // 键值对数量
-    int capacity;     // 哈希表容量
-    double loadThres; // 触发扩容的负载因子阈值
-    int extendRatio;  // 扩容倍数
-    Node **buckets;   // 桶数组
+    int size;         // 鍵值對數量
+    int capacity;     // 雜湊表容量
+    double loadThres; // 觸發擴容的負載因子閾值
+    int extendRatio;  // 擴容倍數
+    Node **buckets;   // 桶陣列
 } HashMapChaining;
 
-/* 构造函数 */
+/* 構造函式 */
 HashMapChaining *newHashMapChaining() {
     HashMapChaining *hashMap = (HashMapChaining *)malloc(sizeof(HashMapChaining));
     hashMap->size = 0;
@@ -46,7 +46,7 @@ HashMapChaining *newHashMapChaining() {
     return hashMap;
 }
 
-/* 析构函数 */
+/* 析構函式 */
 void delHashMapChaining(HashMapChaining *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Node *cur = hashMap->buckets[i];
@@ -61,20 +61,20 @@ void delHashMapChaining(HashMapChaining *hashMap) {
     free(hashMap);
 }
 
-/* 哈希函数 */
+/* 雜湊函式 */
 int hashFunc(HashMapChaining *hashMap, int key) {
     return key % hashMap->capacity;
 }
 
-/* 负载因子 */
+/* 負載因子 */
 double loadFactor(HashMapChaining *hashMap) {
     return (double)hashMap->size / (double)hashMap->capacity;
 }
 
-/* 查询操作 */
+/* 查詢操作 */
 char *get(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
-    // 遍历桶，若找到 key ，则返回对应 val
+    // 走訪桶，若找到 key ，則返回對應 val
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
@@ -82,32 +82,32 @@ char *get(HashMapChaining *hashMap, int key) {
         }
         cur = cur->next;
     }
-    return ""; // 若未找到 key ，则返回空字符串
+    return ""; // 若未找到 key ，則返回空字串
 }
 
-/* 添加操作 */
+/* 新增操作 */
 void put(HashMapChaining *hashMap, int key, const char *val);
 
-/* 扩容哈希表 */
+/* 擴容雜湊表 */
 void extend(HashMapChaining *hashMap) {
-    // 暂存原哈希表
+    // 暫存原雜湊表
     int oldCapacity = hashMap->capacity;
     Node **oldBuckets = hashMap->buckets;
-    // 初始化扩容后的新哈希表
+    // 初始化擴容後的新雜湊表
     hashMap->capacity *= hashMap->extendRatio;
     hashMap->buckets = (Node **)malloc(hashMap->capacity * sizeof(Node *));
     for (int i = 0; i < hashMap->capacity; i++) {
         hashMap->buckets[i] = NULL;
     }
     hashMap->size = 0;
-    // 将键值对从原哈希表搬运至新哈希表
+    // 將鍵值對從原雜湊表搬運至新雜湊表
     for (int i = 0; i < oldCapacity; i++) {
         Node *cur = oldBuckets[i];
         while (cur) {
             put(hashMap, cur->pair->key, cur->pair->val);
             Node *temp = cur;
             cur = cur->next;
-            // 释放内存
+            // 釋放記憶體
             free(temp->pair);
             free(temp);
         }
@@ -116,23 +116,23 @@ void extend(HashMapChaining *hashMap) {
     free(oldBuckets);
 }
 
-/* 添加操作 */
+/* 新增操作 */
 void put(HashMapChaining *hashMap, int key, const char *val) {
-    // 当负载因子超过阈值时，执行扩容
+    // 當負載因子超過閾值時，執行擴容
     if (loadFactor(hashMap) > hashMap->loadThres) {
         extend(hashMap);
     }
     int index = hashFunc(hashMap, key);
-    // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+    // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
-            strcpy(cur->pair->val, val); // 若遇到指定 key ，则更新对应 val 并返回
+            strcpy(cur->pair->val, val); // 若遇到指定 key ，則更新對應 val 並返回
             return;
         }
         cur = cur->next;
     }
-    // 若无该 key ，则将键值对添加至链表头部
+    // 若無該 key ，則將鍵值對新增至鏈結串列頭部
     Pair *newPair = (Pair *)malloc(sizeof(Pair));
     newPair->key = key;
     strcpy(newPair->val, val);
@@ -143,20 +143,20 @@ void put(HashMapChaining *hashMap, int key, const char *val) {
     hashMap->size++;
 }
 
-/* 删除操作 */
+/* 刪除操作 */
 void removeItem(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     Node *cur = hashMap->buckets[index];
     Node *pre = NULL;
     while (cur) {
         if (cur->pair->key == key) {
-            // 从中删除键值对
+            // 從中刪除鍵值對
             if (pre) {
                 pre->next = cur->next;
             } else {
                 hashMap->buckets[index] = cur->next;
             }
-            // 释放内存
+            // 釋放記憶體
             free(cur->pair);
             free(cur);
             hashMap->size--;
@@ -167,7 +167,7 @@ void removeItem(HashMapChaining *hashMap, int key) {
     }
 }
 
-/* 打印哈希表 */
+/* 列印雜湊表 */
 void print(HashMapChaining *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Node *cur = hashMap->buckets[i];
@@ -182,31 +182,31 @@ void print(HashMapChaining *hashMap) {
 
 /* Driver Code */
 int main() {
-    /* 初始化哈希表 */
+    /* 初始化雜湊表 */
     HashMapChaining *hashMap = newHashMapChaining();
 
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
+    /* 新增操作 */
+    // 在雜湊表中新增鍵值對 (key, value)
     put(hashMap, 12836, "小哈");
-    put(hashMap, 15937, "小啰");
+    put(hashMap, 15937, "小囉");
     put(hashMap, 16750, "小算");
     put(hashMap, 13276, "小法");
-    put(hashMap, 10583, "小鸭");
-    printf("\n添加完成后，哈希表为\nKey -> Value\n");
+    put(hashMap, 10583, "小鴨");
+    printf("\n新增完成後，雜湊表為\nKey -> Value\n");
     print(hashMap);
 
-    /* 查询操作 */
-    // 向哈希表中输入键 key ，得到值 value
+    /* 查詢操作 */
+    // 向雜湊表中輸入鍵 key ，得到值 value
     char *name = get(hashMap, 13276);
-    printf("\n输入学号 13276 ，查询到姓名 %s\n", name);
+    printf("\n輸入學號 13276 ，查詢到姓名 %s\n", name);
 
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)
+    /* 刪除操作 */
+    // 在雜湊表中刪除鍵值對 (key, value)
     removeItem(hashMap, 12836);
-    printf("\n删除学号 12836 后，哈希表为\nKey -> Value\n");
+    printf("\n刪除學號 12836 後，雜湊表為\nKey -> Value\n");
     print(hashMap);
 
-    /* 释放哈希表空间 */
+    /* 釋放雜湊表空間 */
     delHashMapChaining(hashMap);
 
     return 0;

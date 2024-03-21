@@ -4,20 +4,20 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
+/* 生成一個數組，元素為 { 1, 2, ..., n }，順序被打亂 */
 func randomNumbers(n: Int) -> [Int] {
-    // 生成数组 nums = { 1, 2, 3, ..., n }
+    // 生成陣列 nums = { 1, 2, 3, ..., n }
     var nums = Array(1 ... n)
-    // 随机打乱数组元素
+    // 隨機打亂陣列元素
     nums.shuffle()
     return nums
 }
 
-/* 查找数组 nums 中数字 1 所在索引 */
+/* 查詢陣列 nums 中數字 1 所在索引 */
 func findOne(nums: [Int]) -> Int {
     for i in nums.indices {
-        // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-        // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
+        // 當元素 1 在陣列頭部時，達到最佳時間複雜度 O(1)
+        // 當元素 1 在陣列尾部時，達到最差時間複雜度 O(n)
         if nums[i] == 1 {
             return i
         }
@@ -33,8 +33,8 @@ enum WorstBestTimeComplexity {
             let n = 100
             let nums = randomNumbers(n: n)
             let index = findOne(nums: nums)
-            print("数组 [ 1, 2, ..., n ] 被打乱后 = \(nums)")
-            print("数字 1 的索引为 \(index)")
+            print("陣列 [ 1, 2, ..., n ] 被打亂後 = \(nums)")
+            print("數字 1 的索引為 \(index)")
         }
     }
 }

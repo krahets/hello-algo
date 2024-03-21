@@ -6,48 +6,48 @@
 
 package chapter_computational_complexity.iteration
 
-/* for 循环 */
+/* for 迴圈 */
 fun forLoop(n: Int): Int {
     var res = 0
-    // 循环求和 1, 2, ..., n-1, n
+    // 迴圈求和 1, 2, ..., n-1, n
     for (i in 1..n) {
         res += i
     }
     return res
 }
 
-/* while 循环 */
+/* while 迴圈 */
 fun whileLoop(n: Int): Int {
     var res = 0
-    var i = 1 // 初始化条件变量
-    // 循环求和 1, 2, ..., n-1, n
+    var i = 1 // 初始化條件變數
+    // 迴圈求和 1, 2, ..., n-1, n
     while (i <= n) {
         res += i
-        i++ // 更新条件变量
+        i++ // 更新條件變數
     }
     return res
 }
 
-/* while 循环（两次更新） */
+/* while 迴圈（兩次更新） */
 fun whileLoopII(n: Int): Int {
     var res = 0
-    var i = 1 // 初始化条件变量
-    // 循环求和 1, 4, 10, ...
+    var i = 1 // 初始化條件變數
+    // 迴圈求和 1, 4, 10, ...
     while (i <= n) {
         res += i
-        // 更新条件变量
+        // 更新條件變數
         i++
         i *= 2
     }
     return res
 }
 
-/* 双层 for 循环 */
+/* 雙層 for 迴圈 */
 fun nestedForLoop(n: Int): String {
     val res = StringBuilder()
-    // 循环 i = 1, 2, ..., n-1, n
+    // 迴圈 i = 1, 2, ..., n-1, n
     for (i in 1..n) {
-        // 循环 j = 1, 2, ..., n-1, n
+        // 迴圈 j = 1, 2, ..., n-1, n
         for (j in 1..n) {
             res.append(" ($i, $j), ")
         }
@@ -61,14 +61,14 @@ fun main() {
     var res: Int
 
     res = forLoop(n)
-    println("\nfor 循环的求和结果 res = $res")
+    println("\nfor 迴圈的求和結果 res = $res")
 
     res = whileLoop(n)
-    println("\nwhile 循环的求和结果 res = $res")
+    println("\nwhile 迴圈的求和結果 res = $res")
 
     res = whileLoopII(n)
-    println("\nwhile 循环 (两次更新) 求和结果 res = $res")
+    println("\nwhile 迴圈 (兩次更新) 求和結果 res = $res")
 
     val resStr = nestedForLoop(n)
-    println("\n双层 for 循环的遍历结果 $resStr")
+    println("\n雙層 for 迴圈的走訪結果 $resStr")
 }

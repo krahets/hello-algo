@@ -6,20 +6,20 @@
 
 import utils
 
-/* 层序遍历 */
+/* 層序走訪 */
 func levelOrder(root: TreeNode) -> [Int] {
-    // 初始化队列，加入根节点
+    // 初始化佇列，加入根節點
     var queue: [TreeNode] = [root]
-    // 初始化一个列表，用于保存遍历序列
+    // 初始化一個串列，用於儲存走訪序列
     var list: [Int] = []
     while !queue.isEmpty {
-        let node = queue.removeFirst() // 队列出队
-        list.append(node.val) // 保存节点值
+        let node = queue.removeFirst() // 隊列出隊
+        list.append(node.val) // 儲存節點值
         if let left = node.left {
-            queue.append(left) // 左子节点入队
+            queue.append(left) // 左子節點入列
         }
         if let right = node.right {
-            queue.append(right) // 右子节点入队
+            queue.append(right) // 右子節點入列
         }
     }
     return list
@@ -29,14 +29,14 @@ func levelOrder(root: TreeNode) -> [Int] {
 enum BinaryTreeBFS {
     /* Driver Code */
     static func main() {
-        /* 初始化二叉树 */
-        // 这里借助了一个从数组直接生成二叉树的函数
+        /* 初始化二元樹 */
+        // 這裡藉助了一個從陣列直接生成二元樹的函式
         let node = TreeNode.listToTree(arr: [1, 2, 3, 4, 5, 6, 7])!
-        print("\n初始化二叉树\n")
+        print("\n初始化二元樹\n")
         PrintUtil.printTree(root: node)
 
-        /* 层序遍历 */
+        /* 層序走訪 */
         let list = levelOrder(root: node)
-        print("\n层序遍历的节点打印序列 = \(list)")
+        print("\n層序走訪的節點列印序列 = \(list)")
     }
 }

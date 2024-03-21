@@ -10,12 +10,12 @@ use list_node::ListNode;
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 基于链表实现的队列 */
+/* 基於鏈結串列實現的佇列 */
 #[allow(dead_code)]
 pub struct LinkedListQueue<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点 front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点 rear
-    que_size: usize,                         // 队列的长度
+    front: Option<Rc<RefCell<ListNode<T>>>>, // 頭節點 front
+    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾節點 rear
+    que_size: usize,                         // 佇列的長度
 }
 
 impl<T: Copy> LinkedListQueue<T> {
@@ -27,27 +27,27 @@ impl<T: Copy> LinkedListQueue<T> {
         }
     }
 
-    /* 获取队列的长度 */
+    /* 獲取佇列的長度 */
     pub fn size(&self) -> usize {
         return self.que_size;
     }
 
-    /* 判断队列是否为空 */
+    /* 判斷佇列是否為空 */
     pub fn is_empty(&self) -> bool {
         return self.size() == 0;
     }
 
-    /* 入队 */
+    /* 入列 */
     pub fn push(&mut self, num: T) {
-        // 在尾节点后添加 num
+        // 在尾節點後新增 num
         let new_rear = ListNode::new(num);
         match self.rear.take() {
-            // 如果队列不为空，则将该节点添加到尾节点后
+            // 如果佇列不為空，則將該節點新增到尾節點後
             Some(old_rear) => {
                 old_rear.borrow_mut().next = Some(new_rear.clone());
                 self.rear = Some(new_rear);
             }
-            // 如果队列为空，则令头、尾节点都指向该节点
+            // 如果佇列為空，則令頭、尾節點都指向該節點
             None => {
                 self.front = Some(new_rear.clone());
                 self.rear = Some(new_rear);
@@ -56,7 +56,7 @@ impl<T: Copy> LinkedListQueue<T> {
         self.que_size += 1;
     }
 
-    /* 出队 */
+    /* 出列 */
     pub fn pop(&mut self) -> Option<T> {
         self.front.take().map(|old_front| {
             match old_front.borrow_mut().next.take() {
@@ -72,12 +72,12 @@ impl<T: Copy> LinkedListQueue<T> {
         })
     }
 
-    /* 访问队首元素 */
+    /* 訪問佇列首元素 */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.front.as_ref()
     }
 
-    /* 将链表转化为 Array 并返回 */
+    /* 將鏈結串列轉化為 Array 並返回 */
     pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
         if let Some(node) = head {
             let mut nums = self.to_array(node.borrow().next.as_ref());
@@ -90,32 +90,32 @@ impl<T: Copy> LinkedListQueue<T> {
 
 /* Driver Code */
 fn main() {
-    /* 初始化队列 */
+    /* 初始化佇列 */
     let mut queue = LinkedListQueue::new();
 
-    /* 元素入队 */
+    /* 元素入列 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    print!("队列 queue = ");
+    print!("佇列 queue = ");
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* 访问队首元素 */
+    /* 訪問佇列首元素 */
     let peek = queue.peek().unwrap().borrow().val;
-    print!("\n队首元素 peek = {}", peek);
+    print!("\n佇列首元素 peek = {}", peek);
 
-    /* 元素出队 */
+    /* 元素出列 */
     let pop = queue.pop().unwrap();
-    print!("\n出队元素 pop = {}，出队后 queue = ", pop);
+    print!("\n出列元素 pop = {}，出列後 queue = ", pop);
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* 获取队列的长度 */
+    /* 獲取佇列的長度 */
     let size = queue.size();
-    print!("\n队列长度 size = {}", size);
+    print!("\n佇列長度 size = {}", size);
 
-    /* 判断队列是否为空 */
+    /* 判斷佇列是否為空 */
     let is_empty = queue.is_empty();
-    print!("\n队列是否为空 = {}", is_empty);
+    print!("\n佇列是否為空 = {}", is_empty);
 }

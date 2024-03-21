@@ -4,15 +4,15 @@
  * Author: xBLACKICEx (xBLACKICEx@outlook.com)
  */
 
-/* 合并左子数组和右子数组 */
+/* 合併左子陣列和右子陣列 */
 fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
-    // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
-    // 创建一个临时数组 tmp ，用于存放合并后的结果
+    // 左子陣列區間為 [left, mid], 右子陣列區間為 [mid+1, right]
+    // 建立一個臨時陣列 tmp ，用於存放合併後的結果
     let tmp_size = right - left + 1;
     let mut tmp = vec![0; tmp_size];
-    // 初始化左子数组和右子数组的起始索引
+    // 初始化左子陣列和右子陣列的起始索引
     let (mut i, mut j, mut k) = (left, mid + 1, 0);
-    // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
+    // 當左右子陣列都還有元素時，進行比較並將較小的元素複製到臨時陣列中
     while i <= mid && j <= right {
         if nums[i] <= nums[j] {
             tmp[k] = nums[j];
@@ -23,7 +23,7 @@ fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
         }
         k += 1;
     }
-    // 将左子数组和右子数组的剩余元素复制到临时数组中
+    // 將左子陣列和右子陣列的剩餘元素複製到臨時陣列中
     while i <= mid {
         tmp[k] = nums[i];
         k += 1;
@@ -34,33 +34,33 @@ fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
         k += 1;
         j += 1;
     }
-    // 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
+    // 將臨時陣列 tmp 中的元素複製回原陣列 nums 的對應區間
     for k in 0..tmp_size {
         nums[left + k] = tmp[k];
     }
 }
 
-/* 归并排序 */
+/* 歸併排序 */
 fn merge_sort(nums: &mut [i32], left: usize, right: usize) {
-    // 终止条件
+    // 終止條件
     if left >= right {
-        return; // 当子数组长度为 1 时终止递归
+        return; // 當子陣列長度為 1 時終止遞迴
     }
 
-    // 划分阶段
-    let mid = (left + right) / 2; // 计算中点
-    merge_sort(nums, left, mid); // 递归左子数组
-    merge_sort(nums, mid + 1, right); // 递归右子数组
+    // 劃分階段
+    let mid = (left + right) / 2; // 計算中點
+    merge_sort(nums, left, mid); // 遞迴左子陣列
+    merge_sort(nums, mid + 1, right); // 遞迴右子陣列
 
-    // 合并阶段
+    // 合併階段
     merge(nums, left, mid, right);
 }
 
 /* Driver Code */
 fn main() {
-    /* 归并排序 */
+    /* 歸併排序 */
     let mut nums = [7, 3, 2, 6, 0, 1, 5, 4];
     let right = nums.len() - 1;
     merge_sort(&mut nums, 0, right);
-    println!("归并排序完成后 nums = {:?}", nums);
+    println!("歸併排序完成後 nums = {:?}", nums);
 }

@@ -4,7 +4,7 @@
  * Author: Daniel (better.sunjian@gmail.com)
  */
 
-/* 键值对 Number -> String */
+/* 鍵值對 Number -> String */
 class Pair {
     public key: number;
     public val: string;
@@ -15,21 +15,21 @@ class Pair {
     }
 }
 
-/* 基于数组实现的哈希表 */
+/* 基於陣列實現的雜湊表 */
 class ArrayHashMap {
     private readonly buckets: (Pair | null)[];
 
     constructor() {
-        // 初始化数组，包含 100 个桶
+        // 初始化陣列，包含 100 個桶
         this.buckets = new Array(100).fill(null);
     }
 
-    /* 哈希函数 */
+    /* 雜湊函式 */
     private hashFunc(key: number): number {
         return key % 100;
     }
 
-    /* 查询操作 */
+    /* 查詢操作 */
     public get(key: number): string | null {
         let index = this.hashFunc(key);
         let pair = this.buckets[index];
@@ -37,20 +37,20 @@ class ArrayHashMap {
         return pair.val;
     }
 
-    /* 添加操作 */
+    /* 新增操作 */
     public set(key: number, val: string) {
         let index = this.hashFunc(key);
         this.buckets[index] = new Pair(key, val);
     }
 
-    /* 删除操作 */
+    /* 刪除操作 */
     public delete(key: number) {
         let index = this.hashFunc(key);
-        // 置为 null ，代表删除
+        // 置為 null ，代表刪除
         this.buckets[index] = null;
     }
 
-    /* 获取所有键值对 */
+    /* 獲取所有鍵值對 */
     public entries(): (Pair | null)[] {
         let arr: (Pair | null)[] = [];
         for (let i = 0; i < this.buckets.length; i++) {
@@ -61,7 +61,7 @@ class ArrayHashMap {
         return arr;
     }
 
-    /* 获取所有键 */
+    /* 獲取所有鍵 */
     public keys(): (number | undefined)[] {
         let arr: (number | undefined)[] = [];
         for (let i = 0; i < this.buckets.length; i++) {
@@ -72,7 +72,7 @@ class ArrayHashMap {
         return arr;
     }
 
-    /* 获取所有值 */
+    /* 獲取所有值 */
     public values(): (string | undefined)[] {
         let arr: (string | undefined)[] = [];
         for (let i = 0; i < this.buckets.length; i++) {
@@ -83,7 +83,7 @@ class ArrayHashMap {
         return arr;
     }
 
-    /* 打印哈希表 */
+    /* 列印雜湊表 */
     public print() {
         let pairSet = this.entries();
         for (const pair of pairSet) {
@@ -93,40 +93,40 @@ class ArrayHashMap {
 }
 
 /* Driver Code */
-/* 初始化哈希表 */
+/* 初始化雜湊表 */
 const map = new ArrayHashMap();
-/* 添加操作 */
-// 在哈希表中添加键值对 (key, value)
+/* 新增操作 */
+// 在雜湊表中新增鍵值對 (key, value)
 map.set(12836, '小哈');
-map.set(15937, '小啰');
+map.set(15937, '小囉');
 map.set(16750, '小算');
 map.set(13276, '小法');
-map.set(10583, '小鸭');
-console.info('\n添加完成后，哈希表为\nKey -> Value');
+map.set(10583, '小鴨');
+console.info('\n新增完成後，雜湊表為\nKey -> Value');
 map.print();
 
-/* 查询操作 */
-// 向哈希表中输入键 key ，得到值 value
+/* 查詢操作 */
+// 向雜湊表中輸入鍵 key ，得到值 value
 let name = map.get(15937);
-console.info('\n输入学号 15937 ，查询到姓名 ' + name);
+console.info('\n輸入學號 15937 ，查詢到姓名 ' + name);
 
-/* 删除操作 */
-// 在哈希表中删除键值对 (key, value)
+/* 刪除操作 */
+// 在雜湊表中刪除鍵值對 (key, value)
 map.delete(10583);
-console.info('\n删除 10583 后，哈希表为\nKey -> Value');
+console.info('\n刪除 10583 後，雜湊表為\nKey -> Value');
 map.print();
 
-/* 遍历哈希表 */
-console.info('\n遍历键值对 Key->Value');
+/* 走訪雜湊表 */
+console.info('\n走訪鍵值對 Key->Value');
 for (const pair of map.entries()) {
     if (!pair) continue;
     console.info(pair.key + ' -> ' + pair.val);
 }
-console.info('\n单独遍历键 Key');
+console.info('\n單獨走訪鍵 Key');
 for (const key of map.keys()) {
     console.info(key);
 }
-console.info('\n单独遍历值 Value');
+console.info('\n單獨走訪值 Value');
 for (const val of map.values()) {
     console.info(val);
 }

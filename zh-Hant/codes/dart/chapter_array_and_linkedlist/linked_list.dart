@@ -7,14 +7,14 @@
 import '../utils/list_node.dart';
 import '../utils/print_util.dart';
 
-/* 在链表的节点 n0 之后插入节点 P */
+/* 在鏈結串列的節點 n0 之後插入節點 P */
 void insert(ListNode n0, ListNode P) {
   ListNode? n1 = n0.next;
   P.next = n1;
   n0.next = P;
 }
 
-/* 删除链表的节点 n0 之后的首个节点 */
+/* 刪除鏈結串列的節點 n0 之後的首個節點 */
 void remove(ListNode n0) {
   if (n0.next == null) return;
   // n0 -> P -> n1
@@ -23,7 +23,7 @@ void remove(ListNode n0) {
   n0.next = n1;
 }
 
-/* 访问链表中索引为 index 的节点 */
+/* 訪問鏈結串列中索引為 index 的節點 */
 ListNode? access(ListNode? head, int index) {
   for (var i = 0; i < index; i++) {
     if (head == null) return null;
@@ -32,7 +32,7 @@ ListNode? access(ListNode? head, int index) {
   return head;
 }
 
-/* 在链表中查找值为 target 的首个节点 */
+/* 在鏈結串列中查詢值為 target 的首個節點 */
 int find(ListNode? head, int target) {
   int index = 0;
   while (head != null) {
@@ -47,37 +47,37 @@ int find(ListNode? head, int target) {
 
 /* Driver Code */
 void main() {
-  // 初始化链表
-  // 初始化各个节点
+  // 初始化鏈結串列
+  // 初始化各個節點
   ListNode n0 = ListNode(1);
   ListNode n1 = ListNode(3);
   ListNode n2 = ListNode(2);
   ListNode n3 = ListNode(5);
   ListNode n4 = ListNode(4);
-  // 构建节点之间的引用
+  // 構建節點之間的引用
   n0.next = n1;
   n1.next = n2;
   n2.next = n3;
   n3.next = n4;
 
-  print('初始化的链表为');
+  print('初始化的鏈結串列為');
   printLinkedList(n0);
 
-  /* 插入节点 */
+  /* 插入節點 */
   insert(n0, ListNode(0));
-  print('插入节点后的链表为');
+  print('插入節點後的鏈結串列為');
   printLinkedList(n0);
 
-  /* 删除节点 */
+  /* 刪除節點 */
   remove(n0);
-  print('删除节点后的链表为');
+  print('刪除節點後的鏈結串列為');
   printLinkedList(n0);
 
-  /* 访问节点 */
+  /* 訪問節點 */
   ListNode? node = access(n0, 3);
-  print('链表中索引 3 处的节点的值 = ${node!.val}');
+  print('鏈結串列中索引 3 處的節點的值 = ${node!.val}');
 
-  /* 查找节点 */
+  /* 查詢節點 */
   int index = find(n0, 2);
-  print('链表中值为 2 的节点的索引 = $index');
+  print('鏈結串列中值為 2 的節點的索引 = $index');
 }

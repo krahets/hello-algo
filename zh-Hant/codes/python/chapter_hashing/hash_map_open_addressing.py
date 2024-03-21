@@ -12,96 +12,96 @@ from chapter_hashing.array_hash_map import Pair
 
 
 class HashMapOpenAddressing:
-    """开放寻址哈希表"""
+    """開放定址雜湊表"""
 
     def __init__(self):
-        """构造方法"""
-        self.size = 0  # 键值对数量
-        self.capacity = 4  # 哈希表容量
-        self.load_thres = 2.0 / 3.0  # 触发扩容的负载因子阈值
-        self.extend_ratio = 2  # 扩容倍数
-        self.buckets: list[Pair | None] = [None] * self.capacity  # 桶数组
-        self.TOMBSTONE = Pair(-1, "-1")  # 删除标记
+        """構造方法"""
+        self.size = 0  # 鍵值對數量
+        self.capacity = 4  # 雜湊表容量
+        self.load_thres = 2.0 / 3.0  # 觸發擴容的負載因子閾值
+        self.extend_ratio = 2  # 擴容倍數
+        self.buckets: list[Pair | None] = [None] * self.capacity  # 桶陣列
+        self.TOMBSTONE = Pair(-1, "-1")  # 刪除標記
 
     def hash_func(self, key: int) -> int:
-        """哈希函数"""
+        """雜湊函式"""
         return key % self.capacity
 
     def load_factor(self) -> float:
-        """负载因子"""
+        """負載因子"""
         return self.size / self.capacity
 
     def find_bucket(self, key: int) -> int:
-        """搜索 key 对应的桶索引"""
+        """搜尋 key 對應的桶索引"""
         index = self.hash_func(key)
         first_tombstone = -1
-        # 线性探测，当遇到空桶时跳出
+        # 線性探查，當遇到空桶時跳出
         while self.buckets[index] is not None:
-            # 若遇到 key ，返回对应的桶索引
+            # 若遇到 key ，返回對應的桶索引
             if self.buckets[index].key == key:
-                # 若之前遇到了删除标记，则将键值对移动至该索引处
+                # 若之前遇到了刪除標記，則將鍵值對移動至該索引處
                 if first_tombstone != -1:
                     self.buckets[first_tombstone] = self.buckets[index]
                     self.buckets[index] = self.TOMBSTONE
-                    return first_tombstone  # 返回移动后的桶索引
+                    return first_tombstone  # 返回移動後的桶索引
                 return index  # 返回桶索引
-            # 记录遇到的首个删除标记
+            # 記錄遇到的首個刪除標記
             if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
                 first_tombstone = index
-            # 计算桶索引，越过尾部则返回头部
+            # 計算桶索引，越過尾部則返回頭部
             index = (index + 1) % self.capacity
-        # 若 key 不存在，则返回添加点的索引
+        # 若 key 不存在，則返回新增點的索引
         return index if first_tombstone == -1 else first_tombstone
 
     def get(self, key: int) -> str:
-        """查询操作"""
-        # 搜索 key 对应的桶索引
+        """查詢操作"""
+        # 搜尋 key 對應的桶索引
         index = self.find_bucket(key)
-        # 若找到键值对，则返回对应 val
+        # 若找到鍵值對，則返回對應 val
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             return self.buckets[index].val
-        # 若键值对不存在，则返回 None
+        # 若鍵值對不存在，則返回 None
         return None
 
     def put(self, key: int, val: str):
-        """添加操作"""
-        # 当负载因子超过阈值时，执行扩容
+        """新增操作"""
+        # 當負載因子超過閾值時，執行擴容
         if self.load_factor() > self.load_thres:
             self.extend()
-        # 搜索 key 对应的桶索引
+        # 搜尋 key 對應的桶索引
         index = self.find_bucket(key)
-        # 若找到键值对，则覆盖 val 并返回
+        # 若找到鍵值對，則覆蓋 val 並返回
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             self.buckets[index].val = val
             return
-        # 若键值对不存在，则添加该键值对
+        # 若鍵值對不存在，則新增該鍵值對
         self.buckets[index] = Pair(key, val)
         self.size += 1
 
     def remove(self, key: int):
-        """删除操作"""
-        # 搜索 key 对应的桶索引
+        """刪除操作"""
+        # 搜尋 key 對應的桶索引
         index = self.find_bucket(key)
-        # 若找到键值对，则用删除标记覆盖它
+        # 若找到鍵值對，則用刪除標記覆蓋它
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             self.buckets[index] = self.TOMBSTONE
             self.size -= 1
 
     def extend(self):
-        """扩容哈希表"""
-        # 暂存原哈希表
+        """擴容雜湊表"""
+        # 暫存原雜湊表
         buckets_tmp = self.buckets
-        # 初始化扩容后的新哈希表
+        # 初始化擴容後的新雜湊表
         self.capacity *= self.extend_ratio
         self.buckets = [None] * self.capacity
         self.size = 0
-        # 将键值对从原哈希表搬运至新哈希表
+        # 將鍵值對從原雜湊表搬運至新雜湊表
         for pair in buckets_tmp:
             if pair not in [None, self.TOMBSTONE]:
                 self.put(pair.key, pair.val)
 
     def print(self):
-        """打印哈希表"""
+        """列印雜湊表"""
         for pair in self.buckets:
             if pair is None:
                 print("None")
@@ -113,26 +113,26 @@ class HashMapOpenAddressing:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # 初始化哈希表
+    # 初始化雜湊表
     hashmap = HashMapOpenAddressing()
 
-    # 添加操作
-    # 在哈希表中添加键值对 (key, val)
+    # 新增操作
+    # 在雜湊表中新增鍵值對 (key, val)
     hashmap.put(12836, "小哈")
-    hashmap.put(15937, "小啰")
+    hashmap.put(15937, "小囉")
     hashmap.put(16750, "小算")
     hashmap.put(13276, "小法")
-    hashmap.put(10583, "小鸭")
-    print("\n添加完成后，哈希表为\nKey -> Value")
+    hashmap.put(10583, "小鴨")
+    print("\n新增完成後，雜湊表為\nKey -> Value")
     hashmap.print()
 
-    # 查询操作
-    # 向哈希表中输入键 key ，得到值 val
+    # 查詢操作
+    # 向雜湊表中輸入鍵 key ，得到值 val
     name = hashmap.get(13276)
-    print("\n输入学号 13276 ，查询到姓名 " + name)
+    print("\n輸入學號 13276 ，查詢到姓名 " + name)
 
-    # 删除操作
-    # 在哈希表中删除键值对 (key, val)
+    # 刪除操作
+    # 在雜湊表中刪除鍵值對 (key, val)
     hashmap.remove(16750)
-    print("\n删除 16750 后，哈希表为\nKey -> Value")
+    print("\n刪除 16750 後，雜湊表為\nKey -> Value")
     hashmap.print()

@@ -8,15 +8,15 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* 前序遍历：例题二 */
+/* 前序走訪：例題二 */
 func preOrderII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
 	if root == nil {
 		return
 	}
-	// 尝试
+	// 嘗試
 	*path = append(*path, root)
 	if root.Val.(int) == 7 {
-		// 记录解
+		// 記錄解
 		*res = append(*res, append([]*TreeNode{}, *path...))
 	}
 	preOrderII(root.Left, res, path)

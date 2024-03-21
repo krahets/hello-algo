@@ -6,109 +6,109 @@
 
 #include "./array_hash_map.cpp"
 
-/* 链式地址哈希表 */
+/* 鏈式位址雜湊表 */
 class HashMapChaining {
   private:
-    int size;                       // 键值对数量
-    int capacity;                   // 哈希表容量
-    double loadThres;               // 触发扩容的负载因子阈值
-    int extendRatio;                // 扩容倍数
-    vector<vector<Pair *>> buckets; // 桶数组
+    int size;                       // 鍵值對數量
+    int capacity;                   // 雜湊表容量
+    double loadThres;               // 觸發擴容的負載因子閾值
+    int extendRatio;                // 擴容倍數
+    vector<vector<Pair *>> buckets; // 桶陣列
 
   public:
-    /* 构造方法 */
+    /* 構造方法 */
     HashMapChaining() : size(0), capacity(4), loadThres(2.0 / 3.0), extendRatio(2) {
         buckets.resize(capacity);
     }
 
-    /* 析构方法 */
+    /* 析構方法 */
     ~HashMapChaining() {
         for (auto &bucket : buckets) {
             for (Pair *pair : bucket) {
-                // 释放内存
+                // 釋放記憶體
                 delete pair;
             }
         }
     }
 
-    /* 哈希函数 */
+    /* 雜湊函式 */
     int hashFunc(int key) {
         return key % capacity;
     }
 
-    /* 负载因子 */
+    /* 負載因子 */
     double loadFactor() {
         return (double)size / (double)capacity;
     }
 
-    /* 查询操作 */
+    /* 查詢操作 */
     string get(int key) {
         int index = hashFunc(key);
-        // 遍历桶，若找到 key ，则返回对应 val
+        // 走訪桶，若找到 key ，則返回對應 val
         for (Pair *pair : buckets[index]) {
             if (pair->key == key) {
                 return pair->val;
             }
         }
-        // 若未找到 key ，则返回空字符串
+        // 若未找到 key ，則返回空字串
         return "";
     }
 
-    /* 添加操作 */
+    /* 新增操作 */
     void put(int key, string val) {
-        // 当负载因子超过阈值时，执行扩容
+        // 當負載因子超過閾值時，執行擴容
         if (loadFactor() > loadThres) {
             extend();
         }
         int index = hashFunc(key);
-        // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+        // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
         for (Pair *pair : buckets[index]) {
             if (pair->key == key) {
                 pair->val = val;
                 return;
             }
         }
-        // 若无该 key ，则将键值对添加至尾部
+        // 若無該 key ，則將鍵值對新增至尾部
         buckets[index].push_back(new Pair(key, val));
         size++;
     }
 
-    /* 删除操作 */
+    /* 刪除操作 */
     void remove(int key) {
         int index = hashFunc(key);
         auto &bucket = buckets[index];
-        // 遍历桶，从中删除键值对
+        // 走訪桶，從中刪除鍵值對
         for (int i = 0; i < bucket.size(); i++) {
             if (bucket[i]->key == key) {
                 Pair *tmp = bucket[i];
-                bucket.erase(bucket.begin() + i); // 从中删除键值对
-                delete tmp;                       // 释放内存
+                bucket.erase(bucket.begin() + i); // 從中刪除鍵值對
+                delete tmp;                       // 釋放記憶體
                 size--;
                 return;
             }
         }
     }
 
-    /* 扩容哈希表 */
+    /* 擴容雜湊表 */
     void extend() {
-        // 暂存原哈希表
+        // 暫存原雜湊表
         vector<vector<Pair *>> bucketsTmp = buckets;
-        // 初始化扩容后的新哈希表
+        // 初始化擴容後的新雜湊表
         capacity *= extendRatio;
         buckets.clear();
         buckets.resize(capacity);
         size = 0;
-        // 将键值对从原哈希表搬运至新哈希表
+        // 將鍵值對從原雜湊表搬運至新雜湊表
         for (auto &bucket : bucketsTmp) {
             for (Pair *pair : bucket) {
                 put(pair->key, pair->val);
-                // 释放内存
+                // 釋放記憶體
                 delete pair;
             }
         }
     }
 
-    /* 打印哈希表 */
+    /* 列印雜湊表 */
     void print() {
         for (auto &bucket : buckets) {
             cout << "[";
@@ -122,28 +122,28 @@ class HashMapChaining {
 
 /* Driver Code */
 int main() {
-    /* 初始化哈希表 */
+    /* 初始化雜湊表 */
     HashMapChaining map = HashMapChaining();
 
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
+    /* 新增操作 */
+    // 在雜湊表中新增鍵值對 (key, value)
     map.put(12836, "小哈");
-    map.put(15937, "小啰");
+    map.put(15937, "小囉");
     map.put(16750, "小算");
     map.put(13276, "小法");
-    map.put(10583, "小鸭");
-    cout << "\n添加完成后，哈希表为\nKey -> Value" << endl;
+    map.put(10583, "小鴨");
+    cout << "\n新增完成後，雜湊表為\nKey -> Value" << endl;
     map.print();
 
-    /* 查询操作 */
-    // 向哈希表中输入键 key ，得到值 value
+    /* 查詢操作 */
+    // 向雜湊表中輸入鍵 key ，得到值 value
     string name = map.get(13276);
-    cout << "\n输入学号 13276 ，查询到姓名 " << name << endl;
+    cout << "\n輸入學號 13276 ，查詢到姓名 " << name << endl;
 
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)
+    /* 刪除操作 */
+    // 在雜湊表中刪除鍵值對 (key, value)
     map.remove(12836);
-    cout << "\n删除 12836 后，哈希表为\nKey -> Value" << endl;
+    cout << "\n刪除 12836 後，雜湊表為\nKey -> Value" << endl;
     map.print();
 
     return 0;

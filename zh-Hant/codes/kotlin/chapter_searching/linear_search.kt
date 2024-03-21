@@ -8,29 +8,29 @@ package chapter_searching
 
 import utils.ListNode
 
-/* 线性查找（数组） */
+/* 線性查詢（陣列） */
 fun linearSearchArray(nums: IntArray, target: Int): Int {
-    // 遍历数组
+    // 走訪陣列
     for (i in nums.indices) {
-        // 找到目标元素，返回其索引
+        // 找到目標元素，返回其索引
         if (nums[i] == target)
             return i
     }
-    // 未找到目标元素，返回 -1
+    // 未找到目標元素，返回 -1
     return -1
 }
 
-/* 线性查找（链表） */
+/* 線性查詢（鏈結串列） */
 fun linearSearchLinkedList(h: ListNode?, target: Int): ListNode? {
-    // 遍历链表
+    // 走訪鏈結串列
     var head = h
     while (head != null) {
-        // 找到目标节点，返回之
+        // 找到目標節點，返回之
         if (head.value == target)
             return head
         head = head.next
     }
-    // 未找到目标节点，返回 null
+    // 未找到目標節點，返回 null
     return null
 }
 
@@ -38,13 +38,13 @@ fun linearSearchLinkedList(h: ListNode?, target: Int): ListNode? {
 fun main() {
     val target = 3
 
-    /* 在数组中执行线性查找 */
+    /* 在陣列中執行線性查詢 */
     val nums = intArrayOf(1, 5, 3, 2, 4, 7, 5, 9, 10, 8)
     val index = linearSearchArray(nums, target)
-    println("目标元素 3 的索引 = $index")
+    println("目標元素 3 的索引 = $index")
 
-    /* 在链表中执行线性查找 */
+    /* 在鏈結串列中執行線性查詢 */
     val head = ListNode.arrToLinkedList(nums)
     val node = linearSearchLinkedList(head, target)
-    println("目标节点值 3 的对应节点对象为 $node")
+    println("目標節點值 3 的對應節點物件為 $node")
 }

@@ -8,19 +8,19 @@ include!("../include/vertex.rs");
 
 use std::collections::HashMap;
 
-/* 基于邻接表实现的无向图类型 */
+/* 基於鄰接表實現的無向圖型別 */
 pub struct GraphAdjList {
-    // 邻接表，key：顶点，value：该顶点的所有邻接顶点
+    // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
     pub adj_list: HashMap<Vertex, Vec<Vertex>>,
 }
 
 impl GraphAdjList {
-    /* 构造方法 */
+    /* 構造方法 */
     pub fn new(edges: Vec<[Vertex; 2]>) -> Self {
         let mut graph = GraphAdjList {
             adj_list: HashMap::new(),
         };
-        // 添加所有顶点和边
+        // 新增所有頂點和邊
         for edge in edges {
             graph.add_vertex(edge[0]);
             graph.add_vertex(edge[1]);
@@ -30,31 +30,31 @@ impl GraphAdjList {
         graph
     }
 
-    /* 获取顶点数量 */
+    /* 獲取頂點數量 */
     #[allow(unused)]
     pub fn size(&self) -> usize {
         self.adj_list.len()
     }
 
-    /* 添加边 */
+    /* 新增邊 */
     pub fn add_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if !self.adj_list.contains_key(&vet1) || !self.adj_list.contains_key(&vet2) || vet1 == vet2
         {
             panic!("value error");
         }
-        // 添加边 vet1 - vet2
+        // 新增邊 vet1 - vet2
         self.adj_list.get_mut(&vet1).unwrap().push(vet2);
         self.adj_list.get_mut(&vet2).unwrap().push(vet1);
     }
 
-    /* 删除边 */
+    /* 刪除邊 */
     #[allow(unused)]
     pub fn remove_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if !self.adj_list.contains_key(&vet1) || !self.adj_list.contains_key(&vet2) || vet1 == vet2
         {
             panic!("value error");
         }
-        // 删除边 vet1 - vet2
+        // 刪除邊 vet1 - vet2
         self.adj_list
             .get_mut(&vet1)
             .unwrap()
@@ -65,32 +65,32 @@ impl GraphAdjList {
             .retain(|&vet| vet != vet1);
     }
 
-    /* 添加顶点 */
+    /* 新增頂點 */
     pub fn add_vertex(&mut self, vet: Vertex) {
         if self.adj_list.contains_key(&vet) {
             return;
         }
-        // 在邻接表中添加一个新链表
+        // 在鄰接表中新增一個新鏈結串列
         self.adj_list.insert(vet, vec![]);
     }
 
-    /* 删除顶点 */
+    /* 刪除頂點 */
     #[allow(unused)]
     pub fn remove_vertex(&mut self, vet: Vertex) {
         if !self.adj_list.contains_key(&vet) {
             panic!("value error");
         }
-        // 在邻接表中删除顶点 vet 对应的链表
+        // 在鄰接表中刪除頂點 vet 對應的鏈結串列
         self.adj_list.remove(&vet);
-        // 遍历其他顶点的链表，删除所有包含 vet 的边
+        // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
         for list in self.adj_list.values_mut() {
             list.retain(|&v| v != vet);
         }
     }
 
-    /* 打印邻接表 */
+    /* 列印鄰接表 */
     pub fn print(&self) {
-        println!("邻接表 =");
+        println!("鄰接表 =");
         for (vertex, list) in &self.adj_list {
             let list = list.iter().map(|vertex| vertex.val).collect::<Vec<i32>>();
             println!("{}: {:?},", vertex.val, list);
@@ -101,7 +101,7 @@ impl GraphAdjList {
 /* Driver Code */
 #[allow(unused)]
 fn main() {
-    /* 初始化无向图 */
+    /* 初始化無向圖 */
     let v = vals_to_vets(vec![1, 3, 2, 5, 4]);
     let edges = vec![
         [v[0], v[1]],
@@ -113,30 +113,30 @@ fn main() {
     ];
 
     let mut graph = GraphAdjList::new(edges);
-    println!("\n初始化后，图为");
+    println!("\n初始化後，圖為");
     graph.print();
 
-    /* 添加边 */
-    // 顶点 1, 2 即 v[0], v[2]
+    /* 新增邊 */
+    // 頂點 1, 2 即 v[0], v[2]
     graph.add_edge(v[0], v[2]);
-    println!("\n添加边 1-2 后，图为");
+    println!("\n新增邊 1-2 後，圖為");
     graph.print();
 
-    /* 删除边 */
-    // 顶点 1, 3 即 v[0], v[1]
+    /* 刪除邊 */
+    // 頂點 1, 3 即 v[0], v[1]
     graph.remove_edge(v[0], v[1]);
-    println!("\n删除边 1-3 后，图为");
+    println!("\n刪除邊 1-3 後，圖為");
     graph.print();
 
-    /* 添加顶点 */
+    /* 新增頂點 */
     let v5 = Vertex { val: 6 };
     graph.add_vertex(v5);
-    println!("\n添加顶点 6 后，图为");
+    println!("\n新增頂點 6 後，圖為");
     graph.print();
 
-    /* 删除顶点 */
-    // 顶点 3 即 v[1]
+    /* 刪除頂點 */
+    // 頂點 3 即 v[1]
     graph.remove_vertex(v[1]);
-    println!("\n删除顶点 3 后，图为");
+    println!("\n刪除頂點 3 後，圖為");
     graph.print();
 }

@@ -9,115 +9,115 @@ package chapter_heap
 import utils.printHeap
 import java.util.*
 
-/* 大顶堆 */
+/* 大頂堆積 */
 class MaxHeap(nums: List<Int>?) {
-    // 使用列表而非数组，这样无须考虑扩容问题
-    // 将列表元素原封不动添加进堆
+    // 使用串列而非陣列，這樣無須考慮擴容問題
+    // 將串列元素原封不動新增進堆積
     private val maxHeap = ArrayList(nums!!)
 
-    /* 构造函数，根据输入列表建堆 */
+    /* 構造函式，根據輸入串列建堆積 */
     init {
-        // 堆化除叶节点以外的其他所有节点
+        // 堆積化除葉節點以外的其他所有節點
         for (i in parent(size() - 1) downTo 0) {
             siftDown(i)
         }
     }
 
-    /* 获取左子节点的索引 */
+    /* 獲取左子節點的索引 */
     private fun left(i: Int): Int {
         return 2 * i + 1
     }
 
-    /* 获取右子节点的索引 */
+    /* 獲取右子節點的索引 */
     private fun right(i: Int): Int {
         return 2 * i + 2
     }
 
-    /* 获取父节点的索引 */
+    /* 獲取父節點的索引 */
     private fun parent(i: Int): Int {
         return (i - 1) / 2 // 向下整除
     }
 
-    /* 交换元素 */
+    /* 交換元素 */
     private fun swap(i: Int, j: Int) {
         maxHeap[i] = maxHeap[j].also { maxHeap[j] = maxHeap[i] }
     }
 
-    /* 获取堆大小 */
+    /* 獲取堆積大小 */
     fun size(): Int {
         return maxHeap.size
     }
 
-    /* 判断堆是否为空 */
+    /* 判斷堆積是否為空 */
     fun isEmpty(): Boolean {
-        /* 判断堆是否为空 */
+        /* 判斷堆積是否為空 */
         return size() == 0
     }
 
-    /* 访问堆顶元素 */
+    /* 訪問堆積頂元素 */
     fun peek(): Int {
         return maxHeap[0]
     }
 
-    /* 元素入堆 */
+    /* 元素入堆積 */
     fun push(value: Int) {
-        // 添加节点
+        // 新增節點
         maxHeap.add(value)
-        // 从底至顶堆化
+        // 從底至頂堆積化
         siftUp(size() - 1)
     }
 
-    /* 从节点 i 开始，从底至顶堆化 */
+    /* 從節點 i 開始，從底至頂堆積化 */
     private fun siftUp(it: Int) {
-        // Kotlin的函数参数不可变，因此创建临时变量
+        // Kotlin的函式引數不可變，因此建立臨時變數
         var i = it
         while (true) {
-            // 获取节点 i 的父节点
+            // 獲取節點 i 的父節點
             val p = parent(i)
-            // 当“越过根节点”或“节点无须修复”时，结束堆化
+            // 當“越過根節點”或“節點無須修復”時，結束堆積化
             if (p < 0 || maxHeap[i] <= maxHeap[p]) break
-            // 交换两节点
+            // 交換兩節點
             swap(i, p)
-            // 循环向上堆化
+            // 迴圈向上堆積化
             i = p
         }
     }
 
-    /* 元素出堆 */
+    /* 元素出堆積 */
     fun pop(): Int {
-        // 判空处理
+        // 判空處理
         if (isEmpty()) throw IndexOutOfBoundsException()
-        // 交换根节点与最右叶节点（交换首元素与尾元素）
+        // 交換根節點與最右葉節點（交換首元素與尾元素）
         swap(0, size() - 1)
-        // 删除节点
+        // 刪除節點
         val value = maxHeap.removeAt(size() - 1)
-        // 从顶至底堆化
+        // 從頂至底堆積化
         siftDown(0)
-        // 返回堆顶元素
+        // 返回堆積頂元素
         return value
     }
 
-    /* 从节点 i 开始，从顶至底堆化 */
+    /* 從節點 i 開始，從頂至底堆積化 */
     private fun siftDown(it: Int) {
-        // Kotlin的函数参数不可变，因此创建临时变量
+        // Kotlin的函式引數不可變，因此建立臨時變數
         var i = it
         while (true) {
-            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            // 判斷節點 i, l, r 中值最大的節點，記為 ma
             val l = left(i)
             val r = right(i)
             var ma = i
             if (l < size() && maxHeap[l] > maxHeap[ma]) ma = l
             if (r < size() && maxHeap[r] > maxHeap[ma]) ma = r
-            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            // 若節點 i 最大或索引 l, r 越界，則無須繼續堆積化，跳出
             if (ma == i) break
-            // 交换两节点
+            // 交換兩節點
             swap(i, ma)
-            // 循环向下堆化
+            // 迴圈向下堆積化
             i = ma
         }
     }
 
-    /* 打印堆（二叉树） */
+    /* 列印堆積（二元樹） */
     fun print() {
         val queue = PriorityQueue { a: Int, b: Int -> b - a }
         queue.addAll(maxHeap)
@@ -127,31 +127,31 @@ class MaxHeap(nums: List<Int>?) {
 
 /* Driver Code */
 fun main() {
-    /* 初始化大顶堆 */
+    /* 初始化大頂堆積 */
     val maxHeap = MaxHeap(mutableListOf(9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2))
-    println("\n输入列表并建堆后")
+    println("\n輸入串列並建堆積後")
     maxHeap.print()
 
-    /* 获取堆顶元素 */
+    /* 獲取堆積頂元素 */
     var peek = maxHeap.peek()
-    print("\n堆顶元素为 $peek\n")
+    print("\n堆積頂元素為 $peek\n")
 
-    /* 元素入堆 */
+    /* 元素入堆積 */
     val value = 7
     maxHeap.push(value)
-    print("\n元素 $value 入堆后\n")
+    print("\n元素 $value 入堆積後\n")
     maxHeap.print()
 
-    /* 堆顶元素出堆 */
+    /* 堆積頂元素出堆積 */
     peek = maxHeap.pop()
-    print("\n堆顶元素 $peek 出堆后\n")
+    print("\n堆積頂元素 $peek 出堆積後\n")
     maxHeap.print()
 
-    /* 获取堆大小 */
+    /* 獲取堆積大小 */
     val size = maxHeap.size()
-    print("\n堆元素数量为 $size\n")
+    print("\n堆積元素數量為 $size\n")
 
-    /* 判断堆是否为空 */
+    /* 判斷堆積是否為空 */
     val isEmpty = maxHeap.isEmpty()
-    print("\n堆是否为空 $isEmpty\n")
+    print("\n堆積是否為空 $isEmpty\n")
 }

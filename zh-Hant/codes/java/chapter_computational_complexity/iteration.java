@@ -7,48 +7,48 @@
 package chapter_computational_complexity;
 
 public class iteration {
-    /* for 循环 */
+    /* for 迴圈 */
     static int forLoop(int n) {
         int res = 0;
-        // 循环求和 1, 2, ..., n-1, n
+        // 迴圈求和 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
             res += i;
         }
         return res;
     }
 
-    /* while 循环 */
+    /* while 迴圈 */
     static int whileLoop(int n) {
         int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
+        int i = 1; // 初始化條件變數
+        // 迴圈求和 1, 2, ..., n-1, n
         while (i <= n) {
             res += i;
-            i++; // 更新条件变量
+            i++; // 更新條件變數
         }
         return res;
     }
 
-    /* while 循环（两次更新） */
+    /* while 迴圈（兩次更新） */
     static int whileLoopII(int n) {
         int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 4, 10, ...
+        int i = 1; // 初始化條件變數
+        // 迴圈求和 1, 4, 10, ...
         while (i <= n) {
             res += i;
-            // 更新条件变量
+            // 更新條件變數
             i++;
             i *= 2;
         }
         return res;
     }
 
-    /* 双层 for 循环 */
+    /* 雙層 for 迴圈 */
     static String nestedForLoop(int n) {
         StringBuilder res = new StringBuilder();
-        // 循环 i = 1, 2, ..., n-1, n
+        // 迴圈 i = 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
-            // 循环 j = 1, 2, ..., n-1, n
+            // 迴圈 j = 1, 2, ..., n-1, n
             for (int j = 1; j <= n; j++) {
                 res.append("(" + i + ", " + j + "), ");
             }
@@ -62,15 +62,15 @@ public class iteration {
         int res;
 
         res = forLoop(n);
-        System.out.println("\nfor 循环的求和结果 res = " + res);
+        System.out.println("\nfor 迴圈的求和結果 res = " + res);
 
         res = whileLoop(n);
-        System.out.println("\nwhile 循环的求和结果 res = " + res);
+        System.out.println("\nwhile 迴圈的求和結果 res = " + res);
 
         res = whileLoopII(n);
-        System.out.println("\nwhile 循环（两次更新）求和结果 res = " + res);
+        System.out.println("\nwhile 迴圈（兩次更新）求和結果 res = " + res);
 
         String resStr = nestedForLoop(n);
-        System.out.println("\n双层 for 循环的遍历结果 " + resStr);
+        System.out.println("\n雙層 for 迴圈的走訪結果 " + resStr);
     }
 }

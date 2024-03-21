@@ -6,69 +6,69 @@
 
 #include "../utils/common.h"
 
-/* 基于环形数组实现的队列 */
+/* 基於環形陣列實現的佇列 */
 typedef struct {
-    int *nums;       // 用于存储队列元素的数组
-    int front;       // 队首指针，指向队首元素
-    int queSize;     // 尾指针，指向队尾 + 1
-    int queCapacity; // 队列容量
+    int *nums;       // 用於儲存佇列元素的陣列
+    int front;       // 佇列首指標，指向佇列首元素
+    int queSize;     // 尾指標，指向佇列尾 + 1
+    int queCapacity; // 佇列容量
 } ArrayQueue;
 
-/* 构造函数 */
+/* 構造函式 */
 ArrayQueue *newArrayQueue(int capacity) {
     ArrayQueue *queue = (ArrayQueue *)malloc(sizeof(ArrayQueue));
-    // 初始化数组
+    // 初始化陣列
     queue->queCapacity = capacity;
     queue->nums = (int *)malloc(sizeof(int) * queue->queCapacity);
     queue->front = queue->queSize = 0;
     return queue;
 }
 
-/* 析构函数 */
+/* 析構函式 */
 void delArrayQueue(ArrayQueue *queue) {
     free(queue->nums);
     free(queue);
 }
 
-/* 获取队列的容量 */
+/* 獲取佇列的容量 */
 int capacity(ArrayQueue *queue) {
     return queue->queCapacity;
 }
 
-/* 获取队列的长度 */
+/* 獲取佇列的長度 */
 int size(ArrayQueue *queue) {
     return queue->queSize;
 }
 
-/* 判断队列是否为空 */
+/* 判斷佇列是否為空 */
 bool empty(ArrayQueue *queue) {
     return queue->queSize == 0;
 }
 
-/* 访问队首元素 */
+/* 訪問佇列首元素 */
 int peek(ArrayQueue *queue) {
     assert(size(queue) != 0);
     return queue->nums[queue->front];
 }
 
-/* 入队 */
+/* 入列 */
 void push(ArrayQueue *queue, int num) {
     if (size(queue) == capacity(queue)) {
-        printf("队列已满\r\n");
+        printf("佇列已滿\r\n");
         return;
     }
-    // 计算队尾指针，指向队尾索引 + 1
-    // 通过取余操作实现 rear 越过数组尾部后回到头部
+    // 計算佇列尾指標，指向佇列尾索引 + 1
+    // 透過取餘操作實現 rear 越過陣列尾部後回到頭部
     int rear = (queue->front + queue->queSize) % queue->queCapacity;
-    // 将 num 添加至队尾
+    // 將 num 新增至佇列尾
     queue->nums[rear] = num;
     queue->queSize++;
 }
 
-/* 出队 */
+/* 出列 */
 int pop(ArrayQueue *queue) {
     int num = peek(queue);
-    // 队首指针向后移动一位，若越过尾部，则返回到数组头部
+    // 佇列首指標向後移動一位，若越過尾部，則返回到陣列頭部
     queue->front = (queue->front + 1) % queue->queCapacity;
     queue->queSize--;
     return num;
@@ -76,45 +76,45 @@ int pop(ArrayQueue *queue) {
 
 /* Driver Code */
 int main() {
-    /* 初始化队列 */
+    /* 初始化佇列 */
     int capacity = 10;
     ArrayQueue *queue = newArrayQueue(capacity);
 
-    /* 元素入队 */
+    /* 元素入列 */
     push(queue, 1);
     push(queue, 3);
     push(queue, 2);
     push(queue, 5);
     push(queue, 4);
-    printf("队列 queue = ");
+    printf("佇列 queue = ");
     printArray(queue->nums, queue->queSize);
 
-    /* 访问队首元素 */
+    /* 訪問佇列首元素 */
     int peekNum = peek(queue);
-    printf("队首元素 peek = %d\r\n", peekNum);
+    printf("佇列首元素 peek = %d\r\n", peekNum);
 
-    /* 元素出队 */
+    /* 元素出列 */
     peekNum = pop(queue);
-    printf("出队元素 pop = %d ，出队后 queue = ", peekNum);
+    printf("出列元素 pop = %d ，出列後 queue = ", peekNum);
     printArray(queue->nums, queue->queSize);
 
-    /* 获取队列的长度 */
+    /* 獲取佇列的長度 */
     int queueSize = size(queue);
-    printf("队列长度 size = %d\r\n", queueSize);
+    printf("佇列長度 size = %d\r\n", queueSize);
 
-    /* 判断队列是否为空 */
+    /* 判斷佇列是否為空 */
     bool isEmpty = empty(queue);
-    printf("队列是否为空 = %s\r\n", isEmpty ? "true" : "false");
+    printf("佇列是否為空 = %s\r\n", isEmpty ? "true" : "false");
 
-    /* 测试环形数组 */
+    /* 測試環形陣列 */
     for (int i = 0; i < 10; i++) {
         push(queue, i);
         pop(queue);
-        printf("第 %d 轮入队 + 出队后 queue = ", i);
+        printf("第 %d 輪入列 + 出列後 queue = ", i);
         printArray(queue->nums, queue->queSize);
     }
 
-    // 释放内存
+    // 釋放記憶體
     delArrayQueue(queue);
 
     return 0;

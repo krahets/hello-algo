@@ -12,52 +12,52 @@ from modules import ListNode
 
 
 class LinkedListQueue:
-    """基于链表实现的队列"""
+    """基於鏈結串列實現的佇列"""
 
     def __init__(self):
-        """构造方法"""
-        self._front: ListNode | None = None  # 头节点 front
-        self._rear: ListNode | None = None  # 尾节点 rear
+        """構造方法"""
+        self._front: ListNode | None = None  # 頭節點 front
+        self._rear: ListNode | None = None  # 尾節點 rear
         self._size: int = 0
 
     def size(self) -> int:
-        """获取队列的长度"""
+        """獲取佇列的長度"""
         return self._size
 
     def is_empty(self) -> bool:
-        """判断队列是否为空"""
+        """判斷佇列是否為空"""
         return not self._front
 
     def push(self, num: int):
-        """入队"""
-        # 在尾节点后添加 num
+        """入列"""
+        # 在尾節點後新增 num
         node = ListNode(num)
-        # 如果队列为空，则令头、尾节点都指向该节点
+        # 如果佇列為空，則令頭、尾節點都指向該節點
         if self._front is None:
             self._front = node
             self._rear = node
-        # 如果队列不为空，则将该节点添加到尾节点后
+        # 如果佇列不為空，則將該節點新增到尾節點後
         else:
             self._rear.next = node
             self._rear = node
         self._size += 1
 
     def pop(self) -> int:
-        """出队"""
+        """出列"""
         num = self.peek()
-        # 删除头节点
+        # 刪除頭節點
         self._front = self._front.next
         self._size -= 1
         return num
 
     def peek(self) -> int:
-        """访问队首元素"""
+        """訪問佇列首元素"""
         if self.is_empty():
-            raise IndexError("队列为空")
+            raise IndexError("佇列為空")
         return self._front.val
 
     def to_list(self) -> list[int]:
-        """转化为列表用于打印"""
+        """轉化為串列用於列印"""
         queue = []
         temp = self._front
         while temp:
@@ -68,30 +68,30 @@ class LinkedListQueue:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # 初始化队列
+    # 初始化佇列
     queue = LinkedListQueue()
 
-    # 元素入队
+    # 元素入列
     queue.push(1)
     queue.push(3)
     queue.push(2)
     queue.push(5)
     queue.push(4)
-    print("队列 queue =", queue.to_list())
+    print("佇列 queue =", queue.to_list())
 
-    # 访问队首元素
+    # 訪問佇列首元素
     peek: int = queue.peek()
-    print("队首元素 front =", peek)
+    print("佇列首元素 front =", peek)
 
-    # 元素出队
+    # 元素出列
     pop_front: int = queue.pop()
-    print("出队元素 pop =", pop_front)
-    print("出队后 queue =", queue.to_list())
+    print("出列元素 pop =", pop_front)
+    print("出列後 queue =", queue.to_list())
 
-    # 获取队列的长度
+    # 獲取佇列的長度
     size: int = queue.size()
-    print("队列长度 size =", size)
+    print("佇列長度 size =", size)
 
-    # 判断队列是否为空
+    # 判斷佇列是否為空
     is_empty: bool = queue.is_empty()
-    print("队列是否为空 =", is_empty)
+    print("佇列是否為空 =", is_empty)

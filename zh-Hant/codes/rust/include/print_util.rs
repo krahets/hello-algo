@@ -93,8 +93,8 @@ fn show_trunks(trunk: Option<&Trunk>) {
 
 /* Print a heap both in array and tree representations */
 pub fn print_heap(heap: Vec<i32>) {
-    println!("堆的数组表示：{:?}", heap);
-    println!("堆的树状表示：");
+    println!("堆積的陣列表示：{:?}", heap);
+    println!("堆積的樹狀表示：");
     if let Some(root) = vec_to_tree(heap.into_iter().map(|val| Some(val)).collect()) {
         print_tree(&root);
     } 

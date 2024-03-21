@@ -4,14 +4,14 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 列表类 */
+/* 串列類 */
 class MyList {
-    private var arr: [Int] // 数组（存储列表元素）
-    private var _capacity: Int // 列表容量
-    private var _size: Int // 列表长度（当前元素数量）
-    private let extendRatio: Int // 每次列表扩容的倍数
+    private var arr: [Int] // 陣列（儲存串列元素）
+    private var _capacity: Int // 串列容量
+    private var _size: Int // 串列長度（當前元素數量）
+    private let extendRatio: Int // 每次串列擴容的倍數
 
-    /* 构造方法 */
+    /* 構造方法 */
     init() {
         _capacity = 10
         _size = 0
@@ -19,19 +19,19 @@ class MyList {
         arr = Array(repeating: 0, count: _capacity)
     }
 
-    /* 获取列表长度（当前元素数量）*/
+    /* 獲取串列長度（當前元素數量）*/
     func size() -> Int {
         _size
     }
 
-    /* 获取列表容量 */
+    /* 獲取串列容量 */
     func capacity() -> Int {
         _capacity
     }
 
-    /* 访问元素 */
+    /* 訪問元素 */
     func get(index: Int) -> Int {
-        // 索引如果越界则抛出错误，下同
+        // 索引如果越界則丟擲錯誤，下同
         if index < 0 || index >= size() {
             fatalError("索引越界")
         }
@@ -46,61 +46,61 @@ class MyList {
         arr[index] = num
     }
 
-    /* 在尾部添加元素 */
+    /* 在尾部新增元素 */
     func add(num: Int) {
-        // 元素数量超出容量时，触发扩容机制
+        // 元素數量超出容量時，觸發擴容機制
         if size() == capacity() {
             extendCapacity()
         }
         arr[size()] = num
-        // 更新元素数量
+        // 更新元素數量
         _size += 1
     }
 
-    /* 在中间插入元素 */
+    /* 在中間插入元素 */
     func insert(index: Int, num: Int) {
         if index < 0 || index >= size() {
             fatalError("索引越界")
         }
-        // 元素数量超出容量时，触发扩容机制
+        // 元素數量超出容量時，觸發擴容機制
         if size() == capacity() {
             extendCapacity()
         }
-        // 将索引 index 以及之后的元素都向后移动一位
+        // 將索引 index 以及之後的元素都向後移動一位
         for j in (index ..< size()).reversed() {
             arr[j + 1] = arr[j]
         }
         arr[index] = num
-        // 更新元素数量
+        // 更新元素數量
         _size += 1
     }
 
-    /* 删除元素 */
+    /* 刪除元素 */
     @discardableResult
     func remove(index: Int) -> Int {
         if index < 0 || index >= size() {
             fatalError("索引越界")
         }
         let num = arr[index]
-        // 将将索引 index 之后的元素都向前移动一位
+        // 將將索引 index 之後的元素都向前移動一位
         for j in index ..< (size() - 1) {
             arr[j] = arr[j + 1]
         }
-        // 更新元素数量
+        // 更新元素數量
         _size -= 1
-        // 返回被删除的元素
+        // 返回被刪除的元素
         return num
     }
 
-    /* 列表扩容 */
+    /* 串列擴容 */
     func extendCapacity() {
-        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组
+        // 新建一個長度為原陣列 extendRatio 倍的新陣列，並將原陣列複製到新陣列
         arr = arr + Array(repeating: 0, count: capacity() * (extendRatio - 1))
-        // 更新列表容量
+        // 更新串列容量
         _capacity = arr.count
     }
 
-    /* 将列表转换为数组 */
+    /* 將串列轉換為陣列 */
     func toArray() -> [Int] {
         Array(arr.prefix(size()))
     }
@@ -110,37 +110,37 @@ class MyList {
 enum _MyList {
     /* Driver Code */
     static func main() {
-        /* 初始化列表 */
+        /* 初始化串列 */
         let nums = MyList()
-        /* 在尾部添加元素 */
+        /* 在尾部新增元素 */
         nums.add(num: 1)
         nums.add(num: 3)
         nums.add(num: 2)
         nums.add(num: 5)
         nums.add(num: 4)
-        print("列表 nums = \(nums.toArray()) ，容量 = \(nums.capacity()) ，长度 = \(nums.size())")
+        print("串列 nums = \(nums.toArray()) ，容量 = \(nums.capacity()) ，長度 = \(nums.size())")
 
-        /* 在中间插入元素 */
+        /* 在中間插入元素 */
         nums.insert(index: 3, num: 6)
-        print("在索引 3 处插入数字 6 ，得到 nums = \(nums.toArray())")
+        print("在索引 3 處插入數字 6 ，得到 nums = \(nums.toArray())")
 
-        /* 删除元素 */
+        /* 刪除元素 */
         nums.remove(index: 3)
-        print("删除索引 3 处的元素，得到 nums = \(nums.toArray())")
+        print("刪除索引 3 處的元素，得到 nums = \(nums.toArray())")
 
-        /* 访问元素 */
+        /* 訪問元素 */
         let num = nums.get(index: 1)
-        print("访问索引 1 处的元素，得到 num = \(num)")
+        print("訪問索引 1 處的元素，得到 num = \(num)")
 
         /* 更新元素 */
         nums.set(index: 1, num: 0)
-        print("将索引 1 处的元素更新为 0 ，得到 nums = \(nums.toArray())")
+        print("將索引 1 處的元素更新為 0 ，得到 nums = \(nums.toArray())")
 
-        /* 测试扩容机制 */
+        /* 測試擴容機制 */
         for i in 0 ..< 10 {
-            // 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
+            // 在 i = 5 時，串列長度將超出串列容量，此時觸發擴容機制
             nums.add(num: i)
         }
-        print("扩容后的列表 nums = \(nums.toArray()) ，容量 = \(nums.capacity()) ，长度 = \(nums.size())")
+        print("擴容後的串列 nums = \(nums.toArray()) ，容量 = \(nums.capacity()) ，長度 = \(nums.size())")
     }
 }

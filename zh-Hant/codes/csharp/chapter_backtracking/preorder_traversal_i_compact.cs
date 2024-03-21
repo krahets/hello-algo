@@ -9,13 +9,13 @@ namespace hello_algo.chapter_backtracking;
 public class preorder_traversal_i_compact {
     List<TreeNode> res = [];
 
-    /* 前序遍历：例题一 */
+    /* 前序走訪：例題一 */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
         if (root.val == 7) {
-            // 记录解
+            // 記錄解
             res.Add(root);
         }
         PreOrder(root.left);
@@ -25,13 +25,13 @@ public class preorder_traversal_i_compact {
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\n初始化二叉树");
+        Console.WriteLine("\n初始化二元樹");
         PrintUtil.PrintTree(root);
 
-        // 前序遍历
+        // 前序走訪
         PreOrder(root);
 
-        Console.WriteLine("\n输出所有值为 7 的节点");
+        Console.WriteLine("\n輸出所有值為 7 的節點");
         PrintUtil.PrintList(res.Select(p => p.val).ToList());
     }
 }

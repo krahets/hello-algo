@@ -8,33 +8,33 @@
 enum Queue {
     /* Driver Code */
     static func main() {
-        /* 初始化队列 */
-        // Swift 没有内置的队列类，可以把 Array 当作队列来使用
+        /* 初始化佇列 */
+        // Swift 沒有內建的佇列類，可以把 Array 當作佇列來使用
         var queue: [Int] = []
 
-        /* 元素入队 */
+        /* 元素入列 */
         queue.append(1)
         queue.append(3)
         queue.append(2)
         queue.append(5)
         queue.append(4)
-        print("队列 queue = \(queue)")
+        print("佇列 queue = \(queue)")
 
-        /* 访问队首元素 */
+        /* 訪問佇列首元素 */
         let peek = queue.first!
-        print("队首元素 peek = \(peek)")
+        print("佇列首元素 peek = \(peek)")
 
-        /* 元素出队 */
-        // 使用 Array 模拟时 pop 的复杂度为 O(n)
+        /* 元素出列 */
+        // 使用 Array 模擬時 pop 的複雜度為 O(n)
         let pool = queue.removeFirst()
-        print("出队元素 pop = \(pool)，出队后 queue = \(queue)")
+        print("出列元素 pop = \(pool)，出列後 queue = \(queue)")
 
-        /* 获取队列的长度 */
+        /* 獲取佇列的長度 */
         let size = queue.count
-        print("队列长度 size = \(size)")
+        print("佇列長度 size = \(size)")
 
-        /* 判断队列是否为空 */
+        /* 判斷佇列是否為空 */
         let isEmpty = queue.isEmpty
-        print("队列是否为空 = \(isEmpty)")
+        print("佇列是否為空 = \(isEmpty)")
     }
 }

@@ -9,17 +9,17 @@ package chapter_heap
 import utils.printHeap
 import java.util.*
 
-/* 基于堆查找数组中最大的 k 个元素 */
+/* 基於堆積查詢陣列中最大的 k 個元素 */
 fun topKHeap(nums: IntArray, k: Int): Queue<Int> {
-    // 初始化小顶堆
+    // 初始化小頂堆積
     val heap = PriorityQueue<Int>()
-    // 将数组的前 k 个元素入堆
+    // 將陣列的前 k 個元素入堆積
     for (i in 0..<k) {
         heap.offer(nums[i])
     }
-    // 从第 k+1 个元素开始，保持堆的长度为 k
+    // 從第 k+1 個元素開始，保持堆積的長度為 k
     for (i in k..<nums.size) {
-        // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+        // 若當前元素大於堆積頂元素，則將堆積頂元素出堆積、當前元素入堆積
         if (nums[i] > heap.peek()) {
             heap.poll()
             heap.offer(nums[i])
@@ -33,6 +33,6 @@ fun main() {
     val nums = intArrayOf(1, 7, 6, 3, 2)
     val k = 3
     val res = topKHeap(nums, k)
-    println("最大的 $k 个元素为")
+    println("最大的 $k 個元素為")
     printHeap(res)
 }

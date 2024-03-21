@@ -200,7 +200,7 @@ template <typename T> void printDeque(deque<T> deque) {
 }
 
 /* Print a HashMap */
-// 定义模板参数 TKey 和 TValue ，用于指定键值对的类型
+// 定義模板引數 TKey 和 TValue ，用於指定鍵值對的型別
 template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, TValue> map) {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';
@@ -220,9 +220,9 @@ template <typename T, typename S, typename C> S &Container(priority_queue<T, S, 
 /* Print a Heap (PriorityQueue) */
 template <typename T, typename S, typename C> void printHeap(priority_queue<T, S, C> &heap) {
     vector<T> vec = Container(heap);
-    cout << "堆的数组表示：";
+    cout << "堆積的陣列表示：";
     printVector(vec);
-    cout << "堆的树状表示：" << endl;
+    cout << "堆積的樹狀表示：" << endl;
     TreeNode *root = vectorToTree(vec);
     printTree(root);
     freeMemoryTree(root);

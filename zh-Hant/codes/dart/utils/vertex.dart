@@ -4,12 +4,12 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 顶点类 */
+/* 頂點類 */
 class Vertex {
   int val;
   Vertex(this.val);
 
-  /* 输入值列表 vals ，返回顶点列表 vets */
+  /* 輸入值串列 vals ，返回頂點串列 vets */
   static List<Vertex> valsToVets(List<int> vals) {
     List<Vertex> vets = [];
     for (int i in vals) {
@@ -18,7 +18,7 @@ class Vertex {
     return vets;
   }
 
-  /* 输入顶点列表 vets ，返回值列表 vals */
+  /* 輸入頂點串列 vets ，返回值串列 vals */
   static List<int> vetsToVals(List<Vertex> vets) {
     List<int> vals = [];
     for (Vertex vet in vets) {

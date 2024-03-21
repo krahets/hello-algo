@@ -7,81 +7,81 @@
 const { arrToTree } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
-/* 数组表示下的二叉树类 */
+/* 陣列表示下的二元樹類 */
 class ArrayBinaryTree {
     #tree;
 
-    /* 构造方法 */
+    /* 構造方法 */
     constructor(arr) {
         this.#tree = arr;
     }
 
-    /* 列表容量 */
+    /* 串列容量 */
     size() {
         return this.#tree.length;
     }
 
-    /* 获取索引为 i 节点的值 */
+    /* 獲取索引為 i 節點的值 */
     val(i) {
-        // 若索引越界，则返回 null ，代表空位
+        // 若索引越界，則返回 null ，代表空位
         if (i < 0 || i >= this.size()) return null;
         return this.#tree[i];
     }
 
-    /* 获取索引为 i 节点的左子节点的索引 */
+    /* 獲取索引為 i 節點的左子節點的索引 */
     left(i) {
         return 2 * i + 1;
     }
 
-    /* 获取索引为 i 节点的右子节点的索引 */
+    /* 獲取索引為 i 節點的右子節點的索引 */
     right(i) {
         return 2 * i + 2;
     }
 
-    /* 获取索引为 i 节点的父节点的索引 */
+    /* 獲取索引為 i 節點的父節點的索引 */
     parent(i) {
         return Math.floor((i - 1) / 2); // 向下整除
     }
 
-    /* 层序遍历 */
+    /* 層序走訪 */
     levelOrder() {
         let res = [];
-        // 直接遍历数组
+        // 直接走訪陣列
         for (let i = 0; i < this.size(); i++) {
             if (this.val(i) !== null) res.push(this.val(i));
         }
         return res;
     }
 
-    /* 深度优先遍历 */
+    /* 深度優先走訪 */
     #dfs(i, order, res) {
-        // 若为空位，则返回
+        // 若為空位，則返回
         if (this.val(i) === null) return;
-        // 前序遍历
+        // 前序走訪
         if (order === 'pre') res.push(this.val(i));
         this.#dfs(this.left(i), order, res);
-        // 中序遍历
+        // 中序走訪
         if (order === 'in') res.push(this.val(i));
         this.#dfs(this.right(i), order, res);
-        // 后序遍历
+        // 後序走訪
         if (order === 'post') res.push(this.val(i));
     }
 
-    /* 前序遍历 */
+    /* 前序走訪 */
     preOrder() {
         const res = [];
         this.#dfs(0, 'pre', res);
         return res;
     }
 
-    /* 中序遍历 */
+    /* 中序走訪 */
     inOrder() {
         const res = [];
         this.#dfs(0, 'in', res);
         return res;
     }
 
-    /* 后序遍历 */
+    /* 後序走訪 */
     postOrder() {
         const res = [];
         this.#dfs(0, 'post', res);
@@ -90,8 +90,8 @@ class ArrayBinaryTree {
 }
 
 /* Driver Code */
-// 初始化二叉树
-// 这里借助了一个从数组直接生成二叉树的函数
+// 初始化二元樹
+// 這裡藉助了一個從陣列直接生成二元樹的函式
 const arr = Array.of(
     1,
     2,
@@ -111,37 +111,37 @@ const arr = Array.of(
 );
 
 const root = arrToTree(arr);
-console.log('\n初始化二叉树\n');
-console.log('二叉树的数组表示：');
+console.log('\n初始化二元樹\n');
+console.log('二元樹的陣列表示：');
 console.log(arr);
-console.log('二叉树的链表表示：');
+console.log('二元樹的鏈結串列表示：');
 printTree(root);
 
-// 数组表示下的二叉树类
+// 陣列表示下的二元樹類
 const abt = new ArrayBinaryTree(arr);
 
-// 访问节点
+// 訪問節點
 const i = 1;
 const l = abt.left(i);
 const r = abt.right(i);
 const p = abt.parent(i);
-console.log('\n当前节点的索引为 ' + i + ' ，值为 ' + abt.val(i));
+console.log('\n當前節點的索引為 ' + i + ' ，值為 ' + abt.val(i));
 console.log(
-    '其左子节点的索引为 ' + l + ' ，值为 ' + (l === null ? 'null' : abt.val(l))
+    '其左子節點的索引為 ' + l + ' ，值為 ' + (l === null ? 'null' : abt.val(l))
 );
 console.log(
-    '其右子节点的索引为 ' + r + ' ，值为 ' + (r === null ? 'null' : abt.val(r))
+    '其右子節點的索引為 ' + r + ' ，值為 ' + (r === null ? 'null' : abt.val(r))
 );
 console.log(
-    '其父节点的索引为 ' + p + ' ，值为 ' + (p === null ? 'null' : abt.val(p))
+    '其父節點的索引為 ' + p + ' ，值為 ' + (p === null ? 'null' : abt.val(p))
 );
 
-// 遍历树
+// 走訪樹
 let res = abt.levelOrder();
-console.log('\n层序遍历为：' + res);
+console.log('\n層序走訪為：' + res);
 res = abt.preOrder();
-console.log('前序遍历为：' + res);
+console.log('前序走訪為：' + res);
 res = abt.inOrder();
-console.log('中序遍历为：' + res);
+console.log('中序走訪為：' + res);
 res = abt.postOrder();
-console.log('后序遍历为：' + res);
+console.log('後序走訪為：' + res);

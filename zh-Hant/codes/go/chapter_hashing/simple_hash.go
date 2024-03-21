@@ -6,7 +6,7 @@ package chapter_hashing
 
 import "fmt"
 
-/* 加法哈希 */
+/* 加法雜湊 */
 func addHash(key string) int {
 	var hash int64
 	var modulus int64
@@ -18,7 +18,7 @@ func addHash(key string) int {
 	return int(hash)
 }
 
-/* 乘法哈希 */
+/* 乘法雜湊 */
 func mulHash(key string) int {
 	var hash int64
 	var modulus int64
@@ -30,7 +30,7 @@ func mulHash(key string) int {
 	return int(hash)
 }
 
-/* 异或哈希 */
+/* 異或雜湊 */
 func xorHash(key string) int {
 	hash := 0
 	modulus := 1000000007
@@ -42,7 +42,7 @@ func xorHash(key string) int {
 	return hash & modulus
 }
 
-/* 旋转哈希 */
+/* 旋轉雜湊 */
 func rotHash(key string) int {
 	var hash int64
 	var modulus int64

@@ -14,58 +14,58 @@ import heapq
 
 
 def test_push(heap: list, val: int, flag: int = 1):
-    heapq.heappush(heap, flag * val)  # 元素入堆
-    print(f"\n元素 {val} 入堆后")
+    heapq.heappush(heap, flag * val)  # 元素入堆積
+    print(f"\n元素 {val} 入堆積後")
     print_heap([flag * val for val in heap])
 
 
 def test_pop(heap: list, flag: int = 1):
-    val = flag * heapq.heappop(heap)  # 堆顶元素出堆
-    print(f"\n堆顶元素 {val} 出堆后")
+    val = flag * heapq.heappop(heap)  # 堆積頂元素出堆積
+    print(f"\n堆積頂元素 {val} 出堆積後")
     print_heap([flag * val for val in heap])
 
 
 """Driver Code"""
 if __name__ == "__main__":
-    # 初始化小顶堆
+    # 初始化小頂堆積
     min_heap, flag = [], 1
-    # 初始化大顶堆
+    # 初始化大頂堆積
     max_heap, flag = [], -1
 
-    print("\n以下测试样例为大顶堆")
-    # Python 的 heapq 模块默认实现小顶堆
-    # 考虑将“元素取负”后再入堆，这样就可以将大小关系颠倒，从而实现大顶堆
-    # 在本示例中，flag = 1 时对应小顶堆，flag = -1 时对应大顶堆
+    print("\n以下測試樣例為大頂堆積")
+    # Python 的 heapq 模組預設實現小頂堆積
+    # 考慮將“元素取負”後再入堆積，這樣就可以將大小關係顛倒，從而實現大頂堆積
+    # 在本示例中，flag = 1 時對應小頂堆積，flag = -1 時對應大頂堆積
 
-    # 元素入堆
+    # 元素入堆積
     test_push(max_heap, 1, flag)
     test_push(max_heap, 3, flag)
     test_push(max_heap, 2, flag)
     test_push(max_heap, 5, flag)
     test_push(max_heap, 4, flag)
 
-    # 获取堆顶元素
+    # 獲取堆積頂元素
     peek: int = flag * max_heap[0]
-    print(f"\n堆顶元素为 {peek}")
+    print(f"\n堆積頂元素為 {peek}")
 
-    # 堆顶元素出堆
+    # 堆積頂元素出堆積
     test_pop(max_heap, flag)
     test_pop(max_heap, flag)
     test_pop(max_heap, flag)
     test_pop(max_heap, flag)
     test_pop(max_heap, flag)
 
-    # 获取堆大小
+    # 獲取堆積大小
     size: int = len(max_heap)
-    print(f"\n堆元素数量为 {size}")
+    print(f"\n堆積元素數量為 {size}")
 
-    # 判断堆是否为空
+    # 判斷堆積是否為空
     is_empty: bool = not max_heap
-    print(f"\n堆是否为空 {is_empty}")
+    print(f"\n堆積是否為空 {is_empty}")
 
-    # 输入列表并建堆
-    # 时间复杂度为 O(n) ，而非 O(nlogn)
+    # 輸入串列並建堆積
+    # 時間複雜度為 O(n) ，而非 O(nlogn)
     min_heap = [1, 3, 2, 5, 4]
     heapq.heapify(min_heap)
-    print("\n输入列表并建立小顶堆后")
+    print("\n輸入串列並建立小頂堆積後")
     print_heap(min_heap)

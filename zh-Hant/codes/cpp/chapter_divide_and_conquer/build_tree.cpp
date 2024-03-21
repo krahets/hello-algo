@@ -6,26 +6,26 @@
 
 #include "../utils/common.hpp"
 
-/* 构建二叉树：分治 */
+/* 構建二元樹：分治 */
 TreeNode *dfs(vector<int> &preorder, unordered_map<int, int> &inorderMap, int i, int l, int r) {
-    // 子树区间为空时终止
+    // 子樹區間為空時終止
     if (r - l < 0)
         return NULL;
-    // 初始化根节点
+    // 初始化根節點
     TreeNode *root = new TreeNode(preorder[i]);
-    // 查询 m ，从而划分左右子树
+    // 查詢 m ，從而劃分左右子樹
     int m = inorderMap[preorder[i]];
-    // 子问题：构建左子树
+    // 子問題：構建左子樹
     root->left = dfs(preorder, inorderMap, i + 1, l, m - 1);
-    // 子问题：构建右子树
+    // 子問題：構建右子樹
     root->right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
-    // 返回根节点
+    // 返回根節點
     return root;
 }
 
-/* 构建二叉树 */
+/* 構建二元樹 */
 TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
-    // 初始化哈希表，存储 inorder 元素到索引的映射
+    // 初始化雜湊表，儲存 inorder 元素到索引的對映
     unordered_map<int, int> inorderMap;
     for (int i = 0; i < inorder.size(); i++) {
         inorderMap[inorder[i]] = i;
@@ -38,13 +38,13 @@ TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
 int main() {
     vector<int> preorder = {3, 9, 2, 1, 7};
     vector<int> inorder = {9, 3, 1, 2, 7};
-    cout << "前序遍历 = ";
+    cout << "前序走訪 = ";
     printVector(preorder);
-    cout << "中序遍历 = ";
+    cout << "中序走訪 = ";
     printVector(inorder);
 
     TreeNode *root = buildTree(preorder, inorder);
-    cout << "构建的二叉树为：\n";
+    cout << "構建的二元樹為：\n";
     printTree(root);
 
     return 0;

@@ -7,7 +7,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 二叉树节点类型 */
+/* 二元樹節點型別 */
 #[derive(Debug)]
 pub struct TreeNode {
     pub val: i32,
@@ -18,7 +18,7 @@ pub struct TreeNode {
 }
 
 impl TreeNode {
-    /* 构造方法 */
+    /* 構造方法 */
     pub fn new(val: i32) -> Rc<RefCell<Self>> {
         Rc::new(RefCell::new(Self {
             val,
@@ -39,11 +39,11 @@ macro_rules! op_vec {
     };
 }
 
-// 序列化编码规则请参考：
+// 序列化編碼規則請參考：
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// 二叉树的数组表示：
+// 二元樹的陣列表示：
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-// 二叉树的链表表示：
+// 二元樹的鏈結串列表示：
 //             /——— 15
 //         /——— 7
 //     /——— 3
@@ -55,7 +55,7 @@ macro_rules! op_vec {
 //         \——— 4
 //             \——— 8
 
-/* 将列表反序列化为二叉树：递归 */
+/* 將串列反序列化為二元樹：遞迴 */
 fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>>> {
     if i >= arr.len() || arr[i].is_none() {
         return None;
@@ -66,12 +66,12 @@ fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>
     Some(root)
 }
 
-/* 将列表反序列化为二叉树 */
+/* 將串列反序列化為二元樹 */
 pub fn vec_to_tree(arr: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
     vec_to_tree_dfs(&arr, 0)
 }
 
-/* 将二叉树序列化为列表：递归 */
+/* 將二元樹序列化為串列：遞迴 */
 fn tree_to_vec_dfs(root: Option<Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
     if root.is_none() {
         return;
@@ -85,7 +85,7 @@ fn tree_to_vec_dfs(root: Option<Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<
     tree_to_vec_dfs(root.borrow().right.clone(), 2 * i + 2, res);
 }
 
-/* 将二叉树序列化为列表 */
+/* 將二元樹序列化為串列 */
 pub fn tree_to_vec(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
     let mut res = vec![];
     tree_to_vec_dfs(root, 0, &mut res);

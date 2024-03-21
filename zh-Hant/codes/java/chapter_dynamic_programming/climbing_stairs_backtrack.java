@@ -11,26 +11,26 @@ import java.util.*;
 public class climbing_stairs_backtrack {
     /* 回溯 */
     public static void backtrack(List<Integer> choices, int state, int n, List<Integer> res) {
-        // 当爬到第 n 阶时，方案数量加 1
+        // 當爬到第 n 階時，方案數量加 1
         if (state == n)
             res.set(0, res.get(0) + 1);
-        // 遍历所有选择
+        // 走訪所有選擇
         for (Integer choice : choices) {
-            // 剪枝：不允许越过第 n 阶
+            // 剪枝：不允許越過第 n 階
             if (state + choice > n)
                 continue;
-            // 尝试：做出选择，更新状态
+            // 嘗試：做出選擇，更新狀態
             backtrack(choices, state + choice, n, res);
             // 回退
         }
     }
 
-    /* 爬楼梯：回溯 */
+    /* 爬樓梯：回溯 */
     public static int climbingStairsBacktrack(int n) {
-        List<Integer> choices = Arrays.asList(1, 2); // 可选择向上爬 1 阶或 2 阶
-        int state = 0; // 从第 0 阶开始爬
+        List<Integer> choices = Arrays.asList(1, 2); // 可選擇向上爬 1 階或 2 階
+        int state = 0; // 從第 0 階開始爬
         List<Integer> res = new ArrayList<>();
-        res.add(0); // 使用 res[0] 记录方案数量
+        res.add(0); // 使用 res[0] 記錄方案數量
         backtrack(choices, state, n, res);
         return res.get(0);
     }
@@ -39,6 +39,6 @@ public class climbing_stairs_backtrack {
         int n = 9;
 
         int res = climbingStairsBacktrack(n);
-        System.out.println(String.format("爬 %d 阶楼梯共有 %d 种方案", n, res));
+        System.out.println(String.format("爬 %d 階樓梯共有 %d 種方案", n, res));
     }
 }

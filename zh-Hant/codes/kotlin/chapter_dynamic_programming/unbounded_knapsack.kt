@@ -8,7 +8,7 @@ package chapter_dynamic_programming
 
 import kotlin.math.max
 
-/* 完全背包：动态规划 */
+/* 完全背包：動態規劃 */
 fun unboundedKnapsackDP(
     wgt: IntArray,
     value: IntArray,
@@ -17,14 +17,14 @@ fun unboundedKnapsackDP(
     val n = wgt.size
     // 初始化 dp 表
     val dp = Array(n + 1) { IntArray(cap + 1) }
-    // 状态转移
+    // 狀態轉移
     for (i in 1..n) {
         for (c in 1..cap) {
             if (wgt[i - 1] > c) {
-                // 若超过背包容量，则不选物品 i
+                // 若超過背包容量，則不選物品 i
                 dp[i][c] = dp[i - 1][c]
             } else {
-                // 不选和选物品 i 这两种方案的较大值
+                // 不選和選物品 i 這兩種方案的較大值
                 dp[i][c] = max(dp[i - 1][c].toDouble(), (dp[i][c - wgt[i - 1]] + value[i - 1]).toDouble())
                     .toInt()
             }
@@ -33,7 +33,7 @@ fun unboundedKnapsackDP(
     return dp[n][cap]
 }
 
-/* 完全背包：空间优化后的动态规划 */
+/* 完全背包：空間最佳化後的動態規劃 */
 fun unboundedKnapsackDPComp(
     wgt: IntArray,
     value: IntArray,
@@ -42,14 +42,14 @@ fun unboundedKnapsackDPComp(
     val n = wgt.size
     // 初始化 dp 表
     val dp = IntArray(cap + 1)
-    // 状态转移
+    // 狀態轉移
     for (i in 1..n) {
         for (c in 1..cap) {
             if (wgt[i - 1] > c) {
-                // 若超过背包容量，则不选物品 i
+                // 若超過背包容量，則不選物品 i
                 dp[c] = dp[c]
             } else {
-                // 不选和选物品 i 这两种方案的较大值
+                // 不選和選物品 i 這兩種方案的較大值
                 dp[c] =
                     max(dp[c].toDouble(), (dp[c - wgt[i - 1]] + value[i - 1]).toDouble()).toInt()
             }
@@ -64,11 +64,11 @@ fun main() {
     val value = intArrayOf(5, 11, 15)
     val cap = 4
 
-    // 动态规划
+    // 動態規劃
     var res = unboundedKnapsackDP(wgt, value, cap)
-    println("不超过背包容量的最大物品价值为 $res")
+    println("不超過背包容量的最大物品價值為 $res")
 
-    // 空间优化后的动态规划
+    // 空間最佳化後的動態規劃
     res = unboundedKnapsackDPComp(wgt, value, cap)
-    println("不超过背包容量的最大物品价值为 $res")
+    println("不超過背包容量的最大物品價值為 $res")
 }

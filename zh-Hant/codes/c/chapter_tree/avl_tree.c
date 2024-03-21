@@ -6,38 +6,38 @@
 
 #include "../utils/common.h"
 
-/* AVL 树结构体 */
+/* AVL結構體 */
 typedef struct {
     TreeNode *root;
 } AVLTree;
 
-/* 构造函数 */
+/* 構造函式 */
 AVLTree *newAVLTree() {
     AVLTree *tree = (AVLTree *)malloc(sizeof(AVLTree));
     tree->root = NULL;
     return tree;
 }
 
-/* 析构函数 */
+/* 析構函式 */
 void delAVLTree(AVLTree *tree) {
     freeMemoryTree(tree->root);
     free(tree);
 }
 
-/* 获取节点高度 */
+/* 獲取節點高度 */
 int height(TreeNode *node) {
-    // 空节点高度为 -1 ，叶节点高度为 0
+    // 空節點高度為 -1 ，葉節點高度為 0
     if (node != NULL) {
         return node->height;
     }
     return -1;
 }
 
-/* 更新节点高度 */
+/* 更新節點高度 */
 void updateHeight(TreeNode *node) {
     int lh = height(node->left);
     int rh = height(node->right);
-    // 节点高度等于最高子树高度 + 1
+    // 節點高度等於最高子樹高度 + 1
     if (lh > rh) {
         node->height = lh + 1;
     } else {
@@ -45,13 +45,13 @@ void updateHeight(TreeNode *node) {
     }
 }
 
-/* 获取平衡因子 */
+/* 獲取平衡因子 */
 int balanceFactor(TreeNode *node) {
-    // 空节点平衡因子为 0
+    // 空節點平衡因子為 0
     if (node == NULL) {
         return 0;
     }
-    // 节点平衡因子 = 左子树高度 - 右子树高度
+    // 節點平衡因子 = 左子樹高度 - 右子樹高度
     return height(node->left) - height(node->right);
 }
 
@@ -60,13 +60,13 @@ TreeNode *rightRotate(TreeNode *node) {
     TreeNode *child, *grandChild;
     child = node->left;
     grandChild = child->right;
-    // 以 child 为原点，将 node 向右旋转
+    // 以 child 為原點，將 node 向右旋轉
     child->right = node;
     node->left = grandChild;
-    // 更新节点高度
+    // 更新節點高度
     updateHeight(node);
     updateHeight(child);
-    // 返回旋转后子树的根节点
+    // 返回旋轉後子樹的根節點
     return child;
 }
 
@@ -75,80 +75,80 @@ TreeNode *leftRotate(TreeNode *node) {
     TreeNode *child, *grandChild;
     child = node->right;
     grandChild = child->left;
-    // 以 child 为原点，将 node 向左旋转
+    // 以 child 為原點，將 node 向左旋轉
     child->left = node;
     node->right = grandChild;
-    // 更新节点高度
+    // 更新節點高度
     updateHeight(node);
     updateHeight(child);
-    // 返回旋转后子树的根节点
+    // 返回旋轉後子樹的根節點
     return child;
 }
 
-/* 执行旋转操作，使该子树重新恢复平衡 */
+/* 執行旋轉操作，使該子樹重新恢復平衡 */
 TreeNode *rotate(TreeNode *node) {
-    // 获取节点 node 的平衡因子
+    // 獲取節點 node 的平衡因子
     int bf = balanceFactor(node);
-    // 左偏树
+    // 左偏樹
     if (bf > 1) {
         if (balanceFactor(node->left) >= 0) {
             // 右旋
             return rightRotate(node);
         } else {
-            // 先左旋后右旋
+            // 先左旋後右旋
             node->left = leftRotate(node->left);
             return rightRotate(node);
         }
     }
-    // 右偏树
+    // 右偏樹
     if (bf < -1) {
         if (balanceFactor(node->right) <= 0) {
             // 左旋
             return leftRotate(node);
         } else {
-            // 先右旋后左旋
+            // 先右旋後左旋
             node->right = rightRotate(node->right);
             return leftRotate(node);
         }
     }
-    // 平衡树，无须旋转，直接返回
+    // 平衡樹，無須旋轉，直接返回
     return node;
 }
 
-/* 递归插入节点（辅助函数） */
+/* 遞迴插入節點（輔助函式） */
 TreeNode *insertHelper(TreeNode *node, int val) {
     if (node == NULL) {
         return newTreeNode(val);
     }
-    /* 1. 查找插入位置并插入节点 */
+    /* 1. 查詢插入位置並插入節點 */
     if (val < node->val) {
         node->left = insertHelper(node->left, val);
     } else if (val > node->val) {
         node->right = insertHelper(node->right, val);
     } else {
-        // 重复节点不插入，直接返回
+        // 重複節點不插入，直接返回
         return node;
     }
-    // 更新节点高度
+    // 更新節點高度
     updateHeight(node);
-    /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+    /* 2. 執行旋轉操作，使該子樹重新恢復平衡 */
     node = rotate(node);
-    // 返回子树的根节点
+    // 返回子樹的根節點
     return node;
 }
 
-/* 插入节点 */
+/* 插入節點 */
 void insert(AVLTree *tree, int val) {
     tree->root = insertHelper(tree->root, val);
 }
 
-/* 递归删除节点（辅助函数） */
+/* 遞迴刪除節點（輔助函式） */
 TreeNode *removeHelper(TreeNode *node, int val) {
     TreeNode *child, *grandChild;
     if (node == NULL) {
         return NULL;
     }
-    /* 1. 查找节点并删除 */
+    /* 1. 查詢節點並刪除 */
     if (val < node->val) {
         node->left = removeHelper(node->left, val);
     } else if (val > node->val) {
@@ -159,15 +159,15 @@ TreeNode *removeHelper(TreeNode *node, int val) {
             if (node->right != NULL) {
                 child = node->right;
             }
-            // 子节点数量 = 0 ，直接删除 node 并返回
+            // 子節點數量 = 0 ，直接刪除 node 並返回
             if (child == NULL) {
                 return NULL;
             } else {
-                // 子节点数量 = 1 ，直接删除 node
+                // 子節點數量 = 1 ，直接刪除 node
                 node = child;
             }
         } else {
-            // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+            // 子節點數量 = 2 ，則將中序走訪的下個節點刪除，並用該節點替換當前節點
             TreeNode *temp = node->right;
             while (temp->left != NULL) {
                 temp = temp->left;
@@ -177,58 +177,58 @@ TreeNode *removeHelper(TreeNode *node, int val) {
             node->val = tempVal;
         }
     }
-    // 更新节点高度
+    // 更新節點高度
     updateHeight(node);
-    /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+    /* 2. 執行旋轉操作，使該子樹重新恢復平衡 */
     node = rotate(node);
-    // 返回子树的根节点
+    // 返回子樹的根節點
     return node;
 }
 
-/* 删除节点 */
-// 由于引入了 stdio.h ，此处无法使用 remove 关键词
+/* 刪除節點 */
+// 由於引入了 stdio.h ，此處無法使用 remove 關鍵詞
 void removeItem(AVLTree *tree, int val) {
     TreeNode *root = removeHelper(tree->root, val);
 }
 
-/* 查找节点 */
+/* 查詢節點 */
 TreeNode *search(AVLTree *tree, int val) {
     TreeNode *cur = tree->root;
-    // 循环查找，越过叶节点后跳出
+    // 迴圈查詢，越過葉節點後跳出
     while (cur != NULL) {
         if (cur->val < val) {
-            // 目标节点在 cur 的右子树中
+            // 目標節點在 cur 的右子樹中
             cur = cur->right;
         } else if (cur->val > val) {
-            // 目标节点在 cur 的左子树中
+            // 目標節點在 cur 的左子樹中
             cur = cur->left;
         } else {
-            // 找到目标节点，跳出循环
+            // 找到目標節點，跳出迴圈
             break;
         }
     }
-    // 找到目标节点，跳出循环
+    // 找到目標節點，跳出迴圈
     return cur;
 }
 
 void testInsert(AVLTree *tree, int val) {
     insert(tree, val);
-    printf("\n插入节点 %d 后，AVL 树为 \n", val);
+    printf("\n插入節點 %d 後，AVL為 \n", val);
     printTree(tree->root);
 }
 
 void testRemove(AVLTree *tree, int val) {
     removeItem(tree, val);
-    printf("\n删除节点 %d 后，AVL 树为 \n", val);
+    printf("\n刪除節點 %d 後，AVL為 \n", val);
     printTree(tree->root);
 }
 
 /* Driver Code */
 int main() {
-    /* 初始化空 AVL 树 */
+    /* 初始化空 AVL */
     AVLTree *tree = (AVLTree *)newAVLTree();
-    /* 插入节点 */
-    // 请关注插入节点后，AVL 树是如何保持平衡的
+    /* 插入節點 */
+    // 請關注插入節點後，AVL是如何保持平衡的
     testInsert(tree, 1);
     testInsert(tree, 2);
     testInsert(tree, 3);
@@ -240,20 +240,20 @@ int main() {
     testInsert(tree, 10);
     testInsert(tree, 6);
 
-    /* 插入重复节点 */
+    /* 插入重複節點 */
     testInsert(tree, 7);
 
-    /* 删除节点 */
-    // 请关注删除节点后，AVL 树是如何保持平衡的
-    testRemove(tree, 8); // 删除度为 0 的节点
-    testRemove(tree, 5); // 删除度为 1 的节点
-    testRemove(tree, 4); // 删除度为 2 的节点
+    /* 刪除節點 */
+    // 請關注刪除節點後，AVL是如何保持平衡的
+    testRemove(tree, 8); // 刪除度為 0 的節點
+    testRemove(tree, 5); // 刪除度為 1 的節點
+    testRemove(tree, 4); // 刪除度為 2 的節點
 
-    /* 查询节点 */
+    /* 查詢節點 */
     TreeNode *node = search(tree, 7);
-    printf("\n查找到的节点对象节点值 = %d \n", node->val);
+    printf("\n查詢到的節點物件節點值 = %d \n", node->val);
 
-    // 释放内存
+    // 釋放記憶體
     delAVLTree(tree);
     return 0;
 }

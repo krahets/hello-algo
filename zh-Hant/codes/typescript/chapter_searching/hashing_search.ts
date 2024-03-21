@@ -6,45 +6,45 @@
 
 import { ListNode, arrToLinkedList } from '../modules/ListNode';
 
-/* 哈希查找（数组） */
+/* 雜湊查詢（陣列） */
 function hashingSearchArray(map: Map<number, number>, target: number): number {
-    // 哈希表的 key: 目标元素，value: 索引
-    // 若哈希表中无此 key ，返回 -1
+    // 雜湊表的 key: 目標元素，value: 索引
+    // 若雜湊表中無此 key ，返回 -1
     return map.has(target) ? (map.get(target) as number) : -1;
 }
 
-/* 哈希查找（链表） */
+/* 雜湊查詢（鏈結串列） */
 function hashingSearchLinkedList(
     map: Map<number, ListNode>,
     target: number
 ): ListNode | null {
-    // 哈希表的 key: 目标节点值，value: 节点对象
-    // 若哈希表中无此 key ，返回 null
+    // 雜湊表的 key: 目標節點值，value: 節點物件
+    // 若雜湊表中無此 key ，返回 null
     return map.has(target) ? (map.get(target) as ListNode) : null;
 }
 
 /* Driver Code */
 const target = 3;
 
-/* 哈希查找（数组） */
+/* 雜湊查詢（陣列） */
 const nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
-// 初始化哈希表
+// 初始化雜湊表
 const map = new Map();
 for (let i = 0; i < nums.length; i++) {
     map.set(nums[i], i); // key: 元素，value: 索引
 }
 const index = hashingSearchArray(map, target);
-console.log('目标元素 3 的索引 = ' + index);
+console.log('目標元素 3 的索引 = ' + index);
 
-/* 哈希查找（链表） */
+/* 雜湊查詢（鏈結串列） */
 let head = arrToLinkedList(nums);
-// 初始化哈希表
+// 初始化雜湊表
 const map1 = new Map();
 while (head != null) {
-    map1.set(head.val, head); // key: 节点值，value: 节点
+    map1.set(head.val, head); // key: 節點值，value: 節點
     head = head.next;
 }
 const node = hashingSearchLinkedList(map1, target);
-console.log('目标节点值 3 的对应节点对象为', node);
+console.log('目標節點值 3 的對應節點物件為', node);
 
 export {};

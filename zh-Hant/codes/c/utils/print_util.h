@@ -114,9 +114,9 @@ void printTree(TreeNode *root) {
 /* Print a Heap */
 void printHeap(int arr[], int size) {
     TreeNode *root;
-    printf("堆的数组表示：");
+    printf("堆積的陣列表示：");
     printArray(arr, size);
-    printf("堆的树状表示：\n");
+    printf("堆積的樹狀表示：\n");
     root = arrayToTree(arr, size);
     printTree(root);
 }

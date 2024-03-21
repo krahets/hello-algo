@@ -12,57 +12,57 @@ from chapter_hashing.array_hash_map import Pair
 
 
 class HashMapChaining:
-    """链式地址哈希表"""
+    """鏈式位址雜湊表"""
 
     def __init__(self):
-        """构造方法"""
-        self.size = 0  # 键值对数量
-        self.capacity = 4  # 哈希表容量
-        self.load_thres = 2.0 / 3.0  # 触发扩容的负载因子阈值
-        self.extend_ratio = 2  # 扩容倍数
-        self.buckets = [[] for _ in range(self.capacity)]  # 桶数组
+        """構造方法"""
+        self.size = 0  # 鍵值對數量
+        self.capacity = 4  # 雜湊表容量
+        self.load_thres = 2.0 / 3.0  # 觸發擴容的負載因子閾值
+        self.extend_ratio = 2  # 擴容倍數
+        self.buckets = [[] for _ in range(self.capacity)]  # 桶陣列
 
     def hash_func(self, key: int) -> int:
-        """哈希函数"""
+        """雜湊函式"""
         return key % self.capacity
 
     def load_factor(self) -> float:
-        """负载因子"""
+        """負載因子"""
         return self.size / self.capacity
 
     def get(self, key: int) -> str | None:
-        """查询操作"""
+        """查詢操作"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # 遍历桶，若找到 key ，则返回对应 val
+        # 走訪桶，若找到 key ，則返回對應 val
         for pair in bucket:
             if pair.key == key:
                 return pair.val
-        # 若未找到 key ，则返回 None
+        # 若未找到 key ，則返回 None
         return None
 
     def put(self, key: int, val: str):
-        """添加操作"""
-        # 当负载因子超过阈值时，执行扩容
+        """新增操作"""
+        # 當負載因子超過閾值時，執行擴容
         if self.load_factor() > self.load_thres:
             self.extend()
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+        # 走訪桶，若遇到指定 key ，則更新對應 val 並返回
         for pair in bucket:
             if pair.key == key:
                 pair.val = val
                 return
-        # 若无该 key ，则将键值对添加至尾部
+        # 若無該 key ，則將鍵值對新增至尾部
         pair = Pair(key, val)
         bucket.append(pair)
         self.size += 1
 
     def remove(self, key: int):
-        """删除操作"""
+        """刪除操作"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # 遍历桶，从中删除键值对
+        # 走訪桶，從中刪除鍵值對
         for pair in bucket:
             if pair.key == key:
                 bucket.remove(pair)
@@ -70,20 +70,20 @@ class HashMapChaining:
                 break
 
     def extend(self):
-        """扩容哈希表"""
-        # 暂存原哈希表
+        """擴容雜湊表"""
+        # 暫存原雜湊表
         buckets = self.buckets
-        # 初始化扩容后的新哈希表
+        # 初始化擴容後的新雜湊表
         self.capacity *= self.extend_ratio
         self.buckets = [[] for _ in range(self.capacity)]
         self.size = 0
-        # 将键值对从原哈希表搬运至新哈希表
+        # 將鍵值對從原雜湊表搬運至新雜湊表
         for bucket in buckets:
             for pair in bucket:
                 self.put(pair.key, pair.val)
 
     def print(self):
-        """打印哈希表"""
+        """列印雜湊表"""
         for bucket in self.buckets:
             res = []
             for pair in bucket:
@@ -93,26 +93,26 @@ class HashMapChaining:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # 初始化哈希表
+    # 初始化雜湊表
     hashmap = HashMapChaining()
 
-    # 添加操作
-    # 在哈希表中添加键值对 (key, value)
+    # 新增操作
+    # 在雜湊表中新增鍵值對 (key, value)
     hashmap.put(12836, "小哈")
-    hashmap.put(15937, "小啰")
+    hashmap.put(15937, "小囉")
     hashmap.put(16750, "小算")
     hashmap.put(13276, "小法")
-    hashmap.put(10583, "小鸭")
-    print("\n添加完成后，哈希表为\n[Key1 -> Value1, Key2 -> Value2, ...]")
+    hashmap.put(10583, "小鴨")
+    print("\n新增完成後，雜湊表為\n[Key1 -> Value1, Key2 -> Value2, ...]")
     hashmap.print()
 
-    # 查询操作
-    # 向哈希表中输入键 key ，得到值 value
+    # 查詢操作
+    # 向雜湊表中輸入鍵 key ，得到值 value
     name = hashmap.get(13276)
-    print("\n输入学号 13276 ，查询到姓名 " + name)
+    print("\n輸入學號 13276 ，查詢到姓名 " + name)
 
-    # 删除操作
-    # 在哈希表中删除键值对 (key, value)
+    # 刪除操作
+    # 在雜湊表中刪除鍵值對 (key, value)
     hashmap.remove(12836)
-    print("\n删除 12836 后，哈希表为\n[Key1 -> Value1, Key2 -> Value2, ...]")
+    print("\n刪除 12836 後，雜湊表為\n[Key1 -> Value1, Key2 -> Value2, ...]")
     hashmap.print()

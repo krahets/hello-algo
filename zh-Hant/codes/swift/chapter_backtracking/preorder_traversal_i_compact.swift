@@ -8,13 +8,13 @@ import utils
 
 var res: [TreeNode] = []
 
-/* 前序遍历：例题一 */
+/* 前序走訪：例題一 */
 func preOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
     if root.val == 7 {
-        // 记录解
+        // 記錄解
         res.append(root)
     }
     preOrder(root: root.left)
@@ -26,14 +26,14 @@ enum PreorderTraversalICompact {
     /* Driver Code */
     static func main() {
         let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
-        print("\n初始化二叉树")
+        print("\n初始化二元樹")
         PrintUtil.printTree(root: root)
 
-        // 前序遍历
+        // 前序走訪
         res = []
         preOrder(root: root)
 
-        print("\n输出所有值为 7 的节点")
+        print("\n輸出所有值為 7 的節點")
         var vals: [Int] = []
         for node in res {
             vals.append(node.val)

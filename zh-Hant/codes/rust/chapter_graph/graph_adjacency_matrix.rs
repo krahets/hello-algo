@@ -4,27 +4,27 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-/* 基于邻接矩阵实现的无向图类型 */
+/* 基於鄰接矩陣實現的無向圖型別 */
 pub struct GraphAdjMat {
-    // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+    // 頂點串列，元素代表“頂點值”，索引代表“頂點索引”
     pub vertices: Vec<i32>,
-    // 邻接矩阵，行列索引对应“顶点索引”
+    // 鄰接矩陣，行列索引對應“頂點索引”
     pub adj_mat: Vec<Vec<i32>>,
 }
 
 impl GraphAdjMat {
-    /* 构造方法 */
+    /* 構造方法 */
     pub fn new(vertices: Vec<i32>, edges: Vec<[usize; 2]>) -> Self {
         let mut graph = GraphAdjMat {
             vertices: vec![],
             adj_mat: vec![],
         };
-        // 添加顶点
+        // 新增頂點
         for val in vertices {
             graph.add_vertex(val);
         }
-        // 添加边
-        // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+        // 新增邊
+        // 請注意，edges 元素代表頂點索引，即對應 vertices 元素索引
         for edge in edges {
             graph.add_edge(edge[0], edge[1])
         }
@@ -32,56 +32,56 @@ impl GraphAdjMat {
         graph
     }
 
-    /* 获取顶点数量 */
+    /* 獲取頂點數量 */
     pub fn size(&self) -> usize {
         self.vertices.len()
     }
 
-    /* 添加顶点 */
+    /* 新增頂點 */
     pub fn add_vertex(&mut self, val: i32) {
         let n = self.size();
-        // 向顶点列表中添加新顶点的值
+        // 向頂點串列中新增新頂點的值
         self.vertices.push(val);
-        // 在邻接矩阵中添加一行
+        // 在鄰接矩陣中新增一行
         self.adj_mat.push(vec![0; n]);
-        // 在邻接矩阵中添加一列
+        // 在鄰接矩陣中新增一列
         for row in &mut self.adj_mat {
             row.push(0);
         }
     }
 
-    /* 删除顶点 */
+    /* 刪除頂點 */
     pub fn remove_vertex(&mut self, index: usize) {
         if index >= self.size() {
             panic!("index error")
         }
-        // 在顶点列表中移除索引 index 的顶点
+        // 在頂點串列中移除索引 index 的頂點
         self.vertices.remove(index);
-        // 在邻接矩阵中删除索引 index 的行
+        // 在鄰接矩陣中刪除索引 index 的行
         self.adj_mat.remove(index);
-        // 在邻接矩阵中删除索引 index 的列
+        // 在鄰接矩陣中刪除索引 index 的列
         for row in &mut self.adj_mat {
             row.remove(index);
         }
     }
 
-    /* 添加边 */
+    /* 新增邊 */
     pub fn add_edge(&mut self, i: usize, j: usize) {
-        // 参数 i, j 对应 vertices 元素索引
-        // 索引越界与相等处理
+        // 引數 i, j 對應 vertices 元素索引
+        // 索引越界與相等處理
         if i >= self.size() || j >= self.size() || i == j {
             panic!("index error")
         }
-        // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
+        // 在無向圖中，鄰接矩陣關於主對角線對稱，即滿足 (i, j) == (j, i)
         self.adj_mat[i][j] = 1;
         self.adj_mat[j][i] = 1;
     }
 
-    /* 删除边 */
-    // 参数 i, j 对应 vertices 元素索引
+    /* 刪除邊 */
+    // 引數 i, j 對應 vertices 元素索引
     pub fn remove_edge(&mut self, i: usize, j: usize) {
-        // 参数 i, j 对应 vertices 元素索引
-        // 索引越界与相等处理
+        // 引數 i, j 對應 vertices 元素索引
+        // 索引越界與相等處理
         if i >= self.size() || j >= self.size() || i == j {
             panic!("index error")
         }
@@ -89,10 +89,10 @@ impl GraphAdjMat {
         self.adj_mat[j][i] = 0;
     }
 
-    /* 打印邻接矩阵 */
+    /* 列印鄰接矩陣 */
     pub fn print(&self) {
-        println!("顶点列表 = {:?}", self.vertices);
-        println!("邻接矩阵 =");
+        println!("頂點串列 = {:?}", self.vertices);
+        println!("鄰接矩陣 =");
         println!("[");
         for row in &self.adj_mat {
             println!("  {:?},", row);
@@ -103,34 +103,34 @@ impl GraphAdjMat {
 
 /* Driver Code */
 fn main() {
-    /* 初始化无向图 */
-    // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+    /* 初始化無向圖 */
+    // 請注意，edges 元素代表頂點索引，即對應 vertices 元素索引
     let vertices = vec![1, 3, 2, 5, 4];
     let edges = vec![[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]];
     let mut graph = GraphAdjMat::new(vertices, edges);
-    println!("\n初始化后，图为");
+    println!("\n初始化後，圖為");
     graph.print();
 
-    /* 添加边 */
-    // 顶点 1, 2 的索引分别为 0, 2
+    /* 新增邊 */
+    // 頂點 1, 2 的索引分別為 0, 2
     graph.add_edge(0, 2);
-    println!("\n添加边 1-2 后，图为");
+    println!("\n新增邊 1-2 後，圖為");
     graph.print();
 
-    /* 删除边 */
-    // 顶点 1, 3 的索引分别为 0, 1
+    /* 刪除邊 */
+    // 頂點 1, 3 的索引分別為 0, 1
     graph.remove_edge(0, 1);
-    println!("\n删除边 1-3 后，图为");
+    println!("\n刪除邊 1-3 後，圖為");
     graph.print();
 
-    /* 添加顶点 */
+    /* 新增頂點 */
     graph.add_vertex(6);
-    println!("\n添加顶点 6 后，图为");
+    println!("\n新增頂點 6 後，圖為");
     graph.print();
 
-    /* 删除顶点 */
-    // 顶点 3 的索引为 1
+    /* 刪除頂點 */
+    // 頂點 3 的索引為 1
     graph.remove_vertex(1);
-    println!("\n删除顶点 3 后，图为");
+    println!("\n刪除頂點 3 後，圖為");
     graph.print();
 }

@@ -18,25 +18,25 @@ def dfs(
     l: int,
     r: int,
 ) -> TreeNode | None:
-    """构建二叉树：分治"""
-    # 子树区间为空时终止
+    """構建二元樹：分治"""
+    # 子樹區間為空時終止
     if r - l < 0:
         return None
-    # 初始化根节点
+    # 初始化根節點
     root = TreeNode(preorder[i])
-    # 查询 m ，从而划分左右子树
+    # 查詢 m ，從而劃分左右子樹
     m = inorder_map[preorder[i]]
-    # 子问题：构建左子树
+    # 子問題：構建左子樹
     root.left = dfs(preorder, inorder_map, i + 1, l, m - 1)
-    # 子问题：构建右子树
+    # 子問題：構建右子樹
     root.right = dfs(preorder, inorder_map, i + 1 + m - l, m + 1, r)
-    # 返回根节点
+    # 返回根節點
     return root
 
 
 def build_tree(preorder: list[int], inorder: list[int]) -> TreeNode | None:
-    """构建二叉树"""
-    # 初始化哈希表，存储 inorder 元素到索引的映射
+    """構建二元樹"""
+    # 初始化雜湊表，儲存 inorder 元素到索引的對映
     inorder_map = {val: i for i, val in enumerate(inorder)}
     root = dfs(preorder, inorder_map, 0, 0, len(inorder) - 1)
     return root
@@ -46,9 +46,9 @@ def build_tree(preorder: list[int], inorder: list[int]) -> TreeNode | None:
 if __name__ == "__main__":
     preorder = [3, 9, 2, 1, 7]
     inorder = [9, 3, 1, 2, 7]
-    print(f"前序遍历 = {preorder}")
-    print(f"中序遍历 = {inorder}")
+    print(f"前序走訪 = {preorder}")
+    print(f"中序走訪 = {inorder}")
 
     root = build_tree(preorder, inorder)
-    print("构建的二叉树为：")
+    print("構建的二元樹為：")
     print_tree(root)

@@ -10,24 +10,24 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* 层序遍历 */
+/* 層序走訪 */
 func levelOrder(root *TreeNode) []any {
-	// 初始化队列，加入根节点
+	// 初始化佇列，加入根節點
 	queue := list.New()
 	queue.PushBack(root)
-	// 初始化一个切片，用于保存遍历序列
+	// 初始化一個切片，用於儲存走訪序列
 	nums := make([]any, 0)
 	for queue.Len() > 0 {
-		// 队列出队
+		// 隊列出隊
 		node := queue.Remove(queue.Front()).(*TreeNode)
-		// 保存节点值
+		// 儲存節點值
 		nums = append(nums, node.Val)
 		if node.Left != nil {
-			// 左子节点入队
+			// 左子節點入列
 			queue.PushBack(node.Left)
 		}
 		if node.Right != nil {
-			// 右子节点入队
+			// 右子節點入列
 			queue.PushBack(node.Right)
 		}
 	}

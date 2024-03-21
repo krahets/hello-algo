@@ -12,10 +12,10 @@ import (
 )
 
 func TestAVLTree(t *testing.T) {
-	/* 初始化空 AVL 树 */
+	/* 初始化空 AVL */
 	tree := newAVLTree()
-	/* 插入节点 */
-	// 请关注插入节点后，AVL 树是如何保持平衡的
+	/* 插入節點 */
+	// 請關注插入節點後，AVL是如何保持平衡的
 	testInsert(tree, 1)
 	testInsert(tree, 2)
 	testInsert(tree, 3)
@@ -27,28 +27,28 @@ func TestAVLTree(t *testing.T) {
 	testInsert(tree, 10)
 	testInsert(tree, 6)
 
-	/* 插入重复节点 */
+	/* 插入重複節點 */
 	testInsert(tree, 7)
 
-	/* 删除节点 */
-	// 请关注删除节点后，AVL 树是如何保持平衡的
-	testRemove(tree, 8) // 删除度为 0 的节点
-	testRemove(tree, 5) // 删除度为 1 的节点
-	testRemove(tree, 4) // 删除度为 2 的节点
+	/* 刪除節點 */
+	// 請關注刪除節點後，AVL是如何保持平衡的
+	testRemove(tree, 8) // 刪除度為 0 的節點
+	testRemove(tree, 5) // 刪除度為 1 的節點
+	testRemove(tree, 4) // 刪除度為 2 的節點
 
-	/* 查询节点 */
+	/* 查詢節點 */
 	node := tree.search(7)
-	fmt.Printf("\n查找到的节点对象为 %#v ，节点值 = %d \n", node, node.Val)
+	fmt.Printf("\n查詢到的節點物件為 %#v ，節點值 = %d \n", node, node.Val)
 }
 
 func testInsert(tree *aVLTree, val int) {
 	tree.insert(val)
-	fmt.Printf("\n插入节点 %d 后，AVL 树为 \n", val)
+	fmt.Printf("\n插入節點 %d 後，AVL為 \n", val)
 	PrintTree(tree.root)
 }
 
 func testRemove(tree *aVLTree, val int) {
 	tree.remove(val)
-	fmt.Printf("\n删除节点 %d 后，AVL 树为 \n", val)
+	fmt.Printf("\n刪除節點 %d 後，AVL為 \n", val)
 	PrintTree(tree.root)
 }

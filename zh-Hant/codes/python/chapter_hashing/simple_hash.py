@@ -6,7 +6,7 @@ Author: krahets (krahets@163.com)
 
 
 def add_hash(key: str) -> int:
-    """加法哈希"""
+    """加法雜湊"""
     hash = 0
     modulus = 1000000007
     for c in key:
@@ -15,7 +15,7 @@ def add_hash(key: str) -> int:
 
 
 def mul_hash(key: str) -> int:
-    """乘法哈希"""
+    """乘法雜湊"""
     hash = 0
     modulus = 1000000007
     for c in key:
@@ -24,7 +24,7 @@ def mul_hash(key: str) -> int:
 
 
 def xor_hash(key: str) -> int:
-    """异或哈希"""
+    """異或雜湊"""
     hash = 0
     modulus = 1000000007
     for c in key:
@@ -33,7 +33,7 @@ def xor_hash(key: str) -> int:
 
 
 def rot_hash(key: str) -> int:
-    """旋转哈希"""
+    """旋轉雜湊"""
     hash = 0
     modulus = 1000000007
     for c in key:
@@ -43,16 +43,16 @@ def rot_hash(key: str) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    key = "Hello 算法"
+    key = "Hello 演算法"
 
     hash = add_hash(key)
-    print(f"加法哈希值为 {hash}")
+    print(f"加法雜湊值為 {hash}")
 
     hash = mul_hash(key)
-    print(f"乘法哈希值为 {hash}")
+    print(f"乘法雜湊值為 {hash}")
 
     hash = xor_hash(key)
-    print(f"异或哈希值为 {hash}")
+    print(f"異或雜湊值為 {hash}")
 
     hash = rot_hash(key)
-    print(f"旋转哈希值为 {hash}")
+    print(f"旋轉雜湊值為 {hash}")

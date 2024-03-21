@@ -8,42 +8,42 @@
 
 /* Driver Code */
 int main() {
-    /* 初始化哈希表 */
+    /* 初始化雜湊表 */
     ArrayHashMap map = ArrayHashMap();
 
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
+    /* 新增操作 */
+    // 在雜湊表中新增鍵值對 (key, value)
     map.put(12836, "小哈");
-    map.put(15937, "小啰");
+    map.put(15937, "小囉");
     map.put(16750, "小算");
     map.put(13276, "小法");
-    map.put(10583, "小鸭");
-    cout << "\n添加完成后，哈希表为\nKey -> Value" << endl;
+    map.put(10583, "小鴨");
+    cout << "\n新增完成後，雜湊表為\nKey -> Value" << endl;
     map.print();
 
-    /* 查询操作 */
-    // 向哈希表中输入键 key ，得到值 value
+    /* 查詢操作 */
+    // 向雜湊表中輸入鍵 key ，得到值 value
     string name = map.get(15937);
-    cout << "\n输入学号 15937 ，查询到姓名 " << name << endl;
+    cout << "\n輸入學號 15937 ，查詢到姓名 " << name << endl;
 
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)
+    /* 刪除操作 */
+    // 在雜湊表中刪除鍵值對 (key, value)
     map.remove(10583);
-    cout << "\n删除 10583 后，哈希表为\nKey -> Value" << endl;
+    cout << "\n刪除 10583 後，雜湊表為\nKey -> Value" << endl;
     map.print();
 
-    /* 遍历哈希表 */
-    cout << "\n遍历键值对 Key->Value" << endl;
+    /* 走訪雜湊表 */
+    cout << "\n走訪鍵值對 Key->Value" << endl;
     for (auto kv : map.pairSet()) {
         cout << kv->key << " -> " << kv->val << endl;
     }
 
-    cout << "\n单独遍历键 Key" << endl;
+    cout << "\n單獨走訪鍵 Key" << endl;
     for (auto key : map.keySet()) {
         cout << key << endl;
     }
 
-    cout << "\n单独遍历值 Value" << endl;
+    cout << "\n單獨走訪值 Value" << endl;
     for (auto val : map.valueSet()) {
         cout << val << endl;
     }

@@ -6,10 +6,10 @@ package chapter_searching
 
 import . "github.com/krahets/hello-algo/pkg"
 
-/* 哈希查找（数组） */
+/* 雜湊查詢（陣列） */
 func hashingSearchArray(m map[int]int, target int) int {
-	// 哈希表的 key: 目标元素，value: 索引
-	// 若哈希表中无此 key ，返回 -1
+	// 雜湊表的 key: 目標元素，value: 索引
+	// 若雜湊表中無此 key ，返回 -1
 	if index, ok := m[target]; ok {
 		return index
 	} else {
@@ -17,10 +17,10 @@ func hashingSearchArray(m map[int]int, target int) int {
 	}
 }
 
-/* 哈希查找（链表） */
+/* 雜湊查詢（鏈結串列） */
 func hashingSearchLinkedList(m map[int]*ListNode, target int) *ListNode {
-	// 哈希表的 key: 目标节点值，value: 节点对象
-	// 若哈希表中无此 key ，返回 nil
+	// 雜湊表的 key: 目標節點值，value: 節點物件
+	// 若雜湊表中無此 key ，返回 nil
 	if node, ok := m[target]; ok {
 		return node
 	} else {

@@ -7,7 +7,7 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* 前序遍历：例题三 */
+/* 前序走訪：例題三 */
 void preOrder(
   TreeNode? root,
   List<TreeNode> path,
@@ -17,10 +17,10 @@ void preOrder(
     return;
   }
 
-  // 尝试
+  // 嘗試
   path.add(root);
   if (root.val == 7) {
-    // 记录解
+    // 記錄解
     res.add(List.from(path));
   }
   preOrder(root.left, path, res);
@@ -32,15 +32,15 @@ void preOrder(
 /* Driver Code */
 void main() {
   TreeNode? root = listToTree([1, 7, 3, 4, 5, 6, 7]);
-  print("\n初始化二叉树");
+  print("\n初始化二元樹");
   printTree(root);
 
-  // 前序遍历
+  // 前序走訪
   List<TreeNode> path = [];
   List<List<TreeNode>> res = [];
   preOrder(root, path, res);
 
-  print("\n输出所有根节点到节点 7 的路径");
+  print("\n輸出所有根節點到節點 7 的路徑");
   for (List<TreeNode> vals in res) {
     print(List.generate(vals.length, (i) => vals[i].val));
   }

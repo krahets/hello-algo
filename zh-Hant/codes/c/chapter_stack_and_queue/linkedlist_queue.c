@@ -6,13 +6,13 @@
 
 #include "../utils/common.h"
 
-/* 基于链表实现的队列 */
+/* 基於鏈結串列實現的佇列 */
 typedef struct {
     ListNode *front, *rear;
     int queSize;
 } LinkedListQueue;
 
-/* 构造函数 */
+/* 構造函式 */
 LinkedListQueue *newLinkedListQueue() {
     LinkedListQueue *queue = (LinkedListQueue *)malloc(sizeof(LinkedListQueue));
     queue->front = NULL;
@@ -21,38 +21,38 @@ LinkedListQueue *newLinkedListQueue() {
     return queue;
 }
 
-/* 析构函数 */
+/* 析構函式 */
 void delLinkedListQueue(LinkedListQueue *queue) {
-    // 释放所有节点
+    // 釋放所有節點
     while (queue->front != NULL) {
         ListNode *tmp = queue->front;
         queue->front = queue->front->next;
         free(tmp);
     }
-    // 释放 queue 结构体
+    // 釋放 queue 結構體
     free(queue);
 }
 
-/* 获取队列的长度 */
+/* 獲取佇列的長度 */
 int size(LinkedListQueue *queue) {
     return queue->queSize;
 }
 
-/* 判断队列是否为空 */
+/* 判斷佇列是否為空 */
 bool empty(LinkedListQueue *queue) {
     return (size(queue) == 0);
 }
 
-/* 入队 */
+/* 入列 */
 void push(LinkedListQueue *queue, int num) {
-    // 尾节点处添加 node
+    // 尾節點處新增 node
     ListNode *node = newListNode(num);
-    // 如果队列为空，则令头、尾节点都指向该节点
+    // 如果佇列為空，則令頭、尾節點都指向該節點
     if (queue->front == NULL) {
         queue->front = node;
         queue->rear = node;
     }
-    // 如果队列不为空，则将该节点添加到尾节点后
+    // 如果佇列不為空，則將該節點新增到尾節點後
     else {
         queue->rear->next = node;
         queue->rear = node;
@@ -60,13 +60,13 @@ void push(LinkedListQueue *queue, int num) {
     queue->queSize++;
 }
 
-/* 访问队首元素 */
+/* 訪問佇列首元素 */
 int peek(LinkedListQueue *queue) {
     assert(size(queue) && queue->front);
     return queue->front->val;
 }
 
-/* 出队 */
+/* 出列 */
 int pop(LinkedListQueue *queue) {
     int num = peek(queue);
     ListNode *tmp = queue->front;
@@ -76,10 +76,10 @@ int pop(LinkedListQueue *queue) {
     return num;
 }
 
-/* 打印队列 */
+/* 列印佇列 */
 void printLinkedListQueue(LinkedListQueue *queue) {
     int *arr = malloc(sizeof(int) * queue->queSize);
-    // 拷贝链表中的数据到数组
+    // 複製鏈結串列中的資料到陣列
     int i;
     ListNode *node;
     for (i = 0, node = queue->front; i < queue->queSize; i++) {
@@ -92,36 +92,36 @@ void printLinkedListQueue(LinkedListQueue *queue) {
 
 /* Driver Code */
 int main() {
-    /* 初始化队列 */
+    /* 初始化佇列 */
     LinkedListQueue *queue = newLinkedListQueue();
 
-    /* 元素入队 */
+    /* 元素入列 */
     push(queue, 1);
     push(queue, 3);
     push(queue, 2);
     push(queue, 5);
     push(queue, 4);
-    printf("队列 queue = ");
+    printf("佇列 queue = ");
     printLinkedListQueue(queue);
 
-    /* 访问队首元素 */
+    /* 訪問佇列首元素 */
     int peekNum = peek(queue);
-    printf("队首元素 peek = %d\r\n", peekNum);
+    printf("佇列首元素 peek = %d\r\n", peekNum);
 
-    /* 元素出队 */
+    /* 元素出列 */
     peekNum = pop(queue);
-    printf("出队元素 pop = %d ，出队后 queue = ", peekNum);
+    printf("出列元素 pop = %d ，出列後 queue = ", peekNum);
     printLinkedListQueue(queue);
 
-    /* 获取队列的长度 */
+    /* 獲取佇列的長度 */
     int queueSize = size(queue);
-    printf("队列长度 size = %d\r\n", queueSize);
+    printf("佇列長度 size = %d\r\n", queueSize);
 
-    /* 判断队列是否为空 */
+    /* 判斷佇列是否為空 */
     bool isEmpty = empty(queue);
-    printf("队列是否为空 = %s\r\n", isEmpty ? "true" : "false");
+    printf("佇列是否為空 = %s\r\n", isEmpty ? "true" : "false");
 
-    // 释放内存
+    // 釋放記憶體
     delLinkedListQueue(queue);
 
     return 0;

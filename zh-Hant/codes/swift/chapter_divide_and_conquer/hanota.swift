@@ -4,34 +4,34 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 移动一个圆盘 */
+/* 移動一個圓盤 */
 func move(src: inout [Int], tar: inout [Int]) {
-    // 从 src 顶部拿出一个圆盘
+    // 從 src 頂部拿出一個圓盤
     let pan = src.popLast()!
-    // 将圆盘放入 tar 顶部
+    // 將圓盤放入 tar 頂部
     tar.append(pan)
 }
 
-/* 求解汉诺塔问题 f(i) */
+/* 求解河內塔問題 f(i) */
 func dfs(i: Int, src: inout [Int], buf: inout [Int], tar: inout [Int]) {
-    // 若 src 只剩下一个圆盘，则直接将其移到 tar
+    // 若 src 只剩下一個圓盤，則直接將其移到 tar
     if i == 1 {
         move(src: &src, tar: &tar)
         return
     }
-    // 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
+    // 子問題 f(i-1) ：將 src 頂部 i-1 個圓盤藉助 tar 移到 buf
     dfs(i: i - 1, src: &src, buf: &tar, tar: &buf)
-    // 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
+    // 子問題 f(1) ：將 src 剩餘一個圓盤移到 tar
     move(src: &src, tar: &tar)
-    // 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
+    // 子問題 f(i-1) ：將 buf 頂部 i-1 個圓盤藉助 src 移到 tar
     dfs(i: i - 1, src: &buf, buf: &src, tar: &tar)
 }
 
-/* 求解汉诺塔问题 */
+/* 求解河內塔問題 */
 func solveHanota(A: inout [Int], B: inout [Int], C: inout [Int]) {
     let n = A.count
-    // 列表尾部是柱子顶部
-    // 将 src 顶部 n 个圆盘借助 B 移到 C
+    // 串列尾部是柱子頂部
+    // 將 src 頂部 n 個圓盤藉助 B 移到 C
     dfs(i: n, src: &A, buf: &B, tar: &C)
 }
 
@@ -39,18 +39,18 @@ func solveHanota(A: inout [Int], B: inout [Int], C: inout [Int]) {
 enum Hanota {
     /* Driver Code */
     static func main() {
-        // 列表尾部是柱子顶部
+        // 串列尾部是柱子頂部
         var A = [5, 4, 3, 2, 1]
         var B: [Int] = []
         var C: [Int] = []
-        print("初始状态下：")
+        print("初始狀態下：")
         print("A = \(A)")
         print("B = \(B)")
         print("C = \(C)")
 
         solveHanota(A: &A, B: &B, C: &C)
 
-        print("圆盘移动完成后：")
+        print("圓盤移動完成後：")
         print("A = \(A)")
         print("B = \(B)")
         print("C = \(C)")

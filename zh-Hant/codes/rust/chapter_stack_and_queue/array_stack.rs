@@ -6,35 +6,35 @@
 
 include!("../include/include.rs");
 
-/* 基于数组实现的栈 */
+/* 基於陣列實現的堆疊 */
 struct ArrayStack<T> {
     stack: Vec<T>,
 }
 
 impl<T> ArrayStack<T> {
-    /* 初始化栈 */
+    /* 初始化堆疊 */
     fn new() -> ArrayStack<T> {
         ArrayStack::<T> {
             stack: Vec::<T>::new(),
         }
     }
 
-    /* 获取栈的长度 */
+    /* 獲取堆疊的長度 */
     fn size(&self) -> usize {
         self.stack.len()
     }
 
-    /* 判断栈是否为空 */
+    /* 判斷堆疊是否為空 */
     fn is_empty(&self) -> bool {
         self.size() == 0
     }
 
-    /* 入栈 */
+    /* 入堆疊 */
     fn push(&mut self, num: T) {
         self.stack.push(num);
     }
 
-    /* 出栈 */
+    /* 出堆疊 */
     fn pop(&mut self) -> Option<T> {
         match self.stack.pop() {
             Some(num) => Some(num),
@@ -42,10 +42,10 @@ impl<T> ArrayStack<T> {
         }
     }
 
-    /* 访问栈顶元素 */
+    /* 訪問堆疊頂元素 */
     fn peek(&self) -> Option<&T> {
         if self.is_empty() {
-            panic!("栈为空")
+            panic!("堆疊為空")
         };
         self.stack.last()
     }
@@ -58,32 +58,32 @@ impl<T> ArrayStack<T> {
 
 /* Driver Code */
 fn main() {
-    // 初始化栈
+    // 初始化堆疊
     let mut stack = ArrayStack::<i32>::new();
 
-    // 元素入栈
+    // 元素入堆疊
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    print!("栈 stack = ");
+    print!("堆疊 stack = ");
     print_util::print_array(stack.to_array());
 
-    //访问栈顶元素
+    //訪問堆疊頂元素
     let peek = stack.peek().unwrap();
-    print!("\n栈顶元素 peek = {}", peek);
+    print!("\n堆疊頂元素 peek = {}", peek);
 
-    // 元素出栈
+    // 元素出堆疊
     let pop = stack.pop().unwrap();
-    print!("\n出栈元素 pop = {pop}，出栈后 stack = ");
+    print!("\n出堆疊元素 pop = {pop}，出堆疊後 stack = ");
     print_util::print_array(stack.to_array());
 
-    // 获取栈的长度
+    // 獲取堆疊的長度
     let size = stack.size();
-    print!("\n栈的长度 size = {size}");
+    print!("\n堆疊的長度 size = {size}");
 
-    // 判断是否为空
+    // 判斷是否為空
     let is_empty = stack.is_empty();
-    print!("\n栈是否为空 = {is_empty}");
+    print!("\n堆疊是否為空 = {is_empty}");
 }

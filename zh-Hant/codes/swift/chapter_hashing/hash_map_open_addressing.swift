@@ -6,16 +6,16 @@
 
 import utils
 
-/* 开放寻址哈希表 */
+/* 開放定址雜湊表 */
 class HashMapOpenAddressing {
-    var size: Int // 键值对数量
-    var capacity: Int // 哈希表容量
-    var loadThres: Double // 触发扩容的负载因子阈值
-    var extendRatio: Int // 扩容倍数
-    var buckets: [Pair?] // 桶数组
-    var TOMBSTONE: Pair // 删除标记
+    var size: Int // 鍵值對數量
+    var capacity: Int // 雜湊表容量
+    var loadThres: Double // 觸發擴容的負載因子閾值
+    var extendRatio: Int // 擴容倍數
+    var buckets: [Pair?] // 桶陣列
+    var TOMBSTONE: Pair // 刪除標記
 
-    /* 构造方法 */
+    /* 構造方法 */
     init() {
         size = 0
         capacity = 4
@@ -25,93 +25,93 @@ class HashMapOpenAddressing {
         TOMBSTONE = Pair(key: -1, val: "-1")
     }
 
-    /* 哈希函数 */
+    /* 雜湊函式 */
     func hashFunc(key: Int) -> Int {
         key % capacity
     }
 
-    /* 负载因子 */
+    /* 負載因子 */
     func loadFactor() -> Double {
         Double(size) / Double(capacity)
     }
 
-    /* 搜索 key 对应的桶索引 */
+    /* 搜尋 key 對應的桶索引 */
     func findBucket(key: Int) -> Int {
         var index = hashFunc(key: key)
         var firstTombstone = -1
-        // 线性探测，当遇到空桶时跳出
+        // 線性探查，當遇到空桶時跳出
         while buckets[index] != nil {
-            // 若遇到 key ，返回对应的桶索引
+            // 若遇到 key ，返回對應的桶索引
             if buckets[index]!.key == key {
-                // 若之前遇到了删除标记，则将键值对移动至该索引处
+                // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
                 if firstTombstone != -1 {
                     buckets[firstTombstone] = buckets[index]
                     buckets[index] = TOMBSTONE
-                    return firstTombstone // 返回移动后的桶索引
+                    return firstTombstone // 返回移動後的桶索引
                 }
                 return index // 返回桶索引
             }
-            // 记录遇到的首个删除标记
+            // 記錄遇到的首個刪除標記
             if firstTombstone == -1 && buckets[index] == TOMBSTONE {
                 firstTombstone = index
             }
-            // 计算桶索引，越过尾部则返回头部
+            // 計算桶索引，越過尾部則返回頭部
             index = (index + 1) % capacity
         }
-        // 若 key 不存在，则返回添加点的索引
+        // 若 key 不存在，則返回新增點的索引
         return firstTombstone == -1 ? index : firstTombstone
     }
 
-    /* 查询操作 */
+    /* 查詢操作 */
     func get(key: Int) -> String? {
-        // 搜索 key 对应的桶索引
+        // 搜尋 key 對應的桶索引
         let index = findBucket(key: key)
-        // 若找到键值对，则返回对应 val
+        // 若找到鍵值對，則返回對應 val
         if buckets[index] != nil, buckets[index] != TOMBSTONE {
             return buckets[index]!.val
         }
-        // 若键值对不存在，则返回 null
+        // 若鍵值對不存在，則返回 null
         return nil
     }
 
-    /* 添加操作 */
+    /* 新增操作 */
     func put(key: Int, val: String) {
-        // 当负载因子超过阈值时，执行扩容
+        // 當負載因子超過閾值時，執行擴容
         if loadFactor() > loadThres {
             extend()
         }
-        // 搜索 key 对应的桶索引
+        // 搜尋 key 對應的桶索引
         let index = findBucket(key: key)
-        // 若找到键值对，则覆盖 val 并返回
+        // 若找到鍵值對，則覆蓋 val 並返回
         if buckets[index] != nil, buckets[index] != TOMBSTONE {
             buckets[index]!.val = val
             return
         }
-        // 若键值对不存在，则添加该键值对
+        // 若鍵值對不存在，則新增該鍵值對
         buckets[index] = Pair(key: key, val: val)
         size += 1
     }
 
-    /* 删除操作 */
+    /* 刪除操作 */
     func remove(key: Int) {
-        // 搜索 key 对应的桶索引
+        // 搜尋 key 對應的桶索引
         let index = findBucket(key: key)
-        // 若找到键值对，则用删除标记覆盖它
+        // 若找到鍵值對，則用刪除標記覆蓋它
         if buckets[index] != nil, buckets[index] != TOMBSTONE {
             buckets[index] = TOMBSTONE
             size -= 1
         }
     }
 
-    /* 扩容哈希表 */
+    /* 擴容雜湊表 */
     func extend() {
-        // 暂存原哈希表
+        // 暫存原雜湊表
         let bucketsTmp = buckets
-        // 初始化扩容后的新哈希表
+        // 初始化擴容後的新雜湊表
         capacity *= extendRatio
         buckets = Array(repeating: nil, count: capacity)
         size = 0
-        // 将键值对从原哈希表搬运至新哈希表
+        // 將鍵值對從原雜湊表搬運至新雜湊表
         for pair in bucketsTmp {
             if let pair, pair != TOMBSTONE {
                 put(key: pair.key, val: pair.val)
@@ -119,7 +119,7 @@ class HashMapOpenAddressing {
         }
     }
 
-    /* 打印哈希表 */
+    /* 列印雜湊表 */
     func print() {
         for pair in buckets {
             if pair == nil {
@@ -137,28 +137,28 @@ class HashMapOpenAddressing {
 enum _HashMapOpenAddressing {
     /* Driver Code */
     static func main() {
-        /* 初始化哈希表 */
+        /* 初始化雜湊表 */
         let map = HashMapOpenAddressing()
 
-        /* 添加操作 */
-        // 在哈希表中添加键值对 (key, value)
+        /* 新增操作 */
+        // 在雜湊表中新增鍵值對 (key, value)
         map.put(key: 12836, val: "小哈")
-        map.put(key: 15937, val: "小啰")
+        map.put(key: 15937, val: "小囉")
         map.put(key: 16750, val: "小算")
         map.put(key: 13276, val: "小法")
-        map.put(key: 10583, val: "小鸭")
-        print("\n添加完成后，哈希表为\nKey -> Value")
+        map.put(key: 10583, val: "小鴨")
+        print("\n新增完成後，雜湊表為\nKey -> Value")
         map.print()
 
-        /* 查询操作 */
-        // 向哈希表中输入键 key ，得到值 value
+        /* 查詢操作 */
+        // 向雜湊表中輸入鍵 key ，得到值 value
         let name = map.get(key: 13276)
-        print("\n输入学号 13276 ，查询到姓名 \(name!)")
+        print("\n輸入學號 13276 ，查詢到姓名 \(name!)")
 
-        /* 删除操作 */
-        // 在哈希表中删除键值对 (key, value)
+        /* 刪除操作 */
+        // 在雜湊表中刪除鍵值對 (key, value)
         map.remove(key: 16750)
-        print("\n删除 16750 后，哈希表为\nKey -> Value")
+        print("\n刪除 16750 後，雜湊表為\nKey -> Value")
         map.print()
     }
 }

@@ -4,9 +4,9 @@
 
 package chapter_searching
 
-/* 二分查找最左一个 target */
+/* 二分搜尋最左一個 target */
 func binarySearchLeftEdge(nums []int, target int) int {
-	// 等价于查找 target 的插入点
+	// 等價於查詢 target 的插入點
 	i := binarySearchInsertion(nums, target)
 	// 未找到 target ，返回 -1
 	if i == len(nums) || nums[i] != target {
@@ -16,11 +16,11 @@ func binarySearchLeftEdge(nums []int, target int) int {
 	return i
 }
 
-/* 二分查找最右一个 target */
+/* 二分搜尋最右一個 target */
 func binarySearchRightEdge(nums []int, target int) int {
-	// 转化为查找最左一个 target + 1
+	// 轉化為查詢最左一個 target + 1
 	i := binarySearchInsertion(nums, target+1)
-	// j 指向最右一个 target ，i 指向首个大于 target 的元素
+	// j 指向最右一個 target ，i 指向首個大於 target 的元素
 	j := i - 1
 	// 未找到 target ，返回 -1
 	if j == -1 || nums[j] != target {

@@ -6,15 +6,15 @@ Author: krahets (krahets@163.com)
 
 
 class ListNode:
-    """链表节点类"""
+    """鏈結串列節點類"""
 
     def __init__(self, val: int):
-        self.val: int = val  # 节点值
-        self.next: ListNode | None = None  # 后继节点引用
+        self.val: int = val  # 節點值
+        self.next: ListNode | None = None  # 後繼節點引用
 
 
 def list_to_linked_list(arr: list[int]) -> ListNode | None:
-    """将列表序列化为链表"""
+    """將串列序列化為鏈結串列"""
     dum = head = ListNode(0)
     for a in arr:
         node = ListNode(a)
@@ -24,7 +24,7 @@ def list_to_linked_list(arr: list[int]) -> ListNode | None:
 
 
 def linked_list_to_list(head: ListNode | None) -> list[int]:
-    """将链表反序列化为列表"""
+    """將鏈結串列反序列化為串列"""
     arr: list[int] = []
     while head:
         arr.append(head.val)

@@ -8,9 +8,9 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* 基于链表实现的队列 */
+/* 基於鏈結串列實現的佇列 */
 class LinkedListQueue {
-    private ListNode front, rear; // 头节点 front ，尾节点 rear
+    private ListNode front, rear; // 頭節點 front ，尾節點 rear
     private int queSize = 0;
 
     public LinkedListQueue() {
@@ -18,25 +18,25 @@ class LinkedListQueue {
         rear = null;
     }
 
-    /* 获取队列的长度 */
+    /* 獲取佇列的長度 */
     public int size() {
         return queSize;
     }
 
-    /* 判断队列是否为空 */
+    /* 判斷佇列是否為空 */
     public boolean isEmpty() {
         return size() == 0;
     }
 
-    /* 入队 */
+    /* 入列 */
     public void push(int num) {
-        // 在尾节点后添加 num
+        // 在尾節點後新增 num
         ListNode node = new ListNode(num);
-        // 如果队列为空，则令头、尾节点都指向该节点
+        // 如果佇列為空，則令頭、尾節點都指向該節點
         if (front == null) {
             front = node;
             rear = node;
-        // 如果队列不为空，则将该节点添加到尾节点后
+        // 如果佇列不為空，則將該節點新增到尾節點後
         } else {
             rear.next = node;
             rear = node;
@@ -44,23 +44,23 @@ class LinkedListQueue {
         queSize++;
     }
 
-    /* 出队 */
+    /* 出列 */
     public int pop() {
         int num = peek();
-        // 删除头节点
+        // 刪除頭節點
         front = front.next;
         queSize--;
         return num;
     }
 
-    /* 访问队首元素 */
+    /* 訪問佇列首元素 */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return front.val;
     }
 
-    /* 将链表转化为 Array 并返回 */
+    /* 將鏈結串列轉化為 Array 並返回 */
     public int[] toArray() {
         ListNode node = front;
         int[] res = new int[size()];
@@ -74,31 +74,31 @@ class LinkedListQueue {
 
 public class linkedlist_queue {
     public static void main(String[] args) {
-        /* 初始化队列 */
+        /* 初始化佇列 */
         LinkedListQueue queue = new LinkedListQueue();
 
-        /* 元素入队 */
+        /* 元素入列 */
         queue.push(1);
         queue.push(3);
         queue.push(2);
         queue.push(5);
         queue.push(4);
-        System.out.println("队列 queue = " + Arrays.toString(queue.toArray()));
+        System.out.println("佇列 queue = " + Arrays.toString(queue.toArray()));
 
-        /* 访问队首元素 */
+        /* 訪問佇列首元素 */
         int peek = queue.peek();
-        System.out.println("队首元素 peek = " + peek);
+        System.out.println("佇列首元素 peek = " + peek);
 
-        /* 元素出队 */
+        /* 元素出列 */
         int pop = queue.pop();
-        System.out.println("出队元素 pop = " + pop + "，出队后 queue = " + Arrays.toString(queue.toArray()));
+        System.out.println("出列元素 pop = " + pop + "，出列後 queue = " + Arrays.toString(queue.toArray()));
 
-        /* 获取队列的长度 */
+        /* 獲取佇列的長度 */
         int size = queue.size();
-        System.out.println("队列长度 size = " + size);
+        System.out.println("佇列長度 size = " + size);
 
-        /* 判断队列是否为空 */
+        /* 判斷佇列是否為空 */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("队列是否为空 = " + isEmpty);
+        System.out.println("佇列是否為空 = " + isEmpty);
     }
 }
