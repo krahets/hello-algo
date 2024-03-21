@@ -13,7 +13,7 @@ function testPop(heap: Heap<number>) {
 }
 
 // $ deno run heap.ts
-(() => {
+(function main() {
     /* 初始化堆 */
     // 初始化小顶堆
     const minHeap = new Heap<number>();
