@@ -1,13 +1,13 @@
-# 栈与队列
+# 堆疊與佇列
 
 <div class="center-table" markdown>
 
-![栈与队列](../assets/covers/chapter_stack_and_queue.jpg)
+![堆疊與佇列](../assets/covers/chapter_stack_and_queue.jpg)
 
 </div>
 
 !!! abstract
 
-    栈如同叠猫猫，而队列就像猫猫排队。
+    堆疊如同疊貓貓，而佇列就像貓貓排隊。
     
-    两者分别代表先入后出和先入先出的逻辑关系。
+    兩者分別代表先入後出和先入先出的邏輯關係。

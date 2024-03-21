@@ -1,46 +1,46 @@
-# 一起参与创作
+# 一起參與創作
 
-由于笔者能力有限，书中难免存在一些遗漏和错误，请您谅解。如果您发现了笔误、链接失效、内容缺失、文字歧义、解释不清晰或行文结构不合理等问题，请协助我们进行修正，以给读者提供更优质的学习资源。
+由於筆者能力有限，書中難免存在一些遺漏和錯誤，請您諒解。如果您發現了筆誤、連結失效、內容缺失、文字歧義、解釋不清晰或行文結構不合理等問題，請協助我們進行修正，以給讀者提供更優質的學習資源。
 
-所有[撰稿人](https://github.com/krahets/hello-algo/graphs/contributors)的 GitHub ID 将在本书仓库、网页版和 PDF 版的主页上进行展示，以感谢他们对开源社区的无私奉献。
+所有[撰稿人](https://github.com/krahets/hello-algo/graphs/contributors)的 GitHub ID 將在本書倉庫、網頁版和 PDF 版的主頁上進行展示，以感謝他們對開源社群的無私奉獻。
 
-!!! success "开源的魅力"
+!!! success "開源的魅力"
 
-    纸质图书的两次印刷的间隔时间往往较久，内容更新非常不方便。
+    紙質圖書的兩次印刷的間隔時間往往較久，內容更新非常不方便。
     
-    而在本开源书中，内容更迭的时间被缩短至数日甚至几个小时。
+    而在本開源書中，內容更迭的時間被縮短至數日甚至幾個小時。
 
-### 内容微调
+### 內容微調
 
-如下图所示，每个页面的右上角都有“编辑图标”。您可以按照以下步骤修改文本或代码。
+如下圖所示，每個頁面的右上角都有“編輯圖示”。您可以按照以下步驟修改文字或程式碼。
 
-1. 点击“编辑图标”，如果遇到“需要 Fork 此仓库”的提示，请同意该操作。
-2. 修改 Markdown 源文件内容，检查内容的正确性，并尽量保持排版格式的统一。
-3. 在页面底部填写修改说明，然后点击“Propose file change”按钮。页面跳转后，点击“Create pull request”按钮即可发起拉取请求。
+1. 點選“編輯圖示”，如果遇到“需要 Fork 此倉庫”的提示，請同意該操作。
+2. 修改 Markdown 原始檔內容，檢查內容的正確性，並儘量保持排版格式的統一。
+3. 在頁面底部填寫修改說明，然後點選“Propose file change”按鈕。頁面跳轉後，點選“Create pull request”按鈕即可發起拉取請求。
 
-![页面编辑按键](contribution.assets/edit_markdown.png)
+![頁面編輯按鍵](contribution.assets/edit_markdown.png)
 
-图片无法直接修改，需要通过新建 [Issue](https://github.com/krahets/hello-algo/issues) 或评论留言来描述问题，我们会尽快重新绘制并替换图片。
+圖片無法直接修改，需要透過新建 [Issue](https://github.com/krahets/hello-algo/issues) 或評論留言來描述問題，我們會盡快重新繪製並替換圖片。
 
-### 内容创作
+### 內容創作
 
-如果您有兴趣参与此开源项目，包括将代码翻译成其他编程语言、扩展文章内容等，那么需要实施以下 Pull Request 工作流程。
+如果您有興趣參與此開源專案，包括將程式碼翻譯成其他程式語言、擴充套件文章內容等，那麼需要實施以下 Pull Request 工作流程。
 
-1. 登录 GitHub ，将本书的[代码仓库](https://github.com/krahets/hello-algo) Fork 到个人账号下。
-2. 进入您的 Fork 仓库网页，使用 `git clone` 命令将仓库克隆至本地。
-3. 在本地进行内容创作，并进行完整测试，验证代码的正确性。
-4. 将本地所做更改 Commit ，然后 Push 至远程仓库。
-5. 刷新仓库网页，点击“Create pull request”按钮即可发起拉取请求。
+1. 登入 GitHub ，將本書的[程式碼倉庫](https://github.com/krahets/hello-algo) Fork 到個人賬號下。
+2. 進入您的 Fork 倉庫網頁，使用 `git clone` 命令將倉庫克隆至本地。
+3. 在本地進行內容創作，並進行完整測試，驗證程式碼的正確性。
+4. 將本地所做更改 Commit ，然後 Push 至遠端倉庫。
+5. 重新整理倉庫網頁，點選“Create pull request”按鈕即可發起拉取請求。
 
 ### Docker 部署
 
-在 `hello-algo` 根目录下，执行以下 Docker 脚本，即可在 `http://localhost:8000` 访问本项目：
+在 `hello-algo` 根目錄下，執行以下 Docker 指令碼，即可在 `http://localhost:8000` 訪問本專案：
 
 ```shell
 docker-compose up -d
 ```
 
-使用以下命令即可删除部署：
+使用以下命令即可刪除部署：
 
 ```shell
 docker-compose down

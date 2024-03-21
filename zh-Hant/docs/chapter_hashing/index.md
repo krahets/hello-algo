@@ -1,13 +1,13 @@
-# 哈希表
+# 雜湊表
 
 <div class="center-table" markdown>
 
-![哈希表](../assets/covers/chapter_hashing.jpg)
+![雜湊表](../assets/covers/chapter_hashing.jpg)
 
 </div>
 
 !!! abstract
 
-    在计算机世界中，哈希表如同一位聪慧的图书管理员。
+    在計算機世界中，雜湊表如同一位聰慧的圖書管理員。
     
-    他知道如何计算索书号，从而可以快速找到目标图书。
+    他知道如何計算索書號，從而可以快速找到目標圖書。

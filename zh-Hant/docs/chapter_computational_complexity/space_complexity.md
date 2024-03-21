@@ -1,158 +1,158 @@
-# 空间复杂度
+# 空間複雜度
 
-「空间复杂度 space complexity」用于衡量算法占用内存空间随着数据量变大时的增长趋势。这个概念与时间复杂度非常类似，只需将“运行时间”替换为“占用内存空间”。
+「空間複雜度 space complexity」用於衡量算法佔用記憶體空間隨著資料量變大時的增長趨勢。這個概念與時間複雜度非常類似，只需將“執行時間”替換為“佔用記憶體空間”。
 
-## 算法相关空间
+## 演算法相關空間
 
-算法在运行过程中使用的内存空间主要包括以下几种。
+演算法在執行過程中使用的記憶體空間主要包括以下幾種。
 
-- **输入空间**：用于存储算法的输入数据。
-- **暂存空间**：用于存储算法在运行过程中的变量、对象、函数上下文等数据。
-- **输出空间**：用于存储算法的输出数据。
+- **輸入空間**：用於儲存演算法的輸入資料。
+- **暫存空間**：用於儲存演算法在執行過程中的變數、物件、函式上下文等資料。
+- **輸出空間**：用於儲存演算法的輸出資料。
 
-一般情况下，空间复杂度的统计范围是“暂存空间”加上“输出空间”。
+一般情況下，空間複雜度的統計範圍是“暫存空間”加上“輸出空間”。
 
-暂存空间可以进一步划分为三个部分。
+暫存空間可以進一步劃分為三個部分。
 
-- **暂存数据**：用于保存算法运行过程中的各种常量、变量、对象等。
-- **栈帧空间**：用于保存调用函数的上下文数据。系统在每次调用函数时都会在栈顶部创建一个栈帧，函数返回后，栈帧空间会被释放。
-- **指令空间**：用于保存编译后的程序指令，在实际统计中通常忽略不计。
+- **暫存資料**：用於儲存演算法執行過程中的各種常量、變數、物件等。
+- **堆疊幀空間**：用於儲存呼叫函式的上下文資料。系統在每次呼叫函式時都會在堆疊頂部建立一個堆疊幀，函式返回後，堆疊幀空間會被釋放。
+- **指令空間**：用於儲存編譯後的程式指令，在實際統計中通常忽略不計。
 
-在分析一段程序的空间复杂度时，**我们通常统计暂存数据、栈帧空间和输出数据三部分**，如下图所示。
+在分析一段程式的空間複雜度時，**我們通常統計暫存資料、堆疊幀空間和輸出資料三部分**，如下圖所示。
 
-![算法使用的相关空间](space_complexity.assets/space_types.png)
+![演算法使用的相關空間](space_complexity.assets/space_types.png)
 
-相关代码如下：
+相關程式碼如下：
 
 === "Python"
 
     ```python title=""
     class Node:
-        """类"""
+        """類"""
         def __init__(self, x: int):
-            self.val: int = x              # 节点值
-            self.next: Node | None = None  # 指向下一节点的引用
+            self.val: int = x              # 節點值
+            self.next: Node | None = None  # 指向下一節點的引用
 
     def function() -> int:
-        """函数"""
-        # 执行某些操作...
+        """函式"""
+        # 執行某些操作...
         return 0
 
-    def algorithm(n) -> int:  # 输入数据
-        A = 0                 # 暂存数据（常量，一般用大写字母表示）
-        b = 0                 # 暂存数据（变量）
-        node = Node(0)        # 暂存数据（对象）
-        c = function()        # 栈帧空间（调用函数）
-        return A + b + c      # 输出数据
+    def algorithm(n) -> int:  # 輸入資料
+        A = 0                 # 暫存資料（常量，一般用大寫字母表示）
+        b = 0                 # 暫存資料（變數）
+        node = Node(0)        # 暫存資料（物件）
+        c = function()        # 堆疊幀空間（呼叫函式）
+        return A + b + c      # 輸出資料
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* 结构体 */
+    /* 結構體 */
     struct Node {
         int val;
         Node *next;
         Node(int x) : val(x), next(nullptr) {}
     };
 
-    /* 函数 */
+    /* 函式 */
     int func() {
-        // 执行某些操作...
+        // 執行某些操作...
         return 0;
     }
 
-    int algorithm(int n) {        // 输入数据
-        const int a = 0;          // 暂存数据（常量）
-        int b = 0;                // 暂存数据（变量）
-        Node* node = new Node(0); // 暂存数据（对象）
-        int c = func();           // 栈帧空间（调用函数）
-        return a + b + c;         // 输出数据
+    int algorithm(int n) {        // 輸入資料
+        const int a = 0;          // 暫存資料（常量）
+        int b = 0;                // 暫存資料（變數）
+        Node* node = new Node(0); // 暫存資料（物件）
+        int c = func();           // 堆疊幀空間（呼叫函式）
+        return a + b + c;         // 輸出資料
     }
     ```
 
 === "Java"
 
     ```java title=""
-    /* 类 */
+    /* 類 */
     class Node {
         int val;
         Node next;
         Node(int x) { val = x; }
     }
     
-    /* 函数 */
+    /* 函式 */
     int function() {
-        // 执行某些操作...
+        // 執行某些操作...
         return 0;
     }
     
-    int algorithm(int n) {        // 输入数据
-        final int a = 0;          // 暂存数据（常量）
-        int b = 0;                // 暂存数据（变量）
-        Node node = new Node(0);  // 暂存数据（对象）
-        int c = function();       // 栈帧空间（调用函数）
-        return a + b + c;         // 输出数据
+    int algorithm(int n) {        // 輸入資料
+        final int a = 0;          // 暫存資料（常量）
+        int b = 0;                // 暫存資料（變數）
+        Node node = new Node(0);  // 暫存資料（物件）
+        int c = function();       // 堆疊幀空間（呼叫函式）
+        return a + b + c;         // 輸出資料
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* 类 */
+    /* 類 */
     class Node(int x) {
         int val = x;
         Node next;
     }
 
-    /* 函数 */
+    /* 函式 */
     int Function() {
-        // 执行某些操作...
+        // 執行某些操作...
         return 0;
     }
 
-    int Algorithm(int n) {        // 输入数据
-        const int a = 0;          // 暂存数据（常量）
-        int b = 0;                // 暂存数据（变量）
-        Node node = new(0);       // 暂存数据（对象）
-        int c = Function();       // 栈帧空间（调用函数）
-        return a + b + c;         // 输出数据
+    int Algorithm(int n) {        // 輸入資料
+        const int a = 0;          // 暫存資料（常量）
+        int b = 0;                // 暫存資料（變數）
+        Node node = new(0);       // 暫存資料（物件）
+        int c = Function();       // 堆疊幀空間（呼叫函式）
+        return a + b + c;         // 輸出資料
     }
     ```
 
 === "Go"
 
     ```go title=""
-    /* 结构体 */
+    /* 結構體 */
     type node struct {
         val  int
         next *node
     }
 
-    /* 创建 node 结构体  */
+    /* 建立 node 結構體  */
     func newNode(val int) *node {
         return &node{val: val}
     }
     
-    /* 函数 */
+    /* 函式 */
     func function() int {
-        // 执行某些操作...
+        // 執行某些操作...
         return 0
     }
 
-    func algorithm(n int) int { // 输入数据
-        const a = 0             // 暂存数据（常量）
-        b := 0                  // 暂存数据（变量）
-        newNode(0)              // 暂存数据（对象）
-        c := function()         // 栈帧空间（调用函数）
-        return a + b + c        // 输出数据
+    func algorithm(n int) int { // 輸入資料
+        const a = 0             // 暫存資料（常量）
+        b := 0                  // 暫存資料（變數）
+        newNode(0)              // 暫存資料（物件）
+        c := function()         // 堆疊幀空間（呼叫函式）
+        return a + b + c        // 輸出資料
     }
     ```
 
 === "Swift"
 
     ```swift title=""
-    /* 类 */
+    /* 類 */
     class Node {
         var val: Int
         var next: Node?
@@ -162,99 +162,99 @@
         }
     }
 
-    /* 函数 */
+    /* 函式 */
     func function() -> Int {
-        // 执行某些操作...
+        // 執行某些操作...
         return 0
     }
 
-    func algorithm(n: Int) -> Int { // 输入数据
-        let a = 0             // 暂存数据（常量）
-        var b = 0             // 暂存数据（变量）
-        let node = Node(x: 0) // 暂存数据（对象）
-        let c = function()    // 栈帧空间（调用函数）
-        return a + b + c      // 输出数据
+    func algorithm(n: Int) -> Int { // 輸入資料
+        let a = 0             // 暫存資料（常量）
+        var b = 0             // 暫存資料（變數）
+        let node = Node(x: 0) // 暫存資料（物件）
+        let c = function()    // 堆疊幀空間（呼叫函式）
+        return a + b + c      // 輸出資料
     }
     ```
 
 === "JS"
 
     ```javascript title=""
-    /* 类 */
+    /* 類 */
     class Node {
         val;
         next;
         constructor(val) {
-            this.val = val === undefined ? 0 : val; // 节点值
-            this.next = null;                       // 指向下一节点的引用
+            this.val = val === undefined ? 0 : val; // 節點值
+            this.next = null;                       // 指向下一節點的引用
         }
     }
 
-    /* 函数 */
+    /* 函式 */
     function constFunc() {
-        // 执行某些操作
+        // 執行某些操作
         return 0;
     }
 
-    function algorithm(n) {       // 输入数据
-        const a = 0;              // 暂存数据（常量）
-        let b = 0;                // 暂存数据（变量）
-        const node = new Node(0); // 暂存数据（对象）
-        const c = constFunc();    // 栈帧空间（调用函数）
-        return a + b + c;         // 输出数据
+    function algorithm(n) {       // 輸入資料
+        const a = 0;              // 暫存資料（常量）
+        let b = 0;                // 暫存資料（變數）
+        const node = new Node(0); // 暫存資料（物件）
+        const c = constFunc();    // 堆疊幀空間（呼叫函式）
+        return a + b + c;         // 輸出資料
     }
     ```
 
 === "TS"
 
     ```typescript title=""
-    /* 类 */
+    /* 類 */
     class Node {
         val: number;
         next: Node | null;
         constructor(val?: number) {
-            this.val = val === undefined ? 0 : val; // 节点值
-            this.next = null;                       // 指向下一节点的引用
+            this.val = val === undefined ? 0 : val; // 節點值
+            this.next = null;                       // 指向下一節點的引用
         }
     }
 
-    /* 函数 */
+    /* 函式 */
     function constFunc(): number {
-        // 执行某些操作
+        // 執行某些操作
         return 0;
     }
 
-    function algorithm(n: number): number { // 输入数据
-        const a = 0;                        // 暂存数据（常量）
-        let b = 0;                          // 暂存数据（变量）
-        const node = new Node(0);           // 暂存数据（对象）
-        const c = constFunc();              // 栈帧空间（调用函数）
-        return a + b + c;                   // 输出数据
+    function algorithm(n: number): number { // 輸入資料
+        const a = 0;                        // 暫存資料（常量）
+        let b = 0;                          // 暫存資料（變數）
+        const node = new Node(0);           // 暫存資料（物件）
+        const c = constFunc();              // 堆疊幀空間（呼叫函式）
+        return a + b + c;                   // 輸出資料
     }
     ```
 
 === "Dart"
 
     ```dart title=""
-    /* 类 */
+    /* 類 */
     class Node {
       int val;
       Node next;
       Node(this.val, [this.next]);
     }
 
-    /* 函数 */
+    /* 函式 */
     int function() {
-      // 执行某些操作...
+      // 執行某些操作...
       return 0;
     }
 
-    int algorithm(int n) {  // 输入数据
-      const int a = 0;      // 暂存数据（常量）
-      int b = 0;            // 暂存数据（变量）
-      Node node = Node(0);  // 暂存数据（对象）
-      int c = function();   // 栈帧空间（调用函数）
-      return a + b + c;     // 输出数据
+    int algorithm(int n) {  // 輸入資料
+      const int a = 0;      // 暫存資料（常量）
+      int b = 0;            // 暫存資料（變數）
+      Node node = Node(0);  // 暫存資料（物件）
+      int c = function();   // 堆疊幀空間（呼叫函式）
+      return a + b + c;     // 輸出資料
     }
     ```
 
@@ -264,48 +264,48 @@
     use std::rc::Rc;
     use std::cell::RefCell;
     
-    /* 结构体 */
+    /* 結構體 */
     struct Node {
         val: i32,
         next: Option<Rc<RefCell<Node>>>,
     }
 
-    /* 创建 Node 结构体 */
+    /* 建立 Node 結構體 */
     impl Node {
         fn new(val: i32) -> Self {
             Self { val: val, next: None }
         }
     }
 
-    /* 函数 */
+    /* 函式 */
     fn function() -> i32 {      
-        // 执行某些操作...
+        // 執行某些操作...
         return 0;
     }
 
-    fn algorithm(n: i32) -> i32 {       // 输入数据
-        const a: i32 = 0;               // 暂存数据（常量）
-        let mut b = 0;                  // 暂存数据（变量）
-        let node = Node::new(0);        // 暂存数据（对象）
-        let c = function();             // 栈帧空间（调用函数）
-        return a + b + c;               // 输出数据
+    fn algorithm(n: i32) -> i32 {       // 輸入資料
+        const a: i32 = 0;               // 暫存資料（常量）
+        let mut b = 0;                  // 暫存資料（變數）
+        let node = Node::new(0);        // 暫存資料（物件）
+        let c = function();             // 堆疊幀空間（呼叫函式）
+        return a + b + c;               // 輸出資料
     }
     ```
 
 === "C"
 
     ```c title=""
-    /* 函数 */
+    /* 函式 */
     int func() {
-        // 执行某些操作...
+        // 執行某些操作...
         return 0;
     }
 
-    int algorithm(int n) { // 输入数据
-        const int a = 0;   // 暂存数据（常量）
-        int b = 0;         // 暂存数据（变量）
-        int c = func();    // 栈帧空间（调用函数）
-        return a + b + c;  // 输出数据
+    int algorithm(int n) { // 輸入資料
+        const int a = 0;   // 暫存資料（常量）
+        int b = 0;         // 暫存資料（變數）
+        int c = func();    // 堆疊幀空間（呼叫函式）
+        return a + b + c;  // 輸出資料
     }
     ```
 
@@ -317,14 +317,14 @@
 
 ## 推算方法
 
-空间复杂度的推算方法与时间复杂度大致相同，只需将统计对象从“操作数量”转为“使用空间大小”。
+空間複雜度的推算方法與時間複雜度大致相同，只需將統計物件從“運算元量”轉為“使用空間大小”。
 
-而与时间复杂度不同的是，**我们通常只关注最差空间复杂度**。这是因为内存空间是一项硬性要求，我们必须确保在所有输入数据下都有足够的内存空间预留。
+而與時間複雜度不同的是，**我們通常只關注最差空間複雜度**。這是因為記憶體空間是一項硬性要求，我們必須確保在所有輸入資料下都有足夠的記憶體空間預留。
 
-观察以下代码，最差空间复杂度中的“最差”有两层含义。
+觀察以下程式碼，最差空間複雜度中的“最差”有兩層含義。
 
-1. **以最差输入数据为准**：当 $n < 10$ 时，空间复杂度为 $O(1)$ ；但当 $n > 10$ 时，初始化的数组 `nums` 占用 $O(n)$ 空间，因此最差空间复杂度为 $O(n)$ 。
-2. **以算法运行中的峰值内存为准**：例如，程序在执行最后一行之前，占用 $O(1)$ 空间；当初始化数组 `nums` 时，程序占用 $O(n)$ 空间，因此最差空间复杂度为 $O(n)$ 。
+1. **以最差輸入資料為準**：當 $n < 10$ 時，空間複雜度為 $O(1)$ ；但當 $n > 10$ 時，初始化的陣列 `nums` 佔用 $O(n)$ 空間，因此最差空間複雜度為 $O(n)$ 。
+2. **以演算法執行中的峰值記憶體為準**：例如，程式在執行最後一行之前，佔用 $O(1)$ 空間；當初始化陣列 `nums` 時，程式佔用 $O(n)$ 空間，因此最差空間複雜度為 $O(n)$ 。
 
 === "Python"
 
@@ -461,22 +461,22 @@
 
     ```
 
-**在递归函数中，需要注意统计栈帧空间**。观察以下代码：
+**在遞迴函式中，需要注意統計堆疊幀空間**。觀察以下程式碼：
 
 === "Python"
 
     ```python title=""
     def function() -> int:
-        # 执行某些操作
+        # 執行某些操作
         return 0
 
     def loop(n: int):
-        """循环的空间复杂度为 O(1)"""
+        """迴圈的空間複雜度為 O(1)"""
         for _ in range(n):
             function()
 
     def recur(n: int) -> int:
-        """递归的空间复杂度为 O(n)"""
+        """遞迴的空間複雜度為 O(n)"""
         if n == 1: return
         return recur(n - 1)
     ```
@@ -485,16 +485,16 @@
 
     ```cpp title=""
     int func() {
-        // 执行某些操作
+        // 執行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 迴圈 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* 递归 O(n) */
+    /* 遞迴 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
@@ -505,16 +505,16 @@
 
     ```java title=""
     int function() {
-        // 执行某些操作
+        // 執行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 迴圈 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             function();
         }
     }
-    /* 递归 O(n) */
+    /* 遞迴 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
@@ -525,16 +525,16 @@
 
     ```csharp title=""
     int Function() {
-        // 执行某些操作
+        // 執行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 迴圈 O(1) */
     void Loop(int n) {
         for (int i = 0; i < n; i++) {
             Function();
         }
     }
-    /* 递归 O(n) */
+    /* 遞迴 O(n) */
     int Recur(int n) {
         if (n == 1) return 1;
         return Recur(n - 1);
@@ -545,18 +545,18 @@
 
     ```go title=""
     func function() int {
-        // 执行某些操作
+        // 執行某些操作
         return 0
     }
     
-    /* 循环 O(1) */
+    /* 迴圈 O(1) */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
     
-    /* 递归 O(n) */
+    /* 遞迴 O(n) */
     func recur(n int) {
         if n == 1 {
             return
@@ -570,18 +570,18 @@
     ```swift title=""
     @discardableResult
     func function() -> Int {
-        // 执行某些操作
+        // 執行某些操作
         return 0
     }
 
-    /* 循环 O(1) */
+    /* 迴圈 O(1) */
     func loop(n: Int) {
         for _ in 0 ..< n {
             function()
         }
     }
 
-    /* 递归 O(n) */
+    /* 遞迴 O(n) */
     func recur(n: Int) {
         if n == 1 {
             return
@@ -594,16 +594,16 @@
 
     ```javascript title=""
     function constFunc() {
-        // 执行某些操作
+        // 執行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 迴圈 O(1) */
     function loop(n) {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* 递归 O(n) */
+    /* 遞迴 O(n) */
     function recur(n) {
         if (n === 1) return;
         return recur(n - 1);
@@ -614,16 +614,16 @@
 
     ```typescript title=""
     function constFunc(): number {
-        // 执行某些操作
+        // 執行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 迴圈 O(1) */
     function loop(n: number): void {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* 递归 O(n) */
+    /* 遞迴 O(n) */
     function recur(n: number): void {
         if (n === 1) return;
         return recur(n - 1);
@@ -634,16 +634,16 @@
 
     ```dart title=""
     int function() {
-      // 执行某些操作
+      // 執行某些操作
       return 0;
     }
-    /* 循环 O(1) */
+    /* 迴圈 O(1) */
     void loop(int n) {
       for (int i = 0; i < n; i++) {
         function();
       }
     }
-    /* 递归 O(n) */
+    /* 遞迴 O(n) */
     void recur(int n) {
       if (n == 1) return;
       return recur(n - 1);
@@ -654,16 +654,16 @@
 
     ```rust title=""
     fn function() -> i32 {
-        // 执行某些操作
+        // 執行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 迴圈 O(1) */
     fn loop(n: i32) {
         for i in 0..n {
             function();
         }
     }
-    /* 递归 O(n) */
+    /* 遞迴 O(n) */
     void recur(n: i32) {
         if n == 1 {
             return;
@@ -676,16 +676,16 @@
 
     ```c title=""
     int func() {
-        // 执行某些操作
+        // 執行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 迴圈 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* 递归 O(n) */
+    /* 遞迴 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
@@ -698,86 +698,86 @@
 
     ```
 
-函数 `loop()` 和 `recur()` 的时间复杂度都为 $O(n)$ ，但空间复杂度不同。
+函式 `loop()` 和 `recur()` 的時間複雜度都為 $O(n)$ ，但空間複雜度不同。
 
-- 函数 `loop()` 在循环中调用了 $n$ 次 `function()` ，每轮中的 `function()` 都返回并释放了栈帧空间，因此空间复杂度仍为 $O(1)$ 。
-- 递归函数 `recur()` 在运行过程中会同时存在 $n$ 个未返回的 `recur()` ，从而占用 $O(n)$ 的栈帧空间。
+- 函式 `loop()` 在迴圈中呼叫了 $n$ 次 `function()` ，每輪中的 `function()` 都返回並釋放了堆疊幀空間，因此空間複雜度仍為 $O(1)$ 。
+- 遞迴函式 `recur()` 在執行過程中會同時存在 $n$ 個未返回的 `recur()` ，從而佔用 $O(n)$ 的堆疊幀空間。
 
-## 常见类型
+## 常見型別
 
-设输入数据大小为 $n$ ，下图展示了常见的空间复杂度类型（从低到高排列）。
+設輸入資料大小為 $n$ ，下圖展示了常見的空間複雜度型別（從低到高排列）。
 
 $$
 \begin{aligned}
 O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
-\text{常数阶} < \text{对数阶} < \text{线性阶} < \text{平方阶} < \text{指数阶}
+\text{常數階} < \text{對數階} < \text{線性階} < \text{平方階} < \text{指數階}
 \end{aligned}
 $$
 
-![常见的空间复杂度类型](space_complexity.assets/space_complexity_common_types.png)
+![常見的空間複雜度型別](space_complexity.assets/space_complexity_common_types.png)
 
-### 常数阶 $O(1)$
+### 常數階 $O(1)$
 
-常数阶常见于数量与输入数据大小 $n$ 无关的常量、变量、对象。
+常數階常見於數量與輸入資料大小 $n$ 無關的常量、變數、物件。
 
-需要注意的是，在循环中初始化变量或调用函数而占用的内存，在进入下一循环后就会被释放，因此不会累积占用空间，空间复杂度仍为 $O(1)$ ：
+需要注意的是，在迴圈中初始化變數或呼叫函式而佔用的記憶體，在進入下一迴圈後就會被釋放，因此不會累積佔用空間，空間複雜度仍為 $O(1)$ ：
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{constant}
 ```
 
-### 线性阶 $O(n)$
+### 線性階 $O(n)$
 
-线性阶常见于元素数量与 $n$ 成正比的数组、链表、栈、队列等：
+線性階常見於元素數量與 $n$ 成正比的陣列、鏈結串列、堆疊、佇列等：
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{linear}
 ```
 
-如下图所示，此函数的递归深度为 $n$ ，即同时存在 $n$ 个未返回的 `linear_recur()` 函数，使用 $O(n)$ 大小的栈帧空间：
+如下圖所示，此函式的遞迴深度為 $n$ ，即同時存在 $n$ 個未返回的 `linear_recur()` 函式，使用 $O(n)$ 大小的堆疊幀空間：
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{linear_recur}
 ```
 
-![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png)
+![遞迴函式產生的線性階空間複雜度](space_complexity.assets/space_complexity_recursive_linear.png)
 
-### 平方阶 $O(n^2)$
+### 平方階 $O(n^2)$
 
-平方阶常见于矩阵和图，元素数量与 $n$ 成平方关系：
+平方階常見於矩陣和圖，元素數量與 $n$ 成平方關係：
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic}
 ```
 
-如下图所示，该函数的递归深度为 $n$ ，在每个递归函数中都初始化了一个数组，长度分别为 $n$、$n-1$、$\dots$、$2$、$1$ ，平均长度为 $n / 2$ ，因此总体占用 $O(n^2)$ 空间：
+如下圖所示，該函式的遞迴深度為 $n$ ，在每個遞迴函式中都初始化了一個數組，長度分別為 $n$、$n-1$、$\dots$、$2$、$1$ ，平均長度為 $n / 2$ ，因此總體佔用 $O(n^2)$ 空間：
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
 ```
 
-![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png)
+![遞迴函式產生的平方階空間複雜度](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
-### 指数阶 $O(2^n)$
+### 指數階 $O(2^n)$
 
-指数阶常见于二叉树。观察下图，层数为 $n$ 的“满二叉树”的节点数量为 $2^n - 1$ ，占用 $O(2^n)$ 空间：
+指數階常見於二元樹。觀察下圖，層數為 $n$ 的“滿二元樹”的節點數量為 $2^n - 1$ ，佔用 $O(2^n)$ 空間：
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{build_tree}
 ```
 
-![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.png)
+![滿二元樹產生的指數階空間複雜度](space_complexity.assets/space_complexity_exponential.png)
 
-### 对数阶 $O(\log n)$
+### 對數階 $O(\log n)$
 
-对数阶常见于分治算法。例如归并排序，输入长度为 $n$ 的数组，每轮递归将数组从中点处划分为两半，形成高度为 $\log n$ 的递归树，使用 $O(\log n)$ 栈帧空间。
+對數階常見於分治演算法。例如歸併排序，輸入長度為 $n$ 的陣列，每輪遞迴將陣列從中點處劃分為兩半，形成高度為 $\log n$ 的遞迴樹，使用 $O(\log n)$ 堆疊幀空間。
 
-再例如将数字转化为字符串，输入一个正整数 $n$ ，它的位数为 $\lfloor \log_{10} n \rfloor + 1$ ，即对应字符串长度为 $\lfloor \log_{10} n \rfloor + 1$ ，因此空间复杂度为 $O(\log_{10} n + 1) = O(\log n)$ 。
+再例如將數字轉化為字串，輸入一個正整數 $n$ ，它的位數為 $\lfloor \log_{10} n \rfloor + 1$ ，即對應字串長度為 $\lfloor \log_{10} n \rfloor + 1$ ，因此空間複雜度為 $O(\log_{10} n + 1) = O(\log n)$ 。
 
-## 权衡时间与空间
+## 權衡時間與空間
 
-理想情况下，我们希望算法的时间复杂度和空间复杂度都能达到最优。然而在实际情况中，同时优化时间复杂度和空间复杂度通常非常困难。
+理想情況下，我們希望演算法的時間複雜度和空間複雜度都能達到最優。然而在實際情況中，同時最佳化時間複雜度和空間複雜度通常非常困難。
 
-**降低时间复杂度通常需要以提升空间复杂度为代价，反之亦然**。我们将牺牲内存空间来提升算法运行速度的思路称为“以空间换时间”；反之，则称为“以时间换空间”。
+**降低時間複雜度通常需要以提升空間複雜度為代價，反之亦然**。我們將犧牲記憶體空間來提升演算法執行速度的思路稱為“以空間換時間”；反之，則稱為“以時間換空間”。
 
-选择哪种思路取决于我们更看重哪个方面。在大多数情况下，时间比空间更宝贵，因此“以空间换时间”通常是更常用的策略。当然，在数据量很大的情况下，控制空间复杂度也非常重要。
+選擇哪種思路取決於我們更看重哪個方面。在大多數情況下，時間比空間更寶貴，因此“以空間換時間”通常是更常用的策略。當然，在資料量很大的情況下，控制空間複雜度也非常重要。
