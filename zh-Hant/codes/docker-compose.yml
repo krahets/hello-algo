@@ -4,7 +4,7 @@ services:
     build:
       context: .
       args:
-        # 设置需要安装的语言，使用空格隔开
+        # 設定需要安裝的語言，使用空格隔開
         # Set the languages to be installed, separated by spaces
         LANGS: "python cpp java csharp"
     image: hello-algo-code
