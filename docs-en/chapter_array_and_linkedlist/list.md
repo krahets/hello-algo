@@ -135,6 +135,16 @@ We typically use two initialization methods: "without initial values" and "with 
     try nums.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
     ```
 
+=== "Ruby"
+
+    ```rb title="list.rb"
+    # Initialize list
+    # Without initial values
+    nums1 = []
+    # With initial values
+    nums = [1, 3, 2, 5, 4]
+    ```
+
 ### Accessing Elements
 
 Lists are essentially arrays, thus they can access and update elements in $O(1)$ time, which is very efficient.
@@ -252,6 +262,15 @@ Lists are essentially arrays, thus they can access and update elements in $O(1)$
 
     // Update elements
     nums.items[1] = 0; // Update the element at index 1 to 0  
+    ```
+
+=== "Ruby"
+
+    ```rb title="list.rb"
+    # Access elements
+    num = nums[1]
+    # Update elements
+    nums[1] = 0
     ```
 
 ### Inserting and Removing Elements
@@ -484,6 +503,26 @@ Compared to arrays, lists offer more flexibility in adding and removing elements
     _ = nums.orderedRemove(3); // Remove the element at index 3
     ```
 
+=== "Ruby"
+
+    ```rb title="list.rb"
+    # Clear list
+    nums.clear
+
+    # Append elements at the end
+    nums << 1
+    nums << 3
+    nums << 2
+    nums << 5
+    nums << 4
+
+    # Insert element in the middle
+    nums.insert 3, 6 # Insert number 6 at index 3
+
+    # Remove elements
+    nums.delete_at 3 # Remove the element at index 3
+    ```
+
 ### Iterating the List
 
 Similar to arrays, lists can be iterated either by using indices or by directly iterating through each element.
@@ -667,6 +706,22 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
     }
     ```
 
+=== "Ruby"
+
+    ```rb title="list.rb"
+    # Iterate through the list by index
+    count = 0
+    for i in 0...nums.length
+        count += nums[i]
+    end
+
+    # Iterate directly though list elements
+    count = 0
+    for num in nums
+        count += num
+    end
+    ```
+
 ### Concatenating Lists
 
 Given a new list `nums1`, we can append it to the end of the original list.
@@ -768,6 +823,14 @@ Given a new list `nums1`, we can append it to the end of the original list.
     try nums.insertSlice(nums.items.len, nums1.items); // Concatenate nums1 to the end of nums
     ```
 
+=== "Ruby"
+
+    ```rb title="list.rb"
+    # Concatenate two lists
+    nums1 = [6, 8, 7, 10, 9]
+    nums += nums1
+    ```
+
 ### Sorting the List
 
 Once the list is sorted, we can employ algorithms commonly used in array-related algorithm problems, such as "binary search" and "two-pointer" algorithms.
@@ -853,6 +916,13 @@ Once the list is sorted, we can employ algorithms commonly used in array-related
     ```zig title="list.zig"
     // Sort the list
     std.sort.sort(i32, nums.items, {}, comptime std.sort.asc(i32));
+    ```
+
+=== "Ruby"
+
+    ```rb title="list.rb"
+    # Sort the list
+    nums = nums.sort { |a, b| a <=> b }
     ```
 
 ## List Implementation

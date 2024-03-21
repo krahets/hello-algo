@@ -179,6 +179,21 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
     }
     ```
 
+=== "Ruby"
+
+    ```rb title=""
+    # Linked List Node Class
+    class ListNode
+      attr_accessor :val  # Node value
+      attr_accessor :next # Reference to the next node
+
+      def initialize(val=nil, next_node=nil)
+        @val = val || 0
+        @next = next_node
+      end
+    end
+  
+
 ## Common Operations on Linked Lists
 
 ### Initializing a Linked List
@@ -388,6 +403,23 @@ Constructing a linked list is a two-step process: first, initializing each node 
     n1.next = &n2;
     n2.next = &n3;
     n3.next = &n4;
+    ```
+
+=== "Ruby"
+
+    ```rb title=linked_list.rb
+    # Initialize linked list 1 -> 3 -> 2 -> 5 -> 4
+    # Initialize each node
+    n0 = ListNode.new 1
+    n1 = ListNode.new 3
+    n2 = ListNode.new 2
+    n3 = ListNode.new 5
+    n4 = ListNode.new 4
+    # Build references between nodes
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
     ```
 
 The array as a whole is a variable, for instance, the array `nums` includes elements like `nums[0]`, `nums[1]`, and so on, whereas a linked list is made up of several distinct node objects. **We typically refer to a linked list by its head node**, for example, the linked list in the previous code snippet is referred to as `n0`.
@@ -644,6 +676,23 @@ As shown in the figure, there are three common types of linked lists.
             }
         };
     }
+    ```
+
+=== "Ruby"
+
+    ```rb title=""
+    # Bidirectional linked list node class
+    class ListNode
+      attr_accessor :val    # Node value
+      attr_accessor :next   # Reference to the successor node
+      attr_accessor :prev   # Reference to the predecessor node
+
+      def initialize(val=nil, next_node=nil, prev_node=nil)
+        @val = val || 0
+        @next = next_node
+        @prev = prev_node
+      end
+    end
     ```
 
 ![Common Types of Linked Lists](linked_list.assets/linkedlist_common_types.png)

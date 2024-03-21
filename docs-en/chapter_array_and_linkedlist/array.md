@@ -113,6 +113,14 @@ Arrays can be initialized in two ways depending on the needs: either without ini
     var nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
+=== "Ruby"
+
+    ```rb title="array.rb"
+    # Initialize array
+    arr = Array.new(5, 0) # [ 0, 0, 0, 0, 0 ]
+    nums = [1, 3, 2, 5, 4]
+    ```
+
 ### Accessing Elements
 
 Elements in an array are stored in contiguous memory spaces, making it simpler to compute each element's memory address. The formula shown in the Figure below aids in determining an element's memory address, utilizing the array's memory address (specifically, the first element's address) and the element's index. This computation streamlines direct access to the desired element.
