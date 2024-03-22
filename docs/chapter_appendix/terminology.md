@@ -18,6 +18,7 @@ comments: true
 | algorithm                      | 算法           | 演算法         |
 | data structure                 | 数据结构       | 資料結構       |
 | code                           | 代码           | 程式碼         |
+| file                           | 文件           | 檔案           |
 | function                       | 函数           | 函式           |
 | method                         | 方法           | 方法           |
 | variable                       | 变量           | 變數           |
@@ -81,6 +82,7 @@ comments: true
 | complete binary tree           | 完全二叉树     | 完全二元樹     |
 | full binary tree               | 完满二叉树     | 完滿二元樹     |
 | balanced binary tree           | 平衡二叉树     | 平衡二元樹     |
+| binary search tree             | 二叉搜索树     | 二元搜尋樹     |
 | AVL tree                       | AVL 树         | AVL 樹         |
 | red-black tree                 | 红黑树         | 紅黑樹         |
 | level-order traversal          | 层序遍历       | 層序走訪       |

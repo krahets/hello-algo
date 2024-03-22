@@ -2,6 +2,9 @@
   {% if config.theme.language == 'zh' %}
     {% set comm = "欢迎在评论区留下你的见解、问题或建议" %}
     {% set lang = "zh-CN" %}
+  {% elif config.theme.language == 'zh-Hant' %}
+    {% set comm = "歡迎在評論區留下你的見解、問題或建議" %}
+    {% set lang = "zh-TW" %}
   {% elif config.theme.language == 'en' %}
     {% set comm = "Feel free to drop your insights, questions or suggestions" %}
     {% set lang = "en" %}

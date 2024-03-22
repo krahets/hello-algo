@@ -2330,7 +2330,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    def logarithmic(n: float) -> int:
+    def logarithmic(n: int) -> int:
         """对数阶（循环实现）"""
         count = 0
         while n > 1:
@@ -2343,7 +2343,7 @@ $$
 
     ```cpp title="time_complexity.cpp"
     /* 对数阶（循环实现） */
-    int logarithmic(float n) {
+    int logarithmic(int n) {
         int count = 0;
         while (n > 1) {
             n = n / 2;
@@ -2357,7 +2357,7 @@ $$
 
     ```java title="time_complexity.java"
     /* 对数阶（循环实现） */
-    int logarithmic(float n) {
+    int logarithmic(int n) {
         int count = 0;
         while (n > 1) {
             n = n / 2;
@@ -2371,7 +2371,7 @@ $$
 
     ```csharp title="time_complexity.cs"
     /* 对数阶（循环实现） */
-    int Logarithmic(float n) {
+    int Logarithmic(int n) {
         int count = 0;
         while (n > 1) {
             n /= 2;
@@ -2385,7 +2385,7 @@ $$
 
     ```go title="time_complexity.go"
     /* 对数阶（循环实现）*/
-    func logarithmic(n float64) int {
+    func logarithmic(n int) int {
         count := 0
         for n > 1 {
             n = n / 2
@@ -2399,7 +2399,7 @@ $$
 
     ```swift title="time_complexity.swift"
     /* 对数阶（循环实现） */
-    func logarithmic(n: Double) -> Int {
+    func logarithmic(n: Int) -> Int {
         var count = 0
         var n = n
         while n > 1 {
@@ -2442,10 +2442,10 @@ $$
 
     ```dart title="time_complexity.dart"
     /* 对数阶（循环实现） */
-    int logarithmic(num n) {
+    int logarithmic(int n) {
       int count = 0;
       while (n > 1) {
-        n = n / 2;
+        n = n ~/ 2;
         count++;
       }
       return count;
@@ -2456,10 +2456,10 @@ $$
 
     ```rust title="time_complexity.rs"
     /* 对数阶（循环实现） */
-    fn logarithmic(mut n: f32) -> i32 {
+    fn logarithmic(mut n: i32) -> i32 {
         let mut count = 0;
-        while n > 1.0 {
-            n = n / 2.0;
+        while n > 1 {
+            n = n / 2;
             count += 1;
         }
         count
@@ -2470,7 +2470,7 @@ $$
 
     ```c title="time_complexity.c"
     /* 对数阶（循环实现） */
-    int logarithmic(float n) {
+    int logarithmic(int n) {
         int count = 0;
         while (n > 1) {
             n = n / 2;
@@ -2484,7 +2484,7 @@ $$
 
     ```zig title="time_complexity.zig"
     // 对数阶（循环实现）
-    fn logarithmic(n: f32) i32 {
+    fn logarithmic(n: i32) i32 {
         var count: i32 = 0;
         var n_var = n;
         while (n_var > 1)
@@ -2498,8 +2498,8 @@ $$
 
 ??? pythontutor "可视化运行"
 
-    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20float%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20float%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
 
 ![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png){ class="animation-figure" }
 
@@ -2510,7 +2510,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    def log_recur(n: float) -> int:
+    def log_recur(n: int) -> int:
         """对数阶（递归实现）"""
         if n <= 1:
             return 0
@@ -2521,7 +2521,7 @@ $$
 
     ```cpp title="time_complexity.cpp"
     /* 对数阶（递归实现） */
-    int logRecur(float n) {
+    int logRecur(int n) {
         if (n <= 1)
             return 0;
         return logRecur(n / 2) + 1;
@@ -2532,7 +2532,7 @@ $$
 
     ```java title="time_complexity.java"
     /* 对数阶（递归实现） */
-    int logRecur(float n) {
+    int logRecur(int n) {
         if (n <= 1)
             return 0;
         return logRecur(n / 2) + 1;
@@ -2543,7 +2543,7 @@ $$
 
     ```csharp title="time_complexity.cs"
     /* 对数阶（递归实现） */
-    int LogRecur(float n) {
+    int LogRecur(int n) {
         if (n <= 1) return 0;
         return LogRecur(n / 2) + 1;
     }
@@ -2553,7 +2553,7 @@ $$
 
     ```go title="time_complexity.go"
     /* 对数阶（递归实现）*/
-    func logRecur(n float64) int {
+    func logRecur(n int) int {
         if n <= 1 {
             return 0
         }
@@ -2565,7 +2565,7 @@ $$
 
     ```swift title="time_complexity.swift"
     /* 对数阶（递归实现） */
-    func logRecur(n: Double) -> Int {
+    func logRecur(n: Int) -> Int {
         if n <= 1 {
             return 0
         }
@@ -2597,9 +2597,9 @@ $$
 
     ```dart title="time_complexity.dart"
     /* 对数阶（递归实现） */
-    int logRecur(num n) {
+    int logRecur(int n) {
       if (n <= 1) return 0;
-      return logRecur(n / 2) + 1;
+      return logRecur(n ~/ 2) + 1;
     }
     ```
 
@@ -2607,11 +2607,11 @@ $$
 
     ```rust title="time_complexity.rs"
     /* 对数阶（递归实现） */
-    fn log_recur(n: f32) -> i32 {
-        if n <= 1.0 {
+    fn log_recur(n: i32) -> i32 {
+        if n <= 1 {
             return 0;
         }
-        log_recur(n / 2.0) + 1
+        log_recur(n / 2) + 1
     }
     ```
 
@@ -2619,7 +2619,7 @@ $$
 
     ```c title="time_complexity.c"
     /* 对数阶（递归实现） */
-    int logRecur(float n) {
+    int logRecur(int n) {
         if (n <= 1)
             return 0;
         return logRecur(n / 2) + 1;
@@ -2630,7 +2630,7 @@ $$
 
     ```zig title="time_complexity.zig"
     // 对数阶（递归实现）
-    fn logRecur(n: f32) i32 {
+    fn logRecur(n: i32) i32 {
         if (n <= 1) return 0;
         return logRecur(n / 2) + 1;
     }
@@ -2638,8 +2638,8 @@ $$
 
 ??? pythontutor "可视化运行"
 
-    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20float%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20log_recur%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20float%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20log_recur%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
+    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20log_recur%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20log_recur%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
 
 对数阶常出现于基于分治策略的算法中，体现了“一分为多”和“化繁为简”的算法思想。它增长缓慢，是仅次于常数阶的理想的时间复杂度。
 
@@ -2660,7 +2660,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    def linear_log_recur(n: float) -> int:
+    def linear_log_recur(n: int) -> int:
         """线性对数阶"""
         if n <= 1:
             return 1
@@ -2674,7 +2674,7 @@ $$
 
     ```cpp title="time_complexity.cpp"
     /* 线性对数阶 */
-    int linearLogRecur(float n) {
+    int linearLogRecur(int n) {
         if (n <= 1)
             return 1;
         int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
@@ -2689,7 +2689,7 @@ $$
 
     ```java title="time_complexity.java"
     /* 线性对数阶 */
-    int linearLogRecur(float n) {
+    int linearLogRecur(int n) {
         if (n <= 1)
             return 1;
         int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
@@ -2704,7 +2704,7 @@ $$
 
     ```csharp title="time_complexity.cs"
     /* 线性对数阶 */
-    int LinearLogRecur(float n) {
+    int LinearLogRecur(int n) {
         if (n <= 1) return 1;
         int count = LinearLogRecur(n / 2) + LinearLogRecur(n / 2);
         for (int i = 0; i < n; i++) {
@@ -2718,12 +2718,12 @@ $$
 
     ```go title="time_complexity.go"
     /* 线性对数阶 */
-    func linearLogRecur(n float64) int {
+    func linearLogRecur(n int) int {
         if n <= 1 {
             return 1
         }
         count := linearLogRecur(n/2) + linearLogRecur(n/2)
-        for i := 0.0; i < n; i++ {
+        for i := 0; i < n; i++ {
             count++
         }
         return count
@@ -2734,7 +2734,7 @@ $$
 
     ```swift title="time_complexity.swift"
     /* 线性对数阶 */
-    func linearLogRecur(n: Double) -> Int {
+    func linearLogRecur(n: Int) -> Int {
         if n <= 1 {
             return 1
         }
@@ -2778,9 +2778,9 @@ $$
 
     ```dart title="time_complexity.dart"
     /* 线性对数阶 */
-    int linearLogRecur(num n) {
+    int linearLogRecur(int n) {
       if (n <= 1) return 1;
-      int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+      int count = linearLogRecur(n ~/ 2) + linearLogRecur(n ~/ 2);
       for (var i = 0; i < n; i++) {
         count++;
       }
@@ -2792,11 +2792,11 @@ $$
 
     ```rust title="time_complexity.rs"
     /* 线性对数阶 */
-    fn linear_log_recur(n: f32) -> i32 {
-        if n <= 1.0 {
+    fn linear_log_recur(n: i32) -> i32 {
+        if n <= 1 {
             return 1;
         }
-        let mut count = linear_log_recur(n / 2.0) + linear_log_recur(n / 2.0);
+        let mut count = linear_log_recur(n / 2) + linear_log_recur(n / 2);
         for _ in 0..n as i32 {
             count += 1;
         }
@@ -2808,7 +2808,7 @@ $$
 
     ```c title="time_complexity.c"
     /* 线性对数阶 */
-    int linearLogRecur(float n) {
+    int linearLogRecur(int n) {
         if (n <= 1)
             return 1;
         int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
@@ -2823,10 +2823,10 @@ $$
 
     ```zig title="time_complexity.zig"
     // 线性对数阶
-    fn linearLogRecur(n: f32) i32 {
+    fn linearLogRecur(n: i32) i32 {
         if (n <= 1) return 1;
         var count: i32 = linearLogRecur(n / 2) + linearLogRecur(n / 2);
-        var i: f32 = 0;
+        var i: i32 = 0;
         while (i < n) : (i += 1) {
             count += 1;
         }
@@ -2836,8 +2836,8 @@ $$
 
 ??? pythontutor "可视化运行"
 
-    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20linear_log_recur%28n%3A%20float%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%20//%202%29%20%2B%20linear_log_recur%28n%20//%202%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%29%0A%20%20%20%20print%28%22%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear_log_recur%28n%3A%20float%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%20//%202%29%20%2B%20linear_log_recur%28n%20//%202%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%29%0A%20%20%20%20print%28%22%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
+    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20linear_log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%20//%202%29%20%2B%20linear_log_recur%28n%20//%202%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%29%0A%20%20%20%20print%28%22%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear_log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%20//%202%29%20%2B%20linear_log_recur%28n%20//%202%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%29%0A%20%20%20%20print%28%22%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
 
 图 2-13 展示了线性对数阶的生成方式。二叉树的每一层的操作总数都为 $n$ ，树共有 $\log_2 n + 1$ 层，因此时间复杂度为 $O(n \log n)$ 。
 
