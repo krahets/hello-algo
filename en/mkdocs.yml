@@ -1,18 +1,19 @@
 # Config inheritance
-INHERIT: mkdocs.yml
+INHERIT: ../mkdocs.yml
 
 # Project information
 site_name: Hello Algo
 site_url: https://www.hello-algo.com/en/
 site_description: "Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code"
-docs_dir: build/docs-en
-site_dir: site/en
+docs_dir: ../build/en/docs
+site_dir: ../site/en
 # Repository
-edit_uri: tree/main/docs-en
+edit_uri: tree/main/en/docs
 version: 1.0.0
 
 # Configuration
 theme:
+  custom_dir: ../build/overrides
   language: en
   font:
     text: Roboto
