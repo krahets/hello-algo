@@ -87,7 +87,7 @@ fun expRecur(n: Int): Int {
 }
 
 /* 对数阶（循环实现） */
-fun logarithmic(n: Float): Int {
+fun logarithmic(n: Int): Int {
     var n1 = n
     var count = 0
     while (n1 > 1) {
@@ -98,14 +98,14 @@ fun logarithmic(n: Float): Int {
 }
 
 /* 对数阶（递归实现） */
-fun logRecur(n: Float): Int {
+fun logRecur(n: Int): Int {
     if (n <= 1)
         return 0
     return logRecur(n / 2) + 1
 }
 
 /* 线性对数阶 */
-fun linearLogRecur(n: Float): Int {
+fun linearLogRecur(n: Int): Int {
     if (n <= 1)
         return 1
     var count = linearLogRecur(n / 2) + linearLogRecur(n / 2)
@@ -153,12 +153,12 @@ fun main() {
     count = expRecur(n)
     println("指数阶（递归实现）的操作数量 = $count")
 
-    count = logarithmic(n.toFloat())
+    count = logarithmic(n)
     println("对数阶（循环实现）的操作数量 = $count")
-    count = logRecur(n.toFloat())
+    count = logRecur(n)
     println("对数阶（递归实现）的操作数量 = $count")
 
-    count = linearLogRecur(n.toFloat())
+    count = linearLogRecur(n)
     println("线性对数阶（递归实现）的操作数量 = $count")
 
     count = factorialRecur(n)
