@@ -20,7 +20,7 @@ The flowchart below represents this sum function.
 
 ![Flowchart of the Sum Function](iteration_and_recursion.assets/iteration.png)
 
-The number of operations in this summation function is proportional to the size of the input data $n$, or in other words, it has a "linear relationship." In fact, this "linear relationship" is what time complexity describes. This topic will be discussed in more detail in the next section.
+The number of operations in this summation function is proportional to the size of the input data $n$, or in other words, it has a "linear relationship." This "linear relationship" is what time complexity describes. This topic will be discussed in more detail in the next section.
 
 ### While Loops
 
@@ -34,7 +34,7 @@ Below we use a `while` loop to implement the sum $1 + 2 + \dots + n$.
 
 **`While` loops provide more flexibility than `for` loops**, especially since they allow for custom initialization and modification of the condition variable at each step.
 
-For example, in the following code, the condition variable $i$ is updated twice in each round, which would be inconvenient to implement with a `for` loop.
+For example, in the following code, the condition variable $i$ is updated twice each round, which would be inconvenient to implement with a `for` loop.
 
 ```src
 [file]{iteration}-[class]{}-[func]{while_loop_ii}
@@ -109,7 +109,7 @@ In practice, the depth of recursion allowed by programming languages is usually 
 Interestingly, **if a function performs its recursive call as the very last step before returning,** it can be optimized by the compiler or interpreter to be as space-efficient as iteration. This scenario is known as "tail recursion."
 
 - **Regular Recursion**: In standard recursion, when the function returns to the previous level, it continues to execute more code, requiring the system to save the context of the previous call.
-- **Tail Recursion**: Here, the recursive call is the final operation before the function returns. This means that upon returning to the previous level, no further actions are needed, so the system doesn't need to save the context of the previous level.
+- **Tail Recursion**: Here, the recursive call is the final operation before the function returns. This means that upon returning to the previous level, no further actions are needed, so the system does not need to save the context of the previous level.
 
 For example, in calculating $1 + 2 + \dots + n$, we can make the result variable `res` a parameter of the function, thereby achieving tail recursion:
 
@@ -188,7 +188,7 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
 
 Observing the above code, when recursion is transformed into iteration, the code becomes more complex. Although iteration and recursion can often be transformed into each other, it's not always advisable to do so for two reasons:
 
-- The transformed code may become harder to understand and less readable.
+- The transformed code may become more challenging to understand and less readable.
 - For some complex problems, simulating the behavior of the system's call stack can be quite challenging.
 
 In conclusion, **whether to choose iteration or recursion depends on the specific nature of the problem**. In programming practice, it's crucial to weigh the pros and cons of both and choose the most suitable approach for the situation at hand.
