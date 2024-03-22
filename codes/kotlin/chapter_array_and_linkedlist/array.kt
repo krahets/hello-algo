@@ -75,6 +75,25 @@ fun main() {
     println("数组 arr = ${arr.contentToString()}")
     var nums = intArrayOf(1, 3, 2, 5, 4)
     println("数组 nums = ${nums.contentToString()}")
+    // 初始化数组，里面的元素是数组下标的两倍
+    val Arr = Array(5) { it * 2 }
+    // int 数组
+    val intArr = IntArray(5) { it * 2 }
+    // long 数组
+    val longArr = LongArray(5) { it * 2L }
+    // float 数组
+    val floatArr = FloatArray(5) { it * 2F }
+    // double 数组
+    val doubleArr = DoubleArray(5) { it * 2.0 }
+    // 创建五个全为0的int数组
+    val emptyIntArr = IntArray(5) { 0 }
+    // 创建五个全为0的long数组
+    val emptylongArr = LongArray(5) { 0L }
+    // 创建五个全为0的float数组
+    val emptyfloatArr = FloatArray(5) { 0F }
+    // 创建五个全为0的double数组
+    val emptyDoubleArr = DoubleArray(5) { 0.0 }
+
 
     /* 随机访问 */
     val randomNum: Int = randomAccess(nums)
