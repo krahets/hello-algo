@@ -186,7 +186,7 @@ public class time_complexity {
         count = LogRecur(n);
         Console.WriteLine("对数阶（递归实现）的操作数量 = " + count);
 
-        count = LinearLogRecur((n);
+        count = LinearLogRecur(n);
         Console.WriteLine("线性对数阶（递归实现）的操作数量 = " + count);
 
         count = FactorialRecur(n);
