@@ -10,7 +10,7 @@ public class time_complexity {
     void Algorithm(int n) {
         int a = 1;  // +0（技巧 1）
         a += n;  // +0（技巧 1）
-                    // +n（技巧 2）
+        // +n（技巧 2）
         for (int i = 0; i < 5 * n + 1; i++) {
             Console.WriteLine(0);
         }

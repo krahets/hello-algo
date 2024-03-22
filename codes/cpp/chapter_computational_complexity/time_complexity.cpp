@@ -158,7 +158,7 @@ int main() {
     count = logRecur(n);
     cout << "对数阶（递归实现）的操作数量 = " << count << endl;
 
-    count = linearLogRecur((n);
+    count = linearLogRecur(n);
     cout << "线性对数阶（递归实现）的操作数量 = " << count << endl;
 
     count = factorialRecur(n);
