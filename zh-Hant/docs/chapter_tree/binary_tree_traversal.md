@@ -31,7 +31,7 @@
 
 下圖展示了對二元樹進行深度優先走訪的工作原理。**深度優先走訪就像是繞著整棵二元樹的外圍“走”一圈**，在每個節點都會遇到三個位置，分別對應前序走訪、中序走訪和後序走訪。
 
-![二叉搜尋樹的前序、中序、後序走訪](binary_tree_traversal.assets/binary_tree_dfs.png)
+![二元搜尋樹的前序、中序、後序走訪](binary_tree_traversal.assets/binary_tree_dfs.png)
 
 ### 程式碼實現
 
