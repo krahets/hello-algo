@@ -938,7 +938,7 @@ $$
 
 ![Common Types of Time Complexity](time_complexity.assets/time_complexity_common_types.png)
 
-### Constant Order $O(1)$
+### Constant Order $O(1)$ {data-toc-label="Constant Order"}
 
 Constant order means the number of operations is independent of the input data size $n$. In the following function, although the number of operations `size` might be large, the time complexity remains $O(1)$ as it's unrelated to $n$:
 
@@ -946,7 +946,7 @@ Constant order means the number of operations is independent of the input data s
 [file]{time_complexity}-[class]{}-[func]{constant}
 ```
 
-### Linear Order $O(n)$
+### Linear Order $O(n)$ {data-toc-label="Linear Order"}
 
 Linear order indicates the number of operations grows linearly with the input data size $n$. Linear order commonly appears in single-loop structures:
 
@@ -962,7 +962,7 @@ Operations like array traversal and linked list traversal have a time complexity
 
 It's important to note that **the input data size $n$ should be determined based on the type of input data**. For example, in the first example, $n$ represents the input data size, while in the second example, the length of the array $n$ is the data size.
 
-### Quadratic Order $O(n^2)$
+### Quadratic Order $O(n^2)$ {data-toc-label="Quadratic Order"}
 
 Quadratic order means the number of operations grows quadratically with the input data size $n$. Quadratic order typically appears in nested loops, where both the outer and inner loops have a time complexity of $O(n)$, resulting in an overall complexity of $O(n^2)$:
 
@@ -980,7 +980,7 @@ For instance, in bubble sort, the outer loop runs $n - 1$ times, and the inner l
 [file]{time_complexity}-[class]{}-[func]{bubble_sort}
 ```
 
-### Exponential Order $O(2^n)$
+### Exponential Order $O(2^n)$ {data-toc-label="Exponential Order"}
 
 Biological "cell division" is a classic example of exponential order growth: starting with one cell, it becomes two after one division, four after two divisions, and so on, resulting in $2^n$ cells after $n$ divisions.
 
@@ -1000,7 +1000,7 @@ In practice, exponential order often appears in recursive functions. For example
 
 Exponential order growth is extremely rapid and is commonly seen in exhaustive search methods (brute force, backtracking, etc.). For large-scale problems, exponential order is unacceptable, often requiring dynamic programming or greedy algorithms as solutions.
 
-### Logarithmic Order $O(\log n)$
+### Logarithmic Order $O(\log n)$ {data-toc-label="Logarithmic Order"}
 
 In contrast to exponential order, logarithmic order reflects situations where "the size is halved each round." Given an input data size $n$, since the size is halved each round, the number of iterations is $\log_2 n$, the inverse function of $2^n$.
 
@@ -1030,7 +1030,7 @@ Logarithmic order is typical in algorithms based on the divide-and-conquer strat
 
     This means the base $m$ can be changed without affecting the complexity. Therefore, we often omit the base $m$ and simply denote logarithmic order as $O(\log n)$.
 
-### Linear-Logarithmic Order $O(n \log n)$
+### Linear-Logarithmic Order $O(n \log n)$ {data-toc-label="Linear-Logarithmic Order"}
 
 Linear-logarithmic order often appears in nested loops, with the complexities of the two loops being $O(\log n)$ and $O(n)$ respectively. The related code is as follows:
 
@@ -1044,7 +1044,7 @@ The image below demonstrates how linear-logarithmic order is generated. Each lev
 
 Mainstream sorting algorithms typically have a time complexity of $O(n \log n)$, such as quicksort, mergesort, and heapsort.
 
-### Factorial Order $O(n!)$
+### Factorial Order $O(n!)$ {data-toc-label="Factorial Order"}
 
 Factorial order corresponds to the mathematical problem of "full permutation." Given $n$ distinct elements, the total number of possible permutations is:
 

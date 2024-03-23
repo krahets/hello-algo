@@ -717,7 +717,7 @@ $$
 
 ![Common Types of Space Complexity](space_complexity.assets/space_complexity_common_types.png)
 
-### Constant Order $O(1)$
+### Constant Order $O(1)$ {data-toc-label="Constant Order"}
 
 Constant order is common in constants, variables, objects that are independent of the size of input data $n$.
 
@@ -727,7 +727,7 @@ Note that memory occupied by initializing variables or calling functions in a lo
 [file]{space_complexity}-[class]{}-[func]{constant}
 ```
 
-### Linear Order $O(n)$
+### Linear Order $O(n)$ {data-toc-label="Linear Order"}
 
 Linear order is common in arrays, linked lists, stacks, queues, etc., where the number of elements is proportional to $n$:
 
@@ -743,7 +743,7 @@ As shown below, this function's recursive depth is $n$, meaning there are $n$ in
 
 ![Recursive Function Generating Linear Order Space Complexity](space_complexity.assets/space_complexity_recursive_linear.png)
 
-### Quadratic Order $O(n^2)$
+### Quadratic Order $O(n^2)$ {data-toc-label="Quadratic Order"}
 
 Quadratic order is common in matrices and graphs, where the number of elements is quadratic to $n$:
 
@@ -759,7 +759,7 @@ As shown below, the recursive depth of this function is $n$, and in each recursi
 
 ![Recursive Function Generating Quadratic Order Space Complexity](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
-### Exponential Order $O(2^n)$
+### Exponential Order $O(2^n)$ {data-toc-label="Exponential Order"}
 
 Exponential order is common in binary trees. Observe the below image, a "full binary tree" with $n$ levels has $2^n - 1$ nodes, occupying $O(2^n)$ space:
 
@@ -769,7 +769,7 @@ Exponential order is common in binary trees. Observe the below image, a "full bi
 
 ![Full Binary Tree Generating Exponential Order Space Complexity](space_complexity.assets/space_complexity_exponential.png)
 
-### Logarithmic Order $O(\log n)$
+### Logarithmic Order $O(\log n)$ {data-toc-label="Logarithmic Order"}
 
 Logarithmic order is common in divide-and-conquer algorithms. For example, in merge sort, an array of length $n$ is recursively divided in half each round, forming a recursion tree of height $\log n$, using $O(\log n)$ stack frame space.
 

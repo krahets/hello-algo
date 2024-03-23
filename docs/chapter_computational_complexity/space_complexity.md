@@ -716,7 +716,7 @@ $$
 
 ![常见的空间复杂度类型](space_complexity.assets/space_complexity_common_types.png)
 
-### 常数阶 $O(1)$
+### 常数阶 $O(1)$ {data-toc-label="常数阶"}
 
 常数阶常见于数量与输入数据大小 $n$ 无关的常量、变量、对象。
 
@@ -726,7 +726,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{constant}
 ```
 
-### 线性阶 $O(n)$
+### 线性阶 $O(n)$ {data-toc-label="线性阶"}
 
 线性阶常见于元素数量与 $n$ 成正比的数组、链表、栈、队列等：
 
@@ -742,7 +742,7 @@ $$
 
 ![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png)
 
-### 平方阶 $O(n^2)$
+### 平方阶 $O(n^2)$ {data-toc-label="平方阶"}
 
 平方阶常见于矩阵和图，元素数量与 $n$ 成平方关系：
 
@@ -758,7 +758,7 @@ $$
 
 ![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
-### 指数阶 $O(2^n)$
+### 指数阶 $O(2^n)$ {data-toc-label="指数阶"}
 
 指数阶常见于二叉树。观察下图，层数为 $n$ 的“满二叉树”的节点数量为 $2^n - 1$ ，占用 $O(2^n)$ 空间：
 
@@ -768,7 +768,7 @@ $$
 
 ![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.png)
 
-### 对数阶 $O(\log n)$
+### 对数阶 $O(\log n)$ {data-toc-label="对数阶"}
 
 对数阶常见于分治算法。例如归并排序，输入长度为 $n$ 的数组，每轮递归将数组从中点处划分为两半，形成高度为 $\log n$ 的递归树，使用 $O(\log n)$ 栈帧空间。
 
