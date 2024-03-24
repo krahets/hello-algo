@@ -477,7 +477,8 @@
 
     def recur(n: int) -> int:
         """递归的空间复杂度为 O(n)"""
-        if n == 1: return
+        if n == 1:
+            return 1
         return recur(n - 1)
     ```
 

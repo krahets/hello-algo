@@ -478,7 +478,8 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 
     def recur(n: int) -> int:
         """Recursion O(n)"""""
-        if n == 1: return
+        if n == 1:
+            return 1
         return recur(n - 1)
     ```
 
