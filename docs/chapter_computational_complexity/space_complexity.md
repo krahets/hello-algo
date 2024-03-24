@@ -309,6 +309,12 @@
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -453,6 +459,12 @@
         if (n > 10)
             int nums[n] = {0};   // O(n)
     }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+
     ```
 
 === "Zig"
@@ -691,6 +703,12 @@
         if (n == 1) return;
         return recur(n - 1);
     }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+
     ```
 
 === "Zig"

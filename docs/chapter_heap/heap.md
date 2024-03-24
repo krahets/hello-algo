@@ -365,6 +365,12 @@
     // C 未提供内置 Heap 类
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="heap.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="heap.zig"

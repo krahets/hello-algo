@@ -105,6 +105,12 @@
     int nums[5] = { 1, 3, 2, 5, 4 };
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="array.zig"
