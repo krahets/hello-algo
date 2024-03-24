@@ -343,6 +343,12 @@ $$
     // C 未提供内置 hash code 函数
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="built_in_hash.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="built_in_hash.zig"

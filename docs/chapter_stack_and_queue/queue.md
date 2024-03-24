@@ -302,6 +302,12 @@
     // C 未提供内置队列
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="queue.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="queue.zig"

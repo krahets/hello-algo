@@ -296,6 +296,12 @@
     // C 未提供内置栈
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="stack.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="stack.zig"
