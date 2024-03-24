@@ -476,9 +476,10 @@ Consider the following code, the term "worst-case" in worst-case space complexit
         for _ in range(n):
             function()
 
-    def recur(n: int) -> int:
+    def recur(n: int):
         """Recursion O(n)"""""
-        if n == 1: return
+        if n == 1:
+            return
         return recur(n - 1)
     ```
 
