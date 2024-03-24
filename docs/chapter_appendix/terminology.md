@@ -130,7 +130,7 @@
 | $n$-queens problem             | $n$ 皇后问题   | $n$ 皇后問題   |
 | dynamic programming            | 动态规划       | 動態規劃       |
 | initial state                  | 初始状态       | 初始狀態       |
-| state-trasition equation       | 状态转移方程   | 狀態轉移方程   |
+| state-transition equation       | 状态转移方程   | 狀態轉移方程   |
 | knapsack problem               | 背包问题       | 背包問題       |
 | edit distance problem          | 编辑距离问题   | 編輯距離問題   |
 | greedy algorithm               | 贪心算法       | 貪婪演算法     |
