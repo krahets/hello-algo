@@ -109,19 +109,8 @@
 
     ```kotlin title="array.kt"
     // 初始化数组
-    val arr = arrayOf(1, 2, 3, 4, 5)
-    //初始化数组，里面的元素是数组下标的两倍
-    val arr = Array(5) { it * 2 }
-    //以下也是如此
-    //int数组
-    val intArr = IntArray(5) { it * 2 }
-    //long数组 
-    val longArr = LongArray(5) { it * 2L }
-    //float数组 
-    val floatArr = FloatArray(5) { it * 2f }
-    //创建五个全为0的int数组
-    val intArr = IntArray(5) { 0 }
-    //其他数组同样如此
+    val arr = IntArray(5) { 0 }
+    val nums = intArrayOf(1, 3, 2, 5, 4)
     ```
 
 === "Zig"
