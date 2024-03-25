@@ -11,7 +11,7 @@ class MyList {
   int _size = 0; // 串列長度（當前元素數量）
   int _extendRatio = 2; // 每次串列擴容的倍數
 
-  /* 構造方法 */
+  /* 建構子 */
   MyList() {
     _arr = List.filled(_capacity, 0);
   }

@@ -17,7 +17,7 @@ typedef struct ListNode {
     struct ListNode *next; // 指向下一節點的引用
 } ListNode;
 
-/* 構造函式，初始化一個新節點 */
+/* 建構子，初始化一個新節點 */
 ListNode *newListNode(int val) {
     ListNode *node;
     node = (ListNode *)malloc(sizeof(ListNode));

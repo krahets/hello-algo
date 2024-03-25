@@ -14,7 +14,7 @@ type graphAdjMat struct {
 	adjMat [][]int
 }
 
-/* 構造函式 */
+/* 建構子 */
 func newGraphAdjMat(vertices []int, edges [][]int) *graphAdjMat {
 	// 新增頂點
 	n := len(vertices)

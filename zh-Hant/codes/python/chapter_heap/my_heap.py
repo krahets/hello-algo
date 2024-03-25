@@ -15,7 +15,7 @@ class MaxHeap:
     """大頂堆積"""
 
     def __init__(self, nums: list[int]):
-        """構造方法，根據輸入串列建堆積"""
+        """建構子，根據輸入串列建堆積"""
         # 將串列元素原封不動新增進堆積
         self.max_heap = nums
         # 堆積化除葉節點以外的其他所有節點

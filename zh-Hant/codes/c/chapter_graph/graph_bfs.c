@@ -15,7 +15,7 @@ typedef struct {
     int front, rear, size;
 } Queue;
 
-/* 構造函式 */
+/* 建構子 */
 Queue *newQueue() {
     Queue *q = (Queue *)malloc(sizeof(Queue));
     q->front = q->rear = q->size = 0;

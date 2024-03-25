@@ -26,7 +26,7 @@ pub fn ArrayHashMap(comptime T: type) type {
 
         const Self = @This();
         
-        // 構造函式
+        // 建構子
         pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
             self.mem_allocator = allocator;
             // 初始化一個長度為 100 的桶（陣列）

@@ -9,7 +9,7 @@ class ArrayStack:
     """基於陣列實現的堆疊"""
 
     def __init__(self):
-        """構造方法"""
+        """建構子"""
         self._stack: list[int] = []
 
     def size(self) -> int:

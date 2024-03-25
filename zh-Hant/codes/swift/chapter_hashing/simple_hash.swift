@@ -28,7 +28,7 @@ func mulHash(key: String) -> Int {
     return hash
 }
 
-/* 異或雜湊 */
+/* 互斥或雜湊 */
 func xorHash(key: String) -> Int {
     var hash = 0
     let MODULUS = 1_000_000_007
@@ -65,7 +65,7 @@ enum SimpleHash {
         print("乘法雜湊值為 \(hash)")
 
         hash = xorHash(key: key)
-        print("異或雜湊值為 \(hash)")
+        print("互斥或雜湊值為 \(hash)")
 
         hash = rotHash(key: key)
         print("旋轉雜湊值為 \(hash)")

@@ -33,7 +33,7 @@
     struct ListNode {
         int val;         // 節點值
         ListNode *next;  // 指向下一節點的指標
-        ListNode(int x) : val(x), next(nullptr) {}  // 構造函式
+        ListNode(int x) : val(x), next(nullptr) {}  // 建構子
     };
     ```
 
@@ -44,7 +44,7 @@
     class ListNode {
         int val;        // 節點值
         ListNode next;  // 指向下一節點的引用
-        ListNode(int x) { val = x; }  // 構造函式
+        ListNode(int x) { val = x; }  // 建構子
     }
     ```
 
@@ -52,7 +52,7 @@
 
     ```csharp title=""
     /* 鏈結串列節點類 */
-    class ListNode(int x) {  //構造函式
+    class ListNode(int x) {  //建構子
         int val = x;         // 節點值
         ListNode? next;      // 指向下一節點的引用
     }
@@ -67,7 +67,7 @@
         Next *ListNode // 指向下一節點的指標
     }
 
-    // NewListNode 構造函式，建立一個新的鏈結串列
+    // NewListNode 建構子，建立一個新的鏈結串列
     func NewListNode(val int) *ListNode {
         return &ListNode{
             Val:  val,
@@ -84,7 +84,7 @@
         var val: Int // 節點值
         var next: ListNode? // 指向下一節點的引用
 
-        init(x: Int) { // 構造函式
+        init(x: Int) { // 建構子
             val = x
         }
     }
@@ -123,7 +123,7 @@
     class ListNode {
       int val; // 節點值
       ListNode? next; // 指向下一節點的引用
-      ListNode(this.val, [this.next]); // 構造函式
+      ListNode(this.val, [this.next]); // 建構子
     }
     ```
 
@@ -149,7 +149,7 @@
         struct ListNode *next; // 指向下一節點的指標
     } ListNode;
 
-    /* 構造函式 */
+    /* 建構子 */
     ListNode *newListNode(int val) {
         ListNode *node;
         node = (ListNode *) malloc(sizeof(ListNode));
@@ -170,7 +170,7 @@
             val: T = 0, // 節點值
             next: ?*Self = null, // 指向下一節點的指標
 
-            // 構造函式
+            // 建構子
             pub fn init(self: *Self, x: i32) void {
                 self.val = x;
                 self.next = null;
@@ -478,7 +478,7 @@
         int val;         // 節點值
         ListNode *next;  // 指向後繼節點的指標
         ListNode *prev;  // 指向前驅節點的指標
-        ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // 構造函式
+        ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // 建構子
     };
     ```
 
@@ -490,7 +490,7 @@
         int val;        // 節點值
         ListNode next;  // 指向後繼節點的引用
         ListNode prev;  // 指向前驅節點的引用
-        ListNode(int x) { val = x; }  // 構造函式
+        ListNode(int x) { val = x; }  // 建構子
     }
     ```
 
@@ -498,7 +498,7 @@
 
     ```csharp title=""
     /* 雙向鏈結串列節點類 */
-    class ListNode(int x) {  // 構造函式
+    class ListNode(int x) {  // 建構子
         int val = x;    // 節點值
         ListNode next;  // 指向後繼節點的引用
         ListNode prev;  // 指向前驅節點的引用
@@ -534,7 +534,7 @@
         var next: ListNode? // 指向後繼節點的引用
         var prev: ListNode? // 指向前驅節點的引用
 
-        init(x: Int) { // 構造函式
+        init(x: Int) { // 建構子
             val = x
         }
     }
@@ -577,7 +577,7 @@
         int val;        // 節點值
         ListNode next;  // 指向後繼節點的引用
         ListNode prev;  // 指向前驅節點的引用
-        ListNode(this.val, [this.next, this.prev]);  // 構造函式
+        ListNode(this.val, [this.next, this.prev]);  // 建構子
     }
     ```
 
@@ -595,7 +595,7 @@
         prev: Option<Rc<RefCell<ListNode>>>, // 指向前驅節點的指標
     }
 
-    /* 構造函式 */
+    /* 建構子 */
     impl ListNode {
         fn new(val: i32) -> Self {
             ListNode {
@@ -617,7 +617,7 @@
         struct ListNode *prev; // 指向前驅節點的指標
     } ListNode;
 
-    /* 構造函式 */
+    /* 建構子 */
     ListNode *newListNode(int val) {
         ListNode *node;
         node = (ListNode *) malloc(sizeof(ListNode));
@@ -640,7 +640,7 @@
             next: ?*Self = null, // 指向後繼節點的指標
             prev: ?*Self = null, // 指向前驅節點的指標
 
-            // 構造函式
+            // 建構子
             pub fn init(self: *Self, x: i32) void {
                 self.val = x;
                 self.next = null;

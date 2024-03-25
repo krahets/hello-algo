@@ -11,7 +11,7 @@ public class TreeNode {
     public var left: TreeNode? // 左子節點引用
     public var right: TreeNode? // 右子節點引用
 
-    /* 構造方法 */
+    /* 建構子 */
     public init(x: Int) {
         val = x
         height = 0

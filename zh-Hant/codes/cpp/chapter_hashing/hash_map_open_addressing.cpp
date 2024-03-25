@@ -17,7 +17,7 @@ class HashMapOpenAddressing {
     Pair *TOMBSTONE = new Pair(-1, "-1"); // 刪除標記
 
   public:
-    /* 構造方法 */
+    /* 建構子 */
     HashMapOpenAddressing() : size(0), buckets(capacity, nullptr) {
     }
 

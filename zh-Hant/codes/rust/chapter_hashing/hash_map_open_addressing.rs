@@ -21,7 +21,7 @@ struct HashMapOpenAddressing {
 }
 
 impl HashMapOpenAddressing {
-    /* 構造方法 */
+    /* 建構子 */
     fn new() -> Self {
         Self {
             size: 0,

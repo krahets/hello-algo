@@ -15,7 +15,7 @@ class HashMapChaining:
     """鏈式位址雜湊表"""
 
     def __init__(self):
-        """構造方法"""
+        """建構子"""
         self.size = 0  # 鍵值對數量
         self.capacity = 4  # 雜湊表容量
         self.load_thres = 2.0 / 3.0  # 觸發擴容的負載因子閾值

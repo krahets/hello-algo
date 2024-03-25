@@ -27,7 +27,7 @@ public class simple_hash {
         return (int)hash;
     }
 
-    /* 異或雜湊 */
+    /* 互斥或雜湊 */
     int XorHash(string key) {
         int hash = 0;
         const int MODULUS = 1000000007;
@@ -58,7 +58,7 @@ public class simple_hash {
         Console.WriteLine("乘法雜湊值為 " + hash);
 
         hash = XorHash(key);
-        Console.WriteLine("異或雜湊值為 " + hash);
+        Console.WriteLine("互斥或雜湊值為 " + hash);
 
         hash = RotHash(key);
         Console.WriteLine("旋轉雜湊值為 " + hash);

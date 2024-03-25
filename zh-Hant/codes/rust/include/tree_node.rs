@@ -18,7 +18,7 @@ pub struct TreeNode {
 }
 
 impl TreeNode {
-    /* 構造方法 */
+    /* 建構子 */
     pub fn new(val: i32) -> Rc<RefCell<Self>> {
         Rc::new(RefCell::new(Self {
             val,

@@ -11,7 +11,7 @@ class GraphAdjList {
   // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
   Map<Vertex, List<Vertex>> adjList = {};
 
-  /* 構造方法 */
+  /* 建構子 */
   GraphAdjList(List<List<Vertex>> edges) {
     for (List<Vertex> edge in edges) {
       addVertex(edge[0]);

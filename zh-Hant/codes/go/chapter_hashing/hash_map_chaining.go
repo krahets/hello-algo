@@ -19,7 +19,7 @@ type hashMapChaining struct {
 	buckets     [][]pair // 桶陣列
 }
 
-/* 構造方法 */
+/* 建構子 */
 func newHashMapChaining() *hashMapChaining {
 	buckets := make([][]pair, 4)
 	for i := 0; i < 4; i++ {

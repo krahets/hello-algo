@@ -17,7 +17,7 @@ pub fn ArrayQueue(comptime T: type) type {
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 記憶體分配器
 
-        // 構造函式（分配記憶體+初始化陣列）
+        // 建構子（分配記憶體+初始化陣列）
         pub fn init(self: *Self, allocator: std.mem.Allocator, cap: usize) !void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);

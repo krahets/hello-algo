@@ -11,7 +11,7 @@ import '../utils/tree_node.dart';
 class AVLTree {
   TreeNode? root;
 
-  /* 構造方法 */
+  /* 建構子 */
   AVLTree() {
     root = null;
   }

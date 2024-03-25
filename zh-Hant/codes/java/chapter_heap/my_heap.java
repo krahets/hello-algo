@@ -14,7 +14,7 @@ class MaxHeap {
     // 使用串列而非陣列，這樣無須考慮擴容問題
     private List<Integer> maxHeap;
 
-    /* 構造方法，根據輸入串列建堆積 */
+    /* 建構子，根據輸入串列建堆積 */
     public MaxHeap(List<Integer> nums) {
         // 將串列元素原封不動新增進堆積
         maxHeap = new ArrayList<>(nums);

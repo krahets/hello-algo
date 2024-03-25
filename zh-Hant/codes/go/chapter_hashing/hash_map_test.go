@@ -67,7 +67,7 @@ func TestSimpleHash(t *testing.T) {
 	fmt.Println("乘法雜湊值為 " + strconv.Itoa(hash))
 
 	hash = xorHash(key)
-	fmt.Println("異或雜湊值為 " + strconv.Itoa(hash))
+	fmt.Println("互斥或雜湊值為 " + strconv.Itoa(hash))
 
 	hash = rotHash(key)
 	fmt.Println("旋轉雜湊值為 " + strconv.Itoa(hash))

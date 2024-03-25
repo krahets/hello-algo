@@ -15,7 +15,7 @@ public class TreeNode {
     public TreeNode left; // 左子節點引用
     public TreeNode right; // 右子節點引用
 
-    /* 構造方法 */
+    /* 建構子 */
     public TreeNode(int x) {
         val = x;
     }

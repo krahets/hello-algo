@@ -178,7 +178,7 @@ class AVLTree {
         return cur;
     }
 
-    /*構造方法*/
+    /*建構子*/
     AVLTree() : root(nullptr) {
     }
 

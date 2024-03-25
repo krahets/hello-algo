@@ -10,7 +10,7 @@ const { printHeap } = require('../modules/PrintUtil');
 class MaxHeap {
     #maxHeap;
 
-    /* 構造方法，建立空堆積或根據輸入串列建堆積 */
+    /* 建構子，建立空堆積或根據輸入串列建堆積 */
     constructor(nums) {
         // 將串列元素原封不動新增進堆積
         this.#maxHeap = nums === undefined ? [] : [...nums];

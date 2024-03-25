@@ -13,7 +13,7 @@ class MyList {
     private int arrSize = 0;         // 串列長度（當前元素數量）
     private readonly int extendRatio = 2;  // 每次串列擴容的倍數
 
-    /* 構造方法 */
+    /* 建構子 */
     public MyList() {
         arr = new int[arrCapacity];
     }

@@ -24,7 +24,7 @@ int mulHash(String key) {
   return hash;
 }
 
-/* 異或雜湊 */
+/* 互斥或雜湊 */
 int xorHash(String key) {
   int hash = 0;
   final int MODULUS = 1000000007;
@@ -55,7 +55,7 @@ void main() {
   print("乘法雜湊值為 $hash");
 
   hash = xorHash(key);
-  print("異或雜湊值為 $hash");
+  print("互斥或雜湊值為 $hash");
 
   hash = rotHash(key);
   print("旋轉雜湊值為 $hash");

@@ -16,7 +16,7 @@ class HashMapChaining {
     vector<vector<Pair *>> buckets; // 桶陣列
 
   public:
-    /* 構造方法 */
+    /* 建構子 */
     HashMapChaining() : size(0), capacity(4), loadThres(2.0 / 3.0), extendRatio(2) {
         buckets.resize(capacity);
     }

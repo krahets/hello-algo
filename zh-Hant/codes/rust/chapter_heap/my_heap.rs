@@ -13,7 +13,7 @@ struct MaxHeap {
 }
 
 impl MaxHeap {
-    /* 構造方法，根據輸入串列建堆積 */
+    /* 建構子，根據輸入串列建堆積 */
     fn new(nums: Vec<i32>) -> Self {
         // 將串列元素原封不動新增進堆積
         let mut heap = MaxHeap { max_heap: nums };

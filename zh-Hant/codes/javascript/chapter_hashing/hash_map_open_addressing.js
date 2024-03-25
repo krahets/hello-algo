@@ -21,7 +21,7 @@ class HashMapOpenAddressing {
     #buckets; // 桶陣列
     #TOMBSTONE; // 刪除標記
 
-    /* 構造方法 */
+    /* 建構子 */
     constructor() {
         this.#size = 0; // 鍵值對數量
         this.#capacity = 4; // 雜湊表容量

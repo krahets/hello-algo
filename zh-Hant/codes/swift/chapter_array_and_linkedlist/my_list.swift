@@ -11,7 +11,7 @@ class MyList {
     private var _size: Int // 串列長度（當前元素數量）
     private let extendRatio: Int // 每次串列擴容的倍數
 
-    /* 構造方法 */
+    /* 建構子 */
     init() {
         _capacity = 10
         _size = 0

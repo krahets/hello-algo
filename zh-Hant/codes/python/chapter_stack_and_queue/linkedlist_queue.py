@@ -15,7 +15,7 @@ class LinkedListQueue:
     """基於鏈結串列實現的佇列"""
 
     def __init__(self):
-        """構造方法"""
+        """建構子"""
         self._front: ListNode | None = None  # 頭節點 front
         self._rear: ListNode | None = None  # 尾節點 rear
         self._size: int = 0

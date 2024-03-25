@@ -22,7 +22,7 @@ class LinkedListDeque {
     int queSize = 0;              // 雙向佇列的長度
 
   public:
-    /* 構造方法 */
+    /* 建構子 */
     LinkedListDeque() : front(nullptr), rear(nullptr) {
     }
 

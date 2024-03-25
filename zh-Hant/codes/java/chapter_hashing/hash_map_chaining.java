@@ -17,7 +17,7 @@ class HashMapChaining {
     int extendRatio; // 擴容倍數
     List<List<Pair>> buckets; // 桶陣列
 
-    /* 構造方法 */
+    /* 建構子 */
     public HashMapChaining() {
         size = 0;
         capacity = 4;

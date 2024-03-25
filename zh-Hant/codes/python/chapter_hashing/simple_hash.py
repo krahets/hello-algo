@@ -24,7 +24,7 @@ def mul_hash(key: str) -> int:
 
 
 def xor_hash(key: str) -> int:
-    """異或雜湊"""
+    """互斥或雜湊"""
     hash = 0
     modulus = 1000000007
     for c in key:
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     print(f"乘法雜湊值為 {hash}")
 
     hash = xor_hash(key)
-    print(f"異或雜湊值為 {hash}")
+    print(f"互斥或雜湊值為 {hash}")
 
     hash = rot_hash(key)
     print(f"旋轉雜湊值為 {hash}")

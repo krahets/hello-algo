@@ -19,7 +19,7 @@ struct AVLTree {
 }
 
 impl AVLTree {
-    /* 構造方法 */
+    /* 建構子 */
     fn new() -> Self {
         Self { root: None }
     }

@@ -15,7 +15,7 @@ class GraphAdjList:
     """基於鄰接表實現的無向圖類"""
 
     def __init__(self, edges: list[list[Vertex]]):
-        """構造方法"""
+        """建構子"""
         # 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
         self.adj_list = dict[Vertex, list[Vertex]]()
         # 新增所有頂點和邊

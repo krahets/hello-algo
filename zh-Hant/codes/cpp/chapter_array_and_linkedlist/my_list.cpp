@@ -15,7 +15,7 @@ class MyList {
     int extendRatio = 2;   // 每次串列擴容的倍數
 
   public:
-    /* 構造方法 */
+    /* 建構子 */
     MyList() {
         arr = new int[arrCapacity];
     }

@@ -11,7 +11,7 @@ class TreeNode {
   TreeNode? left; // 左子節點引用
   TreeNode? right; // 右子節點引用
 
-  /* 構造方法 */
+  /* 建構子 */
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
 

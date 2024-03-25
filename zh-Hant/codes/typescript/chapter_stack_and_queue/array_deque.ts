@@ -10,7 +10,7 @@ class ArrayDeque {
     private front: number; // 佇列首指標，指向佇列首元素
     private queSize: number; // 雙向佇列長度
 
-    /* 構造方法 */
+    /* 建構子 */
     constructor(capacity: number) {
         this.nums = new Array(capacity);
         this.front = 0;

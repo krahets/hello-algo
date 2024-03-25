@@ -18,7 +18,7 @@ type hashMapOpenAddressing struct {
 	TOMBSTONE   *pair   // 刪除標記
 }
 
-/* 構造方法 */
+/* 建構子 */
 func newHashMapOpenAddressing() *hashMapOpenAddressing {
 	return &hashMapOpenAddressing{
 		size:        0,

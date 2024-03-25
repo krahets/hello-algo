@@ -9,7 +9,7 @@ class ListNode:
     """雙向鏈結串列節點"""
 
     def __init__(self, val: int):
-        """構造方法"""
+        """建構子"""
         self.val: int = val
         self.next: ListNode | None = None  # 後繼節點引用
         self.prev: ListNode | None = None  # 前驅節點引用
@@ -19,7 +19,7 @@ class LinkedListDeque:
     """基於雙向鏈結串列實現的雙向佇列"""
 
     def __init__(self):
-        """構造方法"""
+        """建構子"""
         self._front: ListNode | None = None  # 頭節點 front
         self._rear: ListNode | None = None  # 尾節點 rear
         self._size: int = 0  # 雙向佇列的長度

@@ -15,7 +15,7 @@ pub struct GraphAdjList {
 }
 
 impl GraphAdjList {
-    /* 構造方法 */
+    /* 建構子 */
     pub fn new(edges: Vec<[Vertex; 2]>) -> Self {
         let mut graph = GraphAdjList {
             adj_list: HashMap::new(),

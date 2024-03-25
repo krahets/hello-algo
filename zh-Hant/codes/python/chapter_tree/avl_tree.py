@@ -15,7 +15,7 @@ class AVLTree:
     """AVL"""
 
     def __init__(self):
-        """構造方法"""
+        """建構子"""
         self._root = None
 
     def get_root(self) -> TreeNode | None:

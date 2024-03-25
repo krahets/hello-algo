@@ -13,7 +13,7 @@ pub struct GraphAdjMat {
 }
 
 impl GraphAdjMat {
-    /* 構造方法 */
+    /* 建構子 */
     pub fn new(vertices: Vec<i32>, edges: Vec<[usize; 2]>) -> Self {
         let mut graph = GraphAdjMat {
             vertices: vec![],

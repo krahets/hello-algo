@@ -12,7 +12,7 @@ public class ArrayDeque {
     int front;   // 佇列首指標，指向佇列首元素
     int queSize; // 雙向佇列長度
 
-    /* 構造方法 */
+    /* 建構子 */
     public ArrayDeque(int capacity) {
         nums = new int[capacity];
         front = queSize = 0;

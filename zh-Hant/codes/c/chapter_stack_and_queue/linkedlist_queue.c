@@ -12,7 +12,7 @@ typedef struct {
     int queSize;
 } LinkedListQueue;
 
-/* 構造函式 */
+/* 建構子 */
 LinkedListQueue *newLinkedListQueue() {
     LinkedListQueue *queue = (LinkedListQueue *)malloc(sizeof(LinkedListQueue));
     queue->front = NULL;

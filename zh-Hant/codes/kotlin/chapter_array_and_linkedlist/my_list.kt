@@ -13,7 +13,7 @@ class MyList {
     private var size = 0 // 串列長度（當前元素數量）
     private var extendRatio = 2 // 每次串列擴容的倍數
 
-    /* 構造函式 */
+    /* 建構子 */
     init {
         arr = IntArray(capacity)
     }

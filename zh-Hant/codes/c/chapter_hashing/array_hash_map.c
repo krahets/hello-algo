@@ -26,7 +26,7 @@ typedef struct {
     Pair *buckets[HASHTABLE_CAPACITY];
 } ArrayHashMap;
 
-/* 構造函式 */
+/* 建構子 */
 ArrayHashMap *newArrayHashMap() {
     ArrayHashMap *hmap = malloc(sizeof(ArrayHashMap));
     return hmap;

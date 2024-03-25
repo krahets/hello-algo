@@ -14,7 +14,7 @@ class HashMapChaining {
     var extendRatio: Int // 擴容倍數
     var buckets: [[Pair]] // 桶陣列
 
-    /* 構造方法 */
+    /* 建構子 */
     init() {
         size = 0
         capacity = 4

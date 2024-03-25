@@ -25,7 +25,7 @@ typedef struct {
 // 函式宣告
 void extend(HashMapOpenAddressing *hashMap);
 
-/* 構造函式 */
+/* 建構子 */
 HashMapOpenAddressing *newHashMapOpenAddressing() {
     HashMapOpenAddressing *hashMap = (HashMapOpenAddressing *)malloc(sizeof(HashMapOpenAddressing));
     hashMap->size = 0;

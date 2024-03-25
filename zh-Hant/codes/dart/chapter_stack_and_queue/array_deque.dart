@@ -10,7 +10,7 @@ class ArrayDeque {
   late int _front; // 佇列首指標，指向佇列首元素
   late int _queSize; // 雙向佇列長度
 
-  /* 構造方法 */
+  /* 建構子 */
   ArrayDeque(int capacity) {
     this._nums = List.filled(capacity, 0);
     this._front = this._queSize = 0;

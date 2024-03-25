@@ -13,7 +13,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
     // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
     val adjList: MutableMap<Vertex, MutableList<Vertex>> = HashMap()
 
-    /* 構造函式 */
+    /* 建構子 */
     init {
         // 新增所有頂點和邊
         for (edge in edges) {

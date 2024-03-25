@@ -14,7 +14,7 @@ class HashMapChaining {
   late int extendRatio; // 擴容倍數
   late List<List<Pair>> buckets; // 桶陣列
 
-  /* 構造方法 */
+  /* 建構子 */
   HashMapChaining() {
     size = 0;
     capacity = 4;

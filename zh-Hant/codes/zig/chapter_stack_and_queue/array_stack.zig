@@ -12,7 +12,7 @@ pub fn ArrayStack(comptime T: type) type {
 
         stack: ?std.ArrayList(T) = null,     
 
-        // 構造方法（分配記憶體+初始化堆疊）
+        // 建構子（分配記憶體+初始化堆疊）
         pub fn init(self: *Self, allocator: std.mem.Allocator) void {
             if (self.stack == null) {
                 self.stack = std.ArrayList(T).init(allocator);

@@ -15,7 +15,7 @@ class HashMapOpenAddressing {
     private var buckets: Array<Pair?> // 桶陣列
     private val TOMBSTONE = Pair(-1, "-1") // 刪除標記
 
-    /* 構造方法 */
+    /* 建構子 */
     init {
         buckets = arrayOfNulls(capacity)
     }

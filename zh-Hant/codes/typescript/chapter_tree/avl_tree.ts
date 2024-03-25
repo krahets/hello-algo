@@ -10,7 +10,7 @@ import { printTree } from '../modules/PrintUtil';
 /* AVL*/
 class AVLTree {
     root: TreeNode;
-    /* 構造方法 */
+    /* 建構子 */
     constructor() {
         this.root = null; //根節點
     }

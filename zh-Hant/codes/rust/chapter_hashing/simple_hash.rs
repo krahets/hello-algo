@@ -28,7 +28,7 @@ fn mul_hash(key: &str) -> i32 {
     hash as i32
 }
 
-/* 異或雜湊 */
+/* 互斥或雜湊 */
 fn xor_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -63,7 +63,7 @@ fn main() {
     println!("乘法雜湊值為 {hash}");
 
     let hash = xor_hash(key);
-    println!("異或雜湊值為 {hash}");
+    println!("互斥或雜湊值為 {hash}");
 
     let hash = rot_hash(key);
     println!("旋轉雜湊值為 {hash}");

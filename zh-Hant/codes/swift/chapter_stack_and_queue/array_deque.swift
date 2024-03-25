@@ -10,7 +10,7 @@ class ArrayDeque {
     private var front: Int // 佇列首指標，指向佇列首元素
     private var _size: Int // 雙向佇列長度
 
-    /* 構造方法 */
+    /* 建構子 */
     init(capacity: Int) {
         nums = Array(repeating: 0, count: capacity)
         front = 0

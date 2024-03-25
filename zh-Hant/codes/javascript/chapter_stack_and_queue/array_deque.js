@@ -10,7 +10,7 @@ class ArrayDeque {
     #front; // 佇列首指標，指向佇列首元素
     #queSize; // 雙向佇列長度
 
-    /* 構造方法 */
+    /* 建構子 */
     constructor(capacity) {
         this.#nums = new Array(capacity);
         this.#front = 0;

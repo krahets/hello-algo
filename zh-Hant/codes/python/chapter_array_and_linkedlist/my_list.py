@@ -9,7 +9,7 @@ class MyList:
     """串列類"""
 
     def __init__(self):
-        """構造方法"""
+        """建構子"""
         self._capacity: int = 10  # 串列容量
         self._arr: list[int] = [0] * self._capacity  # 陣列（儲存串列元素）
         self._size: int = 0  # 串列長度（當前元素數量）

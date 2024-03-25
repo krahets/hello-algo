@@ -15,7 +15,7 @@ class HashMapOpenAddressing {
     Pair[] buckets; // 桶陣列
     Pair TOMBSTONE = new(-1, "-1"); // 刪除標記
 
-    /* 構造方法 */
+    /* 建構子 */
     public HashMapOpenAddressing() {
         size = 0;
         buckets = new Pair[capacity];

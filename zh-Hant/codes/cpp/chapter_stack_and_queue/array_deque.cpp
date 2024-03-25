@@ -14,7 +14,7 @@ class ArrayDeque {
     int queSize;      // 雙向佇列長度
 
   public:
-    /* 構造方法 */
+    /* 建構子 */
     ArrayDeque(int capacity) {
         nums.resize(capacity);
         front = queSize = 0;

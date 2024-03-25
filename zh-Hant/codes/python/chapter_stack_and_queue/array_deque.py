@@ -9,7 +9,7 @@ class ArrayDeque:
     """基於環形陣列實現的雙向佇列"""
 
     def __init__(self, capacity: int):
-        """構造方法"""
+        """建構子"""
         self._nums: list[int] = [0] * capacity
         self._front: int = 0
         self._size: int = 0
