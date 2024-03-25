@@ -171,6 +171,12 @@ For example, consider the following code with an input size of $n$:
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -429,6 +435,12 @@ Let's understand this concept of "time growth trend" with an example. Assume the
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -621,6 +633,12 @@ Consider a function with an input size of $n$:
             printf("%d", 0);            // +1
         }
     } 
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+
     ```
 
 === "Zig"
@@ -876,6 +894,12 @@ Given a function, we can use these techniques to count operations:
             }
         }
     }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+
     ```
 
 === "Zig"

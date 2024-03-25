@@ -159,6 +159,12 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -371,6 +377,12 @@ Constructing a linked list is a two-step process: first, initializing each node 
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="linked_list.kt"
+
     ```
 
 === "Zig"
@@ -622,6 +634,12 @@ As shown in the figure, there are three common types of linked lists.
         node->prev = NULL;
         return node;
     }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+
     ```
 
 === "Zig"

@@ -267,6 +267,12 @@ Common operations of a hash table include initialization, querying, adding key-v
     // C does not provide a built-in hash table
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="hash_map.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="hash_map.zig"
@@ -460,6 +466,12 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 
     ```c title="hash_map.c"
     // C does not provide a built-in hash table
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="hash_map.kt"
+
     ```
 
 === "Zig"

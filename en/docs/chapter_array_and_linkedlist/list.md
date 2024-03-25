@@ -126,6 +126,12 @@ We typically use two initialization methods: "without initial values" and "with 
     // C does not provide built-in dynamic arrays
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="list.zig"
@@ -242,6 +248,12 @@ Lists are essentially arrays, thus they can access and update elements in $O(1)$
 
     ```c title="list.c"
     // C does not provide built-in dynamic arrays
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+
     ```
 
 === "Zig"
@@ -464,6 +476,12 @@ Compared to arrays, lists offer more flexibility in adding and removing elements
     // C does not provide built-in dynamic arrays
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="list.zig"
@@ -650,6 +668,12 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
     // C does not provide built-in dynamic arrays
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="list.zig"
@@ -758,6 +782,12 @@ Given a new list `nums1`, we can append it to the end of the original list.
     // C does not provide built-in dynamic arrays
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="list.zig"
@@ -846,6 +876,12 @@ Once the list is sorted, we can employ algorithms commonly used in array-related
 
     ```c title="list.c"
     // C does not provide built-in dynamic arrays
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+
     ```
 
 === "Zig"

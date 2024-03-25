@@ -105,6 +105,12 @@ Arrays can be initialized in two ways depending on the needs: either without ini
     int nums[5] = { 1, 3, 2, 5, 4 };
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="array.zig"

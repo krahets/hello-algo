@@ -310,6 +310,12 @@ The relevant code is as follows:
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -454,6 +460,12 @@ Consider the following code, the term "worst-case" in worst-case space complexit
         if (n > 10)
             int nums[n] = {0};   // O(n)
     }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+
     ```
 
 === "Zig"
@@ -692,6 +704,12 @@ Consider the following code, the term "worst-case" in worst-case space complexit
         if (n == 1) return;
         return recur(n - 1);
     }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+
     ```
 
 === "Zig"
