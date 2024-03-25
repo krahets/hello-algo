@@ -6,6 +6,7 @@
 
 package chapter_stack_and_queue
 
+/* 基于链表实现的队列 */
 class LinkedListQueue(
     // 头节点 front ，尾节点 rear
     private var front: ListNode? = null,

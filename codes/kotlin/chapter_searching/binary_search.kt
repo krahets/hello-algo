@@ -1,6 +1,6 @@
 /**
  * File: binary_search.kt
- * Created Time: 2024-1-25
+ * Created Time: 2024-01-25
  * Author: curtishd (1023632660@qq.com)
  */
 
