@@ -88,7 +88,7 @@ func expRecur(n: Int) -> Int {
 }
 
 /* 对数阶（循环实现） */
-func logarithmic(n: Double) -> Int {
+func logarithmic(n: Int) -> Int {
     var count = 0
     var n = n
     while n > 1 {
@@ -99,7 +99,7 @@ func logarithmic(n: Double) -> Int {
 }
 
 /* 对数阶（递归实现） */
-func logRecur(n: Double) -> Int {
+func logRecur(n: Int) -> Int {
     if n <= 1 {
         return 0
     }
@@ -107,7 +107,7 @@ func logRecur(n: Double) -> Int {
 }
 
 /* 线性对数阶 */
-func linearLogRecur(n: Double) -> Int {
+func linearLogRecur(n: Int) -> Int {
     if n <= 1 {
         return 1
     }
@@ -158,12 +158,12 @@ enum TimeComplexity {
         count = expRecur(n: n)
         print("指数阶（递归实现）的操作数量 = \(count)")
 
-        count = logarithmic(n: Double(n))
+        count = logarithmic(n: n)
         print("对数阶（循环实现）的操作数量 = \(count)")
-        count = logRecur(n: Double(n))
+        count = logRecur(n: n)
         print("对数阶（递归实现）的操作数量 = \(count)")
 
-        count = linearLogRecur(n: Double(n))
+        count = linearLogRecur(n: n)
         print("线性对数阶（递归实现）的操作数量 = \(count)")
 
         count = factorialRecur(n: n)

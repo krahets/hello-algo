@@ -87,7 +87,7 @@ func expRecur(n int) int {
 }
 
 /* 对数阶（循环实现）*/
-func logarithmic(n float64) int {
+func logarithmic(n int) int {
 	count := 0
 	for n > 1 {
 		n = n / 2
@@ -97,7 +97,7 @@ func logarithmic(n float64) int {
 }
 
 /* 对数阶（递归实现）*/
-func logRecur(n float64) int {
+func logRecur(n int) int {
 	if n <= 1 {
 		return 0
 	}
@@ -105,12 +105,12 @@ func logRecur(n float64) int {
 }
 
 /* 线性对数阶 */
-func linearLogRecur(n float64) int {
+func linearLogRecur(n int) int {
 	if n <= 1 {
 		return 1
 	}
 	count := linearLogRecur(n/2) + linearLogRecur(n/2)
-	for i := 0.0; i < n; i++ {
+	for i := 0; i < n; i++ {
 		count++
 	}
 	return count

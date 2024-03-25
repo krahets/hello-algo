@@ -112,6 +112,12 @@
     int tree[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
