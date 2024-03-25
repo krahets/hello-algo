@@ -6,6 +6,7 @@
 
 package chapter_stack_and_queue
 
+/* 基于链表实现的栈 */
 class LinkedListStack(
     private var stackPeek: ListNode? = null, // 将头节点作为栈顶
     private var stkSize: Int = 0 // 栈的长度
