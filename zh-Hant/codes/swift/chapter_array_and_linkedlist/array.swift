@@ -13,15 +13,15 @@ func randomAccess(nums: [Int]) -> Int {
     return randomNum
 }
 
-/* 擴充套件陣列長度 */
+/* 擴展陣列長度 */
 func extend(nums: [Int], enlarge: Int) -> [Int] {
-    // 初始化一個擴充套件長度後的陣列
+    // 初始化一個擴展長度後的陣列
     var res = Array(repeating: 0, count: nums.count + enlarge)
     // 將原陣列中的所有元素複製到新陣列
     for i in nums.indices {
         res[i] = nums[i]
     }
-    // 返回擴充套件後的新陣列
+    // 返回擴展後的新陣列
     return res
 }
 
@@ -85,9 +85,9 @@ enum _Array {
         let randomNum = randomAccess(nums: nums)
         print("在 nums 中獲取隨機元素 \(randomNum)")
 
-        /* 長度擴充套件 */
+        /* 長度擴展 */
         nums = extend(nums: nums, enlarge: 3)
-        print("將陣列長度擴充套件至 8 ，得到 nums = \(nums)")
+        print("將陣列長度擴展至 8 ，得到 nums = \(nums)")
 
         /* 插入元素 */
         insert(nums: &nums, num: 6, index: 3)

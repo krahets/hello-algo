@@ -19,15 +19,15 @@ public class array {
         return randomNum;
     }
 
-    /* 擴充套件陣列長度 */
+    /* 擴展陣列長度 */
     static int[] extend(int[] nums, int enlarge) {
-        // 初始化一個擴充套件長度後的陣列
+        // 初始化一個擴展長度後的陣列
         int[] res = new int[nums.length + enlarge];
         // 將原陣列中的所有元素複製到新陣列
         for (int i = 0; i < nums.length; i++) {
             res[i] = nums[i];
         }
-        // 返回擴充套件後的新陣列
+        // 返回擴展後的新陣列
         return res;
     }
 
@@ -83,9 +83,9 @@ public class array {
         int randomNum = randomAccess(nums);
         System.out.println("在 nums 中獲取隨機元素 " + randomNum);
 
-        /* 長度擴充套件 */
+        /* 長度擴展 */
         nums = extend(nums, 3);
-        System.out.println("將陣列長度擴充套件至 8 ，得到 nums = " + Arrays.toString(nums));
+        System.out.println("將陣列長度擴展至 8 ，得到 nums = " + Arrays.toString(nums));
 
         /* 插入元素 */
         insert(nums, 6, 3);

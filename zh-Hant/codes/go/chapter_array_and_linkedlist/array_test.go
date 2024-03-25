@@ -29,9 +29,9 @@ func TestArray(t *testing.T) {
 	randomNum := randomAccess(nums)
 	fmt.Println("在 nums 中獲取隨機元素", randomNum)
 
-	/* 長度擴充套件 */
+	/* 長度擴展 */
 	nums = extend(nums, 3)
-	fmt.Println("將陣列長度擴充套件至 8 ，得到 nums =", nums)
+	fmt.Println("將陣列長度擴展至 8 ，得到 nums =", nums)
 
 	/* 插入元素 */
 	insert(nums, 6, 3)

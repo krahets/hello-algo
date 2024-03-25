@@ -17,15 +17,15 @@ func randomAccess(nums []int) (randomNum int) {
 	return
 }
 
-/* 擴充套件陣列長度 */
+/* 擴展陣列長度 */
 func extend(nums []int, enlarge int) []int {
-	// 初始化一個擴充套件長度後的陣列
+	// 初始化一個擴展長度後的陣列
 	res := make([]int, len(nums)+enlarge)
 	// 將原陣列中的所有元素複製到新陣列
 	for i, num := range nums {
 		res[i] = num
 	}
-	// 返回擴充套件後的新陣列
+	// 返回擴展後的新陣列
 	return res
 }
 

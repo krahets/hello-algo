@@ -6,9 +6,9 @@
 
 ![從官網下載 VS Code](installation.assets/vscode_installation.png)
 
-VS Code 擁有強大的擴充套件包生態系統，支援大多數程式語言的執行和除錯。以 Python 為例，安裝“Python Extension Pack”擴充套件包之後，即可進行 Python 程式碼除錯。安裝步驟如下圖所示。
+VS Code 擁有強大的擴展包生態系統，支援大多數程式語言的執行和除錯。以 Python 為例，安裝“Python Extension Pack”擴展包之後，即可進行 Python 程式碼除錯。安裝步驟如下圖所示。
 
-![安裝 VS Code 擴充套件包](installation.assets/vscode_extension_installation.png)
+![安裝 VS Code 擴展包](installation.assets/vscode_extension_installation.png)
 
 ## 安裝語言環境
 

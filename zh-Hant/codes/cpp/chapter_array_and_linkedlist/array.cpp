@@ -15,9 +15,9 @@ int randomAccess(int *nums, int size) {
     return randomNum;
 }
 
-/* 擴充套件陣列長度 */
+/* 擴展陣列長度 */
 int *extend(int *nums, int size, int enlarge) {
-    // 初始化一個擴充套件長度後的陣列
+    // 初始化一個擴展長度後的陣列
     int *res = new int[size + enlarge];
     // 將原陣列中的所有元素複製到新陣列
     for (int i = 0; i < size; i++) {
@@ -25,7 +25,7 @@ int *extend(int *nums, int size, int enlarge) {
     }
     // 釋放記憶體
     delete[] nums;
-    // 返回擴充套件後的新陣列
+    // 返回擴展後的新陣列
     return res;
 }
 
@@ -81,11 +81,11 @@ int main() {
     int randomNum = randomAccess(nums, size);
     cout << "在 nums 中獲取隨機元素 " << randomNum << endl;
 
-    /* 長度擴充套件 */
+    /* 長度擴展 */
     int enlarge = 3;
     nums = extend(nums, size, enlarge);
     size += enlarge;
-    cout << "將陣列長度擴充套件至 8 ，得到 nums = ";
+    cout << "將陣列長度擴展至 8 ，得到 nums = ";
     printArray(nums, size);
 
     /* 插入元素 */
