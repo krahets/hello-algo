@@ -463,6 +463,46 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="permutations_i.kt"
+    /* 回溯算法：全排列 I */
+    fun backtrack(
+        state: MutableList<Int>,
+        choices: IntArray,
+        selected: BooleanArray,
+        res: MutableList<List<Int>?>
+    ) {
+        // 当状态长度等于元素数量时，记录解
+        if (state.size == choices.size) {
+            res.add(ArrayList(state))
+            return
+        }
+        // 遍历所有选择
+        for (i in choices.indices) {
+            val choice = choices[i]
+            // 剪枝：不允许重复选择元素
+            if (!selected[i]) {
+                // 尝试：做出选择，更新状态
+                selected[i] = true
+                state.add(choice)
+                // 进行下一轮选择
+                backtrack(state, choices, selected, res)
+                // 回退：撤销选择，恢复到之前的状态
+                selected[i] = false
+                state.removeAt(state.size - 1)
+            }
+        }
+    }
+
+    /* 全排列 I */
+    fun permutationsI(nums: IntArray): List<List<Int>?> {
+        val res: MutableList<List<Int>?> = ArrayList()
+        backtrack(ArrayList(), nums, BooleanArray(nums.size), res)
+        return res
+    }
+    ```
+
 === "Zig"
 
     ```zig title="permutations_i.zig"
@@ -936,6 +976,48 @@ comments: true
         free(selected);
 
         return res;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="permutations_ii.kt"
+    /* 回溯算法：全排列 II */
+    fun backtrack(
+        state: MutableList<Int>,
+        choices: IntArray,
+        selected: BooleanArray,
+        res: MutableList<MutableList<Int>?>
+    ) {
+        // 当状态长度等于元素数量时，记录解
+        if (state.size == choices.size) {
+            res.add(ArrayList(state))
+            return
+        }
+        // 遍历所有选择
+        val duplicated: MutableSet<Int> = HashSet()
+        for (i in choices.indices) {
+            val choice = choices[i]
+            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            if (!selected[i] && !duplicated.contains(choice)) {
+                // 尝试：做出选择，更新状态
+                duplicated.add(choice) // 记录选择过的元素值
+                selected[i] = true
+                state.add(choice)
+                // 进行下一轮选择
+                backtrack(state, choices, selected, res)
+                // 回退：撤销选择，恢复到之前的状态
+                selected[i] = false
+                state.removeAt(state.size - 1)
+            }
+        }
+    }
+
+    /* 全排列 II */
+    fun permutationsII(nums: IntArray): MutableList<MutableList<Int>?> {
+        val res: MutableList<MutableList<Int>?> = ArrayList()
+        backtrack(ArrayList(), nums, BooleanArray(nums.size), res)
+        return res
     }
     ```
 

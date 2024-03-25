@@ -413,6 +413,37 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="graph_bfs.kt"
+    /* 广度优先遍历 */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    fun graphBFS(graph: GraphAdjList, startVet: Vertex): List<Vertex> {
+        // 顶点遍历序列
+        val res: MutableList<Vertex> = ArrayList()
+        // 哈希表，用于记录已被访问过的顶点
+        val visited: MutableSet<Vertex> = HashSet()
+        visited.add(startVet)
+        // 队列用于实现 BFS
+        val que: Queue<Vertex> = LinkedList()
+        que.offer(startVet)
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while (!que.isEmpty()) {
+            val vet = que.poll() // 队首顶点出队
+            res.add(vet) // 记录访问顶点
+            // 遍历该顶点的所有邻接顶点
+            for (adjVet in graph.adjList[vet]!!) {
+                if (visited.contains(adjVet)) continue  // 跳过已被访问的顶点
+
+                que.offer(adjVet) // 只入队未访问的顶点
+                visited.add(adjVet) // 标记该顶点已被访问
+            }
+        }
+        // 返回顶点遍历序列
+        return res
+    }
+    ```
+
 === "Zig"
 
     ```zig title="graph_bfs.zig"
@@ -816,6 +847,41 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     void graphDFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize) {
         dfs(graph, res, resSize, startVet);
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="graph_dfs.kt"
+    /* 深度优先遍历辅助函数 */
+    fun dfs(
+        graph: GraphAdjList,
+        visited: MutableSet<Vertex?>,
+        res: MutableList<Vertex?>,
+        vet: Vertex?
+    ) {
+        res.add(vet) // 记录访问顶点
+        visited.add(vet) // 标记该顶点已被访问
+        // 遍历该顶点的所有邻接顶点
+        for (adjVet in graph.adjList[vet]!!) {
+            if (visited.contains(adjVet)) continue  // 跳过已被访问的顶点
+            // 递归访问邻接顶点
+            dfs(graph, visited, res, adjVet)
+        }
+    }
+
+    /* 深度优先遍历 */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    fun graphDFS(
+        graph: GraphAdjList,
+        startVet: Vertex?
+    ): List<Vertex?> {
+        // 顶点遍历序列
+        val res: MutableList<Vertex?> = ArrayList()
+        // 哈希表，用于记录已被访问过的顶点
+        val visited: MutableSet<Vertex?> = HashSet()
+        dfs(graph, visited, res, startVet)
+        return res
     }
     ```
 

@@ -165,6 +165,12 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -379,6 +385,12 @@ Constructing a linked list is a two-step process: first, initializing each node 
     n3->next = n4;
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="linked_list.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="linked_list.zig"
@@ -526,6 +538,17 @@ By comparison, inserting an element into an array has a time complexity of $O(n)
         ListNode *n1 = n0->next;
         P->next = n1;
         n0->next = P;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="linked_list.kt"
+    /* 在链表的节点 n0 之后插入节点p */
+    fun insert(n0: ListNode?, p: ListNode?) {
+        val n1 = n0?.next
+        p?.next = n1
+        n0?.next = p
     }
     ```
 
@@ -718,6 +741,17 @@ It's important to note that even though node `P` continues to point to `n1` afte
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="linked_list.kt"
+    /* 删除链表的节点 n0 之后的首个节点 */
+    fun remove(n0: ListNode?) {
+        val p = n0?.next
+        val n1 = p?.next
+        n0?.next = n1
+    }
+    ```
+
 === "Zig"
 
     ```zig title="linked_list.zig"
@@ -895,6 +929,19 @@ It's important to note that even though node `P` continues to point to `n1` afte
             head = head->next;
         }
         return head;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="linked_list.kt"
+    /* 访问链表中索引为 index 的节点 */
+    fun access(head: ListNode?, index: Int): ListNode? {
+        var h = head
+        for (i in 0..<index) {
+            h = h?.next
+        }
+        return h
     }
     ```
 
@@ -1098,6 +1145,22 @@ Traverse the linked list to locate a node whose value matches `target`, and then
             index++;
         }
         return -1;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="linked_list.kt"
+    /* 在链表中查找值为 target 的首个节点 */
+    fun find(head: ListNode?, target: Int): Int {
+        var index = 0
+        var h = head
+        while (h != null) {
+            if (h.value == target) return index
+            h = h.next
+            index++
+        }
+        return -1
     }
     ```
 
@@ -1316,6 +1379,12 @@ As shown in the figure, there are three common types of linked lists.
         node->prev = NULL;
         return node;
     }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+
     ```
 
 === "Zig"

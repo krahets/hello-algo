@@ -554,6 +554,46 @@ index = hash(key) % capacity
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="simple_hash.kt"
+    /* 加法哈希 */
+    fun addHash(key: String): Int {
+        var hash = 0L
+        for (c in key.toCharArray()) {
+            hash = (hash + c.code) % MODULUS
+        }
+        return hash.toInt()
+    }
+
+    /* 乘法哈希 */
+    fun mulHash(key: String): Int {
+        var hash = 0L
+        for (c in key.toCharArray()) {
+            hash = (31 * hash + c.code) % MODULUS
+        }
+        return hash.toInt()
+    }
+
+    /* 异或哈希 */
+    fun xorHash(key: String): Int {
+        var hash = 0
+        for (c in key.toCharArray()) {
+            hash = hash xor c.code
+        }
+        return hash and MODULUS
+    }
+
+    /* 旋转哈希 */
+    fun rotHash(key: String): Int {
+        var hash = 0L
+        for (c in key.toCharArray()) {
+            hash = ((hash shl 4) xor (hash shr 28) xor c.code.toLong()) % MODULUS
+        }
+        return hash.toInt()
+    }
+    ```
+
 === "Zig"
 
     ```zig title="simple_hash.zig"
@@ -866,6 +906,12 @@ $$
 
     ```c title="built_in_hash.c"
     // C 未提供内置 hash code 函数
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="built_in_hash.kt"
+
     ```
 
 === "Zig"

@@ -161,6 +161,12 @@ comments: true
     bool bools[10];
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""

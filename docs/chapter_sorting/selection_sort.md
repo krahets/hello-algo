@@ -281,6 +281,25 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="selection_sort.kt"
+    /* 选择排序 */
+    fun selectionSort(nums: IntArray) {
+        val n = nums.size
+        // 外循环：未排序区间为 [i, n-1]
+        for (i in 0..<n - 1) {
+            var k = i
+            // 内循环：找到未排序区间内的最小元素
+            for (j in i + 1..<n) {
+                if (nums[j] < nums[k]) k = j // 记录最小元素的索引
+            }
+            // 将该最小元素与未排序区间的首个元素交换
+            nums[i] = nums[k].also { nums[k] = nums[i] }
+        }
+    }
+    ```
+
 === "Zig"
 
     ```zig title="selection_sort.zig"

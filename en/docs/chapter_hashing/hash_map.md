@@ -277,6 +277,12 @@ Common operations of a hash table include initialization, querying, adding key-v
     // C does not provide a built-in hash table
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="hash_map.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="hash_map.zig"
@@ -471,6 +477,12 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 
     ```c title="hash_map.c"
     // C does not provide a built-in hash table
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="hash_map.kt"
+
     ```
 
 === "Zig"
@@ -1522,6 +1534,166 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             printf("%d -> %s\n", entries[i].key, entries[i].val);
         }
         free(set.set);
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array_hash_map.kt"
+    /* 键值对 */
+    class Pair(
+        var key: Int,
+        var value: String
+    )
+
+    /* 基于数组实现的哈希表 */
+    class ArrayHashMap {
+        private val buckets = arrayOfNulls<Pair>(100)
+
+        init {
+            // 初始化数组，包含 100 个桶
+            for (i in 0..<100) {
+                buckets[i] = null
+            }
+        }
+
+        /* 哈希函数 */
+        fun hashFunc(key: Int): Int {
+            val index = key % 100
+            return index
+        }
+
+        /* 查询操作 */
+        fun get(key: Int): String? {
+            val index = hashFunc(key)
+            val pair = buckets[index] ?: return null
+            return pair.value
+        }
+
+        /* 添加操作 */
+        fun put(key: Int, value: String) {
+            val pair = Pair(key, value)
+            val index = hashFunc(key)
+            buckets[index] = pair
+        }
+
+        /* 删除操作 */
+        fun remove(key: Int) {
+            val index = hashFunc(key)
+            // 置为 null ，代表删除
+            buckets[index] = null
+        }
+
+        /* 获取所有键值对 */
+        fun pairSet(): MutableList<Pair> {
+            val pairSet = ArrayList<Pair>()
+            for (pair in buckets) {
+                if (pair != null) pairSet.add(pair)
+            }
+            return pairSet
+        }
+
+        /* 获取所有键 */
+        fun keySet(): MutableList<Int> {
+            val keySet = ArrayList<Int>()
+            for (pair in buckets) {
+                if (pair != null) keySet.add(pair.key)
+            }
+            return keySet
+        }
+
+        /* 获取所有值 */
+        fun valueSet(): MutableList<String> {
+            val valueSet = ArrayList<String>()
+            for (pair in buckets) {
+                pair?.let { valueSet.add(it.value) }
+            }
+            return valueSet
+        }
+
+        /* 打印哈希表 */
+        fun print() {
+            for (kv in pairSet()) {
+                val key = kv.key
+                val value = kv.value
+                println("${key}->${value}")
+            }
+        }
+    }
+
+    /* 基于数组实现的哈希表 */
+    class ArrayHashMap {
+        private val buckets = arrayOfNulls<Pair>(100)
+
+        init {
+            // 初始化数组，包含 100 个桶
+            for (i in 0..<100) {
+                buckets[i] = null
+            }
+        }
+
+        /* 哈希函数 */
+        fun hashFunc(key: Int): Int {
+            val index = key % 100
+            return index
+        }
+
+        /* 查询操作 */
+        fun get(key: Int): String? {
+            val index = hashFunc(key)
+            val pair = buckets[index] ?: return null
+            return pair.value
+        }
+
+        /* 添加操作 */
+        fun put(key: Int, value: String) {
+            val pair = Pair(key, value)
+            val index = hashFunc(key)
+            buckets[index] = pair
+        }
+
+        /* 删除操作 */
+        fun remove(key: Int) {
+            val index = hashFunc(key)
+            // 置为 null ，代表删除
+            buckets[index] = null
+        }
+
+        /* 获取所有键值对 */
+        fun pairSet(): MutableList<Pair> {
+            val pairSet = ArrayList<Pair>()
+            for (pair in buckets) {
+                if (pair != null) pairSet.add(pair)
+            }
+            return pairSet
+        }
+
+        /* 获取所有键 */
+        fun keySet(): MutableList<Int> {
+            val keySet = ArrayList<Int>()
+            for (pair in buckets) {
+                if (pair != null) keySet.add(pair.key)
+            }
+            return keySet
+        }
+
+        /* 获取所有值 */
+        fun valueSet(): MutableList<String> {
+            val valueSet = ArrayList<String>()
+            for (pair in buckets) {
+                pair?.let { valueSet.add(it.value) }
+            }
+            return valueSet
+        }
+
+        /* 打印哈希表 */
+        fun print() {
+            for (kv in pairSet()) {
+                val key = kv.key
+                val value = kv.value
+                println("${key}->${value}")
+            }
+        }
     }
     ```
 

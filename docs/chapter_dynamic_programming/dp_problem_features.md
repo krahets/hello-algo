@@ -281,6 +281,26 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="min_cost_climbing_stairs_dp.kt"
+    /* 爬楼梯最小代价：动态规划 */
+    fun minCostClimbingStairsDP(cost: IntArray): Int {
+        val n = cost.size - 1
+        if (n == 1 || n == 2) return cost[n]
+        // 初始化 dp 表，用于存储子问题的解
+        val dp = IntArray(n + 1)
+        // 初始状态：预设最小子问题的解
+        dp[1] = cost[1]
+        dp[2] = cost[2]
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (i in 3..n) {
+            dp[i] = (min(dp[i - 1].toDouble(), dp[i - 2].toDouble()) + cost[i]).toInt()
+        }
+        return dp[n]
+    }
+    ```
+
 === "Zig"
 
     ```zig title="min_cost_climbing_stairs_dp.zig"
@@ -519,6 +539,24 @@ $$
             a = tmp;
         }
         return b;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="min_cost_climbing_stairs_dp.kt"
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
+    fun minCostClimbingStairsDPComp(cost: IntArray): Int {
+        val n = cost.size - 1
+        if (n == 1 || n == 2) return cost[n]
+        var a = cost[1]
+        var b = cost[2]
+        for (i in 3..n) {
+            val tmp = b
+            b = (min(a.toDouble(), tmp.toDouble()) + cost[i]).toInt()
+            a = tmp
+        }
+        return b
     }
     ```
 
@@ -855,6 +893,30 @@ $$
         }
         free(dp);
         return res;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="climbing_stairs_constraint_dp.kt"
+    /* 带约束爬楼梯：动态规划 */
+    fun climbingStairsConstraintDP(n: Int): Int {
+        if (n == 1 || n == 2) {
+            return 1
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        val dp = Array(n + 1) { IntArray(3) }
+        // 初始状态：预设最小子问题的解
+        dp[1][1] = 1
+        dp[1][2] = 0
+        dp[2][1] = 0
+        dp[2][2] = 1
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (i in 3..n) {
+            dp[i][1] = dp[i - 1][2]
+            dp[i][2] = dp[i - 2][1] + dp[i - 2][2]
+        }
+        return dp[n][1] + dp[n][2]
     }
     ```
 

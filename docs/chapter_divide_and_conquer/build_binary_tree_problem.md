@@ -445,6 +445,37 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="build_tree.kt"
+    /* 构建二叉树：分治 */
+    fun dfs(preorder: IntArray, inorderMap: Map<Int?, Int?>, i: Int, l: Int, r: Int): TreeNode? {
+        // 子树区间为空时终止
+        if (r - l < 0) return null
+        // 初始化根节点
+        val root = TreeNode(preorder[i])
+        // 查询 m ，从而划分左右子树
+        val m = inorderMap[preorder[i]]!!
+        // 子问题：构建左子树
+        root.left = dfs(preorder, inorderMap, i + 1, l, m - 1)
+        // 子问题：构建右子树
+        root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r)
+        // 返回根节点
+        return root
+    }
+
+    /* 构建二叉树 */
+    fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
+        // 初始化哈希表，存储 inorder 元素到索引的映射
+        val inorderMap: MutableMap<Int?, Int?> = HashMap()
+        for (i in inorder.indices) {
+            inorderMap[inorder[i]] = i
+        }
+        val root = dfs(preorder, inorderMap, 0, 0, inorder.size - 1)
+        return root
+    }
+    ```
+
 === "Zig"
 
     ```zig title="build_tree.zig"

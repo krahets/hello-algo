@@ -334,6 +334,12 @@ comments: true
     // C 未提供内置双向队列
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="deque.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="deque.zig"
@@ -1836,6 +1842,133 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="linkedlist_deque.kt"
+    /* 双向链表节点 */
+    class ListNode(var value: Int) {
+        // 节点值
+        var next: ListNode? = null // 后继节点引用
+        var prev: ListNode? = null // 前驱节点引用
+    }
+
+    /* 基于双向链表实现的双向队列 */
+    class LinkedListDeque {
+        private var front: ListNode? = null // 头节点 front ，尾节点 rear
+        private var rear: ListNode? = null
+        private var queSize = 0 // 双向队列的长度
+
+        /* 获取双向队列的长度 */
+        fun size(): Int {
+            return queSize
+        }
+
+        /* 判断双向队列是否为空 */
+        fun isEmpty(): Boolean {
+            return size() == 0
+        }
+
+        /* 入队操作 */
+        fun push(num: Int, isFront: Boolean) {
+            val node = ListNode(num)
+            // 若链表为空，则令 front 和 rear 都指向 node
+            if (isEmpty()) {
+                rear = node
+                front = rear
+                // 队首入队操作
+            } else if (isFront) {
+                // 将 node 添加至链表头部
+                front?.prev = node
+                node.next = front
+                front = node // 更新头节点
+                // 队尾入队操作
+            } else {
+                // 将 node 添加至链表尾部
+                rear?.next = node
+                node.prev = rear
+                rear = node // 更新尾节点
+            }
+            queSize++ // 更新队列长度
+        }
+
+        /* 队首入队 */
+        fun pushFirst(num: Int) {
+            push(num, true)
+        }
+
+        /* 队尾入队 */
+        fun pushLast(num: Int) {
+            push(num, false)
+        }
+
+        /* 出队操作 */
+        fun pop(isFront: Boolean): Int {
+            if (isEmpty()) throw IndexOutOfBoundsException()
+
+            val value: Int
+            // 队首出队操作
+            if (isFront) {
+                value = front!!.value // 暂存头节点值
+                // 删除头节点
+                val fNext = front!!.next
+                if (fNext != null) {
+                    fNext.prev = null
+                    front!!.next = null
+                }
+                front = fNext // 更新头节点
+                // 队尾出队操作
+            } else {
+                value = rear!!.value // 暂存尾节点值
+                // 删除尾节点
+                val rPrev = rear!!.prev
+                if (rPrev != null) {
+                    rPrev.next = null
+                    rear!!.prev = null
+                }
+                rear = rPrev // 更新尾节点
+            }
+            queSize-- // 更新队列长度
+            return value
+        }
+
+        /* 队首出队 */
+        fun popFirst(): Int {
+            return pop(true)
+        }
+
+        /* 队尾出队 */
+        fun popLast(): Int {
+            return pop(false)
+        }
+
+        /* 访问队首元素 */
+        fun peekFirst(): Int {
+            if (isEmpty()) {
+                throw IndexOutOfBoundsException()
+
+            }
+            return front!!.value
+        }
+
+        /* 访问队尾元素 */
+        fun peekLast(): Int {
+            if (isEmpty()) throw IndexOutOfBoundsException()
+            return rear!!.value
+        }
+
+        /* 返回数组用于打印 */
+        fun toArray(): IntArray {
+            var node = front
+            val res = IntArray(size())
+            for (i in res.indices) {
+                res[i] = node!!.value
+                node = node.next
+            }
+            return res
+        }
+    }
+    ```
+
 === "Zig"
 
     ```zig title="linkedlist_deque.zig"
@@ -3210,6 +3343,111 @@ comments: true
         int num = peekLast(deque);
         deque->queSize--;
         return num;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array_deque.kt"
+    /* 基于环形数组实现的双向队列 */
+    class ArrayDeque(capacity: Int) {
+        private var nums = IntArray(capacity) // 用于存储双向队列元素的数组
+        private var front = 0 // 队首指针，指向队首元素
+        private var queSize = 0 // 双向队列长度
+
+        /* 获取双向队列的容量 */
+        fun capacity(): Int {
+            return nums.size
+        }
+
+        /* 获取双向队列的长度 */
+        fun size(): Int {
+            return queSize
+        }
+
+        /* 判断双向队列是否为空 */
+        fun isEmpty(): Boolean {
+            return queSize == 0
+        }
+
+        /* 计算环形数组索引 */
+        private fun index(i: Int): Int {
+            // 通过取余操作实现数组首尾相连
+            // 当 i 越过数组尾部后，回到头部
+            // 当 i 越过数组头部后，回到尾部
+            return (i + capacity()) % capacity()
+        }
+
+        /* 队首入队 */
+        fun pushFirst(num: Int) {
+            if (queSize == capacity()) {
+                println("双向队列已满")
+                return
+            }
+            // 队首指针向左移动一位
+            // 通过取余操作实现 front 越过数组头部后回到尾部
+            front = index(front - 1)
+            // 将 num 添加至队首
+            nums[front] = num
+            queSize++
+        }
+
+        /* 队尾入队 */
+        fun pushLast(num: Int) {
+            if (queSize == capacity()) {
+                println("双向队列已满")
+                return
+            }
+            // 计算队尾指针，指向队尾索引 + 1
+            val rear = index(front + queSize)
+            // 将 num 添加至队尾
+            nums[rear] = num
+            queSize++
+        }
+
+        /* 队首出队 */
+        fun popFirst(): Int {
+            val num = peekFirst()
+            // 队首指针向后移动一位
+            front = index(front + 1)
+            queSize--
+            return num
+        }
+
+        /* 访问队尾元素 */
+        fun popLast(): Int {
+            val num = peekLast()
+            queSize--
+            return num
+        }
+
+        /* 访问队首元素 */
+        fun peekFirst(): Int {
+            if (isEmpty()) throw IndexOutOfBoundsException()
+            return nums[front]
+        }
+
+        /* 访问队尾元素 */
+        fun peekLast(): Int {
+            if (isEmpty()) throw IndexOutOfBoundsException()
+            // 计算尾元素索引
+            val last = index(front + queSize - 1)
+            return nums[last]
+        }
+
+        /* 返回数组用于打印 */
+        fun toArray(): IntArray {
+            // 仅转换有效长度范围内的列表元素
+            val res = IntArray(queSize)
+            var i = 0
+            var j = front
+            while (i < queSize) {
+                res[i] = nums[index(j)]
+                i++
+                j++
+            }
+            return res
+        }
     }
     ```
 

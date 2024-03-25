@@ -368,6 +368,32 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="max_capacity.kt"
+    /* 最大容量：贪心 */
+    fun maxCapacity(ht: IntArray): Int {
+        // 初始化 i, j，使其分列数组两端
+        var i = 0
+        var j = ht.size - 1
+        // 初始最大容量为 0
+        var res = 0
+        // 循环贪心选择，直至两板相遇
+        while (i < j) {
+            // 更新最大容量
+            val cap = (min(ht[i].toDouble(), ht[j].toDouble()) * (j - i)).toInt()
+            res = max(res.toDouble(), cap.toDouble()).toInt()
+            // 向内移动短板
+            if (ht[i] < ht[j]) {
+                i++
+            } else {
+                j--
+            }
+        }
+        return res
+    }
+    ```
+
 === "Zig"
 
     ```zig title="max_capacity.zig"

@@ -180,6 +180,12 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -405,6 +411,12 @@ comments: true
     n2->right = n5;
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="binary_tree.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="binary_tree.zig"
@@ -551,6 +563,12 @@ comments: true
     P->left = n2;
     // 删除节点 P
     n1->left = n2;
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="binary_tree.kt"
+
     ```
 
 === "Zig"

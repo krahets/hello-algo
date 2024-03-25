@@ -175,6 +175,12 @@ For example, consider the following code with an input size of $n$:
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -433,6 +439,12 @@ Let's understand this concept of "time growth trend" with an example. Assume the
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -627,6 +639,12 @@ Consider a function with an input size of $n$:
             printf("%d", 0);            // +1
         }
     } 
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+
     ```
 
 === "Zig"
@@ -886,6 +904,12 @@ Given a function, we can use these techniques to count operations:
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -952,7 +976,7 @@ $$
 
 <p align="center"> Figure 2-9 &nbsp; Common Types of Time Complexity </p>
 
-### 1. &nbsp; Constant Order $O(1)$
+### 1. &nbsp; Constant Order $O(1)$ {data-toc-label="Constant Order"}
 
 Constant order means the number of operations is independent of the input data size $n$. In the following function, although the number of operations `size` might be large, the time complexity remains $O(1)$ as it's unrelated to $n$:
 
@@ -1103,6 +1127,19 @@ Constant order means the number of operations is independent of the input data s
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="time_complexity.kt"
+    /* 常数阶 */
+    fun constant(n: Int): Int {
+        var count = 0
+        val size = 10_0000
+        for (i in 0..<size)
+            count++
+        return count
+    }
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -1124,7 +1161,7 @@ Constant order means the number of operations is independent of the input data s
     <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20constant%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B8%B8%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20size%20%3D%2010%0A%20%20%20%20for%20_%20in%20range%28size%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20constant%28n%29%0A%20%20%20%20print%28%22%E5%B8%B8%E6%95%B0%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20constant%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B8%B8%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20size%20%3D%2010%0A%20%20%20%20for%20_%20in%20range%28size%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20constant%28n%29%0A%20%20%20%20print%28%22%E5%B8%B8%E6%95%B0%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
-### 2. &nbsp; Linear Order $O(n)$
+### 2. &nbsp; Linear Order $O(n)$ {data-toc-label="Linear Order"}
 
 Linear order indicates the number of operations grows linearly with the input data size $n$. Linear order commonly appears in single-loop structures:
 
@@ -1259,6 +1296,19 @@ Linear order indicates the number of operations grows linearly with the input da
             count++;
         }
         return count;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="time_complexity.kt"
+    /* 线性阶 */
+    fun linear(n: Int): Int {
+        var count = 0
+        // 循环次数与数组长度成正比
+        for (i in 0..<n)
+            count++
+        return count
     }
     ```
 
@@ -1435,6 +1485,20 @@ Operations like array traversal and linked list traversal have a time complexity
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="time_complexity.kt"
+    /* 线性阶（遍历数组） */
+    fun arrayTraversal(nums: IntArray): Int {
+        var count = 0
+        // 循环次数与数组长度成正比
+        for (num in nums) {
+            count++
+        }
+        return count
+    }
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -1456,7 +1520,7 @@ Operations like array traversal and linked list traversal have a time complexity
 
 It's important to note that **the input data size $n$ should be determined based on the type of input data**. For example, in the first example, $n$ represents the input data size, while in the second example, the length of the array $n$ is the data size.
 
-### 3. &nbsp; Quadratic Order $O(n^2)$
+### 3. &nbsp; Quadratic Order $O(n^2)$ {data-toc-label="Quadratic Order"}
 
 Quadratic order means the number of operations grows quadratically with the input data size $n$. Quadratic order typically appears in nested loops, where both the outer and inner loops have a time complexity of $O(n)$, resulting in an overall complexity of $O(n^2)$:
 
@@ -1630,6 +1694,22 @@ Quadratic order means the number of operations grows quadratically with the inpu
             }
         }
         return count;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="time_complexity.kt"
+    /* 平方阶 */
+    fun quadratic(n: Int): Int {
+        var count = 0
+        // 循环次数与数据大小 n 成平方关系
+        for (i in 0..<n) {
+            for (j in 0..<n) {
+                count++
+            }
+        }
+        return count
     }
     ```
 
@@ -1912,6 +1992,27 @@ For instance, in bubble sort, the outer loop runs $n - 1$ times, and the inner l
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="time_complexity.kt"
+    /* 平方阶（冒泡排序） */
+    fun bubbleSort(nums: IntArray): Int {
+        var count = 0
+        // 外循环：未排序区间为 [0, i]
+        for (i in nums.size - 1 downTo 1) {
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+            for (j in 0..<i) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    nums[j] = nums[j + 1].also { nums[j + 1] = nums[j] }
+                    count += 3 // 元素交换包含 3 个单元操作
+                }
+            }
+        }
+        return count
+    }
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -1942,7 +2043,7 @@ For instance, in bubble sort, the outer loop runs $n - 1$ times, and the inner l
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B9%B3%E6%96%B9%E9%98%B6%EF%BC%88%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%20%20%23%20%E8%AE%A1%E6%95%B0%E5%99%A8%0A%20%20%20%20%23%20%E5%A4%96%E5%BE%AA%E7%8E%AF%EF%BC%9A%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%BE%AA%E7%8E%AF%EF%BC%9A%E5%B0%86%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%20%5B0,%20i%5D%20%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%E8%87%B3%E8%AF%A5%E5%8C%BA%E9%97%B4%E7%9A%84%E6%9C%80%E5%8F%B3%E7%AB%AF%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E4%BA%A4%E6%8D%A2%20nums%5Bj%5D%20%E4%B8%8E%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%203%20%20%23%20%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%E5%8C%85%E5%90%AB%203%20%E4%B8%AA%E5%8D%95%E5%85%83%E6%93%8D%E4%BD%9C%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%28n,%200,%20-1%29%5D%20%20%23%20%5Bn,%20n-1,%20...,%202,%201%5D%0A%20%20%20%20count%20%3D%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22%E5%B9%B3%E6%96%B9%E9%98%B6%EF%BC%88%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B9%B3%E6%96%B9%E9%98%B6%EF%BC%88%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%20%20%23%20%E8%AE%A1%E6%95%B0%E5%99%A8%0A%20%20%20%20%23%20%E5%A4%96%E5%BE%AA%E7%8E%AF%EF%BC%9A%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%BE%AA%E7%8E%AF%EF%BC%9A%E5%B0%86%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%20%5B0,%20i%5D%20%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%E8%87%B3%E8%AF%A5%E5%8C%BA%E9%97%B4%E7%9A%84%E6%9C%80%E5%8F%B3%E7%AB%AF%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E4%BA%A4%E6%8D%A2%20nums%5Bj%5D%20%E4%B8%8E%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%203%20%20%23%20%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%E5%8C%85%E5%90%AB%203%20%E4%B8%AA%E5%8D%95%E5%85%83%E6%93%8D%E4%BD%9C%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%28n,%200,%20-1%29%5D%20%20%23%20%5Bn,%20n-1,%20...,%202,%201%5D%0A%20%20%20%20count%20%3D%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22%E5%B9%B3%E6%96%B9%E9%98%B6%EF%BC%88%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
-### 4. &nbsp; Exponential Order $O(2^n)$
+### 4. &nbsp; Exponential Order $O(2^n)$ {data-toc-label="Exponential Order"}
 
 Biological "cell division" is a classic example of exponential order growth: starting with one cell, it becomes two after one division, four after two divisions, and so on, resulting in $2^n$ cells after $n$ divisions.
 
@@ -2149,6 +2250,25 @@ The following image and code simulate the cell division process, with a time com
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="time_complexity.kt"
+    /* 指数阶（循环实现） */
+    fun exponential(n: Int): Int {
+        var count = 0
+        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+        var base = 1
+        for (i in 0..<n) {
+            for (j in 0..<base) {
+                count++
+            }
+            base *= 2
+        }
+        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
+        return count
+    }
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -2300,6 +2420,18 @@ In practice, exponential order often appears in recursive functions. For example
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="time_complexity.kt"
+    /* 指数阶（递归实现） */
+    fun expRecur(n: Int): Int {
+        if (n == 1) {
+            return 1
+        }
+        return expRecur(n - 1) + expRecur(n - 1) + 1
+    }
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -2317,7 +2449,7 @@ In practice, exponential order often appears in recursive functions. For example
 
 Exponential order growth is extremely rapid and is commonly seen in exhaustive search methods (brute force, backtracking, etc.). For large-scale problems, exponential order is unacceptable, often requiring dynamic programming or greedy algorithms as solutions.
 
-### 5. &nbsp; Logarithmic Order $O(\log n)$
+### 5. &nbsp; Logarithmic Order $O(\log n)$ {data-toc-label="Logarithmic Order"}
 
 In contrast to exponential order, logarithmic order reflects situations where "the size is halved each round." Given an input data size $n$, since the size is halved each round, the number of iterations is $\log_2 n$, the inverse function of $2^n$.
 
@@ -2476,6 +2608,21 @@ The following image and code simulate the "halving each round" process, with a t
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="time_complexity.kt"
+    /* 对数阶（循环实现） */
+    fun logarithmic(n: Int): Int {
+        var n1 = n
+        var count = 0
+        while (n1 > 1) {
+            n1 /= 2
+            count++
+        }
+        return count
+    }
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -2622,6 +2769,17 @@ Like exponential order, logarithmic order also frequently appears in recursive f
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="time_complexity.kt"
+    /* 对数阶（递归实现） */
+    fun logRecur(n: Int): Int {
+        if (n <= 1)
+            return 0
+        return logRecur(n / 2) + 1
+    }
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -2649,7 +2807,7 @@ Logarithmic order is typical in algorithms based on the divide-and-conquer strat
 
     This means the base $m$ can be changed without affecting the complexity. Therefore, we often omit the base $m$ and simply denote logarithmic order as $O(\log n)$.
 
-### 6. &nbsp; Linear-Logarithmic Order $O(n \log n)$
+### 6. &nbsp; Linear-Logarithmic Order $O(n \log n)$ {data-toc-label="Linear-Logarithmic Order"}
 
 Linear-logarithmic order often appears in nested loops, with the complexities of the two loops being $O(\log n)$ and $O(n)$ respectively. The related code is as follows:
 
@@ -2815,6 +2973,21 @@ Linear-logarithmic order often appears in nested loops, with the complexities of
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="time_complexity.kt"
+    /* 线性对数阶 */
+    fun linearLogRecur(n: Int): Int {
+        if (n <= 1)
+            return 1
+        var count = linearLogRecur(n / 2) + linearLogRecur(n / 2)
+        for (i in 0..<n.toInt()) {
+            count++
+        }
+        return count
+    }
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -2843,7 +3016,7 @@ The image below demonstrates how linear-logarithmic order is generated. Each lev
 
 Mainstream sorting algorithms typically have a time complexity of $O(n \log n)$, such as quicksort, mergesort, and heapsort.
 
-### 7. &nbsp; Factorial Order $O(n!)$
+### 7. &nbsp; Factorial Order $O(n!)$ {data-toc-label="Factorial Order"}
 
 Factorial order corresponds to the mathematical problem of "full permutation." Given $n$ distinct elements, the total number of possible permutations is:
 
@@ -3022,6 +3195,22 @@ Factorials are typically implemented using recursion. As shown in the image and 
             count += factorialRecur(n - 1);
         }
         return count;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="time_complexity.kt"
+    /* 阶乘阶（递归实现） */
+    fun factorialRecur(n: Int): Int {
+        if (n == 0)
+            return 1
+        var count = 0
+        // 从 1 个分裂出 n 个
+        for (i in 0..<n) {
+            count += factorialRecur(n - 1)
+        }
+        return count
     }
     ```
 
@@ -3378,6 +3567,39 @@ The "worst-case time complexity" corresponds to the asymptotic upper bound, deno
                 return i;
         }
         return -1;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="worst_best_time_complexity.kt"
+    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
+    fun randomNumbers(n: Int): Array<Int?> {
+        val nums = IntArray(n)
+        // 生成数组 nums = { 1, 2, 3, ..., n }
+        for (i in 0..<n) {
+            nums[i] = i + 1
+        }
+        // 随机打乱数组元素
+        val mutableList = nums.toMutableList()
+        mutableList.shuffle()
+        // Integer[] -> int[]
+        val res = arrayOfNulls<Int>(n)
+        for (i in 0..<n) {
+            res[i] = mutableList[i]
+        }
+        return res
+    }
+
+    /* 查找数组 nums 中数字 1 所在索引 */
+    fun findOne(nums: Array<Int?>): Int {
+        for (i in nums.indices) {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
+            if (nums[i] == 1)
+                return i
+        }
+        return -1
     }
     ```
 

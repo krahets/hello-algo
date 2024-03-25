@@ -168,6 +168,20 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="iteration.kt"
+    /* for 循环 */
+    fun forLoop(n: Int): Int {
+        var res = 0
+        // 循环求和 1, 2, ..., n-1, n
+        for (i in 1..n) {
+            res += i
+        }
+        return res
+    }
+    ```
+
 === "Zig"
 
     ```zig title="iteration.zig"
@@ -375,6 +389,22 @@ comments: true
             i++; // 更新条件变量
         }
         return res;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="iteration.kt"
+    /* while 循环 */
+    fun whileLoop(n: Int): Int {
+        var res = 0
+        var i = 1 // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i
+            i++ // 更新条件变量
+        }
+        return res
     }
     ```
 
@@ -601,6 +631,24 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="iteration.kt"
+    /* while 循环（两次更新） */
+    fun whileLoopII(n: Int): Int {
+        var res = 0
+        var i = 1 // 初始化条件变量
+        // 循环求和 1, 4, 10, ...
+        while (i <= n) {
+            res += i
+            // 更新条件变量
+            i++
+            i *= 2
+        }
+        return res
+    }
+    ```
+
 === "Zig"
 
     ```zig title="iteration.zig"
@@ -818,6 +866,23 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="iteration.kt"
+    /* 双层 for 循环 */
+    fun nestedForLoop(n: Int): String {
+        val res = StringBuilder()
+        // 循环 i = 1, 2, ..., n-1, n
+        for (i in 1..n) {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (j in 1..n) {
+                res.append(" ($i, $j), ")
+            }
+        }
+        return res.toString()
+    }
+    ```
+
 === "Zig"
 
     ```zig title="iteration.zig"
@@ -1032,6 +1097,21 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="recursion.kt"
+    /* 递归 */
+    fun recur(n: Int): Int {
+        // 终止条件
+        if (n == 1)
+            return 1
+        // 递: 递归调用
+        val res = recur(n - 1)
+        // 归: 返回结果
+        return n + res
+    }
+    ```
+
 === "Zig"
 
     ```zig title="recursion.zig"
@@ -1232,6 +1312,19 @@ comments: true
             return res;
         // 尾递归调用
         return tailRecur(n - 1, res + n);
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="recursion.kt"
+    /* Kotlin tailrec 关键词使函数实现尾递归优化 */
+    tailrec fun tailRecur(n: Int, res: Int): Int {
+        // 终止条件
+        if (n == 0)
+            return res
+        // 尾递归调用
+        return tailRecur(n - 1, res + n)
     }
     ```
 
@@ -1443,6 +1536,21 @@ comments: true
         int res = fib(n - 1) + fib(n - 2);
         // 返回结果 f(n)
         return res;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="recursion.kt"
+    /* 斐波那契数列：递归 */
+    fun fib(n: Int): Int {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n == 1 || n == 2)
+            return n - 1
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        val res = fib(n - 1) + fib(n - 2)
+        // 返回结果 f(n)
+        return res
     }
     ```
 
@@ -1757,6 +1865,28 @@ comments: true
         }
         // res = 1+2+3+...+n
         return res;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="recursion.kt"
+    /* 使用迭代模拟递归 */
+    fun forLoopRecur(n: Int): Int {
+        // 使用一个显式的栈来模拟系统调用栈
+        val stack = Stack<Int>()
+        var res = 0
+        // 递: 递归调用
+        for (i in n downTo 0) {
+            stack.push(i)
+        }
+        // 归: 返回结果
+        while (stack.isNotEmpty()) {
+            // 通过“出栈操作”模拟“归”
+            res += stack.pop()
+        }
+        // res = 1+2+3+...+n
+        return res
     }
     ```
 

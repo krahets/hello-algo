@@ -356,6 +356,39 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="climbing_stairs_backtrack.kt"
+    /* 回溯 */
+    fun backtrack(
+        choices: List<Int>,
+        state: Int,
+        n: Int,
+        res: MutableList<Int>
+    ) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if (state == n) res[0] = res[0] + 1
+        // 遍历所有选择
+        for (choice in choices) {
+            // 剪枝：不允许越过第 n 阶
+            if (state + choice > n) continue
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res)
+            // 回退
+        }
+    }
+
+    /* 爬楼梯：回溯 */
+    fun climbingStairsBacktrack(n: Int): Int {
+        val choices = mutableListOf(1, 2) // 可选择向上爬 1 阶或 2 阶
+        val state = 0 // 从第 0 阶开始爬
+        val res = ArrayList<Int>()
+        res.add(0) // 使用 res[0] 记录方案数量
+        backtrack(choices, state, n, res)
+        return res[0]
+    }
+    ```
+
 === "Zig"
 
     ```zig title="climbing_stairs_backtrack.zig"
@@ -626,6 +659,24 @@ $$
     /* 爬楼梯：搜索 */
     int climbingStairsDFS(int n) {
         return dfs(n);
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="climbing_stairs_dfs.kt"
+    /* 搜索 */
+    fun dfs(i: Int): Int {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2) return i
+        // dp[i] = dp[i-1] + dp[i-2]
+        val count = dfs(i - 1) + dfs(i - 2)
+        return count
+    }
+
+    /* 爬楼梯：搜索 */
+    fun climbingStairsDFS(n: Int): Int {
+        return dfs(n)
     }
     ```
 
@@ -967,6 +1018,31 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="climbing_stairs_dfs_mem.kt"
+    /* 记忆化搜索 */
+    fun dfs(i: Int, mem: IntArray): Int {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2) return i
+        // 若存在记录 dp[i] ，则直接返回之
+        if (mem[i] != -1) return mem[i]
+        // dp[i] = dp[i-1] + dp[i-2]
+        val count = dfs(i - 1, mem) + dfs(i - 2, mem)
+        // 记录 dp[i]
+        mem[i] = count
+        return count
+    }
+
+    /* 爬楼梯：记忆化搜索 */
+    fun climbingStairsDFSMem(n: Int): Int {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        val mem = IntArray(n + 1)
+        Arrays.fill(mem, -1)
+        return dfs(n, mem)
+    }
+    ```
+
 === "Zig"
 
     ```zig title="climbing_stairs_dfs_mem.zig"
@@ -1234,6 +1310,25 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="climbing_stairs_dp.kt"
+    /* 爬楼梯：动态规划 */
+    fun climbingStairsDP(n: Int): Int {
+        if (n == 1 || n == 2) return n
+        // 初始化 dp 表，用于存储子问题的解
+        val dp = IntArray(n + 1)
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1
+        dp[2] = 2
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (i in 3..n) {
+            dp[i] = dp[i - 1] + dp[i - 2]
+        }
+        return dp[n]
+    }
+    ```
+
 === "Zig"
 
     ```zig title="climbing_stairs_dp.zig"
@@ -1459,6 +1554,23 @@ $$
             a = tmp;
         }
         return b;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="climbing_stairs_dp.kt"
+    /* 爬楼梯：空间优化后的动态规划 */
+    fun climbingStairsDPComp(n: Int): Int {
+        if (n == 1 || n == 2) return n
+        var a = 1
+        var b = 2
+        for (i in 3..n) {
+            val tmp = b
+            b += a
+            a = tmp
+        }
+        return b
     }
     ```
 

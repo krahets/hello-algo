@@ -420,6 +420,41 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="edit_distance.kt"
+    /* 编辑距离：动态规划 */
+    fun editDistanceDP(s: String, t: String): Int {
+        val n = s.length
+        val m = t.length
+        val dp = Array(n + 1) { IntArray(m + 1) }
+        // 状态转移：首行首列
+        for (i in 1..n) {
+            dp[i][0] = i
+        }
+        for (j in 1..m) {
+            dp[0][j] = j
+        }
+        // 状态转移：其余行和列
+        for (i in 1..n) {
+            for (j in 1..m) {
+                if (s[i - 1] == t[j - 1]) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1]
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] =
+                        (min(
+                            min(dp[i][j - 1].toDouble(), dp[i - 1][j].toDouble()),
+                            dp[i - 1][j - 1].toDouble()
+                        ) + 1).toInt()
+                }
+            }
+        }
+        return dp[n][m]
+    }
+    ```
+
 === "Zig"
 
     ```zig title="edit_distance.zig"
@@ -872,6 +907,40 @@ $$
         // 释放内存
         free(dp);
         return res;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="edit_distance.kt"
+    /* 编辑距离：空间优化后的动态规划 */
+    fun editDistanceDPComp(s: String, t: String): Int {
+        val n = s.length
+        val m = t.length
+        val dp = IntArray(m + 1)
+        // 状态转移：首行
+        for (j in 1..m) {
+            dp[j] = j
+        }
+        // 状态转移：其余行
+        for (i in 1..n) {
+            // 状态转移：首列
+            var leftup = dp[0] // 暂存 dp[i-1, j-1]
+            dp[0] = i
+            // 状态转移：其余列
+            for (j in 1..m) {
+                val temp = dp[j]
+                if (s[i - 1] == t[j - 1]) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = (min(min(dp[j - 1].toDouble(), dp[j].toDouble()), leftup.toDouble()) + 1).toInt()
+                }
+                leftup = temp // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        return dp[m]
     }
     ```
 

@@ -209,6 +209,22 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="two_sum.kt"
+    /* 方法一：暴力枚举 */
+    fun twoSumBruteForce(nums: IntArray, target: Int): IntArray {
+        val size = nums.size
+        // 两层循环，时间复杂度为 O(n^2)
+        for (i in 0..<size - 1) {
+            for (j in i + 1..<size) {
+                if (nums[i] + nums[j] == target) return intArrayOf(i, j)
+            }
+        }
+        return IntArray(0)
+    }
+    ```
+
 === "Zig"
 
     ```zig title="two_sum.zig"
@@ -484,6 +500,25 @@ comments: true
         }
         *returnSize = 0;
         return NULL;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="two_sum.kt"
+    /* 方法二：辅助哈希表 */
+    fun twoSumHashTable(nums: IntArray, target: Int): IntArray {
+        val size = nums.size
+        // 辅助哈希表，空间复杂度为 O(n)
+        val dic = HashMap<Int, Int>()
+        // 单层循环，时间复杂度为 O(n)
+        for (i in 0..<size) {
+            if (dic.containsKey(target - nums[i])) {
+                return intArrayOf(dic[target - nums[i]]!!, i)
+            }
+            dic[nums[i]] = i
+        }
+        return IntArray(0)
     }
     ```
 

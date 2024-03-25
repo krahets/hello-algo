@@ -200,6 +200,23 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="preorder_traversal_i_compact.kt"
+    /* 前序遍历：例题一 */
+    fun preOrder(root: TreeNode?) {
+        if (root == null) {
+            return
+        }
+        if (root.value == 7) {
+            // 记录解
+            res!!.add(root)
+        }
+        preOrder(root.left)
+        preOrder(root.right)
+    }
+    ```
+
 === "Zig"
 
     ```zig title="preorder_traversal_i_compact.zig"
@@ -472,6 +489,27 @@ comments: true
         preOrder(root->right);
         // 回退
         pathSize--;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="preorder_traversal_ii_compact.kt"
+    /* 前序遍历：例题二 */
+    fun preOrder(root: TreeNode?) {
+        if (root == null) {
+            return
+        }
+        // 尝试
+        path!!.add(root)
+        if (root.value == 7) {
+            // 记录解
+            res!!.add(ArrayList(path!!))
+        }
+        preOrder(root.left)
+        preOrder(root.right)
+        // 回退
+        path!!.removeAt(path!!.size - 1)
     }
     ```
 
@@ -791,6 +829,28 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="preorder_traversal_iii_compact.kt"
+    /* 前序遍历：例题三 */
+    fun preOrder(root: TreeNode?) {
+        // 剪枝
+        if (root == null || root.value == 3) {
+            return
+        }
+        // 尝试
+        path!!.add(root)
+        if (root.value == 7) {
+            // 记录解
+            res!!.add(ArrayList(path!!))
+        }
+        preOrder(root.left)
+        preOrder(root.right)
+        // 回退
+        path!!.removeAt(path!!.size - 1)
+    }
+    ```
+
 === "Zig"
 
     ```zig title="preorder_traversal_iii_compact.zig"
@@ -1094,6 +1154,12 @@ comments: true
             }
         }
     }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+
     ```
 
 === "Zig"
@@ -1671,6 +1737,60 @@ comments: true
                 backtrack(nextChoices);
                 // 回退：撤销选择，恢复到之前的状态
                 undoChoice();
+            }
+        }
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="preorder_traversal_iii_template.kt"
+    /* 判断当前状态是否为解 */
+    fun isSolution(state: List<TreeNode?>): Boolean {
+        return state.isNotEmpty() && state[state.size - 1]?.value == 7
+    }
+
+    /* 记录解 */
+    fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<List<TreeNode?>?>) {
+        res.add(state?.let { ArrayList(it) })
+    }
+
+    /* 判断在当前状态下，该选择是否合法 */
+    fun isValid(state: List<TreeNode?>?, choice: TreeNode?): Boolean {
+        return choice != null && choice.value != 3
+    }
+
+    /* 更新状态 */
+    fun makeChoice(state: MutableList<TreeNode?>, choice: TreeNode?) {
+        state.add(choice)
+    }
+
+    /* 恢复状态 */
+    fun undoChoice(state: MutableList<TreeNode?>, choice: TreeNode?) {
+        state.removeLast()
+    }
+
+    /* 回溯算法：例题三 */
+    fun backtrack(
+        state: MutableList<TreeNode?>,
+        choices: List<TreeNode?>,
+        res: MutableList<List<TreeNode?>?>
+    ) {
+        // 检查是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res)
+        }
+        // 遍历所有选择
+        for (choice in choices) {
+            // 剪枝：检查选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice)
+                // 进行下一轮选择
+                backtrack(state, listOf(choice!!.left, choice.right), res)
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice)
             }
         }
     }

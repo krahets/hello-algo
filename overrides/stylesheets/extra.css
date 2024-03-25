@@ -207,6 +207,11 @@ body {
   width: 1.25em;
 }
 
+/* code block tabs */
+.md-typeset .tabbed-labels>label {
+  font-size: 0.59rem;
+}
+
 /* header banner */
 .md-banner {
   background-color: var(--md-code-bg-color);

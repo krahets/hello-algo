@@ -326,6 +326,31 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="quick_sort.kt"
+    /* 元素交换 */
+    fun swap(nums: IntArray, i: Int, j: Int) {
+        nums[i] = nums[j].also { nums[j] = nums[i] }
+    }
+
+    /* 哨兵划分 */
+    fun partition(nums: IntArray, left: Int, right: Int): Int {
+        // 以 nums[left] 为基准数
+        var i = left
+        var j = right
+        while (i < j) {
+            while (i < j && nums[j] >= nums[left])
+                j--           // 从右向左找首个小于基准数的元素
+            while (i < j && nums[i] <= nums[left])
+                i++           // 从左向右找首个大于基准数的元素
+            swap(nums, i, j)  // 交换这两个元素
+        }
+        swap(nums, i, left)   // 将基准数交换至两子数组的分界线
+        return i              // 返回基准数的索引
+    }
+    ```
+
 === "Zig"
 
     ```zig title="quick_sort.zig"
@@ -566,6 +591,21 @@ comments: true
         // 递归左子数组、右子数组
         quickSort(nums, left, pivot - 1);
         quickSort(nums, pivot + 1, right);
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="quick_sort.kt"
+    /* 快速排序 */
+    fun quickSort(nums: IntArray, left: Int, right: Int) {
+        // 子数组长度为 1 时终止递归
+        if (left >= right) return
+        // 哨兵划分
+        val pivot = partition(nums, left, right)
+        // 递归左子数组、右子数组
+        quickSort(nums, left, pivot - 1)
+        quickSort(nums, pivot + 1, right)
     }
     ```
 
@@ -1001,6 +1041,38 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="quick_sort.kt"
+    /* 选取三个候选元素的中位数 */
+    fun medianThree(nums: IntArray, left: Int, mid: Int, right: Int): Int {
+        val l = nums[left]
+        val m = nums[mid]
+        val r = nums[right]
+        if ((m in l..r) || (m in r..l))
+            return mid  // m 在 l 和 r 之间
+        if ((l in m..r) || (l in r..m))
+            return left // l 在 m 和 r 之间
+        return right
+    }
+
+    /* 哨兵划分 */
+    fun partition(nums: IntArray, left: Int, right: Int): Int {
+        // 以 nums[left] 为基准数
+        var i = left
+        var j = right
+        while (i < j) {
+            while (i < j && nums[j] >= nums[left])
+                j--           // 从右向左找首个小于基准数的元素
+            while (i < j && nums[i] <= nums[left])
+                i++           // 从左向右找首个大于基准数的元素
+            swap(nums, i, j)  // 交换这两个元素
+        }
+        swap(nums, i, left)   // 将基准数交换至两子数组的分界线
+        return i              // 返回基准数的索引
+    }
+    ```
+
 === "Zig"
 
     ```zig title="quick_sort.zig"
@@ -1274,6 +1346,21 @@ comments: true
                 right = pivot - 1;                         // 剩余未排序区间为 [left, pivot - 1]
             }
         }
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="quick_sort.kt"
+    /* 快速排序 */
+    fun quickSort(nums: IntArray, left: Int, right: Int) {
+        // 子数组长度为 1 时终止递归
+        if (left >= right) return
+        // 哨兵划分
+        val pivot = partition(nums, left, right)
+        // 递归左子数组、右子数组
+        quickSort(nums, left, pivot - 1)
+        quickSort(nums, pivot + 1, right)
     }
     ```
 

@@ -375,6 +375,12 @@ comments: true
     // C 未提供内置 Heap 类
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="heap.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="heap.zig"
@@ -611,6 +617,25 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="my_heap.kt"
+    /* 获取左子节点的索引 */
+    fun left(i: Int): Int {
+        return 2 * i + 1
+    }
+
+    /* 获取右子节点的索引 */
+    fun right(i: Int): Int {
+        return 2 * i + 2
+    }
+
+    /* 获取父节点的索引 */
+    fun parent(i: Int): Int {
+        return (i - 1) / 2 // 向下整除
+    }
+    ```
+
 === "Zig"
 
     ```zig title="my_heap.zig"
@@ -730,6 +755,15 @@ comments: true
     /* 访问堆顶元素 */
     int peek(MaxHeap *maxHeap) {
         return maxHeap->data[0];
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="my_heap.kt"
+    /* 访问堆顶元素 */
+    fun peek(): Int {
+        return maxHeap[0]
     }
     ```
 
@@ -1089,6 +1123,34 @@ comments: true
             swap(maxHeap, i, p);
             // 循环向上堆化
             i = p;
+        }
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="my_heap.kt"
+    /* 元素入堆 */
+    fun push(value: Int) {
+        // 添加节点
+        maxHeap.add(value)
+        // 从底至顶堆化
+        siftUp(size() - 1)
+    }
+
+    /* 从节点 i 开始，从底至顶堆化 */
+    fun siftUp(it: Int) {
+        // Kotlin的函数参数不可变，因此创建临时变量
+        var i = it
+        while (true) {
+            // 获取节点 i 的父节点
+            val p = parent(i)
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
+            if (p < 0 || maxHeap[i] <= maxHeap[p]) break
+            // 交换两节点
+            swap(i, p)
+            // 循环向上堆化
+            i = p
         }
     }
     ```
@@ -1599,6 +1661,44 @@ comments: true
             swap(maxHeap, i, max);
             // 循环向下堆化
             i = max;
+        }
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="my_heap.kt"
+    /* 元素出堆 */
+    fun pop(): Int {
+        // 判空处理
+        if (isEmpty()) throw IndexOutOfBoundsException()
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
+        swap(0, size() - 1)
+        // 删除节点
+        val value = maxHeap.removeAt(size() - 1)
+        // 从顶至底堆化
+        siftDown(0)
+        // 返回堆顶元素
+        return value
+    }
+
+    /* 从节点 i 开始，从顶至底堆化 */
+    fun siftDown(it: Int) {
+        // Kotlin的函数参数不可变，因此创建临时变量
+        var i = it
+        while (true) {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            val l = left(i)
+            val r = right(i)
+            var ma = i
+            if (l < size() && maxHeap[l] > maxHeap[ma]) ma = l
+            if (r < size() && maxHeap[r] > maxHeap[ma]) ma = r
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if (ma == i) break
+            // 交换两节点
+            swap(i, ma)
+            // 循环向下堆化
+            i = ma
         }
     }
     ```

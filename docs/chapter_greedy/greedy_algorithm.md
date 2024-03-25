@@ -283,6 +283,30 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="coin_change_greedy.kt"
+    /* 零钱兑换：贪心 */
+    fun coinChangeGreedy(coins: IntArray, amt: Int): Int {
+        // 假设 coins 列表有序
+        var am = amt
+        var i = coins.size - 1
+        var count = 0
+        // 循环进行贪心选择，直到无剩余金额
+        while (am > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > am) {
+                i--
+            }
+            // 选择 coins[i]
+            am -= coins[i]
+            count++
+        }
+        // 若未找到可行方案，则返回 -1
+        return if (am == 0) count else -1
+    }
+    ```
+
 === "Zig"
 
     ```zig title="coin_change_greedy.zig"

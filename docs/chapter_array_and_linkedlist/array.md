@@ -111,6 +111,12 @@ comments: true
     int nums[5] = { 1, 3, 2, 5, 4 };
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="array.zig"
@@ -276,6 +282,19 @@ comments: true
         // 获取并返回随机元素
         int randomNum = nums[randomIndex];
         return randomNum;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    /* 随机访问元素 */
+    fun randomAccess(nums: IntArray): Int {
+        // 在区间 [0, nums.size) 中随机抽取一个数字
+        val randomIndex = ThreadLocalRandom.current().nextInt(0, nums.size)
+        // 获取并返回随机元素
+        val randomNum = nums[randomIndex]
+        return randomNum
     }
     ```
 
@@ -459,6 +478,20 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    /* 在数组的索引 index 处插入元素 num */
+    fun insert(nums: IntArray, num: Int, index: Int) {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        for (i in nums.size - 1 downTo index + 1) {
+            nums[i] = nums[i - 1]
+        }
+        // 将 num 赋给 index 处的元素
+        nums[index] = num
+    }
+    ```
+
 === "Zig"
 
     ```zig title="array.zig"
@@ -616,6 +649,18 @@ comments: true
         // 把索引 index 之后的所有元素向前移动一位
         for (int i = index; i < size - 1; i++) {
             nums[i] = nums[i + 1];
+        }
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    /* 删除索引 index 处的元素 */
+    fun remove(nums: IntArray, index: Int) {
+        // 把索引 index 之后的所有元素向前移动一位
+        for (i in index..<nums.size - 1) {
+            nums[i] = nums[i + 1]
         }
     }
     ```
@@ -843,6 +888,23 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    /* 遍历数组 */
+    fun traverse(nums: IntArray) {
+        var count = 0
+        // 通过索引遍历数组
+        for (i in nums.indices) {
+            count += nums[i]
+        }
+        // 直接遍历数组元素
+        for (j: Int in nums) {
+            count += j
+        }
+    }
+    ```
+
 === "Zig"
 
     ```zig title="array.zig"
@@ -1015,6 +1077,18 @@ comments: true
                 return i;
         }
         return -1;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    /* 在数组中查找指定元素 */
+    fun find(nums: IntArray, target: Int): Int {
+        for (i in nums.indices) {
+            if (nums[i] == target) return i
+        }
+        return -1
     }
     ```
 
@@ -1222,6 +1296,22 @@ comments: true
         }
         // 返回扩展后的新数组
         return res;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    /* 扩展数组长度 */
+    fun extend(nums: IntArray, enlarge: Int): IntArray {
+        // 初始化一个扩展长度后的数组
+        val res = IntArray(nums.size + enlarge)
+        // 将原数组中的所有元素复制到新数组
+        for (i in nums.indices) {
+            res[i] = nums[i]
+        }
+        // 返回扩展后的新数组
+        return res
     }
     ```
 

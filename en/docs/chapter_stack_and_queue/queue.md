@@ -312,6 +312,12 @@ We can directly use the ready-made queue classes in programming languages:
     // C does not provide a built-in queue
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="queue.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="queue.zig"
@@ -1122,6 +1128,71 @@ Below is the code for implementing a queue using a linked list:
         }
         printArray(arr, queue->queSize);
         free(arr);
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="linkedlist_queue.kt"
+    /* 基于链表实现的队列 */
+    class LinkedListQueue(
+        // 头节点 front ，尾节点 rear
+        private var front: ListNode? = null,
+        private var rear: ListNode? = null,
+        private var queSize: Int = 0
+    ) {
+
+        /* 获取队列的长度 */
+        fun size(): Int {
+            return queSize
+        }
+
+        /* 判断队列是否为空 */
+        fun isEmpty(): Boolean {
+            return size() == 0
+        }
+
+        /* 入队 */
+        fun push(num: Int) {
+            // 在尾节点后添加 num
+            val node = ListNode(num)
+            // 如果队列为空，则令头、尾节点都指向该节点
+            if (front == null) {
+                front = node
+                rear = node
+                // 如果队列不为空，则将该节点添加到尾节点后
+            } else {
+                rear?.next = node
+                rear = node
+            }
+            queSize++
+        }
+
+        /* 出队 */
+        fun pop(): Int {
+            val num = peek()
+            // 删除头节点
+            front = front?.next
+            queSize--
+            return num
+        }
+
+        /* 访问队首元素 */
+        fun peek(): Int {
+            if (isEmpty()) throw IndexOutOfBoundsException()
+            return front!!.value
+        }
+
+        /* 将链表转化为 Array 并返回 */
+        fun toArray(): IntArray {
+            var node = front
+            val res = IntArray(size())
+            for (i in res.indices) {
+                res[i] = node!!.value
+                node = node.next
+            }
+            return res
+        }
     }
     ```
 
@@ -2033,6 +2104,75 @@ In a circular array, `front` or `rear` needs to loop back to the start of the ar
         queue->front = (queue->front + 1) % queue->queCapacity;
         queue->queSize--;
         return num;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array_queue.kt"
+    /* 基于环形数组实现的队列 */
+    class ArrayQueue(capacity: Int) {
+        private val nums = IntArray(capacity) // 用于存储队列元素的数组
+        private var front = 0 // 队首指针，指向队首元素
+        private var queSize = 0 // 队列长度
+
+        /* 获取队列的容量 */
+        fun capacity(): Int {
+            return nums.size
+        }
+
+        /* 获取队列的长度 */
+        fun size(): Int {
+            return queSize
+        }
+
+        /* 判断队列是否为空 */
+        fun isEmpty(): Boolean {
+            return queSize == 0
+        }
+
+        /* 入队 */
+        fun push(num: Int) {
+            if (queSize == capacity()) {
+                println("队列已满")
+                return
+            }
+            // 计算队尾指针，指向队尾索引 + 1
+            // 通过取余操作实现 rear 越过数组尾部后回到头部
+            val rear = (front + queSize) % capacity()
+            // 将 num 添加至队尾
+            nums[rear] = num
+            queSize++
+        }
+
+        /* 出队 */
+        fun pop(): Int {
+            val num = peek()
+            // 队首指针向后移动一位，若越过尾部，则返回到数组头部
+            front = (front + 1) % capacity()
+            queSize--
+            return num
+        }
+
+        /* 访问队首元素 */
+        fun peek(): Int {
+            if (isEmpty()) throw IndexOutOfBoundsException()
+            return nums[front]
+        }
+
+        /* 返回数组 */
+        fun toArray(): IntArray {
+            // 仅转换有效长度范围内的列表元素
+            val res = IntArray(queSize)
+            var i = 0
+            var j = front
+            while (i < queSize) {
+                res[i] = nums[j % capacity()]
+                i++
+                j++
+            }
+            return res
+        }
     }
     ```
 

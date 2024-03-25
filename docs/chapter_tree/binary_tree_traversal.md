@@ -293,6 +293,27 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="binary_tree_bfs.kt"
+    /* 层序遍历 */
+    fun levelOrder(root: TreeNode?): MutableList<Int> {
+        // 初始化队列，加入根节点
+        val queue = LinkedList<TreeNode?>()
+        queue.add(root)
+        // 初始化一个列表，用于保存遍历序列
+        val list = ArrayList<Int>()
+        while (!queue.isEmpty()) {
+            val node = queue.poll() // 队列出队
+            list.add(node?.value!!) // 保存节点值
+            if (node.left != null) queue.offer(node.left) // 左子节点入队
+
+            if (node.right != null) queue.offer(node.right) // 右子节点入队
+        }
+        return list
+    }
+    ```
+
 === "Zig"
 
     ```zig title="binary_tree_bfs.zig"
@@ -726,6 +747,37 @@ comments: true
         postOrder(root->left, size);
         postOrder(root->right, size);
         arr[(*size)++] = root->val;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="binary_tree_dfs.kt"
+    /* 前序遍历 */
+    fun preOrder(root: TreeNode?) {
+        if (root == null) return
+        // 访问优先级：根节点 -> 左子树 -> 右子树
+        list.add(root.value)
+        preOrder(root.left)
+        preOrder(root.right)
+    }
+
+    /* 中序遍历 */
+    fun inOrder(root: TreeNode?) {
+        if (root == null) return
+        // 访问优先级：左子树 -> 根节点 -> 右子树
+        inOrder(root.left)
+        list.add(root.value)
+        inOrder(root.right)
+    }
+
+    /* 后序遍历 */
+    fun postOrder(root: TreeNode?) {
+        if (root == null) return
+        // 访问优先级：左子树 -> 右子树 -> 根节点
+        postOrder(root.left)
+        postOrder(root.right)
+        list.add(root.value)
     }
     ```
 

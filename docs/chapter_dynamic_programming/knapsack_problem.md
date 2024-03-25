@@ -295,6 +295,32 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="knapsack.kt"
+    /* 0-1 背包：暴力搜索 */
+    fun knapsackDFS(
+        wgt: IntArray,
+        value: IntArray,
+        i: Int,
+        c: Int
+    ): Int {
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
+        if (i == 0 || c == 0) {
+            return 0
+        }
+        // 若超过背包容量，则只能选择不放入背包
+        if (wgt[i - 1] > c) {
+            return knapsackDFS(wgt, value, i - 1, c)
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        val no = knapsackDFS(wgt, value, i - 1, c)
+        val yes = knapsackDFS(wgt, value, i - 1, c - wgt[i - 1]) + value[i - 1]
+        // 返回两种方案中价值更大的那一个
+        return max(no.toDouble(), yes.toDouble()).toInt()
+    }
+    ```
+
 === "Zig"
 
     ```zig title="knapsack.zig"
@@ -633,6 +659,38 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="knapsack.kt"
+    /* 0-1 背包：记忆化搜索 */
+    fun knapsackDFSMem(
+        wgt: IntArray,
+        value: IntArray,
+        mem: Array<IntArray>,
+        i: Int,
+        c: Int
+    ): Int {
+        // 若已选完所有物品或背包无剩余容量，则返回价值 0
+        if (i == 0 || c == 0) {
+            return 0
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][c] != -1) {
+            return mem[i][c]
+        }
+        // 若超过背包容量，则只能选择不放入背包
+        if (wgt[i - 1] > c) {
+            return knapsackDFSMem(wgt, value, mem, i - 1, c)
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        val no = knapsackDFSMem(wgt, value, mem, i - 1, c)
+        val yes = knapsackDFSMem(wgt, value, mem, i - 1, c - wgt[i - 1]) + value[i - 1]
+        // 记录并返回两种方案中价值更大的那一个
+        mem[i][c] = max(no.toDouble(), yes.toDouble()).toInt()
+        return mem[i][c]
+    }
+    ```
+
 === "Zig"
 
     ```zig title="knapsack.zig"
@@ -959,6 +1017,35 @@ $$
             free(dp[i]);
         }
         return res;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="knapsack.kt"
+    /* 0-1 背包：动态规划 */
+    fun knapsackDP(
+        wgt: IntArray,
+        value: IntArray,
+        cap: Int
+    ): Int {
+        val n = wgt.size
+        // 初始化 dp 表
+        val dp = Array(n + 1) { IntArray(cap + 1) }
+        // 状态转移
+        for (i in 1..n) {
+            for (c in 1..cap) {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c]
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = max(dp[i - 1][c].toDouble(), (dp[i - 1][c - wgt[i - 1]] + value[i - 1]).toDouble())
+                        .toInt()
+                }
+            }
+        }
+        return dp[n][cap]
     }
     ```
 
@@ -1318,6 +1405,33 @@ $$
         // 释放内存
         free(dp);
         return res;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="knapsack.kt"
+    /* 0-1 背包：空间优化后的动态规划 */
+    fun knapsackDPComp(
+        wgt: IntArray,
+        value: IntArray,
+        cap: Int
+    ): Int {
+        val n = wgt.size
+        // 初始化 dp 表
+        val dp = IntArray(cap + 1)
+        // 状态转移
+        for (i in 1..n) {
+            // 倒序遍历
+            for (c in cap downTo 1) {
+                if (wgt[i - 1] <= c) {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] =
+                        max(dp[c].toDouble(), (dp[c - wgt[i - 1]] + value[i - 1]).toDouble()).toInt()
+                }
+            }
+        }
+        return dp[cap]
     }
     ```
 

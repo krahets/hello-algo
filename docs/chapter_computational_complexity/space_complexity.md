@@ -315,6 +315,12 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -461,6 +467,12 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -481,9 +493,10 @@ comments: true
         for _ in range(n):
             function()
 
-    def recur(n: int) -> int:
+    def recur(n: int):
         """递归的空间复杂度为 O(n)"""
-        if n == 1: return
+        if n == 1:
+            return
         return recur(n - 1)
     ```
 
@@ -698,6 +711,12 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -724,7 +743,7 @@ $$
 
 <p align="center"> 图 2-16 &nbsp; 常见的空间复杂度类型 </p>
 
-### 1. &nbsp; 常数阶 $O(1)$
+### 1. &nbsp; 常数阶 $O(1)$ {data-toc-label="常数阶"}
 
 常数阶常见于数量与输入数据大小 $n$ 无关的常量、变量、对象。
 
@@ -1030,6 +1049,33 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="space_complexity.kt"
+    /* 函数 */
+    fun function(): Int {
+        // 执行某些操作
+        return 0
+    }
+
+    /* 常数阶 */
+    fun constant(n: Int) {
+        // 常量、变量、对象占用 O(1) 空间
+        val a = 0
+        var b = 0
+        val nums = Array(10000) { 0 }
+        val node = ListNode(0)
+        // 循环中的变量占用 O(1) 空间
+        for (i in 0..<n) {
+            val c = 0
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (i in 0..<n) {
+            function()
+        }
+    }
+    ```
+
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -1069,7 +1115,7 @@ $$
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0Adef%20function%28%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%87%BD%E6%95%B0%22%22%22%0A%20%20%20%20%23%20%E6%89%A7%E8%A1%8C%E6%9F%90%E4%BA%9B%E6%93%8D%E4%BD%9C%0A%20%20%20%20return%200%0A%0Adef%20constant%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%B8%B8%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20%23%20%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%AF%B9%E8%B1%A1%E5%8D%A0%E7%94%A8%20O%281%29%20%E7%A9%BA%E9%97%B4%0A%20%20%20%20a%20%3D%200%0A%20%20%20%20nums%20%3D%20%5B0%5D%20*%2010%0A%20%20%20%20node%20%3D%20ListNode%280%29%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E5%8D%A0%E7%94%A8%20O%281%29%20%E7%A9%BA%E9%97%B4%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20c%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%E5%8D%A0%E7%94%A8%20O%281%29%20%E7%A9%BA%E9%97%B4%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20function%28%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E5%B8%B8%E6%95%B0%E9%98%B6%0A%20%20%20%20constant%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0Adef%20function%28%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%87%BD%E6%95%B0%22%22%22%0A%20%20%20%20%23%20%E6%89%A7%E8%A1%8C%E6%9F%90%E4%BA%9B%E6%93%8D%E4%BD%9C%0A%20%20%20%20return%200%0A%0Adef%20constant%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%B8%B8%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20%23%20%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%AF%B9%E8%B1%A1%E5%8D%A0%E7%94%A8%20O%281%29%20%E7%A9%BA%E9%97%B4%0A%20%20%20%20a%20%3D%200%0A%20%20%20%20nums%20%3D%20%5B0%5D%20*%2010%0A%20%20%20%20node%20%3D%20ListNode%280%29%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E5%8D%A0%E7%94%A8%20O%281%29%20%E7%A9%BA%E9%97%B4%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20c%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%E5%8D%A0%E7%94%A8%20O%281%29%20%E7%A9%BA%E9%97%B4%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20function%28%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E5%B8%B8%E6%95%B0%E9%98%B6%0A%20%20%20%20constant%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
 
-### 2. &nbsp; 线性阶 $O(n)$
+### 2. &nbsp; 线性阶 $O(n)$ {data-toc-label="线性阶"}
 
 线性阶常见于元素数量与 $n$ 成正比的数组、链表、栈、队列等：
 
@@ -1306,6 +1352,26 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="space_complexity.kt"
+    /* 线性阶 */
+    fun linear(n: Int) {
+        // 长度为 n 的数组占用 O(n) 空间
+        val nums = Array(n) { 0 }
+        // 长度为 n 的列表占用 O(n) 空间
+        val nodes = mutableListOf<ListNode>()
+        for (i in 0..<n) {
+            nodes.add(ListNode(i))
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        val map = mutableMapOf<Int, String>()
+        for (i in 0..<n) {
+            map[i] = i.toString()
+        }
+    }
+    ```
+
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -1470,6 +1536,18 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="space_complexity.kt"
+    /* 线性阶（递归实现） */
+    fun linearRecur(n: Int) {
+        println("递归 n = $n")
+        if (n == 1)
+            return
+        linearRecur(n - 1)
+    }
+    ```
+
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -1490,7 +1568,7 @@ $$
 
 <p align="center"> 图 2-17 &nbsp; 递归函数产生的线性阶空间复杂度 </p>
 
-### 3. &nbsp; 平方阶 $O(n^2)$
+### 3. &nbsp; 平方阶 $O(n^2)$ {data-toc-label="平方阶"}
 
 平方阶常见于矩阵和图，元素数量与 $n$ 成平方关系：
 
@@ -1685,6 +1763,25 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="space_complexity.kt"
+    /* 平方阶 */
+    fun quadratic(n: Int) {
+        // 矩阵占用 O(n^2) 空间
+        val numMatrix: Array<Array<Int>?> = arrayOfNulls(n)
+        // 二维列表占用 O(n^2) 空间
+        val numList: MutableList<MutableList<Int>> = arrayListOf()
+        for (i in 0..<n) {
+            val tmp = mutableListOf<Int>()
+            for (j in 0..<n) {
+                tmp.add(0)
+            }
+            numList.add(tmp)
+        }
+    }
+    ```
+
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -1860,6 +1957,20 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="space_complexity.kt"
+    /* 平方阶（递归实现） */
+    tailrec fun quadraticRecur(n: Int): Int {
+        if (n <= 0)
+            return 0
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
+        val nums = Array(n) { 0 }
+        println("递归 n = $n 中的 nums 长度 = ${nums.size}")
+        return quadraticRecur(n - 1)
+    }
+    ```
+
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -1881,7 +1992,7 @@ $$
 
 <p align="center"> 图 2-18 &nbsp; 递归函数产生的平方阶空间复杂度 </p>
 
-### 4. &nbsp; 指数阶 $O(2^n)$
+### 4. &nbsp; 指数阶 $O(2^n)$ {data-toc-label="指数阶"}
 
 指数阶常见于二叉树。观察图 2-19 ，层数为 $n$ 的“满二叉树”的节点数量为 $2^n - 1$ ，占用 $O(2^n)$ 空间：
 
@@ -2038,6 +2149,20 @@ $$
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="space_complexity.kt"
+    /* 指数阶（建立满二叉树） */
+    fun buildTree(n: Int): TreeNode? {
+        if (n == 0)
+            return null
+        val root = TreeNode(0)
+        root.left = buildTree(n - 1)
+        root.right = buildTree(n - 1)
+        return root
+    }
+    ```
+
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -2061,7 +2186,7 @@ $$
 
 <p align="center"> 图 2-19 &nbsp; 满二叉树产生的指数阶空间复杂度 </p>
 
-### 5. &nbsp; 对数阶 $O(\log n)$
+### 5. &nbsp; 对数阶 $O(\log n)$ {data-toc-label="对数阶"}
 
 对数阶常见于分治算法。例如归并排序，输入长度为 $n$ 的数组，每轮递归将数组从中点处划分为两半，形成高度为 $\log n$ 的递归树，使用 $O(\log n)$ 栈帧空间。
 

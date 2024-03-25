@@ -388,6 +388,39 @@ comments: true
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="bucket_sort.kt"
+    /* 桶排序 */
+    fun bucketSort(nums: FloatArray) {
+        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+        val k = nums.size / 2
+        val buckets = ArrayList<ArrayList<Float>>()
+        for (i in 0..<k) {
+            buckets.add(ArrayList())
+        }
+        // 1. 将数组元素分配到各个桶中
+        for (num in nums) {
+            // 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+            val i = (num * k).toInt()
+            // 将 num 添加进桶 i
+            buckets[i].add(num)
+        }
+        // 2. 对各个桶执行排序
+        for (bucket in buckets) {
+            // 使用内置排序函数，也可以替换成其他排序算法
+            bucket.sort()
+        }
+        // 3. 遍历桶合并结果
+        var i = 0
+        for (bucket in buckets) {
+            for (num in bucket) {
+                nums[i++] = num
+            }
+        }
+    }
+    ```
+
 === "Zig"
 
     ```zig title="bucket_sort.zig"
