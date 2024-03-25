@@ -6,12 +6,12 @@
 
 package utils
 
-/* Definition for a singly-linked list node */
+/* 链表节点 */
 class ListNode(var value: Int) {
     var next: ListNode? = null
 
     companion object {
-        /* Generate a linked list with an array */
+        /* 将列表序列化为链表 */
         fun arrToLinkedList(arr: IntArray): ListNode? {
             val dum = ListNode(0)
             var head = dum
@@ -22,7 +22,7 @@ class ListNode(var value: Int) {
             return dum.next
         }
 
-        /* Get a list node with specific value from a linked list */
+        /* 获取链表中值为 value 的节点 */
         fun getListNode(h: ListNode, value: Int): ListNode {
             var head = h
             while (head.value != value) {
