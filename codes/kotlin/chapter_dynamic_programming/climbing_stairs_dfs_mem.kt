@@ -32,7 +32,6 @@ fun climbingStairsDFSMem(n: Int): Int {
 /* Driver Code */
 fun main() {
     val n = 9
-
     val res: Int = climbingStairsDFSMem(n)
     println("爬 $n 阶楼梯共有 $res 种方案")
 }
