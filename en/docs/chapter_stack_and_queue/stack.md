@@ -296,6 +296,12 @@ Typically, we can directly use the stack class built into the programming langua
     // C does not provide a built-in stack
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="stack.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="stack.zig"

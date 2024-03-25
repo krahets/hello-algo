@@ -343,6 +343,12 @@ We know that the keys in a hash table can be of various data types such as integ
     // C does not provide built-in hash code functions
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="built_in_hash.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="built_in_hash.zig"

@@ -156,6 +156,19 @@
      */
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    /* Header comments for labeling functions, classes, test samples, etc */
+   
+    // Comments for explaining details.
+   
+    /**
+     * Multiline
+     * comments
+     */
+    ```
+
 === "Zig"
 
     ```zig title=""

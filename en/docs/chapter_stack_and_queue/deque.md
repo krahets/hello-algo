@@ -324,6 +324,12 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
     // C does not provide a built-in deque
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="deque.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="deque.zig"
