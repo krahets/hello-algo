@@ -2,11 +2,11 @@
 
 *Hash Table*, also known as *Hash Map*, achieves efficient querying by establishing a mapping between keys and values. Specifically, when we input a `key` into the hash table, we can get the corresponding `value` in $O(1)$ time complexity.
 
-As figure shows below, given $n$ students, each with two attributes: "Name" and "Student ID". If we want to implement a query feature that returns the corresponding name of the given student ID, we can use the hash table shown in the figure below.
+As figure shows below, given $n$ students, each with two attributes: "Name" and "Student ID". If we want to implement a query that returns the corresponding name of the given student ID, we can use the hash table shown in the figure below.
 
 ![Abstract representation of a hash table](hash_map.assets/hash_table_lookup.png)
 
-Apart from hash tables, arrays and linked lists can also be used to querying. The efficiency is compared in the table below.
+Apart from hash tables, arrays and linked lists can also be used to query. The efficiency is compared in the table below.
 
 - **Add**: Simply add the element to the end of the array (or linked list), with time complexity $O(1)$.
 - **Query**: Since the array (or linked list) is unordered, it requires traversing all the elements, with time complexity $O(n)$.
@@ -503,14 +503,14 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 
 Fundamentally, the hash function is to map the entire input space of all keys to the output space of all array indices. However, the input space is often much larger than the output space. Therefore, **theoretically, there must be situations where "multiple inputs mapping to the same output"**.
 
-For the hash function in the above example, if the last two digits of the input `key` are the same, the output of the hash function will also be the same. For example, when querying for students with student numbers 12836 and 20336, we find:
+For the hash function in the above example, if the last two digits of the input `key` are the same, the output of the hash function will also be the same. For example, when querying for students with student ID 12836 and 20336, we find:
 
 ```shell
 12836 % 100 = 36
 20336 % 100 = 36
 ```
 
-As shown in the figure below, both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs mapping to the same output is known as "hash collision".
+As shown in the figure below, both student ID point to the same name, which is obviously incorrect. This situation where multiple inputs mapping to the same output is known as "hash collision".
 
 ![Example of hash collision](hash_map.assets/hash_collision.png)
 
