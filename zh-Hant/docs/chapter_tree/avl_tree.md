@@ -164,7 +164,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
     }
 
     impl TreeNode {
-        /* 構造方法 */
+        /* 建構子 */
         fn new(val: i32) -> Rc<RefCell<Self>> {
             Rc::new(RefCell::new(Self {
                 val,
@@ -187,7 +187,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
         struct TreeNode *right;
     } TreeNode;
 
-    /* 構造函式 */
+    /* 建構子 */
     TreeNode *newTreeNode(int val) {
         TreeNode *node;
 

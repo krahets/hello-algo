@@ -15,7 +15,7 @@ class GraphAdjMat:
     """基於鄰接矩陣實現的無向圖類"""
 
     def __init__(self, vertices: list[int], edges: list[list[int]]):
-        """構造方法"""
+        """建構子"""
         # 頂點串列，元素代表“頂點值”，索引代表“頂點索引”
         self.vertices: list[int] = []
         # 鄰接矩陣，行列索引對應“頂點索引”

@@ -15,7 +15,7 @@ class HashMapOpenAddressing {
   late List<Pair?> _buckets; // 桶陣列
   Pair _TOMBSTONE = Pair(-1, "-1"); // 刪除標記
 
-  /* 構造方法 */
+  /* 建構子 */
   HashMapOpenAddressing() {
     _size = 0;
     _buckets = List.generate(_capacity, (index) => null);

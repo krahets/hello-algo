@@ -12,7 +12,7 @@ type myList struct {
 	extendRatio int
 }
 
-/* 構造函式 */
+/* 建構子 */
 func newMyList() *myList {
 	return &myList{
 		arrCapacity: 10,              // 串列容量

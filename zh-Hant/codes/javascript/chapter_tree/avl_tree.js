@@ -9,7 +9,7 @@ const { printTree } = require('../modules/PrintUtil');
 
 /* AVL*/
 class AVLTree {
-    /* 構造方法 */
+    /* 建構子 */
     constructor() {
         this.root = null; //根節點
     }

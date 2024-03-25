@@ -15,7 +15,7 @@ class MaxHeap(nums: List<Int>?) {
     // 將串列元素原封不動新增進堆積
     private val maxHeap = ArrayList(nums!!)
 
-    /* 構造函式，根據輸入串列建堆積 */
+    /* 建構子，根據輸入串列建堆積 */
     init {
         // 堆積化除葉節點以外的其他所有節點
         for (i in parent(size() - 1) downTo 0) {

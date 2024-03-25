@@ -20,7 +20,7 @@ class HashMapChaining {
     #extendRatio; // 擴容倍數
     #buckets; // 桶陣列
 
-    /* 構造方法 */
+    /* 建構子 */
     constructor() {
         this.#size = 0;
         this.#capacity = 4;

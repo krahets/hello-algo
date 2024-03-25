@@ -16,7 +16,7 @@ typedef struct {
 
 void extendCapacity(MyList *nums);
 
-/* 構造函式 */
+/* 建構子 */
 MyList *newMyList() {
     MyList *nums = malloc(sizeof(MyList));
     nums->capacity = 10;

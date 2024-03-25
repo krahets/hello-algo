@@ -12,7 +12,7 @@ typedef struct {
     int size;      // 堆疊的長度
 } LinkedListStack;
 
-/* 構造函式 */
+/* 建構子 */
 LinkedListStack *newLinkedListStack() {
     LinkedListStack *s = malloc(sizeof(LinkedListStack));
     s->top = NULL;

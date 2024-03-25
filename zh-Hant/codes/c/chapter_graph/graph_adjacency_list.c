@@ -21,7 +21,7 @@ typedef struct {
     int size;                     // 節點數量
 } GraphAdjList;
 
-/* 構造函式 */
+/* 建構子 */
 GraphAdjList *newGraphAdjList() {
     GraphAdjList *graph = (GraphAdjList *)malloc(sizeof(GraphAdjList));
     if (!graph) {

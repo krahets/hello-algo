@@ -21,7 +21,7 @@ void siftDown(MaxHeap *maxHeap, int i);
 void siftUp(MaxHeap *maxHeap, int i);
 int parent(MaxHeap *maxHeap, int i);
 
-/* 構造函式，根據切片建堆積 */
+/* 建構子，根據切片建堆積 */
 MaxHeap *newMaxHeap(int nums[], int size) {
     // 所有元素入堆積
     MaxHeap *maxHeap = (MaxHeap *)malloc(sizeof(MaxHeap));

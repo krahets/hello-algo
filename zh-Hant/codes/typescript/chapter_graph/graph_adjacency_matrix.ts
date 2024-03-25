@@ -9,7 +9,7 @@ class GraphAdjMat {
     vertices: number[]; // 頂點串列，元素代表“頂點值”，索引代表“頂點索引”
     adjMat: number[][]; // 鄰接矩陣，行列索引對應“頂點索引”
 
-    /* 構造函式 */
+    /* 建構子 */
     constructor(vertices: number[], edges: number[][]) {
         this.vertices = [];
         this.adjMat = [];

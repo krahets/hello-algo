@@ -11,12 +11,12 @@ class MaxHeap {
     // 使用串列而非陣列，這樣無須考慮擴容問題
     List<int> maxHeap;
 
-    /* 構造函式，建立空堆積 */
+    /* 建構子，建立空堆積 */
     public MaxHeap() {
         maxHeap = [];
     }
 
-    /* 構造函式，根據輸入串列建堆積 */
+    /* 建構子，根據輸入串列建堆積 */
     public MaxHeap(IEnumerable<int> nums) {
         // 將串列元素原封不動新增進堆積
         maxHeap = new List<int>(nums);

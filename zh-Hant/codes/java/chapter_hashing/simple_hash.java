@@ -27,7 +27,7 @@ public class simple_hash {
         return (int) hash;
     }
 
-    /* 異或雜湊 */
+    /* 互斥或雜湊 */
     static int xorHash(String key) {
         int hash = 0;
         final int MODULUS = 1000000007;
@@ -57,7 +57,7 @@ public class simple_hash {
         System.out.println("乘法雜湊值為 " + hash);
 
         hash = xorHash(key);
-        System.out.println("異或雜湊值為 " + hash);
+        System.out.println("互斥或雜湊值為 " + hash);
 
         hash = rotHash(key);
         System.out.println("旋轉雜湊值為 " + hash);

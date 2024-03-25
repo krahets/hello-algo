@@ -13,7 +13,7 @@ typedef struct DoublyListNode {
     struct DoublyListNode *prev; // 前驅節點
 } DoublyListNode;
 
-/* 構造函式 */
+/* 建構子 */
 DoublyListNode *newDoublyListNode(int num) {
     DoublyListNode *new = (DoublyListNode *)malloc(sizeof(DoublyListNode));
     new->val = num;
@@ -33,7 +33,7 @@ typedef struct {
     int queSize;                  // 雙向佇列的長度
 } LinkedListDeque;
 
-/* 構造函式 */
+/* 建構子 */
 LinkedListDeque *newLinkedListDeque() {
     LinkedListDeque *deque = (LinkedListDeque *)malloc(sizeof(LinkedListDeque));
     deque->front = NULL;

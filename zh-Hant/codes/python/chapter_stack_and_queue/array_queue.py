@@ -9,7 +9,7 @@ class ArrayQueue:
     """基於環形陣列實現的佇列"""
 
     def __init__(self, size: int):
-        """構造方法"""
+        """建構子"""
         self._nums: list[int] = [0] * size  # 用於儲存佇列元素的陣列
         self._front: int = 0  # 佇列首指標，指向佇列首元素
         self._size: int = 0  # 佇列長度

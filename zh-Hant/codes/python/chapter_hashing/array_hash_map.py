@@ -17,7 +17,7 @@ class ArrayHashMap:
     """基於陣列實現的雜湊表"""
 
     def __init__(self):
-        """構造方法"""
+        """建構子"""
         # 初始化陣列，包含 100 個桶
         self.buckets: list[Pair | None] = [None] * 100
 

@@ -14,7 +14,7 @@ typedef struct {
     int queCapacity; // 佇列容量
 } ArrayQueue;
 
-/* 構造函式 */
+/* 建構子 */
 ArrayQueue *newArrayQueue(int capacity) {
     ArrayQueue *queue = (ArrayQueue *)malloc(sizeof(ArrayQueue));
     // 初始化陣列

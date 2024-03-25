@@ -16,7 +16,7 @@ typedef struct {
     int size;
 } GraphAdjMat;
 
-/* 構造函式 */
+/* 建構子 */
 GraphAdjMat *newGraphAdjMat() {
     GraphAdjMat *graph = (GraphAdjMat *)malloc(sizeof(GraphAdjMat));
     graph->size = 0;

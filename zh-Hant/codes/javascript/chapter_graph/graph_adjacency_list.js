@@ -11,7 +11,7 @@ class GraphAdjList {
     // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
     adjList;
 
-    /* 構造方法 */
+    /* 建構子 */
     constructor(edges) {
         this.adjList = new Map();
         // 新增所有頂點和邊

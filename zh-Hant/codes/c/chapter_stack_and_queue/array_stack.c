@@ -14,7 +14,7 @@ typedef struct {
     int size;
 } ArrayStack;
 
-/* 構造函式 */
+/* 建構子 */
 ArrayStack *newArrayStack() {
     ArrayStack *stack = malloc(sizeof(ArrayStack));
     // 初始化一個大容量，避免擴容

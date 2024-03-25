@@ -26,7 +26,7 @@ fun mulHash(key: String): Int {
     return hash.toInt()
 }
 
-/* 異或雜湊 */
+/* 互斥或雜湊 */
 fun xorHash(key: String): Int {
     var hash = 0
     for (c in key.toCharArray()) {
@@ -55,7 +55,7 @@ fun main() {
     println("乘法雜湊值為 $hash")
 
     hash = xorHash(key)
-    println("異或雜湊值為 $hash")
+    println("互斥或雜湊值為 $hash")
 
     hash = rotHash(key)
     println("旋轉雜湊值為 $hash")

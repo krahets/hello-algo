@@ -16,7 +16,7 @@ typedef struct {
     int val;
 } Vertex;
 
-/* 構造函式，初始化一個新節點 */
+/* 建構子，初始化一個新節點 */
 Vertex *newVertex(int val) {
     Vertex *vet;
     vet = (Vertex *)malloc(sizeof(Vertex));

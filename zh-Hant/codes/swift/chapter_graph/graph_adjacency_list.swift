@@ -11,7 +11,7 @@ public class GraphAdjList {
     // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
     public private(set) var adjList: [Vertex: [Vertex]]
 
-    /* 構造方法 */
+    /* 建構子 */
     public init(edges: [[Vertex]]) {
         adjList = [:]
         // 新增所有頂點和邊

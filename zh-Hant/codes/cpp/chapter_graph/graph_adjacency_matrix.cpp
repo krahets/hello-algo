@@ -12,7 +12,7 @@ class GraphAdjMat {
     vector<vector<int>> adjMat; // 鄰接矩陣，行列索引對應“頂點索引”
 
   public:
-    /* 構造方法 */
+    /* 建構子 */
     GraphAdjMat(const vector<int> &vertices, const vector<vector<int>> &edges) {
         // 新增頂點
         for (int val : vertices) {

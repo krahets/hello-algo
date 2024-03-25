@@ -9,7 +9,7 @@ import { printHeap } from '../modules/PrintUtil';
 /* 最大堆積類 */
 class MaxHeap {
     private maxHeap: number[];
-    /* 構造方法，建立空堆積或根據輸入串列建堆積 */
+    /* 建構子，建立空堆積或根據輸入串列建堆積 */
     constructor(nums?: number[]) {
         // 將串列元素原封不動新增進堆積
         this.maxHeap = nums === undefined ? [] : [...nums];

@@ -11,7 +11,7 @@ public class GraphAdjList {
     // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
     public Dictionary<Vertex, List<Vertex>> adjList;
 
-    /* 構造函式 */
+    /* 建構子 */
     public GraphAdjList(Vertex[][] edges) {
         adjList = [];
         // 新增所有頂點和邊

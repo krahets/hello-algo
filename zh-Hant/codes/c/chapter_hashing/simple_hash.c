@@ -26,7 +26,7 @@ int mulHash(char *key) {
     return (int)hash;
 }
 
-/* 異或雜湊 */
+/* 互斥或雜湊 */
 int xorHash(char *key) {
     int hash = 0;
     const int MODULUS = 1000000007;
@@ -59,7 +59,7 @@ int main() {
     printf("乘法雜湊值為 %d\n", hash);
 
     hash = xorHash(key);
-    printf("異或雜湊值為 %d\n", hash);
+    printf("互斥或雜湊值為 %d\n", hash);
 
     hash = rotHash(key);
     printf("旋轉雜湊值為 %d\n", hash);

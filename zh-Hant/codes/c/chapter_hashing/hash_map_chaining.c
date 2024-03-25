@@ -32,7 +32,7 @@ typedef struct {
     Node **buckets;   // 桶陣列
 } HashMapChaining;
 
-/* 構造函式 */
+/* 建構子 */
 HashMapChaining *newHashMapChaining() {
     HashMapChaining *hashMap = (HashMapChaining *)malloc(sizeof(HashMapChaining));
     hashMap->size = 0;

@@ -61,7 +61,7 @@ class MaxHeap {
     }
 
   public:
-    /* 構造方法，根據輸入串列建堆積 */
+    /* 建構子，根據輸入串列建堆積 */
     MaxHeap(vector<int> nums) {
         // 將串列元素原封不動新增進堆積
         maxHeap = nums;

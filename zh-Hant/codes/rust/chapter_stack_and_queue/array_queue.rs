@@ -13,7 +13,7 @@ struct ArrayQueue {
 }
 
 impl ArrayQueue {
-    /* 構造方法 */
+    /* 建構子 */
     fn new(capacity: i32) -> ArrayQueue {
         ArrayQueue {
             nums: vec![0; capacity as usize],

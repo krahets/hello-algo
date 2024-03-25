@@ -14,7 +14,7 @@ struct ArrayDeque {
 }
 
 impl ArrayDeque {
-    /* 構造方法 */
+    /* 建構子 */
     pub fn new(capacity: usize) -> Self {
         Self {
             nums: vec![0; capacity],

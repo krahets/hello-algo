@@ -22,7 +22,7 @@ class HashMapChaining {
     #extendRatio: number; // 擴容倍數
     #buckets: Pair[][]; // 桶陣列
 
-    /* 構造方法 */
+    /* 建構子 */
     constructor() {
         this.#size = 0;
         this.#capacity = 4;

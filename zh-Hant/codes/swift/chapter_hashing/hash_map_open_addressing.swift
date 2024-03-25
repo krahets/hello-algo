@@ -15,7 +15,7 @@ class HashMapOpenAddressing {
     var buckets: [Pair?] // 桶陣列
     var TOMBSTONE: Pair // 刪除標記
 
-    /* 構造方法 */
+    /* 建構子 */
     init() {
         size = 0
         capacity = 4

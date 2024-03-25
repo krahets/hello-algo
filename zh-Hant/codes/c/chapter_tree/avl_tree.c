@@ -11,7 +11,7 @@ typedef struct {
     TreeNode *root;
 } AVLTree;
 
-/* 構造函式 */
+/* 建構子 */
 AVLTree *newAVLTree() {
     AVLTree *tree = (AVLTree *)malloc(sizeof(AVLTree));
     tree->root = NULL;

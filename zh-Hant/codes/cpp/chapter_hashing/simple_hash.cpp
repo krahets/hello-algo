@@ -26,7 +26,7 @@ int mulHash(string key) {
     return (int)hash;
 }
 
-/* 異或雜湊 */
+/* 互斥或雜湊 */
 int xorHash(string key) {
     int hash = 0;
     const int MODULUS = 1000000007;
@@ -57,7 +57,7 @@ int main() {
     cout << "乘法雜湊值為 " << hash << endl;
 
     hash = xorHash(key);
-    cout << "異或雜湊值為 " << hash << endl;
+    cout << "互斥或雜湊值為 " << hash << endl;
 
     hash = rotHash(key);
     cout << "旋轉雜湊值為 " << hash << endl;

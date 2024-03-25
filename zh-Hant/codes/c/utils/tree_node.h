@@ -23,7 +23,7 @@ typedef struct TreeNode {
     struct TreeNode *right; // 右子節點指標
 } TreeNode;
 
-/* 構造函式 */
+/* 建構子 */
 TreeNode *newTreeNode(int val) {
     TreeNode *node;
 

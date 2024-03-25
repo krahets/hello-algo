@@ -17,7 +17,7 @@ struct MyList {
 
 #[allow(unused, unused_comparisons)]
 impl MyList {
-    /* 構造方法 */
+    /* 建構子 */
     pub fn new(capacity: usize) -> Self {
         let mut vec = Vec::new();
         vec.resize(capacity, 0);

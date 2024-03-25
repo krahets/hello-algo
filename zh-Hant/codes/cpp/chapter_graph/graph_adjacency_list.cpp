@@ -22,7 +22,7 @@ class GraphAdjList {
         }
     }
 
-    /* 構造方法 */
+    /* 建構子 */
     GraphAdjList(const vector<vector<Vertex *>> &edges) {
         // 新增所有頂點和邊
         for (const vector<Vertex *> &edge : edges) {

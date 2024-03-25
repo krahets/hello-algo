@@ -10,7 +10,7 @@ import '../utils/print_util.dart';
 class MaxHeap {
   late List<int> _maxHeap;
 
-  /* 構造方法，根據輸入串列建堆積 */
+  /* 建構子，根據輸入串列建堆積 */
   MaxHeap(List<int> nums) {
     // 將串列元素原封不動新增進堆積
     _maxHeap = nums;

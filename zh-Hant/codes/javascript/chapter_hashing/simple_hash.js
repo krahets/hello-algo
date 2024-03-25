@@ -24,7 +24,7 @@ function mulHash(key) {
     return hash;
 }
 
-/* 異或雜湊 */
+/* 互斥或雜湊 */
 function xorHash(key) {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -54,7 +54,7 @@ hash = mulHash(key);
 console.log('乘法雜湊值為 ' + hash);
 
 hash = xorHash(key);
-console.log('異或雜湊值為 ' + hash);
+console.log('互斥或雜湊值為 ' + hash);
 
 hash = rotHash(key);
 console.log('旋轉雜湊值為 ' + hash);

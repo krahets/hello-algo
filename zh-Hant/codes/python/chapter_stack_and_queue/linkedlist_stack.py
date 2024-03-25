@@ -15,7 +15,7 @@ class LinkedListStack:
     """基於鏈結串列實現的堆疊"""
 
     def __init__(self):
-        """構造方法"""
+        """建構子"""
         self._peek: ListNode | None = None
         self._size: int = 0
 

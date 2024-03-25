@@ -12,7 +12,7 @@ pub fn MaxHeap(comptime T: type) type {
         
         max_heap: ?std.ArrayList(T) = null,      // 使用串列而非陣列，這樣無須考慮擴容問題
 
-        // 構造方法，根據輸入串列建堆積
+        // 建構子，根據輸入串列建堆積
         pub fn init(self: *Self, allocator: std.mem.Allocator, nums: []const T) !void {
             if (self.max_heap != null) return;
             self.max_heap = std.ArrayList(T).init(allocator);

@@ -11,7 +11,7 @@ class MyList {
     private _size: number = 0; // 串列長度（當前元素數量）
     private extendRatio: number = 2; // 每次串列擴容的倍數
 
-    /* 構造方法 */
+    /* 建構子 */
     constructor() {
         this.arr = new Array(this._capacity);
     }
