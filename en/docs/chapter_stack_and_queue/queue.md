@@ -302,6 +302,12 @@ We can directly use the ready-made queue classes in programming languages:
     // C does not provide a built-in queue
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="queue.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="queue.zig"

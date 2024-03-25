@@ -49,8 +49,6 @@ hide:
   <p>Feel free to engage in Chinese-to-English translation and pull request review! For guidelines, please see <a href="https://github.com/krahets/hello-algo/issues/914">#914</a>.</p>
 </div>
 
-<img src="index.assets/hello_algo_hero.jpg" class="cover-image" style="width: 100%; margin-top: 27px;">
-
 <div style="display: flex;">
   <div class="admonition quote" style="flex: 1; margin-right: 0.4rem;">
     <p class="admonition-title">Quote</p>

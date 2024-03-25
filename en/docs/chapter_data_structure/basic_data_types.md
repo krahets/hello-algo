@@ -153,6 +153,12 @@ In other words, **basic data types provide the "content type" of data, while dat
     bool bools[10];
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
