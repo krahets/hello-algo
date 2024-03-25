@@ -17,15 +17,15 @@ int randomAccess(List<int> nums) {
   return randomNum;
 }
 
-/* 擴充套件陣列長度 */
+/* 擴展陣列長度 */
 List<int> extend(List<int> nums, int enlarge) {
-  // 初始化一個擴充套件長度後的陣列
+  // 初始化一個擴展長度後的陣列
   List<int> res = List.filled(nums.length + enlarge, 0);
   // 將原陣列中的所有元素複製到新陣列
   for (var i = 0; i < nums.length; i++) {
     res[i] = nums[i];
   }
-  // 返回擴充套件後的新陣列
+  // 返回擴展後的新陣列
   return res;
 }
 
@@ -84,9 +84,9 @@ void main() {
   int randomNum = randomAccess(nums);
   print('在 nums 中獲取隨機元素 $randomNum');
 
-  /* 長度擴充套件 */
+  /* 長度擴展 */
   nums = extend(nums, 3);
-  print('將陣列長度擴充套件至 8 ，得到 nums = $nums');
+  print('將陣列長度擴展至 8 ，得到 nums = $nums');
 
   /* 插入元素 */
   insert(nums, 6, 3);

@@ -13,17 +13,17 @@ function randomAccess(nums) {
     return random_num;
 }
 
-/* 擴充套件陣列長度 */
-// 請注意，JavaScript 的 Array 是動態陣列，可以直接擴充套件
+/* 擴展陣列長度 */
+// 請注意，JavaScript 的 Array 是動態陣列，可以直接擴展
 // 為了方便學習，本函式將 Array 看作長度不可變的陣列
 function extend(nums, enlarge) {
-    // 初始化一個擴充套件長度後的陣列
+    // 初始化一個擴展長度後的陣列
     const res = new Array(nums.length + enlarge).fill(0);
     // 將原陣列中的所有元素複製到新陣列
     for (let i = 0; i < nums.length; i++) {
         res[i] = nums[i];
     }
-    // 返回擴充套件後的新陣列
+    // 返回擴展後的新陣列
     return res;
 }
 
@@ -77,9 +77,9 @@ console.log('陣列 nums =', nums);
 let random_num = randomAccess(nums);
 console.log('在 nums 中獲取隨機元素', random_num);
 
-/* 長度擴充套件 */
+/* 長度擴展 */
 nums = extend(nums, 3);
-console.log('將陣列長度擴充套件至 8 ，得到 nums =', nums);
+console.log('將陣列長度擴展至 8 ，得到 nums =', nums);
 
 /* 插入元素 */
 insert(nums, 6, 3);

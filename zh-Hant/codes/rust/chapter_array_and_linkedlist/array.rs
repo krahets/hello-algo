@@ -17,15 +17,15 @@ fn random_access(nums: &[i32]) -> i32 {
     random_num
 }
 
-/* 擴充套件陣列長度 */
+/* 擴展陣列長度 */
 fn extend(nums: Vec<i32>, enlarge: usize) -> Vec<i32> {
-    // 初始化一個擴充套件長度後的陣列
+    // 初始化一個擴展長度後的陣列
     let mut res: Vec<i32> = vec![0; nums.len() + enlarge];
     // 將原陣列中的所有元素複製到新
     for i in 0..nums.len() {
         res[i] = nums[i];
     }
-    // 返回擴充套件後的新陣列
+    // 返回擴展後的新陣列
     res
 }
 
@@ -87,9 +87,9 @@ fn main() {
     let random_num = random_access(&nums);
     println!("\n在 nums 中獲取隨機元素 {}", random_num);
 
-    // 長度擴充套件
+    // 長度擴展
     let mut nums = extend(nums, 3);
-    print!("將陣列長度擴充套件至 8 ，得到 nums = ");
+    print!("將陣列長度擴展至 8 ，得到 nums = ");
     print_util::print_array(&nums);
 
     // 插入元素

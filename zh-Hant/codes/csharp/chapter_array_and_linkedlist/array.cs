@@ -15,15 +15,15 @@ public class array {
         return randomNum;
     }
 
-    /* 擴充套件陣列長度 */
+    /* 擴展陣列長度 */
     int[] Extend(int[] nums, int enlarge) {
-        // 初始化一個擴充套件長度後的陣列
+        // 初始化一個擴展長度後的陣列
         int[] res = new int[nums.Length + enlarge];
         // 將原陣列中的所有元素複製到新陣列
         for (int i = 0; i < nums.Length; i++) {
             res[i] = nums[i];
         }
-        // 返回擴充套件後的新陣列
+        // 返回擴展後的新陣列
         return res;
     }
 
@@ -85,9 +85,9 @@ public class array {
         int randomNum = RandomAccess(nums);
         Console.WriteLine("在 nums 中獲取隨機元素 " + randomNum);
 
-        // 長度擴充套件
+        // 長度擴展
         nums = Extend(nums, 3);
-        Console.WriteLine("將陣列長度擴充套件至 8 ，得到 nums = " + ToString(nums));
+        Console.WriteLine("將陣列長度擴展至 8 ，得到 nums = " + ToString(nums));
 
         // 插入元素
         Insert(nums, 6, 3);

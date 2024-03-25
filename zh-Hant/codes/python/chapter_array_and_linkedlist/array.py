@@ -16,16 +16,16 @@ def random_access(nums: list[int]) -> int:
     return random_num
 
 
-# 請注意，Python 的 list 是動態陣列，可以直接擴充套件
+# 請注意，Python 的 list 是動態陣列，可以直接擴展
 # 為了方便學習，本函式將 list 看作長度不可變的陣列
 def extend(nums: list[int], enlarge: int) -> list[int]:
-    """擴充套件陣列長度"""
-    # 初始化一個擴充套件長度後的陣列
+    """擴展陣列長度"""
+    # 初始化一個擴展長度後的陣列
     res = [0] * (len(nums) + enlarge)
     # 將原陣列中的所有元素複製到新陣列
     for i in range(len(nums)):
         res[i] = nums[i]
-    # 返回擴充套件後的新陣列
+    # 返回擴展後的新陣列
     return res
 
 
@@ -80,9 +80,9 @@ if __name__ == "__main__":
     random_num: int = random_access(nums)
     print("在 nums 中獲取隨機元素", random_num)
 
-    # 長度擴充套件
+    # 長度擴展
     nums: list[int] = extend(nums, 3)
-    print("將陣列長度擴充套件至 8 ，得到 nums =", nums)
+    print("將陣列長度擴展至 8 ，得到 nums =", nums)
 
     # 插入元素
     insert(nums, 6, 3)
