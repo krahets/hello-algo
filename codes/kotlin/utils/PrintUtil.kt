@@ -10,7 +10,7 @@ import java.util.*
 
 class Trunk(var prev: Trunk?, var str: String)
 
-/* Print a matrix (Array) */
+/* 打印矩阵（Array） */
 fun <T> printMatrix(matrix: Array<Array<T>>) {
     println("[")
     for (row in matrix) {
@@ -19,7 +19,7 @@ fun <T> printMatrix(matrix: Array<Array<T>>) {
     println("]")
 }
 
-/* Print a matrix (List) */
+/* 打印矩阵（List） */
 fun <T> printMatrix(matrix: List<List<T>>) {
     println("[")
     for (row in matrix) {
@@ -28,7 +28,7 @@ fun <T> printMatrix(matrix: List<List<T>>) {
     println("]")
 }
 
-/* Print a linked list */
+/* 打印链表 */
 fun printLinkedList(h: ListNode?) {
     var head = h
     val list = ArrayList<String>()
@@ -39,16 +39,16 @@ fun printLinkedList(h: ListNode?) {
     println(list.joinToString(separator = " -> "))
 }
 
-/**
- * The interface of the tree printer
- * This tree printer is borrowed from TECHIE DELIGHT
- * https://www.techiedelight.com/c-program-print-binary-tree/
- */
+/* 打印二叉树 */
 fun printTree(root: TreeNode?) {
     printTree(root, null, false)
 }
 
-/* Print a binary tree */
+/**
+ * 打印二叉树
+ * This tree printer is borrowed from TECHIE DELIGHT
+ * https://www.techiedelight.com/c-program-print-binary-tree/
+ */
 fun printTree(root: TreeNode?, prev: Trunk?, isRight: Boolean) {
     if (root == null) {
         return
@@ -80,7 +80,6 @@ fun printTree(root: TreeNode?, prev: Trunk?, isRight: Boolean) {
     printTree(root.left, trunk, false)
 }
 
-/* Helper function to print branches of the binary tree */
 fun showTrunks(p: Trunk?) {
     if (p == null) {
         return
@@ -89,14 +88,14 @@ fun showTrunks(p: Trunk?) {
     print(p.str)
 }
 
-/* Print a hash map */
+/* 打印哈希表 */
 fun <K, V> printHashMap(map: Map<K, V>) {
     for ((key, value) in map) {
         println(key.toString() + " -> " + value)
     }
 }
 
-/* Print a heap (PriorityQueue) */
+/* 打印堆 */
 fun printHeap(queue: Queue<Int>?) {
     val list = queue?.let { ArrayList(it) }
     print("堆的数组表示：")
