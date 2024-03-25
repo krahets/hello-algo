@@ -28,7 +28,7 @@ func dfs(preorder: [Int], inorderMap: [Int: Int], i: Int, l: Int, r: Int) -> Tre
 func buildTree(preorder: [Int], inorder: [Int]) -> TreeNode? {
     // 初始化哈希表，存储 inorder 元素到索引的映射
     let inorderMap = inorder.enumerated().reduce(into: [:]) { $0[$1.element] = $1.offset }
-    return dfs(preorder: preorder, inorderMap: inorderMap, i: 0, l: 0, r: inorder.count - 1)
+    return dfs(preorder: preorder, inorderMap: inorderMap, i: inorder.startIndex, l: inorder.startIndex, r: inorder.endIndex - 1)
 }
 
 @main

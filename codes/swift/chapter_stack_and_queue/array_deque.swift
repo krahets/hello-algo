@@ -8,13 +8,13 @@
 class ArrayDeque {
     private var nums: [Int] // 用于存储双向队列元素的数组
     private var front: Int // 队首指针，指向队首元素
-    private var queSize: Int // 双向队列长度
+    private var _size: Int // 双向队列长度
 
     /* 构造方法 */
     init(capacity: Int) {
         nums = Array(repeating: 0, count: capacity)
         front = 0
-        queSize = 0
+        _size = 0
     }
 
     /* 获取双向队列的容量 */
@@ -24,7 +24,7 @@ class ArrayDeque {
 
     /* 获取双向队列的长度 */
     func size() -> Int {
-        queSize
+        _size
     }
 
     /* 判断双向队列是否为空 */
@@ -51,7 +51,7 @@ class ArrayDeque {
         front = index(i: front - 1)
         // 将 num 添加至队首
         nums[front] = num
-        queSize += 1
+        _size += 1
     }
 
     /* 队尾入队 */
@@ -64,7 +64,7 @@ class ArrayDeque {
         let rear = index(i: front + size())
         // 将 num 添加至队尾
         nums[rear] = num
-        queSize += 1
+        _size += 1
     }
 
     /* 队首出队 */
@@ -72,14 +72,14 @@ class ArrayDeque {
         let num = peekFirst()
         // 队首指针向后移动一位
         front = index(i: front + 1)
-        queSize -= 1
+        _size -= 1
         return num
     }
 
     /* 队尾出队 */
     func popLast() -> Int {
         let num = peekLast()
-        queSize -= 1
+        _size -= 1
         return num
     }
 
@@ -104,11 +104,7 @@ class ArrayDeque {
     /* 返回数组用于打印 */
     func toArray() -> [Int] {
         // 仅转换有效长度范围内的列表元素
-        var res = Array(repeating: 0, count: size())
-        for (i, j) in sequence(first: (0, front), next: { $0 < self.size() - 1 ? ($0 + 1, $1 + 1) : nil }) {
-            res[i] = nums[index(i: j)]
-        }
-        return res
+        (front ..< front + size()).map { nums[index(i: $0)] }
     }
 }
 

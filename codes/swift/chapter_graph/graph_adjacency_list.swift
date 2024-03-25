@@ -43,8 +43,8 @@ public class GraphAdjList {
             fatalError("参数错误")
         }
         // 删除边 vet1 - vet2
-        adjList[vet1]?.removeAll(where: { $0 == vet2 })
-        adjList[vet2]?.removeAll(where: { $0 == vet1 })
+        adjList[vet1]?.removeAll { $0 == vet2 }
+        adjList[vet2]?.removeAll { $0 == vet1 }
     }
 
     /* 添加顶点 */
@@ -65,19 +65,16 @@ public class GraphAdjList {
         adjList.removeValue(forKey: vet)
         // 遍历其他顶点的链表，删除所有包含 vet 的边
         for key in adjList.keys {
-            adjList[key]?.removeAll(where: { $0 == vet })
+            adjList[key]?.removeAll { $0 == vet }
         }
     }
 
     /* 打印邻接表 */
     public func print() {
         Swift.print("邻接表 =")
-        for pair in adjList {
-            var tmp: [Int] = []
-            for vertex in pair.value {
-                tmp.append(vertex.val)
-            }
-            Swift.print("\(pair.key.val): \(tmp),")
+        for (vertex, list) in adjList {
+            let list = list.map { $0.val }
+            Swift.print("\(vertex.val): \(list),")
         }
     }
 }

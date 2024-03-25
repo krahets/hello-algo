@@ -90,7 +90,7 @@ int expRecur(int n) {
 }
 
 /* 对数阶（循环实现） */
-int logarithmic(float n) {
+int logarithmic(int n) {
     int count = 0;
     while (n > 1) {
         n = n / 2;
@@ -100,14 +100,14 @@ int logarithmic(float n) {
 }
 
 /* 对数阶（递归实现） */
-int logRecur(float n) {
+int logRecur(int n) {
     if (n <= 1)
         return 0;
     return logRecur(n / 2) + 1;
 }
 
 /* 线性对数阶 */
-int linearLogRecur(float n) {
+int linearLogRecur(int n) {
     if (n <= 1)
         return 1;
     int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);

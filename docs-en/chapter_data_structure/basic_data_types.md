@@ -101,10 +101,10 @@ In other words, **basic data types provide the "content type" of data, while dat
 
     ```swift title=""
     // Using various basic data types to initialize arrays
-    let numbers = Array(repeating: Int(), count: 5)
-    let decimals = Array(repeating: Double(), count: 5)
-    let characters = Array(repeating: Character("a"), count: 5)
-    let bools = Array(repeating: Bool(), count: 5)
+    let numbers = Array(repeating: 0, count: 5)
+    let decimals = Array(repeating: 0.0, count: 5)
+    let characters: [Character] = Array(repeating: "a", count: 5)
+    let bools = Array(repeating: false, count: 5)
     ```
 
 === "JS"
