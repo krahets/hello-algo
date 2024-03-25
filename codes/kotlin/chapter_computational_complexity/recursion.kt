@@ -37,8 +37,9 @@ fun forLoopRecur(n: Int): Int {
     return res
 }
 
-/* Kotlin tailrec 关键词使函数实现尾递归优化 */
+/* 尾递归 */
 tailrec fun tailRecur(n: Int, res: Int): Int {
+    /* Kotlin tailrec 关键词使函数实现尾递归优化 */
     // 终止条件
     if (n == 0)
         return res
