@@ -9,6 +9,7 @@ package chapter_tree
 import utils.TreeNode
 import utils.printTree
 
+/* 数组表示下的二叉树类 */
 class ArrayBinaryTree(private val tree: List<Int?>) {
     /* 列表容量 */
     fun size(): Int {

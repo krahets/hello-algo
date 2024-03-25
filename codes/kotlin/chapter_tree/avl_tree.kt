@@ -10,8 +10,9 @@ import utils.TreeNode
 import utils.printTree
 import kotlin.math.max
 
+/* AVL 树 */
 class AVLTree {
-    var root: TreeNode? = null
+    var root: TreeNode? = null // 根节点
 
     /* 获取节点高度 */
     fun height(node: TreeNode?): Int {

@@ -9,8 +9,8 @@ package chapter_tree
 import utils.TreeNode
 import utils.printTree
 
+/* 二叉搜索树 */
 class BinarySearchTree {
-    // 初始化空树
     private var root: TreeNode? = null
 
     /* 获取二叉树根节点 */
@@ -25,7 +25,9 @@ class BinarySearchTree {
         while (cur != null) {
             // 目标节点在 cur 的右子树中
             cur = if (cur.value < num) cur.right
+            // 目标节点在 cur 的左子树中
             else if (cur.value > num) cur.left
+            // 找到目标节点，跳出循环
             else break
         }
         // 返回目标节点
@@ -48,6 +50,7 @@ class BinarySearchTree {
             pre = cur
             // 插入位置在 cur 的右子树中
             cur = if (cur.value < num) cur.right
+            // 插入位置在 cur 的左子树中
             else cur.left
         }
         // 插入节点
@@ -69,6 +72,7 @@ class BinarySearchTree {
             pre = cur
             // 待删除节点在 cur 的右子树中
             cur = if (cur.value < num) cur.right
+            // 待删除节点在 cur 的左子树中
             else cur.left
         }
         // 若无待删除节点，则直接返回
@@ -85,6 +89,7 @@ class BinarySearchTree {
                 // 若删除节点为根节点，则重新指定根节点
                 root = child
             }
+            // 子节点数量 = 2
         } else {
             // 获取中序遍历中 cur 的下一个节点
             var tmp = cur.right
