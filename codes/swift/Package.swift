@@ -41,6 +41,7 @@ let package = Package(
         .executable(name: "binary_search_tree", targets: ["binary_search_tree"]),
         .executable(name: "avl_tree", targets: ["avl_tree"]),
         // chapter_heap
+        .executable(name: "heap", targets: ["heap"]),
         .executable(name: "my_heap", targets: ["my_heap"]),
         .executable(name: "top_k", targets: ["top_k"]),
         // chapter_graph
@@ -143,6 +144,7 @@ let package = Package(
         .executableTarget(name: "binary_search_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["binary_search_tree.swift"]),
         .executableTarget(name: "avl_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["avl_tree.swift"]),
         // chapter_heap
+        .executableTarget(name: "heap", dependencies: ["utils", .product(name: "HeapModule", package: "swift-collections")], path: "chapter_heap", sources: ["heap.swift"]),
         .executableTarget(name: "my_heap", dependencies: ["utils"], path: "chapter_heap", sources: ["my_heap.swift"]),
         .executableTarget(name: "top_k", dependencies: ["utils", .product(name: "HeapModule", package: "swift-collections")], path: "chapter_heap", sources: ["top_k.swift"]),
         // chapter_graph

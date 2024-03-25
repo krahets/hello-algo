@@ -8,13 +8,11 @@ import utils
 
 /* 基于数组实现的哈希表 */
 class ArrayHashMap {
-    private var buckets: [Pair?] = []
+    private var buckets: [Pair?]
 
     init() {
         // 初始化数组，包含 100 个桶
-        for _ in 0 ..< 100 {
-            buckets.append(nil)
-        }
+        buckets = Array(repeating: nil, count: 100)
     }
 
     /* 哈希函数 */
@@ -46,35 +44,17 @@ class ArrayHashMap {
 
     /* 获取所有键值对 */
     func pairSet() -> [Pair] {
-        var pairSet: [Pair] = []
-        for pair in buckets {
-            if let pair = pair {
-                pairSet.append(pair)
-            }
-        }
-        return pairSet
+        buckets.compactMap { $0 }
     }
 
     /* 获取所有键 */
     func keySet() -> [Int] {
-        var keySet: [Int] = []
-        for pair in buckets {
-            if let pair = pair {
-                keySet.append(pair.key)
-            }
-        }
-        return keySet
+        buckets.compactMap { $0?.key }
     }
 
     /* 获取所有值 */
     func valueSet() -> [String] {
-        var valueSet: [String] = []
-        for pair in buckets {
-            if let pair = pair {
-                valueSet.append(pair.val)
-            }
-        }
-        return valueSet
+        buckets.compactMap { $0?.val }
     }
 
     /* 打印哈希表 */

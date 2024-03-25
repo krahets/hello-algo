@@ -30,7 +30,7 @@ class HashMapChaining {
 
     /* 负载因子 */
     func loadFactor() -> Double {
-        Double(size / capacity)
+        Double(size) / Double(capacity)
     }
 
     /* 查询操作 */
@@ -76,9 +76,10 @@ class HashMapChaining {
         for (pairIndex, pair) in bucket.enumerated() {
             if pair.key == key {
                 buckets[index].remove(at: pairIndex)
+                size -= 1
+                break
             }
         }
-        size -= 1
     }
 
     /* 扩容哈希表 */

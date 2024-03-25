@@ -34,7 +34,7 @@ def array_traversal(nums: list[int]) -> int:
 def quadratic(n: int) -> int:
     """平方阶"""
     count = 0
-    # 循环次数与数组长度成平方关系
+    # 循环次数与数据大小 n 成平方关系
     for i in range(n):
         for j in range(n):
             count += 1
@@ -77,7 +77,7 @@ def exp_recur(n: int) -> int:
     return exp_recur(n - 1) + exp_recur(n - 1) + 1
 
 
-def logarithmic(n: float) -> int:
+def logarithmic(n: int) -> int:
     """对数阶（循环实现）"""
     count = 0
     while n > 1:
@@ -86,14 +86,14 @@ def logarithmic(n: float) -> int:
     return count
 
 
-def log_recur(n: float) -> int:
+def log_recur(n: int) -> int:
     """对数阶（递归实现）"""
     if n <= 1:
         return 0
     return log_recur(n / 2) + 1
 
 
-def linear_log_recur(n: float) -> int:
+def linear_log_recur(n: int) -> int:
     """线性对数阶"""
     if n <= 1:
         return 1

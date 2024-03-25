@@ -267,6 +267,12 @@
     // C 未提供内置哈希表
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="hash_map.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="hash_map.zig"
@@ -460,6 +466,12 @@
 
     ```c title="hash_map.c"
     // C 未提供内置哈希表
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="hash_map.kt"
+
     ```
 
 === "Zig"
