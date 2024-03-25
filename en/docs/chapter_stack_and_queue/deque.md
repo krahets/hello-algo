@@ -395,7 +395,7 @@ As shown in the figure below, similar to implementing a queue with an array, we 
 The implementation only needs to add methods for "front enqueue" and "rear dequeue":
 
 ```src
-[file]{array_deque}-[func]{}
+[file]{array_deque}-[class]{array_deque}-[func]{}
 ```
 
 ## Applications of Double-Ended Queue
