@@ -833,7 +833,7 @@
 
     ```kotlin title="list.kt"
     /* 拼接两个列表 */
-    val nums1 = intArrayOf(6,8,7,10,9).toMutableList()
+    val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
     nums.addAll(nums1)  // 将列表 nums1 拼接到 nums 之后
     ```
 
