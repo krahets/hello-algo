@@ -163,9 +163,8 @@
 
     ```kotlin title=""
     /* 链表节点类 */
-    class ListNode(
-        x: Int // 主构造函数
-    ){
+    // 构造方法
+    class ListNode(x: Int) {
         val `val`: Int = x         // 节点值
         val next: ListNode? = null // 指向下一个节点的引用
     }
@@ -400,7 +399,6 @@
     n1.next = n2;
     n2.next = n3;
     n3.next = n4;
-
     ```
 
 === "Zig"
@@ -662,9 +660,14 @@
 
     ```kotlin title=""
     /* 双向链表节点类 */
+<<<<<<< HEAD
     class ListNode(
         x: Int // 主构造函数
     ) {
+=======
+    // 构造方法
+    class ListNode(x: Int) {
+>>>>>>> abffa755 (fix some indentation.)
         val `val`: Int = x          // 节点值
         val next: ListNode? = null  // 指向后继节点的引用
         val prev: ListNode? = null  // 指向前驱节点的引用
