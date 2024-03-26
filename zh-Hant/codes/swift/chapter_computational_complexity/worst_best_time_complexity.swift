@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 生成一個數組，元素為 { 1, 2, ..., n }，順序被打亂 */
+/* 生成一個陣列，元素為 { 1, 2, ..., n }，順序被打亂 */
 func randomNumbers(n: Int) -> [Int] {
     // 生成陣列 nums = { 1, 2, 3, ..., n }
     var nums = Array(1 ... n)

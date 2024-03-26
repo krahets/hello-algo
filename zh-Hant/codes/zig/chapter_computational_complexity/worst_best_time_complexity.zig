@@ -5,7 +5,7 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 生成一個數組，元素為 { 1, 2, ..., n }，順序被打亂
+// 生成一個陣列，元素為 { 1, 2, ..., n }，順序被打亂
 pub fn randomNumbers(comptime n: usize) [n]i32 {
     var nums: [n]i32 = undefined;
     // 生成陣列 nums = { 1, 2, 3, ..., n }
