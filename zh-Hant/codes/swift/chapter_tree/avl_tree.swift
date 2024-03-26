@@ -6,7 +6,7 @@
 
 import utils
 
-/* AVL */
+/* AVL 樹 */
 class AVLTree {
     fileprivate var root: TreeNode? // 根節點
 
@@ -186,23 +186,23 @@ class AVLTree {
 enum _AVLTree {
     static func testInsert(tree: AVLTree, val: Int) {
         tree.insert(val: val)
-        print("\n插入節點 \(val) 後，AVL為")
+        print("\n插入節點 \(val) 後，AVL 樹為")
         PrintUtil.printTree(root: tree.root)
     }
 
     static func testRemove(tree: AVLTree, val: Int) {
         tree.remove(val: val)
-        print("\n刪除節點 \(val) 後，AVL為")
+        print("\n刪除節點 \(val) 後，AVL 樹為")
         PrintUtil.printTree(root: tree.root)
     }
 
     /* Driver Code */
     static func main() {
-        /* 初始化空 AVL */
+        /* 初始化空 AVL 樹 */
         let avlTree = AVLTree()
 
         /* 插入節點 */
-        // 請關注插入節點後，AVL是如何保持平衡的
+        // 請關注插入節點後，AVL 樹是如何保持平衡的
         testInsert(tree: avlTree, val: 1)
         testInsert(tree: avlTree, val: 2)
         testInsert(tree: avlTree, val: 3)
@@ -218,7 +218,7 @@ enum _AVLTree {
         testInsert(tree: avlTree, val: 7)
 
         /* 刪除節點 */
-        // 請關注刪除節點後，AVL是如何保持平衡的
+        // 請關注刪除節點後，AVL 樹是如何保持平衡的
         testRemove(tree: avlTree, val: 8) // 刪除度為 0 的節點
         testRemove(tree: avlTree, val: 5) // 刪除度為 1 的節點
         testRemove(tree: avlTree, val: 4) // 刪除度為 2 的節點

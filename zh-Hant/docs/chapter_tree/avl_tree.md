@@ -1,30 +1,30 @@
-# AVL *
+# AVL 樹 *
 
 在“二元搜尋樹”章節中我們提到，在多次插入和刪除操作後，二元搜尋樹可能退化為鏈結串列。在這種情況下，所有操作的時間複雜度將從 $O(\log n)$ 劣化為 $O(n)$ 。
 
 如下圖所示，經過兩次刪除節點操作，這棵二元搜尋樹便會退化為鏈結串列。
 
-![AVL在刪除節點後發生退化](avl_tree.assets/avltree_degradation_from_removing_node.png)
+![AVL 樹在刪除節點後發生退化](avl_tree.assets/avltree_degradation_from_removing_node.png)
 
 再例如，在下圖所示的完美二元樹中插入兩個節點後，樹將嚴重向左傾斜，查詢操作的時間複雜度也隨之劣化。
 
-![AVL在插入節點後發生退化](avl_tree.assets/avltree_degradation_from_inserting_node.png)
+![AVL 樹在插入節點後發生退化](avl_tree.assets/avltree_degradation_from_inserting_node.png)
 
-1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在論文“An algorithm for the organization of information”中提出了「AVL」。論文中詳細描述了一系列操作，確保在持續新增和刪除節點後，AVL不會退化，從而使得各種操作的時間複雜度保持在 $O(\log n)$ 級別。換句話說，在需要頻繁進行增刪查改操作的場景中，AVL能始終保持高效的資料操作效能，具有很好的應用價值。
+1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在論文“An algorithm for the organization of information”中提出了「AVL 樹」。論文中詳細描述了一系列操作，確保在持續新增和刪除節點後，AVL 樹不會退化，從而使得各種操作的時間複雜度保持在 $O(\log n)$ 級別。換句話說，在需要頻繁進行增刪查改操作的場景中，AVL 樹能始終保持高效的資料操作效能，具有很好的應用價值。
 
-## AVL常見術語
+## AVL 樹常見術語
 
-AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元樹的所有性質，因此是一種「平衡二元搜尋樹 balanced binary search tree」。
+AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元樹的所有性質，因此是一種「平衡二元搜尋樹 balanced binary search tree」。
 
 ### 節點高度
 
-由於 AVL的相關操作需要獲取節點高度，因此我們需要為節點類別新增 `height` 變數：
+由於 AVL 樹的相關操作需要獲取節點高度，因此我們需要為節點類別新增 `height` 變數：
 
 === "Python"
 
     ```python title=""
     class TreeNode:
-        """AVL節點類別"""
+        """AVL 樹節點類別"""
         def __init__(self, val: int):
             self.val: int = val                 # 節點值
             self.height: int = 0                # 節點高度
@@ -35,7 +35,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "C++"
 
     ```cpp title=""
-    /* AVL節點類別 */
+    /* AVL 樹節點類別 */
     struct TreeNode {
         int val{};          // 節點值
         int height = 0;     // 節點高度
@@ -49,7 +49,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "Java"
 
     ```java title=""
-    /* AVL節點類別 */
+    /* AVL 樹節點類別 */
     class TreeNode {
         public int val;        // 節點值
         public int height;     // 節點高度
@@ -62,7 +62,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "C#"
 
     ```csharp title=""
-    /* AVL節點類別 */
+    /* AVL 樹節點類別 */
     class TreeNode(int? x) {
         public int? val = x;    // 節點值
         public int height;      // 節點高度
@@ -74,7 +74,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "Go"
 
     ```go title=""
-    /* AVL節點結構體 */
+    /* AVL 樹節點結構體 */
     type TreeNode struct {
         Val    int       // 節點值
         Height int       // 節點高度
@@ -86,7 +86,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "Swift"
 
     ```swift title=""
-    /* AVL節點類別 */
+    /* AVL 樹節點類別 */
     class TreeNode {
         var val: Int // 節點值
         var height: Int // 節點高度
@@ -103,7 +103,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "JS"
 
     ```javascript title=""
-    /* AVL節點類別 */
+    /* AVL 樹節點類別 */
     class TreeNode {
         val; // 節點值
         height; //節點高度
@@ -121,7 +121,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "TS"
 
     ```typescript title=""
-    /* AVL節點類別 */
+    /* AVL 樹節點類別 */
     class TreeNode {
         val: number;            // 節點值
         height: number;         // 節點高度
@@ -139,7 +139,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "Dart"
 
     ```dart title=""
-    /* AVL節點類別 */
+    /* AVL 樹節點類別 */
     class TreeNode {
       int val;         // 節點值
       int height;      // 節點高度
@@ -155,7 +155,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
     use std::rc::Rc;
     use std::cell::RefCell;
 
-    /* AVL節點結構體 */
+    /* AVL 樹節點結構體 */
     struct TreeNode {
         val: i32,                               // 節點值
         height: i32,                            // 節點高度
@@ -179,7 +179,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "C"
 
     ```c title=""
-    /* AVL節點結構體 */
+    /* AVL 樹節點結構體 */
     TreeNode struct TreeNode {
         int val;
         int height;
@@ -222,11 +222,11 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 
 !!! note
 
-    設平衡因子為 $f$ ，則一棵 AVL的任意節點的平衡因子皆滿足 $-1 \le f \le 1$ 。
+    設平衡因子為 $f$ ，則一棵 AVL 樹的任意節點的平衡因子皆滿足 $-1 \le f \le 1$ 。
 
-## AVL旋轉
+## AVL 樹旋轉
 
-AVL的特點在於“旋轉”操作，它能夠在不影響二元樹的中序走訪序列的前提下，使失衡節點重新恢復平衡。換句話說，**旋轉操作既能保持“二元搜尋樹”的性質，也能使樹重新變為“平衡二元樹”**。
+AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中序走訪序列的前提下，使失衡節點重新恢復平衡。換句話說，**旋轉操作既能保持“二元搜尋樹”的性質，也能使樹重新變為“平衡二元樹”**。
 
 我們將平衡因子絕對值 $> 1$ 的節點稱為“失衡節點”。根據節點失衡情況的不同，旋轉操作分為四種：右旋、左旋、先右旋後左旋、先左旋後右旋。下面詳細介紹這些旋轉操作。
 
@@ -288,7 +288,7 @@ AVL的特點在於“旋轉”操作，它能夠在不影響二元樹的中序�
 
 下圖展示的四種失衡情況與上述案例逐個對應，分別需要採用右旋、先左旋後右旋、先右旋後左旋、左旋的操作。
 
-![AVL的四種旋轉情況](avl_tree.assets/avltree_rotation_cases.png)
+![AVL 樹的四種旋轉情況](avl_tree.assets/avltree_rotation_cases.png)
 
 如下表所示，我們透過判斷失衡節點的平衡因子以及較高一側子節點的平衡因子的正負號，來確定失衡節點屬於上圖中的哪種情況。
 
@@ -307,11 +307,11 @@ AVL的特點在於“旋轉”操作，它能夠在不影響二元樹的中序�
 [file]{avl_tree}-[class]{a_v_l_tree}-[func]{rotate}
 ```
 
-## AVL常用操作
+## AVL 樹常用操作
 
 ### 插入節點
 
-AVL的節點插入操作與二元搜尋樹在主體上類似。唯一的區別在於，在 AVL中插入節點後，從該節點到根節點的路徑上可能會出現一系列失衡節點。因此，**我們需要從這個節點開始，自底向上執行旋轉操作，使所有失衡節點恢復平衡**。程式碼如下所示：
+AVL 樹的節點插入操作與二元搜尋樹在主體上類似。唯一的區別在於，在 AVL 樹中插入節點後，從該節點到根節點的路徑上可能會出現一系列失衡節點。因此，**我們需要從這個節點開始，自底向上執行旋轉操作，使所有失衡節點恢復平衡**。程式碼如下所示：
 
 ```src
 [file]{avl_tree}-[class]{a_v_l_tree}-[func]{insert_helper}
@@ -327,10 +327,10 @@ AVL的節點插入操作與二元搜尋樹在主體上類似。唯一的區別�
 
 ### 查詢節點
 
-AVL的節點查詢操作與二元搜尋樹一致，在此不再贅述。
+AVL 樹的節點查詢操作與二元搜尋樹一致，在此不再贅述。
 
-## AVL典型應用
+## AVL 樹典型應用
 
 - 組織和儲存大型資料，適用於高頻查詢、低頻增刪的場景。
 - 用於構建資料庫中的索引系統。
-- 紅黑樹也是一種常見的平衡二元搜尋樹。相較於 AVL，紅黑樹的平衡條件更寬鬆，插入與刪除節點所需的旋轉操作更少，節點增刪操作的平均效率更高。
+- 紅黑樹也是一種常見的平衡二元搜尋樹。相較於 AVL 樹，紅黑樹的平衡條件更寬鬆，插入與刪除節點所需的旋轉操作更少，節點增刪操作的平均效率更高。

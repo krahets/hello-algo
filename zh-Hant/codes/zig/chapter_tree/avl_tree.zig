@@ -5,7 +5,7 @@
 const std = @import("std");
 const inc = @import("include");
 
-// AVL
+// AVL 樹
 pub fn AVLTree(comptime T: type) type {
     return struct {
         const Self = @This();
@@ -201,26 +201,26 @@ pub fn AVLTree(comptime T: type) type {
 pub fn testInsert(comptime T: type, tree_: *AVLTree(T), val: T) !void {
     var tree = tree_;
     try tree.insert(val);
-    std.debug.print("\n插入節點 {} 後，AVL為\n", .{val});
+    std.debug.print("\n插入節點 {} 後，AVL 樹為\n", .{val});
     try inc.PrintUtil.printTree(tree.root, null, false);
 }
 
 pub fn testRemove(comptime T: type, tree_: *AVLTree(T), val: T) void {
     var tree = tree_;
     tree.remove(val);
-    std.debug.print("\n刪除節點 {} 後，AVL為\n", .{val});
+    std.debug.print("\n刪除節點 {} 後，AVL 樹為\n", .{val});
     try inc.PrintUtil.printTree(tree.root, null, false);
 }
 
 // Driver Code
 pub fn main() !void {
-    // 初始化空 AVL
+    // 初始化空 AVL 樹
     var avl_tree = AVLTree(i32){};
     avl_tree.init(std.heap.page_allocator);
     defer avl_tree.deinit();
 
     // 插入節點
-    // 請關注插入節點後，AVL是如何保持平衡的
+    // 請關注插入節點後，AVL 樹是如何保持平衡的
     try testInsert(i32, &avl_tree, 1);
     try testInsert(i32, &avl_tree, 2);
     try testInsert(i32, &avl_tree, 3);
@@ -236,7 +236,7 @@ pub fn main() !void {
     try testInsert(i32, &avl_tree, 7);
 
     // 刪除節點
-    // 請關注刪除節點後，AVL是如何保持平衡的
+    // 請關注刪除節點後，AVL 樹是如何保持平衡的
     testRemove(i32, &avl_tree, 8); // 刪除度為 0 的節點
     testRemove(i32, &avl_tree, 5); // 刪除度為 1 的節點
     testRemove(i32, &avl_tree, 4); // 刪除度為 2 的節點    

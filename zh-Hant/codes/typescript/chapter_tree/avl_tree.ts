@@ -7,7 +7,7 @@
 import { TreeNode } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
-/* AVL*/
+/* AVL 樹*/
 class AVLTree {
     root: TreeNode;
     /* 建構子 */
@@ -180,21 +180,21 @@ class AVLTree {
 
 function testInsert(tree: AVLTree, val: number): void {
     tree.insert(val);
-    console.log('\n插入節點 ' + val + ' 後，AVL為');
+    console.log('\n插入節點 ' + val + ' 後，AVL 樹為');
     printTree(tree.root);
 }
 
 function testRemove(tree: AVLTree, val: number): void {
     tree.remove(val);
-    console.log('\n刪除節點 ' + val + ' 後，AVL為');
+    console.log('\n刪除節點 ' + val + ' 後，AVL 樹為');
     printTree(tree.root);
 }
 
 /* Driver Code */
-/* 初始化空 AVL */
+/* 初始化空 AVL 樹 */
 const avlTree = new AVLTree();
 /* 插入節點 */
-// 請關注插入節點後，AVL是如何保持平衡的
+// 請關注插入節點後，AVL 樹是如何保持平衡的
 testInsert(avlTree, 1);
 testInsert(avlTree, 2);
 testInsert(avlTree, 3);
@@ -210,7 +210,7 @@ testInsert(avlTree, 6);
 testInsert(avlTree, 7);
 
 /* 刪除節點 */
-// 請關注刪除節點後，AVL是如何保持平衡的
+// 請關注刪除節點後，AVL 樹是如何保持平衡的
 testRemove(avlTree, 8); // 刪除度為 0 的節點
 testRemove(avlTree, 5); // 刪除度為 1 的節點
 testRemove(avlTree, 4); // 刪除度為 2 的節點

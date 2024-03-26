@@ -12,10 +12,10 @@ import (
 )
 
 func TestAVLTree(t *testing.T) {
-	/* 初始化空 AVL */
+	/* 初始化空 AVL 樹 */
 	tree := newAVLTree()
 	/* 插入節點 */
-	// 請關注插入節點後，AVL是如何保持平衡的
+	// 請關注插入節點後，AVL 樹是如何保持平衡的
 	testInsert(tree, 1)
 	testInsert(tree, 2)
 	testInsert(tree, 3)
@@ -31,7 +31,7 @@ func TestAVLTree(t *testing.T) {
 	testInsert(tree, 7)
 
 	/* 刪除節點 */
-	// 請關注刪除節點後，AVL是如何保持平衡的
+	// 請關注刪除節點後，AVL 樹是如何保持平衡的
 	testRemove(tree, 8) // 刪除度為 0 的節點
 	testRemove(tree, 5) // 刪除度為 1 的節點
 	testRemove(tree, 4) // 刪除度為 2 的節點
@@ -43,12 +43,12 @@ func TestAVLTree(t *testing.T) {
 
 func testInsert(tree *aVLTree, val int) {
 	tree.insert(val)
-	fmt.Printf("\n插入節點 %d 後，AVL為 \n", val)
+	fmt.Printf("\n插入節點 %d 後，AVL 樹為 \n", val)
 	PrintTree(tree.root)
 }
 
 func testRemove(tree *aVLTree, val int) {
 	tree.remove(val)
-	fmt.Printf("\n刪除節點 %d 後，AVL為 \n", val)
+	fmt.Printf("\n刪除節點 %d 後，AVL 樹為 \n", val)
 	PrintTree(tree.root)
 }

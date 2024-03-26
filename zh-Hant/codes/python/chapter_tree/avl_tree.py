@@ -12,7 +12,7 @@ from modules import TreeNode, print_tree
 
 
 class AVLTree:
-    """AVL"""
+    """AVL 樹"""
 
     def __init__(self):
         """建構子"""
@@ -171,19 +171,19 @@ if __name__ == "__main__":
 
     def test_insert(tree: AVLTree, val: int):
         tree.insert(val)
-        print("\n插入節點 {} 後，AVL為".format(val))
+        print("\n插入節點 {} 後，AVL 樹為".format(val))
         print_tree(tree.get_root())
 
     def test_remove(tree: AVLTree, val: int):
         tree.remove(val)
-        print("\n刪除節點 {} 後，AVL為".format(val))
+        print("\n刪除節點 {} 後，AVL 樹為".format(val))
         print_tree(tree.get_root())
 
-    # 初始化空 AVL
+    # 初始化空 AVL 樹
     avl_tree = AVLTree()
 
     # 插入節點
-    # 請關注插入節點後，AVL是如何保持平衡的
+    # 請關注插入節點後，AVL 樹是如何保持平衡的
     for val in [1, 2, 3, 4, 5, 8, 7, 9, 10, 6]:
         test_insert(avl_tree, val)
 
@@ -191,7 +191,7 @@ if __name__ == "__main__":
     test_insert(avl_tree, 7)
 
     # 刪除節點
-    # 請關注刪除節點後，AVL是如何保持平衡的
+    # 請關注刪除節點後，AVL 樹是如何保持平衡的
     test_remove(avl_tree, 8)  # 刪除度為 0 的節點
     test_remove(avl_tree, 5)  # 刪除度為 1 的節點
     test_remove(avl_tree, 4)  # 刪除度為 2 的節點

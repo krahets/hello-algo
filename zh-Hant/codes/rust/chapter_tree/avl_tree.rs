@@ -13,7 +13,7 @@ use tree_node::TreeNode;
 
 type OptionTreeNodeRc = Option<Rc<RefCell<TreeNode>>>;
 
-/* AVL */
+/* AVL 樹 */
 struct AVLTree {
     root: OptionTreeNodeRc, // 根節點
 }
@@ -251,21 +251,21 @@ impl AVLTree {
 fn main() {
     fn test_insert(tree: &mut AVLTree, val: i32) {
         tree.insert(val);
-        println!("\n插入節點 {} 後，AVL為", val);
+        println!("\n插入節點 {} 後，AVL 樹為", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
     fn test_remove(tree: &mut AVLTree, val: i32) {
         tree.remove(val);
-        println!("\n刪除節點 {} 後，AVL為", val);
+        println!("\n刪除節點 {} 後，AVL 樹為", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
-    /* 初始化空 AVL */
+    /* 初始化空 AVL 樹 */
     let mut avl_tree = AVLTree::new();
 
     /* 插入節點 */
-    // 請關注插入節點後，AVL是如何保持平衡的
+    // 請關注插入節點後，AVL 樹是如何保持平衡的
     test_insert(&mut avl_tree, 1);
     test_insert(&mut avl_tree, 2);
     test_insert(&mut avl_tree, 3);
@@ -281,7 +281,7 @@ fn main() {
     test_insert(&mut avl_tree, 7);
 
     /* 刪除節點 */
-    // 請關注刪除節點後，AVL是如何保持平衡的
+    // 請關注刪除節點後，AVL 樹是如何保持平衡的
     test_remove(&mut avl_tree, 8); // 刪除度為 0 的節點
     test_remove(&mut avl_tree, 5); // 刪除度為 1 的節點
     test_remove(&mut avl_tree, 4); // 刪除度為 2 的節點

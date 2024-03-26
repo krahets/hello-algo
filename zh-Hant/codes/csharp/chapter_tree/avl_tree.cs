@@ -6,7 +6,7 @@
 
 namespace hello_algo.chapter_tree;
 
-/* AVL */
+/* AVL 樹 */
 class AVLTree {
     public TreeNode? root; // 根節點
 
@@ -172,23 +172,23 @@ class AVLTree {
 public class avl_tree {
     static void TestInsert(AVLTree tree, int val) {
         tree.Insert(val);
-        Console.WriteLine("\n插入節點 " + val + " 後，AVL為");
+        Console.WriteLine("\n插入節點 " + val + " 後，AVL 樹為");
         PrintUtil.PrintTree(tree.root);
     }
 
     static void TestRemove(AVLTree tree, int val) {
         tree.Remove(val);
-        Console.WriteLine("\n刪除節點 " + val + " 後，AVL為");
+        Console.WriteLine("\n刪除節點 " + val + " 後，AVL 樹為");
         PrintUtil.PrintTree(tree.root);
     }
 
     [Test]
     public void Test() {
-        /* 初始化空 AVL */
+        /* 初始化空 AVL 樹 */
         AVLTree avlTree = new();
 
         /* 插入節點 */
-        // 請關注插入節點後，AVL是如何保持平衡的
+        // 請關注插入節點後，AVL 樹是如何保持平衡的
         TestInsert(avlTree, 1);
         TestInsert(avlTree, 2);
         TestInsert(avlTree, 3);
@@ -204,7 +204,7 @@ public class avl_tree {
         TestInsert(avlTree, 7);
 
         /* 刪除節點 */
-        // 請關注刪除節點後，AVL是如何保持平衡的
+        // 請關注刪除節點後，AVL 樹是如何保持平衡的
         TestRemove(avlTree, 8); // 刪除度為 0 的節點
         TestRemove(avlTree, 5); // 刪除度為 1 的節點
         TestRemove(avlTree, 4); // 刪除度為 2 的節點
