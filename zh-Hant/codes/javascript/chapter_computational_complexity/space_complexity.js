@@ -16,7 +16,7 @@ function constFunc() {
 
 /* 常數階 */
 function constant(n) {
-    // 常量、變數、物件佔用 O(1) 空間
+    // 常數、變數、物件佔用 O(1) 空間
     const a = 0;
     const b = 0;
     const nums = new Array(10000);

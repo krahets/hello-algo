@@ -18,7 +18,7 @@ fun function(): Int {
 
 /* 常數階 */
 fun constant(n: Int) {
-    // 常量、變數、物件佔用 O(1) 空間
+    // 常數、變數、物件佔用 O(1) 空間
     val a = 0
     var b = 0
     val nums = Array(10000) { 0 }

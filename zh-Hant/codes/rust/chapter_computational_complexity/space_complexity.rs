@@ -21,7 +21,7 @@ fn function() -> i32 {
 /* 常數階 */
 #[allow(unused)]
 fn constant(n: i32) {
-    // 常量、變數、物件佔用 O(1) 空間
+    // 常數、變數、物件佔用 O(1) 空間
     const A: i32 = 0;
     let b = 0;
     let nums = vec![0; 10000];

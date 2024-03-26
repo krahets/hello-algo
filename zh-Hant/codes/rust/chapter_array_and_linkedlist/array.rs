@@ -77,7 +77,7 @@ fn main() {
     print!("陣列 arr = ");
     print_util::print_array(&arr);
     // 在 Rust 中，指定長度時（[i32; 5]）為陣列
-    // 由於 Rust 的陣列被設計為在編譯期確定長度，因此只能使用常量來指定長度
+    // 由於 Rust 的陣列被設計為在編譯期確定長度，因此只能使用常數來指定長度
     // 為了方便實現擴容 extend() 方法，以下將(Vec) 看作陣列（Array）也是rust一般情況下使用動態陣列的型別
     let nums = vec![1, 3, 2, 5, 4];
     print!("\n陣列 nums = ");

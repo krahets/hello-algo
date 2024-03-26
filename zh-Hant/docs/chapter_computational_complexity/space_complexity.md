@@ -14,7 +14,7 @@
 
 暫存空間可以進一步劃分為三個部分。
 
-- **暫存資料**：用於儲存演算法執行過程中的各種常量、變數、物件等。
+- **暫存資料**：用於儲存演算法執行過程中的各種常數、變數、物件等。
 - **堆疊幀空間**：用於儲存呼叫函式的上下文資料。系統在每次呼叫函式時都會在堆疊頂部建立一個堆疊幀，函式返回後，堆疊幀空間會被釋放。
 - **指令空間**：用於儲存編譯後的程式指令，在實際統計中通常忽略不計。
 
@@ -39,7 +39,7 @@
         return 0
 
     def algorithm(n) -> int:  # 輸入資料
-        A = 0                 # 暫存資料（常量，一般用大寫字母表示）
+        A = 0                 # 暫存資料（常數，一般用大寫字母表示）
         b = 0                 # 暫存資料（變數）
         node = Node(0)        # 暫存資料（物件）
         c = function()        # 堆疊幀空間（呼叫函式）
@@ -63,7 +63,7 @@
     }
 
     int algorithm(int n) {        // 輸入資料
-        const int a = 0;          // 暫存資料（常量）
+        const int a = 0;          // 暫存資料（常數）
         int b = 0;                // 暫存資料（變數）
         Node* node = new Node(0); // 暫存資料（物件）
         int c = func();           // 堆疊幀空間（呼叫函式）
@@ -88,7 +88,7 @@
     }
     
     int algorithm(int n) {        // 輸入資料
-        final int a = 0;          // 暫存資料（常量）
+        final int a = 0;          // 暫存資料（常數）
         int b = 0;                // 暫存資料（變數）
         Node node = new Node(0);  // 暫存資料（物件）
         int c = function();       // 堆疊幀空間（呼叫函式）
@@ -112,7 +112,7 @@
     }
 
     int Algorithm(int n) {        // 輸入資料
-        const int a = 0;          // 暫存資料（常量）
+        const int a = 0;          // 暫存資料（常數）
         int b = 0;                // 暫存資料（變數）
         Node node = new(0);       // 暫存資料（物件）
         int c = Function();       // 堆疊幀空間（呼叫函式）
@@ -141,7 +141,7 @@
     }
 
     func algorithm(n int) int { // 輸入資料
-        const a = 0             // 暫存資料（常量）
+        const a = 0             // 暫存資料（常數）
         b := 0                  // 暫存資料（變數）
         newNode(0)              // 暫存資料（物件）
         c := function()         // 堆疊幀空間（呼叫函式）
@@ -169,7 +169,7 @@
     }
 
     func algorithm(n: Int) -> Int { // 輸入資料
-        let a = 0             // 暫存資料（常量）
+        let a = 0             // 暫存資料（常數）
         var b = 0             // 暫存資料（變數）
         let node = Node(x: 0) // 暫存資料（物件）
         let c = function()    // 堆疊幀空間（呼叫函式）
@@ -197,7 +197,7 @@
     }
 
     function algorithm(n) {       // 輸入資料
-        const a = 0;              // 暫存資料（常量）
+        const a = 0;              // 暫存資料（常數）
         let b = 0;                // 暫存資料（變數）
         const node = new Node(0); // 暫存資料（物件）
         const c = constFunc();    // 堆疊幀空間（呼叫函式）
@@ -225,7 +225,7 @@
     }
 
     function algorithm(n: number): number { // 輸入資料
-        const a = 0;                        // 暫存資料（常量）
+        const a = 0;                        // 暫存資料（常數）
         let b = 0;                          // 暫存資料（變數）
         const node = new Node(0);           // 暫存資料（物件）
         const c = constFunc();              // 堆疊幀空間（呼叫函式）
@@ -250,7 +250,7 @@
     }
 
     int algorithm(int n) {  // 輸入資料
-      const int a = 0;      // 暫存資料（常量）
+      const int a = 0;      // 暫存資料（常數）
       int b = 0;            // 暫存資料（變數）
       Node node = Node(0);  // 暫存資料（物件）
       int c = function();   // 堆疊幀空間（呼叫函式）
@@ -284,7 +284,7 @@
     }
 
     fn algorithm(n: i32) -> i32 {       // 輸入資料
-        const a: i32 = 0;               // 暫存資料（常量）
+        const a: i32 = 0;               // 暫存資料（常數）
         let mut b = 0;                  // 暫存資料（變數）
         let node = Node::new(0);        // 暫存資料（物件）
         let c = function();             // 堆疊幀空間（呼叫函式）
@@ -302,7 +302,7 @@
     }
 
     int algorithm(int n) { // 輸入資料
-        const int a = 0;   // 暫存資料（常量）
+        const int a = 0;   // 暫存資料（常數）
         int b = 0;         // 暫存資料（變數）
         int c = func();    // 堆疊幀空間（呼叫函式）
         return a + b + c;  // 輸出資料
@@ -718,7 +718,7 @@ $$
 
 ### 常數階 $O(1)$
 
-常數階常見於數量與輸入資料大小 $n$ 無關的常量、變數、物件。
+常數階常見於數量與輸入資料大小 $n$ 無關的常數、變數、物件。
 
 需要注意的是，在迴圈中初始化變數或呼叫函式而佔用的記憶體，在進入下一迴圈後就會被釋放，因此不會累積佔用空間，空間複雜度仍為 $O(1)$ ：
 
