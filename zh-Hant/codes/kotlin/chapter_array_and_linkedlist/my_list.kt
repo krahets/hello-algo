@@ -6,7 +6,7 @@
 
 package chapter_array_and_linkedlist
 
-/* 串列類 */
+/* 串列類別 */
 class MyList {
     private var arr: IntArray = intArrayOf() // 陣列（儲存串列元素）
     private var capacity = 10 // 串列容量

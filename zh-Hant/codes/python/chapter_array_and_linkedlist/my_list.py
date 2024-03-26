@@ -6,7 +6,7 @@ Author: krahets (krahets@163.com)
 
 
 class MyList:
-    """串列類"""
+    """串列類別"""
 
     def __init__(self):
         """建構子"""

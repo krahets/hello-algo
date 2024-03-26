@@ -9,8 +9,8 @@ from collections import deque
 """Driver Code"""
 if __name__ == "__main__":
     # 初始化佇列
-    # 在 Python 中，我們一般將雙向佇列類 deque 看作佇列使用
-    # 雖然 queue.Queue() 是純正的佇列類，但不太好用
+    # 在 Python 中，我們一般將雙向佇列類別 deque 看作佇列使用
+    # 雖然 queue.Queue() 是純正的佇列類別，但不太好用
     que: deque[int] = deque()
 
     # 元素入列

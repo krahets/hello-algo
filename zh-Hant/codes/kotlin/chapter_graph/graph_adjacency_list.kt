@@ -8,7 +8,7 @@ package chapter_graph
 
 import utils.Vertex
 
-/* 基於鄰接表實現的無向圖類 */
+/* 基於鄰接表實現的無向圖類別 */
 class GraphAdjList(edges: Array<Array<Vertex?>>) {
     // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
     val adjList: MutableMap<Vertex, MutableList<Vertex>> = HashMap()

@@ -4,7 +4,7 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-/* 頂點類 */
+/* 頂點類別 */
 class Vertex {
     val: number;
     constructor(val: number) {

@@ -4,7 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 串列類 */
+/* 串列類別 */
 class MyList {
     #arr = new Array(); // 陣列（儲存串列元素）
     #capacity = 10; // 串列容量

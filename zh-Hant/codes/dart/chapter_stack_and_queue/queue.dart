@@ -8,7 +8,7 @@ import 'dart:collection';
 
 void main() {
   /* 初始化佇列 */
-  // 在 Dart 中，一般將雙向佇列類 Queue 看作佇列使用
+  // 在 Dart 中，一般將雙向佇列類別 Queue 看作佇列使用
   final Queue<int> queue = Queue();
 
   /* 元素入列 */

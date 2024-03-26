@@ -7,7 +7,7 @@ Author: Peng Chen (pengchzn@gmail.com)
 """Driver Code"""
 if __name__ == "__main__":
     # 初始化堆疊
-    # Python 沒有內建的堆疊類，可以把 list 當作堆疊來使用
+    # Python 沒有內建的堆疊類別，可以把 list 當作堆疊來使用
     stack: list[int] = []
 
     # 元素入堆疊

@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 二元樹節點類 */
+/* 二元樹節點類別 */
 public class TreeNode {
     public var val: Int // 節點值
     public var height: Int // 節點高度

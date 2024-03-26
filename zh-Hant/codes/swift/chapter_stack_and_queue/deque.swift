@@ -9,7 +9,7 @@ enum Deque {
     /* Driver Code */
     static func main() {
         /* 初始化雙向佇列 */
-        // Swift 沒有內建的雙向佇列類，可以把 Array 當作雙向佇列來使用
+        // Swift 沒有內建的雙向佇列類別，可以把 Array 當作雙向佇列來使用
         var deque: [Int] = []
 
         /* 元素入列 */

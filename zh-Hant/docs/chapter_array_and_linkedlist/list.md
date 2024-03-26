@@ -44,7 +44,7 @@
     /* 初始化串列 */
     // 無初始值
     List<Integer> nums1 = new ArrayList<>();
-    // 有初始值（注意陣列的元素型別需為 int[] 的包裝類 Integer[]）
+    // 有初始值（注意陣列的元素型別需為 int[] 的包裝類別 Integer[]）
     Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
     List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
     ```
@@ -790,7 +790,7 @@
 
 ### 排序串列
 
-完成串列排序後，我們便可以使用在陣列類演算法題中經常考查的“二分搜尋”和“雙指標”演算法。
+完成串列排序後，我們便可以使用在陣列類別演算法題中經常考查的“二分搜尋”和“雙指標”演算法。
 
 === "Python"
 

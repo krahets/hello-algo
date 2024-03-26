@@ -6,7 +6,7 @@
 
 namespace hello_algo.chapter_array_and_linkedlist;
 
-/* 串列類 */
+/* 串列類別 */
 class MyList {
     private int[] arr;           // 陣列（儲存串列元素）
     private int arrCapacity = 10;    // 串列容量

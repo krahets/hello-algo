@@ -9,7 +9,7 @@ package chapter_graph;
 import java.util.*;
 import utils.*;
 
-/* 基於鄰接表實現的無向圖類 */
+/* 基於鄰接表實現的無向圖類別 */
 class GraphAdjList {
     // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
     Map<Vertex, List<Vertex>> adjList;

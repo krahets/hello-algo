@@ -8,7 +8,7 @@ package utils;
 
 import java.util.*;
 
-/* 頂點類 */
+/* 頂點類別 */
 public class Vertex {
     public int val;
 

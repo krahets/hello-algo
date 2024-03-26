@@ -28,7 +28,7 @@
 
     ```python title=""
     class Node:
-        """類"""
+        """類別"""
         def __init__(self, x: int):
             self.val: int = x              # 節點值
             self.next: Node | None = None  # 指向下一節點的引用
@@ -74,7 +74,7 @@
 === "Java"
 
     ```java title=""
-    /* 類 */
+    /* 類別 */
     class Node {
         int val;
         Node next;
@@ -99,7 +99,7 @@
 === "C#"
 
     ```csharp title=""
-    /* 類 */
+    /* 類別 */
     class Node(int x) {
         int val = x;
         Node next;
@@ -152,7 +152,7 @@
 === "Swift"
 
     ```swift title=""
-    /* 類 */
+    /* 類別 */
     class Node {
         var val: Int
         var next: Node?
@@ -180,7 +180,7 @@
 === "JS"
 
     ```javascript title=""
-    /* 類 */
+    /* 類別 */
     class Node {
         val;
         next;
@@ -208,7 +208,7 @@
 === "TS"
 
     ```typescript title=""
-    /* 類 */
+    /* 類別 */
     class Node {
         val: number;
         next: Node | null;
@@ -236,7 +236,7 @@
 === "Dart"
 
     ```dart title=""
-    /* 類 */
+    /* 類別 */
     class Node {
       int val;
       Node next;

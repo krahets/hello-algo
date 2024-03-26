@@ -13,8 +13,8 @@ void swap(int nums[], int i, int j) {
     nums[j] = tmp;
 }
 
-/* 快速排序類 */
-// 快速排序類-哨兵劃分
+/* 快速排序類別 */
+// 快速排序類別-哨兵劃分
 int partition(int nums[], int left, int right) {
     // 以 nums[left] 為基準數
     int i = left, j = right;
@@ -36,7 +36,7 @@ int partition(int nums[], int left, int right) {
     return i;
 }
 
-// 快速排序類-快速排序
+// 快速排序類別-快速排序
 void quickSort(int nums[], int left, int right) {
     // 子陣列長度為 1 時終止遞迴
     if (left >= right) {
@@ -49,7 +49,7 @@ void quickSort(int nums[], int left, int right) {
     quickSort(nums, pivot + 1, right);
 }
 
-/* 快速排序類（中位基準數最佳化） */
+/* 快速排序類別（中位基準數最佳化） */
 // 選取三個候選元素的中位數
 int medianThree(int nums[], int left, int mid, int right) {
     int l = nums[left], m = nums[mid], r = nums[right];
@@ -91,7 +91,7 @@ void quickSortMedian(int nums[], int left, int right) {
     quickSortMedian(nums, pivot + 1, right);
 }
 
-/* 快速排序類（尾遞迴最佳化） */
+/* 快速排序類別（尾遞迴最佳化） */
 // 快速排序（尾遞迴最佳化）
 void quickSortTailCall(int nums[], int left, int right) {
     // 子陣列長度為 1 時終止

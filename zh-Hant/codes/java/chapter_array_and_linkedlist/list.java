@@ -11,7 +11,7 @@ import java.util.*;
 public class list {
     public static void main(String[] args) {
         /* 初始化串列 */
-        // 注意陣列的元素型別是 int[] 的包裝類 Integer[]
+        // 注意陣列的元素型別是 int[] 的包裝類別 Integer[]
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
         System.out.println("串列 nums = " + nums);

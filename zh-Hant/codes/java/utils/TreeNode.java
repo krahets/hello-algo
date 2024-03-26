@@ -8,7 +8,7 @@ package utils;
 
 import java.util.*;
 
-/* 二元樹節點類 */
+/* 二元樹節點類別 */
 public class TreeNode {
     public int val; // 節點值
     public int height; // 節點高度

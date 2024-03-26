@@ -31,7 +31,7 @@
 | `size()`    | 獲取堆積的元素數量                                 | $O(1)$      |
 | `isEmpty()` | 判斷堆積是否為空                                   | $O(1)$      |
 
-在實際應用中，我們可以直接使用程式語言提供的堆積類（或優先佇列類）。
+在實際應用中，我們可以直接使用程式語言提供的堆積類別（或優先佇列類別）。
 
 類似於排序演算法中的“從小到大排列”和“從大到小排列”，我們可以透過設定一個 `flag` 或修改 `Comparator` 實現“小頂堆積”與“大頂堆積”之間的轉換。程式碼如下所示：
 
@@ -304,19 +304,19 @@
 === "JS"
 
     ```javascript title="heap.js"
-    // JavaScript 未提供內建 Heap 類
+    // JavaScript 未提供內建 Heap 類別
     ```
 
 === "TS"
 
     ```typescript title="heap.ts"
-    // TypeScript 未提供內建 Heap 類
+    // TypeScript 未提供內建 Heap 類別
     ```
 
 === "Dart"
 
     ```dart title="heap.dart"
-    // Dart 未提供內建 Heap 類
+    // Dart 未提供內建 Heap 類別
     ```
 
 === "Rust"
@@ -362,7 +362,7 @@
 === "C"
 
     ```c title="heap.c"
-    // C 未提供內建 Heap 類
+    // C 未提供內建 Heap 類別
     ```
 
 === "Zig"

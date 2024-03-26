@@ -8,7 +8,7 @@ package chapter_array_and_linkedlist;
 
 import java.util.*;
 
-/* 串列類 */
+/* 串列類別 */
 class MyList {
     private int[] arr; // 陣列（儲存串列元素）
     private int capacity = 10; // 串列容量

@@ -15,7 +15,7 @@ typedef struct AdjListNode {
     struct AdjListNode *next; // 後繼節點
 } AdjListNode;
 
-/* 基於鄰接表實現的無向圖類 */
+/* 基於鄰接表實現的無向圖類別 */
 typedef struct {
     AdjListNode *heads[MAX_SIZE]; // 節點陣列
     int size;                     // 節點數量

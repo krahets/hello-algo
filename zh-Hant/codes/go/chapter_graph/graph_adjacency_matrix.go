@@ -6,7 +6,7 @@ package chapter_graph
 
 import "fmt"
 
-/* 基於鄰接矩陣實現的無向圖類 */
+/* 基於鄰接矩陣實現的無向圖類別 */
 type graphAdjMat struct {
 	// 頂點串列，元素代表“頂點值”，索引代表“頂點索引”
 	vertices []int

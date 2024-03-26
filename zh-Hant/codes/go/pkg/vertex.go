@@ -4,7 +4,7 @@
 
 package pkg
 
-// Vertex 頂點類
+// Vertex 頂點類別
 type Vertex struct {
 	Val int
 }

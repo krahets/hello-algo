@@ -9,7 +9,7 @@ enum Stack {
     /* Driver Code */
     static func main() {
         /* 初始化堆疊 */
-        // Swift 沒有內建的堆疊類，可以把 Array 當作堆疊來使用
+        // Swift 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
         var stack: [Int] = []
 
         /* 元素入堆疊 */

@@ -6,7 +6,7 @@
 
 const { printHeap } = require('../modules/PrintUtil');
 
-/* 最大堆積類 */
+/* 最大堆積類別 */
 class MaxHeap {
     #maxHeap;
 

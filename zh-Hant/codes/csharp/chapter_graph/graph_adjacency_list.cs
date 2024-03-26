@@ -6,7 +6,7 @@
 
 namespace hello_algo.chapter_graph;
 
-/* 基於鄰接表實現的無向圖類 */
+/* 基於鄰接表實現的無向圖類別 */
 public class GraphAdjList {
     // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
     public Dictionary<Vertex, List<Vertex>> adjList;

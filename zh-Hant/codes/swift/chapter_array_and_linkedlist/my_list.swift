@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 串列類 */
+/* 串列類別 */
 class MyList {
     private var arr: [Int] // 陣列（儲存串列元素）
     private var _capacity: Int // 串列容量

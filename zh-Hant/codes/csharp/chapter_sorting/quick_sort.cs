@@ -40,7 +40,7 @@ class quickSort {
     }
 }
 
-/* 快速排序類（中位基準數最佳化） */
+/* 快速排序類別（中位基準數最佳化） */
 class QuickSortMedian {
     /* 元素交換 */
     static void Swap(int[] nums, int i, int j) {
@@ -89,7 +89,7 @@ class QuickSortMedian {
     }
 }
 
-/* 快速排序類（尾遞迴最佳化） */
+/* 快速排序類別（尾遞迴最佳化） */
 class QuickSortTailCall {
     /* 元素交換 */
     static void Swap(int[] nums, int i, int j) {

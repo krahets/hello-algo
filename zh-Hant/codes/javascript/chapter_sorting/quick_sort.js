@@ -4,7 +4,7 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-/* 快速排序類 */
+/* 快速排序類別 */
 class QuickSort {
     /* 元素交換 */
     swap(nums, i, j) {
@@ -44,7 +44,7 @@ class QuickSort {
     }
 }
 
-/* 快速排序類（中位基準數最佳化） */
+/* 快速排序類別（中位基準數最佳化） */
 class QuickSortMedian {
     /* 元素交換 */
     swap(nums, i, j) {
@@ -100,7 +100,7 @@ class QuickSortMedian {
     }
 }
 
-/* 快速排序類（尾遞迴最佳化） */
+/* 快速排序類別（尾遞迴最佳化） */
 class QuickSortTailCall {
     /* 元素交換 */
     swap(nums, i, j) {

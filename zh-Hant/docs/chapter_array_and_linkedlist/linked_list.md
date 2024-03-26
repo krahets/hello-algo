@@ -20,7 +20,7 @@
 
     ```python title=""
     class ListNode:
-        """鏈結串列節點類"""
+        """鏈結串列節點類別"""
         def __init__(self, val: int):
             self.val: int = val               # 節點值
             self.next: ListNode | None = None # 指向下一節點的引用
@@ -40,7 +40,7 @@
 === "Java"
 
     ```java title=""
-    /* 鏈結串列節點類 */
+    /* 鏈結串列節點類別 */
     class ListNode {
         int val;        // 節點值
         ListNode next;  // 指向下一節點的引用
@@ -51,7 +51,7 @@
 === "C#"
 
     ```csharp title=""
-    /* 鏈結串列節點類 */
+    /* 鏈結串列節點類別 */
     class ListNode(int x) {  //建構子
         int val = x;         // 節點值
         ListNode? next;      // 指向下一節點的引用
@@ -79,7 +79,7 @@
 === "Swift"
 
     ```swift title=""
-    /* 鏈結串列節點類 */
+    /* 鏈結串列節點類別 */
     class ListNode {
         var val: Int // 節點值
         var next: ListNode? // 指向下一節點的引用
@@ -93,7 +93,7 @@
 === "JS"
 
     ```javascript title=""
-    /* 鏈結串列節點類 */
+    /* 鏈結串列節點類別 */
     class ListNode {
         constructor(val, next) {
             this.val = (val === undefined ? 0 : val);       // 節點值
@@ -105,7 +105,7 @@
 === "TS"
 
     ```typescript title=""
-    /* 鏈結串列節點類 */
+    /* 鏈結串列節點類別 */
     class ListNode {
         val: number;
         next: ListNode | null;
@@ -119,7 +119,7 @@
 === "Dart"
 
     ```dart title=""
-    /* 鏈結串列節點類 */
+    /* 鏈結串列節點類別 */
     class ListNode {
       int val; // 節點值
       ListNode? next; // 指向下一節點的引用
@@ -132,7 +132,7 @@
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-    /* 鏈結串列節點類 */
+    /* 鏈結串列節點類別 */
     #[derive(Debug)]
     struct ListNode {
         val: i32, // 節點值
@@ -162,7 +162,7 @@
 === "Zig"
 
     ```zig title=""
-    // 鏈結串列節點類
+    // 鏈結串列節點類別
     pub fn ListNode(comptime T: type) type {
         return struct {
             const Self = @This();
@@ -463,7 +463,7 @@
 
     ```python title=""
     class ListNode:
-        """雙向鏈結串列節點類"""
+        """雙向鏈結串列節點類別"""
         def __init__(self, val: int):
             self.val: int = val                # 節點值
             self.next: ListNode | None = None  # 指向後繼節點的引用
@@ -485,7 +485,7 @@
 === "Java"
 
     ```java title=""
-    /* 雙向鏈結串列節點類 */
+    /* 雙向鏈結串列節點類別 */
     class ListNode {
         int val;        // 節點值
         ListNode next;  // 指向後繼節點的引用
@@ -497,7 +497,7 @@
 === "C#"
 
     ```csharp title=""
-    /* 雙向鏈結串列節點類 */
+    /* 雙向鏈結串列節點類別 */
     class ListNode(int x) {  // 建構子
         int val = x;    // 節點值
         ListNode next;  // 指向後繼節點的引用
@@ -528,7 +528,7 @@
 === "Swift"
 
     ```swift title=""
-    /* 雙向鏈結串列節點類 */
+    /* 雙向鏈結串列節點類別 */
     class ListNode {
         var val: Int // 節點值
         var next: ListNode? // 指向後繼節點的引用
@@ -543,7 +543,7 @@
 === "JS"
 
     ```javascript title=""
-    /* 雙向鏈結串列節點類 */
+    /* 雙向鏈結串列節點類別 */
     class ListNode {
         constructor(val, next, prev) {
             this.val = val  ===  undefined ? 0 : val;        // 節點值
@@ -556,7 +556,7 @@
 === "TS"
 
     ```typescript title=""
-    /* 雙向鏈結串列節點類 */
+    /* 雙向鏈結串列節點類別 */
     class ListNode {
         val: number;
         next: ListNode | null;
@@ -572,7 +572,7 @@
 === "Dart"
 
     ```dart title=""
-    /* 雙向鏈結串列節點類 */
+    /* 雙向鏈結串列節點類別 */
     class ListNode {
         int val;        // 節點值
         ListNode next;  // 指向後繼節點的引用
@@ -631,7 +631,7 @@
 === "Zig"
 
     ```zig title=""
-    // 雙向鏈結串列節點類
+    // 雙向鏈結串列節點類別
     pub fn ListNode(comptime T: type) type {
         return struct {
             const Self = @This();

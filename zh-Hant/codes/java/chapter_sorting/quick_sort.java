@@ -8,7 +8,7 @@ package chapter_sorting;
 
 import java.util.*;
 
-/* 快速排序類 */
+/* 快速排序類別 */
 class QuickSort {
     /* 元素交換 */
     static void swap(int[] nums, int i, int j) {
@@ -45,7 +45,7 @@ class QuickSort {
     }
 }
 
-/* 快速排序類（中位基準數最佳化） */
+/* 快速排序類別（中位基準數最佳化） */
 class QuickSortMedian {
     /* 元素交換 */
     static void swap(int[] nums, int i, int j) {
@@ -96,7 +96,7 @@ class QuickSortMedian {
     }
 }
 
-/* 快速排序類（尾遞迴最佳化） */
+/* 快速排序類別（尾遞迴最佳化） */
 class QuickSortTailCall {
     /* 元素交換 */
     static void swap(int[] nums, int i, int j) {
