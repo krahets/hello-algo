@@ -750,7 +750,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{quadratic}
 ```
 
-如下圖所示，該函式的遞迴深度為 $n$ ，在每個遞迴函式中都初始化了一個數組，長度分別為 $n$、$n-1$、$\dots$、$2$、$1$ ，平均長度為 $n / 2$ ，因此總體佔用 $O(n^2)$ 空間：
+如下圖所示，該函式的遞迴深度為 $n$ ，在每個遞迴函式中都初始化了一個陣列，長度分別為 $n$、$n-1$、$\dots$、$2$、$1$ ，平均長度為 $n / 2$ ，因此總體佔用 $O(n^2)$ 空間：
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}

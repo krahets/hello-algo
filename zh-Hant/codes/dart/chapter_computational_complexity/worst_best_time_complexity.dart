@@ -4,7 +4,7 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-/* 生成一個數組，元素為 { 1, 2, ..., n }，順序被打亂 */
+/* 生成一個陣列，元素為 { 1, 2, ..., n }，順序被打亂 */
 List<int> randomNumbers(int n) {
   final nums = List.filled(n, 0);
   // 生成陣列 nums = { 1, 2, 3, ..., n }

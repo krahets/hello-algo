@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 生成一個數組，元素為 { 1, 2, ..., n }，順序被打亂 */
+/* 生成一個陣列，元素為 { 1, 2, ..., n }，順序被打亂 */
 int *randomNumbers(int n) {
     // 分配堆積區記憶體（建立一維可變長陣列：陣列中元素數量為 n ，元素型別為 int ）
     int *nums = (int *)malloc(n * sizeof(int));
