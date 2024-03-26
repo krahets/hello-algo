@@ -121,7 +121,7 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 
 === "Ruby"
 
-    ```rb title="array.rb"
+    ```ruby title="array.rb"
     # Initialize array
     arr = Array.new(5, 0) # [ 0, 0, 0, 0, 0 ]
     nums = [1, 3, 2, 5, 4]

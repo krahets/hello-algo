@@ -4,12 +4,12 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# 列表类
+### 列表类 ###
 class MyList
   attr_reader :size       # 获取列表长度（当前元素数量）
   attr_reader :capacity   # 获取列表容量
 
-  # 构造方法
+  ### 构造方法 ###
   def initialize
     @capacity = 10
     @size = 0
@@ -17,20 +17,20 @@ class MyList
     @arr = Array.new capacity
   end
 
-  # 访问元素
+  ### 访问元素 ###
   def get(index)
     # 索引如果越界，则抛出异常，下同
-    raise IndexError.new("索引越界") if index < 0 || index >= size
+    raise IndexError, "索引越界" if index < 0 || index >= size
     @arr[index]
   end
 
-  # 访问元素
+  ### 访问元素 ###
   def set(index, num)
-    raise IndexError.new("索引越界") if index < 0 || index >= size
+    raise IndexError, "索引越界" if index < 0 || index >= size
     @arr[index] = num
   end
 
-  # 在尾部添加元素
+  ### 在尾部添加元素 ###
   def add(num)
     # 元素数量超出容量时，触发扩容机制
     extend_capacity if size == capacity
@@ -40,9 +40,9 @@ class MyList
     @size += 1
   end
 
-  # 在中间插入元素
+  ### 在中间插入元素 ###
   def insert(index, num)
-    raise IndexError.new("索引越界") if index < 0 || index >= size
+    raise IndexError, "索引越界" if index < 0 || index >= size
 
     # 元素数量超出容量时，触发扩容机制
     extend_capacity if size == capacity
@@ -57,9 +57,9 @@ class MyList
     @size += 1
   end
 
-  # 删除元素
+  ### 删除元素 ###
   def remove(index)
-    raise IndexError.new("索引越界") if index < 0 || index >= size
+    raise IndexError, "索引越界" if index < 0 || index >= size
     num = @arr[index]
 
     # 将将索引 index 之后的元素都向前移动一位
@@ -74,7 +74,7 @@ class MyList
     num
   end
 
-  # 列表扩容
+  ### 列表扩容 ###
   def extend_capacity
     # 新建一个长度为原数组 extend_ratio 倍的新数组，并将原数组复制到新数组
     arr = @arr.dup + Array.new(capacity * (@extend_ratio - 1))
@@ -82,7 +82,7 @@ class MyList
     @capacity = arr.length
   end
 
-  # 将列表转换为数组
+  ### 将列表转换为数组 ###
   def to_array
     sz = size
     # 仅转换有效长度范围内的列表元素
@@ -94,7 +94,7 @@ class MyList
   end
 end
 
-# Driver Code
+### Driver Code ###
 
 # 初始化列表
 nums = MyList.new

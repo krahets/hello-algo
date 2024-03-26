@@ -4,7 +4,7 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# 随机访问元素
+### 随机访问元素 ###
 def random_access(nums)
   # 在区间 [0, nums.length) 中随机抽取一个数字
   random_index = Random.rand 0...(nums.length - 1)
@@ -13,8 +13,8 @@ def random_access(nums)
   nums[random_index]
 end
 
-# 扩展数组长度
-#
+
+### 扩展数组长度 ###
 # 请注意，Ruby 的 Array 是动态数组，可以直接扩展
 # 为了方便学习，本函数将 Array 看作长度不可变的数组
 def extend(nums, enlarge)
@@ -30,7 +30,7 @@ def extend(nums, enlarge)
   res
 end
 
-# 在数组的索引 index 处插入元素 num
+### 在数组的索引 index 处插入元素 num ###
 def insert(nums, num, index)
   # 把索引 index 以及之后的所有元素向后移动一位
   for i in (nums.length - 1).downto(index + 1)
@@ -41,7 +41,8 @@ def insert(nums, num, index)
   nums[index] = num
 end
 
-# 删除索引 index 处的元素
+
+### 删除索引 index 处的元素 ###
 def remove(nums, index)
   # 把索引 index 之后的所有元素向前移动一位
   for i in index...nums.length
@@ -49,7 +50,7 @@ def remove(nums, index)
   end
 end
 
-# 遍历数组
+### 遍历数组 ###
 def traverse(nums)
   count = 0
 
@@ -64,7 +65,7 @@ def traverse(nums)
   end
 end
 
-# 在数组中查找指定元素
+### 在数组中查找指定元素 ###
 def find(nums, target)
   for i in 0...nums.length
     return i if nums[i] == target
@@ -73,7 +74,8 @@ def find(nums, target)
   -1
 end
 
-# Driver Code
+
+### Driver Code ###
 
 # 初始化数组
 arr = Array.new(5, 0)

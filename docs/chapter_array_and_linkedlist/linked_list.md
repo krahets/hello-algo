@@ -187,7 +187,7 @@
 
 === "Ruby"
 
-    ```rb title=""
+    ```ruby title=""
     # 链表节点类
     class ListNode
       attr_accessor :val  # 节点值
@@ -419,7 +419,7 @@
 
 === "Ruby"
 
-    ```rb title=linked_list.rb
+    ```ruby title=linked_list.rb
     # 初始化链表 1 -> 3 -> 2 -> 5 -> 4
     # 初始化各个节点
     n0 = ListNode.new 1
@@ -702,7 +702,7 @@
 
 === "Ruby"
 
-    ```rb title=""
+    ```ruby title=""
     # 双向链表节点类
     class ListNode
       attr_accessor :val    # 节点值

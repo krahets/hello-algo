@@ -143,7 +143,7 @@
 
 === "Ruby"
 
-    ```rb title="list.rb"
+    ```ruby title="list.rb"
     # 初始化列表
     # 无初始值
     nums1 = []
@@ -282,7 +282,7 @@
 
 === "Ruby"
 
-    ```rb title="list.rb"
+    ```ruby title="list.rb"
     # 访问元素
     num = nums[1]
     # 更新元素
@@ -531,7 +531,7 @@
 
 === "Ruby"
 
-    ```rb title="list.rb"
+    ```ruby title="list.rb"
     # 清空列表
     nums.clear
 
@@ -744,7 +744,7 @@
 
 === "Ruby"
 
-    ```rb title="list.rb"
+    ```ruby title="list.rb"
     # 通过索引遍历列表
     count = 0
     for i in 0...nums.length
@@ -871,7 +871,7 @@
 
 === "Ruby"
 
-    ```rb title="list.rb"
+    ```ruby title="list.rb"
     # 拼接两个列表
     nums1 = [6, 8, 7, 10, 9]
     nums += nums1
@@ -976,7 +976,7 @@
 
 === "Ruby"
 
-    ```rb title="list.rb"
+    ```ruby title="list.rb"
     # 排序列表
     nums = nums.sort { |a, b| a <=> b }
     ```

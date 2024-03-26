@@ -4,6 +4,8 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
+### Driver Code ###
+
 # 初始化列表
 nums = [1, 3, 2, 5, 4]
 puts "列表 nums = #{nums}"

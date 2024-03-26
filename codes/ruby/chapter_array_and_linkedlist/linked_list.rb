@@ -7,14 +7,15 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/list_node'
 require_relative '../utils/print_util'
 
-# 在链表的节点 n0 之后插入节点 new_node
-def insert(n0, new_node)
+### 在链表的节点 n0 之后插入节点 _p ###
+# Ruby 的 `p` 是一个内置函数， `P` 是一个常量，所以可以使用 `_p` 代替
+def insert(n0, _p)
   n1 = n0.next
-  new_node.next = n1
-  n0.next = new_node
+  _p.next = n1
+  n0.next = _p
 end
 
-# 删除链表的节点 n0 之后的首个节点
+### 删除链表的节点 n0 之后的首个节点 ###
 def remove(n0)
   return if n0.next.nil?
 
@@ -24,7 +25,7 @@ def remove(n0)
   n0.next = n1
 end
 
-# 访问链表中索引为 index 的节点
+### 访问链表中索引为 index 的节点 ###
 def access(head, index)
   for i in 0...index
     return nil if head.nil?
@@ -34,7 +35,7 @@ def access(head, index)
   head
 end
 
-# 在链表中查找值为 target 的首个节点
+### 在链表中查找值为 target 的首个节点 ###
 def find(head, target)
   index = 0
   while head
@@ -46,7 +47,7 @@ def find(head, target)
   -1
 end
 
-# Driver Code
+### Driver Code ###
 
 # 初始化链表
 # 初始化各个节点
@@ -61,16 +62,16 @@ n1.next = n2
 n2.next = n3
 n3.next = n4
 puts "初始化的链表为"
-Utils::Printer.print_linked_list n0
+print_linked_list n0
 
 # 插入节点
 insert n0, ListNode.new(0)
-Utils::Printer.print_linked_list n0
+print_linked_list n0
 
 # 删除节点
 remove n0
 puts "删除节点后的链表为"
-Utils::Printer.print_linked_list n0
+print_linked_list n0
 
 # 访问节点
 node = access n0, 3

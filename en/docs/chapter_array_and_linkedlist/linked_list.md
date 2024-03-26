@@ -187,7 +187,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 
 === "Ruby"
 
-    ```rb title=""
+    ```ruby title=""
     # Linked List Node Class
     class ListNode
       attr_accessor :val  # Node value
@@ -198,6 +198,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
         @next = next_node
       end
     end
+    ```
   
 
 ## Common Operations on Linked Lists
@@ -419,7 +420,7 @@ Constructing a linked list is a two-step process: first, initializing each node 
 
 === "Ruby"
 
-    ```rb title=linked_list.rb
+    ```ruby title=linked_list.rb
     # Initialize linked list 1 -> 3 -> 2 -> 5 -> 4
     # Initialize each node
     n0 = ListNode.new 1
@@ -698,7 +699,7 @@ As shown in the figure, there are three common types of linked lists.
 
 === "Ruby"
 
-    ```rb title=""
+    ```ruby title=""
     # Bidirectional linked list node class
     class ListNode
       attr_accessor :val    # Node value
