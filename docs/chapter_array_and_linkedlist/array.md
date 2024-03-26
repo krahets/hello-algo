@@ -108,7 +108,9 @@
 === "Kotlin"
 
     ```kotlin title="array.kt"
-
+    // 初始化数组
+    val arr = IntArray(5) { 0 } // { 0, 0, 0, 0, 0 }
+    val nums = intArrayOf(1, 3, 2, 5, 4)
     ```
 
 === "Zig"
