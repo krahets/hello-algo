@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* AVL結構體 */
+/* AVL 樹結構體 */
 typedef struct {
     TreeNode *root;
 } AVLTree;
@@ -213,22 +213,22 @@ TreeNode *search(AVLTree *tree, int val) {
 
 void testInsert(AVLTree *tree, int val) {
     insert(tree, val);
-    printf("\n插入節點 %d 後，AVL為 \n", val);
+    printf("\n插入節點 %d 後，AVL 樹為 \n", val);
     printTree(tree->root);
 }
 
 void testRemove(AVLTree *tree, int val) {
     removeItem(tree, val);
-    printf("\n刪除節點 %d 後，AVL為 \n", val);
+    printf("\n刪除節點 %d 後，AVL 樹為 \n", val);
     printTree(tree->root);
 }
 
 /* Driver Code */
 int main() {
-    /* 初始化空 AVL */
+    /* 初始化空 AVL 樹 */
     AVLTree *tree = (AVLTree *)newAVLTree();
     /* 插入節點 */
-    // 請關注插入節點後，AVL是如何保持平衡的
+    // 請關注插入節點後，AVL 樹是如何保持平衡的
     testInsert(tree, 1);
     testInsert(tree, 2);
     testInsert(tree, 3);
@@ -244,7 +244,7 @@ int main() {
     testInsert(tree, 7);
 
     /* 刪除節點 */
-    // 請關注刪除節點後，AVL是如何保持平衡的
+    // 請關注刪除節點後，AVL 樹是如何保持平衡的
     testRemove(tree, 8); // 刪除度為 0 的節點
     testRemove(tree, 5); // 刪除度為 1 的節點
     testRemove(tree, 4); // 刪除度為 2 的節點

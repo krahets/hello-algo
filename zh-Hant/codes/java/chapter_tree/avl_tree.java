@@ -8,7 +8,7 @@ package chapter_tree;
 
 import utils.*;
 
-/* AVL */
+/* AVL 樹 */
 class AVLTree {
     TreeNode root; // 根節點
 
@@ -177,22 +177,22 @@ class AVLTree {
 public class avl_tree {
     static void testInsert(AVLTree tree, int val) {
         tree.insert(val);
-        System.out.println("\n插入節點 " + val + " 後，AVL為");
+        System.out.println("\n插入節點 " + val + " 後，AVL 樹為");
         PrintUtil.printTree(tree.root);
     }
 
     static void testRemove(AVLTree tree, int val) {
         tree.remove(val);
-        System.out.println("\n刪除節點 " + val + " 後，AVL為");
+        System.out.println("\n刪除節點 " + val + " 後，AVL 樹為");
         PrintUtil.printTree(tree.root);
     }
 
     public static void main(String[] args) {
-        /* 初始化空 AVL */
+        /* 初始化空 AVL 樹 */
         AVLTree avlTree = new AVLTree();
 
         /* 插入節點 */
-        // 請關注插入節點後，AVL是如何保持平衡的
+        // 請關注插入節點後，AVL 樹是如何保持平衡的
         testInsert(avlTree, 1);
         testInsert(avlTree, 2);
         testInsert(avlTree, 3);
@@ -208,7 +208,7 @@ public class avl_tree {
         testInsert(avlTree, 7);
 
         /* 刪除節點 */
-        // 請關注刪除節點後，AVL是如何保持平衡的
+        // 請關注刪除節點後，AVL 樹是如何保持平衡的
         testRemove(avlTree, 8); // 刪除度為 0 的節點
         testRemove(avlTree, 5); // 刪除度為 1 的節點
         testRemove(avlTree, 4); // 刪除度為 2 的節點

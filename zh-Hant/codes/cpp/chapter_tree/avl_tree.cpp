@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* AVL */
+/* AVL 樹 */
 class AVLTree {
   public:
     TreeNode *root; // 根節點
@@ -190,23 +190,23 @@ class AVLTree {
 
 void testInsert(AVLTree &tree, int val) {
     tree.insert(val);
-    cout << "\n插入節點 " << val << " 後，AVL為" << endl;
+    cout << "\n插入節點 " << val << " 後，AVL 樹為" << endl;
     printTree(tree.root);
 }
 
 void testRemove(AVLTree &tree, int val) {
     tree.remove(val);
-    cout << "\n刪除節點 " << val << " 後，AVL為" << endl;
+    cout << "\n刪除節點 " << val << " 後，AVL 樹為" << endl;
     printTree(tree.root);
 }
 
 /* Driver Code */
 int main() {
-    /* 初始化空 AVL */
+    /* 初始化空 AVL 樹 */
     AVLTree avlTree;
 
     /* 插入節點 */
-    // 請關注插入節點後，AVL是如何保持平衡的
+    // 請關注插入節點後，AVL 樹是如何保持平衡的
     testInsert(avlTree, 1);
     testInsert(avlTree, 2);
     testInsert(avlTree, 3);
@@ -222,7 +222,7 @@ int main() {
     testInsert(avlTree, 7);
 
     /* 刪除節點 */
-    // 請關注刪除節點後，AVL是如何保持平衡的
+    // 請關注刪除節點後，AVL 樹是如何保持平衡的
     testRemove(avlTree, 8); // 刪除度為 0 的節點
     testRemove(avlTree, 5); // 刪除度為 1 的節點
     testRemove(avlTree, 4); // 刪除度為 2 的節點
