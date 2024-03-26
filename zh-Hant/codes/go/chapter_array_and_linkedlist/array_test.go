@@ -20,7 +20,7 @@ func TestArray(t *testing.T) {
 	var arr [5]int
 	fmt.Println("陣列 arr =", arr)
 	// 在 Go 中，指定長度時（[5]int）為陣列，不指定長度時（[]int）為切片
-	// 由於 Go 的陣列被設計為在編譯期確定長度，因此只能使用常量來指定長度
+	// 由於 Go 的陣列被設計為在編譯期確定長度，因此只能使用常數來指定長度
 	// 為了方便實現擴容 extend() 函式，以下將切片（Slice）看作陣列（Array）
 	nums := []int{1, 3, 2, 5, 4}
 	fmt.Println("陣列 nums =", nums)

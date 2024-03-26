@@ -18,7 +18,7 @@ public class space_complexity {
 
     /* 常數階 */
     static void constant(int n) {
-        // 常量、變數、物件佔用 O(1) 空間
+        // 常數、變數、物件佔用 O(1) 空間
         final int a = 0;
         int b = 0;
         int[] nums = new int[10000];

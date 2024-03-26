@@ -13,7 +13,7 @@ fn function() i32 {
 
 // 常數階
 fn constant(n: i32) void {
-    // 常量、變數、物件佔用 O(1) 空間
+    // 常數、變數、物件佔用 O(1) 空間
     const a: i32 = 0;
     var b: i32 = 0;
     var nums = [_]i32{0}**10000;

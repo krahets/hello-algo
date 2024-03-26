@@ -30,7 +30,7 @@ func function() int {
 
 /* 常數階 */
 func spaceConstant(n int) {
-	// 常量、變數、物件佔用 O(1) 空間
+	// 常數、變數、物件佔用 O(1) 空間
 	const a = 0
 	b := 0
 	nums := make([]int, 10000)
