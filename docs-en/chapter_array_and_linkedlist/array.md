@@ -105,6 +105,14 @@ Arrays can be initialized in two ways depending on the needs: either without ini
     int nums[5] = { 1, 3, 2, 5, 4 };
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    // Initialize array
+    val arr = IntArray(5) { 0 } // { 0, 0, 0, 0, 0 }
+    val nums = intArrayOf(1, 3, 2, 5, 4)
+    ```
+
 === "Zig"
 
     ```zig title="array.zig"
