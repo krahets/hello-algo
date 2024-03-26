@@ -663,9 +663,8 @@
     ```kotlin title=""
     /* 双向链表节点类 */
     class ListNode(
-        x: Int   
+        x: Int // 主构造函数
     ) {
-        // 主构造函数
         val `val`: Int = x          // 节点值
         val next: ListNode? = null  // 指向后继节点的引用
         val prev: ListNode? = null  // 指向前驱节点的引用
