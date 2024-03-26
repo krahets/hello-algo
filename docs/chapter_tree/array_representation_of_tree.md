@@ -12,7 +12,7 @@
 
 ![完美二叉树的数组表示](array_representation_of_tree.assets/array_representation_binary_tree.png)
 
-**映射公式的角色相当于链表中的指针**。给定数组中的任意一个节点，我们都可以通过映射公式来访问它的左（右）子节点。
+**映射公式的角色相当于链表中的引用**。给定数组中的任意一个节点，我们都可以通过映射公式来访问它的左（右）子节点。
 
 ## 表示任意二叉树
 
@@ -110,6 +110,12 @@
     /* 二叉树的数组表示 */
     // 使用 int 最大值标记空位，因此要求节点值不能为 INT_MAX
     int tree[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+
     ```
 
 === "Zig"

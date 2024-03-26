@@ -7,7 +7,7 @@
 /* 插入排序 */
 func insertionSort(nums: inout [Int]) {
     // 外循环：已排序区间为 [0, i-1]
-    for i in stride(from: 1, to: nums.count, by: 1) {
+    for i in nums.indices.dropFirst() {
         let base = nums[i]
         var j = i - 1
         // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置

@@ -126,6 +126,12 @@
     // C 未提供内置动态数组
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="list.zig"
@@ -256,6 +262,12 @@
 
     ```c title="list.c"
     // C 未提供内置动态数组
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+
     ```
 
 === "Zig"
@@ -491,6 +503,12 @@
     // C 未提供内置动态数组
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="list.zig"
@@ -701,6 +719,12 @@
     // C 未提供内置动态数组
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="list.zig"
@@ -829,6 +853,12 @@
     // C 未提供内置动态数组
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="list.zig"
@@ -929,6 +959,12 @@
 
     ```c title="list.c"
     // C 未提供内置动态数组
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+
     ```
 
 === "Zig"

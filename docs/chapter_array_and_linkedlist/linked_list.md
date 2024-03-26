@@ -159,6 +159,12 @@
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -386,6 +392,12 @@
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="linked_list.kt"
+
     ```
 
 === "Zig"
@@ -658,6 +670,12 @@
         node->prev = NULL;
         return node;
     }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+
     ```
 
 === "Zig"

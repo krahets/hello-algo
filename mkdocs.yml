@@ -290,6 +290,5 @@ nav:
     - 16.3 &nbsp; 术语表: chapter_appendix/terminology.md
   - 参考文献:
     - chapter_reference/index.md
-  - 纸质书介绍:
-    # [status: new]
+  - 纸质书:
     - chapter_paperbook/index.md
