@@ -132,7 +132,7 @@
     /* 初始化列表 */
     // 无初始值
     var nums1 = listOf<Int>()
-    // 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）
+    // 有初始值
     var numbers = arrayOf(1, 3, 2, 5, 4)
     var nums = numbers.toMutableList()
     ```
