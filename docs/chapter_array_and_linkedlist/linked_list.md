@@ -162,7 +162,13 @@
 === "Kotlin"
 
     ```kotlin title=""
-
+    /* 链表节点类 */
+    class ListNode(
+        x: Int // 主构造函数
+    ){
+        val `val`: Int = x         // 节点值
+        val next: ListNode? = null // 指向下一个节点的引用
+    }
     ```
 
 === "Zig"
@@ -382,6 +388,18 @@
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个节点
+    val n0 = ListNode(1)
+    val n1 = ListNode(3)
+    val n2 = ListNode(2)
+    val n3 = ListNode(5)
+    val n4 = ListNode(4)
+    // 构建节点之间的引用
+    n0.next = n1;
+    n1.next = n2;
+    n2.next = n3;
+    n3.next = n4;
 
     ```
 
@@ -643,7 +661,15 @@
 === "Kotlin"
 
     ```kotlin title=""
-
+    /* 双向链表节点类 */
+    class ListNode(
+        x: Int   
+    ) {
+        // 主构造函数
+        val `val`: Int = x          // 节点值
+        val next: ListNode? = null  // 指向后继节点的引用
+        val prev: ListNode? = null  // 指向前驱节点的引用
+    }
     ```
 
 === "Zig"
