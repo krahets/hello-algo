@@ -6,10 +6,10 @@
 
 include!("../include/include.rs");
 
-use tree_node::TreeNode;
-use std::rc::Rc;
-use std::cmp::Ordering;
 use std::cell::RefCell;
+use std::cmp::Ordering;
+use std::rc::Rc;
+use tree_node::TreeNode;
 
 type OptionTreeNodeRc = Option<Rc<RefCell<TreeNode>>>;
 
@@ -157,6 +157,7 @@ impl AVLTree {
                     }
                 }
                 Self::update_height(Some(node.clone())); // 更新节点高度
+
                 /* 2. 执行旋转操作，使该子树重新恢复平衡 */
                 node = Self::rotate(Some(node)).unwrap();
                 // 返回子树的根节点
@@ -211,6 +212,7 @@ impl AVLTree {
                     node.borrow_mut().val = temp.borrow().val;
                 }
                 Self::update_height(Some(node.clone())); // 更新节点高度
+
                 /* 2. 执行旋转操作，使该子树重新恢复平衡 */
                 node = Self::rotate(Some(node)).unwrap();
                 // 返回子树的根节点

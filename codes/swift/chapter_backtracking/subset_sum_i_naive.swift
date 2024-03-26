@@ -12,7 +12,7 @@ func backtrack(state: inout [Int], target: Int, total: Int, choices: [Int], res:
         return
     }
     // 遍历所有选择
-    for i in stride(from: 0, to: choices.count, by: 1) {
+    for i in choices.indices {
         // 剪枝：若子集和超过 target ，则跳过该选择
         if total + choices[i] > target {
             continue

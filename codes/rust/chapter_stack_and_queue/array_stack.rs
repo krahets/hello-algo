@@ -14,7 +14,9 @@ struct ArrayStack<T> {
 impl<T> ArrayStack<T> {
     /* 初始化栈 */
     fn new() -> ArrayStack<T> {
-        ArrayStack::<T> { stack: Vec::<T>::new() }
+        ArrayStack::<T> {
+            stack: Vec::<T>::new(),
+        }
     }
 
     /* 获取栈的长度 */
@@ -42,7 +44,9 @@ impl<T> ArrayStack<T> {
 
     /* 访问栈顶元素 */
     fn peek(&self) -> Option<&T> {
-        if self.is_empty() { panic!("栈为空") };
+        if self.is_empty() {
+            panic!("栈为空")
+        };
         self.stack.last()
     }
 

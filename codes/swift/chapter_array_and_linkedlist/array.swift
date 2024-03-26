@@ -54,6 +54,11 @@ func traverse(nums: [Int]) {
     for num in nums {
         count += num
     }
+    // 同时遍历数据索引和元素
+    for (i, num) in nums.enumerated() {
+        count += nums[i]
+        count += num
+    }
 }
 
 /* 在数组中查找指定元素 */

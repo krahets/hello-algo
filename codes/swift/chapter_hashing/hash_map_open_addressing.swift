@@ -32,7 +32,7 @@ class HashMapOpenAddressing {
 
     /* 负载因子 */
     func loadFactor() -> Double {
-        Double(size / capacity)
+        Double(size) / Double(capacity)
     }
 
     /* 搜索 key 对应的桶索引 */

@@ -10,9 +10,11 @@ import utils
 class LinkedListQueue {
     private var front: ListNode? // 头节点
     private var rear: ListNode? // 尾节点
-    private var _size = 0
+    private var _size: Int
 
-    init() {}
+    init() {
+        _size = 0
+    }
 
     /* 获取队列的长度 */
     func size() -> Int {

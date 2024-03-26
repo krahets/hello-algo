@@ -4,7 +4,6 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-
 /* 加法哈希 */
 fn add_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
@@ -15,7 +14,7 @@ fn add_hash(key: &str) -> i32 {
     }
 
     hash as i32
-} 
+}
 
 /* 乘法哈希 */
 fn mul_hash(key: &str) -> i32 {

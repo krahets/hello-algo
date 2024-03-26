@@ -11,7 +11,7 @@ fn coin_change_dp(coins: &[i32], amt: usize) -> i32 {
     // 初始化 dp 表
     let mut dp = vec![vec![0; amt + 1]; n + 1];
     // 状态转移：首行首列
-    for a in 1..= amt {
+    for a in 1..=amt {
         dp[0][a] = max;
     }
     // 状态转移：其余行和列
@@ -26,7 +26,11 @@ fn coin_change_dp(coins: &[i32], amt: usize) -> i32 {
             }
         }
     }
-    if dp[n][amt] != max { return dp[n][amt] as i32; } else { -1 }
+    if dp[n][amt] != max {
+        return dp[n][amt] as i32;
+    } else {
+        -1
+    }
 }
 
 /* 零钱兑换：空间优化后的动态规划 */
@@ -49,12 +53,16 @@ fn coin_change_dp_comp(coins: &[i32], amt: usize) -> i32 {
             }
         }
     }
-    if dp[amt] != max { return dp[amt] as i32; } else { -1 }
+    if dp[amt] != max {
+        return dp[amt] as i32;
+    } else {
+        -1
+    }
 }
 
 /* Driver Code */
 pub fn main() {
-    let coins = [ 1, 2, 5 ];
+    let coins = [1, 2, 5];
     let amt: usize = 4;
 
     // 动态规划

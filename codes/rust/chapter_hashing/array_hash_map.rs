@@ -12,13 +12,15 @@ pub struct Pair {
 }
 /* 基于数组实现的哈希表 */
 pub struct ArrayHashMap {
-    buckets: Vec<Option<Pair>>
+    buckets: Vec<Option<Pair>>,
 }
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
         // 初始化数组，包含 100 个桶
-        Self { buckets: vec![None; 100] }
+        Self {
+            buckets: vec![None; 100],
+        }
     }
 
     /* 哈希函数 */
@@ -50,17 +52,26 @@ impl ArrayHashMap {
 
     /* 获取所有键值对 */
     pub fn entry_set(&self) -> Vec<&Pair> {
-        self.buckets.iter().filter_map(|pair| pair.as_ref()).collect()
+        self.buckets
+            .iter()
+            .filter_map(|pair| pair.as_ref())
+            .collect()
     }
 
     /* 获取所有键 */
     pub fn key_set(&self) -> Vec<&i32> {
-        self.buckets.iter().filter_map(|pair| pair.as_ref().map(|pair| &pair.key)).collect()
+        self.buckets
+            .iter()
+            .filter_map(|pair| pair.as_ref().map(|pair| &pair.key))
+            .collect()
     }
 
     /* 获取所有值 */
     pub fn value_set(&self) -> Vec<&String> {
-        self.buckets.iter().filter_map(|pair| pair.as_ref().map(|pair| &pair.val)).collect()
+        self.buckets
+            .iter()
+            .filter_map(|pair| pair.as_ref().map(|pair| &pair.val))
+            .collect()
     }
 
     /* 打印哈希表 */

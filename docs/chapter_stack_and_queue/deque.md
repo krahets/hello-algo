@@ -324,6 +324,12 @@
     // C 未提供内置双向队列
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="deque.kt"
+
+    ```
+
 === "Zig"
 
     ```zig title="deque.zig"

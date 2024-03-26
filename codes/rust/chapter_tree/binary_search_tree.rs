@@ -7,8 +7,8 @@
 include!("../include/include.rs");
 
 use std::cell::RefCell;
-use std::rc::Rc;
 use std::cmp::Ordering;
+use std::rc::Rc;
 
 use tree_node::TreeNode;
 
@@ -89,8 +89,8 @@ impl BinarySearchTree {
     /* 删除节点 */
     pub fn remove(&mut self, num: i32) {
         // 若树为空，直接提前返回
-        if self.root.is_none() { 
-            return; 
+        if self.root.is_none() {
+            return;
         }
         let mut cur = self.root.clone();
         let mut pre = None;
@@ -171,7 +171,11 @@ fn main() {
 
     /* 查找结点 */
     let node = bst.search(7);
-    println!("\n查找到的节点对象为 {:?}，节点值 = {}", node.clone().unwrap(), node.clone().unwrap().borrow().val);
+    println!(
+        "\n查找到的节点对象为 {:?}，节点值 = {}",
+        node.clone().unwrap(),
+        node.clone().unwrap().borrow().val
+    );
 
     /* 插入节点 */
     bst.insert(16);
