@@ -6,7 +6,7 @@
 
 namespace hello_algo.utils;
 
-/* 頂點類 */
+/* 頂點類別 */
 public class Vertex(int val) {
     public int val = val;
 

@@ -493,7 +493,7 @@ index = hash(key) % capacity
 
 ![雜湊函式工作原理](hash_map.assets/hash_function.png)
 
-以下程式碼實現了一個簡單雜湊表。其中，我們將 `key` 和 `value` 封裝成一個類 `Pair` ，以表示鍵值對。
+以下程式碼實現了一個簡單雜湊表。其中，我們將 `key` 和 `value` 封裝成一個類別 `Pair` ，以表示鍵值對。
 
 ```src
 [file]{array_hash_map}-[class]{array_hash_map}-[func]{}

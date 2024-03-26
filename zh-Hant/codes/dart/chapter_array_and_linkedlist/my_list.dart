@@ -4,7 +4,7 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-/* 串列類 */
+/* 串列類別 */
 class MyList {
   late List<int> _arr; // 陣列（儲存串列元素）
   int _capacity = 10; // 串列容量

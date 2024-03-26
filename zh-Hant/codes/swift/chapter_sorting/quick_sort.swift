@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 快速排序類 */
+/* 快速排序類別 */
 /* 哨兵劃分 */
 func partition(nums: inout [Int], left: Int, right: Int) -> Int {
     // 以 nums[left] 為基準數
@@ -36,7 +36,7 @@ func quickSort(nums: inout [Int], left: Int, right: Int) {
     quickSort(nums: &nums, left: pivot + 1, right: right)
 }
 
-/* 快速排序類（中位基準數最佳化） */
+/* 快速排序類別（中位基準數最佳化） */
 /* 選取三個候選元素的中位數 */
 func medianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
     let l = nums[left]

@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 快速排序類 */
+/* 快速排序類別 */
 class QuickSort {
   private:
     /* 元素交換 */
@@ -45,7 +45,7 @@ class QuickSort {
     }
 };
 
-/* 快速排序類（中位基準數最佳化） */
+/* 快速排序類別（中位基準數最佳化） */
 class QuickSortMedian {
   private:
     /* 元素交換 */
@@ -98,7 +98,7 @@ class QuickSortMedian {
     }
 };
 
-/* 快速排序類（尾遞迴最佳化） */
+/* 快速排序類別（尾遞迴最佳化） */
 class QuickSortTailCall {
   private:
     /* 元素交換 */

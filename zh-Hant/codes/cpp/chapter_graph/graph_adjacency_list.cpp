@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 基於鄰接表實現的無向圖類 */
+/* 基於鄰接表實現的無向圖類別 */
 class GraphAdjList {
   public:
     // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點

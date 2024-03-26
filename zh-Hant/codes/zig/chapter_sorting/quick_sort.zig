@@ -5,7 +5,7 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 快速排序類
+// 快速排序類別
 const QuickSort = struct {
 
     // 元素交換
@@ -41,7 +41,7 @@ const QuickSort = struct {
     }
 };
 
-// 快速排序類（中位基準數最佳化）
+// 快速排序類別（中位基準數最佳化）
 const QuickSortMedian = struct {
 
     // 元素交換
@@ -94,7 +94,7 @@ const QuickSortMedian = struct {
     }
 };
 
-// 快速排序類（尾遞迴最佳化）
+// 快速排序類別（尾遞迴最佳化）
 const QuickSortTailCall = struct {
 
     // 元素交換

@@ -9,7 +9,7 @@ enum Queue {
     /* Driver Code */
     static func main() {
         /* 初始化佇列 */
-        // Swift 沒有內建的佇列類，可以把 Array 當作佇列來使用
+        // Swift 沒有內建的佇列類別，可以把 Array 當作佇列來使用
         var queue: [Int] = []
 
         /* 元素入列 */

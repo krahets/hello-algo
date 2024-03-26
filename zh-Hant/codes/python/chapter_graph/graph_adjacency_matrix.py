@@ -12,7 +12,7 @@ from modules import Vertex, print_matrix
 
 
 class GraphAdjMat:
-    """基於鄰接矩陣實現的無向圖類"""
+    """基於鄰接矩陣實現的無向圖類別"""
 
     def __init__(self, vertices: list[int], edges: list[list[int]]):
         """建構子"""

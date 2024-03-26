@@ -6,7 +6,7 @@ Author: krahets (krahets@163.com)
 
 
 class ListNode:
-    """鏈結串列節點類"""
+    """鏈結串列節點類別"""
 
     def __init__(self, val: int):
         self.val: int = val  # 節點值

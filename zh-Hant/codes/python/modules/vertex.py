@@ -4,7 +4,7 @@
 
 
 class Vertex:
-    """頂點類"""
+    """頂點類別"""
 
     def __init__(self, val: int):
         self.val = val

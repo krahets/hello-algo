@@ -4,7 +4,7 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-/* 二元樹節點類 */
+/* 二元樹節點類別 */
 class TreeNode {
   int val; // 節點值
   int height; // 節點高度

@@ -12,7 +12,7 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* 基於鄰接表實現的無向圖類 */
+/* 基於鄰接表實現的無向圖類別 */
 type graphAdjList struct {
 	// 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
 	adjList map[Vertex][]Vertex

@@ -5,7 +5,7 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 串列類
+// 串列類別
 pub fn MyList(comptime T: type) type {
     return struct {
         const Self = @This();

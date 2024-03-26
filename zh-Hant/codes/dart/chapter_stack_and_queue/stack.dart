@@ -6,7 +6,7 @@
 
 void main() {
   /* 初始化堆疊 */
-  // Dart 沒有內建的堆疊類，可以把 List 當作堆疊來使用
+  // Dart 沒有內建的堆疊類別，可以把 List 當作堆疊來使用
   final List<int> stack = [];
 
   /* 元素入堆疊 */

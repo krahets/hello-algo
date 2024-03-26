@@ -6,7 +6,7 @@
 
 /* Driver Code */
 /* 初始化堆疊 */
-// JavaScript 沒有內建的堆疊類，可以把 Array 當作堆疊來使用
+// JavaScript 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
 const stack = [];
 
 /* 元素入堆疊 */

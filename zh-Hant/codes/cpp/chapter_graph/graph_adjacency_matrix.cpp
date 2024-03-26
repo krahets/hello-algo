@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 基於鄰接矩陣實現的無向圖類 */
+/* 基於鄰接矩陣實現的無向圖類別 */
 class GraphAdjMat {
     vector<int> vertices;       // 頂點串列，元素代表“頂點值”，索引代表“頂點索引”
     vector<vector<int>> adjMat; // 鄰接矩陣，行列索引對應“頂點索引”

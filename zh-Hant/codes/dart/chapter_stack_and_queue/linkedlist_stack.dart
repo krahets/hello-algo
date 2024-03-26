@@ -6,7 +6,7 @@
 
 import '../utils/list_node.dart';
 
-/* 基於鏈結串列類實現的堆疊 */
+/* 基於鏈結串列類別實現的堆疊 */
 class LinkedListStack {
   ListNode? _stackPeek; // 將頭節點作為堆疊頂
   int _stkSize = 0; // 堆疊的長度

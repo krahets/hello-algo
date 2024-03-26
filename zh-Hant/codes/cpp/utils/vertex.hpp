@@ -10,7 +10,7 @@
 
 using namespace std;
 
-/* 頂點類 */
+/* 頂點類別 */
 struct Vertex {
     int val;
     Vertex(int x) : val(x) {

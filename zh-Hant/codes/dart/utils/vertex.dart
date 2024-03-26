@@ -4,7 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 頂點類 */
+/* 頂點類別 */
 class Vertex {
   int val;
   Vertex(this.val);

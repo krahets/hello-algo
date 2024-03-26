@@ -6,7 +6,7 @@
 
 import { printHeap } from '../modules/PrintUtil';
 
-/* 最大堆積類 */
+/* 最大堆積類別 */
 class MaxHeap {
     private maxHeap: number[];
     /* 建構子，建立空堆積或根據輸入串列建堆積 */

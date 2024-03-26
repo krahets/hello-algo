@@ -6,7 +6,7 @@
 
 include!("../include/include.rs");
 
-/* 串列類 */
+/* 串列類別 */
 #[allow(dead_code)]
 struct MyList {
     arr: Vec<i32>,       // 陣列（儲存串列元素）

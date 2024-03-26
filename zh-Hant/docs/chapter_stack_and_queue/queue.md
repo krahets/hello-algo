@@ -18,7 +18,7 @@
 | `pop()`  | 佇列首元素出列                 | $O(1)$     |
 | `peek()` | 訪問佇列首元素                 | $O(1)$     |
 
-我們可以直接使用程式語言中現成的佇列類：
+我們可以直接使用程式語言中現成的佇列類別：
 
 === "Python"
 
@@ -26,8 +26,8 @@
     from collections import deque
 
     # 初始化佇列
-    # 在 Python 中，我們一般將雙向佇列類 deque 當作佇列使用
-    # 雖然 queue.Queue() 是純正的佇列類，但不太好用，因此不推薦
+    # 在 Python 中，我們一般將雙向佇列類別 deque 當作佇列使用
+    # 雖然 queue.Queue() 是純正的佇列類別，但不太好用，因此不推薦
     que: deque[int] = deque()
     
     # 元素入列
@@ -160,7 +160,7 @@
 
     ```swift title="queue.swift"
     /* 初始化佇列 */
-    // Swift 沒有內建的佇列類，可以把 Array 當作佇列來使用
+    // Swift 沒有內建的佇列類別，可以把 Array 當作佇列來使用
     var queue: [Int] = []
     
     /* 元素入列 */
@@ -244,7 +244,7 @@
 
     ```dart title="queue.dart"
     /* 初始化佇列 */
-    // 在 Dart 中，佇列類 Qeque 是雙向佇列，也可作為佇列使用
+    // 在 Dart 中，佇列類別 Qeque 是雙向佇列，也可作為佇列使用
     Queue<int> queue = Queue();
 
     /* 元素入列 */

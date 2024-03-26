@@ -8,7 +8,7 @@ from collections import deque
 
 
 class TreeNode:
-    """二元樹節點類"""
+    """二元樹節點類別"""
 
     def __init__(self, val: int = 0):
         self.val: int = val  # 節點值

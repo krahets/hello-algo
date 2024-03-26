@@ -5,7 +5,7 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 堆積類簡易實現
+// 堆積類別簡易實現
 pub fn MaxHeap(comptime T: type) type {
     return struct {
         const Self = @This();

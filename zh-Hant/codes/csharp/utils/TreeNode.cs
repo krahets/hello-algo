@@ -6,7 +6,7 @@
 
 namespace hello_algo.utils;
 
-/* 二元樹節點類 */
+/* 二元樹節點類別 */
 public class TreeNode(int? x) {
     public int? val = x;    // 節點值
     public int height;      // 節點高度

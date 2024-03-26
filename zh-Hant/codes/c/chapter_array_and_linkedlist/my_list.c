@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 串列類 */
+/* 串列類別 */
 typedef struct {
     int *arr;        // 陣列（儲存串列元素）
     int capacity;    // 串列容量

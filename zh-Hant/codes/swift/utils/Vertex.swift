@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 頂點類 */
+/* 頂點類別 */
 public class Vertex: Hashable {
     public var val: Int
 

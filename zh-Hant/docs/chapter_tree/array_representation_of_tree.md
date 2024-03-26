@@ -44,7 +44,7 @@
 
     ```java title=""
     /* 二元樹的陣列表示 */
-    // 使用 int 的包裝類 Integer ，就可以使用 null 來標記空位
+    // 使用 int 的包裝類別 Integer ，就可以使用 null 來標記空位
     Integer[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
     ```
 

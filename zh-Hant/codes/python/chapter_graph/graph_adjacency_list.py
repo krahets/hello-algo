@@ -12,7 +12,7 @@ from modules import Vertex, vals_to_vets
 
 
 class GraphAdjList:
-    """基於鄰接表實現的無向圖類"""
+    """基於鄰接表實現的無向圖類別"""
 
     def __init__(self, edges: list[list[Vertex]]):
         """建構子"""

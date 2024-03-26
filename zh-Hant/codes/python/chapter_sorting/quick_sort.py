@@ -6,7 +6,7 @@ Author: timi (xisunyy@163.com)
 
 
 class QuickSort:
-    """快速排序類"""
+    """快速排序類別"""
 
     def partition(self, nums: list[int], left: int, right: int) -> int:
         """哨兵劃分"""
@@ -36,7 +36,7 @@ class QuickSort:
 
 
 class QuickSortMedian:
-    """快速排序類（中位基準數最佳化）"""
+    """快速排序類別（中位基準數最佳化）"""
 
     def median_three(self, nums: list[int], left: int, mid: int, right: int) -> int:
         """選取三個候選元素的中位數"""
@@ -79,7 +79,7 @@ class QuickSortMedian:
 
 
 class QuickSortTailCall:
-    """快速排序類（尾遞迴最佳化）"""
+    """快速排序類別（尾遞迴最佳化）"""
 
     def partition(self, nums: list[int], left: int, right: int) -> int:
         """哨兵劃分"""

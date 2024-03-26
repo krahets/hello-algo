@@ -18,13 +18,13 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 
 ### 節點高度
 
-由於 AVL的相關操作需要獲取節點高度，因此我們需要為節點類新增 `height` 變數：
+由於 AVL的相關操作需要獲取節點高度，因此我們需要為節點類別新增 `height` 變數：
 
 === "Python"
 
     ```python title=""
     class TreeNode:
-        """AVL節點類"""
+        """AVL節點類別"""
         def __init__(self, val: int):
             self.val: int = val                 # 節點值
             self.height: int = 0                # 節點高度
@@ -35,7 +35,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "C++"
 
     ```cpp title=""
-    /* AVL節點類 */
+    /* AVL節點類別 */
     struct TreeNode {
         int val{};          // 節點值
         int height = 0;     // 節點高度
@@ -49,7 +49,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "Java"
 
     ```java title=""
-    /* AVL節點類 */
+    /* AVL節點類別 */
     class TreeNode {
         public int val;        // 節點值
         public int height;     // 節點高度
@@ -62,7 +62,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "C#"
 
     ```csharp title=""
-    /* AVL節點類 */
+    /* AVL節點類別 */
     class TreeNode(int? x) {
         public int? val = x;    // 節點值
         public int height;      // 節點高度
@@ -86,7 +86,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "Swift"
 
     ```swift title=""
-    /* AVL節點類 */
+    /* AVL節點類別 */
     class TreeNode {
         var val: Int // 節點值
         var height: Int // 節點高度
@@ -103,7 +103,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "JS"
 
     ```javascript title=""
-    /* AVL節點類 */
+    /* AVL節點類別 */
     class TreeNode {
         val; // 節點值
         height; //節點高度
@@ -121,7 +121,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "TS"
 
     ```typescript title=""
-    /* AVL節點類 */
+    /* AVL節點類別 */
     class TreeNode {
         val: number;            // 節點值
         height: number;         // 節點高度
@@ -139,7 +139,7 @@ AVL既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元�
 === "Dart"
 
     ```dart title=""
-    /* AVL節點類 */
+    /* AVL節點類別 */
     class TreeNode {
       int val;         // 節點值
       int height;      // 節點高度
