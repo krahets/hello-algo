@@ -198,6 +198,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
         @next = next_node
       end
     end
+    ```
   
 
 ## Common Operations on Linked Lists

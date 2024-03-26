@@ -4,7 +4,7 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# Definition for a singly-linked list node
+### Definition for a singly-linked list node ###
 class ListNode
   attr_accessor :val  # 节点值
   attr_accessor :next # 指向下一节点的引用
