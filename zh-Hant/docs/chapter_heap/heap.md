@@ -197,7 +197,7 @@
 
     // Push heap.Interface 的方法，實現推入元素到堆積
     func (h *intHeap) Push(x any) {
-        // Push 和 Pop 使用 pointer receiver 作為引數
+        // Push 和 Pop 使用 pointer receiver 作為參數
         // 因為它們不僅會對切片的內容進行調整，還會修改切片的長度。
         *h = append(*h, x.(int))
     }

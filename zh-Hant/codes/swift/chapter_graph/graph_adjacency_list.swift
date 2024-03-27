@@ -30,7 +30,7 @@ public class GraphAdjList {
     /* 新增邊 */
     public func addEdge(vet1: Vertex, vet2: Vertex) {
         if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-            fatalError("引數錯誤")
+            fatalError("參數錯誤")
         }
         // 新增邊 vet1 - vet2
         adjList[vet1]?.append(vet2)
@@ -40,7 +40,7 @@ public class GraphAdjList {
     /* 刪除邊 */
     public func removeEdge(vet1: Vertex, vet2: Vertex) {
         if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-            fatalError("引數錯誤")
+            fatalError("參數錯誤")
         }
         // 刪除邊 vet1 - vet2
         adjList[vet1]?.removeAll { $0 == vet2 }
@@ -59,7 +59,7 @@ public class GraphAdjList {
     /* 刪除頂點 */
     public func removeVertex(vet: Vertex) {
         if adjList[vet] == nil {
-            fatalError("引數錯誤")
+            fatalError("參數錯誤")
         }
         // 在鄰接表中刪除頂點 vet 對應的鏈結串列
         adjList.removeValue(forKey: vet)

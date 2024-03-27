@@ -46,7 +46,7 @@ public class recursion {
         return TailRecur(n - 1, res + n);
     }
 
-    /* 斐波那契數列：遞迴 */
+    /* 費波那契數列：遞迴 */
     int Fib(int n) {
         // 終止條件 f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
@@ -73,6 +73,6 @@ public class recursion {
         Console.WriteLine("\n尾遞迴函式的求和結果 res = " + res);
 
         res = Fib(n);
-        Console.WriteLine("\n斐波那契數列的第 " + n + " 項為 " + res);
+        Console.WriteLine("\n費波那契數列的第 " + n + " 項為 " + res);
     }
 }

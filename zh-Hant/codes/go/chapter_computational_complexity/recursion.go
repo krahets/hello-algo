@@ -48,7 +48,7 @@ func tailRecur(n int, res int) int {
 	return tailRecur(n-1, res+n)
 }
 
-/* 斐波那契數列：遞迴 */
+/* 費波那契數列：遞迴 */
 func fib(n int) int {
 	// 終止條件 f(1) = 0, f(2) = 1
 	if n == 1 || n == 2 {

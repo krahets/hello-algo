@@ -69,7 +69,7 @@ class MaxHeap(nums: List<Int>?) {
 
     /* 從節點 i 開始，從底至頂堆積化 */
     private fun siftUp(it: Int) {
-        // Kotlin的函式引數不可變，因此建立臨時變數
+        // Kotlin的函式參數不可變，因此建立臨時變數
         var i = it
         while (true) {
             // 獲取節點 i 的父節點
@@ -99,7 +99,7 @@ class MaxHeap(nums: List<Int>?) {
 
     /* 從節點 i 開始，從頂至底堆積化 */
     private fun siftDown(it: Int) {
-        // Kotlin的函式引數不可變，因此建立臨時變數
+        // Kotlin的函式參數不可變，因此建立臨時變數
         var i = it
         while (true) {
             // 判斷節點 i, l, r 中值最大的節點，記為 ma

@@ -200,7 +200,7 @@ template <typename T> void printDeque(deque<T> deque) {
 }
 
 /* Print a HashMap */
-// 定義模板引數 TKey 和 TValue ，用於指定鍵值對的型別
+// 定義模板參數 TKey 和 TValue ，用於指定鍵值對的型別
 template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, TValue> map) {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';

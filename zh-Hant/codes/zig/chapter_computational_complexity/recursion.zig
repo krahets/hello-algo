@@ -47,7 +47,7 @@ fn tailRecur(n: i32, res: i32) i32 {
     return tailRecur(n - 1, res + n);
 }
 
-// 斐波那契數列
+// 費波那契數列
 fn fib(n: i32) i32 {
     // 終止條件 f(1) = 0, f(2) = 1
     if (n == 1 or n == 2) {
@@ -74,5 +74,5 @@ pub fn main() !void {
     std.debug.print("\n尾遞迴函式的求和結果 res = {}\n", .{tailRecur(n, 0)});
 
     res = fib(n);
-    std.debug.print("\n斐波那契數列的第 {} 項為 {}\n", .{n, fib(n)});
+    std.debug.print("\n費波那契數列的第 {} 項為 {}\n", .{n, fib(n)});
 }

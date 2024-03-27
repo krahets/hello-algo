@@ -116,36 +116,36 @@ def factorial_recur(n: int) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # 可以修改 n 執行，體會一下各種複雜度的運算元量變化趨勢
+    # 可以修改 n 執行，體會一下各種複雜度的運算量變化趨勢
     n = 8
     print("輸入資料大小 n =", n)
 
     count: int = constant(n)
-    print("常數階的運算元量 =", count)
+    print("常數階的運算量 =", count)
 
     count: int = linear(n)
-    print("線性階的運算元量 =", count)
+    print("線性階的運算量 =", count)
     count: int = array_traversal([0] * n)
-    print("線性階（走訪陣列）的運算元量 =", count)
+    print("線性階（走訪陣列）的運算量 =", count)
 
     count: int = quadratic(n)
-    print("平方階的運算元量 =", count)
+    print("平方階的運算量 =", count)
     nums = [i for i in range(n, 0, -1)]  # [n, n-1, ..., 2, 1]
     count: int = bubble_sort(nums)
-    print("平方階（泡沫排序）的運算元量 =", count)
+    print("平方階（泡沫排序）的運算量 =", count)
 
     count: int = exponential(n)
-    print("指數階（迴圈實現）的運算元量 =", count)
+    print("指數階（迴圈實現）的運算量 =", count)
     count: int = exp_recur(n)
-    print("指數階（遞迴實現）的運算元量 =", count)
+    print("指數階（遞迴實現）的運算量 =", count)
 
     count: int = logarithmic(n)
-    print("對數階（迴圈實現）的運算元量 =", count)
+    print("對數階（迴圈實現）的運算量 =", count)
     count: int = log_recur(n)
-    print("對數階（遞迴實現）的運算元量 =", count)
+    print("對數階（遞迴實現）的運算量 =", count)
 
     count: int = linear_log_recur(n)
-    print("線性對數階（遞迴實現）的運算元量 =", count)
+    print("線性對數階（遞迴實現）的運算量 =", count)
 
     count: int = factorial_recur(n)
-    print("階乘階（遞迴實現）的運算元量 =", count)
+    print("階乘階（遞迴實現）的運算量 =", count)

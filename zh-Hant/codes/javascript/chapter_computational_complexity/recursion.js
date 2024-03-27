@@ -41,7 +41,7 @@ function tailRecur(n, res) {
     return tailRecur(n - 1, res + n);
 }
 
-/* 斐波那契數列：遞迴 */
+/* 費波那契數列：遞迴 */
 function fib(n) {
     // 終止條件 f(1) = 0, f(2) = 1
     if (n === 1 || n === 2) return n - 1;
@@ -65,5 +65,5 @@ res = tailRecur(n, 0);
 console.log(`尾遞迴函式的求和結果 res = ${res}`);
 
 res = fib(n);
-console.log(`斐波那契數列的第 ${n} 項為 ${res}`);
+console.log(`費波那契數列的第 ${n} 項為 ${res}`);
 

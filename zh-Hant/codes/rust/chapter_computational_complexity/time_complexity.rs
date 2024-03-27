@@ -134,37 +134,37 @@ fn factorial_recur(n: i32) -> i32 {
 
 /* Driver Code */
 fn main() {
-    // 可以修改 n 執行，體會一下各種複雜度的運算元量變化趨勢
+    // 可以修改 n 執行，體會一下各種複雜度的運算量變化趨勢
     let n: i32 = 8;
     println!("輸入資料大小 n = {}", n);
 
     let mut count = constant(n);
-    println!("常數階的運算元量 = {}", count);
+    println!("常數階的運算量 = {}", count);
 
     count = linear(n);
-    println!("線性階的運算元量 = {}", count);
+    println!("線性階的運算量 = {}", count);
     count = array_traversal(&vec![0; n as usize]);
-    println!("線性階（走訪陣列）的運算元量 = {}", count);
+    println!("線性階（走訪陣列）的運算量 = {}", count);
 
     count = quadratic(n);
-    println!("平方階的運算元量 = {}", count);
+    println!("平方階的運算量 = {}", count);
     let mut nums = (1..=n).rev().collect::<Vec<_>>(); // [n,n-1,...,2,1]
     count = bubble_sort(&mut nums);
-    println!("平方階（泡沫排序）的運算元量 = {}", count);
+    println!("平方階（泡沫排序）的運算量 = {}", count);
 
     count = exponential(n);
-    println!("指數階（迴圈實現）的運算元量 = {}", count);
+    println!("指數階（迴圈實現）的運算量 = {}", count);
     count = exp_recur(n);
-    println!("指數階（遞迴實現）的運算元量 = {}", count);
+    println!("指數階（遞迴實現）的運算量 = {}", count);
 
     count = logarithmic(n as f32);
-    println!("對數階（迴圈實現）的運算元量 = {}", count);
+    println!("對數階（迴圈實現）的運算量 = {}", count);
     count = log_recur(n as f32);
-    println!("對數階（遞迴實現）的運算元量 = {}", count);
+    println!("對數階（遞迴實現）的運算量 = {}", count);
 
     count = linear_log_recur(n as f32);
-    println!("線性對數階（遞迴實現）的運算元量 = {}", count);
+    println!("線性對數階（遞迴實現）的運算量 = {}", count);
 
     count = factorial_recur(n);
-    println!("階乘階（遞迴實現）的運算元量 = {}", count);
+    println!("階乘階（遞迴實現）的運算量 = {}", count);
 }

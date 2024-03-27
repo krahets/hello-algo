@@ -70,7 +70,7 @@ func (g *graphAdjMat) removeVertex(index int) {
 }
 
 /* 新增邊 */
-// 引數 i, j 對應 vertices 元素索引
+// 參數 i, j 對應 vertices 元素索引
 func (g *graphAdjMat) addEdge(i, j int) {
 	// 索引越界與相等處理
 	if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
@@ -82,7 +82,7 @@ func (g *graphAdjMat) addEdge(i, j int) {
 }
 
 /* 刪除邊 */
-// 引數 i, j 對應 vertices 元素索引
+// 參數 i, j 對應 vertices 元素索引
 func (g *graphAdjMat) removeEdge(i, j int) {
 	// 索引越界與相等處理
 	if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {

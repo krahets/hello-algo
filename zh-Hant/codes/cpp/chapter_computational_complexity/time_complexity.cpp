@@ -127,42 +127,42 @@ int factorialRecur(int n) {
 
 /* Driver Code */
 int main() {
-    // 可以修改 n 執行，體會一下各種複雜度的運算元量變化趨勢
+    // 可以修改 n 執行，體會一下各種複雜度的運算量變化趨勢
     int n = 8;
     cout << "輸入資料大小 n = " << n << endl;
 
     int count = constant(n);
-    cout << "常數階的運算元量 = " << count << endl;
+    cout << "常數階的運算量 = " << count << endl;
 
     count = linear(n);
-    cout << "線性階的運算元量 = " << count << endl;
+    cout << "線性階的運算量 = " << count << endl;
     vector<int> arr(n);
     count = arrayTraversal(arr);
-    cout << "線性階（走訪陣列）的運算元量 = " << count << endl;
+    cout << "線性階（走訪陣列）的運算量 = " << count << endl;
 
     count = quadratic(n);
-    cout << "平方階的運算元量 = " << count << endl;
+    cout << "平方階的運算量 = " << count << endl;
     vector<int> nums(n);
     for (int i = 0; i < n; i++)
         nums[i] = n - i; // [n,n-1,...,2,1]
     count = bubbleSort(nums);
-    cout << "平方階（泡沫排序）的運算元量 = " << count << endl;
+    cout << "平方階（泡沫排序）的運算量 = " << count << endl;
 
     count = exponential(n);
-    cout << "指數階（迴圈實現）的運算元量 = " << count << endl;
+    cout << "指數階（迴圈實現）的運算量 = " << count << endl;
     count = expRecur(n);
-    cout << "指數階（遞迴實現）的運算元量 = " << count << endl;
+    cout << "指數階（遞迴實現）的運算量 = " << count << endl;
 
     count = logarithmic((float)n);
-    cout << "對數階（迴圈實現）的運算元量 = " << count << endl;
+    cout << "對數階（迴圈實現）的運算量 = " << count << endl;
     count = logRecur((float)n);
-    cout << "對數階（遞迴實現）的運算元量 = " << count << endl;
+    cout << "對數階（遞迴實現）的運算量 = " << count << endl;
 
     count = linearLogRecur((float)n);
-    cout << "線性對數階（遞迴實現）的運算元量 = " << count << endl;
+    cout << "線性對數階（遞迴實現）的運算量 = " << count << endl;
 
     count = factorialRecur(n);
-    cout << "階乘階（遞迴實現）的運算元量 = " << count << endl;
+    cout << "階乘階（遞迴實現）的運算量 = " << count << endl;
 
     return 0;
 }

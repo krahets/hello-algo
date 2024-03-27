@@ -58,7 +58,7 @@ class GraphAdjMat:
 
     def add_edge(self, i: int, j: int):
         """新增邊"""
-        # 引數 i, j 對應 vertices 元素索引
+        # 參數 i, j 對應 vertices 元素索引
         # 索引越界與相等處理
         if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
             raise IndexError()
@@ -68,7 +68,7 @@ class GraphAdjMat:
 
     def remove_edge(self, i: int, j: int):
         """刪除邊"""
-        # 引數 i, j 對應 vertices 元素索引
+        # 參數 i, j 對應 vertices 元素索引
         # 索引越界與相等處理
         if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
             raise IndexError()

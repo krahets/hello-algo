@@ -130,43 +130,43 @@ int factorialRecur(int n) {
 
 /* Driver Code */
 int main(int argc, char *argv[]) {
-    // 可以修改 n 執行，體會一下各種複雜度的運算元量變化趨勢
+    // 可以修改 n 執行，體會一下各種複雜度的運算量變化趨勢
     int n = 8;
     printf("輸入資料大小 n = %d\n", n);
 
     int count = constant(n);
-    printf("常數階的運算元量 = %d\n", count);
+    printf("常數階的運算量 = %d\n", count);
 
     count = linear(n);
-    printf("線性階的運算元量 = %d\n", count);
+    printf("線性階的運算量 = %d\n", count);
     // 分配堆積區記憶體（建立一維可變長陣列：陣列中元素數量為 n ，元素型別為 int ）
     int *nums = (int *)malloc(n * sizeof(int));
     count = arrayTraversal(nums, n);
-    printf("線性階（走訪陣列）的運算元量 = %d\n", count);
+    printf("線性階（走訪陣列）的運算量 = %d\n", count);
 
     count = quadratic(n);
-    printf("平方階的運算元量 = %d\n", count);
+    printf("平方階的運算量 = %d\n", count);
     for (int i = 0; i < n; i++) {
         nums[i] = n - i; // [n,n-1,...,2,1]
     }
     count = bubbleSort(nums, n);
-    printf("平方階（泡沫排序）的運算元量 = %d\n", count);
+    printf("平方階（泡沫排序）的運算量 = %d\n", count);
 
     count = exponential(n);
-    printf("指數階（迴圈實現）的運算元量 = %d\n", count);
+    printf("指數階（迴圈實現）的運算量 = %d\n", count);
     count = expRecur(n);
-    printf("指數階（遞迴實現）的運算元量 = %d\n", count);
+    printf("指數階（遞迴實現）的運算量 = %d\n", count);
 
     count = logarithmic(n);
-    printf("對數階（迴圈實現）的運算元量 = %d\n", count);
+    printf("對數階（迴圈實現）的運算量 = %d\n", count);
     count = logRecur(n);
-    printf("對數階（遞迴實現）的運算元量 = %d\n", count);
+    printf("對數階（遞迴實現）的運算量 = %d\n", count);
 
     count = linearLogRecur(n);
-    printf("線性對數階（遞迴實現）的運算元量 = %d\n", count);
+    printf("線性對數階（遞迴實現）的運算量 = %d\n", count);
 
     count = factorialRecur(n);
-    printf("階乘階（遞迴實現）的運算元量 = %d\n", count);
+    printf("階乘階（遞迴實現）的運算量 = %d\n", count);
 
     // 釋放堆積區記憶體
     if (nums != NULL) {

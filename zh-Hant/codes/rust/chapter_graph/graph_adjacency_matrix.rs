@@ -67,7 +67,7 @@ impl GraphAdjMat {
 
     /* 新增邊 */
     pub fn add_edge(&mut self, i: usize, j: usize) {
-        // 引數 i, j 對應 vertices 元素索引
+        // 參數 i, j 對應 vertices 元素索引
         // 索引越界與相等處理
         if i >= self.size() || j >= self.size() || i == j {
             panic!("index error")
@@ -78,9 +78,9 @@ impl GraphAdjMat {
     }
 
     /* 刪除邊 */
-    // 引數 i, j 對應 vertices 元素索引
+    // 參數 i, j 對應 vertices 元素索引
     pub fn remove_edge(&mut self, i: usize, j: usize) {
-        // 引數 i, j 對應 vertices 元素索引
+        // 參數 i, j 對應 vertices 元素索引
         // 索引越界與相等處理
         if i >= self.size() || j >= self.size() || i == j {
             panic!("index error")

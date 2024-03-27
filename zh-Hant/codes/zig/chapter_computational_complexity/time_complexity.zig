@@ -137,42 +137,42 @@ fn factorialRecur(n: i32) i32 {
 
 // Driver Code
 pub fn main() !void {
-    // 可以修改 n 執行，體會一下各種複雜度的運算元量變化趨勢
+    // 可以修改 n 執行，體會一下各種複雜度的運算量變化趨勢
     const n: i32 = 8;
     std.debug.print("輸入資料大小 n = {}\n", .{n});
 
     var count = constant(n);
-    std.debug.print("常數階的運算元量 = {}\n", .{count});
+    std.debug.print("常數階的運算量 = {}\n", .{count});
 
     count = linear(n);
-    std.debug.print("線性階的運算元量 = {}\n", .{count});
+    std.debug.print("線性階的運算量 = {}\n", .{count});
     var nums = [_]i32{0}**n;
     count = arrayTraversal(&nums);
-    std.debug.print("線性階（走訪陣列）的運算元量 = {}\n", .{count});
+    std.debug.print("線性階（走訪陣列）的運算量 = {}\n", .{count});
 
     count = quadratic(n);
-    std.debug.print("平方階的運算元量 = {}\n", .{count});
+    std.debug.print("平方階的運算量 = {}\n", .{count});
     for (&nums, 0..) |*num, i| {
         num.* = n - @as(i32, @intCast(i));  // [n,n-1,...,2,1]
     }
     count = bubbleSort(&nums);
-    std.debug.print("平方階（泡沫排序）的運算元量 = {}\n", .{count});
+    std.debug.print("平方階（泡沫排序）的運算量 = {}\n", .{count});
 
     count = exponential(n);
-    std.debug.print("指數階（迴圈實現）的運算元量 = {}\n", .{count});
+    std.debug.print("指數階（迴圈實現）的運算量 = {}\n", .{count});
     count = expRecur(n);
-    std.debug.print("指數階（遞迴實現）的運算元量 = {}\n", .{count});
+    std.debug.print("指數階（遞迴實現）的運算量 = {}\n", .{count});
 
     count = logarithmic(@as(f32, n));
-    std.debug.print("對數階（迴圈實現）的運算元量 = {}\n", .{count});
+    std.debug.print("對數階（迴圈實現）的運算量 = {}\n", .{count});
     count = logRecur(@as(f32, n));
-    std.debug.print("對數階（遞迴實現）的運算元量 = {}\n", .{count});
+    std.debug.print("對數階（遞迴實現）的運算量 = {}\n", .{count});
 
     count = linearLogRecur(@as(f32, n));
-    std.debug.print("線性對數階（遞迴實現）的運算元量 = {}\n", .{count});
+    std.debug.print("線性對數階（遞迴實現）的運算量 = {}\n", .{count});
 
     count = factorialRecur(n);
-    std.debug.print("階乘階（遞迴實現）的運算元量 = {}\n", .{count});
+    std.debug.print("階乘階（遞迴實現）的運算量 = {}\n", .{count});
 
     _ = try std.io.getStdIn().reader().readByte();
 }
