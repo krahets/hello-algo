@@ -174,7 +174,16 @@
 === "Kotlin"
 
     ```kotlin title=""
-
+    // 在某运行平台下
+    fun algorithm(n: Int) {
+        var a = 2 // 1 ns
+        a = a + 1 // 1 ns
+        a = a * 2 // 10 ns
+        // 循环 n 次
+        for (i in 0..<n) {  // 1 ns ，每轮都要执行 i++
+            println(0)      // 5 ns
+        }
+    }
     ```
 
 === "Zig"

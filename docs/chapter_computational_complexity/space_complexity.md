@@ -312,7 +312,24 @@
 === "Kotlin"
 
     ```kotlin title=""
+    /* 类 */
+    class Node(var `val`: Int) {
+        var next: Node? = null
+    }
 
+    /* 函数 */
+    fun function(): Int {
+        // 执行某些操作...
+        return 0
+    }
+
+    fun algorithm(n: Int): Int { // 输入数据
+        val a = 0                // 暂存数据（常量）
+        var b = 0                // 暂存数据（变量）
+        val node = Node(0)       // 暂存数据（对象）
+        val c = function()       // 栈帧空间（调用函数）
+        return a + b + c         // 输出数据
+    }
     ```
 
 === "Zig"
