@@ -108,7 +108,9 @@
 === "Kotlin"
 
     ```kotlin title="array.kt"
-
+    /* 初始化数组 */
+    var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
+    var nums = intArrayOf(1, 3, 2, 5, 4)
     ```
 
 === "Zig"
