@@ -46,7 +46,7 @@ tailrec fun tailRecur(n: Int, res: Int): Int {
     return tailRecur(n - 1, res + n)
 }
 
-/* 斐波那契數列：遞迴 */
+/* 費波那契數列：遞迴 */
 fun fib(n: Int): Int {
     // 終止條件 f(1) = 0, f(2) = 1
     if (n == 1 || n == 2)
@@ -72,5 +72,5 @@ fun main() {
     println("\n尾遞迴函式的求和結果 res = $res")
 
     res = fib(n)
-    println("\n斐波那契數列的第 $n 項為 $res")
+    println("\n費波那契數列的第 $n 項為 $res")
 }

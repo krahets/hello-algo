@@ -48,7 +48,7 @@ public class recursion {
         return tailRecur(n - 1, res + n);
     }
 
-    /* 斐波那契數列：遞迴 */
+    /* 費波那契數列：遞迴 */
     static int fib(int n) {
         // 終止條件 f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
@@ -74,6 +74,6 @@ public class recursion {
         System.out.println("\n尾遞迴函式的求和結果 res = " + res);
 
         res = fib(n);
-        System.out.println("\n斐波那契數列的第 " + n + " 項為 " + res);
+        System.out.println("\n費波那契數列的第 " + n + " 項為 " + res);
     }
 }

@@ -22,5 +22,5 @@ func TestRecursion(t *testing.T) {
 	fmt.Println("\n尾遞迴函式的求和結果 res = ", res)
 
 	res = fib(n)
-	fmt.Println("\n斐波那契數列的第", n, "項為", res)
+	fmt.Println("\n費波那契數列的第", n, "項為", res)
 }

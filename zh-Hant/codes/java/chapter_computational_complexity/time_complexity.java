@@ -128,40 +128,40 @@ public class time_complexity {
 
     /* Driver Code */
     public static void main(String[] args) {
-        // 可以修改 n 執行，體會一下各種複雜度的運算元量變化趨勢
+        // 可以修改 n 執行，體會一下各種複雜度的運算量變化趨勢
         int n = 8;
         System.out.println("輸入資料大小 n = " + n);
 
         int count = constant(n);
-        System.out.println("常數階的運算元量 = " + count);
+        System.out.println("常數階的運算量 = " + count);
 
         count = linear(n);
-        System.out.println("線性階的運算元量 = " + count);
+        System.out.println("線性階的運算量 = " + count);
         count = arrayTraversal(new int[n]);
-        System.out.println("線性階（走訪陣列）的運算元量 = " + count);
+        System.out.println("線性階（走訪陣列）的運算量 = " + count);
 
         count = quadratic(n);
-        System.out.println("平方階的運算元量 = " + count);
+        System.out.println("平方階的運算量 = " + count);
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
             nums[i] = n - i; // [n,n-1,...,2,1]
         count = bubbleSort(nums);
-        System.out.println("平方階（泡沫排序）的運算元量 = " + count);
+        System.out.println("平方階（泡沫排序）的運算量 = " + count);
 
         count = exponential(n);
-        System.out.println("指數階（迴圈實現）的運算元量 = " + count);
+        System.out.println("指數階（迴圈實現）的運算量 = " + count);
         count = expRecur(n);
-        System.out.println("指數階（遞迴實現）的運算元量 = " + count);
+        System.out.println("指數階（遞迴實現）的運算量 = " + count);
 
         count = logarithmic((float) n);
-        System.out.println("對數階（迴圈實現）的運算元量 = " + count);
+        System.out.println("對數階（迴圈實現）的運算量 = " + count);
         count = logRecur((float) n);
-        System.out.println("對數階（遞迴實現）的運算元量 = " + count);
+        System.out.println("對數階（遞迴實現）的運算量 = " + count);
 
         count = linearLogRecur((float) n);
-        System.out.println("線性對數階（遞迴實現）的運算元量 = " + count);
+        System.out.println("線性對數階（遞迴實現）的運算量 = " + count);
 
         count = factorialRecur(n);
-        System.out.println("階乘階（遞迴實現）的運算元量 = " + count);
+        System.out.println("階乘階（遞迴實現）的運算量 = " + count);
     }
 }

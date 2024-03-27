@@ -46,7 +46,7 @@ int tailRecur(int n, int res) {
     return tailRecur(n - 1, res + n);
 }
 
-/* 斐波那契數列：遞迴 */
+/* 費波那契數列：遞迴 */
 int fib(int n) {
     // 終止條件 f(1) = 0, f(2) = 1
     if (n == 1 || n == 2)
@@ -72,7 +72,7 @@ int main() {
     cout << "\n尾遞迴函式的求和結果 res = " << res << endl;
 
     res = fib(n);
-    cout << "\n斐波那契數列的第 " << n << " 項為 " << res << endl;
+    cout << "\n費波那契數列的第 " << n << " 項為 " << res << endl;
 
     return 0;
 }

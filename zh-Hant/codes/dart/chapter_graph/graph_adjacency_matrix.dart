@@ -61,7 +61,7 @@ class GraphAdjMat {
   }
 
   /* 新增邊 */
-  // 引數 i, j 對應 vertices 元素索引
+  // 參數 i, j 對應 vertices 元素索引
   void addEdge(int i, int j) {
     // 索引越界與相等處理
     if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
@@ -73,7 +73,7 @@ class GraphAdjMat {
   }
 
   /* 刪除邊 */
-  // 引數 i, j 對應 vertices 元素索引
+  // 參數 i, j 對應 vertices 元素索引
   void removeEdge(int i, int j) {
     // 索引越界與相等處理
     if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {

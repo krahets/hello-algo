@@ -43,7 +43,7 @@ def tail_recur(n, res):
 
 
 def fib(n: int) -> int:
-    """斐波那契數列：遞迴"""
+    """費波那契數列：遞迴"""
     # 終止條件 f(1) = 0, f(2) = 1
     if n == 1 or n == 2:
         return n - 1
@@ -66,4 +66,4 @@ if __name__ == "__main__":
     print(f"\n尾遞迴函式的求和結果 res = {res}")
 
     res = fib(n)
-    print(f"\n斐波那契數列的第 {n} 項為 {res}")
+    print(f"\n費波那契數列的第 {n} 項為 {res}")

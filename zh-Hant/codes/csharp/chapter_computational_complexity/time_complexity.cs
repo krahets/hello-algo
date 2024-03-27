@@ -156,40 +156,40 @@ public class time_complexity {
 
     [Test]
     public void Test() {
-        // 可以修改 n 執行，體會一下各種複雜度的運算元量變化趨勢
+        // 可以修改 n 執行，體會一下各種複雜度的運算量變化趨勢
         int n = 8;
         Console.WriteLine("輸入資料大小 n = " + n);
 
         int count = Constant(n);
-        Console.WriteLine("常數階的運算元量 = " + count);
+        Console.WriteLine("常數階的運算量 = " + count);
 
         count = Linear(n);
-        Console.WriteLine("線性階的運算元量 = " + count);
+        Console.WriteLine("線性階的運算量 = " + count);
         count = ArrayTraversal(new int[n]);
-        Console.WriteLine("線性階（走訪陣列）的運算元量 = " + count);
+        Console.WriteLine("線性階（走訪陣列）的運算量 = " + count);
 
         count = Quadratic(n);
-        Console.WriteLine("平方階的運算元量 = " + count);
+        Console.WriteLine("平方階的運算量 = " + count);
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
             nums[i] = n - i;  // [n,n-1,...,2,1]
         count = BubbleSort(nums);
-        Console.WriteLine("平方階（泡沫排序）的運算元量 = " + count);
+        Console.WriteLine("平方階（泡沫排序）的運算量 = " + count);
 
         count = Exponential(n);
-        Console.WriteLine("指數階（迴圈實現）的運算元量 = " + count);
+        Console.WriteLine("指數階（迴圈實現）的運算量 = " + count);
         count = ExpRecur(n);
-        Console.WriteLine("指數階（遞迴實現）的運算元量 = " + count);
+        Console.WriteLine("指數階（遞迴實現）的運算量 = " + count);
 
         count = Logarithmic((float)n);
-        Console.WriteLine("對數階（迴圈實現）的運算元量 = " + count);
+        Console.WriteLine("對數階（迴圈實現）的運算量 = " + count);
         count = LogRecur((float)n);
-        Console.WriteLine("對數階（遞迴實現）的運算元量 = " + count);
+        Console.WriteLine("對數階（遞迴實現）的運算量 = " + count);
 
         count = LinearLogRecur((float)n);
-        Console.WriteLine("線性對數階（遞迴實現）的運算元量 = " + count);
+        Console.WriteLine("線性對數階（遞迴實現）的運算量 = " + count);
 
         count = FactorialRecur(n);
-        Console.WriteLine("階乘階（遞迴實現）的運算元量 = " + count);
+        Console.WriteLine("階乘階（遞迴實現）的運算量 = " + count);
     }
 }

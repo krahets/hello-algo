@@ -74,7 +74,7 @@ void removeVertex(GraphAdjMat *graph, int index) {
 }
 
 /* 新增邊 */
-// 引數 i, j 對應 vertices 元素索引
+// 參數 i, j 對應 vertices 元素索引
 void addEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
         fprintf(stderr, "邊索引越界或相等\n");
@@ -85,7 +85,7 @@ void addEdge(GraphAdjMat *graph, int i, int j) {
 }
 
 /* 刪除邊 */
-// 引數 i, j 對應 vertices 元素索引
+// 參數 i, j 對應 vertices 元素索引
 void removeEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
         fprintf(stderr, "邊索引越界或相等\n");

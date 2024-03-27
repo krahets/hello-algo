@@ -119,37 +119,37 @@ function factorialRecur(n) {
 }
 
 /* Driver Code */
-// 可以修改 n 執行，體會一下各種複雜度的運算元量變化趨勢
+// 可以修改 n 執行，體會一下各種複雜度的運算量變化趨勢
 const n = 8;
 console.log('輸入資料大小 n = ' + n);
 
 let count = constant(n);
-console.log('常數階的運算元量 = ' + count);
+console.log('常數階的運算量 = ' + count);
 
 count = linear(n);
-console.log('線性階的運算元量 = ' + count);
+console.log('線性階的運算量 = ' + count);
 count = arrayTraversal(new Array(n));
-console.log('線性階（走訪陣列）的運算元量 = ' + count);
+console.log('線性階（走訪陣列）的運算量 = ' + count);
 
 count = quadratic(n);
-console.log('平方階的運算元量 = ' + count);
+console.log('平方階的運算量 = ' + count);
 let nums = new Array(n);
 for (let i = 0; i < n; i++) nums[i] = n - i; // [n,n-1,...,2,1]
 count = bubbleSort(nums);
-console.log('平方階（泡沫排序）的運算元量 = ' + count);
+console.log('平方階（泡沫排序）的運算量 = ' + count);
 
 count = exponential(n);
-console.log('指數階（迴圈實現）的運算元量 = ' + count);
+console.log('指數階（迴圈實現）的運算量 = ' + count);
 count = expRecur(n);
-console.log('指數階（遞迴實現）的運算元量 = ' + count);
+console.log('指數階（遞迴實現）的運算量 = ' + count);
 
 count = logarithmic(n);
-console.log('對數階（迴圈實現）的運算元量 = ' + count);
+console.log('對數階（迴圈實現）的運算量 = ' + count);
 count = logRecur(n);
-console.log('對數階（遞迴實現）的運算元量 = ' + count);
+console.log('對數階（遞迴實現）的運算量 = ' + count);
 
 count = linearLogRecur(n);
-console.log('線性對數階（遞迴實現）的運算元量 = ' + count);
+console.log('線性對數階（遞迴實現）的運算量 = ' + count);
 
 count = factorialRecur(n);
-console.log('階乘階（遞迴實現）的運算元量 = ' + count);
+console.log('階乘階（遞迴實現）的運算量 = ' + count);

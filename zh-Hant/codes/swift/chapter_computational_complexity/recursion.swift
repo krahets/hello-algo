@@ -45,7 +45,7 @@ func tailRecur(n: Int, res: Int) -> Int {
     return tailRecur(n: n - 1, res: res + n)
 }
 
-/* 斐波那契數列：遞迴 */
+/* 費波那契數列：遞迴 */
 func fib(n: Int) -> Int {
     // 終止條件 f(1) = 0, f(2) = 1
     if n == 1 || n == 2 {
@@ -74,6 +74,6 @@ enum Recursion {
         print("\n尾遞迴函式的求和結果 res = \(res)")
 
         res = recursion.fib(n: n)
-        print("\n斐波那契數列的第 \(n) 項為 \(res)")
+        print("\n費波那契數列的第 \(n) 項為 \(res)")
     }
 }

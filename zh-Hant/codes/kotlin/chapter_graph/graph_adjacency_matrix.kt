@@ -62,7 +62,7 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     }
 
     /* 新增邊 */
-    // 引數 i, j 對應 vertices 元素索引
+    // 參數 i, j 對應 vertices 元素索引
     fun addEdge(i: Int, j: Int) {
         // 索引越界與相等處理
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) throw java.lang.IndexOutOfBoundsException()
@@ -72,7 +72,7 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     }
 
     /* 刪除邊 */
-    // 引數 i, j 對應 vertices 元素索引
+    // 參數 i, j 對應 vertices 元素索引
     fun removeEdge(i: Int, j: Int) {
         // 索引越界與相等處理
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) throw java.lang.IndexOutOfBoundsException()

@@ -125,41 +125,41 @@ int factorialRecur(int n) {
 
 /* Driver Code */
 void main() {
-  // 可以修改 n 執行，體會一下各種複雜度的運算元量變化趨勢
+  // 可以修改 n 執行，體會一下各種複雜度的運算量變化趨勢
   int n = 8;
   print('輸入資料大小 n = $n');
 
   int count = constant(n);
-  print('常數階的運算元量 = $count');
+  print('常數階的運算量 = $count');
 
   count = linear(n);
-  print('線性階的運算元量 = $count');
+  print('線性階的運算量 = $count');
 
   count = arrayTraversal(List.filled(n, 0));
-  print('線性階（走訪陣列）的運算元量 = $count');
+  print('線性階（走訪陣列）的運算量 = $count');
 
   count = quadratic(n);
-  print('平方階的運算元量 = $count');
+  print('平方階的運算量 = $count');
   final nums = List.filled(n, 0);
   for (int i = 0; i < n; i++) {
     nums[i] = n - i; // [n,n-1,...,2,1]
   }
   count = bubbleSort(nums);
-  print('平方階（泡沫排序）的運算元量 = $count');
+  print('平方階（泡沫排序）的運算量 = $count');
 
   count = exponential(n);
-  print('指數階（迴圈實現）的運算元量 = $count');
+  print('指數階（迴圈實現）的運算量 = $count');
   count = expRecur(n);
-  print('指數階（遞迴實現）的運算元量 = $count');
+  print('指數階（遞迴實現）的運算量 = $count');
 
   count = logarithmic(n);
-  print('對數階（迴圈實現）的運算元量 = $count');
+  print('對數階（迴圈實現）的運算量 = $count');
   count = logRecur(n);
-  print('對數階（遞迴實現）的運算元量 = $count');
+  print('對數階（遞迴實現）的運算量 = $count');
 
   count = linearLogRecur(n);
-  print('線性對數階（遞迴實現）的運算元量 = $count');
+  print('線性對數階（遞迴實現）的運算量 = $count');
 
   count = factorialRecur(n);
-  print('階乘階（遞迴實現）的運算元量 = $count');
+  print('階乘階（遞迴實現）的運算量 = $count');
 }
