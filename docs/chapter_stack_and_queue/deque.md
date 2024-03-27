@@ -283,7 +283,7 @@
     int size = deque.length;
 
     /* 判断双向队列是否为空 */
-    bool isEmpty = deque.isEmpty;W
+    bool isEmpty = deque.isEmpty;
     ```
 
 === "Rust"

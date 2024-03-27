@@ -677,7 +677,7 @@
         }
     }
     /* 递归 O(n) */
-    void recur(n: i32) {
+    fn recur(n: i32) {
         if n == 1 {
             return;
         }
