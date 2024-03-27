@@ -313,7 +313,7 @@
 
     ```kotlin title=""
     /* 类 */
-    class Node(var `val`: Int) {
+    class Node(var _val: Int) {
         var next: Node? = null
     }
 
