@@ -8,25 +8,25 @@ import "sort"
 
 /* 桶排序 */
 func bucketSort(nums []float64) {
-	// 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+	// 初始化 k = n/2 個桶，預期向每個桶分配 2 個元素
 	k := len(nums) / 2
 	buckets := make([][]float64, k)
 	for i := 0; i < k; i++ {
 		buckets[i] = make([]float64, 0)
 	}
-	// 1. 将数组元素分配到各个桶中
+	// 1. 將陣列元素分配到各個桶中
 	for _, num := range nums {
-		// 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+		// 輸入資料範圍為 [0, 1)，使用 num * k 對映到索引範圍 [0, k-1]
 		i := int(num * float64(k))
-		// 将 num 添加进桶 i
+		// 將 num 新增進桶 i
 		buckets[i] = append(buckets[i], num)
 	}
-	// 2. 对各个桶执行排序
+	// 2. 對各個桶執行排序
 	for i := 0; i < k; i++ {
-		// 使用内置切片排序函数，也可以替换成其他排序算法
+		// 使用內建切片排序函式，也可以替換成其他排序演算法
 		sort.Float64s(buckets[i])
 	}
-	// 3. 遍历桶合并结果
+	// 3. 走訪桶合併結果
 	i := 0
 	for _, bucket := range buckets {
 		for _, num := range bucket {

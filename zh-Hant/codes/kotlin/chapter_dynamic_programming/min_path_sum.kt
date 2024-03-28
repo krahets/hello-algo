@@ -9,70 +9,70 @@ package chapter_dynamic_programming
 import java.util.*
 import kotlin.math.min
 
-/* 最小路径和：暴力搜索 */
+/* 最小路徑和：暴力搜尋 */
 fun minPathSumDFS(
     grid: Array<Array<Int>>,
     i: Int,
     j: Int
 ): Int {
-    // 若为左上角单元格，则终止搜索
+    // 若為左上角單元格，則終止搜尋
     if (i == 0 && j == 0) {
         return grid[0][0]
     }
-    // 若行列索引越界，则返回 +∞ 代价
+    // 若行列索引越界，則返回 +∞ 代價
     if (i < 0 || j < 0) {
         return Int.MAX_VALUE
     }
-    // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+    // 計算從左上角到 (i-1, j) 和 (i, j-1) 的最小路徑代價
     val up = minPathSumDFS(grid, i - 1, j)
     val left = minPathSumDFS(grid, i, j - 1)
-    // 返回从左上角到 (i, j) 的最小路径代价
+    // 返回從左上角到 (i, j) 的最小路徑代價
     return (min(left.toDouble(), up.toDouble()) + grid[i][j]).toInt()
 }
 
-/* 最小路径和：记忆化搜索 */
+/* 最小路徑和：記憶化搜尋 */
 fun minPathSumDFSMem(
     grid: Array<Array<Int>>,
     mem: Array<Array<Int>>,
     i: Int,
     j: Int
 ): Int {
-    // 若为左上角单元格，则终止搜索
+    // 若為左上角單元格，則終止搜尋
     if (i == 0 && j == 0) {
         return grid[0][0]
     }
-    // 若行列索引越界，则返回 +∞ 代价
+    // 若行列索引越界，則返回 +∞ 代價
     if (i < 0 || j < 0) {
         return Int.MAX_VALUE
     }
-    // 若已有记录，则直接返回
+    // 若已有記錄，則直接返回
     if (mem[i][j] != -1) {
         return mem[i][j]
     }
-    // 左边和上边单元格的最小路径代价
+    // 左邊和上邊單元格的最小路徑代價
     val up = minPathSumDFSMem(grid, mem, i - 1, j)
     val left = minPathSumDFSMem(grid, mem, i, j - 1)
-    // 记录并返回左上角到 (i, j) 的最小路径代价
+    // 記錄並返回左上角到 (i, j) 的最小路徑代價
     mem[i][j] = (min(left.toDouble(), up.toDouble()) + grid[i][j]).toInt()
     return mem[i][j]
 }
 
-/* 最小路径和：动态规划 */
+/* 最小路徑和：動態規劃 */
 fun minPathSumDP(grid: Array<Array<Int>>): Int {
     val n = grid.size
     val m = grid[0].size
     // 初始化 dp 表
     val dp = Array(n) { IntArray(m) }
     dp[0][0] = grid[0][0]
-    // 状态转移：首行
+    // 狀態轉移：首行
     for (j in 1..<m) {
         dp[0][j] = dp[0][j - 1] + grid[0][j]
     }
-    // 状态转移：首列
+    // 狀態轉移：首列
     for (i in 1..<n) {
         dp[i][0] = dp[i - 1][0] + grid[i][0]
     }
-    // 状态转移：其余行和列
+    // 狀態轉移：其餘行和列
     for (i in 1..<n) {
         for (j in 1..<m) {
             dp[i][j] =
@@ -82,22 +82,22 @@ fun minPathSumDP(grid: Array<Array<Int>>): Int {
     return dp[n - 1][m - 1]
 }
 
-/* 最小路径和：空间优化后的动态规划 */
+/* 最小路徑和：空間最佳化後的動態規劃 */
 fun minPathSumDPComp(grid: Array<Array<Int>>): Int {
     val n = grid.size
     val m = grid[0].size
     // 初始化 dp 表
     val dp = IntArray(m)
-    // 状态转移：首行
+    // 狀態轉移：首行
     dp[0] = grid[0][0]
     for (j in 1..<m) {
         dp[j] = dp[j - 1] + grid[0][j]
     }
-    // 状态转移：其余行
+    // 狀態轉移：其餘行
     for (i in 1..<n) {
-        // 状态转移：首列
+        // 狀態轉移：首列
         dp[0] = dp[0] + grid[i][0]
-        // 状态转移：其余列
+        // 狀態轉移：其餘列
         for (j in 1..<m) {
             dp[j] = (min(dp[j - 1].toDouble(), dp[j].toDouble()) + grid[i][j]).toInt()
         }
@@ -116,23 +116,23 @@ fun main() {
     val n = grid.size
     val m = grid[0].size
 
-    // 暴力搜索
+    // 暴力搜尋
     var res = minPathSumDFS(grid, n - 1, m - 1)
-    println("从左上角到右下角的最小路径和为 $res")
+    println("從左上角到右下角的最小路徑和為 $res")
 
-    // 记忆化搜索
+    // 記憶化搜尋
     val mem = Array(n) { Array(m) { 0 } }
     for (row in mem) {
         Arrays.fill(row, -1)
     }
     res = minPathSumDFSMem(grid, mem, n - 1, m - 1)
-    println("从左上角到右下角的最小路径和为 $res")
+    println("從左上角到右下角的最小路徑和為 $res")
 
-    // 动态规划
+    // 動態規劃
     res = minPathSumDP(grid)
-    println("从左上角到右下角的最小路径和为 $res")
+    println("從左上角到右下角的最小路徑和為 $res")
 
-    // 空间优化后的动态规划
+    // 空間最佳化後的動態規劃
     res = minPathSumDPComp(grid)
-    println("从左上角到右下角的最小路径和为 $res")
+    println("從左上角到右下角的最小路徑和為 $res")
 }

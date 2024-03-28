@@ -1,13 +1,13 @@
-# 复杂度分析
+# 複雜度分析
 
 <div class="center-table" markdown>
 
-![复杂度分析](../assets/covers/chapter_complexity_analysis.jpg)
+![複雜度分析](../assets/covers/chapter_complexity_analysis.jpg)
 
 </div>
 
 !!! abstract
 
-    复杂度分析犹如浩瀚的算法宇宙中的时空向导。
+    複雜度分析猶如浩瀚的演算法宇宙中的時空嚮導。
     
-    它带领我们在时间与空间这两个维度上深入探索，寻找更优雅的解决方案。
+    它帶領我們在時間與空間這兩個維度上深入探索，尋找更優雅的解決方案。

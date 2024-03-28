@@ -12,5 +12,5 @@ import (
 func TestInsertionSort(t *testing.T) {
 	nums := []int{4, 1, 3, 1, 5, 2}
 	insertionSort(nums)
-	fmt.Println("插入排序完成后 nums =", nums)
+	fmt.Println("插入排序完成後 nums =", nums)
 }

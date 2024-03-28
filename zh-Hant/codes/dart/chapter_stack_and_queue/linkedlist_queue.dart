@@ -6,61 +6,61 @@
 
 import '../utils/list_node.dart';
 
-/* 基于链表实现的队列 */
+/* 基於鏈結串列實現的佇列 */
 class LinkedListQueue {
-  ListNode? _front; // 头节点 _front
-  ListNode? _rear; // 尾节点 _rear
-  int _queSize = 0; // 队列长度
+  ListNode? _front; // 頭節點 _front
+  ListNode? _rear; // 尾節點 _rear
+  int _queSize = 0; // 佇列長度
 
   LinkedListQueue() {
     _front = null;
     _rear = null;
   }
 
-  /* 获取队列的长度 */
+  /* 獲取佇列的長度 */
   int size() {
     return _queSize;
   }
 
-  /* 判断队列是否为空 */
+  /* 判斷佇列是否為空 */
   bool isEmpty() {
     return _queSize == 0;
   }
 
-  /* 入队 */
+  /* 入列 */
   void push(int _num) {
-    // 在尾节点后添加 _num
+    // 在尾節點後新增 _num
     final node = ListNode(_num);
-    // 如果队列为空，则令头、尾节点都指向该节点
+    // 如果佇列為空，則令頭、尾節點都指向該節點
     if (_front == null) {
       _front = node;
       _rear = node;
     } else {
-      // 如果队列不为空，则将该节点添加到尾节点后
+      // 如果佇列不為空，則將該節點新增到尾節點後
       _rear!.next = node;
       _rear = node;
     }
     _queSize++;
   }
 
-  /* 出队 */
+  /* 出列 */
   int pop() {
     final int _num = peek();
-    // 删除头节点
+    // 刪除頭節點
     _front = _front!.next;
     _queSize--;
     return _num;
   }
 
-  /* 访问队首元素 */
+  /* 訪問佇列首元素 */
   int peek() {
     if (_queSize == 0) {
-      throw Exception('队列为空');
+      throw Exception('佇列為空');
     }
     return _front!.val;
   }
 
-  /* 将链表转化为 Array 并返回 */
+  /* 將鏈結串列轉化為 Array 並返回 */
   List<int> toArray() {
     ListNode? node = _front;
     final List<int> queue = [];
@@ -74,30 +74,30 @@ class LinkedListQueue {
 
 /* Driver Code */
 void main() {
-  /* 初始化队列 */
+  /* 初始化佇列 */
   final queue = LinkedListQueue();
 
-  /* 元素入队 */
+  /* 元素入列 */
   queue.push(1);
   queue.push(3);
   queue.push(2);
   queue.push(5);
   queue.push(4);
-  print("队列 queue = ${queue.toArray()}");
+  print("佇列 queue = ${queue.toArray()}");
 
-  /* 访问队首元素 */
+  /* 訪問佇列首元素 */
   final int peek = queue.peek();
-  print("队首元素 peek = $peek");
+  print("佇列首元素 peek = $peek");
 
-  /* 元素出队 */
+  /* 元素出列 */
   final int pop = queue.pop();
-  print("出队元素 pop = $pop ，出队后 queue = ${queue.toArray()}");
+  print("出列元素 pop = $pop ，出列後 queue = ${queue.toArray()}");
 
-  /* 获取队列的长度 */
+  /* 獲取佇列的長度 */
   final int size = queue.size();
-  print("队列长度 size = $size");
+  print("佇列長度 size = $size");
 
-  /* 判断队列是否为空 */
+  /* 判斷佇列是否為空 */
   final bool isEmpty = queue.isEmpty();
-  print("队列是否为空 = $isEmpty");
+  print("佇列是否為空 = $isEmpty");
 }

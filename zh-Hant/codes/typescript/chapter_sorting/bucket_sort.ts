@@ -6,25 +6,25 @@
 
 /* 桶排序 */
 function bucketSort(nums: number[]): void {
-    // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+    // 初始化 k = n/2 個桶，預期向每個桶分配 2 個元素
     const k = nums.length / 2;
     const buckets: number[][] = [];
     for (let i = 0; i < k; i++) {
         buckets.push([]);
     }
-    // 1. 将数组元素分配到各个桶中
+    // 1. 將陣列元素分配到各個桶中
     for (const num of nums) {
-        // 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+        // 輸入資料範圍為 [0, 1)，使用 num * k 對映到索引範圍 [0, k-1]
         const i = Math.floor(num * k);
-        // 将 num 添加进桶 i
+        // 將 num 新增進桶 i
         buckets[i].push(num);
     }
-    // 2. 对各个桶执行排序
+    // 2. 對各個桶執行排序
     for (const bucket of buckets) {
-        // 使用内置排序函数，也可以替换成其他排序算法
+        // 使用內建排序函式，也可以替換成其他排序演算法
         bucket.sort((a, b) => a - b);
     }
-    // 3. 遍历桶合并结果
+    // 3. 走訪桶合併結果
     let i = 0;
     for (const bucket of buckets) {
         for (const num of bucket) {
@@ -36,6 +36,6 @@ function bucketSort(nums: number[]): void {
 /* Driver Code */
 const nums = [0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37];
 bucketSort(nums);
-console.log('桶排序完成后 nums =', nums);
+console.log('桶排序完成後 nums =', nums);
 
 export {};

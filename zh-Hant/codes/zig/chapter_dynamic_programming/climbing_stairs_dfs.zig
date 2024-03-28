@@ -4,7 +4,7 @@
 
 const std = @import("std");
 
-// 搜索
+// 搜尋
 fn dfs(i: usize) i32 {
     // 已知 dp[1] 和 dp[2] ，返回之
     if (i == 1 or i == 2) {
@@ -15,7 +15,7 @@ fn dfs(i: usize) i32 {
     return count;
 }
 
-// 爬楼梯：搜索
+// 爬樓梯：搜尋
 fn climbingStairsDFS(comptime n: usize) i32 {
     return dfs(n);
 }
@@ -25,7 +25,7 @@ pub fn main() !void {
     comptime var n: usize = 9;
 
     var res = climbingStairsDFS(n);
-    std.debug.print("爬 {} 阶楼梯共有 {} 种方案\n", .{ n, res });
+    std.debug.print("爬 {} 階樓梯共有 {} 種方案\n", .{ n, res });
 
     _ = try std.io.getStdIn().reader().readByte();
 }

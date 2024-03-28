@@ -7,25 +7,25 @@
 #include "../utils/common.hpp"
 #include "./graph_adjacency_list.cpp"
 
-/* 深度优先遍历辅助函数 */
+/* 深度優先走訪輔助函式 */
 void dfs(GraphAdjList &graph, unordered_set<Vertex *> &visited, vector<Vertex *> &res, Vertex *vet) {
-    res.push_back(vet);   // 记录访问顶点
-    visited.emplace(vet); // 标记该顶点已被访问
-    // 遍历该顶点的所有邻接顶点
+    res.push_back(vet);   // 記錄訪問頂點
+    visited.emplace(vet); // 標記該頂點已被訪問
+    // 走訪該頂點的所有鄰接頂點
     for (Vertex *adjVet : graph.adjList[vet]) {
         if (visited.count(adjVet))
-            continue; // 跳过已被访问的顶点
-        // 递归访问邻接顶点
+            continue; // 跳過已被訪問的頂點
+        // 遞迴訪問鄰接頂點
         dfs(graph, visited, res, adjVet);
     }
 }
 
-/* 深度优先遍历 */
-// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+/* 深度優先走訪 */
+// 使用鄰接表來表示圖，以便獲取指定頂點的所有鄰接頂點
 vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
-    // 顶点遍历序列
+    // 頂點走訪序列
     vector<Vertex *> res;
-    // 哈希表，用于记录已被访问过的顶点
+    // 雜湊表，用於記錄已被訪問過的頂點
     unordered_set<Vertex *> visited;
     dfs(graph, visited, res, startVet);
     return res;
@@ -33,20 +33,20 @@ vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
 
 /* Driver Code */
 int main() {
-    /* 初始化无向图 */
+    /* 初始化無向圖 */
     vector<Vertex *> v = valsToVets(vector<int>{0, 1, 2, 3, 4, 5, 6});
     vector<vector<Vertex *>> edges = {{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]},
                                       {v[2], v[5]}, {v[4], v[5]}, {v[5], v[6]}};
     GraphAdjList graph(edges);
-    cout << "\n初始化后，图为" << endl;
+    cout << "\n初始化後，圖為" << endl;
     graph.print();
 
-    /* 深度优先遍历 */
+    /* 深度優先走訪 */
     vector<Vertex *> res = graphDFS(graph, v[0]);
-    cout << "\n深度优先遍历（DFS）顶点序列为" << endl;
+    cout << "\n深度優先走訪（DFS）頂點序列為" << endl;
     printVector(vetsToVals(res));
 
-    // 释放内存
+    // 釋放記憶體
     for (Vertex *vet : v) {
         delete vet;
     }

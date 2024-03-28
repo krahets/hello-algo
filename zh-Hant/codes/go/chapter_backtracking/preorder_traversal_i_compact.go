@@ -8,13 +8,13 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* 前序遍历：例题一 */
+/* 前序走訪：例題一 */
 func preOrderI(root *TreeNode, res *[]*TreeNode) {
 	if root == nil {
 		return
 	}
 	if (root.Val).(int) == 7 {
-		// 记录解
+		// 記錄解
 		*res = append(*res, root)
 	}
 	preOrderI(root.Left, res)

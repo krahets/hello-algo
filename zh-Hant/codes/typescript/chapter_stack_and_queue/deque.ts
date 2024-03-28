@@ -5,42 +5,42 @@
  */
 
 /* Driver Code */
-/* 初始化双向队列 */
-// TypeScript 没有内置的双端队列，只能把 Array 当作双端队列来使用
+/* 初始化雙向佇列 */
+// TypeScript 沒有內建的雙端佇列，只能把 Array 當作雙端佇列來使用
 const deque: number[] = [];
 
-/* 元素入队 */
+/* 元素入列 */
 deque.push(2);
 deque.push(5);
 deque.push(4);
-// 请注意，由于是数组，unshift() 方法的时间复杂度为 O(n)
+// 請注意，由於是陣列，unshift() 方法的時間複雜度為 O(n)
 deque.unshift(3);
 deque.unshift(1);
-console.log('双向队列 deque = ', deque);
+console.log('雙向佇列 deque = ', deque);
 
-/* 访问元素 */
+/* 訪問元素 */
 const peekFirst: number = deque[0];
-console.log('队首元素 peekFirst = ' + peekFirst);
+console.log('佇列首元素 peekFirst = ' + peekFirst);
 const peekLast: number = deque[deque.length - 1];
-console.log('队尾元素 peekLast = ' + peekLast);
+console.log('佇列尾元素 peekLast = ' + peekLast);
 
-/* 元素出队 */
-// 请注意，由于是数组，shift() 方法的时间复杂度为 O(n)
+/* 元素出列 */
+// 請注意，由於是陣列，shift() 方法的時間複雜度為 O(n)
 const popFront: number = deque.shift() as number;
 console.log(
-    '队首出队元素 popFront = ' + popFront + '，队首出队后 deque = ' + deque
+    '佇列首出列元素 popFront = ' + popFront + '，佇列首出列後 deque = ' + deque
 );
 const popBack: number = deque.pop() as number;
 console.log(
-    '队尾出队元素 popBack = ' + popBack + '，队尾出队后 deque = ' + deque
+    '佇列尾出列元素 popBack = ' + popBack + '，佇列尾出列後 deque = ' + deque
 );
 
-/* 获取双向队列的长度 */
+/* 獲取雙向佇列的長度 */
 const size: number = deque.length;
-console.log('双向队列长度 size = ' + size);
+console.log('雙向佇列長度 size = ' + size);
 
-/* 判断双向队列是否为空 */
+/* 判斷雙向佇列是否為空 */
 const isEmpty: boolean = size === 0;
-console.log('双向队列是否为空 = ' + isEmpty);
+console.log('雙向佇列是否為空 = ' + isEmpty);
 
 export {};

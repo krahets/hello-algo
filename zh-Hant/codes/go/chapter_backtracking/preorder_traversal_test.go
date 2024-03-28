@@ -12,16 +12,16 @@ import (
 )
 
 func TestPreorderTraversalICompact(t *testing.T) {
-	/* 初始化二叉树 */
+	/* 初始化二元樹 */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\n初始化二叉树")
+	fmt.Println("\n初始化二元樹")
 	PrintTree(root)
 
-	// 前序遍历
+	// 前序走訪
 	res := make([]*TreeNode, 0)
 	preOrderI(root, &res)
 
-	fmt.Println("\n输出所有值为 7 的节点")
+	fmt.Println("\n輸出所有值為 7 的節點")
 	for _, node := range res {
 		fmt.Printf("%v ", node.Val)
 	}
@@ -29,17 +29,17 @@ func TestPreorderTraversalICompact(t *testing.T) {
 }
 
 func TestPreorderTraversalIICompact(t *testing.T) {
-	/* 初始化二叉树 */
+	/* 初始化二元樹 */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\n初始化二叉树")
+	fmt.Println("\n初始化二元樹")
 	PrintTree(root)
 
-	// 前序遍历
+	// 前序走訪
 	path := make([]*TreeNode, 0)
 	res := make([][]*TreeNode, 0)
 	preOrderII(root, &res, &path)
 
-	fmt.Println("\n输出所有根节点到节点 7 的路径")
+	fmt.Println("\n輸出所有根節點到節點 7 的路徑")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -49,17 +49,17 @@ func TestPreorderTraversalIICompact(t *testing.T) {
 }
 
 func TestPreorderTraversalIIICompact(t *testing.T) {
-	/* 初始化二叉树 */
+	/* 初始化二元樹 */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\n初始化二叉树")
+	fmt.Println("\n初始化二元樹")
 	PrintTree(root)
 
-	// 前序遍历
+	// 前序走訪
 	path := make([]*TreeNode, 0)
 	res := make([][]*TreeNode, 0)
 	preOrderIII(root, &res, &path)
 
-	fmt.Println("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点")
+	fmt.Println("\n輸出所有根節點到節點 7 的路徑，路徑中不包含值為 3 的節點")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -69,19 +69,19 @@ func TestPreorderTraversalIIICompact(t *testing.T) {
 }
 
 func TestPreorderTraversalIIITemplate(t *testing.T) {
-	/* 初始化二叉树 */
+	/* 初始化二元樹 */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\n初始化二叉树")
+	fmt.Println("\n初始化二元樹")
 	PrintTree(root)
 
-	// 回溯算法
+	// 回溯演算法
 	res := make([][]*TreeNode, 0)
 	state := make([]*TreeNode, 0)
 	choices := make([]*TreeNode, 0)
 	choices = append(choices, root)
 	backtrackIII(&state, &choices, &res)
 
-	fmt.Println("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点")
+	fmt.Println("\n輸出所有根節點到節點 7 的路徑，路徑中不包含值為 3 的節點")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)

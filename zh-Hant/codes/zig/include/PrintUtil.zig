@@ -73,9 +73,9 @@ pub fn printHashMap(comptime TKey: type, comptime TValue: type, map: std.AutoHas
 pub fn printHeap(comptime T: type, mem_allocator: std.mem.Allocator, queue: anytype) !void {
     var arr = queue.items;
     var len = queue.len;
-    std.debug.print("堆的数组表示：", .{});
+    std.debug.print("堆積的陣列表示：", .{});
     printArray(T, arr[0..len]);
-    std.debug.print("\n堆的树状表示：\n", .{});
+    std.debug.print("\n堆積的樹狀表示：\n", .{});
     var root = try TreeUtil.arrToTree(T, mem_allocator, arr[0..len]);
     try printTree(root, null, false);
 }

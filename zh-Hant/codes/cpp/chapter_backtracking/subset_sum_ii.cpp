@@ -6,41 +6,41 @@
 
 #include "../utils/common.hpp"
 
-/* 回溯算法：子集和 II */
+/* 回溯演算法：子集和 II */
 void backtrack(vector<int> &state, int target, vector<int> &choices, int start, vector<vector<int>> &res) {
-    // 子集和等于 target 时，记录解
+    // 子集和等於 target 時，記錄解
     if (target == 0) {
         res.push_back(state);
         return;
     }
-    // 遍历所有选择
-    // 剪枝二：从 start 开始遍历，避免生成重复子集
-    // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+    // 走訪所有選擇
+    // 剪枝二：從 start 開始走訪，避免生成重複子集
+    // 剪枝三：從 start 開始走訪，避免重複選擇同一元素
     for (int i = start; i < choices.size(); i++) {
-        // 剪枝一：若子集和超过 target ，则直接结束循环
-        // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+        // 剪枝一：若子集和超過 target ，則直接結束迴圈
+        // 這是因為陣列已排序，後邊元素更大，子集和一定超過 target
         if (target - choices[i] < 0) {
             break;
         }
-        // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+        // 剪枝四：如果該元素與左邊元素相等，說明該搜尋分支重複，直接跳過
         if (i > start && choices[i] == choices[i - 1]) {
             continue;
         }
-        // 尝试：做出选择，更新 target, start
+        // 嘗試：做出選擇，更新 target, start
         state.push_back(choices[i]);
-        // 进行下一轮选择
+        // 進行下一輪選擇
         backtrack(state, target - choices[i], choices, i + 1, res);
-        // 回退：撤销选择，恢复到之前的状态
+        // 回退：撤銷選擇，恢復到之前的狀態
         state.pop_back();
     }
 }
 
 /* 求解子集和 II */
 vector<vector<int>> subsetSumII(vector<int> &nums, int target) {
-    vector<int> state;              // 状态（子集）
-    sort(nums.begin(), nums.end()); // 对 nums 进行排序
-    int start = 0;                  // 遍历起始点
-    vector<vector<int>> res;        // 结果列表（子集列表）
+    vector<int> state;              // 狀態（子集）
+    sort(nums.begin(), nums.end()); // 對 nums 進行排序
+    int start = 0;                  // 走訪起始點
+    vector<vector<int>> res;        // 結果串列（子集串列）
     backtrack(state, target, nums, start, res);
     return res;
 }
@@ -52,10 +52,10 @@ int main() {
 
     vector<vector<int>> res = subsetSumII(nums, target);
 
-    cout << "输入数组 nums = ";
+    cout << "輸入陣列 nums = ";
     printVector(nums);
     cout << "target = " << target << endl;
-    cout << "所有和等于 " << target << " 的子集 res = " << endl;
+    cout << "所有和等於 " << target << " 的子集 res = " << endl;
     printVectorMatrix(res);
 
     return 0;

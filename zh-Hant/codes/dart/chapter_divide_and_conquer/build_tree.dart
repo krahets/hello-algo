@@ -7,7 +7,7 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* 构建二叉树：分治 */
+/* 構建二元樹：分治 */
 TreeNode? dfs(
   List<int> preorder,
   Map<int, int> inorderMap,
@@ -15,25 +15,25 @@ TreeNode? dfs(
   int l,
   int r,
 ) {
-  // 子树区间为空时终止
+  // 子樹區間為空時終止
   if (r - l < 0) {
     return null;
   }
-  // 初始化根节点
+  // 初始化根節點
   TreeNode? root = TreeNode(preorder[i]);
-  // 查询 m ，从而划分左右子树
+  // 查詢 m ，從而劃分左右子樹
   int m = inorderMap[preorder[i]]!;
-  // 子问题：构建左子树
+  // 子問題：構建左子樹
   root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
-  // 子问题：构建右子树
+  // 子問題：構建右子樹
   root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
-  // 返回根节点
+  // 返回根節點
   return root;
 }
 
-/* 构建二叉树 */
+/* 構建二元樹 */
 TreeNode? buildTree(List<int> preorder, List<int> inorder) {
-  // 初始化哈希表，存储 inorder 元素到索引的映射
+  // 初始化雜湊表，儲存 inorder 元素到索引的對映
   Map<int, int> inorderMap = {};
   for (int i = 0; i < inorder.length; i++) {
     inorderMap[inorder[i]] = i;
@@ -46,10 +46,10 @@ TreeNode? buildTree(List<int> preorder, List<int> inorder) {
 void main() {
   List<int> preorder = [3, 9, 2, 1, 7];
   List<int> inorder = [9, 3, 1, 2, 7];
-  print("前序遍历 = $preorder");
-  print("中序遍历 = $inorder");
+  print("前序走訪 = $preorder");
+  print("中序走訪 = $inorder");
 
   TreeNode? root = buildTree(preorder, inorder);
-  print("构建的二叉树为：");
+  print("構建的二元樹為：");
   printTree(root!);
 }

@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 搜索 */
+/* 搜尋 */
 func dfs(i: Int) -> Int {
     // 已知 dp[1] 和 dp[2] ，返回之
     if i == 1 || i == 2 {
@@ -15,7 +15,7 @@ func dfs(i: Int) -> Int {
     return count
 }
 
-/* 爬楼梯：搜索 */
+/* 爬樓梯：搜尋 */
 func climbingStairsDFS(n: Int) -> Int {
     dfs(i: n)
 }
@@ -27,6 +27,6 @@ enum ClimbingStairsDFS {
         let n = 9
 
         let res = climbingStairsDFS(n: n)
-        print("爬 \(n) 阶楼梯共有 \(res) 种方案")
+        print("爬 \(n) 階樓梯共有 \(res) 種方案")
     }
 }

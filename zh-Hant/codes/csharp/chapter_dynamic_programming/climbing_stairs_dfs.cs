@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_dynamic_programming;
 
 public class climbing_stairs_dfs {
-    /* 搜索 */
+    /* 搜尋 */
     int DFS(int i) {
         // 已知 dp[1] 和 dp[2] ，返回之
         if (i == 1 || i == 2)
@@ -17,7 +17,7 @@ public class climbing_stairs_dfs {
         return count;
     }
 
-    /* 爬楼梯：搜索 */
+    /* 爬樓梯：搜尋 */
     int ClimbingStairsDFS(int n) {
         return DFS(n);
     }
@@ -26,6 +26,6 @@ public class climbing_stairs_dfs {
     public void Test() {
         int n = 9;
         int res = ClimbingStairsDFS(n);
-        Console.WriteLine($"爬 {n} 阶楼梯共有 {res} 种方案");
+        Console.WriteLine($"爬 {n} 階樓梯共有 {res} 種方案");
     }
 }

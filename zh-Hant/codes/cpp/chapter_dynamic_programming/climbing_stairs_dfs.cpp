@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 搜索 */
+/* 搜尋 */
 int dfs(int i) {
     // 已知 dp[1] 和 dp[2] ，返回之
     if (i == 1 || i == 2)
@@ -16,7 +16,7 @@ int dfs(int i) {
     return count;
 }
 
-/* 爬楼梯：搜索 */
+/* 爬樓梯：搜尋 */
 int climbingStairsDFS(int n) {
     return dfs(n);
 }
@@ -26,7 +26,7 @@ int main() {
     int n = 9;
 
     int res = climbingStairsDFS(n);
-    cout << "爬 " << n << " 阶楼梯共有 " << res << " 种方案" << endl;
+    cout << "爬 " << n << " 階樓梯共有 " << res << " 種方案" << endl;
 
     return 0;
 }

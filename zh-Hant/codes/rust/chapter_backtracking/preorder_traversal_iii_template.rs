@@ -9,12 +9,12 @@ include!("../include/include.rs");
 use std::{cell::RefCell, rc::Rc};
 use tree_node::{vec_to_tree, TreeNode};
 
-/* 判断当前状态是否为解 */
+/* 判斷當前狀態是否為解 */
 fn is_solution(state: &mut Vec<Rc<RefCell<TreeNode>>>) -> bool {
     return !state.is_empty() && state.get(state.len() - 1).unwrap().borrow().val == 7;
 }
 
-/* 记录解 */
+/* 記錄解 */
 fn record_solution(
     state: &mut Vec<Rc<RefCell<TreeNode>>>,
     res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
@@ -22,39 +22,39 @@ fn record_solution(
     res.push(state.clone());
 }
 
-/* 判断在当前状态下，该选择是否合法 */
+/* 判斷在當前狀態下，該選擇是否合法 */
 fn is_valid(_: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Rc<RefCell<TreeNode>>) -> bool {
     return choice.borrow().val != 3;
 }
 
-/* 更新状态 */
+/* 更新狀態 */
 fn make_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Rc<RefCell<TreeNode>>) {
     state.push(choice);
 }
 
-/* 恢复状态 */
+/* 恢復狀態 */
 fn undo_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, _: Rc<RefCell<TreeNode>>) {
     state.remove(state.len() - 1);
 }
 
-/* 回溯算法：例题三 */
+/* 回溯演算法：例題三 */
 fn backtrack(
     state: &mut Vec<Rc<RefCell<TreeNode>>>,
     choices: &mut Vec<Rc<RefCell<TreeNode>>>,
     res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
 ) {
-    // 检查是否为解
+    // 檢查是否為解
     if is_solution(state) {
-        // 记录解
+        // 記錄解
         record_solution(state, res);
     }
-    // 遍历所有选择
+    // 走訪所有選擇
     for choice in choices {
-        // 剪枝：检查选择是否合法
+        // 剪枝：檢查選擇是否合法
         if is_valid(state, choice.clone()) {
-            // 尝试：做出选择，更新状态
+            // 嘗試：做出選擇，更新狀態
             make_choice(state, choice.clone());
-            // 进行下一轮选择
+            // 進行下一輪選擇
             backtrack(
                 state,
                 &mut vec![
@@ -63,7 +63,7 @@ fn backtrack(
                 ],
                 res,
             );
-            // 回退：撤销选择，恢复到之前的状态
+            // 回退：撤銷選擇，恢復到之前的狀態
             undo_choice(state, choice.clone());
         }
     }
@@ -72,14 +72,14 @@ fn backtrack(
 /* Driver Code */
 pub fn main() {
     let root = vec_to_tree([1, 7, 3, 4, 5, 6, 7].map(|x| Some(x)).to_vec());
-    println!("初始化二叉树");
+    println!("初始化二元樹");
     print_util::print_tree(root.as_ref().unwrap());
 
-    // 回溯算法
+    // 回溯演算法
     let mut res = Vec::new();
     backtrack(&mut Vec::new(), &mut vec![root.unwrap()], &mut res);
 
-    println!("\n输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点");
+    println!("\n輸出所有根節點到節點 7 的路徑，要求路徑中不包含值為 3 的節點");
     for path in res {
         let mut vals = Vec::new();
         for node in path {

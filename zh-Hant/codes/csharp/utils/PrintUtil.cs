@@ -109,10 +109,10 @@ public static class PrintUtil {
 
     /* Print a heap */
     public static void PrintHeap(Queue<int> queue) {
-        Console.Write("堆的数组表示：");
+        Console.Write("堆積的陣列表示：");
         List<int> list = [.. queue];
         Console.WriteLine(string.Join(',', list));
-        Console.WriteLine("堆的树状表示：");
+        Console.WriteLine("堆積的樹狀表示：");
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }
@@ -120,12 +120,12 @@ public static class PrintUtil {
     /* Print a PriorityQueue */
     public static void PrintHeap(PriorityQueue<int, int> queue) {
         var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
-        Console.Write("堆的数组表示：");
+        Console.Write("堆積的陣列表示：");
         List<int> list = [];
         while (newQueue.TryDequeue(out int element, out _)) {
             list.Add(element);
         }
-        Console.WriteLine("堆的树状表示：");
+        Console.WriteLine("堆積的樹狀表示：");
         Console.WriteLine(string.Join(',', list.ToList()));
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);

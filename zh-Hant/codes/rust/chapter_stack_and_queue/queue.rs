@@ -10,32 +10,32 @@ use std::collections::VecDeque;
 
 /* Driver Code */
 pub fn main() {
-    // 初始化队列
+    // 初始化佇列
     let mut queue: VecDeque<i32> = VecDeque::new();
 
-    // 元素入队
+    // 元素入列
     queue.push_back(1);
     queue.push_back(3);
     queue.push_back(2);
     queue.push_back(5);
     queue.push_back(4);
-    print!("队列 queue = ");
+    print!("佇列 queue = ");
     print_util::print_queue(&queue);
 
-    // 访问队首元素
+    // 訪問佇列首元素
     let peek = queue.front().unwrap();
-    println!("\n队首元素 peek = {peek}");
+    println!("\n佇列首元素 peek = {peek}");
 
-    // 元素出队
+    // 元素出列
     let pop = queue.pop_front().unwrap();
-    print!("出队元素 pop = {pop}，出队后 queue = ");
+    print!("出列元素 pop = {pop}，出列後 queue = ");
     print_util::print_queue(&queue);
 
-    // 获取队列的长度
+    // 獲取佇列的長度
     let size = queue.len();
-    print!("\n队列长度 size = {size}");
+    print!("\n佇列長度 size = {size}");
 
-    // 判断队列是否为空
+    // 判斷佇列是否為空
     let is_empty = queue.is_empty();
-    print!("\n队列是否为空 = {is_empty}");
+    print!("\n佇列是否為空 = {is_empty}");
 }

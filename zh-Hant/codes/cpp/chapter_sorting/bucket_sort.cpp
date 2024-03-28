@@ -8,22 +8,22 @@
 
 /* 桶排序 */
 void bucketSort(vector<float> &nums) {
-    // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+    // 初始化 k = n/2 個桶，預期向每個桶分配 2 個元素
     int k = nums.size() / 2;
     vector<vector<float>> buckets(k);
-    // 1. 将数组元素分配到各个桶中
+    // 1. 將陣列元素分配到各個桶中
     for (float num : nums) {
-        // 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+        // 輸入資料範圍為 [0, 1)，使用 num * k 對映到索引範圍 [0, k-1]
         int i = num * k;
-        // 将 num 添加进桶 bucket_idx
+        // 將 num 新增進桶 bucket_idx
         buckets[i].push_back(num);
     }
-    // 2. 对各个桶执行排序
+    // 2. 對各個桶執行排序
     for (vector<float> &bucket : buckets) {
-        // 使用内置排序函数，也可以替换成其他排序算法
+        // 使用內建排序函式，也可以替換成其他排序演算法
         sort(bucket.begin(), bucket.end());
     }
-    // 3. 遍历桶合并结果
+    // 3. 走訪桶合併結果
     int i = 0;
     for (vector<float> &bucket : buckets) {
         for (float num : bucket) {
@@ -34,10 +34,10 @@ void bucketSort(vector<float> &nums) {
 
 /* Driver Code */
 int main() {
-    // 设输入数据为浮点数，范围为 [0, 1)
+    // 設輸入資料為浮點數，範圍為 [0, 1)
     vector<float> nums = {0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f};
     bucketSort(nums);
-    cout << "桶排序完成后 nums = ";
+    cout << "桶排序完成後 nums = ";
     printVector(nums);
 
     return 0;

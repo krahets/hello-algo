@@ -6,30 +6,30 @@
 
 namespace hello_algo.chapter_hashing;
 
-/* 键值对 int->string */
+/* 鍵值對 int->string */
 class Pair(int key, string val) {
     public int key = key;
     public string val = val;
 }
 
-/* 基于数组实现的哈希表 */
+/* 基於陣列實現的雜湊表 */
 class ArrayHashMap {
     List<Pair?> buckets;
     public ArrayHashMap() {
-        // 初始化数组，包含 100 个桶
+        // 初始化陣列，包含 100 個桶
         buckets = [];
         for (int i = 0; i < 100; i++) {
             buckets.Add(null);
         }
     }
 
-    /* 哈希函数 */
+    /* 雜湊函式 */
     int HashFunc(int key) {
         int index = key % 100;
         return index;
     }
 
-    /* 查询操作 */
+    /* 查詢操作 */
     public string? Get(int key) {
         int index = HashFunc(key);
         Pair? pair = buckets[index];
@@ -37,21 +37,21 @@ class ArrayHashMap {
         return pair.val;
     }
 
-    /* 添加操作 */
+    /* 新增操作 */
     public void Put(int key, string val) {
         Pair pair = new(key, val);
         int index = HashFunc(key);
         buckets[index] = pair;
     }
 
-    /* 删除操作 */
+    /* 刪除操作 */
     public void Remove(int key) {
         int index = HashFunc(key);
-        // 置为 null ，代表删除
+        // 置為 null ，代表刪除
         buckets[index] = null;
     }
 
-    /* 获取所有键值对 */
+    /* 獲取所有鍵值對 */
     public List<Pair> PairSet() {
         List<Pair> pairSet = [];
         foreach (Pair? pair in buckets) {
@@ -61,7 +61,7 @@ class ArrayHashMap {
         return pairSet;
     }
 
-    /* 获取所有键 */
+    /* 獲取所有鍵 */
     public List<int> KeySet() {
         List<int> keySet = [];
         foreach (Pair? pair in buckets) {
@@ -71,7 +71,7 @@ class ArrayHashMap {
         return keySet;
     }
 
-    /* 获取所有值 */
+    /* 獲取所有值 */
     public List<string> ValueSet() {
         List<string> valueSet = [];
         foreach (Pair? pair in buckets) {
@@ -81,7 +81,7 @@ class ArrayHashMap {
         return valueSet;
     }
 
-    /* 打印哈希表 */
+    /* 列印雜湊表 */
     public void Print() {
         foreach (Pair kv in PairSet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
@@ -93,40 +93,40 @@ class ArrayHashMap {
 public class array_hash_map {
     [Test]
     public void Test() {
-        /* 初始化哈希表 */
+        /* 初始化雜湊表 */
         ArrayHashMap map = new();
 
-        /* 添加操作 */
-        // 在哈希表中添加键值对 (key, value)
+        /* 新增操作 */
+        // 在雜湊表中新增鍵值對 (key, value)
         map.Put(12836, "小哈");
-        map.Put(15937, "小啰");
+        map.Put(15937, "小囉");
         map.Put(16750, "小算");
         map.Put(13276, "小法");
-        map.Put(10583, "小鸭");
-        Console.WriteLine("\n添加完成后，哈希表为\nKey -> Value");
+        map.Put(10583, "小鴨");
+        Console.WriteLine("\n新增完成後，雜湊表為\nKey -> Value");
         map.Print();
 
-        /* 查询操作 */
-        // 向哈希表中输入键 key ，得到值 value
+        /* 查詢操作 */
+        // 向雜湊表中輸入鍵 key ，得到值 value
         string? name = map.Get(15937);
-        Console.WriteLine("\n输入学号 15937 ，查询到姓名 " + name);
+        Console.WriteLine("\n輸入學號 15937 ，查詢到姓名 " + name);
 
-        /* 删除操作 */
-        // 在哈希表中删除键值对 (key, value)
+        /* 刪除操作 */
+        // 在雜湊表中刪除鍵值對 (key, value)
         map.Remove(10583);
-        Console.WriteLine("\n删除 10583 后，哈希表为\nKey -> Value");
+        Console.WriteLine("\n刪除 10583 後，雜湊表為\nKey -> Value");
         map.Print();
 
-        /* 遍历哈希表 */
-        Console.WriteLine("\n遍历键值对 Key->Value");
+        /* 走訪雜湊表 */
+        Console.WriteLine("\n走訪鍵值對 Key->Value");
         foreach (Pair kv in map.PairSet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
         }
-        Console.WriteLine("\n单独遍历键 Key");
+        Console.WriteLine("\n單獨走訪鍵 Key");
         foreach (int key in map.KeySet()) {
             Console.WriteLine(key);
         }
-        Console.WriteLine("\n单独遍历值 Value");
+        Console.WriteLine("\n單獨走訪值 Value");
         foreach (string val in map.ValueSet()) {
             Console.WriteLine(val);
         }

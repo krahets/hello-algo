@@ -12,26 +12,26 @@ enum BuiltInHash {
     static func main() {
         let num = 3
         let hashNum = num.hashValue
-        print("整数 \(num) 的哈希值为 \(hashNum)")
+        print("整數 \(num) 的雜湊值為 \(hashNum)")
 
         let bol = true
         let hashBol = bol.hashValue
-        print("布尔量 \(bol) 的哈希值为 \(hashBol)")
+        print("布林量 \(bol) 的雜湊值為 \(hashBol)")
 
         let dec = 3.14159
         let hashDec = dec.hashValue
-        print("小数 \(dec) 的哈希值为 \(hashDec)")
+        print("小數 \(dec) 的雜湊值為 \(hashDec)")
 
-        let str = "Hello 算法"
+        let str = "Hello 演算法"
         let hashStr = str.hashValue
-        print("字符串 \(str) 的哈希值为 \(hashStr)")
+        print("字串 \(str) 的雜湊值為 \(hashStr)")
 
         let arr = [AnyHashable(12836), AnyHashable("小哈")]
         let hashTup = arr.hashValue
-        print("数组 \(arr) 的哈希值为 \(hashTup)")
+        print("陣列 \(arr) 的雜湊值為 \(hashTup)")
 
         let obj = ListNode(x: 0)
         let hashObj = obj.hashValue
-        print("节点对象 \(obj) 的哈希值为 \(hashObj)")
+        print("節點物件 \(obj) 的雜湊值為 \(hashObj)")
     }
 }

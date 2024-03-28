@@ -12,14 +12,14 @@ from modules import TreeNode, print_tree, list_to_tree
 
 
 def pre_order(root: TreeNode):
-    """前序遍历：例题三"""
+    """前序走訪：例題三"""
     # 剪枝
     if root is None or root.val == 3:
         return
-    # 尝试
+    # 嘗試
     path.append(root)
     if root.val == 7:
-        # 记录解
+        # 記錄解
         res.append(list(path))
     pre_order(root.left)
     pre_order(root.right)
@@ -30,14 +30,14 @@ def pre_order(root: TreeNode):
 """Driver Code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
-    print("\n初始化二叉树")
+    print("\n初始化二元樹")
     print_tree(root)
 
-    # 前序遍历
+    # 前序走訪
     path = list[TreeNode]()
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点")
+    print("\n輸出所有根節點到節點 7 的路徑，路徑中不包含值為 3 的節點")
     for path in res:
         print([node.val for node in path])

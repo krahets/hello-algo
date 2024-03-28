@@ -4,7 +4,7 @@
 
 package chapter_computational_complexity
 
-/* 常数阶 */
+/* 常數階 */
 func constant(n int) int {
 	count := 0
 	size := 100000
@@ -14,7 +14,7 @@ func constant(n int) int {
 	return count
 }
 
-/* 线性阶 */
+/* 線性階 */
 func linear(n int) int {
 	count := 0
 	for i := 0; i < n; i++ {
@@ -23,20 +23,20 @@ func linear(n int) int {
 	return count
 }
 
-/* 线性阶（遍历数组） */
+/* 線性階（走訪陣列） */
 func arrayTraversal(nums []int) int {
 	count := 0
-	// 循环次数与数组长度成正比
+	// 迴圈次數與陣列長度成正比
 	for range nums {
 		count++
 	}
 	return count
 }
 
-/* 平方阶 */
+/* 平方階 */
 func quadratic(n int) int {
 	count := 0
-	// 循环次数与数据大小 n 成平方关系
+	// 迴圈次數與資料大小 n 成平方關係
 	for i := 0; i < n; i++ {
 		for j := 0; j < n; j++ {
 			count++
@@ -45,29 +45,29 @@ func quadratic(n int) int {
 	return count
 }
 
-/* 平方阶（冒泡排序） */
+/* 平方階（泡沫排序） */
 func bubbleSort(nums []int) int {
-	count := 0 // 计数器
-	// 外循环：未排序区间为 [0, i]
+	count := 0 // 計數器
+	// 外迴圈：未排序區間為 [0, i]
 	for i := len(nums) - 1; i > 0; i-- {
-		// 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+		// 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
 		for j := 0; j < i; j++ {
 			if nums[j] > nums[j+1] {
-				// 交换 nums[j] 与 nums[j + 1]
+				// 交換 nums[j] 與 nums[j + 1]
 				tmp := nums[j]
 				nums[j] = nums[j+1]
 				nums[j+1] = tmp
-				count += 3 // 元素交换包含 3 个单元操作
+				count += 3 // 元素交換包含 3 個單元操作
 			}
 		}
 	}
 	return count
 }
 
-/* 指数阶（循环实现）*/
+/* 指數階（迴圈實現）*/
 func exponential(n int) int {
 	count, base := 0, 1
-	// 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+	// 細胞每輪一分為二，形成數列 1, 2, 4, 8, ..., 2^(n-1)
 	for i := 0; i < n; i++ {
 		for j := 0; j < base; j++ {
 			count++
@@ -78,7 +78,7 @@ func exponential(n int) int {
 	return count
 }
 
-/* 指数阶（递归实现）*/
+/* 指數階（遞迴實現）*/
 func expRecur(n int) int {
 	if n == 1 {
 		return 1
@@ -86,7 +86,7 @@ func expRecur(n int) int {
 	return expRecur(n-1) + expRecur(n-1) + 1
 }
 
-/* 对数阶（循环实现）*/
+/* 對數階（迴圈實現）*/
 func logarithmic(n float64) int {
 	count := 0
 	for n > 1 {
@@ -96,7 +96,7 @@ func logarithmic(n float64) int {
 	return count
 }
 
-/* 对数阶（递归实现）*/
+/* 對數階（遞迴實現）*/
 func logRecur(n float64) int {
 	if n <= 1 {
 		return 0
@@ -104,7 +104,7 @@ func logRecur(n float64) int {
 	return logRecur(n/2) + 1
 }
 
-/* 线性对数阶 */
+/* 線性對數階 */
 func linearLogRecur(n float64) int {
 	if n <= 1 {
 		return 1
@@ -116,13 +116,13 @@ func linearLogRecur(n float64) int {
 	return count
 }
 
-/* 阶乘阶（递归实现） */
+/* 階乘階（遞迴實現） */
 func factorialRecur(n int) int {
 	if n == 0 {
 		return 1
 	}
 	count := 0
-	// 从 1 个分裂出 n 个
+	// 從 1 個分裂出 n 個
 	for i := 0; i < n; i++ {
 		count += factorialRecur(n - 1)
 	}

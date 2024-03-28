@@ -12,97 +12,97 @@ import (
 )
 
 func TestStack(t *testing.T) {
-	/* 初始化栈 */
-	// 在 Go 中，推荐将 Slice 当作栈来使用
+	/* 初始化堆疊 */
+	// 在 Go 中，推薦將 Slice 當作堆疊來使用
 	var stack []int
 
-	/* 元素入栈 */
+	/* 元素入堆疊 */
 	stack = append(stack, 1)
 	stack = append(stack, 3)
 	stack = append(stack, 2)
 	stack = append(stack, 5)
 	stack = append(stack, 4)
-	fmt.Print("栈 stack = ")
+	fmt.Print("堆疊 stack = ")
 	PrintSlice(stack)
 
-	/* 访问栈顶元素 */
+	/* 訪問堆疊頂元素 */
 	peek := stack[len(stack)-1]
-	fmt.Println("栈顶元素 peek =", peek)
+	fmt.Println("堆疊頂元素 peek =", peek)
 
-	/* 元素出栈 */
+	/* 元素出堆疊 */
 	pop := stack[len(stack)-1]
 	stack = stack[:len(stack)-1]
-	fmt.Print("出栈元素 pop = ", pop, "，出栈后 stack = ")
+	fmt.Print("出堆疊元素 pop = ", pop, "，出堆疊後 stack = ")
 	PrintSlice(stack)
 
-	/* 获取栈的长度 */
+	/* 獲取堆疊的長度 */
 	size := len(stack)
-	fmt.Println("栈的长度 size =", size)
+	fmt.Println("堆疊的長度 size =", size)
 
-	/* 判断是否为空 */
+	/* 判斷是否為空 */
 	isEmpty := len(stack) == 0
-	fmt.Println("栈是否为空 =", isEmpty)
+	fmt.Println("堆疊是否為空 =", isEmpty)
 }
 
 func TestArrayStack(t *testing.T) {
-	// 初始化栈, 使用接口承接
+	// 初始化堆疊, 使用介面承接
 	stack := newArrayStack()
 
-	// 元素入栈
+	// 元素入堆疊
 	stack.push(1)
 	stack.push(3)
 	stack.push(2)
 	stack.push(5)
 	stack.push(4)
-	fmt.Print("栈 stack = ")
+	fmt.Print("堆疊 stack = ")
 	PrintSlice(stack.toSlice())
 
-	// 访问栈顶元素
+	// 訪問堆疊頂元素
 	peek := stack.peek()
-	fmt.Println("栈顶元素 peek =", peek)
+	fmt.Println("堆疊頂元素 peek =", peek)
 
-	// 元素出栈
+	// 元素出堆疊
 	pop := stack.pop()
-	fmt.Print("出栈元素 pop = ", pop, ", 出栈后 stack = ")
+	fmt.Print("出堆疊元素 pop = ", pop, ", 出堆疊後 stack = ")
 	PrintSlice(stack.toSlice())
 
-	// 获取栈的长度
+	// 獲取堆疊的長度
 	size := stack.size()
-	fmt.Println("栈的长度 size =", size)
+	fmt.Println("堆疊的長度 size =", size)
 
-	// 判断是否为空
+	// 判斷是否為空
 	isEmpty := stack.isEmpty()
-	fmt.Println("栈是否为空 =", isEmpty)
+	fmt.Println("堆疊是否為空 =", isEmpty)
 }
 
 func TestLinkedListStack(t *testing.T) {
-	// 初始化栈
+	// 初始化堆疊
 	stack := newLinkedListStack()
-	// 元素入栈
+	// 元素入堆疊
 	stack.push(1)
 	stack.push(3)
 	stack.push(2)
 	stack.push(5)
 	stack.push(4)
-	fmt.Print("栈 stack = ")
+	fmt.Print("堆疊 stack = ")
 	PrintList(stack.toList())
 
-	// 访问栈顶元素
+	// 訪問堆疊頂元素
 	peek := stack.peek()
-	fmt.Println("栈顶元素 peek =", peek)
+	fmt.Println("堆疊頂元素 peek =", peek)
 
-	// 元素出栈
+	// 元素出堆疊
 	pop := stack.pop()
-	fmt.Print("出栈元素 pop = ", pop, ", 出栈后 stack = ")
+	fmt.Print("出堆疊元素 pop = ", pop, ", 出堆疊後 stack = ")
 	PrintList(stack.toList())
 
-	// 获取栈的长度
+	// 獲取堆疊的長度
 	size := stack.size()
-	fmt.Println("栈的长度 size =", size)
+	fmt.Println("堆疊的長度 size =", size)
 
-	// 判断是否为空
+	// 判斷是否為空
 	isEmpty := stack.isEmpty()
-	fmt.Println("栈是否为空 =", isEmpty)
+	fmt.Println("堆疊是否為空 =", isEmpty)
 }
 
 // BenchmarkArrayStack 8 ns/op in Mac M1 Pro

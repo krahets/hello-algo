@@ -4,7 +4,7 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
-/* 零钱兑换：动态规划 */
+/* 零錢兌換：動態規劃 */
 function coinChangeDP(coins: Array<number>, amt: number): number {
     const n = coins.length;
     const MAX = amt + 1;
@@ -12,18 +12,18 @@ function coinChangeDP(coins: Array<number>, amt: number): number {
     const dp = Array.from({ length: n + 1 }, () =>
         Array.from({ length: amt + 1 }, () => 0)
     );
-    // 状态转移：首行首列
+    // 狀態轉移：首行首列
     for (let a = 1; a <= amt; a++) {
         dp[0][a] = MAX;
     }
-    // 状态转移：其余行和列
+    // 狀態轉移：其餘行和列
     for (let i = 1; i <= n; i++) {
         for (let a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 若超过目标金额，则不选硬币 i
+                // 若超過目標金額，則不選硬幣 i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // 不选和选硬币 i 这两种方案的较小值
+                // 不選和選硬幣 i 這兩種方案的較小值
                 dp[i][a] = Math.min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
             }
         }
@@ -31,21 +31,21 @@ function coinChangeDP(coins: Array<number>, amt: number): number {
     return dp[n][amt] !== MAX ? dp[n][amt] : -1;
 }
 
-/* 零钱兑换：状态压缩后的动态规划 */
+/* 零錢兌換：狀態壓縮後的動態規劃 */
 function coinChangeDPComp(coins: Array<number>, amt: number): number {
     const n = coins.length;
     const MAX = amt + 1;
     // 初始化 dp 表
     const dp = Array.from({ length: amt + 1 }, () => MAX);
     dp[0] = 0;
-    // 状态转移
+    // 狀態轉移
     for (let i = 1; i <= n; i++) {
         for (let a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 若超过目标金额，则不选硬币 i
+                // 若超過目標金額，則不選硬幣 i
                 dp[a] = dp[a];
             } else {
-                // 不选和选硬币 i 这两种方案的较小值
+                // 不選和選硬幣 i 這兩種方案的較小值
                 dp[a] = Math.min(dp[a], dp[a - coins[i - 1]] + 1);
             }
         }
@@ -57,12 +57,12 @@ function coinChangeDPComp(coins: Array<number>, amt: number): number {
 const coins = [1, 2, 5];
 const amt = 4;
 
-// 动态规划
+// 動態規劃
 let res = coinChangeDP(coins, amt);
-console.log(`凑到目标金额所需的最少硬币数量为 ${res}`);
+console.log(`湊到目標金額所需的最少硬幣數量為 ${res}`);
 
-// 状态压缩后的动态规划
+// 狀態壓縮後的動態規劃
 res = coinChangeDPComp(coins, amt);
-console.log(`凑到目标金额所需的最少硬币数量为 ${res}`);
+console.log(`湊到目標金額所需的最少硬幣數量為 ${res}`);
 
 export {};

@@ -9,36 +9,36 @@ package chapter_graph
 import utils.Vertex
 import java.util.*
 
-/* 广度优先遍历 */
-// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+/* 廣度優先走訪 */
+// 使用鄰接表來表示圖，以便獲取指定頂點的所有鄰接頂點
 fun graphBFS(graph: GraphAdjList, startVet: Vertex): List<Vertex> {
-    // 顶点遍历序列
+    // 頂點走訪序列
     val res: MutableList<Vertex> = ArrayList()
-    // 哈希表，用于记录已被访问过的顶点
+    // 雜湊表，用於記錄已被訪問過的頂點
     val visited: MutableSet<Vertex> = HashSet()
     visited.add(startVet)
-    // 队列用于实现 BFS
+    // 佇列用於實現 BFS
     val que: Queue<Vertex> = LinkedList()
     que.offer(startVet)
-    // 以顶点 vet 为起点，循环直至访问完所有顶点
+    // 以頂點 vet 為起點，迴圈直至訪問完所有頂點
     while (!que.isEmpty()) {
-        val vet = que.poll() // 队首顶点出队
-        res.add(vet) // 记录访问顶点
-        // 遍历该顶点的所有邻接顶点
+        val vet = que.poll() // 佇列首頂點出隊
+        res.add(vet) // 記錄訪問頂點
+        // 走訪該頂點的所有鄰接頂點
         for (adjVet in graph.adjList[vet]!!) {
-            if (visited.contains(adjVet)) continue  // 跳过已被访问的顶点
+            if (visited.contains(adjVet)) continue  // 跳過已被訪問的頂點
 
-            que.offer(adjVet) // 只入队未访问的顶点
-            visited.add(adjVet) // 标记该顶点已被访问
+            que.offer(adjVet) // 只入列未訪問的頂點
+            visited.add(adjVet) // 標記該頂點已被訪問
         }
     }
-    // 返回顶点遍历序列
+    // 返回頂點走訪序列
     return res
 }
 
 /* Driver Code */
 fun main() {
-    /* 初始化无向图 */
+    /* 初始化無向圖 */
     val v = Vertex.valsToVets(intArrayOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
     val edges = arrayOf(
         arrayOf(v[0], v[1]),
@@ -55,11 +55,11 @@ fun main() {
         arrayOf(v[7], v[8])
     )
     val graph = GraphAdjList(edges)
-    println("\n初始化后，图为")
+    println("\n初始化後，圖為")
     graph.print()
 
-    /* 广度优先遍历 */
+    /* 廣度優先走訪 */
     val res = graphBFS(graph, v[0]!!)
-    println("\n广度优先遍历（BFS）顶点序列为")
+    println("\n廣度優先走訪（BFS）頂點序列為")
     println(Vertex.vetsToVals(res))
 }

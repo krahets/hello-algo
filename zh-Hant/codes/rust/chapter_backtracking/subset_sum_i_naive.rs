@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 回溯算法：子集和 I */
+/* 回溯演算法：子集和 I */
 fn backtrack(
     mut state: Vec<i32>,
     target: i32,
@@ -12,31 +12,31 @@ fn backtrack(
     choices: &[i32],
     res: &mut Vec<Vec<i32>>,
 ) {
-    // 子集和等于 target 时，记录解
+    // 子集和等於 target 時，記錄解
     if total == target {
         res.push(state);
         return;
     }
-    // 遍历所有选择
+    // 走訪所有選擇
     for i in 0..choices.len() {
-        // 剪枝：若子集和超过 target ，则跳过该选择
+        // 剪枝：若子集和超過 target ，則跳過該選擇
         if total + choices[i] > target {
             continue;
         }
-        // 尝试：做出选择，更新元素和 total
+        // 嘗試：做出選擇，更新元素和 total
         state.push(choices[i]);
-        // 进行下一轮选择
+        // 進行下一輪選擇
         backtrack(state.clone(), target, total + choices[i], choices, res);
-        // 回退：撤销选择，恢复到之前的状态
+        // 回退：撤銷選擇，恢復到之前的狀態
         state.pop();
     }
 }
 
-/* 求解子集和 I（包含重复子集） */
+/* 求解子集和 I（包含重複子集） */
 fn subset_sum_i_naive(nums: &[i32], target: i32) -> Vec<Vec<i32>> {
-    let state = Vec::new(); // 状态（子集）
+    let state = Vec::new(); // 狀態（子集）
     let total = 0; // 子集和
-    let mut res = Vec::new(); // 结果列表（子集列表）
+    let mut res = Vec::new(); // 結果串列（子集串列）
     backtrack(state, target, total, nums, &mut res);
     res
 }
@@ -48,7 +48,7 @@ pub fn main() {
 
     let res = subset_sum_i_naive(&nums, target);
 
-    println!("输入数组 nums = {:?}, target = {}", &nums, target);
-    println!("所有和等于 {} 的子集 res = {:?}", target, &res);
-    println!("请注意，该方法输出的结果包含重复集合");
+    println!("輸入陣列 nums = {:?}, target = {}", &nums, target);
+    println!("所有和等於 {} 的子集 res = {:?}", target, &res);
+    println!("請注意，該方法輸出的結果包含重複集合");
 }

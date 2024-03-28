@@ -15,19 +15,19 @@ int myMax(int a, int b) {
     return a < b ? a : b;
 }
 
-/* 最大容量：贪心 */
+/* 最大容量：貪婪 */
 int maxCapacity(int ht[], int htLength) {
-    // 初始化 i, j，使其分列数组两端
+    // 初始化 i, j，使其分列陣列兩端
     int i = 0;
     int j = htLength - 1;
-    // 初始最大容量为 0
+    // 初始最大容量為 0
     int res = 0;
-    // 循环贪心选择，直至两板相遇
+    // 迴圈貪婪選擇，直至兩板相遇
     while (i < j) {
         // 更新最大容量
         int capacity = myMin(ht[i], ht[j]) * (j - i);
         res = myMax(res, capacity);
-        // 向内移动短板
+        // 向內移動短板
         if (ht[i] < ht[j]) {
             i++;
         } else {
@@ -41,9 +41,9 @@ int maxCapacity(int ht[], int htLength) {
 int main(void) {
     int ht[] = {3, 8, 5, 2, 7, 7, 3, 4};
 
-    // 贪心算法
+    // 貪婪演算法
     int res = maxCapacity(ht, sizeof(ht) / sizeof(int));
-    printf("最大容量为 %d\n", res);
+    printf("最大容量為 %d\n", res);
 
     return 0;
 }

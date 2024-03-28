@@ -10,53 +10,53 @@ import (
 )
 
 func TestHashMapChaining(t *testing.T) {
-	/* 初始化哈希表 */
+	/* 初始化雜湊表 */
 	hmap := newHashMapChaining()
 
-	/* 添加操作 */
-	// 在哈希表中添加键值对 (key, value)
+	/* 新增操作 */
+	// 在雜湊表中新增鍵值對 (key, value)
 	hmap.put(12836, "小哈")
-	hmap.put(15937, "小啰")
+	hmap.put(15937, "小囉")
 	hmap.put(16750, "小算")
 	hmap.put(13276, "小法")
-	hmap.put(10583, "小鸭")
-	fmt.Println("\n添加完成后，哈希表为\nKey -> Value")
+	hmap.put(10583, "小鴨")
+	fmt.Println("\n新增完成後，雜湊表為\nKey -> Value")
 	hmap.print()
 
-	/* 查询操作 */
-	// 向哈希表中输入键 key ，得到值 value
+	/* 查詢操作 */
+	// 向雜湊表中輸入鍵 key ，得到值 value
 	name := hmap.get(15937)
-	fmt.Println("\n输入学号 15937 ，查询到姓名", name)
+	fmt.Println("\n輸入學號 15937 ，查詢到姓名", name)
 
-	/* 删除操作 */
-	// 在哈希表中删除键值对 (key, value)
+	/* 刪除操作 */
+	// 在雜湊表中刪除鍵值對 (key, value)
 	hmap.remove(12836)
-	fmt.Println("\n删除 12836 后，哈希表为\nKey -> Value")
+	fmt.Println("\n刪除 12836 後，雜湊表為\nKey -> Value")
 	hmap.print()
 }
 
 func TestHashMapOpenAddressing(t *testing.T) {
-	/* 初始化哈希表 */
+	/* 初始化雜湊表 */
 	hmap := newHashMapOpenAddressing()
 
-	/* 添加操作 */
-	// 在哈希表中添加键值对 (key, value)
+	/* 新增操作 */
+	// 在雜湊表中新增鍵值對 (key, value)
 	hmap.put(12836, "小哈")
-	hmap.put(15937, "小啰")
+	hmap.put(15937, "小囉")
 	hmap.put(16750, "小算")
 	hmap.put(13276, "小法")
-	hmap.put(10583, "小鸭")
-	fmt.Println("\n添加完成后，哈希表为\nKey -> Value")
+	hmap.put(10583, "小鴨")
+	fmt.Println("\n新增完成後，雜湊表為\nKey -> Value")
 	hmap.print()
 
-	/* 查询操作 */
-	// 向哈希表中输入键 key ，得到值 value
+	/* 查詢操作 */
+	// 向雜湊表中輸入鍵 key ，得到值 value
 	name := hmap.get(13276)
-	fmt.Println("\n输入学号 13276 ，查询到姓名 ", name)
+	fmt.Println("\n輸入學號 13276 ，查詢到姓名 ", name)
 
-	/* 删除操作 */
-	// 在哈希表中删除键值对 (key, value)
+	/* 刪除操作 */
+	// 在雜湊表中刪除鍵值對 (key, value)
 	hmap.remove(16750)
-	fmt.Println("\n删除 16750 后，哈希表为\nKey -> Value")
+	fmt.Println("\n刪除 16750 後，雜湊表為\nKey -> Value")
 	hmap.print()
 }

@@ -89,9 +89,9 @@ function showTrunks(p) {
  * @param arr
  */
 function printHeap(arr) {
-    console.log('堆的数组表示：');
+    console.log('堆積的陣列表示：');
     console.log(arr);
-    console.log('堆的树状表示：');
+    console.log('堆積的樹狀表示：');
     printTree(arrToTree(arr));
 }
 

@@ -10,42 +10,42 @@ import (
 )
 
 func TestArrayHashMap(t *testing.T) {
-	/* 初始化哈希表 */
+	/* 初始化雜湊表 */
 	hmap := newArrayHashMap()
 
-	/* 添加操作 */
-	// 在哈希表中添加键值对 (key, value)
+	/* 新增操作 */
+	// 在雜湊表中新增鍵值對 (key, value)
 	hmap.put(12836, "小哈")
-	hmap.put(15937, "小啰")
+	hmap.put(15937, "小囉")
 	hmap.put(16750, "小算")
 	hmap.put(13276, "小法")
-	hmap.put(10583, "小鸭")
-	fmt.Println("\n添加完成后，哈希表为\nKey -> Value")
+	hmap.put(10583, "小鴨")
+	fmt.Println("\n新增完成後，雜湊表為\nKey -> Value")
 	hmap.print()
 
-	/* 查询操作 */
-	// 向哈希表中输入键 key ，得到值 value
+	/* 查詢操作 */
+	// 向雜湊表中輸入鍵 key ，得到值 value
 	name := hmap.get(15937)
-	fmt.Println("\n输入学号 15937 ，查询到姓名 " + name)
+	fmt.Println("\n輸入學號 15937 ，查詢到姓名 " + name)
 
-	/* 删除操作 */
-	// 在哈希表中删除键值对 (key, value)
+	/* 刪除操作 */
+	// 在雜湊表中刪除鍵值對 (key, value)
 	hmap.remove(10583)
-	fmt.Println("\n删除 10583 后，哈希表为\nKey -> Value")
+	fmt.Println("\n刪除 10583 後，雜湊表為\nKey -> Value")
 	hmap.print()
 
-	/* 遍历哈希表 */
-	fmt.Println("\n遍历键值对 Key->Value")
+	/* 走訪雜湊表 */
+	fmt.Println("\n走訪鍵值對 Key->Value")
 	for _, kv := range hmap.pairSet() {
 		fmt.Println(kv.key, " -> ", kv.val)
 	}
 
-	fmt.Println("\n单独遍历键 Key")
+	fmt.Println("\n單獨走訪鍵 Key")
 	for _, key := range hmap.keySet() {
 		fmt.Println(key)
 	}
 
-	fmt.Println("\n单独遍历值 Value")
+	fmt.Println("\n單獨走訪值 Value")
 	for _, val := range hmap.valueSet() {
 		fmt.Println(val)
 	}

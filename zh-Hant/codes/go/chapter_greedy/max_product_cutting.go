@@ -6,23 +6,23 @@ package chapter_greedy
 
 import "math"
 
-/* 最大切分乘积：贪心 */
+/* 最大切分乘積：貪婪 */
 func maxProductCutting(n int) int {
-	// 当 n <= 3 时，必须切分出一个 1
+	// 當 n <= 3 時，必須切分出一個 1
 	if n <= 3 {
 		return 1 * (n - 1)
 	}
-	// 贪心地切分出 3 ，a 为 3 的个数，b 为余数
+	// 貪婪地切分出 3 ，a 為 3 的個數，b 為餘數
 	a := n / 3
 	b := n % 3
 	if b == 1 {
-		// 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
+		// 當餘數為 1 時，將一對 1 * 3 轉化為 2 * 2
 		return int(math.Pow(3, float64(a-1))) * 2 * 2
 	}
 	if b == 2 {
-		// 当余数为 2 时，不做处理
+		// 當餘數為 2 時，不做處理
 		return int(math.Pow(3, float64(a))) * 2
 	}
-	// 当余数为 0 时，不做处理
+	// 當餘數為 0 時，不做處理
 	return int(math.Pow(3, float64(a)))
 }

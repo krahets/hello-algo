@@ -8,29 +8,29 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* 深度优先遍历辅助函数 */
+/* 深度優先走訪輔助函式 */
 func dfs(g *graphAdjList, visited map[Vertex]struct{}, res *[]Vertex, vet Vertex) {
-	// append 操作会返回新的的引用，必须让原引用重新赋值为新slice的引用
+	// append 操作會返回新的的引用，必須讓原引用重新賦值為新slice的引用
 	*res = append(*res, vet)
 	visited[vet] = struct{}{}
-	// 遍历该顶点的所有邻接顶点
+	// 走訪該頂點的所有鄰接頂點
 	for _, adjVet := range g.adjList[vet] {
 		_, isExist := visited[adjVet]
-		// 递归访问邻接顶点
+		// 遞迴訪問鄰接頂點
 		if !isExist {
 			dfs(g, visited, res, adjVet)
 		}
 	}
 }
 
-/* 深度优先遍历 */
-// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+/* 深度優先走訪 */
+// 使用鄰接表來表示圖，以便獲取指定頂點的所有鄰接頂點
 func graphDFS(g *graphAdjList, startVet Vertex) []Vertex {
-	// 顶点遍历序列
+	// 頂點走訪序列
 	res := make([]Vertex, 0)
-	// 哈希表，用于记录已被访问过的顶点
+	// 雜湊表，用於記錄已被訪問過的頂點
 	visited := make(map[Vertex]struct{})
 	dfs(g, visited, &res, startVet)
-	// 返回顶点遍历序列
+	// 返回頂點走訪序列
 	return res
 }

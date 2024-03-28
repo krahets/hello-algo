@@ -14,41 +14,41 @@ int main() {
     Vertex *edges[][2] = {{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]}, {v[2], v[3]}, {v[2], v[4]}, {v[3], v[4]}};
     int egdeSize = sizeof(edges) / sizeof(edges[0]);
     GraphAdjList *graph = newGraphAdjList();
-    // 添加所有顶点和边
+    // 新增所有頂點和邊
     for (int i = 0; i < size; i++) {
         addVertex(graph, v[i]);
     }
     for (int i = 0; i < egdeSize; i++) {
         addEdge(graph, edges[i][0], edges[i][1]);
     }
-    printf("\n初始化后，图为\n");
+    printf("\n初始化後，圖為\n");
     printGraph(graph);
 
-    /* 添加边 */
-    // 顶点 1, 2 即 v[0], v[2]
+    /* 新增邊 */
+    // 頂點 1, 2 即 v[0], v[2]
     addEdge(graph, v[0], v[2]);
-    printf("\n添加边 1-2 后，图为\n");
+    printf("\n新增邊 1-2 後，圖為\n");
     printGraph(graph);
 
-    /* 删除边 */
-    // 顶点 1, 3 即 v[0], v[1]
+    /* 刪除邊 */
+    // 頂點 1, 3 即 v[0], v[1]
     removeEdge(graph, v[0], v[1]);
-    printf("\n删除边 1-3 后，图为\n");
+    printf("\n刪除邊 1-3 後，圖為\n");
     printGraph(graph);
 
-    /* 添加顶点 */
+    /* 新增頂點 */
     Vertex *v5 = newVertex(6);
     addVertex(graph, v5);
-    printf("\n添加顶点 6 后，图为\n");
+    printf("\n新增頂點 6 後，圖為\n");
     printGraph(graph);
 
-    /* 删除顶点 */
-    // 顶点 3 即 v[1]
+    /* 刪除頂點 */
+    // 頂點 3 即 v[1]
     removeVertex(graph, v[1]);
-    printf("\n删除顶点 3 后，图为:\n");
+    printf("\n刪除頂點 3 後，圖為:\n");
     printGraph(graph);
 
-    // 释放内存
+    // 釋放記憶體
     delGraphAdjList(graph);
     free(v);
     return 0;

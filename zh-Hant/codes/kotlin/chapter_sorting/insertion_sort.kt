@@ -8,16 +8,16 @@ package chapter_sorting
 
 /* 插入排序 */
 fun insertionSort(nums: IntArray) {
-    //外循环: 已排序元素为 1, 2, ..., n
+    //外迴圈: 已排序元素為 1, 2, ..., n
     for (i in nums.indices) {
         val base = nums[i]
         var j = i - 1
-        // 内循环: 将 base 插入到已排序部分的正确位置
+        // 內迴圈: 將 base 插入到已排序部分的正確位置
         while (j >= 0 && nums[j] > base) {
-            nums[j + 1] = nums[j] // 将 nums[j] 向右移动一位
+            nums[j + 1] = nums[j] // 將 nums[j] 向右移動一位
             j--
         }
-        nums[j + 1] = base        // 将 base 赋值到正确位置
+        nums[j + 1] = base        // 將 base 賦值到正確位置
     }
 }
 
@@ -25,5 +25,5 @@ fun insertionSort(nums: IntArray) {
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     insertionSort(nums)
-    println("插入排序完成后 nums = ${nums.contentToString()}")
+    println("插入排序完成後 nums = ${nums.contentToString()}")
 }

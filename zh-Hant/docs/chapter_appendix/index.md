@@ -1,7 +1,7 @@
-# 附录
+# 附錄
 
 <div class="center-table" markdown>
 
-![附录](../assets/covers/chapter_appendix.jpg)
+![附錄](../assets/covers/chapter_appendix.jpg)
 
 </div>
