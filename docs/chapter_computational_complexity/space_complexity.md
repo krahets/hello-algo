@@ -481,7 +481,13 @@
 === "Kotlin"
 
     ```kotlin title=""
-
+    fun algorithm(n: Int) {
+        val a = 0                    // O(1)
+        val b = IntArray(10000)      // O(1)
+        if (n > 10) {
+            val nums = IntArray(n)   // O(n)
+        }
+    }
     ```
 
 === "Zig"
@@ -725,7 +731,21 @@
 === "Kotlin"
 
     ```kotlin title=""
-
+    fun function(): Int {
+        // 执行某些操作
+        return 0
+    }
+    /* 循环 O(1) */
+    fun loop(n: Int) {
+        for (i in 0..<n) {
+            function()
+        }
+    }
+    /* 递归 O(n) */
+    fun recur(n: Int) {
+        if (n == 1) return
+        return recur(n - 1)
+    }
     ```
 
 === "Zig"
