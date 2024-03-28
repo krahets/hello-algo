@@ -106,7 +106,7 @@
 | adjacency list                 | 邻接表         | 鄰接表         |
 | breadth-first search           | 广度优先搜索   | 廣度優先搜尋   |
 | depth-first search             | 深度优先搜索   | 深度優先搜尋   |
-| binary search                  | 二分查找       | 二分查找       |
+| binary search                  | 二分查找       | 二分搜尋       |
 | searching algorithm            | 搜索算法       | 搜尋演算法     |
 | sorting algorithm              | 排序算法       | 排序演算法     |
 | selection sort                 | 选择排序       | 選擇排序       |
@@ -130,7 +130,7 @@
 | $n$-queens problem             | $n$ 皇后问题   | $n$ 皇后問題   |
 | dynamic programming            | 动态规划       | 動態規劃       |
 | initial state                  | 初始状态       | 初始狀態       |
-| state-transition equation       | 状态转移方程   | 狀態轉移方程   |
+| state-transition equation      | 状态转移方程   | 狀態轉移方程   |
 | knapsack problem               | 背包问题       | 背包問題       |
 | edit distance problem          | 编辑距离问题   | 編輯距離問題   |
 | greedy algorithm               | 贪心算法       | 貪婪演算法     |
