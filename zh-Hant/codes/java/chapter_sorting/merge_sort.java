@@ -36,7 +36,7 @@ public class merge_sort {
         }
     }
 
-    /* 歸併排序 */
+    /* 合併排序 */
     static void mergeSort(int[] nums, int left, int right) {
         // 終止條件
         if (left >= right)
@@ -50,9 +50,9 @@ public class merge_sort {
     }
 
     public static void main(String[] args) {
-        /* 歸併排序 */
+        /* 合併排序 */
         int[] nums = { 7, 3, 2, 6, 0, 1, 5, 4 };
         mergeSort(nums, 0, nums.length - 1);
-        System.out.println("歸併排序完成後 nums = " + Arrays.toString(nums));
+        System.out.println("合併排序完成後 nums = " + Arrays.toString(nums));
     }
 }

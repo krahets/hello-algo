@@ -39,7 +39,7 @@ func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
     }
 }
 
-/* 歸併排序 */
+/* 合併排序 */
 func mergeSort(nums: inout [Int], left: Int, right: Int) {
     // 終止條件
     if left >= right { // 當子陣列長度為 1 時終止遞迴
@@ -57,9 +57,9 @@ func mergeSort(nums: inout [Int], left: Int, right: Int) {
 enum MergeSort {
     /* Driver Code */
     static func main() {
-        /* 歸併排序 */
+        /* 合併排序 */
         var nums = [7, 3, 2, 6, 0, 1, 5, 4]
         mergeSort(nums: &nums, left: nums.startIndex, right: nums.endIndex - 1)
-        print("歸併排序完成後 nums = \(nums)")
+        print("合併排序完成後 nums = \(nums)")
     }
 }

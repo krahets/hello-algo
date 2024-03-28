@@ -39,7 +39,7 @@ func merge(nums []int, left, mid, right int) {
 	}
 }
 
-/* 歸併排序 */
+/* 合併排序 */
 func mergeSort(nums []int, left, right int) {
 	// 終止條件
 	if left >= right {

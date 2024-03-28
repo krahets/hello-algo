@@ -36,7 +36,7 @@ def merge(nums: list[int], left: int, mid: int, right: int):
 
 
 def merge_sort(nums: list[int], left: int, right: int):
-    """歸併排序"""
+    """合併排序"""
     # 終止條件
     if left >= right:
         return  # 當子陣列長度為 1 時終止遞迴
@@ -52,4 +52,4 @@ def merge_sort(nums: list[int], left: int, right: int):
 if __name__ == "__main__":
     nums = [7, 3, 2, 6, 0, 1, 5, 4]
     merge_sort(nums, 0, len(nums) - 1)
-    print("歸併排序完成後 nums =", nums)
+    print("合併排序完成後 nums =", nums)

@@ -40,7 +40,7 @@ fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
     }
 }
 
-/* 歸併排序 */
+/* 合併排序 */
 fn merge_sort(nums: &mut [i32], left: usize, right: usize) {
     // 終止條件
     if left >= right {
@@ -58,9 +58,9 @@ fn merge_sort(nums: &mut [i32], left: usize, right: usize) {
 
 /* Driver Code */
 fn main() {
-    /* 歸併排序 */
+    /* 合併排序 */
     let mut nums = [7, 3, 2, 6, 0, 1, 5, 4];
     let right = nums.len() - 1;
     merge_sort(&mut nums, 0, right);
-    println!("歸併排序完成後 nums = {:?}", nums);
+    println!("合併排序完成後 nums = {:?}", nums);
 }

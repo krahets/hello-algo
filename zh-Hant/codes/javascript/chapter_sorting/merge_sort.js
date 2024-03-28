@@ -34,7 +34,7 @@ function merge(nums, left, mid, right) {
     }
 }
 
-/* 歸併排序 */
+/* 合併排序 */
 function mergeSort(nums, left, right) {
     // 終止條件
     if (left >= right) return; // 當子陣列長度為 1 時終止遞迴
@@ -49,4 +49,4 @@ function mergeSort(nums, left, right) {
 /* Driver Code */
 const nums = [7, 3, 2, 6, 0, 1, 5, 4];
 mergeSort(nums, 0, nums.length - 1);
-console.log('歸併排序完成後 nums =', nums);
+console.log('合併排序完成後 nums =', nums);
