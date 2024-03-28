@@ -43,7 +43,7 @@ fn merge(nums: []i32, left: usize, mid: usize, right: usize) !void {
     }
 }
 
-// 歸併排序
+// 合併排序
 fn mergeSort(nums: []i32, left: usize, right: usize) !void {
     // 終止條件
     if (left >= right) return;              // 當子陣列長度為 1 時終止遞迴
@@ -57,10 +57,10 @@ fn mergeSort(nums: []i32, left: usize, right: usize) !void {
 
 // Driver Code
 pub fn main() !void {
-    // 歸併排序
+    // 合併排序
     var nums = [_]i32{ 7, 3, 2, 6, 0, 1, 5, 4 };
     try mergeSort(&nums, 0, nums.len - 1);
-    std.debug.print("歸併排序完成後 nums = ", .{});
+    std.debug.print("合併排序完成後 nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums);
 
     _ = try std.io.getStdIn().reader().readByte();

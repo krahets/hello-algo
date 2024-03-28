@@ -37,7 +37,7 @@ void merge(int *nums, int left, int mid, int right) {
     free(tmp);
 }
 
-/* 歸併排序 */
+/* 合併排序 */
 void mergeSort(int *nums, int left, int right) {
     // 終止條件
     if (left >= right)
@@ -52,11 +52,11 @@ void mergeSort(int *nums, int left, int right) {
 
 /* Driver Code */
 int main() {
-    /* 歸併排序 */
+    /* 合併排序 */
     int nums[] = {7, 3, 2, 6, 0, 1, 5, 4};
     int size = sizeof(nums) / sizeof(int);
     mergeSort(nums, 0, size - 1);
-    printf("歸併排序完成後 nums = ");
+    printf("合併排序完成後 nums = ");
     printArray(nums, size);
 
     return 0;

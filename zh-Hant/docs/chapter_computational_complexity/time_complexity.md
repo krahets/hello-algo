@@ -1046,7 +1046,7 @@ $$
 
 ![線性對數階的時間複雜度](time_complexity.assets/time_complexity_logarithmic_linear.png)
 
-主流排序演算法的時間複雜度通常為 $O(n \log n)$ ，例如快速排序、歸併排序、堆積排序等。
+主流排序演算法的時間複雜度通常為 $O(n \log n)$ ，例如快速排序、合併排序、堆積排序等。
 
 ### 階乘階 $O(n!)$
 

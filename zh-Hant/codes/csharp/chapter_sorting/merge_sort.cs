@@ -34,7 +34,7 @@ public class merge_sort {
         }
     }
 
-    /* 歸併排序 */
+    /* 合併排序 */
     void MergeSort(int[] nums, int left, int right) {
         // 終止條件
         if (left >= right) return;       // 當子陣列長度為 1 時終止遞迴
@@ -48,9 +48,9 @@ public class merge_sort {
 
     [Test]
     public void Test() {
-        /* 歸併排序 */
+        /* 合併排序 */
         int[] nums = [7, 3, 2, 6, 0, 1, 5, 4];
         MergeSort(nums, 0, nums.Length - 1);
-        Console.WriteLine("歸併排序完成後 nums = " + string.Join(",", nums));
+        Console.WriteLine("合併排序完成後 nums = " + string.Join(",", nums));
     }
 }

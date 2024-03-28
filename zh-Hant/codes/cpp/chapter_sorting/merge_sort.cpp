@@ -33,7 +33,7 @@ void merge(vector<int> &nums, int left, int mid, int right) {
     }
 }
 
-/* 歸併排序 */
+/* 合併排序 */
 void mergeSort(vector<int> &nums, int left, int right) {
     // 終止條件
     if (left >= right)
@@ -48,10 +48,10 @@ void mergeSort(vector<int> &nums, int left, int right) {
 
 /* Driver Code */
 int main() {
-    /* 歸併排序 */
+    /* 合併排序 */
     vector<int> nums = {7, 3, 2, 6, 0, 1, 5, 4};
     mergeSort(nums, 0, nums.size() - 1);
-    cout << "歸併排序完成後 nums = ";
+    cout << "合併排序完成後 nums = ";
     printVector(nums);
 
     return 0;
