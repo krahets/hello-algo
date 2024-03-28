@@ -165,7 +165,7 @@
     /* 链表节点类 */
     // 构造方法
     class ListNode(x: Int) {
-        val `val`: Int = x         // 节点值
+        val _val: Int = x          // 节点值
         val next: ListNode? = null // 指向下一个节点的引用
     }
     ```
@@ -662,7 +662,7 @@
     /* 双向链表节点类 */
     // 构造方法
     class ListNode(x: Int) {
-        val `val`: Int = x          // 节点值
+        val _val: Int = x           // 节点值
         val next: ListNode? = null  // 指向后继节点的引用
         val prev: ListNode? = null  // 指向前驱节点的引用
     }

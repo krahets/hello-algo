@@ -174,7 +174,16 @@
 === "Kotlin"
 
     ```kotlin title=""
-
+    // 在某运行平台下
+    fun algorithm(n: Int) {
+        var a = 2 // 1 ns
+        a = a + 1 // 1 ns
+        a = a * 2 // 10 ns
+        // 循环 n 次
+        for (i in 0..<n) {  // 1 ns ，每轮都要执行 i++
+            println(0)      // 5 ns
+        }
+    }
     ```
 
 === "Zig"
@@ -438,7 +447,22 @@ $$
 === "Kotlin"
 
     ```kotlin title=""
-
+    // 算法 A 的时间复杂度：常数阶
+    fun algoritm_A(n: Int) {
+        println(0)
+    }
+    // 算法 B 的时间复杂度：线性阶
+    fun algorithm_B(n: Int) {
+        for (i in 0..<n){
+            println(0)
+        }
+    }
+    // 算法 C 的时间复杂度：常数阶
+    fun algorithm_C(n: Int) {
+        for (i in 0..<1000000) {
+            println(0)
+        }
+    }
     ```
 
 === "Zig"
@@ -638,7 +662,15 @@ $$
 === "Kotlin"
 
     ```kotlin title=""
-
+    fun algorithm(n: Int) {
+        var a = 1 // +1
+        a = a + 1 // +1
+        a = a * 2 // +1
+        // 循环 n 次
+        for (i in 0..<n) { // +1（每轮都执行 i ++）
+            println(0) // +1
+        }
+    }
     ```
 
 === "Zig"
@@ -901,7 +933,20 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
 === "Kotlin"
 
     ```kotlin title=""
-
+    fun algorithm(n: Int) {
+        var a = 1   // +0（技巧 1）
+        a = a + n   // +0（技巧 1）
+        // +n（技巧 2）
+        for (i in 0..<5 * n + 1) {
+            println(0)
+        }
+        // +n*n（技巧 3）
+        for (i in 0..<2 * n) {
+            for (j in 0..<n + 1) {
+                println(0)
+            }
+        }
+    }
     ```
 
 === "Zig"

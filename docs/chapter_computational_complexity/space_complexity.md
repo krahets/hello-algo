@@ -312,7 +312,24 @@
 === "Kotlin"
 
     ```kotlin title=""
+    /* 类 */
+    class Node(var _val: Int) {
+        var next: Node? = null
+    }
 
+    /* 函数 */
+    fun function(): Int {
+        // 执行某些操作...
+        return 0
+    }
+
+    fun algorithm(n: Int): Int { // 输入数据
+        val a = 0                // 暂存数据（常量）
+        var b = 0                // 暂存数据（变量）
+        val node = Node(0)       // 暂存数据（对象）
+        val c = function()       // 栈帧空间（调用函数）
+        return a + b + c         // 输出数据
+    }
     ```
 
 === "Zig"
@@ -464,7 +481,13 @@
 === "Kotlin"
 
     ```kotlin title=""
-
+    fun algorithm(n: Int) {
+        val a = 0                    // O(1)
+        val b = IntArray(10000)      // O(1)
+        if (n > 10) {
+            val nums = IntArray(n)   // O(n)
+        }
+    }
     ```
 
 === "Zig"
@@ -708,7 +731,21 @@
 === "Kotlin"
 
     ```kotlin title=""
-
+    fun function(): Int {
+        // 执行某些操作
+        return 0
+    }
+    /* 循环 O(1) */
+    fun loop(n: Int) {
+        for (i in 0..<n) {
+            function()
+        }
+    }
+    /* 递归 O(n) */
+    fun recur(n: Int) {
+        if (n == 1) return
+        return recur(n - 1)
+    }
     ```
 
 === "Zig"
