@@ -156,7 +156,11 @@
 === "Kotlin"
 
     ```kotlin title=""
-
+    // 使用多种基本数据类型来初始化数组
+    val numbers = IntArray(5)
+    val decinals = FloatArray(5)
+    val characters = CharArray(5)
+    val bools = BooleanArray(5)
     ```
 
 === "Zig"
