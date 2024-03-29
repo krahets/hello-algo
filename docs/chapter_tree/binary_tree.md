@@ -180,7 +180,7 @@
 
     ```kotlin title=""
     /* 二叉树节点类 */
-    class TreeNode(val _val: Int) {     // 节点值
+    class TreeNode(val _val: Int) {      // 节点值
         val left: TreeNode? = null       // 左子节点引用
         val right: TreeNode? = null      // 右子节点引用
     }
