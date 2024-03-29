@@ -270,7 +270,24 @@
 === "Kotlin"
 
     ```kotlin title="hash_map.kt"
-
+    /* 初始化哈希表 */
+    val map = HashMap<Int,String>()
+    
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map[12836] = "小哈"
+    map[15937] = "小啰"
+    map[16750] = "小算"
+    map[13276] = "小法"
+    map[10583] = "小鸭"
+    
+    /* 查询操作 */
+    // 向哈希表中输入键 key ，得到值 value
+    val name = map[15937]
+    
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.remove(10583)
     ```
 
 === "Zig"
@@ -471,7 +488,19 @@
 === "Kotlin"
 
     ```kotlin title="hash_map.kt"
-
+    /* 遍历哈希表 */
+    // 遍历键值对 key->value
+    for ((key, value) in map) {
+        println("$key -> $value")
+    }
+    // 单独遍历键 key
+    for (key in map.keys) {
+        println(key)
+    }
+    // 单独遍历值 value
+    for (_val in map.values) {
+        println(_val)
+    }
     ```
 
 === "Zig"
