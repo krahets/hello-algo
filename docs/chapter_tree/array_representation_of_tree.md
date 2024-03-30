@@ -115,7 +115,9 @@
 === "Kotlin"
 
     ```kotlin title=""
-
+    /* 二叉树的数组表示 */
+    // 使用 null 来表示空位
+    val tree = mutableListOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
     ```
 
 === "Zig"
