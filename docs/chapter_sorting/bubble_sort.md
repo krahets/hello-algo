@@ -271,6 +271,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="bubble_sort.rb"
+    [class]{}-[func]{bubble_sort}
+    ```
+
 === "Zig"
 
     ```zig title="bubble_sort.zig"
@@ -572,6 +578,12 @@ comments: true
             if (!flag) break // 此轮“冒泡”未交换任何元素，直接跳出
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="bubble_sort.rb"
+    [class]{}-[func]{bubble_sort_with_flag}
     ```
 
 === "Zig"

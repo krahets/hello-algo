@@ -225,6 +225,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="two_sum.rb"
+    [class]{}-[func]{two_sum_brute_force}
+    ```
+
 === "Zig"
 
     ```zig title="two_sum.zig"
@@ -520,6 +526,12 @@ comments: true
         }
         return IntArray(0)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="two_sum.rb"
+    [class]{}-[func]{two_sum_hash_table}
     ```
 
 === "Zig"

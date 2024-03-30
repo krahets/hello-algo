@@ -672,6 +672,16 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="radix_sort.rb"
+    [class]{}-[func]{digit}
+
+    [class]{}-[func]{counting_sort_digit}
+
+    [class]{}-[func]{radix_sort}
+    ```
+
 === "Zig"
 
     ```zig title="radix_sort.zig"

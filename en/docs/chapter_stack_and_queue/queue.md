@@ -1196,6 +1196,12 @@ Below is the code for implementing a queue using a linked list:
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="linkedlist_queue.rb"
+    [class]{LinkedListQueue}-[func]{}
+    ```
+
 === "Zig"
 
     ```zig title="linkedlist_queue.zig"
@@ -2174,6 +2180,12 @@ In a circular array, `front` or `rear` needs to loop back to the start of the ar
             return res
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array_queue.rb"
+    [class]{ArrayQueue}-[func]{}
     ```
 
 === "Zig"

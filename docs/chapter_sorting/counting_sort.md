@@ -345,6 +345,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="counting_sort.rb"
+    [class]{}-[func]{counting_sort_naive}
+    ```
+
 === "Zig"
 
     ```zig title="counting_sort.zig"
@@ -843,6 +849,12 @@ $$
             nums[i] = res[i]
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="counting_sort.rb"
+    [class]{}-[func]{counting_sort}
     ```
 
 === "Zig"

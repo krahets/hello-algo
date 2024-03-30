@@ -305,6 +305,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="my_heap.rb"
+    [class]{MaxHeap}-[func]{__init__}
+    ```
+
 === "Zig"
 
     ```zig title="my_heap.zig"

@@ -1697,6 +1697,14 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="array_hash_map.rb"
+    [class]{Pair}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
+    ```
+
 === "Zig"
 
     ```zig title="array_hash_map.zig"

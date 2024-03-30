@@ -394,6 +394,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="max_capacity.rb"
+    [class]{}-[func]{max_capacity}
+    ```
+
 === "Zig"
 
     ```zig title="max_capacity.zig"

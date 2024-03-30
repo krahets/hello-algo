@@ -572,6 +572,14 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="heap_sort.rb"
+    [class]{}-[func]{sift_down}
+
+    [class]{}-[func]{heap_sort}
+    ```
+
 === "Zig"
 
     ```zig title="heap_sort.zig"

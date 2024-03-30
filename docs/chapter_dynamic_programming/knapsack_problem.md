@@ -321,6 +321,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="knapsack.rb"
+    [class]{}-[func]{knapsack_dfs}
+    ```
+
 === "Zig"
 
     ```zig title="knapsack.zig"
@@ -691,6 +697,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="knapsack.rb"
+    [class]{}-[func]{knapsack_dfs_mem}
+    ```
+
 === "Zig"
 
     ```zig title="knapsack.zig"
@@ -1047,6 +1059,12 @@ $$
         }
         return dp[n][cap]
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="knapsack.rb"
+    [class]{}-[func]{knapsack_dp}
     ```
 
 === "Zig"
@@ -1433,6 +1451,12 @@ $$
         }
         return dp[cap]
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="knapsack.rb"
+    [class]{}-[func]{knapsack_dp_comp}
     ```
 
 === "Zig"

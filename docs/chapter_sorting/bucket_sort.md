@@ -345,8 +345,8 @@ comments: true
         int k = size / 2;
         float **buckets = calloc(k, sizeof(float *));
         for (int i = 0; i < k; i++) {
-            // 每个桶最多可以分配 k 个元素
-            buckets[i] = calloc(ARRAY_SIZE, sizeof(float));
+            // 每个桶最多可以分配 size 个元素
+            buckets[i] = calloc(size, sizeof(float));
         }
 
         // 1. 将数组元素分配到各个桶中
@@ -359,7 +359,7 @@ comments: true
                 j++;
             }
             float temp = nums[i];
-            while (j < ARRAY_SIZE && buckets[bucket_idx][j] > 0) {
+            while (j < size && buckets[bucket_idx][j] > 0) {
                 swap(&temp, &buckets[bucket_idx][j]);
                 j++;
             }
@@ -368,12 +368,12 @@ comments: true
 
         // 2. 对各个桶执行排序
         for (int i = 0; i < k; i++) {
-            qsort(buckets[i], ARRAY_SIZE, sizeof(float), compare_float);
+            qsort(buckets[i], size, sizeof(float), compare_float);
         }
 
         // 3. 遍历桶合并结果
         for (int i = 0, j = 0; j < k; j++) {
-            for (int l = 0; l < ARRAY_SIZE; l++) {
+            for (int l = 0; l < size; l++) {
                 if (buckets[j][l] > 0) {
                     nums[i++] = buckets[j][l];
                 }
@@ -419,6 +419,12 @@ comments: true
             }
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="bucket_sort.rb"
+    [class]{}-[func]{bucket_sort}
     ```
 
 === "Zig"

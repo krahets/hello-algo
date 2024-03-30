@@ -444,6 +444,12 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="graph_bfs.rb"
+    [class]{}-[func]{graph_bfs}
+    ```
+
 === "Zig"
 
     ```zig title="graph_bfs.zig"
@@ -883,6 +889,14 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         dfs(graph, visited, res, startVet)
         return res
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="graph_dfs.rb"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{graph_dfs}
     ```
 
 === "Zig"

@@ -352,6 +352,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="unbounded_knapsack.rb"
+    [class]{}-[func]{unbounded_knapsack_dp}
+    ```
+
 === "Zig"
 
     ```zig title="unbounded_knapsack.zig"
@@ -704,6 +710,12 @@ $$
         }
         return dp[cap]
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="unbounded_knapsack.rb"
+    [class]{}-[func]{unbounded_knapsack_dp_comp}
     ```
 
 === "Zig"
@@ -1151,6 +1163,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="coin_change.rb"
+    [class]{}-[func]{coin_change_dp}
+    ```
+
 === "Zig"
 
     ```zig title="coin_change.zig"
@@ -1568,6 +1586,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="coin_change.rb"
+    [class]{}-[func]{coin_change_dp_comp}
+    ```
+
 === "Zig"
 
     ```zig title="coin_change.zig"
@@ -1975,6 +1999,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="coin_change_ii.rb"
+    [class]{}-[func]{coin_change_ii_dp}
+    ```
+
 === "Zig"
 
     ```zig title="coin_change_ii.zig"
@@ -2311,6 +2341,12 @@ $$
         }
         return dp[amt]
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="coin_change_ii.rb"
+    [class]{}-[func]{coin_change_ii_dp_comp}
     ```
 
 === "Zig"

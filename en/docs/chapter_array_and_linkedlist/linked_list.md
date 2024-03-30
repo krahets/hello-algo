@@ -552,6 +552,18 @@ By comparison, inserting an element into an array has a time complexity of $O(n)
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    ### 在链表的节点 n0 之后插入节点 _p ###
+    # Ruby 的 `p` 是一个内置函数， `P` 是一个常量，所以可以使用 `_p` 代替
+    def insert(n0, _p)
+      n1 = n0.next
+      _p.next = n1
+      n0.next = _p
+    end
+    ```
+
 === "Zig"
 
     ```zig title="linked_list.zig"
@@ -752,6 +764,20 @@ It's important to note that even though node `P` continues to point to `n1` afte
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    ### 删除链表的节点 n0 之后的首个节点 ###
+    def remove(n0)
+      return if n0.next.nil?
+
+      # n0 -> remove_node -> n1
+      remove_node = n0.next
+      n1 = remove_node.next
+      n0.next = n1
+    end
+    ```
+
 === "Zig"
 
     ```zig title="linked_list.zig"
@@ -943,6 +969,20 @@ It's important to note that even though node `P` continues to point to `n1` afte
         }
         return h
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    ### 访问链表中索引为 index 的节点 ###
+    def access(head, index)
+      for i in 0...index
+        return nil if head.nil?
+        head = head.next
+      end
+
+      head
+    end
     ```
 
 === "Zig"
@@ -1162,6 +1202,22 @@ Traverse the linked list to locate a node whose value matches `target`, and then
         }
         return -1
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    ### 在链表中查找值为 target 的首个节点 ###
+    def find(head, target)
+      index = 0
+      while head
+        return index if head.val == target
+        head = head.next
+        index += 1
+      end
+
+      -1
+    end
     ```
 
 === "Zig"

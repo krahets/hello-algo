@@ -114,7 +114,17 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="array.kt"
+    /* 初始化数组 */
+    var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
+    var nums = intArrayOf(1, 3, 2, 5, 4)
+    ```
 
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    # 初始化数组
+    arr = Array.new(5, 0)
+    nums = [1, 3, 2, 5, 4]
     ```
 
 === "Zig"
@@ -296,6 +306,19 @@ comments: true
         val randomNum = nums[randomIndex]
         return randomNum
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    ### 随机访问元素 ###
+    def random_access(nums)
+      # 在区间 [0, nums.length) 中随机抽取一个数字
+      random_index = Random.rand 0...(nums.length - 1)
+
+      # 获取并返回随机元素
+      nums[random_index]
+    end
     ```
 
 === "Zig"
@@ -492,6 +515,21 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    ### 在数组的索引 index 处插入元素 num ###
+    def insert(nums, num, index)
+      # 把索引 index 以及之后的所有元素向后移动一位
+      for i in (nums.length - 1).downto(index + 1)
+        nums[i] = nums[i - 1]
+      end
+
+      # 将 num 赋给 index 处的元素
+      nums[index] = num
+    end
+    ```
+
 === "Zig"
 
     ```zig title="array.zig"
@@ -663,6 +701,18 @@ comments: true
             nums[i] = nums[i + 1]
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    ### 删除索引 index 处的元素 ###
+    def remove(nums, index)
+      # 把索引 index 之后的所有元素向前移动一位
+      for i in index...nums.length
+        nums[i] = nums[i + 1] || 0
+      end
+    end
     ```
 
 === "Zig"
@@ -905,6 +955,25 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    ### 遍历数组 ###
+    def traverse(nums)
+      count = 0
+
+      # 通过索引遍历数组
+      for i in 0...nums.length
+        count += nums[i]
+      end
+
+      # 直接遍历数组元素
+      for num in nums
+        count += num
+      end
+    end
+    ```
+
 === "Zig"
 
     ```zig title="array.zig"
@@ -1090,6 +1159,19 @@ comments: true
         }
         return -1
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    ### 在数组中查找指定元素 ###
+    def find(nums, target)
+      for i in 0...nums.length
+        return i if nums[i] == target
+      end
+
+      -1
+    end
     ```
 
 === "Zig"
@@ -1313,6 +1395,26 @@ comments: true
         // 返回扩展后的新数组
         return res
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    ### 扩展数组长度 ###
+    # 请注意，Ruby 的 Array 是动态数组，可以直接扩展
+    # 为了方便学习，本函数将 Array 看作长度不可变的数组
+    def extend(nums, enlarge)
+      # 初始化一个扩展长度后的数组
+      res = Array.new(nums.length + enlarge, 0)
+
+      # 将原数组中的所有元素复制到新数组
+      for i in 0...nums.length
+        res[i] = nums[i]
+      end
+
+      # 返回扩展后的新数组
+      res
+    end
     ```
 
 === "Zig"

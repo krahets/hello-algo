@@ -168,7 +168,27 @@ comments: true
 === "Kotlin"
 
     ```kotlin title=""
+    /* 链表节点类 */
+    // 构造方法
+    class ListNode(x: Int) {
+        val _val: Int = x          // 节点值
+        val next: ListNode? = null // 指向下一个节点的引用
+    }
+    ```
 
+=== "Ruby"
+
+    ```ruby title=""
+    # 链表节点类
+    class ListNode
+      attr_accessor :val  # 节点值
+      attr_accessor :next # 指向下一节点的引用
+
+      def initialize(val=nil, next_node=nil)
+        @val = val || 0
+        @next = next_node
+      end
+    end
     ```
 
 === "Zig"
@@ -388,7 +408,35 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个节点
+    val n0 = ListNode(1)
+    val n1 = ListNode(3)
+    val n2 = ListNode(2)
+    val n3 = ListNode(5)
+    val n4 = ListNode(4)
+    // 构建节点之间的引用
+    n0.next = n1;
+    n1.next = n2;
+    n2.next = n3;
+    n3.next = n4;
+    ```
 
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    # 初始化链表 1 -> 3 -> 2 -> 5 -> 4
+    # 初始化各个节点
+    n0 = ListNode.new 1
+    n1 = ListNode.new 3
+    n2 = ListNode.new 2
+    n3 = ListNode.new 5
+    n4 = ListNode.new 4
+    # 构建节点之间的引用
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
     ```
 
 === "Zig"
@@ -555,6 +603,18 @@ comments: true
         p?.next = n1
         n0?.next = p
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    ### 在链表的节点 n0 之后插入节点 _p ###
+    # Ruby 的 `p` 是一个内置函数， `P` 是一个常量，所以可以使用 `_p` 代替
+    def insert(n0, _p)
+      n1 = n0.next
+      _p.next = n1
+      n0.next = _p
+    end
     ```
 
 === "Zig"
@@ -757,6 +817,20 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    ### 删除链表的节点 n0 之后的首个节点 ###
+    def remove(n0)
+      return if n0.next.nil?
+
+      # n0 -> remove_node -> n1
+      remove_node = n0.next
+      n1 = remove_node.next
+      n0.next = n1
+    end
+    ```
+
 === "Zig"
 
     ```zig title="linked_list.zig"
@@ -948,6 +1022,20 @@ comments: true
         }
         return h
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    ### 访问链表中索引为 index 的节点 ###
+    def access(head, index)
+      for i in 0...index
+        return nil if head.nil?
+        head = head.next
+      end
+
+      head
+    end
     ```
 
 === "Zig"
@@ -1167,6 +1255,22 @@ comments: true
         }
         return -1
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    ### 在链表中查找值为 target 的首个节点 ###
+    def find(head, target)
+      index = 0
+      while head
+        return index if head.val == target
+        head = head.next
+        index += 1
+      end
+
+      -1
+    end
     ```
 
 === "Zig"
@@ -1389,7 +1493,30 @@ comments: true
 === "Kotlin"
 
     ```kotlin title=""
+    /* 双向链表节点类 */
+    // 构造方法
+    class ListNode(x: Int) {
+        val _val: Int = x           // 节点值
+        val next: ListNode? = null  // 指向后继节点的引用
+        val prev: ListNode? = null  // 指向前驱节点的引用
+    }
+    ```
 
+=== "Ruby"
+
+    ```ruby title=""
+    # 双向链表节点类
+    class ListNode
+      attr_accessor :val    # 节点值
+      attr_accessor :next   # 指向后继节点的引用
+      attr_accessor :prev   # 指向前驱节点的引用
+
+      def initialize(val=nil, next_node=nil, prev_node=nil)
+        @val = val || 0
+        @next = next_node
+        @prev = prev_node
+      end
+    end
     ```
 
 === "Zig"

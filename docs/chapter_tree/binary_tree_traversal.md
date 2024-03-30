@@ -314,6 +314,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="binary_tree_bfs.rb"
+    [class]{}-[func]{level_order}
+    ```
+
 === "Zig"
 
     ```zig title="binary_tree_bfs.zig"
@@ -779,6 +785,16 @@ comments: true
         postOrder(root.right)
         list.add(root.value)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_tree_dfs.rb"
+    [class]{}-[func]{pre_order}
+
+    [class]{}-[func]{in_order}
+
+    [class]{}-[func]{post_order}
     ```
 
 === "Zig"

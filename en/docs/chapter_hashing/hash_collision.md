@@ -1426,6 +1426,12 @@ The code below provides a simple implementation of a separate chaining hash tabl
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="hash_map_chaining.rb"
+    [class]{HashMapChaining}-[func]{}
+    ```
+
 === "Zig"
 
     ```zig title="hash_map_chaining.zig"
@@ -3070,6 +3076,12 @@ The code below implements an open addressing (linear probing) hash table with la
             }
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="hash_map_open_addressing.rb"
+    [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "Zig"

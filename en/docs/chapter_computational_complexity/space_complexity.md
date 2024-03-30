@@ -1077,6 +1077,14 @@ Note that memory occupied by initializing variables or calling functions in a lo
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="space_complexity.rb"
+    [class]{}-[func]{function}
+
+    [class]{}-[func]{constant}
+    ```
+
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -1373,6 +1381,12 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="space_complexity.rb"
+    [class]{}-[func]{linear}
+    ```
+
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -1547,6 +1561,12 @@ As shown below, this function's recursive depth is $n$, meaning there are $n$ in
             return
         linearRecur(n - 1)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="space_complexity.rb"
+    [class]{}-[func]{linear_recur}
     ```
 
 === "Zig"
@@ -1783,6 +1803,12 @@ Quadratic order is common in matrices and graphs, where the number of elements i
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="space_complexity.rb"
+    [class]{}-[func]{quadratic}
+    ```
+
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -1970,6 +1996,12 @@ As shown below, the recursive depth of this function is $n$, and in each recursi
         println("递归 n = $n 中的 nums 长度 = ${nums.size}")
         return quadraticRecur(n - 1)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="space_complexity.rb"
+    [class]{}-[func]{quadratic_recur}
     ```
 
 === "Zig"
@@ -2162,6 +2194,12 @@ Exponential order is common in binary trees. Observe the below image, a "full bi
         root.right = buildTree(n - 1)
         return root
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="space_complexity.rb"
+    [class]{}-[func]{build_tree}
     ```
 
 === "Zig"

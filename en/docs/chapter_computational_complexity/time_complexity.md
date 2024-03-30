@@ -1140,6 +1140,12 @@ Constant order means the number of operations is independent of the input data s
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{constant}
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -1310,6 +1316,12 @@ Linear order indicates the number of operations grows linearly with the input da
             count++
         return count
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{linear}
     ```
 
 === "Zig"
@@ -1497,6 +1509,12 @@ Operations like array traversal and linked list traversal have a time complexity
         }
         return count
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{array_traversal}
     ```
 
 === "Zig"
@@ -1711,6 +1729,12 @@ Quadratic order means the number of operations grows quadratically with the inpu
         }
         return count
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{quadratic}
     ```
 
 === "Zig"
@@ -2013,6 +2037,12 @@ For instance, in bubble sort, the outer loop runs $n - 1$ times, and the inner l
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{bubble_sort}
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -2269,6 +2299,12 @@ The following image and code simulate the cell division process, with a time com
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{exponential}
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -2430,6 +2466,12 @@ In practice, exponential order often appears in recursive functions. For example
         }
         return expRecur(n - 1) + expRecur(n - 1) + 1
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{exp_recur}
     ```
 
 === "Zig"
@@ -2623,6 +2665,12 @@ The following image and code simulate the "halving each round" process, with a t
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{logarithmic}
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -2778,6 +2826,12 @@ Like exponential order, logarithmic order also frequently appears in recursive f
             return 0
         return logRecur(n / 2) + 1
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{log_recur}
     ```
 
 === "Zig"
@@ -2986,6 +3040,12 @@ Linear-logarithmic order often appears in nested loops, with the complexities of
         }
         return count
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{linear_log_recur}
     ```
 
 === "Zig"
@@ -3212,6 +3272,12 @@ Factorials are typically implemented using recursion. As shown in the image and 
         }
         return count
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{factorial_recur}
     ```
 
 === "Zig"
@@ -3601,6 +3667,14 @@ The "worst-case time complexity" corresponds to the asymptotic upper bound, deno
         }
         return -1
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="worst_best_time_complexity.rb"
+    [class]{}-[func]{random_numbers}
+
+    [class]{}-[func]{find_one}
     ```
 
 === "Zig"

@@ -211,6 +211,17 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
 === "Kotlin"
 
     ```kotlin title=""
+    /* AVL 树节点类 */
+    class TreeNode(val _val: Int) {  // 节点值
+        val height: Int = 0          // 节点高度
+        val left: TreeNode? = null   // 左子节点
+        val right: TreeNode? = null  // 右子节点
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
 
     ```
 
@@ -441,6 +452,14 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="avl_tree.rb"
+    [class]{AVLTree}-[func]{height}
+
+    [class]{AVLTree}-[func]{update_height}
+    ```
+
 === "Zig"
 
     ```zig title="avl_tree.zig"
@@ -614,6 +633,12 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
         // 节点平衡因子 = 左子树高度 - 右子树高度
         return height(node.left) - height(node.right)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="avl_tree.rb"
+    [class]{AVLTree}-[func]{balance_factor}
     ```
 
 === "Zig"
@@ -885,6 +910,12 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="avl_tree.rb"
+    [class]{AVLTree}-[func]{right_rotate}
+    ```
+
 === "Zig"
 
     ```zig title="avl_tree.zig"
@@ -1138,6 +1169,12 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
         // 返回旋转后子树的根节点
         return child
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="avl_tree.rb"
+    [class]{AVLTree}-[func]{left_rotate}
     ```
 
 === "Zig"
@@ -1608,6 +1645,12 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="avl_tree.rb"
+    [class]{AVLTree}-[func]{rotate}
+    ```
+
 === "Zig"
 
     ```zig title="avl_tree.zig"
@@ -1989,6 +2032,14 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         // 返回子树的根节点
         return node
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="avl_tree.rb"
+    [class]{AVLTree}-[func]{insert}
+
+    [class]{AVLTree}-[func]{insert_helper}
     ```
 
 === "Zig"
@@ -2574,6 +2625,14 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         // 返回子树的根节点
         return node
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="avl_tree.rb"
+    [class]{AVLTree}-[func]{remove}
+
+    [class]{AVLTree}-[func]{remove_helper}
     ```
 
 === "Zig"

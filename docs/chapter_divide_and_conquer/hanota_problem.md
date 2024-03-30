@@ -507,6 +507,16 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="hanota.rb"
+    [class]{}-[func]{move}
+
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{solve_hanota}
+    ```
+
 === "Zig"
 
     ```zig title="hanota.zig"

@@ -182,6 +182,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="iteration.rb"
+    [class]{}-[func]{for_loop}
+    ```
+
 === "Zig"
 
     ```zig title="iteration.zig"
@@ -406,6 +412,12 @@ comments: true
         }
         return res
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="iteration.rb"
+    [class]{}-[func]{while_loop}
     ```
 
 === "Zig"
@@ -649,6 +661,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="iteration.rb"
+    [class]{}-[func]{while_loop_ii}
+    ```
+
 === "Zig"
 
     ```zig title="iteration.zig"
@@ -883,6 +901,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="iteration.rb"
+    [class]{}-[func]{nested_for_loop}
+    ```
+
 === "Zig"
 
     ```zig title="iteration.zig"
@@ -1112,6 +1136,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="recursion.rb"
+    [class]{}-[func]{recur}
+    ```
+
 === "Zig"
 
     ```zig title="recursion.zig"
@@ -1318,14 +1348,21 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="recursion.kt"
-    /* Kotlin tailrec 关键词使函数实现尾递归优化 */
+    /* 尾递归 */
     tailrec fun tailRecur(n: Int, res: Int): Int {
+        // 添加 tailrec 关键词，以开启尾递归优化
         // 终止条件
         if (n == 0)
             return res
         // 尾递归调用
         return tailRecur(n - 1, res + n)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="recursion.rb"
+    [class]{}-[func]{tail_recur}
     ```
 
 === "Zig"
@@ -1552,6 +1589,12 @@ comments: true
         // 返回结果 f(n)
         return res
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="recursion.rb"
+    [class]{}-[func]{fib}
     ```
 
 === "Zig"
@@ -1888,6 +1931,12 @@ comments: true
         // res = 1+2+3+...+n
         return res
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="recursion.rb"
+    [class]{}-[func]{for_loop_recur}
     ```
 
 === "Zig"

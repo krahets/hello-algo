@@ -300,6 +300,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="selection_sort.rb"
+    [class]{}-[func]{selection_sort}
+    ```
+
 === "Zig"
 
     ```zig title="selection_sort.zig"

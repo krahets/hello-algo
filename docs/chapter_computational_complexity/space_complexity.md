@@ -318,6 +318,29 @@ comments: true
 === "Kotlin"
 
     ```kotlin title=""
+    /* 类 */
+    class Node(var _val: Int) {
+        var next: Node? = null
+    }
+
+    /* 函数 */
+    fun function(): Int {
+        // 执行某些操作...
+        return 0
+    }
+
+    fun algorithm(n: Int): Int { // 输入数据
+        val a = 0                // 暂存数据（常量）
+        var b = 0                // 暂存数据（变量）
+        val node = Node(0)       // 暂存数据（对象）
+        val c = function()       // 栈帧空间（调用函数）
+        return a + b + c         // 输出数据
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
 
     ```
 
@@ -470,6 +493,18 @@ comments: true
 === "Kotlin"
 
     ```kotlin title=""
+    fun algorithm(n: Int) {
+        val a = 0                    // O(1)
+        val b = IntArray(10000)      // O(1)
+        if (n > 10) {
+            val nums = IntArray(n)   // O(n)
+        }
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
 
     ```
 
@@ -683,7 +718,7 @@ comments: true
         }
     }
     /* 递归 O(n) */
-    void recur(n: i32) {
+    fn recur(n: i32) {
         if n == 1 {
             return;
         }
@@ -714,6 +749,26 @@ comments: true
 === "Kotlin"
 
     ```kotlin title=""
+    fun function(): Int {
+        // 执行某些操作
+        return 0
+    }
+    /* 循环 O(1) */
+    fun loop(n: Int) {
+        for (i in 0..<n) {
+            function()
+        }
+    }
+    /* 递归 O(n) */
+    fun recur(n: Int) {
+        if (n == 1) return
+        return recur(n - 1)
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
 
     ```
 
@@ -1076,6 +1131,14 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="space_complexity.rb"
+    [class]{}-[func]{function}
+
+    [class]{}-[func]{constant}
+    ```
+
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -1372,6 +1435,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="space_complexity.rb"
+    [class]{}-[func]{linear}
+    ```
+
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -1546,6 +1615,12 @@ $$
             return
         linearRecur(n - 1)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="space_complexity.rb"
+    [class]{}-[func]{linear_recur}
     ```
 
 === "Zig"
@@ -1782,6 +1857,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="space_complexity.rb"
+    [class]{}-[func]{quadratic}
+    ```
+
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -1969,6 +2050,12 @@ $$
         println("递归 n = $n 中的 nums 长度 = ${nums.size}")
         return quadraticRecur(n - 1)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="space_complexity.rb"
+    [class]{}-[func]{quadratic_recur}
     ```
 
 === "Zig"
@@ -2161,6 +2248,12 @@ $$
         root.right = buildTree(n - 1)
         return root
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="space_complexity.rb"
+    [class]{}-[func]{build_tree}
     ```
 
 === "Zig"

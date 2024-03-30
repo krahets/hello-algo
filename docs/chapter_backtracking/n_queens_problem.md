@@ -706,6 +706,14 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="n_queens.rb"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{n_queens}
+    ```
+
 === "Zig"
 
     ```zig title="n_queens.zig"

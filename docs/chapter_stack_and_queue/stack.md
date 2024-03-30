@@ -309,6 +309,32 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="stack.kt"
+    /* 初始化栈 */
+    val stack = Stack<Int>()
+    
+    /* 元素入栈 */
+    stack.push(1)
+    stack.push(3)
+    stack.push(2)
+    stack.push(5)
+    stack.push(4)
+    
+    /* 访问栈顶元素 */
+    val peek = stack.peek()
+    
+    /* 元素出栈 */
+    val pop = stack.pop()
+    
+    /* 获取栈的长度 */
+    val size = stack.size
+    
+    /* 判断是否为空 */
+    val isEmpty = stack.isEmpty()
+    ```
+
+=== "Ruby"
+
+    ```ruby title="stack.rb"
 
     ```
 
@@ -1068,6 +1094,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="linkedlist_stack.rb"
+    [class]{LinkedListStack}-[func]{}
+    ```
+
 === "Zig"
 
     ```zig title="linkedlist_stack.zig"
@@ -1621,10 +1653,7 @@ comments: true
 
         /* 出栈 */
         fn pop(&mut self) -> Option<T> {
-            match self.stack.pop() {
-                Some(num) => Some(num),
-                None => None,
-            }
+            self.stack.pop()
         }
 
         /* 访问栈顶元素 */
@@ -1743,6 +1772,12 @@ comments: true
             return stack.toArray()
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array_stack.rb"
+    [class]{ArrayStack}-[func]{}
     ```
 
 === "Zig"

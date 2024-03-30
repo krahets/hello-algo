@@ -1426,6 +1426,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="hash_map_chaining.rb"
+    [class]{HashMapChaining}-[func]{}
+    ```
+
 === "Zig"
 
     ```zig title="hash_map_chaining.zig"
@@ -3070,6 +3076,12 @@ comments: true
             }
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="hash_map_open_addressing.rb"
+    [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "Zig"

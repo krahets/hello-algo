@@ -1124,6 +1124,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="graph_adjacency_matrix.rb"
+    [class]{GraphAdjMat}-[func]{}
+    ```
+
 === "Zig"
 
     ```zig title="graph_adjacency_matrix.zig"
@@ -2219,6 +2225,12 @@ comments: true
             }
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="graph_adjacency_list.rb"
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "Zig"

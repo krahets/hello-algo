@@ -336,6 +336,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="binary_search.rb"
+    [class]{}-[func]{binary_search}
+    ```
+
 === "Zig"
 
     ```zig title="binary_search.zig"
@@ -656,6 +662,12 @@ comments: true
         // 未找到目标元素，返回 -1
         return -1
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_search.rb"
+    [class]{}-[func]{binary_search_lcro}
     ```
 
 === "Zig"

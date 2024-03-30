@@ -1968,6 +1968,14 @@ The implementation code is as follows:
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="linkedlist_deque.rb"
+    [class]{ListNode}-[func]{}
+
+    [class]{LinkedListDeque}-[func]{}
+    ```
+
 === "Zig"
 
     ```zig title="linkedlist_deque.zig"
@@ -2634,7 +2642,7 @@ The implementation only needs to add methods for "front enqueue" and "rear deque
         }
         // 计算队尾指针，指向队尾索引 + 1
         rear := q.index(q.front + q.queSize)
-        // 将 num 添加至队首
+        // 将 num 添加至队尾
         q.nums[rear] = num
         q.queSize++
     }
@@ -3448,6 +3456,12 @@ The implementation only needs to add methods for "front enqueue" and "rear deque
             return res
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array_deque.rb"
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "Zig"

@@ -307,6 +307,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="coin_change_greedy.rb"
+    [class]{}-[func]{coin_change_greedy}
+    ```
+
 === "Zig"
 
     ```zig title="coin_change_greedy.zig"

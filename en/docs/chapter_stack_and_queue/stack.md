@@ -1068,6 +1068,12 @@ Below is an example code for implementing a stack based on a linked list:
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="linkedlist_stack.rb"
+    [class]{LinkedListStack}-[func]{}
+    ```
+
 === "Zig"
 
     ```zig title="linkedlist_stack.zig"
@@ -1621,10 +1627,7 @@ Since the elements to be pushed onto the stack may continuously increase, we can
 
         /* 出栈 */
         fn pop(&mut self) -> Option<T> {
-            match self.stack.pop() {
-                Some(num) => Some(num),
-                None => None,
-            }
+            self.stack.pop()
         }
 
         /* 访问栈顶元素 */
@@ -1743,6 +1746,12 @@ Since the elements to be pushed onto the stack may continuously increase, we can
             return stack.toArray()
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array_stack.rb"
+    [class]{ArrayStack}-[func]{}
     ```
 
 === "Zig"

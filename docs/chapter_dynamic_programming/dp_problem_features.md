@@ -301,6 +301,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="min_cost_climbing_stairs_dp.rb"
+    [class]{}-[func]{min_cost_climbing_stairs_dp}
+    ```
+
 === "Zig"
 
     ```zig title="min_cost_climbing_stairs_dp.zig"
@@ -558,6 +564,12 @@ $$
         }
         return b
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="min_cost_climbing_stairs_dp.rb"
+    [class]{}-[func]{min_cost_climbing_stairs_dp_comp}
     ```
 
 === "Zig"
@@ -918,6 +930,12 @@ $$
         }
         return dp[n][1] + dp[n][2]
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="climbing_stairs_constraint_dp.rb"
+    [class]{}-[func]{climbing_stairs_constraint_dp}
     ```
 
 === "Zig"

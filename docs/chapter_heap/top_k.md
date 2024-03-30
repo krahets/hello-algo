@@ -434,6 +434,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="top_k.rb"
+    [class]{}-[func]{top_k_heap}
+    ```
+
 === "Zig"
 
     ```zig title="top_k.zig"

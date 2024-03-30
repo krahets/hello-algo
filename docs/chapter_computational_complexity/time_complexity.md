@@ -178,6 +178,21 @@ comments: true
 === "Kotlin"
 
     ```kotlin title=""
+    // 在某运行平台下
+    fun algorithm(n: Int) {
+        var a = 2 // 1 ns
+        a = a + 1 // 1 ns
+        a = a * 2 // 10 ns
+        // 循环 n 次
+        for (i in 0..<n) {  // 1 ns ，每轮都要执行 i++
+            println(0)      // 5 ns
+        }
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
 
     ```
 
@@ -442,6 +457,27 @@ $$
 === "Kotlin"
 
     ```kotlin title=""
+    // 算法 A 的时间复杂度：常数阶
+    fun algoritm_A(n: Int) {
+        println(0)
+    }
+    // 算法 B 的时间复杂度：线性阶
+    fun algorithm_B(n: Int) {
+        for (i in 0..<n){
+            println(0)
+        }
+    }
+    // 算法 C 的时间复杂度：常数阶
+    fun algorithm_C(n: Int) {
+        for (i in 0..<1000000) {
+            println(0)
+        }
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
 
     ```
 
@@ -644,6 +680,20 @@ $$
 === "Kotlin"
 
     ```kotlin title=""
+    fun algorithm(n: Int) {
+        var a = 1 // +1
+        a = a + 1 // +1
+        a = a * 2 // +1
+        // 循环 n 次
+        for (i in 0..<n) { // +1（每轮都执行 i ++）
+            println(0) // +1
+        }
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
 
     ```
 
@@ -909,6 +959,25 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
 === "Kotlin"
 
     ```kotlin title=""
+    fun algorithm(n: Int) {
+        var a = 1   // +0（技巧 1）
+        a = a + n   // +0（技巧 1）
+        // +n（技巧 2）
+        for (i in 0..<5 * n + 1) {
+            println(0)
+        }
+        // +n*n（技巧 3）
+        for (i in 0..<2 * n) {
+            for (j in 0..<n + 1) {
+                println(0)
+            }
+        }
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
 
     ```
 
@@ -1144,6 +1213,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{constant}
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -1314,6 +1389,12 @@ $$
             count++
         return count
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{linear}
     ```
 
 === "Zig"
@@ -1501,6 +1582,12 @@ $$
         }
         return count
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{array_traversal}
     ```
 
 === "Zig"
@@ -1715,6 +1802,12 @@ $$
         }
         return count
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{quadratic}
     ```
 
 === "Zig"
@@ -2017,6 +2110,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{bubble_sort}
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -2273,6 +2372,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{exponential}
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -2434,6 +2539,12 @@ $$
         }
         return expRecur(n - 1) + expRecur(n - 1) + 1
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{exp_recur}
     ```
 
 === "Zig"
@@ -2627,6 +2738,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{logarithmic}
+    ```
+
 === "Zig"
 
     ```zig title="time_complexity.zig"
@@ -2782,6 +2899,12 @@ $$
             return 0
         return logRecur(n / 2) + 1
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{log_recur}
     ```
 
 === "Zig"
@@ -2990,6 +3113,12 @@ $$
         }
         return count
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{linear_log_recur}
     ```
 
 === "Zig"
@@ -3216,6 +3345,12 @@ $$
         }
         return count
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="time_complexity.rb"
+    [class]{}-[func]{factorial_recur}
     ```
 
 === "Zig"
@@ -3605,6 +3740,14 @@ $$
         }
         return -1
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="worst_best_time_complexity.rb"
+    [class]{}-[func]{random_numbers}
+
+    [class]{}-[func]{find_one}
     ```
 
 === "Zig"

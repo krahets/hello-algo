@@ -351,6 +351,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="quick_sort.rb"
+    [class]{QuickSort}-[func]{partition}
+    ```
+
 === "Zig"
 
     ```zig title="quick_sort.zig"
@@ -607,6 +613,12 @@ comments: true
         quickSort(nums, left, pivot - 1)
         quickSort(nums, pivot + 1, right)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="quick_sort.rb"
+    [class]{QuickSort}-[func]{quick_sort}
     ```
 
 === "Zig"
@@ -1073,6 +1085,14 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="quick_sort.rb"
+    [class]{QuickSortMedian}-[func]{median_three}
+
+    [class]{QuickSortMedian}-[func]{partition}
+    ```
+
 === "Zig"
 
     ```zig title="quick_sort.zig"
@@ -1362,6 +1382,12 @@ comments: true
         quickSort(nums, left, pivot - 1)
         quickSort(nums, pivot + 1, right)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="quick_sort.rb"
+    [class]{QuickSortTailCall}-[func]{quick_sort}
     ```
 
 === "Zig"

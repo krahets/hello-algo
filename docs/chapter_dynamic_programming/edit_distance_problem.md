@@ -455,6 +455,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="edit_distance.rb"
+    [class]{}-[func]{edit_distance_dp}
+    ```
+
 === "Zig"
 
     ```zig title="edit_distance.zig"
@@ -942,6 +948,12 @@ $$
         }
         return dp[m]
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="edit_distance.rb"
+    [class]{}-[func]{edit_distance_dp_comp}
     ```
 
 === "Zig"

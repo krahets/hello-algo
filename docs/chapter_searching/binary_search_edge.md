@@ -209,6 +209,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="binary_search_edge.rb"
+    [class]{}-[func]{binary_search_left_edge}
+    ```
+
 === "Zig"
 
     ```zig title="binary_search_edge.zig"
@@ -450,6 +456,12 @@ comments: true
         // 找到 target ，返回索引 j
         return j
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_search_edge.rb"
+    [class]{}-[func]{binary_search_right_edge}
     ```
 
 === "Zig"

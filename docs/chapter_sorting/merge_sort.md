@@ -625,6 +625,14 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="merge_sort.rb"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{merge_sort}
+    ```
+
 === "Zig"
 
     ```zig title="merge_sort.zig"

@@ -310,6 +310,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="binary_search_tree.rb"
+    [class]{BinarySearchTree}-[func]{search}
+    ```
+
 === "Zig"
 
     ```zig title="binary_search_tree.zig"
@@ -754,6 +760,12 @@ comments: true
         if (pre?.value!! < num) pre.right = node
         else pre.left = node
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_search_tree.rb"
+    [class]{BinarySearchTree}-[func]{insert}
     ```
 
 === "Zig"
@@ -1510,6 +1522,12 @@ comments: true
             cur.value = tmp.value
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_search_tree.rb"
+    [class]{BinarySearchTree}-[func]{remove}
     ```
 
 === "Zig"

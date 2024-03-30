@@ -290,6 +290,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="binary_search_insertion.rb"
+    [class]{}-[func]{binary_search_insertion_simple}
+    ```
+
 === "Zig"
 
     ```zig title="binary_search_insertion.zig"
@@ -614,6 +620,12 @@ comments: true
         // 返回插入点 i
         return i
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_search_insertion.rb"
+    [class]{}-[func]{binary_search_insertion}
     ```
 
 === "Zig"

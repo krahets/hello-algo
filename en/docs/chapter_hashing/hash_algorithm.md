@@ -594,6 +594,18 @@ The design of hash algorithms is a complex issue that requires consideration of 
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="simple_hash.rb"
+    [class]{}-[func]{add_hash}
+
+    [class]{}-[func]{mul_hash}
+
+    [class]{}-[func]{xor_hash}
+
+    [class]{}-[func]{rot_hash}
+    ```
+
 === "Zig"
 
     ```zig title="simple_hash.zig"

@@ -528,6 +528,14 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="fractional_knapsack.rb"
+    [class]{Item}-[func]{}
+
+    [class]{}-[func]{fractional_knapsack}
+    ```
+
 === "Zig"
 
     ```zig title="fractional_knapsack.zig"

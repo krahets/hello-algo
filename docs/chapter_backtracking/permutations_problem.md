@@ -503,6 +503,14 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="permutations_i.rb"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutations_i}
+    ```
+
 === "Zig"
 
     ```zig title="permutations_i.zig"
@@ -1019,6 +1027,14 @@ comments: true
         backtrack(ArrayList(), nums, BooleanArray(nums.size), res)
         return res
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="permutations_ii.rb"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutations_ii}
     ```
 
 === "Zig"

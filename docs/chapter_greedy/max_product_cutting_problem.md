@@ -368,6 +368,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="max_product_cutting.rb"
+    [class]{}-[func]{max_product_cutting}
+    ```
+
 === "Zig"
 
     ```zig title="max_product_cutting.zig"

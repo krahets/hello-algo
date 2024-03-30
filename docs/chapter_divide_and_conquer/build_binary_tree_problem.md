@@ -476,6 +476,14 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="build_tree.rb"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{build_tree}
+    ```
+
 === "Zig"
 
     ```zig title="build_tree.zig"

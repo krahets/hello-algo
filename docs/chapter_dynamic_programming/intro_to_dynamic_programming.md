@@ -389,6 +389,14 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="climbing_stairs_backtrack.rb"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{climbing_stairs_backtrack}
+    ```
+
 === "Zig"
 
     ```zig title="climbing_stairs_backtrack.zig"
@@ -678,6 +686,14 @@ $$
     fun climbingStairsDFS(n: Int): Int {
         return dfs(n)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="climbing_stairs_dfs.rb"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{climbing_stairs_dfs}
     ```
 
 === "Zig"
@@ -1043,6 +1059,14 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="climbing_stairs_dfs_mem.rb"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{climbing_stairs_dfs_mem}
+    ```
+
 === "Zig"
 
     ```zig title="climbing_stairs_dfs_mem.zig"
@@ -1329,6 +1353,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="climbing_stairs_dp.rb"
+    [class]{}-[func]{climbing_stairs_dp}
+    ```
+
 === "Zig"
 
     ```zig title="climbing_stairs_dp.zig"
@@ -1572,6 +1602,12 @@ $$
         }
         return b
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="climbing_stairs_dp.rb"
+    [class]{}-[func]{climbing_stairs_dp_comp}
     ```
 
 === "Zig"

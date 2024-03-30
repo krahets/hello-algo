@@ -467,6 +467,14 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="subset_sum_i_naive.rb"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subset_sum_i_naive}
+    ```
+
 === "Zig"
 
     ```zig title="subset_sum_i_naive.zig"
@@ -998,6 +1006,14 @@ comments: true
         backtrack(state, target, nums, start, res)
         return res
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="subset_sum_i.rb"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subset_sum_i}
     ```
 
 === "Zig"
@@ -1577,6 +1593,14 @@ comments: true
         backtrack(state, target, nums, start, res)
         return res
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="subset_sum_ii.rb"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subset_sum_ii}
     ```
 
 === "Zig"

@@ -250,6 +250,12 @@ comments: true
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="insertion_sort.rb"
+    [class]{}-[func]{insertion_sort}
+    ```
+
 === "Zig"
 
     ```zig title="insertion_sort.zig"

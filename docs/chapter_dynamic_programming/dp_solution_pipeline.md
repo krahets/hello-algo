@@ -370,6 +370,12 @@ $$
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title="min_path_sum.rb"
+    [class]{}-[func]{min_path_sum_dfs}
+    ```
+
 === "Zig"
 
     ```zig title="min_path_sum.zig"
@@ -729,6 +735,12 @@ $$
         mem[i][j] = (min(left.toDouble(), up.toDouble()) + grid[i][j]).toInt()
         return mem[i][j]
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="min_path_sum.rb"
+    [class]{}-[func]{min_path_sum_dfs_mem}
     ```
 
 === "Zig"
@@ -1109,6 +1121,12 @@ $$
         }
         return dp[n - 1][m - 1]
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="min_path_sum.rb"
+    [class]{}-[func]{min_path_sum_dp}
     ```
 
 === "Zig"
@@ -1503,6 +1521,12 @@ $$
         }
         return dp[m - 1]
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="min_path_sum.rb"
+    [class]{}-[func]{min_path_sum_dp_comp}
     ```
 
 === "Zig"
