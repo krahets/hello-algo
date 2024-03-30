@@ -299,7 +299,27 @@
 === "Kotlin"
 
     ```kotlin title="stack.kt"
-
+    /* 初始化栈 */
+    val stack = Stack<Int>()
+    
+    /* 元素入栈 */
+    stack.push(1)
+    stack.push(3)
+    stack.push(2)
+    stack.push(5)
+    stack.push(4)
+    
+    /* 访问栈顶元素 */
+    val peek = stack.peek()
+    
+    /* 元素出栈 */
+    val pop = stack.pop()
+    
+    /* 获取栈的长度 */
+    val size = stack.size
+    
+    /* 判断是否为空 */
+    val isEmpty = stack.isEmpty()
     ```
 
 === "Zig"

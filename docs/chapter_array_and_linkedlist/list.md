@@ -129,7 +129,12 @@
 === "Kotlin"
 
     ```kotlin title="list.kt"
-
+    /* 初始化列表 */
+    // 无初始值
+    var nums1 = listOf<Int>()
+    // 有初始值
+    var numbers = arrayOf(1, 3, 2, 5, 4)
+    var nums = numbers.toMutableList()
     ```
 
 === "Zig"
@@ -139,6 +144,16 @@
     var nums = std.ArrayList(i32).init(std.heap.page_allocator);
     defer nums.deinit();
     try nums.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
+    ```
+
+=== "Ruby"
+
+    ```ruby title="list.rb"
+    # 初始化列表
+    # 无初始值
+    nums1 = []
+    # 有初始值
+    nums = [1, 3, 2, 5, 4]
     ```
 
 ??? pythontutor "可视化运行"
@@ -257,7 +272,10 @@
 === "Kotlin"
 
     ```kotlin title="list.kt"
-
+    /* 访问元素 */
+    val num = nums[1]       // 访问索引 1 处的元素
+    /* 更新元素 */
+    nums[1] = 0             // 将索引 1 处的元素更新为 0
     ```
 
 === "Zig"
@@ -268,6 +286,15 @@
 
     // 更新元素
     nums.items[1] = 0; // 将索引 1 处的元素更新为 0  
+    ```
+
+=== "Ruby"
+
+    ```ruby title="list.rb"
+    # 访问元素
+    num = nums[1]
+    # 更新元素
+    nums[1] = 0
     ```
 
 ??? pythontutor "可视化运行"
@@ -487,7 +514,21 @@
 === "Kotlin"
 
     ```kotlin title="list.kt"
+    /* 清空列表 */
+    nums.clear();
 
+    /* 在尾部添加元素 */
+    nums.add(1);
+    nums.add(3);
+    nums.add(2);
+    nums.add(5);
+    nums.add(4);
+
+    /* 在中间插入元素 */
+    nums.add(3, 6);  // 在索引 3 处插入数字 6
+
+    /* 删除元素 */
+    nums.remove(3);  // 删除索引 3 处的元素
     ```
 
 === "Zig"
@@ -508,6 +549,26 @@
 
     // 删除元素
     _ = nums.orderedRemove(3); // 删除索引 3 处的元素
+    ```
+
+=== "Ruby"
+
+    ```ruby title="list.rb"
+    # 清空列表
+    nums.clear
+
+    # 在尾部添加元素
+    nums << 1
+    nums << 3
+    nums << 2
+    nums << 5
+    nums << 4
+
+    # 在中间插入元素
+    nums.insert 3, 6
+
+    # 删除元素
+    nums.delete_at 3
     ```
 
 ??? pythontutor "可视化运行"
@@ -683,7 +744,16 @@
 === "Kotlin"
 
     ```kotlin title="list.kt"
+    /* 通过索引遍历列表 */
+    var count = 0
+    for (i in nums.indices) {
+        count += nums[i]
+    }
 
+    /* 直接遍历列表元素 */
+    for (num in nums) {
+        count += num
+    }
     ```
 
 === "Zig"
@@ -701,6 +771,22 @@
     for (nums.items) |num| {
         count += num;
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="list.rb"
+    # 通过索引遍历列表
+    count = 0
+    for i in 0...nums.length
+        count += nums[i]
+    end
+
+    # 直接遍历列表元素
+    count = 0
+    for num in nums
+        count += num
+    end
     ```
 
 ??? pythontutor "可视化运行"
@@ -801,7 +887,9 @@
 === "Kotlin"
 
     ```kotlin title="list.kt"
-
+    /* 拼接两个列表 */
+    val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
+    nums.addAll(nums1)  // 将列表 nums1 拼接到 nums 之后
     ```
 
 === "Zig"
@@ -812,6 +900,14 @@
     defer nums1.deinit();
     try nums1.appendSlice(&[_]i32{ 6, 8, 7, 10, 9 });
     try nums.insertSlice(nums.items.len, nums1.items); // 将列表 nums1 拼接到 nums 之后
+    ```
+
+=== "Ruby"
+
+    ```ruby title="list.rb"
+    # 拼接两个列表
+    nums1 = [6, 8, 7, 10, 9]
+    nums += nums1
     ```
 
 ??? pythontutor "可视化运行"
@@ -901,7 +997,8 @@
 === "Kotlin"
 
     ```kotlin title="list.kt"
-
+    /* 排序列表 */
+    nums.sort() // 排序后，列表元素从小到大排列
     ```
 
 === "Zig"
@@ -909,6 +1006,13 @@
     ```zig title="list.zig"
     // 排序列表
     std.sort.sort(i32, nums.items, {}, comptime std.sort.asc(i32));
+    ```
+
+=== "Ruby"
+
+    ```ruby title="list.rb"
+    # 排序列表
+    nums = nums.sort { |a, b| a <=> b }
     ```
 
 ??? pythontutor "可视化运行"

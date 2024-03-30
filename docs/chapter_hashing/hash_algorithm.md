@@ -346,7 +346,29 @@ $$
 === "Kotlin"
 
     ```kotlin title="built_in_hash.kt"
+    val num = 3
+    val hashNum = num.hashCode()
+    // 整数 3 的哈希值为 3
 
+    val bol = true
+    val hashBol = bol.hashCode()
+    // 布尔量 true 的哈希值为 1231
+
+    val dec = 3.14159
+    val hashDec = dec.hashCode()
+    // 小数 3.14159 的哈希值为 -1340954729
+
+    val str = "Hello 算法"
+    val hashStr = str.hashCode()
+    // 字符串“Hello 算法”的哈希值为 -727081396
+
+    val arr = arrayOf<Any>(12836, "小哈")
+    val hashTup = arr.hashCode()
+    // 数组 [12836, 小哈] 的哈希值为 189568618
+
+    val obj = ListNode(0)
+    val hashObj = obj.hashCode()
+    // 节点对象 utils.ListNode@1d81eb93 的哈希值为 495053715
     ```
 
 === "Zig"
