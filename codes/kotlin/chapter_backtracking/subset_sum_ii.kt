@@ -45,10 +45,10 @@ fun backtrack(
 
 /* 求解子集和 II */
 fun subsetSumII(nums: IntArray, target: Int): List<List<Int>?> {
-    val state: MutableList<Int> = ArrayList() // 状态（子集）
+    val state = ArrayList<Int>() // 状态（子集）
     Arrays.sort(nums) // 对 nums 进行排序
     val start = 0 // 遍历起始点
-    val res: MutableList<List<Int>?> = ArrayList() // 结果列表（子集列表）
+    val res = ArrayList<List<Int>?>() // 结果列表（子集列表）
     backtrack(state, target, nums, start, res)
     return res
 }
@@ -57,7 +57,6 @@ fun subsetSumII(nums: IntArray, target: Int): List<List<Int>?> {
 fun main() {
     val nums = intArrayOf(4, 4, 5)
     val target = 9
-
     val res = subsetSumII(nums, target)
 
     println("输入数组 nums = ${nums.contentToString()}, target = $target")

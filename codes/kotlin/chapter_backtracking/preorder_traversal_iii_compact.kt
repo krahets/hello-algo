@@ -42,8 +42,8 @@ fun main() {
     preOrder(root)
 
     println("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点")
-    for (path in res as ArrayList<List<TreeNode>>) {
-        val values: MutableList<Int> = ArrayList()
+    for (path in res!!) {
+        val values = ArrayList<Int>()
         for (node in path) {
             values.add(node.value)
         }

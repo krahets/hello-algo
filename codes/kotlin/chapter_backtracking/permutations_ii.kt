@@ -11,7 +11,7 @@ fun backtrack(
     state: MutableList<Int>,
     choices: IntArray,
     selected: BooleanArray,
-    res: MutableList<MutableList<Int>?>
+    res: MutableList<List<Int>?>
 ) {
     // 当状态长度等于元素数量时，记录解
     if (state.size == choices.size) {
@@ -19,7 +19,7 @@ fun backtrack(
         return
     }
     // 遍历所有选择
-    val duplicated: MutableSet<Int> = HashSet()
+    val duplicated = HashSet<Int>()
     for (i in choices.indices) {
         val choice = choices[i]
         // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
@@ -38,8 +38,8 @@ fun backtrack(
 }
 
 /* 全排列 II */
-fun permutationsII(nums: IntArray): MutableList<MutableList<Int>?> {
-    val res: MutableList<MutableList<Int>?> = ArrayList()
+fun permutationsII(nums: IntArray): List<List<Int>?> {
+    val res = ArrayList<List<Int>?>()
     backtrack(ArrayList(), nums, BooleanArray(nums.size), res)
     return res
 }
@@ -47,7 +47,6 @@ fun permutationsII(nums: IntArray): MutableList<MutableList<Int>?> {
 /* Driver Code */
 fun main() {
     val nums = intArrayOf(1, 2, 2)
-
     val res = permutationsII(nums)
 
     println("输入数组 nums = ${nums.contentToString()}")

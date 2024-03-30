@@ -8,6 +8,7 @@ package chapter_array_and_linkedlist
 
 /* Driver Code */
 fun main() {
+    /* 初始化列表 */
     // 可变集合
     val numbers = mutableListOf(1, 3, 2, 5, 4)
     val nums = ArrayList<Int>(numbers)
@@ -58,6 +59,6 @@ fun main() {
     println("将列表 nums1 拼接到 nums 之后，得到 nums = $nums")
 
     /* 排序列表 */
-    nums.sort() //排序后,列表元素从小到大排列
+    nums.sort()
     println("排序列表后 nums = $nums")
 }

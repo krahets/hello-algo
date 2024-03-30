@@ -9,7 +9,7 @@ package chapter_array_and_linkedlist
 import utils.ListNode
 import utils.printLinkedList
 
-/* 在链表的节点 n0 之后插入节点p */
+/* 在链表的节点 n0 之后插入节点 P */
 fun insert(n0: ListNode?, p: ListNode?) {
     val n1 = n0?.next
     p?.next = n1
@@ -37,7 +37,8 @@ fun find(head: ListNode?, target: Int): Int {
     var index = 0
     var h = head
     while (h != null) {
-        if (h.value == target) return index
+        if (h.value == target)
+            return index
         h = h.next
         index++
     }
@@ -46,6 +47,7 @@ fun find(head: ListNode?, target: Int): Int {
 
 /* Driver Code */
 fun main() {
+    /* 初始化链表 */
     // 初始化各个节点
     val n0 = ListNode(1)
     val n1 = ListNode(3)
@@ -60,7 +62,8 @@ fun main() {
     n3.next = n4
     println("初始化的链表为")
     printLinkedList(n0)
-    
+
+    /* 插入节点 */
     insert(n0, ListNode(0))
     println("插入节点后的链表为")
     printLinkedList(n0)

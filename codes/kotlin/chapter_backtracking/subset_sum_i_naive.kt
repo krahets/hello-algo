@@ -36,9 +36,9 @@ fun backtrack(
 
 /* 求解子集和 I（包含重复子集） */
 fun subsetSumINaive(nums: IntArray, target: Int): List<List<Int>?> {
-    val state: MutableList<Int> = ArrayList() // 状态（子集）
+    val state = ArrayList<Int>() // 状态（子集）
     val total = 0 // 子集和
-    val res: MutableList<List<Int>?> = ArrayList() // 结果列表（子集列表）
+    val res = ArrayList<List<Int>?>() // 结果列表（子集列表）
     backtrack(state, target, total, nums, res)
     return res
 }
@@ -47,8 +47,7 @@ fun subsetSumINaive(nums: IntArray, target: Int): List<List<Int>?> {
 fun main() {
     val nums = intArrayOf(3, 4, 5)
     val target = 9
-
-    val res: List<List<Int>?> = subsetSumINaive(nums, target)
+    val res = subsetSumINaive(nums, target)
 
     println("输入数组 nums = ${nums.contentToString()}, target = $target")
     println("所有和等于 $target 的子集 res = $res")

@@ -9,7 +9,7 @@ package chapter_backtracking.preorder_traversal_i_compact
 import utils.TreeNode
 import utils.printTree
 
-var res: MutableList<TreeNode>? = null
+var res: ArrayList<TreeNode>? = null
 
 /* 前序遍历：例题一 */
 fun preOrder(root: TreeNode?) {
@@ -35,8 +35,8 @@ fun main() {
     preOrder(root)
 
     println("\n输出所有值为 7 的节点")
-    val vals: MutableList<Int> = ArrayList()
-    for (node in res as ArrayList<TreeNode>) {
+    val vals = ArrayList<Int>()
+    for (node in res!!) {
         vals.add(node.value)
     }
     println(vals)

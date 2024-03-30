@@ -53,7 +53,7 @@ fun backtrack(
             // 尝试：做出选择，更新状态
             makeChoice(state, choice)
             // 进行下一轮选择
-            backtrack(state, listOf(choice!!.left, choice.right), res)
+            backtrack(state, mutableListOf(choice!!.left, choice.right), res)
             // 回退：撤销选择，恢复到之前的状态
             undoChoice(state, choice)
         }
@@ -67,7 +67,7 @@ fun main() {
     printTree(root)
 
     // 回溯算法
-    val res: MutableList<List<TreeNode?>?> = ArrayList()
+    val res = ArrayList<List<TreeNode?>?>()
     backtrack(ArrayList(), mutableListOf(root), res)
 
     println("\n输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点")
