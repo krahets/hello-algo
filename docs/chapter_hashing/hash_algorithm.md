@@ -371,6 +371,12 @@ $$
     // 节点对象 utils.ListNode@1d81eb93 的哈希值为 495053715
     ```
 
+=== "Ruby"
+
+    ```ruby title="built_in_hash.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="built_in_hash.zig"

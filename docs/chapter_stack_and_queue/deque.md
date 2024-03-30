@@ -352,6 +352,12 @@
     val isEmpty = deque.isEmpty()
     ```
 
+=== "Ruby"
+
+    ```ruby title="deque.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="deque.zig"

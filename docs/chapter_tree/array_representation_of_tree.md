@@ -120,6 +120,12 @@
     val tree = mutableListOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
     ```
 
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
