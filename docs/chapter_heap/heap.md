@@ -402,6 +402,12 @@
     minHeap = PriorityQueue(mutableListOf(1, 3, 2, 5, 4))
     ```
 
+=== "Ruby"
+
+    ```ruby title="heap.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="heap.zig"

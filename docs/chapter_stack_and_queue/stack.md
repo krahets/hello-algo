@@ -322,6 +322,12 @@
     val isEmpty = stack.isEmpty()
     ```
 
+=== "Ruby"
+
+    ```ruby title="stack.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="stack.zig"

@@ -328,6 +328,12 @@
     val isEmpty = queue.isEmpty()
     ```
 
+=== "Ruby"
+
+    ```ruby title="queue.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="queue.zig"
