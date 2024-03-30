@@ -190,6 +190,21 @@
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title=""
+    # 链表节点类
+    class ListNode
+      attr_accessor :val  # 节点值
+      attr_accessor :next # 指向下一节点的引用
+
+      def initialize(val=nil, next_node=nil)
+        @val = val || 0
+        @next = next_node
+      end
+    end
+    ```
+
 ## 链表常用操作
 
 ### 初始化链表
@@ -416,6 +431,23 @@
     n1.next = &n2;
     n2.next = &n3;
     n3.next = &n4;
+    ```
+
+=== "Ruby"
+
+    ```ruby title=linked_list.rb
+    # 初始化链表 1 -> 3 -> 2 -> 5 -> 4
+    # 初始化各个节点
+    n0 = ListNode.new 1
+    n1 = ListNode.new 3
+    n2 = ListNode.new 2
+    n3 = ListNode.new 5
+    n4 = ListNode.new 4
+    # 构建节点之间的引用
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
     ```
 
 ??? pythontutor "可视化运行"
@@ -688,6 +720,23 @@
             }
         };
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+    # 双向链表节点类
+    class ListNode
+      attr_accessor :val    # 节点值
+      attr_accessor :next   # 指向后继节点的引用
+      attr_accessor :prev   # 指向前驱节点的引用
+
+      def initialize(val=nil, next_node=nil, prev_node=nil)
+        @val = val || 0
+        @next = next_node
+        @prev = prev_node
+      end
+    end
     ```
 
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)
