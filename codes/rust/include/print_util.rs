@@ -17,7 +17,7 @@ struct Trunk<'a, 'b> {
     str: Cell<&'b str>,
 }
 
-/* Print an array */
+/* 打印数组 */
 pub fn print_array<T: Display>(nums: &[T]) {
     print!("[");
     if nums.len() > 0 {
@@ -29,14 +29,14 @@ pub fn print_array<T: Display>(nums: &[T]) {
     }
 }
 
-/* Print a hash map */
+/* 打印哈希表 */
 pub fn print_hash_map<TKey: Display, TValue: Display>(map: &HashMap<TKey, TValue>) {
     for (key, value) in map {
         println!("{key} -> {value}");
     }
 }
 
-/* Print a queue or deque */
+/* 打印队列（双向队列） */
 pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
     print!("[");
     let iter = queue.iter();
@@ -45,7 +45,7 @@ pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
     }
 }
 
-/* Print a linked list */
+/* 打印链表 */
 pub fn print_linked_list<T: Display>(head: &Rc<RefCell<ListNode<T>>>) {
     print!("{}{}", head.borrow().val, if head.borrow().next.is_none() {"\n"} else {" -> "});
     if let Some(node) = &head.borrow().next {
@@ -53,10 +53,12 @@ pub fn print_linked_list<T: Display>(head: &Rc<RefCell<ListNode<T>>>) {
     }
 }
 
+/* 打印二叉树 */
 pub fn print_tree(root: &Rc<RefCell<TreeNode>>) {
     _print_tree(Some(root), None, false);
 }
 
+/* 打印二叉树 */
 fn _print_tree(root: Option<&Rc<RefCell<TreeNode>>>, prev: Option<&Trunk>, is_right: bool) {
     if let Some(node) = root {
         let mut prev_str = "    ";
@@ -91,7 +93,7 @@ fn show_trunks(trunk: Option<&Trunk>) {
     }
 }
 
-/* Print a heap both in array and tree representations */
+/* 打印堆 */
 pub fn print_heap(heap: Vec<i32>) {
     println!("堆的数组表示：{:?}", heap);
     println!("堆的树状表示：");

@@ -4,9 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/**
- * Definition for a binary tree node.
- */
+/* 二叉树节点 */
 class TreeNode {
     val: number; // 节点值
     height: number; // 节点高度
@@ -25,11 +23,7 @@ class TreeNode {
     }
 }
 
-/**
- * Generate a binary tree given an array
- * @param arr
- * @return
- */
+/* 将数组反序列化为二叉树 */
 function arrToTree(arr: (number | null)[], i: number = 0): TreeNode | null {
     if (i < 0 || i >= arr.length || arr[i] === null) {
         return null;

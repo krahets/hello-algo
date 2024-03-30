@@ -4,7 +4,7 @@
 
 const std = @import("std");
 
-// Definition for a singly-linked list node
+// 链表节点
 pub fn ListNode(comptime T: type) type {
     return struct {
         const Self = @This();
@@ -20,7 +20,7 @@ pub fn ListNode(comptime T: type) type {
     };
 }
 
-// Generate a linked list with a list
+// 将列表反序列化为链表
 pub fn listToLinkedList(comptime T: type, mem_allocator: std.mem.Allocator, list: std.ArrayList(T)) !?*ListNode(T) {
     var dum = try mem_allocator.create(ListNode(T));
     dum.init(0);
@@ -34,7 +34,7 @@ pub fn listToLinkedList(comptime T: type, mem_allocator: std.mem.Allocator, list
     return dum.next;
 }
 
-// Generate a linked list with an array
+// 将数组反序列化为链表
 pub fn arrToLinkedList(comptime T: type, mem_allocator: std.mem.Allocator, arr: []T) !?*ListNode(T) {
     var dum = try mem_allocator.create(ListNode(T));
     dum.init(0);

@@ -11,9 +11,6 @@ void testListNode() {
     int size = sizeof(nums) / sizeof(int);
     ListNode *head = arrToLinkedList(nums, size);
     printLinkedList(head);
-
-    ListNode *node = getListNode(head, 5);
-    printf("find node: %d\n", node->val);
 }
 
 void testTreeNode() {
