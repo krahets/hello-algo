@@ -6,8 +6,6 @@
 
 package chapter_backtracking.subset_sum_ii
 
-import java.util.*
-
 /* 回溯算法：子集和 II */
 fun backtrack(
     state: MutableList<Int>,
@@ -46,7 +44,7 @@ fun backtrack(
 /* 求解子集和 II */
 fun subsetSumII(nums: IntArray, target: Int): List<List<Int>?> {
     val state = mutableListOf<Int>() // 状态（子集）
-    Arrays.sort(nums) // 对 nums 进行排序
+    nums.sort() // 对 nums 进行排序
     val start = 0 // 遍历起始点
     val res = mutableListOf<List<Int>?>() // 结果列表（子集列表）
     backtrack(state, target, nums, start, res)
