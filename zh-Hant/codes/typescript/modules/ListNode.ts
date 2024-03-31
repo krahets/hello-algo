@@ -4,9 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/**
- * Definition for a singly-linked list node
- */
+/* 鏈結串列節點 */
 class ListNode {
     val: number;
     next: ListNode | null;
@@ -16,11 +14,7 @@ class ListNode {
     }
 }
 
-/**
- * Generate a linked list with an array
- * @param arr
- * @return
- */
+/* 將陣列反序列化為鏈結串列 */
 function arrToLinkedList(arr: number[]): ListNode | null {
     const dum: ListNode = new ListNode(0);
     let head = dum;
@@ -31,17 +25,4 @@ function arrToLinkedList(arr: number[]): ListNode | null {
     return dum.next;
 }
 
-/**
- * Get a list node with specific value from a linked list
- * @param head
- * @param val
- * @return
- */
-function getListNode(head: ListNode | null, val: number): ListNode | null {
-    while (head !== null && head.val !== val) {
-        head = head.next;
-    }
-    return head;
-}
-
-export { ListNode, arrToLinkedList, getListNode };
+export { ListNode, arrToLinkedList };

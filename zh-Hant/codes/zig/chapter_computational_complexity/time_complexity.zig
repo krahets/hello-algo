@@ -95,7 +95,7 @@ fn expRecur(n: i32) i32 {
 }
 
 // 對數階（迴圈實現）
-fn logarithmic(n: f32) i32 {
+fn logarithmic(n: i32) i32 {
     var count: i32 = 0;
     var n_var = n;
     while (n_var > 1)
@@ -107,16 +107,16 @@ fn logarithmic(n: f32) i32 {
 }
 
 // 對數階（遞迴實現）
-fn logRecur(n: f32) i32 {
+fn logRecur(n: i32) i32 {
     if (n <= 1) return 0;
     return logRecur(n / 2) + 1;
 }
 
 // 線性對數階
-fn linearLogRecur(n: f32) i32 {
+fn linearLogRecur(n: i32) i32 {
     if (n <= 1) return 1;
     var count: i32 = linearLogRecur(n / 2) + linearLogRecur(n / 2);
-    var i: f32 = 0;
+    var i: i32 = 0;
     while (i < n) : (i += 1) {
         count += 1;
     }
@@ -163,12 +163,12 @@ pub fn main() !void {
     count = expRecur(n);
     std.debug.print("指數階（遞迴實現）的運算量 = {}\n", .{count});
 
-    count = logarithmic(@as(f32, n));
+    count = logarithmic(n);
     std.debug.print("對數階（迴圈實現）的運算量 = {}\n", .{count});
-    count = logRecur(@as(f32, n));
+    count = logRecur(n);
     std.debug.print("對數階（遞迴實現）的運算量 = {}\n", .{count});
 
-    count = linearLogRecur(@as(f32, n));
+    count = linearLogRecur(n);
     std.debug.print("線性對數階（遞迴實現）的運算量 = {}\n", .{count});
 
     count = factorialRecur(n);

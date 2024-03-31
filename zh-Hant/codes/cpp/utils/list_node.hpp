@@ -11,7 +11,7 @@
 
 using namespace std;
 
-/* Definition for a singly-linked list node */
+/* 鏈結串列節點 */
 struct ListNode {
     int val;
     ListNode *next;
@@ -19,7 +19,7 @@ struct ListNode {
     }
 };
 
-/* Generate a linked list with a vector */
+/* 將串列反序列化為鏈結串列 */
 ListNode *vecToLinkedList(vector<int> list) {
     ListNode *dum = new ListNode(0);
     ListNode *head = dum;
@@ -30,15 +30,7 @@ ListNode *vecToLinkedList(vector<int> list) {
     return dum->next;
 }
 
-/* Get a list node with specific value from a linked list */
-ListNode *getListNode(ListNode *head, int val) {
-    while (head != nullptr && head->val != val) {
-        head = head->next;
-    }
-    return head;
-}
-
-/* Free the memory allocated to a linked list */
+/* 釋放分配給鏈結串列的記憶體空間 */
 void freeMemoryLinkedList(ListNode *cur) {
     // 釋放記憶體
     ListNode *pre;

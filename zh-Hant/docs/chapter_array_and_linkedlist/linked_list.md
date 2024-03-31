@@ -159,6 +159,32 @@
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    /* 鏈結串列節點類別 */
+    // 建構子
+    class ListNode(x: Int) {
+        val _val: Int = x          // 節點值
+        val next: ListNode? = null // 指向下一個節點的引用
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+    # 鏈結串列節點類別
+    class ListNode
+      attr_accessor :val  # 節點值
+      attr_accessor :next # 指向下一節點的引用
+
+      def initialize(val=0, next_node=nil)
+        @val = val
+        @next = next_node
+      end
+    end
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -371,6 +397,40 @@
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="linked_list.kt"
+    /* 初始化鏈結串列 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各個節點
+    val n0 = ListNode(1)
+    val n1 = ListNode(3)
+    val n2 = ListNode(2)
+    val n3 = ListNode(5)
+    val n4 = ListNode(4)
+    // 構建節點之間的引用
+    n0.next = n1;
+    n1.next = n2;
+    n2.next = n3;
+    n3.next = n4;
+    ```
+
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    # 初始化鏈結串列 1 -> 3 -> 2 -> 5 -> 4
+    # 初始化各個節點
+    n0 = ListNode.new 1
+    n1 = ListNode.new 3
+    n2 = ListNode.new 2
+    n3 = ListNode.new 5
+    n4 = ListNode.new 4
+    # 構建節點之間的引用
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
     ```
 
 === "Zig"
@@ -626,6 +686,35 @@
         node->prev = NULL;
         return node;
     }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+    /* 雙向鏈結串列節點類別 */
+    // 建構子
+    class ListNode(x: Int) {
+        val _val: Int = x           // 節點值
+        val next: ListNode? = null  // 指向後繼節點的引用
+        val prev: ListNode? = null  // 指向前驅節點的引用
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+    # 雙向鏈結串列節點類別
+    class ListNode
+      attr_accessor :val    # 節點值
+      attr_accessor :next   # 指向後繼節點的引用
+      attr_accessor :prev   # 指向前驅節點的引用
+
+      def initialize(val=0, next_node=nil, prev_node=nil)
+        @val = val
+        @next = next_node
+        @prev = prev_node
+      end
+    end
     ```
 
 === "Zig"

@@ -105,6 +105,22 @@
     int nums[5] = { 1, 3, 2, 5, 4 };
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    /* 初始化陣列 */
+    var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
+    var nums = intArrayOf(1, 3, 2, 5, 4)
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    # 初始化陣列
+    arr = Array.new(5, 0)
+    nums = [1, 3, 2, 5, 4]
+    ```
+
 === "Zig"
 
     ```zig title="array.zig"

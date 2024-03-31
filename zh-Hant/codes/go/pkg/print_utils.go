@@ -11,13 +11,13 @@ import (
 	"strings"
 )
 
-// PrintSlice Print a slice
+// PrintSlice 列印切片
 func PrintSlice[T any](nums []T) {
 	fmt.Printf("%v", nums)
 	fmt.Println()
 }
 
-// PrintList Print a list
+// PrintList 列印串列
 func PrintList(list *list.List) {
 	if list.Len() == 0 {
 		fmt.Print("[]\n")
@@ -33,14 +33,14 @@ func PrintList(list *list.List) {
 	fmt.Print(e.Value, "]\n")
 }
 
-// PrintMap Print a hash map
+// PrintMap 列印雜湊表
 func PrintMap[K comparable, V any](m map[K]V) {
 	for key, value := range m {
 		fmt.Println(key, "->", value)
 	}
 }
 
-// PrintHeap Print a heap
+// PrintHeap 列印堆積
 func PrintHeap(h []any) {
 	fmt.Printf("堆積的陣列表示：")
 	fmt.Printf("%v", h)
@@ -49,7 +49,7 @@ func PrintHeap(h []any) {
 	PrintTree(root)
 }
 
-// PrintLinkedList Print a linked list
+// PrintLinkedList 列印鏈結串列
 func PrintLinkedList(node *ListNode) {
 	if node == nil {
 		return
@@ -63,12 +63,12 @@ func PrintLinkedList(node *ListNode) {
 	fmt.Println(builder.String())
 }
 
-// PrintTree Print a binary tree
+// PrintTree 列印二元樹
 func PrintTree(root *TreeNode) {
 	printTreeHelper(root, nil, false)
 }
 
-// printTreeHelper Help to print a binary tree, hide more details
+// printTreeHelper 列印二元樹
 // This tree printer is borrowed from TECHIE DELIGHT
 // https://www.techiedelight.com/c-program-print-binary-tree/
 func printTreeHelper(root *TreeNode, prev *trunk, isRight bool) {
@@ -96,7 +96,6 @@ func printTreeHelper(root *TreeNode, prev *trunk, isRight bool) {
 	printTreeHelper(root.Left, trunk, false)
 }
 
-// trunk Help to print tree structure
 type trunk struct {
 	prev *trunk
 	str  string

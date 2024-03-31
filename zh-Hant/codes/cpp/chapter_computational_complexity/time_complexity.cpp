@@ -86,7 +86,7 @@ int expRecur(int n) {
 }
 
 /* 對數階（迴圈實現） */
-int logarithmic(float n) {
+int logarithmic(int n) {
     int count = 0;
     while (n > 1) {
         n = n / 2;
@@ -96,14 +96,14 @@ int logarithmic(float n) {
 }
 
 /* 對數階（遞迴實現） */
-int logRecur(float n) {
+int logRecur(int n) {
     if (n <= 1)
         return 0;
     return logRecur(n / 2) + 1;
 }
 
 /* 線性對數階 */
-int linearLogRecur(float n) {
+int linearLogRecur(int n) {
     if (n <= 1)
         return 1;
     int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
@@ -153,12 +153,12 @@ int main() {
     count = expRecur(n);
     cout << "指數階（遞迴實現）的運算量 = " << count << endl;
 
-    count = logarithmic((float)n);
+    count = logarithmic(n);
     cout << "對數階（迴圈實現）的運算量 = " << count << endl;
-    count = logRecur((float)n);
+    count = logRecur(n);
     cout << "對數階（遞迴實現）的運算量 = " << count << endl;
 
-    count = linearLogRecur((float)n);
+    count = linearLogRecur(n);
     cout << "線性對數階（遞迴實現）的運算量 = " << count << endl;
 
     count = factorialRecur(n);

@@ -153,6 +153,22 @@
     bool bools[10];
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    // 使用多種基本資料型別來初始化陣列
+    val numbers = IntArray(5)
+    val decinals = FloatArray(5)
+    val characters = CharArray(5)
+    val bools = BooleanArray(5)
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""

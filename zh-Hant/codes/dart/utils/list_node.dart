@@ -4,7 +4,7 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-/* Definition for a singly-linked list node */
+/* 鏈結串列節點 */
 class ListNode {
   int val;
   ListNode? next;
@@ -12,7 +12,7 @@ class ListNode {
   ListNode(this.val, [this.next]);
 }
 
-/* Generate a linked list with a list */
+/* 將串列反序列化為鏈結串列 */
 ListNode? listToLinkedList(List<int> list) {
   ListNode dum = ListNode(0);
   ListNode? head = dum;

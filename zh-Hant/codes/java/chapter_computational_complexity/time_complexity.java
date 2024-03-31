@@ -87,7 +87,7 @@ public class time_complexity {
     }
 
     /* 對數階（迴圈實現） */
-    static int logarithmic(float n) {
+    static int logarithmic(int n) {
         int count = 0;
         while (n > 1) {
             n = n / 2;
@@ -97,14 +97,14 @@ public class time_complexity {
     }
 
     /* 對數階（遞迴實現） */
-    static int logRecur(float n) {
+    static int logRecur(int n) {
         if (n <= 1)
             return 0;
         return logRecur(n / 2) + 1;
     }
 
     /* 線性對數階 */
-    static int linearLogRecur(float n) {
+    static int linearLogRecur(int n) {
         if (n <= 1)
             return 1;
         int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
@@ -153,12 +153,12 @@ public class time_complexity {
         count = expRecur(n);
         System.out.println("指數階（遞迴實現）的運算量 = " + count);
 
-        count = logarithmic((float) n);
+        count = logarithmic(n);
         System.out.println("對數階（迴圈實現）的運算量 = " + count);
-        count = logRecur((float) n);
+        count = logRecur(n);
         System.out.println("對數階（遞迴實現）的運算量 = " + count);
 
-        count = linearLogRecur((float) n);
+        count = linearLogRecur(n);
         System.out.println("線性對數階（遞迴實現）的運算量 = " + count);
 
         count = factorialRecur(n);

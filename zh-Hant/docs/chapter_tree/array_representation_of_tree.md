@@ -112,6 +112,20 @@
     int tree[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    /* 二元樹的陣列表示 */
+    // 使用 null 來表示空位
+    val tree = mutableListOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""

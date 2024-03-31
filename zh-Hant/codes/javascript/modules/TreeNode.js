@@ -4,9 +4,7 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-/**
- * Definition for a binary tree node.
- */
+/* 二元樹節點 */
 class TreeNode {
     val; // 節點值
     left; // 左子節點指標
@@ -20,11 +18,7 @@ class TreeNode {
     }
 }
 
-/**
- * Generate a binary tree given an array
- * @param arr
- * @return
- */
+/* 將陣列反序列化為二元樹 */
 function arrToTree(arr, i = 0) {
     if (i < 0 || i >= arr.length || arr[i] === null) {
         return null;

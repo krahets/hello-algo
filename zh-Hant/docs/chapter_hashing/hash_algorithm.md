@@ -343,6 +343,40 @@ $$
     // C 未提供內建 hash code 函式
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="built_in_hash.kt"
+    val num = 3
+    val hashNum = num.hashCode()
+    // 整數 3 的雜湊值為 3
+
+    val bol = true
+    val hashBol = bol.hashCode()
+    // 布林量 true 的雜湊值為 1231
+
+    val dec = 3.14159
+    val hashDec = dec.hashCode()
+    // 小數 3.14159 的雜湊值為 -1340954729
+
+    val str = "Hello 演算法"
+    val hashStr = str.hashCode()
+    // 字串“Hello 演算法”的雜湊值為 -727081396
+
+    val arr = arrayOf<Any>(12836, "小哈")
+    val hashTup = arr.hashCode()
+    // 陣列 [12836, 小哈] 的雜湊值為 189568618
+
+    val obj = ListNode(0)
+    val hashObj = obj.hashCode()
+    // 節點物件 utils.ListNode@1d81eb93 的雜湊值為 495053715
+    ```
+
+=== "Ruby"
+
+    ```ruby title="built_in_hash.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="built_in_hash.zig"

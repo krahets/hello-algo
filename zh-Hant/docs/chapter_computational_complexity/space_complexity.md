@@ -309,6 +309,35 @@
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    /* 類別 */
+    class Node(var _val: Int) {
+        var next: Node? = null
+    }
+
+    /* 函式 */
+    fun function(): Int {
+        // 執行某些操作...
+        return 0
+    }
+
+    fun algorithm(n: Int): Int { // 輸入資料
+        val a = 0                // 暫存資料（常數）
+        var b = 0                // 暫存資料（變數）
+        val node = Node(0)       // 暫存資料（物件）
+        val c = function()       // 堆疊幀空間（呼叫函式）
+        return a + b + c         // 輸出資料
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -455,6 +484,24 @@
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    fun algorithm(n: Int) {
+        val a = 0                    // O(1)
+        val b = IntArray(10000)      // O(1)
+        if (n > 10) {
+            val nums = IntArray(n)   // O(n)
+        }
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -475,9 +522,10 @@
         for _ in range(n):
             function()
 
-    def recur(n: int) -> int:
+    def recur(n: int):
         """遞迴的空間複雜度為 O(n)"""
-        if n == 1: return
+        if n == 1:
+            return
         return recur(n - 1)
     ```
 
@@ -664,7 +712,7 @@
         }
     }
     /* 遞迴 O(n) */
-    void recur(n: i32) {
+    fn recur(n: i32) {
         if n == 1 {
             return;
         }
@@ -692,6 +740,32 @@
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    fun function(): Int {
+        // 執行某些操作
+        return 0
+    }
+    /* 迴圈 O(1) */
+    fun loop(n: Int) {
+        for (i in 0..<n) {
+            function()
+        }
+    }
+    /* 遞迴 O(n) */
+    fun recur(n: Int) {
+        if (n == 1) return
+        return recur(n - 1)
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -716,7 +790,7 @@ $$
 
 ![常見的空間複雜度型別](space_complexity.assets/space_complexity_common_types.png)
 
-### 常數階 $O(1)$
+### 常數階 $O(1)$ {data-toc-label="常數階"}
 
 常數階常見於數量與輸入資料大小 $n$ 無關的常數、變數、物件。
 
@@ -726,7 +800,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{constant}
 ```
 
-### 線性階 $O(n)$
+### 線性階 $O(n)$ {data-toc-label="線性階"}
 
 線性階常見於元素數量與 $n$ 成正比的陣列、鏈結串列、堆疊、佇列等：
 
@@ -742,7 +816,7 @@ $$
 
 ![遞迴函式產生的線性階空間複雜度](space_complexity.assets/space_complexity_recursive_linear.png)
 
-### 平方階 $O(n^2)$
+### 平方階 $O(n^2)$ {data-toc-label="平方階"}
 
 平方階常見於矩陣和圖，元素數量與 $n$ 成平方關係：
 
@@ -758,7 +832,7 @@ $$
 
 ![遞迴函式產生的平方階空間複雜度](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
-### 指數階 $O(2^n)$
+### 指數階 $O(2^n)$ {data-toc-label="指數階"}
 
 指數階常見於二元樹。觀察下圖，層數為 $n$ 的“滿二元樹”的節點數量為 $2^n - 1$ ，佔用 $O(2^n)$ 空間：
 
@@ -768,7 +842,7 @@ $$
 
 ![滿二元樹產生的指數階空間複雜度](space_complexity.assets/space_complexity_exponential.png)
 
-### 對數階 $O(\log n)$
+### 對數階 $O(\log n)$ {data-toc-label="對數階"}
 
 對數階常見於分治演算法。例如合併排序，輸入長度為 $n$ 的陣列，每輪遞迴將陣列從中點處劃分為兩半，形成高度為 $\log n$ 的遞迴樹，使用 $O(\log n)$ 堆疊幀空間。
 

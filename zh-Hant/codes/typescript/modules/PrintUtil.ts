@@ -7,10 +7,7 @@
 import { ListNode } from './ListNode';
 import { TreeNode, arrToTree } from './TreeNode';
 
-/**
- * Print a linked list
- * @param head
- */
+/* 列印鏈結串列 */
 function printLinkedList(head: ListNode | null): void {
     const list: string[] = [];
     while (head !== null) {
@@ -31,21 +28,15 @@ class Trunk {
 }
 
 /**
- * The interface of the tree printer
+ * 列印二元樹
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
- * @param root
  */
 function printTree(root: TreeNode | null) {
     printTreeHelper(root, null, false);
 }
 
-/**
- * Print a binary tree
- * @param root
- * @param prev
- * @param isRight
- */
+/* 列印二元樹 */
 function printTreeHelper(
     root: TreeNode | null,
     prev: Trunk | null,
@@ -81,10 +72,6 @@ function printTreeHelper(
     printTreeHelper(root.left, trunk, false);
 }
 
-/**
- * Helper function to print branches of the binary tree
- * @param p
- */
 function showTrunks(p: Trunk | null) {
     if (p === null) {
         return;
@@ -97,10 +84,7 @@ function showTrunks(p: Trunk | null) {
     // restart the vscode
 }
 
-/**
- * Print a heap
- * @param arr
- */
+/* 列印堆積 */
 function printHeap(arr: number[]): void {
     console.log('堆積的陣列表示：');
     console.log(arr);

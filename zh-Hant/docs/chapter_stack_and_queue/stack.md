@@ -296,6 +296,38 @@
     // C 未提供內建堆疊
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="stack.kt"
+    /* 初始化堆疊 */
+    val stack = Stack<Int>()
+    
+    /* 元素入堆疊 */
+    stack.push(1)
+    stack.push(3)
+    stack.push(2)
+    stack.push(5)
+    stack.push(4)
+    
+    /* 訪問堆疊頂元素 */
+    val peek = stack.peek()
+    
+    /* 元素出堆疊 */
+    val pop = stack.pop()
+    
+    /* 獲取堆疊的長度 */
+    val size = stack.size
+    
+    /* 判斷是否為空 */
+    val isEmpty = stack.isEmpty()
+    ```
+
+=== "Ruby"
+
+    ```ruby title="stack.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="stack.zig"

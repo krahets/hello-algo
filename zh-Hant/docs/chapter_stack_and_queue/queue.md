@@ -302,6 +302,38 @@
     // C 未提供內建佇列
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="queue.kt"
+    /* 初始化佇列 */
+    val queue = LinkedList<Int>()
+    
+    /* 元素入列 */
+    queue.offer(1)
+    queue.offer(3)
+    queue.offer(2)
+    queue.offer(5)
+    queue.offer(4)
+    
+    /* 訪問佇列首元素 */
+    val peek = queue.peek()
+    
+    /* 元素出列 */
+    val pop = queue.poll()
+    
+    /* 獲取佇列的長度 */
+    val size = queue.size
+    
+    /* 判斷佇列是否為空 */
+    val isEmpty = queue.isEmpty()
+    ```
+
+=== "Ruby"
+
+    ```ruby title="queue.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="queue.zig"
