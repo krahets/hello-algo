@@ -15,7 +15,7 @@ class ListNode
   end
 end
 
-### 将列表序列化为链表 ###
+### 将列表反序列化为链表 ###
 def arr_to_linked_list(arr)
   head = current = ListNode.new arr[0]
 
@@ -27,7 +27,7 @@ def arr_to_linked_list(arr)
   head
 end
 
-### 将链表反序列化为列表 ###
+### 将链表序列化为列表 ###
 def linked_list_to_arr(head)
   arr = []
 

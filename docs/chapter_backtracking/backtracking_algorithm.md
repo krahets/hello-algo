@@ -403,6 +403,12 @@
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""

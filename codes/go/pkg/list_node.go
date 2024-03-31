@@ -4,13 +4,13 @@
 
 package pkg
 
-// ListNode Definition for a singly-linked list node
+// ListNode 链表节点
 type ListNode struct {
 	Next *ListNode
 	Val  int
 }
 
-// NewListNode Generate a list node with an val
+// NewListNode 链表节点构造函数
 func NewListNode(v int) *ListNode {
 	return &ListNode{
 		Next: nil,
@@ -18,7 +18,7 @@ func NewListNode(v int) *ListNode {
 	}
 }
 
-// ArrayToLinkedList Generate a linked list with an array
+// ArrayToLinkedList 将数组反序列化为链表
 func ArrayToLinkedList(arr []int) *ListNode {
 	// dummy header of linked list
 	dummy := NewListNode(0)
@@ -28,12 +28,4 @@ func ArrayToLinkedList(arr []int) *ListNode {
 		node = node.Next
 	}
 	return dummy.Next
-}
-
-// GetListNode Get a list node with specific value from a linked list
-func GetListNode(node *ListNode, val int) *ListNode {
-	for node != nil && node.Val != val {
-		node = node.Next
-	}
-	return node
 }

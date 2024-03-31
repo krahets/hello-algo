@@ -332,6 +332,12 @@
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -488,6 +494,12 @@
             val nums = IntArray(n)   // O(n)
         }
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+
     ```
 
 === "Zig"
@@ -700,7 +712,7 @@
         }
     }
     /* 递归 O(n) */
-    void recur(n: i32) {
+    fn recur(n: i32) {
         if n == 1 {
             return;
         }
@@ -746,6 +758,12 @@
         if (n == 1) return
         return recur(n - 1)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+
     ```
 
 === "Zig"

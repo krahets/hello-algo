@@ -113,20 +113,20 @@
     var nums = intArrayOf(1, 3, 2, 5, 4)
     ```
 
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 初始化数组
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
-    ```
-
 === "Ruby"
 
     ```ruby title="array.rb"
     # 初始化数组
     arr = Array.new(5, 0)
     nums = [1, 3, 2, 5, 4]
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    // 初始化数组
+    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
+    var nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
 ??? pythontutor "可视化运行"

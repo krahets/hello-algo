@@ -186,6 +186,12 @@
     }
     ```
 
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -423,6 +429,12 @@
     n2.right = n5
     ```
 
+=== "Ruby"
+
+    ```ruby title="binary_tree.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="binary_tree.zig"
@@ -577,6 +589,12 @@
     P.left = n2
     // 删除节点 P
     n1.left = n2
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_tree.rb"
+
     ```
 
 === "Zig"
