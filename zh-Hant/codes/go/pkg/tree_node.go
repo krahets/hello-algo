@@ -4,6 +4,7 @@
 
 package pkg
 
+// TreeNode 二元樹節點
 type TreeNode struct {
 	Val    any       // 節點值
 	Height int       // 節點高度
@@ -11,6 +12,7 @@ type TreeNode struct {
 	Right  *TreeNode // 右子節點引用
 }
 
+// NewTreeNode 二元樹節點建構子
 func NewTreeNode(v any) *TreeNode {
 	return &TreeNode{
 		Val:    v,

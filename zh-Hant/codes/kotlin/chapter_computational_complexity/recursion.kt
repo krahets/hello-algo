@@ -37,8 +37,9 @@ fun forLoopRecur(n: Int): Int {
     return res
 }
 
-/* Kotlin tailrec 關鍵詞使函式實現尾遞迴最佳化 */
+/* 尾遞迴 */
 tailrec fun tailRecur(n: Int, res: Int): Int {
+    // 新增 tailrec 關鍵詞，以開啟尾遞迴最佳化
     // 終止條件
     if (n == 0)
         return res

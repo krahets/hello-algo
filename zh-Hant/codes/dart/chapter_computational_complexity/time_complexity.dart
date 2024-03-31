@@ -87,25 +87,25 @@ int expRecur(int n) {
 }
 
 /* 對數階（迴圈實現） */
-int logarithmic(num n) {
+int logarithmic(int n) {
   int count = 0;
   while (n > 1) {
-    n = n / 2;
+    n = n ~/ 2;
     count++;
   }
   return count;
 }
 
 /* 對數階（遞迴實現） */
-int logRecur(num n) {
+int logRecur(int n) {
   if (n <= 1) return 0;
-  return logRecur(n / 2) + 1;
+  return logRecur(n ~/ 2) + 1;
 }
 
 /* 線性對數階 */
-int linearLogRecur(num n) {
+int linearLogRecur(int n) {
   if (n <= 1) return 1;
-  int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+  int count = linearLogRecur(n ~/ 2) + linearLogRecur(n ~/ 2);
   for (var i = 0; i < n; i++) {
     count++;
   }

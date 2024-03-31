@@ -16,7 +16,6 @@ class Pair(
 class ArrayHashMap {
     private val buckets = arrayOfNulls<Pair>(100)
 
-    /* 建構子 */
     init {
         // 初始化陣列，包含 100 個桶
         for (i in 0..<100) {

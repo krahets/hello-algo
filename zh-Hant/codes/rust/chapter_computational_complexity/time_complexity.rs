@@ -90,29 +90,29 @@ fn exp_recur(n: i32) -> i32 {
 }
 
 /* 對數階（迴圈實現） */
-fn logarithmic(mut n: f32) -> i32 {
+fn logarithmic(mut n: i32) -> i32 {
     let mut count = 0;
-    while n > 1.0 {
-        n = n / 2.0;
+    while n > 1 {
+        n = n / 2;
         count += 1;
     }
     count
 }
 
 /* 對數階（遞迴實現） */
-fn log_recur(n: f32) -> i32 {
-    if n <= 1.0 {
+fn log_recur(n: i32) -> i32 {
+    if n <= 1 {
         return 0;
     }
-    log_recur(n / 2.0) + 1
+    log_recur(n / 2) + 1
 }
 
 /* 線性對數階 */
-fn linear_log_recur(n: f32) -> i32 {
-    if n <= 1.0 {
+fn linear_log_recur(n: i32) -> i32 {
+    if n <= 1 {
         return 1;
     }
-    let mut count = linear_log_recur(n / 2.0) + linear_log_recur(n / 2.0);
+    let mut count = linear_log_recur(n / 2) + linear_log_recur(n / 2);
     for _ in 0..n as i32 {
         count += 1;
     }
@@ -157,12 +157,12 @@ fn main() {
     count = exp_recur(n);
     println!("指數階（遞迴實現）的運算量 = {}", count);
 
-    count = logarithmic(n as f32);
+    count = logarithmic(n);
     println!("對數階（迴圈實現）的運算量 = {}", count);
-    count = log_recur(n as f32);
+    count = log_recur(n);
     println!("對數階（遞迴實現）的運算量 = {}", count);
 
-    count = linear_log_recur(n as f32);
+    count = linear_log_recur(n);
     println!("線性對數階（遞迴實現）的運算量 = {}", count);
 
     count = factorial_recur(n);

@@ -64,7 +64,7 @@ func (q *arrayDeque) pushLast(num int) {
 	}
 	// 計算佇列尾指標，指向佇列尾索引 + 1
 	rear := q.index(q.front + q.queSize)
-	// 將 num 新增至佇列首
+	// 將 num 新增至佇列尾
 	q.nums[rear] = num
 	q.queSize++
 }

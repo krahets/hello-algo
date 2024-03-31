@@ -88,7 +88,7 @@ func expRecur(n: Int) -> Int {
 }
 
 /* 對數階（迴圈實現） */
-func logarithmic(n: Double) -> Int {
+func logarithmic(n: Int) -> Int {
     var count = 0
     var n = n
     while n > 1 {
@@ -99,7 +99,7 @@ func logarithmic(n: Double) -> Int {
 }
 
 /* 對數階（遞迴實現） */
-func logRecur(n: Double) -> Int {
+func logRecur(n: Int) -> Int {
     if n <= 1 {
         return 0
     }
@@ -107,7 +107,7 @@ func logRecur(n: Double) -> Int {
 }
 
 /* 線性對數階 */
-func linearLogRecur(n: Double) -> Int {
+func linearLogRecur(n: Int) -> Int {
     if n <= 1 {
         return 1
     }
@@ -158,12 +158,12 @@ enum TimeComplexity {
         count = expRecur(n: n)
         print("指數階（遞迴實現）的運算量 = \(count)")
 
-        count = logarithmic(n: Double(n))
+        count = logarithmic(n: n)
         print("對數階（迴圈實現）的運算量 = \(count)")
-        count = logRecur(n: Double(n))
+        count = logRecur(n: n)
         print("對數階（遞迴實現）的運算量 = \(count)")
 
-        count = linearLogRecur(n: Double(n))
+        count = linearLogRecur(n: n)
         print("線性對數階（遞迴實現）的運算量 = \(count)")
 
         count = factorialRecur(n: n)

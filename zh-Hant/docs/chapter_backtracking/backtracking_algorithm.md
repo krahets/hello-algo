@@ -377,6 +377,38 @@
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    /* 回溯演算法框架 */
+    fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
+        // 判斷是否為解
+        if (isSolution(state)) {
+            // 記錄解
+            recordSolution(state, res)
+            // 不再繼續搜尋
+            return
+        }
+        // 走訪所有選擇
+        for (choice in choices) {
+            // 剪枝：判斷選擇是否合法
+            if (isValid(state, choice)) {
+                // 嘗試：做出選擇，更新狀態
+                makeChoice(state, choice)
+                backtrack(state, choices, res)
+                // 回退：撤銷選擇，恢復到之前的狀態
+                undoChoice(state, choice)
+            }
+        }
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
