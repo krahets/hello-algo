@@ -1005,7 +1005,7 @@
 
     ```ruby title="list.rb"
     # 排序列表
-    nums = nums.sort { |a, b| a <=> b }
+    nums = nums.sort { |a, b| a <=> b } # 排序后，列表元素从小到大排列
     ```
 
 === "Zig"

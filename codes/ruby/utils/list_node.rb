@@ -9,8 +9,8 @@ class ListNode
   attr_accessor :val  # 节点值
   attr_accessor :next # 指向下一节点的引用
 
-  def initialize(val=nil, next_node=nil)
-    @val = val || 0
+  def initialize(val=0, next_node=nil)
+    @val = val
     @next = next_node
   end
 end
@@ -23,7 +23,7 @@ def arr_to_linked_list(arr)
     current.next = ListNode.new arr[i]
     current = current.next
   end
-  
+
   head
 end
 
