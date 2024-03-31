@@ -5,11 +5,7 @@ icon: material/calculator-variant-outline
 
 # Chapter 1. &nbsp; Introduction to Algorithms
 
-<div class="center-table" markdown>
-
 ![A first look at the algorithm](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

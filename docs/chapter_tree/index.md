@@ -5,11 +5,7 @@ icon: material/graph-outline
 
 # 第 7 章 &nbsp; 树
 
-<div class="center-table" markdown>
-
 ![树](../assets/covers/chapter_tree.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

@@ -5,11 +5,7 @@ icon: material/set-split
 
 # 第 12 章 &nbsp; 分治
 
-<div class="center-table" markdown>
-
 ![分治](../assets/covers/chapter_divide_and_conquer.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

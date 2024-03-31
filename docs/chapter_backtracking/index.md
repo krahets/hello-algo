@@ -5,11 +5,7 @@ icon: material/map-marker-path
 
 # 第 13 章 &nbsp; 回溯
 
-<div class="center-table" markdown>
-
 ![回溯](../assets/covers/chapter_backtracking.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

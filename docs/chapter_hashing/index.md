@@ -5,11 +5,7 @@ icon: material/table-search
 
 # 第 6 章 &nbsp; 哈希表
 
-<div class="center-table" markdown>
-
 ![哈希表](../assets/covers/chapter_hashing.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

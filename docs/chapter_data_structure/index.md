@@ -5,11 +5,7 @@ icon: material/shape-outline
 
 # 第 3 章 &nbsp; 数据结构
 
-<div class="center-table" markdown>
-
 ![数据结构](../assets/covers/chapter_data_structure.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

@@ -287,9 +287,9 @@ comments: true
 
     ```ruby title="list.rb"
     # 访问元素
-    num = nums[1]
+    num = nums[1] # 访问索引 1 处的元素
     # 更新元素
-    nums[1] = 0
+    nums[1] = 0 # 将索引 1 处的元素更新为 0
     ```
 
 === "Zig"
@@ -299,7 +299,7 @@ comments: true
     var num = nums.items[1]; // 访问索引 1 处的元素
 
     // 更新元素
-    nums.items[1] = 0; // 将索引 1 处的元素更新为 0  
+    nums.items[1] = 0; // 将索引 1 处的元素更新为 0
     ```
 
 ??? pythontutor "可视化运行"
@@ -551,10 +551,10 @@ comments: true
     nums << 4
 
     # 在中间插入元素
-    nums.insert 3, 6
+    nums.insert 3, 6 # 在索引 3 处插入数字 6
 
     # 删除元素
-    nums.delete_at 3
+    nums.delete_at 3 # 删除索引 3 处的元素
     ```
 
 === "Zig"
@@ -718,7 +718,7 @@ comments: true
     for (var i = 0; i < nums.length; i++) {
         count += nums[i];
     }
-    
+
     /* 直接遍历列表元素 */
     count = 0;
     for (var num in nums) {
@@ -972,7 +972,7 @@ comments: true
 === "JS"
 
     ```javascript title="list.js"
-    /* 排序列表 */  
+    /* 排序列表 */
     nums.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
     ```
 
@@ -1014,7 +1014,7 @@ comments: true
 
     ```ruby title="list.rb"
     # 排序列表
-    nums = nums.sort { |a, b| a <=> b }
+    nums = nums.sort { |a, b| a <=> b } # 排序后，列表元素从小到大排列
     ```
 
 === "Zig"

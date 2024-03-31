@@ -184,8 +184,8 @@ comments: true
       attr_accessor :val  # 节点值
       attr_accessor :next # 指向下一节点的引用
 
-      def initialize(val=nil, next_node=nil)
-        @val = val || 0
+      def initialize(val=0, next_node=nil)
+        @val = val
         @next = next_node
       end
     end
@@ -1511,8 +1511,8 @@ comments: true
       attr_accessor :next   # 指向后继节点的引用
       attr_accessor :prev   # 指向前驱节点的引用
 
-      def initialize(val=nil, next_node=nil, prev_node=nil)
-        @val = val || 0
+      def initialize(val=0, next_node=nil, prev_node=nil)
+        @val = val
         @next = next_node
         @prev = prev_node
       end

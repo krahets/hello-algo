@@ -5,11 +5,7 @@ icon: material/table-pivot
 
 # 第 14 章 &nbsp; 动态规划
 
-<div class="center-table" markdown>
-
 ![动态规划](../assets/covers/chapter_dynamic_programming.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

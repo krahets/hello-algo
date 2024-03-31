@@ -5,11 +5,7 @@ icon: material/stack-overflow
 
 # 第 5 章 &nbsp; 栈与队列
 
-<div class="center-table" markdown>
-
 ![栈与队列](../assets/covers/chapter_stack_and_queue.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

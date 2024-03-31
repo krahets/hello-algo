@@ -5,11 +5,7 @@ icon: material/shape-outline
 
 # Chapter 3. &nbsp; Data Structures
 
-<div class="center-table" markdown>
-
 ![Data Structures](../assets/covers/chapter_data_structure.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

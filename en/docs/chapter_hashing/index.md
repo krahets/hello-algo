@@ -5,11 +5,7 @@ icon: material/table-search
 
 # Chapter 6. &nbsp; Hash Table
 
-<div class="center-table" markdown>
-
 ![Hash Table](../assets/covers/chapter_hashing.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

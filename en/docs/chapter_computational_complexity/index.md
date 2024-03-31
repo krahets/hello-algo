@@ -5,11 +5,7 @@ icon: material/timer-sand
 
 # Chapter 2. &nbsp; Complexity Analysis
 
-<div class="center-table" markdown>
-
 ![complexity_analysis](../assets/covers/chapter_complexity_analysis.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

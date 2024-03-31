@@ -5,11 +5,7 @@ icon: material/family-tree
 
 # 第 8 章 &nbsp; 堆
 
-<div class="center-table" markdown>
-
 ![堆](../assets/covers/chapter_heap.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

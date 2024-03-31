@@ -5,11 +5,7 @@ icon: material/stack-overflow
 
 # Chapter 5. &nbsp; Stack and Queue
 
-<div class="center-table" markdown>
-
 ![Stack and Queue](../assets/covers/chapter_stack_and_queue.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

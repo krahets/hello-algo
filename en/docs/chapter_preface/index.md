@@ -5,11 +5,7 @@ icon: material/book-open-outline
 
 # Chapter 0. &nbsp; Preface
 
-<div class="center-table" markdown>
-
 ![Preface](../assets/covers/chapter_preface.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

@@ -5,11 +5,7 @@ icon: material/head-heart-outline
 
 # 第 15 章 &nbsp; 贪心
 
-<div class="center-table" markdown>
-
 ![贪心](../assets/covers/chapter_greedy.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

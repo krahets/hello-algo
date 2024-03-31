@@ -5,11 +5,7 @@ icon: material/calculator-variant-outline
 
 # 第 1 章 &nbsp; 初识算法
 
-<div class="center-table" markdown>
-
 ![初识算法](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 

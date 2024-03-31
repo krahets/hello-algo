@@ -5,11 +5,7 @@ icon: material/book-open-outline
 
 # 第 0 章 &nbsp; 前言
 
-<div class="center-table" markdown>
-
 ![前言](../assets/covers/chapter_preface.jpg){ class="cover-image" }
-
-</div>
 
 !!! abstract
 
