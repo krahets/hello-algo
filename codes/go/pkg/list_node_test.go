@@ -5,7 +5,6 @@
 package pkg
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -14,6 +13,4 @@ func TestListNode(t *testing.T) {
 	head := ArrayToLinkedList(arr)
 
 	PrintLinkedList(head)
-	node := GetListNode(head, 5)
-	fmt.Println("Find node: ", node.Val)
 }

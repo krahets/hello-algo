@@ -283,7 +283,7 @@
     int size = deque.length;
 
     /* 判断双向队列是否为空 */
-    bool isEmpty = deque.isEmpty;W
+    bool isEmpty = deque.isEmpty;
     ```
 
 === "Rust"
@@ -322,6 +322,40 @@
 
     ```c title="deque.c"
     // C 未提供内置双向队列
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="deque.kt"
+    /* 初始化双向队列 */
+    val deque = LinkedList<Int>()
+    
+    /* 元素入队 */
+    deque.offerLast(2)  // 添加至队尾
+    deque.offerLast(5)
+    deque.offerLast(4)
+    deque.offerFirst(3) // 添加至队首
+    deque.offerFirst(1)
+    
+    /* 访问元素 */
+    val peekFirst = deque.peekFirst() // 队首元素
+    val peekLast = deque.peekLast()   // 队尾元素
+    
+    /* 元素出队 */
+    val popFirst = deque.pollFirst() // 队首元素出队
+    val popLast = deque.pollLast()   // 队尾元素出队
+    
+    /* 获取双向队列的长度 */
+    val size = deque.size
+    
+    /* 判断双向队列是否为空 */
+    val isEmpty = deque.isEmpty()
+    ```
+
+=== "Ruby"
+
+    ```ruby title="deque.rb"
+
     ```
 
 === "Zig"

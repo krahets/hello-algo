@@ -176,6 +176,22 @@
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    /* 二叉树节点类 */
+    class TreeNode(val _val: Int) {  // 节点值
+        val left: TreeNode? = null   // 左子节点引用
+        val right: TreeNode? = null  // 右子节点引用
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -397,6 +413,28 @@
     n2->right = n5;
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="binary_tree.kt"
+    // 初始化节点
+    val n1 = TreeNode(1)
+    val n2 = TreeNode(2)
+    val n3 = TreeNode(3)
+    val n4 = TreeNode(4)
+    val n5 = TreeNode(5)
+    // 构建节点之间的引用（指针）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_tree.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="binary_tree.zig"
@@ -540,6 +578,23 @@
     P->left = n2;
     // 删除节点 P
     n1->left = n2;
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="binary_tree.kt"
+    val P = TreeNode(0)
+    // 在 n1 -> n2 中间插入节点 P
+    n1.left = P
+    P.left = n2
+    // 删除节点 P
+    n1.left = n2
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_tree.rb"
+
     ```
 
 === "Zig"

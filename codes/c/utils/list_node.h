@@ -26,7 +26,7 @@ ListNode *newListNode(int val) {
     return node;
 }
 
-/* Generate a linked list with an array */
+/* 将数组反序列化为链表 */
 ListNode *arrToLinkedList(const int *arr, size_t size) {
     if (size <= 0) {
         return NULL;
@@ -41,15 +41,7 @@ ListNode *arrToLinkedList(const int *arr, size_t size) {
     return dummy->next;
 }
 
-/* Get a list node with specific value from a linked list */
-ListNode *getListNode(ListNode *head, int val) {
-    while (head != NULL && head->val != val) {
-        head = head->next;
-    }
-    return head;
-}
-
-/* Free the memory allocated to a linked list */
+/* 释放分配给链表的内存空间 */
 void freeMemoryLinkedList(ListNode *cur) {
     // 释放内存
     ListNode *pre;

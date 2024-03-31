@@ -35,12 +35,12 @@ func TestTimeComplexity(t *testing.T) {
 	count = expRecur(n)
 	fmt.Println("指数阶（递归实现）的操作数量 =", count)
 
-	count = logarithmic(float64(n))
+	count = logarithmic(n)
 	fmt.Println("对数阶（循环实现）的操作数量 =", count)
-	count = logRecur(float64(n))
+	count = logRecur(n)
 	fmt.Println("对数阶（递归实现）的操作数量 =", count)
 
-	count = linearLogRecur(float64(n))
+	count = linearLogRecur(n)
 	fmt.Println("线性对数阶（递归实现）的操作数量 =", count)
 
 	count = factorialRecur(n)

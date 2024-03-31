@@ -302,6 +302,38 @@
     // C 未提供内置队列
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="queue.kt"
+    /* 初始化队列 */
+    val queue = LinkedList<Int>()
+    
+    /* 元素入队 */
+    queue.offer(1)
+    queue.offer(3)
+    queue.offer(2)
+    queue.offer(5)
+    queue.offer(4)
+    
+    /* 访问队首元素 */
+    val peek = queue.peek()
+    
+    /* 元素出队 */
+    val pop = queue.poll()
+    
+    /* 获取队列的长度 */
+    val size = queue.size
+    
+    /* 判断队列是否为空 */
+    val isEmpty = queue.isEmpty()
+    ```
+
+=== "Ruby"
+
+    ```ruby title="queue.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="queue.zig"
