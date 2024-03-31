@@ -163,6 +163,12 @@
     val bools = BooleanArray(5)
     ```
 
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""

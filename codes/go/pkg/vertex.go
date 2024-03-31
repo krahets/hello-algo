@@ -9,14 +9,14 @@ type Vertex struct {
 	Val int
 }
 
-// NewVertex 构造函数
+// NewVertex 顶点构造函数
 func NewVertex(val int) Vertex {
 	return Vertex{
 		Val: val,
 	}
 }
 
-// ValsToVets Generate a vertex list tree given an array
+// ValsToVets 将值列表反序列化为顶点列表
 func ValsToVets(vals []int) []Vertex {
 	vets := make([]Vertex, len(vals))
 	for i := 0; i < len(vals); i++ {
@@ -25,7 +25,7 @@ func ValsToVets(vals []int) []Vertex {
 	return vets
 }
 
-// VetsToVals Serialize given vertex list to a value list
+// VetsToVals 将顶点列表序列化为值列表
 func VetsToVals(vets []Vertex) []int {
 	vals := make([]int, len(vets))
 	for i := range vets {

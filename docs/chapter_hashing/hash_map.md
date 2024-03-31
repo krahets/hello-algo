@@ -290,6 +290,12 @@
     map.remove(10583)
     ```
 
+=== "Ruby"
+
+    ```ruby title="hash_map.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="hash_map.zig"
@@ -501,6 +507,12 @@
     for (_val in map.values) {
         println(_val)
     }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="hash_map.rb"
+
     ```
 
 === "Zig"
