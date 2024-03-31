@@ -54,7 +54,7 @@ fun main() {
     }
 
     /* 拼接两个列表*/
-    val nums1 = ArrayList<Int>(listOf(6, 8, 7, 10, 9))
+    val nums1 = mutableListOf(6, 8, 7, 10, 9)
     nums.addAll(nums1)
     println("将列表 nums1 拼接到 nums 之后，得到 nums = $nums")
 

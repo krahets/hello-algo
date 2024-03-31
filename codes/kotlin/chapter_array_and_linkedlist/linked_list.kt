@@ -18,16 +18,20 @@ fun insert(n0: ListNode?, p: ListNode?) {
 
 /* 删除链表的节点 n0 之后的首个节点 */
 fun remove(n0: ListNode?) {
-    val p = n0?.next
+    if (n0?.next == null)
+        return
+    val p = n0.next
     val n1 = p?.next
-    n0?.next = n1
+    n0.next = n1
 }
 
 /* 访问链表中索引为 index 的节点 */
 fun access(head: ListNode?, index: Int): ListNode? {
     var h = head
     for (i in 0..<index) {
-        h = h?.next
+        if (h == null)
+            return null
+        h = h.next
     }
     return h
 }

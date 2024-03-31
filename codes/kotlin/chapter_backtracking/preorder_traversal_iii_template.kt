@@ -8,7 +8,7 @@ package chapter_backtracking.preorder_traversal_iii_template
 
 import utils.TreeNode
 import utils.printTree
-import java.util.*
+import kotlin.collections.ArrayList
 
 /* 判断当前状态是否为解 */
 fun isSolution(state: List<TreeNode?>): Boolean {
@@ -17,7 +17,7 @@ fun isSolution(state: List<TreeNode?>): Boolean {
 
 /* 记录解 */
 fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<List<TreeNode?>?>) {
-    res.add(state?.let { ArrayList(it) })
+    res.add(ArrayList(state!!))
 }
 
 /* 判断在当前状态下，该选择是否合法 */
@@ -67,12 +67,12 @@ fun main() {
     printTree(root)
 
     // 回溯算法
-    val res = ArrayList<List<TreeNode?>?>()
-    backtrack(ArrayList(), mutableListOf(root), res)
+    val res = mutableListOf<List<TreeNode?>?>()
+    backtrack(mutableListOf(), mutableListOf(root), res)
 
     println("\n输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点")
     for (path in res) {
-        val vals = ArrayList<Int>()
+        val vals = mutableListOf<Int>()
         for (node in path!!) {
             if (node != null) {
                 vals.add(node.value)

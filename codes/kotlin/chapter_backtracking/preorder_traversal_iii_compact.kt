@@ -37,13 +37,13 @@ fun main() {
     printTree(root)
 
     // 前序遍历
-    path = ArrayList()
-    res = ArrayList()
+    path = mutableListOf()
+    res = mutableListOf()
     preOrder(root)
 
     println("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点")
     for (path in res!!) {
-        val values = ArrayList<Int>()
+        val values = mutableListOf<Int>()
         for (node in path) {
             values.add(node.value)
         }

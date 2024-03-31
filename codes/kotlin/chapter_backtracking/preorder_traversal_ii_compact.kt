@@ -10,7 +10,7 @@ import utils.TreeNode
 import utils.printTree
 
 var path: MutableList<TreeNode>? = null
-var res: ArrayList<List<TreeNode>>? = null
+var res: MutableList<List<TreeNode>>? = null
 
 /* 前序遍历：例题二 */
 fun preOrder(root: TreeNode?) {
@@ -36,13 +36,13 @@ fun main() {
     printTree(root)
 
     // 前序遍历
-    path = ArrayList()
-    res = ArrayList()
+    path = mutableListOf()
+    res = mutableListOf()
     preOrder(root)
 
     println("\n输出所有根节点到节点 7 的路径")
     for (path in res!!) {
-        val values = ArrayList<Int>()
+        val values = mutableListOf<Int>()
         for (node in path) {
             values.add(node.value)
         }

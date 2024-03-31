@@ -39,8 +39,8 @@ fun backtrack(
 
 /* 全排列 II */
 fun permutationsII(nums: IntArray): List<List<Int>?> {
-    val res = ArrayList<List<Int>?>()
-    backtrack(ArrayList(), nums, BooleanArray(nums.size), res)
+    val res = mutableListOf<List<Int>?>()
+    backtrack(mutableListOf(), nums, BooleanArray(nums.size), res)
     return res
 }
 
