@@ -1,10 +1,6 @@
 # Introduction to Algorithms
 
-<div class="center-table" markdown>
-
 ![A first look at the algorithm](../assets/covers/chapter_introduction.jpg)
-
-</div>
 
 !!! abstract
 

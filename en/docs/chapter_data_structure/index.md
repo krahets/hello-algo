@@ -1,10 +1,6 @@
 # Data Structures
 
-<div class="center-table" markdown>
-
 ![Data Structures](../assets/covers/chapter_data_structure.jpg)
-
-</div>
 
 !!! abstract
 
