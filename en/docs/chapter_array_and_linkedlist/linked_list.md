@@ -678,7 +678,7 @@ Doubly linked lists are ideal for scenarios requiring rapid access to preceding 
 
 - **Advanced data structures**: In structures like red-black trees and B-trees, accessing a node's parent is essential. This is achieved by incorporating a reference to the parent node in each node, akin to a doubly linked list.
 - **Browser history**: In web browsers, doubly linked lists facilitate navigating the history of visited pages when users click forward or back.
-- **Lru algorithm**: Doubly linked lists are apt for Least Recently Used (LRU) cache eviction algorithms, enabling swift identification of the least recently used data and facilitating fast node addition and removal.
+- **LRU algorithm**: Doubly linked lists are apt for Least Recently Used (LRU) cache eviction algorithms, enabling swift identification of the least recently used data and facilitating fast node addition and removal.
 
 Circular linked lists are ideal for applications that require periodic operations, such as resource scheduling in operating systems.
 
