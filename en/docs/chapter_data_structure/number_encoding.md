@@ -1,10 +1,10 @@
-# Number Encoding *
+# Number encoding *
 
 !!! note
 
     In this book, chapters marked with an asterisk '*' are optional readings. If you are short on time or find them challenging, you may skip these initially and return to them after completing the essential chapters.
 
-## Integer Encoding
+## Integer encoding
 
 In the table from the previous section, we observed that all integer types can represent one more negative number than positive numbers, such as the `byte` range of $[-128, 127]$. This phenomenon seems counterintuitive, and its underlying reason involves knowledge of sign-magnitude, one's complement, and two's complement encoding.
 
@@ -16,7 +16,7 @@ Firstly, it's important to note that **numbers are stored in computers using the
 
 The following diagram illustrates the conversions among sign-magnitude, one's complement, and two's complement:
 
-![Conversions between Sign-Magnitude, One's Complement, and Two's Complement](number_encoding.assets/1s_2s_complement.png)
+![Conversions between sign-magnitude, one's complement, and two's complement](number_encoding.assets/1s_2s_complement.png)
 
 Although sign-magnitude is the most intuitive, it has limitations. For one, **negative numbers in sign-magnitude cannot be directly used in calculations**. For example, in sign-magnitude, calculating $1 + (-2)$ results in $-3$, which is incorrect.
 
@@ -86,7 +86,7 @@ We can now summarize the reason for using two's complement in computers: with tw
 
 The design of two's complement is quite ingenious, and due to space constraints, we'll stop here. Interested readers are encouraged to explore further.
 
-## Floating-Point Number Encoding
+## Floating-point number encoding
 
 You might have noticed something intriguing: despite having the same length of 4 bytes, why does a `float` have a much larger range of values compared to an `int`? This seems counterintuitive, as one would expect the range to shrink for `float` since it needs to represent fractions.
 
@@ -123,7 +123,7 @@ $$
 \end{aligned}
 $$
 
-![Example Calculation of a float in IEEE 754 Standard](number_encoding.assets/ieee_754_float.png)
+![Example calculation of a float in IEEE 754 standard](number_encoding.assets/ieee_754_float.png)
 
 Observing the diagram, given an example data $\mathrm{S} = 0$, $\mathrm{E} = 124$, $\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$, we have:
 
@@ -137,7 +137,7 @@ Now we can answer the initial question: **The representation of `float` includes
 
 As shown in the table below, exponent bits $E = 0$ and $E = 255$ have special meanings, **used to represent zero, infinity, $\mathrm{NaN}$, etc.**
 
-<p align="center"> Table <id> &nbsp; Meaning of Exponent Bits </p>
+<p align="center"> Table <id> &nbsp; Meaning of exponent bits </p>
 
 | Exponent Bit E     | Fraction Bit $\mathrm{N} = 0$ | Fraction Bit $\mathrm{N} \ne 0$ | Calculation Formula                                                    |
 | ------------------ | ----------------------------- | ------------------------------- | ---------------------------------------------------------------------- |

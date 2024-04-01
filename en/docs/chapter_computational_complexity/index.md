@@ -1,6 +1,6 @@
-# Complexity Analysis
+# Complexity analysis
 
-![complexity_analysis](../assets/covers/chapter_complexity_analysis.jpg)
+![Complexity analysis](../assets/covers/chapter_complexity_analysis.jpg)
 
 !!! abstract
 

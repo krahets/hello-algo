@@ -1,4 +1,4 @@
-# Time Complexity
+# Time complexity
 
 Time complexity is a concept used to measure how the run time of an algorithm increases with the size of the input data. Understanding time complexity is crucial for accurately assessing the efficiency of an algorithm.
 
@@ -200,7 +200,7 @@ $$
 
 However, in practice, **counting the run time of an algorithm is neither practical nor reasonable**. First, we don't want to tie the estimated time to the running platform, as algorithms need to run on various platforms. Second, it's challenging to know the run time for each type of operation, making the estimation process difficult.
 
-## Assessing Time Growth Trend
+## Assessing time growth trend
 
 Time complexity analysis does not count the algorithm's run time, **but rather the growth trend of the run time as the data volume increases**.
 
@@ -470,7 +470,7 @@ The following figure shows the time complexities of these three algorithms.
 - Algorithm `B` involves a print operation looping $n$ times, and its run time grows linearly with $n$. Its time complexity is "linear order."
 - Algorithm `C` has a print operation looping 1,000,000 times. Although it takes a long time, it is independent of the input data size $n$. Therefore, the time complexity of `C` is the same as `A`, which is "constant order."
 
-![Time Growth Trend of Algorithms A, B, and C](time_complexity.assets/time_complexity_simple_example.png)
+![Time growth trend of algorithms a, b, and c](time_complexity.assets/time_complexity_simple_example.png)
 
 Compared to directly counting the run time of an algorithm, what are the characteristics of time complexity analysis?
 
@@ -478,7 +478,7 @@ Compared to directly counting the run time of an algorithm, what are the charact
 - **Time complexity analysis is more straightforward**. Obviously, the running platform and the types of computational operations are irrelevant to the trend of run time growth. Therefore, in time complexity analysis, we can simply treat the execution time of all computational operations as the same "unit time," simplifying the "computational operation run time count" to a "computational operation count." This significantly reduces the complexity of estimation.
 - **Time complexity has its limitations**. For example, although algorithms `A` and `C` have the same time complexity, their actual run times can be quite different. Similarly, even though algorithm `B` has a higher time complexity than `C`, it is clearly superior when the input data size $n$ is small. In these cases, it's difficult to judge the efficiency of algorithms based solely on time complexity. Nonetheless, despite these issues, complexity analysis remains the most effective and commonly used method for evaluating algorithm efficiency.
 
-## Asymptotic Upper Bound
+## Asymptotic upper bound
 
 Consider a function with an input size of $n$:
 
@@ -671,15 +671,15 @@ In essence, time complexity analysis is about finding the asymptotic upper bound
 
 As illustrated below, calculating the asymptotic upper bound involves finding a function $f(n)$ such that, as $n$ approaches infinity, $T(n)$ and $f(n)$ have the same growth order, differing only by a constant factor $c$.
 
-![Asymptotic Upper Bound of a Function](time_complexity.assets/asymptotic_upper_bound.png)
+![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.png)
 
-## Calculation Method
+## Calculation method
 
 While the concept of asymptotic upper bound might seem mathematically dense, you don't need to fully grasp it right away. Let's first understand the method of calculation, which can be practiced and comprehended over time.
 
 Once $f(n)$ is determined, we obtain the time complexity $O(f(n))$. But how do we determine the asymptotic upper bound $f(n)$? This process generally involves two steps: counting the number of operations and determining the asymptotic upper bound.
 
-### Step 1: Counting the Number of Operations
+### Step 1: counting the number of operations
 
 This step involves going through the code line by line. However, due to the presence of the constant $c$ in $c \cdot f(n)$, **all coefficients and constant terms in $T(n)$ can be ignored**. This principle allows for simplification techniques in counting operations.
 
@@ -933,13 +933,13 @@ T(n) & = n^2 + n & \text{Simplified Count (o.O)}
 \end{aligned}
 $$
 
-### Step 2: Determining the Asymptotic Upper Bound
+### Step 2: determining the asymptotic upper bound
 
 **The time complexity is determined by the highest order term in $T(n)$**. This is because, as $n$ approaches infinity, the highest order term dominates, rendering the influence of other terms negligible.
 
 The following table illustrates examples of different operation counts and their corresponding time complexities. Some exaggerated values are used to emphasize that coefficients cannot alter the order of growth. When $n$ becomes very large, these constants become insignificant.
 
-<p align="center"> Table: Time Complexity for Different Operation Counts </p>
+<p align="center"> Table: Time complexity for different operation counts </p>
 
 | Operation Count $T(n)$ | Time Complexity $O(f(n))$ |
 | ---------------------- | ------------------------- |
@@ -949,7 +949,7 @@ The following table illustrates examples of different operation counts and their
 | $n^3 + 10000n^2$       | $O(n^3)$                  |
 | $2^n + 10000n^{10000}$ | $O(2^n)$                  |
 
-## Common Types of Time Complexity
+## Common types of time complexity
 
 Let's consider the input data size as $n$. The common types of time complexities are illustrated below, arranged from lowest to highest:
 
@@ -960,9 +960,9 @@ O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
 \end{aligned}
 $$
 
-![Common Types of Time Complexity](time_complexity.assets/time_complexity_common_types.png)
+![Common types of time complexity](time_complexity.assets/time_complexity_common_types.png)
 
-### Constant Order $O(1)$
+### Constant order $O(1)$
 
 Constant order means the number of operations is independent of the input data size $n$. In the following function, although the number of operations `size` might be large, the time complexity remains $O(1)$ as it's unrelated to $n$:
 
@@ -970,7 +970,7 @@ Constant order means the number of operations is independent of the input data s
 [file]{time_complexity}-[class]{}-[func]{constant}
 ```
 
-### Linear Order $O(n)$
+### Linear order $O(n)$
 
 Linear order indicates the number of operations grows linearly with the input data size $n$. Linear order commonly appears in single-loop structures:
 
@@ -986,7 +986,7 @@ Operations like array traversal and linked list traversal have a time complexity
 
 It's important to note that **the input data size $n$ should be determined based on the type of input data**. For example, in the first example, $n$ represents the input data size, while in the second example, the length of the array $n$ is the data size.
 
-### Quadratic Order $O(n^2)$
+### Quadratic order $O(n^2)$
 
 Quadratic order means the number of operations grows quadratically with the input data size $n$. Quadratic order typically appears in nested loops, where both the outer and inner loops have a time complexity of $O(n)$, resulting in an overall complexity of $O(n^2)$:
 
@@ -996,7 +996,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
 
 The following image compares constant order, linear order, and quadratic order time complexities.
 
-![Constant, Linear, and Quadratic Order Time Complexities](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![Constant, linear, and quadratic order time complexities](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
 
 For instance, in bubble sort, the outer loop runs $n - 1$ times, and the inner loop runs $n-1$, $n-2$, ..., $2$, $1$ times, averaging $n / 2$ times, resulting in a time complexity of $O((n - 1) n / 2) = O(n^2)$:
 
@@ -1004,7 +1004,7 @@ For instance, in bubble sort, the outer loop runs $n - 1$ times, and the inner l
 [file]{time_complexity}-[class]{}-[func]{bubble_sort}
 ```
 
-### Exponential Order $O(2^n)$
+### Exponential order $O(2^n)$
 
 Biological "cell division" is a classic example of exponential order growth: starting with one cell, it becomes two after one division, four after two divisions, and so on, resulting in $2^n$ cells after $n$ divisions.
 
@@ -1014,7 +1014,7 @@ The following image and code simulate the cell division process, with a time com
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
-![Exponential Order Time Complexity](time_complexity.assets/time_complexity_exponential.png)
+![Exponential order time complexity](time_complexity.assets/time_complexity_exponential.png)
 
 In practice, exponential order often appears in recursive functions. For example, in the code below, it recursively splits into two halves, stopping after $n$ divisions:
 
@@ -1024,7 +1024,7 @@ In practice, exponential order often appears in recursive functions. For example
 
 Exponential order growth is extremely rapid and is commonly seen in exhaustive search methods (brute force, backtracking, etc.). For large-scale problems, exponential order is unacceptable, often requiring dynamic programming or greedy algorithms as solutions.
 
-### Logarithmic Order $O(\log n)$
+### Logarithmic order $O(\log n)$
 
 In contrast to exponential order, logarithmic order reflects situations where "the size is halved each round." Given an input data size $n$, since the size is halved each round, the number of iterations is $\log_2 n$, the inverse function of $2^n$.
 
@@ -1034,7 +1034,7 @@ The following image and code simulate the "halving each round" process, with a t
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
-![Logarithmic Order Time Complexity](time_complexity.assets/time_complexity_logarithmic.png)
+![Logarithmic order time complexity](time_complexity.assets/time_complexity_logarithmic.png)
 
 Like exponential order, logarithmic order also frequently appears in recursive functions. The code below forms a recursive tree of height $\log_2 n$:
 
@@ -1054,7 +1054,7 @@ Logarithmic order is typical in algorithms based on the divide-and-conquer strat
 
     This means the base $m$ can be changed without affecting the complexity. Therefore, we often omit the base $m$ and simply denote logarithmic order as $O(\log n)$.
 
-### Linear-Logarithmic Order $O(n \log n)$
+### Linear-logarithmic order $O(n \log n)$
 
 Linear-logarithmic order often appears in nested loops, with the complexities of the two loops being $O(\log n)$ and $O(n)$ respectively. The related code is as follows:
 
@@ -1064,11 +1064,11 @@ Linear-logarithmic order often appears in nested loops, with the complexities of
 
 The image below demonstrates how linear-logarithmic order is generated. Each level of a binary tree has $n$ operations, and the tree has $\log_2 n + 1$ levels, resulting in a time complexity of $O(n \log n)$.
 
-![Linear-Logarithmic Order Time Complexity](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![Linear-logarithmic order time complexity](time_complexity.assets/time_complexity_logarithmic_linear.png)
 
 Mainstream sorting algorithms typically have a time complexity of $O(n \log n)$, such as quicksort, mergesort, and heapsort.
 
-### Factorial Order $O(n!)$
+### Factorial order $O(n!)$
 
 Factorial order corresponds to the mathematical problem of "full permutation." Given $n$ distinct elements, the total number of possible permutations is:
 
@@ -1082,11 +1082,11 @@ Factorials are typically implemented using recursion. As shown in the image and 
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
-![Factorial Order Time Complexity](time_complexity.assets/time_complexity_factorial.png)
+![Factorial order time complexity](time_complexity.assets/time_complexity_factorial.png)
 
 Note that factorial order grows even faster than exponential order; it's unacceptable for larger $n$ values.
 
-## Worst, Best, and Average Time Complexities
+## Worst, best, and average time complexities
 
 **The time efficiency of an algorithm is often not fixed but depends on the distribution of the input data**. Assume we have an array `nums` of length $n$, consisting of numbers from $1$ to $n$, each appearing only once, but in a randomly shuffled order. The task is to return the index of the element $1$. We can draw the following conclusions:
 

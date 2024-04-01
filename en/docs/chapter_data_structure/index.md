@@ -1,6 +1,6 @@
-# Data Structures
+# Data structures
 
-![Data Structures](../assets/covers/chapter_data_structure.jpg)
+![Data structures](../assets/covers/chapter_data_structure.jpg)
 
 !!! abstract
 
