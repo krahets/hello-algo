@@ -54,7 +54,7 @@ status: new
 
 ## 购买链接
 
-如果你对纸质书感兴趣，可以考虑入手一本。我们为大家争取到了新书 5 折优惠，请见[此链接](https://3.cn/-1Wwj1jq)或扫描以下二维码：
+如果你对纸质书感兴趣，可以考虑入手一本。我们为大家争取到了新书 5 折优惠，请见[此链接](https://3.cn/1X-qmTD3)或扫描以下二维码：
 
 ![](index.assets/book_jd_link.jpg){ class="animation-figure" }
 
