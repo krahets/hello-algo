@@ -1,10 +1,6 @@
 # 哈希表
 
-<div class="center-table" markdown>
-
 ![哈希表](../assets/covers/chapter_hashing.jpg)
-
-</div>
 
 !!! abstract
 

@@ -1,10 +1,6 @@
 # Stack and Queue
 
-<div class="center-table" markdown>
-
 ![Stack and Queue](../assets/covers/chapter_stack_and_queue.jpg)
-
-</div>
 
 !!! abstract
 
