@@ -16,7 +16,7 @@
 === "Python"
 
     ```python title=""
-    """Header comments for labeling functions, classes, test samples, etc""""
+    """Header comments for labeling functions, classes, test samples, etc"""
    
     # Comments for explaining details
    

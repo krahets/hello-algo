@@ -20,7 +20,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 
     ```python title=""
     class ListNode:
-        """Linked List Node Class"""
+        """Linked list node class"""
         def __init__(self, val: int):
             self.val: int = val               # Node value
             self.next: ListNode | None = None # Reference to the next node
@@ -29,7 +29,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "C++"
 
     ```cpp title=""
-    /* Linked List Node Structure */
+    /* Linked list node structure */
     struct ListNode {
         int val;         // Node value
         ListNode *next;  // Pointer to the next node
@@ -40,7 +40,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Java"
 
     ```java title=""
-    /* Linked List Node Class */
+    /* Linked list node class */
     class ListNode {
         int val;        // Node value
         ListNode next;  // Reference to the next node
@@ -51,7 +51,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "C#"
 
     ```csharp title=""
-    /* Linked List Node Class */
+    /* Linked list node class */
     class ListNode(int x) {  // Constructor
         int val = x;         // Node value
         ListNode? next;      // Reference to the next node
@@ -61,7 +61,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Go"
 
     ```go title=""
-    /* Linked List Node Structure */
+    /* Linked list node structure */
     type ListNode struct {
         Val  int       // Node value
         Next *ListNode // Pointer to the next node
@@ -79,7 +79,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Swift"
 
     ```swift title=""
-    /* Linked List Node Class */
+    /* Linked list node class */
     class ListNode {
         var val: Int // Node value
         var next: ListNode? // Reference to the next node
@@ -93,7 +93,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "JS"
 
     ```javascript title=""
-    /* Linked List Node Class */
+    /* Linked list node class */
     class ListNode {
         constructor(val, next) {
             this.val = (val === undefined ? 0 : val);       // Node value
@@ -105,7 +105,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "TS"
 
     ```typescript title=""
-    /* Linked List Node Class */
+    /* Linked list node class */
     class ListNode {
         val: number;
         next: ListNode | null;
@@ -119,7 +119,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Dart"
 
     ```dart title=""
-    /* 链表节点类 */
+    /* Linked list node class */
     class ListNode {
       int val; // Node value
       ListNode? next; // Reference to the next node
@@ -132,7 +132,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-    /* Linked List Node Class */
+    /* Linked list node class */
     #[derive(Debug)]
     struct ListNode {
         val: i32, // Node value
@@ -143,7 +143,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "C"
 
     ```c title=""
-    /* Linked List Node Structure */
+    /* Linked list node structure */
     typedef struct ListNode {
         int val;               // Node value
         struct ListNode *next; // Pointer to the next node
@@ -168,7 +168,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Zig"
 
     ```zig title=""
-    // Linked List Node Class
+    // Linked list node class
     pub fn ListNode(comptime T: type) type {
         return struct {
             const Self = @This();
@@ -471,7 +471,7 @@ As shown in the figure, there are three common types of linked lists.
 
     ```python title=""
     class ListNode:
-        """Bidirectional linked list node class""""
+        """Bidirectional linked list node class"""
         def __init__(self, val: int):
             self.val: int = val                # Node value
             self.next: ListNode | None = None  # Reference to the successor node

@@ -28,13 +28,13 @@ The relevant code is as follows:
 
     ```python title=""
     class Node:
-        """Classes""""
+        """Classes"""
         def __init__(self, x: int):
             self.val: int = x               # node value
             self.next: Node | None = None   # reference to the next node
 
     def function() -> int:
-        """"Functions"""""
+        """Functions"""
         # Perform certain operations...
         return 0
 
@@ -271,7 +271,7 @@ The relevant code is as follows:
         next: Option<Rc<RefCell<Node>>>,
     }
 
-    /* Creating a Node structure */
+    /* Constructor */
     impl Node {
         fn new(val: i32) -> Self {
             Self { val: val, next: None }
@@ -443,10 +443,10 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 
     ```rust title=""
     fn algorithm(n: i32) {
-        let a = 0;                              // O(1)
-        let b = [0; 10000];                     // O(1)
+        let a = 0;                           // O(1)
+        let b = [0; 10000];                  // O(1)
         if n > 10 {
-            let nums = vec![0; n as usize];     // O(n)
+            let nums = vec![0; n as usize];  // O(n)
         }
     }
     ```
@@ -484,12 +484,12 @@ Consider the following code, the term "worst-case" in worst-case space complexit
         return 0
 
     def loop(n: int):
-        """Loop O(1)"""""
+        """Loop O(1)"""
         for _ in range(n):
             function()
 
     def recur(n: int):
-        """Recursion O(n)"""""
+        """Recursion O(n)"""
         if n == 1:
             return
         return recur(n - 1)
