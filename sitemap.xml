@@ -321,6 +321,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_hello_algo/</loc>
+         <lastmod>2024-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_introduction/</loc>
          <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
