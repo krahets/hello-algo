@@ -7,10 +7,10 @@
 ## Writing Conventions
 
 - Chapters marked with '*' after the title are optional and contain relatively challenging content. If you are short on time, it is advisable to skip them.
-- Key technical terms and their English equivalents are enclosed in **Bold** + *italics* brackets, for example, ***array***. It's advisable to familiarize yourself with these for better comprehension of technical texts.
-- Proprietary terms and words with specific meanings are indicated with “quotation marks” to avoid ambiguity.
+- Technical terms will be in boldface (in the print and PDF versions) or underlined (in the web version), for instance, <u>array</u>. It's advisable to familiarize yourself with these for better comprehension of technical texts.
 - **Bolded text** indicates key content or summary statements, which deserve special attention.
-- When it comes to terms that are inconsistent between programming languages, this book follows Python, for example using $\text{None}$ to mean "null".
+- Words and phrases with specific meanings are indicated with “quotation marks” to avoid ambiguity.
+- When it comes to terms that are inconsistent between programming languages, this book follows Python, for example using `None` to mean `null`.
 - This book partially ignores the comment conventions for programming languages in exchange for a more compact layout of the content. The comments primarily consist of three types: title comments, content comments, and multi-line comments.
 
 === "Python"
