@@ -1,122 +1,122 @@
-# 二叉树数组表示
+# Array representation of binary trees
 
-在链表表示下，二叉树的存储单元为节点 `TreeNode` ，节点之间通过指针相连接。上一节介绍了链表表示下的二叉树的各项基本操作。
+Under the linked list representation, the storage unit of a binary tree is a node `TreeNode`, with nodes connected by pointers. The basic operations of binary trees under the linked list representation were introduced in the previous section.
 
-那么，我们能否用数组来表示二叉树呢？答案是肯定的。
+So, can we use an array to represent a binary tree? The answer is yes.
 
-## 表示完美二叉树
+## Representing perfect binary trees
 
-先分析一个简单案例。给定一棵完美二叉树，我们将所有节点按照层序遍历的顺序存储在一个数组中，则每个节点都对应唯一的数组索引。
+Let's analyze a simple case first. Given a perfect binary tree, we store all nodes in an array according to the order of level-order traversal, where each node corresponds to a unique array index.
 
-根据层序遍历的特性，我们可以推导出父节点索引与子节点索引之间的“映射公式”：**若某节点的索引为 $i$ ，则该节点的左子节点索引为 $2i + 1$ ，右子节点索引为 $2i + 2$** 。下图展示了各个节点索引之间的映射关系。
+Based on the characteristics of level-order traversal, we can deduce a "mapping formula" between the index of a parent node and its children: **If a node's index is $i$, then the index of its left child is $2i + 1$ and the right child is $2i + 2$**. The figure below shows the mapping relationship between the indices of various nodes.
 
-![完美二叉树的数组表示](array_representation_of_tree.assets/array_representation_binary_tree.png)
+![Array representation of a perfect binary tree](array_representation_of_tree.assets/array_representation_binary_tree.png)
 
-**映射公式的角色相当于链表中的节点引用（指针）**。给定数组中的任意一个节点，我们都可以通过映射公式来访问它的左（右）子节点。
+**The mapping formula plays a role similar to the node references (pointers) in linked lists**. Given any node in the array, we can access its left (right) child node using the mapping formula.
 
-## 表示任意二叉树
+## Representing any binary tree
 
-完美二叉树是一个特例，在二叉树的中间层通常存在许多 `None` 。由于层序遍历序列并不包含这些 `None` ，因此我们无法仅凭该序列来推测 `None` 的数量和分布位置。**这意味着存在多种二叉树结构都符合该层序遍历序列**。
+Perfect binary trees are a special case; there are often many `None` values in the middle levels of a binary tree. Since the sequence of level-order traversal does not include these `None` values, we cannot solely rely on this sequence to deduce the number and distribution of `None` values. **This means that multiple binary tree structures can match the same level-order traversal sequence**.
 
-如下图所示，给定一棵非完美二叉树，上述数组表示方法已经失效。
+As shown in the figure below, given a non-perfect binary tree, the above method of array representation fails.
 
-![层序遍历序列对应多种二叉树可能性](array_representation_of_tree.assets/array_representation_without_empty.png)
+![Level-order traversal sequence corresponds to multiple binary tree possibilities](array_representation_of_tree.assets/array_representation_without_empty.png)
 
-为了解决此问题，**我们可以考虑在层序遍历序列中显式地写出所有 `None`** 。如下图所示，这样处理后，层序遍历序列就可以唯一表示二叉树了。示例代码如下：
+To solve this problem, **we can consider explicitly writing out all `None` values in the level-order traversal sequence**. As shown in the following figure, after this treatment, the level-order traversal sequence can uniquely represent a binary tree. Example code is as follows:
 
 === "Python"
 
     ```python title=""
-    # 二叉树的数组表示
-    # 使用 None 来表示空位
+    # Array representation of a binary tree
+    # Using None to represent empty slots
     tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* 二叉树的数组表示 */
-    // 使用 int 最大值 INT_MAX 标记空位
+    /* Array representation of a binary tree */
+    // Using the maximum integer value INT_MAX to mark empty slots
     vector<int> tree = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
 === "Java"
 
     ```java title=""
-    /* 二叉树的数组表示 */
-    // 使用 int 的包装类 Integer ，就可以使用 null 来标记空位
+    /* Array representation of a binary tree */
+    // Using the Integer wrapper class allows for using null to mark empty slots
     Integer[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* 二叉树的数组表示 */
-    // 使用 int? 可空类型 ，就可以使用 null 来标记空位
+    /* Array representation of a binary tree */
+    // Using nullable int (int?) allows for using null to mark empty slots
     int?[] tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 === "Go"
 
     ```go title=""
-    /* 二叉树的数组表示 */
-    // 使用 any 类型的切片, 就可以使用 nil 来标记空位
+    /* Array representation of a binary tree */
+    // Using an any type slice, allowing for nil to mark empty slots
     tree := []any{1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15}
     ```
 
 === "Swift"
 
     ```swift title=""
-    /* 二叉树的数组表示 */
-    // 使用 Int? 可空类型 ，就可以使用 nil 来标记空位
+    /* Array representation of a binary tree */
+    // Using optional Int (Int?) allows for using nil to mark empty slots
     let tree: [Int?] = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
 === "JS"
 
     ```javascript title=""
-    /* 二叉树的数组表示 */
-    // 使用 null 来表示空位
+    /* Array representation of a binary tree */
+    // Using null to represent empty slots
     let tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 === "TS"
 
     ```typescript title=""
-    /* 二叉树的数组表示 */
-    // 使用 null 来表示空位
+    /* Array representation of a binary tree */
+    // Using null to represent empty slots
     let tree: (number | null)[] = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 === "Dart"
 
     ```dart title=""
-    /* 二叉树的数组表示 */
-    // 使用 int? 可空类型 ，就可以使用 null 来标记空位
+    /* Array representation of a binary tree */
+    // Using nullable int (int?) allows for using null to mark empty slots
     List<int?> tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 === "Rust"
 
     ```rust title=""
-    /* 二叉树的数组表示 */
-    // 使用 None 来标记空位
+    /* Array representation of a binary tree */
+    // Using None to mark empty slots
     let tree = [Some(1), Some(2), Some(3), Some(4), None, Some(6), Some(7), Some(8), Some(9), None, None, Some(12), None, None, Some(15)];
     ```
 
 === "C"
 
     ```c title=""
-    /* 二叉树的数组表示 */
-    // 使用 int 最大值标记空位，因此要求节点值不能为 INT_MAX
+    /* Array representation of a binary tree */
+    // Using the maximum int value to mark empty slots, therefore, node values must not be INT_MAX
     int tree[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
 === "Kotlin"
 
     ```kotlin title=""
-    /* 二叉树的数组表示 */
-    // 使用 null 来表示空位
+    /* Array representation of a binary tree */
+    // Using null to represent empty slots
     val tree = mutableListOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
     ```
 
@@ -132,33 +132,33 @@
 
     ```
 
-![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png)
+![Array representation of any type of binary tree](array_representation_of_tree.assets/array_representation_with_empty.png)
 
-值得说明的是，**完全二叉树非常适合使用数组来表示**。回顾完全二叉树的定义，`None` 只出现在最底层且靠右的位置，**因此所有 `None` 一定出现在层序遍历序列的末尾**。
+It's worth noting that **complete binary trees are very suitable for array representation**. Recalling the definition of a complete binary tree, `None` appears only at the bottom level and towards the right, **meaning all `None` values definitely appear at the end of the level-order traversal sequence**.
 
-这意味着使用数组表示完全二叉树时，可以省略存储所有 `None` ，非常方便。下图给出了一个例子。
+This means that when using an array to represent a complete binary tree, it's possible to omit storing all `None` values, which is very convenient. The figure below gives an example.
 
-![完全二叉树的数组表示](array_representation_of_tree.assets/array_representation_complete_binary_tree.png)
+![Array representation of a complete binary tree](array_representation_of_tree.assets/array_representation_complete_binary_tree.png)
 
-以下代码实现了一棵基于数组表示的二叉树，包括以下几种操作。
+The following code implements a binary tree based on array representation, including the following operations:
 
-- 给定某节点，获取它的值、左（右）子节点、父节点。
-- 获取前序遍历、中序遍历、后序遍历、层序遍历序列。
+- Given a node, obtain its value, left (right) child node, and parent node.
+- Obtain the preorder, inorder, postorder, and level-order traversal sequences.
 
 ```src
 [file]{array_binary_tree}-[class]{array_binary_tree}-[func]{}
 ```
 
-## 优点与局限性
+## Advantages and limitations
 
-二叉树的数组表示主要有以下优点。
+The array representation of binary trees has the following advantages:
 
-- 数组存储在连续的内存空间中，对缓存友好，访问与遍历速度较快。
-- 不需要存储指针，比较节省空间。
-- 允许随机访问节点。
+- Arrays are stored in contiguous memory spaces, which is cache-friendly and allows for faster access and traversal.
+- It does not require storing pointers, which saves space.
+- It allows random access to nodes.
 
-然而，数组表示也存在一些局限性。
+However, the array representation also has some limitations:
 
-- 数组存储需要连续内存空间，因此不适合存储数据量过大的树。
-- 增删节点需要通过数组插入与删除操作实现，效率较低。
-- 当二叉树中存在大量 `None` 时，数组中包含的节点数据比重较低，空间利用率较低。
+- Array storage requires contiguous memory space, so it is not suitable for storing trees with a large amount of data.
+- Adding or deleting nodes requires array insertion and deletion operations, which are less efficient.
+- When there are many `None` values in the binary tree, the proportion of node data contained in the array is low, leading to lower space utilization.
