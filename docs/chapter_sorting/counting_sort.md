@@ -4,7 +4,7 @@ comments: true
 
 # 11.9 &nbsp; 计数排序
 
-「计数排序 counting sort」通过统计元素数量来实现排序，通常应用于整数数组。
+<u>计数排序（counting sort）</u>通过统计元素数量来实现排序，通常应用于整数数组。
 
 ## 11.9.1 &nbsp; 简单实现
 
