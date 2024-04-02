@@ -7,7 +7,7 @@
 ## Writing Conventions
 
 - Chapters marked with '*' after the title are optional and contain relatively challenging content. If you are short on time, it is advisable to skip them.
-- Technical terms will be in bold (in the print and PDF versions) or underlined (in the web version), for instance, <u>array</u>. It's advisable to familiarize yourself with these for better comprehension of technical texts.
+- Technical terms will be in boldface (in the print and PDF versions) or underlined (in the web version), for instance, <u>array</u>. It's advisable to familiarize yourself with these for better comprehension of technical texts.
 - **Bolded text** indicates key content or summary statements, which deserve special attention.
 - Words and phrases with specific meanings are indicated with “quotation marks” to avoid ambiguity.
 - When it comes to terms that are inconsistent between programming languages, this book follows Python, for example using `None` to mean `null`.
