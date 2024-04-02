@@ -151,6 +151,8 @@ extra_css:
 
 # Page tree
 nav:
+  - 序:
+    - chapter_hello_algo/index.md
   - 第 0 章 &nbsp; 前言:
     # [icon: material/book-open-outline]
     - chapter_preface/index.md
