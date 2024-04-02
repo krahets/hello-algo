@@ -104,13 +104,13 @@ nav:
     - 8.2 Building a Heap: chapter_heap/build_heap.md
     - 8.3 Top-k Problem: chapter_heap/top_k.md
     - 8.4 Summary: chapter_heap/summary.md
-  # - Chapter 9. Graph:
-  #   # [icon: material/graphql]
-  #   - chapter_graph/index.md
-  #   - 9.1 Graph: chapter_graph/graph.md
-  #   - 9.2 Basic Graph Operations: chapter_graph/graph_operations.md
-  #   - 9.3 Graph Traversal: chapter_graph/graph_traversal.md
-  #   - 9.4 Summary: chapter_graph/summary.md
+  - Chapter 9. Graph:
+    # [icon: material/graphql]
+    - chapter_graph/index.md
+    - 9.1 Graph: chapter_graph/graph.md
+    - 9.2 Basic Graph Operations: chapter_graph/graph_operations.md
+    - 9.3 Graph Traversal: chapter_graph/graph_traversal.md
+    - 9.4 Summary: chapter_graph/summary.md
   # - Chapter 10. Searching:
   #   # [icon: material/text-search]
   #   - chapter_searching/index.md
