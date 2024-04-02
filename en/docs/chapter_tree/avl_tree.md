@@ -226,7 +226,7 @@ Since the operations related to AVL trees require obtaining node heights, we nee
 The "node height" refers to the distance from that node to its farthest leaf node, i.e., the number of "edges" passed. It is important to note that the height of a leaf node is $0$, and the height of a null node is $-1$. We will create two utility functions for getting and updating the height of a node:
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{update_height}
+[file]{avl_tree}-[class]{avl_tree}-[func]{update_height}
 ```
 
 ### Node balance factor
@@ -234,7 +234,7 @@ The "node height" refers to the distance from that node to its farthest leaf nod
 The "balance factor" of a node is defined as the height of the node's left subtree minus the height of its right subtree, with the balance factor of a null node defined as $0$. We will also encapsulate the functionality of obtaining the node balance factor into a function for easy use later on:
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{balance_factor}
+[file]{avl_tree}-[class]{avl_tree}-[func]{balance_factor}
 ```
 
 !!! note
@@ -270,7 +270,7 @@ As shown in the figure below, when the `child` node has a right child (denoted a
 "Right rotation" is a figurative term; in practice, it is achieved by modifying node pointers, as shown in the following code:
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{right_rotate}
+[file]{avl_tree}-[class]{avl_tree}-[func]{right_rotate}
 ```
 
 ### Left rotation
@@ -286,7 +286,7 @@ Similarly, as shown in the figure below, when the `child` node has a left child 
 It can be observed that **the right and left rotation operations are logically symmetrical, and they solve two symmetrical types of imbalance**. Based on symmetry, by replacing all `left` with `right`, and all `right` with `left` in the implementation code of right rotation, we can get the implementation code for left rotation:
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{left_rotate}
+[file]{avl_tree}-[class]{avl_tree}-[func]{left_rotate}
 ```
 
 ### Right-left rotation
@@ -321,7 +321,7 @@ As shown in the table below, we determine which of the above cases an unbalanced
 For convenience, we encapsulate the rotation operations into a function. **With this function, we can perform rotations on various kinds of imbalances, restoring balance to unbalanced nodes**. The code is as follows:
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{rotate}
+[file]{avl_tree}-[class]{avl_tree}-[func]{rotate}
 ```
 
 ## Common operations in AVL trees
@@ -331,7 +331,7 @@ For convenience, we encapsulate the rotation operations into a function. **With 
 The node insertion operation in AVL trees is similar to that in binary search trees. The only difference is that after inserting a node in an AVL tree, a series of unbalanced nodes may appear along the path from that node to the root node. Therefore, **we need to start from this node and perform rotation operations upwards to restore balance to all unbalanced nodes**. The code is as follows:
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{insert_helper}
+[file]{avl_tree}-[class]{avl_tree}-[func]{insert_helper}
 ```
 
 ### Node removal
@@ -339,7 +339,7 @@ The node insertion operation in AVL trees is similar to that in binary search tr
 Similarly, based on the method of removing nodes in binary search trees, rotation operations need to be performed from the bottom up to restore balance to all unbalanced nodes. The code is as follows:
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{remove_helper}
+[file]{avl_tree}-[class]{avl_tree}-[func]{remove_helper}
 ```
 
 ### Node search

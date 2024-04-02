@@ -88,15 +88,15 @@ nav:
     - 6.2 Hash Collision: chapter_hashing/hash_collision.md
     - 6.3 Hash Algorithm: chapter_hashing/hash_algorithm.md
     - 6.4 Summary: chapter_hashing/summary.md
-  # - Chapter 7. Tree:
-  #   # [icon: material/graph-outline]
-  #   - chapter_tree/index.md
-  #   - 7.1 Binary Tree: chapter_tree/binary_tree.md
-  #   - 7.2 Binary Tree Traversal: chapter_tree/binary_tree_traversal.md
-  #   - 7.3 Array Representation of Tree: chapter_tree/array_representation_of_tree.md
-  #   - 7.4 Binary Search Tree: chapter_tree/binary_search_tree.md
-  #   - 7.5 AVL Tree *: chapter_tree/avl_tree.md
-  #   - 7.6 Summary: chapter_tree/summary.md
+  - Chapter 7. Tree:
+    # [icon: material/graph-outline]
+    - chapter_tree/index.md
+    - 7.1 Binary Tree: chapter_tree/binary_tree.md
+    - 7.2 Binary Tree Traversal: chapter_tree/binary_tree_traversal.md
+    - 7.3 Array Representation of Tree: chapter_tree/array_representation_of_tree.md
+    - 7.4 Binary Search Tree: chapter_tree/binary_search_tree.md
+    - 7.5 AVL Tree *: chapter_tree/avl_tree.md
+    - 7.6 Summary: chapter_tree/summary.md
   # - Chapter 8. Heap:
   #   # [icon: material/family-tree]
   #   - chapter_heap/index.md
