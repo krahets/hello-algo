@@ -4062,7 +4062,16 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 在某运行平台下</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">algorithm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w">       </span><span class="c1"># 1 ns </span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="c1"># 1 ns</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w">   </span><span class="c1"># 10 ns</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="c1"># 循环 n 次</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="p">(</span><span class="n">n</span><span class="o">...</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="c1"># 1 ns</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">        </span><span class="nb">puts</span><span class="w"> </span><span class="mi">0</span><span class="w">      </span><span class="c1"># 5 ns</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4316,7 +4325,20 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1"># 算法 A 的时间复杂度：常数阶</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">algorithm_A</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="k">end</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="c1"># 算法 B 的时间复杂度：线性阶</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">algorithm_B</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="w">    </span><span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="k">end</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="c1"># 算法 C 的时间复杂度：常数阶</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">algorithm_C</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="w">    </span><span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="mi">1_000_000</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4505,7 +4527,15 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">algorithm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">       </span><span class="c1"># +1</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="c1"># +1</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w">   </span><span class="c1"># +1</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="w">    </span><span class="c1"># 循环 n 次</span>
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="w">    </span><span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="c1"># +1</span>
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="w">        </span><span class="nb">puts</span><span class="w"> </span><span class="mi">0</span><span class="w">      </span><span class="c1"># +1</span>
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4753,7 +4783,16 @@ T(n) = 3 + 2n
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">algorithm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">       </span><span class="c1"># +0（技巧 1）</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="w">   </span><span class="c1"># +0（技巧 1）</span>
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="w">    </span><span class="c1"># +n（技巧 2）</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="w">    </span><span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="w">    </span><span class="c1"># +n*n（技巧 3）</span>
+<a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a><span class="w">    </span><span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">))</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a><span class="w">        </span><span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-54-10" name="__codelineno-54-10" href="#__codelineno-54-10"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4975,7 +5014,15 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">constant</span><span class="p">}</span>
+<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="c1">### 常数阶 ###</span>
+<a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">constant</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a><span class="w">  </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100000</span>
+<a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a>
+<a id="__codelineno-68-6" name="__codelineno-68-6" href="#__codelineno-68-6"></a><span class="w">  </span><span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="n">size</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-68-7" name="__codelineno-68-7" href="#__codelineno-68-7"></a>
+<a id="__codelineno-68-8" name="__codelineno-68-8" href="#__codelineno-68-8"></a><span class="w">  </span><span class="n">count</span>
+<a id="__codelineno-68-9" name="__codelineno-68-9" href="#__codelineno-68-9"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5127,7 +5174,12 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">linear</span><span class="p">}</span>
+<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="c1">### 线性阶 ###</span>
+<a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">linear</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-82-3" name="__codelineno-82-3" href="#__codelineno-82-3"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-82-4" name="__codelineno-82-4" href="#__codelineno-82-4"></a><span class="w">  </span><span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-82-5" name="__codelineno-82-5" href="#__codelineno-82-5"></a><span class="w">  </span><span class="n">count</span>
+<a id="__codelineno-82-6" name="__codelineno-82-6" href="#__codelineno-82-6"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5295,7 +5347,17 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">array_traversal</span><span class="p">}</span>
+<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a><span class="c1">### 线性阶（遍历数组）###</span>
+<a id="__codelineno-96-2" name="__codelineno-96-2" href="#__codelineno-96-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">array_traversal</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<a id="__codelineno-96-3" name="__codelineno-96-3" href="#__codelineno-96-3"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-96-4" name="__codelineno-96-4" href="#__codelineno-96-4"></a>
+<a id="__codelineno-96-5" name="__codelineno-96-5" href="#__codelineno-96-5"></a><span class="w">  </span><span class="c1"># 循环次数与数组长度成正比</span>
+<a id="__codelineno-96-6" name="__codelineno-96-6" href="#__codelineno-96-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span>
+<a id="__codelineno-96-7" name="__codelineno-96-7" href="#__codelineno-96-7"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-96-8" name="__codelineno-96-8" href="#__codelineno-96-8"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-96-9" name="__codelineno-96-9" href="#__codelineno-96-9"></a>
+<a id="__codelineno-96-10" name="__codelineno-96-10" href="#__codelineno-96-10"></a><span class="w">  </span><span class="n">count</span>
+<a id="__codelineno-96-11" name="__codelineno-96-11" href="#__codelineno-96-11"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5488,7 +5550,19 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">quadratic</span><span class="p">}</span>
+<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a><span class="c1">### 平方阶 ###</span>
+<a id="__codelineno-110-2" name="__codelineno-110-2" href="#__codelineno-110-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">quadratic</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-110-3" name="__codelineno-110-3" href="#__codelineno-110-3"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-110-4" name="__codelineno-110-4" href="#__codelineno-110-4"></a>
+<a id="__codelineno-110-5" name="__codelineno-110-5" href="#__codelineno-110-5"></a><span class="w">  </span><span class="c1"># 循环次数与数据大小 n 成平方关系</span>
+<a id="__codelineno-110-6" name="__codelineno-110-6" href="#__codelineno-110-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">n</span>
+<a id="__codelineno-110-7" name="__codelineno-110-7" href="#__codelineno-110-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">n</span>
+<a id="__codelineno-110-8" name="__codelineno-110-8" href="#__codelineno-110-8"></a><span class="w">      </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-110-9" name="__codelineno-110-9" href="#__codelineno-110-9"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-110-10" name="__codelineno-110-10" href="#__codelineno-110-10"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-110-11" name="__codelineno-110-11" href="#__codelineno-110-11"></a>
+<a id="__codelineno-110-12" name="__codelineno-110-12" href="#__codelineno-110-12"></a><span class="w">  </span><span class="n">count</span>
+<a id="__codelineno-110-13" name="__codelineno-110-13" href="#__codelineno-110-13"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5767,7 +5841,26 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-124-1" name="__codelineno-124-1" href="#__codelineno-124-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">bubble_sort</span><span class="p">}</span>
+<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-124-1" name="__codelineno-124-1" href="#__codelineno-124-1"></a><span class="c1">### 平方阶（冒泡排序）###</span>
+<a id="__codelineno-124-2" name="__codelineno-124-2" href="#__codelineno-124-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">bubble_sort</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<a id="__codelineno-124-3" name="__codelineno-124-3" href="#__codelineno-124-3"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c1"># 计数器</span>
+<a id="__codelineno-124-4" name="__codelineno-124-4" href="#__codelineno-124-4"></a>
+<a id="__codelineno-124-5" name="__codelineno-124-5" href="#__codelineno-124-5"></a><span class="w">  </span><span class="c1"># 外循环：未排序区间为 [0, i]</span>
+<a id="__codelineno-124-6" name="__codelineno-124-6" href="#__codelineno-124-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">downto</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-124-7" name="__codelineno-124-7" href="#__codelineno-124-7"></a><span class="w">    </span><span class="c1"># 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端</span>
+<a id="__codelineno-124-8" name="__codelineno-124-8" href="#__codelineno-124-8"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">i</span>
+<a id="__codelineno-124-9" name="__codelineno-124-9" href="#__codelineno-124-9"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span>
+<a id="__codelineno-124-10" name="__codelineno-124-10" href="#__codelineno-124-10"></a><span class="w">        </span><span class="c1"># 交换 nums[j] 与 nums[j + 1]</span>
+<a id="__codelineno-124-11" name="__codelineno-124-11" href="#__codelineno-124-11"></a><span class="w">        </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span>
+<a id="__codelineno-124-12" name="__codelineno-124-12" href="#__codelineno-124-12"></a><span class="w">        </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span>
+<a id="__codelineno-124-13" name="__codelineno-124-13" href="#__codelineno-124-13"></a><span class="w">        </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span>
+<a id="__codelineno-124-14" name="__codelineno-124-14" href="#__codelineno-124-14"></a><span class="w">        </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c1"># 元素交换包含 3 个单元操作</span>
+<a id="__codelineno-124-15" name="__codelineno-124-15" href="#__codelineno-124-15"></a><span class="w">      </span><span class="k">end</span>
+<a id="__codelineno-124-16" name="__codelineno-124-16" href="#__codelineno-124-16"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-124-17" name="__codelineno-124-17" href="#__codelineno-124-17"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-124-18" name="__codelineno-124-18" href="#__codelineno-124-18"></a>
+<a id="__codelineno-124-19" name="__codelineno-124-19" href="#__codelineno-124-19"></a><span class="w">  </span><span class="n">count</span>
+<a id="__codelineno-124-20" name="__codelineno-124-20" href="#__codelineno-124-20"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -6002,7 +6095,19 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-138-1" name="__codelineno-138-1" href="#__codelineno-138-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">exponential</span><span class="p">}</span>
+<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-138-1" name="__codelineno-138-1" href="#__codelineno-138-1"></a><span class="c1">### 指数阶（循环实现）###</span>
+<a id="__codelineno-138-2" name="__codelineno-138-2" href="#__codelineno-138-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">exponential</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-138-3" name="__codelineno-138-3" href="#__codelineno-138-3"></a><span class="w">  </span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-138-4" name="__codelineno-138-4" href="#__codelineno-138-4"></a>
+<a id="__codelineno-138-5" name="__codelineno-138-5" href="#__codelineno-138-5"></a><span class="w">  </span><span class="c1"># 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)</span>
+<a id="__codelineno-138-6" name="__codelineno-138-6" href="#__codelineno-138-6"></a><span class="w">  </span><span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-138-7" name="__codelineno-138-7" href="#__codelineno-138-7"></a><span class="w">    </span><span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="n">base</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-138-8" name="__codelineno-138-8" href="#__codelineno-138-8"></a><span class="w">    </span><span class="n">base</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-138-9" name="__codelineno-138-9" href="#__codelineno-138-9"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-138-10" name="__codelineno-138-10" href="#__codelineno-138-10"></a>
+<a id="__codelineno-138-11" name="__codelineno-138-11" href="#__codelineno-138-11"></a><span class="w">  </span><span class="c1"># count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1</span>
+<a id="__codelineno-138-12" name="__codelineno-138-12" href="#__codelineno-138-12"></a><span class="w">  </span><span class="n">count</span>
+<a id="__codelineno-138-13" name="__codelineno-138-13" href="#__codelineno-138-13"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -6145,7 +6250,11 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-152-1" name="__codelineno-152-1" href="#__codelineno-152-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">exp_recur</span><span class="p">}</span>
+<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-152-1" name="__codelineno-152-1" href="#__codelineno-152-1"></a><span class="c1">### 指数阶（递归实现）###</span>
+<a id="__codelineno-152-2" name="__codelineno-152-2" href="#__codelineno-152-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">exp_recur</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-152-3" name="__codelineno-152-3" href="#__codelineno-152-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-152-4" name="__codelineno-152-4" href="#__codelineno-152-4"></a><span class="w">  </span><span class="n">exp_recur</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">exp_recur</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-152-5" name="__codelineno-152-5" href="#__codelineno-152-5"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -6314,7 +6423,17 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-166-1" name="__codelineno-166-1" href="#__codelineno-166-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">logarithmic</span><span class="p">}</span>
+<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-166-1" name="__codelineno-166-1" href="#__codelineno-166-1"></a><span class="c1">### 对数阶（循环实现）###</span>
+<a id="__codelineno-166-2" name="__codelineno-166-2" href="#__codelineno-166-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">logarithmic</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-166-3" name="__codelineno-166-3" href="#__codelineno-166-3"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-166-4" name="__codelineno-166-4" href="#__codelineno-166-4"></a>
+<a id="__codelineno-166-5" name="__codelineno-166-5" href="#__codelineno-166-5"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-166-6" name="__codelineno-166-6" href="#__codelineno-166-6"></a><span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-166-7" name="__codelineno-166-7" href="#__codelineno-166-7"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-166-8" name="__codelineno-166-8" href="#__codelineno-166-8"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-166-9" name="__codelineno-166-9" href="#__codelineno-166-9"></a>
+<a id="__codelineno-166-10" name="__codelineno-166-10" href="#__codelineno-166-10"></a><span class="w">  </span><span class="n">count</span>
+<a id="__codelineno-166-11" name="__codelineno-166-11" href="#__codelineno-166-11"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -6451,7 +6570,11 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-180-1" name="__codelineno-180-1" href="#__codelineno-180-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">log_recur</span><span class="p">}</span>
+<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-180-1" name="__codelineno-180-1" href="#__codelineno-180-1"></a><span class="c1">### 对数阶（递归实现）###</span>
+<a id="__codelineno-180-2" name="__codelineno-180-2" href="#__codelineno-180-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_recur</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-180-3" name="__codelineno-180-3" href="#__codelineno-180-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-180-4" name="__codelineno-180-4" href="#__codelineno-180-4"></a><span class="w">  </span><span class="n">log_recur</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-180-5" name="__codelineno-180-5" href="#__codelineno-180-5"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -6636,7 +6759,15 @@ O(\log_m n) = O(\log_k n / \log_k m) = O(\log_k n)
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-194-1" name="__codelineno-194-1" href="#__codelineno-194-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">linear_log_recur</span><span class="p">}</span>
+<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-194-1" name="__codelineno-194-1" href="#__codelineno-194-1"></a><span class="c1">### 线性对数阶 ###</span>
+<a id="__codelineno-194-2" name="__codelineno-194-2" href="#__codelineno-194-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">linear_log_recur</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-194-3" name="__codelineno-194-3" href="#__codelineno-194-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-194-4" name="__codelineno-194-4" href="#__codelineno-194-4"></a>
+<a id="__codelineno-194-5" name="__codelineno-194-5" href="#__codelineno-194-5"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">linear_log_recur</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">linear_log_recur</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-194-6" name="__codelineno-194-6" href="#__codelineno-194-6"></a><span class="w">  </span><span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-194-7" name="__codelineno-194-7" href="#__codelineno-194-7"></a>
+<a id="__codelineno-194-8" name="__codelineno-194-8" href="#__codelineno-194-8"></a><span class="w">  </span><span class="n">count</span>
+<a id="__codelineno-194-9" name="__codelineno-194-9" href="#__codelineno-194-9"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -6837,7 +6968,16 @@ n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-208-1" name="__codelineno-208-1" href="#__codelineno-208-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">factorial_recur</span><span class="p">}</span>
+<div class="highlight"><span class="filename">time_complexity.rb</span><pre><span></span><code><a id="__codelineno-208-1" name="__codelineno-208-1" href="#__codelineno-208-1"></a><span class="c1">### 阶乘阶（递归实现）###</span>
+<a id="__codelineno-208-2" name="__codelineno-208-2" href="#__codelineno-208-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">factorial_recur</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-208-3" name="__codelineno-208-3" href="#__codelineno-208-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-208-4" name="__codelineno-208-4" href="#__codelineno-208-4"></a>
+<a id="__codelineno-208-5" name="__codelineno-208-5" href="#__codelineno-208-5"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-208-6" name="__codelineno-208-6" href="#__codelineno-208-6"></a><span class="w">  </span><span class="c1"># 从 1 个分裂出 n 个</span>
+<a id="__codelineno-208-7" name="__codelineno-208-7" href="#__codelineno-208-7"></a><span class="w">  </span><span class="p">(</span><span class="mi">0</span><span class="o">...</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">factorial_recur</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-208-8" name="__codelineno-208-8" href="#__codelineno-208-8"></a>
+<a id="__codelineno-208-9" name="__codelineno-208-9" href="#__codelineno-208-9"></a><span class="w">  </span><span class="n">count</span>
+<a id="__codelineno-208-10" name="__codelineno-208-10" href="#__codelineno-208-10"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -7204,9 +7344,24 @@ n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">worst_best_time_complexity.rb</span><pre><span></span><code><a id="__codelineno-222-1" name="__codelineno-222-1" href="#__codelineno-222-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">random_numbers</span><span class="p">}</span>
-<a id="__codelineno-222-2" name="__codelineno-222-2" href="#__codelineno-222-2"></a>
-<a id="__codelineno-222-3" name="__codelineno-222-3" href="#__codelineno-222-3"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">find_one</span><span class="p">}</span>
+<div class="highlight"><span class="filename">worst_best_time_complexity.rb</span><pre><span></span><code><a id="__codelineno-222-1" name="__codelineno-222-1" href="#__codelineno-222-1"></a><span class="c1">### 生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱 ###</span>
+<a id="__codelineno-222-2" name="__codelineno-222-2" href="#__codelineno-222-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">random_numbers</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-222-3" name="__codelineno-222-3" href="#__codelineno-222-3"></a><span class="w">  </span><span class="c1"># 生成数组 nums =: 1, 2, 3, ..., n</span>
+<a id="__codelineno-222-4" name="__codelineno-222-4" href="#__codelineno-222-4"></a><span class="w">  </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-222-5" name="__codelineno-222-5" href="#__codelineno-222-5"></a><span class="w">  </span><span class="c1"># 随机打乱数组元素</span>
+<a id="__codelineno-222-6" name="__codelineno-222-6" href="#__codelineno-222-6"></a><span class="w">  </span><span class="n">nums</span><span class="o">.</span><span class="n">shuffle!</span>
+<a id="__codelineno-222-7" name="__codelineno-222-7" href="#__codelineno-222-7"></a><span class="k">end</span>
+<a id="__codelineno-222-8" name="__codelineno-222-8" href="#__codelineno-222-8"></a>
+<a id="__codelineno-222-9" name="__codelineno-222-9" href="#__codelineno-222-9"></a><span class="c1">### 查找数组 nums 中数字 1 所在索引 ###</span>
+<a id="__codelineno-222-10" name="__codelineno-222-10" href="#__codelineno-222-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">find_one</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<a id="__codelineno-222-11" name="__codelineno-222-11" href="#__codelineno-222-11"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span>
+<a id="__codelineno-222-12" name="__codelineno-222-12" href="#__codelineno-222-12"></a><span class="w">    </span><span class="c1"># 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)</span>
+<a id="__codelineno-222-13" name="__codelineno-222-13" href="#__codelineno-222-13"></a><span class="w">    </span><span class="c1"># 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)</span>
+<a id="__codelineno-222-14" name="__codelineno-222-14" href="#__codelineno-222-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-222-15" name="__codelineno-222-15" href="#__codelineno-222-15"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-222-16" name="__codelineno-222-16" href="#__codelineno-222-16"></a>
+<a id="__codelineno-222-17" name="__codelineno-222-17" href="#__codelineno-222-17"></a><span class="w">  </span><span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-222-18" name="__codelineno-222-18" href="#__codelineno-222-18"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">

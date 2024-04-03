@@ -4243,10 +4243,10 @@
 <a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="n">nums</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span>
 <a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a>
 <a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a><span class="c1"># 在中间插入元素</span>
-<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a><span class="n">nums</span><span class="o">.</span><span class="n">insert</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="c1"># 在索引 3 处插入数字 6</span>
+<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a><span class="n">nums</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="c1"># 在索引 3 处插入数字 6</span>
 <a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a>
 <a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a><span class="c1"># 删除元素</span>
-<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a><span class="n">nums</span><span class="o">.</span><span class="n">delete_at</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c1"># 删除索引 3 处的元素</span>
+<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a><span class="n">nums</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1"># 删除索引 3 处的元素</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5876,7 +5876,7 @@
 <a id="__codelineno-96-8" name="__codelineno-96-8" href="#__codelineno-96-8"></a><span class="w">    </span><span class="vi">@capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
 <a id="__codelineno-96-9" name="__codelineno-96-9" href="#__codelineno-96-9"></a><span class="w">    </span><span class="vi">@size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-96-10" name="__codelineno-96-10" href="#__codelineno-96-10"></a><span class="w">    </span><span class="vi">@extend_ratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
-<a id="__codelineno-96-11" name="__codelineno-96-11" href="#__codelineno-96-11"></a><span class="w">    </span><span class="vi">@arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="w"> </span><span class="n">capacity</span>
+<a id="__codelineno-96-11" name="__codelineno-96-11" href="#__codelineno-96-11"></a><span class="w">    </span><span class="vi">@arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">capacity</span><span class="p">)</span>
 <a id="__codelineno-96-12" name="__codelineno-96-12" href="#__codelineno-96-12"></a><span class="w">  </span><span class="k">end</span>
 <a id="__codelineno-96-13" name="__codelineno-96-13" href="#__codelineno-96-13"></a>
 <a id="__codelineno-96-14" name="__codelineno-96-14" href="#__codelineno-96-14"></a><span class="w">  </span><span class="c1">### 访问元素 ###</span>
@@ -5948,9 +5948,9 @@
 <a id="__codelineno-96-80" name="__codelineno-96-80" href="#__codelineno-96-80"></a><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">to_array</span>
 <a id="__codelineno-96-81" name="__codelineno-96-81" href="#__codelineno-96-81"></a><span class="w">    </span><span class="n">sz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span>
 <a id="__codelineno-96-82" name="__codelineno-96-82" href="#__codelineno-96-82"></a><span class="w">    </span><span class="c1"># 仅转换有效长度范围内的列表元素</span>
-<a id="__codelineno-96-83" name="__codelineno-96-83" href="#__codelineno-96-83"></a><span class="w">    </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="w"> </span><span class="n">sz</span>
+<a id="__codelineno-96-83" name="__codelineno-96-83" href="#__codelineno-96-83"></a><span class="w">    </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">sz</span><span class="p">)</span>
 <a id="__codelineno-96-84" name="__codelineno-96-84" href="#__codelineno-96-84"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">sz</span>
-<a id="__codelineno-96-85" name="__codelineno-96-85" href="#__codelineno-96-85"></a><span class="w">      </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">i</span>
+<a id="__codelineno-96-85" name="__codelineno-96-85" href="#__codelineno-96-85"></a><span class="w">      </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <a id="__codelineno-96-86" name="__codelineno-96-86" href="#__codelineno-96-86"></a><span class="w">    </span><span class="k">end</span>
 <a id="__codelineno-96-87" name="__codelineno-96-87" href="#__codelineno-96-87"></a><span class="w">    </span><span class="n">arr</span>
 <a id="__codelineno-96-88" name="__codelineno-96-88" href="#__codelineno-96-88"></a><span class="w">  </span><span class="k">end</span>
