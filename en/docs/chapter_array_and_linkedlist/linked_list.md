@@ -448,7 +448,7 @@ Traverse the linked list to locate a node whose value matches `target`, and then
 
 The table below summarizes the characteristics of arrays and linked lists, and it also compares their efficiencies in various operations. Because they utilize opposing storage strategies, their respective properties and operational efficiencies exhibit distinct contrasts.
 
-<p align="center"> Table <id> &nbsp; Efficiency comparison of arrays and lnked lists </p>
+<p align="center"> Table <id> &nbsp; Efficiency comparison of arrays and linked lists </p>
 
 |                    | Arrays                                           | Linked Lists            |
 | ------------------ | ------------------------------------------------ | ----------------------- |
