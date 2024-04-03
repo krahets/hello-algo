@@ -88,29 +88,29 @@ nav:
     - 6.2 Hash Collision: chapter_hashing/hash_collision.md
     - 6.3 Hash Algorithm: chapter_hashing/hash_algorithm.md
     - 6.4 Summary: chapter_hashing/summary.md
-  # - Chapter 7. Tree:
-  #   # [icon: material/graph-outline]
-  #   - chapter_tree/index.md
-  #   - 7.1 Binary Tree: chapter_tree/binary_tree.md
-  #   - 7.2 Binary Tree Traversal: chapter_tree/binary_tree_traversal.md
-  #   - 7.3 Array Representation of Tree: chapter_tree/array_representation_of_tree.md
-  #   - 7.4 Binary Search Tree: chapter_tree/binary_search_tree.md
-  #   - 7.5 AVL Tree *: chapter_tree/avl_tree.md
-  #   - 7.6 Summary: chapter_tree/summary.md
-  # - Chapter 8. Heap:
-  #   # [icon: material/family-tree]
-  #   - chapter_heap/index.md
-  #   - 8.1 Heap: chapter_heap/heap.md
-  #   - 8.2 Building a Heap: chapter_heap/build_heap.md
-  #   - 8.3 Top-k Problem: chapter_heap/top_k.md
-  #   - 8.4 Summary: chapter_heap/summary.md
-  # - Chapter 9. Graph:
-  #   # [icon: material/graphql]
-  #   - chapter_graph/index.md
-  #   - 9.1 Graph: chapter_graph/graph.md
-  #   - 9.2 Basic Graph Operations: chapter_graph/graph_operations.md
-  #   - 9.3 Graph Traversal: chapter_graph/graph_traversal.md
-  #   - 9.4 Summary: chapter_graph/summary.md
+  - Chapter 7. Tree:
+    # [icon: material/graph-outline]
+    - chapter_tree/index.md
+    - 7.1 Binary Tree: chapter_tree/binary_tree.md
+    - 7.2 Binary Tree Traversal: chapter_tree/binary_tree_traversal.md
+    - 7.3 Array Representation of Tree: chapter_tree/array_representation_of_tree.md
+    - 7.4 Binary Search Tree: chapter_tree/binary_search_tree.md
+    - 7.5 AVL Tree *: chapter_tree/avl_tree.md
+    - 7.6 Summary: chapter_tree/summary.md
+  - Chapter 8. Heap:
+    # [icon: material/family-tree]
+    - chapter_heap/index.md
+    - 8.1 Heap: chapter_heap/heap.md
+    - 8.2 Building a Heap: chapter_heap/build_heap.md
+    - 8.3 Top-k Problem: chapter_heap/top_k.md
+    - 8.4 Summary: chapter_heap/summary.md
+  - Chapter 9. Graph:
+    # [icon: material/graphql]
+    - chapter_graph/index.md
+    - 9.1 Graph: chapter_graph/graph.md
+    - 9.2 Basic Graph Operations: chapter_graph/graph_operations.md
+    - 9.3 Graph Traversal: chapter_graph/graph_traversal.md
+    - 9.4 Summary: chapter_graph/summary.md
   # - Chapter 10. Searching:
   #   # [icon: material/text-search]
   #   - chapter_searching/index.md

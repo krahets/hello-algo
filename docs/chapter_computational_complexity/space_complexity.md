@@ -1,6 +1,6 @@
 # 空间复杂度
 
-「空间复杂度 space complexity」用于衡量算法占用内存空间随着数据量变大时的增长趋势。这个概念与时间复杂度非常类似，只需将“运行时间”替换为“占用内存空间”。
+<u>空间复杂度（space complexity）</u>用于衡量算法占用内存空间随着数据量变大时的增长趋势。这个概念与时间复杂度非常类似，只需将“运行时间”替换为“占用内存空间”。
 
 ## 算法相关空间
 
@@ -335,7 +335,30 @@
 === "Ruby"
 
     ```ruby title=""
+    ### 类 ###
+    class Node
+        attr_accessor :val      # 节点值
+        attr_accessor :next     # 指向下一节点的引用
 
+        def initialize(x)
+            @val = x
+        end
+    end
+
+    ### 函数 ###
+    def function
+        # 执行某些操作...
+        0
+    end
+
+    ### 算法 ###
+    def algorithm(n)        # 输入数据
+        a = 0               # 暂存数据（常量）
+        b = 0               # 暂存数据（变量）
+        node = Node.new 0   # 暂存数据（对象）
+        c = function        # 栈帧空间（调用函数）
+        a + b + c           # 输出数据
+    end
     ```
 
 === "Zig"
@@ -499,7 +522,11 @@
 === "Ruby"
 
     ```ruby title=""
-
+    def algorithm(n)
+        a = 0                           # O(1)
+        b = Array.new 10000             # O(1)
+        nums = Array.new n if n > 10    # O(n)
+    end
     ```
 
 === "Zig"
@@ -763,7 +790,21 @@
 === "Ruby"
 
     ```ruby title=""
+    def function
+        # 执行某些操作
+        0
+    end
 
+    ### 循环的空间复杂度为 O(1) ###
+    def loop(n)
+        (0...n).each { function }
+    end
+
+    ### 递归的空间复杂度为 O(n) ###
+    def recur(n)
+        return if n == 1
+        recur n - 1
+    end
     ```
 
 === "Zig"

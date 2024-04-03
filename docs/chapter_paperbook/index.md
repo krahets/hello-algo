@@ -1,6 +1,6 @@
 ---
 comments: true
-icon: fontawesome/solid/book
+icon: material/book-open-page-variant
 status: new
 ---
 
