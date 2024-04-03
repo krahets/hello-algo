@@ -545,10 +545,10 @@
     nums << 4
 
     # 在中间插入元素
-    nums.insert 3, 6 # 在索引 3 处插入数字 6
+    nums.insert(3, 6) # 在索引 3 处插入数字 6
 
     # 删除元素
-    nums.delete_at 3 # 删除索引 3 处的元素
+    nums.delete_at(3) # 删除索引 3 处的元素
     ```
 
 === "Zig"

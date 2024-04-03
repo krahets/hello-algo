@@ -37,8 +37,8 @@ def print_tree(root, prev=nil, is_right=false)
   return if root.nil?
 
   prev_str = "    "
-  trunk = Trunk.new prev, prev_str
-  print_tree root.right, trunk, true
+  trunk = Trunk.new(prev, prev_str)
+  print_tree(root.right, trunk, true)
 
   if prev.nil?
     trunk.str = "———"
@@ -50,9 +50,9 @@ def print_tree(root, prev=nil, is_right=false)
     prev.str = prev_str
   end
 
-  show_trunk trunk
+  show_trunk(trunk)
   puts " #{root.val}"
   prev.str = prev_str if prev
   trunk.str = "   |"
-  print_tree root.left, trunk, false
+  print_tree(root.left, trunk, false)
 end

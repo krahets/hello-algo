@@ -30,7 +30,7 @@ end
 ### 线性阶 ###
 def linear(n)
   # 长度为 n 的列表占用 O(n) 空间
-  nums = Array.new n, 0
+  nums = Array.new(n, 0)
 
   # 长度为 n 的哈希表占用 O(n) 空间
   hmap = {}
@@ -43,13 +43,13 @@ end
 def linear_recur(n)
   puts "递归 n = #{n}"
   return if n == 1
-  linear_recur n - 1
+  linear_recur(n - 1)
 end
 
 ### 平方阶 ###
 def quadratic(n)
   # 二维列表占用 O(n^2) 空间
-  Array.new(n) { Array.new n, 0 }
+  Array.new(n) { Array.new(n, 0) }
 end
 
 ### 平方阶（递归实现）###
@@ -57,8 +57,8 @@ def quadratic_recur(n)
   return 0 unless n > 0
 
   # 数组 nums 长度为 n, n-1, ..., 2, 1
-  nums = Array.new n, 0
-  quadratic_recur n - 1
+  nums = Array.new(n, 0)
+  quadratic_recur(n - 1)
 end
 
 ### 指数阶（建立满二叉树）###
@@ -66,8 +66,8 @@ def build_tree(n)
   return if n == 0
 
   TreeNode.new.tap do |root|
-    root.left = build_tree n - 1
-    root.right = build_tree n - 1
+    root.left = build_tree(n - 1)
+    root.right = build_tree(n - 1)
   end
 end
 
@@ -76,16 +76,16 @@ end
 n = 5
 
 # 常数阶
-constant n
+constant(n)
 
 # 线性阶
-linear n
-linear_recur n
+linear(n)
+linear_recur(n)
 
 # 平方阶
-quadratic n
-quadratic_recur n
+quadratic(n)
+quadratic_recur(n)
 
 # 指数阶
-root = build_tree n
-print_tree root
+root = build_tree(n)
+print_tree(root)

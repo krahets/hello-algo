@@ -421,11 +421,11 @@
     ```ruby title="linked_list.rb"
     # 初始化链表 1 -> 3 -> 2 -> 5 -> 4
     # 初始化各个节点
-    n0 = ListNode.new 1
-    n1 = ListNode.new 3
-    n2 = ListNode.new 2
-    n3 = ListNode.new 5
-    n4 = ListNode.new 4
+    n0 = ListNode.new(1)
+    n1 = ListNode.new(3)
+    n2 = ListNode.new(2)
+    n3 = ListNode.new(5)
+    n4 = ListNode.new(4)
     # 构建节点之间的引用
     n0.next = n1
     n1.next = n2

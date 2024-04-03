@@ -51,32 +51,32 @@ end
 
 # 初始化链表
 # 初始化各个节点
-n0 = ListNode.new 1
-n1 = ListNode.new 3
-n2 = ListNode.new 2
-n3 = ListNode.new 5
-n4 = ListNode.new 4
+n0 = ListNode.new(1)
+n1 = ListNode.new(3)
+n2 = ListNode.new(2)
+n3 = ListNode.new(5)
+n4 = ListNode.new(4)
 # 构建节点之间的引用
 n0.next = n1
 n1.next = n2
 n2.next = n3
 n3.next = n4
 puts "初始化的链表为"
-print_linked_list n0
+print_linked_list(n0)
 
 # 插入节点
-insert n0, ListNode.new(0)
+insert(n0, ListNode.new(0))
 print_linked_list n0
 
 # 删除节点
-remove n0
+remove(n0)
 puts "删除节点后的链表为"
-print_linked_list n0
+print_linked_list(n0)
 
 # 访问节点
-node = access n0, 3
+node = access(n0, 3)
 puts "链表中索引 3 处的节点的值 = #{node.val}"
 
 # 查找节点
-index = find n0, 2
+index = find(n0, 2)
 puts "链表中值为 2 的节点的索引 = #{index}"

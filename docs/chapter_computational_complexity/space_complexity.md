@@ -355,7 +355,7 @@
     def algorithm(n)        # 输入数据
         a = 0               # 暂存数据（常量）
         b = 0               # 暂存数据（变量）
-        node = Node.new 0   # 暂存数据（对象）
+        node = Node.new(0)  # 暂存数据（对象）
         c = function        # 栈帧空间（调用函数）
         a + b + c           # 输出数据
     end
@@ -524,8 +524,8 @@
     ```ruby title=""
     def algorithm(n)
         a = 0                           # O(1)
-        b = Array.new 10000             # O(1)
-        nums = Array.new n if n > 10    # O(n)
+        b = Array.new(10000)            # O(1)
+        nums = Array.new(n) if n > 10   # O(n)
     end
     ```
 
@@ -803,7 +803,7 @@
     ### 递归的空间复杂度为 O(n) ###
     def recur(n)
         return if n == 1
-        recur n - 1
+        recur(n - 1)
     end
     ```
 
