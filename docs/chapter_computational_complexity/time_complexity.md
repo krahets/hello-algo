@@ -193,7 +193,16 @@ comments: true
 === "Ruby"
 
     ```ruby title=""
-
+    # 在某运行平台下
+    def algorithm(n)
+        a = 2       # 1 ns 
+        a = a + 1   # 1 ns
+        a = a * 2   # 10 ns
+        # 循环 n 次
+        (n...0).each do # 1 ns
+            puts 0      # 5 ns
+        end
+    end
     ```
 
 === "Zig"
@@ -478,7 +487,20 @@ $$
 === "Ruby"
 
     ```ruby title=""
+    # 算法 A 的时间复杂度：常数阶
+    def algorithm_A(n)
+        puts 0
+    end
 
+    # 算法 B 的时间复杂度：线性阶
+    def algorithm_B(n)
+        (0...n).each { puts 0 }
+    end
+
+    # 算法 C 的时间复杂度：常数阶
+    def algorithm_C(n)
+        (0...1_000_000).each { puts 0 }
+    end
     ```
 
 === "Zig"
@@ -694,7 +716,15 @@ $$
 === "Ruby"
 
     ```ruby title=""
-
+    def algorithm(n)
+        a = 1       # +1
+        a = a + 1   # +1
+        a = a * 2   # +1
+        # 循环 n 次
+        (0...n).each do # +1
+            puts 0      # +1
+        end
+    end
     ```
 
 === "Zig"
@@ -978,7 +1008,16 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
 === "Ruby"
 
     ```ruby title=""
-
+    def algorithm(n)
+        a = 1       # +0（技巧 1）
+        a = a + n   # +0（技巧 1）
+        # +n（技巧 2）
+        (0...(5 * n + 1)).each do { puts 0 }
+        # +n*n（技巧 3）
+        (0...(2 * n)).each do
+            (0...(n + 1)).each do { puts 0 }
+        end
+    end
     ```
 
 === "Zig"
@@ -1216,7 +1255,15 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{constant}
+    ### 常数阶 ###
+    def constant(n)
+      count = 0
+      size = 100000
+
+      (0...size).each { count += 1 }
+
+      count
+    end
     ```
 
 === "Zig"
@@ -1394,7 +1441,12 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{linear}
+    ### 线性阶 ###
+    def linear(n)
+      count = 0
+      (0...n).each { count += 1 }
+      count
+    end
     ```
 
 === "Zig"
@@ -1587,7 +1639,17 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{array_traversal}
+    ### 线性阶（遍历数组）###
+    def array_traversal(nums)
+      count = 0
+
+      # 循环次数与数组长度成正比
+      for num in nums
+        count += 1
+      end
+
+      count
+    end
     ```
 
 === "Zig"
@@ -1807,7 +1869,19 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{quadratic}
+    ### 平方阶 ###
+    def quadratic(n)
+      count = 0
+
+      # 循环次数与数据大小 n 成平方关系
+      for i in 0...n
+        for j in 0...n
+          count += 1
+        end
+      end
+
+      count
+    end
     ```
 
 === "Zig"
@@ -2113,7 +2187,26 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{bubble_sort}
+    ### 平方阶（冒泡排序）###
+    def bubble_sort(nums)
+      count = 0  # 计数器
+
+      # 外循环：未排序区间为 [0, i]
+      for i in (nums.length - 1).downto(0)
+        # 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+        for j in 0...i
+          if nums[j] > nums[j + 1]
+            # 交换 nums[j] 与 nums[j + 1]
+            tmp = nums[j]
+            nums[j] = nums[j + 1]
+            nums[j + 1] = tmp
+            count += 3 # 元素交换包含 3 个单元操作
+          end
+        end
+      end
+
+      count
+    end
     ```
 
 === "Zig"
@@ -2375,7 +2468,19 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{exponential}
+    ### 指数阶（循环实现）###
+    def exponential(n)
+      count, base = 0, 1
+
+      # 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+      (0...n).each do
+        (0...base).each { count += 1 }
+        base *= 2
+      end
+
+      # count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
+      count
+    end
     ```
 
 === "Zig"
@@ -2544,7 +2649,11 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{exp_recur}
+    ### 指数阶（递归实现）###
+    def exp_recur(n)
+      return 1 if n == 1
+      exp_recur(n - 1) + exp_recur(n - 1) + 1
+    end
     ```
 
 === "Zig"
@@ -2741,7 +2850,17 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{logarithmic}
+    ### 对数阶（循环实现）###
+    def logarithmic(n)
+      count = 0
+
+      while n > 1
+        n /= 2
+        count += 1
+      end
+
+      count
+    end
     ```
 
 === "Zig"
@@ -2904,7 +3023,11 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{log_recur}
+    ### 对数阶（递归实现）###
+    def log_recur(n)
+      return 0 unless n > 1
+      log_recur(n / 2) + 1
+    end
     ```
 
 === "Zig"
@@ -3118,7 +3241,15 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{linear_log_recur}
+    ### 线性对数阶 ###
+    def linear_log_recur(n)
+      return 1 unless n > 1
+
+      count = linear_log_recur(n / 2) + linear_log_recur(n / 2)
+      (0...n).each { count += 1 }
+
+      count
+    end
     ```
 
 === "Zig"
@@ -3350,7 +3481,16 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{factorial_recur}
+    ### 阶乘阶（递归实现）###
+    def factorial_recur(n)
+      return 1 if n == 0
+
+      count = 0
+      # 从 1 个分裂出 n 个
+      (0...n).each { count += factorial_recur(n - 1) }
+
+      count
+    end
     ```
 
 === "Zig"
@@ -3745,9 +3885,24 @@ $$
 === "Ruby"
 
     ```ruby title="worst_best_time_complexity.rb"
-    [class]{}-[func]{random_numbers}
+    ### 生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱 ###
+    def random_numbers(n)
+      # 生成数组 nums =: 1, 2, 3, ..., n
+      nums = Array.new(n) { |i| i + 1 }
+      # 随机打乱数组元素
+      nums.shuffle!
+    end
 
-    [class]{}-[func]{find_one}
+    ### 查找数组 nums 中数字 1 所在索引 ###
+    def find_one(nums)
+      for i in 0...nums.length
+        # 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+        # 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
+        return i if nums[i] == 1
+      end
+
+      -1
+    end
     ```
 
 === "Zig"

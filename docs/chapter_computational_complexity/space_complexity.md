@@ -341,7 +341,30 @@ comments: true
 === "Ruby"
 
     ```ruby title=""
+    ### 类 ###
+    class Node
+        attr_accessor :val      # 节点值
+        attr_accessor :next     # 指向下一节点的引用
 
+        def initialize(x)
+            @val = x
+        end
+    end
+
+    ### 函数 ###
+    def function
+        # 执行某些操作...
+        0
+    end
+
+    ### 算法 ###
+    def algorithm(n)        # 输入数据
+        a = 0               # 暂存数据（常量）
+        b = 0               # 暂存数据（变量）
+        node = Node.new(0)  # 暂存数据（对象）
+        c = function        # 栈帧空间（调用函数）
+        a + b + c           # 输出数据
+    end
     ```
 
 === "Zig"
@@ -505,7 +528,11 @@ comments: true
 === "Ruby"
 
     ```ruby title=""
-
+    def algorithm(n)
+        a = 0                           # O(1)
+        b = Array.new(10000)            # O(1)
+        nums = Array.new(n) if n > 10   # O(n)
+    end
     ```
 
 === "Zig"
@@ -542,13 +569,13 @@ comments: true
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
@@ -562,13 +589,13 @@ comments: true
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             function();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
@@ -582,13 +609,13 @@ comments: true
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     void Loop(int n) {
         for (int i = 0; i < n; i++) {
             Function();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     int Recur(int n) {
         if (n == 1) return 1;
         return Recur(n - 1);
@@ -603,14 +630,14 @@ comments: true
         return 0
     }
     
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
     
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     func recur(n int) {
         if n == 1 {
             return
@@ -628,14 +655,14 @@ comments: true
         return 0
     }
 
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     func loop(n: Int) {
         for _ in 0 ..< n {
             function()
         }
     }
 
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     func recur(n: Int) {
         if n == 1 {
             return
@@ -651,13 +678,13 @@ comments: true
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     function loop(n) {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     function recur(n) {
         if (n === 1) return;
         return recur(n - 1);
@@ -671,13 +698,13 @@ comments: true
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     function loop(n: number): void {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     function recur(n: number): void {
         if (n === 1) return;
         return recur(n - 1);
@@ -691,13 +718,13 @@ comments: true
       // 执行某些操作
       return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     void loop(int n) {
       for (int i = 0; i < n; i++) {
         function();
       }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     void recur(int n) {
       if (n == 1) return;
       return recur(n - 1);
@@ -711,13 +738,13 @@ comments: true
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     fn loop(n: i32) {
         for i in 0..n {
             function();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     fn recur(n: i32) {
         if n == 1 {
             return;
@@ -733,13 +760,13 @@ comments: true
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
@@ -753,13 +780,13 @@ comments: true
         // 执行某些操作
         return 0
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     fun loop(n: Int) {
         for (i in 0..<n) {
             function()
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     fun recur(n: Int) {
         if (n == 1) return
         return recur(n - 1)
@@ -769,7 +796,21 @@ comments: true
 === "Ruby"
 
     ```ruby title=""
+    def function
+        # 执行某些操作
+        0
+    end
 
+    ### 循环的空间复杂度为 O(1) ###
+    def loop(n)
+        (0...n).each { function }
+    end
+
+    ### 递归的空间复杂度为 O(n) ###
+    def recur(n)
+        return if n == 1
+        recur(n - 1)
+    end
     ```
 
 === "Zig"
@@ -1134,9 +1175,24 @@ $$
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    [class]{}-[func]{function}
+    ### 函数 ###
+    def function
+      # 执行某些操作
+      0
+    end
 
-    [class]{}-[func]{constant}
+    ### 常数阶 ###
+    def constant(n)
+      # 常量、变量、对象占用 O(1) 空间
+      a = 0
+      nums = [0] * 10000
+      node = ListNode.new
+
+      # 循环中的变量占用 O(1) 空间
+      (0...n).each { c = 0 }
+      # 循环中的函数占用 O(1) 空间
+      (0...n).each { function }
+    end
     ```
 
 === "Zig"
@@ -1438,7 +1494,17 @@ $$
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    [class]{}-[func]{linear}
+    ### 线性阶 ###
+    def linear(n)
+      # 长度为 n 的列表占用 O(n) 空间
+      nums = Array.new(n, 0)
+
+      # 长度为 n 的哈希表占用 O(n) 空间
+      hmap = {}
+      for i in 0...n
+        hmap[i] = i.to_s
+      end
+    end
     ```
 
 === "Zig"
@@ -1620,7 +1686,12 @@ $$
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    [class]{}-[func]{linear_recur}
+    ### 线性阶（递归实现）###
+    def linear_recur(n)
+      puts "递归 n = #{n}"
+      return if n == 1
+      linear_recur(n - 1)
+    end
     ```
 
 === "Zig"
@@ -1860,7 +1931,11 @@ $$
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    [class]{}-[func]{quadratic}
+    ### 平方阶 ###
+    def quadratic(n)
+      # 二维列表占用 O(n^2) 空间
+      Array.new(n) { Array.new(n, 0) }
+    end
     ```
 
 === "Zig"
@@ -2055,7 +2130,14 @@ $$
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    [class]{}-[func]{quadratic_recur}
+    ### 平方阶（递归实现）###
+    def quadratic_recur(n)
+      return 0 unless n > 0
+
+      # 数组 nums 长度为 n, n-1, ..., 2, 1
+      nums = Array.new(n, 0)
+      quadratic_recur(n - 1)
+    end
     ```
 
 === "Zig"
@@ -2253,7 +2335,15 @@ $$
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    [class]{}-[func]{build_tree}
+    ### 指数阶（建立满二叉树）###
+    def build_tree(n)
+      return if n == 0
+
+      TreeNode.new.tap do |root|
+        root.left = build_tree(n - 1)
+        root.right = build_tree(n - 1)
+      end
+    end
     ```
 
 === "Zig"

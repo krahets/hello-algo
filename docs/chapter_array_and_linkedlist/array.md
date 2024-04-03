@@ -314,7 +314,7 @@ comments: true
     ### 随机访问元素 ###
     def random_access(nums)
       # 在区间 [0, nums.length) 中随机抽取一个数字
-      random_index = Random.rand 0...(nums.length - 1)
+      random_index = Random.rand(0...nums.length)
 
       # 获取并返回随机元素
       nums[random_index]

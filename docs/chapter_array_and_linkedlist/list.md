@@ -551,10 +551,10 @@ comments: true
     nums << 4
 
     # 在中间插入元素
-    nums.insert 3, 6 # 在索引 3 处插入数字 6
+    nums.insert(3, 6) # 在索引 3 处插入数字 6
 
     # 删除元素
-    nums.delete_at 3 # 删除索引 3 处的元素
+    nums.delete_at(3) # 删除索引 3 处的元素
     ```
 
 === "Zig"
@@ -2288,7 +2288,7 @@ comments: true
         @capacity = 10
         @size = 0
         @extend_ratio = 2
-        @arr = Array.new capacity
+        @arr = Array.new(capacity)
       end
 
       ### 访问元素 ###
@@ -2360,9 +2360,9 @@ comments: true
       def to_array
         sz = size
         # 仅转换有效长度范围内的列表元素
-        arr = Array.new sz
+        arr = Array.new(sz)
         for i in 0...sz
-          arr[i] = get i
+          arr[i] = get(i)
         end
         arr
       end

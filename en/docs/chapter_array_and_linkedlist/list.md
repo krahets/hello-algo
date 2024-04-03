@@ -2154,7 +2154,7 @@ To enhance our understanding of how lists work, we will attempt to implement a s
         @capacity = 10
         @size = 0
         @extend_ratio = 2
-        @arr = Array.new capacity
+        @arr = Array.new(capacity)
       end
 
       ### 访问元素 ###
@@ -2226,9 +2226,9 @@ To enhance our understanding of how lists work, we will attempt to implement a s
       def to_array
         sz = size
         # 仅转换有效长度范围内的列表元素
-        arr = Array.new sz
+        arr = Array.new(sz)
         for i in 0...sz
-          arr[i] = get i
+          arr[i] = get(i)
         end
         arr
       end
