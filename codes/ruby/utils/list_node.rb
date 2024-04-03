@@ -17,10 +17,10 @@ end
 
 ### 将列表反序列化为链表 ###
 def arr_to_linked_list(arr)
-  head = current = ListNode.new arr[0]
+  head = current = ListNode.new(arr[0])
 
   for i in 1...arr.length
-    current.next = ListNode.new arr[i]
+    current.next = ListNode.new(arr[i])
     current = current.next
   end
 
