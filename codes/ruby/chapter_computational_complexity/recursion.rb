@@ -9,7 +9,7 @@ def recur(n)
   # 终止条件
   return 1 if n == 1
   # 递：递归调用
-  res = recur n - 1
+  res = recur(n - 1)
   # 归：返回结果
   n + res
 end
@@ -39,7 +39,7 @@ def tail_recur(n, res)
   # 终止条件
   return res if n == 0
   # 尾递归调用
-  tail_recur n - 1, res + n
+  tail_recur(n - 1, res + n)
 end
 
 ### 斐波那契数列：递归 ###
@@ -56,14 +56,14 @@ end
 
 n = 5
 
-res = recur n
+res = recur(n)
 puts "\n递归函数的求和结果 res = #{res}"
 
-res = for_loop_recur n
+res = for_loop_recur(n)
 puts "\n使用迭代模拟递归求和结果 res = #{res}"
 
-res = tail_recur n, 0
+res = tail_recur(n, 0)
 puts "\n尾递归函数的求和结果 res = #{res}"
 
-res = fib n
+res = fib(n)
 puts "\n斐波那契数列的第 #{n} 项为 #{res}"

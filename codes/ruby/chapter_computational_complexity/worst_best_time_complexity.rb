@@ -27,8 +27,8 @@ end
 
 for i in 0...10
   n = 100
-  nums = random_number n
-  index = find_one nums
+  nums = random_number(n)
+  index = find_one(nums)
   puts "\n数组 [ 1, 2, ..., n ] 被打乱后 = #{nums}"
   puts "数字 1 的索引为 #{index}"
 end
