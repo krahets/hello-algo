@@ -1,7 +1,8 @@
 /**
- * File: graph_adjacency_list.java
- * Created Time: 2023-01-26
- * Author: krahets (krahets@163.com)
+ * @author: hoangtien2k3
+ * @create: 03/04/2024 - 23:35
+ * @file: graph_adjacency_list.java
+ * @update: 03/04/2024
  */
 
 package chapter_graph;
@@ -32,28 +33,24 @@ class GraphAdjList {
 
     /* 添加边 */
     public void addEdge(Vertex vet1, Vertex vet2) {
-        if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
+        if (vet1 == null || vet2 == null || vet1 == vet2)
             throw new IllegalArgumentException();
-        // 添加边 vet1 - vet2
         adjList.get(vet1).add(vet2);
         adjList.get(vet2).add(vet1);
     }
 
     /* 删除边 */
     public void removeEdge(Vertex vet1, Vertex vet2) {
-        if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
+        if (vet1 == null || vet2 == null || vet1 == vet2)
             throw new IllegalArgumentException();
-        // 删除边 vet1 - vet2
         adjList.get(vet1).remove(vet2);
         adjList.get(vet2).remove(vet1);
     }
 
     /* 添加顶点 */
     public void addVertex(Vertex vet) {
-        if (adjList.containsKey(vet))
-            return;
-        // 在邻接表中添加一个新链表
-        adjList.put(vet, new ArrayList<>());
+        if (!adjList.containsKey(vet))
+            adjList.put(vet, new ArrayList<>());
     }
 
     /* 删除顶点 */
