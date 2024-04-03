@@ -1,7 +1,7 @@
 =begin
 File: iteration.rb
 Created Time: 2024-03-30
-Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
+Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com), Cy (9738314@gmail.com)
 =end
 
 ### for 循环 ###
@@ -65,14 +65,14 @@ end
 
 n = 5
 
-res = for_loop n
+res = for_loop(n)
 puts "\nfor 循环的求和结果 res = #{res}"
 
-res = while_loop n
+res = while_loop(n)
 puts "\nwhile 循环的求和结果 res = #{res}"
 
-res = while_loop_ii n
+res = while_loop_ii(n)
 puts "\nwhile 循环（两次更新）求和结果 res = #{res}"
 
-res = nested_for_loop n
+res = nested_for_loop(n)
 puts "\n双层 for 循环的遍历结果 #{res}"
