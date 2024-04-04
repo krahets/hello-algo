@@ -404,7 +404,7 @@ Constructing a linked list is a two-step process: first, initializing each node 
 
 The array as a whole is a variable, for instance, the array `nums` includes elements like `nums[0]`, `nums[1]`, and so on, whereas a linked list is made up of several distinct node objects. **We typically refer to a linked list by its head node**, for example, the linked list in the previous code snippet is referred to as `n0`.
 
-### Inserting a node
+### Inserting nodes
 
 Inserting a node into a linked list is very easy. As shown in the figure, let's assume we aim to insert a new node `P` between two adjacent nodes `n0` and `n1`. **This can be achieved by simply modifying two node references (pointers)**, with a time complexity of $O(1)$.
 
@@ -416,7 +416,7 @@ By comparison, inserting an element into an array has a time complexity of $O(n)
 [file]{linked_list}-[class]{}-[func]{insert}
 ```
 
-### Deleting a node
+### Deleting nodes
 
 As shown in the figure, deleting a node from a linked list is also very easy, **involving only the modification of a single node's reference (pointer)**.
 
