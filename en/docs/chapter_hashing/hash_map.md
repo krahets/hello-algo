@@ -1,4 +1,4 @@
-# Hash Table
+# Hash table
 
 A "hash table", also known as a "hash map", achieves efficient element querying by establishing a mapping between keys and values. Specifically, when we input a `key` into the hash table, we can retrieve the corresponding `value` in $O(1)$ time.
 
@@ -8,11 +8,11 @@ As shown in the figure below, given $n$ students, each with two pieces of data: 
 
 Apart from hash tables, arrays and linked lists can also be used to implement querying functions. Their efficiency is compared in the table below.
 
-- **Adding Elements**: Simply add the element to the end of the array (or linked list), using $O(1)$ time.
-- **Querying Elements**: Since the array (or linked list) is unordered, it requires traversing all the elements, using $O(n)$ time.
-- **Deleting Elements**: First, locate the element, then delete it from the array (or linked list), using $O(n)$ time.
+- **Adding elements**: Simply add the element to the end of the array (or linked list), using $O(1)$ time.
+- **Querying elements**: Since the array (or linked list) is unordered, it requires traversing all the elements, using $O(n)$ time.
+- **Deleting elements**: First, locate the element, then delete it from the array (or linked list), using $O(n)$ time.
 
-<p align="center"> Table <id> &nbsp; Comparison of Element Query Efficiency </p>
+<p align="center"> Table <id> &nbsp; Comparison of element query efficiency </p>
 
 |                | Array  | Linked List | Hash Table |
 | -------------- | ------ | ----------- | ---------- |
@@ -22,7 +22,7 @@ Apart from hash tables, arrays and linked lists can also be used to implement qu
 
 Observations reveal that **the time complexity for adding, deleting, and querying in a hash table is $O(1)$**, which is highly efficient.
 
-## Common Operations of Hash Table
+## Common operations of hash table
 
 Common operations of a hash table include initialization, querying, adding key-value pairs, and deleting key-value pairs, etc. Example code is as follows:
 
@@ -484,7 +484,7 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 
     https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&cumulative=false&curInstr=8&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-## Simple Implementation of Hash Table
+## Simple implementation of hash table
 
 First, let's consider the simplest case: **implementing a hash table using just an array**. In the hash table, each empty slot in the array is called a "bucket", and each bucket can store one key-value pair. Therefore, the query operation involves finding the bucket corresponding to the `key` and retrieving the `value` from it.
 
@@ -511,7 +511,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 [file]{array_hash_map}-[class]{array_hash_map}-[func]{}
 ```
 
-## Hash Collision and Resizing
+## Hash collision and resizing
 
 Fundamentally, the role of the hash function is to map the entire input space of all keys to the output space of all array indices. However, the input space is often much larger than the output space. Therefore, **theoretically, there must be situations where "multiple inputs correspond to the same output"**.
 

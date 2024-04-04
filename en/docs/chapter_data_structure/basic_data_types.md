@@ -1,4 +1,4 @@
-# Basic Data Types
+# Basic data types
 
 When discussing data in computers, various forms like text, images, videos, voice and 3D models comes to mind. Despite their different organizational forms, they are all composed of various basic data types.
 
@@ -18,7 +18,7 @@ The range of values for basic data types depends on the size of the space they o
 
 The following table lists the space occupied, value range, and default values of various basic data types in Java. While memorizing this table isn't necessary, having a general understanding of it and referencing it when required is recommended.
 
-<p align="center"> Table <id> &nbsp; Space Occupied and Value Range of Basic Data Types </p>
+<p align="center"> Table <id> &nbsp; Space occupied and value range of basic data types </p>
 
 | Type    | Symbol   | Space Occupied | Minimum Value            | Maximum Value           | Default Value  |
 | ------- | -------- | -------------- | ------------------------ | ----------------------- | -------------- |
