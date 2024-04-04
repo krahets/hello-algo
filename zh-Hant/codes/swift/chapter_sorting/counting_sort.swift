@@ -36,7 +36,7 @@ func countingSort(nums: inout [Int]) {
     for num in nums {
         counter[num] += 1
     }
-    // 3. 求 counter 的字首和，將“出現次數”轉換為“尾索引”
+    // 3. 求 counter 的前綴和，將“出現次數”轉換為“尾索引”
     // 即 counter[num]-1 是 num 在 res 中最後一次出現的索引
     for i in 0 ..< m {
         counter[i + 1] += counter[i]
@@ -47,7 +47,7 @@ func countingSort(nums: inout [Int]) {
     for i in nums.indices.reversed() {
         let num = nums[i]
         res[counter[num] - 1] = num // 將 num 放置到對應索引處
-        counter[num] -= 1 // 令字首和自減 1 ，得到下次放置 num 的索引
+        counter[num] -= 1 // 令前綴和自減 1 ，得到下次放置 num 的索引
     }
     // 使用結果陣列 res 覆蓋原陣列 nums
     for i in nums.indices {

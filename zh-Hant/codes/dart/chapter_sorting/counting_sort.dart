@@ -42,7 +42,7 @@ void countingSort(List<int> nums) {
   for (int _num in nums) {
     counter[_num]++;
   }
-  // 3. 求 counter 的字首和，將“出現次數”轉換為“尾索引”
+  // 3. 求 counter 的前綴和，將“出現次數”轉換為“尾索引”
   // 即 counter[_num]-1 是 _num 在 res 中最後一次出現的索引
   for (int i = 0; i < m; i++) {
     counter[i + 1] += counter[i];
@@ -54,7 +54,7 @@ void countingSort(List<int> nums) {
   for (int i = n - 1; i >= 0; i--) {
     int _num = nums[i];
     res[counter[_num] - 1] = _num; // 將 _num 放置到對應索引處
-    counter[_num]--; // 令字首和自減 1 ，得到下次放置 _num 的索引
+    counter[_num]--; // 令前綴和自減 1 ，得到下次放置 _num 的索引
   }
   // 使用結果陣列 res 覆蓋原陣列 nums
   nums.setAll(0, res);

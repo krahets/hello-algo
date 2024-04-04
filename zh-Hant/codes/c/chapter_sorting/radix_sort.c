@@ -23,7 +23,7 @@ void countingSortDigit(int nums[], int size, int exp) {
         // 統計數字 d 的出現次數
         counter[d]++;
     }
-    // 求字首和，將“出現個數”轉換為“陣列索引”
+    // 求前綴和，將“出現個數”轉換為“陣列索引”
     for (int i = 1; i < 10; i++) {
         counter[i] += counter[i - 1];
     }

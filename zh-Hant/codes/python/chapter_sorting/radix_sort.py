@@ -20,7 +20,7 @@ def counting_sort_digit(nums: list[int], exp: int):
     for i in range(n):
         d = digit(nums[i], exp)  # 獲取 nums[i] 第 k 位，記為 d
         counter[d] += 1  # 統計數字 d 的出現次數
-    # 求字首和，將“出現個數”轉換為“陣列索引”
+    # 求前綴和，將“出現個數”轉換為“陣列索引”
     for i in range(1, 10):
         counter[i] += counter[i - 1]
     # 倒序走訪，根據桶內統計結果，將各元素填入 res
