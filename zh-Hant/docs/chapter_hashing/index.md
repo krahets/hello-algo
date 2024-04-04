@@ -1,10 +1,6 @@
 # 雜湊表
 
-<div class="center-table" markdown>
-
 ![雜湊表](../assets/covers/chapter_hashing.jpg)
-
-</div>
 
 !!! abstract
 

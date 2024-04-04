@@ -10,11 +10,11 @@
 
 ![AVL 樹在插入節點後發生退化](avl_tree.assets/avltree_degradation_from_inserting_node.png)
 
-1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在論文“An algorithm for the organization of information”中提出了「AVL 樹」。論文中詳細描述了一系列操作，確保在持續新增和刪除節點後，AVL 樹不會退化，從而使得各種操作的時間複雜度保持在 $O(\log n)$ 級別。換句話說，在需要頻繁進行增刪查改操作的場景中，AVL 樹能始終保持高效的資料操作效能，具有很好的應用價值。
+1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在論文“An algorithm for the organization of information”中提出了 <u>AVL 樹</u>。論文中詳細描述了一系列操作，確保在持續新增和刪除節點後，AVL 樹不會退化，從而使得各種操作的時間複雜度保持在 $O(\log n)$ 級別。換句話說，在需要頻繁進行增刪查改操作的場景中，AVL 樹能始終保持高效的資料操作效能，具有很好的應用價值。
 
 ## AVL 樹常見術語
 
-AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元樹的所有性質，因此是一種「平衡二元搜尋樹 balanced binary search tree」。
+AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二元樹的所有性質，因此是一種<u>平衡二元搜尋樹（balanced binary search tree）</u>。
 
 ### 節點高度
 
@@ -226,15 +226,15 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 “節點高度”是指從該節點到它的最遠葉節點的距離，即所經過的“邊”的數量。需要特別注意的是，葉節點的高度為 $0$ ，而空節點的高度為 $-1$ 。我們將建立兩個工具函式，分別用於獲取和更新節點的高度：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{update_height}
+[file]{avl_tree}-[class]{avl_tree}-[func]{update_height}
 ```
 
 ### 節點平衡因子
 
-節點的「平衡因子 balance factor」定義為節點左子樹的高度減去右子樹的高度，同時規定空節點的平衡因子為 $0$ 。我們同樣將獲取節點平衡因子的功能封裝成函式，方便後續使用：
+節點的<u>平衡因子（balance factor）</u>定義為節點左子樹的高度減去右子樹的高度，同時規定空節點的平衡因子為 $0$ 。我們同樣將獲取節點平衡因子的功能封裝成函式，方便後續使用：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{balance_factor}
+[file]{avl_tree}-[class]{avl_tree}-[func]{balance_factor}
 ```
 
 !!! note
@@ -270,7 +270,7 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 “向右旋轉”是一種形象化的說法，實際上需要透過修改節點指標來實現，程式碼如下所示：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{right_rotate}
+[file]{avl_tree}-[class]{avl_tree}-[func]{right_rotate}
 ```
 
 ### 左旋
@@ -286,7 +286,7 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 可以觀察到，**右旋和左旋操作在邏輯上是映象對稱的，它們分別解決的兩種失衡情況也是對稱的**。基於對稱性，我們只需將右旋的實現程式碼中的所有的 `left` 替換為 `right` ，將所有的 `right` 替換為 `left` ，即可得到左旋的實現程式碼：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{left_rotate}
+[file]{avl_tree}-[class]{avl_tree}-[func]{left_rotate}
 ```
 
 ### 先左旋後右旋
@@ -321,7 +321,7 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 為了便於使用，我們將旋轉操作封裝成一個函式。**有了這個函式，我們就能對各種失衡情況進行旋轉，使失衡節點重新恢復平衡**。程式碼如下所示：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{rotate}
+[file]{avl_tree}-[class]{avl_tree}-[func]{rotate}
 ```
 
 ## AVL 樹常用操作
@@ -331,7 +331,7 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 AVL 樹的節點插入操作與二元搜尋樹在主體上類似。唯一的區別在於，在 AVL 樹中插入節點後，從該節點到根節點的路徑上可能會出現一系列失衡節點。因此，**我們需要從這個節點開始，自底向上執行旋轉操作，使所有失衡節點恢復平衡**。程式碼如下所示：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{insert_helper}
+[file]{avl_tree}-[class]{avl_tree}-[func]{insert_helper}
 ```
 
 ### 刪除節點
@@ -339,7 +339,7 @@ AVL 樹的節點插入操作與二元搜尋樹在主體上類似。唯一的區�
 類似地，在二元搜尋樹的刪除節點方法的基礎上，需要從底至頂執行旋轉操作，使所有失衡節點恢復平衡。程式碼如下所示：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{remove_helper}
+[file]{avl_tree}-[class]{avl_tree}-[func]{remove_helper}
 ```
 
 ### 查詢節點

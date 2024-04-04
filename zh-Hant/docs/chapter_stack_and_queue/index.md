@@ -1,10 +1,6 @@
 # 堆疊與佇列
 
-<div class="center-table" markdown>
-
 ![堆疊與佇列](../assets/covers/chapter_stack_and_queue.jpg)
-
-</div>
 
 !!! abstract
 

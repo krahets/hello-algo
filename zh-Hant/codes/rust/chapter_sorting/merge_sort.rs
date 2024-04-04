@@ -15,7 +15,7 @@ fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
     // 當左右子陣列都還有元素時，進行比較並將較小的元素複製到臨時陣列中
     while i <= mid && j <= right {
         if nums[i] <= nums[j] {
-            tmp[k] = nums[j];
+            tmp[k] = nums[i];
             i += 1;
         } else {
             tmp[k] = nums[j];

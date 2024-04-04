@@ -1,10 +1,6 @@
 # 搜尋
 
-<div class="center-table" markdown>
-
 ![搜尋](../assets/covers/chapter_searching.jpg)
-
-</div>
 
 !!! abstract
 

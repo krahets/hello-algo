@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### 隨機訪問元素 ###
 def random_access(nums)
   # 在區間 [0, nums.length) 中隨機抽取一個數字
-  random_index = Random.rand 0...(nums.length - 1)
+  random_index = Random.rand(0...nums.length)
 
   # 獲取並返回隨機元素
   nums[random_index]
@@ -84,24 +84,24 @@ nums = [1, 3, 2, 5, 4]
 puts "陣列 nums = #{nums}"
 
 # 隨機訪問
-random_num = random_access nums
+random_num = random_access(nums)
 puts "在 nums 中獲取隨機元素 #{random_num}"
 
 # 長度擴展
-nums = extend nums, 3
+nums = extend(nums, 3)
 puts "將陣列長度擴展至 8 ，得到 nums = #{nums}"
 
 # 插入元素
-insert nums, 6, 3
+insert(nums, 6, 3)
 puts "在索引 3 處插入數字 6 ，得到 nums = #{nums}"
 
 # 刪除元素
-remove nums, 2
+remove(nums, 2)
 puts "刪除索引 2 處的元素，得到 nums = #{nums}"
 
 # 走訪陣列
-traverse nums
+traverse(nums)
 
 # 查詢元素
-index = find nums, 3
-puts "在 nums 中查詢元素 3 ，得到索引 = #{index}";
+index = find(nums, 3)
+puts "在 nums 中查詢元素 3 ，得到索引 = #{index}"

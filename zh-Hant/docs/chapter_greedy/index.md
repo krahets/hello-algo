@@ -1,10 +1,6 @@
 # 貪婪
 
-<div class="center-table" markdown>
-
 ![貪婪](../assets/covers/chapter_greedy.jpg)
-
-</div>
 
 !!! abstract
 

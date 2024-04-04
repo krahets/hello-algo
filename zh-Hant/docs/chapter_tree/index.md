@@ -1,10 +1,6 @@
 # 樹
 
-<div class="center-table" markdown>
-
 ![樹](../assets/covers/chapter_tree.jpg)
-
-</div>
 
 !!! abstract
 

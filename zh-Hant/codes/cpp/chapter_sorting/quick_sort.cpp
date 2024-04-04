@@ -154,13 +154,13 @@ int main() {
     vector<int> nums1 = {2, 4, 1, 0, 3, 5};
     QuickSortMedian::quickSort(nums1, 0, nums1.size() - 1);
     cout << "快速排序（中位基準數最佳化）完成後 nums = ";
-    printVector(nums);
+    printVector(nums1);
 
     /* 快速排序（尾遞迴最佳化） */
     vector<int> nums2 = {2, 4, 1, 0, 3, 5};
     QuickSortTailCall::quickSort(nums2, 0, nums2.size() - 1);
     cout << "快速排序（尾遞迴最佳化）完成後 nums = ";
-    printVector(nums);
+    printVector(nums2);
 
     return 0;
 }

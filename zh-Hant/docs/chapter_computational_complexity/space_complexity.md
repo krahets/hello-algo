@@ -1,6 +1,6 @@
 # 空間複雜度
 
-「空間複雜度 space complexity」用於衡量演算法佔用記憶體空間隨著資料量變大時的增長趨勢。這個概念與時間複雜度非常類似，只需將“執行時間”替換為“佔用記憶體空間”。
+<u>空間複雜度（space complexity）</u>用於衡量演算法佔用記憶體空間隨著資料量變大時的增長趨勢。這個概念與時間複雜度非常類似，只需將“執行時間”替換為“佔用記憶體空間”。
 
 ## 演算法相關空間
 
@@ -335,7 +335,30 @@
 === "Ruby"
 
     ```ruby title=""
+    ### 類別 ###
+    class Node
+        attr_accessor :val      # 節點值
+        attr_accessor :next     # 指向下一節點的引用
 
+        def initialize(x)
+            @val = x
+        end
+    end
+
+    ### 函式 ###
+    def function
+        # 執行某些操作...
+        0
+    end
+
+    ### 演算法 ###
+    def algorithm(n)        # 輸入資料
+        a = 0               # 暫存資料（常數）
+        b = 0               # 暫存資料（變數）
+        node = Node.new(0)  # 暫存資料（物件）
+        c = function        # 堆疊幀空間（呼叫函式）
+        a + b + c           # 輸出資料
+    end
     ```
 
 === "Zig"
@@ -499,7 +522,11 @@
 === "Ruby"
 
     ```ruby title=""
-
+    def algorithm(n)
+        a = 0                           # O(1)
+        b = Array.new(10000)            # O(1)
+        nums = Array.new(n) if n > 10   # O(n)
+    end
     ```
 
 === "Zig"
@@ -763,7 +790,21 @@
 === "Ruby"
 
     ```ruby title=""
+    def function
+        # 執行某些操作
+        0
+    end
 
+    ### 迴圈的空間複雜度為 O(1) ###
+    def loop(n)
+        (0...n).each { function }
+    end
+
+    ### 遞迴的空間複雜度為 O(n) ###
+    def recur(n)
+        return if n == 1
+        recur(n - 1)
+    end
     ```
 
 === "Zig"
@@ -790,7 +831,7 @@ $$
 
 ![常見的空間複雜度型別](space_complexity.assets/space_complexity_common_types.png)
 
-### 常數階 $O(1)$ {data-toc-label="常數階"}
+### 常數階 $O(1)$
 
 常數階常見於數量與輸入資料大小 $n$ 無關的常數、變數、物件。
 
@@ -800,7 +841,7 @@ $$
 [file]{space_complexity}-[class]{}-[func]{constant}
 ```
 
-### 線性階 $O(n)$ {data-toc-label="線性階"}
+### 線性階 $O(n)$
 
 線性階常見於元素數量與 $n$ 成正比的陣列、鏈結串列、堆疊、佇列等：
 
@@ -816,7 +857,7 @@ $$
 
 ![遞迴函式產生的線性階空間複雜度](space_complexity.assets/space_complexity_recursive_linear.png)
 
-### 平方階 $O(n^2)$ {data-toc-label="平方階"}
+### 平方階 $O(n^2)$
 
 平方階常見於矩陣和圖，元素數量與 $n$ 成平方關係：
 
@@ -832,7 +873,7 @@ $$
 
 ![遞迴函式產生的平方階空間複雜度](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
-### 指數階 $O(2^n)$ {data-toc-label="指數階"}
+### 指數階 $O(2^n)$
 
 指數階常見於二元樹。觀察下圖，層數為 $n$ 的“滿二元樹”的節點數量為 $2^n - 1$ ，佔用 $O(2^n)$ 空間：
 
@@ -842,7 +883,7 @@ $$
 
 ![滿二元樹產生的指數階空間複雜度](space_complexity.assets/space_complexity_exponential.png)
 
-### 對數階 $O(\log n)$ {data-toc-label="對數階"}
+### 對數階 $O(\log n)$
 
 對數階常見於分治演算法。例如合併排序，輸入長度為 $n$ 的陣列，每輪遞迴將陣列從中點處劃分為兩半，形成高度為 $\log n$ 的遞迴樹，使用 $O(\log n)$ 堆疊幀空間。
 

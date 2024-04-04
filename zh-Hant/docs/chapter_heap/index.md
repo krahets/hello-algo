@@ -1,10 +1,6 @@
 # 堆積
 
-<div class="center-table" markdown>
-
 ![堆積](../assets/covers/chapter_heap.jpg)
-
-</div>
 
 !!! abstract
 
