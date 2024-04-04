@@ -135,38 +135,38 @@ func factorialRecur(n: Int) -> Int {
 enum TimeComplexity {
     /* Driver Code */
     static func main() {
-        // 可以修改 n 執行，體會一下各種複雜度的運算量變化趨勢
+        // 可以修改 n 執行，體會一下各種複雜度的操作數量變化趨勢
         let n = 8
         print("輸入資料大小 n = \(n)")
 
         var count = constant(n: n)
-        print("常數階的運算量 = \(count)")
+        print("常數階的操作數量 = \(count)")
 
         count = linear(n: n)
-        print("線性階的運算量 = \(count)")
+        print("線性階的操作數量 = \(count)")
         count = arrayTraversal(nums: Array(repeating: 0, count: n))
-        print("線性階（走訪陣列）的運算量 = \(count)")
+        print("線性階（走訪陣列）的操作數量 = \(count)")
 
         count = quadratic(n: n)
-        print("平方階的運算量 = \(count)")
+        print("平方階的操作數量 = \(count)")
         var nums = Array(stride(from: n, to: 0, by: -1)) // [n,n-1,...,2,1]
         count = bubbleSort(nums: &nums)
-        print("平方階（泡沫排序）的運算量 = \(count)")
+        print("平方階（泡沫排序）的操作數量 = \(count)")
 
         count = exponential(n: n)
-        print("指數階（迴圈實現）的運算量 = \(count)")
+        print("指數階（迴圈實現）的操作數量 = \(count)")
         count = expRecur(n: n)
-        print("指數階（遞迴實現）的運算量 = \(count)")
+        print("指數階（遞迴實現）的操作數量 = \(count)")
 
         count = logarithmic(n: n)
-        print("對數階（迴圈實現）的運算量 = \(count)")
+        print("對數階（迴圈實現）的操作數量 = \(count)")
         count = logRecur(n: n)
-        print("對數階（遞迴實現）的運算量 = \(count)")
+        print("對數階（遞迴實現）的操作數量 = \(count)")
 
         count = linearLogRecur(n: n)
-        print("線性對數階（遞迴實現）的運算量 = \(count)")
+        print("線性對數階（遞迴實現）的操作數量 = \(count)")
 
         count = factorialRecur(n: n)
-        print("階乘階（遞迴實現）的運算量 = \(count)")
+        print("階乘階（遞迴實現）的操作數量 = \(count)")
     }
 }
