@@ -26,7 +26,7 @@
 
 如果您有興趣參與此開源專案，包括將程式碼翻譯成其他程式語言、擴展文章內容等，那麼需要實施以下 Pull Request 工作流程。
 
-1. 登入 GitHub ，將本書的[程式碼倉庫](https://github.com/krahets/hello-algo) Fork 到個人賬號下。
+1. 登入 GitHub ，將本書的[程式碼倉庫](https://github.com/krahets/hello-algo) Fork 到個人帳號下。
 2. 進入您的 Fork 倉庫網頁，使用 `git clone` 命令將倉庫克隆至本地。
 3. 在本地進行內容創作，並進行完整測試，驗證程式碼的正確性。
 4. 將本地所做更改 Commit ，然後 Push 至遠端倉庫。
