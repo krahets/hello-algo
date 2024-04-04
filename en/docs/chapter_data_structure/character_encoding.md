@@ -1,24 +1,24 @@
-# Character Encoding *
+# Character encoding *
 
 In the computer system, all data is stored in binary form, and characters (represented by char) are no exception. To represent characters, we need to develop a "character set" that defines a one-to-one mapping between each character and binary numbers. With the character set, computers can convert binary numbers to characters by looking up the table.
 
-## ASCII Character Set
+## ASCII character set
 
 The "ASCII code" is one of the earliest character sets, officially known as the American Standard Code for Information Interchange. It uses 7 binary digits (the lower 7 bits of a byte) to represent a character, allowing for a maximum of 128 different characters. As shown in the figure below, ASCII includes uppercase and lowercase English letters, numbers 0 ~ 9, various punctuation marks, and certain control characters (such as newline and tab).
 
-![ASCII Code](character_encoding.assets/ascii_table.png)
+![ASCII code](character_encoding.assets/ascii_table.png)
 
 However, **ASCII can only represent English characters**. With the globalization of computers, a character set called "EASCII" was developed to represent more languages. It expands from the 7-bit structure of ASCII to 8 bits, enabling the representation of 256 characters.
 
 Globally, various region-specific EASCII character sets have been introduced. The first 128 characters of these sets are consistent with the ASCII, while the remaining 128 characters are defined differently to accommodate the requirements of different languages.
 
-## GBK Character Set
+## GBK character set
 
 Later, it was found that **EASCII still could not meet the character requirements of many languages**. For instance, there are nearly a hundred thousand Chinese characters, with several thousand used regularly. In 1980, the Standardization Administration of China released the "GB2312" character set, which included 6763 Chinese characters, essentially fulfilling the computer processing needs for the Chinese language.
 
 However, GB2312 could not handle some rare and traditional characters. The "GBK" character set expands GB2312 and includes 21886 Chinese characters. In the GBK encoding scheme, ASCII characters are represented with one byte, while Chinese characters use two bytes.
 
-## Unicode Character Set
+## Unicode character set
 
 With the rapid evolution of computer technology and a plethora of character sets and encoding standards, numerous problems arose. On the one hand, these character sets generally only defined characters for specific languages and could not function properly in multilingual environments. On the other hand, the existence of multiple character set standards for the same language caused garbled text when information was exchanged between computers using different encoding standards.
 
@@ -32,11 +32,11 @@ Unicode is a universal character set that assigns a number (called a "code point
 
 A straightforward solution to this problem is to store all characters as equal-length encodings. As shown in the figure below, each character in "Hello" occupies 1 byte, while each character in "算法" (algorithm) occupies 2 bytes. We could encode all characters in "Hello 算法" as 2 bytes by padding the higher bits with zeros. This method would enable the system to interpret a character every 2 bytes, recovering the content of the phrase.
 
-![Unicode Encoding Example](character_encoding.assets/unicode_hello_algo.png)
+![Unicode encoding example](character_encoding.assets/unicode_hello_algo.png)
 
 However, as ASCII has shown us, encoding English only requires 1 byte. Using the above approach would double the space occupied by English text compared to ASCII encoding, which is a waste of memory space. Therefore, a more efficient Unicode encoding method is needed.
 
-## UTF-8 Encoding
+## UTF-8 encoding
 
 Currently, UTF-8 has become the most widely used Unicode encoding method internationally. **It is a variable-length encoding**, using 1 to 4 bytes to represent a character, depending on the complexity of the character. ASCII characters need only 1 byte, Latin and Greek letters require 2 bytes, commonly used Chinese characters need 3 bytes, and some other rare characters need 4 bytes.
 
@@ -51,24 +51,24 @@ But why set the highest 2 bits of the remaining bytes to $10$? Actually, this $1
 
 The reason for using $10$ as a checksum is that, under UTF-8 encoding rules, it's impossible for the highest two bits of a character to be $10$. This can be proven by contradiction: If the highest two bits of a character are $10$, it indicates that the character's length is $1$, corresponding to ASCII. However, the highest bit of an ASCII character should be $0$, which contradicts the assumption.
 
-![UTF-8 Encoding Example](character_encoding.assets/utf-8_hello_algo.png)
+![UTF-8 encoding example](character_encoding.assets/utf-8_hello_algo.png)
 
 Apart from UTF-8, other common encoding methods include:
 
-- **UTF-16 Encoding**: Uses 2 or 4 bytes to represent a character. All ASCII characters and commonly used non-English characters are represented with 2 bytes; a few characters require 4 bytes. For 2-byte characters, the UTF-16 encoding equals the Unicode code point.
-- **UTF-32 Encoding**: Every character uses 4 bytes. This means UTF-32 occupies more space than UTF-8 and UTF-16, especially for texts with a high proportion of ASCII characters.
+- **UTF-16 encoding**: Uses 2 or 4 bytes to represent a character. All ASCII characters and commonly used non-English characters are represented with 2 bytes; a few characters require 4 bytes. For 2-byte characters, the UTF-16 encoding equals the Unicode code point.
+- **UTF-32 encoding**: Every character uses 4 bytes. This means UTF-32 occupies more space than UTF-8 and UTF-16, especially for texts with a high proportion of ASCII characters.
 
 From the perspective of storage space, using UTF-8 to represent English characters is very efficient because it only requires 1 byte; using UTF-16 to encode some non-English characters (such as Chinese) can be more efficient because it only requires 2 bytes, while UTF-8 might need 3 bytes.
 
 From a compatibility perspective, UTF-8 is the most versatile, with many tools and libraries supporting UTF-8 as a priority.
 
-## Character Encoding in Programming Languages
+## Character encoding in programming languages
 
 Historically, many programming languages utilized fixed-length encodings such as UTF-16 or UTF-32 for processing strings during program execution. This allows strings to be handled as arrays, offering several advantages:
 
-- **Random Access**: Strings encoded in UTF-16 can be accessed randomly with ease. For UTF-8, which is a variable-length encoding, locating the $i^{th}$ character requires traversing the string from the start to the $i^{th}$ position, taking $O(n)$ time.
-- **Character Counting**: Similar to random access, counting the number of characters in a UTF-16 encoded string is an $O(1)$ operation. However, counting characters in a UTF-8 encoded string requires traversing the entire string.
-- **String Operations**: Many string operations like splitting, concatenating, inserting, and deleting are easier on UTF-16 encoded strings. These operations generally require additional computation on UTF-8 encoded strings to ensure the validity of the UTF-8 encoding.
+- **Random access**: Strings encoded in UTF-16 can be accessed randomly with ease. For UTF-8, which is a variable-length encoding, locating the $i^{th}$ character requires traversing the string from the start to the $i^{th}$ position, taking $O(n)$ time.
+- **Character counting**: Similar to random access, counting the number of characters in a UTF-16 encoded string is an $O(1)$ operation. However, counting characters in a UTF-8 encoded string requires traversing the entire string.
+- **String operations**: Many string operations like splitting, concatenating, inserting, and deleting are easier on UTF-16 encoded strings. These operations generally require additional computation on UTF-8 encoded strings to ensure the validity of the UTF-8 encoding.
 
 The design of character encoding schemes in programming languages is an interesting topic involving various factors:
 

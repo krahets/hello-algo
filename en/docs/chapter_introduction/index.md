@@ -1,6 +1,6 @@
-# Introduction to Algorithms
+# Introduction to algorithms
 
-![A first look at the algorithm](../assets/covers/chapter_introduction.jpg)
+![Introduction to algorithms](../assets/covers/chapter_introduction.jpg)
 
 !!! abstract
 

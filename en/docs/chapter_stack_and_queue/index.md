@@ -1,6 +1,6 @@
-# Stack and Queue
+# Stack and queue
 
-![Stack and Queue](../assets/covers/chapter_stack_and_queue.jpg)
+![Stack and queue](../assets/covers/chapter_stack_and_queue.jpg)
 
 !!! abstract
 
