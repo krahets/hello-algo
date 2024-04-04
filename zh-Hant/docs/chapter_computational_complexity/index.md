@@ -1,10 +1,6 @@
 # 複雜度分析
 
-<div class="center-table" markdown>
-
 ![複雜度分析](../assets/covers/chapter_complexity_analysis.jpg)
-
-</div>
 
 !!! abstract
 

@@ -14,7 +14,7 @@ class MyList
     @capacity = 10
     @size = 0
     @extend_ratio = 2
-    @arr = Array.new capacity
+    @arr = Array.new(capacity)
   end
 
   ### 訪問元素 ###
@@ -86,9 +86,9 @@ class MyList
   def to_array
     sz = size
     # 僅轉換有效長度範圍內的串列元素
-    arr = Array.new sz
+    arr = Array.new(sz)
     for i in 0...sz
-      arr[i] = get i
+      arr[i] = get(i)
     end
     arr
   end
@@ -100,32 +100,32 @@ end
 nums = MyList.new
 
 # 在尾部新增元素
-nums.add 1
-nums.add 3
-nums.add 2
-nums.add 5
-nums.add 4
+nums.add(1)
+nums.add(3)
+nums.add(2)
+nums.add(5)
+nums.add(4)
 puts "串列 nums = #{nums.to_array} ，容量 = #{nums.capacity} ，長度 = #{nums.size}"
 
 # 在中間插入元素
-nums.insert 3, 6
+nums.insert(3, 6)
 puts "在索引 3 處插入數字 6 ，得到 nums = #{nums.to_array}"
 
 # 刪除元素
-nums.remove 3
+nums.remove(3)
 puts "刪除索引 3 的元素，得到 nums = #{nums.to_array}"
 
 # 訪問元素
-num = nums.get 1
+num = nums.get(1)
 puts "訪問索引 1 處的元素，得到 num = #{num}"
 
 # 更新元素
-nums.set 1, 0
+nums.set(1, 0)
 puts "將索引 1 處的元素更新為 0 ，得到 nums = #{nums.to_array}"
 
 # 測試擴容機制
 for i in 0...10
   # 在 i = 5 時，串列長度將超出串列容量，此時觸發擴容機制
-  nums.add i
+  nums.add(i)
 end
 puts "擴容後的串列 nums = #{nums.to_array} ，容量 = #{nums.capacity} ，長度 = #{nums.size}"

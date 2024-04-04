@@ -1,10 +1,6 @@
 # 圖
 
-<div class="center-table" markdown>
-
 ![圖](../assets/covers/chapter_graph.jpg)
-
-</div>
 
 !!! abstract
 

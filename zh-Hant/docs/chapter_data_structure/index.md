@@ -1,10 +1,6 @@
 # 資料結構
 
-<div class="center-table" markdown>
-
 ![資料結構](../assets/covers/chapter_data_structure.jpg)
-
-</div>
 
 !!! abstract
 

@@ -1,6 +1,6 @@
 ---
 comments: true
-icon: fontawesome/solid/book
+icon: material/book-open-page-variant
 status: new
 ---
 
@@ -54,7 +54,7 @@ status: new
 
 ## 購買連結
 
-如果你對紙質書感興趣，可以考慮入手一本。我們為大家爭取到了新書 5 折優惠，請見[此連結](https://3.cn/-1Wwj1jq)或掃描以下二維碼：
+如果你對紙質書感興趣，可以考慮入手一本。我們為大家爭取到了新書 5 折優惠，請見[此連結](https://3.cn/1X-qmTD3)或掃描以下二維碼：
 
 ![](index.assets/book_jd_link.jpg){ class="animation-figure" }
 

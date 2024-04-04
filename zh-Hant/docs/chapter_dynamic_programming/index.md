@@ -1,10 +1,6 @@
 # 動態規劃
 
-<div class="center-table" markdown>
-
 ![動態規劃](../assets/covers/chapter_dynamic_programming.jpg)
-
-</div>
 
 !!! abstract
 
