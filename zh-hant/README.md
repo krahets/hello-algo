@@ -49,7 +49,7 @@
 
 > [!Important]
 >
-> 歡迎您在 #1171 中為繁體中文版勘誤。
+> 歡迎您於 [#1171](https://github.com/krahets/hello-algo/issues/1171) 為繁體中文版勘誤。
 
 ## 關於本書
 

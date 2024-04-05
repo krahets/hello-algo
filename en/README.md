@@ -50,7 +50,7 @@
 
 > [!Important]
 >
-> We are working on Chinese-to-English translation. For more information please see #914.
+> We are working on Chinese-to-English translation. For more information please see [#914](https://github.com/krahets/hello-algo/issues/914).
 
 ## About
 
