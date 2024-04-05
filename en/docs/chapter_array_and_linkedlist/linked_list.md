@@ -1,4 +1,4 @@
-# Linked Lists
+# Linked list
 
 Memory space is a shared resource among all programs. In a complex system environment, available memory can be dispersed throughout the memory space. We understand that the memory allocated for an array must be continuous. However, for very large arrays, finding a sufficiently large contiguous memory space might be challenging. This is where the flexible advantage of linked lists becomes evident.
 
@@ -6,7 +6,7 @@ A "linked list" is a linear data structure in which each element is a node objec
 
 The design of linked lists allows for their nodes to be distributed across memory locations without requiring contiguous memory addresses.
 
-![Linked List Definition and Storage Method](linked_list.assets/linkedlist_definition.png)
+![Linked list definition and storage method](linked_list.assets/linkedlist_definition.png)
 
 As shown in the figure, we see that the basic building block of a linked list is the "node" object. Each node comprises two key components: the node's "value" and a "reference" to the next node.
 
@@ -20,7 +20,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 
     ```python title=""
     class ListNode:
-        """Linked List Node Class"""
+        """Linked list node class"""
         def __init__(self, val: int):
             self.val: int = val               # Node value
             self.next: ListNode | None = None # Reference to the next node
@@ -29,7 +29,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "C++"
 
     ```cpp title=""
-    /* Linked List Node Structure */
+    /* Linked list node structure */
     struct ListNode {
         int val;         // Node value
         ListNode *next;  // Pointer to the next node
@@ -40,7 +40,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Java"
 
     ```java title=""
-    /* Linked List Node Class */
+    /* Linked list node class */
     class ListNode {
         int val;        // Node value
         ListNode next;  // Reference to the next node
@@ -51,7 +51,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "C#"
 
     ```csharp title=""
-    /* Linked List Node Class */
+    /* Linked list node class */
     class ListNode(int x) {  // Constructor
         int val = x;         // Node value
         ListNode? next;      // Reference to the next node
@@ -61,7 +61,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Go"
 
     ```go title=""
-    /* Linked List Node Structure */
+    /* Linked list node structure */
     type ListNode struct {
         Val  int       // Node value
         Next *ListNode // Pointer to the next node
@@ -79,7 +79,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Swift"
 
     ```swift title=""
-    /* Linked List Node Class */
+    /* Linked list node class */
     class ListNode {
         var val: Int // Node value
         var next: ListNode? // Reference to the next node
@@ -93,7 +93,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "JS"
 
     ```javascript title=""
-    /* Linked List Node Class */
+    /* Linked list node class */
     class ListNode {
         constructor(val, next) {
             this.val = (val === undefined ? 0 : val);       // Node value
@@ -105,7 +105,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "TS"
 
     ```typescript title=""
-    /* Linked List Node Class */
+    /* Linked list node class */
     class ListNode {
         val: number;
         next: ListNode | null;
@@ -119,7 +119,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Dart"
 
     ```dart title=""
-    /* 链表节点类 */
+    /* Linked list node class */
     class ListNode {
       int val; // Node value
       ListNode? next; // Reference to the next node
@@ -132,7 +132,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-    /* Linked List Node Class */
+    /* Linked list node class */
     #[derive(Debug)]
     struct ListNode {
         val: i32, // Node value
@@ -143,7 +143,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "C"
 
     ```c title=""
-    /* Linked List Node Structure */
+    /* Linked list node structure */
     typedef struct ListNode {
         int val;               // Node value
         struct ListNode *next; // Pointer to the next node
@@ -168,7 +168,7 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Zig"
 
     ```zig title=""
-    // Linked List Node Class
+    // Linked list node class
     pub fn ListNode(comptime T: type) type {
         return struct {
             const Self = @This();
@@ -185,9 +185,9 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
     }
     ```
 
-## Common Operations on Linked Lists
+## Common operations on linked lists
 
-### Initializing a Linked List
+### Initializing a linked list
 
 Constructing a linked list is a two-step process: first, initializing each node object, and second, forming the reference links between the nodes. After initialization, we can traverse all nodes sequentially from the head node by following the `next` reference.
 
@@ -404,31 +404,31 @@ Constructing a linked list is a two-step process: first, initializing each node 
 
 The array as a whole is a variable, for instance, the array `nums` includes elements like `nums[0]`, `nums[1]`, and so on, whereas a linked list is made up of several distinct node objects. **We typically refer to a linked list by its head node**, for example, the linked list in the previous code snippet is referred to as `n0`.
 
-### Inserting a Node
+### Inserting nodes
 
 Inserting a node into a linked list is very easy. As shown in the figure, let's assume we aim to insert a new node `P` between two adjacent nodes `n0` and `n1`. **This can be achieved by simply modifying two node references (pointers)**, with a time complexity of $O(1)$.
 
 By comparison, inserting an element into an array has a time complexity of $O(n)$, which becomes less efficient when dealing with large data volumes.
 
-![Linked List Node Insertion Example](linked_list.assets/linkedlist_insert_node.png)
+![Linked list node insertion example](linked_list.assets/linkedlist_insert_node.png)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{insert}
 ```
 
-### Deleting a Node
+### Deleting nodes
 
 As shown in the figure, deleting a node from a linked list is also very easy, **involving only the modification of a single node's reference (pointer)**.
 
 It's important to note that even though node `P` continues to point to `n1` after being deleted, it becomes inaccessible during linked list traversal. This effectively means that `P` is no longer a part of the linked list.
 
-![Linked List Node Deletion](linked_list.assets/linkedlist_remove_node.png)
+![Linked list node deletion](linked_list.assets/linkedlist_remove_node.png)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{remove}
 ```
 
-### Accessing Nodes
+### Accessing nodes
 
 **Accessing nodes in a linked list is less efficient**. As previously mentioned, any element in an array can be accessed in $O(1)$ time. In contrast, with a linked list, the program involves starting from the head node and sequentially traversing through the nodes until the desired node is found. In other words, to access the $i$-th node in a linked list, the program must iterate through $i - 1$ nodes, resulting in a time complexity of $O(n)$.
 
@@ -436,7 +436,7 @@ It's important to note that even though node `P` continues to point to `n1` afte
 [file]{linked_list}-[class]{}-[func]{access}
 ```
 
-### Finding Nodes
+### Finding nodes
 
 Traverse the linked list to locate a node whose value matches `target`, and then output the index of that node within the linked list. This procedure is also an example of linear search. The corresponding code is provided below:
 
@@ -444,11 +444,11 @@ Traverse the linked list to locate a node whose value matches `target`, and then
 [file]{linked_list}-[class]{}-[func]{find}
 ```
 
-## Arrays vs. Linked Lists
+## Arrays vs. linked lists
 
 The table below summarizes the characteristics of arrays and linked lists, and it also compares their efficiencies in various operations. Because they utilize opposing storage strategies, their respective properties and operational efficiencies exhibit distinct contrasts.
 
-<p align="center"> Table <id> &nbsp; Efficiency Comparison of Arrays and Linked Lists </p>
+<p align="center"> Table <id> &nbsp; Efficiency comparison of arrays and linked lists </p>
 
 |                    | Arrays                                           | Linked Lists            |
 | ------------------ | ------------------------------------------------ | ----------------------- |
@@ -459,19 +459,19 @@ The table below summarizes the characteristics of arrays and linked lists, and i
 | Adding Elements    | $O(n)$                                           | $O(1)$                  |
 | Deleting Elements  | $O(n)$                                           | $O(1)$                  |
 
-## Common Types of Linked Lists
+## Common types of linked lists
 
 As shown in the figure, there are three common types of linked lists.
 
-- **Singly Linked List**: This is the standard linked list described earlier. Nodes in a singly linked list include a value and a reference to the next node. The first node is known as the head node, and the last node, which points to null (`None`), is the tail node.
-- **Circular Linked List**: This is formed when the tail node of a singly linked list points back to the head node, creating a loop. In a circular linked list, any node can function as the head node.
-- **Doubly Linked List**: In contrast to a singly linked list, a doubly linked list maintains references in two directions. Each node contains references (pointer) to both its successor (the next node) and predecessor (the previous node). Although doubly linked lists offer more flexibility for traversing in either direction, they also consume more memory space.
+- **Singly linked list**: This is the standard linked list described earlier. Nodes in a singly linked list include a value and a reference to the next node. The first node is known as the head node, and the last node, which points to null (`None`), is the tail node.
+- **Circular linked list**: This is formed when the tail node of a singly linked list points back to the head node, creating a loop. In a circular linked list, any node can function as the head node.
+- **Doubly linked list**: In contrast to a singly linked list, a doubly linked list maintains references in two directions. Each node contains references (pointer) to both its successor (the next node) and predecessor (the previous node). Although doubly linked lists offer more flexibility for traversing in either direction, they also consume more memory space.
 
 === "Python"
 
     ```python title=""
     class ListNode:
-        """Bidirectional linked list node class""""
+        """Bidirectional linked list node class"""
         def __init__(self, val: int):
             self.val: int = val                # Node value
             self.next: ListNode | None = None  # Reference to the successor node
@@ -664,23 +664,23 @@ As shown in the figure, there are three common types of linked lists.
     }
     ```
 
-![Common Types of Linked Lists](linked_list.assets/linkedlist_common_types.png)
+![Common types of linked lists](linked_list.assets/linkedlist_common_types.png)
 
-## Typical Applications of Linked Lists
+## Typical applications of linked lists
 
 Singly linked lists are frequently utilized in implementing stacks, queues, hash tables, and graphs.
 
-- **Stacks and Queues**: In singly linked lists, if insertions and deletions occur at the same end, it behaves like a stack (last-in-first-out). Conversely, if insertions are at one end and deletions at the other, it functions like a queue (first-in-first-out).
-- **Hash Tables**: Linked lists are used in chaining, a popular method for resolving hash collisions. Here, all collided elements are grouped into a linked list.
+- **Stacks and queues**: In singly linked lists, if insertions and deletions occur at the same end, it behaves like a stack (last-in-first-out). Conversely, if insertions are at one end and deletions at the other, it functions like a queue (first-in-first-out).
+- **Hash tables**: Linked lists are used in chaining, a popular method for resolving hash collisions. Here, all collided elements are grouped into a linked list.
 - **Graphs**: Adjacency lists, a standard method for graph representation, associate each graph vertex with a linked list. This list contains elements that represent vertices connected to the corresponding vertex.
 
 Doubly linked lists are ideal for scenarios requiring rapid access to preceding and succeeding elements.
 
-- **Advanced Data Structures**: In structures like red-black trees and B-trees, accessing a node's parent is essential. This is achieved by incorporating a reference to the parent node in each node, akin to a doubly linked list.
-- **Browser History**: In web browsers, doubly linked lists facilitate navigating the history of visited pages when users click forward or back.
-- **LRU Algorithm**: Doubly linked lists are apt for Least Recently Used (LRU) cache eviction algorithms, enabling swift identification of the least recently used data and facilitating fast node addition and removal.
+- **Advanced data structures**: In structures like red-black trees and B-trees, accessing a node's parent is essential. This is achieved by incorporating a reference to the parent node in each node, akin to a doubly linked list.
+- **Browser history**: In web browsers, doubly linked lists facilitate navigating the history of visited pages when users click forward or back.
+- **LRU algorithm**: Doubly linked lists are apt for Least Recently Used (LRU) cache eviction algorithms, enabling swift identification of the least recently used data and facilitating fast node addition and removal.
 
 Circular linked lists are ideal for applications that require periodic operations, such as resource scheduling in operating systems.
 
-- **Round-Robin Scheduling Algorithm**: In operating systems, the round-robin scheduling algorithm is a common CPU scheduling method, requiring cycling through a group of processes. Each process is assigned a time slice, and upon expiration, the CPU rotates to the next process. This cyclical operation can be efficiently realized using a circular linked list, allowing for a fair and time-shared system among all processes.
-- **Data Buffers**: Circular linked lists are also used in data buffers, like in audio and video players, where the data stream is divided into multiple buffer blocks arranged in a circular fashion for seamless playback.
+- **Round-robin scheduling algorithm**: In operating systems, the round-robin scheduling algorithm is a common CPU scheduling method, requiring cycling through a group of processes. Each process is assigned a time slice, and upon expiration, the CPU rotates to the next process. This cyclical operation can be efficiently realized using a circular linked list, allowing for a fair and time-shared system among all processes.
+- **Data buffers**: Circular linked lists are also used in data buffers, like in audio and video players, where the data stream is divided into multiple buffer blocks arranged in a circular fashion for seamless playback.

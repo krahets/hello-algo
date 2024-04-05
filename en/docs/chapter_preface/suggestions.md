@@ -1,10 +1,10 @@
-# How to Read
+# How to read
 
 !!! tip
 
     For the best reading experience, it is recommended that you read through this section.
 
-## Writing Conventions
+## Writing conventions
 
 - Chapters marked with '*' after the title are optional and contain relatively challenging content. If you are short on time, it is advisable to skip them.
 - Technical terms will be in boldface (in the print and PDF versions) or underlined (in the web version), for instance, <u>array</u>. It's advisable to familiarize yourself with these for better comprehension of technical texts.
@@ -16,7 +16,7 @@
 === "Python"
 
     ```python title=""
-    """Header comments for labeling functions, classes, test samples, etc""""
+    """Header comments for labeling functions, classes, test samples, etc"""
    
     # Comments for explaining details
    
@@ -180,15 +180,15 @@
     // comments
     ```
 
-## Efficient Learning via Animated Illustrations
+## Efficient learning via animated illustrations
 
 Compared with text, videos and pictures have a higher density of information and are more structured, making them easier to understand. In this book, **key and difficult concepts are mainly presented through animations and illustrations**, with text serving as explanations and supplements.
 
 When encountering content with animations or illustrations as shown in the figure below, **prioritize understanding the figure, with text as supplementary**, integrating both for a comprehensive understanding.
 
-![Animated Illustration Example](../index.assets/animation.gif)
+![Animated illustration example](../index.assets/animation.gif)
 
-## Deepen Understanding through Coding Practice
+## Deepen understanding through coding practice
 
 The source code of this book is hosted on the [GitHub Repository](https://github.com/krahets/hello-algo). As shown in the figure below, **the source code comes with test examples and can be executed with just a single click**.
 
@@ -196,7 +196,7 @@ If time permits, **it's recommended to type out the code yourself**. If pressed 
 
 Compared to just reading code, writing code often yields more learning. **Learning by doing is the real way to learn.**
 
-![Running Code Example](../index.assets/running_code.gif)
+![Running code example](../index.assets/running_code.gif)
 
 Setting up to run the code involves three main steps.
 
@@ -212,21 +212,21 @@ git clone https://github.com/krahets/hello-algo.git
 
 Alternatively, you can also click the "Download ZIP" button at the location shown in the figure below to directly download the code as a compressed ZIP file. Then, you can simply extract it locally.
 
-![Cloning Repository and Downloading Code](suggestions.assets/download_code.png)
+![Cloning repository and downloading code](suggestions.assets/download_code.png)
 
 **Step 3: Run the source code**. As shown in the figure below, for the code block labeled with the file name at the top, we can find the corresponding source code file in the `codes` folder of the repository. These files can be executed with a single click, which will help you save unnecessary debugging time and allow you to focus on learning.
 
-![Code Block and Corresponding Source Code File](suggestions.assets/code_md_to_repo.png)
+![Code block and corresponding source code file](suggestions.assets/code_md_to_repo.png)
 
-## Learning Together in Discussion
+## Learning together in discussion
 
 While reading this book, please don't skip over the points that you didn't learn. **Feel free to post your questions in the comment section**. We will be happy to answer them and can usually respond within two days.
 
 As illustrated in the figure below, each chapter features a comment section at the bottom. I encourage you to pay attention to these comments. They not only expose you to others' encountered problems, aiding in identifying knowledge gaps and sparking deeper contemplation, but also invite you to generously contribute by answering fellow readers' inquiries, sharing insights, and fostering mutual improvement.
 
-![Comment Section Example](../index.assets/comment.gif)
+![Comment section example](../index.assets/comment.gif)
 
-## Algorithm Learning Path
+## Algorithm learning path
 
 Overall, the journey of mastering data structures and algorithms can be divided into three stages:
 
@@ -236,4 +236,4 @@ Overall, the journey of mastering data structures and algorithms can be divided 
 
 As shown in the figure below, this book mainly covers “Stage 1,” aiming to help you more efficiently embark on Stages 2 and 3.
 
-![Algorithm Learning Path](suggestions.assets/learning_route.png)
+![Algorithm learning path](suggestions.assets/learning_route.png)
