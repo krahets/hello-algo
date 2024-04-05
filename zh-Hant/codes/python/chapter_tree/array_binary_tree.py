@@ -12,10 +12,10 @@ from modules import TreeNode, list_to_tree, print_tree
 
 
 class ArrayBinaryTree:
-    """陣列表示下的二元樹類"""
+    """陣列表示下的二元樹類別"""
 
     def __init__(self, arr: list[int | None]):
-        """構造方法"""
+        """建構子"""
         self._tree = list(arr)
 
     def size(self):
@@ -97,7 +97,7 @@ if __name__ == "__main__":
     print("二元樹的鏈結串列表示：")
     print_tree(root)
 
-    # 陣列表示下的二元樹類
+    # 陣列表示下的二元樹類別
     abt = ArrayBinaryTree(arr)
 
     # 訪問節點

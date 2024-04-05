@@ -4,12 +4,12 @@
 
 package chapter_tree
 
-/* 陣列表示下的二元樹類 */
+/* 陣列表示下的二元樹類別 */
 type arrayBinaryTree struct {
 	tree []any
 }
 
-/* 構造方法 */
+/* 建構子 */
 func newArrayBinaryTree(arr []any) *arrayBinaryTree {
 	return &arrayBinaryTree{
 		tree: arr,

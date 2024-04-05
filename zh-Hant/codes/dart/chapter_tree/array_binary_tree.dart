@@ -7,11 +7,11 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* 陣列表示下的二元樹類 */
+/* 陣列表示下的二元樹類別 */
 class ArrayBinaryTree {
   late List<int?> _tree;
 
-  /* 構造方法 */
+  /* 建構子 */
   ArrayBinaryTree(this._tree);
 
   /* 串列容量 */
@@ -127,7 +127,7 @@ void main() {
   print("二元樹的鏈結串列表示：");
   printTree(root);
 
-  // 陣列表示下的二元樹類
+  // 陣列表示下的二元樹類別
   ArrayBinaryTree abt = ArrayBinaryTree(arr);
 
   // 訪問節點

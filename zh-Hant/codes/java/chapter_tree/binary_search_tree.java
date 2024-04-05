@@ -8,11 +8,11 @@ package chapter_tree;
 
 import utils.*;
 
-/* 二叉搜尋樹 */
+/* 二元搜尋樹 */
 class BinarySearchTree {
     private TreeNode root;
 
-    /* 構造方法 */
+    /* 建構子 */
     public BinarySearchTree() {
         // 初始化空樹
         root = null;
@@ -125,7 +125,7 @@ class BinarySearchTree {
 
 public class binary_search_tree {
     public static void main(String[] args) {
-        /* 初始化二叉搜尋樹 */
+        /* 初始化二元搜尋樹 */
         BinarySearchTree bst = new BinarySearchTree();
         // 請注意，不同的插入順序會生成不同的二元樹，該序列可以生成一個完美二元樹
         int[] nums = { 8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15 };

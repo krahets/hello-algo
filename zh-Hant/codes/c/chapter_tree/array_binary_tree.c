@@ -12,7 +12,7 @@ typedef struct {
     int size;
 } ArrayBinaryTree;
 
-/* 構造函式 */
+/* 建構子 */
 ArrayBinaryTree *newArrayBinaryTree(int *arr, int arrSize) {
     ArrayBinaryTree *abt = (ArrayBinaryTree *)malloc(sizeof(ArrayBinaryTree));
     abt->tree = malloc(sizeof(int) * arrSize);

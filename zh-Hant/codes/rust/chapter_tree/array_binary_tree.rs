@@ -6,13 +6,13 @@
 
 include!("../include/include.rs");
 
-/* 陣列表示下的二元樹類 */
+/* 陣列表示下的二元樹類別 */
 struct ArrayBinaryTree {
     tree: Vec<Option<i32>>,
 }
 
 impl ArrayBinaryTree {
-    /* 構造方法 */
+    /* 建構子 */
     fn new(arr: Vec<Option<i32>>) -> Self {
         Self { tree: arr }
     }
@@ -142,7 +142,7 @@ fn main() {
     println!("二元樹的鏈結串列表示：");
     print_util::print_tree(&root);
 
-    // 陣列表示下的二元樹類
+    // 陣列表示下的二元樹類別
     let abt = ArrayBinaryTree::new(arr);
 
     // 訪問節點

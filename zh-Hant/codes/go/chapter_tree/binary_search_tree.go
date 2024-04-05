@@ -136,7 +136,7 @@ func (bst *binarySearchTree) remove(num int) {
 	}
 }
 
-/* 列印二叉搜尋樹 */
+/* 列印二元搜尋樹 */
 func (bst *binarySearchTree) print() {
 	PrintTree(bst.root)
 }

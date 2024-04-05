@@ -7,11 +7,11 @@
 import { TreeNode } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
-/* 二叉搜尋樹 */
+/* 二元搜尋樹 */
 class BinarySearchTree {
     private root: TreeNode | null;
 
-    /* 構造方法 */
+    /* 建構子 */
     constructor() {
         // 初始化空樹
         this.root = null;
@@ -111,7 +111,7 @@ class BinarySearchTree {
 }
 
 /* Driver Code */
-/* 初始化二叉搜尋樹 */
+/* 初始化二元搜尋樹 */
 const bst = new BinarySearchTree();
 // 請注意，不同的插入順序會生成不同的二元樹，該序列可以生成一個完美二元樹
 const nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];

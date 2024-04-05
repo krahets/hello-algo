@@ -5,7 +5,7 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 二叉搜尋樹
+// 二元搜尋樹
 pub fn BinarySearchTree(comptime T: type) type {
     return struct {
         const Self = @This();
@@ -14,14 +14,14 @@ pub fn BinarySearchTree(comptime T: type) type {
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 記憶體分配器
 
-        // 構造方法
+        // 建構子
         pub fn init(self: *Self, allocator: std.mem.Allocator, nums: []T) !void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
                 self.mem_allocator = self.mem_arena.?.allocator();
             }
             std.mem.sort(T, nums, {}, comptime std.sort.asc(T));   // 排序陣列
-            self.root = try self.buildTree(nums, 0, nums.len - 1);  // 構建二叉搜尋樹
+            self.root = try self.buildTree(nums, 0, nums.len - 1);  // 構建二元搜尋樹
         }
 
         // 析構方法
@@ -30,7 +30,7 @@ pub fn BinarySearchTree(comptime T: type) type {
             self.mem_arena.?.deinit();
         }
 
-        // 構建二叉搜尋樹
+        // 構建二元搜尋樹
         fn buildTree(self: *Self, nums: []T, i: usize, j: usize) !?*inc.TreeNode(T) {
             if (i > j) return null;
             // 將陣列中間節點作為根節點

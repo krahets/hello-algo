@@ -9,11 +9,11 @@ const { printTree } = require('../modules/PrintUtil');
 
 type Order = 'pre' | 'in' | 'post';
 
-/* 陣列表示下的二元樹類 */
+/* 陣列表示下的二元樹類別 */
 class ArrayBinaryTree {
     #tree: (number | null)[];
 
-    /* 構造方法 */
+    /* 建構子 */
     constructor(arr: (number | null)[]) {
         this.#tree = arr;
     }
@@ -119,7 +119,7 @@ console.log(arr);
 console.log('二元樹的鏈結串列表示：');
 printTree(root);
 
-// 陣列表示下的二元樹類
+// 陣列表示下的二元樹類別
 const abt = new ArrayBinaryTree(arr);
 
 // 訪問節點

@@ -126,7 +126,7 @@ class BinarySearchTree {
 public class binary_search_tree {
     [Test]
     public void Test() {
-        /* 初始化二叉搜尋樹 */
+        /* 初始化二元搜尋樹 */
         BinarySearchTree bst = new();
         // 請注意，不同的插入順序會生成不同的二元樹，該序列可以生成一個完美二元樹
         int[] nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];

@@ -7,11 +7,11 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* 二叉搜尋樹 */
+/* 二元搜尋樹 */
 class BinarySearchTree {
   late TreeNode? _root;
 
-  /* 構造方法 */
+  /* 建構子 */
   BinarySearchTree() {
     // 初始化空樹
     _root = null;
@@ -121,7 +121,7 @@ class BinarySearchTree {
 
 /* Driver Code */
 void main() {
-  /* 初始化二叉搜尋樹 */
+  /* 初始化二元搜尋樹 */
   BinarySearchTree bst = BinarySearchTree();
   // 請注意，不同的插入順序會生成不同的二元樹，該序列可以生成一個完美二元樹
   List<int> nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];

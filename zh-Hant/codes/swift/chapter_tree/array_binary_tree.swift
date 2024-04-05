@@ -6,11 +6,11 @@
 
 import utils
 
-/* 陣列表示下的二元樹類 */
+/* 陣列表示下的二元樹類別 */
 class ArrayBinaryTree {
     private var tree: [Int?]
 
-    /* 構造方法 */
+    /* 建構子 */
     init(arr: [Int?]) {
         tree = arr
     }
@@ -115,7 +115,7 @@ enum _ArrayBinaryTree {
         print("二元樹的鏈結串列表示：")
         PrintUtil.printTree(root: root)
 
-        // 陣列表示下的二元樹類
+        // 陣列表示下的二元樹類別
         let abt = ArrayBinaryTree(arr: arr)
 
         // 訪問節點

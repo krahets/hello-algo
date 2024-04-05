@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-/* 二叉搜尋樹結構體 */
+/* 二元搜尋樹結構體 */
 typedef struct {
     TreeNode *root;
 } BinarySearchTree;
 
-/* 構造函式 */
+/* 建構子 */
 BinarySearchTree *newBinarySearchTree() {
     // 初始化空樹
     BinarySearchTree *bst = (BinarySearchTree *)malloc(sizeof(BinarySearchTree));
@@ -136,7 +136,7 @@ void removeItem(BinarySearchTree *bst, int num) {
 
 /* Driver Code */
 int main() {
-    /* 初始化二叉搜尋樹 */
+    /* 初始化二元搜尋樹 */
     int nums[] = {8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15};
     BinarySearchTree *bst = newBinarySearchTree();
     for (int i = 0; i < sizeof(nums) / sizeof(int); i++) {

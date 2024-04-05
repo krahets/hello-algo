@@ -1,12 +1,12 @@
 # 二元樹
 
-「二元樹 binary tree」是一種非線性資料結構，代表“祖先”與“後代”之間的派生關係，體現了“一分為二”的分治邏輯。與鏈結串列類似，二元樹的基本單元是節點，每個節點包含值、左子節點引用和右子節點引用。
+<u>二元樹（binary tree）</u>是一種非線性資料結構，代表“祖先”與“後代”之間的派生關係，體現了“一分為二”的分治邏輯。與鏈結串列類似，二元樹的基本單元是節點，每個節點包含值、左子節點引用和右子節點引用。
 
 === "Python"
 
     ```python title=""
     class TreeNode:
-        """二元樹節點類"""
+        """二元樹節點類別"""
         def __init__(self, val: int):
             self.val: int = val                # 節點值
             self.left: TreeNode | None = None  # 左子節點引用
@@ -28,7 +28,7 @@
 === "Java"
 
     ```java title=""
-    /* 二元樹節點類 */
+    /* 二元樹節點類別 */
     class TreeNode {
         int val;         // 節點值
         TreeNode left;   // 左子節點引用
@@ -40,7 +40,7 @@
 === "C#"
 
     ```csharp title=""
-    /* 二元樹節點類 */
+    /* 二元樹節點類別 */
     class TreeNode(int? x) {
         public int? val = x;    // 節點值
         public TreeNode? left;  // 左子節點引用
@@ -57,7 +57,7 @@
         Left  *TreeNode
         Right *TreeNode
     }
-    /* 構造方法 */
+    /* 建構子 */
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
             Left:  nil, // 左子節點指標
@@ -70,7 +70,7 @@
 === "Swift"
 
     ```swift title=""
-    /* 二元樹節點類 */
+    /* 二元樹節點類別 */
     class TreeNode {
         var val: Int // 節點值
         var left: TreeNode? // 左子節點引用
@@ -85,7 +85,7 @@
 === "JS"
 
     ```javascript title=""
-    /* 二元樹節點類 */
+    /* 二元樹節點類別 */
     class TreeNode {
         val; // 節點值
         left; // 左子節點指標
@@ -101,7 +101,7 @@
 === "TS"
 
     ```typescript title=""
-    /* 二元樹節點類 */
+    /* 二元樹節點類別 */
     class TreeNode {
         val: number;
         left: TreeNode | null;
@@ -118,7 +118,7 @@
 === "Dart"
 
     ```dart title=""
-    /* 二元樹節點類 */
+    /* 二元樹節點類別 */
     class TreeNode {
       int val;         // 節點值
       TreeNode? left;  // 左子節點引用
@@ -141,7 +141,7 @@
     }
 
     impl TreeNode {
-        /* 構造方法 */
+        /* 建構子 */
         fn new(val: i32) -> Rc<RefCell<Self>> {
             Rc::new(RefCell::new(Self {
                 val,
@@ -163,7 +163,7 @@
         struct TreeNode *right; // 右子節點指標
     } TreeNode;
 
-    /* 構造函式 */
+    /* 建構子 */
     TreeNode *newTreeNode(int val) {
         TreeNode *node;
 
@@ -176,13 +176,29 @@
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    /* 二元樹節點類別 */
+    class TreeNode(val _val: Int) {  // 節點值
+        val left: TreeNode? = null   // 左子節點引用
+        val right: TreeNode? = null  // 右子節點引用
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+
+    ```
+
 === "Zig"
 
     ```zig title=""
 
     ```
 
-每個節點都有兩個引用（指標），分別指向「左子節點 left-child node」和「右子節點 right-child node」，該節點被稱為這兩個子節點的「父節點 parent node」。當給定一個二元樹的節點時，我們將該節點的左子節點及其以下節點形成的樹稱為該節點的「左子樹 left subtree」，同理可得「右子樹 right subtree」。
+每個節點都有兩個引用（指標），分別指向<u>左子節點（left-child node）</u>和<u>右子節點（right-child node）</u>，該節點被稱為這兩個子節點的<u>父節點（parent node）</u>。當給定一個二元樹的節點時，我們將該節點的左子節點及其以下節點形成的樹稱為該節點的<u>左子樹（left subtree）</u>，同理可得<u>右子樹（right subtree）</u>。
 
 **在二元樹中，除葉節點外，其他所有節點都包含子節點和非空子樹**。如下圖所示，如果將“節點 2”視為父節點，則其左子節點和右子節點分別是“節點 4”和“節點 5”，左子樹是“節點 4 及其以下節點形成的樹”，右子樹是“節點 5 及其以下節點形成的樹”。
 
@@ -192,14 +208,14 @@
 
 二元樹的常用術語如下圖所示。
 
-- 「根節點 root node」：位於二元樹頂層的節點，沒有父節點。
-- 「葉節點 leaf node」：沒有子節點的節點，其兩個指標均指向 `None` 。
-- 「邊 edge」：連線兩個節點的線段，即節點引用（指標）。
-- 節點所在的「層 level」：從頂至底遞增，根節點所在層為 1 。
-- 節點的「度 degree」：節點的子節點的數量。在二元樹中，度的取值範圍是 0、1、2 。
-- 二元樹的「高度 height」：從根節點到最遠葉節點所經過的邊的數量。
-- 節點的「深度 depth」：從根節點到該節點所經過的邊的數量。
-- 節點的「高度 height」：從距離該節點最遠的葉節點到該節點所經過的邊的數量。
+- <u>根節點（root node）</u>：位於二元樹頂層的節點，沒有父節點。
+- <u>葉節點（leaf node）</u>：沒有子節點的節點，其兩個指標均指向 `None` 。
+- <u>邊（edge）</u>：連線兩個節點的線段，即節點引用（指標）。
+- 節點所在的<u>層（level）</u>：從頂至底遞增，根節點所在層為 1 。
+- 節點的<u>度（degree）</u>：節點的子節點的數量。在二元樹中，度的取值範圍是 0、1、2 。
+- 二元樹的<u>高度（height）</u>：從根節點到最遠葉節點所經過的邊的數量。
+- 節點的<u>深度（depth）</u>：從根節點到該節點所經過的邊的數量。
+- 節點的<u>高度（height）</u>：從距離該節點最遠的葉節點到該節點所經過的邊的數量。
 
 ![二元樹的常用術語](binary_tree.assets/binary_tree_terminology.png)
 
@@ -397,6 +413,28 @@
     n2->right = n5;
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="binary_tree.kt"
+    // 初始化節點
+    val n1 = TreeNode(1)
+    val n2 = TreeNode(2)
+    val n3 = TreeNode(3)
+    val n4 = TreeNode(4)
+    val n5 = TreeNode(5)
+    // 構建節點之間的引用（指標）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_tree.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="binary_tree.zig"
@@ -542,6 +580,23 @@
     n1->left = n2;
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="binary_tree.kt"
+    val P = TreeNode(0)
+    // 在 n1 -> n2 中間插入節點 P
+    n1.left = P
+    P.left = n2
+    // 刪除節點 P
+    n1.left = n2
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_tree.rb"
+
+    ```
+
 === "Zig"
 
     ```zig title="binary_tree.zig"
@@ -560,29 +615,29 @@
 
 ### 完美二元樹
 
-如下圖所示，「完美二元樹 perfect binary tree」所有層的節點都被完全填滿。在完美二元樹中，葉節點的度為 $0$ ，其餘所有節點的度都為 $2$ ；若樹的高度為 $h$ ，則節點總數為 $2^{h+1} - 1$ ，呈現標準的指數級關係，反映了自然界中常見的細胞分裂現象。
+如下圖所示，<u>完美二元樹（perfect binary tree）</u>所有層的節點都被完全填滿。在完美二元樹中，葉節點的度為 $0$ ，其餘所有節點的度都為 $2$ ；若樹的高度為 $h$ ，則節點總數為 $2^{h+1} - 1$ ，呈現標準的指數級關係，反映了自然界中常見的細胞分裂現象。
 
 !!! tip
 
-    請注意，在中文社群中，完美二元樹常被稱為「滿二元樹」。
+    請注意，在中文社群中，完美二元樹常被稱為<u>滿二元樹</u>。
 
 ![完美二元樹](binary_tree.assets/perfect_binary_tree.png)
 
 ### 完全二元樹
 
-如下圖所示，「完全二元樹 complete binary tree」只有最底層的節點未被填滿，且最底層節點儘量靠左填充。
+如下圖所示，<u>完全二元樹（complete binary tree）</u>只有最底層的節點未被填滿，且最底層節點儘量靠左填充。
 
 ![完全二元樹](binary_tree.assets/complete_binary_tree.png)
 
 ### 完滿二元樹
 
-如下圖所示，「完滿二元樹 full binary tree」除了葉節點之外，其餘所有節點都有兩個子節點。
+如下圖所示，<u>完滿二元樹（full binary tree）</u>除了葉節點之外，其餘所有節點都有兩個子節點。
 
 ![完滿二元樹](binary_tree.assets/full_binary_tree.png)
 
 ### 平衡二元樹
 
-如下圖所示，「平衡二元樹 balanced binary tree」中任意節點的左子樹和右子樹的高度之差的絕對值不超過 1 。
+如下圖所示，<u>平衡二元樹（balanced binary tree）</u>中任意節點的左子樹和右子樹的高度之差的絕對值不超過 1 。
 
 ![平衡二元樹](binary_tree.assets/balanced_binary_tree.png)
 

@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* 陣列表示下的二元樹類 */
+/* 陣列表示下的二元樹類別 */
 class ArrayBinaryTree {
   public:
-    /* 構造方法 */
+    /* 建構子 */
     ArrayBinaryTree(vector<int> arr) {
         tree = arr;
     }
@@ -108,7 +108,7 @@ int main() {
     cout << "二元樹的鏈結串列表示：\n";
     printTree(root);
 
-    // 陣列表示下的二元樹類
+    // 陣列表示下的二元樹類別
     ArrayBinaryTree abt(arr);
 
     // 訪問節點

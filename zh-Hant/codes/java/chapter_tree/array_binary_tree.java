@@ -9,11 +9,11 @@ package chapter_tree;
 import utils.*;
 import java.util.*;
 
-/* 陣列表示下的二元樹類 */
+/* 陣列表示下的二元樹類別 */
 class ArrayBinaryTree {
     private List<Integer> tree;
 
-    /* 構造方法 */
+    /* 建構子 */
     public ArrayBinaryTree(List<Integer> arr) {
         tree = new ArrayList<>(arr);
     }
@@ -110,7 +110,7 @@ public class array_binary_tree {
         System.out.println("二元樹的鏈結串列表示：");
         PrintUtil.printTree(root);
 
-        // 陣列表示下的二元樹類
+        // 陣列表示下的二元樹類別
         ArrayBinaryTree abt = new ArrayBinaryTree(arr);
 
         // 訪問節點

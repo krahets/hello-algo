@@ -22,7 +22,7 @@ func TestArrayBinaryTree(t *testing.T) {
 	fmt.Println("二元樹的鏈結串列表示：")
 	PrintTree(root)
 
-	// 陣列表示下的二元樹類
+	// 陣列表示下的二元樹類別
 	abt := newArrayBinaryTree(arr)
 
 	// 訪問節點

@@ -6,11 +6,11 @@
 
 import utils
 
-/* 二叉搜尋樹 */
+/* 二元搜尋樹 */
 class BinarySearchTree {
     private var root: TreeNode?
 
-    /* 構造方法 */
+    /* 建構子 */
     init() {
         // 初始化空樹
         root = nil
@@ -140,7 +140,7 @@ class BinarySearchTree {
 enum _BinarySearchTree {
     /* Driver Code */
     static func main() {
-        /* 初始化二叉搜尋樹 */
+        /* 初始化二元搜尋樹 */
         let bst = BinarySearchTree()
         // 請注意，不同的插入順序會生成不同的二元樹，該序列可以生成一個完美二元樹
         let nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15]

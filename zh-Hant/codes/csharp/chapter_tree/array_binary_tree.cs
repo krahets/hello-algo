@@ -6,7 +6,7 @@
 
 namespace hello_algo.chapter_tree;
 
-/* 陣列表示下的二元樹類 */
+/* 陣列表示下的二元樹類別 */
 public class ArrayBinaryTree(List<int?> arr) {
     List<int?> tree = new(arr);
 
@@ -103,7 +103,7 @@ public class array_binary_tree {
         Console.WriteLine("二元樹的鏈結串列表示：");
         PrintUtil.PrintTree(root);
 
-        // 陣列表示下的二元樹類
+        // 陣列表示下的二元樹類別
         ArrayBinaryTree abt = new(arr);
 
         // 訪問節點
