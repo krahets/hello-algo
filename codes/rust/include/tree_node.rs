@@ -77,7 +77,8 @@ fn tree_to_vec_dfs(root: Option<Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<
         return;
     }
     let root = root.unwrap();
-    while i >= res.len() {
+    // i + 1 is the minimum valid size to access index i
+    while res.len() < i + 1 {
         res.push(None);
     }
     res[i] = Some(root.borrow().val);
