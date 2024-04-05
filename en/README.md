@@ -48,10 +48,6 @@
   English
 </p>
 
-> [!Important]
->
-> We are working on Chinese-to-English translation. For more information please see [#914](https://github.com/krahets/hello-algo/issues/914).
-
 ## About
 
 This open-source project aims to create a free and beginner-friendly crash course for data structures and algorithms.
@@ -73,6 +69,10 @@ If you find this book helpful, please give it a Star :star: to support us, thank
 > **—— Mu Li, Senior Principal Scientist, Amazon**
 
 ## Contribution
+
+> [!Important]
+>
+> We are working on Chinese-to-English translation. For more information please see [#914](https://github.com/krahets/hello-algo/issues/914).
 
 This open-source book is continuously being updated, and we welcome your participation in this project to provide better learning content for readers.
 
