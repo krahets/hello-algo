@@ -563,13 +563,13 @@
         // 執行某些操作
         return 0;
     }
-    /* 迴圈 O(1) */
+    /* 迴圈的空間複雜度為 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* 遞迴 O(n) */
+    /* 遞迴的空間複雜度為 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
@@ -583,13 +583,13 @@
         // 執行某些操作
         return 0;
     }
-    /* 迴圈 O(1) */
+    /* 迴圈的空間複雜度為 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             function();
         }
     }
-    /* 遞迴 O(n) */
+    /* 遞迴的空間複雜度為 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
@@ -603,13 +603,13 @@
         // 執行某些操作
         return 0;
     }
-    /* 迴圈 O(1) */
+    /* 迴圈的空間複雜度為 O(1) */
     void Loop(int n) {
         for (int i = 0; i < n; i++) {
             Function();
         }
     }
-    /* 遞迴 O(n) */
+    /* 遞迴的空間複雜度為 O(n) */
     int Recur(int n) {
         if (n == 1) return 1;
         return Recur(n - 1);
@@ -624,14 +624,14 @@
         return 0
     }
     
-    /* 迴圈 O(1) */
+    /* 迴圈的空間複雜度為 O(1) */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
     
-    /* 遞迴 O(n) */
+    /* 遞迴的空間複雜度為 O(n) */
     func recur(n int) {
         if n == 1 {
             return
@@ -649,14 +649,14 @@
         return 0
     }
 
-    /* 迴圈 O(1) */
+    /* 迴圈的空間複雜度為 O(1) */
     func loop(n: Int) {
         for _ in 0 ..< n {
             function()
         }
     }
 
-    /* 遞迴 O(n) */
+    /* 遞迴的空間複雜度為 O(n) */
     func recur(n: Int) {
         if n == 1 {
             return
@@ -672,13 +672,13 @@
         // 執行某些操作
         return 0;
     }
-    /* 迴圈 O(1) */
+    /* 迴圈的空間複雜度為 O(1) */
     function loop(n) {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* 遞迴 O(n) */
+    /* 遞迴的空間複雜度為 O(n) */
     function recur(n) {
         if (n === 1) return;
         return recur(n - 1);
@@ -692,13 +692,13 @@
         // 執行某些操作
         return 0;
     }
-    /* 迴圈 O(1) */
+    /* 迴圈的空間複雜度為 O(1) */
     function loop(n: number): void {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* 遞迴 O(n) */
+    /* 遞迴的空間複雜度為 O(n) */
     function recur(n: number): void {
         if (n === 1) return;
         return recur(n - 1);
@@ -712,13 +712,13 @@
       // 執行某些操作
       return 0;
     }
-    /* 迴圈 O(1) */
+    /* 迴圈的空間複雜度為 O(1) */
     void loop(int n) {
       for (int i = 0; i < n; i++) {
         function();
       }
     }
-    /* 遞迴 O(n) */
+    /* 遞迴的空間複雜度為 O(n) */
     void recur(int n) {
       if (n == 1) return;
       return recur(n - 1);
@@ -732,13 +732,13 @@
         // 執行某些操作
         return 0;
     }
-    /* 迴圈 O(1) */
+    /* 迴圈的空間複雜度為 O(1) */
     fn loop(n: i32) {
         for i in 0..n {
             function();
         }
     }
-    /* 遞迴 O(n) */
+    /* 遞迴的空間複雜度為 O(n) */
     fn recur(n: i32) {
         if n == 1 {
             return;
@@ -754,13 +754,13 @@
         // 執行某些操作
         return 0;
     }
-    /* 迴圈 O(1) */
+    /* 迴圈的空間複雜度為 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* 遞迴 O(n) */
+    /* 遞迴的空間複雜度為 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
@@ -774,13 +774,13 @@
         // 執行某些操作
         return 0
     }
-    /* 迴圈 O(1) */
+    /* 迴圈的空間複雜度為 O(1) */
     fun loop(n: Int) {
         for (i in 0..<n) {
             function()
         }
     }
-    /* 遞迴 O(n) */
+    /* 遞迴的空間複雜度為 O(n) */
     fun recur(n: Int) {
         if (n == 1) return
         return recur(n - 1)

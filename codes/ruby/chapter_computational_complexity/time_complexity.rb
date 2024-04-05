@@ -106,7 +106,7 @@ def log_recur(n)
   log_recur(n / 2) + 1
 end
 
-### 线性对数阶
+### 线性对数阶 ###
 def linear_log_recur(n)
   return 1 unless n > 1
 

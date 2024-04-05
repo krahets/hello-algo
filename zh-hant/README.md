@@ -4,23 +4,19 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Noto+Sans+SC&weight=500&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+%E7%AE%97%E6%B3%95+!" alt="hello-algo-typing-svg" />
+  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com/?font=Noto+Sans+SC&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+%E6%BC%94%E7%AE%97%E6%B3%95+!" alt="hello-algo-typing-svg" />
   </br>
   動畫圖解、一鍵執行的資料結構與演算法教程
 </p>
 
 <p align="center">
-  <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.svg" width="145"></a>
-  <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_dark.svg" width="145"></a>
-  <a href="https://github.com/krahets/hello-algo/blob/main/en/README.md">
-    <img src="https://www.hello-algo.com/index.assets/btn_english_edition_dark.svg" width="145"></a>
+  <a href="https://www.hello-algo.com/zh-hant/">
+    <img src="https://www.hello-algo.com/zh-hant/index.assets/btn_read_online_dark.svg" width="145"></a>
 </p>
 
 <p align="center">
-  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="396">
-  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="396">
+  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="389">
+  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="389">
 </p>
 
 <p align="center">
@@ -35,8 +31,20 @@
   <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2">
   <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000">
   <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC">
+  <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF">
   <img src="https://img.shields.io/badge/Zig-snow?logo=zig&logoColor=F7A41D">
-  <img src="https://img.shields.io/badge/Stay%20Tuned-snow">
+</p>
+
+<p align="center">
+  <a href="https://github.com/krahets/hello-algo">
+    简体中文
+  </a>
+  ｜
+  繁體中文
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/en/README.md">
+    English
+  </a>
 </p>
 
 ## 關於本書
@@ -60,6 +68,10 @@
 > **—— 李沐，亞馬遜資深首席科學家**
 
 ## 貢獻
+
+> [!Important]
+>
+> 歡迎您於 [#1171](https://github.com/krahets/hello-algo/issues/1171) 為繁體中文版勘誤。
 
 本開源書仍在持續更新之中，歡迎您參與本專案，一同為讀者提供更優質的學習內容。
 
