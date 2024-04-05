@@ -271,7 +271,7 @@
 
     ```swift title="heap.swift"
     /* 初始化堆積 */
-    // Swift 的 Heap 型別同時支援最大堆積和最小堆積，且需要引入 swift-collections
+    // Swift 的 Heap 型別同時支持最大堆積和最小堆積，且需要引入 swift-collections
     var heap = Heap<Int>()
 
     /* 元素入堆積 */

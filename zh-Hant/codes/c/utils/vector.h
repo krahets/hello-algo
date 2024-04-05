@@ -205,7 +205,7 @@ void vectorSort(vector *v, int (*cmp)(const void *, const void *)) {
 }
 
 /* 列印函式， 需傳遞一個列印變數的函式進來 */
-/* 當前僅支援列印深度為 1 的 vector */
+/* 當前僅支持列印深度為 1 的 vector */
 void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     if (v) {
         if (v->depth == 0) {
@@ -235,7 +235,7 @@ void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     }
 }
 
-/* 當前僅支援列印深度為 2 的 vector */
+/* 當前僅支持列印深度為 2 的 vector */
 void printVectorMatrix(vector *vv, void (*printFunc)(vector *v, void *p)) {
     printf("[\n");
     for (int i = 0; i < vv->size; i++) {

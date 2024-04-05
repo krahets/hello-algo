@@ -24,7 +24,7 @@ enum _Heap {
     /* Driver Code */
     static func main() {
         /* 初始化堆積 */
-        // Swift 的 Heap 型別同時支援最大堆積和最小堆積
+        // Swift 的 Heap 型別同時支持最大堆積和最小堆積
         var heap = Heap<Int>()
 
         /* 元素入堆積 */

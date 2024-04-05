@@ -222,7 +222,7 @@ git clone https://github.com/krahets/hello-algo.git
 
 ![程式碼塊與對應的源程式碼檔案](suggestions.assets/code_md_to_repo.png)
 
-除了本地執行程式碼，**網頁版還支援 Python 程式碼的視覺化執行**（基於 [pythontutor](https://pythontutor.com/) 實現）。如下圖所示，你可以點選程式碼塊下方的“視覺化執行”來展開檢視，觀察演算法程式碼的執行過程；也可以點選“全屏觀看”，以獲得更好的閱覽體驗。
+除了本地執行程式碼，**網頁版還支持 Python 程式碼的視覺化執行**（基於 [pythontutor](https://pythontutor.com/) 實現）。如下圖所示，你可以點選程式碼塊下方的“視覺化執行”來展開檢視，觀察演算法程式碼的執行過程；也可以點選“全屏觀看”，以獲得更好的閱覽體驗。
 
 ![Python 程式碼的視覺化執行](suggestions.assets/pythontutor_example.png)
 
