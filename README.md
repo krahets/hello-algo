@@ -17,8 +17,8 @@
 </p>
 
 <p align="center">
-  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="396">
-  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="396">
+  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="389">
+  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="389">
 </p>
 
 <p align="center">
