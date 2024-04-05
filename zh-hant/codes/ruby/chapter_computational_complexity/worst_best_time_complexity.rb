@@ -5,7 +5,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
 ### 生成一個陣列，元素為: 1, 2, ..., n ，順序被打亂 ###
-def random_number(n)
+def random_numbers(n)
   # 生成陣列 nums =: 1, 2, 3, ..., n
   nums = Array.new(n) { |i| i + 1 }
   # 隨機打亂陣列元素
@@ -27,7 +27,7 @@ end
 
 for i in 0...10
   n = 100
-  nums = random_number(n)
+  nums = random_numbers(n)
   index = find_one(nums)
   puts "\n陣列 [ 1, 2, ..., n ] 被打亂後 = #{nums}"
   puts "數字 1 的索引為 #{index}"
