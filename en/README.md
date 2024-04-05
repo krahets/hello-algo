@@ -36,13 +36,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/krahets/hello-algo">
-    简体中文
-  </a>
+  <a href="https://github.com/krahets/hello-algo">简体中文</a>
   ｜
-  <a href="https://github.com/krahets/hello-algo/blob/main/zh-hant/README.md">
-    繁體中文
-  </a>
+  <a href="https://github.com/krahets/hello-algo/blob/main/zh-hant/README.md">繁體中文</a>
   ｜
   English
 </p>

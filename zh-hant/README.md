@@ -36,15 +36,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/krahets/hello-algo">
-    简体中文
-  </a>
+  <a href="https://github.com/krahets/hello-algo">简体中文</a>
   ｜
   繁體中文
   ｜
-  <a href="https://github.com/krahets/hello-algo/blob/main/en/README.md">
-    English
-  </a>
+  <a href="https://github.com/krahets/hello-algo/blob/main/en/README.md">English</a>
 </p>
 
 ## 關於本書
