@@ -3,9 +3,9 @@ comments: true
 icon: material/calculator-variant-outline
 ---
 
-# Chapter 1. &nbsp; Introduction to Algorithms
+# Chapter 1. &nbsp; Introduction to algorithms
 
-![A first look at the algorithm](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
+![Introduction to algorithms](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
 
 !!! abstract
 
@@ -15,6 +15,6 @@ icon: material/calculator-variant-outline
 
 ## Chapter Contents
 
-- [1.1 &nbsp; Algorithms are Everywhere](https://www.hello-algo.com/en/chapter_introduction/algorithms_are_everywhere/)
-- [1.2 &nbsp; What is an Algorithm](https://www.hello-algo.com/en/chapter_introduction/what_is_dsa/)
+- [1.1 &nbsp; Algorithms are everywhere](https://www.hello-algo.com/en/chapter_introduction/algorithms_are_everywhere/)
+- [1.2 &nbsp; What is an algorithm](https://www.hello-algo.com/en/chapter_introduction/what_is_dsa/)
 - [1.3 &nbsp; Summary](https://www.hello-algo.com/en/chapter_introduction/summary/)

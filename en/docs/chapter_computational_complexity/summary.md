@@ -4,7 +4,7 @@ comments: true
 
 # 2.5 &nbsp; Summary
 
-### 1. &nbsp; Key Review
+### 1. &nbsp; Key review
 
 **Algorithm Efficiency Assessment**
 

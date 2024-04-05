@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 0.1 &nbsp; About This Book
+# 0.1 &nbsp; About this book
 
 This open-source project aims to create a free, and beginner-friendly crash course on data structures and algorithms.
 
@@ -10,7 +10,7 @@ This open-source project aims to create a free, and beginner-friendly crash cour
 - Run code with just one click, supporting Java, C++, Python, Go, JS, TS, C#, Swift, Rust, Dart, Zig and other languages.
 - Readers are encouraged to engage with each other in the discussion area for each section, questions and comments are usually answered within two days.
 
-## 0.1.1 &nbsp; Target Audience
+## 0.1.1 &nbsp; Target audience
 
 If you are new to algorithms with limited exposure, or you have accumulated some experience in algorithms, but you only have a vague understanding of data structures and algorithms, and you are constantly jumping between "yep" and "hmm", then this book is for you!
 
@@ -22,17 +22,17 @@ If you are an algorithm expert, we look forward to receiving your valuable sugge
 
     You should know how to write and read simple code in at least one programming language.
 
-## 0.1.2 &nbsp; Content Structure
+## 0.1.2 &nbsp; Content structure
 
 The main content of the book is shown in the following figure.
 
-- **Complexity Analysis**: explores aspects and methods for evaluating data structures and algorithms. Covers methods of deriving time complexity and space complexity, along with common types and examples.
-- **Data Structures**: focuses on fundamental data types, classification methods, definitions, pros and cons, common operations, types, applications, and implementation methods of data structures such as array, linked list, stack, queue, hash table, tree, heap, graph, etc.
+- **Complexity analysis**: explores aspects and methods for evaluating data structures and algorithms. Covers methods of deriving time complexity and space complexity, along with common types and examples.
+- **Data structures**: focuses on fundamental data types, classification methods, definitions, pros and cons, common operations, types, applications, and implementation methods of data structures such as array, linked list, stack, queue, hash table, tree, heap, graph, etc.
 - **Algorithms**: defines algorithms, discusses their pros and cons, efficiency, application scenarios, problem-solving steps, and includes sample questions for various algorithms such as search, sorting, divide and conquer, backtracking, dynamic programming, greedy algorithms, and more.
 
-![Main Content of the Book](about_the_book.assets/hello_algo_mindmap.png){ class="animation-figure" }
+![Main content of the book](about_the_book.assets/hello_algo_mindmap.png){ class="animation-figure" }
 
-<p align="center"> Figure 0-1 &nbsp; Main Content of the Book </p>
+<p align="center"> Figure 0-1 &nbsp; Main content of the book </p>
 
 ## 0.1.3 &nbsp; Acknowledgements
 

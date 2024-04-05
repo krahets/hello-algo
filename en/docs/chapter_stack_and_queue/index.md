@@ -3,9 +3,9 @@ comments: true
 icon: material/stack-overflow
 ---
 
-# Chapter 5. &nbsp; Stack and Queue
+# Chapter 5. &nbsp; Stack and queue
 
-![Stack and Queue](../assets/covers/chapter_stack_and_queue.jpg){ class="cover-image" }
+![Stack and queue](../assets/covers/chapter_stack_and_queue.jpg){ class="cover-image" }
 
 !!! abstract
 
@@ -17,5 +17,5 @@ icon: material/stack-overflow
 
 - [5.1 &nbsp; Stack](https://www.hello-algo.com/en/chapter_stack_and_queue/stack/)
 - [5.2 &nbsp; Queue](https://www.hello-algo.com/en/chapter_stack_and_queue/queue/)
-- [5.3 &nbsp; Double-ended Queue](https://www.hello-algo.com/en/chapter_stack_and_queue/deque/)
+- [5.3 &nbsp; Double-ended queue](https://www.hello-algo.com/en/chapter_stack_and_queue/deque/)
 - [5.4 &nbsp; Summary](https://www.hello-algo.com/en/chapter_stack_and_queue/summary/)

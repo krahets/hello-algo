@@ -15,6 +15,6 @@ icon: material/book-open-outline
 
 ## Chapter Contents
 
-- [0.1 &nbsp; About This Book](https://www.hello-algo.com/en/chapter_preface/about_the_book/)
-- [0.2 &nbsp; How to Read](https://www.hello-algo.com/en/chapter_preface/suggestions/)
+- [0.1 &nbsp; About this book](https://www.hello-algo.com/en/chapter_preface/about_the_book/)
+- [0.2 &nbsp; How to read](https://www.hello-algo.com/en/chapter_preface/suggestions/)
 - [0.3 &nbsp; Summary](https://www.hello-algo.com/en/chapter_preface/summary/)

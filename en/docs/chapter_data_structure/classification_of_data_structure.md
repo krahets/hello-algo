@@ -2,38 +2,38 @@
 comments: true
 ---
 
-# 3.1 &nbsp; Classification of Data Structures
+# 3.1 &nbsp; Classification of data structures
 
 Common data structures include arrays, linked lists, stacks, queues, hash tables, trees, heaps, and graphs. They can be classified into "logical structure" and "physical structure".
 
-## 3.1.1 &nbsp; Logical Structure: Linear and Non-Linear
+## 3.1.1 &nbsp; Logical structure: linear and non-linear
 
 **The logical structures reveal the logical relationships between data elements**. In arrays and linked lists, data are arranged in a specific sequence, demonstrating the linear relationship between data; while in trees, data are arranged hierarchically from the top down, showing the derived relationship between "ancestors" and "descendants"; and graphs are composed of nodes and edges, reflecting the intricate network relationship.
 
 As shown in the Figure 3-1 , logical structures can be divided into two major categories: "linear" and "non-linear". Linear structures are more intuitive, indicating data is arranged linearly in logical relationships; non-linear structures, conversely, are arranged non-linearly.
 
-- **Linear Data Structures**: Arrays, Linked Lists, Stacks, Queues, Hash Tables.
-- **Non-Linear Data Structures**: Trees, Heaps, Graphs, Hash Tables.
+- **Linear data structures**: Arrays, Linked Lists, Stacks, Queues, Hash Tables.
+- **Non-linear data structures**: Trees, Heaps, Graphs, Hash Tables.
 
-![Linear and Non-Linear Data Structures](classification_of_data_structure.assets/classification_logic_structure.png){ class="animation-figure" }
+![Linear and non-linear data structures](classification_of_data_structure.assets/classification_logic_structure.png){ class="animation-figure" }
 
-<p align="center"> Figure 3-1 &nbsp; Linear and Non-Linear Data Structures </p>
+<p align="center"> Figure 3-1 &nbsp; Linear and non-linear data structures </p>
 
 Non-linear data structures can be further divided into tree structures and network structures.
 
-- **Linear Structures**: Arrays, linked lists, queues, stacks, and hash tables, where elements have a one-to-one sequential relationship.
-- **Tree Structures**: Trees, Heaps, Hash Tables, where elements have a one-to-many relationship.
-- **Network Structures**: Graphs, where elements have a many-to-many relationships.
+- **Linear structures**: Arrays, linked lists, queues, stacks, and hash tables, where elements have a one-to-one sequential relationship.
+- **Tree structures**: Trees, Heaps, Hash Tables, where elements have a one-to-many relationship.
+- **Network structures**: Graphs, where elements have a many-to-many relationships.
 
-## 3.1.2 &nbsp; Physical Structure: Contiguous and Dispersed
+## 3.1.2 &nbsp; Physical structure: contiguous and dispersed
 
 **During the execution of an algorithm, the data being processed is stored in memory**. The Figure 3-2  shows a computer memory stick where each black square is a physical memory space. We can think of memory as a vast Excel spreadsheet, with each cell capable of storing a certain amount of data.
 
 **The system accesses the data at the target location by means of a memory address**. As shown in the Figure 3-2 , the computer assigns a unique identifier to each cell in the table according to specific rules, ensuring that each memory space has a unique memory address. With these addresses, the program can access the data stored in memory.
 
-![Memory Stick, Memory Spaces, Memory Addresses](classification_of_data_structure.assets/computer_memory_location.png){ class="animation-figure" }
+![Memory stick, memory spaces, memory addresses](classification_of_data_structure.assets/computer_memory_location.png){ class="animation-figure" }
 
-<p align="center"> Figure 3-2 &nbsp; Memory Stick, Memory Spaces, Memory Addresses </p>
+<p align="center"> Figure 3-2 &nbsp; Memory stick, memory spaces, memory addresses </p>
 
 !!! tip
 
@@ -43,9 +43,9 @@ Memory is a shared resource for all programs. When a block of memory is occupied
 
 As illustrated in the Figure 3-3 , **the physical structure reflects the way data is stored in computer memory** and it can be divided into contiguous space storage (arrays) and non-contiguous space storage (linked lists). The two types of physical structures exhibit complementary characteristics in terms of time efficiency and space efficiency.
 
-![Contiguous Space Storage and Dispersed Space Storage](classification_of_data_structure.assets/classification_phisical_structure.png){ class="animation-figure" }
+![Contiguous space storage and dispersed space storage](classification_of_data_structure.assets/classification_phisical_structure.png){ class="animation-figure" }
 
-<p align="center"> Figure 3-3 &nbsp; Contiguous Space Storage and Dispersed Space Storage </p>
+<p align="center"> Figure 3-3 &nbsp; Contiguous space storage and dispersed space storage </p>
 
 **It is worth noting that all data structures are implemented based on arrays, linked lists, or a combination of both**. For example, stacks and queues can be implemented using either arrays or linked lists; while implementations of hash tables may involve both arrays and linked lists.
 - **Array-based implementations**: Stacks, Queues, Hash Tables, Trees, Heaps, Graphs, Matrices, Tensors (arrays with dimensions $\geq 3$).

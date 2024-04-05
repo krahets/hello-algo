@@ -2,19 +2,19 @@
 comments: true
 ---
 
-# 5.3 &nbsp; Double-Ended Queue
+# 5.3 &nbsp; Double-ended queue
 
 In a queue, we can only delete elements from the head or add elements to the tail. As shown in the following diagram, a "double-ended queue (deque)" offers more flexibility, allowing the addition or removal of elements at both the head and the tail.
 
-![Operations in Double-Ended Queue](deque.assets/deque_operations.png){ class="animation-figure" }
+![Operations in double-ended queue](deque.assets/deque_operations.png){ class="animation-figure" }
 
-<p align="center"> Figure 5-7 &nbsp; Operations in Double-Ended Queue </p>
+<p align="center"> Figure 5-7 &nbsp; Operations in double-ended queue </p>
 
-## 5.3.1 &nbsp; Common Operations in Double-Ended Queue
+## 5.3.1 &nbsp; Common operations in double-ended queue
 
 The common operations in a double-ended queue are listed below, and the names of specific methods depend on the programming language used.
 
-<p align="center"> Table 5-3 &nbsp; Efficiency of Double-Ended Queue Operations </p>
+<p align="center"> Table 5-3 &nbsp; Efficiency of double-ended queue operations </p>
 
 <div class="center-table" markdown>
 
@@ -350,11 +350,11 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
 
     https://pythontutor.com/render.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20deq.append%282%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E5%B0%BE%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E9%A6%96%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%20rear%20%3D%22,%20rear%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_front%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_rear%20%3D%22,%20pop_rear%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-## 5.3.2 &nbsp; Implementing a Double-Ended Queue *
+## 5.3.2 &nbsp; Implementing a double-ended queue *
 
 The implementation of a double-ended queue is similar to that of a regular queue, it can be based on either a linked list or an array as the underlying data structure.
 
-### 1. &nbsp; Implementation Based on Doubly Linked List
+### 1. &nbsp; Implementation based on doubly linked list
 
 Recall from the previous section that we used a regular singly linked list to implement a queue, as it conveniently allows for deleting from the head (corresponding to the dequeue operation) and adding new elements after the tail (corresponding to the enqueue operation).
 
@@ -2136,7 +2136,7 @@ The implementation code is as follows:
     }
     ```
 
-### 2. &nbsp; Implementation Based on Array
+### 2. &nbsp; Implementation based on array
 
 As shown in the Figure 5-9 , similar to implementing a queue with an array, we can also use a circular array to implement a double-ended queue.
 
@@ -3470,7 +3470,7 @@ The implementation only needs to add methods for "front enqueue" and "rear deque
     [class]{ArrayDeque}-[func]{}
     ```
 
-## 5.3.3 &nbsp; Applications of Double-Ended Queue
+## 5.3.3 &nbsp; Applications of double-ended queue
 
 The double-ended queue combines the logic of both stacks and queues, **thus, it can implement all their respective use cases while offering greater flexibility**.
 

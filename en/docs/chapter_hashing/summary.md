@@ -4,7 +4,7 @@ comments: true
 
 # 6.4 &nbsp; Summary
 
-### 1. &nbsp; Key Review
+### 1. &nbsp; Key review
 
 - Given an input `key`, a hash table can retrieve the corresponding `value` in $O(1)$ time, which is highly efficient.
 - Common hash table operations include querying, adding key-value pairs, deleting key-value pairs, and traversing the hash table.

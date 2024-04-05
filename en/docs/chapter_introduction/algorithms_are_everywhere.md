@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 1.1 &nbsp; Algorithms are Everywhere
+# 1.1 &nbsp; Algorithms are everywhere
 
 When we hear the word "algorithm," we naturally think of mathematics. However, many algorithms do not involve complex mathematics but rely more on basic logic, which can be seen everywhere in our daily lives.
 
@@ -39,9 +39,9 @@ This essential skill for elementary students, looking up a dictionary, is actual
 2. Take out a card from the unordered section and insert it into the correct position in the ordered section; after this, the leftmost two cards are in order.
 3. Continue to repeat step `2.` until all cards are in order.
 
-![Playing Cards Sorting Process](algorithms_are_everywhere.assets/playing_cards_sorting.png){ class="animation-figure" }
+![Playing cards sorting process](algorithms_are_everywhere.assets/playing_cards_sorting.png){ class="animation-figure" }
 
-<p align="center"> Figure 1-2 &nbsp; Playing Cards Sorting Process </p>
+<p align="center"> Figure 1-2 &nbsp; Playing cards sorting process </p>
 
 The above method of organizing playing cards is essentially the "Insertion Sort" algorithm, which is very efficient for small datasets. Many programming languages' sorting functions include the insertion sort.
 

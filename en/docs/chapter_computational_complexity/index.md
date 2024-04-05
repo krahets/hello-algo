@@ -3,9 +3,9 @@ comments: true
 icon: material/timer-sand
 ---
 
-# Chapter 2. &nbsp; Complexity Analysis
+# Chapter 2. &nbsp; Complexity analysis
 
-![complexity_analysis](../assets/covers/chapter_complexity_analysis.jpg){ class="cover-image" }
+![Complexity analysis](../assets/covers/chapter_complexity_analysis.jpg){ class="cover-image" }
 
 !!! abstract
 
@@ -15,8 +15,8 @@ icon: material/timer-sand
 
 ## Chapter Contents
 
-- [2.1 &nbsp; Algorithm Efficiency Assessment](https://www.hello-algo.com/en/chapter_computational_complexity/performance_evaluation/)
-- [2.2 &nbsp; Iteration and Recursion](https://www.hello-algo.com/en/chapter_computational_complexity/iteration_and_recursion/)
-- [2.3 &nbsp; Time Complexity](https://www.hello-algo.com/en/chapter_computational_complexity/time_complexity/)
-- [2.4 &nbsp; Space Complexity](https://www.hello-algo.com/en/chapter_computational_complexity/space_complexity/)
+- [2.1 &nbsp; Algorithm efficiency assessment](https://www.hello-algo.com/en/chapter_computational_complexity/performance_evaluation/)
+- [2.2 &nbsp; Iteration and recursion](https://www.hello-algo.com/en/chapter_computational_complexity/iteration_and_recursion/)
+- [2.3 &nbsp; Time complexity](https://www.hello-algo.com/en/chapter_computational_complexity/time_complexity/)
+- [2.4 &nbsp; Space complexity](https://www.hello-algo.com/en/chapter_computational_complexity/space_complexity/)
 - [2.5 &nbsp; Summary](https://www.hello-algo.com/en/chapter_computational_complexity/summary/)

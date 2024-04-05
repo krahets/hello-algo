@@ -4,7 +4,7 @@ comments: true
 
 # 5.4 &nbsp; Summary
 
-### 1. &nbsp; Key Review
+### 1. &nbsp; Key review
 
 - Stack is a data structure that follows the Last-In-First-Out (LIFO) principle and can be implemented using arrays or linked lists.
 - In terms of time efficiency, the array implementation of the stack has a higher average efficiency. However, during expansion, the time complexity for a single push operation can degrade to $O(n)$. In contrast, the linked list implementation of a stack offers more stable efficiency.
