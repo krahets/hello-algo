@@ -35,7 +35,6 @@
   <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC">
   <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF">
   <img src="https://img.shields.io/badge/Zig-snow?logo=zig&logoColor=F7A41D">
-  <img src="https://img.shields.io/badge/Stay%20tuned-snow">
 </p>
 
 <p align="center">
