@@ -3,12 +3,12 @@ INHERIT: ../mkdocs.yml
 
 # Project information
 site_name: Hello 演算法
-site_url: https://www.hello-algo.com/zh-Hant/
+site_url: https://www.hello-algo.com/zh-hant/
 site_description: "動畫圖解、一鍵執行的資料結構與演算法教程"
-docs_dir: ../build/zh-Hant/docs
-site_dir: ../site/zh-Hant
+docs_dir: ../build/zh-hant/docs
+site_dir: ../site/zh-hant
 # Repository
-edit_uri: tree/main/zh-Hant/docs
+edit_uri: tree/main/zh-hant/docs
 version: 1.0.0
 
 # Configuration

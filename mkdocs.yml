@@ -72,7 +72,7 @@ extra:
       link: /
       lang: zh
     - name: 繁體中文
-      link: /zh-Hant/
+      link: /zh-hant/
       lang: zh-Hant
     - name: English
       link: /en/
