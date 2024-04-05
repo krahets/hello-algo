@@ -31,11 +31,11 @@ nums << 4
 puts "添加元素后 nums = #{nums}"
 
 # 在中间插入元素
-nums.insert 3, 6
+nums.insert(3, 6)
 puts "在索引 3 处插入元素 6 ，得到 nums = #{nums}"
 
 # 删除元素
-nums.delete_at 3
+nums.delete_at(3)
 puts "删除索引 3 处的元素，得到 nums = #{nums}"
 
 # 通过索引遍历列表

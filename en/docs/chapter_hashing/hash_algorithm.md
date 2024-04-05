@@ -1,10 +1,10 @@
-# Hash Algorithms
+# Hash algorithms
 
 The previous two sections introduced the working principle of hash tables and the methods to handle hash collisions. However, both open addressing and chaining can **only ensure that the hash table functions normally when collisions occur, but cannot reduce the frequency of hash collisions**.
 
 If hash collisions occur too frequently, the performance of the hash table will deteriorate drastically. As shown in the figure below, for a chaining hash table, in the ideal case, the key-value pairs are evenly distributed across the buckets, achieving optimal query efficiency; in the worst case, all key-value pairs are stored in the same bucket, degrading the time complexity to $O(n)$.
 
-![Ideal and Worst Cases of Hash Collisions](hash_algorithm.assets/hash_collision_best_worst_condition.png)
+![Ideal and worst cases of hash collisions](hash_algorithm.assets/hash_collision_best_worst_condition.png)
 
 **The distribution of key-value pairs is determined by the hash function**. Recalling the steps of calculating a hash function, first compute the hash value, then modulo it by the array length:
 
@@ -16,35 +16,35 @@ Observing the above formula, when the hash table capacity `capacity` is fixed, *
 
 This means that, to reduce the probability of hash collisions, we should focus on the design of the hash algorithm `hash()`.
 
-## Goals of Hash Algorithms
+## Goals of hash algorithms
 
 To achieve a "fast and stable" hash table data structure, hash algorithms should have the following characteristics:
 
 - **Determinism**: For the same input, the hash algorithm should always produce the same output. Only then can the hash table be reliable.
-- **High Efficiency**: The process of computing the hash value should be fast enough. The smaller the computational overhead, the more practical the hash table.
-- **Uniform Distribution**: The hash algorithm should ensure that key-value pairs are evenly distributed in the hash table. The more uniform the distribution, the lower the probability of hash collisions.
+- **High efficiency**: The process of computing the hash value should be fast enough. The smaller the computational overhead, the more practical the hash table.
+- **Uniform distribution**: The hash algorithm should ensure that key-value pairs are evenly distributed in the hash table. The more uniform the distribution, the lower the probability of hash collisions.
 
 In fact, hash algorithms are not only used to implement hash tables but are also widely applied in other fields.
 
-- **Password Storage**: To protect the security of user passwords, systems usually do not store the plaintext passwords but rather the hash values of the passwords. When a user enters a password, the system calculates the hash value of the input and compares it with the stored hash value. If they match, the password is considered correct.
-- **Data Integrity Check**: The data sender can calculate the hash value of the data and send it along; the receiver can recalculate the hash value of the received data and compare it with the received hash value. If they match, the data is considered intact.
+- **Password storage**: To protect the security of user passwords, systems usually do not store the plaintext passwords but rather the hash values of the passwords. When a user enters a password, the system calculates the hash value of the input and compares it with the stored hash value. If they match, the password is considered correct.
+- **Data integrity check**: The data sender can calculate the hash value of the data and send it along; the receiver can recalculate the hash value of the received data and compare it with the received hash value. If they match, the data is considered intact.
 
 For cryptographic applications, to prevent reverse engineering such as deducing the original password from the hash value, hash algorithms need higher-level security features.
 
 - **Unidirectionality**: It should be impossible to deduce any information about the input data from the hash value.
-- **Collision Resistance**: It should be extremely difficult to find two different inputs that produce the same hash value.
-- **Avalanche Effect**: Minor changes in the input should lead to significant and unpredictable changes in the output.
+- **Collision resistance**: It should be extremely difficult to find two different inputs that produce the same hash value.
+- **Avalanche effect**: Minor changes in the input should lead to significant and unpredictable changes in the output.
 
 Note that **"Uniform Distribution" and "Collision Resistance" are two separate concepts**. Satisfying uniform distribution does not necessarily mean collision resistance. For example, under random input `key`, the hash function `key % 100` can produce a uniformly distributed output. However, this hash algorithm is too simple, and all `key` with the same last two digits will have the same output, making it easy to deduce a usable `key` from the hash value, thereby cracking the password.
 
-## Design of Hash Algorithms
+## Design of hash algorithms
 
 The design of hash algorithms is a complex issue that requires consideration of many factors. However, for some less demanding scenarios, we can also design some simple hash algorithms.
 
-- **Additive Hash**: Add up the ASCII codes of each character in the input and use the total sum as the hash value.
-- **Multiplicative Hash**: Utilize the non-correlation of multiplication, multiplying each round by a constant, accumulating the ASCII codes of each character into the hash value.
-- **XOR Hash**: Accumulate the hash value by XORing each element of the input data.
-- **Rotating Hash**: Accumulate the ASCII code of each character into a hash value, performing a rotation operation on the hash value before each accumulation.
+- **Additive hash**: Add up the ASCII codes of each character in the input and use the total sum as the hash value.
+- **Multiplicative hash**: Utilize the non-correlation of multiplication, multiplying each round by a constant, accumulating the ASCII codes of each character into the hash value.
+- **XOR hash**: Accumulate the hash value by XORing each element of the input data.
+- **Rotating hash**: Accumulate the ASCII code of each character into a hash value, performing a rotation operation on the hash value before each accumulation.
 
 ```src
 [file]{simple_hash}-[class]{}-[func]{rot_hash}
@@ -78,7 +78,7 @@ It is worth noting that if the `key` is guaranteed to be randomly and uniformly 
 
 In summary, we usually choose a prime number as the modulus, and this prime number should be large enough to eliminate periodic patterns as much as possible, enhancing the robustness of the hash algorithm.
 
-## Common Hash Algorithms
+## Common hash algorithms
 
 It is not hard to see that the simple hash algorithms mentioned above are quite "fragile" and far from reaching the design goals of hash algorithms. For example, since addition and XOR obey the commutative law, additive hash and XOR hash cannot distinguish strings with the same content but in different order, which may exacerbate hash collisions and cause security issues.
 
@@ -90,7 +90,7 @@ Over the past century, hash algorithms have been in a continuous process of upgr
 - SHA-2 series, especially SHA-256, is one of the most secure hash algorithms to date, with no successful attacks reported, hence commonly used in various security applications and protocols.
 - SHA-3 has lower implementation costs and higher computational efficiency compared to SHA-2, but its current usage coverage is not as extensive as the SHA-2 series.
 
-<p align="center"> Table <id> &nbsp; Common Hash Algorithms </p>
+<p align="center"> Table <id> &nbsp; Common hash algorithms </p>
 
 |                 | MD5                                             | SHA-1                               | SHA-2                                                             | SHA-3                        |
 | --------------- | ----------------------------------------------- | ----------------------------------- | ----------------------------------------------------------------- | ---------------------------- |
@@ -100,7 +100,7 @@ Over the past century, hash algorithms have been in a continuous process of upgr
 | Security Level  | Low, has been successfully attacked             | Low, has been successfully attacked | High                                                              | High                         |
 | Applications    | Abandoned, still used for data integrity checks | Abandoned                           | Cryptocurrency transaction verification, digital signatures, etc. | Can be used to replace SHA-2 |
 
-# Hash Values in Data Structures
+# Hash values in data structures
 
 We know that the keys in a hash table can be of various data types such as integers, decimals, or strings. Programming languages usually provide built-in hash algorithms for these data types to calculate the bucket indices in the hash table. Taking Python as an example, we can use the `hash()` function to compute the hash values for various data types.
 

@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Noto+Sans+SC&weight=500&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo+!" alt="hello-algo-typing-svg" />
+  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Noto+Sans+SC&weight=500&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo+!" alt="hello-algo-typing-svg" />
   </br>
   Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code
 </p>
@@ -12,15 +12,11 @@
 <p align="center">
   <a href="https://www.hello-algo.com/en/">
     <img src="https://www.hello-algo.com/en/index.assets/btn_read_online_dark.svg" width="120"></a>
-  <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="https://www.hello-algo.com/en/index.assets/btn_download_pdf_dark.svg" width="120"></a>
-  <a href="https://github.com/krahets/hello-algo">
-    <img src="https://www.hello-algo.com/en/index.assets/btn_chinese_edition_dark.svg" width="120"></a>
 </p>
 
 <p align="center">
-  <img src="https://www.hello-algo.com/en/index.assets/animation.gif" width="396">
-  <img src="https://www.hello-algo.com/en/index.assets/running_code.gif" width="396">
+  <img src="https://www.hello-algo.com/en/index.assets/animation.gif" width="389">
+  <img src="https://www.hello-algo.com/en/index.assets/running_code.gif" width="389">
 </p>
 
 <p align="center">
@@ -35,13 +31,17 @@
   <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2">
   <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000">
   <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC">
+  <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF">
   <img src="https://img.shields.io/badge/Zig-snow?logo=zig&logoColor=F7A41D">
-  <img src="https://img.shields.io/badge/Stay%20Tuned-snow">
 </p>
 
-> [!Important]
->
-> We are working on Chinese-to-English translation. For more information please see [#914](https://github.com/krahets/hello-algo/issues/914).
+<p align="center">
+  <a href="https://github.com/krahets/hello-algo">简体中文</a>
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/zh-hant/README.md">繁體中文</a>
+  ｜
+  English
+</p>
 
 ## About
 
@@ -64,6 +64,10 @@ If you find this book helpful, please give it a Star :star: to support us, thank
 > **—— Mu Li, Senior Principal Scientist, Amazon**
 
 ## Contribution
+
+> [!Important]
+>
+> We are working on Chinese-to-English translation. For more information please see [#914](https://github.com/krahets/hello-algo/issues/914).
 
 This open-source book is continuously being updated, and we welcome your participation in this project to provide better learning content for readers.
 

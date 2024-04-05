@@ -27,18 +27,18 @@
 | big-$O$ notation               | 大 $O$ 记号    | 大 $O$ 記號    |
 | asymptotic upper bound         | 渐近上界       | 漸近上界       |
 | sign-magnitude                 | 原码           | 原碼           |
-| 1’s complement                 | 反码           | 反碼           |
-| 2’s complement                 | 补码           | 補碼           |
+| 1’s complement                 | 反码           | 一補數         |
+| 2’s complement                 | 补码           | 二補數         |
 | array                          | 数组           | 陣列           |
 | index                          | 索引           | 索引           |
 | linked list                    | 链表           | 鏈結串列       |
 | linked list node, list node    | 链表节点       | 鏈結串列節點   |
 | head node                      | 头节点         | 頭節點         |
 | tail node                      | 尾节点         | 尾節點         |
-| list                           | 列表           | 列表           |
+| list                           | 列表           | 串列           |
 | dynamic array                  | 动态数组       | 動態陣列       |
 | hard disk                      | 硬盘           | 硬碟           |
-| random-access memory (RAM)     | 内存           | 內存           |
+| random-access memory (RAM)     | 内存           | 記憶體         |
 | cache memory                   | 缓存           | 快取           |
 | cache miss                     | 缓存未命中     | 快取未命中     |
 | cache hit rate                 | 缓存命中率     | 快取命中率     |

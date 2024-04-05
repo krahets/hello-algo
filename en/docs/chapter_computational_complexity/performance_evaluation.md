@@ -1,4 +1,4 @@
-# Algorithm Efficiency Assessment
+# Algorithm efficiency assessment
 
 In algorithm design, we pursue the following two objectives in sequence.
 
@@ -7,14 +7,14 @@ In algorithm design, we pursue the following two objectives in sequence.
 
 In other words, under the premise of being able to solve the problem, algorithm efficiency has become the main criterion for evaluating the merits of an algorithm, which includes the following two dimensions.
 
-- **Time Efficiency**: The speed at which an algorithm runs.
-- **Space Efficiency**: The size of the memory space occupied by an algorithm.
+- **Time efficiency**: The speed at which an algorithm runs.
+- **Space efficiency**: The size of the memory space occupied by an algorithm.
 
 In short, **our goal is to design data structures and algorithms that are both fast and memory-efficient**. Effectively assessing algorithm efficiency is crucial because only then can we compare various algorithms and guide the process of algorithm design and optimization.
 
 There are mainly two methods of efficiency assessment: actual testing and theoretical estimation.
 
-## Actual Testing
+## Actual testing
 
 Suppose we have algorithms `A` and `B`, both capable of solving the same problem, and we need to compare their efficiencies. The most direct method is to use a computer to run these two algorithms and monitor and record their runtime and memory usage. This assessment method reflects the actual situation but has significant limitations.
 
@@ -22,7 +22,7 @@ On one hand, **it's difficult to eliminate interference from the testing environ
 
 On the other hand, **conducting a full test is very resource-intensive**. As the volume of input data changes, the efficiency of the algorithms may vary. For example, with smaller data volumes, algorithm `A` might run faster than `B`, but the opposite might be true with larger data volumes. Therefore, to draw convincing conclusions, we need to test a wide range of input data sizes, which requires significant computational resources.
 
-## Theoretical Estimation
+## Theoretical estimation
 
 Due to the significant limitations of actual testing, we can consider evaluating algorithm efficiency solely through calculations. This estimation method is known as "asymptotic complexity analysis," or simply "complexity analysis."
 

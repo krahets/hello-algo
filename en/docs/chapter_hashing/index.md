@@ -1,10 +1,6 @@
-# Hash Table
+# Hash table
 
-<div class="center-table" markdown>
-
-![Hash Table](../assets/covers/chapter_hashing.jpg)
-
-</div>
+![Hash table](../assets/covers/chapter_hashing.jpg)
 
 !!! abstract
 

@@ -1,14 +1,14 @@
-# Memory and Cache *
+# Memory and cache *
 
 In the first two sections of this chapter, we explored arrays and linked lists, two fundamental and important data structures, representing "continuous storage" and "dispersed storage" respectively.
 
 In fact, **the physical structure largely determines the efficiency of a program's use of memory and cache**, which in turn affects the overall performance of the algorithm.
 
-## Computer Storage Devices
+## Computer storage devices
 
 There are three types of storage devices in computers: "hard disk," "random-access memory (RAM)," and "cache memory." The following table shows their different roles and performance characteristics in computer systems.
 
-<p align="center"> Table <id> &nbsp; Computer Storage Devices </p>
+<p align="center"> Table <id> &nbsp; Computer storage devices </p>
 
 |            | Hard Disk                                                      | Memory                                                                   | Cache                                                                                           |
 | ---------- | -------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
@@ -23,7 +23,7 @@ We can imagine the computer storage system as a pyramid structure shown in the f
 - **Hard disks are difficult to replace with memory**. Firstly, data in memory is lost after power off, making it unsuitable for long-term data storage; secondly, the cost of memory is dozens of times that of hard disks, making it difficult to popularize in the consumer market.
 - **It is difficult for caches to have both large capacity and high speed**. As the capacity of L1, L2, L3 caches gradually increases, their physical size becomes larger, increasing the physical distance from the CPU core, leading to increased data transfer time and higher element access latency. Under current technology, a multi-level cache structure is the best balance between capacity, speed, and cost.
 
-![Computer Storage System](ram_and_cache.assets/storage_pyramid.png)
+![Computer storage system](ram_and_cache.assets/storage_pyramid.png)
 
 !!! note
 
@@ -33,9 +33,9 @@ Overall, **hard disks are used for long-term storage of large amounts of data, m
 
 As shown in the figure below, during program execution, data is read from the hard disk into memory for CPU computation. The cache can be considered a part of the CPU, **smartly loading data from memory** to provide fast data access to the CPU, significantly enhancing program execution efficiency and reducing reliance on slower memory.
 
-![Data Flow Between Hard Disk, Memory, and Cache](ram_and_cache.assets/computer_storage_devices.png)
+![Data flow between hard disk, memory, and cache](ram_and_cache.assets/computer_storage_devices.png)
 
-## Memory Efficiency of Data Structures
+## Memory efficiency of data structures
 
 In terms of memory space utilization, arrays and linked lists have their advantages and limitations.
 
@@ -43,7 +43,7 @@ On one hand, **memory is limited and cannot be shared by multiple programs**, so
 
 On the other hand, during program execution, **as memory is repeatedly allocated and released, the degree of fragmentation of free memory becomes higher**, leading to reduced memory utilization efficiency. Arrays, due to their continuous storage method, are relatively less likely to cause memory fragmentation. In contrast, the elements of a linked list are dispersedly stored, and frequent insertion and deletion operations make memory fragmentation more likely.
 
-## Cache Efficiency of Data Structures
+## Cache efficiency of data structures
 
 Although caches are much smaller in space capacity than memory, they are much faster and play a crucial role in program execution speed. Since the cache's capacity is limited and can only store a small part of frequently accessed data, when the CPU tries to access data not in the cache, a "cache miss" occurs, forcing the CPU to load the needed data from slower memory.
 
@@ -51,17 +51,17 @@ Clearly, **the fewer the cache misses, the higher the CPU's data read-write effi
 
 To achieve higher efficiency, caches adopt the following data loading mechanisms.
 
-- **Cache Lines**: Caches don't store and load data byte by byte but in units of cache lines. Compared to byte-by-byte transfer, the transmission of cache lines is more efficient.
-- **Prefetch Mechanism**: Processors try to predict data access patterns (such as sequential access, fixed stride jumping access, etc.) and load data into the cache according to specific patterns to improve the hit rate.
-- **Spatial Locality**: If data is accessed, data nearby is likely to be accessed in the near future. Therefore, when loading certain data, the cache also loads nearby data to improve the hit rate.
-- **Temporal Locality**: If data is accessed, it's likely to be accessed again in the near future. Caches use this principle to retain recently accessed data to improve the hit rate.
+- **Cache lines**: Caches don't store and load data byte by byte but in units of cache lines. Compared to byte-by-byte transfer, the transmission of cache lines is more efficient.
+- **Prefetch mechanism**: Processors try to predict data access patterns (such as sequential access, fixed stride jumping access, etc.) and load data into the cache according to specific patterns to improve the hit rate.
+- **Spatial locality**: If data is accessed, data nearby is likely to be accessed in the near future. Therefore, when loading certain data, the cache also loads nearby data to improve the hit rate.
+- **Temporal locality**: If data is accessed, it's likely to be accessed again in the near future. Caches use this principle to retain recently accessed data to improve the hit rate.
 
 In fact, **arrays and linked lists have different cache utilization efficiencies**, mainly reflected in the following aspects.
 
-- **Occupied Space**: Linked list elements occupy more space than array elements, resulting in less effective data volume in the cache.
-- **Cache Lines**: Linked list data is scattered throughout memory, and since caches load "by line," the proportion of loading invalid data is higher.
-- **Prefetch Mechanism**: The data access pattern of arrays is more "predictable" than that of linked lists, meaning the system is more likely to guess which data will be loaded next.
-- **Spatial Locality**: Arrays are stored in concentrated memory spaces, so the data near the loaded data is more likely to be accessed next.
+- **Occupied space**: Linked list elements occupy more space than array elements, resulting in less effective data volume in the cache.
+- **Cache lines**: Linked list data is scattered throughout memory, and since caches load "by line," the proportion of loading invalid data is higher.
+- **Prefetch mechanism**: The data access pattern of arrays is more "predictable" than that of linked lists, meaning the system is more likely to guess which data will be loaded next.
+- **Spatial locality**: Arrays are stored in concentrated memory spaces, so the data near the loaded data is more likely to be accessed next.
 
 Overall, **arrays have a higher cache hit rate and are generally more efficient in operation than linked lists**. This makes data structures based on arrays more popular in solving algorithmic problems.
 

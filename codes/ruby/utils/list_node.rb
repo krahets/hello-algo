@@ -9,21 +9,21 @@ class ListNode
   attr_accessor :val  # 节点值
   attr_accessor :next # 指向下一节点的引用
 
-  def initialize(val=nil, next_node=nil)
-    @val = val || 0
+  def initialize(val=0, next_node=nil)
+    @val = val
     @next = next_node
   end
 end
 
 ### 将列表反序列化为链表 ###
 def arr_to_linked_list(arr)
-  head = current = ListNode.new arr[0]
+  head = current = ListNode.new(arr[0])
 
   for i in 1...arr.length
-    current.next = ListNode.new arr[i]
+    current.next = ListNode.new(arr[i])
     current = current.next
   end
-  
+
   head
 end
 
