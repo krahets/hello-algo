@@ -13,7 +13,7 @@ comments: true
 
 <div class="center-table" markdown>
 
-| English                        | 简体中文       | 繁体中文       |
+| English                        | 簡體中文       | 繁體中文       |
 | ------------------------------ | -------------- | -------------- |
 | algorithm                      | 算法           | 演算法         |
 | data structure                 | 数据结构       | 資料結構       |
