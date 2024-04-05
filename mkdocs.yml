@@ -68,9 +68,12 @@ theme:
 
 extra:
   alternate:
-    - name: 中文
+    - name: 简体中文
       link: /
       lang: zh
+    - name: 繁體中文
+      link: /zh-hant/
+      lang: zh-Hant
     - name: English
       link: /en/
       lang: en
