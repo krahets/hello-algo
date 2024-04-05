@@ -14,7 +14,7 @@ public class recursion {
             return 1;
         // 遞：遞迴呼叫
         int res = Recur(n - 1);
-        // 歸：返回結果
+        // 迴：返回結果
         return n + res;
     }
 
@@ -28,9 +28,9 @@ public class recursion {
             // 透過“入堆疊操作”模擬“遞”
             stack.Push(i);
         }
-        // 歸：返回結果
+        // 迴：返回結果
         while (stack.Count > 0) {
-            // 透過“出堆疊操作”模擬“歸”
+            // 透過“出堆疊操作”模擬“迴”
             res += stack.Pop();
         }
         // res = 1+2+3+...+n

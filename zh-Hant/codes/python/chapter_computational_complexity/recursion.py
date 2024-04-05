@@ -12,7 +12,7 @@ def recur(n: int) -> int:
         return 1
     # 遞：遞迴呼叫
     res = recur(n - 1)
-    # 歸：返回結果
+    # 迴：返回結果
     return n + res
 
 
@@ -25,9 +25,9 @@ def for_loop_recur(n: int) -> int:
     for i in range(n, 0, -1):
         # 透過“入堆疊操作”模擬“遞”
         stack.append(i)
-    # 歸：返回結果
+    # 迴：返回結果
     while stack:
-        # 透過“出堆疊操作”模擬“歸”
+        # 透過“出堆疊操作”模擬“迴”
         res += stack.pop()
     # res = 1+2+3+...+n
     return res

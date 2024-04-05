@@ -13,7 +13,7 @@ int recur(int n) {
         return 1;
     // 遞：遞迴呼叫
     int res = recur(n - 1);
-    // 歸：返回結果
+    // 迴：返回結果
     return n + res;
 }
 
@@ -27,9 +27,9 @@ int forLoopRecur(int n) {
         // 透過“入堆疊操作”模擬“遞”
         stack[1 + top++] = i;
     }
-    // 歸：返回結果
+    // 迴：返回結果
     while (top >= 0) {
-        // 透過“出堆疊操作”模擬“歸”
+        // 透過“出堆疊操作”模擬“迴”
         res += stack[top--];
     }
     // res = 1+2+3+...+n

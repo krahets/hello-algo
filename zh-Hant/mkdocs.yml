@@ -35,6 +35,8 @@ extra:
 
 # Page tree
 nav:
+  - 序:
+    - chapter_hello_algo/index.md
   - 第 0 章 &nbsp; 前言:
     # [icon: material/book-open-outline]
     - chapter_preface/index.md
@@ -92,7 +94,7 @@ nav:
     - 7.1 &nbsp; 二元樹: chapter_tree/binary_tree.md
     - 7.2 &nbsp; 二元樹走訪: chapter_tree/binary_tree_traversal.md
     - 7.3 &nbsp; 二元樹陣列表示: chapter_tree/array_representation_of_tree.md
-    - 7.4 &nbsp; 二叉搜尋樹: chapter_tree/binary_search_tree.md
+    - 7.4 &nbsp; 二元搜尋樹: chapter_tree/binary_search_tree.md
     - 7.5 &nbsp; AVL *: chapter_tree/avl_tree.md
     - 7.6 &nbsp; 小結: chapter_tree/summary.md
   - 第 8 章 &nbsp; 堆積:
@@ -126,7 +128,7 @@ nav:
     - 11.3 &nbsp; 泡沫排序: chapter_sorting/bubble_sort.md
     - 11.4 &nbsp; 插入排序: chapter_sorting/insertion_sort.md
     - 11.5 &nbsp; 快速排序: chapter_sorting/quick_sort.md
-    - 11.6 &nbsp; 歸併排序: chapter_sorting/merge_sort.md
+    - 11.6 &nbsp; 合併排序: chapter_sorting/merge_sort.md
     - 11.7 &nbsp; 堆積排序: chapter_sorting/heap_sort.md
     - 11.8 &nbsp; 桶排序: chapter_sorting/bucket_sort.md
     - 11.9 &nbsp; 計數排序: chapter_sorting/counting_sort.md
@@ -174,5 +176,3 @@ nav:
     - 16.3 &nbsp; 術語表: chapter_appendix/terminology.md
   - 參考文獻:
     - chapter_reference/index.md
-  - 紙質書:
-    - chapter_paperbook/index.md

@@ -15,7 +15,7 @@ fun recur(n: Int): Int {
         return 1
     // 遞: 遞迴呼叫
     val res = recur(n - 1)
-    // 歸: 返回結果
+    // 迴: 返回結果
     return n + res
 }
 
@@ -28,9 +28,9 @@ fun forLoopRecur(n: Int): Int {
     for (i in n downTo 0) {
         stack.push(i)
     }
-    // 歸: 返回結果
+    // 迴: 返回結果
     while (stack.isNotEmpty()) {
-        // 透過“出堆疊操作”模擬“歸”
+        // 透過“出堆疊操作”模擬“迴”
         res += stack.pop()
     }
     // res = 1+2+3+...+n

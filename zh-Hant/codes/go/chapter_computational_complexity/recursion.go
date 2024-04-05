@@ -14,7 +14,7 @@ func recur(n int) int {
 	}
 	// 遞：遞迴呼叫
 	res := recur(n - 1)
-	// 歸：返回結果
+	// 迴：返回結果
 	return n + res
 }
 
@@ -28,9 +28,9 @@ func forLoopRecur(n int) int {
 		// 透過“入堆疊操作”模擬“遞”
 		stack.PushBack(i)
 	}
-	// 歸：返回結果
+	// 迴：返回結果
 	for stack.Len() != 0 {
-		// 透過“出堆疊操作”模擬“歸”
+		// 透過“出堆疊操作”模擬“迴”
 		res += stack.Back().Value.(int)
 		stack.Remove(stack.Back())
 	}

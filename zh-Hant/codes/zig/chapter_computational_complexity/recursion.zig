@@ -12,7 +12,7 @@ fn recur(n: i32) i32 {
     }
     // 遞：遞迴呼叫
     var res: i32 = recur(n - 1);
-    // 歸：返回結果
+    // 迴：返回結果
     return n + res;
 }
 
@@ -27,7 +27,7 @@ fn forLoopRecur(comptime n: i32) i32 {
         stack[i - 1] = @intCast(i);
         i -= 1;
     }
-    // 歸：返回結果
+    // 迴：返回結果
     var index: usize = n;
     while (index > 0) {
         index -= 1;

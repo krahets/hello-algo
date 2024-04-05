@@ -12,7 +12,7 @@ fn recur(n: i32) -> i32 {
     }
     // 遞：遞迴呼叫
     let res = recur(n - 1);
-    // 歸：返回結果
+    // 迴：返回結果
     n + res
 }
 
@@ -26,9 +26,9 @@ fn for_loop_recur(n: i32) -> i32 {
         // 透過“入堆疊操作”模擬“遞”
         stack.push(i);
     }
-    // 歸：返回結果
+    // 迴：返回結果
     while !stack.is_empty() {
-        // 透過“出堆疊操作”模擬“歸”
+        // 透過“出堆疊操作”模擬“迴”
         res += stack.pop().unwrap();
     }
     // res = 1+2+3+...+n

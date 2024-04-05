@@ -12,7 +12,7 @@ func recur(n: Int) -> Int {
     }
     // 遞：遞迴呼叫
     let res = recur(n: n - 1)
-    // 歸：返回結果
+    // 迴：返回結果
     return n + res
 }
 
@@ -26,9 +26,9 @@ func forLoopRecur(n: Int) -> Int {
         // 透過“入堆疊操作”模擬“遞”
         stack.append(i)
     }
-    // 歸：返回結果
+    // 迴：返回結果
     while !stack.isEmpty {
-        // 透過“出堆疊操作”模擬“歸”
+        // 透過“出堆疊操作”模擬“迴”
         res += stack.removeLast()
     }
     // res = 1+2+3+...+n
