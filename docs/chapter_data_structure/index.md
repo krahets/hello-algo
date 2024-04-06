@@ -15,8 +15,8 @@ icon: material/shape-outline
 
 ## 本章内容
 
-- [3.1 &nbsp; 数据结构分类](https://www.hello-algo.com/chapter_data_structure/classification_of_data_structure/)
-- [3.2 &nbsp; 基本数据类型](https://www.hello-algo.com/chapter_data_structure/basic_data_types/)
-- [3.3 &nbsp; 数字编码 *](https://www.hello-algo.com/chapter_data_structure/number_encoding/)
-- [3.4 &nbsp; 字符编码 *](https://www.hello-algo.com/chapter_data_structure/character_encoding/)
-- [3.5 &nbsp; 小结](https://www.hello-algo.com/chapter_data_structure/summary/)
+- [3.1 &nbsp; 数据结构分类](classification_of_data_structure.md)
+- [3.2 &nbsp; 基本数据类型](basic_data_types.md)
+- [3.3 &nbsp; 数字编码 *](number_encoding.md)
+- [3.4 &nbsp; 字符编码 *](character_encoding.md)
+- [3.5 &nbsp; 小结](summary.md)

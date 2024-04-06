@@ -13,8 +13,8 @@ icon: material/calculator-variant-outline
    
     She invites you to a dance, follow her steps, and enter the world of algorithms full of logic and beauty.
 
-## Chapter Contents
+## Chapter contents
 
-- [1.1 &nbsp; Algorithms are everywhere](https://www.hello-algo.com/en/chapter_introduction/algorithms_are_everywhere/)
-- [1.2 &nbsp; What is an algorithm](https://www.hello-algo.com/en/chapter_introduction/what_is_dsa/)
-- [1.3 &nbsp; Summary](https://www.hello-algo.com/en/chapter_introduction/summary/)
+- [1.1 &nbsp; Algorithms are everywhere](algorithms_are_everywhere.md)
+- [1.2 &nbsp; What is an algorithm](what_is_dsa.md)
+- [1.3 &nbsp; Summary](summary.md)

@@ -13,9 +13,9 @@ icon: material/table-search
     
     It understands how to compute index numbers, enabling swift retrieval of the desired book.
 
-## Chapter Contents
+## Chapter contents
 
-- [6.1 &nbsp; Hash table](https://www.hello-algo.com/en/chapter_hashing/hash_map/)
-- [6.2 &nbsp; Hash collision](https://www.hello-algo.com/en/chapter_hashing/hash_collision/)
-- [6.3 &nbsp; Hash algorithm](https://www.hello-algo.com/en/chapter_hashing/hash_algorithm/)
-- [6.4 &nbsp; Summary](https://www.hello-algo.com/en/chapter_hashing/summary/)
+- [6.1 &nbsp; Hash table](hash_map.md)
+- [6.2 &nbsp; Hash collision](hash_collision.md)
+- [6.3 &nbsp; Hash algorithm](hash_algorithm.md)
+- [6.4 &nbsp; Summary](summary.md)

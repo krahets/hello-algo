@@ -15,6 +15,6 @@ icon: material/calculator-variant-outline
 
 ## 本章内容
 
-- [1.1 &nbsp; 算法无处不在](https://www.hello-algo.com/chapter_introduction/algorithms_are_everywhere/)
-- [1.2 &nbsp; 算法是什么](https://www.hello-algo.com/chapter_introduction/what_is_dsa/)
-- [1.3 &nbsp; 小结](https://www.hello-algo.com/chapter_introduction/summary/)
+- [1.1 &nbsp; 算法无处不在](algorithms_are_everywhere.md)
+- [1.2 &nbsp; 算法是什么](what_is_dsa.md)
+- [1.3 &nbsp; 小结](summary.md)

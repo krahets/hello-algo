@@ -15,10 +15,10 @@ icon: material/table-pivot
 
 ## 本章内容
 
-- [14.1 &nbsp; 初探动态规划](https://www.hello-algo.com/chapter_dynamic_programming/intro_to_dynamic_programming/)
-- [14.2 &nbsp; DP 问题特性](https://www.hello-algo.com/chapter_dynamic_programming/dp_problem_features/)
-- [14.3 &nbsp; DP 解题思路](https://www.hello-algo.com/chapter_dynamic_programming/dp_solution_pipeline/)
-- [14.4 &nbsp; 0-1 背包问题](https://www.hello-algo.com/chapter_dynamic_programming/knapsack_problem/)
-- [14.5 &nbsp; 完全背包问题](https://www.hello-algo.com/chapter_dynamic_programming/unbounded_knapsack_problem/)
-- [14.6 &nbsp; 编辑距离问题](https://www.hello-algo.com/chapter_dynamic_programming/edit_distance_problem/)
-- [14.7 &nbsp; 小结](https://www.hello-algo.com/chapter_dynamic_programming/summary/)
+- [14.1 &nbsp; 初探动态规划](intro_to_dynamic_programming.md)
+- [14.2 &nbsp; DP 问题特性](dp_problem_features.md)
+- [14.3 &nbsp; DP 解题思路](dp_solution_pipeline.md)
+- [14.4 &nbsp; 0-1 背包问题](knapsack_problem.md)
+- [14.5 &nbsp; 完全背包问题](unbounded_knapsack_problem.md)
+- [14.6 &nbsp; 编辑距离问题](edit_distance_problem.md)
+- [14.7 &nbsp; 小结](summary.md)

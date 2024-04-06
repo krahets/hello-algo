@@ -13,10 +13,10 @@ icon: material/head-heart-outline
 
     貪婪策略在一輪輪的簡單選擇中，逐步導向最佳答案。
 
-## Chapter Contents
+## 本章內容
 
-- [15.1 &nbsp; 貪婪演算法](https://www.hello-algo.com/en/chapter_greedy/greedy_algorithm/)
-- [15.2 &nbsp; 分數背包問題](https://www.hello-algo.com/en/chapter_greedy/fractional_knapsack_problem/)
-- [15.3 &nbsp; 最大容量問題](https://www.hello-algo.com/en/chapter_greedy/max_capacity_problem/)
-- [15.4 &nbsp; 最大切分乘積問題](https://www.hello-algo.com/en/chapter_greedy/max_product_cutting_problem/)
-- [15.5 &nbsp; 小結](https://www.hello-algo.com/en/chapter_greedy/summary/)
+- [15.1 &nbsp; 貪婪演算法](greedy_algorithm.md)
+- [15.2 &nbsp; 分數背包問題](fractional_knapsack_problem.md)
+- [15.3 &nbsp; 最大容量問題](max_capacity_problem.md)
+- [15.4 &nbsp; 最大切分乘積問題](max_product_cutting_problem.md)
+- [15.5 &nbsp; 小結](summary.md)

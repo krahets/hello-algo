@@ -9,6 +9,6 @@ icon: material/help-circle-outline
 
 ## 本章内容
 
-- [16.1 &nbsp; 编程环境安装](https://www.hello-algo.com/chapter_appendix/installation/)
-- [16.2 &nbsp; 一起参与创作](https://www.hello-algo.com/chapter_appendix/contribution/)
-- [16.3 &nbsp; 术语表](https://www.hello-algo.com/chapter_appendix/terminology/)
+- [16.1 &nbsp; 编程环境安装](installation.md)
+- [16.2 &nbsp; 一起参与创作](contribution.md)
+- [16.3 &nbsp; 术语表](terminology.md)

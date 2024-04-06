@@ -13,8 +13,8 @@ icon: material/book-open-outline
    
     May this book ring softly in your mind, leaving a unique and profound melody.
 
-## Chapter Contents
+## Chapter contents
 
-- [0.1 &nbsp; About this book](https://www.hello-algo.com/en/chapter_preface/about_the_book/)
-- [0.2 &nbsp; How to read](https://www.hello-algo.com/en/chapter_preface/suggestions/)
-- [0.3 &nbsp; Summary](https://www.hello-algo.com/en/chapter_preface/summary/)
+- [0.1 &nbsp; About this book](about_the_book.md)
+- [0.2 &nbsp; How to read](suggestions.md)
+- [0.3 &nbsp; Summary](summary.md)

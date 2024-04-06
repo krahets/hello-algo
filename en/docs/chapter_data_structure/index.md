@@ -13,10 +13,10 @@ icon: material/shape-outline
 
     They offer a blueprint for the orderly organization of data, upon which algorithms come to life.
 
-## Chapter Contents
+## Chapter contents
 
-- [3.1 &nbsp; Classification of data structures](https://www.hello-algo.com/en/chapter_data_structure/classification_of_data_structure/)
-- [3.2 &nbsp; Fundamental data types](https://www.hello-algo.com/en/chapter_data_structure/basic_data_types/)
-- [3.3 &nbsp; Number encoding *](https://www.hello-algo.com/en/chapter_data_structure/number_encoding/)
-- [3.4 &nbsp; Character encoding *](https://www.hello-algo.com/en/chapter_data_structure/character_encoding/)
-- [3.5 &nbsp; Summary](https://www.hello-algo.com/en/chapter_data_structure/summary/)
+- [3.1 &nbsp; Classification of data structures](classification_of_data_structure.md)
+- [3.2 &nbsp; Fundamental data types](basic_data_types.md)
+- [3.3 &nbsp; Number encoding *](number_encoding.md)
+- [3.4 &nbsp; Character encoding *](character_encoding.md)
+- [3.5 &nbsp; Summary](summary.md)

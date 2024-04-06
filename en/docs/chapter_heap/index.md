@@ -13,9 +13,9 @@ icon: material/family-tree
 
     Among these peaks, the highest one always catches the eye first.
 
-## Chapter Contents
+## Chapter contents
 
-- [8.1 &nbsp; Heap](https://www.hello-algo.com/en/chapter_heap/heap/)
-- [8.2 &nbsp; Building a Heap](https://www.hello-algo.com/en/chapter_heap/build_heap/)
-- [8.3 &nbsp; Top-k Problem](https://www.hello-algo.com/en/chapter_heap/top_k/)
-- [8.4 &nbsp; Summary](https://www.hello-algo.com/en/chapter_heap/summary/)
+- [8.1 &nbsp; Heap](heap.md)
+- [8.2 &nbsp; Building a Heap](build_heap.md)
+- [8.3 &nbsp; Top-k Problem](top_k.md)
+- [8.4 &nbsp; Summary](summary.md)

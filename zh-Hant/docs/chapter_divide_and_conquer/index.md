@@ -13,10 +13,10 @@ icon: material/set-split
     
     分而治之揭示了一個重要的事實：從簡單做起，一切都不再複雜。
 
-## Chapter Contents
+## 本章內容
 
-- [12.1 &nbsp; 分治演算法](https://www.hello-algo.com/en/chapter_divide_and_conquer/divide_and_conquer/)
-- [12.2 &nbsp; 分治搜尋策略](https://www.hello-algo.com/en/chapter_divide_and_conquer/binary_search_recur/)
-- [12.3 &nbsp; 構建樹問題](https://www.hello-algo.com/en/chapter_divide_and_conquer/build_binary_tree_problem/)
-- [12.4 &nbsp; 河內塔問題](https://www.hello-algo.com/en/chapter_divide_and_conquer/hanota_problem/)
-- [12.5 &nbsp; 小結](https://www.hello-algo.com/en/chapter_divide_and_conquer/summary/)
+- [12.1 &nbsp; 分治演算法](divide_and_conquer.md)
+- [12.2 &nbsp; 分治搜尋策略](binary_search_recur.md)
+- [12.3 &nbsp; 構建樹問題](build_binary_tree_problem.md)
+- [12.4 &nbsp; 河內塔問題](hanota_problem.md)
+- [12.5 &nbsp; 小結](summary.md)

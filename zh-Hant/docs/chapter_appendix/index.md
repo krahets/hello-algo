@@ -7,8 +7,8 @@ icon: material/help-circle-outline
 
 ![附錄](../assets/covers/chapter_appendix.jpg){ class="cover-image" }
 
-## Chapter Contents
+## 本章內容
 
-- [16.1 &nbsp; 程式設計環境安裝](https://www.hello-algo.com/en/chapter_appendix/installation/)
-- [16.2 &nbsp; 一起參與創作](https://www.hello-algo.com/en/chapter_appendix/contribution/)
-- [16.3 &nbsp; 術語表](https://www.hello-algo.com/en/chapter_appendix/terminology/)
+- [16.1 &nbsp; 程式設計環境安裝](installation.md)
+- [16.2 &nbsp; 一起參與創作](contribution.md)
+- [16.3 &nbsp; 術語表](terminology.md)

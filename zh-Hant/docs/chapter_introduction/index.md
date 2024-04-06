@@ -13,8 +13,8 @@ icon: material/calculator-variant-outline
     
     她邀請你共舞，請緊跟她的步伐，踏入充滿邏輯與美感的演算法世界。
 
-## Chapter Contents
+## 本章內容
 
-- [1.1 &nbsp; 演算法無處不在](https://www.hello-algo.com/en/chapter_introduction/algorithms_are_everywhere/)
-- [1.2 &nbsp; 演算法是什麼](https://www.hello-algo.com/en/chapter_introduction/what_is_dsa/)
-- [1.3 &nbsp; 小結](https://www.hello-algo.com/en/chapter_introduction/summary/)
+- [1.1 &nbsp; 演算法無處不在](algorithms_are_everywhere.md)
+- [1.2 &nbsp; 演算法是什麼](what_is_dsa.md)
+- [1.3 &nbsp; 小結](summary.md)

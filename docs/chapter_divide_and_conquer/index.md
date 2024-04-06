@@ -15,8 +15,8 @@ icon: material/set-split
 
 ## 本章内容
 
-- [12.1 &nbsp; 分治算法](https://www.hello-algo.com/chapter_divide_and_conquer/divide_and_conquer/)
-- [12.2 &nbsp; 分治搜索策略](https://www.hello-algo.com/chapter_divide_and_conquer/binary_search_recur/)
-- [12.3 &nbsp; 构建树问题](https://www.hello-algo.com/chapter_divide_and_conquer/build_binary_tree_problem/)
-- [12.4 &nbsp; 汉诺塔问题](https://www.hello-algo.com/chapter_divide_and_conquer/hanota_problem/)
-- [12.5 &nbsp; 小结](https://www.hello-algo.com/chapter_divide_and_conquer/summary/)
+- [12.1 &nbsp; 分治算法](divide_and_conquer.md)
+- [12.2 &nbsp; 分治搜索策略](binary_search_recur.md)
+- [12.3 &nbsp; 构建树问题](build_binary_tree_problem.md)
+- [12.4 &nbsp; 汉诺塔问题](hanota_problem.md)
+- [12.5 &nbsp; 小结](summary.md)

@@ -13,16 +13,16 @@ icon: material/sort-ascending
 
     無論是簡單的升序，還是複雜的分類排列，排序都向我們展示了資料的和諧美感。
 
-## Chapter Contents
+## 本章內容
 
-- [11.1 &nbsp; 排序演算法](https://www.hello-algo.com/en/chapter_sorting/sorting_algorithm/)
-- [11.2 &nbsp; 選擇排序](https://www.hello-algo.com/en/chapter_sorting/selection_sort/)
-- [11.3 &nbsp; 泡沫排序](https://www.hello-algo.com/en/chapter_sorting/bubble_sort/)
-- [11.4 &nbsp; 插入排序](https://www.hello-algo.com/en/chapter_sorting/insertion_sort/)
-- [11.5 &nbsp; 快速排序](https://www.hello-algo.com/en/chapter_sorting/quick_sort/)
-- [11.6 &nbsp; 合併排序](https://www.hello-algo.com/en/chapter_sorting/merge_sort/)
-- [11.7 &nbsp; 堆積排序](https://www.hello-algo.com/en/chapter_sorting/heap_sort/)
-- [11.8 &nbsp; 桶排序](https://www.hello-algo.com/en/chapter_sorting/bucket_sort/)
-- [11.9 &nbsp; 計數排序](https://www.hello-algo.com/en/chapter_sorting/counting_sort/)
-- [11.10 &nbsp; 基數排序](https://www.hello-algo.com/en/chapter_sorting/radix_sort/)
-- [11.11 &nbsp; 小結](https://www.hello-algo.com/en/chapter_sorting/summary/)
+- [11.1 &nbsp; 排序演算法](sorting_algorithm.md)
+- [11.2 &nbsp; 選擇排序](selection_sort.md)
+- [11.3 &nbsp; 泡沫排序](bubble_sort.md)
+- [11.4 &nbsp; 插入排序](insertion_sort.md)
+- [11.5 &nbsp; 快速排序](quick_sort.md)
+- [11.6 &nbsp; 合併排序](merge_sort.md)
+- [11.7 &nbsp; 堆積排序](heap_sort.md)
+- [11.8 &nbsp; 桶排序](bucket_sort.md)
+- [11.9 &nbsp; 計數排序](counting_sort.md)
+- [11.10 &nbsp; 基數排序](radix_sort.md)
+- [11.11 &nbsp; 小結](summary.md)

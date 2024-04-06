@@ -15,7 +15,7 @@ icon: material/stack-overflow
 
 ## 本章内容
 
-- [5.1 &nbsp; 栈](https://www.hello-algo.com/chapter_stack_and_queue/stack/)
-- [5.2 &nbsp; 队列](https://www.hello-algo.com/chapter_stack_and_queue/queue/)
-- [5.3 &nbsp; 双向队列](https://www.hello-algo.com/chapter_stack_and_queue/deque/)
-- [5.4 &nbsp; 小结](https://www.hello-algo.com/chapter_stack_and_queue/summary/)
+- [5.1 &nbsp; 栈](stack.md)
+- [5.2 &nbsp; 队列](queue.md)
+- [5.3 &nbsp; 双向队列](deque.md)
+- [5.4 &nbsp; 小结](summary.md)

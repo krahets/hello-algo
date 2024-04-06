@@ -13,10 +13,10 @@ icon: material/view-list-outline
 
     In arrays, envision bricks snugly aligned, each resting seamlessly beside the next, creating a unified formation. Meanwhile, in linked lists, these bricks disperse freely, embraced by vines gracefully knitting connections between them.
 
-## Chapter Contents
+## Chapter contents
 
-- [4.1 &nbsp; Array](https://www.hello-algo.com/en/chapter_array_and_linkedlist/array/)
-- [4.2 &nbsp; Linked list](https://www.hello-algo.com/en/chapter_array_and_linkedlist/linked_list/)
-- [4.3 &nbsp; List](https://www.hello-algo.com/en/chapter_array_and_linkedlist/list/)
-- [4.4 &nbsp; Memory and cache](https://www.hello-algo.com/en/chapter_array_and_linkedlist/ram_and_cache/)
-- [4.5 &nbsp; Summary](https://www.hello-algo.com/en/chapter_array_and_linkedlist/summary/)
+- [4.1 &nbsp; Array](array.md)
+- [4.2 &nbsp; Linked list](linked_list.md)
+- [4.3 &nbsp; List](list.md)
+- [4.4 &nbsp; Memory and cache](ram_and_cache.md)
+- [4.5 &nbsp; Summary](summary.md)

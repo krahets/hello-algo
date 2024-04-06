@@ -13,9 +13,9 @@ icon: material/stack-overflow
     
     They represent the logical relationships of Last-In-First-Out (LIFO) and First-In-First-Out (FIFO), respectively.
 
-## Chapter Contents
+## Chapter contents
 
-- [5.1 &nbsp; Stack](https://www.hello-algo.com/en/chapter_stack_and_queue/stack/)
-- [5.2 &nbsp; Queue](https://www.hello-algo.com/en/chapter_stack_and_queue/queue/)
-- [5.3 &nbsp; Double-ended queue](https://www.hello-algo.com/en/chapter_stack_and_queue/deque/)
-- [5.4 &nbsp; Summary](https://www.hello-algo.com/en/chapter_stack_and_queue/summary/)
+- [5.1 &nbsp; Stack](stack.md)
+- [5.2 &nbsp; Queue](queue.md)
+- [5.3 &nbsp; Double-ended queue](deque.md)
+- [5.4 &nbsp; Summary](summary.md)

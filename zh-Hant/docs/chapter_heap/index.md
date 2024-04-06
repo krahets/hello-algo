@@ -13,9 +13,9 @@ icon: material/family-tree
     
     座座山峰高低錯落，而最高的山峰總是最先映入眼簾。
 
-## Chapter Contents
+## 本章內容
 
-- [8.1 &nbsp; 堆積](https://www.hello-algo.com/en/chapter_heap/heap/)
-- [8.2 &nbsp; 建堆積操作](https://www.hello-algo.com/en/chapter_heap/build_heap/)
-- [8.3 &nbsp; Top-k 問題](https://www.hello-algo.com/en/chapter_heap/top_k/)
-- [8.4 &nbsp; 小結](https://www.hello-algo.com/en/chapter_heap/summary/)
+- [8.1 &nbsp; 堆積](heap.md)
+- [8.2 &nbsp; 建堆積操作](build_heap.md)
+- [8.3 &nbsp; Top-k 問題](top_k.md)
+- [8.4 &nbsp; 小結](summary.md)

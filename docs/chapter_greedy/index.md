@@ -15,8 +15,8 @@ icon: material/head-heart-outline
 
 ## 本章内容
 
-- [15.1 &nbsp; 贪心算法](https://www.hello-algo.com/chapter_greedy/greedy_algorithm/)
-- [15.2 &nbsp; 分数背包问题](https://www.hello-algo.com/chapter_greedy/fractional_knapsack_problem/)
-- [15.3 &nbsp; 最大容量问题](https://www.hello-algo.com/chapter_greedy/max_capacity_problem/)
-- [15.4 &nbsp; 最大切分乘积问题](https://www.hello-algo.com/chapter_greedy/max_product_cutting_problem/)
-- [15.5 &nbsp; 小结](https://www.hello-algo.com/chapter_greedy/summary/)
+- [15.1 &nbsp; 贪心算法](greedy_algorithm.md)
+- [15.2 &nbsp; 分数背包问题](fractional_knapsack_problem.md)
+- [15.3 &nbsp; 最大容量问题](max_capacity_problem.md)
+- [15.4 &nbsp; 最大切分乘积问题](max_product_cutting_problem.md)
+- [15.5 &nbsp; 小结](summary.md)

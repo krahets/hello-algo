@@ -13,10 +13,10 @@ icon: material/timer-sand
 
     It guides us in exploring deeper within the the dimensions of time and space, seeking more elegant solutions.
 
-## Chapter Contents
+## Chapter contents
 
-- [2.1 &nbsp; Algorithm efficiency assessment](https://www.hello-algo.com/en/chapter_computational_complexity/performance_evaluation/)
-- [2.2 &nbsp; Iteration and recursion](https://www.hello-algo.com/en/chapter_computational_complexity/iteration_and_recursion/)
-- [2.3 &nbsp; Time complexity](https://www.hello-algo.com/en/chapter_computational_complexity/time_complexity/)
-- [2.4 &nbsp; Space complexity](https://www.hello-algo.com/en/chapter_computational_complexity/space_complexity/)
-- [2.5 &nbsp; Summary](https://www.hello-algo.com/en/chapter_computational_complexity/summary/)
+- [2.1 &nbsp; Algorithm efficiency assessment](performance_evaluation.md)
+- [2.2 &nbsp; Iteration and recursion](iteration_and_recursion.md)
+- [2.3 &nbsp; Time complexity](time_complexity.md)
+- [2.4 &nbsp; Space complexity](space_complexity.md)
+- [2.5 &nbsp; Summary](summary.md)

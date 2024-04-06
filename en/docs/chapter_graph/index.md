@@ -13,9 +13,9 @@ icon: material/graphql
     
     Every encountering and parting leaves a unique mark on this vast network graph.
 
-## Chapter Contents
+## Chapter contents
 
-- [9.1 &nbsp; Graph](https://www.hello-algo.com/en/chapter_graph/graph/)
-- [9.2 &nbsp; Basic Graph Operations](https://www.hello-algo.com/en/chapter_graph/graph_operations/)
-- [9.3 &nbsp; Graph Traversal](https://www.hello-algo.com/en/chapter_graph/graph_traversal/)
-- [9.4 &nbsp; Summary](https://www.hello-algo.com/en/chapter_graph/summary/)
+- [9.1 &nbsp; Graph](graph.md)
+- [9.2 &nbsp; Basic Graph Operations](graph_operations.md)
+- [9.3 &nbsp; Graph Traversal](graph_traversal.md)
+- [9.4 &nbsp; Summary](summary.md)
