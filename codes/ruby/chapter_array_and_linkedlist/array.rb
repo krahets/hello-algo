@@ -45,8 +45,8 @@ end
 ### 删除索引 index 处的元素 ###
 def remove(nums, index)
   # 把索引 index 之后的所有元素向前移动一位
-  for i in index...nums.length
-    nums[i] = nums[i + 1] || 0
+  for i in index...(nums.length - 1)
+    nums[i] = nums[i + 1]
   end
 end
 
