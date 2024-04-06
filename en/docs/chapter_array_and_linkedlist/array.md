@@ -694,8 +694,8 @@ Please note that after deletion, the former last element becomes "meaningless," 
     ### 删除索引 index 处的元素 ###
     def remove(nums, index)
       # 把索引 index 之后的所有元素向前移动一位
-      for i in index...nums.length
-        nums[i] = nums[i + 1] || 0
+      for i in index...(nums.length - 1)
+        nums[i] = nums[i + 1]
       end
     end
     ```
@@ -934,7 +934,7 @@ In most programming languages, we can traverse an array either by using indices 
             count += nums[i]
         }
         // 直接遍历数组元素
-        for (j: Int in nums) {
+        for (j in nums) {
             count += j
         }
     }
@@ -1140,7 +1140,8 @@ Because arrays are linear data structures, this operation is commonly referred t
     /* 在数组中查找指定元素 */
     fun find(nums: IntArray, target: Int): Int {
         for (i in nums.indices) {
-            if (nums[i] == target) return i
+            if (nums[i] == target)
+                return i
         }
         return -1
     }

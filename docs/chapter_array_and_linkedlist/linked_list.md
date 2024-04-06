@@ -597,7 +597,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* 在链表的节点 n0 之后插入节点p */
+    /* 在链表的节点 n0 之后插入节点 P */
     fun insert(n0: ListNode?, p: ListNode?) {
         val n1 = n0?.next
         p?.next = n1
@@ -811,9 +811,11 @@ comments: true
     ```kotlin title="linked_list.kt"
     /* 删除链表的节点 n0 之后的首个节点 */
     fun remove(n0: ListNode?) {
-        val p = n0?.next
+        if (n0?.next == null)
+            return
+        val p = n0.next
         val n1 = p?.next
-        n0?.next = n1
+        n0.next = n1
     }
     ```
 
@@ -1018,7 +1020,9 @@ comments: true
     fun access(head: ListNode?, index: Int): ListNode? {
         var h = head
         for (i in 0..<index) {
-            h = h?.next
+            if (h == null)
+                return null
+            h = h.next
         }
         return h
     }
@@ -1249,7 +1253,8 @@ comments: true
         var index = 0
         var h = head
         while (h != null) {
-            if (h.value == target) return index
+            if (h.value == target)
+                return index
             h = h.next
             index++
         }

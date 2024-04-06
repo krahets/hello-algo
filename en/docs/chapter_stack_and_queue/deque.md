@@ -1797,8 +1797,8 @@ The implementation code is as follows:
             if (fNext) {
                 fNext->prev = NULL;
                 deque->front->next = NULL;
-                delDoublyListNode(deque->front);
             }
+            delDoublyListNode(deque->front);
             deque->front = fNext; // 更新头节点
         }
         // 队尾出队操作
@@ -1808,8 +1808,8 @@ The implementation code is as follows:
             if (rPrev) {
                 rPrev->next = NULL;
                 deque->rear->prev = NULL;
-                delDoublyListNode(deque->rear);
             }
+            delDoublyListNode(deque->rear);
             deque->rear = rPrev; // 更新尾节点
         }
         deque->queSize--; // 更新队列长度

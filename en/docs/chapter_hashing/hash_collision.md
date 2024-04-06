@@ -2824,6 +2824,9 @@ The code below implements an open addressing (linear probing) hash table with la
                 free(pair);
             }
         }
+        free(hashMap->buckets);
+        free(hashMap->TOMBSTONE);
+        free(hashMap);
     }
 
     /* 哈希函数 */

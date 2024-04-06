@@ -1133,7 +1133,7 @@ Constant order means the number of operations is independent of the input data s
     /* 常数阶 */
     fun constant(n: Int): Int {
         var count = 0
-        val size = 10_0000
+        val size = 100000
         for (i in 0..<size)
             count++
         return count
@@ -2056,7 +2056,7 @@ For instance, in bubble sort, the outer loop runs $n - 1$ times, and the inner l
     ```kotlin title="time_complexity.kt"
     /* 平方阶（冒泡排序） */
     fun bubbleSort(nums: IntArray): Int {
-        var count = 0
+        var count = 0 // 计数器
         // 外循环：未排序区间为 [0, i]
         for (i in nums.size - 1 downTo 1) {
             // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
@@ -3119,7 +3119,7 @@ Linear-logarithmic order often appears in nested loops, with the complexities of
         if (n <= 1)
             return 1
         var count = linearLogRecur(n / 2) + linearLogRecur(n / 2)
-        for (i in 0..<n.toInt()) {
+        for (i in 0..<n) {
             count++
         }
         return count
@@ -3747,10 +3747,9 @@ The "worst-case time complexity" corresponds to the asymptotic upper bound, deno
         for (i in 0..<n) {
             nums[i] = i + 1
         }
-        // 随机打乱数组元素
         val mutableList = nums.toMutableList()
+        // 随机打乱数组元素
         mutableList.shuffle()
-        // Integer[] -> int[]
         val res = arrayOfNulls<Int>(n)
         for (i in 0..<n) {
             res[i] = mutableList[i]

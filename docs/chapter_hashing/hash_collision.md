@@ -2824,6 +2824,9 @@ comments: true
                 free(pair);
             }
         }
+        free(hashMap->buckets);
+        free(hashMap->TOMBSTONE);
+        free(hashMap);
     }
 
     /* 哈希函数 */

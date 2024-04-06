@@ -510,7 +510,7 @@ comments: true
         path!!.add(root)
         if (root.value == 7) {
             // 记录解
-            res!!.add(ArrayList(path!!))
+            res!!.add(path!!.toMutableList())
         }
         preOrder(root.left)
         preOrder(root.right)
@@ -854,7 +854,7 @@ comments: true
         path!!.add(root)
         if (root.value == 7) {
             // 记录解
-            res!!.add(ArrayList(path!!))
+            res!!.add(path!!.toMutableList())
         }
         preOrder(root.left)
         preOrder(root.right)
@@ -1790,17 +1790,17 @@ comments: true
 
     ```kotlin title="preorder_traversal_iii_template.kt"
     /* 判断当前状态是否为解 */
-    fun isSolution(state: List<TreeNode?>): Boolean {
+    fun isSolution(state: MutableList<TreeNode?>): Boolean {
         return state.isNotEmpty() && state[state.size - 1]?.value == 7
     }
 
     /* 记录解 */
-    fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<List<TreeNode?>?>) {
-        res.add(state?.let { ArrayList(it) })
+    fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<MutableList<TreeNode?>?>) {
+        res.add(state!!.toMutableList())
     }
 
     /* 判断在当前状态下，该选择是否合法 */
-    fun isValid(state: List<TreeNode?>?, choice: TreeNode?): Boolean {
+    fun isValid(state: MutableList<TreeNode?>?, choice: TreeNode?): Boolean {
         return choice != null && choice.value != 3
     }
 
@@ -1817,8 +1817,8 @@ comments: true
     /* 回溯算法：例题三 */
     fun backtrack(
         state: MutableList<TreeNode?>,
-        choices: List<TreeNode?>,
-        res: MutableList<List<TreeNode?>?>
+        choices: MutableList<TreeNode?>,
+        res: MutableList<MutableList<TreeNode?>?>
     ) {
         // 检查是否为解
         if (isSolution(state)) {
@@ -1832,7 +1832,7 @@ comments: true
                 // 尝试：做出选择，更新状态
                 makeChoice(state, choice)
                 // 进行下一轮选择
-                backtrack(state, listOf(choice!!.left, choice.right), res)
+                backtrack(state, mutableListOf(choice!!.left, choice.right), res)
                 // 回退：撤销选择，恢复到之前的状态
                 undoChoice(state, choice)
             }

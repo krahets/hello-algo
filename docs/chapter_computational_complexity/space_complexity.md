@@ -1915,9 +1915,9 @@ $$
     /* 平方阶 */
     fun quadratic(n: Int) {
         // 矩阵占用 O(n^2) 空间
-        val numMatrix: Array<Array<Int>?> = arrayOfNulls(n)
+        val numMatrix = arrayOfNulls<Array<Int>?>(n)
         // 二维列表占用 O(n^2) 空间
-        val numList: MutableList<MutableList<Int>> = arrayListOf()
+        val numList = mutableListOf<MutableList<Int>>()
         for (i in 0..<n) {
             val tmp = mutableListOf<Int>()
             for (j in 0..<n) {

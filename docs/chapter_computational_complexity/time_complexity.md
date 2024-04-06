@@ -195,11 +195,11 @@ comments: true
     ```ruby title=""
     # 在某运行平台下
     def algorithm(n)
-        a = 2       # 1 ns 
+        a = 2       # 1 ns
         a = a + 1   # 1 ns
         a = a * 2   # 10 ns
         # 循环 n 次
-        (n...0).each do # 1 ns
+        (0...n).each do # 1 ns
             puts 0      # 5 ns
         end
     end
@@ -520,7 +520,7 @@ $$
     // 算法 C 的时间复杂度：常数阶
     fn algorithm_C(n: i32) void {
         _ = n;
-        for (0..1000000) |_| { 
+        for (0..1000000) |_| {
             std.debug.print("{}\n", .{0});
         }
     }
@@ -696,7 +696,7 @@ $$
         for (int i = 0; i < n; i++) {   // +1（每轮都执行 i ++）
             printf("%d", 0);            // +1
         }
-    }  
+    }
     ```
 
 === "Kotlin"
@@ -1029,13 +1029,13 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
 
         // +n（技巧 2）
         for(0..(5 * n + 1)) |_| {
-            std.debug.print("{}\n", .{0}); 
+            std.debug.print("{}\n", .{0});
         }
 
         // +n*n（技巧 3）
         for(0..(2 * n)) |_| {
             for(0..(n + 1)) |_| {
-                std.debug.print("{}\n", .{0}); 
+                std.debug.print("{}\n", .{0});
             }
         }
     }
@@ -1245,7 +1245,7 @@ $$
     /* 常数阶 */
     fun constant(n: Int): Int {
         var count = 0
-        val size = 10_0000
+        val size = 100000
         for (i in 0..<size)
             count++
         return count
@@ -2168,7 +2168,7 @@ $$
     ```kotlin title="time_complexity.kt"
     /* 平方阶（冒泡排序） */
     fun bubbleSort(nums: IntArray): Int {
-        var count = 0
+        var count = 0 // 计数器
         // 外循环：未排序区间为 [0, i]
         for (i in nums.size - 1 downTo 1) {
             // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
@@ -3231,7 +3231,7 @@ $$
         if (n <= 1)
             return 1
         var count = linearLogRecur(n / 2) + linearLogRecur(n / 2)
-        for (i in 0..<n.toInt()) {
+        for (i in 0..<n) {
             count++
         }
         return count
@@ -3859,10 +3859,9 @@ $$
         for (i in 0..<n) {
             nums[i] = i + 1
         }
-        // 随机打乱数组元素
         val mutableList = nums.toMutableList()
+        // 随机打乱数组元素
         mutableList.shuffle()
-        // Integer[] -> int[]
         val res = arrayOfNulls<Int>(n)
         for (i in 0..<n) {
             res[i] = mutableList[i]

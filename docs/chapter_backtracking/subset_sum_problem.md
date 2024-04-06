@@ -435,11 +435,11 @@ comments: true
         target: Int,
         total: Int,
         choices: IntArray,
-        res: MutableList<List<Int>?>
+        res: MutableList<MutableList<Int>?>
     ) {
         // 子集和等于 target 时，记录解
         if (total == target) {
-            res.add(ArrayList(state))
+            res.add(state.toMutableList())
             return
         }
         // 遍历所有选择
@@ -458,10 +458,10 @@ comments: true
     }
 
     /* 求解子集和 I（包含重复子集） */
-    fun subsetSumINaive(nums: IntArray, target: Int): List<List<Int>?> {
-        val state: MutableList<Int> = ArrayList() // 状态（子集）
+    fun subsetSumINaive(nums: IntArray, target: Int): MutableList<MutableList<Int>?> {
+        val state = mutableListOf<Int>() // 状态（子集）
         val total = 0 // 子集和
-        val res: MutableList<List<Int>?> = ArrayList() // 结果列表（子集列表）
+        val res = mutableListOf<MutableList<Int>?>() // 结果列表（子集列表）
         backtrack(state, target, total, nums, res)
         return res
     }
@@ -973,11 +973,11 @@ comments: true
         target: Int,
         choices: IntArray,
         start: Int,
-        res: MutableList<List<Int>?>
+        res: MutableList<MutableList<Int>?>
     ) {
         // 子集和等于 target 时，记录解
         if (target == 0) {
-            res.add(ArrayList(state))
+            res.add(state.toMutableList())
             return
         }
         // 遍历所有选择
@@ -998,11 +998,11 @@ comments: true
     }
 
     /* 求解子集和 I */
-    fun subsetSumI(nums: IntArray, target: Int): List<List<Int>?> {
-        val state: MutableList<Int> = ArrayList() // 状态（子集）
-        Arrays.sort(nums) // 对 nums 进行排序
+    fun subsetSumI(nums: IntArray, target: Int): MutableList<MutableList<Int>?> {
+        val state = mutableListOf<Int>() // 状态（子集）
+        nums.sort() // 对 nums 进行排序
         val start = 0 // 遍历起始点
-        val res: MutableList<List<Int>?> = ArrayList() // 结果列表（子集列表）
+        val res = mutableListOf<MutableList<Int>?>() // 结果列表（子集列表）
         backtrack(state, target, nums, start, res)
         return res
     }
@@ -1555,11 +1555,11 @@ comments: true
         target: Int,
         choices: IntArray,
         start: Int,
-        res: MutableList<List<Int>?>
+        res: MutableList<MutableList<Int>?>
     ) {
         // 子集和等于 target 时，记录解
         if (target == 0) {
-            res.add(ArrayList(state))
+            res.add(state.toMutableList())
             return
         }
         // 遍历所有选择
@@ -1585,11 +1585,11 @@ comments: true
     }
 
     /* 求解子集和 II */
-    fun subsetSumII(nums: IntArray, target: Int): List<List<Int>?> {
-        val state: MutableList<Int> = ArrayList() // 状态（子集）
-        Arrays.sort(nums) // 对 nums 进行排序
+    fun subsetSumII(nums: IntArray, target: Int): MutableList<MutableList<Int>?> {
+        val state = mutableListOf<Int>() // 状态（子集）
+        nums.sort() // 对 nums 进行排序
         val start = 0 // 遍历起始点
-        val res: MutableList<List<Int>?> = ArrayList() // 结果列表（子集列表）
+        val res = mutableListOf<MutableList<Int>?>() // 结果列表（子集列表）
         backtrack(state, target, nums, start, res)
         return res
     }
