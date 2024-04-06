@@ -8,20 +8,19 @@ package chapter_backtracking.preorder_traversal_iii_template
 
 import utils.TreeNode
 import utils.printTree
-import kotlin.collections.ArrayList
 
 /* 判断当前状态是否为解 */
-fun isSolution(state: List<TreeNode?>): Boolean {
+fun isSolution(state: MutableList<TreeNode?>): Boolean {
     return state.isNotEmpty() && state[state.size - 1]?.value == 7
 }
 
 /* 记录解 */
-fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<List<TreeNode?>?>) {
-    res.add(ArrayList(state!!))
+fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<MutableList<TreeNode?>?>) {
+    res.add(state!!.toMutableList())
 }
 
 /* 判断在当前状态下，该选择是否合法 */
-fun isValid(state: List<TreeNode?>?, choice: TreeNode?): Boolean {
+fun isValid(state: MutableList<TreeNode?>?, choice: TreeNode?): Boolean {
     return choice != null && choice.value != 3
 }
 
@@ -38,8 +37,8 @@ fun undoChoice(state: MutableList<TreeNode?>, choice: TreeNode?) {
 /* 回溯算法：例题三 */
 fun backtrack(
     state: MutableList<TreeNode?>,
-    choices: List<TreeNode?>,
-    res: MutableList<List<TreeNode?>?>
+    choices: MutableList<TreeNode?>,
+    res: MutableList<MutableList<TreeNode?>?>
 ) {
     // 检查是否为解
     if (isSolution(state)) {
@@ -67,7 +66,7 @@ fun main() {
     printTree(root)
 
     // 回溯算法
-    val res = mutableListOf<List<TreeNode?>?>()
+    val res = mutableListOf<MutableList<TreeNode?>?>()
     backtrack(mutableListOf(), mutableListOf(root), res)
 
     println("\n输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点")

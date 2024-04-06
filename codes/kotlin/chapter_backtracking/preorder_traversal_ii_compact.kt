@@ -10,7 +10,7 @@ import utils.TreeNode
 import utils.printTree
 
 var path: MutableList<TreeNode>? = null
-var res: MutableList<List<TreeNode>>? = null
+var res: MutableList<MutableList<TreeNode>>? = null
 
 /* 前序遍历：例题二 */
 fun preOrder(root: TreeNode?) {
@@ -21,7 +21,7 @@ fun preOrder(root: TreeNode?) {
     path!!.add(root)
     if (root.value == 7) {
         // 记录解
-        res!!.add(ArrayList(path!!))
+        res!!.add(path!!.toMutableList())
     }
     preOrder(root.left)
     preOrder(root.right)

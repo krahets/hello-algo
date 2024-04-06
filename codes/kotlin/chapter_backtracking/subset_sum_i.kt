@@ -12,11 +12,11 @@ fun backtrack(
     target: Int,
     choices: IntArray,
     start: Int,
-    res: MutableList<List<Int>?>
+    res: MutableList<MutableList<Int>?>
 ) {
     // 子集和等于 target 时，记录解
     if (target == 0) {
-        res.add(ArrayList(state))
+        res.add(state.toMutableList())
         return
     }
     // 遍历所有选择
@@ -37,11 +37,11 @@ fun backtrack(
 }
 
 /* 求解子集和 I */
-fun subsetSumI(nums: IntArray, target: Int): List<List<Int>?> {
+fun subsetSumI(nums: IntArray, target: Int): MutableList<MutableList<Int>?> {
     val state = mutableListOf<Int>() // 状态（子集）
     nums.sort() // 对 nums 进行排序
     val start = 0 // 遍历起始点
-    val res = mutableListOf<List<Int>?>() // 结果列表（子集列表）
+    val res = mutableListOf<MutableList<Int>?>() // 结果列表（子集列表）
     backtrack(state, target, nums, start, res)
     return res
 }

@@ -10,8 +10,7 @@ package chapter_array_and_linkedlist
 fun main() {
     /* 初始化列表 */
     // 可变集合
-    val numbers = mutableListOf(1, 3, 2, 5, 4)
-    val nums = ArrayList<Int>(numbers)
+    val nums = mutableListOf(1, 3, 2, 5, 4)
     println("列表 nums = $nums")
 
     /* 访问元素 */
