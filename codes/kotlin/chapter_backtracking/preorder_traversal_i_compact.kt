@@ -31,12 +31,12 @@ fun main() {
     printTree(root)
 
     // 前序遍历
-    res = ArrayList()
+    res = mutableListOf()
     preOrder(root)
 
     println("\n输出所有值为 7 的节点")
-    val vals: MutableList<Int> = ArrayList()
-    for (node in res as ArrayList<TreeNode>) {
+    val vals = mutableListOf<Int>()
+    for (node in res!!) {
         vals.add(node.value)
     }
     println(vals)

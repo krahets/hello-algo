@@ -8,9 +8,9 @@ package chapter_array_and_linkedlist
 
 /* Driver Code */
 fun main() {
+    /* 初始化列表 */
     // 可变集合
-    val numbers = mutableListOf(1, 3, 2, 5, 4)
-    val nums = ArrayList<Int>(numbers)
+    val nums = mutableListOf(1, 3, 2, 5, 4)
     println("列表 nums = $nums")
 
     /* 访问元素 */
@@ -53,11 +53,11 @@ fun main() {
     }
 
     /* 拼接两个列表*/
-    val nums1 = ArrayList<Int>(listOf(6, 8, 7, 10, 9))
+    val nums1 = mutableListOf(6, 8, 7, 10, 9)
     nums.addAll(nums1)
     println("将列表 nums1 拼接到 nums 之后，得到 nums = $nums")
 
     /* 排序列表 */
-    nums.sort() //排序后,列表元素从小到大排列
+    nums.sort()
     println("排序列表后 nums = $nums")
 }

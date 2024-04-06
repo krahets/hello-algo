@@ -9,7 +9,7 @@ package chapter_computational_complexity.time_complexity
 /* 常数阶 */
 fun constant(n: Int): Int {
     var count = 0
-    val size = 10_0000
+    val size = 100000
     for (i in 0..<size)
         count++
     return count
@@ -48,7 +48,7 @@ fun quadratic(n: Int): Int {
 
 /* 平方阶（冒泡排序） */
 fun bubbleSort(nums: IntArray): Int {
-    var count = 0
+    var count = 0 // 计数器
     // 外循环：未排序区间为 [0, i]
     for (i in nums.size - 1 downTo 1) {
         // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
@@ -109,7 +109,7 @@ fun linearLogRecur(n: Int): Int {
     if (n <= 1)
         return 1
     var count = linearLogRecur(n / 2) + linearLogRecur(n / 2)
-    for (i in 0..<n.toInt()) {
+    for (i in 0..<n) {
         count++
     }
     return count
@@ -133,7 +133,7 @@ fun main() {
     val n = 8
     println("输入数据大小 n = $n")
 
-    var count: Int = constant(n)
+    var count = constant(n)
     println("常数阶的操作数量 = $count")
 
     count = linear(n)
@@ -144,7 +144,8 @@ fun main() {
     count = quadratic(n)
     println("平方阶的操作数量 = $count")
     val nums = IntArray(n)
-    for (i in 0..<n) nums[i] = n - i // [n,n-1,...,2,1]
+    for (i in 0..<n)
+        nums[i] = n - i // [n,n-1,...,2,1]
     count = bubbleSort(nums)
     println("平方阶（冒泡排序）的操作数量 = $count")
 

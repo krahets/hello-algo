@@ -10,17 +10,17 @@ package chapter_backtracking.n_queens
 fun backtrack(
     row: Int,
     n: Int,
-    state: List<MutableList<String>>,
-    res: MutableList<List<List<String>>?>,
+    state: MutableList<MutableList<String>>,
+    res: MutableList<MutableList<MutableList<String>>?>,
     cols: BooleanArray,
     diags1: BooleanArray,
     diags2: BooleanArray
 ) {
     // 当放置完所有行时，记录解
     if (row == n) {
-        val copyState: MutableList<List<String>> = ArrayList()
+        val copyState = mutableListOf<MutableList<String>>()
         for (sRow in state) {
-            copyState.add(ArrayList(sRow))
+            copyState.add(sRow.toMutableList())
         }
         res.add(copyState)
         return
@@ -49,11 +49,11 @@ fun backtrack(
 }
 
 /* 求解 n 皇后 */
-fun nQueens(n: Int): List<List<List<String>>?> {
+fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
     // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
-    val state: MutableList<MutableList<String>> = ArrayList()
+    val state = mutableListOf<MutableList<String>>()
     for (i in 0..<n) {
-        val row: MutableList<String> = ArrayList()
+        val row = mutableListOf<String>()
         for (j in 0..<n) {
             row.add("#")
         }
@@ -62,7 +62,7 @@ fun nQueens(n: Int): List<List<List<String>>?> {
     val cols = BooleanArray(n) // 记录列是否有皇后
     val diags1 = BooleanArray(2 * n - 1) // 记录主对角线上是否有皇后
     val diags2 = BooleanArray(2 * n - 1) // 记录次对角线上是否有皇后
-    val res: MutableList<List<List<String>>?> = ArrayList()
+    val res = mutableListOf<MutableList<MutableList<String>>?>()
 
     backtrack(0, n, state, res, cols, diags1, diags2)
 
@@ -72,7 +72,7 @@ fun nQueens(n: Int): List<List<List<String>>?> {
 /* Driver Code */
 fun main() {
     val n = 4
-    val res: List<List<List<String?>?>?> = nQueens(n)
+    val res = nQueens(n)
 
     println("输入棋盘长宽为 $n")
     println("皇后放置方案共有 ${res.size} 种")
