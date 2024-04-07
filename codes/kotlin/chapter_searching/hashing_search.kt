@@ -7,7 +7,6 @@
 package chapter_searching
 
 import utils.ListNode
-import java.util.HashMap
 
 /* 哈希查找（数组） */
 fun hashingSearchArray(map: Map<Int?, Int>, target: Int): Int {

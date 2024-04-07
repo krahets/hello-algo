@@ -20,7 +20,7 @@ class HashMapChaining() {
         capacity = 4
         loadThres = 2.0 / 3.0
         extendRatio = 2
-        buckets = ArrayList(capacity)
+        buckets = mutableListOf()
         for (i in 0..<capacity) {
             buckets.add(mutableListOf())
         }
