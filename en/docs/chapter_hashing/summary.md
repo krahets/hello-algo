@@ -9,7 +9,7 @@
 - The larger the capacity of the hash table, the lower the probability of hash collisions. Therefore, hash table resizing can mitigate hash collisions. Similar to array resizing, hash table resizing is costly.
 - The load factor, defined as the number of elements divided by the number of buckets, reflects the severity of hash collisions and is often used as a condition to trigger hash table resizing.
 - Chaining addresses hash collisions by converting each element into a linked list, storing all colliding elements in the same list. However, excessively long lists can reduce query efficiency, which can be improved by converting the lists into red-black trees.
-- Open addressing handles hash collisions through multiple probes. Linear probing uses a fixed step size but cannot delete elements and is prone to clustering. Multiple hashing uses several hash functions for probing, reducing clustering compared to linear probing but increasing computational overhead.
+- Open addressing handles hash collisions through multiple probes. Linear probing uses a fixed step size but it cannot delete elements and is prone to clustering. Multiple hashing uses several hash functions for probing which reduces clustering compared to linear probing but increases computational overhead.
 - Different programming languages adopt various hash table implementations. For example, Java's `HashMap` uses chaining, while Python's `dict` employs open addressing.
 - In hash tables, we desire hash algorithms with determinism, high efficiency, and uniform distribution. In cryptography, hash algorithms should also possess collision resistance and the avalanche effect.
 - Hash algorithms typically use large prime numbers as moduli to ensure uniform distribution of hash values and reduce hash collisions.
@@ -30,7 +30,7 @@ Under the hash function $f(x) = x$, each element corresponds to a unique bucket 
 
 Firstly, hash tables have higher time efficiency but lower space efficiency. A significant portion of memory in hash tables remains unused.
 
-Secondly, they are only more time-efficient in specific use cases. If a feature can be implemented with the same time complexity using an array or a linked list, it's usually faster than using a hash table. This is because the computation of the hash function incurs overhead, making the constant factor in the time complexity larger.
+Secondly, hash tables are only more time-efficient in specific use cases. If a feature can be implemented with the same time complexity using an array or a linked list, it's usually faster than using a hash table. This is because the computation of the hash function incurs overhead, making the constant factor in the time complexity larger.
 
 Lastly, the time complexity of hash tables can degrade. For example, in chaining, we perform search operations in a linked list or red-black tree, which still risks degrading to $O(n)$ time.
 
