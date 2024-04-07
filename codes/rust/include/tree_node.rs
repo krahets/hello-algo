@@ -25,7 +25,7 @@ impl TreeNode {
             height: 0,
             parent: None,
             left: None,
-            right: None
+            right: None,
         }))
     }
 }
@@ -34,7 +34,7 @@ impl TreeNode {
 macro_rules! op_vec {
     ( $( $x:expr ),* ) => {
         vec![
-            $( Option::from($x).map(|x| x) ),* 
+            $( Option::from($x).map(|x| x) ),*
         ]
     };
 }
@@ -75,9 +75,10 @@ pub fn vec_to_tree(arr: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
 fn tree_to_vec_dfs(root: Option<Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
     if root.is_none() {
         return;
-    }    
+    }
     let root = root.unwrap();
-    while i >= res.len() {
+    // i + 1 is the minimum valid size to access index i
+    while res.len() < i + 1 {
         res.push(None);
     }
     res[i] = Some(root.borrow().val);
