@@ -1,12 +1,12 @@
 =begin
 File: insertion_sort.rb
 Created Time: 2024-04-02
-Author: Cy (9738314@gmail.com)
+Author: Cy (3739004@gmail.com) Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
 ### 插入排序 ###
 def insertion_sort(nums)
-  n = nums.length()
+  n = nums.length
   # 外循环：已排序区间为[0, i-1]
   for i in 1...n
     base = nums[i]
