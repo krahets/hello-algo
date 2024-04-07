@@ -9,11 +9,7 @@ package chapter_dynamic_programming
 import kotlin.math.max
 
 /* 完全背包：动态规划 */
-fun unboundedKnapsackDP(
-    wgt: IntArray,
-    value: IntArray,
-    cap: Int
-): Int {
+fun unboundedKnapsackDP(wgt: IntArray, value: IntArray, cap: Int): Int {
     val n = wgt.size
     // 初始化 dp 表
     val dp = Array(n + 1) { IntArray(cap + 1) }
@@ -25,8 +21,7 @@ fun unboundedKnapsackDP(
                 dp[i][c] = dp[i - 1][c]
             } else {
                 // 不选和选物品 i 这两种方案的较大值
-                dp[i][c] = max(dp[i - 1][c].toDouble(), (dp[i][c - wgt[i - 1]] + value[i - 1]).toDouble())
-                    .toInt()
+                dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + value[i - 1])
             }
         }
     }
@@ -50,8 +45,7 @@ fun unboundedKnapsackDPComp(
                 dp[c] = dp[c]
             } else {
                 // 不选和选物品 i 这两种方案的较大值
-                dp[c] =
-                    max(dp[c].toDouble(), (dp[c - wgt[i - 1]] + value[i - 1]).toDouble()).toInt()
+                dp[c] = max(dp[c], dp[c - wgt[i - 1]] + value[i - 1])
             }
         }
     }
