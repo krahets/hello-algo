@@ -6,7 +6,6 @@
 
 package chapter_dynamic_programming
 
-import java.util.*
 import kotlin.math.max
 
 /* 0-1 背包：暴力搜索 */
@@ -28,7 +27,7 @@ fun knapsackDFS(
     val no = knapsackDFS(wgt, value, i - 1, c)
     val yes = knapsackDFS(wgt, value, i - 1, c - wgt[i - 1]) + value[i - 1]
     // 返回两种方案中价值更大的那一个
-    return max(no.toDouble(), yes.toDouble()).toInt()
+    return max(no, yes)
 }
 
 /* 0-1 背包：记忆化搜索 */
@@ -55,7 +54,7 @@ fun knapsackDFSMem(
     val no = knapsackDFSMem(wgt, value, mem, i - 1, c)
     val yes = knapsackDFSMem(wgt, value, mem, i - 1, c - wgt[i - 1]) + value[i - 1]
     // 记录并返回两种方案中价值更大的那一个
-    mem[i][c] = max(no.toDouble(), yes.toDouble()).toInt()
+    mem[i][c] = max(no, yes)
     return mem[i][c]
 }
 
@@ -76,8 +75,7 @@ fun knapsackDP(
                 dp[i][c] = dp[i - 1][c]
             } else {
                 // 不选和选物品 i 这两种方案的较大值
-                dp[i][c] = max(dp[i - 1][c].toDouble(), (dp[i - 1][c - wgt[i - 1]] + value[i - 1]).toDouble())
-                    .toInt()
+                dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + value[i - 1])
             }
         }
     }
@@ -100,7 +98,7 @@ fun knapsackDPComp(
             if (wgt[i - 1] <= c) {
                 // 不选和选物品 i 这两种方案的较大值
                 dp[c] =
-                    max(dp[c].toDouble(), (dp[c - wgt[i - 1]] + value[i - 1]).toDouble()).toInt()
+                    max(dp[c], dp[c - wgt[i - 1]] + value[i - 1])
             }
         }
     }
@@ -121,7 +119,7 @@ fun main() {
     // 记忆化搜索
     val mem = Array(n + 1) { IntArray(cap + 1) }
     for (row in mem) {
-        Arrays.fill(row, -1)
+        row.fill(-1)
     }
     res = knapsackDFSMem(wgt, value, mem, n, cap)
     println("不超过背包容量的最大物品价值为 $res")

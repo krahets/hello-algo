@@ -6,8 +6,6 @@
 
 package chapter_dynamic_programming
 
-import java.util.*
-
 /* 记忆化搜索 */
 fun dfs(i: Int, mem: IntArray): Int {
     // 已知 dp[1] 和 dp[2] ，返回之
@@ -25,7 +23,7 @@ fun dfs(i: Int, mem: IntArray): Int {
 fun climbingStairsDFSMem(n: Int): Int {
     // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
     val mem = IntArray(n + 1)
-    Arrays.fill(mem, -1)
+    mem.fill(-1)
     return dfs(n, mem)
 }
 
@@ -33,6 +31,6 @@ fun climbingStairsDFSMem(n: Int): Int {
 fun main() {
     val n = 9
 
-    val res: Int = climbingStairsDFSMem(n)
+    val res = climbingStairsDFSMem(n)
     println("爬 $n 阶楼梯共有 $res 种方案")
 }
