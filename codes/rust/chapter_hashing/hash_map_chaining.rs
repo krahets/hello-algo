@@ -102,7 +102,6 @@ impl HashMapChaining {
         // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
         for pair in bucket {
             if pair.key == key {
-                // replace value
                 pair.val = val;
                 return;
             }
