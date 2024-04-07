@@ -26,7 +26,7 @@ fun coinChangeDP(coins: IntArray, amt: Int): Int {
                 dp[i][a] = dp[i - 1][a]
             } else {
                 // 不选和选硬币 i 这两种方案的较小值
-                dp[i][a] = min(dp[i - 1][a], (dp[i][a - coins[i - 1]] + 1))
+                dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
             }
         }
     }
@@ -49,7 +49,7 @@ fun coinChangeDPComp(coins: IntArray, amt: Int): Int {
                 dp[a] = dp[a]
             } else {
                 // 不选和选硬币 i 这两种方案的较小值
-                dp[a] = min(dp[a], (dp[a - coins[i - 1]] + 1))
+                dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
             }
         }
     }
