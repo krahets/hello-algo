@@ -1,7 +1,7 @@
 =begin
 File: insertion_sort.rb
 Created Time: 2024-04-02
-Author: Cy (3739004@gmail.com) Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
+Author: Cy (3739004@gmail.com), Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
 ### 插入排序 ###
