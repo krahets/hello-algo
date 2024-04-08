@@ -1,7 +1,7 @@
 =begin
 File: quick_sort.rb
 Created Time: 2024-04-01
-Author: Cy (3739004@gmail.com) Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
+Author: Cy (3739004@gmail.com), Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
 ### 快速排序类 ###
