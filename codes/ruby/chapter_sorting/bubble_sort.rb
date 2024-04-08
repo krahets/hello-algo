@@ -1,7 +1,7 @@
 =begin
 File: bubble_sort.rb
 Created Time: 2024-04-02
-Author: Cy (9738314@gmail.com) Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
+Author: Cy (9738314@gmail.com), Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
 ### 冒泡排序 ###
