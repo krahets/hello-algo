@@ -75,7 +75,7 @@
 - [程式碼轉譯](https://github.com/krahets/hello-algo/issues/15)：期待您貢獻各種語言程式碼，已支持 Python、Java、C++、Go、JavaScript 等 12 門程式語言。
 - [中譯英](https://github.com/krahets/hello-algo/issues/914)：誠邀您加入我們的翻譯小組，成員主要來自計算機相關專業、英語專業和英文母語者。
 
-歡迎您提出寶貴意見和建議，如有任何問題請提交 Issues 或微信關聯 `krahets-jyd` 。
+歡迎您提出寶貴意見和建議，如有任何問題請提交 Issues 或微信聯繫 `krahets-jyd` 。
 
 感謝本開源書的每一位撰稿人，是他們的無私奉獻讓這本書變得更好，他們是：
 
