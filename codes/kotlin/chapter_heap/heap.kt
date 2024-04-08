@@ -25,7 +25,7 @@ fun testPop(heap: Queue<Int>) {
 fun main() {
     /* 初始化堆 */
     // 初始化小顶堆
-    val minHeap: PriorityQueue<Int>
+    var minHeap = PriorityQueue<Int>()
 
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }

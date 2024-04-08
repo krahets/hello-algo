@@ -11,7 +11,7 @@ import utils.printHashMap
 /* Driver Code */
 fun main() {
     /* 初始化哈希表 */
-    val map: MutableMap<Int, String> = HashMap()
+    val map = HashMap<Int, String>()
 
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)

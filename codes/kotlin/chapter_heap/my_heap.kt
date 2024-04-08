@@ -10,13 +10,14 @@ import utils.printHeap
 import java.util.*
 
 /* 大顶堆 */
-class MaxHeap(nums: List<Int>?) {
+class MaxHeap(nums: MutableList<Int>?) {
     // 使用列表而非数组，这样无须考虑扩容问题
-    // 将列表元素原封不动添加进堆
-    private val maxHeap = ArrayList(nums!!)
+    private val maxHeap = mutableListOf<Int>()
 
-    /* 构造函数，根据输入列表建堆 */
+    /* 构造方法，根据输入列表建堆 */
     init {
+        // 将列表元素原封不动添加进堆
+        maxHeap.addAll(nums!!)
         // 堆化除叶节点以外的其他所有节点
         for (i in parent(size() - 1) downTo 0) {
             siftDown(i)

@@ -14,14 +14,8 @@ class Pair(
 
 /* 基于数组实现的哈希表 */
 class ArrayHashMap {
+    // 初始化数组，包含 100 个桶
     private val buckets = arrayOfNulls<Pair>(100)
-
-    init {
-        // 初始化数组，包含 100 个桶
-        for (i in 0..<100) {
-            buckets[i] = null
-        }
-    }
 
     /* 哈希函数 */
     fun hashFunc(key: Int): Int {
@@ -52,25 +46,27 @@ class ArrayHashMap {
 
     /* 获取所有键值对 */
     fun pairSet(): MutableList<Pair> {
-        val pairSet = ArrayList<Pair>()
+        val pairSet = mutableListOf<Pair>()
         for (pair in buckets) {
-            if (pair != null) pairSet.add(pair)
+            if (pair != null)
+                pairSet.add(pair)
         }
         return pairSet
     }
 
     /* 获取所有键 */
     fun keySet(): MutableList<Int> {
-        val keySet = ArrayList<Int>()
+        val keySet = mutableListOf<Int>()
         for (pair in buckets) {
-            if (pair != null) keySet.add(pair.key)
+            if (pair != null)
+                keySet.add(pair.key)
         }
         return keySet
     }
 
     /* 获取所有值 */
     fun valueSet(): MutableList<String> {
-        val valueSet = ArrayList<String>()
+        val valueSet = mutableListOf<String>()
         for (pair in buckets) {
             pair?.let { valueSet.add(it.value) }
         }
@@ -82,7 +78,7 @@ class ArrayHashMap {
         for (kv in pairSet()) {
             val key = kv.key
             val value = kv.value
-            println("${key}->${value}")
+            println("${key} -> ${value}")
         }
     }
 }
@@ -104,7 +100,7 @@ fun main() {
 
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
-    val name: String? = map.get(15937)
+    val name = map.get(15937)
     println("\n输入学号 15937 ，查询到姓名 $name")
 
     /* 删除操作 */
@@ -114,7 +110,7 @@ fun main() {
     map.print()
 
     /* 遍历哈希表 */
-    println("\n遍历键值对 Key->Value")
+    println("\n遍历键值对 Key -> Value")
     for (kv in map.pairSet()) {
         println("${kv.key} -> ${kv.value}")
     }
