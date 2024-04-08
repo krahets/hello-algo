@@ -52,11 +52,10 @@ Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://disco
 - Figures and tables will be automatically numbered during deployment, so DO NOT manually number them.
 - Each PR should cover at least one complete document to ensure manageable review sizes, except for bug fixes.
 
-**Collaboration**:
+**Review**:
 
-- During the review, please focus primarily on the parts that have changed, and read the context as necessary.
+- During the review, prioritize evaluating the changes, consulting the surrounding context as needed.
 - Learning from each other's perspectives can lead to better translations and more cohesive results.
-- Be friendly and supportive of each other.
 
 ## Pseudo-code for translation
 
