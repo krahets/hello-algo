@@ -4,8 +4,8 @@ We are working on translating "Hello Algo" from Chinese to English with the foll
 
 1. **AI translation**: Carry out an initial pass of translations using the machine learning translator.
 2. **Human optimization**: Manually refine the machine-generated outputs to ensure authenticity and accuracy.
-3. **Pull request review**: The optimized translation will be doubly checked by the reviewers though GitHub pull request workflow.
-4. Repeat step `2.` and `3.` for further improvements.
+3. **Pull request review**: The optimized translation will be doubly checked by the reviewers through GitHub pull request workflow.
+4. Repeat steps `2.` and `3.` for further improvements.
 
 ## Join us
 
@@ -43,7 +43,7 @@ Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://disco
 
 **Authenticity**:
 
-- Translations should read naturally and fluently, adhering to English expression conventions.
+- Translations should read natural and fluent, adhering to English expression conventions.
 - Always consider the context of the content to harmonize the article.
 - Be aware of cultural differences between Chinese and English. For instance, Chinese "pinyin" does not exist in English.
 
@@ -62,11 +62,11 @@ Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://disco
 The following code is for the translators:
 
 ```python
-def optimize_translation(markdown_texts, my_role):
+def optimize_translation(markdown_texts, lang_skill):
     """Optimize the translation"""
     for sentence in markdown_texts:
         """Accuracy is handled primarily by native Chinese speakers"""
-        if my_role is "Native Chinese + Professional working English":
+        if lang_skill is "Native Chinese + Professional working English":
             if is_accurate_Chinese_to_English(sentence):
                 continue
             # Optimize the accuracy
@@ -92,14 +92,14 @@ def optimize_translation(markdown_texts, my_role):
 The following code is for the reviewers:
 
 ```python
-def review_pull_requests(pull_request, my_role):
+def review_pull_requests(pull_request, lang_skill):
     """Review the PR"""
     # Loop through all the changes in the PR
     while is_anything_left_to_review(pull_request):
         change = get_next_change(pull_request)
 
         """Accuracy is handled primarily by native Chinese speakers"""
-        if my_role is "Native Chinese + Professional working English":
+        if lang_skill is "Native Chinese + Professional working English":
             # Check the accuracy(consistency) between CN and EN versions
             if is_accurate_Chinese_to_English(change):
                 continue
