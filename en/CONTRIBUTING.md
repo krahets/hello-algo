@@ -3,33 +3,38 @@
 We are working on translating "Hello Algo" from Chinese to English with the following approach:
 
 1. **AI translation**: Carry out an initial pass of translations using the machine learning translator.
-2. **Human touch**: Manually refine the machine-generated outputs to ensure authenticity and accuracy.
-3. Repeat step `2.` for further improvements.
+2. **Human optimization**: Manually refine the machine-generated outputs to ensure authenticity and accuracy.
+3. **Pull request review**: The optimized translation will be doubly checked by the reviewers though GitHub pull request workflow.
+4. Repeat step `2.` and `3.` for further improvements.
 
 ## Join us
 
 We're seeking contributors who meet the following criteria.
 
-Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://discord.gg/9hrbyZFBX3)!
+- **Technical background**: Strong foundation in computer science, particularly in data structures and algorithms.
+- **Language skills**: Native proficiency in Chinese with professional-level English, or native English.
+- **Available time**: Dedicated to contributing to open-source projects with a willingness to engage in long-term translation efforts.
 
-| Major            | Language proficiency level                    | Primary objective                                            |
-| ---------------- | --------------------------------------------- | ------------------------------------------------------------ |
-| Computer science | Native Chinese + Professional working English | Optimize accuracy and consistency between CN and EN versions |
-| Computer science | Native English                                | Enhance the authenticity and fluency of the English content  |
+That is, our contributors are computer scientists, engineers, and students from different linguistic backgrounds, and their objectives have different focal points:
+
+- **Native Chinese with professional working English**: Ensuring translation accuracy and consistency between CN and EN versions.
+- **Native English**: Enhance the authenticity and fluency of the English content to read natural and engaging.
+
+Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://discord.gg/9hrbyZFBX3)!
 
 ## Translation process
 
-> [!tip]
-> Before starting, make sure you're familiar with basic Git operations and the GitHub pull request workflow.
+> [!important]
+> Before diving in, ensure you're comfortable with the GitHub pull request workflow and have read the "Translation standards" and "Pseudo-code for translation" below.
 
-1. **Self-assignment**: Visit [GitHub projects](https://github.com/users/krahets/projects/2/views/4), select an unclaimed task, and mark it as `In Progress`.
-2. **Translation**: Before starting, ensure you've read the "Translation standards" below. We encourage preserving the original meaning while ensuring the translation is natural and fluent.
-3. **Peer review**: Please carefully check your changes before submitting a Pull Request (PR). Once the PR approved by 2 reviewers, your work will be merged into the project.
+1. **Self-assignment**: Visit [GitHub projects](https://github.com/users/krahets/projects/2/views/4) to select an unclaimed task and mark it as `In Progress`.
+2. **Translation**: We encourage preserving the original meaning while ensuring the translation is natural and fluent.
+3. **Peer review**: Please carefully check your changes before submitting a Pull Request (PR). After approval by two reviewers, it will be merged into the project.
 
 ## Translation standards
 
 > [!tip]
-> The "Accuracy" and "Authenticity" below are primarily handled by persons native in Chinese and those native in English, respectively.
+> The "Accuracy" and "Authenticity" are primarily handled by native Chinese speakers and native English speakers, respectively.
 
 **Accuracy**:
 
@@ -52,3 +57,68 @@ Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://disco
 - During the review, please focus primarily on the parts that have changed, and read the context as necessary.
 - Learning from each other's perspectives can lead to better translations and more cohesive results.
 - Be friendly and supportive of each other.
+
+## Pseudo-code for translation
+
+The following code is for the translators:
+
+```python
+def optimize_translation(markdown_texts, my_role):
+    """Optimize the translation"""
+    for sentence in markdown_texts:
+        """Accuracy is handled primarily by native Chinese speakers"""
+        if my_role is "Native Chinese + Professional working English":
+            if is_accurate_Chinese_to_English(sentence):
+                continue
+            # Optimize the accuracy
+            result = refine_accuracy(sentence)
+
+        """
+        Authenticity is handled primarily by native English speakers
+        and secondarily by native Chinese speakers
+        """
+        if is_authentic_English(sentence):
+            continue
+        # Optimize the authenticity
+        result = refine_authenticity(sentence)
+        # Add comments in the PR if it may break consistency
+        if break_consistency(result):
+            add_comment(description)
+
+    pull_request = submit_pull_request(markdown_texts)
+    # The PR will be merged after approved by >= 2 reviewers
+    merge(pull_request)
+```
+
+The following code is for the reviewers:
+
+```python
+def review_pull_requests(pull_request, my_role):
+    """Review the PR"""
+    # Loop through all the changes in the PR
+    while is_anything_left_to_review(pull_request):
+        change = get_next_change(pull_request)
+
+        """Accuracy is handled primarily by native Chinese speakers"""
+        if my_role is "Native Chinese + Professional working English":
+            # Check the accuracy(consistency) between CN and EN versions
+            if is_accurate_Chinese_to_English(change):
+                continue
+            # Optimize the accuracy(consistency)
+            result = refine_accuracy(change)
+            # Add comments in the PR
+            add_comment(result)
+
+        """
+        Authenticity is handled primarily by native English speakers
+        and secondarily by native Chinese speakers
+        """
+        if is_authentic_English(change):
+            continue
+        # Optimize the authenticity if it is not authentic English
+        result = refine_authenticity(change)
+        # Add comments in the PR
+        add_comment(result)
+
+    approve(pull_request)
+```
