@@ -10,7 +10,8 @@ import utils.TreeNode
 import utils.printTree
 
 /* 数组表示下的二叉树类 */
-class ArrayBinaryTree(private val tree: List<Int?>) {
+/* 构造方法 */
+class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     /* 列表容量 */
     fun size(): Int {
         return tree.size
@@ -39,11 +40,12 @@ class ArrayBinaryTree(private val tree: List<Int?>) {
     }
 
     /* 层序遍历 */
-    fun levelOrder(): List<Int?> {
-        val res = ArrayList<Int?>()
+    fun levelOrder(): MutableList<Int?> {
+        val res = mutableListOf<Int?>()
         // 直接遍历数组
         for (i in 0..<size()) {
-            if (value(i) != null) res.add(value(i))
+            if (value(i) != null)
+                res.add(value(i))
         }
         return res
     }
@@ -51,34 +53,38 @@ class ArrayBinaryTree(private val tree: List<Int?>) {
     /* 深度优先遍历 */
     fun dfs(i: Int, order: String, res: MutableList<Int?>) {
         // 若为空位，则返回
-        if (value(i) == null) return
+        if (value(i) == null)
+            return
         // 前序遍历
-        if ("pre" == order) res.add(value(i))
+        if ("pre" == order)
+            res.add(value(i))
         dfs(left(i), order, res)
         // 中序遍历
-        if ("in" == order) res.add(value(i))
+        if ("in" == order)
+            res.add(value(i))
         dfs(right(i), order, res)
         // 后序遍历
-        if ("post" == order) res.add(value(i))
+        if ("post" == order)
+            res.add(value(i))
     }
 
     /* 前序遍历 */
-    fun preOrder(): List<Int?> {
-        val res = ArrayList<Int?>()
+    fun preOrder(): MutableList<Int?> {
+        val res = mutableListOf<Int?>()
         dfs(0, "pre", res)
         return res
     }
 
     /* 中序遍历 */
-    fun inOrder(): List<Int?> {
-        val res = ArrayList<Int?>()
+    fun inOrder(): MutableList<Int?> {
+        val res = mutableListOf<Int?>()
         dfs(0, "in", res)
         return res
     }
 
     /* 后序遍历 */
-    fun postOrder(): List<Int?> {
-        val res = ArrayList<Int?>()
+    fun postOrder(): MutableList<Int?> {
+        val res = mutableListOf<Int?>()
         dfs(0, "post", res)
         return res
     }

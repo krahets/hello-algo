@@ -19,8 +19,8 @@ class Vertex(val value: Int) {
         }
 
         /* 输入顶点列表 vets ，返回值列表 vals */
-        fun vetsToVals(vets: List<Vertex?>): List<Int> {
-            val vals = ArrayList<Int>()
+        fun vetsToVals(vets: MutableList<Vertex?>): MutableList<Int> {
+            val vals = mutableListOf<Int>()
             for (vet in vets) {
                 vals.add(vet!!.value)
             }

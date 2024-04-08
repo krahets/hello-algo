@@ -14,7 +14,8 @@ fun selectionSort(nums: IntArray) {
         var k = i
         // 内循环：找到未排序区间内的最小元素
         for (j in i + 1..<n) {
-            if (nums[j] < nums[k]) k = j // 记录最小元素的索引
+            if (nums[j] < nums[k])
+                k = j // 记录最小元素的索引
         }
         // 将该最小元素与未排序区间的首个元素交换
         nums[i] = nums[k].also { nums[k] = nums[i] }

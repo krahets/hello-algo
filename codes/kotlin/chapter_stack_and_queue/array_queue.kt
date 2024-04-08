@@ -8,9 +8,9 @@ package chapter_stack_and_queue
 
 /* 基于环形数组实现的队列 */
 class ArrayQueue(capacity: Int) {
-    private val nums = IntArray(capacity) // 用于存储队列元素的数组
-    private var front = 0 // 队首指针，指向队首元素
-    private var queSize = 0 // 队列长度
+    private val nums: IntArray = IntArray(capacity) // 用于存储队列元素的数组
+    private var front: Int = 0 // 队首指针，指向队首元素
+    private var queSize: Int = 0 // 队列长度
 
     /* 获取队列的容量 */
     fun capacity(): Int {
