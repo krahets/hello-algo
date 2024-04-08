@@ -49,6 +49,9 @@ void delHashMapOpenAddressing(HashMapOpenAddressing *hashMap) {
             free(pair);
         }
     }
+    free(hashMap->buckets);
+    free(hashMap->TOMBSTONE);
+    free(hashMap);
 }
 
 /* 哈希函数 */

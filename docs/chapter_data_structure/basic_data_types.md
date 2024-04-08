@@ -156,13 +156,24 @@
 === "Kotlin"
 
     ```kotlin title=""
+    // 使用多种基本数据类型来初始化数组
+    val numbers = IntArray(5)
+    val decinals = FloatArray(5)
+    val characters = CharArray(5)
+    val bools = BooleanArray(5)
+    ```
 
+=== "Ruby"
+
+    ```ruby title=""
+    # Ruby 的列表可以自由存储各种基本数据类型和对象引用
+    data = [0, 0.0, 'a', false, ListNode(0)]
     ```
 
 === "Zig"
 
     ```zig title=""
-    
+
     ```
 
 ??? pythontutor "可视化运行"

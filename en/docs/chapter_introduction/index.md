@@ -1,10 +1,6 @@
-# Introduction to Algorithms
+# Introduction to algorithms
 
-<div class="center-table" markdown>
-
-![A first look at the algorithm](../assets/covers/chapter_introduction.jpg)
-
-</div>
+![Introduction to algorithms](../assets/covers/chapter_introduction.jpg)
 
 !!! abstract
 

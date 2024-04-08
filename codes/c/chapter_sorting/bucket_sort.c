@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-#define ARRAY_SIZE 10
+#define SIZE 10
 
 /* 比较两个浮点数的大小 */
 int compare_float(const void *a, const void *b) {
@@ -28,8 +28,8 @@ void bucketSort(float nums[], int size) {
     int k = size / 2;
     float **buckets = calloc(k, sizeof(float *));
     for (int i = 0; i < k; i++) {
-        // 每个桶最多可以分配 k 个元素
-        buckets[i] = calloc(ARRAY_SIZE, sizeof(float));
+        // 每个桶最多可以分配 size 个元素
+        buckets[i] = calloc(size, sizeof(float));
     }
 
     // 1. 将数组元素分配到各个桶中
@@ -42,7 +42,7 @@ void bucketSort(float nums[], int size) {
             j++;
         }
         float temp = nums[i];
-        while (j < ARRAY_SIZE && buckets[bucket_idx][j] > 0) {
+        while (j < size && buckets[bucket_idx][j] > 0) {
             swap(&temp, &buckets[bucket_idx][j]);
             j++;
         }
@@ -51,12 +51,12 @@ void bucketSort(float nums[], int size) {
 
     // 2. 对各个桶执行排序
     for (int i = 0; i < k; i++) {
-        qsort(buckets[i], ARRAY_SIZE, sizeof(float), compare_float);
+        qsort(buckets[i], size, sizeof(float), compare_float);
     }
 
     // 3. 遍历桶合并结果
     for (int i = 0, j = 0; j < k; j++) {
-        for (int l = 0; l < ARRAY_SIZE; l++) {
+        for (int l = 0; l < size; l++) {
             if (buckets[j][l] > 0) {
                 nums[i++] = buckets[j][l];
             }
@@ -73,10 +73,10 @@ void bucketSort(float nums[], int size) {
 /* Driver Code */
 int main() {
     // 设输入数据为浮点数，范围为 [0, 1)
-    float nums[ARRAY_SIZE] = {0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f};
-    bucketSort(nums, ARRAY_SIZE);
+    float nums[SIZE] = {0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f};
+    bucketSort(nums, SIZE);
     printf("桶排序完成后 nums = ");
-    printArrayFloat(nums, ARRAY_SIZE);
+    printArrayFloat(nums, SIZE);
 
     return 0;
 }

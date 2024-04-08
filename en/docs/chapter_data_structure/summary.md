@@ -1,6 +1,6 @@
 # Summary
 
-### Key Review
+### Key review
 
 - Data structures can be categorized from two perspectives: logical structure and physical structure. Logical structure describes the logical relationships between data elements, while physical structure describes how data is stored in computer memory.
 - Common logical structures include linear, tree-like, and network structures. We generally classify data structures into linear (arrays, linked lists, stacks, queues) and non-linear (trees, graphs, heaps) based on their logical structure. The implementation of hash tables may involve both linear and non-linear data structures.

@@ -6,7 +6,6 @@
 
 package chapter_dynamic_programming
 
-import java.util.*
 import kotlin.math.min
 
 /* 编辑距离：暴力搜索 */
@@ -29,7 +28,7 @@ fun editDistanceDFS(
     val delete = editDistanceDFS(s, t, i - 1, j)
     val replace = editDistanceDFS(s, t, i - 1, j - 1)
     // 返回最少编辑步数
-    return (min(min(insert.toDouble(), delete.toDouble()), replace.toDouble()) + 1).toInt()
+    return min(min(insert, delete), replace) + 1
 }
 
 /* 编辑距离：记忆化搜索 */
@@ -55,7 +54,7 @@ fun editDistanceDFSMem(
     val delete = editDistanceDFSMem(s, t, mem, i - 1, j)
     val replace = editDistanceDFSMem(s, t, mem, i - 1, j - 1)
     // 记录并返回最少编辑步数
-    mem[i][j] = (min(min(insert.toDouble(), delete.toDouble()), replace.toDouble()) + 1).toInt()
+    mem[i][j] = min(min(insert, delete), replace) + 1
     return mem[i][j]
 }
 
@@ -79,11 +78,7 @@ fun editDistanceDP(s: String, t: String): Int {
                 dp[i][j] = dp[i - 1][j - 1]
             } else {
                 // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                dp[i][j] =
-                    (min(
-                        min(dp[i][j - 1].toDouble(), dp[i - 1][j].toDouble()),
-                        dp[i - 1][j - 1].toDouble()
-                    ) + 1).toInt()
+                dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1
             }
         }
     }
@@ -112,7 +107,7 @@ fun editDistanceDPComp(s: String, t: String): Int {
                 dp[j] = leftup
             } else {
                 // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                dp[j] = (min(min(dp[j - 1].toDouble(), dp[j].toDouble()), leftup.toDouble()) + 1).toInt()
+                dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1
             }
             leftup = temp // 更新为下一轮的 dp[i-1, j-1]
         }
@@ -133,7 +128,8 @@ fun main() {
 
     // 记忆化搜索
     val mem = Array(n + 1) { IntArray(m + 1) }
-    for (row in mem) Arrays.fill(row, -1)
+    for (row in mem)
+        row.fill(-1)
     res = editDistanceDFSMem(s, t, mem, n, m)
     println("将 $s 更改为 $t 最少需要编辑 $res 步")
 

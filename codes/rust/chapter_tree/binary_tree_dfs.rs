@@ -17,8 +17,8 @@ fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     if let Some(node) = root {
         // 访问优先级：根节点 -> 左子树 -> 右子树
         result.push(node.borrow().val);
-        result.append(&mut pre_order(node.borrow().left.as_ref()));
-        result.append(&mut pre_order(node.borrow().right.as_ref()));
+        result.extend(pre_order(node.borrow().left.as_ref()));
+        result.extend(pre_order(node.borrow().right.as_ref()));
     }
     result
 }
@@ -29,9 +29,9 @@ fn in_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 
     if let Some(node) = root {
         // 访问优先级：左子树 -> 根节点 -> 右子树
-        result.append(&mut in_order(node.borrow().left.as_ref()));
+        result.extend(in_order(node.borrow().left.as_ref()));
         result.push(node.borrow().val);
-        result.append(&mut in_order(node.borrow().right.as_ref()));
+        result.extend(in_order(node.borrow().right.as_ref()));
     }
     result
 }
@@ -42,8 +42,8 @@ fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 
     if let Some(node) = root {
         // 访问优先级：左子树 -> 右子树 -> 根节点
-        result.append(&mut post_order(node.borrow().left.as_ref()));
-        result.append(&mut post_order(node.borrow().right.as_ref()));
+        result.extend(post_order(node.borrow().left.as_ref()));
+        result.extend(post_order(node.borrow().right.as_ref()));
         result.push(node.borrow().val);
     }
     result

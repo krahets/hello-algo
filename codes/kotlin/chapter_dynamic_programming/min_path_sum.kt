@@ -6,15 +6,10 @@
 
 package chapter_dynamic_programming
 
-import java.util.*
 import kotlin.math.min
 
 /* 最小路径和：暴力搜索 */
-fun minPathSumDFS(
-    grid: Array<Array<Int>>,
-    i: Int,
-    j: Int
-): Int {
+fun minPathSumDFS(grid: Array<IntArray>, i: Int, j: Int): Int {
     // 若为左上角单元格，则终止搜索
     if (i == 0 && j == 0) {
         return grid[0][0]
@@ -27,13 +22,13 @@ fun minPathSumDFS(
     val up = minPathSumDFS(grid, i - 1, j)
     val left = minPathSumDFS(grid, i, j - 1)
     // 返回从左上角到 (i, j) 的最小路径代价
-    return (min(left.toDouble(), up.toDouble()) + grid[i][j]).toInt()
+    return min(left, up) + grid[i][j]
 }
 
 /* 最小路径和：记忆化搜索 */
 fun minPathSumDFSMem(
-    grid: Array<Array<Int>>,
-    mem: Array<Array<Int>>,
+    grid: Array<IntArray>,
+    mem: Array<IntArray>,
     i: Int,
     j: Int
 ): Int {
@@ -53,12 +48,12 @@ fun minPathSumDFSMem(
     val up = minPathSumDFSMem(grid, mem, i - 1, j)
     val left = minPathSumDFSMem(grid, mem, i, j - 1)
     // 记录并返回左上角到 (i, j) 的最小路径代价
-    mem[i][j] = (min(left.toDouble(), up.toDouble()) + grid[i][j]).toInt()
+    mem[i][j] = min(left, up) + grid[i][j]
     return mem[i][j]
 }
 
 /* 最小路径和：动态规划 */
-fun minPathSumDP(grid: Array<Array<Int>>): Int {
+fun minPathSumDP(grid: Array<IntArray>): Int {
     val n = grid.size
     val m = grid[0].size
     // 初始化 dp 表
@@ -75,15 +70,14 @@ fun minPathSumDP(grid: Array<Array<Int>>): Int {
     // 状态转移：其余行和列
     for (i in 1..<n) {
         for (j in 1..<m) {
-            dp[i][j] =
-                (min(dp[i][j - 1].toDouble(), dp[i - 1][j].toDouble()) + grid[i][j]).toInt()
+            dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j]
         }
     }
     return dp[n - 1][m - 1]
 }
 
 /* 最小路径和：空间优化后的动态规划 */
-fun minPathSumDPComp(grid: Array<Array<Int>>): Int {
+fun minPathSumDPComp(grid: Array<IntArray>): Int {
     val n = grid.size
     val m = grid[0].size
     // 初始化 dp 表
@@ -99,7 +93,7 @@ fun minPathSumDPComp(grid: Array<Array<Int>>): Int {
         dp[0] = dp[0] + grid[i][0]
         // 状态转移：其余列
         for (j in 1..<m) {
-            dp[j] = (min(dp[j - 1].toDouble(), dp[j].toDouble()) + grid[i][j]).toInt()
+            dp[j] = min(dp[j - 1], dp[j]) + grid[i][j]
         }
     }
     return dp[m - 1]
@@ -108,10 +102,10 @@ fun minPathSumDPComp(grid: Array<Array<Int>>): Int {
 /* Driver Code */
 fun main() {
     val grid = arrayOf(
-        arrayOf(1, 3, 1, 5),
-        arrayOf(2, 2, 4, 2),
-        arrayOf(5, 3, 2, 1),
-        arrayOf(4, 3, 5, 2)
+        intArrayOf(1, 3, 1, 5),
+        intArrayOf(2, 2, 4, 2),
+        intArrayOf(5, 3, 2, 1),
+        intArrayOf(4, 3, 5, 2)
     )
     val n = grid.size
     val m = grid[0].size
@@ -121,9 +115,9 @@ fun main() {
     println("从左上角到右下角的最小路径和为 $res")
 
     // 记忆化搜索
-    val mem = Array(n) { Array(m) { 0 } }
+    val mem = Array(n) { IntArray(m) }
     for (row in mem) {
-        Arrays.fill(row, -1)
+        row.fill(-1)
     }
     res = minPathSumDFSMem(grid, mem, n - 1, m - 1)
     println("从左上角到右下角的最小路径和为 $res")
