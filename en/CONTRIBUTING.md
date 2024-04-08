@@ -57,9 +57,9 @@ Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://disco
 - During the review, prioritize evaluating the changes, consulting the surrounding context as needed.
 - Learning from each other's perspectives can lead to better translations and more cohesive results.
 
-## Pseudo-code for translation
+## Translation pseudo-code
 
-The following code is for the translators:
+The following pseudo-code demonstrates a typical translation approach to translators.
 
 ```python
 def optimize_translation(markdown_texts, lang_skill):
@@ -89,7 +89,7 @@ def optimize_translation(markdown_texts, lang_skill):
     merge(pull_request)
 ```
 
-The following code is for the reviewers:
+The following pseudo-code is for the reviewers:
 
 ```python
 def review_pull_requests(pull_request, lang_skill):
