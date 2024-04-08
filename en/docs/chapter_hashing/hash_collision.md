@@ -1,11 +1,11 @@
 # Hash Collision
 
-The previous section mentioned that, **in most cases, the input space of a hash function is much larger than the output space**, so theoretically, hash collisions are inevitable. For example, if the input space is all integers and the output space is the size of the array capacity, then multiple integers will inevitably be mapped to the same bucket index.
+As mentioned in the previous section, **in most cases, the input range of a hash function is much larger than its output capacity**. Hence making hash collisions theoretically unavoidable. For example, the input range could be whole integers, while output capacity is limited to the array size. Hence, certainly there will be different integers mapped into a same bucket index.
 
-Hash collisions can lead to incorrect query results, severely impacting the usability of the hash table. To address this issue, whenever a hash collision occurs, we perform hash table resizing until the collision disappears. This method is simple, straightforward, and effective, but its efficiency is too low because hash table resizing requires a large amount of data movement and hash value calculation. To improve efficiency, we can adopt the following strategies:
+Hash collisions can lead to incorrect query results, severely impacting the usability of the hash table. To address this issue, whenever a hash collision occurs, we perform hash table resizing until the collision disappears. This approach is pretty simple, straightforward, and working well. However, it appears to be pretty inefficient as the table expansion involves a lot of data migration as well as recalculation of hash code, which are expansive. To improve efficiency, we can adopt the following strategies:
 
-1. Improve the hash table data structure so that, **the hash table can work normally when hash collisions occur**.
-2. Only perform resizing when necessary, i.e., when hash collisions are relatively severe.
+1. Improve the hash table data structure in a way that **locating target element is still functioning well in the event of a hash collision**.
+2. Expansion is the last resort before it becomes necessary, when severe collisions are observed.
 
 There are mainly two methods for improving the structure of hash tables: "Separate Chaining" and "Open Addressing".
 
@@ -17,19 +17,19 @@ In the original hash table, each bucket can store only one key-value pair. "Sepa
 
 The operations of a hash table implemented with separate chaining have changed as follows:
 
-- **Querying Elements**: Input `key`, obtain the bucket index through the hash function, then access the head node of the linked list, traverse the linked list, and compare `key` to find the target key-value pair.
-- **Adding Elements**: First access the list head node via the hash function, then add the node (key-value pair) to the list.
+- **Querying Elements**: Input `key`, obtain the bucket index through the hash function, then access the head node of the linked list. Traverse the linked list and compare key to find the target key-value pair.
+- **Adding Elements**: Access the head node of the linked list via the hash function, then append the node (key-value pair) to the list.
 - **Deleting Elements**: Access the head of the linked list based on the result of the hash function, then traverse the linked list to find the target node and delete it.
 
 Separate chaining has the following limitations:
 
 - **Increased Space Usage**: The linked list contains node pointers, which consume more memory space than arrays.
-- **Reduced Query Efficiency**: Because linear traversal of the linked list is required to find the corresponding element.
+- **Reduced Query Efficiency**: This is because linear traversal of the linked list is required to find the corresponding element.
 
 The code below provides a simple implementation of a separate chaining hash table, with two things to note:
 
 - Lists (dynamic arrays) are used instead of linked lists for simplicity. In this setup, the hash table (array) contains multiple buckets, each of which is a list.
-- This implementation includes a hash table resizing method. When the load factor exceeds $\frac{2}{3}$, we resize the hash table to double its original size.
+- This implementation includes a hash table resizing method. When the load factor exceeds $\frac{2}{3}$, we expand the hash table to twice its original size.
 
 ```src
 [file]{hash_map_chaining}-[class]{hash_map_chaining}-[func]{}
