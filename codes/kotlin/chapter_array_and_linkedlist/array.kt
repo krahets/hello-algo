@@ -97,6 +97,6 @@ fun main() {
     traverse(nums)
 
     /* 查找元素 */
-    val index: Int = find(nums, 3)
+    val index: Int = find(nums, 4)
     println("在 nums 中查找元素 3 ，得到索引 = $index")
 }
