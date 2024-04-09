@@ -4,7 +4,7 @@ We are working on translating "Hello Algo" from Chinese to English with the foll
 
 1. **AI translation**: Carry out an initial pass of translations using the machine learning translator.
 2. **Human optimization**: Manually refine the machine-generated outputs to ensure authenticity and accuracy.
-3. **Pull request review**: The optimized translation will be doubly checked by the reviewers through GitHub pull request workflow.
+3. **Pull request review**: The optimized translation will be double checked by the reviewers through GitHub pull request workflow.
 4. Repeat steps `2.` and `3.` for further improvements.
 
 ## Join us
@@ -18,7 +18,7 @@ We're seeking contributors who meet the following criteria.
 That is, our contributors are computer scientists, engineers, and students from different linguistic backgrounds, and their objectives have different focal points:
 
 - **Native Chinese with professional working English**: Ensuring translation accuracy and consistency between CN and EN versions.
-- **Native English**: Enhance the authenticity and fluency of the English content to read natural and engaging.
+- **Native English**: Enhance the authenticity and fluency of the English content to read naturally and to be engaging.
 
 Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://discord.gg/9hrbyZFBX3)!
 
@@ -43,7 +43,7 @@ Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://disco
 
 **Authenticity**:
 
-- Translations should read natural and fluent, adhering to English expression conventions.
+- Translations should read naturally and fluently, adhering to English expression conventions.
 - Always consider the context of the content to harmonize the article.
 - Be aware of cultural differences between Chinese and English. For instance, Chinese "pinyin" does not exist in English.
 
