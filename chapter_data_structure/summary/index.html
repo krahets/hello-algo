@@ -3687,6 +3687,25 @@
 <p>栈确实可以实现动态的数据操作，但数据结构仍然是“静态”（长度不可变）的。尽管基于数组的数据结构可以动态地添加或删除元素，但它们的容量是固定的。如果数据量超出了预分配的大小，就需要创建一个新的更大的数组，并将旧数组的内容复制到新数组中。</p>
 <p><strong>Q</strong>：在构建栈（队列）的时候，未指定它的大小，为什么它们是“静态数据结构”呢？</p>
 <p>在高级编程语言中，我们无须人工指定栈（队列）的初始容量，这个工作由类内部自动完成。例如，Java 的 <code>ArrayList</code> 的初始容量通常为 10。另外，扩容操作也是自动实现的。详见后续的“列表”章节。</p>
+<p><strong>Q</strong>：原码转补码的方法是“先取反后加 1”，那么补码转原码应该是逆运算“先减 1 后取反”，而补码转原码也一样可以通过“先取反后加 1”得到，这是为什么呢？</p>
+<p><strong>A</strong>：这是因为原码和补码的相互转换实际上是计算“补数”的过程。我们先给出补数的定义：假设 <span class="arithmatex">\(a + b = c\)</span> ，那么我们称 <span class="arithmatex">\(a\)</span> 是 <span class="arithmatex">\(b\)</span> 到 <span class="arithmatex">\(c\)</span> 的补数，反之也称 <span class="arithmatex">\(b\)</span> 是 <span class="arithmatex">\(a\)</span> 到 <span class="arithmatex">\(c\)</span> 的补数。</p>
+<p>给定一个 <span class="arithmatex">\(n = 4\)</span> 位长度的二进制数 <span class="arithmatex">\(0010\)</span> ，如果将这个数字看作原码（不考虑符号位），那么它的补码需通过“先取反后加 1”得到：</p>
+<div class="arithmatex">\[
+0010 \rightarrow 1101 \rightarrow 1110
+\]</div>
+<p>我们会发现，原码和补码的和是 <span class="arithmatex">\(0010 + 1110 = 10000\)</span> ，也就是说，补码 <span class="arithmatex">\(1110\)</span> 是原码 <span class="arithmatex">\(0010\)</span> 到 <span class="arithmatex">\(10000\)</span> 的“补数”。<strong>这意味着上述“先取反后加 1”实际上是计算到 <span class="arithmatex">\(10000\)</span> 的补数的过程</strong>。</p>
+<p>那么，补码 <span class="arithmatex">\(1110\)</span> 到 <span class="arithmatex">\(10000\)</span> 的“补数”是多少呢？我们依然可以用“先取反后加 1”得到它：</p>
+<div class="arithmatex">\[
+1110 \rightarrow 0001 \rightarrow 0010
+\]</div>
+<p>换句话说，原码和补码互为对方到 <span class="arithmatex">\(10000\)</span> 的“补数”，因此“原码转补码”和“补码转原码”可以用相同的操作（先取反后加 1 ）实现。</p>
+<p>当然，我们也可以用逆运算来求补码 <span class="arithmatex">\(1110\)</span> 的原码，即“先减 1 后取反”：</p>
+<div class="arithmatex">\[
+1110 \rightarrow 1101 \rightarrow 0010
+\]</div>
+<p>总结来看，“先取反后加 1”和“先减 1 后取反”这两种运算都是在计算到 <span class="arithmatex">\(10000\)</span> 的补数，它们是等价的。</p>
+<p>本质上看，“取反”操作实际上是求到 <span class="arithmatex">\(1111\)</span> 的补数（因为恒有 <code>原码 + 反码 = 1111</code>）；而在反码基础上再加 1 得到的补码，就是到 <span class="arithmatex">\(10000\)</span> 的补数。</p>
+<p>上述 <span class="arithmatex">\(n = 4\)</span> 为例，其可推广至任意位数的二进制数。</p>
 
 <!-- Source file information -->
 
