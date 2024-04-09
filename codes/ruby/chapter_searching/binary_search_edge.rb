@@ -11,7 +11,7 @@ def binary_search_left_edge(nums, target)
   # 等价于查找 target 的插入点
   i = binary_search_insertion(nums, target)
   # 未找到 target ，返回 -1
-  return -1 if i == nums.length or nums[i] != target
+  return -1 if i == nums.length || nums[i] != target
   # 找到 target ，返回索引 i
   i
 end
@@ -23,7 +23,7 @@ def binary_search_right_edge(nums, target)
   # j 指向最右一个 target ，i 指向首个大于 target 的元素
   j = i - 1
   # 未找到 target ，返回 -1
-  return -1 if j == -1 or nums[j] != target
+  return -1 if j == -1 || nums[j] != target
 
   # 找到 target ，返回索引 j
   j
