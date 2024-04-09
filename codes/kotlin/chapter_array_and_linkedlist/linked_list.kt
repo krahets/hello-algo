@@ -41,7 +41,7 @@ fun find(head: ListNode?, target: Int): Int {
     var index = 0
     var h = head
     while (h != null) {
-        if (h.value == target)
+        if (h._val == target)
             return index
         h = h.next
         index++
@@ -79,7 +79,7 @@ fun main() {
 
     /* 访问节点 */
     val node: ListNode = access(n0, 3)!!
-    println("链表中索引 3 处的节点的值 = ${node.value}")
+    println("链表中索引 3 处的节点的值 = ${node._val}")
 
     /* 查找节点 */
     val index: Int = find(n0, 2)

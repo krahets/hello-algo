@@ -42,10 +42,10 @@ fun fractionalKnapsack(wgt: IntArray, _val: IntArray, c: Int): Double {
 /* Driver Code */
 fun main() {
     val wgt = intArrayOf(10, 20, 30, 40, 50)
-    val values = intArrayOf(50, 120, 150, 210, 240)
+    val _val = intArrayOf(50, 120, 150, 210, 240)
     val cap = 50
 
     // 贪心算法
-    val res = fractionalKnapsack(wgt, values, cap)
+    val res = fractionalKnapsack(wgt, _val, cap)
     println("不超过背包容量的最大物品价值为 $res")
 }
