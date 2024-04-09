@@ -11,8 +11,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.2
       - run: kotlinc -version
-      - uses: fwilhe2/setup-kotlin@main
-        with:
-          install-native: true
-          vesion: "1.9.20"
       - run: kotlinc codes/kotlin/**/*.kt -include-runtime -d codes/kotlin/build/*.jar; java -jar codes/kotlin/build/*.jar
