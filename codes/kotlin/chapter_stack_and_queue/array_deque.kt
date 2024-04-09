@@ -7,10 +7,11 @@
 package chapter_stack_and_queue
 
 /* 基于环形数组实现的双向队列 */
+/* 构造方法 */
 class ArrayDeque(capacity: Int) {
-    private var nums = IntArray(capacity) // 用于存储双向队列元素的数组
-    private var front = 0 // 队首指针，指向队首元素
-    private var queSize = 0 // 双向队列长度
+    private var nums: IntArray = IntArray(capacity) // 用于存储双向队列元素的数组
+    private var front: Int = 0 // 队首指针，指向队首元素
+    private var queSize: Int = 0 // 双向队列长度
 
     /* 获取双向队列的容量 */
     fun capacity(): Int {
@@ -71,7 +72,7 @@ class ArrayDeque(capacity: Int) {
         return num
     }
 
-    /* 访问队尾元素 */
+    /* 队尾出队 */
     fun popLast(): Int {
         val num = peekLast()
         queSize--

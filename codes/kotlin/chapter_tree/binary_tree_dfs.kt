@@ -10,7 +10,7 @@ import utils.TreeNode
 import utils.printTree
 
 // 初始化列表，用于存储遍历序列
-var list = ArrayList<Int>()
+var list = mutableListOf<Int>()
 
 /* 前序遍历 */
 fun preOrder(root: TreeNode?) {

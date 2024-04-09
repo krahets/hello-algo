@@ -17,8 +17,10 @@ fun merge(nums: IntArray, left: Int, mid: Int, right: Int) {
     var k = 0
     // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
     while (i <= mid && j <= right) {
-        if (nums[i] <= nums[j]) tmp[k++] = nums[i++]
-        else tmp[k++] = nums[j++]
+        if (nums[i] <= nums[j])
+            tmp[k++] = nums[i++]
+        else 
+            tmp[k++] = nums[j++]
     }
     // 将左子数组和右子数组的剩余元素复制到临时数组中
     while (i <= mid) {

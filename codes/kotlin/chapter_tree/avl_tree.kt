@@ -23,7 +23,7 @@ class AVLTree {
     /* 更新节点高度 */
     private fun updateHeight(node: TreeNode?) {
         // 节点高度等于最高子树高度 + 1
-        node?.height = (max(height(node?.left).toDouble(), height(node?.right).toDouble()) + 1).toInt()
+        node?.height = max(height(node?.left), height(node?.right)) + 1
     }
 
     /* 获取平衡因子 */
@@ -103,10 +103,12 @@ class AVLTree {
             return TreeNode(value)
         var node = n
         /* 1. 查找插入位置并插入节点 */
-        if (value < node.value) node.left = insertHelper(node.left, value)
-        else if (value > node.value) node.right = insertHelper(node.right, value)
-        else return node // 重复节点不插入，直接返回
-
+        if (value < node.value)
+            node.left = insertHelper(node.left, value)
+        else if (value > node.value)
+            node.right = insertHelper(node.right, value)
+        else
+            return node // 重复节点不插入，直接返回
         updateHeight(node) // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node)
@@ -123,14 +125,22 @@ class AVLTree {
     private fun removeHelper(n: TreeNode?, value: Int): TreeNode? {
         var node = n ?: return null
         /* 1. 查找节点并删除 */
-        if (value < node.value) node.left = removeHelper(node.left, value)
-        else if (value > node.value) node.right = removeHelper(node.right, value)
+        if (value < node.value)
+            node.left = removeHelper(node.left, value)
+        else if (value > node.value)
+            node.right = removeHelper(node.right, value)
         else {
             if (node.left == null || node.right == null) {
-                val child = if (node.left != null) node.left else node.right
+                val child = if (node.left != null)
+                    node.left
+                else
+                    node.right
                 // 子节点数量 = 0 ，直接删除 node 并返回
-                if (child == null) return null
-                else node = child
+                if (child == null)
+                    return null
+                // 子节点数量 = 1 ，直接删除 node
+                else
+                    node = child
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
                 var temp = node.right
@@ -154,9 +164,14 @@ class AVLTree {
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 目标节点在 cur 的右子树中
-            cur = if (cur.value < value) cur.right!!
-            else (if (cur.value > value) cur.left
-            else break)!!
+            cur = if (cur.value < value)
+                cur.right!!
+            // 目标节点在 cur 的左子树中
+            else if (cur.value > value)
+                cur.left
+            // 找到目标节点，跳出循环
+            else
+                break
         }
         // 返回目标节点
         return cur

@@ -9,7 +9,7 @@ package chapter_stack_and_queue
 /* 基于数组实现的栈 */
 class ArrayStack {
     // 初始化列表（动态数组）
-    private val stack = ArrayList<Int>()
+    private val stack = mutableListOf<Int>()
 
     /* 获取栈的长度 */
     fun size(): Int {
@@ -40,7 +40,7 @@ class ArrayStack {
 
     /* 将 List 转化为 Array 并返回 */
     fun toArray(): Array<Any> {
-        return stack.toArray()
+        return stack.toTypedArray()
     }
 }
 
@@ -63,7 +63,7 @@ fun main() {
 
     /* 元素出栈 */
     val pop = stack.pop()
-    println("出栈元素 pop = ${pop}，出栈后 stack = ${stack.toArray().contentToString()}")
+    println("出栈元素 pop = $pop，出栈后 stack = ${stack.toArray().contentToString()}")
 
     /* 获取栈的长度 */
     val size = stack.size()

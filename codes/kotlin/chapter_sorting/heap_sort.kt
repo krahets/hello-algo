@@ -14,10 +14,13 @@ fun siftDown(nums: IntArray, n: Int, li: Int) {
         val l = 2 * i + 1
         val r = 2 * i + 2
         var ma = i
-        if (l < n && nums[l] > nums[ma]) ma = l
-        if (r < n && nums[r] > nums[ma]) ma = r
+        if (l < n && nums[l] > nums[ma]) 
+            ma = l
+        if (r < n && nums[r] > nums[ma]) 
+            ma = r
         // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
-        if (ma == i) break
+        if (ma == i) 
+            break
         // 交换两节点
         nums[i] = nums[ma].also { nums[ma] = nums[i] }
         // 循环向下堆化
