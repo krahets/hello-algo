@@ -11,4 +11,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.2
       - run: kotlinc -version
-      - run: kotlinc codes/kotlin/**/*.kt -include-runtime -d codes/kotlin/build/*.jar; java -jar codes/kotlin/build/*.jar
+      - run: kotlinc codes/kotlin/**/*.kt -include-runtime -d codes/kotlin/build/*.jar
