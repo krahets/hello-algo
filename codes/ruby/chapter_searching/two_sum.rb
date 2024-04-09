@@ -1,6 +1,8 @@
-# File: two_sum.rb
-# Created Time: 2024-04-09
-# Author: Blue Bean (lonnnnnnner@gmail.com)
+=begin
+File: two_sum.rb
+Created Time: 2024-04-09
+Author: Blue Bean (lonnnnnnner@gmail.com)
+=end
 
 ### 方法一：暴力枚举 ###
 def two_sum_brute_force(nums, target)
@@ -10,6 +12,7 @@ def two_sum_brute_force(nums, target)
       return [i, j] if nums[i] + nums[j] == target
     end
   end
+
   []
 end
 
