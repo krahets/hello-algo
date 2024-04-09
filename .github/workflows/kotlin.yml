@@ -1,13 +1,20 @@
 name: Kotlin
+
 on:
   push:
+    branches: [ "main" ]
+    paths: ["codes/kotlin/**/*.kt"]
+  pull_request:
+    branches: [ "main" ]
+    paths: ["codes/kotlin/**/*.kt"]
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        os: [ ubuntu-latest, macos-latest ]
     steps:
       - uses: actions/checkout@v4.1.2
       - run: kotlinc -version
