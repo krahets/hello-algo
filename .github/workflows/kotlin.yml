@@ -15,7 +15,19 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest, macos-latest ]
+
+    name: Kotlin on ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4.1.2
-      - run: kotlinc -version
-      - run: kotlinc codes/kotlin/**/*.kt -include-runtime -d codes/kotlin/build/*.jar
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
+      - name: Build JAR
+        run: kotlinc codes/kotlin/**/*.kt -include-runtime -d codes/kotlin/build/test.jar
+
+      - name: Run JAR
+        run: java -jar codes/kotlin/build/test.jar
