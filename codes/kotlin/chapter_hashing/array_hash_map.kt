@@ -9,7 +9,7 @@ package chapter_hashing
 /* 键值对 */
 class Pair(
     var key: Int,
-    var value: String
+    var _val: String
 )
 
 /* 基于数组实现的哈希表 */
@@ -27,12 +27,12 @@ class ArrayHashMap {
     fun get(key: Int): String? {
         val index = hashFunc(key)
         val pair = buckets[index] ?: return null
-        return pair.value
+        return pair._val
     }
 
     /* 添加操作 */
-    fun put(key: Int, value: String) {
-        val pair = Pair(key, value)
+    fun put(key: Int, _val: String) {
+        val pair = Pair(key, _val)
         val index = hashFunc(key)
         buckets[index] = pair
     }
@@ -68,7 +68,7 @@ class ArrayHashMap {
     fun valueSet(): MutableList<String> {
         val valueSet = mutableListOf<String>()
         for (pair in buckets) {
-            pair?.let { valueSet.add(it.value) }
+            pair?.let { valueSet.add(it._val) }
         }
         return valueSet
     }
@@ -77,8 +77,8 @@ class ArrayHashMap {
     fun print() {
         for (kv in pairSet()) {
             val key = kv.key
-            val value = kv.value
-            println("${key} -> ${value}")
+            val _val = kv._val
+            println("${key} -> ${_val}")
         }
     }
 }
@@ -112,14 +112,14 @@ fun main() {
     /* 遍历哈希表 */
     println("\n遍历键值对 Key -> Value")
     for (kv in map.pairSet()) {
-        println("${kv.key} -> ${kv.value}")
+        println("${kv.key} -> ${kv._val}")
     }
     println("\n单独遍历键 Key")
     for (key in map.keySet()) {
         println(key)
     }
     println("\n单独遍历值 Value")
-    for (value in map.valueSet()) {
-        println(value)
+    for (_val in map.valueSet()) {
+        println(_val)
     }
 }

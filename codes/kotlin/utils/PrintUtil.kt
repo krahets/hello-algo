@@ -33,7 +33,7 @@ fun printLinkedList(h: ListNode?) {
     var head = h
     val list = mutableListOf<String>()
     while (head != null) {
-        list.add(head.value.toString())
+        list.add(head._val.toString())
         head = head.next
     }
     println(list.joinToString(separator = " -> "))
@@ -70,7 +70,7 @@ fun printTree(root: TreeNode?, prev: Trunk?, isRight: Boolean) {
     }
 
     showTrunks(trunk)
-    println(" ${root.value}")
+    println(" ${root._val}")
 
     if (prev != null) {
         prev.str = prevStr
