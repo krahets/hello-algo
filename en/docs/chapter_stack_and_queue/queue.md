@@ -1180,7 +1180,7 @@ Below is the code for implementing a queue using a linked list:
         /* 访问队首元素 */
         fun peek(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
-            return front!!.value
+            return front!!._val
         }
 
         /* 将链表转化为 Array 并返回 */
@@ -1188,7 +1188,7 @@ Below is the code for implementing a queue using a linked list:
             var node = front
             val res = IntArray(size())
             for (i in res.indices) {
-                res[i] = node!!.value
+                res[i] = node!!._val
                 node = node.next
             }
             return res
@@ -1199,7 +1199,68 @@ Below is the code for implementing a queue using a linked list:
 === "Ruby"
 
     ```ruby title="linkedlist_queue.rb"
-    [class]{LinkedListQueue}-[func]{}
+    ### 基于链表头现的队列 ###
+    class LinkedListQueue
+      ### 获取队列的长度 ###
+      attr_reader :size
+
+      ### 构造方法 ###
+      def initialize
+        @front = nil  # 头节点 front
+        @rear = nil   # 尾节点 rear
+        @size = 0
+      end
+
+      ### 判断队列是否为空 ###
+      def is_empty?
+        @front.nil?
+      end
+
+      ### 入队 ###
+      def push(num)
+        # 在尾节点后添加 num
+        node = ListNode.new(num)
+
+        # 如果队列为空，则令头，尾节点都指向该节点
+        if @front.nil?
+          @front = node
+          @rear = node
+        # 如果队列不为空，则令该节点添加到尾节点后
+        else
+          @rear.next = node
+          @rear = node
+        end
+
+        @size += 1
+      end
+
+      ### 出队 ###
+      def pop
+        num = peek
+        # 删除头节点
+        @front = @front.next
+        @size -= 1
+        num
+      end
+
+      ### 访问队首元素 ###
+      def peek
+        raise IndexError, '队列为空' if is_empty?
+
+        @front.val
+      end
+
+      ### 将链表为 Array 并返回 ###
+      def to_array
+        queue = []
+        temp = @front
+        while temp
+          queue << temp.val
+          temp = temp.next
+        end
+        queue
+      end
+    end
     ```
 
 === "Zig"
@@ -2118,9 +2179,9 @@ In a circular array, `front` or `rear` needs to loop back to the start of the ar
     ```kotlin title="array_queue.kt"
     /* 基于环形数组实现的队列 */
     class ArrayQueue(capacity: Int) {
-        private val nums = IntArray(capacity) // 用于存储队列元素的数组
-        private var front = 0 // 队首指针，指向队首元素
-        private var queSize = 0 // 队列长度
+        private val nums: IntArray = IntArray(capacity) // 用于存储队列元素的数组
+        private var front: Int = 0 // 队首指针，指向队首元素
+        private var queSize: Int = 0 // 队列长度
 
         /* 获取队列的容量 */
         fun capacity(): Int {
@@ -2185,7 +2246,69 @@ In a circular array, `front` or `rear` needs to loop back to the start of the ar
 === "Ruby"
 
     ```ruby title="array_queue.rb"
-    [class]{ArrayQueue}-[func]{}
+    ### 基于环形数组实现的队列 ###
+    class ArrayQueue
+      ### 获取队列的长度 ###
+      attr_reader :size
+
+      ### 构造方法 ###
+      def initialize(size)
+        @nums = Array.new(size, 0) # 用于存储队列元素的数组
+        @front = 0 # 队首指针，指向队首元素
+        @size = 0 # 队列长度
+      end
+
+      ### 获取队列的容量 ###
+      def capacity
+        @nums.length
+      end
+
+      ### 判断队列是否为空 ###
+      def is_empty?
+        size.zero?
+      end
+
+      ### 入队 ###
+      def push(num)
+        raise IndexError, '队列已满' if size == capacity
+
+        # 计算队尾指针，指向队尾索引 + 1
+        # 通过取余操作实现 rear 越过数组尾部后回到头部
+        rear = (@front + size) % capacity
+        # 将 num 添加至队尾
+        @nums[rear] = num
+        @size += 1
+      end
+
+      ### 出队 ###
+      def pop
+        num = peek
+        # 队首指针向后移动一位，若越过尾部，则返回到数组头部
+        @front = (@front + 1) % capacity
+        @size -= 1
+        num
+      end
+
+      ### 访问队首元素 ###
+      def peek
+        raise IndexError, '队列为空' if is_empty?
+
+        @nums[@front]
+      end
+
+      ### 返回列表用于打印 ###
+      def to_array
+        res = Array.new(size, 0)
+        j = @front
+
+        for i in 0...size
+          res[i] = @nums[j % capacity]
+          j += 1
+        end
+
+        res
+      end
+    end
     ```
 
 === "Zig"

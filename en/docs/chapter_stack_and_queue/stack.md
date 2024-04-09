@@ -1052,7 +1052,7 @@ Below is an example code for implementing a stack based on a linked list:
         /* 访问栈顶元素 */
         fun peek(): Int? {
             if (isEmpty()) throw IndexOutOfBoundsException()
-            return stackPeek?.value
+            return stackPeek?._val
         }
 
         /* 将 List 转化为 Array 并返回 */
@@ -1060,7 +1060,7 @@ Below is an example code for implementing a stack based on a linked list:
             var node = stackPeek
             val res = IntArray(size())
             for (i in res.size - 1 downTo 0) {
-                res[i] = node?.value!!
+                res[i] = node?._val!!
                 node = node.next
             }
             return res
@@ -1071,7 +1071,54 @@ Below is an example code for implementing a stack based on a linked list:
 === "Ruby"
 
     ```ruby title="linkedlist_stack.rb"
-    [class]{LinkedListStack}-[func]{}
+    ### 基于链表实现的栈 ###
+    class LinkedListStack
+      attr_reader :size
+
+      ### 构造方法 ###
+      def initialize
+        @size = 0
+      end
+
+      ### 判断栈是否为空 ###
+      def is_empty?
+        @peek.nil?
+      end
+
+      ### 入栈 ###
+      def push(val)
+        node = ListNode.new(val)
+        node.next = @peek
+        @peek = node
+        @size += 1
+      end
+
+      ### 出栈 ###
+      def pop
+        num = peek
+        @peek = @peek.next
+        @size -= 1
+        num
+      end
+
+      ### 访问栈顶元素 ###
+      def peek
+        raise IndexError, '栈为空' if is_empty?
+
+        @peek.val
+      end
+
+      ### 将链表转化为 Array 并反回 ###
+      def to_array
+        arr = []
+        node = @peek
+        while node
+          arr << node.val
+          node = node.next
+        end
+        arr.reverse
+      end
+    end
     ```
 
 === "Zig"
@@ -1712,7 +1759,7 @@ Since the elements to be pushed onto the stack may continuously increase, we can
     /* 基于数组实现的栈 */
     class ArrayStack {
         // 初始化列表（动态数组）
-        private val stack = ArrayList<Int>()
+        private val stack = mutableListOf<Int>()
 
         /* 获取栈的长度 */
         fun size(): Int {
@@ -1743,7 +1790,7 @@ Since the elements to be pushed onto the stack may continuously increase, we can
 
         /* 将 List 转化为 Array 并返回 */
         fun toArray(): Array<Any> {
-            return stack.toArray()
+            return stack.toTypedArray()
         }
     }
     ```
@@ -1751,7 +1798,47 @@ Since the elements to be pushed onto the stack may continuously increase, we can
 === "Ruby"
 
     ```ruby title="array_stack.rb"
-    [class]{ArrayStack}-[func]{}
+    ### 基于数组实现的栈 ###
+    class ArrayStack
+      ### 构造方法 ###
+      def initialize
+        @stack = []
+      end
+
+      ### 获取栈的长度 ###
+      def size
+        @stack.length
+      end
+
+      ### 判断栈是否为空 ###
+      def is_empty?
+        @stack.empty?
+      end
+
+      ### 入栈 ###
+      def push(item)
+        @stack << item
+      end
+
+      ### 出栈 ###
+      def pop
+        raise IndexError, '栈为空' if is_empty?
+
+        @stack.pop
+      end
+
+      ### 访问栈顶元素 ###
+      def peek
+        raise IndexError, '栈为空' if is_empty?
+
+        @stack.last
+      end
+
+      ### 返回列表用于打印 ###
+      def to_array
+        @stack
+      end
+    end
     ```
 
 === "Zig"

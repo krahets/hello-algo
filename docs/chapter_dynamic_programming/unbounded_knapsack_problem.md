@@ -327,11 +327,7 @@ $$
 
     ```kotlin title="unbounded_knapsack.kt"
     /* 完全背包：动态规划 */
-    fun unboundedKnapsackDP(
-        wgt: IntArray,
-        value: IntArray,
-        cap: Int
-    ): Int {
+    fun unboundedKnapsackDP(wgt: IntArray, value: IntArray, cap: Int): Int {
         val n = wgt.size
         // 初始化 dp 表
         val dp = Array(n + 1) { IntArray(cap + 1) }
@@ -343,8 +339,7 @@ $$
                     dp[i][c] = dp[i - 1][c]
                 } else {
                     // 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = max(dp[i - 1][c].toDouble(), (dp[i][c - wgt[i - 1]] + value[i - 1]).toDouble())
-                        .toInt()
+                    dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + value[i - 1])
                 }
             }
         }
@@ -703,8 +698,7 @@ $$
                     dp[c] = dp[c]
                 } else {
                     // 不选和选物品 i 这两种方案的较大值
-                    dp[c] =
-                        max(dp[c].toDouble(), (dp[c - wgt[i - 1]] + value[i - 1]).toDouble()).toInt()
+                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + value[i - 1])
                 }
             }
         }
@@ -1154,8 +1148,7 @@ $$
                     dp[i][a] = dp[i - 1][a]
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
-                    dp[i][a] = min(dp[i - 1][a].toDouble(), (dp[i][a - coins[i - 1]] + 1).toDouble())
-                        .toInt()
+                    dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
                 }
             }
         }
@@ -1377,7 +1370,7 @@ $$
         }
         // 状态转移
         for i := 1; i <= n; i++ {
-            // 倒序遍历
+            // 正序遍历
             for a := 1; a <= amt; a++ {
                 if coins[i-1] > a {
                     // 若超过目标金额，则不选硬币 i
@@ -1568,7 +1561,7 @@ $$
         val MAX = amt + 1
         // 初始化 dp 表
         val dp = IntArray(amt + 1)
-        Arrays.fill(dp, MAX)
+        dp.fill(MAX)
         dp[0] = 0
         // 状态转移
         for (i in 1..n) {
@@ -1578,7 +1571,7 @@ $$
                     dp[a] = dp[a]
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
-                    dp[a] = min(dp[a].toDouble(), (dp[a - coins[i - 1]] + 1).toDouble()).toInt()
+                    dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
                 }
             }
         }
@@ -2150,7 +2143,7 @@ $$
         dp[0] = 1
         // 状态转移
         for i := 1; i <= n; i++ {
-            // 倒序遍历
+            // 正序遍历
             for a := 1; a <= amt; a++ {
                 if coins[i-1] > a {
                     // 若超过目标金额，则不选硬币 i

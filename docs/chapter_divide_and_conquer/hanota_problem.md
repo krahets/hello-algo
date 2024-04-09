@@ -479,7 +479,7 @@ comments: true
     /* 移动一个圆盘 */
     fun move(src: MutableList<Int>, tar: MutableList<Int>) {
         // 从 src 顶部拿出一个圆盘
-        val pan: Int = src.removeAt(src.size - 1)
+        val pan = src.removeAt(src.size - 1)
         // 将圆盘放入 tar 顶部
         tar.add(pan)
     }

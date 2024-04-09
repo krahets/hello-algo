@@ -324,7 +324,7 @@ comments: true
         // 1. 统计数组最大元素 m
         var m = 0
         for (num in nums) {
-            m = max(m.toDouble(), num.toDouble()).toInt()
+            m = max(m, num)
         }
         // 2. 统计各数字的出现次数
         // counter[num] 代表 num 的出现次数
@@ -822,7 +822,7 @@ $$
         // 1. 统计数组最大元素 m
         var m = 0
         for (num in nums) {
-            m = max(m.toDouble(), num.toDouble()).toInt()
+            m = max(m, num)
         }
         // 2. 统计各数字的出现次数
         // counter[num] 代表 num 的出现次数

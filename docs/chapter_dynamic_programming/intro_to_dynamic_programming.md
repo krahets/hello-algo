@@ -361,13 +361,14 @@ comments: true
     ```kotlin title="climbing_stairs_backtrack.kt"
     /* 回溯 */
     fun backtrack(
-        choices: List<Int>,
+        choices: MutableList<Int>,
         state: Int,
         n: Int,
         res: MutableList<Int>
     ) {
         // 当爬到第 n 阶时，方案数量加 1
-        if (state == n) res[0] = res[0] + 1
+        if (state == n)
+            res[0] = res[0] + 1
         // 遍历所有选择
         for (choice in choices) {
             // 剪枝：不允许越过第 n 阶
@@ -382,7 +383,7 @@ comments: true
     fun climbingStairsBacktrack(n: Int): Int {
         val choices = mutableListOf(1, 2) // 可选择向上爬 1 阶或 2 阶
         val state = 0 // 从第 0 阶开始爬
-        val res = ArrayList<Int>()
+        val res = mutableListOf<Int>()
         res.add(0) // 使用 res[0] 记录方案数量
         backtrack(choices, state, n, res)
         return res[0]
@@ -1054,7 +1055,7 @@ $$
     fun climbingStairsDFSMem(n: Int): Int {
         // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
         val mem = IntArray(n + 1)
-        Arrays.fill(mem, -1)
+        mem.fill(-1)
         return dfs(n, mem)
     }
     ```
@@ -1596,9 +1597,7 @@ $$
         var a = 1
         var b = 2
         for (i in 3..n) {
-            val tmp = b
-            b += a
-            a = tmp
+            b += a.also { a = b }
         }
         return b
     }

@@ -229,7 +229,7 @@ comments: true
     fn level_order(root: &Rc<RefCell<TreeNode>>) -> Vec<i32> {
         // 初始化队列，加入根节点
         let mut que = VecDeque::new();
-        que.push_back(Rc::clone(&root));
+        que.push_back(root.clone());
         // 初始化一个列表，用于保存遍历序列
         let mut vec = Vec::new();
 
@@ -237,10 +237,10 @@ comments: true
             // 队列出队
             vec.push(node.borrow().val); // 保存节点值
             if let Some(left) = node.borrow().left.as_ref() {
-                que.push_back(Rc::clone(left)); // 左子节点入队
+                que.push_back(left.clone()); // 左子节点入队
             }
             if let Some(right) = node.borrow().right.as_ref() {
-                que.push_back(Rc::clone(right)); // 右子节点入队
+                que.push_back(right.clone()); // 右子节点入队
             };
         }
         vec
@@ -302,13 +302,14 @@ comments: true
         val queue = LinkedList<TreeNode?>()
         queue.add(root)
         // 初始化一个列表，用于保存遍历序列
-        val list = ArrayList<Int>()
-        while (!queue.isEmpty()) {
-            val node = queue.poll() // 队列出队
-            list.add(node?.value!!) // 保存节点值
-            if (node.left != null) queue.offer(node.left) // 左子节点入队
-
-            if (node.right != null) queue.offer(node.right) // 右子节点入队
+        val list = mutableListOf<Int>()
+        while (queue.isNotEmpty()) {
+            val node = queue.poll()      // 队列出队
+            list.add(node?.value!!)      // 保存节点值
+            if (node.left != null)
+                queue.offer(node.left)   // 左子节点入队
+            if (node.right != null)
+                queue.offer(node.right)  // 右子节点入队
         }
         return list
     }
@@ -689,8 +690,8 @@ comments: true
         if let Some(node) = root {
             // 访问优先级：根节点 -> 左子树 -> 右子树
             result.push(node.borrow().val);
-            result.append(&mut pre_order(node.borrow().left.as_ref()));
-            result.append(&mut pre_order(node.borrow().right.as_ref()));
+            result.extend(pre_order(node.borrow().left.as_ref()));
+            result.extend(pre_order(node.borrow().right.as_ref()));
         }
         result
     }
@@ -701,9 +702,9 @@ comments: true
 
         if let Some(node) = root {
             // 访问优先级：左子树 -> 根节点 -> 右子树
-            result.append(&mut in_order(node.borrow().left.as_ref()));
+            result.extend(in_order(node.borrow().left.as_ref()));
             result.push(node.borrow().val);
-            result.append(&mut in_order(node.borrow().right.as_ref()));
+            result.extend(in_order(node.borrow().right.as_ref()));
         }
         result
     }
@@ -714,8 +715,8 @@ comments: true
 
         if let Some(node) = root {
             // 访问优先级：左子树 -> 右子树 -> 根节点
-            result.append(&mut post_order(node.borrow().left.as_ref()));
-            result.append(&mut post_order(node.borrow().right.as_ref()));
+            result.extend(post_order(node.borrow().left.as_ref()));
+            result.extend(post_order(node.borrow().right.as_ref()));
             result.push(node.borrow().val);
         }
         result

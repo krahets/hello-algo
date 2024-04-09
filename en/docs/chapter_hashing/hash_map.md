@@ -1548,14 +1548,8 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 
     /* 基于数组实现的哈希表 */
     class ArrayHashMap {
+        // 初始化数组，包含 100 个桶
         private val buckets = arrayOfNulls<Pair>(100)
-
-        init {
-            // 初始化数组，包含 100 个桶
-            for (i in 0..<100) {
-                buckets[i] = null
-            }
-        }
 
         /* 哈希函数 */
         fun hashFunc(key: Int): Int {
@@ -1586,25 +1580,27 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 
         /* 获取所有键值对 */
         fun pairSet(): MutableList<Pair> {
-            val pairSet = ArrayList<Pair>()
+            val pairSet = mutableListOf<Pair>()
             for (pair in buckets) {
-                if (pair != null) pairSet.add(pair)
+                if (pair != null)
+                    pairSet.add(pair)
             }
             return pairSet
         }
 
         /* 获取所有键 */
         fun keySet(): MutableList<Int> {
-            val keySet = ArrayList<Int>()
+            val keySet = mutableListOf<Int>()
             for (pair in buckets) {
-                if (pair != null) keySet.add(pair.key)
+                if (pair != null)
+                    keySet.add(pair.key)
             }
             return keySet
         }
 
         /* 获取所有值 */
         fun valueSet(): MutableList<String> {
-            val valueSet = ArrayList<String>()
+            val valueSet = mutableListOf<String>()
             for (pair in buckets) {
                 pair?.let { valueSet.add(it.value) }
             }
@@ -1616,21 +1612,15 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             for (kv in pairSet()) {
                 val key = kv.key
                 val value = kv.value
-                println("${key}->${value}")
+                println("${key} -> ${value}")
             }
         }
     }
 
     /* 基于数组实现的哈希表 */
     class ArrayHashMap {
+        // 初始化数组，包含 100 个桶
         private val buckets = arrayOfNulls<Pair>(100)
-
-        init {
-            // 初始化数组，包含 100 个桶
-            for (i in 0..<100) {
-                buckets[i] = null
-            }
-        }
 
         /* 哈希函数 */
         fun hashFunc(key: Int): Int {
@@ -1661,25 +1651,27 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 
         /* 获取所有键值对 */
         fun pairSet(): MutableList<Pair> {
-            val pairSet = ArrayList<Pair>()
+            val pairSet = mutableListOf<Pair>()
             for (pair in buckets) {
-                if (pair != null) pairSet.add(pair)
+                if (pair != null)
+                    pairSet.add(pair)
             }
             return pairSet
         }
 
         /* 获取所有键 */
         fun keySet(): MutableList<Int> {
-            val keySet = ArrayList<Int>()
+            val keySet = mutableListOf<Int>()
             for (pair in buckets) {
-                if (pair != null) keySet.add(pair.key)
+                if (pair != null)
+                    keySet.add(pair.key)
             }
             return keySet
         }
 
         /* 获取所有值 */
         fun valueSet(): MutableList<String> {
-            val valueSet = ArrayList<String>()
+            val valueSet = mutableListOf<String>()
             for (pair in buckets) {
                 pair?.let { valueSet.add(it.value) }
             }
@@ -1691,7 +1683,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
             for (kv in pairSet()) {
                 val key = kv.key
                 val value = kv.value
-                println("${key}->${value}")
+                println("${key} -> ${value}")
             }
         }
     }

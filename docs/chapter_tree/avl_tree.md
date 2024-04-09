@@ -448,7 +448,7 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
     /* 更新节点高度 */
     fun updateHeight(node: TreeNode?) {
         // 节点高度等于最高子树高度 + 1
-        node?.height = (max(height(node?.left).toDouble(), height(node?.right).toDouble()) + 1).toInt()
+        node?.height = max(height(node?.left), height(node?.right)) + 1
     }
     ```
 
@@ -2022,10 +2022,12 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
             return TreeNode(value)
         var node = n
         /* 1. 查找插入位置并插入节点 */
-        if (value < node.value) node.left = insertHelper(node.left, value)
-        else if (value > node.value) node.right = insertHelper(node.right, value)
-        else return node // 重复节点不插入，直接返回
-
+        if (value < node.value)
+            node.left = insertHelper(node.left, value)
+        else if (value > node.value)
+            node.right = insertHelper(node.right, value)
+        else
+            return node // 重复节点不插入，直接返回
         updateHeight(node) // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node)
@@ -2601,14 +2603,22 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     fun removeHelper(n: TreeNode?, value: Int): TreeNode? {
         var node = n ?: return null
         /* 1. 查找节点并删除 */
-        if (value < node.value) node.left = removeHelper(node.left, value)
-        else if (value > node.value) node.right = removeHelper(node.right, value)
+        if (value < node.value)
+            node.left = removeHelper(node.left, value)
+        else if (value > node.value)
+            node.right = removeHelper(node.right, value)
         else {
             if (node.left == null || node.right == null) {
-                val child = if (node.left != null) node.left else node.right
+                val child = if (node.left != null)
+                    node.left
+                else
+                    node.right
                 // 子节点数量 = 0 ，直接删除 node 并返回
-                if (child == null) return null
-                else node = child
+                if (child == null)
+                    return null
+                // 子节点数量 = 1 ，直接删除 node
+                else
+                    node = child
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
                 var temp = node.right

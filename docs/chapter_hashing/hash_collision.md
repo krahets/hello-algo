@@ -1114,17 +1114,14 @@ comments: true
             // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
             for pair in bucket {
                 if pair.key == key {
-                    pair.val = val.clone();
+                    pair.val = val;
                     return;
                 }
             }
             let bucket = &mut self.buckets[index];
 
             // 若无该 key ，则将键值对添加至尾部
-            let pair = Pair {
-                key,
-                val: val.clone(),
-            };
+            let pair = Pair { key, val };
             bucket.push(pair);
             self.size += 1;
         }
@@ -1328,7 +1325,7 @@ comments: true
             capacity = 4
             loadThres = 2.0 / 3.0
             extendRatio = 2
-            buckets = ArrayList(capacity)
+            buckets = mutableListOf()
             for (i in 0..<capacity) {
                 buckets.add(mutableListOf())
             }
@@ -2960,16 +2957,21 @@ comments: true
     ```kotlin title="hash_map_open_addressing.kt"
     /* 开放寻址哈希表 */
     class HashMapOpenAddressing {
-        private var size: Int = 0 // 键值对数量
-        private var capacity = 4 // 哈希表容量
-        private val loadThres: Double = 2.0 / 3.0 // 触发扩容的负载因子阈值
-        private val extendRatio = 2 // 扩容倍数
-        private var buckets: Array<Pair?> // 桶数组
-        private val TOMBSTONE = Pair(-1, "-1") // 删除标记
+        private var size: Int               // 键值对数量
+        private var capacity: Int           // 哈希表容量
+        private val loadThres: Double       // 触发扩容的负载因子阈值
+        private val extendRatio: Int        // 扩容倍数
+        private var buckets: Array<Pair?>   // 桶数组
+        private val TOMBSTONE: Pair         // 删除标记
 
         /* 构造方法 */
         init {
+            size = 0
+            capacity = 4
+            loadThres = 2.0 / 3.0
+            extendRatio = 2
             buckets = arrayOfNulls(capacity)
+            TOMBSTONE = Pair(-1, "-1")
         }
 
         /* 哈希函数 */

@@ -39,23 +39,23 @@ comments: true
     # 在 Python 中，我们一般将双向队列类 deque 当作队列使用
     # 虽然 queue.Queue() 是纯正的队列类，但不太好用，因此不推荐
     que: deque[int] = deque()
-    
+
     # 元素入队
     que.append(1)
     que.append(3)
     que.append(2)
     que.append(5)
     que.append(4)
-    
+
     # 访问队首元素
     front: int = que[0]
-    
+
     # 元素出队
     pop: int = que.popleft()
-    
+
     # 获取队列的长度
     size: int = len(que)
-    
+
     # 判断队列是否为空
     is_empty: bool = len(que) == 0
     ```
@@ -65,23 +65,23 @@ comments: true
     ```cpp title="queue.cpp"
     /* 初始化队列 */
     queue<int> queue;
-    
+
     /* 元素入队 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    
+
     /* 访问队首元素 */
     int front = queue.front();
-    
+
     /* 元素出队 */
     queue.pop();
-    
+
     /* 获取队列的长度 */
     int size = queue.size();
-    
+
     /* 判断队列是否为空 */
     bool empty = queue.empty();
     ```
@@ -91,23 +91,23 @@ comments: true
     ```java title="queue.java"
     /* 初始化队列 */
     Queue<Integer> queue = new LinkedList<>();
-    
+
     /* 元素入队 */
     queue.offer(1);
     queue.offer(3);
     queue.offer(2);
     queue.offer(5);
     queue.offer(4);
-    
+
     /* 访问队首元素 */
     int peek = queue.peek();
-    
+
     /* 元素出队 */
     int pop = queue.poll();
-    
+
     /* 获取队列的长度 */
     int size = queue.size();
-    
+
     /* 判断队列是否为空 */
     boolean isEmpty = queue.isEmpty();
     ```
@@ -117,23 +117,23 @@ comments: true
     ```csharp title="queue.cs"
     /* 初始化队列 */
     Queue<int> queue = new();
-    
+
     /* 元素入队 */
     queue.Enqueue(1);
     queue.Enqueue(3);
     queue.Enqueue(2);
     queue.Enqueue(5);
     queue.Enqueue(4);
-    
+
     /* 访问队首元素 */
     int peek = queue.Peek();
-    
+
     /* 元素出队 */
     int pop = queue.Dequeue();
-    
+
     /* 获取队列的长度 */
     int size = queue.Count;
-    
+
     /* 判断队列是否为空 */
     bool isEmpty = queue.Count == 0;
     ```
@@ -144,24 +144,24 @@ comments: true
     /* 初始化队列 */
     // 在 Go 中，将 list 作为队列来使用
     queue := list.New()
-    
+
     /* 元素入队 */
     queue.PushBack(1)
     queue.PushBack(3)
     queue.PushBack(2)
     queue.PushBack(5)
     queue.PushBack(4)
-    
+
     /* 访问队首元素 */
     peek := queue.Front()
-    
+
     /* 元素出队 */
     pop := queue.Front()
     queue.Remove(pop)
-    
+
     /* 获取队列的长度 */
     size := queue.Len()
-    
+
     /* 判断队列是否为空 */
     isEmpty := queue.Len() == 0
     ```
@@ -172,24 +172,24 @@ comments: true
     /* 初始化队列 */
     // Swift 没有内置的队列类，可以把 Array 当作队列来使用
     var queue: [Int] = []
-    
+
     /* 元素入队 */
     queue.append(1)
     queue.append(3)
     queue.append(2)
     queue.append(5)
     queue.append(4)
-    
+
     /* 访问队首元素 */
     let peek = queue.first!
-    
+
     /* 元素出队 */
     // 由于是数组，因此 removeFirst 的复杂度为 O(n)
     let pool = queue.removeFirst()
-    
+
     /* 获取队列的长度 */
     let size = queue.count
-    
+
     /* 判断队列是否为空 */
     let isEmpty = queue.isEmpty
     ```
@@ -200,24 +200,24 @@ comments: true
     /* 初始化队列 */
     // JavaScript 没有内置的队列，可以把 Array 当作队列来使用
     const queue = [];
-    
+
     /* 元素入队 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    
+
     /* 访问队首元素 */
     const peek = queue[0];
-    
+
     /* 元素出队 */
     // 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
     const pop = queue.shift();
-    
+
     /* 获取队列的长度 */
     const size = queue.length;
-    
+
     /* 判断队列是否为空 */
     const empty = queue.length === 0;
     ```
@@ -226,26 +226,26 @@ comments: true
 
     ```typescript title="queue.ts"
     /* 初始化队列 */
-    // TypeScript 没有内置的队列，可以把 Array 当作队列来使用 
+    // TypeScript 没有内置的队列，可以把 Array 当作队列来使用
     const queue: number[] = [];
-    
+
     /* 元素入队 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    
+
     /* 访问队首元素 */
     const peek = queue[0];
-    
+
     /* 元素出队 */
     // 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
     const pop = queue.shift();
-    
+
     /* 获取队列的长度 */
     const size = queue.length;
-    
+
     /* 判断队列是否为空 */
     const empty = queue.length === 0;
     ```
@@ -317,23 +317,23 @@ comments: true
     ```kotlin title="queue.kt"
     /* 初始化队列 */
     val queue = LinkedList<Int>()
-    
+
     /* 元素入队 */
     queue.offer(1)
     queue.offer(3)
     queue.offer(2)
     queue.offer(5)
     queue.offer(4)
-    
+
     /* 访问队首元素 */
     val peek = queue.peek()
-    
+
     /* 元素出队 */
     val pop = queue.poll()
-    
+
     /* 获取队列的长度 */
     val size = queue.size
-    
+
     /* 判断队列是否为空 */
     val isEmpty = queue.isEmpty()
     ```
@@ -341,7 +341,29 @@ comments: true
 === "Ruby"
 
     ```ruby title="queue.rb"
+    # 初始化队列
+    # Ruby 内置的队列（Thread::Queue) 没有 peek 和遍历方法，可以把 Array 当作队列来使用
+    queue = []
 
+    # 元素入队
+    queue.push(1)
+    queue.push(3)
+    queue.push(2)
+    queue.push(5)
+    queue.push(4)
+
+    # 访问队列元素
+    peek = queue.first
+
+    # 元素出队
+    # 清注意，由于是数组，Array#shift 方法时间复杂度为 O(n)
+    pop = queue.shift
+
+    # 获取队列的长度
+    size = queue.length
+
+    # 判断队列是否为空
+    is_empty = queue.empty?
     ```
 
 === "Zig"
@@ -1206,7 +1228,7 @@ comments: true
         /* 访问队首元素 */
         fun peek(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
-            return front!!.value
+            return front!!._val
         }
 
         /* 将链表转化为 Array 并返回 */
@@ -1214,7 +1236,7 @@ comments: true
             var node = front
             val res = IntArray(size())
             for (i in res.indices) {
-                res[i] = node!!.value
+                res[i] = node!!._val
                 node = node.next
             }
             return res
@@ -1225,7 +1247,68 @@ comments: true
 === "Ruby"
 
     ```ruby title="linkedlist_queue.rb"
-    [class]{LinkedListQueue}-[func]{}
+    ### 基于链表头现的队列 ###
+    class LinkedListQueue
+      ### 获取队列的长度 ###
+      attr_reader :size
+
+      ### 构造方法 ###
+      def initialize
+        @front = nil  # 头节点 front
+        @rear = nil   # 尾节点 rear
+        @size = 0
+      end
+
+      ### 判断队列是否为空 ###
+      def is_empty?
+        @front.nil?
+      end
+
+      ### 入队 ###
+      def push(num)
+        # 在尾节点后添加 num
+        node = ListNode.new(num)
+
+        # 如果队列为空，则令头，尾节点都指向该节点
+        if @front.nil?
+          @front = node
+          @rear = node
+        # 如果队列不为空，则令该节点添加到尾节点后
+        else
+          @rear.next = node
+          @rear = node
+        end
+
+        @size += 1
+      end
+
+      ### 出队 ###
+      def pop
+        num = peek
+        # 删除头节点
+        @front = @front.next
+        @size -= 1
+        num
+      end
+
+      ### 访问队首元素 ###
+      def peek
+        raise IndexError, '队列为空' if is_empty?
+
+        @front.val
+      end
+
+      ### 将链表为 Array 并返回 ###
+      def to_array
+        queue = []
+        temp = @front
+        while temp
+          queue << temp.val
+          temp = temp.next
+        end
+        queue
+      end
+    end
     ```
 
 === "Zig"
@@ -2144,9 +2227,9 @@ comments: true
     ```kotlin title="array_queue.kt"
     /* 基于环形数组实现的队列 */
     class ArrayQueue(capacity: Int) {
-        private val nums = IntArray(capacity) // 用于存储队列元素的数组
-        private var front = 0 // 队首指针，指向队首元素
-        private var queSize = 0 // 队列长度
+        private val nums: IntArray = IntArray(capacity) // 用于存储队列元素的数组
+        private var front: Int = 0 // 队首指针，指向队首元素
+        private var queSize: Int = 0 // 队列长度
 
         /* 获取队列的容量 */
         fun capacity(): Int {
@@ -2211,7 +2294,69 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_queue.rb"
-    [class]{ArrayQueue}-[func]{}
+    ### 基于环形数组实现的队列 ###
+    class ArrayQueue
+      ### 获取队列的长度 ###
+      attr_reader :size
+
+      ### 构造方法 ###
+      def initialize(size)
+        @nums = Array.new(size, 0) # 用于存储队列元素的数组
+        @front = 0 # 队首指针，指向队首元素
+        @size = 0 # 队列长度
+      end
+
+      ### 获取队列的容量 ###
+      def capacity
+        @nums.length
+      end
+
+      ### 判断队列是否为空 ###
+      def is_empty?
+        size.zero?
+      end
+
+      ### 入队 ###
+      def push(num)
+        raise IndexError, '队列已满' if size == capacity
+
+        # 计算队尾指针，指向队尾索引 + 1
+        # 通过取余操作实现 rear 越过数组尾部后回到头部
+        rear = (@front + size) % capacity
+        # 将 num 添加至队尾
+        @nums[rear] = num
+        @size += 1
+      end
+
+      ### 出队 ###
+      def pop
+        num = peek
+        # 队首指针向后移动一位，若越过尾部，则返回到数组头部
+        @front = (@front + 1) % capacity
+        @size -= 1
+        num
+      end
+
+      ### 访问队首元素 ###
+      def peek
+        raise IndexError, '队列为空' if is_empty?
+
+        @nums[@front]
+      end
+
+      ### 返回列表用于打印 ###
+      def to_array
+        res = Array.new(size, 0)
+        j = @front
+
+        for i in 0...size
+          res[i] = @nums[j % capacity]
+          j += 1
+        end
+
+        res
+      end
+    end
     ```
 
 === "Zig"

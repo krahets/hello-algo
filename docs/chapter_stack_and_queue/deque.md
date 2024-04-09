@@ -38,25 +38,25 @@ comments: true
 
     # 初始化双向队列
     deque: deque[int] = deque()
-    
+
     # 元素入队
     deque.append(2)      # 添加至队尾
     deque.append(5)
     deque.append(4)
     deque.appendleft(3)  # 添加至队首
     deque.appendleft(1)
-    
+
     # 访问元素
     front: int = deque[0]  # 队首元素
     rear: int = deque[-1]  # 队尾元素
-    
+
     # 元素出队
     pop_front: int = deque.popleft()  # 队首元素出队
     pop_rear: int = deque.pop()       # 队尾元素出队
-    
+
     # 获取双向队列的长度
     size: int = len(deque)
-    
+
     # 判断双向队列是否为空
     is_empty: bool = len(deque) == 0
     ```
@@ -66,25 +66,25 @@ comments: true
     ```cpp title="deque.cpp"
     /* 初始化双向队列 */
     deque<int> deque;
-    
+
     /* 元素入队 */
     deque.push_back(2);   // 添加至队尾
     deque.push_back(5);
     deque.push_back(4);
     deque.push_front(3);  // 添加至队首
     deque.push_front(1);
-    
+
     /* 访问元素 */
     int front = deque.front(); // 队首元素
     int back = deque.back();   // 队尾元素
-    
+
     /* 元素出队 */
     deque.pop_front();  // 队首元素出队
     deque.pop_back();   // 队尾元素出队
-    
+
     /* 获取双向队列的长度 */
     int size = deque.size();
-    
+
     /* 判断双向队列是否为空 */
     bool empty = deque.empty();
     ```
@@ -94,25 +94,25 @@ comments: true
     ```java title="deque.java"
     /* 初始化双向队列 */
     Deque<Integer> deque = new LinkedList<>();
-    
+
     /* 元素入队 */
     deque.offerLast(2);   // 添加至队尾
     deque.offerLast(5);
     deque.offerLast(4);
     deque.offerFirst(3);  // 添加至队首
     deque.offerFirst(1);
-    
+
     /* 访问元素 */
     int peekFirst = deque.peekFirst();  // 队首元素
     int peekLast = deque.peekLast();    // 队尾元素
-    
+
     /* 元素出队 */
     int popFirst = deque.pollFirst();  // 队首元素出队
     int popLast = deque.pollLast();    // 队尾元素出队
-    
+
     /* 获取双向队列的长度 */
     int size = deque.size();
-    
+
     /* 判断双向队列是否为空 */
     boolean isEmpty = deque.isEmpty();
     ```
@@ -123,25 +123,25 @@ comments: true
     /* 初始化双向队列 */
     // 在 C# 中，将链表 LinkedList 看作双向队列来使用
     LinkedList<int> deque = new();
-    
+
     /* 元素入队 */
     deque.AddLast(2);   // 添加至队尾
     deque.AddLast(5);
     deque.AddLast(4);
     deque.AddFirst(3);  // 添加至队首
     deque.AddFirst(1);
-    
+
     /* 访问元素 */
     int peekFirst = deque.First.Value;  // 队首元素
     int peekLast = deque.Last.Value;    // 队尾元素
-    
+
     /* 元素出队 */
     deque.RemoveFirst();  // 队首元素出队
     deque.RemoveLast();   // 队尾元素出队
-    
+
     /* 获取双向队列的长度 */
     int size = deque.Count;
-    
+
     /* 判断双向队列是否为空 */
     bool isEmpty = deque.Count == 0;
     ```
@@ -152,25 +152,25 @@ comments: true
     /* 初始化双向队列 */
     // 在 Go 中，将 list 作为双向队列使用
     deque := list.New()
-    
+
     /* 元素入队 */
     deque.PushBack(2)      // 添加至队尾
     deque.PushBack(5)
     deque.PushBack(4)
     deque.PushFront(3)     // 添加至队首
     deque.PushFront(1)
-    
+
     /* 访问元素 */
     front := deque.Front() // 队首元素
     rear := deque.Back()   // 队尾元素
-    
+
     /* 元素出队 */
     deque.Remove(front)    // 队首元素出队
     deque.Remove(rear)     // 队尾元素出队
-    
+
     /* 获取双向队列的长度 */
     size := deque.Len()
-    
+
     /* 判断双向队列是否为空 */
     isEmpty := deque.Len() == 0
     ```
@@ -339,25 +339,25 @@ comments: true
     ```kotlin title="deque.kt"
     /* 初始化双向队列 */
     val deque = LinkedList<Int>()
-    
+
     /* 元素入队 */
     deque.offerLast(2)  // 添加至队尾
     deque.offerLast(5)
     deque.offerLast(4)
     deque.offerFirst(3) // 添加至队首
     deque.offerFirst(1)
-    
+
     /* 访问元素 */
     val peekFirst = deque.peekFirst() // 队首元素
     val peekLast = deque.peekLast()   // 队尾元素
-    
+
     /* 元素出队 */
     val popFirst = deque.pollFirst() // 队首元素出队
     val popLast = deque.pollLast()   // 队尾元素出队
-    
+
     /* 获取双向队列的长度 */
     val size = deque.size
-    
+
     /* 判断双向队列是否为空 */
     val isEmpty = deque.isEmpty()
     ```
@@ -365,7 +365,32 @@ comments: true
 === "Ruby"
 
     ```ruby title="deque.rb"
+    # 初始化双向队列
+    # Ruby 没有内直的双端队列，只能把 Array 当作双端队列来使用
+    deque = []
 
+    # 元素如队
+    deque << 2
+    deque << 5
+    deque << 4
+    # 请注意，由于是数组，Array#unshift 方法的时间复杂度为 O(n)
+    deque.unshift(3)
+    deque.unshift(1)
+
+    # 访问元素
+    peek_first = deque.first
+    peek_last = deque.last
+
+    # 元素出队
+    # 请注意，由于是数组， Array#shift 方法的时间复杂度为 O(n)
+    pop_front = deque.shift
+    pop_back = deque.pop
+
+    # 获取双向队列的长度
+    size = deque.length
+
+    # 判断双向队列是否为空
+    is_empty = size.zero?
     ```
 
 === "Zig"
@@ -1874,7 +1899,7 @@ comments: true
 
     ```kotlin title="linkedlist_deque.kt"
     /* 双向链表节点 */
-    class ListNode(var value: Int) {
+    class ListNode(var _val: Int) {
         // 节点值
         var next: ListNode? = null // 后继节点引用
         var prev: ListNode? = null // 前驱节点引用
@@ -1882,9 +1907,9 @@ comments: true
 
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
-        private var front: ListNode? = null // 头节点 front ，尾节点 rear
-        private var rear: ListNode? = null
-        private var queSize = 0 // 双向队列的长度
+        private var front: ListNode? = null // 头节点 front
+        private var rear: ListNode? = null // 尾节点 rear
+        private var queSize: Int = 0 // 双向队列的长度
 
         /* 获取双向队列的长度 */
         fun size(): Int {
@@ -1931,12 +1956,12 @@ comments: true
 
         /* 出队操作 */
         fun pop(isFront: Boolean): Int {
-            if (isEmpty()) throw IndexOutOfBoundsException()
-
+            if (isEmpty()) 
+                throw IndexOutOfBoundsException()
             val value: Int
             // 队首出队操作
             if (isFront) {
-                value = front!!.value // 暂存头节点值
+                value = front!!._val // 暂存头节点值
                 // 删除头节点
                 val fNext = front!!.next
                 if (fNext != null) {
@@ -1946,7 +1971,7 @@ comments: true
                 front = fNext // 更新头节点
                 // 队尾出队操作
             } else {
-                value = rear!!.value // 暂存尾节点值
+                value = rear!!._val // 暂存尾节点值
                 // 删除尾节点
                 val rPrev = rear!!.prev
                 if (rPrev != null) {
@@ -1971,17 +1996,14 @@ comments: true
 
         /* 访问队首元素 */
         fun peekFirst(): Int {
-            if (isEmpty()) {
-                throw IndexOutOfBoundsException()
-
-            }
-            return front!!.value
+            if (isEmpty()) throw IndexOutOfBoundsException()
+            return front!!._val
         }
 
         /* 访问队尾元素 */
         fun peekLast(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
-            return rear!!.value
+            return rear!!._val
         }
 
         /* 返回数组用于打印 */
@@ -1989,7 +2011,7 @@ comments: true
             var node = front
             val res = IntArray(size())
             for (i in res.indices) {
-                res[i] = node!!.value
+                res[i] = node!!._val
                 node = node.next
             }
             return res
@@ -2000,9 +2022,138 @@ comments: true
 === "Ruby"
 
     ```ruby title="linkedlist_deque.rb"
-    [class]{ListNode}-[func]{}
+    =begin
+    File: linkedlist_deque.rb
+    Created Time: 2024-04-06
+    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
+    =end
 
-    [class]{LinkedListDeque}-[func]{}
+    ### 双向链表节点
+    class ListNode
+      attr_accessor :val
+      attr_accessor :next # 后继节点引用
+      attr_accessor :prev # 前躯节点引用
+
+      ### 构造方法 ###
+      def initialize(val)
+        @val = val
+      end
+    end
+
+    ### 基于双向链表实现的双向队列 ###
+    class LinkedListDeque
+      ### 获取双向队列的长度 ###
+      attr_reader :size
+
+      ### 构造方法 ###
+      def initialize
+        @front = nil  # 头节点 front
+        @rear = nil   # 尾节点 rear
+        @size = 0     # 双向队列的长度
+      end
+
+      ### 判断双向队列是否为空 ###
+      def is_empty?
+        size.zero?
+      end
+
+      ### 入队操作 ###
+      def push(num, is_front)
+        node = ListNode.new(num)
+        # 若链表为空， 则令 front 和 rear 都指向 node
+        if is_empty?
+          @front = @rear = node
+        # 队首入队操作
+        elsif is_front
+          # 将 node 添加至链表头部
+          @front.prev = node
+          node.next = @front
+          @front = node # 更新头节点
+        # 队尾入队操作
+        else
+          # 将 node 添加至链表尾部
+          @rear.next = node
+          node.prev = @rear
+          @rear = node # 更新尾节点
+        end
+        @size += 1 # 更新队列长度
+      end
+
+      ### 队首入队 ###
+      def push_first(num)
+        push(num, true)
+      end
+
+      ### 队尾入队 ###
+      def push_last(num)
+        push(num, false)
+      end
+
+      ### 出队操作 ###
+      def pop(is_front)
+        raise IndexError, '双向队列为空' if is_empty?
+
+        # 队首出队操作
+        if is_front
+          val = @front.val # 暂存头节点值
+          # 删除头节点
+          fnext = @front.next
+          unless fnext.nil?
+            fnext.prev = nil
+            @front.next = nil
+          end
+          @front = fnext # 更新头节点
+        # 队尾出队操作
+        else
+          val = @rear.val # 暂存尾节点值
+          # 删除尾节点
+          rprev = @rear.prev
+          unless rprev.nil?
+            rprev.next = nil
+            @rear.prev = nil
+          end
+          @rear = rprev # 更新尾节点
+        end
+        @size -= 1 # 更新队列长度
+
+        val
+      end
+
+      ### 队首出队 ###
+      def pop_first
+        pop(true)
+      end
+
+      ### 队首出队 ###
+      def pop_last
+        pop(false)
+      end
+
+      ### 访问队首元素 ###
+      def peek_first
+        raise IndexError, '双向队列为空' if is_empty?
+
+        @front.val
+      end
+
+      ### 访问队尾元素 ###
+      def peek_last
+        raise IndexError, '双向队列为空' if is_empty?
+
+        @rear.val
+      end
+
+      ### 返回数组用于打印 ###
+      def to_array
+        node = @front
+        res = Array.new(size, 0)
+        for i in 0...size
+          res[i] = node.val
+          node = node.next
+        end
+        res
+      end
+    end
     ```
 
 === "Zig"
@@ -3385,11 +3536,11 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="array_deque.kt"
-    /* 基于环形数组实现的双向队列 */
+    /* 构造方法 */
     class ArrayDeque(capacity: Int) {
-        private var nums = IntArray(capacity) // 用于存储双向队列元素的数组
-        private var front = 0 // 队首指针，指向队首元素
-        private var queSize = 0 // 双向队列长度
+        private var nums: IntArray = IntArray(capacity) // 用于存储双向队列元素的数组
+        private var front: Int = 0 // 队首指针，指向队首元素
+        private var queSize: Int = 0 // 双向队列长度
 
         /* 获取双向队列的容量 */
         fun capacity(): Int {
@@ -3450,7 +3601,7 @@ comments: true
             return num
         }
 
-        /* 访问队尾元素 */
+        /* 队尾出队 */
         fun popLast(): Int {
             val num = peekLast()
             queSize--
@@ -3490,7 +3641,109 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_deque.rb"
-    [class]{ArrayDeque}-[func]{}
+    ### 基于环形数组实现的双向队列 ###
+    class ArrayDeque
+      ### 获取双向队列的长度 ###
+      attr_reader :size
+
+      ### 构造方法 ###
+      def initialize(capacity)
+        @nums = Array.new(capacity, 0)
+        @front = 0
+        @size = 0
+      end
+
+      ### 获取双向队列的容量 ###
+      def capacity
+        @nums.length
+      end
+
+      ### 判断双向队列是否为空 ###
+      def is_empty?
+        size.zero?
+      end
+
+      ### 队首入队 ###
+      def push_first(num)
+        if size == capacity
+          puts '双向队列已满'
+          return
+        end
+
+        # 队首指针向左移动一位
+        # 通过取余操作实现 front 越过数组头部后回到尾部
+        @front = index(@front - 1)
+        # 将 num 添加至队首
+        @nums[@front] = num
+        @size += 1
+      end
+
+      ### 队尾入队 ###
+      def push_last(num)
+        if size == capacity
+          puts '双向队列已满'
+          return
+        end
+
+        # 计算队尾指针，指向队尾索引 + 1
+        rear = index(@front + size)
+        # 将 num 添加至队尾
+        @nums[rear] = num
+        @size += 1
+      end
+
+      ### 队首出队 ###
+      def pop_first
+        num = peek_first
+        # 队首指针向后移动一位
+        @front = index(@front + 1)
+        @size -= 1
+        num
+      end
+
+      ### 队尾出队 ###
+      def pop_last
+        num = peek_last
+        @size -= 1
+        num
+      end
+
+      ### 访问队首元素 ###
+      def peek_first
+        raise IndexError, '双向队列为空' if is_empty?
+
+        @nums[@front]
+      end
+
+      ### 访问队尾元素 ###
+      def peek_last
+        raise IndexError, '双向队列为空' if is_empty?
+
+        # 计算尾元素索引
+        last = index(@front + size - 1)
+        @nums[last]
+      end
+
+      ### 返回数组用于打印 ###
+      def to_array
+        # 仅转换有效长度范围内的列表元素
+        res = []
+        for i in 0...size
+          res << @nums[index(@front + i)]
+        end
+        res
+      end
+
+      private
+
+      ### 计算环形数组索引 ###
+      def index(i)
+        # 通过取余操作实现数组首尾相连
+        # 当 i 越过数组尾部后，回到头部
+        # 当 i 越过数组头部后，回到尾部
+        (i + capacity) % capacity
+      end
+    end
     ```
 
 === "Zig"
