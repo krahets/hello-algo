@@ -22,7 +22,6 @@ fun levelOrder(root: TreeNode?): MutableList<Int> {
         list.add(node?.value!!)      // 保存节点值
         if (node.left != null)
             queue.offer(node.left)   // 左子节点入队
-
         if (node.right != null)
             queue.offer(node.right)  // 右子节点入队
     }
