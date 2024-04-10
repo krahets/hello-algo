@@ -3703,7 +3703,7 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 \]</div>
 <p>現在我們可以回答最初的問題：<strong><code>float</code> 的表示方式包含指數位，導致其取值範圍遠大於 <code>int</code></strong> 。根據以上計算，<code>float</code> 可表示的最大正數為 <span class="arithmatex">\(2^{254 - 127} \times (2 - 2^{-23}) \approx 3.4 \times 10^{38}\)</span> ，切換符號位便可得到最小負數。</p>
 <p><strong>儘管浮點數 <code>float</code> 擴展了取值範圍，但其副作用是犧牲了精度</strong>。整數型別 <code>int</code> 將全部 32 位元用於表示數字，數字是均勻分佈的；而由於指數位的存在，浮點數 <code>float</code> 的數值越大，相鄰兩個數字之間的差值就會趨向越大。</p>
-<p>如表 3-2 所示，指數位 <span class="arithmatex">\(E = 0\)</span> 和 <span class="arithmatex">\(E = 255\)</span> 具有特殊含義，<strong>用於表示零、無窮大、<span class="arithmatex">\(\mathrm{NaN}\)</span> 等</strong>。</p>
+<p>如表 3-2 所示，指數位 <span class="arithmatex">\(\mathrm{E} = 0\)</span> 和 <span class="arithmatex">\(\mathrm{E} = 255\)</span> 具有特殊含義，<strong>用於表示零、無窮大、<span class="arithmatex">\(\mathrm{NaN}\)</span> 等</strong>。</p>
 <p align="center"> 表 3-2 &nbsp; 指數位含義 </p>
 
 <div class="center-table">

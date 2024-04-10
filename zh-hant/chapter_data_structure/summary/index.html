@@ -3622,6 +3622,25 @@
 <p>堆疊確實可以實現動態的資料操作，但資料結構仍然是“靜態”（長度不可變）的。儘管基於陣列的資料結構可以動態地新增或刪除元素，但它們的容量是固定的。如果資料量超出了預分配的大小，就需要建立一個新的更大的陣列，並將舊陣列的內容複製到新陣列中。</p>
 <p><strong>Q</strong>：在構建堆疊（佇列）的時候，未指定它的大小，為什麼它們是“靜態資料結構”呢？</p>
 <p>在高階程式語言中，我們無須人工指定堆疊（佇列）的初始容量，這個工作由類別內部自動完成。例如，Java 的 <code>ArrayList</code> 的初始容量通常為 10。另外，擴容操作也是自動實現的。詳見後續的“串列”章節。</p>
+<p><strong>Q</strong>：原碼轉二補數的方法是“先取反後加 1”，那麼二補數轉原碼應該是逆運算“先減 1 後取反”，而二補數轉原碼也一樣可以透過“先取反後加 1”得到，這是為什麼呢？</p>
+<p><strong>A</strong>：這是因為原碼和二補數的相互轉換實際上是計算“補數”的過程。我們先給出補數的定義：假設 <span class="arithmatex">\(a + b = c\)</span> ，那麼我們稱 <span class="arithmatex">\(a\)</span> 是 <span class="arithmatex">\(b\)</span> 到 <span class="arithmatex">\(c\)</span> 的補數，反之也稱 <span class="arithmatex">\(b\)</span> 是 <span class="arithmatex">\(a\)</span> 到 <span class="arithmatex">\(c\)</span> 的補數。</p>
+<p>給定一個 <span class="arithmatex">\(n = 4\)</span> 位長度的二進位制數 <span class="arithmatex">\(0010\)</span> ，如果將這個數字看作原碼（不考慮符號位），那麼它的二補數需透過“先取反後加 1”得到：</p>
+<div class="arithmatex">\[
+0010 \rightarrow 1101 \rightarrow 1110
+\]</div>
+<p>我們會發現，原碼和二補數的和是 <span class="arithmatex">\(0010 + 1110 = 10000\)</span> ，也就是說，二補數 <span class="arithmatex">\(1110\)</span> 是原碼 <span class="arithmatex">\(0010\)</span> 到 <span class="arithmatex">\(10000\)</span> 的“補數”。<strong>這意味著上述“先取反後加 1”實際上是計算到 <span class="arithmatex">\(10000\)</span> 的補數的過程</strong>。</p>
+<p>那麼，二補數 <span class="arithmatex">\(1110\)</span> 到 <span class="arithmatex">\(10000\)</span> 的“補數”是多少呢？我們依然可以用“先取反後加 1”得到它：</p>
+<div class="arithmatex">\[
+1110 \rightarrow 0001 \rightarrow 0010
+\]</div>
+<p>換句話說，原碼和二補數互為對方到 <span class="arithmatex">\(10000\)</span> 的“補數”，因此“原碼轉二補數”和“二補數轉原碼”可以用相同的操作（先取反後加 1 ）實現。</p>
+<p>當然，我們也可以用逆運算來求二補數 <span class="arithmatex">\(1110\)</span> 的原碼，即“先減 1 後取反”：</p>
+<div class="arithmatex">\[
+1110 \rightarrow 1101 \rightarrow 0010
+\]</div>
+<p>總結來看，“先取反後加 1”和“先減 1 後取反”這兩種運算都是在計算到 <span class="arithmatex">\(10000\)</span> 的補數，它們是等價的。</p>
+<p>本質上看，“取反”操作實際上是求到 <span class="arithmatex">\(1111\)</span> 的補數（因為恆有 <code>原碼 + 一補數 = 1111</code>）；而在一補數基礎上再加 1 得到的二補數，就是到 <span class="arithmatex">\(10000\)</span> 的補數。</p>
+<p>上述 <span class="arithmatex">\(n = 4\)</span> 為例，其可推廣至任意位數的二進位制數。</p>
 
 <!-- Source file information -->
 
