@@ -19,7 +19,7 @@ fun preOrder(root: TreeNode?) {
     }
     // 尝试
     path!!.add(root)
-    if (root.value == 7) {
+    if (root._val == 7) {
         // 记录解
         res!!.add(path!!.toMutableList())
     }
@@ -42,10 +42,10 @@ fun main() {
 
     println("\n输出所有根节点到节点 7 的路径")
     for (path in res!!) {
-        val values = mutableListOf<Int>()
+        val _vals = mutableListOf<Int>()
         for (node in path) {
-            values.add(node.value)
+            _vals.add(node._val)
         }
-        println(values)
+        println(_vals)
     }
 }

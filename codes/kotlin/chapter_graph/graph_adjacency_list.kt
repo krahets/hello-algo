@@ -72,9 +72,9 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
         for (pair in adjList.entries) {
             val tmp = mutableListOf<Int>()
             for (vertex in pair.value) {
-                tmp.add(vertex.value)
+                tmp.add(vertex._val)
             }
-            println("${pair.key.value}: $tmp,")
+            println("${pair.key._val}: $tmp,")
         }
     }
 }
