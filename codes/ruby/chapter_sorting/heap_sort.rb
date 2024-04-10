@@ -7,13 +7,13 @@ Author: junminhong (junminhong1110@gmail.com)
 ### 堆的长度为 n ，从节点 i 开始，从顶至底堆化 ###
 def sift_down(nums, n, i)
   while true
-      # 判断节点i, l, r中值最大的节点，记为ma
+      # 判断节点 i, l, r 中值最大的节点，记为 ma
       l = 2 * i + 1
       r = 2 * i + 2
       ma = i
       ma = l if l < n and nums[l] > nums[ma]
       ma = r if r < n and nums[r] > nums[ma]
-      # 若节点i最大或索引l, r越界，则无须继续堆化，跳出
+      # 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
       break if ma == i
       # 交换两节点
       nums[i], nums[ma] = nums[ma], nums[i]
@@ -28,7 +28,7 @@ def heap_sort(nums)
   (nums.length / 2 - 1).downto(0) do |i|
       sift_down(nums, nums.length, i)
   end
-  # 从堆中提取最大元素，循环n-1轮
+  # 从堆中提取最大元素，循环 n-1 轮
   (nums.length - 1).downto(1) do |i|
       # 交换根节点与最右叶节点（交换首元素与尾元素）
       nums[0], nums[i] = nums[i], nums[0]
