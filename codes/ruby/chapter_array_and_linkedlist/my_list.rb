@@ -35,7 +35,7 @@ class MyList
     # 元素数量超出容量时，触发扩容机制
     extend_capacity if size == capacity
     @arr[size] = num
-    
+
     # 更新元素数量
     @size += 1
   end
@@ -49,7 +49,7 @@ class MyList
 
     # 将索引 index 以及之后的元素都向后移动一位
     for j in (size - 1).downto(index)
-      @arr[j + 1] = @arr[j] 
+      @arr[j + 1] = @arr[j]
     end
     @arr[index] = num
 
@@ -95,37 +95,38 @@ class MyList
 end
 
 ### Driver Code ###
+if __FILE__ == $0
+  # 初始化列表
+  nums = MyList.new
 
-# 初始化列表
-nums = MyList.new
+  # 在尾部添加元素
+  nums.add(1)
+  nums.add(3)
+  nums.add(2)
+  nums.add(5)
+  nums.add(4)
+  puts "列表 nums = #{nums.to_array} ，容量 = #{nums.capacity} ，长度 = #{nums.size}"
 
-# 在尾部添加元素
-nums.add(1)
-nums.add(3)
-nums.add(2)
-nums.add(5)
-nums.add(4)
-puts "列表 nums = #{nums.to_array} ，容量 = #{nums.capacity} ，长度 = #{nums.size}"
+  # 在中间插入元素
+  nums.insert(3, 6)
+  puts "在索引 3 处插入数字 6 ，得到 nums = #{nums.to_array}"
 
-# 在中间插入元素
-nums.insert(3, 6)
-puts "在索引 3 处插入数字 6 ，得到 nums = #{nums.to_array}"
+  # 删除元素
+  nums.remove(3)
+  puts "删除索引 3 的元素，得到 nums = #{nums.to_array}"
 
-# 删除元素
-nums.remove(3)
-puts "删除索引 3 的元素，得到 nums = #{nums.to_array}"
+  # 访问元素
+  num = nums.get(1)
+  puts "访问索引 1 处的元素，得到 num = #{num}"
 
-# 访问元素
-num = nums.get(1)
-puts "访问索引 1 处的元素，得到 num = #{num}"
+  # 更新元素
+  nums.set(1, 0)
+  puts "将索引 1 处的元素更新为 0 ，得到 nums = #{nums.to_array}"
 
-# 更新元素
-nums.set(1, 0)
-puts "将索引 1 处的元素更新为 0 ，得到 nums = #{nums.to_array}"
-
-# 测试扩容机制
-for i in 0...10
-  # 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
-  nums.add(i)
+  # 测试扩容机制
+  for i in 0...10
+    # 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
+    nums.add(i)
+  end
+  puts "扩容后的列表 nums = #{nums.to_array} ，容量 = #{nums.capacity} ，长度 = #{nums.size}"
 end
-puts "扩容后的列表 nums = #{nums.to_array} ，容量 = #{nums.capacity} ，长度 = #{nums.size}"

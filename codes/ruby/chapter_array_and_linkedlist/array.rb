@@ -76,32 +76,33 @@ end
 
 
 ### Driver Code ###
+if __FILE__ == $0
+  # 初始化数组
+  arr = Array.new(5, 0)
+  puts "数组 arr = #{arr}"
+  nums = [1, 3, 2, 5, 4]
+  puts "数组 nums = #{nums}"
 
-# 初始化数组
-arr = Array.new(5, 0)
-puts "数组 arr = #{arr}"
-nums = [1, 3, 2, 5, 4]
-puts "数组 nums = #{nums}"
+  # 随机访问
+  random_num = random_access(nums)
+  puts "在 nums 中获取随机元素 #{random_num}"
 
-# 随机访问
-random_num = random_access(nums)
-puts "在 nums 中获取随机元素 #{random_num}"
+  # 长度扩展
+  nums = extend(nums, 3)
+  puts "将数组长度扩展至 8 ，得到 nums = #{nums}"
 
-# 长度扩展
-nums = extend(nums, 3)
-puts "将数组长度扩展至 8 ，得到 nums = #{nums}"
+  # 插入元素
+  insert(nums, 6, 3)
+  puts "在索引 3 处插入数字 6 ，得到 nums = #{nums}"
 
-# 插入元素
-insert(nums, 6, 3)
-puts "在索引 3 处插入数字 6 ，得到 nums = #{nums}"
+  # 删除元素
+  remove(nums, 2)
+  puts "删除索引 2 处的元素，得到 nums = #{nums}"
 
-# 删除元素
-remove(nums, 2)
-puts "删除索引 2 处的元素，得到 nums = #{nums}"
+  # 遍历数组
+  traverse(nums)
 
-# 遍历数组
-traverse(nums)
-
-# 查找元素
-index = find(nums, 3)
-puts "在 nums 中查找元素 3 ，得到索引 = #{index}"
+  # 查找元素
+  index = find(nums, 3)
+  puts "在 nums 中查找元素 3 ，得到索引 = #{index}"
+end
