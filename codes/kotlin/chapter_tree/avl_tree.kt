@@ -143,11 +143,11 @@ class AVLTree {
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
                 var temp = node.right
-                temp?.left?.let {
-                    temp = temp!!.left
-                    node.right = removeHelper(node.right, temp!!._val)
-                    node._val = temp!!._val
+                while (temp!!.left != null) {
+                    temp = temp.left
                 }
+                node.right = removeHelper(node.right, temp._val)
+                node._val = temp._val
             }
         }
         updateHeight(node) // 更新节点高度
