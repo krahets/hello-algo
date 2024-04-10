@@ -7,7 +7,7 @@ Author: junminhong (junminhong1110@gmail.com)
 ### 合并左子数组和右子数组 ###
 def merge(nums, left, mid, right)
   # 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]
-  # 创建一个临时数组tmp，用于存放合并后的结果
+  # 创建一个临时数组 tmp，用于存放合并后的结果
   tmp = Array.new(right - left + 1)
   # 初始化左子数组和右子数组的起始索引
   i, j, k = left, mid + 1, 0
@@ -33,7 +33,7 @@ def merge(nums, left, mid, right)
     j += 1
     k += 1
   end
-  # 将临时数组tmp中的元素复制回原数组nums的对应区间
+  # 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
   (0...tmp.length).each do |k|
     nums[left + k] = tmp[k]
   end
@@ -42,7 +42,7 @@ end
 ### 归并排序 ###
 def merge_sort(nums, left, right)
   # 终止条件
-  # 当子数组长度为1时终止递归
+  # 当子数组长度为 1 时终止递归
   return if left >= right
   # 划分阶段
   # 计算中点
