@@ -1,5 +1,5 @@
 =begin
-File: linear_search.rb
+File: hashing_search.rb
 Created Time: 2024-04-09
 Author: Blue Bean (lonnnnnnner@gmail.com)
 =end
