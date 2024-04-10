@@ -5,7 +5,6 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 =end
 
 require_relative '../utils/list_node'
-require_relative '../utils/print_util'
 
 ### 线性查找（数组） ###
 def linear_search_array(nums, target)
@@ -30,15 +29,16 @@ def linear_search_linkedlist(head, target)
 end
 
 ### Driver Code ###
+if __FILE__ == $0
+  target = 3
 
-target = 3
+  # 在数组中执行线性查找
+  nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
+  index = linear_search_array(nums, target)
+  puts "目标元素 3 的索引 = #{index}"
 
-# 在数组中执行线性查找
-nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
-index = linear_search_array(nums, target)
-puts "目标元素 3 的索引 = #{index}"
-
-# 在链表中执行线性查找
-head = arr_to_linked_list(nums)
-node = linear_search_linkedlist(head, target)
-puts "目标节点值 3 的对应节点对象为 #{node}"
+  # 在链表中执行线性查找
+  head = arr_to_linked_list(nums)
+  node = linear_search_linkedlist(head, target)
+  puts "目标节点值 3 的对应节点对象为 #{node}"
+end

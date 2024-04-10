@@ -49,14 +49,15 @@ def binary_search_lcro(nums, target)
 end
 
 ### Driver Code ###
+if __FILE__ == $0
+  target = 6
+  nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
 
-target = 6
-nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
+  # 二分查找（双闭区间）
+  index = binary_search(nums, target)
+  puts "目标元素 6 的索引 =  #{index}"
 
-# 二分查找（双闭区间）
-index = binary_search(nums, target)
-puts "目标元素 6 的索引 =  #{index}"
-
-# 二分查找（左闭右开区间）
-index = binary_search_lcro(nums, target)
-puts "目标元素 6 的索引 =  #{index}"
+  # 二分查找（左闭右开区间）
+  index = binary_search_lcro(nums, target)
+  puts "目标元素 6 的索引 =  #{index}"
+end
