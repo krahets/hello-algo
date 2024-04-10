@@ -299,10 +299,10 @@ comments: true
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 目标节点在 cur 的右子树中
-            cur = if (cur.value < num)
+            cur = if (cur._val < num)
                 cur.right
             // 目标节点在 cur 的左子树中
-            else if (cur.value > num)
+            else if (cur._val > num)
                 cur.left
             // 找到目标节点，跳出循环
             else
@@ -751,11 +751,11 @@ comments: true
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 找到重复节点，直接返回
-            if (cur.value == num)
+            if (cur._val == num)
                 return
             pre = cur
             // 插入位置在 cur 的右子树中
-            cur = if (cur.value < num)
+            cur = if (cur._val < num)
                 cur.right
             // 插入位置在 cur 的左子树中
             else
@@ -763,7 +763,7 @@ comments: true
         }
         // 插入节点
         val node = TreeNode(num)
-        if (pre?.value!! < num)
+        if (pre?._val!! < num)
             pre.right = node
         else
             pre.left = node
@@ -1497,11 +1497,11 @@ comments: true
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 找到待删除节点，跳出循环
-            if (cur.value == num)
+            if (cur._val == num)
                 break
             pre = cur
             // 待删除节点在 cur 的右子树中
-            cur = if (cur.value < num)
+            cur = if (cur._val < num)
                 cur.right
             // 待删除节点在 cur 的左子树中
             else
@@ -1535,9 +1535,9 @@ comments: true
                 tmp = tmp.left
             }
             // 递归删除节点 tmp
-            remove(tmp.value)
+            remove(tmp._val)
             // 用 tmp 覆盖 cur
-            cur.value = tmp.value
+            cur._val = tmp._val
         }
     }
     ```

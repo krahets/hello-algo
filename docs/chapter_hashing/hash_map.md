@@ -1584,7 +1584,7 @@ index = hash(key) % capacity
     /* 键值对 */
     class Pair(
         var key: Int,
-        var value: String
+        var _val: String
     )
 
     /* 基于数组实现的哈希表 */
@@ -1602,12 +1602,12 @@ index = hash(key) % capacity
         fun get(key: Int): String? {
             val index = hashFunc(key)
             val pair = buckets[index] ?: return null
-            return pair.value
+            return pair._val
         }
 
         /* 添加操作 */
-        fun put(key: Int, value: String) {
-            val pair = Pair(key, value)
+        fun put(key: Int, _val: String) {
+            val pair = Pair(key, _val)
             val index = hashFunc(key)
             buckets[index] = pair
         }
@@ -1643,7 +1643,7 @@ index = hash(key) % capacity
         fun valueSet(): MutableList<String> {
             val valueSet = mutableListOf<String>()
             for (pair in buckets) {
-                pair?.let { valueSet.add(it.value) }
+                pair?.let { valueSet.add(it._val) }
             }
             return valueSet
         }
@@ -1652,8 +1652,8 @@ index = hash(key) % capacity
         fun print() {
             for (kv in pairSet()) {
                 val key = kv.key
-                val value = kv.value
-                println("${key} -> ${value}")
+                val _val = kv._val
+                println("${key} -> ${_val}")
             }
         }
     }
@@ -1673,12 +1673,12 @@ index = hash(key) % capacity
         fun get(key: Int): String? {
             val index = hashFunc(key)
             val pair = buckets[index] ?: return null
-            return pair.value
+            return pair._val
         }
 
         /* 添加操作 */
-        fun put(key: Int, value: String) {
-            val pair = Pair(key, value)
+        fun put(key: Int, _val: String) {
+            val pair = Pair(key, _val)
             val index = hashFunc(key)
             buckets[index] = pair
         }
@@ -1714,7 +1714,7 @@ index = hash(key) % capacity
         fun valueSet(): MutableList<String> {
             val valueSet = mutableListOf<String>()
             for (pair in buckets) {
-                pair?.let { valueSet.add(it.value) }
+                pair?.let { valueSet.add(it._val) }
             }
             return valueSet
         }
@@ -1723,8 +1723,8 @@ index = hash(key) % capacity
         fun print() {
             for (kv in pairSet()) {
                 val key = kv.key
-                val value = kv.value
-                println("${key} -> ${value}")
+                val _val = kv._val
+                println("${key} -> ${_val}")
             }
         }
     }

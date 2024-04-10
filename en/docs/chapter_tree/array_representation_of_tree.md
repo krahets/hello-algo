@@ -1180,7 +1180,7 @@ The following code implements a binary tree based on array representation, inclu
         }
 
         /* 获取索引为 i 节点的值 */
-        fun value(i: Int): Int? {
+        fun _val(i: Int): Int? {
             // 若索引越界，则返回 null ，代表空位
             if (i < 0 || i >= size()) return null
             return tree[i]
@@ -1206,8 +1206,8 @@ The following code implements a binary tree based on array representation, inclu
             val res = mutableListOf<Int?>()
             // 直接遍历数组
             for (i in 0..<size()) {
-                if (value(i) != null)
-                    res.add(value(i))
+                if (_val(i) != null)
+                    res.add(_val(i))
             }
             return res
         }
@@ -1215,19 +1215,19 @@ The following code implements a binary tree based on array representation, inclu
         /* 深度优先遍历 */
         fun dfs(i: Int, order: String, res: MutableList<Int?>) {
             // 若为空位，则返回
-            if (value(i) == null)
+            if (_val(i) == null)
                 return
             // 前序遍历
             if ("pre" == order)
-                res.add(value(i))
+                res.add(_val(i))
             dfs(left(i), order, res)
             // 中序遍历
             if ("in" == order)
-                res.add(value(i))
+                res.add(_val(i))
             dfs(right(i), order, res)
             // 后序遍历
             if ("post" == order)
-                res.add(value(i))
+                res.add(_val(i))
         }
 
         /* 前序遍历 */

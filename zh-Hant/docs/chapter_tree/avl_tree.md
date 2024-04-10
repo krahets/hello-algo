@@ -448,7 +448,7 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
     /* 更新節點高度 */
     fun updateHeight(node: TreeNode?) {
         // 節點高度等於最高子樹高度 + 1
-        node?.height = (max(height(node?.left).toDouble(), height(node?.right).toDouble()) + 1).toInt()
+        node?.height = max(height(node?.left), height(node?.right)) + 1
     }
     ```
 
@@ -2012,20 +2012,22 @@ AVL 樹的節點插入操作與二元搜尋樹在主體上類似。唯一的區�
 
     ```kotlin title="avl_tree.kt"
     /* 插入節點 */
-    fun insert(value: Int) {
-        root = insertHelper(root, value)
+    fun insert(_val: Int) {
+        root = insertHelper(root, _val)
     }
 
     /* 遞迴插入節點（輔助方法） */
-    fun insertHelper(n: TreeNode?, value: Int): TreeNode {
+    fun insertHelper(n: TreeNode?, _val: Int): TreeNode {
         if (n == null)
-            return TreeNode(value)
+            return TreeNode(_val)
         var node = n
         /* 1. 查詢插入位置並插入節點 */
-        if (value < node.value) node.left = insertHelper(node.left, value)
-        else if (value > node.value) node.right = insertHelper(node.right, value)
-        else return node // 重複節點不插入，直接返回
-
+        if (_val < node._val)
+            node.left = insertHelper(node.left, _val)
+        else if (_val > node._val)
+            node.right = insertHelper(node.right, _val)
+        else
+            return node // 重複節點不插入，直接返回
         updateHeight(node) // 更新節點高度
         /* 2. 執行旋轉操作，使該子樹重新恢復平衡 */
         node = rotate(node)
@@ -2593,30 +2595,38 @@ AVL 樹的節點插入操作與二元搜尋樹在主體上類似。唯一的區�
 
     ```kotlin title="avl_tree.kt"
     /* 刪除節點 */
-    fun remove(value: Int) {
-        root = removeHelper(root, value)
+    fun remove(_val: Int) {
+        root = removeHelper(root, _val)
     }
 
     /* 遞迴刪除節點（輔助方法） */
-    fun removeHelper(n: TreeNode?, value: Int): TreeNode? {
+    fun removeHelper(n: TreeNode?, _val: Int): TreeNode? {
         var node = n ?: return null
         /* 1. 查詢節點並刪除 */
-        if (value < node.value) node.left = removeHelper(node.left, value)
-        else if (value > node.value) node.right = removeHelper(node.right, value)
+        if (_val < node._val)
+            node.left = removeHelper(node.left, _val)
+        else if (_val > node._val)
+            node.right = removeHelper(node.right, _val)
         else {
             if (node.left == null || node.right == null) {
-                val child = if (node.left != null) node.left else node.right
+                val child = if (node.left != null)
+                    node.left
+                else
+                    node.right
                 // 子節點數量 = 0 ，直接刪除 node 並返回
-                if (child == null) return null
-                else node = child
+                if (child == null)
+                    return null
+                // 子節點數量 = 1 ，直接刪除 node
+                else
+                    node = child
             } else {
                 // 子節點數量 = 2 ，則將中序走訪的下個節點刪除，並用該節點替換當前節點
                 var temp = node.right
                 while (temp!!.left != null) {
                     temp = temp.left
                 }
-                node.right = removeHelper(node.right, temp.value)
-                node.value = temp.value
+                node.right = removeHelper(node.right, temp._val)
+                node._val = temp._val
             }
         }
         updateHeight(node) // 更新節點高度

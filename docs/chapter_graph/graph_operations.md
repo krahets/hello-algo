@@ -1066,10 +1066,10 @@ comments: true
         }
 
         /* 添加顶点 */
-        fun addVertex(value: Int) {
+        fun addVertex(_val: Int) {
             val n = size()
             // 向顶点列表中添加新顶点的值
-            vertices.add(value)
+            vertices.add(_val)
             // 在邻接矩阵中添加一行
             val newRow = mutableListOf<Int>()
             for (j in 0..<n) {
@@ -2222,9 +2222,9 @@ comments: true
             for (pair in adjList.entries) {
                 val tmp = mutableListOf<Int>()
                 for (vertex in pair.value) {
-                    tmp.add(vertex.value)
+                    tmp.add(vertex._val)
                 }
-                println("${pair.key.value}: $tmp,")
+                println("${pair.key._val}: $tmp,")
             }
         }
     }

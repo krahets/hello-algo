@@ -208,7 +208,7 @@ comments: true
         if (root == null) {
             return
         }
-        if (root.value == 7) {
+        if (root._val == 7) {
             // 记录解
             res!!.add(root)
         }
@@ -508,7 +508,7 @@ comments: true
         }
         // 尝试
         path!!.add(root)
-        if (root.value == 7) {
+        if (root._val == 7) {
             // 记录解
             res!!.add(path!!.toMutableList())
         }
@@ -847,12 +847,12 @@ comments: true
     /* 前序遍历：例题三 */
     fun preOrder(root: TreeNode?) {
         // 剪枝
-        if (root == null || root.value == 3) {
+        if (root == null || root._val == 3) {
             return
         }
         // 尝试
         path!!.add(root)
-        if (root.value == 7) {
+        if (root._val == 7) {
             // 记录解
             res!!.add(path!!.toMutableList())
         }
@@ -1791,7 +1791,7 @@ comments: true
     ```kotlin title="preorder_traversal_iii_template.kt"
     /* 判断当前状态是否为解 */
     fun isSolution(state: MutableList<TreeNode?>): Boolean {
-        return state.isNotEmpty() && state[state.size - 1]?.value == 7
+        return state.isNotEmpty() && state[state.size - 1]?._val == 7
     }
 
     /* 记录解 */
@@ -1801,7 +1801,7 @@ comments: true
 
     /* 判断在当前状态下，该选择是否合法 */
     fun isValid(state: MutableList<TreeNode?>?, choice: TreeNode?): Boolean {
-        return choice != null && choice.value != 3
+        return choice != null && choice._val != 3
     }
 
     /* 更新状态 */

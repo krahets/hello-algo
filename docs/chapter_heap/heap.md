@@ -1184,9 +1184,9 @@ comments: true
 
     ```kotlin title="my_heap.kt"
     /* 元素入堆 */
-    fun push(value: Int) {
+    fun push(_val: Int) {
         // 添加节点
-        maxHeap.add(value)
+        maxHeap.add(_val)
         // 从底至顶堆化
         siftUp(size() - 1)
     }
@@ -1736,11 +1736,11 @@ comments: true
         // 交换根节点与最右叶节点（交换首元素与尾元素）
         swap(0, size() - 1)
         // 删除节点
-        val value = maxHeap.removeAt(size() - 1)
+        val _val = maxHeap.removeAt(size() - 1)
         // 从顶至底堆化
         siftDown(0)
         // 返回堆顶元素
-        return value
+        return _val
     }
 
     /* 从节点 i 开始，从顶至底堆化 */

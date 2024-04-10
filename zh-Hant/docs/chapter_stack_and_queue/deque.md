@@ -38,25 +38,25 @@ comments: true
 
     # 初始化雙向佇列
     deque: deque[int] = deque()
-    
+
     # 元素入列
     deque.append(2)      # 新增至佇列尾
     deque.append(5)
     deque.append(4)
     deque.appendleft(3)  # 新增至佇列首
     deque.appendleft(1)
-    
+
     # 訪問元素
     front: int = deque[0]  # 佇列首元素
     rear: int = deque[-1]  # 佇列尾元素
-    
+
     # 元素出列
     pop_front: int = deque.popleft()  # 佇列首元素出列
     pop_rear: int = deque.pop()       # 佇列尾元素出列
-    
+
     # 獲取雙向佇列的長度
     size: int = len(deque)
-    
+
     # 判斷雙向佇列是否為空
     is_empty: bool = len(deque) == 0
     ```
@@ -66,25 +66,25 @@ comments: true
     ```cpp title="deque.cpp"
     /* 初始化雙向佇列 */
     deque<int> deque;
-    
+
     /* 元素入列 */
     deque.push_back(2);   // 新增至佇列尾
     deque.push_back(5);
     deque.push_back(4);
     deque.push_front(3);  // 新增至佇列首
     deque.push_front(1);
-    
+
     /* 訪問元素 */
     int front = deque.front(); // 佇列首元素
     int back = deque.back();   // 佇列尾元素
-    
+
     /* 元素出列 */
     deque.pop_front();  // 佇列首元素出列
     deque.pop_back();   // 佇列尾元素出列
-    
+
     /* 獲取雙向佇列的長度 */
     int size = deque.size();
-    
+
     /* 判斷雙向佇列是否為空 */
     bool empty = deque.empty();
     ```
@@ -94,25 +94,25 @@ comments: true
     ```java title="deque.java"
     /* 初始化雙向佇列 */
     Deque<Integer> deque = new LinkedList<>();
-    
+
     /* 元素入列 */
     deque.offerLast(2);   // 新增至佇列尾
     deque.offerLast(5);
     deque.offerLast(4);
     deque.offerFirst(3);  // 新增至佇列首
     deque.offerFirst(1);
-    
+
     /* 訪問元素 */
     int peekFirst = deque.peekFirst();  // 佇列首元素
     int peekLast = deque.peekLast();    // 佇列尾元素
-    
+
     /* 元素出列 */
     int popFirst = deque.pollFirst();  // 佇列首元素出列
     int popLast = deque.pollLast();    // 佇列尾元素出列
-    
+
     /* 獲取雙向佇列的長度 */
     int size = deque.size();
-    
+
     /* 判斷雙向佇列是否為空 */
     boolean isEmpty = deque.isEmpty();
     ```
@@ -123,25 +123,25 @@ comments: true
     /* 初始化雙向佇列 */
     // 在 C# 中，將鏈結串列 LinkedList 看作雙向佇列來使用
     LinkedList<int> deque = new();
-    
+
     /* 元素入列 */
     deque.AddLast(2);   // 新增至佇列尾
     deque.AddLast(5);
     deque.AddLast(4);
     deque.AddFirst(3);  // 新增至佇列首
     deque.AddFirst(1);
-    
+
     /* 訪問元素 */
     int peekFirst = deque.First.Value;  // 佇列首元素
     int peekLast = deque.Last.Value;    // 佇列尾元素
-    
+
     /* 元素出列 */
     deque.RemoveFirst();  // 佇列首元素出列
     deque.RemoveLast();   // 佇列尾元素出列
-    
+
     /* 獲取雙向佇列的長度 */
     int size = deque.Count;
-    
+
     /* 判斷雙向佇列是否為空 */
     bool isEmpty = deque.Count == 0;
     ```
@@ -152,25 +152,25 @@ comments: true
     /* 初始化雙向佇列 */
     // 在 Go 中，將 list 作為雙向佇列使用
     deque := list.New()
-    
+
     /* 元素入列 */
     deque.PushBack(2)      // 新增至佇列尾
     deque.PushBack(5)
     deque.PushBack(4)
     deque.PushFront(3)     // 新增至佇列首
     deque.PushFront(1)
-    
+
     /* 訪問元素 */
     front := deque.Front() // 佇列首元素
     rear := deque.Back()   // 佇列尾元素
-    
+
     /* 元素出列 */
     deque.Remove(front)    // 佇列首元素出列
     deque.Remove(rear)     // 佇列尾元素出列
-    
+
     /* 獲取雙向佇列的長度 */
     size := deque.Len()
-    
+
     /* 判斷雙向佇列是否為空 */
     isEmpty := deque.Len() == 0
     ```
@@ -339,25 +339,25 @@ comments: true
     ```kotlin title="deque.kt"
     /* 初始化雙向佇列 */
     val deque = LinkedList<Int>()
-    
+
     /* 元素入列 */
     deque.offerLast(2)  // 新增至佇列尾
     deque.offerLast(5)
     deque.offerLast(4)
     deque.offerFirst(3) // 新增至佇列首
     deque.offerFirst(1)
-    
+
     /* 訪問元素 */
     val peekFirst = deque.peekFirst() // 佇列首元素
     val peekLast = deque.peekLast()   // 佇列尾元素
-    
+
     /* 元素出列 */
     val popFirst = deque.pollFirst() // 佇列首元素出列
     val popLast = deque.pollLast()   // 佇列尾元素出列
-    
+
     /* 獲取雙向佇列的長度 */
     val size = deque.size
-    
+
     /* 判斷雙向佇列是否為空 */
     val isEmpty = deque.isEmpty()
     ```
@@ -365,7 +365,32 @@ comments: true
 === "Ruby"
 
     ```ruby title="deque.rb"
+    # 初始化雙向佇列
+    # Ruby 沒有內直的雙端佇列，只能把 Array 當作雙端佇列來使用
+    deque = []
 
+    # 元素如隊
+    deque << 2
+    deque << 5
+    deque << 4
+    # 請注意，由於是陣列，Array#unshift 方法的時間複雜度為 O(n)
+    deque.unshift(3)
+    deque.unshift(1)
+
+    # 訪問元素
+    peek_first = deque.first
+    peek_last = deque.last
+
+    # 元素出列
+    # 請注意，由於是陣列， Array#shift 方法的時間複雜度為 O(n)
+    pop_front = deque.shift
+    pop_back = deque.pop
+
+    # 獲取雙向佇列的長度
+    size = deque.length
+
+    # 判斷雙向佇列是否為空
+    is_empty = size.zero?
     ```
 
 === "Zig"
@@ -376,8 +401,8 @@ comments: true
 
 ??? pythontutor "視覺化執行"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20deq.append%282%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E5%B0%BE%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E9%A6%96%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%20rear%20%3D%22,%20rear%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_front%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_rear%20%3D%22,%20pop_rear%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20deq.append%282%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E5%B0%BE%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E9%A6%96%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%20rear%20%3D%22,%20rear%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_front%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_rear%20%3D%22,%20pop_rear%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E5%88%97%0A%20%20%20%20deq.append%282%29%20%20%23%20%E6%96%B0%E5%A2%9E%E8%87%B3%E4%BD%87%E5%88%97%E5%B0%BE%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%E6%96%B0%E5%A2%9E%E8%87%B3%E4%BD%87%E5%88%97%E9%A6%96%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E4%BD%87%E5%88%97%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22%2C%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E4%BD%87%E5%88%97%E5%B0%BE%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E5%B0%BE%E5%85%83%E7%B4%A0%20rear%20%3D%22%2C%20rear%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E5%88%97%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%E4%BD%87%E5%88%97%E9%A6%96%E5%85%83%E7%B4%A0%E5%87%BA%E5%88%97%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E9%A6%96%E5%87%BA%E5%88%97%E5%85%83%E7%B4%A0%20%20pop_front%20%3D%22%2C%20pop_front%29%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E9%A6%96%E5%87%BA%E5%88%97%E5%BE%8C%20deque%20%3D%22%2C%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%E4%BD%87%E5%88%97%E5%B0%BE%E5%85%83%E7%B4%A0%E5%87%BA%E5%88%97%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E5%B0%BE%E5%87%BA%E5%88%97%E5%85%83%E7%B4%A0%20%20pop_rear%20%3D%22%2C%20pop_rear%29%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E5%B0%BE%E5%87%BA%E5%88%97%E5%BE%8C%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20%E7%8D%B2%E5%8F%96%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E7%9A%84%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E9%95%B7%E5%BA%A6%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E5%88%97%0A%20%20%20%20deq.append%282%29%20%20%23%20%E6%96%B0%E5%A2%9E%E8%87%B3%E4%BD%87%E5%88%97%E5%B0%BE%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%E6%96%B0%E5%A2%9E%E8%87%B3%E4%BD%87%E5%88%97%E9%A6%96%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E4%BD%87%E5%88%97%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22%2C%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E4%BD%87%E5%88%97%E5%B0%BE%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E5%B0%BE%E5%85%83%E7%B4%A0%20rear%20%3D%22%2C%20rear%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E5%88%97%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%E4%BD%87%E5%88%97%E9%A6%96%E5%85%83%E7%B4%A0%E5%87%BA%E5%88%97%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E9%A6%96%E5%87%BA%E5%88%97%E5%85%83%E7%B4%A0%20%20pop_front%20%3D%22%2C%20pop_front%29%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E9%A6%96%E5%87%BA%E5%88%97%E5%BE%8C%20deque%20%3D%22%2C%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%E4%BD%87%E5%88%97%E5%B0%BE%E5%85%83%E7%B4%A0%E5%87%BA%E5%88%97%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E5%B0%BE%E5%87%BA%E5%88%97%E5%85%83%E7%B4%A0%20%20pop_rear%20%3D%22%2C%20pop_rear%29%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E5%B0%BE%E5%87%BA%E5%88%97%E5%BE%8C%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20%E7%8D%B2%E5%8F%96%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E7%9A%84%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E9%95%B7%E5%BA%A6%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22%2C%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
 ## 5.3.2 &nbsp; 雙向佇列實現 *
 
@@ -1826,8 +1851,8 @@ comments: true
             if (fNext) {
                 fNext->prev = NULL;
                 deque->front->next = NULL;
-                delDoublyListNode(deque->front);
             }
+            delDoublyListNode(deque->front);
             deque->front = fNext; // 更新頭節點
         }
         // 佇列尾出列操作
@@ -1837,8 +1862,8 @@ comments: true
             if (rPrev) {
                 rPrev->next = NULL;
                 deque->rear->prev = NULL;
-                delDoublyListNode(deque->rear);
             }
+            delDoublyListNode(deque->rear);
             deque->rear = rPrev; // 更新尾節點
         }
         deque->queSize--; // 更新佇列長度
@@ -1874,7 +1899,7 @@ comments: true
 
     ```kotlin title="linkedlist_deque.kt"
     /* 雙向鏈結串列節點 */
-    class ListNode(var value: Int) {
+    class ListNode(var _val: Int) {
         // 節點值
         var next: ListNode? = null // 後繼節點引用
         var prev: ListNode? = null // 前驅節點引用
@@ -1882,9 +1907,9 @@ comments: true
 
     /* 基於雙向鏈結串列實現的雙向佇列 */
     class LinkedListDeque {
-        private var front: ListNode? = null // 頭節點 front ，尾節點 rear
-        private var rear: ListNode? = null
-        private var queSize = 0 // 雙向佇列的長度
+        private var front: ListNode? = null // 頭節點 front
+        private var rear: ListNode? = null // 尾節點 rear
+        private var queSize: Int = 0 // 雙向佇列的長度
 
         /* 獲取雙向佇列的長度 */
         fun size(): Int {
@@ -1931,12 +1956,12 @@ comments: true
 
         /* 出列操作 */
         fun pop(isFront: Boolean): Int {
-            if (isEmpty()) throw IndexOutOfBoundsException()
-
-            val value: Int
+            if (isEmpty()) 
+                throw IndexOutOfBoundsException()
+            val _val: Int
             // 佇列首出列操作
             if (isFront) {
-                value = front!!.value // 暫存頭節點值
+                _val = front!!._val // 暫存頭節點值
                 // 刪除頭節點
                 val fNext = front!!.next
                 if (fNext != null) {
@@ -1946,7 +1971,7 @@ comments: true
                 front = fNext // 更新頭節點
                 // 佇列尾出列操作
             } else {
-                value = rear!!.value // 暫存尾節點值
+                _val = rear!!._val // 暫存尾節點值
                 // 刪除尾節點
                 val rPrev = rear!!.prev
                 if (rPrev != null) {
@@ -1956,7 +1981,7 @@ comments: true
                 rear = rPrev // 更新尾節點
             }
             queSize-- // 更新佇列長度
-            return value
+            return _val
         }
 
         /* 佇列首出列 */
@@ -1971,17 +1996,14 @@ comments: true
 
         /* 訪問佇列首元素 */
         fun peekFirst(): Int {
-            if (isEmpty()) {
-                throw IndexOutOfBoundsException()
-
-            }
-            return front!!.value
+            if (isEmpty()) throw IndexOutOfBoundsException()
+            return front!!._val
         }
 
         /* 訪問佇列尾元素 */
         fun peekLast(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
-            return rear!!.value
+            return rear!!._val
         }
 
         /* 返回陣列用於列印 */
@@ -1989,7 +2011,7 @@ comments: true
             var node = front
             val res = IntArray(size())
             for (i in res.indices) {
-                res[i] = node!!.value
+                res[i] = node!!._val
                 node = node.next
             }
             return res
@@ -2000,9 +2022,138 @@ comments: true
 === "Ruby"
 
     ```ruby title="linkedlist_deque.rb"
-    [class]{ListNode}-[func]{}
+    =begin
+    File: linkedlist_deque.rb
+    Created Time: 2024-04-06
+    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
+    =end
 
-    [class]{LinkedListDeque}-[func]{}
+    ### 雙向鏈結串列節點
+    class ListNode
+      attr_accessor :val
+      attr_accessor :next # 後繼節點引用
+      attr_accessor :prev # 前軀節點引用
+
+      ### 建構子 ###
+      def initialize(val)
+        @val = val
+      end
+    end
+
+    ### 基於雙向鏈結串列實現的雙向佇列 ###
+    class LinkedListDeque
+      ### 獲取雙向佇列的長度 ###
+      attr_reader :size
+
+      ### 建構子 ###
+      def initialize
+        @front = nil  # 頭節點 front
+        @rear = nil   # 尾節點 rear
+        @size = 0     # 雙向佇列的長度
+      end
+
+      ### 判斷雙向佇列是否為空 ###
+      def is_empty?
+        size.zero?
+      end
+
+      ### 入列操作 ###
+      def push(num, is_front)
+        node = ListNode.new(num)
+        # 若鏈結串列為空， 則令 front 和 rear 都指向 node
+        if is_empty?
+          @front = @rear = node
+        # 佇列首入列操作
+        elsif is_front
+          # 將 node 新增至鏈結串列頭部
+          @front.prev = node
+          node.next = @front
+          @front = node # 更新頭節點
+        # 佇列尾入列操作
+        else
+          # 將 node 新增至鏈結串列尾部
+          @rear.next = node
+          node.prev = @rear
+          @rear = node # 更新尾節點
+        end
+        @size += 1 # 更新佇列長度
+      end
+
+      ### 佇列首入列 ###
+      def push_first(num)
+        push(num, true)
+      end
+
+      ### 佇列尾入列 ###
+      def push_last(num)
+        push(num, false)
+      end
+
+      ### 出列操作 ###
+      def pop(is_front)
+        raise IndexError, '雙向佇列為空' if is_empty?
+
+        # 佇列首出列操作
+        if is_front
+          val = @front.val # 暫存頭節點值
+          # 刪除頭節點
+          fnext = @front.next
+          unless fnext.nil?
+            fnext.prev = nil
+            @front.next = nil
+          end
+          @front = fnext # 更新頭節點
+        # 佇列尾出列操作
+        else
+          val = @rear.val # 暫存尾節點值
+          # 刪除尾節點
+          rprev = @rear.prev
+          unless rprev.nil?
+            rprev.next = nil
+            @rear.prev = nil
+          end
+          @rear = rprev # 更新尾節點
+        end
+        @size -= 1 # 更新佇列長度
+
+        val
+      end
+
+      ### 佇列首出列 ###
+      def pop_first
+        pop(true)
+      end
+
+      ### 佇列首出列 ###
+      def pop_last
+        pop(false)
+      end
+
+      ### 訪問佇列首元素 ###
+      def peek_first
+        raise IndexError, '雙向佇列為空' if is_empty?
+
+        @front.val
+      end
+
+      ### 訪問佇列尾元素 ###
+      def peek_last
+        raise IndexError, '雙向佇列為空' if is_empty?
+
+        @rear.val
+      end
+
+      ### 返回陣列用於列印 ###
+      def to_array
+        node = @front
+        res = Array.new(size, 0)
+        for i in 0...size
+          res[i] = node.val
+          node = node.next
+        end
+        res
+      end
+    end
     ```
 
 === "Zig"
@@ -3385,11 +3536,11 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="array_deque.kt"
-    /* 基於環形陣列實現的雙向佇列 */
+    /* 建構子 */
     class ArrayDeque(capacity: Int) {
-        private var nums = IntArray(capacity) // 用於儲存雙向佇列元素的陣列
-        private var front = 0 // 佇列首指標，指向佇列首元素
-        private var queSize = 0 // 雙向佇列長度
+        private var nums: IntArray = IntArray(capacity) // 用於儲存雙向佇列元素的陣列
+        private var front: Int = 0 // 佇列首指標，指向佇列首元素
+        private var queSize: Int = 0 // 雙向佇列長度
 
         /* 獲取雙向佇列的容量 */
         fun capacity(): Int {
@@ -3450,7 +3601,7 @@ comments: true
             return num
         }
 
-        /* 訪問佇列尾元素 */
+        /* 佇列尾出列 */
         fun popLast(): Int {
             val num = peekLast()
             queSize--
@@ -3490,7 +3641,109 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_deque.rb"
-    [class]{ArrayDeque}-[func]{}
+    ### 基於環形陣列實現的雙向佇列 ###
+    class ArrayDeque
+      ### 獲取雙向佇列的長度 ###
+      attr_reader :size
+
+      ### 建構子 ###
+      def initialize(capacity)
+        @nums = Array.new(capacity, 0)
+        @front = 0
+        @size = 0
+      end
+
+      ### 獲取雙向佇列的容量 ###
+      def capacity
+        @nums.length
+      end
+
+      ### 判斷雙向佇列是否為空 ###
+      def is_empty?
+        size.zero?
+      end
+
+      ### 佇列首入列 ###
+      def push_first(num)
+        if size == capacity
+          puts '雙向佇列已滿'
+          return
+        end
+
+        # 佇列首指標向左移動一位
+        # 透過取餘操作實現 front 越過陣列頭部後回到尾部
+        @front = index(@front - 1)
+        # 將 num 新增至佇列首
+        @nums[@front] = num
+        @size += 1
+      end
+
+      ### 佇列尾入列 ###
+      def push_last(num)
+        if size == capacity
+          puts '雙向佇列已滿'
+          return
+        end
+
+        # 計算佇列尾指標，指向佇列尾索引 + 1
+        rear = index(@front + size)
+        # 將 num 新增至佇列尾
+        @nums[rear] = num
+        @size += 1
+      end
+
+      ### 佇列首出列 ###
+      def pop_first
+        num = peek_first
+        # 佇列首指標向後移動一位
+        @front = index(@front + 1)
+        @size -= 1
+        num
+      end
+
+      ### 佇列尾出列 ###
+      def pop_last
+        num = peek_last
+        @size -= 1
+        num
+      end
+
+      ### 訪問佇列首元素 ###
+      def peek_first
+        raise IndexError, '雙向佇列為空' if is_empty?
+
+        @nums[@front]
+      end
+
+      ### 訪問佇列尾元素 ###
+      def peek_last
+        raise IndexError, '雙向佇列為空' if is_empty?
+
+        # 計算尾元素索引
+        last = index(@front + size - 1)
+        @nums[last]
+      end
+
+      ### 返回陣列用於列印 ###
+      def to_array
+        # 僅轉換有效長度範圍內的串列元素
+        res = []
+        for i in 0...size
+          res << @nums[index(@front + i)]
+        end
+        res
+      end
+
+      private
+
+      ### 計算環形陣列索引 ###
+      def index(i)
+        # 透過取餘操作實現陣列首尾相連
+        # 當 i 越過陣列尾部後，回到頭部
+        # 當 i 越過陣列頭部後，回到尾部
+        (i + capacity) % capacity
+      end
+    end
     ```
 
 === "Zig"

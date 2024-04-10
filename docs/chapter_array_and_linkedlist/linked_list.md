@@ -1253,7 +1253,7 @@ comments: true
         var index = 0
         var h = head
         while (h != null) {
-            if (h.value == target)
+            if (h._val == target)
                 return index
             h = h.next
             index++

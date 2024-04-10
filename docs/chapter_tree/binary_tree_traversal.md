@@ -305,7 +305,7 @@ comments: true
         val list = mutableListOf<Int>()
         while (queue.isNotEmpty()) {
             val node = queue.poll()      // 队列出队
-            list.add(node?.value!!)      // 保存节点值
+            list.add(node?._val!!)      // 保存节点值
             if (node.left != null)
                 queue.offer(node.left)   // 左子节点入队
             if (node.right != null)
@@ -764,7 +764,7 @@ comments: true
     fun preOrder(root: TreeNode?) {
         if (root == null) return
         // 访问优先级：根节点 -> 左子树 -> 右子树
-        list.add(root.value)
+        list.add(root._val)
         preOrder(root.left)
         preOrder(root.right)
     }
@@ -774,7 +774,7 @@ comments: true
         if (root == null) return
         // 访问优先级：左子树 -> 根节点 -> 右子树
         inOrder(root.left)
-        list.add(root.value)
+        list.add(root._val)
         inOrder(root.right)
     }
 
@@ -784,7 +784,7 @@ comments: true
         // 访问优先级：左子树 -> 右子树 -> 根节点
         postOrder(root.left)
         postOrder(root.right)
-        list.add(root.value)
+        list.add(root._val)
     }
     ```
 

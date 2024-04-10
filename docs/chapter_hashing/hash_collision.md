@@ -1347,14 +1347,14 @@ comments: true
             val bucket = buckets[index]
             // 遍历桶，若找到 key ，则返回对应 val
             for (pair in bucket) {
-                if (pair.key == key) return pair.value
+                if (pair.key == key) return pair._val
             }
             // 若未找到 key ，则返回 null
             return null
         }
 
         /* 添加操作 */
-        fun put(key: Int, value: String) {
+        fun put(key: Int, _val: String) {
             // 当负载因子超过阈值时，执行扩容
             if (loadFactor() > loadThres) {
                 extend()
@@ -1364,12 +1364,12 @@ comments: true
             // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
             for (pair in bucket) {
                 if (pair.key == key) {
-                    pair.value = value
+                    pair._val = _val
                     return
                 }
             }
             // 若无该 key ，则将键值对添加至尾部
-            val pair = Pair(key, value)
+            val pair = Pair(key, _val)
             bucket.add(pair)
             size++
         }
@@ -1403,7 +1403,7 @@ comments: true
             // 将键值对从原哈希表搬运至新哈希表
             for (bucket in bucketsTmp) {
                 for (pair in bucket) {
-                    put(pair.key, pair.value)
+                    put(pair.key, pair._val)
                 }
             }
         }
@@ -1414,7 +1414,7 @@ comments: true
                 val res = mutableListOf<String>()
                 for (pair in bucket) {
                     val k = pair.key
-                    val v = pair.value
+                    val v = pair._val
                     res.add("$k -> $v")
                 }
                 println(res)
@@ -3017,14 +3017,14 @@ comments: true
             val index = findBucket(key)
             // 若找到键值对，则返回对应 val
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
-                return buckets[index]?.value
+                return buckets[index]?._val
             }
             // 若键值对不存在，则返回 null
             return null
         }
 
         /* 添加操作 */
-        fun put(key: Int, value: String) {
+        fun put(key: Int, _val: String) {
             // 当负载因子超过阈值时，执行扩容
             if (loadFactor() > loadThres) {
                 extend()
@@ -3033,11 +3033,11 @@ comments: true
             val index = findBucket(key)
             // 若找到键值对，则覆盖 val 并返回
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
-                buckets[index]!!.value = value
+                buckets[index]!!._val = _val
                 return
             }
             // 若键值对不存在，则添加该键值对
-            buckets[index] = Pair(key, value)
+            buckets[index] = Pair(key, _val)
             size++
         }
 
@@ -3063,7 +3063,7 @@ comments: true
             // 将键值对从原哈希表搬运至新哈希表
             for (pair in bucketsTmp) {
                 if (pair != null && pair != TOMBSTONE) {
-                    put(pair.key, pair.value)
+                    put(pair.key, pair._val)
                 }
             }
         }
@@ -3076,7 +3076,7 @@ comments: true
                 } else if (pair == TOMBSTONE) {
                     println("TOMESTOME")
                 } else {
-                    println("${pair.key} -> ${pair.value}")
+                    println("${pair.key} -> ${pair._val}")
                 }
             }
         }

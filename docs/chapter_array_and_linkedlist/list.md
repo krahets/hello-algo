@@ -2309,7 +2309,7 @@ comments: true
         # 元素数量超出容量时，触发扩容机制
         extend_capacity if size == capacity
         @arr[size] = num
-        
+
         # 更新元素数量
         @size += 1
       end
@@ -2323,7 +2323,7 @@ comments: true
 
         # 将索引 index 以及之后的元素都向后移动一位
         for j in (size - 1).downto(index)
-          @arr[j + 1] = @arr[j] 
+          @arr[j + 1] = @arr[j]
         end
         @arr[index] = num
 

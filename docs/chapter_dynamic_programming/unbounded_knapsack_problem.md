@@ -327,7 +327,7 @@ $$
 
     ```kotlin title="unbounded_knapsack.kt"
     /* 完全背包：动态规划 */
-    fun unboundedKnapsackDP(wgt: IntArray, value: IntArray, cap: Int): Int {
+    fun unboundedKnapsackDP(wgt: IntArray, _val: IntArray, cap: Int): Int {
         val n = wgt.size
         // 初始化 dp 表
         val dp = Array(n + 1) { IntArray(cap + 1) }
@@ -339,7 +339,7 @@ $$
                     dp[i][c] = dp[i - 1][c]
                 } else {
                     // 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + value[i - 1])
+                    dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + _val[i - 1])
                 }
             }
         }
@@ -684,7 +684,7 @@ $$
     /* 完全背包：空间优化后的动态规划 */
     fun unboundedKnapsackDPComp(
         wgt: IntArray,
-        value: IntArray,
+        _val: IntArray,
         cap: Int
     ): Int {
         val n = wgt.size
@@ -698,7 +698,7 @@ $$
                     dp[c] = dp[c]
                 } else {
                     // 不选和选物品 i 这两种方案的较大值
-                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + value[i - 1])
+                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + _val[i - 1])
                 }
             }
         }

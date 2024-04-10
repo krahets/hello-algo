@@ -301,7 +301,7 @@ $$
     /* 0-1 背包：暴力搜索 */
     fun knapsackDFS(
         wgt: IntArray,
-        value: IntArray,
+        _val: IntArray,
         i: Int,
         c: Int
     ): Int {
@@ -311,11 +311,11 @@ $$
         }
         // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
-            return knapsackDFS(wgt, value, i - 1, c)
+            return knapsackDFS(wgt, _val, i - 1, c)
         }
         // 计算不放入和放入物品 i 的最大价值
-        val no = knapsackDFS(wgt, value, i - 1, c)
-        val yes = knapsackDFS(wgt, value, i - 1, c - wgt[i - 1]) + value[i - 1]
+        val no = knapsackDFS(wgt, _val, i - 1, c)
+        val yes = knapsackDFS(wgt, _val, i - 1, c - wgt[i - 1]) + _val[i - 1]
         // 返回两种方案中价值更大的那一个
         return max(no, yes)
     }
@@ -671,7 +671,7 @@ $$
     /* 0-1 背包：记忆化搜索 */
     fun knapsackDFSMem(
         wgt: IntArray,
-        value: IntArray,
+        _val: IntArray,
         mem: Array<IntArray>,
         i: Int,
         c: Int
@@ -686,11 +686,11 @@ $$
         }
         // 若超过背包容量，则只能选择不放入背包
         if (wgt[i - 1] > c) {
-            return knapsackDFSMem(wgt, value, mem, i - 1, c)
+            return knapsackDFSMem(wgt, _val, mem, i - 1, c)
         }
         // 计算不放入和放入物品 i 的最大价值
-        val no = knapsackDFSMem(wgt, value, mem, i - 1, c)
-        val yes = knapsackDFSMem(wgt, value, mem, i - 1, c - wgt[i - 1]) + value[i - 1]
+        val no = knapsackDFSMem(wgt, _val, mem, i - 1, c)
+        val yes = knapsackDFSMem(wgt, _val, mem, i - 1, c - wgt[i - 1]) + _val[i - 1]
         // 记录并返回两种方案中价值更大的那一个
         mem[i][c] = max(no, yes)
         return mem[i][c]
@@ -1038,7 +1038,7 @@ $$
     /* 0-1 背包：动态规划 */
     fun knapsackDP(
         wgt: IntArray,
-        value: IntArray,
+        _val: IntArray,
         cap: Int
     ): Int {
         val n = wgt.size
@@ -1052,7 +1052,7 @@ $$
                     dp[i][c] = dp[i - 1][c]
                 } else {
                     // 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + value[i - 1])
+                    dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + _val[i - 1])
                 }
             }
         }
@@ -1431,7 +1431,7 @@ $$
     /* 0-1 背包：空间优化后的动态规划 */
     fun knapsackDPComp(
         wgt: IntArray,
-        value: IntArray,
+        _val: IntArray,
         cap: Int
     ): Int {
         val n = wgt.size
@@ -1444,7 +1444,7 @@ $$
                 if (wgt[i - 1] <= c) {
                     // 不选和选物品 i 这两种方案的较大值
                     dp[c] =
-                        max(dp[c], dp[c - wgt[i - 1]] + value[i - 1])
+                        max(dp[c], dp[c - wgt[i - 1]] + _val[i - 1])
                 }
             }
         }

@@ -2012,20 +2012,20 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
 
     ```kotlin title="avl_tree.kt"
     /* 插入节点 */
-    fun insert(value: Int) {
-        root = insertHelper(root, value)
+    fun insert(_val: Int) {
+        root = insertHelper(root, _val)
     }
 
     /* 递归插入节点（辅助方法） */
-    fun insertHelper(n: TreeNode?, value: Int): TreeNode {
+    fun insertHelper(n: TreeNode?, _val: Int): TreeNode {
         if (n == null)
-            return TreeNode(value)
+            return TreeNode(_val)
         var node = n
         /* 1. 查找插入位置并插入节点 */
-        if (value < node.value)
-            node.left = insertHelper(node.left, value)
-        else if (value > node.value)
-            node.right = insertHelper(node.right, value)
+        if (_val < node._val)
+            node.left = insertHelper(node.left, _val)
+        else if (_val > node._val)
+            node.right = insertHelper(node.right, _val)
         else
             return node // 重复节点不插入，直接返回
         updateHeight(node) // 更新节点高度
@@ -2595,18 +2595,18 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
 
     ```kotlin title="avl_tree.kt"
     /* 删除节点 */
-    fun remove(value: Int) {
-        root = removeHelper(root, value)
+    fun remove(_val: Int) {
+        root = removeHelper(root, _val)
     }
 
     /* 递归删除节点（辅助方法） */
-    fun removeHelper(n: TreeNode?, value: Int): TreeNode? {
+    fun removeHelper(n: TreeNode?, _val: Int): TreeNode? {
         var node = n ?: return null
         /* 1. 查找节点并删除 */
-        if (value < node.value)
-            node.left = removeHelper(node.left, value)
-        else if (value > node.value)
-            node.right = removeHelper(node.right, value)
+        if (_val < node._val)
+            node.left = removeHelper(node.left, _val)
+        else if (_val > node._val)
+            node.right = removeHelper(node.right, _val)
         else {
             if (node.left == null || node.right == null) {
                 val child = if (node.left != null)
@@ -2625,8 +2625,8 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
                 while (temp!!.left != null) {
                     temp = temp.left
                 }
-                node.right = removeHelper(node.right, temp.value)
-                node.value = temp.value
+                node.right = removeHelper(node.right, temp._val)
+                node._val = temp._val
             }
         }
         updateHeight(node) // 更新节点高度
