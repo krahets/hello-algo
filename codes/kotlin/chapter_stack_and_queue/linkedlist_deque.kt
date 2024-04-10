@@ -64,7 +64,7 @@ class LinkedListDeque {
 
     /* 出队操作 */
     fun pop(isFront: Boolean): Int {
-        if (isEmpty()) 
+        if (isEmpty())
             throw IndexOutOfBoundsException()
         val _val: Int
         // 队首出队操作
@@ -72,8 +72,8 @@ class LinkedListDeque {
             _val = front!!._val // 暂存头节点值
             // 删除头节点
             val fNext = front!!.next
-            if (fNext != null) {
-                fNext.prev = null
+            fNext?.let {
+                it.next = null
                 front!!.next = null
             }
             front = fNext // 更新头节点
@@ -82,8 +82,8 @@ class LinkedListDeque {
             _val = rear!!._val // 暂存尾节点值
             // 删除尾节点
             val rPrev = rear!!.prev
-            if (rPrev != null) {
-                rPrev.next = null
+            rPrev?.let {
+                it.next = null
                 rear!!.prev = null
             }
             rear = rPrev // 更新尾节点

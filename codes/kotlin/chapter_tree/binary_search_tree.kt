@@ -71,8 +71,7 @@ class BinarySearchTree {
     /* 删除节点 */
     fun remove(num: Int) {
         // 若树为空，直接提前返回
-        if (root == null)
-            return
+        root ?: return
         var cur = root
         var pre: TreeNode? = null
         // 循环查找，越过叶节点后跳出
@@ -89,8 +88,7 @@ class BinarySearchTree {
                 cur.left
         }
         // 若无待删除节点，则直接返回
-        if (cur == null)
-            return
+        cur ?: return
         // 子节点数量 = 0 or 1
         if (cur.left == null || cur.right == null) {
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
@@ -112,13 +110,13 @@ class BinarySearchTree {
         } else {
             // 获取中序遍历中 cur 的下一个节点
             var tmp = cur.right
-            while (tmp!!.left != null) {
-                tmp = tmp.left
+            tmp?.left?.let {
+                tmp = tmp!!.left
+                // 递归删除节点 tmp
+                remove(tmp!!._val)
+                // 用 tmp 覆盖 cur
+                cur._val = tmp!!._val
             }
-            // 递归删除节点 tmp
-            remove(tmp._val)
-            // 用 tmp 覆盖 cur
-            cur._val = tmp._val
         }
     }
 }

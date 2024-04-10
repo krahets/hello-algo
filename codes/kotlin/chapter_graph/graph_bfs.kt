@@ -21,7 +21,7 @@ fun graphBFS(graph: GraphAdjList, startVet: Vertex): MutableList<Vertex?> {
     val que = LinkedList<Vertex>()
     que.offer(startVet)
     // 以顶点 vet 为起点，循环直至访问完所有顶点
-    while (!que.isEmpty()) {
+    while (que.isNotEmpty()) {
         val vet = que.poll() // 队首顶点出队
         res.add(vet)         // 记录访问顶点
         // 遍历该顶点的所有邻接顶点

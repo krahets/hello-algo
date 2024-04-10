@@ -97,8 +97,7 @@ fun knapsackDPComp(
         for (c in cap downTo 1) {
             if (wgt[i - 1] <= c) {
                 // 不选和选物品 i 这两种方案的较大值
-                dp[c] =
-                    max(dp[c], dp[c - wgt[i - 1]] + _val[i - 1])
+                dp[c] = max(dp[c], dp[c - wgt[i - 1]] + _val[i - 1])
             }
         }
     }

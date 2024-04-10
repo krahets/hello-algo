@@ -19,11 +19,9 @@ fun levelOrder(root: TreeNode?): MutableList<Int> {
     val list = mutableListOf<Int>()
     while (queue.isNotEmpty()) {
         val node = queue.poll()      // 队列出队
-        list.add(node?._val!!)      // 保存节点值
-        if (node.left != null)
-            queue.offer(node.left)   // 左子节点入队
-        if (node.right != null)
-            queue.offer(node.right)  // 右子节点入队
+        list.add(node?._val!!)       // 保存节点值
+        node.left?.let { queue.offer(node.left) }   // 左子节点入队
+        node.right?.let { queue.offer(node.right) } // 右子节点入队
     }
     return list
 }

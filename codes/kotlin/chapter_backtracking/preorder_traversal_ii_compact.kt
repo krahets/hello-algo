@@ -14,9 +14,7 @@ var res: MutableList<MutableList<TreeNode>>? = null
 
 /* 前序遍历：例题二 */
 fun preOrder(root: TreeNode?) {
-    if (root == null) {
-        return
-    }
+    root ?: return
     // 尝试
     path!!.add(root)
     if (root._val == 7) {

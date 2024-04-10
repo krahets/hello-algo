@@ -31,9 +31,7 @@ fun minCostClimbingStairsDPComp(cost: IntArray): Int {
     var a = cost[1]
     var b = cost[2]
     for (i in 3..n) {
-        val tmp = b
-        b = min(a, tmp) + cost[i]
-        a = tmp
+        a = b.also { b = min(a, b) + cost[i] }
     }
     return b
 }

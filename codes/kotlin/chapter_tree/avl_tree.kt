@@ -29,7 +29,7 @@ class AVLTree {
     /* 获取平衡因子 */
     fun balanceFactor(node: TreeNode?): Int {
         // 空节点平衡因子为 0
-        if (node == null) return 0
+        node ?: return 0
         // 节点平衡因子 = 左子树高度 - 右子树高度
         return height(node.left) - height(node.right)
     }
@@ -99,8 +99,7 @@ class AVLTree {
 
     /* 递归插入节点（辅助方法） */
     private fun insertHelper(n: TreeNode?, _val: Int): TreeNode {
-        if (n == null)
-            return TreeNode(_val)
+        n ?: return TreeNode(_val)
         var node = n
         /* 1. 查找插入位置并插入节点 */
         if (_val < node._val)
@@ -144,11 +143,11 @@ class AVLTree {
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
                 var temp = node.right
-                while (temp!!.left != null) {
-                    temp = temp.left
+                temp?.left?.let {
+                    temp = temp!!.left
+                    node.right = removeHelper(node.right, temp!!._val)
+                    node._val = temp!!._val
                 }
-                node.right = removeHelper(node.right, temp._val)
-                node._val = temp._val
             }
         }
         updateHeight(node) // 更新节点高度

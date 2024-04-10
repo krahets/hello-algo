@@ -14,7 +14,7 @@ var list = mutableListOf<Int>()
 
 /* 前序遍历 */
 fun preOrder(root: TreeNode?) {
-    if (root == null) return
+    root ?: return
     // 访问优先级：根节点 -> 左子树 -> 右子树
     list.add(root._val)
     preOrder(root.left)
@@ -23,7 +23,7 @@ fun preOrder(root: TreeNode?) {
 
 /* 中序遍历 */
 fun inOrder(root: TreeNode?) {
-    if (root == null) return
+    root ?: return
     // 访问优先级：左子树 -> 根节点 -> 右子树
     inOrder(root.left)
     list.add(root._val)
@@ -32,7 +32,7 @@ fun inOrder(root: TreeNode?) {
 
 /* 后序遍历 */
 fun postOrder(root: TreeNode?) {
-    if (root == null) return
+    root ?: return
     // 访问优先级：左子树 -> 右子树 -> 根节点
     postOrder(root.left)
     postOrder(root.right)

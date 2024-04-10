@@ -44,8 +44,7 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
         val res = mutableListOf<Int?>()
         // 直接遍历数组
         for (i in 0..<size()) {
-            if (_val(i) != null)
-                res.add(_val(i))
+            _val(i)?.let { res.add(it) }
         }
         return res
     }
@@ -53,8 +52,7 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     /* 深度优先遍历 */
     fun dfs(i: Int, order: String, res: MutableList<Int?>) {
         // 若为空位，则返回
-        if (_val(i) == null)
-            return
+        _val(i) ?: return
         // 前序遍历
         if ("pre" == order)
             res.add(_val(i))

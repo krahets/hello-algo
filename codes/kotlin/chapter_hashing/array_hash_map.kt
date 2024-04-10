@@ -48,8 +48,7 @@ class ArrayHashMap {
     fun pairSet(): MutableList<Pair> {
         val pairSet = mutableListOf<Pair>()
         for (pair in buckets) {
-            if (pair != null)
-                pairSet.add(pair)
+            pair?.let { pairSet.add(it) }
         }
         return pairSet
     }
@@ -58,8 +57,7 @@ class ArrayHashMap {
     fun keySet(): MutableList<Int> {
         val keySet = mutableListOf<Int>()
         for (pair in buckets) {
-            if (pair != null)
-                keySet.add(pair.key)
+            pair?.let { keySet.add(it.key) }
         }
         return keySet
     }

@@ -13,9 +13,7 @@ var res: MutableList<TreeNode>? = null
 
 /* 前序遍历：例题一 */
 fun preOrder(root: TreeNode?) {
-    if (root == null) {
-        return
-    }
+    root ?: return
     if (root._val == 7) {
         // 记录解
         res!!.add(root)

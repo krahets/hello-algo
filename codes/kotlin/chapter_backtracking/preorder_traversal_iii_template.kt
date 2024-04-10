@@ -73,9 +73,7 @@ fun main() {
     for (path in res) {
         val vals = mutableListOf<Int>()
         for (node in path!!) {
-            if (node != null) {
-                vals.add(node._val)
-            }
+            node?._val?.let { vals.add(it) }
         }
         println(vals)
     }

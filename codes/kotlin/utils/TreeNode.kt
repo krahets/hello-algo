@@ -50,7 +50,7 @@ class TreeNode(
 
         /* 将二叉树序列化为列表：递归 */
         private fun treeToListDFS(root: TreeNode?, i: Int, res: MutableList<Int?>) {
-            if (root == null) return
+            root ?: return
             while (i >= res.size) {
                 res.add(null)
             }

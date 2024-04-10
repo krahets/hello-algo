@@ -12,7 +12,8 @@ fun twoSumBruteForce(nums: IntArray, target: Int): IntArray {
     // 两层循环，时间复杂度为 O(n^2)
     for (i in 0..<size - 1) {
         for (j in i + 1..<size) {
-            if (nums[i] + nums[j] == target) return intArrayOf(i, j)
+            if (nums[i] + nums[j] == target)
+                return intArrayOf(i, j)
         }
     }
     return IntArray(0)

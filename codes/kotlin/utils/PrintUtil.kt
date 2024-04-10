@@ -50,9 +50,7 @@ fun printTree(root: TreeNode?) {
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 fun printTree(root: TreeNode?, prev: Trunk?, isRight: Boolean) {
-    if (root == null) {
-        return
-    }
+    root ?: return
 
     var prevStr = "    "
     val trunk = Trunk(prev, prevStr)
@@ -72,18 +70,14 @@ fun printTree(root: TreeNode?, prev: Trunk?, isRight: Boolean) {
     showTrunks(trunk)
     println(" ${root._val}")
 
-    if (prev != null) {
-        prev.str = prevStr
-    }
+    prev?.let { it.str = prevStr }
     trunk.str = "   |"
 
     printTree(root.left, trunk, false)
 }
 
 fun showTrunks(p: Trunk?) {
-    if (p == null) {
-        return
-    }
+    p ?: return
     showTrunks(p.prev)
     print(p.str)
 }
