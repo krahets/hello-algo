@@ -60,9 +60,9 @@ fun linearRecur(n: Int) {
 /* 平方階 */
 fun quadratic(n: Int) {
     // 矩陣佔用 O(n^2) 空間
-    val numMatrix: Array<Array<Int>?> = arrayOfNulls(n)
+    val numMatrix = arrayOfNulls<Array<Int>?>(n)
     // 二維串列佔用 O(n^2) 空間
-    val numList: MutableList<MutableList<Int>> = arrayListOf()
+    val numList = mutableListOf<MutableList<Int>>()
     for (i in 0..<n) {
         val tmp = mutableListOf<Int>()
         for (j in 0..<n) {
@@ -104,6 +104,6 @@ fun main() {
     quadratic(n)
     quadraticRecur(n)
     // 指數階
-    val root: TreeNode? = buildTree(n)
+    val root = buildTree(n)
     printTree(root)
 }

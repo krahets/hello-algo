@@ -166,13 +166,14 @@
 === "Ruby"
 
     ```ruby title=""
-
+    # Ruby 的串列可以自由儲存各種基本資料型別和物件引用
+    data = [0, 0.0, 'a', false, ListNode(0)]
     ```
 
 === "Zig"
 
     ```zig title=""
-    
+
     ```
 
 ??? pythontutor "視覺化執行"

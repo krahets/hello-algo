@@ -10,19 +10,19 @@ import utils.TreeNode
 import utils.printTree
 
 var path: MutableList<TreeNode>? = null
-var res: MutableList<List<TreeNode>>? = null
+var res: MutableList<MutableList<TreeNode>>? = null
 
 /* 前序走訪：例題三 */
 fun preOrder(root: TreeNode?) {
     // 剪枝
-    if (root == null || root.value == 3) {
+    if (root == null || root._val == 3) {
         return
     }
     // 嘗試
     path!!.add(root)
-    if (root.value == 7) {
+    if (root._val == 7) {
         // 記錄解
-        res!!.add(ArrayList(path!!))
+        res!!.add(path!!.toMutableList())
     }
     preOrder(root.left)
     preOrder(root.right)
@@ -37,16 +37,16 @@ fun main() {
     printTree(root)
 
     // 前序走訪
-    path = ArrayList()
-    res = ArrayList()
+    path = mutableListOf()
+    res = mutableListOf()
     preOrder(root)
 
     println("\n輸出所有根節點到節點 7 的路徑，路徑中不包含值為 3 的節點")
-    for (path in res as ArrayList<List<TreeNode>>) {
-        val values: MutableList<Int> = ArrayList()
+    for (path in res!!) {
+        val _vals = mutableListOf<Int>()
         for (node in path) {
-            values.add(node.value)
+            _vals.add(node._val)
         }
-        println(values)
+        println(_vals)
     }
 }

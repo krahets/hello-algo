@@ -14,7 +14,7 @@ fun countingSortNaive(nums: IntArray) {
     // 1. 統計陣列最大元素 m
     var m = 0
     for (num in nums) {
-        m = max(m.toDouble(), num.toDouble()).toInt()
+        m = max(m, num)
     }
     // 2. 統計各數字的出現次數
     // counter[num] 代表 num 的出現次數
@@ -40,7 +40,7 @@ fun countingSort(nums: IntArray) {
     // 1. 統計陣列最大元素 m
     var m = 0
     for (num in nums) {
-        m = max(m.toDouble(), num.toDouble()).toInt()
+        m = max(m, num)
     }
     // 2. 統計各數字的出現次數
     // counter[num] 代表 num 的出現次數

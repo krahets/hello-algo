@@ -20,7 +20,7 @@ class HashMapChaining() {
         capacity = 4
         loadThres = 2.0 / 3.0
         extendRatio = 2
-        buckets = ArrayList(capacity)
+        buckets = mutableListOf()
         for (i in 0..<capacity) {
             buckets.add(mutableListOf())
         }
@@ -42,14 +42,14 @@ class HashMapChaining() {
         val bucket = buckets[index]
         // 走訪桶，若找到 key ，則返回對應 val
         for (pair in bucket) {
-            if (pair.key == key) return pair.value
+            if (pair.key == key) return pair._val
         }
         // 若未找到 key ，則返回 null
         return null
     }
 
     /* 新增操作 */
-    fun put(key: Int, value: String) {
+    fun put(key: Int, _val: String) {
         // 當負載因子超過閾值時，執行擴容
         if (loadFactor() > loadThres) {
             extend()
@@ -59,12 +59,12 @@ class HashMapChaining() {
         // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
         for (pair in bucket) {
             if (pair.key == key) {
-                pair.value = value
+                pair._val = _val
                 return
             }
         }
         // 若無該 key ，則將鍵值對新增至尾部
-        val pair = Pair(key, value)
+        val pair = Pair(key, _val)
         bucket.add(pair)
         size++
     }
@@ -98,7 +98,7 @@ class HashMapChaining() {
         // 將鍵值對從原雜湊表搬運至新雜湊表
         for (bucket in bucketsTmp) {
             for (pair in bucket) {
-                put(pair.key, pair.value)
+                put(pair.key, pair._val)
             }
         }
     }
@@ -109,7 +109,7 @@ class HashMapChaining() {
             val res = mutableListOf<String>()
             for (pair in bucket) {
                 val k = pair.key
-                val v = pair.value
+                val v = pair._val
                 res.add("$k -> $v")
             }
             println(res)

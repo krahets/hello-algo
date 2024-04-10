@@ -29,23 +29,23 @@
     # 在 Python 中，我們一般將雙向佇列類別 deque 當作佇列使用
     # 雖然 queue.Queue() 是純正的佇列類別，但不太好用，因此不推薦
     que: deque[int] = deque()
-    
+
     # 元素入列
     que.append(1)
     que.append(3)
     que.append(2)
     que.append(5)
     que.append(4)
-    
+
     # 訪問佇列首元素
     front: int = que[0]
-    
+
     # 元素出列
     pop: int = que.popleft()
-    
+
     # 獲取佇列的長度
     size: int = len(que)
-    
+
     # 判斷佇列是否為空
     is_empty: bool = len(que) == 0
     ```
@@ -55,23 +55,23 @@
     ```cpp title="queue.cpp"
     /* 初始化佇列 */
     queue<int> queue;
-    
+
     /* 元素入列 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    
+
     /* 訪問佇列首元素 */
     int front = queue.front();
-    
+
     /* 元素出列 */
     queue.pop();
-    
+
     /* 獲取佇列的長度 */
     int size = queue.size();
-    
+
     /* 判斷佇列是否為空 */
     bool empty = queue.empty();
     ```
@@ -81,23 +81,23 @@
     ```java title="queue.java"
     /* 初始化佇列 */
     Queue<Integer> queue = new LinkedList<>();
-    
+
     /* 元素入列 */
     queue.offer(1);
     queue.offer(3);
     queue.offer(2);
     queue.offer(5);
     queue.offer(4);
-    
+
     /* 訪問佇列首元素 */
     int peek = queue.peek();
-    
+
     /* 元素出列 */
     int pop = queue.poll();
-    
+
     /* 獲取佇列的長度 */
     int size = queue.size();
-    
+
     /* 判斷佇列是否為空 */
     boolean isEmpty = queue.isEmpty();
     ```
@@ -107,23 +107,23 @@
     ```csharp title="queue.cs"
     /* 初始化佇列 */
     Queue<int> queue = new();
-    
+
     /* 元素入列 */
     queue.Enqueue(1);
     queue.Enqueue(3);
     queue.Enqueue(2);
     queue.Enqueue(5);
     queue.Enqueue(4);
-    
+
     /* 訪問佇列首元素 */
     int peek = queue.Peek();
-    
+
     /* 元素出列 */
     int pop = queue.Dequeue();
-    
+
     /* 獲取佇列的長度 */
     int size = queue.Count;
-    
+
     /* 判斷佇列是否為空 */
     bool isEmpty = queue.Count == 0;
     ```
@@ -134,24 +134,24 @@
     /* 初始化佇列 */
     // 在 Go 中，將 list 作為佇列來使用
     queue := list.New()
-    
+
     /* 元素入列 */
     queue.PushBack(1)
     queue.PushBack(3)
     queue.PushBack(2)
     queue.PushBack(5)
     queue.PushBack(4)
-    
+
     /* 訪問佇列首元素 */
     peek := queue.Front()
-    
+
     /* 元素出列 */
     pop := queue.Front()
     queue.Remove(pop)
-    
+
     /* 獲取佇列的長度 */
     size := queue.Len()
-    
+
     /* 判斷佇列是否為空 */
     isEmpty := queue.Len() == 0
     ```
@@ -162,24 +162,24 @@
     /* 初始化佇列 */
     // Swift 沒有內建的佇列類別，可以把 Array 當作佇列來使用
     var queue: [Int] = []
-    
+
     /* 元素入列 */
     queue.append(1)
     queue.append(3)
     queue.append(2)
     queue.append(5)
     queue.append(4)
-    
+
     /* 訪問佇列首元素 */
     let peek = queue.first!
-    
+
     /* 元素出列 */
     // 由於是陣列，因此 removeFirst 的複雜度為 O(n)
     let pool = queue.removeFirst()
-    
+
     /* 獲取佇列的長度 */
     let size = queue.count
-    
+
     /* 判斷佇列是否為空 */
     let isEmpty = queue.isEmpty
     ```
@@ -190,24 +190,24 @@
     /* 初始化佇列 */
     // JavaScript 沒有內建的佇列，可以把 Array 當作佇列來使用
     const queue = [];
-    
+
     /* 元素入列 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    
+
     /* 訪問佇列首元素 */
     const peek = queue[0];
-    
+
     /* 元素出列 */
     // 底層是陣列，因此 shift() 方法的時間複雜度為 O(n)
     const pop = queue.shift();
-    
+
     /* 獲取佇列的長度 */
     const size = queue.length;
-    
+
     /* 判斷佇列是否為空 */
     const empty = queue.length === 0;
     ```
@@ -216,26 +216,26 @@
 
     ```typescript title="queue.ts"
     /* 初始化佇列 */
-    // TypeScript 沒有內建的佇列，可以把 Array 當作佇列來使用 
+    // TypeScript 沒有內建的佇列，可以把 Array 當作佇列來使用
     const queue: number[] = [];
-    
+
     /* 元素入列 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    
+
     /* 訪問佇列首元素 */
     const peek = queue[0];
-    
+
     /* 元素出列 */
     // 底層是陣列，因此 shift() 方法的時間複雜度為 O(n)
     const pop = queue.shift();
-    
+
     /* 獲取佇列的長度 */
     const size = queue.length;
-    
+
     /* 判斷佇列是否為空 */
     const empty = queue.length === 0;
     ```
@@ -307,23 +307,23 @@
     ```kotlin title="queue.kt"
     /* 初始化佇列 */
     val queue = LinkedList<Int>()
-    
+
     /* 元素入列 */
     queue.offer(1)
     queue.offer(3)
     queue.offer(2)
     queue.offer(5)
     queue.offer(4)
-    
+
     /* 訪問佇列首元素 */
     val peek = queue.peek()
-    
+
     /* 元素出列 */
     val pop = queue.poll()
-    
+
     /* 獲取佇列的長度 */
     val size = queue.size
-    
+
     /* 判斷佇列是否為空 */
     val isEmpty = queue.isEmpty()
     ```
@@ -331,7 +331,29 @@
 === "Ruby"
 
     ```ruby title="queue.rb"
+    # 初始化佇列
+    # Ruby 內建的佇列（Thread::Queue) 沒有 peek 和走訪方法，可以把 Array 當作佇列來使用
+    queue = []
 
+    # 元素入列
+    queue.push(1)
+    queue.push(3)
+    queue.push(2)
+    queue.push(5)
+    queue.push(4)
+
+    # 訪問佇列元素
+    peek = queue.first
+
+    # 元素出列
+    # 清注意，由於是陣列，Array#shift 方法時間複雜度為 O(n)
+    pop = queue.shift
+
+    # 獲取佇列的長度
+    size = queue.length
+
+    # 判斷佇列是否為空
+    is_empty = queue.empty?
     ```
 
 === "Zig"

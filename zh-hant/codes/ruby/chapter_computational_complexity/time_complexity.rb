@@ -128,37 +128,38 @@ def factorial_recur(n)
 end
 
 ### Driver Code ###
+if __FILE__ == $0
+  # 可以修改 n 執行，體會一下各種複雜度的操作數量變化趨勢
+  n = 8
+  puts "輸入資料大小 n = #{n}"
 
-# 可以修改 n 執行，體會一下各種複雜度的操作數量變化趨勢
-n = 8
-puts "輸入資料大小 n = #{n}"
+  count = constant(n)
+  puts "常數階的操作數量 = #{count}"
 
-count = constant(n)
-puts "常數階的操作數量 = #{count}"
+  count = linear(n)
+  puts "線性階的操作數量 = #{count}"
+  count = array_traversal(Array.new(n, 0))
+  puts "線性階（走訪陣列）的操作數量 = #{count}"
 
-count = linear(n)
-puts "線性階的操作數量 = #{count}"
-count = array_traversal(Array.new(n, 0))
-puts "線性階（走訪陣列）的操作數量 = #{count}"
+  count = quadratic(n)
+  puts "平方階的操作數量 = #{count}"
+  nums = Array.new(n) { |i| n - i } # [n, n-1, ..., 2, 1]
+  count = bubble_sort(nums)
+  puts "平方階（泡沫排序）的操作數量 = #{count}"
 
-count = quadratic(n)
-puts "平方階的操作數量 = #{count}"
-nums = Array.new(n) { |i| n - i } # [n, n-1, ..., 2, 1]
-count = bubble_sort(nums)
-puts "平方階（泡沫排序）的操作數量 = #{count}"
+  count = exponential(n)
+  puts "指數階（迴圈實現）的操作數量 = #{count}"
+  count = exp_recur(n)
+  puts "指數階（遞迴實現）的操作數量 = #{count}"
 
-count = exponential(n)
-puts "指數階（迴圈實現）的操作數量 = #{count}"
-count = exp_recur(n)
-puts "指數階（遞迴實現）的操作數量 = #{count}"
+  count = logarithmic(n)
+  puts "對數階（迴圈實現）的操作數量 = #{count}"
+  count = log_recur(n)
+  puts "對數階（遞迴實現）的操作數量 = #{count}"
 
-count = logarithmic(n)
-puts "對數階（迴圈實現）的操作數量 = #{count}"
-count = log_recur(n)
-puts "對數階（遞迴實現）的操作數量 = #{count}"
+  count = linear_log_recur(n)
+  puts "線性對數階（遞迴實現）的操作數量 = #{count}"
 
-count = linear_log_recur(n)
-puts "線性對數階（遞迴實現）的操作數量 = #{count}"
-
-count = factorial_recur(n)
-puts "階乘階（遞迴實現）的操作數量 = #{count}"
+  count = factorial_recur(n)
+  puts "階乘階（遞迴實現）的操作數量 = #{count}"
+end

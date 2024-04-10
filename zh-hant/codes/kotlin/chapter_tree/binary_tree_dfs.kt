@@ -10,13 +10,13 @@ import utils.TreeNode
 import utils.printTree
 
 // 初始化串列，用於儲存走訪序列
-var list = ArrayList<Int>()
+var list = mutableListOf<Int>()
 
 /* 前序走訪 */
 fun preOrder(root: TreeNode?) {
     if (root == null) return
     // 訪問優先順序：根節點 -> 左子樹 -> 右子樹
-    list.add(root.value)
+    list.add(root._val)
     preOrder(root.left)
     preOrder(root.right)
 }
@@ -26,7 +26,7 @@ fun inOrder(root: TreeNode?) {
     if (root == null) return
     // 訪問優先順序：左子樹 -> 根節點 -> 右子樹
     inOrder(root.left)
-    list.add(root.value)
+    list.add(root._val)
     inOrder(root.right)
 }
 
@@ -36,7 +36,7 @@ fun postOrder(root: TreeNode?) {
     // 訪問優先順序：左子樹 -> 右子樹 -> 根節點
     postOrder(root.left)
     postOrder(root.right)
-    list.add(root.value)
+    list.add(root._val)
 }
 
 /* Driver Code */

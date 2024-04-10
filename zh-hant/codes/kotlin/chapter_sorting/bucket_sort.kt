@@ -6,15 +6,13 @@
 
 package chapter_sorting
 
-import kotlin.collections.ArrayList
-
 /* 桶排序 */
 fun bucketSort(nums: FloatArray) {
     // 初始化 k = n/2 個桶，預期向每個桶分配 2 個元素
     val k = nums.size / 2
-    val buckets = ArrayList<ArrayList<Float>>()
+    val buckets = mutableListOf<MutableList<Float>>()
     for (i in 0..<k) {
-        buckets.add(ArrayList())
+        buckets.add(mutableListOf())
     }
     // 1. 將陣列元素分配到各個桶中
     for (num in nums) {

@@ -41,7 +41,7 @@ class LinkedListStack(
     /* 訪問堆疊頂元素 */
     fun peek(): Int? {
         if (isEmpty()) throw IndexOutOfBoundsException()
-        return stackPeek?.value
+        return stackPeek?._val
     }
 
     /* 將 List 轉化為 Array 並返回 */
@@ -49,7 +49,7 @@ class LinkedListStack(
         var node = stackPeek
         val res = IntArray(size())
         for (i in res.size - 1 downTo 0) {
-            res[i] = node?.value!!
+            res[i] = node?._val!!
             node = node.next
         }
         return res

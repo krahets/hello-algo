@@ -24,11 +24,12 @@ def find_one(nums)
 end
 
 ### Driver Code ###
-
-for i in 0...10
-  n = 100
-  nums = random_numbers(n)
-  index = find_one(nums)
-  puts "\n陣列 [ 1, 2, ..., n ] 被打亂後 = #{nums}"
-  puts "數字 1 的索引為 #{index}"
+if __FILE__ == $0
+  for i in 0...10
+    n = 100
+    nums = random_numbers(n)
+    index = find_one(nums)
+    puts "\n陣列 [ 1, 2, ..., n ] 被打亂後 = #{nums}"
+    puts "數字 1 的索引為 #{index}"
+  end
 end

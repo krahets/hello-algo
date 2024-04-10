@@ -10,13 +10,14 @@ import utils.printHeap
 import java.util.*
 
 /* 大頂堆積 */
-class MaxHeap(nums: List<Int>?) {
+class MaxHeap(nums: MutableList<Int>?) {
     // 使用串列而非陣列，這樣無須考慮擴容問題
-    // 將串列元素原封不動新增進堆積
-    private val maxHeap = ArrayList(nums!!)
+    private val maxHeap = mutableListOf<Int>()
 
     /* 建構子，根據輸入串列建堆積 */
     init {
+        // 將串列元素原封不動新增進堆積
+        maxHeap.addAll(nums!!)
         // 堆積化除葉節點以外的其他所有節點
         for (i in parent(size() - 1) downTo 0) {
             siftDown(i)
@@ -60,9 +61,9 @@ class MaxHeap(nums: List<Int>?) {
     }
 
     /* 元素入堆積 */
-    fun push(value: Int) {
+    fun push(_val: Int) {
         // 新增節點
-        maxHeap.add(value)
+        maxHeap.add(_val)
         // 從底至頂堆積化
         siftUp(size() - 1)
     }
@@ -90,11 +91,11 @@ class MaxHeap(nums: List<Int>?) {
         // 交換根節點與最右葉節點（交換首元素與尾元素）
         swap(0, size() - 1)
         // 刪除節點
-        val value = maxHeap.removeAt(size() - 1)
+        val _val = maxHeap.removeAt(size() - 1)
         // 從頂至底堆積化
         siftDown(0)
         // 返回堆積頂元素
-        return value
+        return _val
     }
 
     /* 從節點 i 開始，從頂至底堆積化 */
@@ -137,9 +138,9 @@ fun main() {
     print("\n堆積頂元素為 $peek\n")
 
     /* 元素入堆積 */
-    val value = 7
-    maxHeap.push(value)
-    print("\n元素 $value 入堆積後\n")
+    val _val = 7
+    maxHeap.push(_val)
+    print("\n元素 $_val 入堆積後\n")
     maxHeap.print()
 
     /* 堆積頂元素出堆積 */

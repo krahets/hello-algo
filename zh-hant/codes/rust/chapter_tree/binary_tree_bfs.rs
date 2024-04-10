@@ -14,7 +14,7 @@ use tree_node::{vec_to_tree, TreeNode};
 fn level_order(root: &Rc<RefCell<TreeNode>>) -> Vec<i32> {
     // 初始化佇列，加入根節點
     let mut que = VecDeque::new();
-    que.push_back(Rc::clone(&root));
+    que.push_back(root.clone());
     // 初始化一個串列，用於儲存走訪序列
     let mut vec = Vec::new();
 
@@ -22,10 +22,10 @@ fn level_order(root: &Rc<RefCell<TreeNode>>) -> Vec<i32> {
         // 隊列出隊
         vec.push(node.borrow().val); // 儲存節點值
         if let Some(left) = node.borrow().left.as_ref() {
-            que.push_back(Rc::clone(left)); // 左子節點入列
+            que.push_back(left.clone()); // 左子節點入列
         }
         if let Some(right) = node.borrow().right.as_ref() {
-            que.push_back(Rc::clone(right)); // 右子節點入列
+            que.push_back(right.clone()); // 右子節點入列
         };
     }
     vec

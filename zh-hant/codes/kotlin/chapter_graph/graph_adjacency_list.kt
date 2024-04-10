@@ -11,7 +11,7 @@ import utils.Vertex
 /* 基於鄰接表實現的無向圖類別 */
 class GraphAdjList(edges: Array<Array<Vertex?>>) {
     // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
-    val adjList: MutableMap<Vertex, MutableList<Vertex>> = HashMap()
+    val adjList = HashMap<Vertex, MutableList<Vertex>>()
 
     /* 建構子 */
     init {
@@ -70,11 +70,11 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
     fun print() {
         println("鄰接表 =")
         for (pair in adjList.entries) {
-            val tmp = ArrayList<Int>()
+            val tmp = mutableListOf<Int>()
             for (vertex in pair.value) {
-                tmp.add(vertex.value)
+                tmp.add(vertex._val)
             }
-            println("${pair.key.value}: $tmp,")
+            println("${pair.key._val}: $tmp,")
         }
     }
 }
@@ -82,7 +82,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
 /* Driver Code */
 fun main() {
     /* 初始化無向圖 */
-    val v: Array<Vertex?> = Vertex.valsToVets(intArrayOf(1, 3, 2, 5, 4))
+    val v = Vertex.valsToVets(intArrayOf(1, 3, 2, 5, 4))
     val edges = arrayOf(
         arrayOf(v[0], v[1]),
         arrayOf(v[0], v[3]),

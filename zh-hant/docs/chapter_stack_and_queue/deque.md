@@ -28,25 +28,25 @@
 
     # 初始化雙向佇列
     deque: deque[int] = deque()
-    
+
     # 元素入列
     deque.append(2)      # 新增至佇列尾
     deque.append(5)
     deque.append(4)
     deque.appendleft(3)  # 新增至佇列首
     deque.appendleft(1)
-    
+
     # 訪問元素
     front: int = deque[0]  # 佇列首元素
     rear: int = deque[-1]  # 佇列尾元素
-    
+
     # 元素出列
     pop_front: int = deque.popleft()  # 佇列首元素出列
     pop_rear: int = deque.pop()       # 佇列尾元素出列
-    
+
     # 獲取雙向佇列的長度
     size: int = len(deque)
-    
+
     # 判斷雙向佇列是否為空
     is_empty: bool = len(deque) == 0
     ```
@@ -56,25 +56,25 @@
     ```cpp title="deque.cpp"
     /* 初始化雙向佇列 */
     deque<int> deque;
-    
+
     /* 元素入列 */
     deque.push_back(2);   // 新增至佇列尾
     deque.push_back(5);
     deque.push_back(4);
     deque.push_front(3);  // 新增至佇列首
     deque.push_front(1);
-    
+
     /* 訪問元素 */
     int front = deque.front(); // 佇列首元素
     int back = deque.back();   // 佇列尾元素
-    
+
     /* 元素出列 */
     deque.pop_front();  // 佇列首元素出列
     deque.pop_back();   // 佇列尾元素出列
-    
+
     /* 獲取雙向佇列的長度 */
     int size = deque.size();
-    
+
     /* 判斷雙向佇列是否為空 */
     bool empty = deque.empty();
     ```
@@ -84,25 +84,25 @@
     ```java title="deque.java"
     /* 初始化雙向佇列 */
     Deque<Integer> deque = new LinkedList<>();
-    
+
     /* 元素入列 */
     deque.offerLast(2);   // 新增至佇列尾
     deque.offerLast(5);
     deque.offerLast(4);
     deque.offerFirst(3);  // 新增至佇列首
     deque.offerFirst(1);
-    
+
     /* 訪問元素 */
     int peekFirst = deque.peekFirst();  // 佇列首元素
     int peekLast = deque.peekLast();    // 佇列尾元素
-    
+
     /* 元素出列 */
     int popFirst = deque.pollFirst();  // 佇列首元素出列
     int popLast = deque.pollLast();    // 佇列尾元素出列
-    
+
     /* 獲取雙向佇列的長度 */
     int size = deque.size();
-    
+
     /* 判斷雙向佇列是否為空 */
     boolean isEmpty = deque.isEmpty();
     ```
@@ -113,25 +113,25 @@
     /* 初始化雙向佇列 */
     // 在 C# 中，將鏈結串列 LinkedList 看作雙向佇列來使用
     LinkedList<int> deque = new();
-    
+
     /* 元素入列 */
     deque.AddLast(2);   // 新增至佇列尾
     deque.AddLast(5);
     deque.AddLast(4);
     deque.AddFirst(3);  // 新增至佇列首
     deque.AddFirst(1);
-    
+
     /* 訪問元素 */
     int peekFirst = deque.First.Value;  // 佇列首元素
     int peekLast = deque.Last.Value;    // 佇列尾元素
-    
+
     /* 元素出列 */
     deque.RemoveFirst();  // 佇列首元素出列
     deque.RemoveLast();   // 佇列尾元素出列
-    
+
     /* 獲取雙向佇列的長度 */
     int size = deque.Count;
-    
+
     /* 判斷雙向佇列是否為空 */
     bool isEmpty = deque.Count == 0;
     ```
@@ -142,25 +142,25 @@
     /* 初始化雙向佇列 */
     // 在 Go 中，將 list 作為雙向佇列使用
     deque := list.New()
-    
+
     /* 元素入列 */
     deque.PushBack(2)      // 新增至佇列尾
     deque.PushBack(5)
     deque.PushBack(4)
     deque.PushFront(3)     // 新增至佇列首
     deque.PushFront(1)
-    
+
     /* 訪問元素 */
     front := deque.Front() // 佇列首元素
     rear := deque.Back()   // 佇列尾元素
-    
+
     /* 元素出列 */
     deque.Remove(front)    // 佇列首元素出列
     deque.Remove(rear)     // 佇列尾元素出列
-    
+
     /* 獲取雙向佇列的長度 */
     size := deque.Len()
-    
+
     /* 判斷雙向佇列是否為空 */
     isEmpty := deque.Len() == 0
     ```
@@ -329,25 +329,25 @@
     ```kotlin title="deque.kt"
     /* 初始化雙向佇列 */
     val deque = LinkedList<Int>()
-    
+
     /* 元素入列 */
     deque.offerLast(2)  // 新增至佇列尾
     deque.offerLast(5)
     deque.offerLast(4)
     deque.offerFirst(3) // 新增至佇列首
     deque.offerFirst(1)
-    
+
     /* 訪問元素 */
     val peekFirst = deque.peekFirst() // 佇列首元素
     val peekLast = deque.peekLast()   // 佇列尾元素
-    
+
     /* 元素出列 */
     val popFirst = deque.pollFirst() // 佇列首元素出列
     val popLast = deque.pollLast()   // 佇列尾元素出列
-    
+
     /* 獲取雙向佇列的長度 */
     val size = deque.size
-    
+
     /* 判斷雙向佇列是否為空 */
     val isEmpty = deque.isEmpty()
     ```
@@ -355,7 +355,32 @@
 === "Ruby"
 
     ```ruby title="deque.rb"
+    # 初始化雙向佇列
+    # Ruby 沒有內直的雙端佇列，只能把 Array 當作雙端佇列來使用
+    deque = []
 
+    # 元素如隊
+    deque << 2
+    deque << 5
+    deque << 4
+    # 請注意，由於是陣列，Array#unshift 方法的時間複雜度為 O(n)
+    deque.unshift(3)
+    deque.unshift(1)
+
+    # 訪問元素
+    peek_first = deque.first
+    peek_last = deque.last
+
+    # 元素出列
+    # 請注意，由於是陣列， Array#shift 方法的時間複雜度為 O(n)
+    pop_front = deque.shift
+    pop_back = deque.pop
+
+    # 獲取雙向佇列的長度
+    size = deque.length
+
+    # 判斷雙向佇列是否為空
+    is_empty = size.zero?
     ```
 
 === "Zig"

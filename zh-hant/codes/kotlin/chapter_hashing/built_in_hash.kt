@@ -11,15 +11,15 @@ import utils.ListNode
 /* Driver Code */
 fun main() {
     val num = 3
-    val hashNum = Integer.hashCode(num)
+    val hashNum = num.hashCode()
     println("整數 $num 的雜湊值為 $hashNum")
 
     val bol = true
-    val hashBol = Boolean.hashCode()
+    val hashBol = bol.hashCode()
     println("布林量 $bol 的雜湊值為 $hashBol")
 
     val dec = 3.14159
-    val hashDec = java.lang.Double.hashCode(dec)
+    val hashDec = dec.hashCode()
     println("小數 $dec 的雜湊值為 $hashDec")
 
     val str = "Hello 演算法"

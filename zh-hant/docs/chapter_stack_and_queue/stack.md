@@ -26,25 +26,25 @@
 
     ```python title="stack.py"
     # 初始化堆疊
-    # Python 沒有內建的堆疊類別，可以把 list 當作堆疊來使用 
+    # Python 沒有內建的堆疊類別，可以把 list 當作堆疊來使用
     stack: list[int] = []
-    
+
     # 元素入堆疊
     stack.append(1)
     stack.append(3)
     stack.append(2)
     stack.append(5)
     stack.append(4)
-    
+
     # 訪問堆疊頂元素
     peek: int = stack[-1]
-    
+
     # 元素出堆疊
     pop: int = stack.pop()
-    
+
     # 獲取堆疊的長度
     size: int = len(stack)
-    
+
     # 判斷是否為空
     is_empty: bool = len(stack) == 0
     ```
@@ -54,23 +54,23 @@
     ```cpp title="stack.cpp"
     /* 初始化堆疊 */
     stack<int> stack;
-    
+
     /* 元素入堆疊 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    
+
     /* 訪問堆疊頂元素 */
     int top = stack.top();
-    
+
     /* 元素出堆疊 */
     stack.pop(); // 無返回值
-    
+
     /* 獲取堆疊的長度 */
     int size = stack.size();
-    
+
     /* 判斷是否為空 */
     bool empty = stack.empty();
     ```
@@ -106,23 +106,23 @@
     ```csharp title="stack.cs"
     /* 初始化堆疊 */
     Stack<int> stack = new();
-    
+
     /* 元素入堆疊 */
     stack.Push(1);
     stack.Push(3);
     stack.Push(2);
     stack.Push(5);
     stack.Push(4);
-    
+
     /* 訪問堆疊頂元素 */
     int peek = stack.Peek();
-    
+
     /* 元素出堆疊 */
     int pop = stack.Pop();
-    
+
     /* 獲取堆疊的長度 */
     int size = stack.Count;
-    
+
     /* 判斷是否為空 */
     bool isEmpty = stack.Count == 0;
     ```
@@ -133,24 +133,24 @@
     /* 初始化堆疊 */
     // 在 Go 中，推薦將 Slice 當作堆疊來使用
     var stack []int
-    
+
     /* 元素入堆疊 */
     stack = append(stack, 1)
     stack = append(stack, 3)
     stack = append(stack, 2)
     stack = append(stack, 5)
     stack = append(stack, 4)
-    
+
     /* 訪問堆疊頂元素 */
     peek := stack[len(stack)-1]
-    
+
     /* 元素出堆疊 */
     pop := stack[len(stack)-1]
     stack = stack[:len(stack)-1]
-    
+
     /* 獲取堆疊的長度 */
     size := len(stack)
-    
+
     /* 判斷是否為空 */
     isEmpty := len(stack) == 0
     ```
@@ -161,23 +161,23 @@
     /* 初始化堆疊 */
     // Swift 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
     var stack: [Int] = []
-    
+
     /* 元素入堆疊 */
     stack.append(1)
     stack.append(3)
     stack.append(2)
     stack.append(5)
     stack.append(4)
-    
+
     /* 訪問堆疊頂元素 */
     let peek = stack.last!
-    
+
     /* 元素出堆疊 */
     let pop = stack.removeLast()
-    
+
     /* 獲取堆疊的長度 */
     let size = stack.count
-    
+
     /* 判斷是否為空 */
     let isEmpty = stack.isEmpty
     ```
@@ -186,25 +186,25 @@
 
     ```javascript title="stack.js"
     /* 初始化堆疊 */
-    // JavaScript 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用 
+    // JavaScript 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
     const stack = [];
-    
+
     /* 元素入堆疊 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    
+
     /* 訪問堆疊頂元素 */
     const peek = stack[stack.length-1];
-    
+
     /* 元素出堆疊 */
     const pop = stack.pop();
-    
+
     /* 獲取堆疊的長度 */
     const size = stack.length;
-    
+
     /* 判斷是否為空 */
     const is_empty = stack.length === 0;
     ```
@@ -213,25 +213,25 @@
 
     ```typescript title="stack.ts"
     /* 初始化堆疊 */
-    // TypeScript 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用 
+    // TypeScript 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
     const stack: number[] = [];
-    
+
     /* 元素入堆疊 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    
+
     /* 訪問堆疊頂元素 */
     const peek = stack[stack.length - 1];
-    
+
     /* 元素出堆疊 */
     const pop = stack.pop();
-    
+
     /* 獲取堆疊的長度 */
     const size = stack.length;
-    
+
     /* 判斷是否為空 */
     const is_empty = stack.length === 0;
     ```
@@ -301,23 +301,23 @@
     ```kotlin title="stack.kt"
     /* 初始化堆疊 */
     val stack = Stack<Int>()
-    
+
     /* 元素入堆疊 */
     stack.push(1)
     stack.push(3)
     stack.push(2)
     stack.push(5)
     stack.push(4)
-    
+
     /* 訪問堆疊頂元素 */
     val peek = stack.peek()
-    
+
     /* 元素出堆疊 */
     val pop = stack.pop()
-    
+
     /* 獲取堆疊的長度 */
     val size = stack.size
-    
+
     /* 判斷是否為空 */
     val isEmpty = stack.isEmpty()
     ```
@@ -325,7 +325,28 @@
 === "Ruby"
 
     ```ruby title="stack.rb"
+    # 初始化堆疊
+    # Ruby 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
+    stack = []
 
+    # 元素入堆疊
+    stack << 1
+    stack << 3
+    stack << 2
+    stack << 5
+    stack << 4
+
+    # 訪問堆疊頂元素
+    peek = stack.last
+
+    # 元素出堆疊
+    pop = stack.pop
+
+    # 獲取堆疊的長度
+    size = stack.length
+
+    # 判斷是否為空
+    is_empty = stack.empty?
     ```
 
 === "Zig"

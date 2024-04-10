@@ -6,7 +6,7 @@
 
 package chapter_hashing
 
-const val MODULUS = 10_0000_0007
+const val MODULUS = 1000000007
 
 /* 加法雜湊 */
 fun addHash(key: String): Int {
@@ -48,7 +48,7 @@ fun rotHash(key: String): Int {
 fun main() {
     val key = "Hello 演算法"
 
-    var hash: Int = addHash(key)
+    var hash = addHash(key)
     println("加法雜湊值為 $hash")
 
     hash = mulHash(key)
