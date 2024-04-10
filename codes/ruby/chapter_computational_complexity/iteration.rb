@@ -62,17 +62,18 @@ def nested_for_loop(n)
 end
 
 ### Driver Code ###
+if __FILE__ == $0
+  n = 5
 
-n = 5
+  res = for_loop(n)
+  puts "\nfor 循环的求和结果 res = #{res}"
 
-res = for_loop(n)
-puts "\nfor 循环的求和结果 res = #{res}"
+  res = while_loop(n)
+  puts "\nwhile 循环的求和结果 res = #{res}"
 
-res = while_loop(n)
-puts "\nwhile 循环的求和结果 res = #{res}"
+  res = while_loop_ii(n)
+  puts "\nwhile 循环（两次更新）求和结果 res = #{res}"
 
-res = while_loop_ii(n)
-puts "\nwhile 循环（两次更新）求和结果 res = #{res}"
-
-res = nested_for_loop(n)
-puts "\n双层 for 循环的遍历结果 #{res}"
+  res = nested_for_loop(n)
+  puts "\n双层 for 循环的遍历结果 #{res}"
+end

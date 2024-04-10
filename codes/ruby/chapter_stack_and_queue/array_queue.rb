@@ -69,38 +69,39 @@ class ArrayQueue
 end
 
 ### Driver Code ###
+if __FILE__ == $0
+  # 初始化队列
+  queue = ArrayQueue.new(10)
 
-# 初始化队列
-queue = ArrayQueue.new(10)
+  # 元素入队
+  queue.push(1)
+  queue.push(3)
+  queue.push(2)
+  queue.push(5)
+  queue.push(4)
+  puts "队列 queue = #{queue.to_array}"
 
-# 元素入队
-queue.push(1)
-queue.push(3)
-queue.push(2)
-queue.push(5)
-queue.push(4)
-puts "队列 queue = #{queue.to_array}"
+  # 访问队首元素
+  peek = queue.peek
+  puts "队首元素 peek = #{peek}"
 
-# 访问队首元素
-peek = queue.peek
-puts "队首元素 peek = #{peek}"
+  # 元素出队
+  pop = queue.pop
+  puts "出队元素 pop = #{pop}"
+  puts "出队后 queue = #{queue.to_array}"
 
-# 元素出队
-pop = queue.pop
-puts "出队元素 pop = #{pop}"
-puts "出队后 queue = #{queue.to_array}"
+  # 获取队列的长度
+  size = queue.size
+  puts "队列长度 size = #{size}"
 
-# 获取队列的长度
-size = queue.size
-puts "队列长度 size = #{size}"
+  # 判断队列是否为空
+  is_empty = queue.is_empty?
+  puts "队列是否为空 = #{is_empty}"
 
-# 判断队列是否为空
-is_empty = queue.is_empty?
-puts "队列是否为空 = #{is_empty}"
-
-# 测试环形数组
-for i in 0...10
-  queue.push(i)
-  queue.pop
-  puts "第 #{i} 轮入队 + 出队后 queue = #{queue.to_array}"
+  # 测试环形数组
+  for i in 0...10
+    queue.push(i)
+    queue.pop
+    puts "第 #{i} 轮入队 + 出队后 queue = #{queue.to_array}"
+  end
 end
