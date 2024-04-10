@@ -4,29 +4,50 @@ Created Time: 2024-04-09
 Author: Blue Bean (lonnnnnnner@gmail.com)
 =end
 
-require_relative './binary_search_insertion'
+### 二分查找插入点（存在重复元素） ###
+def binary_search_insertion(nums, target)
+  # 初始化双闭区间 [0, n-1]
+  i, j = 0, nums.length - 1
+
+  while i <= j
+    # 计算中点索引 m
+    m = (i + j) / 2 
+
+    if nums[m] < target
+      i = m + 1 # target 在区间 [m+1, j] 中
+    elsif nums[m] > target
+      j = m - 1 # target 在区间 [i, m-1] 中
+    else
+      j = m - 1 # 首个小于 target 的元素在区间 [i, m-1] 中
+    end
+  end
+
+  i # 返回插入点 i
+end
 
 ### 二分查找最左一个 target ###
 def binary_search_left_edge(nums, target)
   # 等价于查找 target 的插入点
   i = binary_search_insertion(nums, target)
+
   # 未找到 target ，返回 -1
   return -1 if i == nums.length || nums[i] != target
-  # 找到 target ，返回索引 i
-  i
+
+  i # 找到 target ，返回索引 i
 end
 
 ### 二分查找最右一个 target ###
 def binary_search_right_edge(nums, target)
   # 转化为查找最左一个 target + 1
   i = binary_search_insertion(nums, target + 1)
+
   # j 指向最右一个 target ，i 指向首个大于 target 的元素
   j = i - 1
+
   # 未找到 target ，返回 -1
   return -1 if j == -1 || nums[j] != target
 
-  # 找到 target ，返回索引 j
-  j
+  j # 找到 target ，返回索引 j
 end
 
 ### Driver Code ###

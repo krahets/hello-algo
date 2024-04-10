@@ -8,10 +8,12 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 def binary_search(nums, target)
   # 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
   i, j = 0, nums.length - 1
+
   # 循环，当搜索区间为空时跳出（当 i > j 时为空）
   while i <= j
     # 理论上 Ruby 的数字可以无限大（取决于内存大小），无须考虑大数越界问题
     m = (i + j) / 2   # 计算中点索引 m
+  
     if nums[m] < target
       i = m + 1 # 此情况说明 target 在区间 [m+1, j] 中
     elsif nums[m] > target
@@ -28,9 +30,12 @@ end
 def binary_search_lcro(nums, target)
   # 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
   i, j = 0, nums.length
+
   # 循环，当搜索区间为空时跳出（当 i = j 时为空）
   while i < j
-    m = (i + j) / 2   # 计算中点索引 m
+    # 计算中点索引 m
+    m = (i + j) / 2
+
     if nums[m] < target
       i = m + 1 # 此情况说明 target 在区间 [m+1, j) 中
     elsif nums[m] > target
