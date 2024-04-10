@@ -132,36 +132,37 @@ class LinkedListDeque
 end
 
 ### Driver Code ###
+if __FILE__ == $0
+  # 初始化双向队列
+  deque = LinkedListDeque.new
+  deque.push_last(3)
+  deque.push_last(2)
+  deque.push_last(5)
+  puts "双向队列 deque = #{deque.to_array}"
 
-# 初始化双向队列
-deque = LinkedListDeque.new
-deque.push_last(3)
-deque.push_last(2)
-deque.push_last(5)
-puts "双向队列 deque = #{deque.to_array}"
+  # 访问元素
+  peek_first = deque.peek_first
+  puts "队首元素 peek_first = #{peek_first}"
+  peek_last = deque.peek_last
+  puts "队首元素 peek_last = #{peek_last}"
 
-# 访问元素
-peek_first = deque.peek_first
-puts "队首元素 peek_first = #{peek_first}"
-peek_last = deque.peek_last
-puts "队首元素 peek_last = #{peek_last}"
+  # 元素入队
+  deque.push_last(4)
+  puts "元素 4 队尾入队后 deque = #{deque.to_array}"
+  deque.push_first(1)
+  puts "元素 1 队首入队后 deque = #{deque.to_array}"
 
-# 元素入队
-deque.push_last(4)
-puts "元素 4 队尾入队后 deque = #{deque.to_array}"
-deque.push_first(1)
-puts "元素 1 队首入队后 deque = #{deque.to_array}"
+  # 元素出队
+  pop_last = deque.pop_last
+  puts "队尾出队元素 = #{pop_last}, 队尾出队后 deque = #{deque.to_array}"
+  pop_first = deque.pop_first
+  puts "队首出队元素 = #{pop_first}，队首出队后 deque = #{deque.to_array}"
 
-# 元素出队
-pop_last = deque.pop_last
-puts "队尾出队元素 = #{pop_last}, 队尾出队后 deque = #{deque.to_array}"
-pop_first = deque.pop_first
-puts "队首出队元素 = #{pop_first}，队首出队后 deque = #{deque.to_array}"
+  # 获取双向队列的长度
+  size = deque.size
+  puts "双向队列长度 size = #{size}"
 
-# 获取双向队列的长度
-size = deque.size
-puts "双向队列长度 size = #{size}"
-
-# 判断双向队列是否为空
-is_empty = deque.is_empty?
-puts "双向队列是否为空 = #{is_empty}"
+  # 判断双向队列是否为空
+  is_empty = deque.is_empty?
+  puts "双向队列是否为空 = #{is_empty}"
+end
