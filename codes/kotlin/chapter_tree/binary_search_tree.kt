@@ -110,13 +110,13 @@ class BinarySearchTree {
         } else {
             // 获取中序遍历中 cur 的下一个节点
             var tmp = cur.right
-            tmp?.left?.let {
+            while (tmp!!.left != null) {
                 tmp = tmp!!.left
-                // 递归删除节点 tmp
-                remove(tmp!!._val)
-                // 用 tmp 覆盖 cur
-                cur._val = tmp!!._val
             }
+            // 递归删除节点 tmp
+            remove(tmp!!._val)
+            // 用 tmp 覆盖 cur
+            cur._val = tmp!!._val
         }
     }
 }
