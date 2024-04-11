@@ -66,8 +66,8 @@ fun bubbleSort(nums: IntArray): Int {
 /* 指数阶（循环实现） */
 fun exponential(n: Int): Int {
     var count = 0
-    // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
     var base = 1
+    // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
     for (i in 0..<n) {
         for (j in 0..<base) {
             count++
