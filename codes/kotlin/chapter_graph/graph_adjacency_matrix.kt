@@ -32,10 +32,10 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     }
 
     /* 添加顶点 */
-    fun addVertex(value: Int) {
+    fun addVertex(_val: Int) {
         val n = size()
         // 向顶点列表中添加新顶点的值
-        vertices.add(value)
+        vertices.add(_val)
         // 在邻接矩阵中添加一行
         val newRow = mutableListOf<Int>()
         for (j in 0..<n) {

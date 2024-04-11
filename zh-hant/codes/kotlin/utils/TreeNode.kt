@@ -7,8 +7,9 @@
 package utils
 
 /* 二元樹節點類別 */
+/* 建構子 */
 class TreeNode(
-    var value: Int // 節點值
+    var _val: Int // 節點值
 ) {
     var height: Int = 0 // 節點高度
     var left: TreeNode? = null // 左子節點引用
@@ -53,14 +54,14 @@ class TreeNode(
             while (i >= res.size) {
                 res.add(null)
             }
-            res[i] = root.value
+            res[i] = root._val
             treeToListDFS(root.left, 2 * i + 1, res)
             treeToListDFS(root.right, 2 * i + 2, res)
         }
 
         /* 將二元樹序列化為串列 */
-        fun treeToList(root: TreeNode?): List<Int?> {
-            val res = ArrayList<Int?>()
+        fun treeToList(root: TreeNode?): MutableList<Int?> {
+            val res = mutableListOf<Int?>()
             treeToListDFS(root, 0, res)
             return res
         }

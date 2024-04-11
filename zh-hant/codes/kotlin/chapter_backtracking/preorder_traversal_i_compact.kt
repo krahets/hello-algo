@@ -16,7 +16,7 @@ fun preOrder(root: TreeNode?) {
     if (root == null) {
         return
     }
-    if (root.value == 7) {
+    if (root._val == 7) {
         // 記錄解
         res!!.add(root)
     }
@@ -31,13 +31,13 @@ fun main() {
     printTree(root)
 
     // 前序走訪
-    res = ArrayList()
+    res = mutableListOf()
     preOrder(root)
 
     println("\n輸出所有值為 7 的節點")
-    val vals: MutableList<Int> = ArrayList()
-    for (node in res as ArrayList<TreeNode>) {
-        vals.add(node.value)
+    val vals = mutableListOf<Int>()
+    for (node in res!!) {
+        vals.add(node._val)
     }
     println(vals)
 }

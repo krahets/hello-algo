@@ -8,9 +8,9 @@ package chapter_stack_and_queue
 
 /* 基於環形陣列實現的佇列 */
 class ArrayQueue(capacity: Int) {
-    private val nums = IntArray(capacity) // 用於儲存佇列元素的陣列
-    private var front = 0 // 佇列首指標，指向佇列首元素
-    private var queSize = 0 // 佇列長度
+    private val nums: IntArray = IntArray(capacity) // 用於儲存佇列元素的陣列
+    private var front: Int = 0 // 佇列首指標，指向佇列首元素
+    private var queSize: Int = 0 // 佇列長度
 
     /* 獲取佇列的容量 */
     fun capacity(): Int {

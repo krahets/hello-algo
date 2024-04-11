@@ -6,19 +6,17 @@
 
 package chapter_backtracking.subset_sum_i
 
-import java.util.*
-
 /* 回溯演算法：子集和 I */
 fun backtrack(
     state: MutableList<Int>,
     target: Int,
     choices: IntArray,
     start: Int,
-    res: MutableList<List<Int>?>
+    res: MutableList<MutableList<Int>?>
 ) {
     // 子集和等於 target 時，記錄解
     if (target == 0) {
-        res.add(ArrayList(state))
+        res.add(state.toMutableList())
         return
     }
     // 走訪所有選擇
@@ -39,11 +37,11 @@ fun backtrack(
 }
 
 /* 求解子集和 I */
-fun subsetSumI(nums: IntArray, target: Int): List<List<Int>?> {
-    val state: MutableList<Int> = ArrayList() // 狀態（子集）
-    Arrays.sort(nums) // 對 nums 進行排序
+fun subsetSumI(nums: IntArray, target: Int): MutableList<MutableList<Int>?> {
+    val state = mutableListOf<Int>() // 狀態（子集）
+    nums.sort() // 對 nums 進行排序
     val start = 0 // 走訪起始點
-    val res: MutableList<List<Int>?> = ArrayList() // 結果串列（子集串列）
+    val res = mutableListOf<MutableList<Int>?>() // 結果串列（子集串列）
     backtrack(state, target, nums, start, res)
     return res
 }

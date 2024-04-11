@@ -56,31 +56,32 @@ class LinkedListStack
 end
 
 ### Driver Code ###
+if __FILE__ == $0
+  # 初始化栈
+  stack = LinkedListStack.new
 
-# 初始化栈
-stack = LinkedListStack.new
+  # 元素入栈
+  stack.push(1)
+  stack.push(3)
+  stack.push(2)
+  stack.push(5)
+  stack.push(4)
+  puts "栈 stack = #{stack.to_array}"
 
-# 元素入栈
-stack.push(1)
-stack.push(3)
-stack.push(2)
-stack.push(5)
-stack.push(4)
-puts "栈 stack = #{stack.to_array}"
+  # 访问栈顶元素
+  peek = stack.peek
+  puts "栈顶元素 peek = #{peek}"
 
-# 访问栈顶元素
-peek = stack.peek
-puts "栈顶元素 peek = #{peek}"
+  # 元素出栈
+  pop = stack.pop
+  puts "出栈元素 pop = #{pop}"
+  puts "出栈后 stack = #{stack.to_array}"
 
-# 元素出栈
-pop = stack.pop
-puts "出栈元素 pop = #{pop}"
-puts "出栈后 stack = #{stack.to_array}"
+  # 获取栈的长度
+  size = stack.size
+  puts "栈的长度 size = #{size}"
 
-# 获取栈的长度
-size = stack.size
-puts "栈的长度 size = #{size}"
-
-# 判断是否为空
-is_empty = stack.is_empty?
-puts "栈是否为空 = #{is_empty}"
+  # 判断是否为空
+  is_empty = stack.is_empty?
+  puts "栈是否为空 = #{is_empty}"
+end

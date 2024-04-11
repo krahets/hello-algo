@@ -50,12 +50,13 @@ public class radix_sort {
             if (num > m)
                 m = num;
         // 按照從低位到高位的順序走訪
-        for (int exp = 1; exp <= m; exp *= 10)
+        for (int exp = 1; exp <= m; exp *= 10) {
             // 對陣列元素的第 k 位執行計數排序
             // k = 1 -> exp = 1
             // k = 2 -> exp = 10
             // 即 exp = 10^(k-1)
             countingSortDigit(nums, exp);
+        }
     }
 
     public static void main(String[] args) {

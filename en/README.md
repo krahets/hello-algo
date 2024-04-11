@@ -6,7 +6,7 @@
 <p align="center">
   <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Noto+Sans+SC&weight=500&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo+!" alt="hello-algo-typing-svg" />
   </br>
-  Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code
+  Data structures and algorithms crash course with animated illustrations and off-the-shelf code
 </p>
 
 <p align="center">
@@ -57,13 +57,13 @@ If you find this book helpful, please give it a Star :star: to support us, thank
 
 > "An easy-to-understand book on data structures and algorithms, which guides readers to learn by minds-on and hands-on. Strongly recommended for algorithm beginners!"
 >
-> **—— Junhui Deng, Professor of Computer Science, Tsinghua University**
+> **—— Junhui Deng, Professor, Department of computer science and technology, Tsinghua University**
 
 > "If I had 'Hello Algo' when I was learning data structures and algorithms, it would have been 10 times easier!"
 >
 > **—— Mu Li, Senior Principal Scientist, Amazon**
 
-## Contribution
+## Contributing
 
 > [!Important]
 >

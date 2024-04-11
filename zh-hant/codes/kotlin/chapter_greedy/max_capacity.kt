@@ -19,8 +19,8 @@ fun maxCapacity(ht: IntArray): Int {
     // 迴圈貪婪選擇，直至兩板相遇
     while (i < j) {
         // 更新最大容量
-        val cap = (min(ht[i].toDouble(), ht[j].toDouble()) * (j - i)).toInt()
-        res = max(res.toDouble(), cap.toDouble()).toInt()
+        val cap = min(ht[i], ht[j]) * (j - i)
+        res = max(res, cap)
         // 向內移動短板
         if (ht[i] < ht[j]) {
             i++

@@ -122,8 +122,8 @@ int pop(LinkedListDeque *deque, bool isFront) {
         if (fNext) {
             fNext->prev = NULL;
             deque->front->next = NULL;
-            delDoublyListNode(deque->front);
         }
+        delDoublyListNode(deque->front);
         deque->front = fNext; // 更新頭節點
     }
     // 佇列尾出列操作
@@ -133,8 +133,8 @@ int pop(LinkedListDeque *deque, bool isFront) {
         if (rPrev) {
             rPrev->next = NULL;
             deque->rear->prev = NULL;
-            delDoublyListNode(deque->rear);
         }
+        delDoublyListNode(deque->rear);
         deque->rear = rPrev; // 更新尾節點
     }
     deque->queSize--; // 更新佇列長度

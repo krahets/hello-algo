@@ -19,14 +19,14 @@ fun maxProductCutting(n: Int): Int {
     val b = n % 3
     if (b == 1) {
         // 當餘數為 1 時，將一對 1 * 3 轉化為 2 * 2
-        return 3.0.pow((a - 1).toDouble()).toInt() * 2 * 2
+        return 3.0.pow((a - 1)).toInt() * 2 * 2
     }
     if (b == 2) {
         // 當餘數為 2 時，不做處理
-        return 3.0.pow(a.toDouble()).toInt() * 2 * 2
+        return 3.0.pow(a).toInt() * 2 * 2
     }
     // 當餘數為 0 時，不做處理
-    return 3.0.pow(a.toDouble()).toInt()
+    return 3.0.pow(a).toInt()
 }
 
 /* Driver Code */

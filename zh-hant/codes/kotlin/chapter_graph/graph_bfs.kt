@@ -11,24 +11,24 @@ import java.util.*
 
 /* 廣度優先走訪 */
 // 使用鄰接表來表示圖，以便獲取指定頂點的所有鄰接頂點
-fun graphBFS(graph: GraphAdjList, startVet: Vertex): List<Vertex> {
+fun graphBFS(graph: GraphAdjList, startVet: Vertex): MutableList<Vertex?> {
     // 頂點走訪序列
-    val res: MutableList<Vertex> = ArrayList()
+    val res = mutableListOf<Vertex?>()
     // 雜湊表，用於記錄已被訪問過的頂點
-    val visited: MutableSet<Vertex> = HashSet()
+    val visited = HashSet<Vertex>()
     visited.add(startVet)
     // 佇列用於實現 BFS
-    val que: Queue<Vertex> = LinkedList()
+    val que = LinkedList<Vertex>()
     que.offer(startVet)
     // 以頂點 vet 為起點，迴圈直至訪問完所有頂點
     while (!que.isEmpty()) {
         val vet = que.poll() // 佇列首頂點出隊
-        res.add(vet) // 記錄訪問頂點
+        res.add(vet)         // 記錄訪問頂點
         // 走訪該頂點的所有鄰接頂點
         for (adjVet in graph.adjList[vet]!!) {
-            if (visited.contains(adjVet)) continue  // 跳過已被訪問的頂點
-
-            que.offer(adjVet) // 只入列未訪問的頂點
+            if (visited.contains(adjVet))
+                continue        // 跳過已被訪問的頂點
+            que.offer(adjVet)   // 只入列未訪問的頂點
             visited.add(adjVet) // 標記該頂點已被訪問
         }
     }

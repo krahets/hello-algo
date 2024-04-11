@@ -12,7 +12,7 @@ fun insertionSort(nums: IntArray) {
     for (i in nums.indices) {
         val base = nums[i]
         var j = i - 1
-        // 內迴圈: 將 base 插入到已排序部分的正確位置
+        // 內迴圈：將 base 插入到已排序區間 [0, i-1] 中的正確位置
         while (j >= 0 && nums[j] > base) {
             nums[j + 1] = nums[j] // 將 nums[j] 向右移動一位
             j--

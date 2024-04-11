@@ -38,13 +38,15 @@ extra:
 
 # Page tree
 nav:
+  - Before starting:
+    - chapter_hello_algo/index.md
   - Chapter 0. Preface:
     # [icon: material/book-open-outline]
     - chapter_preface/index.md
     - 0.1 About this book: chapter_preface/about_the_book.md
     - 0.2 How to read: chapter_preface/suggestions.md
     - 0.3 Summary: chapter_preface/summary.md
-  - Chapter 1. Introduction to algorithms:
+  - Chapter 1. Encounter with algorithms:
     # [icon: material/calculator-variant-outline]
     - chapter_introduction/index.md
     - 1.1 Algorithms are everywhere: chapter_introduction/algorithms_are_everywhere.md
@@ -62,7 +64,7 @@ nav:
     # [icon: material/shape-outline]
     - chapter_data_structure/index.md
     - 3.1 Classification of data structures: chapter_data_structure/classification_of_data_structure.md
-    - 3.2 Fundamental data types: chapter_data_structure/basic_data_types.md
+    - 3.2 Basic data types: chapter_data_structure/basic_data_types.md
     - 3.3 Number encoding *: chapter_data_structure/number_encoding.md
     - 3.4 Character encoding *: chapter_data_structure/character_encoding.md
     - 3.5 Summary: chapter_data_structure/summary.md
@@ -91,25 +93,25 @@ nav:
   - Chapter 7. Tree:
     # [icon: material/graph-outline]
     - chapter_tree/index.md
-    - 7.1 Binary Tree: chapter_tree/binary_tree.md
-    - 7.2 Binary Tree Traversal: chapter_tree/binary_tree_traversal.md
-    - 7.3 Array Representation of Tree: chapter_tree/array_representation_of_tree.md
-    - 7.4 Binary Search Tree: chapter_tree/binary_search_tree.md
-    - 7.5 AVL Tree *: chapter_tree/avl_tree.md
+    - 7.1 Binary tree: chapter_tree/binary_tree.md
+    - 7.2 Binary tree Traversal: chapter_tree/binary_tree_traversal.md
+    - 7.3 Array Representation of tree: chapter_tree/array_representation_of_tree.md
+    - 7.4 Binary Search tree: chapter_tree/binary_search_tree.md
+    - 7.5 AVL tree *: chapter_tree/avl_tree.md
     - 7.6 Summary: chapter_tree/summary.md
   - Chapter 8. Heap:
     # [icon: material/family-tree]
     - chapter_heap/index.md
     - 8.1 Heap: chapter_heap/heap.md
-    - 8.2 Building a Heap: chapter_heap/build_heap.md
-    - 8.3 Top-k Problem: chapter_heap/top_k.md
+    - 8.2 Building a heap: chapter_heap/build_heap.md
+    - 8.3 Top-k problem: chapter_heap/top_k.md
     - 8.4 Summary: chapter_heap/summary.md
   - Chapter 9. Graph:
     # [icon: material/graphql]
     - chapter_graph/index.md
     - 9.1 Graph: chapter_graph/graph.md
-    - 9.2 Basic Graph Operations: chapter_graph/graph_operations.md
-    - 9.3 Graph Traversal: chapter_graph/graph_traversal.md
+    - 9.2 Basic graph operations: chapter_graph/graph_operations.md
+    - 9.3 Graph traversal: chapter_graph/graph_traversal.md
     - 9.4 Summary: chapter_graph/summary.md
   # - Chapter 10. Searching:
   #   # [icon: material/text-search]

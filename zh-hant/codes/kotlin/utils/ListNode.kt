@@ -7,7 +7,7 @@
 package utils
 
 /* 鏈結串列節點 */
-class ListNode(var value: Int) {
+class ListNode(var _val: Int) {
     var next: ListNode? = null
 
     companion object {
@@ -15,8 +15,8 @@ class ListNode(var value: Int) {
         fun arrToLinkedList(arr: IntArray): ListNode? {
             val dum = ListNode(0)
             var head = dum
-            for (value in arr) {
-                head.next = ListNode(value)
+            for (_val in arr) {
+                head.next = ListNode(_val)
                 head = head.next!!
             }
             return dum.next

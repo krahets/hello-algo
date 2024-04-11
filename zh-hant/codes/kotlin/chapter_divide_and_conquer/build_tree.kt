@@ -10,7 +10,13 @@ import utils.TreeNode
 import utils.printTree
 
 /* 構建二元樹：分治 */
-fun dfs(preorder: IntArray, inorderMap: Map<Int?, Int?>, i: Int, l: Int, r: Int): TreeNode? {
+fun dfs(
+    preorder: IntArray,
+    inorderMap: Map<Int?, Int?>,
+    i: Int,
+    l: Int,
+    r: Int
+): TreeNode? {
     // 子樹區間為空時終止
     if (r - l < 0) return null
     // 初始化根節點
@@ -28,7 +34,7 @@ fun dfs(preorder: IntArray, inorderMap: Map<Int?, Int?>, i: Int, l: Int, r: Int)
 /* 構建二元樹 */
 fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
     // 初始化雜湊表，儲存 inorder 元素到索引的對映
-    val inorderMap: MutableMap<Int?, Int?> = HashMap()
+    val inorderMap = HashMap<Int?, Int?>()
     for (i in inorder.indices) {
         inorderMap[inorder[i]] = i
     }
@@ -40,8 +46,8 @@ fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
 fun main() {
     val preorder = intArrayOf(3, 9, 2, 1, 7)
     val inorder = intArrayOf(9, 3, 1, 2, 7)
-    println("前序走訪 = " + preorder.contentToString())
-    println("中序走訪 = " + inorder.contentToString())
+    println("前序走訪 = ${preorder.contentToString()}")
+    println("中序走訪 = ${inorder.contentToString()}")
 
     val root = buildTree(preorder, inorder)
     println("構建的二元樹為：")

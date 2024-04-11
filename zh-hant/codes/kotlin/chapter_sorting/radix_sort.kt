@@ -20,7 +20,7 @@ fun countingSortDigit(nums: IntArray, exp: Int) {
     // 統計 0~9 各數字的出現次數
     for (i in 0..<n) {
         val d = digit(nums[i], exp) // 獲取 nums[i] 第 k 位，記為 d
-        counter[d]++ // 統計數字 d 的出現次數
+        counter[d]++                // 統計數字 d 的出現次數
     }
     // 求前綴和，將“出現個數”轉換為“陣列索引”
     for (i in 1..9) {
@@ -31,11 +31,12 @@ fun countingSortDigit(nums: IntArray, exp: Int) {
     for (i in n - 1 downTo 0) {
         val d = digit(nums[i], exp)
         val j = counter[d] - 1 // 獲取 d 在陣列中的索引 j
-        res[j] = nums[i] // 將當前元素填入索引 j
-        counter[d]-- // 將 d 的數量減 1
+        res[j] = nums[i]       // 將當前元素填入索引 j
+        counter[d]--           // 將 d 的數量減 1
     }
     // 使用結果覆蓋原陣列 nums
-    for (i in 0..<n) nums[i] = res[i]
+    for (i in 0..<n)
+        nums[i] = res[i]
 }
 
 /* 基數排序 */

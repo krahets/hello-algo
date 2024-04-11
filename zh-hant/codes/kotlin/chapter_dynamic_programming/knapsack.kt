@@ -6,13 +6,12 @@
 
 package chapter_dynamic_programming
 
-import java.util.*
 import kotlin.math.max
 
 /* 0-1 背包：暴力搜尋 */
 fun knapsackDFS(
     wgt: IntArray,
-    value: IntArray,
+    _val: IntArray,
     i: Int,
     c: Int
 ): Int {
@@ -22,19 +21,19 @@ fun knapsackDFS(
     }
     // 若超過背包容量，則只能選擇不放入背包
     if (wgt[i - 1] > c) {
-        return knapsackDFS(wgt, value, i - 1, c)
+        return knapsackDFS(wgt, _val, i - 1, c)
     }
     // 計算不放入和放入物品 i 的最大價值
-    val no = knapsackDFS(wgt, value, i - 1, c)
-    val yes = knapsackDFS(wgt, value, i - 1, c - wgt[i - 1]) + value[i - 1]
+    val no = knapsackDFS(wgt, _val, i - 1, c)
+    val yes = knapsackDFS(wgt, _val, i - 1, c - wgt[i - 1]) + _val[i - 1]
     // 返回兩種方案中價值更大的那一個
-    return max(no.toDouble(), yes.toDouble()).toInt()
+    return max(no, yes)
 }
 
 /* 0-1 背包：記憶化搜尋 */
 fun knapsackDFSMem(
     wgt: IntArray,
-    value: IntArray,
+    _val: IntArray,
     mem: Array<IntArray>,
     i: Int,
     c: Int
@@ -49,20 +48,20 @@ fun knapsackDFSMem(
     }
     // 若超過背包容量，則只能選擇不放入背包
     if (wgt[i - 1] > c) {
-        return knapsackDFSMem(wgt, value, mem, i - 1, c)
+        return knapsackDFSMem(wgt, _val, mem, i - 1, c)
     }
     // 計算不放入和放入物品 i 的最大價值
-    val no = knapsackDFSMem(wgt, value, mem, i - 1, c)
-    val yes = knapsackDFSMem(wgt, value, mem, i - 1, c - wgt[i - 1]) + value[i - 1]
+    val no = knapsackDFSMem(wgt, _val, mem, i - 1, c)
+    val yes = knapsackDFSMem(wgt, _val, mem, i - 1, c - wgt[i - 1]) + _val[i - 1]
     // 記錄並返回兩種方案中價值更大的那一個
-    mem[i][c] = max(no.toDouble(), yes.toDouble()).toInt()
+    mem[i][c] = max(no, yes)
     return mem[i][c]
 }
 
 /* 0-1 背包：動態規劃 */
 fun knapsackDP(
     wgt: IntArray,
-    value: IntArray,
+    _val: IntArray,
     cap: Int
 ): Int {
     val n = wgt.size
@@ -76,8 +75,7 @@ fun knapsackDP(
                 dp[i][c] = dp[i - 1][c]
             } else {
                 // 不選和選物品 i 這兩種方案的較大值
-                dp[i][c] = max(dp[i - 1][c].toDouble(), (dp[i - 1][c - wgt[i - 1]] + value[i - 1]).toDouble())
-                    .toInt()
+                dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + _val[i - 1])
             }
         }
     }
@@ -87,7 +85,7 @@ fun knapsackDP(
 /* 0-1 背包：空間最佳化後的動態規劃 */
 fun knapsackDPComp(
     wgt: IntArray,
-    value: IntArray,
+    _val: IntArray,
     cap: Int
 ): Int {
     val n = wgt.size
@@ -100,7 +98,7 @@ fun knapsackDPComp(
             if (wgt[i - 1] <= c) {
                 // 不選和選物品 i 這兩種方案的較大值
                 dp[c] =
-                    max(dp[c].toDouble(), (dp[c - wgt[i - 1]] + value[i - 1]).toDouble()).toInt()
+                    max(dp[c], dp[c - wgt[i - 1]] + _val[i - 1])
             }
         }
     }
@@ -110,27 +108,27 @@ fun knapsackDPComp(
 /* Driver Code */
 fun main() {
     val wgt = intArrayOf(10, 20, 30, 40, 50)
-    val value = intArrayOf(50, 120, 150, 210, 240)
+    val _val = intArrayOf(50, 120, 150, 210, 240)
     val cap = 50
     val n = wgt.size
 
     // 暴力搜尋
-    var res = knapsackDFS(wgt, value, n, cap)
+    var res = knapsackDFS(wgt, _val, n, cap)
     println("不超過背包容量的最大物品價值為 $res")
 
     // 記憶化搜尋
     val mem = Array(n + 1) { IntArray(cap + 1) }
     for (row in mem) {
-        Arrays.fill(row, -1)
+        row.fill(-1)
     }
-    res = knapsackDFSMem(wgt, value, mem, n, cap)
+    res = knapsackDFSMem(wgt, _val, mem, n, cap)
     println("不超過背包容量的最大物品價值為 $res")
 
     // 動態規劃
-    res = knapsackDP(wgt, value, cap)
+    res = knapsackDP(wgt, _val, cap)
     println("不超過背包容量的最大物品價值為 $res")
 
     // 空間最佳化後的動態規劃
-    res = knapsackDPComp(wgt, value, cap)
+    res = knapsackDPComp(wgt, _val, cap)
     println("不超過背包容量的最大物品價值為 $res")
 }

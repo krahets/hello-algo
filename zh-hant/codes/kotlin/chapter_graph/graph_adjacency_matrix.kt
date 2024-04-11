@@ -10,8 +10,8 @@ import utils.printMatrix
 
 /* 基於鄰接矩陣實現的無向圖類別 */
 class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
-    val vertices: MutableList<Int> = ArrayList() // 頂點串列，元素代表“頂點值”，索引代表“頂點索引”
-    val adjMat: MutableList<MutableList<Int>> = ArrayList() // 鄰接矩陣，行列索引對應“頂點索引”
+    val vertices = mutableListOf<Int>() // 頂點串列，元素代表“頂點值”，索引代表“頂點索引”
+    val adjMat = mutableListOf<MutableList<Int>>() // 鄰接矩陣，行列索引對應“頂點索引”
 
     /* 建構子 */
     init {
@@ -32,12 +32,12 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     }
 
     /* 新增頂點 */
-    fun addVertex(value: Int) {
+    fun addVertex(_val: Int) {
         val n = size()
         // 向頂點串列中新增新頂點的值
-        vertices.add(value)
+        vertices.add(_val)
         // 在鄰接矩陣中新增一行
-        val newRow: MutableList<Int> = mutableListOf()
+        val newRow = mutableListOf<Int>()
         for (j in 0..<n) {
             newRow.add(0)
         }
@@ -50,7 +50,8 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
 
     /* 刪除頂點 */
     fun removeVertex(index: Int) {
-        if (index >= size()) throw IndexOutOfBoundsException()
+        if (index >= size())
+            throw IndexOutOfBoundsException()
         // 在頂點串列中移除索引 index 的頂點
         vertices.removeAt(index)
         // 在鄰接矩陣中刪除索引 index 的行
@@ -65,7 +66,8 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     // 參數 i, j 對應 vertices 元素索引
     fun addEdge(i: Int, j: Int) {
         // 索引越界與相等處理
-        if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) throw java.lang.IndexOutOfBoundsException()
+        if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
+            throw IndexOutOfBoundsException()
         // 在無向圖中，鄰接矩陣關於主對角線對稱，即滿足 (i, j) == (j, i)
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
@@ -75,7 +77,8 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     // 參數 i, j 對應 vertices 元素索引
     fun removeEdge(i: Int, j: Int) {
         // 索引越界與相等處理
-        if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) throw java.lang.IndexOutOfBoundsException()
+        if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
+            throw IndexOutOfBoundsException()
         adjMat[i][j] = 0;
         adjMat[j][i] = 0;
     }
