@@ -52,7 +52,7 @@ class LinkedListQueue(
     /* 访问队首元素 */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
-        return front!!.value
+        return front!!._val
     }
 
     /* 将链表转化为 Array 并返回 */
@@ -60,7 +60,7 @@ class LinkedListQueue(
         var node = front
         val res = IntArray(size())
         for (i in res.indices) {
-            res[i] = node!!.value
+            res[i] = node!!._val
             node = node.next
         }
         return res

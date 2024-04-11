@@ -70,31 +70,32 @@ class LinkedListQueue
 end
 
 ### Driver Code ###
+if __FILE__ == $0
+  # 初始化队列
+  queue = LinkedListQueue.new
 
-# 初始化队列
-queue = LinkedListQueue.new
+  # 元素如队
+  queue.push(1)
+  queue.push(3)
+  queue.push(2)
+  queue.push(5)
+  queue.push(4)
+  puts "队列 queue = #{queue.to_array}"
 
-# 元素如队
-queue.push(1)
-queue.push(3)
-queue.push(2)
-queue.push(5)
-queue.push(4)
-puts "队列 queue = #{queue.to_array}"
+  # 访问队首元素
+  peek = queue.peek
+  puts "队首元素 front = #{peek}"
 
-# 访问队首元素
-peek = queue.peek
-puts "队首元素 front = #{peek}"
+  # 元素出队
+  pop_front = queue.pop
+  puts "出队元素 pop = #{pop_front}"
+  puts "出队后 queue = #{queue.to_array}"
 
-# 元素出队
-pop_front = queue.pop
-puts "出队元素 pop = #{pop_front}"
-puts "出队后 queue = #{queue.to_array}"
+  # 获取队列的长度
+  size = queue.size
+  puts "队列长度 size = #{size}"
 
-# 获取队列的长度
-size = queue.size
-puts "队列长度 size = #{size}"
-
-# 判断队列是否为空
-is_empty = queue.is_empty?
-puts "队列是否为空 = #{is_empty}"
+  # 判断队列是否为空
+  is_empty = queue.is_empty?
+  puts "队列是否为空 = #{is_empty}"
+end

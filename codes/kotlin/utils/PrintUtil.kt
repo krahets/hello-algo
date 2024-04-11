@@ -20,7 +20,7 @@ fun <T> printMatrix(matrix: Array<Array<T>>) {
 }
 
 /* 打印矩阵（List） */
-fun <T> printMatrix(matrix: List<List<T>>) {
+fun <T> printMatrix(matrix: MutableList<MutableList<T>>) {
     println("[")
     for (row in matrix) {
         println("  $row,")
@@ -31,9 +31,9 @@ fun <T> printMatrix(matrix: List<List<T>>) {
 /* 打印链表 */
 fun printLinkedList(h: ListNode?) {
     var head = h
-    val list = ArrayList<String>()
+    val list = mutableListOf<String>()
     while (head != null) {
-        list.add(head.value.toString())
+        list.add(head._val.toString())
         head = head.next
     }
     println(list.joinToString(separator = " -> "))
@@ -70,7 +70,7 @@ fun printTree(root: TreeNode?, prev: Trunk?, isRight: Boolean) {
     }
 
     showTrunks(trunk)
-    println(" ${root.value}")
+    println(" ${root._val}")
 
     if (prev != null) {
         prev.str = prevStr
@@ -91,16 +91,17 @@ fun showTrunks(p: Trunk?) {
 /* 打印哈希表 */
 fun <K, V> printHashMap(map: Map<K, V>) {
     for ((key, value) in map) {
-        println(key.toString() + " -> " + value)
+        println("${key.toString()} -> $value")
     }
 }
 
 /* 打印堆 */
 fun printHeap(queue: Queue<Int>?) {
-    val list = queue?.let { ArrayList(it) }
+    val list = mutableListOf<Int?>()
+    queue?.let { list.addAll(it) }
     print("堆的数组表示：")
     println(list)
     println("堆的树状表示：")
-    val root = list?.let { TreeNode.listToTree(it) }
+    val root = TreeNode.listToTree(list)
     printTree(root)
 }

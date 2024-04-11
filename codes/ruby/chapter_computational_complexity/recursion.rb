@@ -53,17 +53,18 @@ def fib(n)
 end
 
 ### Driver Code ###
+if __FILE__ == $0
+  n = 5
 
-n = 5
+  res = recur(n)
+  puts "\n递归函数的求和结果 res = #{res}"
 
-res = recur(n)
-puts "\n递归函数的求和结果 res = #{res}"
+  res = for_loop_recur(n)
+  puts "\n使用迭代模拟递归求和结果 res = #{res}"
 
-res = for_loop_recur(n)
-puts "\n使用迭代模拟递归求和结果 res = #{res}"
+  res = tail_recur(n, 0)
+  puts "\n尾递归函数的求和结果 res = #{res}"
 
-res = tail_recur(n, 0)
-puts "\n尾递归函数的求和结果 res = #{res}"
-
-res = fib(n)
-puts "\n斐波那契数列的第 #{n} 项为 #{res}"
+  res = fib(n)
+  puts "\n斐波那契数列的第 #{n} 项为 #{res}"
+end

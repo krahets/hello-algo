@@ -44,7 +44,7 @@ fun main() {
         println(key)
     }
     println("\n单独遍历值 Value")
-    for (value in map.values) {
-        println(value)
+    for (_val in map.values) {
+        println(_val)
     }
 }

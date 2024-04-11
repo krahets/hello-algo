@@ -16,7 +16,7 @@ fun preOrder(root: TreeNode?) {
     if (root == null) {
         return
     }
-    if (root.value == 7) {
+    if (root._val == 7) {
         // 记录解
         res!!.add(root)
     }
@@ -37,7 +37,7 @@ fun main() {
     println("\n输出所有值为 7 的节点")
     val vals = mutableListOf<Int>()
     for (node in res!!) {
-        vals.add(node.value)
+        vals.add(node._val)
     }
     println(vals)
 }

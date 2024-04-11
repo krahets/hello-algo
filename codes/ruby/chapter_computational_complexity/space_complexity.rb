@@ -72,20 +72,21 @@ def build_tree(n)
 end
 
 ### Driver Code ###
+if __FILE__ == $0
+  n = 5
 
-n = 5
+  # 常数阶
+  constant(n)
 
-# 常数阶
-constant(n)
+  # 线性阶
+  linear(n)
+  linear_recur(n)
 
-# 线性阶
-linear(n)
-linear_recur(n)
+  # 平方阶
+  quadratic(n)
+  quadratic_recur(n)
 
-# 平方阶
-quadratic(n)
-quadratic_recur(n)
-
-# 指数阶
-root = build_tree(n)
-print_tree(root)
+  # 指数阶
+  root = build_tree(n)
+  print_tree(root)
+end

@@ -11,7 +11,7 @@ import utils.printTree
 
 /* 判断当前状态是否为解 */
 fun isSolution(state: MutableList<TreeNode?>): Boolean {
-    return state.isNotEmpty() && state[state.size - 1]?.value == 7
+    return state.isNotEmpty() && state[state.size - 1]?._val == 7
 }
 
 /* 记录解 */
@@ -21,7 +21,7 @@ fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<MutableList<
 
 /* 判断在当前状态下，该选择是否合法 */
 fun isValid(state: MutableList<TreeNode?>?, choice: TreeNode?): Boolean {
-    return choice != null && choice.value != 3
+    return choice != null && choice._val != 3
 }
 
 /* 更新状态 */
@@ -74,7 +74,7 @@ fun main() {
         val vals = mutableListOf<Int>()
         for (node in path!!) {
             if (node != null) {
-                vals.add(node.value)
+                vals.add(node._val)
             }
         }
         println(vals)
