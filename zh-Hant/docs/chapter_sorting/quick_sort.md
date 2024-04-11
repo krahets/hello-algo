@@ -1372,15 +1372,23 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="quick_sort.kt"
-    /* 快速排序 */
-    fun quickSort(nums: IntArray, left: Int, right: Int) {
-        // 子陣列長度為 1 時終止遞迴
-        if (left >= right) return
-        // 哨兵劃分
-        val pivot = partition(nums, left, right)
-        // 遞迴左子陣列、右子陣列
-        quickSort(nums, left, pivot - 1)
-        quickSort(nums, pivot + 1, right)
+    /* 快速排序（尾遞迴最佳化） */
+    fun quickSortTailCall(nums: IntArray, left: Int, right: Int) {
+        // 子陣列長度為 1 時終止
+        var l = left
+        var r = right
+        while (l < r) {
+            // 哨兵劃分操作
+            val pivot = partition(nums, l, r)
+            // 對兩個子陣列中較短的那個執行快速排序
+            if (pivot - l < r - pivot) {
+                quickSort(nums, l, pivot - 1) // 遞迴排序左子陣列
+                l = pivot + 1 // 剩餘未排序區間為 [pivot + 1, right]
+            } else {
+                quickSort(nums, pivot + 1, r) // 遞迴排序右子陣列
+                r = pivot - 1 // 剩餘未排序區間為 [left, pivot - 1]
+            }
+        }
     }
     ```
 
