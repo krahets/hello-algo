@@ -7,7 +7,7 @@ Author: Cy (3739004@gmail.com), Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### 插入排序 ###
 def insertion_sort(nums)
   n = nums.length
-  # 外循环：已排序区间为[0, i-1]
+  # 外循环：已排序区间为 [0, i-1]
   for i in 1...n
     base = nums[i]
     j = i - 1
