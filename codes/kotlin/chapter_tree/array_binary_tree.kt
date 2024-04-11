@@ -10,7 +10,6 @@ import utils.TreeNode
 import utils.printTree
 
 /* 数组表示下的二叉树类 */
-/* 构造方法 */
 class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     /* 列表容量 */
     fun size(): Int {
