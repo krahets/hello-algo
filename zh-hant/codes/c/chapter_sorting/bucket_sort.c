@@ -20,24 +20,20 @@ void bucketSort(float nums[], int n) {
     int k = n / 2;                                 // 初始化 k = n/2 個桶
     int *sizes = malloc(k * sizeof(int));          // 記錄每個桶的大小
     float **buckets = malloc(k * sizeof(float *)); // 動態陣列的陣列（桶）
-
+    // 為每個桶預分配足夠的空間
     for (int i = 0; i < k; ++i) {
-        // 為每個桶預分配足夠的空間
         buckets[i] = (float *)malloc(n * sizeof(float));
         sizes[i] = 0;
     }
-
     // 1. 將陣列元素分配到各個桶中
     for (int i = 0; i < n; ++i) {
         int idx = (int)(nums[i] * k);
         buckets[idx][sizes[idx]++] = nums[i];
     }
-
     // 2. 對各個桶執行排序
     for (int i = 0; i < k; ++i) {
         qsort(buckets[i], sizes[i], sizeof(float), compare);
     }
-
     // 3. 合併排序後的桶
     int idx = 0;
     for (int i = 0; i < k; ++i) {
