@@ -37,16 +37,10 @@ void bucketSort(float nums[], int size) {
         // 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
         int bucket_idx = nums[i] * k;
         int j = 0;
-        // 如果桶中有数据且数据小于当前值 nums[i], 要将其放到当前桶的后面，相当于 cpp 中的 push_back
-        while (buckets[bucket_idx][j] > 0 && buckets[bucket_idx][j] < nums[i]) {
+        while (buckets[bucket_idx][j] > 0) {
             j++;
         }
-        float temp = nums[i];
-        while (j < size && buckets[bucket_idx][j] > 0) {
-            swap(&temp, &buckets[bucket_idx][j]);
-            j++;
-        }
-        buckets[bucket_idx][j] = temp;
+        buckets[bucket_idx][j] = nums[i];
     }
 
     // 2. 对各个桶执行排序
@@ -63,7 +57,7 @@ void bucketSort(float nums[], int size) {
         }
     }
 
-    // 释放上述分配的内存
+    // 4. 释放上述分配的内存
     for (int i = 0; i < k; i++) {
         free(buckets[i]);
     }
