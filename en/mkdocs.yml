@@ -38,13 +38,15 @@ extra:
 
 # Page tree
 nav:
+  - Before starting:
+    - chapter_hello_algo/index.md
   - Chapter 0. Preface:
     # [icon: material/book-open-outline]
     - chapter_preface/index.md
     - 0.1 About this book: chapter_preface/about_the_book.md
     - 0.2 How to read: chapter_preface/suggestions.md
     - 0.3 Summary: chapter_preface/summary.md
-  - Chapter 1. Introduction to algorithms:
+  - Chapter 1. Encounter with algorithms:
     # [icon: material/calculator-variant-outline]
     - chapter_introduction/index.md
     - 1.1 Algorithms are everywhere: chapter_introduction/algorithms_are_everywhere.md
