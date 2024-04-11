@@ -3,9 +3,9 @@ comments: true
 icon: material/calculator-variant-outline
 ---
 
-# Chapter 1. &nbsp; Introduction to algorithms
+# Chapter 1. &nbsp; Encounter with algorithms
 
-![Introduction to algorithms](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
+![Encounter with algorithms](../assets/covers/chapter_introduction.jpg){ class="cover-image" }
 
 !!! abstract
 

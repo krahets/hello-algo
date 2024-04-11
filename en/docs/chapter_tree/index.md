@@ -15,9 +15,9 @@ icon: material/graph-outline
 
 ## Chapter contents
 
-- [7.1 &nbsp; Binary Tree](binary_tree.md)
-- [7.2 &nbsp; Binary Tree Traversal](binary_tree_traversal.md)
-- [7.3 &nbsp; Array Representation of Tree](array_representation_of_tree.md)
-- [7.4 &nbsp; Binary Search Tree](binary_search_tree.md)
-- [7.5 &nbsp; AVL Tree *](avl_tree.md)
+- [7.1 &nbsp; Binary tree](binary_tree.md)
+- [7.2 &nbsp; Binary tree Traversal](binary_tree_traversal.md)
+- [7.3 &nbsp; Array Representation of tree](array_representation_of_tree.md)
+- [7.4 &nbsp; Binary Search tree](binary_search_tree.md)
+- [7.5 &nbsp; AVL tree *](avl_tree.md)
 - [7.6 &nbsp; Summary](summary.md)

@@ -16,6 +16,6 @@ icon: material/family-tree
 ## Chapter contents
 
 - [8.1 &nbsp; Heap](heap.md)
-- [8.2 &nbsp; Building a Heap](build_heap.md)
-- [8.3 &nbsp; Top-k Problem](top_k.md)
+- [8.2 &nbsp; Building a heap](build_heap.md)
+- [8.3 &nbsp; Top-k problem](top_k.md)
 - [8.4 &nbsp; Summary](summary.md)

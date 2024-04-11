@@ -16,7 +16,7 @@ icon: material/shape-outline
 ## Chapter contents
 
 - [3.1 &nbsp; Classification of data structures](classification_of_data_structure.md)
-- [3.2 &nbsp; Fundamental data types](basic_data_types.md)
+- [3.2 &nbsp; Basic data types](basic_data_types.md)
 - [3.3 &nbsp; Number encoding *](number_encoding.md)
 - [3.4 &nbsp; Character encoding *](character_encoding.md)
 - [3.5 &nbsp; Summary](summary.md)
