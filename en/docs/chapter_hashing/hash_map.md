@@ -1417,18 +1417,21 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 
     /* 基于数组实现的哈希表 */
     typedef struct {
-        Pair *buckets[HASHTABLE_CAPACITY];
+        Pair *buckets[MAX_SIZE];
     } ArrayHashMap;
 
     /* 构造函数 */
     ArrayHashMap *newArrayHashMap() {
         ArrayHashMap *hmap = malloc(sizeof(ArrayHashMap));
+        for (int i=0; i < MAX_SIZE; i++) {
+            hmap->buckets[i] = NULL;
+        }
         return hmap;
     }
 
     /* 析构函数 */
     void delArrayHashMap(ArrayHashMap *hmap) {
-        for (int i = 0; i < HASHTABLE_CAPACITY; i++) {
+        for (int i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 free(hmap->buckets[i]->val);
                 free(hmap->buckets[i]);
@@ -1462,13 +1465,13 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         int i = 0, index = 0;
         int total = 0;
         /* 统计有效键值对数量 */
-        for (i = 0; i < HASHTABLE_CAPACITY; i++) {
+        for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 total++;
             }
         }
         entries = malloc(sizeof(Pair) * total);
-        for (i = 0; i < HASHTABLE_CAPACITY; i++) {
+        for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 entries[index].key = hmap->buckets[i]->key;
                 entries[index].val = malloc(strlen(hmap->buckets[i]->val) + 1);
@@ -1486,13 +1489,13 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         int i = 0, index = 0;
         int total = 0;
         /* 统计有效键值对数量 */
-        for (i = 0; i < HASHTABLE_CAPACITY; i++) {
+        for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 total++;
             }
         }
         keys = malloc(total * sizeof(int));
-        for (i = 0; i < HASHTABLE_CAPACITY; i++) {
+        for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 keys[index] = hmap->buckets[i]->key;
                 index++;
@@ -1508,13 +1511,13 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
         int i = 0, index = 0;
         int total = 0;
         /* 统计有效键值对数量 */
-        for (i = 0; i < HASHTABLE_CAPACITY; i++) {
+        for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 total++;
             }
         }
         vals = malloc(total * sizeof(char *));
-        for (i = 0; i < HASHTABLE_CAPACITY; i++) {
+        for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 vals[index] = hmap->buckets[i]->val;
                 index++;

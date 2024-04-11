@@ -293,7 +293,26 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_insertion.rb"
-    [class]{}-[func]{binary_search_insertion_simple}
+    ### 二分查找插入点（无重复元素） ###
+    def binary_search_insertion_simple(nums, target)
+      # 初始化双闭区间 [0, n-1]
+      i, j = 0, nums.length - 1
+
+      while i <= j
+        # 计算中点索引 m
+        m = (i + j) / 2
+
+        if nums[m] < target
+          i = m + 1 # target 在区间 [m+1, j] 中
+        elsif nums[m] > target
+          j = m - 1 # target 在区间 [i, m-1] 中
+        else
+          return m  # 找到 target ，返回插入点 m
+        end
+      end
+
+      i # 未找到 target ，返回插入点 i
+    end
     ```
 
 === "Zig"
@@ -625,7 +644,26 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_insertion.rb"
-    [class]{}-[func]{binary_search_insertion}
+    ### 二分查找插入点（存在重复元素） ###
+    def binary_search_insertion(nums, target)
+      # 初始化双闭区间 [0, n-1]
+      i, j = 0, nums.length - 1
+
+      while i <= j
+        # 计算中点索引 m
+        m = (i + j) / 2
+
+        if nums[m] < target
+          i = m + 1 # target 在区间 [m+1, j] 中
+        elsif nums[m] > target
+          j = m - 1 # target 在区间 [i, m-1] 中
+        else
+          j = m - 1 # 首个小于 target 的元素在区间 [i, m-1] 中
+        end
+      end
+
+      i # 返回插入点 i
+    end
     ```
 
 === "Zig"

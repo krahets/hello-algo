@@ -212,7 +212,16 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_edge.rb"
-    [class]{}-[func]{binary_search_left_edge}
+    ### 二分查找最左一个 target ###
+    def binary_search_left_edge(nums, target)
+      # 等价于查找 target 的插入点
+      i = binary_search_insertion(nums, target)
+
+      # 未找到 target ，返回 -1
+      return -1 if i == nums.length || nums[i] != target
+
+      i # 找到 target ，返回索引 i
+    end
     ```
 
 === "Zig"
@@ -461,7 +470,19 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_edge.rb"
-    [class]{}-[func]{binary_search_right_edge}
+    ### 二分查找最右一个 target ###
+    def binary_search_right_edge(nums, target)
+      # 转化为查找最左一个 target + 1
+      i = binary_search_insertion(nums, target + 1)
+
+      # j 指向最右一个 target ，i 指向首个大于 target 的元素
+      j = i - 1
+
+      # 未找到 target ，返回 -1
+      return -1 if j == -1 || nums[j] != target
+
+      j # 找到 target ，返回索引 j
+    end
     ```
 
 === "Zig"
