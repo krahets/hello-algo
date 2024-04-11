@@ -69,8 +69,8 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
             throw IndexOutOfBoundsException()
         // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
-        adjMat[i][j] = 1;
-        adjMat[j][i] = 1;
+        adjMat[i][j] = 1
+        adjMat[j][i] = 1
     }
 
     /* 删除边 */
@@ -79,15 +79,15 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
         // 索引越界与相等处理
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
             throw IndexOutOfBoundsException()
-        adjMat[i][j] = 0;
-        adjMat[j][i] = 0;
+        adjMat[i][j] = 0
+        adjMat[j][i] = 0
     }
 
     /* 打印邻接矩阵 */
     fun print() {
         print("顶点列表 = ")
-        println(vertices);
-        println("邻接矩阵 =");
+        println(vertices)
+        println("邻接矩阵 =")
         printMatrix(adjMat)
     }
 }

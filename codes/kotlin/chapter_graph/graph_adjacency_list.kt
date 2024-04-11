@@ -17,9 +17,9 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
     init {
         // 添加所有顶点和边
         for (edge in edges) {
-            addVertex(edge[0]!!);
-            addVertex(edge[1]!!);
-            addEdge(edge[0]!!, edge[1]!!);
+            addVertex(edge[0]!!)
+            addVertex(edge[1]!!)
+            addEdge(edge[0]!!, edge[1]!!)
         }
     }
 
@@ -34,7 +34,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
             throw IllegalArgumentException()
         // 添加边 vet1 - vet2
         adjList[vet1]?.add(vet2)
-        adjList[vet2]?.add(vet1);
+        adjList[vet2]?.add(vet1)
     }
 
     /* 删除边 */
@@ -42,8 +42,8 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
             throw IllegalArgumentException()
         // 删除边 vet1 - vet2
-        adjList[vet1]?.remove(vet2);
-        adjList[vet2]?.remove(vet1);
+        adjList[vet1]?.remove(vet2)
+        adjList[vet2]?.remove(vet1)
     }
 
     /* 添加顶点 */
@@ -59,7 +59,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
         if (!adjList.containsKey(vet))
             throw IllegalArgumentException()
         // 在邻接表中删除顶点 vet 对应的链表
-        adjList.remove(vet);
+        adjList.remove(vet)
         // 遍历其他顶点的链表，删除所有包含 vet 的边
         for (list in adjList.values) {
             list.remove(vet)
