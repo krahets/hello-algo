@@ -17,9 +17,9 @@ int compare(const void *a, const void *b) {
 
 /* 桶排序 */
 void bucketSort(float nums[], int n) {
-    int k = n / 2;     // 初始化 k = n/2 個桶
-    int sizes[k];      // 記錄每個桶的大小
-    float *buckets[k]; // 動態陣列的陣列（桶）
+    int k = n / 2;                                 // 初始化 k = n/2 個桶
+    int *sizes = malloc(k * sizeof(int));          // 記錄每個桶的大小
+    float **buckets = malloc(k * sizeof(float *)); // 動態陣列的陣列（桶）
 
     for (int i = 0; i < k; ++i) {
         // 為每個桶預分配足夠的空間
