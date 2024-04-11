@@ -519,13 +519,6 @@ a:hover .text-button span {
   .text-button {
     margin: 0.7em auto;
   }
-
-  .profile-div {
-    max-width: 30em;
-  }
-  .profile-cell {
-    flex-basis: 25%;
-  }
 }
 
 .video-container {

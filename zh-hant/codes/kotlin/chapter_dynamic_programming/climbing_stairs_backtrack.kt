@@ -8,13 +8,14 @@ package chapter_dynamic_programming
 
 /* 回溯 */
 fun backtrack(
-    choices: List<Int>,
+    choices: MutableList<Int>,
     state: Int,
     n: Int,
     res: MutableList<Int>
 ) {
     // 當爬到第 n 階時，方案數量加 1
-    if (state == n) res[0] = res[0] + 1
+    if (state == n)
+        res[0] = res[0] + 1
     // 走訪所有選擇
     for (choice in choices) {
         // 剪枝：不允許越過第 n 階
@@ -29,7 +30,7 @@ fun backtrack(
 fun climbingStairsBacktrack(n: Int): Int {
     val choices = mutableListOf(1, 2) // 可選擇向上爬 1 階或 2 階
     val state = 0 // 從第 0 階開始爬
-    val res = ArrayList<Int>()
+    val res = mutableListOf<Int>()
     res.add(0) // 使用 res[0] 記錄方案數量
     backtrack(choices, state, n, res)
     return res[0]

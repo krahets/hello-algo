@@ -23,7 +23,7 @@ class AVLTree {
     /* 更新節點高度 */
     private fun updateHeight(node: TreeNode?) {
         // 節點高度等於最高子樹高度 + 1
-        node?.height = (max(height(node?.left).toDouble(), height(node?.right).toDouble()) + 1).toInt()
+        node?.height = max(height(node?.left), height(node?.right)) + 1
     }
 
     /* 獲取平衡因子 */
@@ -93,20 +93,22 @@ class AVLTree {
     }
 
     /* 插入節點 */
-    fun insert(value: Int) {
-        root = insertHelper(root, value)
+    fun insert(_val: Int) {
+        root = insertHelper(root, _val)
     }
 
     /* 遞迴插入節點（輔助方法） */
-    private fun insertHelper(n: TreeNode?, value: Int): TreeNode {
+    private fun insertHelper(n: TreeNode?, _val: Int): TreeNode {
         if (n == null)
-            return TreeNode(value)
+            return TreeNode(_val)
         var node = n
         /* 1. 查詢插入位置並插入節點 */
-        if (value < node.value) node.left = insertHelper(node.left, value)
-        else if (value > node.value) node.right = insertHelper(node.right, value)
-        else return node // 重複節點不插入，直接返回
-
+        if (_val < node._val)
+            node.left = insertHelper(node.left, _val)
+        else if (_val > node._val)
+            node.right = insertHelper(node.right, _val)
+        else
+            return node // 重複節點不插入，直接返回
         updateHeight(node) // 更新節點高度
         /* 2. 執行旋轉操作，使該子樹重新恢復平衡 */
         node = rotate(node)
@@ -115,30 +117,38 @@ class AVLTree {
     }
 
     /* 刪除節點 */
-    fun remove(value: Int) {
-        root = removeHelper(root, value)
+    fun remove(_val: Int) {
+        root = removeHelper(root, _val)
     }
 
     /* 遞迴刪除節點（輔助方法） */
-    private fun removeHelper(n: TreeNode?, value: Int): TreeNode? {
+    private fun removeHelper(n: TreeNode?, _val: Int): TreeNode? {
         var node = n ?: return null
         /* 1. 查詢節點並刪除 */
-        if (value < node.value) node.left = removeHelper(node.left, value)
-        else if (value > node.value) node.right = removeHelper(node.right, value)
+        if (_val < node._val)
+            node.left = removeHelper(node.left, _val)
+        else if (_val > node._val)
+            node.right = removeHelper(node.right, _val)
         else {
             if (node.left == null || node.right == null) {
-                val child = if (node.left != null) node.left else node.right
+                val child = if (node.left != null)
+                    node.left
+                else
+                    node.right
                 // 子節點數量 = 0 ，直接刪除 node 並返回
-                if (child == null) return null
-                else node = child
+                if (child == null)
+                    return null
+                // 子節點數量 = 1 ，直接刪除 node
+                else
+                    node = child
             } else {
                 // 子節點數量 = 2 ，則將中序走訪的下個節點刪除，並用該節點替換當前節點
                 var temp = node.right
                 while (temp!!.left != null) {
                     temp = temp.left
                 }
-                node.right = removeHelper(node.right, temp.value)
-                node.value = temp.value
+                node.right = removeHelper(node.right, temp._val)
+                node._val = temp._val
             }
         }
         updateHeight(node) // 更新節點高度
@@ -149,29 +159,34 @@ class AVLTree {
     }
 
     /* 查詢節點 */
-    fun search(value: Int): TreeNode? {
+    fun search(_val: Int): TreeNode? {
         var cur = root
         // 迴圈查詢，越過葉節點後跳出
         while (cur != null) {
             // 目標節點在 cur 的右子樹中
-            cur = if (cur.value < value) cur.right!!
-            else (if (cur.value > value) cur.left
-            else break)!!
+            cur = if (cur._val < _val)
+                cur.right!!
+            // 目標節點在 cur 的左子樹中
+            else if (cur._val > _val)
+                cur.left
+            // 找到目標節點，跳出迴圈
+            else
+                break
         }
         // 返回目標節點
         return cur
     }
 }
 
-fun testInsert(tree: AVLTree, value: Int) {
-    tree.insert(value)
-    println("\n插入節點 $value 後，AVL 樹為")
+fun testInsert(tree: AVLTree, _val: Int) {
+    tree.insert(_val)
+    println("\n插入節點 $_val 後，AVL 樹為")
     printTree(tree.root)
 }
 
-fun testRemove(tree: AVLTree, value: Int) {
-    tree.remove(value)
-    println("\n刪除節點 $value 後，AVL 樹為")
+fun testRemove(tree: AVLTree, _val: Int) {
+    tree.remove(_val)
+    println("\n刪除節點 $_val 後，AVL 樹為")
     printTree(tree.root)
 }
 
@@ -204,5 +219,5 @@ fun main() {
 
     /* 查詢節點 */
     val node = avlTree.search(7)
-    println("\n 查詢到的節點物件為 $node，節點值 = ${node?.value}")
+    println("\n 查詢到的節點物件為 $node，節點值 = ${node?._val}")
 }

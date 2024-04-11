@@ -26,7 +26,7 @@ fun linearSearchLinkedList(h: ListNode?, target: Int): ListNode? {
     var head = h
     while (head != null) {
         // 找到目標節點，返回之
-        if (head.value == target)
+        if (head._val == target)
             return head
         head = head.next
     }

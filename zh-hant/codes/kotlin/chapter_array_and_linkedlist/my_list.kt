@@ -9,9 +9,9 @@ package chapter_array_and_linkedlist
 /* 串列類別 */
 class MyList {
     private var arr: IntArray = intArrayOf() // 陣列（儲存串列元素）
-    private var capacity = 10 // 串列容量
-    private var size = 0 // 串列長度（當前元素數量）
-    private var extendRatio = 2 // 每次串列擴容的倍數
+    private var capacity: Int = 10 // 串列容量
+    private var size: Int = 0 // 串列長度（當前元素數量）
+    private var extendRatio: Int = 2 // 每次串列擴容的倍數
 
     /* 建構子 */
     init {
@@ -32,7 +32,7 @@ class MyList {
     fun get(index: Int): Int {
         // 索引如果越界，則丟擲異常，下同
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException()
+            throw IndexOutOfBoundsException("索引越界")
         return arr[index]
     }
 
@@ -72,7 +72,7 @@ class MyList {
     fun remove(index: Int): Int {
         if (index < 0 || index >= size)
             throw IndexOutOfBoundsException("索引越界")
-        val num: Int = arr[index]
+        val num = arr[index]
         // 將將索引 index 之後的元素都向前移動一位
         for (j in index..<size - 1)
             arr[j] = arr[j + 1]
