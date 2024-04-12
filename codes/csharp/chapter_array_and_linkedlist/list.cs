@@ -36,11 +36,11 @@ public class list {
         Console.WriteLine("添加元素后 nums = " + string.Join(",", nums));
 
         /* 在中间插入元素 */
-        nums.Insert(3, 6);  // 在索引 3 处插入数字 6
+        nums.Insert(3, 6);
         Console.WriteLine("在索引 3 处插入数字 6 ，得到 nums = " + string.Join(",", nums));
 
         /* 删除元素 */
-        nums.RemoveAt(3);  // 删除索引 3 处的元素
+        nums.RemoveAt(3);
         Console.WriteLine("删除索引 3 处的元素，得到 nums = " + string.Join(",", nums));
 
         /* 通过索引遍历列表 */
