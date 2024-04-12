@@ -35,6 +35,7 @@ Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://disco
 
 > [!tip]
 > The "Accuracy" and "Authenticity" are primarily handled by native Chinese speakers and native English speakers, respectively.
+> In certain cases, "accuracy (consistency)" and "authenticity" represent a trade-off, where optimizing one aspect might significantly impact the other. If so, please comment in the pull request for discussion.
 
 **Accuracy**:
 
