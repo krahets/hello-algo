@@ -29,11 +29,11 @@ nums.push(4);
 console.log(`添加元素后 nums = ${nums}`);
 
 /* 在中间插入元素 */
-nums.splice(3, 0, 6);
+nums.splice(3, 0, 6);  // 在索引 3 处插入数字 6
 console.log(`在索引 3 处插入数字 6 ，得到 nums = ${nums}`);
 
 /* 删除元素 */
-nums.splice(3, 1);
+nums.splice(3, 1);  // 删除索引 3 处的元素
 console.log(`删除索引 3 处的元素，得到 nums = ${nums}`);
 
 /* 通过索引遍历列表 */
