@@ -92,18 +92,18 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
 /* Driver Code */
 fun main() {
     // 初始化二叉树
-    // 这里借助了一个从数组直接生成二叉树的函数
-    val arr = arrayOf(1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15)
+    // 这里借助了一个从列表直接生成二叉树的函数
+    val arr = mutableListOf(1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15)
 
-    val root = TreeNode.listToTree(arr.toMutableList())
+    val root = TreeNode.listToTree(arr)
     println("\n初始化二叉树\n")
     println("二叉树的数组表示：")
-    println(arr.contentToString())
+    println(arr)
     println("二叉树的链表表示：")
     printTree(root)
 
     // 数组表示下的二叉树类
-    val abt = ArrayBinaryTree(arr.toMutableList())
+    val abt = ArrayBinaryTree(arr)
 
     // 访问节点
     val i = 1

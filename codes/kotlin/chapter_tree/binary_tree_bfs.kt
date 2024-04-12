@@ -31,8 +31,8 @@ fun levelOrder(root: TreeNode?): MutableList<Int> {
 /* Driver Code */
 fun main() {
     /* 初始化二叉树 */
-    // 这里借助了一个从数组直接生成二叉树的函数
-    val root = TreeNode.listToTree(arrayOf(1, 2, 3, 4, 5, 6, 7).toMutableList())
+    // 这里借助了一个从列表直接生成二叉树的函数
+    val root = TreeNode.listToTree(mutableListOf(1, 2, 3, 4, 5, 6, 7))
     println("\n初始化二叉树\n")
     printTree(root)
 
