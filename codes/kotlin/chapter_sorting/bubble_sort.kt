@@ -29,7 +29,7 @@ fun bubbleSortWithFlag(nums: IntArray) {
         for (j in 0..<i) {
             if (nums[j] > nums[j + 1]) {
                 // 交换 nums[j] 与 nums[j + 1]
-                nums[j] = nums[j + 1].also { nums[j] = nums[j + 1] }
+                nums[j] = nums[j + 1].also { nums[j + 1] = nums[j] }
                 flag = true // 记录交换元素
             }
         }
