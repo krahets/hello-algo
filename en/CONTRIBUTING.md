@@ -59,7 +59,7 @@ Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://disco
 
 ## Translation pseudo-code
 
-The following pseudo-code demonstrates a typical translation approach to translators.
+The following pseudo-code models the steps in a typical translation process.
 
 ```python
 def optimize_translation(markdown_texts, lang_skill):
