@@ -39,7 +39,7 @@ func coinChangeIIDPComp(coins []int, amt int) int {
 	dp[0] = 1
 	// 狀態轉移
 	for i := 1; i <= n; i++ {
-		// 倒序走訪
+		// 正序走訪
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
 				// 若超過目標金額，則不選硬幣 i

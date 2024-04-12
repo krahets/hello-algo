@@ -102,17 +102,14 @@ impl HashMapChaining {
         // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
         for pair in bucket {
             if pair.key == key {
-                pair.val = val.clone();
+                pair.val = val;
                 return;
             }
         }
         let bucket = &mut self.buckets[index];
 
         // 若無該 key ，則將鍵值對新增至尾部
-        let pair = Pair {
-            key,
-            val: val.clone(),
-        };
+        let pair = Pair { key, val };
         bucket.push(pair);
         self.size += 1;
     }

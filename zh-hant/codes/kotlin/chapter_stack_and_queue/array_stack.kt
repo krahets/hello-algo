@@ -9,7 +9,7 @@ package chapter_stack_and_queue
 /* 基於陣列實現的堆疊 */
 class ArrayStack {
     // 初始化串列（動態陣列）
-    private val stack = ArrayList<Int>()
+    private val stack = mutableListOf<Int>()
 
     /* 獲取堆疊的長度 */
     fun size(): Int {
@@ -40,7 +40,7 @@ class ArrayStack {
 
     /* 將 List 轉化為 Array 並返回 */
     fun toArray(): Array<Any> {
-        return stack.toArray()
+        return stack.toTypedArray()
     }
 }
 
@@ -63,7 +63,7 @@ fun main() {
 
     /* 元素出堆疊 */
     val pop = stack.pop()
-    println("出堆疊元素 pop = ${pop}，出堆疊後 stack = ${stack.toArray().contentToString()}")
+    println("出堆疊元素 pop = $pop，出堆疊後 stack = ${stack.toArray().contentToString()}")
 
     /* 獲取堆疊的長度 */
     val size = stack.size()

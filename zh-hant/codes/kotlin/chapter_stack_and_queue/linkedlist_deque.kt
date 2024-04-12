@@ -7,7 +7,7 @@
 package chapter_stack_and_queue
 
 /* 雙向鏈結串列節點 */
-class ListNode(var value: Int) {
+class ListNode(var _val: Int) {
     // 節點值
     var next: ListNode? = null // 後繼節點引用
     var prev: ListNode? = null // 前驅節點引用
@@ -15,9 +15,9 @@ class ListNode(var value: Int) {
 
 /* 基於雙向鏈結串列實現的雙向佇列 */
 class LinkedListDeque {
-    private var front: ListNode? = null // 頭節點 front ，尾節點 rear
-    private var rear: ListNode? = null
-    private var queSize = 0 // 雙向佇列的長度
+    private var front: ListNode? = null // 頭節點 front
+    private var rear: ListNode? = null // 尾節點 rear
+    private var queSize: Int = 0 // 雙向佇列的長度
 
     /* 獲取雙向佇列的長度 */
     fun size(): Int {
@@ -64,12 +64,12 @@ class LinkedListDeque {
 
     /* 出列操作 */
     fun pop(isFront: Boolean): Int {
-        if (isEmpty()) throw IndexOutOfBoundsException()
-
-        val value: Int
+        if (isEmpty()) 
+            throw IndexOutOfBoundsException()
+        val _val: Int
         // 佇列首出列操作
         if (isFront) {
-            value = front!!.value // 暫存頭節點值
+            _val = front!!._val // 暫存頭節點值
             // 刪除頭節點
             val fNext = front!!.next
             if (fNext != null) {
@@ -79,7 +79,7 @@ class LinkedListDeque {
             front = fNext // 更新頭節點
             // 佇列尾出列操作
         } else {
-            value = rear!!.value // 暫存尾節點值
+            _val = rear!!._val // 暫存尾節點值
             // 刪除尾節點
             val rPrev = rear!!.prev
             if (rPrev != null) {
@@ -89,7 +89,7 @@ class LinkedListDeque {
             rear = rPrev // 更新尾節點
         }
         queSize-- // 更新佇列長度
-        return value
+        return _val
     }
 
     /* 佇列首出列 */
@@ -104,17 +104,14 @@ class LinkedListDeque {
 
     /* 訪問佇列首元素 */
     fun peekFirst(): Int {
-        if (isEmpty()) {
-            throw IndexOutOfBoundsException()
-
-        }
-        return front!!.value
+        if (isEmpty()) throw IndexOutOfBoundsException()
+        return front!!._val
     }
 
     /* 訪問佇列尾元素 */
     fun peekLast(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
-        return rear!!.value
+        return rear!!._val
     }
 
     /* 返回陣列用於列印 */
@@ -122,7 +119,7 @@ class LinkedListDeque {
         var node = front
         val res = IntArray(size())
         for (i in res.indices) {
-            res[i] = node!!.value
+            res[i] = node!!._val
             node = node.next
         }
         return res

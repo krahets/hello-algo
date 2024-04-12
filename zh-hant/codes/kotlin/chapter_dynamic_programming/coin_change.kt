@@ -6,7 +6,6 @@
 
 package chapter_dynamic_programming
 
-import java.util.*
 import kotlin.math.min
 
 /* 零錢兌換：動態規劃 */
@@ -27,8 +26,7 @@ fun coinChangeDP(coins: IntArray, amt: Int): Int {
                 dp[i][a] = dp[i - 1][a]
             } else {
                 // 不選和選硬幣 i 這兩種方案的較小值
-                dp[i][a] = min(dp[i - 1][a].toDouble(), (dp[i][a - coins[i - 1]] + 1).toDouble())
-                    .toInt()
+                dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
             }
         }
     }
@@ -41,7 +39,7 @@ fun coinChangeDPComp(coins: IntArray, amt: Int): Int {
     val MAX = amt + 1
     // 初始化 dp 表
     val dp = IntArray(amt + 1)
-    Arrays.fill(dp, MAX)
+    dp.fill(MAX)
     dp[0] = 0
     // 狀態轉移
     for (i in 1..n) {
@@ -51,7 +49,7 @@ fun coinChangeDPComp(coins: IntArray, amt: Int): Int {
                 dp[a] = dp[a]
             } else {
                 // 不選和選硬幣 i 這兩種方案的較小值
-                dp[a] = min(dp[a].toDouble(), (dp[a - coins[i - 1]] + 1).toDouble()).toInt()
+                dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
             }
         }
     }

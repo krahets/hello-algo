@@ -55,7 +55,7 @@ fun traverse(nums: IntArray) {
         count += nums[i]
     }
     // 直接走訪陣列元素
-    for (j: Int in nums) {
+    for (j in nums) {
         count += j
     }
 }
@@ -63,7 +63,8 @@ fun traverse(nums: IntArray) {
 /* 在陣列中查詢指定元素 */
 fun find(nums: IntArray, target: Int): Int {
     for (i in nums.indices) {
-        if (nums[i] == target) return i
+        if (nums[i] == target)
+            return i
     }
     return -1
 }

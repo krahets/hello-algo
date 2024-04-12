@@ -11,6 +11,7 @@ import utils.printTree
 
 /* 二元搜尋樹 */
 class BinarySearchTree {
+    // 初始化空樹
     private var root: TreeNode? = null
 
     /* 獲取二元樹根節點 */
@@ -24,11 +25,14 @@ class BinarySearchTree {
         // 迴圈查詢，越過葉節點後跳出
         while (cur != null) {
             // 目標節點在 cur 的右子樹中
-            cur = if (cur.value < num) cur.right
+            cur = if (cur._val < num)
+                cur.right
             // 目標節點在 cur 的左子樹中
-            else if (cur.value > num) cur.left
+            else if (cur._val > num)
+                cur.left
             // 找到目標節點，跳出迴圈
-            else break
+            else
+                break
         }
         // 返回目標節點
         return cur
@@ -46,45 +50,60 @@ class BinarySearchTree {
         // 迴圈查詢，越過葉節點後跳出
         while (cur != null) {
             // 找到重複節點，直接返回
-            if (cur.value == num) return
+            if (cur._val == num)
+                return
             pre = cur
             // 插入位置在 cur 的右子樹中
-            cur = if (cur.value < num) cur.right
+            cur = if (cur._val < num)
+                cur.right
             // 插入位置在 cur 的左子樹中
-            else cur.left
+            else
+                cur.left
         }
         // 插入節點
         val node = TreeNode(num)
-        if (pre?.value!! < num) pre.right = node
-        else pre.left = node
+        if (pre?._val!! < num)
+            pre.right = node
+        else
+            pre.left = node
     }
 
     /* 刪除節點 */
     fun remove(num: Int) {
         // 若樹為空，直接提前返回
-        if (root == null) return
+        if (root == null)
+            return
         var cur = root
         var pre: TreeNode? = null
         // 迴圈查詢，越過葉節點後跳出
         while (cur != null) {
             // 找到待刪除節點，跳出迴圈
-            if (cur.value == num) break
+            if (cur._val == num)
+                break
             pre = cur
             // 待刪除節點在 cur 的右子樹中
-            cur = if (cur.value < num) cur.right
+            cur = if (cur._val < num)
+                cur.right
             // 待刪除節點在 cur 的左子樹中
-            else cur.left
+            else
+                cur.left
         }
         // 若無待刪除節點，則直接返回
-        if (cur == null) return
+        if (cur == null)
+            return
         // 子節點數量 = 0 or 1
         if (cur.left == null || cur.right == null) {
             // 當子節點數量 = 0 / 1 時， child = null / 該子節點
-            val child = if (cur.left != null) cur.left else cur.right
+            val child = if (cur.left != null)
+                cur.left
+            else
+                cur.right
             // 刪除節點 cur
             if (cur != root) {
-                if (pre!!.left == cur) pre.left = child
-                else pre.right = child
+                if (pre!!.left == cur)
+                    pre.left = child
+                else
+                    pre.right = child
             } else {
                 // 若刪除節點為根節點，則重新指定根節點
                 root = child
@@ -97,9 +116,9 @@ class BinarySearchTree {
                 tmp = tmp.left
             }
             // 遞迴刪除節點 tmp
-            remove(tmp.value)
+            remove(tmp._val)
             // 用 tmp 覆蓋 cur
-            cur.value = tmp.value
+            cur._val = tmp._val
         }
     }
 }
@@ -118,7 +137,7 @@ fun main() {
 
     /* 查詢節點 */
     val node = bst.search(7)
-    println("查詢到的節點物件為 $node，節點值 = ${node?.value}")
+    println("查詢到的節點物件為 $node，節點值 = ${node?._val}")
 
     /* 插入節點 */
     bst.insert(16)

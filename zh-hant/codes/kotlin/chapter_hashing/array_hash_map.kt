@@ -9,19 +9,13 @@ package chapter_hashing
 /* 鍵值對 */
 class Pair(
     var key: Int,
-    var value: String
+    var _val: String
 )
 
 /* 基於陣列實現的雜湊表 */
 class ArrayHashMap {
+    // 初始化陣列，包含 100 個桶
     private val buckets = arrayOfNulls<Pair>(100)
-
-    init {
-        // 初始化陣列，包含 100 個桶
-        for (i in 0..<100) {
-            buckets[i] = null
-        }
-    }
 
     /* 雜湊函式 */
     fun hashFunc(key: Int): Int {
@@ -33,12 +27,12 @@ class ArrayHashMap {
     fun get(key: Int): String? {
         val index = hashFunc(key)
         val pair = buckets[index] ?: return null
-        return pair.value
+        return pair._val
     }
 
     /* 新增操作 */
-    fun put(key: Int, value: String) {
-        val pair = Pair(key, value)
+    fun put(key: Int, _val: String) {
+        val pair = Pair(key, _val)
         val index = hashFunc(key)
         buckets[index] = pair
     }
@@ -52,27 +46,29 @@ class ArrayHashMap {
 
     /* 獲取所有鍵值對 */
     fun pairSet(): MutableList<Pair> {
-        val pairSet = ArrayList<Pair>()
+        val pairSet = mutableListOf<Pair>()
         for (pair in buckets) {
-            if (pair != null) pairSet.add(pair)
+            if (pair != null)
+                pairSet.add(pair)
         }
         return pairSet
     }
 
     /* 獲取所有鍵 */
     fun keySet(): MutableList<Int> {
-        val keySet = ArrayList<Int>()
+        val keySet = mutableListOf<Int>()
         for (pair in buckets) {
-            if (pair != null) keySet.add(pair.key)
+            if (pair != null)
+                keySet.add(pair.key)
         }
         return keySet
     }
 
     /* 獲取所有值 */
     fun valueSet(): MutableList<String> {
-        val valueSet = ArrayList<String>()
+        val valueSet = mutableListOf<String>()
         for (pair in buckets) {
-            pair?.let { valueSet.add(it.value) }
+            pair?.let { valueSet.add(it._val) }
         }
         return valueSet
     }
@@ -81,8 +77,8 @@ class ArrayHashMap {
     fun print() {
         for (kv in pairSet()) {
             val key = kv.key
-            val value = kv.value
-            println("${key}->${value}")
+            val _val = kv._val
+            println("${key} -> ${_val}")
         }
     }
 }
@@ -104,7 +100,7 @@ fun main() {
 
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
-    val name: String? = map.get(15937)
+    val name = map.get(15937)
     println("\n輸入學號 15937 ，查詢到姓名 $name")
 
     /* 刪除操作 */
@@ -114,16 +110,16 @@ fun main() {
     map.print()
 
     /* 走訪雜湊表 */
-    println("\n走訪鍵值對 Key->Value")
+    println("\n走訪鍵值對 Key -> Value")
     for (kv in map.pairSet()) {
-        println("${kv.key} -> ${kv.value}")
+        println("${kv.key} -> ${kv._val}")
     }
     println("\n單獨走訪鍵 Key")
     for (key in map.keySet()) {
         println(key)
     }
     println("\n單獨走訪值 Value")
-    for (value in map.valueSet()) {
-        println(value)
+    for (_val in map.valueSet()) {
+        println(_val)
     }
 }

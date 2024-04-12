@@ -7,18 +7,17 @@
 package chapter_searching
 
 import utils.ListNode
-import java.util.HashMap
 
 /* 雜湊查詢（陣列） */
 fun hashingSearchArray(map: Map<Int?, Int>, target: Int): Int {
-    // 雜湊表的 key: 目標元素，value: 索引
+    // 雜湊表的 key: 目標元素，_val: 索引
     // 若雜湊表中無此 key ，返回 -1
     return map.getOrDefault(target, -1)
 }
 
 /* 雜湊查詢（鏈結串列） */
 fun hashingSearchLinkedList(map: Map<Int?, ListNode?>, target: Int): ListNode? {
-    // 雜湊表的 key: 目標節點值，value: 節點物件
+    // 雜湊表的 key: 目標節點值，_val: 節點物件
     // 若雜湊表中無此 key ，返回 null
     return map.getOrDefault(target, null)
 }
@@ -32,7 +31,7 @@ fun main() {
     // 初始化雜湊表
     val map = HashMap<Int?, Int>()
     for (i in nums.indices) {
-        map[nums[i]] = i // key: 元素，value: 索引
+        map[nums[i]] = i // key: 元素，_val: 索引
     }
     val index = hashingSearchArray(map, target)
     println("目標元素 3 的索引 = $index")
@@ -42,7 +41,7 @@ fun main() {
     // 初始化雜湊表
     val map1 = HashMap<Int?, ListNode?>()
     while (head != null) {
-        map1[head.value] = head // key: 節點值，value: 節點
+        map1[head._val] = head // key: 節點值，_val: 節點
         head = head.next
     }
     val node = hashingSearchLinkedList(map1, target)

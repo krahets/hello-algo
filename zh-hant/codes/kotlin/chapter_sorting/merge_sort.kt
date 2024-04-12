@@ -17,8 +17,10 @@ fun merge(nums: IntArray, left: Int, mid: Int, right: Int) {
     var k = 0
     // 當左右子陣列都還有元素時，進行比較並將較小的元素複製到臨時陣列中
     while (i <= mid && j <= right) {
-        if (nums[i] <= nums[j]) tmp[k++] = nums[i++]
-        else tmp[k++] = nums[j++]
+        if (nums[i] <= nums[j])
+            tmp[k++] = nums[i++]
+        else 
+            tmp[k++] = nums[j++]
     }
     // 將左子陣列和右子陣列的剩餘元素複製到臨時陣列中
     while (i <= mid) {

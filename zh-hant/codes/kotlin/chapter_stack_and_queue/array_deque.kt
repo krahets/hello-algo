@@ -7,10 +7,11 @@
 package chapter_stack_and_queue
 
 /* 基於環形陣列實現的雙向佇列 */
+/* 建構子 */
 class ArrayDeque(capacity: Int) {
-    private var nums = IntArray(capacity) // 用於儲存雙向佇列元素的陣列
-    private var front = 0 // 佇列首指標，指向佇列首元素
-    private var queSize = 0 // 雙向佇列長度
+    private var nums: IntArray = IntArray(capacity) // 用於儲存雙向佇列元素的陣列
+    private var front: Int = 0 // 佇列首指標，指向佇列首元素
+    private var queSize: Int = 0 // 雙向佇列長度
 
     /* 獲取雙向佇列的容量 */
     fun capacity(): Int {
@@ -71,7 +72,7 @@ class ArrayDeque(capacity: Int) {
         return num
     }
 
-    /* 訪問佇列尾元素 */
+    /* 佇列尾出列 */
     fun popLast(): Int {
         val num = peekLast()
         queSize--

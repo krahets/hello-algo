@@ -11,7 +11,7 @@ import utils.printHashMap
 /* Driver Code */
 fun main() {
     /* 初始化雜湊表 */
-    val map: MutableMap<Int, String> = HashMap()
+    val map = HashMap<Int, String>()
 
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
@@ -44,7 +44,7 @@ fun main() {
         println(key)
     }
     println("\n單獨走訪值 Value")
-    for (value in map.values) {
-        println(value)
+    for (_val in map.values) {
+        println(_val)
     }
 }

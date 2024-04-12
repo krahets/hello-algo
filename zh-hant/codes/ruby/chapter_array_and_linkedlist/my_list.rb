@@ -35,7 +35,7 @@ class MyList
     # 元素數量超出容量時，觸發擴容機制
     extend_capacity if size == capacity
     @arr[size] = num
-    
+
     # 更新元素數量
     @size += 1
   end
@@ -49,7 +49,7 @@ class MyList
 
     # 將索引 index 以及之後的元素都向後移動一位
     for j in (size - 1).downto(index)
-      @arr[j + 1] = @arr[j] 
+      @arr[j + 1] = @arr[j]
     end
     @arr[index] = num
 
@@ -95,37 +95,38 @@ class MyList
 end
 
 ### Driver Code ###
+if __FILE__ == $0
+  # 初始化串列
+  nums = MyList.new
 
-# 初始化串列
-nums = MyList.new
+  # 在尾部新增元素
+  nums.add(1)
+  nums.add(3)
+  nums.add(2)
+  nums.add(5)
+  nums.add(4)
+  puts "串列 nums = #{nums.to_array} ，容量 = #{nums.capacity} ，長度 = #{nums.size}"
 
-# 在尾部新增元素
-nums.add(1)
-nums.add(3)
-nums.add(2)
-nums.add(5)
-nums.add(4)
-puts "串列 nums = #{nums.to_array} ，容量 = #{nums.capacity} ，長度 = #{nums.size}"
+  # 在中間插入元素
+  nums.insert(3, 6)
+  puts "在索引 3 處插入數字 6 ，得到 nums = #{nums.to_array}"
 
-# 在中間插入元素
-nums.insert(3, 6)
-puts "在索引 3 處插入數字 6 ，得到 nums = #{nums.to_array}"
+  # 刪除元素
+  nums.remove(3)
+  puts "刪除索引 3 的元素，得到 nums = #{nums.to_array}"
 
-# 刪除元素
-nums.remove(3)
-puts "刪除索引 3 的元素，得到 nums = #{nums.to_array}"
+  # 訪問元素
+  num = nums.get(1)
+  puts "訪問索引 1 處的元素，得到 num = #{num}"
 
-# 訪問元素
-num = nums.get(1)
-puts "訪問索引 1 處的元素，得到 num = #{num}"
+  # 更新元素
+  nums.set(1, 0)
+  puts "將索引 1 處的元素更新為 0 ，得到 nums = #{nums.to_array}"
 
-# 更新元素
-nums.set(1, 0)
-puts "將索引 1 處的元素更新為 0 ，得到 nums = #{nums.to_array}"
-
-# 測試擴容機制
-for i in 0...10
-  # 在 i = 5 時，串列長度將超出串列容量，此時觸發擴容機制
-  nums.add(i)
+  # 測試擴容機制
+  for i in 0...10
+    # 在 i = 5 時，串列長度將超出串列容量，此時觸發擴容機制
+    nums.add(i)
+  end
+  puts "擴容後的串列 nums = #{nums.to_array} ，容量 = #{nums.capacity} ，長度 = #{nums.size}"
 end
-puts "擴容後的串列 nums = #{nums.to_array} ，容量 = #{nums.capacity} ，長度 = #{nums.size}"

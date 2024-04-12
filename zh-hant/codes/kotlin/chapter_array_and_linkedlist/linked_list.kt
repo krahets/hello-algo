@@ -9,7 +9,7 @@ package chapter_array_and_linkedlist
 import utils.ListNode
 import utils.printLinkedList
 
-/* 在鏈結串列的節點 n0 之後插入節點p */
+/* 在鏈結串列的節點 n0 之後插入節點 P */
 fun insert(n0: ListNode?, p: ListNode?) {
     val n1 = n0?.next
     p?.next = n1
@@ -18,16 +18,20 @@ fun insert(n0: ListNode?, p: ListNode?) {
 
 /* 刪除鏈結串列的節點 n0 之後的首個節點 */
 fun remove(n0: ListNode?) {
-    val p = n0?.next
+    if (n0?.next == null)
+        return
+    val p = n0.next
     val n1 = p?.next
-    n0?.next = n1
+    n0.next = n1
 }
 
 /* 訪問鏈結串列中索引為 index 的節點 */
 fun access(head: ListNode?, index: Int): ListNode? {
     var h = head
     for (i in 0..<index) {
-        h = h?.next
+        if (h == null)
+            return null
+        h = h.next
     }
     return h
 }
@@ -37,7 +41,8 @@ fun find(head: ListNode?, target: Int): Int {
     var index = 0
     var h = head
     while (h != null) {
-        if (h.value == target) return index
+        if (h._val == target)
+            return index
         h = h.next
         index++
     }
@@ -46,6 +51,7 @@ fun find(head: ListNode?, target: Int): Int {
 
 /* Driver Code */
 fun main() {
+    /* 初始化鏈結串列 */
     // 初始化各個節點
     val n0 = ListNode(1)
     val n1 = ListNode(3)
@@ -60,7 +66,8 @@ fun main() {
     n3.next = n4
     println("初始化的鏈結串列為")
     printLinkedList(n0)
-    
+
+    /* 插入節點 */
     insert(n0, ListNode(0))
     println("插入節點後的鏈結串列為")
     printLinkedList(n0)
@@ -72,7 +79,7 @@ fun main() {
 
     /* 訪問節點 */
     val node: ListNode = access(n0, 3)!!
-    println("鏈結串列中索引 3 處的節點的值 = ${node.value}")
+    println("鏈結串列中索引 3 處的節點的值 = ${node._val}")
 
     /* 查詢節點 */
     val index: Int = find(n0, 2)

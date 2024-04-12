@@ -9,7 +9,7 @@ package chapter_divide_and_conquer.hanota
 /* 移動一個圓盤 */
 fun move(src: MutableList<Int>, tar: MutableList<Int>) {
     // 從 src 頂部拿出一個圓盤
-    val pan: Int = src.removeAt(src.size - 1)
+    val pan = src.removeAt(src.size - 1)
     // 將圓盤放入 tar 頂部
     tar.add(pan)
 }
@@ -39,9 +39,9 @@ fun solveHanota(A: MutableList<Int>, B: MutableList<Int>, C: MutableList<Int>) {
 /* Driver Code */
 fun main() {
     // 串列尾部是柱子頂部
-    val A: MutableList<Int> = ArrayList(mutableListOf(5, 4, 3, 2, 1))
-    val B: MutableList<Int> = ArrayList()
-    val C: MutableList<Int> = ArrayList()
+    val A = mutableListOf(5, 4, 3, 2, 1)
+    val B = mutableListOf<Int>()
+    val C = mutableListOf<Int>()
     println("初始狀態下：")
     println("A = $A")
     println("B = $B")
