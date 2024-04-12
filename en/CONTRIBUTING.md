@@ -2,7 +2,7 @@
 
 We are working on translating "Hello Algo" from Chinese to English with the following approach:
 
-1. **AI translation**: Carry out an initial pass of translations using the machine learning translator.
+1. **AI translation**: Carry out an initial pass of translations using large language models.
 2. **Human optimization**: Manually refine the machine-generated outputs to ensure authenticity and accuracy.
 3. **Pull request review**: The optimized translation will be double checked by the reviewers through GitHub pull request workflow.
 4. Repeat steps `2.` and `3.` for further improvements.
@@ -18,7 +18,7 @@ We're seeking contributors who meet the following criteria.
 That is, our contributors are computer scientists, engineers, and students from different linguistic backgrounds, and their objectives have different focal points:
 
 - **Native Chinese with professional working English**: Ensuring translation accuracy and consistency between CN and EN versions.
-- **Native English**: Enhance the authenticity and fluency of the English content to read naturally and to be engaging.
+- **Native English**: Enhance the authenticity and fluency of the English content to flow naturally and to be engaging.
 
 Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://discord.gg/9hrbyZFBX3)!
 
@@ -43,7 +43,7 @@ Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://disco
 
 **Authenticity**:
 
-- Translations should read naturally and fluently, adhering to English expression conventions.
+- Translations should flow naturally and fluently, adhering to English expression conventions.
 - Always consider the context of the content to harmonize the article.
 - Be aware of cultural differences between Chinese and English. For instance, Chinese "pinyin" does not exist in English.
 
@@ -86,6 +86,8 @@ def optimize_translation(markdown_texts, lang_skill):
 
     pull_request = submit_pull_request(markdown_texts)
     # The PR will be merged after approved by >= 2 reviewers
+    while count_approvals(pull_request) < 2:
+          continue
     merge(pull_request)
 ```
 
