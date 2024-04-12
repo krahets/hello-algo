@@ -67,7 +67,7 @@ If you find this book helpful, please give it a Star :star: to support us, thank
 
 > [!Important]
 >
-> We are working on Chinese-to-English translation. For more information please see [CONTRIBUTING.md](CONTRIBUTING.md).
+> Welcome to contribute to Chinese-to-English translation! For more information please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 This open-source book is continuously being updated, and we welcome your participation in this project to provide better learning content for readers.
 
