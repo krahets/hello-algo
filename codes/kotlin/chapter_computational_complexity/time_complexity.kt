@@ -18,7 +18,6 @@ fun constant(n: Int): Int {
 /* 线性阶 */
 fun linear(n: Int): Int {
     var count = 0
-    // 循环次数与数组长度成正比
     for (i in 0..<n)
         count++
     return count
