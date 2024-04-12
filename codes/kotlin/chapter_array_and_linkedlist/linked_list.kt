@@ -79,10 +79,10 @@ fun main() {
     printLinkedList(n0)
 
     /* 访问节点 */
-    val node: ListNode = access(n0, 3)!!
+    val node = access(n0, 3)!!
     println("链表中索引 3 处的节点的值 = ${node._val}")
 
     /* 查找节点 */
-    val index: Int = find(n0, 2)
+    val index = find(n0, 2)
     println("链表中值为 2 的节点的索引 = $index")
 }
