@@ -379,10 +379,10 @@
     nums.Add(4);
 
     /* 在中间插入元素 */
-    nums.Insert(3, 6);
+    nums.Insert(3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.RemoveAt(3);
+    nums.RemoveAt(3);  // 删除索引 3 处的元素
     ```
 
 === "Go"
@@ -439,10 +439,10 @@
     nums.push(4);
 
     /* 在中间插入元素 */
-    nums.splice(3, 0, 6);
+    nums.splice(3, 0, 6); // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.splice(3, 1);
+    nums.splice(3, 1);  // 删除索引 3 处的元素
     ```
 
 === "TS"
@@ -459,10 +459,10 @@
     nums.push(4);
 
     /* 在中间插入元素 */
-    nums.splice(3, 0, 6);
+    nums.splice(3, 0, 6); // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.splice(3, 1);
+    nums.splice(3, 1);  // 删除索引 3 处的元素
     ```
 
 === "Dart"

@@ -10,7 +10,6 @@ import utils.TreeNode
 import utils.printTree
 
 /* 数组表示下的二叉树类 */
-/* 构造方法 */
 class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     /* 列表容量 */
     fun size(): Int {
@@ -93,7 +92,7 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
 /* Driver Code */
 fun main() {
     // 初始化二叉树
-    // 这里借助了一个从数组直接生成二叉树的函数
+    // 这里借助了一个从列表直接生成二叉树的函数
     val arr = mutableListOf(1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15)
 
     val root = TreeNode.listToTree(arr)
