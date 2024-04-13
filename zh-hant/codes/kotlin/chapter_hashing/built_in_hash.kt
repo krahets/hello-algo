@@ -28,7 +28,7 @@ fun main() {
 
     val arr = arrayOf<Any>(12836, "小哈")
     val hashTup = arr.contentHashCode()
-    println("陣列 ${arr.contentToString()} 的雜湊值為 ${hashTup}")
+    println("陣列 ${arr.contentToString()} 的雜湊值為 $hashTup")
 
     val obj = ListNode(0)
     val hashObj = obj.hashCode()

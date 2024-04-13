@@ -26,6 +26,7 @@ fun forLoopRecur(n: Int): Int {
     var res = 0
     // 遞: 遞迴呼叫
     for (i in n downTo 0) {
+        // 透過“入堆疊操作”模擬“遞”
         stack.push(i)
     }
     // 迴: 返回結果

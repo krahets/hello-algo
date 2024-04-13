@@ -27,7 +27,9 @@ fun climbingStairsDPComp(n: Int): Int {
     var a = 1
     var b = 2
     for (i in 3..n) {
-        b += a.also { a = b }
+        val temp = b
+        b += a
+        a = temp
     }
     return b
 }

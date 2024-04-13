@@ -14,7 +14,9 @@ fun bubbleSort(nums: IntArray) {
         for (j in 0..<i) {
             if (nums[j] > nums[j + 1]) {
                 // 交換 nums[j] 與 nums[j + 1]
-                nums[j] = nums[j + 1].also { nums[j + 1] = nums[j] }
+                val temp = nums[j]
+                nums[j] = nums[j + 1]
+                nums[j + 1] = temp
             }
         }
     }
@@ -29,7 +31,9 @@ fun bubbleSortWithFlag(nums: IntArray) {
         for (j in 0..<i) {
             if (nums[j] > nums[j + 1]) {
                 // 交換 nums[j] 與 nums[j + 1]
-                nums[j] = nums[j + 1].also { nums[j] = nums[j + 1] }
+                val temp = nums[j]
+                nums[j] = nums[j + 1]
+                nums[j + 1] = temp
                 flag = true // 記錄交換元素
             }
         }

@@ -10,7 +10,6 @@ import utils.TreeNode
 import utils.printTree
 
 /* 陣列表示下的二元樹類別 */
-/* 建構子 */
 class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     /* 串列容量 */
     fun size(): Int {
@@ -93,7 +92,7 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
 /* Driver Code */
 fun main() {
     // 初始化二元樹
-    // 這裡藉助了一個從陣列直接生成二元樹的函式
+    // 這裡藉助了一個從串列直接生成二元樹的函式
     val arr = mutableListOf(1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15)
 
     val root = TreeNode.listToTree(arr)

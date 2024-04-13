@@ -16,7 +16,9 @@ func backtrack(choices: [Int], state: Int, n: Int, res: inout [Int]) {
         if state + choice > n {
             continue
         }
+        // 嘗試：做出選擇，更新狀態
         backtrack(choices: choices, state: state + choice, n: n, res: &res)
+        // 回退
     }
 }
 

@@ -8,7 +8,9 @@ package chapter_sorting
 
 /* 元素交換 */
 fun swap(nums: IntArray, i: Int, j: Int) {
-    nums[i] = nums[j].also { nums[j] = nums[i] }
+    val temp = nums[i]
+    nums[i] = nums[j]
+    nums[j] = temp
 }
 
 /* 哨兵劃分 */

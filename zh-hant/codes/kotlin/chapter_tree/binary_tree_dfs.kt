@@ -42,7 +42,7 @@ fun postOrder(root: TreeNode?) {
 /* Driver Code */
 fun main() {
     /* 初始化二元樹 */
-    // 這裡藉助了一個從陣列直接生成二元樹的函式
+    // 這裡藉助了一個從串列直接生成二元樹的函式
     val root = TreeNode.listToTree(mutableListOf(1, 2, 3, 4, 5, 6, 7))
     println("\n初始化二元樹\n")
     printTree(root)

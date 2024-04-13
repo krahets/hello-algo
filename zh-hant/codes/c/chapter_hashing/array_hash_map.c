@@ -7,7 +7,7 @@
 #include "../utils/common.h"
 
 /* 雜湊表預設大小 */
-#define  100
+#define MAX_SIZE 100
 
 /* 鍵值對 int->string */
 typedef struct {
@@ -29,7 +29,7 @@ typedef struct {
 /* 建構子 */
 ArrayHashMap *newArrayHashMap() {
     ArrayHashMap *hmap = malloc(sizeof(ArrayHashMap));
-    for (int i = 0; i < MAX_SIZE; i++) {
+    for (int i=0; i < MAX_SIZE; i++) {
         hmap->buckets[i] = NULL;
     }
     return hmap;
