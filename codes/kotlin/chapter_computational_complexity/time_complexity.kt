@@ -54,7 +54,9 @@ fun bubbleSort(nums: IntArray): Int {
         for (j in 0..<i) {
             if (nums[j] > nums[j + 1]) {
                 // 交换 nums[j] 与 nums[j + 1]
-                nums[j] = nums[j + 1].also { nums[j + 1] = nums[j] }
+                val temp = nums[j]
+                nums[j] = nums[j + 1]
+                nums[j + 1] = temp
                 count += 3 // 元素交换包含 3 个单元操作
             }
         }
