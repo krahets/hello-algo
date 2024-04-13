@@ -41,7 +41,9 @@ class MaxHeap(nums: MutableList<Int>?) {
 
     /* 交换元素 */
     private fun swap(i: Int, j: Int) {
-        maxHeap[i] = maxHeap[j].also { maxHeap[j] = maxHeap[i] }
+        val temp = maxHeap[i]
+        maxHeap[i] = maxHeap[j]
+        maxHeap[j] = temp
     }
 
     /* 获取堆大小 */

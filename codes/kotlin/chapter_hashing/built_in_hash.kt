@@ -28,7 +28,7 @@ fun main() {
 
     val arr = arrayOf<Any>(12836, "小哈")
     val hashTup = arr.contentHashCode()
-    println("数组 ${arr.contentToString()} 的哈希值为 ${hashTup}")
+    println("数组 ${arr.contentToString()} 的哈希值为 $hashTup")
 
     val obj = ListNode(0)
     val hashObj = obj.hashCode()

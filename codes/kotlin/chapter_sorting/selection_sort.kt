@@ -18,7 +18,9 @@ fun selectionSort(nums: IntArray) {
                 k = j // 记录最小元素的索引
         }
         // 将该最小元素与未排序区间的首个元素交换
-        nums[i] = nums[k].also { nums[k] = nums[i] }
+        val temp = nums[i]
+        nums[i] = nums[k]
+        nums[k] = temp
     }
 }
 
