@@ -5593,16 +5593,17 @@
 <a id="__codelineno-109-5" name="__codelineno-109-5" href="#__codelineno-109-5"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
 <a id="__codelineno-109-6" name="__codelineno-109-6" href="#__codelineno-109-6"></a><span class="w">    </span><span class="c1">// 递: 递归调用</span>
 <a id="__codelineno-109-7" name="__codelineno-109-7" href="#__codelineno-109-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">downTo</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-109-8" name="__codelineno-109-8" href="#__codelineno-109-8"></a><span class="w">        </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<a id="__codelineno-109-9" name="__codelineno-109-9" href="#__codelineno-109-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-109-10" name="__codelineno-109-10" href="#__codelineno-109-10"></a><span class="w">    </span><span class="c1">// 归: 返回结果</span>
-<a id="__codelineno-109-11" name="__codelineno-109-11" href="#__codelineno-109-11"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">isNotEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-109-12" name="__codelineno-109-12" href="#__codelineno-109-12"></a><span class="w">        </span><span class="c1">// 通过“出栈操作”模拟“归”</span>
-<a id="__codelineno-109-13" name="__codelineno-109-13" href="#__codelineno-109-13"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">()</span>
-<a id="__codelineno-109-14" name="__codelineno-109-14" href="#__codelineno-109-14"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-109-15" name="__codelineno-109-15" href="#__codelineno-109-15"></a><span class="w">    </span><span class="c1">// res = 1+2+3+...+n</span>
-<a id="__codelineno-109-16" name="__codelineno-109-16" href="#__codelineno-109-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span>
-<a id="__codelineno-109-17" name="__codelineno-109-17" href="#__codelineno-109-17"></a><span class="p">}</span>
+<a id="__codelineno-109-8" name="__codelineno-109-8" href="#__codelineno-109-8"></a><span class="w">        </span><span class="c1">// 通过“入栈操作”模拟“递”</span>
+<a id="__codelineno-109-9" name="__codelineno-109-9" href="#__codelineno-109-9"></a><span class="w">        </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-109-10" name="__codelineno-109-10" href="#__codelineno-109-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-109-11" name="__codelineno-109-11" href="#__codelineno-109-11"></a><span class="w">    </span><span class="c1">// 归: 返回结果</span>
+<a id="__codelineno-109-12" name="__codelineno-109-12" href="#__codelineno-109-12"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">isNotEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-109-13" name="__codelineno-109-13" href="#__codelineno-109-13"></a><span class="w">        </span><span class="c1">// 通过“出栈操作”模拟“归”</span>
+<a id="__codelineno-109-14" name="__codelineno-109-14" href="#__codelineno-109-14"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">()</span>
+<a id="__codelineno-109-15" name="__codelineno-109-15" href="#__codelineno-109-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-109-16" name="__codelineno-109-16" href="#__codelineno-109-16"></a><span class="w">    </span><span class="c1">// res = 1+2+3+...+n</span>
+<a id="__codelineno-109-17" name="__codelineno-109-17" href="#__codelineno-109-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span>
+<a id="__codelineno-109-18" name="__codelineno-109-18" href="#__codelineno-109-18"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
