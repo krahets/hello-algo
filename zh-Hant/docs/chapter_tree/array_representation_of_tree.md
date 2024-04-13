@@ -125,7 +125,7 @@ comments: true
     ```kotlin title=""
     /* 二元樹的陣列表示 */
     // 使用 null 來表示空位
-    val tree = mutableListOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
+    val tree = arrayOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
     ```
 
 === "Ruby"
@@ -1172,7 +1172,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="array_binary_tree.kt"
-    /* 建構子 */
+    /* 陣列表示下的二元樹類別 */
     class ArrayBinaryTree(val tree: MutableList<Int?>) {
         /* 串列容量 */
         fun size(): Int {

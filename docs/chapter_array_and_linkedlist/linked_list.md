@@ -813,6 +813,7 @@ comments: true
     fun remove(n0: ListNode?) {
         if (n0?.next == null)
             return
+        // n0 -> P -> n1
         val p = n0.next
         val n1 = p?.next
         n0.next = n1

@@ -1103,8 +1103,8 @@ comments: true
             if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
                 throw IndexOutOfBoundsException()
             // 在無向圖中，鄰接矩陣關於主對角線對稱，即滿足 (i, j) == (j, i)
-            adjMat[i][j] = 1;
-            adjMat[j][i] = 1;
+            adjMat[i][j] = 1
+            adjMat[j][i] = 1
         }
 
         /* 刪除邊 */
@@ -1113,15 +1113,15 @@ comments: true
             // 索引越界與相等處理
             if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
                 throw IndexOutOfBoundsException()
-            adjMat[i][j] = 0;
-            adjMat[j][i] = 0;
+            adjMat[i][j] = 0
+            adjMat[j][i] = 0
         }
 
         /* 列印鄰接矩陣 */
         fun print() {
             print("頂點串列 = ")
-            println(vertices);
-            println("鄰接矩陣 =");
+            println(vertices)
+            println("鄰接矩陣 =")
             printMatrix(adjMat)
         }
     }
@@ -2167,9 +2167,9 @@ comments: true
         init {
             // 新增所有頂點和邊
             for (edge in edges) {
-                addVertex(edge[0]!!);
-                addVertex(edge[1]!!);
-                addEdge(edge[0]!!, edge[1]!!);
+                addVertex(edge[0]!!)
+                addVertex(edge[1]!!)
+                addEdge(edge[0]!!, edge[1]!!)
             }
         }
 
@@ -2184,7 +2184,7 @@ comments: true
                 throw IllegalArgumentException()
             // 新增邊 vet1 - vet2
             adjList[vet1]?.add(vet2)
-            adjList[vet2]?.add(vet1);
+            adjList[vet2]?.add(vet1)
         }
 
         /* 刪除邊 */
@@ -2192,8 +2192,8 @@ comments: true
             if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
                 throw IllegalArgumentException()
             // 刪除邊 vet1 - vet2
-            adjList[vet1]?.remove(vet2);
-            adjList[vet2]?.remove(vet1);
+            adjList[vet1]?.remove(vet2)
+            adjList[vet2]?.remove(vet1)
         }
 
         /* 新增頂點 */
@@ -2209,7 +2209,7 @@ comments: true
             if (!adjList.containsKey(vet))
                 throw IllegalArgumentException()
             // 在鄰接表中刪除頂點 vet 對應的鏈結串列
-            adjList.remove(vet);
+            adjList.remove(vet)
             // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
             for (list in adjList.values) {
                 list.remove(vet)

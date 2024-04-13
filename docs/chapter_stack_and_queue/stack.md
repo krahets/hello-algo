@@ -1092,7 +1092,7 @@ comments: true
         fun pop(): Int? {
             val num = peek()
             stackPeek = stackPeek?.next
-            stkSize--;
+            stkSize--
             return num
         }
 

@@ -1312,7 +1312,7 @@ comments: true
 
     ```kotlin title="hash_map_chaining.kt"
     /* 鏈式位址雜湊表 */
-    class HashMapChaining() {
+    class HashMapChaining {
         var size: Int // 鍵值對數量
         var capacity: Int // 雜湊表容量
         val loadThres: Double // 觸發擴容的負載因子閾值

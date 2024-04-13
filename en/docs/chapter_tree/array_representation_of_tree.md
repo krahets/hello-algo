@@ -1172,7 +1172,7 @@ The following code implements a binary tree based on array representation, inclu
 === "Kotlin"
 
     ```kotlin title="array_binary_tree.kt"
-    /* 构造方法 */
+    /* 数组表示下的二叉树类 */
     class ArrayBinaryTree(val tree: MutableList<Int?>) {
         /* 列表容量 */
         fun size(): Int {

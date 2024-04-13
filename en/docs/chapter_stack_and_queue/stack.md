@@ -1045,7 +1045,7 @@ Below is an example code for implementing a stack based on a linked list:
         fun pop(): Int? {
             val num = peek()
             stackPeek = stackPeek?.next
-            stkSize--;
+            stkSize--
             return num
         }
 

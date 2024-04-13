@@ -553,7 +553,9 @@ comments: true
             if (ma == i) 
                 break
             // 交换两节点
-            nums[i] = nums[ma].also { nums[ma] = nums[i] }
+            val temp = nums[i]
+            nums[i] = nums[ma]
+            nums[ma] = temp
             // 循环向下堆化
             i = ma
         }
@@ -568,7 +570,9 @@ comments: true
         // 从堆中提取最大元素，循环 n-1 轮
         for (i in nums.size - 1 downTo 1) {
             // 交换根节点与最右叶节点（交换首元素与尾元素）
-            nums[0] = nums[i].also { nums[i] = nums[0] }
+            val temp = nums[0]
+            nums[0] = nums[i]
+            nums[i] = temp
             // 以根节点为起点，从顶至底进行堆化
             siftDown(nums, i, 0)
         }

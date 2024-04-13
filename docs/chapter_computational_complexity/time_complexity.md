@@ -1431,7 +1431,6 @@ $$
     /* 线性阶 */
     fun linear(n: Int): Int {
         var count = 0
-        // 循环次数与数组长度成正比
         for (i in 0..<n)
             count++
         return count
@@ -2175,7 +2174,9 @@ $$
             for (j in 0..<i) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
-                    nums[j] = nums[j + 1].also { nums[j + 1] = nums[j] }
+                    val temp = nums[j]
+                    nums[j] = nums[j + 1]
+                    nums[j + 1] = temp
                     count += 3 // 元素交换包含 3 个单元操作
                 }
             }
@@ -2452,8 +2453,8 @@ $$
     /* 指数阶（循环实现） */
     fun exponential(n: Int): Int {
         var count = 0
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
         var base = 1
+        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
         for (i in 0..<n) {
             for (j in 0..<base) {
                 count++
@@ -3859,12 +3860,11 @@ $$
         for (i in 0..<n) {
             nums[i] = i + 1
         }
-        val mutableList = nums.toMutableList()
         // 随机打乱数组元素
-        mutableList.shuffle()
+        nums.shuffle()
         val res = arrayOfNulls<Int>(n)
         for (i in 0..<n) {
-            res[i] = mutableList[i]
+            res[i] = nums[i]
         }
         return res
     }

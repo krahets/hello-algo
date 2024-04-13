@@ -302,19 +302,16 @@ comments: true
         nums[j] = tmp;
     }
 
-    /* 快速排序類別 */
-    // 快速排序類別-哨兵劃分
+    /* 哨兵劃分 */
     int partition(int nums[], int left, int right) {
         // 以 nums[left] 為基準數
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left]) {
-                // 從右向左找首個小於基準數的元素
-                j--;
+                j--; // 從右向左找首個小於基準數的元素
             }
             while (i < j && nums[i] <= nums[left]) {
-                // 從左向右找首個大於基準數的元素
-                i++;
+                i++; // 從左向右找首個大於基準數的元素
             }
             // 交換這兩個元素
             swap(nums, i, j);
@@ -331,7 +328,9 @@ comments: true
     ```kotlin title="quick_sort.kt"
     /* 元素交換 */
     fun swap(nums: IntArray, i: Int, j: Int) {
-        nums[i] = nums[j].also { nums[j] = nums[i] }
+        val temp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = temp
     }
 
     /* 哨兵劃分 */
@@ -563,30 +562,7 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
-    /* 快速排序類別 */
-    // 快速排序類別-哨兵劃分
-    int partition(int nums[], int left, int right) {
-        // 以 nums[left] 為基準數
-        int i = left, j = right;
-        while (i < j) {
-            while (i < j && nums[j] >= nums[left]) {
-                // 從右向左找首個小於基準數的元素
-                j--;
-            }
-            while (i < j && nums[i] <= nums[left]) {
-                // 從左向右找首個大於基準數的元素
-                i++;
-            }
-            // 交換這兩個元素
-            swap(nums, i, j);
-        }
-        // 將基準數交換至兩子陣列的分界線
-        swap(nums, i, left);
-        // 返回基準數的索引
-        return i;
-    }
-
-    // 快速排序類別-快速排序
+    /* 快速排序 */
     void quickSort(int nums[], int left, int right) {
         // 子陣列長度為 1 時終止遞迴
         if (left >= right) {
@@ -1022,8 +998,7 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
-    /* 快速排序類別（中位基準數最佳化） */
-    // 選取三個候選元素的中位數
+    /* 選取三個候選元素的中位數 */
     int medianThree(int nums[], int left, int mid, int right) {
         int l = nums[left], m = nums[mid], r = nums[right];
         if ((l <= m && m <= r) || (r <= m && m <= l))
@@ -1033,7 +1008,7 @@ comments: true
         return right;
     }
 
-    /* 哨兵劃分（三數取中值） */ 
+    /* 哨兵劃分（三數取中值） */
     int partitionMedian(int nums[], int left, int right) {
         // 選取三個候選元素的中位數
         int med = medianThree(nums, left, (left + right) / 2, right);
@@ -1354,8 +1329,7 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
-    /* 快速排序類別（尾遞迴最佳化） */
-    // 快速排序（尾遞迴最佳化）
+    /* 快速排序（尾遞迴最佳化） */
     void quickSortTailCall(int nums[], int left, int right) {
         // 子陣列長度為 1 時終止
         while (left < right) {
@@ -1363,11 +1337,15 @@ comments: true
             int pivot = partition(nums, left, right);
             // 對兩個子陣列中較短的那個執行快速排序
             if (pivot - left < right - pivot) {
-                quickSortTailCall(nums, left, pivot - 1); // 遞迴排序左子陣列
-                left = pivot + 1;                         // 剩餘未排序區間為 [pivot + 1, right]
+                // 遞迴排序左子陣列
+                quickSortTailCall(nums, left, pivot - 1);
+                // 剩餘未排序區間為 [pivot + 1, right]
+                left = pivot + 1;
             } else {
-                quickSortTailCall(nums, pivot + 1, right); // 遞迴排序右子陣列
-                right = pivot - 1;                         // 剩餘未排序區間為 [left, pivot - 1]
+                // 遞迴排序右子陣列
+                quickSortTailCall(nums, pivot + 1, right);
+                // 剩餘未排序區間為 [left, pivot - 1]
+                right = pivot - 1;
             }
         }
     }

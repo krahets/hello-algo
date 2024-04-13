@@ -1036,11 +1036,7 @@ $$
 
     ```kotlin title="knapsack.kt"
     /* 0-1 背包：动态规划 */
-    fun knapsackDP(
-        wgt: IntArray,
-        _val: IntArray,
-        cap: Int
-    ): Int {
+    fun knapsackDP(wgt: IntArray, _val: IntArray, cap: Int): Int {
         val n = wgt.size
         // 初始化 dp 表
         val dp = Array(n + 1) { IntArray(cap + 1) }
@@ -1429,11 +1425,7 @@ $$
 
     ```kotlin title="knapsack.kt"
     /* 0-1 背包：空间优化后的动态规划 */
-    fun knapsackDPComp(
-        wgt: IntArray,
-        _val: IntArray,
-        cap: Int
-    ): Int {
+    fun knapsackDPComp(wgt: IntArray, _val: IntArray, cap: Int): Int {
         val n = wgt.size
         // 初始化 dp 表
         val dp = IntArray(cap + 1)
@@ -1443,8 +1435,7 @@ $$
             for (c in cap downTo 1) {
                 if (wgt[i - 1] <= c) {
                     // 不选和选物品 i 这两种方案的较大值
-                    dp[c] =
-                        max(dp[c], dp[c - wgt[i - 1]] + _val[i - 1])
+                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + _val[i - 1])
                 }
             }
         }

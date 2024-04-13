@@ -1646,7 +1646,8 @@ index = hash(key) % capacity
         fun valueSet(): MutableList<String> {
             val valueSet = mutableListOf<String>()
             for (pair in buckets) {
-                pair?.let { valueSet.add(it._val) }
+                if (pair != null)
+                    valueSet.add(pair._val)
             }
             return valueSet
         }
@@ -1656,7 +1657,7 @@ index = hash(key) % capacity
             for (kv in pairSet()) {
                 val key = kv.key
                 val _val = kv._val
-                println("${key} -> ${_val}")
+                println("$key -> $_val")
             }
         }
     }

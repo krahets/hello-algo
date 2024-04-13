@@ -220,7 +220,9 @@ comments: true
 
         /* 交換元素 */
         private fun swap(i: Int, j: Int) {
-            maxHeap[i] = maxHeap[j].also { maxHeap[j] = maxHeap[i] }
+            val temp = maxHeap[i]
+            maxHeap[i] = maxHeap[j]
+            maxHeap[j] = temp
         }
 
         /* 獲取堆積大小 */

@@ -305,7 +305,7 @@ comments: true
         val list = mutableListOf<Int>()
         while (queue.isNotEmpty()) {
             val node = queue.poll()      // 隊列出隊
-            list.add(node?._val!!)      // 儲存節點值
+            list.add(node?._val!!)       // 儲存節點值
             if (node.left != null)
                 queue.offer(node.left)   // 左子節點入列
             if (node.right != null)

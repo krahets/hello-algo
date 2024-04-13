@@ -1992,6 +1992,7 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
         var res = 0
         // 递: 递归调用
         for (i in n downTo 0) {
+            // 通过“入栈操作”模拟“递”
             stack.push(i)
         }
         // 归: 返回结果

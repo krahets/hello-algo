@@ -253,7 +253,21 @@ comments: true
 === "Ruby"
 
     ```ruby title="insertion_sort.rb"
-    [class]{}-[func]{insertion_sort}
+    ### 插入排序 ###
+    def insertion_sort(nums)
+      n = nums.length
+      # 外迴圈：已排序區間為 [0, i-1]
+      for i in 1...n
+        base = nums[i]
+        j = i - 1
+        # 內迴圈：將 base 插入到已排序區間 [0, i-1] 中的正確位置
+        while j >= 0 && nums[j] > base
+          nums[j + 1] = nums[j] # 將 nums[j] 向右移動一位
+          j -= 1
+        end
+        nums[j + 1] = base # 將 base 賦值到正確位置
+      end
+    end
     ```
 
 === "Zig"

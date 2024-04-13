@@ -650,7 +650,7 @@ comments: true
 
     /* 獲取父節點的索引 */
     int parent(MaxHeap *maxHeap, int i) {
-        return (i - 1) / 2;
+        return (i - 1) / 2; // 向下取整
     }
     ```
 

@@ -264,7 +264,9 @@ comments: true
             for (j in 0..<i) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
-                    nums[j] = nums[j + 1].also { nums[j + 1] = nums[j] }
+                    val temp = nums[j]
+                    nums[j] = nums[j + 1]
+                    nums[j + 1] = temp
                 }
             }
         }
@@ -571,7 +573,9 @@ comments: true
             for (j in 0..<i) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
-                    nums[j] = nums[j + 1].also { nums[j] = nums[j + 1] }
+                    val temp = nums[j]
+                    nums[j] = nums[j + 1]
+                    nums[j + 1] = temp
                     flag = true // 记录交换元素
                 }
             }

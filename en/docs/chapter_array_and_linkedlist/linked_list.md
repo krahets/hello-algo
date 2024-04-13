@@ -760,6 +760,7 @@ It's important to note that even though node `P` continues to point to `n1` afte
     fun remove(n0: ListNode?) {
         if (n0?.next == null)
             return
+        // n0 -> P -> n1
         val p = n0.next
         val n1 = p?.next
         n0.next = n1

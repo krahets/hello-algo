@@ -184,7 +184,9 @@ comments: true
             if state + choice > n {
                 continue
             }
+            // 嘗試：做出選擇，更新狀態
             backtrack(choices: choices, state: state + choice, n: n, res: &res)
+            // 回退
         }
     }
 
@@ -1597,7 +1599,9 @@ $$
         var a = 1
         var b = 2
         for (i in 3..n) {
-            b += a.also { a = b }
+            val temp = b
+            b += a
+            a = temp
         }
         return b
     }

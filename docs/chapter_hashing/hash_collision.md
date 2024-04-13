@@ -1312,7 +1312,7 @@ comments: true
 
     ```kotlin title="hash_map_chaining.kt"
     /* 链式地址哈希表 */
-    class HashMapChaining() {
+    class HashMapChaining {
         var size: Int // 键值对数量
         var capacity: Int // 哈希表容量
         val loadThres: Double // 触发扩容的负载因子阈值
