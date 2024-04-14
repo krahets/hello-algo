@@ -13,12 +13,11 @@ fun randomNumbers(n: Int): Array<Int?> {
     for (i in 0..<n) {
         nums[i] = i + 1
     }
-    val mutableList = nums.toMutableList()
     // 隨機打亂陣列元素
-    mutableList.shuffle()
+    nums.shuffle()
     val res = arrayOfNulls<Int>(n)
     for (i in 0..<n) {
-        res[i] = mutableList[i]
+        res[i] = nums[i]
     }
     return res
 }

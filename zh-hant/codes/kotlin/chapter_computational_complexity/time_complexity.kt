@@ -18,7 +18,6 @@ fun constant(n: Int): Int {
 /* 線性階 */
 fun linear(n: Int): Int {
     var count = 0
-    // 迴圈次數與陣列長度成正比
     for (i in 0..<n)
         count++
     return count
@@ -55,7 +54,9 @@ fun bubbleSort(nums: IntArray): Int {
         for (j in 0..<i) {
             if (nums[j] > nums[j + 1]) {
                 // 交換 nums[j] 與 nums[j + 1]
-                nums[j] = nums[j + 1].also { nums[j + 1] = nums[j] }
+                val temp = nums[j]
+                nums[j] = nums[j + 1]
+                nums[j + 1] = temp
                 count += 3 // 元素交換包含 3 個單元操作
             }
         }
@@ -66,8 +67,8 @@ fun bubbleSort(nums: IntArray): Int {
 /* 指數階（迴圈實現） */
 fun exponential(n: Int): Int {
     var count = 0
-    // 細胞每輪一分為二，形成數列 1, 2, 4, 8, ..., 2^(n-1)
     var base = 1
+    // 細胞每輪一分為二，形成數列 1, 2, 4, 8, ..., 2^(n-1)
     for (i in 0..<n) {
         for (j in 0..<base) {
             count++

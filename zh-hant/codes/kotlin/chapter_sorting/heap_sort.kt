@@ -22,7 +22,9 @@ fun siftDown(nums: IntArray, n: Int, li: Int) {
         if (ma == i) 
             break
         // 交換兩節點
-        nums[i] = nums[ma].also { nums[ma] = nums[i] }
+        val temp = nums[i]
+        nums[i] = nums[ma]
+        nums[ma] = temp
         // 迴圈向下堆積化
         i = ma
     }
@@ -37,7 +39,9 @@ fun heapSort(nums: IntArray) {
     // 從堆積中提取最大元素，迴圈 n-1 輪
     for (i in nums.size - 1 downTo 1) {
         // 交換根節點與最右葉節點（交換首元素與尾元素）
-        nums[0] = nums[i].also { nums[i] = nums[0] }
+        val temp = nums[0]
+        nums[0] = nums[i]
+        nums[i] = temp
         // 以根節點為起點，從頂至底進行堆積化
         siftDown(nums, i, 0)
     }
