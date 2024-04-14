@@ -51,7 +51,11 @@ int coinChangeDPComp(int coins[], int amt, int coinsSize) {
     int MAX = amt + 1;
     // 初始化 dp 表
     int *dp = calloc(amt + 1, sizeof(int));
+    for (int j = 1; j <= amt; j++) {
+        dp[j] = MAX;
+    } 
     dp[0] = 0;
+
     // 状态转移
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
