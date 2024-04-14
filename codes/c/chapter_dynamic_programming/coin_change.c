@@ -50,7 +50,7 @@ int coinChangeDPComp(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
     int MAX = amt + 1;
     // 初始化 dp 表
-    int *dp = calloc(amt + 1, sizeof(int));
+    int *dp = malloc(amt + 1, sizeof(int));
     for (int j = 1; j <= amt; j++) {
         dp[j] = MAX;
     } 
