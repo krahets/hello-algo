@@ -31,7 +31,7 @@
     ```python title="hash_map.py"
     # 初始化哈希表
     hmap: dict = {}
-    
+
     # 添加操作
     # 在哈希表中添加键值对 (key, value)
     hmap[12836] = "小哈"
@@ -39,11 +39,11 @@
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鸭"
-    
+
     # 查询操作
     # 向哈希表中输入键 key ，得到值 value
     name: str = hmap[15937]
-    
+
     # 删除操作
     # 在哈希表中删除键值对 (key, value)
     hmap.pop(10583)
@@ -54,7 +54,7 @@
     ```cpp title="hash_map.cpp"
     /* 初始化哈希表 */
     unordered_map<int, string> map;
-    
+
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map[12836] = "小哈";
@@ -62,11 +62,11 @@
     map[16750] = "小算";
     map[13276] = "小法";
     map[10583] = "小鸭";
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     string name = map[15937];
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.erase(10583);
@@ -77,19 +77,19 @@
     ```java title="hash_map.java"
     /* 初始化哈希表 */
     Map<Integer, String> map = new HashMap<>();
-    
+
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
-    map.put(12836, "小哈");   
-    map.put(15937, "小啰");   
-    map.put(16750, "小算");   
+    map.put(12836, "小哈");
+    map.put(15937, "小啰");
+    map.put(16750, "小算");
     map.put(13276, "小法");
     map.put(10583, "小鸭");
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     String name = map.get(15937);
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.remove(10583);
@@ -108,11 +108,11 @@
         { 13276, "小法" },
         { 10583, "小鸭" }
     };
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     string name = map[15937];
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.Remove(10583);
@@ -123,7 +123,7 @@
     ```go title="hash_map_test.go"
     /* 初始化哈希表 */
     hmap := make(map[int]string)
-    
+
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     hmap[12836] = "小哈"
@@ -131,11 +131,11 @@
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鸭"
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     name := hmap[15937]
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     delete(hmap, 10583)
@@ -146,7 +146,7 @@
     ```swift title="hash_map.swift"
     /* 初始化哈希表 */
     var map: [Int: String] = [:]
-    
+
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map[12836] = "小哈"
@@ -154,11 +154,11 @@
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鸭"
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     let name = map[15937]!
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.removeValue(forKey: 10583)
@@ -176,11 +176,11 @@
     map.set(16750, '小算');
     map.set(13276, '小法');
     map.set(10583, '小鸭');
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     let name = map.get(15937);
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.delete(10583);
@@ -200,12 +200,12 @@
     map.set(10583, '小鸭');
     console.info('\n添加完成后，哈希表为\nKey -> Value');
     console.info(map);
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     let name = map.get(15937);
     console.info('\n输入学号 15937 ，查询到姓名 ' + name);
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.delete(10583);
@@ -240,7 +240,7 @@
 
     ```rust title="hash_map.rs"
     use std::collections::HashMap;
-    
+
     /* 初始化哈希表 */
     let mut map: HashMap<i32, String> = HashMap::new();
 
@@ -272,7 +272,7 @@
     ```kotlin title="hash_map.kt"
     /* 初始化哈希表 */
     val map = HashMap<Int,String>()
-    
+
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map[12836] = "小哈"
@@ -280,11 +280,11 @@
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鸭"
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     val name = map[15937]
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.remove(10583)
@@ -293,7 +293,24 @@
 === "Ruby"
 
     ```ruby title="hash_map.rb"
+    # 初始化哈希表
+    hmap = {}
 
+    # 添加操作
+    # 在哈希表中添加键值对 (key, value)
+    hmap[12836] = "小哈"
+    hmap[15937] = "小啰"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鸭"
+
+    # 查询操作
+    # 向哈希表中输入键 key ，得到值 value
+    name = hmap[15937]
+
+    # 删除操作
+    # 在哈希表中删除键值对 (key, value)
+    hmap.delete(10583)
     ```
 
 === "Zig"
@@ -476,7 +493,7 @@
 
     // 单独遍历键 Key
     for key in map.keys() {
-        println!("{key}"); 
+        println!("{key}");
     }
 
     // 单独遍历值 Value
@@ -512,7 +529,15 @@
 === "Ruby"
 
     ```ruby title="hash_map.rb"
+    # 遍历哈希表
+    # 遍历键值对 key->value
+    hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
+    # 单独遍历键 key
+    hmap.keys.each { |key| puts key }
+
+    # 单独遍历值 value
+    hmap.values.each { |val| puts val }
     ```
 
 === "Zig"
