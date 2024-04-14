@@ -16,6 +16,7 @@ end
 
 ### 基于数组实现的哈希表 ###
 class ArrayHashMap
+  ### 构造方法 ###
   def initialize
     # 初始化数组，包含 100 个桶
     @buckets = Array.new(100)

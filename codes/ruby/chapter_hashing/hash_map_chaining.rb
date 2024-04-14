@@ -41,8 +41,8 @@ class HashMapChaining
 
   ### 添加操作 ###
   def put(key, val)
-    extend if load_factor > @load_thres
     # 当负载因子超过阈值时，执行扩容
+    extend if load_factor > @load_thres
     index = hash_func(key)
     bucket = @buckets[index]
     # 遍历桶，若遇到指定 key ，则更新对应 val 并返回

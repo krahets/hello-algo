@@ -119,6 +119,7 @@ class HashMapOpenAddressing
   end
 end
 
+### Driver Code ###
 if __FILE__ == $0
   # 初始化哈希表
   hashmap = HashMapOpenAddressing.new
