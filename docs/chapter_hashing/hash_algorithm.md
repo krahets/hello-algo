@@ -601,13 +601,45 @@ index = hash(key) % capacity
 === "Ruby"
 
     ```ruby title="simple_hash.rb"
-    [class]{}-[func]{add_hash}
+    ### 加法哈希 ###
+    def add_hash(key)
+      hash = 0
+      modulus = 1_000_000_007
 
-    [class]{}-[func]{mul_hash}
+      key.each_char { |c| hash += c.ord }
 
-    [class]{}-[func]{xor_hash}
+      hash % modulus
+    end
 
-    [class]{}-[func]{rot_hash}
+    ### 乘法哈希 ###
+    def mul_hash(key)
+      hash = 0
+      modulus = 1_000_000_007
+
+      key.each_char { |c| hash = 31 * hash + c.ord }
+
+      hash % modulus
+    end
+
+    ### 异或哈希 ###
+    def xor_hash(key)
+      hash = 0
+      modulus = 1_000_000_007
+
+      key.each_char { |c| hash ^= c.ord }
+
+      hash % modulus
+    end
+
+    ### 旋转哈希 ###
+    def rot_hash(key)
+      hash = 0
+      modulus = 1_000_000_007
+
+      key.each_char { |c| hash = (hash << 4) ^ (hash >> 28) ^ c.ord }
+
+      hash % modulus
+    end
     ```
 
 === "Zig"
@@ -880,7 +912,7 @@ $$
     ```rust title="built_in_hash.rs"
     use std::collections::hash_map::DefaultHasher;
     use std::hash::{Hash, Hasher};
-    
+
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
@@ -955,7 +987,29 @@ $$
 === "Ruby"
 
     ```ruby title="built_in_hash.rb"
+    num = 3
+    hash_num = num.hash
+    # 整数 3 的哈希值为 -4385856518450339636
 
+    bol = true
+    hash_bol = bol.hash
+    # 布尔量 true 的哈希值为 -1617938112149317027
+
+    dec = 3.14159
+    hash_dec = dec.hash
+    # 小数 3.14159 的哈希值为 -1479186995943067893
+
+    str = "Hello 算法"
+    hash_str = str.hash
+    # 字符串“Hello 算法”的哈希值为 -4075943250025831763
+
+    tup = [12836, '小哈']
+    hash_tup = tup.hash
+    # 元组 (12836, '小哈') 的哈希值为 1999544809202288822
+
+    obj = ListNode.new(0)
+    hash_obj = obj.hash
+    # 节点对象 #<ListNode:0x000078133140ab70> 的哈希值为 4302940560806366381
     ```
 
 === "Zig"

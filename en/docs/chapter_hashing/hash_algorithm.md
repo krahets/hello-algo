@@ -601,13 +601,45 @@ The design of hash algorithms is a complex issue that requires consideration of 
 === "Ruby"
 
     ```ruby title="simple_hash.rb"
-    [class]{}-[func]{add_hash}
+    ### 加法哈希 ###
+    def add_hash(key)
+      hash = 0
+      modulus = 1_000_000_007
 
-    [class]{}-[func]{mul_hash}
+      key.each_char { |c| hash += c.ord }
 
-    [class]{}-[func]{xor_hash}
+      hash % modulus
+    end
 
-    [class]{}-[func]{rot_hash}
+    ### 乘法哈希 ###
+    def mul_hash(key)
+      hash = 0
+      modulus = 1_000_000_007
+
+      key.each_char { |c| hash = 31 * hash + c.ord }
+
+      hash % modulus
+    end
+
+    ### 异或哈希 ###
+    def xor_hash(key)
+      hash = 0
+      modulus = 1_000_000_007
+
+      key.each_char { |c| hash ^= c.ord }
+
+      hash % modulus
+    end
+
+    ### 旋转哈希 ###
+    def rot_hash(key)
+      hash = 0
+      modulus = 1_000_000_007
+
+      key.each_char { |c| hash = (hash << 4) ^ (hash >> 28) ^ c.ord }
+
+      hash % modulus
+    end
     ```
 
 === "Zig"

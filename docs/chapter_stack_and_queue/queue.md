@@ -416,7 +416,7 @@ comments: true
 
         def is_empty(self) -> bool:
             """判断队列是否为空"""
-            return not self._front
+            return self._size == 0
 
         def push(self, num: int):
             """入队"""

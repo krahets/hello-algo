@@ -1426,7 +1426,99 @@ comments: true
 === "Ruby"
 
     ```ruby title="hash_map_chaining.rb"
-    [class]{HashMapChaining}-[func]{}
+    ### 鍵式位址雜湊表 ###
+    class HashMapChaining
+      ### 建構子 ###
+      def initialize
+        @size = 0 # 鍵值對數量
+        @capacity = 4 # 雜湊表容量
+        @load_thres = 2.0 / 3.0 # 觸發擴容的負載因子閾值
+        @extend_ratio = 2 # 擴容倍數
+        @buckets = Array.new(@capacity) { [] } # 桶陣列
+      end
+
+      ### 雜湊函式 ###
+      def hash_func(key)
+        key % @capacity
+      end
+
+      ### 負載因子 ###
+      def load_factor
+        @size / @capacity
+      end
+
+      ### 查詢操作 ###
+      def get(key)
+        index = hash_func(key)
+        bucket = @buckets[index]
+        # 走訪桶，若找到 key ，則返回對應 val
+        for pair in bucket
+          return pair.val if pair.key == key
+        end
+        # 若未找到 key , 則返回 nil
+        nil
+      end
+
+      ### 新增操作 ###
+      def put(key, val)
+        # 當負載因子超過閾值時，執行擴容
+        extend if load_factor > @load_thres
+        index = hash_func(key)
+        bucket = @buckets[index]
+        # 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+        for pair in bucket
+          if pair.key == key
+            pair.val = val
+            return
+          end
+        end
+        # 若無該 key ，則將鍵值對新增至尾部
+        pair = Pair.new(key, val)
+        bucket << pair
+        @size += 1
+      end
+
+      ### 刪除操作 ###
+      def remove(key)
+        index = hash_func(key)
+        bucket = @buckets[index]
+        # 走訪桶，從中刪除鍵值對
+        for pair in bucket
+          if pair.key == key
+            bucket.delete(pair)
+            @size -= 1
+            break
+          end
+        end
+      end
+
+      ### 擴容雜湊表 ###
+      def extend
+        # 暫存原雜湊表
+        buckets = @buckets
+        # 初始化擴容後的新雜湊表
+        @capacity *= @extend_ratio
+        @buckets = Array.new(@capacity) { [] }
+        @size = 0
+        # 將鍵值對從原雜湊表搬運至新雜湊表
+        for bucket in buckets
+          for pair in bucket
+            put(pair.key, pair.val)
+          end
+        end
+      end
+
+      ### 列印雜湊表 ###
+      def print
+        for bucket in @buckets
+          res = []
+          for pair in bucket
+            res << "#{pair.key} -> #{pair.val}"
+          end
+          pp res
+        end
+      end
+    end
     ```
 
 === "Zig"
@@ -3086,7 +3178,118 @@ comments: true
 === "Ruby"
 
     ```ruby title="hash_map_open_addressing.rb"
-    [class]{HashMapOpenAddressing}-[func]{}
+    ### 開放定址雜湊表 ###
+    class HashMapOpenAddressing
+      TOMBSTONE = Pair.new(-1, '-1') # 刪除標記
+
+      ### 建構子 ###
+      def initialize
+        @size = 0 # 鍵值對數量
+        @capacity = 4 # 雜湊表容量
+        @load_thres = 2.0 / 3.0 # 觸發擴容的負載因子閾值
+        @extend_ratio = 2 # 擴容倍數
+        @buckets = Array.new(@capacity) # 桶陣列
+      end
+
+      ### 雜湊函式 ###
+      def hash_func(key)
+        key % @capacity
+      end
+
+      ### 負載因子 ###
+      def load_factor
+        @size / @capacity
+      end
+
+      ### 搜尋 key 對應的桶索引 ###
+      def find_bucket(key)
+        index = hash_func(key)
+        first_tombstone = -1
+        # 線性探查，當遇到空桶時跳出
+        while !@buckets[index].nil?
+          # 若遇到 key ，返回對應的桶索引
+          if @buckets[index].key == key
+            # 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+            if first_tombstone != -1
+              @buckets[first_tombstone] = @buckets[index]
+              @buckets[index] = TOMBSTONE
+              return first_tombstone # 返回移動後的桶索引
+            end
+            return index # 返回桶索引
+          end
+          # 記錄遇到的首個刪除標記
+          first_tombstone = index if first_tombstone == -1 && @buckets[index] == TOMBSTONE
+          # 計算桶索引，越過尾部則返回頭部
+          index = (index + 1) % @capacity
+        end
+        # 若 key 不存在，則返回新增點的索引
+        first_tombstone == -1 ? index : first_tombstone
+      end
+
+      ### 查詢操作 ###
+      def get(key)
+        # 搜尋 key 對應的桶索引
+        index = find_bucket(key)
+        # 若找到鍵值對，則返回對應 val
+        return @buckets[index].val unless [nil, TOMBSTONE].include?(@buckets[index])
+        # 若鍵值對不存在，則返回 nil
+        nil
+      end
+
+      ### 新增操作 ###
+      def put(key, val)
+        # 當負載因子超過閾值時，執行擴容
+        extend if load_factor > @load_thres
+        # 搜尋 key 對應的桶索引
+        index = find_bucket(key)
+        # 若找到鍵值對，則覆蓋 val 開返回
+        unless [nil, TOMBSTONE].include?(@buckets[index])
+          @buckets[index].val = val
+          return
+        end
+        # 若鍵值對不存在，則新增該鍵值對
+        @buckets[index] = Pair.new(key, val)
+        @size += 1
+      end
+
+      ### 刪除操作 ###
+      def remove(key)
+        # 搜尋 key 對應的桶索引
+        index = find_bucket(key)
+        # 若找到鍵值對，則用刪除標記覆蓋它
+        unless [nil, TOMBSTONE].include?(@buckets[index])
+          @buckets[index] = TOMBSTONE
+          @size -= 1
+        end
+      end
+
+      ### 擴容雜湊表 ###
+      def extend
+        # 暫存原雜湊表
+        buckets_tmp = @buckets
+        # 初始化擴容後的新雜湊表
+        @capacity *= @extend_ratio
+        @buckets = Array.new(@capacity)
+        @size = 0
+        # 將鍵值對從原雜湊表搬運至新雜湊表
+        for pair in buckets_tmp
+          put(pair.key, pair.val) unless [nil, TOMBSTONE].include?(pair)
+        end
+      end
+
+      ### 列印雜湊表 ###
+      def print
+        for pair in @buckets
+          if pair.nil?
+            puts "Nil"
+          elsif pair == TOMBSTONE
+            puts "TOMBSTONE"
+          else
+            puts "#{pair.key} -> #{pair.val}"
+          end
+        end
+      end
+    end
     ```
 
 === "Zig"

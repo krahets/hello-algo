@@ -412,7 +412,7 @@ comments: true
 
         def is_empty(self) -> bool:
             """判斷堆疊是否為空"""
-            return not self._peek
+            return self._size == 0
 
         def push(self, val: int):
             """入堆疊"""
@@ -1284,7 +1284,7 @@ comments: true
 
         def is_empty(self) -> bool:
             """判斷堆疊是否為空"""
-            return self._stack == []
+            return self._size == 0
 
         def push(self, item: int):
             """入堆疊"""

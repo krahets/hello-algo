@@ -1625,9 +1625,78 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 === "Ruby"
 
     ```ruby title="array_hash_map.rb"
-    [class]{Pair}-[func]{}
+    ### 键值对 ###
+    class Pair
+      attr_accessor :key, :val
 
-    [class]{ArrayHashMap}-[func]{}
+      def initialize(key, val)
+        @key = key
+        @val = val
+      end
+    end
+
+    ### 基于数组实现的哈希表 ###
+    class ArrayHashMap
+      ### 构造方法 ###
+      def initialize
+        # 初始化数组，包含 100 个桶
+        @buckets = Array.new(100)
+      end
+
+      ### 哈希函数 ###
+      def hash_func(key)
+        index = key % 100
+      end
+
+      ### 查询操作 ###
+      def get(key)
+        index = hash_func(key)
+        pair = @buckets[index]
+
+        return if pair.nil?
+        pair.val
+      end
+
+      ### 添加操作 ###
+      def put(key, val)
+        pair = Pair.new(key, val)
+        index = hash_func(key)
+        @buckets[index] = pair
+      end
+
+      ### 删除操作 ###
+      def remove(key)
+        index = hash_func(key)
+        # 置为 nil ，代表删除
+        @buckets[index] = nil
+      end
+
+      ### 获取所有键值对 ###
+      def entry_set
+        result = []
+        @buckets.each { |pair| result << pair unless pair.nil? }
+        result
+      end
+
+      ### 获取所有键 ###
+      def key_set
+        result = []
+        @buckets.each { |pair| result << pair.key unless pair.nil? }
+        result
+      end
+
+      ### 获取所有值 ###
+      def value_set
+        result = []
+        @buckets.each { |pair| result << pair.val unless pair.nil? }
+        result
+      end
+
+      ### 打印哈希表 ###
+      def print
+        @buckets.each { |pair| puts "#{pair.key} -> #{pair.val}" unless pair.nil? }
+      end
+    end
     ```
 
 === "Zig"

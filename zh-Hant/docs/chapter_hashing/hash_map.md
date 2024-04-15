@@ -41,7 +41,7 @@ comments: true
     ```python title="hash_map.py"
     # 初始化雜湊表
     hmap: dict = {}
-    
+
     # 新增操作
     # 在雜湊表中新增鍵值對 (key, value)
     hmap[12836] = "小哈"
@@ -49,11 +49,11 @@ comments: true
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鴨"
-    
+
     # 查詢操作
     # 向雜湊表中輸入鍵 key ，得到值 value
     name: str = hmap[15937]
-    
+
     # 刪除操作
     # 在雜湊表中刪除鍵值對 (key, value)
     hmap.pop(10583)
@@ -64,7 +64,7 @@ comments: true
     ```cpp title="hash_map.cpp"
     /* 初始化雜湊表 */
     unordered_map<int, string> map;
-    
+
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
     map[12836] = "小哈";
@@ -72,11 +72,11 @@ comments: true
     map[16750] = "小算";
     map[13276] = "小法";
     map[10583] = "小鴨";
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     string name = map[15937];
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.erase(10583);
@@ -87,19 +87,19 @@ comments: true
     ```java title="hash_map.java"
     /* 初始化雜湊表 */
     Map<Integer, String> map = new HashMap<>();
-    
+
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
-    map.put(12836, "小哈");   
-    map.put(15937, "小囉");   
-    map.put(16750, "小算");   
+    map.put(12836, "小哈");
+    map.put(15937, "小囉");
+    map.put(16750, "小算");
     map.put(13276, "小法");
     map.put(10583, "小鴨");
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     String name = map.get(15937);
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.remove(10583);
@@ -118,11 +118,11 @@ comments: true
         { 13276, "小法" },
         { 10583, "小鴨" }
     };
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     string name = map[15937];
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.Remove(10583);
@@ -133,7 +133,7 @@ comments: true
     ```go title="hash_map_test.go"
     /* 初始化雜湊表 */
     hmap := make(map[int]string)
-    
+
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
     hmap[12836] = "小哈"
@@ -141,11 +141,11 @@ comments: true
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鴨"
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     name := hmap[15937]
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     delete(hmap, 10583)
@@ -156,7 +156,7 @@ comments: true
     ```swift title="hash_map.swift"
     /* 初始化雜湊表 */
     var map: [Int: String] = [:]
-    
+
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
     map[12836] = "小哈"
@@ -164,11 +164,11 @@ comments: true
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鴨"
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     let name = map[15937]!
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.removeValue(forKey: 10583)
@@ -186,11 +186,11 @@ comments: true
     map.set(16750, '小算');
     map.set(13276, '小法');
     map.set(10583, '小鴨');
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     let name = map.get(15937);
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.delete(10583);
@@ -210,12 +210,12 @@ comments: true
     map.set(10583, '小鴨');
     console.info('\n新增完成後，雜湊表為\nKey -> Value');
     console.info(map);
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     let name = map.get(15937);
     console.info('\n輸入學號 15937 ，查詢到姓名 ' + name);
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.delete(10583);
@@ -250,7 +250,7 @@ comments: true
 
     ```rust title="hash_map.rs"
     use std::collections::HashMap;
-    
+
     /* 初始化雜湊表 */
     let mut map: HashMap<i32, String> = HashMap::new();
 
@@ -282,7 +282,7 @@ comments: true
     ```kotlin title="hash_map.kt"
     /* 初始化雜湊表 */
     val map = HashMap<Int,String>()
-    
+
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
     map[12836] = "小哈"
@@ -290,11 +290,11 @@ comments: true
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鴨"
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     val name = map[15937]
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.remove(10583)
@@ -303,7 +303,24 @@ comments: true
 === "Ruby"
 
     ```ruby title="hash_map.rb"
+    # 初始化雜湊表
+    hmap = {}
 
+    # 新增操作
+    # 在雜湊表中新增鍵值對 (key, value)
+    hmap[12836] = "小哈"
+    hmap[15937] = "小囉"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鴨"
+
+    # 查詢操作
+    # 向雜湊表中輸入鍵 key ，得到值 value
+    name = hmap[15937]
+
+    # 刪除操作
+    # 在雜湊表中刪除鍵值對 (key, value)
+    hmap.delete(10583)
     ```
 
 === "Zig"
@@ -487,7 +504,7 @@ comments: true
 
     // 單獨走訪鍵 Key
     for key in map.keys() {
-        println!("{key}"); 
+        println!("{key}");
     }
 
     // 單獨走訪值 Value
@@ -523,7 +540,15 @@ comments: true
 === "Ruby"
 
     ```ruby title="hash_map.rb"
+    # 走訪雜湊表
+    # 走訪鍵值對 key->value
+    hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
+    # 單獨走訪鍵 key
+    hmap.keys.each { |key| puts key }
+
+    # 單獨走訪值 value
+    hmap.values.each { |val| puts val }
     ```
 
 === "Zig"
@@ -1666,9 +1691,78 @@ index = hash(key) % capacity
 === "Ruby"
 
     ```ruby title="array_hash_map.rb"
-    [class]{Pair}-[func]{}
+    ### 鍵值對 ###
+    class Pair
+      attr_accessor :key, :val
 
-    [class]{ArrayHashMap}-[func]{}
+      def initialize(key, val)
+        @key = key
+        @val = val
+      end
+    end
+
+    ### 基於陣列實現的雜湊表 ###
+    class ArrayHashMap
+      ### 建構子 ###
+      def initialize
+        # 初始化陣列，包含 100 個桶
+        @buckets = Array.new(100)
+      end
+
+      ### 雜湊函式 ###
+      def hash_func(key)
+        index = key % 100
+      end
+
+      ### 查詢操作 ###
+      def get(key)
+        index = hash_func(key)
+        pair = @buckets[index]
+
+        return if pair.nil?
+        pair.val
+      end
+
+      ### 新增操作 ###
+      def put(key, val)
+        pair = Pair.new(key, val)
+        index = hash_func(key)
+        @buckets[index] = pair
+      end
+
+      ### 刪除操作 ###
+      def remove(key)
+        index = hash_func(key)
+        # 置為 nil ，代表刪除
+        @buckets[index] = nil
+      end
+
+      ### 獲取所有鍵值對 ###
+      def entry_set
+        result = []
+        @buckets.each { |pair| result << pair unless pair.nil? }
+        result
+      end
+
+      ### 獲取所有鍵 ###
+      def key_set
+        result = []
+        @buckets.each { |pair| result << pair.key unless pair.nil? }
+        result
+      end
+
+      ### 獲取所有值 ###
+      def value_set
+        result = []
+        @buckets.each { |pair| result << pair.val unless pair.nil? }
+        result
+      end
+
+      ### 列印雜湊表 ###
+      def print
+        @buckets.each { |pair| puts "#{pair.key} -> #{pair.val}" unless pair.nil? }
+      end
+    end
     ```
 
 === "Zig"
