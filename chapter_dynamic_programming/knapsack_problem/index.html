@@ -3713,11 +3713,11 @@
 <p>我们可以将 0-1 背包问题看作一个由 <span class="arithmatex">\(n\)</span> 轮决策组成的过程，对于每个物体都有不放入和放入两种决策，因此该问题满足决策树模型。</p>
 <p>该问题的目标是求解“在限定背包容量下能放入物品的最大价值”，因此较大概率是一个动态规划问题。</p>
 <p><strong>第一步：思考每轮的决策，定义状态，从而得到 <span class="arithmatex">\(dp\)</span> 表</strong></p>
-<p>对于每个物品来说，不放入背包，背包容量不变；放入背包，背包容量减小。由此可得状态定义：当前物品编号 <span class="arithmatex">\(i\)</span> 和剩余背包容量 <span class="arithmatex">\(c\)</span> ，记为 <span class="arithmatex">\([i, c]\)</span> 。</p>
-<p>状态 <span class="arithmatex">\([i, c]\)</span> 对应的子问题为：<strong>前 <span class="arithmatex">\(i\)</span> 个物品在剩余容量为 <span class="arithmatex">\(c\)</span> 的背包中的最大价值</strong>，记为 <span class="arithmatex">\(dp[i, c]\)</span> 。</p>
+<p>对于每个物品来说，不放入背包，背包容量不变；放入背包，背包容量减小。由此可得状态定义：当前物品编号 <span class="arithmatex">\(i\)</span> 和背包容量 <span class="arithmatex">\(c\)</span> ，记为 <span class="arithmatex">\([i, c]\)</span> 。</p>
+<p>状态 <span class="arithmatex">\([i, c]\)</span> 对应的子问题为：<strong>前 <span class="arithmatex">\(i\)</span> 个物品在容量为 <span class="arithmatex">\(c\)</span> 的背包中的最大价值</strong>，记为 <span class="arithmatex">\(dp[i, c]\)</span> 。</p>
 <p>待求解的是 <span class="arithmatex">\(dp[n, cap]\)</span> ，因此需要一个尺寸为 <span class="arithmatex">\((n+1) \times (cap+1)\)</span> 的二维 <span class="arithmatex">\(dp\)</span> 表。</p>
 <p><strong>第二步：找出最优子结构，进而推导出状态转移方程</strong></p>
-<p>当我们做出物品 <span class="arithmatex">\(i\)</span> 的决策后，剩余的是前 <span class="arithmatex">\(i-1\)</span> 个物品的决策，可分为以下两种情况。</p>
+<p>当我们做出物品 <span class="arithmatex">\(i\)</span> 的决策后，剩余的是前 <span class="arithmatex">\(i-1\)</span> 个物品决策的子问题，可分为以下两种情况。</p>
 <ul>
 <li><strong>不放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量不变，状态变化为 <span class="arithmatex">\([i-1, c]\)</span> 。</li>
 <li><strong>放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量减少 <span class="arithmatex">\(wgt[i-1]\)</span> ，价值增加 <span class="arithmatex">\(val[i-1]\)</span> ，状态变化为 <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span> 。</li>
@@ -3728,7 +3728,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 \]</div>
 <p>需要注意的是，若当前物品重量 <span class="arithmatex">\(wgt[i - 1]\)</span> 超出剩余背包容量 <span class="arithmatex">\(c\)</span> ，则只能选择不放入背包。</p>
 <p><strong>第三步：确定边界条件和状态转移顺序</strong></p>
-<p>当无物品或无剩余背包容量时最大价值为 <span class="arithmatex">\(0\)</span> ，即首列 <span class="arithmatex">\(dp[i, 0]\)</span> 和首行 <span class="arithmatex">\(dp[0, c]\)</span> 都等于 <span class="arithmatex">\(0\)</span> 。</p>
+<p>当无物品或背包容量为 <span class="arithmatex">\(0\)</span> 时最大价值为 <span class="arithmatex">\(0\)</span> ，即首列 <span class="arithmatex">\(dp[i, 0]\)</span> 和首行 <span class="arithmatex">\(dp[0, c]\)</span> 都等于 <span class="arithmatex">\(0\)</span> 。</p>
 <p>当前状态 <span class="arithmatex">\([i, c]\)</span> 从上方的状态 <span class="arithmatex">\([i-1, c]\)</span> 和左上方的状态 <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span> 转移而来，因此通过两层循环正序遍历整个 <span class="arithmatex">\(dp\)</span> 表即可。</p>
 <p>根据以上分析，我们接下来按顺序实现暴力搜索、记忆化搜索、动态规划解法。</p>
 <h3 id="1">1. &nbsp; 方法一：暴力搜索<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
