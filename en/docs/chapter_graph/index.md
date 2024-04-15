@@ -6,4 +6,4 @@
 
     In the journey of life, we are like individual nodes, connected by countless invisible edges.
     
-    Every encountering and parting leaves a unique mark on this vast network graph.
+    Each encounter and parting leaves a distinctive imprint on this vast network graph.
