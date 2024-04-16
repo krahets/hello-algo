@@ -10,7 +10,7 @@ function binarySearch(nums: number[], target: number): number {
     let i = 0,
         j = nums.length - 1;
     // 循环，当搜索区间为空时跳出（当 i > j 时为空）
-    while (i <= j {
+    while (i <= j) {
         // 计算中点索引 m
         const m = Math.floor(i + (j - i) / 2);
         if (nums[m] < target) {
