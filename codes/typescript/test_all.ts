@@ -1,4 +1,5 @@
 import { expandGlob, type WalkEntry } from 'jsr:@std/fs';
+import { relative } from 'jsr:@std/path';
 
 const entries = [] as WalkEntry[];
 
@@ -10,7 +11,7 @@ const errors = [] as ReadableStream<Uint8Array>[];
 
 for (const file of entries) {
     const command = new Deno.Command('tsx', {
-        args: [`.${file.path.replace(import.meta.dirname!, '')}`],
+        args: [relative(import.meta.dirname!, file.path)],
         cwd: import.meta.dirname,
         stdin: 'piped',
         stdout: 'piped',
