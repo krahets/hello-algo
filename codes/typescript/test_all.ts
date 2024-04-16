@@ -2,7 +2,7 @@ import { expandGlob, type WalkEntry } from 'jsr:@std/fs';
 
 const entries = [] as WalkEntry[];
 
-for await (const entry of expandGlob('./chapter_*/*.ts')) {
+for await (const entry of expandGlob('codes/typescript/chapter_*/*.ts')) {
     entries.push(entry);
 }
 
@@ -10,7 +10,7 @@ const errors = [] as ReadableStream<Uint8Array>[];
 
 for (const file of entries) {
     const command = new Deno.Command('tsx', {
-        args: [file.path],
+        args: [`.${file.path.replace(import.meta.dirname!, '')}`],
         cwd: import.meta.dirname,
         stdin: 'piped',
         stdout: 'piped',
