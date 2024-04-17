@@ -9,7 +9,7 @@ import { TreeNode } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
 /* 函数 */
-function constFunc(): number {
+function constFunc(): numer {
     // 执行某些操作
     return 0;
 }
