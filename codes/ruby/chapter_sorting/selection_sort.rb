@@ -6,7 +6,7 @@ Author: Martin Xu (martin.xus@gmail.com)
 
 ### 选择排序 ###
 def selection_sort(nums)
-  # 如果是空nil或者数组长度大小小于2的，直接返回，无需排序
+  # 如果是空`nil`或者数组长度小于`2`，直接返回，无需排序
   return nums if nums.nil? || nums.length < 2
   
   # 从`[n, n-2]`开始遍历数组
@@ -24,7 +24,7 @@ def selection_sort(nums)
   nums
 end
 
-# 查找剩余数组[i, nums.length-1]最小值的索引
+# 查找剩余数组`[i, nums.length-1]`最小值的索引
 def min_idx(nums, i)
   j = i
   i.upto(nums.length - 1) do |idx|
@@ -47,10 +47,9 @@ end
 if __FILE__ == $0
   # 随机产生10个数值
   nums = (0..100).to_a.sample(10)
-  # 因为原地排序，所以clone一份，保留原值用于后续打印比对
+  # 因为原地排序，所以`clone`一份，保留原值用于后续打印比对
   sorted_nums = selection_sort(nums.clone)
 
   # 打印排序结果
   puts "#{nums} => #{sorted_nums}"
 end
-  
