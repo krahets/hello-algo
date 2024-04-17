@@ -48,9 +48,8 @@ VS Code 拥有强大的扩展包生态系统，支持大多数编程语言的运
 
 ### JavaScript 环境
 
-1. 下载并安装 [node.js](https://nodejs.org/en/) 。
-2. 在 VS Code 的插件市场中搜索 `javascript` ，安装 JavaScript (ES6) code snippets 。
-3. （可选）在 VS Code 的插件市场中搜索 `Prettier` ，安装代码格式化工具。
+1. 下载并安装 [Node.js](https://nodejs.org/en/) 。
+2. （可选）在 VS Code 的插件市场中搜索 `Prettier` ，安装代码格式化工具。
 
 ### TypeScript 环境
 
