@@ -66,3 +66,4 @@ VS Code 拥有强大的扩展包生态系统，支持大多数编程语言的运
 
 1. 下载并安装 [Rust](https://www.rust-lang.org/tools/install) 。
 2. 在 VS Code 的插件市场中搜索 `rust` ，安装 [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) 。
+3. [Zed](https://zed.dev) 是用Rust开发的编辑器，Rust语言作为一等公民支持的非常好。也推荐使用。遗憾的是目前只有MacOS版本。
