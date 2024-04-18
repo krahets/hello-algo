@@ -48,9 +48,14 @@ VS Code 擁有強大的擴展包生態系統，支持大多數程式語言的執
 
 ### JavaScript 環境
 
-1. 下載並安裝 [node.js](https://nodejs.org/en/) 。
-2. 在 VS Code 的擴充功能市場中搜索 `javascript` ，安裝 JavaScript (ES6) code snippets 。
-3. （可選）在 VS Code 的擴充功能市場中搜索 `Prettier` ，安裝程式碼格式化工具。
+1. 下載並安裝 [Node.js](https://nodejs.org/en/) 。
+2. （可選）在 VS Code 的擴充功能市場中搜索 `Prettier` ，安裝程式碼格式化工具。
+
+### TypeScript 環境
+
+1. 同 JavaScript 環境安裝步驟。
+2. 安裝 [TypeScript Execute (tsx)](https://github.com/privatenumber/tsx?tab=readme-ov-file#global-installation) 。
+3. 在 VS Code 的擴充功能市場中搜索 `typescript` ，安裝 [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors) 。
 
 ### Dart 環境
 
