@@ -1,0 +1,12 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "execute": "tsx",
+        "check": "tsc"
+    },
+    "devDependencies": {
+        "tsx": "^4.7.2",
+        "typescript": "^5.4.5"
+    }
+}

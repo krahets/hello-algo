@@ -7,20 +7,37 @@ for await (const entry of expandGlob('codes/typescript/chapter_*/*.ts')) {
     entries.push(entry);
 }
 
-const errors = [] as ReadableStream<Uint8Array>[];
+const processes = [] as {
+    status: Promise<Deno.CommandStatus>;
+    stderr: ReadableStream<Uint8Array>;
+}[];
 
 for (const file of entries) {
-    const command = new Deno.Command('tsx', {
-        args: [relative(import.meta.dirname!, file.path)],
+    const execute = new Deno.Command('npm', {
+        args: ['run', 'execute', relative(import.meta.dirname!, file.path)],
         cwd: import.meta.dirname,
         stdin: 'piped',
         stdout: 'piped',
         stderr: 'piped',
     });
 
-    const process = command.spawn();
-    const { success } = await process.status;
-    if (!success) errors.push(process.stderr);
+    const process = execute.spawn();
+    processes.push({ status: process.status, stderr: process.stderr });
+}
+
+const results = await Promise.all(
+    processes.map(async (item) => {
+        const status = await item.status;
+        return { status, stderr: item.stderr };
+    })
+);
+
+const errors = [] as ReadableStream<Uint8Array>[];
+
+for (const result of results) {
+    if (!result.status.success) {
+        errors.push(result.stderr);
+    }
 }
 
 console.log(`Tested ${entries.length} files`);

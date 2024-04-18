@@ -122,7 +122,7 @@ class MaxHeap {
 }
 
 /* Driver Code */
-if (require.main === module) {
+
     /* 初始化大顶堆 */
     const maxHeap = new MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
     console.log('\n输入列表并建堆后');
@@ -150,6 +150,6 @@ if (require.main === module) {
     /* 判断堆是否为空 */
     const isEmpty = maxHeap.isEmpty();
     console.log(`\n堆是否为空 ${isEmpty}`);
-}
+
 
 export { MaxHeap };

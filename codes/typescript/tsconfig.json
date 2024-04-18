@@ -1,8 +1,31 @@
 {
     "compilerOptions": {
-        "target": "ES6",
-        "module": "CommonJS",
-        "outDir": "out",
-        "sourceMap": true
-    }
+        // The original author did not use strict mode.
+        // "noUnusedLocals": true,
+        // "strict": true,
+        // "strictNullChecks": true,
+
+        "baseUrl": ".",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "paths": {},
+        "resolveJsonModule": true,
+        "types": [],
+
+        "noEmit": true,
+
+        "allowJs": true,
+
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+
+        "jsx": "preserve",
+        "lib": ["ESNext", "DOM"],
+        "target": "esnext",
+
+        "skipLibCheck": true
+    },
+    "include": ["chapter_*/*.ts"],
+    "exclude": ["node_modules"]
 }

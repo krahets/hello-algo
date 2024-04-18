@@ -78,10 +78,7 @@ function showTrunks(p: Trunk | null) {
     }
 
     showTrunks(p.prev);
-    process.stdout.write(p.str);
-    // ts-node to execute, we need to install type definitions for node
-    // solve: npm i --save-dev @types/node
-    // restart the vscode
+    console.log(p.str);
 }
 
 /* 打印堆 */
