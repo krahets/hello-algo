@@ -6,6 +6,7 @@
         "check": "tsc"
     },
     "devDependencies": {
+        "@types/node": "^20.12.7",
         "tsx": "^4.7.2",
         "typescript": "^5.4.5"
     }

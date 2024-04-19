@@ -10,7 +10,7 @@
         "moduleResolution": "node",
         "paths": {},
         "resolveJsonModule": true,
-        "types": [],
+        "types": ["@types/node"],
 
         "noEmit": true,
 
