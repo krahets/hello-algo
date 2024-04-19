@@ -78,7 +78,7 @@ function showTrunks(p: Trunk | null) {
     }
 
     showTrunks(p.prev);
-    console.log(p.str);
+    process.stdout.write(p.str);
 }
 
 /* 打印堆 */
