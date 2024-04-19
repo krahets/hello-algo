@@ -106,7 +106,7 @@
         val: number;
         left: TreeNode | null;
         right: TreeNode | null;
-    
+
         constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val; // 节点值
             this.left = left === undefined ? null : left; // 左子节点引用
@@ -189,7 +189,16 @@
 === "Ruby"
 
     ```ruby title=""
+    ### 二叉树节点类 ###
+    class TreeNode
+      attr_accessor :val    # 节点值
+      attr_accessor :left   # 左子节点引用
+      attr_accessor :right  # 右子节点引用
 
+      def initialize(val)
+        @val = val
+      end
+    end
     ```
 
 === "Zig"
@@ -432,7 +441,18 @@
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-
+    # 初始化二叉树
+    # 初始化节点
+    n1 = TreeNode.new(1)
+    n2 = TreeNode.new(2)
+    n3 = TreeNode.new(3)
+    n4 = TreeNode.new(4)
+    n5 = TreeNode.new(5)
+    # 构建节点之间的引用（指针）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
     ```
 
 === "Zig"
@@ -594,7 +614,13 @@
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-
+    # 插入与删除节点
+    _p = TreeNode.new(0)
+    # 在 n1 -> n2 中间插入节点 _p
+    n1.left = _p
+    _p.left = n2
+    # 删除节点
+    n1.left = n2
     ```
 
 === "Zig"
