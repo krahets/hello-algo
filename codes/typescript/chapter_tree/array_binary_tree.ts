@@ -4,8 +4,8 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-const { arrToTree } = require('../modules/TreeNode');
-const { printTree } = require('../modules/PrintUtil');
+import { arrToTree } from '../modules/TreeNode';
+import { printTree } from '../modules/PrintUtil';
 
 type Order = 'pre' | 'in' | 'post';
 

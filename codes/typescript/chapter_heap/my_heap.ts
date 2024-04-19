@@ -122,7 +122,7 @@ class MaxHeap {
 }
 
 /* Driver Code */
-if (require.main === module) {
+if (import.meta.url.endsWith(process.argv[1])) {
     /* 初始化大顶堆 */
     const maxHeap = new MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
     console.log('\n输入列表并建堆后');
