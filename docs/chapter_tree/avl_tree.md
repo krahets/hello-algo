@@ -455,9 +455,19 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{height}
+    ### 获取节点高度 ###
+    def height(node)
+      # 空节点高度为 -1 ，叶节点高度为 0
+      return node.height unless node.nil?
 
-    [class]{AVLTree}-[func]{update_height}
+      -1
+    end
+
+    ### 更新节点高度 ###
+    def update_height(node)
+      # 节点高度等于最高子树高度 + 1
+      node.height = [height(node.left), height(node.right)].max + 1
+    end
     ```
 
 === "Zig"
@@ -638,7 +648,14 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{balance_factor}
+    ### 获取平衡因子 ###
+    def balance_factor(node)
+      # 空节点平衡因子为 0
+      return 0 if node.nil?
+
+      # 节点平衡因子 = 左子树高度 - 右子树高度
+      height(node.left) - height(node.right)
+    end
     ```
 
 === "Zig"
@@ -913,7 +930,19 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{right_rotate}
+    ### 右旋操作 ###
+    def right_rotate(node)
+      child = node.left
+      grand_child = child.right
+      # 以 child 为原点，将 node 向右旋转
+      child.right = node
+      node.left = grand_child
+      # 更新节点高度
+      update_height(node)
+      update_height(child)
+      # 返回旋转后子树的根节点
+      child
+    end
     ```
 
 === "Zig"
@@ -1174,7 +1203,19 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{left_rotate}
+    ### 左旋操作 ###
+    def left_rotate(node)
+      child = node.right
+      grand_child = child.left
+      # 以 child 为原点，将 node 向左旋转
+      child.left = node
+      node.right = grand_child
+      # 更新节点高度
+      update_height(node)
+      update_height(child)
+      # 返回旋转后子树的根节点
+      child
+    end
     ```
 
 === "Zig"
@@ -1648,7 +1689,34 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{rotate}
+    ### 执行旋转操作，使该子树重新恢复平衡 ###
+    def rotate(node)
+      # 获取节点 node 的平衡因子
+      balance_factor = balance_factor(node)
+      # 左遍树
+      if balance_factor > 1
+        if balance_factor(node.left) >= 0
+          # 右旋
+          return right_rotate(node)
+        else
+          # 先左旋后右旋
+          node.left = left_rotate(node.left)
+          return right_rotate(node)
+        end
+      # 右遍树
+      elsif balance_factor < -1
+        if balance_factor(node.right) <= 0
+          # 左旋
+          return left_rotate(node)
+        else
+          # 先右旋后左旋
+          node.right = right_rotate(node.right)
+          return left_rotate(node)
+        end
+      end
+      # 平衡树，无须旋转，直接返回
+      node
+    end
     ```
 
 === "Zig"
@@ -2039,9 +2107,28 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{insert}
+    ### 插入节点 ###
+    def insert(val)
+      @root = insert_helper(@root, val)
+    end
 
-    [class]{AVLTree}-[func]{insert_helper}
+    ### 递归插入节点（辅助方法）###
+    def insert_helper(node, val)
+      return TreeNode.new(val) if node.nil?
+      # 1. 查找插入位置并插入节点
+      if val < node.val
+        node.left = insert_helper(node.left, val)
+      elsif val > node.val
+        node.right = insert_helper(node.right, val)
+      else
+        # 重复节点不插入，直接返回
+        return node
+      end
+      # 更新节点高度
+      update_height(node)
+      # 2. 执行旋转操作，使该子树重新恢复平衡
+      rotate(node)
+    end
     ```
 
 === "Zig"
@@ -2640,9 +2727,41 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{remove}
+    ### 删除节点 ###
+    def remove(val)
+      @root = remove_helper(@root, val)
+    end
 
-    [class]{AVLTree}-[func]{remove_helper}
+    ### 递归删除节点（辅助方法）###
+    def remove_helper(node, val)
+      return if node.nil?
+      # 1. 查找节点并删除
+      if val < node.val
+        node.left = remove_helper(node.left, val)
+      elsif val > node.val
+        node.right = remove_helper(node.right, val)
+      else
+        if node.left.nil? || node.right.nil?
+          child = node.left || node.right
+          # 子节点数量 = 0 ，直接删除 node 并返回
+          return if child.nil?
+          # 子节点数量 = 1 ，直接删除 node
+          node = child
+        else
+          # 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+          temp = node.right
+          while !temp.left.nil?
+            temp = temp.left
+          end
+          node.right = remove_helper(node.right, temp.val)
+          node.val = temp.val
+        end
+      end
+      # 更新节点高度
+      update_height(node)
+      # 2. 执行旋转操作，使该子树重新恢复平衡
+      rotate(node)
+    end
     ```
 
 === "Zig"

@@ -1256,7 +1256,87 @@ The following code implements a binary tree based on array representation, inclu
 === "Ruby"
 
     ```ruby title="array_binary_tree.rb"
-    [class]{ArrayBinaryTree}-[func]{}
+    ### 数组表示下的二叉树类 ###
+    class ArrayBinaryTree
+      ### 构造方法 ###
+      def initialize(arr)
+        @tree = arr.to_a
+      end
+
+      ### 列表容量 ###
+      def size
+        @tree.length
+      end
+
+      ### 获取索引为 i 节点的值 ###
+      def val(i)
+        # 若索引越界，则返回 nil ，代表空位
+        return if i < 0 || i >= size
+
+        @tree[i]
+      end
+
+      ### 获取索引为 i 节点的左子节点的索引 ###
+      def left(i)
+        2 * i + 1
+      end
+
+      ### 获取索引为 i 节点的右子节点的索引 ###
+      def right(i)
+        2 * i + 2
+      end
+
+      ### 获取索引为 i 节点的父节点的索引 ###
+      def parent(i)
+        (i - 1) / 2
+      end
+
+      ### 层序遍历 ###
+      def level_order
+        @res = []
+
+        # 直接遍历数组
+        for i in 0...size
+          @res << val(i) unless val(i).nil?
+        end
+
+        @res
+      end
+
+      ### 深度优先遍历 ###
+      def dfs(i, order)
+        return if val(i).nil?
+        # 前序遍历
+        @res << val(i) if order == :pre
+        dfs(left(i), order)
+        # 中序遍历
+        @res << val(i) if order == :in
+        dfs(right(i), order)
+        # 后序遍历
+        @res << val(i) if order == :post
+      end
+
+      ### 前序遍历 ###
+      def pre_order
+        @res = []
+        dfs(0, :pre)
+        @res
+      end
+
+      ### 中序遍历 ###
+      def in_order
+        @res = []
+        dfs(0, :in)
+        @res
+      end
+
+      ### 后序遍历 ###
+      def post_order
+        @res = []
+        dfs(0, :post)
+        @res
+      end
+    end
     ```
 
 === "Zig"

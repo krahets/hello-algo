@@ -316,7 +316,26 @@ The search operation in a binary search tree works on the same principle as the 
 === "Ruby"
 
     ```ruby title="binary_search_tree.rb"
-    [class]{BinarySearchTree}-[func]{search}
+    ### 查找节点 ###
+    def search(num)
+      cur = @root
+
+      # 循环查找，越过叶节点后跳出
+      while !cur.nil?
+        # 目标节点在 cur 的右子树中
+        if cur.val < num
+          cur = cur.right
+        # 目标节点在 cur 的左子树中
+        elsif cur.val > num
+          cur = cur.left
+        # 找到目标节点，跳出循环
+        else
+          break
+        end
+      end
+
+      cur
+    end
     ```
 
 === "Zig"
@@ -773,7 +792,38 @@ In the code implementation, note the following two points.
 === "Ruby"
 
     ```ruby title="binary_search_tree.rb"
-    [class]{BinarySearchTree}-[func]{insert}
+    ### 插入节点 ###
+    def insert(num)
+      # 若树为空，则初始化根节点
+      if @root.nil?
+        @root = TreeNode.new(num)
+        return
+      end
+
+      # 循环查找，越过叶节点后跳出
+      cur, pre = @root, nil
+      while !cur.nil?
+        # 找到重复节点，直接返回
+        return if cur.val == num
+
+        pre = cur
+        # 插入位置在 cur 的右子树中
+        if cur.val < num
+          cur = cur.right
+        # 插入位置在 cur 的左子树中
+        else
+          cur = cur.left
+        end
+      end
+
+      # 插入节点
+      node = TreeNode.new(num)
+      if pre.val < num
+        pre.right = node
+      else
+        pre.left = node
+      end
+    end
     ```
 
 === "Zig"
@@ -1545,7 +1595,57 @@ The operation of removing a node also uses $O(\log n)$ time, where finding the n
 === "Ruby"
 
     ```ruby title="binary_search_tree.rb"
-    [class]{BinarySearchTree}-[func]{remove}
+    ### 删除节点 ###
+    def remove(num)
+      # 若树为空，直接提前返回
+      return if @root.nil?
+
+      # 循环查找，越过叶节点后跳出
+      cur, pre = @root, nil
+      while !cur.nil?
+        # 找到待删除节点，跳出循环
+        break if cur.val == num
+
+        pre = cur
+        # 待删除节点在 cur 的右子树中
+        if cur.val < num
+          cur = cur.right
+        # 待删除节点在 cur 的左子树中
+        else
+          cur = cur.left
+        end
+      end
+      # 若无待删除节点，则直接返回
+      return if cur.nil?
+
+      # 子节点数量 = 0 or 1
+      if cur.left.nil? || cur.right.nil?
+        # 当子节点数量 = 0 / 1 时， child = null / 该子节点
+        child = cur.left || cur.right
+        # 删除节点 cur
+        if cur != @root
+          if pre.left == cur
+            pre.left = child
+          else
+            pre.right = child
+          end
+        else
+          # 若删除节点为根节点，则重新指定根节点
+          @root = child
+        end
+      # 子节点数量 = 2
+      else
+        # 获取中序遍历中 cur 的下一个节点
+        tmp = cur.right
+        while !tmp.left.nil?
+          tmp = tmp.left
+        end
+        # 递归删除节点 tmp
+        remove(tmp.val)
+        # 用 tmp 覆盖 cur
+        cur.val = tmp.val
+      end
+    end
     ```
 
 === "Zig"

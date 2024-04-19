@@ -318,7 +318,20 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_tree_bfs.rb"
-    [class]{}-[func]{level_order}
+    ### 层序遍历 ###
+    def level_order(root)
+      # 初始化队列，加入根节点
+      queue = [root]
+      # 初始化一个列表，用于保存遍历序列
+      res = []
+      while !queue.empty?
+        node = queue.shift # 队列出队
+        res << node.val # 保存节点值
+        queue << node.left unless node.left.nil? # 左子节点入队
+        queue << node.right unless node.right.nil? # 右子节点入队
+      end
+      res
+    end
     ```
 
 === "Zig"
@@ -793,9 +806,25 @@ comments: true
     ```ruby title="binary_tree_dfs.rb"
     [class]{}-[func]{pre_order}
 
-    [class]{}-[func]{in_order}
+    ### 中序遍历 ###
+    def in_order(root)
+      return if root.nil?
 
-    [class]{}-[func]{post_order}
+      # 访问优先级：左子树 -> 根节点 -> 右子树
+      in_order(root.left)
+      $res << root.val
+      in_order(root.right)
+    end
+
+    ### 后序遍历 ###
+    def post_order(root)
+      return if root.nil?
+
+      # 访问优先级：左子树 -> 右子树 -> 根节点
+      post_order(root.left)
+      post_order(root.right)
+      $res << root.val
+    end
     ```
 
 === "Zig"
