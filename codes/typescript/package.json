@@ -5,6 +5,9 @@
         "execute": "tsx",
         "check": "tsc"
     },
+    "dependencies": {
+        "es-main": "^1.3.0"
+    },
     "devDependencies": {
         "@types/node": "^20.12.7",
         "tsx": "^4.7.2",

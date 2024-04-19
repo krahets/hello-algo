@@ -4,6 +4,8 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+import esMain from 'es-main';
+
 import { printHeap } from '../modules/PrintUtil';
 
 /* 最大堆类 */
@@ -122,7 +124,7 @@ class MaxHeap {
 }
 
 /* Driver Code */
-if (import.meta.url === new URL('file://' + process.argv[1]).href) {
+if (esMain(import.meta)) {
     /* 初始化大顶堆 */
     const maxHeap = new MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
     console.log('\n输入列表并建堆后');
