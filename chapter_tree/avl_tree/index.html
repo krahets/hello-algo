@@ -4308,9 +4308,19 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">height</span><span class="p">}</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">update_height</span><span class="p">}</span>
+<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1">### 获取节点高度 ###</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">height</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span><span class="c1"># 空节点高度为 -1 ，叶节点高度为 0</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">height</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">nil?</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w">  </span><span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="k">end</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="c1">### 更新节点高度 ###</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">update_height</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="w">  </span><span class="c1"># 节点高度等于最高子树高度 + 1</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="w">  </span><span class="n">node</span><span class="o">.</span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">height</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">),</span><span class="w"> </span><span class="n">height</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span><span class="o">].</span><span class="n">max</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4465,7 +4475,14 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">balance_factor</span><span class="p">}</span>
+<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="c1">### 获取平衡因子 ###</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">balance_factor</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">  </span><span class="c1"># 空节点平衡因子为 0</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">nil?</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="w">  </span><span class="c1"># 节点平衡因子 = 左子树高度 - 右子树高度</span>
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="w">  </span><span class="n">height</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">height</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4712,7 +4729,19 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">right_rotate</span><span class="p">}</span>
+<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="c1">### 右旋操作 ###</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">right_rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w">  </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">left</span>
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="w">  </span><span class="n">grand_child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="o">.</span><span class="n">right</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="w">  </span><span class="c1"># 以 child 为原点，将 node 向右旋转</span>
+<a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="w">  </span><span class="n">child</span><span class="o">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span>
+<a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a><span class="w">  </span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grand_child</span>
+<a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a><span class="w">  </span><span class="c1"># 更新节点高度</span>
+<a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a><span class="w">  </span><span class="n">update_height</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-54-10" name="__codelineno-54-10" href="#__codelineno-54-10"></a><span class="w">  </span><span class="n">update_height</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+<a id="__codelineno-54-11" name="__codelineno-54-11" href="#__codelineno-54-11"></a><span class="w">  </span><span class="c1"># 返回旋转后子树的根节点</span>
+<a id="__codelineno-54-12" name="__codelineno-54-12" href="#__codelineno-54-12"></a><span class="w">  </span><span class="n">child</span>
+<a id="__codelineno-54-13" name="__codelineno-54-13" href="#__codelineno-54-13"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4943,7 +4972,19 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">left_rotate</span><span class="p">}</span>
+<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="c1">### 左旋操作 ###</span>
+<a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">left_rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a><span class="w">  </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">right</span>
+<a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a><span class="w">  </span><span class="n">grand_child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="o">.</span><span class="n">left</span>
+<a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a><span class="w">  </span><span class="c1"># 以 child 为原点，将 node 向左旋转</span>
+<a id="__codelineno-68-6" name="__codelineno-68-6" href="#__codelineno-68-6"></a><span class="w">  </span><span class="n">child</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span>
+<a id="__codelineno-68-7" name="__codelineno-68-7" href="#__codelineno-68-7"></a><span class="w">  </span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grand_child</span>
+<a id="__codelineno-68-8" name="__codelineno-68-8" href="#__codelineno-68-8"></a><span class="w">  </span><span class="c1"># 更新节点高度</span>
+<a id="__codelineno-68-9" name="__codelineno-68-9" href="#__codelineno-68-9"></a><span class="w">  </span><span class="n">update_height</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-68-10" name="__codelineno-68-10" href="#__codelineno-68-10"></a><span class="w">  </span><span class="n">update_height</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+<a id="__codelineno-68-11" name="__codelineno-68-11" href="#__codelineno-68-11"></a><span class="w">  </span><span class="c1"># 返回旋转后子树的根节点</span>
+<a id="__codelineno-68-12" name="__codelineno-68-12" href="#__codelineno-68-12"></a><span class="w">  </span><span class="n">child</span>
+<a id="__codelineno-68-13" name="__codelineno-68-13" href="#__codelineno-68-13"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5404,7 +5445,34 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">rotate</span><span class="p">}</span>
+<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="c1">### 执行旋转操作，使该子树重新恢复平衡 ###</span>
+<a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-82-3" name="__codelineno-82-3" href="#__codelineno-82-3"></a><span class="w">  </span><span class="c1"># 获取节点 node 的平衡因子</span>
+<a id="__codelineno-82-4" name="__codelineno-82-4" href="#__codelineno-82-4"></a><span class="w">  </span><span class="n">balance_factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance_factor</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-82-5" name="__codelineno-82-5" href="#__codelineno-82-5"></a><span class="w">  </span><span class="c1"># 左遍树</span>
+<a id="__codelineno-82-6" name="__codelineno-82-6" href="#__codelineno-82-6"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">balance_factor</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-82-7" name="__codelineno-82-7" href="#__codelineno-82-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">balance_factor</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-82-8" name="__codelineno-82-8" href="#__codelineno-82-8"></a><span class="w">      </span><span class="c1"># 右旋</span>
+<a id="__codelineno-82-9" name="__codelineno-82-9" href="#__codelineno-82-9"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">right_rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-82-10" name="__codelineno-82-10" href="#__codelineno-82-10"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-82-11" name="__codelineno-82-11" href="#__codelineno-82-11"></a><span class="w">      </span><span class="c1"># 先左旋后右旋</span>
+<a id="__codelineno-82-12" name="__codelineno-82-12" href="#__codelineno-82-12"></a><span class="w">      </span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+<a id="__codelineno-82-13" name="__codelineno-82-13" href="#__codelineno-82-13"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">right_rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-82-14" name="__codelineno-82-14" href="#__codelineno-82-14"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-82-15" name="__codelineno-82-15" href="#__codelineno-82-15"></a><span class="w">  </span><span class="c1"># 右遍树</span>
+<a id="__codelineno-82-16" name="__codelineno-82-16" href="#__codelineno-82-16"></a><span class="w">  </span><span class="k">elsif</span><span class="w"> </span><span class="n">balance_factor</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-82-17" name="__codelineno-82-17" href="#__codelineno-82-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">balance_factor</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-82-18" name="__codelineno-82-18" href="#__codelineno-82-18"></a><span class="w">      </span><span class="c1"># 左旋</span>
+<a id="__codelineno-82-19" name="__codelineno-82-19" href="#__codelineno-82-19"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">left_rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-82-20" name="__codelineno-82-20" href="#__codelineno-82-20"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-82-21" name="__codelineno-82-21" href="#__codelineno-82-21"></a><span class="w">      </span><span class="c1"># 先右旋后左旋</span>
+<a id="__codelineno-82-22" name="__codelineno-82-22" href="#__codelineno-82-22"></a><span class="w">      </span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+<a id="__codelineno-82-23" name="__codelineno-82-23" href="#__codelineno-82-23"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">left_rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-82-24" name="__codelineno-82-24" href="#__codelineno-82-24"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-82-25" name="__codelineno-82-25" href="#__codelineno-82-25"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-82-26" name="__codelineno-82-26" href="#__codelineno-82-26"></a><span class="w">  </span><span class="c1"># 平衡树，无须旋转，直接返回</span>
+<a id="__codelineno-82-27" name="__codelineno-82-27" href="#__codelineno-82-27"></a><span class="w">  </span><span class="n">node</span>
+<a id="__codelineno-82-28" name="__codelineno-82-28" href="#__codelineno-82-28"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5768,9 +5836,28 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">insert</span><span class="p">}</span>
-<a id="__codelineno-96-2" name="__codelineno-96-2" href="#__codelineno-96-2"></a>
-<a id="__codelineno-96-3" name="__codelineno-96-3" href="#__codelineno-96-3"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">insert_helper</span><span class="p">}</span>
+<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a><span class="c1">### 插入节点 ###</span>
+<a id="__codelineno-96-2" name="__codelineno-96-2" href="#__codelineno-96-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-96-3" name="__codelineno-96-3" href="#__codelineno-96-3"></a><span class="w">  </span><span class="vi">@root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insert_helper</span><span class="p">(</span><span class="vi">@root</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-96-4" name="__codelineno-96-4" href="#__codelineno-96-4"></a><span class="k">end</span>
+<a id="__codelineno-96-5" name="__codelineno-96-5" href="#__codelineno-96-5"></a>
+<a id="__codelineno-96-6" name="__codelineno-96-6" href="#__codelineno-96-6"></a><span class="c1">### 递归插入节点（辅助方法）###</span>
+<a id="__codelineno-96-7" name="__codelineno-96-7" href="#__codelineno-96-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">insert_helper</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-96-8" name="__codelineno-96-8" href="#__codelineno-96-8"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="no">TreeNode</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">nil?</span>
+<a id="__codelineno-96-9" name="__codelineno-96-9" href="#__codelineno-96-9"></a><span class="w">  </span><span class="c1"># 1. 查找插入位置并插入节点</span>
+<a id="__codelineno-96-10" name="__codelineno-96-10" href="#__codelineno-96-10"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">val</span>
+<a id="__codelineno-96-11" name="__codelineno-96-11" href="#__codelineno-96-11"></a><span class="w">    </span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insert_helper</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-96-12" name="__codelineno-96-12" href="#__codelineno-96-12"></a><span class="w">  </span><span class="k">elsif</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">val</span>
+<a id="__codelineno-96-13" name="__codelineno-96-13" href="#__codelineno-96-13"></a><span class="w">    </span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insert_helper</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-96-14" name="__codelineno-96-14" href="#__codelineno-96-14"></a><span class="w">  </span><span class="k">else</span>
+<a id="__codelineno-96-15" name="__codelineno-96-15" href="#__codelineno-96-15"></a><span class="w">    </span><span class="c1"># 重复节点不插入，直接返回</span>
+<a id="__codelineno-96-16" name="__codelineno-96-16" href="#__codelineno-96-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span>
+<a id="__codelineno-96-17" name="__codelineno-96-17" href="#__codelineno-96-17"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-96-18" name="__codelineno-96-18" href="#__codelineno-96-18"></a><span class="w">  </span><span class="c1"># 更新节点高度</span>
+<a id="__codelineno-96-19" name="__codelineno-96-19" href="#__codelineno-96-19"></a><span class="w">  </span><span class="n">update_height</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-96-20" name="__codelineno-96-20" href="#__codelineno-96-20"></a><span class="w">  </span><span class="c1"># 2. 执行旋转操作，使该子树重新恢复平衡</span>
+<a id="__codelineno-96-21" name="__codelineno-96-21" href="#__codelineno-96-21"></a><span class="w">  </span><span class="n">rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-96-22" name="__codelineno-96-22" href="#__codelineno-96-22"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -6343,9 +6430,41 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">remove</span><span class="p">}</span>
-<a id="__codelineno-110-2" name="__codelineno-110-2" href="#__codelineno-110-2"></a>
-<a id="__codelineno-110-3" name="__codelineno-110-3" href="#__codelineno-110-3"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">remove_helper</span><span class="p">}</span>
+<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a><span class="c1">### 删除节点 ###</span>
+<a id="__codelineno-110-2" name="__codelineno-110-2" href="#__codelineno-110-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-110-3" name="__codelineno-110-3" href="#__codelineno-110-3"></a><span class="w">  </span><span class="vi">@root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">remove_helper</span><span class="p">(</span><span class="vi">@root</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-110-4" name="__codelineno-110-4" href="#__codelineno-110-4"></a><span class="k">end</span>
+<a id="__codelineno-110-5" name="__codelineno-110-5" href="#__codelineno-110-5"></a>
+<a id="__codelineno-110-6" name="__codelineno-110-6" href="#__codelineno-110-6"></a><span class="c1">### 递归删除节点（辅助方法）###</span>
+<a id="__codelineno-110-7" name="__codelineno-110-7" href="#__codelineno-110-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">remove_helper</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-110-8" name="__codelineno-110-8" href="#__codelineno-110-8"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">nil?</span>
+<a id="__codelineno-110-9" name="__codelineno-110-9" href="#__codelineno-110-9"></a><span class="w">  </span><span class="c1"># 1. 查找节点并删除</span>
+<a id="__codelineno-110-10" name="__codelineno-110-10" href="#__codelineno-110-10"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">val</span>
+<a id="__codelineno-110-11" name="__codelineno-110-11" href="#__codelineno-110-11"></a><span class="w">    </span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">remove_helper</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-110-12" name="__codelineno-110-12" href="#__codelineno-110-12"></a><span class="w">  </span><span class="k">elsif</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">val</span>
+<a id="__codelineno-110-13" name="__codelineno-110-13" href="#__codelineno-110-13"></a><span class="w">    </span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">remove_helper</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-110-14" name="__codelineno-110-14" href="#__codelineno-110-14"></a><span class="w">  </span><span class="k">else</span>
+<a id="__codelineno-110-15" name="__codelineno-110-15" href="#__codelineno-110-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">nil?</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">nil?</span>
+<a id="__codelineno-110-16" name="__codelineno-110-16" href="#__codelineno-110-16"></a><span class="w">      </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">right</span>
+<a id="__codelineno-110-17" name="__codelineno-110-17" href="#__codelineno-110-17"></a><span class="w">      </span><span class="c1"># 子节点数量 = 0 ，直接删除 node 并返回</span>
+<a id="__codelineno-110-18" name="__codelineno-110-18" href="#__codelineno-110-18"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">child</span><span class="o">.</span><span class="n">nil?</span>
+<a id="__codelineno-110-19" name="__codelineno-110-19" href="#__codelineno-110-19"></a><span class="w">      </span><span class="c1"># 子节点数量 = 1 ，直接删除 node</span>
+<a id="__codelineno-110-20" name="__codelineno-110-20" href="#__codelineno-110-20"></a><span class="w">      </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span>
+<a id="__codelineno-110-21" name="__codelineno-110-21" href="#__codelineno-110-21"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-110-22" name="__codelineno-110-22" href="#__codelineno-110-22"></a><span class="w">      </span><span class="c1"># 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点</span>
+<a id="__codelineno-110-23" name="__codelineno-110-23" href="#__codelineno-110-23"></a><span class="w">      </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="o">.</span><span class="n">right</span>
+<a id="__codelineno-110-24" name="__codelineno-110-24" href="#__codelineno-110-24"></a><span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="o">!</span><span class="n">temp</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">nil?</span>
+<a id="__codelineno-110-25" name="__codelineno-110-25" href="#__codelineno-110-25"></a><span class="w">        </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">.</span><span class="n">left</span>
+<a id="__codelineno-110-26" name="__codelineno-110-26" href="#__codelineno-110-26"></a><span class="w">      </span><span class="k">end</span>
+<a id="__codelineno-110-27" name="__codelineno-110-27" href="#__codelineno-110-27"></a><span class="w">      </span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">remove_helper</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-110-28" name="__codelineno-110-28" href="#__codelineno-110-28"></a><span class="w">      </span><span class="n">node</span><span class="o">.</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">.</span><span class="n">val</span>
+<a id="__codelineno-110-29" name="__codelineno-110-29" href="#__codelineno-110-29"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-110-30" name="__codelineno-110-30" href="#__codelineno-110-30"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-110-31" name="__codelineno-110-31" href="#__codelineno-110-31"></a><span class="w">  </span><span class="c1"># 更新节点高度</span>
+<a id="__codelineno-110-32" name="__codelineno-110-32" href="#__codelineno-110-32"></a><span class="w">  </span><span class="n">update_height</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-110-33" name="__codelineno-110-33" href="#__codelineno-110-33"></a><span class="w">  </span><span class="c1"># 2. 执行旋转操作，使该子树重新恢复平衡</span>
+<a id="__codelineno-110-34" name="__codelineno-110-34" href="#__codelineno-110-34"></a><span class="w">  </span><span class="n">rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<a id="__codelineno-110-35" name="__codelineno-110-35" href="#__codelineno-110-35"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
