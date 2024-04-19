@@ -804,7 +804,15 @@ Depth-first search is usually implemented based on recursion:
 === "Ruby"
 
     ```ruby title="binary_tree_dfs.rb"
-    [class]{}-[func]{pre_order}
+    ### 前序遍历 ###
+    def pre_order(root)
+      return if root.nil?
+
+      # 访问优先级：根节点 -> 左子树 -> 右子树
+      $res << root.val
+      pre_order(root.left)
+      pre_order(root.right)
+    end
 
     ### 中序遍历 ###
     def in_order(root)
