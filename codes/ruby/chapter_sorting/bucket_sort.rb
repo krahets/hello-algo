@@ -8,10 +8,7 @@ Author: Martin Xu (martin.xus@gmail.com)
 def bucket_sort(nums)
   # 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
   k = nums.length / 2
-  buckets = []
-  0.upto(k - 1) do |i|
-    buckets << []
-  end
+  buckets = Array.new(k) { [] }
   
   # 1. 将数组元素分配到各个桶中
   nums.each do |num|
