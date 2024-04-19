@@ -4,8 +4,6 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-import esMain from 'es-main';
-
 import { Vertex } from '../modules/Vertex';
 
 /* 基于邻接表实现的无向图类 */
@@ -94,7 +92,7 @@ class GraphAdjList {
 }
 
 /* Driver Code */
-if (esMain(import.meta)) {
+if (import.meta.url.endsWith(process.argv[1])) {
     /* 初始化无向图 */
     const v0 = new Vertex(1),
         v1 = new Vertex(3),
