@@ -33,21 +33,25 @@ impl BinarySearchTree {
 
     /* 查找节点 */
     pub fn search(&self, num: i32) -> OptionTreeNodeRc {
-        let mut cur = self.root.clone();
-        // 循环查找，越过叶节点后跳出
-        while let Some(node) = cur.clone() {
-            match num.cmp(&node.borrow().val) {
-                // 目标节点在 cur 的右子树中
-                Ordering::Greater => cur = node.borrow().right.clone(),
-                // 目标节点在 cur 的左子树中
-                Ordering::Less => cur = node.borrow().left.clone(),
-                // 找到目标节点，跳出循环
-                Ordering::Equal => break,
-            }
-        }
+        Self::do_search(self.root.as_ref(), num)
+    }
 
-        // 返回目标节点
-        cur
+    fn do_search(node: Option<&Rc<RefCell<TreeNode>>>, num: i32) -> Option<Rc<RefCell<TreeNode>>> {
+        if let Some(t) = node {
+            let cur = t.borrow();
+            // 找到目标节点
+            if num == cur.val {
+                return Some(t.clone());
+            } else if num < cur.val {
+                // 目标节点在 cur 的左子树中
+                return Self::do_search(cur.left.as_ref(), num);
+            } else {
+                // 目标节点在 cur 的右子树中
+                return Self::do_search(cur.right.as_ref(), num);
+            }
+        } else {
+            None
+        }
     }
 
     /* 插入节点 */
