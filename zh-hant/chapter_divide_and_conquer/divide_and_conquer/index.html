@@ -3716,7 +3716,7 @@ n(n - 4) &amp; &gt; 0
 <h3 id="2">2. &nbsp; 平行計算最佳化<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>我們知道，分治生成的子問題是相互獨立的，<strong>因此通常可以並行解決</strong>。也就是說，分治不僅可以降低演算法的時間複雜度，<strong>還有利於作業系統的並行最佳化</strong>。</p>
 <p>並行最佳化在多核或多處理器的環境中尤其有效，因為系統可以同時處理多個子問題，更加充分地利用計算資源，從而顯著減少總體的執行時間。</p>
-<p>比如在圖 12-3 所示的“桶排序”中，我們將海量的資料平均分配到各個桶中，則可所有桶的排序任務分散到各個計算單元，完成後再合併結果。</p>
+<p>比如在圖 12-3 所示的“桶排序”中，我們將海量的資料平均分配到各個桶中，則可將所有桶的排序任務分散到各個計算單元，完成後再合併結果。</p>
 <p><a class="glightbox" href="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="桶排序的平行計算" class="animation-figure" src="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" /></a></p>
 <p align="center"> 圖 12-3 &nbsp; 桶排序的平行計算 </p>
 

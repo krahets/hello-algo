@@ -4447,7 +4447,7 @@
 </details>
 <h2 id="1193">11.9.3 &nbsp; 演算法特性<a class="headerlink" href="#1193" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>時間複雜度為 <span class="arithmatex">\(O(n + m)\)</span></strong> ：涉及走訪 <code>nums</code> 和走訪 <code>counter</code> ，都使用線性時間。一般情況下 <span class="arithmatex">\(n \gg m\)</span> ，時間複雜度趨於 <span class="arithmatex">\(O(n)\)</span> 。</li>
+<li><strong>時間複雜度為 <span class="arithmatex">\(O(n + m)\)</span>、非自適應排序</strong> ：涉及走訪 <code>nums</code> 和走訪 <code>counter</code> ，都使用線性時間。一般情況下 <span class="arithmatex">\(n \gg m\)</span> ，時間複雜度趨於 <span class="arithmatex">\(O(n)\)</span> 。</li>
 <li><strong>空間複雜度為 <span class="arithmatex">\(O(n + m)\)</span>、非原地排序</strong>：藉助了長度分別為 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(m\)</span> 的陣列 <code>res</code> 和 <code>counter</code> 。</li>
 <li><strong>穩定排序</strong>：由於向 <code>res</code> 中填充元素的順序是“從右向左”的，因此倒序走訪 <code>nums</code> 可以避免改變相等元素之間的相對位置，從而實現穩定排序。實際上，正序走訪 <code>nums</code> 也可以得到正確的排序結果，但結果是非穩定的。</li>
 </ul>
