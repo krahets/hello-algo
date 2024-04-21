@@ -9,7 +9,7 @@ func twoSumBruteForce(nums []int, target int) []int {
 	size := len(nums)
 	// 兩層迴圈，時間複雜度為 O(n^2)
 	for i := 0; i < size-1; i++ {
-		for j := i + 1; i < size; j++ {
+		for j := i + 1; j < size; j++ {
 			if nums[i]+nums[j] == target {
 				return []int{i, j}
 			}
