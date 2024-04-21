@@ -3781,7 +3781,7 @@ n(n - 4) &amp; &gt; 0
 <h3 id="2">2. &nbsp; 并行计算优化<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>我们知道，分治生成的子问题是相互独立的，<strong>因此通常可以并行解决</strong>。也就是说，分治不仅可以降低算法的时间复杂度，<strong>还有利于操作系统的并行优化</strong>。</p>
 <p>并行优化在多核或多处理器的环境中尤其有效，因为系统可以同时处理多个子问题，更加充分地利用计算资源，从而显著减少总体的运行时间。</p>
-<p>比如在图 12-3 所示的“桶排序”中，我们将海量的数据平均分配到各个桶中，则可所有桶的排序任务分散到各个计算单元，完成后再合并结果。</p>
+<p>比如在图 12-3 所示的“桶排序”中，我们将海量的数据平均分配到各个桶中，则可将所有桶的排序任务分散到各个计算单元，完成后再合并结果。</p>
 <p><a class="glightbox" href="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="桶排序的并行计算" class="animation-figure" src="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" /></a></p>
 <p align="center"> 图 12-3 &nbsp; 桶排序的并行计算 </p>
 
