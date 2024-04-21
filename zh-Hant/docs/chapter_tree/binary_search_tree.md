@@ -316,7 +316,26 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_tree.rb"
-    [class]{BinarySearchTree}-[func]{search}
+    ### 查詢節點 ###
+    def search(num)
+      cur = @root
+
+      # 迴圈查詢，越過葉節點後跳出
+      while !cur.nil?
+        # 目標節點在 cur 的右子樹中
+        if cur.val < num
+          cur = cur.right
+        # 目標節點在 cur 的左子樹中
+        elsif cur.val > num
+          cur = cur.left
+        # 找到目標節點，跳出迴圈
+        else
+          break
+        end
+      end
+
+      cur
+    end
     ```
 
 === "Zig"
@@ -773,7 +792,38 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_tree.rb"
-    [class]{BinarySearchTree}-[func]{insert}
+    ### 插入節點 ###
+    def insert(num)
+      # 若樹為空，則初始化根節點
+      if @root.nil?
+        @root = TreeNode.new(num)
+        return
+      end
+
+      # 迴圈查詢，越過葉節點後跳出
+      cur, pre = @root, nil
+      while !cur.nil?
+        # 找到重複節點，直接返回
+        return if cur.val == num
+
+        pre = cur
+        # 插入位置在 cur 的右子樹中
+        if cur.val < num
+          cur = cur.right
+        # 插入位置在 cur 的左子樹中
+        else
+          cur = cur.left
+        end
+      end
+
+      # 插入節點
+      node = TreeNode.new(num)
+      if pre.val < num
+        pre.right = node
+      else
+        pre.left = node
+      end
+    end
     ```
 
 === "Zig"
@@ -1545,7 +1595,57 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_tree.rb"
-    [class]{BinarySearchTree}-[func]{remove}
+    ### 刪除節點 ###
+    def remove(num)
+      # 若樹為空，直接提前返回
+      return if @root.nil?
+
+      # 迴圈查詢，越過葉節點後跳出
+      cur, pre = @root, nil
+      while !cur.nil?
+        # 找到待刪除節點，跳出迴圈
+        break if cur.val == num
+
+        pre = cur
+        # 待刪除節點在 cur 的右子樹中
+        if cur.val < num
+          cur = cur.right
+        # 待刪除節點在 cur 的左子樹中
+        else
+          cur = cur.left
+        end
+      end
+      # 若無待刪除節點，則直接返回
+      return if cur.nil?
+
+      # 子節點數量 = 0 or 1
+      if cur.left.nil? || cur.right.nil?
+        # 當子節點數量 = 0 / 1 時， child = null / 該子節點
+        child = cur.left || cur.right
+        # 刪除節點 cur
+        if cur != @root
+          if pre.left == cur
+            pre.left = child
+          else
+            pre.right = child
+          end
+        else
+          # 若刪除節點為根節點，則重新指定根節點
+          @root = child
+        end
+      # 子節點數量 = 2
+      else
+        # 獲取中序走訪中 cur 的下一個節點
+        tmp = cur.right
+        while !tmp.left.nil?
+          tmp = tmp.left
+        end
+        # 遞迴刪除節點 tmp
+        remove(tmp.val)
+        # 用 tmp 覆蓋 cur
+        cur.val = tmp.val
+      end
+    end
     ```
 
 === "Zig"

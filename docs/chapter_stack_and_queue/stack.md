@@ -1284,7 +1284,7 @@ comments: true
 
         def is_empty(self) -> bool:
             """判断栈是否为空"""
-            return self._size == 0
+            return self.size() == 0
 
         def push(self, item: int):
             """入栈"""

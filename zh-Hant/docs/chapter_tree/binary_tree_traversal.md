@@ -318,7 +318,20 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_tree_bfs.rb"
-    [class]{}-[func]{level_order}
+    ### 層序走訪 ###
+    def level_order(root)
+      # 初始化佇列，加入根節點
+      queue = [root]
+      # 初始化一個串列，用於儲存走訪序列
+      res = []
+      while !queue.empty?
+        node = queue.shift # 隊列出隊
+        res << node.val # 儲存節點值
+        queue << node.left unless node.left.nil? # 左子節點入列
+        queue << node.right unless node.right.nil? # 右子節點入列
+      end
+      res
+    end
     ```
 
 === "Zig"
@@ -791,11 +804,35 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_tree_dfs.rb"
-    [class]{}-[func]{pre_order}
+    ### 前序走訪 ###
+    def pre_order(root)
+      return if root.nil?
 
-    [class]{}-[func]{in_order}
+      # 訪問優先順序：根節點 -> 左子樹 -> 右子樹
+      $res << root.val
+      pre_order(root.left)
+      pre_order(root.right)
+    end
 
-    [class]{}-[func]{post_order}
+    ### 中序走訪 ###
+    def in_order(root)
+      return if root.nil?
+
+      # 訪問優先順序：左子樹 -> 根節點 -> 右子樹
+      in_order(root.left)
+      $res << root.val
+      in_order(root.right)
+    end
+
+    ### 後序走訪 ###
+    def post_order(root)
+      return if root.nil?
+
+      # 訪問優先順序：左子樹 -> 右子樹 -> 根節點
+      post_order(root.left)
+      post_order(root.right)
+      $res << root.val
+    end
     ```
 
 === "Zig"

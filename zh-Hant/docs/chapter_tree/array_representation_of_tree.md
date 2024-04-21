@@ -131,7 +131,9 @@ comments: true
 === "Ruby"
 
     ```ruby title=""
-
+    ### 二元樹的陣列表示 ###
+    # 使用 nil 來表示空位
+    tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
 === "Zig"
@@ -1256,7 +1258,87 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_binary_tree.rb"
-    [class]{ArrayBinaryTree}-[func]{}
+    ### 陣列表示下的二元樹類別 ###
+    class ArrayBinaryTree
+      ### 建構子 ###
+      def initialize(arr)
+        @tree = arr.to_a
+      end
+
+      ### 串列容量 ###
+      def size
+        @tree.length
+      end
+
+      ### 獲取索引為 i 節點的值 ###
+      def val(i)
+        # 若索引越界，則返回 nil ，代表空位
+        return if i < 0 || i >= size
+
+        @tree[i]
+      end
+
+      ### 獲取索引為 i 節點的左子節點的索引 ###
+      def left(i)
+        2 * i + 1
+      end
+
+      ### 獲取索引為 i 節點的右子節點的索引 ###
+      def right(i)
+        2 * i + 2
+      end
+
+      ### 獲取索引為 i 節點的父節點的索引 ###
+      def parent(i)
+        (i - 1) / 2
+      end
+
+      ### 層序走訪 ###
+      def level_order
+        @res = []
+
+        # 直接走訪陣列
+        for i in 0...size
+          @res << val(i) unless val(i).nil?
+        end
+
+        @res
+      end
+
+      ### 深度優先走訪 ###
+      def dfs(i, order)
+        return if val(i).nil?
+        # 前序走訪
+        @res << val(i) if order == :pre
+        dfs(left(i), order)
+        # 中序走訪
+        @res << val(i) if order == :in
+        dfs(right(i), order)
+        # 後序走訪
+        @res << val(i) if order == :post
+      end
+
+      ### 前序走訪 ###
+      def pre_order
+        @res = []
+        dfs(0, :pre)
+        @res
+      end
+
+      ### 中序走訪 ###
+      def in_order
+        @res = []
+        dfs(0, :in)
+        @res
+      end
+
+      ### 後序走訪 ###
+      def post_order
+        @res = []
+        dfs(0, :post)
+        @res
+      end
+    end
     ```
 
 === "Zig"

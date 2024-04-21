@@ -137,9 +137,9 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
         right: TreeNode | null; // 右子節點指標
         constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height; 
-            this.left = left === undefined ? null : left; 
-            this.right = right === undefined ? null : right; 
+            this.height = height === undefined ? 0 : height;
+            this.left = left === undefined ? null : left;
+            this.right = right === undefined ? null : right;
         }
     }
     ```
@@ -222,7 +222,18 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 === "Ruby"
 
     ```ruby title=""
+    ### AVL 樹節點類別 ###
+    class TreeNode
+      attr_accessor :val    # 節點值
+      attr_accessor :height # 節點高度
+      attr_accessor :left   # 左子節點引用
+      attr_accessor :right  # 右子節點引用
 
+      def initialize(val)
+        @val = val
+        @height = 0
+      end
+    end
     ```
 
 === "Zig"
@@ -455,9 +466,19 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{height}
+    ### 獲取節點高度 ###
+    def height(node)
+      # 空節點高度為 -1 ，葉節點高度為 0
+      return node.height unless node.nil?
 
-    [class]{AVLTree}-[func]{update_height}
+      -1
+    end
+
+    ### 更新節點高度 ###
+    def update_height(node)
+      # 節點高度等於最高子樹高度 + 1
+      node.height = [height(node.left), height(node.right)].max + 1
+    end
     ```
 
 === "Zig"
@@ -638,7 +659,14 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{balance_factor}
+    ### 獲取平衡因子 ###
+    def balance_factor(node)
+      # 空節點平衡因子為 0
+      return 0 if node.nil?
+
+      # 節點平衡因子 = 左子樹高度 - 右子樹高度
+      height(node.left) - height(node.right)
+    end
     ```
 
 === "Zig"
@@ -913,7 +941,19 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{right_rotate}
+    ### 右旋操作 ###
+    def right_rotate(node)
+      child = node.left
+      grand_child = child.right
+      # 以 child 為原點，將 node 向右旋轉
+      child.right = node
+      node.left = grand_child
+      # 更新節點高度
+      update_height(node)
+      update_height(child)
+      # 返回旋轉後子樹的根節點
+      child
+    end
     ```
 
 === "Zig"
@@ -1174,7 +1214,19 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{left_rotate}
+    ### 左旋操作 ###
+    def left_rotate(node)
+      child = node.right
+      grand_child = child.left
+      # 以 child 為原點，將 node 向左旋轉
+      child.left = node
+      node.right = grand_child
+      # 更新節點高度
+      update_height(node)
+      update_height(child)
+      # 返回旋轉後子樹的根節點
+      child
+    end
     ```
 
 === "Zig"
@@ -1648,7 +1700,34 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{rotate}
+    ### 執行旋轉操作，使該子樹重新恢復平衡 ###
+    def rotate(node)
+      # 獲取節點 node 的平衡因子
+      balance_factor = balance_factor(node)
+      # 左遍樹
+      if balance_factor > 1
+        if balance_factor(node.left) >= 0
+          # 右旋
+          return right_rotate(node)
+        else
+          # 先左旋後右旋
+          node.left = left_rotate(node.left)
+          return right_rotate(node)
+        end
+      # 右遍樹
+      elsif balance_factor < -1
+        if balance_factor(node.right) <= 0
+          # 左旋
+          return left_rotate(node)
+        else
+          # 先右旋後左旋
+          node.right = right_rotate(node.right)
+          return left_rotate(node)
+        end
+      end
+      # 平衡樹，無須旋轉，直接返回
+      node
+    end
     ```
 
 === "Zig"
@@ -2039,9 +2118,28 @@ AVL 樹的節點插入操作與二元搜尋樹在主體上類似。唯一的區�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{insert}
+    ### 插入節點 ###
+    def insert(val)
+      @root = insert_helper(@root, val)
+    end
 
-    [class]{AVLTree}-[func]{insert_helper}
+    ### 遞迴插入節點（輔助方法）###
+    def insert_helper(node, val)
+      return TreeNode.new(val) if node.nil?
+      # 1. 查詢插入位置並插入節點
+      if val < node.val
+        node.left = insert_helper(node.left, val)
+      elsif val > node.val
+        node.right = insert_helper(node.right, val)
+      else
+        # 重複節點不插入，直接返回
+        return node
+      end
+      # 更新節點高度
+      update_height(node)
+      # 2. 執行旋轉操作，使該子樹重新恢復平衡
+      rotate(node)
+    end
     ```
 
 === "Zig"
@@ -2640,9 +2738,41 @@ AVL 樹的節點插入操作與二元搜尋樹在主體上類似。唯一的區�
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    [class]{AVLTree}-[func]{remove}
+    ### 刪除節點 ###
+    def remove(val)
+      @root = remove_helper(@root, val)
+    end
 
-    [class]{AVLTree}-[func]{remove_helper}
+    ### 遞迴刪除節點（輔助方法）###
+    def remove_helper(node, val)
+      return if node.nil?
+      # 1. 查詢節點並刪除
+      if val < node.val
+        node.left = remove_helper(node.left, val)
+      elsif val > node.val
+        node.right = remove_helper(node.right, val)
+      else
+        if node.left.nil? || node.right.nil?
+          child = node.left || node.right
+          # 子節點數量 = 0 ，直接刪除 node 並返回
+          return if child.nil?
+          # 子節點數量 = 1 ，直接刪除 node
+          node = child
+        else
+          # 子節點數量 = 2 ，則將中序走訪的下個節點刪除，並用該節點替換當前節點
+          temp = node.right
+          while !temp.left.nil?
+            temp = temp.left
+          end
+          node.right = remove_helper(node.right, temp.val)
+          node.val = temp.val
+        end
+      end
+      # 更新節點高度
+      update_height(node)
+      # 2. 執行旋轉操作，使該子樹重新恢復平衡
+      rotate(node)
+    end
     ```
 
 === "Zig"
