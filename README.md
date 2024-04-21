@@ -35,6 +35,7 @@
   <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF" alt="" />
   <img src="https://img.shields.io/badge/TS-snow?logo=typescript&logoColor=3178C6" alt="" />
   <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2" alt="" />
+  <img src="https://img.shields.io/badge/Zig-snow?logo=zig&logoColor=F7A41D" alt="" />
 </p>
 
 <p align="center">
@@ -51,7 +52,7 @@
 
 - 全书采用动画图解，内容清晰易懂、学习曲线平滑，引导初学者探索数据结构与算法的知识地图。
 - 源代码可一键运行，帮助读者在练习中提升编程技能，了解算法工作原理和数据结构底层实现。
-- 鼓励读者互助学习，欢迎各位读者在评论区分享问题、见解和建议。
+- 鼓励读者互助学习，欢迎各位读者在评论区提出问题、见解和建议。
 
 若本书对您有所帮助，请在页面右上角点个 Star :star: 支持一下，谢谢！
 
