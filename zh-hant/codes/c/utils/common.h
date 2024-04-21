@@ -4,8 +4,8 @@
  * Author: MolDuM (moldum@163.com)、Reanon (793584285@qq.com)
  */
 
-#ifndef C_INCLUDE_H
-#define C_INCLUDE_H
+#ifndef COMMON_H
+#define COMMON_H
 
 #include <assert.h>
 #include <stdbool.h>
@@ -33,4 +33,4 @@ extern "C" {
 }
 #endif
 
-#endif // C_INCLUDE_H
+#endif // COMMON_H

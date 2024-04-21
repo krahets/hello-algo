@@ -67,4 +67,4 @@ console.log(`尾遞迴函式的求和結果 res = ${res}`);
 res = fib(n);
 console.log(`費波那契數列的第 ${n} 項為 ${res}`);
 
-export { };
+export {};

@@ -136,16 +136,17 @@ class QuickSortTailCall
 end
 
 ### Driver Code ###
-
 if __FILE__ == $0
   # 快速排序
   nums = [2, 4, 1, 0, 3, 5]
   QuickSort.quick_sort(nums, 0, nums.length - 1)
   puts "快速排序完成后 nums = #{nums}"
+
   # 快速排序（中位基准数优化）
   nums1 = [2, 4, 1, 0, 3, 5]
   QuickSortMedian.quick_sort(nums1, 0, nums1.length - 1)
   puts "快速排序（中位基准数优化）完成后 nums1 = #{nums1}"
+
   # 快速排序（尾递归优化）
   nums2 = [2, 4, 1, 0, 3, 5]
   QuickSortTailCall.quick_sort(nums2, 0, nums2.length - 1)

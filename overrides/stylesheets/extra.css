@@ -209,7 +209,11 @@ body {
 
 /* code block tabs */
 .md-typeset .tabbed-labels>label {
-  font-size: 0.545rem;
+  font-size: 0.61rem;
+}
+
+.md-typeset .tabbed-labels--linked>label>a {
+  padding: .78125em 1.0em .625em;
 }
 
 /* header banner */

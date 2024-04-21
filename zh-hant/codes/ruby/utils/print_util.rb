@@ -56,3 +56,8 @@ def print_tree(root, prev=nil, is_right=false)
   trunk.str = "   |"
   print_tree(root.left, trunk, false)
 end
+
+### 列印雜湊表 ###
+def print_hash_map(hmap)
+  hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
+end

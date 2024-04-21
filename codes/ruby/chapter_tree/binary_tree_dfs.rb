@@ -8,13 +8,13 @@ require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
 ### 前序遍历 ###
-def pre_oder(root)
+def pre_order(root)
   return if root.nil?
 
   # 访问优先级：根节点 -> 左子树 -> 右子树
   $res << root.val
-  pre_oder(root.left)
-  pre_oder(root.right)
+  pre_order(root.left)
+  pre_order(root.right)
 end
 
 ### 中序遍历 ###
@@ -47,7 +47,7 @@ if __FILE__ == $0
 
   # 前序遍历
   $res = []
-  pre_oder(root)
+  pre_order(root)
   puts "\n前序遍历的节点打印序列 = #{$res}"
 
   # 中序遍历

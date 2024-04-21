@@ -299,7 +299,7 @@ $$
     ```rust title="built_in_hash.rs"
     use std::collections::hash_map::DefaultHasher;
     use std::hash::{Hash, Hasher};
-    
+
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
@@ -374,7 +374,29 @@ $$
 === "Ruby"
 
     ```ruby title="built_in_hash.rb"
+    num = 3
+    hash_num = num.hash
+    # 整數 3 的雜湊值為 -4385856518450339636
 
+    bol = true
+    hash_bol = bol.hash
+    # 布林量 true 的雜湊值為 -1617938112149317027
+
+    dec = 3.14159
+    hash_dec = dec.hash
+    # 小數 3.14159 的雜湊值為 -1479186995943067893
+
+    str = "Hello 演算法"
+    hash_str = str.hash
+    # 字串“Hello 演算法”的雜湊值為 -4075943250025831763
+
+    tup = [12836, '小哈']
+    hash_tup = tup.hash
+    # 元組 (12836, '小哈') 的雜湊值為 1999544809202288822
+
+    obj = ListNode.new(0)
+    hash_obj = obj.hash
+    # 節點物件 #<ListNode:0x000078133140ab70> 的雜湊值為 4302940560806366381
     ```
 
 === "Zig"
