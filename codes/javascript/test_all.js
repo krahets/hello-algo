@@ -1,23 +1,25 @@
 import { bold, brightRed } from 'jsr:@std/fmt/colors';
-import { type WalkEntry, expandGlob } from 'jsr:@std/fs';
+import { expandGlob } from 'jsr:@std/fs';
 import { relative, resolve } from 'jsr:@std/path';
 
-const entries = [] as WalkEntry[];
+/**
+ * @typedef {import('jsr:@std/fs').WalkEntry} WalkEntry
+ * @type {WalkEntry[]}
+ */
+const entries = [];
 
 for await (const entry of expandGlob(
-    resolve(import.meta.dirname!, './chapter_*/*.js')
+    resolve(import.meta.dirname, './chapter_*/*.js')
 )) {
     entries.push(entry);
 }
 
-const processes = [] as {
-    status: Promise<Deno.CommandStatus>;
-    stderr: ReadableStream<Uint8Array>;
-}[];
+/** @type {{ status: Promise<Deno.CommandStatus>; stderr: ReadableStream<Uint8Array>; }[]} */
+const processes = [];
 
 for (const file of entries) {
     const execute = new Deno.Command('node', {
-        args: [relative(import.meta.dirname!, file.path)],
+        args: [relative(import.meta.dirname, file.path)],
         cwd: import.meta.dirname,
         stdin: 'piped',
         stdout: 'piped',
@@ -35,7 +37,8 @@ const results = await Promise.all(
     })
 );
 
-const errors = [] as ReadableStream<Uint8Array>[];
+/** @type {ReadableStream<Uint8Array>[]} */
+const errors = [];
 
 for (const result of results) {
     if (!result.status.success) {

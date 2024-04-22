@@ -24,4 +24,4 @@ jobs:
         with:
           deno-version: v1.x
       - name: Run JavaScript Code
-        run: deno run -A codes/javascript/test_all.ts
+        run: deno run -A codes/javascript/test_all.js
