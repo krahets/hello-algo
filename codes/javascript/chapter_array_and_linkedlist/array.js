@@ -5,7 +5,7 @@
  */
 
 /* 随机访问元素 */
-function andomAccess(nums) {
+function randomAccess(nums) {
     // 在区间 [0, nums.length) 中随机抽取一个数字
     const random_index = Math.floor(Math.random() * nums.length);
     // 获取并返回随机元素
@@ -16,7 +16,7 @@ function andomAccess(nums) {
 /* 扩展数组长度 */
 // 请注意，JavaScript 的 Array 是动态数组，可以直接扩展
 // 为了方便学习，本函数将 Array 看作长度不可变的数组
-functio extend(nums, enlarge) {
+function extend(nums, enlarge) {
     // 初始化一个扩展长度后的数组
     const res = new Array(nums.length + enlarge).fill(0);
     // 将原数组中的所有元素复制到新数组
