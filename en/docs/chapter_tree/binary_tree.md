@@ -1,6 +1,6 @@
 # Binary tree
 
-A "binary tree" is a non-linear data structure that represents the hierarchical relationship between ancestors and descendants, embodying the divide-and-conquer logic of "bifurcation". Similar to a linked list, the basic unit of a binary tree is a node, each containing a value, a reference to the left child node, and a reference to the right child node.
+A "binary tree" is a non-linear data structure that represents the hierarchical relationship between ancestors and descendants, embodying the divide-and-conquer logic of "splitting into two". Similar to a linked list, the basic unit of a binary tree is a node, each containing a value, a reference to the left child node, and a reference to the right child node.
 
 === "Python"
 
