@@ -49,7 +49,7 @@ This open-source project aims to create a free and beginner-friendly crash cours
 
 - Animated illustrations, easy-to-understand content, and a smooth learning curve help beginners explore the "knowledge map" of data structures and algorithms.
 - Run code with just one click, helping readers improve their programming skills and understand the working principle of algorithms and the underlying implementation of data structures.
-- Encouraging learning through teaching, feel free to share your questions, insights, and suggestions.
+- Promoting learning by teaching, feel free to ask questions and share insights. Let's grow together through discussion.
 
 If you find this book helpful, please give it a Star :star: to support us, thank you!
 
