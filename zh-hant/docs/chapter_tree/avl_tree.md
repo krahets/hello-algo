@@ -129,9 +129,9 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
         right: TreeNode | null; // 右子節點指標
         constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height; 
-            this.left = left === undefined ? null : left; 
-            this.right = right === undefined ? null : right; 
+            this.height = height === undefined ? 0 : height;
+            this.left = left === undefined ? null : left;
+            this.right = right === undefined ? null : right;
         }
     }
     ```
@@ -214,7 +214,18 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 === "Ruby"
 
     ```ruby title=""
+    ### AVL 樹節點類別 ###
+    class TreeNode
+      attr_accessor :val    # 節點值
+      attr_accessor :height # 節點高度
+      attr_accessor :left   # 左子節點引用
+      attr_accessor :right  # 右子節點引用
 
+      def initialize(val)
+        @val = val
+        @height = 0
+      end
+    end
     ```
 
 === "Zig"

@@ -15,24 +15,24 @@
 </p>
 
 <p align="center">
-  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="389">
-  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="389">
+  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="395">
+  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="395">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB">
-  <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C">
-  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02">
-  <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4">
-  <img src="https://img.shields.io/badge/Go-snow?logo=go&logoColor=00ADD8">
-  <img src="https://img.shields.io/badge/Swift-snow?logo=swift&logoColor=F05138">
-  <img src="https://img.shields.io/badge/JavaScript-snow?logo=javascript&logoColor=E9CE30">
-  <img src="https://img.shields.io/badge/TypeScript-snow?logo=typescript&logoColor=3178C6">
-  <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2">
-  <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000">
-  <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC">
-  <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF">
-  <img src="https://img.shields.io/badge/Zig-snow?logo=zig&logoColor=F7A41D">
+  <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="" />
+  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02" alt="" />
+  <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C" alt="" />
+  <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC" alt="" />
+  <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4" alt="" />
+  <img src="https://img.shields.io/badge/JavaScript-snow?logo=javascript&logoColor=E9CE30" alt="" />
+  <img src="https://img.shields.io/badge/Go-snow?logo=go&logoColor=00ADD8" alt="" />
+  <img src="https://img.shields.io/badge/Swift-snow?logo=swift&logoColor=F05138" alt="" />
+  <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000" alt="" />
+  <img src="https://img.shields.io/badge/Ruby-snow?logo=ruby&logoColor=CC342D" alt="" />
+  <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF" alt="" />
+  <img src="https://img.shields.io/badge/TypeScript-snow?logo=typescript&logoColor=3178C6" alt="" />
+  <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2" alt="" />
 </p>
 
 <p align="center">
@@ -49,7 +49,7 @@
 
 - 全書採用動畫圖解，內容清晰易懂、學習曲線平滑，引導初學者探索資料結構與演算法的知識地圖。
 - 源程式碼可一鍵執行，幫助讀者在練習中提升程式設計技能，瞭解演算法工作原理和資料結構底層實現。
-- 鼓勵讀者互助學習，提問與評論通常可在兩日內得到回覆。
+- 鼓勵讀者互助學習，歡迎大家在評論區提出問題、見解和建議。
 
 若本書對您有所幫助，請在頁面右上角點個 Star :star: 支持一下，謝謝！
 

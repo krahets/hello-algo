@@ -15,24 +15,24 @@
 </p>
 
 <p align="center">
-  <img src="https://www.hello-algo.com/en/index.assets/animation.gif" width="389">
-  <img src="https://www.hello-algo.com/en/index.assets/running_code.gif" width="389">
+  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="395">
+  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="395">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB">
-  <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C">
-  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02">
-  <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4">
-  <img src="https://img.shields.io/badge/Go-snow?logo=go&logoColor=00ADD8">
-  <img src="https://img.shields.io/badge/Swift-snow?logo=swift&logoColor=F05138">
-  <img src="https://img.shields.io/badge/JavaScript-snow?logo=javascript&logoColor=E9CE30">
-  <img src="https://img.shields.io/badge/TypeScript-snow?logo=typescript&logoColor=3178C6">
-  <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2">
-  <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000">
-  <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC">
-  <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF">
-  <img src="https://img.shields.io/badge/Zig-snow?logo=zig&logoColor=F7A41D">
+  <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="" />
+  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02" alt="" />
+  <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C" alt="" />
+  <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC" alt="" />
+  <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4" alt="" />
+  <img src="https://img.shields.io/badge/JavaScript-snow?logo=javascript&logoColor=E9CE30" alt="" />
+  <img src="https://img.shields.io/badge/Go-snow?logo=go&logoColor=00ADD8" alt="" />
+  <img src="https://img.shields.io/badge/Swift-snow?logo=swift&logoColor=F05138" alt="" />
+  <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000" alt="" />
+  <img src="https://img.shields.io/badge/Ruby-snow?logo=ruby&logoColor=CC342D" alt="" />
+  <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF" alt="" />
+  <img src="https://img.shields.io/badge/TypeScript-snow?logo=typescript&logoColor=3178C6" alt="" />
+  <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2" alt="" />
 </p>
 
 <p align="center">
@@ -49,7 +49,7 @@ This open-source project aims to create a free and beginner-friendly crash cours
 
 - Animated illustrations, easy-to-understand content, and a smooth learning curve help beginners explore the "knowledge map" of data structures and algorithms.
 - Run code with just one click, helping readers improve their programming skills and understand the working principle of algorithms and the underlying implementation of data structures.
-- We encourage readers to help each other. Questions and comments are usually replied to within two days.
+- Encouraging learning through teaching, feel free to share your questions, insights, and suggestions.
 
 If you find this book helpful, please give it a Star :star: to support us, thank you!
 

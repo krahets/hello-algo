@@ -41,13 +41,15 @@ Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://disco
 **Accuracy**:
 
 - Maintain consistency in terminology across translations by referring to the [Terminology](https://www.hello-algo.com/chapter_appendix/terminology/) section.
-- Prioritize technical accuracy and maintain the tone and style of the Chinese version. If you think changing the original meaning is necessary, please first submit a PR to modify the Chinese version.
+- Prioritize technical accuracy and maintain the tone and style of the Chinese version.
+- Always take into account the content and context of the Chinese version to ensure modifications are accurate and comprehensive.
 
 **Authenticity**:
 
 - Translations should flow naturally and fluently, adhering to English expression conventions.
 - Always consider the context of the content to harmonize the article.
 - Be aware of cultural differences between Chinese and English. For instance, Chinese "pinyin" does not exist in English.
+- If the optimized sentence could alter the original meaning, please add a comment for discussion.
 
 **Formatting**:
 

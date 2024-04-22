@@ -26,7 +26,7 @@ class LinkedListQueue:
 
     def is_empty(self) -> bool:
         """判斷佇列是否為空"""
-        return not self._front
+        return self._size == 0
 
     def push(self, num: int):
         """入列"""
