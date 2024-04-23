@@ -4,6 +4,8 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
+require_relative "./tree_node"
+
 ### 打印链表 ###
 def print_linked_list(head)
   list = []
@@ -60,4 +62,12 @@ end
 ### 打印哈希表 ###
 def print_hash_map(hmap)
   hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
+end
+
+### 打印堆 ###
+def print_heap(heap)
+  puts "堆的数组表示：#{heap}"
+  puts "堆的树状表示："
+  root = arr_to_tree(heap)
+  print_tree(root)
 end

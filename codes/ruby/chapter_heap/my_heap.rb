@@ -4,12 +4,16 @@ Created Time: 2024-04-19
 Author: Blue Bean (lonnnnnnner@gmail.com)
 =end
 
+require_relative '../utils/print_util'
+
 ### 大顶堆 ###
 class MaxHeap
     ### 构造方法，根据输入列表建堆 ###
     def initialize(nums)
+        # 将列表元素原封不动添加进堆
         @max_heap = nums.to_a
-        (parent(size - 1)).downto(0) do |i|
+        # 堆化除叶节点以外的其他所有节点
+        for i in (0...parent(size)).reverse_each
             sift_down(i)
         end
     end
@@ -89,7 +93,7 @@ class MaxHeap
     def sift_down(i)
         loop do
             # 判断节点 i, l, r 中值最大的节点，记为 ma
-            l r ma = left(i), right(i), i
+            l, r, ma = left(i), right(i), i
             ma = l if l < size && @max_heap[l] > @max_heap[ma]
             ma = r if r < size && @max_heap[r] > @max_heap[ma]
 
@@ -104,7 +108,44 @@ class MaxHeap
     end
 
     ### 打印堆（二叉树）###
-    def print
-
+    def __print__
+        print_heap(@max_heap)
     end
+
+    ### 获取堆的数组形式 ###
+    def to_a
+        @max_heap
+    end
+end
+
+### Driver Code ###
+if __FILE__ == $0
+    # 初始化大顶堆
+    max_heap = MaxHeap.new([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2])
+    puts "\n输入列表并建堆后"
+    max_heap.__print__
+
+    # 获取堆顶元素
+    peek = max_heap.peek
+    puts "\n堆顶元素为 #{peek}"
+
+    # 元素入堆
+    val = 7
+    max_heap.push(val)
+    puts "\n元素 #{val} 入堆后"
+    max_heap.__print__
+
+    # 堆顶元素出堆
+    peek = max_heap.pop
+    puts "\n堆顶元素 #{peek} 出堆后"
+    max_heap.__print__
+
+    # 获取堆大小
+    size = max_heap.size
+    puts "\n堆元素数量为 #{size}"
+
+    # 判断堆是否为空
+    is_empty = max_heap.is_empty?
+    puts "\n堆是否为空 #{is_empty}"
+
 end
