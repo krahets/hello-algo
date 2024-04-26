@@ -4172,7 +4172,29 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_bfs.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">graph_bfs</span><span class="p">}</span>
+<div class="highlight"><span class="filename">graph_bfs.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">### 广度优先遍历 ###</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">graph_bfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">start_vet</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="c1"># 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="c1"># 顶点遍历序列</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[]</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="c1"># 哈希表，用于记录已被访问过的顶点</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Set</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">[</span><span class="n">start_vet</span><span class="o">]</span><span class="p">)</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span><span class="c1"># 队列用于实现 BFS</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">  </span><span class="n">que</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">start_vet</span><span class="o">]</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">  </span><span class="c1"># 以顶点 vet 为起点，循环直至访问完所有顶点</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="n">que</span><span class="o">.</span><span class="n">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span><span class="n">vet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">que</span><span class="o">.</span><span class="n">shift</span><span class="w"> </span><span class="c1"># 队首顶点出队</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">vet</span><span class="w"> </span><span class="c1"># 记录访问顶点</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="c1"># 遍历该顶点的所有邻接顶点</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">adj_vet</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">graph</span><span class="o">.</span><span class="n">adj_list</span><span class="o">[</span><span class="n">vet</span><span class="o">]</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">      </span><span class="k">next</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">visited</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">adj_vet</span><span class="p">)</span><span class="w"> </span><span class="c1"># 跳过已被访问的顶点</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">      </span><span class="n">que</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">adj_vet</span><span class="w"> </span><span class="c1"># 只入队未访问的顶点</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">      </span><span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">adj_vet</span><span class="p">)</span><span class="w"> </span><span class="c1"># 标记该顶点已被访问</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">  </span><span class="c1"># 返回顶点遍历序列</span>
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">  </span><span class="n">res</span>
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4588,9 +4610,28 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">graph_dfs.rb</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">dfs</span><span class="p">}</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">graph_dfs</span><span class="p">}</span>
+<div class="highlight"><span class="filename">graph_dfs.rb</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1">### 深度优先遍历辅助函数 ###</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">visited</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">vet</span><span class="p">)</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">vet</span><span class="w"> </span><span class="c1"># 记录访问顶点</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">  </span><span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vet</span><span class="p">)</span><span class="w"> </span><span class="c1"># 标记该顶点已被访问</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">  </span><span class="c1"># 遍历该顶点的所有邻接顶点</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">adj_vet</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">graph</span><span class="o">.</span><span class="n">adj_list</span><span class="o">[</span><span class="n">vet</span><span class="o">]</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">    </span><span class="k">next</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">visited</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">adj_vet</span><span class="p">)</span><span class="w"> </span><span class="c1"># 跳过已被访问的顶点</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="w">    </span><span class="c1"># 递归访问邻接顶点</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">visited</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">adj_vet</span><span class="p">)</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="k">end</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="c1">### 深度优先遍历 ###</span>
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">graph_dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">start_vet</span><span class="p">)</span>
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="w">  </span><span class="c1"># 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
+<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a><span class="w">  </span><span class="c1"># 顶点遍历序列</span>
+<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a><span class="w">  </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[]</span>
+<a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a><span class="w">  </span><span class="c1"># 哈希表，用于记录已被访问过的顶点</span>
+<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a><span class="w">  </span><span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Set</span><span class="o">.</span><span class="n">new</span>
+<a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a><span class="w">  </span><span class="n">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">visited</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">start_vet</span><span class="p">)</span>
+<a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a><span class="w">  </span><span class="n">res</span>
+<a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4908,7 +4949,7 @@ aria-label="页脚"
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "none"});})</script></body>
