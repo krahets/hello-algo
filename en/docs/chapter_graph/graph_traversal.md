@@ -447,7 +447,29 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
 === "Ruby"
 
     ```ruby title="graph_bfs.rb"
-    [class]{}-[func]{graph_bfs}
+    ### 广度优先遍历 ###
+    def graph_bfs(graph, start_vet)
+      # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+      # 顶点遍历序列
+      res = []
+      # 哈希表，用于记录已被访问过的顶点
+      visited = Set.new([start_vet])
+      # 队列用于实现 BFS
+      que = [start_vet]
+      # 以顶点 vet 为起点，循环直至访问完所有顶点
+      while que.length > 0
+        vet = que.shift # 队首顶点出队
+        res << vet # 记录访问顶点
+        # 遍历该顶点的所有邻接顶点
+        for adj_vet in graph.adj_list[vet]
+          next if visited.include?(adj_vet) # 跳过已被访问的顶点
+          que << adj_vet # 只入队未访问的顶点
+          visited.add(adj_vet) # 标记该顶点已被访问
+        end
+      end
+      # 返回顶点遍历序列
+      res
+    end
     ```
 
 === "Zig"
@@ -892,9 +914,28 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
 === "Ruby"
 
     ```ruby title="graph_dfs.rb"
-    [class]{}-[func]{dfs}
+    ### 深度优先遍历辅助函数 ###
+    def dfs(graph, visited, res, vet)
+      res << vet # 记录访问顶点
+      visited.add(vet) # 标记该顶点已被访问
+      # 遍历该顶点的所有邻接顶点
+      for adj_vet in graph.adj_list[vet]
+        next if visited.include?(adj_vet) # 跳过已被访问的顶点
+        # 递归访问邻接顶点
+        dfs(graph, visited, res, adj_vet)
+      end
+    end
 
-    [class]{}-[func]{graph_dfs}
+    ### 深度优先遍历 ###
+    def graph_dfs(graph, start_vet)
+      # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+      # 顶点遍历序列
+      res = []
+      # 哈希表，用于记录已被访问过的顶点
+      visited = Set.new
+      dfs(graph, visited, res, start_vet)
+      res
+    end
     ```
 
 === "Zig"

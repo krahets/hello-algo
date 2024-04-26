@@ -1130,7 +1130,80 @@ Below is the implementation code for graphs represented using an adjacency matri
 === "Ruby"
 
     ```ruby title="graph_adjacency_matrix.rb"
-    [class]{GraphAdjMat}-[func]{}
+    ### 基于邻接矩阵实现的无向图类 ###
+    class GraphAdjMat
+      def initialize(vertices, edges)
+        ### 构造方法 ###
+        # 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        @vertices = []
+        # 邻接矩阵，行列索引对应“顶点索引”
+        @adj_mat = []
+        # 添加顶点
+        vertices.each { |val| add_vertex(val) }
+        # 添加边
+        # 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+        edges.each { |e| add_edge(e[0], e[1]) }
+      end
+
+      ### 获取顶点数量 ###
+      def size
+        @vertices.length
+      end
+
+      ### 添加顶点 ###
+      def add_vertex(val)
+        n = size
+        # 向顶点列表中添加新顶点的值
+        @vertices << val
+        # 在邻接矩阵中添加一行
+        new_row = Array.new(n, 0)
+        @adj_mat << new_row
+        # 在邻接矩阵中添加一列
+        @adj_mat.each { |row| row << 0 }
+      end
+
+      ### 删除顶点 ###
+      def remove_vertex(index)
+        raise IndexError if index >= size
+
+        # 在顶点列表中移除索引 index 的顶点
+        @vertices.delete_at(index)
+        # 在邻接矩阵中删除索引 index 的行
+        @adj_mat.delete_at(index)
+        # 在邻接矩阵中删除索引 index 的列
+        @adj_mat.each { |row| row.delete_at(index) }
+      end
+
+      ### 添加边 ###
+      def add_edge(i, j)
+        # 参数 i, j 对应 vertices 元素索引
+        # 索引越界与相等处理
+        if i < 0 || j < 0 || i >= size || j >= size || i == j
+          raise IndexError
+        end
+        # 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
+        @adj_mat[i][j] = 1
+        @adj_mat[j][i] = 1
+      end
+
+      ### 删除边 ###
+      def remove_edge(i, j)
+        # 参数 i, j 对应 vertices 元素索引
+        # 索引越界与相等处理
+        if i < 0 || j < 0 || i >= size || j >= size || i == j
+          raise IndexError
+        end
+        @adj_mat[i][j] = 0
+        @adj_mat[j][i] = 0
+      end
+
+      ### 打印邻接矩阵 ###
+      def __print__
+        puts "顶点列表 = #{@vertices}"
+        puts '邻接矩阵 ='
+        print_matrix(@adj_mat)
+      end
+    end
     ```
 
 === "Zig"
@@ -2233,7 +2306,73 @@ Additionally, we use the `Vertex` class to represent vertices in the adjacency l
 === "Ruby"
 
     ```ruby title="graph_adjacency_list.rb"
-    [class]{GraphAdjList}-[func]{}
+    ### 基于邻接表实现的无向图类 ###
+    class GraphAdjList
+      attr_reader :adj_list
+      
+      ### 构造方法 ###
+      def initialize(edges)
+        # 邻接表，key：顶点，value：该顶点的所有邻接顶点
+        @adj_list = {}
+        # 添加所有顶点和边
+        for edge in edges
+          add_vertex(edge[0])
+          add_vertex(edge[1])
+          add_edge(edge[0], edge[1])
+        end
+      end
+
+      ### 获取顶点数量 ###
+      def size
+        @adj_list.length
+      end
+
+      ### 添加边 ###
+      def add_edge(vet1, vet2)
+        raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
+
+        @adj_list[vet1] << vet2
+        @adj_list[vet2] << vet1
+      end
+
+      ### 删除边 ###
+      def remove_edge(vet1, vet2)
+        raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
+
+        # 删除边 vet1 - vet2
+        @adj_list[vet1].delete(vet2)
+        @adj_list[vet2].delete(vet1)
+      end
+
+      ### 添加顶点 ###
+      def add_vertex(vet)
+        return if @adj_list.include?(vet)
+
+        # 在邻接表中添加一个新链表
+        @adj_list[vet] = []
+      end
+
+      ### 删除顶点 ###
+      def remove_vertex(vet)
+        raise ArgumentError unless @adj_list.include?(vet)
+
+        # 在邻接表中删除顶点 vet 对应的链表
+        @adj_list.delete(vet)
+        # 遍历其他顶点的链表，删除所有包含 vet 的边
+        for vertex in @adj_list
+          @adj_list[vertex.first].delete(vet) if @adj_list[vertex.first].include?(vet)
+        end
+      end
+
+      ### 打印邻接表 ###
+      def __print__
+        puts '邻接表 ='
+        for vertex in @adj_list
+          tmp = @adj_list[vertex.first].map { |v| v.val }
+          puts "#{vertex.first.val}: #{tmp},"
+        end
+      end
+    end
     ```
 
 === "Zig"
