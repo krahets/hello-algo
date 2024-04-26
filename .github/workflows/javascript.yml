@@ -1,12 +1,12 @@
-name: TypeScript
+name: JavaScript
 
 on:
   push:
     branches: ['main']
-    paths: ['codes/typescript/**/*.ts']
+    paths: ['codes/javascript/**/*.js']
   pull_request:
     branches: ['main']
-    paths: ['codes/typescript/**/*.ts']
+    paths: ['codes/javascript/**/*.js']
   workflow_dispatch:
 
 jobs:
@@ -20,7 +20,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20.x
-      - name: Install dependencies
-        run: cd codes/typescript && npm install
-      - name: Check TypeScript code
-        run: cd codes/typescript && npm run check
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - name: Run JavaScript Code
+        run: deno run -A codes/javascript/test_all.js
