@@ -114,10 +114,6 @@ class MaxHeap
     print_heap(@max_heap)
   end
 
-  ### 获取堆的数组形式 ###
-  def to_a
-    max_heap
-  end
 end
 
 ### Driver Code ###

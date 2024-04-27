@@ -27,7 +27,7 @@ end
 ### 取出堆中元素 ###
 def get_min_heap(heap)
   # 将堆中所有元素取反
-  heap.to_a.map { |x| -x }
+  heap.max_heap.map { |x| -x }
 end
 
 ### 基于堆查找数组中最大的 k 个元素 ###
