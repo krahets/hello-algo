@@ -8,12 +8,14 @@ require_relative '../utils/print_util'
 
 ### 大顶堆 ###
 class MaxHeap
+  attr_reader :max_heap
+
   ### 构造方法，根据输入列表建堆 ###
   def initialize(nums)
     # 将列表元素原封不动添加进堆
     @max_heap = nums
     # 堆化除叶节点以外的其他所有节点
-    for i in (0...parent(size)).reverse_each
+    parent(size - 1).downto(0) do |i|
       sift_down(i)
     end
   end
@@ -114,7 +116,7 @@ class MaxHeap
 
   ### 获取堆的数组形式 ###
   def to_a
-    @max_heap
+    max_heap
   end
 end
 
