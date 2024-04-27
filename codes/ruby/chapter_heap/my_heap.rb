@@ -11,7 +11,7 @@ class MaxHeap
   ### 构造方法，根据输入列表建堆 ###
   def initialize(nums)
     # 将列表元素原封不动添加进堆
-    @max_heap = nums.to_a
+    @max_heap = nums
     # 堆化除叶节点以外的其他所有节点
     for i in (0...parent(size)).reverse_each
       sift_down(i)
