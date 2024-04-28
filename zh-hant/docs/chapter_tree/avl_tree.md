@@ -248,7 +248,7 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 [file]{avl_tree}-[class]{avl_tree}-[func]{balance_factor}
 ```
 
-!!! note
+!!! tip
 
     設平衡因子為 $f$ ，則一棵 AVL 樹的任意節點的平衡因子皆滿足 $-1 \le f \le 1$ 。
 

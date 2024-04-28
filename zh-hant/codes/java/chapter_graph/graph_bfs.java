@@ -15,7 +15,7 @@ public class graph_bfs {
     static List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
         // 頂點走訪序列
         List<Vertex> res = new ArrayList<>();
-        // 雜湊表，用於記錄已被訪問過的頂點
+        // 雜湊集合，用於記錄已被訪問過的頂點
         Set<Vertex> visited = new HashSet<>();
         visited.add(startVet);
         // 佇列用於實現 BFS

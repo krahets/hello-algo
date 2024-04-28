@@ -28,7 +28,7 @@ func dfs(g *graphAdjList, visited map[Vertex]struct{}, res *[]Vertex, vet Vertex
 func graphDFS(g *graphAdjList, startVet Vertex) []Vertex {
 	// 頂點走訪序列
 	res := make([]Vertex, 0)
-	// 雜湊表，用於記錄已被訪問過的頂點
+	// 雜湊集合，用於記錄已被訪問過的頂點
 	visited := make(map[Vertex]struct{})
 	dfs(g, visited, &res, startVet)
 	// 返回頂點走訪序列

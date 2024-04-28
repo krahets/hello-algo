@@ -4,6 +4,15 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
+require_relative "./tree_node"
+
+### 列印矩陣 ###
+def print_matrix(mat)
+  s = []
+  mat.each { |arr| s << " #{arr.to_s}" }
+  puts "[\n#{s.join(",\n")}\n]"
+end
+
 ### 列印鏈結串列 ###
 def print_linked_list(head)
   list = []
@@ -60,4 +69,12 @@ end
 ### 列印雜湊表 ###
 def print_hash_map(hmap)
   hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
+end
+
+### 列印堆積 ###
+def print_heap(heap)
+  puts "堆積的陣列表示：#{heap}"
+  puts "堆積的樹狀表示："
+  root = arr_to_tree(heap)
+  print_tree(root)
 end

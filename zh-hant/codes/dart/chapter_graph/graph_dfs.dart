@@ -30,7 +30,7 @@ void dfs(
 List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
   // 頂點走訪序列
   List<Vertex> res = [];
-  // 雜湊表，用於記錄已被訪問過的頂點
+  // 雜湊集合，用於記錄已被訪問過的頂點
   Set<Vertex> visited = {};
   dfs(graph, visited, res, startVet);
   return res;

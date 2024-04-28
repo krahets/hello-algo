@@ -18,7 +18,7 @@ def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     # 使用鄰接表來表示圖，以便獲取指定頂點的所有鄰接頂點
     # 頂點走訪序列
     res = []
-    # 雜湊表，用於記錄已被訪問過的頂點
+    # 雜湊集合，用於記錄已被訪問過的頂點
     visited = set[Vertex]([start_vet])
     # 佇列用於實現 BFS
     que = deque[Vertex]([start_vet])
