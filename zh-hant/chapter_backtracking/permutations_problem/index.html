@@ -4220,7 +4220,7 @@
 <p><a class="glightbox" href="../permutations_problem.assets/permutations_ii.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="重複排列" class="animation-figure" src="../permutations_problem.assets/permutations_ii.png" /></a></p>
 <p align="center"> 圖 13-7 &nbsp; 重複排列 </p>
 
-<p>那麼如何去除重複的排列呢？最直接地，考慮藉助一個雜湊表，直接對排列結果進行去重。然而這樣做不夠優雅，<strong>因為生成重複排列的搜尋分支沒有必要，應當提前識別並剪枝</strong>，這樣可以進一步提升演算法效率。</p>
+<p>那麼如何去除重複的排列呢？最直接地，考慮藉助一個雜湊集合，直接對排列結果進行去重。然而這樣做不夠優雅，<strong>因為生成重複排列的搜尋分支沒有必要，應當提前識別並剪枝</strong>，這樣可以進一步提升演算法效率。</p>
 <h3 id="1_1">1. &nbsp; 相等元素剪枝<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
 <p>觀察圖 13-8 ，在第一輪中，選擇 <span class="arithmatex">\(1\)</span> 或選擇 <span class="arithmatex">\(\hat{1}\)</span> 是等價的，在這兩個選擇之下生成的所有排列都是重複的。因此應該把 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
 <p>同理，在第一輪選擇 <span class="arithmatex">\(2\)</span> 之後，第二輪選擇中的 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(\hat{1}\)</span> 也會產生重複分支，因此也應將第二輪的 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
@@ -4229,7 +4229,7 @@
 <p align="center"> 圖 13-8 &nbsp; 重複排列剪枝 </p>
 
 <h3 id="2_1">2. &nbsp; 程式碼實現<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
-<p>在上一題的程式碼的基礎上，我們考慮在每一輪選擇中開啟一個雜湊表 <code>duplicated</code> ，用於記錄該輪中已經嘗試過的元素，並將重複元素剪枝：</p>
+<p>在上一題的程式碼的基礎上，我們考慮在每一輪選擇中開啟一個雜湊集合 <code>duplicated</code> ，用於記錄該輪中已經嘗試過的元素，並將重複元素剪枝：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:14"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><input id="__tabbed_2_14" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label><label for="__tabbed_2_14">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

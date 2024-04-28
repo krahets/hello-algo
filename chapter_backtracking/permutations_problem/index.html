@@ -4285,7 +4285,7 @@
 <p><a class="glightbox" href="../permutations_problem.assets/permutations_ii.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="重复排列" class="animation-figure" src="../permutations_problem.assets/permutations_ii.png" /></a></p>
 <p align="center"> 图 13-7 &nbsp; 重复排列 </p>
 
-<p>那么如何去除重复的排列呢？最直接地，考虑借助一个哈希表，直接对排列结果进行去重。然而这样做不够优雅，<strong>因为生成重复排列的搜索分支没有必要，应当提前识别并剪枝</strong>，这样可以进一步提升算法效率。</p>
+<p>那么如何去除重复的排列呢？最直接地，考虑借助一个哈希集合，直接对排列结果进行去重。然而这样做不够优雅，<strong>因为生成重复排列的搜索分支没有必要，应当提前识别并剪枝</strong>，这样可以进一步提升算法效率。</p>
 <h3 id="1_1">1. &nbsp; 相等元素剪枝<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
 <p>观察图 13-8 ，在第一轮中，选择 <span class="arithmatex">\(1\)</span> 或选择 <span class="arithmatex">\(\hat{1}\)</span> 是等价的，在这两个选择之下生成的所有排列都是重复的。因此应该把 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
 <p>同理，在第一轮选择 <span class="arithmatex">\(2\)</span> 之后，第二轮选择中的 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(\hat{1}\)</span> 也会产生重复分支，因此也应将第二轮的 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
@@ -4294,7 +4294,7 @@
 <p align="center"> 图 13-8 &nbsp; 重复排列剪枝 </p>
 
 <h3 id="2_1">2. &nbsp; 代码实现<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
-<p>在上一题的代码的基础上，我们考虑在每一轮选择中开启一个哈希表 <code>duplicated</code> ，用于记录该轮中已经尝试过的元素，并将重复元素剪枝：</p>
+<p>在上一题的代码的基础上，我们考虑在每一轮选择中开启一个哈希集合 <code>duplicated</code> ，用于记录该轮中已经尝试过的元素，并将重复元素剪枝：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:14"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><input id="__tabbed_2_14" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label><label for="__tabbed_2_14">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
