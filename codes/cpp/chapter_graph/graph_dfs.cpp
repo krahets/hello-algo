@@ -25,7 +25,7 @@ void dfs(GraphAdjList &graph, unordered_set<Vertex *> &visited, vector<Vertex *>
 vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
     // 顶点遍历序列
     vector<Vertex *> res;
-    // 哈希表，用于记录已被访问过的顶点
+    // 哈希集合，用于记录已被访问过的顶点
     unordered_set<Vertex *> visited;
     dfs(graph, visited, res, startVet);
     return res;

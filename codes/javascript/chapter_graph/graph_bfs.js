@@ -12,7 +12,7 @@ const { Vertex } = require('../modules/Vertex');
 function graphBFS(graph, startVet) {
     // 顶点遍历序列
     const res = [];
-    // 哈希表，用于记录已被访问过的顶点
+    // 哈希集合，用于记录已被访问过的顶点
     const visited = new Set();
     visited.add(startVet);
     // 队列用于实现 BFS
