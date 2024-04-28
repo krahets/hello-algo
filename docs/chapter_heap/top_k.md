@@ -437,7 +437,28 @@ comments: true
 === "Ruby"
 
     ```ruby title="top_k.rb"
-    [class]{}-[func]{top_k_heap}
+    ### 基于堆查找数组中最大的 k 个元素 ###
+    def top_k_heap(nums, k)
+      # 初始化小顶堆
+      # 请注意：我们将堆中所有元素取反，从而用大顶堆来模拟小顶堆
+      max_heap = MaxHeap.new([])
+
+      # 将数组的前 k 个元素入堆
+      for i in 0...k
+        push_min_heap(max_heap, nums[i])
+      end
+
+      # 从第 k+1 个元素开始，保持堆的长度为 k
+      for i in k...nums.length
+        # 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+        if nums[i] > peek_min_heap(max_heap)
+          pop_min_heap(max_heap)
+          push_min_heap(max_heap, nums[i])
+        end
+      end
+
+      get_min_heap(max_heap)
+    end
     ```
 
 === "Zig"

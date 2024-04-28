@@ -675,11 +675,20 @@ We can encapsulate the index mapping formula into functions for convenient later
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-    [class]{MaxHeap}-[func]{left}
+    ### 获取左子节点的索引 ###
+    def left(i)
+      2 * i + 1
+    end
 
-    [class]{MaxHeap}-[func]{right}
+    ### 获取右子节点的索引 ###
+    def right(i)
+      2 * i + 2
+    end
 
-    [class]{MaxHeap}-[func]{parent}
+    ### 获取父节点的索引 ###
+    def parent(i)
+      (i - 1) / 2     # 向下整除
+    end
     ```
 
 === "Zig"
@@ -816,7 +825,10 @@ The top element of the heap is the root node of the binary tree, which is also t
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-    [class]{MaxHeap}-[func]{peek}
+    ### 访问堆顶元素 ###
+    def peek
+      @max_heap[0]
+    end
     ```
 
 === "Zig"
@@ -1210,9 +1222,27 @@ Given a total of $n$ nodes, the height of the tree is $O(\log n)$. Hence, the lo
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-    [class]{MaxHeap}-[func]{push}
+    ### 元素入堆 ###
+    def push(val)
+      # 添加节点
+      @max_heap << val
+      # 从底至顶堆化
+      sift_up(size - 1)
+    end
 
-    [class]{MaxHeap}-[func]{sift_up}
+    ### 从节点 i 开始，从底至顶堆化 ###
+    def sift_up(i)
+      loop do
+        # 获取节点 i 的父节点
+        p = parent(i)
+        # 当“越过根节点”或“节点无须修复”时，结束堆化
+        break if p < 0 || @max_heap[i] <= @max_heap[p]
+        # 交换两节点
+        swap(i, p)
+        # 循环向上堆化
+        i = p
+      end
+    end
     ```
 
 === "Zig"
@@ -1648,7 +1678,7 @@ Similar to the element insertion operation, the time complexity of the top eleme
         // 交换根节点与最右叶节点（交换首元素与尾元素）
         self.swap(0, self.size() - 1);
         // 删除节点
-        let val = self.max_heap.remove(self.size() - 1);
+        let val = self.max_heap.pop().unwrap();
         // 从顶至底堆化
         self.sift_down(0);
         // 返回堆顶元素
@@ -1766,9 +1796,37 @@ Similar to the element insertion operation, the time complexity of the top eleme
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-    [class]{MaxHeap}-[func]{pop}
+    ### 元素出堆 ###
+    def pop
+      # 判空处理
+      raise IndexError, "堆为空" if is_empty?
+      # 交换根节点与最右叶节点（交换首元素与尾元素）
+      swap(0, size - 1)
+      # 删除节点
+      val = @max_heap.pop
+      # 从顶至底堆化
+      sift_down(0)
+      # 返回堆顶元素
+      val
+    end
 
-    [class]{MaxHeap}-[func]{sift_down}
+    ### 从节点 i 开始，从顶至底堆化 ###
+    def sift_down(i)
+      loop do
+        # 判断节点 i, l, r 中值最大的节点，记为 ma
+        l, r, ma = left(i), right(i), i
+        ma = l if l < size && @max_heap[l] > @max_heap[ma]
+        ma = r if r < size && @max_heap[r] > @max_heap[ma]
+
+        # 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+        break if ma == i
+
+        # 交换两节点
+        swap(i, ma)
+        # 循环向下堆化
+        i = ma
+      end
+    end
     ```
 
 === "Zig"

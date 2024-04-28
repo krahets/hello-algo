@@ -24,7 +24,11 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 2. 在循环的每轮迭代中，弹出队首顶点并记录访问，然后将该顶点的所有邻接顶点加入到队列尾部。
 3. 循环步骤 `2.` ，直到所有顶点被访问完毕后结束。
 
-为了防止重复遍历顶点，我们需要借助一个哈希表 `visited` 来记录哪些节点已被访问。
+为了防止重复遍历顶点，我们需要借助一个哈希集合 `visited` 来记录哪些节点已被访问。
+
+!!! tip
+
+    哈希集合可以看作一个只存储 `key` 而不存储 `value` 的哈希表，它可以在 $O(1)$ 时间复杂度下进行 `key` 的增删查改操作。根据 `key` 的唯一性，哈希集合通常用于数据去重等场景。
 
 === "Python"
 
@@ -34,7 +38,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
         # 顶点遍历序列
         res = []
-        # 哈希表，用于记录已被访问过的顶点
+        # 哈希集合，用于记录已被访问过的顶点
         visited = set[Vertex]([start_vet])
         # 队列用于实现 BFS
         que = deque[Vertex]([start_vet])
@@ -60,7 +64,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     vector<Vertex *> graphBFS(GraphAdjList &graph, Vertex *startVet) {
         // 顶点遍历序列
         vector<Vertex *> res;
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         unordered_set<Vertex *> visited = {startVet};
         // 队列用于实现 BFS
         queue<Vertex *> que;
@@ -91,7 +95,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
         List<Vertex> res = new ArrayList<>();
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         Set<Vertex> visited = new HashSet<>();
         visited.add(startVet);
         // 队列用于实现 BFS
@@ -122,7 +126,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
         List<Vertex> res = [];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         HashSet<Vertex> visited = [startVet];
         // 队列用于实现 BFS
         Queue<Vertex> que = new();
@@ -153,7 +157,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     func graphBFS(g *graphAdjList, startVet Vertex) []Vertex {
         // 顶点遍历序列
         res := make([]Vertex, 0)
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         visited := make(map[Vertex]struct{})
         visited[startVet] = struct{}{}
         // 队列用于实现 BFS, 使用切片模拟队列
@@ -189,7 +193,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     func graphBFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
         // 顶点遍历序列
         var res: [Vertex] = []
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         var visited: Set<Vertex> = [startVet]
         // 队列用于实现 BFS
         var que: [Vertex] = [startVet]
@@ -219,7 +223,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     function graphBFS(graph, startVet) {
         // 顶点遍历序列
         const res = [];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         const visited = new Set();
         visited.add(startVet);
         // 队列用于实现 BFS
@@ -250,7 +254,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     function graphBFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
         // 顶点遍历序列
         const res: Vertex[] = [];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         const visited: Set<Vertex> = new Set();
         visited.add(startVet);
         // 队列用于实现 BFS
@@ -281,7 +285,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
       // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
       // 顶点遍历序列
       List<Vertex> res = [];
-      // 哈希表，用于记录已被访问过的顶点
+      // 哈希集合，用于记录已被访问过的顶点
       Set<Vertex> visited = {};
       visited.add(startVet);
       // 队列用于实现 BFS
@@ -313,7 +317,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
         // 顶点遍历序列
         let mut res = vec![];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         let mut visited = HashSet::new();
         visited.insert(start_vet);
         // 队列用于实现 BFS
@@ -421,7 +425,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     fun graphBFS(graph: GraphAdjList, startVet: Vertex): MutableList<Vertex?> {
         // 顶点遍历序列
         val res = mutableListOf<Vertex?>()
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         val visited = HashSet<Vertex>()
         visited.add(startVet)
         // 队列用于实现 BFS
@@ -452,7 +456,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
       # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
       # 顶点遍历序列
       res = []
-      # 哈希表，用于记录已被访问过的顶点
+      # 哈希集合，用于记录已被访问过的顶点
       visited = Set.new([start_vet])
       # 队列用于实现 BFS
       que = [start_vet]
@@ -528,7 +532,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 
 **时间复杂度**：所有顶点都会入队并出队一次，使用 $O(|V|)$ 时间；在遍历邻接顶点的过程中，由于是无向图，因此所有边都会被访问 $2$ 次，使用 $O(2|E|)$ 时间；总体使用 $O(|V| + |E|)$ 时间。
 
-**空间复杂度**：列表 `res` ，哈希表 `visited` ，队列 `que` 中的顶点数量最多为 $|V|$ ，使用 $O(|V|)$ 空间。
+**空间复杂度**：列表 `res` ，哈希集合 `visited` ，队列 `que` 中的顶点数量最多为 $|V|$ ，使用 $O(|V|)$ 空间。
 
 ## 9.3.2 &nbsp; 深度优先遍历
 
@@ -540,7 +544,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 
 ### 1. &nbsp; 算法实现
 
-这种“走到尽头再返回”的算法范式通常基于递归来实现。与广度优先遍历类似，在深度优先遍历中，我们也需要借助一个哈希表 `visited` 来记录已被访问的顶点，以避免重复访问顶点。
+这种“走到尽头再返回”的算法范式通常基于递归来实现。与广度优先遍历类似，在深度优先遍历中，我们也需要借助一个哈希集合 `visited` 来记录已被访问的顶点，以避免重复访问顶点。
 
 === "Python"
 
@@ -561,7 +565,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
         # 顶点遍历序列
         res = []
-        # 哈希表，用于记录已被访问过的顶点
+        # 哈希集合，用于记录已被访问过的顶点
         visited = set[Vertex]()
         dfs(graph, visited, res, start_vet)
         return res
@@ -588,7 +592,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
         // 顶点遍历序列
         vector<Vertex *> res;
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         unordered_set<Vertex *> visited;
         dfs(graph, visited, res, startVet);
         return res;
@@ -616,7 +620,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
         List<Vertex> res = new ArrayList<>();
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         Set<Vertex> visited = new HashSet<>();
         dfs(graph, visited, res, startVet);
         return res;
@@ -645,7 +649,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     List<Vertex> GraphDFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
         List<Vertex> res = [];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         HashSet<Vertex> visited = [];
         DFS(graph, visited, res, startVet);
         return res;
@@ -675,7 +679,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     func graphDFS(g *graphAdjList, startVet Vertex) []Vertex {
         // 顶点遍历序列
         res := make([]Vertex, 0)
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         visited := make(map[Vertex]struct{})
         dfs(g, visited, &res, startVet)
         // 返回顶点遍历序列
@@ -705,7 +709,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     func graphDFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
         // 顶点遍历序列
         var res: [Vertex] = []
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         var visited: Set<Vertex> = []
         dfs(graph: graph, visited: &visited, res: &res, vet: startVet)
         return res
@@ -735,7 +739,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     function graphDFS(graph, startVet) {
         // 顶点遍历序列
         const res = [];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         const visited = new Set();
         dfs(graph, visited, res, startVet);
         return res;
@@ -769,7 +773,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     function graphDFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
         // 顶点遍历序列
         const res: Vertex[] = [];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         const visited: Set<Vertex> = new Set();
         dfs(graph, visited, res, startVet);
         return res;
@@ -802,7 +806,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
       // 顶点遍历序列
       List<Vertex> res = [];
-      // 哈希表，用于记录已被访问过的顶点
+      // 哈希集合，用于记录已被访问过的顶点
       Set<Vertex> visited = {};
       dfs(graph, visited, res, startVet);
       return res;
@@ -833,7 +837,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
         // 顶点遍历序列
         let mut res = vec![];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         let mut visited = HashSet::new();
         dfs(&graph, &mut visited, &mut res, start_vet);
 
@@ -904,7 +908,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     fun graphDFS(graph: GraphAdjList, startVet: Vertex?): MutableList<Vertex?> {
         // 顶点遍历序列
         val res = mutableListOf<Vertex?>()
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         val visited = HashSet<Vertex?>()
         dfs(graph, visited, res, startVet)
         return res
@@ -931,7 +935,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
       # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
       # 顶点遍历序列
       res = []
-      # 哈希表，用于记录已被访问过的顶点
+      # 哈希集合，用于记录已被访问过的顶点
       visited = Set.new
       dfs(graph, visited, res, start_vet)
       res
@@ -1003,4 +1007,4 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 
 **时间复杂度**：所有顶点都会被访问 $1$ 次，使用 $O(|V|)$ 时间；所有边都会被访问 $2$ 次，使用 $O(2|E|)$ 时间；总体使用 $O(|V| + |E|)$ 时间。
 
-**空间复杂度**：列表 `res` ，哈希表 `visited` 顶点数量最多为 $|V|$ ，递归深度最大为 $|V|$ ，因此使用 $O(|V|)$ 空间。
+**空间复杂度**：列表 `res` ，哈希集合 `visited` 顶点数量最多为 $|V|$ ，递归深度最大为 $|V|$ ，因此使用 $O(|V|)$ 空间。

@@ -35,7 +35,7 @@ We can imagine the computer storage system as a pyramid structure shown in the F
 
 <p align="center"> Figure 4-9 &nbsp; Computer storage system </p>
 
-!!! note
+!!! tip
 
     The storage hierarchy of computers reflects a delicate balance between speed, capacity, and cost. In fact, this kind of trade-off is common in all industrial fields, requiring us to find the best balance between different advantages and limitations.
 

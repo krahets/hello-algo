@@ -676,11 +676,20 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-    [class]{MaxHeap}-[func]{left}
+    ### 獲取左子節點的索引 ###
+    def left(i)
+      2 * i + 1
+    end
 
-    [class]{MaxHeap}-[func]{right}
+    ### 獲取右子節點的索引 ###
+    def right(i)
+      2 * i + 2
+    end
 
-    [class]{MaxHeap}-[func]{parent}
+    ### 獲取父節點的索引 ###
+    def parent(i)
+      (i - 1) / 2     # 向下整除
+    end
     ```
 
 === "Zig"
@@ -817,7 +826,10 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-    [class]{MaxHeap}-[func]{peek}
+    ### 訪問堆積頂元素 ###
+    def peek
+      @max_heap[0]
+    end
     ```
 
 === "Zig"
@@ -1211,9 +1223,27 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-    [class]{MaxHeap}-[func]{push}
+    ### 元素入堆積 ###
+    def push(val)
+      # 新增節點
+      @max_heap << val
+      # 從底至頂堆積化
+      sift_up(size - 1)
+    end
 
-    [class]{MaxHeap}-[func]{sift_up}
+    ### 從節點 i 開始，從底至頂堆積化 ###
+    def sift_up(i)
+      loop do
+        # 獲取節點 i 的父節點
+        p = parent(i)
+        # 當“越過根節點”或“節點無須修復”時，結束堆積化
+        break if p < 0 || @max_heap[i] <= @max_heap[p]
+        # 交換兩節點
+        swap(i, p)
+        # 迴圈向上堆積化
+        i = p
+      end
+    end
     ```
 
 === "Zig"
@@ -1649,7 +1679,7 @@ comments: true
         // 交換根節點與最右葉節點（交換首元素與尾元素）
         self.swap(0, self.size() - 1);
         // 刪除節點
-        let val = self.max_heap.remove(self.size() - 1);
+        let val = self.max_heap.pop().unwrap();
         // 從頂至底堆積化
         self.sift_down(0);
         // 返回堆積頂元素
@@ -1767,9 +1797,37 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-    [class]{MaxHeap}-[func]{pop}
+    ### 元素出堆積 ###
+    def pop
+      # 判空處理
+      raise IndexError, "堆積為空" if is_empty?
+      # 交換根節點與最右葉節點（交換首元素與尾元素）
+      swap(0, size - 1)
+      # 刪除節點
+      val = @max_heap.pop
+      # 從頂至底堆積化
+      sift_down(0)
+      # 返回堆積頂元素
+      val
+    end
 
-    [class]{MaxHeap}-[func]{sift_down}
+    ### 從節點 i 開始，從頂至底堆積化 ###
+    def sift_down(i)
+      loop do
+        # 判斷節點 i, l, r 中值最大的節點，記為 ma
+        l, r, ma = left(i), right(i), i
+        ma = l if l < size && @max_heap[l] > @max_heap[ma]
+        ma = r if r < size && @max_heap[r] > @max_heap[ma]
+
+        # 若節點 i 最大或索引 l, r 越界，則無須繼續堆積化，跳出
+        break if ma == i
+
+        # 交換兩節點
+        swap(i, ma)
+        # 迴圈向下堆積化
+        i = ma
+      end
+    end
     ```
 
 === "Zig"

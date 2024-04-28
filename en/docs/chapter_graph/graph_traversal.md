@@ -34,7 +34,7 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
         # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
         # 顶点遍历序列
         res = []
-        # 哈希表，用于记录已被访问过的顶点
+        # 哈希集合，用于记录已被访问过的顶点
         visited = set[Vertex]([start_vet])
         # 队列用于实现 BFS
         que = deque[Vertex]([start_vet])
@@ -60,7 +60,7 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
     vector<Vertex *> graphBFS(GraphAdjList &graph, Vertex *startVet) {
         // 顶点遍历序列
         vector<Vertex *> res;
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         unordered_set<Vertex *> visited = {startVet};
         // 队列用于实现 BFS
         queue<Vertex *> que;
@@ -91,7 +91,7 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
     List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
         List<Vertex> res = new ArrayList<>();
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         Set<Vertex> visited = new HashSet<>();
         visited.add(startVet);
         // 队列用于实现 BFS
@@ -122,7 +122,7 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
     List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
         List<Vertex> res = [];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         HashSet<Vertex> visited = [startVet];
         // 队列用于实现 BFS
         Queue<Vertex> que = new();
@@ -153,7 +153,7 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
     func graphBFS(g *graphAdjList, startVet Vertex) []Vertex {
         // 顶点遍历序列
         res := make([]Vertex, 0)
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         visited := make(map[Vertex]struct{})
         visited[startVet] = struct{}{}
         // 队列用于实现 BFS, 使用切片模拟队列
@@ -189,7 +189,7 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
     func graphBFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
         // 顶点遍历序列
         var res: [Vertex] = []
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         var visited: Set<Vertex> = [startVet]
         // 队列用于实现 BFS
         var que: [Vertex] = [startVet]
@@ -219,7 +219,7 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
     function graphBFS(graph, startVet) {
         // 顶点遍历序列
         const res = [];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         const visited = new Set();
         visited.add(startVet);
         // 队列用于实现 BFS
@@ -250,7 +250,7 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
     function graphBFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
         // 顶点遍历序列
         const res: Vertex[] = [];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         const visited: Set<Vertex> = new Set();
         visited.add(startVet);
         // 队列用于实现 BFS
@@ -281,7 +281,7 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
       // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
       // 顶点遍历序列
       List<Vertex> res = [];
-      // 哈希表，用于记录已被访问过的顶点
+      // 哈希集合，用于记录已被访问过的顶点
       Set<Vertex> visited = {};
       visited.add(startVet);
       // 队列用于实现 BFS
@@ -313,7 +313,7 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
     fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
         // 顶点遍历序列
         let mut res = vec![];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         let mut visited = HashSet::new();
         visited.insert(start_vet);
         // 队列用于实现 BFS
@@ -421,7 +421,7 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
     fun graphBFS(graph: GraphAdjList, startVet: Vertex): MutableList<Vertex?> {
         // 顶点遍历序列
         val res = mutableListOf<Vertex?>()
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         val visited = HashSet<Vertex>()
         visited.add(startVet)
         // 队列用于实现 BFS
@@ -452,7 +452,7 @@ To prevent revisiting vertices, we use a hash table `visited` to record which no
       # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
       # 顶点遍历序列
       res = []
-      # 哈希表，用于记录已被访问过的顶点
+      # 哈希集合，用于记录已被访问过的顶点
       visited = Set.new([start_vet])
       # 队列用于实现 BFS
       que = [start_vet]
@@ -561,7 +561,7 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
         # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
         # 顶点遍历序列
         res = []
-        # 哈希表，用于记录已被访问过的顶点
+        # 哈希集合，用于记录已被访问过的顶点
         visited = set[Vertex]()
         dfs(graph, visited, res, start_vet)
         return res
@@ -588,7 +588,7 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
     vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
         // 顶点遍历序列
         vector<Vertex *> res;
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         unordered_set<Vertex *> visited;
         dfs(graph, visited, res, startVet);
         return res;
@@ -616,7 +616,7 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
     List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
         List<Vertex> res = new ArrayList<>();
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         Set<Vertex> visited = new HashSet<>();
         dfs(graph, visited, res, startVet);
         return res;
@@ -645,7 +645,7 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
     List<Vertex> GraphDFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
         List<Vertex> res = [];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         HashSet<Vertex> visited = [];
         DFS(graph, visited, res, startVet);
         return res;
@@ -675,7 +675,7 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
     func graphDFS(g *graphAdjList, startVet Vertex) []Vertex {
         // 顶点遍历序列
         res := make([]Vertex, 0)
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         visited := make(map[Vertex]struct{})
         dfs(g, visited, &res, startVet)
         // 返回顶点遍历序列
@@ -705,7 +705,7 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
     func graphDFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
         // 顶点遍历序列
         var res: [Vertex] = []
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         var visited: Set<Vertex> = []
         dfs(graph: graph, visited: &visited, res: &res, vet: startVet)
         return res
@@ -735,7 +735,7 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
     function graphDFS(graph, startVet) {
         // 顶点遍历序列
         const res = [];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         const visited = new Set();
         dfs(graph, visited, res, startVet);
         return res;
@@ -769,7 +769,7 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
     function graphDFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
         // 顶点遍历序列
         const res: Vertex[] = [];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         const visited: Set<Vertex> = new Set();
         dfs(graph, visited, res, startVet);
         return res;
@@ -802,7 +802,7 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
     List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
       // 顶点遍历序列
       List<Vertex> res = [];
-      // 哈希表，用于记录已被访问过的顶点
+      // 哈希集合，用于记录已被访问过的顶点
       Set<Vertex> visited = {};
       dfs(graph, visited, res, startVet);
       return res;
@@ -833,7 +833,7 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
     fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
         // 顶点遍历序列
         let mut res = vec![];
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         let mut visited = HashSet::new();
         dfs(&graph, &mut visited, &mut res, start_vet);
 
@@ -904,7 +904,7 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
     fun graphDFS(graph: GraphAdjList, startVet: Vertex?): MutableList<Vertex?> {
         // 顶点遍历序列
         val res = mutableListOf<Vertex?>()
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         val visited = HashSet<Vertex?>()
         dfs(graph, visited, res, startVet)
         return res
@@ -931,7 +931,7 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
       # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
       # 顶点遍历序列
       res = []
-      # 哈希表，用于记录已被访问过的顶点
+      # 哈希集合，用于记录已被访问过的顶点
       visited = Set.new
       dfs(graph, visited, res, start_vet)
       res
