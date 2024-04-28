@@ -31,7 +31,7 @@ fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex
 fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
     // 顶点遍历序列
     let mut res = vec![];
-    // 哈希表，用于记录已被访问过的顶点
+    // 哈希集合，用于记录已被访问过的顶点
     let mut visited = HashSet::new();
     dfs(&graph, &mut visited, &mut res, start_vet);
 

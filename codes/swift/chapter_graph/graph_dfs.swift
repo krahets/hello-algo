@@ -26,7 +26,7 @@ func dfs(graph: GraphAdjList, visited: inout Set<Vertex>, res: inout [Vertex], v
 func graphDFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
     // 顶点遍历序列
     var res: [Vertex] = []
-    // 哈希表，用于记录已被访问过的顶点
+    // 哈希集合，用于记录已被访问过的顶点
     var visited: Set<Vertex> = []
     dfs(graph: graph, visited: &visited, res: &res, vet: startVet)
     return res
