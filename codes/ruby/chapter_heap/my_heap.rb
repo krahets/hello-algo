@@ -113,7 +113,6 @@ class MaxHeap
   def __print__
     print_heap(@max_heap)
   end
-
 end
 
 ### Driver Code ###
@@ -145,5 +144,4 @@ if __FILE__ == $0
   # 判断堆是否为空
   is_empty = max_heap.is_empty?
   puts "\n堆是否为空 #{is_empty}"
-
 end
