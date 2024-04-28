@@ -27,28 +27,28 @@ Similarly, we can directly use the double-ended queue classes implemented in pro
     from collections import deque
 
     # Initialize the deque
-    deque: deque[int] = deque()
+    deq: deque[int] = deque()
 
     # Enqueue elements
-    deque.append(2)      # Add to the tail
-    deque.append(5)
-    deque.append(4)
-    deque.appendleft(3)  # Add to the head
-    deque.appendleft(1)
+    deq.append(2)      # Add to the tail
+    deq.append(5)
+    deq.append(4)
+    deq.appendleft(3)  # Add to the head
+    deq.appendleft(1)
 
     # Access elements
-    front: int = deque[0]  # The first element
-    rear: int = deque[-1]  # The last element
+    front: int = deq[0]  # The first element
+    rear: int = deq[-1]  # The last element
 
     # Dequeue elements
-    pop_front: int = deque.popleft()  # The first element dequeued
-    pop_rear: int = deque.pop()       # The last element dequeued
+    pop_front: int = deq.popleft()  # The first element dequeued
+    pop_rear: int = deq.pop()       # The last element dequeued
 
     # Get the length of the deque
-    size: int = len(deque)
+    size: int = len(deq)
 
     # Check if the deque is empty
-    is_empty: bool = len(deque) == 0
+    is_empty: bool = len(deq) == 0
     ```
 
 === "C++"

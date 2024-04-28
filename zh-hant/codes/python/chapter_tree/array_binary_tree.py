@@ -22,7 +22,7 @@ class ArrayBinaryTree:
         """串列容量"""
         return len(self._tree)
 
-    def val(self, i: int) -> int:
+    def val(self, i: int) -> int | None:
         """獲取索引為 i 節點的值"""
         # 若索引越界，則返回 None ，代表空位
         if i < 0 or i >= self.size():
