@@ -96,7 +96,7 @@ impl MaxHeap {
         // 交换根节点与最右叶节点（交换首元素与尾元素）
         self.swap(0, self.size() - 1);
         // 删除节点
-        let val = self.max_heap.remove(self.size() - 1);
+        let val = self.max_heap.pop().unwrap();
         // 从顶至底堆化
         self.sift_down(0);
         // 返回堆顶元素

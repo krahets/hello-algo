@@ -25,7 +25,7 @@ def graph_dfs(graph, start_vet)
   # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
   # 顶点遍历序列
   res = []
-  # 哈希表，用于记录已被访问过的顶点
+  # 哈希集合，用于记录已被访问过的顶点
   visited = Set.new
   dfs(graph, visited, res, start_vet)
   res

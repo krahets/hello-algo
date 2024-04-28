@@ -14,7 +14,7 @@ import java.util.*
 fun graphBFS(graph: GraphAdjList, startVet: Vertex): MutableList<Vertex?> {
     // 顶点遍历序列
     val res = mutableListOf<Vertex?>()
-    // 哈希表，用于记录已被访问过的顶点
+    // 哈希集合，用于记录已被访问过的顶点
     val visited = HashSet<Vertex>()
     visited.add(startVet)
     // 队列用于实现 BFS

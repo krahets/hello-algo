@@ -13,7 +13,7 @@ import (
 func graphBFS(g *graphAdjList, startVet Vertex) []Vertex {
 	// 顶点遍历序列
 	res := make([]Vertex, 0)
-	// 哈希表，用于记录已被访问过的顶点
+	// 哈希集合，用于记录已被访问过的顶点
 	visited := make(map[Vertex]struct{})
 	visited[startVet] = struct{}{}
 	// 队列用于实现 BFS, 使用切片模拟队列
