@@ -237,7 +237,7 @@ The "balance factor" of a node is defined as the height of the node's left subtr
 [file]{avl_tree}-[class]{avl_tree}-[func]{balance_factor}
 ```
 
-!!! note
+!!! tip
 
     Let the balance factor be $f$, then the balance factor of any node in an AVL tree satisfies $-1 \le f \le 1$.
 
