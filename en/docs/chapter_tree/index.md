@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    The towering tree, full of vitality with its roots deep and leaves lush, branches spreading wide.
+    The towering tree, vibrant with it's deep roots and lush leaves, branches spreading wide.
     
-    It vividly demonstrates the form of data divide-and-conquer.
+    It vividly illustrates the concept of divide-and-conquer in data.

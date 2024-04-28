@@ -6,6 +6,13 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative "./tree_node"
 
+### 打印矩阵 ###
+def print_matrix(mat)
+  s = []
+  mat.each { |arr| s << " #{arr.to_s}" }
+  puts "[\n#{s.join(",\n")}\n]"
+end
+
 ### 打印链表 ###
 def print_linked_list(head)
   list = []
