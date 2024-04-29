@@ -12,7 +12,7 @@ def merge(nums, left, mid, right)
   # 初始化左子数组和右子数组的起始索引
   i, j, k = left, mid + 1, 0
   # 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
-  while i <= mid and j <= right
+  while i <= mid && j <= right
     if nums[i] <= nums[j]
       tmp[k] = nums[i]
       i += 1
