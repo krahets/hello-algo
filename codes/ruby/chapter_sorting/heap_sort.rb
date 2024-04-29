@@ -38,6 +38,8 @@ def heap_sort(nums)
 end
 
 ### Driver Code ###
-nums = [4, 1, 3, 1, 5, 2]
-heap_sort(nums)
-puts "堆排序完成后 nums = #{nums.inspect}"
+if __FILE__ == $0
+  nums = [4, 1, 3, 1, 5, 2]
+  heap_sort(nums)
+  puts "堆排序完成后 nums = #{nums.inspect}"
+end
