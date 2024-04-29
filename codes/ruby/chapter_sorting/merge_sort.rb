@@ -56,6 +56,8 @@ def merge_sort(nums, left, right)
 end
 
 ### Driver Code ###
-nums = [7, 3, 2, 6, 0, 1, 5, 4]
-merge_sort(nums, 0, nums.length - 1)
-puts "归并排序完成后 nums = #{nums.inspect}"
+if __FILE__ == $0
+  nums = [7, 3, 2, 6, 0, 1, 5, 4]
+  merge_sort(nums, 0, nums.length - 1)
+  puts "归并排序完成后 nums = #{nums.inspect}"
+end
