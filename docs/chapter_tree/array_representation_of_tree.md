@@ -173,7 +173,7 @@ comments: true
             """列表容量"""
             return len(self._tree)
 
-        def val(self, i: int) -> int:
+        def val(self, i: int) -> int | None:
             """获取索引为 i 节点的值"""
             # 若索引越界，则返回 None ，代表空位
             if i < 0 or i >= self.size():
