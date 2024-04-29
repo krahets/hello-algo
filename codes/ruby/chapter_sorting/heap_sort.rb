@@ -11,8 +11,8 @@ def sift_down(nums, n, i)
     l = 2 * i + 1
     r = 2 * i + 2
     ma = i
-    ma = l if l < n and nums[l] > nums[ma]
-    ma = r if r < n and nums[r] > nums[ma]
+    ma = l if l < n && nums[l] > nums[ma]
+    ma = r if r < n && nums[r] > nums[ma]
     # 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
     break if ma == i
     # 交换两节点
