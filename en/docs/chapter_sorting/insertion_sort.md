@@ -8,7 +8,7 @@ comments: true
 
 Specifically, we select a pivot element from the unsorted interval, compare it with the elements in the sorted interval to its left, and insert the element into the correct position.
 
-The Figure 11-6  shows the process of inserting an element into an array. Assuming the pivot element is `base`, we need to move all elements between the target index and `base` one position to the right, then assign `base` to the target index.
+Figure 11-6 shows the process of inserting an element into an array. Assuming the pivot element is `base`, we need to move all elements between the target index and `base` one position to the right, then assign `base` to the target index.
 
 ![Single insertion operation](insertion_sort.assets/insertion_operation.png){ class="animation-figure" }
 
@@ -16,7 +16,7 @@ The Figure 11-6  shows the process of inserting an element into an array. Assumi
 
 ## 11.4.1 &nbsp; Algorithm process
 
-The overall process of insertion sort is shown in the following figure.
+The overall process of insertion sort is shown in Figure 11-7.
 
 1. Initially, the first element of the array is sorted.
 2. The second element of the array is taken as `base`, and after inserting it into the correct position, **the first two elements of the array are sorted**.

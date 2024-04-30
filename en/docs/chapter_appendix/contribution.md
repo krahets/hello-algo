@@ -16,7 +16,7 @@ The GitHub IDs of all [contributors](https://github.com/krahets/hello-algo/graph
 
 ### 1. &nbsp; Content fine-tuning
 
-As shown in the Figure 16-3 , there is an "edit icon" in the upper right corner of each page. You can follow these steps to modify text or code.
+As shown in Figure 16-3, there is an "edit icon" in the upper right corner of each page. You can follow these steps to modify text or code.
 
 1. Click the "edit icon". If prompted to "fork this repository", please agree to do so.
 2. Modify the Markdown source file content, check the accuracy of the content, and try to keep the formatting consistent.
@@ -26,7 +26,7 @@ As shown in the Figure 16-3 , there is an "edit icon" in the upper right corner 
 
 <p align="center"> Figure 16-3 &nbsp; Edit page button </p>
 
-Images cannot be directly modified and require the creation of a new [Issue](https://github.com/krahets/hello-algo/issues) or a comment to describe the problem. We will redraw and replace the images as soon as possible.
+Figures cannot be directly modified and require the creation of a new [Issue](https://github.com/krahets/hello-algo/issues) or a comment to describe the problem. We will redraw and replace the figures as soon as possible.
 
 ### 2. &nbsp; Content creation
 

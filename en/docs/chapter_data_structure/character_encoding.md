@@ -8,7 +8,7 @@ In the computer system, all data is stored in binary form, and characters (repre
 
 ## 3.4.1 &nbsp; ASCII character set
 
-The "ASCII code" is one of the earliest character sets, officially known as the American Standard Code for Information Interchange. It uses 7 binary digits (the lower 7 bits of a byte) to represent a character, allowing for a maximum of 128 different characters. As shown in the Figure 3-6 , ASCII includes uppercase and lowercase English letters, numbers 0 ~ 9, various punctuation marks, and certain control characters (such as newline and tab).
+The "ASCII code" is one of the earliest character sets, officially known as the American Standard Code for Information Interchange. It uses 7 binary digits (the lower 7 bits of a byte) to represent a character, allowing for a maximum of 128 different characters. As shown in Figure 3-6, ASCII includes uppercase and lowercase English letters, numbers 0 ~ 9, various punctuation marks, and certain control characters (such as newline and tab).
 
 ![ASCII code](character_encoding.assets/ascii_table.png){ class="animation-figure" }
 
@@ -36,7 +36,7 @@ Since its release in 1991, Unicode has continually expanded to include new langu
 
 Unicode is a universal character set that assigns a number (called a "code point") to each character, **but it does not specify how these character code points should be stored in a computer system**. One might ask: How does a system interpret Unicode code points of varying lengths within a text? For example, given a 2-byte code, how does the system determine if it represents a single 2-byte character or two 1-byte characters?
 
-A straightforward solution to this problem is to store all characters as equal-length encodings. As shown in the Figure 3-7 , each character in "Hello" occupies 1 byte, while each character in "算法" (algorithm) occupies 2 bytes. We could encode all characters in "Hello 算法" as 2 bytes by padding the higher bits with zeros. This method would enable the system to interpret a character every 2 bytes, recovering the content of the phrase.
+A straightforward solution to this problem is to store all characters as equal-length encodings. As shown in Figure 3-7, each character in "Hello" occupies 1 byte, while each character in "算法" (algorithm) occupies 2 bytes. We could encode all characters in "Hello 算法" as 2 bytes by padding the higher bits with zeros. This method would enable the system to interpret a character every 2 bytes, recovering the content of the phrase.
 
 ![Unicode encoding example](character_encoding.assets/unicode_hello_algo.png){ class="animation-figure" }
 
@@ -53,7 +53,7 @@ The encoding rules for UTF-8 are not complex and can be divided into two cases:
 - For 1-byte characters, set the highest bit to $0$, and the remaining 7 bits to the Unicode code point. Notably, ASCII characters occupy the first 128 code points in the Unicode set. This means that **UTF-8 encoding is backward compatible with ASCII**. This implies that UTF-8 can be used to parse ancient ASCII text.
 - For characters of length $n$ bytes (where $n > 1$), set the highest $n$ bits of the first byte to $1$, and the $(n + 1)^{\text{th}}$ bit to $0$; starting from the second byte, set the highest 2 bits of each byte to $10$; the rest of the bits are used to fill the Unicode code point.
 
-The Figure 3-8  shows the UTF-8 encoding for "Hello算法". It can be observed that since the highest $n$ bits are set to $1$, the system can determine the length of the character as $n$ by counting the number of highest bits set to $1$.
+Figure 3-8 shows the UTF-8 encoding for "Hello算法". It can be observed that since the highest $n$ bits are set to $1$, the system can determine the length of the character as $n$ by counting the number of highest bits set to $1$.
 
 But why set the highest 2 bits of the remaining bytes to $10$? Actually, this $10$ serves as a kind of checksum. If the system starts parsing text from an incorrect byte, the $10$ at the beginning of the byte can help the system quickly detect anomalies.
 

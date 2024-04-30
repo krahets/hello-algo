@@ -26,7 +26,7 @@ There are three types of storage devices in computers: "hard disk," "random-acce
 
 </div>
 
-We can imagine the computer storage system as a pyramid structure shown in the Figure 4-9 . The storage devices closer to the top of the pyramid are faster, have smaller capacity, and are more costly. This multi-level design is not accidental, but the result of careful consideration by computer scientists and engineers.
+We can imagine the computer storage system as a pyramid structure shown in Figure 4-9. The storage devices closer to the top of the pyramid are faster, have smaller capacity, and are more costly. This multi-level design is not accidental, but the result of careful consideration by computer scientists and engineers.
 
 - **Hard disks are difficult to replace with memory**. Firstly, data in memory is lost after power off, making it unsuitable for long-term data storage; secondly, the cost of memory is dozens of times that of hard disks, making it difficult to popularize in the consumer market.
 - **It is difficult for caches to have both large capacity and high speed**. As the capacity of L1, L2, L3 caches gradually increases, their physical size becomes larger, increasing the physical distance from the CPU core, leading to increased data transfer time and higher element access latency. Under current technology, a multi-level cache structure is the best balance between capacity, speed, and cost.
@@ -41,7 +41,7 @@ We can imagine the computer storage system as a pyramid structure shown in the F
 
 Overall, **hard disks are used for long-term storage of large amounts of data, memory is used for temporary storage of data being processed during program execution, and cache is used to store frequently accessed data and instructions** to improve program execution efficiency. Together, they ensure the efficient operation of computer systems.
 
-As shown in the Figure 4-10 , during program execution, data is read from the hard disk into memory for CPU computation. The cache can be considered a part of the CPU, **smartly loading data from memory** to provide fast data access to the CPU, significantly enhancing program execution efficiency and reducing reliance on slower memory.
+As shown in Figure 4-10, during program execution, data is read from the hard disk into memory for CPU computation. The cache can be considered a part of the CPU, **smartly loading data from memory** to provide fast data access to the CPU, significantly enhancing program execution efficiency and reducing reliance on slower memory.
 
 ![Data flow between hard disk, memory, and cache](ram_and_cache.assets/computer_storage_devices.png){ class="animation-figure" }
 

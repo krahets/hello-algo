@@ -245,7 +245,7 @@ Below we introduce two more cunning methods.
 
 In fact, we can use the function for finding the leftmost element to find the rightmost element, specifically by **transforming the search for the rightmost `target` into a search for the leftmost `target + 1`**.
 
-As shown in the Figure 10-7 , after the search is completed, the pointer $i$ points to the leftmost `target + 1` (if it exists), while $j$ points to the rightmost `target`, **thus returning $j$ is sufficient**.
+As shown in Figure 10-7, after the search is completed, the pointer $i$ points to the leftmost `target + 1` (if it exists), while $j$ points to the rightmost `target`, **thus returning $j$ is sufficient**.
 
 ![Transforming the search for the right boundary into the search for the left boundary](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png){ class="animation-figure" }
 
@@ -500,7 +500,7 @@ Please note, the insertion point returned is $i$, therefore, it should be subtra
 
 We know that when the array does not contain `target`, $i$ and $j$ will eventually point to the first element greater and smaller than `target` respectively.
 
-Thus, as shown in the Figure 10-8 , we can construct an element that does not exist in the array, to search for the left and right boundaries.
+Thus, as shown in Figure 10-8, we can construct an element that does not exist in the array, to search for the left and right boundaries.
 
 - To find the leftmost `target`: it can be transformed into searching for `target - 0.5`, and return the pointer $i$.
 - To find the rightmost `target`: it can be transformed into searching for `target + 0.5`, and return the pointer $j$.

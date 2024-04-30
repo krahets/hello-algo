@@ -10,7 +10,7 @@ Binary search is not only used to search for target elements but also to solve m
 
 !!! question
 
-    Given an ordered array `nums` of length $n$ and an element `target`, where the array has no duplicate elements. Now insert `target` into the array `nums` while maintaining its order. If the element `target` already exists in the array, insert it to its left side. Please return the index of `target` in the array after insertion. See the example shown in the Figure 10-4 .
+    Given an ordered array `nums` of length $n$ and an element `target`, where the array has no duplicate elements. Now insert `target` into the array `nums` while maintaining its order. If the element `target` already exists in the array, insert it to its left side. Please return the index of `target` in the array after insertion. See the example shown in Figure 10-4.
 
 ![Example data for binary search insertion point](binary_search_insertion.assets/binary_search_insertion_example.png){ class="animation-figure" }
 
@@ -334,7 +334,7 @@ Therefore, at the end of the binary, it is certain that: $i$ points to the first
 
 Suppose there are multiple `target`s in the array, ordinary binary search can only return the index of one of the `target`s, **and it cannot determine how many `target`s are to the left and right of that element**.
 
-The task requires inserting the target element to the very left, **so we need to find the index of the leftmost `target` in the array**. Initially consider implementing this through the steps shown in the Figure 10-5 .
+The task requires inserting the target element to the very left, **so we need to find the index of the leftmost `target` in the array**. Initially consider implementing this through the steps shown in Figure 10-5.
 
 1. Perform a binary search, get an arbitrary index of `target`, denoted as $k$.
 2. Start from index $k$, and perform a linear search to the left until the leftmost `target` is found and return.
@@ -345,7 +345,7 @@ The task requires inserting the target element to the very left, **so we need to
 
 Although this method is feasible, it includes linear search, so its time complexity is $O(n)$. This method is inefficient when the array contains many duplicate `target`s.
 
-Now consider extending the binary search code. As shown in the Figure 10-6 , the overall process remains the same, each round first calculates the midpoint index $m$, then judges the size relationship between `target` and `nums[m]`, divided into the following cases.
+Now consider extending the binary search code. As shown in Figure 10-6, the overall process remains the same, each round first calculates the midpoint index $m$, then judges the size relationship between `target` and `nums[m]`, divided into the following cases.
 
 - When `nums[m] < target` or `nums[m] > target`, it means `target` has not been found yet, thus use the normal binary search interval reduction operation, **thus making pointers $i$ and $j$ approach `target`**.
 - When `nums[m] == target`, it indicates that the elements less than `target` are in the interval $[i, m - 1]$, therefore use $j = m - 1$ to narrow the interval, **thus making pointer $j$ approach elements less than `target`**.

@@ -351,7 +351,7 @@ Let's perform a more accurate calculation. To simplify the calculation, assume a
 
 <p align="center"> Figure 8-5 &nbsp; Node counts at each level of a perfect binary tree </p>
 
-As shown in the Figure 8-5 , the maximum number of iterations for a node "to be heapified from top to bottom" is equal to the distance from that node to the leaf nodes, which is precisely "node height." Therefore, we can sum the "number of nodes $\times$ node height" at each level, **to get the total number of heapification iterations for all nodes**.
+As shown in Figure 8-5, the maximum number of iterations for a node "to be heapified from top to bottom" is equal to the distance from that node to the leaf nodes, which is precisely "node height." Therefore, we can sum the "number of nodes $\times$ node height" at each level, **to get the total number of heapification iterations for all nodes**.
 
 $$
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{(h-1)}\times1

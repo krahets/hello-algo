@@ -6,13 +6,13 @@ comments: true
 
 A "hash table", also known as a "hash map", achieves efficient element querying by establishing a mapping between keys and values. Specifically, when we input a `key` into the hash table, we can retrieve the corresponding `value` in $O(1)$ time.
 
-As shown in the Figure 6-1 , given $n$ students, each with two pieces of data: "name" and "student number". If we want to implement a query feature that returns the corresponding name when given a student number, we can use the hash table shown in the Figure 6-1 .
+As shown in Figure 6-1, given $n$ students, each with two pieces of data: "name" and "student number". If we want to implement a query feature that returns the corresponding name when given a student number, we can use the hash table shown in Figure 6-1.
 
 ![Abstract representation of a hash table](hash_map.assets/hash_table_lookup.png){ class="animation-figure" }
 
 <p align="center"> Figure 6-1 &nbsp; Abstract representation of a hash table </p>
 
-Apart from hash tables, arrays and linked lists can also be used to implement querying functions. Their efficiency is compared in the Table 6-1 .
+Apart from hash tables, arrays and linked lists can also be used to implement querying functions. Their efficiency is compared in Table 6-1.
 
 - **Adding elements**: Simply add the element to the end of the array (or linked list), using $O(1)$ time.
 - **Querying elements**: Since the array (or linked list) is unordered, it requires traversing all the elements, using $O(n)$ time.
@@ -513,7 +513,7 @@ index = hash(key) % capacity
 
 Afterward, we can use `index` to access the corresponding bucket in the hash table and thereby retrieve the `value`.
 
-Assuming array length `capacity = 100` and hash algorithm `hash(key) = key`, the hash function is `key % 100`. The Figure 6-2  uses `key` as the student number and `value` as the name to demonstrate the working principle of the hash function.
+Assuming array length `capacity = 100` and hash algorithm `hash(key) = key`, the hash function is `key % 100`. Figure 6-2 uses `key` as the student number and `value` as the name to demonstrate the working principle of the hash function.
 
 ![Working principle of hash function](hash_map.assets/hash_function.png){ class="animation-figure" }
 
@@ -1824,7 +1824,7 @@ For the hash function in the above example, if the last two digits of the input 
 20336 % 100 = 36
 ```
 
-As shown in the Figure 6-3 , both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is known as "hash collision".
+As shown in Figure 6-3, both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is known as "hash collision".
 
 ![Example of hash collision](hash_map.assets/hash_collision.png){ class="animation-figure" }
 
@@ -1832,7 +1832,7 @@ As shown in the Figure 6-3 , both student numbers point to the same name, which 
 
 It is easy to understand that the larger the capacity $n$ of the hash table, the lower the probability of multiple keys being allocated to the same bucket, and the fewer the collisions. Therefore, **expanding the capacity of the hash table can reduce hash collisions**.
 
-As shown in the Figure 6-4 , before expansion, key-value pairs `(136, A)` and `(236, D)` collided; after expansion, the collision is resolved.
+As shown in Figure 6-4, before expansion, key-value pairs `(136, A)` and `(236, D)` collided; after expansion, the collision is resolved.
 
 ![Hash table expansion](hash_map.assets/hash_table_reshash.png){ class="animation-figure" }
 

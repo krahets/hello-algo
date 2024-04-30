@@ -12,7 +12,7 @@ So, can we use an array to represent a binary tree? The answer is yes.
 
 Let's analyze a simple case first. Given a perfect binary tree, we store all nodes in an array according to the order of level-order traversal, where each node corresponds to a unique array index.
 
-Based on the characteristics of level-order traversal, we can deduce a "mapping formula" between the index of a parent node and its children: **If a node's index is $i$, then the index of its left child is $2i + 1$ and the right child is $2i + 2$**. The Figure 7-12  shows the mapping relationship between the indices of various nodes.
+Based on the characteristics of level-order traversal, we can deduce a "mapping formula" between the index of a parent node and its children: **If a node's index is $i$, then the index of its left child is $2i + 1$ and the right child is $2i + 2$**. Figure 7-12 shows the mapping relationship between the indices of various nodes.
 
 ![Array representation of a perfect binary tree](array_representation_of_tree.assets/array_representation_binary_tree.png){ class="animation-figure" }
 
@@ -24,13 +24,13 @@ Based on the characteristics of level-order traversal, we can deduce a "mapping 
 
 Perfect binary trees are a special case; there are often many `None` values in the middle levels of a binary tree. Since the sequence of level-order traversal does not include these `None` values, we cannot solely rely on this sequence to deduce the number and distribution of `None` values. **This means that multiple binary tree structures can match the same level-order traversal sequence**.
 
-As shown in the Figure 7-13 , given a non-perfect binary tree, the above method of array representation fails.
+As shown in Figure 7-13, given a non-perfect binary tree, the above method of array representation fails.
 
 ![Level-order traversal sequence corresponds to multiple binary tree possibilities](array_representation_of_tree.assets/array_representation_without_empty.png){ class="animation-figure" }
 
 <p align="center"> Figure 7-13 &nbsp; Level-order traversal sequence corresponds to multiple binary tree possibilities </p>
 
-To solve this problem, **we can consider explicitly writing out all `None` values in the level-order traversal sequence**. As shown in the following figure, after this treatment, the level-order traversal sequence can uniquely represent a binary tree. Example code is as follows:
+To solve this problem, **we can consider explicitly writing out all `None` values in the level-order traversal sequence**. As shown in Figure 7-14, after this treatment, the level-order traversal sequence can uniquely represent a binary tree. Example code is as follows:
 
 === "Python"
 
@@ -146,7 +146,7 @@ To solve this problem, **we can consider explicitly writing out all `None` value
 
 It's worth noting that **complete binary trees are very suitable for array representation**. Recalling the definition of a complete binary tree, `None` appears only at the bottom level and towards the right, **meaning all `None` values definitely appear at the end of the level-order traversal sequence**.
 
-This means that when using an array to represent a complete binary tree, it's possible to omit storing all `None` values, which is very convenient. The Figure 7-15  gives an example.
+This means that when using an array to represent a complete binary tree, it's possible to omit storing all `None` values, which is very convenient. Figure 7-15 gives an example.
 
 ![Array representation of a complete binary tree](array_representation_of_tree.assets/array_representation_complete_binary_tree.png){ class="animation-figure" }
 

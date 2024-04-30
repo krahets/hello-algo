@@ -27,7 +27,7 @@ A "data structure" is a way of organizing and storing data in a computer, with t
 
 ## 1.2.3 &nbsp; Relationship between data structures and algorithms
 
-As shown in the Figure 1-4 , data structures and algorithms are highly related and closely integrated, specifically in the following three aspects:
+As shown in Figure 1-4, data structures and algorithms are highly related and closely integrated, specifically in the following three aspects:
 
 - Data structures are the foundation of algorithms. They provide structured data storage and methods for manipulating data for algorithms.
 - Algorithms are the stage where data structures come into play. The data structure alone only stores data information; it is through the application of algorithms that specific problems can be solved.
@@ -37,13 +37,13 @@ As shown in the Figure 1-4 , data structures and algorithms are highly related a
 
 <p align="center"> Figure 1-4 &nbsp; Relationship between data structures and algorithms </p>
 
-Data structures and algorithms can be likened to a set of building blocks, as illustrated in the Figure 1-5 . A building block set includes numerous pieces, accompanied by detailed assembly instructions. Following these instructions step by step allows us to construct an intricate block model.
+Data structures and algorithms can be likened to a set of building blocks, as illustrated in Figure 1-5. A building block set includes numerous pieces, accompanied by detailed assembly instructions. Following these instructions step by step allows us to construct an intricate block model.
 
 ![Assembling blocks](what_is_dsa.assets/assembling_blocks.png){ class="animation-figure" }
 
 <p align="center"> Figure 1-5 &nbsp; Assembling blocks </p>
 
-The detailed correspondence between the two is shown in the Table 1-1 .
+The detailed correspondence between the two is shown in Table 1-1.
 
 <p align="center"> Table 1-1 &nbsp; Comparing data structures and algorithms to building blocks </p>
 

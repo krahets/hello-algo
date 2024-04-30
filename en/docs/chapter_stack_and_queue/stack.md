@@ -8,7 +8,7 @@ A "Stack" is a linear data structure that follows the principle of Last-In-First
 
 We can compare a stack to a pile of plates on a table. To access the bottom plate, one must first remove the plates on top. By replacing the plates with various types of elements (such as integers, characters, objects, etc.), we obtain the data structure known as a stack.
 
-As shown in the Figure 5-1 , we refer to the top of the pile of elements as the "top of the stack" and the bottom as the "bottom of the stack." The operation of adding elements to the top of the stack is called "push," and the operation of removing the top element is called "pop."
+As shown in Figure 5-1, we refer to the top of the pile of elements as the "top of the stack" and the bottom as the "bottom of the stack." The operation of adding elements to the top of the stack is called "push," and the operation of removing the top element is called "pop."
 
 ![Stack's last-in-first-out rule](stack.assets/stack_operations.png){ class="animation-figure" }
 
@@ -16,7 +16,7 @@ As shown in the Figure 5-1 , we refer to the top of the pile of elements as the 
 
 ## 5.1.1 &nbsp; Common operations on stack
 
-The common operations on a stack are shown in the Table 5-1 . The specific method names depend on the programming language used. Here, we use `push()`, `pop()`, and `peek()` as examples.
+The common operations on a stack are shown in Table 5-1. The specific method names depend on the programming language used. Here, we use `push()`, `pop()`, and `peek()` as examples.
 
 <p align="center"> Table 5-1 &nbsp; Efficiency of stack operations </p>
 
@@ -333,7 +333,7 @@ A stack follows the principle of Last-In-First-Out, which means we can only add 
 
 When implementing a stack using a linked list, we can consider the head node of the list as the top of the stack and the tail node as the bottom of the stack.
 
-As shown in the Figure 5-2 , for the push operation, we simply insert elements at the head of the linked list. This method of node insertion is known as "head insertion." For the pop operation, we just need to remove the head node from the list.
+As shown in Figure 5-2, for the push operation, we simply insert elements at the head of the linked list. This method of node insertion is known as "head insertion." For the pop operation, we just need to remove the head node from the list.
 
 === "LinkedListStack"
     ![Implementing Stack with Linked List for Push and Pop Operations](stack.assets/linkedlist_stack_step1.png){ class="animation-figure" }
@@ -1206,7 +1206,7 @@ Below is an example code for implementing a stack based on a linked list:
 
 ### 2. &nbsp; Implementation based on an array
 
-When implementing a stack using an array, we can consider the end of the array as the top of the stack. As shown in the Figure 5-3 , push and pop operations correspond to adding and removing elements at the end of the array, respectively, both with a time complexity of $O(1)$.
+When implementing a stack using an array, we can consider the end of the array as the top of the stack. As shown in Figure 5-3, push and pop operations correspond to adding and removing elements at the end of the array, respectively, both with a time complexity of $O(1)$.
 
 === "ArrayStack"
     ![Implementing Stack with Array for Push and Pop Operations](stack.assets/array_stack_step1.png){ class="animation-figure" }

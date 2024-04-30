@@ -143,7 +143,7 @@ Now we can answer the initial question: **The representation of `float` includes
 
 **However, the trade-off for `float`'s expanded range is a sacrifice in precision**. The integer type `int` uses all 32 bits to represent the number, with values evenly distributed; but due to the exponent bit, the larger the value of a `float`, the greater the difference between adjacent numbers.
 
-As shown in the Table 3-2 , exponent bits $\mathrm{E} = 0$ and $\mathrm{E} = 255$ have special meanings, **used to represent zero, infinity, $\mathrm{NaN}$, etc.**
+As shown in Table 3-2, exponent bits $\mathrm{E} = 0$ and $\mathrm{E} = 255$ have special meanings, **used to represent zero, infinity, $\mathrm{NaN}$, etc.**
 
 <p align="center"> Table 3-2 &nbsp; Meaning of exponent bits </p>
 

@@ -4,7 +4,7 @@ comments: true
 
 # 4.1 &nbsp; Array
 
-An "array" is a linear data structure that operates as a lineup of similar items, stored together in a computer's memory in contiguous spaces. It's like a sequence that maintains organized storage. Each item in this lineup has its unique 'spot' known as an "index". Please refer to the Figure 4-1  to observe how arrays work and grasp these key terms.
+An "array" is a linear data structure that operates as a lineup of similar items, stored together in a computer's memory in contiguous spaces. It's like a sequence that maintains organized storage. Each item in this lineup has its unique 'spot' known as an "index". Please refer to Figure 4-1 to observe how arrays work and grasp these key terms.
 
 ![Array definition and storage method](array.assets/array_definition.png){ class="animation-figure" }
 
@@ -537,7 +537,7 @@ It's important to note that due to the fixed length of an array, inserting an el
 
 ### 4. &nbsp; Deleting elements
 
-Similarly, as depicted in the Figure 4-4 , to delete an element at index $i$, all elements following index $i$ must be moved forward by one position.
+Similarly, as depicted in Figure 4-4, to delete an element at index $i$, all elements following index $i$ must be moved forward by one position.
 
 ![Array element deletion example](array.assets/array_remove_element.png){ class="animation-figure" }
 

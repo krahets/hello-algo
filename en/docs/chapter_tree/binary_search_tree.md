@@ -4,7 +4,7 @@ comments: true
 
 # 7.4 &nbsp; Binary search tree
 
-As shown in the Figure 7-16 , a "binary search tree" satisfies the following conditions.
+As shown in Figure 7-16, a "binary search tree" satisfies the following conditions.
 
 1. For the root node, the value of all nodes in the left subtree < the value of the root node < the value of all nodes in the right subtree.
 2. The left and right subtrees of any node are also binary search trees, i.e., they satisfy condition `1.` as well.
@@ -19,7 +19,7 @@ We encapsulate the binary search tree as a class `BinarySearchTree` and declare 
 
 ### 1. &nbsp; Searching for a node
 
-Given a target node value `num`, one can search according to the properties of the binary search tree. As shown in the Figure 7-17 , we declare a node `cur` and start from the binary tree's root node `root`, looping to compare the size relationship between the node value `cur.val` and `num`.
+Given a target node value `num`, one can search according to the properties of the binary search tree. As shown in Figure 7-17, we declare a node `cur` and start from the binary tree's root node `root`, looping to compare the size relationship between the node value `cur.val` and `num`.
 
 - If `cur.val < num`, it means the target node is in `cur`'s right subtree, thus execute `cur = cur.right`.
 - If `cur.val > num`, it means the target node is in `cur`'s left subtree, thus execute `cur = cur.left`.
@@ -369,7 +369,7 @@ The search operation in a binary search tree works on the same principle as the 
 
 ### 2. &nbsp; Inserting a node
 
-Given an element `num` to be inserted, to maintain the property of the binary search tree "left subtree < root node < right subtree," the insertion operation proceeds as shown in the Figure 7-18 .
+Given an element `num` to be inserted, to maintain the property of the binary search tree "left subtree < root node < right subtree," the insertion operation proceeds as shown in Figure 7-18.
 
 1. **Finding the insertion position**: Similar to the search operation, start from the root node and loop downwards according to the size relationship between the current node value and `num` until passing through the leaf node (traversing to `None`) then exit the loop.
 2. **Insert the node at that position**: Initialize the node `num` and place it where `None` was.
@@ -873,13 +873,13 @@ Similar to searching for a node, inserting a node uses $O(\log n)$ time.
 
 First, find the target node in the binary tree, then remove it. Similar to inserting a node, we need to ensure that after the removal operation is completed, the property of the binary search tree "left subtree < root node < right subtree" is still satisfied. Therefore, based on the number of child nodes of the target node, we divide it into 0, 1, and 2 cases, performing the corresponding node removal operations.
 
-As shown in the Figure 7-19 , when the degree of the node to be removed is $0$, it means the node is a leaf node, and it can be directly removed.
+As shown in Figure 7-19, when the degree of the node to be removed is $0$, it means the node is a leaf node, and it can be directly removed.
 
 ![Removing a node in a binary search tree (degree 0)](binary_search_tree.assets/bst_remove_case1.png){ class="animation-figure" }
 
 <p align="center"> Figure 7-19 &nbsp; Removing a node in a binary search tree (degree 0) </p>
 
-As shown in the Figure 7-20 , when the degree of the node to be removed is $1$, replacing the node to be removed with its child node is sufficient.
+As shown in Figure 7-20, when the degree of the node to be removed is $1$, replacing the node to be removed with its child node is sufficient.
 
 ![Removing a node in a binary search tree (degree 1)](binary_search_tree.assets/bst_remove_case2.png){ class="animation-figure" }
 
@@ -887,7 +887,7 @@ As shown in the Figure 7-20 , when the degree of the node to be removed is $1$, 
 
 When the degree of the node to be removed is $2$, we cannot remove it directly, but need to use a node to replace it. To maintain the property of the binary search tree "left subtree < root node < right subtree," **this node can be either the smallest node of the right subtree or the largest node of the left subtree**.
 
-Assuming we choose the smallest node of the right subtree (the next node in in-order traversal), then the removal operation proceeds as shown in the Figure 7-21 .
+Assuming we choose the smallest node of the right subtree (the next node in in-order traversal), then the removal operation proceeds as shown in Figure 7-21.
 
 1. Find the next node in the "in-order traversal sequence" of the node to be removed, denoted as `tmp`.
 2. Replace the value of the node to be removed with `tmp`'s value, and recursively remove the node `tmp` in the tree.
@@ -1705,7 +1705,7 @@ The operation of removing a node also uses $O(\log n)$ time, where finding the n
 
 ### 4. &nbsp; In-order traversal is ordered
 
-As shown in the Figure 7-22 , the in-order traversal of a binary tree follows the "left $\rightarrow$ root $\rightarrow$ right" traversal order, and a binary search tree satisfies the size relationship "left child node < root node < right child node".
+As shown in Figure 7-22, the in-order traversal of a binary tree follows the "left $\rightarrow$ root $\rightarrow$ right" traversal order, and a binary search tree satisfies the size relationship "left child node < root node < right child node".
 
 This means that in-order traversal in a binary search tree always traverses the next smallest node first, thus deriving an important property: **The in-order traversal sequence of a binary search tree is ascending**.
 
@@ -1717,7 +1717,7 @@ Using the ascending property of in-order traversal, obtaining ordered data in a 
 
 ## 7.4.2 &nbsp; Efficiency of binary search trees
 
-Given a set of data, we consider using an array or a binary search tree for storage. Observing the Table 7-2 , the operations on a binary search tree all have logarithmic time complexity, which is stable and efficient. Only in scenarios of high-frequency addition and low-frequency search and removal, arrays are more efficient than binary search trees.
+Given a set of data, we consider using an array or a binary search tree for storage. Observing Table 7-2, the operations on a binary search tree all have logarithmic time complexity, which is stable and efficient. Only in scenarios of high-frequency addition and low-frequency search and removal, arrays are more efficient than binary search trees.
 
 <p align="center"> Table 7-2 &nbsp; Efficiency comparison between arrays and search trees </p>
 
@@ -1733,7 +1733,7 @@ Given a set of data, we consider using an array or a binary search tree for stor
 
 In ideal conditions, the binary search tree is "balanced," thus any node can be found within $\log n$ loops.
 
-However, continuously inserting and removing nodes in a binary search tree may lead to the binary tree degenerating into a chain list as shown in the Figure 7-23 , at which point the time complexity of various operations also degrades to $O(n)$.
+However, continuously inserting and removing nodes in a binary search tree may lead to the binary tree degenerating into a chain list as shown in Figure 7-23, at which point the time complexity of various operations also degrades to $O(n)$.
 
 ![Degradation of a binary search tree](binary_search_tree.assets/bst_degradation.png){ class="animation-figure" }
 

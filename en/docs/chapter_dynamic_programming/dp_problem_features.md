@@ -20,7 +20,7 @@ We make a slight modification to the stair climbing problem to make it more suit
 
     Given a staircase, you can step up 1 or 2 steps at a time, and each step on the staircase has a non-negative integer representing the cost you need to pay at that step. Given a non-negative integer array $cost$, where $cost[i]$ represents the cost you need to pay at the $i$-th step, $cost[0]$ is the ground (starting point). What is the minimum cost required to reach the top?
 
-As shown in the Figure 14-6 , if the costs of the 1st, 2nd, and 3rd steps are $1$, $10$, and $1$ respectively, then the minimum cost to climb to the 3rd step from the ground is $2$.
+As shown in Figure 14-6, if the costs of the 1st, 2nd, and 3rd steps are $1$, $10$, and $1$ respectively, then the minimum cost to climb to the 3rd step from the ground is $2$.
 
 ![Minimum cost to climb to the 3rd step](dp_problem_features.assets/min_cost_cs_example.png){ class="animation-figure" }
 
@@ -334,7 +334,7 @@ According to the state transition equation, and the initial states $dp[1] = cost
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20min_cost_climbing_stairs_dp%28cost%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%88%AC%E6%A5%BC%E6%A2%AF%E6%9C%80%E5%B0%8F%E4%BB%A3%E4%BB%B7%EF%BC%9A%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%22%22%22%0A%20%20%20%20n%20%3D%20len%28cost%29%20-%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20cost%5Bn%5D%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%20dp%20%E8%A1%A8%EF%BC%8C%E7%94%A8%E4%BA%8E%E5%AD%98%E5%82%A8%E5%AD%90%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%0A%20%20%20%20dp%20%3D%20%5B0%5D%20*%20%28n%20%2B%201%29%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E7%8A%B6%E6%80%81%EF%BC%9A%E9%A2%84%E8%AE%BE%E6%9C%80%E5%B0%8F%E5%AD%90%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%0A%20%20%20%20dp%5B1%5D,%20dp%5B2%5D%20%3D%20cost%5B1%5D,%20cost%5B2%5D%0A%20%20%20%20%23%20%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%EF%BC%9A%E4%BB%8E%E8%BE%83%E5%B0%8F%E5%AD%90%E9%97%AE%E9%A2%98%E9%80%90%E6%AD%A5%E6%B1%82%E8%A7%A3%E8%BE%83%E5%A4%A7%E5%AD%90%E9%97%AE%E9%A2%98%0A%20%20%20%20for%20i%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%20%3D%20min%28dp%5Bi%20-%201%5D,%20dp%5Bi%20-%202%5D%29%20%2B%20cost%5Bi%5D%0A%20%20%20%20return%20dp%5Bn%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20cost%20%3D%20%5B0,%201,%2010,%201,%201,%201,%2010,%201,%201,%2010,%201%5D%0A%20%20%20%20print%28f%22%E8%BE%93%E5%85%A5%E6%A5%BC%E6%A2%AF%E7%9A%84%E4%BB%A3%E4%BB%B7%E5%88%97%E8%A1%A8%E4%B8%BA%20%7Bcost%7D%22%29%0A%0A%20%20%20%20res%20%3D%20min_cost_climbing_stairs_dp%28cost%29%0A%20%20%20%20print%28f%22%E7%88%AC%E5%AE%8C%E6%A5%BC%E6%A2%AF%E7%9A%84%E6%9C%80%E4%BD%8E%E4%BB%A3%E4%BB%B7%E4%B8%BA%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20min_cost_climbing_stairs_dp%28cost%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%88%AC%E6%A5%BC%E6%A2%AF%E6%9C%80%E5%B0%8F%E4%BB%A3%E4%BB%B7%EF%BC%9A%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%22%22%22%0A%20%20%20%20n%20%3D%20len%28cost%29%20-%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20cost%5Bn%5D%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%20dp%20%E8%A1%A8%EF%BC%8C%E7%94%A8%E4%BA%8E%E5%AD%98%E5%82%A8%E5%AD%90%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%0A%20%20%20%20dp%20%3D%20%5B0%5D%20*%20%28n%20%2B%201%29%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E7%8A%B6%E6%80%81%EF%BC%9A%E9%A2%84%E8%AE%BE%E6%9C%80%E5%B0%8F%E5%AD%90%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%0A%20%20%20%20dp%5B1%5D,%20dp%5B2%5D%20%3D%20cost%5B1%5D,%20cost%5B2%5D%0A%20%20%20%20%23%20%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%EF%BC%9A%E4%BB%8E%E8%BE%83%E5%B0%8F%E5%AD%90%E9%97%AE%E9%A2%98%E9%80%90%E6%AD%A5%E6%B1%82%E8%A7%A3%E8%BE%83%E5%A4%A7%E5%AD%90%E9%97%AE%E9%A2%98%0A%20%20%20%20for%20i%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%20%3D%20min%28dp%5Bi%20-%201%5D,%20dp%5Bi%20-%202%5D%29%20%2B%20cost%5Bi%5D%0A%20%20%20%20return%20dp%5Bn%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20cost%20%3D%20%5B0,%201,%2010,%201,%201,%201,%2010,%201,%201,%2010,%201%5D%0A%20%20%20%20print%28f%22%E8%BE%93%E5%85%A5%E6%A5%BC%E6%A2%AF%E7%9A%84%E4%BB%A3%E4%BB%B7%E5%88%97%E8%A1%A8%E4%B8%BA%20%7Bcost%7D%22%29%0A%0A%20%20%20%20res%20%3D%20min_cost_climbing_stairs_dp%28cost%29%0A%20%20%20%20print%28f%22%E7%88%AC%E5%AE%8C%E6%A5%BC%E6%A2%AF%E7%9A%84%E6%9C%80%E4%BD%8E%E4%BB%A3%E4%BB%B7%E4%B8%BA%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
-The Figure 14-7  shows the dynamic programming process for the above code.
+Figure 14-7 shows the dynamic programming process for the above code.
 
 ![Dynamic programming process for minimum cost of climbing stairs](dp_problem_features.assets/min_cost_cs_dp.png){ class="animation-figure" }
 
@@ -610,7 +610,7 @@ However, if we add a constraint to the stair climbing problem, the situation cha
 
     Given a staircase with $n$ steps, you can go up 1 or 2 steps each time, **but you cannot jump 1 step twice in a row**. How many ways are there to climb to the top?
 
-As shown in the Figure 14-8 , there are only 2 feasible options for climbing to the 3rd step, among which the option of jumping 1 step three times in a row does not meet the constraint condition and is therefore discarded.
+As shown in Figure 14-8, there are only 2 feasible options for climbing to the 3rd step, among which the option of jumping 1 step three times in a row does not meet the constraint condition and is therefore discarded.
 
 ![Number of feasible options for climbing to the 3rd step with constraints](dp_problem_features.assets/climbing_stairs_constraint_example.png){ class="animation-figure" }
 
@@ -625,7 +625,7 @@ For this, we need to expand the state definition: **State $[i, j]$ represents be
 - When the last round was a jump of 1 step, the round before last could only choose to jump 2 steps, that is, $dp[i, 1]$ can only be transferred from $dp[i-1, 2]$.
 - When the last round was a jump of 2 steps, the round before last could choose to jump 1 step or 2 steps, that is, $dp[i, 2]$ can be transferred from $dp[i-2, 1]$ or $dp[i-2, 2]$.
 
-As shown in the Figure 14-9 , $dp[i, j]$ represents the number of solutions for state $[i, j]$. At this point, the state transition equation is:
+As shown in Figure 14-9, $dp[i, j]$ represents the number of solutions for state $[i, j]$. At this point, the state transition equation is:
 
 $$
 \begin{cases}

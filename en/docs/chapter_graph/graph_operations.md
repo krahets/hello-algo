@@ -8,7 +8,7 @@ The basic operations on graphs can be divided into operations on "edges" and ope
 
 ## 9.2.1 &nbsp; Implementation based on adjacency matrix
 
-Given an undirected graph with $n$ vertices, the various operations are implemented as shown in the Figure 9-7 .
+Given an undirected graph with $n$ vertices, the various operations are implemented as shown in Figure 9-7.
 
 - **Adding or removing an edge**: Directly modify the specified edge in the adjacency matrix, using $O(1)$ time. Since it is an undirected graph, it is necessary to update the edges in both directions simultaneously.
 - **Adding a vertex**: Add a row and a column at the end of the adjacency matrix and fill them all with $0$s, using $O(n)$ time.
@@ -1219,7 +1219,7 @@ Below is the implementation code for graphs represented using an adjacency matri
 
 ## 9.2.2 &nbsp; Implementation based on adjacency list
 
-Given an undirected graph with a total of $n$ vertices and $m$ edges, the various operations can be implemented as shown in the Figure 9-8 .
+Given an undirected graph with a total of $n$ vertices and $m$ edges, the various operations can be implemented as shown in Figure 9-8.
 
 - **Adding an edge**: Simply add the edge at the end of the corresponding vertex's linked list, using $O(1)$ time. Because it is an undirected graph, it is necessary to add edges in both directions simultaneously.
 - **Removing an edge**: Find and remove the specified edge in the corresponding vertex's linked list, using $O(m)$ time. In an undirected graph, it is necessary to remove edges in both directions simultaneously.
@@ -2388,7 +2388,7 @@ Additionally, we use the `Vertex` class to represent vertices in the adjacency l
 
 ## 9.2.3 &nbsp; Efficiency comparison
 
-Assuming there are $n$ vertices and $m$ edges in the graph, the Table 9-2  compares the time efficiency and space efficiency of the adjacency matrix and adjacency list.
+Assuming there are $n$ vertices and $m$ edges in the graph, Table 9-2 compares the time efficiency and space efficiency of the adjacency matrix and adjacency list.
 
 <p align="center"> Table 9-2 &nbsp; Comparison of adjacency matrix and adjacency list </p>
 
@@ -2405,4 +2405,4 @@ Assuming there are $n$ vertices and $m$ edges in the graph, the Table 9-2  compa
 
 </div>
 
-Observing the Table 9-2 , it seems that the adjacency list (hash table) has the best time efficiency and space efficiency. However, in practice, operating on edges in the adjacency matrix is more efficient, requiring only a single array access or assignment operation. Overall, the adjacency matrix exemplifies the principle of "space for time", while the adjacency list exemplifies "time for space".
+Observing Table 9-2, it seems that the adjacency list (hash table) has the best time efficiency and space efficiency. However, in practice, operating on edges in the adjacency matrix is more efficient, requiring only a single array access or assignment operation. Overall, the adjacency matrix exemplifies the principle of "space for time", while the adjacency list exemplifies "time for space".

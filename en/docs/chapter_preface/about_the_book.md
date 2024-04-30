@@ -24,7 +24,7 @@ If you are an algorithm expert, we look forward to receiving your valuable sugge
 
 ## 0.1.2 &nbsp; Content structure
 
-The main content of the book is shown in the following figure.
+The main content of the book is shown in Figure 0-1.
 
 - **Complexity analysis**: explores aspects and methods for evaluating data structures and algorithms. Covers methods of deriving time complexity and space complexity, along with common types and examples.
 - **Data structures**: focuses on fundamental data types, classification methods, definitions, pros and cons, common operations, types, applications, and implementation methods of data structures such as array, linked list, stack, queue, hash table, tree, heap, graph, etc.

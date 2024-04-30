@@ -47,7 +47,7 @@ Based on the above division method, **we have now obtained the index intervals o
 - Let the index of the current tree's root node in `inorder` be denoted as $m$.
 - Let the index interval of the current tree in `inorder` be denoted as $[l, r]$.
 
-As shown in the Table 12-1 , the above variables can represent the index of the root node in `preorder` as well as the index intervals of the subtrees in `inorder`.
+As shown in Table 12-1, the above variables can represent the index of the root node in `preorder` as well as the index intervals of the subtrees in `inorder`.
 
 <p align="center"> Table 12-1 &nbsp; Indexes of the root node and subtrees in preorder and inorder traversals </p>
 

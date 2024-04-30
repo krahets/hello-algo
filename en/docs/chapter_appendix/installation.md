@@ -12,7 +12,7 @@ We recommend using the open-source, lightweight VS Code as your local Integrated
 
 <p align="center"> Figure 16-1 &nbsp; Download VS Code from the official website </p>
 
-VS Code has a powerful extension ecosystem, supporting the execution and debugging of most programming languages. For example, after installing the "Python Extension Pack," you can debug Python code. The installation steps are shown in the following figure.
+VS Code has a powerful extension ecosystem, supporting the execution and debugging of most programming languages. For example, after installing the "Python Extension Pack," you can debug Python code. The installation steps are shown in Figure 16-2.
 
 ![Install VS Code Extension Pack](installation.assets/vscode_extension_installation.png){ class="animation-figure" }
 

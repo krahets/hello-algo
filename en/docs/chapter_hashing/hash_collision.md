@@ -15,7 +15,7 @@ There are mainly two methods for improving the structure of hash tables: "Separa
 
 ## 6.2.1 &nbsp; Separate chaining
 
-In the original hash table, each bucket can store only one key-value pair. "Separate chaining" transforms individual elements into a linked list, with key-value pairs as list nodes, storing all colliding key-value pairs in the same list. The Figure 6-5  shows an example of a hash table with separate chaining.
+In the original hash table, each bucket can store only one key-value pair. "Separate chaining" transforms individual elements into a linked list, with key-value pairs as list nodes, storing all colliding key-value pairs in the same list. Figure 6-5 shows an example of a hash table with separate chaining.
 
 ![Separate chaining hash table](hash_collision.assets/hash_table_chaining.png){ class="animation-figure" }
 
@@ -1547,7 +1547,7 @@ Linear probing uses a fixed-step linear search for probing, differing from ordin
 - **Inserting elements**: Calculate the bucket index using the hash function. If the bucket already contains an element, linearly traverse forward from the conflict position (usually with a step size of $1$) until an empty bucket is found, then insert the element.
 - **Searching for elements**: If a hash collision is found, use the same step size to linearly traverse forward until the corresponding element is found and return `value`; if an empty bucket is encountered, it means the target element is not in the hash table, so return `None`.
 
-The Figure 6-6  shows the distribution of key-value pairs in an open addressing (linear probing) hash table. According to this hash function, keys with the same last two digits will be mapped to the same bucket. Through linear probing, they are stored consecutively in that bucket and the buckets below it.
+Figure 6-6 shows the distribution of key-value pairs in an open addressing (linear probing) hash table. According to this hash function, keys with the same last two digits will be mapped to the same bucket. Through linear probing, they are stored consecutively in that bucket and the buckets below it.
 
 ![Distribution of key-value pairs in open addressing (linear probing) hash table](hash_collision.assets/hash_table_linear_probing.png){ class="animation-figure" }
 
@@ -1555,7 +1555,7 @@ The Figure 6-6  shows the distribution of key-value pairs in an open addressing 
 
 However, **linear probing tends to create "clustering"**. Specifically, the longer a continuous position in the array is occupied, the more likely these positions are to encounter hash collisions, further promoting the growth of these clusters and eventually leading to deterioration in the efficiency of operations.
 
-It's important to note that **we cannot directly delete elements in an open addressing hash table**. Deleting an element creates an empty bucket `None` in the array. When searching for elements, if linear probing encounters this empty bucket, it will return, making the elements below this bucket inaccessible. The program may incorrectly assume these elements do not exist, as shown in the Figure 6-7 .
+It's important to note that **we cannot directly delete elements in an open addressing hash table**. Deleting an element creates an empty bucket `None` in the array. When searching for elements, if linear probing encounters this empty bucket, it will return, making the elements below this bucket inaccessible. The program may incorrectly assume these elements do not exist, as shown in Figure 6-7.
 
 ![Query issues caused by deletion in open addressing](hash_collision.assets/hash_table_open_addressing_deletion.png){ class="animation-figure" }
 

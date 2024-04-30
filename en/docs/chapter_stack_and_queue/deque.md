@@ -18,14 +18,14 @@ The common operations in a double-ended queue are listed below, and the names of
 
 <div class="center-table" markdown>
 
-| Method Name   | Description                 | Time Complexity |
-| ------------- | --------------------------- | --------------- |
+| Method Name   | Description                | Time Complexity |
+| ------------- | -------------------------- | --------------- |
 | `pushFirst()` | Add an element to the head | $O(1)$          |
-| `pushLast()`  | Add an element to the tail  | $O(1)$          |
-| `popFirst()`  | Remove the first element    | $O(1)$          |
-| `popLast()`   | Remove the last element     | $O(1)$          |
-| `peekFirst()` | Access the first element    | $O(1)$          |
-| `peekLast()`  | Access the last element     | $O(1)$          |
+| `pushLast()`  | Add an element to the tail | $O(1)$          |
+| `popFirst()`  | Remove the first element   | $O(1)$          |
+| `popLast()`   | Remove the last element    | $O(1)$          |
+| `peekFirst()` | Access the first element   | $O(1)$          |
+| `peekLast()`  | Access the last element    | $O(1)$          |
 
 </div>
 
@@ -360,7 +360,7 @@ Recall from the previous section that we used a regular singly linked list to im
 
 For a double-ended queue, both the head and the tail can perform enqueue and dequeue operations. In other words, a double-ended queue needs to implement operations in the opposite direction as well. For this, we use a "doubly linked list" as the underlying data structure of the double-ended queue.
 
-As shown in the Figure 5-8 , we treat the head and tail nodes of the doubly linked list as the front and rear of the double-ended queue, respectively, and implement the functionality to add and remove nodes at both ends.
+As shown in Figure 5-8, we treat the head and tail nodes of the doubly linked list as the front and rear of the double-ended queue, respectively, and implement the functionality to add and remove nodes at both ends.
 
 === "LinkedListDeque"
     ![Implementing Double-Ended Queue with Doubly Linked List for Enqueue and Dequeue Operations](deque.assets/linkedlist_deque_step1.png){ class="animation-figure" }
@@ -2264,7 +2264,7 @@ The implementation code is as follows:
 
 ### 2. &nbsp; Implementation based on array
 
-As shown in the Figure 5-9 , similar to implementing a queue with an array, we can also use a circular array to implement a double-ended queue.
+As shown in Figure 5-9, similar to implementing a queue with an array, we can also use a circular array to implement a double-ended queue.
 
 === "ArrayDeque"
     ![Implementing Double-Ended Queue with Array for Enqueue and Dequeue Operations](deque.assets/array_deque_step1.png){ class="animation-figure" }

@@ -12,7 +12,7 @@ For this problem, we will first introduce two straightforward solutions, then ex
 
 ## 8.3.1 &nbsp; Method 1: Iterative selection
 
-We can perform $k$ rounds of iterations as shown in the Figure 8-6 , extracting the $1^{st}$, $2^{nd}$, $\dots$, $k^{th}$ largest elements in each round, with a time complexity of $O(nk)$.
+We can perform $k$ rounds of iterations as shown in Figure 8-6, extracting the $1^{st}$, $2^{nd}$, $\dots$, $k^{th}$ largest elements in each round, with a time complexity of $O(nk)$.
 
 This method is only suitable when $k \ll n$, as the time complexity approaches $O(n^2)$ when $k$ is close to $n$, which is very time-consuming.
 
@@ -26,7 +26,7 @@ This method is only suitable when $k \ll n$, as the time complexity approaches $
 
 ## 8.3.2 &nbsp; Method 2: Sorting
 
-As shown in the Figure 8-7 , we can first sort the array `nums` and then return the last $k$ elements, with a time complexity of $O(n \log n)$.
+As shown in Figure 8-7, we can first sort the array `nums` and then return the last $k$ elements, with a time complexity of $O(n \log n)$.
 
 Clearly, this method "overachieves" the task, as we only need to find the largest $k$ elements, without the need to sort the other elements.
 

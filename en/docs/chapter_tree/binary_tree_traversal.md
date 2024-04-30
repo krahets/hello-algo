@@ -10,7 +10,7 @@ Common traversal methods for binary trees include level-order traversal, preorde
 
 ## 7.2.1 &nbsp; Level-order traversal
 
-As shown in the Figure 7-9 , "level-order traversal" traverses the binary tree from top to bottom, layer by layer, and accesses nodes in each layer in a left-to-right order.
+As shown in Figure 7-9, "level-order traversal" traverses the binary tree from top to bottom, layer by layer, and accesses nodes in each layer in a left-to-right order.
 
 Level-order traversal essentially belongs to "breadth-first traversal", also known as "breadth-first search (BFS)", which embodies a "circumferentially outward expanding" layer-by-layer traversal method.
 
@@ -380,7 +380,7 @@ Breadth-first traversal is usually implemented with the help of a "queue". The q
 
 Correspondingly, preorder, inorder, and postorder traversal all belong to "depth-first traversal", also known as "depth-first search (DFS)", which embodies a "proceed to the end first, then backtrack and continue" traversal method.
 
-The Figure 7-10  shows the working principle of performing a depth-first traversal on a binary tree. **Depth-first traversal is like walking around the perimeter of the entire binary tree**, encountering three positions at each node, corresponding to preorder traversal, inorder traversal, and postorder traversal.
+Figure 7-10 shows the working principle of performing a depth-first traversal on a binary tree. **Depth-first traversal is like walking around the perimeter of the entire binary tree**, encountering three positions at each node, corresponding to preorder traversal, inorder traversal, and postorder traversal.
 
 ![Preorder, inorder, and postorder traversal of a binary search tree](binary_tree_traversal.assets/binary_tree_dfs.png){ class="animation-figure" }
 
@@ -875,7 +875,7 @@ Depth-first search is usually implemented based on recursion:
 
     Depth-first search can also be implemented based on iteration, interested readers can study this on their own.
 
-The Figure 7-11  shows the recursive process of preorder traversal of a binary tree, which can be divided into two opposite parts: "recursion" and "return".
+Figure 7-11 shows the recursive process of preorder traversal of a binary tree, which can be divided into two opposite parts: "recursion" and "return".
 
 1. "Recursion" means starting a new method, the program accesses the next node in this process.
 2. "Return" means the function returns, indicating the current node has been fully accessed.

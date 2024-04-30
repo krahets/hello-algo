@@ -10,7 +10,7 @@ comments: true
     
     The capacity of the container is the product of the height and the width (area), where the height is determined by the shorter partition, and the width is the difference in array indices between the two partitions.
     
-    Please select two partitions in the array that maximize the container's capacity and return this maximum capacity. An example is shown in the following figure.
+    Please select two partitions in the array that maximize the container's capacity and return this maximum capacity. An example is shown in Figure 15-7.
 
 ![Example data for the maximum capacity problem](max_capacity_problem.assets/max_capacity_example.png){ class="animation-figure" }
 
@@ -28,13 +28,13 @@ Assuming the length of the array is $n$, the number of combinations of two parti
 
 ### 1. &nbsp; Determination of a greedy strategy
 
-There is a more efficient solution to this problem. As shown in the following figure, we select a state $[i, j]$ where the indices $i < j$ and the height $ht[i] < ht[j]$, meaning $i$ is the shorter partition, and $j$ is the taller one.
+There is a more efficient solution to this problem. As shown in Figure 15-8, we select a state $[i, j]$ where the indices $i < j$ and the height $ht[i] < ht[j]$, meaning $i$ is the shorter partition, and $j$ is the taller one.
 
 ![Initial state](max_capacity_problem.assets/max_capacity_initial_state.png){ class="animation-figure" }
 
 <p align="center"> Figure 15-8 &nbsp; Initial state </p>
 
-As shown in the following figure, **if we move the taller partition $j$ closer to the shorter partition $i$, the capacity will definitely decrease**.
+As shown in Figure 15-9, **if we move the taller partition $j$ closer to the shorter partition $i$, the capacity will definitely decrease**.
 
 This is because when moving the taller partition $j$, the width $j-i$ definitely decreases; and since the height is determined by the shorter partition, the height can only remain the same (if $i$ remains the shorter partition) or decrease (if the moved $j$ becomes the shorter partition).
 
@@ -42,7 +42,7 @@ This is because when moving the taller partition $j$, the width $j-i$ definitely
 
 <p align="center"> Figure 15-9 &nbsp; State after moving the taller partition inward </p>
 
-Conversely, **we can only possibly increase the capacity by moving the shorter partition $i$ inward**. Although the width will definitely decrease, **the height may increase** (if the moved shorter partition $i$ becomes taller). For example, in the Figure 15-10 , the area increases after moving the shorter partition.
+Conversely, **we can only possibly increase the capacity by moving the shorter partition $i$ inward**. Although the width will definitely decrease, **the height may increase** (if the moved shorter partition $i$ becomes taller). For example, in Figure 15-10, the area increases after moving the shorter partition.
 
 ![State after moving the shorter partition inward](max_capacity_problem.assets/max_capacity_moving_short_board.png){ class="animation-figure" }
 
@@ -50,7 +50,7 @@ Conversely, **we can only possibly increase the capacity by moving the shorter p
 
 This leads us to the greedy strategy for this problem: initialize two pointers at the ends of the container, and in each round, move the pointer corresponding to the shorter partition inward until the two pointers meet.
 
-The following figures illustrate the execution of the greedy strategy.
+Figure 15-11 illustrate the execution of the greedy strategy.
 
 1. Initially, the pointers $i$ and $j$ are positioned at the ends of the array.
 2. Calculate the current state's capacity $cap[i, j]$ and update the maximum capacity.
@@ -415,7 +415,7 @@ The variables $i$, $j$, and $res$ use a constant amount of extra space, **thus t
 
 The reason why the greedy method is faster than enumeration is that each round of greedy selection "skips" some states.
 
-For example, under the state $cap[i, j]$ where $i$ is the shorter partition and $j$ is the taller partition, greedily moving the shorter partition $i$ inward by one step leads to the "skipped" states shown below. **This means that these states' capacities cannot be verified later**.
+For example, under the state $cap[i, j]$ where $i$ is the shorter partition and $j$ is the taller partition, greedily moving the shorter partition $i$ inward by one step leads to the "skipped" states shown in Figure 15-12. **This means that these states' capacities cannot be verified later**.
 
 $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]

@@ -4,7 +4,7 @@ comments: true
 
 # 16.3 &nbsp; Glossary
 
-The Table 16-1  lists the important terms that appear in the book, and it is worth noting the following points.
+Table 16-1 lists the important terms that appear in the book, and it is worth noting the following points.
 
 - It is recommended to remember the English names of the terms to facilitate reading English literature.
 - Some terms have different names in Simplified and Traditional Chinese.

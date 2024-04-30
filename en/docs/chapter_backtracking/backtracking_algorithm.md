@@ -538,7 +538,7 @@ Based on the code from Example One, we need to use a list `path` to record the v
 
 In each "try", we record the path by adding the current node to `path`; before "retreating", we need to pop the node from `path` **to restore the state before this attempt**.
 
-Observe the process shown below, **we can understand trying and retreating as "advancing" and "undoing"**, two operations that are reverse to each other.
+Observe the process shown in Figure 13-2, **we can understand trying and retreating as "advancing" and "undoing"**, two operations that are reverse to each other.
 
 === "<1>"
     ![Trying and retreating](backtracking_algorithm.assets/preorder_find_paths_step1.png){ class="animation-figure" }
@@ -1887,7 +1887,7 @@ Compared to the implementation based on preorder traversal, the code implementat
 
 ## 13.1.4 &nbsp; Common terminology
 
-To analyze algorithmic problems more clearly, we summarize the meanings of commonly used terminology in backtracking algorithms and provide corresponding examples from Example Three as shown in the Table 13-1 .
+To analyze algorithmic problems more clearly, we summarize the meanings of commonly used terminology in backtracking algorithms and provide corresponding examples from Example Three as shown in Table 13-1.
 
 <p align="center"> Table 13-1 &nbsp; Common backtracking algorithm terminology </p>
 

@@ -6,7 +6,7 @@ comments: true
 
 "Queue" is a linear data structure that follows the First-In-First-Out (FIFO) rule. As the name suggests, a queue simulates the phenomenon of lining up, where newcomers join the queue at the rear, and the person at the front leaves the queue first.
 
-As shown in the Figure 5-4 , we call the front of the queue the "head" and the back the "tail." The operation of adding elements to the rear of the queue is termed "enqueue," and the operation of removing elements from the front is termed "dequeue."
+As shown in Figure 5-4, we call the front of the queue the "head" and the back the "tail." The operation of adding elements to the rear of the queue is termed "enqueue," and the operation of removing elements from the front is termed "dequeue."
 
 ![Queue's first-in-first-out rule](queue.assets/queue_operations.png){ class="animation-figure" }
 
@@ -14,7 +14,7 @@ As shown in the Figure 5-4 , we call the front of the queue the "head" and the b
 
 ## 5.2.1 &nbsp; Common operations on queue
 
-The common operations on a queue are shown in the Table 5-2 . Note that method names may vary across different programming languages. Here, we use the same naming convention as that used for stacks.
+The common operations on a queue are shown in Table 5-2. Note that method names may vary across different programming languages. Here, we use the same naming convention as that used for stacks.
 
 <p align="center"> Table 5-2 &nbsp; Efficiency of queue operations </p>
 
@@ -335,7 +335,7 @@ To implement a queue, we need a data structure that allows adding elements at on
 
 ### 1. &nbsp; Implementation based on a linked list
 
-As shown in the Figure 5-5 , we can consider the "head node" and "tail node" of a linked list as the "front" and "rear" of the queue, respectively. It is stipulated that nodes can only be added at the rear and removed at the front.
+As shown in Figure 5-5, we can consider the "head node" and "tail node" of a linked list as the "front" and "rear" of the queue, respectively. It is stipulated that nodes can only be added at the rear and removed at the front.
 
 === "LinkedListQueue"
     ![Implementing Queue with Linked List for Enqueue and Dequeue Operations](queue.assets/linkedlist_queue_step1.png){ class="animation-figure" }
@@ -1363,7 +1363,7 @@ Deleting the first element in an array has a time complexity of $O(n)$, which wo
 
 We use a variable `front` to indicate the index of the front element and maintain a variable `size` to record the queue's length. Define `rear = front + size`, which points to the position immediately following the tail element.
 
-With this design, **the effective interval of elements in the array is `[front, rear - 1]`**. The implementation methods for various operations are shown in the Figure 5-6 .
+With this design, **the effective interval of elements in the array is `[front, rear - 1]`**. The implementation methods for various operations are shown in Figure 5-6.
 
 - Enqueue operation: Assign the input element to the `rear` index and increase `size` by 1.
 - Dequeue operation: Simply increase `front` by 1 and decrease `size` by 1.

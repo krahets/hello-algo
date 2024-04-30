@@ -12,7 +12,7 @@ In algorithm problems, **we often reduce the time complexity of algorithms by re
 
 ## 10.4.1 &nbsp; Linear search: trading time for space
 
-Consider traversing all possible combinations directly. As shown in the Figure 10-9 , we initiate a two-layer loop, and in each round, we determine whether the sum of the two integers equals `target`. If so, we return their indices.
+Consider traversing all possible combinations directly. As shown in Figure 10-9, we initiate a two-layer loop, and in each round, we determine whether the sum of the two integers equals `target`. If so, we return their indices.
 
 ![Linear search solution for two-sum problem](replace_linear_by_hashing.assets/two_sum_brute_force.png){ class="animation-figure" }
 

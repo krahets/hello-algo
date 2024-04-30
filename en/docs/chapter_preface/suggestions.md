@@ -188,7 +188,7 @@ comments: true
 
 Compared with text, videos and pictures have a higher density of information and are more structured, making them easier to understand. In this book, **key and difficult concepts are mainly presented through animations and illustrations**, with text serving as explanations and supplements.
 
-When encountering content with animations or illustrations as shown in the Figure 0-2 , **prioritize understanding the figure, with text as supplementary**, integrating both for a comprehensive understanding.
+When encountering content with animations or illustrations as shown in Figure 0-2, **prioritize understanding the figure, with text as supplementary**, integrating both for a comprehensive understanding.
 
 ![Animated illustration example](../index.assets/animation.gif){ class="animation-figure" }
 
@@ -196,7 +196,7 @@ When encountering content with animations or illustrations as shown in the Figur
 
 ## 0.2.3 &nbsp; Deepen understanding through coding practice
 
-The source code of this book is hosted on the [GitHub Repository](https://github.com/krahets/hello-algo). As shown in the Figure 0-3 , **the source code comes with test examples and can be executed with just a single click**.
+The source code of this book is hosted on the [GitHub Repository](https://github.com/krahets/hello-algo). As shown in Figure 0-3, **the source code comes with test examples and can be executed with just a single click**.
 
 If time permits, **it's recommended to type out the code yourself**. If pressed for time, at least read and run all the codes.
 
@@ -218,13 +218,13 @@ If [Git](https://git-scm.com/downloads) is installed, use the following command 
 git clone https://github.com/krahets/hello-algo.git
 ```
 
-Alternatively, you can also click the "Download ZIP" button at the location shown in the Figure 0-4  to directly download the code as a compressed ZIP file. Then, you can simply extract it locally.
+Alternatively, you can also click the "Download ZIP" button at the location shown in Figure 0-4 to directly download the code as a compressed ZIP file. Then, you can simply extract it locally.
 
 ![Cloning repository and downloading code](suggestions.assets/download_code.png){ class="animation-figure" }
 
 <p align="center"> Figure 0-4 &nbsp; Cloning repository and downloading code </p>
 
-**Step 3: Run the source code**. As shown in the Figure 0-5 , for the code block labeled with the file name at the top, we can find the corresponding source code file in the `codes` folder of the repository. These files can be executed with a single click, which will help you save unnecessary debugging time and allow you to focus on learning.
+**Step 3: Run the source code**. As shown in Figure 0-5, for the code block labeled with the file name at the top, we can find the corresponding source code file in the `codes` folder of the repository. These files can be executed with a single click, which will help you save unnecessary debugging time and allow you to focus on learning.
 
 ![Code block and corresponding source code file](suggestions.assets/code_md_to_repo.png){ class="animation-figure" }
 
@@ -234,7 +234,7 @@ Alternatively, you can also click the "Download ZIP" button at the location show
 
 While reading this book, please don't skip over the points that you didn't learn. **Feel free to post your questions in the comment section**. We will be happy to answer them and can usually respond within two days.
 
-As illustrated in the Figure 0-6 , each chapter features a comment section at the bottom. I encourage you to pay attention to these comments. They not only expose you to others' encountered problems, aiding in identifying knowledge gaps and sparking deeper contemplation, but also invite you to generously contribute by answering fellow readers' inquiries, sharing insights, and fostering mutual improvement.
+As illustrated in Figure 0-6, each chapter features a comment section at the bottom. I encourage you to pay attention to these comments. They not only expose you to others' encountered problems, aiding in identifying knowledge gaps and sparking deeper contemplation, but also invite you to generously contribute by answering fellow readers' inquiries, sharing insights, and fostering mutual improvement.
 
 ![Comment section example](../index.assets/comment.gif){ class="animation-figure" }
 
@@ -248,7 +248,7 @@ Overall, the journey of mastering data structures and algorithms can be divided 
 2. **Stage 2: Practicing algorithm problems**. It is recommended to start from popular problems, such as [Sword for Offer](https://leetcode.cn/studyplan/coding-interviews/) and [LeetCode Hot 100](https://leetcode.cn/studyplan/top-100- liked/), and accumulate at least 100 questions to familiarize yourself with mainstream algorithmic problems. Forgetfulness can be a challenge when you start practicing, but rest assured that this is normal. We can follow the "Ebbinghaus Forgetting Curve" to review the questions, and usually after 3~5 rounds of repetitions, we will be able to memorize them.
 3. **Stage 3: Building the knowledge system**. In terms of learning, we can read algorithm column articles, solution frameworks, and algorithm textbooks to continuously enrich the knowledge system. In terms of practicing, we can try advanced strategies, such as categorizing by topic, multiple solutions for a single problem,  and one solution for multiple problems, etc. Insights on these strategies can be found in various communities.
 
-As shown in the Figure 0-7 , this book mainly covers “Stage 1,” aiming to help you more efficiently embark on Stages 2 and 3.
+As shown in Figure 0-7, this book mainly covers “Stage 1,” aiming to help you more efficiently embark on Stages 2 and 3.
 
 ![Algorithm learning path](suggestions.assets/learning_route.png){ class="animation-figure" }
 

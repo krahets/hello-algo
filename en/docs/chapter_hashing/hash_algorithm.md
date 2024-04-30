@@ -6,7 +6,7 @@ comments: true
 
 The previous two sections introduced the working principle of hash tables and the methods to handle hash collisions. However, both open addressing and chaining can **only ensure that the hash table functions normally when collisions occur, but cannot reduce the frequency of hash collisions**.
 
-If hash collisions occur too frequently, the performance of the hash table will deteriorate drastically. As shown in the Figure 6-8 , for a chaining hash table, in the ideal case, the key-value pairs are evenly distributed across the buckets, achieving optimal query efficiency; in the worst case, all key-value pairs are stored in the same bucket, degrading the time complexity to $O(n)$.
+If hash collisions occur too frequently, the performance of the hash table will deteriorate drastically. As shown in Figure 6-8, for a chaining hash table, in the ideal case, the key-value pairs are evenly distributed across the buckets, achieving optimal query efficiency; in the worst case, all key-value pairs are stored in the same bucket, degrading the time complexity to $O(n)$.
 
 ![Ideal and worst cases of hash collisions](hash_algorithm.assets/hash_collision_best_worst_condition.png){ class="animation-figure" }
 
@@ -693,7 +693,7 @@ It is not hard to see that the simple hash algorithms mentioned above are quite 
 
 In practice, we usually use some standard hash algorithms, such as MD5, SHA-1, SHA-2, and SHA-3. They can map input data of any length to a fixed-length hash value.
 
-Over the past century, hash algorithms have been in a continuous process of upgrading and optimization. Some researchers strive to improve the performance of hash algorithms, while others, including hackers, are dedicated to finding security issues in hash algorithms. The Table 6-2  shows hash algorithms commonly used in practical applications.
+Over the past century, hash algorithms have been in a continuous process of upgrading and optimization. Some researchers strive to improve the performance of hash algorithms, while others, including hackers, are dedicated to finding security issues in hash algorithms. Table 6-2 shows hash algorithms commonly used in practical applications.
 
 - MD5 and SHA-1 have been successfully attacked multiple times and are thus abandoned in various security applications.
 - SHA-2 series, especially SHA-256, is one of the most secure hash algorithms to date, with no successful attacks reported, hence commonly used in various security applications and protocols.

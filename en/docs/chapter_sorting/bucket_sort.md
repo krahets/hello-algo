@@ -10,7 +10,7 @@ The previously mentioned sorting algorithms are all "comparison-based sorting al
 
 ## 11.8.1 &nbsp; Algorithm process
 
-Consider an array of length $n$, with elements in the range $[0, 1)$. The bucket sort process is illustrated in the Figure 11-13 .
+Consider an array of length $n$, with elements in the range $[0, 1)$. The bucket sort process is illustrated in Figure 11-13.
 
 1. Initialize $k$ buckets and distribute $n$ elements into these $k$ buckets.
 2. Sort each bucket individually (using the built-in sorting function of the programming language).
@@ -463,7 +463,7 @@ The theoretical time complexity of bucket sort can reach $O(n)$, **the key is to
 
 To achieve even distribution, we can initially set a rough dividing line, roughly dividing the data into 3 buckets. **After the distribution is complete, the buckets with more products can be further divided into 3 buckets, until the number of elements in all buckets is roughly equal**.
 
-As shown in the Figure 11-14 , this method essentially creates a recursive tree, aiming to make the leaf node values as even as possible. Of course, you don't have to divide the data into 3 buckets each round; the specific division method can be flexibly chosen based on data characteristics.
+As shown in Figure 11-14, this method essentially creates a recursive tree, aiming to make the leaf node values as even as possible. Of course, you don't have to divide the data into 3 buckets each round; the specific division method can be flexibly chosen based on data characteristics.
 
 ![Recursive division of buckets](bucket_sort.assets/scatter_in_buckets_recursively.png){ class="animation-figure" }
 
@@ -471,7 +471,7 @@ As shown in the Figure 11-14 , this method essentially creates a recursive tree,
 
 If we know the probability distribution of product prices in advance, **we can set the price dividing line for each bucket based on the data probability distribution**. It is worth noting that it is not necessarily required to specifically calculate the data distribution; it can also be approximated based on data characteristics using some probability model.
 
-As shown in the Figure 11-15 , we assume that product prices follow a normal distribution, allowing us to reasonably set the price intervals, thereby evenly distributing the products into the respective buckets.
+As shown in Figure 11-15, we assume that product prices follow a normal distribution, allowing us to reasonably set the price intervals, thereby evenly distributing the products into the respective buckets.
 
 ![Dividing buckets based on probability distribution](bucket_sort.assets/scatter_in_buckets_distribution.png){ class="animation-figure" }
 

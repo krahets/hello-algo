@@ -4,7 +4,7 @@ comments: true
 
 # 8.1 &nbsp; Heap
 
-A "heap" is a complete binary tree that satisfies specific conditions and can be mainly divided into two types, as shown in the Figure 8-1 .
+A "heap" is a complete binary tree that satisfies specific conditions and can be mainly divided into two types, as shown in Figure 8-1.
 
 - "Min heap": The value of any node $\leq$ the values of its child nodes.
 - "Max heap": The value of any node $\geq$ the values of its child nodes.
@@ -25,7 +25,7 @@ It should be noted that many programming languages provide a "priority queue," w
 
 In fact, **heaps are often used to implement priority queues, with max heaps equivalent to priority queues where elements are dequeued in descending order**. From a usage perspective, we can consider "priority queue" and "heap" as equivalent data structures. Therefore, this book does not make a special distinction between the two, uniformly referring to them as "heap."
 
-Common operations on heaps are shown in the Table 8-1 , and the method names depend on the programming language.
+Common operations on heaps are shown in Table 8-1, and the method names depend on the programming language.
 
 <p align="center"> Table 8-1 &nbsp; Efficiency of Heap Operations </p>
 
@@ -438,7 +438,7 @@ As mentioned in the "Binary Trees" section, complete binary trees are well-suite
 
 When using an array to represent a binary tree, elements represent node values, and indexes represent node positions in the binary tree. **Node pointers are implemented through an index mapping formula**.
 
-As shown in the Figure 8-2 , given an index $i$, the index of its left child is $2i + 1$, the index of its right child is $2i + 2$, and the index of its parent is $(i - 1) / 2$ (floor division). When the index is out of bounds, it signifies a null node or the node does not exist.
+As shown in Figure 8-2, given an index $i$, the index of its left child is $2i + 1$, the index of its right child is $2i + 2$, and the index of its parent is $(i - 1) / 2$ (floor division). When the index is out of bounds, it signifies a null node or the node does not exist.
 
 ![Representation and storage of heaps](heap.assets/representation_of_heap.png){ class="animation-figure" }
 
@@ -849,7 +849,7 @@ The top element of the heap is the root node of the binary tree, which is also t
 
 Given an element `val`, we first add it to the bottom of the heap. After addition, since `val` may be larger than other elements in the heap, the heap's integrity might be compromised, **thus it's necessary to repair the path from the inserted node to the root node**. This operation is called "heapifying".
 
-Considering starting from the node inserted, **perform heapify from bottom to top**. As shown in the Figure 8-3 , we compare the value of the inserted node with its parent node, and if the inserted node is larger, we swap them. Then continue this operation, repairing each node in the heap from bottom to top until passing the root node or encountering a node that does not need to be swapped.
+Considering starting from the node inserted, **perform heapify from bottom to top**. As shown in Figure 8-3, we compare the value of the inserted node with its parent node, and if the inserted node is larger, we swap them. Then continue this operation, repairing each node in the heap from bottom to top until passing the root node or encountering a node that does not need to be swapped.
 
 === "<1>"
     ![Steps of element insertion into the heap](heap.assets/heap_push_step1.png){ class="animation-figure" }
@@ -1285,7 +1285,7 @@ The top element of the heap is the root node of the binary tree, that is, the fi
 2. After swapping, remove the bottom of the heap from the list (note, since it has been swapped, what is actually being removed is the original top element).
 3. Starting from the root node, **perform heapify from top to bottom**.
 
-As shown in the Figure 8-4 , **the direction of "heapify from top to bottom" is opposite to "heapify from bottom to top"**. We compare the value of the root node with its two children and swap it with the largest child. Then repeat this operation until passing the leaf node or encountering a node that does not need to be swapped.
+As shown in Figure 8-4, **the direction of "heapify from top to bottom" is opposite to "heapify from bottom to top"**. We compare the value of the root node with its two children and swap it with the largest child. Then repeat this operation until passing the leaf node or encountering a node that does not need to be swapped.
 
 === "<1>"
     ![Steps of removing the top element from the heap](heap.assets/heap_pop_step1.png){ class="animation-figure" }
