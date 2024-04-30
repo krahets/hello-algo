@@ -1,0 +1,397 @@
+---
+comments: true
+---
+
+# 15.1 &nbsp; Greedy algorithms
+
+<u>Greedy algorithm</u> is a common algorithm for solving optimization problems, which fundamentally involves making the seemingly best choice at each decision-making stage of the problem, i.e., greedily making locally optimal decisions in hopes of finding a globally optimal solution. Greedy algorithms are concise and efficient, and are widely used in many practical problems.
+
+Greedy algorithms and dynamic programming are both commonly used to solve optimization problems. They share some similarities, such as relying on the property of optimal substructure, but they operate differently.
+
+- Dynamic programming considers all previous decisions at the current decision stage and uses solutions to past subproblems to construct solutions for the current subproblem.
+- Greedy algorithms do not consider past decisions; instead, they proceed with greedy choices, continually narrowing the scope of the problem until it is solved.
+
+Let's first understand the working principle of the greedy algorithm through the example of "coin change," which has been introduced in the "Complete Knapsack Problem" chapter. I believe you are already familiar with it.
+
+!!! question
+
+    Given $n$ types of coins, where the denomination of the $i$th type of coin is $coins[i - 1]$, and the target amount is $amt$, with each type of coin available indefinitely, what is the minimum number of coins needed to make up the target amount? If it is not possible to make up the target amount, return $-1$.
+
+The greedy strategy adopted in this problem is shown in the following figure. Given the target amount, **we greedily choose the coin that is closest to and not greater than it**, repeatedly following this step until the target amount is met.
+
+![Greedy strategy for coin change](greedy_algorithm.assets/coin_change_greedy_strategy.png){ class="animation-figure" }
+
+<p align="center"> Figure 15-1 &nbsp; Greedy strategy for coin change </p>
+
+The implementation code is as follows:
+
+=== "Python"
+
+    ```python title="coin_change_greedy.py"
+    def coin_change_greedy(coins: list[int], amt: int) -> int:
+        """零钱兑换：贪心"""
+        # 假设 coins 列表有序
+        i = len(coins) - 1
+        count = 0
+        # 循环进行贪心选择，直到无剩余金额
+        while amt > 0:
+            # 找到小于且最接近剩余金额的硬币
+            while i > 0 and coins[i] > amt:
+                i -= 1
+            # 选择 coins[i]
+            amt -= coins[i]
+            count += 1
+        # 若未找到可行方案，则返回 -1
+        return count if amt == 0 else -1
+    ```
+
+=== "C++"
+
+    ```cpp title="coin_change_greedy.cpp"
+    /* 零钱兑换：贪心 */
+    int coinChangeGreedy(vector<int> &coins, int amt) {
+        // 假设 coins 列表有序
+        int i = coins.size() - 1;
+        int count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while (amt > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt == 0 ? count : -1;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="coin_change_greedy.java"
+    /* 零钱兑换：贪心 */
+    int coinChangeGreedy(int[] coins, int amt) {
+        // 假设 coins 列表有序
+        int i = coins.length - 1;
+        int count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while (amt > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt == 0 ? count : -1;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="coin_change_greedy.cs"
+    /* 零钱兑换：贪心 */
+    int CoinChangeGreedy(int[] coins, int amt) {
+        // 假设 coins 列表有序
+        int i = coins.Length - 1;
+        int count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while (amt > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt == 0 ? count : -1;
+    }
+    ```
+
+=== "Go"
+
+    ```go title="coin_change_greedy.go"
+    /* 零钱兑换：贪心 */
+    func coinChangeGreedy(coins []int, amt int) int {
+        // 假设 coins 列表有序
+        i := len(coins) - 1
+        count := 0
+        // 循环进行贪心选择，直到无剩余金额
+        for amt > 0 {
+            // 找到小于且最接近剩余金额的硬币
+            for i > 0 && coins[i] > amt {
+                i--
+            }
+            // 选择 coins[i]
+            amt -= coins[i]
+            count++
+        }
+        // 若未找到可行方案，则返回 -1
+        if amt != 0 {
+            return -1
+        }
+        return count
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="coin_change_greedy.swift"
+    /* 零钱兑换：贪心 */
+    func coinChangeGreedy(coins: [Int], amt: Int) -> Int {
+        // 假设 coins 列表有序
+        var i = coins.count - 1
+        var count = 0
+        var amt = amt
+        // 循环进行贪心选择，直到无剩余金额
+        while amt > 0 {
+            // 找到小于且最接近剩余金额的硬币
+            while i > 0 && coins[i] > amt {
+                i -= 1
+            }
+            // 选择 coins[i]
+            amt -= coins[i]
+            count += 1
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt == 0 ? count : -1
+    }
+    ```
+
+=== "JS"
+
+    ```javascript title="coin_change_greedy.js"
+    /* 零钱兑换：贪心 */
+    function coinChangeGreedy(coins, amt) {
+        // 假设 coins 数组有序
+        let i = coins.length - 1;
+        let count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while (amt > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt === 0 ? count : -1;
+    }
+    ```
+
+=== "TS"
+
+    ```typescript title="coin_change_greedy.ts"
+    /* 零钱兑换：贪心 */
+    function coinChangeGreedy(coins: number[], amt: number): number {
+        // 假设 coins 数组有序
+        let i = coins.length - 1;
+        let count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while (amt > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt === 0 ? count : -1;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="coin_change_greedy.dart"
+    /* 零钱兑换：贪心 */
+    int coinChangeGreedy(List<int> coins, int amt) {
+      // 假设 coins 列表有序
+      int i = coins.length - 1;
+      int count = 0;
+      // 循环进行贪心选择，直到无剩余金额
+      while (amt > 0) {
+        // 找到小于且最接近剩余金额的硬币
+        while (i > 0 && coins[i] > amt) {
+          i--;
+        }
+        // 选择 coins[i]
+        amt -= coins[i];
+        count++;
+      }
+      // 若未找到可行方案，则返回 -1
+      return amt == 0 ? count : -1;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="coin_change_greedy.rs"
+    /* 零钱兑换：贪心 */
+    fn coin_change_greedy(coins: &[i32], mut amt: i32) -> i32 {
+        // 假设 coins 列表有序
+        let mut i = coins.len() - 1;
+        let mut count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while amt > 0 {
+            // 找到小于且最接近剩余金额的硬币
+            while i > 0 && coins[i] > amt {
+                i -= 1;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count += 1;
+        }
+        // 若未找到可行方案，则返回 -1
+        if amt == 0 {
+            count
+        } else {
+            -1
+        }
+    }
+    ```
+
+=== "C"
+
+    ```c title="coin_change_greedy.c"
+    /* 零钱兑换：贪心 */
+    int coinChangeGreedy(int *coins, int size, int amt) {
+        // 假设 coins 列表有序
+        int i = size - 1;
+        int count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while (amt > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt == 0 ? count : -1;
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="coin_change_greedy.kt"
+    /* 零钱兑换：贪心 */
+    fun coinChangeGreedy(coins: IntArray, amt: Int): Int {
+        // 假设 coins 列表有序
+        var am = amt
+        var i = coins.size - 1
+        var count = 0
+        // 循环进行贪心选择，直到无剩余金额
+        while (am > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > am) {
+                i--
+            }
+            // 选择 coins[i]
+            am -= coins[i]
+            count++
+        }
+        // 若未找到可行方案，则返回 -1
+        return if (am == 0) count else -1
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="coin_change_greedy.rb"
+    [class]{}-[func]{coin_change_greedy}
+    ```
+
+=== "Zig"
+
+    ```zig title="coin_change_greedy.zig"
+    [class]{}-[func]{coinChangeGreedy}
+    ```
+
+??? pythontutor "Code Visualization"
+
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_greedy%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2%EF%BC%9A%E8%B4%AA%E5%BF%83%22%22%22%0A%20%20%20%20%23%20%E5%81%87%E8%AE%BE%20coins%20%E5%88%97%E8%A1%A8%E6%9C%89%E5%BA%8F%0A%20%20%20%20i%20%3D%20len%28coins%29%20-%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E8%BF%9B%E8%A1%8C%E8%B4%AA%E5%BF%83%E9%80%89%E6%8B%A9%EF%BC%8C%E7%9B%B4%E5%88%B0%E6%97%A0%E5%89%A9%E4%BD%99%E9%87%91%E9%A2%9D%0A%20%20%20%20while%20amt%20%3E%200%3A%0A%20%20%20%20%20%20%20%20%23%20%E6%89%BE%E5%88%B0%E5%B0%8F%E4%BA%8E%E4%B8%94%E6%9C%80%E6%8E%A5%E8%BF%91%E5%89%A9%E4%BD%99%E9%87%91%E9%A2%9D%E7%9A%84%E7%A1%AC%E5%B8%81%0A%20%20%20%20%20%20%20%20while%20i%20%3E%200%20and%20coins%5Bi%5D%20%3E%20amt%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20-%3D%201%0A%20%20%20%20%20%20%20%20%23%20%E9%80%89%E6%8B%A9%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20amt%20-%3D%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%23%20%E8%8B%A5%E6%9C%AA%E6%89%BE%E5%88%B0%E5%8F%AF%E8%A1%8C%E6%96%B9%E6%A1%88%EF%BC%8C%E5%88%99%E8%BF%94%E5%9B%9E%20-1%0A%20%20%20%20return%20count%20if%20amt%20%3D%3D%200%20else%20-1%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E8%B4%AA%E5%BF%83%EF%BC%9A%E8%83%BD%E5%A4%9F%E4%BF%9D%E8%AF%81%E6%89%BE%E5%88%B0%E5%85%A8%E5%B1%80%E6%9C%80%E4%BC%98%E8%A7%A3%0A%20%20%20%20coins%20%3D%20%5B1,%205,%2010,%2020,%2050,%20100%5D%0A%20%20%20%20amt%20%3D%20186%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins,%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D,%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22%E5%87%91%E5%88%B0%20%7Bamt%7D%20%E6%89%80%E9%9C%80%E7%9A%84%E6%9C%80%E5%B0%91%E7%A1%AC%E5%B8%81%E6%95%B0%E9%87%8F%E4%B8%BA%20%7Bres%7D%22%29%0A%0A%20%20%20%20%23%20%E8%B4%AA%E5%BF%83%EF%BC%9A%E6%97%A0%E6%B3%95%E4%BF%9D%E8%AF%81%E6%89%BE%E5%88%B0%E5%85%A8%E5%B1%80%E6%9C%80%E4%BC%98%E8%A7%A3%0A%20%20%20%20coins%20%3D%20%5B1,%2020,%2050%5D%0A%20%20%20%20amt%20%3D%2060%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins,%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D,%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22%E5%87%91%E5%88%B0%20%7Bamt%7D%20%E6%89%80%E9%9C%80%E7%9A%84%E6%9C%80%E5%B0%91%E7%A1%AC%E5%B8%81%E6%95%B0%E9%87%8F%E4%B8%BA%20%7Bres%7D%22%29%0A%20%20%20%20print%28f%22%E5%AE%9E%E9%99%85%E4%B8%8A%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E4%B8%BA%203%20%EF%BC%8C%E5%8D%B3%2020%20%2B%2020%20%2B%2020%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_greedy%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2%EF%BC%9A%E8%B4%AA%E5%BF%83%22%22%22%0A%20%20%20%20%23%20%E5%81%87%E8%AE%BE%20coins%20%E5%88%97%E8%A1%A8%E6%9C%89%E5%BA%8F%0A%20%20%20%20i%20%3D%20len%28coins%29%20-%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E8%BF%9B%E8%A1%8C%E8%B4%AA%E5%BF%83%E9%80%89%E6%8B%A9%EF%BC%8C%E7%9B%B4%E5%88%B0%E6%97%A0%E5%89%A9%E4%BD%99%E9%87%91%E9%A2%9D%0A%20%20%20%20while%20amt%20%3E%200%3A%0A%20%20%20%20%20%20%20%20%23%20%E6%89%BE%E5%88%B0%E5%B0%8F%E4%BA%8E%E4%B8%94%E6%9C%80%E6%8E%A5%E8%BF%91%E5%89%A9%E4%BD%99%E9%87%91%E9%A2%9D%E7%9A%84%E7%A1%AC%E5%B8%81%0A%20%20%20%20%20%20%20%20while%20i%20%3E%200%20and%20coins%5Bi%5D%20%3E%20amt%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20-%3D%201%0A%20%20%20%20%20%20%20%20%23%20%E9%80%89%E6%8B%A9%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20amt%20-%3D%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%23%20%E8%8B%A5%E6%9C%AA%E6%89%BE%E5%88%B0%E5%8F%AF%E8%A1%8C%E6%96%B9%E6%A1%88%EF%BC%8C%E5%88%99%E8%BF%94%E5%9B%9E%20-1%0A%20%20%20%20return%20count%20if%20amt%20%3D%3D%200%20else%20-1%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E8%B4%AA%E5%BF%83%EF%BC%9A%E8%83%BD%E5%A4%9F%E4%BF%9D%E8%AF%81%E6%89%BE%E5%88%B0%E5%85%A8%E5%B1%80%E6%9C%80%E4%BC%98%E8%A7%A3%0A%20%20%20%20coins%20%3D%20%5B1,%205,%2010,%2020,%2050,%20100%5D%0A%20%20%20%20amt%20%3D%20186%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins,%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D,%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22%E5%87%91%E5%88%B0%20%7Bamt%7D%20%E6%89%80%E9%9C%80%E7%9A%84%E6%9C%80%E5%B0%91%E7%A1%AC%E5%B8%81%E6%95%B0%E9%87%8F%E4%B8%BA%20%7Bres%7D%22%29%0A%0A%20%20%20%20%23%20%E8%B4%AA%E5%BF%83%EF%BC%9A%E6%97%A0%E6%B3%95%E4%BF%9D%E8%AF%81%E6%89%BE%E5%88%B0%E5%85%A8%E5%B1%80%E6%9C%80%E4%BC%98%E8%A7%A3%0A%20%20%20%20coins%20%3D%20%5B1,%2020,%2050%5D%0A%20%20%20%20amt%20%3D%2060%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins,%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D,%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22%E5%87%91%E5%88%B0%20%7Bamt%7D%20%E6%89%80%E9%9C%80%E7%9A%84%E6%9C%80%E5%B0%91%E7%A1%AC%E5%B8%81%E6%95%B0%E9%87%8F%E4%B8%BA%20%7Bres%7D%22%29%0A%20%20%20%20print%28f%22%E5%AE%9E%E9%99%85%E4%B8%8A%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E4%B8%BA%203%20%EF%BC%8C%E5%8D%B3%2020%20%2B%2020%20%2B%2020%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+
+You might exclaim: So clean! The greedy algorithm solves the coin change problem in about ten lines of code.
+
+## 15.1.1 &nbsp; Advantages and limitations of greedy algorithms
+
+**Greedy algorithms are not only straightforward and simple to implement, but they are also usually very efficient**. In the code above, if the smallest coin denomination is $\min(coins)$, the greedy choice loops at most $amt / \min(coins)$ times, giving a time complexity of $O(amt / \min(coins))$. This is an order of magnitude smaller than the time complexity of the dynamic programming solution, which is $O(n \times amt)$.
+
+However, **for some combinations of coin denominations, greedy algorithms cannot find the optimal solution**. The following figure provides two examples.
+
+- **Positive example $coins = [1, 5, 10, 20, 50, 100]$**: In this coin combination, given any $amt$, the greedy algorithm can find the optimal solution.
+- **Negative example $coins = [1, 20, 50]$**: Suppose $amt = 60$, the greedy algorithm can only find the combination $50 + 1 \times 10$, totaling 11 coins, but dynamic programming can find the optimal solution of $20 + 20 + 20$, needing only 3 coins.
+- **Negative example $coins = [1, 49, 50]$**: Suppose $amt = 98$, the greedy algorithm can only find the combination $50 + 1 \times 48$, totaling 49 coins, but dynamic programming can find the optimal solution of $49 + 49$, needing only 2 coins.
+
+![Examples where greedy algorithms do not find the optimal solution](greedy_algorithm.assets/coin_change_greedy_vs_dp.png){ class="animation-figure" }
+
+<p align="center"> Figure 15-2 &nbsp; Examples where greedy algorithms do not find the optimal solution </p>
+
+This means that for the coin change problem, greedy algorithms cannot guarantee finding the globally optimal solution, and they might find a very poor solution. They are better suited for dynamic programming.
+
+Generally, the suitability of greedy algorithms falls into two categories.
+
+1. **Guaranteed to find the optimal solution**: In these cases, greedy algorithms are often the best choice, as they tend to be more efficient than backtracking or dynamic programming.
+2. **Can find a near-optimal solution**: Greedy algorithms are also applicable here. For many complex problems, finding the global optimal solution is very challenging, and being able to find a high-efficiency suboptimal solution is also very commendable.
+
+## 15.1.2 &nbsp; Characteristics of greedy algorithms
+
+So, what kind of problems are suitable for solving with greedy algorithms? Or rather, under what conditions can greedy algorithms guarantee to find the optimal solution?
+
+Compared to dynamic programming, greedy algorithms have stricter usage conditions, focusing mainly on two properties of the problem.
+
+- **Greedy choice property**: Only when the locally optimal choice can always lead to a globally optimal solution can greedy algorithms guarantee to obtain the optimal solution.
+- **Optimal substructure**: The optimal solution to the original problem contains the optimal solutions to its subproblems.
+
+Optimal substructure has already been introduced in the "Dynamic Programming" chapter, so it is not discussed further here. It's important to note that some problems do not have an obvious optimal substructure, but can still be solved using greedy algorithms.
+
+We mainly explore the method for determining the greedy choice property. Although its description seems simple, **in practice, proving the greedy choice property for many problems is not easy**.
+
+For example, in the coin change problem, although we can easily cite counterexamples to disprove the greedy choice property, proving it is much more challenging. If asked, **what conditions must a coin combination meet to be solvable using a greedy algorithm**? We often have to rely on intuition or examples to provide an ambiguous answer, as it is difficult to provide a rigorous mathematical proof.
+
+!!! quote
+
+    A paper presents an algorithm with a time complexity of $O(n^3)$ for determining whether a coin combination can use a greedy algorithm to find the optimal solution for any amount.
+
+    Pearson, D. A polynomial-time algorithm for the change-making problem[J]. Operations Research Letters, 2005, 33(3): 231-234.
+
+## 15.1.3 &nbsp; Steps for solving problems with greedy algorithms
+
+The problem-solving process for greedy problems can generally be divided into the following three steps.
+
+1. **Problem analysis**: Sort out and understand the characteristics of the problem, including state definition, optimization objectives, and constraints, etc. This step is also involved in backtracking and dynamic programming.
+2. **Determine the greedy strategy**: Determine how to make a greedy choice at each step. This strategy can reduce the scale of the problem at each step and eventually solve the entire problem.
+3. **Proof of correctness**: It is usually necessary to prove that the problem has both a greedy choice property and optimal substructure. This step may require mathematical proofs, such as induction or reductio ad absurdum.
+
+Determining the greedy strategy is the core step in solving the problem, but it may not be easy to implement, mainly for the following reasons.
+
+- **Greedy strategies vary greatly between different problems**. For many problems, the greedy strategy is fairly straightforward, and we can come up with it through some general thinking and attempts. However, for some complex problems, the greedy strategy may be very elusive, which is a real test of individual problem-solving experience and algorithmic capability.
+- **Some greedy strategies are quite misleading**. When we confidently design a greedy strategy, write the code, and submit it for testing, it is quite possible that some test cases will not pass. This is because the designed greedy strategy is only "partially correct," as described above with the coin change example.
+
+To ensure accuracy, we should provide rigorous mathematical proofs for the greedy strategy, **usually involving reductio ad absurdum or mathematical induction**.
+
+However, proving correctness may not be an easy task. If we are at a loss, we usually choose to debug the code based on test cases, modifying and verifying the greedy strategy step by step.
+
+## 15.1.4 &nbsp; Typical problems solved by greedy algorithms
+
+Greedy algorithms are often applied to optimization problems that satisfy the properties of greedy choice and optimal substructure. Below are some typical greedy algorithm problems.
+
+- **Coin change problem**: In some coin combinations, the greedy algorithm always provides the optimal solution.
+- **Interval scheduling problem**: Suppose you have several tasks, each of which takes place over a period of time. Your goal is to complete as many tasks as possible. If you always choose the task that ends the earliest, then the greedy algorithm can achieve the optimal solution.
+- **Fractional knapsack problem**: Given a set of items and a carrying capacity, your goal is to select a set of items such that the total weight does not exceed the carrying capacity and the total value is maximized. If you always choose the item with the highest value-to-weight ratio (value / weight), the greedy algorithm can achieve the optimal solution in some cases.
+- **Stock trading problem**: Given a set of historical stock prices, you can make multiple trades, but you cannot buy again until after you have sold if you already own stocks. The goal is to achieve the maximum profit.
+- **Huffman coding**: Huffman coding is a greedy algorithm used for lossless data compression. By constructing a Huffman tree, it always merges the two nodes with the lowest frequency, resulting in a Huffman tree with the minimum weighted path length (coding length).
+- **Dijkstra's algorithm**: It is a greedy algorithm for solving the shortest path problem from a given source vertex to all other vertices.

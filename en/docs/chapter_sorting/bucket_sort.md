@@ -2,25 +2,25 @@
 comments: true
 ---
 
-# 11.8 &nbsp; 桶排序
+# 11.8 &nbsp; Bucket sort
 
-前述几种排序算法都属于“基于比较的排序算法”，它们通过比较元素间的大小来实现排序。此类排序算法的时间复杂度无法超越 $O(n \log n)$ 。接下来，我们将探讨几种“非比较排序算法”，它们的时间复杂度可以达到线性阶。
+The previously mentioned sorting algorithms are all "comparison-based sorting algorithms," which sort by comparing the size of elements. Such sorting algorithms cannot surpass a time complexity of $O(n \log n)$. Next, we will discuss several "non-comparison sorting algorithms" that can achieve linear time complexity.
 
-<u>桶排序（bucket sort）</u>是分治策略的一个典型应用。它通过设置一些具有大小顺序的桶，每个桶对应一个数据范围，将数据平均分配到各个桶中；然后，在每个桶内部分别执行排序；最终按照桶的顺序将所有数据合并。
+<u>Bucket sort</u> is a typical application of the divide-and-conquer strategy. It involves setting up a series of ordered buckets, each corresponding to a range of data, and then distributing the data evenly among these buckets; each bucket is then sorted individually; finally, all the data are merged in the order of the buckets.
 
-## 11.8.1 &nbsp; 算法流程
+## 11.8.1 &nbsp; Algorithm process
 
-考虑一个长度为 $n$ 的数组，其元素是范围 $[0, 1)$ 内的浮点数。桶排序的流程如图 11-13 所示。
+Consider an array of length $n$, with elements in the range $[0, 1)$. The bucket sort process is illustrated in the Figure 11-13 .
 
-1. 初始化 $k$ 个桶，将 $n$ 个元素分配到 $k$ 个桶中。
-2. 对每个桶分别执行排序（这里采用编程语言的内置排序函数）。
-3. 按照桶从小到大的顺序合并结果。
+1. Initialize $k$ buckets and distribute $n$ elements into these $k$ buckets.
+2. Sort each bucket individually (using the built-in sorting function of the programming language).
+3. Merge the results in the order from the smallest to the largest bucket.
 
-![桶排序算法流程](bucket_sort.assets/bucket_sort_overview.png){ class="animation-figure" }
+![Bucket sort algorithm process](bucket_sort.assets/bucket_sort_overview.png){ class="animation-figure" }
 
-<p align="center"> 图 11-13 &nbsp; 桶排序算法流程 </p>
+<p align="center"> Figure 11-13 &nbsp; Bucket sort algorithm process </p>
 
-代码如下所示：
+The code is shown as follows:
 
 === "Python"
 
@@ -443,36 +443,36 @@ comments: true
     [class]{}-[func]{bucketSort}
     ```
 
-??? pythontutor "可视化运行"
+??? pythontutor "Code Visualization"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20bucket_sort%28nums%3A%20list%5Bfloat%5D%29%3A%0A%20%20%20%20%22%22%22%E6%A1%B6%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%20k%20%3D%20n/2%20%E4%B8%AA%E6%A1%B6%EF%BC%8C%E9%A2%84%E6%9C%9F%E5%90%91%E6%AF%8F%E4%B8%AA%E6%A1%B6%E5%88%86%E9%85%8D%202%20%E4%B8%AA%E5%85%83%E7%B4%A0%0A%20%20%20%20k%20%3D%20len%28nums%29%20//%202%0A%20%20%20%20buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28k%29%5D%0A%20%20%20%20%23%201.%20%E5%B0%86%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E5%88%86%E9%85%8D%E5%88%B0%E5%90%84%E4%B8%AA%E6%A1%B6%E4%B8%AD%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20%23%20%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E4%B8%BA%20%5B0,%201%29%EF%BC%8C%E4%BD%BF%E7%94%A8%20num%20*%20k%20%E6%98%A0%E5%B0%84%E5%88%B0%E7%B4%A2%E5%BC%95%E8%8C%83%E5%9B%B4%20%5B0,%20k-1%5D%0A%20%20%20%20%20%20%20%20i%20%3D%20int%28num%20*%20k%29%0A%20%20%20%20%20%20%20%20%23%20%E5%B0%86%20num%20%E6%B7%BB%E5%8A%A0%E8%BF%9B%E6%A1%B6%20i%0A%20%20%20%20%20%20%20%20buckets%5Bi%5D.append%28num%29%0A%20%20%20%20%23%202.%20%E5%AF%B9%E5%90%84%E4%B8%AA%E6%A1%B6%E6%89%A7%E8%A1%8C%E6%8E%92%E5%BA%8F%0A%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E5%86%85%E7%BD%AE%E6%8E%92%E5%BA%8F%E5%87%BD%E6%95%B0%EF%BC%8C%E4%B9%9F%E5%8F%AF%E4%BB%A5%E6%9B%BF%E6%8D%A2%E6%88%90%E5%85%B6%E4%BB%96%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%0A%20%20%20%20%20%20%20%20bucket.sort%28%29%0A%20%20%20%20%23%203.%20%E9%81%8D%E5%8E%86%E6%A1%B6%E5%90%88%E5%B9%B6%E7%BB%93%E6%9E%9C%0A%20%20%20%20i%20%3D%200%0A%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20for%20num%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bi%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E8%AE%BE%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E4%B8%BA%E6%B5%AE%E7%82%B9%E6%95%B0%EF%BC%8C%E8%8C%83%E5%9B%B4%E4%B8%BA%20%5B0,%201%29%0A%20%20%20%20nums%20%3D%20%5B0.49,%200.96,%200.82,%200.09,%200.57,%200.43,%200.91,%200.75,%200.15,%200.37%5D%0A%20%20%20%20bucket_sort%28nums%29%0A%20%20%20%20print%28%22%E6%A1%B6%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%90%8E%20nums%20%3D%22,%20nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20bucket_sort%28nums%3A%20list%5Bfloat%5D%29%3A%0A%20%20%20%20%22%22%22%E6%A1%B6%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%20k%20%3D%20n/2%20%E4%B8%AA%E6%A1%B6%EF%BC%8C%E9%A2%84%E6%9C%9F%E5%90%91%E6%AF%8F%E4%B8%AA%E6%A1%B6%E5%88%86%E9%85%8D%202%20%E4%B8%AA%E5%85%83%E7%B4%A0%0A%20%20%20%20k%20%3D%20len%28nums%29%20//%202%0A%20%20%20%20buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28k%29%5D%0A%20%20%20%20%23%201.%20%E5%B0%86%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E5%88%86%E9%85%8D%E5%88%B0%E5%90%84%E4%B8%AA%E6%A1%B6%E4%B8%AD%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20%23%20%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E4%B8%BA%20%5B0,%201%29%EF%BC%8C%E4%BD%BF%E7%94%A8%20num%20*%20k%20%E6%98%A0%E5%B0%84%E5%88%B0%E7%B4%A2%E5%BC%95%E8%8C%83%E5%9B%B4%20%5B0,%20k-1%5D%0A%20%20%20%20%20%20%20%20i%20%3D%20int%28num%20*%20k%29%0A%20%20%20%20%20%20%20%20%23%20%E5%B0%86%20num%20%E6%B7%BB%E5%8A%A0%E8%BF%9B%E6%A1%B6%20i%0A%20%20%20%20%20%20%20%20buckets%5Bi%5D.append%28num%29%0A%20%20%20%20%23%202.%20%E5%AF%B9%E5%90%84%E4%B8%AA%E6%A1%B6%E6%89%A7%E8%A1%8C%E6%8E%92%E5%BA%8F%0A%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E5%86%85%E7%BD%AE%E6%8E%92%E5%BA%8F%E5%87%BD%E6%95%B0%EF%BC%8C%E4%B9%9F%E5%8F%AF%E4%BB%A5%E6%9B%BF%E6%8D%A2%E6%88%90%E5%85%B6%E4%BB%96%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%0A%20%20%20%20%20%20%20%20bucket.sort%28%29%0A%20%20%20%20%23%203.%20%E9%81%8D%E5%8E%86%E6%A1%B6%E5%90%88%E5%B9%B6%E7%BB%93%E6%9E%9C%0A%20%20%20%20i%20%3D%200%0A%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20for%20num%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bi%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E8%AE%BE%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E4%B8%BA%E6%B5%AE%E7%82%B9%E6%95%B0%EF%BC%8C%E8%8C%83%E5%9B%B4%E4%B8%BA%20%5B0,%201%29%0A%20%20%20%20nums%20%3D%20%5B0.49,%200.96,%200.82,%200.09,%200.57,%200.43,%200.91,%200.75,%200.15,%200.37%5D%0A%20%20%20%20bucket_sort%28nums%29%0A%20%20%20%20print%28%22%E6%A1%B6%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%90%8E%20nums%20%3D%22,%20nums%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20bucket_sort%28nums%3A%20list%5Bfloat%5D%29%3A%0A%20%20%20%20%22%22%22%E6%A1%B6%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%20k%20%3D%20n/2%20%E4%B8%AA%E6%A1%B6%EF%BC%8C%E9%A2%84%E6%9C%9F%E5%90%91%E6%AF%8F%E4%B8%AA%E6%A1%B6%E5%88%86%E9%85%8D%202%20%E4%B8%AA%E5%85%83%E7%B4%A0%0A%20%20%20%20k%20%3D%20len%28nums%29%20//%202%0A%20%20%20%20buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28k%29%5D%0A%20%20%20%20%23%201.%20%E5%B0%86%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E5%88%86%E9%85%8D%E5%88%B0%E5%90%84%E4%B8%AA%E6%A1%B6%E4%B8%AD%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20%23%20%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E4%B8%BA%20%5B0,%201%29%EF%BC%8C%E4%BD%BF%E7%94%A8%20num%20*%20k%20%E6%98%A0%E5%B0%84%E5%88%B0%E7%B4%A2%E5%BC%95%E8%8C%83%E5%9B%B4%20%5B0,%20k-1%5D%0A%20%20%20%20%20%20%20%20i%20%3D%20int%28num%20*%20k%29%0A%20%20%20%20%20%20%20%20%23%20%E5%B0%86%20num%20%E6%B7%BB%E5%8A%A0%E8%BF%9B%E6%A1%B6%20i%0A%20%20%20%20%20%20%20%20buckets%5Bi%5D.append%28num%29%0A%20%20%20%20%23%202.%20%E5%AF%B9%E5%90%84%E4%B8%AA%E6%A1%B6%E6%89%A7%E8%A1%8C%E6%8E%92%E5%BA%8F%0A%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E5%86%85%E7%BD%AE%E6%8E%92%E5%BA%8F%E5%87%BD%E6%95%B0%EF%BC%8C%E4%B9%9F%E5%8F%AF%E4%BB%A5%E6%9B%BF%E6%8D%A2%E6%88%90%E5%85%B6%E4%BB%96%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%0A%20%20%20%20%20%20%20%20bucket.sort%28%29%0A%20%20%20%20%23%203.%20%E9%81%8D%E5%8E%86%E6%A1%B6%E5%90%88%E5%B9%B6%E7%BB%93%E6%9E%9C%0A%20%20%20%20i%20%3D%200%0A%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20for%20num%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bi%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E8%AE%BE%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E4%B8%BA%E6%B5%AE%E7%82%B9%E6%95%B0%EF%BC%8C%E8%8C%83%E5%9B%B4%E4%B8%BA%20%5B0,%201%29%0A%20%20%20%20nums%20%3D%20%5B0.49,%200.96,%200.82,%200.09,%200.57,%200.43,%200.91,%200.75,%200.15,%200.37%5D%0A%20%20%20%20bucket_sort%28nums%29%0A%20%20%20%20print%28%22%E6%A1%B6%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%90%8E%20nums%20%3D%22,%20nums%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
-## 11.8.2 &nbsp; 算法特性
+## 11.8.2 &nbsp; Algorithm characteristics
 
-桶排序适用于处理体量很大的数据。例如，输入数据包含 100 万个元素，由于空间限制，系统内存无法一次性加载所有数据。此时，可以将数据分成 1000 个桶，然后分别对每个桶进行排序，最后将结果合并。
+Bucket sort is suitable for handling very large data sets. For example, if the input data includes 1 million elements, and system memory limitations prevent loading all the data at once, you can divide the data into 1,000 buckets and sort each bucket separately before merging the results.
 
-- **时间复杂度为 $O(n + k)$** ：假设元素在各个桶内平均分布，那么每个桶内的元素数量为 $\frac{n}{k}$ 。假设排序单个桶使用 $O(\frac{n}{k} \log\frac{n}{k})$ 时间，则排序所有桶使用 $O(n \log\frac{n}{k})$ 时间。**当桶数量 $k$ 比较大时，时间复杂度则趋向于 $O(n)$** 。合并结果时需要遍历所有桶和元素，花费 $O(n + k)$ 时间。
-- **自适应排序**：在最差情况下，所有数据被分配到一个桶中，且排序该桶使用 $O(n^2)$ 时间。
-- **空间复杂度为 $O(n + k)$、非原地排序**：需要借助 $k$ 个桶和总共 $n$ 个元素的额外空间。
-- 桶排序是否稳定取决于排序桶内元素的算法是否稳定。
+- **Time complexity is $O(n + k)$**: Assuming the elements are evenly distributed across the buckets, the number of elements in each bucket is $n/k$. Assuming sorting a single bucket takes $O(n/k \log(n/k))$ time, sorting all buckets takes $O(n \log(n/k))$ time. **When the number of buckets $k$ is relatively large, the time complexity tends towards $O(n)$**. Merging the results requires traversing all buckets and elements, taking $O(n + k)$ time.
+- **Adaptive sorting**: In the worst case, all data is distributed into a single bucket, and sorting that bucket takes $O(n^2)$ time.
+- **Space complexity is $O(n + k)$, non-in-place sorting**: It requires additional space for $k$ buckets and a total of $n$ elements.
+- Whether bucket sort is stable depends on whether the algorithm used to sort elements within the buckets is stable.
 
-## 11.8.3 &nbsp; 如何实现平均分配
+## 11.8.3 &nbsp; How to achieve even distribution
 
-桶排序的时间复杂度理论上可以达到 $O(n)$ ，**关键在于将元素均匀分配到各个桶中**，因为实际数据往往不是均匀分布的。例如，我们想要将淘宝上的所有商品按价格范围平均分配到 10 个桶中，但商品价格分布不均，低于 100 元的非常多，高于 1000 元的非常少。若将价格区间平均划分为 10 个，各个桶中的商品数量差距会非常大。
+The theoretical time complexity of bucket sort can reach $O(n)$, **the key is to evenly distribute the elements across all buckets**, as real data is often not uniformly distributed. For example, if we want to evenly distribute all products on Taobao by price range into 10 buckets, but the distribution of product prices is uneven, with many under 100 yuan and few over 1000 yuan. If the price range is evenly divided into 10, the difference in the number of products in each bucket will be very large.
 
-为实现平均分配，我们可以先设定一条大致的分界线，将数据粗略地分到 3 个桶中。**分配完毕后，再将商品较多的桶继续划分为 3 个桶，直至所有桶中的元素数量大致相等**。
+To achieve even distribution, we can initially set a rough dividing line, roughly dividing the data into 3 buckets. **After the distribution is complete, the buckets with more products can be further divided into 3 buckets, until the number of elements in all buckets is roughly equal**.
 
-如图 11-14 所示，这种方法本质上是创建一棵递归树，目标是让叶节点的值尽可能平均。当然，不一定要每轮将数据划分为 3 个桶，具体划分方式可根据数据特点灵活选择。
+As shown in the Figure 11-14 , this method essentially creates a recursive tree, aiming to make the leaf node values as even as possible. Of course, you don't have to divide the data into 3 buckets each round; the specific division method can be flexibly chosen based on data characteristics.
 
-![递归划分桶](bucket_sort.assets/scatter_in_buckets_recursively.png){ class="animation-figure" }
+![Recursive division of buckets](bucket_sort.assets/scatter_in_buckets_recursively.png){ class="animation-figure" }
 
-<p align="center"> 图 11-14 &nbsp; 递归划分桶 </p>
+<p align="center"> Figure 11-14 &nbsp; Recursive division of buckets </p>
 
-如果我们提前知道商品价格的概率分布，**则可以根据数据概率分布设置每个桶的价格分界线**。值得注意的是，数据分布并不一定需要特意统计，也可以根据数据特点采用某种概率模型进行近似。
+If we know the probability distribution of product prices in advance, **we can set the price dividing line for each bucket based on the data probability distribution**. It is worth noting that it is not necessarily required to specifically calculate the data distribution; it can also be approximated based on data characteristics using some probability model.
 
-如图 11-15 所示，我们假设商品价格服从正态分布，这样就可以合理地设定价格区间，从而将商品平均分配到各个桶中。
+As shown in the Figure 11-15 , we assume that product prices follow a normal distribution, allowing us to reasonably set the price intervals, thereby evenly distributing the products into the respective buckets.
 
-![根据概率分布划分桶](bucket_sort.assets/scatter_in_buckets_distribution.png){ class="animation-figure" }
+![Dividing buckets based on probability distribution](bucket_sort.assets/scatter_in_buckets_distribution.png){ class="animation-figure" }
 
-<p align="center"> 图 11-15 &nbsp; 根据概率分布划分桶 </p>
+<p align="center"> Figure 11-15 &nbsp; Dividing buckets based on probability distribution </p>

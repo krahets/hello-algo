@@ -18,5 +18,5 @@ icon: material/view-list-outline
 - [4.1 &nbsp; Array](array.md)
 - [4.2 &nbsp; Linked list](linked_list.md)
 - [4.3 &nbsp; List](list.md)
-- [4.4 &nbsp; Memory and cache](ram_and_cache.md)
+- [4.4 &nbsp; Memory and cache *](ram_and_cache.md)
 - [4.5 &nbsp; Summary](summary.md)

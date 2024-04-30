@@ -2,28 +2,28 @@
 comments: true
 ---
 
-# 11.6 &nbsp; 归并排序
+# 11.6 &nbsp; Merge sort
 
-<u>归并排序（merge sort）</u>是一种基于分治策略的排序算法，包含图 11-10 所示的“划分”和“合并”阶段。
+<u>Merge sort</u> is a sorting algorithm based on the divide-and-conquer strategy, involving the "divide" and "merge" phases shown in the following figure.
 
-1. **划分阶段**：通过递归不断地将数组从中点处分开，将长数组的排序问题转换为短数组的排序问题。
-2. **合并阶段**：当子数组长度为 1 时终止划分，开始合并，持续地将左右两个较短的有序数组合并为一个较长的有序数组，直至结束。
+1. **Divide phase**: Recursively split the array from the midpoint, transforming the sorting problem of a long array into that of shorter arrays.
+2. **Merge phase**: Stop dividing when the length of the sub-array is 1, start merging, and continuously combine two shorter ordered arrays into one longer ordered array until the process is complete.
 
-![归并排序的划分与合并阶段](merge_sort.assets/merge_sort_overview.png){ class="animation-figure" }
+![The divide and merge phases of merge sort](merge_sort.assets/merge_sort_overview.png){ class="animation-figure" }
 
-<p align="center"> 图 11-10 &nbsp; 归并排序的划分与合并阶段 </p>
+<p align="center"> Figure 11-10 &nbsp; The divide and merge phases of merge sort </p>
 
-## 11.6.1 &nbsp; 算法流程
+## 11.6.1 &nbsp; Algorithm workflow
 
-如图 11-11 所示，“划分阶段”从顶至底递归地将数组从中点切分为两个子数组。
+As shown in the Figure 11-11 , the "divide phase" recursively splits the array from the midpoint into two sub-arrays from top to bottom.
 
-1. 计算数组中点 `mid` ，递归划分左子数组（区间 `[left, mid]` ）和右子数组（区间 `[mid + 1, right]` ）。
-2. 递归执行步骤 `1.` ，直至子数组区间长度为 1 时终止。
+1. Calculate the midpoint `mid`, recursively divide the left sub-array (interval `[left, mid]`) and the right sub-array (interval `[mid + 1, right]`).
+2. Continue with step `1.` recursively until the sub-array interval length is 1 to stop.
 
-“合并阶段”从底至顶地将左子数组和右子数组合并为一个有序数组。需要注意的是，从长度为 1 的子数组开始合并，合并阶段中的每个子数组都是有序的。
+The "merge phase" combines the left and right sub-arrays into a single ordered array from bottom to top. Note that merging starts with sub-arrays of length 1, and each sub-array is ordered during the merge phase.
 
 === "<1>"
-    ![归并排序步骤](merge_sort.assets/merge_sort_step1.png){ class="animation-figure" }
+    ![Merge sort process](merge_sort.assets/merge_sort_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png){ class="animation-figure" }
@@ -52,14 +52,14 @@ comments: true
 === "<10>"
     ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png){ class="animation-figure" }
 
-<p align="center"> 图 11-11 &nbsp; 归并排序步骤 </p>
+<p align="center"> Figure 11-11 &nbsp; Merge sort process </p>
 
-观察发现，归并排序与二叉树后序遍历的递归顺序是一致的。
+It is observed that the order of recursion in merge sort is consistent with the post-order traversal of a binary tree.
 
-- **后序遍历**：先递归左子树，再递归右子树，最后处理根节点。
-- **归并排序**：先递归左子数组，再递归右子数组，最后处理合并。
+- **Post-order traversal**: First recursively traverse the left subtree, then the right subtree, and finally handle the root node.
+- **Merge sort**: First recursively handle the left sub-array, then the right sub-array, and finally perform the merge.
 
-归并排序的实现如以下代码所示。请注意，`nums` 的待合并区间为 `[left, right]` ，而 `tmp` 的对应区间为 `[0, right - left]` 。
+The implementation of merge sort is shown in the following code. Note that the interval to be merged in `nums` is `[left, right]`, while the corresponding interval in `tmp` is `[0, right - left]`.
 
 === "Python"
 
@@ -733,22 +733,22 @@ comments: true
     }
     ```
 
-??? pythontutor "可视化运行"
+??? pythontutor "Code Visualization"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20merge%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20mid%3A%20int,%20right%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%90%88%E5%B9%B6%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%22%22%22%0A%20%20%20%20%23%20%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5Bleft,%20mid%5D,%20%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5Bmid%2B1,%20right%5D%0A%20%20%20%20%23%20%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%B4%E6%97%B6%E6%95%B0%E7%BB%84%20tmp%20%EF%BC%8C%E7%94%A8%E4%BA%8E%E5%AD%98%E6%94%BE%E5%90%88%E5%B9%B6%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C%0A%20%20%20%20tmp%20%3D%20%5B0%5D%20*%20%28right%20-%20left%20%2B%201%29%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E8%B5%B7%E5%A7%8B%E7%B4%A2%E5%BC%95%0A%20%20%20%20i,%20j,%20k%20%3D%20left,%20mid%20%2B%201,%200%0A%20%20%20%20%23%20%E5%BD%93%E5%B7%A6%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%E9%83%BD%E8%BF%98%E6%9C%89%E5%85%83%E7%B4%A0%E6%97%B6%EF%BC%8C%E8%BF%9B%E8%A1%8C%E6%AF%94%E8%BE%83%E5%B9%B6%E5%B0%86%E8%BE%83%E5%B0%8F%E7%9A%84%E5%85%83%E7%B4%A0%E5%A4%8D%E5%88%B6%E5%88%B0%E4%B8%B4%E6%97%B6%E6%95%B0%E7%BB%84%E4%B8%AD%0A%20%20%20%20while%20i%20%3C%3D%20mid%20and%20j%20%3C%3D%20right%3A%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3C%3D%20nums%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%23%20%E5%B0%86%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E5%89%A9%E4%BD%99%E5%85%83%E7%B4%A0%E5%A4%8D%E5%88%B6%E5%88%B0%E4%B8%B4%E6%97%B6%E6%95%B0%E7%BB%84%E4%B8%AD%0A%20%20%20%20while%20i%20%3C%3D%20mid%3A%0A%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20while%20j%20%3C%3D%20right%3A%0A%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%23%20%E5%B0%86%E4%B8%B4%E6%97%B6%E6%95%B0%E7%BB%84%20tmp%20%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0%E5%A4%8D%E5%88%B6%E5%9B%9E%E5%8E%9F%E6%95%B0%E7%BB%84%20nums%20%E7%9A%84%E5%AF%B9%E5%BA%94%E5%8C%BA%E9%97%B4%0A%20%20%20%20for%20k%20in%20range%280,%20len%28tmp%29%29%3A%0A%20%20%20%20%20%20%20%20nums%5Bleft%20%2B%20k%5D%20%3D%20tmp%5Bk%5D%0A%0A%0Adef%20merge_sort%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20right%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20%23%20%E7%BB%88%E6%AD%A2%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20left%20%3E%3D%20right%3A%0A%20%20%20%20%20%20%20%20return%20%20%23%20%E5%BD%93%E5%AD%90%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E4%B8%BA%201%20%E6%97%B6%E7%BB%88%E6%AD%A2%E9%80%92%E5%BD%92%0A%20%20%20%20%23%20%E5%88%92%E5%88%86%E9%98%B6%E6%AE%B5%0A%20%20%20%20mid%20%3D%20%28left%20%2B%20right%29%20//%202%20%20%23%20%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%82%B9%0A%20%20%20%20merge_sort%28nums,%20left,%20mid%29%20%20%23%20%E9%80%92%E5%BD%92%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%0A%20%20%20%20merge_sort%28nums,%20mid%20%2B%201,%20right%29%20%20%23%20%E9%80%92%E5%BD%92%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%0A%20%20%20%20%23%20%E5%90%88%E5%B9%B6%E9%98%B6%E6%AE%B5%0A%20%20%20%20merge%28nums,%20left,%20mid,%20right%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B7,%203,%202,%206,%200,%201,%205,%204%5D%0A%20%20%20%20merge_sort%28nums,%200,%20len%28nums%29%20-%201%29%0A%20%20%20%20print%28%22%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%90%8E%20nums%20%3D%22,%20nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20merge%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20mid%3A%20int,%20right%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%90%88%E5%B9%B6%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%22%22%22%0A%20%20%20%20%23%20%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5Bleft,%20mid%5D,%20%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5Bmid%2B1,%20right%5D%0A%20%20%20%20%23%20%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%B4%E6%97%B6%E6%95%B0%E7%BB%84%20tmp%20%EF%BC%8C%E7%94%A8%E4%BA%8E%E5%AD%98%E6%94%BE%E5%90%88%E5%B9%B6%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C%0A%20%20%20%20tmp%20%3D%20%5B0%5D%20*%20%28right%20-%20left%20%2B%201%29%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E8%B5%B7%E5%A7%8B%E7%B4%A2%E5%BC%95%0A%20%20%20%20i,%20j,%20k%20%3D%20left,%20mid%20%2B%201,%200%0A%20%20%20%20%23%20%E5%BD%93%E5%B7%A6%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%E9%83%BD%E8%BF%98%E6%9C%89%E5%85%83%E7%B4%A0%E6%97%B6%EF%BC%8C%E8%BF%9B%E8%A1%8C%E6%AF%94%E8%BE%83%E5%B9%B6%E5%B0%86%E8%BE%83%E5%B0%8F%E7%9A%84%E5%85%83%E7%B4%A0%E5%A4%8D%E5%88%B6%E5%88%B0%E4%B8%B4%E6%97%B6%E6%95%B0%E7%BB%84%E4%B8%AD%0A%20%20%20%20while%20i%20%3C%3D%20mid%20and%20j%20%3C%3D%20right%3A%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3C%3D%20nums%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%23%20%E5%B0%86%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E5%89%A9%E4%BD%99%E5%85%83%E7%B4%A0%E5%A4%8D%E5%88%B6%E5%88%B0%E4%B8%B4%E6%97%B6%E6%95%B0%E7%BB%84%E4%B8%AD%0A%20%20%20%20while%20i%20%3C%3D%20mid%3A%0A%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20while%20j%20%3C%3D%20right%3A%0A%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%23%20%E5%B0%86%E4%B8%B4%E6%97%B6%E6%95%B0%E7%BB%84%20tmp%20%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0%E5%A4%8D%E5%88%B6%E5%9B%9E%E5%8E%9F%E6%95%B0%E7%BB%84%20nums%20%E7%9A%84%E5%AF%B9%E5%BA%94%E5%8C%BA%E9%97%B4%0A%20%20%20%20for%20k%20in%20range%280,%20len%28tmp%29%29%3A%0A%20%20%20%20%20%20%20%20nums%5Bleft%20%2B%20k%5D%20%3D%20tmp%5Bk%5D%0A%0A%0Adef%20merge_sort%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20right%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20%23%20%E7%BB%88%E6%AD%A2%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20left%20%3E%3D%20right%3A%0A%20%20%20%20%20%20%20%20return%20%20%23%20%E5%BD%93%E5%AD%90%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E4%B8%BA%201%20%E6%97%B6%E7%BB%88%E6%AD%A2%E9%80%92%E5%BD%92%0A%20%20%20%20%23%20%E5%88%92%E5%88%86%E9%98%B6%E6%AE%B5%0A%20%20%20%20mid%20%3D%20%28left%20%2B%20right%29%20//%202%20%20%23%20%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%82%B9%0A%20%20%20%20merge_sort%28nums,%20left,%20mid%29%20%20%23%20%E9%80%92%E5%BD%92%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%0A%20%20%20%20merge_sort%28nums,%20mid%20%2B%201,%20right%29%20%20%23%20%E9%80%92%E5%BD%92%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%0A%20%20%20%20%23%20%E5%90%88%E5%B9%B6%E9%98%B6%E6%AE%B5%0A%20%20%20%20merge%28nums,%20left,%20mid,%20right%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B7,%203,%202,%206,%200,%201,%205,%204%5D%0A%20%20%20%20merge_sort%28nums,%200,%20len%28nums%29%20-%201%29%0A%20%20%20%20print%28%22%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%90%8E%20nums%20%3D%22,%20nums%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20merge%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20mid%3A%20int,%20right%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%90%88%E5%B9%B6%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%22%22%22%0A%20%20%20%20%23%20%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5Bleft,%20mid%5D,%20%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5Bmid%2B1,%20right%5D%0A%20%20%20%20%23%20%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%B4%E6%97%B6%E6%95%B0%E7%BB%84%20tmp%20%EF%BC%8C%E7%94%A8%E4%BA%8E%E5%AD%98%E6%94%BE%E5%90%88%E5%B9%B6%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C%0A%20%20%20%20tmp%20%3D%20%5B0%5D%20*%20%28right%20-%20left%20%2B%201%29%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E8%B5%B7%E5%A7%8B%E7%B4%A2%E5%BC%95%0A%20%20%20%20i,%20j,%20k%20%3D%20left,%20mid%20%2B%201,%200%0A%20%20%20%20%23%20%E5%BD%93%E5%B7%A6%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%E9%83%BD%E8%BF%98%E6%9C%89%E5%85%83%E7%B4%A0%E6%97%B6%EF%BC%8C%E8%BF%9B%E8%A1%8C%E6%AF%94%E8%BE%83%E5%B9%B6%E5%B0%86%E8%BE%83%E5%B0%8F%E7%9A%84%E5%85%83%E7%B4%A0%E5%A4%8D%E5%88%B6%E5%88%B0%E4%B8%B4%E6%97%B6%E6%95%B0%E7%BB%84%E4%B8%AD%0A%20%20%20%20while%20i%20%3C%3D%20mid%20and%20j%20%3C%3D%20right%3A%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3C%3D%20nums%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%23%20%E5%B0%86%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E5%89%A9%E4%BD%99%E5%85%83%E7%B4%A0%E5%A4%8D%E5%88%B6%E5%88%B0%E4%B8%B4%E6%97%B6%E6%95%B0%E7%BB%84%E4%B8%AD%0A%20%20%20%20while%20i%20%3C%3D%20mid%3A%0A%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20while%20j%20%3C%3D%20right%3A%0A%20%20%20%20%20%20%20%20tmp%5Bk%5D%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%23%20%E5%B0%86%E4%B8%B4%E6%97%B6%E6%95%B0%E7%BB%84%20tmp%20%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0%E5%A4%8D%E5%88%B6%E5%9B%9E%E5%8E%9F%E6%95%B0%E7%BB%84%20nums%20%E7%9A%84%E5%AF%B9%E5%BA%94%E5%8C%BA%E9%97%B4%0A%20%20%20%20for%20k%20in%20range%280,%20len%28tmp%29%29%3A%0A%20%20%20%20%20%20%20%20nums%5Bleft%20%2B%20k%5D%20%3D%20tmp%5Bk%5D%0A%0A%0Adef%20merge_sort%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20right%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20%23%20%E7%BB%88%E6%AD%A2%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20left%20%3E%3D%20right%3A%0A%20%20%20%20%20%20%20%20return%20%20%23%20%E5%BD%93%E5%AD%90%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E4%B8%BA%201%20%E6%97%B6%E7%BB%88%E6%AD%A2%E9%80%92%E5%BD%92%0A%20%20%20%20%23%20%E5%88%92%E5%88%86%E9%98%B6%E6%AE%B5%0A%20%20%20%20mid%20%3D%20%28left%20%2B%20right%29%20//%202%20%20%23%20%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%82%B9%0A%20%20%20%20merge_sort%28nums,%20left,%20mid%29%20%20%23%20%E9%80%92%E5%BD%92%E5%B7%A6%E5%AD%90%E6%95%B0%E7%BB%84%0A%20%20%20%20merge_sort%28nums,%20mid%20%2B%201,%20right%29%20%20%23%20%E9%80%92%E5%BD%92%E5%8F%B3%E5%AD%90%E6%95%B0%E7%BB%84%0A%20%20%20%20%23%20%E5%90%88%E5%B9%B6%E9%98%B6%E6%AE%B5%0A%20%20%20%20merge%28nums,%20left,%20mid,%20right%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B7,%203,%202,%206,%200,%201,%205,%204%5D%0A%20%20%20%20merge_sort%28nums,%200,%20len%28nums%29%20-%201%29%0A%20%20%20%20print%28%22%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%90%8E%20nums%20%3D%22,%20nums%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
-## 11.6.2 &nbsp; 算法特性
+## 11.6.2 &nbsp; Algorithm characteristics
 
-- **时间复杂度为 $O(n \log n)$、非自适应排序**：划分产生高度为 $\log n$ 的递归树，每层合并的总操作数量为 $n$ ，因此总体时间复杂度为 $O(n \log n)$ 。
-- **空间复杂度为 $O(n)$、非原地排序**：递归深度为 $\log n$ ，使用 $O(\log n)$ 大小的栈帧空间。合并操作需要借助辅助数组实现，使用 $O(n)$ 大小的额外空间。
-- **稳定排序**：在合并过程中，相等元素的次序保持不变。
+- **Time complexity of $O(n \log n)$, non-adaptive sort**: The division creates a recursion tree of height $\log n$, with each layer merging a total of $n$ operations, resulting in an overall time complexity of $O(n \log n)$.
+- **Space complexity of $O(n)$, non-in-place sort**: The recursion depth is $\log n$, using $O(\log n)$ stack frame space. The merging operation requires auxiliary arrays, using an additional space of $O(n)$.
+- **Stable sort**: During the merging process, the order of equal elements remains unchanged.
 
-## 11.6.3 &nbsp; 链表排序
+## 11.6.3 &nbsp; Linked List sorting
 
-对于链表，归并排序相较于其他排序算法具有显著优势，**可以将链表排序任务的空间复杂度优化至 $O(1)$** 。
+For linked lists, merge sort has significant advantages over other sorting algorithms, **optimizing the space complexity of the linked list sorting task to $O(1)$**.
 
-- **划分阶段**：可以使用“迭代”替代“递归”来实现链表划分工作，从而省去递归使用的栈帧空间。
-- **合并阶段**：在链表中，节点增删操作仅需改变引用（指针）即可实现，因此合并阶段（将两个短有序链表合并为一个长有序链表）无须创建额外链表。
+- **Divide phase**: "Iteration" can be used instead of "recursion" to perform the linked list division work, thus saving the stack frame space used by recursion.
+- **Merge phase**: In linked lists, node addition and deletion operations can be achieved by changing references (pointers), so no extra lists need to be created during the merge phase (combining two short ordered lists into one long ordered list).
 
-具体实现细节比较复杂，有兴趣的读者可以查阅相关资料进行学习。
+Detailed implementation details are complex, and interested readers can consult related materials for learning.
