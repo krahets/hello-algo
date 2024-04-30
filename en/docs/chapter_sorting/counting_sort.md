@@ -73,9 +73,7 @@ The implementation code of counting sort is shown below:
 
 - **Time complexity is $O(n + m)$, non-adaptive sort**: Involves traversing `nums` and `counter`, both using linear time. Generally, $n \gg m$, and the time complexity tends towards $O(n)$.
 - **Space complexity is $O(n + m)$, non-in-place sort**: Utilizes arrays `res` and `counter` of lengths $n$ and $m$ respectively.
-- **Stable sort**: Since elements are filled into `res` in a "right-to-left" order, reversing the traversal of $nums$ can prevent changing the relative position between equal elements, thereby achieving a stable sort. Actually, traversing `nums$ in
-
- order can also produce the correct sorting result, but the outcome is unstable.
+- **Stable sort**: Since elements are filled into `res` in a "right-to-left" order, reversing the traversal of `nums` can prevent changing the relative position between equal elements, thereby achieving a stable sort. Actually, traversing `nums` in order can also produce the correct sorting result, but the outcome is unstable.
 
 ## Limitations
 

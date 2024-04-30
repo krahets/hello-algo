@@ -1,4 +1,4 @@
-# Backtracking algorithm
+# Backtracking algorithms
 
 <u>Backtracking algorithm</u> is a method to solve problems by exhaustive search, where the core idea is to start from an initial state and brute force all possible solutions, recording the correct ones until a solution is found or all possible choices are exhausted without finding a solution.
 
@@ -77,7 +77,7 @@ Complex backtracking problems usually involve one or more constraints, **which a
 
 !!! question "Example Three"
 
-    In a binary tree, search for all nodes with a value of $7$ and return the paths from the root to these nodes, **requiring that the paths do not contain nodes with a value of $3**.
+    In a binary tree, search for all nodes with a value of $7$ and return the paths from the root to these nodes, **requiring that the paths do not contain nodes with a value of $3$**.
 
 To meet the above constraints, **we need to add a pruning operation**: during the search process, if a node with a value of $3$ is encountered, it returns early, discontinuing further search. The code is as shown:
 

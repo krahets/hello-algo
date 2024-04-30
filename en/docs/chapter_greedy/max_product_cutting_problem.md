@@ -1,4 +1,4 @@
-# Maximum product after cutting problem
+# Maximum product cutting problem
 
 !!! question
 
@@ -40,7 +40,7 @@ As shown below, when $n \geq 4$, splitting out a $2$ increases the product, **wh
 
 Next, consider which factor is optimal. Among the factors $1$, $2$, and $3$, clearly $1$ is the worst, as $1 \times (n-1) < n$ always holds, meaning splitting out $1$ actually decreases the product.
 
-As shown below, when $n = 6$, $3 \times 3 > 2 \times 2 \times 2$. **This means splitting out $3$ is better than splitting out $2**.
+As shown below, when $n = 6$, $3 \times 3 > 2 \times 2 \times 2$. **This means splitting out $3$ is better than splitting out $2$**.
 
 **Greedy strategy two**: In the splitting scheme, there should be at most two $2$s. Because three $2$s can always be replaced by two $3$s to obtain a higher product.
 

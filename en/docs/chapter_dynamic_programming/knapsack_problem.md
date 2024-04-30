@@ -1,6 +1,6 @@
 # 0-1 Knapsack problem
 
-The knapsack problem is an excellent introductory problem for dynamic programming and is the most common type of problem in dynamic programming. It has many variants, such as the 0-1 knapsack problem, the complete knapsack problem, and the multiple knapsack problem, etc.
+The knapsack problem is an excellent introductory problem for dynamic programming and is the most common type of problem in dynamic programming. It has many variants, such as the 0-1 knapsack problem, the unbounded knapsack problem, and the multiple knapsack problem, etc.
 
 In this section, we will first solve the most common 0-1 knapsack problem.
 

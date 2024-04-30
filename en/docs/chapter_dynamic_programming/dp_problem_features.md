@@ -1,4 +1,4 @@
-# Dynamic programming problem characteristics
+# Characteristics of dynamic programming problems
 
 In the previous section, we learned how dynamic programming solves the original problem by decomposing it into subproblems. In fact, subproblem decomposition is a general algorithmic approach, with different emphases in divide and conquer, dynamic programming, and backtracking.
 

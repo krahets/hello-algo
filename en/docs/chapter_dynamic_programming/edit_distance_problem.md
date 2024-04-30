@@ -33,7 +33,7 @@ We aim to gradually reduce the problem size during the edit process, which enabl
 
 Thus, each round of decision (edit operation) in string $s$ changes the remaining characters in $s$ and $t$ to be matched. Therefore, the state is the $i$-th and $j$-th characters currently considered in $s$ and $t$, denoted as $[i, j]$.
 
-State $[i, j]$ corresponds to the subproblem: **The minimum number of edits required to change the first $i$ characters of $s$ into the first $j$ characters of $t**.
+State $[i, j]$ corresponds to the subproblem: **The minimum number of edits required to change the first $i$ characters of $s$ into the first $j$ characters of $t$**.
 
 From this, we obtain a two-dimensional $dp$ table of size $(i+1) \times (j+1)$.
 
@@ -122,7 +122,7 @@ As shown below, the process of state transition in the edit distance problem is 
 
 Since $dp[i, j]$ is derived from the solutions above $dp[i-1, j]$, to the left $dp[i, j-1]$, and to the upper left $dp[i-1, j-1]$, and direct traversal will lose the upper left solution $dp[i-1, j-1]$, and reverse traversal cannot build $dp[i, j-1]$ in advance, therefore, both traversal orders are not feasible.
 
-For this reason, we can use a variable `leftup` to temporarily store the solution from the upper left $dp[i-1, j-1]`, thus only needing to consider the solutions to the left and above. This situation is similar to the complete knapsack problem, allowing for direct traversal. The code is as follows:
+For this reason, we can use a variable `leftup` to temporarily store the solution from the upper left $dp[i-1, j-1]$, thus only needing to consider the solutions to the left and above. This situation is similar to the unbounded knapsack problem, allowing for direct traversal. The code is as follows:
 
 ```src
 [file]{edit_distance}-[class]{}-[func]{edit_distance_dp_comp}
