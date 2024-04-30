@@ -3595,7 +3595,7 @@
 <h2 id="1021-case-with-no-duplicate-elements">10.2.1 &nbsp; Case with no duplicate elements<a class="headerlink" href="#1021-case-with-no-duplicate-elements" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given an ordered array <code>nums</code> of length <span class="arithmatex">\(n\)</span> and an element <code>target</code>, where the array has no duplicate elements. Now insert <code>target</code> into the array <code>nums</code> while maintaining its order. If the element <code>target</code> already exists in the array, insert it to its left side. Please return the index of <code>target</code> in the array after insertion. See the example shown in the Figure 10-4 .</p>
+<p>Given an ordered array <code>nums</code> of length <span class="arithmatex">\(n\)</span> and an element <code>target</code>, where the array has no duplicate elements. Now insert <code>target</code> into the array <code>nums</code> while maintaining its order. If the element <code>target</code> already exists in the array, insert it to its left side. Please return the index of <code>target</code> in the array after insertion. See the example shown in Figure 10-4.</p>
 </div>
 <p><a class="glightbox" href="../binary_search_insertion.assets/binary_search_insertion_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Example data for binary search insertion point" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_example.png" /></a></p>
 <p align="center"> Figure 10-4 &nbsp; Example data for binary search insertion point </p>
@@ -3886,7 +3886,7 @@
 <p>Based on the previous question, assume the array may contain duplicate elements, all else remains the same.</p>
 </div>
 <p>Suppose there are multiple <code>target</code>s in the array, ordinary binary search can only return the index of one of the <code>target</code>s, <strong>and it cannot determine how many <code>target</code>s are to the left and right of that element</strong>.</p>
-<p>The task requires inserting the target element to the very left, <strong>so we need to find the index of the leftmost <code>target</code> in the array</strong>. Initially consider implementing this through the steps shown in the Figure 10-5 .</p>
+<p>The task requires inserting the target element to the very left, <strong>so we need to find the index of the leftmost <code>target</code> in the array</strong>. Initially consider implementing this through the steps shown in Figure 10-5.</p>
 <ol>
 <li>Perform a binary search, get an arbitrary index of <code>target</code>, denoted as <span class="arithmatex">\(k\)</span>.</li>
 <li>Start from index <span class="arithmatex">\(k\)</span>, and perform a linear search to the left until the leftmost <code>target</code> is found and return.</li>
@@ -3895,7 +3895,7 @@
 <p align="center"> Figure 10-5 &nbsp; Linear search for the insertion point of duplicate elements </p>
 
 <p>Although this method is feasible, it includes linear search, so its time complexity is <span class="arithmatex">\(O(n)\)</span>. This method is inefficient when the array contains many duplicate <code>target</code>s.</p>
-<p>Now consider extending the binary search code. As shown in the Figure 10-6 , the overall process remains the same, each round first calculates the midpoint index <span class="arithmatex">\(m\)</span>, then judges the size relationship between <code>target</code> and <code>nums[m]</code>, divided into the following cases.</p>
+<p>Now consider extending the binary search code. As shown in Figure 10-6, the overall process remains the same, each round first calculates the midpoint index <span class="arithmatex">\(m\)</span>, then judges the size relationship between <code>target</code> and <code>nums[m]</code>, divided into the following cases.</p>
 <ul>
 <li>When <code>nums[m] &lt; target</code> or <code>nums[m] &gt; target</code>, it means <code>target</code> has not been found yet, thus use the normal binary search interval reduction operation, <strong>thus making pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> approach <code>target</code></strong>.</li>
 <li>When <code>nums[m] == target</code>, it indicates that the elements less than <code>target</code> are in the interval <span class="arithmatex">\([i, m - 1]\)</span>, therefore use <span class="arithmatex">\(j = m - 1\)</span> to narrow the interval, <strong>thus making pointer <span class="arithmatex">\(j\)</span> approach elements less than <code>target</code></strong>.</li>

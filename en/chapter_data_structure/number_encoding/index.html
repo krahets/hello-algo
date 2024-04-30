@@ -3695,7 +3695,7 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 \]</div>
 <p>Now we can answer the initial question: <strong>The representation of <code>float</code> includes an exponent bit, leading to a much larger range than <code>int</code></strong>. Based on the above calculation, the maximum positive number representable by <code>float</code> is approximately <span class="arithmatex">\(2^{254 - 127} \times (2 - 2^{-23}) \approx 3.4 \times 10^{38}\)</span>, and the minimum negative number is obtained by switching the sign bit.</p>
 <p><strong>However, the trade-off for <code>float</code>'s expanded range is a sacrifice in precision</strong>. The integer type <code>int</code> uses all 32 bits to represent the number, with values evenly distributed; but due to the exponent bit, the larger the value of a <code>float</code>, the greater the difference between adjacent numbers.</p>
-<p>As shown in the Table 3-2 , exponent bits <span class="arithmatex">\(\mathrm{E} = 0\)</span> and <span class="arithmatex">\(\mathrm{E} = 255\)</span> have special meanings, <strong>used to represent zero, infinity, <span class="arithmatex">\(\mathrm{NaN}\)</span>, etc.</strong></p>
+<p>As shown in Table 3-2, exponent bits <span class="arithmatex">\(\mathrm{E} = 0\)</span> and <span class="arithmatex">\(\mathrm{E} = 255\)</span> have special meanings, <strong>used to represent zero, infinity, <span class="arithmatex">\(\mathrm{NaN}\)</span>, etc.</strong></p>
 <p align="center"> Table 3-2 &nbsp; Meaning of exponent bits </p>
 
 <div class="center-table">

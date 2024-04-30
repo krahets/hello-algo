@@ -3613,18 +3613,18 @@
 <p class="admonition-title">Question</p>
 <p>According to the rules of chess, a queen can attack pieces in the same row, column, or on a diagonal line. Given <span class="arithmatex">\(n\)</span> queens and an <span class="arithmatex">\(n \times n\)</span> chessboard, find arrangements where no two queens can attack each other.</p>
 </div>
-<p>As shown in the Figure 13-15 , when <span class="arithmatex">\(n = 4\)</span>, there are two solutions. From the perspective of the backtracking algorithm, an <span class="arithmatex">\(n \times n\)</span> chessboard has <span class="arithmatex">\(n^2\)</span> squares, presenting all possible choices <code>choices</code>. The state of the chessboard <code>state</code> changes continuously as each queen is placed.</p>
+<p>As shown in Figure 13-15, when <span class="arithmatex">\(n = 4\)</span>, there are two solutions. From the perspective of the backtracking algorithm, an <span class="arithmatex">\(n \times n\)</span> chessboard has <span class="arithmatex">\(n^2\)</span> squares, presenting all possible choices <code>choices</code>. The state of the chessboard <code>state</code> changes continuously as each queen is placed.</p>
 <p><a class="glightbox" href="../n_queens_problem.assets/solution_4_queens.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Solution to the 4 queens problem" class="animation-figure" src="../n_queens_problem.assets/solution_4_queens.png" /></a></p>
 <p align="center"> Figure 13-15 &nbsp; Solution to the 4 queens problem </p>
 
-<p>The following image shows the three constraints of this problem: <strong>multiple queens cannot be on the same row, column, or diagonal</strong>. It is important to note that diagonals are divided into the main diagonal <code>\</code> and the secondary diagonal <code>/</code>.</p>
+<p>Figure 13-16 shows the three constraints of this problem: <strong>multiple queens cannot be on the same row, column, or diagonal</strong>. It is important to note that diagonals are divided into the main diagonal <code>\</code> and the secondary diagonal <code>/</code>.</p>
 <p><a class="glightbox" href="../n_queens_problem.assets/n_queens_constraints.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Constraints of the n queens problem" class="animation-figure" src="../n_queens_problem.assets/n_queens_constraints.png" /></a></p>
 <p align="center"> Figure 13-16 &nbsp; Constraints of the n queens problem </p>
 
 <h3 id="1-row-by-row-placing-strategy">1. &nbsp; Row-by-row placing strategy<a class="headerlink" href="#1-row-by-row-placing-strategy" title="Permanent link">&para;</a></h3>
 <p>As the number of queens equals the number of rows on the chessboard, both being <span class="arithmatex">\(n\)</span>, it is easy to conclude: <strong>each row on the chessboard allows and only allows one queen to be placed</strong>.</p>
 <p>This means that we can adopt a row-by-row placing strategy: starting from the first row, place one queen per row until the last row is reached.</p>
-<p>The image below shows the row-by-row placing process for the 4 queens problem. Due to space limitations, the image only expands one search branch of the first row, and prunes any placements that do not meet the column and diagonal constraints.</p>
+<p>Figure 13-17 shows the row-by-row placing process for the 4 queens problem. Due to space limitations, the figure only expands one search branch of the first row, and prunes any placements that do not meet the column and diagonal constraints.</p>
 <p><a class="glightbox" href="../n_queens_problem.assets/n_queens_placing.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Row-by-row placing strategy" class="animation-figure" src="../n_queens_problem.assets/n_queens_placing.png" /></a></p>
 <p align="center"> Figure 13-17 &nbsp; Row-by-row placing strategy </p>
 
@@ -3632,7 +3632,7 @@
 <h3 id="2-column-and-diagonal-pruning">2. &nbsp; Column and diagonal pruning<a class="headerlink" href="#2-column-and-diagonal-pruning" title="Permanent link">&para;</a></h3>
 <p>To satisfy column constraints, we can use a boolean array <code>cols</code> of length <span class="arithmatex">\(n\)</span> to track whether a queen occupies each column. Before each placement decision, <code>cols</code> is used to prune the columns that already have queens, and it is dynamically updated during backtracking.</p>
 <p>How about the diagonal constraints? Let the row and column indices of a cell on the chessboard be <span class="arithmatex">\((row, col)\)</span>. By selecting a specific main diagonal, we notice that the difference <span class="arithmatex">\(row - col\)</span> is the same for all cells on that diagonal, <strong>meaning that <span class="arithmatex">\(row - col\)</span> is a constant value on that diagonal</strong>.</p>
-<p>Thus, if two cells satisfy <span class="arithmatex">\(row_1 - col_1 = row_2 - col_2\)</span>, they are definitely on the same main diagonal. Using this pattern, we can utilize the array <code>diags1</code> shown below to track whether a queen is on any main diagonal.</p>
+<p>Thus, if two cells satisfy <span class="arithmatex">\(row_1 - col_1 = row_2 - col_2\)</span>, they are definitely on the same main diagonal. Using this pattern, we can utilize the array <code>diags1</code> shown in Figure 13-18 to track whether a queen is on any main diagonal.</p>
 <p>Similarly, <strong>the sum <span class="arithmatex">\(row + col\)</span> is a constant value for all cells on a secondary diagonal</strong>. We can also use the array <code>diags2</code> to handle secondary diagonal constraints.</p>
 <p><a class="glightbox" href="../n_queens_problem.assets/n_queens_cols_diagonals.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Handling column and diagonal constraints" class="animation-figure" src="../n_queens_problem.assets/n_queens_cols_diagonals.png" /></a></p>
 <p align="center"> Figure 13-18 &nbsp; Handling column and diagonal constraints </p>

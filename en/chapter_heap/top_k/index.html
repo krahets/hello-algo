@@ -3615,7 +3615,7 @@
 </div>
 <p>For this problem, we will first introduce two straightforward solutions, then explain a more efficient heap-based method.</p>
 <h2 id="831-method-1-iterative-selection">8.3.1 &nbsp; Method 1: Iterative selection<a class="headerlink" href="#831-method-1-iterative-selection" title="Permanent link">&para;</a></h2>
-<p>We can perform <span class="arithmatex">\(k\)</span> rounds of iterations as shown in the Figure 8-6 , extracting the <span class="arithmatex">\(1^{st}\)</span>, <span class="arithmatex">\(2^{nd}\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(k^{th}\)</span> largest elements in each round, with a time complexity of <span class="arithmatex">\(O(nk)\)</span>.</p>
+<p>We can perform <span class="arithmatex">\(k\)</span> rounds of iterations as shown in Figure 8-6, extracting the <span class="arithmatex">\(1^{st}\)</span>, <span class="arithmatex">\(2^{nd}\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(k^{th}\)</span> largest elements in each round, with a time complexity of <span class="arithmatex">\(O(nk)\)</span>.</p>
 <p>This method is only suitable when <span class="arithmatex">\(k \ll n\)</span>, as the time complexity approaches <span class="arithmatex">\(O(n^2)\)</span> when <span class="arithmatex">\(k\)</span> is close to <span class="arithmatex">\(n\)</span>, which is very time-consuming.</p>
 <p><a class="glightbox" href="../top_k.assets/top_k_traversal.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Iteratively finding the largest k elements" class="animation-figure" src="../top_k.assets/top_k_traversal.png" /></a></p>
 <p align="center"> Figure 8-6 &nbsp; Iteratively finding the largest k elements </p>
@@ -3625,7 +3625,7 @@
 <p>When <span class="arithmatex">\(k = n\)</span>, we can obtain a complete ordered sequence, which is equivalent to the "selection sort" algorithm.</p>
 </div>
 <h2 id="832-method-2-sorting">8.3.2 &nbsp; Method 2: Sorting<a class="headerlink" href="#832-method-2-sorting" title="Permanent link">&para;</a></h2>
-<p>As shown in the Figure 8-7 , we can first sort the array <code>nums</code> and then return the last <span class="arithmatex">\(k\)</span> elements, with a time complexity of <span class="arithmatex">\(O(n \log n)\)</span>.</p>
+<p>As shown in Figure 8-7, we can first sort the array <code>nums</code> and then return the last <span class="arithmatex">\(k\)</span> elements, with a time complexity of <span class="arithmatex">\(O(n \log n)\)</span>.</p>
 <p>Clearly, this method "overachieves" the task, as we only need to find the largest <span class="arithmatex">\(k\)</span> elements, without the need to sort the other elements.</p>
 <p><a class="glightbox" href="../top_k.assets/top_k_sorting.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Sorting to find the largest k elements" class="animation-figure" src="../top_k.assets/top_k_sorting.png" /></a></p>
 <p align="center"> Figure 8-7 &nbsp; Sorting to find the largest k elements </p>

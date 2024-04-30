@@ -3844,11 +3844,11 @@
 <!-- Page content -->
 <h1 id="75-avl-tree">7.5 &nbsp; AVL tree *<a class="headerlink" href="#75-avl-tree" title="Permanent link">&para;</a></h1>
 <p>In the "Binary Search Tree" section, we mentioned that after multiple insertions and removals, a binary search tree might degrade to a linked list. In such cases, the time complexity of all operations degrades from <span class="arithmatex">\(O(\log n)\)</span> to <span class="arithmatex">\(O(n)\)</span>.</p>
-<p>As shown in the Figure 7-24 , after two node removal operations, this binary search tree will degrade into a linked list.</p>
+<p>As shown in Figure 7-24, after two node removal operations, this binary search tree will degrade into a linked list.</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_degradation_from_removing_node.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Degradation of an AVL tree after removing nodes" class="animation-figure" src="../avl_tree.assets/avltree_degradation_from_removing_node.png" /></a></p>
 <p align="center"> Figure 7-24 &nbsp; Degradation of an AVL tree after removing nodes </p>
 
-<p>For example, in the perfect binary tree shown in the Figure 7-25 , after inserting two nodes, the tree will lean heavily to the left, and the time complexity of search operations will also degrade.</p>
+<p>For example, in the perfect binary tree shown in Figure 7-25, after inserting two nodes, the tree will lean heavily to the left, and the time complexity of search operations will also degrade.</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_degradation_from_inserting_node.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Degradation of an AVL tree after inserting nodes" class="animation-figure" src="../avl_tree.assets/avltree_degradation_from_inserting_node.png" /></a></p>
 <p align="center"> Figure 7-25 &nbsp; Degradation of an AVL tree after inserting nodes </p>
 
@@ -4432,7 +4432,7 @@
 <p>The characteristic feature of an AVL tree is the "rotation" operation, which can restore balance to an unbalanced node without affecting the in-order traversal sequence of the binary tree. In other words, <strong>the rotation operation can maintain the property of a "binary search tree" while also turning the tree back into a "balanced binary tree"</strong>.</p>
 <p>We call nodes with an absolute balance factor <span class="arithmatex">\(&gt; 1\)</span> "unbalanced nodes". Depending on the type of imbalance, there are four kinds of rotations: right rotation, left rotation, right-left rotation, and left-right rotation. Below, we detail these rotation operations.</p>
 <h3 id="1-right-rotation">1. &nbsp; Right rotation<a class="headerlink" href="#1-right-rotation" title="Permanent link">&para;</a></h3>
-<p>As shown in the Figure 7-26 , the first unbalanced node from the bottom up in the binary tree is "node 3". Focusing on the subtree with this unbalanced node as the root, denoted as <code>node</code>, and its left child as <code>child</code>, perform a "right rotation". After the right rotation, the subtree is balanced again while still maintaining the properties of a binary search tree.</p>
+<p>As shown in Figure 7-26, the first unbalanced node from the bottom up in the binary tree is "node 3". Focusing on the subtree with this unbalanced node as the root, denoted as <code>node</code>, and its left child as <code>child</code>, perform a "right rotation". After the right rotation, the subtree is balanced again while still maintaining the properties of a binary search tree.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4451,7 +4451,7 @@
 </div>
 <p align="center"> Figure 7-26 &nbsp; Steps of right rotation </p>
 
-<p>As shown in the Figure 7-27 , when the <code>child</code> node has a right child (denoted as <code>grand_child</code>), a step needs to be added in the right rotation: set <code>grand_child</code> as the left child of <code>node</code>.</p>
+<p>As shown in Figure 7-27, when the <code>child</code> node has a right child (denoted as <code>grand_child</code>), a step needs to be added in the right rotation: set <code>grand_child</code> as the left child of <code>node</code>.</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_right_rotate_with_grandchild.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Right rotation with grand_child" class="animation-figure" src="../avl_tree.assets/avltree_right_rotate_with_grandchild.png" /></a></p>
 <p align="center"> Figure 7-27 &nbsp; Right rotation with grand_child </p>
 
@@ -4690,11 +4690,11 @@
 </div>
 </div>
 <h3 id="2-left-rotation">2. &nbsp; Left rotation<a class="headerlink" href="#2-left-rotation" title="Permanent link">&para;</a></h3>
-<p>Correspondingly, if considering the "mirror" of the above unbalanced binary tree, the "left rotation" operation shown in the Figure 7-28  needs to be performed.</p>
+<p>Correspondingly, if considering the "mirror" of the above unbalanced binary tree, the "left rotation" operation shown in Figure 7-28 needs to be performed.</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_left_rotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Left rotation operation" class="animation-figure" src="../avl_tree.assets/avltree_left_rotate.png" /></a></p>
 <p align="center"> Figure 7-28 &nbsp; Left rotation operation </p>
 
-<p>Similarly, as shown in the Figure 7-29 , when the <code>child</code> node has a left child (denoted as <code>grand_child</code>), a step needs to be added in the left rotation: set <code>grand_child</code> as the right child of <code>node</code>.</p>
+<p>Similarly, as shown in Figure 7-29, when the <code>child</code> node has a left child (denoted as <code>grand_child</code>), a step needs to be added in the left rotation: set <code>grand_child</code> as the right child of <code>node</code>.</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_left_rotate_with_grandchild.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Left rotation with grand_child" class="animation-figure" src="../avl_tree.assets/avltree_left_rotate_with_grandchild.png" /></a></p>
 <p align="center"> Figure 7-29 &nbsp; Left rotation with grand_child </p>
 
@@ -4933,21 +4933,21 @@
 </div>
 </div>
 <h3 id="3-right-left-rotation">3. &nbsp; Right-left rotation<a class="headerlink" href="#3-right-left-rotation" title="Permanent link">&para;</a></h3>
-<p>For the unbalanced node 3 shown in the Figure 7-30 , using either left or right rotation alone cannot restore balance to the subtree. In this case, a "left rotation" needs to be performed on <code>child</code> first, followed by a "right rotation" on <code>node</code>.</p>
+<p>For the unbalanced node 3 shown in Figure 7-30, using either left or right rotation alone cannot restore balance to the subtree. In this case, a "left rotation" needs to be performed on <code>child</code> first, followed by a "right rotation" on <code>node</code>.</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_left_right_rotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Right-left rotation" class="animation-figure" src="../avl_tree.assets/avltree_left_right_rotate.png" /></a></p>
 <p align="center"> Figure 7-30 &nbsp; Right-left rotation </p>
 
 <h3 id="4-left-right-rotation">4. &nbsp; Left-right rotation<a class="headerlink" href="#4-left-right-rotation" title="Permanent link">&para;</a></h3>
-<p>As shown in the Figure 7-31 , for the mirror case of the above unbalanced binary tree, a "right rotation" needs to be performed on <code>child</code> first, followed by a "left rotation" on <code>node</code>.</p>
+<p>As shown in Figure 7-31, for the mirror case of the above unbalanced binary tree, a "right rotation" needs to be performed on <code>child</code> first, followed by a "left rotation" on <code>node</code>.</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_right_left_rotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Left-right rotation" class="animation-figure" src="../avl_tree.assets/avltree_right_left_rotate.png" /></a></p>
 <p align="center"> Figure 7-31 &nbsp; Left-right rotation </p>
 
 <h3 id="5-choice-of-rotation">5. &nbsp; Choice of rotation<a class="headerlink" href="#5-choice-of-rotation" title="Permanent link">&para;</a></h3>
-<p>The four kinds of imbalances shown in the Figure 7-32  correspond to the cases described above, respectively requiring right rotation, left-right rotation, right-left rotation, and left rotation.</p>
+<p>The four kinds of imbalances shown in Figure 7-32 correspond to the cases described above, respectively requiring right rotation, left-right rotation, right-left rotation, and left rotation.</p>
 <p><a class="glightbox" href="../avl_tree.assets/avltree_rotation_cases.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="The four rotation cases of AVL tree" class="animation-figure" src="../avl_tree.assets/avltree_rotation_cases.png" /></a></p>
 <p align="center"> Figure 7-32 &nbsp; The four rotation cases of AVL tree </p>
 
-<p>As shown in the Table 7-3 , we determine which of the above cases an unbalanced node belongs to by judging the sign of the balance factor of the unbalanced node and its higher-side child's balance factor.</p>
+<p>As shown in Table 7-3, we determine which of the above cases an unbalanced node belongs to by judging the sign of the balance factor of the unbalanced node and its higher-side child's balance factor.</p>
 <p align="center"> Table 7-3 &nbsp; Conditions for Choosing Among the Four Rotation Cases </p>
 
 <div class="center-table">

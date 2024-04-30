@@ -3706,7 +3706,7 @@
 <!-- Page content -->
 <h1 id="132-permutation-problem">13.2 &nbsp; Permutation problem<a class="headerlink" href="#132-permutation-problem" title="Permanent link">&para;</a></h1>
 <p>The permutation problem is a typical application of the backtracking algorithm. It is defined as finding all possible arrangements of elements from a given set (such as an array or string).</p>
-<p>The Table 13-2  lists several example data, including the input arrays and their corresponding permutations.</p>
+<p>Table 13-2 lists several example data, including the input arrays and their corresponding permutations.</p>
 <p align="center"> Table 13-2 &nbsp; Permutation examples </p>
 
 <div class="center-table">
@@ -3740,7 +3740,7 @@
 </div>
 <p>From the perspective of the backtracking algorithm, <strong>we can imagine the process of generating permutations as a series of choices</strong>. Suppose the input array is <span class="arithmatex">\([1, 2, 3]\)</span>, if we first choose <span class="arithmatex">\(1\)</span>, then <span class="arithmatex">\(3\)</span>, and finally <span class="arithmatex">\(2\)</span>, we obtain the permutation <span class="arithmatex">\([1, 3, 2]\)</span>. Backtracking means undoing a choice and then continuing to try other choices.</p>
 <p>From the code perspective, the candidate set <code>choices</code> contains all elements of the input array, and the state <code>state</code> contains elements that have been selected so far. Please note that each element can only be chosen once, <strong>thus all elements in <code>state</code> must be unique</strong>.</p>
-<p>As shown in the following figure, we can unfold the search process into a recursive tree, where each node represents the current state <code>state</code>. Starting from the root node, after three rounds of choices, we reach the leaf nodes, each corresponding to a permutation.</p>
+<p>As shown in Figure 13-5, we can unfold the search process into a recursive tree, where each node represents the current state <code>state</code>. Starting from the root node, after three rounds of choices, we reach the leaf nodes, each corresponding to a permutation.</p>
 <p><a class="glightbox" href="../permutations_problem.assets/permutations_i.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Permutation recursive tree" class="animation-figure" src="../permutations_problem.assets/permutations_i.png" /></a></p>
 <p align="center"> Figure 13-5 &nbsp; Permutation recursive tree </p>
 
@@ -3750,11 +3750,11 @@
 <li>After making the choice <code>choice[i]</code>, we set <code>selected[i]</code> to <span class="arithmatex">\(\text{True}\)</span>, indicating it has been chosen.</li>
 <li>When iterating through the choice list <code>choices</code>, skip all nodes that have already been selected, i.e., prune.</li>
 </ul>
-<p>As shown in the following figure, suppose we choose 1 in the first round, 3 in the second round, and 2 in the third round, we need to prune the branch of element 1 in the second round and elements 1 and 3 in the third round.</p>
+<p>As shown in Figure 13-6, suppose we choose 1 in the first round, 3 in the second round, and 2 in the third round, we need to prune the branch of element 1 in the second round and elements 1 and 3 in the third round.</p>
 <p><a class="glightbox" href="../permutations_problem.assets/permutations_i_pruning.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Permutation pruning example" class="animation-figure" src="../permutations_problem.assets/permutations_i_pruning.png" /></a></p>
 <p align="center"> Figure 13-6 &nbsp; Permutation pruning example </p>
 
-<p>Observing the above figure, this pruning operation reduces the search space size from <span class="arithmatex">\(O(n^n)\)</span> to <span class="arithmatex">\(O(n!)\)</span>.</p>
+<p>Observing Figure 13-6, this pruning operation reduces the search space size from <span class="arithmatex">\(O(n^n)\)</span> to <span class="arithmatex">\(O(n!)\)</span>.</p>
 <h3 id="2-code-implementation">2. &nbsp; Code implementation<a class="headerlink" href="#2-code-implementation" title="Permanent link">&para;</a></h3>
 <p>After understanding the above information, we can "fill in the blanks" in the framework code. To shorten the overall code, we do not implement individual functions within the framework code separately, but expand them in the <code>backtrack()</code> function:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:14"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><input id="__tabbed_1_14" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label><label for="__tabbed_1_14">Zig</label></div>
@@ -4208,13 +4208,13 @@
 <p>Enter an integer array, <strong>which may contain duplicate elements</strong>, and return all unique permutations.</p>
 </div>
 <p>Suppose the input array is <span class="arithmatex">\([1, 1, 2]\)</span>. To differentiate the two duplicate elements <span class="arithmatex">\(1\)</span>, we mark the second <span class="arithmatex">\(1\)</span> as <span class="arithmatex">\(\hat{1}\)</span>.</p>
-<p>As shown in the following figure, half of the permutations generated by the above method are duplicates.</p>
+<p>As shown in Figure 13-7, half of the permutations generated by the above method are duplicates.</p>
 <p><a class="glightbox" href="../permutations_problem.assets/permutations_ii.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Duplicate permutations" class="animation-figure" src="../permutations_problem.assets/permutations_ii.png" /></a></p>
 <p align="center"> Figure 13-7 &nbsp; Duplicate permutations </p>
 
 <p>So, how do we eliminate duplicate permutations? Most directly, consider using a hash set to deduplicate permutation results. However, this is not elegant, <strong>as branches generating duplicate permutations are unnecessary and should be identified and pruned in advance</strong>, which can further improve algorithm efficiency.</p>
 <h3 id="1-pruning-of-equal-elements">1. &nbsp; Pruning of equal elements<a class="headerlink" href="#1-pruning-of-equal-elements" title="Permanent link">&para;</a></h3>
-<p>Observing the following figure, in the first round, choosing <span class="arithmatex">\(1\)</span> or <span class="arithmatex">\(\hat{1}\)</span> results in identical permutations under both choices, thus we should prune <span class="arithmatex">\(\hat{1}\)</span>.</p>
+<p>Observing Figure 13-8, in the first round, choosing <span class="arithmatex">\(1\)</span> or <span class="arithmatex">\(\hat{1}\)</span> results in identical permutations under both choices, thus we should prune <span class="arithmatex">\(\hat{1}\)</span>.</p>
 <p>Similarly, after choosing <span class="arithmatex">\(2\)</span> in the first round, choosing <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(\hat{1}\)</span> in the second round also produces duplicate branches, so we should also prune <span class="arithmatex">\(\hat{1}\)</span> in the second round.</p>
 <p>Essentially, <strong>our goal is to ensure that multiple equal elements are only selected once in each round of choices</strong>.</p>
 <p><a class="glightbox" href="../permutations_problem.assets/permutations_ii_pruning.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Duplicate permutations pruning" class="animation-figure" src="../permutations_problem.assets/permutations_ii_pruning.png" /></a></p>
@@ -4700,7 +4700,7 @@
 <li><strong>Repeated choice pruning</strong>: There is only one <code>selected</code> throughout the search process. It records which elements are currently in the state, aiming to prevent an element from appearing repeatedly in <code>state</code>.</li>
 <li><strong>Equal element pruning</strong>: Each round of choices (each call to the <code>backtrack</code> function) contains a <code>duplicated</code>. It records which elements have been chosen in the current traversal (<code>for</code> loop), aiming to ensure equal elements are selected only once.</li>
 </ul>
-<p>The following figure shows the scope of the two pruning conditions. Note, each node in the tree represents a choice, and the nodes from the root to the leaf form a permutation.</p>
+<p>Figure 13-9 shows the scope of the two pruning conditions. Note, each node in the tree represents a choice, and the nodes from the root to the leaf form a permutation.</p>
 <p><a class="glightbox" href="../permutations_problem.assets/permutations_ii_pruning_summary.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Scope of the two pruning conditions" class="animation-figure" src="../permutations_problem.assets/permutations_ii_pruning_summary.png" /></a></p>
 <p align="center"> Figure 13-9 &nbsp; Scope of the two pruning conditions </p>
 

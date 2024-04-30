@@ -3933,12 +3933,12 @@
 </div>
 </div>
 <p>Each node has two references (pointers), pointing to the "left-child node" and "right-child node," respectively. This node is called the "parent node" of these two child nodes. When given a node of a binary tree, we call the tree formed by this node's left child and all nodes under it the "left subtree" of this node. Similarly, the "right subtree" can be defined.</p>
-<p><strong>In a binary tree, except for leaf nodes, all other nodes contain child nodes and non-empty subtrees.</strong> As shown in the Figure 7-1 , if "Node 2" is considered as the parent node, then its left and right child nodes are "Node 4" and "Node 5," respectively. The left subtree is "the tree formed by Node 4 and all nodes under it," and the right subtree is "the tree formed by Node 5 and all nodes under it."</p>
+<p><strong>In a binary tree, except for leaf nodes, all other nodes contain child nodes and non-empty subtrees.</strong> As shown in Figure 7-1, if "Node 2" is considered as the parent node, then its left and right child nodes are "Node 4" and "Node 5," respectively. The left subtree is "the tree formed by Node 4 and all nodes under it," and the right subtree is "the tree formed by Node 5 and all nodes under it."</p>
 <p><a class="glightbox" href="../binary_tree.assets/binary_tree_definition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Parent Node, child Node, subtree" class="animation-figure" src="../binary_tree.assets/binary_tree_definition.png" /></a></p>
 <p align="center"> Figure 7-1 &nbsp; Parent Node, child Node, subtree </p>
 
 <h2 id="711-common-terminology-of-binary-trees">7.1.1 &nbsp; Common terminology of binary trees<a class="headerlink" href="#711-common-terminology-of-binary-trees" title="Permanent link">&para;</a></h2>
-<p>The commonly used terminology of binary trees is shown in the following figure.</p>
+<p>The commonly used terminology of binary trees is shown in Figure 7-2.</p>
 <ul>
 <li>"Root node": The node at the top level of the binary tree, which has no parent node.</li>
 <li>"Leaf node": A node with no children, both of its pointers point to <code>None</code>.</li>
@@ -4152,7 +4152,7 @@
 <p>https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%8F%89%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%8A%82%E7%82%B9%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%EF%BC%88%E6%8C%87%E9%92%88%EF%BC%89%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&amp;cumulative=false&amp;curInstr=3&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false</p>
 </details>
 <h3 id="2-inserting-and-removing-nodes">2. &nbsp; Inserting and removing nodes<a class="headerlink" href="#2-inserting-and-removing-nodes" title="Permanent link">&para;</a></h3>
-<p>Similar to a linked list, inserting and removing nodes in a binary tree can be achieved by modifying pointers. The Figure 7-3  provides an example.</p>
+<p>Similar to a linked list, inserting and removing nodes in a binary tree can be achieved by modifying pointers. Figure 7-3 provides an example.</p>
 <p><a class="glightbox" href="../binary_tree.assets/binary_tree_add_remove.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Inserting and removing nodes in a binary tree" class="animation-figure" src="../binary_tree.assets/binary_tree_add_remove.png" /></a></p>
 <p align="center"> Figure 7-3 &nbsp; Inserting and removing nodes in a binary tree </p>
 
@@ -4294,7 +4294,7 @@
 </div>
 <h2 id="713-common-types-of-binary-trees">7.1.3 &nbsp; Common types of binary trees<a class="headerlink" href="#713-common-types-of-binary-trees" title="Permanent link">&para;</a></h2>
 <h3 id="1-perfect-binary-tree">1. &nbsp; Perfect binary tree<a class="headerlink" href="#1-perfect-binary-tree" title="Permanent link">&para;</a></h3>
-<p>As shown in the Figure 7-4 , in a "perfect binary tree," all levels of nodes are fully filled. In a perfect binary tree, the degree of leaf nodes is <span class="arithmatex">\(0\)</span>, and the degree of all other nodes is <span class="arithmatex">\(2\)</span>; if the tree's height is <span class="arithmatex">\(h\)</span>, then the total number of nodes is <span class="arithmatex">\(2^{h+1} - 1\)</span>, showing a standard exponential relationship, reflecting the common phenomenon of cell division in nature.</p>
+<p>As shown in Figure 7-4, in a "perfect binary tree," all levels of nodes are fully filled. In a perfect binary tree, the degree of leaf nodes is <span class="arithmatex">\(0\)</span>, and the degree of all other nodes is <span class="arithmatex">\(2\)</span>; if the tree's height is <span class="arithmatex">\(h\)</span>, then the total number of nodes is <span class="arithmatex">\(2^{h+1} - 1\)</span>, showing a standard exponential relationship, reflecting the common phenomenon of cell division in nature.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Please note that in the Chinese community, a perfect binary tree is often referred to as a "full binary tree."</p>
@@ -4303,22 +4303,22 @@
 <p align="center"> Figure 7-4 &nbsp; Perfect binary tree </p>
 
 <h3 id="2-complete-binary-tree">2. &nbsp; Complete binary tree<a class="headerlink" href="#2-complete-binary-tree" title="Permanent link">&para;</a></h3>
-<p>As shown in the Figure 7-5 , a "complete binary tree" has only the bottom level nodes not fully filled, and the bottom level nodes are filled as far left as possible.</p>
+<p>As shown in Figure 7-5, a "complete binary tree" has only the bottom level nodes not fully filled, and the bottom level nodes are filled as far left as possible.</p>
 <p><a class="glightbox" href="../binary_tree.assets/complete_binary_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Complete binary tree" class="animation-figure" src="../binary_tree.assets/complete_binary_tree.png" /></a></p>
 <p align="center"> Figure 7-5 &nbsp; Complete binary tree </p>
 
 <h3 id="3-full-binary-tree">3. &nbsp; Full binary tree<a class="headerlink" href="#3-full-binary-tree" title="Permanent link">&para;</a></h3>
-<p>As shown in the Figure 7-6 , a "full binary tree" has all nodes except leaf nodes having two children.</p>
+<p>As shown in Figure 7-6, a "full binary tree" has all nodes except leaf nodes having two children.</p>
 <p><a class="glightbox" href="../binary_tree.assets/full_binary_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Full binary tree" class="animation-figure" src="../binary_tree.assets/full_binary_tree.png" /></a></p>
 <p align="center"> Figure 7-6 &nbsp; Full binary tree </p>
 
 <h3 id="4-balanced-binary-tree">4. &nbsp; Balanced binary tree<a class="headerlink" href="#4-balanced-binary-tree" title="Permanent link">&para;</a></h3>
-<p>As shown in the Figure 7-7 , in a "balanced binary tree," the absolute difference in height between the left and right subtrees of any node does not exceed 1.</p>
+<p>As shown in Figure 7-7, in a "balanced binary tree," the absolute difference in height between the left and right subtrees of any node does not exceed 1.</p>
 <p><a class="glightbox" href="../binary_tree.assets/balanced_binary_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Balanced binary tree" class="animation-figure" src="../binary_tree.assets/balanced_binary_tree.png" /></a></p>
 <p align="center"> Figure 7-7 &nbsp; Balanced binary tree </p>
 
 <h2 id="714-degeneration-of-binary-trees">7.1.4 &nbsp; Degeneration of binary trees<a class="headerlink" href="#714-degeneration-of-binary-trees" title="Permanent link">&para;</a></h2>
-<p>The Figure 7-8  shows the ideal and degenerate structures of binary trees. When every level of a binary tree is filled, it reaches the "perfect binary tree"; when all nodes are biased towards one side, the binary tree degenerates into a "linked list".</p>
+<p>Figure 7-8 shows the ideal and degenerate structures of binary trees. When every level of a binary tree is filled, it reaches the "perfect binary tree"; when all nodes are biased towards one side, the binary tree degenerates into a "linked list".</p>
 <ul>
 <li>The perfect binary tree is the ideal situation, fully leveraging the "divide and conquer" advantage of binary trees.</li>
 <li>A linked list is another extreme, where operations become linear, degrading the time complexity to <span class="arithmatex">\(O(n)\)</span>.</li>
@@ -4326,7 +4326,7 @@
 <p><a class="glightbox" href="../binary_tree.assets/binary_tree_best_worst_cases.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="The Best and Worst Structures of Binary Trees" class="animation-figure" src="../binary_tree.assets/binary_tree_best_worst_cases.png" /></a></p>
 <p align="center"> Figure 7-8 &nbsp; The Best and Worst Structures of Binary Trees </p>
 
-<p>As shown in the Table 7-1 , in the best and worst structures, the number of leaf nodes, total number of nodes, and height of the binary tree reach their maximum or minimum values.</p>
+<p>As shown in Table 7-1, in the best and worst structures, the number of leaf nodes, total number of nodes, and height of the binary tree reach their maximum or minimum values.</p>
 <p align="center"> Table 7-1 &nbsp; The Best and Worst Structures of Binary Trees </p>
 
 <div class="center-table">

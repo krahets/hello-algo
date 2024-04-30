@@ -3611,12 +3611,12 @@
 <h1 id="114-insertion-sort">11.4 &nbsp; Insertion sort<a class="headerlink" href="#114-insertion-sort" title="Permanent link">&para;</a></h1>
 <p><u>Insertion sort</u> is a simple sorting algorithm that works very much like the process of manually sorting a deck of cards.</p>
 <p>Specifically, we select a pivot element from the unsorted interval, compare it with the elements in the sorted interval to its left, and insert the element into the correct position.</p>
-<p>The Figure 11-6  shows the process of inserting an element into an array. Assuming the pivot element is <code>base</code>, we need to move all elements between the target index and <code>base</code> one position to the right, then assign <code>base</code> to the target index.</p>
+<p>Figure 11-6 shows the process of inserting an element into an array. Assuming the pivot element is <code>base</code>, we need to move all elements between the target index and <code>base</code> one position to the right, then assign <code>base</code> to the target index.</p>
 <p><a class="glightbox" href="../insertion_sort.assets/insertion_operation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Single insertion operation" class="animation-figure" src="../insertion_sort.assets/insertion_operation.png" /></a></p>
 <p align="center"> Figure 11-6 &nbsp; Single insertion operation </p>
 
 <h2 id="1141-algorithm-process">11.4.1 &nbsp; Algorithm process<a class="headerlink" href="#1141-algorithm-process" title="Permanent link">&para;</a></h2>
-<p>The overall process of insertion sort is shown in the following figure.</p>
+<p>The overall process of insertion sort is shown in Figure 11-7.</p>
 <ol>
 <li>Initially, the first element of the array is sorted.</li>
 <li>The second element of the array is taken as <code>base</code>, and after inserting it into the correct position, <strong>the first two elements of the array are sorted</strong>.</li>

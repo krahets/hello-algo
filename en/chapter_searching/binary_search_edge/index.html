@@ -3848,7 +3848,7 @@
 <p>Below we introduce two more cunning methods.</p>
 <h3 id="1-reusing-the-search-for-the-left-boundary">1. &nbsp; Reusing the search for the left boundary<a class="headerlink" href="#1-reusing-the-search-for-the-left-boundary" title="Permanent link">&para;</a></h3>
 <p>In fact, we can use the function for finding the leftmost element to find the rightmost element, specifically by <strong>transforming the search for the rightmost <code>target</code> into a search for the leftmost <code>target + 1</code></strong>.</p>
-<p>As shown in the Figure 10-7 , after the search is completed, the pointer <span class="arithmatex">\(i\)</span> points to the leftmost <code>target + 1</code> (if it exists), while <span class="arithmatex">\(j\)</span> points to the rightmost <code>target</code>, <strong>thus returning <span class="arithmatex">\(j\)</span> is sufficient</strong>.</p>
+<p>As shown in Figure 10-7, after the search is completed, the pointer <span class="arithmatex">\(i\)</span> points to the leftmost <code>target + 1</code> (if it exists), while <span class="arithmatex">\(j\)</span> points to the rightmost <code>target</code>, <strong>thus returning <span class="arithmatex">\(j\)</span> is sufficient</strong>.</p>
 <p><a class="glightbox" href="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Transforming the search for the right boundary into the search for the left boundary" class="animation-figure" src="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" /></a></p>
 <p align="center"> Figure 10-7 &nbsp; Transforming the search for the right boundary into the search for the left boundary </p>
 
@@ -4074,7 +4074,7 @@
 </details>
 <h3 id="2-transforming-into-an-element-search">2. &nbsp; Transforming into an element search<a class="headerlink" href="#2-transforming-into-an-element-search" title="Permanent link">&para;</a></h3>
 <p>We know that when the array does not contain <code>target</code>, <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> will eventually point to the first element greater and smaller than <code>target</code> respectively.</p>
-<p>Thus, as shown in the Figure 10-8 , we can construct an element that does not exist in the array, to search for the left and right boundaries.</p>
+<p>Thus, as shown in Figure 10-8, we can construct an element that does not exist in the array, to search for the left and right boundaries.</p>
 <ul>
 <li>To find the leftmost <code>target</code>: it can be transformed into searching for <code>target - 0.5</code>, and return the pointer <span class="arithmatex">\(i\)</span>.</li>
 <li>To find the rightmost <code>target</code>: it can be transformed into searching for <code>target + 0.5</code>, and return the pointer <span class="arithmatex">\(j\)</span>.</li>

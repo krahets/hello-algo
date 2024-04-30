@@ -3609,7 +3609,7 @@
 
 <!-- Page content -->
 <h1 id="116-merge-sort">11.6 &nbsp; Merge sort<a class="headerlink" href="#116-merge-sort" title="Permanent link">&para;</a></h1>
-<p><u>Merge sort</u> is a sorting algorithm based on the divide-and-conquer strategy, involving the "divide" and "merge" phases shown in the following figure.</p>
+<p><u>Merge sort</u> is a sorting algorithm based on the divide-and-conquer strategy, involving the "divide" and "merge" phases shown in Figure 11-10.</p>
 <ol>
 <li><strong>Divide phase</strong>: Recursively split the array from the midpoint, transforming the sorting problem of a long array into that of shorter arrays.</li>
 <li><strong>Merge phase</strong>: Stop dividing when the length of the sub-array is 1, start merging, and continuously combine two shorter ordered arrays into one longer ordered array until the process is complete.</li>
@@ -3618,7 +3618,7 @@
 <p align="center"> Figure 11-10 &nbsp; The divide and merge phases of merge sort </p>
 
 <h2 id="1161-algorithm-workflow">11.6.1 &nbsp; Algorithm workflow<a class="headerlink" href="#1161-algorithm-workflow" title="Permanent link">&para;</a></h2>
-<p>As shown in the Figure 11-11 , the "divide phase" recursively splits the array from the midpoint into two sub-arrays from top to bottom.</p>
+<p>As shown in Figure 11-11, the "divide phase" recursively splits the array from the midpoint into two sub-arrays from top to bottom.</p>
 <ol>
 <li>Calculate the midpoint <code>mid</code>, recursively divide the left sub-array (interval <code>[left, mid]</code>) and the right sub-array (interval <code>[mid + 1, right]</code>).</li>
 <li>Continue with step <code>1.</code> recursively until the sub-array interval length is 1 to stop.</li>

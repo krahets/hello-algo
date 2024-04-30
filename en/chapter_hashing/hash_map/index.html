@@ -3610,11 +3610,11 @@
 <!-- Page content -->
 <h1 id="61-hash-table">6.1 &nbsp; Hash table<a class="headerlink" href="#61-hash-table" title="Permanent link">&para;</a></h1>
 <p>A "hash table", also known as a "hash map", achieves efficient element querying by establishing a mapping between keys and values. Specifically, when we input a <code>key</code> into the hash table, we can retrieve the corresponding <code>value</code> in <span class="arithmatex">\(O(1)\)</span> time.</p>
-<p>As shown in the Figure 6-1 , given <span class="arithmatex">\(n\)</span> students, each with two pieces of data: "name" and "student number". If we want to implement a query feature that returns the corresponding name when given a student number, we can use the hash table shown in the Figure 6-1 .</p>
+<p>As shown in Figure 6-1, given <span class="arithmatex">\(n\)</span> students, each with two pieces of data: "name" and "student number". If we want to implement a query feature that returns the corresponding name when given a student number, we can use the hash table shown in Figure 6-1.</p>
 <p><a class="glightbox" href="../hash_map.assets/hash_table_lookup.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Abstract representation of a hash table" class="animation-figure" src="../hash_map.assets/hash_table_lookup.png" /></a></p>
 <p align="center"> Figure 6-1 &nbsp; Abstract representation of a hash table </p>
 
-<p>Apart from hash tables, arrays and linked lists can also be used to implement querying functions. Their efficiency is compared in the Table 6-1 .</p>
+<p>Apart from hash tables, arrays and linked lists can also be used to implement querying functions. Their efficiency is compared in Table 6-1.</p>
 <ul>
 <li><strong>Adding elements</strong>: Simply add the element to the end of the array (or linked list), using <span class="arithmatex">\(O(1)\)</span> time.</li>
 <li><strong>Querying elements</strong>: Since the array (or linked list) is unordered, it requires traversing all the elements, using <span class="arithmatex">\(O(n)\)</span> time.</li>
@@ -4083,7 +4083,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
 </code></pre></div>
 <p>Afterward, we can use <code>index</code> to access the corresponding bucket in the hash table and thereby retrieve the <code>value</code>.</p>
-<p>Assuming array length <code>capacity = 100</code> and hash algorithm <code>hash(key) = key</code>, the hash function is <code>key % 100</code>. The Figure 6-2  uses <code>key</code> as the student number and <code>value</code> as the name to demonstrate the working principle of the hash function.</p>
+<p>Assuming array length <code>capacity = 100</code> and hash algorithm <code>hash(key) = key</code>, the hash function is <code>key % 100</code>. Figure 6-2 uses <code>key</code> as the student number and <code>value</code> as the name to demonstrate the working principle of the hash function.</p>
 <p><a class="glightbox" href="../hash_map.assets/hash_function.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Working principle of hash function" class="animation-figure" src="../hash_map.assets/hash_function.png" /></a></p>
 <p align="center"> Figure 6-2 &nbsp; Working principle of hash function </p>
 
@@ -5362,12 +5362,12 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="m">12836</span><span class="w"> </span>%<span class="w"> </span><span class="nv">100</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
 <a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="m">20336</span><span class="w"> </span>%<span class="w"> </span><span class="nv">100</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
 </code></pre></div>
-<p>As shown in the Figure 6-3 , both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is known as "hash collision".</p>
+<p>As shown in Figure 6-3, both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is known as "hash collision".</p>
 <p><a class="glightbox" href="../hash_map.assets/hash_collision.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Example of hash collision" class="animation-figure" src="../hash_map.assets/hash_collision.png" /></a></p>
 <p align="center"> Figure 6-3 &nbsp; Example of hash collision </p>
 
 <p>It is easy to understand that the larger the capacity <span class="arithmatex">\(n\)</span> of the hash table, the lower the probability of multiple keys being allocated to the same bucket, and the fewer the collisions. Therefore, <strong>expanding the capacity of the hash table can reduce hash collisions</strong>.</p>
-<p>As shown in the Figure 6-4 , before expansion, key-value pairs <code>(136, A)</code> and <code>(236, D)</code> collided; after expansion, the collision is resolved.</p>
+<p>As shown in Figure 6-4, before expansion, key-value pairs <code>(136, A)</code> and <code>(236, D)</code> collided; after expansion, the collision is resolved.</p>
 <p><a class="glightbox" href="../hash_map.assets/hash_table_reshash.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Hash table expansion" class="animation-figure" src="../hash_map.assets/hash_table_reshash.png" /></a></p>
 <p align="center"> Figure 6-4 &nbsp; Hash table expansion </p>
 

@@ -3611,13 +3611,13 @@
 <h1 id="152-fractional-knapsack-problem">15.2 &nbsp; Fractional knapsack problem<a class="headerlink" href="#152-fractional-knapsack-problem" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given <span class="arithmatex">\(n\)</span> items, the weight of the <span class="arithmatex">\(i\)</span>-th item is <span class="arithmatex">\(wgt[i-1]\)</span> and its value is <span class="arithmatex">\(val[i-1]\)</span>, and a knapsack with a capacity of <span class="arithmatex">\(cap\)</span>. Each item can be chosen only once, <strong>but a part of the item can be selected, with its value calculated based on the proportion of the weight chosen</strong>, what is the maximum value of the items in the knapsack under the limited capacity? An example is shown below.</p>
+<p>Given <span class="arithmatex">\(n\)</span> items, the weight of the <span class="arithmatex">\(i\)</span>-th item is <span class="arithmatex">\(wgt[i-1]\)</span> and its value is <span class="arithmatex">\(val[i-1]\)</span>, and a knapsack with a capacity of <span class="arithmatex">\(cap\)</span>. Each item can be chosen only once, <strong>but a part of the item can be selected, with its value calculated based on the proportion of the weight chosen</strong>, what is the maximum value of the items in the knapsack under the limited capacity? An example is shown in Figure 15-3.</p>
 </div>
 <p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Example data of the fractional knapsack problem" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_example.png" /></a></p>
 <p align="center"> Figure 15-3 &nbsp; Example data of the fractional knapsack problem </p>
 
 <p>The fractional knapsack problem is very similar overall to the 0-1 knapsack problem, involving the current item <span class="arithmatex">\(i\)</span> and capacity <span class="arithmatex">\(c\)</span>, aiming to maximize the value within the limited capacity of the knapsack.</p>
-<p>The difference is that, in this problem, only a part of an item can be chosen. As shown in the Figure 15-4 , <strong>we can arbitrarily split the items and calculate the corresponding value based on the weight proportion</strong>.</p>
+<p>The difference is that, in this problem, only a part of an item can be chosen. As shown in Figure 15-4, <strong>we can arbitrarily split the items and calculate the corresponding value based on the weight proportion</strong>.</p>
 <ol>
 <li>For item <span class="arithmatex">\(i\)</span>, its value per unit weight is <span class="arithmatex">\(val[i-1] / wgt[i-1]\)</span>, referred to as the unit value.</li>
 <li>Suppose we put a part of item <span class="arithmatex">\(i\)</span> with weight <span class="arithmatex">\(w\)</span> into the knapsack, then the value added to the knapsack is <span class="arithmatex">\(w \times val[i-1] / wgt[i-1]\)</span>.</li>
@@ -3626,7 +3626,7 @@
 <p align="center"> Figure 15-4 &nbsp; Value per unit weight of the item </p>
 
 <h3 id="1-greedy-strategy-determination">1. &nbsp; Greedy strategy determination<a class="headerlink" href="#1-greedy-strategy-determination" title="Permanent link">&para;</a></h3>
-<p>Maximizing the total value of the items in the knapsack essentially means maximizing the value per unit weight. From this, the greedy strategy shown below can be deduced.</p>
+<p>Maximizing the total value of the items in the knapsack essentially means maximizing the value per unit weight. From this, the greedy strategy shown in Figure 15-5 can be deduced.</p>
 <ol>
 <li>Sort the items by their unit value from high to low.</li>
 <li>Iterate over all items, <strong>greedily choosing the item with the highest unit value in each round</strong>.</li>
@@ -4094,7 +4094,7 @@
 <p>Using proof by contradiction. Suppose item <span class="arithmatex">\(x\)</span> has the highest unit value, and some algorithm yields a maximum value <code>res</code>, but the solution does not include item <span class="arithmatex">\(x\)</span>.</p>
 <p>Now remove a unit weight of any item from the knapsack and replace it with a unit weight of item <span class="arithmatex">\(x\)</span>. Since the unit value of item <span class="arithmatex">\(x\)</span> is the highest, the total value after replacement will definitely be greater than <code>res</code>. <strong>This contradicts the assumption that <code>res</code> is the optimal solution, proving that the optimal solution must include item <span class="arithmatex">\(x\)</span></strong>.</p>
 <p>For other items in this solution, we can also construct the above contradiction. Overall, <strong>items with greater unit value are always better choices</strong>, proving that the greedy strategy is effective.</p>
-<p>As shown in the Figure 15-6 , if the item weight and unit value are viewed as the horizontal and vertical axes of a two-dimensional chart respectively, the fractional knapsack problem can be transformed into "seeking the largest area enclosed within a limited horizontal axis range". This analogy can help us understand the effectiveness of the greedy strategy from a geometric perspective.</p>
+<p>As shown in Figure 15-6, if the item weight and unit value are viewed as the horizontal and vertical axes of a two-dimensional chart respectively, the fractional knapsack problem can be transformed into "seeking the largest area enclosed within a limited horizontal axis range". This analogy can help us understand the effectiveness of the greedy strategy from a geometric perspective.</p>
 <p><a class="glightbox" href="../fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Geometric representation of the fractional knapsack problem" class="animation-figure" src="../fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" /></a></p>
 <p align="center"> Figure 15-6 &nbsp; Geometric representation of the fractional knapsack problem </p>
 

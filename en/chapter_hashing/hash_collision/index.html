@@ -3683,7 +3683,7 @@
 </ol>
 <p>There are mainly two methods for improving the structure of hash tables: "Separate Chaining" and "Open Addressing".</p>
 <h2 id="621-separate-chaining">6.2.1 &nbsp; Separate chaining<a class="headerlink" href="#621-separate-chaining" title="Permanent link">&para;</a></h2>
-<p>In the original hash table, each bucket can store only one key-value pair. "Separate chaining" transforms individual elements into a linked list, with key-value pairs as list nodes, storing all colliding key-value pairs in the same list. The Figure 6-5  shows an example of a hash table with separate chaining.</p>
+<p>In the original hash table, each bucket can store only one key-value pair. "Separate chaining" transforms individual elements into a linked list, with key-value pairs as list nodes, storing all colliding key-value pairs in the same list. Figure 6-5 shows an example of a hash table with separate chaining.</p>
 <p><a class="glightbox" href="../hash_collision.assets/hash_table_chaining.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Separate chaining hash table" class="animation-figure" src="../hash_collision.assets/hash_table_chaining.png" /></a></p>
 <p align="center"> Figure 6-5 &nbsp; Separate chaining hash table </p>
 
@@ -5184,12 +5184,12 @@
 <li><strong>Inserting elements</strong>: Calculate the bucket index using the hash function. If the bucket already contains an element, linearly traverse forward from the conflict position (usually with a step size of <span class="arithmatex">\(1\)</span>) until an empty bucket is found, then insert the element.</li>
 <li><strong>Searching for elements</strong>: If a hash collision is found, use the same step size to linearly traverse forward until the corresponding element is found and return <code>value</code>; if an empty bucket is encountered, it means the target element is not in the hash table, so return <code>None</code>.</li>
 </ul>
-<p>The Figure 6-6  shows the distribution of key-value pairs in an open addressing (linear probing) hash table. According to this hash function, keys with the same last two digits will be mapped to the same bucket. Through linear probing, they are stored consecutively in that bucket and the buckets below it.</p>
+<p>Figure 6-6 shows the distribution of key-value pairs in an open addressing (linear probing) hash table. According to this hash function, keys with the same last two digits will be mapped to the same bucket. Through linear probing, they are stored consecutively in that bucket and the buckets below it.</p>
 <p><a class="glightbox" href="../hash_collision.assets/hash_table_linear_probing.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Distribution of key-value pairs in open addressing (linear probing) hash table" class="animation-figure" src="../hash_collision.assets/hash_table_linear_probing.png" /></a></p>
 <p align="center"> Figure 6-6 &nbsp; Distribution of key-value pairs in open addressing (linear probing) hash table </p>
 
 <p>However, <strong>linear probing tends to create "clustering"</strong>. Specifically, the longer a continuous position in the array is occupied, the more likely these positions are to encounter hash collisions, further promoting the growth of these clusters and eventually leading to deterioration in the efficiency of operations.</p>
-<p>It's important to note that <strong>we cannot directly delete elements in an open addressing hash table</strong>. Deleting an element creates an empty bucket <code>None</code> in the array. When searching for elements, if linear probing encounters this empty bucket, it will return, making the elements below this bucket inaccessible. The program may incorrectly assume these elements do not exist, as shown in the Figure 6-7 .</p>
+<p>It's important to note that <strong>we cannot directly delete elements in an open addressing hash table</strong>. Deleting an element creates an empty bucket <code>None</code> in the array. When searching for elements, if linear probing encounters this empty bucket, it will return, making the elements below this bucket inaccessible. The program may incorrectly assume these elements do not exist, as shown in Figure 6-7.</p>
 <p><a class="glightbox" href="../hash_collision.assets/hash_table_open_addressing_deletion.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Query issues caused by deletion in open addressing" class="animation-figure" src="../hash_collision.assets/hash_table_open_addressing_deletion.png" /></a></p>
 <p align="center"> Figure 6-7 &nbsp; Query issues caused by deletion in open addressing </p>
 

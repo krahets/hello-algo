@@ -3621,7 +3621,7 @@
 <p>From a garbage collection perspective, for languages with automatic garbage collection mechanisms like Java, Python, and Go, whether node <code>P</code> is collected depends on whether there are still references pointing to it, not on the value of <code>P.next</code>. In languages like C and C++, we need to manually free the node's memory.</p>
 <p><strong>Q</strong>: In linked lists, the time complexity for insertion and deletion operations is <code>O(1)</code>. But searching for the element before insertion or deletion takes <code>O(n)</code> time, so why isn't the time complexity <code>O(n)</code>?</p>
 <p>If an element is searched first and then deleted, the time complexity is indeed <code>O(n)</code>. However, the <code>O(1)</code> advantage of linked lists in insertion and deletion can be realized in other applications. For example, in the implementation of double-ended queues using linked lists, we maintain pointers always pointing to the head and tail nodes, making each insertion and deletion operation <code>O(1)</code>.</p>
-<p><strong>Q</strong>: In the image "Linked List Definition and Storage Method", do the light blue storage nodes occupy a single memory address, or do they share half with the node value?</p>
+<p><strong>Q</strong>: In the figure "Linked List Definition and Storage Method", do the light blue storage nodes occupy a single memory address, or do they share half with the node value?</p>
 <p>The diagram is just a qualitative representation; quantitative analysis depends on specific situations.</p>
 <ul>
 <li>Different types of node values occupy different amounts of space, such as int, long, double, and object instances.</li>

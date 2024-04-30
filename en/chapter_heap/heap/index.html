@@ -3693,7 +3693,7 @@
 
 <!-- Page content -->
 <h1 id="81-heap">8.1 &nbsp; Heap<a class="headerlink" href="#81-heap" title="Permanent link">&para;</a></h1>
-<p>A "heap" is a complete binary tree that satisfies specific conditions and can be mainly divided into two types, as shown in the Figure 8-1 .</p>
+<p>A "heap" is a complete binary tree that satisfies specific conditions and can be mainly divided into two types, as shown in Figure 8-1.</p>
 <ul>
 <li>"Min heap": The value of any node <span class="arithmatex">\(\leq\)</span> the values of its child nodes.</li>
 <li>"Max heap": The value of any node <span class="arithmatex">\(\geq\)</span> the values of its child nodes.</li>
@@ -3710,7 +3710,7 @@
 <h2 id="811-common-operations-on-heaps">8.1.1 &nbsp; Common operations on heaps<a class="headerlink" href="#811-common-operations-on-heaps" title="Permanent link">&para;</a></h2>
 <p>It should be noted that many programming languages provide a "priority queue," which is an abstract data structure defined as a queue with priority sorting.</p>
 <p>In fact, <strong>heaps are often used to implement priority queues, with max heaps equivalent to priority queues where elements are dequeued in descending order</strong>. From a usage perspective, we can consider "priority queue" and "heap" as equivalent data structures. Therefore, this book does not make a special distinction between the two, uniformly referring to them as "heap."</p>
-<p>Common operations on heaps are shown in the Table 8-1 , and the method names depend on the programming language.</p>
+<p>Common operations on heaps are shown in Table 8-1, and the method names depend on the programming language.</p>
 <p align="center"> Table 8-1 &nbsp; Efficiency of Heap Operations </p>
 
 <div class="center-table">
@@ -4117,7 +4117,7 @@
 <h3 id="1-storage-and-representation-of-heaps">1. &nbsp; Storage and representation of heaps<a class="headerlink" href="#1-storage-and-representation-of-heaps" title="Permanent link">&para;</a></h3>
 <p>As mentioned in the "Binary Trees" section, complete binary trees are well-suited for array representation. Since heaps are a type of complete binary tree, <strong>we will use arrays to store heaps</strong>.</p>
 <p>When using an array to represent a binary tree, elements represent node values, and indexes represent node positions in the binary tree. <strong>Node pointers are implemented through an index mapping formula</strong>.</p>
-<p>As shown in the Figure 8-2 , given an index <span class="arithmatex">\(i\)</span>, the index of its left child is <span class="arithmatex">\(2i + 1\)</span>, the index of its right child is <span class="arithmatex">\(2i + 2\)</span>, and the index of its parent is <span class="arithmatex">\((i - 1) / 2\)</span> (floor division). When the index is out of bounds, it signifies a null node or the node does not exist.</p>
+<p>As shown in Figure 8-2, given an index <span class="arithmatex">\(i\)</span>, the index of its left child is <span class="arithmatex">\(2i + 1\)</span>, the index of its right child is <span class="arithmatex">\(2i + 2\)</span>, and the index of its parent is <span class="arithmatex">\((i - 1) / 2\)</span> (floor division). When the index is out of bounds, it signifies a null node or the node does not exist.</p>
 <p><a class="glightbox" href="../heap.assets/representation_of_heap.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Representation and storage of heaps" class="animation-figure" src="../heap.assets/representation_of_heap.png" /></a></p>
 <p align="center"> Figure 8-2 &nbsp; Representation and storage of heaps </p>
 
@@ -4473,7 +4473,7 @@
 </details>
 <h3 id="3-inserting-an-element-into-the-heap">3. &nbsp; Inserting an element into the heap<a class="headerlink" href="#3-inserting-an-element-into-the-heap" title="Permanent link">&para;</a></h3>
 <p>Given an element <code>val</code>, we first add it to the bottom of the heap. After addition, since <code>val</code> may be larger than other elements in the heap, the heap's integrity might be compromised, <strong>thus it's necessary to repair the path from the inserted node to the root node</strong>. This operation is called "heapifying".</p>
-<p>Considering starting from the node inserted, <strong>perform heapify from bottom to top</strong>. As shown in the Figure 8-3 , we compare the value of the inserted node with its parent node, and if the inserted node is larger, we swap them. Then continue this operation, repairing each node in the heap from bottom to top until passing the root node or encountering a node that does not need to be swapped.</p>
+<p>Considering starting from the node inserted, <strong>perform heapify from bottom to top</strong>. As shown in Figure 8-3, we compare the value of the inserted node with its parent node, and if the inserted node is larger, we swap them. Then continue this operation, repairing each node in the heap from bottom to top until passing the root node or encountering a node that does not need to be swapped.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:9"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4886,7 +4886,7 @@
 <li>After swapping, remove the bottom of the heap from the list (note, since it has been swapped, what is actually being removed is the original top element).</li>
 <li>Starting from the root node, <strong>perform heapify from top to bottom</strong>.</li>
 </ol>
-<p>As shown in the Figure 8-4 , <strong>the direction of "heapify from top to bottom" is opposite to "heapify from bottom to top"</strong>. We compare the value of the root node with its two children and swap it with the largest child. Then repeat this operation until passing the leaf node or encountering a node that does not need to be swapped.</p>
+<p>As shown in Figure 8-4, <strong>the direction of "heapify from top to bottom" is opposite to "heapify from bottom to top"</strong>. We compare the value of the root node with its two children and swap it with the largest child. Then repeat this operation until passing the leaf node or encountering a node that does not need to be swapped.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:10"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">&lt;1&gt;</label><label for="__tabbed_6_2">&lt;2&gt;</label><label for="__tabbed_6_3">&lt;3&gt;</label><label for="__tabbed_6_4">&lt;4&gt;</label><label for="__tabbed_6_5">&lt;5&gt;</label><label for="__tabbed_6_6">&lt;6&gt;</label><label for="__tabbed_6_7">&lt;7&gt;</label><label for="__tabbed_6_8">&lt;8&gt;</label><label for="__tabbed_6_9">&lt;9&gt;</label><label for="__tabbed_6_10">&lt;10&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

@@ -3634,13 +3634,13 @@ n = \sum_{i=1}^{m}n_i
 n &amp; \geq 4
 \end{aligned}
 \]</div>
-<p>As shown below, when <span class="arithmatex">\(n \geq 4\)</span>, splitting out a <span class="arithmatex">\(2\)</span> increases the product, <strong>which indicates that integers greater than or equal to <span class="arithmatex">\(4\)</span> should be split</strong>.</p>
+<p>As shown in Figure 15-14, when <span class="arithmatex">\(n \geq 4\)</span>, splitting out a <span class="arithmatex">\(2\)</span> increases the product, <strong>which indicates that integers greater than or equal to <span class="arithmatex">\(4\)</span> should be split</strong>.</p>
 <p><strong>Greedy strategy one</strong>: If the splitting scheme includes factors <span class="arithmatex">\(\geq 4\)</span>, they should be further split. The final split should only include factors <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(2\)</span>, and <span class="arithmatex">\(3\)</span>.</p>
 <p><a class="glightbox" href="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Product increase due to splitting" class="animation-figure" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png" /></a></p>
 <p align="center"> Figure 15-14 &nbsp; Product increase due to splitting </p>
 
 <p>Next, consider which factor is optimal. Among the factors <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(2\)</span>, and <span class="arithmatex">\(3\)</span>, clearly <span class="arithmatex">\(1\)</span> is the worst, as <span class="arithmatex">\(1 \times (n-1) &lt; n\)</span> always holds, meaning splitting out <span class="arithmatex">\(1\)</span> actually decreases the product.</p>
-<p>As shown below, when <span class="arithmatex">\(n = 6\)</span>, <span class="arithmatex">\(3 \times 3 &gt; 2 \times 2 \times 2\)</span>. <strong>This means splitting out <span class="arithmatex">\(3\)</span> is better than splitting out <span class="arithmatex">\(2\)</span></strong>.</p>
+<p>As shown in Figure 15-15, when <span class="arithmatex">\(n = 6\)</span>, <span class="arithmatex">\(3 \times 3 &gt; 2 \times 2 \times 2\)</span>. <strong>This means splitting out <span class="arithmatex">\(3\)</span> is better than splitting out <span class="arithmatex">\(2\)</span></strong>.</p>
 <p><strong>Greedy strategy two</strong>: In the splitting scheme, there should be at most two <span class="arithmatex">\(2\)</span>s. Because three <span class="arithmatex">\(2\)</span>s can always be replaced by two <span class="arithmatex">\(3\)</span>s to obtain a higher product.</p>
 <p><a class="glightbox" href="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Optimal splitting factors" class="animation-figure" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png" /></a></p>
 <p align="center"> Figure 15-15 &nbsp; Optimal splitting factors </p>
@@ -3653,7 +3653,7 @@ n &amp; \geq 4
 <li>When the remainder is <span class="arithmatex">\(1\)</span>, since <span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span>, the last <span class="arithmatex">\(3\)</span> should be replaced with <span class="arithmatex">\(2\)</span>.</li>
 </ol>
 <h3 id="2-code-implementation">2. &nbsp; Code implementation<a class="headerlink" href="#2-code-implementation" title="Permanent link">&para;</a></h3>
-<p>As shown below, we do not need to use loops to split the integer but can use the floor division operation to get the number of <span class="arithmatex">\(3\)</span>s, <span class="arithmatex">\(a\)</span>, and the modulo operation to get the remainder, <span class="arithmatex">\(b\)</span>, thus:</p>
+<p>As shown in Figure 15-16, we do not need to use loops to split the integer but can use the floor division operation to get the number of <span class="arithmatex">\(3\)</span>s, <span class="arithmatex">\(a\)</span>, and the modulo operation to get the remainder, <span class="arithmatex">\(b\)</span>, thus:</p>
 <div class="arithmatex">\[
 n = 3a + b
 \]</div>

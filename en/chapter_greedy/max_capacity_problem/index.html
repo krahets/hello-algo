@@ -3613,7 +3613,7 @@
 <p class="admonition-title">Question</p>
 <p>Input an array <span class="arithmatex">\(ht\)</span>, where each element represents the height of a vertical partition. Any two partitions in the array, along with the space between them, can form a container.</p>
 <p>The capacity of the container is the product of the height and the width (area), where the height is determined by the shorter partition, and the width is the difference in array indices between the two partitions.</p>
-<p>Please select two partitions in the array that maximize the container's capacity and return this maximum capacity. An example is shown in the following figure.</p>
+<p>Please select two partitions in the array that maximize the container's capacity and return this maximum capacity. An example is shown in Figure 15-7.</p>
 </div>
 <p><a class="glightbox" href="../max_capacity_problem.assets/max_capacity_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Example data for the maximum capacity problem" class="animation-figure" src="../max_capacity_problem.assets/max_capacity_example.png" /></a></p>
 <p align="center"> Figure 15-7 &nbsp; Example data for the maximum capacity problem </p>
@@ -3625,21 +3625,21 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 \]</div>
 <p>Assuming the length of the array is <span class="arithmatex">\(n\)</span>, the number of combinations of two partitions (total number of states) is <span class="arithmatex">\(C_n^2 = \frac{n(n - 1)}{2}\)</span>. The most straightforward approach is to <strong>enumerate all possible states</strong>, resulting in a time complexity of <span class="arithmatex">\(O(n^2)\)</span>.</p>
 <h3 id="1-determination-of-a-greedy-strategy">1. &nbsp; Determination of a greedy strategy<a class="headerlink" href="#1-determination-of-a-greedy-strategy" title="Permanent link">&para;</a></h3>
-<p>There is a more efficient solution to this problem. As shown in the following figure, we select a state <span class="arithmatex">\([i, j]\)</span> where the indices <span class="arithmatex">\(i &lt; j\)</span> and the height <span class="arithmatex">\(ht[i] &lt; ht[j]\)</span>, meaning <span class="arithmatex">\(i\)</span> is the shorter partition, and <span class="arithmatex">\(j\)</span> is the taller one.</p>
+<p>There is a more efficient solution to this problem. As shown in Figure 15-8, we select a state <span class="arithmatex">\([i, j]\)</span> where the indices <span class="arithmatex">\(i &lt; j\)</span> and the height <span class="arithmatex">\(ht[i] &lt; ht[j]\)</span>, meaning <span class="arithmatex">\(i\)</span> is the shorter partition, and <span class="arithmatex">\(j\)</span> is the taller one.</p>
 <p><a class="glightbox" href="../max_capacity_problem.assets/max_capacity_initial_state.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Initial state" class="animation-figure" src="../max_capacity_problem.assets/max_capacity_initial_state.png" /></a></p>
 <p align="center"> Figure 15-8 &nbsp; Initial state </p>
 
-<p>As shown in the following figure, <strong>if we move the taller partition <span class="arithmatex">\(j\)</span> closer to the shorter partition <span class="arithmatex">\(i\)</span>, the capacity will definitely decrease</strong>.</p>
+<p>As shown in Figure 15-9, <strong>if we move the taller partition <span class="arithmatex">\(j\)</span> closer to the shorter partition <span class="arithmatex">\(i\)</span>, the capacity will definitely decrease</strong>.</p>
 <p>This is because when moving the taller partition <span class="arithmatex">\(j\)</span>, the width <span class="arithmatex">\(j-i\)</span> definitely decreases; and since the height is determined by the shorter partition, the height can only remain the same (if <span class="arithmatex">\(i\)</span> remains the shorter partition) or decrease (if the moved <span class="arithmatex">\(j\)</span> becomes the shorter partition).</p>
 <p><a class="glightbox" href="../max_capacity_problem.assets/max_capacity_moving_long_board.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="State after moving the taller partition inward" class="animation-figure" src="../max_capacity_problem.assets/max_capacity_moving_long_board.png" /></a></p>
 <p align="center"> Figure 15-9 &nbsp; State after moving the taller partition inward </p>
 
-<p>Conversely, <strong>we can only possibly increase the capacity by moving the shorter partition <span class="arithmatex">\(i\)</span> inward</strong>. Although the width will definitely decrease, <strong>the height may increase</strong> (if the moved shorter partition <span class="arithmatex">\(i\)</span> becomes taller). For example, in the Figure 15-10 , the area increases after moving the shorter partition.</p>
+<p>Conversely, <strong>we can only possibly increase the capacity by moving the shorter partition <span class="arithmatex">\(i\)</span> inward</strong>. Although the width will definitely decrease, <strong>the height may increase</strong> (if the moved shorter partition <span class="arithmatex">\(i\)</span> becomes taller). For example, in Figure 15-10, the area increases after moving the shorter partition.</p>
 <p><a class="glightbox" href="../max_capacity_problem.assets/max_capacity_moving_short_board.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="State after moving the shorter partition inward" class="animation-figure" src="../max_capacity_problem.assets/max_capacity_moving_short_board.png" /></a></p>
 <p align="center"> Figure 15-10 &nbsp; State after moving the shorter partition inward </p>
 
 <p>This leads us to the greedy strategy for this problem: initialize two pointers at the ends of the container, and in each round, move the pointer corresponding to the shorter partition inward until the two pointers meet.</p>
-<p>The following figures illustrate the execution of the greedy strategy.</p>
+<p>Figure 15-11 illustrate the execution of the greedy strategy.</p>
 <ol>
 <li>Initially, the pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> are positioned at the ends of the array.</li>
 <li>Calculate the current state's capacity <span class="arithmatex">\(cap[i, j]\)</span> and update the maximum capacity.</li>
@@ -3979,7 +3979,7 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 </details>
 <h3 id="3-proof-of-correctness">3. &nbsp; Proof of correctness<a class="headerlink" href="#3-proof-of-correctness" title="Permanent link">&para;</a></h3>
 <p>The reason why the greedy method is faster than enumeration is that each round of greedy selection "skips" some states.</p>
-<p>For example, under the state <span class="arithmatex">\(cap[i, j]\)</span> where <span class="arithmatex">\(i\)</span> is the shorter partition and <span class="arithmatex">\(j\)</span> is the taller partition, greedily moving the shorter partition <span class="arithmatex">\(i\)</span> inward by one step leads to the "skipped" states shown below. <strong>This means that these states' capacities cannot be verified later</strong>.</p>
+<p>For example, under the state <span class="arithmatex">\(cap[i, j]\)</span> where <span class="arithmatex">\(i\)</span> is the shorter partition and <span class="arithmatex">\(j\)</span> is the taller partition, greedily moving the shorter partition <span class="arithmatex">\(i\)</span> inward by one step leads to the "skipped" states shown in Figure 15-12. <strong>This means that these states' capacities cannot be verified later</strong>.</p>
 <div class="arithmatex">\[
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 \]</div>

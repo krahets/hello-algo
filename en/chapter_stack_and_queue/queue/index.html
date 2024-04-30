@@ -3658,12 +3658,12 @@
 <!-- Page content -->
 <h1 id="52-queue">5.2 &nbsp; Queue<a class="headerlink" href="#52-queue" title="Permanent link">&para;</a></h1>
 <p>"Queue" is a linear data structure that follows the First-In-First-Out (FIFO) rule. As the name suggests, a queue simulates the phenomenon of lining up, where newcomers join the queue at the rear, and the person at the front leaves the queue first.</p>
-<p>As shown in the Figure 5-4 , we call the front of the queue the "head" and the back the "tail." The operation of adding elements to the rear of the queue is termed "enqueue," and the operation of removing elements from the front is termed "dequeue."</p>
+<p>As shown in Figure 5-4, we call the front of the queue the "head" and the back the "tail." The operation of adding elements to the rear of the queue is termed "enqueue," and the operation of removing elements from the front is termed "dequeue."</p>
 <p><a class="glightbox" href="../queue.assets/queue_operations.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Queue's first-in-first-out rule" class="animation-figure" src="../queue.assets/queue_operations.png" /></a></p>
 <p align="center"> Figure 5-4 &nbsp; Queue's first-in-first-out rule </p>
 
 <h2 id="521-common-operations-on-queue">5.2.1 &nbsp; Common operations on queue<a class="headerlink" href="#521-common-operations-on-queue" title="Permanent link">&para;</a></h2>
-<p>The common operations on a queue are shown in the Table 5-2 . Note that method names may vary across different programming languages. Here, we use the same naming convention as that used for stacks.</p>
+<p>The common operations on a queue are shown in Table 5-2. Note that method names may vary across different programming languages. Here, we use the same naming convention as that used for stacks.</p>
 <p align="center"> Table 5-2 &nbsp; Efficiency of queue operations </p>
 
 <div class="center-table">
@@ -3975,7 +3975,7 @@
 <h2 id="522-implementing-a-queue">5.2.2 &nbsp; Implementing a queue<a class="headerlink" href="#522-implementing-a-queue" title="Permanent link">&para;</a></h2>
 <p>To implement a queue, we need a data structure that allows adding elements at one end and removing them at the other. Both linked lists and arrays meet this requirement.</p>
 <h3 id="1-implementation-based-on-a-linked-list">1. &nbsp; Implementation based on a linked list<a class="headerlink" href="#1-implementation-based-on-a-linked-list" title="Permanent link">&para;</a></h3>
-<p>As shown in the Figure 5-5 , we can consider the "head node" and "tail node" of a linked list as the "front" and "rear" of the queue, respectively. It is stipulated that nodes can only be added at the rear and removed at the front.</p>
+<p>As shown in Figure 5-5, we can consider the "head node" and "tail node" of a linked list as the "front" and "rear" of the queue, respectively. It is stipulated that nodes can only be added at the rear and removed at the front.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListQueue</label><label for="__tabbed_2_2">push()</label><label for="__tabbed_2_3">pop()</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4978,7 +4978,7 @@
 <h3 id="2-implementation-based-on-an-array">2. &nbsp; Implementation based on an array<a class="headerlink" href="#2-implementation-based-on-an-array" title="Permanent link">&para;</a></h3>
 <p>Deleting the first element in an array has a time complexity of <span class="arithmatex">\(O(n)\)</span>, which would make the dequeue operation inefficient. However, this problem can be cleverly avoided as follows.</p>
 <p>We use a variable <code>front</code> to indicate the index of the front element and maintain a variable <code>size</code> to record the queue's length. Define <code>rear = front + size</code>, which points to the position immediately following the tail element.</p>
-<p>With this design, <strong>the effective interval of elements in the array is <code>[front, rear - 1]</code></strong>. The implementation methods for various operations are shown in the Figure 5-6 .</p>
+<p>With this design, <strong>the effective interval of elements in the array is <code>[front, rear - 1]</code></strong>. The implementation methods for various operations are shown in Figure 5-6.</p>
 <ul>
 <li>Enqueue operation: Assign the input element to the <code>rear</code> index and increase <code>size</code> by 1.</li>
 <li>Dequeue operation: Simply increase <code>front</code> by 1 and decrease <code>size</code> by 1.</li>

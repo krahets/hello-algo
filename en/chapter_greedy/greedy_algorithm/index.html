@@ -3638,7 +3638,7 @@
 <p class="admonition-title">Question</p>
 <p>Given <span class="arithmatex">\(n\)</span> types of coins, where the denomination of the <span class="arithmatex">\(i\)</span>th type of coin is <span class="arithmatex">\(coins[i - 1]\)</span>, and the target amount is <span class="arithmatex">\(amt\)</span>, with each type of coin available indefinitely, what is the minimum number of coins needed to make up the target amount? If it is not possible to make up the target amount, return <span class="arithmatex">\(-1\)</span>.</p>
 </div>
-<p>The greedy strategy adopted in this problem is shown in the following figure. Given the target amount, <strong>we greedily choose the coin that is closest to and not greater than it</strong>, repeatedly following this step until the target amount is met.</p>
+<p>The greedy strategy adopted in this problem is shown in Figure 15-1. Given the target amount, <strong>we greedily choose the coin that is closest to and not greater than it</strong>, repeatedly following this step until the target amount is met.</p>
 <p><a class="glightbox" href="../greedy_algorithm.assets/coin_change_greedy_strategy.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Greedy strategy for coin change" class="animation-figure" src="../greedy_algorithm.assets/coin_change_greedy_strategy.png" /></a></p>
 <p align="center"> Figure 15-1 &nbsp; Greedy strategy for coin change </p>
 
@@ -3921,7 +3921,7 @@
 <p>You might exclaim: So clean! The greedy algorithm solves the coin change problem in about ten lines of code.</p>
 <h2 id="1511-advantages-and-limitations-of-greedy-algorithms">15.1.1 &nbsp; Advantages and limitations of greedy algorithms<a class="headerlink" href="#1511-advantages-and-limitations-of-greedy-algorithms" title="Permanent link">&para;</a></h2>
 <p><strong>Greedy algorithms are not only straightforward and simple to implement, but they are also usually very efficient</strong>. In the code above, if the smallest coin denomination is <span class="arithmatex">\(\min(coins)\)</span>, the greedy choice loops at most <span class="arithmatex">\(amt / \min(coins)\)</span> times, giving a time complexity of <span class="arithmatex">\(O(amt / \min(coins))\)</span>. This is an order of magnitude smaller than the time complexity of the dynamic programming solution, which is <span class="arithmatex">\(O(n \times amt)\)</span>.</p>
-<p>However, <strong>for some combinations of coin denominations, greedy algorithms cannot find the optimal solution</strong>. The following figure provides two examples.</p>
+<p>However, <strong>for some combinations of coin denominations, greedy algorithms cannot find the optimal solution</strong>. Figure 15-2 provides two examples.</p>
 <ul>
 <li><strong>Positive example <span class="arithmatex">\(coins = [1, 5, 10, 20, 50, 100]\)</span></strong>: In this coin combination, given any <span class="arithmatex">\(amt\)</span>, the greedy algorithm can find the optimal solution.</li>
 <li><strong>Negative example <span class="arithmatex">\(coins = [1, 20, 50]\)</span></strong>: Suppose <span class="arithmatex">\(amt = 60\)</span>, the greedy algorithm can only find the combination <span class="arithmatex">\(50 + 1 \times 10\)</span>, totaling 11 coins, but dynamic programming can find the optimal solution of <span class="arithmatex">\(20 + 20 + 20\)</span>, needing only 3 coins.</li>

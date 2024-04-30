@@ -3610,7 +3610,7 @@
 <!-- Page content -->
 <h1 id="63-hash-algorithms">6.3 &nbsp; Hash algorithms<a class="headerlink" href="#63-hash-algorithms" title="Permanent link">&para;</a></h1>
 <p>The previous two sections introduced the working principle of hash tables and the methods to handle hash collisions. However, both open addressing and chaining can <strong>only ensure that the hash table functions normally when collisions occur, but cannot reduce the frequency of hash collisions</strong>.</p>
-<p>If hash collisions occur too frequently, the performance of the hash table will deteriorate drastically. As shown in the Figure 6-8 , for a chaining hash table, in the ideal case, the key-value pairs are evenly distributed across the buckets, achieving optimal query efficiency; in the worst case, all key-value pairs are stored in the same bucket, degrading the time complexity to <span class="arithmatex">\(O(n)\)</span>.</p>
+<p>If hash collisions occur too frequently, the performance of the hash table will deteriorate drastically. As shown in Figure 6-8, for a chaining hash table, in the ideal case, the key-value pairs are evenly distributed across the buckets, achieving optimal query efficiency; in the worst case, all key-value pairs are stored in the same bucket, degrading the time complexity to <span class="arithmatex">\(O(n)\)</span>.</p>
 <p><a class="glightbox" href="../hash_algorithm.assets/hash_collision_best_worst_condition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Ideal and worst cases of hash collisions" class="animation-figure" src="../hash_algorithm.assets/hash_collision_best_worst_condition.png" /></a></p>
 <p align="center"> Figure 6-8 &nbsp; Ideal and worst cases of hash collisions </p>
 
@@ -4252,7 +4252,7 @@
 <h2 id="633-common-hash-algorithms">6.3.3 &nbsp; Common hash algorithms<a class="headerlink" href="#633-common-hash-algorithms" title="Permanent link">&para;</a></h2>
 <p>It is not hard to see that the simple hash algorithms mentioned above are quite "fragile" and far from reaching the design goals of hash algorithms. For example, since addition and XOR obey the commutative law, additive hash and XOR hash cannot distinguish strings with the same content but in different order, which may exacerbate hash collisions and cause security issues.</p>
 <p>In practice, we usually use some standard hash algorithms, such as MD5, SHA-1, SHA-2, and SHA-3. They can map input data of any length to a fixed-length hash value.</p>
-<p>Over the past century, hash algorithms have been in a continuous process of upgrading and optimization. Some researchers strive to improve the performance of hash algorithms, while others, including hackers, are dedicated to finding security issues in hash algorithms. The Table 6-2  shows hash algorithms commonly used in practical applications.</p>
+<p>Over the past century, hash algorithms have been in a continuous process of upgrading and optimization. Some researchers strive to improve the performance of hash algorithms, while others, including hackers, are dedicated to finding security issues in hash algorithms. Table 6-2 shows hash algorithms commonly used in practical applications.</p>
 <ul>
 <li>MD5 and SHA-1 have been successfully attacked multiple times and are thus abandoned in various security applications.</li>
 <li>SHA-2 series, especially SHA-256, is one of the most secure hash algorithms to date, with no successful attacks reported, hence commonly used in various security applications and protocols.</li>
