@@ -5,7 +5,7 @@
  */
 
 /* 随机访问元素 */
-func randomAccess(nums: [Int]) -> Int {
+func randomccess(nums: [Int]) -> Int {
     // 在区间 [0, nums.count) 中随机抽取一个数字
     let randomIndex = nums.indices.randomElement()!
     // 获取并返回随机元素
