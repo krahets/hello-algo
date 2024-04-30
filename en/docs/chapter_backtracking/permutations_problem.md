@@ -6,7 +6,7 @@ The table below lists several example data, including the input arrays and their
 
 <p align="center"> Table <id> &nbsp; Permutation examples </p>
 
-| Input array | Permutations                                                   |
+| Input array | Permutations                                                       |
 | :---------- | :----------------------------------------------------------------- |
 | $[1]$       | $[1]$                                                              |
 | $[1, 2]$    | $[1, 2], [2, 1]$                                                   |

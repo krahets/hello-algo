@@ -10,14 +10,14 @@ The common operations in a double-ended queue are listed below, and the names of
 
 <p align="center"> Table <id> &nbsp; Efficiency of double-ended queue operations </p>
 
-| Method Name   | Description                 | Time Complexity |
-| ------------- | --------------------------- | --------------- |
+| Method Name   | Description                | Time Complexity |
+| ------------- | -------------------------- | --------------- |
 | `pushFirst()` | Add an element to the head | $O(1)$          |
-| `pushLast()`  | Add an element to the tail  | $O(1)$          |
-| `popFirst()`  | Remove the first element    | $O(1)$          |
-| `popLast()`   | Remove the last element     | $O(1)$          |
-| `peekFirst()` | Access the first element    | $O(1)$          |
-| `peekLast()`  | Access the last element     | $O(1)$          |
+| `pushLast()`  | Add an element to the tail | $O(1)$          |
+| `popFirst()`  | Remove the first element   | $O(1)$          |
+| `popLast()`   | Remove the last element    | $O(1)$          |
+| `peekFirst()` | Access the first element   | $O(1)$          |
+| `peekLast()`  | Access the last element    | $O(1)$          |
 
 Similarly, we can directly use the double-ended queue classes implemented in programming languages:
 
