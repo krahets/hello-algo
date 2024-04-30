@@ -665,7 +665,7 @@ Since $T(n)$ is a linear function, its growth trend is linear, and therefore, it
 
 In essence, time complexity analysis is about finding the asymptotic upper bound of the "number of operations $T(n)$". It has a precise mathematical definition.
 
-!!! abstract "Asymptotic Upper Bound"
+!!! note "Asymptotic Upper Bound"
 
     If there exist positive real numbers $c$ and $n_0$ such that for all $n > n_0$, $T(n) \leq c \cdot f(n)$, then $f(n)$ is considered an asymptotic upper bound of $T(n)$, denoted as $T(n) = O(f(n))$.
 

@@ -1,6 +1,6 @@
 # Number encoding *
 
-!!! note
+!!! tip
 
     In this book, chapters marked with an asterisk '*' are optional readings. If you are short on time or find them challenging, you may skip these initially and return to them after completing the essential chapters.
 

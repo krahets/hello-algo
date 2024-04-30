@@ -12,7 +12,7 @@ import { Vertex } from '../modules/Vertex';
 function graphBFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
     // 頂點走訪序列
     const res: Vertex[] = [];
-    // 雜湊表，用於記錄已被訪問過的頂點
+    // 雜湊集合，用於記錄已被訪問過的頂點
     const visited: Set<Vertex> = new Set();
     visited.add(startVet);
     // 佇列用於實現 BFS

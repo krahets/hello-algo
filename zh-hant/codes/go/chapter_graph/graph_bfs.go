@@ -13,7 +13,7 @@ import (
 func graphBFS(g *graphAdjList, startVet Vertex) []Vertex {
 	// 頂點走訪序列
 	res := make([]Vertex, 0)
-	// 雜湊表，用於記錄已被訪問過的頂點
+	// 雜湊集合，用於記錄已被訪問過的頂點
 	visited := make(map[Vertex]struct{})
 	visited[startVet] = struct{}{}
 	// 佇列用於實現 BFS, 使用切片模擬佇列

@@ -15,7 +15,7 @@ use std::collections::{HashSet, VecDeque};
 fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
     // 頂點走訪序列
     let mut res = vec![];
-    // 雜湊表，用於記錄已被訪問過的頂點
+    // 雜湊集合，用於記錄已被訪問過的頂點
     let mut visited = HashSet::new();
     visited.insert(start_vet);
     // 佇列用於實現 BFS

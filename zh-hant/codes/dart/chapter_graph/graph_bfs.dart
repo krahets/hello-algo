@@ -14,7 +14,7 @@ List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
   // 使用鄰接表來表示圖，以便獲取指定頂點的所有鄰接頂點
   // 頂點走訪序列
   List<Vertex> res = [];
-  // 雜湊表，用於記錄已被訪問過的頂點
+  // 雜湊集合，用於記錄已被訪問過的頂點
   Set<Vertex> visited = {};
   visited.add(startVet);
   // 佇列用於實現 BFS

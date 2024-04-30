@@ -12,7 +12,7 @@ public class graph_bfs {
     List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
         // 頂點走訪序列
         List<Vertex> res = [];
-        // 雜湊表，用於記錄已被訪問過的頂點
+        // 雜湊集合，用於記錄已被訪問過的頂點
         HashSet<Vertex> visited = [startVet];
         // 佇列用於實現 BFS
         Queue<Vertex> que = new();

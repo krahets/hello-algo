@@ -43,7 +43,7 @@
   English
 </p>
 
-## About
+## The book
 
 This open-source project aims to create a free and beginner-friendly crash course for data structures and algorithms.
 

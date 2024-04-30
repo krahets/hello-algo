@@ -26,7 +26,7 @@ func dfs(graph: GraphAdjList, visited: inout Set<Vertex>, res: inout [Vertex], v
 func graphDFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
     // 頂點走訪序列
     var res: [Vertex] = []
-    // 雜湊表，用於記錄已被訪問過的頂點
+    // 雜湊集合，用於記錄已被訪問過的頂點
     var visited: Set<Vertex> = []
     dfs(graph: graph, visited: &visited, res: &res, vet: startVet)
     return res

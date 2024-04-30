@@ -27,7 +27,7 @@ function dfs(graph, visited, res, vet) {
 function graphDFS(graph, startVet) {
     // 頂點走訪序列
     const res = [];
-    // 雜湊表，用於記錄已被訪問過的頂點
+    // 雜湊集合，用於記錄已被訪問過的頂點
     const visited = new Set();
     dfs(graph, visited, res, startVet);
     return res;

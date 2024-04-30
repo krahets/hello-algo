@@ -27,28 +27,28 @@
     from collections import deque
 
     # 初始化雙向佇列
-    deque: deque[int] = deque()
+    deq: deque[int] = deque()
 
     # 元素入列
-    deque.append(2)      # 新增至佇列尾
-    deque.append(5)
-    deque.append(4)
-    deque.appendleft(3)  # 新增至佇列首
-    deque.appendleft(1)
+    deq.append(2)      # 新增至佇列尾
+    deq.append(5)
+    deq.append(4)
+    deq.appendleft(3)  # 新增至佇列首
+    deq.appendleft(1)
 
     # 訪問元素
-    front: int = deque[0]  # 佇列首元素
-    rear: int = deque[-1]  # 佇列尾元素
+    front: int = deq[0]  # 佇列首元素
+    rear: int = deq[-1]  # 佇列尾元素
 
     # 元素出列
-    pop_front: int = deque.popleft()  # 佇列首元素出列
-    pop_rear: int = deque.pop()       # 佇列尾元素出列
+    pop_front: int = deq.popleft()  # 佇列首元素出列
+    pop_rear: int = deq.pop()       # 佇列尾元素出列
 
     # 獲取雙向佇列的長度
-    size: int = len(deque)
+    size: int = len(deq)
 
     # 判斷雙向佇列是否為空
-    is_empty: bool = len(deque) == 0
+    is_empty: bool = len(deq) == 0
     ```
 
 === "C++"
