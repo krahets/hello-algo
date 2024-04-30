@@ -36,7 +36,7 @@ Based on the code from Example One, we need to use a list `path` to record the v
 
 In each "try", we record the path by adding the current node to `path`; before "retreating", we need to pop the node from `path` **to restore the state before this attempt**.
 
-Observe the process shown below, **we can understand trying and retreating as "advancing" and "undoing"**, two operations that are reverse to each other.
+Observe the process shown in the figure below, **we can understand trying and retreating as "advancing" and "undoing"**, two operations that are reverse to each other.
 
 === "<1>"
     ![Trying and retreating](backtracking_algorithm.assets/preorder_find_paths_step1.png)

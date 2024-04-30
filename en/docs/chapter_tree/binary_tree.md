@@ -206,7 +206,7 @@ Each node has two references (pointers), pointing to the "left-child node" and "
 
 ## Common terminology of binary trees
 
-The commonly used terminology of binary trees is shown in the following figure.
+The commonly used terminology of binary trees is shown in the figure below.
 
 - "Root node": The node at the top level of the binary tree, which has no parent node.
 - "Leaf node": A node with no children, both of its pointers point to `None`.

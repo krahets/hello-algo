@@ -42,7 +42,7 @@ From a garbage collection perspective, for languages with automatic garbage coll
 
 If an element is searched first and then deleted, the time complexity is indeed `O(n)`. However, the `O(1)` advantage of linked lists in insertion and deletion can be realized in other applications. For example, in the implementation of double-ended queues using linked lists, we maintain pointers always pointing to the head and tail nodes, making each insertion and deletion operation `O(1)`.
 
-**Q**: In the image "Linked List Definition and Storage Method", do the light blue storage nodes occupy a single memory address, or do they share half with the node value?
+**Q**: In the figure "Linked List Definition and Storage Method", do the light blue storage nodes occupy a single memory address, or do they share half with the node value?
 
 The diagram is just a qualitative representation; quantitative analysis depends on specific situations.
 

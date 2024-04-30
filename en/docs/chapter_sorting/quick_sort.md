@@ -47,7 +47,7 @@ After the pivot partitioning, the original array is divided into three parts: le
 
 ## Algorithm process
 
-The overall process of quick sort is shown in the following figure.
+The overall process of quick sort is shown in the figure below.
 
 1. First, perform a "pivot partitioning" on the original array to obtain the unsorted left and right sub-arrays.
 2. Then, recursively perform "pivot partitioning" on both the left and right sub-arrays.

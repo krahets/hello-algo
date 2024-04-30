@@ -13,7 +13,7 @@ Let's first understand the working principle of the greedy algorithm through the
 
     Given $n$ types of coins, where the denomination of the $i$th type of coin is $coins[i - 1]$, and the target amount is $amt$, with each type of coin available indefinitely, what is the minimum number of coins needed to make up the target amount? If it is not possible to make up the target amount, return $-1$.
 
-The greedy strategy adopted in this problem is shown in the following figure. Given the target amount, **we greedily choose the coin that is closest to and not greater than it**, repeatedly following this step until the target amount is met.
+The greedy strategy adopted in this problem is shown in the figure below. Given the target amount, **we greedily choose the coin that is closest to and not greater than it**, repeatedly following this step until the target amount is met.
 
 ![Greedy strategy for coin change](greedy_algorithm.assets/coin_change_greedy_strategy.png)
 
@@ -29,7 +29,7 @@ You might exclaim: So clean! The greedy algorithm solves the coin change problem
 
 **Greedy algorithms are not only straightforward and simple to implement, but they are also usually very efficient**. In the code above, if the smallest coin denomination is $\min(coins)$, the greedy choice loops at most $amt / \min(coins)$ times, giving a time complexity of $O(amt / \min(coins))$. This is an order of magnitude smaller than the time complexity of the dynamic programming solution, which is $O(n \times amt)$.
 
-However, **for some combinations of coin denominations, greedy algorithms cannot find the optimal solution**. The following figure provides two examples.
+However, **for some combinations of coin denominations, greedy algorithms cannot find the optimal solution**. The figure below provides two examples.
 
 - **Positive example $coins = [1, 5, 10, 20, 50, 100]$**: In this coin combination, given any $amt$, the greedy algorithm can find the optimal solution.
 - **Negative example $coins = [1, 20, 50]$**: Suppose $amt = 60$, the greedy algorithm can only find the combination $50 + 1 \times 10$, totaling 11 coins, but dynamic programming can find the optimal solution of $20 + 20 + 20$, needing only 3 coins.

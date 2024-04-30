@@ -754,7 +754,7 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 [file]{space_complexity}-[class]{}-[func]{linear}
 ```
 
-As shown below, this function's recursive depth is $n$, meaning there are $n$ instances of unreturned `linear_recur()` function, using $O(n)$ size of stack frame space:
+As shown in the figure below, this function's recursive depth is $n$, meaning there are $n$ instances of unreturned `linear_recur()` function, using $O(n)$ size of stack frame space:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{linear_recur}
@@ -770,7 +770,7 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 [file]{space_complexity}-[class]{}-[func]{quadratic}
 ```
 
-As shown below, the recursive depth of this function is $n$, and in each recursive call, an array is initialized with lengths $n$, $n-1$, $\dots$, $2$, $1$, averaging $n/2$, thus overall occupying $O(n^2)$ space:
+As shown in the figure below, the recursive depth of this function is $n$, and in each recursive call, an array is initialized with lengths $n$, $n-1$, $\dots$, $2$, $1$, averaging $n/2$, thus overall occupying $O(n^2)$ space:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
@@ -780,7 +780,7 @@ As shown below, the recursive depth of this function is $n$, and in each recursi
 
 ### Exponential order $O(2^n)$
 
-Exponential order is common in binary trees. Observe the below image, a "full binary tree" with $n$ levels has $2^n - 1$ nodes, occupying $O(2^n)$ space:
+Exponential order is common in binary trees. Observe the figure below, a "full binary tree" with $n$ levels has $2^n - 1$ nodes, occupying $O(2^n)$ space:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{build_tree}

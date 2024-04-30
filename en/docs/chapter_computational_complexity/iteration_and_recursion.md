@@ -117,7 +117,7 @@ For example, in calculating $1 + 2 + \dots + n$, we can make the result variable
 [file]{recursion}-[class]{}-[func]{tail_recur}
 ```
 
-The execution process of tail recursion is shown in the following figure. Comparing regular recursion and tail recursion, the point of the summation operation is different.
+The execution process of tail recursion is shown in the figure below. Comparing regular recursion and tail recursion, the point of the summation operation is different.
 
 - **Regular recursion**: The summation operation occurs during the "returning" phase, requiring another summation after each layer returns.
 - **Tail recursion**: The summation operation occurs during the "calling" phase, and the "returning" phase only involves returning through each layer.
