@@ -9,13 +9,13 @@ A few years ago, I shared the "Sword for Offer" problem solutions on LeetCode, r
 
 Directly solving problems seems to be the most popular method — it's simple, direct, and effective. However, problem-solving is like playing a game of Minesweeper: those with strong self-study abilities can defuse the mines one by one, but those with insufficient basics might end up metaphorically bruised from explosions, retreating step by step in frustration. Going through textbooks is also common, but for those aiming for job applications, the energy spent on thesis writing, resume submissions, and preparation for written tests and interviews leaves little for tackling thick books, turning it into a daunting challenge.
 
-If you're facing similar troubles, then this book are lucky to have found you. This book is my answer to the question. While it may not be the best solution, it is at least a positive attempt. This book may not directly land you an offer, but it will guide you through the "knowledge map" in data structures and algorithms, help you understand the shapes, sizes, and locations of different "mines," and enable you to master various "demining methods." With these skills, I believe you can solve problems and read literature more comfortably, gradually building a knowledge system.
+If you're facing similar troubles, then this book is lucky to have found you. This book is my answer to the question. While it may not be the best solution, it is at least a positive attempt. This book may not directly land you an offer, but it will guide you through the "knowledge map" in data structures and algorithms, help you understand the shapes, sizes, and locations of different "mines," and enable you to master various "demining methods." With these skills, I believe you can solve problems and read literature more comfortably, gradually building a knowledge system.
 
 I deeply agree with Professor Feynman's statement: "Knowledge isn't free. You have to pay attention." In this sense, this book is not entirely "free." To not disappoint the precious "attention" you pay for this book, I will do my best, dedicating my utmost "attention" to this book.
 
 Knowing my limitations, although the content of this book has been refined over time, there are surely many errors remaining. I sincerely request critiques and corrections from all teachers and students.
 
-![Hello Algorithms](../assets/covers/chapter_hello_algo.jpg){ class="cover-image" }
+![Hello Algo](../assets/covers/chapter_hello_algo.jpg){ class="cover-image" }
 
 <div style="text-align: center;">
     <h2 style="margin-top: 0.8em; margin-bottom: 0.8em;">Hello, Algo!</h2>
