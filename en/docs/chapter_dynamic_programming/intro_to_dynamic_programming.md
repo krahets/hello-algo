@@ -1,4 +1,4 @@
-# Initial exploration of dynamic programming
+# Introduction to dynamic programming
 
 <u>Dynamic programming</u> is an important algorithmic paradigm that decomposes a problem into a series of smaller subproblems, and stores the solutions of these subproblems to avoid redundant computations, thereby significantly improving time efficiency.
 

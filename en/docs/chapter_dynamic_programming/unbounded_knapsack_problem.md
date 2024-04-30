@@ -1,23 +1,23 @@
-# Complete knapsack problem
+# Unbounded knapsack problem
 
-In this section, we first solve another common knapsack problem: the complete knapsack, and then explore a special case of it: the coin change problem.
+In this section, we first solve another common knapsack problem: the unbounded knapsack, and then explore a special case of it: the coin change problem.
 
-## Complete knapsack problem
+## Unbounded knapsack problem
 
 !!! question
 
     Given $n$ items, where the weight of the $i^{th}$ item is $wgt[i-1]$ and its value is $val[i-1]$, and a backpack with a capacity of $cap$. **Each item can be selected multiple times**. What is the maximum value of the items that can be put into the backpack without exceeding its capacity? See the example below.
 
-![Example data for the complete knapsack problem](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png)
+![Example data for the unbounded knapsack problem](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png)
 
 ### Dynamic programming approach
 
-The complete knapsack problem is very similar to the 0-1 knapsack problem, **the only difference being that there is no limit on the number of times an item can be chosen**.
+The unbounded knapsack problem is very similar to the 0-1 knapsack problem, **the only difference being that there is no limit on the number of times an item can be chosen**.
 
 - In the 0-1 knapsack problem, there is only one of each item, so after placing item $i$ into the backpack, you can only choose from the previous $i-1$ items.
-- In the complete knapsack problem, the quantity of each item is unlimited, so after placing item $i$ in the backpack, **you can still choose from the previous $i$ items**.
+- In the unbounded knapsack problem, the quantity of each item is unlimited, so after placing item $i$ in the backpack, **you can still choose from the previous $i$ items**.
 
-Under the rules of the complete knapsack problem, the state $[i, c]$ can change in two ways.
+Under the rules of the unbounded knapsack problem, the state $[i, c]$ can change in two ways.
 
 - **Not putting item $i$ in**: As with the 0-1 knapsack problem, transition to $[i-1, c]$.
 - **Putting item $i$ in**: Unlike the 0-1 knapsack problem, transition to $[i, c-wgt[i-1]]$.
@@ -43,7 +43,7 @@ Since the current state comes from the state to the left and above, **the space-
 This traversal order is the opposite of that for the 0-1 knapsack. Please refer to the following figures to understand the difference.
 
 === "<1>"
-    ![Dynamic programming process for the complete knapsack problem after space optimization](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
+    ![Dynamic programming process for the unbounded knapsack problem after space optimization](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
 
 === "<2>"
     ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png)
@@ -78,11 +78,11 @@ The knapsack problem is a representative of a large class of dynamic programming
 
 ### Dynamic programming approach
 
-**The coin change can be seen as a special case of the complete knapsack problem**, sharing the following similarities and differences.
+**The coin change can be seen as a special case of the unbounded knapsack problem**, sharing the following similarities and differences.
 
 - The two problems can be converted into each other: "item" corresponds to "coin", "item weight" corresponds to "coin denomination", and "backpack capacity" corresponds to "target amount".
-- The optimization goals are opposite: the complete knapsack problem aims to maximize the value of items, while the coin change problem aims to minimize the number of coins.
-- The complete knapsack problem seeks solutions "not exceeding" the backpack capacity, while the coin change seeks solutions that "exactly" make up the target amount.
+- The optimization goals are opposite: the unbounded knapsack problem aims to maximize the value of items, while the coin change problem aims to minimize the number of coins.
+- The unbounded knapsack problem seeks solutions "not exceeding" the backpack capacity, while the coin change seeks solutions that "exactly" make up the target amount.
 
 **First step: Think through each round's decision-making, define the state, and thus derive the $dp$ table**
 
@@ -92,7 +92,7 @@ The two-dimensional $dp$ table is of size $(n+1) \times (amt+1)$.
 
 **Second step: Identify the optimal substructure and derive the state transition equation**
 
-This problem differs from the complete knapsack problem in two aspects of the state transition equation.
+This problem differs from the unbounded knapsack problem in two aspects of the state transition equation.
 
 - This problem seeks the minimum, so the operator $\max()$ needs to be changed to $\min()$.
 - The optimization is focused on the number of coins, so simply add $+1$ when a coin is chosen.
@@ -117,7 +117,7 @@ For this reason, we use the number $amt + 1$ to represent an invalid solution, b
 [file]{coin_change}-[class]{}-[func]{coin_change_dp}
 ```
 
-The following images show the dynamic programming process for the coin change problem, which is very similar to the complete knapsack problem.
+The following images show the dynamic programming process for the coin change problem, which is very similar to the unbounded knapsack problem.
 
 === "<1>"
     ![Dynamic programming process for the coin change problem](unbounded_knapsack_problem.assets/coin_change_dp_step1.png)
@@ -166,7 +166,7 @@ The following images show the dynamic programming process for the coin change pr
 
 ### Space optimization
 
-The space optimization for the coin change problem is handled in the same way as for the complete knapsack problem:
+The space optimization for the coin change problem is handled in the same way as for the unbounded knapsack problem:
 
 ```src
 [file]{coin_change}-[class]{}-[func]{coin_change_dp_comp}

@@ -74,7 +74,7 @@ nav:
     - 4.1 Array: chapter_array_and_linkedlist/array.md
     - 4.2 Linked list: chapter_array_and_linkedlist/linked_list.md
     - 4.3 List: chapter_array_and_linkedlist/list.md
-    - 4.4 Memory and cache: chapter_array_and_linkedlist/ram_and_cache.md
+    - 4.4 Memory and cache *: chapter_array_and_linkedlist/ram_and_cache.md
     - 4.5 Summary: chapter_array_and_linkedlist/summary.md
   - Chapter 5. Stack and queue:
     # [icon: material/stack-overflow]
@@ -94,7 +94,7 @@ nav:
     # [icon: material/graph-outline]
     - chapter_tree/index.md
     - 7.1 Binary tree: chapter_tree/binary_tree.md
-    - 7.2 Binary tree Traversal: chapter_tree/binary_tree_traversal.md
+    - 7.2 Binary tree traversal: chapter_tree/binary_tree_traversal.md
     - 7.3 Array Representation of tree: chapter_tree/array_representation_of_tree.md
     - 7.4 Binary Search tree: chapter_tree/binary_search_tree.md
     - 7.5 AVL tree *: chapter_tree/avl_tree.md
@@ -113,69 +113,68 @@ nav:
     - 9.2 Basic graph operations: chapter_graph/graph_operations.md
     - 9.3 Graph traversal: chapter_graph/graph_traversal.md
     - 9.4 Summary: chapter_graph/summary.md
-  # - Chapter 10. Searching:
-  #   # [icon: material/text-search]
-  #   - chapter_searching/index.md
-  #   - 10.1 Binary search: chapter_searching/binary_search.md
-  #   - 10.2 Binary search insertion point: chapter_searching/binary_search_insertion.md
-  #   - 10.3 Binary search boundaries: chapter_searching/binary_search_edge.md
-  #   - 10.4 Hashing optimization strategy: chapter_searching/replace_linear_by_hashing.md
-  #   - 10.5 Revisiting search algorithms: chapter_searching/searching_algorithm_revisited.md
-  #   - 10.6 Summary: chapter_searching/summary.md
-  # - Chapter 11. Sorting:
-  #   # [icon: material/sort-ascending]
-  #   - chapter_sorting/index.md
-  #   - 11.1 Sorting algorithms: chapter_sorting/sorting_algorithm.md
-  #   - 11.2 Selection sort: chapter_sorting/selection_sort.md
-  #   - 11.3 Bubble sort: chapter_sorting/bubble_sort.md
-  #   - 11.4 Insertion sort: chapter_sorting/insertion_sort.md
-  #   - 11.5 Quick sort: chapter_sorting/quick_sort.md
-  #   - 11.6 Merge sort: chapter_sorting/merge_sort.md
-  #   - 11.7 Heap sort: chapter_sorting/heap_sort.md
-  #   - 11.8 Bucket sort: chapter_sorting/bucket_sort.md
-  #   - 11.9 Counting sort: chapter_sorting/counting_sort.md
-  #   - 11.10 Radix sort: chapter_sorting/radix_sort.md
-  #   - 11.11 Summary: chapter_sorting/summary.md
-  # - Chapter 12. Divide and conquer:
-  #   # [icon: material/set-split]
-  #   - chapter_divide_and_conquer/index.md
-  #   - 12.1 Divide and conquer algorithm: chapter_divide_and_conquer/divide_and_conquer.md
-  #   - 12.2 Divide and conquer search strategy: chapter_divide_and_conquer/binary_search_recur.md
-  #   - 12.3 Building tree problem: chapter_divide_and_conquer/build_binary_tree_problem.md
-  #   - 12.4 Hanota problem: chapter_divide_and_conquer/hanota_problem.md
-  #   - 12.5 Summary: chapter_divide_and_conquer/summary.md
-  # - Chapter 13. Backtracking:
-  #   # [icon: material/map-marker-path]
-  #   - chapter_backtracking/index.md
-  #   - 13.1 Backtracking algorithm: chapter_backtracking/backtracking_algorithm.md
-  #   - 13.2 Permutations problem: chapter_backtracking/permutations_problem.md
-  #   - 13.3 Subset sum problem: chapter_backtracking/subset_sum_problem.md
-  #   - 13.4 n-queens problem: chapter_backtracking/n_queens_problem.md
-  #   - 13.5 Summary: chapter_backtracking/summary.md
-  # - Chapter 14. Dynamic programming:
-  #   # [icon: material/table-pivot]
-  #   - chapter_dynamic_programming/index.md
-  #   - 14.1 Introduction to dynamic programming: chapter_dynamic_programming/intro_to_dynamic_programming.md
-  #   - 14.2 Features of DP problems: chapter_dynamic_programming/dp_problem_features.md
-  #   - 14.3 DP solution approach: chapter_dynamic_programming/dp_solution_pipeline.md
-  #   - 14.4 0-1 Knapsack problem: chapter_dynamic_programming/knapsack_problem.md
-  #   - 14.5 Unbounded knapsack problem: chapter_dynamic_programming/unbounded_knapsack_problem.md
-  #   - 14.6 Edit distance problem: chapter_dynamic_programming/edit_distance_problem.md
-  #   - 14.7 Summary: chapter_dynamic_programming/summary.md
-  # - Chapter 15. Greedy:
-  #   # [icon: material/head-heart-outline]
-  #   - chapter_greedy/index.md
-  #   - 15.1 Greedy algorithm: chapter_greedy/greedy_algorithm.md
-  #   - 15.2 Fractional knapsack problem: chapter_greedy/fractional_knapsack_problem.md
-  #   - 15.3 Maximum capacity problem: chapter_greedy/max_capacity_problem.md
-  #   - 15.4 Maximum product cutting problem: chapter_greedy/max_product_cutting_problem.md
-  #   - 15.5 Summary: chapter_greedy/summary.md
-  # - Chapter 16. Appendix:
-  #   # [icon: material/help-circle-outline]
-  #   - chapter_appendix/index.md
-  #   - 16.1 Installation: chapter_appendix/installation.md
-  #   - 16.2 Contributing: chapter_appendix/contribution.md
-  #   # [status: new]
-  #   - 16.3 &nbsp; Terminology: chapter_appendix/terminology.md
-  # - References:
-  #   - chapter_reference/index.md
+  - Chapter 10. Searching:
+    # [icon: material/text-search]
+    - chapter_searching/index.md
+    - 10.1 Binary search: chapter_searching/binary_search.md
+    - 10.2 Binary search insertion: chapter_searching/binary_search_insertion.md
+    - 10.3 Binary search boundaries: chapter_searching/binary_search_edge.md
+    - 10.4 Hashing optimization strategies: chapter_searching/replace_linear_by_hashing.md
+    - 10.5 Search algorithms revisited: chapter_searching/searching_algorithm_revisited.md
+    - 10.6 Summary: chapter_searching/summary.md
+  - Chapter 11. Sorting:
+    # [icon: material/sort-ascending]
+    - chapter_sorting/index.md
+    - 11.1 Sorting algorithms: chapter_sorting/sorting_algorithm.md
+    - 11.2 Selection sort: chapter_sorting/selection_sort.md
+    - 11.3 Bubble sort: chapter_sorting/bubble_sort.md
+    - 11.4 Insertion sort: chapter_sorting/insertion_sort.md
+    - 11.5 Quick sort: chapter_sorting/quick_sort.md
+    - 11.6 Merge sort: chapter_sorting/merge_sort.md
+    - 11.7 Heap sort: chapter_sorting/heap_sort.md
+    - 11.8 Bucket sort: chapter_sorting/bucket_sort.md
+    - 11.9 Counting sort: chapter_sorting/counting_sort.md
+    - 11.10 Radix sort: chapter_sorting/radix_sort.md
+    - 11.11 Summary: chapter_sorting/summary.md
+  - Chapter 12. Divide and conquer:
+    # [icon: material/set-split]
+    - chapter_divide_and_conquer/index.md
+    - 12.1 Divide and conquer algorithms: chapter_divide_and_conquer/divide_and_conquer.md
+    - 12.2 Divide and conquer search strategy: chapter_divide_and_conquer/binary_search_recur.md
+    - 12.3 Building binary tree problem: chapter_divide_and_conquer/build_binary_tree_problem.md
+    - 12.4 Tower of Hanoi Problem: chapter_divide_and_conquer/hanota_problem.md
+    - 12.5 Summary: chapter_divide_and_conquer/summary.md
+  - Chapter 13. Backtracking:
+    # [icon: material/map-marker-path]
+    - chapter_backtracking/index.md
+    - 13.1 Backtracking algorithms: chapter_backtracking/backtracking_algorithm.md
+    - 13.2 Permutation problem: chapter_backtracking/permutations_problem.md
+    - 13.3 Subset sum problem: chapter_backtracking/subset_sum_problem.md
+    - 13.4 n queens problem: chapter_backtracking/n_queens_problem.md
+    - 13.5 Summary: chapter_backtracking/summary.md
+  - Chapter 14. Dynamic programming:
+    # [icon: material/table-pivot]
+    - chapter_dynamic_programming/index.md
+    - 14.1 Introduction to dynamic programming: chapter_dynamic_programming/intro_to_dynamic_programming.md
+    - 14.2 Characteristics of DP problems: chapter_dynamic_programming/dp_problem_features.md
+    - 14.3 DP problem-solving approach¶: chapter_dynamic_programming/dp_solution_pipeline.md
+    - 14.4 0-1 Knapsack problem: chapter_dynamic_programming/knapsack_problem.md
+    - 14.5 Unbounded knapsack problem: chapter_dynamic_programming/unbounded_knapsack_problem.md
+    - 14.6 Edit distance problem: chapter_dynamic_programming/edit_distance_problem.md
+    - 14.7 Summary: chapter_dynamic_programming/summary.md
+  - Chapter 15. Greedy:
+    # [icon: material/head-heart-outline]
+    - chapter_greedy/index.md
+    - 15.1 Greedy algorithms: chapter_greedy/greedy_algorithm.md
+    - 15.2 Fractional knapsack problem: chapter_greedy/fractional_knapsack_problem.md
+    - 15.3 Maximum capacity problem: chapter_greedy/max_capacity_problem.md
+    - 15.4 Maximum product cutting problem: chapter_greedy/max_product_cutting_problem.md
+    - 15.5 Summary: chapter_greedy/summary.md
+  - Chapter 16. Appendix:
+    # [icon: material/help-circle-outline]
+    - chapter_appendix/index.md
+    - 16.1 Installation: chapter_appendix/installation.md
+    - 16.2 Contributing: chapter_appendix/contribution.md
+    - 16.3 Terminology: chapter_appendix/terminology.md
+  - References:
+    - chapter_reference/index.md

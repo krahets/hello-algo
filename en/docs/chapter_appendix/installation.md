@@ -1,4 +1,4 @@
-# Programming environment setup
+# Installation
 
 ## Install IDE
 
