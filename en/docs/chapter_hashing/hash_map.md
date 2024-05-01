@@ -1,6 +1,6 @@
 # Hash table
 
-A "hash table", also known as a "hash map", achieves efficient element querying by establishing a mapping between keys and values. Specifically, when we input a `key` into the hash table, we can retrieve the corresponding `value` in $O(1)$ time.
+A <u>hash table</u> achieves efficient element querying by establishing a mapping between keys and values. Specifically, when we input a `key` into the hash table, we can retrieve the corresponding `value` in $O(1)$ time.
 
 As shown in the figure below, given $n$ students, each with two pieces of data: "name" and "student number". If we want to implement a query feature that returns the corresponding name when given a student number, we can use the hash table shown in the figure below.
 
@@ -486,9 +486,9 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 
 ## Simple implementation of hash table
 
-First, let's consider the simplest case: **implementing a hash table using just an array**. In the hash table, each empty slot in the array is called a "bucket", and each bucket can store one key-value pair. Therefore, the query operation involves finding the bucket corresponding to the `key` and retrieving the `value` from it.
+First, let's consider the simplest case: **implementing a hash table using just an array**. In the hash table, each empty slot in the array is called a <u>bucket</u>, and each bucket can store one key-value pair. Therefore, the query operation involves finding the bucket corresponding to the `key` and retrieving the `value` from it.
 
-So, how do we locate the appropriate bucket based on the `key`? This is achieved through a "hash function". The role of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space is all possible keys, and the output space is all buckets (array indices). In other words, input a `key`, **and we can use the hash function to determine the storage location of the corresponding key-value pair in the array**.
+So, how do we locate the appropriate bucket based on the `key`? This is achieved through a <u>hash function</u>. The role of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space is all possible keys, and the output space is all buckets (array indices). In other words, input a `key`, **and we can use the hash function to determine the storage location of the corresponding key-value pair in the array**.
 
 The calculation process of the hash function for a given `key` is divided into the following two steps:
 
@@ -522,7 +522,7 @@ For the hash function in the above example, if the last two digits of the input 
 20336 % 100 = 36
 ```
 
-As shown in the figure below, both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is known as "hash collision".
+As shown in the figure below, both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is known as <u>hash collision</u>.
 
 ![Example of hash collision](hash_map.assets/hash_collision.png)
 
@@ -534,4 +534,4 @@ As shown in the figure below, before expansion, key-value pairs `(136, A)` and `
 
 Similar to array expansion, resizing a hash table requires migrating all key-value pairs from the original hash table to the new one, which is time-consuming. Furthermore, since the capacity `capacity` of the hash table changes, we need to recalculate the storage positions of all key-value pairs using the hash function, which adds to the computational overhead of the resizing process. Therefore, programming languages often reserve a sufficiently large capacity for the hash table to prevent frequent resizing.
 
-The "load factor" is an important concept for hash tables. It is defined as the ratio of the number of elements in the hash table to the number of buckets. It is used to measure the severity of hash collisions and **is often used as a trigger for resizing the hash table**. For example, in Java, when the load factor exceeds $0.75$, the system will resize the hash table to twice its original size.
+The <u>load factor</u> is an important concept for hash tables. It is defined as the ratio of the number of elements in the hash table to the number of buckets. It is used to measure the severity of hash collisions and **is often used as a trigger for resizing the hash table**. For example, in Java, when the load factor exceeds $0.75$, the system will resize the hash table to twice its original size.

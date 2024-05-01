@@ -17,7 +17,7 @@ The difference is that, in this problem, only a part of an item can be chosen. A
 
 ### Greedy strategy determination
 
-Maximizing the total value of the items in the knapsack essentially means maximizing the value per unit weight. From this, the greedy strategy shown in the figure below can be deduced.
+Maximizing the total value of the items in the knapsack **essentially means maximizing the value per unit weight**. From this, the greedy strategy shown in the figure below can be deduced.
 
 1. Sort the items by their unit value from high to low.
 2. Iterate over all items, **greedily choosing the item with the highest unit value in each round**.

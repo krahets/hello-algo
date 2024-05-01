@@ -2,13 +2,13 @@
 
 Memory space is a shared resource among all programs. In a complex system environment, available memory can be dispersed throughout the memory space. We understand that the memory allocated for an array must be continuous. However, for very large arrays, finding a sufficiently large contiguous memory space might be challenging. This is where the flexible advantage of linked lists becomes evident.
 
-A "linked list" is a linear data structure in which each element is a node object, and the nodes are interconnected through "references". These references hold the memory addresses of subsequent nodes, enabling navigation from one node to the next.
+A <u>linked list</u> is a linear data structure in which each element is a node object, and the nodes are interconnected through "references". These references hold the memory addresses of subsequent nodes, enabling navigation from one node to the next.
 
 The design of linked lists allows for their nodes to be distributed across memory locations without requiring contiguous memory addresses.
 
 ![Linked list definition and storage method](linked_list.assets/linkedlist_definition.png)
 
-As shown in the figure, we see that the basic building block of a linked list is the "node" object. Each node comprises two key components: the node's "value" and a "reference" to the next node.
+As shown in the figure, we see that the basic building block of a linked list is the <u>node</u> object. Each node comprises two key components: the node's "value" and a "reference" to the next node.
 
 - The first node in a linked list is the "head node", and the final one is the "tail node".
 - The tail node points to "null", designated as `null` in Java, `nullptr` in C++, and `None` in Python.
