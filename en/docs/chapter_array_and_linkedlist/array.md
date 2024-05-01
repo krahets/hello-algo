@@ -4,7 +4,7 @@ comments: true
 
 # 4.1 &nbsp; Array
 
-An "array" is a linear data structure that operates as a lineup of similar items, stored together in a computer's memory in contiguous spaces. It's like a sequence that maintains organized storage. Each item in this lineup has its unique 'spot' known as an "index". Please refer to Figure 4-1 to observe how arrays work and grasp these key terms.
+An <u>array</u> is a linear data structure that operates as a lineup of similar items, stored together in a computer's memory in contiguous spaces. It's like a sequence that maintains organized storage. Each item in this lineup has its unique 'spot' known as an <u>index</u>. Please refer to Figure 4-1 to observe how arrays work and grasp these key terms.
 
 ![Array definition and storage method](array.assets/array_definition.png){ class="animation-figure" }
 

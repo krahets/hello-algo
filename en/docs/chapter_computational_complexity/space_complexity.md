@@ -4,7 +4,7 @@ comments: true
 
 # 2.4 &nbsp; Space complexity
 
-"Space complexity" is used to measure the growth trend of the memory space occupied by an algorithm as the amount of data increases. This concept is very similar to time complexity, except that "running time" is replaced with "occupied memory space".
+<u>Space complexity</u> is used to measure the growth trend of the memory space occupied by an algorithm as the amount of data increases. This concept is very similar to time complexity, except that "running time" is replaced with "occupied memory space".
 
 ## 2.4.1 &nbsp; Space related to algorithms
 

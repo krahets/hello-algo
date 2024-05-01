@@ -18,11 +18,11 @@ For example, in the perfect binary tree shown in Figure 7-25, after inserting tw
 
 <p align="center"> Figure 7-25 &nbsp; Degradation of an AVL tree after inserting nodes </p>
 
-In 1962, G. M. Adelson-Velsky and E. M. Landis proposed the "AVL Tree" in their paper "An algorithm for the organization of information". The paper detailed a series of operations to ensure that after continuously adding and removing nodes, the AVL tree would not degrade, thus maintaining the time complexity of various operations at $O(\log n)$ level. In other words, in scenarios where frequent additions, removals, searches, and modifications are needed, the AVL tree can always maintain efficient data operation performance, which has great application value.
+In 1962, G. M. Adelson-Velsky and E. M. Landis proposed the <u>AVL Tree</u> in their paper "An algorithm for the organization of information". The paper detailed a series of operations to ensure that after continuously adding and removing nodes, the AVL tree would not degrade, thus maintaining the time complexity of various operations at $O(\log n)$ level. In other words, in scenarios where frequent additions, removals, searches, and modifications are needed, the AVL tree can always maintain efficient data operation performance, which has great application value.
 
 ## 7.5.1 &nbsp; Common terminology in AVL trees
 
-An AVL tree is both a binary search tree and a balanced binary tree, satisfying all properties of these two types of binary trees, hence it is a "balanced binary search tree".
+An AVL tree is both a binary search tree and a balanced binary tree, satisfying all properties of these two types of binary trees, hence it is a <u>balanced binary search tree</u>.
 
 ### 1. &nbsp; Node height
 
@@ -489,7 +489,7 @@ The "node height" refers to the distance from that node to its farthest leaf nod
 
 ### 2. &nbsp; Node balance factor
 
-The "balance factor" of a node is defined as the height of the node's left subtree minus the height of its right subtree, with the balance factor of a null node defined as $0$. We will also encapsulate the functionality of obtaining the node balance factor into a function for easy use later on:
+The <u>balance factor</u> of a node is defined as the height of the node's left subtree minus the height of its right subtree, with the balance factor of a null node defined as $0$. We will also encapsulate the functionality of obtaining the node balance factor into a function for easy use later on:
 
 === "Python"
 

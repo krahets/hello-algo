@@ -1629,7 +1629,7 @@ The space optimization for the coin change problem is handled in the same way as
 
 !!! question
 
-    Given $n$ types of coins, where the denomination of the $i^{th}$ type of coin is $coins[i - 1]$, and the target amount is $amt$. **Each type of coin can be selected multiple times**, **ask how many combinations of coins can make up the target amount**. See the example below.
+    Given $n$ types of coins, where the denomination of the $i^{th}$ type of coin is $coins[i - 1]$, and the target amount is $amt$. Each type of coin can be selected multiple times, **ask how many combinations of coins can make up the target amount**. See the example below.
 
 ![Example data for Coin Change Problem II](unbounded_knapsack_problem.assets/coin_change_ii_example.png){ class="animation-figure" }
 

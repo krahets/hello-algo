@@ -15,15 +15,14 @@ As shown in Figure 3-1, logical structures can be divided into two major categor
 - **Linear data structures**: Arrays, Linked Lists, Stacks, Queues, Hash Tables.
 - **Non-linear data structures**: Trees, Heaps, Graphs, Hash Tables.
 
+Non-linear data structures can be further divided into tree structures and network structures.
+
+- **Tree structures**: Trees, Heaps, Hash Tables, where elements have a one-to-many relationship.
+- **Network structures**: Graphs, where elements have a many-to-many relationships.
+
 ![Linear and non-linear data structures](classification_of_data_structure.assets/classification_logic_structure.png){ class="animation-figure" }
 
 <p align="center"> Figure 3-1 &nbsp; Linear and non-linear data structures </p>
-
-Non-linear data structures can be further divided into tree structures and network structures.
-
-- **Linear structures**: Arrays, linked lists, queues, stacks, and hash tables, where elements have a one-to-one sequential relationship.
-- **Tree structures**: Trees, Heaps, Hash Tables, where elements have a one-to-many relationship.
-- **Network structures**: Graphs, where elements have a many-to-many relationships.
 
 ## 3.1.2 &nbsp; Physical structure: contiguous and dispersed
 
@@ -48,6 +47,7 @@ As illustrated in Figure 3-3, **the physical structure reflects the way data is 
 <p align="center"> Figure 3-3 &nbsp; Contiguous space storage and dispersed space storage </p>
 
 **It is worth noting that all data structures are implemented based on arrays, linked lists, or a combination of both**. For example, stacks and queues can be implemented using either arrays or linked lists; while implementations of hash tables may involve both arrays and linked lists.
+
 - **Array-based implementations**: Stacks, Queues, Hash Tables, Trees, Heaps, Graphs, Matrices, Tensors (arrays with dimensions $\geq 3$).
 - **Linked-list-based implementations**: Stacks, Queues, Hash Tables, Trees, Heaps, Graphs, etc.
 

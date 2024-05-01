@@ -24,7 +24,7 @@ The following diagram illustrates the conversions among sign-magnitude, one's co
 
 <p align="center"> Figure 3-4 &nbsp; Conversions between sign-magnitude, one's complement, and two's complement </p>
 
-Although sign-magnitude is the most intuitive, it has limitations. For one, **negative numbers in sign-magnitude cannot be directly used in calculations**. For example, in sign-magnitude, calculating $1 + (-2)$ results in $-3$, which is incorrect.
+Although <u>sign-magnitude</u> is the most intuitive, it has limitations. For one, **negative numbers in sign-magnitude cannot be directly used in calculations**. For example, in sign-magnitude, calculating $1 + (-2)$ results in $-3$, which is incorrect.
 
 $$
 \begin{aligned}
@@ -35,7 +35,7 @@ $$
 \end{aligned}
 $$
 
-To address this, computers introduced the **one's complement**. If we convert to one's complement and calculate $1 + (-2)$, then convert the result back to sign-magnitude, we get the correct result of $-1$.
+To address this, computers introduced the <u>one's complement</u>. If we convert to one's complement and calculate $1 + (-2)$, then convert the result back to sign-magnitude, we get the correct result of $-1$.
 
 $$
 \begin{aligned}
@@ -57,7 +57,7 @@ $$
 \end{aligned}
 $$
 
-Like sign-magnitude, one's complement also suffers from the positive and negative zero ambiguity. Therefore, computers further introduced the **two's complement**. Let's observe the conversion process for negative zero in sign-magnitude, one's complement, and two's complement:
+Like sign-magnitude, one's complement also suffers from the positive and negative zero ambiguity. Therefore, computers further introduced the <u>two's complement</u>. Let's observe the conversion process for negative zero in sign-magnitude, one's complement, and two's complement:
 
 $$
 \begin{aligned}

@@ -667,7 +667,7 @@ $$
 T(n) = 3 + 2n
 $$
 
-Since $T(n)$ is a linear function, its growth trend is linear, and therefore, its time complexity is of linear order, denoted as $O(n)$. This mathematical notation, known as "big-O notation," represents the "asymptotic upper bound" of the function $T(n)$.
+Since $T(n)$ is a linear function, its growth trend is linear, and therefore, its time complexity is of linear order, denoted as $O(n)$. This mathematical notation, known as <u>big-O notation</u>, represents the <u>asymptotic upper bound</u> of the function $T(n)$.
 
 In essence, time complexity analysis is about finding the asymptotic upper bound of the "number of operations $T(n)$". It has a precise mathematical definition.
 

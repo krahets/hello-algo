@@ -4,7 +4,7 @@ comments: true
 
 # 5.3 &nbsp; Double-ended queue
 
-In a queue, we can only delete elements from the head or add elements to the tail. As shown in the following diagram, a "double-ended queue (deque)" offers more flexibility, allowing the addition or removal of elements at both the head and the tail.
+In a queue, we can only delete elements from the head or add elements to the tail. As shown in the following diagram, a <u>double-ended queue (deque)</u> offers more flexibility, allowing the addition or removal of elements at both the head and the tail.
 
 ![Operations in double-ended queue](deque.assets/deque_operations.png){ class="animation-figure" }
 

@@ -15,7 +15,7 @@ There are mainly two methods for improving the structure of hash tables: "Separa
 
 ## 6.2.1 &nbsp; Separate chaining
 
-In the original hash table, each bucket can store only one key-value pair. "Separate chaining" transforms individual elements into a linked list, with key-value pairs as list nodes, storing all colliding key-value pairs in the same list. Figure 6-5 shows an example of a hash table with separate chaining.
+In the original hash table, each bucket can store only one key-value pair. <u>Separate chaining</u> transforms individual elements into a linked list, with key-value pairs as list nodes, storing all colliding key-value pairs in the same list. Figure 6-5 shows an example of a hash table with separate chaining.
 
 ![Separate chaining hash table](hash_collision.assets/hash_table_chaining.png){ class="animation-figure" }
 
@@ -1536,7 +1536,7 @@ It's worth noting that when the list is very long, the query efficiency $O(n)$ i
 
 ## 6.2.2 &nbsp; Open addressing
 
-"Open addressing" does not introduce additional data structures but uses "multiple probes" to handle hash collisions. The probing methods mainly include linear probing, quadratic probing, and double hashing.
+<u>Open addressing</u> does not introduce additional data structures but uses "multiple probes" to handle hash collisions. The probing methods mainly include linear probing, quadratic probing, and double hashing.
 
 Let's use linear probing as an example to introduce the mechanism of open addressing hash tables.
 
@@ -1561,7 +1561,7 @@ It's important to note that **we cannot directly delete elements in an open addr
 
 <p align="center"> Figure 6-7 &nbsp; Query issues caused by deletion in open addressing </p>
 
-To solve this problem, we can use a "lazy deletion" mechanism: instead of directly removing elements from the hash table, **use a constant `TOMBSTONE` to mark the bucket**. In this mechanism, both `None` and `TOMBSTONE` represent empty buckets and can hold key-value pairs. However, when linear probing encounters `TOMBSTONE`, it should continue traversing since there may still be key-value pairs below it.
+To solve this problem, we can use a <u>lazy deletion</u> mechanism: instead of directly removing elements from the hash table, **use a constant `TOMBSTONE` to mark the bucket**. In this mechanism, both `None` and `TOMBSTONE` represent empty buckets and can hold key-value pairs. However, when linear probing encounters `TOMBSTONE`, it should continue traversing since there may still be key-value pairs below it.
 
 However, **lazy deletion may accelerate the degradation of hash table performance**. Every deletion operation produces a delete mark, and as `TOMBSTONE` increases, so does the search time, as linear probing may have to skip multiple `TOMBSTONE` to find the target element.
 

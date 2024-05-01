@@ -4,9 +4,9 @@ comments: true
 
 # 7.4 &nbsp; Binary search tree
 
-As shown in Figure 7-16, a "binary search tree" satisfies the following conditions.
+As shown in Figure 7-16, a <u>binary search tree</u> satisfies the following conditions.
 
-1. For the root node, the value of all nodes in the left subtree < the value of the root node < the value of all nodes in the right subtree.
+1. For the root node, the value of all nodes in the left subtree $<$ the value of the root node $<$ the value of all nodes in the right subtree.
 2. The left and right subtrees of any node are also binary search trees, i.e., they satisfy condition `1.` as well.
 
 ![Binary search tree](binary_search_tree.assets/binary_search_tree.png){ class="animation-figure" }
@@ -885,7 +885,7 @@ As shown in Figure 7-20, when the degree of the node to be removed is $1$, repla
 
 <p align="center"> Figure 7-20 &nbsp; Removing a node in a binary search tree (degree 1) </p>
 
-When the degree of the node to be removed is $2$, we cannot remove it directly, but need to use a node to replace it. To maintain the property of the binary search tree "left subtree < root node < right subtree," **this node can be either the smallest node of the right subtree or the largest node of the left subtree**.
+When the degree of the node to be removed is $2$, we cannot remove it directly, but need to use a node to replace it. To maintain the property of the binary search tree "left subtree $<$ root node $<$ right subtree," **this node can be either the smallest node of the right subtree or the largest node of the left subtree**.
 
 Assuming we choose the smallest node of the right subtree (the next node in in-order traversal), then the removal operation proceeds as shown in Figure 7-21.
 
@@ -1705,7 +1705,7 @@ The operation of removing a node also uses $O(\log n)$ time, where finding the n
 
 ### 4. &nbsp; In-order traversal is ordered
 
-As shown in Figure 7-22, the in-order traversal of a binary tree follows the "left $\rightarrow$ root $\rightarrow$ right" traversal order, and a binary search tree satisfies the size relationship "left child node < root node < right child node".
+As shown in Figure 7-22, the in-order traversal of a binary tree follows the "left $\rightarrow$ root $\rightarrow$ right" traversal order, and a binary search tree satisfies the size relationship "left child node $<$ root node $<$ right child node".
 
 This means that in-order traversal in a binary search tree always traverses the next smallest node first, thus deriving an important property: **The in-order traversal sequence of a binary search tree is ascending**.
 
