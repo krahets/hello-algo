@@ -3759,7 +3759,7 @@
 
 <!-- Page content -->
 <h1 id="71-binary-tree">7.1 &nbsp; Binary tree<a class="headerlink" href="#71-binary-tree" title="Permanent link">&para;</a></h1>
-<p>A "binary tree" is a non-linear data structure that represents the ancestral and descendent relationships, embodying the "divide and conquer" logic. Similar to a linked list, the basic unit of a binary tree is a node, each containing a value, a reference to the left child node, and a reference to the right child node.</p>
+<p>A <u>binary tree</u> is a non-linear data structure that represents the ancestral and descendent relationships, embodying the "divide and conquer" logic. Similar to a linked list, the basic unit of a binary tree is a node, each containing a value, a reference to the left child node, and a reference to the right child node.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:14"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><input id="__tabbed_1_14" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label><label for="__tabbed_1_14">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3932,7 +3932,7 @@
 </div>
 </div>
 </div>
-<p>Each node has two references (pointers), pointing to the "left-child node" and "right-child node," respectively. This node is called the "parent node" of these two child nodes. When given a node of a binary tree, we call the tree formed by this node's left child and all nodes under it the "left subtree" of this node. Similarly, the "right subtree" can be defined.</p>
+<p>Each node has two references (pointers), pointing to the <u>left-child node</u> and <u>right-child node</u>, respectively. This node is called the <u>parent node</u> of these two child nodes. When given a node of a binary tree, we call the tree formed by this node's left child and all nodes under it the <u>left subtree</u> of this node. Similarly, the <u>right subtree</u> can be defined.</p>
 <p><strong>In a binary tree, except for leaf nodes, all other nodes contain child nodes and non-empty subtrees.</strong> As shown in Figure 7-1, if "Node 2" is considered as the parent node, then its left and right child nodes are "Node 4" and "Node 5," respectively. The left subtree is "the tree formed by Node 4 and all nodes under it," and the right subtree is "the tree formed by Node 5 and all nodes under it."</p>
 <p><a class="glightbox" href="../binary_tree.assets/binary_tree_definition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Parent Node, child Node, subtree" class="animation-figure" src="../binary_tree.assets/binary_tree_definition.png" /></a></p>
 <p align="center"> Figure 7-1 &nbsp; Parent Node, child Node, subtree </p>
@@ -3940,14 +3940,14 @@
 <h2 id="711-common-terminology-of-binary-trees">7.1.1 &nbsp; Common terminology of binary trees<a class="headerlink" href="#711-common-terminology-of-binary-trees" title="Permanent link">&para;</a></h2>
 <p>The commonly used terminology of binary trees is shown in Figure 7-2.</p>
 <ul>
-<li>"Root node": The node at the top level of the binary tree, which has no parent node.</li>
-<li>"Leaf node": A node with no children, both of its pointers point to <code>None</code>.</li>
-<li>"Edge": The line segment connecting two nodes, i.e., node reference (pointer).</li>
-<li>The "level" of a node: Incrementing from top to bottom, with the root node's level being 1.</li>
-<li>The "degree" of a node: The number of a node's children. In a binary tree, the degree can be 0, 1, or 2.</li>
-<li>The "height" of a binary tree: The number of edges passed from the root node to the farthest leaf node.</li>
-<li>The "depth" of a node: The number of edges passed from the root node to the node.</li>
-<li>The "height" of a node: The number of edges from the farthest leaf node to the node.</li>
+<li><u>Root node</u>: The node at the top level of the binary tree, which has no parent node.</li>
+<li><u>Leaf node</u>: A node with no children, both of its pointers point to <code>None</code>.</li>
+<li><u>Edge</u>: The line segment connecting two nodes, i.e., node reference (pointer).</li>
+<li>The <u>level</u> of a node: Incrementing from top to bottom, with the root node's level being 1.</li>
+<li>The <u>degree</u> of a node: The number of a node's children. In a binary tree, the degree can be 0, 1, or 2.</li>
+<li>The <u>height</u> of a binary tree: The number of edges passed from the root node to the farthest leaf node.</li>
+<li>The <u>depth</u> of a node: The number of edges passed from the root node to the node.</li>
+<li>The <u>height</u> of a node: The number of edges from the farthest leaf node to the node.</li>
 </ul>
 <p><a class="glightbox" href="../binary_tree.assets/binary_tree_terminology.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Common Terminology of Binary Trees" class="animation-figure" src="../binary_tree.assets/binary_tree_terminology.png" /></a></p>
 <p align="center"> Figure 7-2 &nbsp; Common Terminology of Binary Trees </p>
@@ -4294,26 +4294,26 @@
 </div>
 <h2 id="713-common-types-of-binary-trees">7.1.3 &nbsp; Common types of binary trees<a class="headerlink" href="#713-common-types-of-binary-trees" title="Permanent link">&para;</a></h2>
 <h3 id="1-perfect-binary-tree">1. &nbsp; Perfect binary tree<a class="headerlink" href="#1-perfect-binary-tree" title="Permanent link">&para;</a></h3>
-<p>As shown in Figure 7-4, in a "perfect binary tree," all levels of nodes are fully filled. In a perfect binary tree, the degree of leaf nodes is <span class="arithmatex">\(0\)</span>, and the degree of all other nodes is <span class="arithmatex">\(2\)</span>; if the tree's height is <span class="arithmatex">\(h\)</span>, then the total number of nodes is <span class="arithmatex">\(2^{h+1} - 1\)</span>, showing a standard exponential relationship, reflecting the common phenomenon of cell division in nature.</p>
+<p>As shown in Figure 7-4, in a <u>perfect binary tree</u>, all levels of nodes are fully filled. In a perfect binary tree, the degree of leaf nodes is <span class="arithmatex">\(0\)</span>, and the degree of all other nodes is <span class="arithmatex">\(2\)</span>; if the tree's height is <span class="arithmatex">\(h\)</span>, then the total number of nodes is <span class="arithmatex">\(2^{h+1} - 1\)</span>, showing a standard exponential relationship, reflecting the common phenomenon of cell division in nature.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Please note that in the Chinese community, a perfect binary tree is often referred to as a "full binary tree."</p>
+<p>Please note that in the Chinese community, a perfect binary tree is often referred to as a <u>full binary tree</u>.</p>
 </div>
 <p><a class="glightbox" href="../binary_tree.assets/perfect_binary_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Perfect binary tree" class="animation-figure" src="../binary_tree.assets/perfect_binary_tree.png" /></a></p>
 <p align="center"> Figure 7-4 &nbsp; Perfect binary tree </p>
 
 <h3 id="2-complete-binary-tree">2. &nbsp; Complete binary tree<a class="headerlink" href="#2-complete-binary-tree" title="Permanent link">&para;</a></h3>
-<p>As shown in Figure 7-5, a "complete binary tree" has only the bottom level nodes not fully filled, and the bottom level nodes are filled as far left as possible.</p>
+<p>As shown in Figure 7-5, a <u>complete binary tree</u> has only the bottom level nodes not fully filled, and the bottom level nodes are filled as far left as possible.</p>
 <p><a class="glightbox" href="../binary_tree.assets/complete_binary_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Complete binary tree" class="animation-figure" src="../binary_tree.assets/complete_binary_tree.png" /></a></p>
 <p align="center"> Figure 7-5 &nbsp; Complete binary tree </p>
 
 <h3 id="3-full-binary-tree">3. &nbsp; Full binary tree<a class="headerlink" href="#3-full-binary-tree" title="Permanent link">&para;</a></h3>
-<p>As shown in Figure 7-6, a "full binary tree" has all nodes except leaf nodes having two children.</p>
+<p>As shown in Figure 7-6, a <u>full binary tree</u> has all nodes except leaf nodes having two children.</p>
 <p><a class="glightbox" href="../binary_tree.assets/full_binary_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Full binary tree" class="animation-figure" src="../binary_tree.assets/full_binary_tree.png" /></a></p>
 <p align="center"> Figure 7-6 &nbsp; Full binary tree </p>
 
 <h3 id="4-balanced-binary-tree">4. &nbsp; Balanced binary tree<a class="headerlink" href="#4-balanced-binary-tree" title="Permanent link">&para;</a></h3>
-<p>As shown in Figure 7-7, in a "balanced binary tree," the absolute difference in height between the left and right subtrees of any node does not exceed 1.</p>
+<p>As shown in Figure 7-7, in a <u>balanced binary tree</u>, the absolute difference in height between the left and right subtrees of any node does not exceed 1.</p>
 <p><a class="glightbox" href="../binary_tree.assets/balanced_binary_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Balanced binary tree" class="animation-figure" src="../binary_tree.assets/balanced_binary_tree.png" /></a></p>
 <p align="center"> Figure 7-7 &nbsp; Balanced binary tree </p>
 
@@ -4549,7 +4549,7 @@ aria-label="Footer"
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022-2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   

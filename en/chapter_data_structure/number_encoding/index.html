@@ -3607,7 +3607,7 @@
 <p><a class="glightbox" href="../number_encoding.assets/1s_2s_complement.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Conversions between sign-magnitude, one's complement, and two's complement" class="animation-figure" src="../number_encoding.assets/1s_2s_complement.png" /></a></p>
 <p align="center"> Figure 3-4 &nbsp; Conversions between sign-magnitude, one's complement, and two's complement </p>
 
-<p>Although sign-magnitude is the most intuitive, it has limitations. For one, <strong>negative numbers in sign-magnitude cannot be directly used in calculations</strong>. For example, in sign-magnitude, calculating <span class="arithmatex">\(1 + (-2)\)</span> results in <span class="arithmatex">\(-3\)</span>, which is incorrect.</p>
+<p>Although <u>sign-magnitude</u> is the most intuitive, it has limitations. For one, <strong>negative numbers in sign-magnitude cannot be directly used in calculations</strong>. For example, in sign-magnitude, calculating <span class="arithmatex">\(1 + (-2)\)</span> results in <span class="arithmatex">\(-3\)</span>, which is incorrect.</p>
 <div class="arithmatex">\[
 \begin{aligned}
 &amp; 1 + (-2) \newline
@@ -3616,7 +3616,7 @@
 &amp; \rightarrow -3
 \end{aligned}
 \]</div>
-<p>To address this, computers introduced the <strong>one's complement</strong>. If we convert to one's complement and calculate <span class="arithmatex">\(1 + (-2)\)</span>, then convert the result back to sign-magnitude, we get the correct result of <span class="arithmatex">\(-1\)</span>.</p>
+<p>To address this, computers introduced the <u>one's complement</u>. If we convert to one's complement and calculate <span class="arithmatex">\(1 + (-2)\)</span>, then convert the result back to sign-magnitude, we get the correct result of <span class="arithmatex">\(-1\)</span>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
 &amp; 1 + (-2) \newline
@@ -3634,7 +3634,7 @@
 -0 &amp; \rightarrow 1000 \; 0000
 \end{aligned}
 \]</div>
-<p>Like sign-magnitude, one's complement also suffers from the positive and negative zero ambiguity. Therefore, computers further introduced the <strong>two's complement</strong>. Let's observe the conversion process for negative zero in sign-magnitude, one's complement, and two's complement:</p>
+<p>Like sign-magnitude, one's complement also suffers from the positive and negative zero ambiguity. Therefore, computers further introduced the <u>two's complement</u>. Let's observe the conversion process for negative zero in sign-magnitude, one's complement, and two's complement:</p>
 <div class="arithmatex">\[
 \begin{aligned}
 -0 \rightarrow \; &amp; 1000 \; 0000 \; \text{(Sign-magnitude)} \newline
@@ -3919,7 +3919,7 @@ aria-label="Footer"
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022-2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   

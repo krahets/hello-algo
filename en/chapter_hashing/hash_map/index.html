@@ -3609,7 +3609,7 @@
 
 <!-- Page content -->
 <h1 id="61-hash-table">6.1 &nbsp; Hash table<a class="headerlink" href="#61-hash-table" title="Permanent link">&para;</a></h1>
-<p>A "hash table", also known as a "hash map", achieves efficient element querying by establishing a mapping between keys and values. Specifically, when we input a <code>key</code> into the hash table, we can retrieve the corresponding <code>value</code> in <span class="arithmatex">\(O(1)\)</span> time.</p>
+<p>A <u>hash table</u> achieves efficient element querying by establishing a mapping between keys and values. Specifically, when we input a <code>key</code> into the hash table, we can retrieve the corresponding <code>value</code> in <span class="arithmatex">\(O(1)\)</span> time.</p>
 <p>As shown in Figure 6-1, given <span class="arithmatex">\(n\)</span> students, each with two pieces of data: "name" and "student number". If we want to implement a query feature that returns the corresponding name when given a student number, we can use the hash table shown in Figure 6-1.</p>
 <p><a class="glightbox" href="../hash_map.assets/hash_table_lookup.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Abstract representation of a hash table" class="animation-figure" src="../hash_map.assets/hash_table_lookup.png" /></a></p>
 <p align="center"> Figure 6-1 &nbsp; Abstract representation of a hash table </p>
@@ -4073,8 +4073,8 @@
 <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen &gt;</a></div></p>
 </details>
 <h2 id="612-simple-implementation-of-hash-table">6.1.2 &nbsp; Simple implementation of hash table<a class="headerlink" href="#612-simple-implementation-of-hash-table" title="Permanent link">&para;</a></h2>
-<p>First, let's consider the simplest case: <strong>implementing a hash table using just an array</strong>. In the hash table, each empty slot in the array is called a "bucket", and each bucket can store one key-value pair. Therefore, the query operation involves finding the bucket corresponding to the <code>key</code> and retrieving the <code>value</code> from it.</p>
-<p>So, how do we locate the appropriate bucket based on the <code>key</code>? This is achieved through a "hash function". The role of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space is all possible keys, and the output space is all buckets (array indices). In other words, input a <code>key</code>, <strong>and we can use the hash function to determine the storage location of the corresponding key-value pair in the array</strong>.</p>
+<p>First, let's consider the simplest case: <strong>implementing a hash table using just an array</strong>. In the hash table, each empty slot in the array is called a <u>bucket</u>, and each bucket can store one key-value pair. Therefore, the query operation involves finding the bucket corresponding to the <code>key</code> and retrieving the <code>value</code> from it.</p>
+<p>So, how do we locate the appropriate bucket based on the <code>key</code>? This is achieved through a <u>hash function</u>. The role of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space is all possible keys, and the output space is all buckets (array indices). In other words, input a <code>key</code>, <strong>and we can use the hash function to determine the storage location of the corresponding key-value pair in the array</strong>.</p>
 <p>The calculation process of the hash function for a given <code>key</code> is divided into the following two steps:</p>
 <ol>
 <li>Calculate the hash value using a certain hash algorithm <code>hash()</code>.</li>
@@ -5362,7 +5362,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="m">12836</span><span class="w"> </span>%<span class="w"> </span><span class="nv">100</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
 <a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="m">20336</span><span class="w"> </span>%<span class="w"> </span><span class="nv">100</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
 </code></pre></div>
-<p>As shown in Figure 6-3, both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is known as "hash collision".</p>
+<p>As shown in Figure 6-3, both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is known as <u>hash collision</u>.</p>
 <p><a class="glightbox" href="../hash_map.assets/hash_collision.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Example of hash collision" class="animation-figure" src="../hash_map.assets/hash_collision.png" /></a></p>
 <p align="center"> Figure 6-3 &nbsp; Example of hash collision </p>
 
@@ -5372,7 +5372,7 @@
 <p align="center"> Figure 6-4 &nbsp; Hash table expansion </p>
 
 <p>Similar to array expansion, resizing a hash table requires migrating all key-value pairs from the original hash table to the new one, which is time-consuming. Furthermore, since the capacity <code>capacity</code> of the hash table changes, we need to recalculate the storage positions of all key-value pairs using the hash function, which adds to the computational overhead of the resizing process. Therefore, programming languages often reserve a sufficiently large capacity for the hash table to prevent frequent resizing.</p>
-<p>The "load factor" is an important concept for hash tables. It is defined as the ratio of the number of elements in the hash table to the number of buckets. It is used to measure the severity of hash collisions and <strong>is often used as a trigger for resizing the hash table</strong>. For example, in Java, when the load factor exceeds <span class="arithmatex">\(0.75\)</span>, the system will resize the hash table to twice its original size.</p>
+<p>The <u>load factor</u> is an important concept for hash tables. It is defined as the ratio of the number of elements in the hash table to the number of buckets. It is used to measure the severity of hash collisions and <strong>is often used as a trigger for resizing the hash table</strong>. For example, in Java, when the load factor exceeds <span class="arithmatex">\(0.75\)</span>, the system will resize the hash table to twice its original size.</p>
 
 <!-- Source file information -->
 
@@ -5560,7 +5560,7 @@ aria-label="Footer"
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022-2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   

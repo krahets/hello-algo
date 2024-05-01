@@ -3683,7 +3683,7 @@
 </ol>
 <p>There are mainly two methods for improving the structure of hash tables: "Separate Chaining" and "Open Addressing".</p>
 <h2 id="621-separate-chaining">6.2.1 &nbsp; Separate chaining<a class="headerlink" href="#621-separate-chaining" title="Permanent link">&para;</a></h2>
-<p>In the original hash table, each bucket can store only one key-value pair. "Separate chaining" transforms individual elements into a linked list, with key-value pairs as list nodes, storing all colliding key-value pairs in the same list. Figure 6-5 shows an example of a hash table with separate chaining.</p>
+<p>In the original hash table, each bucket can store only one key-value pair. <u>Separate chaining</u> transforms individual elements into a linked list, with key-value pairs as list nodes, storing all colliding key-value pairs in the same list. Figure 6-5 shows an example of a hash table with separate chaining.</p>
 <p><a class="glightbox" href="../hash_collision.assets/hash_table_chaining.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Separate chaining hash table" class="animation-figure" src="../hash_collision.assets/hash_table_chaining.png" /></a></p>
 <p align="center"> Figure 6-5 &nbsp; Separate chaining hash table </p>
 
@@ -5176,7 +5176,7 @@
 </details>
 <p>It's worth noting that when the list is very long, the query efficiency <span class="arithmatex">\(O(n)\)</span> is poor. <strong>At this point, the list can be converted to an "AVL tree" or "Red-Black tree"</strong> to optimize the time complexity of the query operation to <span class="arithmatex">\(O(\log n)\)</span>.</p>
 <h2 id="622-open-addressing">6.2.2 &nbsp; Open addressing<a class="headerlink" href="#622-open-addressing" title="Permanent link">&para;</a></h2>
-<p>"Open addressing" does not introduce additional data structures but uses "multiple probes" to handle hash collisions. The probing methods mainly include linear probing, quadratic probing, and double hashing.</p>
+<p><u>Open addressing</u> does not introduce additional data structures but uses "multiple probes" to handle hash collisions. The probing methods mainly include linear probing, quadratic probing, and double hashing.</p>
 <p>Let's use linear probing as an example to introduce the mechanism of open addressing hash tables.</p>
 <h3 id="1-linear-probing">1. &nbsp; Linear probing<a class="headerlink" href="#1-linear-probing" title="Permanent link">&para;</a></h3>
 <p>Linear probing uses a fixed-step linear search for probing, differing from ordinary hash tables.</p>
@@ -5193,7 +5193,7 @@
 <p><a class="glightbox" href="../hash_collision.assets/hash_table_open_addressing_deletion.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Query issues caused by deletion in open addressing" class="animation-figure" src="../hash_collision.assets/hash_table_open_addressing_deletion.png" /></a></p>
 <p align="center"> Figure 6-7 &nbsp; Query issues caused by deletion in open addressing </p>
 
-<p>To solve this problem, we can use a "lazy deletion" mechanism: instead of directly removing elements from the hash table, <strong>use a constant <code>TOMBSTONE</code> to mark the bucket</strong>. In this mechanism, both <code>None</code> and <code>TOMBSTONE</code> represent empty buckets and can hold key-value pairs. However, when linear probing encounters <code>TOMBSTONE</code>, it should continue traversing since there may still be key-value pairs below it.</p>
+<p>To solve this problem, we can use a <u>lazy deletion</u> mechanism: instead of directly removing elements from the hash table, <strong>use a constant <code>TOMBSTONE</code> to mark the bucket</strong>. In this mechanism, both <code>None</code> and <code>TOMBSTONE</code> represent empty buckets and can hold key-value pairs. However, when linear probing encounters <code>TOMBSTONE</code>, it should continue traversing since there may still be key-value pairs below it.</p>
 <p>However, <strong>lazy deletion may accelerate the degradation of hash table performance</strong>. Every deletion operation produces a delete mark, and as <code>TOMBSTONE</code> increases, so does the search time, as linear probing may have to skip multiple <code>TOMBSTONE</code> to find the target element.</p>
 <p>Therefore, consider recording the index of the first <code>TOMBSTONE</code> encountered during linear probing and swapping the target element found with this <code>TOMBSTONE</code>. The advantage of this is that each time a query or addition is performed, the element is moved to a bucket closer to the ideal position (starting point of probing), thereby optimizing the query efficiency.</p>
 <p>The code below implements an open addressing (linear probing) hash table with lazy deletion. To make fuller use of the hash table space, we treat the hash table as a "circular array," continuing to traverse from the beginning when the end of the array is passed.</p>
@@ -7119,7 +7119,7 @@ aria-label="Footer"
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022-2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   

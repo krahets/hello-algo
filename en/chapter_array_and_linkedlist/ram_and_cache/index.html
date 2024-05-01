@@ -3612,7 +3612,7 @@
 <p>In the first two sections of this chapter, we explored arrays and linked lists, two fundamental and important data structures, representing "continuous storage" and "dispersed storage" respectively.</p>
 <p>In fact, <strong>the physical structure largely determines the efficiency of a program's use of memory and cache</strong>, which in turn affects the overall performance of the algorithm.</p>
 <h2 id="441-computer-storage-devices">4.4.1 &nbsp; Computer storage devices<a class="headerlink" href="#441-computer-storage-devices" title="Permanent link">&para;</a></h2>
-<p>There are three types of storage devices in computers: "hard disk," "random-access memory (RAM)," and "cache memory." The following table shows their different roles and performance characteristics in computer systems.</p>
+<p>There are three types of storage devices in computers: <u>hard disk</u>, <u>random-access memory (RAM)</u>, and <u>cache memory</u>. The following table shows their different roles and performance characteristics in computer systems.</p>
 <p align="center"> Table 4-2 &nbsp; Computer storage devices </p>
 
 <div class="center-table">
@@ -3681,8 +3681,8 @@
 <p>On one hand, <strong>memory is limited and cannot be shared by multiple programs</strong>, so we hope that data structures can use space as efficiently as possible. The elements of an array are tightly packed without extra space for storing references (pointers) between linked list nodes, making them more space-efficient. However, arrays require allocating sufficient continuous memory space at once, which may lead to memory waste, and array expansion also requires additional time and space costs. In contrast, linked lists allocate and reclaim memory dynamically on a per-node basis, providing greater flexibility.</p>
 <p>On the other hand, during program execution, <strong>as memory is repeatedly allocated and released, the degree of fragmentation of free memory becomes higher</strong>, leading to reduced memory utilization efficiency. Arrays, due to their continuous storage method, are relatively less likely to cause memory fragmentation. In contrast, the elements of a linked list are dispersedly stored, and frequent insertion and deletion operations make memory fragmentation more likely.</p>
 <h2 id="443-cache-efficiency-of-data-structures">4.4.3 &nbsp; Cache efficiency of data structures<a class="headerlink" href="#443-cache-efficiency-of-data-structures" title="Permanent link">&para;</a></h2>
-<p>Although caches are much smaller in space capacity than memory, they are much faster and play a crucial role in program execution speed. Since the cache's capacity is limited and can only store a small part of frequently accessed data, when the CPU tries to access data not in the cache, a "cache miss" occurs, forcing the CPU to load the needed data from slower memory.</p>
-<p>Clearly, <strong>the fewer the cache misses, the higher the CPU's data read-write efficiency</strong>, and the better the program performance. The proportion of successful data retrieval from the cache by the CPU is called the "cache hit rate," a metric often used to measure cache efficiency.</p>
+<p>Although caches are much smaller in space capacity than memory, they are much faster and play a crucial role in program execution speed. Since the cache's capacity is limited and can only store a small part of frequently accessed data, when the CPU tries to access data not in the cache, a <u>cache miss</u> occurs, forcing the CPU to load the needed data from slower memory.</p>
+<p>Clearly, <strong>the fewer the cache misses, the higher the CPU's data read-write efficiency</strong>, and the better the program performance. The proportion of successful data retrieval from the cache by the CPU is called the <u>cache hit rate</u>, a metric often used to measure cache efficiency.</p>
 <p>To achieve higher efficiency, caches adopt the following data loading mechanisms.</p>
 <ul>
 <li><strong>Cache lines</strong>: Caches don't store and load data byte by byte but in units of cache lines. Compared to byte-by-byte transfer, the transmission of cache lines is more efficient.</li>
@@ -3890,7 +3890,7 @@ aria-label="Footer"
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022-2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   

@@ -3607,11 +3607,11 @@
 <p><strong>Q</strong>: A double-ended queue seems like two stacks joined together. What are its uses?</p>
 <p>A double-ended queue, which is a combination of a stack and a queue or two stacks joined together, exhibits both stack and queue logic. Thus, it can implement all applications of stacks and queues while offering more flexibility.</p>
 <p><strong>Q</strong>: How exactly are undo and redo implemented?</p>
-<p>Undo and redo operations are implemented using two stacks: Stack A for undo and Stack B for redo.</p>
+<p>Undo and redo operations are implemented using two stacks: Stack <code>A</code> for undo and Stack <code>B</code> for redo.</p>
 <ol>
-<li>Each time a user performs an operation, it is pushed onto Stack A, and Stack B is cleared.</li>
-<li>When the user executes an "undo", the most recent operation is popped from Stack A and pushed onto Stack B.</li>
-<li>When the user executes a "redo", the most recent operation is popped from Stack B and pushed back onto Stack A.</li>
+<li>Each time a user performs an operation, it is pushed onto Stack <code>A</code>, and Stack <code>B</code> is cleared.</li>
+<li>When the user executes an "undo", the most recent operation is popped from Stack <code>A</code> and pushed onto Stack <code>B</code>.</li>
+<li>When the user executes a "redo", the most recent operation is popped from Stack <code>B</code> and pushed back onto Stack <code>A</code>.</li>
 </ol>
 
 <!-- Source file information -->
@@ -3800,7 +3800,7 @@ aria-label="Footer"
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022-2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   

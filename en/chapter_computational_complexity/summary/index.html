@@ -3601,7 +3601,7 @@
 <p><strong>Time Complexity</strong></p>
 <ul>
 <li>Time complexity measures the trend of an algorithm's running time with the increase in data volume, effectively assessing algorithm efficiency. However, it can fail in certain cases, such as with small input data volumes or when time complexities are the same, making it challenging to precisely compare the efficiency of algorithms.</li>
-<li>Worst-case time complexity is denoted using big O notation, representing the asymptotic upper bound, reflecting the growth level of the number of operations <span class="arithmatex">\(T(n)\)</span> as <span class="arithmatex">\(n\)</span> approaches infinity.</li>
+<li>Worst-case time complexity is denoted using big-<span class="arithmatex">\(O\)</span> notation, representing the asymptotic upper bound, reflecting the growth level of the number of operations <span class="arithmatex">\(T(n)\)</span> as <span class="arithmatex">\(n\)</span> approaches infinity.</li>
 <li>Calculating time complexity involves two steps: first counting the number of operations, then determining the asymptotic upper bound.</li>
 <li>Common time complexities, arranged from low to high, include <span class="arithmatex">\(O(1)\)</span>, <span class="arithmatex">\(O(\log n)\)</span>, <span class="arithmatex">\(O(n)\)</span>, <span class="arithmatex">\(O(n \log n)\)</span>, <span class="arithmatex">\(O(n^2)\)</span>, <span class="arithmatex">\(O(2^n)\)</span>, and <span class="arithmatex">\(O(n!)\)</span>, among others.</li>
 <li>The time complexity of some algorithms is not fixed and depends on the distribution of input data. Time complexities are divided into worst, best, and average cases. The best case is rarely used because input data generally needs to meet strict conditions to achieve the best case.</li>
@@ -3618,7 +3618,7 @@
 <p><strong>Q</strong>: Is the space complexity of tail recursion <span class="arithmatex">\(O(1)\)</span>?</p>
 <p>Theoretically, the space complexity of a tail-recursive function can be optimized to <span class="arithmatex">\(O(1)\)</span>. However, most programming languages (such as Java, Python, C++, Go, C#) do not support automatic optimization of tail recursion, so it's generally considered to have a space complexity of <span class="arithmatex">\(O(n)\)</span>.</p>
 <p><strong>Q</strong>: What is the difference between the terms "function" and "method"?</p>
-<p>A "function" can be executed independently, with all parameters passed explicitly. A "method" is associated with an object and is implicitly passed to the object calling it, able to operate on the data contained within an instance of a class.</p>
+<p>A <u>function</u> can be executed independently, with all parameters passed explicitly. A <u>method</u> is associated with an object and is implicitly passed to the object calling it, able to operate on the data contained within an instance of a class.</p>
 <p>Here are some examples from common programming languages:</p>
 <ul>
 <li>C is a procedural programming language without object-oriented concepts, so it only has functions. However, we can simulate object-oriented programming by creating structures (struct), and functions associated with these structures are equivalent to methods in other programming languages.</li>
@@ -3816,7 +3816,7 @@ aria-label="Footer"
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022-2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   

@@ -3657,7 +3657,7 @@
 
 <!-- Page content -->
 <h1 id="91-graph">9.1 &nbsp; Graph<a class="headerlink" href="#91-graph" title="Permanent link">&para;</a></h1>
-<p>A "graph" is a type of nonlinear data structure, consisting of "vertices" and "edges". A graph <span class="arithmatex">\(G\)</span> can be abstractly represented as a collection of a set of vertices <span class="arithmatex">\(V\)</span> and a set of edges <span class="arithmatex">\(E\)</span>. The following example shows a graph containing 5 vertices and 7 edges.</p>
+<p>A <u>graph</u> is a type of nonlinear data structure, consisting of <u>vertices</u> and <u>edges</u>. A graph <span class="arithmatex">\(G\)</span> can be abstractly represented as a collection of a set of vertices <span class="arithmatex">\(V\)</span> and a set of edges <span class="arithmatex">\(E\)</span>. The following example shows a graph containing 5 vertices and 7 edges.</p>
 <div class="arithmatex">\[
 \begin{aligned}
 V &amp; = \{ 1, 2, 3, 4, 5 \} \newline
@@ -3670,7 +3670,7 @@ G &amp; = \{ V, E \} \newline
 <p align="center"> Figure 9-1 &nbsp; Relationship between linked lists, trees, and graphs </p>
 
 <h2 id="911-common-types-of-graphs">9.1.1 &nbsp; Common types of graphs<a class="headerlink" href="#911-common-types-of-graphs" title="Permanent link">&para;</a></h2>
-<p>Based on whether edges have direction, graphs can be divided into "undirected graphs" and "directed graphs", as shown in Figure 9-2.</p>
+<p>Based on whether edges have direction, graphs can be divided into <u>undirected graphs</u> and <u>directed graphs</u>, as shown in Figure 9-2.</p>
 <ul>
 <li>In undirected graphs, edges represent a "bidirectional" connection between two vertices, for example, the "friendship" in WeChat or QQ.</li>
 <li>In directed graphs, edges have directionality, that is, the edges <span class="arithmatex">\(A \rightarrow B\)</span> and <span class="arithmatex">\(A \leftarrow B\)</span> are independent of each other, for example, the "follow" and "be followed" relationship on Weibo or TikTok.</li>
@@ -3678,7 +3678,7 @@ G &amp; = \{ V, E \} \newline
 <p><a class="glightbox" href="../graph.assets/directed_graph.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Directed and undirected graphs" class="animation-figure" src="../graph.assets/directed_graph.png" /></a></p>
 <p align="center"> Figure 9-2 &nbsp; Directed and undirected graphs </p>
 
-<p>Based on whether all vertices are connected, graphs can be divided into "connected graphs" and "disconnected graphs", as shown in Figure 9-3.</p>
+<p>Based on whether all vertices are connected, graphs can be divided into <u>connected graphs</u> and <u>disconnected graphs</u>, as shown in Figure 9-3.</p>
 <ul>
 <li>For connected graphs, it is possible to reach any other vertex starting from a certain vertex.</li>
 <li>For disconnected graphs, there is at least one vertex that cannot be reached from a certain starting vertex.</li>
@@ -3686,20 +3686,20 @@ G &amp; = \{ V, E \} \newline
 <p><a class="glightbox" href="../graph.assets/connected_graph.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Connected and disconnected graphs" class="animation-figure" src="../graph.assets/connected_graph.png" /></a></p>
 <p align="center"> Figure 9-3 &nbsp; Connected and disconnected graphs </p>
 
-<p>We can also add a "weight" variable to edges, resulting in "weighted graphs" as shown in Figure 9-4. For example, in mobile games like "Honor of Kings", the system calculates the "closeness" between players based on shared gaming time, and this closeness network can be represented with a weighted graph.</p>
+<p>We can also add a weight variable to edges, resulting in <u>weighted graphs</u> as shown in Figure 9-4. For example, in mobile games like "Honor of Kings", the system calculates the "closeness" between players based on shared gaming time, and this closeness network can be represented with a weighted graph.</p>
 <p><a class="glightbox" href="../graph.assets/weighted_graph.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Weighted and unweighted graphs" class="animation-figure" src="../graph.assets/weighted_graph.png" /></a></p>
 <p align="center"> Figure 9-4 &nbsp; Weighted and unweighted graphs </p>
 
 <p>Graph data structures include the following commonly used terms.</p>
 <ul>
-<li>"Adjacency": When there is an edge connecting two vertices, these two vertices are said to be "adjacent". In Figure 9-4, the adjacent vertices of vertex 1 are vertices 2, 3, and 5.</li>
-<li>"Path": The sequence of edges passed from vertex A to vertex B is called a "path" from A to B. In Figure 9-4, the edge sequence 1-5-2-4 is a path from vertex 1 to vertex 4.</li>
-<li>"Degree": The number of edges a vertex has. For directed graphs, "in-degree" refers to how many edges point to the vertex, and "out-degree" refers to how many edges point out from the vertex.</li>
+<li><u>Adjacency</u>: When there is an edge connecting two vertices, these two vertices are said to be "adjacent". In Figure 9-4, the adjacent vertices of vertex 1 are vertices 2, 3, and 5.</li>
+<li><u>Path</u>: The sequence of edges passed from vertex A to vertex B is called a path from A to B. In Figure 9-4, the edge sequence 1-5-2-4 is a path from vertex 1 to vertex 4.</li>
+<li><u>Degree</u>: The number of edges a vertex has. For directed graphs, <u>in-degree</u> refers to how many edges point to the vertex, and <u>out-degree</u> refers to how many edges point out from the vertex.</li>
 </ul>
 <h2 id="912-representation-of-graphs">9.1.2 &nbsp; Representation of graphs<a class="headerlink" href="#912-representation-of-graphs" title="Permanent link">&para;</a></h2>
 <p>Common representations of graphs include "adjacency matrices" and "adjacency lists". The following examples use undirected graphs.</p>
 <h3 id="1-adjacency-matrix">1. &nbsp; Adjacency matrix<a class="headerlink" href="#1-adjacency-matrix" title="Permanent link">&para;</a></h3>
-<p>Let the number of vertices in the graph be <span class="arithmatex">\(n\)</span>, the "adjacency matrix" uses an <span class="arithmatex">\(n \times n\)</span> matrix to represent the graph, where each row (column) represents a vertex, and the matrix elements represent edges, with <span class="arithmatex">\(1\)</span> or <span class="arithmatex">\(0\)</span> indicating whether there is an edge between two vertices.</p>
+<p>Let the number of vertices in the graph be <span class="arithmatex">\(n\)</span>, the <u>adjacency matrix</u> uses an <span class="arithmatex">\(n \times n\)</span> matrix to represent the graph, where each row (column) represents a vertex, and the matrix elements represent edges, with <span class="arithmatex">\(1\)</span> or <span class="arithmatex">\(0\)</span> indicating whether there is an edge between two vertices.</p>
 <p>As shown in Figure 9-5, let the adjacency matrix be <span class="arithmatex">\(M\)</span>, and the list of vertices be <span class="arithmatex">\(V\)</span>, then the matrix element <span class="arithmatex">\(M[i, j] = 1\)</span> indicates there is an edge between vertex <span class="arithmatex">\(V[i]\)</span> and vertex <span class="arithmatex">\(V[j]\)</span>, conversely <span class="arithmatex">\(M[i, j] = 0\)</span> indicates there is no edge between the two vertices.</p>
 <p><a class="glightbox" href="../graph.assets/adjacency_matrix.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Representation of a graph with an adjacency matrix" class="animation-figure" src="../graph.assets/adjacency_matrix.png" /></a></p>
 <p align="center"> Figure 9-5 &nbsp; Representation of a graph with an adjacency matrix </p>
@@ -3712,7 +3712,7 @@ G &amp; = \{ V, E \} \newline
 </ul>
 <p>When representing graphs with adjacency matrices, it is possible to directly access matrix elements to obtain edges, thus operations of addition, deletion, lookup, and modification are very efficient, all with a time complexity of <span class="arithmatex">\(O(1)\)</span>. However, the space complexity of the matrix is <span class="arithmatex">\(O(n^2)\)</span>, which consumes more memory.</p>
 <h3 id="2-adjacency-list">2. &nbsp; Adjacency list<a class="headerlink" href="#2-adjacency-list" title="Permanent link">&para;</a></h3>
-<p>The "adjacency list" uses <span class="arithmatex">\(n\)</span> linked lists to represent the graph, with each linked list node representing a vertex. The <span class="arithmatex">\(i\)</span>-th linked list corresponds to vertex <span class="arithmatex">\(i\)</span> and contains all adjacent vertices (vertices connected to that vertex). Figure 9-6 shows an example of a graph stored using an adjacency list.</p>
+<p>The <u>adjacency list</u> uses <span class="arithmatex">\(n\)</span> linked lists to represent the graph, with each linked list node representing a vertex. The <span class="arithmatex">\(i\)</span>-th linked list corresponds to vertex <span class="arithmatex">\(i\)</span> and contains all adjacent vertices (vertices connected to that vertex). Figure 9-6 shows an example of a graph stored using an adjacency list.</p>
 <p><a class="glightbox" href="../graph.assets/adjacency_list.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Representation of a graph with an adjacency list" class="animation-figure" src="../graph.assets/adjacency_list.png" /></a></p>
 <p align="center"> Figure 9-6 &nbsp; Representation of a graph with an adjacency list </p>
 
@@ -3941,7 +3941,7 @@ aria-label="Footer"
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022-2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   

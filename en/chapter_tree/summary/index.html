@@ -3611,7 +3611,7 @@
 <p><strong>Q</strong>: The insertion and removal in a binary tree are generally completed by a set of operations. What does "a set of operations" refer to here? Can it be understood as the release of resources of the child nodes?</p>
 <p>Taking the binary search tree as an example, the operation of removing a node needs to be handled in three different scenarios, each requiring multiple steps of node operations.</p>
 <p><strong>Q</strong>: Why are there three sequences: pre-order, in-order, and post-order for DFS traversal of a binary tree, and what are their uses?</p>
-<p>Similar to sequential and reverse traversal of arrays, pre-order, in-order, and post-order traversals are three methods of traversing a binary tree, allowing us to obtain a traversal result in a specific order. For example, in a binary search tree, since the node sizes satisfy <code>left child node value &lt; root node value &lt; right child node value</code>, we can obtain an ordered node sequence by traversing the tree in the "left → root → right" priority.</p>
+<p>Similar to sequential and reverse traversal of arrays, pre-order, in-order, and post-order traversals are three methods of traversing a binary tree, allowing us to obtain a traversal result in a specific order. For example, in a binary search tree, since the node sizes satisfy <code>left child node value &lt; root node value &lt; right child node value</code>, we can obtain an ordered node sequence by traversing the tree in the "left <span class="arithmatex">\(\rightarrow\)</span> root <span class="arithmatex">\(\rightarrow\)</span> right" priority.</p>
 <p><strong>Q</strong>: In a right rotation operation that deals with the relationship between the imbalance nodes <code>node</code>, <code>child</code>, <code>grand_child</code>, isn't the connection between <code>node</code> and its parent node and the original link of <code>node</code> lost after the right rotation?</p>
 <p>We need to view this problem from a recursive perspective. The <code>right_rotate(root)</code> operation passes the root node of the subtree and eventually returns the root node of the rotated subtree with <code>return child</code>. The connection between the subtree's root node and its parent node is established after this function returns, which is outside the scope of the right rotation operation's maintenance.</p>
 <p><strong>Q</strong>: In C++, functions are divided into <code>private</code> and <code>public</code> sections. What considerations are there for this? Why are the <code>height()</code> function and the <code>updateHeight()</code> function placed in <code>public</code> and <code>private</code>, respectively?</p>
@@ -3814,7 +3814,7 @@ aria-label="Footer"
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022-2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   
