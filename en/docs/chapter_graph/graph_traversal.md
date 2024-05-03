@@ -18,7 +18,7 @@ BFS is usually implemented with the help of a queue, as shown in the code below.
 2. In each iteration of the loop, pop the vertex at the front of the queue and record it as visited, then add all adjacent vertices of that vertex to the back of the queue.
 3. Repeat step `2.` until all vertices have been visited.
 
-To prevent revisiting vertices, we use a hash table `visited` to record which nodes have been visited.
+To prevent revisiting vertices, we use a hash set `visited` to record which nodes have been visited.
 
 ```src
 [file]{graph_bfs}-[class]{}-[func]{graph_bfs}
@@ -67,7 +67,7 @@ The code is relatively abstract, it is suggested to compare with the following f
 
 **Time complexity**: All vertices will be enqueued and dequeued once, using $O(|V|)$ time; in the process of traversing adjacent vertices, since it is an undirected graph, all edges will be visited $2$ times, using $O(2|E|)$ time; overall using $O(|V| + |E|)$ time.
 
-**Space complexity**: The maximum number of vertices in list `res`, hash table `visited`, and queue `que` is $|V|$, using $O(|V|)$ space.
+**Space complexity**: The maximum number of vertices in list `res`, hash set `visited`, and queue `que` is $|V|$, using $O(|V|)$ space.
 
 ## Depth-first search
 
@@ -77,7 +77,7 @@ The code is relatively abstract, it is suggested to compare with the following f
 
 ### Algorithm implementation
 
-This "go as far as possible and then return" algorithm paradigm is usually implemented based on recursion. Similar to breadth-first search, in depth-first search, we also need the help of a hash table `visited` to record the visited vertices to avoid revisiting.
+This "go as far as possible and then return" algorithm paradigm is usually implemented based on recursion. Similar to breadth-first search, in depth-first search, we also need the help of a hash set `visited` to record the visited vertices to avoid revisiting.
 
 ```src
 [file]{graph_dfs}-[class]{}-[func]{graph_dfs}
@@ -133,4 +133,4 @@ To deepen the understanding, it is suggested to combine the following figure wit
 
 **Time complexity**: All vertices will be visited once, using $O(|V|)$ time; all edges will be visited twice, using $O(2|E|)$ time; overall using $O(|V| + |E|)$ time.
 
-**Space complexity**: The maximum number of vertices in list `res`, hash table `visited` is $|V|$, and the maximum recursion depth is $|V|$, therefore using $O(|V|)$ space.
+**Space complexity**: The maximum number of vertices in list `res`, hash set `visited` is $|V|$, and the maximum recursion depth is $|V|$, therefore using $O(|V|)$ space.
