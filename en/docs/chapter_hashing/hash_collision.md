@@ -1,6 +1,6 @@
 # Hash collision
 
-As mentioned in the previous section, **in most cases, the input range of a hash function is much larger than its output capacity**. Hence making hash collisions theoretically unavoidable. For example, the input range could be whole integers, while output capacity is limited to the array size. Hence, certainly there will be different integers mapped into a same bucket index.
+The previous section mentioned that, **in most cases, the input space of a hash function is much larger than the output space**, so theoretically, hash collisions are inevitable. For example, if the input space is all integers and the output space is the size of the array capacity, then multiple integers will inevitably be mapped to the same bucket index.
 
 Hash collisions can lead to incorrect query results, severely impacting the usability of the hash table. To address this issue, whenever a hash collision occurs, we perform hash table resizing until the collision disappears. This approach is pretty simple, straightforward, and working well. However, it appears to be pretty inefficient as the table expansion involves a lot of data migration as well as recalculation of hash code, which are expansive. To improve efficiency, we can adopt the following strategies:
 
