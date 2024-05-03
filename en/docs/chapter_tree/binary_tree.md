@@ -1,6 +1,6 @@
 # Binary tree
 
-A "binary tree" is a non-linear data structure that represents the ancestral and descendent relationships, embodying the "divide and conquer" logic. Similar to a linked list, the basic unit of a binary tree is a node, each containing a value, a reference to the left child node, and a reference to the right child node.
+A "binary tree" is a non-linear data structure that represents the hierarchical relationship between ancestors and descendants, embodying the divide-and-conquer logic of "splitting into two". Similar to a linked list, the basic unit of a binary tree is a node, each containing a value, a reference to the left child node, and a reference to the right child node.
 
 === "Python"
 
@@ -212,7 +212,7 @@ The commonly used terminology of binary trees is shown in the following figure.
 - "Leaf node": A node with no children, both of its pointers point to `None`.
 - "Edge": The line segment connecting two nodes, i.e., node reference (pointer).
 - The "level" of a node: Incrementing from top to bottom, with the root node's level being 1.
-- The "degree" of a node: The number of a node's children. In a binary tree, the degree can be 0, 1, or 2.
+- The "degree" of a node: The number of children a node has. In a binary tree, the degree can be 0, 1, or 2.
 - The "height" of a binary tree: The number of edges passed from the root node to the farthest leaf node.
 - The "depth" of a node: The number of edges passed from the root node to the node.
 - The "height" of a node: The number of edges from the farthest leaf node to the node.
@@ -221,13 +221,13 @@ The commonly used terminology of binary trees is shown in the following figure.
 
 !!! tip
 
-    Please note that we usually define "height" and "depth" as "the number of edges passed," but some problems or textbooks may define them as "the number of nodes passed." In this case, both height and depth need to be incremented by 1.
+    Please note that we typically define "height" and "depth" as "the number of edges traversed", but some problems or textbooks may define them as "the number of nodes traversed". In such cases, both height and depth need to be incremented by 1.
 
 ## Basic operations of binary trees
 
 ### Initializing a binary tree
 
-Similar to a linked list, initialize nodes first, then construct references (pointers).
+Similar to a linked list, begin by initialize nodes, then construct references (pointers).
 
 === "Python"
 
@@ -609,13 +609,13 @@ Similar to a linked list, inserting and removing nodes in a binary tree can be a
 
 !!! tip
 
-    It's important to note that inserting nodes may change the original logical structure of the binary tree, while removing nodes usually means removing the node and all its subtrees. Therefore, in a binary tree, insertion and removal are usually performed through a set of operations to achieve meaningful actions.
+    It's important to note that inserting nodes may change the original logical structure of the binary tree, while removing nodes typically involves removing the node and all its subtrees. Therefore, in a binary tree, insertion and removal are usually performed through a coordinated set of operations to achieve meaningful outcomes.
 
 ## Common types of binary trees
 
 ### Perfect binary tree
 
-As shown in the figure below, in a "perfect binary tree," all levels of nodes are fully filled. In a perfect binary tree, the degree of leaf nodes is $0$, and the degree of all other nodes is $2$; if the tree's height is $h$, then the total number of nodes is $2^{h+1} - 1$, showing a standard exponential relationship, reflecting the common phenomenon of cell division in nature.
+As shown in the figure below, in a "perfect binary tree," all levels of nodes are fully filled. In a perfect binary tree, the degree of leaf nodes is $0$, while the degree of all other nodes is $2$; if the tree's height is $h$, then the total number of nodes is $2^{h+1} - 1$, showing a standard exponential relationship, reflecting the common phenomenon of cell division in nature.
 
 !!! tip
 
@@ -643,7 +643,7 @@ As shown in the figure below, in a "balanced binary tree," the absolute differen
 
 ## Degeneration of binary trees
 
-The figure below shows the ideal and degenerate structures of binary trees. When every level of a binary tree is filled, it reaches the "perfect binary tree"; when all nodes are biased towards one side, the binary tree degenerates into a "linked list".
+The figure below shows the ideal and degenerate structures of binary trees. A binary tree becomes a "perfect binary tree" when every level is filled; while it degenerates into a "linked list" when all nodes are biased toward one side.
 
 - The perfect binary tree is the ideal situation, fully leveraging the "divide and conquer" advantage of binary trees.
 - A linked list is another extreme, where operations become linear, degrading the time complexity to $O(n)$.
