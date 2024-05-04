@@ -735,8 +735,8 @@ Let the size of the input data be $n$, the following chart displays common types
 
 $$
 \begin{aligned}
-O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
-\text{Constant Order} < \text{Logarithmic Order} < \text{Linear Order} < \text{Quadratic Order} < \text{Exponential Order}
+& O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
+& \text{Constant} < \text{Logarithmic} < \text{Linear} < \text{Quadratic} < \text{Exponential}
 \end{aligned}
 $$
 

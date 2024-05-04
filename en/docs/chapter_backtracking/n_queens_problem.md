@@ -269,6 +269,7 @@ Please note, in an $n$-dimensional matrix, the range of $row - col$ is $[-n + 1,
 
             }
             *res = append(*res, newState)
+            return
         }
         // 遍历所有列
         for col := 0; col < n; col++ {
