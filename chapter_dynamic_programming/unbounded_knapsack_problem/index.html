@@ -4386,7 +4386,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">unbounded_knapsack.js</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="cm">/* 完全背包：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">unbounded_knapsack.js</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="cm">/* 完全背包：空间优化后的动态规划 */</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">unboundedKnapsackDPComp</span><span class="p">(</span><span class="nx">wgt</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">cap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wgt</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="c1">// 初始化 dp 表</span>
@@ -4408,7 +4408,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">unbounded_knapsack.ts</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cm">/* 完全背包：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">unbounded_knapsack.ts</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cm">/* 完全背包：空间优化后的动态规划 */</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">unboundedKnapsackDPComp</span><span class="p">(</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="nx">wgt</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">,</span>
 <a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="nx">val</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">,</span>
@@ -5187,7 +5187,7 @@ dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change.js</span><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="cm">/* 零钱兑换：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">coin_change.js</span><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="cm">/* 零钱兑换：空间优化后的动态规划 */</span>
 <a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">coinChangeDPComp</span><span class="p">(</span><span class="nx">coins</span><span class="p">,</span><span class="w"> </span><span class="nx">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">coins</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
@@ -5211,7 +5211,7 @@ dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change.ts</span><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="cm">/* 零钱兑换：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">coin_change.ts</span><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="cm">/* 零钱兑换：空间优化后的动态规划 */</span>
 <a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">coinChangeDPComp</span><span class="p">(</span><span class="nx">coins</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nx">amt</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">coins</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
@@ -5902,7 +5902,7 @@ dp[i, a] = dp[i-1, a] + dp[i, a - coins[i-1]]
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_ii.js</span><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="cm">/* 零钱兑换 II：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">coin_change_ii.js</span><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="cm">/* 零钱兑换 II：空间优化后的动态规划 */</span>
 <a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">coinChangeIIDPComp</span><span class="p">(</span><span class="nx">coins</span><span class="p">,</span><span class="w"> </span><span class="nx">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">coins</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a><span class="w">    </span><span class="c1">// 初始化 dp 表</span>
@@ -5925,7 +5925,7 @@ dp[i, a] = dp[i-1, a] + dp[i, a - coins[i-1]]
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_ii.ts</span><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="cm">/* 零钱兑换 II：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">coin_change_ii.ts</span><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="cm">/* 零钱兑换 II：空间优化后的动态规划 */</span>
 <a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">coinChangeIIDPComp</span><span class="p">(</span><span class="nx">coins</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nx">amt</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">coins</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a><span class="w">    </span><span class="c1">// 初始化 dp 表</span>

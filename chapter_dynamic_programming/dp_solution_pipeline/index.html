@@ -4980,7 +4980,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">min_path_sum.js</span><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="cm">/* 最小路径和：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">min_path_sum.js</span><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="cm">/* 最小路径和：空间优化后的动态规划 */</span>
 <a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">minPathSumDPComp</span><span class="p">(</span><span class="nx">grid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grid</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
 <a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="w">        </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grid</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
@@ -5005,7 +5005,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">min_path_sum.ts</span><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="cm">/* 最小路径和：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">min_path_sum.ts</span><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="cm">/* 最小路径和：空间优化后的动态规划 */</span>
 <a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">minPathSumDPComp</span><span class="p">(</span><span class="nx">grid</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="nb">Array</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;&gt;</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grid</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
 <a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">        </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grid</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
