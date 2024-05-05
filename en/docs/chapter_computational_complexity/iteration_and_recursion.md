@@ -20,9 +20,9 @@ The following function uses a `for` loop to perform a summation of $1 + 2 + \dot
 
     ```python title="iteration.py"
     def for_loop(n: int) -> int:
-        """for 循环"""
+        """for loop"""
         res = 0
-        # 循环求和 1, 2, ..., n-1, n
+        # Loop sum 1, 2, ..., n-1, n
         for i in range(1, n + 1):
             res += i
         return res
@@ -31,24 +31,16 @@ The following function uses a `for` loop to perform a summation of $1 + 2 + \dot
 === "C++"
 
     ```cpp title="iteration.cpp"
-    /* for 循环 */
-    int forLoop(int n) {
-        int res = 0;
-        // 循环求和 1, 2, ..., n-1, n
-        for (int i = 1; i <= n; ++i) {
-            res += i;
-        }
-        return res;
-    }
+    [class]{}-[func]{forLoop}
     ```
 
 === "Java"
 
     ```java title="iteration.java"
-    /* for 循环 */
+    /* for loop */
     int forLoop(int n) {
         int res = 0;
-        // 循环求和 1, 2, ..., n-1, n
+        // Loop sum 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -59,163 +51,68 @@ The following function uses a `for` loop to perform a summation of $1 + 2 + \dot
 === "C#"
 
     ```csharp title="iteration.cs"
-    /* for 循环 */
-    int ForLoop(int n) {
-        int res = 0;
-        // 循环求和 1, 2, ..., n-1, n
-        for (int i = 1; i <= n; i++) {
-            res += i;
-        }
-        return res;
-    }
+    [class]{iteration}-[func]{ForLoop}
     ```
 
 === "Go"
 
     ```go title="iteration.go"
-    /* for 循环 */
-    func forLoop(n int) int {
-        res := 0
-        // 循环求和 1, 2, ..., n-1, n
-        for i := 1; i <= n; i++ {
-            res += i
-        }
-        return res
-    }
+    [class]{}-[func]{forLoop}
     ```
 
 === "Swift"
 
     ```swift title="iteration.swift"
-    /* for 循环 */
-    func forLoop(n: Int) -> Int {
-        var res = 0
-        // 循环求和 1, 2, ..., n-1, n
-        for i in 1 ... n {
-            res += i
-        }
-        return res
-    }
+    [class]{}-[func]{forLoop}
     ```
 
 === "JS"
 
     ```javascript title="iteration.js"
-    /* for 循环 */
-    function forLoop(n) {
-        let res = 0;
-        // 循环求和 1, 2, ..., n-1, n
-        for (let i = 1; i <= n; i++) {
-            res += i;
-        }
-        return res;
-    }
+    [class]{}-[func]{forLoop}
     ```
 
 === "TS"
 
     ```typescript title="iteration.ts"
-    /* for 循环 */
-    function forLoop(n: number): number {
-        let res = 0;
-        // 循环求和 1, 2, ..., n-1, n
-        for (let i = 1; i <= n; i++) {
-            res += i;
-        }
-        return res;
-    }
+    [class]{}-[func]{forLoop}
     ```
 
 === "Dart"
 
     ```dart title="iteration.dart"
-    /* for 循环 */
-    int forLoop(int n) {
-      int res = 0;
-      // 循环求和 1, 2, ..., n-1, n
-      for (int i = 1; i <= n; i++) {
-        res += i;
-      }
-      return res;
-    }
+    [class]{}-[func]{forLoop}
     ```
 
 === "Rust"
 
     ```rust title="iteration.rs"
-    /* for 循环 */
-    fn for_loop(n: i32) -> i32 {
-        let mut res = 0;
-        // 循环求和 1, 2, ..., n-1, n
-        for i in 1..=n {
-            res += i;
-        }
-        res
-    }
+    [class]{}-[func]{for_loop}
     ```
 
 === "C"
 
     ```c title="iteration.c"
-    /* for 循环 */
-    int forLoop(int n) {
-        int res = 0;
-        // 循环求和 1, 2, ..., n-1, n
-        for (int i = 1; i <= n; i++) {
-            res += i;
-        }
-        return res;
-    }
+    [class]{}-[func]{forLoop}
     ```
 
 === "Kotlin"
 
     ```kotlin title="iteration.kt"
-    /* for 循环 */
-    fun forLoop(n: Int): Int {
-        var res = 0
-        // 循环求和 1, 2, ..., n-1, n
-        for (i in 1..n) {
-            res += i
-        }
-        return res
-    }
+    [class]{}-[func]{forLoop}
     ```
 
 === "Ruby"
 
     ```ruby title="iteration.rb"
-    ### for 循环 ###
-    def for_loop(n)
-      res = 0
-
-      # 循环求和 1, 2, ..., n-1, n
-      for i in 1..n
-        res += i
-      end
-
-      res
-    end
+    [class]{}-[func]{for_loop}
     ```
 
 === "Zig"
 
     ```zig title="iteration.zig"
-    // for 循环
-    fn forLoop(n: usize) i32 {
-        var res: i32 = 0;
-        // 循环求和 1, 2, ..., n-1, n
-        for (1..n+1) |i| {
-            res = res + @as(i32, @intCast(i));
-        }
-        return res;
-    } 
+    [class]{}-[func]{forLoop}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20for_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22for%20%E5%BE%AA%E7%8E%AF%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%B1%82%E5%92%8C%201,%202,%20...,%20n-1,%20n%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnfor%20%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%B1%82%E5%92%8C%E7%BB%93%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20for_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22for%20%E5%BE%AA%E7%8E%AF%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%B1%82%E5%92%8C%201,%202,%20...,%20n-1,%20n%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnfor%20%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%B1%82%E5%92%8C%E7%BB%93%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 The flowchart below represents this sum function.
 
@@ -235,43 +132,33 @@ Below we use a `while` loop to implement the sum $1 + 2 + \dots + n$.
 
     ```python title="iteration.py"
     def while_loop(n: int) -> int:
-        """while 循环"""
+        """while loop"""
         res = 0
-        i = 1  # 初始化条件变量
-        # 循环求和 1, 2, ..., n-1, n
+        i = 1  # Initialize condition variable
+        # Loop sum 1, 2, ..., n-1, n
         while i <= n:
             res += i
-            i += 1  # 更新条件变量
+            i += 1  # Update condition variable
         return res
     ```
 
 === "C++"
 
     ```cpp title="iteration.cpp"
-    /* while 循环 */
-    int whileLoop(int n) {
-        int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
-        while (i <= n) {
-            res += i;
-            i++; // 更新条件变量
-        }
-        return res;
-    }
+    [class]{}-[func]{whileLoop}
     ```
 
 === "Java"
 
     ```java title="iteration.java"
-    /* while 循环 */
+    /* while loop */
     int whileLoop(int n) {
         int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
+        int i = 1; // Initialize condition variable
+        // Loop sum 1, 2, ..., n-1, n
         while (i <= n) {
             res += i;
-            i++; // 更新条件变量
+            i++; // Update condition variable
         }
         return res;
     }
@@ -280,188 +167,68 @@ Below we use a `while` loop to implement the sum $1 + 2 + \dots + n$.
 === "C#"
 
     ```csharp title="iteration.cs"
-    /* while 循环 */
-    int WhileLoop(int n) {
-        int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
-        while (i <= n) {
-            res += i;
-            i += 1; // 更新条件变量
-        }
-        return res;
-    }
+    [class]{iteration}-[func]{WhileLoop}
     ```
 
 === "Go"
 
     ```go title="iteration.go"
-    /* while 循环 */
-    func whileLoop(n int) int {
-        res := 0
-        // 初始化条件变量
-        i := 1
-        // 循环求和 1, 2, ..., n-1, n
-        for i <= n {
-            res += i
-            // 更新条件变量
-            i++
-        }
-        return res
-    }
+    [class]{}-[func]{whileLoop}
     ```
 
 === "Swift"
 
     ```swift title="iteration.swift"
-    /* while 循环 */
-    func whileLoop(n: Int) -> Int {
-        var res = 0
-        var i = 1 // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
-        while i <= n {
-            res += i
-            i += 1 // 更新条件变量
-        }
-        return res
-    }
+    [class]{}-[func]{whileLoop}
     ```
 
 === "JS"
 
     ```javascript title="iteration.js"
-    /* while 循环 */
-    function whileLoop(n) {
-        let res = 0;
-        let i = 1; // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
-        while (i <= n) {
-            res += i;
-            i++; // 更新条件变量
-        }
-        return res;
-    }
+    [class]{}-[func]{whileLoop}
     ```
 
 === "TS"
 
     ```typescript title="iteration.ts"
-    /* while 循环 */
-    function whileLoop(n: number): number {
-        let res = 0;
-        let i = 1; // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
-        while (i <= n) {
-            res += i;
-            i++; // 更新条件变量
-        }
-        return res;
-    }
+    [class]{}-[func]{whileLoop}
     ```
 
 === "Dart"
 
     ```dart title="iteration.dart"
-    /* while 循环 */
-    int whileLoop(int n) {
-      int res = 0;
-      int i = 1; // 初始化条件变量
-      // 循环求和 1, 2, ..., n-1, n
-      while (i <= n) {
-        res += i;
-        i++; // 更新条件变量
-      }
-      return res;
-    }
+    [class]{}-[func]{whileLoop}
     ```
 
 === "Rust"
 
     ```rust title="iteration.rs"
-    /* while 循环 */
-    fn while_loop(n: i32) -> i32 {
-        let mut res = 0;
-        let mut i = 1; // 初始化条件变量
-
-        // 循环求和 1, 2, ..., n-1, n
-        while i <= n {
-            res += i;
-            i += 1; // 更新条件变量
-        }
-        res
-    }
+    [class]{}-[func]{while_loop}
     ```
 
 === "C"
 
     ```c title="iteration.c"
-    /* while 循环 */
-    int whileLoop(int n) {
-        int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
-        while (i <= n) {
-            res += i;
-            i++; // 更新条件变量
-        }
-        return res;
-    }
+    [class]{}-[func]{whileLoop}
     ```
 
 === "Kotlin"
 
     ```kotlin title="iteration.kt"
-    /* while 循环 */
-    fun whileLoop(n: Int): Int {
-        var res = 0
-        var i = 1 // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
-        while (i <= n) {
-            res += i
-            i++ // 更新条件变量
-        }
-        return res
-    }
+    [class]{}-[func]{whileLoop}
     ```
 
 === "Ruby"
 
     ```ruby title="iteration.rb"
-    ### while 循环 ###
-    def while_loop(n)
-      res = 0
-      i = 1 # 初始化条件变量
-
-      # 循环求和 1, 2, ..., n-1, n
-      while i <= n
-        res += i
-        i += 1 # 更新条件变量
-      end
-
-      res
-    end
+    [class]{}-[func]{while_loop}
     ```
 
 === "Zig"
 
     ```zig title="iteration.zig"
-    // while 循环
-    fn whileLoop(n: i32) i32 {
-        var res: i32 = 0;
-        var i: i32 = 1; // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
-        while (i <= n) {
-            res += @intCast(i);
-            i += 1;
-        }
-        return res;
-    }
+    [class]{}-[func]{whileLoop}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20while_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E5%BE%AA%E7%8E%AF%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%B1%82%E5%92%8C%201,%202,%20...,%20n-1,%20n%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%20%20%23%20%E6%9B%B4%E6%96%B0%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%B1%82%E5%92%8C%E7%BB%93%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20while_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E5%BE%AA%E7%8E%AF%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%B1%82%E5%92%8C%201,%202,%20...,%20n-1,%20n%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%20%20%23%20%E6%9B%B4%E6%96%B0%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%B1%82%E5%92%8C%E7%BB%93%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 **`while` loops provide more flexibility than `for` loops**, especially since they allow for custom initialization and modification of the condition variable at each step.
 
@@ -471,13 +238,13 @@ For example, in the following code, the condition variable $i$ is updated twice 
 
     ```python title="iteration.py"
     def while_loop_ii(n: int) -> int:
-        """while 循环（两次更新）"""
+        """while loop (two updates)"""
         res = 0
-        i = 1  # 初始化条件变量
-        # 循环求和 1, 4, 10, ...
+        i = 1  # Initialize condition variable
+        # Loop sum 1, 4, 10, ...
         while i <= n:
             res += i
-            # 更新条件变量
+            # Update condition variable
             i += 1
             i *= 2
         return res
@@ -486,32 +253,20 @@ For example, in the following code, the condition variable $i$ is updated twice 
 === "C++"
 
     ```cpp title="iteration.cpp"
-    /* while 循环（两次更新） */
-    int whileLoopII(int n) {
-        int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 4, 10, ...
-        while (i <= n) {
-            res += i;
-            // 更新条件变量
-            i++;
-            i *= 2;
-        }
-        return res;
-    }
+    [class]{}-[func]{whileLoopII}
     ```
 
 === "Java"
 
     ```java title="iteration.java"
-    /* while 循环（两次更新） */
+    /* while loop (two updates) */
     int whileLoopII(int n) {
         int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 4, 10, ...
+        int i = 1; // Initialize condition variable
+        // Loop sum 1, 4, 10, ...
         while (i <= n) {
             res += i;
-            // 更新条件变量
+            // Update condition variable
             i++;
             i *= 2;
         }
@@ -522,209 +277,68 @@ For example, in the following code, the condition variable $i$ is updated twice 
 === "C#"
 
     ```csharp title="iteration.cs"
-    /* while 循环（两次更新） */
-    int WhileLoopII(int n) {
-        int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 4, 10, ...
-        while (i <= n) {
-            res += i;
-            // 更新条件变量
-            i += 1; 
-            i *= 2;
-        }
-        return res;
-    }
+    [class]{iteration}-[func]{WhileLoopII}
     ```
 
 === "Go"
 
     ```go title="iteration.go"
-    /* while 循环（两次更新） */
-    func whileLoopII(n int) int {
-        res := 0
-        // 初始化条件变量
-        i := 1
-        // 循环求和 1, 4, 10, ...
-        for i <= n {
-            res += i
-            // 更新条件变量
-            i++
-            i *= 2
-        }
-        return res
-    }
+    [class]{}-[func]{whileLoopII}
     ```
 
 === "Swift"
 
     ```swift title="iteration.swift"
-    /* while 循环（两次更新） */
-    func whileLoopII(n: Int) -> Int {
-        var res = 0
-        var i = 1 // 初始化条件变量
-        // 循环求和 1, 4, 10, ...
-        while i <= n {
-            res += i
-            // 更新条件变量
-            i += 1
-            i *= 2
-        }
-        return res
-    }
+    [class]{}-[func]{whileLoopII}
     ```
 
 === "JS"
 
     ```javascript title="iteration.js"
-    /* while 循环（两次更新） */
-    function whileLoopII(n) {
-        let res = 0;
-        let i = 1; // 初始化条件变量
-        // 循环求和 1, 4, 10, ...
-        while (i <= n) {
-            res += i;
-            // 更新条件变量
-            i++;
-            i *= 2;
-        }
-        return res;
-    }
+    [class]{}-[func]{whileLoopII}
     ```
 
 === "TS"
 
     ```typescript title="iteration.ts"
-    /* while 循环（两次更新） */
-    function whileLoopII(n: number): number {
-        let res = 0;
-        let i = 1; // 初始化条件变量
-        // 循环求和 1, 4, 10, ...
-        while (i <= n) {
-            res += i;
-            // 更新条件变量
-            i++;
-            i *= 2;
-        }
-        return res;
-    }
+    [class]{}-[func]{whileLoopII}
     ```
 
 === "Dart"
 
     ```dart title="iteration.dart"
-    /* while 循环（两次更新） */
-    int whileLoopII(int n) {
-      int res = 0;
-      int i = 1; // 初始化条件变量
-      // 循环求和 1, 4, 10, ...
-      while (i <= n) {
-        res += i;
-        // 更新条件变量
-        i++;
-        i *= 2;
-      }
-      return res;
-    }
+    [class]{}-[func]{whileLoopII}
     ```
 
 === "Rust"
 
     ```rust title="iteration.rs"
-    /* while 循环（两次更新） */
-    fn while_loop_ii(n: i32) -> i32 {
-        let mut res = 0;
-        let mut i = 1; // 初始化条件变量
-
-        // 循环求和 1, 4, 10, ...
-        while i <= n {
-            res += i;
-            // 更新条件变量
-            i += 1;
-            i *= 2;
-        }
-        res
-    }
+    [class]{}-[func]{while_loop_ii}
     ```
 
 === "C"
 
     ```c title="iteration.c"
-    /* while 循环（两次更新） */
-    int whileLoopII(int n) {
-        int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 4, 10, ...
-        while (i <= n) {
-            res += i;
-            // 更新条件变量
-            i++;
-            i *= 2;
-        }
-        return res;
-    }
+    [class]{}-[func]{whileLoopII}
     ```
 
 === "Kotlin"
 
     ```kotlin title="iteration.kt"
-    /* while 循环（两次更新） */
-    fun whileLoopII(n: Int): Int {
-        var res = 0
-        var i = 1 // 初始化条件变量
-        // 循环求和 1, 4, 10, ...
-        while (i <= n) {
-            res += i
-            // 更新条件变量
-            i++
-            i *= 2
-        }
-        return res
-    }
+    [class]{}-[func]{whileLoopII}
     ```
 
 === "Ruby"
 
     ```ruby title="iteration.rb"
-    ### while 循环（两次更新）###
-    def while_loop_ii(n)
-      res = 0
-      i = 1 # 初始化条件变量
-
-      # 循环求和 1, 4, 10, ...
-      while i <= n
-        res += i
-        # 更新条件变量
-        i += 1
-        i *= 2
-      end
-
-      res
-    end
+    [class]{}-[func]{while_loop_ii}
     ```
 
 === "Zig"
 
     ```zig title="iteration.zig"
-    //  while 循环（两次更新）
-    fn whileLoopII(n: i32) i32 {
-        var res: i32 = 0;
-        var i: i32 = 1; // 初始化条件变量
-        // 循环求和 1, 4, 10, ...
-        while (i <= n) {
-            res += @intCast(i);
-            // 更新条件变量
-            i += 1;
-            i *= 2;
-        }
-        return res;
-    }
+    [class]{}-[func]{whileLoopII}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 495px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20while_loop_ii%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E5%BE%AA%E7%8E%AF%EF%BC%88%E4%B8%A4%E6%AC%A1%E6%9B%B4%E6%96%B0%EF%BC%89%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%B1%82%E5%92%8C%201,%204,%2010,%20...%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20i%20*%3D%202%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop_ii%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E5%BE%AA%E7%8E%AF%EF%BC%88%E4%B8%A4%E6%AC%A1%E6%9B%B4%E6%96%B0%EF%BC%89%E6%B1%82%E5%92%8C%E7%BB%93%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20while_loop_ii%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E5%BE%AA%E7%8E%AF%EF%BC%88%E4%B8%A4%E6%AC%A1%E6%9B%B4%E6%96%B0%EF%BC%89%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%B1%82%E5%92%8C%201,%204,%2010,%20...%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20i%20*%3D%202%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop_ii%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E5%BE%AA%E7%8E%AF%EF%BC%88%E4%B8%A4%E6%AC%A1%E6%9B%B4%E6%96%B0%EF%BC%89%E6%B1%82%E5%92%8C%E7%BB%93%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 Overall, **`for` loops are more concise, while `while` loops are more flexible**. Both can implement iterative structures. Which one to use should be determined based on the specific requirements of the problem.
 
@@ -736,11 +350,11 @@ We can nest one loop structure within another. Below is an example using `for` l
 
     ```python title="iteration.py"
     def nested_for_loop(n: int) -> str:
-        """双层 for 循环"""
+        """Double for loop"""
         res = ""
-        # 循环 i = 1, 2, ..., n-1, n
+        # Loop i = 1, 2, ..., n-1, n
         for i in range(1, n + 1):
-            # 循环 j = 1, 2, ..., n-1, n
+            # Loop j = 1, 2, ..., n-1, n
             for j in range(1, n + 1):
                 res += f"({i}, {j}), "
         return res
@@ -749,29 +363,18 @@ We can nest one loop structure within another. Below is an example using `for` l
 === "C++"
 
     ```cpp title="iteration.cpp"
-    /* 双层 for 循环 */
-    string nestedForLoop(int n) {
-        ostringstream res;
-        // 循环 i = 1, 2, ..., n-1, n
-        for (int i = 1; i <= n; ++i) {
-            // 循环 j = 1, 2, ..., n-1, n
-            for (int j = 1; j <= n; ++j) {
-                res << "(" << i << ", " << j << "), ";
-            }
-        }
-        return res.str();
-    }
+    [class]{}-[func]{nestedForLoop}
     ```
 
 === "Java"
 
     ```java title="iteration.java"
-    /* 双层 for 循环 */
+    /* Double for loop */
     String nestedForLoop(int n) {
         StringBuilder res = new StringBuilder();
-        // 循环 i = 1, 2, ..., n-1, n
+        // Loop i = 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
-            // 循环 j = 1, 2, ..., n-1, n
+            // Loop j = 1, 2, ..., n-1, n
             for (int j = 1; j <= n; j++) {
                 res.append("(" + i + ", " + j + "), ");
             }
@@ -783,203 +386,68 @@ We can nest one loop structure within another. Below is an example using `for` l
 === "C#"
 
     ```csharp title="iteration.cs"
-    /* 双层 for 循环 */
-    string NestedForLoop(int n) {
-        StringBuilder res = new();
-        // 循环 i = 1, 2, ..., n-1, n
-        for (int i = 1; i <= n; i++) {
-            // 循环 j = 1, 2, ..., n-1, n
-            for (int j = 1; j <= n; j++) {
-                res.Append($"({i}, {j}), ");
-            }
-        }
-        return res.ToString();
-    }
+    [class]{iteration}-[func]{NestedForLoop}
     ```
 
 === "Go"
 
     ```go title="iteration.go"
-    /* 双层 for 循环 */
-    func nestedForLoop(n int) string {
-        res := ""
-        // 循环 i = 1, 2, ..., n-1, n
-        for i := 1; i <= n; i++ {
-            for j := 1; j <= n; j++ {
-                // 循环 j = 1, 2, ..., n-1, n
-                res += fmt.Sprintf("(%d, %d), ", i, j)
-            }
-        }
-        return res
-    }
+    [class]{}-[func]{nestedForLoop}
     ```
 
 === "Swift"
 
     ```swift title="iteration.swift"
-    /* 双层 for 循环 */
-    func nestedForLoop(n: Int) -> String {
-        var res = ""
-        // 循环 i = 1, 2, ..., n-1, n
-        for i in 1 ... n {
-            // 循环 j = 1, 2, ..., n-1, n
-            for j in 1 ... n {
-                res.append("(\(i), \(j)), ")
-            }
-        }
-        return res
-    }
+    [class]{}-[func]{nestedForLoop}
     ```
 
 === "JS"
 
     ```javascript title="iteration.js"
-    /* 双层 for 循环 */
-    function nestedForLoop(n) {
-        let res = '';
-        // 循环 i = 1, 2, ..., n-1, n
-        for (let i = 1; i <= n; i++) {
-            // 循环 j = 1, 2, ..., n-1, n
-            for (let j = 1; j <= n; j++) {
-                res += `(${i}, ${j}), `;
-            }
-        }
-        return res;
-    }
+    [class]{}-[func]{nestedForLoop}
     ```
 
 === "TS"
 
     ```typescript title="iteration.ts"
-    /* 双层 for 循环 */
-    function nestedForLoop(n: number): string {
-        let res = '';
-        // 循环 i = 1, 2, ..., n-1, n
-        for (let i = 1; i <= n; i++) {
-            // 循环 j = 1, 2, ..., n-1, n
-            for (let j = 1; j <= n; j++) {
-                res += `(${i}, ${j}), `;
-            }
-        }
-        return res;
-    }
+    [class]{}-[func]{nestedForLoop}
     ```
 
 === "Dart"
 
     ```dart title="iteration.dart"
-    /* 双层 for 循环 */
-    String nestedForLoop(int n) {
-      String res = "";
-      // 循环 i = 1, 2, ..., n-1, n
-      for (int i = 1; i <= n; i++) {
-        // 循环 j = 1, 2, ..., n-1, n
-        for (int j = 1; j <= n; j++) {
-          res += "($i, $j), ";
-        }
-      }
-      return res;
-    }
+    [class]{}-[func]{nestedForLoop}
     ```
 
 === "Rust"
 
     ```rust title="iteration.rs"
-    /* 双层 for 循环 */
-    fn nested_for_loop(n: i32) -> String {
-        let mut res = vec![];
-        // 循环 i = 1, 2, ..., n-1, n
-        for i in 1..=n {
-            // 循环 j = 1, 2, ..., n-1, n
-            for j in 1..=n {
-                res.push(format!("({}, {}), ", i, j));
-            }
-        }
-        res.join("")
-    }
+    [class]{}-[func]{nested_for_loop}
     ```
 
 === "C"
 
     ```c title="iteration.c"
-    /* 双层 for 循环 */
-    char *nestedForLoop(int n) {
-        // n * n 为对应点数量，"(i, j), " 对应字符串长最大为 6+10*2，加上最后一个空字符 \0 的额外空间
-        int size = n * n * 26 + 1;
-        char *res = malloc(size * sizeof(char));
-        // 循环 i = 1, 2, ..., n-1, n
-        for (int i = 1; i <= n; i++) {
-            // 循环 j = 1, 2, ..., n-1, n
-            for (int j = 1; j <= n; j++) {
-                char tmp[26];
-                snprintf(tmp, sizeof(tmp), "(%d, %d), ", i, j);
-                strncat(res, tmp, size - strlen(res) - 1);
-            }
-        }
-        return res;
-    }
+    [class]{}-[func]{nestedForLoop}
     ```
 
 === "Kotlin"
 
     ```kotlin title="iteration.kt"
-    /* 双层 for 循环 */
-    fun nestedForLoop(n: Int): String {
-        val res = StringBuilder()
-        // 循环 i = 1, 2, ..., n-1, n
-        for (i in 1..n) {
-            // 循环 j = 1, 2, ..., n-1, n
-            for (j in 1..n) {
-                res.append(" ($i, $j), ")
-            }
-        }
-        return res.toString()
-    }
+    [class]{}-[func]{nestedForLoop}
     ```
 
 === "Ruby"
 
     ```ruby title="iteration.rb"
-    ### 双层 for 循环 ###
-    def nested_for_loop(n)
-      res = ""
-
-      # 循环 i = 1, 2, ..., n-1, n
-      for i in 1..n
-        # 循环 j = 1, 2, ..., n-1, n
-        for j in 1..n
-          res += "(#{i}, #{j}), "
-        end
-      end
-
-      res
-    end
+    [class]{}-[func]{nested_for_loop}
     ```
 
 === "Zig"
 
     ```zig title="iteration.zig"
-    // 双层 for 循环
-    fn nestedForLoop(allocator: Allocator, n: usize) ![]const u8 {
-        var res = std.ArrayList(u8).init(allocator);
-        defer res.deinit();
-        var buffer: [20]u8 = undefined;
-        // 循环 i = 1, 2, ..., n-1, n
-        for (1..n+1) |i| {
-            // 循环 j = 1, 2, ..., n-1, n
-            for (1..n+1) |j| {
-                var _str = try std.fmt.bufPrint(&buffer, "({d}, {d}), ", .{i, j});
-                try res.appendSlice(_str);
-            }
-        }
-        return res.toOwnedSlice();
-    }
+    [class]{}-[func]{nestedForLoop}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20nested_for_loop%28n%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%22%22%22%E5%8F%8C%E5%B1%82%20for%20%E5%BE%AA%E7%8E%AF%22%22%22%0A%20%20%20%20res%20%3D%20%22%22%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%20i%20%3D%201,%202,%20...,%20n-1,%20n%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%20j%20%3D%201,%202,%20...,%20n-1,%20n%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%2B%3D%20f%22%28%7Bi%7D,%20%7Bj%7D%29,%20%22%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20nested_for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cn%E5%8F%8C%E5%B1%82%20for%20%E5%BE%AA%E7%8E%AF%E7%9A%84%E9%81%8D%E5%8E%86%E7%BB%93%E6%9E%9C%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20nested_for_loop%28n%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%22%22%22%E5%8F%8C%E5%B1%82%20for%20%E5%BE%AA%E7%8E%AF%22%22%22%0A%20%20%20%20res%20%3D%20%22%22%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%20i%20%3D%201,%202,%20...,%20n-1,%20n%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%20j%20%3D%201,%202,%20...,%20n-1,%20n%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%2B%3D%20f%22%28%7Bi%7D,%20%7Bj%7D%29,%20%22%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20nested_for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cn%E5%8F%8C%E5%B1%82%20for%20%E5%BE%AA%E7%8E%AF%E7%9A%84%E9%81%8D%E5%8E%86%E7%BB%93%E6%9E%9C%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 The flowchart below represents this nested loop.
 
@@ -1010,42 +478,33 @@ Observe the following code, where simply calling the function `recur(n)` can com
 
     ```python title="recursion.py"
     def recur(n: int) -> int:
-        """递归"""
-        # 终止条件
+        """Recursion"""
+        # Termination condition
         if n == 1:
             return 1
-        # 递：递归调用
+        # Recursive: recursive call
         res = recur(n - 1)
-        # 归：返回结果
+        # Return: return result
         return n + res
     ```
 
 === "C++"
 
     ```cpp title="recursion.cpp"
-    /* 递归 */
-    int recur(int n) {
-        // 终止条件
-        if (n == 1)
-            return 1;
-        // 递：递归调用
-        int res = recur(n - 1);
-        // 归：返回结果
-        return n + res;
-    }
+    [class]{}-[func]{recur}
     ```
 
 === "Java"
 
     ```java title="recursion.java"
-    /* 递归 */
+    /* Recursion */
     int recur(int n) {
-        // 终止条件
+        // Termination condition
         if (n == 1)
             return 1;
-        // 递：递归调用
+        // Recursive: recursive call
         int res = recur(n - 1);
-        // 归：返回结果
+        // Return: return result
         return n + res;
     }
     ```
@@ -1053,172 +512,68 @@ Observe the following code, where simply calling the function `recur(n)` can com
 === "C#"
 
     ```csharp title="recursion.cs"
-    /* 递归 */
-    int Recur(int n) {
-        // 终止条件
-        if (n == 1)
-            return 1;
-        // 递：递归调用
-        int res = Recur(n - 1);
-        // 归：返回结果
-        return n + res;
-    }
+    [class]{recursion}-[func]{Recur}
     ```
 
 === "Go"
 
     ```go title="recursion.go"
-    /* 递归 */
-    func recur(n int) int {
-        // 终止条件
-        if n == 1 {
-            return 1
-        }
-        // 递：递归调用
-        res := recur(n - 1)
-        // 归：返回结果
-        return n + res
-    }
+    [class]{}-[func]{recur}
     ```
 
 === "Swift"
 
     ```swift title="recursion.swift"
-    /* 递归 */
-    func recur(n: Int) -> Int {
-        // 终止条件
-        if n == 1 {
-            return 1
-        }
-        // 递：递归调用
-        let res = recur(n: n - 1)
-        // 归：返回结果
-        return n + res
-    }
+    [class]{}-[func]{recur}
     ```
 
 === "JS"
 
     ```javascript title="recursion.js"
-    /* 递归 */
-    function recur(n) {
-        // 终止条件
-        if (n === 1) return 1;
-        // 递：递归调用
-        const res = recur(n - 1);
-        // 归：返回结果
-        return n + res;
-    }
+    [class]{}-[func]{recur}
     ```
 
 === "TS"
 
     ```typescript title="recursion.ts"
-    /* 递归 */
-    function recur(n: number): number {
-        // 终止条件
-        if (n === 1) return 1;
-        // 递：递归调用
-        const res = recur(n - 1);
-        // 归：返回结果
-        return n + res;
-    }
+    [class]{}-[func]{recur}
     ```
 
 === "Dart"
 
     ```dart title="recursion.dart"
-    /* 递归 */
-    int recur(int n) {
-      // 终止条件
-      if (n == 1) return 1;
-      // 递：递归调用
-      int res = recur(n - 1);
-      // 归：返回结果
-      return n + res;
-    }
+    [class]{}-[func]{recur}
     ```
 
 === "Rust"
 
     ```rust title="recursion.rs"
-    /* 递归 */
-    fn recur(n: i32) -> i32 {
-        // 终止条件
-        if n == 1 {
-            return 1;
-        }
-        // 递：递归调用
-        let res = recur(n - 1);
-        // 归：返回结果
-        n + res
-    }
+    [class]{}-[func]{recur}
     ```
 
 === "C"
 
     ```c title="recursion.c"
-    /* 递归 */
-    int recur(int n) {
-        // 终止条件
-        if (n == 1)
-            return 1;
-        // 递：递归调用
-        int res = recur(n - 1);
-        // 归：返回结果
-        return n + res;
-    }
+    [class]{}-[func]{recur}
     ```
 
 === "Kotlin"
 
     ```kotlin title="recursion.kt"
-    /* 递归 */
-    fun recur(n: Int): Int {
-        // 终止条件
-        if (n == 1)
-            return 1
-        // 递: 递归调用
-        val res = recur(n - 1)
-        // 归: 返回结果
-        return n + res
-    }
+    [class]{}-[func]{recur}
     ```
 
 === "Ruby"
 
     ```ruby title="recursion.rb"
-    ### 递归 ###
-    def recur(n)
-      # 终止条件
-      return 1 if n == 1
-      # 递：递归调用
-      res = recur(n - 1)
-      # 归：返回结果
-      n + res
-    end
+    [class]{}-[func]{recur}
     ```
 
 === "Zig"
 
     ```zig title="recursion.zig"
-    // 递归函数
-    fn recur(n: i32) i32 {
-        // 终止条件
-        if (n == 1) {
-            return 1;
-        }
-        // 递：递归调用
-        var res: i32 = recur(n - 1);
-        // 归：返回结果
-        return n + res;
-    }
+    [class]{}-[func]{recur}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%80%92%E5%BD%92%22%22%22%0A%20%20%20%20%23%20%E7%BB%88%E6%AD%A2%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20%E9%80%92%EF%BC%9A%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%0A%20%20%20%20res%20%3D%20recur%28n%20-%201%29%0A%20%20%20%20%23%20%E5%BD%92%EF%BC%9A%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%0A%20%20%20%20return%20n%20%2B%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0%E7%9A%84%E6%B1%82%E5%92%8C%E7%BB%93%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%80%92%E5%BD%92%22%22%22%0A%20%20%20%20%23%20%E7%BB%88%E6%AD%A2%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20%E9%80%92%EF%BC%9A%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%0A%20%20%20%20res%20%3D%20recur%28n%20-%201%29%0A%20%20%20%20%23%20%E5%BD%92%EF%BC%9A%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%0A%20%20%20%20return%20n%20%2B%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0%E7%9A%84%E6%B1%82%E5%92%8C%E7%BB%93%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 Figure 2-3 shows the recursive process of this function.
 
@@ -1264,36 +619,29 @@ For example, in calculating $1 + 2 + \dots + n$, we can make the result variable
 
     ```python title="recursion.py"
     def tail_recur(n, res):
-        """尾递归"""
-        # 终止条件
+        """Tail recursion"""
+        # Termination condition
         if n == 0:
             return res
-        # 尾递归调用
+        # Tail recursive call
         return tail_recur(n - 1, res + n)
     ```
 
 === "C++"
 
     ```cpp title="recursion.cpp"
-    /* 尾递归 */
-    int tailRecur(int n, int res) {
-        // 终止条件
-        if (n == 0)
-            return res;
-        // 尾递归调用
-        return tailRecur(n - 1, res + n);
-    }
+    [class]{}-[func]{tailRecur}
     ```
 
 === "Java"
 
     ```java title="recursion.java"
-    /* 尾递归 */
+    /* Tail recursion */
     int tailRecur(int n, int res) {
-        // 终止条件
+        // Termination condition
         if (n == 0)
             return res;
-        // 尾递归调用
+        // Tail recursive call
         return tailRecur(n - 1, res + n);
     }
     ```
@@ -1301,151 +649,68 @@ For example, in calculating $1 + 2 + \dots + n$, we can make the result variable
 === "C#"
 
     ```csharp title="recursion.cs"
-    /* 尾递归 */
-    int TailRecur(int n, int res) {
-        // 终止条件
-        if (n == 0)
-            return res;
-        // 尾递归调用
-        return TailRecur(n - 1, res + n);
-    }
+    [class]{recursion}-[func]{TailRecur}
     ```
 
 === "Go"
 
     ```go title="recursion.go"
-    /* 尾递归 */
-    func tailRecur(n int, res int) int {
-        // 终止条件
-        if n == 0 {
-            return res
-        }
-        // 尾递归调用
-        return tailRecur(n-1, res+n)
-    }
+    [class]{}-[func]{tailRecur}
     ```
 
 === "Swift"
 
     ```swift title="recursion.swift"
-    /* 尾递归 */
-    func tailRecur(n: Int, res: Int) -> Int {
-        // 终止条件
-        if n == 0 {
-            return res
-        }
-        // 尾递归调用
-        return tailRecur(n: n - 1, res: res + n)
-    }
+    [class]{}-[func]{tailRecur}
     ```
 
 === "JS"
 
     ```javascript title="recursion.js"
-    /* 尾递归 */
-    function tailRecur(n, res) {
-        // 终止条件
-        if (n === 0) return res;
-        // 尾递归调用
-        return tailRecur(n - 1, res + n);
-    }
+    [class]{}-[func]{tailRecur}
     ```
 
 === "TS"
 
     ```typescript title="recursion.ts"
-    /* 尾递归 */
-    function tailRecur(n: number, res: number): number {
-        // 终止条件
-        if (n === 0) return res;
-        // 尾递归调用
-        return tailRecur(n - 1, res + n);
-    }
+    [class]{}-[func]{tailRecur}
     ```
 
 === "Dart"
 
     ```dart title="recursion.dart"
-    /* 尾递归 */
-    int tailRecur(int n, int res) {
-      // 终止条件
-      if (n == 0) return res;
-      // 尾递归调用
-      return tailRecur(n - 1, res + n);
-    }
+    [class]{}-[func]{tailRecur}
     ```
 
 === "Rust"
 
     ```rust title="recursion.rs"
-    /* 尾递归 */
-    fn tail_recur(n: i32, res: i32) -> i32 {
-        // 终止条件
-        if n == 0 {
-            return res;
-        }
-        // 尾递归调用
-        tail_recur(n - 1, res + n)
-    }
+    [class]{}-[func]{tail_recur}
     ```
 
 === "C"
 
     ```c title="recursion.c"
-    /* 尾递归 */
-    int tailRecur(int n, int res) {
-        // 终止条件
-        if (n == 0)
-            return res;
-        // 尾递归调用
-        return tailRecur(n - 1, res + n);
-    }
+    [class]{}-[func]{tailRecur}
     ```
 
 === "Kotlin"
 
     ```kotlin title="recursion.kt"
-    /* 尾递归 */
-    tailrec fun tailRecur(n: Int, res: Int): Int {
-        // 添加 tailrec 关键词，以开启尾递归优化
-        // 终止条件
-        if (n == 0)
-            return res
-        // 尾递归调用
-        return tailRecur(n - 1, res + n)
-    }
+    [class]{}-[func]{tailRecur}
     ```
 
 === "Ruby"
 
     ```ruby title="recursion.rb"
-    ### 尾递归 ###
-    def tail_recur(n, res)
-      # 终止条件
-      return res if n == 0
-      # 尾递归调用
-      tail_recur(n - 1, res + n)
-    end
+    [class]{}-[func]{tail_recur}
     ```
 
 === "Zig"
 
     ```zig title="recursion.zig"
-    // 尾递归函数
-    fn tailRecur(n: i32, res: i32) i32 {
-        // 终止条件
-        if (n == 0) {
-            return res;
-        }
-        // 尾递归调用
-        return tailRecur(n - 1, res + n);
-    }
+    [class]{}-[func]{tailRecur}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20tail_recur%28n,%20res%29%3A%0A%20%20%20%20%22%22%22%E5%B0%BE%E9%80%92%E5%BD%92%22%22%22%0A%20%20%20%20%23%20%E7%BB%88%E6%AD%A2%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20res%0A%20%20%20%20%23%20%E5%B0%BE%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%0A%20%20%20%20return%20tail_recur%28n%20-%201,%20res%20%2B%20n%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20tail_recur%28n,%200%29%0A%20%20%20%20print%28f%22%5Cn%E5%B0%BE%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0%E7%9A%84%E6%B1%82%E5%92%8C%E7%BB%93%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20tail_recur%28n,%20res%29%3A%0A%20%20%20%20%22%22%22%E5%B0%BE%E9%80%92%E5%BD%92%22%22%22%0A%20%20%20%20%23%20%E7%BB%88%E6%AD%A2%E6%9D%A1%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20res%0A%20%20%20%20%23%20%E5%B0%BE%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%0A%20%20%20%20return%20tail_recur%28n%20-%201,%20res%20%2B%20n%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20tail_recur%28n,%200%29%0A%20%20%20%20print%28f%22%5Cn%E5%B0%BE%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0%E7%9A%84%E6%B1%82%E5%92%8C%E7%BB%93%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 The execution process of tail recursion is shown in Figure 2-5. Comparing regular recursion and tail recursion, the point of the summation operation is different.
 
@@ -1479,42 +744,33 @@ Using the recursive relation, and considering the first two numbers as terminati
 
     ```python title="recursion.py"
     def fib(n: int) -> int:
-        """斐波那契数列：递归"""
-        # 终止条件 f(1) = 0, f(2) = 1
+        """Fibonacci sequence: Recursion"""
+        # Termination condition f(1) = 0, f(2) = 1
         if n == 1 or n == 2:
             return n - 1
-        # 递归调用 f(n) = f(n-1) + f(n-2)
+        # Recursive call f(n) = f(n-1) + f(n-2)
         res = fib(n - 1) + fib(n - 2)
-        # 返回结果 f(n)
+        # Return result f(n)
         return res
     ```
 
 === "C++"
 
     ```cpp title="recursion.cpp"
-    /* 斐波那契数列：递归 */
-    int fib(int n) {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if (n == 1 || n == 2)
-            return n - 1;
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        int res = fib(n - 1) + fib(n - 2);
-        // 返回结果 f(n)
-        return res;
-    }
+    [class]{}-[func]{fib}
     ```
 
 === "Java"
 
     ```java title="recursion.java"
-    /* 斐波那契数列：递归 */
+    /* Fibonacci sequence: Recursion */
     int fib(int n) {
-        // 终止条件 f(1) = 0, f(2) = 1
+        // Termination condition f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1;
-        // 递归调用 f(n) = f(n-1) + f(n-2)
+        // Recursive call f(n) = f(n-1) + f(n-2)
         int res = fib(n - 1) + fib(n - 2);
-        // 返回结果 f(n)
+        // Return result f(n)
         return res;
     }
     ```
@@ -1522,172 +778,68 @@ Using the recursive relation, and considering the first two numbers as terminati
 === "C#"
 
     ```csharp title="recursion.cs"
-    /* 斐波那契数列：递归 */
-    int Fib(int n) {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if (n == 1 || n == 2)
-            return n - 1;
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        int res = Fib(n - 1) + Fib(n - 2);
-        // 返回结果 f(n)
-        return res;
-    }
+    [class]{recursion}-[func]{Fib}
     ```
 
 === "Go"
 
     ```go title="recursion.go"
-    /* 斐波那契数列：递归 */
-    func fib(n int) int {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if n == 1 || n == 2 {
-            return n - 1
-        }
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        res := fib(n-1) + fib(n-2)
-        // 返回结果 f(n)
-        return res
-    }
+    [class]{}-[func]{fib}
     ```
 
 === "Swift"
 
     ```swift title="recursion.swift"
-    /* 斐波那契数列：递归 */
-    func fib(n: Int) -> Int {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if n == 1 || n == 2 {
-            return n - 1
-        }
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        let res = fib(n: n - 1) + fib(n: n - 2)
-        // 返回结果 f(n)
-        return res
-    }
+    [class]{}-[func]{fib}
     ```
 
 === "JS"
 
     ```javascript title="recursion.js"
-    /* 斐波那契数列：递归 */
-    function fib(n) {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if (n === 1 || n === 2) return n - 1;
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        const res = fib(n - 1) + fib(n - 2);
-        // 返回结果 f(n)
-        return res;
-    }
+    [class]{}-[func]{fib}
     ```
 
 === "TS"
 
     ```typescript title="recursion.ts"
-    /* 斐波那契数列：递归 */
-    function fib(n: number): number {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if (n === 1 || n === 2) return n - 1;
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        const res = fib(n - 1) + fib(n - 2);
-        // 返回结果 f(n)
-        return res;
-    }
+    [class]{}-[func]{fib}
     ```
 
 === "Dart"
 
     ```dart title="recursion.dart"
-    /* 斐波那契数列：递归 */
-    int fib(int n) {
-      // 终止条件 f(1) = 0, f(2) = 1
-      if (n == 1 || n == 2) return n - 1;
-      // 递归调用 f(n) = f(n-1) + f(n-2)
-      int res = fib(n - 1) + fib(n - 2);
-      // 返回结果 f(n)
-      return res;
-    }
+    [class]{}-[func]{fib}
     ```
 
 === "Rust"
 
     ```rust title="recursion.rs"
-    /* 斐波那契数列：递归 */
-    fn fib(n: i32) -> i32 {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if n == 1 || n == 2 {
-            return n - 1;
-        }
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        let res = fib(n - 1) + fib(n - 2);
-        // 返回结果
-        res
-    }
+    [class]{}-[func]{fib}
     ```
 
 === "C"
 
     ```c title="recursion.c"
-    /* 斐波那契数列：递归 */
-    int fib(int n) {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if (n == 1 || n == 2)
-            return n - 1;
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        int res = fib(n - 1) + fib(n - 2);
-        // 返回结果 f(n)
-        return res;
-    }
+    [class]{}-[func]{fib}
     ```
 
 === "Kotlin"
 
     ```kotlin title="recursion.kt"
-    /* 斐波那契数列：递归 */
-    fun fib(n: Int): Int {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if (n == 1 || n == 2)
-            return n - 1
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        val res = fib(n - 1) + fib(n - 2)
-        // 返回结果 f(n)
-        return res
-    }
+    [class]{}-[func]{fib}
     ```
 
 === "Ruby"
 
     ```ruby title="recursion.rb"
-    ### 斐波那契数列：递归 ###
-    def fib(n)
-      # 终止条件 f(1) = 0, f(2) = 1
-      return n - 1 if n == 1 || n == 2
-      # 递归调用 f(n) = f(n-1) + f(n-2)
-      res = fib(n - 1) + fib(n - 2)
-      # 返回结果 f(n)
-      res
-    end
+    [class]{}-[func]{fib}
     ```
 
 === "Zig"
 
     ```zig title="recursion.zig"
-    // 斐波那契数列
-    fn fib(n: i32) i32 {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if (n == 1 or n == 2) {
-            return n - 1;
-        }
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        var res: i32 = fib(n - 1) + fib(n - 2);
-        // 返回结果 f(n)
-        return res;
-    }
+    [class]{}-[func]{fib}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20fib%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%EF%BC%9A%E9%80%92%E5%BD%92%22%22%22%0A%20%20%20%20%23%20%E7%BB%88%E6%AD%A2%E6%9D%A1%E4%BB%B6%20f%281%29%20%3D%200,%20f%282%29%20%3D%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%20-%201%0A%20%20%20%20%23%20%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%20f%28n%29%20%3D%20f%28n-1%29%20%2B%20f%28n-2%29%0A%20%20%20%20res%20%3D%20fib%28n%20-%201%29%20%2B%20fib%28n%20-%202%29%0A%20%20%20%20%23%20%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%20f%28n%29%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20fib%28n%29%0A%20%20%20%20print%28f%22%5Cn%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%9A%84%E7%AC%AC%20%7Bn%7D%20%E9%A1%B9%E4%B8%BA%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20fib%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%EF%BC%9A%E9%80%92%E5%BD%92%22%22%22%0A%20%20%20%20%23%20%E7%BB%88%E6%AD%A2%E6%9D%A1%E4%BB%B6%20f%281%29%20%3D%200,%20f%282%29%20%3D%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%20-%201%0A%20%20%20%20%23%20%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%20f%28n%29%20%3D%20f%28n-1%29%20%2B%20f%28n-2%29%0A%20%20%20%20res%20%3D%20fib%28n%20-%201%29%20%2B%20fib%28n%20-%202%29%0A%20%20%20%20%23%20%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%20f%28n%29%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20fib%28n%29%0A%20%20%20%20print%28f%22%5Cn%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%9A%84%E7%AC%AC%20%7Bn%7D%20%E9%A1%B9%E4%B8%BA%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 Observing the above code, we see that it recursively calls two functions within itself, **meaning that one call generates two branching calls**. As illustrated below, this continuous recursive calling eventually creates a <u>recursion tree</u> with a depth of $n$.
 
@@ -1734,17 +886,17 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
 
     ```python title="recursion.py"
     def for_loop_recur(n: int) -> int:
-        """使用迭代模拟递归"""
-        # 使用一个显式的栈来模拟系统调用栈
+        """Simulate recursion with iteration"""
+        # Use an explicit stack to simulate the system call stack
         stack = []
         res = 0
-        # 递：递归调用
+        # Recursive: recursive call
         for i in range(n, 0, -1):
-            # 通过“入栈操作”模拟“递”
+            # Simulate "recursive" by "pushing onto the stack"
             stack.append(i)
-        # 归：返回结果
+        # Return: return result
         while stack:
-            # 通过“出栈操作”模拟“归”
+            # Simulate "return" by "popping from the stack"
             res += stack.pop()
         # res = 1+2+3+...+n
         return res
@@ -1753,43 +905,25 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
 === "C++"
 
     ```cpp title="recursion.cpp"
-    /* 使用迭代模拟递归 */
-    int forLoopRecur(int n) {
-        // 使用一个显式的栈来模拟系统调用栈
-        stack<int> stack;
-        int res = 0;
-        // 递：递归调用
-        for (int i = n; i > 0; i--) {
-            // 通过“入栈操作”模拟“递”
-            stack.push(i);
-        }
-        // 归：返回结果
-        while (!stack.empty()) {
-            // 通过“出栈操作”模拟“归”
-            res += stack.top();
-            stack.pop();
-        }
-        // res = 1+2+3+...+n
-        return res;
-    }
+    [class]{}-[func]{forLoopRecur}
     ```
 
 === "Java"
 
     ```java title="recursion.java"
-    /* 使用迭代模拟递归 */
+    /* Simulate recursion with iteration */
     int forLoopRecur(int n) {
-        // 使用一个显式的栈来模拟系统调用栈
+        // Use an explicit stack to simulate the system call stack
         Stack<Integer> stack = new Stack<>();
         int res = 0;
-        // 递：递归调用
+        // Recursive: recursive call
         for (int i = n; i > 0; i--) {
-            // 通过“入栈操作”模拟“递”
+            // Simulate "recursive" by "pushing onto the stack"
             stack.push(i);
         }
-        // 归：返回结果
+        // Return: return result
         while (!stack.isEmpty()) {
-            // 通过“出栈操作”模拟“归”
+            // Simulate "return" by "popping from the stack"
             res += stack.pop();
         }
         // res = 1+2+3+...+n
@@ -1800,264 +934,68 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
 === "C#"
 
     ```csharp title="recursion.cs"
-    /* 使用迭代模拟递归 */
-    int ForLoopRecur(int n) {
-        // 使用一个显式的栈来模拟系统调用栈
-        Stack<int> stack = new();
-        int res = 0;
-        // 递：递归调用
-        for (int i = n; i > 0; i--) {
-            // 通过“入栈操作”模拟“递”
-            stack.Push(i);
-        }
-        // 归：返回结果
-        while (stack.Count > 0) {
-            // 通过“出栈操作”模拟“归”
-            res += stack.Pop();
-        }
-        // res = 1+2+3+...+n
-        return res;
-    }
+    [class]{recursion}-[func]{ForLoopRecur}
     ```
 
 === "Go"
 
     ```go title="recursion.go"
-    /* 使用迭代模拟递归 */
-    func forLoopRecur(n int) int {
-        // 使用一个显式的栈来模拟系统调用栈
-        stack := list.New()
-        res := 0
-        // 递：递归调用
-        for i := n; i > 0; i-- {
-            // 通过“入栈操作”模拟“递”
-            stack.PushBack(i)
-        }
-        // 归：返回结果
-        for stack.Len() != 0 {
-            // 通过“出栈操作”模拟“归”
-            res += stack.Back().Value.(int)
-            stack.Remove(stack.Back())
-        }
-        // res = 1+2+3+...+n
-        return res
-    }
+    [class]{}-[func]{forLoopRecur}
     ```
 
 === "Swift"
 
     ```swift title="recursion.swift"
-    /* 使用迭代模拟递归 */
-    func forLoopRecur(n: Int) -> Int {
-        // 使用一个显式的栈来模拟系统调用栈
-        var stack: [Int] = []
-        var res = 0
-        // 递：递归调用
-        for i in (1 ... n).reversed() {
-            // 通过“入栈操作”模拟“递”
-            stack.append(i)
-        }
-        // 归：返回结果
-        while !stack.isEmpty {
-            // 通过“出栈操作”模拟“归”
-            res += stack.removeLast()
-        }
-        // res = 1+2+3+...+n
-        return res
-    }
+    [class]{}-[func]{forLoopRecur}
     ```
 
 === "JS"
 
     ```javascript title="recursion.js"
-    /* 使用迭代模拟递归 */
-    function forLoopRecur(n) {
-        // 使用一个显式的栈来模拟系统调用栈
-        const stack = [];
-        let res = 0;
-        // 递：递归调用
-        for (let i = n; i > 0; i--) {
-            // 通过“入栈操作”模拟“递”
-            stack.push(i);
-        }
-        // 归：返回结果
-        while (stack.length) {
-            // 通过“出栈操作”模拟“归”
-            res += stack.pop();
-        }
-        // res = 1+2+3+...+n
-        return res;
-    }
+    [class]{}-[func]{forLoopRecur}
     ```
 
 === "TS"
 
     ```typescript title="recursion.ts"
-    /* 使用迭代模拟递归 */
-    function forLoopRecur(n: number): number {
-        // 使用一个显式的栈来模拟系统调用栈 
-        const stack: number[] = [];
-        let res: number = 0;
-        // 递：递归调用
-        for (let i = n; i > 0; i--) {
-            // 通过“入栈操作”模拟“递”
-            stack.push(i);
-        }
-        // 归：返回结果
-        while (stack.length) {
-            // 通过“出栈操作”模拟“归”
-            res += stack.pop();
-        }
-        // res = 1+2+3+...+n
-        return res;
-    }
+    [class]{}-[func]{forLoopRecur}
     ```
 
 === "Dart"
 
     ```dart title="recursion.dart"
-    /* 使用迭代模拟递归 */
-    int forLoopRecur(int n) {
-      // 使用一个显式的栈来模拟系统调用栈
-      List<int> stack = [];
-      int res = 0;
-      // 递：递归调用
-      for (int i = n; i > 0; i--) {
-        // 通过“入栈操作”模拟“递”
-        stack.add(i);
-      }
-      // 归：返回结果
-      while (!stack.isEmpty) {
-        // 通过“出栈操作”模拟“归”
-        res += stack.removeLast();
-      }
-      // res = 1+2+3+...+n
-      return res;
-    }
+    [class]{}-[func]{forLoopRecur}
     ```
 
 === "Rust"
 
     ```rust title="recursion.rs"
-    /* 使用迭代模拟递归 */
-    fn for_loop_recur(n: i32) -> i32 {
-        // 使用一个显式的栈来模拟系统调用栈
-        let mut stack = Vec::new();
-        let mut res = 0;
-        // 递：递归调用
-        for i in (1..=n).rev() {
-            // 通过“入栈操作”模拟“递”
-            stack.push(i);
-        }
-        // 归：返回结果
-        while !stack.is_empty() {
-            // 通过“出栈操作”模拟“归”
-            res += stack.pop().unwrap();
-        }
-        // res = 1+2+3+...+n
-        res
-    }
+    [class]{}-[func]{for_loop_recur}
     ```
 
 === "C"
 
     ```c title="recursion.c"
-    /* 使用迭代模拟递归 */
-    int forLoopRecur(int n) {
-        int stack[1000]; // 借助一个大数组来模拟栈
-        int top = -1;    // 栈顶索引
-        int res = 0;
-        // 递：递归调用
-        for (int i = n; i > 0; i--) {
-            // 通过“入栈操作”模拟“递”
-            stack[1 + top++] = i;
-        }
-        // 归：返回结果
-        while (top >= 0) {
-            // 通过“出栈操作”模拟“归”
-            res += stack[top--];
-        }
-        // res = 1+2+3+...+n
-        return res;
-    }
+    [class]{}-[func]{forLoopRecur}
     ```
 
 === "Kotlin"
 
     ```kotlin title="recursion.kt"
-    /* 使用迭代模拟递归 */
-    fun forLoopRecur(n: Int): Int {
-        // 使用一个显式的栈来模拟系统调用栈
-        val stack = Stack<Int>()
-        var res = 0
-        // 递: 递归调用
-        for (i in n downTo 0) {
-            // 通过“入栈操作”模拟“递”
-            stack.push(i)
-        }
-        // 归: 返回结果
-        while (stack.isNotEmpty()) {
-            // 通过“出栈操作”模拟“归”
-            res += stack.pop()
-        }
-        // res = 1+2+3+...+n
-        return res
-    }
+    [class]{}-[func]{forLoopRecur}
     ```
 
 === "Ruby"
 
     ```ruby title="recursion.rb"
-    ### 使用迭代模拟递归 ###
-    def for_loop_recur(n)
-      # 使用一个显式的栈来模拟系统调用栈
-      stack = []
-      res = 0
-
-      # 递：递归调用
-      for i in n.downto(0)
-        # 通过“入栈操作”模拟“递”
-        stack << i
-      end
-      # 归：返回结果
-      while !stack.empty?
-        res += stack.pop
-      end
-
-      # res = 1+2+3+...+n
-      res
-    end
+    [class]{}-[func]{for_loop_recur}
     ```
 
 === "Zig"
 
     ```zig title="recursion.zig"
-    // 使用迭代模拟递归
-    fn forLoopRecur(comptime n: i32) i32 {
-        // 使用一个显式的栈来模拟系统调用栈
-        var stack: [n]i32 = undefined;
-        var res: i32 = 0;
-        // 递：递归调用
-        var i: usize = n;
-        while (i > 0) {
-            stack[i - 1] = @intCast(i);
-            i -= 1;
-        }
-        // 归：返回结果
-        var index: usize = n;
-        while (index > 0) {
-            index -= 1;
-            res += stack[index];
-        }
-        // res = 1+2+3+...+n
-        return res;
-    }
+    [class]{}-[func]{forLoopRecur}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20for_loop_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BD%BF%E7%94%A8%E8%BF%AD%E4%BB%A3%E6%A8%A1%E6%8B%9F%E9%80%92%E5%BD%92%22%22%22%0A%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E6%98%BE%E5%BC%8F%E7%9A%84%E6%A0%88%E6%9D%A5%E6%A8%A1%E6%8B%9F%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%A0%88%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E9%80%92%EF%BC%9A%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%0A%20%20%20%20for%20i%20in%20range%28n,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E9%80%9A%E8%BF%87%E2%80%9C%E5%85%A5%E6%A0%88%E6%93%8D%E4%BD%9C%E2%80%9D%E6%A8%A1%E6%8B%9F%E2%80%9C%E9%80%92%E2%80%9D%0A%20%20%20%20%20%20%20%20stack.append%28i%29%0A%20%20%20%20%23%20%E5%BD%92%EF%BC%9A%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%0A%20%20%20%20while%20stack%3A%0A%20%20%20%20%20%20%20%20%23%20%E9%80%9A%E8%BF%87%E2%80%9C%E5%87%BA%E6%A0%88%E6%93%8D%E4%BD%9C%E2%80%9D%E6%A8%A1%E6%8B%9F%E2%80%9C%E5%BD%92%E2%80%9D%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20stack.pop%28%29%0A%20%20%20%20%23%20res%20%3D%201%2B2%2B3%2B...%2Bn%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop_recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E4%BD%BF%E7%94%A8%E8%BF%AD%E4%BB%A3%E6%A8%A1%E6%8B%9F%E9%80%92%E5%BD%92%E6%B1%82%E5%92%8C%E7%BB%93%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20for_loop_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BD%BF%E7%94%A8%E8%BF%AD%E4%BB%A3%E6%A8%A1%E6%8B%9F%E9%80%92%E5%BD%92%22%22%22%0A%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E6%98%BE%E5%BC%8F%E7%9A%84%E6%A0%88%E6%9D%A5%E6%A8%A1%E6%8B%9F%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%A0%88%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E9%80%92%EF%BC%9A%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%0A%20%20%20%20for%20i%20in%20range%28n,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E9%80%9A%E8%BF%87%E2%80%9C%E5%85%A5%E6%A0%88%E6%93%8D%E4%BD%9C%E2%80%9D%E6%A8%A1%E6%8B%9F%E2%80%9C%E9%80%92%E2%80%9D%0A%20%20%20%20%20%20%20%20stack.append%28i%29%0A%20%20%20%20%23%20%E5%BD%92%EF%BC%9A%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%0A%20%20%20%20while%20stack%3A%0A%20%20%20%20%20%20%20%20%23%20%E9%80%9A%E8%BF%87%E2%80%9C%E5%87%BA%E6%A0%88%E6%93%8D%E4%BD%9C%E2%80%9D%E6%A8%A1%E6%8B%9F%E2%80%9C%E5%BD%92%E2%80%9D%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20stack.pop%28%29%0A%20%20%20%20%23%20res%20%3D%201%2B2%2B3%2B...%2Bn%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop_recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E4%BD%BF%E7%94%A8%E8%BF%AD%E4%BB%A3%E6%A8%A1%E6%8B%9F%E9%80%92%E5%BD%92%E6%B1%82%E5%92%8C%E7%BB%93%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 Observing the above code, when recursion is transformed into iteration, the code becomes more complex. Although iteration and recursion can often be transformed into each other, it's not always advisable to do so for two reasons:
 

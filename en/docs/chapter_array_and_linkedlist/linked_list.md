@@ -424,7 +424,7 @@ By comparison, inserting an element into an array has a time complexity of $O(n)
 
     ```python title="linked_list.py"
     def insert(n0: ListNode, P: ListNode):
-        """在链表的节点 n0 之后插入节点 P"""
+        """Insert node P after node n0 in the linked list"""
         n1 = n0.next
         P.next = n1
         n0.next = P
@@ -433,18 +433,13 @@ By comparison, inserting an element into an array has a time complexity of $O(n)
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* 在链表的节点 n0 之后插入节点 P */
-    void insert(ListNode *n0, ListNode *P) {
-        ListNode *n1 = n0->next;
-        P->next = n1;
-        n0->next = P;
-    }
+    [class]{}-[func]{insert}
     ```
 
 === "Java"
 
     ```java title="linked_list.java"
-    /* 在链表的节点 n0 之后插入节点 P */
+    /* Insert node P after node n0 in the linked list */
     void insert(ListNode n0, ListNode P) {
         ListNode n1 = n0.next;
         P.next = n1;
@@ -455,130 +450,68 @@ By comparison, inserting an element into an array has a time complexity of $O(n)
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* 在链表的节点 n0 之后插入节点 P */
-    void Insert(ListNode n0, ListNode P) {
-        ListNode? n1 = n0.next;
-        P.next = n1;
-        n0.next = P;
-    }
+    [class]{linked_list}-[func]{Insert}
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
-    /* 在链表的节点 n0 之后插入节点 P */
-    func insertNode(n0 *ListNode, P *ListNode) {
-        n1 := n0.Next
-        P.Next = n1
-        n0.Next = P
-    }
+    [class]{}-[func]{insertNode}
     ```
 
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* 在链表的节点 n0 之后插入节点 P */
-    func insert(n0: ListNode, P: ListNode) {
-        let n1 = n0.next
-        P.next = n1
-        n0.next = P
-    }
+    [class]{}-[func]{insert}
     ```
 
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* 在链表的节点 n0 之后插入节点 P */
-    function insert(n0, P) {
-        const n1 = n0.next;
-        P.next = n1;
-        n0.next = P;
-    }
+    [class]{}-[func]{insert}
     ```
 
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* 在链表的节点 n0 之后插入节点 P */
-    function insert(n0: ListNode, P: ListNode): void {
-        const n1 = n0.next;
-        P.next = n1;
-        n0.next = P;
-    }
+    [class]{}-[func]{insert}
     ```
 
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* 在链表的节点 n0 之后插入节点 P */
-    void insert(ListNode n0, ListNode P) {
-      ListNode? n1 = n0.next;
-      P.next = n1;
-      n0.next = P;
-    }
+    [class]{}-[func]{insert}
     ```
 
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* 在链表的节点 n0 之后插入节点 P */
-    #[allow(non_snake_case)]
-    pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
-        let n1 = n0.borrow_mut().next.take();
-        P.borrow_mut().next = n1;
-        n0.borrow_mut().next = Some(P);
-    }
+    [class]{}-[func]{insert}
     ```
 
 === "C"
 
     ```c title="linked_list.c"
-    /* 在链表的节点 n0 之后插入节点 P */
-    void insert(ListNode *n0, ListNode *P) {
-        ListNode *n1 = n0->next;
-        P->next = n1;
-        n0->next = P;
-    }
+    [class]{}-[func]{insert}
     ```
 
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* 在链表的节点 n0 之后插入节点 P */
-    fun insert(n0: ListNode?, p: ListNode?) {
-        val n1 = n0?.next
-        p?.next = n1
-        n0?.next = p
-    }
+    [class]{}-[func]{insert}
     ```
 
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    ### 在链表的节点 n0 之后插入节点 _p ###
-    # Ruby 的 `p` 是一个内置函数， `P` 是一个常量，所以可以使用 `_p` 代替
-    def insert(n0, _p)
-      n1 = n0.next
-      _p.next = n1
-      n0.next = _p
-    end
+    [class]{}-[func]{insert}
     ```
 
 === "Zig"
 
     ```zig title="linked_list.zig"
-    // 在链表的节点 n0 之后插入节点 P
-    fn insert(n0: ?*inc.ListNode(i32), P: ?*inc.ListNode(i32)) void {
-        var n1 = n0.?.next;
-        P.?.next = n1;
-        n0.?.next = P;
-    }
+    [class]{}-[func]{insert}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0Adef%20insert%28n0%3A%20ListNode,%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E5%9C%A8%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9%20n0%20%E4%B9%8B%E5%90%8E%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9%20P%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0,%20p%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0Adef%20insert%28n0%3A%20ListNode,%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E5%9C%A8%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9%20n0%20%E4%B9%8B%E5%90%8E%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9%20P%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0,%20p%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 ### 3. &nbsp; Deleting nodes
 
@@ -594,7 +527,7 @@ It's important to note that even though node `P` continues to point to `n1` afte
 
     ```python title="linked_list.py"
     def remove(n0: ListNode):
-        """删除链表的节点 n0 之后的首个节点"""
+        """Remove the first node after node n0 in the linked list"""
         if not n0.next:
             return
         # n0 -> P -> n1
@@ -606,23 +539,13 @@ It's important to note that even though node `P` continues to point to `n1` afte
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* 删除链表的节点 n0 之后的首个节点 */
-    void remove(ListNode *n0) {
-        if (n0->next == nullptr)
-            return;
-        // n0 -> P -> n1
-        ListNode *P = n0->next;
-        ListNode *n1 = P->next;
-        n0->next = n1;
-        // 释放内存
-        delete P;
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "Java"
 
     ```java title="linked_list.java"
-    /* 删除链表的节点 n0 之后的首个节点 */
+    /* Remove the first node after node n0 in the linked list */
     void remove(ListNode n0) {
         if (n0.next == null)
             return;
@@ -636,168 +559,68 @@ It's important to note that even though node `P` continues to point to `n1` afte
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* 删除链表的节点 n0 之后的首个节点 */
-    void Remove(ListNode n0) {
-        if (n0.next == null)
-            return;
-        // n0 -> P -> n1
-        ListNode P = n0.next;
-        ListNode? n1 = P.next;
-        n0.next = n1;
-    }
+    [class]{linked_list}-[func]{Remove}
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
-    /* 删除链表的节点 n0 之后的首个节点 */
-    func removeItem(n0 *ListNode) {
-        if n0.Next == nil {
-            return
-        }
-        // n0 -> P -> n1
-        P := n0.Next
-        n1 := P.Next
-        n0.Next = n1
-    }
+    [class]{}-[func]{removeItem}
     ```
 
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* 删除链表的节点 n0 之后的首个节点 */
-    func remove(n0: ListNode) {
-        if n0.next == nil {
-            return
-        }
-        // n0 -> P -> n1
-        let P = n0.next
-        let n1 = P?.next
-        n0.next = n1
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* 删除链表的节点 n0 之后的首个节点 */
-    function remove(n0) {
-        if (!n0.next) return;
-        // n0 -> P -> n1
-        const P = n0.next;
-        const n1 = P.next;
-        n0.next = n1;
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* 删除链表的节点 n0 之后的首个节点 */
-    function remove(n0: ListNode): void {
-        if (!n0.next) {
-            return;
-        }
-        // n0 -> P -> n1
-        const P = n0.next;
-        const n1 = P.next;
-        n0.next = n1;
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* 删除链表的节点 n0 之后的首个节点 */
-    void remove(ListNode n0) {
-      if (n0.next == null) return;
-      // n0 -> P -> n1
-      ListNode P = n0.next!;
-      ListNode? n1 = P.next;
-      n0.next = n1;
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* 删除链表的节点 n0 之后的首个节点 */
-    #[allow(non_snake_case)]
-    pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
-        if n0.borrow().next.is_none() {
-            return;
-        };
-        // n0 -> P -> n1
-        let P = n0.borrow_mut().next.take();
-        if let Some(node) = P {
-            let n1 = node.borrow_mut().next.take();
-            n0.borrow_mut().next = n1;
-        }
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "C"
 
     ```c title="linked_list.c"
-    /* 删除链表的节点 n0 之后的首个节点 */
-    // 注意：stdio.h 占用了 remove 关键词
-    void removeItem(ListNode *n0) {
-        if (!n0->next)
-            return;
-        // n0 -> P -> n1
-        ListNode *P = n0->next;
-        ListNode *n1 = P->next;
-        n0->next = n1;
-        // 释放内存
-        free(P);
-    }
+    [class]{}-[func]{removeItem}
     ```
 
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* 删除链表的节点 n0 之后的首个节点 */
-    fun remove(n0: ListNode?) {
-        if (n0?.next == null)
-            return
-        // n0 -> P -> n1
-        val p = n0.next
-        val n1 = p?.next
-        n0.next = n1
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    ### 删除链表的节点 n0 之后的首个节点 ###
-    def remove(n0)
-      return if n0.next.nil?
-
-      # n0 -> remove_node -> n1
-      remove_node = n0.next
-      n1 = remove_node.next
-      n0.next = n1
-    end
+    [class]{}-[func]{remove}
     ```
 
 === "Zig"
 
     ```zig title="linked_list.zig"
-    // 删除链表的节点 n0 之后的首个节点
-    fn remove(n0: ?*inc.ListNode(i32)) void {
-        if (n0.?.next == null) return;
-        // n0 -> P -> n1
-        var P = n0.?.next;
-        var n1 = P.?.next;
-        n0.?.next = n1;
-    }
+    [class]{}-[func]{remove}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9%20n0%20%E4%B9%8B%E5%90%8E%E7%9A%84%E9%A6%96%E4%B8%AA%E8%8A%82%E7%82%B9%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%0A%20%20%20%20remove%28n0%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9%20n0%20%E4%B9%8B%E5%90%8E%E7%9A%84%E9%A6%96%E4%B8%AA%E8%8A%82%E7%82%B9%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%0A%20%20%20%20remove%28n0%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 ### 4. &nbsp; Accessing nodes
 
@@ -807,7 +630,7 @@ It's important to note that even though node `P` continues to point to `n1` afte
 
     ```python title="linked_list.py"
     def access(head: ListNode, index: int) -> ListNode | None:
-        """访问链表中索引为 index 的节点"""
+        """Access the node at `index` in the linked list"""
         for _ in range(index):
             if not head:
                 return None
@@ -818,21 +641,13 @@ It's important to note that even though node `P` continues to point to `n1` afte
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* 访问链表中索引为 index 的节点 */
-    ListNode *access(ListNode *head, int index) {
-        for (int i = 0; i < index; i++) {
-            if (head == nullptr)
-                return nullptr;
-            head = head->next;
-        }
-        return head;
-    }
+    [class]{}-[func]{access}
     ```
 
 === "Java"
 
     ```java title="linked_list.java"
-    /* 访问链表中索引为 index 的节点 */
+    /* Access the node at `index` in the linked list */
     ListNode access(ListNode head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -846,169 +661,68 @@ It's important to note that even though node `P` continues to point to `n1` afte
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* 访问链表中索引为 index 的节点 */
-    ListNode? Access(ListNode? head, int index) {
-        for (int i = 0; i < index; i++) {
-            if (head == null)
-                return null;
-            head = head.next;
-        }
-        return head;
-    }
+    [class]{linked_list}-[func]{Access}
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
-    /* 访问链表中索引为 index 的节点 */
-    func access(head *ListNode, index int) *ListNode {
-        for i := 0; i < index; i++ {
-            if head == nil {
-                return nil
-            }
-            head = head.Next
-        }
-        return head
-    }
+    [class]{}-[func]{access}
     ```
 
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* 访问链表中索引为 index 的节点 */
-    func access(head: ListNode, index: Int) -> ListNode? {
-        var head: ListNode? = head
-        for _ in 0 ..< index {
-            if head == nil {
-                return nil
-            }
-            head = head?.next
-        }
-        return head
-    }
+    [class]{}-[func]{access}
     ```
 
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* 访问链表中索引为 index 的节点 */
-    function access(head, index) {
-        for (let i = 0; i < index; i++) {
-            if (!head) {
-                return null;
-            }
-            head = head.next;
-        }
-        return head;
-    }
+    [class]{}-[func]{access}
     ```
 
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* 访问链表中索引为 index 的节点 */
-    function access(head: ListNode | null, index: number): ListNode | null {
-        for (let i = 0; i < index; i++) {
-            if (!head) {
-                return null;
-            }
-            head = head.next;
-        }
-        return head;
-    }
+    [class]{}-[func]{access}
     ```
 
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* 访问链表中索引为 index 的节点 */
-    ListNode? access(ListNode? head, int index) {
-      for (var i = 0; i < index; i++) {
-        if (head == null) return null;
-        head = head.next;
-      }
-      return head;
-    }
+    [class]{}-[func]{access}
     ```
 
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* 访问链表中索引为 index 的节点 */
-    pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Rc<RefCell<ListNode<T>>> {
-        if index <= 0 {
-            return head;
-        };
-        if let Some(node) = &head.borrow().next {
-            return access(node.clone(), index - 1);
-        }
-
-        return head;
-    }
+    [class]{}-[func]{access}
     ```
 
 === "C"
 
     ```c title="linked_list.c"
-    /* 访问链表中索引为 index 的节点 */
-    ListNode *access(ListNode *head, int index) {
-        for (int i = 0; i < index; i++) {
-            if (head == NULL)
-                return NULL;
-            head = head->next;
-        }
-        return head;
-    }
+    [class]{}-[func]{access}
     ```
 
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* 访问链表中索引为 index 的节点 */
-    fun access(head: ListNode?, index: Int): ListNode? {
-        var h = head
-        for (i in 0..<index) {
-            if (h == null)
-                return null
-            h = h.next
-        }
-        return h
-    }
+    [class]{}-[func]{access}
     ```
 
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    ### 访问链表中索引为 index 的节点 ###
-    def access(head, index)
-      for i in 0...index
-        return nil if head.nil?
-        head = head.next
-      end
-
-      head
-    end
+    [class]{}-[func]{access}
     ```
 
 === "Zig"
 
     ```zig title="linked_list.zig"
-    // 访问链表中索引为 index 的节点
-    fn access(node: ?*inc.ListNode(i32), index: i32) ?*inc.ListNode(i32) {
-        var head = node;
-        var i: i32 = 0;
-        while (i < index) : (i += 1) {
-            head = head.?.next;
-            if (head == null) return null;
-        }
-        return head;
-    }
+    [class]{}-[func]{access}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0Adef%20access%28head%3A%20ListNode,%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E8%AE%BF%E9%97%AE%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%B4%A2%E5%BC%95%E4%B8%BA%20index%20%E7%9A%84%E8%8A%82%E7%82%B9%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E8%8A%82%E7%82%B9%0A%20%20%20%20node%20%3D%20access%28n0,%203%29%0A%20%20%20%20print%28%22%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E7%9A%84%E8%8A%82%E7%82%B9%E7%9A%84%E5%80%BC%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0Adef%20access%28head%3A%20ListNode,%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E8%AE%BF%E9%97%AE%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%B4%A2%E5%BC%95%E4%B8%BA%20index%20%E7%9A%84%E8%8A%82%E7%82%B9%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E8%8A%82%E7%82%B9%0A%20%20%20%20node%20%3D%20access%28n0,%203%29%0A%20%20%20%20print%28%22%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E7%9A%84%E8%8A%82%E7%82%B9%E7%9A%84%E5%80%BC%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 ### 5. &nbsp; Finding nodes
 
@@ -1018,7 +732,7 @@ Traverse the linked list to locate a node whose value matches `target`, and then
 
     ```python title="linked_list.py"
     def find(head: ListNode, target: int) -> int:
-        """在链表中查找值为 target 的首个节点"""
+        """Search for the first node with value target in the linked list"""
         index = 0
         while head:
             if head.val == target:
@@ -1031,23 +745,13 @@ Traverse the linked list to locate a node whose value matches `target`, and then
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* 在链表中查找值为 target 的首个节点 */
-    int find(ListNode *head, int target) {
-        int index = 0;
-        while (head != nullptr) {
-            if (head->val == target)
-                return index;
-            head = head->next;
-            index++;
-        }
-        return -1;
-    }
+    [class]{}-[func]{find}
     ```
 
 === "Java"
 
     ```java title="linked_list.java"
-    /* 在链表中查找值为 target 的首个节点 */
+    /* Search for the first node with value target in the linked list */
     int find(ListNode head, int target) {
         int index = 0;
         while (head != null) {
@@ -1063,189 +767,68 @@ Traverse the linked list to locate a node whose value matches `target`, and then
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* 在链表中查找值为 target 的首个节点 */
-    int Find(ListNode? head, int target) {
-        int index = 0;
-        while (head != null) {
-            if (head.val == target)
-                return index;
-            head = head.next;
-            index++;
-        }
-        return -1;
-    }
+    [class]{linked_list}-[func]{Find}
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
-    /* 在链表中查找值为 target 的首个节点 */
-    func findNode(head *ListNode, target int) int {
-        index := 0
-        for head != nil {
-            if head.Val == target {
-                return index
-            }
-            head = head.Next
-            index++
-        }
-        return -1
-    }
+    [class]{}-[func]{findNode}
     ```
 
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* 在链表中查找值为 target 的首个节点 */
-    func find(head: ListNode, target: Int) -> Int {
-        var head: ListNode? = head
-        var index = 0
-        while head != nil {
-            if head?.val == target {
-                return index
-            }
-            head = head?.next
-            index += 1
-        }
-        return -1
-    }
+    [class]{}-[func]{find}
     ```
 
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* 在链表中查找值为 target 的首个节点 */
-    function find(head, target) {
-        let index = 0;
-        while (head !== null) {
-            if (head.val === target) {
-                return index;
-            }
-            head = head.next;
-            index += 1;
-        }
-        return -1;
-    }
+    [class]{}-[func]{find}
     ```
 
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* 在链表中查找值为 target 的首个节点 */
-    function find(head: ListNode | null, target: number): number {
-        let index = 0;
-        while (head !== null) {
-            if (head.val === target) {
-                return index;
-            }
-            head = head.next;
-            index += 1;
-        }
-        return -1;
-    }
+    [class]{}-[func]{find}
     ```
 
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* 在链表中查找值为 target 的首个节点 */
-    int find(ListNode? head, int target) {
-      int index = 0;
-      while (head != null) {
-        if (head.val == target) {
-          return index;
-        }
-        head = head.next;
-        index++;
-      }
-      return -1;
-    }
+    [class]{}-[func]{find}
     ```
 
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* 在链表中查找值为 target 的首个节点 */
-    pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T, index: i32) -> i32 {
-        if head.borrow().val == target {
-            return index;
-        };
-        if let Some(node) = &head.borrow_mut().next {
-            return find(node.clone(), target, index + 1);
-        }
-        return -1;
-    }
+    [class]{}-[func]{find}
     ```
 
 === "C"
 
     ```c title="linked_list.c"
-    /* 在链表中查找值为 target 的首个节点 */
-    int find(ListNode *head, int target) {
-        int index = 0;
-        while (head) {
-            if (head->val == target)
-                return index;
-            head = head->next;
-            index++;
-        }
-        return -1;
-    }
+    [class]{}-[func]{find}
     ```
 
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* 在链表中查找值为 target 的首个节点 */
-    fun find(head: ListNode?, target: Int): Int {
-        var index = 0
-        var h = head
-        while (h != null) {
-            if (h._val == target)
-                return index
-            h = h.next
-            index++
-        }
-        return -1
-    }
+    [class]{}-[func]{find}
     ```
 
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    ### 在链表中查找值为 target 的首个节点 ###
-    def find(head, target)
-      index = 0
-      while head
-        return index if head.val == target
-        head = head.next
-        index += 1
-      end
-
-      -1
-    end
+    [class]{}-[func]{find}
     ```
 
 === "Zig"
 
     ```zig title="linked_list.zig"
-    // 在链表中查找值为 target 的首个节点
-    fn find(node: ?*inc.ListNode(i32), target: i32) i32 {
-        var head = node;
-        var index: i32 = 0;
-        while (head != null) {
-            if (head.?.val == target) return index;
-            head = head.?.next;
-            index += 1;
-        }
-        return -1;
-    }
+    [class]{}-[func]{find}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0Adef%20find%28head%3A%20ListNode,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%9C%A8%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%80%BC%E4%B8%BA%20target%20%E7%9A%84%E9%A6%96%E4%B8%AA%E8%8A%82%E7%82%B9%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E6%9F%A5%E6%89%BE%E8%8A%82%E7%82%B9%0A%20%20%20%20index%20%3D%20find%28n0,%202%29%0A%20%20%20%20print%28%22%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%BC%E4%B8%BA%202%20%E7%9A%84%E8%8A%82%E7%82%B9%E7%9A%84%E7%B4%A2%E5%BC%95%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0Adef%20find%28head%3A%20ListNode,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%9C%A8%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%80%BC%E4%B8%BA%20target%20%E7%9A%84%E9%A6%96%E4%B8%AA%E8%8A%82%E7%82%B9%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E6%9F%A5%E6%89%BE%E8%8A%82%E7%82%B9%0A%20%20%20%20index%20%3D%20find%28n0,%202%29%0A%20%20%20%20print%28%22%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%BC%E4%B8%BA%202%20%E7%9A%84%E8%8A%82%E7%82%B9%E7%9A%84%E7%B4%A2%E5%BC%95%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 ## 4.2.2 &nbsp; Arrays vs. linked lists
 

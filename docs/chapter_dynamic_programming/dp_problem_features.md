@@ -457,7 +457,7 @@ $$
 === "JS"
 
     ```javascript title="min_cost_climbing_stairs_dp.js"
-    /* 爬楼梯最小代价：状态压缩后的动态规划 */
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
     function minCostClimbingStairsDPComp(cost) {
         const n = cost.length - 1;
         if (n === 1 || n === 2) {
@@ -477,7 +477,7 @@ $$
 === "TS"
 
     ```typescript title="min_cost_climbing_stairs_dp.ts"
-    /* 爬楼梯最小代价：状态压缩后的动态规划 */
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
     function minCostClimbingStairsDPComp(cost: Array<number>): number {
         const n = cost.length - 1;
         if (n === 1 || n === 2) {

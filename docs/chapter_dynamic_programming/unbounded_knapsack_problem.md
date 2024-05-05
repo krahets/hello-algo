@@ -554,7 +554,7 @@ $$
 === "JS"
 
     ```javascript title="unbounded_knapsack.js"
-    /* 完全背包：状态压缩后的动态规划 */
+    /* 完全背包：空间优化后的动态规划 */
     function unboundedKnapsackDPComp(wgt, val, cap) {
         const n = wgt.length;
         // 初始化 dp 表
@@ -578,7 +578,7 @@ $$
 === "TS"
 
     ```typescript title="unbounded_knapsack.ts"
-    /* 完全背包：状态压缩后的动态规划 */
+    /* 完全背包：空间优化后的动态规划 */
     function unboundedKnapsackDPComp(
         wgt: Array<number>,
         val: Array<number>,
@@ -1417,7 +1417,7 @@ $$
 === "JS"
 
     ```javascript title="coin_change.js"
-    /* 零钱兑换：状态压缩后的动态规划 */
+    /* 零钱兑换：空间优化后的动态规划 */
     function coinChangeDPComp(coins, amt) {
         const n = coins.length;
         const MAX = amt + 1;
@@ -1443,7 +1443,7 @@ $$
 === "TS"
 
     ```typescript title="coin_change.ts"
-    /* 零钱兑换：状态压缩后的动态规划 */
+    /* 零钱兑换：空间优化后的动态规划 */
     function coinChangeDPComp(coins: Array<number>, amt: number): number {
         const n = coins.length;
         const MAX = amt + 1;
@@ -2190,7 +2190,7 @@ $$
 === "JS"
 
     ```javascript title="coin_change_ii.js"
-    /* 零钱兑换 II：状态压缩后的动态规划 */
+    /* 零钱兑换 II：空间优化后的动态规划 */
     function coinChangeIIDPComp(coins, amt) {
         const n = coins.length;
         // 初始化 dp 表
@@ -2215,7 +2215,7 @@ $$
 === "TS"
 
     ```typescript title="coin_change_ii.ts"
-    /* 零钱兑换 II：状态压缩后的动态规划 */
+    /* 零钱兑换 II：空间优化后的动态规划 */
     function coinChangeIIDPComp(coins: Array<number>, amt: number): number {
         const n = coins.length;
         // 初始化 dp 表

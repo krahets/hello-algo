@@ -746,7 +746,7 @@ $$
 === "JS"
 
     ```javascript title="edit_distance.js"
-    /* 编辑距离：状态压缩后的动态规划 */
+    /* 编辑距离：空间优化后的动态规划 */
     function editDistanceDPComp(s, t) {
         const n = s.length,
             m = t.length;
@@ -780,7 +780,7 @@ $$
 === "TS"
 
     ```typescript title="edit_distance.ts"
-    /* 编辑距离：状态压缩后的动态规划 */
+    /* 编辑距离：空间优化后的动态规划 */
     function editDistanceDPComp(s: string, t: string): number {
         const n = s.length,
             m = t.length;

@@ -33,50 +33,38 @@ Example code is as follows:
 
     ```python title="insertion_sort.py"
     def insertion_sort(nums: list[int]):
-        """插入排序"""
-        # 外循环：已排序区间为 [0, i-1]
+        """Insertion sort"""
+        # Outer loop: sorted range is [0, i-1]
         for i in range(1, len(nums)):
             base = nums[i]
             j = i - 1
-            # 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
+            # Inner loop: insert base into the correct position within the sorted range [0, i-1]
             while j >= 0 and nums[j] > base:
-                nums[j + 1] = nums[j]  # 将 nums[j] 向右移动一位
+                nums[j + 1] = nums[j]  # Move nums[j] to the right by one position
                 j -= 1
-            nums[j + 1] = base  # 将 base 赋值到正确位置
+            nums[j + 1] = base  # Assign base to the correct position
     ```
 
 === "C++"
 
     ```cpp title="insertion_sort.cpp"
-    /* 插入排序 */
-    void insertionSort(vector<int> &nums) {
-        // 外循环：已排序区间为 [0, i-1]
-        for (int i = 1; i < nums.size(); i++) {
-            int base = nums[i], j = i - 1;
-            // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-            while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = base; // 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "Java"
 
     ```java title="insertion_sort.java"
-    /* 插入排序 */
+    /* Insertion sort */
     void insertionSort(int[] nums) {
-        // 外循环：已排序区间为 [0, i-1]
+        // Outer loop: sorted range is [0, i-1]
         for (int i = 1; i < nums.length; i++) {
             int base = nums[i], j = i - 1;
-            // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
+            // Inner loop: insert base into the correct position within the sorted range [0, i-1]
             while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
+                nums[j + 1] = nums[j]; // Move nums[j] to the right by one position
                 j--;
             }
-            nums[j + 1] = base;        // 将 base 赋值到正确位置
+            nums[j + 1] = base;        // Assign base to the correct position
         }
     }
     ```
@@ -84,215 +72,68 @@ Example code is as follows:
 === "C#"
 
     ```csharp title="insertion_sort.cs"
-    /* 插入排序 */
-    void InsertionSort(int[] nums) {
-        // 外循环：已排序区间为 [0, i-1]
-        for (int i = 1; i < nums.Length; i++) {
-            int bas = nums[i], j = i - 1;
-            // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-            while (j >= 0 && nums[j] > bas) {
-                nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = bas;         // 将 base 赋值到正确位置
-        }
-    }
+    [class]{insertion_sort}-[func]{InsertionSort}
     ```
 
 === "Go"
 
     ```go title="insertion_sort.go"
-    /* 插入排序 */
-    func insertionSort(nums []int) {
-        // 外循环：已排序区间为 [0, i-1]
-        for i := 1; i < len(nums); i++ {
-            base := nums[i]
-            j := i - 1
-            // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-            for j >= 0 && nums[j] > base {
-                nums[j+1] = nums[j] // 将 nums[j] 向右移动一位
-                j--
-            }
-            nums[j+1] = base // 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "Swift"
 
     ```swift title="insertion_sort.swift"
-    /* 插入排序 */
-    func insertionSort(nums: inout [Int]) {
-        // 外循环：已排序区间为 [0, i-1]
-        for i in nums.indices.dropFirst() {
-            let base = nums[i]
-            var j = i - 1
-            // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-            while j >= 0, nums[j] > base {
-                nums[j + 1] = nums[j] // 将 nums[j] 向右移动一位
-                j -= 1
-            }
-            nums[j + 1] = base // 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "JS"
 
     ```javascript title="insertion_sort.js"
-    /* 插入排序 */
-    function insertionSort(nums) {
-        // 外循环：已排序区间为 [0, i-1]
-        for (let i = 1; i < nums.length; i++) {
-            let base = nums[i],
-                j = i - 1;
-            // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-            while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = base; // 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "TS"
 
     ```typescript title="insertion_sort.ts"
-    /* 插入排序 */
-    function insertionSort(nums: number[]): void {
-        // 外循环：已排序区间为 [0, i-1]
-        for (let i = 1; i < nums.length; i++) {
-            const base = nums[i];
-            let j = i - 1;
-            // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-            while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = base; // 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "Dart"
 
     ```dart title="insertion_sort.dart"
-    /* 插入排序 */
-    void insertionSort(List<int> nums) {
-      // 外循环：已排序区间为 [0, i-1]
-      for (int i = 1; i < nums.length; i++) {
-        int base = nums[i], j = i - 1;
-        // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-        while (j >= 0 && nums[j] > base) {
-          nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
-          j--;
-        }
-        nums[j + 1] = base; // 将 base 赋值到正确位置
-      }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "Rust"
 
     ```rust title="insertion_sort.rs"
-    /* 插入排序 */
-    fn insertion_sort(nums: &mut [i32]) {
-        // 外循环：已排序区间为 [0, i-1]
-        for i in 1..nums.len() {
-            let (base, mut j) = (nums[i], (i - 1) as i32);
-            // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-            while j >= 0 && nums[j as usize] > base {
-                nums[(j + 1) as usize] = nums[j as usize]; // 将 nums[j] 向右移动一位
-                j -= 1;
-            }
-            nums[(j + 1) as usize] = base; // 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertion_sort}
     ```
 
 === "C"
 
     ```c title="insertion_sort.c"
-    /* 插入排序 */
-    void insertionSort(int nums[], int size) {
-        // 外循环：已排序区间为 [0, i-1]
-        for (int i = 1; i < size; i++) {
-            int base = nums[i], j = i - 1;
-            // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-            while (j >= 0 && nums[j] > base) {
-                // 将 nums[j] 向右移动一位
-                nums[j + 1] = nums[j];
-                j--;
-            }
-            // 将 base 赋值到正确位置
-            nums[j + 1] = base;
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "Kotlin"
 
     ```kotlin title="insertion_sort.kt"
-    /* 插入排序 */
-    fun insertionSort(nums: IntArray) {
-        //外循环: 已排序元素为 1, 2, ..., n
-        for (i in nums.indices) {
-            val base = nums[i]
-            var j = i - 1
-            // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-            while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j] // 将 nums[j] 向右移动一位
-                j--
-            }
-            nums[j + 1] = base        // 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "Ruby"
 
     ```ruby title="insertion_sort.rb"
-    ### 插入排序 ###
-    def insertion_sort(nums)
-      n = nums.length
-      # 外循环：已排序区间为 [0, i-1]
-      for i in 1...n
-        base = nums[i]
-        j = i - 1
-        # 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-        while j >= 0 && nums[j] > base
-          nums[j + 1] = nums[j] # 将 nums[j] 向右移动一位
-          j -= 1
-        end
-        nums[j + 1] = base # 将 base 赋值到正确位置
-      end
-    end
+    [class]{}-[func]{insertion_sort}
     ```
 
 === "Zig"
 
     ```zig title="insertion_sort.zig"
-    // 插入排序
-    fn insertionSort(nums: []i32) void {
-        // 外循环：已排序区间为 [0, i-1]
-        var i: usize = 1;
-        while (i < nums.len) : (i += 1) {
-            var base = nums[i];
-            var j: usize = i;
-            // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-            while (j >= 1 and nums[j - 1] > base) : (j -= 1) {
-                nums[j] = nums[j - 1];  // 将 nums[j] 向右移动一位
-            }
-            nums[j] = base;             // 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 513px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20insertion_sort%28nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20%23%20%E5%A4%96%E5%BE%AA%E7%8E%AF%EF%BC%9A%E5%B7%B2%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5B0,%20i-1%5D%0A%20%20%20%20for%20i%20in%20range%281,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20base%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20j%20%3D%20i%20-%201%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%BE%AA%E7%8E%AF%EF%BC%9A%E5%B0%86%20base%20%E6%8F%92%E5%85%A5%E5%88%B0%E5%B7%B2%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%20%5B0,%20i-1%5D%20%E4%B8%AD%E7%9A%84%E6%AD%A3%E7%A1%AE%E4%BD%8D%E7%BD%AE%0A%20%20%20%20%20%20%20%20while%20j%20%3E%3D%200%20and%20nums%5Bj%5D%20%3E%20base%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20nums%5Bj%5D%20%20%23%20%E5%B0%86%20nums%5Bj%5D%20%E5%90%91%E5%8F%B3%E7%A7%BB%E5%8A%A8%E4%B8%80%E4%BD%8D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20-%3D%201%0A%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20base%20%20%23%20%E5%B0%86%20base%20%E8%B5%8B%E5%80%BC%E5%88%B0%E6%AD%A3%E7%A1%AE%E4%BD%8D%E7%BD%AE%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B4,%201,%203,%201,%205,%202%5D%0A%20%20%20%20insertion_sort%28nums%29%0A%20%20%20%20print%28%22%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%90%8E%20nums%20%3D%22,%20nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20insertion_sort%28nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20%23%20%E5%A4%96%E5%BE%AA%E7%8E%AF%EF%BC%9A%E5%B7%B2%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5B0,%20i-1%5D%0A%20%20%20%20for%20i%20in%20range%281,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20base%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20j%20%3D%20i%20-%201%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%BE%AA%E7%8E%AF%EF%BC%9A%E5%B0%86%20base%20%E6%8F%92%E5%85%A5%E5%88%B0%E5%B7%B2%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%20%5B0,%20i-1%5D%20%E4%B8%AD%E7%9A%84%E6%AD%A3%E7%A1%AE%E4%BD%8D%E7%BD%AE%0A%20%20%20%20%20%20%20%20while%20j%20%3E%3D%200%20and%20nums%5Bj%5D%20%3E%20base%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20nums%5Bj%5D%20%20%23%20%E5%B0%86%20nums%5Bj%5D%20%E5%90%91%E5%8F%B3%E7%A7%BB%E5%8A%A8%E4%B8%80%E4%BD%8D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20-%3D%201%0A%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20base%20%20%23%20%E5%B0%86%20base%20%E8%B5%8B%E5%80%BC%E5%88%B0%E6%AD%A3%E7%A1%AE%E4%BD%8D%E7%BD%AE%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B4,%201,%203,%201,%205,%202%5D%0A%20%20%20%20insertion_sort%28nums%29%0A%20%20%20%20print%28%22%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%90%8E%20nums%20%3D%22,%20nums%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 ## 11.4.2 &nbsp; Algorithm characteristics
 

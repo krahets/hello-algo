@@ -55,54 +55,40 @@ In the code, we use $k$ to record the smallest element within the unsorted inter
 
     ```python title="selection_sort.py"
     def selection_sort(nums: list[int]):
-        """选择排序"""
+        """Selection sort"""
         n = len(nums)
-        # 外循环：未排序区间为 [i, n-1]
+        # Outer loop: unsorted range is [i, n-1]
         for i in range(n - 1):
-            # 内循环：找到未排序区间内的最小元素
+            # Inner loop: find the smallest element within the unsorted range
             k = i
             for j in range(i + 1, n):
                 if nums[j] < nums[k]:
-                    k = j  # 记录最小元素的索引
-            # 将该最小元素与未排序区间的首个元素交换
+                    k = j  # Record the index of the smallest element
+            # Swap the smallest element with the first element of the unsorted range
             nums[i], nums[k] = nums[k], nums[i]
     ```
 
 === "C++"
 
     ```cpp title="selection_sort.cpp"
-    /* 选择排序 */
-    void selectionSort(vector<int> &nums) {
-        int n = nums.size();
-        // 外循环：未排序区间为 [i, n-1]
-        for (int i = 0; i < n - 1; i++) {
-            // 内循环：找到未排序区间内的最小元素
-            int k = i;
-            for (int j = i + 1; j < n; j++) {
-                if (nums[j] < nums[k])
-                    k = j; // 记录最小元素的索引
-            }
-            // 将该最小元素与未排序区间的首个元素交换
-            swap(nums[i], nums[k]);
-        }
-    }
+    [class]{}-[func]{selectionSort}
     ```
 
 === "Java"
 
     ```java title="selection_sort.java"
-    /* 选择排序 */
+    /* Selection sort */
     void selectionSort(int[] nums) {
         int n = nums.length;
-        // 外循环：未排序区间为 [i, n-1]
+        // Outer loop: unsorted range is [i, n-1]
         for (int i = 0; i < n - 1; i++) {
-            // 内循环：找到未排序区间内的最小元素
+            // Inner loop: find the smallest element within the unsorted range
             int k = i;
             for (int j = i + 1; j < n; j++) {
                 if (nums[j] < nums[k])
-                    k = j; // 记录最小元素的索引
+                    k = j; // Record the index of the smallest element
             }
-            // 将该最小元素与未排序区间的首个元素交换
+            // Swap the smallest element with the first element of the unsorted range
             int temp = nums[i];
             nums[i] = nums[k];
             nums[k] = temp;
@@ -113,215 +99,61 @@ In the code, we use $k$ to record the smallest element within the unsorted inter
 === "C#"
 
     ```csharp title="selection_sort.cs"
-    /* 选择排序 */
-    void SelectionSort(int[] nums) {
-        int n = nums.Length;
-        // 外循环：未排序区间为 [i, n-1]
-        for (int i = 0; i < n - 1; i++) {
-            // 内循环：找到未排序区间内的最小元素
-            int k = i;
-            for (int j = i + 1; j < n; j++) {
-                if (nums[j] < nums[k])
-                    k = j; // 记录最小元素的索引
-            }
-            // 将该最小元素与未排序区间的首个元素交换
-            (nums[k], nums[i]) = (nums[i], nums[k]);
-        }
-    }
+    [class]{selection_sort}-[func]{SelectionSort}
     ```
 
 === "Go"
 
     ```go title="selection_sort.go"
-    /* 选择排序 */
-    func selectionSort(nums []int) {
-        n := len(nums)
-        // 外循环：未排序区间为 [i, n-1]
-        for i := 0; i < n-1; i++ {
-            // 内循环：找到未排序区间内的最小元素
-            k := i
-            for j := i + 1; j < n; j++ {
-                if nums[j] < nums[k] {
-                    // 记录最小元素的索引
-                    k = j
-                }
-            }
-            // 将该最小元素与未排序区间的首个元素交换
-            nums[i], nums[k] = nums[k], nums[i]
-
-        }
-    }
+    [class]{}-[func]{selectionSort}
     ```
 
 === "Swift"
 
     ```swift title="selection_sort.swift"
-    /* 选择排序 */
-    func selectionSort(nums: inout [Int]) {
-        // 外循环：未排序区间为 [i, n-1]
-        for i in nums.indices.dropLast() {
-            // 内循环：找到未排序区间内的最小元素
-            var k = i
-            for j in nums.indices.dropFirst(i + 1) {
-                if nums[j] < nums[k] {
-                    k = j // 记录最小元素的索引
-                }
-            }
-            // 将该最小元素与未排序区间的首个元素交换
-            nums.swapAt(i, k)
-        }
-    }
+    [class]{}-[func]{selectionSort}
     ```
 
 === "JS"
 
     ```javascript title="selection_sort.js"
-    /* 选择排序 */
-    function selectionSort(nums) {
-        let n = nums.length;
-        // 外循环：未排序区间为 [i, n-1]
-        for (let i = 0; i < n - 1; i++) {
-            // 内循环：找到未排序区间内的最小元素
-            let k = i;
-            for (let j = i + 1; j < n; j++) {
-                if (nums[j] < nums[k]) {
-                    k = j; // 记录最小元素的索引
-                }
-            }
-            // 将该最小元素与未排序区间的首个元素交换
-            [nums[i], nums[k]] = [nums[k], nums[i]];
-        }
-    }
+    [class]{}-[func]{selectionSort}
     ```
 
 === "TS"
 
     ```typescript title="selection_sort.ts"
-    /* 选择排序 */
-    function selectionSort(nums: number[]): void {
-        let n = nums.length;
-        // 外循环：未排序区间为 [i, n-1]
-        for (let i = 0; i < n - 1; i++) {
-            // 内循环：找到未排序区间内的最小元素
-            let k = i;
-            for (let j = i + 1; j < n; j++) {
-                if (nums[j] < nums[k]) {
-                    k = j; // 记录最小元素的索引
-                }
-            }
-            // 将该最小元素与未排序区间的首个元素交换
-            [nums[i], nums[k]] = [nums[k], nums[i]];
-        }
-    }
+    [class]{}-[func]{selectionSort}
     ```
 
 === "Dart"
 
     ```dart title="selection_sort.dart"
-    /* 选择排序 */
-    void selectionSort(List<int> nums) {
-      int n = nums.length;
-      // 外循环：未排序区间为 [i, n-1]
-      for (int i = 0; i < n - 1; i++) {
-        // 内循环：找到未排序区间内的最小元素
-        int k = i;
-        for (int j = i + 1; j < n; j++) {
-          if (nums[j] < nums[k]) k = j; // 记录最小元素的索引
-        }
-        // 将该最小元素与未排序区间的首个元素交换
-        int temp = nums[i];
-        nums[i] = nums[k];
-        nums[k] = temp;
-      }
-    }
+    [class]{}-[func]{selectionSort}
     ```
 
 === "Rust"
 
     ```rust title="selection_sort.rs"
-    /* 选择排序 */
-    fn selection_sort(nums: &mut [i32]) {
-        if nums.is_empty() {
-            return;
-        }
-        let n = nums.len();
-        // 外循环：未排序区间为 [i, n-1]
-        for i in 0..n - 1 {
-            // 内循环：找到未排序区间内的最小元素
-            let mut k = i;
-            for j in i + 1..n {
-                if nums[j] < nums[k] {
-                    k = j; // 记录最小元素的索引
-                }
-            }
-            // 将该最小元素与未排序区间的首个元素交换
-            nums.swap(i, k);
-        }
-    }
+    [class]{}-[func]{selection_sort}
     ```
 
 === "C"
 
     ```c title="selection_sort.c"
-    /* 选择排序 */
-    void selectionSort(int nums[], int n) {
-        // 外循环：未排序区间为 [i, n-1]
-        for (int i = 0; i < n - 1; i++) {
-            // 内循环：找到未排序区间内的最小元素
-            int k = i;
-            for (int j = i + 1; j < n; j++) {
-                if (nums[j] < nums[k])
-                    k = j; // 记录最小元素的索引
-            }
-            // 将该最小元素与未排序区间的首个元素交换
-            int temp = nums[i];
-            nums[i] = nums[k];
-            nums[k] = temp;
-        }
-    }
+    [class]{}-[func]{selectionSort}
     ```
 
 === "Kotlin"
 
     ```kotlin title="selection_sort.kt"
-    /* 选择排序 */
-    fun selectionSort(nums: IntArray) {
-        val n = nums.size
-        // 外循环：未排序区间为 [i, n-1]
-        for (i in 0..<n - 1) {
-            var k = i
-            // 内循环：找到未排序区间内的最小元素
-            for (j in i + 1..<n) {
-                if (nums[j] < nums[k])
-                    k = j // 记录最小元素的索引
-            }
-            // 将该最小元素与未排序区间的首个元素交换
-            val temp = nums[i]
-            nums[i] = nums[k]
-            nums[k] = temp
-        }
-    }
+    [class]{}-[func]{selectionSort}
     ```
 
 === "Ruby"
 
     ```ruby title="selection_sort.rb"
-    ### 选择排序 ###
-    def selection_sort(nums)
-      n = nums.length
-      # 外循环：未排序区间为 [i, n-1]
-      for i in 0...(n - 1)
-        # 内循环：找到未排序区间内的最小元素
-        k = i
-        for j in (i + 1)...n
-          if nums[j] < nums[k]
-            k = j # 记录最小元素的索引
-          end
-        end
-        # 将该最小元素与未排序区间的首个元素交换
-        nums[i], nums[k] = nums[k], nums[i]
-      end
-    end
+    [class]{}-[func]{selection_sort}
     ```
 
 === "Zig"
@@ -329,11 +161,6 @@ In the code, we use $k$ to record the smallest element within the unsorted inter
     ```zig title="selection_sort.zig"
     [class]{}-[func]{selectionSort}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 531px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20selection_sort%28nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20%E5%A4%96%E5%BE%AA%E7%8E%AF%EF%BC%9A%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5Bi,%20n-1%5D%0A%20%20%20%20for%20i%20in%20range%28n%20-%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%BE%AA%E7%8E%AF%EF%BC%9A%E6%89%BE%E5%88%B0%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E5%86%85%E7%9A%84%E6%9C%80%E5%B0%8F%E5%85%83%E7%B4%A0%0A%20%20%20%20%20%20%20%20k%20%3D%20i%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201,%20n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3C%20nums%5Bk%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20k%20%3D%20j%20%20%23%20%E8%AE%B0%E5%BD%95%E6%9C%80%E5%B0%8F%E5%85%83%E7%B4%A0%E7%9A%84%E7%B4%A2%E5%BC%95%0A%20%20%20%20%20%20%20%20%23%20%E5%B0%86%E8%AF%A5%E6%9C%80%E5%B0%8F%E5%85%83%E7%B4%A0%E4%B8%8E%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E7%9A%84%E9%A6%96%E4%B8%AA%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%0A%20%20%20%20%20%20%20%20nums%5Bi%5D,%20nums%5Bk%5D%20%3D%20nums%5Bk%5D,%20nums%5Bi%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B4,%201,%203,%201,%205,%202%5D%0A%20%20%20%20selection_sort%28nums%29%0A%20%20%20%20print%28%22%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%90%8E%20nums%20%3D%22,%20nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20selection_sort%28nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20%E5%A4%96%E5%BE%AA%E7%8E%AF%EF%BC%9A%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5Bi,%20n-1%5D%0A%20%20%20%20for%20i%20in%20range%28n%20-%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%BE%AA%E7%8E%AF%EF%BC%9A%E6%89%BE%E5%88%B0%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E5%86%85%E7%9A%84%E6%9C%80%E5%B0%8F%E5%85%83%E7%B4%A0%0A%20%20%20%20%20%20%20%20k%20%3D%20i%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201,%20n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3C%20nums%5Bk%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20k%20%3D%20j%20%20%23%20%E8%AE%B0%E5%BD%95%E6%9C%80%E5%B0%8F%E5%85%83%E7%B4%A0%E7%9A%84%E7%B4%A2%E5%BC%95%0A%20%20%20%20%20%20%20%20%23%20%E5%B0%86%E8%AF%A5%E6%9C%80%E5%B0%8F%E5%85%83%E7%B4%A0%E4%B8%8E%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E7%9A%84%E9%A6%96%E4%B8%AA%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%0A%20%20%20%20%20%20%20%20nums%5Bi%5D,%20nums%5Bk%5D%20%3D%20nums%5Bk%5D,%20nums%5Bi%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B4,%201,%203,%201,%205,%202%5D%0A%20%20%20%20selection_sort%28nums%29%0A%20%20%20%20print%28%22%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%90%8E%20nums%20%3D%22,%20nums%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 ## 11.2.1 &nbsp; Algorithm characteristics
 

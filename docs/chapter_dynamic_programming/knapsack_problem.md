@@ -1307,7 +1307,7 @@ $$
 === "JS"
 
     ```javascript title="knapsack.js"
-    /* 0-1 背包：状态压缩后的动态规划 */
+    /* 0-1 背包：空间优化后的动态规划 */
     function knapsackDPComp(wgt, val, cap) {
         const n = wgt.length;
         // 初始化 dp 表
@@ -1329,7 +1329,7 @@ $$
 === "TS"
 
     ```typescript title="knapsack.ts"
-    /* 0-1 背包：状态压缩后的动态规划 */
+    /* 0-1 背包：空间优化后的动态规划 */
     function knapsackDPComp(
         wgt: Array<number>,
         val: Array<number>,

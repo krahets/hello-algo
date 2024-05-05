@@ -984,7 +984,7 @@ Constant order means the number of operations is independent of the input data s
 
     ```python title="time_complexity.py"
     def constant(n: int) -> int:
-        """常数阶"""
+        """Constant complexity"""
         count = 0
         size = 100000
         for _ in range(size):
@@ -995,20 +995,13 @@ Constant order means the number of operations is independent of the input data s
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 常数阶 */
-    int constant(int n) {
-        int count = 0;
-        int size = 100000;
-        for (int i = 0; i < size; i++)
-            count++;
-        return count;
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 常数阶 */
+    /* Constant complexity */
     int constant(int n) {
         int count = 0;
         int size = 100000;
@@ -1021,159 +1014,68 @@ Constant order means the number of operations is independent of the input data s
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* 常数阶 */
-    int Constant(int n) {
-        int count = 0;
-        int size = 100000;
-        for (int i = 0; i < size; i++)
-            count++;
-        return count;
-    }
+    [class]{time_complexity}-[func]{Constant}
     ```
 
 === "Go"
 
     ```go title="time_complexity.go"
-    /* 常数阶 */
-    func constant(n int) int {
-        count := 0
-        size := 100000
-        for i := 0; i < size; i++ {
-            count++
-        }
-        return count
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 常数阶 */
-    func constant(n: Int) -> Int {
-        var count = 0
-        let size = 100_000
-        for _ in 0 ..< size {
-            count += 1
-        }
-        return count
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* 常数阶 */
-    function constant(n) {
-        let count = 0;
-        const size = 100000;
-        for (let i = 0; i < size; i++) count++;
-        return count;
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* 常数阶 */
-    function constant(n: number): number {
-        let count = 0;
-        const size = 100000;
-        for (let i = 0; i < size; i++) count++;
-        return count;
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* 常数阶 */
-    int constant(int n) {
-      int count = 0;
-      int size = 100000;
-      for (var i = 0; i < size; i++) {
-        count++;
-      }
-      return count;
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* 常数阶 */
-    fn constant(n: i32) -> i32 {
-        _ = n;
-        let mut count = 0;
-        let size = 100_000;
-        for _ in 0..size {
-            count += 1;
-        }
-        count
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "C"
 
     ```c title="time_complexity.c"
-    /* 常数阶 */
-    int constant(int n) {
-        int count = 0;
-        int size = 100000;
-        int i = 0;
-        for (int i = 0; i < size; i++) {
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* 常数阶 */
-    fun constant(n: Int): Int {
-        var count = 0
-        val size = 100000
-        for (i in 0..<size)
-            count++
-        return count
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### 常数阶 ###
-    def constant(n)
-      count = 0
-      size = 100000
-
-      (0...size).each { count += 1 }
-
-      count
-    end
+    [class]{}-[func]{constant}
     ```
 
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 常数阶
-    fn constant(n: i32) i32 {
-        _ = n;
-        var count: i32 = 0;
-        const size: i32 = 100_000;
-        var i: i32 = 0;
-        while(i<size) : (i += 1) {
-            count += 1;
-        }
-        return count;
-    }
+    [class]{}-[func]{constant}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20constant%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B8%B8%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20size%20%3D%2010%0A%20%20%20%20for%20_%20in%20range%28size%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20constant%28n%29%0A%20%20%20%20print%28%22%E5%B8%B8%E6%95%B0%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20constant%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B8%B8%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20size%20%3D%2010%0A%20%20%20%20for%20_%20in%20range%28size%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20constant%28n%29%0A%20%20%20%20print%28%22%E5%B8%B8%E6%95%B0%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 ### 2. &nbsp; Linear order $O(n)$ {data-toc-label="2. &nbsp; Linear order"}
 
@@ -1183,7 +1085,7 @@ Linear order indicates the number of operations grows linearly with the input da
 
     ```python title="time_complexity.py"
     def linear(n: int) -> int:
-        """线性阶"""
+        """Linear complexity"""
         count = 0
         for _ in range(n):
             count += 1
@@ -1193,19 +1095,13 @@ Linear order indicates the number of operations grows linearly with the input da
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 线性阶 */
-    int linear(int n) {
-        int count = 0;
-        for (int i = 0; i < n; i++)
-            count++;
-        return count;
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 线性阶 */
+    /* Linear complexity */
     int linear(int n) {
         int count = 0;
         for (int i = 0; i < n; i++)
@@ -1217,143 +1113,68 @@ Linear order indicates the number of operations grows linearly with the input da
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* 线性阶 */
-    int Linear(int n) {
-        int count = 0;
-        for (int i = 0; i < n; i++)
-            count++;
-        return count;
-    }
+    [class]{time_complexity}-[func]{Linear}
     ```
 
 === "Go"
 
     ```go title="time_complexity.go"
-    /* 线性阶 */
-    func linear(n int) int {
-        count := 0
-        for i := 0; i < n; i++ {
-            count++
-        }
-        return count
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 线性阶 */
-    func linear(n: Int) -> Int {
-        var count = 0
-        for _ in 0 ..< n {
-            count += 1
-        }
-        return count
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* 线性阶 */
-    function linear(n) {
-        let count = 0;
-        for (let i = 0; i < n; i++) count++;
-        return count;
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* 线性阶 */
-    function linear(n: number): number {
-        let count = 0;
-        for (let i = 0; i < n; i++) count++;
-        return count;
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* 线性阶 */
-    int linear(int n) {
-      int count = 0;
-      for (var i = 0; i < n; i++) {
-        count++;
-      }
-      return count;
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* 线性阶 */
-    fn linear(n: i32) -> i32 {
-        let mut count = 0;
-        for _ in 0..n {
-            count += 1;
-        }
-        count
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "C"
 
     ```c title="time_complexity.c"
-    /* 线性阶 */
-    int linear(int n) {
-        int count = 0;
-        for (int i = 0; i < n; i++) {
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* 线性阶 */
-    fun linear(n: Int): Int {
-        var count = 0
-        for (i in 0..<n)
-            count++
-        return count
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### 线性阶 ###
-    def linear(n)
-      count = 0
-      (0...n).each { count += 1 }
-      count
-    end
+    [class]{}-[func]{linear}
     ```
 
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 线性阶
-    fn linear(n: i32) i32 {
-        var count: i32 = 0;
-        var i: i32 = 0;
-        while (i < n) : (i += 1) {
-            count += 1;
-        }
-        return count;
-    }
+    [class]{}-[func]{linear}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%BA%BF%E6%80%A7%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear%28n%29%0A%20%20%20%20print%28%22%E7%BA%BF%E6%80%A7%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%BA%BF%E6%80%A7%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear%28n%29%0A%20%20%20%20print%28%22%E7%BA%BF%E6%80%A7%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 Operations like array traversal and linked list traversal have a time complexity of $O(n)$, where $n$ is the length of the array or list:
 
@@ -1361,9 +1182,9 @@ Operations like array traversal and linked list traversal have a time complexity
 
     ```python title="time_complexity.py"
     def array_traversal(nums: list[int]) -> int:
-        """线性阶（遍历数组）"""
+        """Linear complexity (traversing an array)"""
         count = 0
-        # 循环次数与数组长度成正比
+        # Loop count is proportional to the length of the array
         for num in nums:
             count += 1
         return count
@@ -1372,24 +1193,16 @@ Operations like array traversal and linked list traversal have a time complexity
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 线性阶（遍历数组） */
-    int arrayTraversal(vector<int> &nums) {
-        int count = 0;
-        // 循环次数与数组长度成正比
-        for (int num : nums) {
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 线性阶（遍历数组） */
+    /* Linear complexity (traversing an array) */
     int arrayTraversal(int[] nums) {
         int count = 0;
-        // 循环次数与数组长度成正比
+        // Loop count is proportional to the length of the array
         for (int num : nums) {
             count++;
         }
@@ -1400,163 +1213,68 @@ Operations like array traversal and linked list traversal have a time complexity
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* 线性阶（遍历数组） */
-    int ArrayTraversal(int[] nums) {
-        int count = 0;
-        // 循环次数与数组长度成正比
-        foreach (int num in nums) {
-            count++;
-        }
-        return count;
-    }
+    [class]{time_complexity}-[func]{ArrayTraversal}
     ```
 
 === "Go"
 
     ```go title="time_complexity.go"
-    /* 线性阶（遍历数组） */
-    func arrayTraversal(nums []int) int {
-        count := 0
-        // 循环次数与数组长度成正比
-        for range nums {
-            count++
-        }
-        return count
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 线性阶（遍历数组） */
-    func arrayTraversal(nums: [Int]) -> Int {
-        var count = 0
-        // 循环次数与数组长度成正比
-        for _ in nums {
-            count += 1
-        }
-        return count
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* 线性阶（遍历数组） */
-    function arrayTraversal(nums) {
-        let count = 0;
-        // 循环次数与数组长度成正比
-        for (let i = 0; i < nums.length; i++) {
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* 线性阶（遍历数组） */
-    function arrayTraversal(nums: number[]): number {
-        let count = 0;
-        // 循环次数与数组长度成正比
-        for (let i = 0; i < nums.length; i++) {
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* 线性阶（遍历数组） */
-    int arrayTraversal(List<int> nums) {
-      int count = 0;
-      // 循环次数与数组长度成正比
-      for (var _num in nums) {
-        count++;
-      }
-      return count;
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* 线性阶（遍历数组） */
-    fn array_traversal(nums: &[i32]) -> i32 {
-        let mut count = 0;
-        // 循环次数与数组长度成正比
-        for _ in nums {
-            count += 1;
-        }
-        count
-    }
+    [class]{}-[func]{array_traversal}
     ```
 
 === "C"
 
     ```c title="time_complexity.c"
-    /* 线性阶（遍历数组） */
-    int arrayTraversal(int *nums, int n) {
-        int count = 0;
-        // 循环次数与数组长度成正比
-        for (int i = 0; i < n; i++) {
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* 线性阶（遍历数组） */
-    fun arrayTraversal(nums: IntArray): Int {
-        var count = 0
-        // 循环次数与数组长度成正比
-        for (num in nums) {
-            count++
-        }
-        return count
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### 线性阶（遍历数组）###
-    def array_traversal(nums)
-      count = 0
-
-      # 循环次数与数组长度成正比
-      for num in nums
-        count += 1
-      end
-
-      count
-    end
+    [class]{}-[func]{array_traversal}
     ```
 
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 线性阶（遍历数组）
-    fn arrayTraversal(nums: []i32) i32 {
-        var count: i32 = 0;
-        // 循环次数与数组长度成正比
-        for (nums) |_| {
-            count += 1;
-        }
-        return count;
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20array_traversal%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%BA%BF%E6%80%A7%E9%98%B6%EF%BC%88%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%AC%A1%E6%95%B0%E4%B8%8E%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%88%90%E6%AD%A3%E6%AF%94%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20array_traversal%28%5B0%5D%20*%20n%29%0A%20%20%20%20print%28%22%E7%BA%BF%E6%80%A7%E9%98%B6%EF%BC%88%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20array_traversal%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%BA%BF%E6%80%A7%E9%98%B6%EF%BC%88%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%AC%A1%E6%95%B0%E4%B8%8E%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%88%90%E6%AD%A3%E6%AF%94%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20array_traversal%28%5B0%5D%20*%20n%29%0A%20%20%20%20print%28%22%E7%BA%BF%E6%80%A7%E9%98%B6%EF%BC%88%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 It's important to note that **the input data size $n$ should be determined based on the type of input data**. For example, in the first example, $n$ represents the input data size, while in the second example, the length of the array $n$ is the data size.
 
@@ -1568,9 +1286,9 @@ Quadratic order means the number of operations grows quadratically with the inpu
 
     ```python title="time_complexity.py"
     def quadratic(n: int) -> int:
-        """平方阶"""
+        """Quadratic complexity"""
         count = 0
-        # 循环次数与数据大小 n 成平方关系
+        # Loop count is squared in relation to the data size n
         for i in range(n):
             for j in range(n):
                 count += 1
@@ -1580,26 +1298,16 @@ Quadratic order means the number of operations grows quadratically with the inpu
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 平方阶 */
-    int quadratic(int n) {
-        int count = 0;
-        // 循环次数与数据大小 n 成平方关系
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                count++;
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 平方阶 */
+    /* Quadratic complexity */
     int quadratic(int n) {
         int count = 0;
-        // 循环次数与数据大小 n 成平方关系
+        // Loop count is squared in relation to the data size n
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1612,187 +1320,68 @@ Quadratic order means the number of operations grows quadratically with the inpu
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* 平方阶 */
-    int Quadratic(int n) {
-        int count = 0;
-        // 循环次数与数据大小 n 成平方关系
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                count++;
-            }
-        }
-        return count;
-    }
+    [class]{time_complexity}-[func]{Quadratic}
     ```
 
 === "Go"
 
     ```go title="time_complexity.go"
-    /* 平方阶 */
-    func quadratic(n int) int {
-        count := 0
-        // 循环次数与数据大小 n 成平方关系
-        for i := 0; i < n; i++ {
-            for j := 0; j < n; j++ {
-                count++
-            }
-        }
-        return count
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 平方阶 */
-    func quadratic(n: Int) -> Int {
-        var count = 0
-        // 循环次数与数据大小 n 成平方关系
-        for _ in 0 ..< n {
-            for _ in 0 ..< n {
-                count += 1
-            }
-        }
-        return count
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* 平方阶 */
-    function quadratic(n) {
-        let count = 0;
-        // 循环次数与数据大小 n 成平方关系
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < n; j++) {
-                count++;
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* 平方阶 */
-    function quadratic(n: number): number {
-        let count = 0;
-        // 循环次数与数据大小 n 成平方关系
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < n; j++) {
-                count++;
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* 平方阶 */
-    int quadratic(int n) {
-      int count = 0;
-      // 循环次数与数据大小 n 成平方关系
-      for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-          count++;
-        }
-      }
-      return count;
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* 平方阶 */
-    fn quadratic(n: i32) -> i32 {
-        let mut count = 0;
-        // 循环次数与数据大小 n 成平方关系
-        for _ in 0..n {
-            for _ in 0..n {
-                count += 1;
-            }
-        }
-        count
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "C"
 
     ```c title="time_complexity.c"
-    /* 平方阶 */
-    int quadratic(int n) {
-        int count = 0;
-        // 循环次数与数据大小 n 成平方关系
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                count++;
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* 平方阶 */
-    fun quadratic(n: Int): Int {
-        var count = 0
-        // 循环次数与数据大小 n 成平方关系
-        for (i in 0..<n) {
-            for (j in 0..<n) {
-                count++
-            }
-        }
-        return count
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### 平方阶 ###
-    def quadratic(n)
-      count = 0
-
-      # 循环次数与数据大小 n 成平方关系
-      for i in 0...n
-        for j in 0...n
-          count += 1
-        end
-      end
-
-      count
-    end
+    [class]{}-[func]{quadratic}
     ```
 
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 平方阶
-    fn quadratic(n: i32) i32 {
-        var count: i32 = 0;
-        var i: i32 = 0;
-        // 循环次数与数据大小 n 成平方关系
-        while (i < n) : (i += 1) {
-            var j: i32 = 0;
-            while (j < n) : (j += 1) {
-                count += 1;
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{quadratic}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B9%B3%E6%96%B9%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%AC%A1%E6%95%B0%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%E6%88%90%E5%B9%B3%E6%96%B9%E5%85%B3%E7%B3%BB%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20quadratic%28n%29%0A%20%20%20%20print%28%22%E5%B9%B3%E6%96%B9%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B9%B3%E6%96%B9%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E6%AC%A1%E6%95%B0%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%E6%88%90%E5%B9%B3%E6%96%B9%E5%85%B3%E7%B3%BB%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20quadratic%28n%29%0A%20%20%20%20print%28%22%E5%B9%B3%E6%96%B9%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 Figure 2-10 compares constant order, linear order, and quadratic order time complexities.
 
@@ -1806,60 +1395,43 @@ For instance, in bubble sort, the outer loop runs $n - 1$ times, and the inner l
 
     ```python title="time_complexity.py"
     def bubble_sort(nums: list[int]) -> int:
-        """平方阶（冒泡排序）"""
-        count = 0  # 计数器
-        # 外循环：未排序区间为 [0, i]
+        """Quadratic complexity (bubble sort)"""
+        count = 0  # Counter
+        # Outer loop: unsorted range is [0, i]
         for i in range(len(nums) - 1, 0, -1):
-            # 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+            # Inner loop: swap the largest element in the unsorted range [0, i] to the right end of the range
             for j in range(i):
                 if nums[j] > nums[j + 1]:
-                    # 交换 nums[j] 与 nums[j + 1]
+                    # Swap nums[j] and nums[j + 1]
                     tmp: int = nums[j]
                     nums[j] = nums[j + 1]
                     nums[j + 1] = tmp
-                    count += 3  # 元素交换包含 3 个单元操作
+                    count += 3  # Element swap includes 3 individual operations
         return count
     ```
 
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 平方阶（冒泡排序） */
-    int bubbleSort(vector<int> &nums) {
-        int count = 0; // 计数器
-        // 外循环：未排序区间为 [0, i]
-        for (int i = nums.size() - 1; i > 0; i--) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3; // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 平方阶（冒泡排序） */
+    /* Quadratic complexity (bubble sort) */
     int bubbleSort(int[] nums) {
-        int count = 0; // 计数器
-        // 外循环：未排序区间为 [0, i]
+        int count = 0; // Counter
+        // Outer loop: unsorted range is [0, i]
         for (int i = nums.length - 1; i > 0; i--) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+            // Inner loop: swap the largest element in the unsorted range [0, i] to the right end of the range
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
+                    // Swap nums[j] and nums[j + 1]
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // 元素交换包含 3 个单元操作
+                    count += 3; // Element swap includes 3 individual operations
                 }
             }
         }
@@ -1870,263 +1442,68 @@ For instance, in bubble sort, the outer loop runs $n - 1$ times, and the inner l
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* 平方阶（冒泡排序） */
-    int BubbleSort(int[] nums) {
-        int count = 0;  // 计数器
-        // 外循环：未排序区间为 [0, i]
-        for (int i = nums.Length - 1; i > 0; i--) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    (nums[j + 1], nums[j]) = (nums[j], nums[j + 1]);
-                    count += 3;  // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count;
-    }
+    [class]{time_complexity}-[func]{BubbleSort}
     ```
 
 === "Go"
 
     ```go title="time_complexity.go"
-    /* 平方阶（冒泡排序） */
-    func bubbleSort(nums []int) int {
-        count := 0 // 计数器
-        // 外循环：未排序区间为 [0, i]
-        for i := len(nums) - 1; i > 0; i-- {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for j := 0; j < i; j++ {
-                if nums[j] > nums[j+1] {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    tmp := nums[j]
-                    nums[j] = nums[j+1]
-                    nums[j+1] = tmp
-                    count += 3 // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 平方阶（冒泡排序） */
-    func bubbleSort(nums: inout [Int]) -> Int {
-        var count = 0 // 计数器
-        // 外循环：未排序区间为 [0, i]
-        for i in nums.indices.dropFirst().reversed() {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for j in 0 ..< i {
-                if nums[j] > nums[j + 1] {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j]
-                    nums[j] = nums[j + 1]
-                    nums[j + 1] = tmp
-                    count += 3 // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* 平方阶（冒泡排序） */
-    function bubbleSort(nums) {
-        let count = 0; // 计数器
-        // 外循环：未排序区间为 [0, i]
-        for (let i = nums.length - 1; i > 0; i--) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for (let j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3; // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* 平方阶（冒泡排序） */
-    function bubbleSort(nums: number[]): number {
-        let count = 0; // 计数器
-        // 外循环：未排序区间为 [0, i]
-        for (let i = nums.length - 1; i > 0; i--) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for (let j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3; // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* 平方阶（冒泡排序） */
-    int bubbleSort(List<int> nums) {
-      int count = 0; // 计数器
-      // 外循环：未排序区间为 [0, i]
-      for (var i = nums.length - 1; i > 0; i--) {
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-        for (var j = 0; j < i; j++) {
-          if (nums[j] > nums[j + 1]) {
-            // 交换 nums[j] 与 nums[j + 1]
-            int tmp = nums[j];
-            nums[j] = nums[j + 1];
-            nums[j + 1] = tmp;
-            count += 3; // 元素交换包含 3 个单元操作
-          }
-        }
-      }
-      return count;
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* 平方阶（冒泡排序） */
-    fn bubble_sort(nums: &mut [i32]) -> i32 {
-        let mut count = 0; // 计数器
-
-        // 外循环：未排序区间为 [0, i]
-        for i in (1..nums.len()).rev() {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for j in 0..i {
-                if nums[j] > nums[j + 1] {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3; // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        count
-    }
+    [class]{}-[func]{bubble_sort}
     ```
 
 === "C"
 
     ```c title="time_complexity.c"
-    /* 平方阶（冒泡排序） */
-    int bubbleSort(int *nums, int n) {
-        int count = 0; // 计数器
-        // 外循环：未排序区间为 [0, i]
-        for (int i = n - 1; i > 0; i--) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3; // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* 平方阶（冒泡排序） */
-    fun bubbleSort(nums: IntArray): Int {
-        var count = 0 // 计数器
-        // 外循环：未排序区间为 [0, i]
-        for (i in nums.size - 1 downTo 1) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for (j in 0..<i) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    val temp = nums[j]
-                    nums[j] = nums[j + 1]
-                    nums[j + 1] = temp
-                    count += 3 // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### 平方阶（冒泡排序）###
-    def bubble_sort(nums)
-      count = 0  # 计数器
-
-      # 外循环：未排序区间为 [0, i]
-      for i in (nums.length - 1).downto(0)
-        # 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-        for j in 0...i
-          if nums[j] > nums[j + 1]
-            # 交换 nums[j] 与 nums[j + 1]
-            tmp = nums[j]
-            nums[j] = nums[j + 1]
-            nums[j + 1] = tmp
-            count += 3 # 元素交换包含 3 个单元操作
-          end
-        end
-      end
-
-      count
-    end
+    [class]{}-[func]{bubble_sort}
     ```
 
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 平方阶（冒泡排序）
-    fn bubbleSort(nums: []i32) i32 {
-        var count: i32 = 0;  // 计数器 
-        // 外循环：未排序区间为 [0, i]
-        var i: i32 = @as(i32, @intCast(nums.len)) - 1;
-        while (i > 0) : (i -= 1) {
-            var j: usize = 0;
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            while (j < i) : (j += 1) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    var tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3;  // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{bubbleSort}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B9%B3%E6%96%B9%E9%98%B6%EF%BC%88%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%20%20%23%20%E8%AE%A1%E6%95%B0%E5%99%A8%0A%20%20%20%20%23%20%E5%A4%96%E5%BE%AA%E7%8E%AF%EF%BC%9A%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%BE%AA%E7%8E%AF%EF%BC%9A%E5%B0%86%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%20%5B0,%20i%5D%20%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%E8%87%B3%E8%AF%A5%E5%8C%BA%E9%97%B4%E7%9A%84%E6%9C%80%E5%8F%B3%E7%AB%AF%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E4%BA%A4%E6%8D%A2%20nums%5Bj%5D%20%E4%B8%8E%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%203%20%20%23%20%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%E5%8C%85%E5%90%AB%203%20%E4%B8%AA%E5%8D%95%E5%85%83%E6%93%8D%E4%BD%9C%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%28n,%200,%20-1%29%5D%20%20%23%20%5Bn,%20n-1,%20...,%202,%201%5D%0A%20%20%20%20count%20%3D%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22%E5%B9%B3%E6%96%B9%E9%98%B6%EF%BC%88%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B9%B3%E6%96%B9%E9%98%B6%EF%BC%88%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%20%20%23%20%E8%AE%A1%E6%95%B0%E5%99%A8%0A%20%20%20%20%23%20%E5%A4%96%E5%BE%AA%E7%8E%AF%EF%BC%9A%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%BE%AA%E7%8E%AF%EF%BC%9A%E5%B0%86%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%20%5B0,%20i%5D%20%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%E8%87%B3%E8%AF%A5%E5%8C%BA%E9%97%B4%E7%9A%84%E6%9C%80%E5%8F%B3%E7%AB%AF%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E4%BA%A4%E6%8D%A2%20nums%5Bj%5D%20%E4%B8%8E%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%203%20%20%23%20%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%E5%8C%85%E5%90%AB%203%20%E4%B8%AA%E5%8D%95%E5%85%83%E6%93%8D%E4%BD%9C%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%28n,%200,%20-1%29%5D%20%20%23%20%5Bn,%20n-1,%20...,%202,%201%5D%0A%20%20%20%20count%20%3D%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22%E5%B9%B3%E6%96%B9%E9%98%B6%EF%BC%88%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 ### 4. &nbsp; Exponential order $O(2^n)$ {data-toc-label="4. &nbsp; Exponential order"}
 
@@ -2138,10 +1515,10 @@ Figure 2-11 and code simulate the cell division process, with a time complexity 
 
     ```python title="time_complexity.py"
     def exponential(n: int) -> int:
-        """指数阶（循环实现）"""
+        """Exponential complexity (loop implementation)"""
         count = 0
         base = 1
-        # 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+        # Cells split into two every round, forming the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for _ in range(n):
             for _ in range(base):
                 count += 1
@@ -2153,28 +1530,16 @@ Figure 2-11 and code simulate the cell division process, with a time complexity 
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 指数阶（循环实现） */
-    int exponential(int n) {
-        int count = 0, base = 1;
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < base; j++) {
-                count++;
-            }
-            base *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count;
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 指数阶（循环实现） */
+    /* Exponential complexity (loop implementation) */
     int exponential(int n) {
         int count = 0, base = 1;
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+        // Cells split into two every round, forming the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < base; j++) {
                 count++;
@@ -2189,214 +1554,68 @@ Figure 2-11 and code simulate the cell division process, with a time complexity 
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* 指数阶（循环实现） */
-    int Exponential(int n) {
-        int count = 0, bas = 1;
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < bas; j++) {
-                count++;
-            }
-            bas *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count;
-    }
+    [class]{time_complexity}-[func]{Exponential}
     ```
 
 === "Go"
 
     ```go title="time_complexity.go"
-    /* 指数阶（循环实现）*/
-    func exponential(n int) int {
-        count, base := 0, 1
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for i := 0; i < n; i++ {
-            for j := 0; j < base; j++ {
-                count++
-            }
-            base *= 2
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 指数阶（循环实现） */
-    func exponential(n: Int) -> Int {
-        var count = 0
-        var base = 1
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for _ in 0 ..< n {
-            for _ in 0 ..< base {
-                count += 1
-            }
-            base *= 2
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* 指数阶（循环实现） */
-    function exponential(n) {
-        let count = 0,
-            base = 1;
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < base; j++) {
-                count++;
-            }
-            base *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count;
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* 指数阶（循环实现） */
-    function exponential(n: number): number {
-        let count = 0,
-            base = 1;
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < base; j++) {
-                count++;
-            }
-            base *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count;
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* 指数阶（循环实现） */
-    int exponential(int n) {
-      int count = 0, base = 1;
-      // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-      for (var i = 0; i < n; i++) {
-        for (var j = 0; j < base; j++) {
-          count++;
-        }
-        base *= 2;
-      }
-      // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-      return count;
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* 指数阶（循环实现） */
-    fn exponential(n: i32) -> i32 {
-        let mut count = 0;
-        let mut base = 1;
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for _ in 0..n {
-            for _ in 0..base {
-                count += 1
-            }
-            base *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        count
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "C"
 
     ```c title="time_complexity.c"
-    /* 指数阶（循环实现） */
-    int exponential(int n) {
-        int count = 0;
-        int bas = 1;
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < bas; j++) {
-                count++;
-            }
-            bas *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count;
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* 指数阶（循环实现） */
-    fun exponential(n: Int): Int {
-        var count = 0
-        var base = 1
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for (i in 0..<n) {
-            for (j in 0..<base) {
-                count++
-            }
-            base *= 2
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### 指数阶（循环实现）###
-    def exponential(n)
-      count, base = 0, 1
-
-      # 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-      (0...n).each do
-        (0...base).each { count += 1 }
-        base *= 2
-      end
-
-      # count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-      count
-    end
+    [class]{}-[func]{exponential}
     ```
 
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 指数阶（循环实现）
-    fn exponential(n: i32) i32 {
-        var count: i32 = 0;
-        var bas: i32 = 1;
-        var i: i32 = 0;
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        while (i < n) : (i += 1) {
-            var j: i32 = 0;
-            while (j < bas) : (j += 1) {
-                count += 1;
-            }
-            bas *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count;
-    }
+    [class]{}-[func]{exponential}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 531px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20%E7%BB%86%E8%83%9E%E6%AF%8F%E8%BD%AE%E4%B8%80%E5%88%86%E4%B8%BA%E4%BA%8C%EF%BC%8C%E5%BD%A2%E6%88%90%E6%95%B0%E5%88%97%201,%202,%204,%208,%20...,%202%5E%28n-1%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20*%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20%E7%BB%86%E8%83%9E%E6%AF%8F%E8%BD%AE%E4%B8%80%E5%88%86%E4%B8%BA%E4%BA%8C%EF%BC%8C%E5%BD%A2%E6%88%90%E6%95%B0%E5%88%97%201,%202,%204,%208,%20...,%202%5E%28n-1%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20*%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 ![Exponential order time complexity](time_complexity.assets/time_complexity_exponential.png){ class="animation-figure" }
 
@@ -2408,7 +1627,7 @@ In practice, exponential order often appears in recursive functions. For example
 
     ```python title="time_complexity.py"
     def exp_recur(n: int) -> int:
-        """指数阶（递归实现）"""
+        """Exponential complexity (recursive implementation)"""
         if n == 1:
             return 1
         return exp_recur(n - 1) + exp_recur(n - 1) + 1
@@ -2417,18 +1636,13 @@ In practice, exponential order often appears in recursive functions. For example
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 指数阶（递归实现） */
-    int expRecur(int n) {
-        if (n == 1)
-            return 1;
-        return expRecur(n - 1) + expRecur(n - 1) + 1;
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 指数阶（递归实现） */
+    /* Exponential complexity (recursive implementation) */
     int expRecur(int n) {
         if (n == 1)
             return 1;
@@ -2439,126 +1653,68 @@ In practice, exponential order often appears in recursive functions. For example
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* 指数阶（递归实现） */
-    int ExpRecur(int n) {
-        if (n == 1) return 1;
-        return ExpRecur(n - 1) + ExpRecur(n - 1) + 1;
-    }
+    [class]{time_complexity}-[func]{ExpRecur}
     ```
 
 === "Go"
 
     ```go title="time_complexity.go"
-    /* 指数阶（递归实现）*/
-    func expRecur(n int) int {
-        if n == 1 {
-            return 1
-        }
-        return expRecur(n-1) + expRecur(n-1) + 1
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 指数阶（递归实现） */
-    func expRecur(n: Int) -> Int {
-        if n == 1 {
-            return 1
-        }
-        return expRecur(n: n - 1) + expRecur(n: n - 1) + 1
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* 指数阶（递归实现） */
-    function expRecur(n) {
-        if (n === 1) return 1;
-        return expRecur(n - 1) + expRecur(n - 1) + 1;
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* 指数阶（递归实现） */
-    function expRecur(n: number): number {
-        if (n === 1) return 1;
-        return expRecur(n - 1) + expRecur(n - 1) + 1;
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* 指数阶（递归实现） */
-    int expRecur(int n) {
-      if (n == 1) return 1;
-      return expRecur(n - 1) + expRecur(n - 1) + 1;
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* 指数阶（递归实现） */
-    fn exp_recur(n: i32) -> i32 {
-        if n == 1 {
-            return 1;
-        }
-        exp_recur(n - 1) + exp_recur(n - 1) + 1
-    }
+    [class]{}-[func]{exp_recur}
     ```
 
 === "C"
 
     ```c title="time_complexity.c"
-    /* 指数阶（递归实现） */
-    int expRecur(int n) {
-        if (n == 1)
-            return 1;
-        return expRecur(n - 1) + expRecur(n - 1) + 1;
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* 指数阶（递归实现） */
-    fun expRecur(n: Int): Int {
-        if (n == 1) {
-            return 1
-        }
-        return expRecur(n - 1) + expRecur(n - 1) + 1
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### 指数阶（递归实现）###
-    def exp_recur(n)
-      return 1 if n == 1
-      exp_recur(n - 1) + exp_recur(n - 1) + 1
-    end
+    [class]{}-[func]{exp_recur}
     ```
 
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 指数阶（递归实现）
-    fn expRecur(n: i32) i32 {
-        if (n == 1) return 1;
-        return expRecur(n - 1) + expRecur(n - 1) + 1;
-    }
+    [class]{}-[func]{expRecur}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20exp_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20exp_recur%28n%20-%201%29%20%2B%20exp_recur%28n%20-%201%29%20%2B%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%207%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exp_recur%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20exp_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20exp_recur%28n%20-%201%29%20%2B%20exp_recur%28n%20-%201%29%20%2B%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%207%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exp_recur%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 Exponential order growth is extremely rapid and is commonly seen in exhaustive search methods (brute force, backtracking, etc.). For large-scale problems, exponential order is unacceptable, often requiring dynamic programming or greedy algorithms as solutions.
 
@@ -2572,7 +1728,7 @@ Figure 2-12 and code simulate the "halving each round" process, with a time comp
 
     ```python title="time_complexity.py"
     def logarithmic(n: int) -> int:
-        """对数阶（循环实现）"""
+        """Logarithmic complexity (loop implementation)"""
         count = 0
         while n > 1:
             n = n / 2
@@ -2583,21 +1739,13 @@ Figure 2-12 and code simulate the "halving each round" process, with a time comp
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 对数阶（循环实现） */
-    int logarithmic(int n) {
-        int count = 0;
-        while (n > 1) {
-            n = n / 2;
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 对数阶（循环实现） */
+    /* Logarithmic complexity (loop implementation) */
     int logarithmic(int n) {
         int count = 0;
         while (n > 1) {
@@ -2611,167 +1759,68 @@ Figure 2-12 and code simulate the "halving each round" process, with a time comp
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* 对数阶（循环实现） */
-    int Logarithmic(int n) {
-        int count = 0;
-        while (n > 1) {
-            n /= 2;
-            count++;
-        }
-        return count;
-    }
+    [class]{time_complexity}-[func]{Logarithmic}
     ```
 
 === "Go"
 
     ```go title="time_complexity.go"
-    /* 对数阶（循环实现）*/
-    func logarithmic(n int) int {
-        count := 0
-        for n > 1 {
-            n = n / 2
-            count++
-        }
-        return count
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 对数阶（循环实现） */
-    func logarithmic(n: Int) -> Int {
-        var count = 0
-        var n = n
-        while n > 1 {
-            n = n / 2
-            count += 1
-        }
-        return count
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* 对数阶（循环实现） */
-    function logarithmic(n) {
-        let count = 0;
-        while (n > 1) {
-            n = n / 2;
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* 对数阶（循环实现） */
-    function logarithmic(n: number): number {
-        let count = 0;
-        while (n > 1) {
-            n = n / 2;
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* 对数阶（循环实现） */
-    int logarithmic(int n) {
-      int count = 0;
-      while (n > 1) {
-        n = n ~/ 2;
-        count++;
-      }
-      return count;
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* 对数阶（循环实现） */
-    fn logarithmic(mut n: i32) -> i32 {
-        let mut count = 0;
-        while n > 1 {
-            n = n / 2;
-            count += 1;
-        }
-        count
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "C"
 
     ```c title="time_complexity.c"
-    /* 对数阶（循环实现） */
-    int logarithmic(int n) {
-        int count = 0;
-        while (n > 1) {
-            n = n / 2;
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* 对数阶（循环实现） */
-    fun logarithmic(n: Int): Int {
-        var n1 = n
-        var count = 0
-        while (n1 > 1) {
-            n1 /= 2
-            count++
-        }
-        return count
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### 对数阶（循环实现）###
-    def logarithmic(n)
-      count = 0
-
-      while n > 1
-        n /= 2
-        count += 1
-      end
-
-      count
-    end
+    [class]{}-[func]{logarithmic}
     ```
 
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 对数阶（循环实现）
-    fn logarithmic(n: i32) i32 {
-        var count: i32 = 0;
-        var n_var = n;
-        while (n_var > 1)
-        {
-            n_var = n_var / 2;
-            count +=1;
-        }
-        return count;
-    }
+    [class]{}-[func]{logarithmic}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 ![Logarithmic order time complexity](time_complexity.assets/time_complexity_logarithmic.png){ class="animation-figure" }
 
@@ -2783,7 +1832,7 @@ Like exponential order, logarithmic order also frequently appears in recursive f
 
     ```python title="time_complexity.py"
     def log_recur(n: int) -> int:
-        """对数阶（递归实现）"""
+        """Logarithmic complexity (recursive implementation)"""
         if n <= 1:
             return 0
         return log_recur(n / 2) + 1
@@ -2792,18 +1841,13 @@ Like exponential order, logarithmic order also frequently appears in recursive f
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 对数阶（递归实现） */
-    int logRecur(int n) {
-        if (n <= 1)
-            return 0;
-        return logRecur(n / 2) + 1;
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 对数阶（递归实现） */
+    /* Logarithmic complexity (recursive implementation) */
     int logRecur(int n) {
         if (n <= 1)
             return 0;
@@ -2814,125 +1858,68 @@ Like exponential order, logarithmic order also frequently appears in recursive f
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* 对数阶（递归实现） */
-    int LogRecur(int n) {
-        if (n <= 1) return 0;
-        return LogRecur(n / 2) + 1;
-    }
+    [class]{time_complexity}-[func]{LogRecur}
     ```
 
 === "Go"
 
     ```go title="time_complexity.go"
-    /* 对数阶（递归实现）*/
-    func logRecur(n int) int {
-        if n <= 1 {
-            return 0
-        }
-        return logRecur(n/2) + 1
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 对数阶（递归实现） */
-    func logRecur(n: Int) -> Int {
-        if n <= 1 {
-            return 0
-        }
-        return logRecur(n: n / 2) + 1
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* 对数阶（递归实现） */
-    function logRecur(n) {
-        if (n <= 1) return 0;
-        return logRecur(n / 2) + 1;
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* 对数阶（递归实现） */
-    function logRecur(n: number): number {
-        if (n <= 1) return 0;
-        return logRecur(n / 2) + 1;
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* 对数阶（递归实现） */
-    int logRecur(int n) {
-      if (n <= 1) return 0;
-      return logRecur(n ~/ 2) + 1;
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* 对数阶（递归实现） */
-    fn log_recur(n: i32) -> i32 {
-        if n <= 1 {
-            return 0;
-        }
-        log_recur(n / 2) + 1
-    }
+    [class]{}-[func]{log_recur}
     ```
 
 === "C"
 
     ```c title="time_complexity.c"
-    /* 对数阶（递归实现） */
-    int logRecur(int n) {
-        if (n <= 1)
-            return 0;
-        return logRecur(n / 2) + 1;
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* 对数阶（递归实现） */
-    fun logRecur(n: Int): Int {
-        if (n <= 1)
-            return 0
-        return logRecur(n / 2) + 1
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### 对数阶（递归实现）###
-    def log_recur(n)
-      return 0 unless n > 1
-      log_recur(n / 2) + 1
-    end
+    [class]{}-[func]{log_recur}
     ```
 
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 对数阶（递归实现）
-    fn logRecur(n: i32) i32 {
-        if (n <= 1) return 0;
-        return logRecur(n / 2) + 1;
-    }
+    [class]{}-[func]{logRecur}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20log_recur%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20log_recur%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 Logarithmic order is typical in algorithms based on the divide-and-conquer strategy, embodying the "split into many" and "simplify complex problems" approach. It's slow-growing and is the most ideal time complexity after constant order.
 
@@ -2954,7 +1941,7 @@ Linear-logarithmic order often appears in nested loops, with the complexities of
 
     ```python title="time_complexity.py"
     def linear_log_recur(n: int) -> int:
-        """线性对数阶"""
+        """Linear logarithmic complexity"""
         if n <= 1:
             return 1
         count: int = linear_log_recur(n // 2) + linear_log_recur(n // 2)
@@ -2966,22 +1953,13 @@ Linear-logarithmic order often appears in nested loops, with the complexities of
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 线性对数阶 */
-    int linearLogRecur(int n) {
-        if (n <= 1)
-            return 1;
-        int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
-        for (int i = 0; i < n; i++) {
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 线性对数阶 */
+    /* Linear logarithmic complexity */
     int linearLogRecur(int n) {
         if (n <= 1)
             return 1;
@@ -2996,170 +1974,68 @@ Linear-logarithmic order often appears in nested loops, with the complexities of
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* 线性对数阶 */
-    int LinearLogRecur(int n) {
-        if (n <= 1) return 1;
-        int count = LinearLogRecur(n / 2) + LinearLogRecur(n / 2);
-        for (int i = 0; i < n; i++) {
-            count++;
-        }
-        return count;
-    }
+    [class]{time_complexity}-[func]{LinearLogRecur}
     ```
 
 === "Go"
 
     ```go title="time_complexity.go"
-    /* 线性对数阶 */
-    func linearLogRecur(n int) int {
-        if n <= 1 {
-            return 1
-        }
-        count := linearLogRecur(n/2) + linearLogRecur(n/2)
-        for i := 0; i < n; i++ {
-            count++
-        }
-        return count
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 线性对数阶 */
-    func linearLogRecur(n: Int) -> Int {
-        if n <= 1 {
-            return 1
-        }
-        var count = linearLogRecur(n: n / 2) + linearLogRecur(n: n / 2)
-        for _ in stride(from: 0, to: n, by: 1) {
-            count += 1
-        }
-        return count
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* 线性对数阶 */
-    function linearLogRecur(n) {
-        if (n <= 1) return 1;
-        let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
-        for (let i = 0; i < n; i++) {
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* 线性对数阶 */
-    function linearLogRecur(n: number): number {
-        if (n <= 1) return 1;
-        let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
-        for (let i = 0; i < n; i++) {
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* 线性对数阶 */
-    int linearLogRecur(int n) {
-      if (n <= 1) return 1;
-      int count = linearLogRecur(n ~/ 2) + linearLogRecur(n ~/ 2);
-      for (var i = 0; i < n; i++) {
-        count++;
-      }
-      return count;
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* 线性对数阶 */
-    fn linear_log_recur(n: i32) -> i32 {
-        if n <= 1 {
-            return 1;
-        }
-        let mut count = linear_log_recur(n / 2) + linear_log_recur(n / 2);
-        for _ in 0..n as i32 {
-            count += 1;
-        }
-        return count;
-    }
+    [class]{}-[func]{linear_log_recur}
     ```
 
 === "C"
 
     ```c title="time_complexity.c"
-    /* 线性对数阶 */
-    int linearLogRecur(int n) {
-        if (n <= 1)
-            return 1;
-        int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
-        for (int i = 0; i < n; i++) {
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* 线性对数阶 */
-    fun linearLogRecur(n: Int): Int {
-        if (n <= 1)
-            return 1
-        var count = linearLogRecur(n / 2) + linearLogRecur(n / 2)
-        for (i in 0..<n) {
-            count++
-        }
-        return count
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### 线性对数阶 ###
-    def linear_log_recur(n)
-      return 1 unless n > 1
-
-      count = linear_log_recur(n / 2) + linear_log_recur(n / 2)
-      (0...n).each { count += 1 }
-
-      count
-    end
+    [class]{}-[func]{linear_log_recur}
     ```
 
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 线性对数阶
-    fn linearLogRecur(n: i32) i32 {
-        if (n <= 1) return 1;
-        var count: i32 = linearLogRecur(n / 2) + linearLogRecur(n / 2);
-        var i: i32 = 0;
-        while (i < n) : (i += 1) {
-            count += 1;
-        }
-        return count;
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20linear_log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%20//%202%29%20%2B%20linear_log_recur%28n%20//%202%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%29%0A%20%20%20%20print%28%22%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear_log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%20//%202%29%20%2B%20linear_log_recur%28n%20//%202%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%29%0A%20%20%20%20print%28%22%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 Figure 2-13 demonstrates how linear-logarithmic order is generated. Each level of a binary tree has $n$ operations, and the tree has $\log_2 n + 1$ levels, resulting in a time complexity of $O(n \log n)$.
 
@@ -3183,11 +2059,11 @@ Factorials are typically implemented using recursion. As shown in the code and F
 
     ```python title="time_complexity.py"
     def factorial_recur(n: int) -> int:
-        """阶乘阶（递归实现）"""
+        """Factorial complexity (recursive implementation)"""
         if n == 0:
             return 1
         count = 0
-        # 从 1 个分裂出 n 个
+        # From 1 split into n
         for _ in range(n):
             count += factorial_recur(n - 1)
         return count
@@ -3196,28 +2072,18 @@ Factorials are typically implemented using recursion. As shown in the code and F
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 阶乘阶（递归实现） */
-    int factorialRecur(int n) {
-        if (n == 0)
-            return 1;
-        int count = 0;
-        // 从 1 个分裂出 n 个
-        for (int i = 0; i < n; i++) {
-            count += factorialRecur(n - 1);
-        }
-        return count;
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 阶乘阶（递归实现） */
+    /* Factorial complexity (recursive implementation) */
     int factorialRecur(int n) {
         if (n == 0)
             return 1;
         int count = 0;
-        // 从 1 个分裂出 n 个
+        // From 1 split into n
         for (int i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
@@ -3228,180 +2094,68 @@ Factorials are typically implemented using recursion. As shown in the code and F
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    /* 阶乘阶（递归实现） */
-    int FactorialRecur(int n) {
-        if (n == 0) return 1;
-        int count = 0;
-        // 从 1 个分裂出 n 个
-        for (int i = 0; i < n; i++) {
-            count += FactorialRecur(n - 1);
-        }
-        return count;
-    }
+    [class]{time_complexity}-[func]{FactorialRecur}
     ```
 
 === "Go"
 
     ```go title="time_complexity.go"
-    /* 阶乘阶（递归实现） */
-    func factorialRecur(n int) int {
-        if n == 0 {
-            return 1
-        }
-        count := 0
-        // 从 1 个分裂出 n 个
-        for i := 0; i < n; i++ {
-            count += factorialRecur(n - 1)
-        }
-        return count
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 阶乘阶（递归实现） */
-    func factorialRecur(n: Int) -> Int {
-        if n == 0 {
-            return 1
-        }
-        var count = 0
-        // 从 1 个分裂出 n 个
-        for _ in 0 ..< n {
-            count += factorialRecur(n: n - 1)
-        }
-        return count
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 === "JS"
 
     ```javascript title="time_complexity.js"
-    /* 阶乘阶（递归实现） */
-    function factorialRecur(n) {
-        if (n === 0) return 1;
-        let count = 0;
-        // 从 1 个分裂出 n 个
-        for (let i = 0; i < n; i++) {
-            count += factorialRecur(n - 1);
-        }
-        return count;
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 === "TS"
 
     ```typescript title="time_complexity.ts"
-    /* 阶乘阶（递归实现） */
-    function factorialRecur(n: number): number {
-        if (n === 0) return 1;
-        let count = 0;
-        // 从 1 个分裂出 n 个
-        for (let i = 0; i < n; i++) {
-            count += factorialRecur(n - 1);
-        }
-        return count;
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 === "Dart"
 
     ```dart title="time_complexity.dart"
-    /* 阶乘阶（递归实现） */
-    int factorialRecur(int n) {
-      if (n == 0) return 1;
-      int count = 0;
-      // 从 1 个分裂出 n 个
-      for (var i = 0; i < n; i++) {
-        count += factorialRecur(n - 1);
-      }
-      return count;
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 === "Rust"
 
     ```rust title="time_complexity.rs"
-    /* 阶乘阶（递归实现） */
-    fn factorial_recur(n: i32) -> i32 {
-        if n == 0 {
-            return 1;
-        }
-        let mut count = 0;
-        // 从 1 个分裂出 n 个
-        for _ in 0..n {
-            count += factorial_recur(n - 1);
-        }
-        count
-    }
+    [class]{}-[func]{factorial_recur}
     ```
 
 === "C"
 
     ```c title="time_complexity.c"
-    /* 阶乘阶（递归实现） */
-    int factorialRecur(int n) {
-        if (n == 0)
-            return 1;
-        int count = 0;
-        for (int i = 0; i < n; i++) {
-            count += factorialRecur(n - 1);
-        }
-        return count;
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 === "Kotlin"
 
     ```kotlin title="time_complexity.kt"
-    /* 阶乘阶（递归实现） */
-    fun factorialRecur(n: Int): Int {
-        if (n == 0)
-            return 1
-        var count = 0
-        // 从 1 个分裂出 n 个
-        for (i in 0..<n) {
-            count += factorialRecur(n - 1)
-        }
-        return count
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    ### 阶乘阶（递归实现）###
-    def factorial_recur(n)
-      return 1 if n == 0
-
-      count = 0
-      # 从 1 个分裂出 n 个
-      (0...n).each { count += factorial_recur(n - 1) }
-
-      count
-    end
+    [class]{}-[func]{factorial_recur}
     ```
 
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 阶乘阶（递归实现）
-    fn factorialRecur(n: i32) i32 {
-        if (n == 0) return 1;
-        var count: i32 = 0;
-        var i: i32 = 0;
-        // 从 1 个分裂出 n 个
-        while (i < n) : (i += 1) {
-            count += factorialRecur(n - 1);
-        }
-        return count;
-    }
+    [class]{}-[func]{factorialRecur}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 495px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20factorial_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%98%B6%E4%B9%98%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E4%BB%8E%201%20%E4%B8%AA%E5%88%86%E8%A3%82%E5%87%BA%20n%20%E4%B8%AA%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20factorial_recur%28n%20-%201%29%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20factorial_recur%28n%29%0A%20%20%20%20print%28%22%E9%98%B6%E4%B9%98%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20factorial_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%98%B6%E4%B9%98%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E4%BB%8E%201%20%E4%B8%AA%E5%88%86%E8%A3%82%E5%87%BA%20n%20%E4%B8%AA%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20factorial_recur%28n%20-%201%29%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20factorial_recur%28n%29%0A%20%20%20%20print%28%22%E9%98%B6%E4%B9%98%E9%98%B6%EF%BC%88%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 ![Factorial order time complexity](time_complexity.assets/time_complexity_factorial.png){ class="animation-figure" }
 
@@ -3422,18 +2176,18 @@ The "worst-case time complexity" corresponds to the asymptotic upper bound, deno
 
     ```python title="worst_best_time_complexity.py"
     def random_numbers(n: int) -> list[int]:
-        """生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱"""
-        # 生成数组 nums =: 1, 2, 3, ..., n
+        """Generate an array with elements: 1, 2, ..., n, order shuffled"""
+        # Generate array nums =: 1, 2, 3, ..., n
         nums = [i for i in range(1, n + 1)]
-        # 随机打乱数组元素
+        # Randomly shuffle array elements
         random.shuffle(nums)
         return nums
 
     def find_one(nums: list[int]) -> int:
-        """查找数组 nums 中数字 1 所在索引"""
+        """Find the index of number 1 in array nums"""
         for i in range(len(nums)):
-            # 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            # 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
+            # When element 1 is at the start of the array, achieve best time complexity O(1)
+            # When element 1 is at the end of the array, achieve worst time complexity O(n)
             if nums[i] == 1:
                 return i
         return -1
@@ -3442,43 +2196,22 @@ The "worst-case time complexity" corresponds to the asymptotic upper bound, deno
 === "C++"
 
     ```cpp title="worst_best_time_complexity.cpp"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    vector<int> randomNumbers(int n) {
-        vector<int> nums(n);
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (int i = 0; i < n; i++) {
-            nums[i] = i + 1;
-        }
-        // 使用系统时间生成随机种子
-        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
-        // 随机打乱数组元素
-        shuffle(nums.begin(), nums.end(), default_random_engine(seed));
-        return nums;
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    int findOne(vector<int> &nums) {
-        for (int i = 0; i < nums.size(); i++) {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (nums[i] == 1)
-                return i;
-        }
-        return -1;
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "Java"
 
     ```java title="worst_best_time_complexity.java"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
+    /* Generate an array with elements {1, 2, ..., n} in a randomly shuffled order */
     int[] randomNumbers(int n) {
         Integer[] nums = new Integer[n];
-        // 生成数组 nums = { 1, 2, 3, ..., n }
+        // Generate array nums = { 1, 2, 3, ..., n }
         for (int i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
-        // 随机打乱数组元素
+        // Randomly shuffle array elements
         Collections.shuffle(Arrays.asList(nums));
         // Integer[] -> int[]
         int[] res = new int[n];
@@ -3488,11 +2221,11 @@ The "worst-case time complexity" corresponds to the asymptotic upper bound, deno
         return res;
     }
 
-    /* 查找数组 nums 中数字 1 所在索引 */
+    /* Find the index of number 1 in array nums */
     int findOne(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
+            // When element 1 is at the start of the array, achieve best time complexity O(1)
+            // When element 1 is at the end of the array, achieve worst time complexity O(n)
             if (nums[i] == 1)
                 return i;
         }
@@ -3503,326 +2236,90 @@ The "worst-case time complexity" corresponds to the asymptotic upper bound, deno
 === "C#"
 
     ```csharp title="worst_best_time_complexity.cs"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    int[] RandomNumbers(int n) {
-        int[] nums = new int[n];
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (int i = 0; i < n; i++) {
-            nums[i] = i + 1;
-        }
+    [class]{worst_best_time_complexity}-[func]{RandomNumbers}
 
-        // 随机打乱数组元素
-        for (int i = 0; i < nums.Length; i++) {
-            int index = new Random().Next(i, nums.Length);
-            (nums[i], nums[index]) = (nums[index], nums[i]);
-        }
-        return nums;
-    }
-
-    /* 查找数组 nums 中数字 1 所在索引 */
-    int FindOne(int[] nums) {
-        for (int i = 0; i < nums.Length; i++) {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (nums[i] == 1)
-                return i;
-        }
-        return -1;
-    }
+    [class]{worst_best_time_complexity}-[func]{FindOne}
     ```
 
 === "Go"
 
     ```go title="worst_best_time_complexity.go"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    func randomNumbers(n int) []int {
-        nums := make([]int, n)
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for i := 0; i < n; i++ {
-            nums[i] = i + 1
-        }
-        // 随机打乱数组元素
-        rand.Shuffle(len(nums), func(i, j int) {
-            nums[i], nums[j] = nums[j], nums[i]
-        })
-        return nums
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    func findOne(nums []int) int {
-        for i := 0; i < len(nums); i++ {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if nums[i] == 1 {
-                return i
-            }
-        }
-        return -1
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "Swift"
 
     ```swift title="worst_best_time_complexity.swift"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    func randomNumbers(n: Int) -> [Int] {
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        var nums = Array(1 ... n)
-        // 随机打乱数组元素
-        nums.shuffle()
-        return nums
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    func findOne(nums: [Int]) -> Int {
-        for i in nums.indices {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if nums[i] == 1 {
-                return i
-            }
-        }
-        return -1
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "JS"
 
     ```javascript title="worst_best_time_complexity.js"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    function randomNumbers(n) {
-        const nums = Array(n);
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (let i = 0; i < n; i++) {
-            nums[i] = i + 1;
-        }
-        // 随机打乱数组元素
-        for (let i = 0; i < n; i++) {
-            const r = Math.floor(Math.random() * (i + 1));
-            const temp = nums[i];
-            nums[i] = nums[r];
-            nums[r] = temp;
-        }
-        return nums;
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    function findOne(nums) {
-        for (let i = 0; i < nums.length; i++) {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (nums[i] === 1) {
-                return i;
-            }
-        }
-        return -1;
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "TS"
 
     ```typescript title="worst_best_time_complexity.ts"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    function randomNumbers(n: number): number[] {
-        const nums = Array(n);
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (let i = 0; i < n; i++) {
-            nums[i] = i + 1;
-        }
-        // 随机打乱数组元素
-        for (let i = 0; i < n; i++) {
-            const r = Math.floor(Math.random() * (i + 1));
-            const temp = nums[i];
-            nums[i] = nums[r];
-            nums[r] = temp;
-        }
-        return nums;
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    function findOne(nums: number[]): number {
-        for (let i = 0; i < nums.length; i++) {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (nums[i] === 1) {
-                return i;
-            }
-        }
-        return -1;
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "Dart"
 
     ```dart title="worst_best_time_complexity.dart"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    List<int> randomNumbers(int n) {
-      final nums = List.filled(n, 0);
-      // 生成数组 nums = { 1, 2, 3, ..., n }
-      for (var i = 0; i < n; i++) {
-        nums[i] = i + 1;
-      }
-      // 随机打乱数组元素
-      nums.shuffle();
+    [class]{}-[func]{randomNumbers}
 
-      return nums;
-    }
-
-    /* 查找数组 nums 中数字 1 所在索引 */
-    int findOne(List<int> nums) {
-      for (var i = 0; i < nums.length; i++) {
-        // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-        // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-        if (nums[i] == 1) return i;
-      }
-
-      return -1;
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "Rust"
 
     ```rust title="worst_best_time_complexity.rs"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    fn random_numbers(n: i32) -> Vec<i32> {
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        let mut nums = (1..=n).collect::<Vec<i32>>();
-        // 随机打乱数组元素
-        nums.shuffle(&mut thread_rng());
-        nums
-    }
+    [class]{}-[func]{random_numbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    fn find_one(nums: &[i32]) -> Option<usize> {
-        for i in 0..nums.len() {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if nums[i] == 1 {
-                return Some(i);
-            }
-        }
-        None
-    }
+    [class]{}-[func]{find_one}
     ```
 
 === "C"
 
     ```c title="worst_best_time_complexity.c"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    int *randomNumbers(int n) {
-        // 分配堆区内存（创建一维可变长数组：数组中元素数量为 n ，元素类型为 int ）
-        int *nums = (int *)malloc(n * sizeof(int));
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (int i = 0; i < n; i++) {
-            nums[i] = i + 1;
-        }
-        // 随机打乱数组元素
-        for (int i = n - 1; i > 0; i--) {
-            int j = rand() % (i + 1);
-            int temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp;
-        }
-        return nums;
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    int findOne(int *nums, int n) {
-        for (int i = 0; i < n; i++) {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (nums[i] == 1)
-                return i;
-        }
-        return -1;
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "Kotlin"
 
     ```kotlin title="worst_best_time_complexity.kt"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    fun randomNumbers(n: Int): Array<Int?> {
-        val nums = IntArray(n)
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (i in 0..<n) {
-            nums[i] = i + 1
-        }
-        // 随机打乱数组元素
-        nums.shuffle()
-        val res = arrayOfNulls<Int>(n)
-        for (i in 0..<n) {
-            res[i] = nums[i]
-        }
-        return res
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    fun findOne(nums: Array<Int?>): Int {
-        for (i in nums.indices) {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (nums[i] == 1)
-                return i
-        }
-        return -1
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "Ruby"
 
     ```ruby title="worst_best_time_complexity.rb"
-    ### 生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱 ###
-    def random_numbers(n)
-      # 生成数组 nums =: 1, 2, 3, ..., n
-      nums = Array.new(n) { |i| i + 1 }
-      # 随机打乱数组元素
-      nums.shuffle!
-    end
+    [class]{}-[func]{random_numbers}
 
-    ### 查找数组 nums 中数字 1 所在索引 ###
-    def find_one(nums)
-      for i in 0...nums.length
-        # 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-        # 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-        return i if nums[i] == 1
-      end
-
-      -1
-    end
+    [class]{}-[func]{find_one}
     ```
 
 === "Zig"
 
     ```zig title="worst_best_time_complexity.zig"
-    // 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
-    fn randomNumbers(comptime n: usize) [n]i32 {
-        var nums: [n]i32 = undefined;
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (&nums, 0..) |*num, i| {
-            num.* = @as(i32, @intCast(i)) + 1;
-        }
-        // 随机打乱数组元素
-        const rand = std.crypto.random;
-        rand.shuffle(i32, &nums);
-        return nums;
-    }
+    [class]{}-[func]{randomNumbers}
 
-    // 查找数组 nums 中数字 1 所在索引
-    fn findOne(nums: []i32) i32 {
-        for (nums, 0..) |num, i| {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (num == 1) return @intCast(i);
-        }
-        return -1;
-    }
+    [class]{}-[func]{findOne}
     ```
-
-??? pythontutor "Code Visualization"
-
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=import%20random%0A%0Adef%20random_numbers%28n%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%EF%BC%8C%E5%85%83%E7%B4%A0%E4%B8%BA%3A%201,%202,%20...,%20n%20%EF%BC%8C%E9%A1%BA%E5%BA%8F%E8%A2%AB%E6%89%93%E4%B9%B1%22%22%22%0A%20%20%20%20%23%20%E7%94%9F%E6%88%90%E6%95%B0%E7%BB%84%20nums%20%3D%3A%201,%202,%203,%20...,%20n%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%281,%20n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E9%9A%8F%E6%9C%BA%E6%89%93%E4%B9%B1%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%0A%20%20%20%20random.shuffle%28nums%29%0A%20%20%20%20return%20nums%0A%0Adef%20find_one%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%9F%A5%E6%89%BE%E6%95%B0%E7%BB%84%20nums%20%E4%B8%AD%E6%95%B0%E5%AD%97%201%20%E6%89%80%E5%9C%A8%E7%B4%A2%E5%BC%95%22%22%22%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%BD%93%E5%85%83%E7%B4%A0%201%20%E5%9C%A8%E6%95%B0%E7%BB%84%E5%A4%B4%E9%83%A8%E6%97%B6%EF%BC%8C%E8%BE%BE%E5%88%B0%E6%9C%80%E4%BD%B3%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%20O%281%29%0A%20%20%20%20%20%20%20%20%23%20%E5%BD%93%E5%85%83%E7%B4%A0%201%20%E5%9C%A8%E6%95%B0%E7%BB%84%E5%B0%BE%E9%83%A8%E6%97%B6%EF%BC%8C%E8%BE%BE%E5%88%B0%E6%9C%80%E5%B7%AE%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%20O%28n%29%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2010%0A%20%20%20%20nums%20%3D%20random_numbers%28n%29%0A%20%20%20%20index%20%3D%20find_one%28nums%29%0A%20%20%20%20print%28%22%5Cn%E6%95%B0%E7%BB%84%20%5B%201,%202,%20...,%20n%20%5D%20%E8%A2%AB%E6%89%93%E4%B9%B1%E5%90%8E%20%3D%22,%20nums%29%0A%20%20%20%20print%28%22%E6%95%B0%E5%AD%97%201%20%E7%9A%84%E7%B4%A2%E5%BC%95%E4%B8%BA%22,%20index%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20random%0A%0Adef%20random_numbers%28n%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%EF%BC%8C%E5%85%83%E7%B4%A0%E4%B8%BA%3A%201,%202,%20...,%20n%20%EF%BC%8C%E9%A1%BA%E5%BA%8F%E8%A2%AB%E6%89%93%E4%B9%B1%22%22%22%0A%20%20%20%20%23%20%E7%94%9F%E6%88%90%E6%95%B0%E7%BB%84%20nums%20%3D%3A%201,%202,%203,%20...,%20n%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%281,%20n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E9%9A%8F%E6%9C%BA%E6%89%93%E4%B9%B1%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%0A%20%20%20%20random.shuffle%28nums%29%0A%20%20%20%20return%20nums%0A%0Adef%20find_one%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%9F%A5%E6%89%BE%E6%95%B0%E7%BB%84%20nums%20%E4%B8%AD%E6%95%B0%E5%AD%97%201%20%E6%89%80%E5%9C%A8%E7%B4%A2%E5%BC%95%22%22%22%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%BD%93%E5%85%83%E7%B4%A0%201%20%E5%9C%A8%E6%95%B0%E7%BB%84%E5%A4%B4%E9%83%A8%E6%97%B6%EF%BC%8C%E8%BE%BE%E5%88%B0%E6%9C%80%E4%BD%B3%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%20O%281%29%0A%20%20%20%20%20%20%20%20%23%20%E5%BD%93%E5%85%83%E7%B4%A0%201%20%E5%9C%A8%E6%95%B0%E7%BB%84%E5%B0%BE%E9%83%A8%E6%97%B6%EF%BC%8C%E8%BE%BE%E5%88%B0%E6%9C%80%E5%B7%AE%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%20O%28n%29%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2010%0A%20%20%20%20nums%20%3D%20random_numbers%28n%29%0A%20%20%20%20index%20%3D%20find_one%28nums%29%0A%20%20%20%20print%28%22%5Cn%E6%95%B0%E7%BB%84%20%5B%201,%202,%20...,%20n%20%5D%20%E8%A2%AB%E6%89%93%E4%B9%B1%E5%90%8E%20%3D%22,%20nums%29%0A%20%20%20%20print%28%22%E6%95%B0%E5%AD%97%201%20%E7%9A%84%E7%B4%A2%E5%BC%95%E4%B8%BA%22,%20index%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 It's important to note that the best-case time complexity is rarely used in practice, as it is usually only achievable under very low probabilities and might be misleading. **The worst-case time complexity is more practical as it provides a safety value for efficiency**, allowing us to confidently use the algorithm.
 
