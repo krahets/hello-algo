@@ -11,7 +11,7 @@ class ListNode:
     def __init__(self, val: int):
         """Constructor"""
         self.val: int = val
-        self.next: ListNode | None = None  # Reference to the next node
+        self.next: ListNode | None = None  # Reference to successor node
         self.prev: ListNode | None = None  # Reference to predecessor node
 
 
