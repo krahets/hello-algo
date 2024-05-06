@@ -36,7 +36,17 @@ In these cases, simply return $-1$. The code is as follows:
 === "C++"
 
     ```cpp title="binary_search_edge.cpp"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* Binary search for the leftmost target */
+    int binarySearchLeftEdge(vector<int> &nums, int target) {
+        // Equivalent to finding the insertion point of target
+        int i = binarySearchInsertion(nums, target);
+        // Did not find target, thus return -1
+        if (i == nums.size() || nums[i] != target) {
+            return -1;
+        }
+        // Found target, return index i
+        return i;
+    }
     ```
 
 === "Java"
@@ -158,7 +168,19 @@ Please note, the insertion point returned is $i$, therefore, it should be subtra
 === "C++"
 
     ```cpp title="binary_search_edge.cpp"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* Binary search for the rightmost target */
+    int binarySearchRightEdge(vector<int> &nums, int target) {
+        // Convert to finding the leftmost target + 1
+        int i = binarySearchInsertion(nums, target + 1);
+        // j points to the rightmost target, i points to the first element greater than target
+        int j = i - 1;
+        // Did not find target, thus return -1
+        if (j == -1 || nums[j] != target) {
+            return -1;
+        }
+        // Found target, return index j
+        return j;
+    }
     ```
 
 === "Java"

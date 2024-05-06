@@ -51,7 +51,31 @@ The code is shown as follows:
 === "C++"
 
     ```cpp title="bucket_sort.cpp"
-    [class]{}-[func]{bucketSort}
+    /* Bucket sort */
+    void bucketSort(vector<float> &nums) {
+        // Initialize k = n/2 buckets, expected to allocate 2 elements per bucket
+        int k = nums.size() / 2;
+        vector<vector<float>> buckets(k);
+        // 1. Distribute array elements into various buckets
+        for (float num : nums) {
+            // Input data range is [0, 1), use num * k to map to index range [0, k-1]
+            int i = num * k;
+            // Add number to bucket_idx
+            buckets[i].push_back(num);
+        }
+        // 2. Sort each bucket
+        for (vector<float> &bucket : buckets) {
+            // Use built-in sorting function, can also replace with other sorting algorithms
+            sort(bucket.begin(), bucket.end());
+        }
+        // 3. Traverse buckets to merge results
+        int i = 0;
+        for (vector<float> &bucket : buckets) {
+            for (float num : bucket) {
+                nums[i++] = num;
+            }
+        }
+    }
     ```
 
 === "Java"

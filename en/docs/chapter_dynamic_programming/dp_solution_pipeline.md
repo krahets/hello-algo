@@ -133,7 +133,22 @@ Implementation code as follows:
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    [class]{}-[func]{minPathSumDFS}
+    /* Minimum path sum: Brute force search */
+    int minPathSumDFS(vector<vector<int>> &grid, int i, int j) {
+        // If it's the top-left cell, terminate the search
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // If the row or column index is out of bounds, return a +∞ cost
+        if (i < 0 || j < 0) {
+            return INT_MAX;
+        }
+        // Calculate the minimum path cost from the top-left to (i-1, j) and (i, j-1)
+        int up = minPathSumDFS(grid, i - 1, j);
+        int left = minPathSumDFS(grid, i, j - 1);
+        // Return the minimum path cost from the top-left to (i, j)
+        return min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
+    }
     ```
 
 === "Java"
@@ -264,7 +279,27 @@ We introduce a memo list `mem` of the same size as the grid `grid`, used to reco
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    [class]{}-[func]{minPathSumDFSMem}
+    /* Minimum path sum: Memoized search */
+    int minPathSumDFSMem(vector<vector<int>> &grid, vector<vector<int>> &mem, int i, int j) {
+        // If it's the top-left cell, terminate the search
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // If the row or column index is out of bounds, return a +∞ cost
+        if (i < 0 || j < 0) {
+            return INT_MAX;
+        }
+        // If there is a record, return it
+        if (mem[i][j] != -1) {
+            return mem[i][j];
+        }
+        // The minimum path cost from the left and top cells
+        int up = minPathSumDFSMem(grid, mem, i - 1, j);
+        int left = minPathSumDFSMem(grid, mem, i, j - 1);
+        // Record and return the minimum path cost from the top-left to (i, j)
+        mem[i][j] = min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
+        return mem[i][j];
+    }
     ```
 
 === "Java"
@@ -394,7 +429,28 @@ Implement the dynamic programming solution iteratively, code as shown below:
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    [class]{}-[func]{minPathSumDP}
+    /* Minimum path sum: Dynamic programming */
+    int minPathSumDP(vector<vector<int>> &grid) {
+        int n = grid.size(), m = grid[0].size();
+        // Initialize dp table
+        vector<vector<int>> dp(n, vector<int>(m));
+        dp[0][0] = grid[0][0];
+        // State transition: first row
+        for (int j = 1; j < m; j++) {
+            dp[0][j] = dp[0][j - 1] + grid[0][j];
+        }
+        // State transition: first column
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = dp[i - 1][0] + grid[i][0];
+        }
+        // State transition: the rest of the rows and columns
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+            }
+        }
+        return dp[n - 1][m - 1];
+    }
     ```
 
 === "Java"
@@ -563,7 +619,27 @@ Please note, since the array `dp` can only represent the state of one row, we ca
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    [class]{}-[func]{minPathSumDPComp}
+    /* Minimum path sum: Space-optimized dynamic programming */
+    int minPathSumDPComp(vector<vector<int>> &grid) {
+        int n = grid.size(), m = grid[0].size();
+        // Initialize dp table
+        vector<int> dp(m);
+        // State transition: first row
+        dp[0] = grid[0][0];
+        for (int j = 1; j < m; j++) {
+            dp[j] = dp[j - 1] + grid[0][j];
+        }
+        // State transition: the rest of the rows
+        for (int i = 1; i < n; i++) {
+            // State transition: first column
+            dp[0] = dp[0] + grid[i][0];
+            // State transition: the rest of the columns
+            for (int j = 1; j < m; j++) {
+                dp[j] = min(dp[j - 1], dp[j]) + grid[i][j];
+            }
+        }
+        return dp[m - 1];
+    }
     ```
 
 === "Java"

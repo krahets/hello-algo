@@ -731,7 +731,7 @@ The time complexity of both `loop()` and `recur()` functions is $O(n)$, but thei
 
 ## 2.4.3 &nbsp; Common types
 
-Let the size of the input data be $n$, the following chart displays common types of space complexities (arranged from low to high).
+Let the size of the input data be $n$, Figure 2-16 displays common types of space complexities (arranged from low to high).
 
 $$
 \begin{aligned}
@@ -775,9 +775,28 @@ Note that memory occupied by initializing variables or calling functions in a lo
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{func}
+    /* Function */
+    int func() {
+        // Perform some operations
+        return 0;
+    }
 
-    [class]{}-[func]{constant}
+    /* Constant complexity */
+    void constant(int n) {
+        // Constants, variables, objects occupy O(1) space
+        const int a = 0;
+        int b = 0;
+        vector<int> nums(10000);
+        ListNode node(0);
+        // Variables in a loop occupy O(1) space
+        for (int i = 0; i < n; i++) {
+            int c = 0;
+        }
+        // Functions in a loop occupy O(1) space
+        for (int i = 0; i < n; i++) {
+            func();
+        }
+    }
     ```
 
 === "Java"
@@ -915,7 +934,21 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{linear}
+    /* Linear complexity */
+    void linear(int n) {
+        // Array of length n occupies O(n) space
+        vector<int> nums(n);
+        // A list of length n occupies O(n) space
+        vector<ListNode> nodes;
+        for (int i = 0; i < n; i++) {
+            nodes.push_back(ListNode(i));
+        }
+        // A hash table of length n occupies O(n) space
+        unordered_map<int, string> map;
+        for (int i = 0; i < n; i++) {
+            map[i] = to_string(i);
+        }
+    }
     ```
 
 === "Java"
@@ -1022,7 +1055,13 @@ As shown in Figure 2-17, this function's recursive depth is $n$, meaning there a
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{linearRecur}
+    /* Linear complexity (recursive implementation) */
+    void linearRecur(int n) {
+        cout << "Recursion n = " << n << endl;
+        if (n == 1)
+            return;
+        linearRecur(n - 1);
+    }
     ```
 
 === "Java"
@@ -1123,7 +1162,18 @@ Quadratic order is common in matrices and graphs, where the number of elements i
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{quadratic}
+    /* Quadratic complexity */
+    void quadratic(int n) {
+        // A two-dimensional list occupies O(n^2) space
+        vector<vector<int>> numMatrix;
+        for (int i = 0; i < n; i++) {
+            vector<int> tmp;
+            for (int j = 0; j < n; j++) {
+                tmp.push_back(0);
+            }
+            numMatrix.push_back(tmp);
+        }
+    }
     ```
 
 === "Java"
@@ -1228,7 +1278,14 @@ As shown in Figure 2-18, the recursive depth of this function is $n$, and in eac
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{quadraticRecur}
+    /* Quadratic complexity (recursive implementation) */
+    int quadraticRecur(int n) {
+        if (n <= 0)
+            return 0;
+        vector<int> nums(n);
+        cout << "Recursive n = " << n << ", length of nums = " << nums.size() << endl;
+        return quadraticRecur(n - 1);
+    }
     ```
 
 === "Java"
@@ -1335,7 +1392,15 @@ Exponential order is common in binary trees. Observe Figure 2-19, a "full binary
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{buildTree}
+    /* Exponential complexity (building a full binary tree) */
+    TreeNode *buildTree(int n) {
+        if (n == 0)
+            return nullptr;
+        TreeNode *root = new TreeNode(0);
+        root->left = buildTree(n - 1);
+        root->right = buildTree(n - 1);
+        return root;
+    }
     ```
 
 === "Java"

@@ -6,7 +6,7 @@ comments: true
 
 !!! question
 
-    Given the preorder traversal `preorder` and inorder traversal `inorder` of a binary tree, construct the binary tree and return the root node of the binary tree. Assume that there are no duplicate values in the nodes of the binary tree (as shown in the diagram below).
+    Given the preorder traversal `preorder` and inorder traversal `inorder` of a binary tree, construct the binary tree and return the root node of the binary tree. Assume that there are no duplicate values in the nodes of the binary tree (as shown in Figure 12-5).
 
 ![Example data for building a binary tree](build_binary_tree_problem.assets/build_tree_example.png){ class="animation-figure" }
 
@@ -26,10 +26,10 @@ Based on the above analysis, this problem can be solved using divide and conquer
 
 By definition, `preorder` and `inorder` can be divided into three parts.
 
-- Preorder traversal: `[ Root | Left Subtree | Right Subtree ]`, for example, the tree in the diagram corresponds to `[ 3 | 9 | 2 1 7 ]`.
-- Inorder traversal: `[ Left Subtree | Root | Right Subtree ]`, for example, the tree in the diagram corresponds to `[ 9 | 3 | 1 2 7 ]`.
+- Preorder traversal: `[ Root | Left Subtree | Right Subtree ]`, for example, the tree in the figure corresponds to `[ 3 | 9 | 2 1 7 ]`.
+- Inorder traversal: `[ Left Subtree | Root | Right Subtree ]`, for example, the tree in the figure corresponds to `[ 9 | 3 | 1 2 7 ]`.
 
-Using the data in the diagram above, we can obtain the division results as shown in the steps below.
+Using the data in the figure above, we can obtain the division results as shown in Figure 12-6.
 
 1. The first element 3 in the preorder traversal is the value of the root node.
 2. Find the index of the root node 3 in `inorder`, and use this index to divide `inorder` into `[ 9 | 3 ｜ 1 2 7 ]`.
@@ -61,7 +61,7 @@ As shown in Table 12-1, the above variables can represent the index of the root 
 
 </div>
 
-Please note, the meaning of $(m-l)$ in the right subtree root index is "the number of nodes in the left subtree", which is suggested to be understood in conjunction with the diagram below.
+Please note, the meaning of $(m-l)$ in the right subtree root index is "the number of nodes in the left subtree", which is suggested to be understood in conjunction with Figure 12-7.
 
 ![Indexes of the root node and left and right subtrees](build_binary_tree_problem.assets/build_tree_division_pointers.png){ class="animation-figure" }
 
@@ -107,9 +107,33 @@ To improve the efficiency of querying $m$, we use a hash table `hmap` to store t
 === "C++"
 
     ```cpp title="build_tree.cpp"
-    [class]{}-[func]{dfs}
+    /* Build binary tree: Divide and conquer */
+    TreeNode *dfs(vector<int> &preorder, unordered_map<int, int> &inorderMap, int i, int l, int r) {
+        // Terminate when subtree interval is empty
+        if (r - l < 0)
+            return NULL;
+        // Initialize root node
+        TreeNode *root = new TreeNode(preorder[i]);
+        // Query m to divide left and right subtrees
+        int m = inorderMap[preorder[i]];
+        // Subproblem: build left subtree
+        root->left = dfs(preorder, inorderMap, i + 1, l, m - 1);
+        // Subproblem: build right subtree
+        root->right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
+        // Return root node
+        return root;
+    }
 
-    [class]{}-[func]{buildTree}
+    /* Build binary tree */
+    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
+        // Initialize hash table, storing in-order elements to indices mapping
+        unordered_map<int, int> inorderMap;
+        for (int i = 0; i < inorder.size(); i++) {
+            inorderMap[inorder[i]] = i;
+        }
+        TreeNode *root = dfs(preorder, inorderMap, 0, 0, inorder.size() - 1);
+        return root;
+    }
     ```
 
 === "Java"
@@ -232,7 +256,7 @@ To improve the efficiency of querying $m$, we use a hash table `hmap` to store t
     [class]{}-[func]{buildTree}
     ```
 
-The diagram below shows the recursive process of building the binary tree, where each node is established during the "descending" process, and each edge (reference) is established during the "ascending" process.
+Figure 12-8 shows the recursive process of building the binary tree, where each node is established during the "descending" process, and each edge (reference) is established during the "ascending" process.
 
 === "<1>"
     ![Recursive process of building a binary tree](build_binary_tree_problem.assets/built_tree_step1.png){ class="animation-figure" }
@@ -263,7 +287,7 @@ The diagram below shows the recursive process of building the binary tree, where
 
 <p align="center"> Figure 12-8 &nbsp; Recursive process of building a binary tree </p>
 
-Each recursive function's division results of `preorder` and `inorder` are shown in the diagram below.
+Each recursive function's division results of `preorder` and `inorder` are shown in Figure 12-9.
 
 ![Division results in each recursive function](build_binary_tree_problem.assets/built_tree_overall.png){ class="animation-figure" }
 

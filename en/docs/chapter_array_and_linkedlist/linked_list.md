@@ -14,7 +14,7 @@ The design of linked lists allows for their nodes to be distributed across memor
 
 <p align="center"> Figure 4-5 &nbsp; Linked list definition and storage method </p>
 
-As shown in the figure, we see that the basic building block of a linked list is the <u>node</u> object. Each node comprises two key components: the node's "value" and a "reference" to the next node.
+As shown in Figure 4-5, we see that the basic building block of a linked list is the <u>node</u> object. Each node comprises two key components: the node's "value" and a "reference" to the next node.
 
 - The first node in a linked list is the "head node", and the final one is the "tail node".
 - The tail node points to "null", designated as `null` in Java, `nullptr` in C++, and `None` in Python.
@@ -412,7 +412,7 @@ The array as a whole is a variable, for instance, the array `nums` includes elem
 
 ### 2. &nbsp; Inserting nodes
 
-Inserting a node into a linked list is very easy. As shown in the figure, let's assume we aim to insert a new node `P` between two adjacent nodes `n0` and `n1`. **This can be achieved by simply modifying two node references (pointers)**, with a time complexity of $O(1)$.
+Inserting a node into a linked list is very easy. As shown in Figure 4-6, let's assume we aim to insert a new node `P` between two adjacent nodes `n0` and `n1`. **This can be achieved by simply modifying two node references (pointers)**, with a time complexity of $O(1)$.
 
 By comparison, inserting an element into an array has a time complexity of $O(n)$, which becomes less efficient when dealing with large data volumes.
 
@@ -433,7 +433,12 @@ By comparison, inserting an element into an array has a time complexity of $O(n)
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    [class]{}-[func]{insert}
+    /* Insert node P after node n0 in the linked list */
+    void insert(ListNode *n0, ListNode *P) {
+        ListNode *n1 = n0->next;
+        P->next = n1;
+        n0->next = P;
+    }
     ```
 
 === "Java"
@@ -515,7 +520,7 @@ By comparison, inserting an element into an array has a time complexity of $O(n)
 
 ### 3. &nbsp; Deleting nodes
 
-As shown in the figure, deleting a node from a linked list is also very easy, **involving only the modification of a single node's reference (pointer)**.
+As shown in Figure 4-7, deleting a node from a linked list is also very easy, **involving only the modification of a single node's reference (pointer)**.
 
 It's important to note that even though node `P` continues to point to `n1` after being deleted, it becomes inaccessible during linked list traversal. This effectively means that `P` is no longer a part of the linked list.
 
@@ -539,7 +544,17 @@ It's important to note that even though node `P` continues to point to `n1` afte
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    [class]{}-[func]{remove}
+    /* Remove the first node after node n0 in the linked list */
+    void remove(ListNode *n0) {
+        if (n0->next == nullptr)
+            return;
+        // n0 -> P -> n1
+        ListNode *P = n0->next;
+        ListNode *n1 = P->next;
+        n0->next = n1;
+        // Free memory
+        delete P;
+    }
     ```
 
 === "Java"
@@ -641,7 +656,15 @@ It's important to note that even though node `P` continues to point to `n1` afte
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    [class]{}-[func]{access}
+    /* Access the node at `index` in the linked list */
+    ListNode *access(ListNode *head, int index) {
+        for (int i = 0; i < index; i++) {
+            if (head == nullptr)
+                return nullptr;
+            head = head->next;
+        }
+        return head;
+    }
     ```
 
 === "Java"
@@ -745,7 +768,17 @@ Traverse the linked list to locate a node whose value matches `target`, and then
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    [class]{}-[func]{find}
+    /* Search for the first node with value target in the linked list */
+    int find(ListNode *head, int target) {
+        int index = 0;
+        while (head != nullptr) {
+            if (head->val == target)
+                return index;
+            head = head->next;
+            index++;
+        }
+        return -1;
+    }
     ```
 
 === "Java"
@@ -851,7 +884,7 @@ Table 4-1 summarizes the characteristics of arrays and linked lists, and it also
 
 ## 4.2.3 &nbsp; Common types of linked lists
 
-As shown in the figure, there are three common types of linked lists.
+As shown in Figure 4-8, there are three common types of linked lists.
 
 - **Singly linked list**: This is the standard linked list described earlier. Nodes in a singly linked list include a value and a reference to the next node. The first node is known as the head node, and the last node, which points to null (`None`), is the tail node.
 - **Circular linked list**: This is formed when the tail node of a singly linked list points back to the head node, creating a loop. In a circular linked list, any node can function as the head node.

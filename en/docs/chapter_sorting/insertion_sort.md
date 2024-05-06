@@ -48,7 +48,19 @@ Example code is as follows:
 === "C++"
 
     ```cpp title="insertion_sort.cpp"
-    [class]{}-[func]{insertionSort}
+    /* Insertion sort */
+    void insertionSort(vector<int> &nums) {
+        // Outer loop: sorted range is [0, i-1]
+        for (int i = 1; i < nums.size(); i++) {
+            int base = nums[i], j = i - 1;
+            // Inner loop: insert base into the correct position within the sorted range [0, i-1]
+            while (j >= 0 && nums[j] > base) {
+                nums[j + 1] = nums[j]; // Move nums[j] to the right by one position
+                j--;
+            }
+            nums[j + 1] = base; // Assign base to the correct position
+        }
+    }
     ```
 
 === "Java"

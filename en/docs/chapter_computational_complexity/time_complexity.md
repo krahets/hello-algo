@@ -675,7 +675,7 @@ In essence, time complexity analysis is about finding the asymptotic upper bound
 
     If there exist positive real numbers $c$ and $n_0$ such that for all $n > n_0$, $T(n) \leq c \cdot f(n)$, then $f(n)$ is considered an asymptotic upper bound of $T(n)$, denoted as $T(n) = O(f(n))$.
 
-As illustrated below, calculating the asymptotic upper bound involves finding a function $f(n)$ such that, as $n$ approaches infinity, $T(n)$ and $f(n)$ have the same growth order, differing only by a constant factor $c$.
+As shown in Figure 2-8, calculating the asymptotic upper bound involves finding a function $f(n)$ such that, as $n$ approaches infinity, $T(n)$ and $f(n)$ have the same growth order, differing only by a constant factor $c$.
 
 ![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.png){ class="animation-figure" }
 
@@ -963,7 +963,7 @@ The following table illustrates examples of different operation counts and their
 
 ## 2.3.4 &nbsp; Common types of time complexity
 
-Let's consider the input data size as $n$. The common types of time complexities are illustrated below, arranged from lowest to highest:
+Let's consider the input data size as $n$. The common types of time complexities are shown in Figure 2-9, arranged from lowest to highest:
 
 $$
 \begin{aligned}
@@ -995,7 +995,14 @@ Constant order means the number of operations is independent of the input data s
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{constant}
+    /* Constant complexity */
+    int constant(int n) {
+        int count = 0;
+        int size = 100000;
+        for (int i = 0; i < size; i++)
+            count++;
+        return count;
+    }
     ```
 
 === "Java"
@@ -1095,7 +1102,13 @@ Linear order indicates the number of operations grows linearly with the input da
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{linear}
+    /* Linear complexity */
+    int linear(int n) {
+        int count = 0;
+        for (int i = 0; i < n; i++)
+            count++;
+        return count;
+    }
     ```
 
 === "Java"
@@ -1193,7 +1206,15 @@ Operations like array traversal and linked list traversal have a time complexity
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{arrayTraversal}
+    /* Linear complexity (traversing an array) */
+    int arrayTraversal(vector<int> &nums) {
+        int count = 0;
+        // Loop count is proportional to the length of the array
+        for (int num : nums) {
+            count++;
+        }
+        return count;
+    }
     ```
 
 === "Java"
@@ -1298,7 +1319,17 @@ Quadratic order means the number of operations grows quadratically with the inpu
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{quadratic}
+    /* Quadratic complexity */
+    int quadratic(int n) {
+        int count = 0;
+        // Loop count is squared in relation to the data size n
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                count++;
+            }
+        }
+        return count;
+    }
     ```
 
 === "Java"
@@ -1413,7 +1444,24 @@ For instance, in bubble sort, the outer loop runs $n - 1$ times, and the inner l
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{bubbleSort}
+    /* Quadratic complexity (bubble sort) */
+    int bubbleSort(vector<int> &nums) {
+        int count = 0; // Counter
+        // Outer loop: unsorted range is [0, i]
+        for (int i = nums.size() - 1; i > 0; i--) {
+            // Inner loop: swap the largest element in the unsorted range [0, i] to the right end of the range
+            for (int j = 0; j < i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    // Swap nums[j] and nums[j + 1]
+                    int tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    count += 3; // Element swap includes 3 individual operations
+                }
+            }
+        }
+        return count;
+    }
     ```
 
 === "Java"
@@ -1530,7 +1578,19 @@ Figure 2-11 and code simulate the cell division process, with a time complexity 
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{exponential}
+    /* Exponential complexity (loop implementation) */
+    int exponential(int n) {
+        int count = 0, base = 1;
+        // Cells split into two every round, forming the sequence 1, 2, 4, 8, ..., 2^(n-1)
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < base; j++) {
+                count++;
+            }
+            base *= 2;
+        }
+        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
+        return count;
+    }
     ```
 
 === "Java"
@@ -1636,7 +1696,12 @@ In practice, exponential order often appears in recursive functions. For example
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{expRecur}
+    /* Exponential complexity (recursive implementation) */
+    int expRecur(int n) {
+        if (n == 1)
+            return 1;
+        return expRecur(n - 1) + expRecur(n - 1) + 1;
+    }
     ```
 
 === "Java"
@@ -1739,7 +1804,15 @@ Figure 2-12 and code simulate the "halving each round" process, with a time comp
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{logarithmic}
+    /* Logarithmic complexity (loop implementation) */
+    int logarithmic(int n) {
+        int count = 0;
+        while (n > 1) {
+            n = n / 2;
+            count++;
+        }
+        return count;
+    }
     ```
 
 === "Java"
@@ -1841,7 +1914,12 @@ Like exponential order, logarithmic order also frequently appears in recursive f
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{logRecur}
+    /* Logarithmic complexity (recursive implementation) */
+    int logRecur(int n) {
+        if (n <= 1)
+            return 0;
+        return logRecur(n / 2) + 1;
+    }
     ```
 
 === "Java"
@@ -1953,7 +2031,16 @@ Linear-logarithmic order often appears in nested loops, with the complexities of
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{linearLogRecur}
+    /* Linear logarithmic complexity */
+    int linearLogRecur(int n) {
+        if (n <= 1)
+            return 1;
+        int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+        for (int i = 0; i < n; i++) {
+            count++;
+        }
+        return count;
+    }
     ```
 
 === "Java"
@@ -2072,7 +2159,17 @@ Factorials are typically implemented using recursion. As shown in the code and F
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{factorialRecur}
+    /* Factorial complexity (recursive implementation) */
+    int factorialRecur(int n) {
+        if (n == 0)
+            return 1;
+        int count = 0;
+        // From 1 split into n
+        for (int i = 0; i < n; i++) {
+            count += factorialRecur(n - 1);
+        }
+        return count;
+    }
     ```
 
 === "Java"
@@ -2196,9 +2293,30 @@ The "worst-case time complexity" corresponds to the asymptotic upper bound, deno
 === "C++"
 
     ```cpp title="worst_best_time_complexity.cpp"
-    [class]{}-[func]{randomNumbers}
+    /* Generate an array with elements {1, 2, ..., n} in a randomly shuffled order */
+    vector<int> randomNumbers(int n) {
+        vector<int> nums(n);
+        // Generate array nums = { 1, 2, 3, ..., n }
+        for (int i = 0; i < n; i++) {
+            nums[i] = i + 1;
+        }
+        // Generate a random seed using system time
+        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+        // Randomly shuffle array elements
+        shuffle(nums.begin(), nums.end(), default_random_engine(seed));
+        return nums;
+    }
 
-    [class]{}-[func]{findOne}
+    /* Find the index of number 1 in array nums */
+    int findOne(vector<int> &nums) {
+        for (int i = 0; i < nums.size(); i++) {
+            // When element 1 is at the start of the array, achieve best time complexity O(1)
+            // When element 1 is at the end of the array, achieve worst time complexity O(n)
+            if (nums[i] == 1)
+                return i;
+        }
+        return -1;
+    }
     ```
 
 === "Java"

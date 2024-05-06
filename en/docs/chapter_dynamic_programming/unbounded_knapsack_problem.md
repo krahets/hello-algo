@@ -61,7 +61,25 @@ Comparing the code for the two problems, the state transition changes from $i-1$
 === "C++"
 
     ```cpp title="unbounded_knapsack.cpp"
-    [class]{}-[func]{unboundedKnapsackDP}
+    /* Complete knapsack: Dynamic programming */
+    int unboundedKnapsackDP(vector<int> &wgt, vector<int> &val, int cap) {
+        int n = wgt.size();
+        // Initialize dp table
+        vector<vector<int>> dp(n + 1, vector<int>(cap + 1, 0));
+        // State transition
+        for (int i = 1; i <= n; i++) {
+            for (int c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // If exceeding the knapsack capacity, do not choose item i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // The greater value between not choosing and choosing item i
+                    dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[n][cap];
+    }
     ```
 
 === "Java"
@@ -206,7 +224,25 @@ The code implementation is quite simple, just remove the first dimension of the 
 === "C++"
 
     ```cpp title="unbounded_knapsack.cpp"
-    [class]{}-[func]{unboundedKnapsackDPComp}
+    /* Complete knapsack: Space-optimized dynamic programming */
+    int unboundedKnapsackDPComp(vector<int> &wgt, vector<int> &val, int cap) {
+        int n = wgt.size();
+        // Initialize dp table
+        vector<int> dp(cap + 1, 0);
+        // State transition
+        for (int i = 1; i <= n; i++) {
+            for (int c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // If exceeding the knapsack capacity, do not choose item i
+                    dp[c] = dp[c];
+                } else {
+                    // The greater value between not choosing and choosing item i
+                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
+    }
     ```
 
 === "Java"
@@ -375,7 +411,30 @@ For this reason, we use the number $amt + 1$ to represent an invalid solution, b
 === "C++"
 
     ```cpp title="coin_change.cpp"
-    [class]{}-[func]{coinChangeDP}
+    /* Coin change: Dynamic programming */
+    int coinChangeDP(vector<int> &coins, int amt) {
+        int n = coins.size();
+        int MAX = amt + 1;
+        // Initialize dp table
+        vector<vector<int>> dp(n + 1, vector<int>(amt + 1, 0));
+        // State transition: first row and first column
+        for (int a = 1; a <= amt; a++) {
+            dp[0][a] = MAX;
+        }
+        // State transition: the rest of the rows and columns
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // If exceeding the target amount, do not choose coin i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // The smaller value between not choosing and choosing coin i
+                    dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[n][amt] != MAX ? dp[n][amt] : -1;
+    }
     ```
 
 === "Java"
@@ -552,7 +611,27 @@ The space optimization for the coin change problem is handled in the same way as
 === "C++"
 
     ```cpp title="coin_change.cpp"
-    [class]{}-[func]{coinChangeDPComp}
+    /* Coin change: Space-optimized dynamic programming */
+    int coinChangeDPComp(vector<int> &coins, int amt) {
+        int n = coins.size();
+        int MAX = amt + 1;
+        // Initialize dp table
+        vector<int> dp(amt + 1, MAX);
+        dp[0] = 0;
+        // State transition
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // If exceeding the target amount, do not choose coin i
+                    dp[a] = dp[a];
+                } else {
+                    // The smaller value between not choosing and choosing coin i
+                    dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[amt] != MAX ? dp[amt] : -1;
+    }
     ```
 
 === "Java"
@@ -698,7 +777,29 @@ When the target amount is $0$, no coins are needed to make up the target amount,
 === "C++"
 
     ```cpp title="coin_change_ii.cpp"
-    [class]{}-[func]{coinChangeIIDP}
+    /* Coin change II: Dynamic programming */
+    int coinChangeIIDP(vector<int> &coins, int amt) {
+        int n = coins.size();
+        // Initialize dp table
+        vector<vector<int>> dp(n + 1, vector<int>(amt + 1, 0));
+        // Initialize first column
+        for (int i = 0; i <= n; i++) {
+            dp[i][0] = 1;
+        }
+        // State transition
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // If exceeding the target amount, do not choose coin i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // The sum of the two options of not choosing and choosing coin i
+                    dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
+                }
+            }
+        }
+        return dp[n][amt];
+    }
     ```
 
 === "Java"
@@ -824,7 +925,26 @@ The space optimization approach is the same, just remove the coin dimension:
 === "C++"
 
     ```cpp title="coin_change_ii.cpp"
-    [class]{}-[func]{coinChangeIIDPComp}
+    /* Coin change II: Space-optimized dynamic programming */
+    int coinChangeIIDPComp(vector<int> &coins, int amt) {
+        int n = coins.size();
+        // Initialize dp table
+        vector<int> dp(amt + 1, 0);
+        dp[0] = 1;
+        // State transition
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // If exceeding the target amount, do not choose coin i
+                    dp[a] = dp[a];
+                } else {
+                    // The sum of the two options of not choosing and choosing coin i
+                    dp[a] = dp[a] + dp[a - coins[i - 1]];
+                }
+            }
+        }
+        return dp[amt];
+    }
     ```
 
 === "Java"

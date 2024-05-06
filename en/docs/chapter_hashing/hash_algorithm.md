@@ -91,13 +91,45 @@ The design of hash algorithms is a complex issue that requires consideration of 
 === "C++"
 
     ```cpp title="simple_hash.cpp"
-    [class]{}-[func]{addHash}
+    /* Additive hash */
+    int addHash(string key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (unsigned char c : key) {
+            hash = (hash + (int)c) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{}-[func]{mulHash}
+    /* Multiplicative hash */
+    int mulHash(string key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (unsigned char c : key) {
+            hash = (31 * hash + (int)c) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{}-[func]{xorHash}
+    /* XOR hash */
+    int xorHash(string key) {
+        int hash = 0;
+        const int MODULUS = 1000000007;
+        for (unsigned char c : key) {
+            hash ^= (int)c;
+        }
+        return hash & MODULUS;
+    }
 
-    [class]{}-[func]{rotHash}
+    /* Rotational hash */
+    int rotHash(string key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (unsigned char c : key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ (int)c) % MODULUS;
+        }
+        return (int)hash;
+    }
     ```
 
 === "Java"

@@ -123,7 +123,119 @@ The code below provides a simple implementation of a separate chaining hash tabl
 === "C++"
 
     ```cpp title="hash_map_chaining.cpp"
-    [class]{HashMapChaining}-[func]{}
+    /* Chained address hash table */
+    class HashMapChaining {
+      private:
+        int size;                       // Number of key-value pairs
+        int capacity;                   // Hash table capacity
+        double loadThres;               // Load factor threshold for triggering expansion
+        int extendRatio;                // Expansion multiplier
+        vector<vector<Pair *>> buckets; // Bucket array
+
+      public:
+        /* Constructor */
+        HashMapChaining() : size(0), capacity(4), loadThres(2.0 / 3.0), extendRatio(2) {
+            buckets.resize(capacity);
+        }
+
+        /* Destructor */
+        ~HashMapChaining() {
+            for (auto &bucket : buckets) {
+                for (Pair *pair : bucket) {
+                    // Free memory
+                    delete pair;
+                }
+            }
+        }
+
+        /* Hash function */
+        int hashFunc(int key) {
+            return key % capacity;
+        }
+
+        /* Load factor */
+        double loadFactor() {
+            return (double)size / (double)capacity;
+        }
+
+        /* Query operation */
+        string get(int key) {
+            int index = hashFunc(key);
+            // Traverse the bucket, if the key is found, return the corresponding val
+            for (Pair *pair : buckets[index]) {
+                if (pair->key == key) {
+                    return pair->val;
+                }
+            }
+            // If key not found, return an empty string
+            return "";
+        }
+
+        /* Add operation */
+        void put(int key, string val) {
+            // When the load factor exceeds the threshold, perform expansion
+            if (loadFactor() > loadThres) {
+                extend();
+            }
+            int index = hashFunc(key);
+            // Traverse the bucket, if the specified key is encountered, update the corresponding val and return
+            for (Pair *pair : buckets[index]) {
+                if (pair->key == key) {
+                    pair->val = val;
+                    return;
+                }
+            }
+            // If the key is not found, add the key-value pair to the end
+            buckets[index].push_back(new Pair(key, val));
+            size++;
+        }
+
+        /* Remove operation */
+        void remove(int key) {
+            int index = hashFunc(key);
+            auto &bucket = buckets[index];
+            // Traverse the bucket, remove the key-value pair from it
+            for (int i = 0; i < bucket.size(); i++) {
+                if (bucket[i]->key == key) {
+                    Pair *tmp = bucket[i];
+                    bucket.erase(bucket.begin() + i); // Remove key-value pair
+                    delete tmp;                       // Free memory
+                    size--;
+                    return;
+                }
+            }
+        }
+
+        /* Extend hash table */
+        void extend() {
+            // Temporarily store the original hash table
+            vector<vector<Pair *>> bucketsTmp = buckets;
+            // Initialize the extended new hash table
+            capacity *= extendRatio;
+            buckets.clear();
+            buckets.resize(capacity);
+            size = 0;
+            // Move key-value pairs from the original hash table to the new hash table
+            for (auto &bucket : bucketsTmp) {
+                for (Pair *pair : bucket) {
+                    put(pair->key, pair->val);
+                    // Free memory
+                    delete pair;
+                }
+            }
+        }
+
+        /* Print hash table */
+        void print() {
+            for (auto &bucket : buckets) {
+                cout << "[";
+                for (Pair *pair : bucket) {
+                    cout << pair->key << " -> " << pair->val << ", ";
+                }
+                cout << "]\n";
+            }
+        }
+    };
     ```
 
 === "Java"
@@ -451,7 +563,140 @@ The code below implements an open addressing (linear probing) hash table with la
 === "C++"
 
     ```cpp title="hash_map_open_addressing.cpp"
-    [class]{HashMapOpenAddressing}-[func]{}
+    /* Open addressing hash table */
+    class HashMapOpenAddressing {
+      private:
+        int size;                             // Number of key-value pairs
+        int capacity = 4;                     // Hash table capacity
+        const double loadThres = 2.0 / 3.0;     // Load factor threshold for triggering expansion
+        const int extendRatio = 2;            // Expansion multiplier
+        vector<Pair *> buckets;               // Bucket array
+        Pair *TOMBSTONE = new Pair(-1, "-1"); // Removal mark
+
+      public:
+        /* Constructor */
+        HashMapOpenAddressing() : size(0), buckets(capacity, nullptr) {
+        }
+
+        /* Destructor */
+        ~HashMapOpenAddressing() {
+            for (Pair *pair : buckets) {
+                if (pair != nullptr && pair != TOMBSTONE) {
+                    delete pair;
+                }
+            }
+            delete TOMBSTONE;
+        }
+
+        /* Hash function */
+        int hashFunc(int key) {
+            return key % capacity;
+        }
+
+        /* Load factor */
+        double loadFactor() {
+            return (double)size / capacity;
+        }
+
+        /* Search for the bucket index corresponding to key */
+        int findBucket(int key) {
+            int index = hashFunc(key);
+            int firstTombstone = -1;
+            // Linear probing, break when encountering an empty bucket
+            while (buckets[index] != nullptr) {
+                // If the key is encountered, return the corresponding bucket index
+                if (buckets[index]->key == key) {
+                    // If a removal mark was encountered earlier, move the key-value pair to that index
+                    if (firstTombstone != -1) {
+                        buckets[firstTombstone] = buckets[index];
+                        buckets[index] = TOMBSTONE;
+                        return firstTombstone; // Return the moved bucket index
+                    }
+                    return index; // Return bucket index
+                }
+                // Record the first encountered removal mark
+                if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
+                    firstTombstone = index;
+                }
+                // Calculate the bucket index, return to the head if exceeding the tail
+                index = (index + 1) % capacity;
+            }
+            // If the key does not exist, return the index of the insertion point
+            return firstTombstone == -1 ? index : firstTombstone;
+        }
+
+        /* Query operation */
+        string get(int key) {
+            // Search for the bucket index corresponding to key
+            int index = findBucket(key);
+            // If the key-value pair is found, return the corresponding val
+            if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
+                return buckets[index]->val;
+            }
+            // If key-value pair does not exist, return an empty string
+            return "";
+        }
+
+        /* Add operation */
+        void put(int key, string val) {
+            // When the load factor exceeds the threshold, perform expansion
+            if (loadFactor() > loadThres) {
+                extend();
+            }
+            // Search for the bucket index corresponding to key
+            int index = findBucket(key);
+            // If the key-value pair is found, overwrite val and return
+            if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
+                buckets[index]->val = val;
+                return;
+            }
+            // If the key-value pair does not exist, add the key-value pair
+            buckets[index] = new Pair(key, val);
+            size++;
+        }
+
+        /* Remove operation */
+        void remove(int key) {
+            // Search for the bucket index corresponding to key
+            int index = findBucket(key);
+            // If the key-value pair is found, cover it with a removal mark
+            if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
+                delete buckets[index];
+                buckets[index] = TOMBSTONE;
+                size--;
+            }
+        }
+
+        /* Extend hash table */
+        void extend() {
+            // Temporarily store the original hash table
+            vector<Pair *> bucketsTmp = buckets;
+            // Initialize the extended new hash table
+            capacity *= extendRatio;
+            buckets = vector<Pair *>(capacity, nullptr);
+            size = 0;
+            // Move key-value pairs from the original hash table to the new hash table
+            for (Pair *pair : bucketsTmp) {
+                if (pair != nullptr && pair != TOMBSTONE) {
+                    put(pair->key, pair->val);
+                    delete pair;
+                }
+            }
+        }
+
+        /* Print hash table */
+        void print() {
+            for (Pair *pair : buckets) {
+                if (pair == nullptr) {
+                    cout << "nullptr" << endl;
+                } else if (pair == TOMBSTONE) {
+                    cout << "TOMBSTONE" << endl;
+                } else {
+                    cout << pair->key << " -> " << pair->val << endl;
+                }
+            }
+        }
+    };
     ```
 
 === "Java"

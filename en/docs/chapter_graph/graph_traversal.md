@@ -55,7 +55,32 @@ To prevent revisiting vertices, we use a hash set `visited` to record which node
 === "C++"
 
     ```cpp title="graph_bfs.cpp"
-    [class]{}-[func]{graphBFS}
+    /* Breadth-first traversal */
+    // Use adjacency list to represent the graph, to obtain all adjacent vertices of a specified vertex
+    vector<Vertex *> graphBFS(GraphAdjList &graph, Vertex *startVet) {
+        // Vertex traversal sequence
+        vector<Vertex *> res;
+        // Hash set, used to record visited vertices
+        unordered_set<Vertex *> visited = {startVet};
+        // Queue used to implement BFS
+        queue<Vertex *> que;
+        que.push(startVet);
+        // Starting from vertex vet, loop until all vertices are visited
+        while (!que.empty()) {
+            Vertex *vet = que.front();
+            que.pop();          // Dequeue the vertex at the head of the queue
+            res.push_back(vet); // Record visited vertex
+            // Traverse all adjacent vertices of that vertex
+            for (auto adjVet : graph.adjList[vet]) {
+                if (visited.count(adjVet))
+                    continue;            // Skip already visited vertices
+                que.push(adjVet);        // Only enqueue unvisited vertices
+                visited.emplace(adjVet); // Mark the vertex as visited
+            }
+        }
+        // Return the vertex traversal sequence
+        return res;
+    }
     ```
 
 === "Java"
@@ -246,9 +271,29 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
 === "C++"
 
     ```cpp title="graph_dfs.cpp"
-    [class]{}-[func]{dfs}
+    /* Depth-first traversal helper function */
+    void dfs(GraphAdjList &graph, unordered_set<Vertex *> &visited, vector<Vertex *> &res, Vertex *vet) {
+        res.push_back(vet);   // Record visited vertex
+        visited.emplace(vet); // Mark the vertex as visited
+        // Traverse all adjacent vertices of that vertex
+        for (Vertex *adjVet : graph.adjList[vet]) {
+            if (visited.count(adjVet))
+                continue; // Skip already visited vertices
+            // Recursively visit adjacent vertices
+            dfs(graph, visited, res, adjVet);
+        }
+    }
 
-    [class]{}-[func]{graphDFS}
+    /* Depth-first traversal */
+    // Use adjacency list to represent the graph, to obtain all adjacent vertices of a specified vertex
+    vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
+        // Vertex traversal sequence
+        vector<Vertex *> res;
+        // Hash set, used to record visited vertices
+        unordered_set<Vertex *> visited;
+        dfs(graph, visited, res, startVet);
+        return res;
+    }
     ```
 
 === "Java"

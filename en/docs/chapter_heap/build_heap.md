@@ -42,7 +42,15 @@ It's worth mentioning that **since leaf nodes have no children, they naturally f
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{MaxHeap}
+    /* Constructor, build heap based on input list */
+    MaxHeap(vector<int> nums) {
+        // Add all list elements into the heap
+        maxHeap = nums;
+        // Heapify all nodes except leaves
+        for (int i = parent(size() - 1); i >= 0; i--) {
+            siftDown(i);
+        }
+    }
     ```
 
 === "Java"

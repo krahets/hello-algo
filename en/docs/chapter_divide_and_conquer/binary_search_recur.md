@@ -38,7 +38,7 @@ Starting from the original problem $f(0, n-1)$, perform the binary search throug
 2. Recursively solve the subproblem reduced by half in size, which could be $f(i, m-1)$ or $f(m+1, j)$.
 3. Repeat steps `1.` and `2.`, until `target` is found or the interval is empty and returns.
 
-The diagram below shows the divide-and-conquer process of binary search for element $6$ in an array.
+Figure 12-4 shows the divide-and-conquer process of binary search for element $6$ in an array.
 
 ![The divide-and-conquer process of binary search](binary_search_recur.assets/binary_search_recur.png){ class="animation-figure" }
 
@@ -76,9 +76,32 @@ In the implementation code, we declare a recursive function `dfs()` to solve the
 === "C++"
 
     ```cpp title="binary_search_recur.cpp"
-    [class]{}-[func]{dfs}
+    /* Binary search: problem f(i, j) */
+    int dfs(vector<int> &nums, int target, int i, int j) {
+        // If the interval is empty, indicating no target element, return -1
+        if (i > j) {
+            return -1;
+        }
+        // Calculate midpoint index m
+        int m = (i + j) / 2;
+        if (nums[m] < target) {
+            // Recursive subproblem f(m+1, j)
+            return dfs(nums, target, m + 1, j);
+        } else if (nums[m] > target) {
+            // Recursive subproblem f(i, m-1)
+            return dfs(nums, target, i, m - 1);
+        } else {
+            // Found the target element, thus return its index
+            return m;
+        }
+    }
 
-    [class]{}-[func]{binarySearch}
+    /* Binary search */
+    int binarySearch(vector<int> &nums, int target) {
+        int n = nums.size();
+        // Solve problem f(0, n-1)
+        return dfs(nums, target, 0, n - 1);
+    }
     ```
 
 === "Java"

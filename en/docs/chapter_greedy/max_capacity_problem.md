@@ -117,7 +117,26 @@ The variables $i$, $j$, and $res$ use a constant amount of extra space, **thus t
 === "C++"
 
     ```cpp title="max_capacity.cpp"
-    [class]{}-[func]{maxCapacity}
+    /* Maximum capacity: Greedy */
+    int maxCapacity(vector<int> &ht) {
+        // Initialize i, j, making them split the array at both ends
+        int i = 0, j = ht.size() - 1;
+        // Initial maximum capacity is 0
+        int res = 0;
+        // Loop for greedy selection until the two boards meet
+        while (i < j) {
+            // Update maximum capacity
+            int cap = min(ht[i], ht[j]) * (j - i);
+            res = max(res, cap);
+            // Move the shorter board inward
+            if (ht[i] < ht[j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return res;
+    }
     ```
 
 === "Java"

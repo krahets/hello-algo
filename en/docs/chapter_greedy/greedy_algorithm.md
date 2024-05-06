@@ -48,7 +48,24 @@ The implementation code is as follows:
 === "C++"
 
     ```cpp title="coin_change_greedy.cpp"
-    [class]{}-[func]{coinChangeGreedy}
+    /* Coin change: Greedy */
+    int coinChangeGreedy(vector<int> &coins, int amt) {
+        // Assume coins list is ordered
+        int i = coins.size() - 1;
+        int count = 0;
+        // Loop for greedy selection until no remaining amount
+        while (amt > 0) {
+            // Find the smallest coin close to and less than the remaining amount
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // Choose coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // If no feasible solution is found, return -1
+        return amt == 0 ? count : -1;
+    }
     ```
 
 === "Java"

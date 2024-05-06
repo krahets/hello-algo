@@ -133,7 +133,7 @@ Elements in an array are stored in contiguous memory spaces, making it simpler t
 
 <p align="center"> Figure 4-2 &nbsp; Memory address calculation for array elements </p>
 
-As observed in the above illustration, array indexing conventionally begins at $0$. While this might appear counterintuitive, considering counting usually starts at $1$, within the address calculation formula, **an index is essentially an offset from the memory address**. For the first element's address, this offset is $0$, validating its index as $0$.
+As observed in Figure 4-2, array indexing conventionally begins at $0$. While this might appear counterintuitive, considering counting usually starts at $1$, within the address calculation formula, **an index is essentially an offset from the memory address**. For the first element's address, this offset is $0$, validating its index as $0$.
 
 Accessing elements in an array is highly efficient, allowing us to randomly access any element in $O(1)$ time.
 
@@ -152,7 +152,14 @@ Accessing elements in an array is highly efficient, allowing us to randomly acce
 === "C++"
 
     ```cpp title="array.cpp"
-    [class]{}-[func]{randomAccess}
+    /* Random access to elements */
+    int randomAccess(int *nums, int size) {
+        // Randomly select a number in the range [0, size)
+        int randomIndex = rand() % size;
+        // Retrieve and return a random element
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
     ```
 
 === "Java"
@@ -236,7 +243,7 @@ Accessing elements in an array is highly efficient, allowing us to randomly acce
 
 ### 3. &nbsp; Inserting elements
 
-Array elements are tightly packed in memory, with no space available to accommodate additional data between them. Illustrated in Figure below, inserting an element in the middle of an array requires shifting all subsequent elements back by one position to create room for the new element.
+Array elements are tightly packed in memory, with no space available to accommodate additional data between them. As illustrated in Figure 4-3, inserting an element in the middle of an array requires shifting all subsequent elements back by one position to create room for the new element.
 
 ![Array element insertion example](array.assets/array_insert_element.png){ class="animation-figure" }
 
@@ -259,7 +266,15 @@ It's important to note that due to the fixed length of an array, inserting an el
 === "C++"
 
     ```cpp title="array.cpp"
-    [class]{}-[func]{insert}
+    /* Insert element num at `index` */
+    void insert(int *nums, int size, int num, int index) {
+        // Move all elements after `index` one position backward
+        for (int i = size - 1; i > index; i--) {
+            nums[i] = nums[i - 1];
+        }
+        // Assign num to the element at index
+        nums[index] = num;
+    }
     ```
 
 === "Java"
@@ -365,7 +380,13 @@ Please note that after deletion, the former last element becomes "meaningless," 
 === "C++"
 
     ```cpp title="array.cpp"
-    [class]{}-[func]{remove}
+    /* Remove the element at `index` */
+    void remove(int *nums, int size, int index) {
+        // Move all elements after `index` one position forward
+        for (int i = index; i < size - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
     ```
 
 === "Java"
@@ -477,7 +498,14 @@ In most programming languages, we can traverse an array either by using indices 
 === "C++"
 
     ```cpp title="array.cpp"
-    [class]{}-[func]{traverse}
+    /* Traverse array */
+    void traverse(int *nums, int size) {
+        int count = 0;
+        // Traverse array by index
+        for (int i = 0; i < size; i++) {
+            count += nums[i];
+        }
+    }
     ```
 
 === "Java"
@@ -583,7 +611,14 @@ Because arrays are linear data structures, this operation is commonly referred t
 === "C++"
 
     ```cpp title="array.cpp"
-    [class]{}-[func]{find}
+    /* Search for a specified element in the array */
+    int find(int *nums, int size, int target) {
+        for (int i = 0; i < size; i++) {
+            if (nums[i] == target)
+                return i;
+        }
+        return -1;
+    }
     ```
 
 === "Java"
@@ -688,7 +723,19 @@ To expand an array,  it's necessary to create a larger array and then copy the e
 === "C++"
 
     ```cpp title="array.cpp"
-    [class]{}-[func]{extend}
+    /* Extend array length */
+    int *extend(int *nums, int size, int enlarge) {
+        // Initialize an extended length array
+        int *res = new int[size + enlarge];
+        // Copy all elements from the original array to the new array
+        for (int i = 0; i < size; i++) {
+            res[i] = nums[i];
+        }
+        // Free memory
+        delete[] nums;
+        // Return the new array after expansion
+        return res;
+    }
     ```
 
 === "Java"

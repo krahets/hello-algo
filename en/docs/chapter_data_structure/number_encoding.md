@@ -18,7 +18,7 @@ Firstly, it's important to note that **numbers are stored in computers using the
 - **One's complement**: The one's complement of a positive number is the same as its sign-magnitude. For negative numbers, it's obtained by inverting all bits except the sign bit.
 - **Two's complement**: The two's complement of a positive number is the same as its sign-magnitude. For negative numbers, it's obtained by adding $1$ to their one's complement.
 
-The following diagram illustrates the conversions among sign-magnitude, one's complement, and two's complement:
+Figure 3-4 illustrates the conversions among sign-magnitude, one's complement, and two's complement:
 
 ![Conversions between sign-magnitude, one's complement, and two's complement](number_encoding.assets/1s_2s_complement.png){ class="animation-figure" }
 
@@ -133,7 +133,7 @@ $$
 
 <p align="center"> Figure 3-5 &nbsp; Example calculation of a float in IEEE 754 standard </p>
 
-Observing the diagram, given an example data $\mathrm{S} = 0$, $\mathrm{E} = 124$, $\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$, we have:
+Observing Figure 3-5, given an example data $\mathrm{S} = 0$, $\mathrm{E} = 124$, $\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$, we have:
 
 $$
 \text{val} = (-1)^0 \times 2^{124 - 127} \times (1 + 0.375) = 0.171875

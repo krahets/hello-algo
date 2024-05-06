@@ -237,7 +237,95 @@ The following code implements a binary tree based on array representation, inclu
 === "C++"
 
     ```cpp title="array_binary_tree.cpp"
-    [class]{ArrayBinaryTree}-[func]{}
+    /* Array-based binary tree class */
+    class ArrayBinaryTree {
+      public:
+        /* Constructor */
+        ArrayBinaryTree(vector<int> arr) {
+            tree = arr;
+        }
+
+        /* List capacity */
+        int size() {
+            return tree.size();
+        }
+
+        /* Get the value of the node at index i */
+        int val(int i) {
+            // If index is out of bounds, return INT_MAX, representing a null
+            if (i < 0 || i >= size())
+                return INT_MAX;
+            return tree[i];
+        }
+
+        /* Get the index of the left child of the node at index i */
+        int left(int i) {
+            return 2 * i + 1;
+        }
+
+        /* Get the index of the right child of the node at index i */
+        int right(int i) {
+            return 2 * i + 2;
+        }
+
+        /* Get the index of the parent of the node at index i */
+        int parent(int i) {
+            return (i - 1) / 2;
+        }
+
+        /* Level-order traversal */
+        vector<int> levelOrder() {
+            vector<int> res;
+            // Traverse array
+            for (int i = 0; i < size(); i++) {
+                if (val(i) != INT_MAX)
+                    res.push_back(val(i));
+            }
+            return res;
+        }
+
+        /* Pre-order traversal */
+        vector<int> preOrder() {
+            vector<int> res;
+            dfs(0, "pre", res);
+            return res;
+        }
+
+        /* In-order traversal */
+        vector<int> inOrder() {
+            vector<int> res;
+            dfs(0, "in", res);
+            return res;
+        }
+
+        /* Post-order traversal */
+        vector<int> postOrder() {
+            vector<int> res;
+            dfs(0, "post", res);
+            return res;
+        }
+
+      private:
+        vector<int> tree;
+
+        /* Depth-first traversal */
+        void dfs(int i, string order, vector<int> &res) {
+            // If it is an empty spot, return
+            if (val(i) == INT_MAX)
+                return;
+            // Pre-order traversal
+            if (order == "pre")
+                res.push_back(val(i));
+            dfs(left(i), order, res);
+            // In-order traversal
+            if (order == "in")
+                res.push_back(val(i));
+            dfs(right(i), order, res);
+            // Post-order traversal
+            if (order == "post")
+                res.push_back(val(i));
+        }
+    };
     ```
 
 === "Java"

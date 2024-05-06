@@ -6,7 +6,7 @@ comments: true
 
 <u>Quick sort</u> is a sorting algorithm based on the divide and conquer strategy, known for its efficiency and wide application.
 
-The core operation of quick sort is "pivot partitioning," aiming to: select an element from the array as the "pivot," move all elements smaller than the pivot to its left, and move elements greater than the pivot to its right. Specifically, the pivot partitioning process is illustrated as follows.
+The core operation of quick sort is "pivot partitioning," aiming to: select an element from the array as the "pivot," move all elements smaller than the pivot to its left, and move elements greater than the pivot to its right. Specifically, the pivot partitioning process is illustrated in Figure 11-8.
 
 1. Select the leftmost element of the array as the pivot, and initialize two pointers `i` and `j` at both ends of the array.
 2. Set up a loop where each round uses `i` (`j`) to find the first element larger (smaller) than the pivot, then swap these two elements.
@@ -69,9 +69,27 @@ After the pivot partitioning, the original array is divided into three parts: le
 === "C++"
 
     ```cpp title="quick_sort.cpp"
-    [class]{QuickSort}-[func]{swap}
+    /* Swap elements */
+    void swap(vector<int> &nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
 
-    [class]{QuickSort}-[func]{partition}
+    /* Partition */
+    int partition(vector<int> &nums, int left, int right) {
+        // Use nums[left] as the pivot
+        int i = left, j = right;
+        while (i < j) {
+            while (i < j && nums[j] >= nums[left])
+                j--; // Search from right to left for the first element smaller than the pivot
+            while (i < j && nums[i] <= nums[left])
+                i++;          // Search from left to right for the first element greater than the pivot
+            swap(nums, i, j); // Swap these two elements
+        }
+        swap(nums, i, left); // Swap the pivot to the boundary between the two subarrays
+        return i;            // Return the index of the pivot
+    }
     ```
 
 === "Java"
@@ -210,7 +228,17 @@ The overall process of quick sort is shown in Figure 11-9.
 === "C++"
 
     ```cpp title="quick_sort.cpp"
-    [class]{QuickSort}-[func]{quickSort}
+    /* Quick sort */
+    void quickSort(vector<int> &nums, int left, int right) {
+        // Terminate recursion when subarray length is 1
+        if (left >= right)
+            return;
+        // Partition
+        int pivot = partition(nums, left, right);
+        // Recursively process the left subarray and right subarray
+        quickSort(nums, left, pivot - 1);
+        quickSort(nums, pivot + 1, right);
+    }
     ```
 
 === "Java"
@@ -356,9 +384,34 @@ Sample code is as follows:
 === "C++"
 
     ```cpp title="quick_sort.cpp"
-    [class]{QuickSortMedian}-[func]{medianThree}
+    /* Select the median of three candidate elements */
+    int medianThree(vector<int> &nums, int left, int mid, int right) {
+        int l = nums[left], m = nums[mid], r = nums[right];
+        if ((l <= m && m <= r) || (r <= m && m <= l))
+            return mid; // m is between l and r
+        if ((m <= l && l <= r) || (r <= l && l <= m))
+            return left; // l is between m and r
+        return right;
+    }
 
-    [class]{QuickSortMedian}-[func]{partition}
+    /* Partition (median of three) */
+    int partition(vector<int> &nums, int left, int right) {
+        // Select the median of three candidate elements
+        int med = medianThree(nums, left, (left + right) / 2, right);
+        // Swap the median to the array's leftmost position
+        swap(nums, left, med);
+        // Use nums[left] as the pivot
+        int i = left, j = right;
+        while (i < j) {
+            while (i < j && nums[j] >= nums[left])
+                j--; // Search from right to left for the first element smaller than the pivot
+            while (i < j && nums[i] <= nums[left])
+                i++;          // Search from left to right for the first element greater than the pivot
+            swap(nums, i, j); // Swap these two elements
+        }
+        swap(nums, i, left); // Swap the pivot to the boundary between the two subarrays
+        return i;            // Return the index of the pivot
+    }
     ```
 
 === "Java"
@@ -509,7 +562,22 @@ To prevent the accumulation of stack frame space, we can compare the lengths of 
 === "C++"
 
     ```cpp title="quick_sort.cpp"
-    [class]{QuickSortTailCall}-[func]{quickSort}
+    /* Quick sort (tail recursion optimization) */
+    void quickSort(vector<int> &nums, int left, int right) {
+        // Terminate when subarray length is 1
+        while (left < right) {
+            // Partition operation
+            int pivot = partition(nums, left, right);
+            // Perform quick sort on the shorter of the two subarrays
+            if (pivot - left < right - pivot) {
+                quickSort(nums, left, pivot - 1); // Recursively sort the left subarray
+                left = pivot + 1;                 // Remaining unsorted interval is [pivot + 1, right]
+            } else {
+                quickSort(nums, pivot + 1, right); // Recursively sort the right subarray
+                right = pivot - 1;                 // Remaining unsorted interval is [left, pivot - 1]
+            }
+        }
+    }
     ```
 
 === "Java"

@@ -49,7 +49,22 @@ Therefore, at the end of the binary, it is certain that: $i$ points to the first
 === "C++"
 
     ```cpp title="binary_search_insertion.cpp"
-    [class]{}-[func]{binarySearchInsertionSimple}
+    /* Binary search for insertion point (no duplicate elements) */
+    int binarySearchInsertionSimple(vector<int> &nums, int target) {
+        int i = 0, j = nums.size() - 1; // Initialize double closed interval [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // Calculate midpoint index m
+            if (nums[m] < target) {
+                i = m + 1; // Target is in interval [m+1, j]
+            } else if (nums[m] > target) {
+                j = m - 1; // Target is in interval [i, m-1]
+            } else {
+                return m; // Found target, return insertion point m
+            }
+        }
+        // Did not find target, return insertion point i
+        return i;
+    }
     ```
 
 === "Java"
@@ -216,7 +231,22 @@ Even so, we can still keep the conditions expanded, as their logic is clearer an
 === "C++"
 
     ```cpp title="binary_search_insertion.cpp"
-    [class]{}-[func]{binarySearchInsertion}
+    /* Binary search for insertion point (with duplicate elements) */
+    int binarySearchInsertion(vector<int> &nums, int target) {
+        int i = 0, j = nums.size() - 1; // Initialize double closed interval [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // Calculate midpoint index m
+            if (nums[m] < target) {
+                i = m + 1; // Target is in interval [m+1, j]
+            } else if (nums[m] > target) {
+                j = m - 1; // Target is in interval [i, m-1]
+            } else {
+                j = m - 1; // First element less than target is in interval [i, m-1]
+            }
+        }
+        // Return insertion point i
+        return i;
+    }
     ```
 
 === "Java"

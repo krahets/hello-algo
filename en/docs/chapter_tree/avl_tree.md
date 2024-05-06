@@ -252,9 +252,17 @@ The "node height" refers to the distance from that node to its farthest leaf nod
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{height}
+    /* Get node height */
+    int height(TreeNode *node) {
+        // Empty node height is -1, leaf node height is 0
+        return node == nullptr ? -1 : node->height;
+    }
 
-    [class]{AVLTree}-[func]{updateHeight}
+    /* Update node height */
+    void updateHeight(TreeNode *node) {
+        // Node height equals the height of the tallest subtree + 1
+        node->height = max(height(node->left), height(node->right)) + 1;
+    }
     ```
 
 === "Java"
@@ -380,7 +388,14 @@ The <u>balance factor</u> of a node is defined as the height of the node's left 
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{balanceFactor}
+    /* Get balance factor */
+    int balanceFactor(TreeNode *node) {
+        // Empty node balance factor is 0
+        if (node == nullptr)
+            return 0;
+        // Node balance factor = left subtree height - right subtree height
+        return height(node->left) - height(node->right);
+    }
     ```
 
 === "Java"
@@ -518,7 +533,19 @@ As shown in Figure 7-27, when the `child` node has a right child (denoted as `gr
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{rightRotate}
+    /* Right rotation operation */
+    TreeNode *rightRotate(TreeNode *node) {
+        TreeNode *child = node->left;
+        TreeNode *grandChild = child->right;
+        // Rotate node to the right around child
+        child->right = node;
+        node->left = grandChild;
+        // Update node height
+        updateHeight(node);
+        updateHeight(child);
+        // Return the root of the subtree after rotation
+        return child;
+    }
     ```
 
 === "Java"
@@ -641,7 +668,19 @@ It can be observed that **the right and left rotation operations are logically s
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{leftRotate}
+    /* Left rotation operation */
+    TreeNode *leftRotate(TreeNode *node) {
+        TreeNode *child = node->right;
+        TreeNode *grandChild = child->left;
+        // Rotate node to the left around child
+        child->left = node;
+        node->right = grandChild;
+        // Update node height
+        updateHeight(node);
+        updateHeight(child);
+        // Return the root of the subtree after rotation
+        return child;
+    }
     ```
 
 === "Java"
@@ -801,7 +840,35 @@ For convenience, we encapsulate the rotation operations into a function. **With 
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{rotate}
+    /* Perform rotation operation to restore balance to the subtree */
+    TreeNode *rotate(TreeNode *node) {
+        // Get the balance factor of node
+        int _balanceFactor = balanceFactor(node);
+        // Left-leaning tree
+        if (_balanceFactor > 1) {
+            if (balanceFactor(node->left) >= 0) {
+                // Right rotation
+                return rightRotate(node);
+            } else {
+                // First left rotation then right rotation
+                node->left = leftRotate(node->left);
+                return rightRotate(node);
+            }
+        }
+        // Right-leaning tree
+        if (_balanceFactor < -1) {
+            if (balanceFactor(node->right) <= 0) {
+                // Left rotation
+                return leftRotate(node);
+            } else {
+                // First right rotation then left rotation
+                node->right = rightRotate(node->right);
+                return leftRotate(node);
+            }
+        }
+        // Balanced tree, no rotation needed, return
+        return node;
+    }
     ```
 
 === "Java"
@@ -938,9 +1005,28 @@ The node insertion operation in AVL trees is similar to that in binary search tr
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{insert}
+    /* Insert node */
+    void insert(int val) {
+        root = insertHelper(root, val);
+    }
 
-    [class]{AVLTree}-[func]{insertHelper}
+    /* Recursively insert node (helper method) */
+    TreeNode *insertHelper(TreeNode *node, int val) {
+        if (node == nullptr)
+            return new TreeNode(val);
+        /* 1. Find insertion position and insert node */
+        if (val < node->val)
+            node->left = insertHelper(node->left, val);
+        else if (val > node->val)
+            node->right = insertHelper(node->right, val);
+        else
+            return node;    // Do not insert duplicate nodes, return
+        updateHeight(node); // Update node height
+        /* 2. Perform rotation operation to restore balance to the subtree */
+        node = rotate(node);
+        // Return the root node of the subtree
+        return node;
+    }
     ```
 
 === "Java"
@@ -1103,9 +1189,50 @@ Similarly, based on the method of removing nodes in binary search trees, rotatio
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{remove}
+    /* Remove node */
+    void remove(int val) {
+        root = removeHelper(root, val);
+    }
 
-    [class]{AVLTree}-[func]{removeHelper}
+    /* Recursively remove node (helper method) */
+    TreeNode *removeHelper(TreeNode *node, int val) {
+        if (node == nullptr)
+            return nullptr;
+        /* 1. Find and remove the node */
+        if (val < node->val)
+            node->left = removeHelper(node->left, val);
+        else if (val > node->val)
+            node->right = removeHelper(node->right, val);
+        else {
+            if (node->left == nullptr || node->right == nullptr) {
+                TreeNode *child = node->left != nullptr ? node->left : node->right;
+                // Number of child nodes = 0, remove node and return
+                if (child == nullptr) {
+                    delete node;
+                    return nullptr;
+                }
+                // Number of child nodes = 1, remove node
+                else {
+                    delete node;
+                    node = child;
+                }
+            } else {
+                // Number of child nodes = 2, remove the next node in in-order traversal and replace the current node with it
+                TreeNode *temp = node->right;
+                while (temp->left != nullptr) {
+                    temp = temp->left;
+                }
+                int tempVal = temp->val;
+                node->right = removeHelper(node->right, temp->val);
+                node->val = tempVal;
+            }
+        }
+        updateHeight(node); // Update node height
+        /* 2. Perform rotation operation to restore balance to the subtree */
+        node = rotate(node);
+        // Return the root node of the subtree
+        return node;
+    }
     ```
 
 === "Java"

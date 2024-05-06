@@ -83,7 +83,22 @@ The search code includes the following elements.
 === "C++"
 
     ```cpp title="knapsack.cpp"
-    [class]{}-[func]{knapsackDFS}
+    /* 0-1 Knapsack: Brute force search */
+    int knapsackDFS(vector<int> &wgt, vector<int> &val, int i, int c) {
+        // If all items have been chosen or the knapsack has no remaining capacity, return value 0
+        if (i == 0 || c == 0) {
+            return 0;
+        }
+        // If exceeding the knapsack capacity, can only choose not to put it in the knapsack
+        if (wgt[i - 1] > c) {
+            return knapsackDFS(wgt, val, i - 1, c);
+        }
+        // Calculate the maximum value of not putting in and putting in item i
+        int no = knapsackDFS(wgt, val, i - 1, c);
+        int yes = knapsackDFS(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1];
+        // Return the greater value of the two options
+        return max(no, yes);
+    }
     ```
 
 === "Java"
@@ -214,7 +229,27 @@ After introducing memoization, **the time complexity depends on the number of su
 === "C++"
 
     ```cpp title="knapsack.cpp"
-    [class]{}-[func]{knapsackDFSMem}
+    /* 0-1 Knapsack: Memoized search */
+    int knapsackDFSMem(vector<int> &wgt, vector<int> &val, vector<vector<int>> &mem, int i, int c) {
+        // If all items have been chosen or the knapsack has no remaining capacity, return value 0
+        if (i == 0 || c == 0) {
+            return 0;
+        }
+        // If there is a record, return it
+        if (mem[i][c] != -1) {
+            return mem[i][c];
+        }
+        // If exceeding the knapsack capacity, can only choose not to put it in the knapsack
+        if (wgt[i - 1] > c) {
+            return knapsackDFSMem(wgt, val, mem, i - 1, c);
+        }
+        // Calculate the maximum value of not putting in and putting in item i
+        int no = knapsackDFSMem(wgt, val, mem, i - 1, c);
+        int yes = knapsackDFSMem(wgt, val, mem, i - 1, c - wgt[i - 1]) + val[i - 1];
+        // Record and return the greater value of the two options
+        mem[i][c] = max(no, yes);
+        return mem[i][c];
+    }
     ```
 
 === "Java"
@@ -342,7 +377,25 @@ Dynamic programming essentially involves filling the $dp$ table during the state
 === "C++"
 
     ```cpp title="knapsack.cpp"
-    [class]{}-[func]{knapsackDP}
+    /* 0-1 Knapsack: Dynamic programming */
+    int knapsackDP(vector<int> &wgt, vector<int> &val, int cap) {
+        int n = wgt.size();
+        // Initialize dp table
+        vector<vector<int>> dp(n + 1, vector<int>(cap + 1, 0));
+        // State transition
+        for (int i = 1; i <= n; i++) {
+            for (int c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // If exceeding the knapsack capacity, do not choose item i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // The greater value between not choosing and choosing item i
+                    dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[n][cap];
+    }
     ```
 
 === "Java"
@@ -435,7 +488,7 @@ Dynamic programming essentially involves filling the $dp$ table during the state
     [class]{}-[func]{knapsackDP}
     ```
 
-As shown in the figures below, both the time complexity and space complexity are determined by the size of the array `dp`, i.e., $O(n \times cap)$.
+As shown in Figure 14-20, both the time complexity and space complexity are determined by the size of the array `dp`, i.e., $O(n \times cap)$.
 
 === "<1>"
     ![The dynamic programming process of the 0-1 knapsack problem](knapsack_problem.assets/knapsack_dp_step1.png){ class="animation-figure" }
@@ -538,7 +591,23 @@ In the code implementation, we only need to delete the first dimension $i$ of th
 === "C++"
 
     ```cpp title="knapsack.cpp"
-    [class]{}-[func]{knapsackDPComp}
+    /* 0-1 Knapsack: Space-optimized dynamic programming */
+    int knapsackDPComp(vector<int> &wgt, vector<int> &val, int cap) {
+        int n = wgt.size();
+        // Initialize dp table
+        vector<int> dp(cap + 1, 0);
+        // State transition
+        for (int i = 1; i <= n; i++) {
+            // Traverse in reverse order
+            for (int c = cap; c >= 1; c--) {
+                if (wgt[i - 1] <= c) {
+                    // The greater value between not choosing and choosing item i
+                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
+    }
     ```
 
 === "Java"

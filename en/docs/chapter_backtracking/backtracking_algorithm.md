@@ -12,7 +12,7 @@ Backtracking typically employs "depth-first search" to traverse the solution spa
 
     Given a binary tree, search and record all nodes with a value of $7$, please return a list of nodes.
 
-For this problem, we traverse this tree in preorder and check if the current node's value is $7$. If it is, we add the node's value to the result list `res`. The relevant process is shown in the following diagram and code:
+For this problem, we traverse this tree in preorder and check if the current node's value is $7$. If it is, we add the node's value to the result list `res`. The relevant process is shown in Figure 13-1:
 
 === "Python"
 
@@ -31,7 +31,18 @@ For this problem, we traverse this tree in preorder and check if the current nod
 === "C++"
 
     ```cpp title="preorder_traversal_i_compact.cpp"
-    [class]{}-[func]{preOrder}
+    /* Pre-order traversal: Example one */
+    void preOrder(TreeNode *root) {
+        if (root == nullptr) {
+            return;
+        }
+        if (root->val == 7) {
+            // Record solution
+            res.push_back(root);
+        }
+        preOrder(root->left);
+        preOrder(root->right);
+    }
     ```
 
 === "Java"
@@ -156,7 +167,22 @@ Based on the code from Example One, we need to use a list `path` to record the v
 === "C++"
 
     ```cpp title="preorder_traversal_ii_compact.cpp"
-    [class]{}-[func]{preOrder}
+    /* Pre-order traversal: Example two */
+    void preOrder(TreeNode *root) {
+        if (root == nullptr) {
+            return;
+        }
+        // Attempt
+        path.push_back(root);
+        if (root->val == 7) {
+            // Record solution
+            res.push_back(path);
+        }
+        preOrder(root->left);
+        preOrder(root->right);
+        // Retract
+        path.pop_back();
+    }
     ```
 
 === "Java"
@@ -317,7 +343,23 @@ To meet the above constraints, **we need to add a pruning operation**: during th
 === "C++"
 
     ```cpp title="preorder_traversal_iii_compact.cpp"
-    [class]{}-[func]{preOrder}
+    /* Pre-order traversal: Example three */
+    void preOrder(TreeNode *root) {
+        // Pruning
+        if (root == nullptr || root->val == 3) {
+            return;
+        }
+        // Attempt
+        path.push_back(root);
+        if (root->val == 7) {
+            // Record solution
+            res.push_back(path);
+        }
+        preOrder(root->left);
+        preOrder(root->right);
+        // Retract
+        path.pop_back();
+    }
     ```
 
 === "Java"
@@ -408,7 +450,7 @@ To meet the above constraints, **we need to add a pruning operation**: during th
     [class]{}-[func]{preOrder}
     ```
 
-"Pruning" is a very vivid noun. As shown in the diagram below, in the search process, **we "cut off" the search branches that do not meet the constraints**, avoiding many meaningless attempts, thus enhancing the search efficiency.
+"Pruning" is a very vivid noun. As shown in Figure 13-3, in the search process, **we "cut off" the search branches that do not meet the constraints**, avoiding many meaningless attempts, thus enhancing the search efficiency.
 
 ![Pruning based on constraints](backtracking_algorithm.assets/preorder_find_constrained_paths.png){ class="animation-figure" }
 
@@ -788,17 +830,52 @@ Next, we solve Example Three based on the framework code. The `state` is the nod
 === "C++"
 
     ```cpp title="preorder_traversal_iii_template.cpp"
-    [class]{}-[func]{isSolution}
+    /* Determine if the current state is a solution */
+    bool isSolution(vector<TreeNode *> &state) {
+        return !state.empty() && state.back()->val == 7;
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* Record solution */
+    void recordSolution(vector<TreeNode *> &state, vector<vector<TreeNode *>> &res) {
+        res.push_back(state);
+    }
 
-    [class]{}-[func]{isValid}
+    /* Determine if the choice is legal under the current state */
+    bool isValid(vector<TreeNode *> &state, TreeNode *choice) {
+        return choice != nullptr && choice->val != 3;
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* Update state */
+    void makeChoice(vector<TreeNode *> &state, TreeNode *choice) {
+        state.push_back(choice);
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* Restore state */
+    void undoChoice(vector<TreeNode *> &state, TreeNode *choice) {
+        state.pop_back();
+    }
 
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Example three */
+    void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<vector<TreeNode *>> &res) {
+        // Check if it's a solution
+        if (isSolution(state)) {
+            // Record solution
+            recordSolution(state, res);
+        }
+        // Traverse all choices
+        for (TreeNode *choice : choices) {
+            // Pruning: check if the choice is legal
+            if (isValid(state, choice)) {
+                // Attempt: make a choice, update the state
+                makeChoice(state, choice);
+                // Proceed to the next round of selection
+                vector<TreeNode *> nextChoices{choice->left, choice->right};
+                backtrack(state, nextChoices, res);
+                // Retract: undo the choice, restore to the previous state
+                undoChoice(state, choice);
+            }
+        }
+    }
     ```
 
 === "Java"
@@ -1027,7 +1104,7 @@ Next, we solve Example Three based on the framework code. The `state` is the nod
     [class]{}-[func]{backtrack}
     ```
 
-As per the requirements, after finding a node with a value of $7$, the search should continue, **thus the `return` statement after recording the solution should be removed**. The following diagram compares the search processes with and without retaining the `return` statement.
+As per the requirements, after finding a node with a value of $7$, the search should continue, **thus the `return` statement after recording the solution should be removed**. Figure 13-4 compares the search processes with and without retaining the `return` statement.
 
 ![Comparison of retaining and removing the return in the search process](backtracking_algorithm.assets/backtrack_remove_return_or_not.png){ class="animation-figure" }
 

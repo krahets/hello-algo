@@ -4,7 +4,7 @@ comments: true
 
 # 5.3 &nbsp; Double-ended queue
 
-In a queue, we can only delete elements from the head or add elements to the tail. As shown in the following diagram, a <u>double-ended queue (deque)</u> offers more flexibility, allowing the addition or removal of elements at both the head and the tail.
+In a queue, we can only delete elements from the head or add elements to the tail. As shown in Figure 5-7, a <u>double-ended queue (deque)</u> offers more flexibility, allowing the addition or removal of elements at both the head and the tail.
 
 ![Operations in double-ended queue](deque.assets/deque_operations.png){ class="animation-figure" }
 
@@ -390,7 +390,7 @@ The implementation code is as follows:
         def __init__(self, val: int):
             """Constructor"""
             self.val: int = val
-            self.next: ListNode | None = None  # Reference to the next node
+            self.next: ListNode | None = None  # Reference to successor node
             self.prev: ListNode | None = None  # Reference to predecessor node
 
     class LinkedListDeque:
@@ -496,9 +496,146 @@ The implementation code is as follows:
 === "C++"
 
     ```cpp title="linkedlist_deque.cpp"
-    [class]{DoublyListNode}-[func]{}
+    /* Double-linked list node */
+    struct DoublyListNode {
+        int val;              // Node value
+        DoublyListNode *next; // Pointer to successor node
+        DoublyListNode *prev; // Pointer to predecessor node
+        DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
+        }
+    };
 
-    [class]{LinkedListDeque}-[func]{}
+    /* Double-ended queue class based on double-linked list */
+    class LinkedListDeque {
+      private:
+        DoublyListNode *front, *rear; // Front node front, back node rear
+        int queSize = 0;              // Length of the double-ended queue
+
+      public:
+        /* Constructor */
+        LinkedListDeque() : front(nullptr), rear(nullptr) {
+        }
+
+        /* Destructor */
+        ~LinkedListDeque() {
+            // Traverse the linked list, remove nodes, free memory
+            DoublyListNode *pre, *cur = front;
+            while (cur != nullptr) {
+                pre = cur;
+                cur = cur->next;
+                delete pre;
+            }
+        }
+
+        /* Get the length of the double-ended queue */
+        int size() {
+            return queSize;
+        }
+
+        /* Determine if the double-ended queue is empty */
+        bool isEmpty() {
+            return size() == 0;
+        }
+
+        /* Enqueue operation */
+        void push(int num, bool isFront) {
+            DoublyListNode *node = new DoublyListNode(num);
+            // If the list is empty, make front and rear both point to node
+            if (isEmpty())
+                front = rear = node;
+            // Front enqueue operation
+            else if (isFront) {
+                // Add node to the head of the list
+                front->prev = node;
+                node->next = front;
+                front = node; // Update head node
+            // Rear enqueue operation
+            } else {
+                // Add node to the tail of the list
+                rear->next = node;
+                node->prev = rear;
+                rear = node; // Update tail node
+            }
+            queSize++; // Update queue length
+        }
+
+        /* Front enqueue */
+        void pushFirst(int num) {
+            push(num, true);
+        }
+
+        /* Rear enqueue */
+        void pushLast(int num) {
+            push(num, false);
+        }
+
+        /* Dequeue operation */
+        int pop(bool isFront) {
+            if (isEmpty())
+                throw out_of_range("Queue is empty");
+            int val;
+            // Front dequeue operation
+            if (isFront) {
+                val = front->val; // Temporarily store the head node value
+                // Remove head node
+                DoublyListNode *fNext = front->next;
+                if (fNext != nullptr) {
+                    fNext->prev = nullptr;
+                    front->next = nullptr;
+                }
+                delete front;
+                front = fNext; // Update head node
+            // Rear dequeue operation
+            } else {
+                val = rear->val; // Temporarily store the tail node value
+                // Remove tail node
+                DoublyListNode *rPrev = rear->prev;
+                if (rPrev != nullptr) {
+                    rPrev->next = nullptr;
+                    rear->prev = nullptr;
+                }
+                delete rear;
+                rear = rPrev; // Update tail node
+            }
+            queSize--; // Update queue length
+            return val;
+        }
+
+        /* Front dequeue */
+        int popFirst() {
+            return pop(true);
+        }
+
+        /* Rear dequeue */
+        int popLast() {
+            return pop(false);
+        }
+
+        /* Access front element */
+        int peekFirst() {
+            if (isEmpty())
+                throw out_of_range("Double-ended queue is empty");
+            return front->val;
+        }
+
+        /* Access rear element */
+        int peekLast() {
+            if (isEmpty())
+                throw out_of_range("Double-ended queue is empty");
+            return rear->val;
+        }
+
+        /* Return array for printing */
+        vector<int> toVector() {
+            DoublyListNode *node = front;
+            vector<int> res(size());
+            for (int i = 0; i < res.size(); i++) {
+                res[i] = node->val;
+                node = node->next;
+            }
+            return res;
+        }
+    };
     ```
 
 === "Java"
@@ -507,7 +644,7 @@ The implementation code is as follows:
     /* Double-linked list node */
     class ListNode {
         int val; // Node value
-        ListNode next; // Reference to the next node
+        ListNode next; // Reference to successor node
         ListNode prev; // Reference to predecessor node
 
         ListNode(int val) {
@@ -837,7 +974,112 @@ The implementation only needs to add methods for "front enqueue" and "rear deque
 === "C++"
 
     ```cpp title="array_deque.cpp"
-    [class]{ArrayDeque}-[func]{}
+    /* Double-ended queue class based on circular array */
+    class ArrayDeque {
+      private:
+        vector<int> nums; // Array used to store elements of the double-ended queue
+        int front;        // Front pointer, pointing to the front element
+        int queSize;      // Length of the double-ended queue
+
+      public:
+        /* Constructor */
+        ArrayDeque(int capacity) {
+            nums.resize(capacity);
+            front = queSize = 0;
+        }
+
+        /* Get the capacity of the double-ended queue */
+        int capacity() {
+            return nums.size();
+        }
+
+        /* Get the length of the double-ended queue */
+        int size() {
+            return queSize;
+        }
+
+        /* Determine if the double-ended queue is empty */
+        bool isEmpty() {
+            return queSize == 0;
+        }
+
+        /* Calculate circular array index */
+        int index(int i) {
+            // Implement circular array by modulo operation
+            // When i exceeds the tail of the array, return to the head
+            // When i exceeds the head of the array, return to the tail
+            return (i + capacity()) % capacity();
+        }
+
+        /* Front enqueue */
+        void pushFirst(int num) {
+            if (queSize == capacity()) {
+                cout << "Double-ended queue is full" << endl;
+                return;
+            }
+            // Move the front pointer one position to the left
+            // Implement front crossing the head of the array to return to the tail by modulo operation
+            front = index(front - 1);
+            // Add num to the front
+            nums[front] = num;
+            queSize++;
+        }
+
+        /* Rear enqueue */
+        void pushLast(int num) {
+            if (queSize == capacity()) {
+                cout << "Double-ended queue is full" << endl;
+                return;
+            }
+            // Calculate rear pointer, pointing to rear index + 1
+            int rear = index(front + queSize);
+            // Add num to the rear
+            nums[rear] = num;
+            queSize++;
+        }
+
+        /* Front dequeue */
+        int popFirst() {
+            int num = peekFirst();
+            // Move front pointer one position backward
+            front = index(front + 1);
+            queSize--;
+            return num;
+        }
+
+        /* Rear dequeue */
+        int popLast() {
+            int num = peekLast();
+            queSize--;
+            return num;
+        }
+
+        /* Access front element */
+        int peekFirst() {
+            if (isEmpty())
+                throw out_of_range("Double-ended queue is empty");
+            return nums[front];
+        }
+
+        /* Access rear element */
+        int peekLast() {
+            if (isEmpty())
+                throw out_of_range("Double-ended queue is empty");
+            // Calculate rear element index
+            int last = index(front + queSize - 1);
+            return nums[last];
+        }
+
+        /* Return array for printing */
+        vector<int> toVector() {
+            // Only convert elements within valid length range
+            vector<int> res(queSize);
+            for (int i = 0, j = front; i < queSize; i++, j++) {
+                res[i] = nums[index(j)];
+            }
+            return res;
+        }
+    };
     ```
 
 === "Java"

@@ -76,7 +76,23 @@ The code is as follows:
 === "C++"
 
     ```cpp title="binary_search.cpp"
-    [class]{}-[func]{binarySearch}
+    /* Binary search (double closed interval) */
+    int binarySearch(vector<int> &nums, int target) {
+        // Initialize double closed interval [0, n-1], i.e., i, j point to the first element and last element of the array respectively
+        int i = 0, j = nums.size() - 1;
+        // Loop until the search interval is empty (when i > j, it is empty)
+        while (i <= j) {
+            int m = i + (j - i) / 2; // Calculate midpoint index m
+            if (nums[m] < target)    // This situation indicates that target is in the interval [m+1, j]
+                i = m + 1;
+            else if (nums[m] > target) // This situation indicates that target is in the interval [i, m-1]
+                j = m - 1;
+            else // Found the target element, thus return its index
+                return m;
+        }
+        // Did not find the target element, thus return -1
+        return -1;
+    }
     ```
 
 === "Java"
@@ -199,7 +215,23 @@ We can implement a binary search algorithm with the same functionality based on 
 === "C++"
 
     ```cpp title="binary_search.cpp"
-    [class]{}-[func]{binarySearchLCRO}
+    /* Binary search (left closed right open interval) */
+    int binarySearchLCRO(vector<int> &nums, int target) {
+        // Initialize left closed right open interval [0, n), i.e., i, j point to the first element and the last element +1 of the array respectively
+        int i = 0, j = nums.size();
+        // Loop until the search interval is empty (when i = j, it is empty)
+        while (i < j) {
+            int m = i + (j - i) / 2; // Calculate midpoint index m
+            if (nums[m] < target)    // This situation indicates that target is in the interval [m+1, j)
+                i = m + 1;
+            else if (nums[m] > target) // This situation indicates that target is in the interval [i, m)
+                j = m;
+            else // Found the target element, thus return its index
+                return m;
+        }
+        // Did not find the target element, thus return -1
+        return -1;
+    }
     ```
 
 === "Java"

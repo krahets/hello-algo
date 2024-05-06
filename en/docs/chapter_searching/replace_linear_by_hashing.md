@@ -36,7 +36,18 @@ The code is shown below:
 === "C++"
 
     ```cpp title="two_sum.cpp"
-    [class]{}-[func]{twoSumBruteForce}
+    /* Method one: Brute force enumeration */
+    vector<int> twoSumBruteForce(vector<int> &nums, int target) {
+        int size = nums.size();
+        // Two-layer loop, time complexity is O(n^2)
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (nums[i] + nums[j] == target)
+                    return {i, j};
+            }
+        }
+        return {};
+    }
     ```
 
 === "Java"
@@ -126,7 +137,7 @@ This method has a time complexity of $O(n^2)$ and a space complexity of $O(1)$, 
 
 ## 10.4.2 &nbsp; Hash search: trading space for time
 
-Consider using a hash table, with key-value pairs being the array elements and their indices, respectively. Loop through the array, performing the steps shown in the figures below each round.
+Consider using a hash table, with key-value pairs being the array elements and their indices, respectively. Loop through the array, performing the steps shown in Figure 10-10 each round.
 
 1. Check if the number `target - nums[i]` is in the hash table. If so, directly return the indices of these two elements.
 2. Add the key-value pair `nums[i]` and index `i` to the hash table.
@@ -162,7 +173,20 @@ The implementation code is shown below, requiring only a single loop:
 === "C++"
 
     ```cpp title="two_sum.cpp"
-    [class]{}-[func]{twoSumHashTable}
+    /* Method two: Auxiliary hash table */
+    vector<int> twoSumHashTable(vector<int> &nums, int target) {
+        int size = nums.size();
+        // Auxiliary hash table, space complexity is O(n)
+        unordered_map<int, int> dic;
+        // Single-layer loop, time complexity is O(n)
+        for (int i = 0; i < size; i++) {
+            if (dic.find(target - nums[i]) != dic.end()) {
+                return {dic[target - nums[i]], i};
+            }
+            dic.emplace(nums[i], i);
+        }
+        return {};
+    }
     ```
 
 === "Java"

@@ -104,7 +104,31 @@ Observing the state transition equation, solving $dp[i, j]$ depends on the solut
 === "C++"
 
     ```cpp title="edit_distance.cpp"
-    [class]{}-[func]{editDistanceDP}
+    /* Edit distance: Dynamic programming */
+    int editDistanceDP(string s, string t) {
+        int n = s.length(), m = t.length();
+        vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
+        // State transition: first row and first column
+        for (int i = 1; i <= n; i++) {
+            dp[i][0] = i;
+        }
+        for (int j = 1; j <= m; j++) {
+            dp[0][j] = j;
+        }
+        // State transition: the rest of the rows and columns
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (s[i - 1] == t[j - 1]) {
+                    // If the two characters are equal, skip these two characters
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    // The minimum number of edits = the minimum number of edits from three operations (insert, remove, replace) + 1
+                    dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                }
+            }
+        }
+        return dp[n][m];
+    }
     ```
 
 === "Java"
@@ -289,7 +313,34 @@ For this reason, we can use a variable `leftup` to temporarily store the solutio
 === "C++"
 
     ```cpp title="edit_distance.cpp"
-    [class]{}-[func]{editDistanceDPComp}
+    /* Edit distance: Space-optimized dynamic programming */
+    int editDistanceDPComp(string s, string t) {
+        int n = s.length(), m = t.length();
+        vector<int> dp(m + 1, 0);
+        // State transition: first row
+        for (int j = 1; j <= m; j++) {
+            dp[j] = j;
+        }
+        // State transition: the rest of the rows
+        for (int i = 1; i <= n; i++) {
+            // State transition: first column
+            int leftup = dp[0]; // Temporarily store dp[i-1, j-1]
+            dp[0] = i;
+            // State transition: the rest of the columns
+            for (int j = 1; j <= m; j++) {
+                int temp = dp[j];
+                if (s[i - 1] == t[j - 1]) {
+                    // If the two characters are equal, skip these two characters
+                    dp[j] = leftup;
+                } else {
+                    // The minimum number of edits = the minimum number of edits from three operations (insert, remove, replace) + 1
+                    dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1;
+                }
+                leftup = temp; // Update for the next round of dp[i-1, j-1]
+            }
+        }
+        return dp[m];
+    }
     ```
 
 === "Java"

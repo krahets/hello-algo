@@ -71,7 +71,21 @@ In the code, we use $k$ to record the smallest element within the unsorted inter
 === "C++"
 
     ```cpp title="selection_sort.cpp"
-    [class]{}-[func]{selectionSort}
+    /* Selection sort */
+    void selectionSort(vector<int> &nums) {
+        int n = nums.size();
+        // Outer loop: unsorted range is [i, n-1]
+        for (int i = 0; i < n - 1; i++) {
+            // Inner loop: find the smallest element within the unsorted range
+            int k = i;
+            for (int j = i + 1; j < n; j++) {
+                if (nums[j] < nums[k])
+                    k = j; // Record the index of the smallest element
+            }
+            // Swap the smallest element with the first element of the unsorted range
+            swap(nums[i], nums[k]);
+        }
+    }
     ```
 
 === "Java"

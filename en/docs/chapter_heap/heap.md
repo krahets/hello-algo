@@ -465,11 +465,20 @@ We can encapsulate the index mapping formula into functions for convenient later
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{left}
+    /* Get index of left child node */
+    int left(int i) {
+        return 2 * i + 1;
+    }
 
-    [class]{MaxHeap}-[func]{right}
+    /* Get index of right child node */
+    int right(int i) {
+        return 2 * i + 2;
+    }
 
-    [class]{MaxHeap}-[func]{parent}
+    /* Get index of parent node */
+    int parent(int i) {
+        return (i - 1) / 2; // Integer division down
+    }
     ```
 
 === "Java"
@@ -616,7 +625,10 @@ The top element of the heap is the root node of the binary tree, which is also t
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{peek}
+    /* Access heap top element */
+    int peek() {
+        return maxHeap[0];
+    }
     ```
 
 === "Java"
@@ -758,9 +770,28 @@ Given a total of $n$ nodes, the height of the tree is $O(\log n)$. Hence, the lo
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{push}
+    /* Push the element into heap */
+    void push(int val) {
+        // Add node
+        maxHeap.push_back(val);
+        // Heapify from bottom to top
+        siftUp(size() - 1);
+    }
 
-    [class]{MaxHeap}-[func]{siftUp}
+    /* Start heapifying node i, from bottom to top */
+    void siftUp(int i) {
+        while (true) {
+            // Get parent node of node i
+            int p = parent(i);
+            // When "crossing the root node" or "node does not need repair", end heapification
+            if (p < 0 || maxHeap[i] <= maxHeap[p])
+                break;
+            // Swap two nodes
+            swap(maxHeap[i], maxHeap[p]);
+            // Loop upwards heapification
+            i = p;
+        }
+    }
     ```
 
 === "Java"
@@ -960,9 +991,37 @@ Similar to the element insertion operation, the time complexity of the top eleme
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{pop}
+    /* Element exits heap */
+    void pop() {
+        // Empty handling
+        if (isEmpty()) {
+            throw out_of_range("Heap is empty");
+        }
+        // Swap the root node with the rightmost leaf node (swap the first element with the last element)
+        swap(maxHeap[0], maxHeap[size() - 1]);
+        // Remove node
+        maxHeap.pop_back();
+        // Heapify from top to bottom
+        siftDown(0);
+    }
 
-    [class]{MaxHeap}-[func]{siftDown}
+    /* Start heapifying node i, from top to bottom */
+    void siftDown(int i) {
+        while (true) {
+            // Determine the largest node among i, l, r, noted as ma
+            int l = left(i), r = right(i), ma = i;
+            if (l < size() && maxHeap[l] > maxHeap[ma])
+                ma = l;
+            if (r < size() && maxHeap[r] > maxHeap[ma])
+                ma = r;
+            // If node i is the largest or indices l, r are out of bounds, no further heapification needed, break
+            if (ma == i)
+                break;
+            swap(maxHeap[i], maxHeap[ma]);
+            // Loop downwards heapification
+            i = ma;
+        }
+    }
     ```
 
 === "Java"

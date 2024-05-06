@@ -61,7 +61,22 @@ According to the state transition equation, and the initial states $dp[1] = cost
 === "C++"
 
     ```cpp title="min_cost_climbing_stairs_dp.cpp"
-    [class]{}-[func]{minCostClimbingStairsDP}
+    /* Climbing stairs with minimum cost: Dynamic programming */
+    int minCostClimbingStairsDP(vector<int> &cost) {
+        int n = cost.size() - 1;
+        if (n == 1 || n == 2)
+            return cost[n];
+        // Initialize dp table, used to store subproblem solutions
+        vector<int> dp(n + 1);
+        // Initial state: preset the smallest subproblem solution
+        dp[1] = cost[1];
+        dp[2] = cost[2];
+        // State transition: gradually solve larger subproblems from smaller ones
+        for (int i = 3; i <= n; i++) {
+            dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
+        }
+        return dp[n];
+    }
     ```
 
 === "Java"
@@ -176,7 +191,19 @@ This problem can also be space-optimized, compressing one dimension to zero, red
 === "C++"
 
     ```cpp title="min_cost_climbing_stairs_dp.cpp"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
+    /* Climbing stairs with minimum cost: Space-optimized dynamic programming */
+    int minCostClimbingStairsDPComp(vector<int> &cost) {
+        int n = cost.size() - 1;
+        if (n == 1 || n == 2)
+            return cost[n];
+        int a = cost[1], b = cost[2];
+        for (int i = 3; i <= n; i++) {
+            int tmp = b;
+            b = min(a, tmp) + cost[i];
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "Java"
@@ -327,7 +354,25 @@ In the end, returning $dp[n, 1] + dp[n, 2]$ will do, the sum of the two represen
 === "C++"
 
     ```cpp title="climbing_stairs_constraint_dp.cpp"
-    [class]{}-[func]{climbingStairsConstraintDP}
+    /* Constrained climbing stairs: Dynamic programming */
+    int climbingStairsConstraintDP(int n) {
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        // Initialize dp table, used to store subproblem solutions
+        vector<vector<int>> dp(n + 1, vector<int>(3, 0));
+        // Initial state: preset the smallest subproblem solution
+        dp[1][1] = 1;
+        dp[1][2] = 0;
+        dp[2][1] = 0;
+        dp[2][2] = 1;
+        // State transition: gradually solve larger subproblems from smaller ones
+        for (int i = 3; i <= n; i++) {
+            dp[i][1] = dp[i - 1][2];
+            dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
+        }
+        return dp[n][1] + dp[n][2];
+    }
     ```
 
 === "Java"

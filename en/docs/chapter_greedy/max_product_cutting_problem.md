@@ -6,7 +6,7 @@ comments: true
 
 !!! question
 
-    Given a positive integer $n$, split it into at least two positive integers that sum up to $n$, and find the maximum product of these integers, as illustrated below.
+    Given a positive integer $n$, split it into at least two positive integers that sum up to $n$, and find the maximum product of these integers, as illustrated in Figure 15-13.
 
 ![Definition of the maximum product cutting problem](max_product_cutting_problem.assets/max_product_cutting_definition.png){ class="animation-figure" }
 
@@ -96,7 +96,26 @@ Please note, for the boundary case where $n \leq 3$, a $1$ must be split out, wi
 === "C++"
 
     ```cpp title="max_product_cutting.cpp"
-    [class]{}-[func]{maxProductCutting}
+    /* Maximum product of cutting: Greedy */
+    int maxProductCutting(int n) {
+        // When n <= 3, must cut out a 1
+        if (n <= 3) {
+            return 1 * (n - 1);
+        }
+        // Greedy cut out 3s, a is the number of 3s, b is the remainder
+        int a = n / 3;
+        int b = n % 3;
+        if (b == 1) {
+            // When the remainder is 1, convert a pair of 1 * 3 into 2 * 2
+            return (int)pow(3, a - 1) * 2 * 2;
+        }
+        if (b == 2) {
+            // When the remainder is 2, do nothing
+            return (int)pow(3, a) * 2;
+        }
+        // When the remainder is 0, do nothing
+        return (int)pow(3, a);
+    }
     ```
 
 === "Java"

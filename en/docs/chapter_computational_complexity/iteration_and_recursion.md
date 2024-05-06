@@ -31,7 +31,15 @@ The following function uses a `for` loop to perform a summation of $1 + 2 + \dot
 === "C++"
 
     ```cpp title="iteration.cpp"
-    [class]{}-[func]{forLoop}
+    /* for loop */
+    int forLoop(int n) {
+        int res = 0;
+        // Loop sum 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; ++i) {
+            res += i;
+        }
+        return res;
+    }
     ```
 
 === "Java"
@@ -114,7 +122,7 @@ The following function uses a `for` loop to perform a summation of $1 + 2 + \dot
     [class]{}-[func]{forLoop}
     ```
 
-The flowchart below represents this sum function.
+Figure 2-1 represents this sum function.
 
 ![Flowchart of the sum function](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
 
@@ -145,7 +153,17 @@ Below we use a `while` loop to implement the sum $1 + 2 + \dots + n$.
 === "C++"
 
     ```cpp title="iteration.cpp"
-    [class]{}-[func]{whileLoop}
+    /* while loop */
+    int whileLoop(int n) {
+        int res = 0;
+        int i = 1; // Initialize condition variable
+        // Loop sum 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i;
+            i++; // Update condition variable
+        }
+        return res;
+    }
     ```
 
 === "Java"
@@ -253,7 +271,19 @@ For example, in the following code, the condition variable $i$ is updated twice 
 === "C++"
 
     ```cpp title="iteration.cpp"
-    [class]{}-[func]{whileLoopII}
+    /* while loop (two updates) */
+    int whileLoopII(int n) {
+        int res = 0;
+        int i = 1; // Initialize condition variable
+        // Loop sum 1, 4, 10, ...
+        while (i <= n) {
+            res += i;
+            // Update condition variable
+            i++;
+            i *= 2;
+        }
+        return res;
+    }
     ```
 
 === "Java"
@@ -363,7 +393,18 @@ We can nest one loop structure within another. Below is an example using `for` l
 === "C++"
 
     ```cpp title="iteration.cpp"
-    [class]{}-[func]{nestedForLoop}
+    /* Double for loop */
+    string nestedForLoop(int n) {
+        ostringstream res;
+        // Loop i = 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; ++i) {
+            // Loop j = 1, 2, ..., n-1, n
+            for (int j = 1; j <= n; ++j) {
+                res << "(" << i << ", " << j << "), ";
+            }
+        }
+        return res.str();
+    }
     ```
 
 === "Java"
@@ -449,7 +490,7 @@ We can nest one loop structure within another. Below is an example using `for` l
     [class]{}-[func]{nestedForLoop}
     ```
 
-The flowchart below represents this nested loop.
+Figure 2-2 represents this nested loop.
 
 ![Flowchart of the nested loop](iteration_and_recursion.assets/nested_iteration.png){ class="animation-figure" }
 
@@ -491,7 +532,16 @@ Observe the following code, where simply calling the function `recur(n)` can com
 === "C++"
 
     ```cpp title="recursion.cpp"
-    [class]{}-[func]{recur}
+    /* Recursion */
+    int recur(int n) {
+        // Termination condition
+        if (n == 1)
+            return 1;
+        // Recursive: recursive call
+        int res = recur(n - 1);
+        // Return: return result
+        return n + res;
+    }
     ```
 
 === "Java"
@@ -630,7 +680,14 @@ For example, in calculating $1 + 2 + \dots + n$, we can make the result variable
 === "C++"
 
     ```cpp title="recursion.cpp"
-    [class]{}-[func]{tailRecur}
+    /* Tail recursion */
+    int tailRecur(int n, int res) {
+        // Termination condition
+        if (n == 0)
+            return res;
+        // Tail recursive call
+        return tailRecur(n - 1, res + n);
+    }
     ```
 
 === "Java"
@@ -757,7 +814,16 @@ Using the recursive relation, and considering the first two numbers as terminati
 === "C++"
 
     ```cpp title="recursion.cpp"
-    [class]{}-[func]{fib}
+    /* Fibonacci sequence: Recursion */
+    int fib(int n) {
+        // Termination condition f(1) = 0, f(2) = 1
+        if (n == 1 || n == 2)
+            return n - 1;
+        // Recursive call f(n) = f(n-1) + f(n-2)
+        int res = fib(n - 1) + fib(n - 2);
+        // Return result f(n)
+        return res;
+    }
     ```
 
 === "Java"
@@ -841,7 +907,7 @@ Using the recursive relation, and considering the first two numbers as terminati
     [class]{}-[func]{fib}
     ```
 
-Observing the above code, we see that it recursively calls two functions within itself, **meaning that one call generates two branching calls**. As illustrated below, this continuous recursive calling eventually creates a <u>recursion tree</u> with a depth of $n$.
+Observing the above code, we see that it recursively calls two functions within itself, **meaning that one call generates two branching calls**. As illustrated in Figure 2-6, this continuous recursive calling eventually creates a <u>recursion tree</u> with a depth of $n$.
 
 ![Fibonacci sequence recursion tree](iteration_and_recursion.assets/recursion_tree.png){ class="animation-figure" }
 
@@ -905,7 +971,25 @@ Therefore, **we can use an explicit stack to simulate the behavior of the call s
 === "C++"
 
     ```cpp title="recursion.cpp"
-    [class]{}-[func]{forLoopRecur}
+    /* Simulate recursion with iteration */
+    int forLoopRecur(int n) {
+        // Use an explicit stack to simulate the system call stack
+        stack<int> stack;
+        int res = 0;
+        // Recursive: recursive call
+        for (int i = n; i > 0; i--) {
+            // Simulate "recursive" by "pushing onto the stack"
+            stack.push(i);
+        }
+        // Return: return result
+        while (!stack.empty()) {
+            // Simulate "return" by "popping from the stack"
+            res += stack.top();
+            stack.pop();
+        }
+        // res = 1+2+3+...+n
+        return res;
+    }
     ```
 
 === "Java"

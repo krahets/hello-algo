@@ -49,9 +49,30 @@ The goal of this problem is to determine the number of ways, **considering using
 === "C++"
 
     ```cpp title="climbing_stairs_backtrack.cpp"
-    [class]{}-[func]{backtrack}
+    /* Backtracking */
+    void backtrack(vector<int> &choices, int state, int n, vector<int> &res) {
+        // When climbing to the nth step, add 1 to the number of solutions
+        if (state == n)
+            res[0]++;
+        // Traverse all choices
+        for (auto &choice : choices) {
+            // Pruning: do not allow climbing beyond the nth step
+            if (state + choice > n)
+                continue;
+            // Attempt: make a choice, update the state
+            backtrack(choices, state + choice, n, res);
+            // Retract
+        }
+    }
 
-    [class]{}-[func]{climbingStairsBacktrack}
+    /* Climbing stairs: Backtracking */
+    int climbingStairsBacktrack(int n) {
+        vector<int> choices = {1, 2}; // Can choose to climb up 1 step or 2 steps
+        int state = 0;                // Start climbing from the 0th step
+        vector<int> res = {0};        // Use res[0] to record the number of solutions
+        backtrack(choices, state, n, res);
+        return res[0];
+    }
     ```
 
 === "Java"
@@ -220,9 +241,20 @@ Observe the following code, which, like standard backtracking code, belongs to d
 === "C++"
 
     ```cpp title="climbing_stairs_dfs.cpp"
-    [class]{}-[func]{dfs}
+    /* Search */
+    int dfs(int i) {
+        // Known dp[1] and dp[2], return them
+        if (i == 1 || i == 2)
+            return i;
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1) + dfs(i - 2);
+        return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFS}
+    /* Climbing stairs: Search */
+    int climbingStairsDFS(int n) {
+        return dfs(n);
+    }
     ```
 
 === "Java"
@@ -378,9 +410,27 @@ The code is as follows:
 === "C++"
 
     ```cpp title="climbing_stairs_dfs_mem.cpp"
-    [class]{}-[func]{dfs}
+    /* Memoized search */
+    int dfs(int i, vector<int> &mem) {
+        // Known dp[1] and dp[2], return them
+        if (i == 1 || i == 2)
+            return i;
+        // If there is a record for dp[i], return it
+        if (mem[i] != -1)
+            return mem[i];
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // Record dp[i]
+        mem[i] = count;
+        return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFSMem}
+    /* Climbing stairs: Memoized search */
+    int climbingStairsDFSMem(int n) {
+        // mem[i] records the total number of solutions for climbing to the ith step, -1 means no record
+        vector<int> mem(n + 1, -1);
+        return dfs(n, mem);
+    }
     ```
 
 === "Java"
@@ -532,7 +582,21 @@ Since dynamic programming does not include a backtracking process, it only requi
 === "C++"
 
     ```cpp title="climbing_stairs_dp.cpp"
-    [class]{}-[func]{climbingStairsDP}
+    /* Climbing stairs: Dynamic programming */
+    int climbingStairsDP(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        // Initialize dp table, used to store subproblem solutions
+        vector<int> dp(n + 1);
+        // Initial state: preset the smallest subproblem solution
+        dp[1] = 1;
+        dp[2] = 2;
+        // State transition: gradually solve larger subproblems from smaller ones
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
     ```
 
 === "Java"
@@ -655,7 +719,18 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 === "C++"
 
     ```cpp title="climbing_stairs_dp.cpp"
-    [class]{}-[func]{climbingStairsDPComp}
+    /* Climbing stairs: Space-optimized dynamic programming */
+    int climbingStairsDPComp(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        int a = 1, b = 2;
+        for (int i = 3; i <= n; i++) {
+            int tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "Java"

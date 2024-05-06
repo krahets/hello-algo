@@ -60,9 +60,36 @@ Unlike the permutation problem, **elements in this problem can be chosen an unli
 === "C++"
 
     ```cpp title="subset_sum_i_naive.cpp"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Subset Sum I */
+    void backtrack(vector<int> &state, int target, int total, vector<int> &choices, vector<vector<int>> &res) {
+        // When the subset sum equals target, record the solution
+        if (total == target) {
+            res.push_back(state);
+            return;
+        }
+        // Traverse all choices
+        for (size_t i = 0; i < choices.size(); i++) {
+            // Pruning: if the subset sum exceeds target, skip that choice
+            if (total + choices[i] > target) {
+                continue;
+            }
+            // Attempt: make a choice, update elements and total
+            state.push_back(choices[i]);
+            // Proceed to the next round of selection
+            backtrack(state, target, total + choices[i], choices, res);
+            // Retract: undo the choice, restore to the previous state
+            state.pop_back();
+        }
+    }
 
-    [class]{}-[func]{subsetSumINaive}
+    /* Solve Subset Sum I (including duplicate subsets) */
+    vector<vector<int>> subsetSumINaive(vector<int> &nums, int target) {
+        vector<int> state;       // State (subset)
+        int total = 0;           // Subset sum
+        vector<vector<int>> res; // Result list (subset list)
+        backtrack(state, target, total, nums, res);
+        return res;
+    }
     ```
 
 === "Java"
@@ -267,9 +294,39 @@ Besides, we have made the following two optimizations to the code.
 === "C++"
 
     ```cpp title="subset_sum_i.cpp"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Subset Sum I */
+    void backtrack(vector<int> &state, int target, vector<int> &choices, int start, vector<vector<int>> &res) {
+        // When the subset sum equals target, record the solution
+        if (target == 0) {
+            res.push_back(state);
+            return;
+        }
+        // Traverse all choices
+        // Pruning two: start traversing from start to avoid generating duplicate subsets
+        for (int i = start; i < choices.size(); i++) {
+            // Pruning one: if the subset sum exceeds target, end the loop immediately
+            // This is because the array is sorted, and later elements are larger, so the subset sum will definitely exceed target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // Attempt: make a choice, update target, start
+            state.push_back(choices[i]);
+            // Proceed to the next round of selection
+            backtrack(state, target - choices[i], choices, i, res);
+            // Retract: undo the choice, restore to the previous state
+            state.pop_back();
+        }
+    }
 
-    [class]{}-[func]{subsetSumI}
+    /* Solve Subset Sum I */
+    vector<vector<int>> subsetSumI(vector<int> &nums, int target) {
+        vector<int> state;              // State (subset)
+        sort(nums.begin(), nums.end()); // Sort nums
+        int start = 0;                  // Start point for traversal
+        vector<vector<int>> res;        // Result list (subset list)
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "Java"
@@ -468,9 +525,44 @@ At the same time, **this question stipulates that each array element can only be
 === "C++"
 
     ```cpp title="subset_sum_ii.cpp"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Subset Sum II */
+    void backtrack(vector<int> &state, int target, vector<int> &choices, int start, vector<vector<int>> &res) {
+        // When the subset sum equals target, record the solution
+        if (target == 0) {
+            res.push_back(state);
+            return;
+        }
+        // Traverse all choices
+        // Pruning two: start traversing from start to avoid generating duplicate subsets
+        // Pruning three: start traversing from start to avoid repeatedly selecting the same element
+        for (int i = start; i < choices.size(); i++) {
+            // Pruning one: if the subset sum exceeds target, end the loop immediately
+            // This is because the array is sorted, and later elements are larger, so the subset sum will definitely exceed target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // Pruning four: if the element equals the left element, it indicates that the search branch is repeated, skip it
+            if (i > start && choices[i] == choices[i - 1]) {
+                continue;
+            }
+            // Attempt: make a choice, update target, start
+            state.push_back(choices[i]);
+            // Proceed to the next round of selection
+            backtrack(state, target - choices[i], choices, i + 1, res);
+            // Retract: undo the choice, restore to the previous state
+            state.pop_back();
+        }
+    }
 
-    [class]{}-[func]{subsetSumII}
+    /* Solve Subset Sum II */
+    vector<vector<int>> subsetSumII(vector<int> &nums, int target) {
+        vector<int> state;              // State (subset)
+        sort(nums.begin(), nums.end()); // Sort nums
+        int start = 0;                  // Start point for traversal
+        vector<vector<int>> res;        // Result list (subset list)
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "Java"

@@ -8,7 +8,7 @@ comments: true
 
 ## 11.9.1 &nbsp; Simple implementation
 
-Let's start with a simple example. Given an array `nums` of length $n$, where all elements are "non-negative integers", the overall process of counting sort is illustrated in the following diagram.
+Let's start with a simple example. Given an array `nums` of length $n$, where all elements are "non-negative integers", the overall process of counting sort is illustrated in Figure 11-16.
 
 1. Traverse the array to find the maximum number, denoted as $m$, then create an auxiliary array `counter` of length $m + 1$.
 2. **Use `counter` to count the occurrence of each number in `nums`**, where `counter[num]` corresponds to the occurrence of the number `num`. The counting method is simple, just traverse `nums` (suppose the current number is `num`), and increase `counter[num]` by $1$ each round.
@@ -46,7 +46,28 @@ The code is shown below:
 === "C++"
 
     ```cpp title="counting_sort.cpp"
-    [class]{}-[func]{countingSortNaive}
+    /* Counting sort */
+    // Simple implementation, cannot be used for sorting objects
+    void countingSortNaive(vector<int> &nums) {
+        // 1. Count the maximum element m in the array
+        int m = 0;
+        for (int num : nums) {
+            m = max(m, num);
+        }
+        // 2. Count the occurrence of each digit
+        // counter[num] represents the occurrence of num
+        vector<int> counter(m + 1, 0);
+        for (int num : nums) {
+            counter[num]++;
+        }
+        // 3. Traverse counter, filling each element back into the original array nums
+        int i = 0;
+        for (int num = 0; num < m + 1; num++) {
+            for (int j = 0; j < counter[num]; j++, i++) {
+                nums[i] = num;
+            }
+        }
+    }
     ```
 
 === "Java"
@@ -161,7 +182,7 @@ $$
 1. Fill `num` into the array `res` at the index `prefix[num] - 1`.
 2. Reduce the prefix sum `prefix[num]` by $1$, thus obtaining the next index to place `num`.
 
-After the traversal, the array `res` contains the sorted result, and finally, `res` replaces the original array `nums`. The complete counting sort process is shown in the figures below.
+After the traversal, the array `res` contains the sorted result, and finally, `res` replaces the original array `nums`. The complete counting sort process is shown in Figure 11-17.
 
 === "<1>"
     ![Counting sort process](counting_sort.assets/counting_sort_step1.png){ class="animation-figure" }
@@ -224,7 +245,37 @@ The implementation code of counting sort is shown below:
 === "C++"
 
     ```cpp title="counting_sort.cpp"
-    [class]{}-[func]{countingSort}
+    /* Counting sort */
+    // Complete implementation, can sort objects and is a stable sort
+    void countingSort(vector<int> &nums) {
+        // 1. Count the maximum element m in the array
+        int m = 0;
+        for (int num : nums) {
+            m = max(m, num);
+        }
+        // 2. Count the occurrence of each digit
+        // counter[num] represents the occurrence of num
+        vector<int> counter(m + 1, 0);
+        for (int num : nums) {
+            counter[num]++;
+        }
+        // 3. Calculate the prefix sum of counter, converting "occurrence count" to "tail index"
+        // counter[num]-1 is the last index where num appears in res
+        for (int i = 0; i < m; i++) {
+            counter[i + 1] += counter[i];
+        }
+        // 4. Traverse nums in reverse order, placing each element into the result array res
+        // Initialize the array res to record results
+        int n = nums.size();
+        vector<int> res(n);
+        for (int i = n - 1; i >= 0; i--) {
+            int num = nums[i];
+            res[counter[num] - 1] = num; // Place num at the corresponding index
+            counter[num]--;              // Decrement the prefix sum by 1, getting the next index to place num
+        }
+        // Use result array res to overwrite the original array nums
+        nums = res;
+    }
     ```
 
 === "Java"

@@ -45,7 +45,24 @@ Breadth-first traversal is usually implemented with the help of a "queue". The q
 === "C++"
 
     ```cpp title="binary_tree_bfs.cpp"
-    [class]{}-[func]{levelOrder}
+    /* Level-order traversal */
+    vector<int> levelOrder(TreeNode *root) {
+        // Initialize queue, add root node
+        queue<TreeNode *> queue;
+        queue.push(root);
+        // Initialize a list to store the traversal sequence
+        vector<int> vec;
+        while (!queue.empty()) {
+            TreeNode *node = queue.front();
+            queue.pop();              // Queue dequeues
+            vec.push_back(node->val); // Save node value
+            if (node->left != nullptr)
+                queue.push(node->left); // Left child node enqueues
+            if (node->right != nullptr)
+                queue.push(node->right); // Right child node enqueues
+        }
+        return vec;
+    }
     ```
 
 === "Java"
@@ -189,11 +206,35 @@ Depth-first search is usually implemented based on recursion:
 === "C++"
 
     ```cpp title="binary_tree_dfs.cpp"
-    [class]{}-[func]{preOrder}
+    /* Pre-order traversal */
+    void preOrder(TreeNode *root) {
+        if (root == nullptr)
+            return;
+        // Visit priority: root node -> left subtree -> right subtree
+        vec.push_back(root->val);
+        preOrder(root->left);
+        preOrder(root->right);
+    }
 
-    [class]{}-[func]{inOrder}
+    /* In-order traversal */
+    void inOrder(TreeNode *root) {
+        if (root == nullptr)
+            return;
+        // Visit priority: left subtree -> root node -> right subtree
+        inOrder(root->left);
+        vec.push_back(root->val);
+        inOrder(root->right);
+    }
 
-    [class]{}-[func]{postOrder}
+    /* Post-order traversal */
+    void postOrder(TreeNode *root) {
+        if (root == nullptr)
+            return;
+        // Visit priority: left subtree -> right subtree -> root node
+        postOrder(root->left);
+        postOrder(root->right);
+        vec.push_back(root->val);
+    }
     ```
 
 === "Java"
