@@ -3629,7 +3629,7 @@
 <h1 id="123-building-binary-tree-problem">12.3 &nbsp; Building binary tree problem<a class="headerlink" href="#123-building-binary-tree-problem" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given the preorder traversal <code>preorder</code> and inorder traversal <code>inorder</code> of a binary tree, construct the binary tree and return the root node of the binary tree. Assume that there are no duplicate values in the nodes of the binary tree (as shown in the diagram below).</p>
+<p>Given the preorder traversal <code>preorder</code> and inorder traversal <code>inorder</code> of a binary tree, construct the binary tree and return the root node of the binary tree. Assume that there are no duplicate values in the nodes of the binary tree (as shown in Figure 12-5).</p>
 </div>
 <p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Example data for building a binary tree" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_example.png" /></a></p>
 <p align="center"> Figure 12-5 &nbsp; Example data for building a binary tree </p>
@@ -3645,10 +3645,10 @@
 <p>Based on the above analysis, this problem can be solved using divide and conquer, <strong>but how do we use the preorder traversal <code>preorder</code> and inorder traversal <code>inorder</code> to divide the left and right subtrees?</strong></p>
 <p>By definition, <code>preorder</code> and <code>inorder</code> can be divided into three parts.</p>
 <ul>
-<li>Preorder traversal: <code>[ Root | Left Subtree | Right Subtree ]</code>, for example, the tree in the diagram corresponds to <code>[ 3 | 9 | 2 1 7 ]</code>.</li>
-<li>Inorder traversal: <code>[ Left Subtree | Root | Right Subtree ]</code>, for example, the tree in the diagram corresponds to <code>[ 9 | 3 | 1 2 7 ]</code>.</li>
+<li>Preorder traversal: <code>[ Root | Left Subtree | Right Subtree ]</code>, for example, the tree in the figure corresponds to <code>[ 3 | 9 | 2 1 7 ]</code>.</li>
+<li>Inorder traversal: <code>[ Left Subtree | Root | Right Subtree ]</code>, for example, the tree in the figure corresponds to <code>[ 9 | 3 | 1 2 7 ]</code>.</li>
 </ul>
-<p>Using the data in the diagram above, we can obtain the division results as shown in the steps below.</p>
+<p>Using the data in the figure above, we can obtain the division results as shown in Figure 12-6.</p>
 <ol>
 <li>The first element 3 in the preorder traversal is the value of the root node.</li>
 <li>Find the index of the root node 3 in <code>inorder</code>, and use this index to divide <code>inorder</code> into <code>[ 9 | 3 ｜ 1 2 7 ]</code>.</li>
@@ -3695,7 +3695,7 @@
 </tbody>
 </table>
 </div>
-<p>Please note, the meaning of <span class="arithmatex">\((m-l)\)</span> in the right subtree root index is "the number of nodes in the left subtree", which is suggested to be understood in conjunction with the diagram below.</p>
+<p>Please note, the meaning of <span class="arithmatex">\((m-l)\)</span> in the right subtree root index is "the number of nodes in the left subtree", which is suggested to be understood in conjunction with Figure 12-7.</p>
 <p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_division_pointers.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Indexes of the root node and left and right subtrees" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_division_pointers.png" /></a></p>
 <p align="center"> Figure 12-7 &nbsp; Indexes of the root node and left and right subtrees </p>
 
@@ -3735,9 +3735,33 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">build_tree.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">[</span><span class="k">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">dfs</span><span class="p">}</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">[</span><span class="k">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">buildTree</span><span class="p">}</span>
+<div class="highlight"><span class="filename">build_tree.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Build binary tree: Divide and conquer */</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="nf">dfs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">preorder</span><span class="p">,</span><span class="w"> </span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">inorderMap</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Terminate when subtree interval is empty</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// Initialize root node</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">preorder</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="c1">// Query m to divide left and right subtrees</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inorderMap</span><span class="p">[</span><span class="n">preorder</span><span class="p">[</span><span class="n">i</span><span class="p">]];</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="c1">// Subproblem: build left subtree</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">preorder</span><span class="p">,</span><span class="w"> </span><span class="n">inorderMap</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="c1">// Subproblem: build right subtree</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">preorder</span><span class="p">,</span><span class="w"> </span><span class="n">inorderMap</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="c1">// Return root node</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="cm">/* Build binary tree */</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="nf">buildTree</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">preorder</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">inorder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="c1">// Initialize hash table, storing in-order elements to indices mapping</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">inorderMap</span><span class="p">;</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">inorder</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="n">inorderMap</span><span class="p">[</span><span class="n">inorder</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">preorder</span><span class="p">,</span><span class="w"> </span><span class="n">inorderMap</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">inorder</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3838,7 +3862,7 @@
 </div>
 </div>
 </div>
-<p>The diagram below shows the recursive process of building the binary tree, where each node is established during the "descending" process, and each edge (reference) is established during the "ascending" process.</p>
+<p>Figure 12-8 shows the recursive process of building the binary tree, where each node is established during the "descending" process, and each edge (reference) is established during the "ascending" process.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:9"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label><label for="__tabbed_2_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3872,7 +3896,7 @@
 </div>
 <p align="center"> Figure 12-8 &nbsp; Recursive process of building a binary tree </p>
 
-<p>Each recursive function's division results of <code>preorder</code> and <code>inorder</code> are shown in the diagram below.</p>
+<p>Each recursive function's division results of <code>preorder</code> and <code>inorder</code> are shown in Figure 12-9.</p>
 <p><a class="glightbox" href="../build_binary_tree_problem.assets/built_tree_overall.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Division results in each recursive function" class="animation-figure" src="../build_binary_tree_problem.assets/built_tree_overall.png" /></a></p>
 <p align="center"> Figure 12-9 &nbsp; Division results in each recursive function </p>
 
