@@ -16,7 +16,7 @@ The following function uses a `for` loop to perform a summation of $1 + 2 + \dot
 [file]{iteration}-[class]{}-[func]{for_loop}
 ```
 
-The flowchart below represents this sum function.
+The figure below represents this sum function.
 
 ![Flowchart of the sum function](iteration_and_recursion.assets/iteration.png)
 
@@ -50,7 +50,7 @@ We can nest one loop structure within another. Below is an example using `for` l
 [file]{iteration}-[class]{}-[func]{nested_for_loop}
 ```
 
-The flowchart below represents this nested loop.
+The figure below represents this nested loop.
 
 ![Flowchart of the nested loop](iteration_and_recursion.assets/nested_iteration.png)
 
@@ -147,7 +147,7 @@ Using the recursive relation, and considering the first two numbers as terminati
 [file]{recursion}-[class]{}-[func]{fib}
 ```
 
-Observing the above code, we see that it recursively calls two functions within itself, **meaning that one call generates two branching calls**. As illustrated below, this continuous recursive calling eventually creates a <u>recursion tree</u> with a depth of $n$.
+Observing the above code, we see that it recursively calls two functions within itself, **meaning that one call generates two branching calls**. As illustrated in the figure below, this continuous recursive calling eventually creates a <u>recursion tree</u> with a depth of $n$.
 
 ![Fibonacci sequence recursion tree](iteration_and_recursion.assets/recursion_tree.png)
 

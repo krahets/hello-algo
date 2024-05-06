@@ -2,7 +2,7 @@
 
 <u>Quick sort</u> is a sorting algorithm based on the divide and conquer strategy, known for its efficiency and wide application.
 
-The core operation of quick sort is "pivot partitioning," aiming to: select an element from the array as the "pivot," move all elements smaller than the pivot to its left, and move elements greater than the pivot to its right. Specifically, the pivot partitioning process is illustrated as follows.
+The core operation of quick sort is "pivot partitioning," aiming to: select an element from the array as the "pivot," move all elements smaller than the pivot to its left, and move elements greater than the pivot to its right. Specifically, the pivot partitioning process is illustrated in the figure below.
 
 1. Select the leftmost element of the array as the pivot, and initialize two pointers `i` and `j` at both ends of the array.
 2. Set up a loop where each round uses `i` (`j`) to find the first element larger (smaller) than the pivot, then swap these two elements.

@@ -2,7 +2,7 @@
 
 !!! question
 
-    Given a positive integer $n$, split it into at least two positive integers that sum up to $n$, and find the maximum product of these integers, as illustrated below.
+    Given a positive integer $n$, split it into at least two positive integers that sum up to $n$, and find the maximum product of these integers, as illustrated in the figure below.
 
 ![Definition of the maximum product cutting problem](max_product_cutting_problem.assets/max_product_cutting_definition.png)
 

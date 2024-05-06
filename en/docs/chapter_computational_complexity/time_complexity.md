@@ -669,7 +669,7 @@ In essence, time complexity analysis is about finding the asymptotic upper bound
 
     If there exist positive real numbers $c$ and $n_0$ such that for all $n > n_0$, $T(n) \leq c \cdot f(n)$, then $f(n)$ is considered an asymptotic upper bound of $T(n)$, denoted as $T(n) = O(f(n))$.
 
-As illustrated below, calculating the asymptotic upper bound involves finding a function $f(n)$ such that, as $n$ approaches infinity, $T(n)$ and $f(n)$ have the same growth order, differing only by a constant factor $c$.
+As shown in the figure below, calculating the asymptotic upper bound involves finding a function $f(n)$ such that, as $n$ approaches infinity, $T(n)$ and $f(n)$ have the same growth order, differing only by a constant factor $c$.
 
 ![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.png)
 
@@ -951,7 +951,7 @@ The following table illustrates examples of different operation counts and their
 
 ## Common types of time complexity
 
-Let's consider the input data size as $n$. The common types of time complexities are illustrated below, arranged from lowest to highest:
+Let's consider the input data size as $n$. The common types of time complexities are shown in the figure below, arranged from lowest to highest:
 
 $$
 \begin{aligned}

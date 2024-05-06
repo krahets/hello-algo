@@ -725,7 +725,7 @@ The time complexity of both `loop()` and `recur()` functions is $O(n)$, but thei
 
 ## Common types
 
-Let the size of the input data be $n$, the following chart displays common types of space complexities (arranged from low to high).
+Let the size of the input data be $n$, the figure below displays common types of space complexities (arranged from low to high).
 
 $$
 \begin{aligned}

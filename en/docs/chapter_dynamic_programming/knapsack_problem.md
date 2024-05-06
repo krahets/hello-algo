@@ -88,7 +88,7 @@ Dynamic programming essentially involves filling the $dp$ table during the state
 [file]{knapsack}-[class]{}-[func]{knapsack_dp}
 ```
 
-As shown in the figures below, both the time complexity and space complexity are determined by the size of the array `dp`, i.e., $O(n \times cap)$.
+As shown in the figure below, both the time complexity and space complexity are determined by the size of the array `dp`, i.e., $O(n \times cap)$.
 
 === "<1>"
     ![The dynamic programming process of the 0-1 knapsack problem](knapsack_problem.assets/knapsack_dp_step1.png)

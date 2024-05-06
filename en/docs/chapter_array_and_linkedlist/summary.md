@@ -44,7 +44,7 @@ If an element is searched first and then deleted, the time complexity is indeed 
 
 **Q**: In the figure "Linked List Definition and Storage Method", do the light blue storage nodes occupy a single memory address, or do they share half with the node value?
 
-The diagram is just a qualitative representation; quantitative analysis depends on specific situations.
+The figure is just a qualitative representation; quantitative analysis depends on specific situations.
 
 - Different types of node values occupy different amounts of space, such as int, long, double, and object instances.
 - The memory space occupied by pointer variables depends on the operating system and compilation environment used, usually 8 bytes or 4 bytes.
