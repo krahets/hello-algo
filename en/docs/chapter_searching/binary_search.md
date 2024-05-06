@@ -4,7 +4,7 @@
 
 !!! question
 
-    Given an array `nums` of length $n$, with elements arranged in ascending order and non-repeating. Please find and return the index of element `target` in this array. If the array does not contain the element, return $-1$. An example is shown below.
+    Given an array `nums` of length $n$, with elements arranged in ascending order and non-repeating. Please find and return the index of element `target` in this array. If the array does not contain the element, return $-1$. An example is shown in the figure below.
 
 ![Binary search example data](binary_search.assets/binary_search_example.png)
 

@@ -1,13 +1,13 @@
 # List
 
-A "list" is an abstract data structure concept that represents an ordered collection of elements, supporting operations such as element access, modification, addition, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.
+A <u>list</u> is an abstract data structure concept that represents an ordered collection of elements, supporting operations such as element access, modification, addition, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.
 
 - A linked list inherently serves as a list, supporting operations for adding, deleting, searching, and modifying elements, with the flexibility to dynamically adjust its size.
 - Arrays also support these operations, but due to their immutable length, they can be considered as a list with a length limit.
 
 When implementing lists using arrays, **the immutability of length reduces the practicality of the list**. This is because predicting the amount of data to be stored in advance is often challenging, making it difficult to choose an appropriate list length. If the length is too small, it may not meet the requirements; if too large, it may waste memory space.
 
-To solve this problem, we can implement lists using a "dynamic array." It inherits the advantages of arrays and can dynamically expand during program execution.
+To solve this problem, we can implement lists using a <u>dynamic array</u>. It inherits the advantages of arrays and can dynamically expand during program execution.
 
 In fact, **many programming languages' standard libraries implement lists using dynamic arrays**, such as Python's `list`, Java's `ArrayList`, C++'s `vector`, and C#'s `List`. In the following discussion, we will consider "list" and "dynamic array" as synonymous concepts.
 

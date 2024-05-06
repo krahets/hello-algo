@@ -1,6 +1,6 @@
 # Array
 
-An "array" is a linear data structure that operates as a lineup of similar items, stored together in a computer's memory in contiguous spaces. It's like a sequence that maintains organized storage. Each item in this lineup has its unique 'spot' known as an "index". Please refer to the figure below to observe how arrays work and grasp these key terms.
+An <u>array</u> is a linear data structure that operates as a lineup of similar items, stored together in a computer's memory in contiguous spaces. It's like a sequence that maintains organized storage. Each item in this lineup has its unique 'spot' known as an <u>index</u>. Please refer to the figure below to observe how arrays work and grasp these key terms.
 
 ![Array definition and storage method](array.assets/array_definition.png)
 
@@ -125,7 +125,7 @@ Elements in an array are stored in contiguous memory spaces, making it simpler t
 
 ![Memory address calculation for array elements](array.assets/array_memory_location_calculation.png)
 
-As observed in the above illustration, array indexing conventionally begins at $0$. While this might appear counterintuitive, considering counting usually starts at $1$, within the address calculation formula, **an index is essentially an offset from the memory address**. For the first element's address, this offset is $0$, validating its index as $0$.
+As observed in the figure above, array indexing conventionally begins at $0$. While this might appear counterintuitive, considering counting usually starts at $1$, within the address calculation formula, **an index is essentially an offset from the memory address**. For the first element's address, this offset is $0$, validating its index as $0$.
 
 Accessing elements in an array is highly efficient, allowing us to randomly access any element in $O(1)$ time.
 
@@ -135,7 +135,7 @@ Accessing elements in an array is highly efficient, allowing us to randomly acce
 
 ### Inserting elements
 
-Array elements are tightly packed in memory, with no space available to accommodate additional data between them. Illustrated in Figure below, inserting an element in the middle of an array requires shifting all subsequent elements back by one position to create room for the new element.
+Array elements are tightly packed in memory, with no space available to accommodate additional data between them. As illustrated in the figure below, inserting an element in the middle of an array requires shifting all subsequent elements back by one position to create room for the new element.
 
 ![Array element insertion example](array.assets/array_insert_element.png)
 

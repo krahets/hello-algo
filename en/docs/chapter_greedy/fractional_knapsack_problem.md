@@ -2,7 +2,7 @@
 
 !!! question
 
-    Given $n$ items, the weight of the $i$-th item is $wgt[i-1]$ and its value is $val[i-1]$, and a knapsack with a capacity of $cap$. Each item can be chosen only once, **but a part of the item can be selected, with its value calculated based on the proportion of the weight chosen**, what is the maximum value of the items in the knapsack under the limited capacity? An example is shown below.
+    Given $n$ items, the weight of the $i$-th item is $wgt[i-1]$ and its value is $val[i-1]$, and a knapsack with a capacity of $cap$. Each item can be chosen only once, **but a part of the item can be selected, with its value calculated based on the proportion of the weight chosen**, what is the maximum value of the items in the knapsack under the limited capacity? An example is shown in the figure below.
 
 ![Example data of the fractional knapsack problem](fractional_knapsack_problem.assets/fractional_knapsack_example.png)
 
@@ -17,7 +17,7 @@ The difference is that, in this problem, only a part of an item can be chosen. A
 
 ### Greedy strategy determination
 
-Maximizing the total value of the items in the knapsack essentially means maximizing the value per unit weight. From this, the greedy strategy shown below can be deduced.
+Maximizing the total value of the items in the knapsack **essentially means maximizing the value per unit weight**. From this, the greedy strategy shown in the figure below can be deduced.
 
 1. Sort the items by their unit value from high to low.
 2. Iterate over all items, **greedily choosing the item with the highest unit value in each round**.

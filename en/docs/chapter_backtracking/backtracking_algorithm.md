@@ -8,7 +8,7 @@ Backtracking typically employs "depth-first search" to traverse the solution spa
 
     Given a binary tree, search and record all nodes with a value of $7$, please return a list of nodes.
 
-For this problem, we traverse this tree in preorder and check if the current node's value is $7$. If it is, we add the node's value to the result list `res`. The relevant process is shown in the following diagram and code:
+For this problem, we traverse this tree in preorder and check if the current node's value is $7$. If it is, we add the node's value to the result list `res`. The relevant process is shown in the figure below:
 
 ```src
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
@@ -36,7 +36,7 @@ Based on the code from Example One, we need to use a list `path` to record the v
 
 In each "try", we record the path by adding the current node to `path`; before "retreating", we need to pop the node from `path` **to restore the state before this attempt**.
 
-Observe the process shown below, **we can understand trying and retreating as "advancing" and "undoing"**, two operations that are reverse to each other.
+Observe the process shown in the figure below, **we can understand trying and retreating as "advancing" and "undoing"**, two operations that are reverse to each other.
 
 === "<1>"
     ![Trying and retreating](backtracking_algorithm.assets/preorder_find_paths_step1.png)
@@ -85,7 +85,7 @@ To meet the above constraints, **we need to add a pruning operation**: during th
 [file]{preorder_traversal_iii_compact}-[class]{}-[func]{pre_order}
 ```
 
-"Pruning" is a very vivid noun. As shown in the diagram below, in the search process, **we "cut off" the search branches that do not meet the constraints**, avoiding many meaningless attempts, thus enhancing the search efficiency.
+"Pruning" is a very vivid noun. As shown in the figure below, in the search process, **we "cut off" the search branches that do not meet the constraints**, avoiding many meaningless attempts, thus enhancing the search efficiency.
 
 ![Pruning based on constraints](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
 
@@ -421,7 +421,7 @@ Next, we solve Example Three based on the framework code. The `state` is the nod
 [file]{preorder_traversal_iii_template}-[class]{}-[func]{backtrack}
 ```
 
-As per the requirements, after finding a node with a value of $7$, the search should continue, **thus the `return` statement after recording the solution should be removed**. The following diagram compares the search processes with and without retaining the `return` statement.
+As per the requirements, after finding a node with a value of $7$, the search should continue, **thus the `return` statement after recording the solution should be removed**. The figure below compares the search processes with and without retaining the `return` statement.
 
 ![Comparison of retaining and removing the return in the search process](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
 

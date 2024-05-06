@@ -24,8 +24,8 @@ A double-ended queue, which is a combination of a stack and a queue or two stack
 
 **Q**: How exactly are undo and redo implemented?
 
-Undo and redo operations are implemented using two stacks: Stack A for undo and Stack B for redo.
+Undo and redo operations are implemented using two stacks: Stack `A` for undo and Stack `B` for redo.
 
-1. Each time a user performs an operation, it is pushed onto Stack A, and Stack B is cleared.
-2. When the user executes an "undo", the most recent operation is popped from Stack A and pushed onto Stack B.
-3. When the user executes a "redo", the most recent operation is popped from Stack B and pushed back onto Stack A.
+1. Each time a user performs an operation, it is pushed onto Stack `A`, and Stack `B` is cleared.
+2. When the user executes an "undo", the most recent operation is popped from Stack `A` and pushed onto Stack `B`.
+3. When the user executes a "redo", the most recent operation is popped from Stack `B` and pushed back onto Stack `A`.

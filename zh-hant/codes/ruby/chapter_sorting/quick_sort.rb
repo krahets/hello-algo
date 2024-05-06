@@ -9,7 +9,6 @@ class QuickSort
   class << self
     ### 哨兵劃分 ###
     def partition(nums, left, right)
-
       # 以 nums[left] 為基準數
       i, j = left, right
       while i < j
@@ -116,7 +115,7 @@ class QuickSortTailCall
       i # 返回基準數的索引
     end
 
-    ### 快速排序（尾遞迴最佳化）
+    ### 快速排序（尾遞迴最佳化）###
     def quick_sort(nums, left, right)
       # 子陣列長度不為 1 時遞迴
       while left < right

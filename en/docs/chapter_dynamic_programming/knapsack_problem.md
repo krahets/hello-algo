@@ -8,7 +8,7 @@ In this section, we will first solve the most common 0-1 knapsack problem.
 
     Given $n$ items, the weight of the $i$-th item is $wgt[i-1]$ and its value is $val[i-1]$, and a knapsack with a capacity of $cap$. Each item can be chosen only once. What is the maximum value of items that can be placed in the knapsack under the capacity limit?
 
-Observe the following figure, since the item number $i$ starts counting from 1, and the array index starts from 0, thus the weight of item $i$ corresponds to $wgt[i-1]$ and the value corresponds to $val[i-1]$.
+Observe the figure below, since the item number $i$ starts counting from 1, and the array index starts from 0, thus the weight of item $i$ corresponds to $wgt[i-1]$ and the value corresponds to $val[i-1]$.
 
 ![Example data of the 0-1 knapsack](knapsack_problem.assets/knapsack_example.png)
 
@@ -76,19 +76,19 @@ After introducing memoization, **the time complexity depends on the number of su
 [file]{knapsack}-[class]{}-[func]{knapsack_dfs_mem}
 ```
 
-The following figure shows the search branches that are pruned in memoized search.
+The figure below shows the search branches that are pruned in memoized search.
 
 ![The memoized search recursive tree of the 0-1 knapsack problem](knapsack_problem.assets/knapsack_dfs_mem.png)
 
 ### Method three: Dynamic programming
 
-Dynamic programming essentially involves filling the $dp$ table during the state transition, the code is shown below:
+Dynamic programming essentially involves filling the $dp$ table during the state transition, the code is shown in the figure below:
 
 ```src
 [file]{knapsack}-[class]{}-[func]{knapsack_dp}
 ```
 
-As shown in the figures below, both the time complexity and space complexity are determined by the size of the array `dp`, i.e., $O(n \times cap)$.
+As shown in the figure below, both the time complexity and space complexity are determined by the size of the array `dp`, i.e., $O(n \times cap)$.
 
 === "<1>"
     ![The dynamic programming process of the 0-1 knapsack problem](knapsack_problem.assets/knapsack_dp_step1.png)

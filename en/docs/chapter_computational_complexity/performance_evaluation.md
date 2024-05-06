@@ -24,11 +24,11 @@ On the other hand, **conducting a full test is very resource-intensive**. As the
 
 ## Theoretical estimation
 
-Due to the significant limitations of actual testing, we can consider evaluating algorithm efficiency solely through calculations. This estimation method is known as "asymptotic complexity analysis," or simply "complexity analysis."
+Due to the significant limitations of actual testing, we can consider evaluating algorithm efficiency solely through calculations. This estimation method is known as <u>asymptotic complexity analysis</u>, or simply <u>complexity analysis</u>.
 
 Complexity analysis reflects the relationship between the time and space resources required for algorithm execution and the size of the input data. **It describes the trend of growth in the time and space required by the algorithm as the size of the input data increases**. This definition might sound complex, but we can break it down into three key points to understand it better.
 
-- "Time and space resources" correspond to "time complexity" and "space complexity," respectively.
+- "Time and space resources" correspond to <u>time complexity</u> and <u>space complexity</u>, respectively.
 - "As the size of input data increases" means that complexity reflects the relationship between algorithm efficiency and the volume of input data.
 - "The trend of growth in time and space" indicates that complexity analysis focuses not on the specific values of runtime or space occupied but on the "rate" at which time or space grows.
 

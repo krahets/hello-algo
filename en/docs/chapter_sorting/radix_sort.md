@@ -6,7 +6,7 @@ The previous section introduced counting sort, which is suitable for scenarios w
 
 ## Algorithm process
 
-Taking the student ID data as an example, assuming the least significant digit is the $1^{st}$ and the most significant is the $8^{th}$, the radix sort process is illustrated in the following diagram.
+Taking the student ID data as an example, assuming the least significant digit is the $1^{st}$ and the most significant is the $8^{th}$, the radix sort process is illustrated in the figure below.
 
 1. Initialize digit $k = 1$.
 2. Perform "counting sort" on the $k^{th}$ digit of the student IDs. After completion, the data will be sorted from smallest to largest based on the $k^{th}$ digit.

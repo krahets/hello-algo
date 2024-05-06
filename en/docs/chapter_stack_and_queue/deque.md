@@ -1,6 +1,6 @@
 # Double-ended queue
 
-In a queue, we can only delete elements from the head or add elements to the tail. As shown in the following diagram, a "double-ended queue (deque)" offers more flexibility, allowing the addition or removal of elements at both the head and the tail.
+In a queue, we can only delete elements from the head or add elements to the tail. As shown in the figure below, a <u>double-ended queue (deque)</u> offers more flexibility, allowing the addition or removal of elements at both the head and the tail.
 
 ![Operations in double-ended queue](deque.assets/deque_operations.png)
 
@@ -10,14 +10,14 @@ The common operations in a double-ended queue are listed below, and the names of
 
 <p align="center"> Table <id> &nbsp; Efficiency of double-ended queue operations </p>
 
-| Method Name   | Description                 | Time Complexity |
-| ------------- | --------------------------- | --------------- |
+| Method Name   | Description                | Time Complexity |
+| ------------- | -------------------------- | --------------- |
 | `pushFirst()` | Add an element to the head | $O(1)$          |
-| `pushLast()`  | Add an element to the tail  | $O(1)$          |
-| `popFirst()`  | Remove the first element    | $O(1)$          |
-| `popLast()`   | Remove the last element     | $O(1)$          |
-| `peekFirst()` | Access the first element    | $O(1)$          |
-| `peekLast()`  | Access the last element     | $O(1)$          |
+| `pushLast()`  | Add an element to the tail | $O(1)$          |
+| `popFirst()`  | Remove the first element   | $O(1)$          |
+| `popLast()`   | Remove the last element    | $O(1)$          |
+| `peekFirst()` | Access the first element   | $O(1)$          |
+| `peekLast()`  | Access the last element    | $O(1)$          |
 
 Similarly, we can directly use the double-ended queue classes implemented in programming languages:
 

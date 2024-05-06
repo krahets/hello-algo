@@ -1,9 +1,9 @@
 # Heap
 
-A "heap" is a complete binary tree that satisfies specific conditions and can be mainly divided into two types, as shown in the figure below.
+A <u>heap</u> is a complete binary tree that satisfies specific conditions and can be mainly divided into two types, as shown in the figure below.
 
-- "Min heap": The value of any node $\leq$ the values of its child nodes.
-- "Max heap": The value of any node $\geq$ the values of its child nodes.
+- <u>Min heap</u>: The value of any node $\leq$ the values of its child nodes.
+- <u>Max heap</u>: The value of any node $\geq$ the values of its child nodes.
 
 ![Min heap and max heap](heap.assets/min_heap_and_max_heap.png)
 
@@ -15,7 +15,7 @@ As a special case of a complete binary tree, heaps have the following characteri
 
 ## Common operations on heaps
 
-It should be noted that many programming languages provide a "priority queue," which is an abstract data structure defined as a queue with priority sorting.
+It should be noted that many programming languages provide a <u>priority queue</u>, which is an abstract data structure defined as a queue with priority sorting.
 
 In fact, **heaps are often used to implement priority queues, with max heaps equivalent to priority queues where elements are dequeued in descending order**. From a usage perspective, we can consider "priority queue" and "heap" as equivalent data structures. Therefore, this book does not make a special distinction between the two, uniformly referring to them as "heap."
 
@@ -448,7 +448,7 @@ The top element of the heap is the root node of the binary tree, which is also t
 
 ### Inserting an element into the heap
 
-Given an element `val`, we first add it to the bottom of the heap. After addition, since `val` may be larger than other elements in the heap, the heap's integrity might be compromised, **thus it's necessary to repair the path from the inserted node to the root node**. This operation is called "heapifying".
+Given an element `val`, we first add it to the bottom of the heap. After addition, since `val` may be larger than other elements in the heap, the heap's integrity might be compromised, **thus it's necessary to repair the path from the inserted node to the root node**. This operation is called <u>heapifying</u>.
 
 Considering starting from the node inserted, **perform heapify from bottom to top**. As shown in the figure below, we compare the value of the inserted node with its parent node, and if the inserted node is larger, we swap them. Then continue this operation, repairing each node in the heap from bottom to top until passing the root node or encountering a node that does not need to be swapped.
 

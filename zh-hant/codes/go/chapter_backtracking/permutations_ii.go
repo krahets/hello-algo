@@ -23,7 +23,7 @@ func backtrackII(state *[]int, choices *[]int, selected *[]bool, res *[][]int) {
 			(*selected)[i] = true
 			*state = append(*state, choice)
 			// 進行下一輪選擇
-			backtrackI(state, choices, selected, res)
+			backtrackII(state, choices, selected, res)
 			// 回退：撤銷選擇，恢復到之前的狀態
 			(*selected)[i] = false
 			*state = (*state)[:len(*state)-1]

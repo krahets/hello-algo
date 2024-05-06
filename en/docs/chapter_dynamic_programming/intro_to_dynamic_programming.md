@@ -36,7 +36,7 @@ $$
 dp[i] = dp[i-1] + dp[i-2]
 $$
 
-This means that in the stair climbing problem, there is a recursive relationship between the subproblems, **the solution to the original problem can be constructed from the solutions to the subproblems**. The following image shows this recursive relationship.
+This means that in the stair climbing problem, there is a recursive relationship between the subproblems, **the solution to the original problem can be constructed from the solutions to the subproblems**. The figure below shows this recursive relationship.
 
 ![Recursive relationship of solution counts](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png)
 
@@ -48,11 +48,11 @@ Observe the following code, which, like standard backtracking code, belongs to d
 [file]{climbing_stairs_dfs}-[class]{}-[func]{climbing_stairs_dfs}
 ```
 
-The following image shows the recursive tree formed by brute force search. For the problem $dp[n]$, the depth of its recursive tree is $n$, with a time complexity of $O(2^n)$. Exponential order represents explosive growth, and entering a long wait if a relatively large $n$ is input.
+The figure below shows the recursive tree formed by brute force search. For the problem $dp[n]$, the depth of its recursive tree is $n$, with a time complexity of $O(2^n)$. Exponential order represents explosive growth, and entering a long wait if a relatively large $n$ is input.
 
 ![Recursive tree for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png)
 
-Observing the above image, **the exponential time complexity is caused by 'overlapping subproblems'**. For example, $dp[9]$ is decomposed into $dp[8]$ and $dp[7]$, $dp[8]$ into $dp[7]$ and $dp[6]$, both containing the subproblem $dp[7]$.
+Observing the figure above, **the exponential time complexity is caused by 'overlapping subproblems'**. For example, $dp[9]$ is decomposed into $dp[8]$ and $dp[7]$, $dp[8]$ into $dp[7]$ and $dp[6]$, both containing the subproblem $dp[7]$.
 
 Thus, subproblems include even smaller overlapping subproblems, endlessly. A vast majority of computational resources are wasted on these overlapping subproblems.
 
@@ -69,7 +69,7 @@ The code is as follows:
 [file]{climbing_stairs_dfs_mem}-[class]{}-[func]{climbing_stairs_dfs_mem}
 ```
 
-Observe the following image, **after memoization, all overlapping subproblems need to be calculated only once, optimizing the time complexity to $O(n)$**, which is a significant leap.
+Observe the figure below, **after memoization, all overlapping subproblems need to be calculated only once, optimizing the time complexity to $O(n)$**, which is a significant leap.
 
 ![Recursive tree with memoized search](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png)
 
@@ -85,7 +85,7 @@ Since dynamic programming does not include a backtracking process, it only requi
 [file]{climbing_stairs_dp}-[class]{}-[func]{climbing_stairs_dp}
 ```
 
-The image below simulates the execution process of the above code.
+The figure below simulates the execution process of the above code.
 
 ![Dynamic programming process for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dp.png)
 

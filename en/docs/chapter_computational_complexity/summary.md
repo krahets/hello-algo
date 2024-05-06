@@ -11,7 +11,7 @@
 **Time Complexity**
 
 - Time complexity measures the trend of an algorithm's running time with the increase in data volume, effectively assessing algorithm efficiency. However, it can fail in certain cases, such as with small input data volumes or when time complexities are the same, making it challenging to precisely compare the efficiency of algorithms.
-- Worst-case time complexity is denoted using big O notation, representing the asymptotic upper bound, reflecting the growth level of the number of operations $T(n)$ as $n$ approaches infinity.
+- Worst-case time complexity is denoted using big-$O$ notation, representing the asymptotic upper bound, reflecting the growth level of the number of operations $T(n)$ as $n$ approaches infinity.
 - Calculating time complexity involves two steps: first counting the number of operations, then determining the asymptotic upper bound.
 - Common time complexities, arranged from low to high, include $O(1)$, $O(\log n)$, $O(n)$, $O(n \log n)$, $O(n^2)$, $O(2^n)$, and $O(n!)$, among others.
 - The time complexity of some algorithms is not fixed and depends on the distribution of input data. Time complexities are divided into worst, best, and average cases. The best case is rarely used because input data generally needs to meet strict conditions to achieve the best case.
@@ -32,7 +32,7 @@ Theoretically, the space complexity of a tail-recursive function can be optimize
 
 **Q**: What is the difference between the terms "function" and "method"?
 
-A "function" can be executed independently, with all parameters passed explicitly. A "method" is associated with an object and is implicitly passed to the object calling it, able to operate on the data contained within an instance of a class.
+A <u>function</u> can be executed independently, with all parameters passed explicitly. A <u>method</u> is associated with an object and is implicitly passed to the object calling it, able to operate on the data contained within an instance of a class.
 
 Here are some examples from common programming languages:
 

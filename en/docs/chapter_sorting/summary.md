@@ -10,7 +10,7 @@
 - Counting sort is a special case of bucket sort, which sorts by counting the occurrences of each data point. Counting sort is suitable for large datasets with a limited range of data and requires that data can be converted to positive integers.
 - Radix sort sorts data by sorting digit by digit, requiring data to be represented as fixed-length numbers.
 - Overall, we hope to find a sorting algorithm that has high efficiency, stability, in-place operation, and positive adaptability. However, like other data structures and algorithms, no sorting algorithm can meet all these conditions simultaneously. In practical applications, we need to choose the appropriate sorting algorithm based on the characteristics of the data.
-- The following figure compares mainstream sorting algorithms in terms of efficiency, stability, in-place nature, and adaptability.
+- The figure below compares mainstream sorting algorithms in terms of efficiency, stability, in-place nature, and adaptability.
 
 ![Sorting Algorithm Comparison](summary.assets/sorting_algorithms_comparison.png)
 

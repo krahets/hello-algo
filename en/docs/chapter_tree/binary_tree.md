@@ -1,6 +1,6 @@
 # Binary tree
 
-A "binary tree" is a non-linear data structure that represents the hierarchical relationship between ancestors and descendants, embodying the divide-and-conquer logic of "splitting into two". Similar to a linked list, the basic unit of a binary tree is a node, each containing a value, a reference to the left child node, and a reference to the right child node.
+A <u>binary tree</u> is a non-linear data structure that represents the hierarchical relationship between ancestors and descendants, embodying the divide-and-conquer logic of "splitting into two". Similar to a linked list, the basic unit of a binary tree is a node, each containing a value, a reference to the left child node, and a reference to the right child node.
 
 === "Python"
 
@@ -198,7 +198,7 @@ A "binary tree" is a non-linear data structure that represents the hierarchical 
 
     ```
 
-Each node has two references (pointers), pointing to the "left-child node" and "right-child node," respectively. This node is called the "parent node" of these two child nodes. When given a node of a binary tree, we call the tree formed by this node's left child and all nodes under it the "left subtree" of this node. Similarly, the "right subtree" can be defined.
+Each node has two references (pointers), pointing to the <u>left-child node</u> and <u>right-child node</u>, respectively. This node is called the <u>parent node</u> of these two child nodes. When given a node of a binary tree, we call the tree formed by this node's left child and all nodes under it the <u>left subtree</u> of this node. Similarly, the <u>right subtree</u> can be defined.
 
 **In a binary tree, except for leaf nodes, all other nodes contain child nodes and non-empty subtrees.** As shown in the figure below, if "Node 2" is considered as the parent node, then its left and right child nodes are "Node 4" and "Node 5," respectively. The left subtree is "the tree formed by Node 4 and all nodes under it," and the right subtree is "the tree formed by Node 5 and all nodes under it."
 
@@ -206,16 +206,16 @@ Each node has two references (pointers), pointing to the "left-child node" and "
 
 ## Common terminology of binary trees
 
-The commonly used terminology of binary trees is shown in the following figure.
+The commonly used terminology of binary trees is shown in the figure below.
 
-- "Root node": The node at the top level of the binary tree, which has no parent node.
-- "Leaf node": A node with no children, both of its pointers point to `None`.
-- "Edge": The line segment connecting two nodes, i.e., node reference (pointer).
-- The "level" of a node: Incrementing from top to bottom, with the root node's level being 1.
-- The "degree" of a node: The number of children a node has. In a binary tree, the degree can be 0, 1, or 2.
-- The "height" of a binary tree: The number of edges passed from the root node to the farthest leaf node.
-- The "depth" of a node: The number of edges passed from the root node to the node.
-- The "height" of a node: The number of edges from the farthest leaf node to the node.
+- <u>Root node</u>: The node at the top level of the binary tree, which has no parent node.
+- <u>Leaf node</u>: A node with no children, both of its pointers point to `None`.
+- <u>Edge</u>: The line segment connecting two nodes, i.e., node reference (pointer).
+- The <u>level</u> of a node: Incrementing from top to bottom, with the root node's level being 1.
+- The <u>degree</u> of a node: The number of children a node has. In a binary tree, the degree can be 0, 1, or 2.
+- The <u>height</u> of a binary tree: The number of edges passed from the root node to the farthest leaf node.
+- The <u>depth</u> of a node: The number of edges passed from the root node to the node.
+- The <u>height</u> of a node: The number of edges from the farthest leaf node to the node.
 
 ![Common Terminology of Binary Trees](binary_tree.assets/binary_tree_terminology.png)
 
@@ -615,29 +615,29 @@ Similar to a linked list, inserting and removing nodes in a binary tree can be a
 
 ### Perfect binary tree
 
-As shown in the figure below, in a "perfect binary tree," all levels of nodes are fully filled. In a perfect binary tree, the degree of leaf nodes is $0$, while the degree of all other nodes is $2$; if the tree's height is $h$, then the total number of nodes is $2^{h+1} - 1$, showing a standard exponential relationship, reflecting the common phenomenon of cell division in nature.
+As shown in the figure below, in a <u>perfect binary tree</u>, all levels of nodes are fully filled. In a perfect binary tree, the degree of leaf nodes is $0$, while the degree of all other nodes is $2$; if the tree's height is $h$, then the total number of nodes is $2^{h+1} - 1$, showing a standard exponential relationship, reflecting the common phenomenon of cell division in nature.
 
 !!! tip
 
-    Please note that in the Chinese community, a perfect binary tree is often referred to as a "full binary tree."
+    Please note that in the Chinese community, a perfect binary tree is often referred to as a <u>full binary tree</u>.
 
 ![Perfect binary tree](binary_tree.assets/perfect_binary_tree.png)
 
 ### Complete binary tree
 
-As shown in the figure below, a "complete binary tree" has only the bottom level nodes not fully filled, and the bottom level nodes are filled as far left as possible.
+As shown in the figure below, a <u>complete binary tree</u> has only the bottom level nodes not fully filled, and the bottom level nodes are filled as far left as possible.
 
 ![Complete binary tree](binary_tree.assets/complete_binary_tree.png)
 
 ### Full binary tree
 
-As shown in the figure below, a "full binary tree" has all nodes except leaf nodes having two children.
+As shown in the figure below, a <u>full binary tree</u> has all nodes except leaf nodes having two children.
 
 ![Full binary tree](binary_tree.assets/full_binary_tree.png)
 
 ### Balanced binary tree
 
-As shown in the figure below, in a "balanced binary tree," the absolute difference in height between the left and right subtrees of any node does not exceed 1.
+As shown in the figure below, in a <u>balanced binary tree</u>, the absolute difference in height between the left and right subtrees of any node does not exceed 1.
 
 ![Balanced binary tree](binary_tree.assets/balanced_binary_tree.png)
 

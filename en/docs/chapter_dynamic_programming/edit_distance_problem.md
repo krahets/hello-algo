@@ -39,7 +39,7 @@ From this, we obtain a two-dimensional $dp$ table of size $(i+1) \times (j+1)$.
 
 **Step two: Identify the optimal substructure and then derive the state transition equation**
 
-Consider the subproblem $dp[i, j]$, whose corresponding tail characters of the two strings are $s[i-1]$ and $t[j-1]$, which can be divided into three scenarios as shown below.
+Consider the subproblem $dp[i, j]$, whose corresponding tail characters of the two strings are $s[i-1]$ and $t[j-1]$, which can be divided into three scenarios as shown in the figure below.
 
 1. Add $t[j-1]$ after $s[i-1]$, then the remaining subproblem is $dp[i, j-1]$.
 2. Delete $s[i-1]$, then the remaining subproblem is $dp[i-1, j]$.
@@ -71,7 +71,7 @@ Observing the state transition equation, solving $dp[i, j]$ depends on the solut
 [file]{edit_distance}-[class]{}-[func]{edit_distance_dp}
 ```
 
-As shown below, the process of state transition in the edit distance problem is very similar to that in the knapsack problem, which can be seen as filling a two-dimensional grid.
+As shown in the figure below, the process of state transition in the edit distance problem is very similar to that in the knapsack problem, which can be seen as filling a two-dimensional grid.
 
 === "<1>"
     ![Dynamic programming process of edit distance](edit_distance_problem.assets/edit_distance_dp_step1.png)
