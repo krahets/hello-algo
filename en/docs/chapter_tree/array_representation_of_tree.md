@@ -143,7 +143,7 @@ This means that when using an array to represent a complete binary tree, it's po
 The following code implements a binary tree based on array representation, including the following operations:
 
 - Given a node, obtain its value, left (right) child node, and parent node.
-- Obtain the preorder, inorder, postorder, and level-order traversal sequences.
+- Obtain the pre-order, in-order, post-order, and level-order traversal sequences.
 
 ```src
 [file]{array_binary_tree}-[class]{array_binary_tree}-[func]{}
