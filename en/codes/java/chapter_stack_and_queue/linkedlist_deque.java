@@ -11,7 +11,7 @@ import java.util.*;
 /* Double-linked list node */
 class ListNode {
     int val; // Node value
-    ListNode next; // Reference to the next node
+    ListNode next; // Reference to successor node
     ListNode prev; // Reference to predecessor node
 
     ListNode(int val) {

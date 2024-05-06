@@ -47,4 +47,4 @@ if __name__ == "__main__":
 
     print(f"Input array nums = {nums}, target = {target}")
     print(f"All subsets equal to {target} res = {res}")
-    print(f"Please note that the result of this method includes duplicate sets")
+    print(f"The result of this method includes duplicate sets")

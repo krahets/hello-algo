@@ -24,7 +24,7 @@ class GraphAdjMat:
         for val in vertices:
             self.add_vertex(val)
         # Add edge
-        # Please note, edges elements represent vertex indices, corresponding to vertices elements indices
+        # Edges elements represent vertex indices
         for e in edges:
             self.add_edge(e[0], e[1])
 
@@ -85,7 +85,7 @@ class GraphAdjMat:
 """Driver Code"""
 if __name__ == "__main__":
     # Initialize undirected graph
-    # Please note, edges elements represent vertex indices, corresponding to vertices elements indices
+    # Edges elements represent vertex indices
     vertices = [1, 3, 2, 5, 4]
     edges = [[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]]
     graph = GraphAdjMat(vertices, edges)
