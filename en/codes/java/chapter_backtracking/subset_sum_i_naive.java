@@ -48,6 +48,6 @@ public class subset_sum_i_naive {
 
         System.out.println("Input array nums = " + Arrays.toString(nums) + ", target = " + target);
         System.out.println("All subsets summing to " + target + " res = " + res);
-        System.out.println("Please note that the result of this method includes duplicate sets");
+        System.out.println("The result of this method includes duplicate sets");
     }
 }

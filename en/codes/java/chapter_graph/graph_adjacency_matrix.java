@@ -23,7 +23,7 @@ class GraphAdjMat {
             addVertex(val);
         }
         // Add edge
-        // Please note, edges elements represent vertex indices, corresponding to vertices elements indices
+        // Edges elements represent vertex indices
         for (int[] e : edges) {
             addEdge(e[0], e[1]);
         }
@@ -98,7 +98,7 @@ class GraphAdjMat {
 public class graph_adjacency_matrix {
     public static void main(String[] args) {
         /* Initialize undirected graph */
-        // Please note, edges elements represent vertex indices, corresponding to vertices elements indices
+        // Edges elements represent vertex indices
         int[] vertices = { 1, 3, 2, 5, 4 };
         int[][] edges = { { 0, 1 }, { 0, 3 }, { 1, 2 }, { 2, 3 }, { 2, 4 }, { 3, 4 } };
         GraphAdjMat graph = new GraphAdjMat(vertices, edges);
