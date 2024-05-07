@@ -3629,7 +3629,7 @@
 <h1 id="123-building-binary-tree-problem">12.3 &nbsp; Building binary tree problem<a class="headerlink" href="#123-building-binary-tree-problem" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given the preorder traversal <code>preorder</code> and inorder traversal <code>inorder</code> of a binary tree, construct the binary tree and return the root node of the binary tree. Assume that there are no duplicate values in the nodes of the binary tree (as shown in Figure 12-5).</p>
+<p>Given the pre-order traversal <code>preorder</code> and in-order traversal <code>inorder</code> of a binary tree, construct the binary tree and return the root node of the binary tree. Assume that there are no duplicate values in the nodes of the binary tree (as shown in Figure 12-5).</p>
 </div>
 <p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Example data for building a binary tree" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_example.png" /></a></p>
 <p align="center"> Figure 12-5 &nbsp; Example data for building a binary tree </p>
@@ -3638,24 +3638,24 @@
 <p>The original problem of constructing a binary tree from <code>preorder</code> and <code>inorder</code> is a typical divide and conquer problem.</p>
 <ul>
 <li><strong>The problem can be decomposed</strong>: From the perspective of divide and conquer, we can divide the original problem into two subproblems: building the left subtree and building the right subtree, plus one operation: initializing the root node. For each subtree (subproblem), we can still use the above division method, dividing it into smaller subtrees (subproblems), until the smallest subproblem (empty subtree) is reached.</li>
-<li><strong>The subproblems are independent</strong>: The left and right subtrees are independent of each other, with no overlap. When building the left subtree, we only need to focus on the parts of the inorder and preorder traversals that correspond to the left subtree. The same applies to the right subtree.</li>
+<li><strong>The subproblems are independent</strong>: The left and right subtrees are independent of each other, with no overlap. When building the left subtree, we only need to focus on the parts of the in-order and pre-order traversals that correspond to the left subtree. The same applies to the right subtree.</li>
 <li><strong>Solutions to subproblems can be combined</strong>: Once the solutions for the left and right subtrees (solutions to subproblems) are obtained, we can link them to the root node to obtain the solution to the original problem.</li>
 </ul>
 <h3 id="2-how-to-divide-the-subtrees">2. &nbsp; How to divide the subtrees<a class="headerlink" href="#2-how-to-divide-the-subtrees" title="Permanent link">&para;</a></h3>
-<p>Based on the above analysis, this problem can be solved using divide and conquer, <strong>but how do we use the preorder traversal <code>preorder</code> and inorder traversal <code>inorder</code> to divide the left and right subtrees?</strong></p>
+<p>Based on the above analysis, this problem can be solved using divide and conquer, <strong>but how do we use the pre-order traversal <code>preorder</code> and in-order traversal <code>inorder</code> to divide the left and right subtrees?</strong></p>
 <p>By definition, <code>preorder</code> and <code>inorder</code> can be divided into three parts.</p>
 <ul>
-<li>Preorder traversal: <code>[ Root | Left Subtree | Right Subtree ]</code>, for example, the tree in the figure corresponds to <code>[ 3 | 9 | 2 1 7 ]</code>.</li>
-<li>Inorder traversal: <code>[ Left Subtree | Root | Right Subtree ]</code>, for example, the tree in the figure corresponds to <code>[ 9 | 3 | 1 2 7 ]</code>.</li>
+<li>Pre-order traversal: <code>[ Root | Left Subtree | Right Subtree ]</code>, for example, the tree in the figure corresponds to <code>[ 3 | 9 | 2 1 7 ]</code>.</li>
+<li>In-order traversal: <code>[ Left Subtree | Root | Right Subtree ]</code>, for example, the tree in the figure corresponds to <code>[ 9 | 3 | 1 2 7 ]</code>.</li>
 </ul>
 <p>Using the data in the figure above, we can obtain the division results as shown in Figure 12-6.</p>
 <ol>
-<li>The first element 3 in the preorder traversal is the value of the root node.</li>
+<li>The first element 3 in the pre-order traversal is the value of the root node.</li>
 <li>Find the index of the root node 3 in <code>inorder</code>, and use this index to divide <code>inorder</code> into <code>[ 9 | 3 ｜ 1 2 7 ]</code>.</li>
 <li>Based on the division results of <code>inorder</code>, it is easy to determine the number of nodes in the left and right subtrees as 1 and 3, respectively, thus dividing <code>preorder</code> into <code>[ 3 | 9 | 2 1 7 ]</code>.</li>
 </ol>
-<p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dividing the subtrees in preorder and inorder traversals" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" /></a></p>
-<p align="center"> Figure 12-6 &nbsp; Dividing the subtrees in preorder and inorder traversals </p>
+<p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dividing the subtrees in pre-order and in-order traversals" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" /></a></p>
+<p align="center"> Figure 12-6 &nbsp; Dividing the subtrees in pre-order and in-order traversals </p>
 
 <h3 id="3-describing-subtree-intervals-based-on-variables">3. &nbsp; Describing subtree intervals based on variables<a class="headerlink" href="#3-describing-subtree-intervals-based-on-variables" title="Permanent link">&para;</a></h3>
 <p>Based on the above division method, <strong>we have now obtained the index intervals of the root, left subtree, and right subtree in <code>preorder</code> and <code>inorder</code></strong>. To describe these index intervals, we need the help of several pointer variables.</p>
@@ -3665,7 +3665,7 @@
 <li>Let the index interval of the current tree in <code>inorder</code> be denoted as <span class="arithmatex">\([l, r]\)</span>.</li>
 </ul>
 <p>As shown in Table 12-1, the above variables can represent the index of the root node in <code>preorder</code> as well as the index intervals of the subtrees in <code>inorder</code>.</p>
-<p align="center"> Table 12-1 &nbsp; Indexes of the root node and subtrees in preorder and inorder traversals </p>
+<p align="center"> Table 12-1 &nbsp; Indexes of the root node and subtrees in pre-order and in-order traversals </p>
 
 <div class="center-table">
 <table>

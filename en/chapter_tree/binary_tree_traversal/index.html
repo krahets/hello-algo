@@ -1661,13 +1661,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#722-preorder-inorder-and-postorder-traversal" class="md-nav__link">
+  <a href="#722-preorder-in-order-and-post-order-traversal" class="md-nav__link">
     <span class="md-ellipsis">
-      7.2.2 &nbsp; Preorder, inorder, and postorder traversal
+      7.2.2 &nbsp; Preorder, in-order, and post-order traversal
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="7.2.2   Preorder, inorder, and postorder traversal">
+    <nav class="md-nav" aria-label="7.2.2   Preorder, in-order, and post-order traversal">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3618,13 +3618,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#722-preorder-inorder-and-postorder-traversal" class="md-nav__link">
+  <a href="#722-preorder-in-order-and-post-order-traversal" class="md-nav__link">
     <span class="md-ellipsis">
-      7.2.2 &nbsp; Preorder, inorder, and postorder traversal
+      7.2.2 &nbsp; Preorder, in-order, and post-order traversal
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="7.2.2   Preorder, inorder, and postorder traversal">
+    <nav class="md-nav" aria-label="7.2.2   Preorder, in-order, and post-order traversal">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3688,7 +3688,7 @@
 <!-- Page content -->
 <h1 id="72-binary-tree-traversal">7.2 &nbsp; Binary tree traversal<a class="headerlink" href="#72-binary-tree-traversal" title="Permanent link">&para;</a></h1>
 <p>From the perspective of physical structure, a tree is a data structure based on linked lists, hence its traversal method involves accessing nodes one by one through pointers. However, a tree is a non-linear data structure, which makes traversing a tree more complex than traversing a linked list, requiring the assistance of search algorithms to achieve.</p>
-<p>Common traversal methods for binary trees include level-order traversal, preorder traversal, inorder traversal, and postorder traversal, among others.</p>
+<p>Common traversal methods for binary trees include level-order traversal, pre-order traversal, in-order traversal, and post-order traversal, among others.</p>
 <h2 id="721-level-order-traversal">7.2.1 &nbsp; Level-order traversal<a class="headerlink" href="#721-level-order-traversal" title="Permanent link">&para;</a></h2>
 <p>As shown in Figure 7-9, <u>level-order traversal</u> traverses the binary tree from top to bottom, layer by layer, and accesses nodes in each layer in a left-to-right order.</p>
 <p>Level-order traversal essentially belongs to <u>breadth-first traversal</u>, also known as <u>breadth-first search (BFS)</u>, which embodies a "circumferentially outward expanding" layer-by-layer traversal method.</p>
@@ -3809,11 +3809,11 @@
 <li><strong>Time complexity is <span class="arithmatex">\(O(n)\)</span></strong>: All nodes are visited once, using <span class="arithmatex">\(O(n)\)</span> time, where <span class="arithmatex">\(n\)</span> is the number of nodes.</li>
 <li><strong>Space complexity is <span class="arithmatex">\(O(n)\)</span></strong>: In the worst case, i.e., a full binary tree, before traversing to the lowest level, the queue can contain at most <span class="arithmatex">\((n + 1) / 2\)</span> nodes at the same time, occupying <span class="arithmatex">\(O(n)\)</span> space.</li>
 </ul>
-<h2 id="722-preorder-inorder-and-postorder-traversal">7.2.2 &nbsp; Preorder, inorder, and postorder traversal<a class="headerlink" href="#722-preorder-inorder-and-postorder-traversal" title="Permanent link">&para;</a></h2>
-<p>Correspondingly, preorder, inorder, and postorder traversal all belong to <u>depth-first traversal</u>, also known as <u>depth-first search (DFS)</u>, which embodies a "proceed to the end first, then backtrack and continue" traversal method.</p>
-<p>Figure 7-10 shows the working principle of performing a depth-first traversal on a binary tree. <strong>Depth-first traversal is like walking around the perimeter of the entire binary tree</strong>, encountering three positions at each node, corresponding to preorder traversal, inorder traversal, and postorder traversal.</p>
-<p><a class="glightbox" href="../binary_tree_traversal.assets/binary_tree_dfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Preorder, inorder, and postorder traversal of a binary search tree" class="animation-figure" src="../binary_tree_traversal.assets/binary_tree_dfs.png" /></a></p>
-<p align="center"> Figure 7-10 &nbsp; Preorder, inorder, and postorder traversal of a binary search tree </p>
+<h2 id="722-preorder-in-order-and-post-order-traversal">7.2.2 &nbsp; Preorder, in-order, and post-order traversal<a class="headerlink" href="#722-preorder-in-order-and-post-order-traversal" title="Permanent link">&para;</a></h2>
+<p>Correspondingly, pre-order, in-order, and post-order traversal all belong to <u>depth-first traversal</u>, also known as <u>depth-first search (DFS)</u>, which embodies a "proceed to the end first, then backtrack and continue" traversal method.</p>
+<p>Figure 7-10 shows the working principle of performing a depth-first traversal on a binary tree. <strong>Depth-first traversal is like walking around the perimeter of the entire binary tree</strong>, encountering three positions at each node, corresponding to pre-order traversal, in-order traversal, and post-order traversal.</p>
+<p><a class="glightbox" href="../binary_tree_traversal.assets/binary_tree_dfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Preorder, in-order, and post-order traversal of a binary search tree" class="animation-figure" src="../binary_tree_traversal.assets/binary_tree_dfs.png" /></a></p>
+<p align="center"> Figure 7-10 &nbsp; Preorder, in-order, and post-order traversal of a binary search tree </p>
 
 <h3 id="1-code-implementation_1">1. &nbsp; Code implementation<a class="headerlink" href="#1-code-implementation_1" title="Permanent link">&para;</a></h3>
 <p>Depth-first search is usually implemented based on recursion:</p>
@@ -4006,7 +4006,7 @@
 <p class="admonition-title">Tip</p>
 <p>Depth-first search can also be implemented based on iteration, interested readers can study this on their own.</p>
 </div>
-<p>Figure 7-11 shows the recursive process of preorder traversal of a binary tree, which can be divided into two opposite parts: "recursion" and "return".</p>
+<p>Figure 7-11 shows the recursive process of pre-order traversal of a binary tree, which can be divided into two opposite parts: "recursion" and "return".</p>
 <ol>
 <li>"Recursion" means starting a new method, the program accesses the next node in this process.</li>
 <li>"Return" means the function returns, indicating the current node has been fully accessed.</li>
@@ -4014,7 +4014,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:11"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label><label for="__tabbed_3_5">&lt;5&gt;</label><label for="__tabbed_3_6">&lt;6&gt;</label><label for="__tabbed_3_7">&lt;7&gt;</label><label for="__tabbed_3_8">&lt;8&gt;</label><label for="__tabbed_3_9">&lt;9&gt;</label><label for="__tabbed_3_10">&lt;10&gt;</label><label for="__tabbed_3_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="../binary_tree_traversal.assets/preorder_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="The recursive process of preorder traversal" class="animation-figure" src="../binary_tree_traversal.assets/preorder_step1.png" /></a></p>
+<p><a class="glightbox" href="../binary_tree_traversal.assets/preorder_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="The recursive process of pre-order traversal" class="animation-figure" src="../binary_tree_traversal.assets/preorder_step1.png" /></a></p>
 </div>
 <div class="tabbed-block">
 <p><a class="glightbox" href="../binary_tree_traversal.assets/preorder_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="preorder_step2" class="animation-figure" src="../binary_tree_traversal.assets/preorder_step2.png" /></a></p>
@@ -4048,7 +4048,7 @@
 </div>
 </div>
 </div>
-<p align="center"> Figure 7-11 &nbsp; The recursive process of preorder traversal </p>
+<p align="center"> Figure 7-11 &nbsp; The recursive process of pre-order traversal </p>
 
 <h3 id="2-complexity-analysis_1">2. &nbsp; Complexity analysis<a class="headerlink" href="#2-complexity-analysis_1" title="Permanent link">&para;</a></h3>
 <ul>

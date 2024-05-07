@@ -3664,12 +3664,12 @@
 <!-- Page content -->
 <h1 id="131-backtracking-algorithms">13.1 &nbsp; Backtracking algorithms<a class="headerlink" href="#131-backtracking-algorithms" title="Permanent link">&para;</a></h1>
 <p><u>Backtracking algorithm</u> is a method to solve problems by exhaustive search, where the core idea is to start from an initial state and brute force all possible solutions, recording the correct ones until a solution is found or all possible choices are exhausted without finding a solution.</p>
-<p>Backtracking typically employs "depth-first search" to traverse the solution space. In the "Binary Tree" chapter, we mentioned that preorder, inorder, and postorder traversals are all depth-first searches. Next, we use preorder traversal to construct a backtracking problem to gradually understand the workings of the backtracking algorithm.</p>
+<p>Backtracking typically employs "depth-first search" to traverse the solution space. In the "Binary Tree" chapter, we mentioned that pre-order, in-order, and post-order traversals are all depth-first searches. Next, we use pre-order traversal to construct a backtracking problem to gradually understand the workings of the backtracking algorithm.</p>
 <div class="admonition question">
 <p class="admonition-title">Example One</p>
 <p>Given a binary tree, search and record all nodes with a value of <span class="arithmatex">\(7\)</span>, please return a list of nodes.</p>
 </div>
-<p>For this problem, we traverse this tree in preorder and check if the current node's value is <span class="arithmatex">\(7\)</span>. If it is, we add the node's value to the result list <code>res</code>. The relevant process is shown in Figure 13-1:</p>
+<p>For this problem, we traverse this tree in pre-order and check if the current node's value is <span class="arithmatex">\(7\)</span>. If it is, we add the node's value to the result list <code>res</code>. The relevant process is shown in Figure 13-1:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:14"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><input id="__tabbed_1_14" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label><label for="__tabbed_1_14">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3760,8 +3760,8 @@
 </div>
 </div>
 </div>
-<p><a class="glightbox" href="../backtracking_algorithm.assets/preorder_find_nodes.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Searching nodes in preorder traversal" class="animation-figure" src="../backtracking_algorithm.assets/preorder_find_nodes.png" /></a></p>
-<p align="center"> Figure 13-1 &nbsp; Searching nodes in preorder traversal </p>
+<p><a class="glightbox" href="../backtracking_algorithm.assets/preorder_find_nodes.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Searching nodes in pre-order traversal" class="animation-figure" src="../backtracking_algorithm.assets/preorder_find_nodes.png" /></a></p>
+<p align="center"> Figure 13-1 &nbsp; Searching nodes in pre-order traversal </p>
 
 <h2 id="1311-trying-and-retreating">13.1.1 &nbsp; Trying and retreating<a class="headerlink" href="#1311-trying-and-retreating" title="Permanent link">&para;</a></h2>
 <p><strong>The reason it is called backtracking is that the algorithm uses a "try" and "retreat" strategy when searching the solution space</strong>. When the algorithm encounters a state where it can no longer progress or fails to achieve a satisfying solution, it undoes the previous choice, reverts to the previous state, and tries other possible choices.</p>
@@ -4631,7 +4631,7 @@
 <p><a class="glightbox" href="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Comparison of retaining and removing the return in the search process" class="animation-figure" src="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png" /></a></p>
 <p align="center"> Figure 13-4 &nbsp; Comparison of retaining and removing the return in the search process </p>
 
-<p>Compared to the implementation based on preorder traversal, the code implementation based on the backtracking algorithm framework seems verbose, but it has better universality. In fact, <strong>many backtracking problems can be solved within this framework</strong>. We just need to define <code>state</code> and <code>choices</code> according to the specific problem and implement the methods in the framework.</p>
+<p>Compared to the implementation based on pre-order traversal, the code implementation based on the backtracking algorithm framework seems verbose, but it has better universality. In fact, <strong>many backtracking problems can be solved within this framework</strong>. We just need to define <code>state</code> and <code>choices</code> according to the specific problem and implement the methods in the framework.</p>
 <h2 id="1314-common-terminology">13.1.4 &nbsp; Common terminology<a class="headerlink" href="#1314-common-terminology" title="Permanent link">&para;</a></h2>
 <p>To analyze algorithmic problems more clearly, we summarize the meanings of commonly used terminology in backtracking algorithms and provide corresponding examples from Example Three as shown in Table 13-1.</p>
 <p align="center"> Table 13-1 &nbsp; Common backtracking algorithm terminology </p>
