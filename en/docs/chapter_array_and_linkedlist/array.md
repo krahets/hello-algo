@@ -93,7 +93,12 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 
     ```rust title="array.rs"
     /* Initialize array */
-    let arr: Vec<i32> = vec![0; 5]; // [0, 0, 0, 0, 0]
+    let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
+    let slice: &[i32] = [0; 5];
+    // In Rust, specifying the length ([i32; 5]) denotes an array, while not specifying it (&[i32]) denotes a slice.
+    // Since Rust's arrays are designed to have compile-time fixed length, only constants can be used to specify the length.
+    // Vec is generally used as dynamic array in Rust
+    // For convenience in implementing the extend() method, the Vec will be considered as an Array here.
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
