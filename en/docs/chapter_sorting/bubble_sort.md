@@ -2,7 +2,7 @@
 
 <u>Bubble sort</u> achieves sorting by continuously comparing and swapping adjacent elements. This process resembles bubbles rising from the bottom to the top, hence the name bubble sort.
 
-As shown in the following figures, the bubbling process can be simulated using element swap operations: starting from the leftmost end of the array and moving right, sequentially compare the size of adjacent elements. If "left element > right element," then swap them. After the traversal, the largest element will be moved to the far right end of the array.
+As shown in the figure below, the bubbling process can be simulated using element swap operations: starting from the leftmost end of the array and moving right, sequentially compare the size of adjacent elements. If "left element > right element," then swap them. After the traversal, the largest element will be moved to the far right end of the array.
 
 === "<1>"
     ![Simulating bubble process using element swap](bubble_sort.assets/bubble_operation_step1.png)
@@ -27,7 +27,7 @@ As shown in the following figures, the bubbling process can be simulated using e
 
 ## Algorithm process
 
-Assuming the length of the array is $n$, the steps of bubble sort are shown below.
+Assuming the length of the array is $n$, the steps of bubble sort are shown in the figure below.
 
 1. First, perform a "bubble" on $n$ elements, **swapping the largest element to its correct position**.
 2. Next, perform a "bubble" on the remaining $n - 1$ elements, **swapping the second largest element to its correct position**.

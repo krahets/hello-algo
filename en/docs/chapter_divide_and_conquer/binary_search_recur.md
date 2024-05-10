@@ -34,7 +34,7 @@ Starting from the original problem $f(0, n-1)$, perform the binary search throug
 2. Recursively solve the subproblem reduced by half in size, which could be $f(i, m-1)$ or $f(m+1, j)$.
 3. Repeat steps `1.` and `2.`, until `target` is found or the interval is empty and returns.
 
-The diagram below shows the divide-and-conquer process of binary search for element $6$ in an array.
+The figure below shows the divide-and-conquer process of binary search for element $6$ in an array.
 
 ![The divide-and-conquer process of binary search](binary_search_recur.assets/binary_search_recur.png)
 

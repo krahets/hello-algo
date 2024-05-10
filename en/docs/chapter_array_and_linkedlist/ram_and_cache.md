@@ -6,7 +6,7 @@ In fact, **the physical structure largely determines the efficiency of a program
 
 ## Computer storage devices
 
-There are three types of storage devices in computers: "hard disk," "random-access memory (RAM)," and "cache memory." The following table shows their different roles and performance characteristics in computer systems.
+There are three types of storage devices in computers: <u>hard disk</u>, <u>random-access memory (RAM)</u>, and <u>cache memory</u>. The following table shows their different roles and performance characteristics in computer systems.
 
 <p align="center"> Table <id> &nbsp; Computer storage devices </p>
 
@@ -45,9 +45,9 @@ On the other hand, during program execution, **as memory is repeatedly allocated
 
 ## Cache efficiency of data structures
 
-Although caches are much smaller in space capacity than memory, they are much faster and play a crucial role in program execution speed. Since the cache's capacity is limited and can only store a small part of frequently accessed data, when the CPU tries to access data not in the cache, a "cache miss" occurs, forcing the CPU to load the needed data from slower memory.
+Although caches are much smaller in space capacity than memory, they are much faster and play a crucial role in program execution speed. Since the cache's capacity is limited and can only store a small part of frequently accessed data, when the CPU tries to access data not in the cache, a <u>cache miss</u> occurs, forcing the CPU to load the needed data from slower memory.
 
-Clearly, **the fewer the cache misses, the higher the CPU's data read-write efficiency**, and the better the program performance. The proportion of successful data retrieval from the cache by the CPU is called the "cache hit rate," a metric often used to measure cache efficiency.
+Clearly, **the fewer the cache misses, the higher the CPU's data read-write efficiency**, and the better the program performance. The proportion of successful data retrieval from the cache by the CPU is called the <u>cache hit rate</u>, a metric often used to measure cache efficiency.
 
 To achieve higher efficiency, caches adopt the following data loading mechanisms.
 

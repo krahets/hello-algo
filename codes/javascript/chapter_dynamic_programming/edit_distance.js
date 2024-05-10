@@ -82,7 +82,7 @@ function editDistanceDP(s, t) {
     return dp[n][m];
 }
 
-/* 编辑距离：状态压缩后的动态规划 */
+/* 编辑距离：空间优化后的动态规划 */
 function editDistanceDPComp(s, t) {
     const n = s.length,
         m = t.length;
@@ -130,6 +130,6 @@ console.log(`将 ${s} 更改为 ${t} 最少需要编辑 ${res} 步`);
 res = editDistanceDP(s, t);
 console.log(`将 ${s} 更改为 ${t} 最少需要编辑 ${res} 步`);
 
-// 状态压缩后的动态规划
+// 空间优化后的动态规划
 res = editDistanceDPComp(s, t);
 console.log(`将 ${s} 更改为 ${t} 最少需要编辑 ${res} 步`);
