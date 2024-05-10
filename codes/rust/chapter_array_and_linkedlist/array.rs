@@ -78,7 +78,8 @@ fn main() {
     print_util::print_array(&arr);
     // 在 Rust 中，指定长度时（[i32; 5]）为数组
     // 由于 Rust 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
-    // 为了方便实现扩容 extend() 方法，以下将(Vec) 看作数组（Array）也是rust一般情况下使用动态数组的类型
+    // Vec 是 Rust 一般情况下使用动态数组的类型
+    // 为了方便实现扩容 extend() 方法，以下将 Vec 看作数组（Array）
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     print!("\n数组 nums = ");
     print_util::print_array(&nums);
