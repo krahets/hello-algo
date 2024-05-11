@@ -119,7 +119,7 @@ $$
 $$
 \begin{aligned}
 \mathrm{S} \in & \{ 0, 1\}, \quad \mathrm{E} \in \{ 1, 2, \dots, 254 \} \newline
-(1 + \mathrm{N}) = & (1 + \sum_{i=0}^{22} b_{i} 2^{i-23}) \subset [1, 2 - 2^{-23}]
+(1 + \mathrm{N}) = & (1 + \sum_{i=0}^{22} b_{i} \times 2^{i-23}) \subset [1, 2 - 2^{-23}]
 \end{aligned}
 $$
 
