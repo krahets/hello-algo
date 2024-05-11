@@ -105,7 +105,7 @@ $$
 二進位制數 `float` 對應值的計算方法為：
 
 $$
-\text {val} = (-1)^{b_{31}} \times 2^{\left(b_{30} b_{29} \ldots b_{23}\right)_2-127} \times\left(1 . b_{22} b_{21} \ldots b_0\right)_2
+\text {val} = (-1)^{b_{31}} \times 2^{\left(b_{30} b_{29} \ldots b_{23}\right)_2-127} \times\left(1 + b_{22} b_{21} \ldots b_0\right)_2
 $$
 
 轉化到十進位制下的計算公式為：
@@ -119,7 +119,7 @@ $$
 $$
 \begin{aligned}
 \mathrm{S} \in & \{ 0, 1\}, \quad \mathrm{E} \in \{ 1, 2, \dots, 254 \} \newline
-(1 + \mathrm{N}) = & (1 + \sum_{i=1}^{23} b_{23-i} 2^{-i}) \subset [1, 2 - 2^{-23}]
+(1 + \mathrm{N}) = & (1 + \sum_{i=0}^{22} b_{i} 2^{i-23}) \subset [1, 2 - 2^{-23}]
 \end{aligned}
 $$
 
@@ -141,8 +141,8 @@ $$
 
 | 指數位 E           | 分數位 $\mathrm{N} = 0$ | 分數位 $\mathrm{N} \ne 0$ | 計算公式                                                               |
 | ------------------ | ----------------------- | ------------------------- | ---------------------------------------------------------------------- |
-| $0$                | $\pm 0$                 | 次正規數                  | $(-1)^{\mathrm{S}} \times 2^{-126} \times (0.\mathrm{N})$              |
-| $1, 2, \dots, 254$ | 正規數                  | 正規數                    | $(-1)^{\mathrm{S}} \times 2^{(\mathrm{E} -127)} \times (1.\mathrm{N})$ |
+| $0$                | $\pm 0$                 | 次正規數                  | $(-1)^{\mathrm{S}} \times 2^{-126} \times (0+\mathrm{N})$              |
+| $1, 2, \dots, 254$ | 正規數                  | 正規數                    | $(-1)^{\mathrm{S}} \times 2^{(\mathrm{E} -127)} \times (1+\mathrm{N})$ |
 | $255$              | $\pm \infty$            | $\mathrm{NaN}$            |                                                                        |
 
 值得說明的是，次正規數顯著提升了浮點數的精度。最小正正規數為 $2^{-126}$ ，最小正次正規數為 $2^{-126} \times 2^{-23}$ 。
