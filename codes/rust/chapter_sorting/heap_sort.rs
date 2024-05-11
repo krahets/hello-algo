@@ -35,11 +35,11 @@ fn sift_down(nums: &mut [i32], n: usize, mut i: usize) {
 /* 堆排序 */
 fn heap_sort(nums: &mut [i32]) {
     // 建堆操作：堆化除叶节点以外的其他所有节点
-    for i in (0..=nums.len() / 2 - 1).rev() {
+    for i in (0..nums.len() / 2).rev() {
         sift_down(nums, nums.len(), i);
     }
     // 从堆中提取最大元素，循环 n-1 轮
-    for i in (1..=nums.len() - 1).rev() {
+    for i in (1..nums.len()).rev() {
         // 交换根节点与最右叶节点（交换首元素与尾元素）
         let tmp = nums[0];
         nums[0] = nums[i];
