@@ -77,7 +77,7 @@ fn main() {
     let slice: &[i32] = &[0; 5];
     print!("数组 arr = ");
     print_util::print_array(&arr);
-    // 在 Rust 中，指定长度时（[i32; 5]）为数组
+    // 在 Rust 中，指定长度时（[i32; 5]）为数组，不指定长度时（&[i32]）为切片
     // 由于 Rust 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
     // Vector 是 Rust 一般情况下用作动态数组的类型
     // 为了方便实现扩容 extend() 方法，以下将 vector 看作数组（array）
