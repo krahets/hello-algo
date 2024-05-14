@@ -10,7 +10,7 @@ import (
 	"testing"
 
 	. "github.com/krahets/hello-algo/pkg"
-	"gotest.tools/v3/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestQueue(t *testing.T) {
@@ -54,6 +54,8 @@ func TestArrayQueue(t *testing.T) {
 		queue.push(1)
 		queue.push(2)
 		assert.Equal(t, 1, queue.pop())
+		assert.Equal(t, 2, queue.pop())
+		assert.Equal(t, []int{}, queue.toSlice())
 	})
 
 	// 初始化队列，使用队列的通用接口
