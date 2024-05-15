@@ -3649,7 +3649,7 @@
 </ul>
 <p>另一方面，必要使用鏈結串列的情況主要是二元樹和圖。堆疊和佇列往往會使用程式語言提供的 <code>stack</code> 和 <code>queue</code> ，而非鏈結串列。</p>
 <p><strong>Q</strong>：初始化串列 <code>res = [0] * self.size()</code> 操作，會導致 <code>res</code> 的每個元素引用相同的位址嗎？</p>
-<p>不會。但二維陣列會有這個問題，例如初始化二維串列 <code>res = [[0] * self.size()]</code> ，則多次引用了同一個串列 <code>[0]</code> 。</p>
+<p>不會。但二維陣列會有這個問題，例如初始化二維串列 <code>res = [[0]] * self.size()</code> ，則多次引用了同一個串列 <code>[0]</code> 。</p>
 
 <!-- Source file information -->
 

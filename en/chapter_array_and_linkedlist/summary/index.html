@@ -3642,7 +3642,7 @@
 </ul>
 <p>On the other hand, linked lists are primarily necessary for binary trees and graphs. Stacks and queues are often implemented using the programming language's <code>stack</code> and <code>queue</code> classes, rather than linked lists.</p>
 <p><strong>Q</strong>: Does initializing a list <code>res = [0] * self.size()</code> result in each element of <code>res</code> referencing the same address?</p>
-<p>No. However, this issue arises with two-dimensional arrays, for example, initializing a two-dimensional list <code>res = [[0] * self.size()]</code> would reference the same list <code>[0]</code> multiple times.</p>
+<p>No. However, this issue arises with two-dimensional arrays, for example, initializing a two-dimensional list <code>res = [[0]] * self.size()</code> would reference the same list <code>[0]</code> multiple times.</p>
 <p><strong>Q</strong>: In deleting a node, is it necessary to break the reference to its successor node?</p>
 <p>From the perspective of data structures and algorithms (problem-solving), it's okay not to break the link, as long as the program's logic is correct. From the perspective of standard libraries, breaking the link is safer and more logically clear. If the link is not broken, and the deleted node is not properly recycled, it could affect the recycling of the successor node's memory.</p>
 

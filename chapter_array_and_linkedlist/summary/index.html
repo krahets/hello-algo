@@ -3714,7 +3714,7 @@
 </ul>
 <p>另一方面，必要使用链表的情况主要是二叉树和图。栈和队列往往会使用编程语言提供的 <code>stack</code> 和 <code>queue</code> ，而非链表。</p>
 <p><strong>Q</strong>：初始化列表 <code>res = [0] * self.size()</code> 操作，会导致 <code>res</code> 的每个元素引用相同的地址吗？</p>
-<p>不会。但二维数组会有这个问题，例如初始化二维列表 <code>res = [[0] * self.size()]</code> ，则多次引用了同一个列表 <code>[0]</code> 。</p>
+<p>不会。但二维数组会有这个问题，例如初始化二维列表 <code>res = [[0]] * self.size()</code> ，则多次引用了同一个列表 <code>[0]</code> 。</p>
 
 <!-- Source file information -->
 
