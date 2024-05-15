@@ -30,7 +30,7 @@ function coinChangeIIDP(coins, amt) {
     return dp[n][amt];
 }
 
-/* 零錢兌換 II：狀態壓縮後的動態規劃 */
+/* 零錢兌換 II：空間最佳化後的動態規劃 */
 function coinChangeIIDPComp(coins, amt) {
     const n = coins.length;
     // 初始化 dp 表
@@ -59,6 +59,6 @@ const amt = 5;
 let res = coinChangeIIDP(coins, amt);
 console.log(`湊出目標金額的硬幣組合數量為 ${res}`);
 
-// 狀態壓縮後的動態規劃
+// 空間最佳化後的動態規劃
 res = coinChangeIIDPComp(coins, amt);
 console.log(`湊出目標金額的硬幣組合數量為 ${res}`);
