@@ -485,9 +485,31 @@ comments: true
 === "Ruby"
 
     ```ruby title="build_tree.rb"
-    [class]{}-[func]{dfs}
+    ### 構建二元樹：分治 ###
+    def dfs(preorder, inorder_map, i, l, r)
+      # 子樹區間為空時終止
+      return if r - l < 0
 
-    [class]{}-[func]{build_tree}
+      # 初始化根節點
+      root = TreeNode.new(preorder[i])
+      # 查詢 m ，從而劃分左右子樹
+      m = inorder_map[preorder[i]]
+      # 子問題：構建左子樹
+      root.left = dfs(preorder, inorder_map, i + 1, l, m - 1)
+      # 子問題：構建右子樹
+      root.right = dfs(preorder, inorder_map, i + 1 + m - l, m + 1, r)
+
+      # 返回根節點
+      root
+    end
+
+    ### 構建二元樹 ###
+    def build_tree(preorder, inorder)
+      # 初始化雜湊表，儲存 inorder 元素到索引的對映
+      inorder_map = {}
+      inorder.each_with_index { |val, i| inorder_map[val] = i }
+      dfs(preorder, inorder_map, 0, 0, inorder.length - 1)
+    end
     ```
 
 === "Zig"

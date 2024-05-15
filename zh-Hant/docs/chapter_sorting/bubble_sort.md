@@ -225,9 +225,7 @@ comments: true
             for j in 0..i {
                 if nums[j] > nums[j + 1] {
                     // 交換 nums[j] 與 nums[j + 1]
-                    let tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
+                    nums.swap(j, j + 1);
                 }
             }
         }
@@ -538,9 +536,7 @@ comments: true
             for j in 0..i {
                 if nums[j] > nums[j + 1] {
                     // 交換 nums[j] 與 nums[j + 1]
-                    let tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
+                    nums.swap(j, j + 1);
                     flag = true; // 記錄交換元素
                 }
             }

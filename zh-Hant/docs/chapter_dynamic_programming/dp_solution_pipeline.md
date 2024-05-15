@@ -1361,7 +1361,7 @@ $$
 === "JS"
 
     ```javascript title="min_path_sum.js"
-    /* 最小路徑和：狀態壓縮後的動態規劃 */
+    /* 最小路徑和：空間最佳化後的動態規劃 */
     function minPathSumDPComp(grid) {
         const n = grid.length,
             m = grid[0].length;
@@ -1388,7 +1388,7 @@ $$
 === "TS"
 
     ```typescript title="min_path_sum.ts"
-    /* 最小路徑和：狀態壓縮後的動態規劃 */
+    /* 最小路徑和：空間最佳化後的動態規劃 */
     function minPathSumDPComp(grid: Array<Array<number>>): number {
         const n = grid.length,
             m = grid[0].length;

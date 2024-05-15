@@ -457,7 +457,7 @@ $$
 === "JS"
 
     ```javascript title="min_cost_climbing_stairs_dp.js"
-    /* 爬樓梯最小代價：狀態壓縮後的動態規劃 */
+    /* 爬樓梯最小代價：空間最佳化後的動態規劃 */
     function minCostClimbingStairsDPComp(cost) {
         const n = cost.length - 1;
         if (n === 1 || n === 2) {
@@ -477,7 +477,7 @@ $$
 === "TS"
 
     ```typescript title="min_cost_climbing_stairs_dp.ts"
-    /* 爬樓梯最小代價：狀態壓縮後的動態規劃 */
+    /* 爬樓梯最小代價：空間最佳化後的動態規劃 */
     function minCostClimbingStairsDPComp(cost: Array<number>): number {
         const n = cost.length - 1;
         if (n === 1 || n === 2) {

@@ -310,7 +310,24 @@ comments: true
 === "Ruby"
 
     ```ruby title="coin_change_greedy.rb"
-    [class]{}-[func]{coin_change_greedy}
+    ### 零錢兌換：貪婪 ###
+    def coin_change_greedy(coins, amt)
+      # 假設 coins 串列有序
+      i = coins.length - 1
+      count = 0
+      # 迴圈進行貪婪選擇，直到無剩餘金額
+      while amt > 0
+        # 找到小於且最接近剩餘金額的硬幣
+        while i > 0 && coins[i] > amt
+          i -= 1
+        end
+        # 選擇 coins[i]
+        amt -= coins[i]
+        count += 1
+      end
+      # 若未找到可行方案， 則返回 -1
+      amt == 0 ? count : -1
+    end
     ```
 
 === "Zig"

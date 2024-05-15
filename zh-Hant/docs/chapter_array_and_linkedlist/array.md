@@ -99,7 +99,12 @@ comments: true
 
     ```rust title="array.rs"
     /* 初始化陣列 */
-    let arr: Vec<i32> = vec![0; 5]; // [0, 0, 0, 0, 0]
+    let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
+    let slice: &[i32] = &[0; 5];
+    // 在 Rust 中，指定長度時（[i32; 5]）為陣列，不指定長度時（&[i32]）為切片
+    // 由於 Rust 的陣列被設計為在編譯期確定長度，因此只能使用常數來指定長度
+    // Vector 是 Rust 一般情況下用作動態陣列的型別
+    // 為了方便實現擴容 extend() 方法，以下將 vector 看作陣列（array）
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
@@ -477,7 +482,7 @@ comments: true
 
     ```rust title="array.rs"
     /* 在陣列的索引 index 處插入元素 num */
-    fn insert(nums: &mut Vec<i32>, num: i32, index: usize) {
+    fn insert(nums: &mut [i32], num: i32, index: usize) {
         // 把索引 index 以及之後的所有元素向後移動一位
         for i in (index + 1..nums.len()).rev() {
             nums[i] = nums[i - 1];
@@ -670,7 +675,7 @@ comments: true
 
     ```rust title="array.rs"
     /* 刪除索引 index 處的元素 */
-    fn remove(nums: &mut Vec<i32>, index: usize) {
+    fn remove(nums: &mut [i32], index: usize) {
         // 把索引 index 之後的所有元素向前移動一位
         for i in index..nums.len() - 1 {
             nums[i] = nums[i + 1];
@@ -1350,7 +1355,7 @@ comments: true
 
     ```rust title="array.rs"
     /* 擴展陣列長度 */
-    fn extend(nums: Vec<i32>, enlarge: usize) -> Vec<i32> {
+    fn extend(nums: &[i32], enlarge: usize) -> Vec<i32> {
         // 初始化一個擴展長度後的陣列
         let mut res: Vec<i32> = vec![0; nums.len() + enlarge];
         // 將原陣列中的所有元素複製到新

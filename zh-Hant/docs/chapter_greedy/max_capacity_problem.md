@@ -397,7 +397,28 @@ $$
 === "Ruby"
 
     ```ruby title="max_capacity.rb"
-    [class]{}-[func]{max_capacity}
+    ### 最大容量：貪婪 ###
+    def max_capacity(ht)
+      # 初始化 i, j，使其分列陣列兩端
+      i, j = 0, ht.length - 1
+      # 初始最大容量為 0
+      res = 0
+
+      # 迴圈貪婪選擇，直至兩板相遇
+      while i < j
+        # 更新最大容量
+        cap = [ht[i], ht[j]].min * (j - i)
+        res = [res, cap].max
+        # 向內移動短板
+        if ht[i] < ht[j]
+          i += 1
+        else
+          j -= 1
+        end
+      end
+
+      res
+    end
     ```
 
 === "Zig"

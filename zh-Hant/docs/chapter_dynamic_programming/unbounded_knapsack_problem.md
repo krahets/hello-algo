@@ -554,7 +554,7 @@ $$
 === "JS"
 
     ```javascript title="unbounded_knapsack.js"
-    /* 完全背包：狀態壓縮後的動態規劃 */
+    /* 完全背包：空間最佳化後的動態規劃 */
     function unboundedKnapsackDPComp(wgt, val, cap) {
         const n = wgt.length;
         // 初始化 dp 表
@@ -578,7 +578,7 @@ $$
 === "TS"
 
     ```typescript title="unbounded_knapsack.ts"
-    /* 完全背包：狀態壓縮後的動態規劃 */
+    /* 完全背包：空間最佳化後的動態規劃 */
     function unboundedKnapsackDPComp(
         wgt: Array<number>,
         val: Array<number>,
@@ -1417,7 +1417,7 @@ $$
 === "JS"
 
     ```javascript title="coin_change.js"
-    /* 零錢兌換：狀態壓縮後的動態規劃 */
+    /* 零錢兌換：空間最佳化後的動態規劃 */
     function coinChangeDPComp(coins, amt) {
         const n = coins.length;
         const MAX = amt + 1;
@@ -1443,7 +1443,7 @@ $$
 === "TS"
 
     ```typescript title="coin_change.ts"
-    /* 零錢兌換：狀態壓縮後的動態規劃 */
+    /* 零錢兌換：空間最佳化後的動態規劃 */
     function coinChangeDPComp(coins: Array<number>, amt: number): number {
         const n = coins.length;
         const MAX = amt + 1;
@@ -2190,7 +2190,7 @@ $$
 === "JS"
 
     ```javascript title="coin_change_ii.js"
-    /* 零錢兌換 II：狀態壓縮後的動態規劃 */
+    /* 零錢兌換 II：空間最佳化後的動態規劃 */
     function coinChangeIIDPComp(coins, amt) {
         const n = coins.length;
         // 初始化 dp 表
@@ -2215,7 +2215,7 @@ $$
 === "TS"
 
     ```typescript title="coin_change_ii.ts"
-    /* 零錢兌換 II：狀態壓縮後的動態規劃 */
+    /* 零錢兌換 II：空間最佳化後的動態規劃 */
     function coinChangeIIDPComp(coins: Array<number>, amt: number): number {
         const n = coins.length;
         // 初始化 dp 表
