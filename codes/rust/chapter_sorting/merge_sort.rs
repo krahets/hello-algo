@@ -48,7 +48,7 @@ fn merge_sort(nums: &mut [i32], left: usize, right: usize) {
     }
 
     // 划分阶段
-    let mid = (left + right) / 2; // 计算中点
+    let mid = left + (right - left) / 2; // 计算中点
     merge_sort(nums, left, mid); // 递归左子数组
     merge_sort(nums, mid + 1, right); // 递归右子数组
 
