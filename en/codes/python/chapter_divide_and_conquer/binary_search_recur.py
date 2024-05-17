@@ -11,7 +11,7 @@ def dfs(nums: list[int], target: int, i: int, j: int) -> int:
     if i > j:
         return -1
     # Calculate midpoint index m
-    m = i + (j - i) // 2
+    m = (i + j) // 2
     if nums[m] < target:
         # Recursive subproblem f(m+1, j)
         return dfs(nums, target, m + 1, j)
