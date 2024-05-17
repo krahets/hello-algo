@@ -48,7 +48,7 @@ fn mergeSort(nums: []i32, left: usize, right: usize) !void {
     // 终止条件
     if (left >= right) return;              // 当子数组长度为 1 时终止递归
     // 划分阶段
-    var mid = left + (right - left) / 2;           // 计算中点
+    var mid = left + (right - left) / 2;    // 计算中点
     try mergeSort(nums, left, mid);         // 递归左子数组
     try mergeSort(nums, mid + 1, right);    // 递归右子数组
     // 合并阶段
