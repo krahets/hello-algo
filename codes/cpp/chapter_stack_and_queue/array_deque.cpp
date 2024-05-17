@@ -40,7 +40,7 @@ class ArrayDeque {
         // 通过取余操作实现数组首尾相连
         // 当 i 越过数组尾部后，回到头部
         // 当 i 越过数组头部后，回到尾部
-        return (i + capacity()) % capacity();
+        return (i % capacity() + capacity()) % capacity();
     }
 
     /* 队首入队 */
