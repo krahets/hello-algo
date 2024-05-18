@@ -41,7 +41,7 @@ def merge_sort(nums: list[int], left: int, right: int):
     if left >= right:
         return  # 當子陣列長度為 1 時終止遞迴
     # 劃分階段
-    mid = (left + right) // 2  # 計算中點
+    mid = left + (right - left) // 2  # 計算中點
     merge_sort(nums, left, mid)  # 遞迴左子陣列
     merge_sort(nums, mid + 1, right)  # 遞迴右子陣列
     # 合併階段

@@ -15,10 +15,10 @@ fn merge(nums: []i32, left: usize, mid: usize, right: usize) !void {
     const mem_allocator = mem_arena.allocator();
     var tmp = try mem_allocator.alloc(i32, right + 1 - left);
     std.mem.copy(i32, tmp, nums[left..right+1]);
-    // 左子陣列的起始索引和結束索引  
+    // 左子陣列的起始索引和結束索引
     var leftStart = left - left;
     var leftEnd = mid - left;
-    // 右子陣列的起始索引和結束索引       
+    // 右子陣列的起始索引和結束索引
     var rightStart = mid + 1 - left;
     var rightEnd = right - left;
     // i, j 分別指向左子陣列、右子陣列的首元素
@@ -48,7 +48,7 @@ fn mergeSort(nums: []i32, left: usize, right: usize) !void {
     // 終止條件
     if (left >= right) return;              // 當子陣列長度為 1 時終止遞迴
     // 劃分階段
-    var mid = (left + right) / 2;           // 計算中點
+    var mid = left + (right - left) / 2;           // 計算中點
     try mergeSort(nums, left, mid);         // 遞迴左子陣列
     try mergeSort(nums, mid + 1, right);    // 遞迴右子陣列
     // 合併階段

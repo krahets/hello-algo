@@ -41,7 +41,7 @@ def merge_sort(nums: list[int], left: int, right: int):
     if left >= right:
         return  # Terminate recursion when subarray length is 1
     # Partition stage
-    mid = (left + right) // 2  # Calculate midpoint
+    mid = left + (right - left) // 2  # Calculate midpoint
     merge_sort(nums, left, mid)  # Recursively process the left subarray
     merge_sort(nums, mid + 1, right)  # Recursively process the right subarray
     # Merge stage
