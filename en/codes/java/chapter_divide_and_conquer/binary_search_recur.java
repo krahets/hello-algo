@@ -14,7 +14,7 @@ public class binary_search_recur {
             return -1;
         }
         // Calculate midpoint index m
-        int m = (i + j) / 2;
+        int m = i + (j - i) / 2;
         if (nums[m] < target) {
             // Recursive subproblem f(m+1, j)
             return dfs(nums, target, m + 1, j);

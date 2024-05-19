@@ -46,7 +46,7 @@ func mergeSort(nums: inout [Int], left: Int, right: Int) {
         return
     }
     // 劃分階段
-    let mid = (left + right) / 2 // 計算中點
+    let mid = left + (right - left) / 2 // 計算中點
     mergeSort(nums: &nums, left: left, right: mid) // 遞迴左子陣列
     mergeSort(nums: &nums, left: mid + 1, right: right) // 遞迴右子陣列
     // 合併階段

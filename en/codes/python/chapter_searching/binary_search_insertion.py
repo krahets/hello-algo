@@ -9,7 +9,7 @@ def binary_search_insertion_simple(nums: list[int], target: int) -> int:
     """Binary search for insertion point (no duplicate elements)"""
     i, j = 0, len(nums) - 1  # Initialize double closed interval [0, n-1]
     while i <= j:
-        m = (i + j) // 2  # Calculate midpoint index m
+        m = i + (j - i) // 2  # Calculate midpoint index m
         if nums[m] < target:
             i = m + 1  # Target is in interval [m+1, j]
         elif nums[m] > target:
@@ -24,7 +24,7 @@ def binary_search_insertion(nums: list[int], target: int) -> int:
     """Binary search for insertion point (with duplicate elements)"""
     i, j = 0, len(nums) - 1  # Initialize double closed interval [0, n-1]
     while i <= j:
-        m = (i + j) // 2  # Calculate midpoint index m
+        m = i + (j - i) // 2  # Calculate midpoint index m
         if nums[m] < target:
             i = m + 1  # Target is in interval [m+1, j]
         elif nums[m] > target:
