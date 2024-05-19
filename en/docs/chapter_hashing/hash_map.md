@@ -2,7 +2,7 @@
 
 A <u>hash table</u>, also known as a <u>hash map</u>, is a data structure that establishes a mapping between keys and values, enabling efficient element retrieval. Specifically, when we input a `key` into the hash table, we can retrive the corresponding `value` in $O(1)$ time complexity.
 
-As shown in the diagram below, given $n$ students, each student has two data fields: "Name" and "Student ID". If we want to implement a query function that takes a student ID as input and returns the corresponding name, we can use the hash table depicted below.
+As shown in the figure below, given $n$ students, each student has two data fields: "Name" and "Student ID". If we want to implement a query function that takes a student ID as input and returns the corresponding name, we can use the hash table shown in the figure below.
 
 ![Abstract representation of a hash table](hash_map.assets/hash_table_lookup.png)
 
@@ -283,7 +283,7 @@ The common operations of a hash table include: initialization, querying, adding 
 
     https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E8%BE%93%E5%85%A5%E9%94%AE%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&cumulative=false&curInstr=2&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-There are three common ways to traverse a hash table: traversing key-value pairs, traversing keys, and traversing values. Here is an example code
+There are three common ways to traverse a hash table: traversing key-value pairs, traversing keys, and traversing values. Here is an example code:
 
 === "Python"
 
@@ -488,7 +488,6 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 
 First, let's consider the simplest case: **implementing a hash table using only one array**. In the hash table, each empty slot in the array is called a <u>bucket</u>, and each bucket can store a key-value pair. Therefore, the query operation involves finding the bucket corresponding to the `key` and retrieving the `value` from it.
 
-
 So, how do we locate the corresponding bucket based on the `key`? This is achieved through a <u>hash function</u>. The role of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space consists of all the keys, and the output space consists of all the buckets (array indices). In other words, given a `key`, **we can use the hash function to determine the storage location of the corresponding key-value pair in the array**.
 
 When given a `key`, the calculation process of the hash function consists of the following two steps:
@@ -502,8 +501,7 @@ index = hash(key) % capacity
 
 Afterward, we can use the `index` to access the corresponding bucket in the hash table and thereby retrieve the `value`.
 
-Let's assume that the array length is `capacity = 100`, and the hash algorithm is defined as `hash(key) = key`. Therefore, the hash function can be expressed as `key % 100`. The following diagram illustrates the working principle of the hash function using `key` as student ID and `value` as name.
-
+Let's assume that the array length is `capacity = 100`, and the hash algorithm is defined as `hash(key) = key`. Therefore, the hash function can be expressed as `key % 100`. The following figure illustrates the working principle of the hash function using `key` as student ID and `value` as name.
 
 ![Working principle of hash function](hash_map.assets/hash_function.png)
 
