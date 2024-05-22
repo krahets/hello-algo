@@ -526,7 +526,6 @@ As shown in the figure below, both student IDs point to the same name, which is 
 
 ![Example of hash collision](hash_map.assets/hash_collision.png)
 
-
 It is easy to understand that as the capacity $n$ of the hash table increases, the probability of multiple keys being assigned to the same bucket decreases, resulting in fewer collisions. Therefore, **we can reduce hash collisions by resizing the hash table**.
 
 As shown in the figure below, before resizing, the key-value pairs `(136, A)` and `(236, D)` collide. However, after resizing, the collision is resolved.
