@@ -3860,7 +3860,16 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">preorder_traversal_i_compact.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">pre_order</span><span class="p">}</span>
+<div class="highlight"><span class="filename">preorder_traversal_i_compact.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">### 前序走訪：例題一 ###</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">pre_order</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">root</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="c1"># 記錄解</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="vg">$res</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span><span class="n">pre_order</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">  </span><span class="n">pre_order</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4132,7 +4141,22 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">preorder_traversal_ii_compact.rb</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">pre_order</span><span class="p">}</span>
+<div class="highlight"><span class="filename">preorder_traversal_ii_compact.rb</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1">### 前序走訪：例題二 ###</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">pre_order</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">root</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">  </span><span class="c1"># 嘗試</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w">  </span><span class="vg">$path</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">root</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="w">  </span><span class="c1"># 記錄解</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="w">  </span><span class="vg">$res</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="vg">$path</span><span class="o">.</span><span class="n">dup</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="w">  </span><span class="n">pre_order</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="w">  </span><span class="n">pre_order</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="w">  </span><span class="c1"># 回退</span>
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="w">  </span><span class="vg">$path</span><span class="o">.</span><span class="n">pop</span>
+<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4451,7 +4475,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">preorder_traversal_iii_compact.rb</span><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">pre_order</span><span class="p">}</span>
+<div class="highlight"><span class="filename">preorder_traversal_iii_compact.rb</span><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="c1">### 前序走訪：例題三 ###</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">pre_order</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">  </span><span class="c1"># 剪枝</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="n">root</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="w">  </span><span class="c1"># 嘗試</span>
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="w">  </span><span class="vg">$path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>
+<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="w">  </span><span class="c1"># 記錄解</span>
+<a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a><span class="w">  </span><span class="vg">$res</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="vg">$path</span><span class="o">.</span><span class="n">dup</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span>
+<a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a>
+<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a><span class="w">  </span><span class="n">pre_order</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+<a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a><span class="w">  </span><span class="n">pre_order</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+<a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a>
+<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a><span class="w">  </span><span class="c1"># 回退</span>
+<a id="__codelineno-40-16" name="__codelineno-40-16" href="#__codelineno-40-16"></a><span class="w">  </span><span class="vg">$path</span><span class="o">.</span><span class="n">pop</span>
+<a id="__codelineno-40-17" name="__codelineno-40-17" href="#__codelineno-40-17"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4759,7 +4799,27 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="c1">### 回溯演算法框架 ###</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w">    </span><span class="c1"># 判斷是否為解</span>
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">is_solution?</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="w">        </span><span class="c1"># 記錄解</span>
+<a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="w">        </span><span class="n">record_solution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a><span class="w">        </span><span class="k">return</span>
+<a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a>
+<a id="__codelineno-54-10" name="__codelineno-54-10" href="#__codelineno-54-10"></a><span class="w">    </span><span class="c1"># 走訪所有選擇</span>
+<a id="__codelineno-54-11" name="__codelineno-54-11" href="#__codelineno-54-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span>
+<a id="__codelineno-54-12" name="__codelineno-54-12" href="#__codelineno-54-12"></a><span class="w">        </span><span class="c1"># 剪枝：判斷選擇是否合法</span>
+<a id="__codelineno-54-13" name="__codelineno-54-13" href="#__codelineno-54-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">is_valid?</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
+<a id="__codelineno-54-14" name="__codelineno-54-14" href="#__codelineno-54-14"></a><span class="w">            </span><span class="c1"># 嘗試：做出選擇，更新狀態</span>
+<a id="__codelineno-54-15" name="__codelineno-54-15" href="#__codelineno-54-15"></a><span class="w">            </span><span class="n">make_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
+<a id="__codelineno-54-16" name="__codelineno-54-16" href="#__codelineno-54-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-54-17" name="__codelineno-54-17" href="#__codelineno-54-17"></a><span class="w">            </span><span class="c1"># 回退：撤銷選擇，恢復到之前的狀態</span>
+<a id="__codelineno-54-18" name="__codelineno-54-18" href="#__codelineno-54-18"></a><span class="w">            </span><span class="n">undo_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
+<a id="__codelineno-54-19" name="__codelineno-54-19" href="#__codelineno-54-19"></a><span class="w">        </span><span class="k">end</span>
+<a id="__codelineno-54-20" name="__codelineno-54-20" href="#__codelineno-54-20"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-54-21" name="__codelineno-54-21" href="#__codelineno-54-21"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5374,17 +5434,49 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">preorder_traversal_iii_template.rb</span><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">is_solution</span><span class="p">}</span>
-<a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a>
-<a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">record_solution</span><span class="p">}</span>
-<a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a>
-<a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">is_valid</span><span class="p">}</span>
-<a id="__codelineno-68-6" name="__codelineno-68-6" href="#__codelineno-68-6"></a>
-<a id="__codelineno-68-7" name="__codelineno-68-7" href="#__codelineno-68-7"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">make_choice</span><span class="p">}</span>
-<a id="__codelineno-68-8" name="__codelineno-68-8" href="#__codelineno-68-8"></a>
-<a id="__codelineno-68-9" name="__codelineno-68-9" href="#__codelineno-68-9"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">undo_choice</span><span class="p">}</span>
+<div class="highlight"><span class="filename">preorder_traversal_iii_template.rb</span><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="c1">### 判斷當前狀態是否為解 ###</span>
+<a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_solution?</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a><span class="w">  </span><span class="o">!</span><span class="n">state</span><span class="o">.</span><span class="n">empty?</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">state</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span>
+<a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a><span class="k">end</span>
+<a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a>
+<a id="__codelineno-68-6" name="__codelineno-68-6" href="#__codelineno-68-6"></a><span class="c1">### 記錄解 ###</span>
+<a id="__codelineno-68-7" name="__codelineno-68-7" href="#__codelineno-68-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">record_solution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-68-8" name="__codelineno-68-8" href="#__codelineno-68-8"></a><span class="w">  </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">state</span><span class="o">.</span><span class="n">dup</span>
+<a id="__codelineno-68-9" name="__codelineno-68-9" href="#__codelineno-68-9"></a><span class="k">end</span>
 <a id="__codelineno-68-10" name="__codelineno-68-10" href="#__codelineno-68-10"></a>
-<a id="__codelineno-68-11" name="__codelineno-68-11" href="#__codelineno-68-11"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">backtrack</span><span class="p">}</span>
+<a id="__codelineno-68-11" name="__codelineno-68-11" href="#__codelineno-68-11"></a><span class="c1">### 判斷在當前狀態下，該選擇是否合法 ###</span>
+<a id="__codelineno-68-12" name="__codelineno-68-12" href="#__codelineno-68-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_valid?</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
+<a id="__codelineno-68-13" name="__codelineno-68-13" href="#__codelineno-68-13"></a><span class="w">  </span><span class="n">choice</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">choice</span><span class="o">.</span><span class="n">val</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span>
+<a id="__codelineno-68-14" name="__codelineno-68-14" href="#__codelineno-68-14"></a><span class="k">end</span>
+<a id="__codelineno-68-15" name="__codelineno-68-15" href="#__codelineno-68-15"></a>
+<a id="__codelineno-68-16" name="__codelineno-68-16" href="#__codelineno-68-16"></a><span class="c1">### 更新狀態 ###</span>
+<a id="__codelineno-68-17" name="__codelineno-68-17" href="#__codelineno-68-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">make_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
+<a id="__codelineno-68-18" name="__codelineno-68-18" href="#__codelineno-68-18"></a><span class="w">  </span><span class="n">state</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">choice</span>
+<a id="__codelineno-68-19" name="__codelineno-68-19" href="#__codelineno-68-19"></a><span class="k">end</span>
+<a id="__codelineno-68-20" name="__codelineno-68-20" href="#__codelineno-68-20"></a>
+<a id="__codelineno-68-21" name="__codelineno-68-21" href="#__codelineno-68-21"></a><span class="c1">### 恢復狀態 ###</span>
+<a id="__codelineno-68-22" name="__codelineno-68-22" href="#__codelineno-68-22"></a><span class="k">def</span><span class="w"> </span><span class="nf">undo_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
+<a id="__codelineno-68-23" name="__codelineno-68-23" href="#__codelineno-68-23"></a><span class="w">  </span><span class="n">state</span><span class="o">.</span><span class="n">pop</span>
+<a id="__codelineno-68-24" name="__codelineno-68-24" href="#__codelineno-68-24"></a><span class="k">end</span>
+<a id="__codelineno-68-25" name="__codelineno-68-25" href="#__codelineno-68-25"></a>
+<a id="__codelineno-68-26" name="__codelineno-68-26" href="#__codelineno-68-26"></a><span class="c1">### 回溯演算法：例題三 ###</span>
+<a id="__codelineno-68-27" name="__codelineno-68-27" href="#__codelineno-68-27"></a><span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-68-28" name="__codelineno-68-28" href="#__codelineno-68-28"></a><span class="w">  </span><span class="c1"># 檢查是否為解</span>
+<a id="__codelineno-68-29" name="__codelineno-68-29" href="#__codelineno-68-29"></a><span class="w">  </span><span class="n">record_solution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_solution?</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<a id="__codelineno-68-30" name="__codelineno-68-30" href="#__codelineno-68-30"></a>
+<a id="__codelineno-68-31" name="__codelineno-68-31" href="#__codelineno-68-31"></a><span class="w">  </span><span class="c1"># 走訪所有選擇</span>
+<a id="__codelineno-68-32" name="__codelineno-68-32" href="#__codelineno-68-32"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span>
+<a id="__codelineno-68-33" name="__codelineno-68-33" href="#__codelineno-68-33"></a><span class="w">    </span><span class="c1"># 剪枝：檢查選擇是否合法</span>
+<a id="__codelineno-68-34" name="__codelineno-68-34" href="#__codelineno-68-34"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">is_valid?</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
+<a id="__codelineno-68-35" name="__codelineno-68-35" href="#__codelineno-68-35"></a><span class="w">      </span><span class="c1"># 嘗試：做出選擇，更新狀態</span>
+<a id="__codelineno-68-36" name="__codelineno-68-36" href="#__codelineno-68-36"></a><span class="w">      </span><span class="n">make_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
+<a id="__codelineno-68-37" name="__codelineno-68-37" href="#__codelineno-68-37"></a><span class="w">      </span><span class="c1"># 進行下一輪選擇</span>
+<a id="__codelineno-68-38" name="__codelineno-68-38" href="#__codelineno-68-38"></a><span class="w">      </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">choice</span><span class="o">.</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="o">.</span><span class="n">right</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-68-39" name="__codelineno-68-39" href="#__codelineno-68-39"></a><span class="w">      </span><span class="c1"># 回退：撤銷選擇，恢復到之前的狀態</span>
+<a id="__codelineno-68-40" name="__codelineno-68-40" href="#__codelineno-68-40"></a><span class="w">      </span><span class="n">undo_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
+<a id="__codelineno-68-41" name="__codelineno-68-41" href="#__codelineno-68-41"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-68-42" name="__codelineno-68-42" href="#__codelineno-68-42"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-68-43" name="__codelineno-68-43" href="#__codelineno-68-43"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
