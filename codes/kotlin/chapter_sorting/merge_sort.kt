@@ -19,7 +19,7 @@ fun merge(nums: IntArray, left: Int, mid: Int, right: Int) {
     while (i <= mid && j <= right) {
         if (nums[i] <= nums[j])
             tmp[k++] = nums[i++]
-        else 
+        else
             tmp[k++] = nums[j++]
     }
     // 将左子数组和右子数组的剩余元素复制到临时数组中
