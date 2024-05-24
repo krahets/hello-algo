@@ -545,9 +545,7 @@ $$
             counter[d] -= 1; // 將 d 的數量減 1
         }
         // 使用結果覆蓋原陣列 nums
-        for i in 0..n {
-            nums[i] = res[i];
-        }
+        nums.copy_from_slice(&res);
     }
 
     /* 基數排序 */

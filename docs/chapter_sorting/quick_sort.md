@@ -861,7 +861,7 @@ comments: true
     /* 哨兵划分（三数取中值） */
     func partitionMedian(nums: inout [Int], left: Int, right: Int) -> Int {
         // 选取三个候选元素的中位数
-        let med = medianThree(nums: nums, left: left, mid: (left + right) / 2, right: right)
+        let med = medianThree(nums: nums, left: left, mid: left + (right - left) / 2, right: right)
         // 将中位数交换至数组最左端
         nums.swapAt(left, med)
         return partition(nums: &nums, left: left, right: right)

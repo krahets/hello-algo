@@ -2896,7 +2896,7 @@ comments: true
         hashMap->capacity = 4;
         hashMap->loadThres = 2.0 / 3.0;
         hashMap->extendRatio = 2;
-        hashMap->buckets = (Pair **)malloc(sizeof(Pair *) * hashMap->capacity);
+        hashMap->buckets = (Pair **)calloc(hashMap->capacity, sizeof(Pair *));
         hashMap->TOMBSTONE = (Pair *)malloc(sizeof(Pair));
         hashMap->TOMBSTONE->key = -1;
         hashMap->TOMBSTONE->val = "-1";
@@ -3015,7 +3015,7 @@ comments: true
         int oldCapacity = hashMap->capacity;
         // 初始化扩容后的新哈希表
         hashMap->capacity *= hashMap->extendRatio;
-        hashMap->buckets = (Pair **)malloc(sizeof(Pair *) * hashMap->capacity);
+        hashMap->buckets = (Pair **)calloc(hashMap->capacity, sizeof(Pair *));
         hashMap->size = 0;
         // 将键值对从原哈希表搬运至新哈希表
         for (int i = 0; i < oldCapacity; i++) {

@@ -99,7 +99,7 @@ comments: true
         if left >= right:
             return  # 当子数组长度为 1 时终止递归
         # 划分阶段
-        mid = (left + right) // 2  # 计算中点
+        mid = (left + right) // 2 # 计算中点
         merge_sort(nums, left, mid)  # 递归左子数组
         merge_sort(nums, mid + 1, right)  # 递归右子数组
         # 合并阶段
@@ -142,7 +142,7 @@ comments: true
         if (left >= right)
             return; // 当子数组长度为 1 时终止递归
         // 划分阶段
-        int mid = (left + right) / 2;    // 计算中点
+        int mid = left + (right - left) / 2;    // 计算中点
         mergeSort(nums, left, mid);      // 递归左子数组
         mergeSort(nums, mid + 1, right); // 递归右子数组
         // 合并阶段
@@ -186,7 +186,7 @@ comments: true
         if (left >= right)
             return; // 当子数组长度为 1 时终止递归
         // 划分阶段
-        int mid = (left + right) / 2; // 计算中点
+        int mid = left + (right - left) / 2; // 计算中点
         mergeSort(nums, left, mid); // 递归左子数组
         mergeSort(nums, mid + 1, right); // 递归右子数组
         // 合并阶段
@@ -229,7 +229,7 @@ comments: true
         // 终止条件
         if (left >= right) return;       // 当子数组长度为 1 时终止递归
         // 划分阶段
-        int mid = (left + right) / 2;    // 计算中点
+        int mid = left + (right - left) / 2;    // 计算中点
         MergeSort(nums, left, mid);      // 递归左子数组
         MergeSort(nums, mid + 1, right); // 递归右子数组
         // 合并阶段
@@ -282,7 +282,7 @@ comments: true
             return
         }
         // 划分阶段
-        mid := (left + right) / 2
+        mid := left + (right - left) / 2
         mergeSort(nums, left, mid)
         mergeSort(nums, mid+1, right)
         // 合并阶段
@@ -335,7 +335,7 @@ comments: true
             return
         }
         // 划分阶段
-        let mid = (left + right) / 2 // 计算中点
+        let mid = left + (right - left) / 2 // 计算中点
         mergeSort(nums: &nums, left: left, right: mid) // 递归左子数组
         mergeSort(nums: &nums, left: mid + 1, right: right) // 递归右子数组
         // 合并阶段
@@ -381,7 +381,7 @@ comments: true
         // 终止条件
         if (left >= right) return; // 当子数组长度为 1 时终止递归
         // 划分阶段
-        let mid = Math.floor((left + right) / 2); // 计算中点
+        let mid = Math.floor(left + (right - left) / 2); // 计算中点
         mergeSort(nums, left, mid); // 递归左子数组
         mergeSort(nums, mid + 1, right); // 递归右子数组
         // 合并阶段
@@ -427,7 +427,7 @@ comments: true
         // 终止条件
         if (left >= right) return; // 当子数组长度为 1 时终止递归
         // 划分阶段
-        let mid = Math.floor((left + right) / 2); // 计算中点
+        let mid = Math.floor(left + (right - left) / 2); // 计算中点
         mergeSort(nums, left, mid); // 递归左子数组
         mergeSort(nums, mid + 1, right); // 递归右子数组
         // 合并阶段
@@ -470,7 +470,7 @@ comments: true
       // 终止条件
       if (left >= right) return; // 当子数组长度为 1 时终止递归
       // 划分阶段
-      int mid = (left + right) ~/ 2; // 计算中点
+      int mid = left + (right - left) ~/ 2; // 计算中点
       mergeSort(nums, left, mid); // 递归左子数组
       mergeSort(nums, mid + 1, right); // 递归右子数组
       // 合并阶段
@@ -525,7 +525,7 @@ comments: true
         }
 
         // 划分阶段
-        let mid = (left + right) / 2; // 计算中点
+        let mid = left + (right - left) / 2; // 计算中点
         merge_sort(nums, left, mid); // 递归左子数组
         merge_sort(nums, mid + 1, right); // 递归右子数组
 
@@ -574,7 +574,7 @@ comments: true
         if (left >= right)
             return; // 当子数组长度为 1 时终止递归
         // 划分阶段
-        int mid = (left + right) / 2;    // 计算中点
+        int mid = left + (right - left) / 2;    // 计算中点
         mergeSort(nums, left, mid);      // 递归左子数组
         mergeSort(nums, mid + 1, right); // 递归右子数组
         // 合并阶段
@@ -598,7 +598,7 @@ comments: true
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j])
                 tmp[k++] = nums[i++]
-            else 
+            else
                 tmp[k++] = nums[j++]
         }
         // 将左子数组和右子数组的剩余元素复制到临时数组中
@@ -619,7 +619,7 @@ comments: true
         // 终止条件
         if (left >= right) return  // 当子数组长度为 1 时终止递归
         // 划分阶段
-        val mid = (left + right) / 2 // 计算中点
+        val mid = left + (right - left) / 2 // 计算中点
         mergeSort(nums, left, mid) // 递归左子数组
         mergeSort(nums, mid + 1, right) // 递归右子数组
         // 合并阶段
@@ -671,7 +671,7 @@ comments: true
       # 当子数组长度为 1 时终止递归
       return if left >= right
       # 划分阶段
-      mid = (left + right) / 2 # 计算中点
+      mid = left + (right - left) / 2 # 计算中点
       merge_sort(nums, left, mid) # 递归左子数组
       merge_sort(nums, mid + 1, right) # 递归右子数组
       # 合并阶段
@@ -692,10 +692,10 @@ comments: true
         const mem_allocator = mem_arena.allocator();
         var tmp = try mem_allocator.alloc(i32, right + 1 - left);
         std.mem.copy(i32, tmp, nums[left..right+1]);
-        // 左子数组的起始索引和结束索引  
+        // 左子数组的起始索引和结束索引
         var leftStart = left - left;
         var leftEnd = mid - left;
-        // 右子数组的起始索引和结束索引       
+        // 右子数组的起始索引和结束索引
         var rightStart = mid + 1 - left;
         var rightEnd = right - left;
         // i, j 分别指向左子数组、右子数组的首元素
@@ -725,7 +725,7 @@ comments: true
         // 终止条件
         if (left >= right) return;              // 当子数组长度为 1 时终止递归
         // 划分阶段
-        var mid = (left + right) / 2;           // 计算中点
+        var mid = left + (right - left) / 2;    // 计算中点
         try mergeSort(nums, left, mid);         // 递归左子数组
         try mergeSort(nums, mid + 1, right);    // 递归右子数组
         // 合并阶段

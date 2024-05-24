@@ -545,9 +545,7 @@ $$
             counter[d] -= 1; // 将 d 的数量减 1
         }
         // 使用结果覆盖原数组 nums
-        for i in 0..n {
-            nums[i] = res[i];
-        }
+        nums.copy_from_slice(&res);
     }
 
     /* 基数排序 */

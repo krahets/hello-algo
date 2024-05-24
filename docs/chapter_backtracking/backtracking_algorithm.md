@@ -220,7 +220,16 @@ comments: true
 === "Ruby"
 
     ```ruby title="preorder_traversal_i_compact.rb"
-    [class]{}-[func]{pre_order}
+    ### 前序遍历：例题一 ###
+    def pre_order(root)
+      return unless root
+
+      # 记录解
+      $res << root if root.val == 7
+
+      pre_order(root.left)
+      pre_order(root.right)
+    end
     ```
 
 === "Zig"
@@ -522,7 +531,22 @@ comments: true
 === "Ruby"
 
     ```ruby title="preorder_traversal_ii_compact.rb"
-    [class]{}-[func]{pre_order}
+    ### 前序遍历：例题二 ###
+    def pre_order(root)
+      return unless root
+
+      # 尝试
+      $path << root
+
+      # 记录解
+      $res << $path.dup if root.val == 7
+
+      pre_order(root.left)
+      pre_order(root.right)
+
+      # 回退
+      $path.pop
+    end
     ```
 
 === "Zig"
@@ -866,7 +890,23 @@ comments: true
 === "Ruby"
 
     ```ruby title="preorder_traversal_iii_compact.rb"
-    [class]{}-[func]{pre_order}
+    ### 前序遍历：例题三 ###
+    def pre_order(root)
+      # 剪枝
+      return if !root || root.val == 3
+
+      # 尝试
+      $path.append(root)
+
+      # 记录解
+      $res << $path.dup if root.val == 7
+
+      pre_order(root.left)
+      pre_order(root.right)
+
+      # 回退
+      $path.pop
+    end
     ```
 
 === "Zig"
@@ -1203,7 +1243,27 @@ comments: true
 === "Ruby"
 
     ```ruby title=""
+    ### 回溯算法框架 ###
+    def backtrack(state, choices, res)
+        # 判断是否为解
+        if is_solution?(state)
+            # 记录解
+            record_solution(state, res)
+            return
+        end
 
+        # 遍历所有选择
+        for choice in choices
+            # 剪枝：判断选择是否合法
+            if is_valid?(state, choice)
+                # 尝试：做出选择，更新状态
+                make_choice(state, choice)
+                backtrack(state, choices, res)
+                # 回退：撤销选择，恢复到之前的状态
+                undo_choice(state, choice)
+            end
+        end
+    end
     ```
 
 === "Zig"
@@ -1843,17 +1903,49 @@ comments: true
 === "Ruby"
 
     ```ruby title="preorder_traversal_iii_template.rb"
-    [class]{}-[func]{is_solution}
+    ### 判断当前状态是否为解 ###
+    def is_solution?(state)
+      !state.empty? && state.last.val == 7
+    end
 
-    [class]{}-[func]{record_solution}
+    ### 记录解 ###
+    def record_solution(state, res)
+      res << state.dup
+    end
 
-    [class]{}-[func]{is_valid}
+    ### 判断在当前状态下，该选择是否合法 ###
+    def is_valid?(state, choice)
+      choice && choice.val != 3
+    end
 
-    [class]{}-[func]{make_choice}
+    ### 更新状态 ###
+    def make_choice(state, choice)
+      state << choice
+    end
 
-    [class]{}-[func]{undo_choice}
+    ### 恢复状态 ###
+    def undo_choice(state, choice)
+      state.pop
+    end
 
-    [class]{}-[func]{backtrack}
+    ### 回溯算法：例题三 ###
+    def backtrack(state, choices, res)
+      # 检查是否为解
+      record_solution(state, res) if is_solution?(state)
+
+      # 遍历所有选择
+      for choice in choices
+        # 剪枝：检查选择是否合法
+        if is_valid?(state, choice)
+          # 尝试：做出选择，更新状态
+          make_choice(state, choice)
+          # 进行下一轮选择
+          backtrack(state, [choice.left, choice.right], res)
+          # 回退：撤销选择，恢复到之前的状态
+          undo_choice(state, choice)
+        end
+      end
+    end
     ```
 
 === "Zig"

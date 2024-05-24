@@ -99,7 +99,7 @@ comments: true
         if left >= right:
             return  # 當子陣列長度為 1 時終止遞迴
         # 劃分階段
-        mid = (left + right) // 2  # 計算中點
+        mid = (left + right) // 2 # 計算中點
         merge_sort(nums, left, mid)  # 遞迴左子陣列
         merge_sort(nums, mid + 1, right)  # 遞迴右子陣列
         # 合併階段
@@ -142,7 +142,7 @@ comments: true
         if (left >= right)
             return; // 當子陣列長度為 1 時終止遞迴
         // 劃分階段
-        int mid = (left + right) / 2;    // 計算中點
+        int mid = left + (right - left) / 2;    // 計算中點
         mergeSort(nums, left, mid);      // 遞迴左子陣列
         mergeSort(nums, mid + 1, right); // 遞迴右子陣列
         // 合併階段
@@ -186,7 +186,7 @@ comments: true
         if (left >= right)
             return; // 當子陣列長度為 1 時終止遞迴
         // 劃分階段
-        int mid = (left + right) / 2; // 計算中點
+        int mid = left + (right - left) / 2; // 計算中點
         mergeSort(nums, left, mid); // 遞迴左子陣列
         mergeSort(nums, mid + 1, right); // 遞迴右子陣列
         // 合併階段
@@ -229,7 +229,7 @@ comments: true
         // 終止條件
         if (left >= right) return;       // 當子陣列長度為 1 時終止遞迴
         // 劃分階段
-        int mid = (left + right) / 2;    // 計算中點
+        int mid = left + (right - left) / 2;    // 計算中點
         MergeSort(nums, left, mid);      // 遞迴左子陣列
         MergeSort(nums, mid + 1, right); // 遞迴右子陣列
         // 合併階段
@@ -282,7 +282,7 @@ comments: true
             return
         }
         // 劃分階段
-        mid := (left + right) / 2
+        mid := left + (right - left) / 2
         mergeSort(nums, left, mid)
         mergeSort(nums, mid+1, right)
         // 合併階段
@@ -335,7 +335,7 @@ comments: true
             return
         }
         // 劃分階段
-        let mid = (left + right) / 2 // 計算中點
+        let mid = left + (right - left) / 2 // 計算中點
         mergeSort(nums: &nums, left: left, right: mid) // 遞迴左子陣列
         mergeSort(nums: &nums, left: mid + 1, right: right) // 遞迴右子陣列
         // 合併階段
@@ -381,7 +381,7 @@ comments: true
         // 終止條件
         if (left >= right) return; // 當子陣列長度為 1 時終止遞迴
         // 劃分階段
-        let mid = Math.floor((left + right) / 2); // 計算中點
+        let mid = Math.floor(left + (right - left) / 2); // 計算中點
         mergeSort(nums, left, mid); // 遞迴左子陣列
         mergeSort(nums, mid + 1, right); // 遞迴右子陣列
         // 合併階段
@@ -427,7 +427,7 @@ comments: true
         // 終止條件
         if (left >= right) return; // 當子陣列長度為 1 時終止遞迴
         // 劃分階段
-        let mid = Math.floor((left + right) / 2); // 計算中點
+        let mid = Math.floor(left + (right - left) / 2); // 計算中點
         mergeSort(nums, left, mid); // 遞迴左子陣列
         mergeSort(nums, mid + 1, right); // 遞迴右子陣列
         // 合併階段
@@ -470,7 +470,7 @@ comments: true
       // 終止條件
       if (left >= right) return; // 當子陣列長度為 1 時終止遞迴
       // 劃分階段
-      int mid = (left + right) ~/ 2; // 計算中點
+      int mid = left + (right - left) ~/ 2; // 計算中點
       mergeSort(nums, left, mid); // 遞迴左子陣列
       mergeSort(nums, mid + 1, right); // 遞迴右子陣列
       // 合併階段
@@ -525,7 +525,7 @@ comments: true
         }
 
         // 劃分階段
-        let mid = (left + right) / 2; // 計算中點
+        let mid = left + (right - left) / 2; // 計算中點
         merge_sort(nums, left, mid); // 遞迴左子陣列
         merge_sort(nums, mid + 1, right); // 遞迴右子陣列
 
@@ -574,7 +574,7 @@ comments: true
         if (left >= right)
             return; // 當子陣列長度為 1 時終止遞迴
         // 劃分階段
-        int mid = (left + right) / 2;    // 計算中點
+        int mid = left + (right - left) / 2;    // 計算中點
         mergeSort(nums, left, mid);      // 遞迴左子陣列
         mergeSort(nums, mid + 1, right); // 遞迴右子陣列
         // 合併階段
@@ -598,7 +598,7 @@ comments: true
         while (i <= mid && j <= right) {
             if (nums[i] <= nums[j])
                 tmp[k++] = nums[i++]
-            else 
+            else
                 tmp[k++] = nums[j++]
         }
         // 將左子陣列和右子陣列的剩餘元素複製到臨時陣列中
@@ -619,7 +619,7 @@ comments: true
         // 終止條件
         if (left >= right) return  // 當子陣列長度為 1 時終止遞迴
         // 劃分階段
-        val mid = (left + right) / 2 // 計算中點
+        val mid = left + (right - left) / 2 // 計算中點
         mergeSort(nums, left, mid) // 遞迴左子陣列
         mergeSort(nums, mid + 1, right) // 遞迴右子陣列
         // 合併階段
@@ -671,7 +671,7 @@ comments: true
       # 當子陣列長度為 1 時終止遞迴
       return if left >= right
       # 劃分階段
-      mid = (left + right) / 2 # 計算中點
+      mid = left + (right - left) / 2 # 計算中點
       merge_sort(nums, left, mid) # 遞迴左子陣列
       merge_sort(nums, mid + 1, right) # 遞迴右子陣列
       # 合併階段
@@ -692,10 +692,10 @@ comments: true
         const mem_allocator = mem_arena.allocator();
         var tmp = try mem_allocator.alloc(i32, right + 1 - left);
         std.mem.copy(i32, tmp, nums[left..right+1]);
-        // 左子陣列的起始索引和結束索引  
+        // 左子陣列的起始索引和結束索引
         var leftStart = left - left;
         var leftEnd = mid - left;
-        // 右子陣列的起始索引和結束索引       
+        // 右子陣列的起始索引和結束索引
         var rightStart = mid + 1 - left;
         var rightEnd = right - left;
         // i, j 分別指向左子陣列、右子陣列的首元素
@@ -725,7 +725,7 @@ comments: true
         // 終止條件
         if (left >= right) return;              // 當子陣列長度為 1 時終止遞迴
         // 劃分階段
-        var mid = (left + right) / 2;           // 計算中點
+        var mid = left + (right - left) / 2;    // 計算中點
         try mergeSort(nums, left, mid);         // 遞迴左子陣列
         try mergeSort(nums, mid + 1, right);    // 遞迴右子陣列
         // 合併階段

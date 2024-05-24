@@ -470,9 +470,35 @@ comments: true
 === "Ruby"
 
     ```ruby title="subset_sum_i_naive.rb"
-    [class]{}-[func]{backtrack}
+    ### 回溯演算法：子集和 I ###
+    def backtrack(state, target, total, choices, res)
+      # 子集和等於 target 時，記錄解
+      if total == target
+        res << state.dup
+        return
+      end
 
-    [class]{}-[func]{subset_sum_i_naive}
+      # 走訪所有選擇
+      for i in 0...choices.length
+        # 剪枝：若子集和超過 target ，則跳過該選擇
+        next if total + choices[i] > target
+        # 嘗試：做出選擇，更新元素和 total
+        state << choices[i]
+        # 進行下一輪選擇
+        backtrack(state, target, total + choices[i], choices, res)
+        # 回退：撤銷選擇，恢復到之前的狀態
+        state.pop
+      end
+    end
+
+    ### 求解子集和 I（包含重複子集）###
+    def subset_sum_i_naive(nums, target)
+      state = [] # 狀態（子集）
+      total = 0 # 子集和
+      res = [] # 結果串列（子集串列）
+      backtrack(state, target, total, nums, res)
+      res
+    end
     ```
 
 === "Zig"
@@ -1011,9 +1037,37 @@ comments: true
 === "Ruby"
 
     ```ruby title="subset_sum_i.rb"
-    [class]{}-[func]{backtrack}
+    ### 回溯演算法：子集和 I ###
+    def backtrack(state, target, choices, start, res)
+      # 子集和等於 target 時，記錄解
+      if target.zero?
+        res << state.dup
+        return
+      end
+      # 走訪所有選擇
+      # 剪枝二：從 start 開始走訪，避免生成重複子集
+      for i in start...choices.length
+        # 剪枝一：若子集和超過 target ，則直接結束迴圈
+        # 這是因為陣列已排序，後邊元素更大，子集和一定超過 target
+        break if target - choices[i] < 0
+        # 嘗試：做出選擇，更新 target, start
+        state << choices[i]
+        # 進行下一輪選擇
+        backtrack(state, target - choices[i], choices, i, res)
+        # 回退：撤銷選擇，恢復到之前的狀態
+        state.pop
+      end
+    end
 
-    [class]{}-[func]{subset_sum_i}
+    ### 求解子集和 I ###
+    def subset_sum_i(nums, target)
+      state = [] # 狀態（子集）
+      nums.sort! # 對 nums 進行排序
+      start = 0 # 走訪起始點
+      res = [] # 結果串列（子集串列）
+      backtrack(state, target, nums, start, res)
+      res
+    end
     ```
 
 === "Zig"
@@ -1598,9 +1652,41 @@ comments: true
 === "Ruby"
 
     ```ruby title="subset_sum_ii.rb"
-    [class]{}-[func]{backtrack}
+    ### 回溯演算法：子集和 II ###
+    def backtrack(state, target, choices, start, res)
+      # 子集和等於 target 時，記錄解
+      if target.zero?
+        res << state.dup
+        return
+      end
 
-    [class]{}-[func]{subset_sum_ii}
+      # 走訪所有選擇
+      # 剪枝二：從 start 開始走訪，避免生成重複子集
+      # 剪枝三：從 start 開始走訪，避免重複選擇同一元素
+      for i in start...choices.length
+        # 剪枝一：若子集和超過 target ，則直接結束迴圈
+        # 這是因為陣列已排序，後邊元素更大，子集和一定超過 target
+        break if target - choices[i] < 0
+        # 剪枝四：如果該元素與左邊元素相等，說明該搜尋分支重複，直接跳過
+        next if i > start && choices[i] == choices[i - 1]
+        # 嘗試：做出選擇，更新 target, start
+        state << choices[i]
+        # 進行下一輪選擇
+        backtrack(state, target - choices[i], choices, i + 1, res)
+        # 回退：撤銷選擇，恢復到之前的狀態
+        state.pop
+      end
+    end
+
+    ### 求解子集和 II ###
+    def subset_sum_ii(nums, target)
+      state = [] # 狀態（子集）
+      nums.sort! # 對 nums 進行排序
+      start = 0 # 走訪起始點
+      res = [] # 結果串列（子集串列）
+      backtrack(state, target, nums, start, res)
+      res
+    end
     ```
 
 === "Zig"

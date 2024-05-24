@@ -331,7 +331,7 @@ comments: true
         if i > j {
             return -1;
         }
-        let m: i32 = (i + j) / 2;
+        let m: i32 = i + (j - i) / 2;
         if nums[m as usize] < target {
             // 遞迴子問題 f(m+1, j)
             return dfs(nums, target, m + 1, j);
