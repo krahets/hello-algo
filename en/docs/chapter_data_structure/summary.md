@@ -1,6 +1,7 @@
 # Summary
 
 ### Key review
+
 - Data structures can be categorized from two perspectives: logical structure and physical structure. Logical structure describes the logical relationships between data, while physical structure describes how data is stored in memory.
 - Frequently used logical structures include linear structures, trees, and networks. We usually divide data structures into linear (arrays, linked lists, stacks, queues) and non-linear (trees, graphs, heaps) based on their logical structure. The implementation of hash tables may involve both linear and non-linear data structures.
 - When a program is running, data is stored in memory. Each memory space has a corresponding address, and the program accesses data through these addresses.
@@ -17,7 +18,6 @@
 **Q**: Why does a hash table contain both linear and non-linear data structures?
 
 The underlying structure of a hash table is an array. To resolve hash collisions, we may use "chaining" (discussed in a later section, "Hash collision"): each bucket in the array points to a linked list, and it might be transformed into a tree (usually a red-black tree) when its length is larger than a certain threshold.
-
 From a storage perspective, the underlying structure of a hash table is an array, where each bucket might contain a value, a linked list, or a tree. Therefore, hash tables may contain both linear data structures (arrays, linked lists) and non-linear data structures (trees).
 
 **Q**: Is the length of the `char` type 1 byte?
@@ -45,8 +45,6 @@ $$
 
 Observe that the sum of the original code and the complement code is $0010 + 1110 = 10000$, i.e., the complement code $1110$ is the "complement" of the original code $0010$ to $10000$. **This means that the above "first negate and then add 1" is equivalent to computing the complement to $10000$**.
 
-
-
 So, what is the "complement" of $1110$ to $10000$? We can still compute it by "negating first and then adding 1":
 
 $$
@@ -54,7 +52,6 @@ $$
 $$
 
 In other words, the original code and the complement code are each other's "complement" to $10000$, so "original code to complement code" and "complement code to original code" can be implemented with the same operation (first negate and then add 1).
-
 
 Of course, we can also use the inverse operation of "first negate and then add 1" to find the original code of the complement code $1110$, that is, "first subtract 1 and then negate":
 
