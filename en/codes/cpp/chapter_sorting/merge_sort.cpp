@@ -39,7 +39,7 @@ void mergeSort(vector<int> &nums, int left, int right) {
     if (left >= right)
         return; // Terminate recursion when subarray length is 1
     // Partition stage
-    int mid = (left + right) / 2;    // Calculate midpoint
+    int mid = left + (right - left) / 2;    // Calculate midpoint
     mergeSort(nums, left, mid);      // Recursively process the left subarray
     mergeSort(nums, mid + 1, right); // Recursively process the right subarray
     // Merge stage

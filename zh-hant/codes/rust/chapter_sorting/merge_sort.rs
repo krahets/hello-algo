@@ -48,7 +48,7 @@ fn merge_sort(nums: &mut [i32], left: usize, right: usize) {
     }
 
     // 劃分階段
-    let mid = (left + right) / 2; // 計算中點
+    let mid = left + (right - left) / 2; // 計算中點
     merge_sort(nums, left, mid); // 遞迴左子陣列
     merge_sort(nums, mid + 1, right); // 遞迴右子陣列
 

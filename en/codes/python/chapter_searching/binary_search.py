@@ -12,7 +12,7 @@ def binary_search(nums: list[int], target: int) -> int:
     # Loop until the search interval is empty (when i > j, it is empty)
     while i <= j:
         # Theoretically, Python's numbers can be infinitely large (depending on memory size), so there is no need to consider large number overflow
-        m = (i + j) // 2  # Calculate midpoint index m
+        m = i + (j - i) // 2  # Calculate midpoint index m
         if nums[m] < target:
             i = m + 1  # This situation indicates that target is in the interval [m+1, j]
         elif nums[m] > target:
@@ -28,7 +28,7 @@ def binary_search_lcro(nums: list[int], target: int) -> int:
     i, j = 0, len(nums)
     # Loop until the search interval is empty (when i = j, it is empty)
     while i < j:
-        m = (i + j) // 2  # Calculate midpoint index m
+        m = i + (j - i) // 2  # Calculate midpoint index m
         if nums[m] < target:
             i = m + 1  # This situation indicates that target is in the interval [m+1, j)
         elif nums[m] > target:
