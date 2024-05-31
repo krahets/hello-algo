@@ -10,7 +10,6 @@ import (
 	"testing"
 
 	. "github.com/krahets/hello-algo/pkg"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestQueue(t *testing.T) {
@@ -47,20 +46,13 @@ func TestQueue(t *testing.T) {
 }
 
 func TestArrayQueue(t *testing.T) {
-	t.Run("pop", func(t *testing.T) {
-		queue := newArrayQueue(2)
-		assert.Equal(t, nil, queue.pop())
-
-		queue.push(1)
-		queue.push(2)
-		assert.Equal(t, 1, queue.pop())
-		assert.Equal(t, 2, queue.pop())
-		assert.Equal(t, []int{}, queue.toSlice())
-	})
 
 	// 初始化队列，使用队列的通用接口
 	capacity := 10
 	queue := newArrayQueue(capacity)
+	if queue.pop() != nil {
+		t.Errorf("want:%v,got:%v", nil, queue.pop())
+	}
 
 	// 元素入队
 	queue.push(1)
