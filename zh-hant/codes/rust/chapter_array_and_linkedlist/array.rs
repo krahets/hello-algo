@@ -74,7 +74,6 @@ fn find(nums: &[i32], target: i32) -> Option<usize> {
 fn main() {
     /* 初始化陣列 */
     let arr: [i32; 5] = [0; 5];
-    let slice: &[i32] = &[0; 5];
     print!("陣列 arr = ");
     print_util::print_array(&arr);
     // 在 Rust 中，指定長度時（[i32; 5]）為陣列，不指定長度時（&[i32]）為切片
