@@ -4383,7 +4383,7 @@
 <ul>
 <li><strong>时间复杂度能够有效评估算法效率</strong>。例如，算法 <code>B</code> 的运行时间呈线性增长，在 <span class="arithmatex">\(n &gt; 1\)</span> 时比算法 <code>A</code> 更慢，在 <span class="arithmatex">\(n &gt; 1000000\)</span> 时比算法 <code>C</code> 更慢。事实上，只要输入数据大小 <span class="arithmatex">\(n\)</span> 足够大，复杂度为“常数阶”的算法一定优于“线性阶”的算法，这正是时间增长趋势的含义。</li>
 <li><strong>时间复杂度的推算方法更简便</strong>。显然，运行平台和计算操作类型都与算法运行时间的增长趋势无关。因此在时间复杂度分析中，我们可以简单地将所有计算操作的执行时间视为相同的“单位时间”，从而将“计算操作运行时间统计”简化为“计算操作数量统计”，这样一来估算难度就大大降低了。</li>
-<li><strong>时间复杂度也存在一定的局限性</strong>。例如，尽管算法 <code>A</code> 和 <code>C</code> 的时间复杂度相同，但实际运行时间差别很大。同样，尽管算法 <code>B</code> 的时间复杂度比 <code>C</code> 高，但在输入数据大小 <span class="arithmatex">\(n\)</span> 较小时，算法 <code>B</code> 明显优于算法 <code>C</code> 。在这些情况下，我们很难仅凭时间复杂度判断算法效率的高低。当然，尽管存在上述问题，复杂度分析仍然是评判算法效率最有效且常用的方法。</li>
+<li><strong>时间复杂度也存在一定的局限性</strong>。例如，尽管算法 <code>A</code> 和 <code>C</code> 的时间复杂度相同，但实际运行时间差别很大。同样，尽管算法 <code>B</code> 的时间复杂度比 <code>C</code> 高，但在输入数据大小 <span class="arithmatex">\(n\)</span> 较小时，算法 <code>B</code> 明显优于算法 <code>C</code> 。对于此类情况，我们时常难以仅凭时间复杂度判断算法效率的高低。当然，尽管存在上述问题，复杂度分析仍然是评判算法效率最有效且常用的方法。</li>
 </ul>
 <h2 id="232">2.3.2 &nbsp; 函数渐近上界<a class="headerlink" href="#232" title="Permanent link">&para;</a></h2>
 <p>给定一个输入大小为 <span class="arithmatex">\(n\)</span> 的函数：</p>
@@ -6617,10 +6617,12 @@ O(\log_m n) = O(\log_k n / \log_k m) = O(\log_k n)
 <a id="__codelineno-182-2" name="__codelineno-182-2" href="#__codelineno-182-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;线性对数阶&quot;&quot;&quot;</span>
 <a id="__codelineno-182-3" name="__codelineno-182-3" href="#__codelineno-182-3"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
 <a id="__codelineno-182-4" name="__codelineno-182-4" href="#__codelineno-182-4"></a>        <span class="k">return</span> <span class="mi">1</span>
-<a id="__codelineno-182-5" name="__codelineno-182-5" href="#__codelineno-182-5"></a>    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">linear_log_recur</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">linear_log_recur</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-182-6" name="__codelineno-182-6" href="#__codelineno-182-6"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<a id="__codelineno-182-7" name="__codelineno-182-7" href="#__codelineno-182-7"></a>        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-182-8" name="__codelineno-182-8" href="#__codelineno-182-8"></a>    <span class="k">return</span> <span class="n">count</span>
+<a id="__codelineno-182-5" name="__codelineno-182-5" href="#__codelineno-182-5"></a>    <span class="c1"># 一分为二，子问题的规模减小一半</span>
+<a id="__codelineno-182-6" name="__codelineno-182-6" href="#__codelineno-182-6"></a>    <span class="n">count</span> <span class="o">=</span> <span class="n">linear_log_recur</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">linear_log_recur</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-182-7" name="__codelineno-182-7" href="#__codelineno-182-7"></a>    <span class="c1"># 当前子问题包含 n 个操作</span>
+<a id="__codelineno-182-8" name="__codelineno-182-8" href="#__codelineno-182-8"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-182-9" name="__codelineno-182-9" href="#__codelineno-182-9"></a>        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-182-10" name="__codelineno-182-10" href="#__codelineno-182-10"></a>    <span class="k">return</span> <span class="n">count</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">

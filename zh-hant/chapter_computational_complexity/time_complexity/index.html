@@ -4318,7 +4318,7 @@
 <ul>
 <li><strong>時間複雜度能夠有效評估演算法效率</strong>。例如，演算法 <code>B</code> 的執行時間呈線性增長，在 <span class="arithmatex">\(n &gt; 1\)</span> 時比演算法 <code>A</code> 更慢，在 <span class="arithmatex">\(n &gt; 1000000\)</span> 時比演算法 <code>C</code> 更慢。事實上，只要輸入資料大小 <span class="arithmatex">\(n\)</span> 足夠大，複雜度為“常數階”的演算法一定優於“線性階”的演算法，這正是時間增長趨勢的含義。</li>
 <li><strong>時間複雜度的推算方法更簡便</strong>。顯然，執行平臺和計算操作型別都與演算法執行時間的增長趨勢無關。因此在時間複雜度分析中，我們可以簡單地將所有計算操作的執行時間視為相同的“單位時間”，從而將“計算操作執行時間統計”簡化為“計算操作數量統計”，這樣一來估算難度就大大降低了。</li>
-<li><strong>時間複雜度也存在一定的侷限性</strong>。例如，儘管演算法 <code>A</code> 和 <code>C</code> 的時間複雜度相同，但實際執行時間差別很大。同樣，儘管演算法 <code>B</code> 的時間複雜度比 <code>C</code> 高，但在輸入資料大小 <span class="arithmatex">\(n\)</span> 較小時，演算法 <code>B</code> 明顯優於演算法 <code>C</code> 。在這些情況下，我們很難僅憑時間複雜度判斷演算法效率的高低。當然，儘管存在上述問題，複雜度分析仍然是評判演算法效率最有效且常用的方法。</li>
+<li><strong>時間複雜度也存在一定的侷限性</strong>。例如，儘管演算法 <code>A</code> 和 <code>C</code> 的時間複雜度相同，但實際執行時間差別很大。同樣，儘管演算法 <code>B</code> 的時間複雜度比 <code>C</code> 高，但在輸入資料大小 <span class="arithmatex">\(n\)</span> 較小時，演算法 <code>B</code> 明顯優於演算法 <code>C</code> 。對於此類情況，我們時常難以僅憑時間複雜度判斷演算法效率的高低。當然，儘管存在上述問題，複雜度分析仍然是評判演算法效率最有效且常用的方法。</li>
 </ul>
 <h2 id="232">2.3.2 &nbsp; 函式漸近上界<a class="headerlink" href="#232" title="Permanent link">&para;</a></h2>
 <p>給定一個輸入大小為 <span class="arithmatex">\(n\)</span> 的函式：</p>
@@ -6552,10 +6552,12 @@ O(\log_m n) = O(\log_k n / \log_k m) = O(\log_k n)
 <a id="__codelineno-182-2" name="__codelineno-182-2" href="#__codelineno-182-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;線性對數階&quot;&quot;&quot;</span>
 <a id="__codelineno-182-3" name="__codelineno-182-3" href="#__codelineno-182-3"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
 <a id="__codelineno-182-4" name="__codelineno-182-4" href="#__codelineno-182-4"></a>        <span class="k">return</span> <span class="mi">1</span>
-<a id="__codelineno-182-5" name="__codelineno-182-5" href="#__codelineno-182-5"></a>    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">linear_log_recur</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">linear_log_recur</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-182-6" name="__codelineno-182-6" href="#__codelineno-182-6"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<a id="__codelineno-182-7" name="__codelineno-182-7" href="#__codelineno-182-7"></a>        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-182-8" name="__codelineno-182-8" href="#__codelineno-182-8"></a>    <span class="k">return</span> <span class="n">count</span>
+<a id="__codelineno-182-5" name="__codelineno-182-5" href="#__codelineno-182-5"></a>    <span class="c1"># 一分為二，子問題的規模減小一半</span>
+<a id="__codelineno-182-6" name="__codelineno-182-6" href="#__codelineno-182-6"></a>    <span class="n">count</span> <span class="o">=</span> <span class="n">linear_log_recur</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">linear_log_recur</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-182-7" name="__codelineno-182-7" href="#__codelineno-182-7"></a>    <span class="c1"># 當前子問題包含 n 個操作</span>
+<a id="__codelineno-182-8" name="__codelineno-182-8" href="#__codelineno-182-8"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-182-9" name="__codelineno-182-9" href="#__codelineno-182-9"></a>        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-182-10" name="__codelineno-182-10" href="#__codelineno-182-10"></a>    <span class="k">return</span> <span class="n">count</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
