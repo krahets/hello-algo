@@ -20,7 +20,7 @@ As shown in the figure below, there is an "edit icon" in the upper right corner 
 
 ![Edit page button](contribution.assets/edit_markdown.png)
 
-Images cannot be directly modified and require the creation of a new [Issue](https://github.com/krahets/hello-algo/issues) or a comment to describe the problem. We will redraw and replace the images as soon as possible.
+Figures cannot be directly modified and require the creation of a new [Issue](https://github.com/krahets/hello-algo/issues) or a comment to describe the problem. We will redraw and replace the figures as soon as possible.
 
 ### Content creation
 

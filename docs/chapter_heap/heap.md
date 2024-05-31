@@ -122,17 +122,17 @@
     Queue<Integer> minHeap = new PriorityQueue<>();
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
     Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
-    
+
     /* 元素入堆 */
     maxHeap.offer(1);
     maxHeap.offer(3);
     maxHeap.offer(2);
     maxHeap.offer(5);
     maxHeap.offer(4);
-    
+
     /* 获取堆顶元素 */
     int peek = maxHeap.peek(); // 5
-    
+
     /* 堆顶元素出堆 */
     // 出堆元素会形成一个从大到小的序列
     peek = maxHeap.poll(); // 5
@@ -140,13 +140,13 @@
     peek = maxHeap.poll(); // 3
     peek = maxHeap.poll(); // 2
     peek = maxHeap.poll(); // 1
-    
+
     /* 获取堆大小 */
     int size = maxHeap.size();
-    
+
     /* 判断堆是否为空 */
     boolean isEmpty = maxHeap.isEmpty();
-    
+
     /* 输入列表并建堆 */
     minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
     ```
@@ -337,7 +337,7 @@
     max_heap.push(2);
     max_heap.push(5);
     max_heap.push(4);
-    
+
     /* 获取堆顶元素 */
     let peek = max_heap.peek().unwrap();  // 5
 
@@ -373,17 +373,17 @@
     var minHeap = PriorityQueue<Int>()
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
-    
+
     /* 元素入堆 */
     maxHeap.offer(1)
     maxHeap.offer(3)
     maxHeap.offer(2)
     maxHeap.offer(5)
     maxHeap.offer(4)
-    
+
     /* 获取堆顶元素 */
     var peek = maxHeap.peek() // 5
-    
+
     /* 堆顶元素出堆 */
     // 出堆元素会形成一个从大到小的序列
     peek = maxHeap.poll() // 5
@@ -391,13 +391,13 @@
     peek = maxHeap.poll() // 3
     peek = maxHeap.poll() // 2
     peek = maxHeap.poll() // 1
-    
+
     /* 获取堆大小 */
     val size = maxHeap.size
-    
+
     /* 判断堆是否为空 */
     val isEmpty = maxHeap.isEmpty()
-    
+
     /* 输入列表并建堆 */
     minHeap = PriorityQueue(mutableListOf(1, 3, 2, 5, 4))
     ```
@@ -405,7 +405,7 @@
 === "Ruby"
 
     ```ruby title="heap.rb"
-
+    # Ruby 未提供内置 Heap 类
     ```
 
 === "Zig"
@@ -533,6 +533,6 @@
 
 ## 堆的常见应用
 
-- **优先队列**：堆通常作为实现优先队列的首选数据结构，其入队和出队操作的时间复杂度均为 $O(\log n)$ ，而建队操作为 $O(n)$ ，这些操作都非常高效。
+- **优先队列**：堆通常作为实现优先队列的首选数据结构，其入队和出队操作的时间复杂度均为 $O(\log n)$ ，而建堆操作为 $O(n)$ ，这些操作都非常高效。
 - **堆排序**：给定一组数据，我们可以用它们建立一个堆，然后不断地执行元素出堆操作，从而得到有序数据。然而，我们通常会使用一种更优雅的方式实现堆排序，详见“堆排序”章节。
 - **获取最大的 $k$ 个元素**：这是一个经典的算法问题，同时也是一种典型应用，例如选择热度前 10 的新闻作为微博热搜，选取销量前 10 的商品等。

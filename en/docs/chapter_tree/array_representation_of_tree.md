@@ -22,7 +22,7 @@ As shown in the figure below, given a non-perfect binary tree, the above method 
 
 ![Level-order traversal sequence corresponds to multiple binary tree possibilities](array_representation_of_tree.assets/array_representation_without_empty.png)
 
-To solve this problem, **we can consider explicitly writing out all `None` values in the level-order traversal sequence**. As shown in the following figure, after this treatment, the level-order traversal sequence can uniquely represent a binary tree. Example code is as follows:
+To solve this problem, **we can consider explicitly writing out all `None` values in the level-order traversal sequence**. As shown in the figure below, after this treatment, the level-order traversal sequence can uniquely represent a binary tree. Example code is as follows:
 
 === "Python"
 

@@ -2,7 +2,7 @@
 
 !!! question
 
-    Given a positive integer $n$, split it into at least two positive integers that sum up to $n$, and find the maximum product of these integers, as illustrated below.
+    Given a positive integer $n$, split it into at least two positive integers that sum up to $n$, and find the maximum product of these integers, as illustrated in the figure below.
 
 ![Definition of the maximum product cutting problem](max_product_cutting_problem.assets/max_product_cutting_definition.png)
 
@@ -32,7 +32,7 @@ n & \geq 4
 \end{aligned}
 $$
 
-As shown below, when $n \geq 4$, splitting out a $2$ increases the product, **which indicates that integers greater than or equal to $4$ should be split**.
+As shown in the figure below, when $n \geq 4$, splitting out a $2$ increases the product, **which indicates that integers greater than or equal to $4$ should be split**.
 
 **Greedy strategy one**: If the splitting scheme includes factors $\geq 4$, they should be further split. The final split should only include factors $1$, $2$, and $3$.
 
@@ -40,7 +40,7 @@ As shown below, when $n \geq 4$, splitting out a $2$ increases the product, **wh
 
 Next, consider which factor is optimal. Among the factors $1$, $2$, and $3$, clearly $1$ is the worst, as $1 \times (n-1) < n$ always holds, meaning splitting out $1$ actually decreases the product.
 
-As shown below, when $n = 6$, $3 \times 3 > 2 \times 2 \times 2$. **This means splitting out $3$ is better than splitting out $2$**.
+As shown in the figure below, when $n = 6$, $3 \times 3 > 2 \times 2 \times 2$. **This means splitting out $3$ is better than splitting out $2$**.
 
 **Greedy strategy two**: In the splitting scheme, there should be at most two $2$s. Because three $2$s can always be replaced by two $3$s to obtain a higher product.
 
@@ -55,7 +55,7 @@ From the above, the following greedy strategies can be derived.
 
 ### Code implementation
 
-As shown below, we do not need to use loops to split the integer but can use the floor division operation to get the number of $3$s, $a$, and the modulo operation to get the remainder, $b$, thus:
+As shown in the figure below, we do not need to use loops to split the integer but can use the floor division operation to get the number of $3$s, $a$, and the modulo operation to get the remainder, $b$, thus:
 
 $$
 n = 3a + b

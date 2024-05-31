@@ -39,7 +39,7 @@ function mergeSort(nums: number[], left: number, right: number): void {
     // 終止條件
     if (left >= right) return; // 當子陣列長度為 1 時終止遞迴
     // 劃分階段
-    let mid = Math.floor((left + right) / 2); // 計算中點
+    let mid = Math.floor(left + (right - left) / 2); // 計算中點
     mergeSort(nums, left, mid); // 遞迴左子陣列
     mergeSort(nums, mid + 1, right); // 遞迴右子陣列
     // 合併階段
