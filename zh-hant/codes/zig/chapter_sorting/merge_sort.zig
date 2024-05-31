@@ -48,7 +48,7 @@ fn mergeSort(nums: []i32, left: usize, right: usize) !void {
     // 終止條件
     if (left >= right) return;              // 當子陣列長度為 1 時終止遞迴
     // 劃分階段
-    var mid = left + (right - left) / 2;           // 計算中點
+    var mid = left + (right - left) / 2;    // 計算中點
     try mergeSort(nums, left, mid);         // 遞迴左子陣列
     try mergeSort(nums, mid + 1, right);    // 遞迴右子陣列
     // 合併階段

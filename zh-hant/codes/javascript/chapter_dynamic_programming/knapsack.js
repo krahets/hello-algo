@@ -69,7 +69,7 @@ function knapsackDP(wgt, val, cap) {
     return dp[n][cap];
 }
 
-/* 0-1 背包：狀態壓縮後的動態規劃 */
+/* 0-1 背包：空間最佳化後的動態規劃 */
 function knapsackDPComp(wgt, val, cap) {
     const n = wgt.length;
     // 初始化 dp 表
@@ -108,6 +108,6 @@ console.log(`不超過背包容量的最大物品價值為 ${res}`);
 res = knapsackDP(wgt, val, cap);
 console.log(`不超過背包容量的最大物品價值為 ${res}`);
 
-// 狀態壓縮後的動態規劃
+// 空間最佳化後的動態規劃
 res = knapsackDPComp(wgt, val, cap);
 console.log(`不超過背包容量的最大物品價值為 ${res}`);

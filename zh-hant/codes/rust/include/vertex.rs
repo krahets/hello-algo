@@ -7,7 +7,7 @@
 /* 頂點型別 */
 #[derive(Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Vertex {
-    pub val: i32
+    pub val: i32,
 }
 
 /* 輸入值串列 vals ，返回頂點串列 vets */

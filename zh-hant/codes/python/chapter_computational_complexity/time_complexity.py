@@ -97,7 +97,9 @@ def linear_log_recur(n: int) -> int:
     """線性對數階"""
     if n <= 1:
         return 1
-    count: int = linear_log_recur(n // 2) + linear_log_recur(n // 2)
+    # 一分為二，子問題的規模減小一半
+    count = linear_log_recur(n // 2) + linear_log_recur(n // 2)
+    # 當前子問題包含 n 個操作
     for _ in range(n):
         count += 1
     return count
@@ -120,32 +122,32 @@ if __name__ == "__main__":
     n = 8
     print("輸入資料大小 n =", n)
 
-    count: int = constant(n)
+    count = constant(n)
     print("常數階的操作數量 =", count)
 
-    count: int = linear(n)
+    count = linear(n)
     print("線性階的操作數量 =", count)
-    count: int = array_traversal([0] * n)
+    count = array_traversal([0] * n)
     print("線性階（走訪陣列）的操作數量 =", count)
 
-    count: int = quadratic(n)
+    count = quadratic(n)
     print("平方階的操作數量 =", count)
     nums = [i for i in range(n, 0, -1)]  # [n, n-1, ..., 2, 1]
-    count: int = bubble_sort(nums)
+    count = bubble_sort(nums)
     print("平方階（泡沫排序）的操作數量 =", count)
 
-    count: int = exponential(n)
+    count = exponential(n)
     print("指數階（迴圈實現）的操作數量 =", count)
-    count: int = exp_recur(n)
+    count = exp_recur(n)
     print("指數階（遞迴實現）的操作數量 =", count)
 
-    count: int = logarithmic(n)
+    count = logarithmic(n)
     print("對數階（迴圈實現）的操作數量 =", count)
-    count: int = log_recur(n)
+    count = log_recur(n)
     print("對數階（遞迴實現）的操作數量 =", count)
 
-    count: int = linear_log_recur(n)
+    count = linear_log_recur(n)
     print("線性對數階（遞迴實現）的操作數量 =", count)
 
-    count: int = factorial_recur(n)
+    count = factorial_recur(n)
     print("階乘階（遞迴實現）的操作數量 =", count)

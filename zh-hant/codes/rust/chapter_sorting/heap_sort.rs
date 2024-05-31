@@ -24,9 +24,7 @@ fn sift_down(nums: &mut [i32], n: usize, mut i: usize) {
             break;
         }
         // 交換兩節點
-        let temp = nums[i];
-        nums[i] = nums[ma];
-        nums[ma] = temp;
+        nums.swap(i, ma);
         // 迴圈向下堆積化
         i = ma;
     }
@@ -35,15 +33,13 @@ fn sift_down(nums: &mut [i32], n: usize, mut i: usize) {
 /* 堆積排序 */
 fn heap_sort(nums: &mut [i32]) {
     // 建堆積操作：堆積化除葉節點以外的其他所有節點
-    for i in (0..=nums.len() / 2 - 1).rev() {
+    for i in (0..nums.len() / 2).rev() {
         sift_down(nums, nums.len(), i);
     }
     // 從堆積中提取最大元素，迴圈 n-1 輪
-    for i in (1..=nums.len() - 1).rev() {
+    for i in (1..nums.len()).rev() {
         // 交換根節點與最右葉節點（交換首元素與尾元素）
-        let tmp = nums[0];
-        nums[0] = nums[i];
-        nums[i] = tmp;
+        nums.swap(0, i);
         // 以根節點為起點，從頂至底進行堆積化
         sift_down(nums, i, 0);
     }

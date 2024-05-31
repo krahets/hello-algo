@@ -406,7 +406,27 @@
 === "Ruby"
 
     ```ruby title=""
+    ### 回溯演算法框架 ###
+    def backtrack(state, choices, res)
+        # 判斷是否為解
+        if is_solution?(state)
+            # 記錄解
+            record_solution(state, res)
+            return
+        end
 
+        # 走訪所有選擇
+        for choice in choices
+            # 剪枝：判斷選擇是否合法
+            if is_valid?(state, choice)
+                # 嘗試：做出選擇，更新狀態
+                make_choice(state, choice)
+                backtrack(state, choices, res)
+                # 回退：撤銷選擇，恢復到之前的狀態
+                undo_choice(state, choice)
+            end
+        end
+    end
     ```
 
 === "Zig"

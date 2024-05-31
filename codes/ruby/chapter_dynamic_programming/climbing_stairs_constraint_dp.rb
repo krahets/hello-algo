@@ -5,7 +5,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
 ### 带约束爬楼梯：动态规划 ###
-def climbing_stairs_backtrack(n)
+def climbing_stairs_constraint_dp(n)
   return 1 if n == 1 || n == 2
 
   # 初始化 dp 表，用于存储子问题的解
@@ -26,6 +26,6 @@ end
 if __FILE__ == $0
   n = 9
 
-  res = climbing_stairs_backtrack(n)
+  res = climbing_stairs_constraint_dp(n)
   puts "爬 #{n} 阶楼梯共有 #{res} 种方案"
 end

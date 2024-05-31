@@ -13,7 +13,7 @@ use tree_node::{vec_to_tree, TreeNode};
 fn pre_order(
     res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
     path: &mut Vec<Rc<RefCell<TreeNode>>>,
-    root: Option<Rc<RefCell<TreeNode>>>,
+    root: Option<&Rc<RefCell<TreeNode>>>,
 ) {
     if root.is_none() {
         return;
@@ -25,10 +25,10 @@ fn pre_order(
             // 記錄解
             res.push(path.clone());
         }
-        pre_order(res, path, node.borrow().left.clone());
-        pre_order(res, path, node.borrow().right.clone());
+        pre_order(res, path, node.borrow().left.as_ref());
+        pre_order(res, path, node.borrow().right.as_ref());
         // 回退
-        path.remove(path.len() - 1);
+        path.pop();
     }
 }
 
@@ -41,7 +41,7 @@ pub fn main() {
     // 前序走訪
     let mut path = Vec::new();
     let mut res = Vec::new();
-    pre_order(&mut res, &mut path, root);
+    pre_order(&mut res, &mut path, root.as_ref());
 
     println!("\n輸出所有根節點到節點 7 的路徑");
     for path in res {

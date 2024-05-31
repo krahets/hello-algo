@@ -9,7 +9,7 @@
 /* 移動一個圓盤 */
 fn move_pan(src: &mut Vec<i32>, tar: &mut Vec<i32>) {
     // 從 src 頂部拿出一個圓盤
-    let pan = src.remove(src.len() - 1);
+    let pan = src.pop().unwrap();
     // 將圓盤放入 tar 頂部
     tar.push(pan);
 }

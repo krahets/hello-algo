@@ -2,7 +2,7 @@
 
 From the perspective of physical structure, a tree is a data structure based on linked lists, hence its traversal method involves accessing nodes one by one through pointers. However, a tree is a non-linear data structure, which makes traversing a tree more complex than traversing a linked list, requiring the assistance of search algorithms to achieve.
 
-Common traversal methods for binary trees include level-order traversal, preorder traversal, inorder traversal, and postorder traversal, among others.
+Common traversal methods for binary trees include level-order traversal, pre-order traversal, in-order traversal, and post-order traversal, among others.
 
 ## Level-order traversal
 
@@ -25,13 +25,13 @@ Breadth-first traversal is usually implemented with the help of a "queue". The q
 - **Time complexity is $O(n)$**: All nodes are visited once, using $O(n)$ time, where $n$ is the number of nodes.
 - **Space complexity is $O(n)$**: In the worst case, i.e., a full binary tree, before traversing to the lowest level, the queue can contain at most $(n + 1) / 2$ nodes at the same time, occupying $O(n)$ space.
 
-## Preorder, inorder, and postorder traversal
+## Preorder, in-order, and post-order traversal
 
-Correspondingly, preorder, inorder, and postorder traversal all belong to <u>depth-first traversal</u>, also known as <u>depth-first search (DFS)</u>, which embodies a "proceed to the end first, then backtrack and continue" traversal method.
+Correspondingly, pre-order, in-order, and post-order traversal all belong to <u>depth-first traversal</u>, also known as <u>depth-first search (DFS)</u>, which embodies a "proceed to the end first, then backtrack and continue" traversal method.
 
-The figure below shows the working principle of performing a depth-first traversal on a binary tree. **Depth-first traversal is like walking around the perimeter of the entire binary tree**, encountering three positions at each node, corresponding to preorder traversal, inorder traversal, and postorder traversal.
+The figure below shows the working principle of performing a depth-first traversal on a binary tree. **Depth-first traversal is like walking around the perimeter of the entire binary tree**, encountering three positions at each node, corresponding to pre-order traversal, in-order traversal, and post-order traversal.
 
-![Preorder, inorder, and postorder traversal of a binary search tree](binary_tree_traversal.assets/binary_tree_dfs.png)
+![Preorder, in-order, and post-order traversal of a binary search tree](binary_tree_traversal.assets/binary_tree_dfs.png)
 
 ### Code implementation
 
@@ -45,13 +45,13 @@ Depth-first search is usually implemented based on recursion:
 
     Depth-first search can also be implemented based on iteration, interested readers can study this on their own.
 
-The figure below shows the recursive process of preorder traversal of a binary tree, which can be divided into two opposite parts: "recursion" and "return".
+The figure below shows the recursive process of pre-order traversal of a binary tree, which can be divided into two opposite parts: "recursion" and "return".
 
 1. "Recursion" means starting a new method, the program accesses the next node in this process.
 2. "Return" means the function returns, indicating the current node has been fully accessed.
 
 === "<1>"
-    ![The recursive process of preorder traversal](binary_tree_traversal.assets/preorder_step1.png)
+    ![The recursive process of pre-order traversal](binary_tree_traversal.assets/preorder_step1.png)
 
 === "<2>"
     ![preorder_step2](binary_tree_traversal.assets/preorder_step2.png)

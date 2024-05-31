@@ -31,7 +31,7 @@ function coinChangeDP(coins, amt) {
     return dp[n][amt] !== MAX ? dp[n][amt] : -1;
 }
 
-/* 零錢兌換：狀態壓縮後的動態規劃 */
+/* 零錢兌換：空間最佳化後的動態規劃 */
 function coinChangeDPComp(coins, amt) {
     const n = coins.length;
     const MAX = amt + 1;
@@ -61,6 +61,6 @@ const amt = 4;
 let res = coinChangeDP(coins, amt);
 console.log(`湊到目標金額所需的最少硬幣數量為 ${res}`);
 
-// 狀態壓縮後的動態規劃
+// 空間最佳化後的動態規劃
 res = coinChangeDPComp(coins, amt);
 console.log(`湊到目標金額所需的最少硬幣數量為 ${res}`);

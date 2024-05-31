@@ -90,11 +90,11 @@ int main() {
 
     /* 获取栈的长度 */
     int size = stack->size;
-    printf("栈的长度 size =  %d\n", size);
+    printf("栈的长度 size = %d\n", size);
 
     /* 判断是否为空 */
     bool empty = isEmpty(stack);
-    printf("栈是否为空 = %stack\n", empty ? "true" : "false");
+    printf("栈是否为空 = %s\n", empty ? "true" : "false");
 
     // 释放内存
     delArrayStack(stack);
