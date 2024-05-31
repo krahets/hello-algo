@@ -57,7 +57,7 @@ Given an undirected graph with a total of $n$ vertices and $m$ edges, the variou
 === "Remove a vertex"
     ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.png)
 
-Below is the adjacency list code implementation. Compared to the above diagram, the actual code has the following differences.
+Below is the adjacency list code implementation. Compared to the figure above, the actual code has the following differences.
 
 - For convenience in adding and removing vertices, and to simplify the code, we use lists (dynamic arrays) instead of linked lists.
 - Use a hash table to store the adjacency list, `key` being the vertex instance, `value` being the list (linked list) of adjacent vertices of that vertex.

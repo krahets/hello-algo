@@ -26,7 +26,7 @@ Taking the binary search tree as an example, the operation of removing a node ne
 
 **Q**: Why are there three sequences: pre-order, in-order, and post-order for DFS traversal of a binary tree, and what are their uses?
 
-Similar to sequential and reverse traversal of arrays, pre-order, in-order, and post-order traversals are three methods of traversing a binary tree, allowing us to obtain a traversal result in a specific order. For example, in a binary search tree, since the node sizes satisfy `left child node value < root node value < right child node value`, we can obtain an ordered node sequence by traversing the tree in the "left → root → right" priority.
+Similar to sequential and reverse traversal of arrays, pre-order, in-order, and post-order traversals are three methods of traversing a binary tree, allowing us to obtain a traversal result in a specific order. For example, in a binary search tree, since the node sizes satisfy `left child node value < root node value < right child node value`, we can obtain an ordered node sequence by traversing the tree in the "left $\rightarrow$ root $\rightarrow$ right" priority.
 
 **Q**: In a right rotation operation that deals with the relationship between the imbalance nodes `node`, `child`, `grand_child`, isn't the connection between `node` and its parent node and the original link of `node` lost after the right rotation?
 

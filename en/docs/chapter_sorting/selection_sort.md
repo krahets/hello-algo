@@ -2,7 +2,7 @@
 
 <u>Selection sort</u> works on a very simple principle: it starts a loop where each iteration selects the smallest element from the unsorted interval and moves it to the end of the sorted interval.
 
-Suppose the length of the array is $n$, the algorithm flow of selection sort is as shown below.
+Suppose the length of the array is $n$, the algorithm flow of selection sort is as shown in the figure below.
 
 1. Initially, all elements are unsorted, i.e., the unsorted (index) interval is $[0, n-1]$.
 2. Select the smallest element in the interval $[0, n-1]$ and swap it with the element at index $0$. After this, the first element of the array is sorted.

@@ -464,7 +464,7 @@ Let's understand this concept of "time growth trend" with an example. Assume the
     }
     ```
 
-The following figure shows the time complexities of these three algorithms.
+The figure below shows the time complexities of these three algorithms.
 
 - Algorithm `A` has just one print operation, and its run time does not grow with $n$. Its time complexity is considered "constant order."
 - Algorithm `B` involves a print operation looping $n$ times, and its run time grows linearly with $n$. Its time complexity is "linear order."
@@ -661,7 +661,7 @@ $$
 T(n) = 3 + 2n
 $$
 
-Since $T(n)$ is a linear function, its growth trend is linear, and therefore, its time complexity is of linear order, denoted as $O(n)$. This mathematical notation, known as "big-O notation," represents the "asymptotic upper bound" of the function $T(n)$.
+Since $T(n)$ is a linear function, its growth trend is linear, and therefore, its time complexity is of linear order, denoted as $O(n)$. This mathematical notation, known as <u>big-O notation</u>, represents the <u>asymptotic upper bound</u> of the function $T(n)$.
 
 In essence, time complexity analysis is about finding the asymptotic upper bound of the "number of operations $T(n)$". It has a precise mathematical definition.
 
@@ -669,7 +669,7 @@ In essence, time complexity analysis is about finding the asymptotic upper bound
 
     If there exist positive real numbers $c$ and $n_0$ such that for all $n > n_0$, $T(n) \leq c \cdot f(n)$, then $f(n)$ is considered an asymptotic upper bound of $T(n)$, denoted as $T(n) = O(f(n))$.
 
-As illustrated below, calculating the asymptotic upper bound involves finding a function $f(n)$ such that, as $n$ approaches infinity, $T(n)$ and $f(n)$ have the same growth order, differing only by a constant factor $c$.
+As shown in the figure below, calculating the asymptotic upper bound involves finding a function $f(n)$ such that, as $n$ approaches infinity, $T(n)$ and $f(n)$ have the same growth order, differing only by a constant factor $c$.
 
 ![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.png)
 
@@ -951,12 +951,12 @@ The following table illustrates examples of different operation counts and their
 
 ## Common types of time complexity
 
-Let's consider the input data size as $n$. The common types of time complexities are illustrated below, arranged from lowest to highest:
+Let's consider the input data size as $n$. The common types of time complexities are shown in the figure below, arranged from lowest to highest:
 
 $$
 \begin{aligned}
-O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
-\text{Constant Order} < \text{Logarithmic Order} < \text{Linear Order} < \text{Linear-Logarithmic Order} < \text{Quadratic Order} < \text{Exponential Order} < \text{Factorial Order}
+& O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
+& \text{Constant} < \text{Log} < \text{Linear} < \text{Linear-Log} < \text{Quadratic} < \text{Exp} < \text{Factorial}
 \end{aligned}
 $$
 
@@ -994,7 +994,7 @@ Quadratic order means the number of operations grows quadratically with the inpu
 [file]{time_complexity}-[class]{}-[func]{quadratic}
 ```
 
-The following image compares constant order, linear order, and quadratic order time complexities.
+The figure below compares constant order, linear order, and quadratic order time complexities.
 
 ![Constant, linear, and quadratic order time complexities](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
 
@@ -1008,7 +1008,7 @@ For instance, in bubble sort, the outer loop runs $n - 1$ times, and the inner l
 
 Biological "cell division" is a classic example of exponential order growth: starting with one cell, it becomes two after one division, four after two divisions, and so on, resulting in $2^n$ cells after $n$ divisions.
 
-The following image and code simulate the cell division process, with a time complexity of $O(2^n)$:
+The figure below and code simulate the cell division process, with a time complexity of $O(2^n)$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{exponential}
@@ -1028,7 +1028,7 @@ Exponential order growth is extremely rapid and is commonly seen in exhaustive s
 
 In contrast to exponential order, logarithmic order reflects situations where "the size is halved each round." Given an input data size $n$, since the size is halved each round, the number of iterations is $\log_2 n$, the inverse function of $2^n$.
 
-The following image and code simulate the "halving each round" process, with a time complexity of $O(\log_2 n)$, commonly abbreviated as $O(\log n)$:
+The figure below and code simulate the "halving each round" process, with a time complexity of $O(\log_2 n)$, commonly abbreviated as $O(\log n)$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
@@ -1062,7 +1062,7 @@ Linear-logarithmic order often appears in nested loops, with the complexities of
 [file]{time_complexity}-[class]{}-[func]{linear_log_recur}
 ```
 
-The image below demonstrates how linear-logarithmic order is generated. Each level of a binary tree has $n$ operations, and the tree has $\log_2 n + 1$ levels, resulting in a time complexity of $O(n \log n)$.
+The figure below demonstrates how linear-logarithmic order is generated. Each level of a binary tree has $n$ operations, and the tree has $\log_2 n + 1$ levels, resulting in a time complexity of $O(n \log n)$.
 
 ![Linear-logarithmic order time complexity](time_complexity.assets/time_complexity_logarithmic_linear.png)
 
@@ -1076,7 +1076,7 @@ $$
 n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 $$
 
-Factorials are typically implemented using recursion. As shown in the image and code below, the first level splits into $n$ branches, the second level into $n - 1$ branches, and so on, stopping after the $n$th level:
+Factorials are typically implemented using recursion. As shown in the code and the figure below, the first level splits into $n$ branches, the second level into $n - 1$ branches, and so on, stopping after the $n$th level:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}

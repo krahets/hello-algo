@@ -2,7 +2,7 @@
 
 Trees represent a "one-to-many" relationship, while graphs have a higher degree of freedom and can represent any "many-to-many" relationship. Therefore, we can consider trees as a special case of graphs. Clearly, **tree traversal operations are also a special case of graph traversal operations**.
 
-Both graphs and trees require the application of search algorithms to implement traversal operations. Graph traversal can be divided into two types: "Breadth-First Search (BFS)" and "Depth-First Search (DFS)".
+Both graphs and trees require the application of search algorithms to implement traversal operations. Graph traversal can be divided into two types: <u>Breadth-First Search (BFS)</u> and <u>Depth-First Search (DFS)</u>.
 
 ## Breadth-first search
 
@@ -24,7 +24,7 @@ To prevent revisiting vertices, we use a hash set `visited` to record which node
 [file]{graph_bfs}-[class]{}-[func]{graph_bfs}
 ```
 
-The code is relatively abstract, it is suggested to compare with the following figure to deepen the understanding.
+The code is relatively abstract, it is suggested to compare with the figure below to deepen the understanding.
 
 === "<1>"
     ![Steps of breadth-first search of a graph](graph_traversal.assets/graph_bfs_step1.png)
@@ -61,7 +61,7 @@ The code is relatively abstract, it is suggested to compare with the following f
 
 !!! question "Is the sequence of breadth-first traversal unique?"
 
-    Not unique. Breadth-first traversal only requires traversing in a "from near to far" order, **and the traversal order of multiple vertices at the same distance can be arbitrarily shuffled**. For example, in the above figure, the visitation order of vertices $1$ and $3$ can be switched, as can the order of vertices $2$, $4$, and $6$.
+    Not unique. Breadth-first traversal only requires traversing in a "from near to far" order, **and the traversal order of multiple vertices at the same distance can be arbitrarily shuffled**. For example, in the figure above, the visitation order of vertices $1$ and $3$ can be switched, as can the order of vertices $2$, $4$, and $6$.
 
 ### Complexity analysis
 
@@ -83,12 +83,12 @@ This "go as far as possible and then return" algorithm paradigm is usually imple
 [file]{graph_dfs}-[class]{}-[func]{graph_dfs}
 ```
 
-The algorithm process of depth-first search is shown in the following figure.
+The algorithm process of depth-first search is shown in the figure below.
 
 - **Dashed lines represent downward recursion**, indicating that a new recursive method has been initiated to visit a new vertex.
 - **Curved dashed lines represent upward backtracking**, indicating that this recursive method has returned to the position where this method was initiated.
 
-To deepen the understanding, it is suggested to combine the following figure with the code to simulate (or draw) the entire DFS process in your mind, including when each recursive method is initiated and when it returns.
+To deepen the understanding, it is suggested to combine the figure below with the code to simulate (or draw) the entire DFS process in your mind, including when each recursive method is initiated and when it returns.
 
 === "<1>"
     ![Steps of depth-first search of a graph](graph_traversal.assets/graph_dfs_step1.png)

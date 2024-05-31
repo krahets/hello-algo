@@ -1,6 +1,6 @@
 # Stack
 
-A "Stack" is a linear data structure that follows the principle of Last-In-First-Out (LIFO).
+A <u>stack</u> is a linear data structure that follows the principle of Last-In-First-Out (LIFO).
 
 We can compare a stack to a pile of plates on a table. To access the bottom plate, one must first remove the plates on top. By replacing the plates with various types of elements (such as integers, characters, objects, etc.), we obtain the data structure known as a stack.
 

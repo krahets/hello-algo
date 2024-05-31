@@ -2,7 +2,7 @@
 
 <u>Sorting algorithms (sorting algorithm)</u> are used to arrange a set of data in a specific order. Sorting algorithms have a wide range of applications because ordered data can usually be searched, analyzed, and processed more efficiently.
 
-As shown in the following figure, the data types in sorting algorithms can be integers, floating point numbers, characters, or strings, etc. Sorting rules can be set according to needs, such as numerical size, character ASCII order, or custom rules.
+As shown in the figure below, the data types in sorting algorithms can be integers, floating point numbers, characters, or strings, etc. Sorting rules can be set according to needs, such as numerical size, character ASCII order, or custom rules.
 
 ![Data types and comparator examples](sorting_algorithm.assets/sorting_examples.png)
 

@@ -8,7 +8,7 @@ As shown in the figure below, when $n = 4$, there are two solutions. From the pe
 
 ![Solution to the 4 queens problem](n_queens_problem.assets/solution_4_queens.png)
 
-The following image shows the three constraints of this problem: **multiple queens cannot be on the same row, column, or diagonal**. It is important to note that diagonals are divided into the main diagonal `\` and the secondary diagonal `/`.
+The figure below shows the three constraints of this problem: **multiple queens cannot be on the same row, column, or diagonal**. It is important to note that diagonals are divided into the main diagonal `\` and the secondary diagonal `/`.
 
 ![Constraints of the n queens problem](n_queens_problem.assets/n_queens_constraints.png)
 
@@ -18,7 +18,7 @@ As the number of queens equals the number of rows on the chessboard, both being 
 
 This means that we can adopt a row-by-row placing strategy: starting from the first row, place one queen per row until the last row is reached.
 
-The image below shows the row-by-row placing process for the 4 queens problem. Due to space limitations, the image only expands one search branch of the first row, and prunes any placements that do not meet the column and diagonal constraints.
+The figure below shows the row-by-row placing process for the 4 queens problem. Due to space limitations, the figure only expands one search branch of the first row, and prunes any placements that do not meet the column and diagonal constraints.
 
 ![Row-by-row placing strategy](n_queens_problem.assets/n_queens_placing.png)
 
@@ -30,7 +30,7 @@ To satisfy column constraints, we can use a boolean array `cols` of length $n$ t
 
 How about the diagonal constraints? Let the row and column indices of a cell on the chessboard be $(row, col)$. By selecting a specific main diagonal, we notice that the difference $row - col$ is the same for all cells on that diagonal, **meaning that $row - col$ is a constant value on that diagonal**.
 
-Thus, if two cells satisfy $row_1 - col_1 = row_2 - col_2$, they are definitely on the same main diagonal. Using this pattern, we can utilize the array `diags1` shown below to track whether a queen is on any main diagonal.
+Thus, if two cells satisfy $row_1 - col_1 = row_2 - col_2$, they are definitely on the same main diagonal. Using this pattern, we can utilize the array `diags1` shown in the figure below to track whether a queen is on any main diagonal.
 
 Similarly, **the sum $row + col$ is a constant value for all cells on a secondary diagonal**. We can also use the array `diags2` to handle secondary diagonal constraints.
 

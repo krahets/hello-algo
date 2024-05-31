@@ -39,7 +39,7 @@ public class merge_sort {
         // 終止條件
         if (left >= right) return;       // 當子陣列長度為 1 時終止遞迴
         // 劃分階段
-        int mid = (left + right) / 2;    // 計算中點
+        int mid = left + (right - left) / 2;    // 計算中點
         MergeSort(nums, left, mid);      // 遞迴左子陣列
         MergeSort(nums, mid + 1, right); // 遞迴右子陣列
         // 合併階段
