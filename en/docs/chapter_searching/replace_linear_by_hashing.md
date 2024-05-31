@@ -22,7 +22,7 @@ This method has a time complexity of $O(n^2)$ and a space complexity of $O(1)$, 
 
 ## Hash search: trading space for time
 
-Consider using a hash table, with key-value pairs being the array elements and their indices, respectively. Loop through the array, performing the steps shown in the figures below each round.
+Consider using a hash table, with key-value pairs being the array elements and their indices, respectively. Loop through the array, performing the steps shown in the figure below each round.
 
 1. Check if the number `target - nums[i]` is in the hash table. If so, directly return the indices of these two elements.
 2. Add the key-value pair `nums[i]` and index `i` to the hash table.

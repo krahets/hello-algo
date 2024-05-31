@@ -34,7 +34,7 @@ pub fn BinarySearchTree(comptime T: type) type {
         fn buildTree(self: *Self, nums: []T, i: usize, j: usize) !?*inc.TreeNode(T) {
             if (i > j) return null;
             // 将数组中间节点作为根节点
-            var mid = (i + j) / 2;
+            var mid = i + (j - i) / 2;
             var node = try self.mem_allocator.create(inc.TreeNode(T));
             node.init(nums[mid]);
             // 递归建立左子树和右子树
@@ -145,7 +145,7 @@ pub fn BinarySearchTree(comptime T: type) type {
                 cur.?.val = tmp_val;
             }
         }
-    };   
+    };
 }
 
 // Driver Code

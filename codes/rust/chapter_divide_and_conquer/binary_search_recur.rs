@@ -10,7 +10,7 @@ fn dfs(nums: &[i32], target: i32, i: i32, j: i32) -> i32 {
     if i > j {
         return -1;
     }
-    let m: i32 = (i + j) / 2;
+    let m: i32 = i + (j - i) / 2;
     if nums[m as usize] < target {
         // 递归子问题 f(m+1, j)
         return dfs(nums, target, m + 1, j);

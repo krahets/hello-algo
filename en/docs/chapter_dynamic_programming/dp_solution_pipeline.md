@@ -35,7 +35,7 @@ To illustrate the problem-solving steps more vividly, we use a classic problem, 
 
     Given an $n \times m$ two-dimensional grid `grid`, each cell in the grid contains a non-negative integer representing the cost of that cell. The robot starts from the top-left cell and can only move down or right at each step until it reaches the bottom-right cell. Return the minimum path sum from the top-left to the bottom-right.
 
-The following figure shows an example, where the given grid's minimum path sum is $13$.
+The figure below shows an example, where the given grid's minimum path sum is $13$.
 
 ![Minimum Path Sum Example Data](dp_solution_pipeline.assets/min_path_sum_example.png)
 
@@ -45,7 +45,7 @@ Each round of decisions in this problem is to move one step down or right from t
 
 The state $[i, j]$ corresponds to the subproblem: the minimum path sum from the starting point $[0, 0]$ to $[i, j]$, denoted as $dp[i, j]$.
 
-Thus, we obtain the two-dimensional $dp$ matrix shown below, whose size is the same as the input grid $grid$.
+Thus, we obtain the two-dimensional $dp$ matrix shown in the figure below, whose size is the same as the input grid $grid$.
 
 ![State definition and DP table](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png)
 
@@ -59,7 +59,7 @@ Thus, we obtain the two-dimensional $dp$ matrix shown below, whose size is the s
 
 For the state $[i, j]$, it can only be derived from the cell above $[i-1, j]$ or the cell to the left $[i, j-1]$. Therefore, the optimal substructure is: the minimum path sum to reach $[i, j]$ is determined by the smaller of the minimum path sums of $[i, j-1]$ and $[i-1, j]$.
 
-Based on the above analysis, the state transition equation shown in the following figure can be derived:
+Based on the above analysis, the state transition equation shown in the figure below can be derived:
 
 $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
@@ -104,7 +104,7 @@ Implementation code as follows:
 [file]{min_path_sum}-[class]{}-[func]{min_path_sum_dfs}
 ```
 
-The following figure shows the recursive tree rooted at $dp[2, 1]$, which includes some overlapping subproblems, the number of which increases sharply as the size of the grid `grid` increases.
+The figure below shows the recursive tree rooted at $dp[2, 1]$, which includes some overlapping subproblems, the number of which increases sharply as the size of the grid `grid` increases.
 
 Essentially, the reason for overlapping subproblems is: **there are multiple paths to reach a certain cell from the top-left corner**.
 
@@ -132,7 +132,7 @@ Implement the dynamic programming solution iteratively, code as shown below:
 [file]{min_path_sum}-[class]{}-[func]{min_path_sum_dp}
 ```
 
-The following figures show the state transition process of the minimum path sum, traversing the entire grid, **thus the time complexity is $O(nm)$**.
+The figure below show the state transition process of the minimum path sum, traversing the entire grid, **thus the time complexity is $O(nm)$**.
 
 The array `dp` is of size $n \times m$, **therefore the space complexity is $O(nm)$**.
 

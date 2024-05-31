@@ -11,7 +11,7 @@ There are mainly two methods for improving the structure of hash tables: "Separa
 
 ## Separate chaining
 
-In the original hash table, each bucket can store only one key-value pair. "Separate chaining" converts a single element into a linked list, treating key-value pairs as list nodes, storing all colliding key-value pairs in the same linked list. The figure below shows an example of a hash table with separate chaining.
+In the original hash table, each bucket can store only one key-value pair. <u>Separate chaining</u> converts a single element into a linked list, treating key-value pairs as list nodes, storing all colliding key-value pairs in the same linked list. The figure below shows an example of a hash table with separate chaining.
 
 ![Separate chaining hash table](hash_collision.assets/hash_table_chaining.png)
 
@@ -26,7 +26,6 @@ Separate chaining has the following limitations:
 - **Increased Space Usage**: The linked list contains node pointers, which consume more memory space than arrays.
 - **Reduced Query Efficiency**: This is because linear traversal of the linked list is required to find the corresponding element.
 
-
 The code below provides a simple implementation of a separate chaining hash table, with two things to note:
 
 - Lists (dynamic arrays) are used instead of linked lists for simplicity. In this setup, the hash table (array) contains multiple buckets, each of which is a list.
@@ -40,7 +39,7 @@ It's worth noting that when the linked list is very long, the query efficiency $
 
 ## Open addressing
 
-"Open addressing" does not introduce additional data structures but instead handles hash collisions through "multiple probing". The probing methods mainly include linear probing, quadratic probing, and double hashing.
+<u>Open addressing</u> does not introduce additional data structures but instead handles hash collisions through "multiple probing". The probing methods mainly include linear probing, quadratic probing, and double hashing.
 
 Let's use linear probing as an example to introduce the mechanism of open addressing hash tables.
 
@@ -50,7 +49,6 @@ Linear probing uses a fixed-step linear search for probing, differing from ordin
 
 - **Inserting Elements**: Calculate the bucket index using the hash function. If the bucket already contains an element, linearly traverse forward from the conflict position (usually with a step size of $1$) until an empty bucket is found, then insert the element.
 - **Searching for Elements**: If a hash collision is encountered, use the same step size to linearly traverse forward until the corresponding element is found and return `value`; if an empty bucket is encountered, it means the target element is not in the hash table, so return `None`.
-
 
 The figure below shows the distribution of key-value pairs in an open addressing (linear probing) hash table. According to this hash function, keys with the same last two digits will be mapped to the same bucket. Through linear probing, they are stored sequentially in that bucket and the buckets below it.
 
@@ -62,7 +60,7 @@ It's important to note that **we cannot directly delete elements in an open addr
 
 ![Query issues caused by deletion in open addressing](hash_collision.assets/hash_table_open_addressing_deletion.png)
 
-To solve this problem, we can adopt the "lazy deletion" mechanism: instead of directly removing elements from the hash table, **use a constant `TOMBSTONE` to mark the bucket**. In this mechanism, both `None` and `TOMBSTONE` represent empty buckets and can hold key-value pairs. However, when linear probing encounters `TOMBSTONE`, it should continue traversing since there may still be key-value pairs below it.
+To solve this problem, we can adopt the <u>lazy deletion</u> mechanism: instead of directly removing elements from the hash table, **use a constant `TOMBSTONE` to mark the bucket**. In this mechanism, both `None` and `TOMBSTONE` represent empty buckets and can hold key-value pairs. However, when linear probing encounters `TOMBSTONE`, it should continue traversing since there may still be key-value pairs below it.
 
 However, **lazy deletion may accelerate the performance degradation of the hash table**. Every deletion operation produces a delete mark, and as `TOMBSTONE` increases, the search time will also increase because linear probing may need to skip multiple `TOMBSTONE` to find the target element.
 
@@ -94,7 +92,6 @@ As the name suggests, the double hashing method uses multiple hash functions $f_
 
 - **Inserting Elements**: If hash function $f_1(x)$ encounters a conflict, it tries $f_2(x)$, and so on, until an empty position is found and the element is inserted.
 - **Searching for Elements**: Search in the same order of hash functions until the target element is found and returned; if an empty position is encountered or all hash functions have been tried, it indicates the element is not in the hash table, then return `None`.
-
 
 Compared to linear probing, the double hashing method is less prone to clustering, but multiple hash functions introduce additional computational overhead.
 

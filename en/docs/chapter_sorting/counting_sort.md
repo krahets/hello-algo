@@ -4,7 +4,7 @@
 
 ## Simple implementation
 
-Let's start with a simple example. Given an array `nums` of length $n$, where all elements are "non-negative integers", the overall process of counting sort is illustrated in the following diagram.
+Let's start with a simple example. Given an array `nums` of length $n$, where all elements are "non-negative integers", the overall process of counting sort is illustrated in the figure below.
 
 1. Traverse the array to find the maximum number, denoted as $m$, then create an auxiliary array `counter` of length $m + 1$.
 2. **Use `counter` to count the occurrence of each number in `nums`**, where `counter[num]` corresponds to the occurrence of the number `num`. The counting method is simple, just traverse `nums` (suppose the current number is `num`), and increase `counter[num]` by $1$ each round.
@@ -37,7 +37,7 @@ $$
 1. Fill `num` into the array `res` at the index `prefix[num] - 1`.
 2. Reduce the prefix sum `prefix[num]` by $1$, thus obtaining the next index to place `num`.
 
-After the traversal, the array `res` contains the sorted result, and finally, `res` replaces the original array `nums`. The complete counting sort process is shown in the figures below.
+After the traversal, the array `res` contains the sorted result, and finally, `res` replaces the original array `nums`. The complete counting sort process is shown in the figure below.
 
 === "<1>"
     ![Counting sort process](counting_sort.assets/counting_sort_step1.png)

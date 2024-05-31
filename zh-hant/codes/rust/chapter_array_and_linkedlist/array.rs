@@ -18,7 +18,7 @@ fn random_access(nums: &[i32]) -> i32 {
 }
 
 /* 擴展陣列長度 */
-fn extend(nums: Vec<i32>, enlarge: usize) -> Vec<i32> {
+fn extend(nums: &[i32], enlarge: usize) -> Vec<i32> {
     // 初始化一個擴展長度後的陣列
     let mut res: Vec<i32> = vec![0; nums.len() + enlarge];
     // 將原陣列中的所有元素複製到新
@@ -30,7 +30,7 @@ fn extend(nums: Vec<i32>, enlarge: usize) -> Vec<i32> {
 }
 
 /* 在陣列的索引 index 處插入元素 num */
-fn insert(nums: &mut Vec<i32>, num: i32, index: usize) {
+fn insert(nums: &mut [i32], num: i32, index: usize) {
     // 把索引 index 以及之後的所有元素向後移動一位
     for i in (index + 1..nums.len()).rev() {
         nums[i] = nums[i - 1];
@@ -40,7 +40,7 @@ fn insert(nums: &mut Vec<i32>, num: i32, index: usize) {
 }
 
 /* 刪除索引 index 處的元素 */
-fn remove(nums: &mut Vec<i32>, index: usize) {
+fn remove(nums: &mut [i32], index: usize) {
     // 把索引 index 之後的所有元素向前移動一位
     for i in index..nums.len() - 1 {
         nums[i] = nums[i + 1];
@@ -73,13 +73,15 @@ fn find(nums: &[i32], target: i32) -> Option<usize> {
 /* Driver Code */
 fn main() {
     /* 初始化陣列 */
-    let arr = [0; 5];
+    let arr: [i32; 5] = [0; 5];
+    let slice: &[i32] = &[0; 5];
     print!("陣列 arr = ");
     print_util::print_array(&arr);
-    // 在 Rust 中，指定長度時（[i32; 5]）為陣列
+    // 在 Rust 中，指定長度时（[i32; 5]）爲陣列，不指定長度時（&[i32]）爲切片
     // 由於 Rust 的陣列被設計為在編譯期確定長度，因此只能使用常數來指定長度
-    // 為了方便實現擴容 extend() 方法，以下將(Vec) 看作陣列（Array）也是rust一般情況下使用動態陣列的型別
-    let nums = vec![1, 3, 2, 5, 4];
+    // Vector 是 Rust 一般情況下用作動態陣列的類型
+    // 為了方便實現擴容 extend() 方法，以下將 vector 看作陣列（array）
+    let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     print!("\n陣列 nums = ");
     print_util::print_array(&nums);
 
@@ -88,7 +90,7 @@ fn main() {
     println!("\n在 nums 中獲取隨機元素 {}", random_num);
 
     // 長度擴展
-    let mut nums = extend(nums, 3);
+    let mut nums: Vec<i32> = extend(&nums, 3);
     print!("將陣列長度擴展至 8 ，得到 nums = ");
     print_util::print_array(&nums);
 

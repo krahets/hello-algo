@@ -14,11 +14,11 @@ Firstly, it's important to note that **numbers are stored in computers using the
 - **One's complement**: The one's complement of a positive number is the same as its sign-magnitude. For negative numbers, it's obtained by inverting all bits except the sign bit.
 - **Two's complement**: The two's complement of a positive number is the same as its sign-magnitude. For negative numbers, it's obtained by adding $1$ to their one's complement.
 
-The following diagram illustrates the conversions among sign-magnitude, one's complement, and two's complement:
+The figure below illustrates the conversions among sign-magnitude, one's complement, and two's complement:
 
 ![Conversions between sign-magnitude, one's complement, and two's complement](number_encoding.assets/1s_2s_complement.png)
 
-Although sign-magnitude is the most intuitive, it has limitations. For one, **negative numbers in sign-magnitude cannot be directly used in calculations**. For example, in sign-magnitude, calculating $1 + (-2)$ results in $-3$, which is incorrect.
+Although <u>sign-magnitude</u> is the most intuitive, it has limitations. For one, **negative numbers in sign-magnitude cannot be directly used in calculations**. For example, in sign-magnitude, calculating $1 + (-2)$ results in $-3$, which is incorrect.
 
 $$
 \begin{aligned}
@@ -29,7 +29,7 @@ $$
 \end{aligned}
 $$
 
-To address this, computers introduced the **one's complement**. If we convert to one's complement and calculate $1 + (-2)$, then convert the result back to sign-magnitude, we get the correct result of $-1$.
+To address this, computers introduced the <u>one's complement</u>. If we convert to one's complement and calculate $1 + (-2)$, then convert the result back to sign-magnitude, we get the correct result of $-1$.
 
 $$
 \begin{aligned}
@@ -51,7 +51,7 @@ $$
 \end{aligned}
 $$
 
-Like sign-magnitude, one's complement also suffers from the positive and negative zero ambiguity. Therefore, computers further introduced the **two's complement**. Let's observe the conversion process for negative zero in sign-magnitude, one's complement, and two's complement:
+Like sign-magnitude, one's complement also suffers from the positive and negative zero ambiguity. Therefore, computers further introduced the <u>two's complement</u>. Let's observe the conversion process for negative zero in sign-magnitude, one's complement, and two's complement:
 
 $$
 \begin{aligned}
@@ -125,7 +125,7 @@ $$
 
 ![Example calculation of a float in IEEE 754 standard](number_encoding.assets/ieee_754_float.png)
 
-Observing the diagram, given an example data $\mathrm{S} = 0$, $\mathrm{E} = 124$, $\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$, we have:
+Observing the figure above, given an example data $\mathrm{S} = 0$, $\mathrm{E} = 124$, $\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$, we have:
 
 $$
 \text{val} = (-1)^0 \times 2^{124 - 127} \times (1 + 0.375) = 0.171875

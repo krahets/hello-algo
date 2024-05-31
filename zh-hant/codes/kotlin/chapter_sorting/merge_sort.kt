@@ -19,7 +19,7 @@ fun merge(nums: IntArray, left: Int, mid: Int, right: Int) {
     while (i <= mid && j <= right) {
         if (nums[i] <= nums[j])
             tmp[k++] = nums[i++]
-        else 
+        else
             tmp[k++] = nums[j++]
     }
     // 將左子陣列和右子陣列的剩餘元素複製到臨時陣列中
@@ -40,7 +40,7 @@ fun mergeSort(nums: IntArray, left: Int, right: Int) {
     // 終止條件
     if (left >= right) return  // 當子陣列長度為 1 時終止遞迴
     // 劃分階段
-    val mid = (left + right) / 2 // 計算中點
+    val mid = left + (right - left) / 2 // 計算中點
     mergeSort(nums, left, mid) // 遞迴左子陣列
     mergeSort(nums, mid + 1, right) // 遞迴右子陣列
     // 合併階段

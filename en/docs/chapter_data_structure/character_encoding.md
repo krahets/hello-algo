@@ -1,22 +1,22 @@
 # Character encoding *
 
-In the computer system, all data is stored in binary form, and characters (represented by char) are no exception. To represent characters, we need to develop a "character set" that defines a one-to-one mapping between each character and binary numbers. With the character set, computers can convert binary numbers to characters by looking up the table.
+In the computer system, all data is stored in binary form, and `char` is no exception. To represent characters, we need to develop a "character set" that defines a one-to-one mapping between each character and binary numbers. With the character set, computers can convert binary numbers to characters by looking up the table.
 
 ## ASCII character set
 
-The "ASCII code" is one of the earliest character sets, officially known as the American Standard Code for Information Interchange. It uses 7 binary digits (the lower 7 bits of a byte) to represent a character, allowing for a maximum of 128 different characters. As shown in the figure below, ASCII includes uppercase and lowercase English letters, numbers 0 ~ 9, various punctuation marks, and certain control characters (such as newline and tab).
+The <u>ASCII code</u> is one of the earliest character sets, officially known as the American Standard Code for Information Interchange. It uses 7 binary digits (the lower 7 bits of a byte) to represent a character, allowing for a maximum of 128 different characters. As shown in the figure below, ASCII includes uppercase and lowercase English letters, numbers 0 ~ 9, various punctuation marks, and certain control characters (such as newline and tab).
 
 ![ASCII code](character_encoding.assets/ascii_table.png)
 
-However, **ASCII can only represent English characters**. With the globalization of computers, a character set called "EASCII" was developed to represent more languages. It expands from the 7-bit structure of ASCII to 8 bits, enabling the representation of 256 characters.
+However, **ASCII can only represent English characters**. With the globalization of computers, a character set called <u>EASCII</u> was developed to represent more languages. It expands from the 7-bit structure of ASCII to 8 bits, enabling the representation of 256 characters.
 
 Globally, various region-specific EASCII character sets have been introduced. The first 128 characters of these sets are consistent with the ASCII, while the remaining 128 characters are defined differently to accommodate the requirements of different languages.
 
 ## GBK character set
 
-Later, it was found that **EASCII still could not meet the character requirements of many languages**. For instance, there are nearly a hundred thousand Chinese characters, with several thousand used regularly. In 1980, the Standardization Administration of China released the "GB2312" character set, which included 6763 Chinese characters, essentially fulfilling the computer processing needs for the Chinese language.
+Later, it was found that **EASCII still could not meet the character requirements of many languages**. For instance, there are nearly a hundred thousand Chinese characters, with several thousand used regularly. In 1980, the Standardization Administration of China released the <u>GB2312</u> character set, which included 6763 Chinese characters, essentially fulfilling the computer processing needs for the Chinese language.
 
-However, GB2312 could not handle some rare and traditional characters. The "GBK" character set expands GB2312 and includes 21886 Chinese characters. In the GBK encoding scheme, ASCII characters are represented with one byte, while Chinese characters use two bytes.
+However, GB2312 could not handle some rare and traditional characters. The <u>GBK</u> character set expands GB2312 and includes 21886 Chinese characters. In the GBK encoding scheme, ASCII characters are represented with one byte, while Chinese characters use two bytes.
 
 ## Unicode character set
 
@@ -24,13 +24,13 @@ With the rapid evolution of computer technology and a plethora of character sets
 
 Researchers of that era thought: **What if a comprehensive character set encompassing all global languages and symbols was developed? Wouldn't this resolve the issues associated with cross-linguistic environments and garbled text?** Inspired by this idea, the extensive character set, Unicode, was born.
 
-"Unicode" is referred to as "统一码" (Unified Code) in Chinese, theoretically capable of accommodating over a million characters. It aims to incorporate characters from all over the world into a single set, providing a universal character set for processing and displaying various languages and reducing the issues of garbled text due to different encoding standards.
+<u>Unicode</u> is referred to as "统一码" (Unified Code) in Chinese, theoretically capable of accommodating over a million characters. It aims to incorporate characters from all over the world into a single set, providing a universal character set for processing and displaying various languages and reducing the issues of garbled text due to different encoding standards.
 
 Since its release in 1991, Unicode has continually expanded to include new languages and characters. As of September 2022, Unicode contains 149,186 characters, including characters, symbols, and even emojis from various languages. In the vast Unicode character set, commonly used characters occupy 2 bytes, while some rare characters may occupy 3 or even 4 bytes.
 
 Unicode is a universal character set that assigns a number (called a "code point") to each character, **but it does not specify how these character code points should be stored in a computer system**. One might ask: How does a system interpret Unicode code points of varying lengths within a text? For example, given a 2-byte code, how does the system determine if it represents a single 2-byte character or two 1-byte characters?
 
-A straightforward solution to this problem is to store all characters as equal-length encodings. As shown in the figure below, each character in "Hello" occupies 1 byte, while each character in "算法" (algorithm) occupies 2 bytes. We could encode all characters in "Hello 算法" as 2 bytes by padding the higher bits with zeros. This method would enable the system to interpret a character every 2 bytes, recovering the content of the phrase.
+**A straightforward solution to this problem is to store all characters as equal-length encodings**. As shown in the figure below, each character in "Hello" occupies 1 byte, while each character in "算法" (algorithm) occupies 2 bytes. We could encode all characters in "Hello 算法" as 2 bytes by padding the higher bits with zeros. This method would enable the system to interpret a character every 2 bytes, recovering the content of the phrase.
 
 ![Unicode encoding example](character_encoding.assets/unicode_hello_algo.png)
 
