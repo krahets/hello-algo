@@ -14,9 +14,7 @@ fn bubble_sort(nums: &mut [i32]) {
         for j in 0..i {
             if nums[j] > nums[j + 1] {
                 // 交换 nums[j] 与 nums[j + 1]
-                let tmp = nums[j];
-                nums[j] = nums[j + 1];
-                nums[j + 1] = tmp;
+                nums.swap(j, j + 1);
             }
         }
     }
@@ -31,9 +29,7 @@ fn bubble_sort_with_flag(nums: &mut [i32]) {
         for j in 0..i {
             if nums[j] > nums[j + 1] {
                 // 交换 nums[j] 与 nums[j + 1]
-                let tmp = nums[j];
-                nums[j] = nums[j + 1];
-                nums[j + 1] = tmp;
+                nums.swap(j, j + 1);
                 flag = true; // 记录交换元素
             }
         }

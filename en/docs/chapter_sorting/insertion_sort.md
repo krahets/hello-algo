@@ -10,7 +10,7 @@ The figure below shows the process of inserting an element into an array. Assumi
 
 ## Algorithm process
 
-The overall process of insertion sort is shown in the following figure.
+The overall process of insertion sort is shown in the figure below.
 
 1. Initially, the first element of the array is sorted.
 2. The second element of the array is taken as `base`, and after inserting it into the correct position, **the first two elements of the array are sorted**.

@@ -2,7 +2,7 @@
 
 ## Definition of an algorithm
 
-An "algorithm" is a set of instructions or steps to solve a specific problem within a finite amount of time. It has the following characteristics:
+An <u>algorithm</u> is a set of instructions or steps to solve a specific problem within a finite amount of time. It has the following characteristics:
 
 - The problem is clearly defined, including unambiguous definitions of input and output.
 - The algorithm is feasible, meaning it can be completed within a finite number of steps, time, and memory space.
@@ -10,7 +10,7 @@ An "algorithm" is a set of instructions or steps to solve a specific problem wit
 
 ## Definition of a data structure
 
-A "data structure" is a way of organizing and storing data in a computer, with the following design goals:
+A <u>data structure</u> is a way of organizing and storing data in a computer, with the following design goals:
 
 - Minimize space occupancy to save computer memory.
 - Make data operations as fast as possible, covering data access, addition, deletion, updating, etc.

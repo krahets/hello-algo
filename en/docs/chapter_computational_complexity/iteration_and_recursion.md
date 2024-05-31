@@ -4,7 +4,7 @@ In algorithms, the repeated execution of a task is quite common and is closely r
 
 ## Iteration
 
-"Iteration" is a control structure for repeatedly performing a task. In iteration, a program repeats a block of code as long as a certain condition is met until this condition is no longer satisfied.
+<u>Iteration</u> is a control structure for repeatedly performing a task. In iteration, a program repeats a block of code as long as a certain condition is met until this condition is no longer satisfied.
 
 ### For loops
 
@@ -16,11 +16,11 @@ The following function uses a `for` loop to perform a summation of $1 + 2 + \dot
 [file]{iteration}-[class]{}-[func]{for_loop}
 ```
 
-The flowchart below represents this sum function.
+The figure below represents this sum function.
 
 ![Flowchart of the sum function](iteration_and_recursion.assets/iteration.png)
 
-The number of operations in this summation function is proportional to the size of the input data $n$, or in other words, it has a "linear relationship." This "linear relationship" is what time complexity describes. This topic will be discussed in more detail in the next section.
+The number of operations in this summation function is proportional to the size of the input data $n$, or in other words, it has a linear relationship. **This "linear relationship" is what time complexity describes**. This topic will be discussed in more detail in the next section.
 
 ### While loops
 
@@ -32,7 +32,7 @@ Below we use a `while` loop to implement the sum $1 + 2 + \dots + n$.
 [file]{iteration}-[class]{}-[func]{while_loop}
 ```
 
-**`While` loops provide more flexibility than `for` loops**, especially since they allow for custom initialization and modification of the condition variable at each step.
+**`while` loops provide more flexibility than `for` loops**, especially since they allow for custom initialization and modification of the condition variable at each step.
 
 For example, in the following code, the condition variable $i$ is updated twice each round, which would be inconvenient to implement with a `for` loop.
 
@@ -50,7 +50,7 @@ We can nest one loop structure within another. Below is an example using `for` l
 [file]{iteration}-[class]{}-[func]{nested_for_loop}
 ```
 
-The flowchart below represents this nested loop.
+The figure below represents this nested loop.
 
 ![Flowchart of the nested loop](iteration_and_recursion.assets/nested_iteration.png)
 
@@ -60,7 +60,7 @@ We can further increase the complexity by adding more nested loops, each level o
 
 ## Recursion
 
-"Recursion" is an algorithmic strategy where a function solves a problem by calling itself. It primarily involves two phases:
+<u>Recursion</u> is an algorithmic strategy where a function solves a problem by calling itself. It primarily involves two phases:
 
 1. **Calling**: This is where the program repeatedly calls itself, often with progressively smaller or simpler arguments, moving towards the "termination condition."
 2. **Returning**: Upon triggering the "termination condition," the program begins to return from the deepest recursive function, aggregating the results of each layer.
@@ -106,7 +106,7 @@ In practice, the depth of recursion allowed by programming languages is usually 
 
 ### Tail recursion
 
-Interestingly, **if a function performs its recursive call as the very last step before returning,** it can be optimized by the compiler or interpreter to be as space-efficient as iteration. This scenario is known as "tail recursion."
+Interestingly, **if a function performs its recursive call as the very last step before returning,** it can be optimized by the compiler or interpreter to be as space-efficient as iteration. This scenario is known as <u>tail recursion</u>.
 
 - **Regular recursion**: In standard recursion, when the function returns to the previous level, it continues to execute more code, requiring the system to save the context of the previous call.
 - **Tail recursion**: Here, the recursive call is the final operation before the function returns. This means that upon returning to the previous level, no further actions are needed, so the system does not need to save the context of the previous level.
@@ -117,7 +117,7 @@ For example, in calculating $1 + 2 + \dots + n$, we can make the result variable
 [file]{recursion}-[class]{}-[func]{tail_recur}
 ```
 
-The execution process of tail recursion is shown in the following figure. Comparing regular recursion and tail recursion, the point of the summation operation is different.
+The execution process of tail recursion is shown in the figure below. Comparing regular recursion and tail recursion, the point of the summation operation is different.
 
 - **Regular recursion**: The summation operation occurs during the "returning" phase, requiring another summation after each layer returns.
 - **Tail recursion**: The summation operation occurs during the "calling" phase, and the "returning" phase only involves returning through each layer.
@@ -147,7 +147,7 @@ Using the recursive relation, and considering the first two numbers as terminati
 [file]{recursion}-[class]{}-[func]{fib}
 ```
 
-Observing the above code, we see that it recursively calls two functions within itself, **meaning that one call generates two branching calls**. As illustrated below, this continuous recursive calling eventually creates a "recursion tree" with a depth of $n$.
+Observing the above code, we see that it recursively calls two functions within itself, **meaning that one call generates two branching calls**. As illustrated in the figure below, this continuous recursive calling eventually creates a <u>recursion tree</u> with a depth of $n$.
 
 ![Fibonacci sequence recursion tree](iteration_and_recursion.assets/recursion_tree.png)
 

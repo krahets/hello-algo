@@ -2,7 +2,7 @@
 
 !!! question
 
-    Given the preorder traversal `preorder` and inorder traversal `inorder` of a binary tree, construct the binary tree and return the root node of the binary tree. Assume that there are no duplicate values in the nodes of the binary tree (as shown in the diagram below).
+    Given the preorder traversal `preorder` and inorder traversal `inorder` of a binary tree, construct the binary tree and return the root node of the binary tree. Assume that there are no duplicate values in the nodes of the binary tree (as shown in the figure below).
 
 ![Example data for building a binary tree](build_binary_tree_problem.assets/build_tree_example.png)
 
@@ -20,10 +20,10 @@ Based on the above analysis, this problem can be solved using divide and conquer
 
 By definition, `preorder` and `inorder` can be divided into three parts.
 
-- Preorder traversal: `[ Root | Left Subtree | Right Subtree ]`, for example, the tree in the diagram corresponds to `[ 3 | 9 | 2 1 7 ]`.
-- Inorder traversal: `[ Left Subtree | Root | Right Subtree ]`, for example, the tree in the diagram corresponds to `[ 9 | 3 | 1 2 7 ]`.
+- Preorder traversal: `[ Root | Left Subtree | Right Subtree ]`, for example, the tree in the figure corresponds to `[ 3 | 9 | 2 1 7 ]`.
+- Inorder traversal: `[ Left Subtree | Root | Right Subtree ]`, for example, the tree in the figure corresponds to `[ 9 | 3 | 1 2 7 ]`.
 
-Using the data in the diagram above, we can obtain the division results as shown in the steps below.
+Using the data in the figure above, we can obtain the division results as shown in the figure below.
 
 1. The first element 3 in the preorder traversal is the value of the root node.
 2. Find the index of the root node 3 in `inorder`, and use this index to divide `inorder` into `[ 9 | 3 ｜ 1 2 7 ]`.
@@ -49,7 +49,7 @@ As shown in the table below, the above variables can represent the index of the 
 | Left subtree  | $i + 1$                       | $[l, m-1]$                          |
 | Right subtree | $i + 1 + (m - l)$             | $[m+1, r]$                          |
 
-Please note, the meaning of $(m-l)$ in the right subtree root index is "the number of nodes in the left subtree", which is suggested to be understood in conjunction with the diagram below.
+Please note, the meaning of $(m-l)$ in the right subtree root index is "the number of nodes in the left subtree", which is suggested to be understood in conjunction with the figure below.
 
 ![Indexes of the root node and left and right subtrees](build_binary_tree_problem.assets/build_tree_division_pointers.png)
 
@@ -61,7 +61,7 @@ To improve the efficiency of querying $m$, we use a hash table `hmap` to store t
 [file]{build_tree}-[class]{}-[func]{build_tree}
 ```
 
-The diagram below shows the recursive process of building the binary tree, where each node is established during the "descending" process, and each edge (reference) is established during the "ascending" process.
+The figure below shows the recursive process of building the binary tree, where each node is established during the "descending" process, and each edge (reference) is established during the "ascending" process.
 
 === "<1>"
     ![Recursive process of building a binary tree](build_binary_tree_problem.assets/built_tree_step1.png)
@@ -90,7 +90,7 @@ The diagram below shows the recursive process of building the binary tree, where
 === "<9>"
     ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.png)
 
-Each recursive function's division results of `preorder` and `inorder` are shown in the diagram below.
+Each recursive function's division results of `preorder` and `inorder` are shown in the figure below.
 
 ![Division results in each recursive function](build_binary_tree_problem.assets/built_tree_overall.png)
 

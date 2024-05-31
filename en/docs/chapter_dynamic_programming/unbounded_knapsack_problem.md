@@ -40,7 +40,7 @@ Comparing the code for the two problems, the state transition changes from $i-1$
 
 Since the current state comes from the state to the left and above, **the space-optimized solution should perform a forward traversal for each row in the $dp$ table**.
 
-This traversal order is the opposite of that for the 0-1 knapsack. Please refer to the following figures to understand the difference.
+This traversal order is the opposite of that for the 0-1 knapsack. Please refer to the figure below to understand the difference.
 
 === "<1>"
     ![Dynamic programming process for the unbounded knapsack problem after space optimization](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
@@ -117,7 +117,7 @@ For this reason, we use the number $amt + 1$ to represent an invalid solution, b
 [file]{coin_change}-[class]{}-[func]{coin_change_dp}
 ```
 
-The following images show the dynamic programming process for the coin change problem, which is very similar to the unbounded knapsack problem.
+The figure below show the dynamic programming process for the coin change problem, which is very similar to the unbounded knapsack problem.
 
 === "<1>"
     ![Dynamic programming process for the coin change problem](unbounded_knapsack_problem.assets/coin_change_dp_step1.png)
@@ -176,7 +176,7 @@ The space optimization for the coin change problem is handled in the same way as
 
 !!! question
 
-    Given $n$ types of coins, where the denomination of the $i^{th}$ type of coin is $coins[i - 1]$, and the target amount is $amt$. **Each type of coin can be selected multiple times**, **ask how many combinations of coins can make up the target amount**. See the example below.
+    Given $n$ types of coins, where the denomination of the $i^{th}$ type of coin is $coins[i - 1]$, and the target amount is $amt$. Each type of coin can be selected multiple times, **ask how many combinations of coins can make up the target amount**. See the example below.
 
 ![Example data for Coin Change Problem II](unbounded_knapsack_problem.assets/coin_change_ii_example.png)
 

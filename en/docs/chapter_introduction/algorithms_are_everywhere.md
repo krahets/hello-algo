@@ -37,7 +37,7 @@ This essential skill for elementary students, looking up a dictionary, is actual
 
 The above method of organizing playing cards is essentially the "Insertion Sort" algorithm, which is very efficient for small datasets. Many programming languages' sorting functions include the insertion sort.
 
-**Example 3: Making Change**. Suppose we buy goods worth $69$ yuan at a supermarket and give the cashier $100$ yuan, then the cashier needs to give us $31$ yuan in change. They would naturally complete the thought process as shown below.
+**Example 3: Making Change**. Suppose we buy goods worth $69$ yuan at a supermarket and give the cashier $100$ yuan, then the cashier needs to give us $31$ yuan in change. They would naturally complete the thought process as shown in the figure below.
 
 1. The options are currencies smaller than $31$, including $1$, $5$, $10$, and $20$.
 2. Take out the largest $20$ from the options, leaving $31 - 20 = 11$.
