@@ -49,6 +49,10 @@ func (q *arrayQueue) push(num int) {
 /* 出队 */
 func (q *arrayQueue) pop() any {
 	num := q.peek()
+	if num == nil {
+		return nil
+	}
+
 	// 队首指针向后移动一位，若越过尾部，则返回到数组头部
 	q.front = (q.front + 1) % q.queCapacity
 	q.queSize--
