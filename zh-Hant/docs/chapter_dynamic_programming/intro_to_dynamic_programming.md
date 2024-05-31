@@ -395,9 +395,29 @@ comments: true
 === "Ruby"
 
     ```ruby title="climbing_stairs_backtrack.rb"
-    [class]{}-[func]{backtrack}
+    ### 回溯 ###
+    def backtrack(choices, state, n, res)
+      # 當爬到第 n 階時，方案數量加 1
+      res[0] += 1 if state == n
+      # 走訪所有選擇
+      for choice in choices
+        # 剪枝：不允許越過第 n 階
+        next if state + choice > n
 
-    [class]{}-[func]{climbing_stairs_backtrack}
+        # 嘗試：做出選擇，更新狀態
+        backtrack(choices, state + choice, n, res)
+      end
+      # 回退
+    end
+
+    ### 爬樓梯：回溯 ###
+    def climbing_stairs_backtrack(n)
+      choices = [1, 2] # 可選擇向上爬 1 階或 2 階
+      state = 0 # 從第 0 階開始爬
+      res = [0] # 使用 res[0] 記錄方案數量
+      backtrack(choices, state, n, res)
+      res.first
+    end
     ```
 
 === "Zig"
@@ -694,9 +714,18 @@ $$
 === "Ruby"
 
     ```ruby title="climbing_stairs_dfs.rb"
-    [class]{}-[func]{dfs}
+    ### 搜尋 ###
+    def dfs(i)
+      # 已知 dp[1] 和 dp[2] ，返回之
+      return i if i == 1 || i == 2
+      # dp[i] = dp[i-1] + dp[i-2]
+      dfs(i - 1) + dfs(i - 2)
+    end
 
-    [class]{}-[func]{climbing_stairs_dfs}
+    ### 爬樓梯：搜尋 ###
+    def climbing_stairs_dfs(n)
+      dfs(n)
+    end
     ```
 
 === "Zig"
@@ -1065,9 +1094,25 @@ $$
 === "Ruby"
 
     ```ruby title="climbing_stairs_dfs_mem.rb"
-    [class]{}-[func]{dfs}
+    ### 記憶化搜尋 ###
+    def dfs(i, mem)
+      # 已知 dp[1] 和 dp[2] ，返回之
+      return i if i == 1 || i == 2
+      # 若存在記錄 dp[i] ，則直接返回之
+      return mem[i] if mem[i] != -1
 
-    [class]{}-[func]{climbing_stairs_dfs_mem}
+      # dp[i] = dp[i-1] + dp[i-2]
+      count = dfs(i - 1, mem) + dfs(i - 2, mem)
+      # 記錄 dp[i]
+      mem[i] = count
+    end
+
+    ### 爬樓梯：記憶化搜尋 ###
+    def climbing_stairs_dfs_mem(n)
+      # mem[i] 記錄爬到第 i 階的方案總數，-1 代表無記錄
+      mem = Array.new(n + 1, -1)
+      dfs(n, mem)
+    end
     ```
 
 === "Zig"
@@ -1359,7 +1404,19 @@ $$
 === "Ruby"
 
     ```ruby title="climbing_stairs_dp.rb"
-    [class]{}-[func]{climbing_stairs_dp}
+    ### 爬樓梯：動態規劃 ###
+    def climbing_stairs_dp(n)
+      return n  if n == 1 || n == 2
+
+      # 初始化 dp 表，用於儲存子問題的解
+      dp = Array.new(n + 1, 0)
+      # 初始狀態：預設最小子問題的解
+      dp[1], dp[2] = 1, 2
+      # 狀態轉移：從較小子問題逐步求解較大子問題
+      (3...(n + 1)).each { |i| dp[i] = dp[i - 1] + dp[i - 2] }
+
+      dp[n]
+    end
     ```
 
 === "Zig"
@@ -1610,7 +1667,15 @@ $$
 === "Ruby"
 
     ```ruby title="climbing_stairs_dp.rb"
-    [class]{}-[func]{climbing_stairs_dp_comp}
+    ### 爬樓梯：空間最佳化後的動態規劃 ###
+    def climbing_stairs_dp_comp(n)
+      return n if n == 1 || n == 2
+
+      a, b = 1, 2
+      (3...(n + 1)).each { a, b = b, a + b }
+
+      b
+    end
     ```
 
 === "Zig"

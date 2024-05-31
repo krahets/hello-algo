@@ -454,7 +454,27 @@ $$
 === "Ruby"
 
     ```ruby title="edit_distance.rb"
-    [class]{}-[func]{edit_distance_dp}
+    ### 編輯距離：動態規劃 ###
+    def edit_distance_dp(s, t)
+      n, m = s.length, t.length
+      dp = Array.new(n + 1) { Array.new(m + 1, 0) }
+      # 狀態轉移：首行首列
+      (1...(n + 1)).each { |i| dp[i][0] = i }
+      (1...(m + 1)).each { |j| dp[0][j] = j }
+      # 狀態轉移：其餘行和列
+      for i in 1...(n + 1)
+        for j in 1...(m +1)
+          if s[i - 1] == t[j - 1]
+            # 若兩字元相等，則直接跳過此兩字元
+            dp[i][j] = dp[i - 1][j - 1]
+          else
+            # 最少編輯步數 = 插入、刪除、替換這三種操作的最少編輯步數 + 1
+            dp[i][j] = [dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]].min + 1
+          end
+        end
+      end
+      dp[n][m]
+    end
     ```
 
 === "Zig"
@@ -949,7 +969,32 @@ $$
 === "Ruby"
 
     ```ruby title="edit_distance.rb"
-    [class]{}-[func]{edit_distance_dp_comp}
+    ### 編輯距離：空間最佳化後的動態規劃 ###
+    def edit_distance_dp_comp(s, t)
+      n, m = s.length, t.length
+      dp = Array.new(m + 1, 0)
+      # 狀態轉移：首行
+      (1...(m + 1)).each { |j| dp[j] = j }
+      # 狀態轉移：其餘行
+      for i in 1...(n + 1)
+        # 狀態轉移：首列
+        leftup = dp.first # 暫存 dp[i-1, j-1]
+        dp[0] += 1
+        # 狀態轉移：其餘列
+        for j in 1...(m + 1)
+          temp = dp[j]
+          if s[i - 1] == t[j - 1]
+            # 若兩字元相等，則直接跳過此兩字元
+            dp[j] = leftup
+          else
+            # 最少編輯步數 = 插入、刪除、替換這三種操作的最少編輯步數 + 1
+            dp[j] = [dp[j - 1], dp[j], leftup].min + 1
+          end
+          leftup = temp # 更新為下一輪的 dp[i-1, j-1]
+        end
+      end
+      dp[m]
+    end
     ```
 
 === "Zig"

@@ -132,17 +132,17 @@ comments: true
     Queue<Integer> minHeap = new PriorityQueue<>();
     // 初始化大頂堆積（使用 lambda 表示式修改 Comparator 即可）
     Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
-    
+
     /* 元素入堆積 */
     maxHeap.offer(1);
     maxHeap.offer(3);
     maxHeap.offer(2);
     maxHeap.offer(5);
     maxHeap.offer(4);
-    
+
     /* 獲取堆積頂元素 */
     int peek = maxHeap.peek(); // 5
-    
+
     /* 堆積頂元素出堆積 */
     // 出堆積元素會形成一個從大到小的序列
     peek = maxHeap.poll(); // 5
@@ -150,13 +150,13 @@ comments: true
     peek = maxHeap.poll(); // 3
     peek = maxHeap.poll(); // 2
     peek = maxHeap.poll(); // 1
-    
+
     /* 獲取堆積大小 */
     int size = maxHeap.size();
-    
+
     /* 判斷堆積是否為空 */
     boolean isEmpty = maxHeap.isEmpty();
-    
+
     /* 輸入串列並建堆積 */
     minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
     ```
@@ -347,7 +347,7 @@ comments: true
     max_heap.push(2);
     max_heap.push(5);
     max_heap.push(4);
-    
+
     /* 獲取堆積頂元素 */
     let peek = max_heap.peek().unwrap();  // 5
 
@@ -383,17 +383,17 @@ comments: true
     var minHeap = PriorityQueue<Int>()
     // 初始化大頂堆積（使用 lambda 表示式修改 Comparator 即可）
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
-    
+
     /* 元素入堆積 */
     maxHeap.offer(1)
     maxHeap.offer(3)
     maxHeap.offer(2)
     maxHeap.offer(5)
     maxHeap.offer(4)
-    
+
     /* 獲取堆積頂元素 */
     var peek = maxHeap.peek() // 5
-    
+
     /* 堆積頂元素出堆積 */
     // 出堆積元素會形成一個從大到小的序列
     peek = maxHeap.poll() // 5
@@ -401,13 +401,13 @@ comments: true
     peek = maxHeap.poll() // 3
     peek = maxHeap.poll() // 2
     peek = maxHeap.poll() // 1
-    
+
     /* 獲取堆積大小 */
     val size = maxHeap.size
-    
+
     /* 判斷堆積是否為空 */
     val isEmpty = maxHeap.isEmpty()
-    
+
     /* 輸入串列並建堆積 */
     minHeap = PriorityQueue(mutableListOf(1, 3, 2, 5, 4))
     ```
@@ -415,7 +415,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="heap.rb"
-
+    # Ruby 未提供內建 Heap 類別
     ```
 
 === "Zig"

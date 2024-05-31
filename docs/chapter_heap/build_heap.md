@@ -311,7 +311,15 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-    [class]{MaxHeap}-[func]{__init__}
+    ### 构造方法，根据输入列表建堆 ###
+    def initialize(nums)
+      # 将列表元素原封不动添加进堆
+      @max_heap = nums
+      # 堆化除叶节点以外的其他所有节点
+      parent(size - 1).downto(0) do |i|
+        sift_down(i)
+      end
+    end
     ```
 
 === "Zig"

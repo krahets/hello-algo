@@ -124,7 +124,7 @@ It's worth mentioning that **since leaf nodes have no children, they naturally f
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-    [class]{MaxHeap}-[func]{__init__}
+    [class]{MaxHeap}-[func]{initialize}
     ```
 
 === "Zig"

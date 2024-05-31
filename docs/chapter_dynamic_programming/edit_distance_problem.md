@@ -454,7 +454,27 @@ $$
 === "Ruby"
 
     ```ruby title="edit_distance.rb"
-    [class]{}-[func]{edit_distance_dp}
+    ### 编辑距离：动态规划 ###
+    def edit_distance_dp(s, t)
+      n, m = s.length, t.length
+      dp = Array.new(n + 1) { Array.new(m + 1, 0) }
+      # 状态转移：首行首列
+      (1...(n + 1)).each { |i| dp[i][0] = i }
+      (1...(m + 1)).each { |j| dp[0][j] = j }
+      # 状态转移：其余行和列
+      for i in 1...(n + 1)
+        for j in 1...(m +1)
+          if s[i - 1] == t[j - 1]
+            # 若两字符相等，则直接跳过此两字符
+            dp[i][j] = dp[i - 1][j - 1]
+          else
+            # 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+            dp[i][j] = [dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]].min + 1
+          end
+        end
+      end
+      dp[n][m]
+    end
     ```
 
 === "Zig"
@@ -949,7 +969,32 @@ $$
 === "Ruby"
 
     ```ruby title="edit_distance.rb"
-    [class]{}-[func]{edit_distance_dp_comp}
+    ### 编辑距离：空间优化后的动态规划 ###
+    def edit_distance_dp_comp(s, t)
+      n, m = s.length, t.length
+      dp = Array.new(m + 1, 0)
+      # 状态转移：首行
+      (1...(m + 1)).each { |j| dp[j] = j }
+      # 状态转移：其余行
+      for i in 1...(n + 1)
+        # 状态转移：首列
+        leftup = dp.first # 暂存 dp[i-1, j-1]
+        dp[0] += 1
+        # 状态转移：其余列
+        for j in 1...(m + 1)
+          temp = dp[j]
+          if s[i - 1] == t[j - 1]
+            # 若两字符相等，则直接跳过此两字符
+            dp[j] = leftup
+          else
+            # 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+            dp[j] = [dp[j - 1], dp[j], leftup].min + 1
+          end
+          leftup = temp # 更新为下一轮的 dp[i-1, j-1]
+        end
+      end
+      dp[m]
+    end
     ```
 
 === "Zig"

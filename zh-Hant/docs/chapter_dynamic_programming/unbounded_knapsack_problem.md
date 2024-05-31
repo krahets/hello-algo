@@ -350,7 +350,25 @@ $$
 === "Ruby"
 
     ```ruby title="unbounded_knapsack.rb"
-    [class]{}-[func]{unbounded_knapsack_dp}
+    ### 完全背包：動態規劃 ###
+    def unbounded_knapsack_dp(wgt, val, cap)
+      n = wgt.length
+      # 初始化 dp 表
+      dp = Array.new(n + 1) { Array.new(cap + 1, 0) }
+      # 狀態轉移
+      for i in 1...(n + 1)
+        for c in 1...(cap + 1)
+          if wgt[i - 1] > c
+            # 若超過背包容量，則不選物品 i
+            dp[i][c] = dp[i - 1][c]
+          else
+            # 不選和選物品 i 這兩種方案的較大值
+            dp[i][c] = [dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]].max
+          end
+        end
+      end
+      dp[n][cap]
+    end
     ```
 
 === "Zig"
@@ -709,7 +727,46 @@ $$
 === "Ruby"
 
     ```ruby title="unbounded_knapsack.rb"
-    [class]{}-[func]{unbounded_knapsack_dp_comp}
+    ### 完全背包：動態規劃 ###
+    def unbounded_knapsack_dp(wgt, val, cap)
+      n = wgt.length
+      # 初始化 dp 表
+      dp = Array.new(n + 1) { Array.new(cap + 1, 0) }
+      # 狀態轉移
+      for i in 1...(n + 1)
+        for c in 1...(cap + 1)
+          if wgt[i - 1] > c
+            # 若超過背包容量，則不選物品 i
+            dp[i][c] = dp[i - 1][c]
+          else
+            # 不選和選物品 i 這兩種方案的較大值
+            dp[i][c] = [dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]].max
+          end
+        end
+      end
+      dp[n][cap]
+    end
+
+    ### 完全背包：空間最佳化後的動態規劃 ##3
+    def unbounded_knapsack_dp_comp(wgt, val, cap)
+      n = wgt.length
+      # 初始化 dp 表
+      dp = Array.new(cap + 1, 0)
+      # 狀態轉移
+      for i in 1...(n + 1)
+        # 正序走訪
+        for c in 1...(cap + 1)
+          if wgt[i -1] > c
+            # 若超過背包容量，則不選物品 i
+            dp[c] = dp[c]
+          else
+            # 不選和選物品 i 這兩種方案的較大值
+            dp[c] = [dp[c], dp[c - wgt[i - 1]] + val[i - 1]].max
+          end
+        end
+      end
+      dp[cap]
+    end
     ```
 
 === "Zig"
@@ -1159,7 +1216,28 @@ $$
 === "Ruby"
 
     ```ruby title="coin_change.rb"
-    [class]{}-[func]{coin_change_dp}
+    ### 零錢兌換：動態規劃 ###
+    def coin_change_dp(coins, amt)
+      n = coins.length
+      _MAX = amt + 1
+      # 初始化 dp 表
+      dp = Array.new(n + 1) { Array.new(amt + 1, 0) }
+      # 狀態轉移：首行首列
+      (1...(amt + 1)).each { |a| dp[0][a] = _MAX }
+      # 狀態轉移：其餘行和列
+      for i in 1...(n + 1)
+        for a in 1...(amt + 1)
+          if coins[i - 1] > a
+            # 若超過目標金額，則不選硬幣 i
+            dp[i][a] = dp[i - 1][a]
+          else
+            # 不選和選硬幣 i 這兩種方案的較小值
+            dp[i][a] = [dp[i - 1][a], dp[i][a - coins[i - 1]] + 1].min
+          end
+        end
+      end
+      dp[n][amt] != _MAX ? dp[n][amt] : -1
+    end
     ```
 
 === "Zig"
@@ -1586,7 +1664,28 @@ $$
 === "Ruby"
 
     ```ruby title="coin_change.rb"
-    [class]{}-[func]{coin_change_dp_comp}
+    ### 零錢兌換：空間最佳化後的動態規劃 ###
+    def coin_change_dp_comp(coins, amt)
+      n = coins.length
+      _MAX = amt + 1
+      # 初始化 dp 表
+      dp = Array.new(amt + 1, _MAX)
+      dp[0] = 0
+      # 狀態轉移
+      for i in 1...(n + 1)
+        # 正序走訪
+        for a in 1...(amt + 1)
+          if coins[i - 1] > a
+            # 若超過目標金額，則不選硬幣 i
+            dp[a] = dp[a]
+          else
+            # 不選和選硬幣 i 這兩種方案的較小值
+            dp[a] = [dp[a], dp[a - coins[i - 1]] + 1].min
+          end
+        end
+      end
+      dp[amt] != _MAX ? dp[amt] : -1
+    end
     ```
 
 === "Zig"
@@ -1999,7 +2098,27 @@ $$
 === "Ruby"
 
     ```ruby title="coin_change_ii.rb"
-    [class]{}-[func]{coin_change_ii_dp}
+    ### 零錢兌換 II：動態規劃 ###
+    def coin_change_ii_dp(coins, amt)
+      n = coins.length
+      # 初始化 dp 表
+      dp = Array.new(n + 1) { Array.new(amt + 1, 0) }
+      # 初始化首列
+      (0...(n + 1)).each { |i| dp[i][0] = 1 }
+      # 狀態轉移
+      for i in 1...(n + 1)
+        for a in 1...(amt + 1)
+          if coins[i - 1] > a
+            # 若超過目標金額，則不選硬幣 i
+            dp[i][a] = dp[i - 1][a]
+          else
+            # 不選和選硬幣 i 這兩種方案之和
+            dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
+          end
+        end
+      end
+      dp[n][amt]
+    end
     ```
 
 === "Zig"
@@ -2343,7 +2462,27 @@ $$
 === "Ruby"
 
     ```ruby title="coin_change_ii.rb"
-    [class]{}-[func]{coin_change_ii_dp_comp}
+    ### 零錢兌換 II：空間最佳化後的動態規劃 ###
+    def coin_change_ii_dp_comp(coins, amt)
+      n = coins.length
+      # 初始化 dp 表
+      dp = Array.new(amt + 1, 0)
+      dp[0] = 1
+      # 狀態轉移
+      for i in 1...(n + 1)
+        # 正序走訪
+        for a in 1...(amt + 1)
+          if coins[i - 1] > a
+            # 若超過目標金額，則不選硬幣 i
+            dp[a] = dp[a]
+          else
+            # 不選和選硬幣 i 這兩種方案之和
+            dp[a] = dp[a] + dp[a - coins[i - 1]]
+          end
+        end
+      end
+      dp[amt]
+    end
     ```
 
 === "Zig"

@@ -168,7 +168,7 @@ comments: true
 
     ```rust title="preorder_traversal_i_compact.rs"
     /* 前序遍历：例题一 */
-    fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<Rc<RefCell<TreeNode>>>) {
+    fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<TreeNode>>>) {
         if root.is_none() {
             return;
         }
@@ -177,8 +177,8 @@ comments: true
                 // 记录解
                 res.push(node.clone());
             }
-            pre_order(res, node.borrow().left.clone());
-            pre_order(res, node.borrow().right.clone());
+            pre_order(res, node.borrow().left.as_ref());
+            pre_order(res, node.borrow().right.as_ref());
         }
     }
     ```
@@ -463,7 +463,7 @@ comments: true
     fn pre_order(
         res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
         path: &mut Vec<Rc<RefCell<TreeNode>>>,
-        root: Option<Rc<RefCell<TreeNode>>>,
+        root: Option<&Rc<RefCell<TreeNode>>>,
     ) {
         if root.is_none() {
             return;
@@ -475,10 +475,10 @@ comments: true
                 // 记录解
                 res.push(path.clone());
             }
-            pre_order(res, path, node.borrow().left.clone());
-            pre_order(res, path, node.borrow().right.clone());
+            pre_order(res, path, node.borrow().left.as_ref());
+            pre_order(res, path, node.borrow().right.as_ref());
             // 回退
-            path.remove(path.len() - 1);
+            path.pop();
         }
     }
     ```
@@ -819,7 +819,7 @@ comments: true
     fn pre_order(
         res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
         path: &mut Vec<Rc<RefCell<TreeNode>>>,
-        root: Option<Rc<RefCell<TreeNode>>>,
+        root: Option<&Rc<RefCell<TreeNode>>>,
     ) {
         // 剪枝
         if root.is_none() || root.as_ref().unwrap().borrow().val == 3 {
@@ -832,10 +832,10 @@ comments: true
                 // 记录解
                 res.push(path.clone());
             }
-            pre_order(res, path, node.borrow().left.clone());
-            pre_order(res, path, node.borrow().right.clone());
+            pre_order(res, path, node.borrow().left.as_ref());
+            pre_order(res, path, node.borrow().right.as_ref());
             // 回退
-            path.remove(path.len() - 1);
+            path.pop();
         }
     }
     ```
@@ -1732,7 +1732,7 @@ comments: true
     ```rust title="preorder_traversal_iii_template.rs"
     /* 判断当前状态是否为解 */
     fn is_solution(state: &mut Vec<Rc<RefCell<TreeNode>>>) -> bool {
-        return !state.is_empty() && state.get(state.len() - 1).unwrap().borrow().val == 7;
+        return !state.is_empty() && state.last().unwrap().borrow().val == 7;
     }
 
     /* 记录解 */
@@ -1744,8 +1744,8 @@ comments: true
     }
 
     /* 判断在当前状态下，该选择是否合法 */
-    fn is_valid(_: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Rc<RefCell<TreeNode>>) -> bool {
-        return choice.borrow().val != 3;
+    fn is_valid(_: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Option<&Rc<RefCell<TreeNode>>>) -> bool {
+        return choice.is_some() && choice.unwrap().borrow().val != 3;
     }
 
     /* 更新状态 */
@@ -1755,13 +1755,13 @@ comments: true
 
     /* 恢复状态 */
     fn undo_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, _: Rc<RefCell<TreeNode>>) {
-        state.remove(state.len() - 1);
+        state.pop();
     }
 
     /* 回溯算法：例题三 */
     fn backtrack(
         state: &mut Vec<Rc<RefCell<TreeNode>>>,
-        choices: &mut Vec<Rc<RefCell<TreeNode>>>,
+        choices: &Vec<Option<&Rc<RefCell<TreeNode>>>>,
         res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
     ) {
         // 检查是否为解
@@ -1770,22 +1770,22 @@ comments: true
             record_solution(state, res);
         }
         // 遍历所有选择
-        for choice in choices {
+        for &choice in choices.iter() {
             // 剪枝：检查选择是否合法
-            if is_valid(state, choice.clone()) {
+            if is_valid(state, choice) {
                 // 尝试：做出选择，更新状态
-                make_choice(state, choice.clone());
+                make_choice(state, choice.unwrap().clone());
                 // 进行下一轮选择
                 backtrack(
                     state,
-                    &mut vec![
-                        choice.borrow().left.clone().unwrap(),
-                        choice.borrow().right.clone().unwrap(),
+                    &vec![
+                        choice.unwrap().borrow().left.as_ref(),
+                        choice.unwrap().borrow().right.as_ref(),
                     ],
                     res,
                 );
                 // 回退：撤销选择，恢复到之前的状态
-                undo_choice(state, choice.clone());
+                undo_choice(state, choice.unwrap().clone());
             }
         }
     }
