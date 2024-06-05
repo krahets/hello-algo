@@ -10,7 +10,7 @@ In addition to hash tables, arrays and linked lists can also be used to implemen
 
 - **Inserting an element**: Simply append the element to the tail of the array (or linked list). The time complexity of this operation is $O(1)$.
 - **Searching for an element**: As the array (or linked list) is unsorted, searching for an element requires traversing through all of the elements. The time complexity of this operation is $O(n)$.
-- **Deleting an element**: In order to remove elements, we need to locate them first. Then, delete them from the array (or linked list). The time complexity of this operation is $O(n)$.
+- **Deleting an element**: To remove an element, we first need to locate it. Then, we delete it from the array (or linked list). The time complexity of this operation is $O(n)$.
 
 <p align="center"> Table <id> &nbsp; Comparison of time efficiency for common operations </p>
 
