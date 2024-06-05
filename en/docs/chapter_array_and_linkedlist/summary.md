@@ -74,7 +74,7 @@ On the other hand, linked lists are primarily necessary for binary trees and gra
 
 **Q**: Does initializing a list `res = [0] * self.size()` result in each element of `res` referencing the same address?
 
-No. However, this issue arises with two-dimensional arrays, for example, initializing a two-dimensional list `res = [[0] * self.size()]` would reference the same list `[0]` multiple times.
+No. However, this issue arises with two-dimensional arrays, for example, initializing a two-dimensional list `res = [[0]] * self.size()` would reference the same list `[0]` multiple times.
 
 **Q**: In deleting a node, is it necessary to break the reference to its successor node?
 

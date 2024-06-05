@@ -7,5 +7,5 @@
 - Divide and conquer can solve many algorithm problems and is widely used in data structure and algorithm design, where its presence is ubiquitous.
 - Compared to brute force search, adaptive search is more efficient. Search algorithms with a time complexity of $O(\log n)$ are usually based on the divide and conquer strategy.
 - Binary search is another typical application of the divide and conquer strategy, which does not include the step of merging the solutions of subproblems. We can implement binary search through recursive divide and conquer.
-- In the problem of constructing binary trees, building the tree (original problem) can be divided into building the left and right subtree (subproblems), which can be achieved by partitioning the index intervals of the preorder and inorder traversals.
+- In the problem of constructing binary trees, building the tree (original problem) can be divided into building the left and right subtree (subproblems), which can be achieved by partitioning the index intervals of the pre-order and in-order traversals.
 - In the Tower of Hanoi problem, a problem of size $n$ can be divided into two subproblems of size $n-1$ and one subproblem of size $1$. By solving these three subproblems in sequence, the original problem is consequently resolved.

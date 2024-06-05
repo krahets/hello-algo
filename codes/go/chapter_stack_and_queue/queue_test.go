@@ -46,9 +46,13 @@ func TestQueue(t *testing.T) {
 }
 
 func TestArrayQueue(t *testing.T) {
+
 	// 初始化队列，使用队列的通用接口
 	capacity := 10
 	queue := newArrayQueue(capacity)
+	if queue.pop() != nil {
+		t.Errorf("want:%v,got:%v", nil, queue.pop())
+	}
 
 	// 元素入队
 	queue.push(1)

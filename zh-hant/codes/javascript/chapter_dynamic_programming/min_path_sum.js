@@ -69,7 +69,7 @@ function minPathSumDP(grid) {
     return dp[n - 1][m - 1];
 }
 
-/* 最小路徑和：狀態壓縮後的動態規劃 */
+/* 最小路徑和：空間最佳化後的動態規劃 */
 function minPathSumDPComp(grid) {
     const n = grid.length,
         m = grid[0].length;
@@ -116,6 +116,6 @@ console.log(`從左上角到右下角的最小路徑和為 ${res}`);
 res = minPathSumDP(grid);
 console.log(`從左上角到右下角的最小路徑和為 ${res}`);
 
-// 狀態壓縮後的動態規劃
+// 空間最佳化後的動態規劃
 res = minPathSumDPComp(grid);
 console.log(`從左上角到右下角的最小路徑和為 ${res}`);

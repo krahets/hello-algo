@@ -33,7 +33,7 @@ function unboundedKnapsackDP(
     return dp[n][cap];
 }
 
-/* 完全背包：狀態壓縮後的動態規劃 */
+/* 完全背包：空間最佳化後的動態規劃 */
 function unboundedKnapsackDPComp(
     wgt: Array<number>,
     val: Array<number>,
@@ -66,7 +66,7 @@ const cap = 4;
 let res = unboundedKnapsackDP(wgt, val, cap);
 console.log(`不超過背包容量的最大物品價值為 ${res}`);
 
-// 狀態壓縮後的動態規劃
+// 空間最佳化後的動態規劃
 res = unboundedKnapsackDPComp(wgt, val, cap);
 console.log(`不超過背包容量的最大物品價值為 ${res}`);
 

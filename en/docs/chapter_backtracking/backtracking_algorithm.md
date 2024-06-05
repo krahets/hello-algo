@@ -2,19 +2,19 @@
 
 <u>Backtracking algorithm</u> is a method to solve problems by exhaustive search, where the core idea is to start from an initial state and brute force all possible solutions, recording the correct ones until a solution is found or all possible choices are exhausted without finding a solution.
 
-Backtracking typically employs "depth-first search" to traverse the solution space. In the "Binary Tree" chapter, we mentioned that preorder, inorder, and postorder traversals are all depth-first searches. Next, we use preorder traversal to construct a backtracking problem to gradually understand the workings of the backtracking algorithm.
+Backtracking typically employs "depth-first search" to traverse the solution space. In the "Binary Tree" chapter, we mentioned that pre-order, in-order, and post-order traversals are all depth-first searches. Next, we use pre-order traversal to construct a backtracking problem to gradually understand the workings of the backtracking algorithm.
 
 !!! question "Example One"
 
     Given a binary tree, search and record all nodes with a value of $7$, please return a list of nodes.
 
-For this problem, we traverse this tree in preorder and check if the current node's value is $7$. If it is, we add the node's value to the result list `res`. The relevant process is shown in the figure below:
+For this problem, we traverse this tree in pre-order and check if the current node's value is $7$. If it is, we add the node's value to the result list `res`. The relevant process is shown in the figure below:
 
 ```src
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 ```
 
-![Searching nodes in preorder traversal](backtracking_algorithm.assets/preorder_find_nodes.png)
+![Searching nodes in pre-order traversal](backtracking_algorithm.assets/preorder_find_nodes.png)
 
 ## Trying and retreating
 
@@ -425,7 +425,7 @@ As per the requirements, after finding a node with a value of $7$, the search sh
 
 ![Comparison of retaining and removing the return in the search process](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
 
-Compared to the implementation based on preorder traversal, the code implementation based on the backtracking algorithm framework seems verbose, but it has better universality. In fact, **many backtracking problems can be solved within this framework**. We just need to define `state` and `choices` according to the specific problem and implement the methods in the framework.
+Compared to the implementation based on pre-order traversal, the code implementation based on the backtracking algorithm framework seems verbose, but it has better universality. In fact, **many backtracking problems can be solved within this framework**. We just need to define `state` and `choices` according to the specific problem and implement the methods in the framework.
 
 ## Common terminology
 

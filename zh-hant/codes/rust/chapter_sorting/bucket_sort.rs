@@ -12,7 +12,7 @@ fn bucket_sort(nums: &mut [f64]) {
     let k = nums.len() / 2;
     let mut buckets = vec![vec![]; k];
     // 1. 將陣列元素分配到各個桶中
-    for &mut num in &mut *nums {
+    for &num in nums.iter() {
         // 輸入資料範圍為 [0, 1)，使用 num * k 對映到索引範圍 [0, k-1]
         let i = (num * k as f64) as usize;
         // 將 num 新增進桶 i
@@ -25,8 +25,8 @@ fn bucket_sort(nums: &mut [f64]) {
     }
     // 3. 走訪桶合併結果
     let mut i = 0;
-    for bucket in &mut buckets {
-        for &mut num in bucket {
+    for bucket in buckets.iter() {
+        for &num in bucket.iter() {
             nums[i] = num;
             i += 1;
         }

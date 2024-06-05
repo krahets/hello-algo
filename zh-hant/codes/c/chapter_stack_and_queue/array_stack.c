@@ -90,11 +90,11 @@ int main() {
 
     /* 獲取堆疊的長度 */
     int size = stack->size;
-    printf("堆疊的長度 size =  %d\n", size);
+    printf("堆疊的長度 size = %d\n", size);
 
     /* 判斷是否為空 */
     bool empty = isEmpty(stack);
-    printf("堆疊是否為空 = %stack\n", empty ? "true" : "false");
+    printf("堆疊是否為空 = %s\n", empty ? "true" : "false");
 
     // 釋放記憶體
     delArrayStack(stack);
