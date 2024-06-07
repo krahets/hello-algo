@@ -17,7 +17,7 @@
 
 **Q**: Why does a hash table contain both linear and non-linear data structures?
 
-The underlying structure of a hash table is an array. To resolve hash collisions, we may use "chaining" (discussed in a later section, "Hash collision"): each bucket in the array points to a linked list, and it might be transformed into a tree (usually a red-black tree) when its length is larger than a certain threshold.
+The underlying structure of a hash table is an array. To resolve hash collisions, we may use "chaining" (discussed in a later section, "Hash collision"): each bucket in the array points to a linked list, which may transform into a tree (usually a red-black tree) when its length is larger than a certain threshold.
 From a storage perspective, the underlying structure of a hash table is an array, where each bucket might contain a value, a linked list, or a tree. Therefore, hash tables may contain both linear data structures (arrays, linked lists) and non-linear data structures (trees).
 
 **Q**: Is the length of the `char` type 1 byte?
