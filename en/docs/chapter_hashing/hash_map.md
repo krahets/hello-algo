@@ -6,11 +6,11 @@ As shown in the figure below, given $n$ students, each student has two data fiel
 
 ![Abstract representation of a hash table](hash_map.assets/hash_table_lookup.png)
 
-In addition to hash tables, arrays and linked lists can also be used to implement query functionality, but the time complexity is different. The table below shows the comparison of time efficiency for common operations among them:
+In addition to hash tables, arrays and linked lists can also be used to implement query functionality, but the time complexity is different. Their efficiency is compared in the table below:
 
-- **Inserting an element**: Simply append the element to the tail of the array (or linked list). The time complexity of this operation is $O(1)$.
-- **Searching for an element**: As the array (or linked list) is unsorted, searching for an element requires traversing through all of the elements. The time complexity of this operation is $O(n)$.
-- **Deleting an element**: To remove an element, we first need to locate it. Then, we delete it from the array (or linked list). The time complexity of this operation is $O(n)$.
+- **Inserting elements**: Simply append the element to the tail of the array (or linked list). The time complexity of this operation is $O(1)$.
+- **Searching for elements**: As the array (or linked list) is unsorted, searching for an element requires traversing through all of the elements. The time complexity of this operation is $O(n)$.
+- **Deleting elements**: To remove an element, we first need to locate it. Then, we delete it from the array (or linked list). The time complexity of this operation is $O(n)$.
 
 <p align="center"> Table <id> &nbsp; Comparison of time efficiency for common operations </p>
 
@@ -24,7 +24,7 @@ It can be seen that **the time complexity for operations (insertion, deletion, s
 
 ## Common operations of hash table
 
-The common operations of a hash table include: initialization, querying, adding key-value pairs, and deleting key-value pairs. Here is an example code:
+Common operations of a hash table include: initialization, querying, adding key-value pairs, and deleting key-value pairs. Here is an example code:
 
 === "Python"
 
@@ -522,7 +522,7 @@ In the example above, with the given hash function, when the last two digits of 
 20336 % 100 = 36
 ```
 
-As shown in the figure below, both student IDs point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is called as <u>hash collision</u>.
+As shown in the figure below, both student IDs point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is called <u>hash collision</u>.
 
 ![Example of hash collision](hash_map.assets/hash_collision.png)
 
