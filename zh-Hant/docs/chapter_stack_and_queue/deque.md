@@ -2830,6 +2830,9 @@ comments: true
     /* 佇列首出列 */
     func (q *arrayDeque) popFirst() any {
         num := q.peekFirst()
+        if num == nil {
+            return nil
+        }
         // 佇列首指標向後移動一位
         q.front = q.index(q.front + 1)
         q.queSize--
@@ -2839,6 +2842,9 @@ comments: true
     /* 佇列尾出列 */
     func (q *arrayDeque) popLast() any {
         num := q.peekLast()
+        if num == nil {
+            return nil
+        }
         q.queSize--
         return num
     }

@@ -401,7 +401,7 @@ comments: true
                 backtrack(state.clone(), choices, selected, res);
                 // 回退：撤銷選擇，恢復到之前的狀態
                 selected[i] = false;
-                state.remove(state.len() - 1);
+                state.pop();
             }
         }
     }
@@ -950,7 +950,7 @@ comments: true
                 backtrack(state.clone(), choices, selected, res);
                 // 回退：撤銷選擇，恢復到之前的狀態
                 selected[i] = false;
-                state.remove(state.len() - 1);
+                state.pop();
             }
         }
     }
