@@ -1458,9 +1458,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#612-simple-implementation-of-hash-table" class="md-nav__link">
+  <a href="#612-simple-implementation-of-a-hash-table" class="md-nav__link">
     <span class="md-ellipsis">
-      6.1.2 &nbsp; Simple implementation of hash table
+      6.1.2 &nbsp; Simple implementation of a hash table
     </span>
   </a>
   
@@ -3555,9 +3555,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#612-simple-implementation-of-hash-table" class="md-nav__link">
+  <a href="#612-simple-implementation-of-a-hash-table" class="md-nav__link">
     <span class="md-ellipsis">
-      6.1.2 &nbsp; Simple implementation of hash table
+      6.1.2 &nbsp; Simple implementation of a hash table
     </span>
   </a>
   
@@ -3609,18 +3609,18 @@
 
 <!-- Page content -->
 <h1 id="61-hash-table">6.1 &nbsp; Hash table<a class="headerlink" href="#61-hash-table" title="Permanent link">&para;</a></h1>
-<p>A <u>hash table</u> achieves efficient element querying by establishing a mapping between keys and values. Specifically, when we input a <code>key</code> into the hash table, we can retrieve the corresponding <code>value</code> in <span class="arithmatex">\(O(1)\)</span> time.</p>
-<p>As shown in Figure 6-1, given <span class="arithmatex">\(n\)</span> students, each with two pieces of data: "name" and "student number". If we want to implement a query feature that returns the corresponding name when given a student number, we can use the hash table shown in Figure 6-1.</p>
+<p>A <u>hash table</u>, also known as a <u>hash map</u>, is a data structure that establishes a mapping between keys and values, enabling efficient element retrieval. Specifically, when we input a <code>key</code> into the hash table, we can retrive the corresponding <code>value</code> in <span class="arithmatex">\(O(1)\)</span> time complexity.</p>
+<p>As shown in Figure 6-1, given <span class="arithmatex">\(n\)</span> students, each student has two data fields: "Name" and "Student ID". If we want to implement a query function that takes a student ID as input and returns the corresponding name, we can use the hash table shown in Figure 6-1.</p>
 <p><a class="glightbox" href="../hash_map.assets/hash_table_lookup.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Abstract representation of a hash table" class="animation-figure" src="../hash_map.assets/hash_table_lookup.png" /></a></p>
 <p align="center"> Figure 6-1 &nbsp; Abstract representation of a hash table </p>
 
-<p>Apart from hash tables, arrays and linked lists can also be used to implement querying functions. Their efficiency is compared in Table 6-1.</p>
+<p>In addition to hash tables, arrays and linked lists can also be used to implement query functionality, but the time complexity is different. Their efficiency is compared in Table 6-1:</p>
 <ul>
-<li><strong>Adding elements</strong>: Simply add the element to the end of the array (or linked list), using <span class="arithmatex">\(O(1)\)</span> time.</li>
-<li><strong>Querying elements</strong>: Since the array (or linked list) is unordered, it requires traversing all the elements, using <span class="arithmatex">\(O(n)\)</span> time.</li>
-<li><strong>Deleting elements</strong>: First, locate the element, then delete it from the array (or linked list), using <span class="arithmatex">\(O(n)\)</span> time.</li>
+<li><strong>Inserting elements</strong>: Simply append the element to the tail of the array (or linked list). The time complexity of this operation is <span class="arithmatex">\(O(1)\)</span>.</li>
+<li><strong>Searching for elements</strong>: As the array (or linked list) is unsorted, searching for an element requires traversing through all of the elements. The time complexity of this operation is <span class="arithmatex">\(O(n)\)</span>.</li>
+<li><strong>Deleting elements</strong>: To remove an element, we first need to locate it. Then, we delete it from the array (or linked list). The time complexity of this operation is <span class="arithmatex">\(O(n)\)</span>.</li>
 </ul>
-<p align="center"> Table 6-1 &nbsp; Comparison of element query efficiency </p>
+<p align="center"> Table 6-1 &nbsp; Comparison of time efficiency for common operations </p>
 
 <div class="center-table">
 <table>
@@ -3634,19 +3634,19 @@
 </thead>
 <tbody>
 <tr>
-<td>Find Element</td>
+<td>Search Elements</td>
 <td><span class="arithmatex">\(O(n)\)</span></td>
 <td><span class="arithmatex">\(O(n)\)</span></td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 </tr>
 <tr>
-<td>Add Element</td>
+<td>Insert Elements</td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 </tr>
 <tr>
-<td>Delete Element</td>
+<td>Delete Elements</td>
 <td><span class="arithmatex">\(O(n)\)</span></td>
 <td><span class="arithmatex">\(O(n)\)</span></td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
@@ -3654,9 +3654,9 @@
 </tbody>
 </table>
 </div>
-<p>Observations reveal that <strong>the time complexity for adding, deleting, and querying in a hash table is <span class="arithmatex">\(O(1)\)</span></strong>, which is highly efficient.</p>
+<p>It can be seen that <strong>the time complexity for operations (insertion, deletion, searching, and modification) in a hash table is <span class="arithmatex">\(O(1)\)</span></strong>, which is highly efficient.</p>
 <h2 id="611-common-operations-of-hash-table">6.1.1 &nbsp; Common operations of hash table<a class="headerlink" href="#611-common-operations-of-hash-table" title="Permanent link">&para;</a></h2>
-<p>Common operations of a hash table include initialization, querying, adding key-value pairs, and deleting key-value pairs, etc. Example code is as follows:</p>
+<p>Common operations of a hash table include: initialization, querying, adding key-value pairs, and deleting key-value pairs. Here is an example code:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3893,7 +3893,7 @@
 <p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E8%BE%93%E5%85%A5%E9%94%AE%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
 <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E8%BE%93%E5%85%A5%E9%94%AE%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen &gt;</a></div></p>
 </details>
-<p>There are three common ways to traverse a hash table: traversing key-value pairs, keys, and values. Example code is as follows:</p>
+<p>There are three common ways to traverse a hash table: traversing key-value pairs, traversing keys, and traversing values. Here is an example code:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4072,18 +4072,18 @@
 <p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
 <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen &gt;</a></div></p>
 </details>
-<h2 id="612-simple-implementation-of-hash-table">6.1.2 &nbsp; Simple implementation of hash table<a class="headerlink" href="#612-simple-implementation-of-hash-table" title="Permanent link">&para;</a></h2>
-<p>First, let's consider the simplest case: <strong>implementing a hash table using just an array</strong>. In the hash table, each empty slot in the array is called a <u>bucket</u>, and each bucket can store one key-value pair. Therefore, the query operation involves finding the bucket corresponding to the <code>key</code> and retrieving the <code>value</code> from it.</p>
-<p>So, how do we locate the appropriate bucket based on the <code>key</code>? This is achieved through a <u>hash function</u>. The role of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space is all possible keys, and the output space is all buckets (array indices). In other words, input a <code>key</code>, <strong>and we can use the hash function to determine the storage location of the corresponding key-value pair in the array</strong>.</p>
-<p>The calculation process of the hash function for a given <code>key</code> is divided into the following two steps:</p>
+<h2 id="612-simple-implementation-of-a-hash-table">6.1.2 &nbsp; Simple implementation of a hash table<a class="headerlink" href="#612-simple-implementation-of-a-hash-table" title="Permanent link">&para;</a></h2>
+<p>First, let's consider the simplest case: <strong>implementing a hash table using only one array</strong>. In the hash table, each empty slot in the array is called a <u>bucket</u>, and each bucket can store a key-value pair. Therefore, the query operation involves finding the bucket corresponding to the <code>key</code> and retrieving the <code>value</code> from it.</p>
+<p>So, how do we locate the corresponding bucket based on the <code>key</code>? This is achieved through a <u>hash function</u>. The role of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space consists of all the keys, and the output space consists of all the buckets (array indices). In other words, given a <code>key</code>, <strong>we can use the hash function to determine the storage location of the corresponding key-value pair in the array</strong>.</p>
+<p>When given a <code>key</code>, the calculation process of the hash function consists of the following two steps:</p>
 <ol>
-<li>Calculate the hash value using a certain hash algorithm <code>hash()</code>.</li>
-<li>Take the modulus of the hash value with the number of buckets (array length) <code>capacity</code> to obtain the array index <code>index</code>.</li>
+<li>Calculate the hash value by using a certain hash algorithm <code>hash()</code>.</li>
+<li>Take the modulus of the hash value with the bucket count (array length) <code>capacity</code> to obtain the array <code>index</code> corresponding to that key.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
 </code></pre></div>
-<p>Afterward, we can use <code>index</code> to access the corresponding bucket in the hash table and thereby retrieve the <code>value</code>.</p>
-<p>Assuming array length <code>capacity = 100</code> and hash algorithm <code>hash(key) = key</code>, the hash function is <code>key % 100</code>. Figure 6-2 uses <code>key</code> as the student number and <code>value</code> as the name to demonstrate the working principle of the hash function.</p>
+<p>Afterward, we can use the <code>index</code> to access the corresponding bucket in the hash table and thereby retrieve the <code>value</code>.</p>
+<p>Let's assume that the array length is <code>capacity = 100</code>, and the hash algorithm is defined as <code>hash(key) = key</code>. Therefore, the hash function can be expressed as <code>key % 100</code>. The following figure illustrates the working principle of the hash function using <code>key</code> as student ID and <code>value</code> as name.</p>
 <p><a class="glightbox" href="../hash_map.assets/hash_function.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Working principle of hash function" class="animation-figure" src="../hash_map.assets/hash_function.png" /></a></p>
 <p align="center"> Figure 6-2 &nbsp; Working principle of hash function </p>
 
@@ -4426,22 +4426,22 @@
 </div>
 </div>
 <h2 id="613-hash-collision-and-resizing">6.1.3 &nbsp; Hash collision and resizing<a class="headerlink" href="#613-hash-collision-and-resizing" title="Permanent link">&para;</a></h2>
-<p>Fundamentally, the role of the hash function is to map the entire input space of all keys to the output space of all array indices. However, the input space is often much larger than the output space. Therefore, <strong>theoretically, there must be situations where "multiple inputs correspond to the same output"</strong>.</p>
-<p>For the hash function in the above example, if the last two digits of the input <code>key</code> are the same, the output of the hash function will also be the same. For example, when querying for students with student numbers 12836 and 20336, we find:</p>
+<p>Essentially, the role of the hash function is to map the entire input space of all keys to the output space of all array indices. However, the input space is often much larger than the output space. Therefore, <strong>theoretically, there will always be cases where "multiple inputs correspond to the same output"</strong>.</p>
+<p>In the example above, with the given hash function, when the last two digits of the input <code>key</code> are the same, the hash function produces the same output. For instance, when querying two students with student IDs 12836 and 20336, we find:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="m">12836</span><span class="w"> </span>%<span class="w"> </span><span class="nv">100</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
 <a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="m">20336</span><span class="w"> </span>%<span class="w"> </span><span class="nv">100</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
 </code></pre></div>
-<p>As shown in Figure 6-3, both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is known as <u>hash collision</u>.</p>
+<p>As shown in Figure 6-3, both student IDs point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is called <u>hash collision</u>.</p>
 <p><a class="glightbox" href="../hash_map.assets/hash_collision.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Example of hash collision" class="animation-figure" src="../hash_map.assets/hash_collision.png" /></a></p>
 <p align="center"> Figure 6-3 &nbsp; Example of hash collision </p>
 
-<p>It is easy to understand that the larger the capacity <span class="arithmatex">\(n\)</span> of the hash table, the lower the probability of multiple keys being allocated to the same bucket, and the fewer the collisions. Therefore, <strong>expanding the capacity of the hash table can reduce hash collisions</strong>.</p>
-<p>As shown in Figure 6-4, before expansion, key-value pairs <code>(136, A)</code> and <code>(236, D)</code> collided; after expansion, the collision is resolved.</p>
-<p><a class="glightbox" href="../hash_map.assets/hash_table_reshash.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Hash table expansion" class="animation-figure" src="../hash_map.assets/hash_table_reshash.png" /></a></p>
-<p align="center"> Figure 6-4 &nbsp; Hash table expansion </p>
+<p>It is easy to understand that as the capacity <span class="arithmatex">\(n\)</span> of the hash table increases, the probability of multiple keys being assigned to the same bucket decreases, resulting in fewer collisions. Therefore, <strong>we can reduce hash collisions by resizing the hash table</strong>.</p>
+<p>As shown in Figure 6-4, before resizing, the key-value pairs <code>(136, A)</code> and <code>(236, D)</code> collide. However, after resizing, the collision is resolved.</p>
+<p><a class="glightbox" href="../hash_map.assets/hash_table_reshash.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Hash table resizing" class="animation-figure" src="../hash_map.assets/hash_table_reshash.png" /></a></p>
+<p align="center"> Figure 6-4 &nbsp; Hash table resizing </p>
 
-<p>Similar to array expansion, resizing a hash table requires migrating all key-value pairs from the original hash table to the new one, which is time-consuming. Furthermore, since the capacity <code>capacity</code> of the hash table changes, we need to recalculate the storage positions of all key-value pairs using the hash function, which adds to the computational overhead of the resizing process. Therefore, programming languages often reserve a sufficiently large capacity for the hash table to prevent frequent resizing.</p>
-<p>The <u>load factor</u> is an important concept for hash tables. It is defined as the ratio of the number of elements in the hash table to the number of buckets. It is used to measure the severity of hash collisions and <strong>is often used as a trigger for resizing the hash table</strong>. For example, in Java, when the load factor exceeds <span class="arithmatex">\(0.75\)</span>, the system will resize the hash table to twice its original size.</p>
+<p>Similar to array expansion, resizing a hash table requires migrating all key-value pairs from the original hash table to the new one, which is time-consuming. Furthermore, since the <code>capacity</code> of the hash table changes, we need to recalculate the storage positions of all key-value pairs using the hash function, further increasing the computational overhead of the resizing process. Therefore, programming languages often allocate a sufficiently large capacity for the hash table to prevent frequent resizing.</p>
+<p>The <u>load factor</u> is an important concept in hash tables. It is defined as the ratio of the number of elements in the hash table to the number of buckets. It is used to measure the severity of hash collisions and <strong>often serves as a trigger for hash table resizing</strong>. For example, in Java, when the load factor exceeds <span class="arithmatex">\(0.75\)</span>, the system will resize the hash table to twice its original size.</p>
 
 <!-- Source file information -->
 
