@@ -79,7 +79,7 @@ func (h *maxHeap) push(val any) {
 
 /* 从节点 i 开始，从底至顶堆化 */
 func (h *maxHeap) siftUp(i int) {
-	for true {
+	for {
 		// 获取节点 i 的父节点
 		p := h.parent(i)
 		// 当“越过根节点”或“节点无须修复”时，结束堆化
@@ -114,7 +114,7 @@ func (h *maxHeap) pop() any {
 
 /* 从节点 i 开始，从顶至底堆化 */
 func (h *maxHeap) siftDown(i int) {
-	for true {
+	for {
 		// 判断节点 i, l, r 中值最大的节点，记为 max
 		l, r, max := h.left(i), h.right(i), i
 		if l < h.size() && h.data[l].(int) > h.data[max].(int) {
