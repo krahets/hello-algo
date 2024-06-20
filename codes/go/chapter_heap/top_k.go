@@ -35,6 +35,16 @@ func topKHeap(nums []int, k int) *minHeap {
 	// 初始化小顶堆
 	h := &minHeap{}
 	heap.Init(h)
+
+	// 如果k大于数组本身返回本身数组
+	if len(nums) < k {
+		for _, num := range nums {
+			heap.Push(h, num)
+		}
+
+		return h
+	}
+
 	// 将数组的前 k 个元素入堆
 	for i := 0; i < k; i++ {
 		heap.Push(h, nums[i])
