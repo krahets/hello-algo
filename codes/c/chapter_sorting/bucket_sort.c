@@ -6,77 +6,52 @@
 
 #include "../utils/common.h"
 
-#define ARRAY_SIZE 10
+#define SIZE 10
 
-/* 比较两个浮点数的大小 */
-int compare_float(const void *a, const void *b) {
+/* 用于 qsort 的比较函数 */
+int compare(const void *a, const void *b) {
     float fa = *(const float *)a;
     float fb = *(const float *)b;
     return (fa > fb) - (fa < fb);
 }
 
-/* 交换两个浮点数 */
-void swap(float *a, float *b) {
-    float tmp = *a;
-    *a = *b;
-    *b = tmp;
-}
-
 /* 桶排序 */
-void bucketSort(float nums[], int size) {
-    // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
-    int k = size / 2;
-    float **buckets = calloc(k, sizeof(float *));
-    for (int i = 0; i < k; i++) {
-        // 每个桶最多可以分配 k 个元素
-        buckets[i] = calloc(ARRAY_SIZE, sizeof(float));
+void bucketSort(float nums[], int n) {
+    int k = n / 2;                                 // 初始化 k = n/2 个桶
+    int *sizes = malloc(k * sizeof(int));          // 记录每个桶的大小
+    float **buckets = malloc(k * sizeof(float *)); // 动态数组的数组（桶）
+    // 为每个桶预分配足够的空间
+    for (int i = 0; i < k; ++i) {
+        buckets[i] = (float *)malloc(n * sizeof(float));
+        sizes[i] = 0;
     }
-
     // 1. 将数组元素分配到各个桶中
-    for (int i = 0; i < size; i++) {
-        // 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-        int bucket_idx = nums[i] * k;
-        int j = 0;
-        // 如果桶中有数据且数据小于当前值 nums[i], 要将其放到当前桶的后面，相当于 cpp 中的 push_back
-        while (buckets[bucket_idx][j] > 0 && buckets[bucket_idx][j] < nums[i]) {
-            j++;
-        }
-        float temp = nums[i];
-        while (j < ARRAY_SIZE && buckets[bucket_idx][j] > 0) {
-            swap(&temp, &buckets[bucket_idx][j]);
-            j++;
-        }
-        buckets[bucket_idx][j] = temp;
+    for (int i = 0; i < n; ++i) {
+        int idx = (int)(nums[i] * k);
+        buckets[idx][sizes[idx]++] = nums[i];
     }
-
     // 2. 对各个桶执行排序
-    for (int i = 0; i < k; i++) {
-        qsort(buckets[i], ARRAY_SIZE, sizeof(float), compare_float);
+    for (int i = 0; i < k; ++i) {
+        qsort(buckets[i], sizes[i], sizeof(float), compare);
     }
-
-    // 3. 遍历桶合并结果
-    for (int i = 0, j = 0; j < k; j++) {
-        for (int l = 0; l < ARRAY_SIZE; l++) {
-            if (buckets[j][l] > 0) {
-                nums[i++] = buckets[j][l];
-            }
+    // 3. 合并排序后的桶
+    int idx = 0;
+    for (int i = 0; i < k; ++i) {
+        for (int j = 0; j < sizes[i]; ++j) {
+            nums[idx++] = buckets[i][j];
         }
-    }
-
-    // 释放上述分配的内存
-    for (int i = 0; i < k; i++) {
+        // 释放内存
         free(buckets[i]);
     }
-    free(buckets);
 }
 
 /* Driver Code */
 int main() {
     // 设输入数据为浮点数，范围为 [0, 1)
-    float nums[ARRAY_SIZE] = {0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f};
-    bucketSort(nums, ARRAY_SIZE);
+    float nums[SIZE] = {0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f};
+    bucketSort(nums, SIZE);
     printf("桶排序完成后 nums = ");
-    printArrayFloat(nums, ARRAY_SIZE);
+    printArrayFloat(nums, SIZE);
 
     return 0;
 }

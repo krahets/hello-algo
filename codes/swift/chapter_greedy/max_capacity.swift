@@ -7,7 +7,7 @@
 /* 最大容量：贪心 */
 func maxCapacity(ht: [Int]) -> Int {
     // 初始化 i, j，使其分列数组两端
-    var i = 0, j = ht.count - 1
+    var i = ht.startIndex, j = ht.endIndex - 1
     // 初始最大容量为 0
     var res = 0
     // 循环贪心选择，直至两板相遇

@@ -1,6 +1,6 @@
 # 双向队列
 
-在队列中，我们仅能删除头部元素或在尾部添加元素。如下图所示，「双向队列 double-ended queue」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
+在队列中，我们仅能删除头部元素或在尾部添加元素。如下图所示，<u>双向队列（double-ended queue）</u>提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
 
 ![双向队列的操作](deque.assets/deque_operations.png)
 
@@ -27,28 +27,28 @@
     from collections import deque
 
     # 初始化双向队列
-    deque: deque[int] = deque()
-    
+    deq: deque[int] = deque()
+
     # 元素入队
-    deque.append(2)      # 添加至队尾
-    deque.append(5)
-    deque.append(4)
-    deque.appendleft(3)  # 添加至队首
-    deque.appendleft(1)
-    
+    deq.append(2)      # 添加至队尾
+    deq.append(5)
+    deq.append(4)
+    deq.appendleft(3)  # 添加至队首
+    deq.appendleft(1)
+
     # 访问元素
-    front: int = deque[0]  # 队首元素
-    rear: int = deque[-1]  # 队尾元素
-    
+    front: int = deq[0]  # 队首元素
+    rear: int = deq[-1]  # 队尾元素
+
     # 元素出队
-    pop_front: int = deque.popleft()  # 队首元素出队
-    pop_rear: int = deque.pop()       # 队尾元素出队
-    
+    pop_front: int = deq.popleft()  # 队首元素出队
+    pop_rear: int = deq.pop()       # 队尾元素出队
+
     # 获取双向队列的长度
-    size: int = len(deque)
-    
+    size: int = len(deq)
+
     # 判断双向队列是否为空
-    is_empty: bool = len(deque) == 0
+    is_empty: bool = len(deq) == 0
     ```
 
 === "C++"
@@ -56,25 +56,25 @@
     ```cpp title="deque.cpp"
     /* 初始化双向队列 */
     deque<int> deque;
-    
+
     /* 元素入队 */
     deque.push_back(2);   // 添加至队尾
     deque.push_back(5);
     deque.push_back(4);
     deque.push_front(3);  // 添加至队首
     deque.push_front(1);
-    
+
     /* 访问元素 */
     int front = deque.front(); // 队首元素
     int back = deque.back();   // 队尾元素
-    
+
     /* 元素出队 */
     deque.pop_front();  // 队首元素出队
     deque.pop_back();   // 队尾元素出队
-    
+
     /* 获取双向队列的长度 */
     int size = deque.size();
-    
+
     /* 判断双向队列是否为空 */
     bool empty = deque.empty();
     ```
@@ -84,25 +84,25 @@
     ```java title="deque.java"
     /* 初始化双向队列 */
     Deque<Integer> deque = new LinkedList<>();
-    
+
     /* 元素入队 */
     deque.offerLast(2);   // 添加至队尾
     deque.offerLast(5);
     deque.offerLast(4);
     deque.offerFirst(3);  // 添加至队首
     deque.offerFirst(1);
-    
+
     /* 访问元素 */
     int peekFirst = deque.peekFirst();  // 队首元素
     int peekLast = deque.peekLast();    // 队尾元素
-    
+
     /* 元素出队 */
     int popFirst = deque.pollFirst();  // 队首元素出队
     int popLast = deque.pollLast();    // 队尾元素出队
-    
+
     /* 获取双向队列的长度 */
     int size = deque.size();
-    
+
     /* 判断双向队列是否为空 */
     boolean isEmpty = deque.isEmpty();
     ```
@@ -113,25 +113,25 @@
     /* 初始化双向队列 */
     // 在 C# 中，将链表 LinkedList 看作双向队列来使用
     LinkedList<int> deque = new();
-    
+
     /* 元素入队 */
     deque.AddLast(2);   // 添加至队尾
     deque.AddLast(5);
     deque.AddLast(4);
     deque.AddFirst(3);  // 添加至队首
     deque.AddFirst(1);
-    
+
     /* 访问元素 */
     int peekFirst = deque.First.Value;  // 队首元素
     int peekLast = deque.Last.Value;    // 队尾元素
-    
+
     /* 元素出队 */
     deque.RemoveFirst();  // 队首元素出队
     deque.RemoveLast();   // 队尾元素出队
-    
+
     /* 获取双向队列的长度 */
     int size = deque.Count;
-    
+
     /* 判断双向队列是否为空 */
     bool isEmpty = deque.Count == 0;
     ```
@@ -142,25 +142,25 @@
     /* 初始化双向队列 */
     // 在 Go 中，将 list 作为双向队列使用
     deque := list.New()
-    
+
     /* 元素入队 */
     deque.PushBack(2)      // 添加至队尾
     deque.PushBack(5)
     deque.PushBack(4)
     deque.PushFront(3)     // 添加至队首
     deque.PushFront(1)
-    
+
     /* 访问元素 */
     front := deque.Front() // 队首元素
     rear := deque.Back()   // 队尾元素
-    
+
     /* 元素出队 */
     deque.Remove(front)    // 队首元素出队
     deque.Remove(rear)     // 队尾元素出队
-    
+
     /* 获取双向队列的长度 */
     size := deque.Len()
-    
+
     /* 判断双向队列是否为空 */
     isEmpty := deque.Len() == 0
     ```
@@ -283,7 +283,7 @@
     int size = deque.length;
 
     /* 判断双向队列是否为空 */
-    bool isEmpty = deque.isEmpty;W
+    bool isEmpty = deque.isEmpty;
     ```
 
 === "Rust"
@@ -322,6 +322,65 @@
 
     ```c title="deque.c"
     // C 未提供内置双向队列
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="deque.kt"
+    /* 初始化双向队列 */
+    val deque = LinkedList<Int>()
+
+    /* 元素入队 */
+    deque.offerLast(2)  // 添加至队尾
+    deque.offerLast(5)
+    deque.offerLast(4)
+    deque.offerFirst(3) // 添加至队首
+    deque.offerFirst(1)
+
+    /* 访问元素 */
+    val peekFirst = deque.peekFirst() // 队首元素
+    val peekLast = deque.peekLast()   // 队尾元素
+
+    /* 元素出队 */
+    val popFirst = deque.pollFirst() // 队首元素出队
+    val popLast = deque.pollLast()   // 队尾元素出队
+
+    /* 获取双向队列的长度 */
+    val size = deque.size
+
+    /* 判断双向队列是否为空 */
+    val isEmpty = deque.isEmpty()
+    ```
+
+=== "Ruby"
+
+    ```ruby title="deque.rb"
+    # 初始化双向队列
+    # Ruby 没有内直的双端队列，只能把 Array 当作双端队列来使用
+    deque = []
+
+    # 元素如队
+    deque << 2
+    deque << 5
+    deque << 4
+    # 请注意，由于是数组，Array#unshift 方法的时间复杂度为 O(n)
+    deque.unshift(3)
+    deque.unshift(1)
+
+    # 访问元素
+    peek_first = deque.first
+    peek_last = deque.last
+
+    # 元素出队
+    # 请注意，由于是数组， Array#shift 方法的时间复杂度为 O(n)
+    pop_front = deque.shift
+    pop_back = deque.pop
+
+    # 获取双向队列的长度
+    size = deque.length
+
+    # 判断双向队列是否为空
+    is_empty = size.zero?
     ```
 
 === "Zig"

@@ -207,6 +207,15 @@ body {
   width: 1.25em;
 }
 
+/* code block tabs */
+.md-typeset .tabbed-labels>label {
+  font-size: 0.61rem;
+}
+
+.md-typeset .tabbed-labels--linked>label>a {
+  padding: .78125em 1.0em .625em;
+}
+
 /* header banner */
 .md-banner {
   background-color: var(--md-code-bg-color);
@@ -452,7 +461,7 @@ a:hover .text-button span {
 
 .profile-cell {
   flex: 1; /* even distribution */
-  flex-basis: 15%;
+  flex-basis: 20%;
   margin: 1em 0.5em;
   text-align: center;
 }
@@ -513,13 +522,6 @@ a:hover .text-button span {
 
   .text-button {
     margin: 0.7em auto;
-  }
-
-  .profile-div {
-    max-width: 30em;
-  }
-  .profile-cell {
-    flex-basis: 25%;
   }
 }
 

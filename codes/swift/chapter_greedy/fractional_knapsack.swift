@@ -20,7 +20,7 @@ func fractionalKnapsack(wgt: [Int], val: [Int], cap: Int) -> Double {
     // 创建物品列表，包含两个属性：重量、价值
     var items = zip(wgt, val).map { Item(w: $0, v: $1) }
     // 按照单位价值 item.v / item.w 从高到低进行排序
-    items.sort(by: { -(Double($0.v) / Double($0.w)) < -(Double($1.v) / Double($1.w)) })
+    items.sort { -(Double($0.v) / Double($0.w)) < -(Double($1.v) / Double($1.w)) }
     // 循环贪心选择
     var res = 0.0
     var cap = cap

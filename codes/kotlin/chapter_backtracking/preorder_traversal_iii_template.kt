@@ -8,21 +8,20 @@ package chapter_backtracking.preorder_traversal_iii_template
 
 import utils.TreeNode
 import utils.printTree
-import java.util.*
 
 /* 判断当前状态是否为解 */
-fun isSolution(state: List<TreeNode?>): Boolean {
-    return state.isNotEmpty() && state[state.size - 1]?.value == 7
+fun isSolution(state: MutableList<TreeNode?>): Boolean {
+    return state.isNotEmpty() && state[state.size - 1]?._val == 7
 }
 
 /* 记录解 */
-fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<List<TreeNode?>?>) {
-    res.add(state?.let { ArrayList(it) })
+fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<MutableList<TreeNode?>?>) {
+    res.add(state!!.toMutableList())
 }
 
 /* 判断在当前状态下，该选择是否合法 */
-fun isValid(state: List<TreeNode?>?, choice: TreeNode?): Boolean {
-    return choice != null && choice.value != 3
+fun isValid(state: MutableList<TreeNode?>?, choice: TreeNode?): Boolean {
+    return choice != null && choice._val != 3
 }
 
 /* 更新状态 */
@@ -38,8 +37,8 @@ fun undoChoice(state: MutableList<TreeNode?>, choice: TreeNode?) {
 /* 回溯算法：例题三 */
 fun backtrack(
     state: MutableList<TreeNode?>,
-    choices: List<TreeNode?>,
-    res: MutableList<List<TreeNode?>?>
+    choices: MutableList<TreeNode?>,
+    res: MutableList<MutableList<TreeNode?>?>
 ) {
     // 检查是否为解
     if (isSolution(state)) {
@@ -53,7 +52,7 @@ fun backtrack(
             // 尝试：做出选择，更新状态
             makeChoice(state, choice)
             // 进行下一轮选择
-            backtrack(state, listOf(choice!!.left, choice.right), res)
+            backtrack(state, mutableListOf(choice!!.left, choice.right), res)
             // 回退：撤销选择，恢复到之前的状态
             undoChoice(state, choice)
         }
@@ -67,15 +66,15 @@ fun main() {
     printTree(root)
 
     // 回溯算法
-    val res: MutableList<List<TreeNode?>?> = ArrayList()
-    backtrack(ArrayList(), mutableListOf(root), res)
+    val res = mutableListOf<MutableList<TreeNode?>?>()
+    backtrack(mutableListOf(), mutableListOf(root), res)
 
     println("\n输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点")
     for (path in res) {
-        val vals = ArrayList<Int>()
+        val vals = mutableListOf<Int>()
         for (node in path!!) {
             if (node != null) {
-                vals.add(node.value)
+                vals.add(node._val)
             }
         }
         println(vals)

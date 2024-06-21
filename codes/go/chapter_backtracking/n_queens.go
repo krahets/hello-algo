@@ -15,6 +15,7 @@ func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, d
 
 		}
 		*res = append(*res, newState)
+		return
 	}
 	// 遍历所有列
 	for col := 0; col < n; col++ {

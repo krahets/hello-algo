@@ -10,8 +10,8 @@ func unboundedKnapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
     // 初始化 dp 表
     var dp = Array(repeating: Array(repeating: 0, count: cap + 1), count: n + 1)
     // 状态转移
-    for i in stride(from: 1, through: n, by: 1) {
-        for c in stride(from: 1, through: cap, by: 1) {
+    for i in 1 ... n {
+        for c in 1 ... cap {
             if wgt[i - 1] > c {
                 // 若超过背包容量，则不选物品 i
                 dp[i][c] = dp[i - 1][c]
@@ -30,8 +30,8 @@ func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
     // 初始化 dp 表
     var dp = Array(repeating: 0, count: cap + 1)
     // 状态转移
-    for i in stride(from: 1, through: n, by: 1) {
-        for c in stride(from: 1, through: cap, by: 1) {
+    for i in 1 ... n {
+        for c in 1 ... cap {
             if wgt[i - 1] > c {
                 // 若超过背包容量，则不选物品 i
                 dp[c] = dp[c]

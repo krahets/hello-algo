@@ -9,15 +9,15 @@ package chapter_heap
 import utils.printHeap
 import java.util.*
 
-fun testPush(heap: Queue<Int>, value: Int) {
-    heap.offer(value) // 元素入堆
-    print("\n元素 $value 入堆后\n")
+fun testPush(heap: Queue<Int>, _val: Int) {
+    heap.offer(_val) // 元素入堆
+    print("\n元素 $_val 入堆后\n")
     printHeap(heap)
 }
 
 fun testPop(heap: Queue<Int>) {
-    val value = heap.poll() // 堆顶元素出堆
-    print("\n堆顶元素 $value 出堆后\n")
+    val _val = heap.poll() // 堆顶元素出堆
+    print("\n堆顶元素 $_val 出堆后\n")
     printHeap(heap)
 }
 
@@ -25,7 +25,7 @@ fun testPop(heap: Queue<Int>) {
 fun main() {
     /* 初始化堆 */
     // 初始化小顶堆
-    val minHeap: PriorityQueue<Int>
+    var minHeap = PriorityQueue<Int>()
 
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }

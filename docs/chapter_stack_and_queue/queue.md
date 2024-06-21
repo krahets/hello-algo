@@ -1,6 +1,6 @@
 # 队列
 
-「队列 queue」是一种遵循先入先出规则的线性数据结构。顾名思义，队列模拟了排队现象，即新来的人不断加入队列尾部，而位于队列头部的人逐个离开。
+<u>队列（queue）</u>是一种遵循先入先出规则的线性数据结构。顾名思义，队列模拟了排队现象，即新来的人不断加入队列尾部，而位于队列头部的人逐个离开。
 
 如下图所示，我们将队列头部称为“队首”，尾部称为“队尾”，将把元素加入队尾的操作称为“入队”，删除队首元素的操作称为“出队”。
 
@@ -29,23 +29,23 @@
     # 在 Python 中，我们一般将双向队列类 deque 当作队列使用
     # 虽然 queue.Queue() 是纯正的队列类，但不太好用，因此不推荐
     que: deque[int] = deque()
-    
+
     # 元素入队
     que.append(1)
     que.append(3)
     que.append(2)
     que.append(5)
     que.append(4)
-    
+
     # 访问队首元素
     front: int = que[0]
-    
+
     # 元素出队
     pop: int = que.popleft()
-    
+
     # 获取队列的长度
     size: int = len(que)
-    
+
     # 判断队列是否为空
     is_empty: bool = len(que) == 0
     ```
@@ -55,23 +55,23 @@
     ```cpp title="queue.cpp"
     /* 初始化队列 */
     queue<int> queue;
-    
+
     /* 元素入队 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    
+
     /* 访问队首元素 */
     int front = queue.front();
-    
+
     /* 元素出队 */
     queue.pop();
-    
+
     /* 获取队列的长度 */
     int size = queue.size();
-    
+
     /* 判断队列是否为空 */
     bool empty = queue.empty();
     ```
@@ -81,23 +81,23 @@
     ```java title="queue.java"
     /* 初始化队列 */
     Queue<Integer> queue = new LinkedList<>();
-    
+
     /* 元素入队 */
     queue.offer(1);
     queue.offer(3);
     queue.offer(2);
     queue.offer(5);
     queue.offer(4);
-    
+
     /* 访问队首元素 */
     int peek = queue.peek();
-    
+
     /* 元素出队 */
     int pop = queue.poll();
-    
+
     /* 获取队列的长度 */
     int size = queue.size();
-    
+
     /* 判断队列是否为空 */
     boolean isEmpty = queue.isEmpty();
     ```
@@ -107,23 +107,23 @@
     ```csharp title="queue.cs"
     /* 初始化队列 */
     Queue<int> queue = new();
-    
+
     /* 元素入队 */
     queue.Enqueue(1);
     queue.Enqueue(3);
     queue.Enqueue(2);
     queue.Enqueue(5);
     queue.Enqueue(4);
-    
+
     /* 访问队首元素 */
     int peek = queue.Peek();
-    
+
     /* 元素出队 */
     int pop = queue.Dequeue();
-    
+
     /* 获取队列的长度 */
     int size = queue.Count;
-    
+
     /* 判断队列是否为空 */
     bool isEmpty = queue.Count == 0;
     ```
@@ -134,24 +134,24 @@
     /* 初始化队列 */
     // 在 Go 中，将 list 作为队列来使用
     queue := list.New()
-    
+
     /* 元素入队 */
     queue.PushBack(1)
     queue.PushBack(3)
     queue.PushBack(2)
     queue.PushBack(5)
     queue.PushBack(4)
-    
+
     /* 访问队首元素 */
     peek := queue.Front()
-    
+
     /* 元素出队 */
     pop := queue.Front()
     queue.Remove(pop)
-    
+
     /* 获取队列的长度 */
     size := queue.Len()
-    
+
     /* 判断队列是否为空 */
     isEmpty := queue.Len() == 0
     ```
@@ -162,24 +162,24 @@
     /* 初始化队列 */
     // Swift 没有内置的队列类，可以把 Array 当作队列来使用
     var queue: [Int] = []
-    
+
     /* 元素入队 */
     queue.append(1)
     queue.append(3)
     queue.append(2)
     queue.append(5)
     queue.append(4)
-    
+
     /* 访问队首元素 */
     let peek = queue.first!
-    
+
     /* 元素出队 */
     // 由于是数组，因此 removeFirst 的复杂度为 O(n)
     let pool = queue.removeFirst()
-    
+
     /* 获取队列的长度 */
     let size = queue.count
-    
+
     /* 判断队列是否为空 */
     let isEmpty = queue.isEmpty
     ```
@@ -190,24 +190,24 @@
     /* 初始化队列 */
     // JavaScript 没有内置的队列，可以把 Array 当作队列来使用
     const queue = [];
-    
+
     /* 元素入队 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    
+
     /* 访问队首元素 */
     const peek = queue[0];
-    
+
     /* 元素出队 */
     // 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
     const pop = queue.shift();
-    
+
     /* 获取队列的长度 */
     const size = queue.length;
-    
+
     /* 判断队列是否为空 */
     const empty = queue.length === 0;
     ```
@@ -216,26 +216,26 @@
 
     ```typescript title="queue.ts"
     /* 初始化队列 */
-    // TypeScript 没有内置的队列，可以把 Array 当作队列来使用 
+    // TypeScript 没有内置的队列，可以把 Array 当作队列来使用
     const queue: number[] = [];
-    
+
     /* 元素入队 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    
+
     /* 访问队首元素 */
     const peek = queue[0];
-    
+
     /* 元素出队 */
     // 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
     const pop = queue.shift();
-    
+
     /* 获取队列的长度 */
     const size = queue.length;
-    
+
     /* 判断队列是否为空 */
     const empty = queue.length === 0;
     ```
@@ -300,6 +300,60 @@
 
     ```c title="queue.c"
     // C 未提供内置队列
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="queue.kt"
+    /* 初始化队列 */
+    val queue = LinkedList<Int>()
+
+    /* 元素入队 */
+    queue.offer(1)
+    queue.offer(3)
+    queue.offer(2)
+    queue.offer(5)
+    queue.offer(4)
+
+    /* 访问队首元素 */
+    val peek = queue.peek()
+
+    /* 元素出队 */
+    val pop = queue.poll()
+
+    /* 获取队列的长度 */
+    val size = queue.size
+
+    /* 判断队列是否为空 */
+    val isEmpty = queue.isEmpty()
+    ```
+
+=== "Ruby"
+
+    ```ruby title="queue.rb"
+    # 初始化队列
+    # Ruby 内置的队列（Thread::Queue) 没有 peek 和遍历方法，可以把 Array 当作队列来使用
+    queue = []
+
+    # 元素入队
+    queue.push(1)
+    queue.push(3)
+    queue.push(2)
+    queue.push(5)
+    queue.push(4)
+
+    # 访问队列元素
+    peek = queue.first
+
+    # 元素出队
+    # 清注意，由于是数组，Array#shift 方法时间复杂度为 O(n)
+    pop = queue.shift
+
+    # 获取队列的长度
+    size = queue.length
+
+    # 判断队列是否为空
+    is_empty = queue.empty?
     ```
 
 === "Zig"

@@ -9,10 +9,10 @@ site_dir: site
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
 edit_uri: tree/main/docs
-version: 1.0.0
+version: 1.1.0
 
 # Copyright
-copyright: Copyright &copy; 2022-2024 krahets</br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+copyright: Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
 
 # Configuration
 theme:
@@ -68,16 +68,19 @@ theme:
 
 extra:
   alternate:
-    - name: 中文
+    - name: 简体中文
       link: /
       lang: zh
+    - name: 繁體中文
+      link: /zh-hant/
+      lang: zh-Hant
     - name: English
       link: /en/
       lang: en
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/krahets
-    - icon: fontawesome/brands/twitter
+    - icon: fontawesome/brands/x-twitter
       link: https://twitter.com/krahets
     - icon: fontawesome/solid/code
       link: https://leetcode.cn/u/jyd/
@@ -140,7 +143,7 @@ markdown_extensions:
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js
   # - javascripts/katex.js 
   # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
   # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
@@ -151,6 +154,8 @@ extra_css:
 
 # Page tree
 nav:
+  - 序:
+    - chapter_hello_algo/index.md
   - 第 0 章 &nbsp; 前言:
     # [icon: material/book-open-outline]
     - chapter_preface/index.md

@@ -14,12 +14,10 @@ fun randomNumbers(n: Int): Array<Int?> {
         nums[i] = i + 1
     }
     // 随机打乱数组元素
-    val mutableList = nums.toMutableList()
-    mutableList.shuffle()
-    // Integer[] -> int[]
+    nums.shuffle()
     val res = arrayOfNulls<Int>(n)
     for (i in 0..<n) {
-        res[i] = mutableList[i]
+        res[i] = nums[i]
     }
     return res
 }
@@ -39,8 +37,8 @@ fun findOne(nums: Array<Int?>): Int {
 fun main() {
     for (i in 0..9) {
         val n = 100
-        val nums: Array<Int?> = randomNumbers(n)
-        val index: Int = findOne(nums)
+        val nums = randomNumbers(n)
+        val index = findOne(nums)
         println("\n数组 [ 1, 2, ..., n ] 被打乱后 = ${nums.contentToString()}")
         println("数字 1 的索引为 $index")
     }

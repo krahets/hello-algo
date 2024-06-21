@@ -11,11 +11,11 @@ fun backtrack(
     state: MutableList<Int>,
     choices: IntArray,
     selected: BooleanArray,
-    res: MutableList<List<Int>?>
+    res: MutableList<MutableList<Int>?>
 ) {
     // 当状态长度等于元素数量时，记录解
     if (state.size == choices.size) {
-        res.add(ArrayList(state))
+        res.add(state.toMutableList())
         return
     }
     // 遍历所有选择
@@ -36,9 +36,9 @@ fun backtrack(
 }
 
 /* 全排列 I */
-fun permutationsI(nums: IntArray): List<List<Int>?> {
-    val res: MutableList<List<Int>?> = ArrayList()
-    backtrack(ArrayList(), nums, BooleanArray(nums.size), res)
+fun permutationsI(nums: IntArray): MutableList<MutableList<Int>?> {
+    val res = mutableListOf<MutableList<Int>?>()
+    backtrack(mutableListOf(), nums, BooleanArray(nums.size), res)
     return res
 }
 

@@ -51,4 +51,4 @@ const res = subsetSumI(nums, target);
 console.log(`输入数组 nums = ${JSON.stringify(nums)}, target = ${target}`);
 console.log(`所有和等于 ${target} 的子集 res = ${JSON.stringify(res)}`);
 
-export { };
+export {};

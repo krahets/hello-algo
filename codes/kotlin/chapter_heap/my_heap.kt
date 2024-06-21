@@ -10,13 +10,14 @@ import utils.printHeap
 import java.util.*
 
 /* 大顶堆 */
-class MaxHeap(nums: List<Int>?) {
+class MaxHeap(nums: MutableList<Int>?) {
     // 使用列表而非数组，这样无须考虑扩容问题
-    // 将列表元素原封不动添加进堆
-    private val maxHeap = ArrayList(nums!!)
+    private val maxHeap = mutableListOf<Int>()
 
-    /* 构造函数，根据输入列表建堆 */
+    /* 构造方法，根据输入列表建堆 */
     init {
+        // 将列表元素原封不动添加进堆
+        maxHeap.addAll(nums!!)
         // 堆化除叶节点以外的其他所有节点
         for (i in parent(size() - 1) downTo 0) {
             siftDown(i)
@@ -40,7 +41,9 @@ class MaxHeap(nums: List<Int>?) {
 
     /* 交换元素 */
     private fun swap(i: Int, j: Int) {
-        maxHeap[i] = maxHeap[j].also { maxHeap[j] = maxHeap[i] }
+        val temp = maxHeap[i]
+        maxHeap[i] = maxHeap[j]
+        maxHeap[j] = temp
     }
 
     /* 获取堆大小 */
@@ -60,9 +63,9 @@ class MaxHeap(nums: List<Int>?) {
     }
 
     /* 元素入堆 */
-    fun push(value: Int) {
+    fun push(_val: Int) {
         // 添加节点
-        maxHeap.add(value)
+        maxHeap.add(_val)
         // 从底至顶堆化
         siftUp(size() - 1)
     }
@@ -90,11 +93,11 @@ class MaxHeap(nums: List<Int>?) {
         // 交换根节点与最右叶节点（交换首元素与尾元素）
         swap(0, size() - 1)
         // 删除节点
-        val value = maxHeap.removeAt(size() - 1)
+        val _val = maxHeap.removeAt(size() - 1)
         // 从顶至底堆化
         siftDown(0)
         // 返回堆顶元素
-        return value
+        return _val
     }
 
     /* 从节点 i 开始，从顶至底堆化 */
@@ -137,9 +140,9 @@ fun main() {
     print("\n堆顶元素为 $peek\n")
 
     /* 元素入堆 */
-    val value = 7
-    maxHeap.push(value)
-    print("\n元素 $value 入堆后\n")
+    val _val = 7
+    maxHeap.push(_val)
+    print("\n元素 $_val 入堆后\n")
     maxHeap.print()
 
     /* 堆顶元素出堆 */

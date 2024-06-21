@@ -8,16 +8,21 @@ package chapter_hashing
 
 /* 开放寻址哈希表 */
 class HashMapOpenAddressing {
-    private var size: Int = 0 // 键值对数量
-    private var capacity = 4 // 哈希表容量
-    private val loadThres: Double = 2.0 / 3.0 // 触发扩容的负载因子阈值
-    private val extendRatio = 2 // 扩容倍数
-    private var buckets: Array<Pair?> // 桶数组
-    private val TOMBSTONE = Pair(-1, "-1") // 删除标记
+    private var size: Int               // 键值对数量
+    private var capacity: Int           // 哈希表容量
+    private val loadThres: Double       // 触发扩容的负载因子阈值
+    private val extendRatio: Int        // 扩容倍数
+    private var buckets: Array<Pair?>   // 桶数组
+    private val TOMBSTONE: Pair         // 删除标记
 
     /* 构造方法 */
     init {
+        size = 0
+        capacity = 4
+        loadThres = 2.0 / 3.0
+        extendRatio = 2
         buckets = arrayOfNulls(capacity)
+        TOMBSTONE = Pair(-1, "-1")
     }
 
     /* 哈希函数 */
@@ -63,14 +68,14 @@ class HashMapOpenAddressing {
         val index = findBucket(key)
         // 若找到键值对，则返回对应 val
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
-            return buckets[index]?.value
+            return buckets[index]?._val
         }
         // 若键值对不存在，则返回 null
         return null
     }
 
     /* 添加操作 */
-    fun put(key: Int, value: String) {
+    fun put(key: Int, _val: String) {
         // 当负载因子超过阈值时，执行扩容
         if (loadFactor() > loadThres) {
             extend()
@@ -79,11 +84,11 @@ class HashMapOpenAddressing {
         val index = findBucket(key)
         // 若找到键值对，则覆盖 val 并返回
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
-            buckets[index]!!.value = value
+            buckets[index]!!._val = _val
             return
         }
         // 若键值对不存在，则添加该键值对
-        buckets[index] = Pair(key, value)
+        buckets[index] = Pair(key, _val)
         size++
     }
 
@@ -109,7 +114,7 @@ class HashMapOpenAddressing {
         // 将键值对从原哈希表搬运至新哈希表
         for (pair in bucketsTmp) {
             if (pair != null && pair != TOMBSTONE) {
-                put(pair.key, pair.value)
+                put(pair.key, pair._val)
             }
         }
     }
@@ -122,7 +127,7 @@ class HashMapOpenAddressing {
             } else if (pair == TOMBSTONE) {
                 println("TOMESTOME")
             } else {
-                println("${pair.key} -> ${pair.value}")
+                println("${pair.key} -> ${pair._val}")
             }
         }
     }

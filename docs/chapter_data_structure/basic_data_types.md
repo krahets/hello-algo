@@ -101,10 +101,10 @@
 
     ```swift title=""
     // 使用多种基本数据类型来初始化数组
-    let numbers = Array(repeating: Int(), count: 5)
-    let decimals = Array(repeating: Double(), count: 5)
-    let characters = Array(repeating: Character("a"), count: 5)
-    let bools = Array(repeating: Bool(), count: 5)
+    let numbers = Array(repeating: 0, count: 5)
+    let decimals = Array(repeating: 0.0, count: 5)
+    let characters: [Character] = Array(repeating: "a", count: 5)
+    let bools = Array(repeating: false, count: 5)
     ```
 
 === "JS"
@@ -153,10 +153,27 @@
     bool bools[10];
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    // 使用多种基本数据类型来初始化数组
+    val numbers = IntArray(5)
+    val decinals = FloatArray(5)
+    val characters = CharArray(5)
+    val bools = BooleanArray(5)
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+    # Ruby 的列表可以自由存储各种基本数据类型和对象引用
+    data = [0, 0.0, 'a', false, ListNode(0)]
+    ```
+
 === "Zig"
 
     ```zig title=""
-    
+
     ```
 
 ??? pythontutor "可视化运行"

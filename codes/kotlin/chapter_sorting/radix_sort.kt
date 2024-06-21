@@ -1,6 +1,6 @@
 /**
  * File: radix_sort.kt
- * Created Time: 2024-1-25
+ * Created Time: 2024-01-25
  * Author: curtishd (1023632660@qq.com)
  */
 
@@ -20,7 +20,7 @@ fun countingSortDigit(nums: IntArray, exp: Int) {
     // 统计 0~9 各数字的出现次数
     for (i in 0..<n) {
         val d = digit(nums[i], exp) // 获取 nums[i] 第 k 位，记为 d
-        counter[d]++ // 统计数字 d 的出现次数
+        counter[d]++                // 统计数字 d 的出现次数
     }
     // 求前缀和，将“出现个数”转换为“数组索引”
     for (i in 1..9) {
@@ -31,11 +31,12 @@ fun countingSortDigit(nums: IntArray, exp: Int) {
     for (i in n - 1 downTo 0) {
         val d = digit(nums[i], exp)
         val j = counter[d] - 1 // 获取 d 在数组中的索引 j
-        res[j] = nums[i] // 将当前元素填入索引 j
-        counter[d]-- // 将 d 的数量减 1
+        res[j] = nums[i]       // 将当前元素填入索引 j
+        counter[d]--           // 将 d 的数量减 1
     }
     // 使用结果覆盖原数组 nums
-    for (i in 0..<n) nums[i] = res[i]
+    for (i in 0..<n)
+        nums[i] = res[i]
 }
 
 /* 基数排序 */

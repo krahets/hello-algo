@@ -10,10 +10,10 @@ import utils.printMatrix
 
 /* 基于邻接矩阵实现的无向图类 */
 class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
-    val vertices: MutableList<Int> = ArrayList() // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    val adjMat: MutableList<MutableList<Int>> = ArrayList() // 邻接矩阵，行列索引对应“顶点索引”
+    val vertices = mutableListOf<Int>() // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+    val adjMat = mutableListOf<MutableList<Int>>() // 邻接矩阵，行列索引对应“顶点索引”
 
-    /* 构造函数 */
+    /* 构造方法 */
     init {
         // 添加顶点
         for (vertex in vertices) {
@@ -32,12 +32,12 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     }
 
     /* 添加顶点 */
-    fun addVertex(value: Int) {
+    fun addVertex(_val: Int) {
         val n = size()
         // 向顶点列表中添加新顶点的值
-        vertices.add(value)
+        vertices.add(_val)
         // 在邻接矩阵中添加一行
-        val newRow: MutableList<Int> = mutableListOf()
+        val newRow = mutableListOf<Int>()
         for (j in 0..<n) {
             newRow.add(0)
         }
@@ -50,7 +50,8 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
 
     /* 删除顶点 */
     fun removeVertex(index: Int) {
-        if (index >= size()) throw IndexOutOfBoundsException()
+        if (index >= size())
+            throw IndexOutOfBoundsException()
         // 在顶点列表中移除索引 index 的顶点
         vertices.removeAt(index)
         // 在邻接矩阵中删除索引 index 的行
@@ -65,26 +66,28 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     // 参数 i, j 对应 vertices 元素索引
     fun addEdge(i: Int, j: Int) {
         // 索引越界与相等处理
-        if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) throw java.lang.IndexOutOfBoundsException()
+        if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
+            throw IndexOutOfBoundsException()
         // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
-        adjMat[i][j] = 1;
-        adjMat[j][i] = 1;
+        adjMat[i][j] = 1
+        adjMat[j][i] = 1
     }
 
     /* 删除边 */
     // 参数 i, j 对应 vertices 元素索引
     fun removeEdge(i: Int, j: Int) {
         // 索引越界与相等处理
-        if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) throw java.lang.IndexOutOfBoundsException()
-        adjMat[i][j] = 0;
-        adjMat[j][i] = 0;
+        if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
+            throw IndexOutOfBoundsException()
+        adjMat[i][j] = 0
+        adjMat[j][i] = 0
     }
 
     /* 打印邻接矩阵 */
     fun print() {
         print("顶点列表 = ")
-        println(vertices);
-        println("邻接矩阵 =");
+        println(vertices)
+        println("邻接矩阵 =")
         printMatrix(adjMat)
     }
 }

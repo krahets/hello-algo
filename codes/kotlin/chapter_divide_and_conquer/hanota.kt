@@ -1,6 +1,6 @@
 /**
  * File: hanota.kt
- * Created Time: 2024-1-25
+ * Created Time: 2024-01-25
  * Author: curtishd (1023632660@qq.com)
  */
 
@@ -9,7 +9,7 @@ package chapter_divide_and_conquer.hanota
 /* 移动一个圆盘 */
 fun move(src: MutableList<Int>, tar: MutableList<Int>) {
     // 从 src 顶部拿出一个圆盘
-    val pan: Int = src.removeAt(src.size - 1)
+    val pan = src.removeAt(src.size - 1)
     // 将圆盘放入 tar 顶部
     tar.add(pan)
 }
@@ -39,9 +39,9 @@ fun solveHanota(A: MutableList<Int>, B: MutableList<Int>, C: MutableList<Int>) {
 /* Driver Code */
 fun main() {
     // 列表尾部是柱子顶部
-    val A: MutableList<Int> = ArrayList(mutableListOf(5, 4, 3, 2, 1))
-    val B: MutableList<Int> = ArrayList()
-    val C: MutableList<Int> = ArrayList()
+    val A = mutableListOf(5, 4, 3, 2, 1)
+    val B = mutableListOf<Int>()
+    val C = mutableListOf<Int>()
     println("初始状态下：")
     println("A = $A")
     println("B = $B")

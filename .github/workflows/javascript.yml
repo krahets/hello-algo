@@ -1,0 +1,27 @@
+name: JavaScript
+
+on:
+  push:
+    branches: ['main']
+    paths: ['codes/javascript/**/*.js']
+  pull_request:
+    branches: ['main']
+    paths: ['codes/javascript/**/*.js']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - name: Run JavaScript Code
+        run: deno run -A codes/javascript/test_all.js

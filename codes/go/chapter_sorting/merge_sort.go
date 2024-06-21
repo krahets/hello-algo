@@ -46,7 +46,7 @@ func mergeSort(nums []int, left, right int) {
 		return
 	}
 	// 划分阶段
-	mid := (left + right) / 2
+	mid := left + (right - left) / 2
 	mergeSort(nums, left, mid)
 	mergeSort(nums, mid+1, right)
 	// 合并阶段

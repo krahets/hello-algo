@@ -1,6 +1,6 @@
 /**
  * File: quick_sort.kt
- * Created Time: 2024-1-25
+ * Created Time: 2024-01-25
  * Author: curtishd (1023632660@qq.com)
  */
 
@@ -8,7 +8,9 @@ package chapter_sorting
 
 /* 元素交换 */
 fun swap(nums: IntArray, i: Int, j: Int) {
-    nums[i] = nums[j].also { nums[j] = nums[i] }
+    val temp = nums[i]
+    nums[i] = nums[j]
+    nums[j] = temp
 }
 
 /* 哨兵划分 */

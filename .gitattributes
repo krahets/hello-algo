@@ -13,6 +13,7 @@
 *.rs linguist-language=Other
 *.ts linguist-language=Other
 *.dart linguist-language=Other
+*.kt linguist-language=Other
 
 *.html linguist-detectable=false
 *.css linguist-detectable=false
