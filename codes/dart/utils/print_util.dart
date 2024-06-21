@@ -16,7 +16,7 @@ class Trunk {
   Trunk(this.prev, this.str);
 }
 
-/* Print a matrix (Array) */
+/* 打印矩阵 (Array) */
 void printMatrix(List<List<int>> matrix) {
   print("[");
   for (List<int> row in matrix) {
@@ -25,7 +25,7 @@ void printMatrix(List<List<int>> matrix) {
   print("]");
 }
 
-/* Print a linked list */
+/* 打印链表 */
 void printLinkedList(ListNode? head) {
   List<String> list = [];
 
@@ -38,7 +38,7 @@ void printLinkedList(ListNode? head) {
 }
 
 /**
- * The interface of the tree printer
+ * 打印二叉树
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
@@ -72,7 +72,6 @@ void printTree(TreeNode? root, [Trunk? prev = null, bool isRight = false]) {
   printTree(root.left, trunk, false);
 }
 
-/* Helper function to print branches of the binary tree */
 void showTrunks(Trunk? p) {
   if (p == null) {
     return;
@@ -82,7 +81,7 @@ void showTrunks(Trunk? p) {
   stdout.write(p.str);
 }
 
-/* Print a heap (PriorityQueue) */
+/* 打印堆 */
 void printHeap(List<int> heap) {
   print("堆的数组表示：$heap");
   print("堆的树状表示：");

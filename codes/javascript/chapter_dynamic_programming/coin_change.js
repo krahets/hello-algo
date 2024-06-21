@@ -31,7 +31,7 @@ function coinChangeDP(coins, amt) {
     return dp[n][amt] !== MAX ? dp[n][amt] : -1;
 }
 
-/* 零钱兑换：状态压缩后的动态规划 */
+/* 零钱兑换：空间优化后的动态规划 */
 function coinChangeDPComp(coins, amt) {
     const n = coins.length;
     const MAX = amt + 1;
@@ -61,6 +61,6 @@ const amt = 4;
 let res = coinChangeDP(coins, amt);
 console.log(`凑到目标金额所需的最少硬币数量为 ${res}`);
 
-// 状态压缩后的动态规划
+// 空间优化后的动态规划
 res = coinChangeDPComp(coins, amt);
 console.log(`凑到目标金额所需的最少硬币数量为 ${res}`);

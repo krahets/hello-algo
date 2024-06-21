@@ -8,8 +8,6 @@
 
 /* AVL 树 */
 class AVLTree {
-  public:
-    TreeNode *root; // 根节点
   private:
     /* 更新节点高度 */
     void updateHeight(TreeNode *node) {
@@ -134,6 +132,8 @@ class AVLTree {
     }
 
   public:
+    TreeNode *root; // 根节点
+
     /* 获取节点高度 */
     int height(TreeNode *node) {
         // 空节点高度为 -1 ，叶节点高度为 0

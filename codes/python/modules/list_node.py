@@ -14,7 +14,7 @@ class ListNode:
 
 
 def list_to_linked_list(arr: list[int]) -> ListNode | None:
-    """将列表序列化为链表"""
+    """将列表反序列化为链表"""
     dum = head = ListNode(0)
     for a in arr:
         node = ListNode(a)
@@ -24,7 +24,7 @@ def list_to_linked_list(arr: list[int]) -> ListNode | None:
 
 
 def linked_list_to_list(head: ListNode | None) -> list[int]:
-    """将链表反序列化为列表"""
+    """将链表序列化为列表"""
     arr: list[int] = []
     while head:
         arr.append(head.val)

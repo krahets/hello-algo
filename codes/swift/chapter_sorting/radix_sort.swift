@@ -14,7 +14,6 @@ func digit(num: Int, exp: Int) -> Int {
 func countingSortDigit(nums: inout [Int], exp: Int) {
     // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶数组
     var counter = Array(repeating: 0, count: 10)
-    let n = nums.count
     // 统计 0~9 各数字的出现次数
     for i in nums.indices {
         let d = digit(num: nums[i], exp: exp) // 获取 nums[i] 第 k 位，记为 d
@@ -25,8 +24,8 @@ func countingSortDigit(nums: inout [Int], exp: Int) {
         counter[i] += counter[i - 1]
     }
     // 倒序遍历，根据桶内统计结果，将各元素填入 res
-    var res = Array(repeating: 0, count: n)
-    for i in stride(from: n - 1, through: 0, by: -1) {
+    var res = Array(repeating: 0, count: nums.count)
+    for i in nums.indices.reversed() {
         let d = digit(num: nums[i], exp: exp)
         let j = counter[d] - 1 // 获取 d 在数组中的索引 j
         res[j] = nums[i] // 将当前元素填入索引 j
@@ -62,8 +61,18 @@ enum RadixSort {
     /* Driver Code */
     static func main() {
         // 基数排序
-        var nums = [10546151, 35663510, 42865989, 34862445, 81883077, 
-                           88906420, 72429244, 30524779, 82060337, 63832996]
+        var nums = [
+            10_546_151,
+            35_663_510,
+            42_865_989,
+            34_862_445,
+            81_883_077,
+            88_906_420,
+            72_429_244,
+            30_524_779,
+            82_060_337,
+            63_832_996,
+        ]
         radixSort(nums: &nums)
         print("基数排序完成后 nums = \(nums)")
     }

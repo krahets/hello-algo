@@ -16,12 +16,11 @@ func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
         if nums[i] <= nums[j] {
             tmp[k] = nums[i]
             i += 1
-            k += 1
         } else {
             tmp[k] = nums[j]
             j += 1
-            k += 1
         }
+        k += 1
     }
     // 将左子数组和右子数组的剩余元素复制到临时数组中
     while i <= mid {
@@ -47,7 +46,7 @@ func mergeSort(nums: inout [Int], left: Int, right: Int) {
         return
     }
     // 划分阶段
-    let mid = (left + right) / 2 // 计算中点
+    let mid = left + (right - left) / 2 // 计算中点
     mergeSort(nums: &nums, left: left, right: mid) // 递归左子数组
     mergeSort(nums: &nums, left: mid + 1, right: right) // 递归右子数组
     // 合并阶段
@@ -60,7 +59,7 @@ enum MergeSort {
     static func main() {
         /* 归并排序 */
         var nums = [7, 3, 2, 6, 0, 1, 5, 4]
-        mergeSort(nums: &nums, left: 0, right: nums.count - 1)
+        mergeSort(nums: &nums, left: nums.startIndex, right: nums.endIndex - 1)
         print("归并排序完成后 nums = \(nums)")
     }
 }

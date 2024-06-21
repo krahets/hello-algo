@@ -67,4 +67,4 @@ console.log(`尾递归函数的求和结果 res = ${res}`);
 res = fib(n);
 console.log(`斐波那契数列的第 ${n} 项为 ${res}`);
 
-export { };
+export {};

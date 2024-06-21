@@ -11,15 +11,15 @@ import utils.ListNode
 /* Driver Code */
 fun main() {
     val num = 3
-    val hashNum = Integer.hashCode(num)
+    val hashNum = num.hashCode()
     println("整数 $num 的哈希值为 $hashNum")
 
     val bol = true
-    val hashBol = Boolean.hashCode()
+    val hashBol = bol.hashCode()
     println("布尔量 $bol 的哈希值为 $hashBol")
 
     val dec = 3.14159
-    val hashDec = java.lang.Double.hashCode(dec)
+    val hashDec = dec.hashCode()
     println("小数 $dec 的哈希值为 $hashDec")
 
     val str = "Hello 算法"
@@ -28,7 +28,7 @@ fun main() {
 
     val arr = arrayOf<Any>(12836, "小哈")
     val hashTup = arr.contentHashCode()
-    println("数组 ${arr.contentToString()} 的哈希值为 ${hashTup}")
+    println("数组 ${arr.contentToString()} 的哈希值为 $hashTup")
 
     val obj = ListNode(0)
     val hashObj = obj.hashCode()

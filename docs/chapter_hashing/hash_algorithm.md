@@ -299,7 +299,7 @@ $$
     ```rust title="built_in_hash.rs"
     use std::collections::hash_map::DefaultHasher;
     use std::hash::{Hash, Hasher};
-    
+
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
@@ -341,6 +341,62 @@ $$
 
     ```c title="built_in_hash.c"
     // C 未提供内置 hash code 函数
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="built_in_hash.kt"
+    val num = 3
+    val hashNum = num.hashCode()
+    // 整数 3 的哈希值为 3
+
+    val bol = true
+    val hashBol = bol.hashCode()
+    // 布尔量 true 的哈希值为 1231
+
+    val dec = 3.14159
+    val hashDec = dec.hashCode()
+    // 小数 3.14159 的哈希值为 -1340954729
+
+    val str = "Hello 算法"
+    val hashStr = str.hashCode()
+    // 字符串“Hello 算法”的哈希值为 -727081396
+
+    val arr = arrayOf<Any>(12836, "小哈")
+    val hashTup = arr.hashCode()
+    // 数组 [12836, 小哈] 的哈希值为 189568618
+
+    val obj = ListNode(0)
+    val hashObj = obj.hashCode()
+    // 节点对象 utils.ListNode@1d81eb93 的哈希值为 495053715
+    ```
+
+=== "Ruby"
+
+    ```ruby title="built_in_hash.rb"
+    num = 3
+    hash_num = num.hash
+    # 整数 3 的哈希值为 -4385856518450339636
+
+    bol = true
+    hash_bol = bol.hash
+    # 布尔量 true 的哈希值为 -1617938112149317027
+
+    dec = 3.14159
+    hash_dec = dec.hash
+    # 小数 3.14159 的哈希值为 -1479186995943067893
+
+    str = "Hello 算法"
+    hash_str = str.hash
+    # 字符串“Hello 算法”的哈希值为 -4075943250025831763
+
+    tup = [12836, '小哈']
+    hash_tup = tup.hash
+    # 元组 (12836, '小哈') 的哈希值为 1999544809202288822
+
+    obj = ListNode.new(0)
+    hash_obj = obj.hash
+    # 节点对象 #<ListNode:0x000078133140ab70> 的哈希值为 4302940560806366381
     ```
 
 === "Zig"

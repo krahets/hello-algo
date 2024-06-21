@@ -12,7 +12,7 @@ fn bucket_sort(nums: &mut [f64]) {
     let k = nums.len() / 2;
     let mut buckets = vec![vec![]; k];
     // 1. 将数组元素分配到各个桶中
-    for &mut num in &mut *nums {
+    for &num in nums.iter() {
         // 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
         let i = (num * k as f64) as usize;
         // 将 num 添加进桶 i
@@ -25,8 +25,8 @@ fn bucket_sort(nums: &mut [f64]) {
     }
     // 3. 遍历桶合并结果
     let mut i = 0;
-    for bucket in &mut buckets {
-        for &mut num in bucket {
+    for bucket in buckets.iter() {
+        for &num in bucket.iter() {
             nums[i] = num;
             i += 1;
         }

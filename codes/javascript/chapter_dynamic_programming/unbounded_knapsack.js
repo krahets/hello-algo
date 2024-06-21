@@ -29,7 +29,7 @@ function unboundedKnapsackDP(wgt, val, cap) {
     return dp[n][cap];
 }
 
-/* 完全背包：状态压缩后的动态规划 */
+/* 完全背包：空间优化后的动态规划 */
 function unboundedKnapsackDPComp(wgt, val, cap) {
     const n = wgt.length;
     // 初始化 dp 表
@@ -58,6 +58,6 @@ const cap = 4;
 let res = unboundedKnapsackDP(wgt, val, cap);
 console.log(`不超过背包容量的最大物品价值为 ${res}`);
 
-// 状态压缩后的动态规划
+// 空间优化后的动态规划
 res = unboundedKnapsackDPComp(wgt, val, cap);
 console.log(`不超过背包容量的最大物品价值为 ${res}`);

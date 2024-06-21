@@ -1,20 +1,18 @@
 /**
  * File: bucket_sort.kt
- * Created Time: 2024-1-25
+ * Created Time: 2024-01-25
  * Author: curtishd (1023632660@qq.com)
  */
 
 package chapter_sorting
 
-import kotlin.collections.ArrayList
-
 /* 桶排序 */
 fun bucketSort(nums: FloatArray) {
     // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
     val k = nums.size / 2
-    val buckets = ArrayList<ArrayList<Float>>()
+    val buckets = mutableListOf<MutableList<Float>>()
     for (i in 0..<k) {
-        buckets.add(ArrayList())
+        buckets.add(mutableListOf())
     }
     // 1. 将数组元素分配到各个桶中
     for (num in nums) {

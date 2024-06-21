@@ -1,6 +1,6 @@
 # 空间复杂度
 
-「空间复杂度 space complexity」用于衡量算法占用内存空间随着数据量变大时的增长趋势。这个概念与时间复杂度非常类似，只需将“运行时间”替换为“占用内存空间”。
+<u>空间复杂度（space complexity）</u>用于衡量算法占用内存空间随着数据量变大时的增长趋势。这个概念与时间复杂度非常类似，只需将“运行时间”替换为“占用内存空间”。
 
 ## 算法相关空间
 
@@ -309,6 +309,58 @@
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    /* 类 */
+    class Node(var _val: Int) {
+        var next: Node? = null
+    }
+
+    /* 函数 */
+    fun function(): Int {
+        // 执行某些操作...
+        return 0
+    }
+
+    fun algorithm(n: Int): Int { // 输入数据
+        val a = 0                // 暂存数据（常量）
+        var b = 0                // 暂存数据（变量）
+        val node = Node(0)       // 暂存数据（对象）
+        val c = function()       // 栈帧空间（调用函数）
+        return a + b + c         // 输出数据
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+    ### 类 ###
+    class Node
+        attr_accessor :val      # 节点值
+        attr_accessor :next     # 指向下一节点的引用
+
+        def initialize(x)
+            @val = x
+        end
+    end
+
+    ### 函数 ###
+    def function
+        # 执行某些操作...
+        0
+    end
+
+    ### 算法 ###
+    def algorithm(n)        # 输入数据
+        a = 0               # 暂存数据（常量）
+        b = 0               # 暂存数据（变量）
+        node = Node.new(0)  # 暂存数据（对象）
+        c = function        # 栈帧空间（调用函数）
+        a + b + c           # 输出数据
+    end
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -455,6 +507,28 @@
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    fun algorithm(n: Int) {
+        val a = 0                    // O(1)
+        val b = IntArray(10000)      // O(1)
+        if (n > 10) {
+            val nums = IntArray(n)   // O(n)
+        }
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+    def algorithm(n)
+        a = 0                           # O(1)
+        b = Array.new(10000)            # O(1)
+        nums = Array.new(n) if n > 10   # O(n)
+    end
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -475,9 +549,10 @@
         for _ in range(n):
             function()
 
-    def recur(n: int) -> int:
+    def recur(n: int):
         """递归的空间复杂度为 O(n)"""
-        if n == 1: return
+        if n == 1:
+            return
         return recur(n - 1)
     ```
 
@@ -488,13 +563,13 @@
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
@@ -508,13 +583,13 @@
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             function();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
@@ -528,13 +603,13 @@
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     void Loop(int n) {
         for (int i = 0; i < n; i++) {
             Function();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     int Recur(int n) {
         if (n == 1) return 1;
         return Recur(n - 1);
@@ -549,14 +624,14 @@
         return 0
     }
     
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
     
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     func recur(n int) {
         if n == 1 {
             return
@@ -574,14 +649,14 @@
         return 0
     }
 
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     func loop(n: Int) {
         for _ in 0 ..< n {
             function()
         }
     }
 
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     func recur(n: Int) {
         if n == 1 {
             return
@@ -597,13 +672,13 @@
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     function loop(n) {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     function recur(n) {
         if (n === 1) return;
         return recur(n - 1);
@@ -617,13 +692,13 @@
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     function loop(n: number): void {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     function recur(n: number): void {
         if (n === 1) return;
         return recur(n - 1);
@@ -637,13 +712,13 @@
       // 执行某些操作
       return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     void loop(int n) {
       for (int i = 0; i < n; i++) {
         function();
       }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     void recur(int n) {
       if (n == 1) return;
       return recur(n - 1);
@@ -657,14 +732,14 @@
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     fn loop(n: i32) {
         for i in 0..n {
             function();
         }
     }
-    /* 递归 O(n) */
-    void recur(n: i32) {
+    /* 递归的空间复杂度为 O(n) */
+    fn recur(n: i32) {
         if n == 1 {
             return;
         }
@@ -679,17 +754,57 @@
         // 执行某些操作
         return 0;
     }
-    /* 循环 O(1) */
+    /* 循环的空间复杂度为 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* 递归 O(n) */
+    /* 递归的空间复杂度为 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
     }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+    fun function(): Int {
+        // 执行某些操作
+        return 0
+    }
+    /* 循环的空间复杂度为 O(1) */
+    fun loop(n: Int) {
+        for (i in 0..<n) {
+            function()
+        }
+    }
+    /* 递归的空间复杂度为 O(n) */
+    fun recur(n: Int) {
+        if (n == 1) return
+        return recur(n - 1)
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+    def function
+        # 执行某些操作
+        0
+    end
+
+    ### 循环的空间复杂度为 O(1) ###
+    def loop(n)
+        (0...n).each { function }
+    end
+
+    ### 递归的空间复杂度为 O(n) ###
+    def recur(n)
+        return if n == 1
+        recur(n - 1)
+    end
     ```
 
 === "Zig"

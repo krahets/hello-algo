@@ -1,0 +1,37 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by separate terms of service, privacy policy, and support documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake。
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+
+name: Ruby
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: ["codes/ruby/**/*.rb"]
+  pull_request:
+    branches: [ "main" ]
+    paths: ["codes/ruby/**/*.rb"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+
+    name: Ruby ${{ matrix.ruby-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        ruby-version: ['3.3']
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+    - name: Run tests
+      run: ruby codes/ruby/test_all.rb

@@ -19,7 +19,7 @@ fun minCostClimbingStairsDP(cost: IntArray): Int {
     dp[2] = cost[2]
     // 状态转移：从较小子问题逐步求解较大子问题
     for (i in 3..n) {
-        dp[i] = (min(dp[i - 1].toDouble(), dp[i - 2].toDouble()) + cost[i]).toInt()
+        dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
     }
     return dp[n]
 }
@@ -32,7 +32,7 @@ fun minCostClimbingStairsDPComp(cost: IntArray): Int {
     var b = cost[2]
     for (i in 3..n) {
         val tmp = b
-        b = (min(a.toDouble(), tmp.toDouble()) + cost[i]).toInt()
+        b = min(a, tmp) + cost[i]
         a = tmp
     }
     return b

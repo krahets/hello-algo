@@ -9,11 +9,11 @@ package chapter_array_and_linkedlist
 /* 列表类 */
 class MyList {
     private var arr: IntArray = intArrayOf() // 数组（存储列表元素）
-    private var capacity = 10 // 列表容量
-    private var size = 0 // 列表长度（当前元素数量）
-    private var extendRatio = 2 // 每次列表扩容的倍数
+    private var capacity: Int = 10 // 列表容量
+    private var size: Int = 0 // 列表长度（当前元素数量）
+    private var extendRatio: Int = 2 // 每次列表扩容的倍数
 
-    /* 构造函数 */
+    /* 构造方法 */
     init {
         arr = IntArray(capacity)
     }
@@ -32,7 +32,7 @@ class MyList {
     fun get(index: Int): Int {
         // 索引如果越界，则抛出异常，下同
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException()
+            throw IndexOutOfBoundsException("索引越界")
         return arr[index]
     }
 
@@ -72,7 +72,7 @@ class MyList {
     fun remove(index: Int): Int {
         if (index < 0 || index >= size)
             throw IndexOutOfBoundsException("索引越界")
-        val num: Int = arr[index]
+        val num = arr[index]
         // 将将索引 index 之后的元素都向前移动一位
         for (j in index..<size - 1)
             arr[j] = arr[j + 1]

@@ -17,8 +17,8 @@ func countingSortNaive(nums: inout [Int]) {
     }
     // 3. 遍历 counter ，将各元素填入原数组 nums
     var i = 0
-    for num in stride(from: 0, to: m + 1, by: 1) {
-        for _ in stride(from: 0, to: counter[num], by: 1) {
+    for num in 0 ..< m + 1 {
+        for _ in 0 ..< counter[num] {
             nums[i] = num
             i += 1
         }
@@ -38,19 +38,19 @@ func countingSort(nums: inout [Int]) {
     }
     // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
     // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
-    for i in stride(from: 0, to: m, by: 1) {
+    for i in 0 ..< m {
         counter[i + 1] += counter[i]
     }
     // 4. 倒序遍历 nums ，将各元素填入结果数组 res
     // 初始化数组 res 用于记录结果
     var res = Array(repeating: 0, count: nums.count)
-    for i in stride(from: nums.count - 1, through: 0, by: -1) {
+    for i in nums.indices.reversed() {
         let num = nums[i]
         res[counter[num] - 1] = num // 将 num 放置到对应索引处
         counter[num] -= 1 // 令前缀和自减 1 ，得到下次放置 num 的索引
     }
     // 使用结果数组 res 覆盖原数组 nums
-    for i in stride(from: 0, to: nums.count, by: 1) {
+    for i in nums.indices {
         nums[i] = res[i]
     }
 }

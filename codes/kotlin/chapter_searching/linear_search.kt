@@ -1,6 +1,6 @@
 /**
  * File: linear_search.kt
- * Created Time: 2024-1-25
+ * Created Time: 2024-01-25
  * Author: curtishd (1023632660@qq.com)
  */
 
@@ -26,7 +26,7 @@ fun linearSearchLinkedList(h: ListNode?, target: Int): ListNode? {
     var head = h
     while (head != null) {
         // 找到目标节点，返回之
-        if (head.value == target)
+        if (head._val == target)
             return head
         head = head.next
     }

@@ -17,7 +17,7 @@ func climbingStairsConstraintDP(n: Int) -> Int {
     dp[2][1] = 0
     dp[2][2] = 1
     // 状态转移：从较小子问题逐步求解较大子问题
-    for i in stride(from: 3, through: n, by: 1) {
+    for i in 3 ... n {
         dp[i][1] = dp[i - 1][2]
         dp[i][2] = dp[i - 2][1] + dp[i - 2][2]
     }

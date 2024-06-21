@@ -12,7 +12,7 @@ func topKHeap(nums: [Int], k: Int) -> [Int] {
     // 初始化一个小顶堆，并将前 k 个元素建堆
     var heap = Heap(nums.prefix(k))
     // 从第 k+1 个元素开始，保持堆的长度为 k
-    for i in stride(from: k, to: nums.count, by: 1) {
+    for i in nums.indices.dropFirst(k) {
         // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
         if nums[i] > heap.min()! {
             _ = heap.removeMin()

@@ -6,11 +6,10 @@
 
 package chapter_hashing
 
-const val MODULUS = 10_0000_0007
-
 /* 加法哈希 */
 fun addHash(key: String): Int {
     var hash = 0L
+    val MODULUS = 1000000007
     for (c in key.toCharArray()) {
         hash = (hash + c.code) % MODULUS
     }
@@ -20,6 +19,7 @@ fun addHash(key: String): Int {
 /* 乘法哈希 */
 fun mulHash(key: String): Int {
     var hash = 0L
+    val MODULUS = 1000000007
     for (c in key.toCharArray()) {
         hash = (31 * hash + c.code) % MODULUS
     }
@@ -29,6 +29,7 @@ fun mulHash(key: String): Int {
 /* 异或哈希 */
 fun xorHash(key: String): Int {
     var hash = 0
+    val MODULUS = 1000000007
     for (c in key.toCharArray()) {
         hash = hash xor c.code
     }
@@ -38,6 +39,7 @@ fun xorHash(key: String): Int {
 /* 旋转哈希 */
 fun rotHash(key: String): Int {
     var hash = 0L
+    val MODULUS = 1000000007
     for (c in key.toCharArray()) {
         hash = ((hash shl 4) xor (hash shr 28) xor c.code.toLong()) % MODULUS
     }
@@ -48,7 +50,7 @@ fun rotHash(key: String): Int {
 fun main() {
     val key = "Hello 算法"
 
-    var hash: Int = addHash(key)
+    var hash = addHash(key)
     println("加法哈希值为 $hash")
 
     hash = mulHash(key)

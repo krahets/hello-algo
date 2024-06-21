@@ -1,0 +1,24 @@
+name: Kotlin
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: ["codes/kotlin/**/*.kt"]
+  pull_request:
+    branches: [ "main" ]
+    paths: ["codes/kotlin/**/*.kt"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+
+    name: Kotlin on ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4.1.2
+
+      - name: Build JAR
+        run: kotlinc codes/kotlin/**/*.kt -include-runtime -d codes/kotlin/build/test.jar

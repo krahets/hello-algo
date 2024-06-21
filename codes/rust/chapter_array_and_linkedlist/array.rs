@@ -18,7 +18,7 @@ fn random_access(nums: &[i32]) -> i32 {
 }
 
 /* 扩展数组长度 */
-fn extend(nums: Vec<i32>, enlarge: usize) -> Vec<i32> {
+fn extend(nums: &[i32], enlarge: usize) -> Vec<i32> {
     // 初始化一个扩展长度后的数组
     let mut res: Vec<i32> = vec![0; nums.len() + enlarge];
     // 将原数组中的所有元素复制到新
@@ -30,7 +30,7 @@ fn extend(nums: Vec<i32>, enlarge: usize) -> Vec<i32> {
 }
 
 /* 在数组的索引 index 处插入元素 num */
-fn insert(nums: &mut Vec<i32>, num: i32, index: usize) {
+fn insert(nums: &mut [i32], num: i32, index: usize) {
     // 把索引 index 以及之后的所有元素向后移动一位
     for i in (index + 1..nums.len()).rev() {
         nums[i] = nums[i - 1];
@@ -40,7 +40,7 @@ fn insert(nums: &mut Vec<i32>, num: i32, index: usize) {
 }
 
 /* 删除索引 index 处的元素 */
-fn remove(nums: &mut Vec<i32>, index: usize) {
+fn remove(nums: &mut [i32], index: usize) {
     // 把索引 index 之后的所有元素向前移动一位
     for i in index..nums.len() - 1 {
         nums[i] = nums[i + 1];
@@ -73,13 +73,14 @@ fn find(nums: &[i32], target: i32) -> Option<usize> {
 /* Driver Code */
 fn main() {
     /* 初始化数组 */
-    let arr = [0; 5];
+    let arr: [i32; 5] = [0; 5];
     print!("数组 arr = ");
     print_util::print_array(&arr);
-    // 在 Rust 中，指定长度时（[i32; 5]）为数组
+    // 在 Rust 中，指定长度时（[i32; 5]）为数组，不指定长度时（&[i32]）为切片
     // 由于 Rust 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
-    // 为了方便实现扩容 extend() 方法，以下将(Vec) 看作数组（Array）也是rust一般情况下使用动态数组的类型
-    let nums = vec![1, 3, 2, 5, 4];
+    // Vector 是 Rust 一般情况下用作动态数组的类型
+    // 为了方便实现扩容 extend() 方法，以下将 vector 看作数组（array）
+    let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     print!("\n数组 nums = ");
     print_util::print_array(&nums);
 
@@ -88,7 +89,7 @@ fn main() {
     println!("\n在 nums 中获取随机元素 {}", random_num);
 
     // 长度扩展
-    let mut nums = extend(nums, 3);
+    let mut nums: Vec<i32> = extend(&nums, 3);
     print!("将数组长度扩展至 8 ，得到 nums = ");
     print_util::print_array(&nums);
 

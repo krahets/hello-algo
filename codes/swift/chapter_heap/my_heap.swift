@@ -15,7 +15,7 @@ class MaxHeap {
         // 将列表元素原封不动添加进堆
         maxHeap = nums
         // 堆化除叶节点以外的其他所有节点
-        for i in stride(from: parent(i: size() - 1), through: 0, by: -1) {
+        for i in (0 ... parent(i: size() - 1)).reversed() {
             siftDown(i: i)
         }
     }

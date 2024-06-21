@@ -28,7 +28,7 @@ public class graph_dfs {
     static List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
         List<Vertex> res = new ArrayList<>();
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         Set<Vertex> visited = new HashSet<>();
         dfs(graph, visited, res, startVet);
         return res;
