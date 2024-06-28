@@ -57,7 +57,7 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
         Left  *TreeNode
         Right *TreeNode
     }
-    /* 构造方法 */
+    /* Constructor */
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
             Left:  nil, // Pointer to left child node
@@ -141,7 +141,7 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
     }
 
     impl TreeNode {
-        /* 构造方法 */
+        /* Constructor */
         fn new(val: i32) -> Rc<RefCell<Self>> {
             Rc::new(RefCell::new(Self {
                 val,
@@ -158,12 +158,12 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
     /* Binary tree node */
     typedef struct TreeNode {
         int val;                // Node value
-        int height;             // 节点高度
+        int height;             // Node height
         struct TreeNode *left;  // Pointer to left child node
         struct TreeNode *right; // Pointer to right child node
     } TreeNode;
 
-    /* 构造函数 */
+    /* Constructor */
     TreeNode *newTreeNode(int val) {
         TreeNode *node;
 
