@@ -42,6 +42,13 @@ impl GraphAdjList {
         {
             panic!("value error");
         }
+
+        // 判断边是否已经存在
+        if self.adj_list[&vet1].contains(&vet2) || self.adj_list[&vet2].contains(&vet1) {
+            println!("边 {}-{} 已经存在，无需重复添加", vet1.val, vet2.val);
+            return;
+        }
+
         // 添加边 vet1 - vet2
         self.adj_list.get_mut(&vet1).unwrap().push(vet2);
         self.adj_list.get_mut(&vet2).unwrap().push(vet1);
@@ -54,6 +61,13 @@ impl GraphAdjList {
         {
             panic!("value error");
         }
+
+        // 判断边是否存在
+        if !self.adj_list[&vet1].contains(&vet2) || !self.adj_list[&vet2].contains(&vet1) {
+            println!("边 {}-{} 不存在，无需删除", vet1.val, vet2.val);
+            return;
+        }
+
         // 删除边 vet1 - vet2
         self.adj_list
             .get_mut(&vet1)
