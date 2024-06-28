@@ -150,7 +150,7 @@
         a = a + 1;          // 1 ns
         a = a * 2;          // 10 ns
         // 循环 n 次
-        for _ in 0..n {     // 1 ns ，每轮都要执行 i++
+        for _ in 0..n {     // 1 ns
             println!("{}", 0);  // 5 ns
         }
     }
