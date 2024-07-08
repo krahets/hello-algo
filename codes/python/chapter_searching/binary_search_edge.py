@@ -33,7 +33,18 @@ def binary_search_right_edge(nums: list[int], target: int) -> int:
         return -1
     # 找到 target ，返回索引 j
     return j
-
+def binary_search_edge(nums: list[int], target: int) -> int:
+    """二分查找target左右边界"""
+    # 当数组中不包含target时,索引i,j最终分别指向首个大于,小于target的元素
+    # 左侧边界查找 = 查找target-0.5 ;返回索引i
+    # 右侧边界查找 = 查找target+0.5 ;返回索引j
+    i = binary_search_insertion(nums, target - 0.5)
+    j = binary_search_insertion(nums, target + 0.5) - 1
+    # 当数组中存在元素target时,左侧边界<=右侧边界
+    if i > j:
+        return -1, -1
+    else:
+    	return i, j
 
 """Driver Code"""
 if __name__ == "__main__":
@@ -47,3 +58,7 @@ if __name__ == "__main__":
         print(f"最左一个元素 {target} 的索引为 {index}")
         index = binary_search_right_edge(nums, target)
         print(f"最右一个元素 {target} 的索引为 {index}")
+    # 二分查找左右边界
+    for target1 in [6,8,10]:
+        left_index,right_index = binary_search_edge(nums, target1)
+        print(f"元素 {target1} 的左右边界索引分别为 {left_index}, {right_index}")
