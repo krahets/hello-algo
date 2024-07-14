@@ -174,7 +174,16 @@ For example, consider the following code with an input size of $n$:
 === "Kotlin"
 
     ```kotlin title=""
-
+    // Under a particular operating platform
+    fun algorithm(n: Int) {
+        var a = 2 // 1 ns
+        a = a + 1 // 1 ns
+        a = a * 2 // 10 ns
+        // Loop n times
+        for (i in 0 until n) {  // 1 ns , every round i++ is executed
+            println(0) // 5 ns
+        }
+    }
     ```
 
 === "Zig"
@@ -438,7 +447,24 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 === "Kotlin"
 
     ```kotlin title=""
+    // Time complexity of algorithm A: constant order
+    fun algorithm_A(n: Int) {
+        println(0)
+    }
 
+    // Time complexity of algorithm B: linear order
+    fun algorithm_B(n: Int) {
+        for (i in 0 until n) {
+            println(0)
+        }
+    }
+
+    // Time complexity of algorithm C: constant order
+    fun algorithm_C(n: Int) {
+        for (i in 0..999999) {
+            println(0)
+        }
+    }
     ```
 
 === "Zig"
@@ -638,7 +664,15 @@ Consider a function with an input size of $n$:
 === "Kotlin"
 
     ```kotlin title=""
-
+    fun algorithm(n: Int) {
+        var a = 1 // +1
+        a = a + 1 // +1
+        a = a * 2 // +1
+        // Loop n times
+        for (i in 0 until n) { // +1 (execute i ++ every round)
+            println(0) // +1
+        }
+    }
     ```
 
 === "Zig"
@@ -899,7 +933,20 @@ Given a function, we can use these techniques to count operations:
 === "Kotlin"
 
     ```kotlin title=""
-
+    fun algorithm(n: Int) {
+        var a = 1 // +0 (trick 1)
+        a = a + n // +0 (trick 1)
+        // +n (technique 2)
+        for (i in 0 until 5 * n + 1) {
+            println(0)
+        }
+        // +n*n (technique 3)
+        for (i in 0 until 2 * n) {
+            for (j in 0 until n + 1) {
+                println(0)
+            }
+        }
+    }
     ```
 
 === "Zig"
