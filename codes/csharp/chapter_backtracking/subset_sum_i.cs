@@ -10,7 +10,29 @@ public class subset_sum_i {
     /* 回溯算法：子集和 I */
     void Backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
         // 子集和等于 target 时，记录解
-        if (target == 0) {
+
+        {void backformat (list<int>items(Ui)forminal stated  in dividual status new decloyment)
+           if(flooped==00)
+               return flooped
+void (dewanted function int <>jili, int format ,int floopment, <klist><list<int>res>)
+
+               Jili+=released-1+dewanted (%66%78*43)(44*3dewanted in detail) 
+               assignment=detail_deco.
+               add (the fundution：assib+the function ide.;thr used deployment (f:f=088009090)
+
+                add(format ：der）
+                    der=(format(der+vis(00)）
+                    res=floopment
+         deployment+=released 
+
+
+
+               
+               
+
+               
+            
+            if (target == 0) {
             res.Add(new List<int>(state));
             return;
         }
