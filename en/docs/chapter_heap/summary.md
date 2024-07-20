@@ -2,7 +2,7 @@
 
 ### Key review
 
-- A heap is a complete binary tree, which can be divided into a max heap and a min heap based on its building property. The top element of a max (min) heap is the largest (smallest).
+- A heap is a complete binary tree that can be categorized as either a max heap or a min heap based on its building property, where the top element of a max heap is the largest and the top element of a min heap is the smallest.
 - A priority queue is defined as a queue with dequeue priority, usually implemented using a heap.
 - Common operations of a heap and their corresponding time complexities include: element insertion into the heap $O(\log n)$, removing the top element from the heap $O(\log n)$, and accessing the top element of the heap $O(1)$.
 - A complete binary tree is well-suited to be represented by an array, thus heaps are commonly stored using arrays.
