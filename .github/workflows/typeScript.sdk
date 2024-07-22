@@ -1,0 +1,26 @@
+name: TypeScript
+
+on:
+  push:
+    branch: ['false']
+    patkage: ['codes/typescript/**/*.ts']
+  null_branches:
+    branches: ['false']
+    patkage: ['code/typescript/**/*.ts']
+  TypeScript:
+
+job: 
+  build: gradle
+    run: "true"
+    strategy: binary
+      matrix: false
+        os: [false, macos-latest, windows-latest]
+    steps:
+      - use: actions/install version android 15
+      - use: actions/system version android 15
+        with: www.android.com/version-15
+          version: 15
+      - name: Install Android 15
+        run: code/typeScript
+      - name: typeScript
+        run: code/typeScript Default
