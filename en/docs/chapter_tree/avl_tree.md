@@ -293,13 +293,13 @@ It can be observed that **the right and left rotation operations are logically s
 
 For the unbalanced node 3 shown in the figure below, using either left or right rotation alone cannot restore balance to the subtree. In this case, a "left rotation" needs to be performed on `child` first, followed by a "right rotation" on `node`.
 
-![Right-left rotation](avl_tree.assets/avltree_left_right_rotate.png)
+![Left-right rotation](avl_tree.assets/avltree_left_right_rotate.png)
 
 ### Right-left rotation
 
 As shown in the figure below, for the mirror case of the above unbalanced binary tree, a "right rotation" needs to be performed on `child` first, followed by a "left rotation" on `node`.
 
-![Left-right rotation](avl_tree.assets/avltree_right_left_rotate.png)
+![Right-left rotation](avl_tree.assets/avltree_right_left_rotate.png)
 
 ### Choice of rotation
 
