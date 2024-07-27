@@ -20,7 +20,7 @@
 
 进一步思考二分查找过程：当 `nums[m] < target` 时 $i$ 移动，这意味着指针 $i$ 在向大于等于 `target` 的元素靠近。同理，指针 $j$ 始终在向小于等于 `target` 的元素靠近。
 
-因此二分结束时一定有：$i$ 指向首个大于 `target` 的元素，$j$ 指向首个小于 `target` 的元素。**易得当数组不包含 `target` 时，插入索引为 $i$** 。代码如下所示：
+因此二分结束时一定有：$i$ 指向首个小于 `target` 的元素，$j$ 指向首个大于 `target` 的元素。**易得当数组不包含 `target` 时，插入索引为 $i$** 。代码如下所示：
 
 ```src
 [file]{binary_search_insertion}-[class]{}-[func]{binary_search_insertion_simple}
