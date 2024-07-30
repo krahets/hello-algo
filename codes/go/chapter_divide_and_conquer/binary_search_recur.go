@@ -18,7 +18,7 @@ func dfs(nums []int, target, i, j int) int {
 		// 递归子问题 f(m+1, j)
 		return dfs(nums, target, m+1, j)
 	} else if nums[m] > target {
-		// 小于则递归左半数组
+		// 大于则递归左半数组
 		// 递归子问题 f(i, m-1)
 		return dfs(nums, target, i, m-1)
 	} else {

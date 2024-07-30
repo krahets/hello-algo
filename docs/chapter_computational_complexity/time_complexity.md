@@ -30,7 +30,7 @@
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
         // 循环 n 次
-        for (int i = 0; i < n; i++) {  // 1 ns ，每轮都要执行 i++
+        for (int i = 0; i < n; i++) {  // 1 ns
             cout << 0 << endl;         // 5 ns
         }
     }
@@ -45,7 +45,7 @@
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
         // 循环 n 次
-        for (int i = 0; i < n; i++) {  // 1 ns ，每轮都要执行 i++
+        for (int i = 0; i < n; i++) {  // 1 ns
             System.out.println(0);     // 5 ns
         }
     }
@@ -60,7 +60,7 @@
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
         // 循环 n 次
-        for (int i = 0; i < n; i++) {  // 1 ns ，每轮都要执行 i++
+        for (int i = 0; i < n; i++) {  // 1 ns
             Console.WriteLine(0);      // 5 ns
         }
     }
@@ -105,7 +105,7 @@
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
         // 循环 n 次
-        for(let i = 0; i < n; i++) { // 1 ns ，每轮都要执行 i++
+        for(let i = 0; i < n; i++) { // 1 ns
             console.log(0); // 5 ns
         }
     }
@@ -120,7 +120,7 @@
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
         // 循环 n 次
-        for(let i = 0; i < n; i++) { // 1 ns ，每轮都要执行 i++
+        for(let i = 0; i < n; i++) { // 1 ns
             console.log(0); // 5 ns
         }
     }
@@ -135,7 +135,7 @@
       a = a + 1; // 1 ns
       a = a * 2; // 10 ns
       // 循环 n 次
-      for (int i = 0; i < n; i++) { // 1 ns ，每轮都要执行 i++
+      for (int i = 0; i < n; i++) { // 1 ns
         print(0); // 5 ns
       }
     }
@@ -150,7 +150,7 @@
         a = a + 1;          // 1 ns
         a = a * 2;          // 10 ns
         // 循环 n 次
-        for _ in 0..n {     // 1 ns ，每轮都要执行 i++
+        for _ in 0..n {     // 1 ns
             println!("{}", 0);  // 5 ns
         }
     }
@@ -165,7 +165,7 @@
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
         // 循环 n 次
-        for (int i = 0; i < n; i++) {   // 1 ns ，每轮都要执行 i++
+        for (int i = 0; i < n; i++) {   // 1 ns
             printf("%d", 0);            // 5 ns
         }
     }
@@ -180,7 +180,7 @@
         a = a + 1 // 1 ns
         a = a * 2 // 10 ns
         // 循环 n 次
-        for (i in 0..<n) {  // 1 ns ，每轮都要执行 i++
+        for (i in 0..<n) {  // 1 ns
             println(0)      // 5 ns
         }
     }

@@ -18,7 +18,7 @@ func dfs(nums []int, target, i, j int) int {
 		// 遞迴子問題 f(m+1, j)
 		return dfs(nums, target, m+1, j)
 	} else if nums[m] > target {
-		// 小於則遞迴左半陣列
+		// 大於則遞迴左半陣列
 		// 遞迴子問題 f(i, m-1)
 		return dfs(nums, target, i, m-1)
 	} else {
