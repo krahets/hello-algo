@@ -1,6 +1,6 @@
 # Time complexity
-
-We can directly and accurately assess the efficiency an algorithm by measuring the run time. How to accurately assess the run time of an algorithm?
+Time complexity describes the run time of an algorithm as a function of the size of the input data.
+The direct way to assess the efficiency of an algorithm is measuring the run time. How to accurately measure the run time of an algorithm?
 
 1. **Determining the Running Platform**: This includes hardware configuration, programming language, system environment, etc., all of which can affect the efficiency of code execution.
 2. **Evaluating the Run Time for Various Computational Operations**: For instance, an addition operation `+` might take 1 ns, a multiplication operation `*` might take 10 ns, a print operation `print()` might take 5 ns, etc.
