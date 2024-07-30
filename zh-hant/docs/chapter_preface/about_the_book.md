@@ -2,9 +2,9 @@
 
 本專案旨在建立一本開源、免費、對新手友好的資料結構與演算法入門教程。
 
-- 全書採用動畫圖解，結構化地講解資料結構與演算法知識，內容清晰易懂，學習曲線平滑。
-- 演算法源程式碼皆可一鍵執行，支持 Python、C++、Java、C#、Go、Swift、JavaScript、TypeScript、Dart、Rust、C 和 Zig 等語言。
-- 鼓勵讀者在線上章節評論區互幫互助、共同進步，提問與評論通常可在兩日內得到回覆。
+- 全書採用動畫圖解，內容清晰易懂、學習曲線平滑，引導初學者探索資料結構與演算法的知識地圖。
+- 源程式碼可一鍵執行，幫助讀者在練習中提升程式設計技能，瞭解演算法工作原理和資料結構底層實現。
+- 提倡讀者互助學習，歡迎大家在評論區提出問題與分享見解，在交流討論中共同進步。
 
 ## 讀者物件
 
@@ -32,7 +32,7 @@
 
 本書在開源社群眾多貢獻者的共同努力下不斷完善。感謝每一位投入時間與精力的撰稿人，他們是（按照 GitHub 自動生成的順序）：krahets、Gonglja、nuomi1、codingonion、Reanon、justin-tse、hpstory、danielsss、curtishd、night-cruise、S-N-O-R-L-A-X、msk397、gvenusleo、RiverTwilight、gyt95、zhuoqinyue、Zuoxun、mingXta、hello-ikun、khoaxuantu、FangYuan33、GN-Yu、longsizhuo、mgisr、Cathay-Chen、guowei-gong、xBLACKICEx、K3v123、IsChristina、JoseHung、qualifier1024、pengchzn、Guanngxu、QiLOL、L-Super、WSL0809、Slone123c、lhxsm、yuan0221、what-is-me、rongyi、JeffersonHuang、longranger2、theNefelibatas、yuelinxin、xiongsp、nanlei、a16su、cy-by-side、gaofer、malone6、Wonderdch、hongyun-robot、XiaChuerwu、yd-j、bluebean-cloud、iron-irax、he-weilai、Nigh、MolDuM、Phoenix0415、XC-Zero、SamJin98、reeswell、NI-SW、Horbin-Magician、xjr7670、YangXuanyi、DullSword、iStig、qq909244296、jiaxianhua、wenjianmin、keshida、kilikilikid、lclc6、lwbaptx、luluxia、boloboloda、hts0000、gledfish、fbigm、echo1937、szu17dmy、dshlstarr、coderlef、czruby、beintentional、KeiichiKasai、xb534、ElaBosak233、baagod、zhouLion、yishangzhang、yi427、yabo083、weibk、wangwang105、th1nk3r-ing、tao363、4yDX3906、syd168、siqyka、selear、sdshaoda、noobcodemaker、chadyi、lyl625760、lucaswangdev、liuxjerry、0130w、shanghai-Jerry、JackYang-hellobobo、Javesun99、lipusheng、ShiMaRing、FreddieLi、FloranceYeh、Transmigration-zhou、fanchenggang、gltianwen、Dr-XYZ、curly210102、CuB3y0nd、youshaoXG、bubble9um、fanenr、52coder、foursevenlove、KorsChen、ZongYangL、hezhizhen、linzeyan、ZJKung、GaochaoZhu、yang-le、Evilrabbit520、Turing-1024-Lee、Suremotoo、Allen-Scai、Richard-Zhang1019、qingpeng9802、primexiao、nidhoggfgg、1ch0、MwumLi、ZnYang2018、hugtyftg、logan-qiu、psychelzh 和 Keynman 。
 
-本書的程式碼審閱工作由 codingonion、curtishd、Gonglja、gvenusleo、hpstory、justin-tse、krahets、night-cruise、nuomi1 和 Reanon 完成（按照首字母順序排列）。感謝他們付出的時間與精力，正是他們確保了各語言程式碼的規範與統一。
+本書的程式碼審閱工作由 codingonion、curtishd、Gonglja、gvenusleo、hpstory、justin-tse、khoaxuantu、krahets、night-cruise、nuomi1 和 Reanon 完成（按照首字母順序排列）。感謝他們付出的時間與精力，正是他們確保了各語言程式碼的規範與統一。
 
 在本書的創作過程中，我得到了許多人的幫助。
 

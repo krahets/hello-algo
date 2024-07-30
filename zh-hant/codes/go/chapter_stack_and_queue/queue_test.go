@@ -46,9 +46,13 @@ func TestQueue(t *testing.T) {
 }
 
 func TestArrayQueue(t *testing.T) {
+
 	// 初始化佇列，使用佇列的通用介面
 	capacity := 10
 	queue := newArrayQueue(capacity)
+	if queue.pop() != nil {
+		t.Errorf("want:%v,got:%v", nil, queue.pop())
+	}
 
 	// 元素入列
 	queue.push(1)

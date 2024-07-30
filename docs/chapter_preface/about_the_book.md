@@ -2,9 +2,9 @@
 
 本项目旨在创建一本开源、免费、对新手友好的数据结构与算法入门教程。
 
-- 全书采用动画图解，结构化地讲解数据结构与算法知识，内容清晰易懂，学习曲线平滑。
-- 算法源代码皆可一键运行，支持 Python、C++、Java、C#、Go、Swift、JavaScript、TypeScript、Dart、Rust、C 和 Zig 等语言。
-- 鼓励读者在线上章节评论区互帮互助、共同进步，提问与评论通常可在两日内得到回复。
+- 全书采用动画图解，内容清晰易懂、学习曲线平滑，引导初学者探索数据结构与算法的知识地图。
+- 源代码可一键运行，帮助读者在练习中提升编程技能，了解算法工作原理和数据结构底层实现。
+- 提倡读者互助学习，欢迎大家在评论区提出问题与分享见解，在交流讨论中共同进步。
 
 ## 读者对象
 
@@ -32,7 +32,7 @@
 
 本书在开源社区众多贡献者的共同努力下不断完善。感谢每一位投入时间与精力的撰稿人，他们是（按照 GitHub 自动生成的顺序）：krahets、Gonglja、nuomi1、codingonion、Reanon、justin-tse、hpstory、danielsss、curtishd、night-cruise、S-N-O-R-L-A-X、msk397、gvenusleo、RiverTwilight、gyt95、zhuoqinyue、Zuoxun、mingXta、hello-ikun、khoaxuantu、FangYuan33、GN-Yu、longsizhuo、mgisr、Cathay-Chen、guowei-gong、xBLACKICEx、K3v123、IsChristina、JoseHung、qualifier1024、pengchzn、Guanngxu、QiLOL、L-Super、WSL0809、Slone123c、lhxsm、yuan0221、what-is-me、rongyi、JeffersonHuang、longranger2、theNefelibatas、yuelinxin、xiongsp、nanlei、a16su、cy-by-side、gaofer、malone6、Wonderdch、hongyun-robot、XiaChuerwu、yd-j、bluebean-cloud、iron-irax、he-weilai、Nigh、MolDuM、Phoenix0415、XC-Zero、SamJin98、reeswell、NI-SW、Horbin-Magician、xjr7670、YangXuanyi、DullSword、iStig、qq909244296、jiaxianhua、wenjianmin、keshida、kilikilikid、lclc6、lwbaptx、luluxia、boloboloda、hts0000、gledfish、fbigm、echo1937、szu17dmy、dshlstarr、coderlef、czruby、beintentional、KeiichiKasai、xb534、ElaBosak233、baagod、zhouLion、yishangzhang、yi427、yabo083、weibk、wangwang105、th1nk3r-ing、tao363、4yDX3906、syd168、siqyka、selear、sdshaoda、noobcodemaker、chadyi、lyl625760、lucaswangdev、liuxjerry、0130w、shanghai-Jerry、JackYang-hellobobo、Javesun99、lipusheng、ShiMaRing、FreddieLi、FloranceYeh、Transmigration-zhou、fanchenggang、gltianwen、Dr-XYZ、curly210102、CuB3y0nd、youshaoXG、bubble9um、fanenr、52coder、foursevenlove、KorsChen、ZongYangL、hezhizhen、linzeyan、ZJKung、GaochaoZhu、yang-le、Evilrabbit520、Turing-1024-Lee、Suremotoo、Allen-Scai、Richard-Zhang1019、qingpeng9802、primexiao、nidhoggfgg、1ch0、MwumLi、ZnYang2018、hugtyftg、logan-qiu、psychelzh 和 Keynman 。
 
-本书的代码审阅工作由 codingonion、curtishd、Gonglja、gvenusleo、hpstory、justin-tse、krahets、night-cruise、nuomi1 和 Reanon 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
+本书的代码审阅工作由 codingonion、curtishd、Gonglja、gvenusleo、hpstory、justin-tse、khoaxuantu、krahets、night-cruise、nuomi1 和 Reanon 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
 
 在本书的创作过程中，我得到了许多人的帮助。
 
