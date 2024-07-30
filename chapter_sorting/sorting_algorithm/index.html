@@ -1142,14 +1142,6 @@
     4.4 &nbsp; 内存与缓存 *
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--new" title="最近添加">
-    </span>
-  
-
-  
 
       </a>
     </li>
@@ -3691,11 +3683,10 @@
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;C&#39;</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
 </code></pre></div>
-<p><strong>自适应性</strong>：<u>自适应排序</u>的时间复杂度会受输入数据的影响，即最佳时间复杂度、最差时间复杂度、平均时间复杂度并不完全相等。</p>
-<p>自适应性需要根据具体情况来评估。如果最差时间复杂度差于平均时间复杂度，说明排序算法在某些数据下性能可能劣化，因此被视为负面属性；而如果最佳时间复杂度优于平均时间复杂度，则被视为正面属性。</p>
+<p><strong>自适应性</strong>：<u>自适应排序</u>能够利用输入数据已有的顺序信息来减少计算量，达到更优的时间效率。自适应排序算法的最佳时间复杂度通常优于平均时间复杂度。</p>
 <p><strong>是否基于比较</strong>：<u>基于比较的排序</u>依赖比较运算符（<span class="arithmatex">\(&lt;\)</span>、<span class="arithmatex">\(=\)</span>、<span class="arithmatex">\(&gt;\)</span>）来判断元素的相对顺序，从而排序整个数组，理论最优时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。而<u>非比较排序</u>不使用比较运算符，时间复杂度可达 <span class="arithmatex">\(O(n)\)</span> ，但其通用性相对较差。</p>
 <h2 id="1112">11.1.2 &nbsp; 理想排序算法<a class="headerlink" href="#1112" title="Permanent link">&para;</a></h2>
-<p><strong>运行快、原地、稳定、正向自适应、通用性好</strong>。显然，迄今为止尚未发现兼具以上所有特性的排序算法。因此，在选择排序算法时，需要根据具体的数据特点和问题需求来决定。</p>
+<p><strong>运行快、原地、稳定、自适应、通用性好</strong>。显然，迄今为止尚未发现兼具以上所有特性的排序算法。因此，在选择排序算法时，需要根据具体的数据特点和问题需求来决定。</p>
 <p>接下来，我们将共同学习各种排序算法，并基于上述评价维度对各个排序算法的优缺点进行分析。</p>
 
 <!-- Source file information -->

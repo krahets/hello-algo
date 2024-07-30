@@ -4248,7 +4248,7 @@
 </details>
 <h2 id="1152">11.5.2 &nbsp; 演算法特性<a class="headerlink" href="#1152" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>時間複雜度為 <span class="arithmatex">\(O(n \log n)\)</span>、自適應排序</strong>：在平均情況下，哨兵劃分的遞迴層數為 <span class="arithmatex">\(\log n\)</span> ，每層中的總迴圈數為 <span class="arithmatex">\(n\)</span> ，總體使用 <span class="arithmatex">\(O(n \log n)\)</span> 時間。在最差情況下，每輪哨兵劃分操作都將長度為 <span class="arithmatex">\(n\)</span> 的陣列劃分為長度為 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(n - 1\)</span> 的兩個子陣列，此時遞迴層數達到 <span class="arithmatex">\(n\)</span> ，每層中的迴圈數為 <span class="arithmatex">\(n\)</span> ，總體使用 <span class="arithmatex">\(O(n^2)\)</span> 時間。</li>
+<li><strong>時間複雜度為 <span class="arithmatex">\(O(n \log n)\)</span>、非自適應排序</strong>：在平均情況下，哨兵劃分的遞迴層數為 <span class="arithmatex">\(\log n\)</span> ，每層中的總迴圈數為 <span class="arithmatex">\(n\)</span> ，總體使用 <span class="arithmatex">\(O(n \log n)\)</span> 時間。在最差情況下，每輪哨兵劃分操作都將長度為 <span class="arithmatex">\(n\)</span> 的陣列劃分為長度為 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(n - 1\)</span> 的兩個子陣列，此時遞迴層數達到 <span class="arithmatex">\(n\)</span> ，每層中的迴圈數為 <span class="arithmatex">\(n\)</span> ，總體使用 <span class="arithmatex">\(O(n^2)\)</span> 時間。</li>
 <li><strong>空間複雜度為 <span class="arithmatex">\(O(n)\)</span>、原地排序</strong>：在輸入陣列完全倒序的情況下，達到最差遞迴深度 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 堆疊幀空間。排序操作是在原陣列上進行的，未藉助額外陣列。</li>
 <li><strong>非穩定排序</strong>：在哨兵劃分的最後一步，基準數可能會被交換至相等元素的右側。</li>
 </ul>

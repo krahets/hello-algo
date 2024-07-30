@@ -1142,14 +1142,6 @@
     4.4 &nbsp; 内存与缓存 *
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--new" title="最近添加">
-    </span>
-  
-
-  
 
       </a>
     </li>
@@ -3704,7 +3696,11 @@
 <p>从本质上看，<strong>逐行放置策略起到了剪枝的作用</strong>，它避免了同一行出现多个皇后的所有搜索分支。</p>
 <h3 id="2">2. &nbsp; 列与对角线剪枝<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>为了满足列约束，我们可以利用一个长度为 <span class="arithmatex">\(n\)</span> 的布尔型数组 <code>cols</code> 记录每一列是否有皇后。在每次决定放置前，我们通过 <code>cols</code> 将已有皇后的列进行剪枝，并在回溯中动态更新 <code>cols</code> 的状态。</p>
-<p>那么，如何处理对角线约束呢？设棋盘中某个格子的行列索引为 <span class="arithmatex">\((row, col)\)</span> ，选定矩阵中的某条主对角线，我们发现该对角线上所有格子的行索引减列索引都相等，<strong>即对角线上所有格子的 <span class="arithmatex">\(row - col\)</span> 为恒定值</strong>。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>请注意，矩阵的起点位于左上角，其中行索引从上到下增加，列索引从左到右增加。</p>
+</div>
+<p>那么，如何处理对角线约束呢？设棋盘中某个格子的行列索引为 <span class="arithmatex">\((row, col)\)</span> ，选定矩阵中的某条主对角线，我们发现该对角线上所有格子的行索引减列索引都相等，<strong>即主对角线上所有格子的 <span class="arithmatex">\(row - col\)</span> 为恒定值</strong>。</p>
 <p>也就是说，如果两个格子满足 <span class="arithmatex">\(row_1 - col_1 = row_2 - col_2\)</span> ，则它们一定处在同一条主对角线上。利用该规律，我们可以借助图 13-18 所示的数组 <code>diags1</code> 记录每条主对角线上是否有皇后。</p>
 <p>同理，<strong>次对角线上的所有格子的 <span class="arithmatex">\(row + col\)</span> 是恒定值</strong>。我们同样也可以借助数组 <code>diags2</code> 来处理次对角线约束。</p>
 <p><a class="glightbox" href="../n_queens_problem.assets/n_queens_cols_diagonals.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="处理列约束和对角线约束" class="animation-figure" src="../n_queens_problem.assets/n_queens_cols_diagonals.png" /></a></p>

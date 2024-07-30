@@ -1142,14 +1142,6 @@
     4.4 &nbsp; 内存与缓存 *
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--new" title="最近添加">
-    </span>
-  
-
-  
 
       </a>
     </li>
@@ -4313,7 +4305,7 @@
 </details>
 <h2 id="1152">11.5.2 &nbsp; 算法特性<a class="headerlink" href="#1152" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span>、自适应排序</strong>：在平均情况下，哨兵划分的递归层数为 <span class="arithmatex">\(\log n\)</span> ，每层中的总循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。在最差情况下，每轮哨兵划分操作都将长度为 <span class="arithmatex">\(n\)</span> 的数组划分为长度为 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(n - 1\)</span> 的两个子数组，此时递归层数达到 <span class="arithmatex">\(n\)</span> ，每层中的循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n^2)\)</span> 时间。</li>
+<li><strong>时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span>、非自适应排序</strong>：在平均情况下，哨兵划分的递归层数为 <span class="arithmatex">\(\log n\)</span> ，每层中的总循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。在最差情况下，每轮哨兵划分操作都将长度为 <span class="arithmatex">\(n\)</span> 的数组划分为长度为 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(n - 1\)</span> 的两个子数组，此时递归层数达到 <span class="arithmatex">\(n\)</span> ，每层中的循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n^2)\)</span> 时间。</li>
 <li><strong>空间复杂度为 <span class="arithmatex">\(O(n)\)</span>、原地排序</strong>：在输入数组完全倒序的情况下，达到最差递归深度 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。排序操作是在原数组上进行的，未借助额外数组。</li>
 <li><strong>非稳定排序</strong>：在哨兵划分的最后一步，基准数可能会被交换至相等元素的右侧。</li>
 </ul>

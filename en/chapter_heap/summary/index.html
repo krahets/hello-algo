@@ -3593,17 +3593,17 @@
 <h1 id="84-summary">8.4 &nbsp; Summary<a class="headerlink" href="#84-summary" title="Permanent link">&para;</a></h1>
 <h3 id="1-key-review">1. &nbsp; Key review<a class="headerlink" href="#1-key-review" title="Permanent link">&para;</a></h3>
 <ul>
-<li>A heap is a complete binary tree, which can be divided into a max heap and a min heap based on its property. The top element of a max (min) heap is the largest (smallest).</li>
+<li>A heap is a complete binary tree that can be categorized as either a max heap or a min heap based on its building property, where the top element of a max heap is the largest and the top element of a min heap is the smallest.</li>
 <li>A priority queue is defined as a queue with dequeue priority, usually implemented using a heap.</li>
 <li>Common operations of a heap and their corresponding time complexities include: element insertion into the heap <span class="arithmatex">\(O(\log n)\)</span>, removing the top element from the heap <span class="arithmatex">\(O(\log n)\)</span>, and accessing the top element of the heap <span class="arithmatex">\(O(1)\)</span>.</li>
 <li>A complete binary tree is well-suited to be represented by an array, thus heaps are commonly stored using arrays.</li>
 <li>Heapify operations are used to maintain the properties of the heap and are used in both heap insertion and removal operations.</li>
-<li>The time complexity of inserting <span class="arithmatex">\(n\)</span> elements into a heap and building the heap can be optimized to <span class="arithmatex">\(O(n)\)</span>, which is highly efficient.</li>
+<li>The time complexity of building a heap given an input of <span class="arithmatex">\(n\)</span> elements can be optimized to <span class="arithmatex">\(O(n)\)</span>, which is highly efficient.</li>
 <li>Top-k is a classic algorithm problem that can be efficiently solved using the heap data structure, with a time complexity of <span class="arithmatex">\(O(n \log k)\)</span>.</li>
 </ul>
 <h3 id="2-q-a">2. &nbsp; Q &amp; A<a class="headerlink" href="#2-q-a" title="Permanent link">&para;</a></h3>
 <p><strong>Q</strong>: Is the "heap" in data structures the same concept as the "heap" in memory management?</p>
-<p>The two are not the same concept, even though they are both referred to as "heap". The heap in computer system memory is part of dynamic memory allocation, where the program can use it to store data during execution. The program can request a certain amount of heap memory to store complex structures like objects and arrays. When these data are no longer needed, the program needs to release this memory to prevent memory leaks. Compared to stack memory, the management and usage of heap memory need to be more cautious, as improper use may lead to memory leaks and dangling pointers.</p>
+<p>The two are not the same concept, even though they are both referred to as "heap". The heap in computer system memory is part of dynamic memory allocation, where the program can use it to store data during execution. The program can request a certain amount of heap memory to store complex structures like objects and arrays. When the allocated data is no longer needed, the program needs to release this memory to prevent memory leaks. Compared to stack memory, the management and usage of heap memory demands more caution, as improper use may lead to memory leaks and dangling pointers.</p>
 
 <!-- Source file information -->
 

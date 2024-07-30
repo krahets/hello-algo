@@ -3631,6 +3631,10 @@
 <p>Essentially, <strong>the row-by-row placing strategy serves as a pruning function</strong>, avoiding all search branches that would place multiple queens in the same row.</p>
 <h3 id="2-column-and-diagonal-pruning">2. &nbsp; Column and diagonal pruning<a class="headerlink" href="#2-column-and-diagonal-pruning" title="Permanent link">&para;</a></h3>
 <p>To satisfy column constraints, we can use a boolean array <code>cols</code> of length <span class="arithmatex">\(n\)</span> to track whether a queen occupies each column. Before each placement decision, <code>cols</code> is used to prune the columns that already have queens, and it is dynamically updated during backtracking.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that the origin of the chessboard is located in the upper left corner, where the row index increases from top to bottom, and the column index increases from left to right.</p>
+</div>
 <p>How about the diagonal constraints? Let the row and column indices of a cell on the chessboard be <span class="arithmatex">\((row, col)\)</span>. By selecting a specific main diagonal, we notice that the difference <span class="arithmatex">\(row - col\)</span> is the same for all cells on that diagonal, <strong>meaning that <span class="arithmatex">\(row - col\)</span> is a constant value on that diagonal</strong>.</p>
 <p>Thus, if two cells satisfy <span class="arithmatex">\(row_1 - col_1 = row_2 - col_2\)</span>, they are definitely on the same main diagonal. Using this pattern, we can utilize the array <code>diags1</code> shown in Figure 13-18 to track whether a queen is on any main diagonal.</p>
 <p>Similarly, <strong>the sum <span class="arithmatex">\(row + col\)</span> is a constant value for all cells on a secondary diagonal</strong>. We can also use the array <code>diags2</code> to handle secondary diagonal constraints.</p>
