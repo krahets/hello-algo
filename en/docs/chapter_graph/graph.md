@@ -20,27 +20,27 @@ If vertices are viewed as nodes and edges as references (pointers) connecting th
 
 <p align="center"> Figure 9-1 &nbsp; Relationship between linked lists, trees, and graphs </p>
 
-## 9.1.1 &nbsp; Common types of graphs
+## 9.1.1 &nbsp; Common types and terminologies of graphs
 
-Based on whether edges have direction, graphs can be divided into <u>undirected graphs</u> and <u>directed graphs</u>, as shown in Figure 9-2.
+Graphs can be divided into  <u>undirected graphs</u> and <u>directed graphs</u> depending on whether edges have direction, as shown in Figure 9-2.
 
-- In undirected graphs, edges represent a "bidirectional" connection between two vertices, for example, the "friendship" in WeChat or QQ.
-- In directed graphs, edges have directionality, that is, the edges $A \rightarrow B$ and $A \leftarrow B$ are independent of each other, for example, the "follow" and "be followed" relationship on Weibo or TikTok.
+- In undirected graphs, edges represent a "bidirectional" connection between two vertices, for example, the "friends" in Facebook.
+- In directed graphs, edges have directionality, that is, the edges $A \rightarrow B$ and $A \leftarrow B$ are independent of each other. For example, the "follow" and "followed" relationship on Instagram or TikTok.
 
 ![Directed and undirected graphs](graph.assets/directed_graph.png){ class="animation-figure" }
 
 <p align="center"> Figure 9-2 &nbsp; Directed and undirected graphs </p>
 
-Based on whether all vertices are connected, graphs can be divided into <u>connected graphs</u> and <u>disconnected graphs</u>, as shown in Figure 9-3.
+Depending on whether all vertices are connected, graphs can be divided into <u>connected graphs</u> and <u>disconnected graphs</u>, as shown in Figure 9-3.
 
-- For connected graphs, it is possible to reach any other vertex starting from a certain vertex.
-- For disconnected graphs, there is at least one vertex that cannot be reached from a certain starting vertex.
+- For connected graphs, it is possible to reach any other vertex starting from an arbitrary vertex.
+- For disconnected graphs, there is at least one vertex that cannot be reached from an arbitrary starting vertex.
 
 ![Connected and disconnected graphs](graph.assets/connected_graph.png){ class="animation-figure" }
 
 <p align="center"> Figure 9-3 &nbsp; Connected and disconnected graphs </p>
 
-We can also add a weight variable to edges, resulting in <u>weighted graphs</u> as shown in Figure 9-4. For example, in mobile games like "Honor of Kings", the system calculates the "closeness" between players based on shared gaming time, and this closeness network can be represented with a weighted graph.
+We can also add a weight variable to edges, resulting in <u>weighted graphs</u> as shown in Figure 9-4. For example, in Instagram, the system sorts your follower and following list by the level of interaction between you and other users (likes, views, comments, etc.). Such an interaction network can be represented by a weighted graph.
 
 ![Weighted and unweighted graphs](graph.assets/weighted_graph.png){ class="animation-figure" }
 
@@ -54,7 +54,7 @@ Graph data structures include the following commonly used terms.
 
 ## 9.1.2 &nbsp; Representation of graphs
 
-Common representations of graphs include "adjacency matrices" and "adjacency lists". The following examples use undirected graphs.
+Common representations of graphs include "adjacency matrix" and "adjacency list". The following examples use undirected graphs.
 
 ### 1. &nbsp; Adjacency matrix
 
@@ -69,10 +69,10 @@ As shown in Figure 9-5, let the adjacency matrix be $M$, and the list of vertice
 Adjacency matrices have the following characteristics.
 
 - A vertex cannot be connected to itself, so the elements on the main diagonal of the adjacency matrix are meaningless.
-- For undirected graphs, edges in both directions are equivalent, thus the adjacency matrix is symmetric about the main diagonal.
-- By replacing the elements of the adjacency matrix from $1$ and $0$ to weights, it can represent weighted graphs.
+- For undirected graphs, edges in both directions are equivalent, thus the adjacency matrix is symmetric with regard to the main diagonal.
+- By replacing the elements of the adjacency matrix from $1$ and $0$ to weights, we can represent weighted graphs.
 
-When representing graphs with adjacency matrices, it is possible to directly access matrix elements to obtain edges, thus operations of addition, deletion, lookup, and modification are very efficient, all with a time complexity of $O(1)$. However, the space complexity of the matrix is $O(n^2)$, which consumes more memory.
+When representing graphs with adjacency matrices, it is possible to directly access matrix elements to obtain edges, resulting in efficient operations of addition, deletion, lookup, and modification, all with a time complexity of $O(1)$. However, the space complexity of the matrix is $O(n^2)$, which consumes more memory.
 
 ### 2. &nbsp; Adjacency list
 
@@ -96,7 +96,7 @@ As shown in Table 9-1, many real-world systems can be modeled with graphs, and c
 
 |                 | Vertices         | Edges                                         | Graph Computing Problem          |
 | --------------- | ---------------- | --------------------------------------------- | -------------------------------- |
-| Social Networks | Users            | Friendships                                   | Potential Friend Recommendations |
+| Social Networks | Users            | Follow / Followed                                   | Potential Following Recommendations |
 | Subway Lines    | Stations         | Connectivity Between Stations                 | Shortest Route Recommendations   |
 | Solar System    | Celestial Bodies | Gravitational Forces Between Celestial Bodies | Planetary Orbit Calculations     |
 

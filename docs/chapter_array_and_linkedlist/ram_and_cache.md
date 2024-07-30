@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 4.4 &nbsp; 内存与缓存 *

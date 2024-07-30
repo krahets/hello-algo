@@ -34,7 +34,7 @@ comments: true
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
         // 迴圈 n 次
-        for (int i = 0; i < n; i++) {  // 1 ns ，每輪都要執行 i++
+        for (int i = 0; i < n; i++) {  // 1 ns
             cout << 0 << endl;         // 5 ns
         }
     }
@@ -49,7 +49,7 @@ comments: true
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
         // 迴圈 n 次
-        for (int i = 0; i < n; i++) {  // 1 ns ，每輪都要執行 i++
+        for (int i = 0; i < n; i++) {  // 1 ns
             System.out.println(0);     // 5 ns
         }
     }
@@ -64,7 +64,7 @@ comments: true
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
         // 迴圈 n 次
-        for (int i = 0; i < n; i++) {  // 1 ns ，每輪都要執行 i++
+        for (int i = 0; i < n; i++) {  // 1 ns
             Console.WriteLine(0);      // 5 ns
         }
     }
@@ -109,7 +109,7 @@ comments: true
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
         // 迴圈 n 次
-        for(let i = 0; i < n; i++) { // 1 ns ，每輪都要執行 i++
+        for(let i = 0; i < n; i++) { // 1 ns
             console.log(0); // 5 ns
         }
     }
@@ -124,7 +124,7 @@ comments: true
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
         // 迴圈 n 次
-        for(let i = 0; i < n; i++) { // 1 ns ，每輪都要執行 i++
+        for(let i = 0; i < n; i++) { // 1 ns
             console.log(0); // 5 ns
         }
     }
@@ -139,7 +139,7 @@ comments: true
       a = a + 1; // 1 ns
       a = a * 2; // 10 ns
       // 迴圈 n 次
-      for (int i = 0; i < n; i++) { // 1 ns ，每輪都要執行 i++
+      for (int i = 0; i < n; i++) { // 1 ns
         print(0); // 5 ns
       }
     }
@@ -154,7 +154,7 @@ comments: true
         a = a + 1;          // 1 ns
         a = a * 2;          // 10 ns
         // 迴圈 n 次
-        for _ in 0..n {     // 1 ns ，每輪都要執行 i++
+        for _ in 0..n {     // 1 ns
             println!("{}", 0);  // 5 ns
         }
     }
@@ -169,7 +169,7 @@ comments: true
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
         // 迴圈 n 次
-        for (int i = 0; i < n; i++) {   // 1 ns ，每輪都要執行 i++
+        for (int i = 0; i < n; i++) {   // 1 ns
             printf("%d", 0);            // 5 ns
         }
     }
@@ -184,7 +184,7 @@ comments: true
         a = a + 1 // 1 ns
         a = a * 2 // 10 ns
         // 迴圈 n 次
-        for (i in 0..<n) {  // 1 ns ，每輪都要執行 i++
+        for (i in 0..<n) {  // 1 ns
             println(0)      // 5 ns
         }
     }
@@ -3204,7 +3204,7 @@ $$
             return 1;
         }
         let mut count = linear_log_recur(n / 2) + linear_log_recur(n / 2);
-        for _ in 0..n as i32 {
+        for _ in 0..n {
             count += 1;
         }
         return count;
