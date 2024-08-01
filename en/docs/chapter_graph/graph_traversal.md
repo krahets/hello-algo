@@ -1,6 +1,6 @@
 # Graph traversal
 
-Trees represent a "one-to-many" relationship, while graphs have a higher degree of freedom and can represent any "many-to-many" relationship. Therefore, we can consider trees as a special case of graphs. Clearly, **tree traversal operations are also a special case of graph traversal operations**.
+Trees represent a "one-to-many" relationship, while graphs have a higher degree of freedom and can represent any "many-to-many" relationship. Therefore, we can consider tree as a special case of graph. Clearly, **tree traversal operations are also a special case of graph traversal operations**.
 
 Both graphs and trees require the application of search algorithms to implement traversal operations. Graph traversal can be divided into two types: <u>Breadth-First Search (BFS)</u> and <u>Depth-First Search (DFS)</u>.
 
@@ -12,7 +12,7 @@ Both graphs and trees require the application of search algorithms to implement 
 
 ### Algorithm implementation
 
-BFS is usually implemented with the help of a queue, as shown in the code below. The queue has a "first in, first out" property, which aligns with the BFS idea of traversing "from near to far".
+BFS is usually implemented with the help of a queue, as shown in the code below. The queue is "first in, first out", which aligns with the BFS idea of traversing "from near to far".
 
 1. Add the starting vertex `startVet` to the queue and start the loop.
 2. In each iteration of the loop, pop the vertex at the front of the queue and record it as visited, then add all adjacent vertices of that vertex to the back of the queue.
@@ -24,7 +24,7 @@ To prevent revisiting vertices, we use a hash set `visited` to record which node
 [file]{graph_bfs}-[class]{}-[func]{graph_bfs}
 ```
 
-The code is relatively abstract, it is suggested to compare with the figure below to deepen the understanding.
+The code is relatively abstract, you can compare it with the figure below to get a better understanding.
 
 === "<1>"
     ![Steps of breadth-first search of a graph](graph_traversal.assets/graph_bfs_step1.png)
@@ -61,7 +61,7 @@ The code is relatively abstract, it is suggested to compare with the figure belo
 
 !!! question "Is the sequence of breadth-first traversal unique?"
 
-    Not unique. Breadth-first traversal only requires traversing in a "from near to far" order, **and the traversal order of multiple vertices at the same distance can be arbitrarily shuffled**. For example, in the figure above, the visitation order of vertices $1$ and $3$ can be switched, as can the order of vertices $2$, $4$, and $6$.
+    Not unique. Breadth-first traversal only requires traversing in a "near to far" order, **and the traversal order of the vertices with the same distance can be arbitrary**. For example, in the figure above, the visit order of vertices $1$ and $3$ can be swapped, as can the order of vertices $2$, $4$, and $6$.
 
 ### Complexity analysis
 
@@ -71,7 +71,7 @@ The code is relatively abstract, it is suggested to compare with the figure belo
 
 ## Depth-first search
 
-**Depth-first search is a traversal method that prioritizes going as far as possible and then backtracks when no further paths are available**. As shown in the figure below, starting from the top left vertex, visit some adjacent vertex of the current vertex until no further path is available, then return and continue until all vertices are traversed.
+**Depth-first search is a traversal method that prioritizes going as far as possible and then backtracks when no further path is available**. As shown in the figure below, starting from the top left vertex, visit some adjacent vertex of the current vertex until no further path is available, then return and continue until all vertices are traversed.
 
 ![Depth-first traversal of a graph](graph_traversal.assets/graph_dfs.png)
 
