@@ -61,13 +61,13 @@ class QuickSortMedian {
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
-                j--; // 从右向左找首个小于基准数的元素
+                j--;                // 从右向左找首个小于基准数的元素
             while (i < j && nums[i] <= nums[left])
-                i++;          // 从左向右找首个大于基准数的元素
+                i++;                // 从左向右找首个大于基准数的元素
             swap(nums[i], nums[j]); // 交换这两个元素
         }
-        swap(nums[i], nums[left]); // 将基准数交换至两子数组的分界线
-        return i;            // 返回基准数的索引
+        swap(nums[i], nums[left]);  // 将基准数交换至两子数组的分界线
+        return i;                   // 返回基准数的索引
     }
 
   public:
@@ -93,13 +93,13 @@ class QuickSortTailCall {
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
-                j--; // 从右向左找首个小于基准数的元素
+                j--;                // 从右向左找首个小于基准数的元素
             while (i < j && nums[i] <= nums[left])
-                i++;          // 从左向右找首个大于基准数的元素
+                i++;                // 从左向右找首个大于基准数的元素
             swap(nums[i], nums[j]); // 交换这两个元素
         }
-        swap(nums[i], nums[left]); // 将基准数交换至两子数组的分界线
-        return i;            // 返回基准数的索引
+        swap(nums[i], nums[left]);  // 将基准数交换至两子数组的分界线
+        return i;                   // 返回基准数的索引
     }
 
   public:
