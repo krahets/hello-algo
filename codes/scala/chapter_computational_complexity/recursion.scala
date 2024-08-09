@@ -26,7 +26,7 @@ class recursion {
     var stack : mutable.Stack[Integer] = new mutable.Stack
     var res: Int = 0
     // 递：递归调用
-    for(n <- n to 0 by -1){
+    for(n <- n to 1 by -1){
       // 通过“入栈操作”模拟“递”
       stack.push(n)
     }
@@ -86,6 +86,7 @@ object  recursion{
 
     res = recur.fib(n)
     println("\n斐波那契数列的第 " + n + " 项为 " + res)
+
 
   }
 }
