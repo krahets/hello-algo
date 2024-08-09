@@ -90,6 +90,7 @@ class time_complexity {
     }
     count
   }
+
   /* 线性阶（遍历数组） */
   def arrayTraversal(nums: Array[Int]): Int = {
     var count: Int = 0
@@ -118,14 +119,14 @@ class time_complexity {
     var count: Int = 0 // 计数器
 
     // 外循环：未排序区间为 [0, i]
-    for ( i <- nums.length - 1 until 0 by -1) {
+    for (i <- nums.length - 1 until 0 by -1) {
       // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
       for (j <- 0 until i) {
-        if (nums(j) > nums(j+1)) {
+        if (nums(j) > nums(j + 1)) {
           // 交换 nums[j] 与 nums[j + 1]
           val temp = nums(j)
-          nums(j) = nums(j+1)
-          nums(j+1) = temp
+          nums(j) = nums(j + 1)
+          nums(j + 1) = temp
           count += 3 // 元素交换包含 3 个单元操作
 
         }
@@ -152,10 +153,10 @@ class time_complexity {
 
   /* 指数阶（递归实现） */
   def expRecur(n: Int): Int = {
-    if (n == 1){
+    if (n == 1) {
       return 1
     }
-    expRecur( n -1) + expRecur( n -1) + 1
+    expRecur(n - 1) + expRecur(n - 1) + 1
   }
 
   /* 对数阶（循环实现） */
@@ -171,19 +172,19 @@ class time_complexity {
 
   /* 对数阶（递归实现） */
   def logRecur(n: Int): Int = {
-    if (n <= 1){
+    if (n <= 1) {
       return 0
     }
-    logRecur( n / 2) + 1
+    logRecur(n / 2) + 1
   }
 
   /* 线性对数阶 */
 
   def linearLogRecur(n: Int): Int = {
-    if (n <= 1){
+    if (n <= 1) {
       return 1
     }
-    var count: Int = linearLogRecur( n / 2) + linearLogRecur(n /2);
+    var count: Int = linearLogRecur(n / 2) + linearLogRecur(n / 2);
     for (i <- 0 until n) {
       count += 1
     }
@@ -191,14 +192,14 @@ class time_complexity {
   }
 
   /* 阶乘阶（递归实现） */
-  def factorialRecur (n: Int): Int = {
-    if (n == 0){
+  def factorialRecur(n: Int): Int = {
+    if (n == 0) {
       return 1
     }
     var count: Int = 0
     // 从 1 个分裂出 n 个
 
-    for (i <- 0 until n ) {
+    for (i <- 0 until n) {
       count += factorialRecur(n - 1)
     }
     count
