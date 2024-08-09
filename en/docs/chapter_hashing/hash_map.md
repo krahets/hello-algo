@@ -490,10 +490,10 @@ First, let's consider the simplest case: **implementing a hash table using only 
 
 So, how do we locate the corresponding bucket based on the `key`? This is achieved through a <u>hash function</u>. The role of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space consists of all the keys, and the output space consists of all the buckets (array indices). In other words, given a `key`, **we can use the hash function to determine the storage location of the corresponding key-value pair in the array**.
 
-When given a `key`, the calculation process of the hash function consists of the following two steps:
+With a given `key`, the calculation of the hash function consists of two steps:
 
 1. Calculate the hash value by using a certain hash algorithm `hash()`.
-2. Take the modulus of the hash value with the bucket count (array length) `capacity` to obtain the array `index` corresponding to that key.
+2. Take the modulus of the hash value with the bucket count (array length) `capacity` to obtain the array `index` corresponding to the key.
 
 ```shell
 index = hash(key) % capacity
