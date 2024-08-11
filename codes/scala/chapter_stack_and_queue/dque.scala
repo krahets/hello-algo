@@ -8,7 +8,7 @@ import scala.collection.mutable
  */
 
 
-object dqueue {
+object dque {
   def main(args: Array[String]): Unit = {
 
     /* 初始化双向队列 */
