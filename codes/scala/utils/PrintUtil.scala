@@ -86,7 +86,7 @@ class PrintUtil {
   }
 
   /* 打印哈希表 */
-  def printHashMap[K, V](map: Map[K, V]): Unit = {
+  def printHashMap[K, V](map: mutable.Map[K, V]): Unit = {
     map.foreach { case (key, value) =>
       println(s"$key -> $value")
     }
