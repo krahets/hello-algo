@@ -53,7 +53,7 @@ class PrintUtil {
   def printTree(root: TreeNode, prev: Trunk, isRight: Boolean): Unit = {
     if (root == null) return
 
-    val prevStr = "    "
+    var prevStr = "    "
     val trunk = new Trunk(prev, prevStr)
 
     printTree(root.right, trunk, true)
@@ -62,7 +62,7 @@ class PrintUtil {
       trunk.str = "———"
     } else if (isRight) {
       trunk.str = "/———"
-      prev.str = "   |"
+      prevStr = "   |"
     } else {
       trunk.str = "\\———"
       prev.str = prevStr
