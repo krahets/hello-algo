@@ -1,11 +1,12 @@
 import scala.collection.mutable
 
+
 /**
- * @Author: WangBlue
- * @CreateTime: 2024-08-12-09
- * @Description: ${description}
- * @Version: 1.0
+ * File: array_hash_map.scala
+ * Author: WangBlue (wangjiping596@gmail.com)
+ * Create: 2024-08-12 10:10
  */
+
 
 object hash_map {
   def main(args: Array[String]): Unit = {
@@ -24,12 +25,12 @@ object hash_map {
     printUtil.printHashMap(map)
 
     /* 查询操作 *//* 查询操作 */
-    // 向哈希表中输入键 key ，得到值 value// 向哈希表中输入键 key ，得到值 value
+    // 向哈希表中输入键 key ，得到值 value
     val name = map.get(15937)
     println("\n输入学号 15937 ，查询到姓名 " + name)
 
     /* 删除操作 *//* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)// 在哈希表中删除键值对 (key, value)
+    // 在哈希表中删除键值对 (key, value)
     map.remove(10583)
     println("\n删除 10583 后，哈希表为\nKey -> Value")
     printUtil.printHashMap(map)
