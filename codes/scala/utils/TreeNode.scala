@@ -32,7 +32,7 @@ class TreeNode {
 
   /* 将列表反序列化为二叉树：递归 */
   private def listToTreeDFS(arr: List[Option[Int]], i: Int): TreeNode = {
-    if (i < 0 || i >= arr.size || arr(i) == null) {
+    if (i < 0 || i >= arr.size || arr(i).isEmpty) {
       return null
     }
 
