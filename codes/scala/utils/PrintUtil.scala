@@ -93,9 +93,21 @@ class PrintUtil {
   }
 
 
-  /* 打印堆（优先队列） */
+  /* 打印大顶堆（优先队列） */
   def printHeap(queue: mutable.PriorityQueue[Int]): Unit = {
+
     val list = queue.map(Option(_)).toList
+    println(s"堆的数组表示：$list")
+    println("堆的树状表示：")
+    val treeNode = new TreeNode()
+    val root = treeNode.listToTree(list)
+    printTree(root)
+  }
+
+  /* 打印小顶堆（优先队列） */
+  def printMinHeap(queue: mutable.PriorityQueue[Int]): Unit = {
+    // 因为queue.map(Option(_)).toList 在打印最小堆的时候会改变数组的顺序，所以需要先reverse一下
+    val list = queue.map(Option(_)).toList.reverse
     println(s"堆的数组表示：$list")
     println("堆的树状表示：")
     val treeNode = new TreeNode()
