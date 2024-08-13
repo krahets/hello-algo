@@ -73,7 +73,6 @@ class array_binary_tree(arr: List[Option[Int]]) {
     }
   }
 
-
   /* 前序遍历 */
   def preOrder(): ListBuffer[Int] = {
     val res: ListBuffer[Int] = ListBuffer[Int]()
