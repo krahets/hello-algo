@@ -34,8 +34,8 @@ object binary_tree_bfs {
     /* 初始化二叉树 */
     // 这里借助了一个从数组直接生成二叉树的函数
     val treeNode: TreeNode = new TreeNode()
-    val myList: List[Integer] = List[Integer](1, 2, 3, 4, 5, 6, 7)
-    val optionList: List[Option[Integer]] = myList.map(Option(_))
+    val myList: List[Int] = List[Int](1, 2, 3, 4, 5, 6, 7)
+    val optionList: List[Option[Int]] = myList.map(Option(_))
     val root = treeNode.listToTree(optionList)
     println("\n初始化二叉树\n")
     new PrintUtil().printTree(root)

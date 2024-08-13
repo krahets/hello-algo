@@ -94,7 +94,7 @@ class PrintUtil {
 
 
   /* 打印堆（优先队列） */
-  def printHeap(queue: mutable.Queue[Integer]): Unit = {
+  def printHeap(queue: mutable.Queue[Int]): Unit = {
     val list = queue.map(Option(_)).toList
     println(s"堆的数组表示：$list")
     println("堆的树状表示：")

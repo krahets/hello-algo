@@ -31,7 +31,7 @@ class TreeNode {
   //             \——— 8
 
   /* 将列表反序列化为二叉树：递归 */
-  private def listToTreeDFS(arr: List[Option[Integer]], i: Int): TreeNode = {
+  private def listToTreeDFS(arr: List[Option[Int]], i: Int): TreeNode = {
     if (i < 0 || i >= arr.size || arr(i) == null) {
       return null
     }
@@ -43,7 +43,7 @@ class TreeNode {
   }
 
   /* 将列表反序列化为二叉树 */
-  def listToTree(arr: List[Option[Integer]]): TreeNode = {
+  def listToTree(arr: List[Option[Int]]): TreeNode = {
     listToTreeDFS(arr, 0)
   }
 
