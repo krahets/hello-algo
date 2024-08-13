@@ -14,7 +14,6 @@ class array_binary_tree(arr: List[Option[Int]]) {
   /* 列表容量 */
   def size(): Int = tree.size
 
-
   /* 获取索引为 i 节点的值 */
   def value(i: Int): Option[Int] = {
     // 若索引越界，则返回 null ，代表空位
