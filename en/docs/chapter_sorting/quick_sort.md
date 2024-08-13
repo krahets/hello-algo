@@ -61,7 +61,7 @@ The overall process of quick sort is shown in the figure below.
 
 ## Algorithm features
 
-- **Time complexity of $O(n \log n)$, adaptive sorting**: In average cases, the recursive levels of pivot partitioning are $\log n$, and the total number of loops per level is $n$, using $O(n \log n)$ time overall. In the worst case, each round of pivot partitioning divides an array of length $n$ into two sub-arrays of lengths $0$ and $n - 1$, reaching $n$ recursive levels, and using $O(n^2)$ time overall.
+- **Time complexity of $O(n \log n)$, non-adaptive sorting**: In average cases, the recursive levels of pivot partitioning are $\log n$, and the total number of loops per level is $n$, using $O(n \log n)$ time overall. In the worst case, each round of pivot partitioning divides an array of length $n$ into two sub-arrays of lengths $0$ and $n - 1$, reaching $n$ recursive levels, and using $O(n^2)$ time overall.
 - **Space complexity of $O(n)$, in-place sorting**: In completely reversed input arrays, reaching the worst recursion depth of $n$, using $O(n)$ stack frame space. The sorting operation is performed on the original array without the aid of additional arrays.
 - **Non-stable sorting**: In the final step of pivot partitioning, the pivot may be swapped to the right of equal elements.
 

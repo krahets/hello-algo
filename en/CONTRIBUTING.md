@@ -20,7 +20,7 @@ That is, our contributors are computer scientists, engineers, and students from 
 - **Native Chinese with professional working English**: Ensuring translation accuracy and consistency between CN and EN versions.
 - **Native English**: Enhance the authenticity and fluency of the English content to flow naturally and to be engaging.
 
-Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://discord.gg/9hrbyZFBX3)!
+Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://discord.gg/nvspS56295)!
 
 ## Translation process
 

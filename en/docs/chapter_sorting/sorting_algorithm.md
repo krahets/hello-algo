@@ -35,14 +35,12 @@ Stable sorting is a necessary condition for multi-level sorting scenarios. Suppo
   ('E', 23)
 ```
 
-**Adaptability**: <u>Adaptive sorting</u> has a time complexity that depends on the input data, i.e., the best time complexity, worst time complexity, and average time complexity are not exactly equal.
-
-Adaptability needs to be assessed according to the specific situation. If the worst time complexity is worse than the average, it suggests that the performance of the sorting algorithm might deteriorate under certain data, hence it is seen as a negative attribute; whereas, if the best time complexity is better than the average, it is considered a positive attribute.
+**Adaptability**: <u>Adaptive sorting</u> leverages existing order information within the input data to reduce computational effort, achieving more optimal time efficiency. The best-case time complexity of adaptive sorting algorithms is typically better than their average-case time complexity.
 
 **Comparison-based**: <u>Comparison-based sorting</u> relies on comparison operators ($<$, $=$, $>$) to determine the relative order of elements and thus sort the entire array, with the theoretical optimal time complexity being $O(n \log n)$. Meanwhile, <u>non-comparison sorting</u> does not use comparison operators and can achieve a time complexity of $O(n)$, but its versatility is relatively poor.
 
 ## Ideal sorting algorithm
 
-**Fast execution, in-place, stable, positively adaptive, and versatile**. Clearly, no sorting algorithm that combines all these features has been found to date. Therefore, when selecting a sorting algorithm, it is necessary to decide based on the specific characteristics of the data and the requirements of the problem.
+**Fast execution, in-place, stable, adaptive, and versatile**. Clearly, no sorting algorithm that combines all these features has been found to date. Therefore, when selecting a sorting algorithm, it is necessary to decide based on the specific characteristics of the data and the requirements of the problem.
 
 Next, we will learn about various sorting algorithms together and analyze the advantages and disadvantages of each based on the above evaluation dimensions.

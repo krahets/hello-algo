@@ -113,7 +113,7 @@ fn linear_log_recur(n: i32) -> i32 {
         return 1;
     }
     let mut count = linear_log_recur(n / 2) + linear_log_recur(n / 2);
-    for _ in 0..n as i32 {
+    for _ in 0..n {
         count += 1;
     }
     return count;
