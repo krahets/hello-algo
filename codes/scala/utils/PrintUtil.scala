@@ -1,7 +1,7 @@
 
 
 import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
+import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 
 /**
@@ -11,7 +11,7 @@ import scala.collection.mutable.ListBuffer
  */
 class PrintUtil {
   /* 打印矩阵（Array） */
-  def printMatrix[T](matrix: Array[Array[T]]): Unit = {
+  def printMatrix[T](matrix: ArrayBuffer[ArrayBuffer[T]]): Unit = {
     println("[")
     matrix.foreach { row =>
       println(s"  ${row.mkString(", ")},")
