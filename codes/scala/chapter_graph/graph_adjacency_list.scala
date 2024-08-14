@@ -2,13 +2,13 @@ import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 /**
- * File: grapy_adjacency_list.scala
+ * File: graph_adjacency_list.scala
  * Author: WangBlue (wangjiping596@gmail.com)
  * Create: 2024-08-14 14:34
  */
 
 /* 基于邻接表实现的无向图类 */
-class grapy_adjacency_list {
+class graph_adjacency_list {
   // 邻接表，key：顶点，value：该顶点的所有邻接顶点
   var adjList: mutable.HashMap[Vertex, ArrayBuffer[Vertex]] = mutable.HashMap[Vertex, ArrayBuffer[Vertex]]()
 
@@ -93,7 +93,7 @@ object grapy_adjacency_list {
     val v = vertex.valsToVets(Array(1, 3, 2, 5, 4))
     val edges = ArrayBuffer(ArrayBuffer(v(0), v(1)), ArrayBuffer(v(0), v(3)), ArrayBuffer(v(1), v(2)),
       ArrayBuffer(v(2), v(3)), ArrayBuffer(v(2), v(4)), ArrayBuffer(v(3), v(4)))
-    val graph = new grapy_adjacency_list(edges)
+    val graph = new graph_adjacency_list(edges)
 
     println("\n初始化后，图为")
     graph.print()
