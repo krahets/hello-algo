@@ -10,7 +10,6 @@ import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 /* 大顶堆 */
 class my_heap(nums: List[Int]) {
-
   //使用可变数组实现堆
   val maxHeap: ArrayBuffer[Int] = ArrayBuffer(nums: _*)
   // 堆化除叶节点以外的其他所有节点
