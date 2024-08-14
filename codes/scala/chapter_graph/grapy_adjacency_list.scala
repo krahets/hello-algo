@@ -71,17 +71,6 @@ class grapy_adjacency_list {
   }
 
   /* 打印邻接表 */
-  def print1(): Unit = {
-    println("邻接表 =")
-    for((key, value) <- adjList){
-      var temp: ArrayBuffer[Int] = new ArrayBuffer[Int]()
-      temp.append(key.value)
-      println(key.value + ": " + temp + ",")
-
-    }
-  }
-
-  /* 打印邻接表 */
   def print(): Unit = {
     println("邻接表 =")
     for ((key, value) <- adjList) {
