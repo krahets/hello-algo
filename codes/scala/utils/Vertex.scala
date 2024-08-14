@@ -1,4 +1,4 @@
-
+import scala.collection.mutable.ArrayBuffer
 
 /**
  * File: Vertex.scala
@@ -21,7 +21,7 @@ class Vertex {
   }
 
   /* 输入顶点列表 vets ，返回值列表 vals */
-  def vetsToVals(vets: Array[Vertex]): Array[Int] = {
+  def vetsToVals(vets: ArrayBuffer[Vertex]): ArrayBuffer[Int] = {
     vets.map(v => v.value)
   }
 
