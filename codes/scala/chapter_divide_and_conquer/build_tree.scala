@@ -39,7 +39,6 @@ object build_tree {
     val inorder = Array(9, 3, 1, 2, 7)
     println("前序遍历 = " + preorder.mkString(", "))
     println("中序遍历 = " + inorder.mkString(", "))
-
     val root = new build_tree().buildTree(preorder, inorder)
     println("构建的二叉树为：")
     new PrintUtil().printTree(root)
