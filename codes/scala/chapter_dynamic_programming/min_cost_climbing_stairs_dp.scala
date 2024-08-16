@@ -7,7 +7,6 @@
  */
 
 object min_cost_climbing_stairs_dp {
-
   /* 爬楼梯最小代价：动态规划 */
   def minCostClimbingStairsDP(cost: Array[Int]): Int = {
     val n = cost.length - 1
