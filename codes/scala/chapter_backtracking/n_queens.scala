@@ -56,7 +56,6 @@ object n_queens {
   def main(args: Array[String]): Unit = {
     val n = 4
     val res = nQueens(n)
-
     println(s"输入棋盘长宽为 $n")
     println(s"皇后放置方案共有 ${res.size} 种")
     for (state <- res) {
