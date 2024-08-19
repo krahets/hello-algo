@@ -79,11 +79,11 @@ object edit_distance {
     val n = s.length
     val m = t.length
     val dp = new Array[Int](m + 1)
-    // 状态转移：首行// 状态转移：首行
+    // 状态转移：首行
     for (j <- 1 to m) {
       dp(j) = j
     }
-    // 状态转移：其余行// 状态转移：其余行
+    // 状态转移：其余行
     for (i <- 1 to n) {
       // 状态转移：首列
       var leftup = dp(0) // 暂存 dp[i-1, j-1]
@@ -113,20 +113,20 @@ object edit_distance {
     val n = s.length
     val m = t.length
 
-    // 暴力搜索// 暴力搜索
+    // 暴力搜索
     var res = editDistanceDFS(s, t, n, m)
     println("将 " + s + " 更改为 " + t + " 最少需要编辑 " + res + " 步")
 
-    // 记忆化搜索// 记忆化搜索
+    // 记忆化搜索
     val mem = Array.fill(n + 1, m + 1)(-1)
     res = editDistanceDFSMem(s, t, mem, n, m)
     println("将 " + s + " 更改为 " + t + " 最少需要编辑 " + res + " 步")
 
-    // 动态规划// 动态规划
+    // 动态规划
     res = editDistanceDP(s, t)
     println("将 " + s + " 更改为 " + t + " 最少需要编辑 " + res + " 步")
 
-    // 空间优化后的动态规划// 空间优化后的动态规划
+    // 空间优化后的动态规划
     res = editDistanceDPComp(s, t)
     println("将 " + s + " 更改为 " + t + " 最少需要编辑 " + res + " 步")
 

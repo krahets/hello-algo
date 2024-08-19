@@ -63,12 +63,11 @@ object coin_change {
   def main(args: Array[String]): Unit = {
     val coins = Array(1, 2, 5)
     val amt = 4
-
-    // 动态规划// 动态规划
+    // 动态规划
     var res = coinChangeDP(coins, amt)
     println("凑到目标金额所需的最少硬币数量为 " + res)
 
-    // 空间优化后的动态规划// 空间优化后的动态规划
+    // 空间优化后的动态规划
     res = coinChangeDPComp(coins, amt)
     println("凑到目标金额所需的最少硬币数量为 " + res)
   }

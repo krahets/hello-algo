@@ -17,7 +17,6 @@ class merge_sort {
     var j = mid + 1
     var k = 0
     // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
-
     while (i <= mid && j <= right) {
       if(nums(i) <= nums(j)) {
         tmp(k) = nums(i)

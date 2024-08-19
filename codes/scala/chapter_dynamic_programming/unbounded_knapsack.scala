@@ -32,9 +32,9 @@ object unbounded_knapsack {
   /* 完全背包：空间优化后的动态规划 */
   def unboundedKnapsackDPComp(wgt: Array[Int], value: Array[Int], cap: Int): Int = {
     val n = wgt.length
-    // 初始化 dp 表// 初始化 dp 表
+    // 初始化 dp 表
     val dp = new Array[Int](cap + 1)
-    // 状态转移// 状态转移
+    // 状态转移
     for (i <- 1 to n) {
       for (c <- 1 to cap) {
         if (wgt(i - 1) > c) {

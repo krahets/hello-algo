@@ -40,9 +40,9 @@ object knapsack {
   /* 0-1 背包：动态规划 */
   def knapsackDP(wgt: Array[Int], value: Array[Int], cap: Int): Int = {
     val n = wgt.length
-    // 初始化 dp 表// 初始化 dp 表
+    // 初始化 dp 表
     val dp = Array.fill(n + 1)(Array.fill(cap + 1)(0))
-    // 状态转移// 状态转移
+    // 状态转移
     for (i <- 1 to n) {
       for (c <- 1 to cap) {
         if (wgt(i - 1) > c) {
@@ -61,9 +61,9 @@ object knapsack {
   /* 0-1 背包：空间优化后的动态规划 */
   def knapsackDPComp(wgt: Array[Int], value: Array[Int], cap: Int): Int = {
     val n = wgt.length
-    // 初始化 dp 表// 初始化 dp 表
+    // 初始化 dp 表
     val dp = new Array[Int](cap + 1)
-    // 状态转移// 状态转移
+    // 状态转移
     for (i <- 1 to n) {
       // 倒序遍历
       for (c <- cap to 1 by -1) {

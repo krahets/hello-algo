@@ -59,11 +59,11 @@ object coin_change_ii {
     val coins = Array(1, 2, 5)
     val amt = 5
 
-    // 动态规划// 动态规划
+    // 动态规划
     var res = coinChangeIIDP(coins, amt)
     println("凑出目标金额的硬币组合数量为 " + res)
 
-    // 空间优化后的动态规划// 空间优化后的动态规划
+    // 空间优化后的动态规划
     res = coinChangeIIDPComp(coins, amt)
     println("凑出目标金额的硬币组合数量为 " + res)
   }
