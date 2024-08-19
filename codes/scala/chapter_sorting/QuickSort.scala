@@ -22,7 +22,6 @@ class QuickSort {
     var i = left
     var j = right
     while (i < j) {
-      // 从右边开始找比基准数小的数
       while (i < j && nums(j) >= nums(left)) j -= 1 // 从右向左找首个小于基准数的元素
       while (i < j && nums(i) <= nums(left)) i += 1 // 从左向右找首个大于基准数的元素)
       swap(nums, i, j)
