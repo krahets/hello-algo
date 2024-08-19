@@ -25,7 +25,7 @@ class graph_adjacency_list {
 
   /* 获取顶点数量 */
   def size(): Int = {
-    return adjList.size
+    adjList.size
   }
 
   /* 添加边 */
@@ -84,14 +84,10 @@ object grapy_adjacency_list {
   def main(args: Array[String]): Unit = {
     // 初始化无向图
     val vertex = new Vertex()
-//    val vertexs = vertex.valsToVets(Array(1,3, 5))
-//    val edges = ArrayBuffer(ArrayBuffer(vertexs(0), vertexs(1)), ArrayBuffer(vertexs(0), vertexs(2)))
-//    val graph = new grapy_adjacency_list(edges)
-//    println("\n初始化后，图为")
-//    graph.print()
 
     val v = vertex.valsToVets(Array(1, 3, 2, 5, 4))
-    val edges = ArrayBuffer(ArrayBuffer(v(0), v(1)), ArrayBuffer(v(0), v(3)), ArrayBuffer(v(1), v(2)),
+    val edges = ArrayBuffer(
+      ArrayBuffer(v(0), v(1)), ArrayBuffer(v(0), v(3)), ArrayBuffer(v(1), v(2)),
       ArrayBuffer(v(2), v(3)), ArrayBuffer(v(2), v(4)), ArrayBuffer(v(3), v(4)))
     val graph = new graph_adjacency_list(edges)
 
