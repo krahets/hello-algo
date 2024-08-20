@@ -48,7 +48,9 @@ object hanota {
     println("A = " + A)
     println("B = " + B)
     println("C = " + C)
+
     new hanota().solveHanota(A, B, C)
+
     println("圆盘移动完成后：")
     println("A = " + A)
     println("B = " + B)
