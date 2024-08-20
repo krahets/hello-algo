@@ -27,7 +27,7 @@ object heap{
     // 初始化最大堆
     val maxHeap: mutable.PriorityQueue[Int] = new mutable.PriorityQueue[Int]()(Ordering[Int])
      //初始化小顶堆
-    var minHeap: mutable.PriorityQueue[Int] = new mutable.PriorityQueue[Int]()(Ordering[Int].reverse)
+    val minHeap: mutable.PriorityQueue[Int] = new mutable.PriorityQueue[Int]()(Ordering[Int].reverse)
 
     println("\n以下测试样例为大顶堆")
     val heap: heap = new heap()
@@ -59,7 +59,7 @@ object heap{
 
     // 时间复杂度为 O(n) ，而非 O(nlogn)
     /* 输入列表并建堆 */
-    var list = List(1, 3, 2, 5, 4).map(Seq(_))
+    val list = List(1, 3, 2, 5, 4).map(Seq(_))
     list.foreach(minHeap.enqueue)
     new PrintUtil().printMinHeap(minHeap)
 

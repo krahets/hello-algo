@@ -42,7 +42,7 @@ object fractional_knapsack {
     val value = Array(50, 120, 150, 210, 240)
     val cap = 50
 
-    // 贪心算法// 贪心算法
+    // 贪心算法
     val res = fractionalKnapsack(wgt, value, cap)
     println("不超过背包容量的最大物品价值为 " + res)
   }

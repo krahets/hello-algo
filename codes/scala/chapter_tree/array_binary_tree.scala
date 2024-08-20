@@ -121,7 +121,7 @@ object array_binary_tree {
     // 数组表示下的二叉树类
     val abt: array_binary_tree = new array_binary_tree(arr)
 
-    // 访问节点// 访问节点
+    // 访问节点
     val i = 1
     val l = abt.left(i)
     val r = abt.right(i)

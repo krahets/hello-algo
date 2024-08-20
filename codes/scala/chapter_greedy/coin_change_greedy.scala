@@ -34,7 +34,7 @@ object coin_change_greedy {
     println("\ncoins = " + coins.mkString(", ") + ", amt = " + amt)
     println("凑到 " + amt + " 所需的最少硬币数量为 " + res)
 
-    // 贪心：无法保证找到全局最优解// 贪心：无法保证找到全局最优解
+    // 贪心：无法保证找到全局最优解
     coins = Array[Int](1, 20, 50)
     amt = 60
     res = coinChangeGreedy(coins, amt)
@@ -42,7 +42,7 @@ object coin_change_greedy {
     println("凑到 " + amt + " 所需的最少硬币数量为 " + res)
     println("实际上需要的最少数量为 3 ，即 20 + 20 + 20")
 
-    // 贪心：无法保证找到全局最优解// 贪心：无法保证找到全局最优解
+    // 贪心：无法保证找到全局最优解
     coins = Array[Int](1, 49, 50)
     amt = 98
     res = coinChangeGreedy(coins, amt)

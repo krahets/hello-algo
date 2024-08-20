@@ -24,18 +24,18 @@ object hash_map {
     println("\n添加完成后，哈希表为\nKey -> Value")
     printUtil.printHashMap(map)
 
-    /* 查询操作 *//* 查询操作 */
+    /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     val name = map.get(15937)
     println("\n输入学号 15937 ，查询到姓名 " + name)
 
-    /* 删除操作 *//* 删除操作 */
+    /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.remove(10583)
     println("\n删除 10583 后，哈希表为\nKey -> Value")
     printUtil.printHashMap(map)
 
-    /* 遍历哈希表 *//* 遍历哈希表 */
+    /* 遍历哈希表 */
     println("\n遍历键值对 Key->Value")
 
     map.foreach{case(key, value) =>
