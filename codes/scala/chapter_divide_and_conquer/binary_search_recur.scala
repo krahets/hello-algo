@@ -40,7 +40,7 @@ object binary_search_recur {
     val target = 6
     val nums = Array(1, 3, 6, 8, 12, 15, 23, 26, 31, 35)
 
-    // 二分查找（双闭区间）// 二分查找（双闭区间）
+    // 二分查找（双闭区间）
     val index = new binary_search_recur().binarySearch(nums, target)
     println("目标元素 6 的索引 = " + index)
   }

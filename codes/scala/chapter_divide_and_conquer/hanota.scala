@@ -12,7 +12,7 @@ class hanota {
   def move(src: ListBuffer[Int], tar: ListBuffer[Int]): Unit = {
     // 从 src 顶部拿出一个圆盘
     val pan = src.remove(src.size - 1)
-    // 将圆盘放入 tar 顶部// 将圆盘放入 tar 顶部
+    // 将圆盘放入 tar 顶部
     tar += pan
   }
 
@@ -34,7 +34,7 @@ class hanota {
   /* 求解汉诺塔问题 */
   def solveHanota(A: ListBuffer[Int], B: ListBuffer[Int], C: ListBuffer[Int]): Unit = {
     val n = A.size
-    // 将 A 顶部 n 个圆盘借助 B 移到 C// 将 A 顶部 n 个圆盘借助 B 移到 C
+    // 将 A 顶部 n 个圆盘借助 B 移到 C
     dfs(n, A, B, C)
   }
 }
