@@ -28,7 +28,7 @@ object worst_best_time_complexity {
         return i
       }
     }
-    return -1 // 不存在返回-1
+    -1 // 不存在返回-1
   }
 
   // Driver Code
