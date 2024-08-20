@@ -59,7 +59,7 @@ class recursion {
     }
 
     // 递归调用 f(n) = f(n-1) + f(n-2)
-    var res: Int = fib(n - 1) + fib(n - 2)
+    val res: Int = fib(n - 1) + fib(n - 2)
 
     // 返回结果 f(n)
     res
@@ -72,7 +72,7 @@ class recursion {
 object  recursion{
   def main(args: Array[String]): Unit = {
     val recur = new recursion
-    var n: Int = 5
+    val n: Int = 5
     var res: Int = 0
 
     res = recur.recur(n)
