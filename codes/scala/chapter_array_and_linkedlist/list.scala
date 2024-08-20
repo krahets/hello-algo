@@ -3,7 +3,7 @@ import scala.collection.mutable.ListBuffer
 
 /**
  * File: list.scala
- * Author: WangBlue
+ * Author: WangBlue (wangjiping596@gmail.com)
  * Create: 2024-08-10 17:52
  */
 object list {

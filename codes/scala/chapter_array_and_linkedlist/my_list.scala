@@ -1,7 +1,7 @@
 
 /**
  * File: my_list.scala
- * Author: WangBlue
+ * Author: WangBlue (wangjiping596@gmail.com)
  * Create: 2024-08-10 18:24
  */
 class my_list(initialCapacity: Int = 10) {

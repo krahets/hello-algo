@@ -1,7 +1,7 @@
 
 /**
  * File: Array.scala
- * Author: WangBlue
+ * Author: WangBlue (wangjiping596@gmail.com)
  * Create: 2024-08-10 11:09
  */
 class array {
