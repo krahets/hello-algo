@@ -769,6 +769,20 @@
     }
     ```
 
+=== "Scala"
+
+    ```Scala title=""
+    /* 双向链表节点类 */
+    var value: Int = 0        // 节点值
+    var next: ListNode = _   // 指向后继节点的引用
+    var prev: ListNode = _   // 指向前驱节点的引用
+    /* 构造函数 */
+    def this(value: Int) = {
+        this()
+        this.value = value
+    }
+    ```
+
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)
 
 ## 链表典型应用
