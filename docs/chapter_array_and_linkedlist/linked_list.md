@@ -205,6 +205,18 @@
     }
     ```
 
+=== "Scala"
+
+    ```Scala title=""
+    var value: Int = 0        // 节点值
+    var next: ListNode = _   // 指向下一个节点的指针
+    /* 构造函数 */
+    def this(value: Int) = {
+        this()
+        this.value = value
+    }
+    ```
+
 ## 链表常用操作
 
 ### 初始化链表
