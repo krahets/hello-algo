@@ -207,6 +207,22 @@
 
     ```
 
+=== "Scala"
+
+    ```Scala title=""
+    /* 二叉树节点类 */
+    class TreeNode {
+        var value: Int = 0 // 节点值
+        var left: TreeNode = _ // 左子节点引用
+        var right: TreeNode = _ // 右子节点引用
+        
+        def this(value: Int) = {
+            this()
+            this.value = value
+        }
+    }
+    ```
+
 每个节点都有两个引用（指针），分别指向<u>左子节点（left-child node）</u>和<u>右子节点（right-child node）</u>，该节点被称为这两个子节点的<u>父节点（parent node）</u>。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的<u>左子树（left subtree）</u>，同理可得<u>右子树（right subtree）</u>。
 
 **在二叉树中，除叶节点外，其他所有节点都包含子节点和非空子树**。如下图所示，如果将“节点 2”视为父节点，则其左子节点和右子节点分别是“节点 4”和“节点 5”，左子树是“节点 4 及其以下节点形成的树”，右子树是“节点 5 及其以下节点形成的树”。
