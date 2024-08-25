@@ -234,6 +234,23 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
 
     ```
 
+=== "Scala"
+
+    ```scala title=""
+    /* AVL 树节点类 */
+    class TreeNode {
+        var value: Int = 0 // 节点值
+        var height: Int = 0 // 节点高度
+        var left: TreeNode = _ // 左子节点引用
+        var right: TreeNode = _ // 右子节点引用
+
+        def this(value: Int) = {
+            this()
+            this.value = value
+        }
+    }
+    ```
+
 “节点高度”是指从该节点到它的最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 $0$ ，而空节点的高度为 $-1$ 。我们将创建两个工具函数，分别用于获取和更新节点的高度：
 
 ```src
