@@ -134,6 +134,14 @@
 
     ```
 
+=== "Scala"
+
+    ```scala title=""
+    /* 二叉树的数组表示 */
+    // 使用 int 的包装类 Integer ，就可以使用 None 来标记空位
+    //  val tree: Array[Integer] = Array(1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15)
+   ```
+
 ![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png)
 
 值得说明的是，**完全二叉树非常适合使用数组来表示**。回顾完全二叉树的定义，`None` 只出现在最底层且靠右的位置，**因此所有 `None` 一定出现在层序遍历序列的末尾**。
