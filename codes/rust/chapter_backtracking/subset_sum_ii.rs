@@ -33,7 +33,7 @@ fn backtrack(
         // 尝试：做出选择，更新 target, start
         state.push(choices[i]);
         // 进行下一轮选择
-        backtrack(state, target - choices[i], choices, i, res);
+        backtrack(state, target - choices[i], choices, i + 1, res);
         // 回退：撤销选择，恢复到之前的状态
         state.pop();
     }
