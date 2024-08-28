@@ -111,6 +111,15 @@ class QuickSortTailCall:
                 right = pivot - 1  # 剩余未排序区间为 [left, pivot - 1]
 
 
+def quick_sort(nums: list[int]):
+    """快速排序类（更pythonic）"""
+    # 数组长度为 1 时终止
+    if len(nums) <= 1:
+        return nums
+    # 以 nums[0] 为基准数，比基准数小的放左面，比基准数大的放右面
+    return quick_sort([i for i in nums[1:] if i < nums[0]]) + [nums[0]] + quick_sort([i for i in nums[1:] if i >= nums[0]])
+
+
 """Driver Code"""
 if __name__ == "__main__":
     # 快速排序
@@ -127,3 +136,9 @@ if __name__ == "__main__":
     nums2 = [2, 4, 1, 0, 3, 5]
     QuickSortTailCall().quick_sort(nums2, 0, len(nums2) - 1)
     print("快速排序（尾递归优化）完成后 nums =", nums2)
+
+    # 快速排序（更pythonic）
+    nums3 = [2, 4, 1, 0, 3, 5]
+    return_nums = [0] * len(nums3)
+    return_nums = quick_sort(nums3)
+    print("快速排序（更pythonic）完成后 nums =", return_nums)
