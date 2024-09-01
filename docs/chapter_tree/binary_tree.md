@@ -651,7 +651,7 @@
 
 ### 完全二叉树
 
-如下图所示，<u>完全二叉树（complete binary tree）</u>只有最底层的节点未被填满，且最底层节点尽量靠左填充。
+如下图所示，<u>完全二叉树（complete binary tree）</u>只有最底层的节点未被填满，且最底层节点尽量靠左填充。请注意，完美二叉树也是一棵完全二叉树。
 
 ![完全二叉树](binary_tree.assets/complete_binary_tree.png)
 

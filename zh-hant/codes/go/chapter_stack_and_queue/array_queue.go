@@ -49,6 +49,10 @@ func (q *arrayQueue) push(num int) {
 /* 出列 */
 func (q *arrayQueue) pop() any {
 	num := q.peek()
+	if num == nil {
+		return nil
+	}
+
 	// 佇列首指標向後移動一位，若越過尾部，則返回到陣列頭部
 	q.front = (q.front + 1) % q.queCapacity
 	q.queSize--

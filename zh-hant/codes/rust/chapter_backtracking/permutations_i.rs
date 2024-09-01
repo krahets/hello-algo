@@ -23,7 +23,7 @@ fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &
             backtrack(state.clone(), choices, selected, res);
             // 回退：撤銷選擇，恢復到之前的狀態
             selected[i] = false;
-            state.remove(state.len() - 1);
+            state.pop();
         }
     }
 }
