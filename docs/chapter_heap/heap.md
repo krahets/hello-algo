@@ -479,7 +479,7 @@
 === "<9>"
     ![heap_push_step9](heap.assets/heap_push_step9.png)
 
-设节点总数为 $n$ ，则树的高度为 $O(\log n)$ 。由此可知，堆化操作的循环轮数最多为 $O(\log n)$ ，**元素入堆操作的时间复杂度为 $O(\log n)$** 。代码如下所示：
+设节点总数为 $n$ ，则树的高度为 $\log n$ 。由此可知，堆化操作的循环轮数最多为 $\log n$ ，**元素入堆操作的时间复杂度为 $O(\log n)$** 。代码如下所示：
 
 ```src
 [file]{my_heap}-[class]{max_heap}-[func]{sift_up}
