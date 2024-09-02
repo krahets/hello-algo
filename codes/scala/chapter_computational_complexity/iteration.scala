@@ -1,10 +1,8 @@
-
 /**
  * File: iteration.scala
- * Author: WangBlue (wangjiping596@gmail.com)
+ * Author: wangjiping (wangjiping596@gmail.com)
  * Create: 2024-08-09 10:50
  */
-
 
 class iteration {
   /* for 循环 */
@@ -45,7 +43,7 @@ class iteration {
 
   /* 双层 for 循环 */
   def nestedForLoop(n: Int): String = {
-    var res: StringBuilder = new StringBuilder()
+    val res: StringBuilder = new StringBuilder()
     // 循环 i = 1, 2, ..., n-1, n
     for (i <- 1 to n) {
       // 循环 j = 1, 2, ..., n-1, n
@@ -56,13 +54,12 @@ class iteration {
     res.toString()
 
   }
-
 }
 
 /* Driver Code */
 object iteration {
   def main(args: Array[String]): Unit = {
-    var n: Int = 5
+    val n: Int = 5
     var res: Int = 0
 
     val iter = new iteration()
