@@ -29,11 +29,11 @@ Common operations of a hash table include: initialization, querying, adding key-
 === "Python"
 
     ```python title="hash_map.py"
-    # Initialize a hash table
+    # Initialize hash table
     hmap: dict = {}
 
     # Add operation
-    # Add a key-value pair (key, value) to the hash table
+    # Add key-value pair (key, value) to the hash table
     hmap[12836] = "Xiao Ha"
     hmap[15937] = "Xiao Luo"
     hmap[16750] = "Xiao Suan"
@@ -41,22 +41,22 @@ Common operations of a hash table include: initialization, querying, adding key-
     hmap[10583] = "Xiao Ya"
 
     # Query operation
-    # Input a key into the hash table, get a value
+    # Input key into hash table, get value
     name: str = hmap[15937]
 
     # Delete operation
-    # Delete a key-value pair (key, value) from the hash table
+    # Delete key-value pair (key, value) from hash table
     hmap.pop(10583)
     ```
 
 === "C++"
 
     ```cpp title="hash_map.cpp"
-    /* Initialize a hash table */
+    /* Initialize hash table */
     unordered_map<int, string> map;
 
     /* Add operation */
-    // Add a key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     map[12836] = "Xiao Ha";
     map[15937] = "Xiao Luo";
     map[16750] = "Xiao Suan";
@@ -64,22 +64,22 @@ Common operations of a hash table include: initialization, querying, adding key-
     map[10583] = "Xiao Ya";
 
     /* Query operation */
-    // Input a key into the hash table, get a value
+    // Input key into hash table, get value
     string name = map[15937];
 
     /* Delete operation */
-    // Delete a key-value pair (key, value) from the hash table
+    // Delete key-value pair (key, value) from hash table
     map.erase(10583);
     ```
 
 === "Java"
 
     ```java title="hash_map.java"
-    /* Initialize a hash table */
+    /* Initialize hash table */
     Map<Integer, String> map = new HashMap<>();
 
     /* Add operation */
-    // Add a key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     map.put(12836, "Xiao Ha");   
     map.put(15937, "Xiao Luo");   
     map.put(16750, "Xiao Suan");   
@@ -87,21 +87,21 @@ Common operations of a hash table include: initialization, querying, adding key-
     map.put(10583, "Xiao Ya");
 
     /* Query operation */
-    // Input a key into the hash table, get a value
+    // Input key into hash table, get value
     String name = map.get(15937);
 
     /* Delete operation */
-    // Delete a key-value pair (key, value) from the hash table
+    // Delete key-value pair (key, value) from hash table
     map.remove(10583);
     ```
 
 === "C#"
 
     ```csharp title="hash_map.cs"
-    /* Initialize a hash table */
+    /* Initialize hash table */
     Dictionary<int, string> map = new() {
         /* Add operation */
-        // Add a key-value pair (key, value) to the hash table
+        // Add key-value pair (key, value) to hash table
         { 12836, "Xiao Ha" },
         { 15937, "Xiao Luo" },
         { 16750, "Xiao Suan" },
@@ -110,22 +110,22 @@ Common operations of a hash table include: initialization, querying, adding key-
     };
 
     /* Query operation */
-    // Input a key into the hash table, get a value
+    // Input key into hash table, get value
     string name = map[15937];
 
     /* Delete operation */
-    // Delete a key-value pair (key, value) from the hash table
+    // Delete key-value pair (key, value) from hash table
     map.Remove(10583);
     ```
 
 === "Go"
 
     ```go title="hash_map_test.go"
-    /* Initialize a hash table */
+    /* Initialize hash table */
     hmap := make(map[int]string)
 
     /* Add operation */
-    // Add a key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     hmap[12836] = "Xiao Ha"
     hmap[15937] = "Xiao Luo"
     hmap[16750] = "Xiao Suan"
@@ -133,22 +133,22 @@ Common operations of a hash table include: initialization, querying, adding key-
     hmap[10583] = "Xiao Ya"
 
     /* Query operation */
-    // Input a key into the hash table, get a value
+    // Input key into hash table, get value
     name := hmap[15937]
 
     /* Delete operation */
-    // Delete a key-value pair (key, value) from the hash table
+    // Delete key-value pair (key, value) from hash table
     delete(hmap, 10583)
     ```
 
 === "Swift"
 
     ```swift title="hash_map.swift"
-    /* Initialize a hash table */
+    /* Initialize hash table */
     var map: [Int: String] = [:]
 
     /* Add operation */
-    // Add a key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     map[12836] = "Xiao Ha"
     map[15937] = "Xiao Luo"
     map[16750] = "Xiao Suan"
@@ -156,21 +156,21 @@ Common operations of a hash table include: initialization, querying, adding key-
     map[10583] = "Xiao Ya"
 
     /* Query operation */
-    // Input a key into the hash table, get a value
+    // Input key into hash table, get value
     let name = map[15937]!
 
     /* Delete operation */
-    // Delete a key-value pair (key, value) from the hash table
+    // Delete key-value pair (key, value) from hash table
     map.removeValue(forKey: 10583)
     ```
 
 === "JS"
 
     ```javascript title="hash_map.js"
-    /* Initialize a hash table */
+    /* Initialize hash table */
     const map = new Map();
     /* Add operation */
-    // Add a key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to the hash table
     map.set(12836, 'Xiao Ha');
     map.set(15937, 'Xiao Luo');
     map.set(16750, 'Xiao Suan');
@@ -178,21 +178,21 @@ Common operations of a hash table include: initialization, querying, adding key-
     map.set(10583, 'Xiao Ya');
 
     /* Query operation */
-    // Input a key into the hash table, get a value
+    // Input key into hash table, get value
     let name = map.get(15937);
 
     /* Delete operation */
-    // Delete a key-value pair (key, value) from the hash table
+    // Delete key-value pair (key, value) from hash table
     map.delete(10583);
     ```
 
 === "TS"
 
     ```typescript title="hash_map.ts"
-    /* Initialize a hash table */
+    /* Initialize hash table */
     const map = new Map<number, string>();
     /* Add operation */
-    // Add a key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     map.set(12836, 'Xiao Ha');
     map.set(15937, 'Xiao Luo');
     map.set(16750, 'Xiao Suan');
@@ -202,12 +202,12 @@ Common operations of a hash table include: initialization, querying, adding key-
     console.info(map);
 
     /* Query operation */
-    // Input a key into the hash table, get a value
+    // Input key into hash table, get value
     let name = map.get(15937);
     console.info('\nInput student number 15937, query name ' + name);
 
     /* Delete operation */
-    // Delete a key-value pair (key, value) from the hash table
+    // Delete key-value pair (key, value) from hash table
     map.delete(10583);
     console.info('\nAfter deleting 10583, the hash table is\nKey -> Value');
     console.info(map);
@@ -216,11 +216,11 @@ Common operations of a hash table include: initialization, querying, adding key-
 === "Dart"
 
     ```dart title="hash_map.dart"
-    /* Initialize a hash table */
+    /* Initialize hash table */
     Map<int, String> map = {};
 
     /* Add operation */
-    // Add a key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     map[12836] = "Xiao Ha";
     map[15937] = "Xiao Luo";
     map[16750] = "Xiao Suan";
@@ -228,11 +228,11 @@ Common operations of a hash table include: initialization, querying, adding key-
     map[10583] = "Xiao Ya";
 
     /* Query operation */
-    // Input a key into the hash table, get a value
+    // Input key into hash table, get value
     String name = map[15937];
 
     /* Delete operation */
-    // Delete a key-value pair (key, value) from the hash table
+    // Delete key-value pair (key, value) from hash table
     map.remove(10583);
     ```
 
@@ -245,7 +245,7 @@ Common operations of a hash table include: initialization, querying, adding key-
     let mut map: HashMap<i32, String> = HashMap::new();
 
     /* Add operation */
-    // Add a key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     map.insert(12836, "Xiao Ha".to_string());
     map.insert(15937, "Xiao Luo".to_string());
     map.insert(16750, "Xiao Suan".to_string());
@@ -253,11 +253,11 @@ Common operations of a hash table include: initialization, querying, adding key-
     map.insert(10583, "Xiao Ya".to_string());
 
     /* Query operation */
-    // Input a key into the hash table, get a value
+    // Input key into hash table, get value
     let _name: Option<&String> = map.get(&15937);
 
     /* Delete operation */
-    // Delete a key-value pair (key, value) from the hash table
+    // Delete key-value pair (key, value) from hash table
     let _removed_value: Option<String> = map.remove(&10583);
     ```
 
