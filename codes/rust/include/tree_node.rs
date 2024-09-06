@@ -72,23 +72,21 @@ pub fn vec_to_tree(arr: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
 }
 
 /* 将二叉树序列化为列表：递归 */
-fn tree_to_vec_dfs(root: Option<Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
-    if root.is_none() {
-        return;
+fn tree_to_vec_dfs(root: Option<&Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
+    if let Some(root) = root {
+        // i + 1 is the minimum valid size to access index i
+        while res.len() < i + 1 {
+            res.push(None);
+        }
+        res[i] = Some(root.borrow().val);
+        tree_to_vec_dfs(root.borrow().left.as_ref(), 2 * i + 1, res);
+        tree_to_vec_dfs(root.borrow().right.as_ref(), 2 * i + 2, res);
     }
-    let root = root.unwrap();
-    // i + 1 is the minimum valid size to access index i
-    while res.len() < i + 1 {
-        res.push(None);
-    }
-    res[i] = Some(root.borrow().val);
-    tree_to_vec_dfs(root.borrow().left.clone(), 2 * i + 1, res);
-    tree_to_vec_dfs(root.borrow().right.clone(), 2 * i + 2, res);
 }
 
 /* 将二叉树序列化为列表 */
 pub fn tree_to_vec(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
     let mut res = vec![];
-    tree_to_vec_dfs(root, 0, &mut res);
+    tree_to_vec_dfs(root.as_ref(), 0, &mut res);
     res
 }
