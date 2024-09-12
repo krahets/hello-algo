@@ -39,7 +39,7 @@ The search operation in a binary search tree works on the same principle as the 
 
 ### Inserting a node
 
-Given an element `num` to be inserted, to maintain the property of the binary search tree "left subtree < root node < right subtree", the insertion operation proceeds as shown in the figure below.
+Given an element `num` to be inserted, to maintain the property of the binary search tree "left subtree < root node < right subtree," the insertion operation proceeds as shown in the figure below.
 
 1. **Finding insertion position**: Similar to the search operation, start from the root node, loop downwards according to the size relationship between the current node value and `num`, until the leaf node is passed (traversed to `None`), then exit the loop.
 2. **Insert the node at this position**: Initialize the node `num` and place it where `None` was.
@@ -96,7 +96,7 @@ The operation of removing a node also uses $O(\log n)$ time, where finding the n
 
 ### In-order traversal is ordered
 
-As shown in the figure below, the in-order traversal of a binary tree follows the traversal order of "left $\rightarrow$ root $\rightarrow$ right", and a binary search tree satisfies the size relationship of "left child node $<$ root node $<$ right child node".
+As shown in the figure below, the in-order traversal of a binary tree follows the traversal order of "left $\rightarrow$ root $\rightarrow$ right," and a binary search tree satisfies the size relationship of "left child node $<$ root node $<$ right child node."
 
 This means that when performing in-order traversal in a binary search tree, the next smallest node will always be traversed first, thus leading to an important property: **The sequence of in-order traversal in a binary search tree is ascending**.
 
@@ -116,7 +116,7 @@ Given a set of data, we consider using an array or a binary search tree for stor
 | Insert element | $O(1)$         | $O(\log n)$        |
 | Remove element | $O(n)$         | $O(\log n)$        |
 
-Ideally, the binary search tree is "balanced", allowing any node can be found within $\log n$ loops.
+Ideally, the binary search tree is "balanced," allowing any node can be found within $\log n$ loops.
 
 However, if we continuously insert and remove nodes in a binary search tree, it may degenerate into a linked list as shown in the figure below, where the time complexity of various operations also degrades to $O(n)$.
 
