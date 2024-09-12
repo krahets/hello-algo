@@ -1,6 +1,6 @@
 # Hash table
 
-A <u>hash table</u>, also known as a <u>hash map</u>, is a data structure that establishes a mapping between keys and values, enabling efficient element retrieval. Specifically, when we input a `key` into the hash table, we can retrive the corresponding `value` in $O(1)$ time complexity.
+A <u>hash table</u>, also known as a <u>hash map</u>, is a data structure that establishes a mapping between keys and values, enabling efficient element retrieval. Specifically, when we input a `key` into the hash table, we can retrieve the corresponding `value` in $O(1)$ time complexity.
 
 As shown in the figure below, given $n$ students, each student has two data fields: "Name" and "Student ID". If we want to implement a query function that takes a student ID as input and returns the corresponding name, we can use the hash table shown in the figure below.
 
@@ -8,9 +8,9 @@ As shown in the figure below, given $n$ students, each student has two data fiel
 
 In addition to hash tables, arrays and linked lists can also be used to implement query functionality, but the time complexity is different. Their efficiency is compared in the table below:
 
-- **Inserting elements**: Simply append the element to the tail of the array (or linked list). The time complexity of this operation is $O(1)$.
-- **Searching for elements**: As the array (or linked list) is unsorted, searching for an element requires traversing through all of the elements. The time complexity of this operation is $O(n)$.
-- **Deleting elements**: To remove an element, we first need to locate it. Then, we delete it from the array (or linked list). The time complexity of this operation is $O(n)$.
+- **Inserting an element**: Simply append the element to the tail of the array (or linked list). The time complexity of this operation is $O(1)$.
+- **Searching for an element**: As the array (or linked list) is unsorted, searching for an element requires traversing through all of the elements. The time complexity of this operation is $O(n)$.
+- **Deleting an element**: To remove an element, we first need to locate it. Then, we delete it from the array (or linked list). The time complexity of this operation is $O(n)$.
 
 <p align="center"> Table <id> &nbsp; Comparison of time efficiency for common operations </p>
 
@@ -20,7 +20,7 @@ In addition to hash tables, arrays and linked lists can also be used to implemen
 | Insert Elements    | $O(1)$ | $O(1)$      | $O(1)$     |
 | Delete Elements | $O(n)$ | $O(n)$      | $O(1)$     |
 
-It can be seen that **the time complexity for operations (insertion, deletion, searching, and modification) in a hash table is $O(1)$**, which is highly efficient.
+As observed, **the time complexity for operations (insertion, deletion, searching, and modification) in a hash table is $O(1)$**, which is highly efficient.
 
 ## Common operations of hash table
 
@@ -56,7 +56,7 @@ Common operations of a hash table include: initialization, querying, adding key-
     unordered_map<int, string> map;
 
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     map[12836] = "Xiao Ha";
     map[15937] = "Xiao Luo";
     map[16750] = "Xiao Suan";
@@ -79,7 +79,7 @@ Common operations of a hash table include: initialization, querying, adding key-
     Map<Integer, String> map = new HashMap<>();
 
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     map.put(12836, "Xiao Ha");   
     map.put(15937, "Xiao Luo");   
     map.put(16750, "Xiao Suan");   
@@ -101,7 +101,7 @@ Common operations of a hash table include: initialization, querying, adding key-
     /* Initialize hash table */
     Dictionary<int, string> map = new() {
         /* Add operation */
-        // Add key-value pair (key, value) to the hash table
+        // Add key-value pair (key, value) to hash table
         { 12836, "Xiao Ha" },
         { 15937, "Xiao Luo" },
         { 16750, "Xiao Suan" },
@@ -125,7 +125,7 @@ Common operations of a hash table include: initialization, querying, adding key-
     hmap := make(map[int]string)
 
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     hmap[12836] = "Xiao Ha"
     hmap[15937] = "Xiao Luo"
     hmap[16750] = "Xiao Suan"
@@ -148,7 +148,7 @@ Common operations of a hash table include: initialization, querying, adding key-
     var map: [Int: String] = [:]
 
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     map[12836] = "Xiao Ha"
     map[15937] = "Xiao Luo"
     map[16750] = "Xiao Suan"
@@ -192,7 +192,7 @@ Common operations of a hash table include: initialization, querying, adding key-
     /* Initialize hash table */
     const map = new Map<number, string>();
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     map.set(12836, 'Xiao Ha');
     map.set(15937, 'Xiao Luo');
     map.set(16750, 'Xiao Suan');
@@ -220,7 +220,7 @@ Common operations of a hash table include: initialization, querying, adding key-
     Map<int, String> map = {};
 
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     map[12836] = "Xiao Ha";
     map[15937] = "Xiao Luo";
     map[16750] = "Xiao Suan";
@@ -245,7 +245,7 @@ Common operations of a hash table include: initialization, querying, adding key-
     let mut map: HashMap<i32, String> = HashMap::new();
 
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
+    // Add key-value pair (key, value) to hash table
     map.insert(12836, "Xiao Ha".to_string());
     map.insert(15937, "Xiao Luo".to_string());
     map.insert(16750, "Xiao Suan".to_string());
@@ -490,10 +490,10 @@ First, let's consider the simplest case: **implementing a hash table using only 
 
 So, how do we locate the corresponding bucket based on the `key`? This is achieved through a <u>hash function</u>. The role of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space consists of all the keys, and the output space consists of all the buckets (array indices). In other words, given a `key`, **we can use the hash function to determine the storage location of the corresponding key-value pair in the array**.
 
-When given a `key`, the calculation process of the hash function consists of the following two steps:
+With a given `key`, the calculation of the hash function consists of two steps:
 
 1. Calculate the hash value by using a certain hash algorithm `hash()`.
-2. Take the modulus of the hash value with the bucket count (array length) `capacity` to obtain the array `index` corresponding to that key.
+2. Take the modulus of the hash value with the bucket count (array length) `capacity` to obtain the array `index` corresponding to the key.
 
 ```shell
 index = hash(key) % capacity
