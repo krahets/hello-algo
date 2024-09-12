@@ -29,7 +29,7 @@ impl<T> ListNode<T> {
         for item in array.iter().rev() {
             let node = Rc::new(RefCell::new(ListNode {
                 val: *item,
-                next: head.clone(),
+                next: head.take(),
             }));
             head = Some(node);
         }
@@ -44,14 +44,14 @@ impl<T> ListNode<T> {
         T: std::hash::Hash + Eq + Copy + Clone,
     {
         let mut hashmap = HashMap::new();
-        if let Some(node) = linked_list {
-            let mut current = Some(node.clone());
-            while let Some(cur) = current {
-                let borrow = cur.borrow();
-                hashmap.insert(borrow.val.clone(), cur.clone());
-                current = borrow.next.clone();
-            }
+        let mut node = linked_list;
+
+        while let Some(cur) = node {
+            let borrow = cur.borrow();
+            hashmap.insert(borrow.val.clone(), cur.clone());
+            node = borrow.next.clone();
         }
+
         hashmap
     }
 }
