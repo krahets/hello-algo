@@ -1,6 +1,6 @@
 # Binary tree traversal
 
-From a physical structure perspective, trees are data structures based on linked lists. Hence, their traversal method involves accessing nodes one by one through pointers. However, trees are non-linear data structures, which makes traversing a tree more complex than traversing a linked list, requiring the assistance of search algorithms.
+From a physical structure perspective, a tree is a data structure based on linked lists. Hence, its traversal method involves accessing nodes one by one through pointers. However, a tree is a non-linear data structure, which makes traversing a tree more complex than traversing a linked list, requiring the assistance of search algorithms.
 
 The common traversal methods for binary trees include level-order traversal, pre-order traversal, in-order traversal, and post-order traversal.
 
