@@ -70,7 +70,7 @@ class MyList {
     remove(index) {
         if (index < 0 || index >= this.#size) throw new Error('索引越界');
         let num = this.#arr[index];
-        // 将将索引 index 之后的元素都向前移动一位
+        // 将索引 index 之后的元素都向前移动一位
         for (let j = index; j < this.#size - 1; j++) {
             this.#arr[j] = this.#arr[j + 1];
         }
