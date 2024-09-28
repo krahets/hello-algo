@@ -69,26 +69,19 @@ comments: true
 === "C++"
 
     ```cpp title="quick_sort.cpp"
-    /* 元素交換 */
-    void swap(vector<int> &nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
     /* 哨兵劃分 */
     int partition(vector<int> &nums, int left, int right) {
         // 以 nums[left] 為基準數
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
-                j--; // 從右向左找首個小於基準數的元素
+                j--;                // 從右向左找首個小於基準數的元素
             while (i < j && nums[i] <= nums[left])
-                i++;          // 從左向右找首個大於基準數的元素
-            swap(nums, i, j); // 交換這兩個元素
+                i++;                // 從左向右找首個大於基準數的元素
+            swap(nums[i], nums[j]); // 交換這兩個元素
         }
-        swap(nums, i, left); // 將基準數交換至兩子陣列的分界線
-        return i;            // 返回基準數的索引
+        swap(nums[i], nums[left]);  // 將基準數交換至兩子陣列的分界線
+        return i;                   // 返回基準數的索引
     }
     ```
 
@@ -721,18 +714,18 @@ comments: true
         // 選取三個候選元素的中位數
         int med = medianThree(nums, left, (left + right) / 2, right);
         // 將中位數交換至陣列最左端
-        swap(nums, left, med);
+        swap(nums[left], nums[med]);
         // 以 nums[left] 為基準數
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
-                j--; // 從右向左找首個小於基準數的元素
+                j--;                // 從右向左找首個小於基準數的元素
             while (i < j && nums[i] <= nums[left])
-                i++;          // 從左向右找首個大於基準數的元素
-            swap(nums, i, j); // 交換這兩個元素
+                i++;                // 從左向右找首個大於基準數的元素
+            swap(nums[i], nums[j]); // 交換這兩個元素
         }
-        swap(nums, i, left); // 將基準數交換至兩子陣列的分界線
-        return i;            // 返回基準數的索引
+        swap(nums[i], nums[left]);  // 將基準數交換至兩子陣列的分界線
+        return i;                   // 返回基準數的索引
     }
     ```
 

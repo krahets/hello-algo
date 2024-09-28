@@ -69,13 +69,6 @@ After the pivot partitioning, the original array is divided into three parts: le
 === "C++"
 
     ```cpp title="quick_sort.cpp"
-    /* Swap elements */
-    void swap(vector<int> &nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
     /* Partition */
     int partition(vector<int> &nums, int left, int right) {
         // Use nums[left] as the pivot

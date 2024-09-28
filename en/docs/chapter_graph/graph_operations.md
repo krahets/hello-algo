@@ -4,7 +4,7 @@ comments: true
 
 # 9.2 &nbsp; Basic operations on graphs
 
-The basic operations on graphs can be divided into operations on "edges" and operations on "vertices". Under the two representation methods of "adjacency matrix" and "adjacency list", the implementation methods are different.
+The basic operations on graphs can be divided into operations on "edges" and operations on "vertices". Under the two representation methods of "adjacency matrix" and "adjacency list", the implementations are different.
 
 ## 9.2.1 &nbsp; Implementation based on adjacency matrix
 

@@ -355,7 +355,7 @@ comments: true
     ```rust title="subset_sum_i_naive.rs"
     /* 回溯算法：子集和 I */
     fn backtrack(
-        mut state: Vec<i32>,
+        state: &mut Vec<i32>,
         target: i32,
         total: i32,
         choices: &[i32],
@@ -363,7 +363,7 @@ comments: true
     ) {
         // 子集和等于 target 时，记录解
         if total == target {
-            res.push(state);
+            res.push(state.clone());
             return;
         }
         // 遍历所有选择
@@ -375,7 +375,7 @@ comments: true
             // 尝试：做出选择，更新元素和 total
             state.push(choices[i]);
             // 进行下一轮选择
-            backtrack(state.clone(), target, total + choices[i], choices, res);
+            backtrack(state, target, total + choices[i], choices, res);
             // 回退：撤销选择，恢复到之前的状态
             state.pop();
         }
@@ -383,10 +383,10 @@ comments: true
 
     /* 求解子集和 I（包含重复子集） */
     fn subset_sum_i_naive(nums: &[i32], target: i32) -> Vec<Vec<i32>> {
-        let state = Vec::new(); // 状态（子集）
+        let mut state = Vec::new(); // 状态（子集）
         let total = 0; // 子集和
         let mut res = Vec::new(); // 结果列表（子集列表）
-        backtrack(state, target, total, nums, &mut res);
+        backtrack(&mut state, target, total, nums, &mut res);
         res
     }
     ```
@@ -912,7 +912,7 @@ comments: true
     ```rust title="subset_sum_i.rs"
     /* 回溯算法：子集和 I */
     fn backtrack(
-        mut state: Vec<i32>,
+        state: &mut Vec<i32>,
         target: i32,
         choices: &[i32],
         start: usize,
@@ -920,7 +920,7 @@ comments: true
     ) {
         // 子集和等于 target 时，记录解
         if target == 0 {
-            res.push(state);
+            res.push(state.clone());
             return;
         }
         // 遍历所有选择
@@ -934,7 +934,7 @@ comments: true
             // 尝试：做出选择，更新 target, start
             state.push(choices[i]);
             // 进行下一轮选择
-            backtrack(state.clone(), target - choices[i], choices, i, res);
+            backtrack(state, target - choices[i], choices, i, res);
             // 回退：撤销选择，恢复到之前的状态
             state.pop();
         }
@@ -942,11 +942,11 @@ comments: true
 
     /* 求解子集和 I */
     fn subset_sum_i(nums: &mut [i32], target: i32) -> Vec<Vec<i32>> {
-        let state = Vec::new(); // 状态（子集）
+        let mut state = Vec::new(); // 状态（子集）
         nums.sort(); // 对 nums 进行排序
         let start = 0; // 遍历起始点
         let mut res = Vec::new(); // 结果列表（子集列表）
-        backtrack(state, target, nums, start, &mut res);
+        backtrack(&mut state, target, nums, start, &mut res);
         res
     }
     ```
@@ -1512,7 +1512,7 @@ comments: true
     ```rust title="subset_sum_ii.rs"
     /* 回溯算法：子集和 II */
     fn backtrack(
-        mut state: Vec<i32>,
+        state: &mut Vec<i32>,
         target: i32,
         choices: &[i32],
         start: usize,
@@ -1520,7 +1520,7 @@ comments: true
     ) {
         // 子集和等于 target 时，记录解
         if target == 0 {
-            res.push(state);
+            res.push(state.clone());
             return;
         }
         // 遍历所有选择
@@ -1539,7 +1539,7 @@ comments: true
             // 尝试：做出选择，更新 target, start
             state.push(choices[i]);
             // 进行下一轮选择
-            backtrack(state.clone(), target - choices[i], choices, i, res);
+            backtrack(state, target - choices[i], choices, i + 1, res);
             // 回退：撤销选择，恢复到之前的状态
             state.pop();
         }
@@ -1547,11 +1547,11 @@ comments: true
 
     /* 求解子集和 II */
     fn subset_sum_ii(nums: &mut [i32], target: i32) -> Vec<Vec<i32>> {
-        let state = Vec::new(); // 状态（子集）
+        let mut state = Vec::new(); // 状态（子集）
         nums.sort(); // 对 nums 进行排序
         let start = 0; // 遍历起始点
         let mut res = Vec::new(); // 结果列表（子集列表）
-        backtrack(state, target, nums, start, &mut res);
+        backtrack(&mut state, target, nums, start, &mut res);
         res
     }
     ```
