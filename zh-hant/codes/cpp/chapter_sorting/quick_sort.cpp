@@ -9,26 +9,19 @@
 /* 快速排序類別 */
 class QuickSort {
   private:
-    /* 元素交換 */
-    static void swap(vector<int> &nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
     /* 哨兵劃分 */
     static int partition(vector<int> &nums, int left, int right) {
         // 以 nums[left] 為基準數
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
-                j--; // 從右向左找首個小於基準數的元素
+                j--;                // 從右向左找首個小於基準數的元素
             while (i < j && nums[i] <= nums[left])
-                i++;          // 從左向右找首個大於基準數的元素
-            swap(nums, i, j); // 交換這兩個元素
+                i++;                // 從左向右找首個大於基準數的元素
+            swap(nums[i], nums[j]); // 交換這兩個元素
         }
-        swap(nums, i, left); // 將基準數交換至兩子陣列的分界線
-        return i;            // 返回基準數的索引
+        swap(nums[i], nums[left]);  // 將基準數交換至兩子陣列的分界線
+        return i;                   // 返回基準數的索引
     }
 
   public:
@@ -48,13 +41,6 @@ class QuickSort {
 /* 快速排序類別（中位基準數最佳化） */
 class QuickSortMedian {
   private:
-    /* 元素交換 */
-    static void swap(vector<int> &nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
     /* 選取三個候選元素的中位數 */
     static int medianThree(vector<int> &nums, int left, int mid, int right) {
         int l = nums[left], m = nums[mid], r = nums[right];
@@ -70,18 +56,18 @@ class QuickSortMedian {
         // 選取三個候選元素的中位數
         int med = medianThree(nums, left, (left + right) / 2, right);
         // 將中位數交換至陣列最左端
-        swap(nums, left, med);
+        swap(nums[left], nums[med]);
         // 以 nums[left] 為基準數
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
-                j--; // 從右向左找首個小於基準數的元素
+                j--;                // 從右向左找首個小於基準數的元素
             while (i < j && nums[i] <= nums[left])
-                i++;          // 從左向右找首個大於基準數的元素
-            swap(nums, i, j); // 交換這兩個元素
+                i++;                // 從左向右找首個大於基準數的元素
+            swap(nums[i], nums[j]); // 交換這兩個元素
         }
-        swap(nums, i, left); // 將基準數交換至兩子陣列的分界線
-        return i;            // 返回基準數的索引
+        swap(nums[i], nums[left]);  // 將基準數交換至兩子陣列的分界線
+        return i;                   // 返回基準數的索引
     }
 
   public:
@@ -101,26 +87,19 @@ class QuickSortMedian {
 /* 快速排序類別（尾遞迴最佳化） */
 class QuickSortTailCall {
   private:
-    /* 元素交換 */
-    static void swap(vector<int> &nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
     /* 哨兵劃分 */
     static int partition(vector<int> &nums, int left, int right) {
         // 以 nums[left] 為基準數
         int i = left, j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left])
-                j--; // 從右向左找首個小於基準數的元素
+                j--;                // 從右向左找首個小於基準數的元素
             while (i < j && nums[i] <= nums[left])
-                i++;          // 從左向右找首個大於基準數的元素
-            swap(nums, i, j); // 交換這兩個元素
+                i++;                // 從左向右找首個大於基準數的元素
+            swap(nums[i], nums[j]); // 交換這兩個元素
         }
-        swap(nums, i, left); // 將基準數交換至兩子陣列的分界線
-        return i;            // 返回基準數的索引
+        swap(nums[i], nums[left]);  // 將基準數交換至兩子陣列的分界線
+        return i;                   // 返回基準數的索引
     }
 
   public:

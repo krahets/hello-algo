@@ -6,7 +6,7 @@
 
 /* 回溯演算法：子集和 I */
 fn backtrack(
-    mut state: Vec<i32>,
+    state: &mut Vec<i32>,
     target: i32,
     total: i32,
     choices: &[i32],
@@ -14,7 +14,7 @@ fn backtrack(
 ) {
     // 子集和等於 target 時，記錄解
     if total == target {
-        res.push(state);
+        res.push(state.clone());
         return;
     }
     // 走訪所有選擇
@@ -26,7 +26,7 @@ fn backtrack(
         // 嘗試：做出選擇，更新元素和 total
         state.push(choices[i]);
         // 進行下一輪選擇
-        backtrack(state.clone(), target, total + choices[i], choices, res);
+        backtrack(state, target, total + choices[i], choices, res);
         // 回退：撤銷選擇，恢復到之前的狀態
         state.pop();
     }
@@ -34,10 +34,10 @@ fn backtrack(
 
 /* 求解子集和 I（包含重複子集） */
 fn subset_sum_i_naive(nums: &[i32], target: i32) -> Vec<Vec<i32>> {
-    let state = Vec::new(); // 狀態（子集）
+    let mut state = Vec::new(); // 狀態（子集）
     let total = 0; // 子集和
     let mut res = Vec::new(); // 結果串列（子集串列）
-    backtrack(state, target, total, nums, &mut res);
+    backtrack(&mut state, target, total, nums, &mut res);
     res
 }
 
