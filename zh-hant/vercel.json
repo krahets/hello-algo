@@ -1,7 +1,7 @@
 {
     "headers": [
         {
-            "source": "/stylesheets/main.(.+).min.css",
+            "source": "/assets/stylesheets/main.(.+).min.css",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -10,7 +10,7 @@
             ]
         },
         {
-            "source": "/stylesheets/palette.(.+).min.css",
+            "source": "/assets/stylesheets/palette.(.+).min.css",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -19,7 +19,7 @@
             ]
         },
         {
-            "source": "/stylesheets/glightbox.min.css",
+            "source": "/assets/javascripts/bundle.(.+).min.js",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -28,7 +28,7 @@
             ]
         },
         {
-            "source": "/javascripts/bundle.(.+).min.js",
+            "source": "/assets/javascripts/workers/search.(.+).min.js",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -37,7 +37,7 @@
             ]
         },
         {
-            "source": "/javascripts/workers/search.(.+).min.js",
+            "source": "/assets/javascripts/glightbox.min.js",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -46,7 +46,7 @@
             ]
         },
         {
-            "source": "/javascripts/glightbox.min.js",
+            "source": "/assets/stylesheets/glightbox.min.css",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -64,7 +64,7 @@
             ]
         },
         {
-            "source": "/images/logo.svg",
+            "source": "/assets/images/logo.svg",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -73,7 +73,7 @@
             ]
         },
         {
-            "source": "/images/favicon.png",
+            "source": "/assets/images/favicon.png",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -82,7 +82,7 @@
             ]
         },
         {
-            "source": "www.hello-algo.com/stylesheets/extra.css",
+            "source": "/stylesheets/extra.css",
             "headers": [
                 {
                     "key": "Cache-Control",
