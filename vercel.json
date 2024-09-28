@@ -28,7 +28,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/assets/javascripts/workers/search.(.+).min.js",
+            "source": "(\/en|/zh-hant)?/assets/javascripts/workers/search.(.+).min.js",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -95,7 +95,7 @@
             "headers": [
                 {
                     "key": "Cache-Control",
-                    "value": "public, max-age=31536000, immutable"
+                    "value": "public, max-age=600"
                 }
             ]
         }
