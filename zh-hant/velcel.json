@@ -1,0 +1,94 @@
+{
+    "headers": [
+        {
+            "source": "/stylesheets/main.(.+).min.css",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=2592000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/stylesheets/palette.(.+).min.css",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=2592000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/stylesheets/glightbox.min.css",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=2592000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/javascripts/bundle.(.+).min.js",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=2592000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/javascripts/workers/search.(.+).min.js",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=2592000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/javascripts/glightbox.min.js",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=2592000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/javascripts/mathjax.js",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/images/logo.svg",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/images/favicon.png",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, immutable"
+                }
+            ]
+        },
+        {
+            "source": "www.hello-algo.com/stylesheets/extra.css",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, immutable"
+                }
+            ]
+        }
+    ]
+}
