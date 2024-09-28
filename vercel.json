@@ -1,7 +1,7 @@
 {
     "headers": [
         {
-            "source": "/assets/stylesheets/main.(.+).min.css",
+            "source": "(/en|/zh-hant)?/assets/stylesheets/main.(.+).min.css",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -10,7 +10,7 @@
             ]
         },
         {
-            "source": "/assets/stylesheets/palette.(.+).min.css",
+            "source": "(/en|/zh-hant)?/assets/stylesheets/palette.(.+).min.css",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -19,7 +19,7 @@
             ]
         },
         {
-            "source": "/assets/javascripts/bundle.(.+).min.js",
+            "source": "(/en|/zh-hant)?/assets/javascripts/bundle.(.+).min.js",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -28,7 +28,7 @@
             ]
         },
         {
-            "source": "/assets/javascripts/workers/search.(.+).min.js",
+            "source": "(/en|/zh-hant)?/assets/javascripts/workers/search.(.+).min.js",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -37,7 +37,7 @@
             ]
         },
         {
-            "source": "/assets/javascripts/glightbox.min.js",
+            "source": "(/en|/zh-hant)?/assets/javascripts/glightbox.min.js",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -46,7 +46,7 @@
             ]
         },
         {
-            "source": "/assets/stylesheets/glightbox.min.css",
+            "source": "(/en|/zh-hant)?/assets/stylesheets/glightbox.min.css",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -55,7 +55,7 @@
             ]
         },
         {
-            "source": "/javascripts/mathjax.js",
+            "source": "(/en|/zh-hant)?/javascripts/mathjax.js",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -64,7 +64,7 @@
             ]
         },
         {
-            "source": "/assets/images/logo.svg",
+            "source": "(/en|/zh-hant)?/assets/images/logo.svg",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -73,7 +73,7 @@
             ]
         },
         {
-            "source": "/assets/images/favicon.png",
+            "source": "(/en|/zh-hant)?/assets/images/favicon.png",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -82,11 +82,20 @@
             ]
         },
         {
-            "source": "/stylesheets/extra.css",
+            "source": "(/en|/zh-hant)?/stylesheets/extra.css",
             "headers": [
                 {
                     "key": "Cache-Control",
                     "value": "public, max-age=86400, immutable"
+                }
+            ]
+        },
+        {
+            "source": "(/en|/zh-hant)?/chapter_*/.assets/(.+).(png|jpg|svg|gif|webp)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
                 }
             ]
         }
