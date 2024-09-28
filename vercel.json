@@ -28,7 +28,7 @@
             ]
         },
         {
-            "source": "(\/en|/zh-hant)?/assets/javascripts/workers/search.(.+).min.js",
+            "source": "(/en|/zh-hant)?/assets/javascripts/workers/search.(.+).min.js",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -91,7 +91,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/chapter_*/.assets/(.+).(png|jpg|svg|gif|webp)",
+            "source": "(/en|/zh-hant)?/chapter_(.+)/(.+).assets/(.+).(png|jpg|svg|gif|webp)",
             "headers": [
                 {
                     "key": "Cache-Control",
