@@ -3677,7 +3677,7 @@
 </ol>
 <p><strong>Q</strong>：为什么数组要求相同类型的元素，而在链表中却没有强调相同类型呢？</p>
 <p>链表由节点组成，节点之间通过引用（指针）连接，各个节点可以存储不同类型的数据，例如 <code>int</code>、<code>double</code>、<code>string</code>、<code>object</code> 等。</p>
-<p>相对地，数组元素则必须是相同类型的，这样才能通过计算偏移量来获取对应元素位置。例如，数组同时包含 <code>int</code> 和 <code>long</code> 两种类型，单个元素分别占用 4 字节 和 8 字节 ，此时就不能用以下公式计算偏移量了，因为数组中包含了两种“元素长度”。</p>
+<p>相对地，数组元素则必须是相同类型的，这样才能通过计算偏移量来获取对应元素位置。例如，数组同时包含 <code>int</code> 和 <code>long</code> 两种类型，单个元素分别占用 4 字节和 8 字节 ，此时就不能用以下公式计算偏移量了，因为数组中包含了两种“元素长度”。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 元素内存地址 = 数组内存地址（首元素内存地址） + 元素长度 * 元素索引</span>
 </code></pre></div>
 <p><strong>Q</strong>：删除节点 <code>P</code> 后，是否需要把 <code>P.next</code> 设为 <code>None</code> 呢？</p>

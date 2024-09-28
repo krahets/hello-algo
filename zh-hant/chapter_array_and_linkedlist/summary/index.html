@@ -3620,7 +3620,7 @@
 </ol>
 <p><strong>Q</strong>：為什麼陣列要求相同型別的元素，而在鏈結串列中卻沒有強調相同型別呢？</p>
 <p>鏈結串列由節點組成，節點之間透過引用（指標）連線，各個節點可以儲存不同型別的資料，例如 <code>int</code>、<code>double</code>、<code>string</code>、<code>object</code> 等。</p>
-<p>相對地，陣列元素則必須是相同型別的，這樣才能透過計算偏移量來獲取對應元素位置。例如，陣列同時包含 <code>int</code> 和 <code>long</code> 兩種型別，單個元素分別佔用 4 位元組 和 8 位元組 ，此時就不能用以下公式計算偏移量了，因為陣列中包含了兩種“元素長度”。</p>
+<p>相對地，陣列元素則必須是相同型別的，這樣才能透過計算偏移量來獲取對應元素位置。例如，陣列同時包含 <code>int</code> 和 <code>long</code> 兩種型別，單個元素分別佔用 4 位元組和 8 位元組 ，此時就不能用以下公式計算偏移量了，因為陣列中包含了兩種“元素長度”。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 元素記憶體位址 = 陣列記憶體位址（首元素記憶體位址） + 元素長度 * 元素索引</span>
 </code></pre></div>
 <p><strong>Q</strong>：刪除節點 <code>P</code> 後，是否需要把 <code>P.next</code> 設為 <code>None</code> 呢？</p>

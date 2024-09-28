@@ -3687,7 +3687,7 @@
 
 <!-- Page content -->
 <h1 id="93-graph-traversal">9.3 &nbsp; Graph traversal<a class="headerlink" href="#93-graph-traversal" title="Permanent link">&para;</a></h1>
-<p>Trees represent a "one-to-many" relationship, while graphs have a higher degree of freedom and can represent any "many-to-many" relationship. Therefore, we can consider trees as a special case of graphs. Clearly, <strong>tree traversal operations are also a special case of graph traversal operations</strong>.</p>
+<p>Trees represent a "one-to-many" relationship, while graphs have a higher degree of freedom and can represent any "many-to-many" relationship. Therefore, we can consider tree as a special case of graph. Clearly, <strong>tree traversal operations are also a special case of graph traversal operations</strong>.</p>
 <p>Both graphs and trees require the application of search algorithms to implement traversal operations. Graph traversal can be divided into two types: <u>Breadth-First Search (BFS)</u> and <u>Depth-First Search (DFS)</u>.</p>
 <h2 id="931-breadth-first-search">9.3.1 &nbsp; Breadth-first search<a class="headerlink" href="#931-breadth-first-search" title="Permanent link">&para;</a></h2>
 <p><strong>Breadth-first search is a near-to-far traversal method, starting from a certain node, always prioritizing the visit to the nearest vertices and expanding outwards layer by layer</strong>. As shown in Figure 9-9, starting from the top left vertex, first traverse all adjacent vertices of that vertex, then traverse all adjacent vertices of the next vertex, and so on, until all vertices have been visited.</p>
@@ -3695,7 +3695,7 @@
 <p align="center"> Figure 9-9 &nbsp; Breadth-first traversal of a graph </p>
 
 <h3 id="1-algorithm-implementation">1. &nbsp; Algorithm implementation<a class="headerlink" href="#1-algorithm-implementation" title="Permanent link">&para;</a></h3>
-<p>BFS is usually implemented with the help of a queue, as shown in the code below. The queue has a "first in, first out" property, which aligns with the BFS idea of traversing "from near to far".</p>
+<p>BFS is usually implemented with the help of a queue, as shown in the code below. The queue is "first in, first out", which aligns with the BFS idea of traversing "from near to far".</p>
 <ol>
 <li>Add the starting vertex <code>startVet</code> to the queue and start the loop.</li>
 <li>In each iteration of the loop, pop the vertex at the front of the queue and record it as visited, then add all adjacent vertices of that vertex to the back of the queue.</li>
@@ -3836,7 +3836,7 @@
 </div>
 </div>
 </div>
-<p>The code is relatively abstract, it is suggested to compare with Figure 9-10 to deepen the understanding.</p>
+<p>The code is relatively abstract, you can compare it with Figure 9-10 to get a better understanding.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label><label for="__tabbed_2_9">&lt;9&gt;</label><label for="__tabbed_2_10">&lt;10&gt;</label><label for="__tabbed_2_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3878,13 +3878,13 @@
 
 <div class="admonition question">
 <p class="admonition-title">Is the sequence of breadth-first traversal unique?</p>
-<p>Not unique. Breadth-first traversal only requires traversing in a "from near to far" order, <strong>and the traversal order of multiple vertices at the same distance can be arbitrarily shuffled</strong>. For example, in Figure 9-10, the visitation order of vertices <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(3\)</span> can be switched, as can the order of vertices <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(4\)</span>, and <span class="arithmatex">\(6\)</span>.</p>
+<p>Not unique. Breadth-first traversal only requires traversing in a "near to far" order, <strong>and the traversal order of the vertices with the same distance can be arbitrary</strong>. For example, in Figure 9-10, the visit order of vertices <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(3\)</span> can be swapped, as can the order of vertices <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(4\)</span>, and <span class="arithmatex">\(6\)</span>.</p>
 </div>
 <h3 id="2-complexity-analysis">2. &nbsp; Complexity analysis<a class="headerlink" href="#2-complexity-analysis" title="Permanent link">&para;</a></h3>
 <p><strong>Time complexity</strong>: All vertices will be enqueued and dequeued once, using <span class="arithmatex">\(O(|V|)\)</span> time; in the process of traversing adjacent vertices, since it is an undirected graph, all edges will be visited <span class="arithmatex">\(2\)</span> times, using <span class="arithmatex">\(O(2|E|)\)</span> time; overall using <span class="arithmatex">\(O(|V| + |E|)\)</span> time.</p>
 <p><strong>Space complexity</strong>: The maximum number of vertices in list <code>res</code>, hash set <code>visited</code>, and queue <code>que</code> is <span class="arithmatex">\(|V|\)</span>, using <span class="arithmatex">\(O(|V|)\)</span> space.</p>
 <h2 id="932-depth-first-search">9.3.2 &nbsp; Depth-first search<a class="headerlink" href="#932-depth-first-search" title="Permanent link">&para;</a></h2>
-<p><strong>Depth-first search is a traversal method that prioritizes going as far as possible and then backtracks when no further paths are available</strong>. As shown in Figure 9-11, starting from the top left vertex, visit some adjacent vertex of the current vertex until no further path is available, then return and continue until all vertices are traversed.</p>
+<p><strong>Depth-first search is a traversal method that prioritizes going as far as possible and then backtracks when no further path is available</strong>. As shown in Figure 9-11, starting from the top left vertex, visit some adjacent vertex of the current vertex until no further path is available, then return and continue until all vertices are traversed.</p>
 <p><a class="glightbox" href="../graph_traversal.assets/graph_dfs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Depth-first traversal of a graph" class="animation-figure" src="../graph_traversal.assets/graph_dfs.png" /></a></p>
 <p align="center"> Figure 9-11 &nbsp; Depth-first traversal of a graph </p>
 
