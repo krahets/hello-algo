@@ -1,29 +1,11 @@
 {
     "headers": [
         {
-            "source": "(/en|/zh-hant)?/assets/stylesheets/main.(.+).min.css",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant)?/assets/stylesheets/palette.(.+).min.css",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
             "source": "(/en|/zh-hant)?/assets/javascripts/bundle.(.+).min.js",
             "headers": [
                 {
                     "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
+                    "value": "public, max-age=604800, immutable"
                 }
             ]
         },
@@ -32,7 +14,7 @@
             "headers": [
                 {
                     "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
+                    "value": "public, max-age=604800, immutable"
                 }
             ]
         },
@@ -41,16 +23,16 @@
             "headers": [
                 {
                     "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
+                    "value": "public, max-age=604800, immutable"
                 }
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/assets/stylesheets/glightbox.min.css",
+            "source": "(/en|/zh-hant)?/assets/stylesheets/(.+).css",
             "headers": [
                 {
                     "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
+                    "value": "public, max-age=604800, immutable"
                 }
             ]
         },
@@ -64,16 +46,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/assets/images/logo.svg",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=86400, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant)?/assets/images/favicon.png",
+            "source": "(/en|/zh-hant)?/assets/images/(.+).(svg|png)",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -91,11 +64,29 @@
             ]
         },
         {
+            "source": "(/en|/zh-hant)?/search/search_index.json",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, immutable"
+                }
+            ]
+        },
+        {
             "source": "(/en|/zh-hant)?/chapter_(.+)/(.+).assets/(.+).(png|jpg|svg|gif|webp)",
             "headers": [
                 {
                     "key": "Cache-Control",
-                    "value": "public, max-age=600"
+                    "value": "public, max-age=3600, immutable"
+                }
+            ]
+        },
+        {
+            "source": "(/en|/zh-hant)?/assets/(hero|covers|avatar|)/(.+).(png|jpg|svg|gif|webp)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=3600, immutable"
                 }
             ]
         }
