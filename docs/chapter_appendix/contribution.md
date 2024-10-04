@@ -45,3 +45,36 @@ docker-compose up -d
 ```shell
 docker-compose down
 ```
+
+### 开发预览
+
+上述 Docker 部署生成的是最终版本。在开发环境中，如果要实时预览修改效果，可以使用以下命令：
+
+```shell
+mkdocs serve
+```
+
+然后在浏览器中打开 `http://localhost:8000` 即可实时预览。
+
+如果本地没有安装 mkdocs 环境，也可以使用 Docker 方式预览。
+
+```shell
+make build   # 构建 Docker 开发镜像
+make run-dev # 启动 Docker 开发镜像到后台
+```
+
+镜像启动后，会监听 `8000` 端口，与上一节的 Docker 部署中一样，这是特意为之的，目标是为了减少端口占用，同时只启动一个 Docker 容器，对不熟悉 Docker 的同学少造成一些困扰。当然，如果你想启动到另外的端口，只需要在 `hello-algo` 目录下创建一个 `.env` 文件，内容如下。
+
+```shell
+HTTP_PORT=9000
+```
+
+此外，在日常使用中还可以使用如下命令。
+
+```shell
+make run     # 启动 Docker 开发镜像开前台，便于调试
+make stop    # 停止 Docker 开发镜像
+make shell   # 进入 Docker 开发镜像的 shell
+```
+
+如果没有 `make` 工具，则可以参照 `Makefile` 文件中对应的命令手动执行。
