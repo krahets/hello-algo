@@ -9,8 +9,8 @@ use std::fmt::Display;
 use std::collections::{HashMap, VecDeque};
 use std::rc::Rc;
 
-use crate::list_node::ListNode;
-use crate::tree_node::{TreeNode, vec_to_tree};
+use super::list_node::ListNode;
+use super::tree_node::{TreeNode, vec_to_tree};
 
 struct Trunk<'a, 'b> {
     prev: Option<&'a Trunk<'a, 'b>>,
@@ -99,5 +99,5 @@ pub fn print_heap(heap: Vec<i32>) {
     println!("堆的树状表示：");
     if let Some(root) = vec_to_tree(heap.into_iter().map(|val| Some(val)).collect()) {
         print_tree(&root);
-    } 
+    }
 }

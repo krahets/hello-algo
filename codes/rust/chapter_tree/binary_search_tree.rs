@@ -4,13 +4,13 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com)、night-cruise (2586447362@qq.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 use std::cell::RefCell;
 use std::cmp::Ordering;
 use std::rc::Rc;
 
-use tree_node::TreeNode;
+use hello_algo_rust::include::TreeNode;
 
 type OptionTreeNodeRc = Option<Rc<RefCell<TreeNode>>>;
 

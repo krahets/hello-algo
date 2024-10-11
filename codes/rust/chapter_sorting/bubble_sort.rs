@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* 冒泡排序 */
 fn bubble_sort(nums: &mut [i32]) {

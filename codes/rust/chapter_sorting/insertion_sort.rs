@@ -4,7 +4,7 @@
  * Author: xBLACKICEx (xBLACKICEx@outlook.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* 插入排序 */
 fn insertion_sort(nums: &mut [i32]) {
