@@ -37,12 +37,12 @@ HashTable *find(HashTable *h, int key) {
 }
 
 /* 哈希表元素插入 */
-void insert(HashTable *h, int key, int val) {
-    HashTable *t = find(h, key);
+void insert(HashTable **h, int key, int val) {
+    HashTable *t = find(*h, key);
     if (t == NULL) {
         HashTable *tmp = malloc(sizeof(HashTable));
         tmp->key = key, tmp->val = val;
-        HASH_ADD_INT(h, key, tmp);
+        HASH_ADD_INT(*h, key, tmp);
     } else {
         t->val = val;
     }
@@ -59,7 +59,7 @@ int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
             *returnSize = 2;
             return res;
         }
-        insert(hashtable, nums[i], i);
+        insert(&hashtable, nums[i], i);
     }
     *returnSize = 0;
     return NULL;
