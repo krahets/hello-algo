@@ -36,16 +36,14 @@ void countingSortDigit(int nums[], int size, int exp) {
         counter[d]--;           // 将 d 的数量减 1
     }
     // 使用结果覆盖原数组 nums
-    for (int i = 0; i < size; i++) {
-        nums[i] = res[i];
-    }
+    memcpy(nums, res, sizeof(int) * size);
 }
 
 /* 基数排序 */
 void radixSort(int nums[], int size) {
     // 获取数组的最大元素，用于判断最大位数
     int max = INT32_MIN;
-    for (size_t i = 0; i < size - 1; i++) {
+    for (int i = 0; i < size; i++) {
         if (nums[i] > max) {
             max = nums[i];
         }
