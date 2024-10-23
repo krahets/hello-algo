@@ -4,10 +4,9 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
+use hello_algo_rust::include::{print_util, TreeNode};
 use std::collections::HashMap;
 use std::{cell::RefCell, rc::Rc};
-include!("../include/include.rs");
-use tree_node::TreeNode;
 
 /* 构建二叉树：分治 */
 fn dfs(

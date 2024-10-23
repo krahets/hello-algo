@@ -3,9 +3,7 @@
  * Created Time: 2023-03-11
  * Author: codingonion (coderonion@gmail.com)
  */
-
-include!("../include/include.rs");
-
+use hello_algo_rust::include::print_util;
 /* 基于环形数组实现的双向队列 */
 struct ArrayDeque {
     nums: Vec<i32>,  // 用于存储双向队列元素的数组

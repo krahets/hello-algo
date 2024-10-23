@@ -4,11 +4,11 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::{vec_to_tree, TreeNode, print_util};
+use hello_algo_rust::op_vec;
 
 use std::cell::RefCell;
 use std::rc::Rc;
-use tree_node::{vec_to_tree, TreeNode};
 
 /* 前序遍历 */
 fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
