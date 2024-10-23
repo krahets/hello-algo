@@ -1,14 +1,14 @@
 # Binary tree traversal
 
-From the perspective of physical structure, a tree is a data structure based on linked lists, hence its traversal method involves accessing nodes one by one through pointers. However, a tree is a non-linear data structure, which makes traversing a tree more complex than traversing a linked list, requiring the assistance of search algorithms to achieve.
+From a physical structure perspective, a tree is a data structure based on linked lists. Hence, its traversal method involves accessing nodes one by one through pointers. However, a tree is a non-linear data structure, which makes traversing a tree more complex than traversing a linked list, requiring the assistance of search algorithms.
 
-Common traversal methods for binary trees include level-order traversal, pre-order traversal, in-order traversal, and post-order traversal, among others.
+The common traversal methods for binary trees include level-order traversal, pre-order traversal, in-order traversal, and post-order traversal.
 
 ## Level-order traversal
 
-As shown in the figure below, <u>level-order traversal</u> traverses the binary tree from top to bottom, layer by layer, and accesses nodes in each layer in a left-to-right order.
+As shown in the figure below, <u>level-order traversal</u> traverses the binary tree from top to bottom, layer by layer. Within each level, it visits nodes from left to right.
 
-Level-order traversal essentially belongs to <u>breadth-first traversal</u>, also known as <u>breadth-first search (BFS)</u>, which embodies a "circumferentially outward expanding" layer-by-layer traversal method.
+Level-order traversal is essentially a type of  <u>breadth-first traversal</u>, also known as <u>breadth-first search (BFS)</u>, which embodies a "circumferentially outward expanding" layer-by-layer traversal method.
 
 ![Level-order traversal of a binary tree](binary_tree_traversal.assets/binary_tree_bfs.png)
 
@@ -22,14 +22,14 @@ Breadth-first traversal is usually implemented with the help of a "queue". The q
 
 ### Complexity analysis
 
-- **Time complexity is $O(n)$**: All nodes are visited once, using $O(n)$ time, where $n$ is the number of nodes.
-- **Space complexity is $O(n)$**: In the worst case, i.e., a full binary tree, before traversing to the lowest level, the queue can contain at most $(n + 1) / 2$ nodes at the same time, occupying $O(n)$ space.
+- **Time complexity is $O(n)$**: All nodes are visited once, taking $O(n)$ time, where $n$ is the number of nodes.
+- **Space complexity is $O(n)$**: In the worst case, i.e., a full binary tree, before traversing to the bottom level, the queue can contain at most $(n + 1) / 2$ nodes simultaneously, occupying $O(n)$ space.
 
 ## Preorder, in-order, and post-order traversal
 
 Correspondingly, pre-order, in-order, and post-order traversal all belong to <u>depth-first traversal</u>, also known as <u>depth-first search (DFS)</u>, which embodies a "proceed to the end first, then backtrack and continue" traversal method.
 
-The figure below shows the working principle of performing a depth-first traversal on a binary tree. **Depth-first traversal is like walking around the perimeter of the entire binary tree**, encountering three positions at each node, corresponding to pre-order traversal, in-order traversal, and post-order traversal.
+The figure below shows the working principle of performing a depth-first traversal on a binary tree. **Depth-first traversal is like "walking" around the entire binary tree**, encountering three positions at each node, corresponding to pre-order, in-order, and post-order traversal.
 
 ![Preorder, in-order, and post-order traversal of a binary search tree](binary_tree_traversal.assets/binary_tree_dfs.png)
 
@@ -86,4 +86,4 @@ The figure below shows the recursive process of pre-order traversal of a binary 
 ### Complexity analysis
 
 - **Time complexity is $O(n)$**: All nodes are visited once, using $O(n)$ time.
-- **Space complexity is $O(n)$**: In the worst case, i.e., the tree degrades into a linked list, the recursion depth reaches $n$, the system occupies $O(n)$ stack frame space.
+- **Space complexity is $O(n)$**: In the worst case, i.e., the tree degenerates into a linked list, the recursion depth reaches $n$, the system occupies $O(n)$ stack frame space.

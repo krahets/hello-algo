@@ -4,7 +4,7 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::{print_util, tree_node};
 
 /* 数组表示下的二叉树类 */
 struct ArrayBinaryTree {

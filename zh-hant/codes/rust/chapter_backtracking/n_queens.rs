@@ -16,11 +16,7 @@ fn backtrack(
 ) {
     // 當放置完所有行時，記錄解
     if row == n {
-        let mut copy_state: Vec<Vec<String>> = Vec::new();
-        for s_row in state.clone() {
-            copy_state.push(s_row);
-        }
-        res.push(copy_state);
+        res.push(state.clone());
         return;
     }
     // 走訪所有列
@@ -31,12 +27,12 @@ fn backtrack(
         // 剪枝：不允許該格子所在列、主對角線、次對角線上存在皇后
         if !cols[col] && !diags1[diag1] && !diags2[diag2] {
             // 嘗試：將皇后放置在該格子
-            state.get_mut(row).unwrap()[col] = "Q".into();
+            state[row][col] = "Q".into();
             (cols[col], diags1[diag1], diags2[diag2]) = (true, true, true);
             // 放置下一行
             backtrack(row + 1, n, state, res, cols, diags1, diags2);
             // 回退：將該格子恢復為空位
-            state.get_mut(row).unwrap()[col] = "#".into();
+            state[row][col] = "#".into();
             (cols[col], diags1[diag1], diags2[diag2]) = (false, false, false);
         }
     }
@@ -45,14 +41,7 @@ fn backtrack(
 /* 求解 n 皇后 */
 fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
     // 初始化 n*n 大小的棋盤，其中 'Q' 代表皇后，'#' 代表空位
-    let mut state: Vec<Vec<String>> = Vec::new();
-    for _ in 0..n {
-        let mut row: Vec<String> = Vec::new();
-        for _ in 0..n {
-            row.push("#".into());
-        }
-        state.push(row);
-    }
+    let mut state: Vec<Vec<String>> = vec![vec!["#".to_string(); n]; n];
     let mut cols = vec![false; n]; // 記錄列是否有皇后
     let mut diags1 = vec![false; 2 * n - 1]; // 記錄主對角線上是否有皇后
     let mut diags2 = vec![false; 2 * n - 1]; // 記錄次對角線上是否有皇后
