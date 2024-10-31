@@ -24,8 +24,8 @@ public class heap {
         /* 初始化堆 */
         // 初始化小顶堆
         PriorityQueue<int, int> minHeap = new();
-        // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
-        PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y - x));
+        // 初始化大顶堆（使用 lambda 表达式修改 Comparer 即可）
+        PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y.CompareTo(x)));
         Console.WriteLine("以下测试样例为大顶堆");
 
         /* 元素入堆 */
