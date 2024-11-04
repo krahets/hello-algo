@@ -88,17 +88,17 @@ if __name__ == "__main__":
 
     # 暴力搜索
     res = min_path_sum_dfs(grid, n - 1, m - 1)
-    print(f"从左上角到右下角的做小路径和为 {res}")
+    print(f"从左上角到右下角的最小路径和为 {res}")
 
     # 记忆化搜索
     mem = [[-1] * m for _ in range(n)]
     res = min_path_sum_dfs_mem(grid, mem, n - 1, m - 1)
-    print(f"从左上角到右下角的做小路径和为 {res}")
+    print(f"从左上角到右下角的最小路径和为 {res}")
 
     # 动态规划
     res = min_path_sum_dp(grid)
-    print(f"从左上角到右下角的做小路径和为 {res}")
+    print(f"从左上角到右下角的最小路径和为 {res}")
 
     # 空间优化后的动态规划
     res = min_path_sum_dp_comp(grid)
-    print(f"从左上角到右下角的做小路径和为 {res}")
+    print(f"从左上角到右下角的最小路径和为 {res}")
