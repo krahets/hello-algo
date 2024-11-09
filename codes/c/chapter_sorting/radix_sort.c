@@ -37,7 +37,9 @@ void countingSortDigit(int nums[], int size, int exp) {
         counter[d]--;           // 将 d 的数量减 1
     }
     // 使用结果覆盖原数组 nums
-    memcpy(nums, res, size * sizeof(int));
+    for (int i = 0; i < size; i++) {
+        nums[i] = res[i];
+    }
     // 释放内存
     free(res);
     free(counter);
