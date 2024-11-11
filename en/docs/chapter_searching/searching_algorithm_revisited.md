@@ -38,7 +38,7 @@ However, **using these algorithms often requires data preprocessing**. For examp
 
 ## Choosing a search method
 
-Given a set of data of size $n$, we can use a linear search, binary search, tree search, hash search, or other method to retrieve the target element. The working principles of these methods are shown in the figure below.
+Given a set of data of size $n$, we can use a linear search, binary search, tree search, hash search, or other methods to retrieve the target element. The working principles of these methods are shown in the figure below.
 
 ![Various search strategies](searching_algorithm_revisited.assets/searching_algorithms.png)
 
