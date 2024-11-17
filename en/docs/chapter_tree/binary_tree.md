@@ -221,7 +221,7 @@ The commonly used terminology of binary trees is shown in the figure below.
 
 !!! tip
 
-    Please note that we usually define "height" and "depth" as "the number of edges passed", but some questions or textbooks may define them as "the number of nodes passed". In this case, both height and depth need to be incremented by 1.
+    Please note that we usually define "height" and "depth" as "the number of edges traversed", but some questions or textbooks may define them as "the number of nodes traversed". In this case, both height and depth need to be incremented by 1.
 
 ## Basic operations of binary trees
 
