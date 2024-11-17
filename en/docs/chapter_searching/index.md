@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Searching is an unknown adventure, where we may need to traverse every corner of a mysterious space, or perhaps quickly pinpoint our target.
+    Searching is an adventure into the unknown; where we may need to traverse every corner of a mysterious space, or perhaps we’ll quickly locate our target.
     
-    In this journey of discovery, each exploration may yield an unexpected answer.
+    On this journey of discovery, each exploration may end up with an unexpected answer.
