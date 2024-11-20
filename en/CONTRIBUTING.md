@@ -7,6 +7,8 @@ We are working on translating "Hello Algo" from Chinese to English with the foll
 3. **Pull request review**: The optimized translation will be double checked by the reviewers through GitHub pull request workflow.
 4. Repeat steps `2.` and `3.` for further improvements.
 
+<img width="650" alt="translation_pipeline" src="https://github.com/user-attachments/assets/201930ef-723e-4179-b670-e5a084a8211e">
+
 ## Join us
 
 We're seeking contributors who meet the following criteria.
