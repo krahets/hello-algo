@@ -22,7 +22,10 @@ That is, our contributors are computer scientists, engineers, and students from 
 - **Native Chinese with professional working English**: Ensuring translation accuracy and consistency between CN and EN versions.
 - **Native English**: Enhance the authenticity and fluency of the English content to flow naturally and to be engaging.
 
-Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://discord.gg/nvspS56295)!
+> [!note]
+> If you are interested in joining us, don't hesitate to contact me via krahetx@gmail.com or WeChat `krahets-jyd`.
+> 
+> We use this [Notion page](https://hello-algo.notion.site/chinese-to-english) to track progress and assign tasks. Please visit it for more details.
 
 ## Translation process
 
