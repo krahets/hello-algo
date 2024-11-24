@@ -89,14 +89,16 @@ class MaxHeap {
         // 判空处理
         if (isEmpty())
             throw new IndexOutOfBoundsException();
+        //保存堆顶值
+        int rootVal = maxHeap.get(0);
         // 交换根节点与最右叶节点（交换首元素与尾元素）
         swap(0, size() - 1);
         // 删除节点
-        int val = maxHeap.remove(size() - 1);
+        maxHeap.remove(size() - 1);
         // 从顶至底堆化
         siftDown(0);
         // 返回堆顶元素
-        return val;
+        return rootVal;
     }
 
     /* 从节点 i 开始，从顶至底堆化 */
