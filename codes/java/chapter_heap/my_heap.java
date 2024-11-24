@@ -93,7 +93,7 @@ class MaxHeap {
         int rootVal = maxHeap.get(0);
         // 交换根节点与最右叶节点（交换首元素与尾元素）
         swap(0, size() - 1);
-        // 删除节点
+        // 删除堆尾元素
         maxHeap.remove(size() - 1);
         // 从顶至底堆化
         siftDown(0);
