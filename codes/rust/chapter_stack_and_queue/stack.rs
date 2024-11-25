@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* Driver Code */
 pub fn main() {

@@ -28,6 +28,10 @@ Essentially, **the row-by-row placing strategy serves as a pruning function**, a
 
 To satisfy column constraints, we can use a boolean array `cols` of length $n$ to track whether a queen occupies each column. Before each placement decision, `cols` is used to prune the columns that already have queens, and it is dynamically updated during backtracking.
 
+!!! tip
+
+    Note that the origin of the chessboard is located in the upper left corner, where the row index increases from top to bottom, and the column index increases from left to right.
+
 How about the diagonal constraints? Let the row and column indices of a cell on the chessboard be $(row, col)$. By selecting a specific main diagonal, we notice that the difference $row - col$ is the same for all cells on that diagonal, **meaning that $row - col$ is a constant value on that diagonal**.
 
 Thus, if two cells satisfy $row_1 - col_1 = row_2 - col_2$, they are definitely on the same main diagonal. Using this pattern, we can utilize the array `diags1` shown in the figure below to track whether a queen is on any main diagonal.

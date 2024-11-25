@@ -635,8 +635,8 @@
     /* 雙向鏈結串列節點類別 */
     class ListNode {
         int val;        // 節點值
-        ListNode next;  // 指向後繼節點的引用
-        ListNode prev;  // 指向前驅節點的引用
+        ListNode? next;  // 指向後繼節點的引用
+        ListNode? prev;  // 指向前驅節點的引用
         ListNode(this.val, [this.next, this.prev]);  // 建構子
     }
     ```

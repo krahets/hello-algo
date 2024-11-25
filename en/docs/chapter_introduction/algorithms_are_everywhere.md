@@ -53,4 +53,4 @@ From cooking a meal to interstellar travel, almost all problem-solving involves 
 
 !!! tip
 
-    If concepts such as data structures, algorithms, arrays, and binary search still seem somewhat obsecure, I encourage you to continue reading. This book will gently guide you into the realm of understanding data structures and algorithms.
+    If concepts such as data structures, algorithms, arrays, and binary search still seem somewhat obscure, I encourage you to continue reading. This book will gently guide you into the realm of understanding data structures and algorithms.
