@@ -4,8 +4,7 @@
  * Author: xBLACICEx (xBLACKICEx@outlook.com), codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
-
+use hello_algo_rust::include::print_util;
 use rand::Rng;
 
 /* 隨機訪問元素 */
