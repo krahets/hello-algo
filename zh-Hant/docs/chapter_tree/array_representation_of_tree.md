@@ -1020,18 +1020,11 @@ comments: true
 
         /* 層序走訪 */
         fn level_order(&self) -> Vec<i32> {
-            let mut res = vec![];
-            // 直接走訪陣列
-            for i in 0..self.size() {
-                if let Some(val) = self.val(i) {
-                    res.push(val)
-                }
-            }
-            res
+            self.tree.iter().filter_map(|&x| x).collect()
         }
 
         /* 深度優先走訪 */
-        fn dfs(&self, i: i32, order: &str, res: &mut Vec<i32>) {
+        fn dfs(&self, i: i32, order: &'static str, res: &mut Vec<i32>) {
             if self.val(i).is_none() {
                 return;
             }

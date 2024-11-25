@@ -700,12 +700,17 @@ comments: true
     fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
         let mut result = vec![];
 
-        if let Some(node) = root {
-            // 訪問優先順序：根節點 -> 左子樹 -> 右子樹
-            result.push(node.borrow().val);
-            result.extend(pre_order(node.borrow().left.as_ref()));
-            result.extend(pre_order(node.borrow().right.as_ref()));
+        fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
+            if let Some(node) = root {
+                // 訪問優先順序：根節點 -> 左子樹 -> 右子樹
+                let node = node.borrow();
+                res.push(node.val);
+                dfs(node.left.as_ref(), res);
+                dfs(node.right.as_ref(), res);
+            }
         }
+        dfs(root, &mut result);
+
         result
     }
 
@@ -713,12 +718,17 @@ comments: true
     fn in_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
         let mut result = vec![];
 
-        if let Some(node) = root {
-            // 訪問優先順序：左子樹 -> 根節點 -> 右子樹
-            result.extend(in_order(node.borrow().left.as_ref()));
-            result.push(node.borrow().val);
-            result.extend(in_order(node.borrow().right.as_ref()));
+        fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
+            if let Some(node) = root {
+                // 訪問優先順序：左子樹 -> 根節點 -> 右子樹
+                let node = node.borrow();
+                dfs(node.left.as_ref(), res);
+                res.push(node.val);
+                dfs(node.right.as_ref(), res);
+            }
         }
+        dfs(root, &mut result);
+
         result
     }
 
@@ -726,12 +736,18 @@ comments: true
     fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
         let mut result = vec![];
 
-        if let Some(node) = root {
-            // 訪問優先順序：左子樹 -> 右子樹 -> 根節點
-            result.extend(post_order(node.borrow().left.as_ref()));
-            result.extend(post_order(node.borrow().right.as_ref()));
-            result.push(node.borrow().val);
+        fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
+            if let Some(node) = root {
+                // 訪問優先順序：左子樹 -> 右子樹 -> 根節點
+                let node = node.borrow();
+                dfs(node.left.as_ref(), res);
+                dfs(node.right.as_ref(), res);
+                res.push(node.val);
+            }
         }
+
+        dfs(root, &mut result);
+
         result
     }
     ```

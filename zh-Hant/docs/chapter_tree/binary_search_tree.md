@@ -1447,7 +1447,7 @@ comments: true
                 // 刪除節點 cur
                 if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
                     let left = pre.borrow().left.clone();
-                    if left.is_some() && Rc::ptr_eq(&left.as_ref().unwrap(), &cur) {
+                    if left.is_some() && Rc::ptr_eq(left.as_ref().unwrap(), &cur) {
                         pre.borrow_mut().left = child;
                     } else {
                         pre.borrow_mut().right = child;
@@ -1468,11 +1468,11 @@ comments: true
                         break;
                     }
                 }
-                let tmpval = tmp.unwrap().borrow().val;
+                let tmp_val = tmp.unwrap().borrow().val;
                 // 遞迴刪除節點 tmp
-                self.remove(tmpval);
+                self.remove(tmp_val);
                 // 用 tmp 覆蓋 cur
-                cur.borrow_mut().val = tmpval;
+                cur.borrow_mut().val = tmp_val;
             }
         }
     }
