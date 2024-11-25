@@ -9,10 +9,9 @@ icon: material/graph-outline
 
 !!! abstract
 
-    The towering tree, vibrant with it's deep roots and lush leaves, branches spreading wide.
+    The towering tree exudes a vibrant essence, boasting profound roots and abundant foliage, yet its branches are sparsely scattered, creating an ethereal aura.
     
-    It vividly illustrates the concept of divide-and-conquer in data.
-
+    It shows us the vivid form of divide-and-conquer in data.
 ## Chapter contents
 
 - [7.1 &nbsp; Binary tree](binary_tree.md)
