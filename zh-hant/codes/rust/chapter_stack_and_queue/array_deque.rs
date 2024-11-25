@@ -3,9 +3,7 @@
  * Created Time: 2023-03-11
  * Author: codingonion (coderonion@gmail.com)
  */
-
-include!("../include/include.rs");
-
+use hello_algo_rust::include::print_util;
 /* 基於環形陣列實現的雙向佇列 */
 struct ArrayDeque {
     nums: Vec<i32>,  // 用於儲存雙向佇列元素的陣列

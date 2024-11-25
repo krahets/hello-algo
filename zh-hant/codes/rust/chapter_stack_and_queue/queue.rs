@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com), xBLACKICEx (xBLACKICEx@outlook.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 use std::collections::VecDeque;
 
