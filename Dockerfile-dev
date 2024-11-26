@@ -1,0 +1,9 @@
+FROM python:3.10.0-alpine
+
+ENV PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pip install --upgrade pip
+RUN pip install mkdocs-material==9.5.5 mkdocs-glightbox
+
+WORKDIR /hello-algo
+
+EXPOSE 8000

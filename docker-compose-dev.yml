@@ -1,0 +1,21 @@
+services:
+  hello-algo-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    image: hello-algo-dev
+    container_name: hello-algo-dev
+    ports:
+      - "${HTTP_PORT:-8000}:8000"
+    # tty: true
+    # stdin_open: true
+    entrypoint:
+      # - "/bin/sh"
+      - mkdocs
+      - serve
+      - -a
+      - 0.0.0.0:8000
+    volumes:
+      - ./:/hello-algo
+      - ./docs:/hello-algo/build/docs
+      - ./overrides:/hello-algo/build/overrides
