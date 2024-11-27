@@ -89,6 +89,13 @@
                     "value": "public, max-age=604800, immutable"
                 }
             ]
+        },
+        {
+            "src": "/auth",
+            "status": 403,
+            "headers": {
+                "Cache-Control": "no-store"
+            }
         }
     ]
 }
