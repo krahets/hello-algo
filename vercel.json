@@ -91,11 +91,13 @@
             ]
         },
         {
-            "src": "/auth",
-            "status": 403,
-            "headers": {
-                "Cache-Control": "no-store"
-            }
+            "source": "/auth",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
         }
     ]
 }
