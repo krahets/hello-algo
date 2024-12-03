@@ -6,7 +6,7 @@ Binary search is not only used to search for target elements but also to solve m
 
 !!! question
 
-    Given a sorted array `nums` of length $n$ with unique elements and an element `target`. Now insert `target` into `nums` while maintaining its sorted order. If `target` already exists in the array, insert it to the left of the existing element. Please return the index of `target` in the array after insertion. See the example shown in the figure below.
+    Given a sorted array `nums` of length $n$ with unique elements and an element `target`, insert `target` into `nums` while maintaining its sorted order. If `target` already exists in the array, insert it to the left of the existing element. Return the index of `target` in the array after insertion. See the example shown in the figure below.
 
 ![Example data for binary search insertion point](binary_search_insertion.assets/binary_search_insertion_example.png)
 
@@ -32,7 +32,7 @@ Therefore, at the end of the binary, it is certain that: $i$ points to the first
 
     Based on the previous question, assume the array may contain duplicate elements, all else remains the same.
 
-Suppose there are multiple `target`s in the array, a regular binary search can only return the index of one `target`, **and it cannot determine how many `target`s are to the left and right of that it**.
+When there are multiple occurrences of `target` in the array, a regular binary search can only return the index of one occurrence of `target`, **and it cannot determine how many occurrences of `target` are to the left and right of that position**.
 
 The problem requires inserting the target element to the very left, **so we need to find the index of the leftmost `target` in the array**. Initially consider implementing this through the steps shown in the figure below.
 
