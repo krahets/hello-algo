@@ -4,11 +4,11 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
+use hello_algo_rust::op_vec;
 
 use std::collections::VecDeque;
 use std::{cell::RefCell, rc::Rc};
-use tree_node::{vec_to_tree, TreeNode};
 
 /* 層序走訪 */
 fn level_order(root: &Rc<RefCell<TreeNode>>) -> Vec<i32> {

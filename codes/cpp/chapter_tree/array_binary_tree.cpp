@@ -115,9 +115,9 @@ int main() {
     int i = 1;
     int l = abt.left(i), r = abt.right(i), p = abt.parent(i);
     cout << "\n当前节点的索引为 " << i << "，值为 " << abt.val(i) << "\n";
-    cout << "其左子节点的索引为 " << l << "，值为 " << (l != INT_MAX ? to_string(abt.val(l)) : "nullptr") << "\n";
-    cout << "其右子节点的索引为 " << r << "，值为 " << (r != INT_MAX ? to_string(abt.val(r)) : "nullptr") << "\n";
-    cout << "其父节点的索引为 " << p << "，值为 " << (p != INT_MAX ? to_string(abt.val(p)) : "nullptr") << "\n";
+    cout << "其左子节点的索引为 " << l << "，值为 " << (abt.val(l) != INT_MAX ? to_string(abt.val(l)) : "nullptr") << "\n";
+    cout << "其右子节点的索引为 " << r << "，值为 " << (abt.val(r) != INT_MAX ? to_string(abt.val(r)) : "nullptr") << "\n";
+    cout << "其父节点的索引为 " << p << "，值为 " << (abt.val(p) != INT_MAX ? to_string(abt.val(p)) : "nullptr") << "\n";
 
     // 遍历树
     vector<int> res = abt.levelOrder();

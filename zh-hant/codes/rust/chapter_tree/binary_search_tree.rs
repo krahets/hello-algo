@@ -4,13 +4,13 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com)、night-cruise (2586447362@qq.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 use std::cell::RefCell;
 use std::cmp::Ordering;
 use std::rc::Rc;
 
-use tree_node::TreeNode;
+use hello_algo_rust::include::TreeNode;
 
 type OptionTreeNodeRc = Option<Rc<RefCell<TreeNode>>>;
 
@@ -126,7 +126,7 @@ impl BinarySearchTree {
                 // 刪除節點 cur
                 if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
                     let left = pre.borrow().left.clone();
-                    if left.is_some() && Rc::ptr_eq(&left.as_ref().unwrap(), &cur) {
+                    if left.is_some() && Rc::ptr_eq(left.as_ref().unwrap(), &cur) {
                         pre.borrow_mut().left = child;
                     } else {
                         pre.borrow_mut().right = child;
@@ -147,11 +147,11 @@ impl BinarySearchTree {
                         break;
                     }
                 }
-                let tmpval = tmp.unwrap().borrow().val;
+                let tmp_val = tmp.unwrap().borrow().val;
                 // 遞迴刪除節點 tmp
-                self.remove(tmpval);
+                self.remove(tmp_val);
                 // 用 tmp 覆蓋 cur
-                cur.borrow_mut().val = tmpval;
+                cur.borrow_mut().val = tmp_val;
             }
         }
     }
