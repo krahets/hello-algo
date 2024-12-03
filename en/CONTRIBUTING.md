@@ -7,6 +7,8 @@ We are working on translating "Hello Algo" from Chinese to English with the foll
 3. **Pull request review**: The optimized translation will be double checked by the reviewers through GitHub pull request workflow.
 4. Repeat steps `2.` and `3.` for further improvements.
 
+<img width="650" alt="translation_pipeline" src="https://github.com/user-attachments/assets/201930ef-723e-4179-b670-e5a084a8211e">
+
 ## Join us
 
 We're seeking contributors who meet the following criteria.
@@ -20,7 +22,10 @@ That is, our contributors are computer scientists, engineers, and students from 
 - **Native Chinese with professional working English**: Ensuring translation accuracy and consistency between CN and EN versions.
 - **Native English**: Enhance the authenticity and fluency of the English content to flow naturally and to be engaging.
 
-Don't hesitate to join us via WeChat `krahets-jyd` or on [Discord](https://discord.gg/nvspS56295)!
+> [!note]
+> If you are interested in joining us, don't hesitate to contact me via krahetx@gmail.com or WeChat `krahets-jyd`.
+> 
+> We use this [Notion page](https://hello-algo.notion.site/chinese-to-english) to track progress and assign tasks. Please visit it for more details.
 
 ## Translation process
 

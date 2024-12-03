@@ -4,9 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
-
-use list_node::ListNode;
+use hello_algo_rust::include::ListNode;
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
