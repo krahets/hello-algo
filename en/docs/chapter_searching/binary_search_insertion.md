@@ -1,4 +1,4 @@
-# Binary search insertion
+# Binary search for insertion point
 
 Binary search is not only used to search for target elements but also to solve many variant problems, such as searching for the insertion position of target elements.
 
