@@ -18,7 +18,7 @@ The code is shown below:
 [file]{two_sum}-[class]{}-[func]{two_sum_brute_force}
 ```
 
-This method has a time complexity of $O(n^2)$ and a space complexity of $O(1)$, which becomes very time-consuming with large data volumes.
+This method has a time complexity of $O(n^2)$ and a space complexity of $O(1)$, which can be very time-consuming with large data volumes.
 
 ## Hash search: trading space for time
 
@@ -42,6 +42,6 @@ The implementation code is shown below, requiring only a single loop:
 [file]{two_sum}-[class]{}-[func]{two_sum_hash_table}
 ```
 
-This method reduces the time complexity from $O(n^2)$ to $O(n)$ by using hash search, significantly improving the running efficiency.
+This method reduces the time complexity from $O(n^2)$ to $O(n)$ by using hash search, significantly enhancing runtime efficiency.
 
 As it requires maintaining an additional hash table, the space complexity is $O(n)$. **Nevertheless, this method has a more balanced time-space efficiency overall, making it the optimal solution for this problem**.
