@@ -3591,26 +3591,26 @@
 
 <!-- Page content -->
 <h1 id="101-binary-search">10.1 &nbsp; Binary search<a class="headerlink" href="#101-binary-search" title="Permanent link">&para;</a></h1>
-<p><u>Binary search</u> is an efficient search algorithm based on the divide-and-conquer strategy. It utilizes the orderliness of data, reducing the search range by half each round until the target element is found or the search interval is empty.</p>
+<p><u>Binary search</u> is an efficient search algorithm that uses a divide-and-conquer strategy. It takes advantage of the sorted order of elements in an array by reducing the search interval by half in each iteration, continuing until either the target element is found or the search interval becomes empty.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given an array <code>nums</code> of length <span class="arithmatex">\(n\)</span>, with elements arranged in ascending order and non-repeating. Please find and return the index of element <code>target</code> in this array. If the array does not contain the element, return <span class="arithmatex">\(-1\)</span>. An example is shown in Figure 10-1.</p>
+<p>Given an array <code>nums</code> of length <span class="arithmatex">\(n\)</span>, where elements are arranged in ascending order without duplicates. Please find and return the index of element <code>target</code> in this array. If the array does not contain the element, return <span class="arithmatex">\(-1\)</span>. An example is shown in Figure 10-1.</p>
 </div>
 <p><a class="glightbox" href="../binary_search.assets/binary_search_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary search example data" class="animation-figure" src="../binary_search.assets/binary_search_example.png" /></a></p>
 <p align="center"> Figure 10-1 &nbsp; Binary search example data </p>
 
-<p>As shown in Figure 10-2, we first initialize pointers <span class="arithmatex">\(i = 0\)</span> and <span class="arithmatex">\(j = n - 1\)</span>, pointing to the first and last elements of the array, representing the search interval <span class="arithmatex">\([0, n - 1]\)</span>. Please note that square brackets indicate a closed interval, which includes the boundary values themselves.</p>
-<p>Next, perform the following two steps in a loop.</p>
+<p>As shown in Figure 10-2, we firstly initialize pointers with <span class="arithmatex">\(i = 0\)</span> and <span class="arithmatex">\(j = n - 1\)</span>, pointing to the first and last element of the array respectively. They also represent the whole search interval <span class="arithmatex">\([0, n - 1]\)</span>. Please note that square brackets indicate a closed interval, which includes the boundary values themselves.</p>
+<p>And then the following two steps may be performed in a loop.</p>
 <ol>
 <li>Calculate the midpoint index <span class="arithmatex">\(m = \lfloor {(i + j) / 2} \rfloor\)</span>, where <span class="arithmatex">\(\lfloor \: \rfloor\)</span> denotes the floor operation.</li>
-<li>Compare the size of <code>nums[m]</code> and <code>target</code>, divided into the following three scenarios.<ol>
+<li>Based on the comparison between the value of <code>nums[m]</code> and <code>target</code>, one of the following three cases will be chosen to execute.<ol>
 <li>If <code>nums[m] &lt; target</code>, it indicates that <code>target</code> is in the interval <span class="arithmatex">\([m + 1, j]\)</span>, thus set <span class="arithmatex">\(i = m + 1\)</span>.</li>
 <li>If <code>nums[m] &gt; target</code>, it indicates that <code>target</code> is in the interval <span class="arithmatex">\([i, m - 1]\)</span>, thus set <span class="arithmatex">\(j = m - 1\)</span>.</li>
 <li>If <code>nums[m] = target</code>, it indicates that <code>target</code> is found, thus return index <span class="arithmatex">\(m\)</span>.</li>
 </ol>
 </li>
 </ol>
-<p>If the array does not contain the target element, the search interval will eventually reduce to empty. In this case, return <span class="arithmatex">\(-1\)</span>.</p>
+<p>If the array does not contain the target element, the search interval will eventually reduce to empty, ending up returning <span class="arithmatex">\(-1\)</span>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3638,7 +3638,7 @@
 </div>
 <p align="center"> Figure 10-2 &nbsp; Binary search process </p>
 
-<p>It's worth noting that since <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> are both of type <code>int</code>, <strong><span class="arithmatex">\(i + j\)</span> might exceed the range of <code>int</code> type</strong>. To avoid large number overflow, we usually use the formula <span class="arithmatex">\(m = \lfloor {i + (j - i) / 2} \rfloor\)</span> to calculate the midpoint.</p>
+<p>It's worth noting that as <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> are both of type <code>int</code>, <strong><span class="arithmatex">\(i + j\)</span> might exceed the range of <code>int</code> type</strong>. To avoid large number overflow, we usually use the formula <span class="arithmatex">\(m = \lfloor {i + (j - i) / 2} \rfloor\)</span> to calculate the midpoint.</p>
 <p>The code is as follows:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:14"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><input id="__tabbed_2_14" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label><label for="__tabbed_2_14">Zig</label></div>
 <div class="tabbed-content">
@@ -3746,10 +3746,10 @@
 </div>
 </div>
 </div>
-<p><strong>Time complexity is <span class="arithmatex">\(O(\log n)\)</span></strong> : In the binary loop, the interval reduces by half each round, hence the number of iterations is <span class="arithmatex">\(\log_2 n\)</span>.</p>
-<p><strong>Space complexity is <span class="arithmatex">\(O(1)\)</span></strong> : Pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> use constant size space.</p>
+<p><strong>Time complexity is <span class="arithmatex">\(O(\log n)\)</span></strong> : In the binary loop, the interval decreases by half each round, hence the number of iterations is <span class="arithmatex">\(\log_2 n\)</span>.</p>
+<p><strong>Space complexity is <span class="arithmatex">\(O(1)\)</span></strong> : Pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> occupies constant size of space.</p>
 <h2 id="1011-interval-representation-methods">10.1.1 &nbsp; Interval representation methods<a class="headerlink" href="#1011-interval-representation-methods" title="Permanent link">&para;</a></h2>
-<p>Besides the aforementioned closed interval, a common interval representation is the "left-closed right-open" interval, defined as <span class="arithmatex">\([0, n)\)</span>, where the left boundary includes itself, and the right boundary does not include itself. In this representation, the interval <span class="arithmatex">\([i, j)\)</span> is empty when <span class="arithmatex">\(i = j\)</span>.</p>
+<p>Besides the above closed interval, another common interval representation is the "left-closed right-open" interval, defined as <span class="arithmatex">\([0, n)\)</span>, where the left boundary includes itself, and the right boundary does not. In this representation, the interval <span class="arithmatex">\([i, j)\)</span> is empty when <span class="arithmatex">\(i = j\)</span>.</p>
 <p>We can implement a binary search algorithm with the same functionality based on this representation:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:14"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><input id="__tabbed_3_13" name="__tabbed_3" type="radio" /><input id="__tabbed_3_14" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label><label for="__tabbed_3_14">Zig</label></div>
 <div class="tabbed-content">
@@ -3856,22 +3856,22 @@
 </div>
 </div>
 </div>
-<p>As shown in Figure 10-3, in the two types of interval representations, the initialization of the binary search algorithm, the loop condition, and the narrowing interval operation are different.</p>
-<p>Since both boundaries in the "closed interval" representation are defined as closed, the operations to narrow the interval through pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> are also symmetrical. This makes it less prone to errors, <strong>therefore, it is generally recommended to use the "closed interval" approach</strong>.</p>
+<p>As shown in Figure 10-3, under the two types of interval representations, the initialization, loop condition, and narrowing interval operation of the binary search algorithm differ.</p>
+<p>Since both boundaries in the "closed interval" representation are inclusive, the operations to narrow the interval through pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> are also symmetrical. This makes it less prone to errors, <strong>therefore, it is generally recommended to use the "closed interval" approach</strong>.</p>
 <p><a class="glightbox" href="../binary_search.assets/binary_search_ranges.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Two types of interval definitions" class="animation-figure" src="../binary_search.assets/binary_search_ranges.png" /></a></p>
 <p align="center"> Figure 10-3 &nbsp; Two types of interval definitions </p>
 
 <h2 id="1012-advantages-and-limitations">10.1.2 &nbsp; Advantages and limitations<a class="headerlink" href="#1012-advantages-and-limitations" title="Permanent link">&para;</a></h2>
 <p>Binary search performs well in both time and space aspects.</p>
 <ul>
-<li>Binary search is time-efficient. With large data volumes, the logarithmic time complexity has a significant advantage. For instance, when the data size <span class="arithmatex">\(n = 2^{20}\)</span>, linear search requires <span class="arithmatex">\(2^{20} = 1048576\)</span> iterations, while binary search only requires <span class="arithmatex">\(\log_2 2^{20} = 20\)</span> iterations.</li>
-<li>Binary search does not require extra space. Compared to search algorithms that rely on additional space (like hash search), binary search is more space-efficient.</li>
+<li>Binary search is time-efficient. With large dataset, the logarithmic time complexity offers a major advantage. For instance, given a dataset with size <span class="arithmatex">\(n = 2^{20}\)</span>, linear search requires <span class="arithmatex">\(2^{20} = 1048576\)</span> iterations, while binary search only demands <span class="arithmatex">\(\log_2 2^{20} = 20\)</span> loops.</li>
+<li>Binary search does not need extra space. Compared to search algorithms that rely on additional space (like hash search), binary search is more space-efficient.</li>
 </ul>
-<p>However, binary search is not suitable for all situations, mainly for the following reasons.</p>
+<p>However, binary search may not be suitable for all scenarios due to the following concerns.</p>
 <ul>
-<li>Binary search is only applicable to ordered data. If the input data is unordered, it is not worth sorting it just to use binary search, as sorting algorithms typically have a time complexity of <span class="arithmatex">\(O(n \log n)\)</span>, which is higher than both linear and binary search. For scenarios with frequent element insertion to maintain array order, inserting elements into specific positions has a time complexity of <span class="arithmatex">\(O(n)\)</span>, which is also quite costly.</li>
-<li>Binary search is only applicable to arrays. Binary search requires non-continuous (jumping) element access, which is inefficient in linked lists, thus not suitable for use in linked lists or data structures based on linked lists.</li>
-<li>With small data volumes, linear search performs better. In linear search, each round only requires 1 decision operation; whereas in binary search, it involves 1 addition, 1 division, 1 to 3 decision operations, 1 addition (subtraction), totaling 4 to 6 operations; therefore, when data volume <span class="arithmatex">\(n\)</span> is small, linear search can be faster than binary search.</li>
+<li>Binary search can only be applied to sorted data. Unsorted data must be sorted before applying binary search, which may not be worthwhile as sorting algorithm typically has a time complexity of <span class="arithmatex">\(O(n \log n)\)</span>. Such cost is even higher than linear search, not to mention binary search itself. For scenarios with frequent insertion, the cost of remaining the array in order is pretty high as the time complexity of inserting new elements into specific positions is <span class="arithmatex">\(O(n)\)</span>.</li>
+<li>Binary search may use array only. Binary search requires non-continuous (jumping) element access, which is inefficient in linked list. As a result, linked list or data structures based on linked list may not be suitable for this algorithm.</li>
+<li>Linear search performs better on small dataset. In linear search, only 1 decision operation is required for each iteration; whereas in binary search, it involves 1 addition, 1 division, 1 to 3 decision operations, 1 addition (subtraction), totaling 4 to 6 operations. Therefore, if data size <span class="arithmatex">\(n\)</span> is small, linear search is faster than binary search.</li>
 </ul>
 
 <!-- Source file information -->

@@ -3591,13 +3591,13 @@
 
 <!-- Page content -->
 <h1 id="104-hash-optimization-strategies">10.4 &nbsp; Hash optimization strategies<a class="headerlink" href="#104-hash-optimization-strategies" title="Permanent link">&para;</a></h1>
-<p>In algorithm problems, <strong>we often reduce the time complexity of algorithms by replacing linear search with hash search</strong>. Let's use an algorithm problem to deepen understanding.</p>
+<p>In algorithm problems, <strong>we often reduce the time complexity of an algorithm by replacing a linear search with a hash-based search</strong>. Let's use an algorithm problem to deepen the understanding.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>Given an integer array <code>nums</code> and a target element <code>target</code>, please search for two elements in the array whose "sum" equals <code>target</code>, and return their array indices. Any solution is acceptable.</p>
 </div>
 <h2 id="1041-linear-search-trading-time-for-space">10.4.1 &nbsp; Linear search: trading time for space<a class="headerlink" href="#1041-linear-search-trading-time-for-space" title="Permanent link">&para;</a></h2>
-<p>Consider traversing all possible combinations directly. As shown in Figure 10-9, we initiate a two-layer loop, and in each round, we determine whether the sum of the two integers equals <code>target</code>. If so, we return their indices.</p>
+<p>Consider traversing through all possible combinations directly. As shown in Figure 10-9, we initiate a nested loop, and in each iteration, we determine whether the sum of the two integers equals <code>target</code>. If so, we return their indices.</p>
 <p><a class="glightbox" href="../replace_linear_by_hashing.assets/two_sum_brute_force.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Linear search solution for two-sum problem" class="animation-figure" src="../replace_linear_by_hashing.assets/two_sum_brute_force.png" /></a></p>
 <p align="center"> Figure 10-9 &nbsp; Linear search solution for two-sum problem </p>
 
@@ -3691,9 +3691,9 @@
 </div>
 </div>
 </div>
-<p>This method has a time complexity of <span class="arithmatex">\(O(n^2)\)</span> and a space complexity of <span class="arithmatex">\(O(1)\)</span>, which is very time-consuming with large data volumes.</p>
+<p>This method has a time complexity of <span class="arithmatex">\(O(n^2)\)</span> and a space complexity of <span class="arithmatex">\(O(1)\)</span>, which can be very time-consuming with large data volumes.</p>
 <h2 id="1042-hash-search-trading-space-for-time">10.4.2 &nbsp; Hash search: trading space for time<a class="headerlink" href="#1042-hash-search-trading-space-for-time" title="Permanent link">&para;</a></h2>
-<p>Consider using a hash table, with key-value pairs being the array elements and their indices, respectively. Loop through the array, performing the steps shown in Figure 10-10 each round.</p>
+<p>Consider using a hash table, where the key-value pairs are the array elements and their indices, respectively. Loop through the array, performing the steps shown in Figure 10-10 during each iteration.</p>
 <ol>
 <li>Check if the number <code>target - nums[i]</code> is in the hash table. If so, directly return the indices of these two elements.</li>
 <li>Add the key-value pair <code>nums[i]</code> and index <code>i</code> to the hash table.</li>
@@ -3811,7 +3811,7 @@
 </div>
 </div>
 </div>
-<p>This method reduces the time complexity from <span class="arithmatex">\(O(n^2)\)</span> to <span class="arithmatex">\(O(n)\)</span> by using hash search, greatly improving the running efficiency.</p>
+<p>This method reduces the time complexity from <span class="arithmatex">\(O(n^2)\)</span> to <span class="arithmatex">\(O(n)\)</span> by using hash search, significantly enhancing runtime efficiency.</p>
 <p>As it requires maintaining an additional hash table, the space complexity is <span class="arithmatex">\(O(n)\)</span>. <strong>Nevertheless, this method has a more balanced time-space efficiency overall, making it the optimal solution for this problem</strong>.</p>
 
 <!-- Source file information -->
