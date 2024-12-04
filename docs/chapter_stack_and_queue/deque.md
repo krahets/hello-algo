@@ -3537,6 +3537,18 @@ comments: true
         deque->queSize--;
         return num;
     }
+
+    /* 返回数组用于打印 */
+    int *toArray(ArrayDeque *deque, int *queSize) {
+        *queSize = deque->queSize;
+        int *res = (int *)calloc(deque->queSize, sizeof(int));
+        int j = deque->front;
+        for (int i = 0; i < deque->queSize; i++) {
+            res[i] = deque->nums[j % deque->queCapacity];
+            j++;
+        }
+        return res;
+    }
     ```
 
 === "Kotlin"

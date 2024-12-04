@@ -2224,6 +2224,18 @@ comments: true
         queue->queSize--;
         return num;
     }
+
+    /* 返回数组用于打印 */
+    int *toArray(ArrayQueue *queue, int *queSize) {
+        *queSize = queue->queSize;
+        int *res = (int *)calloc(queue->queSize, sizeof(int));
+        int j = queue->front;
+        for (int i = 0; i < queue->queSize; i++) {
+            res[i] = queue->nums[j % queue->queCapacity];
+            j++;
+        }
+        return res;
+    }
     ```
 
 === "Kotlin"

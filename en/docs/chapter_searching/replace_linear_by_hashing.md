@@ -4,7 +4,7 @@ comments: true
 
 # 10.4 &nbsp; Hash optimization strategies
 
-In algorithm problems, **we often reduce the time complexity of algorithms by replacing linear search with hash search**. Let's use an algorithm problem to deepen understanding.
+In algorithm problems, **we often reduce the time complexity of an algorithm by replacing a linear search with a hash-based search**. Let's use an algorithm problem to deepen the understanding.
 
 !!! question
 
@@ -12,7 +12,7 @@ In algorithm problems, **we often reduce the time complexity of algorithms by re
 
 ## 10.4.1 &nbsp; Linear search: trading time for space
 
-Consider traversing all possible combinations directly. As shown in Figure 10-9, we initiate a two-layer loop, and in each round, we determine whether the sum of the two integers equals `target`. If so, we return their indices.
+Consider traversing through all possible combinations directly. As shown in Figure 10-9, we initiate a nested loop, and in each iteration, we determine whether the sum of the two integers equals `target`. If so, we return their indices.
 
 ![Linear search solution for two-sum problem](replace_linear_by_hashing.assets/two_sum_brute_force.png){ class="animation-figure" }
 
@@ -133,11 +133,11 @@ The code is shown below:
     [class]{}-[func]{twoSumBruteForce}
     ```
 
-This method has a time complexity of $O(n^2)$ and a space complexity of $O(1)$, which is very time-consuming with large data volumes.
+This method has a time complexity of $O(n^2)$ and a space complexity of $O(1)$, which can be very time-consuming with large data volumes.
 
 ## 10.4.2 &nbsp; Hash search: trading space for time
 
-Consider using a hash table, with key-value pairs being the array elements and their indices, respectively. Loop through the array, performing the steps shown in Figure 10-10 each round.
+Consider using a hash table, where the key-value pairs are the array elements and their indices, respectively. Loop through the array, performing the steps shown in Figure 10-10 during each iteration.
 
 1. Check if the number `target - nums[i]` is in the hash table. If so, directly return the indices of these two elements.
 2. Add the key-value pair `nums[i]` and index `i` to the hash table.
@@ -276,6 +276,6 @@ The implementation code is shown below, requiring only a single loop:
     [class]{}-[func]{twoSumHashTable}
     ```
 
-This method reduces the time complexity from $O(n^2)$ to $O(n)$ by using hash search, greatly improving the running efficiency.
+This method reduces the time complexity from $O(n^2)$ to $O(n)$ by using hash search, significantly enhancing runtime efficiency.
 
 As it requires maintaining an additional hash table, the space complexity is $O(n)$. **Nevertheless, this method has a more balanced time-space efficiency overall, making it the optimal solution for this problem**.
