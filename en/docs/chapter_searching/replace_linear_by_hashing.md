@@ -1,6 +1,6 @@
 # Hash optimization strategies
 
-In algorithm problems, **we often reduce an algorithm's time complexity by replacing a linear search with a hash-based search**. Let's use an algorithm problem to deepen the understanding.
+In algorithm problems, **we often reduce the time complexity of an algorithm by replacing a linear search with a hash-based search**. Let's use an algorithm problem to deepen the understanding.
 
 !!! question
 
