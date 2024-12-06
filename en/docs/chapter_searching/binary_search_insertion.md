@@ -36,17 +36,17 @@ When there are multiple occurrences of `target` in the array, a regular binary s
 
 The problem requires inserting the target element to the very left, **so we need to find the index of the leftmost `target` in the array**. Initially consider implementing this through the steps shown in the figure below.
 
-1. Perform a binary search to find any `target`'s index, say $k$.
-2. Starting from index $k$, perform a linear search to the left until the leftmost `target` is found and return.
+1. Perform a binary search to find any index of `target`, say $k$.
+2. Starting from index $k$, conduct a linear traversal to the left until the leftmost occurrence of `target` is found, then return this index.
 
 ![Linear search for the insertion point of duplicate elements](binary_search_insertion.assets/binary_search_insertion_naive.png)
 
 Although this method is feasible, it includes linear search, so its time complexity is $O(n)$. This method is inefficient when the array contains many duplicate `target`s.
 
-Now consider extending the binary search code. As shown in the figure below, the overall process remains the same. In each round, we first calculate the middle index $m$, then compare the value of `target` and `nums[m]`, which results in the following cases.
+Now consider extending the binary search code. As shown in the figure below, the overall process remains the same. In each round, we first calculate the middle index $m$, then compare the value of `target` with `nums[m]`, which results in the following cases.
 
-- When `nums[m] < target` or `nums[m] > target`, it means `target` has not been found yet, thus use the normal binary search to narrow the search range, **bring the pointers $i$ and $j$ closer to `target`**.
-- When `nums[m] == target`, it indicates that the elements less than `target` are in the range $[i, m - 1]$, therefore use $j = m - 1$ to narrow the range, **thus making pointer $j$ closer to the elements less than `target`**.
+- When `nums[m] < target` or `nums[m] > target`, it means `target` has not been found yet, thus use the normal binary search to narrow the search range, **bring pointers $i$ and $j$ closer to `target`**.
+- When `nums[m] == target`, it indicates that the elements less than `target` are in the range $[i, m - 1]$, therefore use $j = m - 1$ to narrow the range, **thus bring pointer $j$ closer to the elements less than `target`**.
 
 After the loop, $i$ points to the leftmost `target`, and $j$ points to the first element less than `target`, **therefore index $i$ is the insertion point**.
 
@@ -88,4 +88,4 @@ Even so, we can still keep the conditions expanded, as it makes the logic cleare
 
 In summary, binary search essentially involves setting search targets for pointers $i$ and $j$, which might be a specific element (like `target`) or a range of elements (like elements less than `target`).
 
-In the continuous loop of binary search, pointers $i$ and $j$ gradually approach the predefined target. In the end, they either find the answer or stop after crossing the boundary.
+In the continuous loop of binary search, pointers $i$ and $j$ gradually approach the predefined target. Ultimately, they either find the answer or stop after crossing the boundary.

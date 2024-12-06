@@ -6,7 +6,7 @@
 
     Given a sorted array `nums` of length $n$, which may contain duplicate elements, return the index of the leftmost element `target`. If the element is not present in the array, return $-1$.
 
-Look back on the method of binary search for an insertion point, after the search is completed, the index $i$ will point to the leftmost occurrence of `target`. Therefore, **searching for the insertion point is essentially the same as finding the index of the leftmost `target`**.
+Recall the method of binary search for an insertion point, after the search is completed, the index $i$ will point to the leftmost occurrence of `target`. Therefore, **searching for the insertion point is essentially the same as finding the index of the leftmost `target`**.
 
 We can use the function for finding an insertion point to find the left boundary of `target`. Note that the array might not contain `target`, which could lead to the following two results:
 
@@ -29,7 +29,7 @@ Below we are going to introduce two more ingenious methods.
 
 To find the rightmost occurrence of `target`, we can reuse the logic for finding the leftmost occurrence of `target`. Specifically, we can find the leftmost `target`, and then adjust the result to point to the rightmost `target` by simply adding 1 to the index of the leftmost `target`.
 
-As shown in the figure below, after the search is complete, pointer $i$ will point to the the position just after the leftmost `target` (i.e., `target + 1`), and pointer $j$ will point to the rightmost `target`. Therefore, returning $j$ will give us the right boundary.
+As shown in the figure below, after the search is complete, pointer $i$ will point to the position just after the leftmost `target` (i.e., `target + 1`), and pointer $j$ will point to the rightmost `target`. Therefore, returning $j$ will give us the right boundary.
 
 ![Transforming the search for the right boundary into the search for the left boundary](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png)
 
@@ -52,5 +52,5 @@ Thus, as shown in the figure below, we can construct an element that does not ex
 
 The code is omitted here, but here are two important points to note about this approach.
 
-- Since the given array does not contain decimals, this means we do not need to worry about handling equal cases.
-- Because this method introduces decimals, the variable `target` in the function needs to be changed to a floating point type (no change needed in Python).
+- The given array `nums` does not contain decimal, so handling equal cases is not a concern.
+- However, the introduction of decimal in this approach requires modifying the `target` variable to a floating-point type (no change needed in Python).
