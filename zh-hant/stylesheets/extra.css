@@ -65,7 +65,8 @@
   background-color: var(--md-header-bg-color);
 }
 
-.md-header {
+.md-header--shadow,
+.md-header--landing {
   box-shadow: none;
   transition: none;
   backdrop-filter: saturate(180%) blur(20px); /* Gaussian blur */
