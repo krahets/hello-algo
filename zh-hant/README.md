@@ -12,6 +12,8 @@
 <p align="center">
   <a href="https://www.hello-algo.com/zh-hant/">
     <img src="https://www.hello-algo.com/zh-hant/index.assets/btn_read_online_dark.svg" width="145"></a>
+  <a href="https://github.com/krahets/hello-algo/releases">
+    <img src="https://www.hello-algo.com/zh-hant/index.assets/btn_download_pdf_dark.svg" width="145"></a>
 </p>
 
 <p align="center">
