@@ -2,11 +2,11 @@
 
 {% block announce %}
 {% if config.theme.language == 'zh' %}
-    {% set announcements = '纸质书已发布，详情请见<a href="/chapter_paperbook/">这里</a>' %}
+    {% set announcements = '纸质书已发行，详情请见<a href="/chapter_paperbook/">这里</a>' %}
 {% elif config.theme.language == 'zh-Hant' %}
     {% set announcements = '紙質書（簡體中文版）已發行，詳情請見<a href="/chapter_paperbook/">這裡</a>' %}
 {% elif config.theme.language == 'en' %}
-    {% set announcements = 'Welcome to contribute to Chinese-to-English translation! Please visit <a href="https://github.com/krahets/hello-algo/issues/914">#914</a> for more details.' %}
+    {% set announcements = 'Welcome to contribute to Chinese-to-English translation! For more details, please refer to <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">CONTRIBUTING.md</a>.' %}
 {% endif %}
 <div class="banner-svg">
     <svg xmlns="http://www.w3.org/2000/svg"
