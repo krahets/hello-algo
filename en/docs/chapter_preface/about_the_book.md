@@ -34,6 +34,8 @@ This book is continuously improved with the joint efforts of many contributors f
 
 The code review work for this book was completed by coderonion, Gonglja, gvenusleo, hpstory, justin‐tse, khoaxuantu, krahets, night-cruise, nuomi1, Reanon and rongyi (listed in alphabetical order). Thanks to them for their time and effort, ensuring the standardization and uniformity of the code in various languages.
 
+The Traditional Chinese version of this book was reviewed by Shyam-Chen and Dr-XYZ, while the English version was reviewed by yuelinxin, K3v123, QiLOL, Phoenix0415, SamJin98, yanedie, RafaelCaso, pengchzn, thomasq0, and magentaqin. It is thanks to their continuous contributions that this book can reach and serve a broader audience.
+
 Throughout the creation of this book, numerous individuals provided invaluable assistance, including but not limited to:
 
 - Thanks to my mentor at the company, Dr. Xi Li, who encouraged me in a conversation to "get moving fast," which solidified my determination to write this book;
@@ -45,6 +47,6 @@ Throughout the creation of this book, numerous individuals provided invaluable a
 
 Throughout the writing journey, I delved into numerous textbooks and articles on data structures and algorithms. These works served as exemplary models, ensuring the accuracy and quality of this book's content. I extend my gratitude to all who preceded me for their invaluable contributions!
 
-This book advocates a combination of hands-on and minds-on learning, inspired in this regard by ["Dive into Deep Learning"](https://github.com/d2l-ai/d2l-zh). I highly recommend this excellent book to all readers.
+This book advocates a combination of hands-on and minds-on learning, inspired in this regard by ["Dive into Deep Learning"](https://github.com/d2l-ai/d2l-en). I highly recommend this excellent book to all readers.
 
 **Heartfelt thanks to my parents, whose ongoing support and encouragement have allowed me to do this interesting work**.

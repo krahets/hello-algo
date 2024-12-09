@@ -34,6 +34,8 @@
 
 本书的代码审阅工作由 coderonion、curtishd、Gonglja、gvenusleo、hpstory、justin-tse、khoaxuantu、krahets、night-cruise、nuomi1、Reanon 和 rongyi 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
 
+本书的繁体中文版由 Shyam-Chen 和 Dr-XYZ 审阅，英文版由 yuelinxin、K3v123、QiLOL、Phoenix0415、SamJin98、yanedie、RafaelCaso、pengchzn、thomasq0 和 magentaqin 审阅。正是因为他们的持续贡献，这本书才能够服务于更广泛的读者群体，感谢他们。
+
 在本书的创作过程中，我得到了许多人的帮助。
 
 - 感谢我在公司的导师李汐博士，在一次畅谈中你鼓励我“快行动起来”，坚定了我写这本书的决心；

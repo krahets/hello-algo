@@ -6,7 +6,7 @@
 - 源程式碼可一鍵執行，幫助讀者在練習中提升程式設計技能，瞭解演算法工作原理和資料結構底層實現。
 - 提倡讀者互助學習，歡迎大家在評論區提出問題與分享見解，在交流討論中共同進步。
 
-## 讀者物件
+## 目標讀者
 
 若你是演算法初學者，從未接觸過演算法，或者已經有一些刷題經驗，對資料結構與演算法有模糊的認識，在會與不會之間反覆橫跳，那麼本書正是為你量身定製的！
 
@@ -33,6 +33,8 @@
 本書在開源社群眾多貢獻者的共同努力下不斷完善。感謝每一位投入時間與精力的撰稿人，他們是（按照 GitHub 自動生成的順序）：krahets、coderonion、Gonglja、nuomi1、Reanon、justin-tse、hpstory、danielsss、curtishd、night-cruise、S-N-O-R-L-A-X、msk397、gvenusleo、khoaxuantu、RiverTwilight、rongyi、gyt95、zhuoqinyue、K3v123、Zuoxun、mingXta、hello-ikun、FangYuan33、GN-Yu、yuelinxin、longsizhuo、Cathay-Chen、guowei-gong、xBLACKICEx、IsChristina、JoseHung、qualifier1024、QiLOL、pengchzn、Guanngxu、L-Super、WSL0809、Slone123c、lhxsm、yuan0221、what-is-me、theNefelibatas、longranger2、cy-by-side、xiongsp、JeffersonHuang、Transmigration-zhou、magentaqin、Wonderdch、malone6、xiaomiusa87、gaofer、bluebean-cloud、a16su、Shyam-Chen、nanlei、hongyun-robot、Phoenix0415、MolDuM、Nigh、he-weilai、junminhong、mgisr、iron-irax、yd-j、XiaChuerwu、XC-Zero、seven1240、SamJin98、wodray、reeswell、NI-SW、Horbin-Magician、Enlightenus、xjr7670、YangXuanyi、DullSword、boloboloda、iStig、qq909244296、jiaxianhua、wenjianmin、keshida、kilikilikid、lclc6、lwbaptx、liuxjerry、lucaswangdev、lyl625760、hts0000、gledfish、fbigm、echo1937、szu17dmy、dshlstarr、Yucao-cy、coderlef、czruby、bongbongbakudan、beintentional、ZongYangL、ZhongYuuu、luluxia、xb534、bitsmi、ElaBosak233、baagod、zhouLion、yishangzhang、yi427、yabo083、weibk、wangwang105、th1nk3r-ing、tao363、4yDX3906、syd168、steventimes、sslmj2020、smilelsb、siqyka、selear、sdshaoda、Xi-Row、popozhu、nuquist19、noobcodemaker、XiaoK29、chadyi、ZhongGuanbin、shanghai-Jerry、JackYang-hellobobo、Javesun99、lipusheng、BlindTerran、ShiMaRing、FreddieLi、FloranceYeh、iFleey、fanchenggang、gltianwen、goerll、Dr-XYZ、nedchu、curly210102、CuB3y0nd、KraHsu、CarrotDLaw、youshaoXG、bubble9um、fanenr、eagleanurag、LifeGoesOnionOnionOnion、52coder、foursevenlove、KorsChen、hezhizhen、linzeyan、ZJKung、GaochaoZhu、hopkings2008、yang-le、Evilrabbit520、Turing-1024-Lee、thomasq0、Suremotoo、Allen-Scai、Risuntsy、Richard-Zhang1019、qingpeng9802、primexiao、nidhoggfgg、1ch0、MwumLi、martinx、ZnYang2018、hugtyftg、logan-qiu、psychelzh、Keynman、KeiichiKasai 和 0130w。
 
 本書的程式碼審閱工作由 coderonion、curtishd、Gonglja、gvenusleo、hpstory、justin-tse、khoaxuantu、krahets、night-cruise、nuomi1、Reanon 和 rongyi 完成（按照首字母順序排列）。感謝他們付出的時間與精力，正是他們確保了各語言程式碼的規範與統一。
+
+本書的繁體中文版由 Shyam-Chen 和 Dr-XYZ 審閱，英文版由 yuelinxin、K3v123、QiLOL、Phoenix0415、SamJin98、yanedie、RafaelCaso、pengchzn、thomasq0 和 magentaqin 審閱。正是因為他們的持續貢獻，這本書才能夠服務於更廣泛的讀者群體，感謝他們。
 
 在本書的創作過程中，我得到了許多人的幫助。
 
