@@ -1,6 +1,6 @@
 # Summary
 
-### Key Highlights
+### Key review
 
 - A binary tree is a non-linear data structure that reflects the "divide and conquer" logic of splitting one into two. Each binary tree node contains a value and two pointers, which point to its left and right child nodes, respectively.
 - For a node in a binary tree, its left (right) child node and the tree formed below it is called the node's left (right) subtree.
@@ -34,7 +34,7 @@ We need to view this problem from a recursive perspective. The `right_rotate(roo
 
 **Q**: In C++, functions are divided into `private` and `public` sections. What considerations are there for this? Why are the `height()` function and the `updateHeight()` function placed in `public` and `private`, respectively?
 
-It depends on the scope of the function's use. If a function is only used within the class, then it is designed to be `private`. For example, it makes no sense for users to call `updateHeight()` on their own, as it is just a step in the insertion or removal operations. However, `height()` is for accessing node height, similar to `vector.size()`, thus it is set to `public` for use.
+It depends on the scope of the method's use. If a method is only used within the class, then it is designed to be `private`. For example, it makes no sense for users to call `updateHeight()` on their own, as it is just a step in the insertion or removal operations. However, `height()` is for accessing node height, similar to `vector.size()`, thus it is set to `public` for use.
 
 **Q**: How do you build a binary search tree from a set of input data? Is the choice of root node very important?
 
