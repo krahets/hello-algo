@@ -111,16 +111,29 @@ int popLast(ArrayDeque *deque) {
     return num;
 }
 
+/* 返回陣列用於列印 */
+int *toArray(ArrayDeque *deque, int *queSize) {
+    *queSize = deque->queSize;
+    int *res = (int *)calloc(deque->queSize, sizeof(int));
+    int j = deque->front;
+    for (int i = 0; i < deque->queSize; i++) {
+        res[i] = deque->nums[j % deque->queCapacity];
+        j++;
+    }
+    return res;
+}
+
 /* Driver Code */
 int main() {
     /* 初始化佇列 */
     int capacity = 10;
+    int queSize;
     ArrayDeque *deque = newArrayDeque(capacity);
     pushLast(deque, 3);
     pushLast(deque, 2);
     pushLast(deque, 5);
     printf("雙向佇列 deque = ");
-    printArray(deque->nums, deque->queSize);
+    printArray(toArray(deque, &queSize), queSize);
 
     /* 訪問元素 */
     int peekFirstNum = peekFirst(deque);
@@ -131,18 +144,18 @@ int main() {
     /* 元素入列 */
     pushLast(deque, 4);
     printf("元素 4 佇列尾入列後 deque = ");
-    printArray(deque->nums, deque->queSize);
+    printArray(toArray(deque, &queSize), queSize);
     pushFirst(deque, 1);
     printf("元素 1 佇列首入列後 deque = ");
-    printArray(deque->nums, deque->queSize);
+    printArray(toArray(deque, &queSize), queSize);
 
     /* 元素出列 */
     int popLastNum = popLast(deque);
     printf("佇列尾出列元素 = %d ，佇列尾出列後 deque= ", popLastNum);
-    printArray(deque->nums, deque->queSize);
+    printArray(toArray(deque, &queSize), queSize);
     int popFirstNum = popFirst(deque);
     printf("佇列首出列元素 = %d ，佇列首出列後 deque= ", popFirstNum);
-    printArray(deque->nums, deque->queSize);
+    printArray(toArray(deque, &queSize), queSize);
 
     /* 獲取佇列的長度 */
     int dequeSize = size(deque);

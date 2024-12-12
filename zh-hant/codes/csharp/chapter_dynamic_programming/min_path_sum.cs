@@ -105,7 +105,7 @@ public class min_path_sum {
 
         // 暴力搜尋
         int res = MinPathSumDFS(grid, n - 1, m - 1);
-        Console.WriteLine("從左上角到右下角的做小路徑和為 " + res);
+        Console.WriteLine("從左上角到右下角的最小路徑和為 " + res);
 
         // 記憶化搜尋
         int[][] mem = new int[n][];
@@ -114,14 +114,14 @@ public class min_path_sum {
             Array.Fill(mem[i], -1);
         }
         res = MinPathSumDFSMem(grid, mem, n - 1, m - 1);
-        Console.WriteLine("從左上角到右下角的做小路徑和為 " + res);
+        Console.WriteLine("從左上角到右下角的最小路徑和為 " + res);
 
         // 動態規劃
         res = MinPathSumDP(grid);
-        Console.WriteLine("從左上角到右下角的做小路徑和為 " + res);
+        Console.WriteLine("從左上角到右下角的最小路徑和為 " + res);
 
         // 空間最佳化後的動態規劃
         res = MinPathSumDPComp(grid);
-        Console.WriteLine("從左上角到右下角的做小路徑和為 " + res);
+        Console.WriteLine("從左上角到右下角的最小路徑和為 " + res);
     }
 }

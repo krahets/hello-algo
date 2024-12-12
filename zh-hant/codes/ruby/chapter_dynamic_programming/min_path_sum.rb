@@ -76,18 +76,18 @@ if __FILE__ == $0
 
   # 暴力搜尋
   res = min_path_sum_dfs(grid, n - 1, m - 1)
-  puts "從左上角到右下角的做小路徑和為 #{res}"
+  puts "從左上角到右下角的最小路徑和為 #{res}"
 
   # 記憶化搜尋
   mem = Array.new(n) { Array.new(m, - 1) }
   res = min_path_sum_dfs_mem(grid, mem, n - 1, m -1)
-  puts "從左上角到右下角的做小路徑和為 #{res}"
+  puts "從左上角到右下角的最小路徑和為 #{res}"
 
   # 動態規劃
   res = min_path_sum_dp(grid)
-  puts "從左上角到右下角的做小路徑和為 #{res}"
+  puts "從左上角到右下角的最小路徑和為 #{res}"
 
   # 空間最佳化後的動態規劃
   res = min_path_sum_dp_comp(grid)
-  puts "從左上角到右下角的做小路徑和為 #{res}"
+  puts "從左上角到右下角的最小路徑和為 #{res}"
 end

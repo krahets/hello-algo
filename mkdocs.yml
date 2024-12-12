@@ -9,7 +9,7 @@ site_dir: site
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
 edit_uri: tree/main/docs
-version: 1.1.0
+version: 1.2.0
 
 # Copyright
 copyright: Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>

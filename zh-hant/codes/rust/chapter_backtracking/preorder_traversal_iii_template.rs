@@ -4,10 +4,8 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
-
+use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
 use std::{cell::RefCell, rc::Rc};
-use tree_node::{vec_to_tree, TreeNode};
 
 /* 判斷當前狀態是否為解 */
 fn is_solution(state: &mut Vec<Rc<RefCell<TreeNode>>>) -> bool {

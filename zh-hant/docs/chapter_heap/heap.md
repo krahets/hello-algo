@@ -157,8 +157,8 @@
     /* 初始化堆積 */
     // 初始化小頂堆積
     PriorityQueue<int, int> minHeap = new();
-    // 初始化大頂堆積（使用 lambda 表示式修改 Comparator 即可）
-    PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y - x));
+    // 初始化大頂堆積（使用 lambda 表示式修改 Comparer 即可）
+    PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y.CompareTo(x)));
 
     /* 元素入堆積 */
     maxHeap.Enqueue(1, 1);

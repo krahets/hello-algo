@@ -180,7 +180,7 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 
     ```c title=""
     /* AVL 樹節點結構體 */
-    TreeNode struct TreeNode {
+    typedef struct TreeNode {
         int val;
         int height;
         struct TreeNode *left;

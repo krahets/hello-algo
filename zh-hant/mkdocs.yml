@@ -9,7 +9,7 @@ docs_dir: ../build/zh-hant/docs
 site_dir: ../site/zh-hant
 # Repository
 edit_uri: tree/main/zh-hant/docs
-version: 1.1.0
+version: 1.2.0
 
 # Configuration
 theme:
