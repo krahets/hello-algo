@@ -16,5 +16,5 @@ func TestBubbleSort(t *testing.T) {
 
 	nums1 := []int{4, 1, 3, 1, 5, 2}
 	bubbleSortWithFlag(nums1)
-	fmt.Println("冒泡排序完成后 nums1 = ", nums)
+	fmt.Println("冒泡排序完成后 nums1 = ", nums1)
 }
