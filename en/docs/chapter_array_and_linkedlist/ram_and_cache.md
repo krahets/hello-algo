@@ -29,9 +29,9 @@ The computer storage system can be visualized as a pyramid, as shown in the figu
 
     The storage hierarchy in computers reflects a careful balance between speed, capacity, and cost. This type of trade-off is common across various industries, where finding the optimal balance between benefits and limitations is essential.
 
-Overall, **hard disks provide long-term storage for large volumes of data, memory serves as temporary storage for data being processed during program execution, and cache stores frequently accessed data and instructions to enhance execution efficiency.**. Together, they ensure the efficient operation of computer systems.
+Overall, **hard disks provide long-term storage for large volumes of data, memory serves as temporary storage for data being processed during program execution, and cache stores frequently accessed data and instructions to enhance execution efficiency**. Together, they ensure the efficient operation of computer systems.
 
-As shown in the figure below, during program execution, data is read from the hard disk into memory for CPU computation. The cache, acting as an extension of the CPU, **intelligently preloads data from memory**, enabling faster data access for the CPU.This greatly improves program execution efficiency while reducing reliance on slower memory.
+As shown in the figure below, during program execution, data is read from the hard disk into memory for CPU computation. The cache, acting as an extension of the CPU, **intelligently preloads data from memory**, enabling faster data access for the CPU. This greatly improves program execution efficiency while reducing reliance on slower memory.
 
 ![Data flow between hard disk, memory, and cache](ram_and_cache.assets/computer_storage_devices.png)
 
