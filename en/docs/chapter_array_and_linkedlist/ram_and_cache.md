@@ -53,12 +53,12 @@ To achieve higher efficiency, caches adopt the following data loading mechanisms
 
 - **Cache lines**: Caches operate by storing and loading data in units called cache lines, rather than individual bytes. This approach improves efficiency by transferring larger blocks of data at once.
 - **Prefetch mechanism**: Processors predict data access patterns (e.g., sequential or fixed-stride access) and preload data into the cache based on these patterns to increase the cache hit rate.
-- **Spatial locality**: When a specific piece of data is accessed, nearby data is likely to be accessed soon. To leverage this, caches load adjacent data along with the requested data, enhancing hit rates.
+- **Spatial locality**: When a specific piece of data is accessed, nearby data is likely to be accessed soon. To leverage this, caches load adjacent data along with the requested data, improving hit rates.
 - **Temporal locality**: If data is accessed, it's likely to be accessed again in the near future. Caches use this principle to retain recently accessed data to improve the hit rate.
 
-In fact, **arrays and linked lists have different cache utilization efficiencies**, which can be analyzed as follows.
+In fact, **arrays and linked lists have different cache utilization efficiencies**, which is mainly reflected in the following aspects.
 
-- **Occupied space**:  Linked list elements require additional memory for pointers, resulting in greater space consumption compared to arrays. This reduces the effective amount of useful data stored in the cache.
+- **Occupied space**: Linked list elements require additional memory for pointers, resulting in greater space consumption compared to arrays. This reduces the effective amount of useful data stored in the cache.
 - **Cache lines**: Linked list elements are scattered across memory, and since caches load data "by line," they are more likely to include unrelated or invalid data. Arrays, with their contiguous storage, make better use of cache lines.
 - **Prefetch mechanism**: Arrays follow a predictable access pattern due to their contiguous memory allocation, enabling the system's prefetch mechanism to accurately anticipate upcoming data loads. In contrast, linked lists, with their scattered storage, have less predictable access patterns, reducing prefetch efficiency.
 - **Spatial locality**: Arrays benefit from high spatial locality, as data stored near a currently accessed element is more likely to be accessed next. Linked lists lack this advantage because their elements are not stored adjacently in memory.
