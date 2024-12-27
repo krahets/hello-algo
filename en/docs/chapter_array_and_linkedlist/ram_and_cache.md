@@ -58,10 +58,10 @@ To achieve higher efficiency, caches adopt the following data loading mechanisms
 
 In fact, **arrays and linked lists have different cache utilization efficiencies**, which is mainly reflected in the following aspects.
 
-- **Occupied space**: Linked list elements require additional memory for pointers, resulting in greater space consumption compared to arrays. This reduces the effective amount of useful data stored in the cache.
-- **Cache lines**: Linked list elements are scattered across memory, and since caches load data "by line," they are more likely to include unrelated or invalid data. Arrays, with their contiguous storage, make better use of cache lines.
-- **Prefetch mechanism**: Arrays follow a predictable access pattern due to their contiguous memory allocation, enabling the system's prefetch mechanism to accurately anticipate upcoming data loads. In contrast, linked lists, with their scattered storage, have less predictable access patterns, reducing prefetch efficiency.
-- **Spatial locality**: Arrays benefit from high spatial locality, as data stored near a currently accessed element is more likely to be accessed next. Linked lists lack this advantage because their elements are not stored adjacently in memory.
+- **Occupied space**: Linked list elements take up more space than array elements, resulting in less effective data being held in the cache.
+- **Cache lines**: The linked list data is scattered throughout the memory, and the cache is "loaded by row", so the proportion of invalid data loaded is higher.
+- **Prefetch mechanism**: The data access pattern of arrays is more "predictable" than that of linked lists, that is, it is easier for the system to guess the data that is about to be loaded.
+- **Spatial locality**: Arrays are stored in a centralized memory space, so data near the data being loaded is more likely to be accessed soon.
 
 Overall, **arrays have a higher cache hit rate and are generally more efficient in operation than linked lists**. This makes data structures based on arrays more popular in solving algorithmic problems.
 
