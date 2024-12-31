@@ -3,7 +3,7 @@
 ### Key review
 
 - A binary tree is a non-linear data structure that reflects the "divide and conquer" logic of splitting one into two. Each binary tree node contains a value and two pointers, which point to its left and right child nodes, respectively.
-- For a node in a binary tree, its left (right) child node and the tree formed below it is called the node's left (right) subtree.
+- For a node in a binary tree, its left (right) child node and the tree formed below it are collectively called the node's left (right) subtree.
 - Terms related to binary trees include root node, leaf node, level, degree, edge, height, and depth.
 - The operations of initializing a binary tree, inserting nodes, and removing nodes are similar to those of linked list operations.
 - Common types of binary trees include perfect binary trees, complete binary trees, full binary trees, and balanced binary trees. The perfect binary tree represents the ideal state, while the linked list is the worst state after degradation.
@@ -12,7 +12,7 @@
 - Pre-order, in-order, and post-order traversals are all depth-first search methods, reflecting the traversal manner of "going to the end first, then backtracking to continue." They are usually implemented using recursion.
 - A binary search tree is an efficient data structure for element searching, with the time complexity of search, insert, and remove operations all being $O(\log n)$. When a binary search tree degrades into a linked list, these time complexities deteriorate to $O(n)$.
 - An AVL tree, also known as a balanced binary search tree, ensures that the tree remains balanced after continuous node insertions and removals through rotation operations.
-- Rotation operations in an AVL tree include right rotation, left rotation, right-left rotation, and left-right rotation. After inserting or removing nodes, the AVL tree performs rotation operations from bottom to top to rebalance the tree.
+- Rotation operations in an AVL tree include right rotation, left rotation, right-left rotation, and left-right rotation. After node insertion or removal, the AVL tree rebalances itself by performing these rotations in a bottom-up manner.
 
 ### Q & A
 
@@ -20,7 +20,7 @@
 
 Yes, because height and depth are typically defined as "the number of edges passed."
 
-**Q**: The insertion and removal in a binary tree are generally accomplished by a set of operations. What does "a set of operations" refer to here? Can it be understood as the release of resources of the child nodes?
+**Q**: The insertion and removal in a binary tree are generally accomplished by a set of operations. What does "a set of operations" refer to here? Does it imply releasing the resources of the child nodes?
 
 Taking the binary search tree as an example, the operation of removing a node needs to be handled in three different scenarios, each requiring multiple steps of node operations.
 
