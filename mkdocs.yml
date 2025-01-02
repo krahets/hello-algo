@@ -20,7 +20,7 @@ theme:
   custom_dir: build/overrides
   language: zh
   features:
-    - announce.dismiss
+    # - announce.dismiss
     - content.action.edit
     # - content.action.view
     - content.code.annotate
