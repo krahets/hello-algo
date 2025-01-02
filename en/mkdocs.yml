@@ -117,7 +117,7 @@ nav:
     # [icon: material/text-search]
     - chapter_searching/index.md
     - 10.1 Binary search: chapter_searching/binary_search.md
-    - 10.2 Binary search insertion: chapter_searching/binary_search_insertion.md
+    - 10.2 Binary search for insertion point: chapter_searching/binary_search_insertion.md
     - 10.3 Binary search boundaries: chapter_searching/binary_search_edge.md
     - 10.4 Hashing optimization strategies: chapter_searching/replace_linear_by_hashing.md
     - 10.5 Search algorithms revisited: chapter_searching/searching_algorithm_revisited.md
