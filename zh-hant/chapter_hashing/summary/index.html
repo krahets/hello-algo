@@ -3619,7 +3619,7 @@
 <p>最後，雜湊表的時間複雜度可能發生劣化。例如在鏈式位址中，我們採取在鏈結串列或紅黑樹中執行查詢操作，仍然有退化至 <span class="arithmatex">\(O(n)\)</span> 時間的風險。</p>
 <p><strong>Q</strong>：多次雜湊有不能直接刪除元素的缺陷嗎？標記為已刪除的空間還能再次使用嗎？</p>
 <p>多次雜湊是開放定址的一種，開放定址法都有不能直接刪除元素的缺陷，需要透過標記刪除。標記為已刪除的空間可以再次使用。當將新元素插入雜湊表，並且透過雜湊函式找到標記為已刪除的位置時，該位置可以被新元素使用。這樣做既能保持雜湊表的探測序列不變，又能保證雜湊表的空間使用率。</p>
-<p><strong>Q</strong>：為什麼線上性探查中，查詢元素的時候會出現雜湊衝突呢？</p>
+<p><strong>Q</strong>：為什麼在線性探查中，查詢元素的時候會出現雜湊衝突呢？</p>
 <p>查詢的時候透過雜湊函式找到對應的桶和鍵值對，發現 <code>key</code> 不匹配，這就代表有雜湊衝突。因此，線性探查法會根據預先設定的步長依次向下查詢，直至找到正確的鍵值對或無法找到跳出為止。</p>
 <p><strong>Q</strong>：為什麼雜湊表擴容能夠緩解雜湊衝突？</p>
 <p>雜湊函式的最後一步往往是對陣列長度 <span class="arithmatex">\(n\)</span> 取模（取餘），讓輸出值落在陣列索引範圍內；在擴容後，陣列長度 <span class="arithmatex">\(n\)</span> 發生變化，而 <code>key</code> 對應的索引也可能發生變化。原先落在同一個桶的多個 <code>key</code> ，在擴容後可能會被分配到多個桶中，從而實現雜湊衝突的緩解。</p>
@@ -3809,7 +3809,7 @@ aria-label="頁脚"
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright &copy; 2025 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   
