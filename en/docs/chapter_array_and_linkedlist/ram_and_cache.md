@@ -59,9 +59,9 @@ To achieve higher efficiency, caches adopt the following data loading mechanisms
 In fact, **arrays and linked lists have different cache utilization efficiencies**, which is mainly reflected in the following aspects.
 
 - **Occupied space**: Linked list elements take up more space than array elements, resulting in less effective data being held in the cache.
-- **Cache lines**: The linked list data is scattered throughout the memory, and the cache is "loaded by row", so the proportion of invalid data loaded is higher.
+- **Cache lines**: Linked list data is scattered throughout the memory, and cache is "loaded by row", so the proportion of invalid data loaded is higher.
 - **Prefetch mechanism**: The data access pattern of arrays is more "predictable" than that of linked lists, that is, it is easier for the system to guess the data that is about to be loaded.
-- **Spatial locality**: Arrays are stored in a centralized memory space, so data near the data being loaded is more likely to be accessed soon.
+- **Spatial locality**: Arrays are stored in a continuous memory space, so data near the data being loaded is more likely to be accessed soon.
 
 Overall, **arrays have a higher cache hit rate and are generally more efficient in operation than linked lists**. This makes data structures based on arrays more popular in solving algorithmic problems.
 
