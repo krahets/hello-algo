@@ -14,7 +14,7 @@ As shown in the figure below, the data types in sorting algorithms can be intege
 
 **Stability**: <u>Stable sorting</u> ensures that the relative order of equal elements in the array does not change after sorting.
 
-Stable sorting is a necessary condition for multi-variable sorting scenarios. Suppose we have a table storing student information, with the first and second columns being name and age, respectively. In this case, <u>unstable sorting</u> might lead to a loss of order in the input data:
+Stable sorting is a necessary condition for multi-key sorting scenarios. Suppose we have a table storing student information, with the first and second columns being name and age, respectively. In this case, <u>unstable sorting</u> might lead to a loss of order in the input data:
 
 ```shell
 # Input data is sorted by name
