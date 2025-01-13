@@ -924,7 +924,8 @@ comments: true
             _count += nums[i];
         }
         // 直接遍历数组元素
-        for num in nums {
+        _count = 0;
+        for &num in nums {
             _count += num;
         }
     }
@@ -1359,9 +1360,8 @@ comments: true
         // 初始化一个扩展长度后的数组
         let mut res: Vec<i32> = vec![0; nums.len() + enlarge];
         // 将原数组中的所有元素复制到新
-        for i in 0..nums.len() {
-            res[i] = nums[i];
-        }
+        res[0..nums.len()].copy_from_slice(nums);
+
         // 返回扩展后的新数组
         res
     }
