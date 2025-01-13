@@ -19,9 +19,6 @@ pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
 /* 删除链表的节点 n0 之后的首个节点 */
 #[allow(non_snake_case)]
 pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
-    if n0.borrow().next.is_none() {
-        return;
-    };
     // n0 -> P -> n1
     let P = n0.borrow_mut().next.take();
     if let Some(node) = P {
@@ -31,26 +28,39 @@ pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
 }
 
 /* 访问链表中索引为 index 的节点 */
-pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Rc<RefCell<ListNode<T>>> {
-    if index <= 0 {
-        return head;
-    };
-    if let Some(node) = &head.borrow().next {
-        return access(node.clone(), index - 1);
+pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCell<ListNode<T>>>> {
+    fn dfs<T>(
+        head: Option<&Rc<RefCell<ListNode<T>>>>,
+        index: i32,
+    ) -> Option<Rc<RefCell<ListNode<T>>>> {
+        if index <= 0 {
+            return head.cloned();
+        }
+
+        if let Some(node) = head {
+            dfs(node.borrow().next.as_ref(), index - 1)
+        } else {
+            None
+        }
     }
 
-    return head;
+    dfs(Some(head).as_ref(), index)
 }
 
 /* 在链表中查找值为 target 的首个节点 */
-pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T, index: i32) -> i32 {
-    if head.borrow().val == target {
-        return index;
-    };
-    if let Some(node) = &head.borrow_mut().next {
-        return find(node.clone(), target, index + 1);
+pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
+    fn find<T: PartialEq>(head: Option<&Rc<RefCell<ListNode<T>>>>, target: T, idx: i32) -> i32 {
+        if let Some(node) = head {
+            if node.borrow().val == target {
+                return idx;
+            }
+            return find(node.borrow().next.as_ref(), target, idx + 1);
+        } else {
+            -1
+        }
     }
-    return -1;
+
+    find(Some(head).as_ref(), target, 0)
 }
 
 /* Driver Code */
@@ -82,9 +92,9 @@ fn main() {
 
     /* 访问节点 */
     let node = access(n0.clone(), 3);
-    println!("链表中索引 3 处的节点的值 = {}", node.borrow().val);
+    println!("链表中索引 3 处的节点的值 = {}", node.unwrap().borrow().val);
 
     /* 查找节点 */
-    let index = find(n0.clone(), 2, 0);
+    let index = find(n0.clone(), 2);
     println!("链表中值为 2 的节点的索引 = {}", index);
 }
