@@ -461,9 +461,8 @@ a:hover .text-button span {
 }
 
 .profile-cell {
-  flex: 1; /* even distribution */
-  flex-basis: 20%;
-  margin: 1em 0.5em;
+  flex: 1 1 15%;
+  margin: 1em 0;
   text-align: center;
 }
 
@@ -523,6 +522,10 @@ a:hover .text-button span {
 
   .text-button {
     margin: 0.7em auto;
+  }
+
+  .profile-cell{
+    flex: 1 1 30%;
   }
 }
 
