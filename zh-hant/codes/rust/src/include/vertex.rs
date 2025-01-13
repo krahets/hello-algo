@@ -10,9 +10,15 @@ pub struct Vertex {
     pub val: i32,
 }
 
+impl From<i32> for Vertex {
+    fn from(value: i32) -> Self {
+        Self { val: value }
+    }
+}
+
 /* 輸入值串列 vals ，返回頂點串列 vets */
 pub fn vals_to_vets(vals: Vec<i32>) -> Vec<Vertex> {
-    vals.into_iter().map(|val| Vertex { val }).collect()
+    vals.into_iter().map(|val| val.into()).collect()
 }
 
 /* 輸入頂點串列 vets ，返回值串列 vals */
