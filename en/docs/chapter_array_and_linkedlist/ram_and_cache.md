@@ -1,6 +1,6 @@
 # Memory and cache *
 
-In the first two sections of this chapter, we explored arrays and linked lists—two fundamental data structures that represent "continuous storage" and "dispersed storage," respectively.
+In the first two sections of this chapter, we explored arrays and linked lists, two fundamental data structures that represent "continuous storage" and "dispersed storage," respectively.
 
 In fact, **the physical structure largely determines how efficiently a program utilizes memory and cache**, which in turn affects the overall performance of the algorithm.
 
