@@ -504,8 +504,8 @@ a:hover .text-button span {
     font-size: 0.75rem;
   }
 
-  .heading-div {
-    transform: translateX(-50%) translateY(13%);
+  .hero-div {
+    margin-top: -4rem;
   }
 
   .intro-container {
