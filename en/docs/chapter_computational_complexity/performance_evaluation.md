@@ -5,7 +5,7 @@ In algorithm design, we pursue the following two objectives in sequence.
 1. **Finding a Solution to the Problem**: The algorithm should reliably find the correct solution within the specified range of inputs.
 2. **Seeking the Optimal Solution**: For the same problem, multiple solutions might exist, and we aim to find the most efficient algorithm possible.
 
-In other words, under the premise of being able to solve the problem, algorithm efficiency has become the main criterion for evaluating the quality of an algorithm, which includes the following two dimensions.
+In other words, under the premise of being able to solve the problem, algorithm efficiency has become the main criterion for evaluating an algorithm, which includes the following two dimensions.
 
 - **Time efficiency**: The speed at which an algorithm runs.
 - **Space efficiency**: The size of the memory space occupied by an algorithm.
@@ -18,9 +18,9 @@ There are mainly two methods of efficiency assessment: actual testing and theore
 
 Suppose we have algorithms `A` and `B`, both capable of solving the same problem, and we need to compare their efficiencies. The most direct method is to use a computer to run these two algorithms, monitor and record their runtime and memory usage. This assessment method reflects the actual situation, but it has significant limitations.
 
-On one hand, **it's difficult to eliminate interference from the testing environment**. Hardware configurations can affect algorithm performance. For example, an algorithm with a high degree of parallelism is better suited for running on multi-core CPUs, while an algorithm that involves intensive memory operations performs better with high-performance memory. The test results of an algorithm may vary across different machines. This means we would need to test the algorithm on various machines to calculate average efficiency, which is impractical.
+On one hand, **it's difficult to eliminate interference from the testing environment**. Hardware configurations can affect algorithm performance. For example, an algorithm with a high degree of parallelism is better suited for running on multi-core CPUs, while an algorithm that involves intensive memory operations performs better with high-performance memory. The test results of an algorithm may vary across different machines. This means testing across multiple machines to calculate average efficiency becomes impractical.
 
-On the other hand, **conducting a full test is very resource-intensive**. As the volume of input data changes, the efficiency of the algorithms also changes. For example, with smaller data volumes, algorithm `A` might run faster than `B`, but with larger data volumes, the test results may be the opposite. Therefore, to draw convincing conclusions, we need to test a wide range of input data sizes, which requires excessive computational resources.
+On the other hand, **conducting a full test is very resource-intensive**. Algorithm efficiency varies with input data size. For example, with smaller data volumes, algorithm `A` might run faster than `B`, but with larger data volumes, the test results may be the opposite. Therefore, to draw convincing conclusions, we need to test a wide range of input data sizes, which requires excessive computational resources.
 
 ## Theoretical estimation
 
