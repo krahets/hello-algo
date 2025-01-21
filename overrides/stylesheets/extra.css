@@ -1,7 +1,7 @@
 /* Color Settings */
 /* https://github.com/squidfunk/mkdocs-material/blob/6b5035f5580f97532d664e3d1babf5f320e88ee9/src/assets/stylesheets/main/_colors.scss */
 /* https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#custom-colors */
-:root > * {
+:root>* {
   --md-primary-fg-color: #ffffff;
   --md-primary-bg-color: #1d1d20;
 
@@ -69,8 +69,10 @@
 .md-header--landing {
   box-shadow: none;
   transition: none;
-  backdrop-filter: saturate(180%) blur(20px); /* Gaussian blur */
-  -webkit-backdrop-filter: saturate(180%) blur(20px); /* Safari */
+  backdrop-filter: saturate(180%) blur(20px);
+  /* Gaussian blur */
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  /* Safari */
   background-color: var(--md-header-bg-color);
 }
 
@@ -159,7 +161,7 @@ body {
 
 /* max height of code block */
 /* https://github.com/squidfunk/mkdocs-material/issues/3444 */
-.md-typeset pre > code {
+.md-typeset pre>code {
   max-height: 25rem;
 }
 
@@ -176,7 +178,8 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  width: 100%; /* Default to full width */
+  width: 100%;
+  /* Default to full width */
 }
 
 /* Admonition for python tutor */
@@ -192,12 +195,13 @@ body {
   box-shadow: var(--md-shadow-z1);
 }
 
-.md-typeset .pythontutor > .admonition-title,
-.md-typeset .pythontutor > summary {
+.md-typeset .pythontutor>.admonition-title,
+.md-typeset .pythontutor>summary {
   background-color: var(--md-code-bg-color);
 }
-.md-typeset .pythontutor > .admonition-title::before,
-.md-typeset .pythontutor > summary::before {
+
+.md-typeset .pythontutor>.admonition-title::before,
+.md-typeset .pythontutor>summary::before {
   background-color: rgb(55, 118, 171);
   -webkit-mask-image: var(--md-admonition-icon--pythontutor);
   mask-image: var(--md-admonition-icon--pythontutor);
@@ -301,7 +305,7 @@ body {
 
 a:hover .device-on-hover {
   filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.15));
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 /* text button */
@@ -363,27 +367,27 @@ a:hover .text-button span {
 }
 
 /* hover on the planets */
-.hero-div > a > img {
+.hero-div>a>img {
   width: auto;
   position: absolute;
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
-.hero-div > a > span {
+.hero-div>a>span {
   margin: 0;
   position: absolute;
   transform: translateX(-50%) translateY(-50%);
-  white-space: nowrap; /* prevent line breaks */
+  white-space: nowrap;
+  /* prevent line breaks */
   color: white;
 }
 
-.hero-div > a:hover > img {
-  filter: brightness(1.15) saturate(1.1)
-    drop-shadow(0 0 0.5rem rgba(255, 255, 255, 0.2));
+.hero-div>a:hover>img {
+  filter: brightness(1.15) saturate(1.1) drop-shadow(0 0 0.5rem rgba(255, 255, 255, 0.2));
   transform: scale(1.03);
 }
 
-.hero-div > a:hover > span {
+.hero-div>a:hover>span {
   text-decoration: underline;
   color: var(--md-typeset-btn-color);
 }
@@ -420,13 +424,14 @@ a:hover .text-button span {
 .intro-image {
   flex-shrink: 0;
   flex-grow: 0;
-  width: 55%;
+  width: 50%;
   border-radius: 0.5em;
   box-shadow: var(--md-shadow-z2);
 }
 
 .intro-text {
-  flex-grow: 1; /* fill the space */
+  flex-grow: 1;
+  /* fill the space */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -436,7 +441,7 @@ a:hover .text-button span {
   margin: 2em;
 }
 
-.intro-text > div {
+.intro-text>div {
   align-self: flex-start;
   width: auto;
   margin: 0 auto;
@@ -461,9 +466,8 @@ a:hover .text-button span {
 }
 
 .profile-cell {
-  flex: 1; /* even distribution */
-  flex-basis: 20%;
-  margin: 1em 0.5em;
+  flex: 1 1 15%;
+  margin: 1em 0;
   text-align: center;
 }
 
@@ -494,10 +498,14 @@ a:hover .text-button span {
   }
 }
 
-/* Hide table of contents */
+/* mobile devices */
 @media screen and (max-width: 60em) {
   .home-div {
     font-size: 0.75rem;
+  }
+
+  .hero-div {
+    margin-top: -4rem;
   }
 
   .intro-container {
@@ -524,11 +532,16 @@ a:hover .text-button span {
   .text-button {
     margin: 0.7em auto;
   }
+
+  .profile-cell {
+    flex: 1 1 30%;
+  }
 }
 
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
+  /* 16:9 */
   height: 0;
 }
 

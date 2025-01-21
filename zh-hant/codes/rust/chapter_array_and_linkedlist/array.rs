@@ -21,9 +21,8 @@ fn extend(nums: &[i32], enlarge: usize) -> Vec<i32> {
     // 初始化一個擴展長度後的陣列
     let mut res: Vec<i32> = vec![0; nums.len() + enlarge];
     // 將原陣列中的所有元素複製到新
-    for i in 0..nums.len() {
-        res[i] = nums[i];
-    }
+    res[0..nums.len()].copy_from_slice(nums);
+
     // 返回擴展後的新陣列
     res
 }
@@ -54,7 +53,8 @@ fn traverse(nums: &[i32]) {
         _count += nums[i];
     }
     // 直接走訪陣列元素
-    for num in nums {
+    _count = 0;
+    for &num in nums {
         _count += num;
     }
 }

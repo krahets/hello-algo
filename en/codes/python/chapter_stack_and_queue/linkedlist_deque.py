@@ -69,7 +69,7 @@ class LinkedListDeque:
             val: int = self._front.val  # Temporarily store the head node value
             # Remove head node
             fnext: ListNode | None = self._front.next
-            if fnext != None:
+            if fnext is not None:
                 fnext.prev = None
                 self._front.next = None
             self._front = fnext  # Update head node
@@ -78,7 +78,7 @@ class LinkedListDeque:
             val: int = self._rear.val  # Temporarily store the tail node value
             # Remove tail node
             rprev: ListNode | None = self._rear.prev
-            if rprev != None:
+            if rprev is not None:
                 rprev.next = None
                 self._rear.prev = None
             self._rear = rprev  # Update tail node

@@ -69,7 +69,7 @@ class LinkedListDeque:
             val: int = self._front.val  # 暫存頭節點值
             # 刪除頭節點
             fnext: ListNode | None = self._front.next
-            if fnext != None:
+            if fnext is not None:
                 fnext.prev = None
                 self._front.next = None
             self._front = fnext  # 更新頭節點
@@ -78,7 +78,7 @@ class LinkedListDeque:
             val: int = self._rear.val  # 暫存尾節點值
             # 刪除尾節點
             rprev: ListNode | None = self._rear.prev
-            if rprev != None:
+            if rprev is not None:
                 rprev.next = None
                 self._rear.prev = None
             self._rear = rprev  # 更新尾節點
