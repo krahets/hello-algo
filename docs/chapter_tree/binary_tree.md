@@ -493,8 +493,8 @@
     P->left = n2;
     // 删除节点 P
     n1->left = n2;
-    // 释放动态分配内存
-    delete p;
+    // 释放内存
+    delete P;
     ```
 
 === "Java"
@@ -600,6 +600,8 @@
     P->left = n2;
     // 删除节点 P
     n1->left = n2;
+    // 释放内存
+    free(P);
     ```
 
 === "Kotlin"
