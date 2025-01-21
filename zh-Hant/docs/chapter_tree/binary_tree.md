@@ -504,6 +504,8 @@ comments: true
     P->left = n2;
     // 刪除節點 P
     n1->left = n2;
+    // 釋放記憶體
+    delete P;
     ```
 
 === "Java"
@@ -609,6 +611,8 @@ comments: true
     P->left = n2;
     // 刪除節點 P
     n1->left = n2;
+    // 釋放記憶體
+    free(P);
     ```
 
 === "Kotlin"
