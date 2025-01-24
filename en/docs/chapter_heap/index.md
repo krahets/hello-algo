@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Heaps are like mountain ranges, with layers rising and falling, each with its unique form.
+    Heaps are like mountains and their jagged peaks, stacked and undulating, each with its unique form.
 
-    The peaks are arranged at various heights, but the highest peak always catches the eye first.
+    Each mountain peak rises and falls in scattered heights, yet the tallest always captures attention first.
