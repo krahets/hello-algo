@@ -8,7 +8,7 @@
 - Merge sort includes dividing and merging two phases, typically embodying the divide-and-conquer strategy. In merge sort, sorting an array requires creating auxiliary arrays, resulting in a space complexity of $O(n)$; however, the space complexity for sorting a list can be optimized to $O(1)$.
 - Bucket sort consists of three steps: distributing data into buckets, sorting each bucket individually, and merging results in bucket order. It also embodies the divide-and-conquer strategy, suitable for very large datasets. The key to bucket sort is the even distribution of data.
 - Counting sort is a variant of bucket sort, which sorts by counting the occurrences of each data point. Counting sort is suitable for large datasets with a limited range of data and requires that data conversion to positive integers.
-- Radix sort sorts data by digits, requiring data to be represented as fixed-length numbers.
+- Radix sort processes data by sorting it digit by digit, requiring data to be represented as fixed-length numbers.
 - Overall, we seek sorting algorithm that has high efficiency, stability, in-place operation, and adaptability. However, like other data structures and algorithms, no sorting algorithm can meet all these conditions simultaneously. In practical applications, we need to choose the appropriate sorting algorithm based on the characteristics of the data.
 - The figure below compares mainstream sorting algorithms in terms of efficiency, stability, in-place nature, and adaptability.
 
