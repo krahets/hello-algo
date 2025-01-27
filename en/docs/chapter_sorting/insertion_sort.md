@@ -13,8 +13,8 @@ The figure below illustrates how an element is inserted into the array. Assuming
 The overall process of insertion sort is shown in the figure below.
 
 1. Consider the first element of the array as sorted.
-2. Take the second element as `base`, insert it into its correct position, **leaving the first two elements sorted**.
-3. Take the third element as `base`, insert it into its correct position, **leaving the first three elements sorted**.
+2. Select the second element as `base`, insert it into its correct position, **leaving the first two elements sorted**.
+3. Select the third element as `base`, insert it into its correct position, **leaving the first three elements sorted**.
 4. Continuing in this manner, in the final iteration, the last element is taken as `base`, and after inserting it into the correct position, **all elements are sorted**.
 
 ![Insertion sort process](insertion_sort.assets/insertion_sort_overview.png)
@@ -39,7 +39,7 @@ This conclusion is similar to that for linear and binary search. Algorithms like
 
 In fact, many programming languages (such as Java) use insertion sort within their built-in sorting functions. The general approach is: for long arrays, use sorting algorithms based on divide-and-conquer strategies, such as quicksort; for short arrays, use insertion sort directly.
 
-Although bubble sort, selection sort, and insertion sort all have a time complexity of $O(n^2)$, in practice, **insertion sort is used significantly more frequently than bubble sort and selection sort**, mainly for the following reasons.
+Although bubble sort, selection sort, and insertion sort all have a time complexity of $O(n^2)$, in practice, **insertion sort is commonly used than bubble sort and selection sort**, mainly for the following reasons.
 
 - Bubble sort is based on element swapping, which requires the use of a temporary variable, involving 3 unit operations; insertion sort is based on element assignment, requiring only 1 unit operation. Therefore, **the computational overhead of bubble sort is generally higher than that of insertion sort**.
 - The time complexity of selection sort is always $O(n^2)$. **Given a set of partially ordered data, insertion sort is usually more efficient than selection sort**.
