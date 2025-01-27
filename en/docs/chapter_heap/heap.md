@@ -2,10 +2,10 @@
 
 A <u>heap</u> is a complete binary tree that satisfies specific conditions and can be mainly categorized into two types, as shown in the figure below.
 
-- <u>Min heap</u>: The value of any node $\leq$ the values of its child nodes.
-- <u>Max heap</u>: The value of any node $\geq$ the values of its child nodes.
+- <u>min heap</u>: The value of any node $\leq$ the values of its child nodes.
+- <u>max heap</u>: The value of any node $\geq$ the values of its child nodes.
 
-![Min heap and max heap](heap.assets/min_heap_and_max_heap.png)
+![min heap and max heap](heap.assets/min_heap_and_max_heap.png)
 
 As a special case of a complete binary tree, a heap has the following characteristics:
 
@@ -17,7 +17,7 @@ As a special case of a complete binary tree, a heap has the following characteri
 
 It should be noted that many programming languages provide a <u>priority queue</u>, which is an abstract data structure defined as a queue with priority sorting.
 
-In practice, **heaps are often used to implement priority queues. A max-heap corresponds to a priority queue where elements are dequeued in descending order.**. From a usage perspective, we can consider "priority queue" and "heap" as equivalent data structures. Therefore, this book does not make a special distinction between the two, uniformly referring to them as "heap".
+In practice, **heaps are often used to implement priority queues. A max heap corresponds to a priority queue where elements are dequeued in descending order.**. From a usage perspective, we can consider "priority queue" and "heap" as equivalent data structures. Therefore, this book does not make a special distinction between the two, uniformly referring to them as "heap".
 
 Common operations on heaps are shown in the table below, and the method names may vary based on the programming language.
 
@@ -38,14 +38,14 @@ Similar to sorting algorithms where we have "ascending order" and "descending or
 === "Python"
 
     ```python title="heap.py"
-    # Initialize a min-heap
+    # Initialize a min heap
     min_heap, flag = [], 1
-    # Initialize a max-heap
+    # Initialize a max heap
     max_heap, flag = [], -1
 
-    # Python's heapq module implements a min-heap by default
-    # By negating the elements before pushing them to the heap, we invert the order and thus implement a max-heap
-    # In this example, flag = 1 corresponds to a min-heap, while flag = -1 corresponds to a max-heap
+    # Python's heapq module implements a min heap by default
+    # By negating the elements before pushing them to the heap, we invert the order and thus implement a max heap
+    # In this example, flag = 1 corresponds to a min heap, while flag = -1 corresponds to a max heap
 
     # Push elements into the heap
     heapq.heappush(max_heap, flag * 1)
@@ -80,9 +80,9 @@ Similar to sorting algorithms where we have "ascending order" and "descending or
 
     ```cpp title="heap.cpp"
     /* Initialize a heap */
-    // Initialize a min-heap
+    // Initialize a min heap
     priority_queue<int, vector<int>, greater<int>> minHeap;
-    // Initialize a max-heap
+    // Initialize a max heap
     priority_queue<int, vector<int>, less<int>> maxHeap;
 
     /* Push elements into the heap */
@@ -118,9 +118,9 @@ Similar to sorting algorithms where we have "ascending order" and "descending or
 
     ```java title="heap.java"
     /* Initialize a heap */
-    // Initialize a min-heap
+    // Initialize a min heap
     Queue<Integer> minHeap = new PriorityQueue<>();
-    // Initialize a max-heap (Simply modify the Comparator using a lambda expression）
+    // Initialize a max heap (Simply modify the Comparator using a lambda expression）
     Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
     
     /* Push elements into the heap */
@@ -155,9 +155,9 @@ Similar to sorting algorithms where we have "ascending order" and "descending or
 
     ```csharp title="heap.cs"
     /* Initialize a heap */
-    // Initialize a min-heap
+    // Initialize a min heap
     PriorityQueue<int, int> minHeap = new();
-    // Initialize a max-heap (Simply modify the Comparator using a lambda expression)
+    // Initialize a max heap (Simply modify the Comparator using a lambda expression)
     PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y - x));
 
     /* Push elements into the heap */
@@ -191,7 +191,7 @@ Similar to sorting algorithms where we have "ascending order" and "descending or
 === "Go"
 
     ```go title="heap.go"
-    // In Go, we can construct a max-heap of integers by implementing heap.Interface
+    // In Go, we can construct a max heap of integers by implementing heap.Interface
     // Note that implementing heap.Interface requires also implementing sort.Interface
     type intHeap []any
 
@@ -217,7 +217,7 @@ Similar to sorting algorithms where we have "ascending order" and "descending or
 
     // Less method of sort.Interface
     func (h *intHeap) Less(i, j int) bool {
-        // If you want to implement a min-heap, you would change this to a less-than comparison
+        // If you want to implement a min heap, you would change this to a less-than comparison
         return (*h)[i].(int) > (*h)[j].(int)
     }
 
@@ -234,7 +234,7 @@ Similar to sorting algorithms where we have "ascending order" and "descending or
     /* Driver Code */
     func TestHeap(t *testing.T) {
         /* Initialize a heap */
-        // Initialize a max-heap
+        // Initialize a max heap
         maxHeap := &intHeap{}
         heap.Init(maxHeap)
         /* Push elements into the heap */
@@ -271,7 +271,7 @@ Similar to sorting algorithms where we have "ascending order" and "descending or
 
     ```swift title="heap.swift"
     /* Initialize a heap */
-    // Swift’s Heap type supports both max-heaps and min-heaps, and need the swift-collections library
+    // Swift’s Heap type supports both max heaps and min heaps, and need the swift-collections library
     var heap = Heap<Int>()
 
     /* Push elements into the heap */
@@ -326,9 +326,9 @@ Similar to sorting algorithms where we have "ascending order" and "descending or
     use std::cmp::Reverse;
 
     /* Initialize a heap */
-    // Initialize a min-heap
+    // Initialize a min heap
     let mut min_heap = BinaryHeap::<Reverse<i32>>::new();
-    // Initialize a max-heap
+    // Initialize a max heap
     let mut max_heap = BinaryHeap::new();
 
     /* Push elements into the heap */
@@ -369,9 +369,9 @@ Similar to sorting algorithms where we have "ascending order" and "descending or
 
     ```kotlin title="heap.kt"
     /* Initialize a heap */
-    // Initialize a min-heap
+    // Initialize a min heap
     var minHeap = PriorityQueue<Int>()
-    // Initialize a max-heap (Simply modify the Comparator using a lambda expression）
+    // Initialize a max heap (Simply modify the Comparator using a lambda expression）
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
     
     /* Push elements into the heap */
@@ -424,7 +424,7 @@ The following implementation is of a max heap. To convert it into a min heap, si
 
 ### Heap storage and representation
 
-As mentioned in the "Binary Trees" section, a complete binary tree can be efficiently represented with an array. Since heaps are a type of complete binary tree, **we will use arrays to store heaps**.
+As mentioned in the "Binary Trees" section, complete binary trees are highly suitable for array representation. Since heaps are a type of complete binary tree, **we will use arrays to store heaps**.
 
 When using an array to represent a binary tree, elements represent node values, and indexes represent node positions in the binary tree. **Node pointers are implemented through an index mapping formula**.
 
@@ -493,7 +493,7 @@ The top element of the heap is the root node of the binary tree, that is, the fi
 2. After swapping, remove the bottom of the heap from the list (note that since it has been swapped, the original top element is actually being removed).
 3. Starting from the root node, **perform heapify from top to bottom**.
 
-As shown in the figure below, **the direction of "heapify from top to bottom" is opposite to "heapify from bottom to top"**. We compare the value of the root node with its two children and swap it with the largest child. Then, repeat this operation until reaching the leaf node or encountering a node that does not need to be swapped.
+As shown in the figure below, **the direction of "heapify from top to bottom" is opposite to "heapify from bottom to top"**. We compare the value of the root node with its two children and swap it with the largest child. Then, repeat this operation until reaching the leaf node or encountering a node that does not need swapping.
 
 === "<1>"
     ![Steps of removing the top element from the heap](heap.assets/heap_pop_step1.png)
@@ -534,5 +534,5 @@ Similar to the element insertion operation, the time complexity of the top eleme
 ## Common applications of heaps
 
 - **Priority Queue**: Heaps are often the preferred data structure for implementing priority queues, with both enqueue and dequeue operations having a time complexity of $O(\log n)$, and building a queue having a time complexity of $O(n)$, all of which are very efficient.
-- **Heap Sort**: Given a set of data, we can create a heap from them and then continually perform element removal operations to obtain ordered data. However, there is a more elegant way to implement heap sort, which is explained in the "Heap Sort" chapter.
+- **Heap Sort**: Given a set of data, we can create a heap from them and then continually perform element removal operations to obtain ordered data. However, there is a more elegant way to implement heap sort, as explained in the "Heap Sort" chapter.
 - **Finding the Largest $k$ Elements**: This is a classic algorithm problem and also a common use case, such as selecting the top 10 hot news for Weibo hot search, picking the top 10 selling products, etc.
