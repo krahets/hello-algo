@@ -51,7 +51,7 @@ In the code, we use $k$ to record the smallest element within the unsorted inter
 
 ## Algorithm characteristics
 
-- **Time complexity of $O(n^2)$, non-adaptive sort**: There are $n - 1$ iterations in the outer loop, with the unsorted section length starting at $n$ in the first iteration and decreasing to $2$ in the last iteration, i.e., the outer loop iterations contain $n$, $n - 1$, $\dots$, $3$, $2$ inner loop iterations respectively, summing up to $\frac{(n - 1)(n + 2)}{2}$.
+- **Time complexity of $O(n^2)$, non-adaptive sort**: There are $n - 1$ iterations in the outer loop, with the length of the unsorted section starting at $n$ in the first iteration and decreasing to $2$ in the last iteration, i.e., each outer loop iterations contain $n$, $n - 1$, $\dots$, $3$, $2$ inner loop iterations respectively, summing up to $\frac{(n - 1)(n + 2)}{2}$.
 - **Space complexity of $O(1)$, in-place sort**: Uses constant extra space with pointers $i$ and $j$.
 - **Non-stable sort**: As shown in the figure below, an element `nums[i]` may be swapped to the right of an equal element, causing their relative order to change.
 
