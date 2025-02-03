@@ -22,7 +22,7 @@ Suppose the array length is $n$, the heap sort process is as follows.
 
 !!! tip
 
-    In fact, the element extraction operation also includes steps `2.` and `3.`, with an additional step to remove (pop) the extracted element from the heap.
+    In fact, the element extraction operation also includes steps `2.` and `3.`, with an additional step to pop (remove) the extracted element from the heap.
 
 === "<1>"
     ![Heap sort process](heap_sort.assets/heap_sort_step1.png)
