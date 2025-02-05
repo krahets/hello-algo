@@ -1,4 +1,4 @@
-FROM python:3.9.0-alpine
+FROM python:3.9.17-alpine3.18
 
 ENV PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 RUN pip install --upgrade pip

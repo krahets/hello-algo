@@ -78,3 +78,15 @@
 ## License
 
 The texts, code, images, photos, and videos in this repository are licensed under [CC BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+## 待整理工作 
+
+1. https://github.com/Haozhe-Xing/OI-wiki?tab=readme-ov-file
+2. 代码随想录 https://programmercarl.com/
+3. USACO guide 地址 https://usaco.guide/
+4. CCC 竞赛地址
+5. leetcode 刷题教程 https://github.com/krahets/LeetCode-Book
+6. 
+## 编写大纲
+1. 优先完成铜级内容：覆盖基础算法与语法，吸引初学者
+2. 整合真题库：从USACO官网、翰林等平台整理近5年真题，按知识点分类

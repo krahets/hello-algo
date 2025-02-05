@@ -36,6 +36,10 @@
     vector<int> nums1;
     // 有初始值
     vector<int> nums = { 1, 3, 2, 5, 4 };
+    // 指定大小和初始值
+    vector<int> nums(5, 10); // 创建包含5个元素，每个都是10的vector
+    // 复制其他vector
+    vector<int> numsCopy(nums); // 假设nums已经定义并初始化
     ```
 
 === "Java"
@@ -296,6 +300,14 @@
 
     /* 删除元素 */
     nums.erase(nums.begin() + 3);      // 删除索引 3 处的元素
+    // 输入元素 通常通过循环逐个读取数值添加到 vector 中
+    int num;
+    while (cin >> num) {
+        nums.push_back(num);
+    }
+    // 调整大小 resize() 方法用于改变 vector 的大小。如果新尺寸大于当前容量，会用默认值填充新增加的空间；如果小于当前尺寸，则会截断。
+    nums.resize(10); // 将nums大小改为10，新位置以0填充
+    nums.resize(3);  // 将nums大小减小到3
     ```
 
 === "Java"

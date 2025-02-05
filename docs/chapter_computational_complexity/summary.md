@@ -17,6 +17,36 @@
 - 某些算法的时间复杂度非固定，而是与输入数据的分布有关。时间复杂度分为最差、最佳、平均时间复杂度，最佳时间复杂度几乎不用，因为输入数据一般需要满足严格条件才能达到最佳情况。
 - 平均时间复杂度反映算法在随机数据输入下的运行效率，最接近实际应用中的算法性能。计算平均时间复杂度需要统计输入数据分布以及综合后的数学期望。
 
+**算法竞赛中的时间复杂度**
+Complexity factors that come from some common algorithms and data structures are as follows:
+Mathematical formulas that just calculate an answer: $\mathcal=={O}(1)$
+
+- Binary search: $\mathcal{O}(\log n)$
+
+- Sorted set/map or priority queue: $\mathcal{O}(\log n)$ per operation
+
+- Prime factorization of an integer, or checking primality or compositeness of
+an integer naively: $\mathcal{O}(\sqrt{n})$
+
+- Reading in $n$ items of input: $\mathcal{O}(n)$
+
+- Iterating through an array or a list of $n$ elements: $\mathcal{O}(n)$
+
+- Sorting: usually $\mathcal{O}(n \log n)$ for default sorting algorithms
+(mergesort, Collections.sort, Arrays.sort)
+
+- Java Quicksort Arrays.sort function on primitives: $\mathcal{O}(n^2)$
+
+- Iterating through all subsets of size $k$ of the input elements:
+$\mathcal{O}(n^k)$. For example, iterating through all triplets is
+$\mathcal{O}(n^3)$.
+
+- Iterating through all subsets: $\mathcal{O}(2^n)$
+
+- Iterating through all permutations: $\mathcal{O}(n!)$
+
+![不同数据规模适用的时间复杂度](time_complexity.assets/time_complexity_in_competition.png)
+
 **空间复杂度**
 
 - 空间复杂度的作用类似于时间复杂度，用于衡量算法占用内存空间随数据量增长的趋势。
