@@ -1,46 +1,44 @@
-﻿/**
- * File: n_queens.cs
- * Created Time: 2023-05-04
- * Author: hpstory (hpstory1024@163.com)
- */
+﻿// File: n_queens.cs
+// Created Time: 2025-02-07
+// Author: Xylphy (github.com/Xylphy)
 
 namespace hello_algo.chapter_backtracking;
 
 public class n_queens {
-    /* 回溯算法：n 皇后 */
+    /* Backtracking algorithm: n-queens */
     void Backtrack(int row, int n, List<List<string>> state, List<List<List<string>>> res,
             bool[] cols, bool[] diags1, bool[] diags2) {
-        // 当放置完所有行时，记录解
+        // When all rows are placed, record the solution
         if (row == n) {
             List<List<string>> copyState = [];
             foreach (List<string> sRow in state) {
-                copyState.Add(new List<string>(sRow));
+                copyState.Add([.. sRow]);
             }
             res.Add(copyState);
             return;
         }
-        // 遍历所有列
+        // Traverse all columns
         for (int col = 0; col < n; col++) {
-            // 计算该格子对应的主对角线和次对角线
+            // Calculate the main and minor diagonals corresponding to the cell
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
+            // Pruning: do not allow queens on the same column, main diagonal, or minor diagonal
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // 尝试：将皇后放置在该格子
+                // Try: place the queen on this cell
                 state[row][col] = "Q";
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
-                // 放置下一行
+                // Place the next row
                 Backtrack(row + 1, n, state, res, cols, diags1, diags2);
-                // 回退：将该格子恢复为空位
+                // Backtrack: restore this cell to empty
                 state[row][col] = "#";
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
         }
     }
 
-    /* 求解 n 皇后 */
+    /* Solve n-queens */
     List<List<List<string>>> NQueens(int n) {
-        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        // Initialize an n*n chessboard, where 'Q' represents a queen and '#' represents an empty spot
         List<List<string>> state = [];
         for (int i = 0; i < n; i++) {
             List<string> row = [];
@@ -49,9 +47,9 @@ public class n_queens {
             }
             state.Add(row);
         }
-        bool[] cols = new bool[n]; // 记录列是否有皇后
-        bool[] diags1 = new bool[2 * n - 1]; // 记录主对角线上是否有皇后
-        bool[] diags2 = new bool[2 * n - 1]; // 记录次对角线上是否有皇后
+        bool[] cols = new bool[n]; // Record if there is a queen in the column
+        bool[] diags1 = new bool[2 * n - 1]; // Record main diagonals with queens
+        bool[] diags2 = new bool[2 * n - 1]; // Record minor diagonals with queens
         List<List<List<string>>> res = [];
 
         Backtrack(0, n, state, res, cols, diags1, diags2);
@@ -64,8 +62,8 @@ public class n_queens {
         int n = 4;
         List<List<List<string>>> res = NQueens(n);
 
-        Console.WriteLine("输入棋盘长宽为 " + n);
-        Console.WriteLine("皇后放置方案共有 " + res.Count + " 种");
+        Console.WriteLine("Input chessboard size is " + n);
+        Console.WriteLine("There are " + res.Count + " solutions for placing the queens");
         foreach (List<List<string>> state in res) {
             Console.WriteLine("--------------------");
             foreach (List<string> row in state) {
