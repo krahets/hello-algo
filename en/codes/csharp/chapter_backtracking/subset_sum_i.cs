@@ -1,42 +1,40 @@
-﻿/**
-* File: subset_sum_i.cs
-* Created Time: 2023-06-25
-* Author: hpstory (hpstory1024@163.com)
-*/
+﻿// File: subset_sum_i_.cs
+// Created Time: 2025-02-07
+// Author: Xylphy (github.com/Xylphy)
 
 namespace hello_algo.chapter_backtracking;
 
 public class subset_sum_i {
-    /* 回溯算法：子集和 I */
+    /* Backtracking Algorithm: Subset Sum I */
     void Backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
-        // 子集和等于 target 时，记录解
+        // Record the solution when the subset sum equals target
         if (target == 0) {
-            res.Add(new List<int>(state));
+            res.Add([.. state]);
             return;
         }
-        // 遍历所有选择
-        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // Traverse all choices
+        // Pruning 2: Start traversing from 'start' to avoid generating duplicate subsets
         for (int i = start; i < choices.Length; i++) {
-            // 剪枝一：若子集和超过 target ，则直接结束循环
-            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            // Pruning 1: If the subset sum exceeds target, end the loop directly
+            // This is because the array is sorted, and the subsequent elements are larger, so the subset sum will definitely exceed target
             if (target - choices[i] < 0) {
                 break;
             }
-            // 尝试：做出选择，更新 target, start
+            // Attempt: Make a choice, update target, start
             state.Add(choices[i]);
-            // 进行下一轮选择
+            // Proceed to the next round of selection
             Backtrack(state, target - choices[i], choices, i, res);
-            // 回退：撤销选择，恢复到之前的状态
+            // Backtrack: Undo the choice, revert to the previous state
             state.RemoveAt(state.Count - 1);
         }
     }
 
-    /* 求解子集和 I */
+    /* Solve Subset Sum I */
     List<List<int>> SubsetSumI(int[] nums, int target) {
-        List<int> state = []; // 状态（子集）
-        Array.Sort(nums); // 对 nums 进行排序
-        int start = 0; // 遍历起始点
-        List<List<int>> res = []; // 结果列表（子集列表）
+        List<int> state = []; // State (subset)
+        Array.Sort(nums); // Sort nums
+        int start = 0; // Start point for traversal
+        List<List<int>> res = []; // Result list (subset list)
         Backtrack(state, target, nums, start, res);
         return res;
     }
@@ -46,8 +44,8 @@ public class subset_sum_i {
         int[] nums = [3, 4, 5];
         int target = 9;
         List<List<int>> res = SubsetSumI(nums, target);
-        Console.WriteLine("输入数组 nums = " + string.Join(", ", nums) + ", target = " + target);
-        Console.WriteLine("所有和等于 " + target + " 的子集 res = ");
+        Console.WriteLine("Input array nums = " + string.Join(", ", nums) + ", target = " + target);
+        Console.WriteLine("All subsets summing to " + target + " res = ");
         foreach (var subset in res) {
             PrintUtil.PrintList(subset);
         }
