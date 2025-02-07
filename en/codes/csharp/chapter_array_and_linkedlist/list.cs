@@ -1,8 +1,6 @@
-﻿/**
- * File: list.cs
- * Created Time: 2022-12-23
- * Author: haptear (haptear@hotmail.com)
- */
+﻿// File: list.cs
+// Created Time: 2025-02-07
+// Author: Xylphy (github.com/Xylphy)
 
 namespace hello_algo.chapter_array_and_linkedlist;
 
@@ -10,57 +8,57 @@ public class list {
     [Test]
     public void Test() {
 
-        /* 初始化列表 */
+        /* Initialize list */
         int[] numbers = [1, 3, 2, 5, 4];
         List<int> nums = [.. numbers];
-        Console.WriteLine("列表 nums = " + string.Join(",", nums));
+        Console.WriteLine("List nums = " + string.Join(",", nums));
 
-        /* 访问元素 */
+        /* Access element */
         int num = nums[1];
-        Console.WriteLine("访问索引 1 处的元素，得到 num = " + num);
+        Console.WriteLine("Access element at index 1, get num = " + num);
 
-        /* 更新元素 */
+        /* Update element */
         nums[1] = 0;
-        Console.WriteLine("将索引 1 处的元素更新为 0 ，得到 nums = " + string.Join(",", nums));
+        Console.WriteLine("Update element at index 1 to 0, get nums = " + string.Join(",", nums));
 
-        /* 清空列表 */
+        /* Clear list */
         nums.Clear();
-        Console.WriteLine("清空列表后 nums = " + string.Join(",", nums));
+        Console.WriteLine("Clear list, get nums = " + string.Join(",", nums));
 
-        /* 在尾部添加元素 */
+        /* Add elements at the end */
         nums.Add(1);
         nums.Add(3);
         nums.Add(2);
         nums.Add(5);
         nums.Add(4);
-        Console.WriteLine("添加元素后 nums = " + string.Join(",", nums));
+        Console.WriteLine("After adding elements, nums = " + string.Join(",", nums));
 
-        /* 在中间插入元素 */
+        /* Insert element in the middle */
         nums.Insert(3, 6);
-        Console.WriteLine("在索引 3 处插入数字 6 ，得到 nums = " + string.Join(",", nums));
+        Console.WriteLine("Insert number 6 at index 3, resulting in nums = " + string.Join(",", nums));
 
-        /* 删除元素 */
+        /* Remove element */
         nums.RemoveAt(3);
-        Console.WriteLine("删除索引 3 处的元素，得到 nums = " + string.Join(",", nums));
+        Console.WriteLine("Remove element at index 3, resulting in nums = " + string.Join(",", nums));
 
-        /* 通过索引遍历列表 */
+        /* Traverse list by index */
         int count = 0;
         for (int i = 0; i < nums.Count; i++) {
             count += nums[i];
         }
-        /* 直接遍历列表元素 */
+        /* Traverse list elements directly */
         count = 0;
         foreach (int x in nums) {
             count += x;
         }
 
-        /* 拼接两个列表 */
+        /* Concatenate two lists */
         List<int> nums1 = [6, 8, 7, 10, 9];
         nums.AddRange(nums1);
-        Console.WriteLine("将列表 nums1 拼接到 nums 之后，得到 nums = " + string.Join(",", nums));
+        Console.WriteLine("Concatenate list nums1 to nums, resulting in nums = " + string.Join(",", nums));
 
-        /* 排序列表 */
-        nums.Sort(); // 排序后，列表元素从小到大排列
-        Console.WriteLine("排序列表后 nums = " + string.Join(",", nums));
+        /* Sort list */
+        nums.Sort(); // After sorting, the list elements are arranged in ascending order
+        Console.WriteLine("After sorting the list, nums = " + string.Join(",", nums));
     }
 }
