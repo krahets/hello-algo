@@ -86,21 +86,21 @@ public class array {
 
         // Extend length
         nums = Extend(nums, 3);
-        Console.WriteLine("Extend array length to 8, get nums = " + ToString(nums));
+        Console.WriteLine("Extend the array length to 8, resulting in nums = " + ToString(nums));
 
         // Insert element
         Insert(nums, 6, 3);
-        Console.WriteLine("Insert number 6 at index 3, get nums = " + ToString(nums));
+        Console.WriteLine("Insert the number 6 at index 3, resulting in nums = " + ToString(nums));
 
         // Remove element
         Remove(nums, 2);
-        Console.WriteLine("Remove element at index 2, get nums = " + ToString(nums));
+        Console.WriteLine("Remove element at index 2, resulting in nums = " + ToString(nums));
 
         // Traverse array
         Traverse(nums);
 
         // Find element
         int index = Find(nums, 3);
-        Console.WriteLine("Find element 3 in nums, get index = " + index);
+        Console.WriteLine("Find element 3 in nums, index = " + index);
     }
 }
