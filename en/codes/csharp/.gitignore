@@ -3,3 +3,4 @@
 obj/
 .Debug
 bin/
+*.code-workspace
