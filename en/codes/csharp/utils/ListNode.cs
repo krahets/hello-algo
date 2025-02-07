@@ -1,15 +1,15 @@
 ﻿// File: ListNode.cs
-// Created Time: 2022-12-16
-// Author: mingXta (1195669834@qq.com)
+// Created Time: 2025-02-07
+// Author: Xylphy (github.com/Xylphy)
 
 namespace hello_algo.utils;
 
-/* 链表节点 */
+/* Linked list node */
 public class ListNode(int x) {
     public int val = x;
     public ListNode? next;
 
-    /* 将数组反序列化为链表 */
+    /* Deserialize array to linked list */
     public static ListNode? ArrToLinkedList(int[] arr) {
         ListNode dum = new(0);
         ListNode head = dum;
