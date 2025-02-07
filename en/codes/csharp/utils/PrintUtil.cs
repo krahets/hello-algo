@@ -1,8 +1,6 @@
-/**
-* File: PrintUtil.cs
-* Created Time: 2022-12-23
-* Author: haptear (haptear@hotmail.com), krahets (krahets@163.com)
-*/
+// File: ListNode.cs
+// Created Time: 2025-02-07
+// Author: Xylphy (github.com/Xylphy)
 
 namespace hello_algo.utils;
 
@@ -12,7 +10,7 @@ public class Trunk(Trunk? prev, string str) {
 };
 
 public static class PrintUtil {
-    /* 打印列表 */
+    /* Print list */
     public static void PrintList<T>(IList<T> list) {
         Console.WriteLine("[" + string.Join(", ", list) + "]");
     }
@@ -21,7 +19,7 @@ public static class PrintUtil {
         return $"[ {string.Join(", ", list.Select(x => x?.ToString() ?? "null"))} ]";
     }
 
-    /* 打印矩阵 (Array) */
+    /* Print matrix (Array) */
     public static void PrintMatrix<T>(T[][] matrix) {
         Console.WriteLine("[");
         foreach (T[] row in matrix) {
@@ -30,7 +28,7 @@ public static class PrintUtil {
         Console.WriteLine("]");
     }
 
-    /* 打印矩阵 (List) */
+    /* Print matrix (List) */
     public static void PrintMatrix<T>(List<List<T>> matrix) {
         Console.WriteLine("[");
         foreach (List<T> row in matrix) {
@@ -39,7 +37,7 @@ public static class PrintUtil {
         Console.WriteLine("]");
     }
 
-    /* 打印链表 */
+    /* Print linked list */
     public static void PrintLinkedList(ListNode? head) {
         List<string> list = [];
         while (head != null) {
@@ -50,7 +48,7 @@ public static class PrintUtil {
     }
 
     /**
-     * 打印二叉树
+     * Print binary tree
      * This tree printer is borrowed from TECHIE DELIGHT
      * https://www.techiedelight.com/c-program-print-binary-tree/
      */
@@ -58,7 +56,7 @@ public static class PrintUtil {
         PrintTree(root, null, false);
     }
 
-    /* 打印二叉树 */
+    /* Print binary tree */
     public static void PrintTree(TreeNode? root, Trunk? prev, bool isRight) {
         if (root == null) {
             return;
@@ -99,32 +97,32 @@ public static class PrintUtil {
         Console.Write(p.str);
     }
 
-    /* 打印哈希表 */
+    /* Print hash map */
     public static void PrintHashMap<K, V>(Dictionary<K, V> map) where K : notnull {
         foreach (var kv in map.Keys) {
             Console.WriteLine(kv.ToString() + " -> " + map[kv]?.ToString());
         }
     }
 
-    /* 打印堆 */
+    /* Print heap */
     public static void PrintHeap(Queue<int> queue) {
-        Console.Write("堆的数组表示：");
+        Console.Write("Heap array representation: ");
         List<int> list = [.. queue];
         Console.WriteLine(string.Join(',', list));
-        Console.WriteLine("堆的树状表示：");
+        Console.WriteLine("Heap tree representation: ");
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }
 
-    /* 打印优先队列 */
+    /* Print priority queue */
     public static void PrintHeap(PriorityQueue<int, int> queue) {
         var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
-        Console.Write("堆的数组表示：");
+        Console.Write("Heap array representation: ");
         List<int> list = [];
         while (newQueue.TryDequeue(out int element, out _)) {
             list.Add(element);
         }
-        Console.WriteLine("堆的树状表示：");
+        Console.WriteLine("Heap tree representation: ");
         Console.WriteLine(string.Join(',', list.ToList()));
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
