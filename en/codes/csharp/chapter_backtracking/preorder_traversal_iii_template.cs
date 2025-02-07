@@ -14,7 +14,7 @@ public class preorder_traversal_iii_template {
 
     /* 记录解 */
     void RecordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
-        res.Add(new List<TreeNode>(state));
+        res.Add([.. state]);
     }
 
     /* 判断在当前状态下，该选择是否合法 */

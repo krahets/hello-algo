@@ -8,7 +8,7 @@ public class preorder_traversal_ii_compact {
     List<TreeNode> path = [];
     List<List<TreeNode>> res = [];
 
-    /* Preorder Traversal: Example II */
+    /* Preorder Traversal: Example two */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;

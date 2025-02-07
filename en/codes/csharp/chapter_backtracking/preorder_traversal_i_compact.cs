@@ -7,7 +7,7 @@ namespace hello_algo.chapter_backtracking;
 public class preorder_traversal_i_compact {
     List<TreeNode> res = [];
 
-    /* Preorder Traversal: Example One */
+    /* Preorder Traversal: Example one */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
