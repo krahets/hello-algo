@@ -1,6 +1,6 @@
 // File: array.cs
-// Created Time: 2025-02-07
-// Author:  Xylphy (github.com/Xylphy)
+// Created Time: 2022-12-14
+// Author: mingXta (1195669834@qq.com)
 
 namespace hello_algo.chapter_array_and_linkedlist;
 

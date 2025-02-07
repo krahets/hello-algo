@@ -1,6 +1,8 @@
-// File: ListNode.cs
-// Created Time: 2025-02-07
-// Author: Xylphy (github.com/Xylphy)
+/**
+* File: PrintUtil.cs
+* Created Time: 2022-12-23
+* Author: haptear (haptear@hotmail.com), krahets (krahets@163.com)
+*/
 
 namespace hello_algo.utils;
 

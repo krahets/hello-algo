@@ -1,6 +1,8 @@
-﻿// File: my_list.cs
-// Created Time: 2025-02-07
-// Author: Xylphy (github.com/Xylphy)
+﻿/**
+ * File: my_list.cs
+ * Created Time: 2022-12-23
+ * Author: haptear (haptear@hotmail.com)
+ */
 
 namespace hello_algo.chapter_array_and_linkedlist;
 

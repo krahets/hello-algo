@@ -7,47 +7,47 @@
 namespace hello_algo.chapter_backtracking;
 
 public class preorder_traversal_iii_template {
-    /* 判断当前状态是否为解 */
+    /* Check if the current state is a solution */
     bool IsSolution(List<TreeNode> state) {
         return state.Count != 0 && state[^1].val == 7;
     }
 
-    /* 记录解 */
+    /* Record the solution */
     void RecordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
         res.Add([.. state]);
     }
 
-    /* 判断在当前状态下，该选择是否合法 */
+    /* Check if the choice is valid in the current state */
     bool IsValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
 
-    /* 更新状态 */
+    /* Update the state */
     void MakeChoice(List<TreeNode> state, TreeNode choice) {
         state.Add(choice);
     }
 
-    /* 恢复状态 */
+    /* Restore the state */
     void UndoChoice(List<TreeNode> state, TreeNode choice) {
         state.RemoveAt(state.Count - 1);
     }
 
-    /* 回溯算法：例题三 */
+    /* Backtracking algorithm: Example 3 */
     void Backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // 检查是否为解
+        // Check if it is a solution
         if (IsSolution(state)) {
-            // 记录解
+            // Record the solution
             RecordSolution(state, res);
         }
-        // 遍历所有选择
+        // Traverse all choices
         foreach (TreeNode choice in choices) {
-            // 剪枝：检查选择是否合法
+            // Pruning: Check if the choice is valid
             if (IsValid(state, choice)) {
-                // 尝试：做出选择，更新状态
+                // Attempt: Make the choice and update the state
                 MakeChoice(state, choice);
-                // 进行下一轮选择
+                // Proceed to the next round of choices
                 Backtrack(state, [choice.left!, choice.right!], res);
-                // 回退：撤销选择，恢复到之前的状态
+                // Backtrack: Undo the choice and restore the previous state
                 UndoChoice(state, choice);
             }
         }
@@ -56,15 +56,15 @@ public class preorder_traversal_iii_template {
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\n初始化二叉树");
+        Console.WriteLine("\nInitialize the binary tree");
         PrintUtil.PrintTree(root);
 
-        // 回溯算法
+        // Backtracking algorithm
         List<List<TreeNode>> res = [];
         List<TreeNode> choices = [root!];
         Backtrack([], choices, res);
 
-        Console.WriteLine("\n输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点");
+        Console.WriteLine("\nOutput all paths from the root to node 7, given that the path does not contain nodes with value 3");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

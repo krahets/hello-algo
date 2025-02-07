@@ -1,6 +1,8 @@
-﻿// File: preorder_traversal_i_compact.cs
-// Created Time: 2025-02-07
-// Author: Xylphy (github.com/Xylphy)
+﻿/**
+ * File: preorder_traversal_i_compact.cs
+ * Created Time: 2023-04-17
+ * Author: hpstory (hpstory1024@163.com)
+ */
 
 namespace hello_algo.chapter_backtracking;
 

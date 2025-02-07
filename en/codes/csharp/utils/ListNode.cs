@@ -1,6 +1,6 @@
 ﻿// File: ListNode.cs
-// Created Time: 2025-02-07
-// Author: Xylphy (github.com/Xylphy)
+// Created Time: 2022-12-16
+// Author: mingXta (1195669834@qq.com)
 
 namespace hello_algo.utils;
 

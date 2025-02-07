@@ -1,6 +1,8 @@
-﻿// File: subset_sum_i_.cs
-// Created Time: 2025-02-07
-// Author: Xylphy (github.com/Xylphy)
+﻿/**
+* File: subset_sum_i.cs
+* Created Time: 2023-06-25
+* Author: hpstory (hpstory1024@163.com)
+*/
 
 namespace hello_algo.chapter_backtracking;
 
