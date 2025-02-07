@@ -1,47 +1,45 @@
-﻿/**
-* File: subset_sum_ii.cs
-* Created Time: 2023-06-25
-* Author: hpstory (hpstory1024@163.com)
-*/
+﻿// File: subset_sum_ii_.cs
+// Created Time: 2025-02-07
+// Author: Xylphy (github.com/Xylphy)
 
 namespace hello_algo.chapter_backtracking;
 
 public class subset_sum_ii {
-    /* 回溯算法：子集和 II */
+    /* Backtracking Algorithm: Subset Sum II */
     void Backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
-        // 子集和等于 target 时，记录解
+        // Record the solution when the subset sum equals target
         if (target == 0) {
-            res.Add(new List<int>(state));
+            res.Add([.. state]);
             return;
         }
-        // 遍历所有选择
-        // 剪枝二：从 start 开始遍历，避免生成重复子集
-        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        // Traverse all choices
+        // Pruning 2: Start traversing from start to avoid generating duplicate subsets
+        // Pruning 3: Start traversing from start to avoid choosing the same element repeatedly
         for (int i = start; i < choices.Length; i++) {
-            // 剪枝一：若子集和超过 target ，则直接结束循环
-            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            // Pruning 1: If the subset sum exceeds target, end the loop immediately
+            // This is because the array is sorted, and the subsequent elements are larger, so the subset sum will definitely exceed target
             if (target - choices[i] < 0) {
                 break;
             }
-            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            // Pruning 4: If this element is equal to the left element, it means this search branch is duplicated, skip it immediately
             if (i > start && choices[i] == choices[i - 1]) {
                 continue;
             }
-            // 尝试：做出选择，更新 target, start
+            // Attempt: Make a choice, update target, start
             state.Add(choices[i]);
-            // 进行下一轮选择
+            // Proceed to the next round of selection
             Backtrack(state, target - choices[i], choices, i + 1, res);
-            // 回退：撤销选择，恢复到之前的状态
+            // Backtrack: Undo the choice, revert to the previous state
             state.RemoveAt(state.Count - 1);
         }
     }
 
-    /* 求解子集和 II */
+    /* Solve Subset Sum II */
     List<List<int>> SubsetSumII(int[] nums, int target) {
-        List<int> state = []; // 状态（子集）
-        Array.Sort(nums); // 对 nums 进行排序
-        int start = 0; // 遍历起始点
-        List<List<int>> res = []; // 结果列表（子集列表）
+        List<int> state = []; // State (subset)
+        Array.Sort(nums); // Sort nums
+        int start = 0; // Starting point for traversal
+        List<List<int>> res = []; // Result list (list of subsets)
         Backtrack(state, target, nums, start, res);
         return res;
     }
@@ -51,8 +49,8 @@ public class subset_sum_ii {
         int[] nums = [4, 4, 5];
         int target = 9;
         List<List<int>> res = SubsetSumII(nums, target);
-        Console.WriteLine("输入数组 nums = " + string.Join(", ", nums) + ", target = " + target);
-        Console.WriteLine("所有和等于 " + target + " 的子集 res = ");
+        Console.WriteLine("Input array nums = " + string.Join(", ", nums) + ", target = " + target);
+        Console.WriteLine("All subsets with summing to " + target + " are res = ");
         foreach (var subset in res) {
             PrintUtil.PrintList(subset);
         }
