@@ -1,64 +1,64 @@
 // File: array.cs
-// Created Time: 2022-12-14
-// Author: mingXta (1195669834@qq.com)
+// Created Time: 2025-02-07
+// Author:  Xylphy (github.com/Xylphy)
 
 namespace hello_algo.chapter_array_and_linkedlist;
 
 public class array {
-    /* 随机访问元素 */
+    /* Random access to elements */
     int RandomAccess(int[] nums) {
         Random random = new();
-        // 在区间 [0, nums.Length) 中随机抽取一个数字
+        // Randomly select a number in the interval [0, nums.Length)
         int randomIndex = random.Next(nums.Length);
-        // 获取并返回随机元素
+        // Get and return the random element
         int randomNum = nums[randomIndex];
         return randomNum;
     }
 
-    /* 扩展数组长度 */
+    /* Extend array length */
     int[] Extend(int[] nums, int enlarge) {
-        // 初始化一个扩展长度后的数组
+        // Initialize an extended length array
         int[] res = new int[nums.Length + enlarge];
-        // 将原数组中的所有元素复制到新数组
+        // Copy all elements from the original array to the new array
         for (int i = 0; i < nums.Length; i++) {
             res[i] = nums[i];
         }
-        // 返回扩展后的新数组
+        // Return the new array after expansion
         return res;
     }
 
-    /* 在数组的索引 index 处插入元素 num */
+    /* Insert element num at `index` */
     void Insert(int[] nums, int num, int index) {
-        // 把索引 index 以及之后的所有元素向后移动一位
+        // Move all elements after `index` one position backward
         for (int i = nums.Length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
-        // 将 num 赋给 index 处的元素
+        // Assign num to the element at index
         nums[index] = num;
     }
 
-    /* 删除索引 index 处的元素 */
+    /* Remove the element at `index` */
     void Remove(int[] nums, int index) {
-        // 把索引 index 之后的所有元素向前移动一位
+        // Move all elements after `index` one position forward
         for (int i = index; i < nums.Length - 1; i++) {
             nums[i] = nums[i + 1];
         }
     }
 
-    /* 遍历数组 */
+    /* Traverse array */
     void Traverse(int[] nums) {
         int count = 0;
-        // 通过索引遍历数组
+        // Traverse array by index
         for (int i = 0; i < nums.Length; i++) {
             count += nums[i];
         }
-        // 直接遍历数组元素
+        // Traverse array elements
         foreach (int num in nums) {
             count += num;
         }
     }
 
-    /* 在数组中查找指定元素 */
+    /* Search for a specified element in the array */
     int Find(int[] nums, int target) {
         for (int i = 0; i < nums.Length; i++) {
             if (nums[i] == target)
@@ -67,41 +67,40 @@ public class array {
         return -1;
     }
 
-    /* 辅助函数,数组转字符串 */
+    /* Helper function, array to string */
     string ToString(int[] nums) {
         return string.Join(",", nums);
     }
 
-
     [Test]
     public void Test() {
-        // 初始化数组
+        // Initialize array
         int[] arr = new int[5];
-        Console.WriteLine("数组 arr = " + ToString(arr));
+        Console.WriteLine("Array arr = " + ToString(arr));
         int[] nums = [1, 3, 2, 5, 4];
-        Console.WriteLine("数组 nums = " + ToString(nums));
+        Console.WriteLine("Array nums = " + ToString(nums));
 
-        // 随机访问
+        // Random access
         int randomNum = RandomAccess(nums);
-        Console.WriteLine("在 nums 中获取随机元素 " + randomNum);
+        Console.WriteLine("Get random element from nums: " + randomNum);
 
-        // 长度扩展
+        // Extend length
         nums = Extend(nums, 3);
-        Console.WriteLine("将数组长度扩展至 8 ，得到 nums = " + ToString(nums));
+        Console.WriteLine("Extend array length to 8, get nums = " + ToString(nums));
 
-        // 插入元素
+        // Insert element
         Insert(nums, 6, 3);
-        Console.WriteLine("在索引 3 处插入数字 6 ，得到 nums = " + ToString(nums));
+        Console.WriteLine("Insert number 6 at index 3, get nums = " + ToString(nums));
 
-        // 删除元素
+        // Remove element
         Remove(nums, 2);
-        Console.WriteLine("删除索引 2 处的元素，得到 nums = " + ToString(nums));
+        Console.WriteLine("Remove element at index 2, get nums = " + ToString(nums));
 
-        // 遍历数组
+        // Traverse array
         Traverse(nums);
 
-        // 查找元素 
+        // Find element
         int index = Find(nums, 3);
-        Console.WriteLine("在 nums 中查找元素 3 ，得到索引 = " + index);
+        Console.WriteLine("Find element 3 in nums, get index = " + index);
     }
 }
