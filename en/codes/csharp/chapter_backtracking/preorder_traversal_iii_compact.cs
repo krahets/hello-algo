@@ -1,8 +1,6 @@
-﻿/**
- * File: preorder_traversal_iii_compact.cs
- * Created Time: 2023-04-17
- * Author: hpstory (hpstory1024@163.com)
- */
+﻿// File: preorder_traversal_iii_compact.cs
+// Created Time: 2025-02-07
+// Author: Xylphy (github.com/Xylphy)
 
 namespace hello_algo.chapter_backtracking;
 
@@ -10,34 +8,34 @@ public class preorder_traversal_iii_compact {
     List<TreeNode> path = [];
     List<List<TreeNode>> res = [];
 
-    /* 前序遍历：例题三 */
+    /* Preorder Traversal: Example three */
     void PreOrder(TreeNode? root) {
-        // 剪枝
+        // Pruning
         if (root == null || root.val == 3) {
             return;
         }
-        // 尝试
+        // Attempt
         path.Add(root);
         if (root.val == 7) {
-            // 记录解
-            res.Add(new List<TreeNode>(path));
+            // Record solution
+            res.Add([.. path]);
         }
         PreOrder(root.left);
         PreOrder(root.right);
-        // 回退
+        // Backtrack
         path.RemoveAt(path.Count - 1);
     }
 
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\n初始化二叉树");
+        Console.WriteLine("\nInitialize binary tree");
         PrintUtil.PrintTree(root);
 
-        // 前序遍历
+        // Preorder traversal
         PreOrder(root);
 
-        Console.WriteLine("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点");
+        Console.WriteLine("\nOutput all paths from root to node 7, excluding nodes with value 3");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }
