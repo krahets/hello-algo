@@ -1,100 +1,98 @@
-﻿/**
- * File: my_list.cs
- * Created Time: 2022-12-23
- * Author: haptear (haptear@hotmail.com)
- */
+﻿// File: list.cs
+// Created Time: 2025-02-07
+// Author: Xylphy (github.com/Xylphy)
 
 namespace hello_algo.chapter_array_and_linkedlist;
 
-/* 列表类 */
+/* List class */
 class MyList {
-    private int[] arr;           // 数组（存储列表元素）
-    private int arrCapacity = 10;    // 列表容量
-    private int arrSize = 0;         // 列表长度（当前元素数量）
-    private readonly int extendRatio = 2;  // 每次列表扩容的倍数
+    private int[] arr;           // Array (stores list elements)
+    private int arrCapacity = 10;    // List capacity
+    private int arrSize = 0;         // List length (current number of elements)
+    private readonly int extendRatio = 2;  // Multiple for each list expansion
 
-    /* 构造方法 */
+    /* Constructor */
     public MyList() {
         arr = new int[arrCapacity];
     }
 
-    /* 获取列表长度（当前元素数量）*/
+    /* Get list length (current number of elements) */
     public int Size() {
         return arrSize;
     }
 
-    /* 获取列表容量 */
+    /* Get list capacity */
     public int Capacity() {
         return arrCapacity;
     }
 
-    /* 访问元素 */
+    /* Access element */
     public int Get(int index) {
-        // 索引如果越界，则抛出异常，下同
+        // Throw exception if index is out of bounds, as below
         if (index < 0 || index >= arrSize)
-            throw new IndexOutOfRangeException("索引越界");
+            throw new IndexOutOfRangeException("Index out of bounds");
         return arr[index];
     }
 
-    /* 更新元素 */
+    /* Update element */
     public void Set(int index, int num) {
         if (index < 0 || index >= arrSize)
-            throw new IndexOutOfRangeException("索引越界");
+            throw new IndexOutOfRangeException("Index out of bounds");
         arr[index] = num;
     }
 
-    /* 在尾部添加元素 */
+    /* Add element at the end */
     public void Add(int num) {
-        // 元素数量超出容量时，触发扩容机制
+        // Trigger expansion mechanism when the number of elements exceeds capacity
         if (arrSize == arrCapacity)
             ExtendCapacity();
         arr[arrSize] = num;
-        // 更新元素数量
+        // Update number of elements
         arrSize++;
     }
 
-    /* 在中间插入元素 */
+    /* Insert element in the middle */
     public void Insert(int index, int num) {
         if (index < 0 || index >= arrSize)
-            throw new IndexOutOfRangeException("索引越界");
-        // 元素数量超出容量时，触发扩容机制
+            throw new IndexOutOfRangeException("Index out of bounds");
+        // Trigger expansion mechanism when the number of elements exceeds capacity
         if (arrSize == arrCapacity)
             ExtendCapacity();
-        // 将索引 index 以及之后的元素都向后移动一位
+        // Move all elements after `index` one position to the right
         for (int j = arrSize - 1; j >= index; j--) {
             arr[j + 1] = arr[j];
         }
         arr[index] = num;
-        // 更新元素数量
+        // Update number of elements
         arrSize++;
     }
 
-    /* 删除元素 */
+    /* Remove element */
     public int Remove(int index) {
         if (index < 0 || index >= arrSize)
-            throw new IndexOutOfRangeException("索引越界");
+            throw new IndexOutOfRangeException("Index out of bounds");
         int num = arr[index];
-        // 将将索引 index 之后的元素都向前移动一位
+        // Move elements after index one position to the left
         for (int j = index; j < arrSize - 1; j++) {
             arr[j] = arr[j + 1];
         }
-        // 更新元素数量
+        // Update number of elements
         arrSize--;
-        // 返回被删除的元素
+        // Return the removed element
         return num;
     }
 
-    /* 列表扩容 */
+    /* Expand list capacity */
     public void ExtendCapacity() {
-        // 新建一个长度为 arrCapacity * extendRatio 的数组，并将原数组复制到新数组
+        // Create a new array with length arrCapacity * extendRatio and copy the original array to the new array
         Array.Resize(ref arr, arrCapacity * extendRatio);
-        // 更新列表容量
+        // Update list capacity
         arrCapacity = arr.Length;
     }
 
-    /* 将列表转换为数组 */
+    /* Convert list to array */
     public int[] ToArray() {
-        // 仅转换有效长度范围内的列表元素
+        // Only convert elements within the valid length range
         int[] arr = new int[arrSize];
         for (int i = 0; i < arrSize; i++) {
             arr[i] = Get(i);
@@ -106,39 +104,39 @@ class MyList {
 public class my_list {
     [Test]
     public void Test() {
-        /* 初始化列表 */
+        /* Initialize list */
         MyList nums = new();
-        /* 在尾部添加元素 */
+        /* Add elements at the end */
         nums.Add(1);
         nums.Add(3);
         nums.Add(2);
         nums.Add(5);
         nums.Add(4);
-        Console.WriteLine("列表 nums = " + string.Join(",", nums.ToArray()) +
-                           " ，容量 = " + nums.Capacity() + " ，长度 = " + nums.Size());
+        Console.WriteLine("List nums = " + string.Join(",", nums.ToArray()) +
+                           " , capacity = " + nums.Capacity() + " , length = " + nums.Size());
 
-        /* 在中间插入元素 */
+        /* Insert element in the middle */
         nums.Insert(3, 6);
-        Console.WriteLine("在索引 3 处插入数字 6 ，得到 nums = " + string.Join(",", nums.ToArray()));
+        Console.WriteLine("Insert number 6 at index 3, resulting in nums = " + string.Join(",", nums.ToArray()));
 
-        /* 删除元素 */
+        /* Remove element */
         nums.Remove(3);
-        Console.WriteLine("删除索引 3 处的元素，得到 nums = " + string.Join(",", nums.ToArray()));
+        Console.WriteLine("Remove element at index 3, resulting in nums = " + string.Join(",", nums.ToArray()));
 
-        /* 访问元素 */
+        /* Access element */
         int num = nums.Get(1);
-        Console.WriteLine("访问索引 1 处的元素，得到 num = " + num);
+        Console.WriteLine("Access element at index 1, obtained num = " + num);
 
-        /* 更新元素 */
+        /* Update element */
         nums.Set(1, 0);
-        Console.WriteLine("将索引 1 处的元素更新为 0 ，得到 nums = " + string.Join(",", nums.ToArray()));
+        Console.WriteLine("Update element at index 1 to 0, resulting in nums = " + string.Join(",", nums.ToArray()));
 
-        /* 测试扩容机制 */
+        /* Test expansion mechanism */
         for (int i = 0; i < 10; i++) {
-            // 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
+            // When i = 5, the list length will exceed the list capacity, triggering the expansion mechanism
             nums.Add(i);
         }
-        Console.WriteLine("扩容后的列表 nums = " + string.Join(",", nums.ToArray()) +
-                           " ，容量 = " + nums.Capacity() + " ，长度 = " + nums.Size());
+        Console.WriteLine("List after expansion nums = " + string.Join(",", nums.ToArray()) +
+                           " , capacity = " + nums.Capacity() + " , length = " + nums.Size());
     }
 }
