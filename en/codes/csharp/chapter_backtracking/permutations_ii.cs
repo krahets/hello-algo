@@ -1,39 +1,37 @@
-﻿/**
- * File: permutations_ii.cs
- * Created Time: 2023-04-24
- * Author: hpstory (hpstory1024@163.com)
- */
+﻿// File: permutations_ii.cs
+// Created Time: 2025-02-07
+// Author: Xylphy (github.com/Xylphy)
 
 namespace hello_algo.chapter_backtracking;
 
 public class permutations_ii {
-    /* 回溯算法：全排列 II */
+    /* Backtracking Algorithm: Permutations II */
     void Backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
-        // 当状态长度等于元素数量时，记录解
+        // When the state length equals the number of elements, record the solution
         if (state.Count == choices.Length) {
-            res.Add(new List<int>(state));
+            res.Add([.. state]);
             return;
         }
-        // 遍历所有选择
+        // Traverse all choices
         HashSet<int> duplicated = [];
         for (int i = 0; i < choices.Length; i++) {
             int choice = choices[i];
-            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
             if (!selected[i] && !duplicated.Contains(choice)) {
-                // 尝试：做出选择，更新状态
-                duplicated.Add(choice); // 记录选择过的元素值
+                // Attempt: make a choice, update the state
+                duplicated.Add(choice); // Record the chosen element value
                 selected[i] = true;
                 state.Add(choice);
-                // 进行下一轮选择
+                // Proceed to the next round of choices
                 Backtrack(state, choices, selected, res);
-                // 回退：撤销选择，恢复到之前的状态
+                // Backtrack: undo the choice, revert to the previous state
                 selected[i] = false;
                 state.RemoveAt(state.Count - 1);
             }
         }
     }
 
-    /* 全排列 II */
+    /* Permutations II */
     List<List<int>> PermutationsII(int[] nums) {
         List<List<int>> res = [];
         Backtrack([], nums, new bool[nums.Length], res);
@@ -46,8 +44,8 @@ public class permutations_ii {
 
         List<List<int>> res = PermutationsII(nums);
 
-        Console.WriteLine("输入数组 nums = " + string.Join(", ", nums));
-        Console.WriteLine("所有排列 res = ");
+        Console.WriteLine("Input array nums = " + string.Join(", ", nums));
+        Console.WriteLine("All permutations res = ");
         foreach (List<int> permutation in res) {
             PrintUtil.PrintList(permutation);
         }
