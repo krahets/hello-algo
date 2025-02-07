@@ -1,37 +1,35 @@
-﻿/**
- * File: permutations_i.cs
- * Created Time: 2023-04-24
- * Author: hpstory (hpstory1024@163.com)
- */
+﻿// File: permutations_i.cs
+// Created Time: 2025-02-07
+// Author: Xylphy (github.com/Xylphy)
 
 namespace hello_algo.chapter_backtracking;
 
 public class permutations_i {
-    /* 回溯算法：全排列 I */
+    /* Backtracking Algorithm: Permutations I */
     void Backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
-        // 当状态长度等于元素数量时，记录解
+        // When the state length equals the number of elements, record the solution
         if (state.Count == choices.Length) {
-            res.Add(new List<int>(state));
+            res.Add([.. state]);
             return;
         }
-        // 遍历所有选择
+        // Traverse all choices
         for (int i = 0; i < choices.Length; i++) {
             int choice = choices[i];
-            // 剪枝：不允许重复选择元素
+            // Pruning: do not allow repeated selection of elements
             if (!selected[i]) {
-                // 尝试：做出选择，更新状态
+                // Attempt: make a choice, update the state
                 selected[i] = true;
                 state.Add(choice);
-                // 进行下一轮选择
+                // Proceed to the next round of selection
                 Backtrack(state, choices, selected, res);
-                // 回退：撤销选择，恢复到之前的状态
+                // Backtrack: undo the choice, revert to the previous state
                 selected[i] = false;
                 state.RemoveAt(state.Count - 1);
             }
         }
     }
 
-    /* 全排列 I */
+    /* Permutations I */
     List<List<int>> PermutationsI(int[] nums) {
         List<List<int>> res = [];
         Backtrack([], nums, new bool[nums.Length], res);
@@ -44,8 +42,8 @@ public class permutations_i {
 
         List<List<int>> res = PermutationsI(nums);
 
-        Console.WriteLine("输入数组 nums = " + string.Join(", ", nums));
-        Console.WriteLine("所有排列 res = ");
+        Console.WriteLine("Input array nums = " + string.Join(", ", nums));
+        Console.WriteLine("All permutations res = ");
         foreach (List<int> permutation in res) {
             PrintUtil.PrintList(permutation);
         }
