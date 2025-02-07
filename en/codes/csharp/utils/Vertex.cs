@@ -6,11 +6,11 @@
 
 namespace hello_algo.utils;
 
-/* 顶点类 */
+/* Vertex class */
 public class Vertex(int val) {
     public int val = val;
 
-    /* 输入值列表 vals ，返回顶点列表 vets */
+    /* Convert an array of values to an array of vertices */
     public static Vertex[] ValsToVets(int[] vals) {
         Vertex[] vets = new Vertex[vals.Length];
         for (int i = 0; i < vals.Length; i++) {
@@ -19,7 +19,7 @@ public class Vertex(int val) {
         return vets;
     }
 
-    /* 输入顶点列表 vets ，返回值列表 vals */
+    /* Convert a list of vertices to a list of values */
     public static List<int> VetsToVals(List<Vertex> vets) {
         List<int> vals = [];
         foreach (Vertex vet in vets) {
