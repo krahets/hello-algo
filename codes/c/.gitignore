@@ -7,3 +7,6 @@
 *.dSYM/
 
 build/
+.vscode/
+.cache/
+*.code-workspace
