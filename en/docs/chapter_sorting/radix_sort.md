@@ -2,7 +2,7 @@
 
 The previous section introduced counting sort, which is suitable for scenarios where the data size $n$ is large but the data range $m$ is small. Suppose we need to sort $n = 10^6$ student IDs, where each ID is an $8$-digit number. This means the data range $m = 10^8$ is very large. Using counting sort in this case would require significant memory space. Radix sort can avoid this situation.
 
-<u>Radix sort</u> shares the same core concept as counting sort, which also sorts by counting the frequency of elements. However, radix sort builds upon this by utilizing the progressive relationship between the digits of numbers. It processes and sorts the digit one at a time, ultimately achieving the final sorted order.
+<u>Radix sort</u> shares the same core concept as counting sort, which also sorts by counting the frequency of elements. Meanwhile, radix sort builds upon this by utilizing the progressive relationship between the digits of numbers. It processes and sorts the digits one at a time, achieving the final sorted order.
 
 ## Algorithm process
 
@@ -38,4 +38,4 @@ Compared to counting sort, radix sort is suitable for larger numerical ranges, *
 
 - **Time complexity is $O(nk)$, non-adaptive sorting**: Assuming the data size is $n$, the data is in base $d$, and the maximum number of digits is $k$, then sorting a single digit takes $O(n + d)$ time, and sorting all $k$ digits takes $O((n + d)k)$ time. Generally, both $d$ and $k$ are relatively small, leading to a time complexity approaching $O(n)$.
 - **Space complexity is $O(n + d)$, non-in-place sorting**: Like counting sort, radix sort relies on arrays `res` and `counter` of lengths $n$ and $d$ respectively.
-- **Stable sorting**: When counting sort is stable, radix sort is also stable; if counting sort is unstable, radix sort cannot ensure the correct sorting order.
+- **Stable sorting**: When counting sort is stable, radix sort is also stable; if counting sort is unstable, radix sort cannot ensure a correct sorting order.
