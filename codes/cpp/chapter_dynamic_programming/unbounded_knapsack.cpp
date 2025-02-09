@@ -92,6 +92,7 @@ int main() {
     vector<int> wgt = {1, 2, 3};
     vector<int> val = {5, 11, 15};
     int cap = 4;
+    int n = wgt.size();
     
     // 暴力搜索
     int res = unboundedKnapsackDFS(wgt, val, n, cap);

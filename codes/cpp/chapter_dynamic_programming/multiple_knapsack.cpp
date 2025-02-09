@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "../utils/common.hpp"
 
 
 /* 多重背包：暴力搜索 */
