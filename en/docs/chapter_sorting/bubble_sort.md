@@ -1,6 +1,6 @@
 # Bubble sort
 
-<u>Bubble sort</u> works by continuously comparing and swapping adjacent elements. This process is reminiscent of bubbles rising from the bottom to the top, hence the name “bubble sort.”
+<u>Bubble sort</u> works by continuously comparing and swapping adjacent elements. This process is like bubbles rising from the bottom to the top, hence the name “bubble sort.”
 
 As shown in the figure below, the bubbling process can be simulated using element swaps: start from the leftmost end of the array and move right, comparing each pair of adjacent elements. If the left element is greater than the right element, swap them. After the traversal, the largest element will have bubbled up to the rightmost end of the array.
 
