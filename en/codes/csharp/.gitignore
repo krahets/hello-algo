@@ -1,0 +1,6 @@
+.idea/
+.vs/
+obj/
+.Debug
+bin/
+*.code-workspace
