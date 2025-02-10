@@ -5,6 +5,7 @@
  */
 
 #include "../utils/common.h"
+#include <string.h>
 
 // 假设节点最大数量为 100
 #define MAX_SIZE 100
@@ -122,12 +123,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *node = findNode(graph, vet);
     assert(node != NULL);
     // 在邻接表中删除顶点 vet 对应的链表
-    AdjListNode *cur = node, *pre = NULL;
-    while (cur) {
-        pre = cur;
-        cur = cur->next;
-        free(pre);
-    }
+    AdjListNode *cur, *pre;
     // 遍历其他顶点的链表，删除所有包含 vet 的边
     for (int i = 0; i < graph->size; i++) {
         cur = graph->heads[i];
@@ -141,6 +137,12 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
                 break;
             }
         }
+    }
+    cur = node, pre = NULL;
+    while (cur) {
+        pre = cur;
+        cur = cur->next;
+        free(pre);
     }
     // 将该顶点之后的顶点向前移动，以填补空缺
     int i;
