@@ -46,7 +46,7 @@ Example code is as follows:
 
 If no swaps occur during a round of "bubbling," the array is already sorted, so we can return immediately. To detect this, we can add a `flag` variable; whenever no swaps are made in a pass, we set the flag and return early.
 
-Even with this optimization, the worst-case and average-case time complexities of bubble sort remain $O(n^2)$. However, if the input array is already sorted, the best-case time complexity can be as low as $O(n)$.
+Even with this optimization, the worst time complexity and average time complexity of bubble sort remains $O(n^2)$. However, if the input array is already sorted, the best-case time complexity can be as low as $O(n)$.
 
 ```src
 [file]{bubble_sort}-[class]{}-[func]{bubble_sort_with_flag}
