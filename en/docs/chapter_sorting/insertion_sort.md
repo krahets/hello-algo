@@ -8,7 +8,7 @@ The figure below illustrates how an element is inserted into the array. Assuming
 
 ![Single insertion operation](insertion_sort.assets/insertion_operation.png)
 
-## Algorithm steps
+## Algorithm process
 
 The overall process of insertion sort is shown in the figure below.
 
