@@ -3,7 +3,7 @@
 <u>Merge sort</u> is a sorting algorithm based on the divide-and-conquer strategy, involving the "divide" and "merge" phases shown in the figure below.
 
 1. **Divide phase**: Recursively split the array from the midpoint, transforming the sorting problem of a long array into shorter arrays.
-2. **Merge phase**: Stop dividing when the length of the subarray is 1, and then the merging start. The two shorter sorted arrays are continuously merged into a longer sorted array until the process is complete.
+2. **Merge phase**: Stop dividing when the length of the subarray is 1, and then begin merging. The two shorter sorted arrays are continuously merged into a longer sorted array until the process is complete.
 
 ![The divide and merge phases of merge sort](merge_sort.assets/merge_sort_overview.png)
 
@@ -12,7 +12,7 @@
 As shown in the figure below, the "divide phase" recursively splits the array from the midpoint into two subarrays from top to bottom.
 
 1. Calculate the midpoint `mid`, recursively divide the left subarray (interval `[left, mid]`) and the right subarray (interval `[mid + 1, right]`).
-2. Continue with step `1.` recursively until the length of subarray interval becomes 1, then stops.
+2. Continue with step `1.` recursively until subarray length becomes 1, then stops.
 
 The "merge phase" combines the left and right subarrays into a sorted array from bottom to top. It is important to note that, merging starts with subarrays of length 1, and each subarray is sorted during the merge phase.
 
