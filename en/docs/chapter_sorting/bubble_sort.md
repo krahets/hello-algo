@@ -29,7 +29,7 @@ As shown in the figure below, the bubbling process can be simulated using elemen
 
 Assume the array has length $n$. The steps of bubble sort are shown in the figure below:
 
-1. First, perform one “bubble” pass on all $n$ elements, **swapping the largest element to its correct position**.
+1. First, perform one “bubble” pass on $n$ elements, **swapping the largest element to its correct position**.
 2. Next, perform a “bubble” pass on the remaining $n - 1$ elements, **swapping the second largest element to its correct position**.
 3. Continue in this manner; after $n - 1$ such passes, **the largest $n - 1$ elements will have been moved to their correct positions**.
 4. The only remaining element **must** be the smallest, so **no** further sorting is required. At this point, the array is sorted.
