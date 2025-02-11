@@ -84,7 +84,7 @@ Even so, we can still keep the conditions expanded, as it makes the logic cleare
 
 !!! tip
 
-    The code in this section uses "closed interval". If you are interested in "left-closed,right-open", try to implement the code on your own.
+    The code in this section uses "closed interval". If you are interested in "left-closed, right-open", try to implement the code on your own.
 
 In summary, binary search essentially involves setting search targets for pointers $i$ and $j$. These targets could be a specific element (like `target`) or a range of elements (such as those smaller than `target`).
 
