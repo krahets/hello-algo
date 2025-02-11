@@ -93,7 +93,7 @@ Sample code is as follows:
 ## Tail recursion optimization
 
 **Under certain inputs, quick sort may take up more space**. For example, consider a completely ordered input array. Let the length of the subarray in the recursion be $m$. In each round of pivot partitioning, a left subarray of length $0$ and a right subarray of length $m - 1$ are produced. This means that the problem size is reduced by only one element per recursive call, resulting in a very small reduction at each level of recursion.
-As a result, the height of the recursion tree can reach $n − 1$ , requiring $O(n)$ stack frame space.
+As a result, the height of the recursion tree can reach $n − 1$ , which requires $O(n)$ of stack frame space.
 
 To prevent the accumulation of stack frame space, we can compare the lengths of the two subarrays after each round of pivot sorting, **and only recursively sort the shorter subarray**. Since the length of the shorter subarray will not exceed $n / 2$, this method ensures that the recursion depth does not exceed $\log n$, thus optimizing the worst space complexity to $O(\log n)$. The code is as follows:
 
