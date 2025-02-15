@@ -61,7 +61,7 @@ To improve the efficiency of querying $m$, we use a hash table `hmap` to store t
 [file]{build_tree}-[class]{}-[func]{build_tree}
 ```
 
-The figure below shows the recursive process of constructing the binary tree. Each node is created during the "descending" phase of the recursion, and each edge (reference) is formed during the "ascending" phase.
+The figure below shows the recursive process of building the binary tree. Each node is created during the "descending" phase of the recursion, and each edge (reference) is formed during the "ascending" phase.
 
 === "<1>"
     ![Recursive process of building a binary tree](build_binary_tree_problem.assets/built_tree_step1.png)
