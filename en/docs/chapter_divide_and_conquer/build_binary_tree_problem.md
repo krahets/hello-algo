@@ -90,7 +90,7 @@ The figure below shows the recursive process of building the binary tree. Each n
 === "<9>"
     ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.png)
 
-Each recursive function's division of `pre-order` and `in-order` is illustrated in the subsequent figure.
+Each recursive function's division of `pre-order` and `in-order` is illustrated in the figure below.
 
 ![Division in each recursive function](build_binary_tree_problem.assets/built_tree_overall.png)
 
