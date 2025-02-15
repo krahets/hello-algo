@@ -2,9 +2,9 @@
 
 <u>Insertion sort</u> is a simple sorting algorithm that works very much like the process of manually sorting a deck of cards.
 
-Specifically, we select a key element from the unsorted interval, compare it with the elements in the sorted interval to its left, and insert the element into the correct position.
+Specifically, we select a base element from the unsorted interval, compare it with the elements in the sorted interval to its left, and insert the element into the correct position.
 
-The figure below illustrates how an element is inserted into the array. Assuming the key element is `base`, we need to shift all elements from the target index up to `base` one position to the right, then assign `base` to the target index.
+The figure below illustrates how an element is inserted into the array. Assuming the base element is `base`, we need to shift all elements from the target index up to `base` one position to the right, then assign `base` to the target index.
 
 ![Single insertion operation](insertion_sort.assets/insertion_operation.png)
 
