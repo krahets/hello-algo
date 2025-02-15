@@ -8,7 +8,7 @@
 
 ### Determining if it is a divide-and-conquer problem
 
-The original task of building a binary tree from `pre-order` and `in-order` is a typical divide and conquer problem.
+The original problem of building a binary tree from `pre-order` and `in-order` is a typical divide and conquer problem.
 
 - **The problem can be decomposed**: From the perspective of divide and conquer, we can divide the original problem into two subproblems—building the left subtree and building the right subtree—plus one operation of initializing the root node. For each subtree (subproblem), we continue applying the same approach, partitioning it into smaller subtrees (subproblems), until reaching the smallest subproblem (an empty subtree).
 - **The subproblems are independent**: The left and right subtrees do not overlap. When building the left subtree, we only need the segments of the in-order and pre-order traversals that correspond to the left subtree. The same approach applies to the right subtree.
