@@ -86,7 +86,7 @@ In the code, we define a recursive function `dfs(i, src, buf, tar)` which moves 
 [file]{hanota}-[class]{}-[func]{solve_hanota}
 ```
 
-As shown in the figure below, the Tower of Hanoi problem can be visualized as a recursive tree of height $n$. Each node represents a subproblem, corresponding to an active `dfs()` function call, **Hence, the time complexity is $O(2^n)$, and the space complexity is $O(n)$.**
+As shown in the figure below, the Tower of Hanoi problem can be visualized as a recursive tree of height $n$. Each node represents a subproblem, corresponding to a call to `dfs()`, **Hence, the time complexity is $O(2^n)$, and the space complexity is $O(n)$.**
 
 ![Recursive tree of the Tower of Hanoi](hanota_problem.assets/hanota_recursive_tree.png)
 
