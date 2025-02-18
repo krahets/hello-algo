@@ -32,14 +32,14 @@ That is, our contributors are computer scientists, engineers, and students from 
 > [!important]
 > Before diving in, ensure you're comfortable with the GitHub pull request workflow and have read the "Translation standards" and "Pseudo-code for translation" below.
 
-1. **Self-assignment**: Visit [GitHub projects](https://github.com/users/krahets/projects/2/views/4) to select an unclaimed task and mark it as `In Progress`.
-2. **Translation**: We encourage preserving the original meaning while ensuring the translation is natural and fluent.
-3. **Peer review**: Please carefully check your changes before submitting a Pull Request (PR). After approval by two reviewers, it will be merged into the project.
+1. **Task assignment**: Self-assign a task in the Notion workspace.
+2. **Translation**: Optimize the translation on your local PC, referring to the “Translation Pseudo-Code” section below for more details.
+3. **Peer review**: Carefully review your changes before submitting a Pull Request (PR). The PR will be merged into the main branch after approval from two reviewers.
 
 ## Translation standards
 
 > [!tip]
-> The "Accuracy" and "Authenticity" are primarily handled by native Chinese speakers and native English speakers, respectively.
+> **The "Accuracy" and "Authenticity" are primarily handled by native Chinese speakers and native English speakers, respectively.**
 >
 > In some instances, "Accuracy (consistency)" and "Authenticity" represent a trade-off, where optimizing one aspect could significantly affect the other. In such cases, please leave a comment in the pull request for discussion.
 

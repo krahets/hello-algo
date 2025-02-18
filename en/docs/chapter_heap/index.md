@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    The heap is like mountain peaks, stacked and undulating, each with its unique shape.
+    Heaps resemble mountains and their jagged peaks, layered and undulating, each with its unique form.
 
-    Among these peaks, the highest one always catches the eye first.
+    Each mountain peak rises and falls in scattered heights, yet the tallest always captures attention first.

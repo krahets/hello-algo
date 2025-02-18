@@ -63,7 +63,7 @@ impl HashMapChaining {
     /* 扩容哈希表 */
     fn extend(&mut self) {
         // 暂存原哈希表
-        let buckets_tmp = std::mem::replace(&mut self.buckets, vec![]);
+        let buckets_tmp = std::mem::take(&mut self.buckets);
 
         // 初始化扩容后的新哈希表
         self.capacity *= self.extend_ratio;
