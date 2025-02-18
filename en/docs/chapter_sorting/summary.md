@@ -4,12 +4,12 @@
 
 - Bubble sort works by swapping adjacent elements. By adding a flag to enable early return, we can optimize the best-case time complexity of bubble sort to $O(n)$.
 - Insertion sort sorts each round by inserting elements from the unsorted interval into the correct position in the sorted interval. Although the time complexity of insertion sort is $O(n^2)$, it is very popular in sorting small amounts of data due to relatively fewer operations per unit.
-- Quick sort is based on sentinel partitioning operations. In sentinel partitioning, it's possible to always pick the worst pivot, leading to a time complexity degradation to $O(n^2)$. Introducing median or random pivots can reduce the probability of such degradation. Tail recursion can effectively reduce the recursion depth, optimizing the space complexity to $O(\log n)$.
+- Quick sort is based on sentinel partitioning operations. In sentinel partitioning, it's possible to always pick the worst pivot, leading to a time complexity degradation to $O(n^2)$. Introducing median or random pivots can reduce the probability of such degradation. Tail recursion effectively reduce the recursion depth, optimizing the space complexity to $O(\log n)$.
 - Merge sort includes dividing and merging two phases, typically embodying the divide-and-conquer strategy. In merge sort, sorting an array requires creating auxiliary arrays, resulting in a space complexity of $O(n)$; however, the space complexity for sorting a list can be optimized to $O(1)$.
-- Bucket sort consists of three steps: data bucketing, sorting within buckets, and merging results. It also embodies the divide-and-conquer strategy, suitable for very large datasets. The key to bucket sort is the even distribution of data.
-- Counting sort is a special case of bucket sort, which sorts by counting the occurrences of each data point. Counting sort is suitable for large datasets with a limited range of data and requires that data can be converted to positive integers.
-- Radix sort sorts data by sorting digit by digit, requiring data to be represented as fixed-length numbers.
-- Overall, we hope to find a sorting algorithm that has high efficiency, stability, in-place operation, and adaptability. However, like other data structures and algorithms, no sorting algorithm can meet all these conditions simultaneously. In practical applications, we need to choose the appropriate sorting algorithm based on the characteristics of the data.
+- Bucket sort consists of three steps: distributing data into buckets, sorting within each bucket, and merging results in bucket order. It also embodies the divide-and-conquer strategy, suitable for very large datasets. The key to bucket sort is the even distribution of data.
+- Counting sort is a variant of bucket sort, which sorts by counting the occurrences of each data point. Counting sort is suitable for large datasets with a limited range of data and requires data conversion to positive integers.
+- Radix sort processes data by sorting it digit by digit, requiring data to be represented as fixed-length numbers.
+- Overall, we seek sorting algorithm that has high efficiency, stability, in-place operation, and adaptability. However, like other data structures and algorithms, no sorting algorithm can meet all these conditions simultaneously. In practical applications, we need to choose the appropriate sorting algorithm based on the characteristics of the data.
 - The figure below compares mainstream sorting algorithms in terms of efficiency, stability, in-place nature, and adaptability.
 
 ![Sorting Algorithm Comparison](summary.assets/sorting_algorithms_comparison.png)
@@ -26,7 +26,7 @@ It can be seen that the positions of students D and C have been swapped, disrupt
 
 No, when using the leftmost element as the pivot, we must first "search from right to left" then "search from left to right". This conclusion is somewhat counterintuitive, so let's analyze the reason.
 
-The last step of the sentinel partition `partition()` is to swap `nums[left]` and `nums[i]`. After the swap, the elements to the left of the pivot are all `<=` the pivot, **which requires that `nums[left] >= nums[i]` must hold before the last swap**. Suppose we "search from left to right" first, then if no element larger than the pivot is found, **we will exit the loop when `i == j`, possibly with `nums[j] == nums[i] > nums[left]`**. In other words, the final swap operation will exchange an element larger than the pivot to the left end of the array, causing the sentinel partition to fail.
+The last step of the sentinel partition `partition()` is to swap `nums[left]` and `nums[i]`. After the swap, the elements to the left of the pivot are all `<=` the pivot, **which requires that `nums[left] >= nums[i]` must hold before the last swap**. Suppose we "search from left to right" first, and if no element larger than the pivot is found, **we will exit the loop when `i == j`, possibly with `nums[j] == nums[i] > nums[left]`**. In other words, the final swap operation will exchange an element larger than the pivot to the left end of the array, causing the sentinel partition to fail.
 
 For example, given the array `[0, 0, 0, 0, 1]`, if we first "search from left to right", the array after the sentinel partition is `[1, 0, 0, 0, 0]`, which is incorrect.
 
