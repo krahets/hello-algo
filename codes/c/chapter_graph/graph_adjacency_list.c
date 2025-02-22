@@ -121,13 +121,9 @@ void addVertex(GraphAdjList *graph, Vertex *vet) {
 void removeVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *node = findNode(graph, vet);
     assert(node != NULL);
-    // 在邻接表中删除顶点 vet 对应的链表
+
     AdjListNode *cur = node, *pre = NULL;
-    while (cur) {
-        pre = cur;
-        cur = cur->next;
-        free(pre);
-    }
+
     // 遍历其他顶点的链表，删除所有包含 vet 的边
     for (int i = 0; i < graph->size; i++) {
         cur = graph->heads[i];
