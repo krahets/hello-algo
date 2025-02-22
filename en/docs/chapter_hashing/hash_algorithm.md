@@ -36,7 +36,7 @@ To prevent reverse engineering, such as deriving the original password from its 
 - **Avalanche Effect**: A small change in the input should cause a significant and unpredictable change in the output.
 
 
-Note that **Uniform Distribution** and **Collision Resistance** are distinct concepts —- a hash function that ensures uniform distribution does not necessarily guarantee collision resistance. For example, given a random input `key`, the hash function `key % 100` may produce a uniformly distributed output. However, this function is overly simplistic; all `key`s with the same last two digits will generate the same hash value. As a result, an attacker could easily infer possible `key`s from the hash values, making it unsuitable for password security.
+Note that **Uniform Distribution** and **Collision Resistance** are distinct concepts —- a hash function that ensures uniform distribution does not necessarily guarantee collision resistance. For example, given a random input `key`, the hash function `key % 100` may produce a uniformly distributed output. However, this function is overly simplistic; all `key` with the same last two digits will generate the same hash value. As a result, an attacker could easily infer possible `key` from the hash values, making it unsuitable for password security.
 
 ## Design of Hash Algorithms
 
@@ -66,7 +66,7 @@ $$
 \end{aligned}
 $$
 
-If the input `key`s follow an arithmetic sequence, the hash values will cluster, increasing the likelihood of hash collisions. Now, if we replace the modulus with the prime number $13$, the lack of common factors between the `key` and the `modulus` significantly improves the uniformity of the hash values.
+If the input `key` follow an arithmetic sequence, the hash values will cluster, increasing the likelihood of hash collisions. Now, if we replace the modulus with the prime number $13$, the lack of common factors between the `key` and the `modulus` significantly improves the uniformity of the hash values.
 
 $$
 \begin{aligned}
