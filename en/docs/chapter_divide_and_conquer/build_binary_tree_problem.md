@@ -2,7 +2,7 @@
 
 !!! question
 
-    Given the pre-order traversal `pre-order` and the in-order traversal `in-order` of a binary tree, construct the binary tree and return its root node. Assume there are no duplicate node values in the binary tree (as shown in the figure below).
+    Given the pre-order traversal `preorder` sequence and the in-order traversal `inorder` sequence of a binary tree, construct the binary tree and return its root node. Assume there are no duplicate node values in the binary tree (as shown in the figure below).
 
 ![Example data for building a binary tree](build_binary_tree_problem.assets/build_tree_example.png)
 
