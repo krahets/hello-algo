@@ -1,9 +1,9 @@
 # Divide and conquer algorithms
 
-<u>Divide and conquer</u>, fully referred to as "divide and rule", is an extremely important and common algorithm strategy. Divide and conquer is usually based on recursion and includes two steps: "divide" and "conquer".
+<u>Divide and conquer</u> is an important and popular algorithm strategy. As the name suggests, the algorithm is typically implemented recursively and consists of two steps: "divide" and "conquer".
 
-1. **Divide (partition phase)**: Recursively decompose the original problem into two or more sub-problems until the smallest sub-problem is reached and the process terminates.
-2. **Conquer (merge phase)**: Starting from the smallest sub-problem with a known solution, merge the solutions of the sub-problems from bottom to top to construct the solution to the original problem.
+1. **Divide (partition phase)**: Recursively break down the original problem into two or more smaller sub-problems until the smallest sub-problem is reached.
+2. **Conquer (merge phase)**: Starting from the smallest sub-problem with known solution, we construct the solution to the original problem by merging the solutions of sub-problems in a bottom-up manner.
 
 As shown in the figure below, "merge sort" is one of the typical applications of the divide and conquer strategy.
 
@@ -14,27 +14,27 @@ As shown in the figure below, "merge sort" is one of the typical applications of
 
 ## How to identify divide and conquer problems
 
-Whether a problem is suitable for a divide and conquer solution can usually be judged based on the following criteria.
+Whether a problem is suitable for a divide-and-conquer solution can usually be decided based on the following criteria.
 
-1. **The problem can be decomposed**: The original problem can be decomposed into smaller, similar sub-problems and can be recursively divided in the same manner.
+1. **The problem can be broken down into smaller ones**: The original problem can be divided into smaller, similar sub-problems and such process can be recursively done in the same manner.
 2. **Sub-problems are independent**: There is no overlap between sub-problems, and they are independent and can be solved separately.
-3. **Solutions to sub-problems can be merged**: The solution to the original problem is obtained by merging the solutions of the sub-problems.
+3. **Solutions to sub-problems can be merged**: The solution to the original problem is derived by combining the solutions of the sub-problems.
 
 Clearly, merge sort meets these three criteria.
 
-1. **The problem can be decomposed**: Recursively divide the array (original problem) into two sub-arrays (sub-problems).
+1. **The problem can be broken down into smaller ones**: Recursively divide the array (original problem) into two sub-arrays (sub-problems).
 2. **Sub-problems are independent**: Each sub-array can be sorted independently (sub-problems can be solved independently).
 3. **Solutions to sub-problems can be merged**: Two ordered sub-arrays (solutions to the sub-problems) can be merged into one ordered array (solution to the original problem).
 
-## Improving efficiency through divide and conquer
+## Improve efficiency through divide and conquer
 
-**Divide and conquer can not only effectively solve algorithm problems but often also improve algorithm efficiency**. In sorting algorithms, quicksort, merge sort, and heap sort are faster than selection, bubble, and insertion sorts because they apply the divide and conquer strategy.
+The **divide-and-conquer strategy not only effectively solves algorithm problems but also often enhances efficiency**. In sorting algorithms, quick sort, merge sort, and heap sort are faster than selection sort, bubble sort, and insertion sort because they apply the divide-and-conquer strategy.
 
-Then, we may ask: **Why can divide and conquer improve algorithm efficiency, and what is the underlying logic?** In other words, why are the steps of decomposing a large problem into multiple sub-problems, solving the sub-problems, and merging the solutions of the sub-problems into the solution of the original problem more efficient than directly solving the original problem? This question can be discussed from the aspects of the number of operations and parallel computation.
+We may have a question in mind: **Why can divide and conquer improve algorithm efficiency, and what is the underlying logic?** In other words, why is breaking a problem into sub-problems, solving them, and combining their solutions to address the original problem offer more efficiency than directly solving the original problem? This question can be analyzed from two aspects: operation count and parallel computation.
 
 ### Optimization of operation count
 
-Taking "bubble sort" as an example, it requires $O(n^2)$ time to process an array of length $n$. Suppose we divide the array from the midpoint into two sub-arrays as shown in the figure below, then the division requires $O(n)$ time, sorting each sub-array requires $O((n / 2)^2)$ time, and merging the two sub-arrays requires $O(n)$ time, with the total time complexity being:
+Taking "bubble sort" as an example, it requires $O(n^2)$ time to process an array of length $n$. Suppose we divide the array from the midpoint into two sub-arrays as shown in the figure below, such division requires $O(n)$ time. Sorting each sub-array requires $O((n / 2)^2)$ time. And merging the two sub-arrays requires $O(n)$ time. Thus, the overall time complexity is:
 
 $$
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
@@ -42,7 +42,7 @@ $$
 
 ![Bubble sort before and after array partition](divide_and_conquer.assets/divide_and_conquer_bubble_sort.png)
 
-Next, we calculate the following inequality, where the left and right sides are the total number of operations before and after the partition, respectively:
+Let's calculate the following inequality, where the left side represents the total number of operations before division and the right side represents the total number of operations after division, respectively:
 
 $$
 \begin{aligned}
@@ -52,40 +52,40 @@ n(n - 4) & > 0
 \end{aligned}
 $$
 
-**This means that when $n > 4$, the number of operations after partitioning is fewer, and the sorting efficiency should be higher**. Please note that the time complexity after partitioning is still quadratic $O(n^2)$, but the constant factor in the complexity has decreased.
+**This means that when $n > 4$, the number of operations after partitioning is fewer, leading to better performance**. Please note that the time complexity after partitioning is still quadratic $O(n^2)$, but the constant factor in the complexity has decreased.
 
-Further, **what if we keep dividing the sub-arrays from their midpoints into two sub-arrays** until the sub-arrays have only one element left? This idea is actually "merge sort," with a time complexity of $O(n \log n)$.
+We can go even further. **How about keeping dividing the sub-arrays from their midpoints into two sub-arrays** until the sub-arrays have only one element left? This idea is actually "merge sort," with a time complexity of $O(n \log n)$.
 
-Furthermore, **what if we set several more partition points** and evenly divide the original array into $k$ sub-arrays? This situation is very similar to "bucket sort," which is very suitable for sorting massive data, and theoretically, the time complexity can reach $O(n + k)$.
+Let's try something a bit different again. **How about splitting into more partitions instead of just two?** For example, we evenly divide the original array into $k$ sub-arrays? This approach is very similar to "bucket sort," which is very suitable for sorting massive data. Theoretically, the time complexity can reach $O(n + k)$.
 
 ### Optimization through parallel computation
 
-We know that the sub-problems generated by divide and conquer are independent of each other, **thus they can usually be solved in parallel**. This means that divide and conquer can not only reduce the algorithm's time complexity, **but also facilitate parallel optimization by the operating system**.
+We know that the sub-problems generated by divide and conquer are independent of each other, **which means that they can be solved in parallel.** As a result, divide and conquer not only reduces the algorithm's time complexity, **but also facilitates parallel optimization by modern operating systems.**
 
-Parallel optimization is especially effective in environments with multiple cores or processors, as the system can process multiple sub-problems simultaneously, making fuller use of computing resources and significantly reducing the overall runtime.
+Parallel optimization is particularly effective in environments with multiple cores or processors. As the system can process multiple sub-problems simultaneously, fully utilizing computing resources, the overall runtime is significantly reduced.
 
-For example, in the "bucket sort" shown in the figure below, we distribute massive data evenly across various buckets, then the sorting tasks of all buckets can be distributed to different computing units, and the results are merged after completion.
+For example, in the "bucket sort" shown in the figure below, we break massive data evenly into various buckets. The jobs of sorting each bucket can be allocated to available computing units. Once all jobs are done, all sorted buckets are merged to produce the final result.
 
 ![Bucket sort's parallel computation](divide_and_conquer.assets/divide_and_conquer_parallel_computing.png)
 
 ## Common applications of divide and conquer
 
-On one hand, divide and conquer can be used to solve many classic algorithm problems.
+Divide and conquer can be used to solve many classic algorithm problems.
 
-- **Finding the closest point pair**: This algorithm first divides the set of points into two parts, then finds the closest point pair in each part, and finally finds the closest point pair that spans the two parts.
-- **Large integer multiplication**: For example, the Karatsuba algorithm, which breaks down large integer multiplication into several smaller integer multiplications and additions.
-- **Matrix multiplication**: For example, the Strassen algorithm, which decomposes large matrix multiplication into multiple small matrix multiplications and additions.
-- **Tower of Hanoi problem**: The Tower of Hanoi problem can be solved recursively, a typical application of the divide and conquer strategy.
-- **Solving inverse pairs**: In a sequence, if a number in front is greater than a number behind, these two numbers form an inverse pair. Solving the inverse pair problem can utilize the idea of divide and conquer, with the aid of merge sort.
+- **Finding the closest pair of points**: This algorithm works by dividing the set of points into two halves. Then it recursively finds the closest pair in each half. Finally it considers pairs that span the two halves to find the overall closest pair.
+- **Large integer multiplication**: One algorithm is called Karatsuba. It breaks down large integer multiplication into several smaller integer multiplications and additions.
+- **Matrix multiplication**: One example is the Strassen algorithm. It breaks down a large matrix multiplication into multiple small matrix multiplications and additions.
+- **Tower of Hanoi problem**: The Tower of Hanoi problem can be solved recursively, a typical application of the divide-and-conquer strategy.
+- **Solving inversion pairs**: In a sequence, if a preceding number is greater than a following number, then these two numbers constitute an inversion pair. Solving inversion pair problem can utilize the idea of divide and conquer, with the aid of merge sort.
 
-On the other hand, divide and conquer is very widely applied in the design of algorithms and data structures.
+Divide and conquer is also widely applied in the design of algorithms and data structures.
 
-- **Binary search**: Binary search divides an ordered array from the midpoint index into two parts, then decides which half to exclude based on the comparison result between the target value and the middle element value, and performs the same binary operation in the remaining interval.
+- **Binary search**: Binary search divides a sorted array into two halves from the midpoint index. And then based on the comparison result between the target value and the middle element value, one half is discarded. The search continues on the remaining half with the same process until the target is found or there is no remaining element.
 - **Merge sort**: Already introduced at the beginning of this section, no further elaboration is needed.
-- **Quicksort**: Quicksort selects a pivot value, then divides the array into two sub-arrays, one with elements smaller than the pivot and the other with elements larger than the pivot, and then performs the same partitioning operation on these two parts until the sub-array has only one element.
-- **Bucket sort**: The basic idea of bucket sort is to distribute data to multiple buckets, then sort the elements within each bucket, and finally retrieve the elements from the buckets in order to obtain an ordered array.
-- **Trees**: For example, binary search trees, AVL trees, red-black trees, B-trees, B+ trees, etc., their operations such as search, insertion, and deletion can all be considered applications of the divide and conquer strategy.
-- **Heap**: A heap is a special type of complete binary tree, whose various operations, such as insertion, deletion, and heapification, actually imply the idea of divide and conquer.
-- **Hash table**: Although hash tables do not directly apply divide and conquer, some hash collision resolution solutions indirectly apply the divide and conquer strategy, for example, long lists in chained addressing being converted to red-black trees to improve query efficiency.
+- **Quicksort**: Quicksort picks a pivot value to divide the array into two sub-arrays, one with elements smaller than the pivot and the other with elements larger than the pivot. Such process goes on against each of these two sub-arrays until they hold only one element.
+- **Bucket sort**: The basic idea of bucket sort is to distribute data to multiple buckets. After sorting the elements within each bucket, retrieve the elements from the buckets in order to obtain an ordered array.
+- **Trees**: For example, binary search trees, AVL trees, red-black trees, B-trees, and B+ trees, etc. Their operations, such as search, insertion, and deletion, can all be regarded as applications of the divide-and-conquer strategy.
+- **Heap**: A heap is a special type of complete binary tree. Its various operations, such as insertion, deletion, and heapify, actually imply the idea of divide and conquer.
+- **Hash table**: Although hash tables do not directly apply divide and conquer, some hash collision resolution solutions indirectly apply the strategy. For example, long lists in chained addressing may be converted to red-black trees to improve query efficiency.
 
 It can be seen that **divide and conquer is a subtly pervasive algorithmic idea**, embedded within various algorithms and data structures.
