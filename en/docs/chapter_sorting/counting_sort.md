@@ -8,7 +8,7 @@ Let's start with a simple example. Given an array `nums` of length $n$, where al
 
 1. Traverse the array to find the maximum number, denoted as $m$, then create an auxiliary array `counter` of length $m + 1$.
 2. **Use `counter` to count the occurrence of each number in `nums`**, where `counter[num]` corresponds to the occurrence of the number `num`. The counting method is simple, just traverse `nums` (suppose the current number is `num`), and increase `counter[num]` by $1$ each round.
-3. **Since the indices of `counter` are naturally ordered, all numbers are essentially sorted already**. Next, we traverse `counter`, and fill in `nums` according to the ascending order of occurrence.
+3. **Since the indices of `counter` are naturally ordered, all numbers are essentially sorted already**. Next, we traverse `counter`, and fill in `nums` in ascending order of occurrence.
 
 ![Counting sort process](counting_sort.assets/counting_sort_overview.png)
 
@@ -32,7 +32,7 @@ $$
 \text{prefix}[i] = \sum_{j=0}^i \text{counter[j]}
 $$
 
-**The prefix sum has a clear meaning, `prefix[num] - 1` represents the index of the last occurrence of element `num` in the result array `res`**. This information is crucial, as it tells us where each element should appear in the result array. Next, we traverse  each element `num` of the original array `nums` in reverse order, performing the following two steps in each iteration.
+**The prefix sum has a clear meaning, `prefix[num] - 1` represents the index of the last occurrence of element `num` in the result array `res`**. This information is crucial, as it tells us where each element should appear in the result array. Next, we traverse each element `num` of the original array `nums` in reverse order, performing the following two steps in each iteration.
 
 1. Fill `num` into the array `res` at the index `prefix[num] - 1`.
 2. Decrease the prefix sum `prefix[num]` by $1$ to obtain the next index to place `num`.
@@ -72,7 +72,7 @@ The implementation code of counting sort is shown below:
 ## Algorithm characteristics
 
 - **Time complexity is $O(n + m)$, non-adaptive sort**: It involves traversing `nums` and `counter`, both using linear time. Generally, $n \gg m$, and the time complexity tends towards $O(n)$.
-- **Space complexity is $O(n + m)$, non-in-place sort**: It uses array`res` of lengths $n$ and array `counter` of length $m$ respectively.
+- **Space complexity is $O(n + m)$, non-in-place sort**: It uses array `res` of lengths $n$ and array `counter` of length $m$ respectively.
 - **Stable sort**: Since elements are filled into `res` in a "right-to-left" order, reversing the traversal of `nums` can prevent changing the relative position between equal elements, thereby achieving a stable sort. Actually, traversing `nums` in order can also produce the correct sorting result, but the outcome is unstable.
 
 ## Limitations
@@ -81,4 +81,4 @@ By now, you might find counting sort very clever, as it can achieve efficient so
 
 **Counting sort is only suitable for non-negative integers**. If you want to apply it to other types of data, you need to ensure that these data can be converted to non-negative integers without changing the original order of the elements. For example, for an array containing negative integers, you can first add a constant to all numbers, converting them all to positive numbers, and then convert them back after sorting is complete.
 
-**Counting sort is suitable for situations where the amount of data is large but the range of data is small**. For example, in the above example, $m$ should not be too large, otherwise, it will occupy too much space. And when $n \ll m$, counting sort uses $O(m)$ time, which may be slower than $O(n \log n)$ sorting algorithms.
+**Counting sort is suitable for large datasets with a small range of values**. For example, in the above example, $m$ should not be too large, otherwise, it will occupy too much space. And when $n \ll m$, counting sort uses $O(m)$ time, which may be slower than $O(n \log n)$ sorting algorithms.
