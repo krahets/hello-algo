@@ -48,7 +48,7 @@ The "merge phase" combines the left and right sub-arrays into a sorted array fro
 
 It can be observed that the order of recursion in merge sort is consistent with the sub-array traversal of a binary tree.
 
-- **sub-array traversal**: First recursively traverse the left subtree, then the right subtree, and finally process the root node.
+- **Post-order traversal**: First recursively traverse the left subtree, then the right subtree, and finally process the root node.
 - **Merge sort**: First recursively process the left sub-array, then the right sub-array, and finally perform the merge.
 
 The implementation of merge sort is shown in the following code. Note that the interval to be merged in `nums` is `[left, right]`, while the corresponding interval in `tmp` is `[0, right - left]`.
