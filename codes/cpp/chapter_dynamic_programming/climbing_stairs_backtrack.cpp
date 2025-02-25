@@ -10,8 +10,10 @@
 /* 回溯 */
 void backtrack(vector<int> &choices, int state, int n, vector<int> &res) {
     // 当爬到第 n 阶时，方案数量加 1
-    if (state == n)
+    if (state == n) {
         res[0]++;
+        return;
+    }
     // 遍历所有选择
     for (auto &choice : choices) {
         // 剪枝：不允许越过第 n 阶
