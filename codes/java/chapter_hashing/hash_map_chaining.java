@@ -7,6 +7,7 @@
 package chapter_hashing;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /* 链式地址哈希表 */
@@ -16,6 +17,19 @@ class HashMapChaining {
     double loadThres; // 触发扩容的负载因子阈值
     int extendRatio; // 扩容倍数
     List<List<Pair>> buckets; // 桶数组
+    private Pair head, tail; // 维护双向链表头尾节点
+
+    private static class Pair {
+        int key;
+        String val;
+        Pair next;
+        Pair prev;
+
+        public Pair(int key, String val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
 
     /* 构造方法 */
     public HashMapChaining() {
@@ -27,6 +41,8 @@ class HashMapChaining {
         for (int i = 0; i < capacity; i++) {
             buckets.add(new ArrayList<>());
         }
+        head = null;
+        tail = null;
     }
 
     /* 哈希函数 */
@@ -71,6 +87,13 @@ class HashMapChaining {
         // 若无该 key ，则将键值对添加至尾部
         Pair pair = new Pair(key, val);
         bucket.add(pair);
+        if (tail == null) {
+            head = tail = pair;
+        } else {
+            tail.next = pair;
+            pair.prev = tail;
+            tail = pair;
+        }
         size++;
     }
 
@@ -79,43 +102,53 @@ class HashMapChaining {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
         // 遍历桶，从中删除键值对
-        for (Pair pair : bucket) {
+        Iterator<Pair> iterator = bucket.iterator();
+        while (iterator.hasNext()) {
+            Pair pair = iterator.next();
             if (pair.key == key) {
-                bucket.remove(pair);
+                iterator.remove();
                 size--;
-                break;
+
+                // 维护链表
+                if (pair.prev != null) {
+                    pair.prev.next = pair.next;
+                } else {
+                    head = pair.next;
+                }
+                if (pair.next != null) {
+                    pair.next.prev = pair.prev;
+                } else {
+                    tail = pair.prev;
+                }
+                return;
             }
         }
     }
 
     /* 扩容哈希表 */
     void extend() {
-        // 暂存原哈希表
-        List<List<Pair>> bucketsTmp = buckets;
         // 初始化扩容后的新哈希表
         capacity *= extendRatio;
         buckets = new ArrayList<>(capacity);
         for (int i = 0; i < capacity; i++) {
             buckets.add(new ArrayList<>());
         }
-        size = 0;
-        // 将键值对从原哈希表搬运至新哈希表
-        for (List<Pair> bucket : bucketsTmp) {
-            for (Pair pair : bucket) {
-                put(pair.key, pair.val);
-            }
+        Pair current = head;
+        while (current != null) {
+            List<Pair> bucket = buckets.get(hashFunc(current.key));
+            bucket.add(current);
+            current = current.next;
         }
     }
 
     /* 打印哈希表 */
     void print() {
-        for (List<Pair> bucket : buckets) {
-            List<String> res = new ArrayList<>();
-            for (Pair pair : bucket) {
-                res.add(pair.key + " -> " + pair.val);
-            }
-            System.out.println(res);
+        Pair current = head;
+        while (current != null) {
+            System.out.print(current.key + " -> ");
+            current = current.next;
         }
+        System.out.println("null");
     }
 }
 
