@@ -46,7 +46,7 @@ The "merge phase" combines the left and right sub-arrays into a sorted array fro
 === "<10>"
     ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png)
 
-It can be observed that the order of recursion in merge sort is consistent with the sub-array traversal of a binary tree.
+It can be observed that the order of recursion in merge sort is consistent with the post-order traversal of a binary tree.
 
 - **Post-order traversal**: First recursively traverse the left subtree, then the right subtree, and finally process the root node.
 - **Merge sort**: First recursively process the left sub-array, then the right sub-array, and finally perform the merge.
