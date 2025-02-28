@@ -24,7 +24,7 @@ The code is shown below:
 
 ## Complete implementation
 
-Careful readers might have noticed, **if the input data is an object, the above step `3.` is invalid**. Suppose the input data is a product object, we want to sort the products by the price (a class member variable), but the above algorithm can only give the sorted price as the result.
+Observant readers might notice, **if the input data is an object, the above step `3.` is invalid**. Suppose the input data is a product object, we want to sort the products by the price (a class member variable), but the above algorithm can only give the sorted price as the result.
 
 So how can we get the sorting result for the original data? First, we calculate the "prefix sum" of `counter`. As the name suggests, the prefix sum at index `i`, `prefix[i]`, equals the sum of the first `i` elements of the array:
 
