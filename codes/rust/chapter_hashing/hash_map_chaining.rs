@@ -13,10 +13,10 @@ struct Pair {
 
 /* 链式地址哈希表 */
 struct HashMapChaining {
-    size: i32,
-    capacity: i32,
+    size: usize,
+    capacity: usize,
     load_thres: f32,
-    extend_ratio: i32,
+    extend_ratio: usize,
     buckets: Vec<Vec<Pair>>,
 }
 
@@ -34,7 +34,7 @@ impl HashMapChaining {
 
     /* 哈希函数 */
     fn hash_func(&self, key: i32) -> usize {
-        key as usize % self.capacity as usize
+        key as usize % self.capacity
     }
 
     /* 负载因子 */
@@ -45,12 +45,11 @@ impl HashMapChaining {
     /* 删除操作 */
     fn remove(&mut self, key: i32) -> Option<String> {
         let index = self.hash_func(key);
-        let bucket = &mut self.buckets[index];
 
         // 遍历桶，从中删除键值对
-        for i in 0..bucket.len() {
-            if bucket[i].key == key {
-                let pair = bucket.remove(i);
+        for (i, p) in self.buckets[index].iter_mut().enumerate() {
+            if p.key == key {
+                let pair = self.buckets[index].remove(i);
                 self.size -= 1;
                 return Some(pair.val);
             }
@@ -97,30 +96,27 @@ impl HashMapChaining {
         }
 
         let index = self.hash_func(key);
-        let bucket = &mut self.buckets[index];
 
         // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
-        for pair in bucket {
+        for pair in self.buckets[index].iter_mut() {
             if pair.key == key {
                 pair.val = val;
                 return;
             }
         }
-        let bucket = &mut self.buckets[index];
 
         // 若无该 key ，则将键值对添加至尾部
         let pair = Pair { key, val };
-        bucket.push(pair);
+        self.buckets[index].push(pair);
         self.size += 1;
     }
 
     /* 查询操作 */
     fn get(&self, key: i32) -> Option<&str> {
         let index = self.hash_func(key);
-        let bucket = &self.buckets[index];
 
         // 遍历桶，若找到 key ，则返回对应 val
-        for pair in bucket {
+        for pair in self.buckets[index].iter() {
             if pair.key == key {
                 return Some(&pair.val);
             }
