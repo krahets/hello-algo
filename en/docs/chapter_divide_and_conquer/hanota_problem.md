@@ -24,7 +24,7 @@ As shown in the figure below, for the problem $f(1)$—which has only one disc�
 === "<2>"
     ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.png)
 
-For $f(2)$)—which has two discs—**we rely on pillar `B` to help keep the smaller disc above the larger disc**, as illustrated in the following figure:
+For $f(2)$—which has two discs—**we rely on pillar `B` to help keep the smaller disc above the larger disc**, as illustrated in the following figure:
 
 1. First, move the smaller disc from `A` to `B`.
 2. Then move the larger disc from `A` to `C`.
