@@ -12,7 +12,7 @@ The table below shows several examples, including input arrays and their corresp
 | $[1, 2]$    | $[1, 2], [2, 1]$                                                   |
 | $[1, 2, 3]$ | $[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]$ |
 
-## Cases Without Duplicate Elements
+## Cases without duplicate elements
 
 !!! question
 
@@ -47,7 +47,7 @@ With this understanding, we can “fill in the blanks” of our framework code. 
 [file]{permutations_i}-[class]{}-[func]{permutations_i}
 ```
 
-## Considering Duplicate Elements
+## Considering duplicate elements
 
 !!! question
 
@@ -71,7 +71,7 @@ Essentially, **our goal is to ensure that multiple identical elements are only s
 
 ![Duplicate permutations pruning](permutations_problem.assets/permutations_ii_pruning.png)
 
-### Code Implementation
+### Code implementation
 
 Based on the code from the previous problem, we introduce a hash set `duplicated` in each round. This set keeps track of elements we have already attempted, so we can prune duplicates:
 
@@ -83,7 +83,7 @@ Assuming all elements are distinct, there are $n!$ (factorial) permutations of $
 
 The maximum recursion depth is $n$, using $O(n)$ stack space. The `selected` array also requires $O(n)$ space. Because there can be up to $n$ separate `duplicated` sets at any one time, they collectively occupy $O(n^2)$ space. **Therefore, the space complexity is $O(n^2)$.**
 
-### Comparing the Two Pruning Methods
+### Comparing the two pruning methods
 
 Although both `selected` and `duplicated` serve as pruning mechanisms, they target different issues:
 
