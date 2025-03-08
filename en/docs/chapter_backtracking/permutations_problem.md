@@ -18,7 +18,7 @@ The table below shows several examples, including input arrays and their corresp
 
     Given an integer array with no duplicate elements, return all possible permutations.
 
-From a backtracking perspective, **we can view the process of generating permutations as a series of choices.** Suppose the input array is $[1, 2, 3]$. If we choose $1$ first, then $3$, and finally $2$, we get the permutation $[1, 3, 2]$. “Backtracking” means undoing (or “backing out of”) a choice and then trying other options.
+From a backtracking perspective, **we can view the process of generating permutations as a series of choices.** Suppose the input array is $[1, 2, 3]$. If we choose $1$ first, then $3$, and finally $2$, we get the permutation $[1, 3, 2]$. "Backtracking" means undoing a previous choice and exploring alternative options.
 
 From a coding perspective, the candidate set `choices` consists of all elements in the input array, while `state` holds the elements selected so far. Since each element can only be chosen once, **all elements in `state` must be unique**.
 
@@ -41,7 +41,7 @@ From the figure, we can see that this pruning process reduces the search space f
 
 ### Code Implementation
 
-With this understanding, we can “fill in the blanks” of our framework code. To keep the overall code concise, we won’t implement each part of the framework separately but instead expand everything in the `backtrack()` function:
+With this understanding, we can "fill in the blanks" of our framework code. To keep the overall code concise, we won’t implement each part of the framework separately but instead expand everything in the `backtrack()` function:
 
 ```src
 [file]{permutations_i}-[class]{}-[func]{permutations_i}
