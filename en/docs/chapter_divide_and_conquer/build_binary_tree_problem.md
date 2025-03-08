@@ -49,7 +49,7 @@ As shown in the table below, these variables represent the root node’s index i
 | Left subtree  | $i + 1$                       | $[l, m-1]$                          |
 | Right subtree | $i + 1 + (m - l)$             | $[m+1, r]$                          |
 
-Please note that $(m-l)$ in the right subtree root index represents “the number of nodes in the left subtree.” It may help to consult the figure below for a clearer understanding.
+Please note that $(m-l)$ in the right subtree root index represents "the number of nodes in the left subtree." It may help to consult the figure below for a clearer understanding.
 
 ![Indexes of the root node and left and right subtrees](build_binary_tree_problem.assets/build_tree_division_pointers.png)
 
