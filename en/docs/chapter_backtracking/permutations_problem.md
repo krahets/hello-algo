@@ -33,7 +33,7 @@ To ensure each element is selected only once, we introduce a boolean array `sele
 - After choosing `choice[i]`, set `selected[i]` to $\text{True}$ to mark it as chosen.
 - While iterating through `choices`, skip all elements marked as chosen (i.e., prune those branches).
 
-As shown in the figure below, suppose we pick 1 in the first round, then 3 in the second round, and finally 2 in the third round. We need to prune the branch for element 1 in the second round and the branches for elements 1 and 3 in the third round.
+As shown in the figure below, suppose we choose 1 in the first round, then 3 in the second round, and finally 2 in the third round. We need to prune the branch for element 1 in the second round and the branches for elements 1 and 3 in the third round.
 
 ![Permutation pruning example](permutations_problem.assets/permutations_i_pruning.png)
 
