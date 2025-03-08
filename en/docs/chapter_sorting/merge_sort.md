@@ -65,7 +65,7 @@ The implementation of merge sort is shown in the following code. Note that the i
 
 ## Linked List sorting
 
-For linked lists, merge sort has significant advantages over other sorting algorithms. It can **optimize the space complexity of the linked list sorting task to $O(1)$**.
+For linked lists, merge sort has significant advantages over other sorting algorithms. **It can optimize the space complexity of the linked list sorting task to $O(1)$**.
 
 - **Divide phase**: "Iteration" can be used instead of "recursion" to perform the linked list division work, thus saving the stack frame space used by recursion.
 - **Merge phase**: In linked lists, node insertion and deletion operations can be achieved by changing references (pointers), so no extra lists need to be created during the merge phase (combining two short ordered lists into one long ordered list).
