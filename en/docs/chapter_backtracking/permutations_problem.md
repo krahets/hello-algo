@@ -1,6 +1,6 @@
 # Permutation problem
 
-The permutation problem is a typical application of the backtracking algorithm. It is defined as finding all possible arrangements (permutations) of elements from a given set, such as an array or a string.
+The permutation problem is a typical application of the backtracking algorithm. It involves finding all possible arrangements (permutations) of elements from a given set, such as an array or a string.
 
 The table below shows several examples, including input arrays and their corresponding permutations.
 
