@@ -22,6 +22,7 @@ func extend(nums []int, enlarge int) []int {
 	// 初始化一个扩展长度后的数组
 	res := make([]int, len(nums)+enlarge)
 	// 将原数组中的所有元素复制到新数组
+	// copy(res, nums)
 	for i, num := range nums {
 		res[i] = num
 	}
