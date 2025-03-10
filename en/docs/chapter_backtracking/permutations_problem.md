@@ -39,7 +39,7 @@ As shown in the figure below, suppose we choose 1 in the first round, then 3 in 
 
 From the figure, we can see that this pruning process reduces the search space from $O(n^n)$ to $O(n!)$.
 
-### Code Implementation
+### Code implementation
 
 With this understanding, we can "fill in the blanks" of our framework code. To keep the overall code concise, we won’t implement each part of the framework separately but instead expand everything in the `backtrack()` function:
 
