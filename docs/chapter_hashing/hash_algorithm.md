@@ -354,7 +354,7 @@ index = hash(key) % capacity
         for (const c of key) {
             hash ^= c.charCodeAt(0);
         }
-        return hash & MODULUS;
+        return hash % MODULUS;
     }
 
     /* 旋转哈希 */
@@ -398,7 +398,7 @@ index = hash(key) % capacity
         for (const c of key) {
             hash ^= c.charCodeAt(0);
         }
-        return hash & MODULUS;
+        return hash % MODULUS;
     }
 
     /* 旋转哈希 */

@@ -9,9 +9,9 @@ icon: material/set-split
 
 !!! abstract
 
-    Difficult problems are decomposed layer by layer, each decomposition making them simpler.
+    Difficult problems are decomposed layer by layer, with each decomposition making them simpler.
 
-    Divide and conquer reveals an important truth: start with simplicity, and nothing is complex anymore.
+    Divide and conquer unveils a profound truth: begin with simplicity, and complexity dissolves.
 
 ## Chapter contents
 

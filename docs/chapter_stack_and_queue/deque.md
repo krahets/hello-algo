@@ -1679,7 +1679,7 @@ comments: true
                         }
                     }
                     self.que_size -= 1; // 更新队列长度
-                    Rc::try_unwrap(old_front).ok().unwrap().into_inner().val
+                    old_front.borrow().val
                 })
             }
             // 队尾出队操作
@@ -1695,7 +1695,7 @@ comments: true
                         }
                     }
                     self.que_size -= 1; // 更新队列长度
-                    Rc::try_unwrap(old_rear).ok().unwrap().into_inner().val
+                    old_rear.borrow().val
                 })
             }
         }
@@ -1722,12 +1722,16 @@ comments: true
 
         /* 返回数组用于打印 */
         pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
-            if let Some(node) = head {
-                let mut nums = self.to_array(node.borrow().next.as_ref());
-                nums.insert(0, node.borrow().val);
-                return nums;
+            let mut res: Vec<T> = Vec::new();
+            fn recur<T: Copy>(cur: Option<&Rc<RefCell<ListNode<T>>>>, res: &mut Vec<T>) {
+                if let Some(cur) = cur {
+                    res.push(cur.borrow().val);
+                    recur(cur.borrow().next.as_ref(), res);
+                }
             }
-            return Vec::new();
+
+            recur(head, &mut res);
+            res
         }
     }
     ```

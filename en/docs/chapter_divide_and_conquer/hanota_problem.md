@@ -4,13 +4,13 @@ comments: true
 
 # 12.4 &nbsp; Tower of Hanoi Problem
 
-In both merge sorting and building binary trees, we decompose the original problem into two subproblems, each half the size of the original problem. However, for the Tower of Hanoi, we adopt a different decomposition strategy.
+In both merge sort and binary tree construction, we break the original problem into two subproblems, each half the size of the original problem. However, for the Tower of Hanoi, we adopt a different decomposition strategy.
 
 !!! question
 
-    Given three pillars, denoted as `A`, `B`, and `C`. Initially, pillar `A` is stacked with $n$ discs, arranged in order from top to bottom from smallest to largest. Our task is to move these $n$ discs to pillar `C`, maintaining their original order (as shown in Figure 12-10). The following rules must be followed during the disc movement process:
+    We are given three pillars, denoted as `A`, `B`, and `C`. Initially, pillar `A` has $n$ discs, arranged from top to bottom in ascending size. Our task is to move these $n$ discs to pillar `C`, maintaining their original order (as shown in Figure 12-10). The following rules apply during the movement:
     
-    1. A disc can only be picked up from the top of a pillar and placed on top of another pillar.
+    1. A disc can be removed only from the top of a pillar and must be placed on the top of another pillar.
     2. Only one disc can be moved at a time.
     3. A smaller disc must always be on top of a larger disc.
 
@@ -18,11 +18,11 @@ In both merge sorting and building binary trees, we decompose the original probl
 
 <p align="center"> Figure 12-10 &nbsp; Example of the Tower of Hanoi </p>
 
-**We denote the Tower of Hanoi of size $i$ as $f(i)$**. For example, $f(3)$ represents the Tower of Hanoi of moving $3$ discs from `A` to `C`.
+**We denote the Tower of Hanoi problem of size $i$ as $f(i)$**. For example, $f(3)$ represents moving $3$ discs from pillar `A` to pillar `C`.
 
-### 1. &nbsp; Consider the base case
+### 1. &nbsp; Consider the base cases
 
-As shown in Figure 12-11, for the problem $f(1)$, i.e., when there is only one disc, we can directly move it from `A` to `C`.
+As shown in Figure 12-11, for the problem $f(1)$—which has only one disc—we can directly move it from `A` to `C`.
 
 === "<1>"
     ![Solution for a problem of size 1](hanota_problem.assets/hanota_f1_step1.png){ class="animation-figure" }
@@ -32,7 +32,7 @@ As shown in Figure 12-11, for the problem $f(1)$, i.e., when there is only one d
 
 <p align="center"> Figure 12-11 &nbsp; Solution for a problem of size 1 </p>
 
-As shown in Figure 12-12, for the problem $f(2)$, i.e., when there are two discs, **since the smaller disc must always be above the larger disc, `B` is needed to assist in the movement**.
+For $f(2)$—which has two discs—**we rely on pillar `B` to help keep the smaller disc above the larger disc**, as illustrated in the following figure:
 
 1. First, move the smaller disc from `A` to `B`.
 2. Then move the larger disc from `A` to `C`.
@@ -52,17 +52,17 @@ As shown in Figure 12-12, for the problem $f(2)$, i.e., when there are two discs
 
 <p align="center"> Figure 12-12 &nbsp; Solution for a problem of size 2 </p>
 
-The process of solving the problem $f(2)$ can be summarized as: **moving two discs from `A` to `C` with the help of `B`**. Here, `C` is called the target pillar, and `B` is called the buffer pillar.
+The process of solving $f(2)$ can be summarized as: **moving two discs from `A` to `C` with the help of `B`**. Here, `C` is called the target pillar, and `B` is called the buffer pillar.
 
 ### 2. &nbsp; Decomposition of subproblems
 
-For the problem $f(3)$, i.e., when there are three discs, the situation becomes slightly more complicated.
+For the problem $f(3)$—that is, when there are three discs—the situation becomes slightly more complicated.
 
-Since we already know the solutions to $f(1)$ and $f(2)$, we can think from a divide-and-conquer perspective and **consider the two top discs on `A` as a unit**, performing the steps shown in Figure 12-13. This way, the three discs are successfully moved from `A` to `C`.
+Since we already know the solutions to $f(1)$ and $f(2)$, we can adopt a divide-and-conquer perspective and **treat the top two discs on `A` as a single unit**, performing the steps shown in Figure 12-13. This allows the three discs to be successfully moved from `A` to `C`.
 
-1. Let `B` be the target pillar and `C` the buffer pillar, and move the two discs from `A` to `B`.
+1. Let `B` be the target pillar and `C` the buffer pillar, then move the two discs from `A` to `B`.
 2. Move the remaining disc from `A` directly to `C`.
-3. Let `C` be the target pillar and `A` the buffer pillar, and move the two discs from `B` to `C`.
+3. Let `C` be the target pillar and `A` the buffer pillar, then move the two discs from `B` to `C`.
 
 === "<1>"
     ![Solution for a problem of size 3](hanota_problem.assets/hanota_f3_step1.png){ class="animation-figure" }
@@ -78,23 +78,23 @@ Since we already know the solutions to $f(1)$ and $f(2)$, we can think from a di
 
 <p align="center"> Figure 12-13 &nbsp; Solution for a problem of size 3 </p>
 
-Essentially, **we divide the problem $f(3)$ into two subproblems $f(2)$ and one subproblem $f(1)$**. By solving these three subproblems in order, the original problem is resolved. This indicates that the subproblems are independent, and their solutions can be merged.
+Essentially, **we decompose $f(3)$ into two $f(2)$ subproblems and one $f(1)$ subproblem**. By solving these three subproblems in sequence, the original problem is solved, indicating that the subproblems are independent and their solutions can be merged.
 
-From this, we can summarize the divide-and-conquer strategy for solving the Tower of Hanoi shown in Figure 12-14: divide the original problem $f(n)$ into two subproblems $f(n-1)$ and one subproblem $f(1)$, and solve these three subproblems in the following order.
+From this, we can summarize the divide-and-conquer strategy for the Tower of Hanoi, illustrated in Figure 12-14. We divide the original problem $f(n)$ into two subproblems $f(n-1)$ and one subproblem $f(1)$, and solve these three subproblems in the following order:
 
-1. Move $n-1$ discs with the help of `C` from `A` to `B`.
-2. Move the remaining one disc directly from `A` to `C`.
-3. Move $n-1$ discs with the help of `A` from `B` to `C`.
+1. Move $n-1$ discs from `A` to `B`, using `C` as a buffer. 
+2. Move the remaining disc directly from `A` to `C`.
+3. Move $n-1$ discs from `B` to `C`, using `A` as a buffer. 
 
-For these two subproblems $f(n-1)$, **they can be recursively divided in the same manner** until the smallest subproblem $f(1)$ is reached. The solution to $f(1)$ is already known and requires only one move.
+For each $f(n-1)$ subproblem, **we can apply the same recursive partition** until we reach the smallest subproblem $f(1)$. Because $f(1)$ is already known to require just a single move, it is trivial to solve.
 
-![Divide and conquer strategy for solving the Tower of Hanoi](hanota_problem.assets/hanota_divide_and_conquer.png){ class="animation-figure" }
+![Divide-and-conquer strategy for solving the Tower of Hanoi](hanota_problem.assets/hanota_divide_and_conquer.png){ class="animation-figure" }
 
-<p align="center"> Figure 12-14 &nbsp; Divide and conquer strategy for solving the Tower of Hanoi </p>
+<p align="center"> Figure 12-14 &nbsp; Divide-and-conquer strategy for solving the Tower of Hanoi </p>
 
 ### 3. &nbsp; Code implementation
 
-In the code, we declare a recursive function `dfs(i, src, buf, tar)` whose role is to move the $i$ discs on top of pillar `src` with the help of buffer pillar `buf` to the target pillar `tar`:
+In the code, we define a recursive function `dfs(i, src, buf, tar)` which moves the top $i$ discs from pillar `src` to pillar `tar`, using pillar `buf` as a buffer:
 
 === "Python"
 
@@ -305,7 +305,7 @@ In the code, we declare a recursive function `dfs(i, src, buf, tar)` whose role 
     [class]{}-[func]{solveHanota}
     ```
 
-As shown in Figure 12-15, the Tower of Hanoi forms a recursive tree with a height of $n$, each node representing a subproblem, corresponding to an open `dfs()` function, **thus the time complexity is $O(2^n)$, and the space complexity is $O(n)$**.
+As shown in Figure 12-15, the Tower of Hanoi problem can be visualized as a recursive tree of height $n$. Each node represents a subproblem, corresponding to a call to `dfs()`, **Hence, the time complexity is $O(2^n)$, and the space complexity is $O(n)$.**
 
 ![Recursive tree of the Tower of Hanoi](hanota_problem.assets/hanota_recursive_tree.png){ class="animation-figure" }
 
@@ -313,6 +313,6 @@ As shown in Figure 12-15, the Tower of Hanoi forms a recursive tree with a heigh
 
 !!! quote
 
-    The Tower of Hanoi originates from an ancient legend. In a temple in ancient India, monks had three tall diamond pillars and $64$ differently sized golden discs. The monks continuously moved the discs, believing that when the last disc is correctly placed, the world would end.
+    The Tower of Hanoi originates from an ancient legend. In a temple in ancient India, monks had three tall diamond pillars and $64$ differently sized golden discs. They believed that when the last disc was correctly placed, the world would end.
 
-    However, even if the monks moved a disc every second, it would take about $2^{64} \approx 1.84×10^{19}$ seconds, approximately 585 billion years, far exceeding current estimates of the age of the universe. Thus, if the legend is true, we probably do not need to worry about the world ending.
+    However, even if the monks moved one disc every second, it would take about $2^{64} \approx 1.84×10^{19}$ —approximately 585 billion years—far exceeding current estimates of the age of the universe. Thus, if the legend is true, we probably do not need to worry about the world ending.
