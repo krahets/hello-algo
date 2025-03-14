@@ -3566,14 +3566,14 @@
 
 <!-- Page content -->
 <h1 id="112-selection-sort">11.2 &nbsp; Selection sort<a class="headerlink" href="#112-selection-sort" title="Permanent link">&para;</a></h1>
-<p><u>Selection sort</u> works on a very simple principle: it starts a loop where each iteration selects the smallest element from the unsorted interval and moves it to the end of the sorted interval.</p>
-<p>Suppose the length of the array is <span class="arithmatex">\(n\)</span>, the algorithm flow of selection sort is as shown in Figure 11-2.</p>
+<p><u>Selection sort</u> works on a very simple principle: it uses a loop where each iteration selects the smallest element from the unsorted interval and moves it to the end of the sorted section.</p>
+<p>Suppose the length of the array is <span class="arithmatex">\(n\)</span>, the steps of selection sort is shown in Figure 11-2.</p>
 <ol>
 <li>Initially, all elements are unsorted, i.e., the unsorted (index) interval is <span class="arithmatex">\([0, n-1]\)</span>.</li>
 <li>Select the smallest element in the interval <span class="arithmatex">\([0, n-1]\)</span> and swap it with the element at index <span class="arithmatex">\(0\)</span>. After this, the first element of the array is sorted.</li>
 <li>Select the smallest element in the interval <span class="arithmatex">\([1, n-1]\)</span> and swap it with the element at index <span class="arithmatex">\(1\)</span>. After this, the first two elements of the array are sorted.</li>
 <li>Continue in this manner. After <span class="arithmatex">\(n - 1\)</span> rounds of selection and swapping, the first <span class="arithmatex">\(n - 1\)</span> elements are sorted.</li>
-<li>The only remaining element is necessarily the largest element and does not need sorting, thus the array is sorted.</li>
+<li>The only remaining element is subsequently the largest element and does not need sorting, thus the array is sorted.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label><label for="__tabbed_1_10">&lt;10&gt;</label><label for="__tabbed_1_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
@@ -3718,7 +3718,7 @@
 </div>
 <h2 id="1121-algorithm-characteristics">11.2.1 &nbsp; Algorithm characteristics<a class="headerlink" href="#1121-algorithm-characteristics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Time complexity of <span class="arithmatex">\(O(n^2)\)</span>, non-adaptive sort</strong>: There are <span class="arithmatex">\(n - 1\)</span> rounds in the outer loop, with the unsorted interval length starting at <span class="arithmatex">\(n\)</span> in the first round and decreasing to <span class="arithmatex">\(2\)</span> in the last round, i.e., the outer loops contain <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(n - 1\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(2\)</span> inner loops respectively, summing up to <span class="arithmatex">\(\frac{(n - 1)(n + 2)}{2}\)</span>.</li>
+<li><strong>Time complexity of <span class="arithmatex">\(O(n^2)\)</span>, non-adaptive sort</strong>: There are <span class="arithmatex">\(n - 1\)</span> iterations in the outer loop, with the length of the unsorted section starting at <span class="arithmatex">\(n\)</span> in the first iteration and decreasing to <span class="arithmatex">\(2\)</span> in the last iteration, i.e., each outer loop iterations contain <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(n - 1\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(2\)</span> inner loop iterations respectively, summing up to <span class="arithmatex">\(\frac{(n - 1)(n + 2)}{2}\)</span>.</li>
 <li><strong>Space complexity of <span class="arithmatex">\(O(1)\)</span>, in-place sort</strong>: Uses constant extra space with pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>.</li>
 <li><strong>Non-stable sort</strong>: As shown in Figure 11-3, an element <code>nums[i]</code> may be swapped to the right of an equal element, causing their relative order to change.</li>
 </ul>

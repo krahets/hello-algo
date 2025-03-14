@@ -3602,8 +3602,8 @@
 
 <!-- Page content -->
 <h1 id="113-bubble-sort">11.3 &nbsp; Bubble sort<a class="headerlink" href="#113-bubble-sort" title="Permanent link">&para;</a></h1>
-<p><u>Bubble sort</u> achieves sorting by continuously comparing and swapping adjacent elements. This process resembles bubbles rising from the bottom to the top, hence the name bubble sort.</p>
-<p>As shown in Figure 11-4, the bubbling process can be simulated using element swap operations: starting from the leftmost end of the array and moving right, sequentially compare the size of adjacent elements. If "left element &gt; right element," then swap them. After the traversal, the largest element will be moved to the far right end of the array.</p>
+<p><u>Bubble sort</u> works by continuously comparing and swapping adjacent elements. This process is like bubbles rising from the bottom to the top, hence the name "bubble sort."</p>
+<p>As shown in Figure 11-4, the bubbling process can be simulated using element swaps: start from the leftmost end of the array and move right, comparing each pair of adjacent elements. If the left element is greater than the right element, swap them. After the traversal, the largest element will have bubbled up to the rightmost end of the array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3632,12 +3632,12 @@
 <p align="center"> Figure 11-4 &nbsp; Simulating bubble process using element swap </p>
 
 <h2 id="1131-algorithm-process">11.3.1 &nbsp; Algorithm process<a class="headerlink" href="#1131-algorithm-process" title="Permanent link">&para;</a></h2>
-<p>Assuming the length of the array is <span class="arithmatex">\(n\)</span>, the steps of bubble sort are shown in Figure 11-5.</p>
+<p>Assume the array has length <span class="arithmatex">\(n\)</span>. The steps of bubble sort are shown in Figure 11-5:</p>
 <ol>
-<li>First, perform a "bubble" on <span class="arithmatex">\(n\)</span> elements, <strong>swapping the largest element to its correct position</strong>.</li>
-<li>Next, perform a "bubble" on the remaining <span class="arithmatex">\(n - 1\)</span> elements, <strong>swapping the second largest element to its correct position</strong>.</li>
-<li>Similarly, after <span class="arithmatex">\(n - 1\)</span> rounds of "bubbling," <strong>the top <span class="arithmatex">\(n - 1\)</span> largest elements will be swapped to their correct positions</strong>.</li>
-<li>The only remaining element is necessarily the smallest and does not require sorting, thus the array sorting is complete.</li>
+<li>First, perform one "bubble" pass on <span class="arithmatex">\(n\)</span> elements, <strong>swapping the largest element to its correct position</strong>.</li>
+<li>Next, perform a "bubble" pass on the remaining <span class="arithmatex">\(n - 1\)</span> elements, <strong>swapping the second largest element to its correct position</strong>.</li>
+<li>Continue in this manner; after <span class="arithmatex">\(n - 1\)</span> such passes, <strong>the largest <span class="arithmatex">\(n - 1\)</span> elements will have been moved to their correct positions</strong>.</li>
+<li>The only remaining element <strong>must</strong> be the smallest, so <strong>no</strong> further sorting is required. At this point, the array is sorted.</li>
 </ol>
 <p><a class="glightbox" href="../bubble_sort.assets/bubble_sort_overview.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Bubble sort process" class="animation-figure" src="../bubble_sort.assets/bubble_sort_overview.png" /></a></p>
 <p align="center"> Figure 11-5 &nbsp; Bubble sort process </p>
@@ -3740,8 +3740,8 @@
 </div>
 </div>
 <h2 id="1132-efficiency-optimization">11.3.2 &nbsp; Efficiency optimization<a class="headerlink" href="#1132-efficiency-optimization" title="Permanent link">&para;</a></h2>
-<p>We find that if no swaps are performed in a round of "bubbling," the array is already sorted, and we can return the result immediately. Thus, we can add a flag <code>flag</code> to monitor this situation and return immediately when it occurs.</p>
-<p>Even after optimization, the worst-case time complexity and average time complexity of bubble sort remain at <span class="arithmatex">\(O(n^2)\)</span>; however, when the input array is completely ordered, it can achieve the best time complexity of <span class="arithmatex">\(O(n)\)</span>.</p>
+<p>If no swaps occur during a round of "bubbling," the array is already sorted, so we can return immediately. To detect this, we can add a <code>flag</code> variable; whenever no swaps are made in a pass, we set the flag and return early.</p>
+<p>Even with this optimization, the worst time complexity and average time complexity of bubble sort remains <span class="arithmatex">\(O(n^2)\)</span>. However, if the input array is already sorted, the best-case time complexity can be as low as <span class="arithmatex">\(O(n)\)</span>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:14"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><input id="__tabbed_3_13" name="__tabbed_3" type="radio" /><input id="__tabbed_3_14" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label><label for="__tabbed_3_14">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3852,9 +3852,9 @@
 </div>
 <h2 id="1133-algorithm-characteristics">11.3.3 &nbsp; Algorithm characteristics<a class="headerlink" href="#1133-algorithm-characteristics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Time complexity of <span class="arithmatex">\(O(n^2)\)</span>, adaptive sorting</strong>: The length of the array traversed in each round of "bubbling" decreases sequentially from <span class="arithmatex">\(n - 1\)</span>, <span class="arithmatex">\(n - 2\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(1\)</span>, totaling <span class="arithmatex">\((n - 1) n / 2\)</span>. With the introduction of <code>flag</code> optimization, the best time complexity can reach <span class="arithmatex">\(O(n)\)</span>.</li>
-<li><strong>Space complexity of <span class="arithmatex">\(O(1)\)</span>, in-place sorting</strong>: Only a constant amount of extra space is used by pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>.</li>
-<li><strong>Stable sorting</strong>: As equal elements are not swapped during the "bubbling".</li>
+<li><strong>Time complexity of <span class="arithmatex">\(O(n^2)\)</span>, adaptive sorting.</strong> Each round of "bubbling" traverses array segments of length <span class="arithmatex">\(n - 1\)</span>, <span class="arithmatex">\(n - 2\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(1\)</span>, which sums to <span class="arithmatex">\((n - 1) n / 2\)</span>. With a <code>flag</code> optimization, the best-case time complexity can reach <span class="arithmatex">\(O(n)\)</span> when the array is already sorted.</li>
+<li><strong>Space complexity of <span class="arithmatex">\(O(1)\)</span>, in-place sorting.</strong> Only a constant amount of extra space is used by pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>.</li>
+<li><strong>Stable sorting.</strong> Because equal elements are not swapped during "bubbling," their original order is preserved, making this a stable sort.</li>
 </ul>
 
 <!-- Source file information -->

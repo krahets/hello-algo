@@ -2684,9 +2684,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-consider-the-base-case" class="md-nav__link">
+  <a href="#1-consider-the-base-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      1. &nbsp; Consider the base case
+      1. &nbsp; Consider the base cases
     </span>
   </a>
   
@@ -3539,9 +3539,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-consider-the-base-case" class="md-nav__link">
+  <a href="#1-consider-the-base-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      1. &nbsp; Consider the base case
+      1. &nbsp; Consider the base cases
     </span>
   </a>
   
@@ -3602,12 +3602,12 @@
 
 <!-- Page content -->
 <h1 id="124-tower-of-hanoi-problem">12.4 &nbsp; Tower of Hanoi Problem<a class="headerlink" href="#124-tower-of-hanoi-problem" title="Permanent link">&para;</a></h1>
-<p>In both merge sorting and building binary trees, we decompose the original problem into two subproblems, each half the size of the original problem. However, for the Tower of Hanoi, we adopt a different decomposition strategy.</p>
+<p>In both merge sort and binary tree construction, we break the original problem into two subproblems, each half the size of the original problem. However, for the Tower of Hanoi, we adopt a different decomposition strategy.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given three pillars, denoted as <code>A</code>, <code>B</code>, and <code>C</code>. Initially, pillar <code>A</code> is stacked with <span class="arithmatex">\(n\)</span> discs, arranged in order from top to bottom from smallest to largest. Our task is to move these <span class="arithmatex">\(n\)</span> discs to pillar <code>C</code>, maintaining their original order (as shown in Figure 12-10). The following rules must be followed during the disc movement process:</p>
+<p>We are given three pillars, denoted as <code>A</code>, <code>B</code>, and <code>C</code>. Initially, pillar <code>A</code> has <span class="arithmatex">\(n\)</span> discs, arranged from top to bottom in ascending size. Our task is to move these <span class="arithmatex">\(n\)</span> discs to pillar <code>C</code>, maintaining their original order (as shown in Figure 12-10). The following rules apply during the movement:</p>
 <ol>
-<li>A disc can only be picked up from the top of a pillar and placed on top of another pillar.</li>
+<li>A disc can be removed only from the top of a pillar and must be placed on the top of another pillar.</li>
 <li>Only one disc can be moved at a time.</li>
 <li>A smaller disc must always be on top of a larger disc.</li>
 </ol>
@@ -3615,9 +3615,9 @@
 <p><a class="glightbox" href="../hanota_problem.assets/hanota_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Example of the Tower of Hanoi" class="animation-figure" src="../hanota_problem.assets/hanota_example.png" /></a></p>
 <p align="center"> Figure 12-10 &nbsp; Example of the Tower of Hanoi </p>
 
-<p><strong>We denote the Tower of Hanoi of size <span class="arithmatex">\(i\)</span> as <span class="arithmatex">\(f(i)\)</span></strong>. For example, <span class="arithmatex">\(f(3)\)</span> represents the Tower of Hanoi of moving <span class="arithmatex">\(3\)</span> discs from <code>A</code> to <code>C</code>.</p>
-<h3 id="1-consider-the-base-case">1. &nbsp; Consider the base case<a class="headerlink" href="#1-consider-the-base-case" title="Permanent link">&para;</a></h3>
-<p>As shown in Figure 12-11, for the problem <span class="arithmatex">\(f(1)\)</span>, i.e., when there is only one disc, we can directly move it from <code>A</code> to <code>C</code>.</p>
+<p><strong>We denote the Tower of Hanoi problem of size <span class="arithmatex">\(i\)</span> as <span class="arithmatex">\(f(i)\)</span></strong>. For example, <span class="arithmatex">\(f(3)\)</span> represents moving <span class="arithmatex">\(3\)</span> discs from pillar <code>A</code> to pillar <code>C</code>.</p>
+<h3 id="1-consider-the-base-cases">1. &nbsp; Consider the base cases<a class="headerlink" href="#1-consider-the-base-cases" title="Permanent link">&para;</a></h3>
+<p>As shown in Figure 12-11, for the problem <span class="arithmatex">\(f(1)\)</span>—which has only one disc—we can directly move it from <code>A</code> to <code>C</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3630,7 +3630,7 @@
 </div>
 <p align="center"> Figure 12-11 &nbsp; Solution for a problem of size 1 </p>
 
-<p>As shown in Figure 12-12, for the problem <span class="arithmatex">\(f(2)\)</span>, i.e., when there are two discs, <strong>since the smaller disc must always be above the larger disc, <code>B</code> is needed to assist in the movement</strong>.</p>
+<p>For <span class="arithmatex">\(f(2)\)</span>—which has two discs—<strong>we rely on pillar <code>B</code> to help keep the smaller disc above the larger disc</strong>, as illustrated in the following figure:</p>
 <ol>
 <li>First, move the smaller disc from <code>A</code> to <code>B</code>.</li>
 <li>Then move the larger disc from <code>A</code> to <code>C</code>.</li>
@@ -3654,14 +3654,14 @@
 </div>
 <p align="center"> Figure 12-12 &nbsp; Solution for a problem of size 2 </p>
 
-<p>The process of solving the problem <span class="arithmatex">\(f(2)\)</span> can be summarized as: <strong>moving two discs from <code>A</code> to <code>C</code> with the help of <code>B</code></strong>. Here, <code>C</code> is called the target pillar, and <code>B</code> is called the buffer pillar.</p>
+<p>The process of solving <span class="arithmatex">\(f(2)\)</span> can be summarized as: <strong>moving two discs from <code>A</code> to <code>C</code> with the help of <code>B</code></strong>. Here, <code>C</code> is called the target pillar, and <code>B</code> is called the buffer pillar.</p>
 <h3 id="2-decomposition-of-subproblems">2. &nbsp; Decomposition of subproblems<a class="headerlink" href="#2-decomposition-of-subproblems" title="Permanent link">&para;</a></h3>
-<p>For the problem <span class="arithmatex">\(f(3)\)</span>, i.e., when there are three discs, the situation becomes slightly more complicated.</p>
-<p>Since we already know the solutions to <span class="arithmatex">\(f(1)\)</span> and <span class="arithmatex">\(f(2)\)</span>, we can think from a divide-and-conquer perspective and <strong>consider the two top discs on <code>A</code> as a unit</strong>, performing the steps shown in Figure 12-13. This way, the three discs are successfully moved from <code>A</code> to <code>C</code>.</p>
+<p>For the problem <span class="arithmatex">\(f(3)\)</span>—that is, when there are three discs—the situation becomes slightly more complicated.</p>
+<p>Since we already know the solutions to <span class="arithmatex">\(f(1)\)</span> and <span class="arithmatex">\(f(2)\)</span>, we can adopt a divide-and-conquer perspective and <strong>treat the top two discs on <code>A</code> as a single unit</strong>, performing the steps shown in Figure 12-13. This allows the three discs to be successfully moved from <code>A</code> to <code>C</code>.</p>
 <ol>
-<li>Let <code>B</code> be the target pillar and <code>C</code> the buffer pillar, and move the two discs from <code>A</code> to <code>B</code>.</li>
+<li>Let <code>B</code> be the target pillar and <code>C</code> the buffer pillar, then move the two discs from <code>A</code> to <code>B</code>.</li>
 <li>Move the remaining disc from <code>A</code> directly to <code>C</code>.</li>
-<li>Let <code>C</code> be the target pillar and <code>A</code> the buffer pillar, and move the two discs from <code>B</code> to <code>C</code>.</li>
+<li>Let <code>C</code> be the target pillar and <code>A</code> the buffer pillar, then move the two discs from <code>B</code> to <code>C</code>.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
@@ -3681,19 +3681,19 @@
 </div>
 <p align="center"> Figure 12-13 &nbsp; Solution for a problem of size 3 </p>
 
-<p>Essentially, <strong>we divide the problem <span class="arithmatex">\(f(3)\)</span> into two subproblems <span class="arithmatex">\(f(2)\)</span> and one subproblem <span class="arithmatex">\(f(1)\)</span></strong>. By solving these three subproblems in order, the original problem is resolved. This indicates that the subproblems are independent, and their solutions can be merged.</p>
-<p>From this, we can summarize the divide-and-conquer strategy for solving the Tower of Hanoi shown in Figure 12-14: divide the original problem <span class="arithmatex">\(f(n)\)</span> into two subproblems <span class="arithmatex">\(f(n-1)\)</span> and one subproblem <span class="arithmatex">\(f(1)\)</span>, and solve these three subproblems in the following order.</p>
+<p>Essentially, <strong>we decompose <span class="arithmatex">\(f(3)\)</span> into two <span class="arithmatex">\(f(2)\)</span> subproblems and one <span class="arithmatex">\(f(1)\)</span> subproblem</strong>. By solving these three subproblems in sequence, the original problem is solved, indicating that the subproblems are independent and their solutions can be merged.</p>
+<p>From this, we can summarize the divide-and-conquer strategy for the Tower of Hanoi, illustrated in Figure 12-14. We divide the original problem <span class="arithmatex">\(f(n)\)</span> into two subproblems <span class="arithmatex">\(f(n-1)\)</span> and one subproblem <span class="arithmatex">\(f(1)\)</span>, and solve these three subproblems in the following order:</p>
 <ol>
-<li>Move <span class="arithmatex">\(n-1\)</span> discs with the help of <code>C</code> from <code>A</code> to <code>B</code>.</li>
-<li>Move the remaining one disc directly from <code>A</code> to <code>C</code>.</li>
-<li>Move <span class="arithmatex">\(n-1\)</span> discs with the help of <code>A</code> from <code>B</code> to <code>C</code>.</li>
+<li>Move <span class="arithmatex">\(n-1\)</span> discs from <code>A</code> to <code>B</code>, using <code>C</code> as a buffer. </li>
+<li>Move the remaining disc directly from <code>A</code> to <code>C</code>.</li>
+<li>Move <span class="arithmatex">\(n-1\)</span> discs from <code>B</code> to <code>C</code>, using <code>A</code> as a buffer. </li>
 </ol>
-<p>For these two subproblems <span class="arithmatex">\(f(n-1)\)</span>, <strong>they can be recursively divided in the same manner</strong> until the smallest subproblem <span class="arithmatex">\(f(1)\)</span> is reached. The solution to <span class="arithmatex">\(f(1)\)</span> is already known and requires only one move.</p>
-<p><a class="glightbox" href="../hanota_problem.assets/hanota_divide_and_conquer.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Divide and conquer strategy for solving the Tower of Hanoi" class="animation-figure" src="../hanota_problem.assets/hanota_divide_and_conquer.png" /></a></p>
-<p align="center"> Figure 12-14 &nbsp; Divide and conquer strategy for solving the Tower of Hanoi </p>
+<p>For each <span class="arithmatex">\(f(n-1)\)</span> subproblem, <strong>we can apply the same recursive partition</strong> until we reach the smallest subproblem <span class="arithmatex">\(f(1)\)</span>. Because <span class="arithmatex">\(f(1)\)</span> is already known to require just a single move, it is trivial to solve.</p>
+<p><a class="glightbox" href="../hanota_problem.assets/hanota_divide_and_conquer.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Divide-and-conquer strategy for solving the Tower of Hanoi" class="animation-figure" src="../hanota_problem.assets/hanota_divide_and_conquer.png" /></a></p>
+<p align="center"> Figure 12-14 &nbsp; Divide-and-conquer strategy for solving the Tower of Hanoi </p>
 
 <h3 id="3-code-implementation">3. &nbsp; Code implementation<a class="headerlink" href="#3-code-implementation" title="Permanent link">&para;</a></h3>
-<p>In the code, we declare a recursive function <code>dfs(i, src, buf, tar)</code> whose role is to move the <span class="arithmatex">\(i\)</span> discs on top of pillar <code>src</code> with the help of buffer pillar <code>buf</code> to the target pillar <code>tar</code>:</p>
+<p>In the code, we define a recursive function <code>dfs(i, src, buf, tar)</code> which moves the top <span class="arithmatex">\(i\)</span> discs from pillar <code>src</code> to pillar <code>tar</code>, using pillar <code>buf</code> as a buffer:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:14"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><input id="__tabbed_4_13" name="__tabbed_4" type="radio" /><input id="__tabbed_4_14" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Kotlin</label><label for="__tabbed_4_13">Ruby</label><label for="__tabbed_4_14">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3879,14 +3879,14 @@
 </div>
 </div>
 </div>
-<p>As shown in Figure 12-15, the Tower of Hanoi forms a recursive tree with a height of <span class="arithmatex">\(n\)</span>, each node representing a subproblem, corresponding to an open <code>dfs()</code> function, <strong>thus the time complexity is <span class="arithmatex">\(O(2^n)\)</span>, and the space complexity is <span class="arithmatex">\(O(n)\)</span></strong>.</p>
+<p>As shown in Figure 12-15, the Tower of Hanoi problem can be visualized as a recursive tree of height <span class="arithmatex">\(n\)</span>. Each node represents a subproblem, corresponding to a call to <code>dfs()</code>, <strong>Hence, the time complexity is <span class="arithmatex">\(O(2^n)\)</span>, and the space complexity is <span class="arithmatex">\(O(n)\)</span>.</strong></p>
 <p><a class="glightbox" href="../hanota_problem.assets/hanota_recursive_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Recursive tree of the Tower of Hanoi" class="animation-figure" src="../hanota_problem.assets/hanota_recursive_tree.png" /></a></p>
 <p align="center"> Figure 12-15 &nbsp; Recursive tree of the Tower of Hanoi </p>
 
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
-<p>The Tower of Hanoi originates from an ancient legend. In a temple in ancient India, monks had three tall diamond pillars and <span class="arithmatex">\(64\)</span> differently sized golden discs. The monks continuously moved the discs, believing that when the last disc is correctly placed, the world would end.</p>
-<p>However, even if the monks moved a disc every second, it would take about <span class="arithmatex">\(2^{64} \approx 1.84×10^{19}\)</span> seconds, approximately 585 billion years, far exceeding current estimates of the age of the universe. Thus, if the legend is true, we probably do not need to worry about the world ending.</p>
+<p>The Tower of Hanoi originates from an ancient legend. In a temple in ancient India, monks had three tall diamond pillars and <span class="arithmatex">\(64\)</span> differently sized golden discs. They believed that when the last disc was correctly placed, the world would end.</p>
+<p>However, even if the monks moved one disc every second, it would take about <span class="arithmatex">\(2^{64} \approx 1.84×10^{19}\)</span> —approximately 585 billion years—far exceeding current estimates of the age of the universe. Thus, if the legend is true, we probably do not need to worry about the world ending.</p>
 </div>
 
 <!-- Source file information -->

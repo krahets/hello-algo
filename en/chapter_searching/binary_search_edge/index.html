@@ -2169,18 +2169,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-reusing-the-search-for-the-left-boundary" class="md-nav__link">
+  <a href="#1-reuse-the-left-boundary-search" class="md-nav__link">
     <span class="md-ellipsis">
-      1. &nbsp; Reusing the search for the left boundary
+      1. &nbsp; Reuse the left boundary search
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-transforming-into-an-element-search" class="md-nav__link">
+  <a href="#2-transform-into-an-element-search" class="md-nav__link">
     <span class="md-ellipsis">
-      2. &nbsp; Transforming into an element search
+      2. &nbsp; Transform into an element search
     </span>
   </a>
   
@@ -3573,18 +3573,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-reusing-the-search-for-the-left-boundary" class="md-nav__link">
+  <a href="#1-reuse-the-left-boundary-search" class="md-nav__link">
     <span class="md-ellipsis">
-      1. &nbsp; Reusing the search for the left boundary
+      1. &nbsp; Reuse the left boundary search
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-transforming-into-an-element-search" class="md-nav__link">
+  <a href="#2-transform-into-an-element-search" class="md-nav__link">
     <span class="md-ellipsis">
-      2. &nbsp; Transforming into an element search
+      2. &nbsp; Transform into an element search
     </span>
   </a>
   
@@ -3637,8 +3637,8 @@
 <p class="admonition-title">Question</p>
 <p>Given a sorted array <code>nums</code> of length <span class="arithmatex">\(n\)</span>, which may contain duplicate elements, return the index of the leftmost element <code>target</code>. If the element is not present in the array, return <span class="arithmatex">\(-1\)</span>.</p>
 </div>
-<p>Recall the method of binary search for an insertion point, after the search is completed, <span class="arithmatex">\(i\)</span> points to the leftmost <code>target</code>, <strong>thus searching for the insertion point is essentially searching for the index of the leftmost <code>target</code></strong>.</p>
-<p>Consider implementing the search for the left boundary using the function for finding an insertion point. Note that the array might not contain <code>target</code>, which could lead to the following two results:</p>
+<p>Recalling the method of binary search for an insertion point, after the search is completed, the index <span class="arithmatex">\(i\)</span> will point to the leftmost occurrence of <code>target</code>. Therefore, <strong>searching for the insertion point is essentially the same as finding the index of the leftmost <code>target</code></strong>.</p>
+<p>We can use the function for finding an insertion point to find the left boundary of <code>target</code>. Note that the array might not contain <code>target</code>, which could lead to the following two results:</p>
 <ul>
 <li>The index <span class="arithmatex">\(i\)</span> of the insertion point is out of bounds.</li>
 <li>The element <code>nums[i]</code> is not equal to <code>target</code>.</li>
@@ -3733,15 +3733,15 @@
 </div>
 </div>
 <h2 id="1032-find-the-right-boundary">10.3.2 &nbsp; Find the right boundary<a class="headerlink" href="#1032-find-the-right-boundary" title="Permanent link">&para;</a></h2>
-<p>So how do we find the rightmost <code>target</code>? The most straightforward way is to modify the code, replacing the pointer contraction operation in the case of <code>nums[m] == target</code>. The code is omitted here, but interested readers can implement it on their own.</p>
-<p>Below we introduce two more cunning methods.</p>
-<h3 id="1-reusing-the-search-for-the-left-boundary">1. &nbsp; Reusing the search for the left boundary<a class="headerlink" href="#1-reusing-the-search-for-the-left-boundary" title="Permanent link">&para;</a></h3>
-<p>In fact, we can use the function for finding the leftmost element to find the rightmost element, specifically by <strong>transforming the search for the rightmost <code>target</code> into a search for the leftmost <code>target + 1</code></strong>.</p>
-<p>As shown in Figure 10-7, after the search is completed, the pointer <span class="arithmatex">\(i\)</span> points to the leftmost <code>target + 1</code> (if it exists), while <span class="arithmatex">\(j\)</span> points to the rightmost <code>target</code>, <strong>thus returning <span class="arithmatex">\(j\)</span> is sufficient</strong>.</p>
+<p>How do we find the rightmost occurrence of <code>target</code>? The most straightforward way is to modify the traditional binary search logic by changing how we adjust the search boundaries in the case of <code>nums[m] == target</code>. The code is omitted here. If you are interested, try to implement the code on your own.</p>
+<p>Below we are going to introduce two more ingenious methods.</p>
+<h3 id="1-reuse-the-left-boundary-search">1. &nbsp; Reuse the left boundary search<a class="headerlink" href="#1-reuse-the-left-boundary-search" title="Permanent link">&para;</a></h3>
+<p>To find the rightmost occurrence of <code>target</code>, we can reuse the function used for locating the leftmost <code>target</code>. Specifically, we transform the search for the rightmost target into a search for the leftmost target + 1.</p>
+<p>As shown in Figure 10-7, after the search is complete, pointer <span class="arithmatex">\(i\)</span> will point to the leftmost <code>target + 1</code> (if exists), while pointer <span class="arithmatex">\(j\)</span> will point to the rightmost occurrence of <code>target</code>. Therefore, returning <span class="arithmatex">\(j\)</span> will give us the right boundary.</p>
 <p><a class="glightbox" href="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Transforming the search for the right boundary into the search for the left boundary" class="animation-figure" src="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" /></a></p>
 <p align="center"> Figure 10-7 &nbsp; Transforming the search for the right boundary into the search for the left boundary </p>
 
-<p>Please note, the insertion point returned is <span class="arithmatex">\(i\)</span>, therefore, it should be subtracted by <span class="arithmatex">\(1\)</span> to obtain <span class="arithmatex">\(j\)</span>:</p>
+<p>Note that the insertion point returned is <span class="arithmatex">\(i\)</span>, therefore, it should be subtracted by <span class="arithmatex">\(1\)</span> to obtain <span class="arithmatex">\(j\)</span>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:14"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><input id="__tabbed_2_14" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label><label for="__tabbed_2_14">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3836,8 +3836,8 @@
 </div>
 </div>
 </div>
-<h3 id="2-transforming-into-an-element-search">2. &nbsp; Transforming into an element search<a class="headerlink" href="#2-transforming-into-an-element-search" title="Permanent link">&para;</a></h3>
-<p>We know that when the array does not contain <code>target</code>, <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> will eventually point to the first element greater and smaller than <code>target</code> respectively.</p>
+<h3 id="2-transform-into-an-element-search">2. &nbsp; Transform into an element search<a class="headerlink" href="#2-transform-into-an-element-search" title="Permanent link">&para;</a></h3>
+<p>When the array does not contain <code>target</code>, <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> will eventually point to the first element greater and smaller than <code>target</code> respectively.</p>
 <p>Thus, as shown in Figure 10-8, we can construct an element that does not exist in the array, to search for the left and right boundaries.</p>
 <ul>
 <li>To find the leftmost <code>target</code>: it can be transformed into searching for <code>target - 0.5</code>, and return the pointer <span class="arithmatex">\(i\)</span>.</li>
@@ -3846,10 +3846,10 @@
 <p><a class="glightbox" href="../binary_search_edge.assets/binary_search_edge_by_element.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Transforming the search for boundaries into the search for an element" class="animation-figure" src="../binary_search_edge.assets/binary_search_edge_by_element.png" /></a></p>
 <p align="center"> Figure 10-8 &nbsp; Transforming the search for boundaries into the search for an element </p>
 
-<p>The code is omitted here, but two points are worth noting.</p>
+<p>The code is omitted here, but here are two important points to note about this approach.</p>
 <ul>
-<li>The given array does not contain decimals, meaning we do not need to worry about how to handle equal situations.</li>
-<li>Since this method introduces decimals, the variable <code>target</code> in the function needs to be changed to a floating point type (no change needed in Python).</li>
+<li>The given array <code>nums</code> does not contain decimal, so handling equal cases is not a concern.</li>
+<li>However, introducing decimals in this approach requires modifying the <code>target</code> variable to a floating-point type (no change needed in Python).</li>
 </ul>
 
 <!-- Source file information -->

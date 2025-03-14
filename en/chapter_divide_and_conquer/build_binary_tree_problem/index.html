@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#123-building-binary-tree-problem" class="md-skip">
+        <a href="#123-building-a-binary-tree-problem" class="md-skip">
           Skip to content
         </a>
       
@@ -2665,7 +2665,7 @@
         <li class="md-nav__item">
   <a href="#1-determining-if-it-is-a-divide-and-conquer-problem" class="md-nav__link">
     <span class="md-ellipsis">
-      1. &nbsp; Determining if it is a divide and conquer problem
+      1. &nbsp; Determining if it is a divide-and-conquer problem
     </span>
   </a>
   
@@ -2681,9 +2681,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-describing-subtree-intervals-based-on-variables" class="md-nav__link">
+  <a href="#3-describing-subtree-ranges-based-on-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      3. &nbsp; Describing subtree intervals based on variables
+      3. &nbsp; Describing subtree ranges based on variables
     </span>
   </a>
   
@@ -3550,7 +3550,7 @@
         <li class="md-nav__item">
   <a href="#1-determining-if-it-is-a-divide-and-conquer-problem" class="md-nav__link">
     <span class="md-ellipsis">
-      1. &nbsp; Determining if it is a divide and conquer problem
+      1. &nbsp; Determining if it is a divide-and-conquer problem
     </span>
   </a>
   
@@ -3566,9 +3566,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-describing-subtree-intervals-based-on-variables" class="md-nav__link">
+  <a href="#3-describing-subtree-ranges-based-on-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      3. &nbsp; Describing subtree intervals based on variables
+      3. &nbsp; Describing subtree ranges based on variables
     </span>
   </a>
   
@@ -3619,45 +3619,45 @@
 
 
 <!-- Page content -->
-<h1 id="123-building-binary-tree-problem">12.3 &nbsp; Building binary tree problem<a class="headerlink" href="#123-building-binary-tree-problem" title="Permanent link">&para;</a></h1>
+<h1 id="123-building-a-binary-tree-problem">12.3 &nbsp; Building a binary tree problem<a class="headerlink" href="#123-building-a-binary-tree-problem" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given the pre-order traversal <code>preorder</code> and in-order traversal <code>inorder</code> of a binary tree, construct the binary tree and return the root node of the binary tree. Assume that there are no duplicate values in the nodes of the binary tree (as shown in Figure 12-5).</p>
+<p>Given the pre-order traversal <code>preorder</code> sequence and the in-order traversal <code>inorder</code> sequence of a binary tree, construct the binary tree and return its root node. Assume there are no duplicate node values in the binary tree (as shown in Figure 12-5).</p>
 </div>
 <p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Example data for building a binary tree" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_example.png" /></a></p>
 <p align="center"> Figure 12-5 &nbsp; Example data for building a binary tree </p>
 
-<h3 id="1-determining-if-it-is-a-divide-and-conquer-problem">1. &nbsp; Determining if it is a divide and conquer problem<a class="headerlink" href="#1-determining-if-it-is-a-divide-and-conquer-problem" title="Permanent link">&para;</a></h3>
-<p>The original problem of constructing a binary tree from <code>preorder</code> and <code>inorder</code> is a typical divide and conquer problem.</p>
+<h3 id="1-determining-if-it-is-a-divide-and-conquer-problem">1. &nbsp; Determining if it is a divide-and-conquer problem<a class="headerlink" href="#1-determining-if-it-is-a-divide-and-conquer-problem" title="Permanent link">&para;</a></h3>
+<p>The original problem of building a binary tree from the <code>preorder</code> and the <code>inorder</code> sequences is a typical divide-and-conquer problem.</p>
 <ul>
-<li><strong>The problem can be decomposed</strong>: From the perspective of divide and conquer, we can divide the original problem into two subproblems: building the left subtree and building the right subtree, plus one operation: initializing the root node. For each subtree (subproblem), we can still use the above division method, dividing it into smaller subtrees (subproblems), until the smallest subproblem (empty subtree) is reached.</li>
-<li><strong>The subproblems are independent</strong>: The left and right subtrees are independent of each other, with no overlap. When building the left subtree, we only need to focus on the parts of the in-order and pre-order traversals that correspond to the left subtree. The same applies to the right subtree.</li>
-<li><strong>Solutions to subproblems can be combined</strong>: Once the solutions for the left and right subtrees (solutions to subproblems) are obtained, we can link them to the root node to obtain the solution to the original problem.</li>
+<li><strong>The problem can be decomposed</strong>: From the perspective of divide-and-conquer, we can divide the original problem into two subproblems—building the left subtree and building the right subtree—plus one operation of initializing the root node. For each subtree (subproblem), we continue applying the same approach, partitioning it into smaller subtrees (subproblems), until reaching the smallest subproblem (an empty subtree).</li>
+<li><strong>The subproblems are independent</strong>: The left and right subtrees do not overlap. When building the left subtree, we only need the segments of the in-order and pre-order traversals that correspond to the left subtree. The same approach applies to the right subtree.</li>
+<li><strong>Solutions to subproblems can be combined</strong>: Once we have constructed the left and right subtrees (the subproblem solutions), we can attach them to the root node to obtain the solution to the original problem.</li>
 </ul>
 <h3 id="2-how-to-divide-the-subtrees">2. &nbsp; How to divide the subtrees<a class="headerlink" href="#2-how-to-divide-the-subtrees" title="Permanent link">&para;</a></h3>
-<p>Based on the above analysis, this problem can be solved using divide and conquer, <strong>but how do we use the pre-order traversal <code>preorder</code> and in-order traversal <code>inorder</code> to divide the left and right subtrees?</strong></p>
-<p>By definition, <code>preorder</code> and <code>inorder</code> can be divided into three parts.</p>
+<p>Based on the above analysis, this problem can be solved using divide-and-conquer. <strong>However, how do we use the pre-order traversal <code>preorder</code> sequence and the in-order traversal <code>inorder</code> sequence to divide the left and right subtrees?</strong></p>
+<p>By definition, both the <code>preorder</code> and <code>inorder</code> sequences can be divided into three parts:</p>
 <ul>
-<li>Pre-order traversal: <code>[ Root | Left Subtree | Right Subtree ]</code>, for example, the tree in the figure corresponds to <code>[ 3 | 9 | 2 1 7 ]</code>.</li>
-<li>In-order traversal: <code>[ Left Subtree | Root | Right Subtree ]</code>, for example, the tree in the figure corresponds to <code>[ 9 | 3 | 1 2 7 ]</code>.</li>
+<li>Pre-order traversal: <code>[ Root | Left Subtree | Right Subtree ]</code>. For example, in the figure, the tree corresponds to <code>[ 3 | 9 | 2 1 7 ]</code>.</li>
+<li>In-order traversal: <code>[ Left Subtree | Root | Right Subtree ]</code>. For example, in the figure, the tree corresponds to <code>[ 9 | 3 | 1 2 7 ]</code>.</li>
 </ul>
-<p>Using the data in the figure above, we can obtain the division results as shown in Figure 12-6.</p>
+<p>Using the data from the preceding figure, we can follow the steps shown in the next figure to obtain the division results:</p>
 <ol>
 <li>The first element 3 in the pre-order traversal is the value of the root node.</li>
-<li>Find the index of the root node 3 in <code>inorder</code>, and use this index to divide <code>inorder</code> into <code>[ 9 | 3 ｜ 1 2 7 ]</code>.</li>
-<li>Based on the division results of <code>inorder</code>, it is easy to determine the number of nodes in the left and right subtrees as 1 and 3, respectively, thus dividing <code>preorder</code> into <code>[ 3 | 9 | 2 1 7 ]</code>.</li>
+<li>Find the index of the root node 3 in the <code>inorder</code> sequence, and use this index to split <code>inorder</code> into <code>[ 9 | 3 ｜ 1 2 7 ]</code>.</li>
+<li>According to the split of the <code>inorder</code> sequence, it is straightforward to determine that the left and right subtrees contain 1 and 3 nodes, respectively, so we can split the <code>preorder</code> sequence into <code>[ 3 | 9 | 2 1 7 ]</code> accordingly.</li>
 </ol>
-<p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dividing the subtrees in pre-order and in-order traversals" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" /></a></p>
+<p><a class="glightbox" href="build_binary_tree_problem.assets/build_tree_pre-order_in-order_division.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dividing the subtrees in pre-order and in-order traversals" class="animation-figure" src="build_binary_tree_problem.assets/build_tree_pre-order_in-order_division.png" /></a></p>
 <p align="center"> Figure 12-6 &nbsp; Dividing the subtrees in pre-order and in-order traversals </p>
 
-<h3 id="3-describing-subtree-intervals-based-on-variables">3. &nbsp; Describing subtree intervals based on variables<a class="headerlink" href="#3-describing-subtree-intervals-based-on-variables" title="Permanent link">&para;</a></h3>
-<p>Based on the above division method, <strong>we have now obtained the index intervals of the root, left subtree, and right subtree in <code>preorder</code> and <code>inorder</code></strong>. To describe these index intervals, we need the help of several pointer variables.</p>
+<h3 id="3-describing-subtree-ranges-based-on-variables">3. &nbsp; Describing subtree ranges based on variables<a class="headerlink" href="#3-describing-subtree-ranges-based-on-variables" title="Permanent link">&para;</a></h3>
+<p>Based on the above division method, <strong>we have now obtained the index ranges of the root, left subtree, and right subtree in the <code>preorder</code> and <code>inorder</code> sequences</strong>. To describe these index ranges, we use several pointer variables.</p>
 <ul>
-<li>Let the index of the current tree's root node in <code>preorder</code> be denoted as <span class="arithmatex">\(i\)</span>.</li>
-<li>Let the index of the current tree's root node in <code>inorder</code> be denoted as <span class="arithmatex">\(m\)</span>.</li>
-<li>Let the index interval of the current tree in <code>inorder</code> be denoted as <span class="arithmatex">\([l, r]\)</span>.</li>
+<li>Let the index of the current tree's root node in the <code>preorder</code> sequence be denoted as <span class="arithmatex">\(i\)</span>.</li>
+<li>Let the index of the current tree's root node in the <code>inorder</code> sequence be denoted as <span class="arithmatex">\(m\)</span>.</li>
+<li>Let the index range of the current tree in the <code>inorder</code> sequence be denoted as <span class="arithmatex">\([l, r]\)</span>.</li>
 </ul>
-<p>As shown in Table 12-1, the above variables can represent the index of the root node in <code>preorder</code> as well as the index intervals of the subtrees in <code>inorder</code>.</p>
+<p>As shown in Table 12-1, these variables represent the root node’s index in the <code>preorder</code> sequence and the index ranges of the subtrees in the <code>inorder</code> sequence.</p>
 <p align="center"> Table 12-1 &nbsp; Indexes of the root node and subtrees in pre-order and in-order traversals </p>
 
 <div class="center-table">
@@ -3666,7 +3666,7 @@
 <tr>
 <th></th>
 <th>Root node index in <code>preorder</code></th>
-<th>Subtree index interval in <code>inorder</code></th>
+<th>Subtree index range in <code>inorder</code></th>
 </tr>
 </thead>
 <tbody>
@@ -3688,12 +3688,12 @@
 </tbody>
 </table>
 </div>
-<p>Please note, the meaning of <span class="arithmatex">\((m-l)\)</span> in the right subtree root index is "the number of nodes in the left subtree", which is suggested to be understood in conjunction with Figure 12-7.</p>
+<p>Please note that <span class="arithmatex">\((m-l)\)</span> in the right subtree root index represents "the number of nodes in the left subtree." It may help to consult Figure 12-7 for a clearer understanding.</p>
 <p><a class="glightbox" href="../build_binary_tree_problem.assets/build_tree_division_pointers.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Indexes of the root node and left and right subtrees" class="animation-figure" src="../build_binary_tree_problem.assets/build_tree_division_pointers.png" /></a></p>
 <p align="center"> Figure 12-7 &nbsp; Indexes of the root node and left and right subtrees </p>
 
 <h3 id="4-code-implementation">4. &nbsp; Code implementation<a class="headerlink" href="#4-code-implementation" title="Permanent link">&para;</a></h3>
-<p>To improve the efficiency of querying <span class="arithmatex">\(m\)</span>, we use a hash table <code>hmap</code> to store the mapping of elements in <code>inorder</code> to their indexes:</p>
+<p>To improve the efficiency of querying <span class="arithmatex">\(m\)</span>, we use a hash table <code>hmap</code> to store the mapping from elements in the <code>inorder</code> sequence to their indexes:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:14"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><input id="__tabbed_1_13" name="__tabbed_1" type="radio" /><input id="__tabbed_1_14" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label><label for="__tabbed_1_14">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3855,7 +3855,7 @@
 </div>
 </div>
 </div>
-<p>Figure 12-8 shows the recursive process of building the binary tree, where each node is established during the "descending" process, and each edge (reference) is established during the "ascending" process.</p>
+<p>Figure 12-8 shows the recursive process of building the binary tree. Each node is created during the "descending" phase of the recursion, and each edge (reference) is formed during the "ascending" phase.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:9"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label><label for="__tabbed_2_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3889,12 +3889,12 @@
 </div>
 <p align="center"> Figure 12-8 &nbsp; Recursive process of building a binary tree </p>
 
-<p>Each recursive function's division results of <code>preorder</code> and <code>inorder</code> are shown in Figure 12-9.</p>
-<p><a class="glightbox" href="../build_binary_tree_problem.assets/built_tree_overall.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Division results in each recursive function" class="animation-figure" src="../build_binary_tree_problem.assets/built_tree_overall.png" /></a></p>
-<p align="center"> Figure 12-9 &nbsp; Division results in each recursive function </p>
+<p>Each recursive function's division of the <code>preorder</code> and <code>inorder</code> sequences is illustrated in Figure 12-9.</p>
+<p><a class="glightbox" href="../build_binary_tree_problem.assets/built_tree_overall.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Division in each recursive function" class="animation-figure" src="../build_binary_tree_problem.assets/built_tree_overall.png" /></a></p>
+<p align="center"> Figure 12-9 &nbsp; Division in each recursive function </p>
 
-<p>Assuming the number of nodes in the tree is <span class="arithmatex">\(n\)</span>, initializing each node (executing a recursive function <code>dfs()</code>) takes <span class="arithmatex">\(O(1)\)</span> time. <strong>Thus, the overall time complexity is <span class="arithmatex">\(O(n)\)</span></strong>.</p>
-<p>The hash table stores the mapping of <code>inorder</code> elements to their indexes, with a space complexity of <span class="arithmatex">\(O(n)\)</span>. In the worst case, when the binary tree degenerates into a linked list, the recursive depth reaches <span class="arithmatex">\(n\)</span>, using <span class="arithmatex">\(O(n)\)</span> stack frame space. <strong>Therefore, the overall space complexity is <span class="arithmatex">\(O(n)\)</span></strong>.</p>
+<p>Assuming the binary tree has <span class="arithmatex">\(n\)</span> nodes, initializing each node (calling the recursive function <code>dfs()</code>) takes <span class="arithmatex">\(O(1)\)</span> time. <strong>Therefore, the overall time complexity is <span class="arithmatex">\(O(n)\)</span></strong>.</p>
+<p>Because the hash table stores the mapping from <code>inorder</code> elements to their indexes, it requires <span class="arithmatex">\(O(n)\)</span> space. In the worst case, if the binary tree degenerates into a linked list, the recursive depth can reach <span class="arithmatex">\(n\)</span>, consuming <span class="arithmatex">\(O(n)\)</span> stack space. <strong>Hence, the overall space complexity is <span class="arithmatex">\(O(n)\)</span></strong>.</p>
 
 <!-- Source file information -->
 

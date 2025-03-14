@@ -3620,13 +3620,13 @@
 
 <!-- Page content -->
 <h1 id="119-counting-sort">11.9 &nbsp; Counting sort<a class="headerlink" href="#119-counting-sort" title="Permanent link">&para;</a></h1>
-<p><u>Counting sort</u> achieves sorting by counting the number of elements, typically applied to arrays of integers.</p>
+<p><u>Counting sort</u> achieves sorting by counting the number of elements, usually applied to integer arrays.</p>
 <h2 id="1191-simple-implementation">11.9.1 &nbsp; Simple implementation<a class="headerlink" href="#1191-simple-implementation" title="Permanent link">&para;</a></h2>
-<p>Let's start with a simple example. Given an array <code>nums</code> of length <span class="arithmatex">\(n\)</span>, where all elements are "non-negative integers", the overall process of counting sort is illustrated in Figure 11-16.</p>
+<p>Let's start with a simple example. Given an array <code>nums</code> of length <span class="arithmatex">\(n\)</span>, where all elements are "non-negative integers", the overall process of counting sort is shown in Figure 11-16.</p>
 <ol>
 <li>Traverse the array to find the maximum number, denoted as <span class="arithmatex">\(m\)</span>, then create an auxiliary array <code>counter</code> of length <span class="arithmatex">\(m + 1\)</span>.</li>
 <li><strong>Use <code>counter</code> to count the occurrence of each number in <code>nums</code></strong>, where <code>counter[num]</code> corresponds to the occurrence of the number <code>num</code>. The counting method is simple, just traverse <code>nums</code> (suppose the current number is <code>num</code>), and increase <code>counter[num]</code> by <span class="arithmatex">\(1\)</span> each round.</li>
-<li><strong>Since the indices of <code>counter</code> are naturally ordered, all numbers are essentially sorted already</strong>. Next, we traverse <code>counter</code>, filling <code>nums</code> in ascending order of occurrence.</li>
+<li><strong>Since the indices of <code>counter</code> are naturally ordered, all numbers are essentially sorted already</strong>. Next, we traverse <code>counter</code>, and fill in <code>nums</code> in ascending order of occurrence.</li>
 </ol>
 <p><a class="glightbox" href="../counting_sort.assets/counting_sort_overview.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Counting sort process" class="animation-figure" src="../counting_sort.assets/counting_sort_overview.png" /></a></p>
 <p align="center"> Figure 11-16 &nbsp; Counting sort process </p>
@@ -3756,15 +3756,15 @@
 <p>From the perspective of bucket sort, we can consider each index of the counting array <code>counter</code> in counting sort as a bucket, and the process of counting as distributing elements into the corresponding buckets. Essentially, counting sort is a special case of bucket sort for integer data.</p>
 </div>
 <h2 id="1192-complete-implementation">11.9.2 &nbsp; Complete implementation<a class="headerlink" href="#1192-complete-implementation" title="Permanent link">&para;</a></h2>
-<p>Astute readers might have noticed, <strong>if the input data is an object, the above step <code>3.</code> becomes ineffective</strong>. Suppose the input data is a product object, we want to sort the products by their price (a class member variable), but the above algorithm can only provide the sorting result for the price.</p>
+<p>Observant readers might notice, <strong>if the input data is an object, the above step <code>3.</code> is invalid</strong>. Suppose the input data is a product object, we want to sort the products by the price (a class member variable), but the above algorithm can only give the sorted price as the result.</p>
 <p>So how can we get the sorting result for the original data? First, we calculate the "prefix sum" of <code>counter</code>. As the name suggests, the prefix sum at index <code>i</code>, <code>prefix[i]</code>, equals the sum of the first <code>i</code> elements of the array:</p>
 <div class="arithmatex">\[
 \text{prefix}[i] = \sum_{j=0}^i \text{counter[j]}
 \]</div>
-<p><strong>The prefix sum has a clear meaning, <code>prefix[num] - 1</code> represents the last occurrence index of element <code>num</code> in the result array <code>res</code></strong>. This information is crucial, as it tells us where each element should appear in the result array. Next, we traverse the original array <code>nums</code> for each element <code>num</code> in reverse order, performing the following two steps in each iteration.</p>
+<p><strong>The prefix sum has a clear meaning, <code>prefix[num] - 1</code> represents the index of the last occurrence of element <code>num</code> in the result array <code>res</code></strong>. This information is crucial, as it tells us where each element should appear in the result array. Next, we traverse each element <code>num</code> of the original array <code>nums</code> in reverse order, performing the following two steps in each iteration.</p>
 <ol>
 <li>Fill <code>num</code> into the array <code>res</code> at the index <code>prefix[num] - 1</code>.</li>
-<li>Reduce the prefix sum <code>prefix[num]</code> by <span class="arithmatex">\(1\)</span>, thus obtaining the next index to place <code>num</code>.</li>
+<li>Decrease the prefix sum <code>prefix[num]</code> by <span class="arithmatex">\(1\)</span> to obtain the next index to place <code>num</code>.</li>
 </ol>
 <p>After the traversal, the array <code>res</code> contains the sorted result, and finally, <code>res</code> replaces the original array <code>nums</code>. The complete counting sort process is shown in Figure 11-17.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:8"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label></div>
@@ -3946,14 +3946,14 @@
 </div>
 <h2 id="1193-algorithm-characteristics">11.9.3 &nbsp; Algorithm characteristics<a class="headerlink" href="#1193-algorithm-characteristics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Time complexity is <span class="arithmatex">\(O(n + m)\)</span>, non-adaptive sort</strong>: Involves traversing <code>nums</code> and <code>counter</code>, both using linear time. Generally, <span class="arithmatex">\(n \gg m\)</span>, and the time complexity tends towards <span class="arithmatex">\(O(n)\)</span>.</li>
-<li><strong>Space complexity is <span class="arithmatex">\(O(n + m)\)</span>, non-in-place sort</strong>: Utilizes arrays <code>res</code> and <code>counter</code> of lengths <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(m\)</span> respectively.</li>
+<li><strong>Time complexity is <span class="arithmatex">\(O(n + m)\)</span>, non-adaptive sort</strong>: It involves traversing <code>nums</code> and <code>counter</code>, both using linear time. Generally, <span class="arithmatex">\(n \gg m\)</span>, and the time complexity tends towards <span class="arithmatex">\(O(n)\)</span>.</li>
+<li><strong>Space complexity is <span class="arithmatex">\(O(n + m)\)</span>, non-in-place sort</strong>: It uses array <code>res</code> of lengths <span class="arithmatex">\(n\)</span> and array <code>counter</code> of length <span class="arithmatex">\(m\)</span> respectively.</li>
 <li><strong>Stable sort</strong>: Since elements are filled into <code>res</code> in a "right-to-left" order, reversing the traversal of <code>nums</code> can prevent changing the relative position between equal elements, thereby achieving a stable sort. Actually, traversing <code>nums</code> in order can also produce the correct sorting result, but the outcome is unstable.</li>
 </ul>
 <h2 id="1194-limitations">11.9.4 &nbsp; Limitations<a class="headerlink" href="#1194-limitations" title="Permanent link">&para;</a></h2>
 <p>By now, you might find counting sort very clever, as it can achieve efficient sorting merely by counting quantities. However, the prerequisites for using counting sort are relatively strict.</p>
-<p><strong>Counting sort is only suitable for non-negative integers</strong>. If you want to apply it to other types of data, you need to ensure that these data can be converted to non-negative integers without changing the relative sizes of the elements. For example, for an array containing negative integers, you can first add a constant to all numbers, converting them all to positive numbers, and then convert them back after sorting is complete.</p>
-<p><strong>Counting sort is suitable for large data volumes but small data ranges</strong>. For example, in the above example, <span class="arithmatex">\(m\)</span> should not be too large, otherwise, it will occupy too much space. And when <span class="arithmatex">\(n \ll m\)</span>, counting sort uses <span class="arithmatex">\(O(m)\)</span> time, which may be slower than <span class="arithmatex">\(O(n \log n)\)</span> sorting algorithms.</p>
+<p><strong>Counting sort is only suitable for non-negative integers</strong>. If you want to apply it to other types of data, you need to ensure that these data can be converted to non-negative integers without changing the original order of the elements. For example, for an array containing negative integers, you can first add a constant to all numbers, converting them all to positive numbers, and then convert them back after sorting is complete.</p>
+<p><strong>Counting sort is suitable for large datasets with a small range of values</strong>. For example, in the above example, <span class="arithmatex">\(m\)</span> should not be too large, otherwise, it will occupy too much space. And when <span class="arithmatex">\(n \ll m\)</span>, counting sort uses <span class="arithmatex">\(O(m)\)</span> time, which may be slower than <span class="arithmatex">\(O(n \log n)\)</span> sorting algorithms.</p>
 
 <!-- Source file information -->
 

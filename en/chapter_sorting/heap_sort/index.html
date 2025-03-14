@@ -3586,25 +3586,25 @@
 <h1 id="117-heap-sort">11.7 &nbsp; Heap sort<a class="headerlink" href="#117-heap-sort" title="Permanent link">&para;</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Before reading this section, please make sure you have completed the "Heap" chapter.</p>
+<p>Before reading this section, please ensure you have completed the "Heap" chapter.</p>
 </div>
 <p><u>Heap sort</u> is an efficient sorting algorithm based on the heap data structure. We can implement heap sort using the "heap creation" and "element extraction" operations we have already learned.</p>
 <ol>
-<li>Input the array and establish a min-heap, where the smallest element is at the heap's top.</li>
-<li>Continuously perform the extraction operation, recording the extracted elements in sequence to obtain a sorted list from smallest to largest.</li>
+<li>Input the array and construct a min-heap, where the smallest element is at the top of the heap.</li>
+<li>Continuously perform the extraction operation, record the extracted elements sequentially to obtain a sorted list from smallest to largest.</li>
 </ol>
-<p>Although the above method is feasible, it requires an additional array to save the popped elements, which is somewhat space-consuming. In practice, we usually use a more elegant implementation.</p>
+<p>Although the above method is feasible, it requires an additional array to store the popped elements, which is somewhat space-consuming. In practice, we usually use a more elegant implementation.</p>
 <h2 id="1171-algorithm-flow">11.7.1 &nbsp; Algorithm flow<a class="headerlink" href="#1171-algorithm-flow" title="Permanent link">&para;</a></h2>
 <p>Suppose the array length is <span class="arithmatex">\(n\)</span>, the heap sort process is as follows.</p>
 <ol>
-<li>Input the array and establish a max-heap. After completion, the largest element is at the heap's top.</li>
-<li>Swap the top element of the heap (the first element) with the heap's bottom element (the last element). After the swap, reduce the heap's length by <span class="arithmatex">\(1\)</span> and increase the sorted elements count by <span class="arithmatex">\(1\)</span>.</li>
+<li>Input the array and establish a max-heap. After this step, the largest element is positioned at the top of the heap.</li>
+<li>Swap the top element of the heap (the first element) with the heap's bottom element (the last element). Following this swap, reduce the heap's length by <span class="arithmatex">\(1\)</span> and increase the sorted elements count by <span class="arithmatex">\(1\)</span>.</li>
 <li>Starting from the heap top, perform the sift-down operation from top to bottom. After the sift-down, the heap's property is restored.</li>
 <li>Repeat steps <code>2.</code> and <code>3.</code> Loop for <span class="arithmatex">\(n - 1\)</span> rounds to complete the sorting of the array.</li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>In fact, the element extraction operation also includes steps <code>2.</code> and <code>3.</code>, with the addition of a popping element step.</p>
+<p>In fact, the element extraction operation also includes steps <code>2.</code> and <code>3.</code>, with an additional step to pop (remove) the extracted element from the heap.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label><label for="__tabbed_1_10">&lt;10&gt;</label><label for="__tabbed_1_11">&lt;11&gt;</label><label for="__tabbed_1_12">&lt;12&gt;</label></div>
 <div class="tabbed-content">

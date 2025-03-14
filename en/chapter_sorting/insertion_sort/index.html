@@ -3603,18 +3603,18 @@
 <!-- Page content -->
 <h1 id="114-insertion-sort">11.4 &nbsp; Insertion sort<a class="headerlink" href="#114-insertion-sort" title="Permanent link">&para;</a></h1>
 <p><u>Insertion sort</u> is a simple sorting algorithm that works very much like the process of manually sorting a deck of cards.</p>
-<p>Specifically, we select a pivot element from the unsorted interval, compare it with the elements in the sorted interval to its left, and insert the element into the correct position.</p>
-<p>Figure 11-6 shows the process of inserting an element into an array. Assuming the pivot element is <code>base</code>, we need to move all elements between the target index and <code>base</code> one position to the right, then assign <code>base</code> to the target index.</p>
+<p>Specifically, we select a base element from the unsorted interval, compare it with the elements in the sorted interval to its left, and insert the element into the correct position.</p>
+<p>Figure 11-6 illustrates how an element is inserted into the array. Assuming the base element is <code>base</code>, we need to shift all elements from the target index up to <code>base</code> one position to the right, then assign <code>base</code> to the target index.</p>
 <p><a class="glightbox" href="../insertion_sort.assets/insertion_operation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Single insertion operation" class="animation-figure" src="../insertion_sort.assets/insertion_operation.png" /></a></p>
 <p align="center"> Figure 11-6 &nbsp; Single insertion operation </p>
 
 <h2 id="1141-algorithm-process">11.4.1 &nbsp; Algorithm process<a class="headerlink" href="#1141-algorithm-process" title="Permanent link">&para;</a></h2>
 <p>The overall process of insertion sort is shown in Figure 11-7.</p>
 <ol>
-<li>Initially, the first element of the array is sorted.</li>
-<li>The second element of the array is taken as <code>base</code>, and after inserting it into the correct position, <strong>the first two elements of the array are sorted</strong>.</li>
-<li>The third element is taken as <code>base</code>, and after inserting it into the correct position, <strong>the first three elements of the array are sorted</strong>.</li>
-<li>And so on, in the last round, the last element is taken as <code>base</code>, and after inserting it into the correct position, <strong>all elements are sorted</strong>.</li>
+<li>Consider the first element of the array as sorted.</li>
+<li>Select the second element as <code>base</code>, insert it into its correct position, <strong>leaving the first two elements sorted</strong>.</li>
+<li>Select the third element as <code>base</code>, insert it into its correct position, <strong>leaving the first three elements sorted</strong>.</li>
+<li>Continuing in this manner, in the final iteration, the last element is taken as <code>base</code>, and after inserting it into the correct position, <strong>all elements are sorted</strong>.</li>
 </ol>
 <p><a class="glightbox" href="../insertion_sort.assets/insertion_sort_overview.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Insertion sort process" class="animation-figure" src="../insertion_sort.assets/insertion_sort_overview.png" /></a></p>
 <p align="center"> Figure 11-7 &nbsp; Insertion sort process </p>
@@ -3721,10 +3721,10 @@
 <li><strong>Stable sorting</strong>: During the insertion operation, we insert elements to the right of equal elements, not changing their order.</li>
 </ul>
 <h2 id="1143-advantages-of-insertion-sort">11.4.3 &nbsp; Advantages of insertion sort<a class="headerlink" href="#1143-advantages-of-insertion-sort" title="Permanent link">&para;</a></h2>
-<p>The time complexity of insertion sort is <span class="arithmatex">\(O(n^2)\)</span>, while the time complexity of quicksort, which we will study next, is <span class="arithmatex">\(O(n \log n)\)</span>. Although insertion sort has a higher time complexity, <strong>it is usually faster in cases of small data volumes</strong>.</p>
-<p>This conclusion is similar to that for linear and binary search. Algorithms like quicksort that have a time complexity of <span class="arithmatex">\(O(n \log n)\)</span> and are based on the divide-and-conquer strategy often involve more unit operations. In cases of small data volumes, the numerical values of <span class="arithmatex">\(n^2\)</span> and <span class="arithmatex">\(n \log n\)</span> are close, and complexity does not dominate, with the number of unit operations per round playing a decisive role.</p>
-<p>In fact, many programming languages (such as Java) use insertion sort in their built-in sorting functions. The general approach is: for long arrays, use sorting algorithms based on divide-and-conquer strategies, such as quicksort; for short arrays, use insertion sort directly.</p>
-<p>Although bubble sort, selection sort, and insertion sort all have a time complexity of <span class="arithmatex">\(O(n^2)\)</span>, in practice, <strong>insertion sort is used significantly more frequently than bubble sort and selection sort</strong>, mainly for the following reasons.</p>
+<p>The time complexity of insertion sort is <span class="arithmatex">\(O(n^2)\)</span>, while the time complexity of quicksort, which we will study next, is <span class="arithmatex">\(O(n \log n)\)</span>. Although insertion sort has a higher time complexity, <strong>it is usually faster in small input sizes</strong>.</p>
+<p>This conclusion is similar to that for linear and binary search. Algorithms like quicksort that have a time complexity of <span class="arithmatex">\(O(n \log n)\)</span> and are based on the divide-and-conquer strategy often involve more unit operations. For small input sizes, the numerical values of <span class="arithmatex">\(n^2\)</span> and <span class="arithmatex">\(n \log n\)</span> are close, and complexity does not dominate, with the number of unit operations per round playing a decisive role.</p>
+<p>In fact, many programming languages (such as Java) use insertion sort within their built-in sorting functions. The general approach is: for long arrays, use sorting algorithms based on divide-and-conquer strategies, such as quicksort; for short arrays, use insertion sort directly.</p>
+<p>Although bubble sort, selection sort, and insertion sort all have a time complexity of <span class="arithmatex">\(O(n^2)\)</span>, in practice, <strong>insertion sort is commonly used than bubble sort and selection sort</strong>, mainly for the following reasons.</p>
 <ul>
 <li>Bubble sort is based on element swapping, which requires the use of a temporary variable, involving 3 unit operations; insertion sort is based on element assignment, requiring only 1 unit operation. Therefore, <strong>the computational overhead of bubble sort is generally higher than that of insertion sort</strong>.</li>
 <li>The time complexity of selection sort is always <span class="arithmatex">\(O(n^2)\)</span>. <strong>Given a set of partially ordered data, insertion sort is usually more efficient than selection sort</strong>.</li>
