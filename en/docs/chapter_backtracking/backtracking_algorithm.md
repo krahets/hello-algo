@@ -1,6 +1,6 @@
 # Backtracking algorithms
 
-<u>Backtracking algorithm</u> is a method to solve problems by exhaustive search. Its core concept is to start from an initial state and brute force all possible solutions. The algorithm records the correct ones until a solution is found or all possible choices are exhausted without success.
+<u>Backtracking algorithm</u> is a method to solve problems by exhaustive search. Its core concept is to start from an initial state and brutally search for all possible solutions. The algorithm records the correct ones until a solution is found or all possible solutions have been tried but no solution can be found.
 
 Backtracking typically employs "depth-first search" to traverse the solution space. In the "Binary tree" chapter, we mentioned that pre-order, in-order, and post-order traversals are all depth-first searches. Next, we are going to use pre-order traversal to solve a backtracking problem. This helps us to understand how the algorithm works gradually.
 
@@ -18,7 +18,7 @@ To solve this problem, we traverse this tree in pre-order and check if the curre
 
 ## Trial and retreat
 
-**The reason it is called backtracking is that the algorithm uses a "trial" and "retreat" strategy when searching the solution space**. During the search, whenever it encounters a state where it can no longer proceed to obtain a satisfying solution, it undoes the previous choice and reverts to the previous state so that other possible choices can be chosen for the next attempt.
+**It is called a backtracking algorithm because it uses a "trial" and "retreat" strategy when searching the solution space**. During the search, whenever it encounters a state where it can no longer proceed to obtain a satisfying solution, it undoes the previous choice and reverts to the previous state so that other possible choices can be chosen for the next attempt.
 
 In Example One, visiting each node starts a "trial". And passing a leaf node or the `return` statement to going back to the parent node suggests "retreat".
 
