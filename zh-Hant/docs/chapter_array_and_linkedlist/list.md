@@ -1963,8 +1963,7 @@ comments: true
     impl MyList {
         /* 建構子 */
         pub fn new(capacity: usize) -> Self {
-            let mut vec = Vec::new();
-            vec.resize(capacity, 0);
+            let mut vec = vec![0; capacity];
             Self {
                 arr: vec,
                 capacity,
@@ -2036,7 +2035,7 @@ comments: true
             };
             let num = self.arr[index];
             // 將將索引 index 之後的元素都向前移動一位
-            for j in (index..self.size - 1) {
+            for j in index..self.size - 1 {
                 self.arr[j] = self.arr[j + 1];
             }
             // 更新元素數量
@@ -2055,7 +2054,7 @@ comments: true
         }
 
         /* 將串列轉換為陣列 */
-        pub fn to_array(&mut self) -> Vec<i32> {
+        pub fn to_array(&self) -> Vec<i32> {
             // 僅轉換有效長度範圍內的串列元素
             let mut arr = Vec::new();
             for i in 0..self.size {
