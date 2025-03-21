@@ -2,7 +2,7 @@
 
 !!! question
 
-    According to the rules of chess, a queen can attack pieces in the same row, column, or diagonal line. Given $n$ queens and an $n \times n$ chessboard, find arrangements where no queens can attack each other.
+    According to the rules of chess, a queen can attack pieces in the same row, column, or diagonal line. Given $n$ queens and an $n \times n$ chessboard, find arrangements where no two queens can attack each other.
 
 As shown in the figure below, there are two solutions when $n = 4$. From the perspective of the backtracking algorithm, an $n \times n$ chessboard has $n^2$ squares, presenting all possible choices `choices`. The state of the chessboard `state` changes continuously as each queen is placed.
 
@@ -14,7 +14,7 @@ The figure below shows the three constraints of this problem: **multiple queens 
 
 ### Row-by-row placing strategy
 
-As the number of queens equals the number of rows on the chessboard, both being $n$, it is easy to conclude that **each row on the chessboard permits, and indeed restricts, the placement of exactly one queen**.
+As the number of queens equals the number of rows on the chessboard, both being $n$, it is easy to conclude that **each row on the chessboard allows and only allows one queen to be placed**.
 
 This means that we can adopt a row-by-row placing strategy: starting from the first row, place one queen per row until the last row is reached.
 
