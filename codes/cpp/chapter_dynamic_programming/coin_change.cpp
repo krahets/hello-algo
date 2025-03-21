@@ -6,6 +6,55 @@
 
 #include "../utils/common.hpp"
 
+/* 零钱兑换：暴力搜索 */
+int coinChangeDFS(vector<int> &coins, int amt, int maxVal) {
+    // 若恰好凑出金额
+    if (amt == 0) {
+        return 0;
+    }
+    // 若金额越过 0 变为负数，说明不可行
+    if (amt < 0) {
+        // 返回一个很大的值表示无效
+        return maxVal;
+    }
+    int res = maxVal;
+    // 尝试拿每一种硬币
+    for (int c : coins) {
+        int sub = coinChangeDFS(coins, amt - c, maxVal);
+        // 若子问题可行，再加上 1 枚当前硬币
+        if (sub != maxVal) {
+          res = min(res, 1 + sub);
+        }
+    }
+    return res != maxVal ? res : -1;
+}
+
+/* 零钱兑换：记忆化搜索 */
+int coinChangeDFSMem(vector<int> &coins, int amt, vector<int> &memo, int maxVal) {
+    // 若恰好凑出金额
+    if (amt == 0) {
+        return 0;
+    }
+    // 若已不合法
+    if (amt < 0) {
+      return maxVal; // 用 INT_MAX 表示无法凑出
+    }
+    // 若已经计算过
+    if (memo[amt] != -1) {
+        return memo[amt];
+    }
+
+    int res = maxVal;
+    for (int c : coins) {
+        int sub = coinChangeDFSMem(coins, amt - c, memo, maxVal);
+        if (sub != maxVal) {
+          res = min(res, 1 + sub);
+        }
+    }
+    memo[amt] = res;
+    return res != maxVal ? res : -1;
+}
+
 /* 零钱兑换：动态规划 */
 int coinChangeDP(vector<int> &coins, int amt) {
     int n = coins.size();
@@ -57,9 +106,16 @@ int coinChangeDPComp(vector<int> &coins, int amt) {
 int main() {
     vector<int> coins = {1, 2, 5};
     int amt = 4;
-
+    int maxVal = amt + 1;
+    // 暴力搜索
+    int res = coinChangeDFS(coins, amt, maxVal);
+    cout << "凑到目标金额所需的最少硬币数量为 " << res << endl;
+    // 记忆化搜索
+    vector<int> memo(amt + 1, -1);
+    res = coinChangeDFSMem(coins, amt, memo, maxVal);
+    cout << "凑到目标金额所需的最少硬币数量为 " << res << endl;
     // 动态规划
-    int res = coinChangeDP(coins, amt);
+    res = coinChangeDP(coins, amt);
     cout << "凑到目标金额所需的最少硬币数量为 " << res << endl;
 
     // 空间优化后的动态规划
