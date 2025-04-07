@@ -20,4 +20,4 @@
 Overall, backtracking is an "algorithmic strategy," while recursion is more of a "tool."
 
 - Backtracking algorithms are typically based on recursion. However, backtracking is one of the application scenarios of recursion, specifically in search problems.
-- The structure of recursion reflects the problem-solving paradigm of "sub-problem decomposition". It is commonly used in solving problems involving divide and conquer, backtracking, and dynamic programming (memoized recursion).
+- The structure of recursion reflects the problem-solving paradigm of "sub-problem decomposition." It is commonly used in solving problems involving divide and conquer, backtracking, and dynamic programming (memoized recursion).
