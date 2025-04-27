@@ -1,3 +1,7 @@
 {
-    "defaultCommentOrder": "newest"
+    "defaultCommentOrder": "newest",
+    "origins": [
+        "https://www.hello-algo.com",
+        "https://hello-algo.com"
+    ]
 }
