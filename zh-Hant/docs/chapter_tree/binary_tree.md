@@ -669,7 +669,7 @@ comments: true
 
 ### 2. &nbsp; 完全二元樹
 
-如圖 7-5 所示，<u>完全二元樹（complete binary tree）</u>只有最底層的節點未被填滿，且最底層節點儘量靠左填充。請注意，完美二元樹也是一棵完全二元樹。
+如圖 7-5 所示，<u>完全二元樹（complete binary tree）</u>僅允許最底層的節點不完全填滿，且最底層的節點必須從左至右依次連續填充。請注意，完美二元樹也是一棵完全二元樹。
 
 ![完全二元樹](binary_tree.assets/complete_binary_tree.png){ class="animation-figure" }
 
