@@ -1,7 +1,7 @@
 /**
  * File: graph_bfs.cpp
  * Created Time: 2023-03-02
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -12,7 +12,7 @@
 vector<Vertex *> graphBFS(GraphAdjList &graph, Vertex *startVet) {
     // 顶点遍历序列
     vector<Vertex *> res;
-    // 哈希表，用于记录已被访问过的顶点
+    // 哈希集合，用于记录已被访问过的顶点
     unordered_set<Vertex *> visited = {startVet};
     // 队列用于实现 BFS
     queue<Vertex *> que;

@@ -6,10 +6,10 @@
 
 /* 基于环形数组实现的队列 */
 struct ArrayQueue {
-    nums: Vec<i32>,     // 用于存储队列元素的数组
-    front: i32,         // 队首指针，指向队首元素
-    que_size: i32,      // 队列长度
-    que_capacity: i32,  // 队列容量
+    nums: Vec<i32>,    // 用于存储队列元素的数组
+    front: i32,        // 队首指针，指向队首元素
+    que_size: i32,     // 队列长度
+    que_capacity: i32, // 队列容量
 }
 
 impl ArrayQueue {

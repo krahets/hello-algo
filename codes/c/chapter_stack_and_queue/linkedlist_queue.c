@@ -24,7 +24,7 @@ LinkedListQueue *newLinkedListQueue() {
 /* 析构函数 */
 void delLinkedListQueue(LinkedListQueue *queue) {
     // 释放所有节点
-    for (int i = 0; i < queue->queSize && queue->front != NULL; i++) {
+    while (queue->front != NULL) {
         ListNode *tmp = queue->front;
         queue->front = queue->front->next;
         free(tmp);

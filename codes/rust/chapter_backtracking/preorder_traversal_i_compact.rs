@@ -4,13 +4,11 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
-
+use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
 use std::{cell::RefCell, rc::Rc};
-use tree_node::{vec_to_tree, TreeNode};
 
 /* 前序遍历：例题一 */
-fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<Rc<RefCell<TreeNode>>>) {
+fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<TreeNode>>>) {
     if root.is_none() {
         return;
     }
@@ -19,8 +17,8 @@ fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<Rc<RefCell<TreeN
             // 记录解
             res.push(node.clone());
         }
-        pre_order(res, node.borrow().left.clone());
-        pre_order(res, node.borrow().right.clone());
+        pre_order(res, node.borrow().left.as_ref());
+        pre_order(res, node.borrow().right.as_ref());
     }
 }
 
@@ -32,7 +30,7 @@ pub fn main() {
 
     // 前序遍历
     let mut res = Vec::new();
-    pre_order(&mut res, root);
+    pre_order(&mut res, root.as_ref());
 
     println!("\n输出所有值为 7 的节点");
     let mut vals = Vec::new();

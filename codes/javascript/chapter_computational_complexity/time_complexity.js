@@ -32,7 +32,7 @@ function arrayTraversal(nums) {
 /* 平方阶 */
 function quadratic(n) {
     let count = 0;
-    // 循环次数与数组长度成平方关系
+    // 循环次数与数据大小 n 成平方关系
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
             count++;

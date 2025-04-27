@@ -40,7 +40,7 @@ fn arrayTraversal(nums: []i32) i32 {
 fn quadratic(n: i32) i32 {
     var count: i32 = 0;
     var i: i32 = 0;
-    // 循环次数与数组长度成平方关系
+    // 循环次数与数据大小 n 成平方关系
     while (i < n) : (i += 1) {
         var j: i32 = 0;
         while (j < n) : (j += 1) {
@@ -57,7 +57,7 @@ fn bubbleSort(nums: []i32) i32 {
     var i: i32 = @as(i32, @intCast(nums.len)) - 1;
     while (i > 0) : (i -= 1) {
         var j: usize = 0;
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
         while (j < i) : (j += 1) {
             if (nums[j] > nums[j + 1]) {
                 // 交换 nums[j] 与 nums[j + 1]
@@ -95,7 +95,7 @@ fn expRecur(n: i32) i32 {
 }
 
 // 对数阶（循环实现）
-fn logarithmic(n: f32) i32 {
+fn logarithmic(n: i32) i32 {
     var count: i32 = 0;
     var n_var = n;
     while (n_var > 1)
@@ -107,16 +107,16 @@ fn logarithmic(n: f32) i32 {
 }
 
 // 对数阶（递归实现）
-fn logRecur(n: f32) i32 {
+fn logRecur(n: i32) i32 {
     if (n <= 1) return 0;
     return logRecur(n / 2) + 1;
 }
 
 // 线性对数阶
-fn linearLogRecur(n: f32) i32 {
+fn linearLogRecur(n: i32) i32 {
     if (n <= 1) return 1;
     var count: i32 = linearLogRecur(n / 2) + linearLogRecur(n / 2);
-    var i: f32 = 0;
+    var i: i32 = 0;
     while (i < n) : (i += 1) {
         count += 1;
     }
@@ -163,12 +163,12 @@ pub fn main() !void {
     count = expRecur(n);
     std.debug.print("指数阶（递归实现）的操作数量 = {}\n", .{count});
 
-    count = logarithmic(@as(f32, n));
+    count = logarithmic(n);
     std.debug.print("对数阶（循环实现）的操作数量 = {}\n", .{count});
-    count = logRecur(@as(f32, n));
+    count = logRecur(n);
     std.debug.print("对数阶（递归实现）的操作数量 = {}\n", .{count});
 
-    count = linearLogRecur(@as(f32, n));
+    count = linearLogRecur(n);
     std.debug.print("线性对数阶（递归实现）的操作数量 = {}\n", .{count});
 
     count = factorialRecur(n);

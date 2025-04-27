@@ -6,9 +6,9 @@
 
 mod graph_adjacency_list;
 
-use std::collections::HashSet;
 use graph_adjacency_list::GraphAdjList;
-use graph_adjacency_list::{Vertex, vets_to_vals, vals_to_vets};
+use graph_adjacency_list::{vals_to_vets, vets_to_vals, Vertex};
+use std::collections::HashSet;
 
 /* 深度优先遍历辅助函数 */
 fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex>, vet: Vertex) {
@@ -31,7 +31,7 @@ fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex
 fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
     // 顶点遍历序列
     let mut res = vec![];
-    // 哈希表，用于记录已被访问过的顶点
+    // 哈希集合，用于记录已被访问过的顶点
     let mut visited = HashSet::new();
     dfs(&graph, &mut visited, &mut res, start_vet);
 

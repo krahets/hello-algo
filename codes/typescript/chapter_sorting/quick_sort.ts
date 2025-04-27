@@ -62,17 +62,14 @@ class QuickSortMedian {
         mid: number,
         right: number
     ): number {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if (Number(nums[left] < nums[mid]) ^ Number(nums[left] < nums[right])) {
-            return left;
-        } else if (
-            Number(nums[mid] < nums[left]) ^ Number(nums[mid] < nums[right])
-        ) {
-            return mid;
-        } else {
-            return right;
-        }
+        let l = nums[left],
+            m = nums[mid],
+            r = nums[right];
+        // m 在 l 和 r 之间
+        if ((l <= m && m <= r) || (r <= m && m <= l)) return mid;
+        // l 在 m 和 r 之间
+        if ((m <= l && l <= r) || (r <= l && l <= m)) return left;
+        return right;
     }
 
     /* 哨兵划分（三数取中值） */

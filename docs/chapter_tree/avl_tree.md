@@ -10,11 +10,11 @@
 
 ![AVL 树在插入节点后发生退化](avl_tree.assets/avltree_degradation_from_inserting_node.png)
 
-1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在论文“An algorithm for the organization of information”中提出了「AVL 树」。论文中详细描述了一系列操作，确保在持续添加和删除节点后，AVL 树不会退化，从而使得各种操作的时间复杂度保持在 $O(\log n)$ 级别。换句话说，在需要频繁进行增删查改操作的场景中，AVL 树能始终保持高效的数据操作性能，具有很好的应用价值。
+1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在论文“An algorithm for the organization of information”中提出了 <u>AVL 树</u>。论文中详细描述了一系列操作，确保在持续添加和删除节点后，AVL 树不会退化，从而使得各种操作的时间复杂度保持在 $O(\log n)$ 级别。换句话说，在需要频繁进行增删查改操作的场景中，AVL 树能始终保持高效的数据操作性能，具有很好的应用价值。
 
 ## AVL 树常见术语
 
-AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二叉树的所有性质，因此也被称为「平衡二叉搜索树 balanced binary search tree」。
+AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二叉树的所有性质，因此是一种<u>平衡二叉搜索树（balanced binary search tree）</u>。
 
 ### 节点高度
 
@@ -129,9 +129,9 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
         right: TreeNode | null; // 右子节点指针
         constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height; 
-            this.left = left === undefined ? null : left; 
-            this.right = right === undefined ? null : right; 
+            this.height = height === undefined ? 0 : height;
+            this.left = left === undefined ? null : left;
+            this.right = right === undefined ? null : right;
         }
     }
     ```
@@ -180,7 +180,7 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
 
     ```c title=""
     /* AVL 树节点结构体 */
-    TreeNode struct TreeNode {
+    typedef struct TreeNode {
         int val;
         int height;
         struct TreeNode *left;
@@ -200,6 +200,34 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
     }
     ```
 
+=== "Kotlin"
+
+    ```kotlin title=""
+    /* AVL 树节点类 */
+    class TreeNode(val _val: Int) {  // 节点值
+        val height: Int = 0          // 节点高度
+        val left: TreeNode? = null   // 左子节点
+        val right: TreeNode? = null  // 右子节点
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+    ### AVL 树节点类 ###
+    class TreeNode
+      attr_accessor :val    # 节点值
+      attr_accessor :height # 节点高度
+      attr_accessor :left   # 左子节点引用
+      attr_accessor :right  # 右子节点引用
+
+      def initialize(val)
+        @val = val
+        @height = 0
+      end
+    end
+    ```
+
 === "Zig"
 
     ```zig title=""
@@ -209,18 +237,18 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
 “节点高度”是指从该节点到它的最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 $0$ ，而空节点的高度为 $-1$ 。我们将创建两个工具函数，分别用于获取和更新节点的高度：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{update_height}
+[file]{avl_tree}-[class]{avl_tree}-[func]{update_height}
 ```
 
 ### 节点平衡因子
 
-节点的「平衡因子 balance factor」定义为节点左子树的高度减去右子树的高度，同时规定空节点的平衡因子为 $0$ 。我们同样将获取节点平衡因子的功能封装成函数，方便后续使用：
+节点的<u>平衡因子（balance factor）</u>定义为节点左子树的高度减去右子树的高度，同时规定空节点的平衡因子为 $0$ 。我们同样将获取节点平衡因子的功能封装成函数，方便后续使用：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{balance_factor}
+[file]{avl_tree}-[class]{avl_tree}-[func]{balance_factor}
 ```
 
-!!! note
+!!! tip
 
     设平衡因子为 $f$ ，则一棵 AVL 树的任意节点的平衡因子皆满足 $-1 \le f \le 1$ 。
 
@@ -253,7 +281,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 “向右旋转”是一种形象化的说法，实际上需要通过修改节点指针来实现，代码如下所示：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{right_rotate}
+[file]{avl_tree}-[class]{avl_tree}-[func]{right_rotate}
 ```
 
 ### 左旋
@@ -269,7 +297,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 可以观察到，**右旋和左旋操作在逻辑上是镜像对称的，它们分别解决的两种失衡情况也是对称的**。基于对称性，我们只需将右旋的实现代码中的所有的 `left` 替换为 `right` ，将所有的 `right` 替换为 `left` ，即可得到左旋的实现代码：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{left_rotate}
+[file]{avl_tree}-[class]{avl_tree}-[func]{left_rotate}
 ```
 
 ### 先左旋后右旋
@@ -304,7 +332,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 为了便于使用，我们将旋转操作封装成一个函数。**有了这个函数，我们就能对各种失衡情况进行旋转，使失衡节点重新恢复平衡**。代码如下所示：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{rotate}
+[file]{avl_tree}-[class]{avl_tree}-[func]{rotate}
 ```
 
 ## AVL 树常用操作
@@ -314,7 +342,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区别在于，在 AVL 树中插入节点后，从该节点到根节点的路径上可能会出现一系列失衡节点。因此，**我们需要从这个节点开始，自底向上执行旋转操作，使所有失衡节点恢复平衡**。代码如下所示：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{insert_helper}
+[file]{avl_tree}-[class]{avl_tree}-[func]{insert_helper}
 ```
 
 ### 删除节点
@@ -322,7 +350,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
 类似地，在二叉搜索树的删除节点方法的基础上，需要从底至顶执行旋转操作，使所有失衡节点恢复平衡。代码如下所示：
 
 ```src
-[file]{avl_tree}-[class]{a_v_l_tree}-[func]{remove_helper}
+[file]{avl_tree}-[class]{avl_tree}-[func]{remove_helper}
 ```
 
 ### 查找节点
@@ -333,4 +361,4 @@ AVL 树的节点查找操作与二叉搜索树一致，在此不再赘述。
 
 - 组织和存储大型数据，适用于高频查找、低频增删的场景。
 - 用于构建数据库中的索引系统。
-- 红黑树在许多应用中比 AVL 树更受欢迎。这是因为红黑树的平衡条件相对宽松，在红黑树中插入与删除节点所需的旋转操作相对较少，其节点增删操作的平均效率更高。
+- 红黑树也是一种常见的平衡二叉搜索树。相较于 AVL 树，红黑树的平衡条件更宽松，插入与删除节点所需的旋转操作更少，节点增删操作的平均效率更高。

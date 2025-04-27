@@ -4,22 +4,27 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
+use hello_algo_rust::op_vec;
 
 use std::cell::RefCell;
 use std::rc::Rc;
-use tree_node::{vec_to_tree, TreeNode};
 
 /* 前序遍历 */
 fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut result = vec![];
 
-    if let Some(node) = root {
-        // 访问优先级：根节点 -> 左子树 -> 右子树
-        result.push(node.borrow().val);
-        result.append(&mut pre_order(node.borrow().left.as_ref()));
-        result.append(&mut pre_order(node.borrow().right.as_ref()));
+    fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
+        if let Some(node) = root {
+            // 访问优先级：根节点 -> 左子树 -> 右子树
+            let node = node.borrow();
+            res.push(node.val);
+            dfs(node.left.as_ref(), res);
+            dfs(node.right.as_ref(), res);
+        }
     }
+    dfs(root, &mut result);
+
     result
 }
 
@@ -27,12 +32,17 @@ fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 fn in_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut result = vec![];
 
-    if let Some(node) = root {
-        // 访问优先级：左子树 -> 根节点 -> 右子树
-        result.append(&mut in_order(node.borrow().left.as_ref()));
-        result.push(node.borrow().val);
-        result.append(&mut in_order(node.borrow().right.as_ref()));
+    fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
+        if let Some(node) = root {
+            // 访问优先级：左子树 -> 根节点 -> 右子树
+            let node = node.borrow();
+            dfs(node.left.as_ref(), res);
+            res.push(node.val);
+            dfs(node.right.as_ref(), res);
+        }
     }
+    dfs(root, &mut result);
+
     result
 }
 
@@ -40,12 +50,18 @@ fn in_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut result = vec![];
 
-    if let Some(node) = root {
-        // 访问优先级：左子树 -> 右子树 -> 根节点
-        result.append(&mut post_order(node.borrow().left.as_ref()));
-        result.append(&mut post_order(node.borrow().right.as_ref()));
-        result.push(node.borrow().val);
+    fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
+        if let Some(node) = root {
+            // 访问优先级：左子树 -> 右子树 -> 根节点
+            let node = node.borrow();
+            dfs(node.left.as_ref(), res);
+            dfs(node.right.as_ref(), res);
+            res.push(node.val);
+        }
     }
+
+    dfs(root, &mut result);
+
     result
 }
 

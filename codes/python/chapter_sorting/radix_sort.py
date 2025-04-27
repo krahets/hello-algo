@@ -1,7 +1,7 @@
 """
 File: radix_sort.py
 Created Time: 2023-03-26
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 

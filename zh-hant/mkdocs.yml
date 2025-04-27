@@ -1,0 +1,178 @@
+# Config inheritance
+INHERIT: ../mkdocs.yml
+
+# Project information
+site_name: Hello 演算法
+site_url: https://www.hello-algo.com/zh-hant/
+site_description: "動畫圖解、一鍵執行的資料結構與演算法教程"
+docs_dir: ../build/zh-hant/docs
+site_dir: ../site/zh-hant
+# Repository
+edit_uri: tree/main/zh-hant/docs
+version: 1.2.0
+
+# Configuration
+theme:
+  custom_dir: ../build/overrides
+  language: zh-Hant
+  palette:
+    - scheme: default
+      primary: white
+      accent: teal
+      toggle:
+        icon: material/theme-light-dark
+        name: 深色模式
+    - scheme: slate
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/theme-light-dark
+        name: 淺色模式
+
+extra:
+  status:
+    new: 最近新增
+
+# Page tree
+nav:
+  - 序:
+    - chapter_hello_algo/index.md
+  - 第 0 章 &nbsp; 前言:
+    # [icon: material/book-open-outline]
+    - chapter_preface/index.md
+    - 0.1 &nbsp; 關於本書: chapter_preface/about_the_book.md
+    - 0.2 &nbsp; 如何使用本書: chapter_preface/suggestions.md
+    - 0.3 &nbsp; 小結: chapter_preface/summary.md
+  - 第 1 章 &nbsp; 初識演算法:
+    # [icon: material/calculator-variant-outline]
+    - chapter_introduction/index.md
+    - 1.1 &nbsp; 演算法無處不在: chapter_introduction/algorithms_are_everywhere.md
+    - 1.2 &nbsp; 演算法是什麼: chapter_introduction/what_is_dsa.md
+    - 1.3 &nbsp; 小結: chapter_introduction/summary.md
+  - 第 2 章 &nbsp; 複雜度分析:
+    # [icon: material/timer-sand]
+    - chapter_computational_complexity/index.md
+    - 2.1 &nbsp; 演算法效率評估: chapter_computational_complexity/performance_evaluation.md
+    - 2.2 &nbsp; 迭代與遞迴: chapter_computational_complexity/iteration_and_recursion.md
+    - 2.3 &nbsp; 時間複雜度: chapter_computational_complexity/time_complexity.md
+    - 2.4 &nbsp; 空間複雜度: chapter_computational_complexity/space_complexity.md
+    - 2.5 &nbsp; 小結: chapter_computational_complexity/summary.md
+  - 第 3 章 &nbsp; 資料結構:
+    # [icon: material/shape-outline]
+    - chapter_data_structure/index.md
+    - 3.1 &nbsp; 資料結構分類: chapter_data_structure/classification_of_data_structure.md
+    - 3.2 &nbsp; 基本資料型別: chapter_data_structure/basic_data_types.md
+    - 3.3 &nbsp; 數字編碼 *: chapter_data_structure/number_encoding.md
+    - 3.4 &nbsp; 字元編碼 *: chapter_data_structure/character_encoding.md
+    - 3.5 &nbsp; 小結: chapter_data_structure/summary.md
+  - 第 4 章 &nbsp; 陣列與鏈結串列:
+    # [icon: material/view-list-outline]
+    - chapter_array_and_linkedlist/index.md
+    - 4.1 &nbsp; 陣列: chapter_array_and_linkedlist/array.md
+    - 4.2 &nbsp; 鏈結串列: chapter_array_and_linkedlist/linked_list.md
+    - 4.3 &nbsp; 串列: chapter_array_and_linkedlist/list.md
+    # [status: new]
+    - 4.4 &nbsp; 記憶體與快取 *: chapter_array_and_linkedlist/ram_and_cache.md
+    - 4.5 &nbsp; 小結: chapter_array_and_linkedlist/summary.md
+  - 第 5 章 &nbsp; 堆疊與佇列:
+    # [icon: material/stack-overflow]
+    - chapter_stack_and_queue/index.md
+    - 5.1 &nbsp; 堆疊: chapter_stack_and_queue/stack.md
+    - 5.2 &nbsp; 佇列: chapter_stack_and_queue/queue.md
+    - 5.3 &nbsp; 雙向佇列: chapter_stack_and_queue/deque.md
+    - 5.4 &nbsp; 小結: chapter_stack_and_queue/summary.md
+  - 第 6 章 &nbsp; 雜湊表:
+    # [icon: material/table-search]
+    - chapter_hashing/index.md
+    - 6.1 &nbsp; 雜湊表: chapter_hashing/hash_map.md
+    - 6.2 &nbsp; 雜湊衝突: chapter_hashing/hash_collision.md
+    - 6.3 &nbsp; 雜湊演算法: chapter_hashing/hash_algorithm.md
+    - 6.4 &nbsp; 小結: chapter_hashing/summary.md
+  - 第 7 章 &nbsp; 樹:
+    # [icon: material/graph-outline]
+    - chapter_tree/index.md
+    - 7.1 &nbsp; 二元樹: chapter_tree/binary_tree.md
+    - 7.2 &nbsp; 二元樹走訪: chapter_tree/binary_tree_traversal.md
+    - 7.3 &nbsp; 二元樹陣列表示: chapter_tree/array_representation_of_tree.md
+    - 7.4 &nbsp; 二元搜尋樹: chapter_tree/binary_search_tree.md
+    - 7.5 &nbsp; AVL *: chapter_tree/avl_tree.md
+    - 7.6 &nbsp; 小結: chapter_tree/summary.md
+  - 第 8 章 &nbsp; 堆積:
+    # [icon: material/family-tree]
+    - chapter_heap/index.md
+    - 8.1 &nbsp; 堆積: chapter_heap/heap.md
+    - 8.2 &nbsp; 建堆積操作: chapter_heap/build_heap.md
+    - 8.3 &nbsp; Top-k 問題: chapter_heap/top_k.md
+    - 8.4 &nbsp; 小結: chapter_heap/summary.md
+  - 第 9 章 &nbsp; 圖:
+    # [icon: material/graphql]
+    - chapter_graph/index.md
+    - 9.1 &nbsp; 圖: chapter_graph/graph.md
+    - 9.2 &nbsp; 圖基礎操作: chapter_graph/graph_operations.md
+    - 9.3 &nbsp; 圖的走訪: chapter_graph/graph_traversal.md
+    - 9.4 &nbsp; 小結: chapter_graph/summary.md
+  - 第 10 章 &nbsp; 搜尋:
+    # [icon: material/text-search]
+    - chapter_searching/index.md
+    - 10.1 &nbsp; 二分搜尋: chapter_searching/binary_search.md
+    - 10.2 &nbsp; 二分搜尋插入點: chapter_searching/binary_search_insertion.md
+    - 10.3 &nbsp; 二分搜尋邊界: chapter_searching/binary_search_edge.md
+    - 10.4 &nbsp; 雜湊最佳化策略: chapter_searching/replace_linear_by_hashing.md
+    - 10.5 &nbsp; 重識搜尋演算法: chapter_searching/searching_algorithm_revisited.md
+    - 10.6 &nbsp; 小結: chapter_searching/summary.md
+  - 第 11 章 &nbsp; 排序:
+    # [icon: material/sort-ascending]
+    - chapter_sorting/index.md
+    - 11.1 &nbsp; 排序演算法: chapter_sorting/sorting_algorithm.md
+    - 11.2 &nbsp; 選擇排序: chapter_sorting/selection_sort.md
+    - 11.3 &nbsp; 泡沫排序: chapter_sorting/bubble_sort.md
+    - 11.4 &nbsp; 插入排序: chapter_sorting/insertion_sort.md
+    - 11.5 &nbsp; 快速排序: chapter_sorting/quick_sort.md
+    - 11.6 &nbsp; 合併排序: chapter_sorting/merge_sort.md
+    - 11.7 &nbsp; 堆積排序: chapter_sorting/heap_sort.md
+    - 11.8 &nbsp; 桶排序: chapter_sorting/bucket_sort.md
+    - 11.9 &nbsp; 計數排序: chapter_sorting/counting_sort.md
+    - 11.10 &nbsp; 基數排序: chapter_sorting/radix_sort.md
+    - 11.11 &nbsp; 小結: chapter_sorting/summary.md
+  - 第 12 章 &nbsp; 分治:
+    # [icon: material/set-split]
+    - chapter_divide_and_conquer/index.md
+    - 12.1 &nbsp; 分治演算法: chapter_divide_and_conquer/divide_and_conquer.md
+    - 12.2 &nbsp; 分治搜尋策略: chapter_divide_and_conquer/binary_search_recur.md
+    - 12.3 &nbsp; 構建樹問題: chapter_divide_and_conquer/build_binary_tree_problem.md
+    - 12.4 &nbsp; 河內塔問題: chapter_divide_and_conquer/hanota_problem.md
+    - 12.5 &nbsp; 小結: chapter_divide_and_conquer/summary.md
+  - 第 13 章 &nbsp; 回溯:
+    # [icon: material/map-marker-path]
+    - chapter_backtracking/index.md
+    - 13.1 &nbsp; 回溯演算法: chapter_backtracking/backtracking_algorithm.md
+    - 13.2 &nbsp; 全排列問題: chapter_backtracking/permutations_problem.md
+    - 13.3 &nbsp; 子集和問題: chapter_backtracking/subset_sum_problem.md
+    - 13.4 &nbsp; N 皇后問題: chapter_backtracking/n_queens_problem.md
+    - 13.5 &nbsp; 小結: chapter_backtracking/summary.md
+  - 第 14 章 &nbsp; 動態規劃:
+    # [icon: material/table-pivot]
+    - chapter_dynamic_programming/index.md
+    - 14.1 &nbsp; 初探動態規劃: chapter_dynamic_programming/intro_to_dynamic_programming.md
+    - 14.2 &nbsp; DP 問題特性: chapter_dynamic_programming/dp_problem_features.md
+    - 14.3 &nbsp; DP 解題思路: chapter_dynamic_programming/dp_solution_pipeline.md
+    - 14.4 &nbsp; 0-1 背包問題: chapter_dynamic_programming/knapsack_problem.md
+    - 14.5 &nbsp; 完全背包問題: chapter_dynamic_programming/unbounded_knapsack_problem.md
+    - 14.6 &nbsp; 編輯距離問題: chapter_dynamic_programming/edit_distance_problem.md
+    - 14.7 &nbsp; 小結: chapter_dynamic_programming/summary.md
+  - 第 15 章 &nbsp; 貪婪:
+    # [icon: material/head-heart-outline]
+    - chapter_greedy/index.md
+    - 15.1 &nbsp; 貪婪演算法: chapter_greedy/greedy_algorithm.md
+    - 15.2 &nbsp; 分數背包問題: chapter_greedy/fractional_knapsack_problem.md
+    - 15.3 &nbsp; 最大容量問題: chapter_greedy/max_capacity_problem.md
+    - 15.4 &nbsp; 最大切分乘積問題: chapter_greedy/max_product_cutting_problem.md
+    - 15.5 &nbsp; 小結: chapter_greedy/summary.md
+  - 第 16 章 &nbsp; 附錄:
+    # [icon: material/help-circle-outline]
+    - chapter_appendix/index.md
+    - 16.1 &nbsp; 程式設計環境安裝: chapter_appendix/installation.md
+    - 16.2 &nbsp; 一起參與創作: chapter_appendix/contribution.md
+    - 16.3 &nbsp; 術語表: chapter_appendix/terminology.md
+  - 參考文獻:
+    - chapter_reference/index.md

@@ -1,7 +1,7 @@
 /**
  * File: top_k.c
  * Created Time: 2023-10-26
- * Author: Krahets (krahets163.com)
+ * Author: krahets (krahets163.com)
  */
 
 #include "my_heap.c"

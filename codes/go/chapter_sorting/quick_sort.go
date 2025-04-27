@@ -47,12 +47,12 @@ func (q *quickSort) quickSort(nums []int, left, right int) {
 
 /* 选取三个候选元素的中位数 */
 func (q *quickSortMedian) medianThree(nums []int, left, mid, right int) int {
-	// 此处使用异或运算来简化代码（!= 在这里起到异或的作用）
-	// 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-	if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
-		return left
-	} else if (nums[mid] < nums[left]) != (nums[mid] < nums[right]) {
-		return mid
+	l, m, r := nums[left], nums[mid], nums[right]
+	if (l <= m && m <= r) || (r <= m && m <= l) {
+		return mid // m 在 l 和 r 之间
+	}
+	if (m <= l && l <= r) || (r <= l && l <= m) {
+		return left // l 在 m 和 r 之间
 	}
 	return right
 }

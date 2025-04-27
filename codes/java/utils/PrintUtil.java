@@ -1,7 +1,7 @@
 /**
  * File: PrintUtil.java
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package utils;
@@ -19,8 +19,7 @@ class Trunk {
 };
 
 public class PrintUtil {
-
-    /* Print a matrix (Array) */
+    /* 打印矩阵（Array） */
     public static <T> void printMatrix(T[][] matrix) {
         System.out.println("[");
         for (T[] row : matrix) {
@@ -29,7 +28,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /* Print a matrix (List) */
+    /* 打印矩阵（List） */
     public static <T> void printMatrix(List<List<T>> matrix) {
         System.out.println("[");
         for (List<T> row : matrix) {
@@ -38,7 +37,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /* Print a linked list */
+    /* 打印链表 */
     public static void printLinkedList(ListNode head) {
         List<String> list = new ArrayList<>();
         while (head != null) {
@@ -48,16 +47,16 @@ public class PrintUtil {
         System.out.println(String.join(" -> ", list));
     }
 
-    /**
-     * The interface of the tree printer
-     * This tree printer is borrowed from TECHIE DELIGHT
-     * https://www.techiedelight.com/c-program-print-binary-tree/
-     */
+    /* 打印二叉树 */
     public static void printTree(TreeNode root) {
         printTree(root, null, false);
     }
 
-    /* Print a binary tree */
+    /**
+     * 打印二叉树
+     * This tree printer is borrowed from TECHIE DELIGHT
+     * https://www.techiedelight.com/c-program-print-binary-tree/
+     */
     public static void printTree(TreeNode root, Trunk prev, boolean isRight) {
         if (root == null) {
             return;
@@ -89,7 +88,6 @@ public class PrintUtil {
         printTree(root.left, trunk, false);
     }
 
-    /* Helper function to print branches of the binary tree */
     public static void showTrunks(Trunk p) {
         if (p == null) {
             return;
@@ -99,14 +97,14 @@ public class PrintUtil {
         System.out.print(p.str);
     }
 
-    /* Print a hash map */
+    /* 打印哈希表 */
     public static <K, V> void printHashMap(Map<K, V> map) {
         for (Map.Entry<K, V> kv : map.entrySet()) {
             System.out.println(kv.getKey() + " -> " + kv.getValue());
         }
     }
 
-    /* Print a heap (PriorityQueue) */
+    /* 打印堆（优先队列） */
     public static void printHeap(Queue<Integer> queue) {
         List<Integer> list = new ArrayList<>(queue);
         System.out.print("堆的数组表示：");

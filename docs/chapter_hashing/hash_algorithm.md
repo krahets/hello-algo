@@ -52,7 +52,7 @@ index = hash(key) % capacity
 
 观察发现，每种哈希算法的最后一步都是对大质数 $1000000007$ 取模，以确保哈希值在合适的范围内。值得思考的是，为什么要强调对质数取模，或者说对合数取模的弊端是什么？这是一个有趣的问题。
 
-先抛出结论：**使用大质数作为模数，可以最大化地保证哈希值的均匀分布**。因为质数不与其他数字存在公约数，可以减少因取模操作而产生的周期性模式，从而避免哈希冲突。
+先给出结论：**使用大质数作为模数，可以最大化地保证哈希值的均匀分布**。因为质数不与其他数字存在公约数，可以减少因取模操作而产生的周期性模式，从而避免哈希冲突。
 
 举个例子，假设我们选择合数 $9$ 作为模数，它可以被 $3$ 整除，那么所有可以被 $3$ 整除的 `key` 都会被映射到 $0$、$3$、$6$ 这三个哈希值。
 
@@ -299,7 +299,7 @@ $$
     ```rust title="built_in_hash.rs"
     use std::collections::hash_map::DefaultHasher;
     use std::hash::{Hash, Hasher};
-    
+
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
@@ -316,7 +316,6 @@ $$
     let mut dec_hasher = DefaultHasher::new();
     dec.to_bits().hash(&mut dec_hasher);
     let hash_dec = dec_hasher.finish();
-    println!("小数 {} 的哈希值为 {}", dec, hash_dec);
     // 小数 3.14159 的哈希值为 2566941990314602357
 
     let str = "Hello 算法";
@@ -342,6 +341,62 @@ $$
 
     ```c title="built_in_hash.c"
     // C 未提供内置 hash code 函数
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="built_in_hash.kt"
+    val num = 3
+    val hashNum = num.hashCode()
+    // 整数 3 的哈希值为 3
+
+    val bol = true
+    val hashBol = bol.hashCode()
+    // 布尔量 true 的哈希值为 1231
+
+    val dec = 3.14159
+    val hashDec = dec.hashCode()
+    // 小数 3.14159 的哈希值为 -1340954729
+
+    val str = "Hello 算法"
+    val hashStr = str.hashCode()
+    // 字符串“Hello 算法”的哈希值为 -727081396
+
+    val arr = arrayOf<Any>(12836, "小哈")
+    val hashTup = arr.hashCode()
+    // 数组 [12836, 小哈] 的哈希值为 189568618
+
+    val obj = ListNode(0)
+    val hashObj = obj.hashCode()
+    // 节点对象 utils.ListNode@1d81eb93 的哈希值为 495053715
+    ```
+
+=== "Ruby"
+
+    ```ruby title="built_in_hash.rb"
+    num = 3
+    hash_num = num.hash
+    # 整数 3 的哈希值为 -4385856518450339636
+
+    bol = true
+    hash_bol = bol.hash
+    # 布尔量 true 的哈希值为 -1617938112149317027
+
+    dec = 3.14159
+    hash_dec = dec.hash
+    # 小数 3.14159 的哈希值为 -1479186995943067893
+
+    str = "Hello 算法"
+    hash_str = str.hash
+    # 字符串“Hello 算法”的哈希值为 -4075943250025831763
+
+    tup = [12836, '小哈']
+    hash_tup = tup.hash
+    # 元组 (12836, '小哈') 的哈希值为 1999544809202288822
+
+    obj = ListNode.new(0)
+    hash_obj = obj.hash
+    # 节点对象 #<ListNode:0x000078133140ab70> 的哈希值为 4302940560806366381
     ```
 
 === "Zig"

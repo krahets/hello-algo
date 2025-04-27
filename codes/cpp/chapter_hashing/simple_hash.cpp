@@ -1,7 +1,7 @@
 /**
  * File: simple_hash.cpp
  * Created Time: 2023-06-21
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -48,7 +48,7 @@ int rotHash(string key) {
 
 /* Driver Code */
 int main() {
-    string key = "Hello dsad3241241dsa算123法";
+    string key = "Hello 算法";
 
     int hash = addHash(key);
     cout << "加法哈希值为 " << hash << endl;

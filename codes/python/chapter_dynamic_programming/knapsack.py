@@ -1,7 +1,7 @@
 """
 File: knapsack.py
 Created Time: 2023-07-03
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 

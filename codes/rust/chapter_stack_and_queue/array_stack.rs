@@ -4,7 +4,7 @@
  * Author: WSL0809 (wslzzy@outlook.com), codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* 基于数组实现的栈 */
 struct ArrayStack<T> {
@@ -14,7 +14,9 @@ struct ArrayStack<T> {
 impl<T> ArrayStack<T> {
     /* 初始化栈 */
     fn new() -> ArrayStack<T> {
-        ArrayStack::<T> { stack: Vec::<T>::new() }
+        ArrayStack::<T> {
+            stack: Vec::<T>::new(),
+        }
     }
 
     /* 获取栈的长度 */
@@ -34,15 +36,14 @@ impl<T> ArrayStack<T> {
 
     /* 出栈 */
     fn pop(&mut self) -> Option<T> {
-        match self.stack.pop() {
-            Some(num) => Some(num),
-            None => None,
-        }
+        self.stack.pop()
     }
 
     /* 访问栈顶元素 */
     fn peek(&self) -> Option<&T> {
-        if self.is_empty() { panic!("栈为空") };
+        if self.is_empty() {
+            panic!("栈为空")
+        };
         self.stack.last()
     }
 

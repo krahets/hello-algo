@@ -1,7 +1,7 @@
 /**
  * File: two_sum.java
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_searching;

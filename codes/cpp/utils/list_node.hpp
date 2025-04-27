@@ -1,7 +1,7 @@
 /**
  * File: list_node.hpp
  * Created Time: 2021-12-19
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #pragma once
@@ -11,7 +11,7 @@
 
 using namespace std;
 
-/* Definition for a singly-linked list node */
+/* 链表节点 */
 struct ListNode {
     int val;
     ListNode *next;
@@ -19,7 +19,7 @@ struct ListNode {
     }
 };
 
-/* Generate a linked list with a vector */
+/* 将列表反序列化为链表 */
 ListNode *vecToLinkedList(vector<int> list) {
     ListNode *dum = new ListNode(0);
     ListNode *head = dum;
@@ -30,15 +30,7 @@ ListNode *vecToLinkedList(vector<int> list) {
     return dum->next;
 }
 
-/* Get a list node with specific value from a linked list */
-ListNode *getListNode(ListNode *head, int val) {
-    while (head != nullptr && head->val != val) {
-        head = head->next;
-    }
-    return head;
-}
-
-/* Free the memory allocated to a linked list */
+/* 释放分配给链表的内存空间 */
 void freeMemoryLinkedList(ListNode *cur) {
     // 释放内存
     ListNode *pre;

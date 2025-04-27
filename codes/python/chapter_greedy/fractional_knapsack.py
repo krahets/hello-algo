@@ -1,7 +1,7 @@
 """
 File: fractional_knapsack.py
 Created Time: 2023-07-19
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 

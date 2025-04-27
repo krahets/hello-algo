@@ -37,7 +37,7 @@ fn array_traversal(nums: &[i32]) -> i32 {
 /* 平方阶 */
 fn quadratic(n: i32) -> i32 {
     let mut count = 0;
-    // 循环次数与数组长度成平方关系
+    // 循环次数与数据大小 n 成平方关系
     for _ in 0..n {
         for _ in 0..n {
             count += 1;
@@ -49,9 +49,10 @@ fn quadratic(n: i32) -> i32 {
 /* 平方阶（冒泡排序） */
 fn bubble_sort(nums: &mut [i32]) -> i32 {
     let mut count = 0; // 计数器
+
     // 外循环：未排序区间为 [0, i]
     for i in (1..nums.len()).rev() {
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
         for j in 0..i {
             if nums[j] > nums[j + 1] {
                 // 交换 nums[j] 与 nums[j + 1]
@@ -89,33 +90,33 @@ fn exp_recur(n: i32) -> i32 {
 }
 
 /* 对数阶（循环实现） */
-fn logarithmic(mut n: f32) -> i32 {
+fn logarithmic(mut n: i32) -> i32 {
     let mut count = 0;
-    while n > 1.0 {
-        n = n / 2.0;
+    while n > 1 {
+        n = n / 2;
         count += 1;
     }
     count
 }
 
 /* 对数阶（递归实现） */
-fn log_recur(n: f32) -> i32 {
-    if n <= 1.0 {
+fn log_recur(n: i32) -> i32 {
+    if n <= 1 {
         return 0;
     }
-    log_recur(n / 2.0) + 1
+    log_recur(n / 2) + 1
 }
 
 /* 线性对数阶 */
-fn linear_log_recur(n: f32) -> i32 {
-    if n <= 1.0 {
+fn linear_log_recur(n: i32) -> i32 {
+    if n <= 1 {
         return 1;
     }
-    let mut count = linear_log_recur(n / 2.0) + linear_log_recur(n / 2.0);
-    for _ in 0 ..n as i32 {
+    let mut count = linear_log_recur(n / 2) + linear_log_recur(n / 2);
+    for _ in 0..n {
         count += 1;
     }
-    return count
+    return count;
 }
 
 /* 阶乘阶（递归实现） */
@@ -156,12 +157,12 @@ fn main() {
     count = exp_recur(n);
     println!("指数阶（递归实现）的操作数量 = {}", count);
 
-    count = logarithmic(n as f32);
+    count = logarithmic(n);
     println!("对数阶（循环实现）的操作数量 = {}", count);
-    count = log_recur(n as f32);
+    count = log_recur(n);
     println!("对数阶（递归实现）的操作数量 = {}", count);
 
-    count = linear_log_recur(n as f32);
+    count = linear_log_recur(n);
     println!("线性对数阶（递归实现）的操作数量 = {}", count);
 
     count = factorial_recur(n);

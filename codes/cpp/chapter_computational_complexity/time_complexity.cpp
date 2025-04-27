@@ -1,7 +1,7 @@
 /**
  * File: time_complexity.cpp
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -36,7 +36,7 @@ int arrayTraversal(vector<int> &nums) {
 /* 平方阶 */
 int quadratic(int n) {
     int count = 0;
-    // 循环次数与数组长度成平方关系
+    // 循环次数与数据大小 n 成平方关系
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             count++;
@@ -86,7 +86,7 @@ int expRecur(int n) {
 }
 
 /* 对数阶（循环实现） */
-int logarithmic(float n) {
+int logarithmic(int n) {
     int count = 0;
     while (n > 1) {
         n = n / 2;
@@ -96,14 +96,14 @@ int logarithmic(float n) {
 }
 
 /* 对数阶（递归实现） */
-int logRecur(float n) {
+int logRecur(int n) {
     if (n <= 1)
         return 0;
     return logRecur(n / 2) + 1;
 }
 
 /* 线性对数阶 */
-int linearLogRecur(float n) {
+int linearLogRecur(int n) {
     if (n <= 1)
         return 1;
     int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
@@ -153,12 +153,12 @@ int main() {
     count = expRecur(n);
     cout << "指数阶（递归实现）的操作数量 = " << count << endl;
 
-    count = logarithmic((float)n);
+    count = logarithmic(n);
     cout << "对数阶（循环实现）的操作数量 = " << count << endl;
-    count = logRecur((float)n);
+    count = logRecur(n);
     cout << "对数阶（递归实现）的操作数量 = " << count << endl;
 
-    count = linearLogRecur((float)n);
+    count = linearLogRecur(n);
     cout << "线性对数阶（递归实现）的操作数量 = " << count << endl;
 
     count = factorialRecur(n);

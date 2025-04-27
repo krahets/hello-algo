@@ -3,14 +3,12 @@
  * Created Time: 2023-03-11
  * Author: codingonion (coderonion@gmail.com)
  */
-
-include!("../include/include.rs");
-
+use hello_algo_rust::include::print_util;
 /* 基于环形数组实现的双向队列 */
 struct ArrayDeque {
-    nums: Vec<i32>,     // 用于存储双向队列元素的数组
-    front: usize,       // 队首指针，指向队首元素
-    que_size: usize,    // 双向队列长度
+    nums: Vec<i32>,  // 用于存储双向队列元素的数组
+    front: usize,    // 队首指针，指向队首元素
+    que_size: usize, // 双向队列长度
 }
 
 impl ArrayDeque {
@@ -50,7 +48,7 @@ impl ArrayDeque {
     pub fn push_first(&mut self, num: i32) {
         if self.que_size == self.capacity() {
             println!("双向队列已满");
-            return
+            return;
         }
         // 队首指针向左移动一位
         // 通过取余操作实现 front 越过数组头部后回到尾部
@@ -64,7 +62,7 @@ impl ArrayDeque {
     pub fn push_last(&mut self, num: i32) {
         if self.que_size == self.capacity() {
             println!("双向队列已满");
-            return
+            return;
         }
         // 计算队尾指针，指向队尾索引 + 1
         let rear = self.index(self.front as i32 + self.que_size as i32);
@@ -91,18 +89,22 @@ impl ArrayDeque {
 
     /* 访问队首元素 */
     fn peek_first(&self) -> i32 {
-        if self.is_empty() { panic!("双向队列为空") };
+        if self.is_empty() {
+            panic!("双向队列为空")
+        };
         self.nums[self.front]
     }
 
     /* 访问队尾元素 */
     fn peek_last(&self) -> i32 {
-        if self.is_empty() { panic!("双向队列为空") };
+        if self.is_empty() {
+            panic!("双向队列为空")
+        };
         // 计算尾元素索引
         let last = self.index(self.front as i32 + self.que_size as i32 - 1);
         self.nums[last]
     }
-    
+
     /* 返回数组用于打印 */
     fn to_array(&self) -> Vec<i32> {
         // 仅转换有效长度范围内的列表元素
@@ -146,7 +148,7 @@ fn main() {
     print_util::print_array(&deque.to_array());
     let pop_first = deque.pop_first();
     print!("\n队首出队元素 = {}，队首出队后 deque = ", pop_first);
-    print_util::print_array(&deque.to_array());   
+    print_util::print_array(&deque.to_array());
 
     /* 获取双向队列的长度 */
     let size = deque.size();

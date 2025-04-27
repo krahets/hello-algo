@@ -4,15 +4,22 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-use std::{cell::RefCell, rc::Rc};
+use hello_algo_rust::include::{print_util, TreeNode};
 use std::collections::HashMap;
-include!("../include/include.rs");
-use tree_node::TreeNode;
+use std::{cell::RefCell, rc::Rc};
 
 /* 构建二叉树：分治 */
-fn dfs(preorder: &[i32], inorder_map: &HashMap<i32, i32>, i: i32, l: i32, r: i32) -> Option<Rc<RefCell<TreeNode>>> {
+fn dfs(
+    preorder: &[i32],
+    inorder_map: &HashMap<i32, i32>,
+    i: i32,
+    l: i32,
+    r: i32,
+) -> Option<Rc<RefCell<TreeNode>>> {
     // 子树区间为空时终止
-    if r - l < 0 { return None; }
+    if r - l < 0 {
+        return None;
+    }
     // 初始化根节点
     let root = TreeNode::new(preorder[i as usize]);
     // 查询 m ，从而划分左右子树
@@ -38,8 +45,8 @@ fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>
 
 /* Driver Code */
 fn main() {
-    let preorder = [ 3, 9, 2, 1, 7 ];
-    let inorder = [ 9, 3, 1, 2, 7 ];
+    let preorder = [3, 9, 2, 1, 7];
+    let inorder = [9, 3, 1, 2, 7];
     println!("中序遍历 = {:?}", preorder);
     println!("前序遍历 = {:?}", inorder);
 

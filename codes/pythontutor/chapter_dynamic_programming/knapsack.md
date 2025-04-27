@@ -1,7 +1,7 @@
 <!--
     File: knapsack.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{knapsack}-[class]{}-[func]{knapsack_dfs} -->

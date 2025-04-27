@@ -1,7 +1,7 @@
 """
 File: preorder_traversal_ii_compact.py
 Created Time: 2023-04-15
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 import sys

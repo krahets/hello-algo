@@ -1,12 +1,15 @@
 /* Color Settings */
 /* https://github.com/squidfunk/mkdocs-material/blob/6b5035f5580f97532d664e3d1babf5f320e88ee9/src/assets/stylesheets/main/_colors.scss */
 /* https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#custom-colors */
-:root > * {
+:root>* {
   --md-primary-fg-color: #ffffff;
   --md-primary-bg-color: #1d1d20;
 
   --md-default-fg-color: #1d1d20;
   --md-default-bg-color: #ffffff;
+
+  --md-body-bg-color: #22272e;
+  --md-header-bg-color: rgba(255, 255, 255, 0.6);
 
   --md-code-fg-color: #1d1d20;
   --md-code-bg-color: #f5f5f5;
@@ -32,6 +35,9 @@
   --md-default-fg-color: #adbac7;
   --md-default-bg-color: #22272e;
 
+  --md-body-bg-color: #22272e;
+  --md-header-bg-color: rgba(34, 39, 46, 0.8);
+
   --md-code-fg-color: #adbac7;
   --md-code-bg-color: #1d2126;
 
@@ -42,12 +48,32 @@
   --md-footer-fg-color: #adbac7;
 
   --md-typeset-color: #adbac7;
-  --md-typeset-a-color: #52bbb1 !important;
+  --md-typeset-a-color: #52bbb1;
 
   --md-typeset-btn-color: #52bbb1;
   --md-typeset-btn-hover-color: #55aea6;
 
   --md-admonition-pythontutor-color: #30363f;
+}
+
+[data-md-color-scheme="slate"][data-md-color-primary="black"],
+[data-md-color-scheme="slate"][data-md-color-primary="white"] {
+  --md-typeset-a-color: #52bbb1;
+}
+
+[data-md-color-primary="black"] .md-header {
+  background-color: var(--md-header-bg-color);
+}
+
+.md-header--shadow,
+.md-header--landing {
+  box-shadow: none;
+  transition: none;
+  backdrop-filter: saturate(180%) blur(20px);
+  /* Gaussian blur */
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  /* Safari */
+  background-color: var(--md-header-bg-color);
 }
 
 /* https://github.com/squidfunk/mkdocs-material/issues/4832#issuecomment-1374891676 */
@@ -57,7 +83,7 @@
 
 /* Figure class */
 .animation-figure {
-  border-radius: 0.63rem;
+  border-radius: 0.3rem;
   display: block;
   margin: 0 auto;
   box-shadow: var(--md-shadow-z2);
@@ -112,6 +138,11 @@
   text-transform: none;
 }
 
+.md-typeset a:hover {
+  color: var(--md-typeset-a-color);
+  text-decoration: underline;
+}
+
 .md-typeset code {
   border-radius: 0.2rem;
 }
@@ -130,7 +161,7 @@ body {
 
 /* max height of code block */
 /* https://github.com/squidfunk/mkdocs-material/issues/3444 */
-.md-typeset pre > code {
+.md-typeset pre>code {
   max-height: 25rem;
 }
 
@@ -147,35 +178,8 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  width: 100%; /* Default to full width */
-}
-
-/* rounded button */
-.rounded-button {
-  display: inline-flex; /* Use flexbox for alignment */
-  align-items: center; /* Align items vertically */
-  justify-content: center; /* Center items horizontally */
-  border-radius: 100px; /* Circular corners */
-  padding: 9px 18px; /* Padding around the text */
-  margin: 0.15em 0;
-  border: none; /* Removes default border */
-  background-color: var(--md-typeset-btn-color); /* Background color */
-  color: var(--md-primary-fg-color) !important; /* Text color */
-  font-size: 0.85em; /* Font size */
-  text-align: center; /* Center the text */
-  text-decoration: none; /* Remove underline from anchor text */
-  cursor: pointer; /* Pointer cursor on hover */
-}
-
-.rounded-button:hover {
-  background-color: var(--md-typeset-btn-hover-color);
-}
-
-.rounded-button svg {
-  fill: var(--md-primary-fg-color); /* Fill SVG icon with text color */
-  width: 1.2em;
-  height: auto;
-  margin-right: 0.5em; /* Add some space between the SVG icon and the text */
+  width: 100%;
+  /* Default to full width */
 }
 
 /* Admonition for python tutor */
@@ -191,12 +195,13 @@ body {
   box-shadow: var(--md-shadow-z1);
 }
 
-.md-typeset .pythontutor > .admonition-title,
-.md-typeset .pythontutor > summary {
+.md-typeset .pythontutor>.admonition-title,
+.md-typeset .pythontutor>summary {
   background-color: var(--md-code-bg-color);
 }
-.md-typeset .pythontutor > .admonition-title::before,
-.md-typeset .pythontutor > summary::before {
+
+.md-typeset .pythontutor>.admonition-title::before,
+.md-typeset .pythontutor>summary::before {
   background-color: rgb(55, 118, 171);
   -webkit-mask-image: var(--md-admonition-icon--pythontutor);
   mask-image: var(--md-admonition-icon--pythontutor);
@@ -207,6 +212,28 @@ body {
   width: 1.25em;
 }
 
+/* code block tabs */
+.md-typeset .tabbed-labels>label {
+  font-size: 0.61rem;
+}
+
+.md-typeset .tabbed-labels--linked>label>a {
+  padding: .78125em 1.0em .625em;
+}
+
+/* header banner */
+.md-banner {
+  background-color: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: 0.75rem;
+}
+
+.md-banner .banner-svg svg {
+  margin-right: 0.3rem;
+  height: 0.63rem;
+  fill: var(--md-default-fg-color);
+}
+
 .pythontutor-iframe {
   width: 125%;
   height: 125%;
@@ -215,4 +242,313 @@ body {
   transform: scale(0.8);
   transform-origin: top left;
   border: none;
+}
+
+/* landing page container */
+.home-div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: 0.9rem;
+  padding: 3em 2em;
+  text-align: center;
+}
+
+.section-content {
+  width: 100%;
+  height: auto;
+  max-width: 70vw;
+}
+
+/* rounded button */
+.rounded-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10em;
+  margin: 0 0.1em;
+  padding: 0.6em 1.3em;
+  border: none;
+  background-color: var(--md-typeset-btn-color);
+  color: var(--md-primary-fg-color) !important;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rounded-button:hover {
+  background-color: var(--md-typeset-btn-hover-color);
+}
+
+.rounded-button span {
+  margin: 0;
+  margin-bottom: 0.07em;
+  white-space: nowrap;
+}
+
+.rounded-button svg {
+  fill: var(--md-primary-fg-color);
+  width: auto;
+  height: 1.2em;
+  margin-right: 0.5em;
+}
+
+/* device image */
+.device-on-hover {
+  width: auto;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+a:hover .device-on-hover {
+  filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.15));
+  transform: scale(1.01);
+}
+
+/* text button */
+.reading-media {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 32vw;
+}
+
+.media-block {
+  height: 100%;
+  margin: 0 0.2em;
+}
+
+.text-button {
+  width: auto;
+  color: var(--md-typeset-btn-color);
+  text-decoration: none;
+  text-align: center;
+  margin: 2.7em auto;
+}
+
+.text-button span {
+  white-space: nowrap;
+}
+
+.text-button svg {
+  display: inline-block;
+  fill: var(--md-typeset-btn-color);
+  width: auto;
+  height: 0.9em;
+  background-size: cover;
+  padding-top: 0.17em;
+  margin-left: 0.15em;
+}
+
+a:hover .text-button span {
+  text-decoration: underline;
+}
+
+/* hero image */
+.hero-div {
+  height: min(84vh, 75vw);
+  width: min(112vh, 100vw);
+  margin: 0 auto;
+  margin-top: -2.4rem;
+  padding: 0;
+  position: relative;
+  font-size: min(1.8vh, 2.5vw);
+  font-weight: normal;
+}
+
+.hero-bg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+/* hover on the planets */
+.hero-div>a>img {
+  width: auto;
+  position: absolute;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.hero-div>a>span {
+  margin: 0;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  white-space: nowrap;
+  /* prevent line breaks */
+  color: white;
+}
+
+.hero-div>a:hover>img {
+  filter: brightness(1.15) saturate(1.1) drop-shadow(0 0 0.5rem rgba(255, 255, 255, 0.2));
+  transform: scale(1.03);
+}
+
+.hero-div>a:hover>span {
+  text-decoration: underline;
+  color: var(--md-typeset-btn-color);
+}
+
+.heading-div {
+  width: 100%;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: min(2vh, 3vw);
+  pointer-events: none;
+  color: #fff;
+}
+
+/* code badge */
+.code-badge {
+  width: 100%;
+  height: auto;
+  margin: 1em auto;
+}
+
+.code-badge img {
+  height: 1.07em;
+  width: auto;
+}
+
+/* brief intro */
+.intro-container {
+  display: flex;
+  align-items: center;
+  margin: 2em auto;
+}
+
+.intro-image {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 50%;
+  border-radius: 0.5em;
+  box-shadow: var(--md-shadow-z2);
+}
+
+.intro-text {
+  flex-grow: 1;
+  /* fill the space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  align-items: flex-start;
+  width: fit-content;
+  margin: 2em;
+}
+
+.intro-text>div {
+  align-self: flex-start;
+  width: auto;
+  margin: 0 auto;
+}
+
+.endor-text {
+  width: 50%;
+}
+
+.intro-quote {
+  color: var(--md-accent-fg-color);
+  font-weight: bold;
+}
+
+/* contributors table */
+.profile-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 40em;
+  margin: 1em auto;
+}
+
+.profile-cell {
+  flex: 1 1 15%;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.profile-img {
+  width: 5em;
+  border-radius: 50%;
+  margin-bottom: 0.5em;
+}
+
+.giscus-container {
+  width: 40em;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Hide navigation */
+@media screen and (max-width: 76.25em) {
+  .section-content {
+    max-width: 95vw;
+  }
+
+  .reading-media {
+    height: 33vw;
+  }
+
+  .contrib-image {
+    width: 100%;
+  }
+}
+
+/* mobile devices */
+@media screen and (max-width: 60em) {
+  .home-div {
+    font-size: 0.75rem;
+  }
+
+  .hero-div {
+    margin-top: -4rem;
+  }
+
+  .intro-container {
+    flex-direction: column;
+  }
+
+  .intro-text {
+    width: auto;
+    order: 2;
+    margin: 0 auto;
+  }
+
+  .endor-text {
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .intro-image {
+    width: 100%;
+    order: 1;
+    margin-bottom: 1em;
+  }
+
+  .text-button {
+    margin: 0.7em auto;
+  }
+
+  .profile-cell {
+    flex: 1 1 30%;
+  }
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

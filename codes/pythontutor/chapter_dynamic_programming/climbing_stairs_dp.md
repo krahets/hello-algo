@@ -1,7 +1,7 @@
 <!--
     File: climbing_stairs_dp.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{climbing_stairs_dp}-[class]{}-[func]{climbing_stairs_dp} -->

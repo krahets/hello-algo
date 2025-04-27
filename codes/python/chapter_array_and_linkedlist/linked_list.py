@@ -1,7 +1,7 @@
 """
 File: linked_list.py
 Created Time: 2022-11-25
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 import sys

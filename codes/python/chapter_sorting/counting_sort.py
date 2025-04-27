@@ -1,7 +1,7 @@
 """
 File: counting_sort.py
 Created Time: 2023-03-21
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 
@@ -9,9 +9,7 @@ def counting_sort_naive(nums: list[int]):
     """计数排序"""
     # 简单实现，无法用于排序对象
     # 1. 统计数组最大元素 m
-    m = 0
-    for num in nums:
-        m = max(m, num)
+    m = max(nums)
     # 2. 统计各数字的出现次数
     # counter[num] 代表 num 的出现次数
     counter = [0] * (m + 1)

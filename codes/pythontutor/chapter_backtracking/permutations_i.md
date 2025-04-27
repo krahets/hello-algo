@@ -1,7 +1,7 @@
 <!--
     File: permutations_i.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{permutations_i}-[class]{}-[func]{permutations_i} -->

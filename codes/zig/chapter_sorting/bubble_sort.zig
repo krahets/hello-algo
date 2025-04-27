@@ -11,7 +11,7 @@ fn bubbleSort(nums: []i32) void {
     var i: usize = nums.len - 1;
     while (i > 0) : (i -= 1) {
         var j: usize = 0;
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
         while (j < i) : (j += 1) {
             if (nums[j] > nums[j + 1]) {
                 // 交换 nums[j] 与 nums[j + 1]
@@ -30,7 +30,7 @@ fn bubbleSortWithFlag(nums: []i32) void {
     while (i > 0) : (i -= 1) {
         var flag = false;   // 初始化标志位
         var j: usize = 0;
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
         while (j < i) : (j += 1) {
             if (nums[j] > nums[j + 1]) {
                 // 交换 nums[j] 与 nums[j + 1]

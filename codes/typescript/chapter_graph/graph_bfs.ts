@@ -12,7 +12,7 @@ import { Vertex } from '../modules/Vertex';
 function graphBFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
     // 顶点遍历序列
     const res: Vertex[] = [];
-    // 哈希表，用于记录已被访问过的顶点
+    // 哈希集合，用于记录已被访问过的顶点
     const visited: Set<Vertex> = new Set();
     visited.add(startVet);
     // 队列用于实现 BFS

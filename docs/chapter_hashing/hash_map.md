@@ -1,6 +1,6 @@
 # 哈希表
 
-「哈希表 hash table」，又称「散列表」，它通过建立键 `key` 与值 `value` 之间的映射，实现高效的元素查询。具体而言，我们向哈希表中输入一个键 `key` ，则可以在 $O(1)$ 时间内获取对应的值 `value` 。
+<u>哈希表（hash table）</u>，又称<u>散列表</u>，它通过建立键 `key` 与值 `value` 之间的映射，实现高效的元素查询。具体而言，我们向哈希表中输入一个键 `key` ，则可以在 $O(1)$ 时间内获取对应的值 `value` 。
 
 如下图所示，给定 $n$ 个学生，每个学生都有“姓名”和“学号”两项数据。假如我们希望实现“输入一个学号，返回对应的姓名”的查询功能，则可以采用下图所示的哈希表来实现。
 
@@ -31,7 +31,7 @@
     ```python title="hash_map.py"
     # 初始化哈希表
     hmap: dict = {}
-    
+
     # 添加操作
     # 在哈希表中添加键值对 (key, value)
     hmap[12836] = "小哈"
@@ -39,11 +39,11 @@
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鸭"
-    
+
     # 查询操作
     # 向哈希表中输入键 key ，得到值 value
     name: str = hmap[15937]
-    
+
     # 删除操作
     # 在哈希表中删除键值对 (key, value)
     hmap.pop(10583)
@@ -54,7 +54,7 @@
     ```cpp title="hash_map.cpp"
     /* 初始化哈希表 */
     unordered_map<int, string> map;
-    
+
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map[12836] = "小哈";
@@ -62,11 +62,11 @@
     map[16750] = "小算";
     map[13276] = "小法";
     map[10583] = "小鸭";
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     string name = map[15937];
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.erase(10583);
@@ -77,19 +77,19 @@
     ```java title="hash_map.java"
     /* 初始化哈希表 */
     Map<Integer, String> map = new HashMap<>();
-    
+
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
-    map.put(12836, "小哈");   
-    map.put(15937, "小啰");   
-    map.put(16750, "小算");   
+    map.put(12836, "小哈");
+    map.put(15937, "小啰");
+    map.put(16750, "小算");
     map.put(13276, "小法");
     map.put(10583, "小鸭");
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     String name = map.get(15937);
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.remove(10583);
@@ -108,11 +108,11 @@
         { 13276, "小法" },
         { 10583, "小鸭" }
     };
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     string name = map[15937];
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.Remove(10583);
@@ -123,7 +123,7 @@
     ```go title="hash_map_test.go"
     /* 初始化哈希表 */
     hmap := make(map[int]string)
-    
+
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     hmap[12836] = "小哈"
@@ -131,11 +131,11 @@
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鸭"
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     name := hmap[15937]
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     delete(hmap, 10583)
@@ -146,7 +146,7 @@
     ```swift title="hash_map.swift"
     /* 初始化哈希表 */
     var map: [Int: String] = [:]
-    
+
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map[12836] = "小哈"
@@ -154,11 +154,11 @@
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鸭"
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     let name = map[15937]!
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.removeValue(forKey: 10583)
@@ -176,11 +176,11 @@
     map.set(16750, '小算');
     map.set(13276, '小法');
     map.set(10583, '小鸭');
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     let name = map.get(15937);
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.delete(10583);
@@ -200,12 +200,12 @@
     map.set(10583, '小鸭');
     console.info('\n添加完成后，哈希表为\nKey -> Value');
     console.info(map);
-    
+
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     let name = map.get(15937);
     console.info('\n输入学号 15937 ，查询到姓名 ' + name);
-    
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.delete(10583);
@@ -240,7 +240,7 @@
 
     ```rust title="hash_map.rs"
     use std::collections::HashMap;
-    
+
     /* 初始化哈希表 */
     let mut map: HashMap<i32, String> = HashMap::new();
 
@@ -265,6 +265,52 @@
 
     ```c title="hash_map.c"
     // C 未提供内置哈希表
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="hash_map.kt"
+    /* 初始化哈希表 */
+    val map = HashMap<Int,String>()
+
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map[12836] = "小哈"
+    map[15937] = "小啰"
+    map[16750] = "小算"
+    map[13276] = "小法"
+    map[10583] = "小鸭"
+
+    /* 查询操作 */
+    // 向哈希表中输入键 key ，得到值 value
+    val name = map[15937]
+
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.remove(10583)
+    ```
+
+=== "Ruby"
+
+    ```ruby title="hash_map.rb"
+    # 初始化哈希表
+    hmap = {}
+
+    # 添加操作
+    # 在哈希表中添加键值对 (key, value)
+    hmap[12836] = "小哈"
+    hmap[15937] = "小啰"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鸭"
+
+    # 查询操作
+    # 向哈希表中输入键 key ，得到值 value
+    name = hmap[15937]
+
+    # 删除操作
+    # 在哈希表中删除键值对 (key, value)
+    hmap.delete(10583)
     ```
 
 === "Zig"
@@ -447,7 +493,7 @@
 
     // 单独遍历键 Key
     for key in map.keys() {
-        println!("{key}"); 
+        println!("{key}");
     }
 
     // 单独遍历值 Value
@@ -462,6 +508,38 @@
     // C 未提供内置哈希表
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="hash_map.kt"
+    /* 遍历哈希表 */
+    // 遍历键值对 key->value
+    for ((key, value) in map) {
+        println("$key -> $value")
+    }
+    // 单独遍历键 key
+    for (key in map.keys) {
+        println(key)
+    }
+    // 单独遍历值 value
+    for (_val in map.values) {
+        println(_val)
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="hash_map.rb"
+    # 遍历哈希表
+    # 遍历键值对 key->value
+    hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
+
+    # 单独遍历键 key
+    hmap.keys.each { |key| puts key }
+
+    # 单独遍历值 value
+    hmap.values.each { |val| puts val }
+    ```
+
 === "Zig"
 
     ```zig title="hash_map.zig"
@@ -474,9 +552,9 @@
 
 ## 哈希表简单实现
 
-我们先考虑最简单的情况，**仅用一个数组来实现哈希表**。在哈希表中，我们将数组中的每个空位称为「桶 bucket」，每个桶可存储一个键值对。因此，查询操作就是找到 `key` 对应的桶，并在桶中获取 `value` 。
+我们先考虑最简单的情况，**仅用一个数组来实现哈希表**。在哈希表中，我们将数组中的每个空位称为<u>桶（bucket）</u>，每个桶可存储一个键值对。因此，查询操作就是找到 `key` 对应的桶，并在桶中获取 `value` 。
 
-那么，如何基于 `key` 定位对应的桶呢？这是通过「哈希函数 hash function」实现的。哈希函数的作用是将一个较大的输入空间映射到一个较小的输出空间。在哈希表中，输入空间是所有 `key` ，输出空间是所有桶（数组索引）。换句话说，输入一个 `key` ，**我们可以通过哈希函数得到该 `key` 对应的键值对在数组中的存储位置**。
+那么，如何基于 `key` 定位对应的桶呢？这是通过<u>哈希函数（hash function）</u>实现的。哈希函数的作用是将一个较大的输入空间映射到一个较小的输出空间。在哈希表中，输入空间是所有 `key` ，输出空间是所有桶（数组索引）。换句话说，输入一个 `key` ，**我们可以通过哈希函数得到该 `key` 对应的键值对在数组中的存储位置**。
 
 输入一个 `key` ，哈希函数的计算过程分为以下两步。
 
@@ -510,7 +588,7 @@ index = hash(key) % capacity
 20336 % 100 = 36
 ```
 
-如下图所示，两个学号指向了同一个姓名，这显然是不对的。我们将这种多个输入对应同一输出的情况称为「哈希冲突 hash collision」。
+如下图所示，两个学号指向了同一个姓名，这显然是不对的。我们将这种多个输入对应同一输出的情况称为<u>哈希冲突（hash collision）</u>。
 
 ![哈希冲突示例](hash_map.assets/hash_collision.png)
 
@@ -522,4 +600,4 @@ index = hash(key) % capacity
 
 类似于数组扩容，哈希表扩容需将所有键值对从原哈希表迁移至新哈希表，非常耗时；并且由于哈希表容量 `capacity` 改变，我们需要通过哈希函数来重新计算所有键值对的存储位置，这进一步增加了扩容过程的计算开销。为此，编程语言通常会预留足够大的哈希表容量，防止频繁扩容。
 
-「负载因子 load factor」是哈希表的一个重要概念，其定义为哈希表的元素数量除以桶数量，用于衡量哈希冲突的严重程度，**也常作为哈希表扩容的触发条件**。例如在 Java 中，当负载因子超过 $0.75$ 时，系统会将哈希表扩容至原先的 $2$ 倍。
+<u>负载因子（load factor）</u>是哈希表的一个重要概念，其定义为哈希表的元素数量除以桶数量，用于衡量哈希冲突的严重程度，**也常作为哈希表扩容的触发条件**。例如在 Java 中，当负载因子超过 $0.75$ 时，系统会将哈希表扩容至原先的 $2$ 倍。

@@ -1,7 +1,7 @@
 /**
  * File: build_tree.java
  * Created Time: 2023-07-17
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_divide_and_conquer;

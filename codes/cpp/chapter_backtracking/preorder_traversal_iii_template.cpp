@@ -1,7 +1,7 @@
 /**
  * File: preorder_traversal_iii_template.cpp
  * Created Time: 2023-04-16
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"

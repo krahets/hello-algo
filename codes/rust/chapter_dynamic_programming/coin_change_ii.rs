@@ -10,7 +10,7 @@ fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
     // 初始化 dp 表
     let mut dp = vec![vec![0; amt + 1]; n + 1];
     // 初始化首列
-    for i in 0..= n {
+    for i in 0..=n {
         dp[i][0] = 1;
     }
     // 状态转移
@@ -51,7 +51,7 @@ fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
 
 /* Driver Code */
 pub fn main() {
-    let coins = [ 1, 2, 5 ];
+    let coins = [1, 2, 5];
     let amt: usize = 5;
 
     // 动态规划

@@ -4,24 +4,23 @@
  * Author: codingonion (coderonion@gmail.com), xBLACKICEx (xBLACKICEx@outlook.com)
  */
 
-include!("../include/include.rs");
-
+use hello_algo_rust::include::print_util;
 use std::collections::VecDeque;
 
 /* Driver Code */
 pub fn main() {
     // 初始化双向队列
     let mut deque: VecDeque<i32> = VecDeque::new();
-    deque.push_back(3);     
+    deque.push_back(3);
     deque.push_back(2);
     deque.push_back(5);
     print!("双向队列 deque = ");
     print_util::print_queue(&deque);
 
     // 访问元素
-    let peek_first = deque.front().unwrap();   
+    let peek_first = deque.front().unwrap();
     print!("\n队首元素 peekFirst = {peek_first}");
-    let peek_last = deque.back().unwrap();     
+    let peek_last = deque.back().unwrap();
     print!("\n队尾元素 peekLast = {peek_last}");
 
     /* 元素入队 */

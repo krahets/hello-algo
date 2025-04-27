@@ -1,7 +1,7 @@
 <!--
     File: linkedlist_queue.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{linkedlist_queue}-[class]{linked_list_queue}-[func]{} -->

@@ -3,10 +3,8 @@
  * Created Time: 2023-02-27
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
-
 use std::rc::Rc;
-include!("../include/include.rs");
-use tree_node::TreeNode;
+use hello_algo_rust::include::{print_util, TreeNode};
 
 /* Driver Code */
 fn main() {

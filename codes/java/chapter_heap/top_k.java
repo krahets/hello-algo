@@ -1,7 +1,7 @@
 /**
  * File: top_k.java
  * Created Time: 2023-06-12
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_heap;

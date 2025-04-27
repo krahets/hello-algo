@@ -50,7 +50,7 @@ int rotHash(char *key) {
 
 /* Driver Code */
 int main() {
-    char *key = "Hello dsad3241241dsa算123法";
+    char *key = "Hello 算法";
 
     int hash = addHash(key);
     printf("加法哈希值为 %d\n", hash);

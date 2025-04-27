@@ -16,7 +16,7 @@ func minCostClimbingStairsDP(cost: [Int]) -> Int {
     dp[1] = cost[1]
     dp[2] = cost[2]
     // 状态转移：从较小子问题逐步求解较大子问题
-    for i in stride(from: 3, through: n, by: 1) {
+    for i in 3 ... n {
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
     }
     return dp[n]
@@ -29,7 +29,7 @@ func minCostClimbingStairsDPComp(cost: [Int]) -> Int {
         return cost[n]
     }
     var (a, b) = (cost[1], cost[2])
-    for i in stride(from: 3, through: n, by: 1) {
+    for i in 3 ... n {
         (a, b) = (b, min(a, b) + cost[i])
     }
     return b

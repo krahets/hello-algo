@@ -51,16 +51,16 @@ func minPathSumDP(grid: [[Int]]) -> Int {
     var dp = Array(repeating: Array(repeating: 0, count: m), count: n)
     dp[0][0] = grid[0][0]
     // 状态转移：首行
-    for j in stride(from: 1, to: m, by: 1) {
+    for j in 1 ..< m {
         dp[0][j] = dp[0][j - 1] + grid[0][j]
     }
     // 状态转移：首列
-    for i in stride(from: 1, to: n, by: 1) {
+    for i in 1 ..< n {
         dp[i][0] = dp[i - 1][0] + grid[i][0]
     }
     // 状态转移：其余行和列
-    for i in stride(from: 1, to: n, by: 1) {
-        for j in stride(from: 1, to: m, by: 1) {
+    for i in 1 ..< n {
+        for j in 1 ..< m {
             dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j]
         }
     }
@@ -75,15 +75,15 @@ func minPathSumDPComp(grid: [[Int]]) -> Int {
     var dp = Array(repeating: 0, count: m)
     // 状态转移：首行
     dp[0] = grid[0][0]
-    for j in stride(from: 1, to: m, by: 1) {
+    for j in 1 ..< m {
         dp[j] = dp[j - 1] + grid[0][j]
     }
     // 状态转移：其余行
-    for i in stride(from: 1, to: n, by: 1) {
+    for i in 1 ..< n {
         // 状态转移：首列
         dp[0] = dp[0] + grid[i][0]
         // 状态转移：其余列
-        for j in stride(from: 1, to: m, by: 1) {
+        for j in 1 ..< m {
             dp[j] = min(dp[j - 1], dp[j]) + grid[i][j]
         }
     }
@@ -105,19 +105,19 @@ enum MinPathSum {
 
         // 暴力搜索
         var res = minPathSumDFS(grid: grid, i: n - 1, j: m - 1)
-        print("从左上角到右下角的做小路径和为 \(res)")
+        print("从左上角到右下角的最小路径和为 \(res)")
 
         // 记忆化搜索
         var mem = Array(repeating: Array(repeating: -1, count: m), count: n)
         res = minPathSumDFSMem(grid: grid, mem: &mem, i: n - 1, j: m - 1)
-        print("从左上角到右下角的做小路径和为 \(res)")
+        print("从左上角到右下角的最小路径和为 \(res)")
 
         // 动态规划
         res = minPathSumDP(grid: grid)
-        print("从左上角到右下角的做小路径和为 \(res)")
+        print("从左上角到右下角的最小路径和为 \(res)")
 
         // 空间优化后的动态规划
         res = minPathSumDPComp(grid: grid)
-        print("从左上角到右下角的做小路径和为 \(res)")
+        print("从左上角到右下角的最小路径和为 \(res)")
     }
 }

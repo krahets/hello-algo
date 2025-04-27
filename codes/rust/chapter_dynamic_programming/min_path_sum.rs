@@ -91,10 +91,11 @@ fn min_path_sum_dp_comp(grid: &Vec<Vec<i32>>) -> i32 {
 /* Driver Code */
 pub fn main() {
     let grid = vec![
-        vec![ 1, 3, 1, 5 ],
-        vec![ 2, 2, 4, 2 ],
-        vec![ 5, 3, 2, 1 ],
-        vec![ 4, 3, 5, 2 ]];
+        vec![1, 3, 1, 5],
+        vec![2, 2, 4, 2],
+        vec![5, 3, 2, 1],
+        vec![4, 3, 5, 2],
+    ];
     let (n, m) = (grid.len(), grid[0].len());
 
     // 暴力搜索

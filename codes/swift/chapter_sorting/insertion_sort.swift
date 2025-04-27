@@ -6,11 +6,11 @@
 
 /* 插入排序 */
 func insertionSort(nums: inout [Int]) {
-    // 外循环：已排序元素数量为 1, 2, ..., n
-    for i in stride(from: 1, to: nums.count, by: 1) {
+    // 外循环：已排序区间为 [0, i-1]
+    for i in nums.indices.dropFirst() {
         let base = nums[i]
         var j = i - 1
-        // 内循环：将 base 插入到已排序部分的正确位置
+        // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
         while j >= 0, nums[j] > base {
             nums[j + 1] = nums[j] // 将 nums[j] 向右移动一位
             j -= 1

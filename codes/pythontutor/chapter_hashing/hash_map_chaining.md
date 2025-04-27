@@ -1,7 +1,7 @@
 <!--
     File: hash_map_chaining.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{hash_map_chaining}-[class]{hash_map_chaining}-[func]{} -->

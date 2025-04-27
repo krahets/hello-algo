@@ -4,8 +4,7 @@
  * Author: xBLACICEx (xBLACKICEx@outlook.com), codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
-
+use hello_algo_rust::include::print_util;
 use std::collections::HashMap;
 
 /* 方法一：暴力枚举 */
@@ -30,7 +29,7 @@ pub fn two_sum_hash_table(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
     for (i, num) in nums.iter().enumerate() {
         match dic.get(&(target - num)) {
             Some(v) => return Some(vec![*v as i32, i as i32]),
-            None => dic.insert(num, i as i32)
+            None => dic.insert(num, i as i32),
         };
     }
     None
@@ -38,7 +37,7 @@ pub fn two_sum_hash_table(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
 
 fn main() {
     // ======= Test Case =======
-    let nums = vec![ 2, 7, 11, 15 ];
+    let nums = vec![2, 7, 11, 15];
     let target = 13;
 
     // ====== Driver Code ======

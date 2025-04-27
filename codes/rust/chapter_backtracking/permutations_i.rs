@@ -23,7 +23,7 @@ fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &
             backtrack(state.clone(), choices, selected, res);
             // 回退：撤销选择，恢复到之前的状态
             selected[i] = false;
-            state.remove(state.len() - 1);
+            state.pop();
         }
     }
 }
@@ -37,7 +37,7 @@ fn permutations_i(nums: &mut [i32]) -> Vec<Vec<i32>> {
 
 /* Driver Code */
 pub fn main() {
-    let mut nums = [ 1, 2, 3 ];
+    let mut nums = [1, 2, 3];
 
     let res = permutations_i(&mut nums);
 

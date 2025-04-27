@@ -56,7 +56,10 @@ fn knapsack_dp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
                 dp[i][c] = dp[i - 1][c];
             } else {
                 // 不选和选物品 i 这两种方案的较大值
-                dp[i][c] = std::cmp::max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1] as usize] + val[i - 1]);
+                dp[i][c] = std::cmp::max(
+                    dp[i - 1][c],
+                    dp[i - 1][c - wgt[i - 1] as usize] + val[i - 1],
+                );
             }
         }
     }
@@ -83,8 +86,8 @@ fn knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
 
 /* Driver Code */
 pub fn main() {
-    let wgt = [ 10, 20, 30, 40, 50 ];
-    let val = [ 50, 120, 150, 210, 240 ];
+    let wgt = [10, 20, 30, 40, 50];
+    let val = [50, 120, 150, 210, 240];
     let cap: usize = 50;
     let n = wgt.len();
 

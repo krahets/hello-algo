@@ -1,7 +1,7 @@
 <!--
     File: hanota.md
     Created Time: 2024-01-05
-    Author: Krahets (krahets@163.com)
+    Author: krahets (krahets@163.com)
 --->
 
 <!-- [file]{hanota}-[class]{}-[func]{solve_hanota} -->

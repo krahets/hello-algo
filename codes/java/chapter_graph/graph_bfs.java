@@ -1,7 +1,7 @@
 /**
  * File: graph_bfs.java
  * Created Time: 2023-02-12
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_graph;
@@ -15,7 +15,7 @@ public class graph_bfs {
     static List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
         List<Vertex> res = new ArrayList<>();
-        // 哈希表，用于记录已被访问过的顶点
+        // 哈希集合，用于记录已被访问过的顶点
         Set<Vertex> visited = new HashSet<>();
         visited.add(startVet);
         // 队列用于实现 BFS

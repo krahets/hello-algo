@@ -48,7 +48,7 @@ func coinChangeDPComp(coins []int, amt int) int {
 	}
 	// 状态转移
 	for i := 1; i <= n; i++ {
-		// 倒序遍历
+		// 正序遍历
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
 				// 若超过目标金额，则不选硬币 i

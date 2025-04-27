@@ -1,7 +1,7 @@
 /**
  * File: radix_sort.java
  * Created Time: 2023-01-17
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 package chapter_sorting;
@@ -50,12 +50,13 @@ public class radix_sort {
             if (num > m)
                 m = num;
         // 按照从低位到高位的顺序遍历
-        for (int exp = 1; exp <= m; exp *= 10)
+        for (int exp = 1; exp <= m; exp *= 10) {
             // 对数组元素的第 k 位执行计数排序
             // k = 1 -> exp = 1
             // k = 2 -> exp = 10
             // 即 exp = 10^(k-1)
             countingSortDigit(nums, exp);
+        }
     }
 
     public static void main(String[] args) {

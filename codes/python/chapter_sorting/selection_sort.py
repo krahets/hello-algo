@@ -1,7 +1,7 @@
 """
 File: selection_sort.py
 Created Time: 2023-05-22
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 

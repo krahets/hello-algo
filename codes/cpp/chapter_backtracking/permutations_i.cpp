@@ -1,7 +1,7 @@
 /**
  * File: permutations_i.cpp
  * Created Time: 2023-04-24
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"

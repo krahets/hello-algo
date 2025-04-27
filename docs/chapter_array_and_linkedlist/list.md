@@ -1,13 +1,13 @@
 # 列表
 
-「列表 list」是一个抽象的数据结构概念，它表示元素的有序集合，支持元素访问、修改、添加、删除和遍历等操作，无须使用者考虑容量限制的问题。列表可以基于链表或数组实现。
+<u>列表（list）</u>是一个抽象的数据结构概念，它表示元素的有序集合，支持元素访问、修改、添加、删除和遍历等操作，无须使用者考虑容量限制的问题。列表可以基于链表或数组实现。
 
 - 链表天然可以看作一个列表，其支持元素增删查改操作，并且可以灵活动态扩容。
 - 数组也支持元素增删查改，但由于其长度不可变，因此只能看作一个具有长度限制的列表。
 
 当使用数组实现列表时，**长度不可变的性质会导致列表的实用性降低**。这是因为我们通常无法事先确定需要存储多少数据，从而难以选择合适的列表长度。若长度过小，则很可能无法满足使用需求；若长度过大，则会造成内存空间浪费。
 
-为解决此问题，我们可以使用「动态数组 dynamic array」来实现列表。它继承了数组的各项优点，并且可以在程序运行过程中进行动态扩容。
+为解决此问题，我们可以使用<u>动态数组（dynamic array）</u>来实现列表。它继承了数组的各项优点，并且可以在程序运行过程中进行动态扩容。
 
 实际上，**许多编程语言中的标准库提供的列表是基于动态数组实现的**，例如 Python 中的 `list` 、Java 中的 `ArrayList` 、C++ 中的 `vector` 和 C# 中的 `List` 等。在接下来的讨论中，我们将把“列表”和“动态数组”视为等同的概念。
 
@@ -124,6 +124,27 @@
 
     ```c title="list.c"
     // C 未提供内置动态数组
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+    /* 初始化列表 */
+    // 无初始值
+    var nums1 = listOf<Int>()
+    // 有初始值
+    var numbers = arrayOf(1, 3, 2, 5, 4)
+    var nums = numbers.toMutableList()
+    ```
+
+=== "Ruby"
+
+    ```ruby title="list.rb"
+    # 初始化列表
+    # 无初始值
+    nums1 = []
+    # 有初始值
+    nums = [1, 3, 2, 5, 4]
     ```
 
 === "Zig"
@@ -248,6 +269,24 @@
     // C 未提供内置动态数组
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+    /* 访问元素 */
+    val num = nums[1]       // 访问索引 1 处的元素
+    /* 更新元素 */
+    nums[1] = 0             // 将索引 1 处的元素更新为 0
+    ```
+
+=== "Ruby"
+
+    ```ruby title="list.rb"
+    # 访问元素
+    num = nums[1] # 访问索引 1 处的元素
+    # 更新元素
+    nums[1] = 0 # 将索引 1 处的元素更新为 0
+    ```
+
 === "Zig"
 
     ```zig title="list.zig"
@@ -255,7 +294,7 @@
     var num = nums.items[1]; // 访问索引 1 处的元素
 
     // 更新元素
-    nums.items[1] = 0; // 将索引 1 处的元素更新为 0  
+    nums.items[1] = 0; // 将索引 1 处的元素更新为 0
     ```
 
 ??? pythontutor "可视化运行"
@@ -340,10 +379,10 @@
     nums.Add(4);
 
     /* 在中间插入元素 */
-    nums.Insert(3, 6);
+    nums.Insert(3, 6);  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.RemoveAt(3);
+    nums.RemoveAt(3);  // 删除索引 3 处的元素
     ```
 
 === "Go"
@@ -400,10 +439,10 @@
     nums.push(4);
 
     /* 在中间插入元素 */
-    nums.splice(3, 0, 6);
+    nums.splice(3, 0, 6); // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.splice(3, 1);
+    nums.splice(3, 1);  // 删除索引 3 处的元素
     ```
 
 === "TS"
@@ -420,10 +459,10 @@
     nums.push(4);
 
     /* 在中间插入元素 */
-    nums.splice(3, 0, 6);
+    nums.splice(3, 0, 6); // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.splice(3, 1);
+    nums.splice(3, 1);  // 删除索引 3 处的元素
     ```
 
 === "Dart"
@@ -470,6 +509,46 @@
 
     ```c title="list.c"
     // C 未提供内置动态数组
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+    /* 清空列表 */
+    nums.clear();
+
+    /* 在尾部添加元素 */
+    nums.add(1);
+    nums.add(3);
+    nums.add(2);
+    nums.add(5);
+    nums.add(4);
+
+    /* 在中间插入元素 */
+    nums.add(3, 6);  // 在索引 3 处插入数字 6
+
+    /* 删除元素 */
+    nums.remove(3);  // 删除索引 3 处的元素
+    ```
+
+=== "Ruby"
+
+    ```ruby title="list.rb"
+    # 清空列表
+    nums.clear
+
+    # 在尾部添加元素
+    nums << 1
+    nums << 3
+    nums << 2
+    nums << 5
+    nums << 4
+
+    # 在中间插入元素
+    nums.insert(3, 6) # 在索引 3 处插入数字 6
+
+    # 删除元素
+    nums.delete_at(3) # 删除索引 3 处的元素
     ```
 
 === "Zig"
@@ -632,7 +711,7 @@
     for (var i = 0; i < nums.length; i++) {
         count += nums[i];
     }
-    
+
     /* 直接遍历列表元素 */
     count = 0;
     for (var num in nums) {
@@ -660,6 +739,37 @@
 
     ```c title="list.c"
     // C 未提供内置动态数组
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+    /* 通过索引遍历列表 */
+    var count = 0
+    for (i in nums.indices) {
+        count += nums[i]
+    }
+
+    /* 直接遍历列表元素 */
+    for (num in nums) {
+        count += num
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title="list.rb"
+    # 通过索引遍历列表
+    count = 0
+    for i in 0...nums.length
+        count += nums[i]
+    end
+
+    # 直接遍历列表元素
+    count = 0
+    for num in nums
+        count += num
+    end
     ```
 
 === "Zig"
@@ -774,6 +884,22 @@
     // C 未提供内置动态数组
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+    /* 拼接两个列表 */
+    val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
+    nums.addAll(nums1)  // 将列表 nums1 拼接到 nums 之后
+    ```
+
+=== "Ruby"
+
+    ```ruby title="list.rb"
+    # 拼接两个列表
+    nums1 = [6, 8, 7, 10, 9]
+    nums += nums1
+    ```
+
 === "Zig"
 
     ```zig title="list.zig"
@@ -837,7 +963,7 @@
 === "JS"
 
     ```javascript title="list.js"
-    /* 排序列表 */  
+    /* 排序列表 */
     nums.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
     ```
 
@@ -866,6 +992,20 @@
 
     ```c title="list.c"
     // C 未提供内置动态数组
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="list.kt"
+    /* 排序列表 */
+    nums.sort() // 排序后，列表元素从小到大排列
+    ```
+
+=== "Ruby"
+
+    ```ruby title="list.rb"
+    # 排序列表
+    nums = nums.sort { |a, b| a <=> b } # 排序后，列表元素从小到大排列
     ```
 
 === "Zig"

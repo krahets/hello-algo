@@ -3,13 +3,12 @@
  * Created Time: 2023-01-18
  * Author: xBLACICEx (xBLACKICEx@outlook.com), codingonion (coderonion@gmail.com)
  */
-
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* Driver Code */
 fn main() {
     // 初始化列表
-    let mut nums: Vec<i32> = vec![ 1, 3, 2, 5, 4 ];
+    let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     print!("列表 nums = ");
     print_util::print_array(&nums);
 
@@ -58,9 +57,10 @@ fn main() {
     }
 
     // 拼接两个列表
-    let mut nums1 = vec![ 6, 8, 7, 10, 9 ];
-    nums.append(&mut nums1);  // append（移动） 之后 nums1 为空！
-    // nums.extend(&nums1);   // extend（借用） nums1 能继续使用 
+    let mut nums1 = vec![6, 8, 7, 10, 9];
+    nums.append(&mut nums1); // append（移动） 之后 nums1 为空！
+
+    // nums.extend(&nums1);   // extend（借用） nums1 能继续使用
     print!("\n将列表 nums1 拼接到 nums 之后，得到 nums = ");
     print_util::print_array(&nums);
 

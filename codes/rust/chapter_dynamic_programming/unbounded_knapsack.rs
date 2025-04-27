@@ -46,8 +46,8 @@ fn unbounded_knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
 
 /* Driver Code */
 pub fn main() {
-    let wgt = [ 1, 2, 3 ];
-    let val = [ 5, 11, 15 ];
+    let wgt = [1, 2, 3];
+    let val = [5, 11, 15];
     let cap: usize = 4;
 
     // 动态规划

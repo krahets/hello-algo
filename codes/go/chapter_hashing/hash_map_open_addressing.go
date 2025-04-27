@@ -6,7 +6,6 @@ package chapter_hashing
 
 import (
 	"fmt"
-	"strconv"
 )
 
 /* 开放寻址哈希表 */
@@ -15,129 +14,113 @@ type hashMapOpenAddressing struct {
 	capacity    int     // 哈希表容量
 	loadThres   float64 // 触发扩容的负载因子阈值
 	extendRatio int     // 扩容倍数
-	buckets     []pair  // 桶数组
-	removed     pair    // 删除标记
+	buckets     []*pair // 桶数组
+	TOMBSTONE   *pair   // 删除标记
 }
 
 /* 构造方法 */
 func newHashMapOpenAddressing() *hashMapOpenAddressing {
-	buckets := make([]pair, 4)
 	return &hashMapOpenAddressing{
 		size:        0,
 		capacity:    4,
 		loadThres:   2.0 / 3.0,
 		extendRatio: 2,
-		buckets:     buckets,
-		removed: pair{
-			key: -1,
-			val: "-1",
-		},
+		buckets:     make([]*pair, 4),
+		TOMBSTONE:   &pair{-1, "-1"},
 	}
 }
 
 /* 哈希函数 */
-func (m *hashMapOpenAddressing) hashFunc(key int) int {
-	return key % m.capacity
+func (h *hashMapOpenAddressing) hashFunc(key int) int {
+	return key % h.capacity // 根据键计算哈希值
 }
 
 /* 负载因子 */
-func (m *hashMapOpenAddressing) loadFactor() float64 {
-	return float64(m.size) / float64(m.capacity)
+func (h *hashMapOpenAddressing) loadFactor() float64 {
+	return float64(h.size) / float64(h.capacity) // 计算当前负载因子
+}
+
+/* 搜索 key 对应的桶索引 */
+func (h *hashMapOpenAddressing) findBucket(key int) int {
+	index := h.hashFunc(key) // 获取初始索引
+	firstTombstone := -1     // 记录遇到的第一个TOMBSTONE的位置
+	for h.buckets[index] != nil {
+		if h.buckets[index].key == key {
+			if firstTombstone != -1 {
+				// 若之前遇到了删除标记，则将键值对移动至该索引处
+				h.buckets[firstTombstone] = h.buckets[index]
+				h.buckets[index] = h.TOMBSTONE
+				return firstTombstone // 返回移动后的桶索引
+			}
+			return index // 返回找到的索引
+		}
+		if firstTombstone == -1 && h.buckets[index] == h.TOMBSTONE {
+			firstTombstone = index // 记录遇到的首个删除标记的位置
+		}
+		index = (index + 1) % h.capacity // 线性探测，越过尾部则返回头部
+	}
+	// 若 key 不存在，则返回添加点的索引
+	if firstTombstone != -1 {
+		return firstTombstone
+	}
+	return index
 }
 
 /* 查询操作 */
-func (m *hashMapOpenAddressing) get(key int) string {
-	idx := m.hashFunc(key)
-	// 线性探测，从 index 开始向后遍历
-	for i := 0; i < m.capacity; i++ {
-		// 计算桶索引，越过尾部则返回头部
-		j := (idx + i) % m.capacity
-		// 若遇到空桶，说明无此 key ，则返回 null
-		if m.buckets[j] == (pair{}) {
-			return ""
-		}
-		// 若遇到指定 key ，则返回对应 val
-		if m.buckets[j].key == key && m.buckets[j] != m.removed {
-			return m.buckets[j].val
-		}
+func (h *hashMapOpenAddressing) get(key int) string {
+	index := h.findBucket(key) // 搜索 key 对应的桶索引
+	if h.buckets[index] != nil && h.buckets[index] != h.TOMBSTONE {
+		return h.buckets[index].val // 若找到键值对，则返回对应 val
 	}
-	// 若未找到 key ，则返回空字符串
-	return ""
+	return "" // 若键值对不存在，则返回 ""
 }
 
 /* 添加操作 */
-func (m *hashMapOpenAddressing) put(key int, val string) {
-	// 当负载因子超过阈值时，执行扩容
-	if m.loadFactor() > m.loadThres {
-		m.extend()
+func (h *hashMapOpenAddressing) put(key int, val string) {
+	if h.loadFactor() > h.loadThres {
+		h.extend() // 当负载因子超过阈值时，执行扩容
 	}
-	idx := m.hashFunc(key)
-	// 线性探测，从 index 开始向后遍历
-	for i := 0; i < m.capacity; i++ {
-		// 计算桶索引，越过尾部则返回头部
-		j := (idx + i) % m.capacity
-		// 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
-		if m.buckets[j] == (pair{}) || m.buckets[j] == m.removed {
-			m.buckets[j] = pair{
-				key: key,
-				val: val,
-			}
-			m.size += 1
-			return
-		}
-		// 若遇到指定 key ，则更新对应 val
-		if m.buckets[j].key == key {
-			m.buckets[j].val = val
-			return
-		}
+	index := h.findBucket(key) // 搜索 key 对应的桶索引
+	if h.buckets[index] == nil || h.buckets[index] == h.TOMBSTONE {
+		h.buckets[index] = &pair{key, val} // 若键值对不存在，则添加该键值对
+		h.size++
+	} else {
+		h.buckets[index].val = val // 若找到键值对，则覆盖 val
 	}
 }
 
 /* 删除操作 */
-func (m *hashMapOpenAddressing) remove(key int) {
-	idx := m.hashFunc(key)
-	// 遍历桶，从中删除键值对
-	// 线性探测，从 index 开始向后遍历
-	for i := 0; i < m.capacity; i++ {
-		// 计算桶索引，越过尾部则返回头部
-		j := (idx + i) % m.capacity
-		// 若遇到空桶，说明无此 key ，则直接返回
-		if m.buckets[j] == (pair{}) {
-			return
-		}
-		// 若遇到指定 key ，则标记删除并返回
-		if m.buckets[j].key == key {
-			m.buckets[j] = m.removed
-			m.size -= 1
-		}
+func (h *hashMapOpenAddressing) remove(key int) {
+	index := h.findBucket(key) // 搜索 key 对应的桶索引
+	if h.buckets[index] != nil && h.buckets[index] != h.TOMBSTONE {
+		h.buckets[index] = h.TOMBSTONE // 若找到键值对，则用删除标记覆盖它
+		h.size--
 	}
 }
 
 /* 扩容哈希表 */
-func (m *hashMapOpenAddressing) extend() {
-	// 暂存原哈希表
-	tmpBuckets := make([]pair, len(m.buckets))
-	copy(tmpBuckets, m.buckets)
-
-	// 初始化扩容后的新哈希表
-	m.capacity *= m.extendRatio
-	m.buckets = make([]pair, m.capacity)
-	m.size = 0
+func (h *hashMapOpenAddressing) extend() {
+	oldBuckets := h.buckets               // 暂存原哈希表
+	h.capacity *= h.extendRatio           // 更新容量
+	h.buckets = make([]*pair, h.capacity) // 初始化扩容后的新哈希表
+	h.size = 0                            // 重置大小
 	// 将键值对从原哈希表搬运至新哈希表
-	for _, p := range tmpBuckets {
-		if p != (pair{}) && p != m.removed {
-			m.put(p.key, p.val)
+	for _, pair := range oldBuckets {
+		if pair != nil && pair != h.TOMBSTONE {
+			h.put(pair.key, pair.val)
 		}
 	}
 }
 
 /* 打印哈希表 */
-func (m *hashMapOpenAddressing) print() {
-	for _, p := range m.buckets {
-		if p != (pair{}) {
-			fmt.Println(strconv.Itoa(p.key) + " -> " + p.val)
-		} else {
+func (h *hashMapOpenAddressing) print() {
+	for _, pair := range h.buckets {
+		if pair == nil {
 			fmt.Println("nil")
+		} else if pair == h.TOMBSTONE {
+			fmt.Println("TOMBSTONE")
+		} else {
+			fmt.Printf("%d -> %s\n", pair.key, pair.val)
 		}
 	}
 }

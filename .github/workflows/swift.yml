@@ -14,16 +14,12 @@ on:
 
 jobs:
   build:
-    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
+    name: Swift on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        swift: ["5.9", "5.8.1", "5.7.3"]
+        os: ["ubuntu-22.04", "macos-14"]
     steps:
-      - uses: swift-actions/setup-swift@v1
-        with:
-          swift-version: ${{ matrix.swift }}
       - uses: actions/checkout@v4
       - name: Build
         run: swift build --package-path codes/swift

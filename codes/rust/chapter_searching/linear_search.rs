@@ -4,11 +4,9 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
-
-use std::rc::Rc;
+use hello_algo_rust::include::ListNode;
 use std::cell::RefCell;
-use list_node::ListNode;
+use std::rc::Rc;
 
 /* 线性查找（数组） */
 fn linear_search_array(nums: &[i32], target: i32) -> i32 {
@@ -24,9 +22,14 @@ fn linear_search_array(nums: &[i32], target: i32) -> i32 {
 }
 
 /* 线性查找（链表） */
-fn linear_search_linked_list(head: Rc<RefCell<ListNode<i32>>>, target: i32) -> Option<Rc<RefCell<ListNode<i32>>>> {
+fn linear_search_linked_list(
+    head: Rc<RefCell<ListNode<i32>>>,
+    target: i32,
+) -> Option<Rc<RefCell<ListNode<i32>>>> {
     // 找到目标节点，返回之
-    if head.borrow().val == target {return Some(head)};
+    if head.borrow().val == target {
+        return Some(head);
+    };
     // 找到目标节点，返回之
     if let Some(node) = &head.borrow_mut().next {
         return linear_search_linked_list(node.clone(), target);
@@ -40,7 +43,7 @@ pub fn main() {
     let target = 3;
 
     /* 在数组中执行线性查找 */
-    let nums = [ 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 ];
+    let nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
     let index = linear_search_array(&nums, target);
     println!("目标元素 3 的索引 = {}", index);
 

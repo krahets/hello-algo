@@ -1,6 +1,6 @@
 # 栈
 
-「栈 stack」是一种遵循先入后出逻辑的线性数据结构。
+<u>栈（stack）</u>是一种遵循先入后出逻辑的线性数据结构。
 
 我们可以将栈类比为桌面上的一摞盘子，如果想取出底部的盘子，则需要先将上面的盘子依次移走。我们将盘子替换为各种类型的元素（如整数、字符、对象等），就得到了栈这种数据结构。
 
@@ -26,25 +26,25 @@
 
     ```python title="stack.py"
     # 初始化栈
-    # Python 没有内置的栈类，可以把 list 当作栈来使用 
+    # Python 没有内置的栈类，可以把 list 当作栈来使用
     stack: list[int] = []
-    
+
     # 元素入栈
     stack.append(1)
     stack.append(3)
     stack.append(2)
     stack.append(5)
     stack.append(4)
-    
+
     # 访问栈顶元素
     peek: int = stack[-1]
-    
+
     # 元素出栈
     pop: int = stack.pop()
-    
+
     # 获取栈的长度
     size: int = len(stack)
-    
+
     # 判断是否为空
     is_empty: bool = len(stack) == 0
     ```
@@ -54,23 +54,23 @@
     ```cpp title="stack.cpp"
     /* 初始化栈 */
     stack<int> stack;
-    
+
     /* 元素入栈 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    
+
     /* 访问栈顶元素 */
     int top = stack.top();
-    
+
     /* 元素出栈 */
     stack.pop(); // 无返回值
-    
+
     /* 获取栈的长度 */
     int size = stack.size();
-    
+
     /* 判断是否为空 */
     bool empty = stack.empty();
     ```
@@ -106,23 +106,23 @@
     ```csharp title="stack.cs"
     /* 初始化栈 */
     Stack<int> stack = new();
-    
+
     /* 元素入栈 */
     stack.Push(1);
     stack.Push(3);
     stack.Push(2);
     stack.Push(5);
     stack.Push(4);
-    
+
     /* 访问栈顶元素 */
     int peek = stack.Peek();
-    
+
     /* 元素出栈 */
     int pop = stack.Pop();
-    
+
     /* 获取栈的长度 */
     int size = stack.Count;
-    
+
     /* 判断是否为空 */
     bool isEmpty = stack.Count == 0;
     ```
@@ -133,24 +133,24 @@
     /* 初始化栈 */
     // 在 Go 中，推荐将 Slice 当作栈来使用
     var stack []int
-    
+
     /* 元素入栈 */
     stack = append(stack, 1)
     stack = append(stack, 3)
     stack = append(stack, 2)
     stack = append(stack, 5)
     stack = append(stack, 4)
-    
+
     /* 访问栈顶元素 */
     peek := stack[len(stack)-1]
-    
+
     /* 元素出栈 */
     pop := stack[len(stack)-1]
     stack = stack[:len(stack)-1]
-    
+
     /* 获取栈的长度 */
     size := len(stack)
-    
+
     /* 判断是否为空 */
     isEmpty := len(stack) == 0
     ```
@@ -161,23 +161,23 @@
     /* 初始化栈 */
     // Swift 没有内置的栈类，可以把 Array 当作栈来使用
     var stack: [Int] = []
-    
+
     /* 元素入栈 */
     stack.append(1)
     stack.append(3)
     stack.append(2)
     stack.append(5)
     stack.append(4)
-    
+
     /* 访问栈顶元素 */
     let peek = stack.last!
-    
+
     /* 元素出栈 */
     let pop = stack.removeLast()
-    
+
     /* 获取栈的长度 */
     let size = stack.count
-    
+
     /* 判断是否为空 */
     let isEmpty = stack.isEmpty
     ```
@@ -186,25 +186,25 @@
 
     ```javascript title="stack.js"
     /* 初始化栈 */
-    // JavaScript 没有内置的栈类，可以把 Array 当作栈来使用 
+    // JavaScript 没有内置的栈类，可以把 Array 当作栈来使用
     const stack = [];
-    
+
     /* 元素入栈 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    
+
     /* 访问栈顶元素 */
     const peek = stack[stack.length-1];
-    
+
     /* 元素出栈 */
     const pop = stack.pop();
-    
+
     /* 获取栈的长度 */
     const size = stack.length;
-    
+
     /* 判断是否为空 */
     const is_empty = stack.length === 0;
     ```
@@ -213,25 +213,25 @@
 
     ```typescript title="stack.ts"
     /* 初始化栈 */
-    // TypeScript 没有内置的栈类，可以把 Array 当作栈来使用 
+    // TypeScript 没有内置的栈类，可以把 Array 当作栈来使用
     const stack: number[] = [];
-    
+
     /* 元素入栈 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    
+
     /* 访问栈顶元素 */
     const peek = stack[stack.length - 1];
-    
+
     /* 元素出栈 */
     const pop = stack.pop();
-    
+
     /* 获取栈的长度 */
     const size = stack.length;
-    
+
     /* 判断是否为空 */
     const is_empty = stack.length === 0;
     ```
@@ -296,6 +296,59 @@
     // C 未提供内置栈
     ```
 
+=== "Kotlin"
+
+    ```kotlin title="stack.kt"
+    /* 初始化栈 */
+    val stack = Stack<Int>()
+
+    /* 元素入栈 */
+    stack.push(1)
+    stack.push(3)
+    stack.push(2)
+    stack.push(5)
+    stack.push(4)
+
+    /* 访问栈顶元素 */
+    val peek = stack.peek()
+
+    /* 元素出栈 */
+    val pop = stack.pop()
+
+    /* 获取栈的长度 */
+    val size = stack.size
+
+    /* 判断是否为空 */
+    val isEmpty = stack.isEmpty()
+    ```
+
+=== "Ruby"
+
+    ```ruby title="stack.rb"
+    # 初始化栈
+    # Ruby 没有内置的栈类，可以把 Array 当作栈来使用
+    stack = []
+
+    # 元素入栈
+    stack << 1
+    stack << 3
+    stack << 2
+    stack << 5
+    stack << 4
+
+    # 访问栈顶元素
+    peek = stack.last
+
+    # 元素出栈
+    pop = stack.pop
+
+    # 获取栈的长度
+    size = stack.length
+
+    # 判断是否为空
+    is_empty = stack.empty?
+    ```
+
 === "Zig"
 
     ```zig title="stack.zig"
@@ -319,13 +372,13 @@
 如下图所示，对于入栈操作，我们只需将元素插入链表头部，这种节点插入方法被称为“头插法”。而对于出栈操作，只需将头节点从链表中删除即可。
 
 === "LinkedListStack"
-    ![基于链表实现栈的入栈出栈操作](stack.assets/linkedlist_stack.png)
+    ![基于链表实现栈的入栈出栈操作](stack.assets/linkedlist_stack_step1.png)
 
 === "push()"
-    ![linkedlist_stack_push](stack.assets/linkedlist_stack_push.png)
+    ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png)
 
 === "pop()"
-    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_pop.png)
+    ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png)
 
 以下是基于链表实现栈的示例代码：
 
@@ -338,13 +391,13 @@
 使用数组实现栈时，我们可以将数组的尾部作为栈顶。如下图所示，入栈与出栈操作分别对应在数组尾部添加元素与删除元素，时间复杂度都为 $O(1)$ 。
 
 === "ArrayStack"
-    ![基于数组实现栈的入栈出栈操作](stack.assets/array_stack.png)
+    ![基于数组实现栈的入栈出栈操作](stack.assets/array_stack_step1.png)
 
 === "push()"
-    ![array_stack_push](stack.assets/array_stack_push.png)
+    ![array_stack_push](stack.assets/array_stack_step2_push.png)
 
 === "pop()"
-    ![array_stack_pop](stack.assets/array_stack_pop.png)
+    ![array_stack_pop](stack.assets/array_stack_step3_pop.png)
 
 由于入栈的元素可能会源源不断地增加，因此我们可以使用动态数组，这样就无须自行处理数组扩容问题。以下为示例代码：
 

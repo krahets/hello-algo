@@ -22,7 +22,6 @@ func remove(n0: ListNode) {
     let P = n0.next
     let n1 = P?.next
     n0.next = n1
-    P?.next = nil
 }
 
 /* 访问链表中索引为 index 的节点 */

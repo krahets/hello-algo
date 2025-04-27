@@ -4,12 +4,10 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
-
+use hello_algo_rust::include::ListNode;
+use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
-use std::cell::RefCell;
-use list_node::ListNode;
 
 /* 哈希查找（数组） */
 fn hashing_search_array<'a>(map: &'a HashMap<i32, usize>, target: i32) -> Option<&'a usize> {
@@ -19,7 +17,10 @@ fn hashing_search_array<'a>(map: &'a HashMap<i32, usize>, target: i32) -> Option
 }
 
 /* 哈希查找（链表） */
-fn hashing_search_linked_list(map: &HashMap<i32, Rc<RefCell<ListNode<i32>>>>, target: i32) -> Option<&Rc<RefCell<ListNode<i32>>>> {
+fn hashing_search_linked_list(
+    map: &HashMap<i32, Rc<RefCell<ListNode<i32>>>>,
+    target: i32,
+) -> Option<&Rc<RefCell<ListNode<i32>>>> {
     // 哈希表的 key: 目标节点值，value: 节点对象
     // 若哈希表中无此 key ，返回 None
     map.get(&target)
@@ -30,7 +31,7 @@ pub fn main() {
     let target = 3;
 
     /* 哈希查找（数组） */
-    let nums = [ 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 ];
+    let nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
     // 初始化哈希表
     let mut map = HashMap::new();
     for (i, num) in nums.iter().enumerate() {

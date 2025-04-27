@@ -1,7 +1,7 @@
 """
 File: subset_sum_i.py
 Created Time: 2023-06-17
-Author: Krahets (krahets@163.com)
+Author: krahets (krahets@163.com)
 """
 
 

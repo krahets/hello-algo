@@ -36,7 +36,7 @@ func arrayTraversal(nums: [Int]) -> Int {
 /* 平方阶 */
 func quadratic(n: Int) -> Int {
     var count = 0
-    // 循环次数与数组长度成平方关系
+    // 循环次数与数据大小 n 成平方关系
     for _ in 0 ..< n {
         for _ in 0 ..< n {
             count += 1
@@ -49,8 +49,8 @@ func quadratic(n: Int) -> Int {
 func bubbleSort(nums: inout [Int]) -> Int {
     var count = 0 // 计数器
     // 外循环：未排序区间为 [0, i]
-    for i in stride(from: nums.count - 1, to: 0, by: -1) {
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+    for i in nums.indices.dropFirst().reversed() {
+        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
         for j in 0 ..< i {
             if nums[j] > nums[j + 1] {
                 // 交换 nums[j] 与 nums[j + 1]
@@ -88,7 +88,7 @@ func expRecur(n: Int) -> Int {
 }
 
 /* 对数阶（循环实现） */
-func logarithmic(n: Double) -> Int {
+func logarithmic(n: Int) -> Int {
     var count = 0
     var n = n
     while n > 1 {
@@ -99,7 +99,7 @@ func logarithmic(n: Double) -> Int {
 }
 
 /* 对数阶（递归实现） */
-func logRecur(n: Double) -> Int {
+func logRecur(n: Int) -> Int {
     if n <= 1 {
         return 0
     }
@@ -107,7 +107,7 @@ func logRecur(n: Double) -> Int {
 }
 
 /* 线性对数阶 */
-func linearLogRecur(n: Double) -> Int {
+func linearLogRecur(n: Int) -> Int {
     if n <= 1 {
         return 1
     }
@@ -158,12 +158,12 @@ enum TimeComplexity {
         count = expRecur(n: n)
         print("指数阶（递归实现）的操作数量 = \(count)")
 
-        count = logarithmic(n: Double(n))
+        count = logarithmic(n: n)
         print("对数阶（循环实现）的操作数量 = \(count)")
-        count = logRecur(n: Double(n))
+        count = logRecur(n: n)
         print("对数阶（递归实现）的操作数量 = \(count)")
 
-        count = linearLogRecur(n: Double(n))
+        count = linearLogRecur(n: n)
         print("线性对数阶（递归实现）的操作数量 = \(count)")
 
         count = factorialRecur(n: n)

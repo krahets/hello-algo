@@ -1,7 +1,7 @@
 /**
  * File: merge_sort.cpp
  * Created Time: 2022-11-25
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "../utils/common.hpp"
@@ -39,7 +39,7 @@ void mergeSort(vector<int> &nums, int left, int right) {
     if (left >= right)
         return; // 当子数组长度为 1 时终止递归
     // 划分阶段
-    int mid = (left + right) / 2;    // 计算中点
+    int mid = left + (right - left) / 2;    // 计算中点
     mergeSort(nums, left, mid);      // 递归左子数组
     mergeSort(nums, mid + 1, right); // 递归右子数组
     // 合并阶段

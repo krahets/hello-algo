@@ -67,15 +67,15 @@ func editDistanceDP(s: String, t: String) -> Int {
     let m = t.utf8CString.count
     var dp = Array(repeating: Array(repeating: 0, count: m + 1), count: n + 1)
     // 状态转移：首行首列
-    for i in stride(from: 1, through: n, by: 1) {
+    for i in 1 ... n {
         dp[i][0] = i
     }
-    for j in stride(from: 1, through: m, by: 1) {
+    for j in 1 ... m {
         dp[0][j] = j
     }
     // 状态转移：其余行和列
-    for i in stride(from: 1, through: n, by: 1) {
-        for j in stride(from: 1, through: m, by: 1) {
+    for i in 1 ... n {
+        for j in 1 ... m {
             if s.utf8CString[i - 1] == t.utf8CString[j - 1] {
                 // 若两字符相等，则直接跳过此两字符
                 dp[i][j] = dp[i - 1][j - 1]
@@ -94,16 +94,16 @@ func editDistanceDPComp(s: String, t: String) -> Int {
     let m = t.utf8CString.count
     var dp = Array(repeating: 0, count: m + 1)
     // 状态转移：首行
-    for j in stride(from: 1, through: m, by: 1) {
+    for j in 1 ... m {
         dp[j] = j
     }
     // 状态转移：其余行
-    for i in stride(from: 1, through: n, by: 1) {
+    for i in 1 ... n {
         // 状态转移：首列
         var leftup = dp[0] // 暂存 dp[i-1, j-1]
         dp[0] = i
         // 状态转移：其余列
-        for j in stride(from: 1, through: m, by: 1) {
+        for j in 1 ... m {
             let temp = dp[j]
             if s.utf8CString[i - 1] == t.utf8CString[j - 1] {
                 // 若两字符相等，则直接跳过此两字符

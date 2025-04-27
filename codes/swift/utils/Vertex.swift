@@ -22,19 +22,11 @@ public class Vertex: Hashable {
 
     /* 输入值列表 vals ，返回顶点列表 vets */
     public static func valsToVets(vals: [Int]) -> [Vertex] {
-        var vets: [Vertex] = []
-        for val in vals {
-            vets.append(Vertex(val: val))
-        }
-        return vets
+        vals.map { Vertex(val: $0) }
     }
 
     /* 输入顶点列表 vets ，返回值列表 vals */
     public static func vetsToVals(vets: [Vertex]) -> [Int] {
-        var vals: [Int] = []
-        for vet in vets {
-            vals.append(vet.val)
-        }
-        return vals
+        vets.map { $0.val }
     }
 }

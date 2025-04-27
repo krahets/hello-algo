@@ -1,6 +1,6 @@
 # 回溯算法
 
-「回溯算法 backtracking algorithm」是一种通过穷举来解决问题的方法，它的核心思想是从一个初始状态出发，暴力搜索所有可能的解决方案，当遇到正确的解则将其记录，直到找到解或者尝试了所有可能的选择都无法找到解为止。
+<u>回溯算法（backtracking algorithm）</u>是一种通过穷举来解决问题的方法，它的核心思想是从一个初始状态出发，暴力搜索所有可能的解决方案，当遇到正确的解则将其记录，直到找到解或者尝试了所有可能的选择都无法找到解为止。
 
 回溯算法通常采用“深度优先搜索”来遍历解空间。在“二叉树”章节中，我们提到前序、中序和后序遍历都属于深度优先搜索。接下来，我们利用前序遍历构造一个回溯问题，逐步了解回溯算法的工作原理。
 
@@ -375,6 +375,58 @@
             }
         }
     }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title=""
+    /* 回溯算法框架 */
+    fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
+        // 判断是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res)
+            // 不再继续搜索
+            return
+        }
+        // 遍历所有选择
+        for (choice in choices) {
+            // 剪枝：判断选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice)
+                backtrack(state, choices, res)
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice)
+            }
+        }
+    }
+    ```
+
+=== "Ruby"
+
+    ```ruby title=""
+    ### 回溯算法框架 ###
+    def backtrack(state, choices, res)
+        # 判断是否为解
+        if is_solution?(state)
+            # 记录解
+            record_solution(state, res)
+            return
+        end
+
+        # 遍历所有选择
+        for choice in choices
+            # 剪枝：判断选择是否合法
+            if is_valid?(state, choice)
+                # 尝试：做出选择，更新状态
+                make_choice(state, choice)
+                backtrack(state, choices, res)
+                # 回退：撤销选择，恢复到之前的状态
+                undo_choice(state, choice)
+            end
+        end
+    end
     ```
 
 === "Zig"

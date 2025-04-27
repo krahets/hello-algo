@@ -1,7 +1,7 @@
 /**
  * File: hash_map_chaining.cpp
  * Created Time: 2023-06-13
- * Author: Krahets (krahets@163.com)
+ * Author: krahets (krahets@163.com)
  */
 
 #include "./array_hash_map.cpp"
