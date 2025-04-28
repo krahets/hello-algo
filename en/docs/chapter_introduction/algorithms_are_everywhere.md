@@ -2,12 +2,12 @@
 
 When we hear the term "algorithm," we naturally think of mathematics. However, many algorithms do not involve complex mathematics but rely more on basic logic, which can be seen everywhere in our daily lives.
 
-Before we start discussing about algorithms officially, there's an interesting fact worth sharing: **you've learned many algorithms without realizing it and are used to applying them in your daily life**. Here, I will give a few specific examples to prove this point.
+Before we start discussing about algorithms officially, there's an interesting fact worth sharing: **you've learned many algorithms unconsciously and are used to applying them in your daily life**. Here, I will give a few specific examples to prove this point.
 
-**Example 1: Looking Up a Dictionary**. In an English dictionary, words are listed alphabetically. Assuming we're searching for a vocabulary that starts with the letter $r$, this is typically done in the following way:
+**Example 1: Looking Up a Dictionary**. In an English dictionary, words are listed alphabetically. Assuming we're searching for a word that starts with the letter $r$, this is typically done in the following way:
 
 1. Open the dictionary to about halfway and check the first vocabulary of the page, let's say the letter starts with $m$.
-2. Since $r$ comes after $m$ in the alphabet, the first half can be ignored and the search is narrowed down to the second half.
+2. Since $r$ comes after $m$ in the alphabet, the first half can be ignored and the search space is narrowed down to the second half.
 3. Repeat steps `1.` and `2.` until you find the page where the word starts with $r$.
 
 === "<1>"
