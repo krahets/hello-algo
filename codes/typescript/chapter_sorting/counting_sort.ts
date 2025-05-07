@@ -8,7 +8,7 @@
 // 简单实现，无法用于排序对象
 function countingSortNaive(nums: number[]): void {
     // 1. 统计数组最大元素 m
-    let max: number = Math.max(...nums);
+    let m: number = Math.max(...nums);
     // 2. 统计各数字的出现次数
     // counter[num] 代表 num 的出现次数
     const counter: number[] = new Array<number>(m + 1).fill(0);
@@ -28,7 +28,7 @@ function countingSortNaive(nums: number[]): void {
 // 完整实现，可排序对象，并且是稳定排序
 function countingSort(nums: number[]): void {
     // 1. 统计数组最大元素 m
-    let max: number = Math.max(...nums);
+    let m: number = Math.max(...nums);
     // 2. 统计各数字的出现次数
     // counter[num] 代表 num 的出现次数
     const counter: number[] = new Array<number>(m + 1).fill(0);
