@@ -53,6 +53,9 @@ class HashMapOpenAddressing {
             }
             // 计算桶索引，越过尾部则返回头部
             index = (index + 1) % capacity;
+            if (index == firstTombstone) {
+                break;
+            }
         }
         // 若 key 不存在，则返回添加点的索引
         return firstTombstone == -1 ? index : firstTombstone;
