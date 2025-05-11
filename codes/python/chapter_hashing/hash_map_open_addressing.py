@@ -50,6 +50,8 @@ class HashMapOpenAddressing:
                 first_tombstone = index
             # 计算桶索引，越过尾部则返回头部
             index = (index + 1) % self.capacity
+            if index == first_tombstone:
+                break;
         # 若 key 不存在，则返回添加点的索引
         return index if first_tombstone == -1 else first_tombstone
 
