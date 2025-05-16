@@ -48,7 +48,7 @@ Observe the following code, which, like standard backtracking code, belongs to d
 [file]{climbing_stairs_dfs}-[class]{}-[func]{climbing_stairs_dfs}
 ```
 
-The figure below shows the recursive tree formed by brute force search. For the problem $dp[n]$, the depth of its recursive tree is $n$, with a time complexity of $O(2^n)$. Exponential order represents explosive growth, and entering a long wait if a relatively large $n$ is input.
+The figure below shows the recursive tree formed by brute force search. For the problem $dp[n]$, the depth of its recursive tree is $n$, with a time complexity of $O(2^n)$. This exponential growth causes the program to run much more slowly when $n$ is large, leading to long wait times.
 
 ![Recursive tree for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png)
 
@@ -56,7 +56,7 @@ Observing the figure above, **the exponential time complexity is caused by 'over
 
 Thus, subproblems include even smaller overlapping subproblems, endlessly. A vast majority of computational resources are wasted on these overlapping subproblems.
 
-## Method 2: Memoized Search
+## Method 2: Memoized search
 
 To enhance algorithm efficiency, **we hope that all overlapping subproblems are calculated only once**. For this purpose, we declare an array `mem` to record the solution of each subproblem, and prune overlapping subproblems during the search process.
 
