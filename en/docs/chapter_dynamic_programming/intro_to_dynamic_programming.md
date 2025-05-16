@@ -18,9 +18,9 @@ This problem aims to calculate the number of ways by **using backtracking to exh
 [file]{climbing_stairs_backtrack}-[class]{}-[func]{climbing_stairs_backtrack}
 ```
 
-## Method 1: Brute Force Search
+## Method 1: Brute force search
 
-Backtracking algorithms don't explicitly break the problem; instead, they treat it as a series of decision steps, exploring all possible solutions and pruning paths that don't lead to a solution.
+Backtracking algorithms do not explicitly decompose the problem into subproblems. Instead, they treat the problem as a sequence of decision steps, exploring all possibilities through trial and pruning.
 
 We can analyze this problem using a decomposition approach. Let $dp[i]$ represent the number of ways to reach the $i^{th}$ step. In this case, $dp[i]$ is the original problem, and its subproblems are:
 
@@ -40,7 +40,7 @@ This means that in the stair climbing problem, there is a recursive relationship
 
 ![Recursive relationship of solution counts](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png)
 
-We can obtain the brute force search solution according to the recursive formula. Starting with $dp[n]$, **recursively break a larger problem into the sum of two smaller subproblems**, until reaching the smallest subproblems $dp[1]$ and $dp[2]$ where the solutions are known, with $dp[1] = 1$ and $dp[2] = 2$, representing $1$ and $2$ ways to climb to the first and second steps, respectively.
+We can obtain the brute force search solution according to the recursive formula. Starting with $dp[n]$, **we recursively break a larger problem into the sum of two smaller subproblems**, until reaching the smallest subproblems $dp[1]$ and $dp[2]$ where the solutions are known, with $dp[1] = 1$ and $dp[2] = 2$, representing $1$ and $2$ ways to climb to the first and second steps, respectively.
 
 Observe the following code, which, like standard backtracking code, belongs to depth-first search but is more concise:
 
@@ -52,7 +52,7 @@ The figure below shows the recursive tree formed by brute force search. For the 
 
 ![Recursive tree for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png)
 
-Observing the figure above, **the exponential time complexity is caused by 'overlapping subproblems'**. For example, $dp[9]$ is break into $dp[8]$ and $dp[7]$, $dp[8]$ into $dp[7]$ and $dp[6]$, both containing the subproblem $dp[7]$.
+Observing the figure above, **the exponential time complexity is caused by 'overlapping subproblems'**. For example, $dp[9]$ is broken down into $dp[8]$ and $dp[7]$, and $dp[8]$ is further broken into $dp[7]$ and $dp[6]$, both containing the subproblem $dp[7]$.
 
 Thus, subproblems include even smaller overlapping subproblems, endlessly. A vast majority of computational resources are wasted on these overlapping subproblems.
 
@@ -63,7 +63,7 @@ To enhance algorithm efficiency, **we hope that all overlapping subproblems are 
 1. When $dp[i]$ is calculated for the first time, we record it in `mem[i]` for later use.
 2. When $dp[i]$ needs to be calculated again, we can directly retrieve the result from `mem[i]`, thus avoiding redundant calculations of that subproblem.
 
-Here’s the implementation using memoization as follows:
+The code is as follows:
 
 ```src
 [file]{climbing_stairs_dfs_mem}-[class]{}-[func]{climbing_stairs_dfs_mem}
@@ -107,4 +107,4 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 
 Observing the above code, since the space occupied by the array `dp` is eliminated, the space complexity is reduced from $O(n)$ to $O(1)$.
 
-In dynamic programming problems, the current state is often only related to a limited number of previous states, allowing us to retain only the necessary states and save memory space by "dimension reduction". **This space optimization technique is known as 'rolling variable' or 'rolling array'**.
+In many dynamic programming problems, the current state depends only on a limited number of previous states, allowing us to retain only the necessary states and save memory space by "dimension reduction". **This space optimization technique is known as 'rolling variable' or 'rolling array'**.
