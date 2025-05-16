@@ -1,10 +1,10 @@
-# Introduction to Dynamic Programming
+# Introduction to dynamic programming
 
-<u>Dynamic programming</u> is an important algorithmic paradigm that breaks a problem into smaller subproblems and stores the solutions to avoid redundant computations, which optimizes performance.
+<u>Dynamic programming</u> is an important algorithmic paradigm that decomposes a problem into a series of smaller subproblems, and stores the solutions of these subproblems to avoid redundant computations, thereby significantly improving time efficiency.
 
 In this section, we start with a classic problem, first presenting its brute force backtracking solution, identifying the overlapping subproblems, and then gradually deriving a more efficient dynamic programming solution.
 
-!!! Question "Climbing stairs"
+!!! question "Climbing stairs"
 
     Given a staircase with $n$ steps, where you can climb $1$ or $2$ steps at a time, how many different ways are there to reach the top?
 
@@ -12,9 +12,9 @@ As shown in the figure below, there are $3$ ways to reach the top of a $3$-step 
 
 ![Number of ways to reach the 3rd step](intro_to_dynamic_programming.assets/climbing_stairs_example.png)
 
-This problem aims to calculate the number of ways, **using backtracking to exhaust all possibilities**. Specifically, consider the problem of climbing stairs as a multi-round choice process: starting from the ground, choosing to move up either $1$ or $2$ steps each round, incrementing the count of ways upon reaching the top of the stairs, and pruning the process when exceeding the top. Here’s the implementation using backtracking as follows:
+This problem aims to calculate the number of ways by **using backtracking to exhaust all possibilities**. Specifically, it considers the problem of climbing stairs as a multi-round choice process: starting from the ground, choosing to move up either $1$ or $2$ steps each round, incrementing the count of ways upon reaching the top of the stairs, and pruning the process when it exceeds the top. The code is as follows:
 
-``` src
+```src
 [file]{climbing_stairs_backtrack}-[class]{}-[func]{climbing_stairs_backtrack}
 ```
 
@@ -44,7 +44,7 @@ We can obtain the brute force search solution according to the recursive formula
 
 Observe the following code, which, like standard backtracking code, belongs to depth-first search but is more concise:
 
-``` src
+```src
 [file]{climbing_stairs_dfs}-[class]{}-[func]{climbing_stairs_dfs}
 ```
 
@@ -65,7 +65,7 @@ To enhance algorithm efficiency, **we hope that all overlapping subproblems are 
 
 Here’s the implementation using memoization as follows:
 
-``` src
+```src
 [file]{climbing_stairs_dfs_mem}-[class]{}-[func]{climbing_stairs_dfs_mem}
 ```
 
@@ -73,15 +73,15 @@ Observe the figure below, **after memoization, all overlapping subproblems need 
 
 ![Recursive tree with memoized search](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png)
 
-## Method 3: Dynamic Programming
+## Method 3: Dynamic programming
 
 **Memoized search is a 'top-down' method**: we start with the original problem (root node), recursively break larger subproblems into smaller ones until the solutions to the smallest known subproblems (leaf nodes) are reached. Subsequently, by backtracking, we collect the solutions of the subproblems, constructing the solution to the original problem.
 
 On the contrary, **dynamic programming is a 'bottom-up' method**: starting with the solutions to the smallest subproblems, it iteratively constructs the solutions to larger subproblems until the original problem is solved.
 
-Since dynamic programming does not include a backtracking process, it only requires a looping iteration to implement, without needing recursion. In the following code, we initialize an array `dp` to store the solutions to the subproblems, serving the same recording function as the array `mem` in memoized search:
+Since dynamic programming does not involve backtracking, it only requires iteration using loops and does not need recursion. In the following code, we initialize an array `dp` to store the solutions to subproblems, serving the same recording function as the array `mem` in memoized search:
 
-``` src
+```src
 [file]{climbing_stairs_dp}-[class]{}-[func]{climbing_stairs_dp}
 ```
 
@@ -97,11 +97,11 @@ Based on the above content, we can summarize the commonly used terminology in dy
 - The states corresponding to the smallest subproblems (steps $1$ and $2$) are called <u>initial states</u>.
 - The recursive formula $dp[i] = dp[i-1] + dp[i-2]$ is called the <u>state transition equation</u>.
 
-## Space Optimization
+## Space optimization
 
 Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i-1]$ and $dp[i-2]$, we do not need to use an array `dp` to store the solutions to all subproblems**, but can simply use two variables to progress iteratively. The code is as follows:
 
-``` src
+```src
 [file]{climbing_stairs_dp}-[class]{}-[func]{climbing_stairs_dp_comp}
 ```
 
