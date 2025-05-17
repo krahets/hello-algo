@@ -183,10 +183,7 @@ comments: true
     // 簡單實現，無法用於排序物件
     function countingSortNaive(nums) {
         // 1. 統計陣列最大元素 m
-        let m = 0;
-        for (const num of nums) {
-            m = Math.max(m, num);
-        }
+        let m = Math.max(...nums);
         // 2. 統計各數字的出現次數
         // counter[num] 代表 num 的出現次數
         const counter = new Array(m + 1).fill(0);
@@ -210,10 +207,7 @@ comments: true
     // 簡單實現，無法用於排序物件
     function countingSortNaive(nums: number[]): void {
         // 1. 統計陣列最大元素 m
-        let m = 0;
-        for (const num of nums) {
-            m = Math.max(m, num);
-        }
+        let m: number = Math.max(...nums);
         // 2. 統計各數字的出現次數
         // counter[num] 代表 num 的出現次數
         const counter: number[] = new Array<number>(m + 1).fill(0);
@@ -650,10 +644,7 @@ $$
     // 完整實現，可排序物件，並且是穩定排序
     function countingSort(nums) {
         // 1. 統計陣列最大元素 m
-        let m = 0;
-        for (const num of nums) {
-            m = Math.max(m, num);
-        }
+        let m = Math.max(...nums);
         // 2. 統計各數字的出現次數
         // counter[num] 代表 num 的出現次數
         const counter = new Array(m + 1).fill(0);
@@ -688,10 +679,7 @@ $$
     // 完整實現，可排序物件，並且是穩定排序
     function countingSort(nums: number[]): void {
         // 1. 統計陣列最大元素 m
-        let m = 0;
-        for (const num of nums) {
-            m = Math.max(m, num);
-        }
+        let m: number = Math.max(...nums);
         // 2. 統計各數字的出現次數
         // counter[num] 代表 num 的出現次數
         const counter: number[] = new Array<number>(m + 1).fill(0);

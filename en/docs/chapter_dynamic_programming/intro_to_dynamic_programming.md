@@ -6,7 +6,7 @@ comments: true
 
 <u>Dynamic programming</u> is an important algorithmic paradigm that decomposes a problem into a series of smaller subproblems, and stores the solutions of these subproblems to avoid redundant computations, thereby significantly improving time efficiency.
 
-In this section, we start with a classic problem, first presenting its brute force backtracking solution, observing the overlapping subproblems contained within, and then gradually deriving a more efficient dynamic programming solution.
+In this section, we start with a classic problem, first presenting its brute force backtracking solution, identifying the overlapping subproblems, and then gradually deriving a more efficient dynamic programming solution.
 
 !!! question "Climbing stairs"
 
@@ -18,7 +18,7 @@ As shown in Figure 14-1, there are $3$ ways to reach the top of a $3$-step stair
 
 <p align="center"> Figure 14-1 &nbsp; Number of ways to reach the 3rd step </p>
 
-The goal of this problem is to determine the number of ways, **considering using backtracking to exhaust all possibilities**. Specifically, imagine climbing stairs as a multi-round choice process: starting from the ground, choosing to go up $1$ or $2$ steps each round, adding one to the count of ways upon reaching the top of the stairs, and pruning the process when exceeding the top. The code is as follows:
+This problem aims to calculate the number of ways by **using backtracking to exhaust all possibilities**. Specifically, it considers the problem of climbing stairs as a multi-round choice process: starting from the ground, choosing to move up either $1$ or $2$ steps each round, incrementing the count of ways upon reaching the top of the stairs, and pruning the process when it exceeds the top. The code is as follows:
 
 === "Python"
 
@@ -195,15 +195,15 @@ The goal of this problem is to determine the number of ways, **considering using
 
 ## 14.1.1 &nbsp; Method 1: Brute force search
 
-Backtracking algorithms do not explicitly decompose the problem but treat solving the problem as a series of decision steps, searching for all possible solutions through exploration and pruning.
+Backtracking algorithms do not explicitly decompose the problem into subproblems. Instead, they treat the problem as a sequence of decision steps, exploring all possibilities through trial and pruning.
 
-We can try to analyze this problem from the perspective of decomposition. Let $dp[i]$ be the number of ways to reach the $i^{th}$ step, then $dp[i]$ is the original problem, and its subproblems include:
+We can analyze this problem using a decomposition approach. Let $dp[i]$ represent the number of ways to reach the $i^{th}$ step. In this case, $dp[i]$ is the original problem, and its subproblems are:
 
 $$
 dp[i-1], dp[i-2], \dots, dp[2], dp[1]
 $$
 
-Since each round can only advance $1$ or $2$ steps, when we stand on the $i^{th}$ step, the previous round must have been either on the $i-1^{th}$ or the $i-2^{th}$ step. In other words, we can only step from the $i-1^{th}$ or the $i-2^{th}$ step to the $i^{th}$ step.
+Since each move can only advance $1$ or $2$ steps, when we stand on the $i^{th}$ step, the previous step must have been either on the $i-1^{th}$ or the $i-2^{th}$ step. In other words, we can only reach the $i^{th}$ from the $i-1^{th}$ or $i-2^{th}$ step.
 
 This leads to an important conclusion: **the number of ways to reach the $i-1^{th}$ step plus the number of ways to reach the $i-2^{th}$ step equals the number of ways to reach the $i^{th}$ step**. The formula is as follows:
 
@@ -217,7 +217,7 @@ This means that in the stair climbing problem, there is a recursive relationship
 
 <p align="center"> Figure 14-2 &nbsp; Recursive relationship of solution counts </p>
 
-We can obtain the brute force search solution according to the recursive formula. Starting with $dp[n]$, **recursively decompose a larger problem into the sum of two smaller problems**, until reaching the smallest subproblems $dp[1]$ and $dp[2]$ where the solutions are known, with $dp[1] = 1$ and $dp[2] = 2$, representing $1$ and $2$ ways to climb to the first and second steps, respectively.
+We can obtain the brute force search solution according to the recursive formula. Starting with $dp[n]$, **we recursively break a larger problem into the sum of two smaller subproblems**, until reaching the smallest subproblems $dp[1]$ and $dp[2]$ where the solutions are known, with $dp[1] = 1$ and $dp[2] = 2$, representing $1$ and $2$ ways to climb to the first and second steps, respectively.
 
 Observe the following code, which, like standard backtracking code, belongs to depth-first search but is more concise:
 
@@ -364,13 +364,13 @@ Observe the following code, which, like standard backtracking code, belongs to d
     [class]{}-[func]{climbingStairsDFS}
     ```
 
-Figure 14-3 shows the recursive tree formed by brute force search. For the problem $dp[n]$, the depth of its recursive tree is $n$, with a time complexity of $O(2^n)$. Exponential order represents explosive growth, and entering a long wait if a relatively large $n$ is input.
+Figure 14-3 shows the recursive tree formed by brute force search. For the problem $dp[n]$, the depth of its recursive tree is $n$, with a time complexity of $O(2^n)$. This exponential growth causes the program to run much more slowly when $n$ is large, leading to long wait times.
 
 ![Recursive tree for climbing stairs](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png){ class="animation-figure" }
 
 <p align="center"> Figure 14-3 &nbsp; Recursive tree for climbing stairs </p>
 
-Observing Figure 14-3, **the exponential time complexity is caused by 'overlapping subproblems'**. For example, $dp[9]$ is decomposed into $dp[8]$ and $dp[7]$, $dp[8]$ into $dp[7]$ and $dp[6]$, both containing the subproblem $dp[7]$.
+Observing Figure 14-3, **the exponential time complexity is caused by 'overlapping subproblems'**. For example, $dp[9]$ is broken down into $dp[8]$ and $dp[7]$, and $dp[8]$ is further broken into $dp[7]$ and $dp[6]$, both containing the subproblem $dp[7]$.
 
 Thus, subproblems include even smaller overlapping subproblems, endlessly. A vast majority of computational resources are wasted on these overlapping subproblems.
 
@@ -556,11 +556,11 @@ Observe Figure 14-4, **after memoization, all overlapping subproblems need to be
 
 ## 14.1.3 &nbsp; Method 3: Dynamic programming
 
-**Memoized search is a 'top-down' method**: we start with the original problem (root node), recursively decompose larger subproblems into smaller ones until the solutions to the smallest known subproblems (leaf nodes) are reached. Subsequently, by backtracking, we collect the solutions of the subproblems, constructing the solution to the original problem.
+**Memoized search is a 'top-down' method**: we start with the original problem (root node), recursively break larger subproblems into smaller ones until the solutions to the smallest known subproblems (leaf nodes) are reached. Subsequently, by backtracking, we collect the solutions of the subproblems, constructing the solution to the original problem.
 
-On the contrary, **dynamic programming is a 'bottom-up' method**: starting with the solutions to the smallest subproblems, iteratively construct the solutions to larger subproblems until the original problem is solved.
+On the contrary, **dynamic programming is a 'bottom-up' method**: starting with the solutions to the smallest subproblems, it iteratively constructs the solutions to larger subproblems until the original problem is solved.
 
-Since dynamic programming does not include a backtracking process, it only requires looping iteration to implement, without needing recursion. In the following code, we initialize an array `dp` to store the solutions to the subproblems, serving the same recording function as the array `mem` in memoized search:
+Since dynamic programming does not involve backtracking, it only requires iteration using loops and does not need recursion. In the following code, we initialize an array `dp` to store the solutions to subproblems, serving the same recording function as the array `mem` in memoized search:
 
 === "Python"
 
@@ -818,4 +818,4 @@ Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i
 
 Observing the above code, since the space occupied by the array `dp` is eliminated, the space complexity is reduced from $O(n)$ to $O(1)$.
 
-In dynamic programming problems, the current state is often only related to a limited number of previous states, allowing us to retain only the necessary states and save memory space by "dimension reduction". **This space optimization technique is known as 'rolling variable' or 'rolling array'**.
+In many dynamic programming problems, the current state depends only on a limited number of previous states, allowing us to retain only the necessary states and save memory space by "dimension reduction". **This space optimization technique is known as 'rolling variable' or 'rolling array'**.
