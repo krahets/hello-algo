@@ -41,12 +41,7 @@ function countingSortDigit(nums, exp) {
 /* 基数排序 */
 function radixSort(nums) {
     // 获取数组的最大元素，用于判断最大位数
-    let m = Number.MIN_VALUE;
-    for (const num of nums) {
-        if (num > m) {
-            m = num;
-        }
-    }
+    let m = Math.max(... nums);
     // 按照从低位到高位的顺序遍历
     for (let exp = 1; exp <= m; exp *= 10) {
         // 对数组元素的第 k 位执行计数排序
