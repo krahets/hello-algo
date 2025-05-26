@@ -13,7 +13,7 @@ If you're facing similar troubles, then this book is lucky to have found you. Th
 
 I deeply agree with Professor Feynman's statement: "Knowledge isn't free. You have to pay attention." In this sense, this book is not entirely "free." In order to live up to your precious "attention" for this book, I will do my best and devote my greatest "attention" to write this book.
 
-Aware of my limitations, I recognize that despite the content of this book being refined over time, errors surely remain. I sincerely welcome critiques and corrections from both teachers and students
+Aware of my limitations, I recognize that despite the content of this book being refined over time, errors surely remain. I sincerely welcome critiques and corrections from both teachers and students.
 
 ![Hello Algo](../assets/covers/chapter_hello_algo.jpg){ class="cover-image" }
 
