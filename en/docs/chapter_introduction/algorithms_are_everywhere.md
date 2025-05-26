@@ -31,7 +31,7 @@ Looking up a dictionary, a must-have skill for primary school students, is actua
 
 1. Divide the playing cards into "ordered" and "unordered" sections, assuming initially the leftmost card is already in order.
 2. Take out a card from the unordered section and insert it into the correct position in the ordered section; after this, the leftmost two cards are in order.
-3. Repeat step `2`, inserting one playing card from the unsorted section into the sorted section each round, until all the cards are in order.
+3. Repeat step `2` until all cards are in order.
 
 ![Playing cards sorting process](algorithms_are_everywhere.assets/playing_cards_sorting.png)
 
