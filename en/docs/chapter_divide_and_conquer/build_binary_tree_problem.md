@@ -29,7 +29,7 @@ Using the data from the preceding figure, we can follow the steps shown in the n
 2. Find the index of the root node 3 in the `inorder` sequence, and use this index to split `inorder` into `[ 9 | 3 ｜ 1 2 7 ]`.
 3. According to the split of the `inorder` sequence, it is straightforward to determine that the left and right subtrees contain 1 and 3 nodes, respectively, so we can split the `preorder` sequence into `[ 3 | 9 | 2 1 7 ]` accordingly.
 
-![Dividing the subtrees in pre-order and in-order traversals](build_binary_tree_problem.assets/build_tree_pre-order_in-order_division.png)
+![Dividing the subtrees in pre-order and in-order traversals](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
 
 ### Describing subtree ranges based on variables
 
