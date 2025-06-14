@@ -11,19 +11,19 @@ Before we start discussing about algorithms officially, there's an interesting f
 3. Repeat steps `1.` and `2.` until you find the page where the word starts with $r$.
 
 === "<1>"
-    ![First Step of Looking Up a Dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
+    ![Process of Looking Up a Dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
 
 === "<2>"
-    ![Second Step of Looking Up a Dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
+    ![Binary Search in Dictionary Step 2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
 
 === "<3>"
-    ![Third Step of Looking Up a Dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
+    ![Binary Search in Dictionary Step 3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
 
 === "<4>"
-    ![Fourth Step of Looking Up a Dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
+    ![Binary Search in Dictionary Step 4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
 
 === "<5>"
-    ![Fifth Step of Looking Up a Dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
+    ![Binary Search in Dictionary Step 5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
 
 Looking up a dictionary, an essential skill for elementary school students is actually the famous "Binary Search" algorithm. From a data structure perspective, we can consider the dictionary as a sorted "array"; from an algorithmic perspective, the series of actions taken to look up a word in the dictionary can be viewed as the algorithm "Binary Search."
 
