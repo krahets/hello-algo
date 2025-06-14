@@ -572,7 +572,7 @@
     /* 遞迴的空間複雜度為 O(n) */
     void recur(int n) {
         if (n == 1) return;
-        return recur(n - 1);
+        recur(n - 1);
     }
     ```
 
@@ -592,7 +592,7 @@
     /* 遞迴的空間複雜度為 O(n) */
     void recur(int n) {
         if (n == 1) return;
-        return recur(n - 1);
+        recur(n - 1);
     }
     ```
 
@@ -721,7 +721,7 @@
     /* 遞迴的空間複雜度為 O(n) */
     void recur(int n) {
       if (n == 1) return;
-      return recur(n - 1);
+      recur(n - 1);
     }
     ```
 
@@ -763,7 +763,7 @@
     /* 遞迴的空間複雜度為 O(n) */
     void recur(int n) {
         if (n == 1) return;
-        return recur(n - 1);
+        recur(n - 1);
     }
     ```
 

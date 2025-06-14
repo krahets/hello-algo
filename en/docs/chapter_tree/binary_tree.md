@@ -106,7 +106,7 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
         val: number;
         left: TreeNode | null;
         right: TreeNode | null;
-    
+
         constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val; // Node value
             this.left = left === undefined ? null : left; // Reference to left child node
@@ -625,7 +625,7 @@ As shown in the figure below, in a <u>perfect binary tree</u>, all levels are co
 
 ### Complete binary tree
 
-As shown in the figure below, a <u>complete binary tree</u> is a binary tree where only the nodes in the bottom level are not completely filled, and the nodes in the bottom level are filled from left to right as much as possible. Please note that a perfect binary tree is also a complete binary tree.
+As shown in the figure below, a <u>complete binary tree</u> is a binary tree where only the bottom level is possibly not completely filled, and nodes at the bottom level must be filled continuously from left to right. Note that a perfect binary tree is also a complete binary tree.
 
 ![Complete binary tree](binary_tree.assets/complete_binary_tree.png)
 

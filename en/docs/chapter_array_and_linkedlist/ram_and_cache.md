@@ -10,13 +10,13 @@ There are three types of storage devices in computers: <u>hard disk</u>, <u>rand
 
 <p align="center"> Table <id> &nbsp; Computer storage devices </p>
 
-|            | Hard Disk                                                      | Memory                                                                   | Cache                                                                                           |
-| ---------- | -------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
-| Usage      | Long-term storage of data, including OS, programs, files, etc. | Temporary storage of currently running programs and data being processed | Stores frequently accessed data and instructions, reducing the number of CPU accesses to memory |
-| Volatility | Data is not lost after power off                               | Data is lost after power off                                             | Data is lost after power off                                                                    |
-| Capacity   | Larger, TB level                                               | Smaller, GB level                                                        | Very small, MB level                                                                            |
-| Speed      | Slower, several hundred to thousands MB/s                      | Faster, several tens of GB/s                                             | Very fast, several tens to hundreds of GB/s                                                     |
-| Price      | Cheaper, a few cents to a few dollars / GB                            | More expensive, tens to hundreds of dollars / GB                            | Very expensive, priced with CPU                                                                 |
+|             | Hard Disk                                                      | Memory                                                                   | Cache                                                                                           |
+| ----------- | -------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| Usage       | Long-term storage of data, including OS, programs, files, etc. | Temporary storage of currently running programs and data being processed | Stores frequently accessed data and instructions, reducing the number of CPU accesses to memory |
+| Volatility  | Data is not lost after power off                               | Data is lost after power off                                             | Data is lost after power off                                                                    |
+| Capacity    | Larger, TB level                                               | Smaller, GB level                                                        | Very small, MB level                                                                            |
+| Speed       | Slower, several hundred to thousands MB/s                      | Faster, several tens of GB/s                                             | Very fast, several tens to hundreds of GB/s                                                     |
+| Price (USD) | Cheaper, a few cents / GB                                      | More expensive, a few dollars / GB                                       | Very expensive, priced with CPU                                                                 |
 
 The computer storage system can be visualized as a pyramid, as shown in the figure below. The storage devices at the top of the pyramid are faster, have smaller capacities, and are more expensive. This multi-level design is not accidental, but a deliberate outcome of careful consideration by computer scientists and engineers.
 
