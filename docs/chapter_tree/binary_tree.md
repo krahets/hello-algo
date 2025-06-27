@@ -206,6 +206,21 @@
     ```zig title=""
 
     ```
+=== "cangjie"
+
+    ```cangjie title=""
+    /* 二叉树节点类 */
+    class TreeNode {
+        var val: Int64 // 节点值
+        var left: ?TreeNode // 左子节点引用
+        var right: ?TreeNode // 右子节点引用
+        public init(x: Int64) {
+            val = x
+            left = None
+            right = None
+        }
+    }
+    ```
 
 每个节点都有两个引用（指针），分别指向<u>左子节点（left-child node）</u>和<u>右子节点（right-child node）</u>，该节点被称为这两个子节点的<u>父节点（parent node）</u>。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的<u>左子树（left subtree）</u>，同理可得<u>右子树（right subtree）</u>。
 
@@ -460,6 +475,21 @@
     ```zig title="binary_tree.zig"
 
     ```
+=== "cangjie"
+
+    ```cangjie title="binary_tree.cj"
+    // 初始化节点
+    let n1 = TreeNode(1)
+    let n2 = TreeNode(2)
+    let n3 = TreeNode(3)
+    let n4 = TreeNode(4)
+    let n5 = TreeNode(5)
+    // 构建节点之间的引用（指针）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
+    ```
 
 ??? pythontutor "可视化运行"
 
@@ -631,6 +661,18 @@
 
     ```zig title="binary_tree.zig"
 
+    ```
+=== "cangjie"
+
+    ```cangjie title="binary_tree.cj"
+    let p = TreeNode(0)
+    // 在 n1 -> n2 中间插入节点 p
+    n1.left = p
+    p.left = n2
+    println("\n插入节点 P 后\n")
+    PrintUtil.printTree(n1)
+    // 删除节点 P
+    n1.left = n2
     ```
 
 ??? pythontutor "可视化运行"

@@ -204,6 +204,19 @@
         };
     }
     ```
+=== "cangjie"
+
+    ```cangjie title=""
+    /* 链表节点类 */
+    class ListNode {
+        var val: Int64 // 节点值
+        var next: ?ListNode // 指向下一节点的引用
+        public init(x: Int64) {
+            val = x
+            next = None
+        } // 构造函数
+    }
+    ```
 
 ## 链表常用操作
 
@@ -448,6 +461,23 @@
     n1.next = &n2;
     n2.next = &n3;
     n3.next = &n4;
+    ```
+
+=== "cangjie"
+
+    ```cangjie title="linked_list.cj"
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个节点
+    let n0 = ListNode(1)
+    let n1 = ListNode(3)
+    let n2 = ListNode(2)
+    let n3 = ListNode(5)
+    let n4 = ListNode(4)
+    // 构建节点之间的引用
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
     ```
 
 ??? pythontutor "可视化运行"
@@ -736,6 +766,22 @@
                 self.prev = null;
             }
         };
+    }
+    ```
+
+=== "cangjie"
+
+    ```cangjie title=""
+    // 双向链表节点类
+    class ListNode {
+        var val: Int64 // 节点值
+        var next: ?ListNode // 指向后继节点的引用
+        var prev: ?ListNode // 指向前驱节点的引用
+        public init(x: Int64) { // 构造函数
+            val = x
+            next = None
+            prev = None
+        }
     }
     ```
 
