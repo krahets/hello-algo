@@ -1,0 +1,151 @@
+# Config inheritance
+INHERIT: ../mkdocs.yml
+
+# Project information
+site_name: Hello Algo (Español)
+site_url: https://www.hello-algo.com/es/
+site_description: "Curso intensivo de Estructuras de Datos y Algoritmos con ilustraciones animadas y código listo para usar"
+docs_dir: ../build/es/docs
+site_dir: ../site/es
+# Repository
+edit_uri: tree/main/es/docs
+version: 1.0.0
+
+# Configuración
+# (hereda el tema y plugins del mkdocs.yml principal)
+theme:
+  language: es
+  font:
+    text: Roboto
+    code: Roboto Mono
+extra:
+  status:
+    new: Recientemente añadido
+
+# Estructura de navegación (nav)
+nav:
+  - Antes de empezar:
+    - chapter_hello_algo/index.md
+  - Capítulo 0. Prefacio:
+    - chapter_preface/index.md
+    - 0.1 Sobre este libro: chapter_preface/about_the_book.md
+    - 0.2 Cómo leer: chapter_preface/suggestions.md
+    - 0.3 Resumen: chapter_preface/summary.md
+  - Capítulo 1. Encuentro con los algoritmos:
+    - chapter_introduction/index.md
+    - 1.1 Los algoritmos están en todas partes: chapter_introduction/algorithms_are_everywhere.md
+    - 1.2 ¿Qué es un algoritmo?: chapter_introduction/what_is_dsa.md
+    - 1.3 Resumen: chapter_introduction/summary.md
+  - Capítulo 2. Análisis de complejidad:
+    - chapter_computational_complexity/index.md
+    - 2.1 Evaluación de la eficiencia del algoritmo: chapter_computational_complexity/performance_evaluation.md
+    - 2.2 Iteración y recursión: chapter_computational_complexity/iteration_and_recursion.md
+    - 2.3 Complejidad temporal: chapter_computational_complexity/time_complexity.md
+    - 2.4 Complejidad espacial: chapter_computational_complexity/space_complexity.md
+    - 2.5 Resumen: chapter_computational_complexity/summary.md
+  - Capítulo 3. Estructuras de datos:
+    - chapter_data_structure/index.md
+    - 3.1 Clasificación de las estructuras de datos: chapter_data_structure/classification_of_data_structure.md
+    - 3.2 Tipos de datos básicos: chapter_data_structure/basic_data_types.md
+    - 3.3 Codificación de números *: chapter_data_structure/number_encoding.md
+    - 3.4 Codificación de caracteres *: chapter_data_structure/character_encoding.md
+    - 3.5 Resumen: chapter_data_structure/summary.md
+  - Capítulo 4. Arreglos y listas enlazadas:
+    - chapter_array_and_linkedlist/index.md
+    - 4.1 Arreglo: chapter_array_and_linkedlist/array.md
+    - 4.2 Lista enlazada: chapter_array_and_linkedlist/linked_list.md
+    - 4.3 Lista: chapter_array_and_linkedlist/list.md
+    - 4.4 Memoria y caché *: chapter_array_and_linkedlist/ram_and_cache.md
+    - 4.5 Resumen: chapter_array_and_linkedlist/summary.md
+  - Capítulo 5. Pila y cola:
+    - chapter_stack_and_queue/index.md
+    - 5.1 Pila: chapter_stack_and_queue/stack.md
+    - 5.2 Cola: chapter_stack_and_queue/queue.md
+    - 5.3 Cola doble: chapter_stack_and_queue/deque.md
+    - 5.4 Resumen: chapter_stack_and_queue/summary.md
+  - Capítulo 6. Tabla hash:
+    - chapter_hashing/index.md
+    - 6.1 Tabla hash: chapter_hashing/hash_map.md
+    - 6.2 Colisión hash: chapter_hashing/hash_collision.md
+    - 6.3 Algoritmo hash: chapter_hashing/hash_algorithm.md
+    - 6.4 Resumen: chapter_hashing/summary.md
+  - Capítulo 7. Árbol:
+    - chapter_tree/index.md
+    - 7.1 Árbol binario: chapter_tree/binary_tree.md
+    - 7.2 Recorrido de árbol binario: chapter_tree/binary_tree_traversal.md
+    - 7.3 Representación de árbol por arreglo: chapter_tree/array_representation_of_tree.md
+    - 7.4 Árbol binario de búsqueda: chapter_tree/binary_search_tree.md
+    - 7.5 Árbol AVL *: chapter_tree/avl_tree.md
+    - 7.6 Resumen: chapter_tree/summary.md
+  - Capítulo 8. Montículo:
+    - chapter_heap/index.md
+    - 8.1 Montículo: chapter_heap/heap.md
+    - 8.2 Construcción de montículo: chapter_heap/build_heap.md
+    - 8.3 Problema Top-k: chapter_heap/top_k.md
+    - 8.4 Resumen: chapter_heap/summary.md
+  - Capítulo 9. Grafo:
+    - chapter_graph/index.md
+    - 9.1 Grafo: chapter_graph/graph.md
+    - 9.2 Operaciones básicas de grafos: chapter_graph/graph_operations.md
+    - 9.3 Recorrido de grafos: chapter_graph/graph_traversal.md
+    - 9.4 Resumen: chapter_graph/summary.md
+  - Capítulo 10. Búsqueda:
+    - chapter_searching/index.md
+    - 10.1 Búsqueda binaria: chapter_searching/binary_search.md
+    - 10.2 Inserción en búsqueda binaria: chapter_searching/binary_search_insertion.md
+    - 10.3 Límites de búsqueda binaria: chapter_searching/binary_search_edge.md
+    - 10.4 Estrategias de optimización con hash: chapter_searching/replace_linear_by_hashing.md
+    - 10.5 Algoritmos de búsqueda revisados: chapter_searching/searching_algorithm_revisited.md
+    - 10.6 Resumen: chapter_searching/summary.md
+  - Capítulo 11. Ordenamiento:
+    - chapter_sorting/index.md
+    - 11.1 Algoritmos de ordenamiento: chapter_sorting/sorting_algorithm.md
+    - 11.2 Ordenamiento por selección: chapter_sorting/selection_sort.md
+    - 11.3 Ordenamiento de burbuja: chapter_sorting/bubble_sort.md
+    - 11.4 Ordenamiento por inserción: chapter_sorting/insertion_sort.md
+    - 11.5 Ordenamiento rápido: chapter_sorting/quick_sort.md
+    - 11.6 Ordenamiento por mezcla: chapter_sorting/merge_sort.md
+    - 11.7 Ordenamiento por montículo: chapter_sorting/heap_sort.md
+    - 11.8 Ordenamiento por cubetas: chapter_sorting/bucket_sort.md
+    - 11.9 Ordenamiento por conteo: chapter_sorting/counting_sort.md
+    - 11.10 Ordenamiento por radix: chapter_sorting/radix_sort.md
+    - 11.11 Resumen: chapter_sorting/summary.md
+  - Capítulo 12. Divide y vencerás:
+    - chapter_divide_and_conquer/index.md
+    - 12.1 Algoritmos de divide y vencerás: chapter_divide_and_conquer/divide_and_conquer.md
+    - 12.2 Estrategia de búsqueda recursiva: chapter_divide_and_conquer/binary_search_recur.md
+    - 12.3 Problema de construir árbol binario: chapter_divide_and_conquer/build_binary_tree_problem.md
+    - 12.4 Problema de las Torres de Hanói: chapter_divide_and_conquer/hanota_problem.md
+    - 12.5 Resumen: chapter_divide_and_conquer/summary.md
+  - Capítulo 13. Backtracking:
+    - chapter_backtracking/index.md
+    - 13.1 Algoritmos de backtracking: chapter_backtracking/backtracking_algorithm.md
+    - 13.2 Problema de permutaciones: chapter_backtracking/permutations_problem.md
+    - 13.3 Problema de suma de subconjuntos: chapter_backtracking/subset_sum_problem.md
+    - 13.4 Problema de las n reinas: chapter_backtracking/n_queens_problem.md
+    - 13.5 Resumen: chapter_backtracking/summary.md
+  - Capítulo 14. Programación dinámica:
+    - chapter_dynamic_programming/index.md
+    - 14.1 Introducción a la programación dinámica: chapter_dynamic_programming/intro_to_dynamic_programming.md
+    - 14.2 Características de los problemas DP: chapter_dynamic_programming/dp_problem_features.md
+    - 14.3 Enfoque de resolución de problemas DP: chapter_dynamic_programming/dp_solution_pipeline.md
+    - 14.4 Problema de la mochila 0-1: chapter_dynamic_programming/knapsack_problem.md
+    - 14.5 Problema de la mochila ilimitada: chapter_dynamic_programming/unbounded_knapsack_problem.md
+    - 14.6 Problema de distancia de edición: chapter_dynamic_programming/edit_distance_problem.md
+    - 14.7 Resumen: chapter_dynamic_programming/summary.md
+  - Capítulo 15. Greedy:
+    - chapter_greedy/index.md
+    - 15.1 Algoritmos voraces: chapter_greedy/greedy_algorithm.md
+    - 15.2 Problema de la mochila fraccionaria: chapter_greedy/fractional_knapsack_problem.md
+    - 15.3 Problema de capacidad máxima: chapter_greedy/max_capacity_problem.md
+    - 15.4 Problema de corte de producto máximo: chapter_greedy/max_product_cutting_problem.md
+    - 15.5 Resumen: chapter_greedy/summary.md
+  - Capítulo 16. Apéndice:
+    - chapter_appendix/index.md
+    - 16.1 Instalación: chapter_appendix/installation.md
+    - 16.2 Contribuir: chapter_appendix/contribution.md
+    - 16.3 Glosario: chapter_appendix/terminology.md
+  - Referencias:
+    - chapter_reference/index.md
+  - Libro impreso:
+    - chapter_paperbook/index.md
