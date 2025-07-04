@@ -1,0 +1,24 @@
+# Resumen
+
+- La programación dinámica descompone problemas y mejora la eficiencia computacional evitando cálculos redundantes mediante el almacenamiento de soluciones de subproblemas.
+- Sin considerar el tiempo, todos los problemas de programación dinámica se pueden resolver utilizando backtracking (búsqueda por fuerza bruta), pero el árbol de recursión tiene muchos subproblemas superpuestos, lo que resulta en una eficiencia muy baja. Al introducir una lista de memorización, es posible almacenar soluciones de todos los subproblemas calculados, asegurando que los subproblemas superpuestos se calculen solo una vez.
+- La búsqueda memorizada es una solución recursiva de arriba hacia abajo, mientras que la programación dinámica corresponde a un enfoque iterativo de abajo hacia arriba, similar a "rellenar una tabla". Dado que el estado actual solo depende de ciertos estados locales, podemos eliminar una dimensión de la tabla dp para reducir la complejidad espacial.
+- La descomposición de subproblemas es un enfoque algorítmico universal, que difiere en características entre divide y vencerás, programación dinámica y backtracking.
+- Los problemas de programación dinámica tienen tres características principales: subproblemas superpuestos, subestructura óptima y ausencia de efectos secundarios.
+- Si la solución óptima del problema original se puede construir a partir de las soluciones óptimas de sus subproblemas, tiene una subestructura óptima.
+- La ausencia de efectos secundarios significa que el desarrollo futuro de un estado depende solo del estado actual y no de todos los estados pasados experimentados. Muchos problemas de optimización combinatoria no tienen esta propiedad y no se pueden resolver rápidamente utilizando programación dinámica.
+
+**Problema de la mochila**
+
+- El problema de la mochila es uno de los problemas de programación dinámica más típicos, con variantes que incluyen la mochila 0-1, la mochila ilimitada y las mochilas múltiples.
+- La definición de estado de la mochila 0-1 es el valor máximo en una mochila de capacidad $c$ con los primeros $i$ artículos. Basándose en las decisiones de no incluir o incluir un artículo en la mochila, se pueden identificar subestructuras óptimas y construir ecuaciones de transición de estado. En la optimización del espacio, dado que cada estado depende del estado directamente superior y superior izquierdo, la lista debe recorrerse en orden inverso para evitar sobrescribir el estado superior izquierdo.
+- En el problema de la mochila ilimitada, no hay límite en el número de cada tipo de artículo que se puede elegir, por lo que la transición de estado para incluir artículos difiere de la mochila 0-1. Dado que el estado depende del estado directamente superior y a la izquierda, la optimización del espacio debe implicar un recorrido hacia adelante.
+- El problema del cambio de monedas es una variante del problema de la mochila ilimitada, que pasa de buscar el valor "máximo" a buscar el número "mínimo" de monedas, por lo que la ecuación de transición de estado debe cambiar $\max()$ a $\min()$. De buscar "no exceder" la capacidad de la mochila a buscar exactamente la cantidad objetivo, por lo tanto, use $amt + 1$ para representar la solución inválida de "no poder alcanzar la cantidad objetivo".
+- El problema del cambio de monedas II pasa de buscar el "número mínimo de monedas" a buscar el "número de combinaciones de monedas", cambiando la ecuación de transición de estado en consecuencia de $\min()$ al operador de suma.
+
+**Problema de la distancia de edición**
+
+- La distancia de edición (distancia de Levenshtein) mide la similitud entre dos cadenas, definida como el número mínimo de pasos de edición necesarios para cambiar una cadena en otra, con operaciones de edición que incluyen agregar, eliminar o reemplazar.
+- La definición de estado para el problema de la distancia de edición es el número mínimo de pasos de edición necesarios para cambiar los primeros $i$ caracteres de $s$ en los primeros $j$ caracteres de $t$. Cuando $s[i] \ne t[j]$, hay tres decisiones: agregar, eliminar, reemplazar, cada una con sus subproblemas residuales correspondientes. A partir de esto, se pueden identificar subestructuras óptimas y construir ecuaciones de transición de estado. Cuando $s[i] = t[j]$, no es necesaria la edición del carácter actual.
+- En la distancia de edición, el estado depende del estado directamente superior, a la izquierda y superior izquierdo. Por lo tanto, después de la optimización del espacio, ni el recorrido hacia adelante ni el inverso pueden realizar correctamente las transiciones de estado. Para abordar esto, usamos una variable para almacenar temporalmente el estado superior izquierdo, lo que lo hace equivalente a la situación en el problema de la mochila ilimitada, lo que permite el recorrido hacia adelante después de la optimización del espacio.
+

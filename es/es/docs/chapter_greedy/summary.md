@@ -1,0 +1,12 @@
+# Resumen
+
+- Los algoritmos codiciosos se utilizan a menudo para resolver problemas de optimización, donde el principio es tomar decisiones localmente óptimas en cada etapa de decisión para lograr una solución globalmente óptima.
+- Los algoritmos codiciosos toman iterativamente una decisión codiciosa tras otra, transformando el problema en un subproblema más pequeño con cada ronda, hasta que el problema se resuelve.
+- Los algoritmos codiciosos no solo son fáciles de implementar, sino que también tienen una alta eficiencia en la resolución de problemas. En comparación con la programación dinámica, los algoritmos codiciosos generalmente tienen una complejidad temporal menor.
+- En el problema del cambio de monedas, los algoritmos codiciosos pueden garantizar la solución óptima para ciertas combinaciones de monedas; para otras, sin embargo, el algoritmo codicioso podría encontrar una solución muy pobre.
+- Los problemas adecuados para soluciones de algoritmos codiciosos poseen dos propiedades principales: propiedad de elección codiciosa y subestructura óptima. La propiedad de elección codiciosa representa la efectividad de la estrategia codiciosa.
+- Para algunos problemas complejos, probar la propiedad de elección codiciosa no es sencillo. Por el contrario, probar la invalidez suele ser más fácil, como con el problema del cambio de monedas.
+- La resolución de problemas codiciosos consta principalmente de tres pasos: análisis del problema, determinación de la estrategia codiciosa y prueba de la corrección. Entre ellos, la determinación de la estrategia codiciosa es el paso clave, mientras que la prueba de la corrección a menudo plantea el desafío.
+- El problema de la mochila fraccionaria se basa en el problema de la mochila 0-1 al permitir la selección de una parte de los artículos, por lo que se puede resolver utilizando un algoritmo codicioso. La corrección de la estrategia codiciosa se puede probar por contradicción.
+- El problema de la capacidad máxima se puede resolver utilizando el método exhaustivo, con una complejidad temporal de $O(n^2)$. Al diseñar una estrategia codiciosa, cada ronda mueve la tabla más corta hacia adentro, optimizando la complejidad temporal a $O(n)$.
+- En el problema del producto máximo después del corte, deducimos dos estrategias codiciosas: los enteros $\geq 4$ deben seguir cortándose, siendo el factor de corte óptimo $3$. El código incluye operaciones de potencia, y la complejidad temporal depende del método de implementación de las operaciones de potencia, siendo generalmente $O(1)$ o $O(\log n)$.
