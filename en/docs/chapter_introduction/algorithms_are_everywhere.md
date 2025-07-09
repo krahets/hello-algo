@@ -25,17 +25,17 @@ Before formally discussing algorithms, there's an interesting fact worth sharing
 === "<5>"
     ![Binary Search in Dictionary Step 5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
 
-This essential skill for elementary students, looking up a dictionary, is actually the famous "Binary Search" algorithm. From a data structure perspective, we can consider the dictionary as a sorted "array"; from an algorithmic perspective, the series of actions taken to look up a word in the dictionary can be viewed as "Binary Search."
+Looking up a dictionary, a must-have skill for primary school students, is actually the famous "binary search" algorithm. From the perspective of data structure, we can regard the dictionary as a sorted "array"; from the perspective of algorithm, we can regard the above series of dictionary lookup operations as "binary search."
 
 **Example 2: Organizing Playing Cards**. When playing cards, we need to arrange the cards in our hand in ascending order, as shown in the following process.
 
 1. Divide the playing cards into "ordered" and "unordered" sections, assuming initially the leftmost card is already in order.
 2. Take out a card from the unordered section and insert it into the correct position in the ordered section; after this, the leftmost two cards are in order.
-3. Continue to repeat step `2.` until all cards are in order.
+3. Repeat step `2` until all cards are in order.
 
 ![Playing cards sorting process](algorithms_are_everywhere.assets/playing_cards_sorting.png)
 
-The above method of organizing playing cards is essentially the "Insertion Sort" algorithm, which is very efficient for small datasets. Many programming languages' sorting functions include the insertion sort.
+The above method of organizing playing cards is essentially the "Insertion Sort" algorithm, which is very efficient for small datasets. Insertion sort is included in the sorting functions of many programming languages.
 
 **Example 3: Making Change**. Suppose we buy goods worth $69$ yuan at a supermarket and give the cashier $100$ yuan, then the cashier needs to give us $31$ yuan in change. They would naturally complete the thought process as shown in the figure below.
 
@@ -49,8 +49,8 @@ The above method of organizing playing cards is essentially the "Insertion Sort"
 
 In the above steps, we make the best choice at each step (using the largest denomination possible), ultimately resulting in a feasible change-making plan. From the perspective of data structures and algorithms, this method is essentially a "Greedy" algorithm.
 
-From cooking a meal to interstellar travel, almost all problem-solving involves algorithms. The advent of computers allows us to store data structures in memory and write code to call the CPU and GPU to execute algorithms. In this way, we can transfer real-life problems to computers, solving various complex issues more efficiently.
+From cooking a meal to interstellar travel, almost all problem-solving involves algorithms. The advent of computers allows us to store data structures in memory and write code to call the CPU and GPU to execute algorithms. In this way, we can transfer real-life problems to computers and solve various complex issues in a more efficient way.
 
 !!! tip
 
-    If concepts such as data structures, algorithms, arrays, and binary search still seem somewhat obscure, I encourage you to continue reading. This book will gently guide you into the realm of understanding data structures and algorithms.
+    If concepts such as data structures, algorithms, arrays, and binary search still seem somewhat obscure, I encourage you to read on. This book will guide you step by step into the world of data structures and algorithms.
