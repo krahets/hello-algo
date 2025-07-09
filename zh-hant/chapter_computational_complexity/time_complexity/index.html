@@ -4495,7 +4495,7 @@ T(n) = 3 + 2n
 <p class="admonition-title">函式漸近上界</p>
 <p>若存在正實數 <span class="arithmatex">\(c\)</span> 和實數 <span class="arithmatex">\(n_0\)</span> ，使得對於所有的 <span class="arithmatex">\(n &gt; n_0\)</span> ，均有 <span class="arithmatex">\(T(n) \leq c \cdot f(n)\)</span> ，則可認為 <span class="arithmatex">\(f(n)\)</span> 給出了 <span class="arithmatex">\(T(n)\)</span> 的一個漸近上界，記為 <span class="arithmatex">\(T(n) = O(f(n))\)</span> 。</p>
 </div>
-<p>如圖 2-8 所示，計算漸近上界就是尋找一個函式 <span class="arithmatex">\(f(n)\)</span> ，使得當 <span class="arithmatex">\(n\)</span> 趨向於無窮大時，<span class="arithmatex">\(T(n)\)</span> 和 <span class="arithmatex">\(f(n)\)</span> 處於相同的增長級別，僅相差一個常數項 <span class="arithmatex">\(c\)</span> 的倍數。</p>
+<p>如圖 2-8 所示，計算漸近上界就是尋找一個函式 <span class="arithmatex">\(f(n)\)</span> ，使得當 <span class="arithmatex">\(n\)</span> 趨向於無窮大時，<span class="arithmatex">\(T(n)\)</span> 和 <span class="arithmatex">\(f(n)\)</span> 處於相同的增長級別，僅相差一個常數係數 <span class="arithmatex">\(c\)</span>。</p>
 <p><a class="glightbox" href="../time_complexity.assets/asymptotic_upper_bound.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="函式的漸近上界" class="animation-figure" src="../time_complexity.assets/asymptotic_upper_bound.png" /></a></p>
 <p align="center"> 圖 2-8 &nbsp; 函式的漸近上界 </p>
 
@@ -4503,9 +4503,9 @@ T(n) = 3 + 2n
 <p>漸近上界的數學味兒有點重，如果你感覺沒有完全理解，也無須擔心。我們可以先掌握推算方法，在不斷的實踐中，就可以逐漸領悟其數學意義。</p>
 <p>根據定義，確定 <span class="arithmatex">\(f(n)\)</span> 之後，我們便可得到時間複雜度 <span class="arithmatex">\(O(f(n))\)</span> 。那麼如何確定漸近上界 <span class="arithmatex">\(f(n)\)</span> 呢？總體分為兩步：首先統計操作數量，然後判斷漸近上界。</p>
 <h3 id="1">1. &nbsp; 第一步：統計操作數量<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>針對程式碼，逐行從上到下計算即可。然而，由於上述 <span class="arithmatex">\(c \cdot f(n)\)</span> 中的常數項 <span class="arithmatex">\(c\)</span> 可以取任意大小，<strong>因此操作數量 <span class="arithmatex">\(T(n)\)</span> 中的各種係數、常數項都可以忽略</strong>。根據此原則，可以總結出以下計數簡化技巧。</p>
+<p>針對程式碼，逐行從上到下計算即可。然而，由於上述 <span class="arithmatex">\(c \cdot f(n)\)</span> 中的常數係數 <span class="arithmatex">\(c\)</span> 可以取任意大小，<strong>因此操作數量 <span class="arithmatex">\(T(n)\)</span> 中的各種係數、常數項都可以忽略</strong>。根據此原則，可以總結出以下計數簡化技巧。</p>
 <ol>
-<li><strong>忽略 <span class="arithmatex">\(T(n)\)</span> 中的常數項</strong>。因為它們都與 <span class="arithmatex">\(n\)</span> 無關，所以對時間複雜度不產生影響。</li>
+<li><strong>忽略 <span class="arithmatex">\(T(n)\)</span> 中的常數</strong>。因為它們都與 <span class="arithmatex">\(n\)</span> 無關，所以對時間複雜度不產生影響。</li>
 <li><strong>省略所有係數</strong>。例如，迴圈 <span class="arithmatex">\(2n\)</span> 次、<span class="arithmatex">\(5n + 1\)</span> 次等，都可以簡化記為 <span class="arithmatex">\(n\)</span> 次，因為 <span class="arithmatex">\(n\)</span> 前面的係數對時間複雜度沒有影響。</li>
 <li><strong>迴圈巢狀時使用乘法</strong>。總操作數量等於外層迴圈和內層迴圈操作數量之積，每一層迴圈依然可以分別套用第 <code>1.</code> 點和第 <code>2.</code> 點的技巧。</li>
 </ol>
