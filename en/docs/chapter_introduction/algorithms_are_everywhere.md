@@ -37,13 +37,13 @@ Looking up a dictionary, an essential skill for elementary school students is ac
 
 The above method of organizing playing cards is practically the "Insertion Sort" algorithm, which is very efficient for small datasets. Many programming languages' sorting functions include the insertion sort.
 
-**Example 3: Making Change**. Assume making a purchase of $\$69$ at a supermarket. If you give the cashier $\$100$, they will need to provide you with $\$31$ in change. This process can be clearly understood as illustrated in the figure below.
+**Example 3: Making Change**. Assume making a purchase of $69$ at a supermarket. If you give the cashier $100$, they will need to provide you with $31$ in change. This process can be clearly understood as illustrated in the figure below.
 
-1. The options are currencies valued below $\$31$, including $\$1$, $\$5$, $\$10$, and $\$20$.
-2. Take out the largest $\$20$ from the options, leaving $\$31 - \$20 = \$11$.
-3. Take out the largest $\$10$ from the remaining options, leaving $\$11 - \$10 = \$1$.
-4. Take out the largest $\$1$ from the remaining options, leaving $\$1 - \$1 = \$0$.
-5. Complete change-making, the solution is $\$20 + \$10 + \$1 = \$31$.
+1. The options are currencies valued below $31$, including $1$, $5$, $10$, and $20$.
+2. Take out the largest $20$ from the options, leaving $31 - 20 = 11$.
+3. Take out the largest $10$ from the remaining options, leaving $11 - 10 = 1$.
+4. Take out the largest $1$ from the remaining options, leaving $1 - 1 = 0$.
+5. Complete change-making, the solution is $20 + 10 + 1 = 31$.
 
 ![Process of making change](algorithms_are_everywhere.assets/greedy_change.png)
 
