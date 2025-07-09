@@ -1161,7 +1161,7 @@ comments: true
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20median_three%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20mid%3A%20int,%20right%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%80%89%E5%8F%96%E4%B8%89%E4%B8%AA%E5%80%99%E9%80%89%E5%85%83%E7%B4%A0%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0%22%22%22%0A%20%20%20%20l,%20m,%20r%20%3D%20nums%5Bleft%5D,%20nums%5Bmid%5D,%20nums%5Bright%5D%0A%20%20%20%20if%20%28l%20%3C%3D%20m%20%3C%3D%20r%29%20or%20%28r%20%3C%3D%20m%20%3C%3D%20l%29%3A%0A%20%20%20%20%20%20%20%20return%20mid%20%20%23%20m%20%E5%9C%A8%20l%20%E5%92%8C%20r%20%E4%B9%8B%E9%97%B4%0A%20%20%20%20if%20%28m%20%3C%3D%20l%20%3C%3D%20r%29%20or%20%28r%20%3C%3D%20l%20%3C%3D%20m%29%3A%0A%20%20%20%20%20%20%20%20return%20left%20%20%23%20l%20%E5%9C%A8%20m%20%E5%92%8C%20r%20%E4%B9%8B%E9%97%B4%0A%20%20%20%20return%20right%0A%0Adef%20partition%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20right%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%93%A8%E5%85%B5%E5%88%92%E5%88%86%EF%BC%88%E4%B8%89%E6%95%B0%E5%8F%96%E4%B8%AD%E5%80%BC%EF%BC%89%22%22%22%0A%20%20%20%20%23%20%E4%BB%A5%20nums%5Bleft%5D%20%E4%B8%BA%E5%9F%BA%E5%87%86%E6%95%B0%0A%20%20%20%20med%20%3D%20median_three%28nums,%20left,%20%28left%20%2B%20right%29%20//%202,%20right%29%0A%20%20%20%20%23%20%E5%B0%86%E4%B8%AD%E4%BD%8D%E6%95%B0%E4%BA%A4%E6%8D%A2%E8%87%B3%E6%95%B0%E7%BB%84%E6%9C%80%E5%B7%A6%E7%AB%AF%0A%20%20%20%20nums%5Bleft%5D,%20nums%5Bmed%5D%20%3D%20nums%5Bmed%5D,%20nums%5Bleft%5D%0A%20%20%20%20%23%20%E4%BB%A5%20nums%5Bleft%5D%20%E4%B8%BA%E5%9F%BA%E5%87%86%E6%95%B0%0A%20%20%20%20i,%20j%20%3D%20left,%20right%0A%20%20%20%20while%20i%20%3C%20j%3A%0A%20%20%20%20%20%20%20%20while%20i%20%3C%20j%20and%20nums%5Bj%5D%20%3E%3D%20nums%5Bleft%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20-%3D%201%20%20%23%20%E4%BB%8E%E5%8F%B3%E5%90%91%E5%B7%A6%E6%89%BE%E9%A6%96%E4%B8%AA%E5%B0%8F%E4%BA%8E%E5%9F%BA%E5%87%86%E6%95%B0%E7%9A%84%E5%85%83%E7%B4%A0%0A%20%20%20%20%20%20%20%20while%20i%20%3C%20j%20and%20nums%5Bi%5D%20%3C%3D%20nums%5Bleft%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%20%20%23%20%E4%BB%8E%E5%B7%A6%E5%90%91%E5%8F%B3%E6%89%BE%E9%A6%96%E4%B8%AA%E5%A4%A7%E4%BA%8E%E5%9F%BA%E5%87%86%E6%95%B0%E7%9A%84%E5%85%83%E7%B4%A0%0A%20%20%20%20%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%0A%20%20%20%20%20%20%20%20nums%5Bi%5D,%20nums%5Bj%5D%20%3D%20nums%5Bj%5D,%20nums%5Bi%5D%0A%20%20%20%20%23%20%E5%B0%86%E5%9F%BA%E5%87%86%E6%95%B0%E4%BA%A4%E6%8D%A2%E8%87%B3%E4%B8%A4%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%86%E7%95%8C%E7%BA%BF%0A%20%20%20%20nums%5Bi%5D,%20nums%5Bleft%5D%20%3D%20nums%5Bleft%5D,%20nums%5Bi%5D%0A%20%20%20%20return%20i%20%20%23%20%E8%BF%94%E5%9B%9E%E5%9F%BA%E5%87%86%E6%95%B0%E7%9A%84%E7%B4%A2%E5%BC%95%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%B8%AD%E4%BD%8D%E5%9F%BA%E5%87%86%E6%95%B0%E4%BC%98%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B2,%204,%201,%200,%203,%205%5D%0A%20%20%20%20partition%28nums,%200,%20len%28nums%29%20-%201%29%0A%20%20%20%20print%28%22%E5%93%A8%E5%85%B5%E5%88%92%E5%88%86%EF%BC%88%E4%B8%AD%E4%BD%8D%E5%9F%BA%E5%87%86%E6%95%B0%E4%BC%98%E5%8C%96%EF%BC%89%E5%AE%8C%E6%88%90%E5%90%8E%20nums%20%3D%22,%20nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
     <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20median_three%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20mid%3A%20int,%20right%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%80%89%E5%8F%96%E4%B8%89%E4%B8%AA%E5%80%99%E9%80%89%E5%85%83%E7%B4%A0%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0%22%22%22%0A%20%20%20%20l,%20m,%20r%20%3D%20nums%5Bleft%5D,%20nums%5Bmid%5D,%20nums%5Bright%5D%0A%20%20%20%20if%20%28l%20%3C%3D%20m%20%3C%3D%20r%29%20or%20%28r%20%3C%3D%20m%20%3C%3D%20l%29%3A%0A%20%20%20%20%20%20%20%20return%20mid%20%20%23%20m%20%E5%9C%A8%20l%20%E5%92%8C%20r%20%E4%B9%8B%E9%97%B4%0A%20%20%20%20if%20%28m%20%3C%3D%20l%20%3C%3D%20r%29%20or%20%28r%20%3C%3D%20l%20%3C%3D%20m%29%3A%0A%20%20%20%20%20%20%20%20return%20left%20%20%23%20l%20%E5%9C%A8%20m%20%E5%92%8C%20r%20%E4%B9%8B%E9%97%B4%0A%20%20%20%20return%20right%0A%0Adef%20partition%28nums%3A%20list%5Bint%5D,%20left%3A%20int,%20right%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%93%A8%E5%85%B5%E5%88%92%E5%88%86%EF%BC%88%E4%B8%89%E6%95%B0%E5%8F%96%E4%B8%AD%E5%80%BC%EF%BC%89%22%22%22%0A%20%20%20%20%23%20%E4%BB%A5%20nums%5Bleft%5D%20%E4%B8%BA%E5%9F%BA%E5%87%86%E6%95%B0%0A%20%20%20%20med%20%3D%20median_three%28nums,%20left,%20%28left%20%2B%20right%29%20//%202,%20right%29%0A%20%20%20%20%23%20%E5%B0%86%E4%B8%AD%E4%BD%8D%E6%95%B0%E4%BA%A4%E6%8D%A2%E8%87%B3%E6%95%B0%E7%BB%84%E6%9C%80%E5%B7%A6%E7%AB%AF%0A%20%20%20%20nums%5Bleft%5D,%20nums%5Bmed%5D%20%3D%20nums%5Bmed%5D,%20nums%5Bleft%5D%0A%20%20%20%20%23%20%E4%BB%A5%20nums%5Bleft%5D%20%E4%B8%BA%E5%9F%BA%E5%87%86%E6%95%B0%0A%20%20%20%20i,%20j%20%3D%20left,%20right%0A%20%20%20%20while%20i%20%3C%20j%3A%0A%20%20%20%20%20%20%20%20while%20i%20%3C%20j%20and%20nums%5Bj%5D%20%3E%3D%20nums%5Bleft%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20-%3D%201%20%20%23%20%E4%BB%8E%E5%8F%B3%E5%90%91%E5%B7%A6%E6%89%BE%E9%A6%96%E4%B8%AA%E5%B0%8F%E4%BA%8E%E5%9F%BA%E5%87%86%E6%95%B0%E7%9A%84%E5%85%83%E7%B4%A0%0A%20%20%20%20%20%20%20%20while%20i%20%3C%20j%20and%20nums%5Bi%5D%20%3C%3D%20nums%5Bleft%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%20%20%23%20%E4%BB%8E%E5%B7%A6%E5%90%91%E5%8F%B3%E6%89%BE%E9%A6%96%E4%B8%AA%E5%A4%A7%E4%BA%8E%E5%9F%BA%E5%87%86%E6%95%B0%E7%9A%84%E5%85%83%E7%B4%A0%0A%20%20%20%20%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%0A%20%20%20%20%20%20%20%20nums%5Bi%5D,%20nums%5Bj%5D%20%3D%20nums%5Bj%5D,%20nums%5Bi%5D%0A%20%20%20%20%23%20%E5%B0%86%E5%9F%BA%E5%87%86%E6%95%B0%E4%BA%A4%E6%8D%A2%E8%87%B3%E4%B8%A4%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%86%E7%95%8C%E7%BA%BF%0A%20%20%20%20nums%5Bi%5D,%20nums%5Bleft%5D%20%3D%20nums%5Bleft%5D,%20nums%5Bi%5D%0A%20%20%20%20return%20i%20%20%23%20%E8%BF%94%E5%9B%9E%E5%9F%BA%E5%87%86%E6%95%B0%E7%9A%84%E7%B4%A2%E5%BC%95%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%B8%AD%E4%BD%8D%E5%9F%BA%E5%87%86%E6%95%B0%E4%BC%98%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B2,%204,%201,%200,%203,%205%5D%0A%20%20%20%20partition%28nums,%200,%20len%28nums%29%20-%201%29%0A%20%20%20%20print%28%22%E5%93%A8%E5%85%B5%E5%88%92%E5%88%86%EF%BC%88%E4%B8%AD%E4%BD%8D%E5%9F%BA%E5%87%86%E6%95%B0%E4%BC%98%E5%8C%96%EF%BC%89%E5%AE%8C%E6%88%90%E5%90%8E%20nums%20%3D%22,%20nums%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
 
-## 11.5.5 &nbsp; 尾递归优化
+## 11.5.5 &nbsp; 递归深度优化
 
 **在某些输入下，快速排序可能占用空间较多**。以完全有序的输入数组为例，设递归中的子数组长度为 $m$ ，每轮哨兵划分操作都将产生长度为 $0$ 的左子数组和长度为 $m - 1$ 的右子数组，这意味着每一层递归调用减少的问题规模非常小（只减少一个元素），递归树的高度会达到 $n - 1$ ，此时需要占用 $O(n)$ 大小的栈帧空间。
 
@@ -1171,7 +1171,7 @@ comments: true
 
     ```python title="quick_sort.py"
     def quick_sort(self, nums: list[int], left: int, right: int):
-        """快速排序（尾递归优化）"""
+        """快速排序（递归深度优化）"""
         # 子数组长度为 1 时终止
         while left < right:
             # 哨兵划分操作
@@ -1188,7 +1188,7 @@ comments: true
 === "C++"
 
     ```cpp title="quick_sort.cpp"
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     void quickSort(vector<int> &nums, int left, int right) {
         // 子数组长度为 1 时终止
         while (left < right) {
@@ -1209,7 +1209,7 @@ comments: true
 === "Java"
 
     ```java title="quick_sort.java"
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     void quickSort(int[] nums, int left, int right) {
         // 子数组长度为 1 时终止
         while (left < right) {
@@ -1230,7 +1230,7 @@ comments: true
 === "C#"
 
     ```csharp title="quick_sort.cs"
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     void QuickSort(int[] nums, int left, int right) {
         // 子数组长度为 1 时终止
         while (left < right) {
@@ -1251,7 +1251,7 @@ comments: true
 === "Go"
 
     ```go title="quick_sort.go"
-    /* 快速排序（尾递归优化）*/
+    /* 快速排序（递归深度优化）*/
     func (q *quickSortTailCall) quickSort(nums []int, left, right int) {
         // 子数组长度为 1 时终止
         for left < right {
@@ -1272,7 +1272,7 @@ comments: true
 === "Swift"
 
     ```swift title="quick_sort.swift"
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     func quickSortTailCall(nums: inout [Int], left: Int, right: Int) {
         var left = left
         var right = right
@@ -1295,7 +1295,7 @@ comments: true
 === "JS"
 
     ```javascript title="quick_sort.js"
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     quickSort(nums, left, right) {
         // 子数组长度为 1 时终止
         while (left < right) {
@@ -1316,7 +1316,7 @@ comments: true
 === "TS"
 
     ```typescript title="quick_sort.ts"
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     quickSort(nums: number[], left: number, right: number): void {
         // 子数组长度为 1 时终止
         while (left < right) {
@@ -1337,7 +1337,7 @@ comments: true
 === "Dart"
 
     ```dart title="quick_sort.dart"
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     void quickSort(List<int> nums, int left, int right) {
       // 子数组长度为 1 时终止
       while (left < right) {
@@ -1358,7 +1358,7 @@ comments: true
 === "Rust"
 
     ```rust title="quick_sort.rs"
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     pub fn quick_sort(mut left: i32, mut right: i32, nums: &mut [i32]) {
         // 子数组长度为 1 时终止
         while left < right {
@@ -1379,7 +1379,7 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     void quickSortTailCall(int nums[], int left, int right) {
         // 子数组长度为 1 时终止
         while (left < right) {
@@ -1404,7 +1404,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="quick_sort.kt"
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     fun quickSortTailCall(nums: IntArray, left: Int, right: Int) {
         // 子数组长度为 1 时终止
         var l = left
@@ -1427,7 +1427,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="quick_sort.rb"
-    ### 快速排序（尾递归优化）###
+    ### 快速排序（递归深度优化）###
     def quick_sort(nums, left, right)
       # 子数组长度不为 1 时递归
       while left < right
@@ -1448,7 +1448,7 @@ comments: true
 === "Zig"
 
     ```zig title="quick_sort.zig"
-    // 快速排序（尾递归优化）
+    // 快速排序（递归深度优化）
     fn quickSort(nums: []i32, left_: usize, right_: usize) void {
         var left = left_;
         var right = right_;

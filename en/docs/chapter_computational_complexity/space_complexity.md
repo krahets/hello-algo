@@ -517,7 +517,7 @@ Consider the following code, the term "worst-case" in worst-case space complexit
     /* Recursion O(n) */
     void recur(int n) {
         if (n == 1) return;
-        return recur(n - 1);
+        recur(n - 1);
     }
     ```
 
@@ -537,7 +537,7 @@ Consider the following code, the term "worst-case" in worst-case space complexit
     /* Recursion O(n) */
     void recur(int n) {
         if (n == 1) return;
-        return recur(n - 1);
+        recur(n - 1);
     }
     ```
 
@@ -666,7 +666,7 @@ Consider the following code, the term "worst-case" in worst-case space complexit
     /* Recursion O(n) */
     void recur(int n) {
       if (n == 1) return;
-      return recur(n - 1);
+      recur(n - 1);
     }
     ```
 
@@ -708,7 +708,7 @@ Consider the following code, the term "worst-case" in worst-case space complexit
     /* Recursion O(n) */
     void recur(int n) {
         if (n == 1) return;
-        return recur(n - 1);
+        recur(n - 1);
     }
     ```
 

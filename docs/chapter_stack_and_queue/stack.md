@@ -977,13 +977,17 @@ comments: true
         }
 
         /* 将 List 转化为 Array 并返回 */
-        pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
-            if let Some(node) = head {
-                let mut nums = self.to_array(node.borrow().next.as_ref());
-                nums.push(node.borrow().val);
-                return nums;
+        pub fn to_array(&self) -> Vec<T> {
+            fn _to_array<T: Sized + Copy>(head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
+                if let Some(node) = head {
+                    let mut nums = _to_array(node.borrow().next.as_ref());
+                    nums.push(node.borrow().val);
+                    return nums;
+                }
+                return Vec::new();
             }
-            return Vec::new();
+
+            _to_array(self.peek())
         }
     }
     ```
