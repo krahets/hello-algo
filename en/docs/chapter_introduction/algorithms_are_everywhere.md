@@ -11,19 +11,19 @@ Before we start discussing about algorithms officially, there's an interesting f
 3. Repeat steps `1.` and `2.` until you find the page where the word starts with $r$.
 
 === "<1>"
-    ![Process of Looking Up a Dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
+    ![Process of looking up a dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
 
 === "<2>"
-    ![Binary Search in Dictionary Step 2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
+    ![Binary search in dictionary step 2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
 
 === "<3>"
-    ![Binary Search in Dictionary Step 3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
+    ![Binary search in dictionary step 3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
 
 === "<4>"
-    ![Binary Search in Dictionary Step 4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
+    ![Binary search in dictionary step 4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
 
 === "<5>"
-    ![Binary Search in Dictionary Step 5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
+    ![Binary search in dictionary step 5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
 
 Looking up a dictionary, an essential skill for elementary school students is actually the famous "Binary Search" algorithm. From a data structure perspective, we can consider the dictionary as a sorted "array"; from an algorithmic perspective, the series of actions taken to look up a word in the dictionary can be viewed as the algorithm "Binary Search."
 
@@ -33,7 +33,7 @@ Looking up a dictionary, an essential skill for elementary school students is ac
 2. Take out a card from the unordered section and insert it into the correct position in the ordered section; after this, the leftmost two cards are in order.
 3. Repeat step `2` until all cards are in order.
 
-![Process of Sorting a Deck of Cards](algorithms_are_everywhere.assets/playing_cards_sorting.png)
+![Process of sorting a deck of cards](algorithms_are_everywhere.assets/playing_cards_sorting.png)
 
 The above method of organizing playing cards is practically the "Insertion Sort" algorithm, which is very efficient for small datasets. Many programming languages' sorting functions include the insertion sort.
 
