@@ -62,17 +62,15 @@
     
     
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -629,6 +627,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1.3 Summary
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -638,6 +647,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-q-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. &nbsp; Q &amp; A
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3475,6 +3512,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-q-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. &nbsp; Q &amp; A
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3515,10 +3569,19 @@
 <li>The principle of looking up a word in a dictionary is consistent with the binary search algorithm. The binary search algorithm embodies the important algorithmic concept of divide and conquer.</li>
 <li>The process of organizing playing cards is very similar to the insertion sort algorithm. The insertion sort algorithm is suitable for sorting small datasets.</li>
 <li>The steps of making change in currency essentially follow the greedy algorithm, where each step involves making the best possible choice at the moment.</li>
-<li>An algorithm is a set of instructions or steps used to solve a specific problem within a finite amount of time, while a data structure is the way data is organized and stored in a computer.</li>
+<li>An algorithm is a set of step-by-step instructions for solving a specific problem within a finite time, while a data structure defines how data is organized and stored in a computer.</li>
 <li>Data structures and algorithms are closely linked. Data structures are the foundation of algorithms, and algorithms are the stage to utilize the functions of data structures.</li>
-<li>We can liken data structures and algorithms to building blocks. The blocks represent data, the shape and connection method of the blocks represent data structures, and the steps of assembling the blocks correspond to algorithms.</li>
+<li>We can compare data structures and algorithms to assembling building blocks. The blocks represent data, the shape and connection method of the blocks represent data structures, and the steps of assembling the blocks correspond to algorithms.</li>
 </ul>
+<h3 id="1-q-a">1. &nbsp; Q &amp; A<a class="headerlink" href="#1-q-a" title="Permanent link">&para;</a></h3>
+<p><strong>Q</strong>：As a programmer, I’ve rarely needed to implement algorithms manually in my daily work. Most commonly used algorithms are already built into programming languages and libraries, ready to use. Does this suggest that the problems we encounter in our work haven’t yet reached the level of complexity that demands custom algorithm design?</p>
+<p>If specific work skills are like the "moves" in martial arts, then fundamental subjects are more like "internal strength".</p>
+<p>I believe the significance of learning algorithms (and other fundamental subjects) isn’t necessarily to implement them from scratch at work, but to enable more professional decision-making and problem-solving based on a solid understanding of the concepts. This, in turn, raises the overall quality of our work. For example, every programming language provides a built-in sorting function:</p>
+<ul>
+<li>If we have not learned data structures and algorithms, then given any data, we might just give it to this sorting function. It runs smoothly, has good performance, and seems to have no problems.</li>
+<li>However, if we’ve studied algorithms, we understand that the time complexity of a built-in sorting function is typically <span class="arithmatex">\(O(n \log n)\)</span>. Moreover, if the data consists of integers with a fixed number of digits (such as student IDs), we can apply a more efficient approach like radix sort, reducing the time complexity to  O(nk) , where  k  is the number of digits. When handling large volumes of data, the time saved can turn into significant value — lowering costs, improving user experience, and enhancing system performance.</li>
+</ul>
+<p>In engineering, many problems are difficult to solve optimally; most are addressed with ‘near-optimal’ solutions. The difficulty of a problem depends not only on its inherent complexity but also on the knowledge and experience of the person tackling it. The deeper one’s expertise and experience, the more thorough the analysis, and the more elegantly the problem can be solved.</p>
 
 <!-- Source file information -->
 
@@ -3769,5 +3832,7 @@ aria-label="Footer"
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "none"});})</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "none"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

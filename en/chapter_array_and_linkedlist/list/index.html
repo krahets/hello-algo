@@ -62,17 +62,15 @@
     
     
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3748,7 +3746,7 @@
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">// Without initial values</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1">// With initial values</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">];</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[..</span><span class="w"> </span><span class="n">numbers</span><span class="p">];</span>
 </code></pre></div>
 </div>
@@ -3763,9 +3761,9 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Initialize list */</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">// Without initial values</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">let</span> <span class="nv">nums1</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">let</span><span class="w"> </span><span class="nv">nums1</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">// With initial values</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kd">var</span> <span class="nv">nums</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kd">var</span><span class="w"> </span><span class="nv">nums</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3795,9 +3793,9 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Initialize list */</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1">// Without initial values</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kd">let</span><span class="w"> </span><span class="n">nums1</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span>::<span class="n">new</span><span class="p">();</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kd">let</span><span class="w"> </span><span class="n">nums1</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1">// With initial values</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kd">let</span><span class="w"> </span><span class="n">nums</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kd">let</span><span class="w"> </span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3847,10 +3845,10 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* Access elements */</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="m">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// Access the element at index 1</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// Access the element at index 1</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="cm">/* Update elements */</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="n">nums</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// Update the element at index 1 to 0</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// Update the element at index 1 to 0</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3863,10 +3861,10 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cm">/* Access elements */</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kd">let</span> <span class="nv">num</span> <span class="p">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// Access the element at index 1</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="c1">// Access the element at index 1</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="cm">/* Update elements */</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">0</span> <span class="c1">// Update the element at index 1 to 0</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">// Update the element at index 1 to 0</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3895,7 +3893,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="cm">/* Access elements */</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">num</span>: <span class="kt">i32</span> <span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// Access the element at index 1</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// Access the element at index 1</span>
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="cm">/* Update elements */</span>
 <a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">             </span><span class="c1">// Update the element at index 1 to 0</span>
 </code></pre></div>
@@ -3981,17 +3979,17 @@
 <a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
 <a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
 <a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="cm">/* Append elements at the end */</span>
-<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
-<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
-<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
-<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>
 <a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="cm">/* Insert element in the middle */</span>
-<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">);</span>
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
 <a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>
 <a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a><span class="cm">/* Remove elements */</span>
-<a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+<a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4024,10 +4022,10 @@
 <a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>
 <a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a><span class="cm">/* Insert element in the middle */</span>
-<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a><span class="n">nums</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">at</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">// Insert number 6 at index 3</span>
+<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a><span class="n">nums</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// Insert number 6 at index 3</span>
 <a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>
 <a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a><span class="cm">/* Remove elements */</span>
-<a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">// Remove the element at index 3</span>
+<a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// Remove the element at index 3</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4174,13 +4172,13 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="cm">/* Iterate through the list by index */</span>
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="p">}</span>
 <a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>
 <a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="cm">/* Iterate directly through list elements */</span>
-<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
 <a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a><span class="p">}</span>
@@ -4202,15 +4200,15 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="cm">/* Iterate through the list by index */</span>
-<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="kd">var</span> <span class="nv">count</span> <span class="p">=</span> <span class="mi">0</span>
-<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">nums</span><span class="p">.</span><span class="bp">indices</span> <span class="p">{</span>
-<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>    <span class="bp">count</span> <span class="o">+=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="kd">var</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w">    </span><span class="bp">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="p">}</span>
 <a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>
 <a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="cm">/* Iterate directly through list elements */</span>
-<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="bp">count</span> <span class="p">=</span> <span class="mi">0</span>
-<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="k">for</span> <span class="n">num</span> <span class="k">in</span> <span class="n">nums</span> <span class="p">{</span>
-<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a>    <span class="bp">count</span> <span class="o">+=</span> <span class="n">num</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="bp">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="w">    </span><span class="bp">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span>
 <a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
@@ -4320,7 +4318,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="cm">/* Concatenate two lists */</span>
-<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">];</span>
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">];</span>
 <a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w">  </span><span class="c1">// Concatenate nums1 to the end of nums</span>
 </code></pre></div>
 </div>
@@ -4332,8 +4330,8 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="cm">/* Concatenate two lists */</span>
-<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="kd">let</span> <span class="nv">nums1</span> <span class="p">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">contentsOf</span><span class="p">:</span> <span class="n">nums1</span><span class="p">)</span> <span class="c1">// Concatenate nums1 to the end of nums</span>
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">nums1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">]</span>
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">contentsOf</span><span class="p">:</span><span class="w"> </span><span class="n">nums1</span><span class="p">)</span><span class="w"> </span><span class="c1">// Concatenate nums1 to the end of nums</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4356,7 +4354,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="cm">/* Concatenate two lists */</span>
-<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">nums1</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">];</span>
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">nums1</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">];</span>
 <a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span>
 </code></pre></div>
 </div>
@@ -4409,7 +4407,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="cm">/* Sort the list */</span>
-<a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a><span class="n">nums</span><span class="p">.</span><span class="bp">sort</span><span class="p">()</span> <span class="c1">// After sorting, the list elements are in ascending order</span>
+<a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a><span class="n">nums</span><span class="p">.</span><span class="bp">sort</span><span class="p">()</span><span class="w"> </span><span class="c1">// After sorting, the list elements are in ascending order</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4458,38 +4456,38 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="7:14"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><input id="__tabbed_7_5" name="__tabbed_7" type="radio" /><input id="__tabbed_7_6" name="__tabbed_7" type="radio" /><input id="__tabbed_7_7" name="__tabbed_7" type="radio" /><input id="__tabbed_7_8" name="__tabbed_7" type="radio" /><input id="__tabbed_7_9" name="__tabbed_7" type="radio" /><input id="__tabbed_7_10" name="__tabbed_7" type="radio" /><input id="__tabbed_7_11" name="__tabbed_7" type="radio" /><input id="__tabbed_7_12" name="__tabbed_7" type="radio" /><input id="__tabbed_7_13" name="__tabbed_7" type="radio" /><input id="__tabbed_7_14" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">C++</label><label for="__tabbed_7_3">Java</label><label for="__tabbed_7_4">C#</label><label for="__tabbed_7_5">Go</label><label for="__tabbed_7_6">Swift</label><label for="__tabbed_7_7">JS</label><label for="__tabbed_7_8">TS</label><label for="__tabbed_7_9">Dart</label><label for="__tabbed_7_10">Rust</label><label for="__tabbed_7_11">C</label><label for="__tabbed_7_12">Kotlin</label><label for="__tabbed_7_13">Ruby</label><label for="__tabbed_7_14">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_list.py</span><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="k">class</span> <span class="nc">MyList</span><span class="p">:</span>
+<div class="highlight"><span class="filename">my_list.py</span><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyList</span><span class="p">:</span>
 <a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;List class&quot;&quot;&quot;</span>
 <a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a>
-<a id="__codelineno-78-4" name="__codelineno-78-4" href="#__codelineno-78-4"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-78-4" name="__codelineno-78-4" href="#__codelineno-78-4"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-78-5" name="__codelineno-78-5" href="#__codelineno-78-5"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructor&quot;&quot;&quot;</span>
 <a id="__codelineno-78-6" name="__codelineno-78-6" href="#__codelineno-78-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># List capacity</span>
 <a id="__codelineno-78-7" name="__codelineno-78-7" href="#__codelineno-78-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_arr</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span>  <span class="c1"># Array (stores list elements)</span>
 <a id="__codelineno-78-8" name="__codelineno-78-8" href="#__codelineno-78-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># List length (current number of elements)</span>
 <a id="__codelineno-78-9" name="__codelineno-78-9" href="#__codelineno-78-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_extend_ratio</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Multiple for each list expansion</span>
 <a id="__codelineno-78-10" name="__codelineno-78-10" href="#__codelineno-78-10"></a>
-<a id="__codelineno-78-11" name="__codelineno-78-11" href="#__codelineno-78-11"></a>    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-78-11" name="__codelineno-78-11" href="#__codelineno-78-11"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a id="__codelineno-78-12" name="__codelineno-78-12" href="#__codelineno-78-12"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get list length (current number of elements)&quot;&quot;&quot;</span>
 <a id="__codelineno-78-13" name="__codelineno-78-13" href="#__codelineno-78-13"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
 <a id="__codelineno-78-14" name="__codelineno-78-14" href="#__codelineno-78-14"></a>
-<a id="__codelineno-78-15" name="__codelineno-78-15" href="#__codelineno-78-15"></a>    <span class="k">def</span> <span class="nf">capacity</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-78-15" name="__codelineno-78-15" href="#__codelineno-78-15"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">capacity</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a id="__codelineno-78-16" name="__codelineno-78-16" href="#__codelineno-78-16"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get list capacity&quot;&quot;&quot;</span>
 <a id="__codelineno-78-17" name="__codelineno-78-17" href="#__codelineno-78-17"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span>
 <a id="__codelineno-78-18" name="__codelineno-78-18" href="#__codelineno-78-18"></a>
-<a id="__codelineno-78-19" name="__codelineno-78-19" href="#__codelineno-78-19"></a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-78-19" name="__codelineno-78-19" href="#__codelineno-78-19"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a id="__codelineno-78-20" name="__codelineno-78-20" href="#__codelineno-78-20"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Access element&quot;&quot;&quot;</span>
 <a id="__codelineno-78-21" name="__codelineno-78-21" href="#__codelineno-78-21"></a>        <span class="c1"># If the index is out of bounds, throw an exception, as below</span>
 <a id="__codelineno-78-22" name="__codelineno-78-22" href="#__codelineno-78-22"></a>        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span>
 <a id="__codelineno-78-23" name="__codelineno-78-23" href="#__codelineno-78-23"></a>            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Index out of bounds&quot;</span><span class="p">)</span>
 <a id="__codelineno-78-24" name="__codelineno-78-24" href="#__codelineno-78-24"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 <a id="__codelineno-78-25" name="__codelineno-78-25" href="#__codelineno-78-25"></a>
-<a id="__codelineno-78-26" name="__codelineno-78-26" href="#__codelineno-78-26"></a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-78-26" name="__codelineno-78-26" href="#__codelineno-78-26"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <a id="__codelineno-78-27" name="__codelineno-78-27" href="#__codelineno-78-27"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Update element&quot;&quot;&quot;</span>
 <a id="__codelineno-78-28" name="__codelineno-78-28" href="#__codelineno-78-28"></a>        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span>
 <a id="__codelineno-78-29" name="__codelineno-78-29" href="#__codelineno-78-29"></a>            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Index out of bounds&quot;</span><span class="p">)</span>
 <a id="__codelineno-78-30" name="__codelineno-78-30" href="#__codelineno-78-30"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span>
 <a id="__codelineno-78-31" name="__codelineno-78-31" href="#__codelineno-78-31"></a>
-<a id="__codelineno-78-32" name="__codelineno-78-32" href="#__codelineno-78-32"></a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-78-32" name="__codelineno-78-32" href="#__codelineno-78-32"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <a id="__codelineno-78-33" name="__codelineno-78-33" href="#__codelineno-78-33"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Add element at the end&quot;&quot;&quot;</span>
 <a id="__codelineno-78-34" name="__codelineno-78-34" href="#__codelineno-78-34"></a>        <span class="c1"># When the number of elements exceeds capacity, trigger the expansion mechanism</span>
 <a id="__codelineno-78-35" name="__codelineno-78-35" href="#__codelineno-78-35"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">():</span>
@@ -4497,7 +4495,7 @@
 <a id="__codelineno-78-37" name="__codelineno-78-37" href="#__codelineno-78-37"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_arr</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span>
 <a id="__codelineno-78-38" name="__codelineno-78-38" href="#__codelineno-78-38"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
 <a id="__codelineno-78-39" name="__codelineno-78-39" href="#__codelineno-78-39"></a>
-<a id="__codelineno-78-40" name="__codelineno-78-40" href="#__codelineno-78-40"></a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-78-40" name="__codelineno-78-40" href="#__codelineno-78-40"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <a id="__codelineno-78-41" name="__codelineno-78-41" href="#__codelineno-78-41"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Insert element in the middle&quot;&quot;&quot;</span>
 <a id="__codelineno-78-42" name="__codelineno-78-42" href="#__codelineno-78-42"></a>        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span>
 <a id="__codelineno-78-43" name="__codelineno-78-43" href="#__codelineno-78-43"></a>            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Index out of bounds&quot;</span><span class="p">)</span>
@@ -4511,7 +4509,7 @@
 <a id="__codelineno-78-51" name="__codelineno-78-51" href="#__codelineno-78-51"></a>        <span class="c1"># Update the number of elements</span>
 <a id="__codelineno-78-52" name="__codelineno-78-52" href="#__codelineno-78-52"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
 <a id="__codelineno-78-53" name="__codelineno-78-53" href="#__codelineno-78-53"></a>
-<a id="__codelineno-78-54" name="__codelineno-78-54" href="#__codelineno-78-54"></a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-78-54" name="__codelineno-78-54" href="#__codelineno-78-54"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a id="__codelineno-78-55" name="__codelineno-78-55" href="#__codelineno-78-55"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove element&quot;&quot;&quot;</span>
 <a id="__codelineno-78-56" name="__codelineno-78-56" href="#__codelineno-78-56"></a>        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span>
 <a id="__codelineno-78-57" name="__codelineno-78-57" href="#__codelineno-78-57"></a>            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Index out of bounds&quot;</span><span class="p">)</span>
@@ -4524,14 +4522,14 @@
 <a id="__codelineno-78-64" name="__codelineno-78-64" href="#__codelineno-78-64"></a>        <span class="c1"># Return the removed element</span>
 <a id="__codelineno-78-65" name="__codelineno-78-65" href="#__codelineno-78-65"></a>        <span class="k">return</span> <span class="n">num</span>
 <a id="__codelineno-78-66" name="__codelineno-78-66" href="#__codelineno-78-66"></a>
-<a id="__codelineno-78-67" name="__codelineno-78-67" href="#__codelineno-78-67"></a>    <span class="k">def</span> <span class="nf">extend_capacity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-78-67" name="__codelineno-78-67" href="#__codelineno-78-67"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">extend_capacity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-78-68" name="__codelineno-78-68" href="#__codelineno-78-68"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Extend list&quot;&quot;&quot;</span>
 <a id="__codelineno-78-69" name="__codelineno-78-69" href="#__codelineno-78-69"></a>        <span class="c1"># Create a new array of _extend_ratio times the length of the original array and copy the original array to the new array</span>
 <a id="__codelineno-78-70" name="__codelineno-78-70" href="#__codelineno-78-70"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_arr</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_extend_ratio</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-78-71" name="__codelineno-78-71" href="#__codelineno-78-71"></a>        <span class="c1"># Update list capacity</span>
 <a id="__codelineno-78-72" name="__codelineno-78-72" href="#__codelineno-78-72"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_arr</span><span class="p">)</span>
 <a id="__codelineno-78-73" name="__codelineno-78-73" href="#__codelineno-78-73"></a>
-<a id="__codelineno-78-74" name="__codelineno-78-74" href="#__codelineno-78-74"></a>    <span class="k">def</span> <span class="nf">to_array</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<a id="__codelineno-78-74" name="__codelineno-78-74" href="#__codelineno-78-74"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">to_array</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
 <a id="__codelineno-78-75" name="__codelineno-78-75" href="#__codelineno-78-75"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a list of valid lengths&quot;&quot;&quot;</span>
 <a id="__codelineno-78-76" name="__codelineno-78-76" href="#__codelineno-78-76"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_arr</span><span class="p">[:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">]</span>
 </code></pre></div>
@@ -5045,5 +5043,7 @@ aria-label="Footer"
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "none"});})</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "none"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

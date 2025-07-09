@@ -62,17 +62,15 @@
     
     
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3510,62 +3508,62 @@
 
 <!-- Page content -->
 <h1 id="11-algorithms-are-everywhere">1.1 &nbsp; Algorithms are everywhere<a class="headerlink" href="#11-algorithms-are-everywhere" title="Permanent link">&para;</a></h1>
-<p>When we hear the word "algorithm," we naturally think of mathematics. However, many algorithms do not involve complex mathematics but rely more on basic logic, which can be seen everywhere in our daily lives.</p>
-<p>Before formally discussing algorithms, there's an interesting fact worth sharing: <strong>you have already unconsciously learned many algorithms and have become accustomed to applying them in your daily life</strong>. Here, I will give a few specific examples to prove this point.</p>
-<p><strong>Example 1: Looking Up a Dictionary</strong>. In an English dictionary, words are listed alphabetically. Suppose we're searching for a word that starts with the letter <span class="arithmatex">\(r\)</span>. This is typically done in the following way:</p>
+<p>When we hear the term "algorithm," we naturally think of mathematics. However, many algorithms do not involve complex mathematics but rely more on basic logic, which can be seen everywhere in our daily lives.</p>
+<p>Before we start discussing about algorithms officially, there's an interesting fact worth sharing: <strong>you've learned many algorithms unconsciously and are used to applying them in your daily life</strong>. Here, I will give a few specific examples to prove this point.</p>
+<p><strong>Example 1: Looking Up a Dictionary</strong>. In an English dictionary, words are listed alphabetically. Assuming we're searching for a word that starts with the letter <span class="arithmatex">\(r\)</span>, this is typically done in the following way:</p>
 <ol>
-<li>Open the dictionary to about halfway and check the first letter on the page, let's say the letter is <span class="arithmatex">\(m\)</span>.</li>
-<li>Since <span class="arithmatex">\(r\)</span> comes after <span class="arithmatex">\(m\)</span> in the alphabet, we can ignore the first half of the dictionary and focus on the latter half.</li>
+<li>Open the dictionary to about halfway and check the first vocabulary of the page, let's say the letter starts with <span class="arithmatex">\(m\)</span>.</li>
+<li>Since <span class="arithmatex">\(r\)</span> comes after <span class="arithmatex">\(m\)</span> in the alphabet, the first half can be ignored and the search space is narrowed down to the second half.</li>
 <li>Repeat steps <code>1.</code> and <code>2.</code> until you find the page where the word starts with <span class="arithmatex">\(r\)</span>.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Process of Looking Up a Dictionary" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step1.png" /></a></p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Process of looking up a dictionary" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step1.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary Search in Dictionary Step 2" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step2.png" /></a></p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary search in dictionary step 2" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step2.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary Search in Dictionary Step 3" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step3.png" /></a></p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary search in dictionary step 3" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step3.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary Search in Dictionary Step 4" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step4.png" /></a></p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary search in dictionary step 4" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step4.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary Search in Dictionary Step 5" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step5.png" /></a></p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/binary_search_dictionary_step5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Binary search in dictionary step 5" class="animation-figure" src="../algorithms_are_everywhere.assets/binary_search_dictionary_step5.png" /></a></p>
 </div>
 </div>
 </div>
-<p align="center"> Figure 1-1 &nbsp; Process of Looking Up a Dictionary </p>
+<p align="center"> Figure 1-1 &nbsp; Process of looking up a dictionary </p>
 
-<p>This essential skill for elementary students, looking up a dictionary, is actually the famous "Binary Search" algorithm. From a data structure perspective, we can consider the dictionary as a sorted "array"; from an algorithmic perspective, the series of actions taken to look up a word in the dictionary can be viewed as "Binary Search."</p>
-<p><strong>Example 2: Organizing Playing Cards</strong>. When playing cards, we need to arrange the cards in our hand in ascending order, as shown in the following process.</p>
+<p>Looking up a dictionary, an essential skill for elementary school students is actually the famous "Binary Search" algorithm. From a data structure perspective, we can consider the dictionary as a sorted "array"; from an algorithmic perspective, the series of actions taken to look up a word in the dictionary can be viewed as the algorithm "Binary Search."</p>
+<p><strong>Example 2: Organizing Card Deck</strong>. When playing cards, we need to arrange the cards in our hands in ascending order, as shown in the following process.</p>
 <ol>
 <li>Divide the playing cards into "ordered" and "unordered" sections, assuming initially the leftmost card is already in order.</li>
 <li>Take out a card from the unordered section and insert it into the correct position in the ordered section; after this, the leftmost two cards are in order.</li>
-<li>Continue to repeat step <code>2.</code> until all cards are in order.</li>
+<li>Repeat step <code>2</code> until all cards are in order.</li>
 </ol>
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/playing_cards_sorting.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Playing cards sorting process" class="animation-figure" src="../algorithms_are_everywhere.assets/playing_cards_sorting.png" /></a></p>
-<p align="center"> Figure 1-2 &nbsp; Playing cards sorting process </p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/playing_cards_sorting.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Process of sorting a deck of cards" class="animation-figure" src="../algorithms_are_everywhere.assets/playing_cards_sorting.png" /></a></p>
+<p align="center"> Figure 1-2 &nbsp; Process of sorting a deck of cards </p>
 
-<p>The above method of organizing playing cards is essentially the "Insertion Sort" algorithm, which is very efficient for small datasets. Many programming languages' sorting functions include the insertion sort.</p>
-<p><strong>Example 3: Making Change</strong>. Suppose we buy goods worth <span class="arithmatex">\(69\)</span> yuan at a supermarket and give the cashier <span class="arithmatex">\(100\)</span> yuan, then the cashier needs to give us <span class="arithmatex">\(31\)</span> yuan in change. They would naturally complete the thought process as shown in Figure 1-3.</p>
+<p>The above method of organizing playing cards is practically the "Insertion Sort" algorithm, which is very efficient for small datasets. Many programming languages' sorting functions include the insertion sort.</p>
+<p><strong>Example 3: Making Change</strong>. Assume making a purchase of <span class="arithmatex">\(69\)</span> at a supermarket. If you give the cashier <span class="arithmatex">\(100\)</span>, they will need to provide you with <span class="arithmatex">\(31\)</span> in change. This process can be clearly understood as illustrated in Figure 1-3.</p>
 <ol>
-<li>The options are currencies smaller than <span class="arithmatex">\(31\)</span>, including <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(5\)</span>, <span class="arithmatex">\(10\)</span>, and <span class="arithmatex">\(20\)</span>.</li>
+<li>The options are currencies valued below <span class="arithmatex">\(31\)</span>, including <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(5\)</span>, <span class="arithmatex">\(10\)</span>, and <span class="arithmatex">\(20\)</span>.</li>
 <li>Take out the largest <span class="arithmatex">\(20\)</span> from the options, leaving <span class="arithmatex">\(31 - 20 = 11\)</span>.</li>
 <li>Take out the largest <span class="arithmatex">\(10\)</span> from the remaining options, leaving <span class="arithmatex">\(11 - 10 = 1\)</span>.</li>
 <li>Take out the largest <span class="arithmatex">\(1\)</span> from the remaining options, leaving <span class="arithmatex">\(1 - 1 = 0\)</span>.</li>
-<li>Complete the change-making, with the solution being <span class="arithmatex">\(20 + 10 + 1 = 31\)</span>.</li>
+<li>Complete change-making, the solution is <span class="arithmatex">\(20 + 10 + 1 = 31\)</span>.</li>
 </ol>
-<p><a class="glightbox" href="../algorithms_are_everywhere.assets/greedy_change.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Change making process" class="animation-figure" src="../algorithms_are_everywhere.assets/greedy_change.png" /></a></p>
-<p align="center"> Figure 1-3 &nbsp; Change making process </p>
+<p><a class="glightbox" href="../algorithms_are_everywhere.assets/greedy_change.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Process of making change" class="animation-figure" src="../algorithms_are_everywhere.assets/greedy_change.png" /></a></p>
+<p align="center"> Figure 1-3 &nbsp; Process of making change </p>
 
-<p>In the above steps, we make the best choice at each step (using the largest denomination possible), ultimately resulting in a feasible change-making plan. From the perspective of data structures and algorithms, this method is essentially a "Greedy" algorithm.</p>
-<p>From cooking a meal to interstellar travel, almost all problem-solving involves algorithms. The advent of computers allows us to store data structures in memory and write code to call the CPU and GPU to execute algorithms. In this way, we can transfer real-life problems to computers, solving various complex issues more efficiently.</p>
+<p>In the steps described, we choose the best option at each stage by utilizing the largest denomination available, which leads to an effective change-making strategy. From a data structures and algorithms perspective, this approach is known as a "Greedy" algorithm.</p>
+<p>From cooking a meal to interstellar travel, almost all problem-solving involves algorithms. The advent of computers allows us to store data structures in memory and write code to call the CPU and GPU to execute algorithms. In this way, we can transfer real-life problems to computers and solve various complex issues in a more efficient way.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If concepts such as data structures, algorithms, arrays, and binary search still seem somewhat obscure, I encourage you to continue reading. This book will gently guide you into the realm of understanding data structures and algorithms.</p>
+<p>If you are still confused about concepts like data structures, algorithms, arrays, and binary searches, I encourage you to keep reading. This book will gently guide you into the realm of understanding data structures and algorithms.</p>
 </div>
 
 <!-- Source file information -->
@@ -3817,5 +3815,7 @@ aria-label="Footer"
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "none"});})</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "none"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

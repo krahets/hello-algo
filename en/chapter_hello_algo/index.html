@@ -60,17 +60,15 @@
     
     
    <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3499,10 +3497,10 @@
 <!-- Page content -->
 <h1 id="before-starting">Before starting<a class="headerlink" href="#before-starting" title="Permanent link">&para;</a></h1>
 <p>A few years ago, I shared the "Sword for Offer" problem solutions on LeetCode, receiving encouragement and support from many readers. During interactions with readers, the most common question I encountered was "how to get started with algorithms." Gradually, I developed a keen interest in this question.</p>
-<p>Directly solving problems seems to be the most popular method — it's simple, direct, and effective. However, problem-solving is like playing a game of Minesweeper: those with strong self-study abilities can defuse the mines one by one, but those with insufficient basics might end up metaphorically bruised from explosions, retreating step by step in frustration. Going through textbooks is also common, but for those aiming for job applications, the energy spent on thesis writing, resume submissions, and preparation for written tests and interviews leaves little for tackling thick books, turning it into a daunting challenge.</p>
-<p>If you're facing similar troubles, then this book is lucky to have found you. This book is my answer to the question. While it may not be the best solution, it is at least a positive attempt. This book may not directly land you an offer, but it will guide you through the "knowledge map" in data structures and algorithms, help you understand the shapes, sizes, and locations of different "mines," and enable you to master various "demining methods." With these skills, I believe you can solve problems and read literature more comfortably, gradually building a knowledge system.</p>
-<p>I deeply agree with Professor Feynman's statement: "Knowledge isn't free. You have to pay attention." In this sense, this book is not entirely "free." To not disappoint the precious "attention" you pay for this book, I will do my best, dedicating my utmost "attention" to this book.</p>
-<p>Knowing my limitations, although the content of this book has been refined over time, there are surely many errors remaining. I sincerely request critiques and corrections from all teachers and students.</p>
+<p>Directly solving problems seems to be the most popular method — it's simple, direct, and effective. However, problem-solving is like playing Minesweeper: those with strong self-study skills can navigate the pitfalls one by one, while those lacking a solid foundation may find themselves repeatedly stumbling and retreating in frustration. Reading through textbooks is also a common practice, but for job seekers, writing graduation thesis, submitting resumes, preparing for written tests and interviews have already consumed most of their energy, and reading thick books often becomes a daunting challenge.</p>
+<p>If you're facing similar troubles, then this book is lucky to have found you. This book is my answer to the question. While it may not be the best solution, it is at least a positive attempt. Although this book is not enough to get you an offer directly, it will guide you to explore the "knowledge map" of data structures and algorithms, help you understand the shapes, sizes, and locations of different "mines", and enable you to master various "mine clearance methods". With these skills, I believe you can solve problems and read literature more comfortably, gradually building a knowledge system.</p>
+<p>I deeply agree with Professor Feynman's statement: "Knowledge isn't free. You have to pay attention." In this sense, this book is not entirely "free." In order to live up to your precious "attention" for this book, I will do my best and devote my greatest "attention" to write this book.</p>
+<p>Aware of my limitations, I recognize that despite the content of this book being refined over time, errors surely remain. I sincerely welcome critiques and corrections from both teachers and students.</p>
 <p><a class="glightbox" href="../assets/covers/chapter_hello_algo.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Hello Algo" class="cover-image" src="../assets/covers/chapter_hello_algo.jpg" /></a></p>
 <div style="text-align: center;">
     <h2 style="margin-top: 0.8em; margin-bottom: 0.8em;">Hello, Algo!</h2>
@@ -3725,5 +3723,7 @@ aria-label="Footer"
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "none"});})</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "none"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
