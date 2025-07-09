@@ -25,7 +25,7 @@ Before formally discussing algorithms, there's an interesting fact worth sharing
 === "<5>"
     ![Binary Search in Dictionary Step 5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
 
-Looking up a dictionary, a must-have skill for primary school students, is actually the famous "binary search" algorithm. From the perspective of data structure, we can regard the dictionary as a sorted "array"; from the perspective of algorithm, we can regard the above series of dictionary lookup operations as "binary search".
+Looking up a dictionary, a must-have skill for primary school students, is actually the famous "binary search" algorithm. From the perspective of data structure, we can regard the dictionary as a sorted "array"; from the perspective of algorithm, we can regard the above series of dictionary lookup operations as "binary search."
 
 **Example 2: Organizing Playing Cards**. When playing cards, we need to arrange the cards in our hand in ascending order, as shown in the following process.
 
