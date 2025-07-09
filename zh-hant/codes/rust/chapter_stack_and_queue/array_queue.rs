@@ -5,18 +5,18 @@
  */
 
 /* 基於環形陣列實現的佇列 */
-struct ArrayQueue {
-    nums: Vec<i32>,    // 用於儲存佇列元素的陣列
+struct ArrayQueue<T> {
+    nums: Vec<T>,      // 用於儲存佇列元素的陣列
     front: i32,        // 佇列首指標，指向佇列首元素
     que_size: i32,     // 佇列長度
     que_capacity: i32, // 佇列容量
 }
 
-impl ArrayQueue {
+impl<T: Copy + Default> ArrayQueue<T> {
     /* 建構子 */
-    fn new(capacity: i32) -> ArrayQueue {
+    fn new(capacity: i32) -> ArrayQueue<T> {
         ArrayQueue {
-            nums: vec![0; capacity as usize],
+            nums: vec![T::default(); capacity as usize],
             front: 0,
             que_size: 0,
             que_capacity: capacity,
@@ -39,7 +39,7 @@ impl ArrayQueue {
     }
 
     /* 入列 */
-    fn push(&mut self, num: i32) {
+    fn push(&mut self, num: T) {
         if self.que_size == self.capacity() {
             println!("佇列已滿");
             return;
@@ -53,7 +53,7 @@ impl ArrayQueue {
     }
 
     /* 出列 */
-    fn pop(&mut self) -> i32 {
+    fn pop(&mut self) -> T {
         let num = self.peek();
         // 佇列首指標向後移動一位，若越過尾部，則返回到陣列頭部
         self.front = (self.front + 1) % self.que_capacity;
@@ -62,7 +62,7 @@ impl ArrayQueue {
     }
 
     /* 訪問佇列首元素 */
-    fn peek(&self) -> i32 {
+    fn peek(&self) -> T {
         if self.is_empty() {
             panic!("index out of bounds");
         }
@@ -70,10 +70,10 @@ impl ArrayQueue {
     }
 
     /* 返回陣列 */
-    fn to_vector(&self) -> Vec<i32> {
+    fn to_vector(&self) -> Vec<T> {
         let cap = self.que_capacity;
         let mut j = self.front;
-        let mut arr = vec![0; self.que_size as usize];
+        let mut arr = vec![T::default(); cap as usize];
         for i in 0..self.que_size {
             arr[i as usize] = self.nums[(j % cap) as usize];
             j += 1;
