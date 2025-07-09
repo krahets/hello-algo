@@ -89,9 +89,9 @@ void quickSortMedian(int nums[], int left, int right) {
     quickSortMedian(nums, pivot + 1, right);
 }
 
-// 以下为尾递归优化的快速排序
+// 以下为递归深度优化的快速排序
 
-/* 快速排序（尾递归优化） */
+/* 快速排序（递归深度优化） */
 void quickSortTailCall(int nums[], int left, int right) {
     // 子数组长度为 1 时终止
     while (left < right) {
@@ -127,10 +127,10 @@ int main() {
     printf("快速排序（中位基准数优化）完成后 nums = ");
     printArray(nums1, size);
 
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     int nums2[] = {2, 4, 1, 0, 3, 5};
     quickSortTailCall(nums2, 0, size - 1);
-    printf("快速排序（尾递归优化）完成后 nums = ");
+    printf("快速排序（递归深度优化）完成后 nums = ");
     printArray(nums1, size);
 
     return 0;

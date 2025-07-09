@@ -94,7 +94,7 @@ const QuickSortMedian = struct {
     }
 };
 
-// 快速排序类（尾递归优化）
+// 快速排序类（递归深度优化）
 const QuickSortTailCall = struct {
 
     // 元素交换
@@ -118,7 +118,7 @@ const QuickSortTailCall = struct {
         return i;               // 返回基准数的索引
     }
 
-    // 快速排序（尾递归优化）
+    // 快速排序（递归深度优化）
     pub fn quickSort(nums: []i32, left_: usize, right_: usize) void {
         var left = left_;
         var right = right_;
@@ -152,10 +152,10 @@ pub fn main() !void {
     std.debug.print("\n快速排序（中位基准数优化）完成后 nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums1);
 
-    // 快速排序（尾递归优化）
+    // 快速排序（递归深度优化）
     var nums2 = [_]i32{ 2, 4, 1, 0, 3, 5 };
     QuickSortTailCall.quickSort(&nums2, 0, nums2.len - 1);
-    std.debug.print("\n快速排序（尾递归优化）完成后 nums = ", .{});
+    std.debug.print("\n快速排序（递归深度优化）完成后 nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums2);
     
     _ = try std.io.getStdIn().reader().readByte();

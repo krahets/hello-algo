@@ -89,7 +89,7 @@ class QuickSortMedian {
     }
 }
 
-/* 快速排序类（尾递归优化） */
+/* 快速排序类（递归深度优化） */
 class QuickSortTailCall {
     /* 元素交换 */
     static void Swap(int[] nums, int i, int j) {
@@ -111,7 +111,7 @@ class QuickSortTailCall {
         return i; // 返回基准数的索引
     }
 
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     public static void QuickSort(int[] nums, int left, int right) {
         // 子数组长度为 1 时终止
         while (left < right) {
@@ -142,9 +142,9 @@ public class quick_sort {
         QuickSortMedian.QuickSort(nums1, 0, nums1.Length - 1);
         Console.WriteLine("快速排序（中位基准数优化）完成后 nums1 = " + string.Join(",", nums1));
 
-        /* 快速排序（尾递归优化） */
+        /* 快速排序（递归深度优化） */
         int[] nums2 = [2, 4, 1, 0, 3, 5];
         QuickSortTailCall.QuickSort(nums2, 0, nums2.Length - 1);
-        Console.WriteLine("快速排序（尾递归优化）完成后 nums2 = " + string.Join(",", nums2));
+        Console.WriteLine("快速排序（递归深度优化）完成后 nums2 = " + string.Join(",", nums2));
     }
 }

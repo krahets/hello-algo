@@ -29,9 +29,9 @@ Looking up a dictionary, an essential skill for elementary school students is ac
 
 **Example 2: Organizing Card Deck**. When playing cards, we need to arrange the cards in our hands in ascending order, as shown in the following process.
 
-1. Divide the deck of cards into "ordered" and "unordered" sections, assuming the leftmost card is already "ordered".
-2. Remove a card from the "unordered" section and place it in the correct position within the "ordered" section; after this step, the leftmost two cards will be in order.
-3. Continue to repeat step `2.` until all cards are in order.
+1. Divide the playing cards into "ordered" and "unordered" sections, assuming initially the leftmost card is already in order.
+2. Take out a card from the unordered section and insert it into the correct position in the ordered section; after this, the leftmost two cards are in order.
+3. Repeat step `2` until all cards are in order.
 
 ![Process of Sorting a Deck of Cards](algorithms_are_everywhere.assets/playing_cards_sorting.png)
 
@@ -49,7 +49,7 @@ The above method of organizing playing cards is practically the "Insertion Sort"
 
 In the steps described, we choose the best option at each stage by utilizing the largest denomination available, which leads to an effective change-making strategy. From a data structures and algorithms perspective, this approach is known as a "Greedy" algorithm.
 
-From cooking a meal to interstellar travel, almost all problem-solving involves algorithms. The advent of computers allows us to store data structures in memory and write code to call the CPU and GPU to execute algorithms. In this way, we can transfer real-life problems to computers, solving various complex issues more efficiently.
+From cooking a meal to interstellar travel, almost all problem-solving involves algorithms. The advent of computers allows us to store data structures in memory and write code to call the CPU and GPU to execute algorithms. In this way, we can transfer real-life problems to computers and solve various complex issues in a more efficient way.
 
 !!! tip
 
