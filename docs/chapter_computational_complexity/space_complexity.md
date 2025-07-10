@@ -367,6 +367,34 @@
 
     ```
 
+=== "cangjie"
+
+    ```cangjie title=""
+    /* 类 */
+    class Node {
+        var val: Int64
+        var next: ?Node
+        public init(x: Int64) {
+            this.val = x
+            this.next = None
+        }
+    }
+
+    /* 函数 */
+    func function() {
+        // 执行某些操作...
+        return 0
+    }
+
+    func algorithm(n: Int64): Int64 { // 输入数据
+        let a = 0 // 暂存数据（常量）
+        var b = 0 // 暂存数据（变量）
+        let node = Node(0) // 暂存数据（对象）
+        let c = function() // 栈帧空间（调用函数）
+        return a + b + c // 输出数据
+    }
+    ```
+
 ## 推算方法
 
 空间复杂度的推算方法与时间复杂度大致相同，只需将统计对象从“操作数量”转为“使用空间大小”。
@@ -533,6 +561,19 @@
 
     ```zig title=""
 
+    ```
+
+
+=== "cangjie"
+
+    ```cangjie title=""
+    func algorithm(n: Int64) {
+        var a = 0 // O(1)
+        let b = Array<Int64>(10000, item: 0) // O(1)
+        if (n > 10) {
+            let nums = Array<Int64>(n, item: 0) // O(n)
+        }
+    }
     ```
 
 **在递归函数中，需要注意统计栈帧空间**。观察以下代码：
@@ -811,6 +852,28 @@
 
     ```zig title=""
 
+    ```
+
+=== "cangjie"
+
+    ```cangjie title=""
+    func function() {
+        // 执行某些操作
+        return 0
+    }
+    /* 循环的空间复杂度为 O(1) */
+    func loop(n: Int64): Unit {
+        for (i in 0..n) {
+            function()
+        }
+    }
+    /* 递归的空间复杂度为 O(n) */
+    func recur(n: Int64): Unit {
+        if (n == 1) {
+            return
+        }
+        recur(n - 1)
+    }
     ```
 
 函数 `loop()` 和 `recur()` 的时间复杂度都为 $O(n)$ ，但空间复杂度不同。

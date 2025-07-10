@@ -187,6 +187,18 @@
     const array = [_:0]u8{ 1, 2, 3, 4 };
     // 定义一个哨兵终止数组，本质上来说，这是为了兼容 C 中的规定的字符串结尾字符\0。我们使用语法 [N:x]T 来描述一个元素为类型 T，长度为 N 的数组，在它对应 N 的索引处的值应该是 x
     ```
+=== "cangjie"
+
+    ```cangjie title=""
+    // 使用多种基本数据类型来初始化数组
+    let n = 5
+    let numbers = Array<Int64>(n, item: 0)
+    let numbers_i = Array<Int64>(n, {i => i})
+    let numbers_t = Array<Int64>(n) {i => i} // 尾随lambda
+    let decimals = Array<Float64>(n, item: 0.0)
+    let runes = Array<Rune>(n, item: r' ')
+    let bools = Array<Bool>(n, item: true)
+    ```
 
 ??? pythontutor "可视化运行"
 

@@ -1,0 +1,13 @@
+[dependencies]
+
+[package]
+  cjc-version = "0.53.18"
+  compile-option = ""
+  description = "hello algo"
+  link-option = ""
+  name = "cangjie"
+  output-type = "executable"
+  src-dir = ""
+  target-dir = ""
+  version = "1.0.0"
+  package-configuration = {}

@@ -134,6 +134,24 @@
     var nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
+=== "cangjie"
+
+    ```cangjie title="array.cj"
+    /* 初始化引用类型的数组 Array<T> */
+    let arr =[0, 0, 0, 0, 0]
+    let arr1 = Array<Int64>(5, item: 0)
+    let arr2 = Array<Int64>(5, {i => i})
+    let arr3 = Array<Int64>(5){i => i}
+
+    /* 初始化值类型数组 VArray<T, $N> */
+    // 字面量来进行初始化
+    var a: VArray<Int64, $3> = [1, 2, 3]
+    // VArray<T, $N>(initElement: (Int64) -> T)
+    let b = VArray<Int64, $5>({ i => i}) // [0, 1, 2, 3, 4]
+    // VArray<T, $N>(item!: T)
+    let c = VArray<Int64, $5>(item: 0) // [0, 0, 0, 0, 0]
+    ```
+
 ??? pythontutor "可视化运行"
 
     https://pythontutor.com/render.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0Aarr%20%3D%20%5B0%5D%20*%205%20%20%23%20%5B%200,%200,%200,%200,%200%20%5D%0Anums%20%3D%20%5B1,%203,%202,%205,%204%5D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
