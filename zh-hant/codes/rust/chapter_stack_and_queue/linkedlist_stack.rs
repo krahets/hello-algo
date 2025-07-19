@@ -58,17 +58,13 @@ impl<T: Copy> LinkedListStack<T> {
     }
 
     /* 將 List 轉化為 Array 並返回 */
-    pub fn to_array(&self) -> Vec<T> {
-        fn _to_array<T: Sized + Copy>(head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
-            if let Some(node) = head {
-                let mut nums = _to_array(node.borrow().next.as_ref());
-                nums.push(node.borrow().val);
-                return nums;
-            }
-            return Vec::new();
+    pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
+        if let Some(node) = head {
+            let mut nums = self.to_array(node.borrow().next.as_ref());
+            nums.push(node.borrow().val);
+            return nums;
         }
-
-        _to_array(self.peek())
+        return Vec::new();
     }
 }
 
@@ -84,7 +80,7 @@ fn main() {
     stack.push(5);
     stack.push(4);
     print!("堆疊 stack = ");
-    print_util::print_array(&stack.to_array());
+    print_util::print_array(&stack.to_array(stack.peek()));
 
     /* 訪問堆疊頂元素 */
     let peek = stack.peek().unwrap().borrow().val;
@@ -93,7 +89,7 @@ fn main() {
     /* 元素出堆疊 */
     let pop = stack.pop().unwrap();
     print!("\n出堆疊元素 pop = {}，出堆疊後 stack = ", pop);
-    print_util::print_array(&stack.to_array());
+    print_util::print_array(&stack.to_array(stack.peek()));
 
     /* 獲取堆疊的長度 */
     let size = stack.size();
