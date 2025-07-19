@@ -1,6 +1,6 @@
 // File: ListNode.zig
 // Created Time: 2023-01-07
-// Author: codingonion (coderonion@gmail.com)
+// Author: codingonion (coderonion@gmail.com), CreatorMetaSky (creator_meta_sky@163.com)
 
 const std = @import("std");
 
@@ -8,7 +8,7 @@ const std = @import("std");
 pub fn ListNode(comptime T: type) type {
     return struct {
         const Self = @This();
-        
+
         val: T = 0,
         next: ?*Self = null,
 
