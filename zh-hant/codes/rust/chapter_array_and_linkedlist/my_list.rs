@@ -90,7 +90,7 @@ impl MyList {
             panic!("索引越界")
         };
         let num = self.arr[index];
-        // 將將索引 index 之後的元素都向前移動一位
+        // 將索引 index 之後的元素都向前移動一位
         for j in index..self.size - 1 {
             self.arr[j] = self.arr[j + 1];
         }

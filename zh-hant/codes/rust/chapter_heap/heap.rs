@@ -13,21 +13,11 @@ fn test_push_max(heap: &mut BinaryHeap<i32>, val: i32) {
     println!("\n元素 {} 入堆積後", val);
     print_util::print_heap(heap.iter().map(|&val| val).collect());
 }
-fn test_push_min(heap: &mut BinaryHeap<Reverse<i32>>, val: i32) {
-    heap.push(Reverse(val)); // 元素入堆積
-    println!("\n元素 {} 入堆積後", val);
-    print_util::print_heap(heap.iter().map(|&val| val.0).collect());
-}
 
 fn test_pop_max(heap: &mut BinaryHeap<i32>) {
     let val = heap.pop().unwrap();
     println!("\n堆積頂元素 {} 出堆積後", val);
     print_util::print_heap(heap.iter().map(|&val| val).collect());
-}
-fn test_pop_min(heap: &mut BinaryHeap<Reverse<i32>>) {
-    let val = heap.pop().unwrap().0;
-    println!("\n堆積頂元素 {} 出堆積後", val);
-    print_util::print_heap(heap.iter().map(|&val| val.0).collect());
 }
 
 /* Driver Code */

@@ -33,7 +33,7 @@ impl<T: Copy> LinkedListQueue<T> {
 
     /* 判斷佇列是否為空 */
     pub fn is_empty(&self) -> bool {
-        return self.size() == 0;
+        return self.que_size == 0;
     }
 
     /* 入列 */

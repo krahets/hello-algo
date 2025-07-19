@@ -15,7 +15,7 @@
     ```python title="array.py"
     # 初始化数组
     arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums: list[int] = [1, 3, 2, 5, 4]  
+    nums: list[int] = [1, 3, 2, 5, 4]
     ```
 
 === "C++"
@@ -130,8 +130,8 @@
 
     ```zig title="array.zig"
     // 初始化数组
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
+    const arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
+    const nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
 ??? pythontutor "可视化运行"

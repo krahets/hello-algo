@@ -8,45 +8,6 @@ pub const ListNode = ListUtil.ListNode;
 pub const TreeUtil = @import("TreeNode.zig");
 pub const TreeNode = TreeUtil.TreeNode;
 
-// 打印数组
-pub fn printArray(comptime T: type, nums: []T) void {
-    std.debug.print("[", .{});
-    if (nums.len > 0) {
-        for (nums, 0..) |num, j| {
-            std.debug.print("{}{s}", .{num, if (j == nums.len-1) "]" else ", " });
-        }
-    } else {
-        std.debug.print("]", .{});
-    }
-}
-
-// 打印列表
-pub fn printList(comptime T: type, list: std.ArrayList(T)) void {
-    std.debug.print("[", .{});
-    if (list.items.len > 0) {
-        for (list.items, 0..) |value, i| {
-            std.debug.print("{}{s}", .{value, if (i == list.items.len-1) "]" else ", " });
-        }
-    } else {
-        std.debug.print("]", .{});
-    }
-}
-
-// 打印链表
-pub fn printLinkedList(comptime T: type, node: ?*ListNode(T)) !void {
-    if (node == null) return;
-    var list = std.ArrayList(T).init(std.heap.page_allocator);
-    defer list.deinit();
-    var head = node;
-    while (head != null) {
-        try list.append(head.?.val);
-        head = head.?.next;
-    }
-    for (list.items, 0..) |value, i| {
-        std.debug.print("{}{s}", .{value, if (i == list.items.len-1) "\n" else "->" });
-    }
-}
-
 // 打印队列
 pub fn printQueue(comptime T: type, queue: std.TailQueue(T)) void {
     var node = queue.first;
@@ -54,7 +15,7 @@ pub fn printQueue(comptime T: type, queue: std.TailQueue(T)) void {
     var i: i32 = 0;
     while (node != null) : (i += 1) {
         var data = node.?.data;
-        std.debug.print("{}{s}", .{data, if (i == queue.len - 1) "]" else ", " });
+        std.debug.print("{}{s}", .{ data, if (i == queue.len - 1) "]" else ", " });
         node = node.?.next;
     }
 }
@@ -65,7 +26,7 @@ pub fn printHashMap(comptime TKey: type, comptime TValue: type, map: std.AutoHas
     while (it.next()) |kv| {
         var key = kv.key_ptr.*;
         var value = kv.value_ptr.*;
-        std.debug.print("{} -> {s}\n", .{key, value});
+        std.debug.print("{} -> {s}\n", .{ key, value });
     }
 }
 
@@ -86,7 +47,7 @@ pub fn printHeap(comptime T: type, mem_allocator: std.mem.Allocator, queue: anyt
 const Trunk = struct {
     prev: ?*Trunk = null,
     str: []const u8 = undefined,
-    
+
     pub fn init(self: *Trunk, prev: ?*Trunk, str: []const u8) void {
         self.prev = prev;
         self.str = str;
@@ -106,10 +67,10 @@ pub fn printTree(root: ?*TreeNode(i32), prev: ?*Trunk, isRight: bool) !void {
     }
 
     var prev_str = "    ";
-    var trunk = Trunk{.prev = prev, .str = prev_str};
+    var trunk = Trunk{ .prev = prev, .str = prev_str };
 
     try printTree(root.?.right, &trunk, true);
-   
+
     if (prev == null) {
         trunk.str = "———";
     } else if (isRight) {

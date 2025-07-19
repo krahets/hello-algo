@@ -34,7 +34,7 @@ impl TreeNode {
 macro_rules! op_vec {
     ( $( $x:expr ),* ) => {
         vec![
-            $( Option::from($x).map(|x| x) ),*
+            $(Option::from($x)),*
         ]
     };
 }
