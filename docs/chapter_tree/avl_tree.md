@@ -234,7 +234,7 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
 
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title=""
 /* AVL 树节点类 */

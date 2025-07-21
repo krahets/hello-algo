@@ -216,7 +216,7 @@
     }
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title=""
     // 在某运行平台下
@@ -538,7 +538,7 @@ $$
     }
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title=""
     // 算法 A 的时间复杂度：常数阶
@@ -773,7 +773,7 @@ $$
     }
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title=""
     func algorithm(n: Int64) {
@@ -1086,7 +1086,7 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
     }
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title=""
     func algorithm(n: Int64) {

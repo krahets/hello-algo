@@ -367,7 +367,7 @@
 
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title=""
     /* 类 */
@@ -564,7 +564,7 @@
     ```
 
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title=""
     func algorithm(n: Int64) {
@@ -854,7 +854,7 @@
 
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title=""
     func function() {

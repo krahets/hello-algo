@@ -405,7 +405,7 @@ $$
 
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="built_in_hash.cj"
     let num = 3

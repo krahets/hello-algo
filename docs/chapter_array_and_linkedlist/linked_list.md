@@ -204,7 +204,7 @@
         };
     }
     ```
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title=""
     /* 链表节点类 */
@@ -463,7 +463,7 @@
     n3.next = &n4;
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="linked_list.cj"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
@@ -769,7 +769,7 @@
     }
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title=""
     // 双向链表节点类

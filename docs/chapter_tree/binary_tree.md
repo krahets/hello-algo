@@ -206,7 +206,7 @@
     ```zig title=""
 
     ```
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title=""
     /* 二叉树节点类 */
@@ -475,7 +475,7 @@
     ```zig title="binary_tree.zig"
 
     ```
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="binary_tree.cj"
     // 初始化节点
@@ -662,7 +662,7 @@
     ```zig title="binary_tree.zig"
 
     ```
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="binary_tree.cj"
     let p = TreeNode(0)

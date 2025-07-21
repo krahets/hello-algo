@@ -319,7 +319,7 @@
 
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="hash_map.cj"
     import std.collection.HashMap
@@ -569,7 +569,7 @@
 
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="hash_map.cj"
     /* 遍历哈希表 */

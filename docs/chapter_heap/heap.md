@@ -414,7 +414,7 @@
 
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="heap.cj"
 

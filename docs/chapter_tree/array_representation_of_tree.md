@@ -134,7 +134,7 @@
 
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title=""
     // 使用 None 来标记空位

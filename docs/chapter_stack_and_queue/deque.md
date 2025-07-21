@@ -389,7 +389,7 @@
 
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="deque.cj"
     import std.collection.LinkedList

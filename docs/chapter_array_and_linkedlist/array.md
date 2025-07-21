@@ -134,7 +134,7 @@
     var nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="array.cj"
     /* 初始化引用类型的数组 Array<T> */

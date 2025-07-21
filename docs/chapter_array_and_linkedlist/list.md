@@ -157,7 +157,7 @@
     ```
 
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="list.cj"
     /* 初始化列表 */
@@ -310,7 +310,7 @@
     // 更新元素
     nums.items[1] = 0; // 将索引 1 处的元素更新为 0
     ```
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="list.cj"
     /* 访问元素 */
@@ -594,7 +594,7 @@
     _ = nums.orderedRemove(3); // 删除索引 3 处的元素
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="list.cj"
     /* 清空列表 */
@@ -832,7 +832,7 @@
     }
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="list.cj"
     /* 通过索引遍历列表 */
@@ -967,7 +967,7 @@
     try nums.insertSlice(nums.items.len, nums1.items); // 将列表 nums1 拼接到 nums 之后
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="list.cj"
     /* 拼接两个列表 */
@@ -1081,7 +1081,7 @@
     std.sort.sort(i32, nums.items, {}, comptime std.sort.asc(i32));
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="list.cj"
     import std.sort.*

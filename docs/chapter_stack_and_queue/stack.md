@@ -355,7 +355,7 @@
 
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="stack.cj"
     /* 初始化栈 */

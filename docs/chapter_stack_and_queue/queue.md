@@ -362,7 +362,7 @@
 
     ```
 
-=== "cangjie"
+=== "Cangjie"
 
     ```cangjie title="queue.cj"
     import std.collection.LinkedList
