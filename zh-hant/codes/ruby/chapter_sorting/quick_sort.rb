@@ -92,7 +92,7 @@ class QuickSortMedian
   end
 end
 
-### 快速排序類別（尾遞迴最佳化）###
+### 快速排序類別（遞迴深度最佳化）###
 class QuickSortTailCall
   class << self
     ### 哨兵劃分 ###
@@ -115,7 +115,7 @@ class QuickSortTailCall
       i # 返回基準數的索引
     end
 
-    ### 快速排序（尾遞迴最佳化）###
+    ### 快速排序（遞迴深度最佳化）###
     def quick_sort(nums, left, right)
       # 子陣列長度不為 1 時遞迴
       while left < right
@@ -146,8 +146,8 @@ if __FILE__ == $0
   QuickSortMedian.quick_sort(nums1, 0, nums1.length - 1)
   puts "快速排序（中位基準數最佳化）完成後 nums1 = #{nums1}"
 
-  # 快速排序（尾遞迴最佳化）
+  # 快速排序（遞迴深度最佳化）
   nums2 = [2, 4, 1, 0, 3, 5]
   QuickSortTailCall.quick_sort(nums2, 0, nums2.length - 1)
-  puts "快速排序（尾遞迴最佳化）完成後 nums2 = #{nums2}"
+  puts "快速排序（遞迴深度最佳化）完成後 nums2 = #{nums2}"
 end

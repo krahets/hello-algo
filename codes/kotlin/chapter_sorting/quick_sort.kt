@@ -83,7 +83,7 @@ fun quickSortMedian(nums: IntArray, left: Int, right: Int) {
     quickSort(nums, pivot + 1, right)
 }
 
-/* 快速排序（尾递归优化） */
+/* 快速排序（递归深度优化） */
 fun quickSortTailCall(nums: IntArray, left: Int, right: Int) {
     // 子数组长度为 1 时终止
     var l = left
@@ -114,8 +114,8 @@ fun main() {
     quickSortMedian(nums1, 0, nums1.size - 1)
     println("快速排序（中位基准数优化）完成后 nums1 = ${nums1.contentToString()}")
 
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     val nums2 = intArrayOf(2, 4, 1, 0, 3, 5)
     quickSortTailCall(nums2, 0, nums2.size - 1)
-    println("快速排序（尾递归优化）完成后 nums2 = ${nums2.contentToString()}")
+    println("快速排序（递归深度优化）完成后 nums2 = ${nums2.contentToString()}")
 }

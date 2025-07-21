@@ -19,14 +19,14 @@ A <u>data structure</u> is a way of organizing and storing data in a computer, w
 **Designing data structures is a balancing act, often requiring trade-offs**. If you want to improve in one aspect, you often need to compromise in another. Here are two examples:
 
 - Compared to arrays, linked lists offer more convenience in data addition and deletion but sacrifice data access speed.
-- Graphs, compared to linked lists, provide richer logical information but require more memory space.
+- Compared with linked lists, graphs provide richer logical information but require more memory space.
 
 ## Relationship between data structures and algorithms
 
 As shown in the figure below, data structures and algorithms are highly related and closely integrated, specifically in the following three aspects:
 
 - Data structures are the foundation of algorithms. They provide structured data storage and methods for manipulating data for algorithms.
-- Algorithms are the stage where data structures come into play. The data structure alone only stores data information; it is through the application of algorithms that specific problems can be solved.
+- Algorithms inject vitality into data structures. The data structure alone only stores data information; it is through the application of algorithms that specific problems can be solved.
 - Algorithms can often be implemented based on different data structures, but their execution efficiency can vary greatly. Choosing the right data structure is key.
 
 ![Relationship between data structures and algorithms](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png)
@@ -50,4 +50,4 @@ It's worth noting that data structures and algorithms are independent of program
 
 !!! tip "Conventional Abbreviation"
 
-    In real-life discussions, we often refer to "Data Structures and Algorithms" simply as "Algorithms". For example, the well-known LeetCode algorithm problems actually test both data structure and algorithm knowledge.
+    In real-life discussions, we often refer to "Data Structures and Algorithms" simply as "Algorithms". For example, the well-known LeetCode algorithm questions actually test knowledge of both data structures and algorithms.
