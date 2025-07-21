@@ -94,7 +94,7 @@ const QuickSortMedian = struct {
     }
 };
 
-// 快速排序類別（尾遞迴最佳化）
+// 快速排序類別（遞迴深度最佳化）
 const QuickSortTailCall = struct {
 
     // 元素交換
@@ -118,7 +118,7 @@ const QuickSortTailCall = struct {
         return i;               // 返回基準數的索引
     }
 
-    // 快速排序（尾遞迴最佳化）
+    // 快速排序（遞迴深度最佳化）
     pub fn quickSort(nums: []i32, left_: usize, right_: usize) void {
         var left = left_;
         var right = right_;
@@ -152,10 +152,10 @@ pub fn main() !void {
     std.debug.print("\n快速排序（中位基準數最佳化）完成後 nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums1);
 
-    // 快速排序（尾遞迴最佳化）
+    // 快速排序（遞迴深度最佳化）
     var nums2 = [_]i32{ 2, 4, 1, 0, 3, 5 };
     QuickSortTailCall.quickSort(&nums2, 0, nums2.len - 1);
-    std.debug.print("\n快速排序（尾遞迴最佳化）完成後 nums = ", .{});
+    std.debug.print("\n快速排序（遞迴深度最佳化）完成後 nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums2);
     
     _ = try std.io.getStdIn().reader().readByte();
