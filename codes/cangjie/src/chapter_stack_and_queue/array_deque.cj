@@ -3,6 +3,7 @@
  * Created Time: 2025-06-24
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_stack_and_queue
 
 /* 基于环形数组实现的双向队列 */
@@ -13,7 +14,7 @@ class ArrayDeque {
 
     /* 构造方法 */
     public init(capacity: Int64) {
-        this.nums = Array<Int64>(capacity, item: 0)
+        this.nums = Array<Int64>(capacity, repeat: 0)
         this.front = 0
         this.queSize = 0
     }
@@ -109,7 +110,7 @@ class ArrayDeque {
     /* 返回数组用于打印 */
     public func toArray(): Array<Int64> {
         // 仅转换有效长度范围内的列表元素
-        let res = Array<Int64>(queSize, item: 0)
+        let res = Array<Int64>(queSize, repeat: 0)
         var j = front
         for (i in 0..queSize) {
             res[i] = nums[index(j)]

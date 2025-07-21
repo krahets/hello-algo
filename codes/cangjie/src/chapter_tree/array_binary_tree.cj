@@ -3,6 +3,7 @@
  * Created Time: 2025-06-25
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_tree
 
 import std.collection.ArrayList
@@ -53,7 +54,7 @@ class ArrayBinaryTree {
         // 直接遍历数组
         for (i in 0..size) {
             if (let Some(v) <- val(i)) {
-                res.append(v)
+                res.add(v)
             }
         }
         return res
@@ -64,17 +65,17 @@ class ArrayBinaryTree {
         if (let Some(v) <- val(i)) {
             // 前序遍历
             if ("pre" == order) {
-                res.append(v)
+                res.add(v)
             }
             dfs(left(i), order, res)
             // 中序遍历
             if ("in" == order) {
-                res.append(v)
+                res.add(v)
             }
             dfs(right(i), order, res)
             // 后序遍历
             if ("post" == order) {
-                res.append(v)
+                res.add(v)
             }
         } else { // 若为空位，则返回
             return

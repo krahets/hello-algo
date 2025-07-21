@@ -192,12 +192,12 @@
     ```cangjie title=""
     // 使用多种基本数据类型来初始化数组
     let n = 5
-    let numbers = Array<Int64>(n, item: 0)
+    let numbers = Array<Int64>(n, repeat: 0)
     let numbers_i = Array<Int64>(n, {i => i})
     let numbers_t = Array<Int64>(n) {i => i} // 尾随lambda
-    let decimals = Array<Float64>(n, item: 0.0)
-    let runes = Array<Rune>(n, item: r' ')
-    let bools = Array<Bool>(n, item: true)
+    let decimals = Array<Float64>(n, repeat: 0.0)
+    let runes = Array<Rune>(n, repeat: r' ')
+    let bools = Array<Bool>(n, repeat: true)
     ```
 
 ??? pythontutor "可视化运行"

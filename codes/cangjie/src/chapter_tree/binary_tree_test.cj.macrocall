@@ -1,0 +1,89 @@
+/**
+ * File: binary_tree_test.cj
+ * Created Time: 2025-06-25
+ * Author: jan_huber (jan_huber@163.com)
+ */
+
+package cangjie.chapter_tree
+
+import std.unittest.testmacro.*
+import std.unittest.*
+import cangjie.utils.{TreeNode, PrintUtil}
+
+/* Driver Code */
+/* ===== Emitted by MacroCall @Test in binary_tree_test.cj:14:1 ===== */
+/* 14.1 */@Attribute[TEST_GENERATED] class TestCase_binary_tree_test <: TestClass {
+/* 14.2 */    init() {
+/* 14.3 */    }
+/* 14.4 */    private func classConfiguration(): Configuration {
+/* 14.5 */        let configuration = Configuration()
+/* 14.6 */        configuration.set(KeyFromTopLevel.fromTopLevel, true)
+/* 14.7 */        
+/* 14.8 */        return configuration
+/* 14.9 */    }
+/* 14.10 */    public override func asTestSuite(): TestSuite {
+/* 14.11 */        
+/* 14.12 */        let suiteConfiguration = classConfiguration()
+/* 14.13 */        let suiteBuilder = TestSuite.builder("TestCase_binary_tree_test").configure(suiteConfiguration)
+/* 14.14 */        
+/* 14.15 */        { => let caseConfig = Configuration()
+/* 14.16 */            caseConfig.set(KeyFromTopLevel.fromTopLevel, true)
+/* 14.17 */            
+/* 14.18 */            let binary_tree_testTestFunc = { => binary_tree_test();() }
+/* 14.19 */            suiteBuilder.add(
+/* 14.20 */            UnitTestCase.create(
+/* 14.21 */            "binary_tree_test",
+/* 14.22 */            configuration: caseConfig,
+/* 14.23 */            body: binary_tree_testTestFunc
+/* 14.24 */            )
+/* 14.25 */            )
+/* 14.26 */            
+/* 14.27 */        }()
+/* 14.28 */        
+/* 14.29 */        return suiteBuilder.build()
+/* 14.30 */    }
+/* 14.31 */    private func inheritedFromClassAnnotatedByTestTemplate < T >(): TestSuite where T <: TestClass {
+/* 14.32 */        throw Exception("Unreachable code")
+/* 14.33 */    }
+/* 14.34 */}
+/* 14.35 */func binary_tree_test() {
+/* 14.36 */    
+/* 14.37 */    
+/* 14.38 */    let n1 = TreeNode(1)
+/* 14.39 */    let n2 = TreeNode(2)
+/* 14.40 */    let n3 = TreeNode(3)
+/* 14.41 */    let n4 = TreeNode(4)
+/* 14.42 */    let n5 = TreeNode(5)
+/* 14.43 */    
+/* 14.44 */    n1.left = n2
+/* 14.45 */    n1.right = n3
+/* 14.46 */    n2.left = n4
+/* 14.47 */    n2.right = n5
+/* 14.48 */    println("\n初始化二叉树\n");
+/* 14.49 */    PrintUtil.printTree(n1)
+/* 14.50 */    
+/* 14.51 */    
+/* 14.52 */    let p = TreeNode(0)
+/* 14.53 */    
+/* 14.54 */    n1.left = p
+/* 14.55 */    p.left = n2
+/* 14.56 */    println("\n插入节点 P 后\n")
+/* 14.57 */    PrintUtil.printTree(n1)
+/* 14.58 */    
+/* 14.59 */    n1.left = n2
+/* 14.60 */    println("\n删除节点 P 后\n")
+/* 14.61 */    PrintUtil.printTree(n1)
+/* 14.62 */}
+/* 14.63 */
+/* 14.64 */
+/* 14.65 */interface TestPackageExtension_TestCase_binary_tree_test {
+/* 14.66 */    func registerTestCase_binary_tree_test(): Unit
+/* 14.67 */}
+/* 14.68 */extend TestPackage <: TestPackageExtension_TestCase_binary_tree_test {
+/* 14.69 */    @Attribute[TEST_REGISTER]
+/* 14.70 */    public func registerTestCase_binary_tree_test() {
+/* 14.71 */        registerSuite({ => TestCase_binary_tree_test().asTestSuite() })
+/* 14.72 */    }
+/* 14.73 */}
+/* 14.74 */
+/* ===== End of the Emit ===== */

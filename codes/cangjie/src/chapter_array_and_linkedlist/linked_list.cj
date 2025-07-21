@@ -3,6 +3,7 @@
  * Created Time: 2025-06-23
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_array_and_linkedlist
 
 import cangjie.utils.ListNode

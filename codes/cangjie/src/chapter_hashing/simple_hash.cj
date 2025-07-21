@@ -3,6 +3,7 @@
  * Created Time: 2025-06-25
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_hashing
 
 /* 加法哈希 */
@@ -44,5 +45,3 @@ func rotHash(key: String): Int64 {
     }
     return hash
 }
-
-

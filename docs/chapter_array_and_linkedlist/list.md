@@ -317,7 +317,7 @@
     let num = nums.get(1) // 访问索引 1 处的元素
 
     /* 更新元素 */
-    nums.set(1, 0) // 将索引 1 处的元素更新为 0
+    nums.add(0, at: 1) // 将索引 1 处的元素更新为 0
     ```
 
 ??? pythontutor "可视化运行"
@@ -601,17 +601,17 @@
     nums.clear()
 
     /* 在尾部添加元素 */
-    nums.append(1)
-    nums.append(3)
-    nums.append(2)
-    nums.append(5)
-    nums.append(4)
+    nums.add(1)
+    nums.add(3)
+    nums.add(2)
+    nums.add(5)
+    nums.add(4)
 
     /* 在中间插入元素 */
-    nums.insert(3, 6)  // 在索引 3 处插入数字 6
+    nums.add(6, at: 3)  // 在索引 3 处插入数字 6
 
     /* 删除元素 */
-    nums.remove(3)  // 删除索引 3 处的元素
+    nums.remove(at: 3)  // 删除索引 3 处的元素
     ```
 
 ??? pythontutor "可视化运行"
@@ -1088,7 +1088,7 @@
 
     let nums = ArrayList<Int64>([6, 8, 7, 10, 9])
     /* 排序列表 */
-    nums.sort(stable: true) // 排序后，列表元素从小到大排列
+    sort(nums, stable: true) // 排序后，列表元素从小到大排列
     ```
 
 ??? pythontutor "可视化运行"

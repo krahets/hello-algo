@@ -397,19 +397,20 @@
     let deque = LinkedList<Int64>()
 
     /* 元素入队 */
-    deque.append(2) // 添加至队尾
-    deque.append(5)
-    deque.append(4)
-    deque.prepend(3) // 添加至队首
-    deque.prepend(1)
+    deque.addLast(2) // 添加至队尾
+    deque.addLast(5)
+    deque.addLast(4)
+    deque.addFirst(3) // 添加至队首
+    deque.addFirst(1)
+    println(deque)
 
     /* 访问元素 */
     let peekFirst = deque.first // 队首元素
     let peekLast = deque.last // 队尾元素
 
     /* 元素出队 */
-    let popFirst = deque.popFirst() // 队首元素出队
-    let popLast = deque.popLast() // 队尾元素出队
+    let popFirst = deque.removeFirst() // 队首元素出队
+    let popLast = deque.removeLast() // 队尾元素出队
 
     /* 获取双向队列的长度 */
     let size = deque.size

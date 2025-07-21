@@ -3,6 +3,7 @@
  * Created Time: 2025-06-27
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_tree
 
 import std.math.*

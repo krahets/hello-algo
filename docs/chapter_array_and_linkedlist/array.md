@@ -139,7 +139,7 @@
     ```cangjie title="array.cj"
     /* 初始化引用类型的数组 Array<T> */
     let arr =[0, 0, 0, 0, 0]
-    let arr1 = Array<Int64>(5, item: 0)
+    let arr1 = Array<Int64>(5, repeat: 0)
     let arr2 = Array<Int64>(5, {i => i})
     let arr3 = Array<Int64>(5){i => i}
 
@@ -149,7 +149,7 @@
     // VArray<T, $N>(initElement: (Int64) -> T)
     let b = VArray<Int64, $5>({ i => i}) // [0, 1, 2, 3, 4]
     // VArray<T, $N>(item!: T)
-    let c = VArray<Int64, $5>(item: 0) // [0, 0, 0, 0, 0]
+    let c = VArray<Int64, $5>(repeat: 0) // [0, 0, 0, 0, 0]
     ```
 
 ??? pythontutor "可视化运行"

@@ -3,6 +3,7 @@
  * Created Time: 2025-06-23
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_array_and_linkedlist
 
 /* 列表类 */
@@ -14,7 +15,7 @@ class MyList {
 
     /* 构造方法 */
     public init() {
-        arr = Array<Int64>(_capacity, item: 0)
+        arr = Array<Int64>(_capacity, repeat: 0)
     }
 
     /* 获取列表长度（当前元素数量） */
@@ -98,7 +99,7 @@ class MyList {
     public func extendCapacity(): Unit {
         // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组复制到新数组
         let ext_capacity = capacity * extendRatio
-        var dst = Array<Int64>(ext_capacity, item: 0)
+        var dst = Array<Int64>(ext_capacity, repeat: 0)
         arr.copyTo(dst, 0, 0, arr.size)
         arr = dst
         // 更新列表容量
@@ -108,7 +109,7 @@ class MyList {
     /* 将列表转换为数组 */
     public func toArray(): Array<Int64> {
         // 仅转换有效长度范围内的列表元素
-        let arr = Array<Int64>(size, item: 0)
+        let arr = Array<Int64>(size, repeat: 0)
         for (i in 0..size) {
             arr[i] = get(i).getOrThrow()
         }

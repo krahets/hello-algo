@@ -3,6 +3,7 @@
  * Created Time: 2025-06-23
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.utils
 
 import std.collection.{ArrayList, Map}
@@ -42,7 +43,7 @@ public class PrintUtil {
         let list = ArrayList<String>()
         var var_head = head
         while (let Some(head) <- var_head) {
-            list.append("${head.val}")
+            list.add("${head.val}")
             var_head = head.next
         }
         println(String.join(list.toArray(), delimiter: " -> "))
@@ -59,10 +60,10 @@ public class PrintUtil {
      * https://www.techiedelight.com/c-program-print-binary-tree/
      */
     public static func printTree(root: ?TreeNode, prev: ?Trunk, isRight: Bool): Unit {
-        if (let Some(root) <- root) {
+        if (let Some(p_root) <- root && let Some(val) <- p_root.val) {
             var prev_str = "    "
             let trunk = Trunk(prev, prev_str)
-            printTree(root.right, trunk, true)
+            printTree(p_root.right, trunk, true)
             if (prev.isNone()) {
                 trunk.str = "———"
             } else if (isRight) {
@@ -73,15 +74,12 @@ public class PrintUtil {
                 prev?.str = prev_str
             }
             showTrunks(trunk)
-            println(" ${root.val}")
-
+            println("${val}")
             if (let Some(prev) <- prev) {
                 prev.str = prev_str
             }
             trunk.str = "   |"
-            printTree(root.left, trunk, false)
-        } else {
-            return ()
+            printTree(p_root.left, trunk, false)
         }
     }
 

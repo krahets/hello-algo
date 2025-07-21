@@ -1,8 +1,8 @@
 [dependencies]
 
 [package]
-  cjc-version = "0.53.18"
-  compile-option = ""
+  cjc-version = "1.0.0"
+  compile-option = "-Woff unused --diagnostic-format=noColor"
   description = "hello algo"
   link-option = ""
   name = "cangjie"
@@ -10,4 +10,4 @@
   src-dir = ""
   target-dir = ""
   version = "1.0.0"
-  package-configuration = {}
+  [package.package-configuration]

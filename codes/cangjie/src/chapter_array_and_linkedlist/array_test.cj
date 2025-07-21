@@ -3,6 +3,7 @@
  * Created Time: 2025-06-23
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_array_and_linkedlist
 
 import std.unittest.testmacro.*
@@ -12,7 +13,7 @@ import std.unittest.*
 @Test
 func testArray() {
     /* 初始化数组 */
-    let arr = Array<Int64>(5, item: 0)
+    let arr = Array<Int64>(5, repeat: 0)
     println("数组 arr = ${arr}")
 
     var nums = [1, 3, 2, 5, 4]

@@ -3,6 +3,7 @@
  * Created Time: 2025-06-24
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_stack_and_queue
 
 import std.collection.ArrayList
@@ -29,7 +30,7 @@ class ArrayStack {
 
     /* 入栈 */
     public func push(item: Int64): Unit {
-        stack.append(item)
+        stack.add(item)
     }
 
     /* 出栈 */
@@ -37,7 +38,7 @@ class ArrayStack {
         if (isEmpty()) {
             throw IndexOutOfBoundsException()
         }
-        return stack.remove(size - 1)
+        return stack.remove(at: size - 1)
     }
 
     /* 访问栈顶元素 */

@@ -1,3 +1,9 @@
+/**
+ * File: space_complexity_test.cj
+ * Created Time: 2025-06-22
+ * Author: jan_huber (jan_huber@163.com)
+ */
+
 package cangjie.chapter_computational_complexity
 
 import std.unittest.testmacro.*

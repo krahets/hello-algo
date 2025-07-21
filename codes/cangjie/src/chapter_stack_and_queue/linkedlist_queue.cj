@@ -3,9 +3,8 @@
  * Created Time: 2025-06-24
  * Author: jan_huber (jan_huber@163.com)
  */
-package cangjie.chapter_stack_and_queue
 
-import cangjie.utils.ListNode
+package cangjie.chapter_stack_and_queue
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
@@ -66,7 +65,7 @@ class LinkedListQueue {
     /* 将链表转化为 Array 并返回 */
     public func toArray(): Array<Int64> {
         var node: ?ListNode = front
-        let res = Array<Int64>(queSize, item: 0)
+        let res = Array<Int64>(queSize, repeat: 0)
         for (i in 0..res.size) {
             res[i] = node?.val ?? 0
             node = node?.next ?? None

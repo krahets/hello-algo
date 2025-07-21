@@ -371,17 +371,17 @@
     let queue = LinkedList<Int64>()
 
     /* 元素入队 */
-    queue.append(1)
-    queue.append(3)
-    queue.append(2)
-    queue.append(5)
-    queue.append(4)
+    queue.addFirst(1)
+    queue.addFirst(3)
+    queue.addFirst(2)
+    queue.addFirst(5)
+    queue.addFirst(4)
 
     /* 访问队首元素 */
     let peek = queue.first
 
     /* 元素出队 */
-    let pop = queue.popFirst()
+    let pop = queue.removeFirst()
 
     /* 获取队列的长度 */
     let size = queue.size

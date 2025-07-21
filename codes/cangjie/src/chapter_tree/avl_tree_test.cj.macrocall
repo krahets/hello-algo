@@ -1,0 +1,103 @@
+/**
+ * File: avl_tree_test.cj
+ * Created Time: 2025-06-27
+ * Author: jan_huber (jan_huber@163.com)
+ */
+
+package cangjie.chapter_tree
+
+import std.unittest.testmacro.*
+import std.unittest.*
+import cangjie.utils.PrintUtil
+
+/* Driver Code */
+/* ===== Emitted by MacroCall @Test in avl_tree_test.cj:14:1 ===== */
+/* 14.1 */@Attribute[TEST_GENERATED] class TestCase_avl_tree_test <: TestClass {
+/* 14.2 */    init() {
+/* 14.3 */    }
+/* 14.4 */    private func classConfiguration(): Configuration {
+/* 14.5 */        let configuration = Configuration()
+/* 14.6 */        configuration.set(KeyFromTopLevel.fromTopLevel, true)
+/* 14.7 */        
+/* 14.8 */        return configuration
+/* 14.9 */    }
+/* 14.10 */    public override func asTestSuite(): TestSuite {
+/* 14.11 */        
+/* 14.12 */        let suiteConfiguration = classConfiguration()
+/* 14.13 */        let suiteBuilder = TestSuite.builder("TestCase_avl_tree_test").configure(suiteConfiguration)
+/* 14.14 */        
+/* 14.15 */        { => let caseConfig = Configuration()
+/* 14.16 */            caseConfig.set(KeyFromTopLevel.fromTopLevel, true)
+/* 14.17 */            
+/* 14.18 */            let avl_tree_testTestFunc = { => avl_tree_test();() }
+/* 14.19 */            suiteBuilder.add(
+/* 14.20 */            UnitTestCase.create(
+/* 14.21 */            "avl_tree_test",
+/* 14.22 */            configuration: caseConfig,
+/* 14.23 */            body: avl_tree_testTestFunc
+/* 14.24 */            )
+/* 14.25 */            )
+/* 14.26 */            
+/* 14.27 */        }()
+/* 14.28 */        
+/* 14.29 */        return suiteBuilder.build()
+/* 14.30 */    }
+/* 14.31 */    private func inheritedFromClassAnnotatedByTestTemplate < T >(): TestSuite where T <: TestClass {
+/* 14.32 */        throw Exception("Unreachable code")
+/* 14.33 */    }
+/* 14.34 */}
+/* 14.35 */func avl_tree_test() {
+/* 14.36 */    func testInsert(tree: AVLTree, val: Int64) {
+/* 14.37 */        tree.insert(val)
+/* 14.38 */        println("\n插入节点 ${val} 后，AVL 树为")
+/* 14.39 */        PrintUtil.printTree(tree.root)
+/* 14.40 */    }
+/* 14.41 */    
+/* 14.42 */    func testRemove(tree: AVLTree, val: Int64) {
+/* 14.43 */        tree.remove(val);
+/* 14.44 */        println("\n删除节点 ${val} 后，AVL 树为")
+/* 14.45 */        PrintUtil.printTree(tree.root)
+/* 14.46 */    }
+/* 14.47 */    
+/* 14.48 */    
+/* 14.49 */    let avlTree = AVLTree()
+/* 14.50 */    
+/* 14.51 */    
+/* 14.52 */    
+/* 14.53 */    testInsert(avlTree, 1)
+/* 14.54 */    testInsert(avlTree, 2)
+/* 14.55 */    testInsert(avlTree, 3)
+/* 14.56 */    testInsert(avlTree, 4)
+/* 14.57 */    testInsert(avlTree, 5)
+/* 14.58 */    testInsert(avlTree, 8)
+/* 14.59 */    testInsert(avlTree, 7)
+/* 14.60 */    testInsert(avlTree, 9)
+/* 14.61 */    testInsert(avlTree, 10)
+/* 14.62 */    testInsert(avlTree, 6)
+/* 14.63 */    
+/* 14.64 */    
+/* 14.65 */    testInsert(avlTree, 7)
+/* 14.66 */    
+/* 14.67 */    
+/* 14.68 */    
+/* 14.69 */    testRemove(avlTree, 8)
+/* 14.70 */    testRemove(avlTree, 5)
+/* 14.71 */    testRemove(avlTree, 4)
+/* 14.72 */    
+/* 14.73 */    
+/* 14.74 */    let node = avlTree.search(7)
+/* 14.75 */    println("\n查找到的节点值 = ${node?.val}")
+/* 14.76 */}
+/* 14.77 */
+/* 14.78 */
+/* 14.79 */interface TestPackageExtension_TestCase_avl_tree_test {
+/* 14.80 */    func registerTestCase_avl_tree_test(): Unit
+/* 14.81 */}
+/* 14.82 */extend TestPackage <: TestPackageExtension_TestCase_avl_tree_test {
+/* 14.83 */    @Attribute[TEST_REGISTER]
+/* 14.84 */    public func registerTestCase_avl_tree_test() {
+/* 14.85 */        registerSuite({ => TestCase_avl_tree_test().asTestSuite() })
+/* 14.86 */    }
+/* 14.87 */}
+/* 14.88 */
+/* ===== End of the Emit ===== */

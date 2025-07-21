@@ -1,3 +1,9 @@
+/**
+ * File: time_complexity_test.cj
+ * Created Time: 2025-06-21
+ * Author: jan_huber (jan_huber@163.com)
+ */
+
 package cangjie.chapter_computational_complexity
 
 import std.unittest.testmacro.*
@@ -15,12 +21,12 @@ func testTimeComplexity() {
 
     count = linear(n)
     println("线性阶的操作数量 = ${count}")
-    count = arrayTraversal(Array<Int64>(n, item: 0))
+    count = arrayTraversal(Array<Int64>(n, repeat: 0))
     println("线性阶（遍历数组）的操作数量 = ${count}")
 
     count = quadratic(n)
     println("平方阶的操作数量 = ${count}")
-    let nums = Array<Int64>(n, item: 0)
+    let nums = Array<Int64>(n, repeat: 0)
     for (i in 0..n) {
         nums[i] = n - i // [n,n-1,...,2,1]
     }

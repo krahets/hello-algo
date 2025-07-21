@@ -3,9 +3,8 @@
  * Created Time: 2025-06-24
  * Author: jan_huber (jan_huber@163.com)
  */
-package cangjie.chapter_stack_and_queue
 
-import cangjie.utils.ListNode
+package cangjie.chapter_stack_and_queue
 
 /* 基于链表实现的栈 */
 class LinkedListStack {
@@ -55,7 +54,7 @@ class LinkedListStack {
     /* 将 List 转化为 Array 并返回 */
     public func toArray(): Array<Int64> {
         var node = stackPeek
-        let res = Array<Int64>(stkSize, item: 0)
+        let res = Array<Int64>(stkSize, repeat: 0)
         for (i in (res.size - 1)..=0 : -1) {
             res[i] = node?.val ?? 0
             node = node?.next ?? None

@@ -3,6 +3,7 @@
  * Created Time: 2025-06-21
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_computational_complexity
 
 import std.random.Random
@@ -14,7 +15,6 @@ func randomNumbers(n: Int64): Array<Int64> {
     var nums = Array<Int64>(n, {i => i + 1})
     // 随机打乱数组元素
     for (i in (n - 1)..0 : -1) {
-        
         var j = abs(Random().nextInt64()) % (i + 1)
         var temp = nums[i]
         nums[i] = nums[j]
@@ -34,4 +34,3 @@ func findOne(nums: Array<Int64>): Int64 {
     }
     return -1
 }
-

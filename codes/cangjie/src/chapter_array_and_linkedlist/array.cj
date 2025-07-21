@@ -3,14 +3,15 @@
  * Created Time: 2025-06-23
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_array_and_linkedlist
 
 import std.random.Random
 
 /* 随机访问元素 */
 func randomAccess(nums: Array<Int64>): Int64 {
-    // 在区间 [0, nums.length) 中随机抽取一个数字
-    let randomIndex = Random().nextInt64() % nums.size
+    // 在区间 [0, nums.size) 中随机抽取一个数字
+    let randomIndex = Int64(Random().nextUInt64() % UInt64(nums.size))
     // 获取并返回随机元素
     let randomNum = nums[randomIndex]
     return randomNum
@@ -60,7 +61,7 @@ func find(nums: Array<Int64>, target: Int64): Int64 {
 /* 扩展数组长度 */
 func `extend`(nums: Array<Int64>, enlarge: Int64): Array<Int64> {
     // 初始化一个扩展长度后的数组
-    let res = Array<Int64>(nums.size + enlarge, item: 0)
+    let res = Array<Int64>(nums.size + enlarge, repeat: 0)
     // 将原数组中的所有元素复制到新数组
     for (i in 0..nums.size) {
         res[i] = nums[i]

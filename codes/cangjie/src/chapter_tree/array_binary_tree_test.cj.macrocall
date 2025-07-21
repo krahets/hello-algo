@@ -1,0 +1,97 @@
+/**
+ * File: array_binary_tree_test.cj
+ * Created Time: 2025-06-25
+ * Author: jan_huber (jan_huber@163.com)
+ */
+
+package cangjie.chapter_tree
+
+import std.unittest.testmacro.*
+import std.unittest.*
+import std.collection.ArrayList
+import cangjie.utils.{TreeNode, PrintUtil}
+
+/* Driver Code */
+/* ===== Emitted by MacroCall @Test in array_binary_tree_test.cj:15:1 ===== */
+/* 15.1 */@Attribute[TEST_GENERATED] class TestCase_array_binary_tree_test <: TestClass {
+/* 15.2 */    init() {
+/* 15.3 */    }
+/* 15.4 */    private func classConfiguration(): Configuration {
+/* 15.5 */        let configuration = Configuration()
+/* 15.6 */        configuration.set(KeyFromTopLevel.fromTopLevel, true)
+/* 15.7 */        
+/* 15.8 */        return configuration
+/* 15.9 */    }
+/* 15.10 */    public override func asTestSuite(): TestSuite {
+/* 15.11 */        
+/* 15.12 */        let suiteConfiguration = classConfiguration()
+/* 15.13 */        let suiteBuilder = TestSuite.builder("TestCase_array_binary_tree_test").configure(suiteConfiguration)
+/* 15.14 */        
+/* 15.15 */        { => let caseConfig = Configuration()
+/* 15.16 */            caseConfig.set(KeyFromTopLevel.fromTopLevel, true)
+/* 15.17 */            
+/* 15.18 */            let array_binary_tree_testTestFunc = { => array_binary_tree_test();() }
+/* 15.19 */            suiteBuilder.add(
+/* 15.20 */            UnitTestCase.create(
+/* 15.21 */            "array_binary_tree_test",
+/* 15.22 */            configuration: caseConfig,
+/* 15.23 */            body: array_binary_tree_testTestFunc
+/* 15.24 */            )
+/* 15.25 */            )
+/* 15.26 */            
+/* 15.27 */        }()
+/* 15.28 */        
+/* 15.29 */        return suiteBuilder.build()
+/* 15.30 */    }
+/* 15.31 */    private func inheritedFromClassAnnotatedByTestTemplate < T >(): TestSuite where T <: TestClass {
+/* 15.32 */        throw Exception("Unreachable code")
+/* 15.33 */    }
+/* 15.34 */}
+/* 15.35 */func array_binary_tree_test() {
+/* 15.36 */    
+/* 15.37 */    
+/* 15.38 */    let arr: Array <?Int64 >=[1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
+/* 15.39 */    
+/* 15.40 */    let root = TreeNode.listToTree(ArrayList <?Int64 >(arr))
+/* 15.41 */    println("\n初始化二叉树\n")
+/* 15.42 */    println("二叉树的数组表示：")
+/* 15.43 */    println(arr)
+/* 15.44 */    println("二叉树的链表表示：")
+/* 15.45 */    PrintUtil.printTree(root)
+/* 15.46 */    
+/* 15.47 */    
+/* 15.48 */    let abt = ArrayBinaryTree(arr)
+/* 15.49 */    
+/* 15.50 */    
+/* 15.51 */    let i = 1
+/* 15.52 */    let l = abt.left(i)
+/* 15.53 */    let r = abt.right(i)
+/* 15.54 */    let p = abt.parent(i)
+/* 15.55 */    println("\n当前节点的索引为 ${i} ，值为 ${abt.val(i)}")
+/* 15.56 */    println("其左子节点的索引为 ${l} ，值为 ${abt.val(l)}")
+/* 15.57 */    println("其右子节点的索引为 ${r} ，值为 ${abt.val(r)}")
+/* 15.58 */    println("其父节点的索引为 ${p} ，值为 ${abt.val(p)}")
+/* 15.59 */    
+/* 15.60 */    
+/* 15.61 */    var res = abt.levelOrder()
+/* 15.62 */    println("\n层序遍历为: ${res}")
+/* 15.63 */    res = abt.preOrder()
+/* 15.64 */    println("前序遍历为: ${res}")
+/* 15.65 */    res = abt.inOrder()
+/* 15.66 */    println("中序遍历为: ${res}")
+/* 15.67 */    res = abt.postOrder()
+/* 15.68 */    println("后序遍历为: ${res}")
+/* 15.69 */}
+/* 15.70 */
+/* 15.71 */
+/* 15.72 */interface TestPackageExtension_TestCase_array_binary_tree_test {
+/* 15.73 */    func registerTestCase_array_binary_tree_test(): Unit
+/* 15.74 */}
+/* 15.75 */extend TestPackage <: TestPackageExtension_TestCase_array_binary_tree_test {
+/* 15.76 */    @Attribute[TEST_REGISTER]
+/* 15.77 */    public func registerTestCase_array_binary_tree_test() {
+/* 15.78 */        registerSuite({ => TestCase_array_binary_tree_test().asTestSuite() })
+/* 15.79 */    }
+/* 15.80 */}
+/* 15.81 */
+/* ===== End of the Emit ===== */

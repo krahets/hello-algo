@@ -3,6 +3,7 @@
  * Created Time: 2025-06-24
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_hashing
 
 import std.collection.ArrayList
@@ -22,7 +23,7 @@ class HashMapChaining {
         this.extendRatio = 2
         buckets = ArrayList<ArrayList<Pair>>(capacity)
         for (i in 0..capacity) {
-            buckets.append(ArrayList<Pair>())
+            buckets.add(ArrayList<Pair>())
         }
     }
 
@@ -67,7 +68,7 @@ class HashMapChaining {
         }
         // 若无该 key ，则将键值对添加至尾部
         let pair = Pair(key, val)
-        bucket.append(pair)
+        bucket.add(pair)
         size++
     }
 
@@ -78,7 +79,7 @@ class HashMapChaining {
         // 遍历桶，从中删除键值对
         for (i in 0..bucket.size) {
             if (bucket[i].key == key) {
-                bucket.remove(i)
+                bucket.remove(at: i)
                 size--
                 break
             }
@@ -93,7 +94,7 @@ class HashMapChaining {
         capacity *= extendRatio
         buckets = ArrayList<ArrayList<Pair>>(capacity)
         for (i in 0..capacity) {
-            buckets.append(ArrayList<Pair>())
+            buckets.add(ArrayList<Pair>())
         }
         size = 0
         // 将键值对从原哈希表搬运至新哈希表
@@ -108,7 +109,7 @@ class HashMapChaining {
         for (bucket in buckets) {
             let res = ArrayList<String>()
             for (pair in bucket) {
-                res.append("${pair.key} -> ${pair.val}")
+                res.add("${pair.key} -> ${pair.val}")
             }
             println(res)
         }

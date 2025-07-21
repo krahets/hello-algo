@@ -3,6 +3,7 @@
  * Created Time: 2025-06-21
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_computational_complexity
 
 /* 常数阶 */

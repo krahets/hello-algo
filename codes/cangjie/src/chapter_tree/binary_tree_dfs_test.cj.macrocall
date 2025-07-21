@@ -1,0 +1,84 @@
+/**
+ * File: binary_tree_dfs_test.cj
+ * Created Time: 2025-06-25
+ * Author: jan_huber (jan_huber@163.com)
+ */
+
+package cangjie.chapter_tree
+
+import std.unittest.testmacro.*
+import std.unittest.*
+import std.collection.ArrayList
+import cangjie.utils.{TreeNode, PrintUtil}
+
+/* Driver Code */
+/* ===== Emitted by MacroCall @Test in binary_tree_dfs_test.cj:15:1 ===== */
+/* 15.1 */@Attribute[TEST_GENERATED] class TestCase_binary_tree_dfs_test <: TestClass {
+/* 15.2 */    init() {
+/* 15.3 */    }
+/* 15.4 */    private func classConfiguration(): Configuration {
+/* 15.5 */        let configuration = Configuration()
+/* 15.6 */        configuration.set(KeyFromTopLevel.fromTopLevel, true)
+/* 15.7 */        
+/* 15.8 */        return configuration
+/* 15.9 */    }
+/* 15.10 */    public override func asTestSuite(): TestSuite {
+/* 15.11 */        
+/* 15.12 */        let suiteConfiguration = classConfiguration()
+/* 15.13 */        let suiteBuilder = TestSuite.builder("TestCase_binary_tree_dfs_test").configure(suiteConfiguration)
+/* 15.14 */        
+/* 15.15 */        { => let caseConfig = Configuration()
+/* 15.16 */            caseConfig.set(KeyFromTopLevel.fromTopLevel, true)
+/* 15.17 */            
+/* 15.18 */            let binary_tree_dfs_testTestFunc = { => binary_tree_dfs_test();() }
+/* 15.19 */            suiteBuilder.add(
+/* 15.20 */            UnitTestCase.create(
+/* 15.21 */            "binary_tree_dfs_test",
+/* 15.22 */            configuration: caseConfig,
+/* 15.23 */            body: binary_tree_dfs_testTestFunc
+/* 15.24 */            )
+/* 15.25 */            )
+/* 15.26 */            
+/* 15.27 */        }()
+/* 15.28 */        
+/* 15.29 */        return suiteBuilder.build()
+/* 15.30 */    }
+/* 15.31 */    private func inheritedFromClassAnnotatedByTestTemplate < T >(): TestSuite where T <: TestClass {
+/* 15.32 */        throw Exception("Unreachable code")
+/* 15.33 */    }
+/* 15.34 */}
+/* 15.35 */func binary_tree_dfs_test() {
+/* 15.36 */    var list = BinaryTreeDfs.list
+/* 15.37 */    
+/* 15.38 */    let root = TreeNode.listToTree(ArrayList <?Int64 >([1, 2, 3, 4, 5, 6, 7]))
+/* 15.39 */    println("\n初始化二叉树\n")
+/* 15.40 */    PrintUtil.printTree(root)
+/* 15.41 */    
+/* 15.42 */    
+/* 15.43 */    list.clear()
+/* 15.44 */    BinaryTreeDfs.preOrder(root)
+/* 15.45 */    println("\n前序遍历的节点打印序列 = ${list}")
+/* 15.46 */    
+/* 15.47 */    
+/* 15.48 */    list.clear()
+/* 15.49 */    BinaryTreeDfs.inOrder(root)
+/* 15.50 */    println("\n中序遍历的节点打印序列 = ${list}")
+/* 15.51 */    
+/* 15.52 */    
+/* 15.53 */    list.clear()
+/* 15.54 */    BinaryTreeDfs.postOrder(root)
+/* 15.55 */    println("\n后序遍历的节点打印序列 = ${list}")
+/* 15.56 */}
+/* 15.57 */
+/* 15.58 */
+/* 15.59 */interface TestPackageExtension_TestCase_binary_tree_dfs_test {
+/* 15.60 */    func registerTestCase_binary_tree_dfs_test(): Unit
+/* 15.61 */}
+/* 15.62 */extend TestPackage <: TestPackageExtension_TestCase_binary_tree_dfs_test {
+/* 15.63 */    @Attribute[TEST_REGISTER]
+/* 15.64 */    public func registerTestCase_binary_tree_dfs_test() {
+/* 15.65 */        registerSuite({ => TestCase_binary_tree_dfs_test().asTestSuite() })
+/* 15.66 */    }
+/* 15.67 */}
+/* 15.68 */
+/* ===== End of the Emit ===== */

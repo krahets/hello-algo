@@ -1,0 +1,92 @@
+/**
+ * File: binary_search_tree_test.cj
+ * Created Time: 2025-06-25
+ * Author: jan_huber (jan_huber@163.com)
+ */
+
+package cangjie.chapter_tree
+
+import std.unittest.testmacro.*
+import std.unittest.*
+import cangjie.utils.PrintUtil
+
+/* Driver Code */
+/* ===== Emitted by MacroCall @Test in binary_search_tree_test.cj:14:1 ===== */
+/* 14.1 */@Attribute[TEST_GENERATED] class TestCase_binary_search_tree_test <: TestClass {
+/* 14.2 */    init() {
+/* 14.3 */    }
+/* 14.4 */    private func classConfiguration(): Configuration {
+/* 14.5 */        let configuration = Configuration()
+/* 14.6 */        configuration.set(KeyFromTopLevel.fromTopLevel, true)
+/* 14.7 */        
+/* 14.8 */        return configuration
+/* 14.9 */    }
+/* 14.10 */    public override func asTestSuite(): TestSuite {
+/* 14.11 */        
+/* 14.12 */        let suiteConfiguration = classConfiguration()
+/* 14.13 */        let suiteBuilder = TestSuite.builder("TestCase_binary_search_tree_test").configure(suiteConfiguration)
+/* 14.14 */        
+/* 14.15 */        { => let caseConfig = Configuration()
+/* 14.16 */            caseConfig.set(KeyFromTopLevel.fromTopLevel, true)
+/* 14.17 */            
+/* 14.18 */            let binary_search_tree_testTestFunc = { => binary_search_tree_test();() }
+/* 14.19 */            suiteBuilder.add(
+/* 14.20 */            UnitTestCase.create(
+/* 14.21 */            "binary_search_tree_test",
+/* 14.22 */            configuration: caseConfig,
+/* 14.23 */            body: binary_search_tree_testTestFunc
+/* 14.24 */            )
+/* 14.25 */            )
+/* 14.26 */            
+/* 14.27 */        }()
+/* 14.28 */        
+/* 14.29 */        return suiteBuilder.build()
+/* 14.30 */    }
+/* 14.31 */    private func inheritedFromClassAnnotatedByTestTemplate < T >(): TestSuite where T <: TestClass {
+/* 14.32 */        throw Exception("Unreachable code")
+/* 14.33 */    }
+/* 14.34 */}
+/* 14.35 */func binary_search_tree_test() {
+/* 14.36 */    
+/* 14.37 */    let bst = BinarySearchTree()
+/* 14.38 */    
+/* 14.39 */    let nums =[8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15]
+/* 14.40 */    for(num in nums) {
+/* 14.41 */        bst.insert(num)
+/* 14.42 */    }
+/* 14.43 */    println("\n初始化的二叉树为\n")
+/* 14.44 */    PrintUtil.printTree(bst.getRoot())
+/* 14.45 */    
+/* 14.46 */    
+/* 14.47 */    let node = bst.search(7)
+/* 14.48 */    println("\n查找到的节点值 = ${node?.val}")
+/* 14.49 */    
+/* 14.50 */    
+/* 14.51 */    bst.insert(16)
+/* 14.52 */    println("\n插入节点 16 后，二叉树为\n")
+/* 14.53 */    PrintUtil.printTree(bst.getRoot())
+/* 14.54 */    
+/* 14.55 */    
+/* 14.56 */    bst.remove(1)
+/* 14.57 */    println("\n删除节点 1 后，二叉树为\n")
+/* 14.58 */    PrintUtil.printTree(bst.getRoot())
+/* 14.59 */    bst.remove(2)
+/* 14.60 */    println("\n删除节点 2 后，二叉树为\n")
+/* 14.61 */    PrintUtil.printTree(bst.getRoot())
+/* 14.62 */    bst.remove(4)
+/* 14.63 */    println("\n删除节点 4 后，二叉树为\n")
+/* 14.64 */    PrintUtil.printTree(bst.getRoot())
+/* 14.65 */}
+/* 14.66 */
+/* 14.67 */
+/* 14.68 */interface TestPackageExtension_TestCase_binary_search_tree_test {
+/* 14.69 */    func registerTestCase_binary_search_tree_test(): Unit
+/* 14.70 */}
+/* 14.71 */extend TestPackage <: TestPackageExtension_TestCase_binary_search_tree_test {
+/* 14.72 */    @Attribute[TEST_REGISTER]
+/* 14.73 */    public func registerTestCase_binary_search_tree_test() {
+/* 14.74 */        registerSuite({ => TestCase_binary_search_tree_test().asTestSuite() })
+/* 14.75 */    }
+/* 14.76 */}
+/* 14.77 */
+/* ===== End of the Emit ===== */

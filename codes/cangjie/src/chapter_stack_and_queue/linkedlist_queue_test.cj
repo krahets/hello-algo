@@ -3,6 +3,7 @@
  * Created Time: 2025-06-24
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.chapter_stack_and_queue
 
 import std.unittest.testmacro.*

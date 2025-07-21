@@ -3,16 +3,21 @@
  * Created Time: 2025-06-23
  * Author: jan_huber (jan_huber@163.com)
  */
+
 package cangjie.utils
 
 import std.collection.ArrayList
 
 /* 二叉树节点类 */
 public class TreeNode {
-    public var val: ?Int64 // 节点值
-    public var height: Int64 // 节点高度
-    public var left: ?TreeNode // 左子节点引用
-    public var right: ?TreeNode // 右子节点引用
+    // 节点值
+    public var val: ?Int64
+    // 节点高度
+    public var height: Int64
+    // 左子节点引用
+    public var left: ?TreeNode
+    // 右子节点引用
+    public var right: ?TreeNode
 
     /* 构造方法 */
     public init(x: ?Int64) {
@@ -58,9 +63,9 @@ public class TreeNode {
     private static func treeToListDFS(root: ?TreeNode, i: Int64, res: ArrayList<?Int64>): Unit {
         ifNone(root, {=> return ()})
         while (i >= res.size) {
-            res.append(None)
+            res.add(None)
         }
-        res.set(i, root?.val ?? None)
+        res.add(root?.val ?? None, at: i)
         treeToListDFS(root?.left ?? None, 2 * i + 1, res)
         treeToListDFS(root?.right ?? None, 2 * i + 2, res)
     }
