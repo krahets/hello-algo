@@ -3,9 +3,9 @@
 // Author: codingonion (coderonion@gmail.com), CreatorMetaSky (creator_meta_sky@163.com)
 
 //! Zig Version: 0.14.1
-//! Zig Build Command:  zig build -Doptimize=ReleaseSafe
-//! Zig Run Command:    zig build run_* -Doptimize=ReleaseSafe
-//! Zig Test Command:   zig build test
+//! Build Command:          zig build
+//! Run Command:            zig build run | zig build run_*
+//! Test Command:           zig build test | zig build test -Dtest-filter=*
 
 const std = @import("std");
 
@@ -14,21 +14,22 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     const chapters = [_][]const u8{
-        "chapter_array_and_linkedlist",
         "chapter_computational_complexity",
-        "chapter_dynamic_programming",
+        "chapter_array_and_linkedlist",
+        "chapter_stack_and_queue",
         "chapter_hashing",
+        "chapter_tree",
         "chapter_heap",
         "chapter_searching",
         "chapter_sorting",
-        "chapter_stack_and_queue",
-        "chapter_tree",
+        "chapter_dynamic_programming",
     };
 
     const test_step = b.step("test", "Run unit tests");
     const test_filters = b.option([]const []const u8, "test-filter", "Skip tests that do not match any filter") orelse &[0][]const u8{};
 
     buildChapterExeModules(b, target, optimize, &chapters, test_step, test_filters);
+    buildMainExeModule(b, target, optimize);
 }
 
 fn buildChapterExeModules(
@@ -64,14 +65,28 @@ fn buildExeModuleFromChapterDirEntry(
     const zig_file_name = chapter_dir_entry.name[0 .. chapter_dir_entry.name.len - 4]; // abstract zig file name from xxx.zig
 
     // 这里临时只添加数组和链表章节部分，后续修改完后全部放开
-    const can_run = std.mem.eql(u8, zig_file_name, "array") or
-        std.mem.eql(u8, zig_file_name, "linked_list") or
-        std.mem.eql(u8, zig_file_name, "list") or
-        std.mem.eql(u8, zig_file_name, "my_list");
+    const new_algo_names = [_][]const u8{
+        "array",
+        "linked_list",
+        "list",
+        "my_list",
+        "iteration",
+        "recursion",
+        "space_complexity",
+        "time_complexity",
+        "worst_best_time_complexity",
+    };
+    var can_run = false;
+    for (new_algo_names) |name| {
+        if (std.mem.eql(u8, zig_file_name, name)) {
+            can_run = true;
+        }
+    }
     if (!can_run) {
         return error.CanNotRunUseOldZigCodes;
     }
-    // std.debug.print("the zig file name = {s}\n", .{zig_file_name});
+
+    // std.debug.print("now run zig file name = {s}\n", .{zig_file_name});
 
     const exe_mod = b.createModule(.{
         .root_source_file = b.path(zig_file_path),
@@ -103,6 +118,37 @@ fn buildExeModuleFromChapterDirEntry(
     return exe_mod;
 }
 
+fn buildMainExeModule(
+    b: *std.Build,
+    target: std.Build.ResolvedTarget,
+    optimize: std.builtin.OptimizeMode,
+) void {
+    const exe_mod = b.createModule(.{
+        .root_source_file = b.path("main.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+
+    const utils_mod = createUtilsModule(b, target, optimize);
+    exe_mod.addImport("utils", utils_mod);
+
+    const exe = b.addExecutable(.{
+        .name = "main",
+        .root_module = exe_mod,
+    });
+
+    b.installArtifact(exe);
+
+    const run_cmd = b.addRunArtifact(exe);
+    run_cmd.step.dependOn(b.getInstallStep());
+    if (b.args) |args| {
+        run_cmd.addArgs(args);
+    }
+
+    const run_step = b.step("run", "Run all hello algo zig");
+    run_step.dependOn(&run_cmd.step);
+}
+
 fn createUtilsModule(b: *std.Build, target: std.Build.ResolvedTarget, optimize: std.builtin.OptimizeMode) *std.Build.Module {
     const utils_mod = b.createModule(.{
         .root_source_file = b.path("utils/utils.zig"),
@@ -117,9 +163,6 @@ fn addTestStepToExeModule(b: *std.Build, test_step: *std.Build.Step, exe_mod: *s
         .root_module = exe_mod,
         .filters = test_filters,
     });
-
-    const utils_mod = createUtilsModule(b, exe_unit_tests.root_module.resolved_target.?, exe_unit_tests.root_module.optimize.?);
-    exe_unit_tests.root_module.addImport("utils", utils_mod);
 
     const run_exe_unit_tests = b.addRunArtifact(exe_unit_tests);
     test_step.dependOn(&run_exe_unit_tests.step);

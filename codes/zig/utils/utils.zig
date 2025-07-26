@@ -5,3 +5,4 @@
 const std = @import("std");
 pub const fmt = @import("format.zig");
 pub const ListNode = @import("ListNode.zig").ListNode;
+pub const TreeNode = @import("TreeNode.zig").TreeNode;

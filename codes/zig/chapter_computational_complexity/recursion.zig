@@ -1,7 +1,7 @@
 // File: recursion.zig
 // Created Time: 2023-09-27
-// Author: QiLOL (pikaqqpika@gmail.com)
- 
+// Author: QiLOL (pikaqqpika@gmail.com), CreatorMetaSky (creator_meta_sky@163.com)
+
 const std = @import("std");
 
 // 递归函数
@@ -11,7 +11,7 @@ fn recur(n: i32) i32 {
         return 1;
     }
     // 递：递归调用
-    var res: i32 = recur(n - 1);
+    const res = recur(n - 1);
     // 归：返回结果
     return n + res;
 }
@@ -54,25 +54,35 @@ fn fib(n: i32) i32 {
         return n - 1;
     }
     // 递归调用 f(n) = f(n-1) + f(n-2)
-    var res: i32 = fib(n - 1) + fib(n - 2);
+    const res: i32 = fib(n - 1) + fib(n - 2);
     // 返回结果 f(n)
     return res;
 }
 
 // Driver Code
-pub fn main() !void {
+pub fn run() void {
     const n: i32 = 5;
     var res: i32 = 0;
 
     res = recur(n);
-    std.debug.print("\n递归函数的求和结果 res = {}\n", .{recur(n)});
+    std.debug.print("递归函数的求和结果 res = {}\n", .{recur(n)});
 
     res = forLoopRecur(n);
-    std.debug.print("\n使用迭代模拟递归的求和结果 res = {}\n", .{forLoopRecur(n)});
+    std.debug.print("使用迭代模拟递归的求和结果 res = {}\n", .{forLoopRecur(n)});
 
     res = tailRecur(n, 0);
-    std.debug.print("\n尾递归函数的求和结果 res = {}\n", .{tailRecur(n, 0)});
+    std.debug.print("尾递归函数的求和结果 res = {}\n", .{tailRecur(n, 0)});
 
     res = fib(n);
-    std.debug.print("\n斐波那契数列的第 {} 项为 {}\n", .{n, fib(n)});
+    std.debug.print("斐波那契数列的第 {} 项为 {}\n", .{ n, fib(n) });
+
+    std.debug.print("\n", .{});
+}
+
+pub fn main() void {
+    run();
+}
+
+test "recursion" {
+    run();
 }

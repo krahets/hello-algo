@@ -4,16 +4,17 @@
 
 const std = @import("std");
 const utils = @import("utils");
+const ListNode = utils.ListNode;
 
 // 在链表的节点 n0 之后插入节点 P
-pub fn insert(comptime T: type, n0: *utils.ListNode(T), P: *utils.ListNode(T)) void {
+pub fn insert(comptime T: type, n0: *ListNode(T), P: *ListNode(T)) void {
     const n1 = n0.next;
     P.next = n1;
     n0.next = P;
 }
 
 // 删除链表的节点 n0 之后的首个节点
-pub fn remove(comptime T: type, n0: *utils.ListNode(T)) void {
+pub fn remove(comptime T: type, n0: *ListNode(T)) void {
     // n0 -> P -> n1 => n0 -> n1
     const P = n0.next;
     const n1 = P.?.next;
@@ -21,8 +22,8 @@ pub fn remove(comptime T: type, n0: *utils.ListNode(T)) void {
 }
 
 // 访问链表中索引为 index 的节点
-pub fn access(comptime T: type, node: *utils.ListNode(T), index: i32) ?*utils.ListNode(T) {
-    var head: ?*utils.ListNode(T) = node;
+pub fn access(comptime T: type, node: *ListNode(T), index: i32) ?*ListNode(T) {
+    var head: ?*ListNode(T) = node;
     var i: i32 = 0;
     while (i < index) : (i += 1) {
         if (head) |cur| {
@@ -35,8 +36,8 @@ pub fn access(comptime T: type, node: *utils.ListNode(T), index: i32) ?*utils.Li
 }
 
 // 在链表中查找值为 target 的首个节点
-pub fn find(comptime T: type, node: *utils.ListNode(T), target: T) i32 {
-    var head: ?*utils.ListNode(T) = node;
+pub fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
+    var head: ?*ListNode(T) = node;
     var index: i32 = 0;
     while (head) |cur| {
         if (cur.val == target) return index;
@@ -49,11 +50,11 @@ pub fn find(comptime T: type, node: *utils.ListNode(T), target: T) i32 {
 // Driver Code
 pub fn run() void {
     // 初始化各个节点
-    var n0 = utils.ListNode(i32){ .val = 1 };
-    var n1 = utils.ListNode(i32){ .val = 3 };
-    var n2 = utils.ListNode(i32){ .val = 2 };
-    var n3 = utils.ListNode(i32){ .val = 5 };
-    var n4 = utils.ListNode(i32){ .val = 4 };
+    var n0 = ListNode(i32){ .val = 1 };
+    var n1 = ListNode(i32){ .val = 3 };
+    var n2 = ListNode(i32){ .val = 2 };
+    var n3 = ListNode(i32){ .val = 5 };
+    var n4 = ListNode(i32){ .val = 4 };
     // 构建节点之间的引用
     n0.next = &n1;
     n1.next = &n2;
@@ -65,7 +66,7 @@ pub fn run() void {
     );
 
     // 插入节点
-    var tmp = utils.ListNode(i32){ .val = 0 };
+    var tmp = ListNode(i32){ .val = 0 };
     insert(i32, &n0, &tmp);
     std.debug.print(
         "插入节点后的链表为 {}\n",
@@ -92,12 +93,14 @@ pub fn run() void {
         "链表中值为 2 的节点的索引 = {}\n",
         .{index},
     );
+
+    std.debug.print("\n", .{});
 }
 
 pub fn main() void {
     run();
 }
 
-test "linked list" {
+test "linked_list" {
     run();
 }

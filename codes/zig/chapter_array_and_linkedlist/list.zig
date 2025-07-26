@@ -65,12 +65,14 @@ pub fn run() !void {
     // 排序列表
     std.mem.sort(i32, nums.items, {}, comptime std.sort.asc(i32));
     std.debug.print("排序列表后 nums = {}\n", .{utils.fmt.slice(nums.items)});
+
+    std.debug.print("\n", .{});
 }
 
 pub fn main() !void {
     try run();
 }
 
-test "array list" {
+test "list" {
     try run();
 }

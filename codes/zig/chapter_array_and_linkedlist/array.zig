@@ -3,18 +3,14 @@
 // Author: codingonion (coderonion@gmail.com), CreatorMetaSky (creator_meta_sky@163.com)
 
 const std = @import("std");
-// const utils = @import("utils");
-const utils = if (@import("builtin").is_test)
-    @import("../utils/utils.zig")
-else
-    @import("utils");
+const utils = @import("utils");
 
 // 随机访问元素
 pub fn randomAccess(nums: []const i32) i32 {
     // 在区间 [0, nums.len) 中随机抽取一个整数
-    const randomIndex = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
+    const random_index = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
     // 获取并返回随机元素
-    const randomNum = nums[randomIndex];
+    const randomNum = nums[random_index];
     return randomNum;
 }
 
@@ -122,12 +118,14 @@ pub fn run() !void {
     // 查找元素
     const index = find(nums, 3);
     std.debug.print("在 nums 中查找元素 3 ，得到索引 = {}\n", .{index});
+
+    std.debug.print("\n", .{});
 }
 
-pub fn main() !void { // todo: - debug it
+pub fn main() !void {
     try run();
 }
 
-test "basic array" { // todo: - 精确匹配
+test "array" {
     try run();
 }
