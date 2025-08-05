@@ -1,9 +1,9 @@
 // File: worst_best_time_complexity.zig
 // Created Time: 2022-12-28
-// Author: codingonion (coderonion@gmail.com)
+// Author: codingonion (coderonion@gmail.com), CreatorMetaSky (creator_meta_sky@163.com)
 
 const std = @import("std");
-const inc = @import("include");
+const utils = @import("utils");
 
 // 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
 pub fn randomNumbers(comptime n: usize) [n]i32 {
@@ -29,17 +29,25 @@ pub fn findOne(nums: []i32) i32 {
 }
 
 // Driver Code
-pub fn main() !void {
+pub fn run() void {
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
         const n: usize = 100;
         var nums = randomNumbers(n);
-        var index = findOne(&nums);
-        std.debug.print("\n数组 [ 1, 2, ..., n ] 被打乱后 = ", .{});
-        inc.PrintUtil.printArray(i32, &nums);
+        const index = findOne(&nums);
+        std.debug.print("数组 [ 1, 2, ..., n ] 被打乱后 = ", .{});
+        std.debug.print("{}\n", .{utils.fmt.slice(nums)});
+
         std.debug.print("数字 1 的索引为 {}\n", .{index});
     }
 
-    _ = try std.io.getStdIn().reader().readByte();
+    std.debug.print("\n", .{});
 }
 
+pub fn main() !void {
+    run();
+}
+
+test "worst_best_time_complexity" {
+    run();
+}
