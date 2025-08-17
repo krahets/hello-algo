@@ -1,6 +1,0 @@
-add_executable(hash_map hash_map.cpp)
-add_executable(array_hash_map_test array_hash_map_test.cpp)
-add_executable(hash_map_chaining hash_map_chaining.cpp)
-add_executable(hash_map_open_addressing hash_map_open_addressing.cpp)
-add_executable(simple_hash simple_hash.cpp)
-add_executable(built_in_hash built_in_hash.cpp)
