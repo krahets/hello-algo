@@ -1,4 +1,0 @@
-add_executable(array_hash_map array_hash_map.c)
-add_executable(hash_map_chaining hash_map_chaining.c)
-add_executable(hash_map_open_addressing hash_map_open_addressing.c)
-add_executable(simple_hash simple_hash.c)
