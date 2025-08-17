@@ -1,5 +1,0 @@
-add_executable(graph_bfs graph_bfs.cpp)
-add_executable(graph_dfs graph_dfs.cpp)
-# add_executable(graph_adjacency_list graph_adjacency_list.cpp)
-add_executable(graph_adjacency_list_test graph_adjacency_list_test.cpp)
-add_executable(graph_adjacency_matrix graph_adjacency_matrix.cpp)
