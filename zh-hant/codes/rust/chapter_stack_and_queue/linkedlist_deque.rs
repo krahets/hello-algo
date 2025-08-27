@@ -50,11 +50,11 @@ impl<T: Copy> LinkedListDeque<T> {
 
     /* 判斷雙向佇列是否為空 */
     pub fn is_empty(&self) -> bool {
-        return self.size() == 0;
+        return self.que_size == 0;
     }
 
     /* 入列操作 */
-    pub fn push(&mut self, num: T, is_front: bool) {
+    fn push(&mut self, num: T, is_front: bool) {
         let node = ListNode::new(num);
         // 佇列首入列操作
         if is_front {
@@ -102,7 +102,7 @@ impl<T: Copy> LinkedListDeque<T> {
     }
 
     /* 出列操作 */
-    pub fn pop(&mut self, is_front: bool) -> Option<T> {
+    fn pop(&mut self, is_front: bool) -> Option<T> {
         // 若佇列為空，直接返回 None
         if self.is_empty() {
             return None;
