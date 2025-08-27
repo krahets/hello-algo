@@ -1,9 +1,11 @@
 // File: space_complexity.zig
 // Created Time: 2023-01-07
-// Author: codingonion (coderonion@gmail.com)
+// Author: codingonion (coderonion@gmail.com), CreatorMetaSky (creator_meta_sky@163.com)
 
 const std = @import("std");
-const inc = @import("include");
+const utils = @import("utils");
+const ListNode = utils.ListNode;
+const TreeNode = utils.TreeNode;
 
 // 函数
 fn function() i32 {
@@ -15,13 +17,13 @@ fn function() i32 {
 fn constant(n: i32) void {
     // 常量、变量、对象占用 O(1) 空间
     const a: i32 = 0;
-    var b: i32 = 0;
-    var nums = [_]i32{0}**10000;
-    var node = inc.ListNode(i32){.val = 0};
+    const b: i32 = 0;
+    const nums = [_]i32{0} ** 10000;
+    const node = ListNode(i32){ .val = 0 };
     var i: i32 = 0;
     // 循环中的变量占用 O(1) 空间
     while (i < n) : (i += 1) {
-        var c: i32 = 0;
+        const c: i32 = 0;
         _ = c;
     }
     // 循环中的函数占用 O(1) 空间
@@ -38,7 +40,7 @@ fn constant(n: i32) void {
 // 线性阶
 fn linear(comptime n: i32) !void {
     // 长度为 n 的数组占用 O(n) 空间
-    var nums = [_]i32{0}**n;
+    const nums = [_]i32{0} ** n;
     // 长度为 n 的列表占用 O(n) 空间
     var nodes = std.ArrayList(i32).init(std.heap.page_allocator);
     defer nodes.deinit();
@@ -85,23 +87,35 @@ fn quadratic(n: i32) !void {
 // 平方阶（递归实现）
 fn quadraticRecur(comptime n: i32) i32 {
     if (n <= 0) return 0;
-    var nums = [_]i32{0}**n;
-    std.debug.print("递归 n = {} 中的 nums 长度 = {}\n", .{n, nums.len});
+    const nums = [_]i32{0} ** n;
+    std.debug.print("递归 n = {} 中的 nums 长度 = {}\n", .{ n, nums.len });
     return quadraticRecur(n - 1);
 }
 
 // 指数阶（建立满二叉树）
-fn buildTree(mem_allocator: std.mem.Allocator, n: i32) !?*inc.TreeNode(i32) {
+fn buildTree(allocator: std.mem.Allocator, n: i32) !?*TreeNode(i32) {
     if (n == 0) return null;
-    const root = try mem_allocator.create(inc.TreeNode(i32));
+    const root = try allocator.create(TreeNode(i32));
     root.init(0);
-    root.left = try buildTree(mem_allocator, n - 1);
-    root.right = try buildTree(mem_allocator, n - 1);
+    root.left = try buildTree(allocator, n - 1);
+    root.right = try buildTree(allocator, n - 1);
     return root;
 }
 
+// 释放树的内存
+fn freeTree(allocator: std.mem.Allocator, root: ?*const TreeNode(i32)) void {
+    if (root == null) return;
+    freeTree(allocator, root.?.left);
+    freeTree(allocator, root.?.right);
+    allocator.destroy(root.?);
+}
+
 // Driver Code
-pub fn main() !void {
+pub fn run() !void {
+    var gpa = std.heap.DebugAllocator(.{}){};
+    defer _ = gpa.deinit();
+    const allocator = gpa.allocator();
+
     const n: i32 = 5;
     // 常数阶
     constant(n);
@@ -112,13 +126,17 @@ pub fn main() !void {
     try quadratic(n);
     _ = quadraticRecur(n);
     // 指数阶
-    var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
-    defer mem_arena.deinit();
-    var root = blk_root: {
-        const mem_allocator = mem_arena.allocator();
-        break :blk_root try buildTree(mem_allocator, n);
-    };
-    try inc.PrintUtil.printTree(root, null, false);
+    const root = try buildTree(allocator, n);
+    defer freeTree(allocator, root);
+    std.debug.print("{}\n", .{utils.fmt.tree(i32, root)});
 
-    _ = try std.io.getStdIn().reader().readByte();
+    std.debug.print("\n", .{});
+}
+
+pub fn main() !void {
+    try run();
+}
+
+test "space_complexity" {
+    try run();
 }
