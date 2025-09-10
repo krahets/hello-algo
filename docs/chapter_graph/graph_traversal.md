@@ -324,8 +324,7 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
         let mut que = VecDeque::new();
         que.push_back(start_vet);
         // 以顶点 vet 为起点，循环直至访问完所有顶点
-        while !que.is_empty() {
-            let vet = que.pop_front().unwrap(); // 队首顶点出队
+        while let Some(vet) = que.pop_front() {
             res.push(vet); // 记录访问顶点
 
             // 遍历该顶点的所有邻接顶点

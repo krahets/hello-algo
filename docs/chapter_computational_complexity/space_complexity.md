@@ -1208,13 +1208,13 @@ $$
     fn constant(n: i32) void {
         // 常量、变量、对象占用 O(1) 空间
         const a: i32 = 0;
-        var b: i32 = 0;
-        var nums = [_]i32{0}**10000;
-        var node = inc.ListNode(i32){.val = 0};
+        const b: i32 = 0;
+        const nums = [_]i32{0} ** 10000;
+        const node = ListNode(i32){ .val = 0 };
         var i: i32 = 0;
         // 循环中的变量占用 O(1) 空间
         while (i < n) : (i += 1) {
-            var c: i32 = 0;
+            const c: i32 = 0;
             _ = c;
         }
         // 循环中的函数占用 O(1) 空间
@@ -1513,7 +1513,7 @@ $$
     // 线性阶
     fn linear(comptime n: i32) !void {
         // 长度为 n 的数组占用 O(n) 空间
-        var nums = [_]i32{0}**n;
+        const nums = [_]i32{0} ** n;
         // 长度为 n 的列表占用 O(n) 空间
         var nodes = std.ArrayList(i32).init(std.heap.page_allocator);
         defer nodes.deinit();
@@ -2146,8 +2146,8 @@ $$
     // 平方阶（递归实现）
     fn quadraticRecur(comptime n: i32) i32 {
         if (n <= 0) return 0;
-        var nums = [_]i32{0}**n;
-        std.debug.print("递归 n = {} 中的 nums 长度 = {}\n", .{n, nums.len});
+        const nums = [_]i32{0} ** n;
+        std.debug.print("递归 n = {} 中的 nums 长度 = {}\n", .{ n, nums.len });
         return quadraticRecur(n - 1);
     }
     ```
@@ -2350,12 +2350,12 @@ $$
 
     ```zig title="space_complexity.zig"
     // 指数阶（建立满二叉树）
-    fn buildTree(mem_allocator: std.mem.Allocator, n: i32) !?*inc.TreeNode(i32) {
+    fn buildTree(allocator: std.mem.Allocator, n: i32) !?*TreeNode(i32) {
         if (n == 0) return null;
-        const root = try mem_allocator.create(inc.TreeNode(i32));
+        const root = try allocator.create(TreeNode(i32));
         root.init(0);
-        root.left = try buildTree(mem_allocator, n - 1);
-        root.right = try buildTree(mem_allocator, n - 1);
+        root.left = try buildTree(allocator, n - 1);
+        root.right = try buildTree(allocator, n - 1);
         return root;
     }
     ```

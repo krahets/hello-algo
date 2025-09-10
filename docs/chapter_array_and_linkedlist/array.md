@@ -21,7 +21,7 @@ comments: true
     ```python title="array.py"
     # 初始化数组
     arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums: list[int] = [1, 3, 2, 5, 4]  
+    nums: list[int] = [1, 3, 2, 5, 4]
     ```
 
 === "C++"
@@ -136,8 +136,8 @@ comments: true
 
     ```zig title="array.zig"
     // 初始化数组
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
+    const arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
+    const nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
 ??? pythontutor "可视化运行"
@@ -330,11 +330,11 @@ comments: true
 
     ```zig title="array.zig"
     // 随机访问元素
-    fn randomAccess(nums: []i32) i32 {
+    fn randomAccess(nums: []const i32) i32 {
         // 在区间 [0, nums.len) 中随机抽取一个整数
-        var randomIndex = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
+        const random_index = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
         // 获取并返回随机元素
-        var randomNum = nums[randomIndex];
+        const randomNum = nums[random_index];
         return randomNum;
     }
     ```
@@ -984,16 +984,24 @@ comments: true
 
     ```zig title="array.zig"
     // 遍历数组
-    fn traverse(nums: []i32) void {
+    fn traverse(nums: []const i32) void {
         var count: i32 = 0;
+
         // 通过索引遍历数组
-        var i: i32 = 0;
+        var i: usize = 0;
         while (i < nums.len) : (i += 1) {
             count += nums[i];
         }
-        count = 0;
+
         // 直接遍历数组元素
+        count = 0;
         for (nums) |num| {
+            count += num;
+        }
+
+        // 同时遍历数据索引和元素
+        for (nums, 0..) |num, index| {
+            count += nums[index];
             count += num;
         }
     }
@@ -1427,12 +1435,14 @@ comments: true
 
     ```zig title="array.zig"
     // 扩展数组长度
-    fn extend(mem_allocator: std.mem.Allocator, nums: []i32, enlarge: usize) ![]i32 {
+    fn extend(allocator: std.mem.Allocator, nums: []const i32, enlarge: usize) ![]i32 {
         // 初始化一个扩展长度后的数组
-        var res = try mem_allocator.alloc(i32, nums.len + enlarge);
+        const res = try allocator.alloc(i32, nums.len + enlarge);
         @memset(res, 0);
+
         // 将原数组中的所有元素复制到新数组
-        std.mem.copy(i32, res, nums);
+        std.mem.copyForwards(i32, res, nums);
+
         // 返回扩展后的新数组
         return res;
     }

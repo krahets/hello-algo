@@ -324,8 +324,7 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
         let mut que = VecDeque::new();
         que.push_back(start_vet);
         // 以頂點 vet 為起點，迴圈直至訪問完所有頂點
-        while !que.is_empty() {
-            let vet = que.pop_front().unwrap(); // 佇列首頂點出隊
+        while let Some(vet) = que.pop_front() {
             res.push(vet); // 記錄訪問頂點
 
             // 走訪該頂點的所有鄰接頂點

@@ -205,11 +205,11 @@ comments: true
     fn forLoop(n: usize) i32 {
         var res: i32 = 0;
         // 循环求和 1, 2, ..., n-1, n
-        for (1..n+1) |i| {
-            res = res + @as(i32, @intCast(i));
+        for (1..n + 1) |i| {
+            res += @intCast(i);
         }
         return res;
-    } 
+    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -450,9 +450,8 @@ comments: true
         var res: i32 = 0;
         var i: i32 = 1; // 初始化条件变量
         // 循环求和 1, 2, ..., n-1, n
-        while (i <= n) {
+        while (i <= n) : (i += 1) {
             res += @intCast(i);
-            i += 1;
         }
         return res;
     }
@@ -711,11 +710,12 @@ comments: true
         var res: i32 = 0;
         var i: i32 = 1; // 初始化条件变量
         // 循环求和 1, 4, 10, ...
-        while (i <= n) {
-            res += @intCast(i);
+        while (i <= n) : ({
             // 更新条件变量
             i += 1;
             i *= 2;
+        }) {
+            res += @intCast(i);
         }
         return res;
     }
@@ -965,11 +965,11 @@ comments: true
         defer res.deinit();
         var buffer: [20]u8 = undefined;
         // 循环 i = 1, 2, ..., n-1, n
-        for (1..n+1) |i| {
+        for (1..n + 1) |i| {
             // 循环 j = 1, 2, ..., n-1, n
-            for (1..n+1) |j| {
-                var _str = try std.fmt.bufPrint(&buffer, "({d}, {d}), ", .{i, j});
-                try res.appendSlice(_str);
+            for (1..n + 1) |j| {
+                const str = try std.fmt.bufPrint(&buffer, "({d}, {d}), ", .{ i, j });
+                try res.appendSlice(str);
             }
         }
         return res.toOwnedSlice();
@@ -1209,7 +1209,7 @@ comments: true
             return 1;
         }
         // 递：递归调用
-        var res: i32 = recur(n - 1);
+        const res = recur(n - 1);
         // 归：返回结果
         return n + res;
     }
@@ -1678,7 +1678,7 @@ comments: true
             return n - 1;
         }
         // 递归调用 f(n) = f(n-1) + f(n-2)
-        var res: i32 = fib(n - 1) + fib(n - 2);
+        const res: i32 = fib(n - 1) + fib(n - 2);
         // 返回结果 f(n)
         return res;
     }

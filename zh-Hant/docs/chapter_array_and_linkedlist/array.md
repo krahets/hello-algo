@@ -21,7 +21,7 @@ comments: true
     ```python title="array.py"
     # 初始化陣列
     arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums: list[int] = [1, 3, 2, 5, 4]  
+    nums: list[int] = [1, 3, 2, 5, 4]
     ```
 
 === "C++"
@@ -136,8 +136,8 @@ comments: true
 
     ```zig title="array.zig"
     // 初始化陣列
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
+    const arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
+    const nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
 ??? pythontutor "視覺化執行"
@@ -330,11 +330,11 @@ comments: true
 
     ```zig title="array.zig"
     // 隨機訪問元素
-    fn randomAccess(nums: []i32) i32 {
+    fn randomAccess(nums: []const i32) i32 {
         // 在區間 [0, nums.len) 中隨機抽取一個整數
-        var randomIndex = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
+        const random_index = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
         // 獲取並返回隨機元素
-        var randomNum = nums[randomIndex];
+        const randomNum = nums[random_index];
         return randomNum;
     }
     ```
@@ -984,16 +984,24 @@ comments: true
 
     ```zig title="array.zig"
     // 走訪陣列
-    fn traverse(nums: []i32) void {
+    fn traverse(nums: []const i32) void {
         var count: i32 = 0;
+
         // 透過索引走訪陣列
-        var i: i32 = 0;
+        var i: usize = 0;
         while (i < nums.len) : (i += 1) {
             count += nums[i];
         }
-        count = 0;
+
         // 直接走訪陣列元素
+        count = 0;
         for (nums) |num| {
+            count += num;
+        }
+
+        // 同時走訪資料索引和元素
+        for (nums, 0..) |num, index| {
+            count += nums[index];
             count += num;
         }
     }
@@ -1427,12 +1435,14 @@ comments: true
 
     ```zig title="array.zig"
     // 擴展陣列長度
-    fn extend(mem_allocator: std.mem.Allocator, nums: []i32, enlarge: usize) ![]i32 {
+    fn extend(allocator: std.mem.Allocator, nums: []const i32, enlarge: usize) ![]i32 {
         // 初始化一個擴展長度後的陣列
-        var res = try mem_allocator.alloc(i32, nums.len + enlarge);
+        const res = try allocator.alloc(i32, nums.len + enlarge);
         @memset(res, 0);
+
         // 將原陣列中的所有元素複製到新陣列
-        std.mem.copy(i32, res, nums);
+        std.mem.copyForwards(i32, res, nums);
+
         // 返回擴展後的新陣列
         return res;
     }

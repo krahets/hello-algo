@@ -1275,7 +1275,7 @@ $$
         var count: i32 = 0;
         const size: i32 = 100_000;
         var i: i32 = 0;
-        while(i<size) : (i += 1) {
+        while (i < size) : (i += 1) {
             count += 1;
         }
         return count;
@@ -2215,7 +2215,7 @@ $$
     ```zig title="time_complexity.zig"
     // 平方阶（冒泡排序）
     fn bubbleSort(nums: []i32) i32 {
-        var count: i32 = 0;  // 计数器 
+        var count: i32 = 0; // 计数器
         // 外循环：未排序区间为 [0, i]
         var i: i32 = @as(i32, @intCast(nums.len)) - 1;
         while (i > 0) : (i -= 1) {
@@ -2224,10 +2224,10 @@ $$
             while (j < i) : (j += 1) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
-                    var tmp = nums[j];
+                    const tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3;  // 元素交换包含 3 个单元操作
+                    count += 3; // 元素交换包含 3 个单元操作
                 }
             }
         }
@@ -2870,11 +2870,9 @@ $$
     // 对数阶（循环实现）
     fn logarithmic(n: i32) i32 {
         var count: i32 = 0;
-        var n_var = n;
-        while (n_var > 1)
-        {
-            n_var = n_var / 2;
-            count +=1;
+        var n_var: i32 = n;
+        while (n_var > 1) : (n_var = @divTrunc(n_var, 2)) {
+            count += 1;
         }
         return count;
     }
@@ -3037,7 +3035,7 @@ $$
     // 对数阶（递归实现）
     fn logRecur(n: i32) i32 {
         if (n <= 1) return 0;
-        return logRecur(n / 2) + 1;
+        return logRecur(@divTrunc(n, 2)) + 1;
     }
     ```
 
@@ -3261,7 +3259,7 @@ $$
     // 线性对数阶
     fn linearLogRecur(n: i32) i32 {
         if (n <= 1) return 1;
-        var count: i32 = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+        var count: i32 = linearLogRecur(@divTrunc(n, 2)) + linearLogRecur(@divTrunc(n, 2));
         var i: i32 = 0;
         while (i < n) : (i += 1) {
             count += 1;

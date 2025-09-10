@@ -621,10 +621,10 @@ comments: true
 
     ```zig title="linked_list.zig"
     // 在链表的节点 n0 之后插入节点 P
-    fn insert(n0: ?*inc.ListNode(i32), P: ?*inc.ListNode(i32)) void {
-        var n1 = n0.?.next;
-        P.?.next = n1;
-        n0.?.next = P;
+    fn insert(comptime T: type, n0: *ListNode(T), P: *ListNode(T)) void {
+        const n1 = n0.next;
+        P.next = n1;
+        n0.next = P;
     }
     ```
 
@@ -835,12 +835,11 @@ comments: true
 
     ```zig title="linked_list.zig"
     // 删除链表的节点 n0 之后的首个节点
-    fn remove(n0: ?*inc.ListNode(i32)) void {
-        if (n0.?.next == null) return;
-        // n0 -> P -> n1
-        var P = n0.?.next;
-        var n1 = P.?.next;
-        n0.?.next = n1;
+    fn remove(comptime T: type, n0: *ListNode(T)) void {
+        // n0 -> P -> n1 => n0 -> n1
+        const P = n0.next;
+        const n1 = P.?.next;
+        n0.next = n1;
     }
     ```
 
@@ -1052,12 +1051,15 @@ comments: true
 
     ```zig title="linked_list.zig"
     // 访问链表中索引为 index 的节点
-    fn access(node: ?*inc.ListNode(i32), index: i32) ?*inc.ListNode(i32) {
-        var head = node;
+    fn access(comptime T: type, node: *ListNode(T), index: i32) ?*ListNode(T) {
+        var head: ?*ListNode(T) = node;
         var i: i32 = 0;
         while (i < index) : (i += 1) {
-            head = head.?.next;
-            if (head == null) return null;
+            if (head) |cur| {
+                head = cur.next;
+            } else {
+                return null;
+            }
         }
         return head;
     }
@@ -1293,12 +1295,12 @@ comments: true
 
     ```zig title="linked_list.zig"
     // 在链表中查找值为 target 的首个节点
-    fn find(node: ?*inc.ListNode(i32), target: i32) i32 {
-        var head = node;
+    fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
+        var head: ?*ListNode(T) = node;
         var index: i32 = 0;
-        while (head != null) {
-            if (head.?.val == target) return index;
-            head = head.?.next;
+        while (head) |cur| {
+            if (cur.val == target) return index;
+            head = cur.next;
             index += 1;
         }
         return -1;
