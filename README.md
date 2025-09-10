@@ -69,7 +69,7 @@
 
 <p align="left">
   <a href="go.warp.dev/hello-algo">
-    <img src="https://www.hello-algo.com/assets/sponsors/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500" style="border-radius:15px;"></a>
+    <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500" style="border-radius:15px;"></a>
 </p>
 
 <p align="left">
