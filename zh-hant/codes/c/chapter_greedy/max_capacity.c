@@ -12,7 +12,7 @@ int myMin(int a, int b) {
 }
 /* 求最大值 */
 int myMax(int a, int b) {
-    return a < b ? a : b;
+    return a > b ? a : b;
 }
 
 /* 最大容量：貪婪 */
