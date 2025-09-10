@@ -65,6 +65,19 @@
 >
 > **—— 李沐，亚马逊资深首席科学家**
 
+## 致谢
+
+<p align="left">
+  <a href="go.warp.dev/hello-algo">
+    <img src="https://www.hello-algo.com/assets/sponsors/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500" style="border-radius:15px;"></a>
+</p>
+
+<p align="left">
+  <a href="go.warp.dev/hello-algo">Warp is built for coding with multiple AI agents.</a>
+</p>
+
+推荐您使用 Warp 终端应用，颜值高、AI 体验佳。
+
 ## 贡献
 
 本开源书仍在持续更新之中，欢迎您参与本项目，一同为读者提供更优质的学习内容。
