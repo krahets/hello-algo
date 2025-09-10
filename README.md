@@ -68,12 +68,12 @@
 ## 致谢
 
 <p align="left">
-  <a href="go.warp.dev/hello-algo">
+  <a href="https://go.warp.dev/hello-algo">
     <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500" style="border-radius:15px;"></a>
 </p>
 
 <p align="left">
-  <a href="go.warp.dev/hello-algo">Warp is built for coding with multiple AI agents.</a>
+  <a href="https://go.warp.dev/hello-algo">Warp is built for coding with multiple AI agents.</a>
 </p>
 
 推荐您使用 Warp 终端应用，颜值高、AI 体验佳。
