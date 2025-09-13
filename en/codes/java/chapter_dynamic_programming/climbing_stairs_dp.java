@@ -40,9 +40,9 @@ public class climbing_stairs_dp {
         int n = 9;
 
         int res = climbingStairsDP(n);
-        System.out.println(String.format("There are %d solutions to climb %d stairs", n, res));
+        System.out.println(String.format("There are %d solutions to climb %d stairs", res, n));
 
         res = climbingStairsDPComp(n);
-        System.out.println(String.format("There are %d solutions to climb %d stairs", n, res));
+        System.out.println(String.format("There are %d solutions to climb %d stairs", res, n));
     }
 }

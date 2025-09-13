@@ -36,6 +36,6 @@ public class climbing_stairs_dfs_mem {
         int n = 9;
 
         int res = climbingStairsDFSMem(n);
-        System.out.println(String.format("There are %d solutions to climb %d stairs", n, res));
+        System.out.println(String.format("There are %d solutions to climb %d stairs", res, n));
     }
 }
