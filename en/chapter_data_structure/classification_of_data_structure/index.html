@@ -3587,7 +3587,7 @@
 <p><strong>The logical structures reveal the logical relationships between data elements</strong>. In arrays and linked lists, data are arranged in a specific sequence, demonstrating the linear relationship between data; while in trees, data are arranged hierarchically from the top down, showing the derived relationship between "ancestors" and "descendants"; and graphs are composed of nodes and edges, reflecting the intricate network relationship.</p>
 <p>As shown in Figure 3-1, logical structures can be divided into two major categories: "linear" and "non-linear". Linear structures are more intuitive, indicating data is arranged linearly in logical relationships; non-linear structures, conversely, are arranged non-linearly.</p>
 <ul>
-<li><strong>Linear data structures</strong>: Arrays, Linked Lists, Stacks, Queues, Hash Tables.</li>
+<li><strong>Linear data structures</strong>: Arrays, Linked Lists, Stacks, Queues, Hash Tables, where elements have a one-to-one sequential relationship.</li>
 <li><strong>Non-linear data structures</strong>: Trees, Heaps, Graphs, Hash Tables.</li>
 </ul>
 <p>Non-linear data structures can be further divided into tree structures and network structures.</p>
@@ -3608,7 +3608,7 @@
 <p class="admonition-title">Tip</p>
 <p>It's worth noting that comparing memory to an Excel spreadsheet is a simplified analogy. The actual working mechanism of memory is more complex, involving concepts like address space, memory management, cache mechanisms, virtual memory, and physical memory.</p>
 </div>
-<p>Memory is a shared resource for all programs. When a block of memory is occupied by one program, it cannot be simultaneously used by other programs. <strong>Therefore, considering memory resources is crucial in designing data structures and algorithms</strong>. For instance, the algorithm's peak memory usage should not exceed the remaining free memory of the system; if there is a lack of contiguous memory blocks, then the data structure chosen must be able to be stored in non-contiguous memory blocks.</p>
+<p>Memory is a shared resource for all programs. When a block of memory is occupied by one program, it cannot be simultaneously used by other programs. <strong>Therefore, memory resources are an important consideration in the design of data structures and algorithms</strong>. For instance, the algorithm's peak memory usage should not exceed the remaining free memory of the system; if there is a lack of contiguous memory blocks, then the data structure chosen must be able to be stored in non-contiguous memory blocks.</p>
 <p>As illustrated in Figure 3-3, <strong>the physical structure reflects the way data is stored in computer memory</strong> and it can be divided into contiguous space storage (arrays) and non-contiguous space storage (linked lists). The two types of physical structures exhibit complementary characteristics in terms of time efficiency and space efficiency.</p>
 <p><a class="glightbox" href="../classification_of_data_structure.assets/classification_phisical_structure.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Contiguous space storage and dispersed space storage" class="animation-figure" src="../classification_of_data_structure.assets/classification_phisical_structure.png" /></a></p>
 <p align="center"> Figure 3-3 &nbsp; Contiguous space storage and dispersed space storage </p>
