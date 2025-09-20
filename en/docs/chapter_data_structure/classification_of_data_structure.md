@@ -8,7 +8,7 @@ Common data structures include arrays, linked lists, stacks, queues, hash tables
 
 As shown in the figure below, logical structures can be divided into two major categories: "linear" and "non-linear". Linear structures are more intuitive, indicating data is arranged linearly in logical relationships; non-linear structures, conversely, are arranged non-linearly.
 
-- **Linear data structures**: Arrays, Linked Lists, Stacks, Queues, Hash Tables.
+- **Linear data structures**: Arrays, Linked Lists, Stacks, Queues, Hash Tables, where elements have a one-to-one sequential relationship.
 - **Non-linear data structures**: Trees, Heaps, Graphs, Hash Tables.
 
 Non-linear data structures can be further divided into tree structures and network structures.
@@ -30,7 +30,7 @@ Non-linear data structures can be further divided into tree structures and netwo
 
     It's worth noting that comparing memory to an Excel spreadsheet is a simplified analogy. The actual working mechanism of memory is more complex, involving concepts like address space, memory management, cache mechanisms, virtual memory, and physical memory.
 
-Memory is a shared resource for all programs. When a block of memory is occupied by one program, it cannot be simultaneously used by other programs. **Therefore, considering memory resources is crucial in designing data structures and algorithms**. For instance, the algorithm's peak memory usage should not exceed the remaining free memory of the system; if there is a lack of contiguous memory blocks, then the data structure chosen must be able to be stored in non-contiguous memory blocks.
+Memory is a shared resource for all programs. When a block of memory is occupied by one program, it cannot be simultaneously used by other programs. **Therefore, memory resources are an important consideration in the design of data structures and algorithms**. For instance, the algorithm's peak memory usage should not exceed the remaining free memory of the system; if there is a lack of contiguous memory blocks, then the data structure chosen must be able to be stored in non-contiguous memory blocks.
 
 As illustrated in the figure below, **the physical structure reflects the way data is stored in computer memory** and it can be divided into contiguous space storage (arrays) and non-contiguous space storage (linked lists). The two types of physical structures exhibit complementary characteristics in terms of time efficiency and space efficiency.
 
