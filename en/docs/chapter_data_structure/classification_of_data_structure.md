@@ -8,7 +8,7 @@ Common data structures include arrays, linked lists, stacks, queues, hash tables
 
 As shown in the figure below, logical structures can be divided into two major categories: "linear" and "non-linear". Linear structures are more intuitive, indicating data is arranged linearly in logical relationships; non-linear structures, conversely, are arranged non-linearly.
 
-- **Linear data structures**: Arrays, Linked Lists, Stacks, Queues, Hash Tables, where elements have a one-to-one sequential relationship
+- **Linear data structures**: Arrays, Linked Lists, Stacks, Queues, Hash Tables, where elements have a one-to-one sequential relationship.
 - **Non-linear data structures**: Trees, Heaps, Graphs, Hash Tables.
 
 Non-linear data structures can be further divided into tree structures and network structures.
@@ -45,4 +45,4 @@ Data structures implemented based on arrays are also called “Static Data Struc
 
 !!! tip
 
-    If you find it challenging to comprehend the physical structure, it is recommended that you read the next chapter, "[Arrays and Linked Lists](./en/docs/chapter_array_and_linkedlist)," and revisit this section later.
+    If you find it challenging to comprehend the physical structure, it is recommended that you read the next chapter, "Arrays and Linked Lists," and revisit this section later.
