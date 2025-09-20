@@ -571,7 +571,7 @@ comments: true
 輸入一個 `key` ，雜湊函式的計算過程分為以下兩步。
 
 1. 透過某種雜湊演算法 `hash()` 計算得到雜湊值。
-2. 將雜湊值對桶數量（陣列長度）`capacity` 取模，從而獲取該 `key` 對應的陣列索引 `index` 。
+2. 將雜湊值對桶數量（陣列長度）`capacity` 取模，從而獲取該 `key` 對應的桶（陣列索引）`index` 。
 
 ```shell
 index = hash(key) % capacity
@@ -610,7 +610,7 @@ index = hash(key) % capacity
             index = key % 100
             return index
 
-        def get(self, key: int) -> str:
+        def get(self, key: int) -> str | None:
             """查詢操作"""
             index: int = self.hash_func(key)
             pair: Pair = self.buckets[index]
@@ -619,7 +619,7 @@ index = hash(key) % capacity
             return pair.val
 
         def put(self, key: int, val: str):
-            """新增操作"""
+            """新增和更新操作"""
             pair = Pair(key, val)
             index: int = self.hash_func(key)
             self.buckets[index] = pair

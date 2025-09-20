@@ -571,7 +571,7 @@ comments: true
 输入一个 `key` ，哈希函数的计算过程分为以下两步。
 
 1. 通过某种哈希算法 `hash()` 计算得到哈希值。
-2. 将哈希值对桶数量（数组长度）`capacity` 取模，从而获取该 `key` 对应的数组索引 `index` 。
+2. 将哈希值对桶数量（数组长度）`capacity` 取模，从而获取该 `key` 对应的桶（数组索引）`index` 。
 
 ```shell
 index = hash(key) % capacity
@@ -610,7 +610,7 @@ index = hash(key) % capacity
             index = key % 100
             return index
 
-        def get(self, key: int) -> str:
+        def get(self, key: int) -> str | None:
             """查询操作"""
             index: int = self.hash_func(key)
             pair: Pair = self.buckets[index]
@@ -619,7 +619,7 @@ index = hash(key) % capacity
             return pair.val
 
         def put(self, key: int, val: str):
-            """添加操作"""
+            """添加和更新操作"""
             pair = Pair(key, val)
             index: int = self.hash_func(key)
             self.buckets[index] = pair
