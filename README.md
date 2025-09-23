@@ -68,11 +68,11 @@
 ## 鸣谢
 
 <p align="left">
-  <a href="https://www.warp.dev/?utm_source=github&utm_medium=influencer&utm_campaign=hello-algo">
+  <a href="https://go.warp.dev/hello-algo">
     <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500"></a>
 </p>
 
-[Warp is built for coding with multiple AI agents.](https://www.warp.dev/?utm_source=github&utm_medium=influencer&utm_campaign=hello-algo)
+[Warp is built for coding with multiple AI agents.](https://go.warp.dev/hello-algo)
 
 强烈推荐 Warp 终端，高颜值 + 好用的 AI，体验非常棒！
 
