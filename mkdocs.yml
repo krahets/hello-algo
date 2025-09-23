@@ -77,6 +77,9 @@ extra:
     - name: English
       link: /en/
       lang: en
+    - name: 日本語
+      link: /ja/
+      lang: ja
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/krahets
