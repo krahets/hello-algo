@@ -11,7 +11,7 @@ use std::collections::HashMap;
 /* 基於鄰接表實現的無向圖型別 */
 pub struct GraphAdjList {
     // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
-    pub adj_list: HashMap<Vertex, Vec<Vertex>>,
+    pub adj_list: HashMap<Vertex, Vec<Vertex>>, // maybe HashSet<Vertex> for value part is better?
 }
 
 impl GraphAdjList {
@@ -38,31 +38,27 @@ impl GraphAdjList {
 
     /* 新增邊 */
     pub fn add_edge(&mut self, vet1: Vertex, vet2: Vertex) {
-        if !self.adj_list.contains_key(&vet1) || !self.adj_list.contains_key(&vet2) || vet1 == vet2
-        {
+        if vet1 == vet2 {
             panic!("value error");
         }
         // 新增邊 vet1 - vet2
-        self.adj_list.get_mut(&vet1).unwrap().push(vet2);
-        self.adj_list.get_mut(&vet2).unwrap().push(vet1);
+        self.adj_list.entry(vet1).or_default().push(vet2);
+        self.adj_list.entry(vet2).or_default().push(vet1);
     }
 
     /* 刪除邊 */
     #[allow(unused)]
     pub fn remove_edge(&mut self, vet1: Vertex, vet2: Vertex) {
-        if !self.adj_list.contains_key(&vet1) || !self.adj_list.contains_key(&vet2) || vet1 == vet2
-        {
+        if vet1 == vet2 {
             panic!("value error");
         }
         // 刪除邊 vet1 - vet2
         self.adj_list
-            .get_mut(&vet1)
-            .unwrap()
-            .retain(|&vet| vet != vet2);
+            .entry(vet1)
+            .and_modify(|v| v.retain(|&e| e != vet2));
         self.adj_list
-            .get_mut(&vet2)
-            .unwrap()
-            .retain(|&vet| vet != vet1);
+            .entry(vet2)
+            .and_modify(|v| v.retain(|&e| e != vet1));
     }
 
     /* 新增頂點 */
@@ -77,9 +73,6 @@ impl GraphAdjList {
     /* 刪除頂點 */
     #[allow(unused)]
     pub fn remove_vertex(&mut self, vet: Vertex) {
-        if !self.adj_list.contains_key(&vet) {
-            panic!("value error");
-        }
         // 在鄰接表中刪除頂點 vet 對應的鏈結串列
         self.adj_list.remove(&vet);
         // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊

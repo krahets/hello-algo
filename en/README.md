@@ -63,6 +63,15 @@ If you find this book helpful, please give it a Star :star: to support us, thank
 >
 > **—— Mu Li, Senior Principal Scientist, Amazon**
 
+## Special thanks
+
+<p align="left">
+  <a href="https://www.warp.dev/?utm_source=github&utm_medium=influencer&utm_campaign=hello-algo">
+    <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500"></a>
+</p>
+
+[Warp is built for coding with multiple AI agents.](https://www.warp.dev/?utm_source=github&utm_medium=influencer&utm_campaign=hello-algo)
+
 ## Contributing
 
 > [!Important]
