@@ -65,18 +65,16 @@
 >
 > **—— 李沐，亚马逊资深首席科学家**
 
-## 致谢
+## 鸣谢
 
 <p align="left">
-  <a href="https://go.warp.dev/hello-algo">
-    <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500" style="border-radius:15px;"></a>
+  <a href="https://www.warp.dev/?utm_source=github&utm_medium=influencer&utm_campaign=hello-algo">
+    <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500"></a>
 </p>
 
-<p align="left">
-  <a href="https://go.warp.dev/hello-algo">Warp is built for coding with multiple AI agents.</a>
-</p>
+[Warp is built for coding with multiple AI agents.](https://www.warp.dev/?utm_source=github&utm_medium=influencer&utm_campaign=hello-algo)
 
-推荐您使用 Warp 终端应用，颜值高、AI 体验佳。
+强烈推荐 Warp 终端，高颜值 + 好用的 AI，体验非常棒！
 
 ## 贡献
 
