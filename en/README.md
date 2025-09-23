@@ -41,6 +41,8 @@
   <a href="https://github.com/krahets/hello-algo/blob/main/zh-hant/README.md">繁體中文</a>
   ｜
   English
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/ja/README.md">日本語</a>
 </p>
 
 ## The book
