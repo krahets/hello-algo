@@ -73,7 +73,16 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/(chapter_(.+)/)?(.+)\\.assets/(.+)\\.(png|jpg|svg|gif|webp|ico)",
+            "source": "(/en|/zh-hant)?/chapter_(.+)/(.+)\\.assets/(.+)\\.(png|jpg|svg|gif|webp|ico)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=2592000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "(/en|/zh-hant)?/(.+)\\.assets/(.+)\\.(png|jpg|svg|gif|webp|ico)",
             "headers": [
                 {
                     "key": "Cache-Control",
