@@ -73,7 +73,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/chapter_(.+)/(.+).assets/(.+).(png|jpg|svg|gif|webp|ico)",
+            "source": "(/en|/zh-hant)?/chapter_(.+)/(.+).assets/(.+)\\.(png|jpg|svg|gif|webp|ico)",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -82,7 +82,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/(.+.)?assets/(hero|covers|avatar|)/(.+).(png|jpg|svg|gif|webp)",
+            "source": "(/en|/zh-hant)?/(index\\.)?assets/(hero/|covers/|avatar/)?(.+)\\.(png|jpg|svg|gif|webp)",
             "headers": [
                 {
                     "key": "Cache-Control",
