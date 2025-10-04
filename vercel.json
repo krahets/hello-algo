@@ -82,11 +82,11 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/assets/(hero|covers|avatar|)/(.+)\\.(png|jpg|svg|gif|webp|ico)",
+            "source": "(/en|/zh-hant)?/assets/(hero|covers|avatar)/(.+)\\.(png|jpg|svg|gif|webp|ico)",
             "headers": [
                 {
                     "key": "Cache-Control",
-                    "value": "public, max-age=604800, immutable"
+                    "value": "public, max-age=2592000, immutable"
                 }
             ]
         },
