@@ -1,0 +1,180 @@
+# Config inheritance
+INHERIT: ../mkdocs.yml
+
+# Project information
+site_name: Hello アルゴリズム
+site_url: https://www.hello-algo.com/ja/
+site_description: "アニメーションで図解、ワンクリック実行のデータ構造とアルゴリズムチュートリアル"
+docs_dir: ../build/ja/docs
+site_dir: ../site/ja
+# Repository
+edit_uri: tree/main/ja/docs
+version: 1.0.0
+
+# Configuration
+theme:
+  custom_dir: ../build/overrides
+  language: ja
+  font:
+    text: Noto Sans JP
+    code: Fira Code
+  palette:
+    - scheme: default
+      primary: white
+      accent: teal
+      toggle:
+        icon: material/theme-light-dark
+        name: ダークモード
+    - scheme: slate
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/theme-light-dark
+        name: ライトモード
+
+extra:
+  status:
+    new: 最近追加
+
+# Page tree
+nav:
+  - はじめに:
+    - chapter_hello_algo/index.md
+  - 第 0 章 &nbsp; 前書き:
+    # [icon: material/book-open-outline]
+    - chapter_preface/index.md
+    - 0.1 &nbsp; この本について: chapter_preface/about_the_book.md
+    - 0.2 &nbsp; 本書の使い方: chapter_preface/suggestions.md
+    - 0.3 &nbsp; まとめ: chapter_preface/summary.md
+  - 第 1 章 &nbsp; アルゴリズムとの出会い:
+    # [icon: material/calculator-variant-outline]
+    - chapter_introduction/index.md
+    - 1.1 &nbsp; アルゴリズムはどこにでもある: chapter_introduction/algorithms_are_everywhere.md
+    - 1.2 &nbsp; アルゴリズムとは何か: chapter_introduction/what_is_dsa.md
+    - 1.3 &nbsp; まとめ: chapter_introduction/summary.md
+  - 第 2 章 &nbsp; 計算量解析:
+    # [icon: material/timer-sand]
+    - chapter_computational_complexity/index.md
+    - 2.1 &nbsp; アルゴリズム効率評価: chapter_computational_complexity/performance_evaluation.md
+    - 2.2 &nbsp; 反復と再帰: chapter_computational_complexity/iteration_and_recursion.md
+    - 2.3 &nbsp; 時間計算量: chapter_computational_complexity/time_complexity.md
+    - 2.4 &nbsp; 空間計算量: chapter_computational_complexity/space_complexity.md
+    - 2.5 &nbsp; まとめ: chapter_computational_complexity/summary.md
+  - 第 3 章 &nbsp; データ構造:
+    # [icon: material/shape-outline]
+    - chapter_data_structure/index.md
+    - 3.1 &nbsp; データ構造の分類: chapter_data_structure/classification_of_data_structure.md
+    - 3.2 &nbsp; 基本データ型: chapter_data_structure/basic_data_types.md
+    - 3.3 &nbsp; 数値エンコーディング *: chapter_data_structure/number_encoding.md
+    - 3.4 &nbsp; 文字エンコーディング *: chapter_data_structure/character_encoding.md
+    - 3.5 &nbsp; まとめ: chapter_data_structure/summary.md
+  - 第 4 章 &nbsp; 配列と連結リスト:
+    # [icon: material/view-list-outline]
+    - chapter_array_and_linkedlist/index.md
+    - 4.1 &nbsp; 配列: chapter_array_and_linkedlist/array.md
+    - 4.2 &nbsp; 連結リスト: chapter_array_and_linkedlist/linked_list.md
+    - 4.3 &nbsp; リスト: chapter_array_and_linkedlist/list.md
+    - 4.4 &nbsp; メモリとキャッシュ *: chapter_array_and_linkedlist/ram_and_cache.md
+    - 4.5 &nbsp; まとめ: chapter_array_and_linkedlist/summary.md
+  - 第 5 章 &nbsp; スタックとキュー:
+    # [icon: material/stack-overflow]
+    - chapter_stack_and_queue/index.md
+    - 5.1 &nbsp; スタック: chapter_stack_and_queue/stack.md
+    - 5.2 &nbsp; キュー: chapter_stack_and_queue/queue.md
+    - 5.3 &nbsp; 両端キュー: chapter_stack_and_queue/deque.md
+    - 5.4 &nbsp; まとめ: chapter_stack_and_queue/summary.md
+  - 第 6 章 &nbsp; ハッシュ表:
+    # [icon: material/table-search]
+    - chapter_hashing/index.md
+    - 6.1 &nbsp; ハッシュ表: chapter_hashing/hash_map.md
+    - 6.2 &nbsp; ハッシュ衝突: chapter_hashing/hash_collision.md
+    - 6.3 &nbsp; ハッシュアルゴリズム: chapter_hashing/hash_algorithm.md
+    - 6.4 &nbsp; まとめ: chapter_hashing/summary.md
+  - 第 7 章 &nbsp; 木:
+    # [icon: material/graph-outline]
+    - chapter_tree/index.md
+    - 7.1 &nbsp; 二分木: chapter_tree/binary_tree.md
+    - 7.2 &nbsp; 二分木の走査: chapter_tree/binary_tree_traversal.md
+    - 7.3 &nbsp; 木の配列表現: chapter_tree/array_representation_of_tree.md
+    - 7.4 &nbsp; 二分探索木: chapter_tree/binary_search_tree.md
+    - 7.5 &nbsp; AVL木 *: chapter_tree/avl_tree.md
+    - 7.6 &nbsp; まとめ: chapter_tree/summary.md
+  - 第 8 章 &nbsp; ヒープ:
+    # [icon: material/family-tree]
+    - chapter_heap/index.md
+    - 8.1 &nbsp; ヒープ: chapter_heap/heap.md
+    - 8.2 &nbsp; ヒープの構築: chapter_heap/build_heap.md
+    - 8.3 &nbsp; Top-k問題: chapter_heap/top_k.md
+    - 8.4 &nbsp; まとめ: chapter_heap/summary.md
+  - 第 9 章 &nbsp; グラフ:
+    # [icon: material/graphql]
+    - chapter_graph/index.md
+    - 9.1 &nbsp; グラフ: chapter_graph/graph.md
+    - 9.2 &nbsp; グラフの基本操作: chapter_graph/graph_operations.md
+    - 9.3 &nbsp; グラフの走査: chapter_graph/graph_traversal.md
+    - 9.4 &nbsp; まとめ: chapter_graph/summary.md
+  - 第 10 章 &nbsp; 探索:
+    # [icon: material/text-search]
+    - chapter_searching/index.md
+    - 10.1 &nbsp; 二分探索: chapter_searching/binary_search.md
+    - 10.2 &nbsp; 二分探索挿入点: chapter_searching/binary_search_insertion.md
+    - 10.3 &nbsp; 二分探索の境界: chapter_searching/binary_search_edge.md
+    - 10.4 &nbsp; ハッシュ最適化戦略: chapter_searching/replace_linear_by_hashing.md
+    - 10.5 &nbsp; 探索アルゴリズム再考: chapter_searching/searching_algorithm_revisited.md
+    - 10.6 &nbsp; まとめ: chapter_searching/summary.md
+  - 第 11 章 &nbsp; ソート:
+    # [icon: material/sort-ascending]
+    - chapter_sorting/index.md
+    - 11.1 &nbsp; ソートアルゴリズム: chapter_sorting/sorting_algorithm.md
+    - 11.2 &nbsp; 選択ソート: chapter_sorting/selection_sort.md
+    - 11.3 &nbsp; バブルソート: chapter_sorting/bubble_sort.md
+    - 11.4 &nbsp; 挿入ソート: chapter_sorting/insertion_sort.md
+    - 11.5 &nbsp; クイックソート: chapter_sorting/quick_sort.md
+    - 11.6 &nbsp; マージソート: chapter_sorting/merge_sort.md
+    - 11.7 &nbsp; ヒープソート: chapter_sorting/heap_sort.md
+    - 11.8 &nbsp; バケットソート: chapter_sorting/bucket_sort.md
+    - 11.9 &nbsp; 計数ソート: chapter_sorting/counting_sort.md
+    - 11.10 &nbsp; 基数ソート: chapter_sorting/radix_sort.md
+    - 11.11 &nbsp; まとめ: chapter_sorting/summary.md
+  - 第 12 章 &nbsp; 分割統治:
+    # [icon: material/set-split]
+    - chapter_divide_and_conquer/index.md
+    - 12.1 &nbsp; 分割統治アルゴリズム: chapter_divide_and_conquer/divide_and_conquer.md
+    - 12.2 &nbsp; 分割統治探索戦略: chapter_divide_and_conquer/binary_search_recur.md
+    - 12.3 &nbsp; 二分木構築問題: chapter_divide_and_conquer/build_binary_tree_problem.md
+    - 12.4 &nbsp; ハノイの塔問題: chapter_divide_and_conquer/hanota_problem.md
+    - 12.5 &nbsp; まとめ: chapter_divide_and_conquer/summary.md
+  - 第 13 章 &nbsp; バックトラッキング:
+    # [icon: material/map-marker-path]
+    - chapter_backtracking/index.md
+    - 13.1 &nbsp; バックトラッキングアルゴリズム: chapter_backtracking/backtracking_algorithm.md
+    - 13.2 &nbsp; 順列問題: chapter_backtracking/permutations_problem.md
+    - 13.3 &nbsp; 部分集合和問題: chapter_backtracking/subset_sum_problem.md
+    - 13.4 &nbsp; Nクイーン問題: chapter_backtracking/n_queens_problem.md
+    - 13.5 &nbsp; まとめ: chapter_backtracking/summary.md
+  - 第 14 章 &nbsp; 動的プログラミング:
+    # [icon: material/table-pivot]
+    - chapter_dynamic_programming/index.md
+    - 14.1 &nbsp; 動的プログラミング入門: chapter_dynamic_programming/intro_to_dynamic_programming.md
+    - 14.2 &nbsp; DP問題の特性: chapter_dynamic_programming/dp_problem_features.md
+    - 14.3 &nbsp; DP問題解決アプローチ: chapter_dynamic_programming/dp_solution_pipeline.md
+    - 14.4 &nbsp; 0-1ナップサック問題: chapter_dynamic_programming/knapsack_problem.md
+    - 14.5 &nbsp; 無制限ナップサック問題: chapter_dynamic_programming/unbounded_knapsack_problem.md
+    - 14.6 &nbsp; 編集距離問題: chapter_dynamic_programming/edit_distance_problem.md
+    - 14.7 &nbsp; まとめ: chapter_dynamic_programming/summary.md
+  - 第 15 章 &nbsp; 貪欲法:
+    # [icon: material/head-heart-outline]
+    - chapter_greedy/index.md
+    - 15.1 &nbsp; 貪欲アルゴリズム: chapter_greedy/greedy_algorithm.md
+    - 15.2 &nbsp; 分数ナップサック問題: chapter_greedy/fractional_knapsack_problem.md
+    - 15.3 &nbsp; 最大容量問題: chapter_greedy/max_capacity_problem.md
+    - 15.4 &nbsp; 最大積切断問題: chapter_greedy/max_product_cutting_problem.md
+    - 15.5 &nbsp; まとめ: chapter_greedy/summary.md
+  - 第 16 章 &nbsp; 付録:
+    # [icon: material/help-circle-outline]
+    - chapter_appendix/index.md
+    - 16.1 &nbsp; プログラミング環境のインストール: chapter_appendix/installation.md
+    - 16.2 &nbsp; 一緒に創作に参加: chapter_appendix/contribution.md
+    - 16.3 &nbsp; 用語集: chapter_appendix/terminology.md
+  - 参考文献:
+    - chapter_reference/index.md
