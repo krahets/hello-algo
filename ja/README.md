@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Roboto&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo!" alt="hello-algo-typing-svg" />
+  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Noto+Sans+JP&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello,+%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0+!" alt="hello-algo-typing-svg" />
   </br>
   アニメーションで図解、ワンクリック実行のデータ構造とアルゴリズム入門講座
 </p>
@@ -61,22 +61,31 @@
 >
 > **—— 鄧俊輝教授、清華大学コンピュータサイエンス技術学部**
 
-> 「データ構造とアルゴリズムを学んでいたときに『Hello Algo』があったなら、10倍簡単だったでしょう！」
+> 「データ構造とアルゴリズムを学んでいたときに『Hello Algo』があったなら、10 倍簡単だったでしょう！」
 >
 > **—— Mu Li、Amazon シニアプリンシパルサイエンティスト**
+
+## 特別な感謝
+
+<p align="left">
+  <a href="https://go.warp.dev/hello-algo">
+    <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500"></a>
+</p>
+
+[Warp は複数の AI エージェントと共にコーディングするために構築されています。](https://go.warp.dev/hello-algo)
 
 ## 貢献
 
 > [!Important]
 >
-> 英語から日本語への翻訳への貢献を歓迎します！詳細は[CONTRIBUTING.md](CONTRIBUTING.md)をご覧ください。
+> 日本語版の翻訳作業へのご参加を歓迎します！詳細は[CONTRIBUTING.md](CONTRIBUTING.md)をご覧ください。
 
 このオープンソースブックは継続的に更新されており、読者により良い学習コンテンツを提供するため、このプロジェクトへの参加を歓迎します。
 
 - [内容の修正](https://www.hello-algo.com/ja/chapter_appendix/contribution/): 文法エラー、内容の欠落、曖昧さ、無効なリンク、コードのバグなど、コメントセクションで間違いを修正したり指摘したりしてください。
-- [コードの移植](https://github.com/krahets/hello-algo/issues/15): さまざまなプログラミング言語でのご貢献をお待ちしています。現在、Python、Java、C++、Go、JavaScriptを含む12言語をサポートしています。
+- [コードの移植](https://github.com/krahets/hello-algo/issues/15): さまざまなプログラミング言語でのご貢献をお待ちしています。現在、Python、Java、C++、Go、JavaScript を含む 12 言語をサポートしています。
 
-貴重なご提案とフィードバックを歓迎します。ご質問がある場合は、Issuesを提出するか、WeChat: `krahets-jyd`でお問い合わせください。
+貴重なご提案とフィードバックを歓迎します。ご質問がある場合は、Issues を提出するか、WeChat: `krahets-jyd`でお問い合わせください。
 
 この本のすべての貢献者に感謝を捧げたいと思います。彼らの無私の献身により、この本がより良いものになりました。貢献者の皆様：
 
@@ -88,4 +97,4 @@
 
 ## ライセンス
 
-このリポジトリ内のテキスト、コード、画像、写真、動画は[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)の下でライセンスされています。
+このリポジトリ内のテキスト、コード、画像、写真、動画は [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) の下でライセンスされています。
