@@ -16,10 +16,10 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20.x
+          node-version: 24.x
       - name: Install dependencies
         run: cd codes/typescript && npm install
       - name: Check TypeScript code
