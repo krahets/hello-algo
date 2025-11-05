@@ -99,25 +99,27 @@ pub fn LinkedListDeque(comptime T: type) type {
         pub fn pop(self: *Self, is_front: bool) T {
             if (self.isEmpty()) @panic("双向队列为空");
             var val: T = undefined;
+            // 队列长度为 1 时, 头尾指向同一节点
+            if (self.que_size == 1) {
+                val = self.front.?.val;
+                self.front = null;
+                self.rear = null;
+            }
             // 队首出队操作
-            if (is_front) {
+            else if (is_front) {
                 val = self.front.?.val;     // 暂存头节点值
                 // 删除头节点
                 var fNext = self.front.?.next;
-                if (fNext != null) {
-                    fNext.?.prev = null;
-                    self.front.?.next = null;
-                }
+                fNext.?.prev = null;
+                self.front.?.next = null;
                 self.front = fNext;         // 更新头节点
             // 队尾出队操作
             } else {
                 val = self.rear.?.val;      // 暂存尾节点值
                 // 删除尾节点
                 var rPrev = self.rear.?.prev;
-                if (rPrev != null) {
-                    rPrev.?.next = null;
-                    self.rear.?.prev = null;
-                }
+                rPrev.?.next = null;
+                self.rear.?.prev = null;
                 self.rear = rPrev;          // 更新尾节点
             }
             self.que_size -= 1;              // 更新队列长度
