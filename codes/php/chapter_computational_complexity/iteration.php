@@ -1,11 +1,11 @@
 <?php
 /**
- * File: iteration.js
+ * File: iteration.php
  * Created Time: 2025-11-06
  * Author: Leo Mu (whatissrc@gmail.com)
  */
 
-namespace app\Controller\chapter_computational_complexity;
+namespace chapter_computational_complexity;
 
 class Iteration
 {
@@ -61,22 +61,18 @@ class Iteration
         }
         return $res;
     }
-
-    /* Driver Code */
-    public static function main()
-    {
-        $n = 5;
-        
-        $res = self::forLoop($n);
-        echo "\nfor 循环的求和结果 res = " . $res . "\n";
-
-        $res = self::whileLoop($n);
-        echo "\nwhile 循环的求和结果 res = " . $res . "\n";
-
-        $res = self::whileLoopII($n);
-        echo "\nwhile 循环（两次更新）求和结果 res = " . $res . "\n";
-
-        $resStr = self::nestedForLoop($n);
-        echo "\n双层 for 循环的遍历结果 " . $resStr . "\n";
-    }
 }
+/* Driver Code */
+$n = 5;
+
+$res = Iteration::forLoop($n);
+echo "\nfor 循环的求和结果 res = " . $res . "\n";
+
+$res = Iteration::whileLoop($n);
+echo "\nwhile 循环的求和结果 res = " . $res . "\n";
+
+$res = Iteration::whileLoopII($n);
+echo "\nwhile 循环（两次更新）求和结果 res = " . $res . "\n";
+
+$resStr = Iteration::nestedForLoop($n);
+echo "\n双层 for 循环的遍历结果 " . $resStr . "\n";
