@@ -1,4 +1,4 @@
--- @module list_node
+-- @classmod list_node
 -- @date 2025-11-10
 -- @author fisheryv (yue.fisher2025@gdhfi.com)
 

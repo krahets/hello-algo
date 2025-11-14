@@ -98,14 +98,14 @@ end
 --- @param hmap table 字典表
 function print_util.print_dict(hmap)
     for key, value in pairs(hmap) do
-        print(key, "->", value)
+        print(string.format("%s -> %s", tostring(key), tostring(value)))
     end
 end
 
 --- 打印堆
 --- @param heap table 堆数组
 function print_util.print_heap(heap)
-    print("堆的数组表示：", table.concat(heap, " "))
+    print("堆的数组表示：[" .. table.concat(heap, " ") .. "]")
     print("堆的树状表示：")
     local root = tree_node.list_to_tree(heap)
     print_util.print_tree(root, nil, false)

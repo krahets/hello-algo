@@ -1,4 +1,4 @@
--- @module tree_node
+-- @classmod tree_node
 -- @date 2025-11-10
 -- @author fisheryv (yue.fisher2025@gdhfi.com)
 
@@ -45,8 +45,8 @@ end
 --- @param i integer 当前索引（从1开始）
 --- @return TreeNode|nil 二叉树根节点
 local function list_to_tree_dfs(arr, i)
-    -- 如果索引超出数组长度，或者对应的元素为nil，则返回nil
-    if i < 1 or i > #arr or arr[i] == nil then
+    -- 如果索引超出数组长度，或者对应的元素为nil|math.huge，则返回nil
+    if i < 1 or i > #arr or arr[i] == nil or arr[i] == math.huge then
         return nil
     end
     -- 构建当前节点
@@ -60,7 +60,7 @@ end
 --- 将列表反序列化为二叉树
 --- @param arr table 输入数组
 --- @return TreeNode|nil 二叉树根节点
-function TreeNode.list_to_tree(arr)
+local function list_to_tree(arr)
     return list_to_tree_dfs(arr, 1)
 end
 
@@ -85,12 +85,14 @@ end
 --- 将二叉树序列化为列表
 --- @param root TreeNode 二叉树根节点
 --- @return table 序列化后的数组
-function TreeNode.tree_to_list(root)
+local function tree_to_list(root)
     local res = {}
     tree_to_list_dfs(root, 1, res)
     return res
 end
 
 return {
-    TreeNode = TreeNode
+    TreeNode = TreeNode,
+    list_to_tree = list_to_tree,
+    tree_to_list = tree_to_list,
 }

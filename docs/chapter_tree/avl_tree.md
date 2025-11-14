@@ -234,6 +234,32 @@ AVL 树既是二叉搜索树，也是平衡二叉树，同时满足这两类二�
 
     ```
 
+=== "Lua"
+
+    ```lua title=""
+    --- @class TreeNode
+    --- AVL 树节点类
+    --- @field val number 节点值
+    --- @field height number 节点高度
+    --- @field left TreeNode|nil 左子节点引用
+    --- @field right TreeNode|nil 右子节点引用
+    local TreeNode = {}
+    TreeNode.__index = TreeNode
+
+    --- 构造函数
+    --- @param val number 节点值
+    --- @return TreeNode 新节点实例
+    function TreeNode.new(val)
+        local obj = {}
+        setmetatable(obj, TreeNode)
+        obj.val = val or 0 -- 节点值
+        obj.height = 0     -- 节点高度
+        obj.left = nil     -- 左子节点引用
+        obj.right = nil    -- 右子节点引用
+        return obj
+    end
+    ```
+
 “节点高度”是指从该节点到它的最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 $0$ ，而空节点的高度为 $-1$ 。我们将创建两个工具函数，分别用于获取和更新节点的高度：
 
 ```src
