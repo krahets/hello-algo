@@ -14,7 +14,7 @@ local list_node = require("list_node")
 function print_util.print_matrix(mat)
     local s = {}
     for i, arr in ipairs(mat) do
-        s[i] = "  " .. table.concat(arr, " ")
+        s[i] = "  [" .. table.concat(arr, ", ") .. "]"
     end
     print("[\n" .. table.concat(s, ",\n") .. "\n]")
 end
