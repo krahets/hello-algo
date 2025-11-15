@@ -1,4 +1,4 @@
--- @file linked_list.lua
+-- @script linked_list.lua
 -- @date 2025-11-11
 -- @author fisheryv (yue.fisher2025@gdhfi.com)
 

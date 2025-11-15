@@ -127,4 +127,5 @@ local function main()
     print_util.print_tree(root, nil, false)
 end
 
+-- 执行主函数
 main()

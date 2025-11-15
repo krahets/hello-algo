@@ -82,4 +82,5 @@ local function main()
     print(string.format("\n斐波那契数列的第 %d 项为 %d", n, res))
 end
 
+-- 执行主函数
 main()

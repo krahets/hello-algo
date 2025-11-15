@@ -76,4 +76,5 @@ local function main()
     print(string.format("\n双层 for 循环的遍历结果 %s", res))
 end
 
+-- 执行主函数
 main()

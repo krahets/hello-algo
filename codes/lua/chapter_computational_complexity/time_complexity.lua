@@ -200,4 +200,5 @@ local function main()
     print("阶乘阶（递归实现）的操作数量 = " .. count)
 end
 
+-- 执行主函数
 main()

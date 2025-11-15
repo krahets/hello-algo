@@ -1,4 +1,4 @@
--- @file: my_list.lua
+-- @script my_list.lua
 -- @date 2025-11-11
 -- @author fisheryv (yue.fisher2025@gdhfi.com)
 
@@ -184,4 +184,5 @@ local function main()
         nums:capacity(), nums:size()))
 end
 
+-- 执行主函数
 main()
