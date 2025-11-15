@@ -153,5 +153,3 @@ end
 
 -- 执行主函数
 main()
-
-return Pair

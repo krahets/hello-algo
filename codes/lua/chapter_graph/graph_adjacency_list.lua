@@ -166,9 +166,8 @@ end
 
 if ... then
     -- 被 require 作为模块加载
+    return GraphAdjList
 else
     -- 执行主函数
     main()
 end
-
-return GraphAdjList
