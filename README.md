@@ -35,6 +35,7 @@
   <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF" alt="" />
   <img src="https://img.shields.io/badge/TypeScript-snow?logo=typescript&logoColor=3178C6" alt="" />
   <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2" alt="" />
+  <img src="https://img.shields.io/badge/Lua-snow?logo=lua&logoColor=000080" alt="" />
 </p>
 
 <p align="center">
