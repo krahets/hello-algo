@@ -7,9 +7,9 @@
 
 namespace chapter_computational_complexity;
 
-class WorstBestTimeComplexity
+class worst_best_time_complexity
 {
-    // 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
+    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
     public static function randomNumbers(int $n): array
     {
         // 生成数组 nums = { 1, 2, 3, ..., n }
@@ -22,7 +22,7 @@ class WorstBestTimeComplexity
         return $nums;
     }
 
-    // 查找数组 nums 中数字 1 所在索引
+    /* 查找数组 nums 中数字 1 所在索引 */
     public static function findOne(array $nums): int
     {
         for ($i = 0; $i < count($nums); $i++) {
@@ -37,11 +37,11 @@ class WorstBestTimeComplexity
 
 }
 
-// Driver Code
+/* Driver Code */
 for ($i = 0; $i < 10; $i++) {
     $n = 100;
-    $nums = WorstBestTimeComplexity::randomNumbers($n);
-    $index = WorstBestTimeComplexity::findOne($nums);
-    echo "\n数组 [ 1, 2, ..., n ] 被打乱后 = " . json_encode(array_slice($nums, 0, 10)) . "...\n";
-    echo "数字 1 的索引为 " . $index . "\n";
+    $nums = worst_best_time_complexity::randomNumbers($n);
+    $index = worst_best_time_complexity::findOne($nums);
+    echo "\n数组 [ 1, 2, ..., n ] 被打乱后 = ".json_encode(array_slice($nums, 0, 10))."...\n";
+    echo "数字 1 的索引为 ".$index."\n";
 }

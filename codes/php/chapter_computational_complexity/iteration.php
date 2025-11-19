@@ -7,10 +7,10 @@
 
 namespace chapter_computational_complexity;
 
-class Iteration
+class iteration
 {
     /* for 循环 */
-    public static function forLoop($n)
+    public static function forLoop($n): int
     {
         $res = 0;
         // 循环求和 1, 2, ..., n-1, n
@@ -21,7 +21,7 @@ class Iteration
     }
 
     /* while 循环 */
-    public static function whileLoop($n)
+    public static function whileLoop($n): int
     {
         $res = 0;
         $i = 1; // 初始化条件变量
@@ -34,7 +34,7 @@ class Iteration
     }
 
     /* while 循环（两次更新） */
-    public static function whileLoopII($n)
+    public static function whileLoopII($n): int
     {
         $res = 0;
         $i = 1; // 初始化条件变量
@@ -49,7 +49,7 @@ class Iteration
     }
 
     /* 双层 for 循环 */
-    public static function nestedForLoop($n)
+    public static function nestedForLoop($n): string
     {
         $res = '';
         // 循环 i = 1, 2, ..., n-1, n
@@ -62,6 +62,7 @@ class Iteration
         return $res;
     }
 }
+
 /* Driver Code */
 $n = 5;
 

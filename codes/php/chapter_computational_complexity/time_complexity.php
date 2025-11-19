@@ -7,9 +7,9 @@
 
 namespace chapter_computational_complexity;
 
-class TimeComplexity
+class time_complexity
 {
-    // 常数阶
+    /* 常数阶 */
     public static function constant(int $n): int
     {
         $count = 0;
@@ -20,7 +20,7 @@ class TimeComplexity
         return $count;
     }
 
-    // 线性阶
+    /* 线性阶 */
     public static function linear(int $n): int
     {
         $count = 0;
@@ -30,7 +30,7 @@ class TimeComplexity
         return $count;
     }
 
-    // 线性阶（遍历数组）
+    /* 线性阶（遍历数组）*/
     public static function arrayTraversal(array $nums): int
     {
         $count = 0;
@@ -41,7 +41,7 @@ class TimeComplexity
         return $count;
     }
 
-    // 平方阶
+    /* 平方阶 */
     public static function quadratic(int $n): int
     {
         $count = 0;
@@ -54,7 +54,7 @@ class TimeComplexity
         return $count;
     }
 
-    // 平方阶（冒泡排序）
+    /* 平方阶（冒泡排序）*/
     public static function bubbleSort(array &$nums): int
     {
         $count = 0; // 计数器
@@ -74,7 +74,7 @@ class TimeComplexity
         return $count;
     }
 
-    // 指数阶（循环实现）
+    /* 指数阶（循环实现）*/
     public static function exponential(int $n): int
     {
         $count = 0;
@@ -90,7 +90,7 @@ class TimeComplexity
         return $count;
     }
 
-    // 指数阶（递归实现）
+    /* 指数阶（递归实现）*/
     public static function expRecur(int $n): int
     {
         if ($n == 1) {
@@ -99,40 +99,40 @@ class TimeComplexity
         return self::expRecur($n - 1) + self::expRecur($n - 1) + 1;
     }
 
-    // 对数阶（循环实现）
+    /* 对数阶（循环实现）*/
     public static function logarithmic(int $n): int
     {
         $count = 0;
         while ($n > 1) {
-            $n = (int)($n / 2);
+            $n = (int) ($n / 2);
             $count++;
         }
         return $count;
     }
 
-    // 对数阶（递归实现）
+    /* 对数阶（递归实现）*/
     public static function logRecur(int $n): int
     {
         if ($n <= 1) {
             return 0;
         }
-        return self::logRecur((int)($n / 2)) + 1;
+        return self::logRecur((int) ($n / 2)) + 1;
     }
 
-    // 线性对数阶
+    /* 线性对数阶 */
     public static function linearLogRecur(int $n): int
     {
         if ($n <= 1) {
             return 1;
         }
-        $count = self::linearLogRecur((int)($n / 2)) + self::linearLogRecur((int)($n / 2));
+        $count = self::linearLogRecur((int) ($n / 2)) + self::linearLogRecur((int) ($n / 2));
         for ($i = 0; $i < $n; $i++) {
             $count++;
         }
         return $count;
     }
 
-    // 阶乘阶（递归实现）
+    /* 阶乘阶（递归实现）*/
     public static function factorialRecur(int $n): int
     {
         if ($n == 0) {
@@ -148,40 +148,39 @@ class TimeComplexity
 
 }
 
-// Driver Code
-// 可以修改 n 运行，体会一下各种复杂度的操作数量变化趋势
+/* Driver Code */
 $n = 8;
-echo "输入数据大小 n = " . $n . "\n";
+echo "输入数据大小 n = ".$n."\n";
 
-$count = TimeComplexity::constant($n);
-echo "常数阶的操作数量 = " . $count . "\n";
+$count = time_complexity::constant($n);
+echo "常数阶的操作数量 = ".$count."\n";
 
-$count = TimeComplexity::linear($n);
-echo "线性阶的操作数量 = " . $count . "\n";
-$count = TimeComplexity::arrayTraversal(array_fill(0, $n, 0));
-echo "线性阶（遍历数组）的操作数量 = " . $count . "\n";
+$count = time_complexity::linear($n);
+echo "线性阶的操作数量 = ".$count."\n";
+$count = time_complexity::arrayTraversal(array_fill(0, $n, 0));
+echo "线性阶（遍历数组）的操作数量 = ".$count."\n";
 
-$count = TimeComplexity::quadratic($n);
-echo "平方阶的操作数量 = " . $count . "\n";
+$count = time_complexity::quadratic($n);
+echo "平方阶的操作数量 = ".$count."\n";
 $nums = array_fill(0, $n, 0);
 for ($i = 0; $i < $n; $i++) {
     $nums[$i] = $n - $i; // [n,n-1,...,2,1]
 }
-$count = TimeComplexity::bubbleSort($nums);
-echo "平方阶（冒泡排序）的操作数量 = " . $count . "\n";
+$count = time_complexity::bubbleSort($nums);
+echo "平方阶（冒泡排序）的操作数量 = ".$count."\n";
 
-$count = TimeComplexity::exponential($n);
-echo "指数阶（循环实现）的操作数量 = " . $count . "\n";
-$count = TimeComplexity::expRecur($n);
-echo "指数阶（递归实现）的操作数量 = " . $count . "\n";
+$count = time_complexity::exponential($n);
+echo "指数阶（循环实现）的操作数量 = ".$count."\n";
+$count = time_complexity::expRecur($n);
+echo "指数阶（递归实现）的操作数量 = ".$count."\n";
 
-$count = TimeComplexity::logarithmic($n);
-echo "对数阶（循环实现）的操作数量 = " . $count . "\n";
-$count = TimeComplexity::logRecur($n);
-echo "对数阶（递归实现）的操作数量 = " . $count . "\n";
+$count = time_complexity::logarithmic($n);
+echo "对数阶（循环实现）的操作数量 = ".$count."\n";
+$count = time_complexity::logRecur($n);
+echo "对数阶（递归实现）的操作数量 = ".$count."\n";
 
-$count = TimeComplexity::linearLogRecur($n);
-echo "线性对数阶（递归实现）的操作数量 = " . $count . "\n";
+$count = time_complexity::linearLogRecur($n);
+echo "线性对数阶（递归实现）的操作数量 = ".$count."\n";
 
-$count = TimeComplexity::factorialRecur($n);
-echo "阶乘阶（递归实现）的操作数量 = " . $count . "\n";
+$count = time_complexity::factorialRecur($n);
+echo "阶乘阶（递归实现）的操作数量 = ".$count."\n";

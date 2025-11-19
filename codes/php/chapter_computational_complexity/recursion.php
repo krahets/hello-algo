@@ -7,9 +7,9 @@
 
 namespace chapter_computational_complexity;
 
-class Recursion
+class recursion
 {
-    // 递归
+    /* 递归 */
     public static function recur(int $n): int
     {
         // 终止条件
@@ -22,7 +22,7 @@ class Recursion
         return $n + $res;
     }
 
-    // 使用迭代模拟递归
+    /* 使用迭代模拟递归 */
     public static function forLoopRecur(int $n): int
     {
         // 使用一个显式的数组来模拟系统调用栈
@@ -42,7 +42,7 @@ class Recursion
         return $res;
     }
 
-    // 尾递归
+    /* 尾递归 */
     public static function tailRecur(int $n, int $res): int
     {
         // 终止条件
@@ -53,7 +53,7 @@ class Recursion
         return self::tailRecur($n - 1, $res + $n);
     }
 
-    // 斐波那契数列：递归
+    /* 斐波那契数列：递归 */
     public static function fib(int $n): int
     {
         // 终止条件 f(1) = 0, f(2) = 1
@@ -69,7 +69,7 @@ class Recursion
 
 }
 
-// Driver Code
+/* Driver Code */
 $n = 5;
 $res = 0;
 Recursion::recur($n);

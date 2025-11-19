@@ -6,16 +6,16 @@
  */
 
 namespace chapter_computational_complexity;
-class SpaceComplexity
+class space_complexity
 {
-    // 函数
+    /* 函数 */
     public static function functionMethod(): int
     {
         // 执行某些操作
         return 0;
     }
 
-    // 常数阶
+    /* 常数阶 */
     public static function constant(int $n): void
     {
         // 常量、变量、对象占用 O(1) 空间
@@ -32,7 +32,7 @@ class SpaceComplexity
         }
     }
 
-    // 线性阶
+    /* 线性阶 */
     public static function linear(int $n): void
     {
         // 长度为 n 的数组占用 O(n) 空间
@@ -49,7 +49,7 @@ class SpaceComplexity
         }
     }
 
-    // 线性阶（递归实现）
+    /* 线性阶（递归实现）*/
     public static function linearRecur(int $n): void
     {
         echo "递归 n = " . $n . "\n";
@@ -59,7 +59,7 @@ class SpaceComplexity
         self::linearRecur($n - 1);
     }
 
-    // 平方阶
+    /* 平方阶 */
     public static function quadratic(int $n): void
     {
         // 矩阵占用 O(n^2) 空间
@@ -78,7 +78,7 @@ class SpaceComplexity
         }
     }
 
-    // 平方阶（递归实现）
+    /* 平方阶（递归实现） */
     public static function quadraticRecur(int $n): int
     {
         if ($n <= 0) {
@@ -90,7 +90,7 @@ class SpaceComplexity
         return self::quadraticRecur($n - 1);
     }
 
-    // 指数阶（建立满二叉树）
+    /* 指数阶（建立满二叉树）*/
     public static function buildTree(int $n)
     {
         if ($n == 0) {
@@ -101,20 +101,18 @@ class SpaceComplexity
         $root['right'] = self::buildTree($n - 1);
         return $root;
     }
-
-    // Driver Code
 }
 
-// Driver Code
+/* Driver Code */
 $n = 5;
 // 常数阶
-SpaceComplexity::constant($n);
+space_complexity::constant($n);
 // 线性阶
-SpaceComplexity::linear($n);
-SpaceComplexity::linearRecur($n);
+space_complexity::linear($n);
+space_complexity::linearRecur($n);
 // 平方阶
-SpaceComplexity::quadratic($n);
-SpaceComplexity::quadraticRecur($n);
+space_complexity::quadratic($n);
+space_complexity::quadraticRecur($n);
 // 指数阶
-$root = SpaceComplexity::buildTree($n);
+$root = space_complexity::buildTree($n);
 echo "指数阶（建立满二叉树）完成\n";
