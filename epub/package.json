@@ -1,0 +1,29 @@
+{
+  "name": "hello-algo-epub",
+  "version": "1.0.0",
+  "description": "Convert Hello Algorithm docs to EPUB",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "keywords": ["epub", "markdown", "ebook"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "epub-gen": "^0.1.0",
+    "fs-extra": "^11.2.0",
+    "js-yaml": "^4.1.0",
+    "marked": "^11.1.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
+
