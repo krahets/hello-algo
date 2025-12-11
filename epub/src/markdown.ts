@@ -73,8 +73,11 @@ export function markdownToHtml(markdown: string, baseDir: string): string {
   // 处理代码引用标记（在其他处理之前）
   markdown = processCodeReferences(markdown, baseDir);
   
-  // 处理多语言代码块，只保留 C 语言版本
+  // 处理多语言代码块，只保留 C++ 版本
   markdown = processMultiLanguageCodeBlocks(markdown);
+  
+  // 处理 tabbed 内容（=== "<1>", === "ArrayStack" 等非编程语言标签）
+  markdown = processTabbedContent(markdown);
   
   // 处理特殊的 admonition 语法（!!! abstract, !!! success 等）
   markdown = processAdmonitions(markdown);
@@ -398,7 +401,72 @@ function extractClassMethod(codeContent: string, className: string, methodName: 
  * 处理多语言代码块，只保留 C++ 语言版本
  * 格式: === "语言名" ... ```代码``` ...
  */
+/**
+ * 处理 tabbed 内容（非编程语言的标签页，如步骤说明、不同实现方式等）
+ * 这些内容应该全部保留，并转换为合适的 HTML 格式
+ */
+function processTabbedContent(markdown: string): string {
+  // 匹配 === "非编程语言标签" 的内容块
+  // 这些标签包括：<1>, <2>, ..., ArrayStack, LinkedListStack, push(), pop() 等
+  const lines = markdown.split('\n');
+  const result: string[] = [];
+  let i = 0;
+  
+  // 定义编程语言标签（这些不应该被 processTabbedContent 处理）
+  const programmingLanguages = [
+    'Python', 'C++', 'Java', 'C#', 'Go', 'Swift', 'JS', 'TS', 
+    'Dart', 'Rust', 'C', 'Kotlin', 'Ruby', 'Zig'
+  ];
+  
+  while (i < lines.length) {
+    const line = lines[i];
+    
+    // 检查是否是标签行
+    const tabMatch = line.match(/^===\s+"([^"]+)"/);
+    
+    // 只处理非编程语言标签
+    if (tabMatch && !programmingLanguages.includes(tabMatch[1])) {
+      const tabName = tabMatch[1];
+      
+      i++;
+      
+      // 收集该标签下的所有缩进内容
+      while (i < lines.length) {
+        const contentLine = lines[i];
+        
+        // 如果遇到下一个 === 标签，结束当前标签内容
+        if (contentLine.match(/^===/)) {
+          break;
+        }
+        
+        // 如果遇到非缩进的标题或段落，结束当前标签内容
+        if (contentLine.trim() && !contentLine.match(/^\s/) && contentLine.match(/^[^#\s]/)) {
+          break;
+        }
+        
+        // 移除 4 个空格缩进（MkDocs 的 tabbed 内容通常有 4 个空格缩进）
+        result.push(contentLine.replace(/^    /, ''));
+        i++;
+      }
+      
+      continue;
+    }
+    
+    // 普通行，直接添加
+    result.push(line);
+    i++;
+  }
+  
+  return result.join('\n');
+}
+
 function processMultiLanguageCodeBlocks(markdown: string): string {
+  // 定义需要过滤的编程语言标签（只有这些标签会被当作多语言代码块处理）
+  const programmingLanguages = [
+    'Python', 'C++', 'Java', 'C#', 'Go', 'Swift', 'JS', 'TS', 
+    'Dart', 'Rust', 'C', 'Kotlin', 'Ruby', 'Zig'
+  ];
+  
   // 匹配整个多语言代码块组（从第一个 === 到下一个非缩进行或文件结束）
   // 使用更精确的匹配：连续的 === "语言" 块直到遇到非缩进行
   const lines = markdown.split('\n');
@@ -411,7 +479,8 @@ function processMultiLanguageCodeBlocks(markdown: string): string {
     // 检查是否是语言标签行
     const langMatch = line.match(/^===\s+"([^"]+)"/);
     
-    if (langMatch) {
+    // 只处理编程语言标签，其他标签（如 <1>, <2>, ArrayStack 等）保持原样
+    if (langMatch && programmingLanguages.includes(langMatch[1])) {
       // 找到了一组多语言代码块的开始
       const blocks: Array<{ lang: string; lines: string[] }> = [];
       let currentLang = langMatch[1];
@@ -427,15 +496,24 @@ function processMultiLanguageCodeBlocks(markdown: string): string {
         // 检查是否是下一个语言标签
         const nextLangMatch = currentLine.match(/^===\s+"([^"]+)"/);
         if (nextLangMatch) {
-          // 保存当前块
-          if (currentBlockLines.length > 0) {
-            blocks.push({ lang: currentLang, lines: currentBlockLines });
+          // 只有当是编程语言标签时才继续处理
+          if (programmingLanguages.includes(nextLangMatch[1])) {
+            // 保存当前块
+            if (currentBlockLines.length > 0) {
+              blocks.push({ lang: currentLang, lines: currentBlockLines });
+            }
+            // 开始新块
+            currentLang = nextLangMatch[1];
+            currentBlockLines = [];
+            i++;
+            continue;
+          } else {
+            // 遇到非编程语言标签（如 <1>, ArrayStack 等），代码块组结束
+            if (currentBlockLines.length > 0) {
+              blocks.push({ lang: currentLang, lines: currentBlockLines });
+            }
+            break;
           }
-          // 开始新块
-          currentLang = nextLangMatch[1];
-          currentBlockLines = [];
-          i++;
-          continue;
         }
         
         // 检查是否是代码块开始/结束
@@ -834,25 +912,25 @@ function getAdmonitionTitle(type: string): string {
  */
 export function getCustomCSS(): string {
   return `
-body {
-  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  color: #333;
-}
+    body {
+      font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+    }
 /* 降低粗体文字的粗细度 */
 strong, b {
   font-weight: 600;
 }
-h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6 {
   color: #24292e;
   margin-top: 1.2em;
   margin-bottom: 0.6em;
   font-weight: 600;
   line-height: 1.25;
-}
+    }
 h1 { font-size: 1.6em; }
 h2 { font-size: 1.4em; }
 h3 { font-size: 1.2em; }
@@ -1032,9 +1110,9 @@ h6 { font-size: 0.95em; }
     ul, ol {
       padding-left: 30px;
     }
-li {
-  margin: 5px 0;
-}
+    li {
+      margin: 5px 0;
+    }
 `;
 }
 

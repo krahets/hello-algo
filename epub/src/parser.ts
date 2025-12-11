@@ -6,7 +6,7 @@ import { NavItem, Chapter, MkDocsNavItem } from './types';
 /**
  * 解析 mkdocs.yml 文件，提取导航结构
  */
-export function parseMkdocsConfig(configPath: string): NavItem[] {
+export function parseMkdocsConfig(configPath: string): MkDocsNavItem[] {
   const content = fs.readFileSync(configPath, 'utf-8');
   const config = yaml.load(content) as any;
   return config.nav || [];
@@ -91,11 +91,12 @@ export function flattenNav(nav: MkDocsNavItem[], basePath: string = ''): Chapter
                 for (const subItem of value) {
                   if (typeof subItem === 'string') {
                     continue;
-                  } else if (typeof subItem === 'object' && subItem !== null) {
-                    const subKeys = Object.keys(subItem);
+                  } else if (typeof subItem === 'object' && subItem !== null && !Array.isArray(subItem)) {
+                    const subObj = subItem as { [key: string]: string | MkDocsNavItem[] };
+                    const subKeys = Object.keys(subObj);
                     if (subKeys.length === 1) {
                       const subKey = subKeys[0];
-                      const subValue = subItem[subKey];
+                      const subValue = subObj[subKey];
                       if (typeof subValue === 'string') {
                         const subTitle = subKey.replace(/&nbsp;/g, ' ').trim();
                         const subNumberMatch = subTitle.match(/^(\d+)\.\d+/);
@@ -112,12 +113,12 @@ export function flattenNav(nav: MkDocsNavItem[], basePath: string = ''): Chapter
               // 递归处理子项，保持层级关系
               traverse(value, chapterTitle, chapterNumber, level);
             }
-          } else if (item.path) {
+          } else if ('path' in item && typeof item.path === 'string') {
             // 有路径的对象
             const filePath = path.join(basePath, item.path);
             if (fs.existsSync(filePath)) {
               chapters.push({
-                title: item.title || path.basename(item.path, '.md'),
+                title: (typeof item.title === 'string' ? item.title : undefined) || path.basename(item.path, '.md'),
                 path: filePath,
                 content: '',
                 order: order++,
@@ -126,7 +127,7 @@ export function flattenNav(nav: MkDocsNavItem[], basePath: string = ''): Chapter
                 parentTitle: parentTitle || undefined
               });
             }
-          } else if (item.title && item.children) {
+          } else if ('title' in item && 'children' in item && Array.isArray(item.children) && typeof item.title === 'string') {
             // 有标题和子项的对象
             traverse(item.children, item.title, parentNumber, level);
           }
