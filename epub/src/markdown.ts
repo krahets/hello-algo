@@ -1,6 +1,7 @@
 import { marked } from 'marked';
 import * as path from 'path';
 import * as fs from 'fs-extra';
+import { HeadingInfo } from './types';
 import { ImageInfo } from './types';
 
 /**
@@ -1121,6 +1122,47 @@ h6 { font-size: 0.95em; }
  */
 function wrapHtmlContent(html: string): string {
   return html;
+}
+
+/**
+ * 从 Markdown 文本中提取所有标题
+ * @param markdown Markdown 文本
+ * @param chapterPath 章节路径（用于标识）
+ * @returns 标题列表
+ */
+export function extractHeadings(markdown: string, chapterPath: string): HeadingInfo[] {
+  const headings: HeadingInfo[] = [];
+  const lines = markdown.split('\n');
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    // 匹配 ATX 风格标题：# ## ### 等
+    const match = line.match(/^(#{1,6})\s+(.+)$/);
+    if (match) {
+      const level = match[1].length;
+      let text = match[2].trim();
+      
+      // 移除标题中的 Markdown 格式和数学公式，保留纯文本
+      text = text
+        .replace(/\$[^$]+\$/g, '') // 移除行内数学公式
+        .replace(/\*\*(.+?)\*\*/g, '$1') // 移除粗体
+        .replace(/\*(.+?)\*/g, '$1') // 移除斜体
+        .replace(/`(.+?)`/g, '$1') // 移除代码
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // 移除链接，保留文本
+        .trim();
+      
+      if (text) {
+        headings.push({
+          level,
+          text,
+          chapterPath,
+          lineNumber: i + 1
+        });
+      }
+    }
+  }
+  
+  return headings;
 }
 
 /**

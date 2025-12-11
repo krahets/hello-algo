@@ -12,6 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "adm-zip": "^0.5.10",
     "epub-gen": "^0.1.0",
     "fs-extra": "^11.2.0",
     "js-yaml": "^4.1.0",

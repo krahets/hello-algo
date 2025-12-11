@@ -2,3 +2,4 @@ dist/
 node_modules/
 *.epub
 test_*.js
+validation-report.json

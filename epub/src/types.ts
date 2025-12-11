@@ -24,6 +24,14 @@ export interface ImageInfo {
   mimeType: string;
 }
 
+// 标题信息
+export interface HeadingInfo {
+  level: number;        // 标题级别 (1-6)
+  text: string;         // 标题文本
+  chapterPath: string;  // 所属章节路径
+  lineNumber?: number;  // 行号（如果有）
+}
+
 // EPUB-gen 库的选项类型
 export interface EpubGenOptions {
   title: string;
