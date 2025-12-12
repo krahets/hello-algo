@@ -727,6 +727,7 @@ function processMathContent(latex: string): string {
   result = result.replace(/\\infty/g, '∞');
   result = result.replace(/\\sum/g, '∑');
   result = result.replace(/\\prod/g, '∏');
+  result = result.replace(/\\dots/g, '...');
   
   // 处理文本
   result = result.replace(/\\text\{([^}]+)\}/g, '<span class="math-text">$1</span>');
