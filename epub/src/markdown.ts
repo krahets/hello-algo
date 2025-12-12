@@ -83,10 +83,37 @@ export function markdownToHtml(markdown: string, baseDir: string): string {
   // 处理特殊的 admonition 语法（!!! abstract, !!! success 等）
   markdown = processAdmonitions(markdown);
   
-  // 处理数学公式（在 marked.parse 之前处理，避免被转义）
-  markdown = processMathFormulas(markdown);
+  // 使用占位符保护数学公式，避免被 marked 转义
+  // 使用纯字母数字占位符（避免特殊字符被 Markdown 解析）
+  const mathPlaceholders = new Map<string, string>();
+  let placeholderCounter = 0;
   
-  const html = marked.parse(markdown) as string;
+  // 先提取块级公式 $$...$$
+  markdown = markdown.replace(/\$\$([\s\S]+?)\$\$/g, (match, formula) => {
+    const placeholder = `XMATHBLOCKX${placeholderCounter}X`;
+    const rendered = processDisplayMath(formula);
+    mathPlaceholders.set(placeholder, rendered);
+    placeholderCounter++;
+    return placeholder;
+  });
+  
+  // 再提取行内公式 $...$
+  markdown = markdown.replace(/\$([^\$\n]+?)\$/g, (match, formula) => {
+    const placeholder = `XMATHINLINEX${placeholderCounter}X`;
+    const rendered = processInlineMath(formula);
+    mathPlaceholders.set(placeholder, rendered);
+    placeholderCounter++;
+    return placeholder;
+  });
+  
+  // 解析 Markdown
+  let html = marked.parse(markdown) as string;
+  
+  // 替换回数学公式的 HTML
+  for (const [placeholder, rendered] of mathPlaceholders.entries()) {
+    html = html.replace(new RegExp(placeholder, 'g'), rendered);
+  }
+  
   return wrapHtmlContent(html);
 }
 
@@ -582,6 +609,142 @@ function processMultiLanguageCodeBlocks(markdown: string): string {
   }
   
   return result.join('\n');
+}
+
+/**
+ * 处理行内数学公式
+ */
+function processInlineMath(formula: string): string {
+  const content = processMathContent(formula.trim());
+  return `<span class="math-inline">${content}</span>`;
+}
+
+/**
+ * 处理块级数学公式
+ */
+function processDisplayMath(formula: string): string {
+  let result = formula.trim();
+  
+  // 处理 aligned 环境
+  if (result.includes('\\begin{aligned}')) {
+    result = result.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, (match, content) => {
+      return processAlignedMath(content);
+    });
+  } else {
+    result = processMathContent(result);
+  }
+  
+  return `<div class="math-block">${result}</div>`;
+}
+
+/**
+ * 处理 aligned 数学环境
+ */
+function processAlignedMath(content: string): string {
+  // 处理 \newline
+  let aligned = content.trim().replace(/\\newline/g, '\n');
+  
+  // 按行分割
+  const lines = aligned.split('\n').filter((line: string) => line.trim());
+  
+  if (lines.length === 0) {
+    return processMathContent(content);
+  }
+  
+  // 处理每一行
+  const processedLines = lines.map((line: string) => {
+    if (line.includes('&')) {
+      // 有对齐符号，按 & 分割
+      return line.split('&').map((part: string) => processMathContent(part.trim()));
+    } else {
+      // 没有对齐符号
+      return [processMathContent(line.trim())];
+    }
+  });
+  
+  // 构建表格
+  let html = '<table class="math-aligned">';
+  for (const line of processedLines) {
+    html += '<tr>';
+    for (let i = 0; i < line.length; i++) {
+      const cell = line[i] || '';
+      const align = i === 0 ? 'right' : 'left';
+      html += `<td style="text-align: ${align};">${cell}</td>`;
+    }
+    html += '</tr>';
+  }
+  html += '</table>';
+  
+  return html;
+}
+
+/**
+ * 处理数学公式内容（LaTeX 转 HTML）
+ */
+function processMathContent(latex: string): string {
+  let result = latex.trim();
+  
+  // 处理函数名
+  result = result.replace(/\\log/g, '<span class="math-function">log</span>');
+  result = result.replace(/\\ln/g, '<span class="math-function">ln</span>');
+  result = result.replace(/\\sin/g, '<span class="math-function">sin</span>');
+  result = result.replace(/\\cos/g, '<span class="math-function">cos</span>');
+  result = result.replace(/\\tan/g, '<span class="math-function">tan</span>');
+  
+  // 处理下标
+  result = result.replace(/_\{([^}]+)\}/g, '<sub>$1</sub>');
+  result = result.replace(/_([a-zA-Z0-9])/g, '<sub>$1</sub>');
+  
+  // 处理上标
+  result = result.replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>');
+  result = result.replace(/\^([a-zA-Z0-9])/g, '<sup>$1</sup>');
+  
+  // 处理分数
+  result = result.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '$1⁄$2');
+  
+  // 处理根号
+  result = result.replace(/\\sqrt\{([^}]+)\}/g, '√$1');
+  
+  // 处理希腊字母
+  const greekMap: { [key: string]: string } = {
+    '\\alpha': 'α', '\\beta': 'β', '\\gamma': 'γ', '\\delta': 'δ',
+    '\\epsilon': 'ε', '\\theta': 'θ', '\\lambda': 'λ', '\\mu': 'μ',
+    '\\pi': 'π', '\\sigma': 'σ', '\\tau': 'τ', '\\phi': 'φ',
+    '\\omega': 'ω', '\\Theta': 'Θ', '\\Omega': 'Ω'
+  };
+  
+  for (const [tex, unicode] of Object.entries(greekMap)) {
+    result = result.replace(new RegExp(tex.replace(/\\/g, '\\\\'), 'g'), unicode);
+  }
+  
+  // 处理特殊符号
+  result = result.replace(/\\times/g, '×');
+  result = result.replace(/\\cdot/g, '·');
+  result = result.replace(/\\leq/g, '≤');
+  result = result.replace(/\\geq/g, '≥');
+  result = result.replace(/\\neq/g, '≠');
+  result = result.replace(/\\approx/g, '≈');
+  result = result.replace(/\\infty/g, '∞');
+  result = result.replace(/\\sum/g, '∑');
+  result = result.replace(/\\prod/g, '∏');
+  
+  // 处理文本
+  result = result.replace(/\\text\{([^}]+)\}/g, '<span class="math-text">$1</span>');
+  
+  // 清理括号和反斜杠
+  result = result.replace(/\{|\}/g, '');
+  result = result.replace(/\\/g, '');
+  
+  // 将字母转为斜体（避免 HTML 标签内）
+  result = result.replace(/(?<!<[^>]*)(?<!&)([a-zA-Z])(?![^<]*>)(?![a-zA-Z]*;)/g, (match, letter, offset, string) => {
+    const before = string.substring(Math.max(0, offset - 10), offset);
+    if (before.match(/&[a-zA-Z]*$/)) {
+      return letter;
+    }
+    return `<i>${letter}</i>`;
+  });
+  
+  return result;
 }
 
 /**
@@ -1133,9 +1296,31 @@ function wrapHtmlContent(html: string): string {
 export function extractHeadings(markdown: string, chapterPath: string): HeadingInfo[] {
   const headings: HeadingInfo[] = [];
   const lines = markdown.split('\n');
+  let inCodeBlock = false;
+  let inFencedBlock = false;
   
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
+    
+    // 检查代码块边界（三个反引号或波浪号）
+    if (line.match(/^\s*```/) || line.match(/^\s*~~~/)) {
+      inCodeBlock = !inCodeBlock;
+      continue;
+    }
+    
+    // 检查缩进代码块（4个空格）
+    if (line.match(/^    /) && !inCodeBlock) {
+      inFencedBlock = true;
+      continue;
+    } else if (inFencedBlock && !line.match(/^    /) && line.trim()) {
+      inFencedBlock = false;
+    }
+    
+    // 跳过代码块内的内容
+    if (inCodeBlock || inFencedBlock) {
+      continue;
+    }
+    
     // 匹配 ATX 风格标题：# ## ### 等
     const match = line.match(/^(#{1,6})\s+(.+)$/);
     if (match) {
