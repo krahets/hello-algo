@@ -728,6 +728,10 @@ function processMathContent(latex: string): string {
   result = result.replace(/\\sum/g, '∑');
   result = result.replace(/\\prod/g, '∏');
   result = result.replace(/\\dots/g, '...');
+  result = result.replace(/\\lfloor/g, '⌊');
+  result = result.replace(/\\rfloor/g, '⌋');
+  result = result.replace(/\\lceil/g, '⌈');
+  result = result.replace(/\\rceil/g, '⌉');
   
   // 处理文本
   result = result.replace(/\\text\{([^}]+)\}/g, '<span class="math-text">$1</span>');
