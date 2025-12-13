@@ -1112,7 +1112,7 @@ h6 { font-size: 0.95em; }
       padding: 2px 6px;
       border-radius: 3px;
       border: 1px solid #d0d0d0;
-      font-family: "Courier New", Courier, monospace;
+      font-family: "Roboto Mono", "Noto Sans Mono", "Droid Sans Mono", "SF Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", "Menlo", "Monaco", "DejaVu Sans Mono", "Liberation Mono", "Courier New", Courier, monospace;
       font-size: 0.88em;
       color: #333;
     }
@@ -1139,7 +1139,7 @@ h6 { font-size: 0.95em; }
       word-wrap: normal;
       word-break: normal;
       overflow-wrap: normal;
-      font-family: "Courier New", Courier, monospace;
+      font-family: "Roboto Mono", "Noto Sans Mono", "Droid Sans Mono", "SF Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", "Menlo", "Monaco", "DejaVu Sans Mono", "Liberation Mono", "Courier New", Courier, monospace;
       font-size: 0.85em;
       color: #333;
       display: block;
