@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as fs from 'fs-extra';
 import { HeadingInfo } from './types';
 import { ImageInfo } from './types';
+import hljs from 'highlight.js';
 
 /**
  * 配置 marked 渲染器
@@ -15,10 +16,11 @@ function configureMarked() {
     return `<img src="${href}" alt="${text || ''}" ${title ? `title="${title}"` : ''} />`;
   };
 
-  // 自定义代码块渲染，支持 title 属性
+  // 自定义代码块渲染，支持 title 属性和语法高亮
   renderer.code = (code: string, language: string | undefined, escaped: boolean) => {
     let lang = language || 'text';
-    
+    let highlightedCode = code;
+
     // 从 language 参数中提取 title（格式：cpp title="heap.cpp"）
     // marked 会将整个 infostring 作为 language 参数传递
     if (language) {
@@ -27,18 +29,47 @@ function configureMarked() {
         const filename = titleMatch[1];
         // 从 language 中移除 title 部分，只保留语言标识
         lang = language.replace(/\s+title="[^"]+"/, '').trim() || 'text';
-        
+
+        // 使用 highlight.js 进行语法高亮
+        try {
+          if (lang && lang !== 'text' && hljs.getLanguage(lang)) {
+            const result = hljs.highlight(code, { language: lang });
+            highlightedCode = result.value;
+          } else {
+            // 如果不支持该语言，使用自动检测
+            const result = hljs.highlightAuto(code);
+            highlightedCode = result.value;
+            lang = result.language || 'text';
+          }
+        } catch (error) {
+          console.warn(`语法高亮失败，使用原始代码: ${error}`);
+          highlightedCode = escapeHtml(code);
+        }
+
         // 将文件名作为注释添加到代码开头
-        const codeContent = escaped ? code : escapeHtml(code);
-        const codeWithFilename = `// ${escapeHtml(filename)}\n\n${codeContent}`;
-        return `<pre><code class="language-${lang}">${codeWithFilename}</code></pre>`;
+        const codeWithFilename = `// ${escapeHtml(filename)}\n\n${highlightedCode}`;
+        return `<pre><code class="hljs language-${lang}">${codeWithFilename}</code></pre>`;
       }
     }
-    
-    const codeContent = escaped ? code : escapeHtml(code);
-    
+
+    // 使用 highlight.js 进行语法高亮
+    try {
+      if (lang && lang !== 'text' && hljs.getLanguage(lang)) {
+        const result = hljs.highlight(code, { language: lang });
+        highlightedCode = result.value;
+      } else {
+        // 如果不支持该语言，使用自动检测
+        const result = hljs.highlightAuto(code);
+        highlightedCode = result.value;
+        lang = result.language || 'text';
+      }
+    } catch (error) {
+      console.warn(`语法高亮失败，使用原始代码: ${error}`);
+      highlightedCode = escaped ? code : escapeHtml(code);
+    }
+
     // 没有文件名的普通代码块
-    return `<pre><code class="language-${lang}">${codeContent}</code></pre>`;
+    return `<pre><code class="hljs language-${lang}">${highlightedCode}</code></pre>`;
   };
 
   // 自定义表格渲染，保持原始格式
@@ -1281,6 +1312,101 @@ h6 { font-size: 0.95em; }
     }
     li {
       margin: 5px 0;
+    }
+
+    /* Syntax highlighting styles (GitHub theme) */
+    .hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 0.5em;
+      color: #333;
+      background: #f8f8f8;
+    }
+
+    .hljs-comment,
+    .hljs-quote {
+      color: #998;
+      font-style: italic;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag,
+    .hljs-subst {
+      color: #333;
+      font-weight: bold;
+    }
+
+    .hljs-number,
+    .hljs-literal,
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-tag .hljs-attr {
+      color: #008080;
+    }
+
+    .hljs-string,
+    .hljs-doctag {
+      color: #d14;
+    }
+
+    .hljs-title,
+    .hljs-section,
+    .hljs-selector-id {
+      color: #900;
+      font-weight: bold;
+    }
+
+    .hljs-subst {
+      font-weight: normal;
+    }
+
+    .hljs-type,
+    .hljs-class .hljs-title {
+      color: #458;
+      font-weight: bold;
+    }
+
+    .hljs-tag,
+    .hljs-name,
+    .hljs-attribute {
+      color: #000080;
+      font-weight: normal;
+    }
+
+    .hljs-regexp,
+    .hljs-link {
+      color: #009926;
+    }
+
+    .hljs-symbol,
+    .hljs-bullet {
+      color: #990073;
+    }
+
+    .hljs-built_in,
+    .hljs-builtin-name {
+      color: #0086b3;
+    }
+
+    .hljs-meta {
+      color: #999;
+      font-weight: bold;
+    }
+
+    .hljs-deletion {
+      background: #fdd;
+    }
+
+    .hljs-addition {
+      background: #dfd;
+    }
+
+    .hljs-emphasis {
+      font-style: italic;
+    }
+
+    .hljs-strong {
+      font-weight: bold;
     }
 `;
 }

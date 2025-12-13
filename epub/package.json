@@ -8,13 +8,18 @@
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts"
   },
-  "keywords": ["epub", "markdown", "ebook"],
+  "keywords": [
+    "epub",
+    "markdown",
+    "ebook"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "adm-zip": "^0.5.10",
     "epub-gen": "^0.1.0",
     "fs-extra": "^11.2.0",
+    "highlight.js": "^11.11.1",
     "js-yaml": "^4.1.0",
     "marked": "^11.1.1",
     "path": "^0.12.7"
@@ -27,4 +32,3 @@
     "typescript": "^5.3.3"
   }
 }
-
