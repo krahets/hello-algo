@@ -66,29 +66,47 @@ export async function generateEpub(
       );
     }
     
-    // 转换为 HTML
-    const html = markdownToHtml(chapter.content, chapterDir);
-    
     // 构建带编号的标题，保持 mkdocs.yml 中的层级关系
     let displayTitle = chapter.title;
+    let headingPrefix = ''; // 标题前缀（编号）
+    let headingOffset = 0; // 标题偏移量
+    let removeFirstHeading = false; // 是否移除第一个标题
+    let chapterHeadingHtml = ''; // 章节标题 HTML
     
     // 如果标题已经包含"第 X 章"，说明是 index.md 使用了父标题，直接使用
     if (chapter.title.match(/第\s*\d+\s*章/)) {
       displayTitle = chapter.title.replace(/\s+/g, ' ').trim(); // 清理多余空格
+      // 对于章节级别的文档，移除 Markdown 的第一个标题，手动添加完整的章节标题
+      removeFirstHeading = true;
+      chapterHeadingHtml = `<h1>${displayTitle}</h1>\n`;
+      headingOffset = 0; // 其他标题使用 H2（不偏移）
     } else if (chapter.number !== undefined && chapter.number !== '') {
-      // 根据层级决定编号格式
+      // 根据层级决定编号格式和标题偏移
       if (chapter.level === 0) {
-        // 顶级章节：第 X 章 标题（如果标题中没有"第 X 章"）
+        // 顶级章节：第 X 章 标题
         displayTitle = `第 ${chapter.number} 章 ${chapter.title}`;
+        // 对于章节级别的文档，移除 Markdown 的第一个标题，手动添加完整的章节标题
+        removeFirstHeading = true;
+        chapterHeadingHtml = `<h1>${displayTitle}</h1>\n`;
+        headingOffset = 0; // 其他标题使用 H2（不偏移）
       } else if (chapter.level === 1) {
         // 子章节：X.Y 标题
         displayTitle = `${chapter.number} ${chapter.title}`;
+        headingPrefix = chapter.number;
+        headingOffset = 1; // 小节第一个标题使用 H2（偏移 1 级）
       }
     }
     
+    // 转换为 HTML
+    // 我们设置了 appendChapterTitles: false，所以 epub-gen 不会自动添加标题
+    const html = markdownToHtml(chapter.content, chapterDir, headingOffset, headingPrefix, removeFirstHeading);
+    
+    // 如果有章节标题 HTML，添加到内容前面
+    const finalHtml = chapterHeadingHtml + html;
+    
     content.push({
       title: displayTitle,
-      data: html,
+      data: finalHtml,
       // 不使用 beforeToc，让所有章节按顺序自然排列
       // 章节已经按照 mkdocs.yml 的顺序排列，父章节在前，子章节紧跟其后
       beforeToc: false,
@@ -109,6 +127,8 @@ export async function generateEpub(
     language: options.language || 'zh-CN',
     content: content,
     verbose: true,
+    // 禁用自动添加章节标题（我们在 Markdown 中已经处理了）
+    appendChapterTitles: false,
     // 使用自定义模板来生成嵌套目录
     customNcxTocTemplatePath: path.join(__dirname, '..', 'templates', 'toc.ncx.ejs'),
     customHtmlTocTemplatePath: path.join(__dirname, '..', 'templates', 'toc.xhtml.ejs'),

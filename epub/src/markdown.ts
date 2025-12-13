@@ -8,8 +8,33 @@ import hljs from 'highlight.js';
 /**
  * 配置 marked 渲染器
  */
-function configureMarked() {
+function configureMarked(headingOffset: number = 0, headingPrefix: string = '') {
   const renderer = new marked.Renderer();
+  
+  // 用于跟踪标题编号
+  let h2Counter = 0; // 二级标题计数器（对应 Markdown 的 ##）
+  let h3Counter = 0; // 三级标题计数器（对应 Markdown 的 ###）
+
+  // 自定义标题渲染，支持标题级别偏移和自动编号
+  renderer.heading = (text: string, level: number) => {
+    const adjustedLevel = Math.min(level + headingOffset, 6); // 最大为 h6
+    let numberedText = text;
+    
+    // 对于二级标题（Markdown 中的 ##），在主标题编号后添加 .1, .2, .3...
+    if (level === 2 && headingPrefix) {
+      h2Counter++;
+      h3Counter = 0; // 重置三级标题计数器
+      numberedText = `${headingPrefix}.${h2Counter} ${text}`;
+    }
+    // 对于三级标题（Markdown 中的 ###），添加 1., 2., 3...
+    else if (level === 3) {
+      h3Counter++;
+      numberedText = `${h3Counter}. ${text}`;
+    }
+    // 对于四级标题，也可以继续编号（如果需要的话）
+    
+    return `<h${adjustedLevel}>${numberedText}</h${adjustedLevel}>\n`;
+  };
 
   // 自定义图片渲染，用于后续提取图片
   renderer.image = (href: string, title: string | null, text: string) => {
@@ -98,9 +123,24 @@ function escapeHtml(text: string): string {
 
 /**
  * 将 Markdown 转换为 HTML
+ * @param markdown Markdown 文本
+ * @param baseDir 基础目录
+ * @param headingOffset 标题级别偏移量（默认为 2，即 H1->H3）
+ * @param firstHeadingPrefix 第一个标题的前缀（如章节编号，用于二级标题自动编号）
+ * @param removeFirstHeading 是否移除第一个标题
  */
-export function markdownToHtml(markdown: string, baseDir: string): string {
-  configureMarked();
+export function markdownToHtml(markdown: string, baseDir: string, headingOffset: number = 2, firstHeadingPrefix: string = '', removeFirstHeading: boolean = false): string {
+  configureMarked(headingOffset, firstHeadingPrefix);
+  
+  // 如果需要移除第一个标题（用于章节级别的文档）
+  if (removeFirstHeading) {
+    markdown = markdown.replace(/^#\s+.+$/m, '');
+  }
+  // 否则，如果需要为第一个标题添加前缀（章节编号）
+  else if (firstHeadingPrefix) {
+    // 匹配第一个 H1 标题（# 标题）并在前面添加编号
+    markdown = markdown.replace(/^#\s+(.+)$/m, `# ${firstHeadingPrefix} $1`);
+  }
   
   // 处理代码引用标记（在其他处理之前）
   markdown = processCodeReferences(markdown, baseDir);
@@ -1131,12 +1171,16 @@ strong, b {
   font-weight: 600;
   line-height: 1.25;
     }
-h1 { font-size: 1.6em; }
-h2 { font-size: 1.4em; }
-h3 { font-size: 1.2em; }
-h4 { font-size: 1.1em; }
+/* 章节标题 (第 X 章) */
+h1 { font-size: 1.5em; }
+/* 小节标题 (X.Y) */
+h2 { font-size: 1.3em; }
+/* Markdown 文档内的主标题 */
+h3 { font-size: 1.15em; }
+/* Markdown 文档内的副标题 */
+h4 { font-size: 1.05em; }
 h5 { font-size: 1.0em; }
-h6 { font-size: 0.95em; }
+h6 { font-size: 1.0em; }
     /* 行内代码 */
     code {
       background-color: #f0f0f0;

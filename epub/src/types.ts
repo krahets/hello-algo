@@ -41,6 +41,7 @@ export interface EpubGenOptions {
   language?: string;
   content: Chapter[];
   verbose?: boolean;
+  appendChapterTitles?: boolean;
   customNcxTocTemplatePath?: string;
   customHtmlTocTemplatePath?: string;
   css?: string;
