@@ -755,6 +755,10 @@ function processAlignedMath(content: string): string {
 function processMathContent(latex: string): string {
   let result = latex.trim();
   
+  // 先处理文本和罗马字体（在处理上下标之前，避免嵌套花括号问题）
+  result = result.replace(/\\text\s*\{([^}]+)\}/g, '<span class="math-text">$1</span>');
+  result = result.replace(/\\mathrm\s*\{([^}]+)\}/g, '<span class="math-roman">$1</span>');
+  
   // 处理函数名
   result = result.replace(/\\log/g, '<span class="math-function">log</span>');
   result = result.replace(/\\ln/g, '<span class="math-function">ln</span>');
@@ -771,10 +775,10 @@ function processMathContent(latex: string): string {
   result = result.replace(/\^([a-zA-Z0-9])/g, '<sup>$1</sup>');
   
   // 处理分数
-  result = result.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '$1⁄$2');
+  result = result.replace(/\\frac\s*\{([^}]+)\}\s*\{([^}]+)\}/g, '$1⁄$2');
   
   // 处理根号
-  result = result.replace(/\\sqrt\{([^}]+)\}/g, '√$1');
+  result = result.replace(/\\sqrt\s*\{([^}]+)\}/g, '√$1');
   
   // 处理希腊字母
   const greekMap: { [key: string]: string } = {
@@ -790,29 +794,81 @@ function processMathContent(latex: string): string {
   
   // 处理特殊符号
   result = result.replace(/\\times/g, '×');
+  result = result.replace(/\\div/g, '÷');
   result = result.replace(/\\cdot/g, '·');
+  result = result.replace(/\\ast/g, '∗');
+  result = result.replace(/\\pm/g, '±');
+  result = result.replace(/\\mp/g, '∓');
   result = result.replace(/\\leq/g, '≤');
   result = result.replace(/\\geq/g, '≥');
   result = result.replace(/\\neq/g, '≠');
+  result = result.replace(/\\ne/g, '≠');
   result = result.replace(/\\approx/g, '≈');
+  result = result.replace(/\\equiv/g, '≡');
+  result = result.replace(/\\sim/g, '∼');
+  result = result.replace(/\\propto/g, '∝');
   result = result.replace(/\\infty/g, '∞');
   result = result.replace(/\\sum/g, '∑');
   result = result.replace(/\\prod/g, '∏');
+  result = result.replace(/\\int/g, '∫');
   result = result.replace(/\\dots/g, '...');
+  result = result.replace(/\\ldots/g, '…');
   result = result.replace(/\\lfloor/g, '⌊');
   result = result.replace(/\\rfloor/g, '⌋');
   result = result.replace(/\\lceil/g, '⌈');
   result = result.replace(/\\rceil/g, '⌉');
+  result = result.replace(/\\in/g, '∈');
+  result = result.replace(/\\notin/g, '∉');
+  result = result.replace(/\\subset/g, '⊂');
+  result = result.replace(/\\supset/g, '⊃');
+  result = result.replace(/\\subseteq/g, '⊆');
+  result = result.replace(/\\supseteq/g, '⊇');
+  result = result.replace(/\\cup/g, '∪');
+  result = result.replace(/\\cap/g, '∩');
+  result = result.replace(/\\emptyset/g, '∅');
+  result = result.replace(/\\forall/g, '∀');
+  result = result.replace(/\\exists/g, '∃');
+  result = result.replace(/\\land/g, '∧');
+  result = result.replace(/\\lor/g, '∨');
+  result = result.replace(/\\neg/g, '¬');
   
-  // 处理文本
-  result = result.replace(/\\text\{([^}]+)\}/g, '<span class="math-text">$1</span>');
+  // 处理空格命令
+  result = result.replace(/\\quad/g, '  ');
+  result = result.replace(/\\qquad/g, '    ');
+  result = result.replace(/\\,/g, ' ');
+  result = result.replace(/\\;/g, ' ');
+
+  // 处理箭头符号
+  result = result.replace(/\\rightarrow/g, '→');
+  result = result.replace(/\\leftarrow/g, '←');
+  result = result.replace(/\\Rightarrow/g, '⇒');
+  result = result.replace(/\\Leftarrow/g, '⇐');
+  result = result.replace(/\\leftrightarrow/g, '↔');
+  result = result.replace(/\\Leftrightarrow/g, '⇔');
+  result = result.replace(/\\to/g, '→');
+  result = result.replace(/\\gets/g, '←');
+
+  // 处理 LaTeX 括号命令（直接去掉 \left 和 \right，保留括号本身）
+  result = result.replace(/\\left\s*/g, '');
+  result = result.replace(/\\right\s*/g, '');
+
+  // 处理转义的花括号（使用占位符保护）
+  result = result.replace(/\\\{/g, 'LEFTBRACE');
+  result = result.replace(/\\\}/g, 'RIGHTBRACE');
   
   // 清理括号和反斜杠
   result = result.replace(/\{|\}/g, '');
   result = result.replace(/\\/g, '');
   
-  // 将字母转为斜体（避免 HTML 标签内）
-  result = result.replace(/(?<!<[^>]*)(?<!&)([a-zA-Z])(?![^<]*>)(?![a-zA-Z]*;)/g, (match, letter, offset, string) => {
+  // 恢复转义的花括号
+  result = result.replace(/LEFTBRACE/g, '{');
+  result = result.replace(/RIGHTBRACE/g, '}');
+  
+  // 清理多余的连续空格（但保留 HTML 标签内的空格）
+  result = result.replace(/(?<!<[^>]*)\s{2,}(?![^<]*>)/g, ' ');
+  
+  // 将字母转为斜体（避免 HTML 标签内和罗马字体内）
+  result = result.replace(/(?<!<[^>]*(?:math-roman)?[^>]*>)(?<!&)([a-zA-Z])(?![^<]*>)(?![a-zA-Z]*;)/g, (match, letter, offset, string) => {
     const before = string.substring(Math.max(0, offset - 10), offset);
     if (before.match(/&[a-zA-Z]*$/)) {
       return letter;
@@ -823,294 +879,6 @@ function processMathContent(latex: string): string {
   return result;
 }
 
-/**
- * 处理数学公式（LaTeX 语法）
- * 将 $...$ 中的 LaTeX 命令转换为 Unicode 字符
- */
-function processMathFormulas(markdown: string): string {
-  // LaTeX 数学函数名列表（这些应该显示为正常文本，非斜体）
-  const mathFunctions = [
-    '\\log', '\\ln', '\\lg', '\\exp',
-    '\\sin', '\\cos', '\\tan', '\\cot', '\\sec', '\\csc',
-    '\\arcsin', '\\arccos', '\\arctan', '\\arccot', '\\arcsec', '\\arccsc',
-    '\\sinh', '\\cosh', '\\tanh', '\\coth', '\\sech', '\\csch',
-    '\\min', '\\max', '\\sup', '\\inf', '\\lim', '\\limsup', '\\liminf',
-    '\\det', '\\dim', '\\ker', '\\deg', '\\hom', '\\arg',
-    '\\Pr', '\\gcd', '\\lcm',
-  ];
-
-  // LaTeX 数学符号映射表
-  const mathSymbols: { [key: string]: string } = {
-    '\\leq': '≤',
-    '\\geq': '≥',
-    '\\neq': '≠',
-    '\\approx': '≈',
-    '\\equiv': '≡',
-    '\\sim': '∼',
-    '\\propto': '∝',
-    '\\pm': '±',
-    '\\mp': '∓',
-    '\\times': '×',
-    '\\div': '÷',
-    '\\cdot': '·',
-    '\\ast': '∗',
-    '\\sum': '∑',
-    '\\prod': '∏',
-    '\\int': '∫',
-    '\\infty': '∞',
-    '\\dots': '...',
-    '\\in': '∈',
-    '\\notin': '∉',
-    '\\subset': '⊂',
-    '\\supset': '⊃',
-    '\\subseteq': '⊆',
-    '\\supseteq': '⊇',
-    '\\cup': '∪',
-    '\\cap': '∩',
-    '\\emptyset': '∅',
-    '\\forall': '∀',
-    '\\exists': '∃',
-    '\\land': '∧',
-    '\\lor': '∨',
-    '\\neg': '¬',
-    '\\rightarrow': '→',
-    '\\leftarrow': '←',
-    '\\Rightarrow': '⇒',
-    '\\Leftarrow': '⇐',
-    '\\leftrightarrow': '↔',
-    '\\Leftrightarrow': '⇔',
-    '\\to': '→',
-    '\\gets': '←',
-    // 希腊字母
-    '\\alpha': 'α',
-    '\\beta': 'β',
-    '\\gamma': 'γ',
-    '\\delta': 'δ',
-    '\\epsilon': 'ε',
-    '\\varepsilon': 'ε',
-    '\\zeta': 'ζ',
-    '\\eta': 'η',
-    '\\theta': 'θ',
-    '\\vartheta': 'ϑ',
-    '\\iota': 'ι',
-    '\\kappa': 'κ',
-    '\\lambda': 'λ',
-    '\\mu': 'μ',
-    '\\nu': 'ν',
-    '\\xi': 'ξ',
-    '\\pi': 'π',
-    '\\varpi': 'ϖ',
-    '\\rho': 'ρ',
-    '\\varrho': 'ϱ',
-    '\\sigma': 'σ',
-    '\\varsigma': 'ς',
-    '\\tau': 'τ',
-    '\\upsilon': 'υ',
-    '\\phi': 'φ',
-    '\\varphi': 'ϕ',
-    '\\chi': 'χ',
-    '\\psi': 'ψ',
-    '\\omega': 'ω',
-    '\\Gamma': 'Γ',
-    '\\Delta': 'Δ',
-    '\\Theta': 'Θ',
-    '\\Lambda': 'Λ',
-    '\\Xi': 'Ξ',
-    '\\Pi': 'Π',
-    '\\Sigma': 'Σ',
-    '\\Upsilon': 'Υ',
-    '\\Phi': 'Φ',
-    '\\Psi': 'Ψ',
-    '\\Omega': 'Ω',
-  };
-
-  // 辅助函数：将普通字母转换为斜体（使用 HTML 标签，兼容所有设备）
-  const convertToMathLetters = (text: string): string => {
-    // 不要转换已经在 HTML 标签内的内容
-    // 使用 <i> 标签包裹字母，实现斜体效果
-    let result = text;
-    // 匹配不在 HTML 标签内的单个字母
-    result = result.replace(/(?<!<[^>]*)([A-Za-z])(?![^<]*>)/g, (match, letter) => {
-      return `<i>${letter}</i>`;
-    });
-    return result;
-  };
-
-  // 处理行内数学公式 $...$
-  markdown = markdown.replace(/\$([^$\n]+?)\$/g, (match, formula) => {
-    let result = formula.trim();
-    
-    // 处理 \text{...} 命令（在函数名处理之前）
-    result = result.replace(/\\text\{([^}]+)\}/g, '<span class="math-text">$1</span>');
-    
-    // 先处理函数名（从长到短，避免部分匹配）
-    const sortedFunctions = mathFunctions.sort((a, b) => b.length - a.length);
-    for (const func of sortedFunctions) {
-      // 转义特殊字符用于正则表达式
-      const escapedFunc = func.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      // 匹配函数名，后面可能跟着空格、括号或其他字符
-      const regex = new RegExp(escapedFunc + '(?![a-zA-Z])', 'g');
-      // 提取函数名（去掉反斜杠）
-      const funcName = func.replace(/^\\/, '');
-      result = result.replace(regex, `<span class="math-function">${funcName}</span>`);
-    }
-    
-    // 然后处理数学符号（从长到短，避免部分匹配）
-    const sortedSymbols = Object.entries(mathSymbols).sort((a, b) => b[0].length - a[0].length);
-    
-    for (const [cmd, symbol] of sortedSymbols) {
-      // 转义特殊字符用于正则表达式
-      const escapedCmd = cmd.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const regex = new RegExp(escapedCmd, 'g');
-      result = result.replace(regex, symbol);
-    }
-    
-    // 处理上标和下标（简化处理）
-    result = result.replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>');
-    result = result.replace(/_\{([^}]+)\}/g, '<sub>$1</sub>');
-    result = result.replace(/\^([a-zA-Z0-9])/g, '<sup>$1</sup>');
-    result = result.replace(/_([a-zA-Z0-9])/g, '<sub>$1</sub>');
-    
-    // 处理分数 \frac{a}{b}
-    result = result.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '$1⁄$2');
-    
-    // 处理根号 \sqrt{x} 或 \sqrt[n]{x}
-    result = result.replace(/\\sqrt\[(\d+)\]\{([^}]+)\}/g, '<sup>$1</sup>√$2');
-    result = result.replace(/\\sqrt\{([^}]+)\}/g, '√$1');
-    
-    // 清理多余的括号（但保留必要的，注意不要清理已处理的 HTML）
-    // 只在非 HTML 标签的地方清理括号
-    result = result.replace(/(?<!<[^>]*)\{|\}(?![^<]*>)/g, '');
-    
-    // 将普通字母转换为数学字母（但跳过 HTML 标签内的内容）
-    // 使用更简单的方法：先标记已处理的内容，然后转换剩余字母
-    const parts: string[] = [];
-    let lastIndex = 0;
-    const htmlTagRegex = /<[^>]+>/g;
-    let tagMatch: RegExpExecArray | null;
-    
-    while ((tagMatch = htmlTagRegex.exec(result)) !== null) {
-      // 添加标签前的文本（转换为数学字母）
-      if (tagMatch.index > lastIndex) {
-        const beforeText = result.substring(lastIndex, tagMatch.index);
-        parts.push(convertToMathLetters(beforeText));
-      }
-      // 添加 HTML 标签本身（不转换）
-      parts.push(tagMatch[0]);
-      lastIndex = htmlTagRegex.lastIndex;
-    }
-    // 添加剩余的文本
-    if (lastIndex < result.length) {
-      parts.push(convertToMathLetters(result.substring(lastIndex)));
-    }
-    
-    result = parts.length > 0 ? parts.join('') : convertToMathLetters(result);
-    
-    return `<span class="math-inline">${result}</span>`;
-  });
-
-  // 处理块级数学公式 $$...$$
-  markdown = markdown.replace(/\$\$([^$]+?)\$\$/g, (match, formula) => {
-    let result = formula.trim();
-    
-    // 辅助函数：处理单个公式内容（用于 aligned 块内部和外部）
-    const processFormulaContent = (content: string): string => {
-      let processed = content;
-      
-      // 处理 \text{...} 命令
-      processed = processed.replace(/\\text\{([^}]+)\}/g, '<span class="math-text">$1</span>');
-      
-      // 处理函数名
-      const sortedFunctions = mathFunctions.sort((a, b) => b.length - a.length);
-      for (const func of sortedFunctions) {
-        const escapedFunc = func.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(escapedFunc + '(?![a-zA-Z])', 'g');
-        const funcName = func.replace(/^\\/, '');
-        processed = processed.replace(regex, `<span class="math-function">${funcName}</span>`);
-      }
-      
-      // 处理数学符号
-      const sortedSymbols = Object.entries(mathSymbols).sort((a, b) => b[0].length - a[0].length);
-      for (const [cmd, symbol] of sortedSymbols) {
-        const escapedCmd = cmd.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(escapedCmd, 'g');
-        processed = processed.replace(regex, symbol);
-      }
-      
-      // 处理上标和下标
-      processed = processed.replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>');
-      processed = processed.replace(/_\{([^}]+)\}/g, '<sub>$1</sub>');
-      processed = processed.replace(/\^([a-zA-Z0-9])/g, '<sup>$1</sup>');
-      processed = processed.replace(/_([a-zA-Z0-9])/g, '<sub>$1</sub>');
-      
-      // 处理分数
-      processed = processed.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '$1⁄$2');
-      
-      // 处理根号
-      processed = processed.replace(/\\sqrt\[(\d+)\]\{([^}]+)\}/g, '<sup>$1</sup>√$2');
-      processed = processed.replace(/\\sqrt\{([^}]+)\}/g, '√$1');
-      
-      // 清理多余的括号（但保留 HTML 标签内的内容）
-      processed = processed.replace(/(?<!<[^>]*)\{|\}(?![^<]*>)/g, '');
-      
-      return processed;
-    };
-    
-    // 先处理 aligned 环境
-    result = result.replace(/\\begin\{aligned\}(.*?)\\end\{aligned\}/gs, (match: string, content: string) => {
-      // 处理 aligned 块内的内容
-      let alignedContent = content.trim();
-      
-      // 处理 \newline，将其转换为换行标记
-      alignedContent = alignedContent.replace(/\\newline/g, '\n');
-      
-      // 按行分割
-      const lines = alignedContent.split('\n').filter((line: string) => line.trim());
-      
-      // 处理每一行，按 & 对齐点分割
-      const processedLines = lines.map((line: string) => {
-        const parts = line.split('&').map((part: string) => {
-          // 处理每个部分的内容
-          return processFormulaContent(part.trim());
-        });
-        return parts;
-      });
-      
-      // 构建对齐的 HTML 表格
-      let html = '<table class="math-aligned">';
-      for (const line of processedLines) {
-        html += '<tr>';
-        for (let i = 0; i < line.length; i++) {
-          const cellContent = line[i] || '';
-          // 第一列右对齐，第二列左对齐，第三列左对齐（注释）
-          let align = 'left';
-          if (i === 0) {
-            align = 'right';  // 第一列（如 T(n)）右对齐
-          } else if (i === 1) {
-            align = 'left';   // 第二列（= ...）左对齐
-          } else {
-            align = 'left';   // 第三列（注释）左对齐
-          }
-          html += `<td style="text-align: ${align}; padding-left: ${i === 1 ? '8px' : '4px'}; padding-right: ${i === 2 ? '0' : '4px'};">${cellContent}</td>`;
-        }
-        html += '</tr>';
-      }
-      html += '</table>';
-      
-      return html;
-    });
-    
-    // 处理 \newline（在 aligned 块之外的情况）
-    result = result.replace(/\\newline/g, '<br>');
-    
-    // 处理 aligned 块之外的内容
-    result = processFormulaContent(result);
-    
-    return `<div class="math-block">${result}</div>`;
-  });
-
-  return markdown;
-}
 
 /**
  * 处理 MkDocs 的 admonition 语法
@@ -1285,6 +1053,10 @@ h6 { font-size: 1.0em; }
       font-weight: normal;
     }
     .math-text {
+      font-style: normal;
+      font-weight: normal;
+    }
+    .math-roman {
       font-style: normal;
       font-weight: normal;
     }
