@@ -1010,26 +1010,24 @@ h6 { font-size: 1.0em; }
     
     /* 代码块 */
     pre {
-      overflow-x: auto;
-      overflow-y: visible;
       padding: 14px 16px;
       background-color: #f5f5f5;
       border: 1.5px solid #d0d0d0;
       border-radius: 6px;
       margin: 16px 0;
       line-height: 1.65;
-      page-break-inside: avoid;
-      -webkit-overflow-scrolling: touch;
+      page-break-inside: auto !important;
+      break-inside: auto !important;
     }
     
     pre code {
       background-color: transparent;
       padding: 0;
       border: none;
-      white-space: pre;
-      word-wrap: normal;
-      word-break: normal;
-      overflow-wrap: normal;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      word-break: break-all;
+      overflow-wrap: break-word;
       font-family: "Roboto Mono", "Noto Sans Mono", "Droid Sans Mono", "SF Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", "Menlo", "Monaco", "DejaVu Sans Mono", "Liberation Mono", "Courier New", Courier, monospace;
       font-size: 0.85em;
       color: #333;
@@ -1181,7 +1179,6 @@ h6 { font-size: 1.0em; }
     /* Syntax highlighting styles (GitHub theme) */
     .hljs {
       display: block;
-      overflow-x: auto;
       padding: 0.5em;
       color: #333;
       background: #f8f8f8;
