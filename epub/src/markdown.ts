@@ -887,19 +887,67 @@ function processMathContent(latex: string): string {
  * 2. !!! note "自定义标题"（使用自定义标题）
  */
 function processAdmonitions(markdown: string): string {
-  // 处理带自定义标题的 admonition: !!! type "custom title"
-  markdown = markdown.replace(/^!!!\s+(\w+)\s+"([^"]+)"\s*\n((?:\n|.)*?)(?=\n!!!|\n#|\n\n\n|$)/gm, (match, type, customTitle, content) => {
-    const trimmedContent = content.trim();
-    return `<div class="admonition ${type}">\n<div class="admonition-title">${customTitle}</div>\n${trimmedContent}\n</div>`;
-  });
+  const lines = markdown.split('\n');
+  const result: string[] = [];
+  let i = 0;
   
-  // 处理使用默认标题的 admonition: !!! type
-  markdown = markdown.replace(/^!!!\s+(\w+)\s*\n((?:\n|.)*?)(?=\n!!!|\n#|\n\n\n|$)/gm, (match, type, content) => {
-    const trimmedContent = content.trim();
-    return `<div class="admonition ${type}">\n<div class="admonition-title">${getAdmonitionTitle(type)}</div>\n${trimmedContent}\n</div>`;
-  });
+  while (i < lines.length) {
+    const line = lines[i];
+    
+    // 检查是否是 admonition 开始
+    const admonitionMatch = line.match(/^!!!\s+(\w+)(?:\s+"([^"]+)")?\s*$/);
+    
+    if (admonitionMatch) {
+      const type = admonitionMatch[1];
+      const customTitle = admonitionMatch[2];
+      const title = customTitle || getAdmonitionTitle(type);
+      
+      i++; // 跳过 admonition 标记行
+      
+      // 收集所有缩进的内容（4个空格开头）
+      const contentLines: string[] = [];
+      while (i < lines.length) {
+        const contentLine = lines[i];
+        
+        // 如果是缩进行（4个空格开头），属于 admonition 内容
+        if (contentLine.match(/^    /)) {
+          // 去掉前4个空格
+          contentLines.push(contentLine.substring(4));
+          i++;
+        } 
+        // 如果是空行，也可能属于 admonition 内容（需要检查下一行）
+        else if (contentLine.trim() === '') {
+          // 向前查看，如果下一行还是缩进的，那这个空行属于 admonition
+          if (i + 1 < lines.length && lines[i + 1].match(/^    /)) {
+            contentLines.push('');
+            i++;
+          } else {
+            // 否则 admonition 结束
+            break;
+          }
+        }
+        // 非缩进非空行，admonition 结束
+        else {
+          break;
+        }
+      }
+      
+      // 生成 admonition HTML
+      const content = contentLines.join('\n').trim();
+      result.push(`<div class="admonition ${type}">`);
+      result.push(`<div class="admonition-title">${title}</div>`);
+      result.push(content);
+      result.push(`</div>`);
+      
+      continue;
+    }
+    
+    // 普通行
+    result.push(line);
+    i++;
+  }
   
-  return markdown;
+  return result.join('\n');
 }
 
 function getAdmonitionTitle(type: string): string {
