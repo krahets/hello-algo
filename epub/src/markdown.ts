@@ -194,17 +194,20 @@ export function markdownToHtml(markdown: string, baseDir: string, headingOffset:
  */
 function processCodeReferences(markdown: string, baseDir: string): string {
   // 匹配 ```src 代码块中的引用标记
-  const codeBlockRegex = /```src\s*\n\[file\]\{([^}]+)\}-\[class\]\{([^}]*)\}-\[func\]\{([^}]+)\}\s*\n```/g;
+  const codeBlockRegex = /```src\s*\n\[file\]\{([^}]+)\}-\[class\]\{([^}]*)\}-\[func\]\{([^}]*)\}\s*\n```/g;
   
   markdown = markdown.replace(codeBlockRegex, (match, filename, classname, funcname) => {
     try {
-      // 转换函数名：下划线转驼峰 (level_order -> levelOrder)
-      let actualFuncName = snakeToCamel(funcname);
-      
-      // 特殊处理：Python 的 __init__ 在 C++ 中是构造函数（与类名相同）
-      if (funcname === '__init__' && classname) {
-        // 构造函数名就是类名（首字母大写）
-        actualFuncName = snakeToCamel(classname).replace(/^./, (c) => c.toUpperCase());
+      let actualFuncName = '';
+      if (funcname) {
+        // 转换函数名：下划线转驼峰 (level_order -> levelOrder)
+        actualFuncName = snakeToCamel(funcname);
+        
+        // 特殊处理：Python 的 __init__ 在 C++ 中是构造函数（与类名相同）
+        if (funcname === '__init__' && classname) {
+          // 构造函数名就是类名（首字母大写）
+          actualFuncName = snakeToCamel(classname).replace(/^./, (c) => c.toUpperCase());
+        }
       }
       
       // 查找代码文件（在 codes/cpp 目录下）
@@ -227,15 +230,21 @@ function processCodeReferences(markdown: string, baseDir: string): string {
       // 提取函数或方法代码
       let extractedCode = '';
       if (classname) {
-        // 提取类方法
-        extractedCode = extractClassMethod(codeContent, classname, actualFuncName);
+        if (funcname) {
+          // 有方法名：提取特定方法
+          extractedCode = extractClassMethod(codeContent, classname, actualFuncName);
+        } else {
+          // 无方法名：提取整个类
+          extractedCode = extractClass(codeContent, classname);
+        }
       } else {
-        // 提取独立函数
+        // 独立函数
         extractedCode = extractFunction(codeContent, actualFuncName);
       }
       
       if (!extractedCode) {
-        console.warn(`未找到函数: ${actualFuncName} in ${filename}.cpp`);
+        const target = funcname ? `函数: ${actualFuncName}` : `类: ${classname}`;
+        console.warn(`未找到${target} in ${filename}.cpp`);
         return match; // 保持原样
       }
       
@@ -360,6 +369,72 @@ function extractFunction(codeContent: string, funcName: string): string {
   }
   
   return '';
+}
+
+/**
+ * 提取整个类的代码
+ */
+function extractClass(codeContent: string, className: string): string {
+  const lines = codeContent.split('\n');
+  let classStartIdx = -1;
+  let classEndIdx = -1;
+  let braceCount = 0;
+  let inClass = false;
+  
+  // 转换类名：下划线转驼峰并首字母大写
+  const actualClassName = snakeToCamel(className).replace(/^./, (c) => c.toUpperCase());
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    
+    // 查找类定义（不区分大小写，以支持 AVLTree 这样的首字母缩写）
+    if (!inClass) {
+      const classRegex = new RegExp(`class\\s+${actualClassName}\\b`, 'i');
+      if (classRegex.test(line)) {
+        classStartIdx = i;
+        inClass = true;
+      }
+    }
+    
+    // 统计大括号
+    if (inClass) {
+      for (const char of line) {
+        if (char === '{') braceCount++;
+        if (char === '}') {
+          braceCount--;
+          if (braceCount === 0) {
+            classEndIdx = i;
+            break;
+          }
+        }
+      }
+    }
+    
+    if (classEndIdx !== -1) break;
+  }
+  
+  if (classStartIdx === -1 || classEndIdx === -1) {
+    return '';
+  }
+  
+  // 向上查找类定义前的注释
+  let commentStartIdx = classStartIdx;
+  for (let j = classStartIdx - 1; j >= 0; j--) {
+    const prevLine = lines[j].trim();
+    // 检查是否是注释行
+    if (prevLine.startsWith('/*') || prevLine.startsWith('*') || prevLine.startsWith('//')) {
+      commentStartIdx = j;
+    } else if (prevLine === '') {
+      // 空行，继续向上查找
+      continue;
+    } else {
+      // 非注释非空行，停止
+      break;
+    }
+  }
+  
+  // 返回从注释开始到类结束的完整代码
+  return lines.slice(commentStartIdx, classEndIdx + 1).join('\n');
 }
 
 /**
