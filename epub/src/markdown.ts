@@ -274,14 +274,14 @@ function processCodeReferences(markdown: string, baseDir: string, language: stri
       if (classname) {
         if (funcname) {
           // 有方法名：提取特定方法
-          extractedCode = extractClassMethod(codeContent, classname, actualFuncName);
+          extractedCode = extractClassMethod(codeContent, classname, actualFuncName, language);
         } else {
           // 无方法名：提取整个类
-          extractedCode = extractClass(codeContent, classname);
+          extractedCode = extractClass(codeContent, classname, language);
         }
       } else {
         // 独立函数
-        extractedCode = extractFunction(codeContent, actualFuncName);
+        extractedCode = extractFunction(codeContent, actualFuncName, language);
       }
       
       if (!extractedCode) {
@@ -363,11 +363,9 @@ function findCodeFile(dir: string, filename: string): string | null {
 }
 
 /**
- * 提取独立函数代码
+ * 提取独立函数代码（基于大括号的语言：C++, Java, C#, Go, JavaScript, TypeScript, Rust, Dart, Kotlin, Swift）
  */
-function extractFunction(codeContent: string, funcName: string): string {
-  // 匹配函数定义（包括注释）
-  // 格式: /* 注释 */\nreturnType funcName(params) {\n...\n}
+function extractFunctionBraced(codeContent: string, funcName: string): string {
   const lines = codeContent.split('\n');
   let startIdx = -1;
   let endIdx = -1;
@@ -385,7 +383,7 @@ function extractFunction(codeContent: string, funcName: string): string {
         // 向上查找注释（如果有）
         startIdx = i;
         // 检查前一行是否有注释
-        if (i > 0 && lines[i - 1].trim().startsWith('/*')) {
+        if (i > 0 && (lines[i - 1].trim().startsWith('/*') || lines[i - 1].trim().startsWith('//'))) {
           startIdx = i - 1;
         }
         inFunction = true;
@@ -415,9 +413,82 @@ function extractFunction(codeContent: string, funcName: string): string {
 }
 
 /**
- * 提取整个类的代码
+ * 提取独立函数代码（基于缩进的语言：Python, Ruby）
  */
-function extractClass(codeContent: string, className: string): string {
+function extractFunctionIndented(codeContent: string, funcName: string): string {
+  const lines = codeContent.split('\n');
+  let startIdx = -1;
+  let endIdx = -1;
+  let baseIndent = -1;
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    
+    // 查找函数定义
+    if (startIdx === -1) {
+      // Python: def funcName(, Ruby: def funcName 或 def funcName(
+      const funcRegex = new RegExp(`^(\\s*)def\\s+${funcName}\\s*[\\(:]`);
+      const match = line.match(funcRegex);
+      if (match) {
+        baseIndent = match[1].length;
+        // 向上查找文档字符串或注释
+        startIdx = i;
+        if (i > 0) {
+          const prevLine = lines[i - 1].trim();
+          if (prevLine.startsWith('#') || prevLine.startsWith('"""') || prevLine.startsWith("'''")) {
+            startIdx = i - 1;
+          }
+        }
+      }
+    } else {
+      // 已找到函数开始，查找函数结束
+      const trimmed = line.trim();
+      
+      // 跳过空行
+      if (trimmed === '') continue;
+      
+      // 获取当前行的缩进
+      const currentIndent = line.length - line.trimStart().length;
+      
+      // 如果遇到同级或更小缩进的非空行，说明函数结束
+      if (currentIndent <= baseIndent) {
+        endIdx = i - 1;
+        break;
+      }
+    }
+  }
+  
+  // 如果到文件末尾还没找到结束位置，使用最后一行
+  if (startIdx !== -1 && endIdx === -1) {
+    endIdx = lines.length - 1;
+  }
+  
+  if (startIdx !== -1 && endIdx !== -1) {
+    return lines.slice(startIdx, endIdx + 1).join('\n');
+  }
+  
+  return '';
+}
+
+/**
+ * 提取独立函数代码（根据语言选择提取方法）
+ */
+function extractFunction(codeContent: string, funcName: string, language: string = 'cpp'): string {
+  const config = LANGUAGE_MAP[language];
+  
+  // 基于缩进的语言
+  if (config.useSnakeCase) {
+    return extractFunctionIndented(codeContent, funcName);
+  }
+  
+  // 基于大括号的语言
+  return extractFunctionBraced(codeContent, funcName);
+}
+
+/**
+ * 提取整个类的代码（基于大括号的语言）
+ */
+function extractClassBraced(codeContent: string, className: string): string {
   const lines = codeContent.split('\n');
   let classStartIdx = -1;
   let classEndIdx = -1;
@@ -481,9 +552,92 @@ function extractClass(codeContent: string, className: string): string {
 }
 
 /**
- * 提取类方法代码
+ * 提取整个类的代码（基于缩进的语言）
  */
-function extractClassMethod(codeContent: string, className: string, methodName: string): string {
+function extractClassIndented(codeContent: string, className: string): string {
+  const lines = codeContent.split('\n');
+  let classStartIdx = -1;
+  let classEndIdx = -1;
+  let baseIndent = -1;
+  
+  // Python/Ruby 类名使用 PascalCase
+  const actualClassName = snakeToCamel(className).replace(/^./, (c) => c.toUpperCase());
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    
+    // 查找类定义
+    if (classStartIdx === -1) {
+      // Python: class ClassName:, Ruby: class ClassName
+      const classRegex = new RegExp(`^(\\s*)class\\s+${actualClassName}\\b`, 'i');
+      const match = line.match(classRegex);
+      if (match) {
+        baseIndent = match[1].length;
+        classStartIdx = i;
+        
+        // 向上查找注释
+        if (i > 0) {
+          const prevLine = lines[i - 1].trim();
+          if (prevLine.startsWith('#') || prevLine.startsWith('"""') || prevLine.startsWith("'''")) {
+            classStartIdx = i - 1;
+          }
+        }
+      }
+    } else {
+      // 已找到类开始，查找类结束
+      const trimmed = line.trim();
+      
+      // 跳过空行和注释
+      if (trimmed === '' || trimmed.startsWith('#')) continue;
+      
+      // 获取当前行的缩进
+      const currentIndent = line.length - line.trimStart().length;
+      
+      // 如果遇到同级或更小缩进的非空行，说明类结束
+      if (currentIndent <= baseIndent && trimmed !== '') {
+        classEndIdx = i - 1;
+        break;
+      }
+    }
+  }
+  
+  // 如果到文件末尾还没找到结束位置，使用最后一行
+  if (classStartIdx !== -1 && classEndIdx === -1) {
+    // 向后查找到最后一个非空行
+    for (let j = lines.length - 1; j > classStartIdx; j--) {
+      if (lines[j].trim() !== '') {
+        classEndIdx = j;
+        break;
+      }
+    }
+  }
+  
+  if (classStartIdx !== -1 && classEndIdx !== -1) {
+    return lines.slice(classStartIdx, classEndIdx + 1).join('\n');
+  }
+  
+  return '';
+}
+
+/**
+ * 提取整个类的代码（根据语言选择提取方法）
+ */
+function extractClass(codeContent: string, className: string, language: string = 'cpp'): string {
+  const config = LANGUAGE_MAP[language];
+  
+  // 基于缩进的语言
+  if (config.useSnakeCase) {
+    return extractClassIndented(codeContent, className);
+  }
+  
+  // 基于大括号的语言
+  return extractClassBraced(codeContent, className);
+}
+
+/**
+ * 提取类方法代码（基于大括号的语言）
+ */
+function extractClassMethodBraced(codeContent: string, className: string, methodName: string): string {
   // 首先找到类定义
   const lines = codeContent.split('\n');
   let classStartIdx = -1;
@@ -612,6 +766,111 @@ function extractClassMethod(codeContent: string, className: string, methodName: 
   }
   
   return '';
+}
+
+/**
+ * 提取类方法代码（基于缩进的语言）
+ */
+function extractClassMethodIndented(codeContent: string, className: string, methodName: string): string {
+  const lines = codeContent.split('\n');
+  let classStartIdx = -1;
+  let classBaseIndent = -1;
+  let methodStartIdx = -1;
+  let methodEndIdx = -1;
+  let methodBaseIndent = -1;
+  
+  // Python/Ruby 类名使用 PascalCase
+  const actualClassName = snakeToCamel(className).replace(/^./, (c) => c.toUpperCase());
+  
+  // 首先找到类定义
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const classRegex = new RegExp(`^(\\s*)class\\s+${actualClassName}\\b`, 'i');
+    const match = line.match(classRegex);
+    if (match) {
+      classBaseIndent = match[1].length;
+      classStartIdx = i;
+      break;
+    }
+  }
+  
+  if (classStartIdx === -1) {
+    return '';
+  }
+  
+  // 在类中查找方法
+  for (let i = classStartIdx + 1; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    
+    // 跳过空行
+    if (trimmed === '') continue;
+    
+    const currentIndent = line.length - line.trimStart().length;
+    
+    // 如果缩进回到类级别或更少，说明已经离开类了
+    if (currentIndent <= classBaseIndent && trimmed !== '') {
+      break;
+    }
+    
+    if (methodStartIdx === -1) {
+      // 查找方法定义
+      const methodRegex = new RegExp(`^\\s+def\\s+${methodName}\\s*[\\(:]`);
+      if (methodRegex.test(line)) {
+        methodBaseIndent = currentIndent;
+        methodStartIdx = i;
+        
+        // 向上查找文档字符串或注释
+        if (i > 0) {
+          const prevLine = lines[i - 1].trim();
+          if (prevLine.startsWith('"""') || prevLine.startsWith("'''") || prevLine.startsWith('#')) {
+            methodStartIdx = i - 1;
+          }
+        }
+      }
+    } else {
+      // 已找到方法，查找结束位置
+      // 如果遇到同级或更小缩进的非空行，方法结束
+      if (currentIndent <= methodBaseIndent && trimmed !== '') {
+        methodEndIdx = i - 1;
+        break;
+      }
+    }
+  }
+  
+  // 如果到文件末尾还没找到结束位置
+  if (methodStartIdx !== -1 && methodEndIdx === -1) {
+    // 向后查找到最后一个非空行
+    for (let j = lines.length - 1; j > methodStartIdx; j--) {
+      const trimmed = lines[j].trim();
+      const currentIndent = lines[j].length - lines[j].trimStart().length;
+      if (trimmed !== '' && currentIndent > methodBaseIndent) {
+        methodEndIdx = j;
+        break;
+      }
+    }
+  }
+  
+  if (methodStartIdx !== -1 && methodEndIdx !== -1) {
+    return lines.slice(methodStartIdx, methodEndIdx + 1).join('\n');
+  }
+  
+  return '';
+}
+
+/**
+ * 提取类方法代码（根据语言选择提取方法）
+ */
+function extractClassMethod(codeContent: string, className: string, methodName: string, language: string = 'cpp'): string {
+  const config = LANGUAGE_MAP[language];
+  
+  // 基于缩进的语言
+  if (config.useSnakeCase) {
+    return extractClassMethodIndented(codeContent, className, methodName);
+  }
+  
+  // 基于大括号的语言
+  return extractClassMethodBraced(codeContent, className, methodName);
 }
 
 /**
