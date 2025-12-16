@@ -12,6 +12,7 @@ export interface EpubOptions {
   description?: string;
   language?: string;
   cover?: string;
+  codeLanguage?: string;  // 代码示例的编程语言
 }
 
 /**
@@ -99,7 +100,8 @@ export async function generateEpub(
     
     // 转换为 HTML
     // 我们设置了 appendChapterTitles: false，所以 epub-gen 不会自动添加标题
-    const html = markdownToHtml(chapter.content, chapterDir, headingOffset, headingPrefix, removeFirstHeading);
+    const codeLanguage = options.codeLanguage || 'cpp';
+    const html = markdownToHtml(chapter.content, chapterDir, headingOffset, headingPrefix, removeFirstHeading, codeLanguage);
     
     // 如果有章节标题 HTML，添加到内容前面
     const finalHtml = chapterHeadingHtml + html;

@@ -133,31 +133,5 @@ function checkHeadingInHtml(html: string, heading: HeadingInfo): boolean {
   return normalizedHtml.includes(normalizedHeading);
 }
 
-/**
- * 将验证报告保存到文件
- */
-export async function saveValidationReport(
-  reportPath: string,
-  headings: HeadingInfo[],
-  missingHeadings: HeadingInfo[],
-  summary: string
-): Promise<void> {
-  const report = {
-    timestamp: new Date().toISOString(),
-    totalHeadings: headings.length,
-    foundHeadings: headings.length - missingHeadings.length,
-    missingHeadings: missingHeadings.length,
-    successRate: ((headings.length - missingHeadings.length) / headings.length * 100).toFixed(2) + '%',
-    missingDetails: missingHeadings.map(h => ({
-      level: h.level,
-      text: h.text,
-      chapter: h.chapterPath,
-      line: h.lineNumber
-    })),
-    summary
-  };
-  
-  await fs.writeFile(reportPath, JSON.stringify(report, null, 2), 'utf-8');
-  console.log(`验证报告已保存到: ${reportPath}`);
-}
+
 

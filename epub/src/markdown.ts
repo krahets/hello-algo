@@ -6,6 +6,33 @@ import { ImageInfo } from './types';
 import hljs from 'highlight.js';
 
 /**
+ * 语言配置映射
+ */
+interface LanguageConfig {
+  displayName: string;  // 在 === "语言名" 中使用的显示名称
+  dirName: string;      // codes/ 目录下的子目录名
+  extension: string;    // 文件扩展名
+  useSnakeCase: boolean; // 是否使用下划线命名（false 表示使用驼峰命名）
+}
+
+const LANGUAGE_MAP: { [key: string]: LanguageConfig } = {
+  cpp: { displayName: 'C++', dirName: 'cpp', extension: '.cpp', useSnakeCase: false },
+  python: { displayName: 'Python', dirName: 'python', extension: '.py', useSnakeCase: true },
+  java: { displayName: 'Java', dirName: 'java', extension: '.java', useSnakeCase: false },
+  csharp: { displayName: 'C#', dirName: 'csharp', extension: '.cs', useSnakeCase: false },
+  go: { displayName: 'Go', dirName: 'go', extension: '.go', useSnakeCase: false },
+  swift: { displayName: 'Swift', dirName: 'swift', extension: '.swift', useSnakeCase: false },
+  javascript: { displayName: 'JS', dirName: 'javascript', extension: '.js', useSnakeCase: false },
+  typescript: { displayName: 'TS', dirName: 'typescript', extension: '.ts', useSnakeCase: false },
+  dart: { displayName: 'Dart', dirName: 'dart', extension: '.dart', useSnakeCase: false },
+  rust: { displayName: 'Rust', dirName: 'rust', extension: '.rs', useSnakeCase: true },
+  c: { displayName: 'C', dirName: 'c', extension: '.c', useSnakeCase: true },
+  kotlin: { displayName: 'Kotlin', dirName: 'kotlin', extension: '.kt', useSnakeCase: false },
+  ruby: { displayName: 'Ruby', dirName: 'ruby', extension: '.rb', useSnakeCase: true },
+  zig: { displayName: 'Zig', dirName: 'zig', extension: '.zig', useSnakeCase: true },
+};
+
+/**
  * 配置 marked 渲染器
  */
 function configureMarked(headingOffset: number = 0, headingPrefix: string = '') {
@@ -128,8 +155,9 @@ function escapeHtml(text: string): string {
  * @param headingOffset 标题级别偏移量（默认为 2，即 H1->H3）
  * @param firstHeadingPrefix 第一个标题的前缀（如章节编号，用于二级标题自动编号）
  * @param removeFirstHeading 是否移除第一个标题
+ * @param language 编程语言（默认为 'cpp'）
  */
-export function markdownToHtml(markdown: string, baseDir: string, headingOffset: number = 2, firstHeadingPrefix: string = '', removeFirstHeading: boolean = false): string {
+export function markdownToHtml(markdown: string, baseDir: string, headingOffset: number = 2, firstHeadingPrefix: string = '', removeFirstHeading: boolean = false, language: string = 'cpp'): string {
   configureMarked(headingOffset, firstHeadingPrefix);
   
   // 如果需要移除第一个标题（用于章节级别的文档）
@@ -143,10 +171,10 @@ export function markdownToHtml(markdown: string, baseDir: string, headingOffset:
   }
   
   // 处理代码引用标记（在其他处理之前）
-  markdown = processCodeReferences(markdown, baseDir);
+  markdown = processCodeReferences(markdown, baseDir, language);
   
-  // 处理多语言代码块，只保留 C++ 版本
-  markdown = processMultiLanguageCodeBlocks(markdown);
+  // 处理多语言代码块，只保留指定语言版本
+  markdown = processMultiLanguageCodeBlocks(markdown, language);
   
   // 处理 tabbed 内容（=== "<1>", === "ArrayStack" 等非编程语言标签）
   markdown = processTabbedContent(markdown);
@@ -192,7 +220,15 @@ export function markdownToHtml(markdown: string, baseDir: string, headingOffset:
  * 处理代码引用标记
  * 格式: [file]{filename}-[class]{classname}-[func]{funcname}
  */
-function processCodeReferences(markdown: string, baseDir: string): string {
+function processCodeReferences(markdown: string, baseDir: string, language: string = 'cpp'): string {
+  // 获取语言配置
+  const langConfig = LANGUAGE_MAP[language];
+  if (!langConfig) {
+    console.warn(`不支持的语言: ${language}，使用默认语言 C++`);
+    language = 'cpp';
+  }
+  const config = LANGUAGE_MAP[language];
+  
   // 匹配 ```src 代码块中的引用标记
   const codeBlockRegex = /```src\s*\n\[file\]\{([^}]+)\}-\[class\]\{([^}]*)\}-\[func\]\{([^}]*)\}\s*\n```/g;
   
@@ -200,27 +236,33 @@ function processCodeReferences(markdown: string, baseDir: string): string {
     try {
       let actualFuncName = '';
       if (funcname) {
-        // 转换函数名：下划线转驼峰 (level_order -> levelOrder)
-        actualFuncName = snakeToCamel(funcname);
-        
-        // 特殊处理：Python 的 __init__ 在 C++ 中是构造函数（与类名相同）
-        if (funcname === '__init__' && classname) {
-          // 构造函数名就是类名（首字母大写）
-          actualFuncName = snakeToCamel(classname).replace(/^./, (c) => c.toUpperCase());
+        // 根据语言决定是否转换函数名
+        if (config.useSnakeCase) {
+          // 使用下划线命名的语言（如 Python, Rust）保持原样
+          actualFuncName = funcname;
+        } else {
+          // 使用驼峰命名的语言（如 C++, Java）：下划线转驼峰
+          actualFuncName = snakeToCamel(funcname);
+          
+          // 特殊处理：Python 的 __init__ 在 C++ 等语言中是构造函数（与类名相同）
+          if (funcname === '__init__' && classname) {
+            // 构造函数名就是类名（首字母大写）
+            actualFuncName = snakeToCamel(classname).replace(/^./, (c) => c.toUpperCase());
+          }
         }
       }
       
-      // 查找代码文件（在 codes/cpp 目录下）
+      // 查找代码文件（在对应语言的 codes 目录下）
       // baseDir 是 markdown 文件所在目录，如 /path/to/docs/chapter_xxx
       // 需要回到项目根目录：../../
       const projectRoot = path.resolve(baseDir, '..', '..');
-      const cppCodesDir = path.join(projectRoot, 'codes', 'cpp');
+      const codesDir = path.join(projectRoot, 'codes', config.dirName);
       
       // 递归查找文件
-      const codeFilePath = findCodeFile(cppCodesDir, `${filename}.cpp`);
+      const codeFilePath = findCodeFile(codesDir, `${filename}${config.extension}`);
       
       if (!codeFilePath) {
-        console.warn(`未找到代码文件: ${filename}.cpp`);
+        console.warn(`未找到代码文件: ${filename}${config.extension}`);
         return match; // 保持原样
       }
       
@@ -244,12 +286,13 @@ function processCodeReferences(markdown: string, baseDir: string): string {
       
       if (!extractedCode) {
         const target = funcname ? `函数: ${actualFuncName}` : `类: ${classname}`;
-        console.warn(`未找到${target} in ${filename}.cpp`);
+        console.warn(`未找到${target} in ${filename}${config.extension}`);
         return match; // 保持原样
       }
       
-      // 生成带文件名的代码块
-      const codeBlock = `\`\`\`cpp title="${filename}.cpp"\n${extractedCode}\n\`\`\``;
+      // 生成带文件名的代码块（使用语言的代码块标识符）
+      const langId = language === 'csharp' ? 'cs' : (language === 'javascript' ? 'js' : (language === 'typescript' ? 'ts' : config.dirName));
+      const codeBlock = `\`\`\`${langId} title="${filename}${config.extension}"\n${extractedCode}\n\`\`\``;
       return codeBlock;
       
     } catch (error) {
@@ -634,7 +677,11 @@ function processTabbedContent(markdown: string): string {
   return result.join('\n');
 }
 
-function processMultiLanguageCodeBlocks(markdown: string): string {
+function processMultiLanguageCodeBlocks(markdown: string, language: string = 'cpp'): string {
+  // 获取目标语言的显示名称
+  const langConfig = LANGUAGE_MAP[language];
+  const targetLangName = langConfig ? langConfig.displayName : 'C++';
+  
   // 定义需要过滤的编程语言标签（只有这些标签会被当作多语言代码块处理）
   const programmingLanguages = [
     'Python', 'C++', 'Java', 'C#', 'Go', 'Swift', 'JS', 'TS', 
@@ -729,17 +776,17 @@ function processMultiLanguageCodeBlocks(markdown: string): string {
         blocks.push({ lang: currentLang, lines: currentBlockLines });
       }
       
-      // 查找 C++ 语言版本
-      const cppBlock = blocks.find(b => b.lang === 'C++');
+      // 查找目标语言版本
+      const targetBlock = blocks.find(b => b.lang === targetLangName);
       
-      if (cppBlock) {
-        // 只保留 C++ 语言版本的代码块（去掉缩进）
-        for (const blockLine of cppBlock.lines) {
+      if (targetBlock) {
+        // 只保留目标语言版本的代码块（去掉缩进）
+        for (const blockLine of targetBlock.lines) {
           // 移除开头的 4 个空格缩进
           result.push(blockLine.replace(/^    /, ''));
         }
       } else if (blocks.length > 0) {
-        // 如果没有 C++ 版本，保留第一个版本
+        // 如果没有目标语言版本，保留第一个版本
         for (const blockLine of blocks[0].lines) {
           result.push(blockLine.replace(/^    /, ''));
         }

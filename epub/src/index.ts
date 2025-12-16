@@ -1,21 +1,56 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
+import { Command } from 'commander';
 import { parseMkdocsConfig, flattenNav, readChapterContent } from './parser';
 import { generateEpub } from './epub';
 import { Chapter, HeadingInfo } from './types';
 import { extractHeadings } from './markdown';
-import { validateEpubHeadings, saveValidationReport } from './validator';
+import { validateEpubHeadings } from './validator';
+
+// 支持的编程语言列表
+const SUPPORTED_LANGUAGES = [
+  'cpp', 'python', 'java', 'csharp', 'go', 'swift', 
+  'javascript', 'typescript', 'dart', 'rust', 'c', 
+  'kotlin', 'ruby', 'zig'
+];
 
 async function main() {
-  const repoDir = path.join(__dirname, '..', '..');
+  // 创建命令行程序
+  const program = new Command();
+  
+  program
+    .name('hello-algo-epub')
+    .description('将 Hello 算法文档转换为 EPUB 电子书')
+    .version('1.0.0')
+    .option('-c, --config <path>', 'mkdocs 配置文件路径', '../mkdocs.yml')
+    .option('-o, --output <path>', '输出 EPUB 文件路径', './hello-algo.epub')
+    .option('-l, --language <lang>', `编程语言 (${SUPPORTED_LANGUAGES.join(', ')})`, 'cpp')
+    .parse(process.argv);
+  
+  const options = program.opts();
+  
+  // 验证语言参数
+  if (!SUPPORTED_LANGUAGES.includes(options.language)) {
+    console.error(`错误: 不支持的语言 "${options.language}"`);
+    console.error(`支持的语言: ${SUPPORTED_LANGUAGES.join(', ')}`);
+    process.exit(1);
+  }
+  
+  // 解析路径（相对于工作目录）
+  const workDir = process.cwd();
+  const mkdocsPath = path.resolve(workDir, options.config);
+  const outputPath = path.resolve(workDir, options.output);
+  
+  // 从 mkdocs 配置文件路径推断项目根目录和文档目录
+  const repoDir = path.dirname(mkdocsPath);
   const docsDir = path.join(repoDir, 'docs');
-  const mkdocsPath = path.join(repoDir, 'mkdocs.yml');
-  const outputPath = path.join(__dirname, '..', 'hello-algo.epub');
-
+  
   console.log('开始处理文档...');
+  console.log(`编程语言: ${options.language}`);
   console.log(`文档目录: ${docsDir}`);
   console.log(`配置文件: ${mkdocsPath}`);
-
+  console.log(`输出文件: ${outputPath}`);
+  
   // 检查目录是否存在
   if (!fs.existsSync(docsDir)) {
     console.error(`错误: 文档目录不存在: ${docsDir}`);
@@ -67,6 +102,7 @@ async function main() {
     description: '动画图解、一键运行的数据结构与算法教程',
     language: 'zh-CN',
     cover: coverPath,
+    codeLanguage: options.language,
   });
   
   // 验证 EPUB 内容完整性
@@ -76,13 +112,9 @@ async function main() {
   
   const validation = await validateEpubHeadings(outputPath, allHeadings);
   
-  // 保存验证报告
-  const reportPath = path.join(__dirname, '..', 'validation-report.json');
-  await saveValidationReport(reportPath, allHeadings, validation.missingHeadings, validation.summary);
-  
   if (!validation.success) {
-    console.warn('\n⚠️  警告: EPUB 中缺少部分标题，请检查验证报告');
-    console.warn(`详细报告: ${reportPath}\n`);
+    console.warn('\n⚠️  警告: EPUB 中缺少部分标题');
+    console.warn(`缺失标题数: ${validation.missingHeadings.length}\n`);
   } else {
     console.log('\n✅ EPUB 内容验证通过！所有标题都已正确包含。\n');
   }
