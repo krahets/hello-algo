@@ -4,8 +4,9 @@
 
 ## ✨ 功能特性
 
-- ✅ **多语言支持**: 支持 14 种编程语言（C++、Python、Java、C#、Go、Swift、JavaScript、TypeScript、Dart、Rust、C、Kotlin、Ruby、Zig）
-- ✅ **命令行工具**: 灵活的命令行参数，支持自定义配置文件、输出路径和语言选择
+- ✅ **多文档语言支持**: 支持中文、英文、日文三种文档语言
+- ✅ **多编程语言支持**: 支持 14 种编程语言（C++、Python、Java、C#、Go、Swift、JavaScript、TypeScript、Dart、Rust、C、Kotlin、Ruby、Zig）
+- ✅ **命令行工具**: 灵活的命令行参数，支持选择文档语言、编程语言和输出路径
 - ✅ **自动解析结构**: 解析 `mkdocs.yml` 配置文件，按照原始章节顺序组织内容
 - ✅ **Markdown 转换**: 将 Markdown 转换为 HTML，保留代码块、图片、表格、数学公式等格式
 - ✅ **代码块嵌入**: 自动解析 `[file]{filename}-[class]{classname}-[func]{funcname}` 格式，从源码目录提取并嵌入代码
@@ -31,42 +32,69 @@ npm install
 #### 基本使用
 
 ```bash
-# 使用默认配置构建 C++ 版本
+# 使用默认配置构建中文版 C++ 代码
 npm run build
 
-# 构建指定语言版本
+# 构建中文版指定编程语言
 npm run build -- -l python
-npm run build -- -l java
-npm run build -- -l javascript
+npm run build -- -l java -o hello-algo-zh-java.epub
 
-# 自定义输出文件名
-npm run build -- -l python -o hello-algo-python.epub
+# 构建繁体中文版（支持所有编程语言）
+npm run build -- -d zh-hant -l python -o hello-algo-zh-hant-python.epub
 
-# 自定义配置文件路径
-npm run build -- -c ../mkdocs.yml -o output.epub -l cpp
+# 构建英文版（支持 cpp/java/python）
+npm run build -- -d en -l python -o hello-algo-en-python.epub
+
+# 构建日文版（支持 cpp/java/python）
+npm run build -- -d ja -l cpp -o hello-algo-ja-cpp.epub
+
+# 批量构建所有支持的组合
+for doc_lang in zh zh-hant en ja; do
+  for code_lang in cpp python java; do
+    npm run build -- -d $doc_lang -l $code_lang -o hello-algo-$doc_lang-$code_lang.epub
+  done
+done
 ```
 
 #### 命令行参数
 
 | 参数 | 简写 | 说明 | 默认值 |
 |------|------|------|--------|
-| `--config` | `-c` | mkdocs 配置文件路径 | `../mkdocs.yml` |
+| `--doc-language` | `-d` | 文档语言 (zh, zh-hant, en, ja) | `zh` |
 | `--output` | `-o` | 输出 EPUB 文件路径 | `./hello-algo.epub` |
-| `--language` | `-l` | 编程语言 | `cpp` |
+| `--language` | `-l` | 编程语言（见下表） | `cpp` |
 | `--help` | `-h` | 显示帮助信息 | - |
 | `--version` | `-V` | 显示版本号 | - |
 
-#### 支持的语言
+#### 支持的文档语言
 
-| 语言 | 参数值 | 语言 | 参数值 |
-|------|--------|------|--------|
-| C++ | `cpp` | Python | `python` |
-| Java | `java` | C# | `csharp` |
-| Go | `go` | Swift | `swift` |
-| JavaScript | `javascript` | TypeScript | `typescript` |
-| Dart | `dart` | Rust | `rust` |
-| C | `c` | Kotlin | `kotlin` |
-| Ruby | `ruby` | Zig | `zig` |
+| 语言 | 参数值 | 说明 |
+|------|--------|------|
+| 简体中文 | `zh` | 支持所有编程语言 |
+| 繁體中文 | `zh-hant` | 支持所有编程语言 |
+| English | `en` | 仅支持 cpp, java, python |
+| 日本語 | `ja` | 仅支持 cpp, java, python |
+
+#### 支持的编程语言
+
+| 语言 | 参数值 | 简体中文 | 繁體中文 | 英文 | 日文 |
+|------|--------|---------|---------|------|------|
+| C++ | `cpp` | ✅ | ✅ | ✅ | ✅ |
+| Python | `python` | ✅ | ✅ | ✅ | ✅ |
+| Java | `java` | ✅ | ✅ | ✅ | ✅ |
+| C# | `csharp` | ✅ | ✅ | ❌ | ❌ |
+| Go | `go` | ✅ | ✅ | ❌ | ❌ |
+| Swift | `swift` | ✅ | ✅ | ❌ | ❌ |
+| JavaScript | `javascript` | ✅ | ✅ | ❌ | ❌ |
+| TypeScript | `typescript` | ✅ | ✅ | ❌ | ❌ |
+| Dart | `dart` | ✅ | ✅ | ❌ | ❌ |
+| Rust | `rust` | ✅ | ✅ | ❌ | ❌ |
+| C | `c` | ✅ | ✅ | ❌ | ❌ |
+| Kotlin | `kotlin` | ✅ | ✅ | ❌ | ❌ |
+| Ruby | `ruby` | ✅ | ✅ | ❌ | ❌ |
+| Zig | `zig` | ✅ | ✅ | ❌ | ❌ |
+
+**注意**: 如果尝试使用不支持的组合（如 `-d en -l rust`），程序会报错并退出。
 
 #### 查看帮助
 
@@ -80,9 +108,21 @@ npm run build -- --help
 - 确保项目根目录包含完整的 hello-algo 仓库结构：
   ```
   .
-  ├── docs/           # Markdown 文档目录
-  ├── codes/          # 源码目录（用于代码块嵌入）
-  └── mkdocs.yml      # MkDocs 配置文件
+  ├── docs/           # 中文 Markdown 文档目录
+  ├── zh-hant/
+  │   ├── docs/       # 繁體中文 Markdown 文档目录
+  │   ├── codes/      # 繁體中文代码示例（所有语言）
+  │   └── mkdocs.yml  # 繁體中文配置文件
+  ├── en/
+  │   ├── docs/       # 英文 Markdown 文档目录
+  │   ├── codes/      # 英文代码示例（仅 cpp/java/python）
+  │   └── mkdocs.yml  # 英文配置文件
+  ├── ja/
+  │   ├── docs/       # 日文 Markdown 文档目录
+  │   ├── codes/      # 日文代码示例（仅 cpp/java/python）
+  │   └── mkdocs.yml  # 日文配置文件
+  ├── codes/          # 简体中文代码示例（所有语言）
+  └── mkdocs.yml      # 简体中文配置文件
   ```
 
 ## 📁 项目结构
@@ -232,23 +272,39 @@ EPUB 内容验证报告
 
 ```bash
 cd epub
-npm run build                                    # 默认 C++ 版本
-npm run build -- -l python -o hello-algo-py.epub  # Python 版本
+
+# 中文版（默认）
+npm run build                                          # 中文 C++
+npm run build -- -l python -o hello-algo-zh-python.epub  # 中文 Python
+
+# 英文版
+npm run build -- -d en -l java -o hello-algo-en-java.epub
+
+# 日文版
+npm run build -- -d ja -l cpp -o hello-algo-ja-cpp.epub
 ```
 
-### 场景 2: 在项目根目录构建
-
-```bash
-cd /path/to/hello-algo
-npm run build -- -c ./mkdocs.yml -o ./epub/output.epub -l java
-```
-
-### 场景 3: 批量构建多语言版本
+### 场景 2: 批量构建所有支持的组合
 
 ```bash
 cd epub
-for lang in cpp python java go rust; do
-  npm run build -- -l $lang -o hello-algo-$lang.epub
+
+# 构建所有文档语言和编程语言的组合
+for doc_lang in zh zh-hant en ja; do
+  for code_lang in cpp python java; do
+    npm run build -- -d $doc_lang -l $code_lang -o hello-algo-$doc_lang-$code_lang.epub
+  done
+done
+```
+
+### 场景 3: 批量构建中文版所有编程语言
+
+```bash
+cd epub
+
+# 中文版支持所有 14 种编程语言
+for lang in cpp python java csharp go swift javascript typescript dart rust c kotlin ruby zig; do
+  npm run build -- -d zh -l $lang -o hello-algo-zh-$lang.epub
 done
 ```
 

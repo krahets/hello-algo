@@ -156,8 +156,10 @@ function escapeHtml(text: string): string {
  * @param firstHeadingPrefix 第一个标题的前缀（如章节编号，用于二级标题自动编号）
  * @param removeFirstHeading 是否移除第一个标题
  * @param language 编程语言（默认为 'cpp'）
+ * @param codesBaseDir codes 目录的绝对路径（可选，默认为 baseDir/../../codes）
+ * @param docLanguage 文档语言（可选，用于 admonition 标题本地化：zh, zh-hant, en, ja）
  */
-export function markdownToHtml(markdown: string, baseDir: string, headingOffset: number = 2, firstHeadingPrefix: string = '', removeFirstHeading: boolean = false, language: string = 'cpp'): string {
+export function markdownToHtml(markdown: string, baseDir: string, headingOffset: number = 2, firstHeadingPrefix: string = '', removeFirstHeading: boolean = false, language: string = 'cpp', codesBaseDir?: string, docLanguage?: string): string {
   configureMarked(headingOffset, firstHeadingPrefix);
   
   // 如果需要移除第一个标题（用于章节级别的文档）
@@ -171,7 +173,7 @@ export function markdownToHtml(markdown: string, baseDir: string, headingOffset:
   }
   
   // 处理代码引用标记（在其他处理之前）
-  markdown = processCodeReferences(markdown, baseDir, language);
+  markdown = processCodeReferences(markdown, baseDir, language, codesBaseDir);
   
   // 处理多语言代码块，只保留指定语言版本
   markdown = processMultiLanguageCodeBlocks(markdown, language);
@@ -180,7 +182,7 @@ export function markdownToHtml(markdown: string, baseDir: string, headingOffset:
   markdown = processTabbedContent(markdown);
   
   // 处理特殊的 admonition 语法（!!! abstract, !!! success 等）
-  markdown = processAdmonitions(markdown);
+  markdown = processAdmonitions(markdown, docLanguage);
   
   // 使用占位符保护数学公式，避免被 marked 转义
   // 使用纯字母数字占位符（避免特殊字符被 Markdown 解析）
@@ -220,7 +222,7 @@ export function markdownToHtml(markdown: string, baseDir: string, headingOffset:
  * 处理代码引用标记
  * 格式: [file]{filename}-[class]{classname}-[func]{funcname}
  */
-function processCodeReferences(markdown: string, baseDir: string, language: string = 'cpp'): string {
+function processCodeReferences(markdown: string, baseDir: string, language: string = 'cpp', codesBaseDir?: string): string {
   // 获取语言配置
   const langConfig = LANGUAGE_MAP[language];
   if (!langConfig) {
@@ -253,10 +255,9 @@ function processCodeReferences(markdown: string, baseDir: string, language: stri
       }
       
       // 查找代码文件（在对应语言的 codes 目录下）
-      // baseDir 是 markdown 文件所在目录，如 /path/to/docs/chapter_xxx
-      // 需要回到项目根目录：../../
-      const projectRoot = path.resolve(baseDir, '..', '..');
-      const codesDir = path.join(projectRoot, 'codes', config.dirName);
+      // 如果传入了 codesBaseDir，使用传入的路径；否则使用默认计算方式
+      const actualCodesBaseDir = codesBaseDir || path.join(path.resolve(baseDir, '..', '..'), 'codes');
+      const codesDir = path.join(actualCodesBaseDir, config.dirName);
       
       // 递归查找文件
       const codeFilePath = findCodeFile(codesDir, `${filename}${config.extension}`);
@@ -302,6 +303,37 @@ function processCodeReferences(markdown: string, baseDir: string, language: stri
   });
   
   return markdown;
+}
+
+/**
+ * 规范化代码缩进：移除所有行的最小公共前导空白
+ * 这样可以让提取的代码从最左边开始，避免过多的左侧空白
+ */
+function normalizeIndent(code: string): string {
+  if (!code) return code;
+  
+  const lines = code.split('\n');
+  
+  // 找出所有非空行的最小缩进
+  let minIndent = Infinity;
+  for (const line of lines) {
+    if (line.trim() === '') continue; // 跳过空行
+    const indent = line.length - line.trimStart().length;
+    if (indent < minIndent) {
+      minIndent = indent;
+    }
+  }
+  
+  // 如果所有行都是空行或没有缩进，直接返回
+  if (minIndent === Infinity || minIndent === 0) {
+    return code;
+  }
+  
+  // 移除每行的最小缩进
+  return lines.map(line => {
+    if (line.trim() === '') return line; // 保持空行不变
+    return line.slice(minIndent);
+  }).join('\n');
 }
 
 /**
@@ -406,7 +438,8 @@ function extractFunctionBraced(codeContent: string, funcName: string): string {
   }
   
   if (startIdx !== -1 && endIdx !== -1) {
-    return lines.slice(startIdx, endIdx + 1).join('\n');
+    const extracted = lines.slice(startIdx, endIdx + 1).join('\n');
+    return normalizeIndent(extracted);
   }
   
   return '';
@@ -464,7 +497,8 @@ function extractFunctionIndented(codeContent: string, funcName: string): string 
   }
   
   if (startIdx !== -1 && endIdx !== -1) {
-    return lines.slice(startIdx, endIdx + 1).join('\n');
+    const extracted = lines.slice(startIdx, endIdx + 1).join('\n');
+    return normalizeIndent(extracted);
   }
   
   return '';
@@ -548,7 +582,8 @@ function extractClassBraced(codeContent: string, className: string): string {
   }
   
   // 返回从注释开始到类结束的完整代码
-  return lines.slice(commentStartIdx, classEndIdx + 1).join('\n');
+  const extracted = lines.slice(commentStartIdx, classEndIdx + 1).join('\n');
+  return normalizeIndent(extracted);
 }
 
 /**
@@ -613,7 +648,8 @@ function extractClassIndented(codeContent: string, className: string): string {
   }
   
   if (classStartIdx !== -1 && classEndIdx !== -1) {
-    return lines.slice(classStartIdx, classEndIdx + 1).join('\n');
+    const extracted = lines.slice(classStartIdx, classEndIdx + 1).join('\n');
+    return normalizeIndent(extracted);
   }
   
   return '';
@@ -762,7 +798,8 @@ function extractClassMethodBraced(codeContent: string, className: string, method
   }
   
   if (methodStartIdx !== -1 && methodEndIdx !== -1) {
-    return lines.slice(methodStartIdx, methodEndIdx + 1).join('\n');
+    const extracted = lines.slice(methodStartIdx, methodEndIdx + 1).join('\n');
+    return normalizeIndent(extracted);
   }
   
   return '';
@@ -852,7 +889,8 @@ function extractClassMethodIndented(codeContent: string, className: string, meth
   }
   
   if (methodStartIdx !== -1 && methodEndIdx !== -1) {
-    return lines.slice(methodStartIdx, methodEndIdx + 1).join('\n');
+    const extracted = lines.slice(methodStartIdx, methodEndIdx + 1).join('\n');
+    return normalizeIndent(extracted);
   }
   
   return '';
@@ -1267,7 +1305,7 @@ function processMathContent(latex: string): string {
  * 1. !!! note（使用默认标题）
  * 2. !!! note "自定义标题"（使用自定义标题）
  */
-function processAdmonitions(markdown: string): string {
+function processAdmonitions(markdown: string, docLanguage?: string): string {
   const lines = markdown.split('\n');
   const result: string[] = [];
   let i = 0;
@@ -1281,7 +1319,7 @@ function processAdmonitions(markdown: string): string {
     if (admonitionMatch) {
       const type = admonitionMatch[1];
       const customTitle = admonitionMatch[2];
-      const title = customTitle || getAdmonitionTitle(type);
+      const title = customTitle || getAdmonitionTitle(type, docLanguage);
       
       i++; // 跳过 admonition 标记行
       
@@ -1331,17 +1369,49 @@ function processAdmonitions(markdown: string): string {
   return result.join('\n');
 }
 
-function getAdmonitionTitle(type: string): string {
-  const titles: { [key: string]: string } = {
-    abstract: '摘要',
-    success: '成功',
-    info: '信息',
-    warning: '警告',
-    danger: '危险',
-    note: '注意',
-    tip: '提示',
+function getAdmonitionTitle(type: string, docLanguage?: string): string {
+  const lang = docLanguage || 'zh';
+  
+  const titles: { [key: string]: { [key: string]: string } } = {
+    'zh': {
+      abstract: '摘要',
+      success: '成功',
+      info: '信息',
+      warning: '警告',
+      danger: '危险',
+      note: '注意',
+      tip: '提示',
+    },
+    'zh-hant': {
+      abstract: '摘要',
+      success: '成功',
+      info: '資訊',
+      warning: '警告',
+      danger: '危險',
+      note: '注意',
+      tip: '提示',
+    },
+    'en': {
+      abstract: 'Summary',
+      success: 'Success',
+      info: 'Info',
+      warning: 'Warning',
+      danger: 'Danger',
+      note: 'Note',
+      tip: 'Hint',
+    },
+    'ja': {
+      abstract: '要約',
+      success: '成功',
+      info: '情報',
+      warning: '警告',
+      danger: '危険',
+      note: '注意',
+      tip: 'ヒント',
+    },
   };
-  return titles[type] || type;
+  
+  return titles[lang]?.[type] || titles['zh']?.[type] || type;
 }
 
 /**
