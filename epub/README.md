@@ -17,7 +17,8 @@
 - ✅ **自定义封面**: 支持设置自定义封面图片
 - ✅ **美观样式**: 生成包含完整样式的 EPUB 电子书，针对不同设备优化
 - ✅ **类型安全**: 完整的 TypeScript 类型定义，避免 `any` 类型使用
-- ✅ **内容验证**: 自动验证 EPUB 完整性，检查所有标题是否正确包含
+- ✅ **批量构建**: 支持一键构建所有文档语言和编程语言的组合版本
+- ✅ **内容验证**: 可选的 EPUB 完整性验证，检查所有标题是否正确包含（默认禁用以提高构建速度）
 
 ## 🚀 安装与使用
 
@@ -48,12 +49,14 @@ npm run build -- -d en -l python -o hello-algo-en-python.epub
 # 构建日文版（支持 cpp/java/python）
 npm run build -- -d ja -l cpp -o hello-algo-ja-cpp.epub
 
-# 批量构建所有支持的组合
-for doc_lang in zh zh-hant en ja; do
-  for code_lang in cpp python java; do
-    npm run build -- -d $doc_lang -l $code_lang -o hello-algo-$doc_lang-$code_lang.epub
-  done
-done
+# 批量构建所有版本（使用 --all 选项，自动生成文件名）
+npm run build -- --all --release-version 1.2.0
+
+# 批量构建并启用验证
+npm run build -- --all --release-version 1.2.0 --validate
+
+# 单个构建并启用验证
+npm run build -- -d zh -l python --validate
 ```
 
 #### 命令行参数
@@ -63,6 +66,9 @@ done
 | `--doc-language` | `-d` | 文档语言 (zh, zh-hant, en, ja) | `zh` |
 | `--output` | `-o` | 输出 EPUB 文件路径 | `./hello-algo.epub` |
 | `--language` | `-l` | 编程语言（见下表） | `cpp` |
+| `--all` | `-a` | 构建所有文档语言和编程语言的组合版本 | - |
+| `--release-version` | - | 版本号（用于生成输出文件名，格式：`hello-algo_{version}_{docLanguage}_{codeLanguage}.epub`） | `1.0.0` |
+| `--validate` | - | 启用 EPUB 内容完整性验证 | `false` |
 | `--help` | `-h` | 显示帮助信息 | - |
 | `--version` | `-V` | 显示版本号 | - |
 
@@ -222,11 +228,18 @@ npm run build -- --help
 
 ## 🔍 内容验证功能
 
-工具会自动验证生成的 EPUB 是否包含所有标题：
+工具支持可选的 EPUB 内容完整性验证。默认情况下验证是**禁用**的，以提高构建速度，特别是在批量构建时。您可以使用 `--validate` 选项来启用验证。
+
+### 验证功能说明
 
 1. **自动提取标题**: 在解析 Markdown 时自动提取所有 h1-h6 标题
 2. **EPUB 内容检查**: 解析生成的 EPUB，检查每个标题是否存在
 3. **终端报告**: 在构建过程中实时显示验证结果
+
+### 何时使用验证
+
+- **单个构建时**: 如果希望确保 EPUB 内容完整，可以使用 `--validate`
+- **批量构建时**: 默认不验证以加快速度，可以在最终发布前使用 `--validate` 验证所有文件
 
 **验证报告示例**：
 
@@ -261,6 +274,9 @@ EPUB 内容验证报告
 ## 📝 注意事项
 
 - 命令行参数的路径是相对于**当前工作目录**，不是脚本所在目录
+- 使用 `--all` 时不能同时指定 `--doc-language`、`--language` 或 `--output` 选项
+- 批量构建时默认不验证以提高速度，建议在最终发布前使用 `--validate` 验证所有文件
+- 批量构建会生成 34 个 EPUB 文件（zh: 14个, zh-hant: 14个, en: 3个, ja: 3个）
 - 源码文件需遵循命名约定（某些语言会自动进行命名转换，如 C++ 的 snake_case → camelCase）
 - 不同语言的代码文件扩展名会自动匹配（如 `.cpp`、`.py`、`.java` 等）
 - 数学公式在不同设备上的渲染效果可能有差异，已针对 Android 优化
@@ -284,7 +300,22 @@ npm run build -- -d en -l java -o hello-algo-en-java.epub
 npm run build -- -d ja -l cpp -o hello-algo-ja-cpp.epub
 ```
 
-### 场景 2: 批量构建所有支持的组合
+### 场景 2: 批量构建所有版本（推荐）
+
+```bash
+cd epub
+
+# 使用 --all 选项批量构建所有版本（快速，不验证）
+npm run build -- --all --release-version 1.2.0
+
+# 批量构建并启用验证（较慢但更安全）
+npm run build -- --all --release-version 1.2.0 --validate
+
+# 输出文件名格式：hello-algo_1.2.0_zh_cpp.epub
+# 将生成 34 个 EPUB 文件（14+14+3+3）
+```
+
+### 场景 3: 手动批量构建（传统方式）
 
 ```bash
 cd epub
@@ -297,7 +328,7 @@ for doc_lang in zh zh-hant en ja; do
 done
 ```
 
-### 场景 3: 批量构建中文版所有编程语言
+### 场景 4: 批量构建中文版所有编程语言
 
 ```bash
 cd epub
