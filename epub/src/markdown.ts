@@ -129,6 +129,22 @@ function escapeHtml(text: string): string {
 }
 
 /**
+ * 移除 YAML frontmatter（文件开头的 --- ... --- 块）
+ */
+function removeYamlFrontmatter(markdown: string): string {
+  // 移除文件开头的 YAML frontmatter（--- ... ---）
+  return markdown.replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
+}
+
+/**
+ * 移除所有行末的花括号属性标记（如 {data-toc-label="..."} 或 { class="animation-figure" }）
+ */
+function removeAttributeBlocks(markdown: string): string {
+  // 移除行末的花括号属性块，如 {data-toc-label="..."} 或 { class="animation-figure" }
+  return markdown.replace(/\s*\{[^}]+\}\s*$/gm, '');
+}
+
+/**
  * 将 Markdown 转换为 HTML
  * @param markdown Markdown 文本
  * @param baseDir 基础目录
@@ -137,6 +153,10 @@ function escapeHtml(text: string): string {
  */
 export function markdownToHtml(markdown: string, baseDir: string, language: string = 'cpp', docLanguage?: string): string {
   configureMarked();
+  
+  // 首先清理不需要的标记
+  markdown = removeYamlFrontmatter(markdown);
+  markdown = removeAttributeBlocks(markdown);
   
   // 处理多语言代码块，只保留指定语言版本
   markdown = processMultiLanguageCodeBlocks(markdown, language);
@@ -620,7 +640,10 @@ function processAdmonitions(markdown: string, docLanguage?: string): string {
       // 生成 admonition HTML
       const content = contentLines.join('\n').trim();
       result.push(`<div class="admonition ${type}">`);
-      result.push(`<div class="admonition-title">${title}</div>`);
+      // 如果标题为空，则不显示标题
+      if (title) {
+        result.push(`<div class="admonition-title">${title}</div>`);
+      }
       result.push(content);
       result.push(`</div>`);
       
@@ -647,6 +670,7 @@ function getAdmonitionTitle(type: string, docLanguage?: string): string {
       danger: '危险',
       note: '注意',
       tip: '提示',
+      question: '提问',
     },
     'zh-hant': {
       abstract: '摘要',
@@ -656,6 +680,7 @@ function getAdmonitionTitle(type: string, docLanguage?: string): string {
       danger: '危險',
       note: '注意',
       tip: '提示',
+      question: '提問',
     },
     'en': {
       abstract: 'Summary',
@@ -665,6 +690,7 @@ function getAdmonitionTitle(type: string, docLanguage?: string): string {
       danger: 'Danger',
       note: 'Note',
       tip: 'Hint',
+      question: 'Question',
     },
     'ja': {
       abstract: '要約',
@@ -674,10 +700,21 @@ function getAdmonitionTitle(type: string, docLanguage?: string): string {
       danger: '危険',
       note: '注意',
       tip: 'ヒント',
+      question: '質問',
     },
   };
   
-  return titles[lang]?.[type] || titles['zh']?.[type] || type;
+  // 如果类型在字典中，使用字典值；如果字典值为空字符串，说明该类型不需要标题
+  // 如果类型不在字典中，返回类型本身
+  const title = titles[lang]?.[type];
+  if (title !== undefined) {
+    return title;
+  }
+  const fallbackTitle = titles['zh']?.[type];
+  if (fallbackTitle !== undefined) {
+    return fallbackTitle;
+  }
+  return type;
 }
 
 /**

@@ -30,6 +30,7 @@
                         title: item.title,
                         href: item.href,
                         level: 0,
+                        number: item.number,
                         children: []
                     };
                     hierarchicalContent.push(currentParent);
@@ -38,7 +39,8 @@
                     currentParent.children.push({
                         title: item.title,
                         href: item.href,
-                        level: 1
+                        level: 1,
+                        number: item.number
                     });
                 } else {
                     // 其他情况，作为独立章节
@@ -46,6 +48,7 @@
                         title: item.title,
                         href: item.href,
                         level: item.level || 0,
+                        number: item.number,
                         children: []
                     });
                 }
@@ -58,11 +61,17 @@
             var href = chapter.href;
             var title = chapter.title || 'Untitled';
             var children = chapter.children || [];
+            var number = chapter.number;
+            var level = chapter.level || 0;
             var currentOrder = playOrder++;
+            
+            // 对于顶级章节（level 0），标题已经包含"第X章"，不需要再加编号
+            // 只对子章节（level 1）添加编号
+            var displayTitle = (level === 1 && number ? number + ' ' : '') + title;
             
             var result = '        <navPoint id="' + id + '" playOrder="' + currentOrder + '" class="chapter">\n';
             result += '            <navLabel>\n';
-            result += '                <text>' + title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</text>\n';
+            result += '                <text>' + displayTitle.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</text>\n';
             result += '            </navLabel>\n';
             result += '            <content src="' + href + '"/>\n';
             

@@ -6,6 +6,14 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
+        /* 隐藏目录中的列表编号 */
+        nav#toc ol {
+            list-style: none;
+            padding-left: 0;
+        }
+        nav#toc ol ol {
+            padding-left: 20px;
+        }
         .toc-level-0 {
             margin-left: 0;
             font-weight: bold;
@@ -34,6 +42,7 @@
                         title: item.title,
                         href: item.href,
                         level: 0,
+                        number: item.number,
                         children: []
                     };
                     hierarchicalContent.push(currentParent);
@@ -42,7 +51,8 @@
                     currentParent.children.push({
                         title: item.title,
                         href: item.href,
-                        level: 1
+                        level: 1,
+                        number: item.number
                     });
                 } else {
                     // 其他情况，作为独立章节
@@ -50,6 +60,7 @@
                         title: item.title,
                         href: item.href,
                         level: item.level || 0,
+                        number: item.number,
                         children: []
                     });
                 }
@@ -62,9 +73,14 @@
             var href = chapter.href;
             var children = chapter.children || [];
             var level = chapter.level || 0;
+            var number = chapter.number;
+            
+            // 对于顶级章节（level 0），标题已经包含"第X章"，不需要再加编号
+            // 只对子章节（level 1）添加编号
+            var displayTitle = (level === 1 && number ? number + ' ' : '') + title;
             
             var result = '        <li class="table-of-content toc-level-' + level + '">\n';
-            result += '            <a href="' + href + '">' + title;
+            result += '            <a href="' + href + '">' + displayTitle;
             if (chapter.author && chapter.author.length) {
                 result += ' - <small class="toc-author">' + chapter.author.join(",") + '</small>';
             }
