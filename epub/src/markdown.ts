@@ -140,8 +140,10 @@ function removeYamlFrontmatter(markdown: string): string {
  * 移除所有行末的花括号属性标记（如 {data-toc-label="..."} 或 { class="animation-figure" }）
  */
 function removeAttributeBlocks(markdown: string): string {
-  // 移除行末的花括号属性块，如 {data-toc-label="..."} 或 { class="animation-figure" }
-  return markdown.replace(/\s*\{[^}]+\}\s*$/gm, '');
+  // 仅移除“看起来像属性块”的花括号：
+  // - 内部包含 "="（如 data-toc-label="..."、class="..." 等）
+  // - 避免误伤 LaTeX 语法（例如 \begin{aligned}、\text{...} 等不含 "=" 的花括号）
+  return markdown.replace(/\s*\{[^}]*=[^}]*\}\s*$/gm, '');
 }
 
 /**
@@ -166,6 +168,9 @@ export function markdownToHtml(markdown: string, baseDir: string, language: stri
   
   // 处理特殊的 admonition 语法（!!! abstract, !!! success 等）
   markdown = processAdmonitions(markdown, docLanguage);
+  
+  // 兼容 <p align="center"> 写法，将其转换为使用 CSS class 的形式
+  markdown = markdown.replace(/<p\s+align="center"\s*>/g, '<p class="text-center">');
   
   // 使用占位符保护数学公式，避免被 marked 转义
   // 使用纯字母数字占位符（避免特殊字符被 Markdown 解析）
@@ -729,6 +734,10 @@ export function getCustomCSS(): string {
       margin: 0 auto;
       padding: 20px;
       color: #333;
+    }
+    /* 居中对齐的段落（兼容 <p align="center"> 写法，已转换为 .text-center） */
+    .text-center {
+      text-align: center;
     }
 /* 降低粗体文字的粗细度 */
 strong, b {
