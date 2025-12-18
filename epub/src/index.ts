@@ -320,7 +320,7 @@ async function main() {
     .description('将 Hello 算法文档转换为 EPUB 电子书')
     .version('1.0.0')
     .option('-d, --doc-language <lang>', '文档语言 (zh, zh-hant, en, ja)', 'zh')
-    .option('-o, --output <path>', '输出 EPUB 文件路径', './hello-algo.epub')
+    .option('-o, --output <path>', '输出 EPUB 文件路径')
     .option('-l, --language <lang>', `编程语言 (${SUPPORTED_LANGUAGES.join(', ')})`, 'cpp')
     .option('-a, --all', '构建所有文档语言和编程语言的组合版本')
     .option('--release-version <version>', '版本号（用于生成输出文件名）', '1.0.0')
@@ -446,7 +446,10 @@ async function main() {
     process.exit(1);
   }
   
-  const outputPath = path.resolve(workDir, options.output);
+  // 如果没有提供输出路径，则自动生成文件名：hello-algo_{docLang}_{codeLang}.epub
+  const outputPath = options.output 
+    ? path.resolve(workDir, options.output)
+    : path.resolve(workDir, `hello-algo_${options.docLanguage}_${options.language}.epub`);
   
   console.log('开始处理文档...');
   console.log(`文档语言: ${options.docLanguage}`);
