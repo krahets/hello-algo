@@ -1,5 +1,6 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
+import { execSync } from 'child_process';
 import { Command } from 'commander';
 import { parseMkdocsConfig, flattenNav, readChapterContent } from './parser';
 import { generateEpub } from './epub';
@@ -18,7 +19,6 @@ const SUPPORTED_LANGUAGES = [
 interface DocLanguageConfig {
   mkdocsPath: string;
   docsDir: string;
-  codesDir: string;
   title: string;
   description: string;
   language: string;
@@ -33,38 +33,184 @@ function generateOutputFilename(version: string, docLanguage: string, codeLangua
   return path.resolve(workDir, filename);
 }
 
+/**
+ * 获取git仓库的remote URL
+ */
+function getGitRemoteUrl(): string {
+  try {
+    const url = execSync('git remote get-url origin', { encoding: 'utf-8', cwd: process.cwd() }).trim();
+    return url;
+  } catch (error) {
+    console.error('错误: 无法获取git remote URL');
+    console.error('请确保当前目录是一个git仓库，或者手动指定仓库URL');
+    throw error;
+  }
+}
+
+/**
+ * 递归拷贝目录，跳过已存在的文件
+ */
+function copyDirectoryRecursive(src: string, dest: string): void {
+  if (!fs.existsSync(src)) {
+    return;
+  }
+  
+  const stat = fs.statSync(src);
+  
+  if (stat.isDirectory()) {
+    // 确保目标目录存在
+    fs.ensureDirSync(dest);
+    
+    // 读取源目录的所有内容
+    const entries = fs.readdirSync(src);
+    
+    for (const entry of entries) {
+      const srcPath = path.join(src, entry);
+      const destPath = path.join(dest, entry);
+      
+      const entryStat = fs.statSync(srcPath);
+      
+      if (entryStat.isDirectory()) {
+        // 递归处理子目录
+        copyDirectoryRecursive(srcPath, destPath);
+      } else {
+        // 拷贝文件，如果目标不存在
+        if (!fs.existsSync(destPath)) {
+          fs.copyFileSync(srcPath, destPath);
+        }
+      }
+    }
+  } else {
+    // 如果是文件，直接拷贝（如果目标不存在）
+    if (!fs.existsSync(dest)) {
+      fs.copyFileSync(src, dest);
+    }
+  }
+}
+
+/**
+ * 准备docs分支的工作目录
+ * 1. Clone docs分支到build/epub目录
+ * 2. 拷贝必要的文件和目录（跳过已存在的文件）
+ */
+async function prepareDocsBranch(): Promise<string> {
+  // 获取项目根目录（假设从epub目录运行，或者当前目录就是项目根）
+  const currentDir = process.cwd();
+  let projectRoot: string;
+  
+  // 如果当前目录是epub目录，向上找项目根
+  if (path.basename(currentDir) === 'epub') {
+    projectRoot = path.dirname(currentDir);
+  } else {
+    // 否则认为当前目录就是项目根
+    projectRoot = currentDir;
+  }
+  
+  const buildEpubDir = path.join(projectRoot, 'build', 'epub');
+  
+  console.log('准备docs分支工作目录...');
+  console.log(`项目根目录: ${projectRoot}`);
+  console.log(`目标目录: ${buildEpubDir}`);
+  
+  // 如果build/epub目录已存在，删除它
+  if (fs.existsSync(buildEpubDir)) {
+    console.log('删除已存在的build/epub目录...');
+    fs.removeSync(buildEpubDir);
+  }
+  
+  // 创建build目录（如果不存在）
+  const buildDir = path.join(projectRoot, 'build');
+  fs.ensureDirSync(buildDir);
+  
+  // 获取git仓库URL并clone docs分支
+  try {
+    const repoUrl = getGitRemoteUrl();
+    console.log(`正在clone docs分支: ${repoUrl}`);
+    console.log(`目标: ${buildEpubDir}`);
+    
+    // 执行git clone，使用浅克隆以提高速度
+    execSync(`git clone --branch docs --depth 1 "${repoUrl}" "${buildEpubDir}"`, {
+      stdio: 'inherit',
+      cwd: projectRoot
+    });
+    
+    console.log('✓ docs分支clone完成');
+  } catch (error) {
+    console.error('错误: clone docs分支失败');
+    throw error;
+  }
+  
+  // 需要拷贝的文件和目录列表
+  const itemsToCopy = ['mkdocs.yml', 'docs', 'en', 'ja', 'overrides', 'zh-hant'];
+  
+  console.log('\n开始拷贝文件...');
+  
+  for (const item of itemsToCopy) {
+    const sourcePath = path.join(projectRoot, item);
+    const targetPath = path.join(buildEpubDir, item);
+    
+    // 检查源文件/目录是否存在
+    if (!fs.existsSync(sourcePath)) {
+      console.log(`⚠️  跳过 ${item}（源文件不存在）`);
+      continue;
+    }
+    
+    try {
+      const stat = fs.statSync(sourcePath);
+      
+      if (stat.isDirectory()) {
+        // 对于目录，递归拷贝，跳过已存在的文件
+        copyDirectoryRecursive(sourcePath, targetPath);
+        console.log(`✓ 拷贝目录: ${item}`);
+      } else {
+        // 对于文件，如果目标不存在则拷贝
+        if (!fs.existsSync(targetPath)) {
+          fs.copyFileSync(sourcePath, targetPath);
+          console.log(`✓ 拷贝文件: ${item}`);
+        } else {
+          console.log(`⊘ 跳过 ${item}（目标文件已存在）`);
+        }
+      }
+    } catch (error) {
+      console.error(`⚠️  拷贝 ${item} 时出错:`, error instanceof Error ? error.message : String(error));
+      // 继续处理其他文件
+    }
+  }
+  
+  console.log('\n✓ 文件拷贝完成');
+  console.log(`工作目录: ${buildEpubDir}\n`);
+  
+  return buildEpubDir;
+}
+
 const DOC_LANGUAGE_CONFIG: { [key: string]: DocLanguageConfig } = {
   'zh': {
-    mkdocsPath: '../mkdocs.yml',
+    mkdocsPath: 'mkdocs.yml',
     docsDir: 'docs',        // 相对于项目根目录
-    codesDir: 'codes',      // 相对于项目根目录（支持所有14种语言）
     title: 'Hello 算法',
     description: '动画图解、一键运行的数据结构与算法教程',
     language: 'zh-CN',
     // 中文版支持所有语言
   },
   'zh-hant': {
-    mkdocsPath: '../zh-hant/mkdocs.yml',
+    mkdocsPath: 'zh-hant/mkdocs.yml',
     docsDir: 'zh-hant/docs',     // 相对于项目根目录
-    codesDir: 'zh-hant/codes',   // 相对于项目根目录（支持所有14种语言）
     title: 'Hello 演算法',
     description: '動畫圖解、一鍵執行的資料結構與演算法教程',
     language: 'zh-Hant',
     // 繁体中文版支持所有语言
   },
   'en': {
-    mkdocsPath: '../en/mkdocs.yml',
+    mkdocsPath: 'en/mkdocs.yml',
     docsDir: 'en/docs',     // 相对于项目根目录
-    codesDir: 'en/codes',   // 相对于项目根目录（仅支持cpp/java/python）
     title: 'Hello Algo',
     description: 'Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code',
     language: 'en',
     supportedCodeLanguages: ['cpp', 'java', 'python'],
   },
   'ja': {
-    mkdocsPath: '../ja/mkdocs.yml',
+    mkdocsPath: 'ja/mkdocs.yml',
     docsDir: 'ja/docs',     // 相对于项目根目录
-    codesDir: 'ja/codes',   // 相对于项目根目录（仅支持cpp/java/python）
     title: 'Hello アルゴリズム',
     description: 'アニメーションで図解、ワンクリック実行のデータ構造とアルゴリズムチュートリアル',
     language: 'ja',
@@ -94,17 +240,14 @@ async function buildEpub(
       return { success: false, error: `文档语言 "${docLanguage}" 不支持编程语言 "${codeLanguage}"` };
     }
     
-    // 配置文件路径（相对于 epub 目录）
+    // 配置文件路径（workDir现在是项目根目录）
     const mkdocsPath = path.resolve(workDir, docConfig.mkdocsPath);
     
-    // 计算项目根目录
-    const repoDir = docLanguage === 'zh' 
-      ? path.dirname(mkdocsPath)  // zh: mkdocs.yml 在根目录
-      : path.dirname(path.dirname(mkdocsPath));  // zh-hant/en/ja: mkdocs.yml 在子目录
+    // 计算项目根目录（workDir就是项目根目录）
+    const repoDir = workDir;
     
-    // 文档和代码目录（绝对路径）
+    // 文档目录（绝对路径）
     const docsDir = path.join(repoDir, docConfig.docsDir);
-    const codesDir = path.join(repoDir, docConfig.codesDir);
     
     // 检查目录是否存在
     if (!fs.existsSync(docsDir)) {
@@ -150,7 +293,6 @@ async function buildEpub(
       language: docConfig.language,
       cover: coverPath,
       codeLanguage: codeLanguage,
-      codesDir: codesDir,
       docLanguage: docLanguage,
     });
     
@@ -187,8 +329,14 @@ async function main() {
   
   const options = program.opts();
   
-  // 解析路径（相对于工作目录）
-  const workDir = process.cwd();
+  // 准备docs分支工作目录
+  let workDir: string;
+  try {
+    workDir = await prepareDocsBranch();
+  } catch (error) {
+    console.error('准备docs分支工作目录失败:', error instanceof Error ? error.message : String(error));
+    process.exit(1);
+  }
   
   // 如果使用 --all，执行批量构建
   if (options.all) {

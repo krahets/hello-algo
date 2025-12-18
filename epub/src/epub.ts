@@ -13,7 +13,6 @@ export interface EpubOptions {
   language?: string;
   cover?: string;
   codeLanguage?: string;  // 代码示例的编程语言
-  codesDir?: string;      // codes 目录的绝对路径
   docLanguage?: string;    // 文档语言 (zh, zh-hant, en, ja)
 }
 
@@ -69,66 +68,16 @@ export async function generateEpub(
       );
     }
     
-    // 构建带编号的标题，保持 mkdocs.yml 中的层级关系
-    let displayTitle = chapter.title;
-    let headingPrefix = ''; // 标题前缀（编号）
-    let headingOffset = 0; // 标题偏移量
-    let removeFirstHeading = false; // 是否移除第一个标题
-    let chapterHeadingHtml = ''; // 章节标题 HTML
-    
-    // 根据文档语言决定章节编号格式
-    const docLang = options.docLanguage || 'zh';
-    const getChapterPrefix = (num: string) => {
-      if (docLang === 'en') {
-        return `Chapter ${num}.`;
-      } else if (docLang === 'ja') {
-        return `第 ${num} 章`;
-      } else {
-        // zh, zh-hant
-        return `第 ${num} 章`;
-      }
-    };
-    
-    // 检查标题是否已经包含章节编号（支持中文和英文格式）
-    const hasChapterNumber = chapter.title.match(/第\s*\d+\s*章/) || 
-                             chapter.title.match(/^Chapter\s+\d+\./i);
-    
-    if (hasChapterNumber) {
-      // 如果标题已经包含章节编号，直接使用（可能是从 index.md 中提取的）
-      displayTitle = chapter.title.replace(/\s+/g, ' ').trim(); // 清理多余空格
-      // 对于章节级别的文档，移除 Markdown 的第一个标题，手动添加完整的章节标题
-      removeFirstHeading = true;
-      chapterHeadingHtml = `<h1>${displayTitle}</h1>\n`;
-      headingOffset = 0; // 其他标题使用 H2（不偏移）
-    } else if (chapter.number !== undefined && chapter.number !== '') {
-      // 根据层级决定编号格式和标题偏移
-      if (chapter.level === 0) {
-        // 顶级章节：根据文档语言添加章节编号前缀
-        const chapterPrefix = getChapterPrefix(chapter.number);
-        displayTitle = `${chapterPrefix} ${chapter.title}`;
-        // 对于章节级别的文档，移除 Markdown 的第一个标题，手动添加完整的章节标题
-        removeFirstHeading = true;
-        chapterHeadingHtml = `<h1>${displayTitle}</h1>\n`;
-        headingOffset = 0; // 其他标题使用 H2（不偏移）
-      } else if (chapter.level === 1) {
-        // 子章节：X.Y 标题（所有语言格式相同）
-        displayTitle = `${chapter.number} ${chapter.title}`;
-        headingPrefix = chapter.number;
-        headingOffset = 1; // 小节第一个标题使用 H2（偏移 1 级）
-      }
-    }
+    // 直接使用章节标题（MD文档已经自带编号）
+    const displayTitle = chapter.title.trim();
     
     // 转换为 HTML
-    // 我们设置了 appendChapterTitles: false，所以 epub-gen 不会自动添加标题
     const codeLanguage = options.codeLanguage || 'cpp';
-    const html = markdownToHtml(chapter.content, chapterDir, headingOffset, headingPrefix, removeFirstHeading, codeLanguage, options.codesDir, options.docLanguage);
-    
-    // 如果有章节标题 HTML，添加到内容前面
-    const finalHtml = chapterHeadingHtml + html;
+    const html = markdownToHtml(chapter.content, chapterDir, codeLanguage, options.docLanguage);
     
     content.push({
       title: displayTitle,
-      data: finalHtml,
+      data: html,
       // 不使用 beforeToc，让所有章节按顺序自然排列
       // 章节已经按照 mkdocs.yml 的顺序排列，父章节在前，子章节紧跟其后
       beforeToc: false,
