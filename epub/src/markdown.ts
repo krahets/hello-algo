@@ -33,6 +33,56 @@ const LANGUAGE_MAP: { [key: string]: LanguageConfig } = {
 };
 
 /**
+ * 将 markdown 代码块的语言标识映射到 highlight.js 支持的语言标识
+ * 这个映射确保代码高亮能正确工作
+ */
+function normalizeLanguageForHighlight(lang: string | undefined): string {
+  if (!lang || lang.trim() === '') {
+    return '';
+  }
+  
+  // 移除 title 属性（如果存在）
+  let normalized = lang.replace(/\s+title="[^"]*"/, '').trim().toLowerCase();
+  
+  // 语言标识映射表：markdown 标识 -> highlight.js 标识
+  const langMap: { [key: string]: string } = {
+    'py': 'python',
+    'python': 'python',
+    'cpp': 'cpp',
+    'c++': 'cpp',
+    'cxx': 'cpp',
+    'java': 'java',
+    'cs': 'csharp',
+    'csharp': 'csharp',
+    'c#': 'csharp',
+    'go': 'go',
+    'golang': 'go',
+    'swift': 'swift',
+    'js': 'javascript',
+    'javascript': 'javascript',
+    'ts': 'typescript',
+    'typescript': 'typescript',
+    'dart': 'dart',
+    'rust': 'rust',
+    'rs': 'rust',
+    'c': 'c',
+    'kt': 'kotlin',
+    'kotlin': 'kotlin',
+    'rb': 'ruby',
+    'ruby': 'ruby',
+    'zig': 'zig',
+  };
+  
+  // 如果映射表中存在，返回映射后的值
+  if (langMap[normalized]) {
+    return langMap[normalized];
+  }
+  
+  // 否则返回原始值（可能 highlight.js 支持）
+  return normalized;
+}
+
+/**
  * 根据编程语言获取注释符号
  */
 function getCommentPrefix(lang: string): string {
@@ -62,55 +112,46 @@ function configureMarked() {
 
   // 自定义代码块渲染，支持 title 属性和语法高亮
   renderer.code = (code: string, language: string | undefined, escaped: boolean) => {
-    let lang = language || 'text';
+    let lang = language || '';
     let highlightedCode = code;
+    let filename: string | null = null;
 
     // 从 language 参数中提取 title（格式：cpp title="heap.cpp"）
     // marked 会将整个 infostring 作为 language 参数传递
     if (language) {
       const titleMatch = language.match(/title="([^"]+)"/);
       if (titleMatch) {
-        const filename = titleMatch[1];
-        // 从 language 中移除 title 部分，只保留语言标识
-        lang = language.replace(/\s+title="[^"]+"/, '').trim() || 'text';
-
-        // 使用 highlight.js 进行语法高亮
-        try {
-          if (lang && lang !== 'text' && hljs.getLanguage(lang)) {
-            const result = hljs.highlight(code, { language: lang });
-            highlightedCode = result.value;
-          } else {
-            // 如果不支持该语言，使用自动检测
-            const result = hljs.highlightAuto(code);
-            highlightedCode = result.value;
-            lang = result.language || 'text';
-          }
-        } catch (error) {
-          console.warn(`语法高亮失败，使用原始代码: ${error}`);
-          highlightedCode = escapeHtml(code);
-        }
-
-        // 将文件名作为注释添加到代码开头
-        const commentPrefix = getCommentPrefix(lang);
-        const codeWithFilename = `${commentPrefix} ${escapeHtml(filename)}\n\n${highlightedCode}`;
-        return `<pre><code class="hljs language-${lang}">${codeWithFilename}</code></pre>`;
+        filename = titleMatch[1];
       }
     }
 
+    // 规范化语言标识，确保与 highlight.js 兼容
+    const normalizedLang = normalizeLanguageForHighlight(lang);
+
     // 使用 highlight.js 进行语法高亮
     try {
-      if (lang && lang !== 'text' && hljs.getLanguage(lang)) {
-        const result = hljs.highlight(code, { language: lang });
+      if (normalizedLang && normalizedLang !== '' && hljs.getLanguage(normalizedLang)) {
+        // 使用规范化的语言标识进行高亮
+        const result = hljs.highlight(code, { language: normalizedLang });
         highlightedCode = result.value;
+        lang = normalizedLang;
       } else {
         // 如果不支持该语言，使用自动检测
         const result = hljs.highlightAuto(code);
         highlightedCode = result.value;
-        lang = result.language || 'text';
+        lang = result.language || normalizedLang || 'text';
       }
     } catch (error) {
       console.warn(`语法高亮失败，使用原始代码: ${error}`);
       highlightedCode = escaped ? code : escapeHtml(code);
+      lang = normalizedLang || 'text';
+    }
+
+    // 如果有文件名，将文件名作为注释添加到代码开头
+    if (filename && filename.trim() !== '') {
+      const commentPrefix = getCommentPrefix(lang);
+      const codeWithFilename = `${commentPrefix} ${escapeHtml(filename)}\n\n${highlightedCode}`;
+      return `<pre><code class="hljs language-${lang}">${codeWithFilename}</code></pre>`;
     }
 
     // 没有文件名的普通代码块
