@@ -880,21 +880,21 @@ h5 { font-size: 1.0em; }
 h6 { font-size: 1.0em; }
     /* 行内代码 */
     code {
-      background-color: #f1f1f1;
+      background-color: #f0f0f0;
       padding: 2px 6px;
-      border-radius: 0;
-      border: none;
+      border-radius: 3px;
+      border: 1px solid #d0d0d0;
       font-family: "Roboto Mono", "Noto Sans Mono", "Droid Sans Mono", "SF Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", "Menlo", "Monaco", "DejaVu Sans Mono", "Liberation Mono", "Courier New", Courier, monospace;
       font-size: 0.88em;
-      color: #24292e;
+      color: #333;
     }
     
     /* 代码块 */
     pre {
-      padding: 0;
-      background-color: transparent;
-      border: none;
-      border-radius: 0;
+      padding: 3px 3px;
+      background-color: #f5f5f5;
+      border: 1.5px solid #d0d0d0;
+      border-radius: 6px;
       margin: 16px 0;
       line-height: 1.65;
       page-break-inside: auto !important;
