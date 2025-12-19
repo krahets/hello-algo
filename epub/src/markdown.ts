@@ -353,30 +353,32 @@ function processMultiLanguageCodeBlocks(markdown: string, language: string = 'cp
       while (i < lines.length) {
         const currentLine = lines[i];
         
-        // 检查是否是下一个语言标签
-        const nextLangMatch = currentLine.match(/^===\s+"([^"]+)"/);
-        if (nextLangMatch) {
-          // 只有当是编程语言标签时才继续处理
-          if (programmingLanguages.includes(nextLangMatch[1])) {
-            // 保存当前块
-            if (currentBlockLines.length > 0) {
-              blocks.push({ lang: currentLang, lines: currentBlockLines });
+        // 检查是否是下一个语言标签（必须在代码块外）
+        if (!inCodeBlock) {
+          const nextLangMatch = currentLine.match(/^===\s+"([^"]+)"/);
+          if (nextLangMatch) {
+            // 只有当是编程语言标签时才继续处理
+            if (programmingLanguages.includes(nextLangMatch[1])) {
+              // 保存当前块
+              if (currentBlockLines.length > 0) {
+                blocks.push({ lang: currentLang, lines: currentBlockLines });
+              }
+              // 开始新块
+              currentLang = nextLangMatch[1];
+              currentBlockLines = [];
+              i++;
+              continue;
+            } else {
+              // 遇到非编程语言标签（如 <1>, ArrayStack 等），代码块组结束
+              if (currentBlockLines.length > 0) {
+                blocks.push({ lang: currentLang, lines: currentBlockLines });
+              }
+              break;
             }
-            // 开始新块
-            currentLang = nextLangMatch[1];
-            currentBlockLines = [];
-            i++;
-            continue;
-          } else {
-            // 遇到非编程语言标签（如 <1>, ArrayStack 等），代码块组结束
-            if (currentBlockLines.length > 0) {
-              blocks.push({ lang: currentLang, lines: currentBlockLines });
-            }
-            break;
           }
         }
         
-        // 检查是否是代码块开始/结束
+        // 检查是否是代码块开始/结束（匹配任意缩进的 ```）
         if (currentLine.match(/^\s*```/)) {
           inCodeBlock = !inCodeBlock;
           currentBlockLines.push(currentLine);
@@ -384,12 +386,17 @@ function processMultiLanguageCodeBlocks(markdown: string, language: string = 'cp
           continue;
         }
         
-        // 检查是否代码块组结束
-        // 如果不在代码块内，且遇到非缩进的非空行（且不是下一个语言标签），代码块组结束
-        if (!inCodeBlock && currentLine.trim()) {
-          // 如果是标题行（以 # 开头）或普通段落（非缩进且不是空行且不是语言标签且不是 admonition），代码块组结束
-          // 注意：??? 开头的行是 admonition，应该被包含在当前块中，不应该作为代码块组结束的标志
-          // 只有当遇到真正的段落内容（非标题、非语言标签、非 admonition）时才结束
+        // 在代码块内部时，所有内容都应该被收集
+        if (inCodeBlock) {
+          currentBlockLines.push(currentLine);
+          i++;
+          continue;
+        }
+        
+        // 在代码块外部时，检查是否代码块组结束
+        // 如果遇到非缩进的非空行（且不是下一个语言标签），代码块组结束
+        if (currentLine.trim()) {
+          // 如果是标题行（以 # 开头），代码块组结束
           if (currentLine.match(/^#/)) {
             // 标题行，代码块组结束
             if (currentBlockLines.length > 0) {
@@ -405,7 +412,7 @@ function processMultiLanguageCodeBlocks(markdown: string, language: string = 'cp
           }
         }
         
-        // 添加到当前块（包括空行）
+        // 添加到当前块（包括空行和代码块外的缩进行）
         currentBlockLines.push(currentLine);
         i++;
       }
@@ -628,14 +635,7 @@ function processMathContent(latex: string): string {
   // 清理多余的连续空格（但保留 HTML 标签内的空格）
   result = result.replace(/(?<!<[^>]*)\s{2,}(?![^<]*>)/g, ' ');
   
-  // 将字母转为斜体（避免 HTML 标签内和罗马字体内）
-  result = result.replace(/(?<!<[^>]*(?:math-roman)?[^>]*>)(?<!&)([a-zA-Z])(?![^<]*>)(?![a-zA-Z]*;)/g, (match, letter, offset, string) => {
-    const before = string.substring(Math.max(0, offset - 10), offset);
-    if (before.match(/&[a-zA-Z]*$/)) {
-      return letter;
-    }
-    return `<i>${letter}</i>`;
-  });
+  // 不再将字母转为斜体，保持原始字母
   
   return result;
 }
@@ -788,6 +788,20 @@ function getAdmonitionTitle(type: string, docLanguage?: string): string {
  */
 export function getCustomCSS(): string {
   return `
+    /* 定义 MathJax 数学字体 */
+    @font-face {
+      font-family: "MathJax_Math";
+      src: url(./fonts/MathJax_Math-Regular.otf);
+      font-style: normal;
+      font-weight: normal;
+    }
+    @font-face {
+      font-family: "MathJax_Main";
+      src: url(./fonts/MathJax_Main-Regular.otf);
+      font-style: normal;
+      font-weight: normal;
+    }
+    
     body {
       font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
       line-height: 1.6;
@@ -863,7 +877,7 @@ h6 { font-size: 1.0em; }
       word-break: break-all;
       overflow-wrap: break-word;
       font-family: "Roboto Mono", "Noto Sans Mono", "Droid Sans Mono", "SF Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", "Menlo", "Monaco", "DejaVu Sans Mono", "Liberation Mono", "Courier New", Courier, monospace;
-      font-size: 0.75em;
+      font-size: 0.85em;
       color: #24292e;
       display: block;
     }
@@ -908,7 +922,7 @@ h6 { font-size: 1.0em; }
     }
     .math-inline {
       white-space: nowrap;
-      font-family: "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
+      font-family: "MathJax_Math", "MathJax_Main", "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
       font-size: 1.05em;
       vertical-align: baseline;
       line-height: 1.4;
@@ -917,18 +931,18 @@ h6 { font-size: 1.0em; }
     }
     .math-inline i {
       font-style: italic;
-      font-family: "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
+      font-family: "MathJax_Math", "MathJax_Main", "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
     }
     .math-block {
       text-align: center;
       margin: 20px 0;
       padding: 10px;
-      font-family: "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
+      font-family: "MathJax_Math", "MathJax_Main", "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
       font-size: 1.05em;
     }
     .math-block i {
       font-style: italic;
-      font-family: "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
+      font-family: "MathJax_Math", "MathJax_Main", "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
     }
     .math-function {
       font-style: normal;
@@ -953,7 +967,7 @@ h6 { font-size: 1.0em; }
       border: none;
       padding: 6px 12px;
       vertical-align: middle;
-      font-family: "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
+      font-family: "MathJax_Math", "MathJax_Main", "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
       font-size: 1.05em;
     }
     .math-aligned i {

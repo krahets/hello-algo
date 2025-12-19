@@ -89,6 +89,22 @@ export async function generateEpub(
     });
   }
   
+  // 准备字体文件路径（Math 优先，Main 其次）
+  const fontsDir = path.join(__dirname, '..', 'fonts');
+  const mathJaxMathPath = path.join(fontsDir, 'MathJax_Math-Regular.otf');
+  const mathJaxMainPath = path.join(fontsDir, 'MathJax_Main-Regular.otf');
+  const fonts: string[] = [];
+  if (fs.existsSync(mathJaxMathPath)) {
+    fonts.push(mathJaxMathPath);
+  } else {
+    console.warn(`警告: 字体文件不存在: ${mathJaxMathPath}`);
+  }
+  if (fs.existsSync(mathJaxMainPath)) {
+    fonts.push(mathJaxMainPath);
+  } else {
+    console.warn(`警告: 字体文件不存在: ${mathJaxMainPath}`);
+  }
+  
   // 准备 EPUB 选项
   const epubOptions: EpubGenOptions = {
     title: options.title,
@@ -107,6 +123,8 @@ export async function generateEpub(
     css: getCustomCSS(),
     // 设置封面
     cover: options.cover,
+    // 添加字体文件
+    fonts: fonts,
   };
   
   // 生成 EPUB

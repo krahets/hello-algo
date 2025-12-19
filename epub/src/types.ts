@@ -47,5 +47,6 @@ export interface EpubGenOptions {
   css?: string;
   cover?: string;
   output?: string;
+  fonts?: string[];
 }
 
