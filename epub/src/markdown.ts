@@ -156,7 +156,40 @@ function removeAttributeBlocks(markdown: string): string {
   // 仅移除“看起来像属性块”的花括号：
   // - 内部包含 "="（如 data-toc-label="..."、class="..." 等）
   // - 避免误伤 LaTeX 语法（例如 \begin{aligned}、\text{...} 等不含 "=" 的花括号）
-  return markdown.replace(/\s*\{[^}]*=[^}]*\}\s*$/gm, '');
+  // 注意：只在非代码块区域处理，避免误删代码块中的内容
+  const lines = markdown.split('\n');
+  const result: string[] = [];
+  let inCodeBlock = false;
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    
+    // 检查是否是代码块开始/结束标记
+    if (line.match(/^\s*```/)) {
+      inCodeBlock = !inCodeBlock;
+      result.push(line);
+      continue;
+    }
+    
+    // 如果在代码块内部，直接保留原行，不进行属性块移除
+    if (inCodeBlock) {
+      result.push(line);
+      continue;
+    }
+    
+    // 只在非代码块区域移除行末的属性块
+    // 精准匹配：只移除特定格式的属性块
+    // 匹配格式：
+    //   - {data-toc-label="..."}
+    //   - { class="animation-figure" }
+    //   - {class="cover-image"}
+    // 使用更精确的正则，只匹配常见的HTML/Markdown属性名称
+    // 匹配：可选空格 + { + 可选空格 + 属性名 + 可选空格 + = + 可选空格 + "值" + 可选空格 + } + 可选空格 + 行末
+    const cleanedLine = line.replace(/\s*\{\s*(?:data-toc-label|class)\s*=\s*"[^"]*"\s*\}\s*$/, '');
+    result.push(cleanedLine);
+  }
+  
+  return result.join('\n');
 }
 
 /**
