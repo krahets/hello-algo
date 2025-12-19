@@ -33,6 +33,18 @@ const LANGUAGE_MAP: { [key: string]: LanguageConfig } = {
 };
 
 /**
+ * 根据编程语言获取注释符号
+ */
+function getCommentPrefix(lang: string): string {
+  // Python 使用 #
+  if (lang === 'python' || lang === 'py') {
+    return '#';
+  }
+  // 其他语言使用 //
+  return '//';
+}
+
+/**
  * 配置 marked 渲染器
  */
 function configureMarked() {
@@ -79,7 +91,8 @@ function configureMarked() {
         }
 
         // 将文件名作为注释添加到代码开头
-        const codeWithFilename = `// ${escapeHtml(filename)}\n\n${highlightedCode}`;
+        const commentPrefix = getCommentPrefix(lang);
+        const codeWithFilename = `${commentPrefix} ${escapeHtml(filename)}\n\n${highlightedCode}`;
         return `<pre><code class="hljs language-${lang}">${codeWithFilename}</code></pre>`;
       }
     }
@@ -167,7 +180,9 @@ export function markdownToHtml(markdown: string, baseDir: string, language: stri
   markdown = processTabbedContent(markdown);
   
   // 处理特殊的 admonition 语法（!!! abstract, !!! success 等）
-  markdown = processAdmonitions(markdown, docLanguage);
+  const admonitionResult = processAdmonitions(markdown, docLanguage);
+  markdown = admonitionResult.markdown;
+  const admonitionPlaceholders = admonitionResult.placeholders;
   
   // 兼容 <p align="center"> 写法，将其转换为使用 CSS class 的形式
   markdown = markdown.replace(/<p\s+align="center"\s*>/g, '<p class="text-center">');
@@ -201,6 +216,42 @@ export function markdownToHtml(markdown: string, baseDir: string, language: stri
   // 替换回数学公式的 HTML
   for (const [placeholder, rendered] of mathPlaceholders.entries()) {
     html = html.replace(new RegExp(placeholder, 'g'), rendered);
+  }
+  
+  // 解析并替换回 admonition 内容占位符
+  for (const [placeholder, content] of admonitionPlaceholders.entries()) {
+    // 处理内容中的数学公式
+    let processedContent = content;
+    const contentMathPlaceholders = new Map<string, string>();
+    let contentPlaceholderCounter = 0;
+    
+    // 先提取块级公式 $$...$$
+    processedContent = processedContent.replace(/\$\$([\s\S]+?)\$\$/g, (match, formula) => {
+      const mathPlaceholder = `XMATHBLOCKX${contentPlaceholderCounter}X`;
+      const rendered = processDisplayMath(formula);
+      contentMathPlaceholders.set(mathPlaceholder, rendered);
+      contentPlaceholderCounter++;
+      return mathPlaceholder;
+    });
+    
+    // 再提取行内公式 $...$
+    processedContent = processedContent.replace(/\$([^\$\n]+?)\$/g, (match, formula) => {
+      const mathPlaceholder = `XMATHINLINEX${contentPlaceholderCounter}X`;
+      const rendered = processInlineMath(formula);
+      contentMathPlaceholders.set(mathPlaceholder, rendered);
+      contentPlaceholderCounter++;
+      return mathPlaceholder;
+    });
+    
+    // 解析内容中的 Markdown
+    let parsedContent = marked.parse(processedContent) as string;
+    
+    // 替换回数学公式的 HTML
+    for (const [mathPlaceholder, rendered] of contentMathPlaceholders.entries()) {
+      parsedContent = parsedContent.replace(new RegExp(mathPlaceholder, 'g'), rendered);
+    }
+    
+    html = html.replace(new RegExp(placeholder, 'g'), parsedContent);
   }
   
   return wrapHtmlContent(html);
@@ -596,9 +647,11 @@ function processMathContent(latex: string): string {
  * 1. !!! note（使用默认标题）
  * 2. !!! note "自定义标题"（使用自定义标题）
  */
-function processAdmonitions(markdown: string, docLanguage?: string): string {
+function processAdmonitions(markdown: string, docLanguage?: string): { markdown: string; placeholders: Map<string, string> } {
   const lines = markdown.split('\n');
   const result: string[] = [];
+  const placeholders = new Map<string, string>();
+  let placeholderCounter = 0;
   let i = 0;
   
   while (i < lines.length) {
@@ -642,14 +695,18 @@ function processAdmonitions(markdown: string, docLanguage?: string): string {
         }
       }
       
-      // 生成 admonition HTML
+      // 生成 admonition HTML 结构，内容部分使用占位符
       const content = contentLines.join('\n').trim();
+      const placeholder = `XADMONITIONCONTENTX${placeholderCounter}X`;
+      placeholders.set(placeholder, content);
+      placeholderCounter++;
+      
       result.push(`<div class="admonition ${type}">`);
       // 如果标题为空，则不显示标题
       if (title) {
         result.push(`<div class="admonition-title">${title}</div>`);
       }
-      result.push(content);
+      result.push(placeholder);
       result.push(`</div>`);
       
       continue;
@@ -660,7 +717,7 @@ function processAdmonitions(markdown: string, docLanguage?: string): string {
     i++;
   }
   
-  return result.join('\n');
+  return { markdown: result.join('\n'), placeholders };
 }
 
 function getAdmonitionTitle(type: string, docLanguage?: string): string {
@@ -675,7 +732,8 @@ function getAdmonitionTitle(type: string, docLanguage?: string): string {
       danger: '危险',
       note: '注意',
       tip: '提示',
-      question: '提问',
+      question: '问题',
+      quote: '引用',
     },
     'zh-hant': {
       abstract: '摘要',
@@ -685,7 +743,8 @@ function getAdmonitionTitle(type: string, docLanguage?: string): string {
       danger: '危險',
       note: '注意',
       tip: '提示',
-      question: '提問',
+      question: '問題',
+      quote: '引用',
     },
     'en': {
       abstract: 'Summary',
@@ -696,6 +755,7 @@ function getAdmonitionTitle(type: string, docLanguage?: string): string {
       note: 'Note',
       tip: 'Hint',
       question: 'Question',
+      quote: 'Quote',
     },
     'ja': {
       abstract: '要約',
@@ -706,6 +766,7 @@ function getAdmonitionTitle(type: string, docLanguage?: string): string {
       note: '注意',
       tip: 'ヒント',
       question: '質問',
+      quote: '引用',
     },
   };
   
@@ -750,6 +811,16 @@ strong, b {
   font-weight: 600;
   line-height: 1.25;
     }
+    /* 分页设置 */
+    h1 {
+      page-break-before: always;
+    }
+    h2 {
+      page-break-before: avoid;
+    }
+    h2, h3, h4, h5, h6 {
+      page-break-after: avoid;
+    }
 /* 章节标题 (第 X 章) */
 h1 { font-size: 1.5em; }
 /* 小节标题 (X.Y) */
@@ -762,38 +833,38 @@ h5 { font-size: 1.0em; }
 h6 { font-size: 1.0em; }
     /* 行内代码 */
     code {
-      background-color: #f0f0f0;
+      background-color: #f1f1f1;
       padding: 2px 6px;
-      border-radius: 3px;
-      border: 1px solid #d0d0d0;
+      border-radius: 0;
+      border: none;
       font-family: "Roboto Mono", "Noto Sans Mono", "Droid Sans Mono", "SF Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", "Menlo", "Monaco", "DejaVu Sans Mono", "Liberation Mono", "Courier New", Courier, monospace;
       font-size: 0.88em;
-      color: #333;
+      color: #24292e;
     }
     
     /* 代码块 */
     pre {
-      padding: 14px 16px;
-      background-color: #f5f5f5;
-      border: 1.5px solid #d0d0d0;
-      border-radius: 6px;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
       margin: 16px 0;
       line-height: 1.65;
       page-break-inside: auto !important;
       break-inside: auto !important;
     }
-    
+
     pre code {
-      background-color: transparent;
-      padding: 0;
+      background-color: #f5f5f5;
+      padding: 14px 16px;
       border: none;
       white-space: pre-wrap;
       word-wrap: break-word;
       word-break: break-all;
       overflow-wrap: break-word;
       font-family: "Roboto Mono", "Noto Sans Mono", "Droid Sans Mono", "SF Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", "Menlo", "Monaco", "DejaVu Sans Mono", "Liberation Mono", "Courier New", Courier, monospace;
-      font-size: 0.85em;
-      color: #333;
+      font-size: 0.75em;
+      color: #24292e;
       display: block;
     }
     img {
@@ -813,6 +884,7 @@ h6 { font-size: 1.0em; }
       width: 100%;
       margin: 20px 0;
       border: 1px solid #ddd;
+      font-size: 0.9em;
     }
     th, td {
       border: 1px solid #ddd;
@@ -836,7 +908,7 @@ h6 { font-size: 1.0em; }
     }
     .math-inline {
       white-space: nowrap;
-      font-family: Georgia, "Times New Roman", Times, serif;
+      font-family: "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
       font-size: 1.05em;
       vertical-align: baseline;
       line-height: 1.4;
@@ -845,17 +917,18 @@ h6 { font-size: 1.0em; }
     }
     .math-inline i {
       font-style: italic;
-      font-family: Georgia, "Times New Roman", Times, serif;
+      font-family: "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
     }
     .math-block {
       text-align: center;
       margin: 20px 0;
       padding: 10px;
-      font-family: Georgia, "Times New Roman", Times, serif;
+      font-family: "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
+      font-size: 1.05em;
     }
     .math-block i {
       font-style: italic;
-      font-family: Georgia, "Times New Roman", Times, serif;
+      font-family: "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
     }
     .math-function {
       font-style: normal;
@@ -880,7 +953,7 @@ h6 { font-size: 1.0em; }
       border: none;
       padding: 6px 12px;
       vertical-align: middle;
-      font-family: Georgia, "Times New Roman", Times, serif;
+      font-family: "STIX Two Math", "Latin Modern Math", "Computer Modern", "Times New Roman", Times, serif;
       font-size: 1.05em;
     }
     .math-aligned i {
@@ -899,7 +972,7 @@ h6 { font-size: 1.0em; }
     .admonition {
       margin: 20px 0;
       padding: 12px 16px;
-      border: 2px solid #3498db;
+      border: 2px solid #6d85df;
       border-radius: 6px;
       background-color: #f8f9fa;
     }
@@ -909,16 +982,16 @@ h6 { font-size: 1.0em; }
       color: #2c3e50;
     }
     .admonition.note {
-      border-color: #17a2b8;
-      background-color: #e7f6f8;
+      border-color: #53bbb1;
+      background-color: #f6fbfb;
     }
     .admonition.tip {
-      border-color: #28a745;
-      background-color: #d4edda;
+      border-color: #53bbb1;
+      background-color: #f6fbfb;
     }
     .admonition.success {
-      border-color: #28a745;
-      background-color: #d4edda;
+      border-color: #82bb81;
+      background-color: #f8fcf9;
     }
     .admonition.warning {
       border-color: #ffc107;
@@ -932,6 +1005,18 @@ h6 { font-size: 1.0em; }
       border-color: #17a2b8;
       background-color: #d1ecf1;
     }
+    .admonition.abstract {
+      border-color: #6d85df;
+      background-color: #f8f9fa;
+    }
+    .admonition.question {
+      border-color: #82bb81;
+      background-color: #f8fcf9;
+    }
+    .admonition.quote {
+      border-color: #898989;
+      background-color: #f9f9f9;
+    }
     ul, ol {
       padding-left: 30px;
     }
@@ -939,24 +1024,24 @@ h6 { font-size: 1.0em; }
       margin: 5px 0;
     }
 
-    /* Syntax highlighting styles (GitHub theme) */
+    /* Syntax highlighting styles (GitHub Light theme) */
     .hljs {
       display: block;
-      padding: 0.5em;
-      color: #333;
-      background: #f8f8f8;
+      padding: 14px 16px;
+      color: #24292e;
+      background: #f5f5f5;
     }
 
     .hljs-comment,
     .hljs-quote {
-      color: #998;
+      color: #6a737d;
       font-style: italic;
     }
 
     .hljs-keyword,
     .hljs-selector-tag,
     .hljs-subst {
-      color: #333;
+      color: #d73a49;
       font-weight: bold;
     }
 
@@ -965,18 +1050,18 @@ h6 { font-size: 1.0em; }
     .hljs-variable,
     .hljs-template-variable,
     .hljs-tag .hljs-attr {
-      color: #008080;
+      color: #005cc5;
     }
 
     .hljs-string,
     .hljs-doctag {
-      color: #d14;
+      color: #032f62;
     }
 
     .hljs-title,
     .hljs-section,
     .hljs-selector-id {
-      color: #900;
+      color: #6f42c1;
       font-weight: bold;
     }
 
@@ -986,43 +1071,43 @@ h6 { font-size: 1.0em; }
 
     .hljs-type,
     .hljs-class .hljs-title {
-      color: #458;
+      color: #d73a49;
       font-weight: bold;
     }
 
     .hljs-tag,
     .hljs-name,
     .hljs-attribute {
-      color: #000080;
+      color: #22863a;
       font-weight: normal;
     }
 
     .hljs-regexp,
     .hljs-link {
-      color: #009926;
+      color: #032f62;
     }
 
     .hljs-symbol,
     .hljs-bullet {
-      color: #990073;
+      color: #e36209;
     }
 
     .hljs-built_in,
     .hljs-builtin-name {
-      color: #0086b3;
+      color: #005cc5;
     }
 
     .hljs-meta {
-      color: #999;
+      color: #6a737d;
       font-weight: bold;
     }
 
     .hljs-deletion {
-      background: #fdd;
+      background: #ffeef0;
     }
 
     .hljs-addition {
-      background: #dfd;
+      background: #f0fff4;
     }
 
     .hljs-emphasis {

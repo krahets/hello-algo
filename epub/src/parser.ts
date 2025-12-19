@@ -137,7 +137,12 @@ export function flattenNav(nav: MkDocsNavItem[], basePath: string = ''): Chapter
   }
 
   traverse(nav);
-  return chapters;
+  
+  // 过滤掉 chapter_paperbook 相关的章节
+  return chapters.filter(chapter => {
+    // 检查路径中是否包含 chapter_paperbook
+    return !chapter.path.includes('chapter_paperbook');
+  });
 }
 
 /**
