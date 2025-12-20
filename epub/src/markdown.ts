@@ -234,18 +234,67 @@ function removeAttributeBlocks(markdown: string): string {
 }
 
 /**
+ * 降低标题层级（将所有标题降一级）
+ * 跳过代码块中的内容
+ */
+function decreaseHeadingLevels(markdown: string): string {
+  const lines = markdown.split('\n');
+  const result: string[] = [];
+  let inCodeBlock = false;
+  
+  for (const line of lines) {
+    // 检查是否是代码块开始/结束标记
+    if (line.match(/^\s*```/)) {
+      inCodeBlock = !inCodeBlock;
+      result.push(line);
+      continue;
+    }
+    
+    // 如果在代码块内部，直接保留原行
+    if (inCodeBlock) {
+      result.push(line);
+      continue;
+    }
+    
+    // 匹配标题行：^#{1,6}\s+
+    const headingMatch = line.match(/^(#{1,6})\s+(.+)$/);
+    if (headingMatch) {
+      const level = headingMatch[1].length;
+      const content = headingMatch[2];
+      
+      // 如果已经是 H6，保持不变；否则增加一级
+      if (level < 6) {
+        result.push('#' + headingMatch[1] + ' ' + content);
+      } else {
+        result.push(line);
+      }
+    } else {
+      result.push(line);
+    }
+  }
+  
+  return result.join('\n');
+}
+
+/**
  * 将 Markdown 转换为 HTML
  * @param markdown Markdown 文本
  * @param baseDir 基础目录
  * @param language 编程语言（默认为 'cpp'）
  * @param docLanguage 文档语言（可选，用于 admonition 标题本地化：zh, zh-hant, en, ja）
+ * @param filePath 文件路径（可选，用于判断是否是 index.md）
  */
-export function markdownToHtml(markdown: string, baseDir: string, language: string = 'cpp', docLanguage?: string): string {
+export function markdownToHtml(markdown: string, baseDir: string, language: string = 'cpp', docLanguage?: string, filePath?: string): string {
   configureMarked();
   
   // 首先清理不需要的标记
   markdown = removeYamlFrontmatter(markdown);
   markdown = removeAttributeBlocks(markdown);
+  
+  // 如果不是 index.md 文件，降低标题层级
+  if (filePath && path.basename(filePath, '.md') !== 'index') {
+    markdown = decreaseHeadingLevels(markdown);
+  }
   
   // 处理多语言代码块，只保留指定语言版本
   markdown = processMultiLanguageCodeBlocks(markdown, language);
@@ -888,44 +937,34 @@ export function getCustomCSS(): string {
     .text-center {
       text-align: center;
     }
-/* 降低粗体文字的粗细度 */
-strong, b {
-  font-weight: 600;
-}
+    /* 降低粗体文字的粗细度 */
+    strong, b {
+      font-weight: 600;
+    }
     h1, h2, h3, h4, h5, h6 {
-  color: #24292e;
-  margin-top: 1.2em;
-  margin-bottom: 0.6em;
-  font-weight: 600;
-  line-height: 1.25;
+      color: #24292e;
+      margin-top: 1.2em;
+      margin-bottom: 0.6em;
+      font-weight: 600;
+      line-height: 1.25;
     }
-    /* 分页设置 */
-    h1 {
-      page-break-before: auto;
-    }
-    h2 {
-      page-break-before: avoid;
-    }
-    h2, h3, h4, h5, h6 {
-      page-break-after: avoid;
-    }
-/* 章节标题 (第 X 章) */
-h1 { font-size: 1.5em; }
-/* 小节标题 (X.Y) */
-h2 { font-size: 1.3em; }
-/* Markdown 文档内的主标题 */
-h3 { font-size: 1.15em; }
-/* Markdown 文档内的副标题 */
-h4 { font-size: 1.05em; }
-h5 { font-size: 1.0em; }
-h6 { font-size: 1.0em; }
+    /* 章节标题 (第 X 章) */
+    h1 { font-size: 1.5em; }
+    /* 小节标题 (X.Y) */
+    h2 { font-size: 1.3em; }
+    /* Markdown 文档内的主标题 */
+    h3 { font-size: 1.15em; }
+    /* Markdown 文档内的副标题 */
+    h4 { font-size: 1.05em; }
+    h5 { font-size: 1.0em; }
+    h6 { font-size: 1.0em; }
     /* 行内代码 */
     code {
       background-color: #f0f0f0;
       padding: 2px 6px;
       border-radius: 3px;
       border: 1px solid #d0d0d0;
-      font-family: "Roboto Mono", "Noto Sans Mono", "Droid Sans Mono", "SF Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", "Menlo", "Monaco", "DejaVu Sans Mono", "Liberation Mono", "Courier New", Courier, monospace;
+      font-family: "Cousine", "Roboto Mono", "Noto Sans Mono", "Droid Sans Mono", "SF Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", "Menlo", "Monaco", "DejaVu Sans Mono", "Liberation Mono", "Courier New", Courier, monospace;
       font-size: 0.88em;
       color: #333;
     }

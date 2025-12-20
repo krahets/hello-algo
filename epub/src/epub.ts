@@ -73,7 +73,7 @@ export async function generateEpub(
     
     // 转换为 HTML
     const codeLanguage = options.codeLanguage || 'cpp';
-    const html = markdownToHtml(chapter.content, chapterDir, codeLanguage, options.docLanguage);
+    const html = markdownToHtml(chapter.content, chapterDir, codeLanguage, options.docLanguage, chapter.path);
     
     content.push({
       title: displayTitle,
