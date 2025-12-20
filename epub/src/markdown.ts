@@ -901,7 +901,7 @@ strong, b {
     }
     /* 分页设置 */
     h1 {
-      page-break-before: always;
+      page-break-before: auto;
     }
     h2 {
       page-break-before: avoid;
