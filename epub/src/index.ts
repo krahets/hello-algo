@@ -112,32 +112,64 @@ async function prepareDocsBranch(): Promise<string> {
   console.log(`项目根目录: ${projectRoot}`);
   console.log(`目标目录: ${buildEpubDir}`);
   
-  // 如果build/epub目录已存在，删除它
-  if (fs.existsSync(buildEpubDir)) {
-    console.log('删除已存在的build/epub目录...');
-    fs.removeSync(buildEpubDir);
-  }
-  
   // 创建build目录（如果不存在）
   const buildDir = path.join(projectRoot, 'build');
   fs.ensureDirSync(buildDir);
   
-  // 获取git仓库URL并clone docs分支
-  try {
-    const repoUrl = getGitRemoteUrl();
-    console.log(`正在clone docs分支: ${repoUrl}`);
-    console.log(`目标: ${buildEpubDir}`);
+  // 获取git仓库URL
+  const repoUrl = getGitRemoteUrl();
+  
+  // 检查build/epub目录是否已存在
+  if (fs.existsSync(buildEpubDir)) {
+    const gitDir = path.join(buildEpubDir, '.git');
     
-    // 执行git clone，使用浅克隆以提高速度
-    execSync(`git clone --branch docs --depth 1 "${repoUrl}" "${buildEpubDir}"`, {
-      stdio: 'inherit',
-      cwd: projectRoot
-    });
-    
-    console.log('✓ docs分支clone完成');
-  } catch (error) {
-    console.error('错误: clone docs分支失败');
-    throw error;
+    // 检查是否是git仓库
+    if (fs.existsSync(gitDir)) {
+      console.log('检测到已存在的git仓库，使用git pull更新...');
+      try {
+        // 先切换到docs分支（如果不在docs分支上）
+        execSync('git checkout docs', {
+          stdio: 'inherit',
+          cwd: buildEpubDir
+        });
+        
+        // 执行git pull更新
+        execSync('git pull', {
+          stdio: 'inherit',
+          cwd: buildEpubDir
+        });
+        
+        console.log('✓ docs分支更新完成');
+      } catch (error) {
+        console.error('错误: git pull更新失败，尝试重新clone...');
+        // 如果pull失败，删除目录并重新clone
+        fs.removeSync(buildEpubDir);
+        // 继续执行下面的clone逻辑
+      }
+    } else {
+      // 如果目录存在但不是git仓库，删除并重新clone
+      console.log('检测到已存在的目录但不是git仓库，删除并重新clone...');
+      fs.removeSync(buildEpubDir);
+    }
+  }
+  
+  // 如果目录不存在或已被删除，执行clone
+  if (!fs.existsSync(buildEpubDir)) {
+    try {
+      console.log(`正在clone docs分支: ${repoUrl}`);
+      console.log(`目标: ${buildEpubDir}`);
+      
+      // 执行git clone，使用浅克隆以提高速度
+      execSync(`git clone --branch docs --depth 1 "${repoUrl}" "${buildEpubDir}"`, {
+        stdio: 'inherit',
+        cwd: projectRoot
+      });
+      
+      console.log('✓ docs分支clone完成');
+    } catch (error) {
+      console.error('错误: clone docs分支失败');
+      throw error;
+    }
   }
   
   // 需要拷贝的文件和目录列表
