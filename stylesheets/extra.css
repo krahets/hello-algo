@@ -552,4 +552,19 @@ a:hover .text-button span {
   width: 100%;
   height: 100%;
 }
-/*! update cache: 20251017052948 */
+
+/* starfield */
+.starfield {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.starfield-origin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/*! update cache: 20251227051721 */
