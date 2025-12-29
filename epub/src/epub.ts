@@ -12,13 +12,13 @@ export interface EpubOptions {
   description?: string;
   language?: string;
   cover?: string;
-  codeLanguage?: string;  // 代码示例的编程语言
-  docLanguage?: string;    // 文档语言 (zh, zh-hant, en, ja)
-  version?: string;        // 版本号
+  codeLanguage?: string;  // Programming language for code examples
+  docLanguage?: string;    // Document language (zh, zh-hant, en, ja)
+  version?: string;        // Version number
 }
 
 /**
- * 根据文档语言获取目录标题
+ * Get table of contents title based on document language
  */
 function getTocTitle(docLanguage?: string): string {
   const tocTitles: { [key: string]: string } = {
@@ -31,12 +31,12 @@ function getTocTitle(docLanguage?: string): string {
 }
 
 /**
- * 生成首页 HTML
+ * Generate homepage HTML
  */
 function generateTitlePage(title: string, author: string, docLanguage?: string, version?: string): string {
   const lang = docLanguage || 'zh';
 
-  // 多语言文本配置
+  // Multilingual text configuration
   const i18n: { [key: string]: { subtitle: string; authorPrefix: string; authorName: string; readOnline: string; codeRepo: string; versionPrefix: string } } = {
     'zh': {
       subtitle: '动画图解、一键运行的数据结构与算法教程',
@@ -100,7 +100,7 @@ function generateTitlePage(title: string, author: string, docLanguage?: string, 
 }
 
 /**
- * 生成 EPUB 电子书
+ * Generate EPUB e-book
  */
 export async function generateEpub(
   chapters: Chapter[],
@@ -108,18 +108,18 @@ export async function generateEpub(
   outputPath: string,
   options: EpubOptions
 ): Promise<void> {
-  console.log('开始生成 EPUB...');
-  
-  // 创建临时目录存放图片
+  console.log('Starting EPUB generation...');
+
+  // Create temporary directory for images
   const tempDir = path.join(path.dirname(outputPath), 'temp_images');
   fs.ensureDirSync(tempDir);
   
-  // 准备内容
+  // Prepare content
   const content: any[] = [];
   const imageMap: { [original: string]: string } = {};
   let imageIndex = 0;
 
-  // 添加首页（在目录之前）
+  // Add homepage (before table of contents)
   const titlePageTitles: { [key: string]: string } = {
     'zh': '首页',
     'zh-hant': '首頁',
@@ -131,8 +131,8 @@ export async function generateEpub(
   content.push({
     title: titlePageTitle,
     data: generateTitlePage(options.title, options.author, options.docLanguage, options.version),
-    beforeToc: true,  // 在目录之前
-    excludeFromToc: false,  // 包含在目录中
+    beforeToc: true,  // Before table of contents
+    excludeFromToc: false,  // Include in table of contents
     level: 0,
     number: '',
   });
@@ -142,17 +142,17 @@ export async function generateEpub(
       continue;
     }
     
-    console.log(`处理章节: ${chapter.title}`);
-    
-    // 读取章节内容
+    console.log(`Processing chapter: ${chapter.title}`);
+
+    // Read chapter content
     const markdown = chapter.content;
     const chapterDir = path.dirname(chapter.path);
     
-    // 提取图片并复制到临时目录
+    // Extract images and copy to temporary directory
     const imagePaths = extractImagePaths(markdown, chapter.path);
     for (const { original, fullPath } of imagePaths) {
       if (!imageMap[original]) {
-        // 复制图片到临时目录
+        // Copy image to temporary directory
         const ext = path.extname(fullPath);
         const newFileName = `img_${imageIndex}${ext}`;
         const tempImagePath = path.join(tempDir, newFileName);
@@ -161,7 +161,7 @@ export async function generateEpub(
         imageIndex++;
       }
       
-      // 替换 markdown 中的图片路径为绝对路径（使用 file:// 协议）
+      // Replace image paths in markdown with absolute paths (using file:// protocol)
       const tempImagePath = imageMap[original];
       chapter.content = chapter.content.replace(
         new RegExp(`!\\[[^\\]]*\\]\\(${escapeRegex(original)}\\)`, 'g'),
@@ -169,89 +169,89 @@ export async function generateEpub(
       );
     }
     
-    // 直接使用章节标题（MD文档已经自带编号）
+    // Use chapter title directly (MD documents already have numbering)
     const displayTitle = chapter.title.trim();
     
-    // 转换为 HTML
+    // Convert to HTML
     const codeLanguage = options.codeLanguage || 'cpp';
     const html = markdownToHtml(chapter.content, chapterDir, codeLanguage, options.docLanguage, chapter.path);
     
     content.push({
       title: displayTitle,
       data: html,
-      // 不使用 beforeToc，让所有章节按顺序自然排列
-      // 章节已经按照 mkdocs.yml 的顺序排列，父章节在前，子章节紧跟其后
+      // Do not use beforeToc, let all chapters arrange naturally in order
+      // Chapters are already arranged according to mkdocs.yml order, parent chapters first, child chapters follow
       beforeToc: false,
       excludeFromToc: false,
-      // 添加层级信息，用于生成嵌套目录
+      // Add level information for generating nested table of contents
       level: chapter.level,
       parentTitle: chapter.parentTitle,
       number: chapter.number,
     });
   }
   
-  // 准备字体文件路径
+  // Prepare font file paths
   const fontsDir = path.join(__dirname, '..', 'fonts');
   const fonts: string[] = [];
 
-  // 添加数学字体（所有版本共用）
+  // Add math fonts (shared by all versions)
   const mathJaxMathPath = path.join(fontsDir, 'MathJax_Math-Regular.otf');
   const mathJaxMainPath = path.join(fontsDir, 'MathJax_Main-Regular.otf');
 
-  // 添加代码字体（所有版本共用）
+  // Add code font (shared by all versions)
   const jetbrainsMonoPath = path.join(fontsDir, 'JetBrainsMonoNerdFont-Regular.ttf');
 
-  // 根据文档语言选择正文字体
+  // Select body font based on document language
   const docLang = options.docLanguage || 'zh';
   let serifFontPath: string | null = null;
   let serifItalicFontPath: string | null = null;
 
   if (docLang === 'zh' || docLang === 'zh-hant') {
-    // 中文版使用 Noto Serif SC Regular
+    // Chinese version uses Noto Serif SC Regular
     serifFontPath = path.join(fontsDir, 'NotoSerifSC-Regular.ttf');
   } else if (docLang === 'en') {
-    // 英文版使用 Roboto Serif
+    // English version uses Roboto Serif
     serifFontPath = path.join(fontsDir, 'RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf');
     serifItalicFontPath = path.join(fontsDir, 'RobotoSerif-Italic-VariableFont_GRAD,opsz,wdth,wght.ttf');
   } else if (docLang === 'ja') {
-    // 日文版使用 Noto Serif JP
+    // Japanese version uses Noto Serif JP
     serifFontPath = path.join(fontsDir, 'NotoSerifJP-VariableFont_wght.ttf');
   }
 
-  // 添加数学字体
+  // Add math fonts
   if (fs.existsSync(mathJaxMathPath)) {
     fonts.push(mathJaxMathPath);
   } else {
-    console.warn(`警告: 字体文件不存在: ${mathJaxMathPath}`);
+    console.warn(`Warning: Font file does not exist: ${mathJaxMathPath}`);
   }
   if (fs.existsSync(mathJaxMainPath)) {
     fonts.push(mathJaxMainPath);
   } else {
-    console.warn(`警告: 字体文件不存在: ${mathJaxMainPath}`);
+    console.warn(`Warning: Font file does not exist: ${mathJaxMainPath}`);
   }
 
-  // 添加正文字体
+  // Add body font
   if (serifFontPath && fs.existsSync(serifFontPath)) {
     fonts.push(serifFontPath);
   } else if (serifFontPath) {
-    console.warn(`警告: 字体文件不存在: ${serifFontPath}`);
+    console.warn(`Warning: Font file does not exist: ${serifFontPath}`);
   }
 
-  // 添加斜体字体（如果有）
+  // Add italic font (if available)
   if (serifItalicFontPath && fs.existsSync(serifItalicFontPath)) {
     fonts.push(serifItalicFontPath);
   } else if (serifItalicFontPath) {
-    console.warn(`警告: 字体文件不存在: ${serifItalicFontPath}`);
+    console.warn(`Warning: Font file does not exist: ${serifItalicFontPath}`);
   }
 
-  // 添加代码字体
+  // Add code font
   if (fs.existsSync(jetbrainsMonoPath)) {
     fonts.push(jetbrainsMonoPath);
   } else {
-    console.warn(`警告: 字体文件不存在: ${jetbrainsMonoPath}`);
+    console.warn(`Warning: Font file does not exist: ${jetbrainsMonoPath}`);
   }
   
-  // 准备 EPUB 选项
+  // Prepare EPUB options
   const epubOptions: EpubGenOptions = {
     title: options.title,
     author: options.author,
@@ -260,33 +260,33 @@ export async function generateEpub(
     language: options.language || 'zh-CN',
     content: content,
     verbose: true,
-    // 禁用自动添加章节标题（我们在 Markdown 中已经处理了）
+    // Disable automatic chapter title addition (we already handle this in Markdown)
     appendChapterTitles: false,
-    // 使用自定义模板来生成嵌套目录
+    // Use custom templates to generate nested table of contents
     customNcxTocTemplatePath: path.join(__dirname, '..', 'templates', 'toc.ncx.ejs'),
     customHtmlTocTemplatePath: path.join(__dirname, '..', 'templates', 'toc.xhtml.ejs'),
-    // 注入自定义 CSS（根据文档语言）
+    // Inject custom CSS (based on document language)
     css: getCustomCSS(options.docLanguage),
-    // 设置封面
+    // Set cover
     cover: options.cover,
-    // 添加字体文件
+    // Add font files
     fonts: fonts,
-    // 根据文档语言设置目录标题
+    // Set table of contents title based on document language
     tocTitle: getTocTitle(options.docLanguage),
   };
   
-  // 生成 EPUB
+  // Generate EPUB
   try {
     epubOptions.output = outputPath;
     const epub = new Epub(epubOptions);
     await epub.promise;
-    console.log(`EPUB 生成成功: ${outputPath}`);
-    
-    // 清理临时目录
+    console.log(`EPUB generated successfully: ${outputPath}`);
+
+    // Clean up temporary directory
     fs.removeSync(tempDir);
   } catch (error) {
-    console.error('生成 EPUB 时出错:', error);
-    // 清理临时目录
+    console.error('Error generating EPUB:', error);
+    // Clean up temporary directory
     fs.removeSync(tempDir);
     throw error;
   }

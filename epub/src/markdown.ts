@@ -6,13 +6,13 @@ import { ImageInfo } from './types';
 import hljs from 'highlight.js';
 
 /**
- * 语言配置映射
+ * Language configuration mapping
  */
 interface LanguageConfig {
-  displayName: string;  // 在 === "语言名" 中使用的显示名称
-  dirName: string;      // codes/ 目录下的子目录名
-  extension: string;    // 文件扩展名
-  useSnakeCase: boolean; // 是否使用下划线命名（false 表示使用驼峰命名）
+  displayName: string;  // Display name used in === "Language Name"
+  dirName: string;      // Subdirectory name under codes/ directory
+  extension: string;    // File extension
+  useSnakeCase: boolean; // Whether to use snake_case naming (false means camelCase)
 }
 
 const LANGUAGE_MAP: { [key: string]: LanguageConfig } = {
@@ -33,18 +33,18 @@ const LANGUAGE_MAP: { [key: string]: LanguageConfig } = {
 };
 
 /**
- * 将 markdown 代码块的语言标识映射到 highlight.js 支持的语言标识
- * 这个映射确保代码高亮能正确工作
+ * Map markdown code block language identifiers to highlight.js supported language identifiers
+ * This mapping ensures code highlighting works correctly
  */
 function normalizeLanguageForHighlight(lang: string | undefined): string {
   if (!lang || lang.trim() === '') {
     return '';
   }
   
-  // 移除 title 属性（如果存在）
+  // Remove title attribute (if exists)
   let normalized = lang.replace(/\s+title="[^"]*"/, '').trim().toLowerCase();
   
-  // 语言标识映射表：markdown 标识 -> highlight.js 标识
+  // Language identifier mapping table: markdown identifier -> highlight.js identifier
   const langMap: { [key: string]: string } = {
     'py': 'python',
     'python': 'python',
@@ -73,68 +73,68 @@ function normalizeLanguageForHighlight(lang: string | undefined): string {
     'zig': 'zig',
   };
   
-  // 如果映射表中存在，返回映射后的值
+  // If exists in mapping table, return mapped value
   if (langMap[normalized]) {
     return langMap[normalized];
   }
   
-  // 否则返回原始值（可能 highlight.js 支持）
+  // Otherwise return original value (may be supported by highlight.js)
   return normalized;
 }
 
 /**
- * 根据编程语言获取注释符号
+ * Get comment prefix based on programming language
  */
 function getCommentPrefix(lang: string): string {
-  // Python 使用 #
+  // Python uses #
   if (lang === 'python' || lang === 'py') {
     return '#';
   }
-  // 其他语言使用 //
+  // Other languages use //
   return '//';
 }
 
 /**
- * 配置 marked 渲染器
+ * Configure marked renderer
  */
 function configureMarked() {
   const renderer = new marked.Renderer();
   
-  // 自定义标题渲染（标题编号已由MD文档提供）
+  // Custom heading rendering (heading numbers already provided by MD documents)
   renderer.heading = (text: string, level: number) => {
-    // 生成锚点 ID（移除特殊字符和空格）
+    // Generate anchor ID (remove special characters and spaces)
     const id = text
-      .replace(/[^\u4e00-\u9fa5a-zA-Z0-9\s]/g, '') // 保留中文、字母、数字和空格
+      .replace(/[^\u4e00-\u9fa5a-zA-Z0-9\s]/g, '') // Keep Chinese, letters, numbers and spaces
       .trim()
-      .replace(/\s+/g, '-') // 空格替换为连字符
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
       .toLowerCase();
     return `<h${level} id="${id}">${text}</h${level}>\n`;
   };
 
-  // 自定义链接渲染，移除指向 .md 文件的链接（在 EPUB 中无效）
+  // Custom link rendering, remove links to .md files (invalid in EPUB)
   renderer.link = (href: string, title: string | null, text: string) => {
-    // 如果链接指向 .md 文件，只返回文本内容（移除超链接）
+    // If link points to .md file, only return text content (remove hyperlink)
     if (href && href.endsWith('.md')) {
       return text;
     }
-    // 其他链接保持原样
+    // Other links remain unchanged
     const titleAttr = title ? ` title="${title}"` : '';
     return `<a href="${href}"${titleAttr}>${text}</a>`;
   };
 
-  // 自定义图片渲染，用于后续提取图片
+  // Custom image rendering, for later image extraction
   renderer.image = (href: string, title: string | null, text: string) => {
     return `<img src="${href}" alt="${text || ''}" ${title ? `title="${title}"` : ''} />`;
   };
 
-  // 自定义代码块渲染，支持 title 属性和语法高亮
+  // Custom code block rendering, supports title attribute and syntax highlighting
   renderer.code = (code: string, language: string | undefined, escaped: boolean) => {
     let lang = language || '';
     let highlightedCode = code;
     let filename: string | null = null;
 
-    // 从 language 参数中提取 title（格式：cpp title="heap.cpp"）
-    // marked 会将整个 infostring 作为 language 参数传递
+    // Extract title from language parameter (format: cpp title="heap.cpp")
+    // marked passes the entire infostring as the language parameter
     if (language) {
       const titleMatch = language.match(/title="([^"]+)"/);
       if (titleMatch) {
@@ -142,40 +142,40 @@ function configureMarked() {
       }
     }
 
-    // 规范化语言标识，确保与 highlight.js 兼容
+    // Normalize language identifier to ensure compatibility with highlight.js
     const normalizedLang = normalizeLanguageForHighlight(lang);
 
-    // 使用 highlight.js 进行语法高亮
+    // Use highlight.js for syntax highlighting
     try {
       if (normalizedLang && normalizedLang !== '' && hljs.getLanguage(normalizedLang)) {
-        // 使用规范化的语言标识进行高亮
+        // Use normalized language identifier for highlighting
         const result = hljs.highlight(code, { language: normalizedLang });
         highlightedCode = result.value;
         lang = normalizedLang;
       } else {
-        // 如果不支持该语言，使用自动检测
+        // If language not supported, use auto-detection
         const result = hljs.highlightAuto(code);
         highlightedCode = result.value;
         lang = result.language || normalizedLang || 'text';
       }
     } catch (error) {
-      console.warn(`语法高亮失败，使用原始代码: ${error}`);
+      console.warn(`Syntax highlighting failed, using original code: ${error}`);
       highlightedCode = escaped ? code : escapeHtml(code);
       lang = normalizedLang || 'text';
     }
 
-    // 如果有文件名，将文件名作为注释添加到代码开头
+    // If has filename, add filename as comment at the beginning of code
     if (filename && filename.trim() !== '') {
       const commentPrefix = getCommentPrefix(lang);
       const codeWithFilename = `${commentPrefix} ${escapeHtml(filename)}\n\n${highlightedCode}`;
       return `<pre><code class="hljs language-${lang}">${codeWithFilename}</code></pre>`;
     }
 
-    // 没有文件名的普通代码块
+    // Normal code block without filename
     return `<pre><code class="hljs language-${lang}">${highlightedCode}</code></pre>`;
   };
 
-  // 自定义表格渲染，保持原始格式
+  // Custom table rendering, maintain original format
   renderer.table = (header: string, body: string) => {
     return `<table>\n<thead>\n${header}</thead>\n<tbody>\n${body}</tbody>\n</table>`;
   };
@@ -200,21 +200,21 @@ function escapeHtml(text: string): string {
 }
 
 /**
- * 移除 YAML frontmatter（文件开头的 --- ... --- 块）
+ * Remove YAML frontmatter (--- ... --- block at the beginning of file)
  */
 function removeYamlFrontmatter(markdown: string): string {
-  // 移除文件开头的 YAML frontmatter（--- ... ---）
+  // Remove YAML frontmatter at the beginning of file (--- ... ---)
   return markdown.replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
 }
 
 /**
- * 移除所有行末的花括号属性标记（如 {data-toc-label="..."} 或 { class="animation-figure" }）
+ * Remove all end-of-line attribute block markers (like {data-toc-label="..."} or { class="animation-figure" })
  */
 function removeAttributeBlocks(markdown: string): string {
-  // 仅移除"看起来像属性块"的花括号：
-  // - 内部包含 "="（如 data-toc-label="..."、class="..." 等）
-  // - 避免误伤 LaTeX 语法（例如 \begin{aligned}、\text{...} 等不含 "=" 的花括号）
-  // 注意：只在非代码块区域处理，避免误删代码块中的内容
+  // Only remove "attribute block-like" braces:
+  // - Contains "=" inside (like data-toc-label="...", class="...", etc.)
+  // - Avoid damaging LaTeX syntax (e.g., \begin{aligned}, \text{...} that don't contain "=")
+  // Note: Only process in non-code block areas to avoid mistakenly deleting code block content
   const lines = markdown.split('\n');
   const result: string[] = [];
   let inCodeBlock = false;
@@ -229,20 +229,20 @@ function removeAttributeBlocks(markdown: string): string {
       continue;
     }
 
-    // 如果在代码块内部，直接保留原行，不进行属性块移除
+    // If inside code block, keep original line without removing attribute blocks
     if (inCodeBlock) {
       result.push(line);
       continue;
     }
 
-    // 只在非代码块区域移除行末的属性块
-    // 精准匹配：只移除特定格式的属性块
-    // 匹配格式：
+    // Only remove end-of-line attribute blocks in non-code block areas
+    // Precise matching: only remove specific format attribute blocks
+    // Matching formats:
     //   - {data-toc-label="..."}
     //   - { class="animation-figure" }
     //   - {class="cover-image"}
-    // 使用更精确的正则，只匹配常见的HTML/Markdown属性名称
-    // 匹配：可选空格 + { + 可选空格 + 属性名 + 可选空格 + = + 可选空格 + "值" + 可选空格 + } + 可选空格 + 行末
+    // Use more precise regex, only match common HTML/Markdown attribute names
+    // Match: optional space + { + optional space + attribute name + optional space + = + optional space + "value" + optional space + } + optional space + end of line
     const cleanedLine = line.replace(/\s*\{\s*(?:data-toc-label|class)\s*=\s*"[^"]*"\s*\}\s*$/, '');
     result.push(cleanedLine);
   }
@@ -251,8 +251,8 @@ function removeAttributeBlocks(markdown: string): string {
 }
 
 /**
- * 降低标题层级（将所有标题降一级）
- * 跳过代码块中的内容
+ * Decrease heading levels (lower all headings by one level)
+ * Skip content in code blocks
  */
 function decreaseHeadingLevels(markdown: string): string {
   const lines = markdown.split('\n');
@@ -267,19 +267,19 @@ function decreaseHeadingLevels(markdown: string): string {
       continue;
     }
 
-    // 如果在代码块内部，直接保留原行
+    // If inside code block, keep original line
     if (inCodeBlock) {
       result.push(line);
       continue;
     }
 
-    // 匹配标题行：^#{1,6}\s+
+    // Match heading line: ^#{1,6}\s+
     const headingMatch = line.match(/^(#{1,6})\s+(.+)$/);
     if (headingMatch) {
       const level = headingMatch[1].length;
       const content = headingMatch[2];
 
-      // 如果已经是 H6，保持不变；否则增加一级
+      // If already H6, keep unchanged; otherwise increase one level
       if (level < 6) {
         result.push('#' + headingMatch[1] + ' ' + content);
       } else {
@@ -294,41 +294,41 @@ function decreaseHeadingLevels(markdown: string): string {
 }
 
 /**
- * 将 Markdown 转换为 HTML
- * @param markdown Markdown 文本
- * @param baseDir 基础目录
- * @param language 编程语言（默认为 'cpp'）
- * @param docLanguage 文档语言（可选，用于 admonition 标题本地化：zh, zh-hant, en, ja）
- * @param filePath 文件路径（可选，用于判断是否是 index.md）
+ * Convert Markdown to HTML
+ * @param markdown Markdown text
+ * @param baseDir Base directory
+ * @param language Programming language (default 'cpp')
+ * @param docLanguage Document language (optional, for admonition title localization: zh, zh-hant, en, ja)
+ * @param filePath File path (optional, used to determine if it's index.md)
  */
 export function markdownToHtml(markdown: string, baseDir: string, language: string = 'cpp', docLanguage?: string, filePath?: string): string {
   configureMarked();
 
-  // 首先清理不需要的标记
+  // First clean up unwanted markers
   markdown = removeYamlFrontmatter(markdown);
   markdown = removeAttributeBlocks(markdown);
 
-  // 如果不是 index.md 文件，降低标题层级
+  // If not index.md file, decrease heading levels
   if (filePath && path.basename(filePath, '.md') !== 'index') {
     markdown = decreaseHeadingLevels(markdown);
   }
 
-  // 处理多语言代码块，只保留指定语言版本
+  // Process multi-language code blocks, only keep specified language version
   markdown = processMultiLanguageCodeBlocks(markdown, language);
 
-  // 处理 tabbed 内容（=== "<1>", === "ArrayStack" 等非编程语言标签）
+  // Process tabbed content (=== "<1>", === "ArrayStack" etc. non-programming language tabs)
   markdown = processTabbedContent(markdown);
 
-  // 处理特殊的 admonition 语法（!!! abstract, !!! success 等）
+  // Process special admonition syntax (!!! abstract, !!! success, etc.)
   const admonitionResult = processAdmonitions(markdown, docLanguage);
   markdown = admonitionResult.markdown;
   const admonitionPlaceholders = admonitionResult.placeholders;
   
-  // 兼容 <p align="center"> 写法，将其转换为使用 CSS class 的形式
+  // Support <p align="center"> syntax, convert it to use CSS class
   markdown = markdown.replace(/<p\s+align="center"\s*>/g, '<p class="text-center">');
   
-  // 使用占位符保护数学公式，避免被 marked 转义
-  // 使用纯字母数字占位符（避免特殊字符被 Markdown 解析）
+  // Use placeholders to protect math formulas from being escaped by marked
+  // Use pure alphanumeric placeholders (avoid special characters being parsed by Markdown)
   const mathPlaceholders = new Map<string, string>();
   let placeholderCounter = 0;
   
@@ -350,7 +350,7 @@ export function markdownToHtml(markdown: string, baseDir: string, language: stri
     return placeholder;
   });
   
-  // 解析 Markdown
+  // Parse Markdown
   let html = marked.parse(markdown) as string;
   
   // 替换回数学公式的 HTML
@@ -358,14 +358,14 @@ export function markdownToHtml(markdown: string, baseDir: string, language: stri
     html = html.replace(new RegExp(placeholder, 'g'), rendered);
   }
   
-  // 解析并替换回 admonition 内容占位符
+  // Parse and replace back admonition content placeholders
   for (const [placeholder, content] of admonitionPlaceholders.entries()) {
-    // 处理内容中的数学公式
+    // Process math formulas in content
     let processedContent = content;
     const contentMathPlaceholders = new Map<string, string>();
     let contentPlaceholderCounter = 0;
     
-    // 先提取块级公式 $$...$$
+    // First extract block-level formulas $$...$$
     processedContent = processedContent.replace(/\$\$([\s\S]+?)\$\$/g, (match, formula) => {
       const mathPlaceholder = `XMATHBLOCKX${contentPlaceholderCounter}X`;
       const rendered = processDisplayMath(formula);
@@ -374,7 +374,7 @@ export function markdownToHtml(markdown: string, baseDir: string, language: stri
       return mathPlaceholder;
     });
     
-    // 再提取行内公式 $...$
+    // Then extract inline formulas $...$
     processedContent = processedContent.replace(/\$([^\$\n]+?)\$/g, (match, formula) => {
       const mathPlaceholder = `XMATHINLINEX${contentPlaceholderCounter}X`;
       const rendered = processInlineMath(formula);
@@ -383,10 +383,10 @@ export function markdownToHtml(markdown: string, baseDir: string, language: stri
       return mathPlaceholder;
     });
     
-    // 解析内容中的 Markdown
+    // Parse Markdown in content
     let parsedContent = marked.parse(processedContent) as string;
     
-    // 替换回数学公式的 HTML
+    // Replace back math formula HTML
     for (const [mathPlaceholder, rendered] of contentMathPlaceholders.entries()) {
       parsedContent = parsedContent.replace(new RegExp(mathPlaceholder, 'g'), rendered);
     }
@@ -398,17 +398,17 @@ export function markdownToHtml(markdown: string, baseDir: string, language: stri
 }
 
 /**
- * 处理 tabbed 内容（非编程语言的标签页，如步骤说明、不同实现方式等）
- * 这些内容应该全部保留，并转换为合适的 HTML 格式
+ * Process tabbed content (non-programming language tabs, such as step descriptions, different implementation methods, etc.)
+ * All this content should be preserved and converted to appropriate HTML format
  */
 function processTabbedContent(markdown: string): string {
-  // 匹配 === "非编程语言标签" 的内容块
-  // 这些标签包括：<1>, <2>, ..., ArrayStack, LinkedListStack, push(), pop() 等
+  // Match === "non-programming language tags" content blocks
+  // These tags include: <1>, <2>, ..., ArrayStack, LinkedListStack, push(), pop(), etc.
   const lines = markdown.split('\n');
   const result: string[] = [];
   let i = 0;
   
-  // 定义编程语言标签（这些不应该被 processTabbedContent 处理）
+  // Define programming language tags (these should not be processed by processTabbedContent)
   const programmingLanguages = [
     'Python', 'C++', 'Java', 'C#', 'Go', 'Swift', 'JS', 'TS', 
     'Dart', 'Rust', 'C', 'Kotlin', 'Ruby', 'Zig'
@@ -417,30 +417,30 @@ function processTabbedContent(markdown: string): string {
   while (i < lines.length) {
     const line = lines[i];
     
-    // 检查是否是标签行
+    // Check if it's a tag line
     const tabMatch = line.match(/^===\s+"([^"]+)"/);
     
-    // 只处理非编程语言标签
+    // Only process non-programming language tags
     if (tabMatch && !programmingLanguages.includes(tabMatch[1])) {
       const tabName = tabMatch[1];
       
       i++;
       
-      // 收集该标签下的所有缩进内容
+      // Collect all indented content under this tag
       while (i < lines.length) {
         const contentLine = lines[i];
         
-        // 如果遇到下一个 === 标签，结束当前标签内容
+        // If encounter next === tag, end current tag content
         if (contentLine.match(/^===/)) {
           break;
         }
         
-        // 如果遇到非缩进的标题或段落，结束当前标签内容
+        // If encounter non-indented heading or paragraph, end current tag content
         if (contentLine.trim() && !contentLine.match(/^\s/) && contentLine.match(/^[^#\s]/)) {
           break;
         }
         
-        // 移除 4 个空格缩进（MkDocs 的 tabbed 内容通常有 4 个空格缩进）
+        // Remove 4 space indentation (MkDocs tabbed content usually has 4 space indentation)
         result.push(contentLine.replace(/^    /, ''));
         i++;
       }
@@ -457,18 +457,18 @@ function processTabbedContent(markdown: string): string {
 }
 
 function processMultiLanguageCodeBlocks(markdown: string, language: string = 'cpp'): string {
-  // 获取目标语言的显示名称
+  // Get target language display name
   const langConfig = LANGUAGE_MAP[language];
   const targetLangName = langConfig ? langConfig.displayName : 'C++';
   
-  // 定义需要过滤的编程语言标签（只有这些标签会被当作多语言代码块处理）
+  // Define programming language tags to filter (only these tags will be treated as multi-language code blocks)
   const programmingLanguages = [
     'Python', 'C++', 'Java', 'C#', 'Go', 'Swift', 'JS', 'TS', 
     'Dart', 'Rust', 'C', 'Kotlin', 'Ruby', 'Zig'
   ];
   
-  // 匹配整个多语言代码块组（从第一个 === 到下一个非缩进行或文件结束）
-  // 使用更精确的匹配：连续的 === "语言" 块直到遇到非缩进行
+  // Match entire multi-language code block group (from first === to next non-indented line or file end)
+  // Use more precise matching: consecutive === "Language" blocks until encountering non-indented line
   const lines = markdown.split('\n');
   const result: string[] = [];
   let i = 0;
@@ -476,40 +476,40 @@ function processMultiLanguageCodeBlocks(markdown: string, language: string = 'cp
   while (i < lines.length) {
     const line = lines[i];
     
-    // 检查是否是语言标签行
+    // Check if it's a language tag line
     const langMatch = line.match(/^===\s+"([^"]+)"/);
     
-    // 只处理编程语言标签，其他标签（如 <1>, <2>, ArrayStack 等）保持原样
+    // Only process programming language tags, other tags (like <1>, <2>, ArrayStack, etc.) remain unchanged
     if (langMatch && programmingLanguages.includes(langMatch[1])) {
-      // 找到了一组多语言代码块的开始
+      // Found the start of a multi-language code block group
       const blocks: Array<{ lang: string; lines: string[] }> = [];
       let currentLang = langMatch[1];
       let currentBlockLines: string[] = [];
       let inCodeBlock = false;
       
-      // 收集所有语言块
-      i++; // 跳过第一个语言标签行
+      // Collect all language blocks
+      i++; // Skip first language tag line
       
       while (i < lines.length) {
         const currentLine = lines[i];
         
-        // 检查是否是下一个语言标签（必须在代码块外）
+        // Check if it's next language tag (must be outside code block)
         if (!inCodeBlock) {
           const nextLangMatch = currentLine.match(/^===\s+"([^"]+)"/);
           if (nextLangMatch) {
-            // 只有当是编程语言标签时才继续处理
+            // Only continue processing when it's a programming language tag
             if (programmingLanguages.includes(nextLangMatch[1])) {
-              // 保存当前块
+              // Save current block
               if (currentBlockLines.length > 0) {
                 blocks.push({ lang: currentLang, lines: currentBlockLines });
               }
-              // 开始新块
+              // Start new block
               currentLang = nextLangMatch[1];
               currentBlockLines = [];
               i++;
               continue;
             } else {
-              // 遇到非编程语言标签（如 <1>, ArrayStack 等），代码块组结束
+              // Encounter non-programming language tag (like <1>, ArrayStack, etc.), code block group ends
               if (currentBlockLines.length > 0) {
                 blocks.push({ lang: currentLang, lines: currentBlockLines });
               }
@@ -518,7 +518,8 @@ function processMultiLanguageCodeBlocks(markdown: string, language: string = 'cp
           }
         }
         
-        // 检查是否是代码块开始/结束（匹配任意缩进的 ```）
+        // Check if it's code block start/end (match any indentation ```)
+
         if (currentLine.match(/^\s*```/)) {
           inCodeBlock = !inCodeBlock;
           currentBlockLines.push(currentLine);
@@ -526,25 +527,25 @@ function processMultiLanguageCodeBlocks(markdown: string, language: string = 'cp
           continue;
         }
         
-        // 在代码块内部时，所有内容都应该被收集
+        // When inside code block, all content should be collected
         if (inCodeBlock) {
           currentBlockLines.push(currentLine);
           i++;
           continue;
         }
         
-        // 在代码块外部时，检查是否代码块组结束
-        // 如果遇到非缩进的非空行（且不是下一个语言标签），代码块组结束
+        // When outside code block, check if code block group ends
+        // If encounter non-indented non-empty line (and not next language tag), code block group ends
         if (currentLine.trim()) {
-          // 如果是标题行（以 # 开头），代码块组结束
+          // If it's heading line (starts with #), code block group ends
           if (currentLine.match(/^#/)) {
-            // 标题行，代码块组结束
+            // Heading line, code block group ends
             if (currentBlockLines.length > 0) {
               blocks.push({ lang: currentLang, lines: currentBlockLines });
             }
             break;
           } else if (!currentLine.match(/^\s/) && !currentLine.match(/^===/) && !currentLine.match(/^\?\?\?/) && !currentLine.match(/^```/)) {
-            // 普通段落（非缩进、非语言标签、非 admonition、非代码块），代码块组结束
+            // Normal paragraph (non-indented, non-language tag, non-admonition, non-code block), code block group ends
             if (currentBlockLines.length > 0) {
               blocks.push({ lang: currentLang, lines: currentBlockLines });
             }
@@ -552,33 +553,33 @@ function processMultiLanguageCodeBlocks(markdown: string, language: string = 'cp
           }
         }
         
-        // 添加到当前块（包括空行和代码块外的缩进行）
+        // Add to current block (including empty lines and indented lines outside code block)
         currentBlockLines.push(currentLine);
         i++;
       }
       
-      // 如果循环结束，保存最后一个块
+      // If loop ends, save last block
       if (currentBlockLines.length > 0) {
         blocks.push({ lang: currentLang, lines: currentBlockLines });
       }
       
-      // 查找目标语言版本
+      // Find target language version
       const targetBlock = blocks.find(b => b.lang === targetLangName);
       
       if (targetBlock) {
-        // 只保留目标语言版本的代码块（去掉缩进）
+        // Only keep target language version code block (remove indentation)
         for (const blockLine of targetBlock.lines) {
-          // 移除开头的 4 个空格缩进
+          // Remove leading 4 space indentation
           result.push(blockLine.replace(/^    /, ''));
         }
       } else if (blocks.length > 0) {
-        // 如果没有目标语言版本，保留第一个版本
+        // If no target language version, keep first version
         for (const blockLine of blocks[0].lines) {
           result.push(blockLine.replace(/^    /, ''));
         }
       }
       
-      // i 已经在循环中更新了，继续处理下一行
+      // i has already been updated in the loop, continue processing next line
       continue;
     }
     
@@ -591,7 +592,7 @@ function processMultiLanguageCodeBlocks(markdown: string, language: string = 'cp
 }
 
 /**
- * 处理行内数学公式
+ * Process inline math formulas
  */
 function processInlineMath(formula: string): string {
   const content = processMathContent(formula.trim());
@@ -599,12 +600,12 @@ function processInlineMath(formula: string): string {
 }
 
 /**
- * 处理块级数学公式
+ * Process block-level math formulas
  */
 function processDisplayMath(formula: string): string {
   let result = formula.trim();
   
-  // 处理 aligned 环境
+  // Process aligned environment
   if (result.includes('\\begin{aligned}')) {
     result = result.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, (match, content) => {
       return processAlignedMath(content);
@@ -617,31 +618,31 @@ function processDisplayMath(formula: string): string {
 }
 
 /**
- * 处理 aligned 数学环境
+ * Process aligned math environment
  */
 function processAlignedMath(content: string): string {
-  // 处理 \newline
+  // Process \newline
   let aligned = content.trim().replace(/\\newline/g, '\n');
   
-  // 按行分割
+  // Split by line
   const lines = aligned.split('\n').filter((line: string) => line.trim());
   
   if (lines.length === 0) {
     return processMathContent(content);
   }
   
-  // 处理每一行
+  // Process each line
   const processedLines = lines.map((line: string) => {
     if (line.includes('&')) {
-      // 有对齐符号，按 & 分割
+      // Has alignment symbol, split by &
       return line.split('&').map((part: string) => processMathContent(part.trim()));
     } else {
-      // 没有对齐符号
+      // No alignment symbol
       return [processMathContent(line.trim())];
     }
   });
   
-  // 构建表格
+  // Build table
   let html = '<table class="math-aligned">';
   for (const line of processedLines) {
     html += '<tr>';
@@ -658,37 +659,37 @@ function processAlignedMath(content: string): string {
 }
 
 /**
- * 处理数学公式内容（LaTeX 转 HTML）
+ * Process math formula content (LaTeX to HTML)
  */
 function processMathContent(latex: string): string {
   let result = latex.trim();
   
-  // 先处理文本和罗马字体（在处理上下标之前，避免嵌套花括号问题）
+  // First process text and roman font (before processing superscripts/subscripts to avoid nested braces issue)
   result = result.replace(/\\text\s*\{([^}]+)\}/g, '<span class="math-text">$1</span>');
   result = result.replace(/\\mathrm\s*\{([^}]+)\}/g, '<span class="math-roman">$1</span>');
   
-  // 处理函数名
+  // Process function names
   result = result.replace(/\\log/g, '<span class="math-function">log</span>');
   result = result.replace(/\\ln/g, '<span class="math-function">ln</span>');
   result = result.replace(/\\sin/g, '<span class="math-function">sin</span>');
   result = result.replace(/\\cos/g, '<span class="math-function">cos</span>');
   result = result.replace(/\\tan/g, '<span class="math-function">tan</span>');
   
-  // 处理下标
+  // Process subscripts
   result = result.replace(/_\{([^}]+)\}/g, '<sub>$1</sub>');
   result = result.replace(/_([a-zA-Z0-9])/g, '<sub>$1</sub>');
   
-  // 处理上标
+  // Process superscripts
   result = result.replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>');
   result = result.replace(/\^([a-zA-Z0-9])/g, '<sup>$1</sup>');
   
-  // 处理分数
+  // Process fractions
   result = result.replace(/\\frac\s*\{([^}]+)\}\s*\{([^}]+)\}/g, '$1⁄$2');
   
-  // 处理根号
+  // Process square root
   result = result.replace(/\\sqrt\s*\{([^}]+)\}/g, '√$1');
   
-  // 处理希腊字母
+  // Process Greek letters
   const greekMap: { [key: string]: string } = {
     '\\alpha': 'α', '\\beta': 'β', '\\gamma': 'γ', '\\delta': 'δ',
     '\\epsilon': 'ε', '\\theta': 'θ', '\\lambda': 'λ', '\\mu': 'μ',
@@ -700,7 +701,7 @@ function processMathContent(latex: string): string {
     result = result.replace(new RegExp(tex.replace(/\\/g, '\\\\'), 'g'), unicode);
   }
   
-  // 处理特殊符号
+  // Process special symbols
   result = result.replace(/\\times/g, '×');
   result = result.replace(/\\div/g, '÷');
   result = result.replace(/\\cdot/g, '·');
@@ -740,13 +741,13 @@ function processMathContent(latex: string): string {
   result = result.replace(/\\lor/g, '∨');
   result = result.replace(/\\neg/g, '¬');
   
-  // 处理空格命令
+  // Process space commands
   result = result.replace(/\\quad/g, '  ');
   result = result.replace(/\\qquad/g, '    ');
   result = result.replace(/\\,/g, ' ');
   result = result.replace(/\\;/g, ' ');
 
-  // 处理箭头符号
+  // Process arrow symbols
   result = result.replace(/\\rightarrow/g, '→');
   result = result.replace(/\\leftarrow/g, '←');
   result = result.replace(/\\Rightarrow/g, '⇒');
@@ -756,36 +757,36 @@ function processMathContent(latex: string): string {
   result = result.replace(/\\to/g, '→');
   result = result.replace(/\\gets/g, '←');
 
-  // 处理 LaTeX 括号命令（直接去掉 \left 和 \right，保留括号本身）
+  // Process LaTeX bracket commands (remove \left and \right directly, keep brackets themselves)
   result = result.replace(/\\left\s*/g, '');
   result = result.replace(/\\right\s*/g, '');
 
-  // 处理转义的花括号（使用占位符保护）
+  // Process escaped braces (use placeholders to protect)
   result = result.replace(/\\\{/g, 'LEFTBRACE');
   result = result.replace(/\\\}/g, 'RIGHTBRACE');
   
-  // 清理括号和反斜杠
+  // Clean brackets and backslashes
   result = result.replace(/\{|\}/g, '');
   result = result.replace(/\\/g, '');
   
-  // 恢复转义的花括号
+  // Restore escaped braces
   result = result.replace(/LEFTBRACE/g, '{');
   result = result.replace(/RIGHTBRACE/g, '}');
   
-  // 清理多余的连续空格（但保留 HTML 标签内的空格）
+  // Clean consecutive extra spaces (but preserve spaces inside HTML tags)
   result = result.replace(/(?<!<[^>]*)\s{2,}(?![^<]*>)/g, ' ');
   
-  // 不再将字母转为斜体，保持原始字母
+  // No longer convert letters to italics, keep original letters
   
   return result;
 }
 
 
 /**
- * 处理 MkDocs 的 admonition 语法
- * 支持两种格式：
- * 1. !!! note（使用默认标题）
- * 2. !!! note "自定义标题"（使用自定义标题）
+ * Process MkDocs admonition syntax
+ * Supports two formats:
+ * 1. !!! note (use default title)
+ * 2. !!! note "Custom title" (use custom title)
  */
 function processAdmonitions(markdown: string, docLanguage?: string): { markdown: string; placeholders: Map<string, string> } {
   const lines = markdown.split('\n');
@@ -797,7 +798,7 @@ function processAdmonitions(markdown: string, docLanguage?: string): { markdown:
   while (i < lines.length) {
     const line = lines[i];
     
-    // 检查是否是 admonition 开始
+    // Check if it's admonition start
     const admonitionMatch = line.match(/^!!!\s+(\w+)(?:\s+"([^"]+)")?\s*$/);
     
     if (admonitionMatch) {
@@ -805,44 +806,44 @@ function processAdmonitions(markdown: string, docLanguage?: string): { markdown:
       const customTitle = admonitionMatch[2];
       const title = customTitle || getAdmonitionTitle(type, docLanguage);
       
-      i++; // 跳过 admonition 标记行
+      i++; // Skip admonition marker line
       
-      // 收集所有缩进的内容（4个空格开头）
+      // Collect all indented content (starting with 4 spaces)
       const contentLines: string[] = [];
       while (i < lines.length) {
         const contentLine = lines[i];
         
-        // 如果是缩进行（4个空格开头），属于 admonition 内容
+        // If it's indented line (starting with 4 spaces), belongs to admonition content
         if (contentLine.match(/^    /)) {
-          // 去掉前4个空格
+          // Remove first 4 spaces
           contentLines.push(contentLine.substring(4));
           i++;
         } 
-        // 如果是空行，也可能属于 admonition 内容（需要检查下一行）
+        // If it's empty line, may also belong to admonition content (need to check next line)
         else if (contentLine.trim() === '') {
-          // 向前查看，如果下一行还是缩进的，那这个空行属于 admonition
+          // Look ahead, if next line is still indented, this empty line belongs to admonition
           if (i + 1 < lines.length && lines[i + 1].match(/^    /)) {
             contentLines.push('');
             i++;
           } else {
-            // 否则 admonition 结束
+            // Otherwise admonition ends
             break;
           }
         }
-        // 非缩进非空行，admonition 结束
+        // Non-indented non-empty line, admonition ends
         else {
           break;
         }
       }
       
-      // 生成 admonition HTML 结构，内容部分使用占位符
+      // Generate admonition HTML structure, content part uses placeholder
       const content = contentLines.join('\n').trim();
       const placeholder = `XADMONITIONCONTENTX${placeholderCounter}X`;
       placeholders.set(placeholder, content);
       placeholderCounter++;
       
       result.push(`<div class="admonition ${type}">`);
-      // 如果标题为空，则不显示标题
+      // If title is empty, don't display title
       if (title) {
         result.push(`<div class="admonition-title">${title}</div>`);
       }
@@ -910,8 +911,8 @@ function getAdmonitionTitle(type: string, docLanguage?: string): string {
     },
   };
   
-  // 如果类型在字典中，使用字典值；如果字典值为空字符串，说明该类型不需要标题
-  // 如果类型不在字典中，返回类型本身
+  // If type is in dictionary, use dictionary value; if dictionary value is empty string, it means this type doesn't need a title
+  // If type is not in dictionary, return type itself
   const title = titles[lang]?.[type];
   if (title !== undefined) {
     return title;
@@ -924,12 +925,12 @@ function getAdmonitionTitle(type: string, docLanguage?: string): string {
 }
 
 /**
- * 获取自定义 CSS 样式
+ * Get custom CSS styles
  */
 export function getCustomCSS(docLanguage?: string): string {
   const lang = docLanguage || 'zh';
 
-  // 根据文档语言选择字体配置
+  // Select font configuration based on document language
   let serifFontName = 'Noto Serif SC';
   let serifFontFile = 'NotoSerifSC-Regular.ttf';
   let serifItalicFontFile: string | null = null;
@@ -945,11 +946,11 @@ export function getCustomCSS(docLanguage?: string): string {
     serifFontFile = 'NotoSerifJP-VariableFont_wght.ttf';
     bodyFontFamily = '"Noto Serif JP", "Noto Serif CJK JP", serif';
   } else if (lang === 'zh' || lang === 'zh-hant') {
-    // 使用默认的 Noto Serif SC Regular
+    // Use default Noto Serif SC Regular
   }
 
   return `
-    /* 定义嵌入字体 */
+    /* Define embedded fonts */
     @font-face {
       font-family: "MathJax_Math";
       src: url(./fonts/MathJax_Math-Regular.otf);
@@ -989,7 +990,7 @@ export function getCustomCSS(docLanguage?: string): string {
       padding: 20px;
       color: #333;
     }
-    /* 链接样式 */
+    /* Link styles */
     a {
       color: #1581CB;
       text-decoration: none;
@@ -997,11 +998,11 @@ export function getCustomCSS(docLanguage?: string): string {
     a:hover {
       text-decoration: underline;
     }
-    /* 居中对齐的段落（兼容 <p align="center"> 写法，已转换为 .text-center） */
+    /* Center-aligned paragraphs (compatible with <p align="center"> syntax, converted to .text-center) */
     .text-center {
       text-align: center;
     }
-    /* 降低粗体文字的粗细度 */
+    /* Reduce bold text font weight */
     strong, b {
       font-weight: 600;
     }
@@ -1012,20 +1013,20 @@ export function getCustomCSS(docLanguage?: string): string {
       font-weight: 600;
       line-height: 1.25;
     }
-    /* 章节标题 (第 X 章) */
+    /* Chapter title (Chapter X) */
     h1 {
       font-size: 1.5em;
       text-align: center;
     }
-    /* 小节标题 (X.Y) */
+    /* Section title (X.Y) */
     h2 { font-size: 1.3em; }
-    /* Markdown 文档内的主标题 */
+    /* Main heading within Markdown document */
     h3 { font-size: 1.15em; }
-    /* Markdown 文档内的副标题 */
+    /* Subheading within Markdown document */
     h4 { font-size: 1.05em; }
     h5 { font-size: 1.0em; }
     h6 { font-size: 1.0em; }
-    /* 行内代码 */
+    /* Inline code */
     code {
       background-color: #f0f0f0;
       padding: 2px 6px;
@@ -1036,7 +1037,7 @@ export function getCustomCSS(docLanguage?: string): string {
       color: #333;
     }
 
-    /* 代码块 */
+    /* Code blocks */
     pre {
       padding: 3px 3px;
       background-color: #f5f5f5;
@@ -1316,17 +1317,17 @@ export function getCustomCSS(docLanguage?: string): string {
 }
 
 /**
- * 包装 HTML 内容（简化版，样式由 CSS 文件提供）
+ * Wrap HTML content (simplified version, styles provided by CSS file)
  */
 function wrapHtmlContent(html: string): string {
   return html;
 }
 
 /**
- * 从 Markdown 文本中提取所有标题
- * @param markdown Markdown 文本
- * @param chapterPath 章节路径（用于标识）
- * @returns 标题列表
+ * Extract all headings from Markdown text
+ * @param markdown Markdown text
+ * @param chapterPath Chapter path (for identification)
+ * @returns Heading list
  */
 export function extractHeadings(markdown: string, chapterPath: string): HeadingInfo[] {
   const headings: HeadingInfo[] = [];
@@ -1337,13 +1338,13 @@ export function extractHeadings(markdown: string, chapterPath: string): HeadingI
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     
-    // 检查代码块边界（三个反引号或波浪号）
+    // Check code block boundaries (three backticks or tildes)
     if (line.match(/^\s*```/) || line.match(/^\s*~~~/)) {
       inCodeBlock = !inCodeBlock;
       continue;
     }
     
-    // 检查缩进代码块（4个空格）
+    // Check indented code blocks (4 spaces)
     if (line.match(/^    /) && !inCodeBlock) {
       inFencedBlock = true;
       continue;
@@ -1351,24 +1352,24 @@ export function extractHeadings(markdown: string, chapterPath: string): HeadingI
       inFencedBlock = false;
     }
     
-    // 跳过代码块内的内容
+    // Skip content in code blocks
     if (inCodeBlock || inFencedBlock) {
       continue;
     }
     
-    // 匹配 ATX 风格标题：# ## ### 等
+    // Match ATX-style headings: # ## ### etc.
     const match = line.match(/^(#{1,6})\s+(.+)$/);
     if (match) {
       const level = match[1].length;
       let text = match[2].trim();
       
-      // 移除标题中的 Markdown 格式和数学公式，保留纯文本
+      // Remove Markdown formatting and math formulas from heading, keep plain text
       text = text
-        .replace(/\$[^$]+\$/g, '') // 移除行内数学公式
-        .replace(/\*\*(.+?)\*\*/g, '$1') // 移除粗体
-        .replace(/\*(.+?)\*/g, '$1') // 移除斜体
-        .replace(/`(.+?)`/g, '$1') // 移除代码
-        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // 移除链接，保留文本
+        .replace(/\$[^$]+\$/g, '') // Remove inline math formulas
+        .replace(/\*\*(.+?)\*\*/g, '$1') // Remove bold
+        .replace(/\*(.+?)\*/g, '$1') // Remove italic
+        .replace(/`(.+?)`/g, '$1') // Remove code
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links, keep text
         .trim();
       
       if (text) {
@@ -1386,7 +1387,7 @@ export function extractHeadings(markdown: string, chapterPath: string): HeadingI
 }
 
 /**
- * 提取 Markdown 中的图片路径
+ * Extract image paths from Markdown
  */
 export function extractImagePaths(markdown: string, markdownFilePath: string): Array<{ original: string; fullPath: string }> {
   const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
@@ -1397,13 +1398,13 @@ export function extractImagePaths(markdown: string, markdownFilePath: string): A
 
   while ((match = imageRegex.exec(markdown)) !== null) {
     const imagePath = match[2];
-    // 处理相对路径
+    // Handle relative paths
     if (!imagePath.startsWith('http://') && !imagePath.startsWith('https://') && !imagePath.startsWith('data:')) {
-      // 尝试多个可能的路径
+      // Try multiple possible paths
       const possiblePaths = [
-        path.resolve(markdownDir, imagePath),  // 相对于当前 markdown 文件
-        path.resolve(docsRoot, imagePath),     // 相对于 docs 根目录
-        path.resolve(markdownDir, '..', imagePath), // 上一级目录
+        path.resolve(markdownDir, imagePath),  // Relative to current markdown file
+        path.resolve(docsRoot, imagePath),     // Relative to docs root directory
+        path.resolve(markdownDir, '..', imagePath), // Parent directory
       ];
       
       for (const fullPath of possiblePaths) {
@@ -1419,7 +1420,7 @@ export function extractImagePaths(markdown: string, markdownFilePath: string): A
 }
 
 /**
- * 读取图片文件
+ * Read image file
  */
 export function readImage(imagePath: string): ImageInfo | null {
   try {
@@ -1441,13 +1442,13 @@ export function readImage(imagePath: string): ImageInfo | null {
       mimeType,
     };
   } catch (error) {
-    console.warn(`无法读取图片: ${imagePath}`, error);
+    console.warn(`Unable to read image: ${imagePath}`, error);
     return null;
   }
 }
 
 /**
- * 将图片转换为 base64 数据 URI
+ * Convert image to base64 data URI
  */
 export function imageToDataUri(imageInfo: ImageInfo): string {
   const base64 = imageInfo.data.toString('base64');

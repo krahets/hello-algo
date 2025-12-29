@@ -5,7 +5,7 @@ export interface NavItem {
   children?: NavItem[];
 }
 
-// MkDocs 配置文件中的导航项类型
+// Navigation item type in MkDocs config file
 export type MkDocsNavItem = string | { [key: string]: string | MkDocsNavItem[] } | MkDocsNavItem[];
 
 export interface Chapter {
@@ -13,9 +13,9 @@ export interface Chapter {
   path: string;
   content: string;
   order: number;
-  level: number; // 层级：0=顶级章节，1=子章节
-  number?: string; // 章节编号，如 "0", "0.1", "1", "1.1"
-  parentTitle?: string; // 父章节标题
+  level: number; // Hierarchy level: 0=top-level chapter, 1=sub-chapter
+  number?: string; // Chapter number, e.g., "0", "0.1", "1", "1.1"
+  parentTitle?: string; // Parent chapter title
 }
 
 export interface ImageInfo {
@@ -24,15 +24,15 @@ export interface ImageInfo {
   mimeType: string;
 }
 
-// 标题信息
+// Heading information
 export interface HeadingInfo {
-  level: number;        // 标题级别 (1-6)
-  text: string;         // 标题文本
-  chapterPath: string;  // 所属章节路径
-  lineNumber?: number;  // 行号（如果有）
+  level: number;        // Heading level (1-6)
+  text: string;         // Heading text
+  chapterPath: string;  // Path to the chapter
+  lineNumber?: number;  // Line number (if available)
 }
 
-// EPUB-gen 库的选项类型
+// Option types for epub-gen library
 export interface EpubGenOptions {
   title: string;
   author: string;
@@ -48,5 +48,5 @@ export interface EpubGenOptions {
   cover?: string;
   output?: string;
   fonts?: string[];
-  tocTitle?: string;  // 目录标题
+  tocTitle?: string;  // Table of contents title
 }
