@@ -33,15 +33,33 @@ function getTocTitle(docLanguage?: string): string {
 /**
  * Generate homepage HTML
  */
-function generateTitlePage(title: string, author: string, docLanguage?: string, version?: string): string {
+function generateTitlePage(title: string, author: string, docLanguage?: string, version?: string, codeLanguage?: string): string {
   const lang = docLanguage || 'zh';
 
+  // Code reviewer mapping
+  const codeReviewers: { [key: string]: string } = {
+    'python': '靳宇栋（@krahets）',
+    'cpp': '宫兰景（@Gonglja）',
+    'java': '靳宇栋（@krahets）',
+    'csharp': '@hpstory',
+    'go': '刘代富（@Reanon）',
+    'swift': '@nuomi1',
+    'javascript': '谢发 (@justin-tse)',
+    'typescript': '谢发 (@justin-tse)',
+    'dart': '刘玉新（@gvenusleo）',
+    'rust': '伍志豪（@night-cruise）、荣怡（@rongyi）',
+    'c': '宫兰景（@Gonglja）',
+    'ruby': '阮春科秀（@khoaxuantu）',
+    'kotlin': '陈东辉（@curtishd）',
+  };
+
   // Multilingual text configuration
-  const i18n: { [key: string]: { subtitle: string; authorPrefix: string; authorName: string; readOnline: string; codeRepo: string; versionPrefix: string } } = {
+  const i18n: { [key: string]: { subtitle: string; authorPrefix: string; authorName: string; codeReviewPrefix: string; readOnline: string; codeRepo: string; versionPrefix: string } } = {
     'zh': {
       subtitle: '动画图解、一键运行的数据结构与算法教程',
       authorPrefix: '作者：',
       authorName: '靳宇栋 (@krahets)',
+      codeReviewPrefix: '代码审阅：',
       readOnline: '在线阅读',
       codeRepo: '代码仓库',
       versionPrefix: '版本',
@@ -50,6 +68,7 @@ function generateTitlePage(title: string, author: string, docLanguage?: string, 
       subtitle: '動畫圖解、一鍵運行的資料結構與演算法教程',
       authorPrefix: '作者：',
       authorName: '靳宇棟 (@krahets)',
+      codeReviewPrefix: '程式碼審閱：',
       readOnline: '線上閱讀',
       codeRepo: '程式碼倉庫',
       versionPrefix: '版本',
@@ -58,6 +77,7 @@ function generateTitlePage(title: string, author: string, docLanguage?: string, 
       subtitle: 'Data structures and algorithms crash course with animated illustrations and off-the-shelf code',
       authorPrefix: 'Author: ',
       authorName: 'Yudong Jin (@krahets)',
+      codeReviewPrefix: 'Code Review: ',
       readOnline: 'Read Online',
       codeRepo: 'Code Repository',
       versionPrefix: 'Version',
@@ -66,6 +86,7 @@ function generateTitlePage(title: string, author: string, docLanguage?: string, 
       subtitle: 'アニメーション図解、ワンクリック実行のデータ構造とアルゴリズム教程',
       authorPrefix: '著者：',
       authorName: '靳宇棟 (@krahets)',
+      codeReviewPrefix: 'コードレビュー：',
       readOnline: 'オンライン閲覧',
       codeRepo: 'コードリポジトリ',
       versionPrefix: 'バージョン',
@@ -74,6 +95,7 @@ function generateTitlePage(title: string, author: string, docLanguage?: string, 
 
   const text = i18n[lang] || i18n['zh'];
   const versionText = version ? `${text.versionPrefix} ${version}` : '';
+  const codeReviewer = codeLanguage && codeReviewers[codeLanguage] ? codeReviewers[codeLanguage] : '';
 
   return `
     <div style="text-align: center; padding: 40px 20px 30px 20px;">
@@ -81,7 +103,9 @@ function generateTitlePage(title: string, author: string, docLanguage?: string, 
 
       <p style="font-size: 0.9em; margin: 0.3em 0 1.5em 0; color: #666;">${text.subtitle}</p>
 
-      <p style="font-size: 1em; margin: 1.2em 0 0.8em 0; color: #555;">${text.authorPrefix}${text.authorName}</p>
+      <p style="font-size: 1em; margin: 1.2em 0 0.3em 0; color: #555;">${text.authorPrefix}${text.authorName}</p>
+
+      ${codeReviewer ? `<p style="font-size: 1em; margin: 0.3em 0 0.8em 0; color: #555;">${text.codeReviewPrefix}${codeReviewer}</p>` : ''}
 
       ${versionText ? `<p style="font-size: 0.85em; margin: 0.5em 0; color: #888;">${versionText}</p>` : ''}
 
@@ -130,7 +154,7 @@ export async function generateEpub(
 
   content.push({
     title: titlePageTitle,
-    data: generateTitlePage(options.title, options.author, options.docLanguage, options.version),
+    data: generateTitlePage(options.title, options.author, options.docLanguage, options.version, options.codeLanguage),
     beforeToc: true,  // Before table of contents
     excludeFromToc: false,  // Include in table of contents
     level: 0,
