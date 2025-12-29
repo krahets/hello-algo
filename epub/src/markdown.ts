@@ -931,7 +931,7 @@ export function getCustomCSS(docLanguage?: string): string {
 
   // 根据文档语言选择字体配置
   let serifFontName = 'Noto Serif SC';
-  let serifFontFile = 'NotoSerifSC-VariableFont_wght.ttf';
+  let serifFontFile = 'NotoSerifSC-Regular.ttf';
   let serifItalicFontFile: string | null = null;
   let bodyFontFamily = '"Noto Serif SC", "Noto Serif CJK SC", "Source Han Serif SC", serif';
 
@@ -945,7 +945,7 @@ export function getCustomCSS(docLanguage?: string): string {
     serifFontFile = 'NotoSerifJP-VariableFont_wght.ttf';
     bodyFontFamily = '"Noto Serif JP", "Noto Serif CJK JP", serif';
   } else if (lang === 'zh' || lang === 'zh-hant') {
-    // 使用默认的 Noto Serif SC
+    // 使用默认的 Noto Serif SC Regular
   }
 
   return `

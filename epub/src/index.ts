@@ -312,11 +312,17 @@ async function buildEpub(
     
     // 过滤掉空内容
     const validChapters = chapters.filter(ch => ch.content.trim().length > 0);
-    
-    // 封面图片路径（始终使用主文档目录的封面）
-    const mainDocsDir = path.join(repoDir, 'docs');
-    const coverPath = path.join(mainDocsDir, 'assets', 'hero', 'cover_render.png');
-    
+
+    // 封面图片路径（根据文档语言选择）
+    const epubDir = path.join(__dirname, '..');
+    const coverMap: { [key: string]: string } = {
+      'zh': path.join(epubDir, 'covers', 'hello-algo-cover-zh.jpg'),
+      'zh-hant': path.join(epubDir, 'covers', 'hello-algo-cover-zh-hant.jpg'),
+      'en': path.join(epubDir, 'covers', 'hello-algo-cover-en.jpg'),
+      'ja': path.join(epubDir, 'covers', 'hello-algo-cover-en.jpg'), // 暂时使用英文封面
+    };
+    const coverPath = coverMap[docLanguage] || coverMap['zh'];
+
     // 生成 EPUB
     await generateEpub(validChapters, docsDir, outputPath, {
       title: docConfig.title,

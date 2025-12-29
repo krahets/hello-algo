@@ -207,8 +207,8 @@ export async function generateEpub(
   let serifItalicFontPath: string | null = null;
 
   if (docLang === 'zh' || docLang === 'zh-hant') {
-    // 中文版使用 Noto Serif SC
-    serifFontPath = path.join(fontsDir, 'NotoSerifSC-VariableFont_wght.ttf');
+    // 中文版使用 Noto Serif SC Regular
+    serifFontPath = path.join(fontsDir, 'NotoSerifSC-Regular.ttf');
   } else if (docLang === 'en') {
     // 英文版使用 Roboto Serif
     serifFontPath = path.join(fontsDir, 'RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf');
