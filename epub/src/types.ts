@@ -48,5 +48,5 @@ export interface EpubGenOptions {
   cover?: string;
   output?: string;
   fonts?: string[];
+  tocTitle?: string;  // 目录标题
 }
-

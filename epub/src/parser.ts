@@ -4,6 +4,15 @@ import * as yaml from 'js-yaml';
 import { NavItem, Chapter, MkDocsNavItem } from './types';
 
 /**
+ * 解析 mkdocs.yml 文件，提取版本号
+ */
+export function parseVersion(configPath: string): string {
+  const content = fs.readFileSync(configPath, 'utf-8');
+  const config = yaml.load(content) as any;
+  return config.version || '1.0.0';
+}
+
+/**
  * 解析 mkdocs.yml 文件，提取导航结构
  */
 export function parseMkdocsConfig(configPath: string): MkDocsNavItem[] {

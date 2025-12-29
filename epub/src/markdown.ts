@@ -102,7 +102,24 @@ function configureMarked() {
   
   // 自定义标题渲染（标题编号已由MD文档提供）
   renderer.heading = (text: string, level: number) => {
-    return `<h${level}>${text}</h${level}>\n`;
+    // 生成锚点 ID（移除特殊字符和空格）
+    const id = text
+      .replace(/[^\u4e00-\u9fa5a-zA-Z0-9\s]/g, '') // 保留中文、字母、数字和空格
+      .trim()
+      .replace(/\s+/g, '-') // 空格替换为连字符
+      .toLowerCase();
+    return `<h${level} id="${id}">${text}</h${level}>\n`;
+  };
+
+  // 自定义链接渲染，移除指向 .md 文件的链接（在 EPUB 中无效）
+  renderer.link = (href: string, title: string | null, text: string) => {
+    // 如果链接指向 .md 文件，只返回文本内容（移除超链接）
+    if (href && href.endsWith('.md')) {
+      return text;
+    }
+    // 其他链接保持原样
+    const titleAttr = title ? ` title="${title}"` : '';
+    return `<a href="${href}"${titleAttr}>${text}</a>`;
   };
 
   // 自定义图片渲染，用于后续提取图片
@@ -194,30 +211,30 @@ function removeYamlFrontmatter(markdown: string): string {
  * 移除所有行末的花括号属性标记（如 {data-toc-label="..."} 或 { class="animation-figure" }）
  */
 function removeAttributeBlocks(markdown: string): string {
-  // 仅移除“看起来像属性块”的花括号：
+  // 仅移除"看起来像属性块"的花括号：
   // - 内部包含 "="（如 data-toc-label="..."、class="..." 等）
   // - 避免误伤 LaTeX 语法（例如 \begin{aligned}、\text{...} 等不含 "=" 的花括号）
   // 注意：只在非代码块区域处理，避免误删代码块中的内容
   const lines = markdown.split('\n');
   const result: string[] = [];
   let inCodeBlock = false;
-  
+
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
-    
+
     // 检查是否是代码块开始/结束标记
     if (line.match(/^\s*```/)) {
       inCodeBlock = !inCodeBlock;
       result.push(line);
       continue;
     }
-    
+
     // 如果在代码块内部，直接保留原行，不进行属性块移除
     if (inCodeBlock) {
       result.push(line);
       continue;
     }
-    
+
     // 只在非代码块区域移除行末的属性块
     // 精准匹配：只移除特定格式的属性块
     // 匹配格式：
@@ -229,7 +246,7 @@ function removeAttributeBlocks(markdown: string): string {
     const cleanedLine = line.replace(/\s*\{\s*(?:data-toc-label|class)\s*=\s*"[^"]*"\s*\}\s*$/, '');
     result.push(cleanedLine);
   }
-  
+
   return result.join('\n');
 }
 
@@ -241,7 +258,7 @@ function decreaseHeadingLevels(markdown: string): string {
   const lines = markdown.split('\n');
   const result: string[] = [];
   let inCodeBlock = false;
-  
+
   for (const line of lines) {
     // 检查是否是代码块开始/结束标记
     if (line.match(/^\s*```/)) {
@@ -249,19 +266,19 @@ function decreaseHeadingLevels(markdown: string): string {
       result.push(line);
       continue;
     }
-    
+
     // 如果在代码块内部，直接保留原行
     if (inCodeBlock) {
       result.push(line);
       continue;
     }
-    
+
     // 匹配标题行：^#{1,6}\s+
     const headingMatch = line.match(/^(#{1,6})\s+(.+)$/);
     if (headingMatch) {
       const level = headingMatch[1].length;
       const content = headingMatch[2];
-      
+
       // 如果已经是 H6，保持不变；否则增加一级
       if (level < 6) {
         result.push('#' + headingMatch[1] + ' ' + content);
@@ -272,7 +289,7 @@ function decreaseHeadingLevels(markdown: string): string {
       result.push(line);
     }
   }
-  
+
   return result.join('\n');
 }
 
@@ -286,22 +303,22 @@ function decreaseHeadingLevels(markdown: string): string {
  */
 export function markdownToHtml(markdown: string, baseDir: string, language: string = 'cpp', docLanguage?: string, filePath?: string): string {
   configureMarked();
-  
+
   // 首先清理不需要的标记
   markdown = removeYamlFrontmatter(markdown);
   markdown = removeAttributeBlocks(markdown);
-  
+
   // 如果不是 index.md 文件，降低标题层级
   if (filePath && path.basename(filePath, '.md') !== 'index') {
     markdown = decreaseHeadingLevels(markdown);
   }
-  
+
   // 处理多语言代码块，只保留指定语言版本
   markdown = processMultiLanguageCodeBlocks(markdown, language);
-  
+
   // 处理 tabbed 内容（=== "<1>", === "ArrayStack" 等非编程语言标签）
   markdown = processTabbedContent(markdown);
-  
+
   // 处理特殊的 admonition 语法（!!! abstract, !!! success 等）
   const admonitionResult = processAdmonitions(markdown, docLanguage);
   markdown = admonitionResult.markdown;
@@ -909,9 +926,30 @@ function getAdmonitionTitle(type: string, docLanguage?: string): string {
 /**
  * 获取自定义 CSS 样式
  */
-export function getCustomCSS(): string {
+export function getCustomCSS(docLanguage?: string): string {
+  const lang = docLanguage || 'zh';
+
+  // 根据文档语言选择字体配置
+  let serifFontName = 'Noto Serif SC';
+  let serifFontFile = 'NotoSerifSC-VariableFont_wght.ttf';
+  let serifItalicFontFile: string | null = null;
+  let bodyFontFamily = '"Noto Serif SC", "Noto Serif CJK SC", "Source Han Serif SC", serif';
+
+  if (lang === 'en') {
+    serifFontName = 'Roboto Serif';
+    serifFontFile = 'RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf';
+    serifItalicFontFile = 'RobotoSerif-Italic-VariableFont_GRAD,opsz,wdth,wght.ttf';
+    bodyFontFamily = '"Roboto Serif", serif';
+  } else if (lang === 'ja') {
+    serifFontName = 'Noto Serif JP';
+    serifFontFile = 'NotoSerifJP-VariableFont_wght.ttf';
+    bodyFontFamily = '"Noto Serif JP", "Noto Serif CJK JP", serif';
+  } else if (lang === 'zh' || lang === 'zh-hant') {
+    // 使用默认的 Noto Serif SC
+  }
+
   return `
-    /* 定义 MathJax 数学字体 */
+    /* 定义嵌入字体 */
     @font-face {
       font-family: "MathJax_Math";
       src: url(./fonts/MathJax_Math-Regular.otf);
@@ -924,14 +962,40 @@ export function getCustomCSS(): string {
       font-style: normal;
       font-weight: normal;
     }
-    
+    @font-face {
+      font-family: "${serifFontName}";
+      src: url(./fonts/${serifFontFile});
+      font-style: normal;
+      font-weight: normal;
+    }
+    ${serifItalicFontFile ? `@font-face {
+      font-family: "${serifFontName}";
+      src: url(./fonts/${serifItalicFontFile});
+      font-style: italic;
+      font-weight: normal;
+    }` : ''}
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url(./fonts/JetBrainsMonoNerdFont-Regular.ttf);
+      font-style: normal;
+      font-weight: normal;
+    }
+
     body {
-      font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      font-family: ${bodyFontFamily};
       line-height: 1.6;
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
       color: #333;
+    }
+    /* 链接样式 */
+    a {
+      color: #1581CB;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
     /* 居中对齐的段落（兼容 <p align="center"> 写法，已转换为 .text-center） */
     .text-center {
@@ -964,11 +1028,11 @@ export function getCustomCSS(): string {
       padding: 2px 6px;
       border-radius: 3px;
       border: 1px solid #d0d0d0;
-      font-family: "Cousine", "Roboto Mono", "Noto Sans Mono", "Droid Sans Mono", "SF Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", "Menlo", "Monaco", "DejaVu Sans Mono", "Liberation Mono", "Courier New", Courier, monospace;
-      font-size: 0.88em;
+      font-family: "JetBrains Mono", "Consolas", "Monaco", "Courier New", monospace;
+      font-size: 0.82em;
       color: #333;
     }
-    
+
     /* 代码块 */
     pre {
       padding: 3px 3px;
@@ -989,8 +1053,8 @@ export function getCustomCSS(): string {
       word-wrap: break-word;
       word-break: break-all;
       overflow-wrap: break-word;
-      font-family: "Roboto Mono", "Noto Sans Mono", "Droid Sans Mono", "SF Mono", "JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", "Menlo", "Monaco", "DejaVu Sans Mono", "Liberation Mono", "Courier New", Courier, monospace;
-      font-size: 0.85em;
+      font-family: "JetBrains Mono", "Consolas", "Monaco", "Courier New", monospace;
+      font-size: 0.78em;
       color: #24292e;
       display: block;
     }
@@ -999,6 +1063,7 @@ export function getCustomCSS(): string {
       height: auto;
       display: block;
       margin: 20px auto;
+      border-radius: 8px;
     }
     blockquote {
       border-left: 4px solid #3498db;
@@ -1011,7 +1076,7 @@ export function getCustomCSS(): string {
       width: 100%;
       margin: 20px 0;
       border: 1px solid #ddd;
-      font-size: 0.9em;
+      font-size: 0.8em;
     }
     th, td {
       border: 1px solid #ddd;
@@ -1031,7 +1096,7 @@ export function getCustomCSS(): string {
       background-color: #f4f4f4;
       padding: 2px 4px;
       border-radius: 3px;
-      font-size: 0.9em;
+      font-size: 1em;
     }
     .math-inline {
       white-space: nowrap;
@@ -1098,7 +1163,7 @@ export function getCustomCSS(): string {
     }
     .admonition {
       margin: 20px 0;
-      padding: 12px 16px;
+      padding: 12px 16px 8px 16px;
       border: 2px solid #6d85df;
       border-radius: 6px;
       background-color: #f8f9fa;

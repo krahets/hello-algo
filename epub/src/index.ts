@@ -2,7 +2,7 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import { execSync } from 'child_process';
 import { Command } from 'commander';
-import { parseMkdocsConfig, flattenNav, readChapterContent } from './parser';
+import { parseMkdocsConfig, flattenNav, readChapterContent, parseVersion } from './parser';
 import { generateEpub } from './epub';
 import { Chapter, HeadingInfo } from './types';
 import { extractHeadings } from './markdown';
@@ -292,6 +292,7 @@ async function buildEpub(
 
     // 解析配置
     const nav = parseMkdocsConfig(mkdocsPath);
+    const version = parseVersion(mkdocsPath);
     
     // 扁平化导航结构
     const chapters = flattenNav(nav, docsDir);
@@ -326,6 +327,7 @@ async function buildEpub(
       cover: coverPath,
       codeLanguage: codeLanguage,
       docLanguage: docLanguage,
+      version: version,
     });
     
     // 验证 EPUB 内容完整性（仅在启用时执行）
