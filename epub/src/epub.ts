@@ -36,21 +36,68 @@ function getTocTitle(docLanguage?: string): string {
 function generateTitlePage(title: string, author: string, docLanguage?: string, version?: string, codeLanguage?: string): string {
   const lang = docLanguage || 'zh';
 
-  // Code reviewer mapping
-  const codeReviewers: { [key: string]: string } = {
-    'python': '靳宇栋（@krahets）',
-    'cpp': '宫兰景（@Gonglja）',
-    'java': '靳宇栋（@krahets）',
-    'csharp': '@hpstory',
-    'go': '刘代富（@Reanon）',
-    'swift': '@nuomi1',
-    'javascript': '谢发 (@justin-tse)',
-    'typescript': '谢发 (@justin-tse)',
-    'dart': '刘玉新（@gvenusleo）',
-    'rust': '伍志豪（@night-cruise）、荣怡（@rongyi）',
-    'c': '宫兰景（@Gonglja）',
-    'ruby': '阮春科秀（@khoaxuantu）',
-    'kotlin': '陈东辉（@curtishd）',
+  // Code reviewer mapping by language and document language
+  const codeReviewers: { [docLang: string]: { [codeLang: string]: string } } = {
+    'zh': {
+      'python': '靳宇栋（@krahets）',
+      'cpp': '宫兰景（@Gonglja）',
+      'java': '靳宇栋（@krahets）',
+      'csharp': '@hpstory',
+      'go': '刘代富（@Reanon）',
+      'swift': '@nuomi1',
+      'javascript': '谢发 (@justin-tse)',
+      'typescript': '谢发 (@justin-tse)',
+      'dart': '刘玉新（@gvenusleo）',
+      'rust': '伍志豪（@night-cruise）、荣怡（@rongyi）',
+      'c': '宫兰景（@Gonglja）',
+      'ruby': '阮春科秀（@khoaxuantu）',
+      'kotlin': '陈东辉（@curtishd）',
+    },
+    'zh-hant': {
+      'python': '靳宇棟（@krahets）',
+      'cpp': '宮蘭景（@Gonglja）',
+      'java': '靳宇棟（@krahets）',
+      'csharp': '@hpstory',
+      'go': '劉代富（@Reanon）',
+      'swift': '@nuomi1',
+      'javascript': '謝發 (@justin-tse)',
+      'typescript': '謝發 (@justin-tse)',
+      'dart': '劉玉新（@gvenusleo）',
+      'rust': '伍志豪（@night-cruise）、榮怡（@rongyi）',
+      'c': '宮蘭景（@Gonglja）',
+      'ruby': '阮春科秀（@khoaxuantu）',
+      'kotlin': '陳東輝（@curtishd）',
+    },
+    'en': {
+      'python': 'Yudong Jin (@krahets)',
+      'cpp': 'Lanjing Gong (@Gonglja)',
+      'java': 'Yudong Jin (@krahets)',
+      'csharp': '@hpstory',
+      'go': 'Daifu Liu (@Reanon)',
+      'swift': '@nuomi1',
+      'javascript': 'Fa Xie (@justin-tse)',
+      'typescript': 'Fa Xie (@justin-tse)',
+      'dart': 'Yuxin Liu (@gvenusleo)',
+      'rust': 'Zhihao Wu (@night-cruise), Yi Rong (@rongyi)',
+      'c': 'Lanjing Gong (@Gonglja)',
+      'ruby': 'Chunke Xiu Ruan (@khoaxuantu)',
+      'kotlin': 'Donghui Chen (@curtishd)',
+    },
+    'ja': {
+      'python': '靳宇棟（@krahets）',
+      'cpp': '宮蘭景（@Gonglja）',
+      'java': '靳宇棟（@krahets）',
+      'csharp': '@hpstory',
+      'go': '劉代富（@Reanon）',
+      'swift': '@nuomi1',
+      'javascript': '謝発 (@justin-tse)',
+      'typescript': '謝発 (@justin-tse)',
+      'dart': '劉玉新（@gvenusleo）',
+      'rust': '伍志豪（@night-cruise）、栄怡（@rongyi）',
+      'c': '宮蘭景（@Gonglja）',
+      'ruby': '阮春科秀（@khoaxuantu）',
+      'kotlin': '陳東輝（@curtishd）',
+    },
   };
 
   // Multilingual text configuration
@@ -95,7 +142,9 @@ function generateTitlePage(title: string, author: string, docLanguage?: string, 
 
   const text = i18n[lang] || i18n['zh'];
   const versionText = version ? `${text.versionPrefix} ${version}` : '';
-  const codeReviewer = codeLanguage && codeReviewers[codeLanguage] ? codeReviewers[codeLanguage] : '';
+  const codeReviewer = codeLanguage && codeReviewers[lang] && codeReviewers[lang][codeLanguage]
+    ? codeReviewers[lang][codeLanguage]
+    : '';
 
   return `
     <div style="text-align: center; padding: 40px 20px 30px 20px;">

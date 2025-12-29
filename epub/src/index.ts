@@ -28,7 +28,14 @@ interface DocLanguageConfig {
 /**
  * Generate output filename
  */
-function generateOutputFilename(version: string, docLanguage: string, codeLanguage: string, projectRoot: string): string {
+function generateOutputFilename(docLanguage: string, codeLanguage: string, workDir: string, projectRoot: string): string {
+  // Get document language configuration
+  const docConfig = DOC_LANGUAGE_CONFIG[docLanguage];
+  const mkdocsPath = path.resolve(workDir, docConfig.mkdocsPath);
+
+  // Parse version from mkdocs.yml
+  const version = parseVersion(mkdocsPath);
+
   const filename = `hello-algo_${version}_${docLanguage}_${codeLanguage}.epub`;
   const outputDir = path.join(projectRoot, 'build', 'epub', 'outputs');
   fs.ensureDirSync(outputDir);
@@ -268,21 +275,21 @@ async function buildEpub(
     if (!docConfig) {
       return { success: false, error: `Unsupported document language: ${docLanguage}` };
     }
-    
+
     // Verify if programming language is supported by this document language
     if (docConfig.supportedCodeLanguages && !docConfig.supportedCodeLanguages.includes(codeLanguage)) {
       return { success: false, error: `Document language "${docLanguage}" does not support programming language "${codeLanguage}"` };
     }
-    
+
     // Config file path (workDir is now project root directory)
     const mkdocsPath = path.resolve(workDir, docConfig.mkdocsPath);
-    
+
     // Calculate project root directory (workDir is project root directory)
     const repoDir = workDir;
-    
+
     // Document directory (absolute path)
     const docsDir = path.join(repoDir, docConfig.docsDir);
-    
+
     // Check if directory exists
     if (!fs.existsSync(docsDir)) {
       return { success: false, error: `Document directory does not exist: ${docsDir}` };
@@ -294,6 +301,7 @@ async function buildEpub(
 
     // Parse configuration
     const nav = parseMkdocsConfig(mkdocsPath);
+    // Parse version from mkdocs.yml
     const version = parseVersion(mkdocsPath);
     
     // Flatten navigation structure
@@ -365,7 +373,6 @@ async function main() {
     .option('-o, --output <path>', 'Output EPUB file path')
     .option('-l, --language <lang>', `Programming language (${SUPPORTED_LANGUAGES.join(', ')})`, 'cpp')
     .option('-a, --all', 'Build all combinations of document languages and programming languages')
-    .option('--release-version <version>', 'Version number (for generating output filenames)', '1.0.0')
     .option('--validate', 'Enable EPUB content integrity validation', false)
     .parse(process.argv);
 
@@ -400,11 +407,8 @@ async function main() {
 
     if (hasDocLanguage || hasLanguage || hasOutput) {
       console.error('Error: Cannot specify --doc-language, --language, or --output when using --all');
-      console.error('Please use --release-version option to specify version number');
       process.exit(1);
     }
-
-    const version = options.releaseVersion || '1.0.0';
 
     // Generate all combinations
     const builds: Array<{ docLanguage: string; codeLanguage: string }> = [];
@@ -418,14 +422,13 @@ async function main() {
       }
     }
 
-    console.log(`Starting batch build of ${builds.length} EPUB files...`);
-    console.log(`Version number: ${version}\n`);
+    console.log(`Starting batch build of ${builds.length} EPUB files...\n`);
 
     const results: Array<{ docLanguage: string; codeLanguage: string; success: boolean; error?: string; outputPath: string }> = [];
 
     for (let i = 0; i < builds.length; i++) {
       const { docLanguage, codeLanguage } = builds[i];
-      const outputPath = generateOutputFilename(version, docLanguage, codeLanguage, projectRoot);
+      const outputPath = generateOutputFilename(docLanguage, codeLanguage, workDir, projectRoot);
 
       console.log(`[${i + 1}/${builds.length}] Building: ${docLanguage}-${codeLanguage}`);
 
