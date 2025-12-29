@@ -76,21 +76,21 @@ function generateTitlePage(title: string, author: string, docLanguage?: string, 
   const versionText = version ? `${text.versionPrefix} ${version}` : '';
 
   return `
-    <div style="text-align: center; padding: 60px 20px 40px 20px;">
-      <h1 style="font-size: 3em; margin-bottom: 0.3em; color: #24292e; font-weight: 700; text-align: center;">Hello 算法</h1>
+    <div style="text-align: center; padding: 40px 20px 30px 20px;">
+      <h1 style="font-size: 2.2em; margin-bottom: 0.2em; color: #24292e; font-weight: 700; text-align: center;">Hello 算法</h1>
 
-      <p style="font-size: 1.05em; margin: 0.5em 0 2.5em 0; color: #666;">${text.subtitle}</p>
+      <p style="font-size: 0.9em; margin: 0.3em 0 1.5em 0; color: #666;">${text.subtitle}</p>
 
-      <p style="font-size: 1.2em; margin: 2em 0 1.5em 0; color: #555;">${text.authorPrefix}${text.authorName}</p>
+      <p style="font-size: 1em; margin: 1.2em 0 0.8em 0; color: #555;">${text.authorPrefix}${text.authorName}</p>
 
-      ${versionText ? `<p style="font-size: 1em; margin: 1em 0; color: #888;">${versionText}</p>` : ''}
+      ${versionText ? `<p style="font-size: 0.85em; margin: 0.5em 0; color: #888;">${versionText}</p>` : ''}
 
-      <div style="margin: 1em auto; padding: 0.8em 1.5em; background-color: #f8f9fa; border-radius: 8px; display: inline-block; max-width: 70%;">
-        <p style="font-size: 1.05em; margin: 0.8em 0; color: #333;">
+      <div style="margin: 0.8em auto; padding: 0.6em 1.2em; background-color: #f8f9fa; border-radius: 8px; display: inline-block; max-width: 70%;">
+        <p style="font-size: 0.9em; margin: 0.6em 0; color: #333;">
           <strong>${text.readOnline}</strong><br/>
           <a href="https://www.hello-algo.com" style="color: #1581CB; text-decoration: none;">www.hello-algo.com</a>
         </p>
-        <p style="font-size: 1.05em; margin: 0.8em 0; color: #333;">
+        <p style="font-size: 0.9em; margin: 0.6em 0; color: #333;">
           <strong>${text.codeRepo}</strong><br/>
           <a href="https://github.com/krahets/hello-algo" style="color: #1581CB; text-decoration: none;">github.com/krahets/hello-algo</a>
         </p>

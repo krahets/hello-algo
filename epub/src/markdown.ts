@@ -1013,7 +1013,10 @@ export function getCustomCSS(docLanguage?: string): string {
       line-height: 1.25;
     }
     /* 章节标题 (第 X 章) */
-    h1 { font-size: 1.5em; }
+    h1 {
+      font-size: 1.5em;
+      text-align: center;
+    }
     /* 小节标题 (X.Y) */
     h2 { font-size: 1.3em; }
     /* Markdown 文档内的主标题 */
