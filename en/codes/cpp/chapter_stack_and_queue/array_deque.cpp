@@ -129,7 +129,7 @@ int main() {
     int peekLast = deque->peekLast();
     cout << "Rear element peekLast = " << peekLast << endl;
 
-    /* Element dequeue */
+    /* Elements enqueue */
     deque->pushLast(4);
     cout << "After element 4 enqueues at rear, deque = ";
     printVector(deque->toVector());
@@ -137,7 +137,7 @@ int main() {
     cout << "After element 1 enqueues at front, deque = ";
     printVector(deque->toVector());
 
-    /* Get the length of the double-ended queue */
+    /* Element dequeue */
     int popLast = deque->popLast();
     cout << "Rear dequeue element = " << popLast << ", after rear dequeue, deque = ";
     printVector(deque->toVector());

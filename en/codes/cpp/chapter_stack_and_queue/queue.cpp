@@ -11,7 +11,7 @@ int main() {
     /* Access front of the queue element */
     queue<int> queue;
 
-    /* Element dequeue */
+    /* Elements enqueue */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -24,7 +24,7 @@ int main() {
     int front = queue.front();
     cout << "Front element front = " << front << endl;
 
-    /* Get the length of the double-ended queue */
+    /* Element dequeue */
     queue.pop();
     cout << "Dequeue element front = " << front << ", after dequeue, queue = ";
     printQueue(queue);

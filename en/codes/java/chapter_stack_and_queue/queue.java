@@ -13,7 +13,7 @@ public class queue {
         /* Access front of the queue element */
         Queue<Integer> queue = new LinkedList<>();
 
-        /* Element dequeue */
+        /* Elements enqueue */
         queue.offer(1);
         queue.offer(3);
         queue.offer(2);
@@ -25,7 +25,7 @@ public class queue {
         int peek = queue.peek();
         System.out.println("Front element peek = " + peek);
 
-        /* Get the length of the double-ended queue */
+        /* Element dequeue */
         int pop = queue.poll();
         System.out.println("Dequeue element pop = " + pop + ", after dequeue, queue = " + queue);
 

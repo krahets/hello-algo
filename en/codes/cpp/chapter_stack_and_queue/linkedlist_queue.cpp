@@ -54,7 +54,7 @@ class LinkedListQueue {
     /* Dequeue */
     int pop() {
         int num = peek();
-        // Update head node
+        // Delete head node
         ListNode *tmp = front;
         front = front->next;
         // Free memory
@@ -87,7 +87,7 @@ int main() {
     /* Access front of the queue element */
     LinkedListQueue *queue = new LinkedListQueue();
 
-    /* Element dequeue */
+    /* Elements enqueue */
     queue->push(1);
     queue->push(3);
     queue->push(2);
@@ -100,7 +100,7 @@ int main() {
     int peek = queue->peek();
     cout << "Front element peek = " << peek << endl;
 
-    /* Get the length of the double-ended queue */
+    /* Element dequeue */
     peek = queue->pop();
     cout << "Dequeue element pop = " << peek << ", after dequeue, queue = ";
     printVector(queue->toVector());

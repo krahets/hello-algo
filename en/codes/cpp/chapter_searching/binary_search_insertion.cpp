@@ -46,7 +46,7 @@ int main() {
     vector<int> nums = {1, 3, 6, 8, 12, 15, 23, 26, 31, 35};
     cout << "\nArray nums = ";
     printVector(nums);
-    // Array with duplicate elements
+    // Binary search for insertion point
     for (int target : {6, 9}) {
         int index = binarySearchInsertionSimple(nums, target);
         cout << "Element " << target << "'s insertion point index is " << index << endl;
@@ -56,7 +56,7 @@ int main() {
     nums = {1, 3, 6, 6, 6, 6, 6, 10, 12, 15};
     cout << "\nArray nums = ";
     printVector(nums);
-    // Array with duplicate elements
+    // Binary search for insertion point
     for (int target : {2, 6, 20}) {
         int index = binarySearchInsertion(nums, target);
         cout << "Element " << target << "'s insertion point index is " << index << endl;

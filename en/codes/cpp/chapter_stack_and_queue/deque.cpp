@@ -11,7 +11,7 @@ int main() {
     /* Get the length of the double-ended queue */
     deque<int> deque;
 
-    /* Element dequeue */
+    /* Elements enqueue */
     deque.push_back(2);
     deque.push_back(5);
     deque.push_back(4);
@@ -26,7 +26,7 @@ int main() {
     int back = deque.back();
     cout << "Back element back = " << back << endl;
 
-    /* Get the length of the double-ended queue */
+    /* Element dequeue */
     deque.pop_front();
     cout << "Front dequeue element popFront = " << front << ", after front dequeue, deque = ";
     printDeque(deque);

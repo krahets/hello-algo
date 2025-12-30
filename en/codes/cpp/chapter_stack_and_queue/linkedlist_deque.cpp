@@ -87,7 +87,7 @@ class LinkedListDeque {
         // Temporarily store head node value
         if (isFront) {
             val = front->val; // Delete head node
-            // Update head node
+            // Delete head node
             DoublyListNode *fNext = front->next;
             if (fNext != nullptr) {
                 fNext->prev = nullptr;
@@ -163,7 +163,7 @@ int main() {
     int peekLast = deque->peekLast();
     cout << "Rear element peekLast = " << peekLast << endl;
 
-    /* Element dequeue */
+    /* Elements enqueue */
     deque->pushLast(4);
     cout << "After element 4 enqueues at back, deque =";
     printVector(deque->toVector());
@@ -171,7 +171,7 @@ int main() {
     cout << "After element 1 enqueues at front, deque = ";
     printVector(deque->toVector());
 
-    /* Get the length of the double-ended queue */
+    /* Element dequeue */
     int popLast = deque->popLast();
     cout << "Rear dequeue element = " << popLast << ", after rear dequeue, deque = ";
     printVector(deque->toVector());

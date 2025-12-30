@@ -47,7 +47,7 @@ class LinkedListQueue {
     /* Dequeue */
     public int pop() {
         int num = peek();
-        // Update head node
+        // Delete head node
         front = front.next;
         queSize--;
         return num;
@@ -77,7 +77,7 @@ public class linkedlist_queue {
         /* Access front of the queue element */
         LinkedListQueue queue = new LinkedListQueue();
 
-        /* Element dequeue */
+        /* Elements enqueue */
         queue.push(1);
         queue.push(3);
         queue.push(2);
@@ -89,7 +89,7 @@ public class linkedlist_queue {
         int peek = queue.peek();
         System.out.println("Front element peek = " + peek);
 
-        /* Get the length of the double-ended queue */
+        /* Element dequeue */
         int pop = queue.pop();
         System.out.println("Dequeue element pop = " + pop + ", after dequeue, queue = " + Arrays.toString(queue.toArray()));
 

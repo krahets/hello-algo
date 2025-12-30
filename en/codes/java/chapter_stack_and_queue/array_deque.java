@@ -128,13 +128,13 @@ public class array_deque {
         int peekLast = deque.peekLast();
         System.out.println("Rear element peekLast = " + peekLast);
 
-        /* Element dequeue */
+        /* Elements enqueue */
         deque.pushLast(4);
         System.out.println("After element 4 enqueues at rear, deque = " + Arrays.toString(deque.toArray()));
         deque.pushFirst(1);
         System.out.println("After element 1 enqueues at front, deque = " + Arrays.toString(deque.toArray()));
 
-        /* Get the length of the double-ended queue */
+        /* Element dequeue */
         int popLast = deque.popLast();
         System.out.println("Rear dequeue element = " + popLast + ", after rear dequeue, deque = " + Arrays.toString(deque.toArray()));
         int popFirst = deque.popFirst();

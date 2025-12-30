@@ -52,7 +52,7 @@ int main() {
     /* Access top of the stack element */
     ArrayStack *stack = new ArrayStack();
 
-    /* Element pop from stack */
+    /* Elements push onto stack */
     stack->push(1);
     stack->push(3);
     stack->push(2);
@@ -65,7 +65,7 @@ int main() {
     int top = stack->top();
     cout << "Stack top element top = " << top << endl;
 
-    /* Check if it is empty */
+    /* Element pop from stack */
     top = stack->pop();
     cout << "Pop element pop = " << top << ", after pop, stack = ";
     printVector(stack->toVector());

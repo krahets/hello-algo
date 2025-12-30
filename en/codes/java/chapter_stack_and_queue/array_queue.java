@@ -81,7 +81,7 @@ public class array_queue {
         int capacity = 10;
         ArrayQueue queue = new ArrayQueue(capacity);
 
-        /* Element dequeue */
+        /* Elements enqueue */
         queue.push(1);
         queue.push(3);
         queue.push(2);
@@ -93,7 +93,7 @@ public class array_queue {
         int peek = queue.peek();
         System.out.println("Front element peek = " + peek);
 
-        /* Get the length of the double-ended queue */
+        /* Element dequeue */
         int pop = queue.pop();
         System.out.println("Dequeue element pop = " + pop + ", after dequeue, queue = " + Arrays.toString(queue.toArray()));
 

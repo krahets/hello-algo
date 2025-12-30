@@ -23,13 +23,13 @@ public class deque {
         int peekLast = deque.peekLast();
         System.out.println("Rear element peekLast = " + peekLast);
 
-        /* Element dequeue */
+        /* Elements enqueue */
         deque.offerLast(4);
         System.out.println("After element 4 enqueues at rear, deque = " + deque);
         deque.offerFirst(1);
         System.out.println("After element 1 enqueues at front, deque = " + deque);
 
-        /* Get the length of the double-ended queue */
+        /* Element dequeue */
         int popLast = deque.pollLast();
         System.out.println("Rear dequeue element = " + popLast + ", after rear dequeue, deque = " + deque);
         int popFirst = deque.pollFirst();
