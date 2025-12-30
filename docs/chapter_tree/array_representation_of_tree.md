@@ -134,6 +134,14 @@
 
     ```
 
+=== "Lua"
+
+    ```lua title=""
+    -- 二叉树的数组表示
+    -- 使用 math.huge 来表示空位
+    tree = {1, 2, 3, 4, math.huge, 6, 7, 8, 9, math.huge, math.huge, 12, math.huge, math.huge, 15}
+    ```
+
 ![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png)
 
 值得说明的是，**完全二叉树非常适合使用数组来表示**。回顾完全二叉树的定义，`None` 只出现在最底层且靠右的位置，**因此所有 `None` 一定出现在层序遍历序列的末尾**。

@@ -367,6 +367,46 @@
 
     ```
 
+=== "Lua"
+
+    ```lua title=""
+    --- @class Node
+    --- 节点类
+    --- @field val number 节点值
+    --- @field next Node|nil 指向下一节点的引用
+    local Node = {}
+    Node.__index = Node
+
+    --- 构造函数
+    --- @param x number 节点值
+    --- @return Node
+    function Node.new(x)
+        local obj = {}
+        setmetatable(obj, Node)
+        obj.val = x    -- 节点值
+        obj.next = nil -- 指向下一节点的引用
+        return obj
+    end
+
+    --- 示例函数
+    --- @return number
+    local function exampleFunction()
+        -- 执行某些操作...
+        return 0
+    end
+
+    --- 算法函数
+    --- @param n any 输入数据
+    --- @return number 输出数据
+    local function algorithm(n)
+        local A = 0                 -- 暂存数据（常量，一般用大写字母表示）
+        local b = 0                 -- 暂存数据（变量）
+        local node = Node.new(0)    -- 暂存数据（对象）
+        local c = exampleFunction() -- 栈帧空间（调用函数）
+        return A + b + c            -- 输出数据
+    end
+    ```
+
 ## 推算方法
 
 空间复杂度的推算方法与时间复杂度大致相同，只需将统计对象从“操作数量”转为“使用空间大小”。
@@ -533,6 +573,20 @@
 
     ```zig title=""
 
+    ```
+
+=== "Lua"
+
+    ```lua title=""
+    local function algorithm(n)
+        local a = 0  -- O(1)
+        -- Lua 中没有专门的数组类型，而是使用 table 实现数组/列表的功能。
+        -- Lua 的 table 是动态的，无法指定大小，也没有 Python 的列表乘法，需要一个一个填入数据
+        local b = {} -- O(1)
+        if n > 10 then
+            local nums = {} -- O(10)
+        end
+    end
     ```
 
 **在递归函数中，需要注意统计栈帧空间**。观察以下代码：
@@ -811,6 +865,33 @@
 
     ```zig title=""
 
+    ```
+
+=== "Lua"
+
+    ```lua title=""
+    --- 执行某些操作
+    --- @return integer
+    local function func()
+        return 0
+    end
+
+    --- 循环的空间复杂度为 O(1)
+    --- @param n integer
+    local function loop(n)
+        for i = 1, n do
+            func()
+        end
+    end
+
+    --- 递归的空间复杂度为 O(n)
+    --- @param n integer
+    local function recur(n)
+        if n == 1 then
+            return
+        end
+        return recur(n - 1)
+    end
     ```
 
 函数 `loop()` 和 `recur()` 的时间复杂度都为 $O(n)$ ，但空间复杂度不同。

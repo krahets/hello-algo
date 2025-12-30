@@ -435,6 +435,34 @@
 
     ```
 
+=== "Lua"
+
+    ```lua title=""
+    --- 回溯算法框架
+    local function backtrack(state, choices, res)
+        -- 检查是否为解
+        if is_solution(state) then
+            -- 记录解
+            record_solution(state, res)
+            -- 不再继续搜索
+            return
+        end
+
+        -- 遍历所有选择
+        for _, choice in ipairs(choices) do
+            -- 剪枝：检查选择是否合法
+            if is_valid(state, choice) then
+                -- 尝试：做出选择，更新状态
+                make_choice(state, choice)
+                -- 进行下一轮选择
+                backtrack(state, { choice.left, choice.right }, res)
+                -- 回退：撤销选择，恢复到之前的状态
+                undo_choice(state, choice)
+            end
+        end
+    end
+    ```
+
 接下来，我们基于框架代码来解决例题三。状态 `state` 为节点遍历路径，选择 `choices` 为当前节点的左子节点和右子节点，结果 `res` 是路径列表：
 
 ```src

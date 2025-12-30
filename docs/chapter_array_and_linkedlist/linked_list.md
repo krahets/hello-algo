@@ -205,6 +205,27 @@
     }
     ```
 
+=== "Lua"
+
+    ```lua title=""
+    --- @class ListNode
+    --- 链表节点类
+    --- @field val interger 节点值
+    --- @field next ListNode|nil 指向后继节点引用
+    local ListNode = {}
+    ListNode.__index = ListNode
+
+    --- 构造函数
+    --- @param val interger 节点值
+    --- @return ListNode 新节点实例
+    function ListNode.new(val)
+        local obj = setmetatable({}, ListNode)
+        obj.val = val  -- 节点值
+        obj.next = nil -- 指向后继节点引用
+        return obj
+    end
+    ```
+
 ## 链表常用操作
 
 ### 初始化链表
@@ -448,6 +469,24 @@
     n1.next = &n2;
     n2.next = &n3;
     n3.next = &n4;
+    ```
+
+=== "Lua"
+
+    ```lua title="linked_list.lua"
+    -- 初始化链表 1 -> 3 -> 2 -> 5 -> 4
+    -- 初始化各个节点
+    local n0 = ListNode.new(1)
+    local n1 = ListNode.new(3)
+    local n2 = ListNode.new(2)
+    local n3 = ListNode.new(5)
+    local n4 = ListNode.new(4)
+
+    -- 构建节点之间的引用
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
     ```
 
 ??? pythontutor "可视化运行"
@@ -737,6 +776,29 @@
             }
         };
     }
+    ```
+
+=== "Lua"
+
+    ```lua title=""
+    --- @class ListNode
+    --- 双向链表节点类
+    --- @field val interger 节点值
+    --- @field next ListNode|nil 指向后继节点的引用
+    --- @field prev ListNode|nil 指向前驱节点的引用
+    local ListNode = {}
+    ListNode.__index = ListNode
+
+    --- 创建新的双向链表节点
+    --- @param val interger 节点值
+    --- @return ListNode 新的双向链表节点实例
+    function ListNode.new(val)
+        local obj = setmetatable({}, ListNode)
+        obj.val = val  -- 节点值
+        obj.next = nil -- 指向后继节点的引用
+        obj.prev = nil -- 指向前驱节点的引用
+        return obj
+    end
     ```
 
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)

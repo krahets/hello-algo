@@ -216,6 +216,22 @@
     }
     ```
 
+=== "Lua"
+
+    ```lua title=""
+    --- 在某运行平台下
+    function algorithm(n)
+        local a = 2      -- 1 ns
+        a = a + 1        -- 1 ns
+        a = a * 2        -- 10 ns
+        
+        -- 循环 n 次
+        for _ = 1, n do  -- 1 ns
+            print(0)     -- 5 ns
+        end
+    end
+    ```
+
 根据以上方法，可以得到算法的运行时间为 $(6n + 12)$ ns ：
 
 $$
@@ -522,6 +538,29 @@ $$
     }
     ```
 
+=== "Lua"
+
+    ```lua title=""
+    ---算法 A 的时间复杂度：常数阶
+    local function algorithm_A(n)
+        print(0)
+    end
+
+    ---算法 B 的时间复杂度：线性阶
+    local function algorithm_B(n)
+        for _ = 1, n do
+            print(0)
+        end
+    end
+
+    ---算法 C 的时间复杂度：常数阶
+    local function algorithm_C(n)
+        for _ = 1, 1000000 do
+            print(0)
+        end
+    end
+    ```
+
 下图展示了以上三个算法函数的时间复杂度。
 
 - 算法 `A` 只有 $1$ 个打印操作，算法运行时间不随着 $n$ 增大而增长。我们称此算法的时间复杂度为“常数阶”。
@@ -733,6 +772,21 @@ $$
             std.debug.print("{}\n", .{0}); // +1
         }
     }
+    ```
+
+=== "Lua"
+
+    ```lua title=""
+    local function algorithm(n)
+        local a = 1 -- +1
+        a = a + 1   -- +1
+        a = a * 2   -- +1
+
+        -- 循环 n 次
+        for i = 1, n do -- +1
+            print(0)    -- +1
+        end
+    end
     ```
 
 设算法的操作数量是一个关于输入数据大小 $n$ 的函数，记为 $T(n)$ ，则以上函数的操作数量为：
@@ -1031,6 +1085,27 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
             }
         }
     }
+    ```
+
+=== "Lua"
+
+    ```lua title=""
+    local function algorithm(n)
+        local a = 1 -- +0（技巧 1）
+        a = a + n   -- +0（技巧 1）
+
+        -- +n（技巧 2）
+        for i = 1, 5 * n + 1 do
+            print(0)
+        end
+
+        -- +n*n（技巧 3）
+        for i = 1, 2 * n do
+            for j = 1, n + 1 do
+                print(0)
+            end
+        end
+    end
     ```
 
 以下公式展示了使用上述技巧前后的统计结果，两者推算出的时间复杂度都为 $O(n^2)$ 。

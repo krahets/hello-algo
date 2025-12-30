@@ -207,6 +207,30 @@
 
     ```
 
+=== "Lua"
+
+    ```lua title=""
+    --- @class TreeNode
+    --- 二叉树节点类
+    --- @field val number 节点值
+    --- @field left TreeNode|nil 左子节点引用
+    --- @field right TreeNode|nil 右子节点引用
+    local TreeNode = {}
+    TreeNode.__index = TreeNode
+
+    --- 构造函数
+    --- @param val number 节点值
+    --- @return TreeNode 新节点实例
+    function TreeNode.new(val)
+        local obj = {}
+        setmetatable(obj, TreeNode)
+        obj.val = val or 0 -- 节点值
+        obj.left = nil     -- 左子节点引用
+        obj.right = nil    -- 右子节点引用
+        return obj
+    end
+    ```
+
 每个节点都有两个引用（指针），分别指向<u>左子节点（left-child node）</u>和<u>右子节点（right-child node）</u>，该节点被称为这两个子节点的<u>父节点（parent node）</u>。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的<u>左子树（left subtree）</u>，同理可得<u>右子树（right subtree）</u>。
 
 **在二叉树中，除叶节点外，其他所有节点都包含子节点和非空子树**。如下图所示，如果将“节点 2”视为父节点，则其左子节点和右子节点分别是“节点 4”和“节点 5”，左子树是“节点 4 及其以下节点形成的树”，右子树是“节点 5 及其以下节点形成的树”。
@@ -461,6 +485,23 @@
 
     ```
 
+=== "Lua"
+
+    ```lua title="binary_tree.lua"
+    -- 初始化二叉树
+    -- 初始化节点
+    local n1 = TreeNode.new(1)
+    local n2 = TreeNode.new(2)
+    local n3 = TreeNode.new(3)
+    local n4 = TreeNode.new(4)
+    local n5 = TreeNode.new(5)
+    -- 构建节点之间的引用（指针）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
+    ```
+
 ??? pythontutor "可视化运行"
 
     https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%8F%89%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%8A%82%E7%82%B9%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%EF%BC%88%E6%8C%87%E9%92%88%EF%BC%89%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
@@ -631,6 +672,18 @@
 
     ```zig title="binary_tree.zig"
 
+    ```
+
+=== "Lua"
+
+    ```lua title="binary_tree.lua"
+    -- 插入与删除节点
+    local P = TreeNode.new(0)
+    -- 在 n1 -> n2 中间插入节点 P
+    n1.left = P
+    P.left = n2
+    -- 删除节点
+    n1.left = n2
     ```
 
 ??? pythontutor "可视化运行"
