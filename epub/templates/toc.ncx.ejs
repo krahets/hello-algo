@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+    <head>
+        <meta name="dtb:uid" content="<%= id %>" />
+        <meta name="dtb:generator" content="epub-gen"/>
+        <meta name="dtb:depth" content="2"/>
+        <meta name="dtb:totalPageCount" content="0"/>
+        <meta name="dtb:maxPageNumber" content="0"/>
+    </head>
+    <docTitle>
+        <text><%= title %></text>
+    </docTitle>
+    <docAuthor>
+        <text><%= author %></text>
+    </docAuthor>
+    <navMap>
+        <% 
+        var playOrder = 1;
+        
+        // 构建层级结构
+        var hierarchicalContent = [];
+        var currentParent = null;
+        
+        content.forEach(function(item, index) {
+            if (!item.excludeFromToc && !item.beforeToc) {
+                // 检查是否是顶级章节（level 0 或没有 parentTitle）
+                if (item.level === 0 || !item.parentTitle) {
+                    // 开始新的父章节
+                    currentParent = {
+                        title: item.title,
+                        href: item.href,
+                        level: 0,
+                        number: item.number,
+                        children: []
+                    };
+                    hierarchicalContent.push(currentParent);
+                } else if (item.level === 1 && currentParent) {
+                    // 添加到当前父章节的子项
+                    currentParent.children.push({
+                        title: item.title,
+                        href: item.href,
+                        level: 1,
+                        number: item.number
+                    });
+                } else {
+                    // 其他情况，作为独立章节
+                    hierarchicalContent.push({
+                        title: item.title,
+                        href: item.href,
+                        level: item.level || 0,
+                        number: item.number,
+                        children: []
+                    });
+                }
+            }
+        });
+        
+        // 渲染嵌套的导航点
+        function renderNavPoint(chapter, depth) {
+            var id = "navpoint_" + playOrder;
+            var href = chapter.href;
+            var title = chapter.title || 'Untitled';
+            var children = chapter.children || [];
+            var number = chapter.number;
+            var level = chapter.level || 0;
+            var currentOrder = playOrder++;
+            
+            // 对于顶级章节（level 0），标题已经包含"第X章"，不需要再加编号
+            // 只对子章节（level 1）添加编号
+            var displayTitle = (level === 1 && number ? number + ' ' : '') + title;
+            
+            var result = '        <navPoint id="' + id + '" playOrder="' + currentOrder + '" class="chapter">\n';
+            result += '            <navLabel>\n';
+            result += '                <text>' + displayTitle.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</text>\n';
+            result += '            </navLabel>\n';
+            result += '            <content src="' + href + '"/>\n';
+            
+            // 递归渲染子章节
+            if (children.length > 0) {
+                children.forEach(function(child) {
+                    result += renderNavPoint(child, depth + 1);
+                });
+            }
+            
+            result += '        </navPoint>\n';
+            return result;
+        }
+        
+        // 渲染所有导航点
+        hierarchicalContent.forEach(function(chapter) {
+            %><%- renderNavPoint(chapter, 0) %><%
+        });
+        %>
+    </navMap>
+</ncx>
+
