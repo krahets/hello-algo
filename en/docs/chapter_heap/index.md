@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Heaps resemble mountains and their jagged peaks, layered and undulating, each with its unique form.
+    Heaps are like mountain peaks, layered and undulating, each with its unique form.
 
-    Each mountain peak rises and falls in scattered heights, yet the tallest always captures attention first.
+    The peaks rise and fall at varying heights, yet the tallest peak always catches the eye first.

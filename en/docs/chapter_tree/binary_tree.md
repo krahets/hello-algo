@@ -1,6 +1,6 @@
 # Binary tree
 
-A <u>binary tree</u> is a non-linear data structure that represents the hierarchical relationship between ancestors and descendants and embodies the divide-and-conquer logic of "splitting into two". Similar to a linked list, the basic unit of a binary tree is a node, and each node contains a value, a reference to its left child node, and a reference to its right child node.
+A <u>binary tree</u> is a non-linear data structure that represents the derivation relationship between "ancestors" and "descendants" and embodies the divide-and-conquer logic of "one divides into two". Similar to a linked list, the basic unit of a binary tree is a node, and each node contains a value, a reference to its left child node, and a reference to its right child node.
 
 === "Python"
 
@@ -189,7 +189,16 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
 === "Ruby"
 
     ```ruby title=""
+    ### Binary tree node class ###
+    class TreeNode
+      attr_accessor :val    # Node value
+      attr_accessor :left   # Reference to left child node
+      attr_accessor :right  # Reference to right child node
 
+      def initialize(val)
+        @val = val
+      end
+    end
     ```
 
 === "Zig"
@@ -432,7 +441,18 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-
+    # Initializing a binary tree
+    # Initializing nodes
+    n1 = TreeNode.new(1)
+    n2 = TreeNode.new(2)
+    n3 = TreeNode.new(3)
+    n4 = TreeNode.new(4)
+    n5 = TreeNode.new(5)
+    # Linking references (pointers) between nodes
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
     ```
 
 === "Zig"
@@ -594,7 +614,13 @@ Similar to a linked list, inserting and removing nodes in a binary tree can be a
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-
+    # Inserting and removing nodes
+    _p = TreeNode.new(0)
+    # Inserting node _p between n1 and n2
+    n1.left = _p
+    _p.left = n2
+    # Removing node _p
+    n1.left = n2
     ```
 
 === "Zig"
@@ -615,7 +641,7 @@ Similar to a linked list, inserting and removing nodes in a binary tree can be a
 
 ### Perfect binary tree
 
-As shown in the figure below, in a <u>perfect binary tree</u>, all levels are completely filled with nodes. In a perfect binary tree, leaf nodes have a degree of $0$, while all other nodes have a degree of $2$. The total number of nodes can be calculated as $2^{h+1} - 1$, where $h$ is the height of the tree. This exhibits a standard exponential relationship, reflecting the common phenomenon of cell division in nature.
+As shown in the figure below, a <u>perfect binary tree</u> has all levels completely filled with nodes. In a perfect binary tree, leaf nodes have a degree of $0$, while all other nodes have a degree of $2$. If the tree height is $h$, the total number of nodes is $2^{h+1} - 1$, exhibiting a standard exponential relationship that reflects the common phenomenon of cell division in nature.
 
 !!! tip
 
@@ -625,13 +651,13 @@ As shown in the figure below, in a <u>perfect binary tree</u>, all levels are co
 
 ### Complete binary tree
 
-As shown in the figure below, a <u>complete binary tree</u> is a binary tree where only the bottom level is possibly not completely filled, and nodes at the bottom level must be filled continuously from left to right. Note that a perfect binary tree is also a complete binary tree.
+As shown in the figure below, a <u>complete binary tree</u> only allows the bottom level to be incompletely filled, and the nodes at the bottom level must be filled continuously from left to right. Note that a perfect binary tree is also a complete binary tree.
 
 ![Complete binary tree](binary_tree.assets/complete_binary_tree.png)
 
 ### Full binary tree
 
-As shown in the figure below, a <u>full binary tree</u>, except for the leaf nodes, has two child nodes for all other nodes.
+As shown in the figure below, in a <u>full binary tree</u>, all nodes except leaf nodes have two child nodes.
 
 ![Full binary tree](binary_tree.assets/full_binary_tree.png)
 
@@ -643,10 +669,10 @@ As shown in the figure below, in a <u>balanced binary tree</u>, the absolute dif
 
 ## Degeneration of binary trees
 
-The figure below shows the ideal and degenerate structures of binary trees. A binary tree becomes a "perfect binary tree" when every level is filled; while it degenerates into a "linked list" when all nodes are biased toward one side.
+The figure below shows the ideal and degenerate structures of binary trees. When every level of a binary tree is filled, it reaches the "perfect binary tree" state; when all nodes are biased toward one side, the binary tree degenerates into a "linked list".
 
-- A perfect binary tree is an ideal scenario where the "divide and conquer" advantage of a binary tree can be fully utilized.
-- On the other hand, a linked list represents another extreme where all operations become linear, resulting in a time complexity of $O(n)$.
+- A perfect binary tree is the ideal case, fully leveraging the "divide and conquer" advantage of binary trees.
+- A linked list represents the other extreme, where all operations become linear operations with time complexity degrading to $O(n)$.
 
 ![The Best and Worst Structures of Binary Trees](binary_tree.assets/binary_tree_best_worst_cases.png)
 
