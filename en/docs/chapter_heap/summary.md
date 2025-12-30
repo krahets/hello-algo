@@ -10,7 +10,7 @@
 - The time complexity of building a heap with $n$ input elements can be optimized to $O(n)$, which is highly efficient.
 - Top-k is a classic algorithm problem that can be efficiently solved using the heap data structure, with a time complexity of $O(n \log k)$.
 
-### Q & a
+### Q & A
 
 **Q**: Are the "heap" in data structures and the "heap" in memory management the same concept?
 

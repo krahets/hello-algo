@@ -24,7 +24,7 @@
 - We typically only focus on worst-case space complexity, which is the space complexity of an algorithm under worst-case input data and worst-case runtime.
 - Common space complexities arranged from low to high include $O(1)$, $O(\log n)$, $O(n)$, $O(n^2)$, and $O(2^n)$.
 
-### Q & a
+### Q & A
 
 **Q**: Is the space complexity of tail recursion $O(1)$?
 

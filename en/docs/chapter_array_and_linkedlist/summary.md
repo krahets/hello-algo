@@ -11,7 +11,7 @@
 - Caches provide fast data access to the CPU through mechanisms such as cache lines, prefetching, and spatial and temporal locality, significantly improving program execution efficiency.
 - Because arrays have higher cache hit rates, they are generally more efficient than linked lists. When choosing a data structure, appropriate selection should be made based on specific requirements and scenarios.
 
-### Q & a
+### Q & A
 
 **Q**: Does storing an array on the stack versus on the heap affect time efficiency and space efficiency?
 

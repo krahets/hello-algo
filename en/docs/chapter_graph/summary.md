@@ -14,7 +14,7 @@
 - Breadth-first search of graphs is a near-to-far, layer-by-layer expansion search method, typically implemented using a queue.
 - Depth-first search of graphs is a search method that prioritizes going as far as possible and backtracks when no path remains, commonly implemented using recursion.
 
-### Q & a
+### Q & A
 
 **Q**: Is a path defined as a sequence of vertices or a sequence of edges?
 

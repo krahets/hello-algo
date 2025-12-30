@@ -14,7 +14,7 @@
 
 ![Sorting algorithm comparison](summary.assets/sorting_algorithms_comparison.png)
 
-### Q & a
+### Q & A
 
 **Q**: In what situations is the stability of sorting algorithms necessary?
 

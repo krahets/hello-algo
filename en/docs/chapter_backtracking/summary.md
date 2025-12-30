@@ -13,7 +13,7 @@
 - The $n$ queens problem aims to find placements of $n$ queens on an $n \times n$ chessboard such that no two queens can attack each other. The constraints of this problem include row constraints, column constraints, and main and anti-diagonal constraints. To satisfy row constraints, we adopt a row-by-row placement strategy, ensuring exactly one queen is placed in each row.
 - The handling of column constraints and diagonal constraints is similar. For column constraints, we use an array to record whether each column has a queen, thereby indicating whether a selected cell is valid. For diagonal constraints, we use two arrays to separately record whether queens exist on each main or anti-diagonal. The challenge lies in finding the row-column index pattern that characterizes cells on the same main (anti-)diagonal.
 
-### Q & a
+### Q & A
 
 **Q**: How should we understand the relationship between backtracking and recursion?
 
