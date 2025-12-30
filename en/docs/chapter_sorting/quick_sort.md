@@ -1,4 +1,4 @@
-# Quick sort
+# Quick Sort
 
 <u>Quick sort (quick sort)</u> is a sorting algorithm based on the divide-and-conquer strategy, which operates efficiently and is widely applied.
 
@@ -45,7 +45,7 @@ After sentinel partitioning is complete, the original array is divided into thre
 [file]{quick_sort}-[class]{quick_sort}-[func]{partition}
 ```
 
-## Algorithm flow
+## Algorithm Flow
 
 The overall flow of quick sort is shown in the figure below.
 
@@ -59,13 +59,13 @@ The overall flow of quick sort is shown in the figure below.
 [file]{quick_sort}-[class]{quick_sort}-[func]{quick_sort}
 ```
 
-## Algorithm characteristics
+## Algorithm Characteristics
 
 - **Time complexity of $O(n \log n)$, non-adaptive sorting**: In the average case, the number of recursive levels of sentinel partitioning is $\log n$, and the total number of loops at each level is $n$, using $O(n \log n)$ time overall. In the worst case, each round of sentinel partitioning divides an array of length $n$ into two sub-arrays of length $0$ and $n - 1$, at which point the number of recursive levels reaches $n$, the number of loops at each level is $n$, and the total time used is $O(n^2)$.
 - **Space complexity of $O(n)$, in-place sorting**: In the case where the input array is completely reversed, the worst recursive depth reaches $n$, using $O(n)$ stack frame space. The sorting operation is performed on the original array without the aid of an additional array.
 - **Non-stable sorting**: In the last step of sentinel partitioning, the pivot may be swapped to the right of equal elements.
 
-## Why is quick sort fast
+## Why Is Quick Sort Fast
 
 From the name, we can see that quick sort should have certain advantages in terms of efficiency. Although the average time complexity of quick sort is the same as "merge sort" and "heap sort", quick sort is usually more efficient, mainly for the following reasons.
 
@@ -73,7 +73,7 @@ From the name, we can see that quick sort should have certain advantages in term
 - **High cache utilization**: When performing sentinel partitioning operations, the system can load the entire sub-array into the cache, so element access efficiency is relatively high. Algorithms like "heap sort" require jump-style access to elements, thus lacking this characteristic.
 - **Small constant coefficient of complexity**: Among the three algorithms mentioned above, quick sort has the smallest total number of operations such as comparisons, assignments, and swaps. This is similar to the reason why "insertion sort" is faster than "bubble sort".
 
-## Pivot optimization
+## Pivot Optimization
 
 **Quick sort may have reduced time efficiency for certain inputs**. Take an extreme example: suppose the input array is completely reversed. Since we select the leftmost element as the pivot, after sentinel partitioning is complete, the pivot is swapped to the rightmost end of the array, causing the left sub-array length to be $n - 1$ and the right sub-array length to be $0$. If we recurse down like this, each round of sentinel partitioning will have a sub-array length of $0$, the divide-and-conquer strategy fails, and quick sort degrades to a form approximate to "bubble sort".
 
@@ -89,7 +89,7 @@ Example code is as follows:
 [file]{quick_sort}-[class]{quick_sort_median}-[func]{partition}
 ```
 
-## Recursive depth optimization
+## Recursive Depth Optimization
 
 **For certain inputs, quick sort may occupy more space**. Taking a completely ordered input array as an example, let the length of the sub-array in recursion be $m$. Each round of sentinel partitioning will produce a left sub-array of length $0$ and a right sub-array of length $m - 1$, which means that the problem scale reduced per recursive call is very small (only one element is reduced), and the height of the recursion tree will reach $n - 1$, at which point $O(n)$ size of stack frame space is required.
 

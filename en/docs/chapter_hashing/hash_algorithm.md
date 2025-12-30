@@ -1,4 +1,4 @@
-# Hash algorithm
+# Hash Algorithm
 
 The previous two sections introduced the working principle of hash tables and the methods to handle hash collisions. However, both open addressing and separate chaining **can only ensure that the hash table functions normally when hash collisions occur, but cannot reduce the frequency of hash collisions**.
 
@@ -16,7 +16,7 @@ Observing the above formula, when the hash table capacity `capacity` is fixed, *
 
 This means that, to reduce the probability of hash collisions, we should focus on the design of the hash algorithm `hash()`.
 
-## Goals of hash algorithms
+## Goals of Hash Algorithms
 
 To achieve a "fast and stable" hash table data structure, hash algorithms should have the following characteristics:
 
@@ -37,7 +37,7 @@ For cryptographic applications, to prevent reverse engineering such as deducing 
 
 Note that **"uniform distribution" and "collision resistance" are two independent concepts**. Satisfying uniform distribution does not necessarily mean collision resistance. For example, under random input `key`, the hash function `key % 100` can produce a uniformly distributed output. However, this hash algorithm is too simple, and all `key` with the same last two digits will have the same output, making it easy to deduce a usable `key` from the hash value, thereby cracking the password.
 
-## Design of hash algorithms
+## Design of Hash Algorithms
 
 The design of hash algorithms is a complex issue that requires consideration of many factors. However, for some less demanding scenarios, we can also design some simple hash algorithms.
 
@@ -78,7 +78,7 @@ It is worth noting that if the `key` is guaranteed to be randomly and uniformly 
 
 In summary, we usually choose a prime number as the modulus, and this prime number should be large enough to eliminate periodic patterns as much as possible, enhancing the robustness of the hash algorithm.
 
-## Common hash algorithms
+## Common Hash Algorithms
 
 It is not hard to see that the simple hash algorithms mentioned above are quite "fragile" and far from reaching the design goals of hash algorithms. For example, since addition and XOR obey the commutative law, additive hash and XOR hash cannot distinguish strings with the same content but in different order, which may exacerbate hash collisions and cause security issues.
 
@@ -100,7 +100,7 @@ Over the past century, hash algorithms have been in a continuous process of upgr
 | Security Level  | Low, has been successfully attacked             | Low, has been successfully attacked | High                                                              | High                         |
 | Applications    | Abandoned, still used for data integrity checks | Abandoned                           | Cryptocurrency transaction verification, digital signatures, etc. | Can be used to replace SHA-2 |
 
-# Hash values in data structures
+# Hash Values in Data Structures
 
 We know that the keys in a hash table can be of various data types such as integers, decimals, or strings. Programming languages usually provide built-in hash algorithms for these data types to calculate the bucket indices in the hash table. Taking Python as an example, we can use the `hash()` function to compute the hash values for various data types.
 

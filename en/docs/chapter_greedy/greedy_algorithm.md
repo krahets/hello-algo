@@ -1,4 +1,4 @@
-# Greedy algorithm
+# Greedy Algorithm
 
 <u>Greedy algorithm</u> is a common algorithm for solving optimization problems. Its basic idea is to make the seemingly best choice at each decision stage of the problem, that is, to greedily make locally optimal decisions in hopes of obtaining a globally optimal solution. Greedy algorithms are simple and efficient, and are widely applied in many practical problems.
 
@@ -25,7 +25,7 @@ The implementation code is as follows:
 
 You might exclaim: So clean! The greedy algorithm solves the coin change problem in about ten lines of code.
 
-## Advantages and limitations of greedy algorithms
+## Advantages and Limitations of Greedy Algorithms
 
 **Greedy algorithms are not only straightforward and simple to implement, but are also usually very efficient**. In the code above, if the smallest coin denomination is $\min(coins)$, the greedy choice loops at most $amt / \min(coins)$ times, giving a time complexity of $O(amt / \min(coins))$. This is an order of magnitude smaller than the time complexity of the dynamic programming solution $O(n \times amt)$.
 
@@ -44,7 +44,7 @@ Generally, the applicability of greedy algorithms falls into the following two s
 1. **Can guarantee finding the optimal solution**: In this situation, greedy algorithms are often the best choice, because they tend to be more efficient than backtracking and dynamic programming.
 2. **Can find an approximate optimal solution**: Greedy algorithms are also applicable in this situation. For many complex problems, finding the global optimal solution is very difficult, and being able to find a suboptimal solution with high efficiency is also very good.
 
-## Characteristics of greedy algorithms
+## Characteristics of Greedy Algorithms
 
 So the question arises: what kind of problems are suitable for solving with greedy algorithms? Or in other words, under what conditions can greedy algorithms guarantee finding the optimal solution?
 
@@ -65,7 +65,7 @@ For example, in the coin change problem, although we can easily provide countere
 
     Pearson, D. A polynomial-time algorithm for the change-making problem[J]. Operations Research Letters, 2005, 33(3): 231-234.
 
-## Steps for solving problems with greedy algorithms
+## Steps for Solving Problems with Greedy Algorithms
 
 The problem-solving process for greedy problems can generally be divided into the following three steps.
 
@@ -82,7 +82,7 @@ To ensure correctness, we should rigorously mathematically prove the greedy stra
 
 However, correctness proofs may also not be easy. If we have no clue, we usually choose to debug the code based on test cases, step by step modifying and verifying the greedy strategy.
 
-## Typical problems solved by greedy algorithms
+## Typical Problems Solved by Greedy Algorithms
 
 Greedy algorithms are often applied to optimization problems that satisfy greedy choice property and optimal substructure. Below are some typical greedy algorithm problems.
 

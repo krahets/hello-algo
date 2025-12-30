@@ -8,32 +8,32 @@
 
 /* Binary search for insertion point (no duplicate elements) */
 int binarySearchInsertionSimple(vector<int> &nums, int target) {
-    int i = 0, j = nums.size() - 1; // Initialize double closed interval [0, n-1]
+    int i = 0, j = nums.size() - 1; // Initialize closed interval [0, n-1]
     while (i <= j) {
-        int m = i + (j - i) / 2; // Calculate midpoint index m
+        int m = i + (j - i) / 2; // Calculate the midpoint index m
         if (nums[m] < target) {
-            i = m + 1; // Target is in interval [m+1, j]
+            i = m + 1; // target is in the interval [m+1, j]
         } else if (nums[m] > target) {
-            j = m - 1; // Target is in interval [i, m-1]
+            j = m - 1; // target is in the interval [i, m-1]
         } else {
             return m; // Found target, return insertion point m
         }
     }
-    // Did not find target, return insertion point i
+    // Target not found, return insertion point i
     return i;
 }
 
 /* Binary search for insertion point (with duplicate elements) */
 int binarySearchInsertion(vector<int> &nums, int target) {
-    int i = 0, j = nums.size() - 1; // Initialize double closed interval [0, n-1]
+    int i = 0, j = nums.size() - 1; // Initialize closed interval [0, n-1]
     while (i <= j) {
-        int m = i + (j - i) / 2; // Calculate midpoint index m
+        int m = i + (j - i) / 2; // Calculate the midpoint index m
         if (nums[m] < target) {
-            i = m + 1; // Target is in interval [m+1, j]
+            i = m + 1; // target is in the interval [m+1, j]
         } else if (nums[m] > target) {
-            j = m - 1; // Target is in interval [i, m-1]
+            j = m - 1; // target is in the interval [i, m-1]
         } else {
-            j = m - 1; // First element less than target is in interval [i, m-1]
+            j = m - 1; // The first element less than target is in the interval [i, m-1]
         }
     }
     // Return insertion point i
@@ -49,7 +49,7 @@ int main() {
     // Binary search for insertion point
     for (int target : {6, 9}) {
         int index = binarySearchInsertionSimple(nums, target);
-        cout << "The insertion point index for element " << target << " is " << index << endl;
+        cout << "Insertion point index for element " << target << " is " << index << endl;
     }
 
     // Array with duplicate elements
@@ -59,7 +59,7 @@ int main() {
     // Binary search for insertion point
     for (int target : {2, 6, 20}) {
         int index = binarySearchInsertion(nums, target);
-        cout << "The insertion point index for element " << target << " is " << index << endl;
+        cout << "Insertion point index for element " << target << " is " << index << endl;
     }
 
     return 0;

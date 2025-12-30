@@ -1,8 +1,8 @@
-# Binary search insertion point
+# Binary Search Insertion Point
 
 Binary search can not only be used to search for target elements but also to solve many variant problems, such as searching for the insertion position of a target element.
 
-## Case without duplicate elements
+## Case Without Duplicate Elements
 
 !!! question
 
@@ -26,7 +26,7 @@ Therefore, when the binary search ends, we must have: $i$ points to the first el
 [file]{binary_search_insertion}-[class]{}-[func]{binary_search_insertion_simple}
 ```
 
-## Case with duplicate elements
+## Case with Duplicate Elements
 
 !!! question
 

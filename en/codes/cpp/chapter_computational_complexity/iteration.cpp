@@ -9,7 +9,7 @@
 /* for loop */
 int forLoop(int n) {
     int res = 0;
-    // Loop sum 1, 2, ..., n-1, n
+    // Sum 1, 2, ..., n-1, n
     for (int i = 1; i <= n; ++i) {
         res += i;
     }
@@ -20,7 +20,7 @@ int forLoop(int n) {
 int whileLoop(int n) {
     int res = 0;
     int i = 1; // Initialize condition variable
-    // Loop sum 1, 2, ..., n-1, n
+    // Sum 1, 2, ..., n-1, n
     while (i <= n) {
         res += i;
         i++; // Update condition variable
@@ -32,7 +32,7 @@ int whileLoop(int n) {
 int whileLoopII(int n) {
     int res = 0;
     int i = 1; // Initialize condition variable
-    // Loop sum 1, 4, 10, ...
+    // Sum 1, 4, 10, ...
     while (i <= n) {
         res += i;
         // Update condition variable
@@ -42,7 +42,7 @@ int whileLoopII(int n) {
     return res;
 }
 
-/* Double for loop */
+/* Nested for loop */
 string nestedForLoop(int n) {
     ostringstream res;
     // Loop i = 1, 2, ..., n-1, n
@@ -61,16 +61,16 @@ int main() {
     int res;
 
     res = forLoop(n);
-    cout << "\nSum result of the for loop res = " << res << endl;
+    cout << "\nfor loop sum result res = " << res << endl;
 
     res = whileLoop(n);
-    cout << "\nSum result of the while loop res = " << res << endl;
+    cout << "\nwhile loop sum result res = " << res << endl;
 
     res = whileLoopII(n);
-    cout << "\nSum result of the while loop (with two updates) res = " << res << endl;
+    cout << "\nwhile loop (two updates) sum result res = " << res << endl;
 
     string resStr = nestedForLoop(n);
-    cout << "\nResult of the double for loop traversal = " << resStr << endl;
+    cout << "\nDouble for loop traversal result " << resStr << endl;
 
     return 0;
 }

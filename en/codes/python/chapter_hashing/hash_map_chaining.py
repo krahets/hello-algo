@@ -12,7 +12,7 @@ from chapter_hashing.array_hash_map import Pair
 
 
 class HashMapChaining:
-    """Chained address hash table"""
+    """Hash table with separate chaining"""
 
     def __init__(self):
         """Constructor"""
@@ -34,26 +34,26 @@ class HashMapChaining:
         """Query operation"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # Traverse the bucket, if the key is found, return the corresponding val
+        # Traverse bucket, if key is found, return corresponding val
         for pair in bucket:
             if pair.key == key:
                 return pair.val
-        # If the key is not found, return None
+        # If key is not found, return None
         return None
 
     def put(self, key: int, val: str):
         """Add operation"""
-        # When the load factor exceeds the threshold, perform expansion
+        # When load factor exceeds threshold, perform expansion
         if self.load_factor() > self.load_thres:
             self.extend()
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # Traverse the bucket, if the specified key is encountered, update the corresponding val and return
+        # Traverse bucket, if specified key is encountered, update corresponding val and return
         for pair in bucket:
             if pair.key == key:
                 pair.val = val
                 return
-        # If the key is not found, add the key-value pair to the end
+        # If key does not exist, append key-value pair to the end
         pair = Pair(key, val)
         bucket.append(pair)
         self.size += 1
@@ -62,7 +62,7 @@ class HashMapChaining:
         """Remove operation"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # Traverse the bucket, remove the key-value pair from it
+        # Traverse bucket and remove key-value pair from it
         for pair in bucket:
             if pair.key == key:
                 bucket.remove(pair)
@@ -70,14 +70,14 @@ class HashMapChaining:
                 break
 
     def extend(self):
-        """Extend hash table"""
+        """Expand hash table"""
         # Temporarily store the original hash table
         buckets = self.buckets
-        # Initialize the extended new hash table
+        # Initialize expanded new hash table
         self.capacity *= self.extend_ratio
         self.buckets = [[] for _ in range(self.capacity)]
         self.size = 0
-        # Move key-value pairs from the original hash table to the new hash table
+        # Move key-value pairs from original hash table to new hash table
         for bucket in buckets:
             for pair in bucket:
                 self.put(pair.key, pair.val)
@@ -98,18 +98,18 @@ if __name__ == "__main__":
 
     # Add operation
     # Add key-value pair (key, value) to the hash table
-    hashmap.put(12836, "Ha")
-    hashmap.put(15937, "Luo")
-    hashmap.put(16750, "Suan")
-    hashmap.put(13276, "Fa")
-    hashmap.put(10583, "Ya")
+    hashmap.put(12836, "Xiao Ha")
+    hashmap.put(15937, "Xiao Luo")
+    hashmap.put(16750, "Xiao Suan")
+    hashmap.put(13276, "Xiao Fa")
+    hashmap.put(10583, "Xiao Ya")
     print("\nAfter adding, the hash table is\n[Key1 -> Value1, Key2 -> Value2, ...]")
     hashmap.print()
 
     # Query operation
-    # Enter key to the hash table, get value
+    # Input key into the hash table to get value
     name = hashmap.get(13276)
-    print("\nEnter student ID 13276, found name " + name)
+    print("\nInput student ID 13276, found name " + name)
 
     # Remove operation
     # Remove key-value pair (key, value) from the hash table

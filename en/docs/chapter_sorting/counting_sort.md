@@ -1,8 +1,8 @@
-# Counting sort
+# Counting Sort
 
 <u>Counting sort (counting sort)</u> achieves sorting by counting the number of elements, typically applied to integer arrays.
 
-## Simple implementation
+## Simple Implementation
 
 Let's start with a simple example. Given an array `nums` of length $n$, where the elements are all "non-negative integers", the overall flow of counting sort is shown in the figure below.
 
@@ -22,7 +22,7 @@ The code is as follows:
 
     From the perspective of bucket sort, we can regard each index of the counting array `counter` in counting sort as a bucket, and the process of counting quantities as distributing each element to the corresponding bucket. Essentially, counting sort is a special case of bucket sort for integer data.
 
-## Complete implementation
+## Complete Implementation
 
 Observant readers may have noticed that **if the input data is objects, step `3.` above becomes invalid**. Suppose the input data is product objects, and we want to sort the products by price (a member variable of the class), but the above algorithm can only give the sorting result of prices.
 
@@ -69,7 +69,7 @@ The implementation code of counting sort is as follows:
 [file]{counting_sort}-[class]{}-[func]{counting_sort}
 ```
 
-## Algorithm characteristics
+## Algorithm Characteristics
 
 - **Time complexity of $O(n + m)$, non-adaptive sorting**: Involves traversing `nums` and traversing `counter`, both using linear time. Generally, $n \gg m$, and time complexity tends toward $O(n)$.
 - **Space complexity of $O(n + m)$, non-in-place sorting**: Uses arrays `res` and `counter` of lengths $n$ and $m$ respectively.

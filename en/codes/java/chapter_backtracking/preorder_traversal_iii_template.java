@@ -10,7 +10,7 @@ import utils.*;
 import java.util.*;
 
 public class preorder_traversal_iii_template {
-    /* Determine if the current state is a solution */
+    /* Check if the current state is a solution */
     static boolean isSolution(List<TreeNode> state) {
         return !state.isEmpty() && state.get(state.size() - 1).val == 7;
     }
@@ -20,7 +20,7 @@ public class preorder_traversal_iii_template {
         res.add(new ArrayList<>(state));
     }
 
-    /* Determine if the choice is legal under the current state */
+    /* Check if the choice is valid under the current state */
     static boolean isValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
@@ -35,22 +35,22 @@ public class preorder_traversal_iii_template {
         state.remove(state.size() - 1);
     }
 
-    /* Backtracking algorithm: Example three */
+    /* Backtracking algorithm: Example 3 */
     static void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // Check if it's a solution
+        // Check if it is a solution
         if (isSolution(state)) {
             // Record solution
             recordSolution(state, res);
         }
         // Traverse all choices
         for (TreeNode choice : choices) {
-            // Pruning: check if the choice is legal
+            // Pruning: check if the choice is valid
             if (isValid(state, choice)) {
-                // Attempt: make a choice, update the state
+                // Attempt: make choice, update state
                 makeChoice(state, choice);
                 // Proceed to the next round of selection
                 backtrack(state, Arrays.asList(choice.left, choice.right), res);
-                // Retract: undo the choice, restore to the previous state
+                // Backtrack: undo choice, restore to previous state
                 undoChoice(state, choice);
             }
         }
@@ -65,7 +65,7 @@ public class preorder_traversal_iii_template {
         List<List<TreeNode>> res = new ArrayList<>();
         backtrack(new ArrayList<>(), Arrays.asList(root), res);
 
-        System.out.println("\nOutput all root-to-node 7 paths, requiring paths not to include nodes with value 3");
+        System.out.println("\nOutput all paths from root node to node 7, requiring paths do not include nodes with value 3");
         for (List<TreeNode> path : res) {
             List<Integer> vals = new ArrayList<>();
             for (TreeNode node : path) {

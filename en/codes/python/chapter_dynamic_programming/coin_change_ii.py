@@ -17,10 +17,10 @@ def coin_change_ii_dp(coins: list[int], amt: int) -> int:
     for i in range(1, n + 1):
         for a in range(1, amt + 1):
             if coins[i - 1] > a:
-                # If exceeding the target amount, do not choose coin i
+                # If exceeds target amount, don't select coin i
                 dp[i][a] = dp[i - 1][a]
             else:
-                # The sum of the two options of not choosing and choosing coin i
+                # Sum of the two options: not selecting and selecting coin i
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
     return dp[n][amt]
 
@@ -33,13 +33,13 @@ def coin_change_ii_dp_comp(coins: list[int], amt: int) -> int:
     dp[0] = 1
     # State transition
     for i in range(1, n + 1):
-        # Traverse in order
+        # Traverse in forward order
         for a in range(1, amt + 1):
             if coins[i - 1] > a:
-                # If exceeding the target amount, do not choose coin i
+                # If exceeds target amount, don't select coin i
                 dp[a] = dp[a]
             else:
-                # The sum of the two options of not choosing and choosing coin i
+                # Sum of the two options: not selecting and selecting coin i
                 dp[a] = dp[a] + dp[a - coins[i - 1]]
     return dp[amt]
 

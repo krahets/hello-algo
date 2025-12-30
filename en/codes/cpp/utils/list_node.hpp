@@ -30,7 +30,7 @@ ListNode *vecToLinkedList(vector<int> list) {
     return dum->next;
 }
 
-/* Free memory allocated to the linked list */
+/* Free memory allocated to linked list */
 void freeMemoryLinkedList(ListNode *cur) {
     // Free memory
     ListNode *pre;

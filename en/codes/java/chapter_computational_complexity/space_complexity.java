@@ -16,26 +16,26 @@ public class space_complexity {
         return 0;
     }
 
-    /* Constant complexity */
+    /* Constant order */
     static void constant(int n) {
         // Constants, variables, objects occupy O(1) space
         final int a = 0;
         int b = 0;
         int[] nums = new int[10000];
         ListNode node = new ListNode(0);
-        // Variables in a loop occupy O(1) space
+        // Variables in the loop occupy O(1) space
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // Functions in a loop occupy O(1) space
+        // Functions in the loop occupy O(1) space
         for (int i = 0; i < n; i++) {
             function();
         }
     }
 
-    /* Linear complexity */
+    /* Linear order */
     static void linear(int n) {
-        // Array of length n occupies O(n) space
+        // Array of length n uses O(n) space
         int[] nums = new int[n];
         // A list of length n occupies O(n) space
         List<ListNode> nodes = new ArrayList<>();
@@ -49,7 +49,7 @@ public class space_complexity {
         }
     }
 
-    /* Linear complexity (recursive implementation) */
+    /* Linear order (recursive implementation) */
     static void linearRecur(int n) {
         System.out.println("Recursion n = " + n);
         if (n == 1)
@@ -57,11 +57,11 @@ public class space_complexity {
         linearRecur(n - 1);
     }
 
-    /* Quadratic complexity */
+    /* Exponential order */
     static void quadratic(int n) {
-        // Matrix occupies O(n^2) space
+        // Matrix uses O(n^2) space
         int[][] numMatrix = new int[n][n];
-        // A two-dimensional list occupies O(n^2) space
+        // 2D list uses O(n^2) space
         List<List<Integer>> numList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             List<Integer> tmp = new ArrayList<>();
@@ -72,17 +72,17 @@ public class space_complexity {
         }
     }
 
-    /* Quadratic complexity (recursive implementation) */
+    /* Quadratic order (recursive implementation) */
     static int quadraticRecur(int n) {
         if (n <= 0)
             return 0;
-        // Array nums length = n, n-1, ..., 2, 1
+        // Array nums has length n, n-1, ..., 2, 1
         int[] nums = new int[n];
-        System.out.println("Recursion n = " + n + " in the length of nums = " + nums.length);
+        System.out.println("In recursion n = " + n + ", nums length = " + nums.length);
         return quadraticRecur(n - 1);
     }
 
-    /* Exponential complexity (building a full binary tree) */
+    /* Driver Code */
     static TreeNode buildTree(int n) {
         if (n == 0)
             return null;
@@ -95,15 +95,15 @@ public class space_complexity {
     /* Driver Code */
     public static void main(String[] args) {
         int n = 5;
-        // Constant complexity
+        // Constant order
         constant(n);
-        // Linear complexity
+        // Linear order
         linear(n);
         linearRecur(n);
-        // Quadratic complexity
+        // Exponential order
         quadratic(n);
         quadraticRecur(n);
-        // Exponential complexity
+        // Exponential order
         TreeNode root = buildTree(n);
         PrintUtil.printTree(root);
     }

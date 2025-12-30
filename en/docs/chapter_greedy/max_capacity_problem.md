@@ -1,4 +1,4 @@
-# Max capacity problem
+# Max Capacity Problem
 
 !!! question
 
@@ -20,7 +20,7 @@ $$
 
 Let the array length be $n$, then the number of combinations of two partitions (total number of states) is $C_n^2 = \frac{n(n - 1)}{2}$. Most directly, **we can exhaustively enumerate all states** to find the maximum capacity, with time complexity $O(n^2)$.
 
-### Greedy strategy determination
+### Greedy Strategy Determination
 
 This problem has a more efficient solution. As shown in the figure below, select a state $[i, j]$ where index $i < j$ and height $ht[i] < ht[j]$, meaning $i$ is the short partition and $j$ is the long partition.
 
@@ -72,7 +72,7 @@ The figure below shows the execution process of the greedy strategy.
 === "<9>"
     ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png)
 
-### Code implementation
+### Code Implementation
 
 The code loops at most $n$ rounds, **therefore the time complexity is $O(n)$**.
 
@@ -82,7 +82,7 @@ Variables $i$, $j$, and $res$ use a constant amount of extra space, **therefore 
 [file]{max_capacity}-[class]{}-[func]{max_capacity}
 ```
 
-### Correctness proof
+### Correctness Proof
 
 The reason greedy is faster than exhaustive enumeration is that each round of greedy selection "skips" some states.
 

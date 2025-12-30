@@ -1,5 +1,7 @@
 # Summary
 
+### Key Review
+
 - The main audience of this book is algorithm beginners. If you already have a certain foundation, this book can help you systematically review algorithm knowledge, and the source code in the book can also be used as a "problem-solving toolkit."
 - The content of the book mainly includes three parts: complexity analysis, data structures, and algorithms, covering most topics in this field.
 - For algorithm novices, reading an introductory book during the initial learning stage is crucial, as it can help you avoid many detours.

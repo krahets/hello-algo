@@ -6,7 +6,7 @@ In algorithms, repeatedly executing a task is very common and closely related to
 
 <u>Iteration</u> is a control structure for repeatedly executing a task. In iteration, a program repeatedly executes a segment of code under certain conditions until those conditions are no longer satisfied.
 
-### for Loop
+### For Loop
 
 The `for` loop is one of the most common forms of iteration, **suitable for use when the number of iterations is known in advance**.
 
@@ -22,7 +22,7 @@ The figure below shows the flowchart of this summation function.
 
 The number of operations in this summation function is proportional to the input data size $n$, or has a "linear relationship". In fact, **time complexity describes precisely this "linear relationship"**. Related content will be introduced in detail in the next section.
 
-### while Loop
+### While Loop
 
 Similar to the `for` loop, the `while` loop is also a method for implementing iteration. In a `while` loop, the program first checks the condition in each round; if the condition is true, it continues execution, otherwise it ends the loop.
 

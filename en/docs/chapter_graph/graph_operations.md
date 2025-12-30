@@ -1,8 +1,8 @@
-# Basic operations on graphs
+# Basic Operations on Graphs
 
 Basic operations on graphs can be divided into operations on "edges" and operations on "vertices". Under the two representation methods of "adjacency matrix" and "adjacency list", the implementation methods differ.
 
-## Implementation based on adjacency matrix
+## Implementation Based on Adjacency Matrix
 
 Given an undirected graph with $n$ vertices, the various operations are implemented as shown in the figure below.
 
@@ -32,7 +32,7 @@ The following is the implementation code for graphs represented using an adjacen
 [file]{graph_adjacency_matrix}-[class]{graph_adj_mat}-[func]{}
 ```
 
-## Implementation based on adjacency list
+## Implementation Based on Adjacency List
 
 Given an undirected graph with a total of $n$ vertices and $m$ edges, the various operations can be implemented as shown in the figure below.
 
@@ -68,7 +68,7 @@ Additionally, we use the `Vertex` class to represent vertices in the adjacency l
 [file]{graph_adjacency_list}-[class]{graph_adj_list}-[func]{}
 ```
 
-## Efficiency comparison
+## Efficiency Comparison
 
 Assuming the graph has $n$ vertices and $m$ edges, the table below compares the time efficiency and space efficiency of adjacency matrices and adjacency lists. Note that the adjacency list (linked list) corresponds to the implementation in this text, while the adjacency list (hash table) refers specifically to the implementation where all linked lists are replaced with hash tables.
 

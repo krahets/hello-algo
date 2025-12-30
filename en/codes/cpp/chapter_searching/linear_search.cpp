@@ -10,24 +10,24 @@
 int linearSearchArray(vector<int> &nums, int target) {
     // Traverse array
     for (int i = 0; i < nums.size(); i++) {
-        // Found the target element, thus return its index
+        // Found the target element, return its index
         if (nums[i] == target)
             return i;
     }
-    // Did not find the target element, thus return -1
+    // Target element not found, return -1
     return -1;
 }
 
 /* Linear search (linked list) */
 ListNode *linearSearchLinkedList(ListNode *head, int target) {
-    // Traverse the list
+    // Traverse the linked list
     while (head != nullptr) {
         // Found the target node, return it
         if (head->val == target)
             return head;
         head = head->next;
     }
-    // If the target node is not found, return nullptr
+    // Target node not found, return nullptr
     return nullptr;
 }
 
@@ -38,12 +38,12 @@ int main() {
     /* Perform linear search in array */
     vector<int> nums = {1, 5, 3, 2, 4, 7, 5, 9, 10, 8};
     int index = linearSearchArray(nums, target);
-    cout << "The index of target element 3 is " << index << endl;
+    cout << "Index of target element 3 = " << index << endl;
 
     /* Perform linear search in linked list */
     ListNode *head = vecToLinkedList(nums);
     ListNode *node = linearSearchLinkedList(head, target);
-    cout << "The corresponding node object for target node value 3 is " << node << endl;
+    cout << "Node object corresponding to target node value 3 is " << node << endl;
 
     return 0;
 }

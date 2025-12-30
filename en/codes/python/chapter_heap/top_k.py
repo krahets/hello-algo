@@ -14,15 +14,15 @@ import heapq
 
 
 def top_k_heap(nums: list[int], k: int) -> list[int]:
-    """Using heap to find the largest k elements in an array"""
-    # Initialize min-heap
+    """Find the largest k elements in array based on heap"""
+    # Initialize min heap
     heap = []
-    # Enter the first k elements of the array into the heap
+    # Enter the first k elements of array into heap
     for i in range(k):
         heapq.heappush(heap, nums[i])
-    # From the k+1th element, keep the heap length as k
+    # Starting from the (k+1)th element, maintain heap length as k
     for i in range(k, len(nums)):
-        # If the current element is larger than the heap top element, remove the heap top element and enter the current element into the heap
+        # If current element is greater than top element, top element exits heap, current element enters heap
         if nums[i] > heap[0]:
             heapq.heappop(heap)
             heapq.heappush(heap, nums[i])

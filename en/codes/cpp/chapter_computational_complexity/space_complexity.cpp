@@ -12,26 +12,26 @@ int func() {
     return 0;
 }
 
-/* Constant complexity */
+/* Constant order */
 void constant(int n) {
     // Constants, variables, objects occupy O(1) space
     const int a = 0;
     int b = 0;
     vector<int> nums(10000);
     ListNode node(0);
-    // Variables in a loop occupy O(1) space
+    // Variables in the loop occupy O(1) space
     for (int i = 0; i < n; i++) {
         int c = 0;
     }
-    // Functions in a loop occupy O(1) space
+    // Functions in the loop occupy O(1) space
     for (int i = 0; i < n; i++) {
         func();
     }
 }
 
-/* Linear complexity */
+/* Linear order */
 void linear(int n) {
-    // Array of length n occupies O(n) space
+    // Array of length n uses O(n) space
     vector<int> nums(n);
     // A list of length n occupies O(n) space
     vector<ListNode> nodes;
@@ -45,7 +45,7 @@ void linear(int n) {
     }
 }
 
-/* Linear complexity (recursive implementation) */
+/* Linear order (recursive implementation) */
 void linearRecur(int n) {
     cout << "Recursion n = " << n << endl;
     if (n == 1)
@@ -53,9 +53,9 @@ void linearRecur(int n) {
     linearRecur(n - 1);
 }
 
-/* Quadratic complexity */
+/* Exponential order */
 void quadratic(int n) {
-    // A two-dimensional list occupies O(n^2) space
+    // 2D list uses O(n^2) space
     vector<vector<int>> numMatrix;
     for (int i = 0; i < n; i++) {
         vector<int> tmp;
@@ -66,16 +66,16 @@ void quadratic(int n) {
     }
 }
 
-/* Quadratic complexity (recursive implementation) */
+/* Quadratic order (recursive implementation) */
 int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     vector<int> nums(n);
-    cout << "Recursive n = " << n << ", length of nums = " << nums.size() << endl;
+    cout << "In recursion n = " << n << ", nums length = " << nums.size() << endl;
     return quadraticRecur(n - 1);
 }
 
-/* Exponential complexity (building a full binary tree) */
+/* Driver Code */
 TreeNode *buildTree(int n) {
     if (n == 0)
         return nullptr;
@@ -88,15 +88,15 @@ TreeNode *buildTree(int n) {
 /* Driver Code */
 int main() {
     int n = 5;
-    // Constant complexity
+    // Constant order
     constant(n);
-    // Linear complexity
+    // Linear order
     linear(n);
     linearRecur(n);
-    // Quadratic complexity
+    // Exponential order
     quadratic(n);
     quadraticRecur(n);
-    // Exponential complexity
+    // Exponential order
     TreeNode *root = buildTree(n);
     printTree(root);
 

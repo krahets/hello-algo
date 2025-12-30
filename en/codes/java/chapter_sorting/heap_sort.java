@@ -12,7 +12,7 @@ public class heap_sort {
     /* Heap length is n, start heapifying node i, from top to bottom */
     public static void siftDown(int[] nums, int n, int i) {
         while (true) {
-            // Determine the largest node among i, l, r, noted as ma
+            // If node i is largest or indices l, r are out of bounds, no need to continue heapify, break
             int l = 2 * i + 1;
             int r = 2 * i + 2;
             int ma = i;
@@ -20,7 +20,7 @@ public class heap_sort {
                 ma = l;
             if (r < n && nums[r] > nums[ma])
                 ma = r;
-            // If node i is the largest or indices l, r are out of bounds, no further heapification needed, break
+            // Swap two nodes
             if (ma == i)
                 break;
             // Swap two nodes
@@ -40,7 +40,7 @@ public class heap_sort {
         }
         // Extract the largest element from the heap and repeat for n-1 rounds
         for (int i = nums.length - 1; i > 0; i--) {
-            // Swap the root node with the rightmost leaf node (swap the first element with the last element)
+            // Delete node
             int tmp = nums[0];
             nums[0] = nums[i];
             nums[i] = tmp;
@@ -52,6 +52,6 @@ public class heap_sort {
     public static void main(String[] args) {
         int[] nums = { 4, 1, 3, 1, 5, 2 };
         heapSort(nums);
-        System.out.println("After heap sort, nums = " + Arrays.toString(nums));
+        System.out.println("After heap sort completes, nums = " + Arrays.toString(nums));
     }
 }

@@ -1,4 +1,4 @@
-# Hanota problem
+# Hanota Problem
 
 In merge sort and building binary trees, we decompose the original problem into two subproblems, each half the size of the original problem. However, for the hanota problem, we adopt a different decomposition strategy.
 
@@ -14,7 +14,7 @@ In merge sort and building binary trees, we decompose the original problem into 
 
 **We denote the hanota problem of size $i$ as $f(i)$**. For example, $f(3)$ represents moving $3$ discs from `A` to `C`.
 
-### Considering the base cases
+### Considering the Base Cases
 
 As shown in the figure below, for problem $f(1)$, when there is only one disc, we can move it directly from `A` to `C`.
 
@@ -44,7 +44,7 @@ As shown in the figure below, for problem $f(2)$, when there are two discs, **si
 
 The process of solving problem $f(2)$ can be summarized as: **moving two discs from `A` to `C` with the help of `B`**. Here, `C` is called the target pillar, and `B` is called the buffer pillar.
 
-### Subproblem decomposition
+### Subproblem Decomposition
 
 For problem $f(3)$, when there are three discs, the situation becomes slightly more complex.
 
@@ -78,7 +78,7 @@ For these two subproblems $f(n-1)$, **we can recursively divide them in the same
 
 ![Divide and conquer strategy for solving the hanota problem](hanota_problem.assets/hanota_divide_and_conquer.png)
 
-### Code implementation
+### Code Implementation
 
 In the code, we declare a recursive function `dfs(i, src, buf, tar)`, whose purpose is to move the top $i$ discs from pillar `src` to target pillar `tar` with the help of buffer pillar `buf`:
 

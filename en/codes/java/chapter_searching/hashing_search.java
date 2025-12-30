@@ -13,14 +13,14 @@ public class hashing_search {
     /* Hash search (array) */
     static int hashingSearchArray(Map<Integer, Integer> map, int target) {
         // Hash table's key: target element, value: index
-        // If the hash table does not contain this key, return -1
+        // If this key does not exist in the hash table, return -1
         return map.getOrDefault(target, -1);
     }
 
     /* Hash search (linked list) */
     static ListNode hashingSearchLinkedList(Map<Integer, ListNode> map, int target) {
         // Hash table key: target node value, value: node object
-        // If the key is not in the hash table, return null
+        // If key is not in hash table, return null
         return map.getOrDefault(target, null);
     }
 
@@ -35,7 +35,7 @@ public class hashing_search {
             map.put(nums[i], i); // key: element, value: index
         }
         int index = hashingSearchArray(map, target);
-        System.out.println("The index of target element 3 is " + index);
+        System.out.println("Index of target element 3 = " + index);
 
         /* Hash search (linked list) */
         ListNode head = ListNode.arrToLinkedList(nums);
@@ -46,6 +46,6 @@ public class hashing_search {
             head = head.next;
         }
         ListNode node = hashingSearchLinkedList(map1, target);
-        System.out.println("The corresponding node object for target node value 3 is " + node);
+        System.out.println("Node object corresponding to target node value 3 is " + node);
     }
 }

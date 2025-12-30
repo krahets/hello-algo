@@ -43,7 +43,7 @@ def rot_hash(key: str) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    key = "Hello algorithm"
+    key = "Hello algo"
 
     hash = add_hash(key)
     print(f"Additive hash value is {hash}")

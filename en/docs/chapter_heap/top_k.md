@@ -1,4 +1,4 @@
-# Top-k problem
+# Top-K Problem
 
 !!! question
 
@@ -6,7 +6,7 @@
 
 For this problem, we'll first introduce two solutions with relatively straightforward approaches, then introduce a more efficient heap-based solution.
 
-## Method 1: Iterative selection
+## Method 1: Iterative Selection
 
 We can perform $k$ rounds of traversal as shown in the figure below, extracting the $1^{st}$, $2^{nd}$, $\dots$, $k^{th}$ largest elements in each round, with a time complexity of $O(nk)$.
 

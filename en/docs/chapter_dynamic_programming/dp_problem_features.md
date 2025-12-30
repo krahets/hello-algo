@@ -1,4 +1,4 @@
-# Characteristics of dynamic programming problems
+# Characteristics of Dynamic Programming Problems
 
 In the previous section, we learned how dynamic programming solves the original problem by decomposing it into subproblems. In fact, subproblem decomposition is a general algorithmic approach, with different emphases in divide and conquer, dynamic programming, and backtracking.
 
@@ -8,7 +8,7 @@ In the previous section, we learned how dynamic programming solves the original 
 
 In fact, dynamic programming is commonly used to solve optimization problems, which not only contain overlapping subproblems but also have two other major characteristics: optimal substructure and no aftereffects.
 
-## Optimal substructure
+## Optimal Substructure
 
 We make a slight modification to the stair climbing problem to make it more suitable for demonstrating the concept of optimal substructure.
 
@@ -48,7 +48,7 @@ This problem can also be space-optimized, compressing from one dimension to zero
 [file]{min_cost_climbing_stairs_dp}-[class]{}-[func]{min_cost_climbing_stairs_dp_comp}
 ```
 
-## No aftereffects
+## No Aftereffects
 
 No aftereffects is one of the important characteristics that enable dynamic programming to solve problems effectively. Its definition is: **given a certain state, its future development is only related to the current state and has nothing to do with all past states**.
 

@@ -14,7 +14,7 @@ If we view vertices as nodes and edges as references (pointers) connecting the n
 
 ![Relationships among linked lists, trees, and graphs](graph.assets/linkedlist_tree_graph.png)
 
-## Common types and terminology of graphs
+## Common Types and Terminology of Graphs
 
 Graphs can be divided into <u>undirected graphs</u> and <u>directed graphs</u> based on whether edges have direction, as shown in the figure below.
 
@@ -40,11 +40,11 @@ Graph data structures include the following commonly used terms.
 - <u>Path</u>: The sequence of edges from vertex A to vertex B is called a "path" from A to B. In the figure above, the edge sequence 1-5-2-4 is a path from vertex 1 to vertex 4.
 - <u>Degree</u>: The number of edges a vertex has. For directed graphs, <u>in-degree</u> indicates how many edges point to the vertex, and <u>out-degree</u> indicates how many edges point out from the vertex.
 
-## Representation of graphs
+## Representation of Graphs
 
 Common representations of graphs include "adjacency matrices" and "adjacency lists". The following uses undirected graphs as examples.
 
-### Adjacency matrix
+### Adjacency Matrix
 
 Given a graph with $n$ vertices, an <u>adjacency matrix</u> uses an $n \times n$ matrix to represent the graph, where each row (column) represents a vertex, and matrix elements represent edges, using $1$ or $0$ to indicate whether an edge exists between two vertices.
 
@@ -60,7 +60,7 @@ Adjacency matrices have the following properties.
 
 When using adjacency matrices to represent graphs, we can directly access matrix elements to obtain edges, resulting in highly efficient addition, deletion, lookup, and modification operations, all with a time complexity of $O(1)$. However, the space complexity of the matrix is $O(n^2)$, which consumes significant memory.
 
-### Adjacency list
+### Adjacency List
 
 An <u>adjacency list</u> uses $n$ linked lists to represent a graph, with linked list nodes representing vertices. The $i$-th linked list corresponds to vertex $i$ and stores all adjacent vertices of that vertex (vertices connected to that vertex). The figure below shows an example of a graph stored using an adjacency list.
 
@@ -70,7 +70,7 @@ Adjacency lists only store edges that actually exist, and the total number of ed
 
 Observing the figure above, **the structure of adjacency lists is very similar to "chaining" in hash tables, so we can adopt similar methods to optimize efficiency**. For example, when linked lists are long, they can be converted to AVL trees or red-black trees, thereby optimizing time efficiency from $O(n)$ to $O(\log n)$; linked lists can also be converted to hash tables, thereby reducing time complexity to $O(1)$.
 
-## Common applications of graphs
+## Common Applications of Graphs
 
 As shown in the table below, many real-world systems can be modeled using graphs, and corresponding problems can be reduced to graph computation problems.
 

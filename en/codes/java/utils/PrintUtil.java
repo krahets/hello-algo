@@ -53,7 +53,7 @@ public class PrintUtil {
     }
 
     /**
-     * Print binary tree
+     * 打印二叉树
      * This tree printer is borrowed from TECHIE DELIGHT
      * https://www.techiedelight.com/c-program-print-binary-tree/
      */
@@ -104,12 +104,12 @@ public class PrintUtil {
         }
     }
 
-    /* Print heap (Priority queue) */
+    /* Print heap (priority queue) */
     public static void printHeap(Queue<Integer> queue) {
         List<Integer> list = new ArrayList<>(queue);
-        System.out.print("Array representation of the heap:");
+        System.out.print("Heap array representation:");
         System.out.println(list);
-        System.out.println("Tree representation of the heap:");
+        System.out.println("Heap tree representation:");
         TreeNode root = TreeNode.listToTree(list);
         printTree(root);
     }

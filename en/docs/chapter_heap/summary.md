@@ -1,6 +1,6 @@
 # Summary
 
-### Key review
+### Key Review
 
 - A heap is a complete binary tree that can be categorized as a max heap or min heap based on its property. The heap top element of a max heap (min heap) is the largest (smallest).
 - A priority queue is defined as a queue with priority sorting, typically implemented using heaps.

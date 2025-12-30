@@ -10,37 +10,37 @@ import java.util.*;
 
 public class deque {
     public static void main(String[] args) {
-        /* Initialize double-ended queue */
+        /* Get the length of the double-ended queue */
         Deque<Integer> deque = new LinkedList<>();
         deque.offerLast(3);
         deque.offerLast(2);
         deque.offerLast(5);
         System.out.println("Double-ended queue deque = " + deque);
 
-        /* Access element */
+        /* Update element */
         int peekFirst = deque.peekFirst();
         System.out.println("Front element peekFirst = " + peekFirst);
         int peekLast = deque.peekLast();
-        System.out.println("Back element peekLast = " + peekLast);
+        System.out.println("Rear element peekLast = " + peekLast);
 
-        /* Element enqueue */
+        /* Elements enqueue */
         deque.offerLast(4);
-        System.out.println("Element 4 enqueued at the tail, deque = " + deque);
+        System.out.println("After element 4 enqueues at rear, deque = " + deque);
         deque.offerFirst(1);
-        System.out.println("Element 1 enqueued at the head, deque = " + deque);
+        System.out.println("After element 1 enqueues at front, deque = " + deque);
 
         /* Element dequeue */
         int popLast = deque.pollLast();
-        System.out.println("Deque tail element = " + popLast + ", after dequeuing from the tail" + deque);
+        System.out.println("Rear dequeue element = " + popLast + ", after rear dequeue, deque = " + deque);
         int popFirst = deque.pollFirst();
-        System.out.println("Deque front element = " + popFirst + ", after dequeuing from the front" + deque);
+        System.out.println("Front dequeue element = " + popFirst + ", after front dequeue, deque = " + deque);
 
         /* Get the length of the double-ended queue */
         int size = deque.size();
-        System.out.println("Length of the double-ended queue size = " + size);
+        System.out.println("Double-ended queue length size = " + size);
 
-        /* Determine if the double-ended queue is empty */
+        /* Check if the double-ended queue is empty */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("Is the double-ended queue empty = " + isEmpty);
+        System.out.println("Double-ended queue is empty = " + isEmpty);
     }
 }

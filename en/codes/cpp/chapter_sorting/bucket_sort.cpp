@@ -15,7 +15,7 @@ void bucketSort(vector<float> &nums) {
     for (float num : nums) {
         // Input data range is [0, 1), use num * k to map to index range [0, k-1]
         int i = num * k;
-        // Add number to bucket_idx
+        // Add num to bucket bucket_idx
         buckets[i].push_back(num);
     }
     // 2. Sort each bucket
@@ -34,10 +34,10 @@ void bucketSort(vector<float> &nums) {
 
 /* Driver Code */
 int main() {
-    // Assume input data is floating point, range [0, 1)
+    // Assume input data is floating point, interval [0, 1)
     vector<float> nums = {0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f};
     bucketSort(nums);
-    cout << "After bucket sort, nums = ";
+    cout << "After bucket sort completes, nums = ";
     printVector(nums);
 
     return 0;

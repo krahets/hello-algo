@@ -1,10 +1,10 @@
-# Radix sort
+# Radix Sort
 
 The previous section introduced counting sort, which is suitable for situations where the data volume $n$ is large but the data range $m$ is small. Suppose we need to sort $n = 10^6$ student IDs, and the student ID is an 8-digit number, which means the data range $m = 10^8$ is very large. Using counting sort would require allocating a large amount of memory space, whereas radix sort can avoid this situation.
 
 <u>Radix sort (radix sort)</u> has a core idea consistent with counting sort, which also achieves sorting by counting quantities. Building on this, radix sort utilizes the progressive relationship between the digits of numbers, sorting each digit in turn to obtain the final sorting result.
 
-## Algorithm flow
+## Algorithm Flow
 
 Taking student ID data as an example, assume the lowest digit is the $1$st digit and the highest digit is the $8$th digit. The flow of radix sort is shown in the figure below.
 
@@ -32,7 +32,7 @@ Additionally, we need to slightly modify the counting sort code to make it sort 
 
     In successive sorting rounds, the result of a later round will override the result of an earlier round. For example, if the first round result is $a < b$, while the second round result is $a > b$, then the second round's result will replace the first round's result. Since higher-order digits have higher priority than lower-order digits, we should sort the lower digits first and then sort the higher digits.
 
-## Algorithm characteristics
+## Algorithm Characteristics
 
 Compared to counting sort, radix sort is suitable for larger numerical ranges, **but the prerequisite is that the data must be representable in a fixed number of digits, and the number of digits should not be too large**. For example, floating-point numbers are not suitable for radix sort because their number of digits $k$ may be too large, potentially leading to time complexity $O(nk) \gg O(n^2)$.
 

@@ -1,5 +1,7 @@
 # Summary
 
+### Key Review
+
 - Dynamic programming decomposes problems and avoids redundant computation by storing the solutions to subproblems, thereby significantly improving computational efficiency.
 - Without considering time constraints, all dynamic programming problems can be solved using backtracking (brute force search), but the recursion tree contains a large number of overlapping subproblems, resulting in extremely low efficiency. By introducing a memo list, we can store the solutions to all computed subproblems, ensuring that overlapping subproblems are only computed once.
 - Memoization is a top-down recursive solution, while the corresponding dynamic programming is a bottom-up iterative solution, similar to "filling in a table". Since the current state only depends on certain local states, we can eliminate one dimension of the $dp$ table to reduce space complexity.

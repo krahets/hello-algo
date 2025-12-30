@@ -1,4 +1,4 @@
-# Edit distance problem
+# Edit Distance Problem
 
 Edit distance, also known as Levenshtein distance, refers to the minimum number of edits required to transform one string into another, commonly used in information retrieval and natural language processing to measure the similarity between two sequences.
 
@@ -20,7 +20,7 @@ From the perspective of the decision tree, the goal of this problem is to find t
 
 ![Representing edit distance problem based on decision tree model](edit_distance_problem.assets/edit_distance_decision_tree.png)
 
-### Dynamic programming approach
+### Dynamic Programming Approach
 
 **Step 1: Think about the decisions in each round, define the state, and thus obtain the $dp$ table**
 
@@ -65,7 +65,7 @@ When both strings are empty, the number of edit steps is $0$, i.e., $dp[0, 0] = 
 
 Observing the state transition equation, the solution $dp[i, j]$ depends on solutions to the left, above, and upper-left, so the entire $dp$ table can be traversed in order through two nested loops.
 
-### Code implementation
+### Code Implementation
 
 ```src
 [file]{edit_distance}-[class]{}-[func]{edit_distance_dp}
@@ -118,7 +118,7 @@ As shown in the figure below, the state transition process for the edit distance
 === "<15>"
     ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.png)
 
-### Space optimization
+### Space Optimization
 
 Since $dp[i, j]$ is transferred from the solutions above $dp[i-1, j]$, to the left $dp[i, j-1]$, and to the upper-left $dp[i-1, j-1]$, forward traversal will lose the upper-left solution $dp[i-1, j-1]$, and reverse traversal cannot build $dp[i, j-1]$ in advance, so neither traversal order is feasible.
 

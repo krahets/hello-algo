@@ -9,7 +9,7 @@ package chapter_computational_complexity;
 import java.util.*;
 
 public class worst_best_time_complexity {
-    /* Generate an array with elements {1, 2, ..., n} in a randomly shuffled order */
+    /* Generate an array with elements { 1, 2, ..., n }, order shuffled */
     static int[] randomNumbers(int n) {
         Integer[] nums = new Integer[n];
         // Generate array nums = { 1, 2, 3, ..., n }
@@ -29,8 +29,8 @@ public class worst_best_time_complexity {
     /* Find the index of number 1 in array nums */
     static int findOne(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            // When element 1 is at the start of the array, achieve best time complexity O(1)
-            // When element 1 is at the end of the array, achieve worst time complexity O(n)
+            // When element 1 is at the head of the array, best time complexity O(1) is achieved
+            // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
             if (nums[i] == 1)
                 return i;
         }
@@ -43,8 +43,8 @@ public class worst_best_time_complexity {
             int n = 100;
             int[] nums = randomNumbers(n);
             int index = findOne(nums);
-            System.out.println("\nThe array [ 1, 2, ..., n ] after being shuffled = " + Arrays.toString(nums));
-            System.out.println("The index of number 1 is " + index);
+            System.out.println("\nArray [ 1, 2, ..., n ] after shuffling = " + Arrays.toString(nums));
+            System.out.println("Index of number 1 is " + index);
         }
     }
 }

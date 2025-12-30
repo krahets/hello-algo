@@ -1,6 +1,6 @@
-# Introduction to algorithms
+# Encounter with Algorithms
 
-![Introduction to algorithms](../assets/covers/chapter_introduction.jpg)
+![Encounter with Algorithms](../assets/covers/chapter_introduction.jpg)
 
 !!! abstract
 

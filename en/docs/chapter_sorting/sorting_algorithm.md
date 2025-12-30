@@ -1,4 +1,4 @@
-# Sorting algorithm
+# Sorting Algorithm
 
 <u>Sorting algorithm (sorting algorithm)</u> is used to arrange a group of data in a specific order. Sorting algorithms have extensive applications because ordered data can usually be searched, analyzed, and processed more efficiently.
 
@@ -6,7 +6,7 @@ As shown in the figure below, data types in sorting algorithms can be integers, 
 
 ![Data type and criterion examples](sorting_algorithm.assets/sorting_examples.png)
 
-## Evaluation dimensions
+## Evaluation Dimensions
 
 **Execution efficiency**: We expect the time complexity of sorting algorithms to be as low as possible, with a smaller total number of operations (reducing the constant factor in time complexity). For large data volumes, execution efficiency is particularly important.
 
@@ -17,7 +17,7 @@ As shown in the figure below, data types in sorting algorithms can be integers, 
 Stable sorting is a necessary condition for multi-level sorting scenarios. Suppose we have a table storing student information, where column 1 and column 2 are name and age, respectively. In this case, <u>unstable sorting</u> may cause the ordered nature of the input data to be lost:
 
 ```shell
-# Input data is sorted by name
+# Input Data Is Sorted by Name
 # (name, age)
   ('A', 19)
   ('B', 18)
@@ -25,9 +25,9 @@ Stable sorting is a necessary condition for multi-level sorting scenarios. Suppo
   ('D', 19)
   ('E', 23)
 
-# Assuming we use an unstable sorting algorithm to sort the list by age,
-# in the result, the relative positions of ('D', 19) and ('A', 19) are changed,
-# and the property that the input data is sorted by name is lost
+# Assuming We Use an Unstable Sorting Algorithm to Sort the List by Age,
+# In the Result, the Relative Positions of ('D', 19) and ('A', 19) Are Changed,
+# And the Property That the Input Data Is Sorted by Name Is Lost
   ('B', 18)
   ('D', 19)
   ('A', 19)
@@ -39,7 +39,7 @@ Stable sorting is a necessary condition for multi-level sorting scenarios. Suppo
 
 **Comparison-based or not**: <u>Comparison-based sorting</u> relies on comparison operators ($<$, $=$, $>$) to determine the relative order of elements, thereby sorting the entire array, with a theoretical optimal time complexity of $O(n \log n)$. <u>Non-comparison sorting</u> does not use comparison operators and can achieve a time complexity of $O(n)$, but its versatility is relatively limited.
 
-## Ideal sorting algorithm
+## Ideal Sorting Algorithm
 
 **Fast execution, in-place, stable, adaptive, good versatility**. Clearly, no sorting algorithm has been discovered to date that combines all of these characteristics. Therefore, when selecting a sorting algorithm, it is necessary to decide based on the specific characteristics of the data and the requirements of the problem.
 

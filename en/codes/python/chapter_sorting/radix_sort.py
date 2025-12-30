@@ -66,4 +66,4 @@ if __name__ == "__main__":
         63832996,
     ]
     radix_sort(nums)
-    print("Radix sort completed nums =", nums)
+    print("After radix sort, nums =", nums)

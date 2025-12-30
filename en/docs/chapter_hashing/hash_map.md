@@ -1,4 +1,4 @@
-# Hash table
+# Hash Table
 
 A <u>hash table</u>, also known as a <u>hash map</u>, establishes a mapping between keys `key` and values `value`, enabling efficient element retrieval. Specifically, when we input a key `key` into a hash table, we can retrieve the corresponding value `value` in $O(1)$ time.
 
@@ -22,7 +22,7 @@ In addition to hash tables, arrays and linked lists can also implement query fun
 
 As observed, **the time complexity for insertion, deletion, search, and modification operations in a hash table is $O(1)$**, which is very efficient.
 
-## Common hash table operations
+## Common Hash Table Operations
 
 Common operations on hash tables include: initialization, query operations, adding key-value pairs, and deleting key-value pairs. Example code is as follows:
 
@@ -34,11 +34,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     # Add operation
     # Add key-value pair (key, value) to hash table
-    hmap[12836] = "小哈"
-    hmap[15937] = "小啰"
-    hmap[16750] = "小算"
-    hmap[13276] = "小法"
-    hmap[10583] = "小鸭"
+    hmap[12836] = "XiaoHa"
+    hmap[15937] = "XiaoLuo"
+    hmap[16750] = "XiaoSuan"
+    hmap[13276] = "XiaoFa"
+    hmap[10583] = "XiaoYa"
 
     # Query operation
     # Input key into hash table to get value
@@ -57,11 +57,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map[12836] = "小哈";
-    map[15937] = "小啰";
-    map[16750] = "小算";
-    map[13276] = "小法";
-    map[10583] = "小鸭";
+    map[12836] = "XiaoHa";
+    map[15937] = "XiaoLuo";
+    map[16750] = "XiaoSuan";
+    map[13276] = "XiaoFa";
+    map[10583] = "XiaoYa";
 
     /* Query operation */
     // Input key into hash table to get value
@@ -80,11 +80,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map.put(12836, "小哈");
-    map.put(15937, "小啰");
-    map.put(16750, "小算");
-    map.put(13276, "小法");
-    map.put(10583, "小鸭");
+    map.put(12836, "XiaoHa");
+    map.put(15937, "XiaoLuo");
+    map.put(16750, "XiaoSuan");
+    map.put(13276, "XiaoFa");
+    map.put(10583, "XiaoYa");
 
     /* Query operation */
     // Input key into hash table to get value
@@ -102,11 +102,11 @@ Common operations on hash tables include: initialization, query operations, addi
     Dictionary<int, string> map = new() {
         /* Add operation */
         // Add key-value pair (key, value) to hash table
-        { 12836, "小哈" },
-        { 15937, "小啰" },
-        { 16750, "小算" },
-        { 13276, "小法" },
-        { 10583, "小鸭" }
+        { 12836, "XiaoHa" },
+        { 15937, "XiaoLuo" },
+        { 16750, "XiaoSuan" },
+        { 13276, "XiaoFa" },
+        { 10583, "XiaoYa" }
     };
 
     /* Query operation */
@@ -126,11 +126,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    hmap[12836] = "小哈"
-    hmap[15937] = "小啰"
-    hmap[16750] = "小算"
-    hmap[13276] = "小法"
-    hmap[10583] = "小鸭"
+    hmap[12836] = "XiaoHa"
+    hmap[15937] = "XiaoLuo"
+    hmap[16750] = "XiaoSuan"
+    hmap[13276] = "XiaoFa"
+    hmap[10583] = "XiaoYa"
 
     /* Query operation */
     // Input key into hash table to get value
@@ -149,11 +149,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map[12836] = "小哈"
-    map[15937] = "小啰"
-    map[16750] = "小算"
-    map[13276] = "小法"
-    map[10583] = "小鸭"
+    map[12836] = "XiaoHa"
+    map[15937] = "XiaoLuo"
+    map[16750] = "XiaoSuan"
+    map[13276] = "XiaoFa"
+    map[10583] = "XiaoYa"
 
     /* Query operation */
     // Input key into hash table to get value
@@ -171,11 +171,11 @@ Common operations on hash tables include: initialization, query operations, addi
     const map = new Map();
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map.set(12836, '小哈');
-    map.set(15937, '小啰');
-    map.set(16750, '小算');
-    map.set(13276, '小法');
-    map.set(10583, '小鸭');
+    map.set(12836, 'XiaoHa');
+    map.set(15937, 'XiaoLuo');
+    map.set(16750, 'XiaoSuan');
+    map.set(13276, 'XiaoFa');
+    map.set(10583, 'XiaoYa');
 
     /* Query operation */
     // Input key into hash table to get value
@@ -193,11 +193,11 @@ Common operations on hash tables include: initialization, query operations, addi
     const map = new Map<number, string>();
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map.set(12836, '小哈');
-    map.set(15937, '小啰');
-    map.set(16750, '小算');
-    map.set(13276, '小法');
-    map.set(10583, '小鸭');
+    map.set(12836, 'XiaoHa');
+    map.set(15937, 'XiaoLuo');
+    map.set(16750, 'XiaoSuan');
+    map.set(13276, 'XiaoFa');
+    map.set(10583, 'XiaoYa');
     console.info('\nAfter adding, hash table is\nKey -> Value');
     console.info(map);
 
@@ -221,11 +221,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map[12836] = "小哈";
-    map[15937] = "小啰";
-    map[16750] = "小算";
-    map[13276] = "小法";
-    map[10583] = "小鸭";
+    map[12836] = "XiaoHa";
+    map[15937] = "XiaoLuo";
+    map[16750] = "XiaoSuan";
+    map[13276] = "XiaoFa";
+    map[10583] = "XiaoYa";
 
     /* Query operation */
     // Input key into hash table to get value
@@ -246,11 +246,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map.insert(12836, "小哈".to_string());
-    map.insert(15937, "小啰".to_string());
-    map.insert(16750, "小算".to_string());
-    map.insert(13279, "小法".to_string());
-    map.insert(10583, "小鸭".to_string());
+    map.insert(12836, "XiaoHa".to_string());
+    map.insert(15937, "XiaoLuo".to_string());
+    map.insert(16750, "XiaoSuan".to_string());
+    map.insert(13279, "XiaoFa".to_string());
+    map.insert(10583, "XiaoYa".to_string());
 
     /* Query operation */
     // Input key into hash table to get value
@@ -275,11 +275,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map[12836] = "小哈"
-    map[15937] = "小啰"
-    map[16750] = "小算"
-    map[13276] = "小法"
-    map[10583] = "小鸭"
+    map[12836] = "XiaoHa"
+    map[15937] = "XiaoLuo"
+    map[16750] = "XiaoSuan"
+    map[13276] = "XiaoFa"
+    map[10583] = "XiaoYa"
 
     /* Query operation */
     // Input key into hash table to get value
@@ -298,11 +298,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     # Add operation
     # Add key-value pair (key, value) to hash table
-    hmap[12836] = "小哈"
-    hmap[15937] = "小啰"
-    hmap[16750] = "小算"
-    hmap[13276] = "小法"
-    hmap[10583] = "小鸭"
+    hmap[12836] = "XiaoHa"
+    hmap[15937] = "XiaoLuo"
+    hmap[16750] = "XiaoSuan"
+    hmap[13276] = "XiaoFa"
+    hmap[10583] = "XiaoYa"
 
     # Query operation
     # Input key into hash table to get value
@@ -550,7 +550,7 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 
     https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&cumulative=false&curInstr=8&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-## Simple hash table implementation
+## Simple Hash Table Implementation
 
 Let's first consider the simplest case: **implementing a hash table using only an array**. In a hash table, each empty position in the array is called a <u>bucket</u>, and each bucket can store a key-value pair. Therefore, the query operation is to find the bucket corresponding to `key` and retrieve the `value` from the bucket.
 
@@ -577,7 +577,7 @@ The following code implements a simple hash table. Here, we encapsulate `key` an
 [file]{array_hash_map}-[class]{array_hash_map}-[func]{}
 ```
 
-## Hash collision and resizing
+## Hash Collision and Resizing
 
 Fundamentally, the role of a hash function is to map the input space consisting of all `key`s to the output space consisting of all array indices, and the input space is often much larger than the output space. Therefore, **theoretically there must be cases where "multiple inputs correspond to the same output"**.
 

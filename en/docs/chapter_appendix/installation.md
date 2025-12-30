@@ -1,6 +1,6 @@
 # Programming Environment Installation
 
-## Installing IDE
+## Installing Ide
 
 We recommend using the open-source and lightweight VS Code as the local integrated development environment (IDE). Visit the [VS Code official website](https://code.visualstudio.com/), and download and install the appropriate version of VS Code according to your operating system.
 
@@ -18,7 +18,7 @@ VS Code has a powerful ecosystem of extensions that supports running and debuggi
 2. Search for `python` in the VS Code extension marketplace and install the Python Extension Pack.
 3. (Optional) Enter `pip install black` on the command line to install the code formatter.
 
-### C/C++ Environment
+### C/c++ Environment
 
 1. Windows systems need to install [MinGW](https://sourceforge.net/projects/mingw-w64/files/) ([configuration tutorial](https://blog.csdn.net/qq_33698226/article/details/129031241)); macOS comes with Clang built-in and does not require installation.
 2. Search for `c++` in the VS Code extension marketplace and install the C/C++ Extension Pack.
@@ -46,12 +46,12 @@ VS Code has a powerful ecosystem of extensions that supports running and debuggi
 1. Download and install [Swift](https://www.swift.org/download/).
 2. Search for `swift` in the VS Code extension marketplace and install [Swift for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang).
 
-### JavaScript Environment
+### Javascript Environment
 
 1. Download and install [Node.js](https://nodejs.org/en/).
 2. (Optional) Search for `Prettier` in the VS Code extension marketplace and install the code formatter.
 
-### TypeScript Environment
+### Typescript Environment
 
 1. Follow the same installation steps as the JavaScript environment.
 2. Install [TypeScript Execute (tsx)](https://github.com/privatenumber/tsx?tab=readme-ov-file#global-installation).

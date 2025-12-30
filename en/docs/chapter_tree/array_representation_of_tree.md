@@ -1,10 +1,10 @@
-# Array representation of binary trees
+# Array Representation of Binary Trees
 
 Under the linked list representation, the storage unit of a binary tree is a node `TreeNode`, and nodes are connected by pointers. The previous section introduced the basic operations of binary trees under the linked list representation.
 
 So, can we use an array to represent a binary tree? The answer is yes.
 
-## Representing perfect binary trees
+## Representing Perfect Binary Trees
 
 Let's analyze a simple case first. Given a perfect binary tree, we store all nodes in an array according to the order of level-order traversal, where each node corresponds to a unique array index.
 
@@ -14,7 +14,7 @@ Based on the characteristics of level-order traversal, we can derive a "mapping 
 
 **The mapping formula plays a role similar to the node references (pointers) in linked lists**. Given any node in the array, we can access its left (right) child node using the mapping formula.
 
-## Representing any binary tree
+## Representing Any Binary Tree
 
 Perfect binary trees are a special case; in the middle levels of a binary tree, there are typically many `None` values. Since the level-order traversal sequence does not include these `None` values, we cannot infer the number and distribution of `None` values based on this sequence alone. **This means multiple binary tree structures can correspond to the same level-order traversal sequence**.
 
@@ -151,7 +151,7 @@ The following code implements a binary tree based on array representation, inclu
 [file]{array_binary_tree}-[class]{array_binary_tree}-[func]{}
 ```
 
-## Advantages and limitations
+## Advantages and Limitations
 
 The array representation of binary trees has the following advantages:
 

@@ -9,25 +9,25 @@
 
 /* Backtracking */
 void backtrack(vector<int> &choices, int state, int n, vector<int> &res) {
-    // When climbing to the nth step, add 1 to the number of solutions
+    // When climbing to the n-th stair, add 1 to the solution count
     if (state == n)
         res[0]++;
     // Traverse all choices
     for (auto &choice : choices) {
-        // Pruning: do not allow climbing beyond the nth step
+        // Pruning: not allowed to go beyond the n-th stair
         if (state + choice > n)
             continue;
-        // Attempt: make a choice, update the state
+        // Attempt: make choice, update state
         backtrack(choices, state + choice, n, res);
-        // Retract
+        // Backtrack
     }
 }
 
 /* Climbing stairs: Backtracking */
 int climbingStairsBacktrack(int n) {
-    vector<int> choices = {1, 2}; // Can choose to climb up 1 step or 2 steps
-    int state = 0;                // Start climbing from the 0th step
-    vector<int> res = {0};        // Use res[0] to record the number of solutions
+    vector<int> choices = {1, 2}; // Can choose to climb up 1 or 2 stairs
+    int state = 0;                // Start climbing from the 0-th stair
+    vector<int> res = {0};        // Use res[0] to record the solution count
     backtrack(choices, state, n, res);
     return res[0];
 }
@@ -37,7 +37,7 @@ int main() {
     int n = 9;
 
     int res = climbingStairsBacktrack(n);
-    cout << "There are " << res << " solutions to climb " << n << " stairs" << endl;
+    cout << "Climbing " << n << " stairs has " << res << " solutions" << endl;
 
     return 0;
 }

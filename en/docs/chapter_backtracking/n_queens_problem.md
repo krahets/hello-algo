@@ -1,4 +1,4 @@
-# n-queens problem
+# N-Queens Problem
 
 !!! question
 
@@ -12,7 +12,7 @@ The figure below illustrates the three constraints of this problem: **multiple q
 
 ![Constraints of the n-queens problem](n_queens_problem.assets/n_queens_constraints.png)
 
-### Row-by-row placement strategy
+### Row-By-Row Placement Strategy
 
 Since both the number of queens and the number of rows on the chessboard are $n$, we can easily derive a conclusion: **each row of the chessboard allows and only allows exactly one queen to be placed**.
 
@@ -24,7 +24,7 @@ The figure below shows the row-by-row placement process for the 4-queens problem
 
 Essentially, **the row-by-row placement strategy serves a pruning function**, as it avoids all search branches where multiple queens appear in the same row.
 
-### Column and diagonal pruning
+### Column and Diagonal Pruning
 
 To satisfy the column constraint, we can use a boolean array `cols` of length $n$ to record whether each column has a queen. Before each placement decision, we use `cols` to prune columns that already have queens, and dynamically update the state of `cols` during backtracking.
 
@@ -40,7 +40,7 @@ Similarly, **for all squares on an anti-diagonal, the sum $row + col$ is a const
 
 ![Handling column and diagonal constraints](n_queens_problem.assets/n_queens_cols_diagonals.png)
 
-### Code implementation
+### Code Implementation
 
 Please note that in an $n$-dimensional square matrix, the range of $row - col$ is $[-n + 1, n - 1]$, and the range of $row + col$ is $[0, 2n - 2]$. Therefore, the number of both main diagonals and anti-diagonals is $2n - 1$, meaning the length of both arrays `diags1` and `diags2` is $2n - 1$.
 

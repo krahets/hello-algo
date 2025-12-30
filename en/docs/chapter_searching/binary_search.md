@@ -1,4 +1,4 @@
-# Binary search
+# Binary Search
 
 <u>Binary search</u> is an efficient searching algorithm based on the divide-and-conquer strategy. It leverages the orderliness of data to reduce the search range by half in each round until the target element is found or the search interval becomes empty.
 
@@ -53,7 +53,7 @@ The code is shown below:
 
 **Space complexity is $O(1)$**: Pointers $i$ and $j$ use constant-size space.
 
-## Interval representation methods
+## Interval Representation Methods
 
 In addition to the closed interval mentioned above, another common interval representation is the "left-closed right-open" interval, defined as $[0, n)$, meaning the left boundary includes itself while the right boundary does not. Under this representation, the interval $[i, j)$ is empty when $i = j$.
 
@@ -69,7 +69,7 @@ Since both the left and right boundaries in the "closed interval" representation
 
 ![Two interval definitions](binary_search.assets/binary_search_ranges.png)
 
-## Advantages and limitations
+## Advantages and Limitations
 
 Binary search performs well in both time and space aspects.
 

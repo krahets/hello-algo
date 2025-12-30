@@ -2,11 +2,15 @@ name: Kotlin
 
 on:
   push:
-    branches: [ "main" ]
-    paths: ["codes/kotlin/**/*.kt"]
+    branches: ["main"]
+    paths:
+      - "codes/kotlin/**/*.kt"
+      - "en/codes/kotlin/**/*.kt"
   pull_request:
-    branches: [ "main" ]
-    paths: ["codes/kotlin/**/*.kt"]
+    branches: ["main"]
+    paths:
+      - "codes/kotlin/**/*.kt"
+      - "en/codes/kotlin/**/*.kt"
   workflow_dispatch:
 
 jobs:
@@ -14,11 +18,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        os: [ubuntu-latest, macos-latest]
+        code-dir: ["codes/kotlin", "en/codes/kotlin"]
 
     name: Kotlin on ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4.1.2
 
       - name: Build JAR
-        run: kotlinc codes/kotlin/**/*.kt -include-runtime -d codes/kotlin/build/test.jar
+        run: kotlinc ${{ matrix.code-dir }}/**/*.kt -include-runtime -d ${{ matrix.code-dir }}/build/test.jar

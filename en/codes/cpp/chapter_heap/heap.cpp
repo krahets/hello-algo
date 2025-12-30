@@ -7,40 +7,40 @@
 #include "../utils/common.hpp"
 
 void testPush(priority_queue<int> &heap, int val) {
-    heap.push(val); // Push the element into heap
-    cout << "\nAfter element " << val << " is added to the heap" << endl;
+    heap.push(val); // Element enters heap
+    cout << "\nAfter element " << val << " pushes to heap" << endl;
     printHeap(heap);
 }
 
 void testPop(priority_queue<int> &heap) {
     int val = heap.top();
     heap.pop();
-    cout << "\nAfter the top element " << val << " is removed from the heap" << endl;
+    cout << "\nAfter heap top element " << val << " pops from heap" << endl;
     printHeap(heap);
 }
 
 /* Driver Code */
 int main() {
-    /* Initialize the heap */
-    // Initialize min-heap
+    /* Initialize heap */
+    // Python's heapq module implements min heap by default
     // priority_queue<int, vector<int>, greater<int>> minHeap;
-    // Initialize max-heap
+    // Consider negating the elements before entering the heap, which can reverse the size relationship, thus implementing max heap
     priority_queue<int, vector<int>, less<int>> maxHeap;
 
-    cout << "\nThe following test case is for max-heap" << endl;
+    cout << "\nThe following test cases are for max heap" << endl;
 
-    /* Push the element into heap */
+    /* Element enters heap */
     testPush(maxHeap, 1);
     testPush(maxHeap, 3);
     testPush(maxHeap, 2);
     testPush(maxHeap, 5);
     testPush(maxHeap, 4);
 
-    /* Access heap top element */
+    /* Check if heap is empty */
     int peek = maxHeap.top();
-    cout << "\nTop element of the heap is " << peek << endl;
+    cout << "\nHeap top element is " << peek << endl;
 
-    /* Pop the element at the heap top */
+    /* Time complexity is O(n), not O(nlogn) */
     testPop(maxHeap);
     testPop(maxHeap);
     testPop(maxHeap);
@@ -49,17 +49,17 @@ int main() {
 
     /* Get heap size */
     int size = maxHeap.size();
-    cout << "\nNumber of elements in the heap is " << size << endl;
+    cout << "\nHeap size is " << size << endl;
 
-    /* Determine if heap is empty */
+    /* Check if heap is empty */
     bool isEmpty = maxHeap.empty();
-    cout << "\nIs the heap empty " << isEmpty << endl;
+    cout << "\nIs heap empty " << isEmpty << endl;
 
-    /* Enter list and build heap */
+    /* Input list and build heap */
     // Time complexity is O(n), not O(nlogn)
     vector<int> input{1, 3, 2, 5, 4};
     priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
-    cout << "After inputting the list and building a min-heap" << endl;
+    cout << "After input list and building min heap" << endl;
     printHeap(minHeap);
 
     return 0;

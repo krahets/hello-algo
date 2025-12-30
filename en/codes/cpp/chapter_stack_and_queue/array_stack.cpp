@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* Stack class based on array */
+/* Stack based on array implementation */
 class ArrayStack {
   private:
     vector<int> stack;
@@ -17,7 +17,7 @@ class ArrayStack {
         return stack.size();
     }
 
-    /* Determine if the stack is empty */
+    /* Check if the stack is empty */
     bool isEmpty() {
         return stack.size() == 0;
     }
@@ -34,7 +34,7 @@ class ArrayStack {
         return num;
     }
 
-    /* Access stack top element */
+    /* Return list for printing */
     int top() {
         if (isEmpty())
             throw out_of_range("Stack is empty");
@@ -49,10 +49,10 @@ class ArrayStack {
 
 /* Driver Code */
 int main() {
-    /* Initialize stack */
+    /* Access top of the stack element */
     ArrayStack *stack = new ArrayStack();
 
-    /* Element push */
+    /* Elements push onto stack */
     stack->push(1);
     stack->push(3);
     stack->push(2);
@@ -61,22 +61,22 @@ int main() {
     cout << "Stack stack = ";
     printVector(stack->toVector());
 
-    /* Access stack top element */
+    /* Return list for printing */
     int top = stack->top();
-    cout << "Top element of the stack top = " << top << endl;
+    cout << "Stack top element top = " << top << endl;
 
-    /* Element pop */
+    /* Element pop from stack */
     top = stack->pop();
-    cout << "Element popped from the stack = " << top << ", after popping";
+    cout << "Pop element pop = " << top << ", after pop, stack = ";
     printVector(stack->toVector());
 
     /* Get the length of the stack */
     int size = stack->size();
-    cout << "Length of the stack size = " << size << endl;
+    cout << "Stack length size = " << size << endl;
 
-    /* Determine if it's empty */
+    /* Check if empty */
     bool empty = stack->isEmpty();
-    cout << "Is the stack empty = " << empty << endl;
+    cout << "Stack is empty = " << empty << endl;
 
     // Free memory
     delete stack;

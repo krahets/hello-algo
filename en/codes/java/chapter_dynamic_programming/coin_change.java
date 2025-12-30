@@ -19,14 +19,14 @@ public class coin_change {
         for (int a = 1; a <= amt; a++) {
             dp[0][a] = MAX;
         }
-        // State transition: the rest of the rows and columns
+        // State transition: rest of the rows and columns
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeding the target amount, do not choose coin i
+                    // If exceeds target amount, don't select coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // The smaller value between not choosing and choosing coin i
+                    // The smaller value between not selecting and selecting coin i
                     dp[i][a] = Math.min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
                 }
             }
@@ -46,10 +46,10 @@ public class coin_change {
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeding the target amount, do not choose coin i
+                    // If exceeds target amount, don't select coin i
                     dp[a] = dp[a];
                 } else {
-                    // The smaller value between not choosing and choosing coin i
+                    // The smaller value between not selecting and selecting coin i
                     dp[a] = Math.min(dp[a], dp[a - coins[i - 1]] + 1);
                 }
             }
@@ -63,10 +63,10 @@ public class coin_change {
 
         // Dynamic programming
         int res = coinChangeDP(coins, amt);
-        System.out.println("The minimum number of coins required to make up the target amount is " + res);
+        System.out.println("Minimum number of coins needed to make target amount is " + res);
 
         // Space-optimized dynamic programming
         res = coinChangeDPComp(coins, amt);
-        System.out.println("The minimum number of coins required to make up the target amount is " + res);
+        System.out.println("Minimum number of coins needed to make target amount is " + res);
     }
 }

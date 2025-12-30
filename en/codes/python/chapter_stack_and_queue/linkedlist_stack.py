@@ -12,7 +12,7 @@ from modules import ListNode
 
 
 class LinkedListStack:
-    """Stack class based on linked list"""
+    """Stack based on linked list implementation"""
 
     def __init__(self):
         """Constructor"""
@@ -24,7 +24,7 @@ class LinkedListStack:
         return self._size
 
     def is_empty(self) -> bool:
-        """Determine if the stack is empty"""
+        """Check if the stack is empty"""
         return self._size == 0
 
     def push(self, val: int):
@@ -42,13 +42,13 @@ class LinkedListStack:
         return num
 
     def peek(self) -> int:
-        """Access stack top element"""
+        """Access top of the stack element"""
         if self.is_empty():
             raise IndexError("Stack is empty")
         return self._peek.val
 
     def to_list(self) -> list[int]:
-        """Convert to a list for printing"""
+        """Convert to list for printing"""
         arr = []
         node = self._peek
         while node:
@@ -63,27 +63,27 @@ if __name__ == "__main__":
     # Initialize stack
     stack = LinkedListStack()
 
-    # Element push
+    # Elements push onto stack
     stack.push(1)
     stack.push(3)
     stack.push(2)
     stack.push(5)
     stack.push(4)
-    print("Stack stack =", stack.to_list())
+    print("stack =", stack.to_list())
 
-    # Access stack top element
+    # Access top of the stack element
     peek: int = stack.peek()
-    print("Stack top element peek =", peek)
+    print("Top of the stack element peek =", peek)
 
-    # Element pop
+    # Element pop from stack
     pop: int = stack.pop()
     print("Popped element pop =", pop)
-    print("Stack after pop =", stack.to_list())
+    print("After pop stack =", stack.to_list())
 
     # Get the length of the stack
     size: int = stack.size()
-    print("Stack length size =", size)
+    print("Length of the stack size =", size)
 
-    # Determine if it's empty
+    # Check if it is empty
     is_empty: bool = stack.is_empty()
     print("Is the stack empty =", is_empty)

@@ -1,6 +1,6 @@
 # Summary
 
-### Key review
+### Key Review
 
 - Graphs consist of vertices and edges and can be represented as a set of vertices and a set of edges.
 - Compared to linear relationships (linked lists) and divide-and-conquer relationships (trees), network relationships (graphs) have a higher degree of freedom and are therefore more complex.

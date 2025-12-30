@@ -6,10 +6,14 @@ name: Python
 on:
   push:
     branches: ["main"]
-    paths: ["codes/python/**/*.py"]
+    paths:
+      - "codes/python/**/*.py"
+      - "en/codes/python/**/*.py"
   pull_request:
     branches: ["main"]
-    paths: ["codes/python/**/*.py"]
+    paths:
+      - "codes/python/**/*.py"
+      - "en/codes/python/**/*.py"
   workflow_dispatch:
 
 permissions:
@@ -22,7 +26,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.10", "3.11"]
+        python-version: ["3.10"]
+        code-dir: ["codes/python", "en/codes/python"]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
@@ -35,7 +40,7 @@ jobs:
           pip install black
       - name: Lint with black
         run: |
-          black codes/python
+          black ${{ matrix.code-dir }}
       - name: Test python code
         run: |
-          python codes/python/test_all.py
+          cd ${{ matrix.code-dir }} && python test_all.py

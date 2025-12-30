@@ -8,10 +8,10 @@
 
 /* Driver Code */
 int main() {
-    /* Initialize double-ended queue */
+    /* Get the length of the double-ended queue */
     deque<int> deque;
 
-    /* Element enqueue */
+    /* Elements enqueue */
     deque.push_back(2);
     deque.push_back(5);
     deque.push_back(4);
@@ -20,27 +20,27 @@ int main() {
     cout << "Double-ended queue deque = ";
     printDeque(deque);
 
-    /* Access element */
+    /* Update element */
     int front = deque.front();
-    cout << "Front element of the queue front = " << front << endl;
+    cout << "Front element front = " << front << endl;
     int back = deque.back();
-    cout << "Back element of the queue back = " << back << endl;
+    cout << "Back element back = " << back << endl;
 
     /* Element dequeue */
     deque.pop_front();
-    cout << "Front element dequeued = " << front << ", after dequeuing from the front";
+    cout << "Front dequeue element popFront = " << front << ", after front dequeue, deque = ";
     printDeque(deque);
     deque.pop_back();
-    cout << "Back element dequeued = " << back << ", after dequeuing from the back";
+    cout << "Rear dequeue element popLast = " << back << ", after rear dequeue, deque = ";
     printDeque(deque);
 
     /* Get the length of the double-ended queue */
     int size = deque.size();
-    cout << "Length of the double-ended queue size = " << size << endl;
+    cout << "Double-ended queue length size = " << size << endl;
 
-    /* Determine if the double-ended queue is empty */
+    /* Check if the double-ended queue is empty */
     bool empty = deque.empty();
-    cout << "Is the double-ended queue empty = " << empty << endl;
+    cout << "Double-ended queue is empty = " << empty << endl;
 
     return 0;
 }

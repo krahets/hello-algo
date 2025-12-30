@@ -1,4 +1,4 @@
-# Building a binary tree problem
+# Building a Binary Tree Problem
 
 !!! question
 
@@ -6,7 +6,7 @@
 
 ![Example data for building a binary tree](build_binary_tree_problem.assets/build_tree_example.png)
 
-### Determining if it is a divide and conquer problem
+### Determining If It Is a Divide and Conquer Problem
 
 The original problem is defined as constructing a binary tree from `preorder` and `inorder`, which is a typical divide and conquer problem.
 
@@ -14,7 +14,7 @@ The original problem is defined as constructing a binary tree from `preorder` an
 - **Subproblems are independent**: The left and right subtrees are independent of each other; there is no overlap between them. When constructing the left subtree, we only need to focus on the parts of the inorder and preorder traversals corresponding to the left subtree. The same applies to the right subtree.
 - **Solutions of subproblems can be merged**: Once we have the left and right subtrees (solutions of subproblems), we can link them to the root node to obtain the solution to the original problem.
 
-### How to divide subtrees
+### How to Divide Subtrees
 
 Based on the above analysis, this problem can be solved using divide and conquer, **but how do we divide the left and right subtrees through the preorder traversal `preorder` and inorder traversal `inorder`**?
 
@@ -31,7 +31,7 @@ Using the data from the figure above as an example, we can obtain the division r
 
 ![Dividing subtrees in preorder and inorder traversals](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
 
-### Describing subtree intervals based on variables
+### Describing Subtree Intervals Based on Variables
 
 Based on the above division method, **we have obtained the index intervals of the root node, left subtree, and right subtree in `preorder` and `inorder`**. To describe these index intervals, we need to use several pointer variables.
 
@@ -53,7 +53,7 @@ Please note that $(m-l)$ in the right subtree root node index means "the number 
 
 ![Index interval representation of root node and left and right subtrees](build_binary_tree_problem.assets/build_tree_division_pointers.png)
 
-### Code implementation
+### Code Implementation
 
 To improve the efficiency of querying $m$, we use a hash table `hmap` to store the mapping from elements in the `inorder` array to their indices:
 

@@ -17,7 +17,7 @@ public class counting_sort {
         for (int num : nums) {
             m = Math.max(m, num);
         }
-        // 2. Count the occurrence of each digit
+        // 2. Count the occurrence of each number
         // counter[num] represents the occurrence of num
         int[] counter = new int[m + 1];
         for (int num : nums) {
@@ -40,7 +40,7 @@ public class counting_sort {
         for (int num : nums) {
             m = Math.max(m, num);
         }
-        // 2. Count the occurrence of each digit
+        // 2. Count the occurrence of each number
         // counter[num] represents the occurrence of num
         int[] counter = new int[m + 1];
         for (int num : nums) {
@@ -69,10 +69,10 @@ public class counting_sort {
     public static void main(String[] args) {
         int[] nums = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
         countingSortNaive(nums);
-        System.out.println("After count sort (unable to sort objects), nums = " + Arrays.toString(nums));
+        System.out.println("After counting sort (cannot sort objects) completes, nums = " + Arrays.toString(nums));
 
         int[] nums1 = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
         countingSort(nums1);
-        System.out.println("After count sort, nums1 = " + Arrays.toString(nums1));
+        System.out.println("After counting sort completes, nums1 = " + Arrays.toString(nums1));
     }
 }

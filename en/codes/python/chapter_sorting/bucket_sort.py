@@ -29,7 +29,7 @@ def bucket_sort(nums: list[float]):
 
 
 if __name__ == "__main__":
-    # Assume input data is floating point, range [0, 1)
+    # Assume input data is floating point, interval [0, 1)
     nums = [0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37]
     bucket_sort(nums)
-    print("Bucket sort completed nums =", nums)
+    print("After bucket sort, nums =", nums)

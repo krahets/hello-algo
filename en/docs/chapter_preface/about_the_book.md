@@ -1,4 +1,4 @@
-# About this book
+# About This Book
 
 This project aims to create an open-source, free, beginner-friendly introductory tutorial on data structures and algorithms.
 
@@ -6,7 +6,7 @@ This project aims to create an open-source, free, beginner-friendly introductory
 - The source code can be run with one click, helping readers improve their programming skills through practice and understand how algorithms work and the underlying implementation of data structures.
 - We encourage readers to learn from each other, and everyone is welcome to ask questions and share insights in the comments section, making progress together through discussion and exchange.
 
-## Target audience
+## Target Audience
 
 If you are an algorithm beginner who has never been exposed to algorithms, or if you already have some problem-solving experience and have a vague understanding of data structures and algorithms, oscillating between knowing and not knowing, then this book is tailor-made for you!
 
@@ -18,7 +18,7 @@ If you are an algorithm "expert," we look forward to receiving your valuable sug
 
     You need to have at least a programming foundation in any language, and be able to read and write simple code.
 
-## Content structure
+## Content Structure
 
 The main content of this book is shown in the figure below.
 
@@ -47,6 +47,6 @@ During the creation of this book, I received help from many people.
 
 During the writing process, I read many textbooks and articles on data structures and algorithms. These works provided excellent examples for this book and ensured the accuracy and quality of the book's content. I would like to thank all the teachers and predecessors for their outstanding contributions!
 
-This book advocates a learning method that combines hands and brain, and in this regard I was deeply inspired by [*Dive into Deep Learning*](https://github.com/d2l-ai/d2l-zh). I highly recommend this excellent work to all readers.
+This book advocates a learning method that combines hands and brain, and in this regard I was deeply inspired by [Dive into Deep Learning](https://github.com/d2l-ai/d2l-zh). I highly recommend this excellent work to all readers.
 
 **Heartfelt thanks to my parents, it is your support and encouragement that has given me the opportunity to do this interesting thing**.

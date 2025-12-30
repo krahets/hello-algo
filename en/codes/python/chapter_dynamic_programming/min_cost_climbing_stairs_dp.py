@@ -6,13 +6,13 @@ Author: krahets (krahets@163.com)
 
 
 def min_cost_climbing_stairs_dp(cost: list[int]) -> int:
-    """Climbing stairs with minimum cost: Dynamic programming"""
+    """Minimum cost climbing stairs: Dynamic programming"""
     n = len(cost) - 1
     if n == 1 or n == 2:
         return cost[n]
-    # Initialize dp table, used to store subproblem solutions
+    # Initialize dp table, used to store solutions to subproblems
     dp = [0] * (n + 1)
-    # Initial state: preset the smallest subproblem solution
+    # Initial state: preset the solution to the smallest subproblem
     dp[1], dp[2] = cost[1], cost[2]
     # State transition: gradually solve larger subproblems from smaller ones
     for i in range(3, n + 1):
@@ -21,7 +21,7 @@ def min_cost_climbing_stairs_dp(cost: list[int]) -> int:
 
 
 def min_cost_climbing_stairs_dp_comp(cost: list[int]) -> int:
-    """Climbing stairs with minimum cost: Space-optimized dynamic programming"""
+    """Minimum cost climbing stairs: Space-optimized dynamic programming"""
     n = len(cost) - 1
     if n == 1 or n == 2:
         return cost[n]
@@ -34,10 +34,10 @@ def min_cost_climbing_stairs_dp_comp(cost: list[int]) -> int:
 """Driver Code"""
 if __name__ == "__main__":
     cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1]
-    print(f"Enter the list of stair costs as {cost}")
+    print(f"Input stair cost list is {cost}")
 
     res = min_cost_climbing_stairs_dp(cost)
-    print(f"Minimum cost to climb the stairs {res}")
+    print(f"The minimum cost to finish climbing the stairs is {res}")
 
     res = min_cost_climbing_stairs_dp_comp(cost)
-    print(f"Minimum cost to climb the stairs {res}")
+    print(f"The minimum cost to finish climbing the stairs is {res}")

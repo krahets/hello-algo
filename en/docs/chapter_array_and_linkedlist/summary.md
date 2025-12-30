@@ -1,6 +1,6 @@
 # Summary
 
-### Key Takeaways
+### Key Review
 
 - Arrays and linked lists are two fundamental data structures, representing two different ways data can be stored in computer memory: contiguous memory storage and scattered memory storage. The characteristics of the two complement each other.
 - Arrays support random access and use less memory; however, inserting and deleting elements is inefficient, and the length is immutable after initialization.
@@ -28,7 +28,7 @@ Linked lists are composed of nodes, with nodes connected through references (poi
 In contrast, array elements must be of the same type, so that the corresponding element position can be obtained by calculating the offset. For example, if an array contains both `int` and `long` types, with individual elements occupying 4 bytes and 8 bytes respectively, then the following formula cannot be used to calculate the offset, because the array contains two different "element lengths".
 
 ```shell
-# Element memory address = Array memory address (first element memory address) + Element length * Element index
+# Element Memory Address = Array Memory Address (first Element Memory address) + Element Length * Element Index
 ```
 
 **Q**: After deleting node `P`, do we need to set `P.next` to `None`?

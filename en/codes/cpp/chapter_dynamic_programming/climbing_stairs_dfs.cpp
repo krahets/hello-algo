@@ -26,7 +26,7 @@ int main() {
     int n = 9;
 
     int res = climbingStairsDFS(n);
-    cout << "There are " << res << " solutions to climb " << n << " stairs" << endl;
+    cout << "Climbing " << n << " stairs has " << res << " solutions" << endl;
 
     return 0;
 }

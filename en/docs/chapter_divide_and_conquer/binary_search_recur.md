@@ -1,4 +1,4 @@
-# Divide and conquer search strategy
+# Divide and Conquer Search Strategy
 
 We have already learned that search algorithms are divided into two major categories.
 
@@ -18,7 +18,7 @@ The divide and conquer strategy of binary search is as follows.
 
 Divide and conquer can improve search efficiency because brute-force search can only eliminate one option per round, **while divide and conquer search can eliminate half of the options per round**.
 
-### Implementing binary search based on divide and conquer
+### Implementing Binary Search Based on Divide and Conquer
 
 In previous sections, binary search was implemented based on iteration. Now we implement it based on divide and conquer (recursion).
 
