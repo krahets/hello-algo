@@ -34,11 +34,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     # Add operation
     # Add key-value pair (key, value) to hash table
-    hmap[12836] = "小哈"
-    hmap[15937] = "小啰"
-    hmap[16750] = "小算"
-    hmap[13276] = "小法"
-    hmap[10583] = "小鸭"
+    hmap[12836] = "XiaoHa"
+    hmap[15937] = "XiaoLuo"
+    hmap[16750] = "XiaoSuan"
+    hmap[13276] = "XiaoFa"
+    hmap[10583] = "XiaoYa"
 
     # Query operation
     # Input key into hash table to get value
@@ -57,11 +57,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map[12836] = "小哈";
-    map[15937] = "小啰";
-    map[16750] = "小算";
-    map[13276] = "小法";
-    map[10583] = "小鸭";
+    map[12836] = "XiaoHa";
+    map[15937] = "XiaoLuo";
+    map[16750] = "XiaoSuan";
+    map[13276] = "XiaoFa";
+    map[10583] = "XiaoYa";
 
     /* Query operation */
     // Input key into hash table to get value
@@ -80,11 +80,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map.put(12836, "小哈");
-    map.put(15937, "小啰");
-    map.put(16750, "小算");
-    map.put(13276, "小法");
-    map.put(10583, "小鸭");
+    map.put(12836, "XiaoHa");
+    map.put(15937, "XiaoLuo");
+    map.put(16750, "XiaoSuan");
+    map.put(13276, "XiaoFa");
+    map.put(10583, "XiaoYa");
 
     /* Query operation */
     // Input key into hash table to get value
@@ -102,11 +102,11 @@ Common operations on hash tables include: initialization, query operations, addi
     Dictionary<int, string> map = new() {
         /* Add operation */
         // Add key-value pair (key, value) to hash table
-        { 12836, "小哈" },
-        { 15937, "小啰" },
-        { 16750, "小算" },
-        { 13276, "小法" },
-        { 10583, "小鸭" }
+        { 12836, "XiaoHa" },
+        { 15937, "XiaoLuo" },
+        { 16750, "XiaoSuan" },
+        { 13276, "XiaoFa" },
+        { 10583, "XiaoYa" }
     };
 
     /* Query operation */
@@ -126,11 +126,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    hmap[12836] = "小哈"
-    hmap[15937] = "小啰"
-    hmap[16750] = "小算"
-    hmap[13276] = "小法"
-    hmap[10583] = "小鸭"
+    hmap[12836] = "XiaoHa"
+    hmap[15937] = "XiaoLuo"
+    hmap[16750] = "XiaoSuan"
+    hmap[13276] = "XiaoFa"
+    hmap[10583] = "XiaoYa"
 
     /* Query operation */
     // Input key into hash table to get value
@@ -149,11 +149,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map[12836] = "小哈"
-    map[15937] = "小啰"
-    map[16750] = "小算"
-    map[13276] = "小法"
-    map[10583] = "小鸭"
+    map[12836] = "XiaoHa"
+    map[15937] = "XiaoLuo"
+    map[16750] = "XiaoSuan"
+    map[13276] = "XiaoFa"
+    map[10583] = "XiaoYa"
 
     /* Query operation */
     // Input key into hash table to get value
@@ -171,11 +171,11 @@ Common operations on hash tables include: initialization, query operations, addi
     const map = new Map();
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map.set(12836, '小哈');
-    map.set(15937, '小啰');
-    map.set(16750, '小算');
-    map.set(13276, '小法');
-    map.set(10583, '小鸭');
+    map.set(12836, 'XiaoHa');
+    map.set(15937, 'XiaoLuo');
+    map.set(16750, 'XiaoSuan');
+    map.set(13276, 'XiaoFa');
+    map.set(10583, 'XiaoYa');
 
     /* Query operation */
     // Input key into hash table to get value
@@ -193,11 +193,11 @@ Common operations on hash tables include: initialization, query operations, addi
     const map = new Map<number, string>();
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map.set(12836, '小哈');
-    map.set(15937, '小啰');
-    map.set(16750, '小算');
-    map.set(13276, '小法');
-    map.set(10583, '小鸭');
+    map.set(12836, 'XiaoHa');
+    map.set(15937, 'XiaoLuo');
+    map.set(16750, 'XiaoSuan');
+    map.set(13276, 'XiaoFa');
+    map.set(10583, 'XiaoYa');
     console.info('\nAfter adding, hash table is\nKey -> Value');
     console.info(map);
 
@@ -221,11 +221,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map[12836] = "小哈";
-    map[15937] = "小啰";
-    map[16750] = "小算";
-    map[13276] = "小法";
-    map[10583] = "小鸭";
+    map[12836] = "XiaoHa";
+    map[15937] = "XiaoLuo";
+    map[16750] = "XiaoSuan";
+    map[13276] = "XiaoFa";
+    map[10583] = "XiaoYa";
 
     /* Query operation */
     // Input key into hash table to get value
@@ -246,11 +246,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map.insert(12836, "小哈".to_string());
-    map.insert(15937, "小啰".to_string());
-    map.insert(16750, "小算".to_string());
-    map.insert(13279, "小法".to_string());
-    map.insert(10583, "小鸭".to_string());
+    map.insert(12836, "XiaoHa".to_string());
+    map.insert(15937, "XiaoLuo".to_string());
+    map.insert(16750, "XiaoSuan".to_string());
+    map.insert(13279, "XiaoFa".to_string());
+    map.insert(10583, "XiaoYa".to_string());
 
     /* Query operation */
     // Input key into hash table to get value
@@ -275,11 +275,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     /* Add operation */
     // Add key-value pair (key, value) to hash table
-    map[12836] = "小哈"
-    map[15937] = "小啰"
-    map[16750] = "小算"
-    map[13276] = "小法"
-    map[10583] = "小鸭"
+    map[12836] = "XiaoHa"
+    map[15937] = "XiaoLuo"
+    map[16750] = "XiaoSuan"
+    map[13276] = "XiaoFa"
+    map[10583] = "XiaoYa"
 
     /* Query operation */
     // Input key into hash table to get value
@@ -298,11 +298,11 @@ Common operations on hash tables include: initialization, query operations, addi
 
     # Add operation
     # Add key-value pair (key, value) to hash table
-    hmap[12836] = "小哈"
-    hmap[15937] = "小啰"
-    hmap[16750] = "小算"
-    hmap[13276] = "小法"
-    hmap[10583] = "小鸭"
+    hmap[12836] = "XiaoHa"
+    hmap[15937] = "XiaoLuo"
+    hmap[16750] = "XiaoSuan"
+    hmap[13276] = "XiaoFa"
+    hmap[10583] = "XiaoYa"
 
     # Query operation
     # Input key into hash table to get value
