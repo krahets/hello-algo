@@ -1,8 +1,8 @@
-# Heap construction operation
+# Heap Construction Operation
 
 In some cases, we want to build a heap using all elements of a list, and this process is called "heap construction operation."
 
-## Implementing with element insertion
+## Implementing with Element Insertion
 
 We first create an empty heap, then iterate through the list, performing the "element insertion operation" on each element in sequence. This means adding the element to the bottom of the heap and then performing "bottom-to-top" heapify on that element.
 
@@ -10,7 +10,7 @@ Each time an element is inserted into the heap, the heap's length increases by o
 
 Given $n$ elements, each element's insertion operation takes $O(\log{n})$ time, so the time complexity of this heap construction method is $O(n \log n)$.
 
-## Implementing through heapify traversal
+## Implementing Through Heapify Traversal
 
 In fact, we can implement a more efficient heap construction method in two steps.
 
@@ -27,7 +27,7 @@ It's worth noting that **since leaf nodes have no children, they are naturally v
 [file]{my_heap}-[class]{max_heap}-[func]{__init__}
 ```
 
-## Complexity analysis
+## Complexity Analysis
 
 Next, let's attempt to derive the time complexity of this second heap construction method.
 

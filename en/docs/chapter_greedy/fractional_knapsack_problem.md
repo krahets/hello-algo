@@ -1,4 +1,4 @@
-# Fractional knapsack problem
+# Fractional Knapsack Problem
 
 !!! question
 
@@ -15,7 +15,7 @@ The difference is that this problem allows selecting only a portion of an item. 
 
 ![Value of items per unit weight](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png)
 
-### Greedy strategy determination
+### Greedy Strategy Determination
 
 Maximizing the total value of items in the knapsack **is essentially maximizing the value per unit weight of items**. From this, we can derive the greedy strategy shown in the figure below.
 
@@ -25,7 +25,7 @@ Maximizing the total value of items in the knapsack **is essentially maximizing 
 
 ![Greedy strategy for the fractional knapsack problem](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png)
 
-### Code implementation
+### Code Implementation
 
 We created an `Item` class to facilitate sorting items by unit value. We loop to make greedy selections, breaking when the knapsack is full and returning the solution:
 
@@ -39,7 +39,7 @@ Apart from sorting, in the worst case the entire item list needs to be traversed
 
 Since an `Item` object list is initialized, **the space complexity is $O(n)$**.
 
-### Correctness proof
+### Correctness Proof
 
 Using proof by contradiction. Suppose item $x$ has the highest unit value, and some algorithm yields a maximum value of `res`, but this solution does not include item $x$.
 

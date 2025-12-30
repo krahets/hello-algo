@@ -1,4 +1,4 @@
-# Selection sort
+# Selection Sort
 
 <u>Selection sort (selection sort)</u> works very simply: it opens a loop, and in each round, selects the smallest element from the unsorted interval and places it at the end of the sorted interval.
 
@@ -49,7 +49,7 @@ In the code, we use $k$ to record the smallest element within the unsorted inter
 [file]{selection_sort}-[class]{}-[func]{selection_sort}
 ```
 
-## Algorithm characteristics
+## Algorithm Characteristics
 
 - **Time complexity of $O(n^2)$, non-adaptive sorting**: The outer loop has $n - 1$ rounds in total. The length of the unsorted interval in the first round is $n$, and the length of the unsorted interval in the last round is $2$. That is, each round of the outer loop contains $n$, $n - 1$, $\dots$, $3$, $2$ inner loop iterations, summing to $\frac{(n - 1)(n + 2)}{2}$.
 - **Space complexity of $O(1)$, in-place sorting**: Pointers $i$ and $j$ use a constant amount of extra space.

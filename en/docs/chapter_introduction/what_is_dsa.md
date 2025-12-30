@@ -1,6 +1,6 @@
-# What is an algorithm
+# What Is an Algorithm
 
-## Algorithm definition
+## Algorithm Definition
 
 An <u>algorithm</u> is a set of instructions or operational steps that solves a specific problem within a finite amount of time. It has the following characteristics.
 
@@ -8,7 +8,7 @@ An <u>algorithm</u> is a set of instructions or operational steps that solves a 
 - It is feasible and can be completed within a finite number of steps, time, and memory space.
 - Each step has a definite meaning, and under the same input and operating conditions, the output is always the same.
 
-## Data structure definition
+## Data Structure Definition
 
 A <u>data structure</u> is a way of organizing and storing data, covering the data content, relationships between data, and methods for data operations. It has the following design objectives.
 
@@ -21,7 +21,7 @@ A <u>data structure</u> is a way of organizing and storing data, covering the da
 - Compared to arrays, linked lists are more convenient for data addition and deletion operations but sacrifice data access speed.
 - Compared to linked lists, graphs provide richer logical information but require larger memory space.
 
-## The relationship between data structures and algorithms
+## The Relationship Between Data Structures and Algorithms
 
 As shown in the figure below, data structures and algorithms are highly related and tightly coupled, specifically manifested in the following three aspects.
 

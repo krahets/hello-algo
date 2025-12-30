@@ -1,10 +1,10 @@
-# Bucket sort
+# Bucket Sort
 
 The several sorting algorithms mentioned earlier all belong to "comparison-based sorting algorithms", which achieve sorting by comparing the size of elements. The time complexity of such sorting algorithms cannot exceed $O(n \log n)$. Next, we will explore several "non-comparison sorting algorithms", whose time complexity can reach linear order.
 
 <u>Bucket sort (bucket sort)</u> is a typical application of the divide-and-conquer strategy. It works by setting up buckets with size order, each bucket corresponding to a data range, evenly distributing data to each bucket; then, sorting within each bucket separately; finally, merging all data in the order of the buckets.
 
-## Algorithm flow
+## Algorithm Flow
 
 Consider an array of length $n$, whose elements are floating-point numbers in the range $[0, 1)$. The flow of bucket sort is shown in the figure below.
 
@@ -20,7 +20,7 @@ The code is as follows:
 [file]{bucket_sort}-[class]{}-[func]{bucket_sort}
 ```
 
-## Algorithm characteristics
+## Algorithm Characteristics
 
 Bucket sort is suitable for processing very large data volumes. For example, if the input data contains 1 million elements and system memory cannot load all the data at once, the data can be divided into 1000 buckets, each bucket sorted separately, and then the results merged.
 
@@ -28,7 +28,7 @@ Bucket sort is suitable for processing very large data volumes. For example, if 
 - **Space complexity of $O(n + k)$, non-in-place sorting**: Additional space is required for $k$ buckets and a total of $n$ elements.
 - Whether bucket sort is stable depends on whether the algorithm for sorting elements within buckets is stable.
 
-## How to achieve even distribution
+## How to Achieve Even Distribution
 
 Theoretically, bucket sort can achieve $O(n)$ time complexity. **The key is to evenly distribute elements to each bucket**, because real data is often not evenly distributed. For example, if we want to evenly distribute all products on Taobao into 10 buckets by price range, there may be very many products below 100 yuan and very few above 1000 yuan. If the price intervals are evenly divided into 10, the difference in the number of products in each bucket will be very large.
 

@@ -1,4 +1,4 @@
-# Heap sort
+# Heap Sort
 
 !!! tip
 
@@ -11,7 +11,7 @@
 
 Although the above method is feasible, it requires an additional array to save the popped elements, which is quite wasteful of space. In practice, we usually use a more elegant implementation method.
 
-## Algorithm flow
+## Algorithm Flow
 
 Assume the array length is $n$. The flow of heap sort is shown in the figure below.
 
@@ -66,7 +66,7 @@ In the code implementation, we use the same top-to-bottom heapify function `sift
 [file]{heap_sort}-[class]{}-[func]{heap_sort}
 ```
 
-## Algorithm characteristics
+## Algorithm Characteristics
 
 - **Time complexity of $O(n \log n)$, non-adaptive sorting**: The build heap operation uses $O(n)$ time. Extracting the largest element from the heap has a time complexity of $O(\log n)$, looping a total of $n - 1$ rounds.
 - **Space complexity of $O(1)$, in-place sorting**: A few pointer variables use $O(1)$ space. Element swapping and heapify operations are both performed on the original array.

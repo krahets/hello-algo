@@ -11,7 +11,7 @@
 - Caches provide fast data access to the CPU through mechanisms such as cache lines, prefetching, and spatial and temporal locality, significantly improving program execution efficiency.
 - Because arrays have higher cache hit rates, they are generally more efficient than linked lists. When choosing a data structure, appropriate selection should be made based on specific requirements and scenarios.
 
-### Q & A
+### Q & a
 
 **Q**: Does storing an array on the stack versus on the heap affect time efficiency and space efficiency?
 
@@ -28,7 +28,7 @@ Linked lists are composed of nodes, with nodes connected through references (poi
 In contrast, array elements must be of the same type, so that the corresponding element position can be obtained by calculating the offset. For example, if an array contains both `int` and `long` types, with individual elements occupying 4 bytes and 8 bytes respectively, then the following formula cannot be used to calculate the offset, because the array contains two different "element lengths".
 
 ```shell
-# Element memory address = Array memory address (first element memory address) + Element length * Element index
+# Element Memory Address = Array Memory Address (first Element Memory address) + Element Length * Element Index
 ```
 
 **Q**: After deleting node `P`, do we need to set `P.next` to `None`?

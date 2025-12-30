@@ -1,4 +1,4 @@
-# Max product cutting problem
+# Max Product Cutting Problem
 
 !!! question
 
@@ -20,7 +20,7 @@ $$
 
 We need to think about: how large should the splitting count $m$ be, and what should each $n_i$ be?
 
-### Greedy strategy determination
+### Greedy Strategy Determination
 
 Based on experience, the product of two integers is often greater than their sum. Suppose we split out a factor of $2$ from $n$, then their product is $2(n-2)$. We compare this product with $n$:
 
@@ -53,7 +53,7 @@ In summary, the following greedy strategies can be derived.
 3. When the remainder is $2$, do not continue splitting, keep it.
 4. When the remainder is $1$, since $2 \times 2 > 1 \times 3$, the last $3$ should be replaced with $2$.
 
-### Code implementation
+### Code Implementation
 
 As shown in the figure below, we don't need to use loops to split the integer, but can use integer division to get the count of $3$s as $a$, and modulo operation to get the remainder as $b$, at which point we have:
 
@@ -76,7 +76,7 @@ Please note that for the edge case of $n \leq 3$, a $1$ must be split out, with 
 
 Variables $a$ and $b$ use a constant amount of extra space, **therefore the space complexity is $O(1)$**.
 
-### Correctness proof
+### Correctness Proof
 
 Using proof by contradiction, only analyzing the case where $n \geq 4$.
 

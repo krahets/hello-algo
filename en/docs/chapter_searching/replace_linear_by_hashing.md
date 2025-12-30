@@ -1,4 +1,4 @@
-# Hash optimization strategy
+# Hash Optimization Strategy
 
 In algorithm problems, **we often reduce the time complexity of algorithms by replacing linear search with hash-based search**. Let's use an algorithm problem to deepen our understanding.
 
@@ -6,7 +6,7 @@ In algorithm problems, **we often reduce the time complexity of algorithms by re
 
     Given an integer array `nums` and a target element `target`, search for two elements in the array whose "sum" equals `target`, and return their array indices. Any solution will do.
 
-## Linear search: trading time for space
+## Linear Search: Trading Time for Space
 
 Consider directly traversing all possible combinations. As shown in the figure below, we open a two-layer loop and judge in each round whether the sum of two integers equals `target`. If so, return their indices.
 
@@ -20,7 +20,7 @@ The code is shown below:
 
 This method has a time complexity of $O(n^2)$ and a space complexity of $O(1)$, which is very time-consuming with large data volumes.
 
-## Hash-based search: trading space for time
+## Hash-Based Search: Trading Space for Time
 
 Consider using a hash table where key-value pairs are array elements and element indices respectively. Loop through the array, performing the steps shown in the figure below in each round:
 

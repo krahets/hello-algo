@@ -1,4 +1,4 @@
-# Dynamic programming
+# Dynamic Programming
 
 ![Dynamic programming](../assets/covers/chapter_dynamic_programming.jpg)
 

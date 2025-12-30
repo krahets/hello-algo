@@ -1,8 +1,8 @@
-# Unbounded knapsack problem
+# Unbounded Knapsack Problem
 
 In this section, we first solve another common knapsack problem: the unbounded knapsack, and then explore a special case of it: the coin change problem.
 
-## Unbounded knapsack problem
+## Unbounded Knapsack Problem
 
 !!! question
 
@@ -10,7 +10,7 @@ In this section, we first solve another common knapsack problem: the unbounded k
 
 ![Example data for unbounded knapsack problem](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png)
 
-### Dynamic programming approach
+### Dynamic Programming Approach
 
 The unbounded knapsack problem is very similar to the 0-1 knapsack problem, **differing only in that there is no limit on the number of times an item can be selected**.
 
@@ -28,7 +28,7 @@ $$
 dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 $$
 
-### Code implementation
+### Code Implementation
 
 Comparing the code for the two problems, there is one change in state transition from $i-1$ to $i$, with everything else identical:
 
@@ -36,7 +36,7 @@ Comparing the code for the two problems, there is one change in state transition
 [file]{unbounded_knapsack}-[class]{}-[func]{unbounded_knapsack_dp}
 ```
 
-### Space optimization
+### Space Optimization
 
 Since the current state is transferred from states on the left and above, **after space optimization, each row in the $dp$ table should be traversed in forward order**.
 
@@ -66,7 +66,7 @@ The code implementation is relatively simple, just delete the first dimension of
 [file]{unbounded_knapsack}-[class]{}-[func]{unbounded_knapsack_dp_comp}
 ```
 
-## Coin change problem
+## Coin Change Problem
 
 The knapsack problem represents a large class of dynamic programming problems and has many variants, such as the coin change problem.
 
@@ -76,7 +76,7 @@ The knapsack problem represents a large class of dynamic programming problems an
 
 ![Example data for coin change problem](unbounded_knapsack_problem.assets/coin_change_example.png)
 
-### Dynamic programming approach
+### Dynamic Programming Approach
 
 **The coin change problem can be viewed as a special case of the unbounded knapsack problem**, with the following connections and differences.
 
@@ -107,7 +107,7 @@ When the target amount is $0$, the minimum number of coins needed to make it up 
 
 When there are no coins, **it is impossible to make up any amount $> 0$**, which is an invalid solution. To enable the $\min()$ function in the state transition equation to identify and filter out invalid solutions, we consider using $+ \infty$ to represent them, i.e., set all $dp[0, a]$ in the first row to $+ \infty$.
 
-### Code implementation
+### Code Implementation
 
 Most programming languages do not provide a $+ \infty$ variable, and can only use the maximum value of integer type `int` as a substitute. However, this can lead to large number overflow: the $+ 1$ operation in the state transition equation may cause overflow.
 
@@ -164,7 +164,7 @@ The figure below shows the dynamic programming process for coin change, which is
 === "<15>"
     ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.png)
 
-### Space optimization
+### Space Optimization
 
 The space optimization for the coin change problem is handled in the same way as the unbounded knapsack problem:
 
@@ -172,7 +172,7 @@ The space optimization for the coin change problem is handled in the same way as
 [file]{coin_change}-[class]{}-[func]{coin_change_dp_comp}
 ```
 
-## Coin change problem II
+## Coin Change Problem Ii
 
 !!! question
 
@@ -180,7 +180,7 @@ The space optimization for the coin change problem is handled in the same way as
 
 ![Example data for coin change problem II](unbounded_knapsack_problem.assets/coin_change_ii_example.png)
 
-### Dynamic programming approach
+### Dynamic Programming Approach
 
 Compared to the previous problem, this problem's goal is to find the number of combinations, so the subproblem becomes: **the number of combinations among the first $i$ types of coins that can make up amount $a$**. The $dp$ table remains a two-dimensional matrix of size $(n+1) \times (amt + 1)$.
 
@@ -192,13 +192,13 @@ $$
 
 When the target amount is $0$, no coins need to be selected to make up the target amount, so all $dp[i, 0]$ in the first column should be initialized to $1$. When there are no coins, it is impossible to make up any amount $>0$, so all $dp[0, a]$ in the first row equal $0$.
 
-### Code implementation
+### Code Implementation
 
 ```src
 [file]{coin_change_ii}-[class]{}-[func]{coin_change_ii_dp}
 ```
 
-### Space optimization
+### Space Optimization
 
 The space optimization is handled in the same way, just delete the coin dimension:
 

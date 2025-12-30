@@ -1,4 +1,4 @@
-# Merge sort
+# Merge Sort
 
 <u>Merge sort (merge sort)</u> is a sorting algorithm based on the divide-and-conquer strategy, which includes the "divide" and "merge" phases shown in the figure below.
 
@@ -7,7 +7,7 @@
 
 ![Divide and merge phases of merge sort](merge_sort.assets/merge_sort_overview.png)
 
-## Algorithm flow
+## Algorithm Flow
 
 As shown in the figure below, the "divide phase" recursively splits the array from the midpoint into two sub-arrays from top to bottom.
 
@@ -57,13 +57,13 @@ The implementation of merge sort is shown in the code below. Note that the inter
 [file]{merge_sort}-[class]{}-[func]{merge_sort}
 ```
 
-## Algorithm characteristics
+## Algorithm Characteristics
 
 - **Time complexity of $O(n \log n)$, non-adaptive sorting**: The division produces a recursion tree of height $\log n$, and the total number of merge operations at each level is $n$, so the overall time complexity is $O(n \log n)$.
 - **Space complexity of $O(n)$, non-in-place sorting**: The recursion depth is $\log n$, using $O(\log n)$ size of stack frame space. The merge operation requires the aid of an auxiliary array, using $O(n)$ size of additional space.
 - **Stable sorting**: In the merge process, the order of equal elements remains unchanged.
 
-## Linked list sorting
+## Linked List Sorting
 
 For linked lists, merge sort has significant advantages over other sorting algorithms, **and can optimize the space complexity of linked list sorting tasks to $O(1)$**.
 

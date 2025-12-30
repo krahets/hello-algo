@@ -1,10 +1,10 @@
-# How to use this book
+# How to Use This Book
 
 !!! tip
 
     For the best reading experience, it is recommended that you read through this section.
 
-## Writing style conventions
+## Writing Style Conventions
 
 - Titles marked with `*` are optional sections with relatively difficult content. If you have limited time, you can skip them first.
 - Technical terms will be in bold (in paper and PDF versions) or underlined (in web versions), such as <u>array</u>. It is recommended to memorize them for reading literature.
@@ -191,7 +191,7 @@
     // comment
     ```
 
-## Learning efficiently with animated illustrations
+## Learning Efficiently with Animated Illustrations
 
 Compared to text, videos and images have higher information density and structural organization, making them easier to understand. In this book, **key and difficult knowledge will mainly be presented in the form of animated illustrations**, with text serving as explanation and supplement.
 
@@ -199,7 +199,7 @@ If you find that a section of content provides animated illustrations as shown i
 
 ![Example of animated illustrations](../index.assets/animation.gif)
 
-## Deepening understanding through code practice
+## Deepening Understanding Through Code Practice
 
 The accompanying code for this book is hosted in the [GitHub repository](https://github.com/krahets/hello-algo). As shown in the figure below, **the source code comes with test cases and can be run with one click**.
 
@@ -231,7 +231,7 @@ In addition to running code locally, **the web version also supports visual runn
 
 ![Visual running of Python code](suggestions.assets/pythontutor_example.png)
 
-## Growing together through questions and discussions
+## Growing Together Through Questions and Discussions
 
 When reading this book, please do not easily skip knowledge points that you have not learned well. **Feel free to ask your questions in the comments section**, and my friends and I will do our best to answer you, and generally reply within two days.
 
@@ -239,7 +239,7 @@ As shown in the figure below, the web version has a comments section at the bott
 
 ![Example of comments section](../index.assets/comment.gif)
 
-## Algorithm learning roadmap
+## Algorithm Learning Roadmap
 
 From an overall perspective, we can divide the process of learning data structures and algorithms into three stages.
 

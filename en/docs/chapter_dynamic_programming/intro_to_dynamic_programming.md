@@ -1,4 +1,4 @@
-# Introduction to dynamic programming
+# Introduction to Dynamic Programming
 
 <u>Dynamic programming</u> is an important algorithmic paradigm that decomposes a problem into a series of smaller subproblems and avoids redundant computation by storing the solutions to subproblems, thereby significantly improving time efficiency.
 
@@ -18,7 +18,7 @@ The goal of this problem is to find the number of ways, **we can consider using 
 [file]{climbing_stairs_backtrack}-[class]{}-[func]{climbing_stairs_backtrack}
 ```
 
-## Method 1: Brute force search
+## Method 1: Brute Force Search
 
 Backtracking algorithms typically do not explicitly decompose problems, but rather treat solving the problem as a series of decision steps, searching for all possible solutions through trial and pruning.
 
@@ -73,7 +73,7 @@ Observe the figure below, **after memoization, all overlapping subproblems only 
 
 ![Recursion tree with memoization](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png)
 
-## Method 3: Dynamic programming
+## Method 3: Dynamic Programming
 
 **Memoization is a "top-down" method**: we start from the original problem (root node), recursively decompose larger subproblems into smaller ones, until reaching the smallest known subproblems (leaf nodes). Afterward, by backtracking, we collect the solutions to the subproblems layer by layer to construct the solution to the original problem.
 
@@ -97,7 +97,7 @@ Based on the above content, we can summarize the commonly used terminology in dy
 - The states corresponding to the smallest subproblems (the $1$st and $2$nd steps) are called <u>initial states</u>.
 - The recurrence formula $dp[i] = dp[i-1] + dp[i-2]$ is called the <u>state transition equation</u>.
 
-## Space optimization
+## Space Optimization
 
 Observant readers may have noticed that **since $dp[i]$ is only related to $dp[i-1]$ and $dp[i-2]$, we do not need to use an array `dp` to store the solutions to all subproblems**, but can simply use two variables to roll forward. The code is as follows:
 

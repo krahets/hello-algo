@@ -1,6 +1,6 @@
 # Summary
 
-### Key review
+### Key Review
 
 - A binary tree is a non-linear data structure that embodies the divide-and-conquer logic of "one divides into two". Each binary tree node contains a value and two pointers, which respectively point to its left and right child nodes.
 - For a certain node in a binary tree, the tree formed by its left (right) child node and all nodes below is called the left (right) subtree of that node.
@@ -14,7 +14,7 @@
 - An AVL tree, also known as a balanced binary search tree, ensures the tree remains balanced after continuous node insertions and removals through rotation operations.
 - Rotation operations in AVL trees include right rotation, left rotation, left rotation then right rotation, and right rotation then left rotation. After inserting or removing nodes, AVL trees perform rotation operations from bottom to top to restore the tree to balance.
 
-### Q & A
+### Q & a
 
 **Q**: For a binary tree with only one node, are both the height of the tree and the depth of the root node $0$?
 

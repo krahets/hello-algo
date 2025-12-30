@@ -1,4 +1,4 @@
-# Hash collision
+# Hash Collision
 
 The previous section mentioned that, **in most cases, the input space of a hash function is much larger than the output space**, so theoretically, hash collisions are inevitable. For example, if the input space is all integers and the output space is the array capacity size, then multiple integers will inevitably be mapped to the same bucket index.
 
@@ -9,7 +9,7 @@ Hash collisions can lead to incorrect query results, severely impacting the usab
 
 The main methods for improving the structure of hash tables include "separate chaining" and "open addressing".
 
-## Separate chaining
+## Separate Chaining
 
 In the original hash table, each bucket can store only one key-value pair. <u>Separate chaining</u> converts a single element into a linked list, treating key-value pairs as linked list nodes and storing all colliding key-value pairs in the same linked list. The figure below shows an example of a separate chaining hash table.
 
@@ -37,13 +37,13 @@ The code below provides a simple implementation of a separate chaining hash tabl
 
 It's worth noting that when the linked list is very long, the query efficiency $O(n)$ is poor. **In this case, the list can be converted to an "AVL tree" or "Red-Black tree"** to optimize the time complexity of the query operation to $O(\log n)$.
 
-## Open addressing
+## Open Addressing
 
 <u>Open addressing</u> does not introduce additional data structures but instead handles hash collisions through "multiple probes". The probing methods mainly include linear probing, quadratic probing, and double hashing.
 
 Let's use linear probing as an example to introduce the mechanism of open addressing hash tables.
 
-### Linear probing
+### Linear Probing
 
 Linear probing uses a fixed-step linear search for probing, and its operation method differs from ordinary hash tables.
 
@@ -72,7 +72,7 @@ The code below implements an open addressing (linear probing) hash table with la
 [file]{hash_map_open_addressing}-[class]{hash_map_open_addressing}-[func]{}
 ```
 
-### Quadratic probing
+### Quadratic Probing
 
 Quadratic probing is similar to linear probing and is one of the common strategies for open addressing. When a collision occurs, quadratic probing does not simply skip a fixed number of steps but skips a number of steps equal to the "square of the number of probes", i.e., $1, 4, 9, \dots$ steps.
 
@@ -86,7 +86,7 @@ However, quadratic probing is not perfect:
 - Clustering still exists, i.e., some positions are more likely to be occupied than others.
 - Due to the growth of squares, quadratic probing may not probe the entire hash table, meaning that even if there are empty buckets in the hash table, quadratic probing may not be able to access them.
 
-### Double hashing
+### Double Hashing
 
 As the name suggests, the double hashing method uses multiple hash functions $f_1(x)$, $f_2(x)$, $f_3(x)$, $\dots$ for probing.
 
@@ -99,7 +99,7 @@ Compared to linear probing, the double hashing method is less prone to clusterin
 
     Please note that open addressing (linear probing, quadratic probing, and double hashing) hash tables all have the problem of "cannot directly delete elements".
 
-## Choice of programming languages
+## Choice of Programming Languages
 
 Different programming languages adopt different hash table implementation strategies. Here are a few examples:
 

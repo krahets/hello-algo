@@ -1,6 +1,6 @@
 # Summary
 
-### Key review
+### Key Review
 
 - Given an input `key`, a hash table can retrieve the corresponding `value` in $O(1)$ time, which is highly efficient.
 - Common hash table operations include querying, adding key-value pairs, deleting key-value pairs, and traversing the hash table.
@@ -16,7 +16,7 @@
 - Common hash algorithms include MD5, SHA-1, SHA-2, and SHA-3. MD5 is often used for file integrity checks, while SHA-2 is commonly used in secure applications and protocols.
 - Programming languages usually provide built-in hash algorithms for data types to calculate bucket indices in hash tables. Generally, only immutable objects are hashable.
 
-### Q & A
+### Q & a
 
 **Q**: When does the time complexity of a hash table degrade to $O(n)$?
 

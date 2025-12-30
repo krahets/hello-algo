@@ -1,4 +1,4 @@
-# Insertion sort
+# Insertion Sort
 
 <u>Insertion sort (insertion sort)</u> is a simple sorting algorithm that works very similarly to the process of manually organizing a deck of cards.
 
@@ -8,7 +8,7 @@ The figure below shows the operation flow of inserting an element into the array
 
 ![Single insertion operation](insertion_sort.assets/insertion_operation.png)
 
-## Algorithm flow
+## Algorithm Flow
 
 The overall flow of insertion sort is shown in the figure below.
 
@@ -25,13 +25,13 @@ Example code is as follows:
 [file]{insertion_sort}-[class]{}-[func]{insertion_sort}
 ```
 
-## Algorithm characteristics
+## Algorithm Characteristics
 
 - **Time complexity of $O(n^2)$, adaptive sorting**: In the worst case, each insertion operation requires loops of $n - 1$, $n-2$, $\dots$, $2$, $1$, summing to $(n - 1) n / 2$, so the time complexity is $O(n^2)$. When encountering ordered data, the insertion operation will terminate early. When the input array is completely ordered, insertion sort achieves the best-case time complexity of $O(n)$.
 - **Space complexity of $O(1)$, in-place sorting**: Pointers $i$ and $j$ use a constant amount of extra space.
 - **Stable sorting**: During the insertion operation process, we insert elements to the right of equal elements, without changing their order.
 
-## Advantages of insertion sort
+## Advantages of Insertion Sort
 
 The time complexity of insertion sort is $O(n^2)$, while the time complexity of quick sort, which we will learn about next, is $O(n \log n)$. Although insertion sort has a higher time complexity, **insertion sort is usually faster for smaller data volumes**.
 

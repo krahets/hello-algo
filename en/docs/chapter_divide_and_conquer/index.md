@@ -1,4 +1,4 @@
-# Divide and conquer
+# Divide and Conquer
 
 ![Divide and conquer](../assets/covers/chapter_divide_and_conquer.jpg)
 

@@ -8,7 +8,7 @@
 - A queue is a data structure that follows the FIFO principle and can also be implemented using arrays or linked lists. The conclusions regarding time efficiency and space efficiency comparisons for queues are similar to those for stacks mentioned above.
 - A deque is a queue with greater flexibility that allows adding and removing elements at both ends.
 
-### Q & A
+### Q & a
 
 **Q**: Is the browser's forward and backward functionality implemented with a doubly linked list?
 

@@ -1,6 +1,6 @@
 # Summary
 
-### Key review
+### Key Review
 
 - Graphs consist of vertices and edges and can be represented as a set of vertices and a set of edges.
 - Compared to linear relationships (linked lists) and divide-and-conquer relationships (trees), network relationships (graphs) have a higher degree of freedom and are therefore more complex.
@@ -14,7 +14,7 @@
 - Breadth-first search of graphs is a near-to-far, layer-by-layer expansion search method, typically implemented using a queue.
 - Depth-first search of graphs is a search method that prioritizes going as far as possible and backtracks when no path remains, commonly implemented using recursion.
 
-### Q & A
+### Q & a
 
 **Q**: Is a path defined as a sequence of vertices or a sequence of edges?
 

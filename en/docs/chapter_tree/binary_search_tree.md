@@ -1,4 +1,4 @@
-# Binary search tree
+# Binary Search Tree
 
 As shown in the figure below, a <u>binary search tree</u> satisfies the following conditions.
 
@@ -7,11 +7,11 @@ As shown in the figure below, a <u>binary search tree</u> satisfies the followin
 
 ![Binary search tree](binary_search_tree.assets/binary_search_tree.png)
 
-## Operations on a binary search tree
+## Operations on a Binary Search Tree
 
 We encapsulate the binary search tree as a class `BinarySearchTree` and declare a member variable `root` pointing to the tree's root node.
 
-### Searching for a node
+### Searching for a Node
 
 Given a target node value `num`, we can search according to the properties of the binary search tree. As shown in the figure below, we declare a node `cur` and start from the binary tree's root node `root`, looping to compare the node value `cur.val` with `num`.
 
@@ -37,7 +37,7 @@ The search operation in a binary search tree works on the same principle as the 
 [file]{binary_search_tree}-[class]{binary_search_tree}-[func]{search}
 ```
 
-### Inserting a node
+### Inserting a Node
 
 Given an element `num` to be inserted, in order to maintain the property of the binary search tree "left subtree < root node < right subtree," the insertion process is as shown in the figure below.
 
@@ -57,7 +57,7 @@ In the code implementation, note the following two points:
 
 Similar to searching for a node, inserting a node uses $O(\log n)$ time.
 
-### Removing a node
+### Removing a Node
 
 First, find the target node in the binary tree, then remove it. Similar to node insertion, we need to ensure that after the removal operation is completed, the binary search tree's property of "left subtree $<$ root node $<$ right subtree" is still maintained. Therefore, depending on the number of child nodes the target node has, we divide it into 0, 1, and 2 three cases, and execute the corresponding node removal operations.
 
@@ -94,7 +94,7 @@ The node removal operation also uses $O(\log n)$ time, where finding the node to
 [file]{binary_search_tree}-[class]{binary_search_tree}-[func]{remove}
 ```
 
-### Inorder traversal is ordered
+### Inorder Traversal Is Ordered
 
 As shown in the figure below, the inorder traversal of a binary tree follows the "left $\rightarrow$ root $\rightarrow$ right" traversal order, while the binary search tree satisfies the "left child node $<$ root node $<$ right child node" size relationship.
 
@@ -104,7 +104,7 @@ Using the property of inorder traversal being ascending, we can obtain ordered d
 
 ![Inorder traversal sequence of a binary search tree](binary_search_tree.assets/bst_inorder_traversal.png)
 
-## Efficiency of binary search trees
+## Efficiency of Binary Search Trees
 
 Given a set of data, we consider using an array or a binary search tree for storage. Observing the table below, all operations in a binary search tree have logarithmic time complexity, providing stable and efficient performance. Arrays are more efficient than binary search trees only in scenarios with high-frequency additions and low-frequency searches and deletions.
 
@@ -122,7 +122,7 @@ However, if we continuously insert and remove nodes in a binary search tree, it 
 
 ![Degradation of a binary search tree](binary_search_tree.assets/bst_degradation.png)
 
-## Common applications of binary search trees
+## Common Applications of Binary Search Trees
 
 - Used as multi-level indexes in systems to implement efficient search, insertion, and removal operations.
 - Serves as the underlying data structure for certain search algorithms.

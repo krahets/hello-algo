@@ -1,4 +1,4 @@
-# 0-1 knapsack problem
+# 0-1 Knapsack Problem
 
 The knapsack problem is an excellent introductory problem for dynamic programming and is one of the most common problem forms in dynamic programming. It has many variants, such as the 0-1 knapsack problem, the unbounded knapsack problem, and the multiple knapsack problem.
 
@@ -47,7 +47,7 @@ The current state $[i, c]$ is transferred from the state above $[i-1, c]$ and th
 
 Based on the above analysis, we will next implement the brute force search, memoization, and dynamic programming solutions in order.
 
-### Method 1: Brute force search
+### Method 1: Brute Force Search
 
 The search code includes the following elements.
 
@@ -80,7 +80,7 @@ The figure below shows the search branches pruned in memoization.
 
 ![Memoization recursion tree for 0-1 knapsack problem](knapsack_problem.assets/knapsack_dfs_mem.png)
 
-### Method 3: Dynamic programming
+### Method 3: Dynamic Programming
 
 Dynamic programming is essentially the process of filling the $dp$ table during state transitions. The code is as follows:
 
@@ -132,7 +132,7 @@ As shown in the figure below, both time complexity and space complexity are dete
 === "<14>"
     ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.png)
 
-### Space optimization
+### Space Optimization
 
 Since each state is only related to the state in the row above it, we can use two arrays rolling forward to reduce the space complexity from $O(n^2)$ to $O(n)$.
 

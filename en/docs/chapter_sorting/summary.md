@@ -1,6 +1,6 @@
 # Summary
 
-### Key review
+### Key Review
 
 - Bubble sort achieves sorting by swapping adjacent elements. By adding a flag to enable early return, we can optimize the best-case time complexity of bubble sort to $O(n)$.
 - Insertion sort completes sorting by inserting elements from the unsorted interval into the correct position in the sorted interval each round. Although the time complexity of insertion sort is $O(n^2)$, it is very popular in small data volume sorting tasks because it involves relatively few unit operations.
@@ -14,7 +14,7 @@
 
 ![Sorting algorithm comparison](summary.assets/sorting_algorithms_comparison.png)
 
-### Q & A
+### Q & a
 
 **Q**: In what situations is the stability of sorting algorithms necessary?
 

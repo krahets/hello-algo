@@ -1,6 +1,6 @@
-# Binary search edge cases
+# Binary Search Edge Cases
 
-## Finding the left boundary
+## Finding the Left Boundary
 
 !!! question
 
@@ -19,13 +19,13 @@ When either of these situations occurs, simply return $-1$. The code is shown be
 [file]{binary_search_edge}-[class]{}-[func]{binary_search_left_edge}
 ```
 
-## Finding the right boundary
+## Finding the Right Boundary
 
 So how do we find the rightmost `target`? The most direct approach is to modify the code and replace the pointer shrinking operation in the `nums[m] == target` case. The code is omitted here; interested readers can implement it themselves.
 
 Below we introduce two more clever methods.
 
-### Reusing left boundary search
+### Reusing Left Boundary Search
 
 In fact, we can use the function for finding the leftmost element to find the rightmost element. The specific method is: **Convert finding the rightmost `target` into finding the leftmost `target + 1`**.
 
@@ -39,7 +39,7 @@ Note that the returned insertion point is $i$, so we need to subtract $1$ from i
 [file]{binary_search_edge}-[class]{}-[func]{binary_search_right_edge}
 ```
 
-### Converting to element search
+### Converting to Element Search
 
 We know that when the array does not contain `target`, $i$ and $j$ will eventually point to the first elements greater than and less than `target`, respectively.
 

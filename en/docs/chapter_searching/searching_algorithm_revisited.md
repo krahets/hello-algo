@@ -1,4 +1,4 @@
-# Searching algorithms revisited
+# Searching Algorithms Revisited
 
 <u>Searching algorithms</u> are used to search for one or a group of elements that meet specific conditions in data structures (such as arrays, linked lists, trees, or graphs).
 
@@ -9,7 +9,7 @@ Searching algorithms can be divided into the following two categories based on t
 
 It's not hard to see that these topics have all been covered in previous chapters, so searching algorithms are not unfamiliar to us. In this section, we will approach from a more systematic perspective and re-examine searching algorithms.
 
-## Brute-force search
+## Brute-Force Search
 
 Brute-force search locates target elements by traversing each element of the data structure.
 
@@ -20,7 +20,7 @@ The advantage of brute-force search is that it is simple and has good generality
 
 However, **the time complexity of such algorithms is $O(n)$**, where $n$ is the number of elements, so performance is poor when dealing with large amounts of data.
 
-## Adaptive search
+## Adaptive Search
 
 Adaptive search utilizes the unique properties of data (such as orderliness) to optimize the search process, thereby locating target elements more efficiently.
 
@@ -36,7 +36,7 @@ However, **using these algorithms often requires data preprocessing**. For examp
 
     Adaptive search algorithms are often called lookup algorithms, **mainly used to quickly retrieve target elements in specific data structures**.
 
-## Search method selection
+## Search Method Selection
 
 Given a dataset of size $n$, we can use linear search, binary search, tree search, hash-based search, and other methods to search for the target element. The working principles of each method are shown in the figure below.
 

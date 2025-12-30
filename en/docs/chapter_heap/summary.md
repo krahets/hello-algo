@@ -1,6 +1,6 @@
 # Summary
 
-### Key review
+### Key Review
 
 - A heap is a complete binary tree that can be categorized as a max heap or min heap based on its property. The heap top element of a max heap (min heap) is the largest (smallest).
 - A priority queue is defined as a queue with priority sorting, typically implemented using heaps.
@@ -10,7 +10,7 @@
 - The time complexity of building a heap with $n$ input elements can be optimized to $O(n)$, which is highly efficient.
 - Top-k is a classic algorithm problem that can be efficiently solved using the heap data structure, with a time complexity of $O(n \log k)$.
 
-### Q & A
+### Q & a
 
 **Q**: Are the "heap" in data structures and the "heap" in memory management the same concept?
 

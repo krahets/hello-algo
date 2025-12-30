@@ -1,6 +1,6 @@
-# Arrays and Linked Lists
+# Array and Linked List
 
-![Arrays and Linked Lists](../assets/covers/chapter_array_and_linkedlist.jpg)
+![Array and Linked List](../assets/covers/chapter_array_and_linkedlist.jpg)
 
 !!! abstract
 

@@ -1,11 +1,11 @@
-# Dynamic programming problem-solving approach
+# Dynamic Programming Problem-Solving Approach
 
 The previous two sections introduced the main characteristics of dynamic programming problems. Next, let us explore two more practical issues together.
 
 1. How to determine whether a problem is a dynamic programming problem?
 2. What is the complete process for solving a dynamic programming problem, and where should we start?
 
-## Problem determination
+## Problem Determination
 
 Generally speaking, if a problem contains overlapping subproblems, optimal substructure, and satisfies no aftereffects, then it is usually suitable for solving with dynamic programming. However, it is difficult to directly extract these characteristics from the problem description. Therefore, we usually relax the conditions and **first observe whether the problem is suitable for solving with backtracking (exhaustive search)**.
 
@@ -25,7 +25,7 @@ Correspondingly, there are also some "penalty points".
 
 If a problem satisfies the decision tree model and has relatively obvious "bonus points", we can assume it is a dynamic programming problem and verify it during the solving process.
 
-## Problem-solving steps
+## Problem-Solving Steps
 
 The problem-solving process for dynamic programming varies depending on the nature and difficulty of the problem, but generally follows these steps: describe decisions, define states, establish the $dp$ table, derive state transition equations, determine boundary conditions, etc.
 
@@ -89,7 +89,7 @@ As shown in the figure below, since each cell is transferred from the cell to it
 
 Based on the above analysis, we can directly write the dynamic programming code. However, subproblem decomposition is a top-down approach, so implementing in the order "brute force search $\rightarrow$ memoization $\rightarrow$ dynamic programming" is more aligned with thinking habits.
 
-### Method 1: Brute force search
+### Method 1: Brute Force Search
 
 Starting from state $[i, j]$, continuously decompose into smaller states $[i-1, j]$ and $[i, j-1]$. The recursive function includes the following elements.
 
@@ -124,7 +124,7 @@ As shown in the figure below, after introducing memoization, all subproblem solu
 
 ![Memoization recursion tree](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png)
 
-### Method 3: Dynamic programming
+### Method 3: Dynamic Programming
 
 Implement the dynamic programming solution based on iteration, as shown in the code below:
 
@@ -172,7 +172,7 @@ The array `dp` has size $n \times m$, **thus the space complexity is $O(nm)$**.
 === "<12>"
     ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png)
 
-### Space optimization
+### Space Optimization
 
 Since each cell is only related to the cell to its left and the cell above it, we can use a single-row array to implement the $dp$ table.
 
