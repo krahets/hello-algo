@@ -7,7 +7,7 @@
 #include "../utils/common.hpp"
 
 /* 带约束爬楼梯：动态规划 */
-int climbingStairsConstraintDP(int n) { 
+int climbingStairsConstraintDP(int n) {
     if (n == 1 || n == 2) {
         return 1;
     }
