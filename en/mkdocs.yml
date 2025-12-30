@@ -82,7 +82,7 @@ nav:
     - 5.2 Queue: chapter_stack_and_queue/queue.md
     - 5.3 Double-ended queue: chapter_stack_and_queue/deque.md
     - 5.4 Summary: chapter_stack_and_queue/summary.md
-  - Chapter 6. Hash table:
+  - Chapter 6. Hashing:
     # [icon: material/table-search]
     - chapter_hashing/index.md
     - 6.1 Hash table: chapter_hashing/hash_map.md
@@ -109,7 +109,7 @@ nav:
     # [icon: material/graphql]
     - chapter_graph/index.md
     - 9.1 Graph: chapter_graph/graph.md
-    - 9.2 Graph basic operations: chapter_graph/graph_operations.md
+    - 9.2 Basic operations on graphs: chapter_graph/graph_operations.md
     - 9.3 Graph traversal: chapter_graph/graph_traversal.md
     - 9.4 Summary: chapter_graph/summary.md
   - Chapter 10. Searching:
@@ -117,7 +117,7 @@ nav:
     - chapter_searching/index.md
     - 10.1 Binary search: chapter_searching/binary_search.md
     - 10.2 Binary search insertion: chapter_searching/binary_search_insertion.md
-    - 10.3 Binary search boundaries: chapter_searching/binary_search_edge.md
+    - 10.3 Binary search edge cases: chapter_searching/binary_search_edge.md
     - 10.4 Hash optimization strategy: chapter_searching/replace_linear_by_hashing.md
     - 10.5 Search algorithms revisited: chapter_searching/searching_algorithm_revisited.md
     - 10.6 Summary: chapter_searching/summary.md
@@ -138,25 +138,25 @@ nav:
   - Chapter 12. Divide and conquer:
     # [icon: material/set-split]
     - chapter_divide_and_conquer/index.md
-    - 12.1 Divide and conquer algorithm: chapter_divide_and_conquer/divide_and_conquer.md
+    - 12.1 Divide and conquer algorithms: chapter_divide_and_conquer/divide_and_conquer.md
     - 12.2 Divide and conquer search strategy: chapter_divide_and_conquer/binary_search_recur.md
-    - 12.3 Building tree problem: chapter_divide_and_conquer/build_binary_tree_problem.md
+    - 12.3 Building a binary tree problem: chapter_divide_and_conquer/build_binary_tree_problem.md
     - 12.4 Hanoi tower problem: chapter_divide_and_conquer/hanota_problem.md
     - 12.5 Summary: chapter_divide_and_conquer/summary.md
   - Chapter 13. Backtracking:
     # [icon: material/map-marker-path]
     - chapter_backtracking/index.md
-    - 13.1 Backtracking algorithm: chapter_backtracking/backtracking_algorithm.md
-    - 13.2 Permutations problem: chapter_backtracking/permutations_problem.md
-    - 13.3 Subset sum problem: chapter_backtracking/subset_sum_problem.md
-    - 13.4 N-queens problem: chapter_backtracking/n_queens_problem.md
+    - 13.1 Backtracking Algorithm: chapter_backtracking/backtracking_algorithm.md
+    - 13.2 Permutations Problem: chapter_backtracking/permutations_problem.md
+    - 13.3 Subset-Sum Problem: chapter_backtracking/subset_sum_problem.md
+    - 13.4 n-queens problem: chapter_backtracking/n_queens_problem.md
     - 13.5 Summary: chapter_backtracking/summary.md
   - Chapter 14. Dynamic programming:
     # [icon: material/table-pivot]
     - chapter_dynamic_programming/index.md
     - 14.1 Introduction to dynamic programming: chapter_dynamic_programming/intro_to_dynamic_programming.md
-    - 14.2 DP problem characteristics: chapter_dynamic_programming/dp_problem_features.md
-    - 14.3 DP solution approach: chapter_dynamic_programming/dp_solution_pipeline.md
+    - 14.2 Characteristics of dynamic programming problems: chapter_dynamic_programming/dp_problem_features.md
+    - 14.3 Dynamic programming problem-solving approach: chapter_dynamic_programming/dp_solution_pipeline.md
     - 14.4 0-1 knapsack problem: chapter_dynamic_programming/knapsack_problem.md
     - 14.5 Unbounded knapsack problem: chapter_dynamic_programming/unbounded_knapsack_problem.md
     - 14.6 Edit distance problem: chapter_dynamic_programming/edit_distance_problem.md
@@ -173,7 +173,7 @@ nav:
     # [icon: material/help-circle-outline]
     - chapter_appendix/index.md
     - 16.1 Programming environment installation: chapter_appendix/installation.md
-    - 16.2 Contribute together: chapter_appendix/contribution.md
-    - 16.3 Terminology: chapter_appendix/terminology.md
+    - 16.2 Contributing Together: chapter_appendix/contribution.md
+    - 16.3 Terminology Table: chapter_appendix/terminology.md
   - References:
     - chapter_reference/index.md
