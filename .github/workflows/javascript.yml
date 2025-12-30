@@ -2,11 +2,11 @@ name: JavaScript
 
 on:
   push:
-    branches: ['main']
-    paths: ['codes/javascript/**/*.js']
+    branches: ["main"]
+    paths: ["codes/javascript/**/*.js", "*/codes/javascript/**/*.js"]
   pull_request:
-    branches: ['main']
-    paths: ['codes/javascript/**/*.js']
+    branches: ["main"]
+    paths: ["codes/javascript/**/*.js", "*/codes/javascript/**/*.js"]
   workflow_dispatch:
 
 jobs:

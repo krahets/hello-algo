@@ -5,10 +5,10 @@ name: Dart
 on:
   push:
     branches: ["main"]
-    paths: ["codes/dart/**/*.dart"]
+    paths: ["codes/dart/**/*.dart", "*/codes/dart/**/*.dart"]
   pull_request:
     branches: ["main"]
-    paths: ["codes/dart/**/*.dart"]
+    paths: ["codes/dart/**/*.dart", "*/codes/dart/**/*.dart"]
   workflow_dispatch:
 
 permissions:

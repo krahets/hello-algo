@@ -2,11 +2,11 @@ name: Kotlin
 
 on:
   push:
-    branches: [ "main" ]
-    paths: ["codes/kotlin/**/*.kt"]
+    branches: ["main"]
+    paths: ["codes/kotlin/**/*.kt", "*/codes/kotlin/**/*.kt"]
   pull_request:
-    branches: [ "main" ]
-    paths: ["codes/kotlin/**/*.kt"]
+    branches: ["main"]
+    paths: ["codes/kotlin/**/*.kt", "*/codes/kotlin/**/*.kt"]
   workflow_dispatch:
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        os: [ubuntu-latest, macos-latest]
 
     name: Kotlin on ${{ matrix.os }}
     steps:

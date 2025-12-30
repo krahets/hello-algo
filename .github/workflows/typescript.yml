@@ -2,11 +2,11 @@ name: TypeScript
 
 on:
   push:
-    branches: ['main']
-    paths: ['codes/typescript/**/*.ts']
+    branches: ["main"]
+    paths: ["codes/typescript/**/*.ts", "*/codes/typescript/**/*.ts"]
   pull_request:
-    branches: ['main']
-    paths: ['codes/typescript/**/*.ts']
+    branches: ["main"]
+    paths: ["codes/typescript/**/*.ts", "*/codes/typescript/**/*.ts"]
   workflow_dispatch:
 
 jobs:
