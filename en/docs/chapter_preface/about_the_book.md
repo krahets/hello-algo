@@ -1,52 +1,52 @@
 # About this book
 
-This open-source project aims to create a free, and beginner-friendly crash course on data structures and algorithms.
+This project aims to create an open-source, free, beginner-friendly introductory tutorial on data structures and algorithms.
 
-- Animated illustrations, easy-to-understand content, and a smooth learning curve help beginners explore the "knowledge map" of data structures and algorithms.
-- Run code with just one click, helping readers improve their programming skills and understand the working principle of algorithms and the underlying implementation of data structures.
-- Promoting learning by teaching, feel free to ask questions and share insights. Let's grow together through discussion.
+- The entire book uses animated illustrations, with clear and easy-to-understand content and a smooth learning curve, guiding beginners to explore the knowledge map of data structures and algorithms.
+- The source code can be run with one click, helping readers improve their programming skills through practice and understand how algorithms work and the underlying implementation of data structures.
+- We encourage readers to learn from each other, and everyone is welcome to ask questions and share insights in the comments section, making progress together through discussion and exchange.
 
 ## Target audience
 
-If you are new to algorithms with limited exposure, or you have accumulated some experience in algorithms, but you only have a vague understanding of data structures and algorithms, and you are constantly jumping between "yep" and "hmm", then this book is for you!
+If you are an algorithm beginner who has never been exposed to algorithms, or if you already have some problem-solving experience and have a vague understanding of data structures and algorithms, oscillating between knowing and not knowing, then this book is tailor-made for you!
 
-If you have already accumulated a certain amount of problem-solving experience, and are familiar with most types of problems, then this book can help you review and organize your algorithm knowledge system. The repository's source code can be used as a "problem-solving toolkit" or an "algorithm cheat sheet".
+If you have already accumulated a certain amount of problem-solving experience and are familiar with most question types, this book can help you review and organize your algorithm knowledge system, and the repository's source code can be used as a "problem-solving toolkit" or "algorithm dictionary."
 
-If you are an algorithm expert, we look forward to receiving your valuable suggestions, or [join us and collaborate](https://www.hello-algo.com/chapter_appendix/contribution/).
+If you are an algorithm "expert," we look forward to receiving your valuable suggestions, or [participating in creation together](https://www.hello-algo.com/chapter_appendix/contribution/).
 
 !!! success "Prerequisites"
 
-    You should know how to write and read simple code in at least one programming language.
+    You need to have at least a programming foundation in any language, and be able to read and write simple code.
 
 ## Content structure
 
-The main content of the book is shown in the figure below.
+The main content of this book is shown in the figure below.
 
-- **Complexity analysis**: explores aspects and methods for evaluating data structures and algorithms. Covers methods of deriving time complexity and space complexity, along with common types and examples.
-- **Data structures**: focuses on fundamental data types, classification methods, definitions, pros and cons, common operations, types, applications, and implementation methods of data structures such as array, linked list, stack, queue, hash table, tree, heap, graph, etc.
-- **Algorithms**: defines algorithms, discusses their pros and cons, efficiency, application scenarios, problem-solving steps, and includes sample questions for various algorithms such as search, sorting, divide and conquer, backtracking, dynamic programming, greedy algorithms, and more.
+- **Complexity analysis**: Evaluation dimensions and methods for data structures and algorithms. Methods for calculating time complexity and space complexity, common types, examples, etc.
+- **Data structures**: Classification methods for basic data types and data structures. The definition, advantages and disadvantages, common operations, common types, typical applications, implementation methods, etc. of data structures such as arrays, linked lists, stacks, queues, hash tables, trees, heaps, and graphs.
+- **Algorithms**: The definition, advantages and disadvantages, efficiency, application scenarios, problem-solving steps, and example problems of algorithms such as searching, sorting, divide and conquer, backtracking, dynamic programming, and greedy algorithms.
 
-![Main content of the book](about_the_book.assets/hello_algo_mindmap.png)
+![Main content of this book](about_the_book.assets/hello_algo_mindmap.png)
 
 ## Acknowledgements
 
-This book is continuously improved with the joint efforts of many contributors from the open-source community. Thanks to each writer who invested their time and energy, listed in the order generated by GitHub: krahets, coderonion, Gonglja, nuomi1, Reanon, justin-tse, hpstory, danielsss, curtishd, night-cruise, S-N-O-R-L-A-X, msk397, gvenusleo, khoaxuantu, RiverTwilight, rongyi, gyt95, zhuoqinyue, K3v123, Zuoxun, mingXta, hello-ikun, FangYuan33, GN-Yu, yuelinxin, longsizhuo, Cathay-Chen, guowei-gong, xBLACKICEx, IsChristina, JoseHung, qualifier1024, QiLOL, pengchzn, Guanngxu, L-Super, WSL0809, Slone123c, lhxsm, yuan0221, what-is-me, theNefelibatas, longranger2, cy-by-side, xiongsp, JeffersonHuang, Transmigration-zhou, magentaqin, Wonderdch, malone6, xiaomiusa87, gaofer, bluebean-cloud, a16su, Shyam-Chen, nanlei, hongyun-robot, Phoenix0415, MolDuM, Nigh, he-weilai, junminhong, mgisr, iron-irax, yd-j, XiaChuerwu, XC-Zero, seven1240, SamJin98, wodray, reeswell, NI-SW, Horbin-Magician, Enlightenus, xjr7670, YangXuanyi, DullSword, boloboloda, iStig, qq909244296, jiaxianhua, wenjianmin, keshida, kilikilikid, lclc6, lwbaptx, liuxjerry, lucaswangdev, lyl625760, hts0000, gledfish, fbigm, echo1937, szu17dmy, dshlstarr, Yucao-cy, coderlef, czruby, bongbongbakudan, beintentional, ZongYangL, ZhongYuuu, luluxia, xb534, bitsmi, ElaBosak233, baagod, zhouLion, yishangzhang, yi427, yabo083, weibk, wangwang105, th1nk3r-ing, tao363, 4yDX3906, syd168, steventimes, sslmj2020, smilelsb, siqyka, selear, sdshaoda, Xi-Row, popozhu, nuquist19, noobcodemaker, XiaoK29, chadyi, ZhongGuanbin, shanghai-Jerry, JackYang-hellobobo, Javesun99, lipusheng, BlindTerran, ShiMaRing, FreddieLi, FloranceYeh, iFleey, fanchenggang, gltianwen, goerll, Dr-XYZ, nedchu, curly210102, CuB3y0nd, KraHsu, CarrotDLaw, youshaoXG, bubble9um, fanenr, eagleanurag, LifeGoesOnionOnionOnion, 52coder, foursevenlove, KorsChen, hezhizhen, linzeyan, ZJKung, GaochaoZhu, hopkings2008, yang-le, Evilrabbit520, Turing-1024-Lee, thomasq0, Suremotoo, Allen-Scai, Risuntsy, Richard-Zhang1019, qingpeng9802, primexiao, nidhoggfgg, 1ch0, MwumLi, martinx, ZnYang2018, hugtyftg, logan-qiu, psychelzh, Keynman, KeiichiKasai and 0130w.
+This book has been continuously improved through the joint efforts of many contributors in the open-source community. Thanks to every writer who invested time and effort, they are (in the order automatically generated by GitHub): krahets, coderonion, Gonglja, nuomi1, Reanon, justin-tse, hpstory, danielsss, curtishd, night-cruise, S-N-O-R-L-A-X, msk397, gvenusleo, khoaxuantu, RiverTwilight, rongyi, gyt95, zhuoqinyue, K3v123, Zuoxun, mingXta, hello-ikun, FangYuan33, GN-Yu, yuelinxin, longsizhuo, Cathay-Chen, guowei-gong, xBLACKICEx, IsChristina, JoseHung, qualifier1024, QiLOL, pengchzn, Guanngxu, L-Super, WSL0809, Slone123c, lhxsm, yuan0221, what-is-me, theNefelibatas, longranger2, cy-by-side, xiongsp, JeffersonHuang, Transmigration-zhou, magentaqin, Wonderdch, malone6, xiaomiusa87, gaofer, bluebean-cloud, a16su, Shyam-Chen, nanlei, hongyun-robot, Phoenix0415, MolDuM, Nigh, he-weilai, junminhong, mgisr, iron-irax, yd-j, XiaChuerwu, XC-Zero, seven1240, SamJin98, wodray, reeswell, NI-SW, Horbin-Magician, Enlightenus, xjr7670, YangXuanyi, DullSword, boloboloda, iStig, qq909244296, jiaxianhua, wenjianmin, keshida, kilikilikid, lclc6, lwbaptx, liuxjerry, lucaswangdev, lyl625760, hts0000, gledfish, fbigm, echo1937, szu17dmy, dshlstarr, Yucao-cy, coderlef, czruby, bongbongbakudan, beintentional, ZongYangL, ZhongYuuu, luluxia, xb534, bitsmi, ElaBosak233, baagod, zhouLion, yishangzhang, yi427, yabo083, weibk, wangwang105, th1nk3r-ing, tao363, 4yDX3906, syd168, steventimes, sslmj2020, smilelsb, siqyka, selear, sdshaoda, Xi-Row, popozhu, nuquist19, noobcodemaker, XiaoK29, chadyi, ZhongGuanbin, shanghai-Jerry, JackYang-hellobobo, Javesun99, lipusheng, BlindTerran, ShiMaRing, FreddieLi, FloranceYeh, iFleey, fanchenggang, gltianwen, goerll, Dr-XYZ, nedchu, curly210102, CuB3y0nd, KraHsu, CarrotDLaw, youshaoXG, bubble9um, fanenr, eagleanurag, LifeGoesOnionOnionOnion, 52coder, foursevenlove, KorsChen, hezhizhen, linzeyan, ZJKung, GaochaoZhu, hopkings2008, yang-le, Evilrabbit520, Turing-1024-Lee, thomasq0, Suremotoo, Allen-Scai, Risuntsy, Richard-Zhang1019, qingpeng9802, primexiao, nidhoggfgg, 1ch0, MwumLi, martinx, ZnYang2018, hugtyftg, logan-qiu, psychelzh, Keynman, KeiichiKasai and 0130w.
 
-The code review work for this book was completed by coderonion, Gonglja, gvenusleo, hpstory, justin‐tse, khoaxuantu, krahets, night-cruise, nuomi1, Reanon and rongyi (listed in alphabetical order). Thanks to them for their time and effort, ensuring the standardization and uniformity of the code in various languages.
+The code review work for this book was completed by coderonion, curtishd, Gonglja, gvenusleo, hpstory, justin-tse, khoaxuantu, krahets, night-cruise, nuomi1, Reanon and rongyi (in alphabetical order). Thanks to them for the time and effort they put in, it is they who ensure the standardization and unity of code in various languages.
 
-The Traditional Chinese version of this book was reviewed by Shyam-Chen and Dr-XYZ, while the English version was reviewed by yuelinxin, K3v123, QiLOL, Phoenix0415, SamJin98, yanedie, RafaelCaso, pengchzn, thomasq0, and magentaqin. It is thanks to their continuous contributions that this book can reach and serve a broader audience.
+The Traditional Chinese version of this book was reviewed by Shyam-Chen and Dr-XYZ, and the English version was reviewed by yuelinxin, K3v123, QiLOL, Phoenix0415, SamJin98, yanedie, RafaelCaso, pengchzn, thomasq0 and magentaqin. It is because of their continuous contributions that this book can serve a wider readership, and we thank them.
 
-Throughout the creation of this book, numerous individuals provided invaluable assistance, including but not limited to:
+During the creation of this book, I received help from many people.
 
-- Thanks to my mentor at the company, Dr. Xi Li, who encouraged me in a conversation to "get moving fast," which solidified my determination to write this book;
-- Thanks to my girlfriend Bubble, as the first reader of this book, for offering many valuable suggestions from the perspective of a beginner in algorithms, making this book more suitable for newbies;
+- Thanks to my mentor at the company, Dr. Li Xi, who encouraged me to "take action quickly" during a conversation, strengthening my determination to write this book;
+- Thanks to my girlfriend Bubble as the first reader of this book, who provided many valuable suggestions from the perspective of an algorithm beginner, making this book more suitable for novices to read;
 - Thanks to Tengbao, Qibao, and Feibao for coming up with a creative name for this book, evoking everyone's fond memories of writing their first line of code "Hello World!";
-- Thanks to Xiaoquan for providing professional help in intellectual property, which has played a significant role in the development of this open-source book;
-- Thanks to Sutong for designing a beautiful cover and logo for this book, and for patiently making multiple revisions under my insistence;
-- Thanks to @squidfunk for providing writing and typesetting suggestions, as well as his developed open-source documentation theme [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material/tree/master).
+- Thanks to Xiaoquan for providing professional help in intellectual property rights, which played an important role in the improvement of this open-source book;
+- Thanks to Sutong for designing the beautiful cover and logo for this book, and for patiently making revisions multiple times driven by my obsessive-compulsive disorder;
+- Thanks to @squidfunk for the typesetting suggestions, as well as for developing the open-source documentation theme [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material/tree/master).
 
-Throughout the writing journey, I delved into numerous textbooks and articles on data structures and algorithms. These works served as exemplary models, ensuring the accuracy and quality of this book's content. I extend my gratitude to all who preceded me for their invaluable contributions!
+During the writing process, I read many textbooks and articles on data structures and algorithms. These works provided excellent examples for this book and ensured the accuracy and quality of the book's content. I would like to thank all the teachers and predecessors for their outstanding contributions!
 
-This book advocates a combination of hands-on and minds-on learning, inspired in this regard by ["Dive into Deep Learning"](https://github.com/d2l-ai/d2l-en). I highly recommend this excellent book to all readers.
+This book advocates a learning method that combines hands and brain, and in this regard I was deeply inspired by [*Dive into Deep Learning*](https://github.com/d2l-ai/d2l-zh). I highly recommend this excellent work to all readers.
 
-**Heartfelt thanks to my parents, whose ongoing support and encouragement have allowed me to do this interesting work**.
+**Heartfelt thanks to my parents, it is your support and encouragement that has given me the opportunity to do this interesting thing**.

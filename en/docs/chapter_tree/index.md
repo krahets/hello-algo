@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    The towering tree exudes a vibrant essence, boasting profound roots and abundant foliage, yet its branches are sparsely scattered, creating an ethereal aura.
-    
-    It shows us the vivid form of divide-and-conquer in data.
+    Towering trees are full of vitality, with deep roots and lush leaves, spreading branches and flourishing.
+
+    They show us the vivid form of divide and conquer in data.

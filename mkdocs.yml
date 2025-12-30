@@ -19,6 +19,9 @@ theme:
   name: material
   custom_dir: build/overrides
   language: zh
+  font:
+    text: Noto Sans SC
+    code: JetBrains Mono
   features:
     # - announce.dismiss
     - content.action.edit
@@ -56,9 +59,6 @@ theme:
       toggle:
         icon: material/theme-light-dark
         name: 浅色模式
-  font:
-    text: Noto Sans SC
-    code: Fira Code
   favicon: assets/images/favicon.png
   logo: assets/images/logo.svg
   icon:

@@ -1,40 +1,40 @@
-# Contributing
+# Contributing Together
 
-Due to the limited abilities of the author, some omissions and errors are inevitable in this book. Please understand. If you discover any typos, broken links, missing content, textual ambiguities, unclear explanations, or unreasonable text structures, please assist us in making corrections to provide readers with better quality learning resources.
+Due to limited capacity, there may be inevitable omissions and errors in this book. We appreciate your understanding and are grateful for your help in correcting them. If you discover typos, broken links, missing content, ambiguous wording, unclear explanations, or structural issues, please help us make corrections to provide readers with higher-quality learning resources.
 
-The GitHub IDs of all [contributors](https://github.com/krahets/hello-algo/graphs/contributors) will be displayed on the repository, web, and PDF versions of the homepage of this book to thank them for their selfless contributions to the open-source community.
+The GitHub IDs of all [contributors](https://github.com/krahets/hello-algo/graphs/contributors) will be displayed on the homepage of the book repository, the web version, and the PDF version to acknowledge their selfless contributions to the open source community.
 
-!!! success "The charm of open source"
+!!! success "The Charm of Open Source"
 
-    The interval between two printings of a paper book is often long, making content updates very inconvenient.
-    
-    In this open-source book, however, the content update cycle is shortened to just a few days or even hours.
+    The interval between two printings of a physical book is often quite long, making content updates very inconvenient.
 
-### Content fine-tuning
+    In this open source book, the time for content updates has been shortened to just days or even hours.
 
-As shown in the figure below, there is an "edit icon" in the upper right corner of each page. You can follow these steps to modify text or code.
+### Minor Content Adjustments
 
-1. Click the "edit icon". If prompted to "fork this repository", please agree to do so.
-2. Modify the Markdown source file content, check the accuracy of the content, and try to keep the formatting consistent.
-3. Fill in the modification description at the bottom of the page, then click the "Propose file change" button. After the page redirects, click the "Create pull request" button to initiate the pull request.
+As shown in the figure below, there is an "edit icon" in the top-right corner of each page. You can modify text or code by following these steps.
 
-![Edit page button](contribution.assets/edit_markdown.png)
+1. Click the "edit icon". If you encounter a prompt asking you to "Fork this repository", please approve the operation.
+2. Modify the content of the Markdown source file, verify the correctness of the content, and maintain consistent formatting as much as possible.
+3. Fill in a description of your changes at the bottom of the page, then click the "Propose file change" button. After the page transitions, click the "Create pull request" button to submit your pull request.
 
-Figures cannot be directly modified and require the creation of a new [Issue](https://github.com/krahets/hello-algo/issues) or a comment to describe the problem. We will redraw and replace the figures as soon as possible.
+![Page edit button](contribution.assets/edit_markdown.png)
 
-### Content creation
+Images cannot be directly modified. Please describe the issue by creating a new [Issue](https://github.com/krahets/hello-algo/issues) or leaving a comment. We will promptly redraw and replace the images.
 
-If you are interested in participating in this open-source project, including translating code into other programming languages or expanding article content, then the following Pull Request workflow needs to be implemented.
+### Content Creation
 
-1. Log in to GitHub and Fork the [code repository](https://github.com/krahets/hello-algo) of this book to your personal account.
-2. Go to your Forked repository web page and use the `git clone` command to clone the repository to your local machine.
-3. Create content locally and perform complete tests to verify the correctness of the code.
-4. Commit the changes made locally, then push them to the remote repository.
-5. Refresh the repository webpage and click the "Create pull request" button to initiate the pull request.
+If you are interested in contributing to this open source project, including translating code into other programming languages or expanding article content, you will need to follow the Pull Request workflow below.
 
-### Docker deployment
+1. Log in to GitHub and Fork the book's [code repository](https://github.com/krahets/hello-algo) to your personal account.
+2. Enter your forked repository webpage and use the `git clone` command to clone the repository to your local machine.
+3. Create content locally and conduct comprehensive tests to verify code correctness.
+4. Commit your local changes and push them to the remote repository.
+5. Refresh the repository webpage and click the "Create pull request" button to submit your pull request.
 
-In the `hello-algo` root directory, execute the following Docker script to access the project at `http://localhost:8000`:
+### Docker Deployment
+
+From the root directory of `hello-algo`, run the following Docker script to access the project at `http://localhost:8000`:
 
 ```shell
 docker-compose up -d
