@@ -117,20 +117,20 @@ int main() {
 
     // Brute-force search
     int res = editDistanceDFS(s, t, n, m);
-    cout << "Change " << s << " to " << t << " requires a minimum of " << res << " steps\n";
+    cout << "Changing " << s << " to " << t << " requires a minimum of " << res << " edits";
 
     // Memoization search
     vector<vector<int>> mem(n + 1, vector<int>(m + 1, -1));
     res = editDistanceDFSMem(s, t, mem, n, m);
-    cout << "Change " << s << " to " << t << " requires a minimum of " << res << " steps\n";
+    cout << "Changing " << s << " to " << t << " requires a minimum of " << res << " edits";
 
     // Dynamic programming
     res = editDistanceDP(s, t);
-    cout << "Change " << s << " to " << t << " requires a minimum of " << res << " steps\n";
+    cout << "Changing " << s << " to " << t << " requires a minimum of " << res << " edits";
 
     // Space-optimized dynamic programming
     res = editDistanceDPComp(s, t);
-    cout << "Change " << s << " to " << t << " requires a minimum of " << res << " steps\n";
+    cout << "Changing " << s << " to " << t << " requires a minimum of " << res << " edits";
 
     return 0;
 }

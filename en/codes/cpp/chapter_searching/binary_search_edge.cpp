@@ -57,9 +57,9 @@ int main() {
     // Binary search left and right boundaries
     for (int target : {6, 7}) {
         int index = binarySearchLeftEdge(nums, target);
-        cout << "Leftmost element " << target << " has index " << index << endl;
+        cout << "Index of leftmost element " << target << " is " << index << endl;
         index = binarySearchRightEdge(nums, target);
-        cout << "Rightmost element " << target << " has index " << index << endl;
+        cout << "Index of rightmost element " << target << " is " << index << endl;
     }
 
     return 0;

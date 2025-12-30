@@ -34,7 +34,7 @@ int main() {
     cout << "\ncoins = ";
     printVector(coins);
     cout << "amt = " << amt << endl;
-    cout << "To make " << amt << ", minimum number of coins needed is " << res << endl;
+    cout << "Minimum number of coins needed to make " << amt << " is " << res << endl;
 
     // Greedy algorithm: Cannot guarantee finding the global optimal solution
     coins = {1, 20, 50};
@@ -43,7 +43,7 @@ int main() {
     cout << "\ncoins = ";
     printVector(coins);
     cout << "amt = " << amt << endl;
-    cout << "To make " << amt << ", minimum number of coins needed is " << res << endl;
+    cout << "Minimum number of coins needed to make " << amt << " is " << res << endl;
     cout << "Actually the minimum number needed is 3, i.e., 20 + 20 + 20" << endl;
 
     // Greedy algorithm: Cannot guarantee finding the global optimal solution
@@ -53,7 +53,7 @@ int main() {
     cout << "\ncoins = ";
     printVector(coins);
     cout << "amt = " << amt << endl;
-    cout << "To make " << amt << ", minimum number of coins needed is " << res << endl;
+    cout << "Minimum number of coins needed to make " << amt << " is " << res << endl;
     cout << "Actually the minimum number needed is 2, i.e., 49 + 49" << endl;
 
     return 0;

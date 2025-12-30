@@ -49,7 +49,7 @@ int main() {
     // Binary search for insertion point
     for (int target : {6, 9}) {
         int index = binarySearchInsertionSimple(nums, target);
-        cout << "Element " << target << "'s insertion point index is " << index << endl;
+        cout << "Insertion point index for element " << target << " is " << index << endl;
     }
 
     // Array with duplicate elements
@@ -59,7 +59,7 @@ int main() {
     // Binary search for insertion point
     for (int target : {2, 6, 20}) {
         int index = binarySearchInsertion(nums, target);
-        cout << "Element " << target << "'s insertion point index is " << index << endl;
+        cout << "Insertion point index for element " << target << " is " << index << endl;
     }
 
     return 0;

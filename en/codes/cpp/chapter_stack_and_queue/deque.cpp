@@ -31,7 +31,7 @@ int main() {
     cout << "Front dequeue element popFront = " << front << ", after front dequeue, deque = ";
     printDeque(deque);
     deque.pop_back();
-    cout << "Back dequeue element popLast = " << back << ", after rear dequeue, deque = ";
+    cout << "Rear dequeue element popLast = " << back << ", after rear dequeue, deque = ";
     printDeque(deque);
 
     /* Get the length of the double-ended queue */

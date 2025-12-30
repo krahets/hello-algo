@@ -53,7 +53,7 @@ int main() {
     vector<vector<vector<string>>> res = nQueens(n);
 
     cout << "Input board size is " << n << endl;
-    cout << "Total queen placement solutions: " << res.size() << " solutions" << endl;
+    cout << "Total queen placement solutions: " << res.size() << endl;
     for (const vector<vector<string>> &state : res) {
         cout << "--------------------" << endl;
         for (const vector<string> &row : state) {

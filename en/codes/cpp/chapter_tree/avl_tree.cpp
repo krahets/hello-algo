@@ -190,13 +190,13 @@ class AVLTree {
 
 void testInsert(AVLTree &tree, int val) {
     tree.insert(val);
-    cout << "\nInsert node " << val << ", AVL tree is" << endl;
+    cout << "\nAfter inserting node " << val << ", AVL tree is" << endl;
     printTree(tree.root);
 }
 
 void testRemove(AVLTree &tree, int val) {
     tree.remove(val);
-    cout << "\nRemove node " << val << ", AVL tree is" << endl;
+    cout << "\nAfter removing node " << val << ", AVL tree is" << endl;
     printTree(tree.root);
 }
 

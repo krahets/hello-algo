@@ -8,14 +8,14 @@
 
 void testPush(priority_queue<int> &heap, int val) {
     heap.push(val); // Element enters heap
-    cout << "\nElement " << val << " after pushing to heap" << endl;
+    cout << "\nAfter element " << val << " pushes to heap" << endl;
     printHeap(heap);
 }
 
 void testPop(priority_queue<int> &heap) {
     int val = heap.top();
     heap.pop();
-    cout << "\nHeap top element " << val << " after popping from heap" << endl;
+    cout << "\nAfter heap top element " << val << " pops from heap" << endl;
     printHeap(heap);
 }
 

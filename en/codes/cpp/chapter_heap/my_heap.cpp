@@ -134,13 +134,13 @@ int main() {
     /* Element enters heap */
     int val = 7;
     maxHeap.push(val);
-    cout << "\nElement " << val << " after pushing to heap" << endl;
+    cout << "\nAfter element " << val << " pushes to heap" << endl;
     maxHeap.print();
 
     /* Time complexity is O(n), not O(nlogn) */
     peek = maxHeap.peek();
     maxHeap.pop();
-    cout << "\nHeap top element " << peek << " after popping from heap" << endl;
+    cout << "\nAfter heap top element " << peek << " pops from heap" << endl;
     maxHeap.print();
 
     /* Get heap size */
