@@ -3,10 +3,14 @@ name: Go
 on:
   push:
     branches: ["main"]
-    paths: ["codes/go/**/*.go"]
+    paths:
+      - "codes/go/**/*.go"
+      - "en/codes/go/**/*.go"
   pull_request:
     branches: ["main"]
-    paths: ["codes/go/**/*.go"]
+    paths:
+      - "codes/go/**/*.go"
+      - "en/codes/go/**/*.go"
   workflow_dispatch:
 
 jobs:
@@ -15,11 +19,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     defaults:
       run:
-        working-directory: codes/go/
+        working-directory: ${{ matrix.code-dir }}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         go-version: ["1.19.x"]
+        code-dir: ["codes/go", "en/codes/go"]
 
     steps:
       - uses: actions/checkout@v4

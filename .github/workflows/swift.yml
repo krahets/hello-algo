@@ -6,10 +6,14 @@ name: Swift
 on:
   push:
     branches: ["main"]
-    paths: ["codes/swift/**/*.swift"]
+    paths:
+      - "codes/swift/**/*.swift"
+      - "en/codes/swift/**/*.swift"
   pull_request:
     branches: ["main"]
-    paths: ["codes/swift/**/*.swift"]
+    paths:
+      - "codes/swift/**/*.swift"
+      - "en/codes/swift/**/*.swift"
   workflow_dispatch:
 
 jobs:
@@ -19,7 +23,8 @@ jobs:
     strategy:
       matrix:
         os: ["ubuntu-22.04", "macos-14"]
+        code-dir: ["codes/swift", "en/codes/swift"]
     steps:
       - uses: actions/checkout@v4
       - name: Build
-        run: swift build --package-path codes/swift
+        run: swift build --package-path ${{ matrix.code-dir }}

@@ -6,10 +6,14 @@ name: Java
 on:
   push:
     branches: ["main"]
-    paths: ["codes/java/**/*.java"]
+    paths:
+      - "codes/java/**/*.java"
+      - "en/codes/java/**/*.java"
   pull_request:
     branches: ["main"]
-    paths: ["codes/java/**/*.java"]
+    paths:
+      - "codes/java/**/*.java"
+      - "en/codes/java/**/*.java"
   workflow_dispatch:
 
 jobs:
@@ -18,6 +22,7 @@ jobs:
     strategy:
       matrix:
         java: ["11", "17"]
+        code-dir: ["codes/java", "en/codes/java"]
     name: Java ${{ matrix.Java }} sample
     steps:
       - uses: actions/checkout@v4
@@ -26,4 +31,4 @@ jobs:
         with:
           distribution: "temurin"
           java-version: ${{ matrix.java }}
-      - run: javac -d codes/java/build codes/java/**/*.java
+      - run: javac -d ${{ matrix.code-dir }}/build ${{ matrix.code-dir }}/**/*.java
