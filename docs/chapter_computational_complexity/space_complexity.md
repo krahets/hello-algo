@@ -367,6 +367,35 @@
 
     ```
 
+=== "PHP"
+
+    ```php title=""
+    // 类
+    class Node {
+        public int $val;
+        public ?Node $next;
+        
+        public function __construct(int $val = 0) {
+            $this->val = $val;
+            $this->next = null;
+        }
+    }
+
+    // 函数
+    function constFunc(): int {
+        // 执行某些操作
+        return 0;
+    }
+
+    function algorithm(int $n): int {  // 输入数据
+        $a = 0;                        // 暂存数据（常量）
+        $b = 0;                        // 暂存数据（变量）
+        $node = new Node(0);           // 暂存数据（对象）
+        $c = constFunc();              // 栈帧空间（调用函数）
+        return $a + $b + $c;           // 输出数据
+    }
+    ```
+
 ## 推算方法
 
 空间复杂度的推算方法与时间复杂度大致相同，只需将统计对象从“操作数量”转为“使用空间大小”。
@@ -533,6 +562,19 @@
 
     ```zig title=""
 
+    ```
+
+=== "PHP"
+
+    ```php title=""
+    function algorithm(int $n): void
+    {
+        $a = 0;                       // O(1)
+        $b = array_fill(0, 10000, 0); // O(1)
+        if ($n > 10) {
+            $nums = array_fill(0, $n, 0); // O(n)
+        }
+    }
     ```
 
 **在递归函数中，需要注意统计栈帧空间**。观察以下代码：
@@ -813,6 +855,31 @@
 
     ```
 
+=== "PHP"
+
+    ```php title=""
+    function functionMethod(): int
+    {
+    // 执行某些操作
+    return 0;
+    }
+
+    /* 循环的空间复杂度为 O(1) */
+    function loop(int $n): void
+    {
+        for ($i = 0; $i < $n; $i++) {
+            functionMethod();
+        }
+    }
+
+    /* 递归的空间复杂度为 O(n) */
+    function recur(int $n): void
+    {
+        if ($n == 1) return;
+        recur($n - 1);
+    }
+    ```
+    
 函数 `loop()` 和 `recur()` 的时间复杂度都为 $O(n)$ ，但空间复杂度不同。
 
 - 函数 `loop()` 在循环中调用了 $n$ 次 `function()` ，每轮中的 `function()` 都返回并释放了栈帧空间，因此空间复杂度仍为 $O(1)$ 。
