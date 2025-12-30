@@ -185,26 +185,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 鏈結串列節點類別
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 節點值
-            next: ?*Self = null, // 指向下一節點的指標
-
-            // 建構子
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-            }
-        };
-    }
-    ```
-
 ## 鏈結串列常用操作
 
 ### 初始化鏈結串列
@@ -431,23 +411,6 @@
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // 初始化鏈結串列
-    // 初始化各個節點
-    var n0 = inc.ListNode(i32){.val = 1};
-    var n1 = inc.ListNode(i32){.val = 3};
-    var n2 = inc.ListNode(i32){.val = 2};
-    var n3 = inc.ListNode(i32){.val = 5};
-    var n4 = inc.ListNode(i32){.val = 4};
-    // 構建節點之間的引用
-    n0.next = &n1;
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
     ```
 
 ??? pythontutor "視覺化執行"
@@ -715,28 +678,6 @@
         @prev = prev_node
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    // 雙向鏈結串列節點類別
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 節點值
-            next: ?*Self = null, // 指向後繼節點的指標
-            prev: ?*Self = null, // 指向前驅節點的指標
-
-            // 建構子
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-                self.prev = null;
-            }
-        };
-    }
     ```
 
 ![常見鏈結串列種類](linked_list.assets/linkedlist_common_types.png)

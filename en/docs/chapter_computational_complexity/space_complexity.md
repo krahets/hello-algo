@@ -361,12 +361,6 @@ The related code is as follows:
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 ## Calculation Method
 
 The calculation method for space complexity is roughly the same as for time complexity, except that the statistical object is changed from "number of operations" to "size of space used".
@@ -527,12 +521,6 @@ Observe the following code. The "worst case" in worst-case space complexity has 
         b = Array.new(10000)            # O(1)
         nums = Array.new(n) if n > 10   # O(n)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 **In recursive functions, it is necessary to count the stack frame space**. Observe the following code:
@@ -805,12 +793,6 @@ Observe the following code. The "worst case" in worst-case space complexity has 
         return if n == 1
         recur(n - 1)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 The time complexity of both functions `loop()` and `recur()` is $O(n)$, but their space complexities are different.

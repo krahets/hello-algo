@@ -128,12 +128,6 @@ To solve this problem, **we can consider explicitly writing out all `None` value
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 ![Array representation of any type of binary tree](array_representation_of_tree.assets/array_representation_with_empty.png)
 
 It's worth noting that **complete binary trees are very well-suited for array representation**. Recalling the definition of a complete binary tree, `None` only appears at the bottom level and towards the right, **meaning all `None` values must appear at the end of the level-order traversal sequence**.

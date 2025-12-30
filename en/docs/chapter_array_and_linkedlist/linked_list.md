@@ -185,26 +185,6 @@ As shown in the following code, a linked list node `ListNode` contains not only 
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // Linked list node class
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // Node value
-            next: ?*Self = null, // Pointer to the next node
-
-            // Constructor
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-            }
-        };
-    }
-    ```
-
 ## Common Linked List Operations
 
 ### Initializing a Linked List
@@ -431,23 +411,6 @@ Building a linked list involves two steps: first, initializing each node object;
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // Initialize linked list
-    // Initialize each node
-    var n0 = inc.ListNode(i32){.val = 1};
-    var n1 = inc.ListNode(i32){.val = 3};
-    var n2 = inc.ListNode(i32){.val = 2};
-    var n3 = inc.ListNode(i32){.val = 5};
-    var n4 = inc.ListNode(i32){.val = 4};
-    // Build references between nodes
-    n0.next = &n1;
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
     ```
 
 ??? pythontutor "Code Visualization"
@@ -715,28 +678,6 @@ As shown in the figure below, there are three common types of linked lists:
         @prev = prev_node
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    // Doubly linked list node class
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // Node value
-            next: ?*Self = null, // Pointer to the successor node
-            prev: ?*Self = null, // Pointer to the predecessor node
-
-            // Constructor
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-                self.prev = null;
-            }
-        };
-    }
     ```
 
 ![Common types of linked lists](linked_list.assets/linkedlist_common_types.png)

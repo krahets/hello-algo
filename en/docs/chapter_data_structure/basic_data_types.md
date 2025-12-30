@@ -170,24 +170,6 @@ In other words, **basic data types provide the "content type" of data, while dat
     data = [0, 0.0, 'a', false, ListNode(0)]
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    const hello = [5]u8{ 'h', 'e', 'l', 'l', 'o' };
-    // The above code demonstrates how to define a literal array, where you can choose to specify the array size or use _ instead. When using _, Zig will attempt to automatically calculate the array length
-
-    const matrix_4x4 = [4][4]f32{
-        [_]f32{ 1.0, 0.0, 0.0, 0.0 },
-        [_]f32{ 0.0, 1.0, 0.0, 1.0 },
-        [_]f32{ 0.0, 0.0, 1.0, 0.0 },
-        [_]f32{ 0.0, 0.0, 0.0, 1.0 },
-    };
-    // Multidimensional arrays (matrices) are actually nested arrays, and we can easily create a multidimensional array
-
-    const array = [_:0]u8{ 1, 2, 3, 4 };
-    // Define a sentinel-terminated array. Essentially, this is to be compatible with C's specified string terminator \0. We use the syntax [N:x]T to describe an array with elements of type T and length N, where the value at index N should be x
-    ```
-
 ??? pythontutor "Visualized Execution"
 
     https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%9D%A5%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0A%20%20%20%20numbers%20%3D%20%5B0%5D%20*%205%0A%20%20%20%20decimals%20%3D%20%5B0.0%5D%20*%205%0A%20%20%20%20%23%20Python%20%E7%9A%84%E5%AD%97%E7%AC%A6%E5%AE%9E%E9%99%85%E4%B8%8A%E6%98%AF%E9%95%BF%E5%BA%A6%E4%B8%BA%201%20%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%0A%20%20%20%20characters%20%3D%20%5B'0'%5D%20*%205%0A%20%20%20%20bools%20%3D%20%5BFalse%5D%20*%205%0A%20%20%20%20%23%20Python%20%E7%9A%84%E5%88%97%E8%A1%A8%E5%8F%AF%E4%BB%A5%E8%87%AA%E7%94%B1%E5%AD%98%E5%82%A8%E5%90%84%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%0A%20%20%20%20data%20%3D%20%5B0,%200.0,%20'a',%20False,%20ListNode%280%29%5D&cumulative=false&curInstr=12&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

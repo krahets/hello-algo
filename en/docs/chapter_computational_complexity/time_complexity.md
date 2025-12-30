@@ -201,21 +201,6 @@ For example, in the following code, the input data size is $n$:
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // On a certain running platform
-    fn algorithm(n: usize) void {
-        var a: i32 = 2; // 1 ns
-        a += 1; // 1 ns
-        a *= 2; // 10 ns
-        // Loop n times
-        for (0..n) |_| { // 1 ns
-            std.debug.print("{}\n", .{0}); // 5 ns
-        }
-    }
-    ```
-
 According to the above method, the algorithm's runtime can be obtained as $(6n + 12)$ ns:
 
 $$
@@ -499,29 +484,6 @@ The concept of "time growth trend" is rather abstract; let us understand it thro
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // Time complexity of algorithm A: constant order
-    fn algorithm_A(n: usize) void {
-        _ = n;
-        std.debug.print("{}\n", .{0});
-    }
-    // Time complexity of algorithm B: linear order
-    fn algorithm_B(n: i32) void {
-        for (0..n) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-    }
-    // Time complexity of algorithm C: constant order
-    fn algorithm_C(n: i32) void {
-        _ = n;
-        for (0..1000000) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-    }
-    ```
-
 The figure below shows the time complexity of the above three algorithm functions.
 
 - Algorithm `A` has only $1$ print operation, and the algorithm's runtime does not grow as $n$ increases. We call the time complexity of this algorithm "constant order".
@@ -719,20 +681,6 @@ Given a function with input size $n$:
             puts 0      # +1
         end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    fn algorithm(n: usize) void {
-        var a: i32 = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // Loop n times
-        for (0..n) |_| { // +1 (i++ is executed each round)
-            std.debug.print("{}\n", .{0}); // +1
-        }
-    }
     ```
 
 Let the number of operations of the algorithm be a function of the input data size $n$, denoted as $T(n)$. Then the number of operations of the above function is:
@@ -1010,27 +958,6 @@ Given a function, we can use the above techniques to count the number of operati
             (0...(n + 1)).each do { puts 0 }
         end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    fn algorithm(n: usize) void {
-        var a: i32 = 1;     // +0 (Technique 1)
-        a = a + @as(i32, @intCast(n));        // +0 (Technique 1)
-
-        // +n (Technique 2)
-        for(0..(5 * n + 1)) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-
-        // +n*n (Technique 3)
-        for(0..(2 * n)) |_| {
-            for(0..(n + 1)) |_| {
-                std.debug.print("{}\n", .{0});
-            }
-        }
-    }
     ```
 
 The following formula shows the counting results before and after using the above techniques; both derive a time complexity of $O(n^2)$.
