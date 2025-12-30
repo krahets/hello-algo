@@ -6,11 +6,11 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative '../utils/print_util'
 
-# ### Max heap ###
+### Max heap ###
 class MaxHeap
   attr_reader :max_heap
 
-  # ### Constructor, build heap from input list ###
+  ### Constructor, build heap from input list ###
   def initialize(nums)
     # Add list elements to heap as is
     @max_heap = nums
@@ -20,42 +20,42 @@ class MaxHeap
     end
   end
 
-  # ### Get left child index ###
+  ### Get left child index ###
   def left(i)
     2 * i + 1
   end
 
-  # ### Get right child index ###
+  ### Get right child index ###
   def right(i)
     2 * i + 2
   end
 
-  # ### Get parent node index ###
+  ### Get parent node index ###
   def parent(i)
     (i - 1) / 2     # Floor division
   end
 
-  # ### Swap elements ###
+  ### Swap elements ###
   def swap(i, j)
     @max_heap[i], @max_heap[j] = @max_heap[j], @max_heap[i]
   end
 
-  # ### Get heap size ###
+  ### Get heap size ###
   def size
     @max_heap.length
   end
 
-  # ### Check if heap is empty ###
+  ### Check if heap is empty ###
   def is_empty?
     size == 0
   end
 
-  # ### Access heap top element ###
+  ### Access heap top element ###
   def peek
     @max_heap[0]
   end
 
-  # ### Push element to heap ###
+  ### Push element to heap ###
   def push(val)
     # Add node
     @max_heap << val
@@ -63,7 +63,7 @@ class MaxHeap
     sift_up(size - 1)
   end
 
-  # ### Heapify from node i, bottom to top ###
+  ### Heapify from node i, bottom to top ###
   def sift_up(i)
     loop do
       # Get parent node of node i
@@ -77,7 +77,7 @@ class MaxHeap
     end
   end
 
-  # ### Pop element from heap ###
+  ### Pop element from heap ###
   def pop
     # Handle empty case
     raise IndexError, "Heap is empty" if is_empty?
@@ -91,7 +91,7 @@ class MaxHeap
     val
   end
 
-  # ### Heapify from node i, top to bottom ###
+  ### Heapify from node i, top to bottom ###
   def sift_down(i)
     loop do
       # If node i is largest or indices l, r are out of bounds, no need to continue heapify, break
@@ -109,7 +109,7 @@ class MaxHeap
     end
   end
 
-  # ### Print heap (binary tree) ###
+  ### Print heap (binary tree) ###
   def __print__
     print_heap(@max_heap)
   end

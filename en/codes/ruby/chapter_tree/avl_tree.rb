@@ -7,19 +7,19 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ### AVL tree ###
+### AVL tree ###
 class AVLTree
-  # ### Constructor ###
+  ### Constructor ###
   def initialize
     @root = nil
   end
 
-  # ### Get binary tree root node ###
+  ### Get binary tree root node ###
   def get_root
     @root
   end
 
-  # ### Get node height ###
+  ### Get node height ###
   def height(node)
     # Empty node height is -1, leaf node height is 0
     return node.height unless node.nil?
@@ -27,13 +27,13 @@ class AVLTree
     -1
   end
 
-  # ### Update node height ###
+  ### Update node height ###
   def update_height(node)
     # Node height equals the height of the tallest subtree + 1
     node.height = [height(node.left), height(node.right)].max + 1
   end
 
-  # ### Get balance factor ###
+  ### Get balance factor ###
   def balance_factor(node)
     # Empty node balance factor is 0
     return 0 if node.nil?
@@ -42,7 +42,7 @@ class AVLTree
     height(node.left) - height(node.right)
   end
 
-  # ### Right rotation ###
+  ### Right rotation ###
   def right_rotate(node)
     child = node.left
     grand_child = child.right
@@ -56,7 +56,7 @@ class AVLTree
     child
   end
 
-  # ### Left rotation ###
+  ### Left rotation ###
   def left_rotate(node)
     child = node.right
     grand_child = child.left
@@ -70,7 +70,7 @@ class AVLTree
     child
   end
 
-  # ### Perform rotation to rebalance subtree ###
+  ### Perform rotation to rebalance subtree ###
   def rotate(node)
     # Get balance factor of node
     balance_factor = balance_factor(node)
@@ -99,12 +99,12 @@ class AVLTree
     node
   end
 
-  # ### Insert node ###
+  ### Insert node ###
   def insert(val)
     @root = insert_helper(@root, val)
   end
 
-  # ### Recursively insert node (helper method) ###
+  ### Recursively insert node (helper method) ###
   def insert_helper(node, val)
     return TreeNode.new(val) if node.nil?
     # 1. Find insertion position and insert node
@@ -122,12 +122,12 @@ class AVLTree
     rotate(node)
   end
 
-  # ### Delete node ###
+  ### Delete node ###
   def remove(val)
     @root = remove_helper(@root, val)
   end
 
-  # ### Recursively delete node (helper method) ###
+  ### Recursively delete node (helper method) ###
   def remove_helper(node, val)
     return if node.nil?
     # 1. Find node and delete
@@ -158,7 +158,7 @@ class AVLTree
     rotate(node)
   end
 
-  # ### Search node ###
+  ### Search node ###
   def search(val)
     cur = @root
     # Loop search, exit after passing leaf node

@@ -4,7 +4,7 @@ Created Time: 2024-05-07
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Maximum cutting product: greedy ###
+### Maximum cutting product: greedy ###
 def max_product_cutting(n)
   # When n <= 3, must cut out a 1
   return 1 * (n - 1) if n <= 3

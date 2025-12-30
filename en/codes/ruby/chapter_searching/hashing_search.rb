@@ -6,14 +6,14 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative '../utils/list_node'
 
-# ### Hash search (array) ###
+### Hash search (array) ###
 def hashing_search_array(hmap, target)
   # Hash table's key: target element, value: index
   # If this key does not exist in the hash table, return -1
   hmap[target] || -1
 end
 
-# ### Hash search (linked list) ###
+### Hash search (linked list) ###
 def hashing_search_linkedlist(hmap, target)
   # Hash table's key: target element, value: node object
   # If this key does not exist in the hash table, return None

@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Minimum path sum: brute force search ###
+### Minimum path sum: brute force search ###
 def min_path_sum_dfs(grid, i, j)
   # If it's the top-left cell, terminate the search
   return grid[i][j] if i == 0 && j == 0
@@ -17,7 +17,7 @@ def min_path_sum_dfs(grid, i, j)
   [left, up].min + grid[i][j]
 end
 
-# ### Minimum path sum: memoization search ###
+### Minimum path sum: memoization search ###
 def min_path_sum_dfs_mem(grid, mem, i, j)
   # If it's the top-left cell, terminate the search
   return grid[0][0] if i == 0 && j == 0
@@ -32,7 +32,7 @@ def min_path_sum_dfs_mem(grid, mem, i, j)
   mem[i][j] = [left, up].min + grid[i][j]
 end
 
-# ### Minimum path sum: dynamic programming ###
+### Minimum path sum: dynamic programming ###
 def min_path_sum_dp(grid)
   n, m = grid.length, grid.first.length
   # Initialize dp table
@@ -51,7 +51,7 @@ def min_path_sum_dp(grid)
   dp[n -1][m -1]
 end
 
-# ### Minimum path sum: space-optimized DP ###
+### Minimum path sum: space-optimized DP ###
 def min_path_sum_dp_comp(grid)
   n, m = grid.length, grid.first.length
   # Initialize dp table

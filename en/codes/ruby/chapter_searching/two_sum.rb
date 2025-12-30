@@ -4,7 +4,7 @@ Created Time: 2024-04-09
 Author: Blue Bean (lonnnnnnner@gmail.com)
 =end
 
-# ### Method 1: Brute force enumeration ###
+### Method 1: Brute force enumeration ###
 def two_sum_brute_force(nums, target)
   # Two nested loops, time complexity is O(n^2)
   for i in 0...(nums.length - 1)
@@ -16,7 +16,7 @@ def two_sum_brute_force(nums, target)
   []
 end
 
-# ### Method 2: Auxiliary hash table ###
+### Method 2: Auxiliary hash table ###
 def two_sum_hash_table(nums, target)
   # Auxiliary hash table, space complexity is O(n)
   dic = {}

@@ -6,7 +6,7 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative '../utils/list_node'
 
-# ### Linear search (array) ###
+### Linear search (array) ###
 def linear_search_array(nums, target)
   # Traverse array
   for i in 0...nums.length
@@ -16,7 +16,7 @@ def linear_search_array(nums, target)
   -1 # Target element not found, return -1
 end
 
-# ### Linear search (linked list) ###
+### Linear search (linked list) ###
 def linear_search_linkedlist(head, target)
   # Traverse the linked list
   while head

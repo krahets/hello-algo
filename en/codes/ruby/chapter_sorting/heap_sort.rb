@@ -4,7 +4,7 @@ Created Time: 2024-04-10
 Author: junminhong (junminhong1110@gmail.com)
 =end
 
-# ### Heap length is n, heapify from node i, top to bottom ###
+### Heap length is n, heapify from node i, top to bottom ###
 def sift_down(nums, n, i)
   while true
     # If node i is largest or indices l, r are out of bounds, no need to continue heapify, break
@@ -22,7 +22,7 @@ def sift_down(nums, n, i)
   end
 end
 
-# ### Heap sort ###
+### Heap sort ###
 def heap_sort(nums)
   # Build heap operation: heapify all nodes except leaves
   (nums.length / 2 - 1).downto(0) do |i|

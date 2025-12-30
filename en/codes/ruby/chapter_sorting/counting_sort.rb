@@ -4,7 +4,7 @@ Created Time: 2024-05-02
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Counting sort ###
+### Counting sort ###
 def counting_sort_naive(nums)
   # Simple implementation, cannot be used for sorting objects
   # 1. Count the maximum element m in the array
@@ -24,7 +24,7 @@ def counting_sort_naive(nums)
   end
 end
 
-# ### Counting sort ###
+### Counting sort ###
 def counting_sort(nums)
   # Complete implementation, can sort objects and is a stable sort
   # 1. Count the maximum element m in the array

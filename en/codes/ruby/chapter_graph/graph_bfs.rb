@@ -8,7 +8,7 @@ require 'set'
 require_relative './graph_adjacency_list'
 require_relative '../utils/vertex'
 
-# ### Breadth-first traversal ###
+### Breadth-first traversal ###
 def graph_bfs(graph, start_vet)
   # Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
   # Vertex traversal sequence

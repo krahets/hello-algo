@@ -4,10 +4,10 @@ Created Time: 2024-04-01
 Author: Cy (3739004@gmail.com), Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Quick sort class ###
+### Quick sort class ###
 class QuickSort
   class << self
-    # ### Sentinel partition ###
+    ### Sentinel partition ###
     def partition(nums, left, right)
       # Use nums[left] as the pivot
       i, j = left, right
@@ -26,7 +26,7 @@ class QuickSort
       i # Return the index of the pivot
     end
 
-    # ### Quick sort class ###
+    ### Quick sort class ###
     def quick_sort(nums, left, right)
       # Recurse when subarray length is not 1
       if left < right
@@ -41,10 +41,10 @@ class QuickSort
   end
 end
 
-# ### Quick sort class (median optimization) ###
+### Quick sort class (median optimization) ###
 class QuickSortMedian
   class << self
-    # ### Select median of three candidate elements ###
+    ### Select median of three candidate elements ###
     def median_three(nums, left, mid, right)
       # Select the median of three candidate elements
       _l, _m, _r = nums[left], nums[mid], nums[right]
@@ -55,9 +55,9 @@ class QuickSortMedian
       return right
     end
 
-    # ### Sentinel partition (median of three) ###
+    ### Sentinel partition (median of three) ###
     def partition(nums, left, right)
-      # ### Use nums[left] as pivot
+      ### Use nums[left] as pivot
       med = median_three(nums, left, (left + right) / 2, right)
       # Swap median to leftmost position of array
       nums[left], nums[med] = nums[med], nums[left]
@@ -77,7 +77,7 @@ class QuickSortMedian
       i # Return the index of the pivot
     end
 
-    # ### Quick sort ###
+    ### Quick sort ###
     def quick_sort(nums, left, right)
       # Recurse when subarray length is not 1
       if left < right
@@ -92,10 +92,10 @@ class QuickSortMedian
   end
 end
 
-# ### Quick sort class (recursion depth optimization) ###
+### Quick sort class (recursion depth optimization) ###
 class QuickSortTailCall
   class << self
-    # ### Sentinel partition ###
+    ### Sentinel partition ###
     def partition(nums, left, right)
       # Use nums[left] as pivot
       i = left
@@ -115,7 +115,7 @@ class QuickSortTailCall
       i # Return the index of the pivot
     end
 
-    # ### Quick sort (recursion depth optimization) ###
+    ### Quick sort (recursion depth optimization) ###
     def quick_sort(nums, left, right)
       # Recurse when subarray length is not 1
       while left < right

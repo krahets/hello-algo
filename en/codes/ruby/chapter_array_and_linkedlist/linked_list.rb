@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/list_node'
 require_relative '../utils/print_util'
 
-# ### Insert node _p after node n0 in linked list ###
+### Insert node _p after node n0 in linked list ###
 # Ruby's `p` is a built-in function, `P` is a constant, so use `_p` instead
 def insert(n0, _p)
   n1 = n0.next
@@ -15,7 +15,7 @@ def insert(n0, _p)
   n0.next = _p
 end
 
-# ### Delete first node after node n0 in linked list ###
+### Delete first node after node n0 in linked list ###
 def remove(n0)
   return if n0.next.nil?
 
@@ -25,7 +25,7 @@ def remove(n0)
   n0.next = n1
 end
 
-# ### Access node at index in linked list ###
+### Access node at index in linked list ###
 def access(head, index)
   for i in 0...index
     return nil if head.nil?
@@ -35,7 +35,7 @@ def access(head, index)
   head
 end
 
-# ### Find first node with value target in linked list ###
+### Find first node with value target in linked list ###
 def find(head, target)
   index = 0
   while head

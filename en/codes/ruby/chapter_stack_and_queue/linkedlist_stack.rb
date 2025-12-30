@@ -6,21 +6,21 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-# ### Stack based on linked list ###
+### Stack based on linked list ###
 class LinkedListStack
   attr_reader :size
 
-  # ### Constructor ###
+  ### Constructor ###
   def initialize
     @size = 0
   end
 
-  # ### Check if stack is empty ###
+  ### Check if stack is empty ###
   def is_empty?
     @peek.nil?
   end
 
-  # ### Push ###
+  ### Push ###
   def push(val)
     node = ListNode.new(val)
     node.next = @peek
@@ -28,7 +28,7 @@ class LinkedListStack
     @size += 1
   end
 
-  # ### Pop ###
+  ### Pop ###
   def pop
     num = peek
     @peek = @peek.next
@@ -36,14 +36,14 @@ class LinkedListStack
     num
   end
 
-  # ### Access top element ###
+  ### Access top element ###
   def peek
     raise IndexError, 'Stack is empty' if is_empty?
 
     @peek.val
   end
 
-  # ### Convert linked list to Array and return ###
+  ### Convert linked list to Array and return ###
   def to_array
     arr = []
     node = @peek

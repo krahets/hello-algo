@@ -4,7 +4,7 @@ Created Time: 2024-05-07
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Maximum capacity: greedy ###
+### Maximum capacity: greedy ###
 def max_capacity(ht)
   # Initialize i, j to be at both ends of the array
   i, j = 0, ht.length - 1

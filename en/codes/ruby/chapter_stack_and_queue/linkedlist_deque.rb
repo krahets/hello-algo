@@ -4,36 +4,36 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Doubly linked list node
+### Doubly linked list node
 class ListNode
   attr_accessor :val
   attr_accessor :next # Successor node reference
   attr_accessor :prev # Predecessor node reference
 
-  # ### Constructor ###
+  ### Constructor ###
   def initialize(val)
     @val = val
   end
 end
 
-# ### Deque based on doubly linked list ###
+### Deque based on doubly linked list ###
 class LinkedListDeque
-  # ### Get deque length ###
+  ### Get deque length ###
   attr_reader :size
 
-  # ### Constructor ###
+  ### Constructor ###
   def initialize
     @front = nil  # Head node front
     @rear = nil   # Tail node rear
     @size = 0     # Length of the double-ended queue
   end
 
-  # ### Check if deque is empty ###
+  ### Check if deque is empty ###
   def is_empty?
     size.zero?
   end
 
-  # ### Enqueue operation ###
+  ### Enqueue operation ###
   def push(num, is_front)
     node = ListNode.new(num)
     # If list is empty, set both front and rear to node
@@ -55,17 +55,17 @@ class LinkedListDeque
     @size += 1 # Update queue length
   end
 
-  # ### Enqueue at front ###
+  ### Enqueue at front ###
   def push_first(num)
     push(num, true)
   end
 
-  # ### Enqueue at rear ###
+  ### Enqueue at rear ###
   def push_last(num)
     push(num, false)
   end
 
-  # ### Dequeue operation ###
+  ### Dequeue operation ###
   def pop(is_front)
     raise IndexError, 'Deque is empty' if is_empty?
 
@@ -95,31 +95,31 @@ class LinkedListDeque
     val
   end
 
-  # ### Dequeue from front ###
+  ### Dequeue from front ###
   def pop_first
     pop(true)
   end
 
-  # ### Dequeue from front ###
+  ### Dequeue from front ###
   def pop_last
     pop(false)
   end
 
-  # ### Access front element ###
+  ### Access front element ###
   def peek_first
     raise IndexError, 'Deque is empty' if is_empty?
 
     @front.val
   end
 
-  # ### Access rear element ###
+  ### Access rear element ###
   def peek_last
     raise IndexError, 'Deque is empty' if is_empty?
 
     @rear.val
   end
 
-  # ### Return array for printing ###
+  ### Return array for printing ###
   def to_array
     node = @front
     res = Array.new(size, 0)

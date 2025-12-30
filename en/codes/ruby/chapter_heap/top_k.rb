@@ -6,31 +6,31 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative "./my_heap"
 
-# ### Push element to heap ###
+### Push element to heap ###
 def push_min_heap(heap, val)
   # Negate element
   heap.push(-val)
 end
 
-# ### Pop element from heap ###
+### Pop element from heap ###
 def pop_min_heap(heap)
   # Negate element
   -heap.pop
 end
 
-# ### Access heap top element ###
+### Access heap top element ###
 def peek_min_heap(heap)
   # Negate element
   -heap.peek
 end
 
-# ### Get elements from heap ###
+### Get elements from heap ###
 def get_min_heap(heap)
   # Negate all elements in heap
   heap.max_heap.map { |x| -x }
 end
 
-# ### Find largest k elements in array using heap ###
+### Find largest k elements in array using heap ###
 def top_k_heap(nums, k)
   # Python's heapq module implements min heap by default
   # Note: We negate all heap elements to simulate min heap using max heap

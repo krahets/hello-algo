@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Search ###
+### Search ###
 def dfs(i)
   # Known dp[1] and dp[2], return them
   return i if i == 1 || i == 2
@@ -12,7 +12,7 @@ def dfs(i)
   dfs(i - 1) + dfs(i - 2)
 end
 
-# ### Climbing stairs: search ###
+### Climbing stairs: search ###
 def climbing_stairs_dfs(n)
   dfs(n)
 end

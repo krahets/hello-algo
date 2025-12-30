@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### 0-1 knapsack: brute force search ###
+### 0-1 knapsack: brute force search ###
 def knapsack_dfs(wgt, val, i, c)
   # If all items have been selected or knapsack has no remaining capacity, return value 0
   return 0 if i == 0 || c == 0
@@ -17,7 +17,7 @@ def knapsack_dfs(wgt, val, i, c)
   [no, yes].max
 end
 
-# ### 0-1 knapsack: memoization search ###
+### 0-1 knapsack: memoization search ###
 def knapsack_dfs_mem(wgt, val, mem, i, c)
   # If all items have been selected or knapsack has no remaining capacity, return value 0
   return 0 if i == 0 || c == 0
@@ -32,7 +32,7 @@ def knapsack_dfs_mem(wgt, val, mem, i, c)
   mem[i][c] = [no, yes].max
 end
 
-# ### 0-1 knapsack: dynamic programming ###
+### 0-1 knapsack: dynamic programming ###
 def knapsack_dp(wgt, val, cap)
   n = wgt.length
   # Initialize dp table
@@ -52,7 +52,7 @@ def knapsack_dp(wgt, val, cap)
   dp[n][cap]
 end
 
-# ### 0-1 knapsack: space-optimized DP ###
+### 0-1 knapsack: space-optimized DP ###
 def knapsack_dp_comp(wgt, val, cap)
   n = wgt.length
   # Initialize dp table

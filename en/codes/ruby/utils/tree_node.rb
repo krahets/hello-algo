@@ -4,7 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Binary tree node class ###
+### Binary tree node class ###
 class TreeNode
   attr_accessor :val    # Node value
   attr_accessor :height # Node height
@@ -17,7 +17,7 @@ class TreeNode
   end
 end
 
-# ### Deserialize list to binary tree: recursion ###
+### Deserialize list to binary tree: recursion ###
 def arr_to_tree_dfs(arr, i)
   # Return nil if index exceeds array length or element is nil
   return if i < 0 || i >= arr.length || arr[i].nil?
@@ -29,12 +29,12 @@ def arr_to_tree_dfs(arr, i)
   root
 end
 
-# ### Deserialize list to binary tree ###
+### Deserialize list to binary tree ###
 def arr_to_tree(arr)
   arr_to_tree_dfs(arr, 0)
 end
 
-# ### Serialize binary tree to list: recursion ###
+### Serialize binary tree to list: recursion ###
 def tree_to_arr_dfs(root, i, res)
   return if root.nil?
 
@@ -45,7 +45,7 @@ def tree_to_arr_dfs(root, i, res)
   tree_to_arr_dfs(root.right, 2 * i + 2, res)
 end
 
-# ### Serialize binary tree to list ###
+### Serialize binary tree to list ###
 def tree_to_arr(root)
   res = []
   tree_to_arr_dfs(root, 0, res)

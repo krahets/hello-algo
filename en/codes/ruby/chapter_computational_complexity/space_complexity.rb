@@ -8,13 +8,13 @@ require_relative '../utils/list_node'
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ### Function ###
+### Function ###
 def function
   # Perform some operations
   0
 end
 
-# ### Constant time ###
+### Constant time ###
 def constant(n)
   # Constants, variables, objects occupy O(1) space
   a = 0
@@ -27,7 +27,7 @@ def constant(n)
   (0...n).each { function }
 end
 
-# ### Linear time ###
+### Linear time ###
 def linear(n)
   # A list of length n occupies O(n) space
   nums = Array.new(n, 0)
@@ -39,20 +39,20 @@ def linear(n)
   end
 end
 
-# ### Linear space (recursive) ###
+### Linear space (recursive) ###
 def linear_recur(n)
   puts "Recursion n = #{n}"
   return if n == 1
   linear_recur(n - 1)
 end
 
-# ### Quadratic time ###
+### Quadratic time ###
 def quadratic(n)
   # 2D list uses O(n^2) space
   Array.new(n) { Array.new(n, 0) }
 end
 
-# ### Quadratic space (recursive) ###
+### Quadratic space (recursive) ###
 def quadratic_recur(n)
   return 0 unless n > 0
 
@@ -61,7 +61,7 @@ def quadratic_recur(n)
   quadratic_recur(n - 1)
 end
 
-# ### Exponential space (build full binary tree) ###
+### Exponential space (build full binary tree) ###
 def build_tree(n)
   return if n == 0
 

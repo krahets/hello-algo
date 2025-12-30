@@ -4,7 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Generate array with elements: 1, 2, ..., n, shuffled ###
+### Generate array with elements: 1, 2, ..., n, shuffled ###
 def random_numbers(n)
   # Generate array nums =: 1, 2, 3, ..., n
   nums = Array.new(n) { |i| i + 1 }
@@ -12,7 +12,7 @@ def random_numbers(n)
   nums.shuffle!
 end
 
-# ### Find index of number 1 in array nums ###
+### Find index of number 1 in array nums ###
 def find_one(nums)
   for i in 0...nums.length
     # When element 1 is at the head of the array, best time complexity O(1) is achieved

@@ -4,7 +4,7 @@ Created Time: 2024-04-09
 Author: Blue Bean (lonnnnnnner@gmail.com)
 =end
 
-# ### Binary search insertion point (no duplicates) ###
+### Binary search insertion point (no duplicates) ###
 def binary_search_insertion_simple(nums, target)
   # Initialize closed interval [0, n-1]
   i, j = 0, nums.length - 1
@@ -25,7 +25,7 @@ def binary_search_insertion_simple(nums, target)
   i # Target not found, return insertion point i
 end
 
-# ### Binary search insertion point (with duplicates) ###
+### Binary search insertion point (with duplicates) ###
 def binary_search_insertion(nums, target)
   # Initialize closed interval [0, n-1]
   i, j = 0, nums.length - 1

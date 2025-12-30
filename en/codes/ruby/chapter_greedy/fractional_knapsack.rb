@@ -4,7 +4,7 @@ Created Time: 2024-05-07
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Item ###
+### Item ###
 class Item
   attr_accessor :w # Item weight
   attr_accessor :v # Item value
@@ -15,7 +15,7 @@ class Item
   end
 end
 
-# ### Fractional knapsack: greedy ###
+### Fractional knapsack: greedy ###
 def fractional_knapsack(wgt, val, cap)
   # Create item list with two attributes: weight, value
   items = wgt.each_with_index.map { |w, i| Item.new(w, val[i]) }

@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ### Pre-order traversal ###
+### Pre-order traversal ###
 def pre_order(root)
   return if root.nil?
 
@@ -17,7 +17,7 @@ def pre_order(root)
   pre_order(root.right)
 end
 
-# ### In-order traversal ###
+### In-order traversal ###
 def in_order(root)
   return if root.nil?
 
@@ -27,7 +27,7 @@ def in_order(root)
   in_order(root.right)
 end
 
-# ### Post-order traversal ###
+### Post-order traversal ###
 def post_order(root)
   return if root.nil?
 

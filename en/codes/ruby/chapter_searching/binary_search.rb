@@ -4,7 +4,7 @@ Created Time: 2024-04-09
 Author: Blue Bean (lonnnnnnner@gmail.com)
 =end
 
-# ### Binary search (closed interval) ###
+### Binary search (closed interval) ###
 def binary_search(nums, target)
   # Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
   i, j = 0, nums.length - 1
@@ -26,7 +26,7 @@ def binary_search(nums, target)
   -1  # Target element not found, return -1
 end
 
-# ### Binary search (left-closed right-open interval) ###
+### Binary search (left-closed right-open interval) ###
 def binary_search_lcro(nums, target)
   # Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
   i, j = 0, nums.length

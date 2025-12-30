@@ -8,7 +8,7 @@ require 'set'
 require_relative './graph_adjacency_list'
 require_relative '../utils/vertex'
 
-# ### Depth-first traversal helper function ###
+### Depth-first traversal helper function ###
 def dfs(graph, visited, res, vet)
   res << vet # Record visited vertex
   visited.add(vet) # Mark this vertex as visited
@@ -20,7 +20,7 @@ def dfs(graph, visited, res, vet)
   end
 end
 
-# ### Depth-first traversal ###
+### Depth-first traversal ###
 def graph_dfs(graph, start_vet)
   # Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
   # Vertex traversal sequence

@@ -7,19 +7,19 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ### Array representation of binary tree class ###
+### Array representation of binary tree class ###
 class ArrayBinaryTree
-  # ### Constructor ###
+  ### Constructor ###
   def initialize(arr)
     @tree = arr.to_a
   end
 
-  # ### List capacity ###
+  ### List capacity ###
   def size
     @tree.length
   end
 
-  # ### Get value of node at index i ###
+  ### Get value of node at index i ###
   def val(i)
     # Return nil if index out of bounds, representing empty position
     return if i < 0 || i >= size
@@ -27,22 +27,22 @@ class ArrayBinaryTree
     @tree[i]
   end
 
-  # ### Get left child index of node at index i ###
+  ### Get left child index of node at index i ###
   def left(i)
     2 * i + 1
   end
 
-  # ### Get right child index of node at index i ###
+  ### Get right child index of node at index i ###
   def right(i)
     2 * i + 2
   end
 
-  # ### Get parent node index of node at index i ###
+  ### Get parent node index of node at index i ###
   def parent(i)
     (i - 1) / 2
   end
 
-  # ### Level-order traversal ###
+  ### Level-order traversal ###
   def level_order
     @res = []
 
@@ -54,7 +54,7 @@ class ArrayBinaryTree
     @res
   end
 
-  # ### Depth-first traversal ###
+  ### Depth-first traversal ###
   def dfs(i, order)
     return if val(i).nil?
     # Preorder traversal
@@ -67,21 +67,21 @@ class ArrayBinaryTree
     @res << val(i) if order == :post
   end
 
-  # ### Pre-order traversal ###
+  ### Pre-order traversal ###
   def pre_order
     @res = []
     dfs(0, :pre)
     @res
   end
 
-  # ### In-order traversal ###
+  ### In-order traversal ###
   def in_order
     @res = []
     dfs(0, :in)
     @res
   end
 
-  # ### Post-order traversal ###
+  ### Post-order traversal ###
   def post_order
     @res = []
     dfs(0, :post)

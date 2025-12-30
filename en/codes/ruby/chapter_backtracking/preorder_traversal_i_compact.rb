@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ### Pre-order traversal: example 1 ###
+### Pre-order traversal: example 1 ###
 def pre_order(root)
   return unless root
 

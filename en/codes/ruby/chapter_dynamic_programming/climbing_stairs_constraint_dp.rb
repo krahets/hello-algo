@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Climbing stairs with constraint: DP ###
+### Climbing stairs with constraint: DP ###
 def climbing_stairs_constraint_dp(n)
   return 1 if n == 1 || n == 2
 

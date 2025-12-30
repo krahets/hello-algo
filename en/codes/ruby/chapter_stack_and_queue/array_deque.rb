@@ -4,29 +4,29 @@ Created Time: 2024-04-05
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Deque based on circular array ###
+### Deque based on circular array ###
 class ArrayDeque
-  # ### Get deque length ###
+  ### Get deque length ###
   attr_reader :size
 
-  # ### Constructor ###
+  ### Constructor ###
   def initialize(capacity)
     @nums = Array.new(capacity, 0)
     @front = 0
     @size = 0
   end
 
-  # ### Get deque capacity ###
+  ### Get deque capacity ###
   def capacity
     @nums.length
   end
 
-  # ### Check if deque is empty ###
+  ### Check if deque is empty ###
   def is_empty?
     size.zero?
   end
 
-  # ### Enqueue at front ###
+  ### Enqueue at front ###
   def push_first(num)
     if size == capacity
       puts 'Double-ended queue is full'
@@ -41,7 +41,7 @@ class ArrayDeque
     @size += 1
   end
 
-  # ### Enqueue at rear ###
+  ### Enqueue at rear ###
   def push_last(num)
     if size == capacity
       puts 'Double-ended queue is full'
@@ -55,7 +55,7 @@ class ArrayDeque
     @size += 1
   end
 
-  # ### Dequeue from front ###
+  ### Dequeue from front ###
   def pop_first
     num = peek_first
     # Move front pointer backward by one position
@@ -64,21 +64,21 @@ class ArrayDeque
     num
   end
 
-  # ### Dequeue from rear ###
+  ### Dequeue from rear ###
   def pop_last
     num = peek_last
     @size -= 1
     num
   end
 
-  # ### Access front element ###
+  ### Access front element ###
   def peek_first
     raise IndexError, 'Deque is empty' if is_empty?
 
     @nums[@front]
   end
 
-  # ### Access rear element ###
+  ### Access rear element ###
   def peek_last
     raise IndexError, 'Deque is empty' if is_empty?
 
@@ -87,7 +87,7 @@ class ArrayDeque
     @nums[last]
   end
 
-  # ### Return array for printing ###
+  ### Return array for printing ###
   def to_array
     # Elements enqueue
     res = []
@@ -99,7 +99,7 @@ class ArrayDeque
 
   private
 
-  # ### Calculate circular array index ###
+  ### Calculate circular array index ###
   def index(i)
     # Use modulo operation to wrap the array head and tail together
     # When i passes the tail of the array, return to the head

@@ -4,7 +4,7 @@ Created Time: 2024-05-22
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Backtracking: permutations II ###
+### Backtracking: permutations II ###
 def backtrack(state, choices, selected, res)
   # When the state length equals the number of elements, record the solution
   if state.length == choices.length
@@ -30,7 +30,7 @@ def backtrack(state, choices, selected, res)
   end
 end
 
-# ### Permutations II ###
+### Permutations II ###
 def permutations_ii(nums)
   res = []
   backtrack([], nums, Array.new(nums.length, false), res)

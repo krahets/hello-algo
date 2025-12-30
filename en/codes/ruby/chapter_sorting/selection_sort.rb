@@ -4,7 +4,7 @@ Created Time: 2024-05-03
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Selection sort ###
+### Selection sort ###
 def selection_sort(nums)
   n = nums.length
   # Outer loop: unsorted interval is [i, n-1]

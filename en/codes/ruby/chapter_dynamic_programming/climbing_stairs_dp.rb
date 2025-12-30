@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Climbing stairs: dynamic programming ###
+### Climbing stairs: dynamic programming ###
 def climbing_stairs_dp(n)
   return n  if n == 1 || n == 2
 
@@ -18,7 +18,7 @@ def climbing_stairs_dp(n)
   dp[n]
 end
 
-# ### Climbing stairs: space-optimized DP ###
+### Climbing stairs: space-optimized DP ###
 def climbing_stairs_dp_comp(n)
   return n if n == 1 || n == 2
 

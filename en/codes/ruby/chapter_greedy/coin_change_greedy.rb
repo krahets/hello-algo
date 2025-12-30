@@ -4,7 +4,7 @@ Created Time: 2024-05-07
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Coin change: greedy ###
+### Coin change: greedy ###
 def coin_change_greedy(coins, amt)
   # Assume coins list is sorted
   i = coins.length - 1

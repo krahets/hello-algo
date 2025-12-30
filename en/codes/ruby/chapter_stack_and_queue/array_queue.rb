@@ -4,29 +4,29 @@ Created Time: 2024-04-05
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Queue based on circular array ###
+### Queue based on circular array ###
 class ArrayQueue
-  # ### Get queue length ###
+  ### Get queue length ###
   attr_reader :size
 
-  # ### Constructor ###
+  ### Constructor ###
   def initialize(size)
     @nums = Array.new(size, 0) # Array for storing queue elements
     @front = 0 # Front pointer, points to the front of the queue element
     @size = 0 # Queue length
   end
 
-  # ### Get queue capacity ###
+  ### Get queue capacity ###
   def capacity
     @nums.length
   end
 
-  # ### Check if queue is empty ###
+  ### Check if queue is empty ###
   def is_empty?
     size.zero?
   end
 
-  # ### Enqueue ###
+  ### Enqueue ###
   def push(num)
     raise IndexError, 'Queue is full' if size == capacity
 
@@ -38,7 +38,7 @@ class ArrayQueue
     @size += 1
   end
 
-  # ### Dequeue ###
+  ### Dequeue ###
   def pop
     num = peek
     # Move front pointer backward by one position, if it passes the tail, return to array head
@@ -47,14 +47,14 @@ class ArrayQueue
     num
   end
 
-  # ### Access front element ###
+  ### Access front element ###
   def peek
     raise IndexError, 'Queue is empty' if is_empty?
 
     @nums[@front]
   end
 
-  # ### Return list for printing ###
+  ### Return list for printing ###
   def to_array
     res = Array.new(size, 0)
     j = @front

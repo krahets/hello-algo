@@ -6,11 +6,11 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/vertex'
 
-# ### Undirected graph class based on adjacency list ###
+### Undirected graph class based on adjacency list ###
 class GraphAdjList
   attr_reader :adj_list
   
-  # ### Constructor ###
+  ### Constructor ###
   def initialize(edges)
     # Adjacency list, key: vertex, value: all adjacent vertices of that vertex
     @adj_list = {}
@@ -22,12 +22,12 @@ class GraphAdjList
     end
   end
 
-  # ### Get number of vertices ###
+  ### Get number of vertices ###
   def size
     @adj_list.length
   end
 
-  # ### Add edge ###
+  ### Add edge ###
   def add_edge(vet1, vet2)
     raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
 
@@ -35,7 +35,7 @@ class GraphAdjList
     @adj_list[vet2] << vet1
   end
 
-  # ### Delete edge ###
+  ### Delete edge ###
   def remove_edge(vet1, vet2)
     raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
 
@@ -44,7 +44,7 @@ class GraphAdjList
     @adj_list[vet2].delete(vet1)
   end
 
-  # ### Add vertex ###
+  ### Add vertex ###
   def add_vertex(vet)
     return if @adj_list.include?(vet)
 
@@ -52,7 +52,7 @@ class GraphAdjList
     @adj_list[vet] = []
   end
 
-  # ### Delete vertex ###
+  ### Delete vertex ###
   def remove_vertex(vet)
     raise ArgumentError unless @adj_list.include?(vet)
 
@@ -64,7 +64,7 @@ class GraphAdjList
     end
   end
 
-  # ### Print adjacency list ###
+  ### Print adjacency list ###
   def __print__
     puts 'Adjacency list ='
     for vertex in @adj_list

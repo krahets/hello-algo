@@ -6,14 +6,14 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative "./tree_node"
 
-# ### Print matrix ###
+### Print matrix ###
 def print_matrix(mat)
   s = []
   mat.each { |arr| s << " #{arr.to_s}" }
   puts "[\n#{s.join(",\n")}\n]"
 end
 
-# ### Print linked list ###
+### Print linked list ###
 def print_linked_list(head)
   list = []
   while head
@@ -39,7 +39,7 @@ def show_trunk(p)
   print p.str
 end
 
-# ### Print binary tree ###
+### Print binary tree ###
 # This tree printer is borrowed from TECHIE DELIGHT
 # https://www.techiedelight.com/c-program-print-binary-tree/
 def print_tree(root, prev=nil, is_right=false)
@@ -66,12 +66,12 @@ def print_tree(root, prev=nil, is_right=false)
   print_tree(root.left, trunk, false)
 end
 
-# ### Print hash table ###
+### Print hash table ###
 def print_hash_map(hmap)
   hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 end
 
-# ### Print heap ###
+### Print heap ###
 def print_heap(heap)
   puts "Array representation of heap: #{heap}"
   puts "Heap tree representation:"

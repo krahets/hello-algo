@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Coin change II: dynamic programming ###
+### Coin change II: dynamic programming ###
 def coin_change_ii_dp(coins, amt)
   n = coins.length
   # Initialize dp table
@@ -26,7 +26,7 @@ def coin_change_ii_dp(coins, amt)
   dp[n][amt]
 end
 
-# ### Coin change II: space-optimized DP ###
+### Coin change II: space-optimized DP ###
 def coin_change_ii_dp_comp(coins, amt)
   n = coins.length
   # Initialize dp table

@@ -4,7 +4,7 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Random access element ###
+### Random access element ###
 def random_access(nums)
   # Randomly select a number in the interval [0, nums.length)
   random_index = Random.rand(0...nums.length)
@@ -14,7 +14,7 @@ def random_access(nums)
 end
 
 
-# ### Extend array length ###
+### Extend array length ###
 # Note: Ruby's Array is dynamic array, can be directly expanded
 # For learning purposes, this function treats Array as fixed-length array
 def extend(nums, enlarge)
@@ -30,7 +30,7 @@ def extend(nums, enlarge)
   res
 end
 
-# ### Insert element num at index in array ###
+### Insert element num at index in array ###
 def insert(nums, num, index)
   # Move all elements at and after index index backward by one position
   for i in (nums.length - 1).downto(index + 1)
@@ -42,7 +42,7 @@ def insert(nums, num, index)
 end
 
 
-# ### Delete element at index ###
+### Delete element at index ###
 def remove(nums, index)
   # Move all elements after index index forward by one position
   for i in index...(nums.length - 1)
@@ -50,7 +50,7 @@ def remove(nums, index)
   end
 end
 
-# ### Traverse array ###
+### Traverse array ###
 def traverse(nums)
   count = 0
 
@@ -65,7 +65,7 @@ def traverse(nums)
   end
 end
 
-# ### Find specified element in array ###
+### Find specified element in array ###
 def find(nums, target)
   for i in 0...nums.length
     return i if nums[i] == target

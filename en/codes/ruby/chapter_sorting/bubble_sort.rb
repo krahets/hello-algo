@@ -4,7 +4,7 @@ Created Time: 2024-05-02
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Bubble sort ###
+### Bubble sort ###
 def bubble_sort(nums)
   n = nums.length
   # Outer loop: unsorted range is [0, i]
@@ -19,7 +19,7 @@ def bubble_sort(nums)
   end
 end
 
-# ### Bubble sort (flag optimization) ###
+### Bubble sort (flag optimization) ###
 def bubble_sort_with_flag(nums)
   n = nums.length
   # Outer loop: unsorted range is [0, i]

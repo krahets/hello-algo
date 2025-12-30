@@ -6,11 +6,11 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative './array_hash_map'
 
-# ### Hash map with open addressing ###
+### Hash map with open addressing ###
 class HashMapOpenAddressing
   TOMBSTONE = Pair.new(-1, '-1') # Removal marker
 
-  # ### Constructor ###
+  ### Constructor ###
   def initialize
     @size = 0 # Number of key-value pairs
     @capacity = 4 # Hash table capacity
@@ -19,17 +19,17 @@ class HashMapOpenAddressing
     @buckets = Array.new(@capacity) # Bucket array
   end
 
-  # ### Hash function ###
+  ### Hash function ###
   def hash_func(key)
     key % @capacity
   end
 
-  # ### Load factor ###
+  ### Load factor ###
   def load_factor
     @size / @capacity
   end
 
-  # ### Search bucket index for key ###
+  ### Search bucket index for key ###
   def find_bucket(key)
     index = hash_func(key)
     first_tombstone = -1
@@ -54,7 +54,7 @@ class HashMapOpenAddressing
     first_tombstone == -1 ? index : first_tombstone
   end
 
-  # ### Query operation ###
+  ### Query operation ###
   def get(key)
     # Search for bucket index corresponding to key
     index = find_bucket(key)
@@ -64,7 +64,7 @@ class HashMapOpenAddressing
     nil
   end
 
-  # ### Add operation ###
+  ### Add operation ###
   def put(key, val)
     # When load factor exceeds threshold, perform expansion
     extend if load_factor > @load_thres
@@ -80,7 +80,7 @@ class HashMapOpenAddressing
     @size += 1
   end
 
-  # ### Delete operation ###
+  ### Delete operation ###
   def remove(key)
     # Search for bucket index corresponding to key
     index = find_bucket(key)
@@ -91,7 +91,7 @@ class HashMapOpenAddressing
     end
   end
 
-  # ### Expand hash table ###
+  ### Expand hash table ###
   def extend
     # Temporarily store the original hash table
     buckets_tmp = @buckets
@@ -105,7 +105,7 @@ class HashMapOpenAddressing
     end
   end
 
-  # ### Print hash table ###
+  ### Print hash table ###
   def print
     for pair in @buckets
       if pair.nil?

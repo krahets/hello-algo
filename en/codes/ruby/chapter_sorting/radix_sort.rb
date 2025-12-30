@@ -4,13 +4,13 @@ Created Time: 2024-05-03
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Get k-th digit of element num, where exp = 10^(k-1) ###
+### Get k-th digit of element num, where exp = 10^(k-1) ###
 def digit(num, exp)
   # Passing exp instead of k avoids expensive exponentiation calculations
   (num / exp) % 10
 end
 
-# ### Counting sort (sort by k-th digit of nums) ###
+### Counting sort (sort by k-th digit of nums) ###
 def counting_sort_digit(nums, exp)
   # Decimal digit range is 0~9, therefore need a bucket array of length 10
   counter = Array.new(10, 0)
@@ -34,7 +34,7 @@ def counting_sort_digit(nums, exp)
   (0...n).each { |i| nums[i] = res[i] }
 end
 
-# ### Radix sort ###
+### Radix sort ###
 def radix_sort(nums)
   # Get the maximum element of the array, used to determine the maximum number of digits
   m = nums.max

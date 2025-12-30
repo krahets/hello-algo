@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Unbounded knapsack: dynamic programming ###
+### Unbounded knapsack: dynamic programming ###
 def unbounded_knapsack_dp(wgt, val, cap)
   n = wgt.length
   # Initialize dp table
@@ -24,7 +24,7 @@ def unbounded_knapsack_dp(wgt, val, cap)
   dp[n][cap]
 end
 
-# ### Unbounded knapsack: space-optimized DP ###
+### Unbounded knapsack: space-optimized DP ###
 def unbounded_knapsack_dp_comp(wgt, val, cap)
   n = wgt.length
   # Initialize dp table

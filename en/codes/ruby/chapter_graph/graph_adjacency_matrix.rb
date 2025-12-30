@@ -6,10 +6,10 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/print_util'
 
-# ### Undirected graph class based on adjacency matrix ###
+### Undirected graph class based on adjacency matrix ###
 class GraphAdjMat
   def initialize(vertices, edges)
-    # ### Constructor ###
+    ### Constructor ###
     # Vertex list, where the element represents the "vertex value" and the index represents the "vertex index"
     @vertices = []
     # Adjacency matrix, where the row and column indices correspond to the "vertex index"
@@ -21,12 +21,12 @@ class GraphAdjMat
     edges.each { |e| add_edge(e[0], e[1]) }
   end
 
-  # ### Get number of vertices ###
+  ### Get number of vertices ###
   def size
     @vertices.length
   end
 
-  # ### Add vertex ###
+  ### Add vertex ###
   def add_vertex(val)
     n = size
     # Add the value of the new vertex to the vertex list
@@ -38,7 +38,7 @@ class GraphAdjMat
     @adj_mat.each { |row| row << 0 }
   end
 
-  # ### Delete vertex ###
+  ### Delete vertex ###
   def remove_vertex(index)
     raise IndexError if index >= size
 
@@ -50,7 +50,7 @@ class GraphAdjMat
     @adj_mat.each { |row| row.delete_at(index) }
   end
 
-  # ### Add edge ###
+  ### Add edge ###
   def add_edge(i, j)
     # Parameters i, j correspond to the vertices element indices
     # Handle index out of bounds and equality
@@ -62,7 +62,7 @@ class GraphAdjMat
     @adj_mat[j][i] = 1
   end
 
-  # ### Delete edge ###
+  ### Delete edge ###
   def remove_edge(i, j)
     # Parameters i, j correspond to the vertices element indices
     # Handle index out of bounds and equality
@@ -73,7 +73,7 @@ class GraphAdjMat
     @adj_mat[j][i] = 0
   end
 
-  # ### Print adjacency matrix ###
+  ### Print adjacency matrix ###
   def __print__
     puts "Vertex list = #{@vertices}"
     puts 'Adjacency matrix ='

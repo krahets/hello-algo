@@ -6,24 +6,24 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-# ### Queue based on linked list ###
+### Queue based on linked list ###
 class LinkedListQueue
-  # ### Get queue length ###
+  ### Get queue length ###
   attr_reader :size
 
-  # ### Constructor ###
+  ### Constructor ###
   def initialize
     @front = nil  # Head node front
     @rear = nil   # Tail node rear
     @size = 0
   end
 
-  # ### Check if queue is empty ###
+  ### Check if queue is empty ###
   def is_empty?
     @front.nil?
   end
 
-  # ### Enqueue ###
+  ### Enqueue ###
   def push(num)
     # Add num after the tail node
     node = ListNode.new(num)
@@ -41,7 +41,7 @@ class LinkedListQueue
     @size += 1
   end
 
-  # ### Dequeue ###
+  ### Dequeue ###
   def pop
     num = peek
     # Delete head node
@@ -50,14 +50,14 @@ class LinkedListQueue
     num
   end
 
-  # ### Access front element ###
+  ### Access front element ###
   def peek
     raise IndexError, 'Queue is empty' if is_empty?
 
     @front.val
   end
 
-  # ### Convert linked list to Array and return ###
+  ### Convert linked list to Array and return ###
   def to_array
     queue = []
     temp = @front

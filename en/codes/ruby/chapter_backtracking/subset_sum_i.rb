@@ -4,7 +4,7 @@ Created Time: 2024-05-22
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Backtracking: subset sum I ###
+### Backtracking: subset sum I ###
 def backtrack(state, target, choices, start, res)
   # When the subset sum equals target, record the solution
   if target.zero?
@@ -26,7 +26,7 @@ def backtrack(state, target, choices, start, res)
   end
 end
 
-# ### Solve subset sum I ###
+### Solve subset sum I ###
 def subset_sum_i(nums, target)
   state = [] # State (subset)
   nums.sort! # Sort nums

@@ -4,7 +4,7 @@ Created Time: 2024-05-13
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Binary search: problem f(i, j) ###
+### Binary search: problem f(i, j) ###
 def dfs(nums, target, i, j)
   # If the interval is empty, it means there is no target element, return -1
   return -1 if i > j
@@ -24,7 +24,7 @@ def dfs(nums, target, i, j)
   end
 end
 
-# ### Binary search ###
+### Binary search ###
 def binary_search(nums, target)
   n = nums.length
   # Solve the problem f(0, n-1)

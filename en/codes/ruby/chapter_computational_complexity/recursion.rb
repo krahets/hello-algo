@@ -4,7 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Recursion ###
+### Recursion ###
 def recur(n)
   # Termination condition
   return 1 if n == 1
@@ -14,7 +14,7 @@ def recur(n)
   n + res
 end
 
-# ### Use iteration to simulate recursion ###
+### Use iteration to simulate recursion ###
 def for_loop_recur(n)
   # Use an explicit stack to simulate the system call stack
   stack = []
@@ -34,7 +34,7 @@ def for_loop_recur(n)
   res
 end
 
-# ### Tail recursion ###
+### Tail recursion ###
 def tail_recur(n, res)
   # Termination condition
   return res if n == 0
@@ -42,7 +42,7 @@ def tail_recur(n, res)
   tail_recur(n - 1, res + n)
 end
 
-# ### Fibonacci sequence: recursion ###
+### Fibonacci sequence: recursion ###
 def fib(n)
   # Termination condition f(1) = 0, f(2) = 1
   return n - 1 if n == 1 || n == 2

@@ -4,7 +4,7 @@ Created Time: 2024-04-14
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Additive hash ###
+### Additive hash ###
 def add_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -14,7 +14,7 @@ def add_hash(key)
   hash % modulus
 end
 
-# ### Multiplicative hash ###
+### Multiplicative hash ###
 def mul_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -24,7 +24,7 @@ def mul_hash(key)
   hash % modulus
 end
 
-# ### XOR hash ###
+### XOR hash ###
 def xor_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -34,7 +34,7 @@ def xor_hash(key)
   hash % modulus
 end
 
-# ### Rotational hash ###
+### Rotational hash ###
 def rot_hash(key)
   hash = 0
   modulus = 1_000_000_007

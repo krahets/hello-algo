@@ -6,7 +6,7 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative './binary_search_insertion'
 
-# ### Binary search leftmost target ###
+### Binary search leftmost target ###
 def binary_search_left_edge(nums, target)
   # Equivalent to finding the insertion point of target
   i = binary_search_insertion(nums, target)
@@ -17,7 +17,7 @@ def binary_search_left_edge(nums, target)
   i # Found target, return index i
 end
 
-# ### Binary search rightmost target ###
+### Binary search rightmost target ###
 def binary_search_right_edge(nums, target)
   # Convert to finding the leftmost target + 1
   i = binary_search_insertion(nums, target + 1)

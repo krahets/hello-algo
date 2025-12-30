@@ -4,7 +4,7 @@ Created Time: 2024-04-10
 Author: junminhong (junminhong1110@gmail.com)
 =end
 
-# ### Merge left and right subarrays ###
+### Merge left and right subarrays ###
 def merge(nums, left, mid, right)
   # Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
   # Create temporary array tmp to store merged result
@@ -39,7 +39,7 @@ def merge(nums, left, mid, right)
   end
 end
 
-# ### Merge sort ###
+### Merge sort ###
 def merge_sort(nums, left, right)
   # Termination condition
   # Terminate recursion when subarray length is 1

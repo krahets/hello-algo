@@ -4,7 +4,7 @@ Created Time: 2024-05-13
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Move one disk ###
+### Move one disk ###
 def move(src, tar)
   # Take out a disk from the top of src
   pan = src.pop
@@ -12,7 +12,7 @@ def move(src, tar)
   tar << pan
 end
 
-# ### Solve Tower of Hanoi f(i) ###
+### Solve Tower of Hanoi f(i) ###
 def dfs(i, src, buf, tar)
   # If there is only one disk left in src, move it directly to tar
   if i == 1
@@ -28,7 +28,7 @@ def dfs(i, src, buf, tar)
   dfs(i - 1, buf, src, tar)
 end
 
-# ### Solve Tower of Hanoi ###
+### Solve Tower of Hanoi ###
 def solve_hanota(_A, _B, _C)
   n = _A.length
   # Move the top n disks from A to C using B

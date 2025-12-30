@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ### Level-order traversal ###
+### Level-order traversal ###
 def level_order(root)
   # Initialize queue, add root node
   queue = [root]

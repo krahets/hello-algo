@@ -4,7 +4,7 @@ Created Time: 2024-05-21
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Backtracking: n queens ###
+### Backtracking: n queens ###
 def backtrack(row, n, state, res, cols, diags1, diags2)
   # When all rows are placed, record the solution
   if row == n
@@ -31,7 +31,7 @@ def backtrack(row, n, state, res, cols, diags1, diags2)
   end
 end
 
-# ### Solve n queens ###
+### Solve n queens ###
 def n_queens(n)
   # Initialize an n*n chessboard, where 'Q' represents a queen and '#' represents an empty cell
   state = Array.new(n) { Array.new(n, "#") }

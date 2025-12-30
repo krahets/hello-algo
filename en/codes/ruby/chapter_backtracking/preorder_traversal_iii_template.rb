@@ -7,32 +7,32 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ### Check if current state is solution ###
+### Check if current state is solution ###
 def is_solution?(state)
   !state.empty? && state.last.val == 7
 end
 
-# ### Record solution ###
+### Record solution ###
 def record_solution(state, res)
   res << state.dup
 end
 
-# ### Check if choice is valid in current state ###
+### Check if choice is valid in current state ###
 def is_valid?(state, choice)
   choice && choice.val != 3
 end
 
-# ### Update state ###
+### Update state ###
 def make_choice(state, choice)
   state << choice
 end
 
-# ### Restore state ###
+### Restore state ###
 def undo_choice(state, choice)
   state.pop
 end
 
-# ### Backtracking: example 3 ###
+### Backtracking: example 3 ###
 def backtrack(state, choices, res)
   # Check if it is a solution
   record_solution(state, res) if is_solution?(state)

@@ -4,7 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com), Cy (9738314@gmail.com)
 =end
 
-# ### for loop ###
+### for loop ###
 def for_loop(n)
   res = 0
 
@@ -16,7 +16,7 @@ def for_loop(n)
   res
 end
 
-# ### while loop ###
+### while loop ###
 def while_loop(n)
   res = 0
   i = 1 # Initialize condition variable
@@ -30,7 +30,7 @@ def while_loop(n)
   res
 end
 
-# ### while loop (two updates) ###
+### while loop (two updates) ###
 def while_loop_ii(n)
   res = 0
   i = 1 # Initialize condition variable
@@ -46,7 +46,7 @@ def while_loop_ii(n)
   res
 end
 
-# ### Nested for loop ###
+### Nested for loop ###
 def nested_for_loop(n)
   res = ""
 

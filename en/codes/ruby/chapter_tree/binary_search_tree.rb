@@ -7,20 +7,20 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ### Binary search tree ###
+### Binary search tree ###
 class BinarySearchTree
-  # ### Constructor ###
+  ### Constructor ###
   def initialize
     # Initialize empty tree
     @root = nil
   end
 
-  # ### Get binary tree root node ###
+  ### Get binary tree root node ###
   def get_root
     @root
   end
 
-  # ### Search node ###
+  ### Search node ###
   def search(num)
     cur = @root
 
@@ -41,7 +41,7 @@ class BinarySearchTree
     cur
   end
 
-  # ### Insert node ###
+  ### Insert node ###
   def insert(num)
     # If tree is empty, initialize root node
     if @root.nil?
@@ -74,7 +74,7 @@ class BinarySearchTree
     end
   end
 
-  # ### Delete node ###
+  ### Delete node ###
   def remove(num)
     # If tree is empty, return directly
     return if @root.nil?

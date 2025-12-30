@@ -4,7 +4,7 @@ Created Time: 2024-04-17
 Author: Martin Xu (martin.xus@gmail.com)
 =end
 
-# ### Bucket sort ###
+### Bucket sort ###
 def bucket_sort(nums)
   # Initialize k = n/2 buckets, expected to allocate 2 elements per bucket
   k = nums.length / 2

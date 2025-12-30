@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Backtracking ###
+### Backtracking ###
 def backtrack(choices, state, n, res)
   # When climbing to the n-th stair, add 1 to the solution count
   res[0] += 1 if state == n
@@ -19,7 +19,7 @@ def backtrack(choices, state, n, res)
   # Backtrack
 end
 
-# ### Climbing stairs: backtracking ###
+### Climbing stairs: backtracking ###
 def climbing_stairs_backtrack(n)
   choices = [1, 2] # Can choose to climb up 1 or 2 stairs
   state = 0 # Start climbing from the 0-th stair

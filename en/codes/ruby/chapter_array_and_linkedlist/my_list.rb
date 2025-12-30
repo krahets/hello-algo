@@ -4,12 +4,12 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### List class ###
+### List class ###
 class MyList
   attr_reader :size       # Get list length (current number of elements)
   attr_reader :capacity   # Get list capacity
 
-  # ### Constructor ###
+  ### Constructor ###
   def initialize
     @capacity = 10
     @size = 0
@@ -17,20 +17,20 @@ class MyList
     @arr = Array.new(capacity)
   end
 
-  # ### Access element ###
+  ### Access element ###
   def get(index)
     # If the index is out of bounds, throw an exception, as below
     raise IndexError, "Index out of bounds" if index < 0 || index >= size
     @arr[index]
   end
 
-  # ### Access element ###
+  ### Access element ###
   def set(index, num)
     raise IndexError, "Index out of bounds" if index < 0 || index >= size
     @arr[index] = num
   end
 
-  # ### Add element at end ###
+  ### Add element at end ###
   def add(num)
     # When the number of elements exceeds capacity, trigger the extension mechanism
     extend_capacity if size == capacity
@@ -40,7 +40,7 @@ class MyList
     @size += 1
   end
 
-  # ### Insert element in middle ###
+  ### Insert element in middle ###
   def insert(index, num)
     raise IndexError, "Index out of bounds" if index < 0 || index >= size
 
@@ -57,7 +57,7 @@ class MyList
     @size += 1
   end
 
-  # ### Delete element ###
+  ### Delete element ###
   def remove(index)
     raise IndexError, "Index out of bounds" if index < 0 || index >= size
     num = @arr[index]
@@ -74,7 +74,7 @@ class MyList
     num
   end
 
-  # ### Expand list capacity ###
+  ### Expand list capacity ###
   def extend_capacity
     # Create new array with length extend_ratio times original, copy original array to new array
     arr = @arr.dup + Array.new(capacity * (@extend_ratio - 1))
@@ -82,7 +82,7 @@ class MyList
     @capacity = arr.length
   end
 
-  # ### Convert list to array ###
+  ### Convert list to array ###
   def to_array
     sz = size
     # Elements enqueue

@@ -4,7 +4,7 @@ Created Time: 2024-04-13
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Key-value pair ###
+### Key-value pair ###
 class Pair
   attr_accessor :key, :val
 
@@ -14,20 +14,20 @@ class Pair
   end
 end
 
-# ### Hash map based on array ###
+### Hash map based on array ###
 class ArrayHashMap
-  # ### Constructor ###
+  ### Constructor ###
   def initialize
     # Initialize array with 100 buckets
     @buckets = Array.new(100)
   end
 
-  # ### Hash function ###
+  ### Hash function ###
   def hash_func(key)
     index = key % 100
   end
 
-  # ### Query operation ###
+  ### Query operation ###
   def get(key)
     index = hash_func(key)
     pair = @buckets[index]
@@ -36,42 +36,42 @@ class ArrayHashMap
     pair.val
   end
 
-  # ### Add operation ###
+  ### Add operation ###
   def put(key, val)
     pair = Pair.new(key, val)
     index = hash_func(key)
     @buckets[index] = pair
   end
 
-  # ### Delete operation ###
+  ### Delete operation ###
   def remove(key)
     index = hash_func(key)
     # Set to nil to delete
     @buckets[index] = nil
   end
 
-  # ### Get all key-value pairs ###
+  ### Get all key-value pairs ###
   def entry_set
     result = []
     @buckets.each { |pair| result << pair unless pair.nil? }
     result
   end
 
-  # ### Get all keys ###
+  ### Get all keys ###
   def key_set
     result = []
     @buckets.each { |pair| result << pair.key unless pair.nil? }
     result
   end
 
-  # ### Get all values ###
+  ### Get all values ###
   def value_set
     result = []
     @buckets.each { |pair| result << pair.val unless pair.nil? }
     result
   end
 
-  # ### Print hash table ###
+  ### Print hash table ###
   def print
     @buckets.each { |pair| puts "#{pair.key} -> #{pair.val}" unless pair.nil? }
   end

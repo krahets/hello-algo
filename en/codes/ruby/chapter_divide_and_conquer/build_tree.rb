@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ### Build binary tree: divide and conquer ###
+### Build binary tree: divide and conquer ###
 def dfs(preorder, inorder_map, i, l, r)
   # Terminate when the subtree interval is empty
   return if r - l < 0
@@ -25,7 +25,7 @@ def dfs(preorder, inorder_map, i, l, r)
   root
 end
 
-# ### Build binary tree ###
+### Build binary tree ###
 def build_tree(preorder, inorder)
   # Initialize hash map, storing the mapping from inorder elements to indices
   inorder_map = {}

@@ -4,43 +4,43 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Stack based on array ###
+### Stack based on array ###
 class ArrayStack
-  # ### Constructor ###
+  ### Constructor ###
   def initialize
     @stack = []
   end
 
-  # ### Get stack length ###
+  ### Get stack length ###
   def size
     @stack.length
   end
 
-  # ### Check if stack is empty ###
+  ### Check if stack is empty ###
   def is_empty?
     @stack.empty?
   end
 
-  # ### Push ###
+  ### Push ###
   def push(item)
     @stack << item
   end
 
-  # ### Pop ###
+  ### Pop ###
   def pop
     raise IndexError, 'Stack is empty' if is_empty?
 
     @stack.pop
   end
 
-  # ### Access top element ###
+  ### Access top element ###
   def peek
     raise IndexError, 'Stack is empty' if is_empty?
 
     @stack.last
   end
 
-  # ### Return list for printing ###
+  ### Return list for printing ###
   def to_array
     @stack
   end

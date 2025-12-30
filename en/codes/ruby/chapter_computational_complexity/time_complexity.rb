@@ -4,7 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ### Constant time ###
+### Constant time ###
 def constant(n)
   count = 0
   size = 100000
@@ -14,14 +14,14 @@ def constant(n)
   count
 end
 
-# ### Linear time ###
+### Linear time ###
 def linear(n)
   count = 0
   (0...n).each { count += 1 }
   count
 end
 
-# ### Linear time (array traversal) ###
+### Linear time (array traversal) ###
 def array_traversal(nums)
   count = 0
 
@@ -33,7 +33,7 @@ def array_traversal(nums)
   count
 end
 
-# ### Quadratic time ###
+### Quadratic time ###
 def quadratic(n)
   count = 0
 
@@ -47,7 +47,7 @@ def quadratic(n)
   count
 end
 
-# ### Quadratic time (bubble sort) ###
+### Quadratic time (bubble sort) ###
 def bubble_sort(nums)
   count = 0  # Counter
 
@@ -68,7 +68,7 @@ def bubble_sort(nums)
   count
 end
 
-# ### Exponential time (iterative) ###
+### Exponential time (iterative) ###
 def exponential(n)
   count, base = 0, 1
 
@@ -82,13 +82,13 @@ def exponential(n)
   count
 end
 
-# ### Exponential time (recursive) ###
+### Exponential time (recursive) ###
 def exp_recur(n)
   return 1 if n == 1
   exp_recur(n - 1) + exp_recur(n - 1) + 1
 end
 
-# ### Logarithmic time (iterative) ###
+### Logarithmic time (iterative) ###
 def logarithmic(n)
   count = 0
 
@@ -100,13 +100,13 @@ def logarithmic(n)
   count
 end
 
-# ### Logarithmic time (recursive) ###
+### Logarithmic time (recursive) ###
 def log_recur(n)
   return 0 unless n > 1
   log_recur(n / 2) + 1
 end
 
-# ### Linearithmic time ###
+### Linearithmic time ###
 def linear_log_recur(n)
   return 1 unless n > 1
 
@@ -116,7 +116,7 @@ def linear_log_recur(n)
   count
 end
 
-# ### Factorial time (recursive) ###
+### Factorial time (recursive) ###
 def factorial_recur(n)
   return 1 if n == 0
 
