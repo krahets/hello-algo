@@ -26,6 +26,6 @@ public class climbing_stairs_dfs {
         int n = 9;
 
         int res = climbingStairsDFS(n);
-        System.out.println(String.format("There are %d solutions to climb %d stairs", res, n));
+        System.out.println(String.format("Climbing %d stairs has %d solutions", n, res));
     }
 }

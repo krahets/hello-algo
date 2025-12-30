@@ -48,7 +48,7 @@ public class simple_hash {
     }
 
     public static void main(String[] args) {
-        String key = "Hello algorithm";
+        String key = "Hello Algo";
 
         int hash = addHash(key);
         System.out.println("Additive hash value is " + hash);

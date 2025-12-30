@@ -7,15 +7,15 @@
 package chapter_greedy;
 
 public class max_capacity {
-    /* Maximum capacity: Greedy */
+    /* Max capacity: Greedy algorithm */
     static int maxCapacity(int[] ht) {
-        // Initialize i, j, making them split the array at both ends
+        // Initialize i, j to be at both ends of the array
         int i = 0, j = ht.length - 1;
-        // Initial maximum capacity is 0
+        // Initial max capacity is 0
         int res = 0;
         // Loop for greedy selection until the two boards meet
         while (i < j) {
-            // Update maximum capacity
+            // Update max capacity
             int cap = Math.min(ht[i], ht[j]) * (j - i);
             res = Math.max(res, cap);
             // Move the shorter board inward
@@ -33,6 +33,6 @@ public class max_capacity {
 
         // Greedy algorithm
         int res = maxCapacity(ht);
-        System.out.println("The maximum capacity is " + res);
+        System.out.println("Maximum capacity is " + res);
     }
 }

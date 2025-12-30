@@ -7,7 +7,7 @@
 package chapter_dynamic_programming;
 
 public class unbounded_knapsack {
-    /* Complete knapsack: Dynamic programming */
+    /* Unbounded knapsack: Dynamic programming */
     static int unboundedKnapsackDP(int[] wgt, int[] val, int cap) {
         int n = wgt.length;
         // Initialize dp table
@@ -16,10 +16,10 @@ public class unbounded_knapsack {
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeding the knapsack capacity, do not choose item i
+                    // If exceeds knapsack capacity, don't select item i
                     dp[i][c] = dp[i - 1][c];
                 } else {
-                    // The greater value between not choosing and choosing item i
+                    // The larger value between not selecting and selecting item i
                     dp[i][c] = Math.max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -27,7 +27,7 @@ public class unbounded_knapsack {
         return dp[n][cap];
     }
 
-    /* Complete knapsack: Space-optimized dynamic programming */
+    /* Unbounded knapsack: Space-optimized dynamic programming */
     static int unboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
         int n = wgt.length;
         // Initialize dp table
@@ -36,10 +36,10 @@ public class unbounded_knapsack {
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // If exceeding the knapsack capacity, do not choose item i
+                    // If exceeds knapsack capacity, don't select item i
                     dp[c] = dp[c];
                 } else {
-                    // The greater value between not choosing and choosing item i
+                    // The larger value between not selecting and selecting item i
                     dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -54,10 +54,10 @@ public class unbounded_knapsack {
 
         // Dynamic programming
         int res = unboundedKnapsackDP(wgt, val, cap);
-        System.out.println("The maximum value within the bag capacity is " + res);
+        System.out.println("Maximum item value not exceeding knapsack capacity is " + res);
 
         // Space-optimized dynamic programming
         res = unboundedKnapsackDPComp(wgt, val, cap);
-        System.out.println("The maximum value within the bag capacity is " + res);
+        System.out.println("Maximum item value not exceeding knapsack capacity is " + res);
     }
 }

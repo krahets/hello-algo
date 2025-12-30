@@ -10,26 +10,26 @@ import utils.*;
 import java.util.*;
 
 public class build_tree {
-    /* Build binary tree: Divide and conquer */
+    /* Build binary tree: divide and conquer */
     static TreeNode dfs(int[] preorder, Map<Integer, Integer> inorderMap, int i, int l, int r) {
-        // Terminate when subtree interval is empty
+        // Terminate when the subtree interval is empty
         if (r - l < 0)
             return null;
-        // Initialize root node
+        // Initialize the root node
         TreeNode root = new TreeNode(preorder[i]);
-        // Query m to divide left and right subtrees
+        // Query m to divide the left and right subtrees
         int m = inorderMap.get(preorder[i]);
-        // Subproblem: build left subtree
+        // Subproblem: build the left subtree
         root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
-        // Subproblem: build right subtree
+        // Subproblem: build the right subtree
         root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
-        // Return root node
+        // Return the root node
         return root;
     }
 
     /* Build binary tree */
     static TreeNode buildTree(int[] preorder, int[] inorder) {
-        // Initialize hash table, storing in-order elements to indices mapping
+        // Initialize hash map, storing the mapping from inorder elements to indices
         Map<Integer, Integer> inorderMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
             inorderMap.put(inorder[i], i);
@@ -41,11 +41,11 @@ public class build_tree {
     public static void main(String[] args) {
         int[] preorder = { 3, 9, 2, 1, 7 };
         int[] inorder = { 9, 3, 1, 2, 7 };
-        System.out.println("Pre-order traversal = " + Arrays.toString(preorder));
-        System.out.println("In-order traversal = " + Arrays.toString(inorder));
+        System.out.println("Preorder traversal = " + Arrays.toString(preorder));
+        System.out.println("Inorder traversal = " + Arrays.toString(inorder));
 
         TreeNode root = buildTree(preorder, inorder);
-        System.out.println("The built binary tree is:");
+        System.out.println("The constructed binary tree is:");
         PrintUtil.printTree(root);
     }
 }
