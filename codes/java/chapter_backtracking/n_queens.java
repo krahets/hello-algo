@@ -8,7 +8,7 @@ package chapter_backtracking;
 
 import java.util.*;
 
-public class n_queens {
+public class n_queens { 
     /* 回溯算法：n 皇后 */
     public static void backtrack(int row, int n, List<List<String>> state, List<List<List<String>>> res,
             boolean[] cols, boolean[] diags1, boolean[] diags2) {

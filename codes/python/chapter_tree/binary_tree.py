@@ -12,7 +12,7 @@ from modules import TreeNode, print_tree
 
 
 """Driver Code"""
-if __name__ == "__main__":
+if __name__ == "__main__": 
     # 初始化二叉树
     # 初始化节点
     n1 = TreeNode(val=1)
