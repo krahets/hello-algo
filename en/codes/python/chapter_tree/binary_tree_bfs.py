@@ -17,26 +17,26 @@ def level_order(root: TreeNode | None) -> list[int]:
     # Initialize queue, add root node
     queue: deque[TreeNode] = deque()
     queue.append(root)
-    # Initialize a list to store the traversal sequence
+    # Initialize a list to save the traversal sequence
     res = []
     while queue:
-        node: TreeNode = queue.popleft()  # Queue dequeues
+        node: TreeNode = queue.popleft()  # Dequeue
         res.append(node.val)  # Save node value
         if node.left is not None:
-            queue.append(node.left)  # Left child node enqueues
+            queue.append(node.left)  # Left child node enqueue
         if node.right is not None:
-            queue.append(node.right)  # Right child node enqueues
+            queue.append(node.right)  # Right child node enqueue
     return res
 
 
 """Driver Code"""
 if __name__ == "__main__":
     # Initialize binary tree
-    # Use a specific function to convert an array into a binary tree
+    # Here we use a function to generate a binary tree directly from an array
     root: TreeNode = list_to_tree(arr=[1, 2, 3, 4, 5, 6, 7])
     print("\nInitialize binary tree\n")
     print_tree(root)
 
     # Level-order traversal
     res: list[int] = level_order(root)
-    print("\nPrint sequence of nodes from level-order traversal = ", res)
+    print("\nLevel-order traversal node print sequence = ", res)

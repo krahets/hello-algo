@@ -12,7 +12,7 @@ from modules import TreeNode, print_tree, list_to_tree
 
 
 def pre_order(root: TreeNode):
-    """Pre-order traversal: Example three"""
+    """Preorder traversal: Example 3"""
     # Pruning
     if root is None or root.val == 3:
         return
@@ -23,7 +23,7 @@ def pre_order(root: TreeNode):
         res.append(list(path))
     pre_order(root.left)
     pre_order(root.right)
-    # Retract
+    # Backtrack
     path.pop()
 
 
@@ -33,11 +33,11 @@ if __name__ == "__main__":
     print("\nInitialize binary tree")
     print_tree(root)
 
-    # Pre-order traversal
+    # Preorder traversal
     path = list[TreeNode]()
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\nOutput all root-to-node 7 paths, not including nodes with value 3")
+    print("\nOutput all paths from root node to node 7, excluding paths with nodes of value 3")
     for path in res:
         print([node.val for node in path])

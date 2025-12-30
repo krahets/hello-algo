@@ -14,24 +14,24 @@ from modules import ListNode
 if __name__ == "__main__":
     num = 3
     hash_num = hash(num)
-    print(f"Integer {num}'s hash value is {hash_num}")
+    print(f"Hash value of integer {num} is {hash_num}")
 
     bol = True
     hash_bol = hash(bol)
-    print(f"Boolean {bol}'s hash value is {hash_bol}")
+    print(f"Hash value of boolean {bol} is {hash_bol}")
 
     dec = 3.14159
     hash_dec = hash(dec)
-    print(f"Decimal {dec}'s hash value is {hash_dec}")
+    print(f"Hash value of decimal {dec} is {hash_dec}")
 
-    str = "Hello algorithm"
+    str = "Hello algo"
     hash_str = hash(str)
-    print(f"String {str}'s hash value is {hash_str}")
+    print(f"Hash value of string {str} is {hash_str}")
 
-    tup = (12836, "Ha")
+    tup = (12836, "Xiao Ha")
     hash_tup = hash(tup)
-    print(f"Tuple {tup}'s hash value is {hash(hash_tup)}")
+    print(f"Hash value of tuple {tup} is {hash(hash_tup)}")
 
     obj = ListNode(0)
     hash_obj = hash(obj)
-    print(f"Node object {obj}'s hash value is {hash_obj}")
+    print(f"Hash value of node object {obj} is {hash_obj}")
