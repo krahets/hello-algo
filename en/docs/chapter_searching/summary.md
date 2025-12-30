@@ -1,5 +1,7 @@
 # Summary
 
+### Key Review
+
 - Binary search relies on data orderliness and progressively reduces the search interval by half through loops. It requires input data to be sorted and is only applicable to arrays or data structures based on array implementations.
 - Brute-force search locates data by traversing the data structure. Linear search is applicable to arrays and linked lists, while breadth-first search and depth-first search are applicable to graphs and trees. Such algorithms have good generality and require no data preprocessing, but have a relatively high time complexity of $O(n)$.
 - Hash-based search, tree search, and binary search are efficient search methods that can quickly locate target elements in specific data structures. Such algorithms are highly efficient with time complexity reaching $O(\log n)$ or even $O(1)$, but typically require additional data structures.

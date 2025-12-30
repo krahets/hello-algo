@@ -1,6 +1,6 @@
 # Summary
 
-### Key Takeaways
+### Key Review
 
 - Arrays and linked lists are two fundamental data structures, representing two different ways data can be stored in computer memory: contiguous memory storage and scattered memory storage. The characteristics of the two complement each other.
 - Arrays support random access and use less memory; however, inserting and deleting elements is inefficient, and the length is immutable after initialization.
