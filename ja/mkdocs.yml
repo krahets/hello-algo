@@ -9,7 +9,7 @@ docs_dir: ../build/ja/docs
 site_dir: ../site/ja
 # Repository
 edit_uri: tree/main/ja/docs
-version: 1.0.0
+version: 1.2.0
 
 # Configuration
 theme:
@@ -17,7 +17,6 @@ theme:
   language: ja
   font:
     text: Noto Sans JP
-    code: Fira Code
   palette:
     - scheme: default
       primary: white
