@@ -37,7 +37,7 @@ extra:
 
 # Page tree
 nav:
-  - Preface:
+  - Before starting:
     - chapter_hello_algo/index.md
   - Chapter 0. Preface:
     # [icon: material/book-open-outline]
