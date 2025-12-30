@@ -8,10 +8,10 @@ name: Ruby
 on:
   push:
     branches: ["main"]
-    paths: ["codes/ruby/**/*.rb", "*/codes/ruby/**/*.rb"]
+    paths: ["codes/ruby/**/*.rb"]
   pull_request:
     branches: ["main"]
-    paths: ["codes/ruby/**/*.rb", "*/codes/ruby/**/*.rb"]
+    paths: ["codes/ruby/**/*.rb"]
   workflow_dispatch:
 
 permissions:

@@ -3,10 +3,10 @@ name: Go
 on:
   push:
     branches: ["main"]
-    paths: ["codes/go/**/*.go", "*/codes/go/**/*.go"]
+    paths: ["codes/go/**/*.go"]
   pull_request:
     branches: ["main"]
-    paths: ["codes/go/**/*.go", "*/codes/go/**/*.go"]
+    paths: ["codes/go/**/*.go"]
   workflow_dispatch:
 
 jobs:

@@ -6,10 +6,10 @@ name: .NET
 on:
   push:
     branches: ["main"]
-    paths: ["codes/csharp/**/*.cs", "*/codes/csharp/**/*.cs"]
+    paths: ["codes/csharp/**/*.cs"]
   pull_request:
     branches: ["main"]
-    paths: ["codes/csharp/**/*.cs", "*/codes/csharp/**/*.cs"]
+    paths: ["codes/csharp/**/*.cs"]
   workflow_dispatch:
 
 jobs:

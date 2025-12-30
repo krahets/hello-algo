@@ -3,10 +3,10 @@ name: Kotlin
 on:
   push:
     branches: ["main"]
-    paths: ["codes/kotlin/**/*.kt", "*/codes/kotlin/**/*.kt"]
+    paths: ["codes/kotlin/**/*.kt"]
   pull_request:
     branches: ["main"]
-    paths: ["codes/kotlin/**/*.kt", "*/codes/kotlin/**/*.kt"]
+    paths: ["codes/kotlin/**/*.kt"]
   workflow_dispatch:
 
 jobs:

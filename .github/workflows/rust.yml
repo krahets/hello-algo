@@ -3,22 +3,10 @@ name: Rust
 on:
   push:
     branches: ["main"]
-    paths:
-      [
-        "codes/rust/**/*.rs",
-        "codes/rust/Cargo.toml",
-        "*/codes/rust/**/*.rs",
-        "*/codes/rust/Cargo.toml",
-      ]
+    paths: ["codes/rust/**/*.rs", "codes/rust/Cargo.toml"]
   pull_request:
     branches: ["main"]
-    paths:
-      [
-        "codes/rust/**/*.rs",
-        "codes/rust/Cargo.toml",
-        "*/codes/rust/**/*.rs",
-        "*/codes/rust/Cargo.toml",
-      ]
+    paths: ["codes/rust/**/*.rs", "codes/rust/Cargo.toml"]
 
 jobs:
   build:

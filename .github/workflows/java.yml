@@ -6,10 +6,10 @@ name: Java
 on:
   push:
     branches: ["main"]
-    paths: ["codes/java/**/*.java", "*/codes/java/**/*.java"]
+    paths: ["codes/java/**/*.java"]
   pull_request:
     branches: ["main"]
-    paths: ["codes/java/**/*.java", "*/codes/java/**/*.java"]
+    paths: ["codes/java/**/*.java"]
   workflow_dispatch:
 
 jobs:

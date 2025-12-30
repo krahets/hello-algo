@@ -6,10 +6,10 @@ name: Python
 on:
   push:
     branches: ["main"]
-    paths: ["codes/python/**/*.py", "*/codes/python/**/*.py"]
+    paths: ["codes/python/**/*.py"]
   pull_request:
     branches: ["main"]
-    paths: ["codes/python/**/*.py", "*/codes/python/**/*.py"]
+    paths: ["codes/python/**/*.py"]
   workflow_dispatch:
 
 permissions:
