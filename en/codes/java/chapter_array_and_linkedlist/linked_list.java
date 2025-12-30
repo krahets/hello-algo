@@ -65,12 +65,12 @@ public class linked_list {
         System.out.println("Initialized linked list is");
         PrintUtil.printLinkedList(n0);
 
-        /* Remove node */
+        /* Insert node */
         insert(n0, new ListNode(0));
         System.out.println("Linked list after inserting node is");
         PrintUtil.printLinkedList(n0);
 
-        /* Find node */
+        /* Remove node */
         remove(n0);
         System.out.println("Linked list after removing node is");
         PrintUtil.printLinkedList(n0);

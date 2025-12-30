@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* Backtracking algorithm: Permutation I */
+/* Backtracking algorithm: Permutations I */
 void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &selected, vector<vector<int>> &res) {
     // When the state length equals the number of elements, record the solution
     if (state.size() == choices.size()) {
@@ -18,19 +18,19 @@ void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &sel
         int choice = choices[i];
         // Pruning: do not allow repeated selection of elements
         if (!selected[i]) {
-            // Attempt: make a choice, update the state
+            // Attempt: make choice, update state
             selected[i] = true;
             state.push_back(choice);
             // Proceed to the next round of selection
             backtrack(state, choices, selected, res);
-            // Retract: undo the choice, restore to the previous state
+            // Backtrack: undo choice, restore to previous state
             selected[i] = false;
             state.pop_back();
         }
     }
 }
 
-/* Permutation I */
+/* Permutations I */
 vector<vector<int>> permutationsI(vector<int> nums) {
     vector<int> state;
     vector<bool> selected(nums.size(), false);

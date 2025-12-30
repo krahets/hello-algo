@@ -11,16 +11,16 @@ vector<int> levelOrder(TreeNode *root) {
     // Initialize queue, add root node
     queue<TreeNode *> queue;
     queue.push(root);
-    // Initialize a list to store the traversal sequence
+    // Initialize a list to save the traversal sequence
     vector<int> vec;
     while (!queue.empty()) {
         TreeNode *node = queue.front();
-        queue.pop();              // Queue dequeues
+        queue.pop();              // Dequeue
         vec.push_back(node->val); // Save node value
         if (node->left != nullptr)
-            queue.push(node->left); // Left child node enqueues
+            queue.push(node->left); // Left child node enqueue
         if (node->right != nullptr)
-            queue.push(node->right); // Right child node enqueues
+            queue.push(node->right); // Right child node enqueue
     }
     return vec;
 }
@@ -28,14 +28,14 @@ vector<int> levelOrder(TreeNode *root) {
 /* Driver Code */
 int main() {
     /* Initialize binary tree */
-    // Use a specific function to convert an array into a binary tree
+    // Here we use a function to generate a binary tree directly from an array
     TreeNode *root = vectorToTree(vector<int>{1, 2, 3, 4, 5, 6, 7});
     cout << endl << "Initialize binary tree\n" << endl;
     printTree(root);
 
     /* Level-order traversal */
     vector<int> vec = levelOrder(root);
-    cout << endl << "Sequence of nodes in level-order traversal = ";
+    cout << endl << "Level-order traversal node print sequence = ";
     printVector(vec);
 
     return 0;

@@ -13,21 +13,21 @@ int main() {
     cout << "List nums = ";
     printVector(nums);
 
-    /* Access element */
-    int num = nums[1];
-    cout << "Access the element at index 1, obtained num = " << num << endl;
-
     /* Update element */
+    int num = nums[1];
+    cout << "Access element at index 1, get num = " << num << endl;
+
+    /* Add elements at the end */
     nums[1] = 0;
-    cout << "Update the element at index 1 to 0, resulting in nums = ";
+    cout << "Update element at index 1 to 0, resulting in nums = ";
     printVector(nums);
 
-    /* Clear list */
+    /* Remove element */
     nums.clear();
-    cout << "After clearing the list, nums = ";
+    cout << "After clearing list, nums = ";
     printVector(nums);
 
-    /* Add element at the end */
+    /* Direct traversal of list elements */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
@@ -36,22 +36,22 @@ int main() {
     cout << "After adding elements, nums = ";
     printVector(nums);
 
-    /* Insert element in the middle */
+    /* Sort list */
     nums.insert(nums.begin() + 3, 6);
-    cout << "Insert the number 6 at index 3, resulting in nums = ";
+    cout << "Insert number 6 at index 3, resulting in nums = ";
     printVector(nums);
 
     /* Remove element */
     nums.erase(nums.begin() + 3);
-    cout << "Remove the element at index 3, resulting in nums = ";
+    cout << "Remove element at index 3, resulting in nums = ";
     printVector(nums);
 
-    /* Traverse the list by index */
+    /* Traverse list by index */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums[i];
     }
-    /* Traverse the list elements */
+    /* Directly traverse list elements */
     count = 0;
     for (int x : nums) {
         count += x;
@@ -65,7 +65,7 @@ int main() {
 
     /* Sort list */
     sort(nums.begin(), nums.end());
-    cout << "After sorting the list, nums = ";
+    cout << "After sorting list, nums = ";
     printVector(nums);
 
     return 0;

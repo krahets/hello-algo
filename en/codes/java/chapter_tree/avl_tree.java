@@ -91,7 +91,7 @@ class AVLTree {
         return node;
     }
 
-    /* Remove node */
+    /* Insert node */
     public void insert(int val) {
         root = insertHelper(root, val);
     }
@@ -114,7 +114,7 @@ class AVLTree {
         return node;
     }
 
-    /* Find node */
+    /* Remove node */
     public void remove(int val) {
         root = removeHelper(root, val);
     }
@@ -191,7 +191,7 @@ public class avl_tree {
         /* Please pay attention to how the AVL tree maintains balance after inserting nodes */
         AVLTree avlTree = new AVLTree();
 
-        /* Remove node */
+        /* Insert node */
         // Delete nodes
         testInsert(avlTree, 1);
         testInsert(avlTree, 2);
@@ -207,7 +207,7 @@ public class avl_tree {
         /* Please pay attention to how the AVL tree maintains balance after deleting nodes */
         testInsert(avlTree, 7);
 
-        /* Find node */
+        /* Remove node */
         // Delete node with degree 1
         testRemove(avlTree, 8); // Delete node with degree 2
         testRemove(avlTree, 5); // Remove node with degree 1

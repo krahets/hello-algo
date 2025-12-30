@@ -9,7 +9,7 @@
 /* Hash search (array) */
 int hashingSearchArray(unordered_map<int, int> map, int target) {
     // Hash table's key: target element, value: index
-    // If the hash table does not contain this key, return -1
+    // If this key does not exist in the hash table, return -1
     if (map.find(target) == map.end())
         return -1;
     return map[target];
@@ -18,7 +18,7 @@ int hashingSearchArray(unordered_map<int, int> map, int target) {
 /* Hash search (linked list) */
 ListNode *hashingSearchLinkedList(unordered_map<int, ListNode *> map, int target) {
     // Hash table key: target node value, value: node object
-    // If the key is not in the hash table, return nullptr
+    // Return nullptr if key does not exist in hash table
     if (map.find(target) == map.end())
         return nullptr;
     return map[target];
@@ -36,7 +36,7 @@ int main() {
         map[nums[i]] = i; // key: element, value: index
     }
     int index = hashingSearchArray(map, target);
-    cout << "The index of target element 3 is " << index << endl;
+    cout << "Index of target element 3 = " << index << endl;
 
     /* Hash search (linked list) */
     ListNode *head = vecToLinkedList(nums);
@@ -47,7 +47,7 @@ int main() {
         head = head->next;
     }
     ListNode *node = hashingSearchLinkedList(map1, target);
-    cout << "The corresponding node object for target node value 3 is " << node << endl;
+    cout << "Node object corresponding to target node value 3 is " << node << endl;
 
     return 0;
 }

@@ -91,7 +91,7 @@ class MaxHeap {
             throw new IndexOutOfBoundsException();
         // Delete node
         swap(0, size() - 1);
-        // Find node
+        // Remove node
         int val = maxHeap.remove(size() - 1);
         // Return top element
         siftDown(0);

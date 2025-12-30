@@ -6,15 +6,15 @@
 
 #include "../utils/common.hpp"
 
-/* Maximum capacity: Greedy */
+/* Max capacity: Greedy algorithm */
 int maxCapacity(vector<int> &ht) {
-    // Initialize i, j, making them split the array at both ends
+    // Initialize i, j to be at both ends of the array
     int i = 0, j = ht.size() - 1;
-    // Initial maximum capacity is 0
+    // Initial max capacity is 0
     int res = 0;
     // Loop for greedy selection until the two boards meet
     while (i < j) {
-        // Update maximum capacity
+        // Update max capacity
         int cap = min(ht[i], ht[j]) * (j - i);
         res = max(res, cap);
         // Move the shorter board inward
@@ -33,7 +33,7 @@ int main() {
 
     // Greedy algorithm
     int res = maxCapacity(ht);
-    cout << "The maximum capacity is " << res << endl;
+    cout << "Maximum capacity is " << res << endl;
 
     return 0;
 }

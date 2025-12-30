@@ -8,7 +8,7 @@
 
 vector<TreeNode *> res;
 
-/* Pre-order traversal: Example one */
+/* Preorder traversal: Example 1 */
 void preOrder(TreeNode *root) {
     if (root == nullptr) {
         return;
@@ -27,7 +27,7 @@ int main() {
     cout << "\nInitialize binary tree" << endl;
     printTree(root);
 
-    // Pre-order traversal
+    // Preorder traversal
     preOrder(root);
 
     cout << "\nOutput all nodes with value 7" << endl;

@@ -17,7 +17,7 @@ struct Vertex {
     }
 };
 
-/* Input a list of values vals, return a list of vertices vets */
+/* Input value list vals, return vertex list vets */
 vector<Vertex *> valsToVets(vector<int> vals) {
     vector<Vertex *> vets;
     for (int val : vals) {
@@ -26,7 +26,7 @@ vector<Vertex *> valsToVets(vector<int> vals) {
     return vets;
 }
 
-/* Input a list of vertices vets, return a list of values vals */
+/* Input vertex list vets, return value list vals */
 vector<int> vetsToVals(vector<Vertex *> vets) {
     vector<int> vals;
     for (Vertex *vet : vets) {

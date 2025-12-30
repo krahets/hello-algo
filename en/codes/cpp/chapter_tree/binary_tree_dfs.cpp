@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-// Initialize the list for storing traversal sequences
+// Initialize list for storing traversal sequence
 vector<int> vec;
 
-/* Pre-order traversal */
+/* Preorder traversal */
 void preOrder(TreeNode *root) {
     if (root == nullptr)
         return;
@@ -19,7 +19,7 @@ void preOrder(TreeNode *root) {
     preOrder(root->right);
 }
 
-/* In-order traversal */
+/* Inorder traversal */
 void inOrder(TreeNode *root) {
     if (root == nullptr)
         return;
@@ -29,7 +29,7 @@ void inOrder(TreeNode *root) {
     inOrder(root->right);
 }
 
-/* Post-order traversal */
+/* Postorder traversal */
 void postOrder(TreeNode *root) {
     if (root == nullptr)
         return;
@@ -42,27 +42,27 @@ void postOrder(TreeNode *root) {
 /* Driver Code */
 int main() {
     /* Initialize binary tree */
-    // Use a specific function to convert an array into a binary tree
+    // Here we use a function to generate a binary tree directly from an array
     TreeNode *root = vectorToTree(vector<int>{1, 2, 3, 4, 5, 6, 7});
     cout << endl << "Initialize binary tree\n" << endl;
     printTree(root);
 
-    /* Pre-order traversal */
+    /* Preorder traversal */
     vec.clear();
     preOrder(root);
-    cout << endl << "Sequence of nodes in pre-order traversal = ";
+    cout << endl << "Pre-order traversal node print sequence = ";
     printVector(vec);
 
-    /* In-order traversal */
+    /* Inorder traversal */
     vec.clear();
     inOrder(root);
-    cout << endl << "Sequence of nodes in in-order traversal = ";
+    cout << endl << "In-order traversal node print sequence = ";
     printVector(vec);
 
-    /* Post-order traversal */
+    /* Postorder traversal */
     vec.clear();
     postOrder(root);
-    cout << endl << "Sequence of nodes in post-order traversal = ";
+    cout << endl << "Post-order traversal node print sequence = ";
     printVector(vec);
 
     return 0;

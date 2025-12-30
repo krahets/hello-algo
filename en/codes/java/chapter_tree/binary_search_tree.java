@@ -42,7 +42,7 @@ class BinarySearchTree {
         return cur;
     }
 
-    /* Remove node */
+    /* Insert node */
     public void insert(int num) {
         // If tree is empty, initialize root node
         if (root == null) {
@@ -63,7 +63,7 @@ class BinarySearchTree {
             else
                 cur = cur.left;
         }
-        // Remove node
+        // Insert node
         TreeNode node = new TreeNode(num);
         if (pre.val < num)
             pre.right = node;
@@ -71,7 +71,7 @@ class BinarySearchTree {
             pre.left = node;
     }
 
-    /* Find node */
+    /* Remove node */
     public void remove(int num) {
         // If tree is empty, return directly
         if (root == null)
@@ -139,12 +139,12 @@ public class binary_search_tree {
         TreeNode node = bst.search(7);
         System.out.println("\nFound node object is " + node + ", node value = " + node.val);
 
-        /* Remove node */
+        /* Insert node */
         bst.insert(16);
         System.out.println("\nAfter inserting node 16, binary tree is\n");
         PrintUtil.printTree(bst.getRoot());
 
-        /* Find node */
+        /* Remove node */
         bst.remove(1);
         System.out.println("\nAfter removing node 1, binary tree is\n");
         PrintUtil.printTree(bst.getRoot());

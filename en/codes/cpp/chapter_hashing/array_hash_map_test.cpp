@@ -13,23 +13,23 @@ int main() {
 
     /* Add operation */
     // Add key-value pair (key, value) to the hash table
-    map.put(12836, "Ha");
-    map.put(15937, "Luo");
-    map.put(16750, "Suan");
-    map.put(13276, "Fa");
-    map.put(10583, "Ya");
-    cout << "\nAfter adding, the hash table is\nKey -> Value" << endl;
+    map.put(12836, "Xiao Ha");
+    map.put(15937, "Xiao Luo");
+    map.put(16750, "Xiao Suan");
+    map.put(13276, "Xiao Fa");
+    map.put(10583, "Xiao Ya");
+    cout << "\nAfter adding is complete, hash table is\nKey -> Value" << endl;
     map.print();
 
     /* Query operation */
-    // Enter key to the hash table, get value
+    // Input key into hash table to get value
     string name = map.get(15937);
-    cout << "\nEnter student ID 15937, found name " << name << endl;
+    cout << "\nInput student ID 15937, query name " << name << endl;
 
     /* Remove operation */
-    // Remove key-value pair (key, value) from the hash table
+    // Remove key-value pair (key, value) from hash table
     map.remove(10583);
-    cout << "\nAfter removing 10583, the hash table is\nKey -> Value" << endl;
+    cout << "\nAfter removing 10583, hash table is\nKey -> Value" << endl;
     map.print();
 
     /* Traverse hash table */
@@ -38,12 +38,12 @@ int main() {
         cout << kv->key << " -> " << kv->val << endl;
     }
 
-    cout << "\nIndividually traverse keys Key" << endl;
+    cout << "\nTraverse keys only Key" << endl;
     for (auto key : map.keySet()) {
         cout << key << endl;
     }
 
-    cout << "\nIndividually traverse values Value" << endl;
+    cout << "\nTraverse values only Value" << endl;
     for (auto val : map.valueSet()) {
         cout << val << endl;
     }
