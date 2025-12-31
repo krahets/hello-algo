@@ -228,12 +228,6 @@ Since the operations related to AVL trees require obtaining node heights, we nee
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 The "node height" refers to the distance from that node to its farthest leaf node, i.e., the number of "edges" passed. It is important to note that the height of a leaf node is $0$, and the height of a null node is $-1$. We will create two utility functions for getting and updating the height of a node:
 
 ```src

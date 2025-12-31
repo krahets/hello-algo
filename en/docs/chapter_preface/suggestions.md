@@ -180,17 +180,6 @@
     # comment
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // Title comment, used to label functions, classes, test cases, etc.
-
-    // Content comment, used to explain code in detail
-
-    // Multi-line
-    // comment
-    ```
-
 ## Learning Efficiently with Animated Illustrations
 
 Compared to text, videos and images have higher information density and structural organization, making them easier to understand. In this book, **key and difficult knowledge will mainly be presented in the form of animated illustrations**, with text serving as explanation and supplement.

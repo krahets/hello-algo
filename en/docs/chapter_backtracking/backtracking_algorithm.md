@@ -429,12 +429,6 @@ In the following framework code, `state` represents the current state of the pro
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 Next, we solve Example 3 based on the framework code. The state `state` is the node traversal path, the choices `choices` are the left and right child nodes of the current node, and the result `res` is a list of paths:
 
 ```src

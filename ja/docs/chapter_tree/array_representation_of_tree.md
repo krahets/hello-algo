@@ -126,12 +126,6 @@
 
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 ![任意の種類の二分木の配列表現](array_representation_of_tree.assets/array_representation_with_empty.png)
 
 注目すべきは、**完備二分木は配列表現に非常に適している**ということです。完備二分木の定義を思い出すと、`None`は最下位レベルでのみ、かつ右側に向かって現れます。**つまり、すべての`None`値は確実にレベル順探索シーケンスの最後に現れます**。
