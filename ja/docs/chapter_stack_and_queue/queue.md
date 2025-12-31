@@ -318,12 +318,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title="queue.zig"
-
-    ```
-
 ## 5.2.2 &nbsp; キューの実装
 
 キューを実装するには、一方の端で要素を追加し、もう一方の端で要素を削除できるデータ構造が必要です。連結リストと配列の両方がこの要件を満たします。
@@ -608,12 +602,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="linkedlist_queue.rb"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="linkedlist_queue.zig"
     [class]{LinkedListQueue}-[func]{}
     ```
 
@@ -912,12 +900,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_queue.rb"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_queue.zig"
     [class]{ArrayQueue}-[func]{}
     ```
 

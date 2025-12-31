@@ -182,12 +182,6 @@ $$
     [class]{}-[func]{knapsack_dfs}
     ```
 
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDFS}
-    ```
-
 下の図に示すように、各アイテムは選択しないと選択するという2つの探索分岐を生成するため、時間計算量は $O(2^n)$ です。
 
 再帰木を観察すると、$dp[1, 10]$ などの重複する部分問題があることが容易にわかります。アイテムが多く、ナップサック容量が大きい場合、特に同じ重量のアイテムが多い場合、重複する部分問題の数は大幅に増加します。
@@ -316,12 +310,6 @@ $$
 
     ```ruby title="knapsack.rb"
     [class]{}-[func]{knapsack_dfs_mem}
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDFSMem}
     ```
 
 下の図はメモ化探索で枝刈りされる探索分岐を示しています。
@@ -460,12 +448,6 @@ $$
 
     ```ruby title="knapsack.rb"
     [class]{}-[func]{knapsack_dp}
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDP}
     ```
 
 下の図に示すように、時間計算量と空間計算量の両方が配列 `dp` のサイズ、つまり $O(n \times cap)$ によって決定されます。
@@ -670,10 +652,4 @@ $$
 
     ```ruby title="knapsack.rb"
     [class]{}-[func]{knapsack_dp_comp}
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDPComp}
     ```

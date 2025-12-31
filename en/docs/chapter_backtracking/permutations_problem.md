@@ -2,17 +2,17 @@
 comments: true
 ---
 
-# 13.2 &nbsp; Permutation problem
+# 13.2 &nbsp; Permutations Problem
 
-The permutation problem is a typical application of the backtracking algorithm. It involves finding all possible arrangements (permutations) of elements from a given set, such as an array or a string.
+The permutations problem is a classic application of backtracking algorithms. It is defined as finding all possible arrangements of elements in a given collection (such as an array or string).
 
-Table 13-2 shows several examples, including input arrays and their corresponding permutations.
+Table 13-2 shows several example datasets, including input arrays and their corresponding permutations.
 
-<p align="center"> Table 13-2 &nbsp; Permutation examples </p>
+<p align="center"> Table 13-2 &nbsp; Permutations Examples </p>
 
 <div class="center-table" markdown>
 
-| Input array | Permutations                                                       |
+| Input Array | All Permutations                                                   |
 | :---------- | :----------------------------------------------------------------- |
 | $[1]$       | $[1]$                                                              |
 | $[1, 2]$    | $[1, 2], [2, 1]$                                                   |
@@ -20,40 +20,40 @@ Table 13-2 shows several examples, including input arrays and their correspondin
 
 </div>
 
-## 13.2.1 &nbsp; Cases without duplicate elements
+## 13.2.1 &nbsp; Case with Distinct Elements
 
 !!! question
 
     Given an integer array with no duplicate elements, return all possible permutations.
 
-From a backtracking perspective, **we can view the process of generating permutations as a series of choices.** Suppose the input array is $[1, 2, 3]$. If we choose $1$ first, then $3$, and finally $2$, we get the permutation $[1, 3, 2]$. "Backtracking" means undoing a previous choice and exploring alternative options.
+From the perspective of backtracking algorithms, **we can imagine the process of generating permutations as the result of a series of choices**. Suppose the input array is $[1, 2, 3]$. If we first choose $1$, then choose $3$, and finally choose $2$, we obtain the permutation $[1, 3, 2]$. Backtracking means undoing a choice and then trying other choices.
 
-From a coding perspective, the candidate set `choices` consists of all elements in the input array, while `state` holds the elements selected so far. Since each element can only be chosen once, **all elements in `state` must be unique**.
+From the perspective of backtracking code, the candidate set `choices` consists of all elements in the input array, and the state `state` is the elements that have been chosen so far. Note that each element can only be chosen once, **therefore all elements in `state` should be unique**.
 
-As illustrated in Figure 13-5, we can expand the search process into a recursive tree, where each node represents the current `state`. Starting from the root node, after three rounds of selections, we reach the leaf nodes—each corresponding to a permutation.
+As shown in Figure 13-5, we can unfold the search process into a recursion tree, where each node in the tree represents the current state `state`. Starting from the root node, after three rounds of choices, we reach a leaf node, and each leaf node corresponds to a permutation.
 
-![Permutation recursive tree](permutations_problem.assets/permutations_i.png){ class="animation-figure" }
+![Recursion tree of permutations](permutations_problem.assets/permutations_i.png){ class="animation-figure" }
 
-<p align="center"> Figure 13-5 &nbsp; Permutation recursive tree </p>
+<p align="center"> Figure 13-5 &nbsp; Recursion tree of permutations </p>
 
-### 1. &nbsp; Repeated-choice pruning
+### 1. &nbsp; Pruning Duplicate Choices
 
-To ensure each element is selected only once, we introduce a boolean array `selected`, where `selected[i]` indicates whether `choices[i]` has been chosen. We then base our pruning steps on this array:
+To ensure that each element is chosen only once, we consider introducing a boolean array `selected`, where `selected[i]` indicates whether `choices[i]` has been chosen. We implement the following pruning operation based on it.
 
-- After choosing `choice[i]`, set `selected[i]` to $\text{True}$ to mark it as chosen.
-- While iterating through `choices`, skip all elements marked as chosen (i.e., prune those branches).
+- After making a choice `choice[i]`, we set `selected[i]` to $\text{True}$, indicating that it has been chosen.
+- When traversing the candidate list `choices`, we skip all nodes that have been chosen, which is pruning.
 
-As shown in Figure 13-6, suppose we choose 1 in the first round, then 3 in the second round, and finally 2 in the third round. We need to prune the branch for element 1 in the second round and the branches for elements 1 and 3 in the third round.
+As shown in Figure 13-6, suppose we choose $1$ in the first round, $3$ in the second round, and $2$ in the third round. Then we need to prune the branch of element $1$ in the second round and prune the branches of elements $1$ and $3$ in the third round.
 
-![Permutation pruning example](permutations_problem.assets/permutations_i_pruning.png){ class="animation-figure" }
+![Pruning example of permutations](permutations_problem.assets/permutations_i_pruning.png){ class="animation-figure" }
 
-<p align="center"> Figure 13-6 &nbsp; Permutation pruning example </p>
+<p align="center"> Figure 13-6 &nbsp; Pruning example of permutations </p>
 
-From the figure, we can see that this pruning process reduces the search space from $O(n^n)$ to $O(n!)$.
+Observing the above figure, we find that this pruning operation reduces the search space size from $O(n^n)$ to $O(n!)$.
 
-### 2. &nbsp; Code implementation
+### 2. &nbsp; Code Implementation
 
-With this understanding, we can "fill in the blanks" of our framework code. To keep the overall code concise, we won’t implement each part of the framework separately but instead expand everything in the `backtrack()` function:
+After understanding the above information, we can fill in the blanks in the template code. To shorten the overall code, we do not implement each function in the template separately, but instead unfold them in the `backtrack()` function:
 
 === "Python"
 
@@ -61,7 +61,7 @@ With this understanding, we can "fill in the blanks" of our framework code. To k
     def backtrack(
         state: list[int], choices: list[int], selected: list[bool], res: list[list[int]]
     ):
-        """Backtracking algorithm: Permutation I"""
+        """Backtracking algorithm: Permutations I"""
         # When the state length equals the number of elements, record the solution
         if len(state) == len(choices):
             res.append(list(state))
@@ -70,17 +70,17 @@ With this understanding, we can "fill in the blanks" of our framework code. To k
         for i, choice in enumerate(choices):
             # Pruning: do not allow repeated selection of elements
             if not selected[i]:
-                # Attempt: make a choice, update the state
+                # Attempt: make choice, update state
                 selected[i] = True
                 state.append(choice)
                 # Proceed to the next round of selection
                 backtrack(state, choices, selected, res)
-                # Retract: undo the choice, restore to the previous state
+                # Backtrack: undo choice, restore to previous state
                 selected[i] = False
                 state.pop()
 
     def permutations_i(nums: list[int]) -> list[list[int]]:
-        """Permutation I"""
+        """Permutations I"""
         res = []
         backtrack(state=[], choices=nums, selected=[False] * len(nums), res=res)
         return res
@@ -89,7 +89,7 @@ With this understanding, we can "fill in the blanks" of our framework code. To k
 === "C++"
 
     ```cpp title="permutations_i.cpp"
-    /* Backtracking algorithm: Permutation I */
+    /* Backtracking algorithm: Permutations I */
     void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &selected, vector<vector<int>> &res) {
         // When the state length equals the number of elements, record the solution
         if (state.size() == choices.size()) {
@@ -101,19 +101,19 @@ With this understanding, we can "fill in the blanks" of our framework code. To k
             int choice = choices[i];
             // Pruning: do not allow repeated selection of elements
             if (!selected[i]) {
-                // Attempt: make a choice, update the state
+                // Attempt: make choice, update state
                 selected[i] = true;
                 state.push_back(choice);
                 // Proceed to the next round of selection
                 backtrack(state, choices, selected, res);
-                // Retract: undo the choice, restore to the previous state
+                // Backtrack: undo choice, restore to previous state
                 selected[i] = false;
                 state.pop_back();
             }
         }
     }
 
-    /* Permutation I */
+    /* Permutations I */
     vector<vector<int>> permutationsI(vector<int> nums) {
         vector<int> state;
         vector<bool> selected(nums.size(), false);
@@ -126,7 +126,7 @@ With this understanding, we can "fill in the blanks" of our framework code. To k
 === "Java"
 
     ```java title="permutations_i.java"
-    /* Backtracking algorithm: Permutation I */
+    /* Backtracking algorithm: Permutations I */
     void backtrack(List<Integer> state, int[] choices, boolean[] selected, List<List<Integer>> res) {
         // When the state length equals the number of elements, record the solution
         if (state.size() == choices.length) {
@@ -138,19 +138,19 @@ With this understanding, we can "fill in the blanks" of our framework code. To k
             int choice = choices[i];
             // Pruning: do not allow repeated selection of elements
             if (!selected[i]) {
-                // Attempt: make a choice, update the state
+                // Attempt: make choice, update state
                 selected[i] = true;
                 state.add(choice);
                 // Proceed to the next round of selection
                 backtrack(state, choices, selected, res);
-                // Retract: undo the choice, restore to the previous state
+                // Backtrack: undo choice, restore to previous state
                 selected[i] = false;
                 state.remove(state.size() - 1);
             }
         }
     }
 
-    /* Permutation I */
+    /* Permutations I */
     List<List<Integer>> permutationsI(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         backtrack(new ArrayList<Integer>(), nums, new boolean[nums.length], res);
@@ -161,122 +161,414 @@ With this understanding, we can "fill in the blanks" of our framework code. To k
 === "C#"
 
     ```csharp title="permutations_i.cs"
-    [class]{permutations_i}-[func]{Backtrack}
+    /* Backtracking algorithm: Permutations I */
+    void Backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
+        // When the state length equals the number of elements, record the solution
+        if (state.Count == choices.Length) {
+            res.Add(new List<int>(state));
+            return;
+        }
+        // Traverse all choices
+        for (int i = 0; i < choices.Length; i++) {
+            int choice = choices[i];
+            // Pruning: do not allow repeated selection of elements
+            if (!selected[i]) {
+                // Attempt: make choice, update state
+                selected[i] = true;
+                state.Add(choice);
+                // Proceed to the next round of selection
+                Backtrack(state, choices, selected, res);
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false;
+                state.RemoveAt(state.Count - 1);
+            }
+        }
+    }
 
-    [class]{permutations_i}-[func]{PermutationsI}
+    /* Permutations I */
+    List<List<int>> PermutationsI(int[] nums) {
+        List<List<int>> res = [];
+        Backtrack([], nums, new bool[nums.Length], res);
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="permutations_i.go"
-    [class]{}-[func]{backtrackI}
+    /* Backtracking algorithm: Permutations I */
+    func backtrackI(state *[]int, choices *[]int, selected *[]bool, res *[][]int) {
+        // When the state length equals the number of elements, record the solution
+        if len(*state) == len(*choices) {
+            newState := append([]int{}, *state...)
+            *res = append(*res, newState)
+        }
+        // Traverse all choices
+        for i := 0; i < len(*choices); i++ {
+            choice := (*choices)[i]
+            // Pruning: do not allow repeated selection of elements
+            if !(*selected)[i] {
+                // Attempt: make choice, update state
+                (*selected)[i] = true
+                *state = append(*state, choice)
+                // Proceed to the next round of selection
+                backtrackI(state, choices, selected, res)
+                // Backtrack: undo choice, restore to previous state
+                (*selected)[i] = false
+                *state = (*state)[:len(*state)-1]
+            }
+        }
+    }
 
-    [class]{}-[func]{permutationsI}
+    /* Permutations I */
+    func permutationsI(nums []int) [][]int {
+        res := make([][]int, 0)
+        state := make([]int, 0)
+        selected := make([]bool, len(nums))
+        backtrackI(&state, &nums, &selected, &res)
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="permutations_i.swift"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations I */
+    func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
+        // When the state length equals the number of elements, record the solution
+        if state.count == choices.count {
+            res.append(state)
+            return
+        }
+        // Traverse all choices
+        for (i, choice) in choices.enumerated() {
+            // Pruning: do not allow repeated selection of elements
+            if !selected[i] {
+                // Attempt: make choice, update state
+                selected[i] = true
+                state.append(choice)
+                // Proceed to the next round of selection
+                backtrack(state: &state, choices: choices, selected: &selected, res: &res)
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false
+                state.removeLast()
+            }
+        }
+    }
 
-    [class]{}-[func]{permutationsI}
+    /* Permutations I */
+    func permutationsI(nums: [Int]) -> [[Int]] {
+        var state: [Int] = []
+        var selected = Array(repeating: false, count: nums.count)
+        var res: [[Int]] = []
+        backtrack(state: &state, choices: nums, selected: &selected, res: &res)
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="permutations_i.js"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations I */
+    function backtrack(state, choices, selected, res) {
+        // When the state length equals the number of elements, record the solution
+        if (state.length === choices.length) {
+            res.push([...state]);
+            return;
+        }
+        // Traverse all choices
+        choices.forEach((choice, i) => {
+            // Pruning: do not allow repeated selection of elements
+            if (!selected[i]) {
+                // Attempt: make choice, update state
+                selected[i] = true;
+                state.push(choice);
+                // Proceed to the next round of selection
+                backtrack(state, choices, selected, res);
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false;
+                state.pop();
+            }
+        });
+    }
 
-    [class]{}-[func]{permutationsI}
+    /* Permutations I */
+    function permutationsI(nums) {
+        const res = [];
+        backtrack([], nums, Array(nums.length).fill(false), res);
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="permutations_i.ts"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations I */
+    function backtrack(
+        state: number[],
+        choices: number[],
+        selected: boolean[],
+        res: number[][]
+    ): void {
+        // When the state length equals the number of elements, record the solution
+        if (state.length === choices.length) {
+            res.push([...state]);
+            return;
+        }
+        // Traverse all choices
+        choices.forEach((choice, i) => {
+            // Pruning: do not allow repeated selection of elements
+            if (!selected[i]) {
+                // Attempt: make choice, update state
+                selected[i] = true;
+                state.push(choice);
+                // Proceed to the next round of selection
+                backtrack(state, choices, selected, res);
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false;
+                state.pop();
+            }
+        });
+    }
 
-    [class]{}-[func]{permutationsI}
+    /* Permutations I */
+    function permutationsI(nums: number[]): number[][] {
+        const res: number[][] = [];
+        backtrack([], nums, Array(nums.length).fill(false), res);
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="permutations_i.dart"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations I */
+    void backtrack(
+      List<int> state,
+      List<int> choices,
+      List<bool> selected,
+      List<List<int>> res,
+    ) {
+      // When the state length equals the number of elements, record the solution
+      if (state.length == choices.length) {
+        res.add(List.from(state));
+        return;
+      }
+      // Traverse all choices
+      for (int i = 0; i < choices.length; i++) {
+        int choice = choices[i];
+        // Pruning: do not allow repeated selection of elements
+        if (!selected[i]) {
+          // Attempt: make choice, update state
+          selected[i] = true;
+          state.add(choice);
+          // Proceed to the next round of selection
+          backtrack(state, choices, selected, res);
+          // Backtrack: undo choice, restore to previous state
+          selected[i] = false;
+          state.removeLast();
+        }
+      }
+    }
 
-    [class]{}-[func]{permutationsI}
+    /* Permutations I */
+    List<List<int>> permutationsI(List<int> nums) {
+      List<List<int>> res = [];
+      backtrack([], nums, List.filled(nums.length, false), res);
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="permutations_i.rs"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations I */
+    fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &mut Vec<Vec<i32>>) {
+        // When the state length equals the number of elements, record the solution
+        if state.len() == choices.len() {
+            res.push(state);
+            return;
+        }
+        // Traverse all choices
+        for i in 0..choices.len() {
+            let choice = choices[i];
+            // Pruning: do not allow repeated selection of elements
+            if !selected[i] {
+                // Attempt: make choice, update state
+                selected[i] = true;
+                state.push(choice);
+                // Proceed to the next round of selection
+                backtrack(state.clone(), choices, selected, res);
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false;
+                state.pop();
+            }
+        }
+    }
 
-    [class]{}-[func]{permutations_i}
+    /* Permutations I */
+    fn permutations_i(nums: &mut [i32]) -> Vec<Vec<i32>> {
+        let mut res = Vec::new(); // State (subset)
+        backtrack(Vec::new(), nums, &mut vec![false; nums.len()], &mut res);
+        res
+    }
     ```
 
 === "C"
 
     ```c title="permutations_i.c"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations I */
+    void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *selected, int **res, int *resSize) {
+        // When the state length equals the number of elements, record the solution
+        if (stateSize == choicesSize) {
+            res[*resSize] = (int *)malloc(choicesSize * sizeof(int));
+            for (int i = 0; i < choicesSize; i++) {
+                res[*resSize][i] = state[i];
+            }
+            (*resSize)++;
+            return;
+        }
+        // Traverse all choices
+        for (int i = 0; i < choicesSize; i++) {
+            int choice = choices[i];
+            // Pruning: do not allow repeated selection of elements
+            if (!selected[i]) {
+                // Attempt: make choice, update state
+                selected[i] = true;
+                state[stateSize] = choice;
+                // Proceed to the next round of selection
+                backtrack(state, stateSize + 1, choices, choicesSize, selected, res, resSize);
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false;
+            }
+        }
+    }
 
-    [class]{}-[func]{permutationsI}
+    /* Permutations I */
+    int **permutationsI(int *nums, int numsSize, int *returnSize) {
+        int *state = (int *)malloc(numsSize * sizeof(int));
+        bool *selected = (bool *)malloc(numsSize * sizeof(bool));
+        for (int i = 0; i < numsSize; i++) {
+            selected[i] = false;
+        }
+        int **res = (int **)malloc(MAX_SIZE * sizeof(int *));
+        *returnSize = 0;
+
+        backtrack(state, 0, nums, numsSize, selected, res, returnSize);
+
+        free(state);
+        free(selected);
+
+        return res;
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin title="permutations_i.kt"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations I */
+    fun backtrack(
+        state: MutableList<Int>,
+        choices: IntArray,
+        selected: BooleanArray,
+        res: MutableList<MutableList<Int>?>
+    ) {
+        // When the state length equals the number of elements, record the solution
+        if (state.size == choices.size) {
+            res.add(state.toMutableList())
+            return
+        }
+        // Traverse all choices
+        for (i in choices.indices) {
+            val choice = choices[i]
+            // Pruning: do not allow repeated selection of elements
+            if (!selected[i]) {
+                // Attempt: make choice, update state
+                selected[i] = true
+                state.add(choice)
+                // Proceed to the next round of selection
+                backtrack(state, choices, selected, res)
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false
+                state.removeAt(state.size - 1)
+            }
+        }
+    }
 
-    [class]{}-[func]{permutationsI}
+    /* Permutations I */
+    fun permutationsI(nums: IntArray): MutableList<MutableList<Int>?> {
+        val res = mutableListOf<MutableList<Int>?>()
+        backtrack(mutableListOf(), nums, BooleanArray(nums.size), res)
+        return res
+    }
     ```
 
 === "Ruby"
 
     ```ruby title="permutations_i.rb"
-    [class]{}-[func]{backtrack}
+    ### Backtracking: permutations I ###
+    def backtrack(state, choices, selected, res)
+      # When the state length equals the number of elements, record the solution
+      if state.length == choices.length
+        res << state.dup
+        return
+      end
 
-    [class]{}-[func]{permutations_i}
+      # Traverse all choices
+      choices.each_with_index do |choice, i|
+        # Pruning: do not allow repeated selection of elements
+        unless selected[i]
+          # Attempt: make choice, update state
+          selected[i] = true
+          state << choice
+          # Proceed to the next round of selection
+          backtrack(state, choices, selected, res)
+          # Backtrack: undo choice, restore to previous state
+          selected[i] = false
+          state.pop
+        end
+      end
+    end
+
+    ### Permutations I ###
+    def permutations_i(nums)
+      res = []
+      backtrack([], nums, Array.new(nums.length, false), res)
+      res
+    end
     ```
 
-=== "Zig"
-
-    ```zig title="permutations_i.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
-## 13.2.2 &nbsp; Considering duplicate elements
+## 13.2.2 &nbsp; Case with Duplicate Elements
 
 !!! question
 
-    Given an integer array**that may contain duplicate elements**, return all unique permutations.
+    Given an integer array that **may contain duplicate elements**, return all unique permutations.
 
-Suppose the input array is $[1, 1, 2]$. To distinguish between the two identical elements $1$, we label the second one as $\hat{1}$.
+Suppose the input array is $[1, 1, 2]$. To distinguish the two duplicate elements $1$, we denote the second $1$ as $\hat{1}$.
 
-As shown in Figure 13-7, half of the permutations produced by this method are duplicates:
+As shown in Figure 13-7, the method described above generates permutations where half are duplicates.
 
 ![Duplicate permutations](permutations_problem.assets/permutations_ii.png){ class="animation-figure" }
 
 <p align="center"> Figure 13-7 &nbsp; Duplicate permutations </p>
 
-So how can we eliminate these duplicate permutations? One direct approach is to use a hash set to remove duplicates after generating all permutations. However, this is less elegant **because branches that produce duplicates are inherently unnecessary and should be pruned in advance,** thus improving the algorithm’s efficiency.
+So how do we remove duplicate permutations? The most direct approach is to use a hash set to directly deduplicate the permutation results. However, this is not elegant because **the search branches that generate duplicate permutations are unnecessary and should be identified and pruned early**, which can further improve algorithm efficiency.
 
-### 1. &nbsp; Equal-element pruning
+### 1. &nbsp; Pruning Duplicate Elements
 
-Looking at Figure 13-8, in the first round, choosing $1$ or $\hat{1}$ leads to the same permutations, so we prune $\hat{1}$.
+Observe Figure 13-8. In the first round, choosing $1$ or choosing $\hat{1}$ is equivalent. All permutations generated under these two choices are duplicates. Therefore, we should prune $\hat{1}$.
 
-Similarly, after choosing $2$ in the first round, choosing $1$ or $\hat{1}$ in the second round also leads to duplicate branches, so we prune $\hat{1}$ then as well.
+Similarly, after choosing $2$ in the first round, the $1$ and $\hat{1}$ in the second round also produce duplicate branches, so the second round's $\hat{1}$ should also be pruned.
 
-Essentially, **our goal is to ensure that multiple identical elements are only selected once per round of choices.**
+Essentially, **our goal is to ensure that multiple equal elements are chosen only once in a certain round of choices**.
 
-![Duplicate permutations pruning](permutations_problem.assets/permutations_ii_pruning.png){ class="animation-figure" }
+![Pruning duplicate permutations](permutations_problem.assets/permutations_ii_pruning.png){ class="animation-figure" }
 
-<p align="center"> Figure 13-8 &nbsp; Duplicate permutations pruning </p>
+<p align="center"> Figure 13-8 &nbsp; Pruning duplicate permutations </p>
 
-### 2. &nbsp; Code implementation
+### 2. &nbsp; Code Implementation
 
-Based on the code from the previous problem, we introduce a hash set `duplicated` in each round. This set keeps track of elements we have already attempted, so we can prune duplicates:
+Building on the code from the previous problem, we consider opening a hash set `duplicated` in each round of choices to record which elements have been tried in this round, and prune duplicate elements:
 
 === "Python"
 
@@ -284,7 +576,7 @@ Based on the code from the previous problem, we introduce a hash set `duplicated
     def backtrack(
         state: list[int], choices: list[int], selected: list[bool], res: list[list[int]]
     ):
-        """Backtracking algorithm: Permutation II"""
+        """Backtracking algorithm: Permutations II"""
         # When the state length equals the number of elements, record the solution
         if len(state) == len(choices):
             res.append(list(state))
@@ -294,18 +586,18 @@ Based on the code from the previous problem, we introduce a hash set `duplicated
         for i, choice in enumerate(choices):
             # Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
             if not selected[i] and choice not in duplicated:
-                # Attempt: make a choice, update the state
-                duplicated.add(choice)  # Record selected element values
+                # Attempt: make choice, update state
+                duplicated.add(choice)  # Record the selected element value
                 selected[i] = True
                 state.append(choice)
                 # Proceed to the next round of selection
                 backtrack(state, choices, selected, res)
-                # Retract: undo the choice, restore to the previous state
+                # Backtrack: undo choice, restore to previous state
                 selected[i] = False
                 state.pop()
 
     def permutations_ii(nums: list[int]) -> list[list[int]]:
-        """Permutation II"""
+        """Permutations II"""
         res = []
         backtrack(state=[], choices=nums, selected=[False] * len(nums), res=res)
         return res
@@ -314,7 +606,7 @@ Based on the code from the previous problem, we introduce a hash set `duplicated
 === "C++"
 
     ```cpp title="permutations_ii.cpp"
-    /* Backtracking algorithm: Permutation II */
+    /* Backtracking algorithm: Permutations II */
     void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &selected, vector<vector<int>> &res) {
         // When the state length equals the number of elements, record the solution
         if (state.size() == choices.size()) {
@@ -327,20 +619,20 @@ Based on the code from the previous problem, we introduce a hash set `duplicated
             int choice = choices[i];
             // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
             if (!selected[i] && duplicated.find(choice) == duplicated.end()) {
-                // Attempt: make a choice, update the state
-                duplicated.emplace(choice); // Record selected element values
+                // Attempt: make choice, update state
+                duplicated.emplace(choice); // Record the selected element value
                 selected[i] = true;
                 state.push_back(choice);
                 // Proceed to the next round of selection
                 backtrack(state, choices, selected, res);
-                // Retract: undo the choice, restore to the previous state
+                // Backtrack: undo choice, restore to previous state
                 selected[i] = false;
                 state.pop_back();
             }
         }
     }
 
-    /* Permutation II */
+    /* Permutations II */
     vector<vector<int>> permutationsII(vector<int> nums) {
         vector<int> state;
         vector<bool> selected(nums.size(), false);
@@ -353,7 +645,7 @@ Based on the code from the previous problem, we introduce a hash set `duplicated
 === "Java"
 
     ```java title="permutations_ii.java"
-    /* Backtracking algorithm: Permutation II */
+    /* Backtracking algorithm: Permutations II */
     void backtrack(List<Integer> state, int[] choices, boolean[] selected, List<List<Integer>> res) {
         // When the state length equals the number of elements, record the solution
         if (state.size() == choices.length) {
@@ -366,20 +658,20 @@ Based on the code from the previous problem, we introduce a hash set `duplicated
             int choice = choices[i];
             // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
             if (!selected[i] && !duplicated.contains(choice)) {
-                // Attempt: make a choice, update the state
-                duplicated.add(choice); // Record selected element values
+                // Attempt: make choice, update state
+                duplicated.add(choice); // Record the selected element value
                 selected[i] = true;
                 state.add(choice);
                 // Proceed to the next round of selection
                 backtrack(state, choices, selected, res);
-                // Retract: undo the choice, restore to the previous state
+                // Backtrack: undo choice, restore to previous state
                 selected[i] = false;
                 state.remove(state.size() - 1);
             }
         }
     }
 
-    /* Permutation II */
+    /* Permutations II */
     List<List<Integer>> permutationsII(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         backtrack(new ArrayList<Integer>(), nums, new boolean[nums.length], res);
@@ -390,104 +682,417 @@ Based on the code from the previous problem, we introduce a hash set `duplicated
 === "C#"
 
     ```csharp title="permutations_ii.cs"
-    [class]{permutations_ii}-[func]{Backtrack}
+    /* Backtracking algorithm: Permutations II */
+    void Backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
+        // When the state length equals the number of elements, record the solution
+        if (state.Count == choices.Length) {
+            res.Add(new List<int>(state));
+            return;
+        }
+        // Traverse all choices
+        HashSet<int> duplicated = [];
+        for (int i = 0; i < choices.Length; i++) {
+            int choice = choices[i];
+            // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+            if (!selected[i] && !duplicated.Contains(choice)) {
+                // Attempt: make choice, update state
+                duplicated.Add(choice); // Record the selected element value
+                selected[i] = true;
+                state.Add(choice);
+                // Proceed to the next round of selection
+                Backtrack(state, choices, selected, res);
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false;
+                state.RemoveAt(state.Count - 1);
+            }
+        }
+    }
 
-    [class]{permutations_ii}-[func]{PermutationsII}
+    /* Permutations II */
+    List<List<int>> PermutationsII(int[] nums) {
+        List<List<int>> res = [];
+        Backtrack([], nums, new bool[nums.Length], res);
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="permutations_ii.go"
-    [class]{}-[func]{backtrackII}
+    /* Backtracking algorithm: Permutations II */
+    func backtrackII(state *[]int, choices *[]int, selected *[]bool, res *[][]int) {
+        // When the state length equals the number of elements, record the solution
+        if len(*state) == len(*choices) {
+            newState := append([]int{}, *state...)
+            *res = append(*res, newState)
+        }
+        // Traverse all choices
+        duplicated := make(map[int]struct{}, 0)
+        for i := 0; i < len(*choices); i++ {
+            choice := (*choices)[i]
+            // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+            if _, ok := duplicated[choice]; !ok && !(*selected)[i] {
+                // Attempt: make choice, update state
+                // Record the selected element value
+                duplicated[choice] = struct{}{}
+                (*selected)[i] = true
+                *state = append(*state, choice)
+                // Proceed to the next round of selection
+                backtrackII(state, choices, selected, res)
+                // Backtrack: undo choice, restore to previous state
+                (*selected)[i] = false
+                *state = (*state)[:len(*state)-1]
+            }
+        }
+    }
 
-    [class]{}-[func]{permutationsII}
+    /* Permutations II */
+    func permutationsII(nums []int) [][]int {
+        res := make([][]int, 0)
+        state := make([]int, 0)
+        selected := make([]bool, len(nums))
+        backtrackII(&state, &nums, &selected, &res)
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="permutations_ii.swift"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations II */
+    func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
+        // When the state length equals the number of elements, record the solution
+        if state.count == choices.count {
+            res.append(state)
+            return
+        }
+        // Traverse all choices
+        var duplicated: Set<Int> = []
+        for (i, choice) in choices.enumerated() {
+            // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+            if !selected[i], !duplicated.contains(choice) {
+                // Attempt: make choice, update state
+                duplicated.insert(choice) // Record the selected element value
+                selected[i] = true
+                state.append(choice)
+                // Proceed to the next round of selection
+                backtrack(state: &state, choices: choices, selected: &selected, res: &res)
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false
+                state.removeLast()
+            }
+        }
+    }
 
-    [class]{}-[func]{permutationsII}
+    /* Permutations II */
+    func permutationsII(nums: [Int]) -> [[Int]] {
+        var state: [Int] = []
+        var selected = Array(repeating: false, count: nums.count)
+        var res: [[Int]] = []
+        backtrack(state: &state, choices: nums, selected: &selected, res: &res)
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="permutations_ii.js"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations II */
+    function backtrack(state, choices, selected, res) {
+        // When the state length equals the number of elements, record the solution
+        if (state.length === choices.length) {
+            res.push([...state]);
+            return;
+        }
+        // Traverse all choices
+        const duplicated = new Set();
+        choices.forEach((choice, i) => {
+            // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+            if (!selected[i] && !duplicated.has(choice)) {
+                // Attempt: make choice, update state
+                duplicated.add(choice); // Record the selected element value
+                selected[i] = true;
+                state.push(choice);
+                // Proceed to the next round of selection
+                backtrack(state, choices, selected, res);
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false;
+                state.pop();
+            }
+        });
+    }
 
-    [class]{}-[func]{permutationsII}
+    /* Permutations II */
+    function permutationsII(nums) {
+        const res = [];
+        backtrack([], nums, Array(nums.length).fill(false), res);
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="permutations_ii.ts"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations II */
+    function backtrack(
+        state: number[],
+        choices: number[],
+        selected: boolean[],
+        res: number[][]
+    ): void {
+        // When the state length equals the number of elements, record the solution
+        if (state.length === choices.length) {
+            res.push([...state]);
+            return;
+        }
+        // Traverse all choices
+        const duplicated = new Set();
+        choices.forEach((choice, i) => {
+            // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+            if (!selected[i] && !duplicated.has(choice)) {
+                // Attempt: make choice, update state
+                duplicated.add(choice); // Record the selected element value
+                selected[i] = true;
+                state.push(choice);
+                // Proceed to the next round of selection
+                backtrack(state, choices, selected, res);
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false;
+                state.pop();
+            }
+        });
+    }
 
-    [class]{}-[func]{permutationsII}
+    /* Permutations II */
+    function permutationsII(nums: number[]): number[][] {
+        const res: number[][] = [];
+        backtrack([], nums, Array(nums.length).fill(false), res);
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="permutations_ii.dart"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations II */
+    void backtrack(
+      List<int> state,
+      List<int> choices,
+      List<bool> selected,
+      List<List<int>> res,
+    ) {
+      // When the state length equals the number of elements, record the solution
+      if (state.length == choices.length) {
+        res.add(List.from(state));
+        return;
+      }
+      // Traverse all choices
+      Set<int> duplicated = {};
+      for (int i = 0; i < choices.length; i++) {
+        int choice = choices[i];
+        // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+        if (!selected[i] && !duplicated.contains(choice)) {
+          // Attempt: make choice, update state
+          duplicated.add(choice); // Record the selected element value
+          selected[i] = true;
+          state.add(choice);
+          // Proceed to the next round of selection
+          backtrack(state, choices, selected, res);
+          // Backtrack: undo choice, restore to previous state
+          selected[i] = false;
+          state.removeLast();
+        }
+      }
+    }
 
-    [class]{}-[func]{permutationsII}
+    /* Permutations II */
+    List<List<int>> permutationsII(List<int> nums) {
+      List<List<int>> res = [];
+      backtrack([], nums, List.filled(nums.length, false), res);
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="permutations_ii.rs"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations II */
+    fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &mut Vec<Vec<i32>>) {
+        // When the state length equals the number of elements, record the solution
+        if state.len() == choices.len() {
+            res.push(state);
+            return;
+        }
+        // Traverse all choices
+        let mut duplicated = HashSet::<i32>::new();
+        for i in 0..choices.len() {
+            let choice = choices[i];
+            // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+            if !selected[i] && !duplicated.contains(&choice) {
+                // Attempt: make choice, update state
+                duplicated.insert(choice); // Record the selected element value
+                selected[i] = true;
+                state.push(choice);
+                // Proceed to the next round of selection
+                backtrack(state.clone(), choices, selected, res);
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false;
+                state.pop();
+            }
+        }
+    }
 
-    [class]{}-[func]{permutations_ii}
+    /* Permutations II */
+    fn permutations_ii(nums: &mut [i32]) -> Vec<Vec<i32>> {
+        let mut res = Vec::new();
+        backtrack(Vec::new(), nums, &mut vec![false; nums.len()], &mut res);
+        res
+    }
     ```
 
 === "C"
 
     ```c title="permutations_ii.c"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations II */
+    void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *selected, int **res, int *resSize) {
+        // When the state length equals the number of elements, record the solution
+        if (stateSize == choicesSize) {
+            res[*resSize] = (int *)malloc(choicesSize * sizeof(int));
+            for (int i = 0; i < choicesSize; i++) {
+                res[*resSize][i] = state[i];
+            }
+            (*resSize)++;
+            return;
+        }
+        // Traverse all choices
+        bool duplicated[MAX_SIZE] = {false};
+        for (int i = 0; i < choicesSize; i++) {
+            int choice = choices[i];
+            // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+            if (!selected[i] && !duplicated[choice]) {
+                // Attempt: make choice, update state
+                duplicated[choice] = true; // Record the selected element value
+                selected[i] = true;
+                state[stateSize] = choice;
+                // Proceed to the next round of selection
+                backtrack(state, stateSize + 1, choices, choicesSize, selected, res, resSize);
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false;
+            }
+        }
+    }
 
-    [class]{}-[func]{permutationsII}
+    /* Permutations II */
+    int **permutationsII(int *nums, int numsSize, int *returnSize) {
+        int *state = (int *)malloc(numsSize * sizeof(int));
+        bool *selected = (bool *)malloc(numsSize * sizeof(bool));
+        for (int i = 0; i < numsSize; i++) {
+            selected[i] = false;
+        }
+        int **res = (int **)malloc(MAX_SIZE * sizeof(int *));
+        *returnSize = 0;
+
+        backtrack(state, 0, nums, numsSize, selected, res, returnSize);
+
+        free(state);
+        free(selected);
+
+        return res;
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin title="permutations_ii.kt"
-    [class]{}-[func]{backtrack}
+    /* Backtracking algorithm: Permutations II */
+    fun backtrack(
+        state: MutableList<Int>,
+        choices: IntArray,
+        selected: BooleanArray,
+        res: MutableList<MutableList<Int>?>
+    ) {
+        // When the state length equals the number of elements, record the solution
+        if (state.size == choices.size) {
+            res.add(state.toMutableList())
+            return
+        }
+        // Traverse all choices
+        val duplicated = HashSet<Int>()
+        for (i in choices.indices) {
+            val choice = choices[i]
+            // Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+            if (!selected[i] && !duplicated.contains(choice)) {
+                // Attempt: make choice, update state
+                duplicated.add(choice) // Record the selected element value
+                selected[i] = true
+                state.add(choice)
+                // Proceed to the next round of selection
+                backtrack(state, choices, selected, res)
+                // Backtrack: undo choice, restore to previous state
+                selected[i] = false
+                state.removeAt(state.size - 1)
+            }
+        }
+    }
 
-    [class]{}-[func]{permutationsII}
+    /* Permutations II */
+    fun permutationsII(nums: IntArray): MutableList<MutableList<Int>?> {
+        val res = mutableListOf<MutableList<Int>?>()
+        backtrack(mutableListOf(), nums, BooleanArray(nums.size), res)
+        return res
+    }
     ```
 
 === "Ruby"
 
     ```ruby title="permutations_ii.rb"
-    [class]{}-[func]{backtrack}
+    ### Backtracking: permutations II ###
+    def backtrack(state, choices, selected, res)
+      # When the state length equals the number of elements, record the solution
+      if state.length == choices.length
+        res << state.dup
+        return
+      end
 
-    [class]{}-[func]{permutations_ii}
+      # Traverse all choices
+      duplicated = Set.new
+      choices.each_with_index do |choice, i|
+        # Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+        if !selected[i] && !duplicated.include?(choice)
+          # Attempt: make choice, update state
+          duplicated.add(choice)
+          selected[i] = true
+          state << choice
+          # Proceed to the next round of selection
+          backtrack(state, choices, selected, res)
+          # Backtrack: undo choice, restore to previous state
+          selected[i] = false
+          state.pop
+        end
+      end
+    end
+
+    ### Permutations II ###
+    def permutations_ii(nums)
+      res = []
+      backtrack([], nums, Array.new(nums.length, false), res)
+      res
+    end
     ```
 
-=== "Zig"
+Assuming elements are pairwise distinct, there are $n!$ (factorial) permutations of $n$ elements. When recording results, we need to copy a list of length $n$, using $O(n)$ time. **Therefore, the time complexity is $O(n! \cdot n)$**.
 
-    ```zig title="permutations_ii.zig"
-    [class]{}-[func]{backtrack}
+The maximum recursion depth is $n$, using $O(n)$ stack frame space. `selected` uses $O(n)$ space. At most $n$ `duplicated` sets exist simultaneously, using $O(n^2)$ space. **Therefore, the space complexity is $O(n^2)$**.
 
-    [class]{}-[func]{permutationsII}
-    ```
+### 3. &nbsp; Comparison of Two Pruning Methods
 
-Assuming all elements are distinct, there are $n!$ (factorial) permutations of $n$ elements. Recording each result requires copying a list of length $n$, which takes $O(n)$ time. **Hence, the total time complexity is $O(n!n)$.**
+Note that although both `selected` and `duplicated` are used for pruning, they have different objectives.
 
-The maximum recursion depth is $n$, using $O(n)$ stack space. The `selected` array also requires $O(n)$ space. Because there can be up to $n$ separate `duplicated` sets at any one time, they collectively occupy $O(n^2)$ space. **Therefore, the space complexity is $O(n^2)$.**
+- **Pruning duplicate choices**: There is only one `selected` throughout the entire search process. It records which elements are included in the current state, and its purpose is to prevent an element from appearing repeatedly in `state`.
+- **Pruning duplicate elements**: Each round of choices (each `backtrack` function call) contains a `duplicated` set. It records which elements have been chosen in this round's iteration (the `for` loop), and its purpose is to ensure that equal elements are chosen only once.
 
-### 3. &nbsp; Comparing the two pruning methods
+Figure 13-9 shows the effective scope of the two pruning conditions. Note that each node in the tree represents a choice, and the nodes on the path from the root to a leaf node form a permutation.
 
-Although both `selected` and `duplicated` serve as pruning mechanisms, they target different issues:
+![Effective scope of two pruning conditions](permutations_problem.assets/permutations_ii_pruning_summary.png){ class="animation-figure" }
 
-- **Repeated-choice pruning**(via `selected`): There is a single `selected` array for the entire search, indicating which elements are already in the current state. This prevents the same element from appearing more than once in `state`.
-- **Equal-element pruning**(via `duplicated`): Each call to the `backtrack` function uses its own `duplicated` set, recording which elements have already been chosen in that specific iteration (`for` loop). This ensures that equal elements are selected only once per round of choices.
-
-Figure 13-9 shows the scope of these two pruning strategies. Each node in the tree represents a choice; the path from the root to any leaf corresponds to one complete permutation.
-
-![Scope of the two pruning conditions](permutations_problem.assets/permutations_ii_pruning_summary.png){ class="animation-figure" }
-
-<p align="center"> Figure 13-9 &nbsp; Scope of the two pruning conditions </p>
+<p align="center"> Figure 13-9 &nbsp; Effective scope of two pruning conditions </p>

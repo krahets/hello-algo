@@ -205,21 +205,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 在某运行平台下
-    fn algorithm(n: usize) void {
-        var a: i32 = 2; // 1 ns
-        a += 1; // 1 ns
-        a *= 2; // 10 ns
-        // 循环 n 次
-        for (0..n) |_| { // 1 ns
-            std.debug.print("{}\n", .{0}); // 5 ns
-        }
-    }
-    ```
-
 根据以上方法，可以得到算法的运行时间为 $(6n + 12)$ ns ：
 
 $$
@@ -503,29 +488,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 算法 A 的时间复杂度：常数阶
-    fn algorithm_A(n: usize) void {
-        _ = n;
-        std.debug.print("{}\n", .{0});
-    }
-    // 算法 B 的时间复杂度：线性阶
-    fn algorithm_B(n: i32) void {
-        for (0..n) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-    }
-    // 算法 C 的时间复杂度：常数阶
-    fn algorithm_C(n: i32) void {
-        _ = n;
-        for (0..1000000) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-    }
-    ```
-
 图 2-7 展示了以上三个算法函数的时间复杂度。
 
 - 算法 `A` 只有 $1$ 个打印操作，算法运行时间不随着 $n$ 增大而增长。我们称此算法的时间复杂度为“常数阶”。
@@ -725,20 +687,6 @@ $$
             puts 0      # +1
         end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    fn algorithm(n: usize) void {
-        var a: i32 = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // 循环 n 次
-        for (0..n) |_| { // +1（每轮都执行 i ++）
-            std.debug.print("{}\n", .{0}); // +1
-        }
-    }
     ```
 
 设算法的操作数量是一个关于输入数据大小 $n$ 的函数，记为 $T(n)$ ，则以上函数的操作数量为：
@@ -1020,27 +968,6 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    fn algorithm(n: usize) void {
-        var a: i32 = 1;     // +0（技巧 1）
-        a = a + @as(i32, @intCast(n));        // +0（技巧 1）
-
-        // +n（技巧 2）
-        for(0..(5 * n + 1)) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-
-        // +n*n（技巧 3）
-        for(0..(2 * n)) |_| {
-            for(0..(n + 1)) |_| {
-                std.debug.print("{}\n", .{0});
-            }
-        }
-    }
-    ```
-
 以下公式展示了使用上述技巧前后的统计结果，两者推算出的时间复杂度都为 $O(n^2)$ 。
 
 $$
@@ -1266,22 +1193,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    // 常数阶
-    fn constant(n: i32) i32 {
-        _ = n;
-        var count: i32 = 0;
-        const size: i32 = 100_000;
-        var i: i32 = 0;
-        while (i < size) : (i += 1) {
-            count += 1;
-        }
-        return count;
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20constant%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B8%B8%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20size%20%3D%2010%0A%20%20%20%20for%20_%20in%20range%28size%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20constant%28n%29%0A%20%20%20%20print%28%22%E5%B8%B8%E6%95%B0%E9%98%B6%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -1446,20 +1357,6 @@ $$
       (0...n).each { count += 1 }
       count
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    // 线性阶
-    fn linear(n: i32) i32 {
-        var count: i32 = 0;
-        var i: i32 = 0;
-        while (i < n) : (i += 1) {
-            count += 1;
-        }
-        return count;
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -1649,20 +1546,6 @@ $$
 
       count
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    // 线性阶（遍历数组）
-    fn arrayTraversal(nums: []i32) i32 {
-        var count: i32 = 0;
-        // 循环次数与数组长度成正比
-        for (nums) |_| {
-            count += 1;
-        }
-        return count;
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -1881,24 +1764,6 @@ $$
 
       count
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    // 平方阶
-    fn quadratic(n: i32) i32 {
-        var count: i32 = 0;
-        var i: i32 = 0;
-        // 循环次数与数据大小 n 成平方关系
-        while (i < n) : (i += 1) {
-            var j: i32 = 0;
-            while (j < n) : (j += 1) {
-                count += 1;
-            }
-        }
-        return count;
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -2210,31 +2075,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    // 平方阶（冒泡排序）
-    fn bubbleSort(nums: []i32) i32 {
-        var count: i32 = 0; // 计数器
-        // 外循环：未排序区间为 [0, i]
-        var i: i32 = @as(i32, @intCast(nums.len)) - 1;
-        while (i > 0) : (i -= 1) {
-            var j: usize = 0;
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            while (j < i) : (j += 1) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    const tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3; // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count;
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%B9%B3%E6%96%B9%E9%98%B6%EF%BC%88%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%20%20%23%20%E8%AE%A1%E6%95%B0%E5%99%A8%0A%20%20%20%20%23%20%E5%A4%96%E5%BE%AA%E7%8E%AF%EF%BC%9A%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%BE%AA%E7%8E%AF%EF%BC%9A%E5%B0%86%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8C%BA%E9%97%B4%20%5B0,%20i%5D%20%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%E8%87%B3%E8%AF%A5%E5%8C%BA%E9%97%B4%E7%9A%84%E6%9C%80%E5%8F%B3%E7%AB%AF%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E4%BA%A4%E6%8D%A2%20nums%5Bj%5D%20%E4%B8%8E%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%203%20%20%23%20%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8D%A2%E5%8C%85%E5%90%AB%203%20%E4%B8%AA%E5%8D%95%E5%85%83%E6%93%8D%E4%BD%9C%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%28n,%200,%20-1%29%5D%20%20%23%20%5Bn,%20n-1,%20...,%202,%201%5D%0A%20%20%20%20count%20%3D%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22%E5%B9%B3%E6%96%B9%E9%98%B6%EF%BC%88%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -2484,27 +2324,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    // 指数阶（循环实现）
-    fn exponential(n: i32) i32 {
-        var count: i32 = 0;
-        var bas: i32 = 1;
-        var i: i32 = 0;
-        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        while (i < n) : (i += 1) {
-            var j: i32 = 0;
-            while (j < bas) : (j += 1) {
-                count += 1;
-            }
-            bas *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count;
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 531px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20%E7%BB%86%E8%83%9E%E6%AF%8F%E8%BD%AE%E4%B8%80%E5%88%86%E4%B8%BA%E4%BA%8C%EF%BC%8C%E5%BD%A2%E6%88%90%E6%95%B0%E5%88%97%201,%202,%204,%208,%20...,%202%5E%28n-1%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20*%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -2655,16 +2474,6 @@ $$
       return 1 if n == 1
       exp_recur(n - 1) + exp_recur(n - 1) + 1
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    // 指数阶（递归实现）
-    fn expRecur(n: i32) i32 {
-        if (n == 1) return 1;
-        return expRecur(n - 1) + expRecur(n - 1) + 1;
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -2864,20 +2673,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    // 对数阶（循环实现）
-    fn logarithmic(n: i32) i32 {
-        var count: i32 = 0;
-        var n_var: i32 = n;
-        while (n_var > 1) : (n_var = @divTrunc(n_var, 2)) {
-            count += 1;
-        }
-        return count;
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%E5%AF%B9%E6%95%B0%E9%98%B6%EF%BC%88%E5%BE%AA%E7%8E%AF%E5%AE%9E%E7%8E%B0%EF%BC%89%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0%E9%87%8F%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -3027,16 +2822,6 @@ $$
       return 0 unless n > 1
       log_recur(n / 2) + 1
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    // 对数阶（递归实现）
-    fn logRecur(n: i32) i32 {
-        if (n <= 1) return 0;
-        return logRecur(@divTrunc(n, 2)) + 1;
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -3251,21 +3036,6 @@ $$
 
       count
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    // 线性对数阶
-    fn linearLogRecur(n: i32) i32 {
-        if (n <= 1) return 1;
-        var count: i32 = linearLogRecur(@divTrunc(n, 2)) + linearLogRecur(@divTrunc(n, 2));
-        var i: i32 = 0;
-        while (i < n) : (i += 1) {
-            count += 1;
-        }
-        return count;
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -3492,22 +3262,6 @@ $$
 
       count
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    // 阶乘阶（递归实现）
-    fn factorialRecur(n: i32) i32 {
-        if (n == 0) return 1;
-        var count: i32 = 0;
-        var i: i32 = 0;
-        // 从 1 个分裂出 n 个
-        while (i < n) : (i += 1) {
-            count += factorialRecur(n - 1);
-        }
-        return count;
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -3902,33 +3656,6 @@ $$
 
       -1
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="worst_best_time_complexity.zig"
-    // 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
-    fn randomNumbers(comptime n: usize) [n]i32 {
-        var nums: [n]i32 = undefined;
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (&nums, 0..) |*num, i| {
-            num.* = @as(i32, @intCast(i)) + 1;
-        }
-        // 随机打乱数组元素
-        const rand = std.crypto.random;
-        rand.shuffle(i32, &nums);
-        return nums;
-    }
-
-    // 查找数组 nums 中数字 1 所在索引
-    fn findOne(nums: []i32) i32 {
-        for (nums, 0..) |num, i| {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (num == 1) return @intCast(i);
-        }
-        return -1;
-    }
     ```
 
 ??? pythontutor "可视化运行"

@@ -2,17 +2,17 @@
 comments: true
 ---
 
-# 6.3 &nbsp; Hash algorithms
+# 6.3 &nbsp; Hash Algorithm
 
-The previous two sections introduced the working principle of hash tables and the methods to handle hash collisions. However, both open addressing and chaining can **only ensure that the hash table functions normally when collisions occur, but cannot reduce the frequency of hash collisions**.
+The previous two sections introduced the working principle of hash tables and the methods to handle hash collisions. However, both open addressing and separate chaining **can only ensure that the hash table functions normally when hash collisions occur, but cannot reduce the frequency of hash collisions**.
 
-If hash collisions occur too frequently, the performance of the hash table will deteriorate drastically. As shown in Figure 6-8, for a chaining hash table, in the ideal case, the key-value pairs are evenly distributed across the buckets, achieving optimal query efficiency; in the worst case, all key-value pairs are stored in the same bucket, degrading the time complexity to $O(n)$.
+If hash collisions occur too frequently, the performance of the hash table will deteriorate drastically. As shown in Figure 6-8, for a separate chaining hash table, in the ideal case, the key-value pairs are evenly distributed across the buckets, achieving optimal query efficiency; in the worst case, all key-value pairs are stored in the same bucket, degrading the time complexity to $O(n)$.
 
 ![Ideal and worst cases of hash collisions](hash_algorithm.assets/hash_collision_best_worst_condition.png){ class="animation-figure" }
 
 <p align="center"> Figure 6-8 &nbsp; Ideal and worst cases of hash collisions </p>
 
-**The distribution of key-value pairs is determined by the hash function**. Recalling the steps of calculating a hash function, first compute the hash value, then modulo it by the array length:
+**The distribution of key-value pairs is determined by the hash function**. Recalling the calculation steps of the hash function, first compute the hash value, then take the modulo by the array length:
 
 ```shell
 index = hash(key) % capacity
@@ -22,7 +22,7 @@ Observing the above formula, when the hash table capacity `capacity` is fixed, *
 
 This means that, to reduce the probability of hash collisions, we should focus on the design of the hash algorithm `hash()`.
 
-## 6.3.1 &nbsp; Goals of hash algorithms
+## 6.3.1 &nbsp; Goals of Hash Algorithms
 
 To achieve a "fast and stable" hash table data structure, hash algorithms should have the following characteristics:
 
@@ -41,9 +41,9 @@ For cryptographic applications, to prevent reverse engineering such as deducing 
 - **Collision resistance**: It should be extremely difficult to find two different inputs that produce the same hash value.
 - **Avalanche effect**: Minor changes in the input should lead to significant and unpredictable changes in the output.
 
-Note that **"Uniform Distribution" and "Collision Resistance" are two separate concepts**. Satisfying uniform distribution does not necessarily mean collision resistance. For example, under random input `key`, the hash function `key % 100` can produce a uniformly distributed output. However, this hash algorithm is too simple, and all `key` with the same last two digits will have the same output, making it easy to deduce a usable `key` from the hash value, thereby cracking the password.
+Note that **"uniform distribution" and "collision resistance" are two independent concepts**. Satisfying uniform distribution does not necessarily mean collision resistance. For example, under random input `key`, the hash function `key % 100` can produce a uniformly distributed output. However, this hash algorithm is too simple, and all `key` with the same last two digits will have the same output, making it easy to deduce a usable `key` from the hash value, thereby cracking the password.
 
-## 6.3.2 &nbsp; Design of hash algorithms
+## 6.3.2 &nbsp; Design of Hash Algorithms
 
 The design of hash algorithms is a complex issue that requires consideration of many factors. However, for some less demanding scenarios, we can also design some simple hash algorithms.
 
@@ -179,133 +179,467 @@ The design of hash algorithms is a complex issue that requires consideration of 
 === "C#"
 
     ```csharp title="simple_hash.cs"
-    [class]{simple_hash}-[func]{AddHash}
+    /* Additive hash */
+    int AddHash(string key) {
+        long hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash = (hash + c) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{simple_hash}-[func]{MulHash}
+    /* Multiplicative hash */
+    int MulHash(string key) {
+        long hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash = (31 * hash + c) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{simple_hash}-[func]{XorHash}
+    /* XOR hash */
+    int XorHash(string key) {
+        int hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash ^= c;
+        }
+        return hash & MODULUS;
+    }
 
-    [class]{simple_hash}-[func]{RotHash}
+    /* Rotational hash */
+    int RotHash(string key) {
+        long hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ c) % MODULUS;
+        }
+        return (int)hash;
+    }
     ```
 
 === "Go"
 
     ```go title="simple_hash.go"
-    [class]{}-[func]{addHash}
+    /* Additive hash */
+    func addHash(key string) int {
+        var hash int64
+        var modulus int64
 
-    [class]{}-[func]{mulHash}
+        modulus = 1000000007
+        for _, b := range []byte(key) {
+            hash = (hash + int64(b)) % modulus
+        }
+        return int(hash)
+    }
 
-    [class]{}-[func]{xorHash}
+    /* Multiplicative hash */
+    func mulHash(key string) int {
+        var hash int64
+        var modulus int64
 
-    [class]{}-[func]{rotHash}
+        modulus = 1000000007
+        for _, b := range []byte(key) {
+            hash = (31*hash + int64(b)) % modulus
+        }
+        return int(hash)
+    }
+
+    /* XOR hash */
+    func xorHash(key string) int {
+        hash := 0
+        modulus := 1000000007
+        for _, b := range []byte(key) {
+            fmt.Println(int(b))
+            hash ^= int(b)
+            hash = (31*hash + int(b)) % modulus
+        }
+        return hash & modulus
+    }
+
+    /* Rotational hash */
+    func rotHash(key string) int {
+        var hash int64
+        var modulus int64
+
+        modulus = 1000000007
+        for _, b := range []byte(key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ int64(b)) % modulus
+        }
+        return int(hash)
+    }
     ```
 
 === "Swift"
 
     ```swift title="simple_hash.swift"
-    [class]{}-[func]{addHash}
+    /* Additive hash */
+    func addHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash = (hash + Int(scalar.value)) % MODULUS
+            }
+        }
+        return hash
+    }
 
-    [class]{}-[func]{mulHash}
+    /* Multiplicative hash */
+    func mulHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash = (31 * hash + Int(scalar.value)) % MODULUS
+            }
+        }
+        return hash
+    }
 
-    [class]{}-[func]{xorHash}
+    /* XOR hash */
+    func xorHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash ^= Int(scalar.value)
+            }
+        }
+        return hash & MODULUS
+    }
 
-    [class]{}-[func]{rotHash}
+    /* Rotational hash */
+    func rotHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash = ((hash << 4) ^ (hash >> 28) ^ Int(scalar.value)) % MODULUS
+            }
+        }
+        return hash
+    }
     ```
 
 === "JS"
 
     ```javascript title="simple_hash.js"
-    [class]{}-[func]{addHash}
+    /* Additive hash */
+    function addHash(key) {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash = (hash + c.charCodeAt(0)) % MODULUS;
+        }
+        return hash;
+    }
 
-    [class]{}-[func]{mulHash}
+    /* Multiplicative hash */
+    function mulHash(key) {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash = (31 * hash + c.charCodeAt(0)) % MODULUS;
+        }
+        return hash;
+    }
 
-    [class]{}-[func]{xorHash}
+    /* XOR hash */
+    function xorHash(key) {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash ^= c.charCodeAt(0);
+        }
+        return hash % MODULUS;
+    }
 
-    [class]{}-[func]{rotHash}
+    /* Rotational hash */
+    function rotHash(key) {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ c.charCodeAt(0)) % MODULUS;
+        }
+        return hash;
+    }
     ```
 
 === "TS"
 
     ```typescript title="simple_hash.ts"
-    [class]{}-[func]{addHash}
+    /* Additive hash */
+    function addHash(key: string): number {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash = (hash + c.charCodeAt(0)) % MODULUS;
+        }
+        return hash;
+    }
 
-    [class]{}-[func]{mulHash}
+    /* Multiplicative hash */
+    function mulHash(key: string): number {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash = (31 * hash + c.charCodeAt(0)) % MODULUS;
+        }
+        return hash;
+    }
 
-    [class]{}-[func]{xorHash}
+    /* XOR hash */
+    function xorHash(key: string): number {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash ^= c.charCodeAt(0);
+        }
+        return hash % MODULUS;
+    }
 
-    [class]{}-[func]{rotHash}
+    /* Rotational hash */
+    function rotHash(key: string): number {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ c.charCodeAt(0)) % MODULUS;
+        }
+        return hash;
+    }
     ```
 
 === "Dart"
 
     ```dart title="simple_hash.dart"
-    [class]{}-[func]{addHash}
+    /* Additive hash */
+    int addHash(String key) {
+      int hash = 0;
+      final int MODULUS = 1000000007;
+      for (int i = 0; i < key.length; i++) {
+        hash = (hash + key.codeUnitAt(i)) % MODULUS;
+      }
+      return hash;
+    }
 
-    [class]{}-[func]{mulHash}
+    /* Multiplicative hash */
+    int mulHash(String key) {
+      int hash = 0;
+      final int MODULUS = 1000000007;
+      for (int i = 0; i < key.length; i++) {
+        hash = (31 * hash + key.codeUnitAt(i)) % MODULUS;
+      }
+      return hash;
+    }
 
-    [class]{}-[func]{xorHash}
+    /* XOR hash */
+    int xorHash(String key) {
+      int hash = 0;
+      final int MODULUS = 1000000007;
+      for (int i = 0; i < key.length; i++) {
+        hash ^= key.codeUnitAt(i);
+      }
+      return hash & MODULUS;
+    }
 
-    [class]{}-[func]{rotHash}
+    /* Rotational hash */
+    int rotHash(String key) {
+      int hash = 0;
+      final int MODULUS = 1000000007;
+      for (int i = 0; i < key.length; i++) {
+        hash = ((hash << 4) ^ (hash >> 28) ^ key.codeUnitAt(i)) % MODULUS;
+      }
+      return hash;
+    }
     ```
 
 === "Rust"
 
     ```rust title="simple_hash.rs"
-    [class]{}-[func]{add_hash}
+    /* Additive hash */
+    fn add_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
 
-    [class]{}-[func]{mul_hash}
+        for c in key.chars() {
+            hash = (hash + c as i64) % MODULUS;
+        }
 
-    [class]{}-[func]{xor_hash}
+        hash as i32
+    }
 
-    [class]{}-[func]{rot_hash}
+    /* Multiplicative hash */
+    fn mul_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash = (31 * hash + c as i64) % MODULUS;
+        }
+
+        hash as i32
+    }
+
+    /* XOR hash */
+    fn xor_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash ^= c as i64;
+        }
+
+        (hash & MODULUS) as i32
+    }
+
+    /* Rotational hash */
+    fn rot_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash = ((hash << 4) ^ (hash >> 28) ^ c as i64) % MODULUS;
+        }
+
+        hash as i32
+    }
     ```
 
 === "C"
 
     ```c title="simple_hash.c"
-    [class]{}-[func]{addHash}
+    /* Additive hash */
+    int addHash(char *key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (int i = 0; i < strlen(key); i++) {
+            hash = (hash + (unsigned char)key[i]) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{}-[func]{mulHash}
+    /* Multiplicative hash */
+    int mulHash(char *key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (int i = 0; i < strlen(key); i++) {
+            hash = (31 * hash + (unsigned char)key[i]) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{}-[func]{xorHash}
+    /* XOR hash */
+    int xorHash(char *key) {
+        int hash = 0;
+        const int MODULUS = 1000000007;
 
-    [class]{}-[func]{rotHash}
+        for (int i = 0; i < strlen(key); i++) {
+            hash ^= (unsigned char)key[i];
+        }
+        return hash & MODULUS;
+    }
+
+    /* Rotational hash */
+    int rotHash(char *key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (int i = 0; i < strlen(key); i++) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ (unsigned char)key[i]) % MODULUS;
+        }
+
+        return (int)hash;
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin title="simple_hash.kt"
-    [class]{}-[func]{addHash}
+    /* Additive hash */
+    fun addHash(key: String): Int {
+        var hash = 0L
+        val MODULUS = 1000000007
+        for (c in key.toCharArray()) {
+            hash = (hash + c.code) % MODULUS
+        }
+        return hash.toInt()
+    }
 
-    [class]{}-[func]{mulHash}
+    /* Multiplicative hash */
+    fun mulHash(key: String): Int {
+        var hash = 0L
+        val MODULUS = 1000000007
+        for (c in key.toCharArray()) {
+            hash = (31 * hash + c.code) % MODULUS
+        }
+        return hash.toInt()
+    }
 
-    [class]{}-[func]{xorHash}
+    /* XOR hash */
+    fun xorHash(key: String): Int {
+        var hash = 0
+        val MODULUS = 1000000007
+        for (c in key.toCharArray()) {
+            hash = hash xor c.code
+        }
+        return hash and MODULUS
+    }
 
-    [class]{}-[func]{rotHash}
+    /* Rotational hash */
+    fun rotHash(key: String): Int {
+        var hash = 0L
+        val MODULUS = 1000000007
+        for (c in key.toCharArray()) {
+            hash = ((hash shl 4) xor (hash shr 28) xor c.code.toLong()) % MODULUS
+        }
+        return hash.toInt()
+    }
     ```
 
 === "Ruby"
 
     ```ruby title="simple_hash.rb"
-    [class]{}-[func]{add_hash}
+    ### Additive hash ###
+    def add_hash(key)
+      hash = 0
+      modulus = 1_000_000_007
 
-    [class]{}-[func]{mul_hash}
+      key.each_char { |c| hash += c.ord }
 
-    [class]{}-[func]{xor_hash}
+      hash % modulus
+    end
 
-    [class]{}-[func]{rot_hash}
-    ```
+    ### Multiplicative hash ###
+    def mul_hash(key)
+      hash = 0
+      modulus = 1_000_000_007
 
-=== "Zig"
+      key.each_char { |c| hash = 31 * hash + c.ord }
 
-    ```zig title="simple_hash.zig"
-    [class]{}-[func]{addHash}
+      hash % modulus
+    end
 
-    [class]{}-[func]{mulHash}
+    ### XOR hash ###
+    def xor_hash(key)
+      hash = 0
+      modulus = 1_000_000_007
 
-    [class]{}-[func]{xorHash}
+      key.each_char { |c| hash ^= c.ord }
 
-    [class]{}-[func]{rotHash}
+      hash % modulus
+    end
+
+    ### Rotational hash ###
+    def rot_hash(key)
+      hash = 0
+      modulus = 1_000_000_007
+
+      key.each_char { |c| hash = (hash << 4) ^ (hash >> 28) ^ c.ord }
+
+      hash % modulus
+    end
     ```
 
 It is observed that the last step of each hash algorithm is to take the modulus of the large prime number $1000000007$ to ensure that the hash value is within an appropriate range. It is worth pondering why emphasis is placed on modulo a prime number, or what are the disadvantages of modulo a composite number? This is an interesting question.
@@ -336,7 +670,7 @@ It is worth noting that if the `key` is guaranteed to be randomly and uniformly 
 
 In summary, we usually choose a prime number as the modulus, and this prime number should be large enough to eliminate periodic patterns as much as possible, enhancing the robustness of the hash algorithm.
 
-## 6.3.3 &nbsp; Common hash algorithms
+## 6.3.3 &nbsp; Common Hash Algorithms
 
 It is not hard to see that the simple hash algorithms mentioned above are quite "fragile" and far from reaching the design goals of hash algorithms. For example, since addition and XOR obey the commutative law, additive hash and XOR hash cannot distinguish strings with the same content but in different order, which may exacerbate hash collisions and cause security issues.
 
@@ -362,7 +696,7 @@ Over the past century, hash algorithms have been in a continuous process of upgr
 
 </div>
 
-# Hash values in data structures
+# Hash Values in Data Structures
 
 We know that the keys in a hash table can be of various data types such as integers, decimals, or strings. Programming languages usually provide built-in hash algorithms for these data types to calculate the bucket indices in the hash table. Taking Python as an example, we can use the `hash()` function to compute the hash values for various data types.
 
@@ -608,19 +942,62 @@ We know that the keys in a hash table can be of various data types such as integ
 === "Kotlin"
 
     ```kotlin title="built_in_hash.kt"
+    val num = 3
+    val hashNum = num.hashCode()
+    // Hash value of integer 3 is 3
 
+    val bol = true
+    val hashBol = bol.hashCode()
+    // Hash value of boolean true is 1231
+
+    val dec = 3.14159
+    val hashDec = dec.hashCode()
+    // Hash value of decimal 3.14159 is -1340954729
+
+    val str = "Hello 算法"
+    val hashStr = str.hashCode()
+    // Hash value of string "Hello 算法" is -727081396
+
+    val arr = arrayOf<Any>(12836, "小哈")
+    val hashTup = arr.hashCode()
+    // Hash value of array [12836, 小哈] is 189568618
+
+    val obj = ListNode(0)
+    val hashObj = obj.hashCode()
+    // Hash value of ListNode object utils.ListNode@1d81eb93 is 495053715
     ```
 
-=== "Zig"
+=== "Ruby"
 
-    ```zig title="built_in_hash.zig"
+    ```ruby title="built_in_hash.rb"
+    num = 3
+    hash_num = num.hash
+    # Hash value of integer 3 is -4385856518450339636
 
+    bol = true
+    hash_bol = bol.hash
+    # Hash value of boolean true is -1617938112149317027
+
+    dec = 3.14159
+    hash_dec = dec.hash
+    # Hash value of decimal 3.14159 is -1479186995943067893
+
+    str = "Hello 算法"
+    hash_str = str.hash
+    # Hash value of string "Hello 算法" is -4075943250025831763
+
+    tup = [12836, '小哈']
+    hash_tup = tup.hash
+    # Hash value of tuple (12836, '小哈') is 1999544809202288822
+
+    obj = ListNode.new(0)
+    hash_obj = obj.hash
+    # Hash value of ListNode object #<ListNode:0x000078133140ab70> is 4302940560806366381
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualized Execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+    https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&cumulative=false&curInstr=19&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 In many programming languages, **only immutable objects can serve as the `key` in a hash table**. If we use a list (dynamic array) as a `key`, when the contents of the list change, its hash value also changes, and we would no longer be able to find the original `value` in the hash table.
 

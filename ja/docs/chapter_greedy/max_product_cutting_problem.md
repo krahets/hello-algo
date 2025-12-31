@@ -203,12 +203,6 @@ $n \leq 3$ の境界ケースでは、$1$ を分割する必要があり、積�
     [class]{}-[func]{max_product_cutting}
     ```
 
-=== "Zig"
-
-    ```zig title="max_product_cutting.zig"
-    [class]{}-[func]{maxProductCutting}
-    ```
-
 ![切断後の最大積の計算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png){ class="animation-figure" }
 
 <p align="center"> 図 15-16 &nbsp; 切断後の最大積の計算方法 </p>

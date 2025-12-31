@@ -9,14 +9,14 @@ icon: material/map-marker-path
 
 !!! abstract
 
-    Like explorers in a maze, we may encounter obstacles on our path forward.
+    We are like explorers in a maze, and may encounter difficulties on the path forward.
 
-    The power of backtracking lets us begin anew, keep trying, and eventually find the exit leading to the light.
+    The power of backtracking allows us to start over, keep trying, and eventually find the exit leading to light.
 
 ## Chapter contents
 
-- [13.1 &nbsp; Backtracking algorithms](backtracking_algorithm.md)
-- [13.2 &nbsp; Permutation problem](permutations_problem.md)
-- [13.3 &nbsp; Subset sum problem](subset_sum_problem.md)
-- [13.4 &nbsp; n queens problem](n_queens_problem.md)
+- [13.1 &nbsp; Backtracking Algorithm](backtracking_algorithm.md)
+- [13.2 &nbsp; Permutations Problem](permutations_problem.md)
+- [13.3 &nbsp; Subset-Sum Problem](subset_sum_problem.md)
+- [13.4 &nbsp; N-Queens Problem](n_queens_problem.md)
 - [13.5 &nbsp; Summary](summary.md)

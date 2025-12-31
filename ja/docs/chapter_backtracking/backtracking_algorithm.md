@@ -122,12 +122,6 @@ comments: true
     [class]{}-[func]{pre_order}
     ```
 
-=== "Zig"
-
-    ```zig title="preorder_traversal_i_compact.zig"
-    [class]{}-[func]{preOrder}
-    ```
-
 ![前順走査でのノード検索](backtracking_algorithm.assets/preorder_find_nodes.png){ class="animation-figure" }
 
 <p align="center"> 図 13-1 &nbsp; 前順走査でのノード検索 </p>
@@ -264,12 +258,6 @@ comments: true
 
     ```ruby title="preorder_traversal_ii_compact.rb"
     [class]{}-[func]{pre_order}
-    ```
-
-=== "Zig"
-
-    ```zig title="preorder_traversal_ii_compact.zig"
-    [class]{}-[func]{preOrder}
     ```
 
 各「試行」で、現在のノードを `path` に追加することでパスを記録します。「後退」が必要なときはいつでも、`path` からノードをポップして**この失敗した試行前の状態を復元します**。
@@ -442,12 +430,6 @@ comments: true
 
     ```ruby title="preorder_traversal_iii_compact.rb"
     [class]{}-[func]{pre_order}
-    ```
-
-=== "Zig"
-
-    ```zig title="preorder_traversal_iii_compact.zig"
-    [class]{}-[func]{preOrder}
     ```
 
 「剪定」は非常に生き生きとした名詞です。以下の図に示すように、検索プロセスで、**制約を満たさない検索分岐を「切り取り」ます**。さらなる不要な試行を避け、検索効率を向上させます。
@@ -796,12 +778,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 次に、フレームワークコードに基づいて例題 3 を解きます。状態 `state` はノードの走査経路を表し、選択肢 `choices` は現在ノードの左子ノードと右子ノード、結果 `res` は経路リストです：
 
 === "Python"
@@ -1104,22 +1080,6 @@ comments: true
     [class]{}-[func]{make_choice}
 
     [class]{}-[func]{undo_choice}
-
-    [class]{}-[func]{backtrack}
-    ```
-
-=== "Zig"
-
-    ```zig title="preorder_traversal_iii_template.zig"
-    [class]{}-[func]{isSolution}
-
-    [class]{}-[func]{recordSolution}
-
-    [class]{}-[func]{isValid}
-
-    [class]{}-[func]{makeChoice}
-
-    [class]{}-[func]{undoChoice}
 
     [class]{}-[func]{backtrack}
     ```

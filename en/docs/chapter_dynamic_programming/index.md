@@ -3,22 +3,22 @@ comments: true
 icon: material/table-pivot
 ---
 
-# Chapter 14. &nbsp; Dynamic programming
+# Chapter 14. &nbsp; Dynamic Programming
 
 ![Dynamic programming](../assets/covers/chapter_dynamic_programming.jpg){ class="cover-image" }
 
 !!! abstract
 
-    Streams merge into rivers, and rivers merge into the sea.
-    
-    Dynamic programming weaves smaller problems’ solutions into larger ones, guiding us step by step toward the far shore—where the ultimate answer awaits.
+    Streams converge into rivers, rivers converge into the sea.
+
+    Dynamic programming gathers solutions to small problems into answers to large problems, step by step guiding us to the shore of problem-solving.
 
 ## Chapter contents
 
-- [14.1 &nbsp; Introduction to dynamic programming](intro_to_dynamic_programming.md)
-- [14.2 &nbsp; Characteristics of DP problems](dp_problem_features.md)
-- [14.3 &nbsp; DP problem-solving approach¶](dp_solution_pipeline.md)
-- [14.4 &nbsp; 0-1 Knapsack problem](knapsack_problem.md)
-- [14.5 &nbsp; Unbounded knapsack problem](unbounded_knapsack_problem.md)
-- [14.6 &nbsp; Edit distance problem](edit_distance_problem.md)
+- [14.1 &nbsp; Introduction to Dynamic Programming](intro_to_dynamic_programming.md)
+- [14.2 &nbsp; Characteristics of Dynamic Programming Problems](dp_problem_features.md)
+- [14.3 &nbsp; Dynamic Programming Problem-Solving Approach](dp_solution_pipeline.md)
+- [14.4 &nbsp; 0-1 Knapsack Problem](knapsack_problem.md)
+- [14.5 &nbsp; Unbounded Knapsack Problem](unbounded_knapsack_problem.md)
+- [14.6 &nbsp; Edit Distance Problem](edit_distance_problem.md)
 - [14.7 &nbsp; Summary](summary.md)

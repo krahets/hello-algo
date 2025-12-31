@@ -160,12 +160,6 @@ $$
     [class]{}-[func]{min_cost_climbing_stairs_dp}
     ```
 
-=== "Zig"
-
-    ```zig title="min_cost_climbing_stairs_dp.zig"
-    [class]{}-[func]{minCostClimbingStairsDP}
-    ```
-
 下の図は上記コードの動的プログラミングプロセスを示しています。
 
 ![階段登りの最小コストの動的プログラミングプロセス](dp_problem_features.assets/min_cost_cs_dp.png){ class="animation-figure" }
@@ -282,12 +276,6 @@ $$
 
     ```ruby title="min_cost_climbing_stairs_dp.rb"
     [class]{}-[func]{min_cost_climbing_stairs_dp_comp}
-    ```
-
-=== "Zig"
-
-    ```zig title="min_cost_climbing_stairs_dp.zig"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
     ```
 
 ## 14.2.2 &nbsp; 無記憶性
@@ -457,12 +445,6 @@ $$
 
     ```ruby title="climbing_stairs_constraint_dp.rb"
     [class]{}-[func]{climbing_stairs_constraint_dp}
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_constraint_dp.zig"
-    [class]{}-[func]{climbingStairsConstraintDP}
     ```
 
 上記のケースでは、前の状態のみを考慮すればよいため、状態定義を拡張することで依然として無記憶性を満たすことができます。しかし、一部の問題では非常に深刻な「状態効果」があります。

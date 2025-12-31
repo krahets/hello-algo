@@ -167,12 +167,6 @@ comments: true
     [class]{BinarySearchTree}-[func]{search}
     ```
 
-=== "Zig"
-
-    ```zig title="binary_search_tree.zig"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
-
 ### 2. &nbsp; ノードの挿入
 
 挿入する要素`num`が与えられた場合、二分探索木の性質「左部分木 < 根ノード < 右部分木」を維持するため、挿入操作は下図に示すように進行します。
@@ -342,12 +336,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_tree.rb"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_tree.zig"
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
@@ -612,12 +600,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_tree.rb"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_tree.zig"
     [class]{BinarySearchTree}-[func]{remove}
     ```
 

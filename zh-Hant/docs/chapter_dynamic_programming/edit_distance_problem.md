@@ -477,37 +477,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="edit_distance.zig"
-    // 編輯距離：動態規劃
-    fn editDistanceDP(comptime s: []const u8, comptime t: []const u8) i32 {
-        comptime var n = s.len;
-        comptime var m = t.len;
-        var dp = [_][m + 1]i32{[_]i32{0} ** (m + 1)} ** (n + 1);
-        // 狀態轉移：首行首列
-        for (1..n + 1) |i| {
-            dp[i][0] = @intCast(i);
-        }
-        for (1..m + 1) |j| {
-            dp[0][j] = @intCast(j);
-        }
-        // 狀態轉移：其餘行和列
-        for (1..n + 1) |i| {
-            for (1..m + 1) |j| {
-                if (s[i - 1] == t[j - 1]) {
-                    // 若兩字元相等，則直接跳過此兩字元
-                    dp[i][j] = dp[i - 1][j - 1];
-                } else {
-                    // 最少編輯步數 = 插入、刪除、替換這三種操作的最少編輯步數 + 1
-                    dp[i][j] = @min(@min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
-                }
-            }
-        }
-        return dp[n][m];
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp%28s%3A%20str%2C%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%A8%E8%BC%AF%E8%B7%9D%E9%9B%A2%EF%BC%9A%E5%8B%95%E6%85%8B%E8%A6%8F%E5%8A%83%22%22%22%0A%20%20%20%20n%2C%20m%20%3D%20len%28s%29%2C%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28m%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E7%8B%80%E6%85%8B%E8%BD%89%E7%A7%BB%EF%BC%9A%E9%A6%96%E8%A1%8C%E9%A6%96%E5%88%97%0A%20%20%20%20for%20i%20in%20range%281%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B0%5D%20%3D%20i%0A%20%20%20%20for%20j%20in%20range%281%2C%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5B0%5D%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20%E7%8B%80%E6%85%8B%E8%BD%89%E7%A7%BB%EF%BC%9A%E5%85%B6%E9%A4%98%E8%A1%8C%E5%92%8C%E5%88%97%0A%20%20%20%20for%20i%20in%20range%281%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281%2C%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E8%8B%A5%E5%85%A9%E5%AD%97%E5%85%83%E7%9B%B8%E7%AD%89%EF%BC%8C%E5%89%87%E7%9B%B4%E6%8E%A5%E8%B7%B3%E9%81%8E%E6%AD%A4%E5%85%A9%E5%AD%97%E5%85%83%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%9C%80%E5%B0%91%E7%B7%A8%E8%BC%AF%E6%AD%A5%E6%95%B8%20%3D%20%E6%8F%92%E5%85%A5%E3%80%81%E5%88%AA%E9%99%A4%E3%80%81%E6%9B%BF%E6%8F%9B%E9%80%99%E4%B8%89%E7%A8%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E6%9C%80%E5%B0%91%E7%B7%A8%E8%BC%AF%E6%AD%A5%E6%95%B8%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20min%28dp%5Bi%5D%5Bj%20-%201%5D%2C%20dp%5Bi%20-%201%5D%5Bj%5D%2C%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%29%20%2B%201%0A%20%20%20%20return%20dp%5Bn%5D%5Bm%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n%2C%20m%20%3D%20len%28s%29%2C%20len%28t%29%0A%0A%20%20%20%20%23%20%E5%8B%95%E6%85%8B%E8%A6%8F%E5%8A%83%0A%20%20%20%20res%20%3D%20edit_distance_dp%28s%2C%20t%29%0A%20%20%20%20print%28f%22%E5%B0%87%20%7Bs%7D%20%E6%9B%B4%E6%94%B9%E7%82%BA%20%7Bt%7D%20%E6%9C%80%E5%B0%91%E9%9C%80%E8%A6%81%E7%B7%A8%E8%BC%AF%20%7Bres%7D%20%E6%AD%A5%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -995,40 +964,6 @@ $$
       end
       dp[m]
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="edit_distance.zig"
-    // 編輯距離：空間最佳化後的動態規劃
-    fn editDistanceDPComp(comptime s: []const u8, comptime t: []const u8) i32 {
-        comptime var n = s.len;
-        comptime var m = t.len;
-        var dp = [_]i32{0} ** (m + 1);
-        // 狀態轉移：首行
-        for (1..m + 1) |j| {
-            dp[j] = @intCast(j);
-        }
-        // 狀態轉移：其餘行
-        for (1..n + 1) |i| {
-            // 狀態轉移：首列
-            var leftup = dp[0]; // 暫存 dp[i-1, j-1]
-            dp[0] = @intCast(i);
-            // 狀態轉移：其餘列
-            for (1..m + 1) |j| {
-                var temp = dp[j];
-                if (s[i - 1] == t[j - 1]) {
-                    // 若兩字元相等，則直接跳過此兩字元
-                    dp[j] = leftup;
-                } else {
-                    // 最少編輯步數 = 插入、刪除、替換這三種操作的最少編輯步數 + 1
-                    dp[j] = @min(@min(dp[j - 1], dp[j]), leftup) + 1;
-                }
-                leftup = temp; // 更新為下一輪的 dp[i-1, j-1]
-            }
-        }
-        return dp[m];
-    }
     ```
 
 ??? pythontutor "視覺化執行"

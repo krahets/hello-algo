@@ -207,14 +207,6 @@ comments: true
     [class]{}-[func]{subset_sum_i_naive}
     ```
 
-=== "Zig"
-
-    ```zig title="subset_sum_i_naive.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{subsetSumINaive}
-    ```
-
 配列 $[3, 4, 5]$ とターゲット要素 $9$ を上記のコードに入力すると、結果 $[3, 3, 3], [4, 5], [5, 4]$ が得られます。**和が $9$ のすべての部分集合を正常に見つけましたが、重複する部分集合 $[4, 5]$ と $[5, 4]$ が含まれています**。
 
 これは、検索プロセスが選択の順序を区別するためですが、部分集合は選択順序を区別しません。以下の図に示すように、$5$ の前に $4$ を選択することと $4$ の前に $5$ を選択することは異なる分岐ですが、同じ部分集合に対応します。
@@ -445,14 +437,6 @@ comments: true
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subset_sum_i}
-    ```
-
-=== "Zig"
-
-    ```zig title="subset_sum_i.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{subsetSumI}
     ```
 
 以下の図は、配列 $[3, 4, 5]$ とターゲット要素 $9$ を上記のコードに入力した後の全体的なバックトラッキングプロセスを示しています。
@@ -686,14 +670,6 @@ comments: true
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subset_sum_ii}
-    ```
-
-=== "Zig"
-
-    ```zig title="subset_sum_ii.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{subsetSumII}
     ```
 
 以下の図は、配列 $[4, 4, 5]$ とターゲット要素 $9$ のバックトラッキングプロセスを示し、4種類の剪定操作が含まれています。図とコードのコメントを組み合わせて、検索プロセス全体と各種類の剪定操作の動作を理解してください。

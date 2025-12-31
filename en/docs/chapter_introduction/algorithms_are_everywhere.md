@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 1.1 &nbsp; Algorithms are everywhere
+# 1.1 &nbsp; Algorithms Are Everywhere
 
 When we hear the term "algorithm," we naturally think of mathematics. However, many algorithms do not involve complex mathematics but rely more on basic logic, which can be seen everywhere in our daily lives.
 

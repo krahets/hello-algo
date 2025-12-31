@@ -318,28 +318,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="min_cost_climbing_stairs_dp.zig"
-    // 爬樓梯最小代價：動態規劃
-    fn minCostClimbingStairsDP(comptime cost: []i32) i32 {
-        comptime var n = cost.len - 1;
-        if (n == 1 or n == 2) {
-            return cost[n];
-        }
-        // 初始化 dp 表，用於儲存子問題的解
-        var dp = [_]i32{-1} ** (n + 1);
-        // 初始狀態：預設最小子問題的解
-        dp[1] = cost[1];
-        dp[2] = cost[2];
-        // 狀態轉移：從較小子問題逐步求解較大子問題
-        for (3..n + 1) |i| {
-            dp[i] = @min(dp[i - 1], dp[i - 2]) + cost[i];
-        }
-        return dp[n];
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20min_cost_climbing_stairs_dp%28cost%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%88%AC%E6%A8%93%E6%A2%AF%E6%9C%80%E5%B0%8F%E4%BB%A3%E5%83%B9%EF%BC%9A%E5%8B%95%E6%85%8B%E8%A6%8F%E5%8A%83%22%22%22%0A%20%20%20%20n%20%3D%20len%28cost%29%20-%201%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20cost%5Bn%5D%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%20dp%20%E8%A1%A8%EF%BC%8C%E7%94%A8%E6%96%BC%E5%84%B2%E5%AD%98%E5%AD%90%E5%95%8F%E9%A1%8C%E7%9A%84%E8%A7%A3%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28n%20%2B%201%29%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E7%8B%80%E6%85%8B%EF%BC%9A%E9%A0%90%E8%A8%AD%E6%9C%80%E5%B0%8F%E5%AD%90%E5%95%8F%E9%A1%8C%E7%9A%84%E8%A7%A3%0A%20%20%20%20dp%5B1%5D%2C%20dp%5B2%5D%20%3D%20cost%5B1%5D%2C%20cost%5B2%5D%0A%20%20%20%20%23%20%E7%8B%80%E6%85%8B%E8%BD%89%E7%A7%BB%EF%BC%9A%E5%BE%9E%E8%BC%83%E5%B0%8F%E5%AD%90%E5%95%8F%E9%A1%8C%E9%80%90%E6%AD%A5%E6%B1%82%E8%A7%A3%E8%BC%83%E5%A4%A7%E5%AD%90%E5%95%8F%E9%A1%8C%0A%20%20%20%20for%20i%20in%20range%283%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%20%3D%20min%28dp%5Bi%20-%201%5D%2C%20dp%5Bi%20-%202%5D%29%20%2B%20cost%5Bi%5D%0A%20%20%20%20return%20dp%5Bn%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20cost%20%3D%20%5B0%2C%201%2C%2010%2C%201%2C%201%2C%201%2C%2010%2C%201%2C%201%2C%2010%2C%201%5D%0A%20%20%20%20print%28f%22%E8%BC%B8%E5%85%A5%E6%A8%93%E6%A2%AF%E7%9A%84%E4%BB%A3%E5%83%B9%E4%B8%B2%E5%88%97%E7%82%BA%20%7Bcost%7D%22%29%0A%0A%20%20%20%20res%20%3D%20min_cost_climbing_stairs_dp%28cost%29%0A%20%20%20%20print%28f%22%E7%88%AC%E5%AE%8C%E6%A8%93%E6%A2%AF%E7%9A%84%E6%9C%80%E4%BD%8E%E4%BB%A3%E5%83%B9%E7%82%BA%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -601,27 +579,6 @@ $$
       (3...(n + 1)).each { |i| a, b = b, [a, b].min + cost[i] }
       b
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="min_cost_climbing_stairs_dp.zig"
-    // 爬樓梯最小代價：空間最佳化後的動態規劃
-    fn minCostClimbingStairsDPComp(cost: []i32) i32 {
-        var n = cost.len - 1;
-        if (n == 1 or n == 2) {
-            return cost[n];
-        }
-        var a = cost[1];
-        var b = cost[2];
-        // 狀態轉移：從較小子問題逐步求解較大子問題
-        for (3..n + 1) |i| {
-            var tmp = b;
-            b = @min(a, tmp) + cost[i];
-            a = tmp;
-        }
-        return b;
-    }
     ```
 
 ??? pythontutor "視覺化執行"
@@ -983,30 +940,6 @@ $$
 
       dp[n][1] + dp[n][2]
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_constraint_dp.zig"
-    // 帶約束爬樓梯：動態規劃
-    fn climbingStairsConstraintDP(comptime n: usize) i32 {
-        if (n == 1 or n == 2) {
-            return 1;
-        }
-        // 初始化 dp 表，用於儲存子問題的解
-        var dp = [_][3]i32{ [_]i32{ -1, -1, -1 } } ** (n + 1);
-        // 初始狀態：預設最小子問題的解
-        dp[1][1] = 1;
-        dp[1][2] = 0;
-        dp[2][1] = 0;
-        dp[2][2] = 1;
-        // 狀態轉移：從較小子問題逐步求解較大子問題
-        for (3..n + 1) |i| {
-            dp[i][1] = dp[i - 1][2];
-            dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
-        }
-        return dp[n][1] + dp[n][2];
-    }
     ```
 
 ??? pythontutor "視覺化執行"

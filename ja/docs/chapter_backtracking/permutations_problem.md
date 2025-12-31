@@ -238,14 +238,6 @@ comments: true
     [class]{}-[func]{permutations_i}
     ```
 
-=== "Zig"
-
-    ```zig title="permutations_i.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
 ## 13.2.2 &nbsp; 重複要素を考慮する場合
 
 !!! question
@@ -465,14 +457,6 @@ comments: true
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{permutations_ii}
-    ```
-
-=== "Zig"
-
-    ```zig title="permutations_ii.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
     ```
 
 すべての要素が異なると仮定すると、$n$ 個の要素の順列は $n!$ （階乗）個あります。各結果を記録するには長さ $n$ のリストをコピーする必要があり、これには $O(n)$ 時間がかかります。**したがって、総時間計算量は $O(n!n)$ です。**

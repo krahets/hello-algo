@@ -224,12 +224,6 @@ $$
     [class]{}-[func]{max_capacity}
     ```
 
-=== "Zig"
-
-    ```zig title="max_capacity.zig"
-    [class]{}-[func]{maxCapacity}
-    ```
-
 ### 3. &nbsp; 正しさの証明
 
 貪欲法が列挙よりも高速である理由は、各ラウンドの貪欲選択が一部の状態を「スキップ」するからです。

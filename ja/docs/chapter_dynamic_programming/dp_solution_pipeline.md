@@ -232,12 +232,6 @@ $$
     [class]{}-[func]{min_path_sum_dfs}
     ```
 
-=== "Zig"
-
-    ```zig title="min_path_sum.zig"
-    [class]{}-[func]{minPathSumDFS}
-    ```
-
 下の図は $dp[2, 1]$ を根とする再帰木を示しており、いくつかの重複する部分問題を含み、その数はグリッド `grid` のサイズが増加すると急激に増加します。
 
 本質的に、重複する部分問題の理由は：**左上隅から特定のセルに到達する複数のパスが存在する**ことです。
@@ -366,12 +360,6 @@ $$
 
     ```ruby title="min_path_sum.rb"
     [class]{}-[func]{min_path_sum_dfs_mem}
-    ```
-
-=== "Zig"
-
-    ```zig title="min_path_sum.zig"
-    [class]{}-[func]{minPathSumDFSMem}
     ```
 
 下の図に示すように、メモ化を導入した後、すべての部分問題の解は一度だけ計算される必要があるため、時間計算量は状態の総数、つまりグリッドサイズ $O(nm)$ に依存します。
@@ -518,12 +506,6 @@ $$
 
     ```ruby title="min_path_sum.rb"
     [class]{}-[func]{min_path_sum_dp}
-    ```
-
-=== "Zig"
-
-    ```zig title="min_path_sum.zig"
-    [class]{}-[func]{minPathSumDP}
     ```
 
 下の図は最小経路和の状態遷移プロセスを示し、グリッド全体を走査するため、**時間計算量は $O(nm)$** です。
@@ -686,10 +668,4 @@ $$
 
     ```ruby title="min_path_sum.rb"
     [class]{}-[func]{min_path_sum_dp_comp}
-    ```
-
-=== "Zig"
-
-    ```zig title="min_path_sum.zig"
-    [class]{}-[func]{minPathSumDPComp}
     ```

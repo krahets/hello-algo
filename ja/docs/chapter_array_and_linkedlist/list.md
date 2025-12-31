@@ -136,15 +136,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title="list.zig"
-    // リストを初期化
-    var nums = std.ArrayList(i32).init(std.heap.page_allocator);
-    defer nums.deinit();
-    try nums.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
-    ```
-
 ### 2. &nbsp; 要素へのアクセス
 
 リストは本質的に配列であるため、$O(1)$時間で要素にアクセスし更新することができ、非常に効率的です。
@@ -258,16 +249,6 @@ comments: true
 
     ```kotlin title="list.kt"
 
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 要素にアクセス
-    var num = nums.items[1]; // インデックス1の要素にアクセス
-
-    // 要素を更新
-    nums.items[1] = 0; // インデックス1の要素を0に更新
     ```
 
 ### 3. &nbsp; 要素の挿入と削除
@@ -486,26 +467,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title="list.zig"
-    // リストをクリア
-    nums.clearRetainingCapacity();
-
-    // 末尾に要素を追加
-    try nums.append(1);
-    try nums.append(3);
-    try nums.append(2);
-    try nums.append(5);
-    try nums.append(4);
-
-    // 中間に要素を挿入
-    try nums.insert(3, 6); // インデックス3に数値6を挿入
-
-    // 要素を削除
-    _ = nums.orderedRemove(3); // インデックス3の要素を削除
-    ```
-
 ### 4. &nbsp; リストの反復
 
 配列と同様に、リストはインデックスを使用して反復することも、各要素を直接反復することもできます。
@@ -678,23 +639,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title="list.zig"
-    // インデックスでリストを反復
-    var count: i32 = 0;
-    var i: i32 = 0;
-    while (i < nums.items.len) : (i += 1) {
-        count += nums[i];
-    }
-
-    // リスト要素を直接反復
-    count = 0;
-    for (nums.items) |num| {
-        count += num;
-    }
-    ```
-
 ### 5. &nbsp; リストの連結
 
 新しいリスト`nums1`が与えられたとき、それを元のリストの末尾に追加できます。
@@ -792,16 +736,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 2つのリストを連結
-    var nums1 = std.ArrayList(i32).init(std.heap.page_allocator);
-    defer nums1.deinit();
-    try nums1.appendSlice(&[_]i32{ 6, 8, 7, 10, 9 });
-    try nums.insertSlice(nums.items.len, nums1.items); // nums1をnumsの末尾に連結
-    ```
-
 ### 6. &nbsp; リストのソート
 
 リストがソートされると、「二分探索」や「双ポインタ」アルゴリズムなど、配列関連のアルゴリズム問題でよく使用されるアルゴリズムを使用できます。
@@ -886,13 +820,6 @@ comments: true
 
     ```kotlin title="list.kt"
 
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // リストをソート
-    std.sort.sort(i32, nums.items, {}, comptime std.sort.asc(i32));
     ```
 
 ## 4.3.2 &nbsp; リストの実装
@@ -1260,11 +1187,5 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_list.rb"
-    [class]{MyList}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_list.zig"
     [class]{MyList}-[func]{}
     ```

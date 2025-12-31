@@ -338,27 +338,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    // 0-1 背包：暴力搜尋
-    fn knapsackDFS(wgt: []i32, val: []i32, i: usize, c: usize) i32 {
-        // 若已選完所有物品或背包無剩餘容量，則返回價值 0
-        if (i == 0 or c == 0) {
-            return 0;
-        }
-        // 若超過背包容量，則只能選擇不放入背包
-        if (wgt[i - 1] > c) {
-            return knapsackDFS(wgt, val, i - 1, c);
-        }
-        // 計算不放入和放入物品 i 的最大價值
-        var no = knapsackDFS(wgt, val, i - 1, c);
-        var yes = knapsackDFS(wgt, val, i - 1, c - @as(usize, @intCast(wgt[i - 1]))) + val[i - 1];
-        // 返回兩種方案中價值更大的那一個
-        return @max(no, yes);
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20knapsack_dfs%28wgt%3A%20list%5Bint%5D%2C%20val%3A%20list%5Bint%5D%2C%20i%3A%20int%2C%20c%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%220-1%20%E8%83%8C%E5%8C%85%EF%BC%9A%E6%9A%B4%E5%8A%9B%E6%90%9C%E5%B0%8B%22%22%22%0A%20%20%20%20%23%20%E8%8B%A5%E5%B7%B2%E9%81%B8%E5%AE%8C%E6%89%80%E6%9C%89%E7%89%A9%E5%93%81%E6%88%96%E8%83%8C%E5%8C%85%E7%84%A1%E5%89%A9%E9%A4%98%E5%AE%B9%E9%87%8F%EF%BC%8C%E5%89%87%E8%BF%94%E5%9B%9E%E5%83%B9%E5%80%BC%200%0A%20%20%20%20if%20i%20%3D%3D%200%20or%20c%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20%23%20%E8%8B%A5%E8%B6%85%E9%81%8E%E8%83%8C%E5%8C%85%E5%AE%B9%E9%87%8F%EF%BC%8C%E5%89%87%E5%8F%AA%E8%83%BD%E9%81%B8%E6%93%87%E4%B8%8D%E6%94%BE%E5%85%A5%E8%83%8C%E5%8C%85%0A%20%20%20%20if%20wgt%5Bi%20-%201%5D%20%3E%20c%3A%0A%20%20%20%20%20%20%20%20return%20knapsack_dfs%28wgt%2C%20val%2C%20i%20-%201%2C%20c%29%0A%20%20%20%20%23%20%E8%A8%88%E7%AE%97%E4%B8%8D%E6%94%BE%E5%85%A5%E5%92%8C%E6%94%BE%E5%85%A5%E7%89%A9%E5%93%81%20i%20%E7%9A%84%E6%9C%80%E5%A4%A7%E5%83%B9%E5%80%BC%0A%20%20%20%20no%20%3D%20knapsack_dfs%28wgt%2C%20val%2C%20i%20-%201%2C%20c%29%0A%20%20%20%20yes%20%3D%20knapsack_dfs%28wgt%2C%20val%2C%20i%20-%201%2C%20c%20-%20wgt%5Bi%20-%201%5D%29%20%2B%20val%5Bi%20-%201%5D%0A%20%20%20%20%23%20%E8%BF%94%E5%9B%9E%E5%85%A9%E7%A8%AE%E6%96%B9%E6%A1%88%E4%B8%AD%E5%83%B9%E5%80%BC%E6%9B%B4%E5%A4%A7%E7%9A%84%E9%82%A3%E4%B8%80%E5%80%8B%0A%20%20%20%20return%20max%28no%2C%20yes%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20wgt%20%3D%20%5B10%2C%2020%2C%2030%2C%2040%2C%2050%5D%0A%20%20%20%20val%20%3D%20%5B50%2C%20120%2C%20150%2C%20210%2C%20240%5D%0A%20%20%20%20cap%20%3D%2050%0A%20%20%20%20n%20%3D%20len%28wgt%29%0A%0A%20%20%20%20%23%20%E6%9A%B4%E5%8A%9B%E6%90%9C%E5%B0%8B%0A%20%20%20%20res%20%3D%20knapsack_dfs%28wgt%2C%20val%2C%20n%2C%20cap%29%0A%20%20%20%20print%28f%22%E4%B8%8D%E8%B6%85%E9%81%8E%E8%83%8C%E5%8C%85%E5%AE%B9%E9%87%8F%E7%9A%84%E6%9C%80%E5%A4%A7%E7%89%A9%E5%93%81%E5%83%B9%E5%80%BC%E7%82%BA%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=7&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -727,32 +706,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    // 0-1 背包：記憶化搜尋
-    fn knapsackDFSMem(wgt: []i32, val: []i32, mem: anytype, i: usize, c: usize) i32 {
-        // 若已選完所有物品或背包無剩餘容量，則返回價值 0
-        if (i == 0 or c == 0) {
-            return 0;
-        }
-        // 若已有記錄，則直接返回
-        if (mem[i][c] != -1) {
-            return mem[i][c];
-        }
-        // 若超過背包容量，則只能選擇不放入背包
-        if (wgt[i - 1] > c) {
-            return knapsackDFSMem(wgt, val, mem, i - 1, c);
-        }
-        // 計算不放入和放入物品 i 的最大價值
-        var no = knapsackDFSMem(wgt, val, mem, i - 1, c);
-        var yes = knapsackDFSMem(wgt, val, mem, i - 1, c - @as(usize, @intCast(wgt[i - 1]))) + val[i - 1];
-        // 記錄並返回兩種方案中價值更大的那一個
-        mem[i][c] = @max(no, yes);
-        return mem[i][c];
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20knapsack_dfs_mem%28%0A%20%20%20%20wgt%3A%20list%5Bint%5D%2C%20val%3A%20list%5Bint%5D%2C%20mem%3A%20list%5Blist%5Bint%5D%5D%2C%20i%3A%20int%2C%20c%3A%20int%0A%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%220-1%20%E8%83%8C%E5%8C%85%EF%BC%9A%E8%A8%98%E6%86%B6%E5%8C%96%E6%90%9C%E5%B0%8B%22%22%22%0A%20%20%20%20%23%20%E8%8B%A5%E5%B7%B2%E9%81%B8%E5%AE%8C%E6%89%80%E6%9C%89%E7%89%A9%E5%93%81%E6%88%96%E8%83%8C%E5%8C%85%E7%84%A1%E5%89%A9%E9%A4%98%E5%AE%B9%E9%87%8F%EF%BC%8C%E5%89%87%E8%BF%94%E5%9B%9E%E5%83%B9%E5%80%BC%200%0A%20%20%20%20if%20i%20%3D%3D%200%20or%20c%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20%23%20%E8%8B%A5%E5%B7%B2%E6%9C%89%E8%A8%98%E9%8C%84%EF%BC%8C%E5%89%87%E7%9B%B4%E6%8E%A5%E8%BF%94%E5%9B%9E%0A%20%20%20%20if%20mem%5Bi%5D%5Bc%5D%20%21%3D%20-1%3A%0A%20%20%20%20%20%20%20%20return%20mem%5Bi%5D%5Bc%5D%0A%20%20%20%20%23%20%E8%8B%A5%E8%B6%85%E9%81%8E%E8%83%8C%E5%8C%85%E5%AE%B9%E9%87%8F%EF%BC%8C%E5%89%87%E5%8F%AA%E8%83%BD%E9%81%B8%E6%93%87%E4%B8%8D%E6%94%BE%E5%85%A5%E8%83%8C%E5%8C%85%0A%20%20%20%20if%20wgt%5Bi%20-%201%5D%20%3E%20c%3A%0A%20%20%20%20%20%20%20%20return%20knapsack_dfs_mem%28wgt%2C%20val%2C%20mem%2C%20i%20-%201%2C%20c%29%0A%20%20%20%20%23%20%E8%A8%88%E7%AE%97%E4%B8%8D%E6%94%BE%E5%85%A5%E5%92%8C%E6%94%BE%E5%85%A5%E7%89%A9%E5%93%81%20i%20%E7%9A%84%E6%9C%80%E5%A4%A7%E5%83%B9%E5%80%BC%0A%20%20%20%20no%20%3D%20knapsack_dfs_mem%28wgt%2C%20val%2C%20mem%2C%20i%20-%201%2C%20c%29%0A%20%20%20%20yes%20%3D%20knapsack_dfs_mem%28wgt%2C%20val%2C%20mem%2C%20i%20-%201%2C%20c%20-%20wgt%5Bi%20-%201%5D%29%20%2B%20val%5Bi%20-%201%5D%0A%20%20%20%20%23%20%E8%A8%98%E9%8C%84%E4%B8%A6%E8%BF%94%E5%9B%9E%E5%85%A9%E7%A8%AE%E6%96%B9%E6%A1%88%E4%B8%AD%E5%83%B9%E5%80%BC%E6%9B%B4%E5%A4%A7%E7%9A%84%E9%82%A3%E4%B8%80%E5%80%8B%0A%20%20%20%20mem%5Bi%5D%5Bc%5D%20%3D%20max%28no%2C%20yes%29%0A%20%20%20%20return%20mem%5Bi%5D%5Bc%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20wgt%20%3D%20%5B10%2C%2020%2C%2030%2C%2040%2C%2050%5D%0A%20%20%20%20val%20%3D%20%5B50%2C%20120%2C%20150%2C%20210%2C%20240%5D%0A%20%20%20%20cap%20%3D%2050%0A%20%20%20%20n%20%3D%20len%28wgt%29%0A%0A%20%20%20%20%23%20%E8%A8%98%E6%86%B6%E5%8C%96%E6%90%9C%E5%B0%8B%0A%20%20%20%20mem%20%3D%20%5B%5B-1%5D%20%2A%20%28cap%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20res%20%3D%20knapsack_dfs_mem%28wgt%2C%20val%2C%20mem%2C%20n%2C%20cap%29%0A%20%20%20%20print%28f%22%E4%B8%8D%E8%B6%85%E9%81%8E%E8%83%8C%E5%8C%85%E5%AE%B9%E9%87%8F%E7%9A%84%E6%9C%80%E5%A4%A7%E7%89%A9%E5%93%81%E5%83%B9%E5%80%BC%E7%82%BA%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=20&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -1102,30 +1055,6 @@ $$
       end
       dp[n][cap]
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    // 0-1 背包：動態規劃
-    fn knapsackDP(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
-        comptime var n = wgt.len;
-        // 初始化 dp 表
-        var dp = [_][cap + 1]i32{[_]i32{0} ** (cap + 1)} ** (n + 1);
-        // 狀態轉移
-        for (1..n + 1) |i| {
-            for (1..cap + 1) |c| {
-                if (wgt[i - 1] > c) {
-                    // 若超過背包容量，則不選物品 i
-                    dp[i][c] = dp[i - 1][c];
-                } else {
-                    // 不選和選物品 i 這兩種方案的較大值
-                    dp[i][c] = @max(dp[i - 1][c], dp[i - 1][c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
-                }
-            }
-        }
-        return dp[n][cap];
-    }
     ```
 
 ??? pythontutor "視覺化執行"
@@ -1508,29 +1437,6 @@ $$
       end
       dp[cap]
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    // 0-1 背包：空間最佳化後的動態規劃
-    fn knapsackDPComp(wgt: []i32, val: []i32, comptime cap: usize) i32 {
-        var n = wgt.len;
-        // 初始化 dp 表
-        var dp = [_]i32{0} ** (cap + 1);
-        // 狀態轉移
-        for (1..n + 1) |i| {
-            // 倒序走訪
-            var c = cap;
-            while (c > 0) : (c -= 1) {
-                if (wgt[i - 1] < c) {
-                    // 不選和選物品 i 這兩種方案的較大值
-                    dp[c] = @max(dp[c], dp[c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
-                }
-            }
-        }
-        return dp[cap];
-    }
     ```
 
 ??? pythontutor "視覺化執行"

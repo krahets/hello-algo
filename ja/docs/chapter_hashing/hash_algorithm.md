@@ -296,18 +296,6 @@ index = hash(key) % capacity
     [class]{}-[func]{rot_hash}
     ```
 
-=== "Zig"
-
-    ```zig title="simple_hash.zig"
-    [class]{}-[func]{addHash}
-
-    [class]{}-[func]{mulHash}
-
-    [class]{}-[func]{xorHash}
-
-    [class]{}-[func]{rotHash}
-    ```
-
 各ハッシュアルゴリズムの最後のステップが大きな素数$1000000007$の剰余を取ることで、ハッシュ値が適切な範囲内にあることを保証していることが観察されます。なぜ素数の剰余を取ることが強調されるのか、または合成数の剰余を取ることの欠点は何かを考える価値があります。これは興味深い質問です。
 
 結論として：**大きな素数を剰余として使用することで、ハッシュ値の均等分散を最大化できます**。素数は他の数と共通因子を持たないため、剰余演算によって引き起こされる周期的パターンを減らし、ハッシュ衝突を回避できます。
@@ -608,12 +596,6 @@ $$
 === "Kotlin"
 
     ```kotlin title="built_in_hash.kt"
-
-    ```
-
-=== "Zig"
-
-    ```zig title="built_in_hash.zig"
 
     ```
 

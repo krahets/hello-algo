@@ -4,17 +4,17 @@ comments: true
 
 # 4.1 &nbsp; Array
 
-An <u>array</u> is a linear data structure that operates as a lineup of similar items, stored together in a computer's memory in contiguous spaces. It's like a sequence that maintains organized storage. Each item in this lineup has its unique 'spot' known as an <u>index</u>. Please refer to Figure 4-1 to observe how arrays work and grasp these key terms.
+An <u>array</u> is a linear data structure that stores elements of the same type in contiguous memory space. The position of an element in the array is called the element's <u>index</u>. Figure 4-1 illustrates the main concepts and storage method of arrays.
 
 ![Array definition and storage method](array.assets/array_definition.png){ class="animation-figure" }
 
 <p align="center"> Figure 4-1 &nbsp; Array definition and storage method </p>
 
-## 4.1.1 &nbsp; Common operations on arrays
+## 4.1.1 &nbsp; Common Array Operations
 
-### 1. &nbsp; Initializing arrays
+### 1. &nbsp; Initializing Arrays
 
-Arrays can be initialized in two ways depending on the needs: either without initial values or with specified initial values. When initial values are not specified, most programming languages will set the array elements to $0$:
+We can choose between two array initialization methods based on our needs: without initial values or with given initial values. When no initial values are specified, most programming languages will initialize array elements to $0$:
 
 === "Python"
 
@@ -31,7 +31,7 @@ Arrays can be initialized in two ways depending on the needs: either without ini
     // Stored on stack
     int arr[5];
     int nums[5] = { 1, 3, 2, 5, 4 };
-    // Stored on heap (manual memory release needed)
+    // Stored on heap (requires manual memory release)
     int* arr1 = new int[5];
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
@@ -57,9 +57,9 @@ Arrays can be initialized in two ways depending on the needs: either without ini
     ```go title="array.go"
     /* Initialize array */
     var arr [5]int
-    // In Go, specifying the length ([5]int) denotes an array, while not specifying it ([]int) denotes a slice.
-    // Since Go's arrays are designed to have compile-time fixed length, only constants can be used to specify the length.
-    // For convenience in implementing the extend() method, the Slice will be considered as an Array here.
+    // In Go, specifying length ([5]int) creates an array; not specifying length ([]int) creates a slice
+    // Since Go's arrays are designed to have their length determined at compile time, only constants can be used to specify the length
+    // For convenience in implementing the extend() method, slices are treated as arrays below
     nums := []int{1, 3, 2, 5, 4}
     ```
 
@@ -101,10 +101,10 @@ Arrays can be initialized in two ways depending on the needs: either without ini
     /* Initialize array */
     let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
     let slice: &[i32] = &[0; 5];
-    // In Rust, specifying the length ([i32; 5]) denotes an array, while not specifying it (&[i32]) denotes a slice.
-    // Since Rust's arrays are designed to have compile-time fixed length, only constants can be used to specify the length.
-    // Vectors are generally used as dynamic arrays in Rust.
-    // For convenience in implementing the extend() method, the vector will be considered as an array here.
+    // In Rust, specifying length ([i32; 5]) creates an array; not specifying length (&[i32]) creates a slice
+    // Since Rust's arrays are designed to have their length determined at compile time, only constants can be used to specify the length
+    // Vector is the type generally used as a dynamic array in Rust
+    // For convenience in implementing the extend() method, vectors are treated as arrays below
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
@@ -119,37 +119,44 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 === "Kotlin"
 
     ```kotlin title="array.kt"
-
+    /* Initialize array */
+    var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
+    var nums = intArrayOf(1, 3, 2, 5, 4)
     ```
 
-=== "Zig"
+=== "Ruby"
 
-    ```zig title="array.zig"
-    // Initialize array
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
+    ```ruby title="array.rb"
+    # Initialize array
+    arr = Array.new(5, 0)
+    nums = [1, 3, 2, 5, 4]
     ```
 
-### 2. &nbsp; Accessing elements
+??? pythontutor "Code Visualization"
 
-Elements in an array are stored in contiguous memory spaces, making it simpler to compute each element's memory address. The formula shown in the Figure below aids in determining an element's memory address, utilizing the array's memory address (specifically, the first element's address) and the element's index. This computation streamlines direct access to the desired element.
+    <div style="height: 243px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0Aarr%20%3D%20%5B0%5D%20*%205%20%20%23%20%5B%200,%200,%200,%200,%200%20%5D%0Anums%20%3D%20%5B1,%203,%202,%205,%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0Aarr%20%3D%20%5B0%5D%20*%205%20%20%23%20%5B%200,%200,%200,%200,%200%20%5D%0Anums%20%3D%20%5B1,%203,%202,%205,%204%5D&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
+
+### 2. &nbsp; Accessing Elements
+
+Array elements are stored in contiguous memory space, which means calculating the memory address of array elements is very easy. Given the array's memory address (the memory address of the first element) and an element's index, we can use the formula shown in Figure 4-2 to calculate the element's memory address and directly access that element.
 
 ![Memory address calculation for array elements](array.assets/array_memory_location_calculation.png){ class="animation-figure" }
 
 <p align="center"> Figure 4-2 &nbsp; Memory address calculation for array elements </p>
 
-As observed in Figure 4-2, array indexing conventionally begins at $0$. While this might appear counterintuitive, considering counting usually starts at $1$, within the address calculation formula, **an index is essentially an offset from the memory address**. For the first element's address, this offset is $0$, validating its index as $0$.
+Observing Figure 4-2, we find that the first element of an array has an index of $0$, which may seem counterintuitive since counting from $1$ would be more natural. However, from the perspective of the address calculation formula, **an index is essentially an offset from the memory address**. The address offset of the first element is $0$, so it is reasonable for its index to be $0$.
 
-Accessing elements in an array is highly efficient, allowing us to randomly access any element in $O(1)$ time.
+Accessing elements in an array is highly efficient; we can randomly access any element in the array in $O(1)$ time.
 
 === "Python"
 
     ```python title="array.py"
     def random_access(nums: list[int]) -> int:
-        """Random access to elements"""
+        """Random access to element"""
         # Randomly select a number from the interval [0, len(nums)-1]
         random_index = random.randint(0, len(nums) - 1)
-        # Retrieve and return a random element
+        # Retrieve and return the random element
         random_num = nums[random_index]
         return random_num
     ```
@@ -157,11 +164,11 @@ Accessing elements in an array is highly efficient, allowing us to randomly acce
 === "C++"
 
     ```cpp title="array.cpp"
-    /* Random access to elements */
+    /* Random access to element */
     int randomAccess(int *nums, int size) {
-        // Randomly select a number in the range [0, size)
+        // Randomly select a number from interval [0, size)
         int randomIndex = rand() % size;
-        // Retrieve and return a random element
+        // Retrieve and return the random element
         int randomNum = nums[randomIndex];
         return randomNum;
     }
@@ -170,11 +177,11 @@ Accessing elements in an array is highly efficient, allowing us to randomly acce
 === "Java"
 
     ```java title="array.java"
-    /* Random access to elements */
+    /* Random access to element */
     int randomAccess(int[] nums) {
         // Randomly select a number in the interval [0, nums.length)
         int randomIndex = ThreadLocalRandom.current().nextInt(0, nums.length);
-        // Retrieve and return a random element
+        // Retrieve and return the random element
         int randomNum = nums[randomIndex];
         return randomNum;
     }
@@ -183,101 +190,166 @@ Accessing elements in an array is highly efficient, allowing us to randomly acce
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{RandomAccess}
+    /* Random access to element */
+    int RandomAccess(int[] nums) {
+        Random random = new();
+        // Randomly select a number in interval [0, nums.Length)
+        int randomIndex = random.Next(nums.Length);
+        // Retrieve and return the random element
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
     ```
 
 === "Go"
 
     ```go title="array.go"
-    [class]{}-[func]{randomAccess}
+    /* Random access to element */
+    func randomAccess(nums []int) (randomNum int) {
+        // Randomly select a number in the interval [0, nums.length)
+        randomIndex := rand.Intn(len(nums))
+        // Retrieve and return the random element
+        randomNum = nums[randomIndex]
+        return
+    }
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    [class]{}-[func]{randomAccess}
+    /* Random access to element */
+    func randomAccess(nums: [Int]) -> Int {
+        // Randomly select a number in interval [0, nums.count)
+        let randomIndex = nums.indices.randomElement()!
+        // Retrieve and return the random element
+        let randomNum = nums[randomIndex]
+        return randomNum
+    }
     ```
 
 === "JS"
 
     ```javascript title="array.js"
-    [class]{}-[func]{randomAccess}
+    /* Random access to element */
+    function randomAccess(nums) {
+        // Randomly select a number in the interval [0, nums.length)
+        const random_index = Math.floor(Math.random() * nums.length);
+        // Retrieve and return the random element
+        const random_num = nums[random_index];
+        return random_num;
+    }
     ```
 
 === "TS"
 
     ```typescript title="array.ts"
-    [class]{}-[func]{randomAccess}
+    /* Random access to element */
+    function randomAccess(nums: number[]): number {
+        // Randomly select a number in the interval [0, nums.length)
+        const random_index = Math.floor(Math.random() * nums.length);
+        // Retrieve and return the random element
+        const random_num = nums[random_index];
+        return random_num;
+    }
     ```
 
 === "Dart"
 
     ```dart title="array.dart"
-    [class]{}-[func]{randomAccess}
+    /* Random access to element */
+    int randomAccess(List<int> nums) {
+      // Randomly select a number in the interval [0, nums.length)
+      int randomIndex = Random().nextInt(nums.length);
+      // Retrieve and return the random element
+      int randomNum = nums[randomIndex];
+      return randomNum;
+    }
     ```
 
 === "Rust"
 
     ```rust title="array.rs"
-    [class]{}-[func]{random_access}
+    /* Random access to element */
+    fn random_access(nums: &[i32]) -> i32 {
+        // Randomly select a number in interval [0, nums.len())
+        let random_index = rand::thread_rng().gen_range(0..nums.len());
+        // Retrieve and return the random element
+        let random_num = nums[random_index];
+        random_num
+    }
     ```
 
 === "C"
 
     ```c title="array.c"
-    [class]{}-[func]{randomAccess}
+    /* Random access to element */
+    int randomAccess(int *nums, int size) {
+        // Randomly select a number from interval [0, size)
+        int randomIndex = rand() % size;
+        // Retrieve and return the random element
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin title="array.kt"
-    [class]{}-[func]{randomAccess}
+    /* Random access to element */
+    fun randomAccess(nums: IntArray): Int {
+        // Randomly select a number in interval [0, nums.size)
+        val randomIndex = ThreadLocalRandom.current().nextInt(0, nums.size)
+        // Retrieve and return the random element
+        val randomNum = nums[randomIndex]
+        return randomNum
+    }
     ```
 
 === "Ruby"
 
     ```ruby title="array.rb"
-    [class]{}-[func]{random_access}
+    ### Random access element ###
+    def random_access(nums)
+      # Randomly select a number in the interval [0, nums.length)
+      random_index = Random.rand(0...nums.length)
+
+      # Retrieve and return the random element
+      nums[random_index]
+    end
     ```
 
-=== "Zig"
+### 3. &nbsp; Inserting Elements
 
-    ```zig title="array.zig"
-    [class]{}-[func]{randomAccess}
-    ```
+Array elements are stored "tightly adjacent" in memory, with no space between them to store any additional data. As shown in Figure 4-3, if we want to insert an element in the middle of an array, we need to shift all elements after that position backward by one position, and then assign the value to that index.
 
-### 3. &nbsp; Inserting elements
+![Example of inserting an element into an array](array.assets/array_insert_element.png){ class="animation-figure" }
 
-Array elements are tightly packed in memory, with no space available to accommodate additional data between them. As illustrated in Figure 4-3, inserting an element in the middle of an array requires shifting all subsequent elements back by one position to create room for the new element.
+<p align="center"> Figure 4-3 &nbsp; Example of inserting an element into an array </p>
 
-![Array element insertion example](array.assets/array_insert_element.png){ class="animation-figure" }
-
-<p align="center"> Figure 4-3 &nbsp; Array element insertion example </p>
-
-It's important to note that due to the fixed length of an array, inserting an element will unavoidably result in the loss of the last element in the array. Solutions to address this issue will be explored in the "List" chapter.
+It is worth noting that since the length of an array is fixed, inserting an element will inevitably cause the element at the end of the array to be "lost". We will leave the solution to this problem for discussion in the "List" chapter.
 
 === "Python"
 
     ```python title="array.py"
     def insert(nums: list[int], num: int, index: int):
-        """Insert element num at `index`"""
-        # Move all elements after `index` one position backward
+        """Insert element num at index index in the array"""
+        # Move all elements at and after index index backward by one position
         for i in range(len(nums) - 1, index, -1):
             nums[i] = nums[i - 1]
-        # Assign num to the element at index
+        # Assign num to the element at index index
         nums[index] = num
     ```
 
 === "C++"
 
     ```cpp title="array.cpp"
-    /* Insert element num at `index` */
+    /* Insert element num at index index in the array */
     void insert(int *nums, int size, int num, int index) {
-        // Move all elements after `index` one position backward
+        // Move all elements at and after index index backward by one position
         for (int i = size - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
-        // Assign num to the element at index
+        // Assign num to the element at index index
         nums[index] = num;
     }
     ```
@@ -285,13 +357,13 @@ It's important to note that due to the fixed length of an array, inserting an el
 === "Java"
 
     ```java title="array.java"
-    /* Insert element num at `index` */
+    /* Insert element num at index index in the array */
     void insert(int[] nums, int num, int index) {
-        // Move all elements after `index` one position backward
+        // Move all elements at and after index index backward by one position
         for (int i = nums.length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
-        // Assign num to the element at index
+        // Assign num to the element at index index
         nums[index] = num;
     }
     ```
@@ -299,85 +371,160 @@ It's important to note that due to the fixed length of an array, inserting an el
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{Insert}
+    /* Insert element num at index index in the array */
+    void Insert(int[] nums, int num, int index) {
+        // Move all elements at and after index index backward by one position
+        for (int i = nums.Length - 1; i > index; i--) {
+            nums[i] = nums[i - 1];
+        }
+        // Assign num to the element at index index
+        nums[index] = num;
+    }
     ```
 
 === "Go"
 
     ```go title="array.go"
-    [class]{}-[func]{insert}
+    /* Insert element num at index index in the array */
+    func insert(nums []int, num int, index int) {
+        // Move all elements at and after index index backward by one position
+        for i := len(nums) - 1; i > index; i-- {
+            nums[i] = nums[i-1]
+        }
+        // Assign num to the element at index index
+        nums[index] = num
+    }
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    [class]{}-[func]{insert}
+    /* Insert element num at index index in the array */
+    func insert(nums: inout [Int], num: Int, index: Int) {
+        // Move all elements at and after index index backward by one position
+        for i in nums.indices.dropFirst(index).reversed() {
+            nums[i] = nums[i - 1]
+        }
+        // Assign num to the element at index index
+        nums[index] = num
+    }
     ```
 
 === "JS"
 
     ```javascript title="array.js"
-    [class]{}-[func]{insert}
+    /* Insert element num at index index in the array */
+    function insert(nums, num, index) {
+        // Move all elements at and after index index backward by one position
+        for (let i = nums.length - 1; i > index; i--) {
+            nums[i] = nums[i - 1];
+        }
+        // Assign num to the element at index index
+        nums[index] = num;
+    }
     ```
 
 === "TS"
 
     ```typescript title="array.ts"
-    [class]{}-[func]{insert}
+    /* Insert element num at index index in the array */
+    function insert(nums: number[], num: number, index: number): void {
+        // Move all elements at and after index index backward by one position
+        for (let i = nums.length - 1; i > index; i--) {
+            nums[i] = nums[i - 1];
+        }
+        // Assign num to the element at index index
+        nums[index] = num;
+    }
     ```
 
 === "Dart"
 
     ```dart title="array.dart"
-    [class]{}-[func]{insert}
+    /* Insert element _num at array index index */
+    void insert(List<int> nums, int _num, int index) {
+      // Move all elements at and after index index backward by one position
+      for (var i = nums.length - 1; i > index; i--) {
+        nums[i] = nums[i - 1];
+      }
+      // Assign _num to element at index
+      nums[index] = _num;
+    }
     ```
 
 === "Rust"
 
     ```rust title="array.rs"
-    [class]{}-[func]{insert}
+    /* Insert element num at index index in the array */
+    fn insert(nums: &mut [i32], num: i32, index: usize) {
+        // Move all elements at and after index index backward by one position
+        for i in (index + 1..nums.len()).rev() {
+            nums[i] = nums[i - 1];
+        }
+        // Assign num to the element at index index
+        nums[index] = num;
+    }
     ```
 
 === "C"
 
     ```c title="array.c"
-    [class]{}-[func]{insert}
+    /* Insert element num at index index in the array */
+    void insert(int *nums, int size, int num, int index) {
+        // Move all elements at and after index index backward by one position
+        for (int i = size - 1; i > index; i--) {
+            nums[i] = nums[i - 1];
+        }
+        // Assign num to the element at index index
+        nums[index] = num;
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin title="array.kt"
-    [class]{}-[func]{insert}
+    /* Insert element num at index index in the array */
+    fun insert(nums: IntArray, num: Int, index: Int) {
+        // Move all elements at and after index index backward by one position
+        for (i in nums.size - 1 downTo index + 1) {
+            nums[i] = nums[i - 1]
+        }
+        // Assign num to the element at index index
+        nums[index] = num
+    }
     ```
 
 === "Ruby"
 
     ```ruby title="array.rb"
-    [class]{}-[func]{insert}
+    ### Insert element num at index in array ###
+    def insert(nums, num, index)
+      # Move all elements at and after index index backward by one position
+      for i in (nums.length - 1).downto(index + 1)
+        nums[i] = nums[i - 1]
+      end
+
+      # Assign num to the element at index index
+      nums[index] = num
+    end
     ```
 
-=== "Zig"
+### 4. &nbsp; Removing Elements
 
-    ```zig title="array.zig"
-    [class]{}-[func]{insert}
-    ```
+Similarly, as shown in Figure 4-4, to delete the element at index $i$, we need to shift all elements after index $i$ forward by one position.
 
-### 4. &nbsp; Deleting elements
+![Example of removing an element from an array](array.assets/array_remove_element.png){ class="animation-figure" }
 
-Similarly, as depicted in Figure 4-4, to delete an element at index $i$, all elements following index $i$ must be moved forward by one position.
+<p align="center"> Figure 4-4 &nbsp; Example of removing an element from an array </p>
 
-![Array element deletion example](array.assets/array_remove_element.png){ class="animation-figure" }
-
-<p align="center"> Figure 4-4 &nbsp; Array element deletion example </p>
-
-Please note that after deletion, the former last element becomes "meaningless," hence requiring no specific modification.
+Note that after the deletion is complete, the original last element becomes "meaningless", so we do not need to specifically modify it.
 
 === "Python"
 
     ```python title="array.py"
     def remove(nums: list[int], index: int):
-        """Remove the element at `index`"""
-        # Move all elements after `index` one position forward
+        """Remove the element at index index"""
+        # Move all elements after index index forward by one position
         for i in range(index, len(nums) - 1):
             nums[i] = nums[i + 1]
     ```
@@ -385,9 +532,9 @@ Please note that after deletion, the former last element becomes "meaningless," 
 === "C++"
 
     ```cpp title="array.cpp"
-    /* Remove the element at `index` */
+    /* Remove the element at index index */
     void remove(int *nums, int size, int index) {
-        // Move all elements after `index` one position forward
+        // Move all elements after index index forward by one position
         for (int i = index; i < size - 1; i++) {
             nums[i] = nums[i + 1];
         }
@@ -397,9 +544,9 @@ Please note that after deletion, the former last element becomes "meaningless," 
 === "Java"
 
     ```java title="array.java"
-    /* Remove the element at `index` */
+    /* Remove the element at index index */
     void remove(int[] nums, int index) {
-        // Move all elements after `index` one position forward
+        // Move all elements after index index forward by one position
         for (int i = index; i < nums.length - 1; i++) {
             nums[i] = nums[i + 1];
         }
@@ -409,78 +556,133 @@ Please note that after deletion, the former last element becomes "meaningless," 
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{Remove}
+    /* Remove the element at index index */
+    void Remove(int[] nums, int index) {
+        // Move all elements after index index forward by one position
+        for (int i = index; i < nums.Length - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="array.go"
-    [class]{}-[func]{remove}
+    /* Remove the element at index index */
+    func remove(nums []int, index int) {
+        // Move all elements after index index forward by one position
+        for i := index; i < len(nums)-1; i++ {
+            nums[i] = nums[i+1]
+        }
+    }
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    [class]{}-[func]{remove}
+    /* Remove the element at index index */
+    func remove(nums: inout [Int], index: Int) {
+        // Move all elements after index index forward by one position
+        for i in nums.indices.dropFirst(index).dropLast() {
+            nums[i] = nums[i + 1]
+        }
+    }
     ```
 
 === "JS"
 
     ```javascript title="array.js"
-    [class]{}-[func]{remove}
+    /* Remove the element at index index */
+    function remove(nums, index) {
+        // Move all elements after index index forward by one position
+        for (let i = index; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="array.ts"
-    [class]{}-[func]{remove}
+    /* Remove the element at index index */
+    function remove(nums: number[], index: number): void {
+        // Move all elements after index index forward by one position
+        for (let i = index; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="array.dart"
-    [class]{}-[func]{remove}
+    /* Remove the element at index index */
+    void remove(List<int> nums, int index) {
+      // Move all elements after index index forward by one position
+      for (var i = index; i < nums.length - 1; i++) {
+        nums[i] = nums[i + 1];
+      }
+    }
     ```
 
 === "Rust"
 
     ```rust title="array.rs"
-    [class]{}-[func]{remove}
+    /* Remove the element at index index */
+    fn remove(nums: &mut [i32], index: usize) {
+        // Move all elements after index index forward by one position
+        for i in index..nums.len() - 1 {
+            nums[i] = nums[i + 1];
+        }
+    }
     ```
 
 === "C"
 
     ```c title="array.c"
-    [class]{}-[func]{removeItem}
+    /* Remove the element at index index */
+    // Note: stdio.h occupies the remove keyword
+    void removeItem(int *nums, int size, int index) {
+        // Move all elements after index index forward by one position
+        for (int i = index; i < size - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin title="array.kt"
-    [class]{}-[func]{remove}
+    /* Remove the element at index index */
+    fun remove(nums: IntArray, index: Int) {
+        // Move all elements after index index forward by one position
+        for (i in index..<nums.size - 1) {
+            nums[i] = nums[i + 1]
+        }
+    }
     ```
 
 === "Ruby"
 
     ```ruby title="array.rb"
-    [class]{}-[func]{remove}
+    ### Delete element at index ###
+    def remove(nums, index)
+      # Move all elements after index index forward by one position
+      for i in index...(nums.length - 1)
+        nums[i] = nums[i + 1]
+      end
+    end
     ```
 
-=== "Zig"
+Overall, array insertion and deletion operations have the following drawbacks:
 
-    ```zig title="array.zig"
-    [class]{}-[func]{remove}
-    ```
+- **High time complexity**: The average time complexity for both insertion and deletion in arrays is $O(n)$, where $n$ is the length of the array.
+- **Loss of elements**: Since the length of an array is immutable, after inserting an element, elements that exceed the array's length will be lost.
+- **Memory waste**: We can initialize a relatively long array and only use the front portion, so that when inserting data, the lost elements at the end are "meaningless", but this causes some memory space to be wasted.
 
-In summary, the insertion and deletion operations in arrays present the following disadvantages:
+### 5. &nbsp; Traversing Arrays
 
-- **High time complexity**: Both insertion and deletion in an array have an average time complexity of $O(n)$, where $n$ is the length of the array.
-- **Loss of elements**: Due to the fixed length of arrays, elements that exceed the array's capacity are lost during insertion.
-- **Waste of memory**: Initializing a longer array and utilizing only the front part results in "meaningless" end elements during insertion, leading to some wasted memory space.
-
-### 5. &nbsp; Traversing arrays
-
-In most programming languages, we can traverse an array either by using indices or by directly iterating over each element:
+In most programming languages, we can traverse an array either by index or by directly iterating through each element in the array:
 
 === "Python"
 
@@ -491,10 +693,10 @@ In most programming languages, we can traverse an array either by using indices 
         # Traverse array by index
         for i in range(len(nums)):
             count += nums[i]
-        # Traverse array elements
+        # Direct traversal of array elements
         for num in nums:
             count += num
-        # Traverse both data index and elements
+        # Traverse simultaneously data index and elements
         for i, num in enumerate(nums):
             count += nums[i]
             count += num
@@ -523,7 +725,7 @@ In most programming languages, we can traverse an array either by using indices 
         for (int i = 0; i < nums.length; i++) {
             count += nums[i];
         }
-        // Traverse array elements
+        // Direct traversal of array elements
         for (int num : nums) {
             count += num;
         }
@@ -533,80 +735,198 @@ In most programming languages, we can traverse an array either by using indices 
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{Traverse}
+    /* Traverse array */
+    void Traverse(int[] nums) {
+        int count = 0;
+        // Traverse array by index
+        for (int i = 0; i < nums.Length; i++) {
+            count += nums[i];
+        }
+        // Direct traversal of array elements
+        foreach (int num in nums) {
+            count += num;
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="array.go"
-    [class]{}-[func]{traverse}
+    /* Traverse array */
+    func traverse(nums []int) {
+        count := 0
+        // Traverse array by index
+        for i := 0; i < len(nums); i++ {
+            count += nums[i]
+        }
+        count = 0
+        // Direct traversal of array elements
+        for _, num := range nums {
+            count += num
+        }
+        // Traverse simultaneously data index and elements
+        for i, num := range nums {
+            count += nums[i]
+            count += num
+        }
+    }
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    [class]{}-[func]{traverse}
+    /* Traverse array */
+    func traverse(nums: [Int]) {
+        var count = 0
+        // Traverse array by index
+        for i in nums.indices {
+            count += nums[i]
+        }
+        // Direct traversal of array elements
+        for num in nums {
+            count += num
+        }
+        // Traverse simultaneously data index and elements
+        for (i, num) in nums.enumerated() {
+            count += nums[i]
+            count += num
+        }
+    }
     ```
 
 === "JS"
 
     ```javascript title="array.js"
-    [class]{}-[func]{traverse}
+    /* Traverse array */
+    function traverse(nums) {
+        let count = 0;
+        // Traverse array by index
+        for (let i = 0; i < nums.length; i++) {
+            count += nums[i];
+        }
+        // Direct traversal of array elements
+        for (const num of nums) {
+            count += num;
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="array.ts"
-    [class]{}-[func]{traverse}
+    /* Traverse array */
+    function traverse(nums: number[]): void {
+        let count = 0;
+        // Traverse array by index
+        for (let i = 0; i < nums.length; i++) {
+            count += nums[i];
+        }
+        // Direct traversal of array elements
+        for (const num of nums) {
+            count += num;
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="array.dart"
-    [class]{}-[func]{traverse}
+    /* Traverse array elements */
+    void traverse(List<int> nums) {
+      int count = 0;
+      // Traverse array by index
+      for (var i = 0; i < nums.length; i++) {
+        count += nums[i];
+      }
+      // Direct traversal of array elements
+      for (int _num in nums) {
+        count += _num;
+      }
+      // Traverse array using forEach method
+      nums.forEach((_num) {
+        count += _num;
+      });
+    }
     ```
 
 === "Rust"
 
     ```rust title="array.rs"
-    [class]{}-[func]{traverse}
+    /* Traverse array */
+    fn traverse(nums: &[i32]) {
+        let mut _count = 0;
+        // Traverse array by index
+        for i in 0..nums.len() {
+            _count += nums[i];
+        }
+        // Direct traversal of array elements
+        _count = 0;
+        for &num in nums {
+            _count += num;
+        }
+    }
     ```
 
 === "C"
 
     ```c title="array.c"
-    [class]{}-[func]{traverse}
+    /* Traverse array */
+    void traverse(int *nums, int size) {
+        int count = 0;
+        // Traverse array by index
+        for (int i = 0; i < size; i++) {
+            count += nums[i];
+        }
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin title="array.kt"
-    [class]{}-[func]{traverse}
+    /* Traverse array */
+    fun traverse(nums: IntArray) {
+        var count = 0
+        // Traverse array by index
+        for (i in nums.indices) {
+            count += nums[i]
+        }
+        // Direct traversal of array elements
+        for (j in nums) {
+            count += j
+        }
+    }
     ```
 
 === "Ruby"
 
     ```ruby title="array.rb"
-    [class]{}-[func]{traverse}
+    ### Traverse array ###
+    def traverse(nums)
+      count = 0
+
+      # Traverse array by index
+      for i in 0...nums.length
+        count += nums[i]
+      end
+
+      # Direct traversal of array elements
+      for num in nums
+        count += num
+      end
+    end
     ```
 
-=== "Zig"
+### 6. &nbsp; Finding Elements
 
-    ```zig title="array.zig"
-    [class]{}-[func]{traverse}
-    ```
+Finding a specified element in an array requires traversing the array and checking whether the element value matches in each iteration; if it matches, output the corresponding index.
 
-### 6. &nbsp; Finding elements
-
-Locating a specific element within an array involves iterating through the array, checking each element to determine if it matches the desired value.
-
-Because arrays are linear data structures, this operation is commonly referred to as "linear search."
+Since an array is a linear data structure, the above search operation is called a "linear search".
 
 === "Python"
 
     ```python title="array.py"
     def find(nums: list[int], target: int) -> int:
-        """Search for a specified element in the array"""
+        """Find the specified element in the array"""
         for i in range(len(nums)):
             if nums[i] == target:
                 return i
@@ -616,7 +936,7 @@ Because arrays are linear data structures, this operation is commonly referred t
 === "C++"
 
     ```cpp title="array.cpp"
-    /* Search for a specified element in the array */
+    /* Find the specified element in the array */
     int find(int *nums, int size, int target) {
         for (int i = 0; i < size; i++) {
             if (nums[i] == target)
@@ -629,7 +949,7 @@ Because arrays are linear data structures, this operation is commonly referred t
 === "Java"
 
     ```java title="array.java"
-    /* Search for a specified element in the array */
+    /* Find the specified element in the array */
     int find(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == target)
@@ -642,86 +962,154 @@ Because arrays are linear data structures, this operation is commonly referred t
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{Find}
+    /* Find the specified element in the array */
+    int Find(int[] nums, int target) {
+        for (int i = 0; i < nums.Length; i++) {
+            if (nums[i] == target)
+                return i;
+        }
+        return -1;
+    }
     ```
 
 === "Go"
 
     ```go title="array.go"
-    [class]{}-[func]{find}
+    /* Find the specified element in the array */
+    func find(nums []int, target int) (index int) {
+        index = -1
+        for i := 0; i < len(nums); i++ {
+            if nums[i] == target {
+                index = i
+                break
+            }
+        }
+        return
+    }
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    [class]{}-[func]{find}
+    /* Find the specified element in the array */
+    func find(nums: [Int], target: Int) -> Int {
+        for i in nums.indices {
+            if nums[i] == target {
+                return i
+            }
+        }
+        return -1
+    }
     ```
 
 === "JS"
 
     ```javascript title="array.js"
-    [class]{}-[func]{find}
+    /* Find the specified element in the array */
+    function find(nums, target) {
+        for (let i = 0; i < nums.length; i++) {
+            if (nums[i] === target) return i;
+        }
+        return -1;
+    }
     ```
 
 === "TS"
 
     ```typescript title="array.ts"
-    [class]{}-[func]{find}
+    /* Find the specified element in the array */
+    function find(nums: number[], target: number): number {
+        for (let i = 0; i < nums.length; i++) {
+            if (nums[i] === target) {
+                return i;
+            }
+        }
+        return -1;
+    }
     ```
 
 === "Dart"
 
     ```dart title="array.dart"
-    [class]{}-[func]{find}
+    /* Find the specified element in the array */
+    int find(List<int> nums, int target) {
+      for (var i = 0; i < nums.length; i++) {
+        if (nums[i] == target) return i;
+      }
+      return -1;
+    }
     ```
 
 === "Rust"
 
     ```rust title="array.rs"
-    [class]{}-[func]{find}
+    /* Find the specified element in the array */
+    fn find(nums: &[i32], target: i32) -> Option<usize> {
+        for i in 0..nums.len() {
+            if nums[i] == target {
+                return Some(i);
+            }
+        }
+        None
+    }
     ```
 
 === "C"
 
     ```c title="array.c"
-    [class]{}-[func]{find}
+    /* Find the specified element in the array */
+    int find(int *nums, int size, int target) {
+        for (int i = 0; i < size; i++) {
+            if (nums[i] == target)
+                return i;
+        }
+        return -1;
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin title="array.kt"
-    [class]{}-[func]{find}
+    /* Find the specified element in the array */
+    fun find(nums: IntArray, target: Int): Int {
+        for (i in nums.indices) {
+            if (nums[i] == target)
+                return i
+        }
+        return -1
+    }
     ```
 
 === "Ruby"
 
     ```ruby title="array.rb"
-    [class]{}-[func]{find}
+    ### Find specified element in array ###
+    def find(nums, target)
+      for i in 0...nums.length
+        return i if nums[i] == target
+      end
+
+      -1
+    end
     ```
 
-=== "Zig"
+### 7. &nbsp; Expanding Arrays
 
-    ```zig title="array.zig"
-    [class]{}-[func]{find}
-    ```
+In complex system environments, programs cannot guarantee that the memory space after an array is available, making it unsafe to expand the array's capacity. Therefore, in most programming languages, **the length of an array is immutable**.
 
-### 7. &nbsp; Expanding arrays
-
-In complex system environments, ensuring the availability of memory space after an array for safe capacity extension becomes challenging. Consequently, in most programming languages, **the length of an array is immutable**.
-
-To expand an array,  it's necessary to create a larger array and then copy the elements from the original array. This operation has a time complexity of $O(n)$ and can be time-consuming for large arrays. The code are as follows:
+If we want to expand an array, we need to create a new, larger array and then copy the original array elements to the new array one by one. This is an $O(n)$ operation, which is very time-consuming when the array is large. The code is shown below:
 
 === "Python"
 
     ```python title="array.py"
     def extend(nums: list[int], enlarge: int) -> list[int]:
         """Extend array length"""
-        # Initialize an extended length array
+        # Initialize an array with extended length
         res = [0] * (len(nums) + enlarge)
         # Copy all elements from the original array to the new array
         for i in range(len(nums)):
             res[i] = nums[i]
-        # Return the new array after expansion
+        # Return the extended new array
         return res
     ```
 
@@ -730,7 +1118,7 @@ To expand an array,  it's necessary to create a larger array and then copy the e
     ```cpp title="array.cpp"
     /* Extend array length */
     int *extend(int *nums, int size, int enlarge) {
-        // Initialize an extended length array
+        // Initialize an array with extended length
         int *res = new int[size + enlarge];
         // Copy all elements from the original array to the new array
         for (int i = 0; i < size; i++) {
@@ -738,7 +1126,7 @@ To expand an array,  it's necessary to create a larger array and then copy the e
         }
         // Free memory
         delete[] nums;
-        // Return the new array after expansion
+        // Return the extended new array
         return res;
     }
     ```
@@ -748,13 +1136,13 @@ To expand an array,  it's necessary to create a larger array and then copy the e
     ```java title="array.java"
     /* Extend array length */
     int[] extend(int[] nums, int enlarge) {
-        // Initialize an extended length array
+        // Initialize an array with extended length
         int[] res = new int[nums.length + enlarge];
         // Copy all elements from the original array to the new array
         for (int i = 0; i < nums.length; i++) {
             res[i] = nums[i];
         }
-        // Return the new array after expansion
+        // Return the extended new array
         return res;
     }
     ```
@@ -762,89 +1150,194 @@ To expand an array,  it's necessary to create a larger array and then copy the e
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{Extend}
+    /* Extend array length */
+    int[] Extend(int[] nums, int enlarge) {
+        // Initialize an array with extended length
+        int[] res = new int[nums.Length + enlarge];
+        // Copy all elements from the original array to the new array
+        for (int i = 0; i < nums.Length; i++) {
+            res[i] = nums[i];
+        }
+        // Return the extended new array
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="array.go"
-    [class]{}-[func]{extend}
+    /* Extend array length */
+    func extend(nums []int, enlarge int) []int {
+        // Initialize an array with extended length
+        res := make([]int, len(nums)+enlarge)
+        // Copy all elements from the original array to the new array
+        for i, num := range nums {
+            res[i] = num
+        }
+        // Return the extended new array
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    [class]{}-[func]{extend}
+    /* Extend array length */
+    func extend(nums: [Int], enlarge: Int) -> [Int] {
+        // Initialize an array with extended length
+        var res = Array(repeating: 0, count: nums.count + enlarge)
+        // Copy all elements from the original array to the new array
+        for i in nums.indices {
+            res[i] = nums[i]
+        }
+        // Return the extended new array
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="array.js"
-    [class]{}-[func]{extend}
+    /* Extend array length */
+    // Note: JavaScript's Array is dynamic array, can be directly expanded
+    // For learning purposes, this function treats Array as fixed-length array
+    function extend(nums, enlarge) {
+        // Initialize an array with extended length
+        const res = new Array(nums.length + enlarge).fill(0);
+        // Copy all elements from the original array to the new array
+        for (let i = 0; i < nums.length; i++) {
+            res[i] = nums[i];
+        }
+        // Return the extended new array
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="array.ts"
-    [class]{}-[func]{extend}
+    /* Extend array length */
+    // Note: TypeScript's Array is dynamic array, can be directly expanded
+    // For learning purposes, this function treats Array as fixed-length array
+    function extend(nums: number[], enlarge: number): number[] {
+        // Initialize an array with extended length
+        const res = new Array(nums.length + enlarge).fill(0);
+        // Copy all elements from the original array to the new array
+        for (let i = 0; i < nums.length; i++) {
+            res[i] = nums[i];
+        }
+        // Return the extended new array
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="array.dart"
-    [class]{}-[func]{extend}
+    /* Extend array length */
+    List<int> extend(List<int> nums, int enlarge) {
+      // Initialize an array with extended length
+      List<int> res = List.filled(nums.length + enlarge, 0);
+      // Copy all elements from the original array to the new array
+      for (var i = 0; i < nums.length; i++) {
+        res[i] = nums[i];
+      }
+      // Return the extended new array
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="array.rs"
-    [class]{}-[func]{extend}
+    /* Extend array length */
+    fn extend(nums: &[i32], enlarge: usize) -> Vec<i32> {
+        // Initialize an array with extended length
+        let mut res: Vec<i32> = vec![0; nums.len() + enlarge];
+        // Copy all elements from original array to new
+        res[0..nums.len()].copy_from_slice(nums);
+
+        // Return the extended new array
+        res
+    }
     ```
 
 === "C"
 
     ```c title="array.c"
-    [class]{}-[func]{extend}
+    /* Extend array length */
+    int *extend(int *nums, int size, int enlarge) {
+        // Initialize an array with extended length
+        int *res = (int *)malloc(sizeof(int) * (size + enlarge));
+        // Copy all elements from the original array to the new array
+        for (int i = 0; i < size; i++) {
+            res[i] = nums[i];
+        }
+        // Initialize expanded space
+        for (int i = size; i < size + enlarge; i++) {
+            res[i] = 0;
+        }
+        // Return the extended new array
+        return res;
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin title="array.kt"
-    [class]{}-[func]{extend}
+    /* Extend array length */
+    fun extend(nums: IntArray, enlarge: Int): IntArray {
+        // Initialize an array with extended length
+        val res = IntArray(nums.size + enlarge)
+        // Copy all elements from the original array to the new array
+        for (i in nums.indices) {
+            res[i] = nums[i]
+        }
+        // Return the extended new array
+        return res
+    }
     ```
 
 === "Ruby"
 
     ```ruby title="array.rb"
-    [class]{}-[func]{extend}
+    ### Extend array length ###
+    # Note: Ruby's Array is dynamic array, can be directly expanded
+    # For learning purposes, this function treats Array as fixed-length array
+    def extend(nums, enlarge)
+      # Initialize an array with extended length
+      res = Array.new(nums.length + enlarge, 0)
+
+      # Copy all elements from the original array to the new array
+      for i in 0...nums.length
+        res[i] = nums[i]
+      end
+
+      # Return the extended new array
+      res
+    end
     ```
 
-=== "Zig"
+## 4.1.2 &nbsp; Advantages and Limitations of Arrays
 
-    ```zig title="array.zig"
-    [class]{}-[func]{extend}
-    ```
+Arrays are stored in contiguous memory space with elements of the same type. This approach contains rich prior information that the system can use to optimize the efficiency of data structure operations.
 
-## 4.1.2 &nbsp; Advantages and limitations of arrays
+- **High space efficiency**: Arrays allocate contiguous memory blocks for data without additional structural overhead.
+- **Support for random access**: Arrays allow accessing any element in $O(1)$ time.
+- **Cache locality**: When accessing array elements, the computer not only loads the element but also caches the surrounding data, thereby leveraging the cache to improve the execution speed of subsequent operations.
 
-Arrays are stored in contiguous memory spaces and consist of elements of the same type. This approach provides substantial prior information that systems can leverage to optimize the efficiency of data structure operations.
+Contiguous space storage is a double-edged sword with the following limitations:
 
-- **High space efficiency**: Arrays allocate a contiguous block of memory for data, eliminating the need for additional structural overhead.
-- **Support for random access**: Arrays allow $O(1)$ time access to any element.
-- **Cache locality**: When accessing array elements, the computer not only loads them but also caches the surrounding data, utilizing high-speed cache to enchance subsequent operation speeds.
+- **Low insertion and deletion efficiency**: When an array has many elements, insertion and deletion operations require shifting a large number of elements.
+- **Immutable length**: After an array is initialized, its length is fixed. Expanding the array requires copying all data to a new array, which is very costly.
+- **Space waste**: If the allocated size of an array exceeds what is actually needed, the extra space is wasted.
 
-However, continuous space storage is a double-edged sword, with the following limitations:
+## 4.1.3 &nbsp; Typical Applications of Arrays
 
-- **Low efficiency in insertion and deletion**: As arrays accumulate many elements, inserting or deleting elements requires shifting a large number of elements.
-- **Fixed length**: The length of an array is fixed after initialization. Expanding an array requires copying all data to a new array, incurring significant costs.
-- **Space wastage**: If the allocated array size exceeds the what is necessary, the extra space is wasted.
+Arrays are a fundamental and common data structure, frequently used in various algorithms and for implementing various complex data structures.
 
-## 4.1.3 &nbsp; Typical applications of arrays
-
-Arrays are fundamental and widely used data structures. They find frequent application in various algorithms and serve in the implementation of complex data structures.
-
-- **Random access**: Arrays are ideal for storing data when random sampling is required. By generating a random sequence based on indices, we can achieve random sampling efficiently.
-- **Sorting and searching**: Arrays are the most commonly used data structure for sorting and searching algorithms.  Techniques like quick sort, merge sort, binary search, etc., are primarily operate on arrays.
-- **Lookup tables**: Arrays serve as efficient lookup tables for quick element or relationship retrieval. For instance, mapping characters to ASCII codes becomes seamless by using the ASCII code values as indices and storing corresponding elements in the array.
-- **Machine learning**: Within the domain of neural networks, arrays play a pivotal role in executing crucial linear algebra operations involving vectors, matrices, and tensors. Arrays serve as the primary and most extensively used data structure in neural network programming.
-- **Data structure implementation**:  Arrays serve as the building blocks for implementing various data structures like stacks, queues, hash tables, heaps, graphs, etc. For instance, the adjacency matrix representation of a graph is essentially a two-dimensional array.
+- **Random access**: If we want to randomly sample some items, we can use an array to store them and generate a random sequence to implement random sampling based on indices.
+- **Sorting and searching**: Arrays are the most commonly used data structure for sorting and searching algorithms. Quick sort, merge sort, binary search, and others are primarily performed on arrays.
+- **Lookup tables**: When we need to quickly find an element or its corresponding relationship, we can use an array as a lookup table. For example, if we want to implement a mapping from characters to ASCII codes, we can use the ASCII code value of a character as an index, with the corresponding element stored at that position in the array.
+- **Machine learning**: Neural networks make extensive use of linear algebra operations between vectors, matrices, and tensors, all of which are constructed in the form of arrays. Arrays are the most commonly used data structure in neural network programming.
+- **Data structure implementation**: Arrays can be used to implement stacks, queues, hash tables, heaps, graphs, and other data structures. For example, the adjacency matrix representation of a graph is essentially a two-dimensional array.

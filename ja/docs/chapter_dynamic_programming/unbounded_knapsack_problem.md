@@ -166,12 +166,6 @@ $$
     [class]{}-[func]{unbounded_knapsack_dp}
     ```
 
-=== "Zig"
-
-    ```zig title="unbounded_knapsack.zig"
-    [class]{}-[func]{unboundedKnapsackDP}
-    ```
-
 ### 3. &nbsp; 空間最適化
 
 現在の状態は左と上の状態から来るため、**空間最適化解法は $dp$ テーブルの各行に対して前方走査を実行する必要があります**。
@@ -327,12 +321,6 @@ $$
 
     ```ruby title="unbounded_knapsack.rb"
     [class]{}-[func]{unbounded_knapsack_dp_comp}
-    ```
-
-=== "Zig"
-
-    ```zig title="unbounded_knapsack.zig"
-    [class]{}-[func]{unboundedKnapsackDPComp}
     ```
 
 ## 14.5.2 &nbsp; コイン交換問題
@@ -526,12 +514,6 @@ $$
     [class]{}-[func]{coin_change_dp}
     ```
 
-=== "Zig"
-
-    ```zig title="coin_change.zig"
-    [class]{}-[func]{coinChangeDP}
-    ```
-
 下の図はコイン交換問題の動的プログラミングプロセスを示しており、無制限ナップサック問題と非常に似ています。
 
 === "<1>"
@@ -721,12 +703,6 @@ $$
     [class]{}-[func]{coin_change_dp_comp}
     ```
 
-=== "Zig"
-
-    ```zig title="coin_change.zig"
-    [class]{}-[func]{coinChangeDPComp}
-    ```
-
 ## 14.5.3 &nbsp; コイン交換問題II
 
 !!! question
@@ -890,12 +866,6 @@ $$
     [class]{}-[func]{coin_change_ii_dp}
     ```
 
-=== "Zig"
-
-    ```zig title="coin_change_ii.zig"
-    [class]{}-[func]{coinChangeIIDP}
-    ```
-
 ### 3. &nbsp; 空間最適化
 
 空間最適化アプローチは同じで、コインの次元を削除するだけです：
@@ -1030,10 +1000,4 @@ $$
 
     ```ruby title="coin_change_ii.rb"
     [class]{}-[func]{coin_change_ii_dp_comp}
-    ```
-
-=== "Zig"
-
-    ```zig title="coin_change_ii.zig"
-    [class]{}-[func]{coinChangeIIDPComp}
     ```

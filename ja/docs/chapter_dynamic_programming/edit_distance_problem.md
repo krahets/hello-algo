@@ -221,12 +221,6 @@ $$
     [class]{}-[func]{edit_distance_dp}
     ```
 
-=== "Zig"
-
-    ```zig title="edit_distance.zig"
-    [class]{}-[func]{editDistanceDP}
-    ```
-
 下の図に示すように、編集距離問題の状態遷移プロセスはナップサック問題と非常に似ており、二次元グリッドを埋めることと見なすことができます。
 
 === "<1>"
@@ -407,10 +401,4 @@ $dp[i, j]$ は上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j-1
 
     ```ruby title="edit_distance.rb"
     [class]{}-[func]{edit_distance_dp_comp}
-    ```
-
-=== "Zig"
-
-    ```zig title="edit_distance.zig"
-    [class]{}-[func]{editDistanceDPComp}
     ```

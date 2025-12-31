@@ -322,12 +322,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 ## 2.4.2 &nbsp; 計算方法
 
 空間計算量を計算する方法は時間計算量とほぼ同様で、統計対象を「操作数」から「使用空間のサイズ」に変更するだけです。
@@ -471,12 +465,6 @@ comments: true
 === "Kotlin"
 
     ```kotlin title=""
-
-    ```
-
-=== "Zig"
-
-    ```zig title=""
 
     ```
 
@@ -718,12 +706,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 `loop()`関数と`recur()`関数の時間計算量は両方とも$O(n)$ですが、それらの空間計算量は異なります。
 
 - `loop()`関数はループ内で`function()`を$n$回呼び出し、各反復の`function()`は返ってそのスタックフレーム空間を解放するため、空間計算量は$O(1)$のままです。
@@ -906,14 +888,6 @@ $$
     [class]{}-[func]{constant}
     ```
 
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{function}
-
-    [class]{}-[func]{constant}
-    ```
-
 ### 2. &nbsp; 線形オーダー $O(n)$ {data-toc-label="2. &nbsp; 線形オーダー"}
 
 線形オーダーは配列、連結リスト、スタック、キューなどで一般的で、要素数は$n$に比例します：
@@ -1033,12 +1007,6 @@ $$
     [class]{}-[func]{linear}
     ```
 
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{linear}
-    ```
-
 下図に示されているように、この関数の再帰深度は$n$で、$n$個の未返却の`linear_recur()`関数インスタンスがあり、$O(n)$サイズのスタックフレーム空間を使用します：
 
 === "Python"
@@ -1134,12 +1102,6 @@ $$
 
     ```ruby title="space_complexity.rb"
     [class]{}-[func]{linear_recur}
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{linearRecur}
     ```
 
 ![Recursive function generating linear order space complexity](space_complexity.assets/space_complexity_recursive_linear.png){ class="animation-figure" }
@@ -1255,12 +1217,6 @@ $$
     [class]{}-[func]{quadratic}
     ```
 
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{quadratic}
-    ```
-
 下図に示されているように、この関数の再帰深度は$n$で、各再帰呼び出しで長さ$n$、$n-1$、$\dots$、$2$、$1$の配列が初期化され、平均$n/2$となり、全体として$O(n^2)$の空間を占有します：
 
 === "Python"
@@ -1360,12 +1316,6 @@ $$
 
     ```ruby title="space_complexity.rb"
     [class]{}-[func]{quadratic_recur}
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{quadraticRecur}
     ```
 
 ![Recursive function generating quadratic order space complexity](space_complexity.assets/space_complexity_recursive_quadratic.png){ class="animation-figure" }
@@ -1475,12 +1425,6 @@ $$
 
     ```ruby title="space_complexity.rb"
     [class]{}-[func]{build_tree}
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{buildTree}
     ```
 
 ![Full binary tree generating exponential order space complexity](space_complexity.assets/space_complexity_exponential.png){ class="animation-figure" }

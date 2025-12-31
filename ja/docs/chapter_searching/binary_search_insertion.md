@@ -148,12 +148,6 @@ comments: true
     [class]{}-[func]{binary_search_insertion_simple}
     ```
 
-=== "Zig"
-
-    ```zig title="binary_search_insertion.zig"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
 ## 10.2.2 &nbsp; 重複要素がある場合
 
 !!! question
@@ -328,12 +322,6 @@ comments: true
 
     ```ruby title="binary_search_insertion.rb"
     [class]{}-[func]{binary_search_insertion}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_insertion.zig"
-    [class]{}-[func]{binarySearchInsertion}
     ```
 
 !!! tip

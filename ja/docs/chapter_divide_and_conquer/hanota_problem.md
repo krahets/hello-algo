@@ -295,16 +295,6 @@ $f(2)$ を解決する過程は次のように要約できます：**`B` の助�
     [class]{}-[func]{solve_hanota}
     ```
 
-=== "Zig"
-
-    ```zig title="hanota.zig"
-    [class]{}-[func]{move}
-
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{solveHanota}
-    ```
-
 以下の図に示すように、ハノイの塔問題は高さ $n$ の再帰木として視覚化できます。各ノードは部分問題を表し、`dfs()` の呼び出しに対応します。**したがって、時間計算量は $O(2^n)$、空間計算量は $O(n)$ です。**
 
 ![ハノイの塔の再帰木](hanota_problem.assets/hanota_recursive_tree.png){ class="animation-figure" }

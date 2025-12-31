@@ -270,25 +270,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="insertion_sort.zig"
-    // 插入排序
-    fn insertionSort(nums: []i32) void {
-        // 外迴圈：已排序區間為 [0, i-1]
-        var i: usize = 1;
-        while (i < nums.len) : (i += 1) {
-            var base = nums[i];
-            var j: usize = i;
-            // 內迴圈：將 base 插入到已排序區間 [0, i-1] 中的正確位置
-            while (j >= 1 and nums[j - 1] > base) : (j -= 1) {
-                nums[j] = nums[j - 1];  // 將 nums[j] 向右移動一位
-            }
-            nums[j] = base;             // 將 base 賦值到正確位置
-        }
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 513px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20insertion_sort%28nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20%23%20%E5%A4%96%E8%BF%B4%E5%9C%88%EF%BC%9A%E5%B7%B2%E6%8E%92%E5%BA%8F%E5%8D%80%E9%96%93%E7%82%BA%20%5B0%2C%20i-1%5D%0A%20%20%20%20for%20i%20in%20range%281%2C%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20base%20%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20j%20%3D%20i%20-%201%0A%20%20%20%20%20%20%20%20%23%20%E5%85%A7%E8%BF%B4%E5%9C%88%EF%BC%9A%E5%B0%87%20base%20%E6%8F%92%E5%85%A5%E5%88%B0%E5%B7%B2%E6%8E%92%E5%BA%8F%E5%8D%80%E9%96%93%20%5B0%2C%20i-1%5D%20%E4%B8%AD%E7%9A%84%E6%AD%A3%E7%A2%BA%E4%BD%8D%E7%BD%AE%0A%20%20%20%20%20%20%20%20while%20j%20%3E%3D%200%20and%20nums%5Bj%5D%20%3E%20base%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20nums%5Bj%5D%20%20%23%20%E5%B0%87%20nums%5Bj%5D%20%E5%90%91%E5%8F%B3%E7%A7%BB%E5%8B%95%E4%B8%80%E4%BD%8D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20-%3D%201%0A%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20base%20%20%23%20%E5%B0%87%20base%20%E8%B3%A6%E5%80%BC%E5%88%B0%E6%AD%A3%E7%A2%BA%E4%BD%8D%E7%BD%AE%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B4%2C%201%2C%203%2C%201%2C%205%2C%202%5D%0A%20%20%20%20insertion_sort%28nums%29%0A%20%20%20%20print%28%22%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%BE%8C%20nums%20%3D%22%2C%20nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>

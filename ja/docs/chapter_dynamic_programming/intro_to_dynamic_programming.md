@@ -185,14 +185,6 @@ comments: true
     [class]{}-[func]{climbing_stairs_backtrack}
     ```
 
-=== "Zig"
-
-    ```zig title="climbing_stairs_backtrack.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{climbingStairsBacktrack}
-    ```
-
 ## 14.1.1 &nbsp; 方法1：力任せ探索
 
 バックトラッキングアルゴリズムは問題を明示的に部分問題に分解しません。代わりに、問題を一連の決定ステップとして扱い、試行と枝刈りを通じてすべての可能性を探索します。
@@ -354,14 +346,6 @@ $$
     [class]{}-[func]{dfs}
 
     [class]{}-[func]{climbing_stairs_dfs}
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_dfs.zig"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFS}
     ```
 
 下の図は力任せ探索によって形成される再帰木を示しています。問題 $dp[n]$ について、その再帰木の深さは $n$ で、時間計算量は $O(2^n)$ です。この指数的増加により、$n$ が大きいとプログラムの実行がはるかに遅くなり、長い待機時間が生じます。
@@ -540,14 +524,6 @@ $$
     [class]{}-[func]{climbing_stairs_dfs_mem}
     ```
 
-=== "Zig"
-
-    ```zig title="climbing_stairs_dfs_mem.zig"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFSMem}
-    ```
-
 下の図を観察すると、**メモ化後、すべての重複する部分問題は一度だけ計算される必要があり、時間計算量を $O(n)$ に最適化**します。これは大幅な改善です。
 
 ![メモ化探索による再帰木](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png){ class="animation-figure" }
@@ -679,12 +655,6 @@ $$
     [class]{}-[func]{climbing_stairs_dp}
     ```
 
-=== "Zig"
-
-    ```zig title="climbing_stairs_dp.zig"
-    [class]{}-[func]{climbingStairsDP}
-    ```
-
 下の図は上記コードの実行プロセスをシミュレートしています。
 
 ![階段登りの動的プログラミングプロセス](intro_to_dynamic_programming.assets/climbing_stairs_dp.png){ class="animation-figure" }
@@ -808,12 +778,6 @@ $$
 
     ```ruby title="climbing_stairs_dp.rb"
     [class]{}-[func]{climbing_stairs_dp_comp}
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_dp.zig"
-    [class]{}-[func]{climbingStairsDPComp}
     ```
 
 上記のコードを観察すると、配列 `dp` が占有していた空間が削除されるため、空間計算量は $O(n)$ から $O(1)$ に削減されます。

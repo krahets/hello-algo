@@ -198,20 +198,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    // for 迴圈
-    fn forLoop(n: usize) i32 {
-        var res: i32 = 0;
-        // 迴圈求和 1, 2, ..., n-1, n
-        for (1..n + 1) |i| {
-            res += @intCast(i);
-        }
-        return res;
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20for_loop%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22for%20%E8%BF%B4%E5%9C%88%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E8%BF%B4%E5%9C%88%E6%B1%82%E5%92%8C%201%2C%202%2C%20...%2C%20n-1%2C%20n%0A%20%20%20%20for%20i%20in%20range%281%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cnfor%20%E8%BF%B4%E5%9C%88%E7%9A%84%E6%B1%82%E5%92%8C%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&"> </iframe></div>
@@ -440,21 +426,6 @@ comments: true
 
       res
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    // while 迴圈
-    fn whileLoop(n: i32) i32 {
-        var res: i32 = 0;
-        var i: i32 = 1; // 初始化條件變數
-        // 迴圈求和 1, 2, ..., n-1, n
-        while (i <= n) : (i += 1) {
-            res += @intCast(i);
-        }
-        return res;
-    }
     ```
 
 ??? pythontutor "視覺化執行"
@@ -702,25 +673,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    //  while 迴圈（兩次更新）
-    fn whileLoopII(n: i32) i32 {
-        var res: i32 = 0;
-        var i: i32 = 1; // 初始化條件變數
-        // 迴圈求和 1, 4, 10, ...
-        while (i <= n) : ({
-            // 更新條件變數
-            i += 1;
-            i *= 2;
-        }) {
-            res += @intCast(i);
-        }
-        return res;
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 495px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20while_loop_ii%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22while%20%E8%BF%B4%E5%9C%88%EF%BC%88%E5%85%A9%E6%AC%A1%E6%9B%B4%E6%96%B0%EF%BC%89%22%22%22%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20i%20%3D%201%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A2%9D%E4%BB%B6%E8%AE%8A%E6%95%B8%0A%20%20%20%20%23%20%E8%BF%B4%E5%9C%88%E6%B1%82%E5%92%8C%201%2C%204%2C%2010%2C%20...%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20i%0A%20%20%20%20%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E6%A2%9D%E4%BB%B6%E8%AE%8A%E6%95%B8%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20i%20%2A%3D%202%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20while_loop_ii%28n%29%0A%20%20%20%20print%28f%22%5Cnwhile%20%E8%BF%B4%E5%9C%88%EF%BC%88%E5%85%A9%E6%AC%A1%E6%9B%B4%E6%96%B0%EF%BC%89%E6%B1%82%E5%92%8C%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -956,26 +908,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    // 雙層 for 迴圈
-    fn nestedForLoop(allocator: Allocator, n: usize) ![]const u8 {
-        var res = std.ArrayList(u8).init(allocator);
-        defer res.deinit();
-        var buffer: [20]u8 = undefined;
-        // 迴圈 i = 1, 2, ..., n-1, n
-        for (1..n + 1) |i| {
-            // 迴圈 j = 1, 2, ..., n-1, n
-            for (1..n + 1) |j| {
-                const str = try std.fmt.bufPrint(&buffer, "({d}, {d}), ", .{ i, j });
-                try res.appendSlice(str);
-            }
-        }
-        return res.toOwnedSlice();
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20nested_for_loop%28n%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%22%22%22%E9%9B%99%E5%B1%A4%20for%20%E8%BF%B4%E5%9C%88%22%22%22%0A%20%20%20%20res%20%3D%20%22%22%0A%20%20%20%20%23%20%E8%BF%B4%E5%9C%88%20i%20%3D%201%2C%202%2C%20...%2C%20n-1%2C%20n%0A%20%20%20%20for%20i%20in%20range%281%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E8%BF%B4%E5%9C%88%20j%20%3D%201%2C%202%2C%20...%2C%20n-1%2C%20n%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281%2C%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%2B%3D%20f%22%28%7Bi%7D%2C%20%7Bj%7D%29%2C%20%22%0A%20%20%20%20return%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20nested_for_loop%28n%29%0A%20%20%20%20print%28f%22%5Cn%E9%9B%99%E5%B1%A4%20for%20%E8%BF%B4%E5%9C%88%E7%9A%84%E8%B5%B0%E8%A8%AA%E7%B5%90%E6%9E%9C%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -1199,22 +1131,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    // 遞迴函式
-    fn recur(n: i32) i32 {
-        // 終止條件
-        if (n == 1) {
-            return 1;
-        }
-        // 遞：遞迴呼叫
-        const res = recur(n - 1);
-        // 迴：返回結果
-        return n + res;
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%81%9E%E8%BF%B4%22%22%22%0A%20%20%20%20%23%20%E7%B5%82%E6%AD%A2%E6%A2%9D%E4%BB%B6%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20%23%20%E9%81%9E%EF%BC%9A%E9%81%9E%E8%BF%B4%E5%91%BC%E5%8F%AB%0A%20%20%20%20res%20%3D%20recur%28n%20-%201%29%0A%20%20%20%20%23%20%E8%BF%B4%EF%BC%9A%E8%BF%94%E5%9B%9E%E7%B5%90%E6%9E%9C%0A%20%20%20%20return%20n%20%2B%20res%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20res%20%3D%20recur%28n%29%0A%20%20%20%20print%28f%22%5Cn%E9%81%9E%E8%BF%B4%E5%87%BD%E5%BC%8F%E7%9A%84%E6%B1%82%E5%92%8C%E7%B5%90%E6%9E%9C%20res%20%3D%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -1426,20 +1342,6 @@ comments: true
       # 尾遞迴呼叫
       tail_recur(n - 1, res + n)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    // 尾遞迴函式
-    fn tailRecur(n: i32, res: i32) i32 {
-        // 終止條件
-        if (n == 0) {
-            return res;
-        }
-        // 尾遞迴呼叫
-        return tailRecur(n - 1, res + n);
-    }
     ```
 
 ??? pythontutor "視覺化執行"
@@ -1666,22 +1568,6 @@ comments: true
       # 返回結果 f(n)
       res
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    // 費波那契數列
-    fn fib(n: i32) i32 {
-        // 終止條件 f(1) = 0, f(2) = 1
-        if (n == 1 or n == 2) {
-            return n - 1;
-        }
-        // 遞迴呼叫 f(n) = f(n-1) + f(n-2)
-        const res: i32 = fib(n - 1) + fib(n - 2);
-        // 返回結果 f(n)
-        return res;
-    }
     ```
 
 ??? pythontutor "視覺化執行"
@@ -2027,31 +1913,6 @@ comments: true
       # res = 1+2+3+...+n
       res
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    // 使用迭代模擬遞迴
-    fn forLoopRecur(comptime n: i32) i32 {
-        // 使用一個顯式的堆疊來模擬系統呼叫堆疊
-        var stack: [n]i32 = undefined;
-        var res: i32 = 0;
-        // 遞：遞迴呼叫
-        var i: usize = n;
-        while (i > 0) {
-            stack[i - 1] = @intCast(i);
-            i -= 1;
-        }
-        // 迴：返回結果
-        var index: usize = n;
-        while (index > 0) {
-            index -= 1;
-            res += stack[index];
-        }
-        // res = 1+2+3+...+n
-        return res;
-    }
     ```
 
 ??? pythontutor "視覺化執行"

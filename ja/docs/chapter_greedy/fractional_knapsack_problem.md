@@ -231,14 +231,6 @@ comments: true
     [class]{}-[func]{fractional_knapsack}
     ```
 
-=== "Zig"
-
-    ```zig title="fractional_knapsack.zig"
-    [class]{Item}-[func]{}
-
-    [class]{}-[func]{fractionalKnapsack}
-    ```
-
 ソート以外に、最悪の場合、アイテムのリスト全体を走査する必要があるため、**時間計算量は $O(n)$** です。ここで $n$ はアイテムの数です。
 
 `Item` オブジェクトリストが初期化されるため、**空間計算量は $O(n)$** です。

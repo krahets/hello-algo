@@ -191,26 +191,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 鏈結串列節點類別
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 節點值
-            next: ?*Self = null, // 指向下一節點的指標
-
-            // 建構子
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-            }
-        };
-    }
-    ```
-
 ## 4.2.1 &nbsp; 鏈結串列常用操作
 
 ### 1. &nbsp; 初始化鏈結串列
@@ -439,23 +419,6 @@ comments: true
     n3.next = n4
     ```
 
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // 初始化鏈結串列
-    // 初始化各個節點
-    var n0 = inc.ListNode(i32){.val = 1};
-    var n1 = inc.ListNode(i32){.val = 3};
-    var n2 = inc.ListNode(i32){.val = 2};
-    var n3 = inc.ListNode(i32){.val = 5};
-    var n4 = inc.ListNode(i32){.val = 4};
-    // 構建節點之間的引用
-    n0.next = &n1;
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B9%BC%E7%AF%80%E9%BB%9E%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E5%80%8B%E7%AF%80%E9%BB%9E%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%A7%8B%E5%BB%BA%E7%AF%80%E9%BB%9E%E4%B9%8B%E9%96%93%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -615,17 +578,6 @@ comments: true
       _p.next = n1
       n0.next = _p
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // 在鏈結串列的節點 n0 之後插入節點 P
-    fn insert(comptime T: type, n0: *ListNode(T), P: *ListNode(T)) void {
-        const n1 = n0.next;
-        P.next = n1;
-        n0.next = P;
-    }
     ```
 
 ??? pythontutor "視覺化執行"
@@ -831,18 +783,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // 刪除鏈結串列的節點 n0 之後的首個節點
-    fn remove(comptime T: type, n0: *ListNode(T)) void {
-        // n0 -> P -> n1 => n0 -> n1
-        const P = n0.next;
-        const n1 = P.?.next;
-        n0.next = n1;
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B9%BC%E7%AF%80%E9%BB%9E%E5%BC%95%E7%94%A8%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E5%88%AA%E9%99%A4%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%9A%84%E7%AF%80%E9%BB%9E%20n0%20%E4%B9%8B%E5%BE%8C%E7%9A%84%E9%A6%96%E5%80%8B%E7%AF%80%E9%BB%9E%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E5%80%8B%E7%AF%80%E9%BB%9E%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%A7%8B%E5%BB%BA%E7%AF%80%E9%BB%9E%E4%B9%8B%E9%96%93%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E7%AF%80%E9%BB%9E%0A%20%20%20%20remove%28n0%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -1045,24 +985,6 @@ comments: true
 
       head
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // 訪問鏈結串列中索引為 index 的節點
-    fn access(comptime T: type, node: *ListNode(T), index: i32) ?*ListNode(T) {
-        var head: ?*ListNode(T) = node;
-        var i: i32 = 0;
-        while (i < index) : (i += 1) {
-            if (head) |cur| {
-                head = cur.next;
-            } else {
-                return null;
-            }
-        }
-        return head;
-    }
     ```
 
 ??? pythontutor "視覺化執行"
@@ -1289,22 +1211,6 @@ comments: true
 
       -1
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // 在鏈結串列中查詢值為 target 的首個節點
-    fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
-        var head: ?*ListNode(T) = node;
-        var index: i32 = 0;
-        while (head) |cur| {
-            if (cur.val == target) return index;
-            head = cur.next;
-            index += 1;
-        }
-        return -1;
-    }
     ```
 
 ??? pythontutor "視覺化執行"
@@ -1535,28 +1441,6 @@ comments: true
         @prev = prev_node
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    // 雙向鏈結串列節點類別
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 節點值
-            next: ?*Self = null, // 指向後繼節點的指標
-            prev: ?*Self = null, // 指向前驅節點的指標
-
-            // 建構子
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-                self.prev = null;
-            }
-        };
-    }
     ```
 
 ![常見鏈結串列種類](linked_list.assets/linkedlist_common_types.png){ class="animation-figure" }

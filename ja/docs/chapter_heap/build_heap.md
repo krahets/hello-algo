@@ -127,12 +127,6 @@ comments: true
     [class]{MaxHeap}-[func]{initialize}
     ```
 
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{init}
-    ```
-
 ## 8.2.3 &nbsp; 計算量分析
 
 次に、この第2のヒープ構築方法の時間計算量を計算してみましょう。

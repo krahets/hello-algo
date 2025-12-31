@@ -366,12 +366,6 @@ comments: true
     is_empty = queue.empty?
     ```
 
-=== "Zig"
-
-    ```zig title="queue.zig"
-
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BD%87%E5%88%97%0A%20%20%20%20%23%20%E5%9C%A8%20Python%20%E4%B8%AD%EF%BC%8C%E6%88%91%E5%80%91%E4%B8%80%E8%88%AC%E5%B0%87%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E9%A1%9E%E5%88%A5%20deque%20%E7%9C%8B%E4%BD%9C%E4%BD%87%E5%88%97%E4%BD%BF%E7%94%A8%0A%20%20%20%20%23%20%E9%9B%96%E7%84%B6%20queue.Queue%28%29%20%E6%98%AF%E7%B4%94%E6%AD%A3%E7%9A%84%E4%BD%87%E5%88%97%E9%A1%9E%E5%88%A5%EF%BC%8C%E4%BD%86%E4%B8%8D%E5%A4%AA%E5%A5%BD%E7%94%A8%0A%20%20%20%20que%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E5%88%97%0A%20%20%20%20que.append%281%29%0A%20%20%20%20que.append%283%29%0A%20%20%20%20que.append%282%29%0A%20%20%20%20que.append%285%29%0A%20%20%20%20que.append%284%29%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%20que%20%3D%22%2C%20que%29%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E4%BD%87%E5%88%97%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20que%5B0%5D%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22%2C%20front%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E5%88%97%0A%20%20%20%20pop%20%3D%20que.popleft%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%88%97%E5%85%83%E7%B4%A0%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%88%97%E5%BE%8C%20que%20%3D%22%2C%20que%29%0A%0A%20%20%20%20%23%20%E7%8D%B2%E5%8F%96%E4%BD%87%E5%88%97%E7%9A%84%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28que%29%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E9%95%B7%E5%BA%A6%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E4%BD%87%E5%88%97%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28que%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -1315,95 +1309,6 @@ comments: true
         queue
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="linkedlist_queue.zig"
-    // 基於鏈結串列實現的佇列
-    fn LinkedListQueue(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            front: ?*inc.ListNode(T) = null,                // 頭節點 front
-            rear: ?*inc.ListNode(T) = null,                 // 尾節點 rear
-            que_size: usize = 0,                            // 佇列的長度
-            mem_arena: ?std.heap.ArenaAllocator = null,
-            mem_allocator: std.mem.Allocator = undefined,   // 記憶體分配器
-
-            // 建構子（分配記憶體+初始化佇列）
-            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
-                if (self.mem_arena == null) {
-                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
-                    self.mem_allocator = self.mem_arena.?.allocator();
-                }
-                self.front = null;
-                self.rear = null;
-                self.que_size = 0;
-            }
-
-            // 析構函式（釋放記憶體）
-            pub fn deinit(self: *Self) void {
-                if (self.mem_arena == null) return;
-                self.mem_arena.?.deinit();
-            }
-
-            // 獲取佇列的長度
-            pub fn size(self: *Self) usize {
-                return self.que_size;
-            }
-
-            // 判斷佇列是否為空
-            pub fn isEmpty(self: *Self) bool {
-                return self.size() == 0;
-            }
-
-            // 訪問佇列首元素
-            pub fn peek(self: *Self) T {
-                if (self.size() == 0) @panic("佇列為空");
-                return self.front.?.val;
-            }  
-
-            // 入列
-            pub fn push(self: *Self, num: T) !void {
-                // 在尾節點後新增 num
-                var node = try self.mem_allocator.create(inc.ListNode(T));
-                node.init(num);
-                // 如果佇列為空，則令頭、尾節點都指向該節點
-                if (self.front == null) {
-                    self.front = node;
-                    self.rear = node;
-                // 如果佇列不為空，則將該節點新增到尾節點後
-                } else {
-                    self.rear.?.next = node;
-                    self.rear = node;
-                }
-                self.que_size += 1;
-            } 
-
-            // 出列
-            pub fn pop(self: *Self) T {
-                var num = self.peek();
-                // 刪除頭節點
-                self.front = self.front.?.next;
-                self.que_size -= 1;
-                return num;
-            } 
-
-            // 將鏈結串列轉換為陣列
-            pub fn toArray(self: *Self) ![]T {
-                var node = self.front;
-                var res = try self.mem_allocator.alloc(T, self.size());
-                @memset(res, @as(T, 0));
-                var i: usize = 0;
-                while (i < res.len) : (i += 1) {
-                    res[i] = node.?.val;
-                    node = node.?.next;
-                }
-                return res;
-            }
-        };
-    }
     ```
 
 ??? pythontutor "視覺化執行"
@@ -2379,98 +2284,6 @@ comments: true
         res
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="array_queue.zig"
-    // 基於環形陣列實現的佇列
-    fn ArrayQueue(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            nums: []T = undefined,                          // 用於儲存佇列元素的陣列     
-            cap: usize = 0,                                 // 佇列容量
-            front: usize = 0,                               // 佇列首指標，指向佇列首元素
-            queSize: usize = 0,                             // 尾指標，指向佇列尾 + 1
-            mem_arena: ?std.heap.ArenaAllocator = null,
-            mem_allocator: std.mem.Allocator = undefined,   // 記憶體分配器
-
-            // 建構子（分配記憶體+初始化陣列）
-            pub fn init(self: *Self, allocator: std.mem.Allocator, cap: usize) !void {
-                if (self.mem_arena == null) {
-                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
-                    self.mem_allocator = self.mem_arena.?.allocator();
-                }
-                self.cap = cap;
-                self.nums = try self.mem_allocator.alloc(T, self.cap);
-                @memset(self.nums, @as(T, 0));
-            }
-            
-            // 析構函式（釋放記憶體）
-            pub fn deinit(self: *Self) void {
-                if (self.mem_arena == null) return;
-                self.mem_arena.?.deinit();
-            }
-
-            // 獲取佇列的容量
-            pub fn capacity(self: *Self) usize {
-                return self.cap;
-            }
-
-            // 獲取佇列的長度
-            pub fn size(self: *Self) usize {
-                return self.queSize;
-            }
-
-            // 判斷佇列是否為空
-            pub fn isEmpty(self: *Self) bool {
-                return self.queSize == 0;
-            }
-
-            // 入列
-            pub fn push(self: *Self, num: T) !void {
-                if (self.size() == self.capacity()) {
-                    std.debug.print("佇列已滿\n", .{});
-                    return;
-                }
-                // 計算佇列尾指標，指向佇列尾索引 + 1
-                // 透過取餘操作實現 rear 越過陣列尾部後回到頭部
-                var rear = (self.front + self.queSize) % self.capacity();
-                // 在尾節點後新增 num
-                self.nums[rear] = num;
-                self.queSize += 1;
-            } 
-
-            // 出列
-            pub fn pop(self: *Self) T {
-                var num = self.peek();
-                // 佇列首指標向後移動一位，若越過尾部，則返回到陣列頭部
-                self.front = (self.front + 1) % self.capacity();
-                self.queSize -= 1;
-                return num;
-            } 
-
-            // 訪問佇列首元素
-            pub fn peek(self: *Self) T {
-                if (self.isEmpty()) @panic("佇列為空");
-                return self.nums[self.front];
-            } 
-
-            // 返回陣列
-            pub fn toArray(self: *Self) ![]T {
-                // 僅轉換有效長度範圍內的串列元素
-                var res = try self.mem_allocator.alloc(T, self.size());
-                @memset(res, @as(T, 0));
-                var i: usize = 0;
-                var j: usize = self.front;
-                while (i < self.size()) : ({ i += 1; j += 1; }) {
-                    res[i] = self.nums[j % self.capacity()];
-                }
-                return res;
-            }
-        };
-    }
     ```
 
 ??? pythontutor "視覺化執行"

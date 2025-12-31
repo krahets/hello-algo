@@ -214,11 +214,3 @@ comments: true
 
     [class]{}-[func]{binary_search}
     ```
-
-=== "Zig"
-
-    ```zig title="binary_search_recur.zig"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{binarySearch}
-    ```

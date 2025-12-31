@@ -274,14 +274,6 @@ comments: true
     [class]{}-[func]{merge_sort}
     ```
 
-=== "Zig"
-
-    ```zig title="merge_sort.zig"
-    [class]{}-[func]{merge}
-
-    [class]{}-[func]{mergeSort}
-    ```
-
 ## 11.6.2 &nbsp; アルゴリズムの特性
 
 - **$O(n \log n)$の時間計算量、非適応ソート**：分割により高さ$\log n$の再帰ツリーが作成され、各層で合計$n$回の操作をマージし、全体的な時間計算量は$O(n \log n)$となります。

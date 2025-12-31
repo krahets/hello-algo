@@ -361,12 +361,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="counting_sort.zig"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20counting_sort_naive%28nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22%E8%A8%88%E6%95%B8%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20%23%20%E7%B0%A1%E5%96%AE%E5%AF%A6%E7%8F%BE%EF%BC%8C%E7%84%A1%E6%B3%95%E7%94%A8%E6%96%BC%E6%8E%92%E5%BA%8F%E7%89%A9%E4%BB%B6%0A%20%20%20%20%23%201.%20%E7%B5%B1%E8%A8%88%E9%99%A3%E5%88%97%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0%20m%0A%20%20%20%20m%20%3D%200%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20max%28m%2C%20num%29%0A%20%20%20%20%23%202.%20%E7%B5%B1%E8%A8%88%E5%90%84%E6%95%B8%E5%AD%97%E7%9A%84%E5%87%BA%E7%8F%BE%E6%AC%A1%E6%95%B8%0A%20%20%20%20%23%20counter%5Bnum%5D%20%E4%BB%A3%E8%A1%A8%20num%20%E7%9A%84%E5%87%BA%E7%8F%BE%E6%AC%A1%E6%95%B8%0A%20%20%20%20counter%20%3D%20%5B0%5D%20%2A%20%28m%20%2B%201%29%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20counter%5Bnum%5D%20%2B%3D%201%0A%20%20%20%20%23%203.%20%E8%B5%B0%E8%A8%AA%20counter%20%EF%BC%8C%E5%B0%87%E5%90%84%E5%85%83%E7%B4%A0%E5%A1%AB%E5%85%A5%E5%8E%9F%E9%99%A3%E5%88%97%20nums%0A%20%20%20%20i%20%3D%200%0A%20%20%20%20for%20num%20in%20range%28m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28counter%5Bnum%5D%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bi%5D%20%3D%20num%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1%2C%200%2C%201%2C%202%2C%200%2C%204%2C%200%2C%202%2C%202%2C%204%5D%0A%20%20%20%20counting_sort_naive%28nums%29%0A%20%20%20%20print%28f%22%E8%A8%88%E6%95%B8%E6%8E%92%E5%BA%8F%EF%BC%88%E7%84%A1%E6%B3%95%E6%8E%92%E5%BA%8F%E7%89%A9%E4%BB%B6%EF%BC%89%E5%AE%8C%E6%88%90%E5%BE%8C%20nums%20%3D%20%7Bnums%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -881,12 +875,6 @@ $$
       # 使用結果陣列 res 覆蓋原陣列 nums
       (0...n).each { |i| nums[i] = res[i] }
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="counting_sort.zig"
-    [class]{}-[func]{countingSort}
     ```
 
 ??? pythontutor "視覺化執行"

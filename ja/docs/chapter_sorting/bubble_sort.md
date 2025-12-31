@@ -160,12 +160,6 @@ comments: true
     [class]{}-[func]{bubble_sort}
     ```
 
-=== "Zig"
-
-    ```zig title="bubble_sort.zig"
-    [class]{}-[func]{bubbleSort}
-    ```
-
 ## 11.3.2 &nbsp; 効率の最適化
 
 「バブリング」のラウンド中に交換が発生しない場合、配列はすでにソートされているため、すぐに戻ることができます。これを検出するために、`flag`変数を追加できます；パスで交換が行われない場合は、フラグを設定して早期に戻ります。
@@ -296,12 +290,6 @@ comments: true
 
     ```ruby title="bubble_sort.rb"
     [class]{}-[func]{bubble_sort_with_flag}
-    ```
-
-=== "Zig"
-
-    ```zig title="bubble_sort.zig"
-    [class]{}-[func]{bubbleSortWithFlag}
     ```
 
 ## 11.3.3 &nbsp; アルゴリズムの特性

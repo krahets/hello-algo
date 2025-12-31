@@ -312,12 +312,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title="stack.zig"
-
-    ```
-
 ## 5.1.2 &nbsp; スタックの実装
 
 スタックがどのように動作するかをより深く理解するために、自分でスタッククラスを実装してみましょう。
@@ -580,12 +574,6 @@ comments: true
     [class]{LinkedListStack}-[func]{}
     ```
 
-=== "Zig"
-
-    ```zig title="linkedlist_stack.zig"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
 ### 2. &nbsp; 配列ベースの実装
 
 配列を使用してスタックを実装する場合、配列の末尾をスタックのトップと考えることができます。下図に示すように、プッシュとポップ操作は、それぞれ配列の末尾での要素の追加と削除に対応し、どちらも時間計算量$O(1)$です。
@@ -792,12 +780,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_stack.rb"
-    [class]{ArrayStack}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_stack.zig"
     [class]{ArrayStack}-[func]{}
     ```
 

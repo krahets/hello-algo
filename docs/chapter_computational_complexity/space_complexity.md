@@ -367,12 +367,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 ## 2.4.2 &nbsp; 推算方法
 
 空间复杂度的推算方法与时间复杂度大致相同，只需将统计对象从“操作数量”转为“使用空间大小”。
@@ -533,12 +527,6 @@ comments: true
         b = Array.new(10000)            # O(1)
         nums = Array.new(n) if n > 10   # O(n)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 **在递归函数中，需要注意统计栈帧空间**。观察以下代码：
@@ -811,12 +799,6 @@ comments: true
         return if n == 1
         recur(n - 1)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 函数 `loop()` 和 `recur()` 的时间复杂度都为 $O(n)$ ，但空间复杂度不同。
@@ -1195,40 +1177,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    // 函数
-    fn function() i32 {
-        // 执行某些操作
-        return 0;
-    }
-
-    // 常数阶
-    fn constant(n: i32) void {
-        // 常量、变量、对象占用 O(1) 空间
-        const a: i32 = 0;
-        const b: i32 = 0;
-        const nums = [_]i32{0} ** 10000;
-        const node = ListNode(i32){ .val = 0 };
-        var i: i32 = 0;
-        // 循环中的变量占用 O(1) 空间
-        while (i < n) : (i += 1) {
-            const c: i32 = 0;
-            _ = c;
-        }
-        // 循环中的函数占用 O(1) 空间
-        i = 0;
-        while (i < n) : (i += 1) {
-            _ = function();
-        }
-        _ = a;
-        _ = b;
-        _ = nums;
-        _ = node;
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0Adef%20function%28%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%87%BD%E6%95%B0%22%22%22%0A%20%20%20%20%23%20%E6%89%A7%E8%A1%8C%E6%9F%90%E4%BA%9B%E6%93%8D%E4%BD%9C%0A%20%20%20%20return%200%0A%0Adef%20constant%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%B8%B8%E6%95%B0%E9%98%B6%22%22%22%0A%20%20%20%20%23%20%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%AF%B9%E8%B1%A1%E5%8D%A0%E7%94%A8%20O%281%29%20%E7%A9%BA%E9%97%B4%0A%20%20%20%20a%20%3D%200%0A%20%20%20%20nums%20%3D%20%5B0%5D%20*%2010%0A%20%20%20%20node%20%3D%20ListNode%280%29%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E5%8D%A0%E7%94%A8%20O%281%29%20%E7%A9%BA%E9%97%B4%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20c%20%3D%200%0A%20%20%20%20%23%20%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%E5%8D%A0%E7%94%A8%20O%281%29%20%E7%A9%BA%E9%97%B4%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20function%28%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E5%B8%B8%E6%95%B0%E9%98%B6%0A%20%20%20%20constant%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -1507,33 +1455,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    // 线性阶
-    fn linear(comptime n: i32) !void {
-        // 长度为 n 的数组占用 O(n) 空间
-        const nums = [_]i32{0} ** n;
-        // 长度为 n 的列表占用 O(n) 空间
-        var nodes = std.ArrayList(i32).init(std.heap.page_allocator);
-        defer nodes.deinit();
-        var i: i32 = 0;
-        while (i < n) : (i += 1) {
-            try nodes.append(i);
-        }
-        // 长度为 n 的哈希表占用 O(n) 空间
-        var map = std.AutoArrayHashMap(i32, []const u8).init(std.heap.page_allocator);
-        defer map.deinit();
-        var j: i32 = 0;
-        while (j < n) : (j += 1) {
-            const string = try std.fmt.allocPrint(std.heap.page_allocator, "{d}", .{j});
-            defer std.heap.page_allocator.free(string);
-            try map.put(i, string);
-        }
-        _ = nums;
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E7%BA%BF%E6%80%A7%E9%98%B6%22%22%22%0A%20%20%20%20%23%20%E9%95%BF%E5%BA%A6%E4%B8%BA%20n%20%E7%9A%84%E5%88%97%E8%A1%A8%E5%8D%A0%E7%94%A8%20O%28n%29%20%E7%A9%BA%E9%97%B4%0A%20%20%20%20nums%20%3D%20%5B0%5D%20*%20n%0A%20%20%20%20%23%20%E9%95%BF%E5%BA%A6%E4%B8%BA%20n%20%E7%9A%84%E5%93%88%E5%B8%8C%E8%A1%A8%E5%8D%A0%E7%94%A8%20O%28n%29%20%E7%A9%BA%E9%97%B4%0A%20%20%20%20hmap%20%3D%20dict%5Bint,%20str%5D%28%29%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20hmap%5Bi%5D%20%3D%20str%28i%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E7%BA%BF%E6%80%A7%E9%98%B6%0A%20%20%20%20linear%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=20&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -1692,17 +1613,6 @@ $$
       return if n == 1
       linear_recur(n - 1)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    // 线性阶（递归实现）
-    fn linearRecur(comptime n: i32) void {
-        std.debug.print("递归 n = {}\n", .{n});
-        if (n == 1) return;
-        linearRecur(n - 1);
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -1938,27 +1848,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    // 平方阶
-    fn quadratic(n: i32) !void {
-        // 二维列表占用 O(n^2) 空间
-        var nodes = std.ArrayList(std.ArrayList(i32)).init(std.heap.page_allocator);
-        defer nodes.deinit();
-        var i: i32 = 0;
-        while (i < n) : (i += 1) {
-            var tmp = std.ArrayList(i32).init(std.heap.page_allocator);
-            defer tmp.deinit();
-            var j: i32 = 0;
-            while (j < n) : (j += 1) {
-                try tmp.append(0);
-            }
-            try nodes.append(tmp);
-        }
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 405px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%B9%B3%E6%96%B9%E9%98%B6%22%22%22%0A%20%20%20%20%23%20%E4%BA%8C%E7%BB%B4%E5%88%97%E8%A1%A8%E5%8D%A0%E7%94%A8%20O%28n%5E2%29%20%E7%A9%BA%E9%97%B4%0A%20%20%20%20num_matrix%20%3D%20%5B%5B0%5D%20*%20n%20for%20_%20in%20range%28n%29%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%A4%A7%E5%B0%8F%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E5%B9%B3%E6%96%B9%E9%98%B6%0A%20%20%20%20quadratic%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=16&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -2138,18 +2027,6 @@ $$
       nums = Array.new(n, 0)
       quadratic_recur(n - 1)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    // 平方阶（递归实现）
-    fn quadraticRecur(comptime n: i32) i32 {
-        if (n <= 0) return 0;
-        const nums = [_]i32{0} ** n;
-        std.debug.print("递归 n = {} 中的 nums 长度 = {}\n", .{ n, nums.len });
-        return quadraticRecur(n - 1);
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -2344,20 +2221,6 @@ $$
         root.right = build_tree(n - 1)
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    // 指数阶（建立满二叉树）
-    fn buildTree(allocator: std.mem.Allocator, n: i32) !?*TreeNode(i32) {
-        if (n == 0) return null;
-        const root = try allocator.create(TreeNode(i32));
-        root.init(0);
-        root.left = try buildTree(allocator, n - 1);
-        root.right = try buildTree(allocator, n - 1);
-        return root;
-    }
     ```
 
 ??? pythontutor "可视化运行"

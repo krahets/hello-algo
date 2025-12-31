@@ -178,12 +178,6 @@ BFSは通常キューの助けを借りて実装されます（下記のコー�
     [class]{}-[func]{graph_bfs}
     ```
 
-=== "Zig"
-
-    ```zig title="graph_bfs.zig"
-    [class]{}-[func]{graphBFS}
-    ```
-
 コードは比較的抽象的ですが、下図と比較することでより良く理解できます。
 
 === "<1>"
@@ -404,14 +398,6 @@ BFSは通常キューの助けを借りて実装されます（下記のコー�
     [class]{}-[func]{dfs}
 
     [class]{}-[func]{graph_dfs}
-    ```
-
-=== "Zig"
-
-    ```zig title="graph_dfs.zig"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graphDFS}
     ```
 
 深さ優先探索のアルゴリズムプロセスを下図に示します。

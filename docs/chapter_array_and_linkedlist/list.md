@@ -151,15 +151,6 @@ comments: true
     nums = [1, 3, 2, 5, 4]
     ```
 
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 初始化列表
-    var nums = std.ArrayList(i32).init(std.heap.page_allocator);
-    defer nums.deinit();
-    try nums.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20%23%20%E6%97%A0%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -290,16 +281,6 @@ comments: true
     num = nums[1] # 访问索引 1 处的元素
     # 更新元素
     nums[1] = 0 # 将索引 1 处的元素更新为 0
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 访问元素
-    var num = nums.items[1]; // 访问索引 1 处的元素
-
-    // 更新元素
-    nums.items[1] = 0; // 将索引 1 处的元素更新为 0
     ```
 
 ??? pythontutor "可视化运行"
@@ -557,26 +538,6 @@ comments: true
     nums.delete_at(3) # 删除索引 3 处的元素
     ```
 
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 清空列表
-    nums.clearRetainingCapacity();
-
-    // 在尾部添加元素
-    try nums.append(1);
-    try nums.append(3);
-    try nums.append(2);
-    try nums.append(5);
-    try nums.append(4);
-
-    // 在中间插入元素
-    try nums.insert(3, 6); // 在索引 3 处插入数字 6
-
-    // 删除元素
-    _ = nums.orderedRemove(3); // 删除索引 3 处的元素
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B8%85%E7%A9%BA%E5%88%97%E8%A1%A8%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E5%B0%BE%E9%83%A8%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E4%B8%AD%E9%97%B4%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.insert%283,%206%29%20%20%23%20%E5%9C%A8%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E6%8F%92%E5%85%A5%E6%95%B0%E5%AD%97%206%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -779,23 +740,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 通过索引遍历列表
-    var count: i32 = 0;
-    var i: i32 = 0;
-    while (i < nums.items.len) : (i += 1) {
-        count += nums[i];
-    }
-
-    // 直接遍历列表元素
-    count = 0;
-    for (nums.items) |num| {
-        count += num;
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%9A%E8%BF%87%E7%B4%A2%E5%BC%95%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E7%9B%B4%E6%8E%A5%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -908,16 +852,6 @@ comments: true
     nums += nums1
     ```
 
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 拼接两个列表
-    var nums1 = std.ArrayList(i32).init(std.heap.page_allocator);
-    defer nums1.deinit();
-    try nums1.appendSlice(&[_]i32{ 6, 8, 7, 10, 9 });
-    try nums.insertSlice(nums.items.len, nums1.items); // 将列表 nums1 拼接到 nums 之后
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 333px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%8B%BC%E6%8E%A5%E4%B8%A4%E4%B8%AA%E5%88%97%E8%A1%A8%0A%20%20%20%20nums1%20%3D%20%5B6,%208,%207,%2010,%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20%E5%B0%86%E5%88%97%E8%A1%A8%20nums1%20%E6%8B%BC%E6%8E%A5%E5%88%B0%20nums%20%E4%B9%8B%E5%90%8E&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -1015,13 +949,6 @@ comments: true
     ```ruby title="list.rb"
     # 排序列表
     nums = nums.sort { |a, b| a <=> b } # 排序后，列表元素从小到大排列
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 排序列表
-    std.sort.sort(i32, nums.items, {}, comptime std.sort.asc(i32));
     ```
 
 ??? pythontutor "可视化运行"
@@ -2366,163 +2293,6 @@ comments: true
         arr
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="my_list.zig"
-    // 列表类
-    const MyList = struct {
-        const Self = @This();
-
-        items: []i32, // 数组（存储列表元素）
-        capacity: usize, // 列表容量
-        allocator: std.mem.Allocator, // 内存分配器
-
-        extend_ratio: usize = 2, // 每次列表扩容的倍数
-
-        // 构造函数（分配内存+初始化列表）
-        pub fn init(allocator: std.mem.Allocator) Self {
-            return Self{
-                .items = &[_]i32{},
-                .capacity = 0,
-                .allocator = allocator,
-            };
-        }
-
-        // 析构函数（释放内存）
-        pub fn deinit(self: Self) void {
-            self.allocator.free(self.allocatedSlice());
-        }
-
-        // 在尾部添加元素
-        pub fn add(self: *Self, item: i32) !void {
-            // 元素数量超出容量时，触发扩容机制
-            const newlen = self.items.len + 1;
-            try self.ensureTotalCapacity(newlen);
-
-            // 更新元素
-            self.items.len += 1;
-            const new_item_ptr = &self.items[self.items.len - 1];
-            new_item_ptr.* = item;
-        }
-
-        // 获取列表长度（当前元素数量）
-        pub fn getSize(self: *Self) usize {
-            return self.items.len;
-        }
-
-        // 获取列表容量
-        pub fn getCapacity(self: *Self) usize {
-            return self.capacity;
-        }
-
-        // 访问元素
-        pub fn get(self: *Self, index: usize) i32 {
-            // 索引如果越界，则抛出异常，下同
-            if (index < 0 or index >= self.items.len) {
-                @panic("索引越界");
-            }
-            return self.items[index];
-        }
-
-        // 更新元素
-        pub fn set(self: *Self, index: usize, num: i32) void {
-            // 索引如果越界，则抛出异常，下同
-            if (index < 0 or index >= self.items.len) {
-                @panic("索引越界");
-            }
-            self.items[index] = num;
-        }
-
-        // 在中间插入元素
-        pub fn insert(self: *Self, index: usize, item: i32) !void {
-            if (index < 0 or index >= self.items.len) {
-                @panic("索引越界");
-            }
-
-            // 元素数量超出容量时，触发扩容机制
-            const newlen = self.items.len + 1;
-            try self.ensureTotalCapacity(newlen);
-
-            // 将索引 index 以及之后的元素都向后移动一位
-            self.items.len += 1;
-            var i = self.items.len - 1;
-            while (i >= index) : (i -= 1) {
-                self.items[i] = self.items[i - 1];
-            }
-            self.items[index] = item;
-        }
-
-        // 删除元素
-        pub fn remove(self: *Self, index: usize) i32 {
-            if (index < 0 or index >= self.getSize()) {
-                @panic("索引越界");
-            }
-            // 将索引 index 之后的元素都向前移动一位
-            const item = self.items[index];
-            var i = index;
-            while (i < self.items.len - 1) : (i += 1) {
-                self.items[i] = self.items[i + 1];
-            }
-            self.items.len -= 1;
-            // 返回被删除的元素
-            return item;
-        }
-
-        // 将列表转换为数组
-        pub fn toArraySlice(self: *Self) ![]i32 {
-            return self.toOwnedSlice(false);
-        }
-
-        // 返回新的切片并设置是否要重置或清空列表容器
-        pub fn toOwnedSlice(self: *Self, clear: bool) ![]i32 {
-            const allocator = self.allocator;
-            const old_memory = self.allocatedSlice();
-            if (allocator.remap(old_memory, self.items.len)) |new_items| {
-                if (clear) {
-                    self.* = init(allocator);
-                }
-                return new_items;
-            }
-
-            const new_memory = try allocator.alloc(i32, self.items.len);
-            @memcpy(new_memory, self.items);
-            if (clear) {
-                self.clearAndFree();
-            }
-            return new_memory;
-        }
-
-        // 列表扩容
-        fn ensureTotalCapacity(self: *Self, new_capacity: usize) !void {
-            if (self.capacity >= new_capacity) return;
-            const capcacity = if (self.capacity == 0) 10 else self.capacity;
-            const better_capacity = capcacity * self.extend_ratio;
-
-            const old_memory = self.allocatedSlice();
-            if (self.allocator.remap(old_memory, better_capacity)) |new_memory| {
-                self.items.ptr = new_memory.ptr;
-                self.capacity = new_memory.len;
-            } else {
-                const new_memory = try self.allocator.alloc(i32, better_capacity);
-                @memcpy(new_memory[0..self.items.len], self.items);
-                self.allocator.free(old_memory);
-                self.items.ptr = new_memory.ptr;
-                self.capacity = new_memory.len;
-            }
-        }
-
-        fn clearAndFree(self: *Self, allocator: std.mem.Allocator) void {
-            allocator.free(self.allocatedSlice());
-            self.items.len = 0;
-            self.capacity = 0;
-        }
-
-        fn allocatedSlice(self: Self) []i32 {
-            return self.items.ptr[0..self.capacity];
-        }
-    };
     ```
 
 ??? pythontutor "可视化运行"

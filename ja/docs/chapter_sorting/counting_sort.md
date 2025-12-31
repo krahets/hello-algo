@@ -157,12 +157,6 @@ comments: true
     [class]{}-[func]{counting_sort_naive}
     ```
 
-=== "Zig"
-
-    ```zig title="counting_sort.zig"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
 !!! note "計数ソートとバケットソートの関係"
 
     バケットソートの観点から、計数ソートにおける計数配列 `counter` の各インデックスをバケットと考え、カウントの過程を要素を対応するバケットに分散させることと考えることができます。本質的に、計数ソートは整数データのためのバケットソートの特別なケースです。
@@ -374,12 +368,6 @@ $$
 
     ```ruby title="counting_sort.rb"
     [class]{}-[func]{counting_sort}
-    ```
-
-=== "Zig"
-
-    ```zig title="counting_sort.zig"
-    [class]{}-[func]{countingSort}
     ```
 
 ## 11.9.3 &nbsp; アルゴリズムの特徴

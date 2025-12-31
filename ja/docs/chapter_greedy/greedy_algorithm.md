@@ -151,12 +151,6 @@ comments: true
     [class]{}-[func]{coin_change_greedy}
     ```
 
-=== "Zig"
-
-    ```zig title="coin_change_greedy.zig"
-    [class]{}-[func]{coinChangeGreedy}
-    ```
-
 感嘆するかもしれません：なんて簡潔なんだ！貪欲アルゴリズムは約10行のコードでコイン交換問題を解決します。
 
 ## 15.1.1 &nbsp; 貪欲アルゴリズムの利点と制限

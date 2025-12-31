@@ -125,12 +125,6 @@ comments: true
     [class]{}-[func]{binary_search_left_edge}
     ```
 
-=== "Zig"
-
-    ```zig title="binary_search_edge.zig"
-    [class]{}-[func]{binarySearchLeftEdge}
-    ```
-
 ## 10.3.2 &nbsp; 右境界を見つける
 
 `target`の最も右の出現をどのように見つけるでしょうか？最も直接的な方法は、`nums[m] == target`の場合に探索境界を調整する方法を変更して、従来の二分探索ロジックを修正することです。コードはここでは省略されています。興味がある場合は、自分でコードを実装してみてください。
@@ -259,12 +253,6 @@ comments: true
 
     ```ruby title="binary_search_edge.rb"
     [class]{}-[func]{binary_search_right_edge}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_edge.zig"
-    [class]{}-[func]{binarySearchRightEdge}
     ```
 
 ### 2. &nbsp; 要素探索に変換する

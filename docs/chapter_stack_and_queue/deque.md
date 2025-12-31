@@ -393,12 +393,6 @@ comments: true
     is_empty = size.zero?
     ```
 
-=== "Zig"
-
-    ```zig title="deque.zig"
-
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20deq.append%282%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E5%B0%BE%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%E6%B7%BB%E5%8A%A0%E8%87%B3%E9%98%9F%E9%A6%96%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%20rear%20%3D%22,%20rear%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_front%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%E9%98%9F%E5%B0%BE%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20%20pop_rear%20%3D%22,%20pop_rear%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%B0%BE%E5%87%BA%E9%98%9F%E5%90%8E%20deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -2160,166 +2154,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="linkedlist_deque.zig"
-    // 双向链表节点
-    fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-            
-            val: T = undefined,     // 节点值
-            next: ?*Self = null,    // 后继节点指针
-            prev: ?*Self = null,    // 前驱节点指针
-
-            // Initialize a list node with specific value
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-                self.prev = null;
-            }
-        };
-    }
-
-    // 基于双向链表实现的双向队列
-    fn LinkedListDeque(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            front: ?*ListNode(T) = null,                    // 头节点 front
-            rear: ?*ListNode(T) = null,                     // 尾节点 rear
-            que_size: usize = 0,                             // 双向队列的长度
-            mem_arena: ?std.heap.ArenaAllocator = null,
-            mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
-
-            // 构造函数（分配内存+初始化队列）
-            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
-                if (self.mem_arena == null) {
-                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
-                    self.mem_allocator = self.mem_arena.?.allocator();
-                }
-                self.front = null;
-                self.rear = null;
-                self.que_size = 0;
-            }
-
-            // 析构函数（释放内存）
-            pub fn deinit(self: *Self) void {
-                if (self.mem_arena == null) return;
-                self.mem_arena.?.deinit();
-            }
-
-            // 获取双向队列的长度
-            pub fn size(self: *Self) usize {
-                return self.que_size;
-            }
-
-            // 判断双向队列是否为空
-            pub fn isEmpty(self: *Self) bool {
-                return self.size() == 0;
-            }
-
-            // 入队操作
-            pub fn push(self: *Self, num: T, is_front: bool) !void {
-                var node = try self.mem_allocator.create(ListNode(T));
-                node.init(num);
-                // 若链表为空，则令 front 和 rear 都指向 node
-                if (self.isEmpty()) {
-                    self.front = node;
-                    self.rear = node;
-                // 队首入队操作
-                } else if (is_front) {
-                    // 将 node 添加至链表头部
-                    self.front.?.prev = node;
-                    node.next = self.front;
-                    self.front = node;  // 更新头节点
-                // 队尾入队操作
-                } else {
-                    // 将 node 添加至链表尾部
-                    self.rear.?.next = node;
-                    node.prev = self.rear;
-                    self.rear = node;   // 更新尾节点
-                }
-                self.que_size += 1;      // 更新队列长度
-            } 
-
-            // 队首入队
-            pub fn pushFirst(self: *Self, num: T) !void {
-                try self.push(num, true);
-            } 
-
-            // 队尾入队
-            pub fn pushLast(self: *Self, num: T) !void {
-                try self.push(num, false);
-            } 
-            
-            // 出队操作
-            pub fn pop(self: *Self, is_front: bool) T {
-                if (self.isEmpty()) @panic("双向队列为空");
-                var val: T = undefined;
-                // 队首出队操作
-                if (is_front) {
-                    val = self.front.?.val;     // 暂存头节点值
-                    // 删除头节点
-                    var fNext = self.front.?.next;
-                    if (fNext != null) {
-                        fNext.?.prev = null;
-                        self.front.?.next = null;
-                    }
-                    self.front = fNext;         // 更新头节点
-                // 队尾出队操作
-                } else {
-                    val = self.rear.?.val;      // 暂存尾节点值
-                    // 删除尾节点
-                    var rPrev = self.rear.?.prev;
-                    if (rPrev != null) {
-                        rPrev.?.next = null;
-                        self.rear.?.prev = null;
-                    }
-                    self.rear = rPrev;          // 更新尾节点
-                }
-                self.que_size -= 1;              // 更新队列长度
-                return val;
-            } 
-
-            // 队首出队
-            pub fn popFirst(self: *Self) T {
-                return self.pop(true);
-            } 
-
-            // 队尾出队
-            pub fn popLast(self: *Self) T {
-                return self.pop(false);
-            } 
-
-            // 访问队首元素
-            pub fn peekFirst(self: *Self) T {
-                if (self.isEmpty()) @panic("双向队列为空");
-                return self.front.?.val;
-            }  
-
-            // 访问队尾元素
-            pub fn peekLast(self: *Self) T {
-                if (self.isEmpty()) @panic("双向队列为空");
-                return self.rear.?.val;
-            }
-
-            // 返回数组用于打印
-            pub fn toArray(self: *Self) ![]T {
-                var node = self.front;
-                var res = try self.mem_allocator.alloc(T, self.size());
-                @memset(res, @as(T, 0));
-                var i: usize = 0;
-                while (i < res.len) : (i += 1) {
-                    res[i] = node.?.val;
-                    node = node.?.next;
-                }
-                return res;
-            }
-        };
-    }
-    ```
-
 ### 2. &nbsp; 基于数组的实现
 
 如图 5-9 所示，与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。
@@ -3766,12 +3600,6 @@ comments: true
         (i + capacity) % capacity
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="array_deque.zig"
-    [class]{ArrayDeque}-[func]{}
     ```
 
 ## 5.3.3 &nbsp; 双向队列应用

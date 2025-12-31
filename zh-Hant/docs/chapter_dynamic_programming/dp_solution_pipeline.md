@@ -383,27 +383,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="min_path_sum.zig"
-    // 最小路徑和：暴力搜尋
-    fn minPathSumDFS(grid: anytype, i: i32, j: i32) i32 {
-        // 若為左上角單元格，則終止搜尋
-        if (i == 0 and j == 0) {
-            return grid[0][0];
-        }
-        // 若行列索引越界，則返回 +∞ 代價
-        if (i < 0 or j < 0) {
-            return std.math.maxInt(i32);
-        }
-        // 計算從左上角到 (i-1, j) 和 (i, j-1) 的最小路徑代價
-        var up = minPathSumDFS(grid, i - 1, j);
-        var left = minPathSumDFS(grid, i, j - 1);
-        // 返回從左上角到 (i, j) 的最小路徑代價
-        return @min(left, up) + grid[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=from%20math%20import%20inf%0A%0Adef%20min_path_sum_dfs%28grid%3A%20list%5Blist%5Bint%5D%5D%2C%20i%3A%20int%2C%20j%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%91%E5%92%8C%EF%BC%9A%E6%9A%B4%E5%8A%9B%E6%90%9C%E5%B0%8B%22%22%22%0A%20%20%20%20%23%20%E8%8B%A5%E7%82%BA%E5%B7%A6%E4%B8%8A%E8%A7%92%E5%96%AE%E5%85%83%E6%A0%BC%EF%BC%8C%E5%89%87%E7%B5%82%E6%AD%A2%E6%90%9C%E5%B0%8B%0A%20%20%20%20if%20i%20%3D%3D%200%20and%20j%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20grid%5B0%5D%5B0%5D%0A%20%20%20%20%23%20%E8%8B%A5%E8%A1%8C%E5%88%97%E7%B4%A2%E5%BC%95%E8%B6%8A%E7%95%8C%EF%BC%8C%E5%89%87%E8%BF%94%E5%9B%9E%20%2B%E2%88%9E%20%E4%BB%A3%E5%83%B9%0A%20%20%20%20if%20i%20%3C%200%20or%20j%20%3C%200%3A%0A%20%20%20%20%20%20%20%20return%20inf%0A%20%20%20%20%23%20%E8%A8%88%E7%AE%97%E5%BE%9E%E5%B7%A6%E4%B8%8A%E8%A7%92%E5%88%B0%20%28i-1%2C%20j%29%20%E5%92%8C%20%28i%2C%20j-1%29%20%E7%9A%84%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%91%E4%BB%A3%E5%83%B9%0A%20%20%20%20up%20%3D%20min_path_sum_dfs%28grid%2C%20i%20-%201%2C%20j%29%0A%20%20%20%20left%20%3D%20min_path_sum_dfs%28grid%2C%20i%2C%20j%20-%201%29%0A%20%20%20%20%23%20%E8%BF%94%E5%9B%9E%E5%BE%9E%E5%B7%A6%E4%B8%8A%E8%A7%92%E5%88%B0%20%28i%2C%20j%29%20%E7%9A%84%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%91%E4%BB%A3%E5%83%B9%0A%20%20%20%20return%20min%28left%2C%20up%29%20%2B%20grid%5Bi%5D%5Bj%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20grid%20%3D%20%5B%5B1%2C%203%2C%201%2C%205%5D%2C%20%5B2%2C%202%2C%204%2C%202%5D%2C%20%5B5%2C%203%2C%202%2C%201%5D%2C%20%5B4%2C%203%2C%205%2C%202%5D%5D%0A%20%20%20%20n%2C%20m%20%3D%20len%28grid%29%2C%20len%28grid%5B0%5D%29%0A%0A%20%20%20%20%23%20%E6%9A%B4%E5%8A%9B%E6%90%9C%E5%B0%8B%0A%20%20%20%20res%20%3D%20min_path_sum_dfs%28grid%2C%20n%20-%201%2C%20m%20-%201%29%0A%20%20%20%20print%28f%22%E5%BE%9E%E5%B7%A6%E4%B8%8A%E8%A7%92%E5%88%B0%E5%8F%B3%E4%B8%8B%E8%A7%92%E7%9A%84%E5%81%9A%E5%B0%8F%E8%B7%AF%E5%BE%91%E5%92%8C%E7%82%BA%20%7Bres%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -761,33 +740,6 @@ $$
       # 記錄並返回左上角到 (i, j) 的最小路徑代價
       mem[i][j] = [left, up].min + grid[i][j]
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="min_path_sum.zig"
-    // 最小路徑和：記憶化搜尋
-    fn minPathSumDFSMem(grid: anytype, mem: anytype, i: i32, j: i32) i32 {
-        // 若為左上角單元格，則終止搜尋
-        if (i == 0 and j == 0) {
-            return grid[0][0];
-        }
-        // 若行列索引越界，則返回 +∞ 代價
-        if (i < 0 or j < 0) {
-            return std.math.maxInt(i32);
-        }
-        // 若已有記錄，則直接返回
-        if (mem[@as(usize, @intCast(i))][@as(usize, @intCast(j))] != -1) {
-            return mem[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
-        }
-        // 計算從左上角到 (i-1, j) 和 (i, j-1) 的最小路徑代價
-        var up = minPathSumDFSMem(grid, mem, i - 1, j);
-        var left = minPathSumDFSMem(grid, mem, i, j - 1);
-        // 返回從左上角到 (i, j) 的最小路徑代價
-        // 記錄並返回左上角到 (i, j) 的最小路徑代價
-        mem[@as(usize, @intCast(i))][@as(usize, @intCast(j))] = @min(left, up) + grid[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
-        return mem[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
-    }
     ```
 
 ??? pythontutor "視覺化執行"
@@ -1163,34 +1115,6 @@ $$
       end
       dp[n -1][m -1]
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="min_path_sum.zig"
-    // 最小路徑和：動態規劃
-    fn minPathSumDP(comptime grid: anytype) i32 {
-        comptime var n = grid.len;
-        comptime var m = grid[0].len;
-        // 初始化 dp 表
-        var dp = [_][m]i32{[_]i32{0} ** m} ** n;
-        dp[0][0] = grid[0][0];
-        // 狀態轉移：首行
-        for (1..m) |j| {
-            dp[0][j] = dp[0][j - 1] + grid[0][j];
-        }
-        // 狀態轉移：首列
-        for (1..n) |i| {
-            dp[i][0] = dp[i - 1][0] + grid[i][0];
-        }
-        // 狀態轉移：其餘行和列
-        for (1..n) |i| {
-            for (1..m) |j| {
-                dp[i][j] = @min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
-            }
-        }
-        return dp[n - 1][m - 1];
-    }
     ```
 
 ??? pythontutor "視覺化執行"
@@ -1579,32 +1503,6 @@ $$
       end
       dp[m - 1]
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="min_path_sum.zig"
-    // 最小路徑和：空間最佳化後的動態規劃
-    fn minPathSumDPComp(comptime grid: anytype) i32 {
-        comptime var n = grid.len;
-        comptime var m = grid[0].len;
-        // 初始化 dp 表
-        var dp = [_]i32{0} ** m;
-        // 狀態轉移：首行
-        dp[0] = grid[0][0];
-        for (1..m) |j| {
-            dp[j] = dp[j - 1] + grid[0][j];
-        }
-        // 狀態轉移：其餘行
-        for (1..n) |i| {
-            // 狀態轉移：首列
-            dp[0] = dp[0] + grid[i][0];
-            for (1..m) |j| {
-                dp[j] = @min(dp[j - 1], dp[j]) + grid[i][j];
-            }
-        }
-        return dp[m - 1];
-    }
     ```
 
 ??? pythontutor "視覺化執行"

@@ -323,12 +323,6 @@ comments: true
     hmap.delete(10583)
     ```
 
-=== "Zig"
-
-    ```zig title="hash_map.zig"
-
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E8%BC%B8%E5%85%A5%E9%8D%B5%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E5%88%AA%E9%99%A4%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -549,12 +543,6 @@ comments: true
 
     # 單獨走訪值 value
     hmap.values.each { |val| puts val }
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map.zig"
-
     ```
 
 ??? pythontutor "視覺化執行"
@@ -1763,115 +1751,6 @@ index = hash(key) % capacity
         @buckets.each { |pair| puts "#{pair.key} -> #{pair.val}" unless pair.nil? }
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="array_hash_map.zig"
-    // 鍵值對
-    const Pair = struct {
-        key: usize = undefined,
-        val: []const u8 = undefined,
-
-       pub fn init(key: usize, val: []const u8) Pair {
-            return Pair {
-                .key = key,
-                .val = val,
-            };
-        }
-    };
-
-    // 基於陣列實現的雜湊表
-    fn ArrayHashMap(comptime T: type) type {
-        return struct {
-            bucket: ?std.ArrayList(?T) = null,
-            mem_allocator: std.mem.Allocator = undefined,
-
-            const Self = @This();
-            
-            // 建構子
-            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
-                self.mem_allocator = allocator;
-                // 初始化一個長度為 100 的桶（陣列）
-                self.bucket = std.ArrayList(?T).init(self.mem_allocator);
-                var i: i32 = 0;
-                while (i < 100) : (i += 1) {
-                    try self.bucket.?.append(null);
-                }
-            }
-
-            // 析構函式
-            pub fn deinit(self: *Self) void {
-                if (self.bucket != null) self.bucket.?.deinit();
-            }
-
-            // 雜湊函式
-            fn hashFunc(key: usize) usize {
-                var index = key % 100;
-                return index;
-            }
-
-            // 查詢操作
-            pub fn get(self: *Self, key: usize) []const u8 {
-                var index = hashFunc(key);
-                var pair = self.bucket.?.items[index];
-                return pair.?.val;
-            }
-
-            // 新增操作
-            pub fn put(self: *Self, key: usize, val: []const u8) !void {
-                var pair = Pair.init(key, val);
-                var index = hashFunc(key);
-                self.bucket.?.items[index] = pair;
-            }
-
-            // 刪除操作
-            pub fn remove(self: *Self, key: usize) !void {
-                var index = hashFunc(key);
-                // 置為 null ，代表刪除
-                self.bucket.?.items[index] = null;
-            }       
-
-            // 獲取所有鍵值對
-            pub fn pairSet(self: *Self) !std.ArrayList(T) {
-                var entry_set = std.ArrayList(T).init(self.mem_allocator);
-                for (self.bucket.?.items) |item| {
-                    if (item == null) continue;
-                    try entry_set.append(item.?);
-                }
-                return entry_set;
-            }  
-
-            // 獲取所有鍵
-            pub fn keySet(self: *Self) !std.ArrayList(usize) {
-                var key_set = std.ArrayList(usize).init(self.mem_allocator);
-                for (self.bucket.?.items) |item| {
-                    if (item == null) continue;
-                    try key_set.append(item.?.key);
-                }
-                return key_set;
-            }  
-
-            // 獲取所有值
-            pub fn valueSet(self: *Self) !std.ArrayList([]const u8) {
-                var value_set = std.ArrayList([]const u8).init(self.mem_allocator);
-                for (self.bucket.?.items) |item| {
-                    if (item == null) continue;
-                    try value_set.append(item.?.val);
-                }
-                return value_set;
-            }
-
-            // 列印雜湊表
-            pub fn print(self: *Self) !void {
-                var entry_set = try self.pairSet();
-                defer entry_set.deinit();
-                for (entry_set.items) |item| {
-                    std.debug.print("{} -> {s}\n", .{item.key, item.val});
-                }
-            }
-        };
-    }
     ```
 
 ??? pythontutor "視覺化執行"

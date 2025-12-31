@@ -9,6 +9,6 @@ icon: material/help-circle-outline
 
 ## Chapter contents
 
-- [16.1 &nbsp; Installation](installation.md)
-- [16.2 &nbsp; Contributing](contribution.md)
-- [16.3 &nbsp; Terminology](terminology.md)
+- [16.1 &nbsp; Programming Environment Installation](installation.md)
+- [16.2 &nbsp; Contributing Together](contribution.md)
+- [16.3 &nbsp; Terminology Table](terminology.md)

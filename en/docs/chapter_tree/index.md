@@ -9,14 +9,14 @@ icon: material/graph-outline
 
 !!! abstract
 
-    The towering tree exudes a vibrant essence, boasting profound roots and abundant foliage, yet its branches are sparsely scattered, creating an ethereal aura.
-    
-    It shows us the vivid form of divide-and-conquer in data.
+    Towering trees are full of vitality, with deep roots and lush leaves, spreading branches and flourishing.
+
+    They show us the vivid form of divide and conquer in data.
 ## Chapter contents
 
-- [7.1 &nbsp; Binary tree](binary_tree.md)
-- [7.2 &nbsp; Binary tree traversal](binary_tree_traversal.md)
-- [7.3 &nbsp; Array Representation of tree](array_representation_of_tree.md)
-- [7.4 &nbsp; Binary Search tree](binary_search_tree.md)
-- [7.5 &nbsp; AVL tree *](avl_tree.md)
+- [7.1 &nbsp; Binary Tree](binary_tree.md)
+- [7.2 &nbsp; Binary Tree Traversal](binary_tree_traversal.md)
+- [7.3 &nbsp; Array Representation of Tree](array_representation_of_tree.md)
+- [7.4 &nbsp; Binary Search Tree](binary_search_tree.md)
+- [7.5 &nbsp; AVL Tree *](avl_tree.md)
 - [7.6 &nbsp; Summary](summary.md)

@@ -177,12 +177,6 @@ $i$と$j$が両方とも`int`型であるため、**$i + j$は`int`型の範囲�
     [class]{}-[func]{binary_search}
     ```
 
-=== "Zig"
-
-    ```zig title="binary_search.zig"
-    [class]{}-[func]{binarySearch}
-    ```
-
 **時間計算量は$O(\log n)$です**：二分ループにおいて、区間は各ラウンドで半分に減少するため、反復回数は$\log_2 n$となります。
 
 **空間計算量は$O(1)$です**：ポインタ$i$と$j$は定数サイズの空間を占有します。
@@ -314,12 +308,6 @@ $i$と$j$が両方とも`int`型であるため、**$i + j$は`int`型の範囲�
 
     ```ruby title="binary_search.rb"
     [class]{}-[func]{binary_search_lcro}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search.zig"
-    [class]{}-[func]{binarySearchLCRO}
     ```
 
 下図に示すように、2つの区間表現タイプにおいて、二分探索アルゴリズムの初期化、ループ条件、区間縮小操作が異なります。

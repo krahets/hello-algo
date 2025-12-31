@@ -147,12 +147,6 @@ comments: true
     [class]{}-[func]{level_order}
     ```
 
-=== "Zig"
-
-    ```zig title="binary_tree_bfs.zig"
-    [class]{}-[func]{levelOrder}
-    ```
-
 ### 2. &nbsp; 計算量分析
 
 - **時間計算量は$O(n)$**: すべてのノードが一度ずつ訪問され、$O(n)$の時間がかかります。ここで$n$はノード数です。
@@ -369,16 +363,6 @@ comments: true
     [class]{}-[func]{in_order}
 
     [class]{}-[func]{post_order}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_tree_dfs.zig"
-    [class]{}-[func]{preOrder}
-
-    [class]{}-[func]{inOrder}
-
-    [class]{}-[func]{postOrder}
     ```
 
 !!! tip

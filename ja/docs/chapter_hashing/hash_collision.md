@@ -414,12 +414,6 @@ comments: true
     [class]{HashMapChaining}-[func]{}
     ```
 
-=== "Zig"
-
-    ```zig title="hash_map_chaining.zig"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
 連結リストが非常に長い場合、クエリ効率$O(n)$が悪いことは注目に値します。**この場合、リストを「AVL木」または「赤黒木」に変換して**、クエリ操作の時間計算量を$O(\log n)$に最適化できます。
 
 ## 6.2.2 &nbsp; オープンアドレス法
@@ -883,12 +877,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="hash_map_open_addressing.rb"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map_open_addressing.zig"
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 

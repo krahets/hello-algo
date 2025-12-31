@@ -283,12 +283,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title="hash_map.zig"
-
-    ```
-
 ハッシュ表を走査する一般的な方法は3つあります：キー値ペアの走査、キーの走査、値の走査。以下はコード例です：
 
 === "Python"
@@ -478,12 +472,6 @@ comments: true
 
     ```kotlin title="hash_map.kt"
 
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map.zig"
-    // Zigの例は提供されていません
     ```
 
 ## 6.1.2 &nbsp; ハッシュ表の簡単な実装
@@ -859,14 +847,6 @@ index = hash(key) % capacity
 === "Ruby"
 
     ```ruby title="array_hash_map.rb"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_hash_map.zig"
     [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}

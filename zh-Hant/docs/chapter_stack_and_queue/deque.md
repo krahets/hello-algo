@@ -393,12 +393,6 @@ comments: true
     is_empty = size.zero?
     ```
 
-=== "Zig"
-
-    ```zig title="deque.zig"
-
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E5%88%97%0A%20%20%20%20deq.append%282%29%20%20%23%20%E6%96%B0%E5%A2%9E%E8%87%B3%E4%BD%87%E5%88%97%E5%B0%BE%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20%E6%96%B0%E5%A2%9E%E8%87%B3%E4%BD%87%E5%88%97%E9%A6%96%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20%E4%BD%87%E5%88%97%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22%2C%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20%E4%BD%87%E5%88%97%E5%B0%BE%E5%85%83%E7%B4%A0%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E5%B0%BE%E5%85%83%E7%B4%A0%20rear%20%3D%22%2C%20rear%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E5%88%97%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20%E4%BD%87%E5%88%97%E9%A6%96%E5%85%83%E7%B4%A0%E5%87%BA%E5%88%97%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E9%A6%96%E5%87%BA%E5%88%97%E5%85%83%E7%B4%A0%20%20pop_front%20%3D%22%2C%20pop_front%29%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E9%A6%96%E5%87%BA%E5%88%97%E5%BE%8C%20deque%20%3D%22%2C%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20%E4%BD%87%E5%88%97%E5%B0%BE%E5%85%83%E7%B4%A0%E5%87%BA%E5%88%97%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E5%B0%BE%E5%87%BA%E5%88%97%E5%85%83%E7%B4%A0%20%20pop_rear%20%3D%22%2C%20pop_rear%29%0A%20%20%20%20print%28%22%E4%BD%87%E5%88%97%E5%B0%BE%E5%87%BA%E5%88%97%E5%BE%8C%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20%E7%8D%B2%E5%8F%96%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E7%9A%84%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E9%95%B7%E5%BA%A6%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E9%9B%99%E5%90%91%E4%BD%87%E5%88%97%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -2160,166 +2154,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="linkedlist_deque.zig"
-    // 雙向鏈結串列節點
-    fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-            
-            val: T = undefined,     // 節點值
-            next: ?*Self = null,    // 後繼節點指標
-            prev: ?*Self = null,    // 前驅節點指標
-
-            // Initialize a list node with specific value
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-                self.prev = null;
-            }
-        };
-    }
-
-    // 基於雙向鏈結串列實現的雙向佇列
-    fn LinkedListDeque(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            front: ?*ListNode(T) = null,                    // 頭節點 front
-            rear: ?*ListNode(T) = null,                     // 尾節點 rear
-            que_size: usize = 0,                             // 雙向佇列的長度
-            mem_arena: ?std.heap.ArenaAllocator = null,
-            mem_allocator: std.mem.Allocator = undefined,   // 記憶體分配器
-
-            // 建構子（分配記憶體+初始化佇列）
-            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
-                if (self.mem_arena == null) {
-                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
-                    self.mem_allocator = self.mem_arena.?.allocator();
-                }
-                self.front = null;
-                self.rear = null;
-                self.que_size = 0;
-            }
-
-            // 析構函式（釋放記憶體）
-            pub fn deinit(self: *Self) void {
-                if (self.mem_arena == null) return;
-                self.mem_arena.?.deinit();
-            }
-
-            // 獲取雙向佇列的長度
-            pub fn size(self: *Self) usize {
-                return self.que_size;
-            }
-
-            // 判斷雙向佇列是否為空
-            pub fn isEmpty(self: *Self) bool {
-                return self.size() == 0;
-            }
-
-            // 入列操作
-            pub fn push(self: *Self, num: T, is_front: bool) !void {
-                var node = try self.mem_allocator.create(ListNode(T));
-                node.init(num);
-                // 若鏈結串列為空，則令 front 和 rear 都指向 node
-                if (self.isEmpty()) {
-                    self.front = node;
-                    self.rear = node;
-                // 佇列首入列操作
-                } else if (is_front) {
-                    // 將 node 新增至鏈結串列頭部
-                    self.front.?.prev = node;
-                    node.next = self.front;
-                    self.front = node;  // 更新頭節點
-                // 佇列尾入列操作
-                } else {
-                    // 將 node 新增至鏈結串列尾部
-                    self.rear.?.next = node;
-                    node.prev = self.rear;
-                    self.rear = node;   // 更新尾節點
-                }
-                self.que_size += 1;      // 更新佇列長度
-            } 
-
-            // 佇列首入列
-            pub fn pushFirst(self: *Self, num: T) !void {
-                try self.push(num, true);
-            } 
-
-            // 佇列尾入列
-            pub fn pushLast(self: *Self, num: T) !void {
-                try self.push(num, false);
-            } 
-            
-            // 出列操作
-            pub fn pop(self: *Self, is_front: bool) T {
-                if (self.isEmpty()) @panic("雙向佇列為空");
-                var val: T = undefined;
-                // 佇列首出列操作
-                if (is_front) {
-                    val = self.front.?.val;     // 暫存頭節點值
-                    // 刪除頭節點
-                    var fNext = self.front.?.next;
-                    if (fNext != null) {
-                        fNext.?.prev = null;
-                        self.front.?.next = null;
-                    }
-                    self.front = fNext;         // 更新頭節點
-                // 佇列尾出列操作
-                } else {
-                    val = self.rear.?.val;      // 暫存尾節點值
-                    // 刪除尾節點
-                    var rPrev = self.rear.?.prev;
-                    if (rPrev != null) {
-                        rPrev.?.next = null;
-                        self.rear.?.prev = null;
-                    }
-                    self.rear = rPrev;          // 更新尾節點
-                }
-                self.que_size -= 1;              // 更新佇列長度
-                return val;
-            } 
-
-            // 佇列首出列
-            pub fn popFirst(self: *Self) T {
-                return self.pop(true);
-            } 
-
-            // 佇列尾出列
-            pub fn popLast(self: *Self) T {
-                return self.pop(false);
-            } 
-
-            // 訪問佇列首元素
-            pub fn peekFirst(self: *Self) T {
-                if (self.isEmpty()) @panic("雙向佇列為空");
-                return self.front.?.val;
-            }  
-
-            // 訪問佇列尾元素
-            pub fn peekLast(self: *Self) T {
-                if (self.isEmpty()) @panic("雙向佇列為空");
-                return self.rear.?.val;
-            }
-
-            // 返回陣列用於列印
-            pub fn toArray(self: *Self) ![]T {
-                var node = self.front;
-                var res = try self.mem_allocator.alloc(T, self.size());
-                @memset(res, @as(T, 0));
-                var i: usize = 0;
-                while (i < res.len) : (i += 1) {
-                    res[i] = node.?.val;
-                    node = node.?.next;
-                }
-                return res;
-            }
-        };
-    }
-    ```
-
 ### 2. &nbsp; 基於陣列的實現
 
 如圖 5-9 所示，與基於陣列實現佇列類似，我們也可以使用環形陣列來實現雙向佇列。
@@ -3766,12 +3600,6 @@ comments: true
         (i + capacity) % capacity
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="array_deque.zig"
-    [class]{ArrayDeque}-[func]{}
     ```
 
 ## 5.3.3 &nbsp; 雙向佇列應用

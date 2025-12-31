@@ -181,21 +181,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 特定の操作プラットフォーム下で
-    fn algorithm(n: usize) void {
-        var a: i32 = 2; // 1 ns
-        a += 1; // 1 ns
-        a *= 2; // 10 ns
-        // n回ループ
-        for (0..n) |_| { // 1 ns
-            std.debug.print("{}\n", .{0}); // 5 ns
-        }
-    }
-    ```
-
 上記の方法を使用すると、アルゴリズムの実行時間は$(6n + 12)$ nsとして計算できます：
 
 $$
@@ -445,29 +430,6 @@ $$
 
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // アルゴリズムAの時間計算量：定数オーダー
-    fn algorithm_A(n: usize) void {
-        _ = n;
-        std.debug.print("{}\n", .{0});
-    }
-    // アルゴリズムBの時間計算量：線形オーダー
-    fn algorithm_B(n: i32) void {
-        for (0..n) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-    }
-    // アルゴリズムCの時間計算量：定数オーダー
-    fn algorithm_C(n: i32) void {
-        _ = n;
-        for (0..1000000) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-    }
-    ```
-
 下図はこれら3つのアルゴリズムの時間計算量を示しています。
 
 - アルゴリズム`A`には1つの印刷操作のみがあり、その実行時間は$n$とともに増加しません。その時間計算量は「定数オーダー」と考えられます。
@@ -645,20 +607,6 @@ $$
 
     ```kotlin title=""
 
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    fn algorithm(n: usize) void {
-        var a: i32 = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // n回ループ
-        for (0..n) |_| { // +1 (毎回i++が実行される)
-            std.debug.print("{}\n", .{0}); // +1
-        }
-    }
     ```
 
 アルゴリズムの操作数を入力サイズ$n$の関数として表す関数を$T(n)$とすると、以下の例を考えてみましょう：
@@ -910,27 +858,6 @@ $f(n)$が決まれば、時間計算量$O(f(n))$が得られます。しかし�
 
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    fn algorithm(n: usize) void {
-        var a: i32 = 1;     // +0 (技法1)
-        a = a + @as(i32, @intCast(n));        // +0 (技法1)
-
-        // +n (技法2)
-        for(0..(5 * n + 1)) |_| {
-            std.debug.print("{}\n", .{0});
-        }
-
-        // +n*n (技法3)
-        for(0..(2 * n)) |_| {
-            for(0..(n + 1)) |_| {
-                std.debug.print("{}\n", .{0});
-            }
-        }
-    }
-    ```
-
 以下の式は、簡略化前後のカウント結果を示しており、どちらも$O(n^2)$の時間計算量に導きます：
 
 $$
@@ -1078,12 +1005,6 @@ $$
     [class]{}-[func]{constant}
     ```
 
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{constant}
-    ```
-
 ### 2. &nbsp; 線形オーダー $O(n)$ {data-toc-label="2. &nbsp; 線形オーダー"}
 
 線形オーダーは、操作数が入力データサイズ$n$と線形に増加することを示します。線形オーダーは一般的に単一ループ構造で現れます：
@@ -1180,12 +1101,6 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{linear}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
     [class]{}-[func]{linear}
     ```
 
@@ -1289,12 +1204,6 @@ $$
 
     ```ruby title="time_complexity.rb"
     [class]{}-[func]{array_traversal}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{arrayTraversal}
     ```
 
 **入力データサイズ$n$は入力データの種類に基づいて決定する必要があります**。例えば、最初の例では、$n$は入力データサイズを表し、2番目の例では、配列の長さ$n$がデータサイズです。
@@ -1405,12 +1314,6 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
     [class]{}-[func]{quadratic}
     ```
 
@@ -1547,12 +1450,6 @@ $$
     [class]{}-[func]{bubble_sort}
     ```
 
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{bubbleSort}
-    ```
-
 ### 4. &nbsp; 指数オーダー $O(2^n)$ {data-toc-label="4. &nbsp; 指数オーダー"}
 
 生物学的「細胞分裂」は指数オーダー増加の典型例です：1つの細胞から始まり、1回の分裂後に2つ、2回の分裂後に4つとなり、$n$回の分裂後に$2^n$個の細胞になります。
@@ -1671,12 +1568,6 @@ $$
     [class]{}-[func]{exponential}
     ```
 
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{exponential}
-    ```
-
 ![Exponential order time complexity](time_complexity.assets/time_complexity_exponential.png){ class="animation-figure" }
 
 <p align="center"> 図 2-11 &nbsp; Exponential order time complexity </p>
@@ -1773,12 +1664,6 @@ $$
 
     ```ruby title="time_complexity.rb"
     [class]{}-[func]{exp_recur}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{expRecur}
     ```
 
 指数オーダーの増加は極めて急速で、全数探索法（ブルートフォース、バックトラッキングなど）でよく見られます。大規模問題では、指数オーダーは受け入れられず、しばしば動的プログラミングや貪欲アルゴリズムが解決策として必要になります。
@@ -1889,12 +1774,6 @@ $$
     [class]{}-[func]{logarithmic}
     ```
 
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{logarithmic}
-    ```
-
 ![Logarithmic order time complexity](time_complexity.assets/time_complexity_logarithmic.png){ class="animation-figure" }
 
 <p align="center"> 図 2-12 &nbsp; Logarithmic order time complexity </p>
@@ -1991,12 +1870,6 @@ $$
 
     ```ruby title="time_complexity.rb"
     [class]{}-[func]{log_recur}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{logRecur}
     ```
 
 対数オーダーは分割統治戦略に基づくアルゴリズムの典型で、「多くに分割」と「複雑な問題を単純化」するアプローチを体現しています。増加が遅く、定数オーダーの次に最も理想的な時間計算量です。
@@ -2116,12 +1989,6 @@ $$
 
     ```ruby title="time_complexity.rb"
     [class]{}-[func]{linear_log_recur}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{linearLogRecur}
     ```
 
 下図は線形対数オーダーがどのように生成されるかを示しています。二分木の各レベルには$n$個の操作があり、木には$\log_2 n + 1$レベルがあり、時間計算量は$O(n \log n)$になります。
@@ -2246,12 +2113,6 @@ $$
 
     ```ruby title="time_complexity.rb"
     [class]{}-[func]{factorial_recur}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{factorialRecur}
     ```
 
 ![Factorial order time complexity](time_complexity.assets/time_complexity_factorial.png){ class="animation-figure" }
@@ -2429,14 +2290,6 @@ $$
     [class]{}-[func]{random_numbers}
 
     [class]{}-[func]{find_one}
-    ```
-
-=== "Zig"
-
-    ```zig title="worst_best_time_complexity.zig"
-    [class]{}-[func]{randomNumbers}
-
-    [class]{}-[func]{findOne}
     ```
 
 最良ケース時間計算量は実際にはほとんど使用されないことに注意してください。通常は非常に低い確率でのみ達成可能で、誤解を招く可能性があるからです。**最悪ケース時間計算量はより実用的で、効率の安全値を提供し**、アルゴリズムを自信を持って使用できるようにします。

@@ -241,26 +241,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="two_sum.zig"
-    // 方法一：暴力枚举
-    fn twoSumBruteForce(nums: []i32, target: i32) ?[2]i32 {
-        var size: usize = nums.len;
-        var i: usize = 0;
-        // 两层循环，时间复杂度为 O(n^2)
-        while (i < size - 1) : (i += 1) {
-            var j = i + 1;
-            while (j < size) : (j += 1) {
-                if (nums[i] + nums[j] == target) {
-                    return [_]i32{@intCast(i), @intCast(j)};
-                }
-            }
-        }
-        return null;
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE%22%22%22%0A%20%20%20%20%23%20%E4%B8%A4%E5%B1%82%E5%BE%AA%E7%8E%AF%EF%BC%8C%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%BA%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi,%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums,%20target%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -554,27 +534,6 @@ comments: true
 
       []
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="two_sum.zig"
-    // 方法二：辅助哈希表
-    fn twoSumHashTable(nums: []i32, target: i32) !?[2]i32 {
-        var size: usize = nums.len;
-        // 辅助哈希表，空间复杂度为 O(n)
-        var dic = std.AutoHashMap(i32, i32).init(std.heap.page_allocator);
-        defer dic.deinit();
-        var i: usize = 0;
-        // 单层循环，时间复杂度为 O(n)
-        while (i < size) : (i += 1) {
-            if (dic.contains(target - nums[i])) {
-                return [_]i32{dic.get(target - nums[i]).?, @intCast(i)};
-            }
-            try dic.put(nums[i], @intCast(i));
-        }
-        return null;
-    }
     ```
 
 ??? pythontutor "可视化运行"

@@ -136,12 +136,6 @@ comments: true
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 ![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png){ class="animation-figure" }
 
 <p align="center"> 图 7-14 &nbsp; 任意类型二叉树的数组表示 </p>
@@ -1332,12 +1326,6 @@ comments: true
         @res
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="array_binary_tree.zig"
-    [class]{ArrayBinaryTree}-[func]{}
     ```
 
 ??? pythontutor "可视化运行"

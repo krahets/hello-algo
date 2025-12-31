@@ -346,12 +346,6 @@ $n$個の頂点を持つ無向グラフが与えられた場合、さまざま�
     [class]{GraphAdjMat}-[func]{}
     ```
 
-=== "Zig"
-
-    ```zig title="graph_adjacency_matrix.zig"
-    [class]{GraphAdjMat}-[func]{}
-    ```
-
 ## 9.2.2 &nbsp; 隣接リストに基づく実装
 
 総計$n$個の頂点と$m$個の辺を持つ無向グラフが与えられた場合、さまざまな操作は下図のように実装できます。
@@ -667,12 +661,6 @@ $n$個の頂点を持つ無向グラフが与えられた場合、さまざま�
 === "Ruby"
 
     ```ruby title="graph_adjacency_list.rb"
-    [class]{GraphAdjList}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="graph_adjacency_list.zig"
     [class]{GraphAdjList}-[func]{}
     ```
 

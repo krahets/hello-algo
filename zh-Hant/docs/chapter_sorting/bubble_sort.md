@@ -290,28 +290,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="bubble_sort.zig"
-    // 泡沫排序
-    fn bubbleSort(nums: []i32) void {
-        // 外迴圈：未排序區間為 [0, i]
-        var i: usize = nums.len - 1;
-        while (i > 0) : (i -= 1) {
-            var j: usize = 0;
-            // 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
-            while (j < i) : (j += 1) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交換 nums[j] 與 nums[j + 1]
-                    var tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                }
-            }
-        }
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22%E6%B3%A1%E6%B2%AB%E6%8E%92%E5%BA%8F%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20%E5%A4%96%E8%BF%B4%E5%9C%88%EF%BC%9A%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8D%80%E9%96%93%E7%82%BA%20%5B0%2C%20i%5D%0A%20%20%20%20for%20i%20in%20range%28n%20-%201%2C%200%2C%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%85%A7%E8%BF%B4%E5%9C%88%EF%BC%9A%E5%B0%87%E6%9C%AA%E6%8E%92%E5%BA%8F%E5%8D%80%E9%96%93%20%5B0%2C%20i%5D%20%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0%E4%BA%A4%E6%8F%9B%E8%87%B3%E8%A9%B2%E5%8D%80%E9%96%93%E7%9A%84%E6%9C%80%E5%8F%B3%E7%AB%AF%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E4%BA%A4%E6%8F%9B%20nums%5Bj%5D%20%E8%88%87%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%2C%20nums%5Bj%20%2B%201%5D%20%3D%20nums%5Bj%20%2B%201%5D%2C%20nums%5Bj%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B4%2C%201%2C%203%2C%201%2C%205%2C%202%5D%0A%20%20%20%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22%E6%B3%A1%E6%B2%AB%E6%8E%92%E5%BA%8F%E5%AE%8C%E6%88%90%E5%BE%8C%20nums%20%3D%22%2C%20nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -615,31 +593,6 @@ comments: true
         break unless flag # 此輪“冒泡”未交換任何元素，直接跳出
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="bubble_sort.zig"
-    // 泡沫排序（標誌最佳化）
-    fn bubbleSortWithFlag(nums: []i32) void {
-        // 外迴圈：未排序區間為 [0, i]
-        var i: usize = nums.len - 1;
-        while (i > 0) : (i -= 1) {
-            var flag = false;   // 初始化標誌位
-            var j: usize = 0;
-            // 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
-            while (j < i) : (j += 1) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交換 nums[j] 與 nums[j + 1]
-                    var tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    flag = true;
-                }
-            }
-            if (!flag) break;   // 此輪“冒泡”未交換任何元素，直接跳出
-        }
-    }
     ```
 
 ??? pythontutor "視覺化執行"

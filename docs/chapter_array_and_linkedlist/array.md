@@ -132,14 +132,6 @@ comments: true
     nums = [1, 3, 2, 5, 4]
     ```
 
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 初始化数组
-    const arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    const nums = [_]i32{ 1, 3, 2, 5, 4 };
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 243px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0Aarr%20%3D%20%5B0%5D%20*%205%20%20%23%20%5B%200,%200,%200,%200,%200%20%5D%0Anums%20%3D%20%5B1,%203,%202,%205,%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -324,19 +316,6 @@ comments: true
       # 获取并返回随机元素
       nums[random_index]
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 随机访问元素
-    fn randomAccess(nums: []const i32) i32 {
-        // 在区间 [0, nums.len) 中随机抽取一个整数
-        const random_index = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
-        // 获取并返回随机元素
-        const randomNum = nums[random_index];
-        return randomNum;
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -535,21 +514,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 在数组的索引 index 处插入元素 num
-    fn insert(nums: []i32, num: i32, index: usize) void {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        var i = nums.len - 1;
-        while (i > index) : (i -= 1) {
-            nums[i] = nums[i - 1];
-        }
-        // 将 num 赋给 index 处的元素
-        nums[index] = num;
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 495px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20insert%28nums%3A%20list%5Bint%5D,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%9C%A8%E6%95%B0%E7%BB%84%E7%9A%84%E7%B4%A2%E5%BC%95%20index%20%E5%A4%84%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0%20num%22%22%22%0A%20%20%20%20%23%20%E6%8A%8A%E7%B4%A2%E5%BC%95%20index%20%E4%BB%A5%E5%8F%8A%E4%B9%8B%E5%90%8E%E7%9A%84%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E5%90%91%E5%90%8E%E7%A7%BB%E5%8A%A8%E4%B8%80%E4%BD%8D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%20index,%20-1%29%3A%0A%20%20%20%20%20%20%20%20nums%5Bi%5D%20%3D%20nums%5Bi%20-%201%5D%0A%20%20%20%20%23%20%E5%B0%86%20num%20%E8%B5%8B%E7%BB%99%20index%20%E5%A4%84%E7%9A%84%E5%85%83%E7%B4%A0%0A%20%20%20%20nums%5Bindex%5D%20%3D%20num%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20print%28%22%E6%95%B0%E7%BB%84%20nums%20%3D%22,%20nums%29%0A%0A%20%20%20%20%23%20%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0%0A%20%20%20%20insert%28nums,%206,%203%29%0A%20%20%20%20print%28%22%E5%9C%A8%E7%B4%A2%E5%BC%95%203%20%E5%A4%84%E6%8F%92%E5%85%A5%E6%95%B0%E5%AD%97%206%20%EF%BC%8C%E5%BE%97%E5%88%B0%20nums%20%3D%22,%20nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -718,19 +682,6 @@ comments: true
         nums[i] = nums[i + 1]
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 删除索引 index 处的元素
-    fn remove(nums: []i32, index: usize) void {
-        // 把索引 index 之后的所有元素向前移动一位
-        var i = index;
-        while (i < nums.len - 1) : (i += 1) {
-            nums[i] = nums[i + 1];
-        }
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -980,33 +931,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 遍历数组
-    fn traverse(nums: []const i32) void {
-        var count: i32 = 0;
-
-        // 通过索引遍历数组
-        var i: usize = 0;
-        while (i < nums.len) : (i += 1) {
-            count += nums[i];
-        }
-
-        // 直接遍历数组元素
-        count = 0;
-        for (nums) |num| {
-            count += num;
-        }
-
-        // 同时遍历数据索引和元素
-        for (nums, 0..) |num, index| {
-            count += nums[index];
-            count += num;
-        }
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20traverse%28nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%22%22%22%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E9%80%9A%E8%BF%87%E7%B4%A2%E5%BC%95%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%20%20%20%20%23%20%E7%9B%B4%E6%8E%A5%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num%0A%20%20%20%20%23%20%E5%90%8C%E6%97%B6%E9%81%8D%E5%8E%86%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E5%92%8C%E5%85%83%E7%B4%A0%0A%20%20%20%20for%20i,%20num%20in%20enumerate%28nums%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20print%28%22%E6%95%B0%E7%BB%84%20nums%20%3D%22,%20nums%29%0A%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%0A%20%20%20%20traverse%28nums%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -1187,18 +1111,6 @@ comments: true
 
       -1
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 在数组中查找指定元素
-    fn find(nums: []i32, target: i32) i32 {
-        for (nums, 0..) |num, i| {
-            if (num == target) return @intCast(i);
-        }
-        return -1;
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -1429,23 +1341,6 @@ comments: true
       # 返回扩展后的新数组
       res
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 扩展数组长度
-    fn extend(allocator: std.mem.Allocator, nums: []const i32, enlarge: usize) ![]i32 {
-        // 初始化一个扩展长度后的数组
-        const res = try allocator.alloc(i32, nums.len + enlarge);
-        @memset(res, 0);
-
-        // 将原数组中的所有元素复制到新数组
-        std.mem.copyForwards(i32, res, nums);
-
-        // 返回扩展后的新数组
-        return res;
-    }
     ```
 
 ??? pythontutor "可视化运行"

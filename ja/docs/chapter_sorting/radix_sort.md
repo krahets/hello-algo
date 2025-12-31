@@ -280,16 +280,6 @@ $$
     [class]{}-[func]{radix_sort}
     ```
 
-=== "Zig"
-
-    ```zig title="radix_sort.zig"
-    [class]{}-[func]{digit}
-
-    [class]{}-[func]{countingSortDigit}
-
-    [class]{}-[func]{radixSort}
-    ```
-
 !!! question "なぜ最下位桁から開始するのか？"
 
     連続するソートラウンドでは、後のラウンドの結果が前のラウンドの結果を上書きします。例えば、最初のラウンドの結果が $a < b$ で、2番目のラウンドが $a > b$ の場合、2番目のラウンドの結果が最初のラウンドの結果を置き換えます。上位桁は下位桁より優先されるため、上位桁の前に下位桁をソートすることが理にかなっています。

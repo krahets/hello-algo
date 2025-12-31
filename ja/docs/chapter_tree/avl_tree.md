@@ -225,12 +225,6 @@ AVL木に関連する操作ではノードの高さを取得する必要があ�
 
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 「ノードの高さ」とは、そのノードから最も遠い葉ノードまでの距離、つまり通過する「辺」の数を指します。重要なのは、葉ノードの高さは$0$で、nullノードの高さは$-1$であることです。ノードの高さを取得し、更新するための2つのユーティリティ関数を作成します：
 
 === "Python"
@@ -361,14 +355,6 @@ AVL木に関連する操作ではノードの高さを取得する必要があ�
     [class]{AVLTree}-[func]{update_height}
     ```
 
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{height}
-
-    [class]{AVLTree}-[func]{updateHeight}
-    ```
-
 ### 2. &nbsp; ノードの平衡因子
 
 ノードの<u>平衡因子</u>は、そのノードの左部分木の高さから右部分木の高さを引いた値として定義され、nullノードの平衡因子は$0$として定義されます。後で使いやすくするため、ノードの平衡因子を取得する機能も関数にカプセル化します：
@@ -469,12 +455,6 @@ AVL木に関連する操作ではノードの高さを取得する必要があ�
 
     ```ruby title="avl_tree.rb"
     [class]{AVLTree}-[func]{balance_factor}
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{balanceFactor}
     ```
 
 !!! tip
@@ -626,12 +606,6 @@ AVL木の特徴的な機能は「回転」操作で、これは二分木の中�
     [class]{AVLTree}-[func]{right_rotate}
     ```
 
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{rightRotate}
-    ```
-
 ### 2. &nbsp; 左回転
 
 対応して、上記の不平衡二分木の「鏡像」を考慮すると、下図に示す「左回転」操作を実行する必要があります。
@@ -759,12 +733,6 @@ AVL木の特徴的な機能は「回転」操作で、これは二分木の中�
 
     ```ruby title="avl_tree.rb"
     [class]{AVLTree}-[func]{left_rotate}
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{leftRotate}
     ```
 
 ### 3. &nbsp; 左右回転
@@ -965,12 +933,6 @@ AVL木の特徴的な機能は「回転」操作で、これは二分木の中�
     [class]{AVLTree}-[func]{rotate}
     ```
 
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{rotate}
-    ```
-
 ## 7.5.3 &nbsp; AVL木の一般的な操作
 
 ### 1. &nbsp; ノードの挿入
@@ -1134,14 +1096,6 @@ AVL木のノード挿入操作は二分探索木のそれと似ています。�
     [class]{AVLTree}-[func]{insert}
 
     [class]{AVLTree}-[func]{insert_helper}
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{insert}
-
-    [class]{AVLTree}-[func]{insertHelper}
     ```
 
 ### 2. &nbsp; ノードの削除
@@ -1357,14 +1311,6 @@ AVL木のノード挿入操作は二分探索木のそれと似ています。�
     [class]{AVLTree}-[func]{remove}
 
     [class]{AVLTree}-[func]{remove_helper}
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{remove}
-
-    [class]{AVLTree}-[func]{removeHelper}
     ```
 
 ### 3. &nbsp; ノードの検索

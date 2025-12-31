@@ -418,12 +418,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title="heap.zig"
-
-    ```
-
 ## 8.1.2 &nbsp; ヒープの実装
 
 以下の実装は最大ヒープです。最小ヒープに変換するには、すべてのサイズ論理比較を反転させるだけです（例えば、$\geq$を$\leq$に置き換える）。興味のある読者は自分で実装することをお勧めします。
@@ -596,16 +590,6 @@ comments: true
     [class]{MaxHeap}-[func]{parent}
     ```
 
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{left}
-
-    [class]{MaxHeap}-[func]{right}
-
-    [class]{MaxHeap}-[func]{parent}
-    ```
-
 ### 2. &nbsp; ヒープの先頭要素へのアクセス
 
 ヒープの先頭要素は二分木の根ノードで、リストの最初の要素でもあります：
@@ -693,12 +677,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-    [class]{MaxHeap}-[func]{peek}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
     [class]{MaxHeap}-[func]{peek}
     ```
 
@@ -895,14 +873,6 @@ comments: true
     [class]{MaxHeap}-[func]{push}
 
     [class]{MaxHeap}-[func]{sift_up}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{push}
-
-    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 ### 4. &nbsp; ヒープからの先頭要素削除
@@ -1136,14 +1106,6 @@ comments: true
     [class]{MaxHeap}-[func]{pop}
 
     [class]{MaxHeap}-[func]{sift_down}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{pop}
-
-    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 ## 8.1.3 &nbsp; ヒープの一般的な応用

@@ -268,14 +268,6 @@ comments: true
     [class]{}-[func]{heap_sort}
     ```
 
-=== "Zig"
-
-    ```zig title="heap_sort.zig"
-    [class]{}-[func]{siftDown}
-
-    [class]{}-[func]{heapSort}
-    ```
-
 ## 11.7.2 &nbsp; アルゴリズムの特徴
 
 - **時間計算量は $O(n \log n)$、非適応ソート**：ヒープの構築は $O(n)$ 時間を使用します。ヒープから最大要素を抽出するには $O(\log n)$ 時間がかかり、$n - 1$ ラウンドループします。

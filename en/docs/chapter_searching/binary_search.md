@@ -2,29 +2,29 @@
 comments: true
 ---
 
-# 10.1 &nbsp; Binary search
+# 10.1 &nbsp; Binary Search
 
-<u>Binary search</u> is an efficient search algorithm that uses a divide-and-conquer strategy. It takes advantage of the sorted order of elements in an array by reducing the search interval by half in each iteration, continuing until either the target element is found or the search interval becomes empty.
+<u>Binary search</u> is an efficient searching algorithm based on the divide-and-conquer strategy. It leverages the orderliness of data to reduce the search range by half in each round until the target element is found or the search interval becomes empty.
 
 !!! question
 
-    Given an array `nums` of length $n$, where elements are arranged in ascending order without duplicates. Please find and return the index of element `target` in this array. If the array does not contain the element, return $-1$. An example is shown in Figure 10-1.
+    Given an array `nums` of length $n$ with elements arranged in ascending order and no duplicates, search for and return the index of element `target` in the array. If the array does not contain the element, return $-1$. An example is shown in Figure 10-1.
 
 ![Binary search example data](binary_search.assets/binary_search_example.png){ class="animation-figure" }
 
 <p align="center"> Figure 10-1 &nbsp; Binary search example data </p>
 
-As shown in Figure 10-2, we firstly initialize pointers with $i = 0$ and $j = n - 1$, pointing to the first and last element of the array respectively. They also represent the whole search interval $[0, n - 1]$. Please note that square brackets indicate a closed interval, which includes the boundary values themselves.
+As shown in Figure 10-2, we first initialize pointers $i = 0$ and $j = n - 1$, pointing to the first and last elements of the array respectively, representing the search interval $[0, n - 1]$. Note that square brackets denote a closed interval, which includes the boundary values themselves.
 
-And then the following two steps may be performed in a loop.
+Next, perform the following two steps in a loop:
 
 1. Calculate the midpoint index $m = \lfloor {(i + j) / 2} \rfloor$, where $\lfloor \: \rfloor$ denotes the floor operation.
-2. Based on the comparison between the value of `nums[m]` and `target`, one of the following three cases will be chosen to execute.
-    1. If `nums[m] < target`, it indicates that `target` is in the interval $[m + 1, j]$, thus set $i = m + 1$.
-    2. If `nums[m] > target`, it indicates that `target` is in the interval $[i, m - 1]$, thus set $j = m - 1$.
-    3. If `nums[m] = target`, it indicates that `target` is found, thus return index $m$.
+2. Compare `nums[m]` and `target`, which results in three cases:
+    1. When `nums[m] < target`, it indicates that `target` is in the interval $[m + 1, j]$, so execute $i = m + 1$.
+    2. When `nums[m] > target`, it indicates that `target` is in the interval $[i, m - 1]$, so execute $j = m - 1$.
+    3. When `nums[m] = target`, it indicates that `target` has been found, so return index $m$.
 
-If the array does not contain the target element, the search interval will eventually reduce to empty, ending up returning $-1$.
+If the array does not contain the target element, the search interval will eventually shrink to empty. In this case, return $-1$.
 
 === "<1>"
     ![Binary search process](binary_search.assets/binary_search_step1.png){ class="animation-figure" }
@@ -49,48 +49,48 @@ If the array does not contain the target element, the search interval will event
 
 <p align="center"> Figure 10-2 &nbsp; Binary search process </p>
 
-It's worth noting that as $i$ and $j$ are both of type `int`, **$i + j$ might exceed the range of `int` type**. To avoid large number overflow, we usually use the formula $m = \lfloor {i + (j - i) / 2} \rfloor$ to calculate the midpoint.
+It's worth noting that since both $i$ and $j$ are of `int` type, **$i + j$ may exceed the range of the `int` type**. To avoid large number overflow, we typically use the formula $m = \lfloor {i + (j - i) / 2} \rfloor$ to calculate the midpoint.
 
-The code is as follows:
+The code is shown below:
 
 === "Python"
 
     ```python title="binary_search.py"
     def binary_search(nums: list[int], target: int) -> int:
-        """Binary search (double closed interval)"""
-        # Initialize double closed interval [0, n-1], i.e., i, j point to the first element and last element of the array respectively
+        """Binary search (closed interval)"""
+        # Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
         i, j = 0, len(nums) - 1
-        # Loop until the search interval is empty (when i > j, it is empty)
+        # Loop, exit when the search interval is empty (empty when i > j)
         while i <= j:
-            # Theoretically, Python's numbers can be infinitely large (depending on memory size), so there is no need to consider large number overflow
-            m = i + (j - i) // 2  # Calculate midpoint index m
+            # In theory, Python numbers can be infinitely large (depending on memory size), no need to consider large number overflow
+            m = (i + j) // 2  # Calculate midpoint index m
             if nums[m] < target:
-                i = m + 1  # This situation indicates that target is in the interval [m+1, j]
+                i = m + 1  # This means target is in the interval [m+1, j]
             elif nums[m] > target:
-                j = m - 1  # This situation indicates that target is in the interval [i, m-1]
+                j = m - 1  # This means target is in the interval [i, m-1]
             else:
-                return m  # Found the target element, thus return its index
-        return -1  # Did not find the target element, thus return -1
+                return m  # Found the target element, return its index
+        return -1  # Target element not found, return -1
     ```
 
 === "C++"
 
     ```cpp title="binary_search.cpp"
-    /* Binary search (double closed interval) */
+    /* Binary search (closed interval on both sides) */
     int binarySearch(vector<int> &nums, int target) {
-        // Initialize double closed interval [0, n-1], i.e., i, j point to the first element and last element of the array respectively
+        // Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
         int i = 0, j = nums.size() - 1;
-        // Loop until the search interval is empty (when i > j, it is empty)
+        // Loop, exit when the search interval is empty (empty when i > j)
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate midpoint index m
-            if (nums[m] < target)    // This situation indicates that target is in the interval [m+1, j]
+            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            if (nums[m] < target)    // This means target is in the interval [m+1, j]
                 i = m + 1;
-            else if (nums[m] > target) // This situation indicates that target is in the interval [i, m-1]
+            else if (nums[m] > target) // This means target is in the interval [i, m-1]
                 j = m - 1;
-            else // Found the target element, thus return its index
+            else // Found the target element, return its index
                 return m;
         }
-        // Did not find the target element, thus return -1
+        // Target element not found, return -1
         return -1;
     }
     ```
@@ -98,21 +98,21 @@ The code is as follows:
 === "Java"
 
     ```java title="binary_search.java"
-    /* Binary search (double closed interval) */
+    /* Binary search (closed interval on both sides) */
     int binarySearch(int[] nums, int target) {
-        // Initialize double closed interval [0, n-1], i.e., i, j point to the first element and last element of the array respectively
+        // Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
         int i = 0, j = nums.length - 1;
-        // Loop until the search interval is empty (when i > j, it is empty)
+        // Loop, exit when the search interval is empty (empty when i > j)
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate midpoint index m
-            if (nums[m] < target) // This situation indicates that target is in the interval [m+1, j]
+            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            if (nums[m] < target) // This means target is in the interval [m+1, j]
                 i = m + 1;
-            else if (nums[m] > target) // This situation indicates that target is in the interval [i, m-1]
+            else if (nums[m] > target) // This means target is in the interval [i, m-1]
                 j = m - 1;
-            else // Found the target element, thus return its index
+            else // Found the target element, return its index
                 return m;
         }
-        // Did not find the target element, thus return -1
+        // Target element not found, return -1
         return -1;
     }
     ```
@@ -120,76 +120,255 @@ The code is as follows:
 === "C#"
 
     ```csharp title="binary_search.cs"
-    [class]{binary_search}-[func]{BinarySearch}
+    /* Binary search (closed interval on both sides) */
+    int BinarySearch(int[] nums, int target) {
+        // Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
+        int i = 0, j = nums.Length - 1;
+        // Loop, exit when the search interval is empty (empty when i > j)
+        while (i <= j) {
+            int m = i + (j - i) / 2;   // Calculate the midpoint index m
+            if (nums[m] < target)      // This means target is in the interval [m+1, j]
+                i = m + 1;
+            else if (nums[m] > target) // This means target is in the interval [i, m-1]
+                j = m - 1;
+            else                       // Found the target element, return its index
+                return m;
+        }
+        // Target element not found, return -1
+        return -1;
+    }
     ```
 
 === "Go"
 
     ```go title="binary_search.go"
-    [class]{}-[func]{binarySearch}
+    /* Binary search (closed interval on both sides) */
+    func binarySearch(nums []int, target int) int {
+        // Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
+        i, j := 0, len(nums)-1
+        // Loop, exit when the search interval is empty (empty when i > j)
+        for i <= j {
+            m := i + (j-i)/2      // Calculate the midpoint index m
+            if nums[m] < target { // This means target is in the interval [m+1, j]
+                i = m + 1
+            } else if nums[m] > target { // This means target is in the interval [i, m-1]
+                j = m - 1
+            } else { // Found the target element, return its index
+                return m
+            }
+        }
+        // Target element not found, return -1
+        return -1
+    }
     ```
 
 === "Swift"
 
     ```swift title="binary_search.swift"
-    [class]{}-[func]{binarySearch}
+    /* Binary search (closed interval on both sides) */
+    func binarySearch(nums: [Int], target: Int) -> Int {
+        // Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
+        var i = nums.startIndex
+        var j = nums.endIndex - 1
+        // Loop, exit when the search interval is empty (empty when i > j)
+        while i <= j {
+            let m = i + (j - i) / 2 // Calculate the midpoint index m
+            if nums[m] < target { // This means target is in the interval [m+1, j]
+                i = m + 1
+            } else if nums[m] > target { // This means target is in the interval [i, m-1]
+                j = m - 1
+            } else { // Found the target element, return its index
+                return m
+            }
+        }
+        // Target element not found, return -1
+        return -1
+    }
     ```
 
 === "JS"
 
     ```javascript title="binary_search.js"
-    [class]{}-[func]{binarySearch}
+    /* Binary search (closed interval on both sides) */
+    function binarySearch(nums, target) {
+        // Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
+        let i = 0,
+            j = nums.length - 1;
+        // Loop, exit when the search interval is empty (empty when i > j)
+        while (i <= j) {
+            // Calculate midpoint index m, use parseInt() to round down
+            const m = parseInt(i + (j - i) / 2);
+            if (nums[m] < target)
+                // This means target is in the interval [m+1, j]
+                i = m + 1;
+            else if (nums[m] > target)
+                // This means target is in the interval [i, m-1]
+                j = m - 1;
+            else return m; // Found the target element, return its index
+        }
+        // Target element not found, return -1
+        return -1;
+    }
     ```
 
 === "TS"
 
     ```typescript title="binary_search.ts"
-    [class]{}-[func]{binarySearch}
+    /* Binary search (closed interval on both sides) */
+    function binarySearch(nums: number[], target: number): number {
+        // Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
+        let i = 0,
+            j = nums.length - 1;
+        // Loop, exit when the search interval is empty (empty when i > j)
+        while (i <= j) {
+            // Calculate the midpoint index m
+            const m = Math.floor(i + (j - i) / 2);
+            if (nums[m] < target) {
+                // This means target is in the interval [m+1, j]
+                i = m + 1;
+            } else if (nums[m] > target) {
+                // This means target is in the interval [i, m-1]
+                j = m - 1;
+            } else {
+                // Found the target element, return its index
+                return m;
+            }
+        }
+        return -1; // Target element not found, return -1
+    }
     ```
 
 === "Dart"
 
     ```dart title="binary_search.dart"
-    [class]{}-[func]{binarySearch}
+    /* Binary search (closed interval on both sides) */
+    int binarySearch(List<int> nums, int target) {
+      // Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
+      int i = 0, j = nums.length - 1;
+      // Loop, exit when the search interval is empty (empty when i > j)
+      while (i <= j) {
+        int m = i + (j - i) ~/ 2; // Calculate the midpoint index m
+        if (nums[m] < target) {
+          // This means target is in the interval [m+1, j]
+          i = m + 1;
+        } else if (nums[m] > target) {
+          // This means target is in the interval [i, m-1]
+          j = m - 1;
+        } else {
+          // Found the target element, return its index
+          return m;
+        }
+      }
+      // Target element not found, return -1
+      return -1;
+    }
     ```
 
 === "Rust"
 
     ```rust title="binary_search.rs"
-    [class]{}-[func]{binary_search}
+    /* Binary search (closed interval on both sides) */
+    fn binary_search(nums: &[i32], target: i32) -> i32 {
+        // Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
+        let mut i = 0;
+        let mut j = nums.len() as i32 - 1;
+        // Loop, exit when the search interval is empty (empty when i > j)
+        while i <= j {
+            let m = i + (j - i) / 2; // Calculate the midpoint index m
+            if nums[m as usize] < target {
+                // This means target is in the interval [m+1, j]
+                i = m + 1;
+            } else if nums[m as usize] > target {
+                // This means target is in the interval [i, m-1]
+                j = m - 1;
+            } else {
+                // Found the target element, return its index
+                return m;
+            }
+        }
+        // Target element not found, return -1
+        return -1;
+    }
     ```
 
 === "C"
 
     ```c title="binary_search.c"
-    [class]{}-[func]{binarySearch}
+    /* Binary search (closed interval on both sides) */
+    int binarySearch(int *nums, int len, int target) {
+        // Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
+        int i = 0, j = len - 1;
+        // Loop, exit when the search interval is empty (empty when i > j)
+        while (i <= j) {
+            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            if (nums[m] < target)    // This means target is in the interval [m+1, j]
+                i = m + 1;
+            else if (nums[m] > target) // This means target is in the interval [i, m-1]
+                j = m - 1;
+            else // Found the target element, return its index
+                return m;
+        }
+        // Target element not found, return -1
+        return -1;
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin title="binary_search.kt"
-    [class]{}-[func]{binarySearch}
+    /* Binary search (closed interval on both sides) */
+    fun binarySearch(nums: IntArray, target: Int): Int {
+        // Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
+        var i = 0
+        var j = nums.size - 1
+        // Loop, exit when the search interval is empty (empty when i > j)
+        while (i <= j) {
+            val m = i + (j - i) / 2 // Calculate the midpoint index m
+            if (nums[m] < target) // This means target is in the interval [m+1, j]
+                i = m + 1
+            else if (nums[m] > target) // This means target is in the interval [i, m-1]
+                j = m - 1
+            else  // Found the target element, return its index
+                return m
+        }
+        // Target element not found, return -1
+        return -1
+    }
     ```
 
 === "Ruby"
 
     ```ruby title="binary_search.rb"
-    [class]{}-[func]{binary_search}
+    ### Binary search (closed interval) ###
+    def binary_search(nums, target)
+      # Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
+      i, j = 0, nums.length - 1
+
+      # Loop, exit when the search interval is empty (empty when i > j)
+      while i <= j
+        # In theory, Ruby numbers can be infinitely large (limited by memory), no need to consider overflow
+        m = (i + j) / 2   # Calculate the midpoint index m
+      
+        if nums[m] < target
+          i = m + 1 # This means target is in the interval [m+1, j]
+        elsif nums[m] > target
+          j = m - 1 # This means target is in the interval [i, m-1]
+        else
+          return m  # Found the target element, return its index
+        end
+      end
+
+      -1  # Target element not found, return -1
+    end
     ```
 
-=== "Zig"
+**Time complexity is $O(\log n)$**: In the binary loop, the interval is reduced by half each round, so the number of loops is $\log_2 n$.
 
-    ```zig title="binary_search.zig"
-    [class]{}-[func]{binarySearch}
-    ```
+**Space complexity is $O(1)$**: Pointers $i$ and $j$ use constant-size space.
 
-**Time complexity is $O(\log n)$** : In the binary loop, the interval decreases by half each round, hence the number of iterations is $\log_2 n$.
+## 10.1.1 &nbsp; Interval Representation Methods
 
-**Space complexity is $O(1)$** : Pointers $i$ and $j$ occupies constant size of space.
-
-## 10.1.1 &nbsp; Interval representation methods
-
-Besides the above closed interval, another common interval representation is the "left-closed right-open" interval, defined as $[0, n)$, where the left boundary includes itself, and the right boundary does not. In this representation, the interval $[i, j)$ is empty when $i = j$.
+In addition to the closed interval mentioned above, another common interval representation is the "left-closed right-open" interval, defined as $[0, n)$, meaning the left boundary includes itself while the right boundary does not. Under this representation, the interval $[i, j)$ is empty when $i = j$.
 
 We can implement a binary search algorithm with the same functionality based on this representation:
 
@@ -197,39 +376,39 @@ We can implement a binary search algorithm with the same functionality based on 
 
     ```python title="binary_search.py"
     def binary_search_lcro(nums: list[int], target: int) -> int:
-        """Binary search (left closed right open interval)"""
-        # Initialize left closed right open interval [0, n), i.e., i, j point to the first element and the last element +1 of the array respectively
+        """Binary search (left-closed right-open interval)"""
+        # Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
         i, j = 0, len(nums)
-        # Loop until the search interval is empty (when i = j, it is empty)
+        # Loop, exit when the search interval is empty (empty when i = j)
         while i < j:
-            m = i + (j - i) // 2  # Calculate midpoint index m
+            m = (i + j) // 2  # Calculate midpoint index m
             if nums[m] < target:
-                i = m + 1  # This situation indicates that target is in the interval [m+1, j)
+                i = m + 1  # This means target is in the interval [m+1, j)
             elif nums[m] > target:
-                j = m  # This situation indicates that target is in the interval [i, m)
+                j = m  # This means target is in the interval [i, m)
             else:
-                return m  # Found the target element, thus return its index
-        return -1  # Did not find the target element, thus return -1
+                return m  # Found the target element, return its index
+        return -1  # Target element not found, return -1
     ```
 
 === "C++"
 
     ```cpp title="binary_search.cpp"
-    /* Binary search (left closed right open interval) */
+    /* Binary search (left-closed right-open interval) */
     int binarySearchLCRO(vector<int> &nums, int target) {
-        // Initialize left closed right open interval [0, n), i.e., i, j point to the first element and the last element +1 of the array respectively
+        // Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
         int i = 0, j = nums.size();
-        // Loop until the search interval is empty (when i = j, it is empty)
+        // Loop, exit when the search interval is empty (empty when i = j)
         while (i < j) {
-            int m = i + (j - i) / 2; // Calculate midpoint index m
-            if (nums[m] < target)    // This situation indicates that target is in the interval [m+1, j)
+            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            if (nums[m] < target)    // This means target is in the interval [m+1, j)
                 i = m + 1;
-            else if (nums[m] > target) // This situation indicates that target is in the interval [i, m)
+            else if (nums[m] > target) // This means target is in the interval [i, m)
                 j = m;
-            else // Found the target element, thus return its index
+            else // Found the target element, return its index
                 return m;
         }
-        // Did not find the target element, thus return -1
+        // Target element not found, return -1
         return -1;
     }
     ```
@@ -237,21 +416,21 @@ We can implement a binary search algorithm with the same functionality based on 
 === "Java"
 
     ```java title="binary_search.java"
-    /* Binary search (left closed right open interval) */
+    /* Binary search (left-closed right-open interval) */
     int binarySearchLCRO(int[] nums, int target) {
-        // Initialize left closed right open interval [0, n), i.e., i, j point to the first element and the last element +1 of the array respectively
+        // Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
         int i = 0, j = nums.length;
-        // Loop until the search interval is empty (when i = j, it is empty)
+        // Loop, exit when the search interval is empty (empty when i = j)
         while (i < j) {
-            int m = i + (j - i) / 2; // Calculate midpoint index m
-            if (nums[m] < target) // This situation indicates that target is in the interval [m+1, j)
+            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            if (nums[m] < target) // This means target is in the interval [m+1, j)
                 i = m + 1;
-            else if (nums[m] > target) // This situation indicates that target is in the interval [i, m)
+            else if (nums[m] > target) // This means target is in the interval [i, m)
                 j = m;
-            else // Found the target element, thus return its index
+            else // Found the target element, return its index
                 return m;
         }
-        // Did not find the target element, thus return -1
+        // Target element not found, return -1
         return -1;
     }
     ```
@@ -259,86 +438,266 @@ We can implement a binary search algorithm with the same functionality based on 
 === "C#"
 
     ```csharp title="binary_search.cs"
-    [class]{binary_search}-[func]{BinarySearchLCRO}
+    /* Binary search (left-closed right-open interval) */
+    int BinarySearchLCRO(int[] nums, int target) {
+        // Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
+        int i = 0, j = nums.Length;
+        // Loop, exit when the search interval is empty (empty when i = j)
+        while (i < j) {
+            int m = i + (j - i) / 2;   // Calculate the midpoint index m
+            if (nums[m] < target)      // This means target is in the interval [m+1, j)
+                i = m + 1;
+            else if (nums[m] > target) // This means target is in the interval [i, m)
+                j = m;
+            else                       // Found the target element, return its index
+                return m;
+        }
+        // Target element not found, return -1
+        return -1;
+    }
     ```
 
 === "Go"
 
     ```go title="binary_search.go"
-    [class]{}-[func]{binarySearchLCRO}
+    /* Binary search (left-closed right-open interval) */
+    func binarySearchLCRO(nums []int, target int) int {
+        // Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
+        i, j := 0, len(nums)
+        // Loop, exit when the search interval is empty (empty when i = j)
+        for i < j {
+            m := i + (j-i)/2      // Calculate the midpoint index m
+            if nums[m] < target { // This means target is in the interval [m+1, j)
+                i = m + 1
+            } else if nums[m] > target { // This means target is in the interval [i, m)
+                j = m
+            } else { // Found the target element, return its index
+                return m
+            }
+        }
+        // Target element not found, return -1
+        return -1
+    }
     ```
 
 === "Swift"
 
     ```swift title="binary_search.swift"
-    [class]{}-[func]{binarySearchLCRO}
+    /* Binary search (left-closed right-open interval) */
+    func binarySearchLCRO(nums: [Int], target: Int) -> Int {
+        // Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
+        var i = nums.startIndex
+        var j = nums.endIndex
+        // Loop, exit when the search interval is empty (empty when i = j)
+        while i < j {
+            let m = i + (j - i) / 2 // Calculate the midpoint index m
+            if nums[m] < target { // This means target is in the interval [m+1, j)
+                i = m + 1
+            } else if nums[m] > target { // This means target is in the interval [i, m)
+                j = m
+            } else { // Found the target element, return its index
+                return m
+            }
+        }
+        // Target element not found, return -1
+        return -1
+    }
     ```
 
 === "JS"
 
     ```javascript title="binary_search.js"
-    [class]{}-[func]{binarySearchLCRO}
+    /* Binary search (left-closed right-open interval) */
+    function binarySearchLCRO(nums, target) {
+        // Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
+        let i = 0,
+            j = nums.length;
+        // Loop, exit when the search interval is empty (empty when i = j)
+        while (i < j) {
+            // Calculate midpoint index m, use parseInt() to round down
+            const m = parseInt(i + (j - i) / 2);
+            if (nums[m] < target)
+                // This means target is in the interval [m+1, j)
+                i = m + 1;
+            else if (nums[m] > target)
+                // This means target is in the interval [i, m)
+                j = m;
+            // Found the target element, return its index
+            else return m;
+        }
+        // Target element not found, return -1
+        return -1;
+    }
     ```
 
 === "TS"
 
     ```typescript title="binary_search.ts"
-    [class]{}-[func]{binarySearchLCRO}
+    /* Binary search (left-closed right-open interval) */
+    function binarySearchLCRO(nums: number[], target: number): number {
+        // Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
+        let i = 0,
+            j = nums.length;
+        // Loop, exit when the search interval is empty (empty when i = j)
+        while (i < j) {
+            // Calculate the midpoint index m
+            const m = Math.floor(i + (j - i) / 2);
+            if (nums[m] < target) {
+                // This means target is in the interval [m+1, j)
+                i = m + 1;
+            } else if (nums[m] > target) {
+                // This means target is in the interval [i, m)
+                j = m;
+            } else {
+                // Found the target element, return its index
+                return m;
+            }
+        }
+        return -1; // Target element not found, return -1
+    }
     ```
 
 === "Dart"
 
     ```dart title="binary_search.dart"
-    [class]{}-[func]{binarySearchLCRO}
+    /* Binary search (left-closed right-open interval) */
+    int binarySearchLCRO(List<int> nums, int target) {
+      // Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
+      int i = 0, j = nums.length;
+      // Loop, exit when the search interval is empty (empty when i = j)
+      while (i < j) {
+        int m = i + (j - i) ~/ 2; // Calculate the midpoint index m
+        if (nums[m] < target) {
+          // This means target is in the interval [m+1, j)
+          i = m + 1;
+        } else if (nums[m] > target) {
+          // This means target is in the interval [i, m)
+          j = m;
+        } else {
+          // Found the target element, return its index
+          return m;
+        }
+      }
+      // Target element not found, return -1
+      return -1;
+    }
     ```
 
 === "Rust"
 
     ```rust title="binary_search.rs"
-    [class]{}-[func]{binary_search_lcro}
+    /* Binary search (left-closed right-open interval) */
+    fn binary_search_lcro(nums: &[i32], target: i32) -> i32 {
+        // Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
+        let mut i = 0;
+        let mut j = nums.len() as i32;
+        // Loop, exit when the search interval is empty (empty when i = j)
+        while i < j {
+            let m = i + (j - i) / 2; // Calculate the midpoint index m
+            if nums[m as usize] < target {
+                // This means target is in the interval [m+1, j)
+                i = m + 1;
+            } else if nums[m as usize] > target {
+                // This means target is in the interval [i, m)
+                j = m;
+            } else {
+                // Found the target element, return its index
+                return m;
+            }
+        }
+        // Target element not found, return -1
+        return -1;
+    }
     ```
 
 === "C"
 
     ```c title="binary_search.c"
-    [class]{}-[func]{binarySearchLCRO}
+    /* Binary search (left-closed right-open interval) */
+    int binarySearchLCRO(int *nums, int len, int target) {
+        // Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
+        int i = 0, j = len;
+        // Loop, exit when the search interval is empty (empty when i = j)
+        while (i < j) {
+            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            if (nums[m] < target)    // This means target is in the interval [m+1, j)
+                i = m + 1;
+            else if (nums[m] > target) // This means target is in the interval [i, m)
+                j = m;
+            else // Found the target element, return its index
+                return m;
+        }
+        // Target element not found, return -1
+        return -1;
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin title="binary_search.kt"
-    [class]{}-[func]{binarySearchLCRO}
+    /* Binary search (left-closed right-open interval) */
+    fun binarySearchLCRO(nums: IntArray, target: Int): Int {
+        // Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
+        var i = 0
+        var j = nums.size
+        // Loop, exit when the search interval is empty (empty when i = j)
+        while (i < j) {
+            val m = i + (j - i) / 2 // Calculate the midpoint index m
+            if (nums[m] < target) // This means target is in the interval [m+1, j)
+                i = m + 1
+            else if (nums[m] > target) // This means target is in the interval [i, m)
+                j = m
+            else  // Found the target element, return its index
+                return m
+        }
+        // Target element not found, return -1
+        return -1
+    }
     ```
 
 === "Ruby"
 
     ```ruby title="binary_search.rb"
-    [class]{}-[func]{binary_search_lcro}
+    ### Binary search (left-closed right-open interval) ###
+    def binary_search_lcro(nums, target)
+      # Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
+      i, j = 0, nums.length
+
+      # Loop, exit when the search interval is empty (empty when i = j)
+      while i < j
+        # Calculate the midpoint index m
+        m = (i + j) / 2
+
+        if nums[m] < target
+          i = m + 1 # This means target is in the interval [m+1, j)
+        elsif nums[m] > target
+          j = m - 1 # This means target is in the interval [i, m)
+        else
+          return m  # Found the target element, return its index
+        end
+      end
+
+      -1  # Target element not found, return -1
+    end
     ```
 
-=== "Zig"
+As shown in Figure 10-3, under the two interval representations, the initialization, loop condition, and interval narrowing operations of the binary search algorithm are all different.
 
-    ```zig title="binary_search.zig"
-    [class]{}-[func]{binarySearchLCRO}
-    ```
+Since both the left and right boundaries in the "closed interval" representation are defined as closed, the operations to narrow the interval through pointers $i$ and $j$ are also symmetric. This makes it less error-prone, **so the "closed interval" approach is generally recommended**.
 
-As shown in Figure 10-3, under the two types of interval representations, the initialization, loop condition, and narrowing interval operation of the binary search algorithm differ.
+![Two interval definitions](binary_search.assets/binary_search_ranges.png){ class="animation-figure" }
 
-Since both boundaries in the "closed interval" representation are inclusive, the operations to narrow the interval through pointers $i$ and $j$ are also symmetrical. This makes it less prone to errors, **therefore, it is generally recommended to use the "closed interval" approach**.
+<p align="center"> Figure 10-3 &nbsp; Two interval definitions </p>
 
-![Two types of interval definitions](binary_search.assets/binary_search_ranges.png){ class="animation-figure" }
-
-<p align="center"> Figure 10-3 &nbsp; Two types of interval definitions </p>
-
-## 10.1.2 &nbsp; Advantages and limitations
+## 10.1.2 &nbsp; Advantages and Limitations
 
 Binary search performs well in both time and space aspects.
 
-- Binary search is time-efficient. With large dataset, the logarithmic time complexity offers a major advantage. For instance, given a dataset with size $n = 2^{20}$, linear search requires $2^{20} = 1048576$ iterations, while binary search only demands $\log_2 2^{20} = 20$ loops.
-- Binary search does not need extra space. Compared to search algorithms that rely on additional space (like hash search), binary search is more space-efficient.
+- Binary search has high time efficiency. With large data volumes, the logarithmic time complexity has significant advantages. For example, when the data size $n = 2^{20}$, linear search requires $2^{20} = 1048576$ loop rounds, while binary search only needs $\log_2 2^{20} = 20$ rounds.
+- Binary search requires no extra space. Compared to searching algorithms that require additional space (such as hash-based search), binary search is more space-efficient.
 
-However, binary search may not be suitable for all scenarios due to the following concerns.
+However, binary search is not suitable for all situations, mainly for the following reasons:
 
-- Binary search can only be applied to sorted data. Unsorted data must be sorted before applying binary search, which may not be worthwhile as sorting algorithm typically has a time complexity of $O(n \log n)$. Such cost is even higher than linear search, not to mention binary search itself. For scenarios with frequent insertion, the cost of remaining the array in order is pretty high as the time complexity of inserting new elements into specific positions is $O(n)$.
-- Binary search may use array only. Binary search requires non-continuous (jumping) element access, which is inefficient in linked list. As a result, linked list or data structures based on linked list may not be suitable for this algorithm.
-- Linear search performs better on small dataset. In linear search, only 1 decision operation is required for each iteration; whereas in binary search, it involves 1 addition, 1 division, 1 to 3 decision operations, 1 addition (subtraction), totaling 4 to 6 operations. Therefore, if data size $n$ is small, linear search is faster than binary search.
+- Binary search is only applicable to sorted data. If the input data is unsorted, sorting specifically to use binary search would be counterproductive, as sorting algorithms typically have a time complexity of $O(n \log n)$, which is higher than both linear search and binary search. For scenarios with frequent element insertions, maintaining array orderliness requires inserting elements at specific positions with a time complexity of $O(n)$, which is also very expensive.
+- Binary search is only applicable to arrays. Binary search requires jump-style (non-contiguous) element access, and jump-style access has low efficiency in linked lists, making it unsuitable for linked lists or data structures based on linked list implementations.
+- For small data volumes, linear search performs better. In linear search, each round requires only 1 comparison operation; while in binary search, it requires 1 addition, 1 division, 1-3 comparison operations, and 1 addition (subtraction), totaling 4-6 unit operations. Therefore, when the data volume $n$ is small, linear search is actually faster than binary search.

@@ -183,14 +183,6 @@ comments: true
     [class]{QuickSort}-[func]{partition}
     ```
 
-=== "Zig"
-
-    ```zig title="quick_sort.zig"
-    [class]{QuickSort}-[func]{swap}
-
-    [class]{QuickSort}-[func]{partition}
-    ```
-
 ## 11.5.1 &nbsp; アルゴリズムプロセス
 
 クイックソートの全体的なプロセスは下図に示されます。
@@ -308,12 +300,6 @@ comments: true
 
     ```ruby title="quick_sort.rb"
     [class]{QuickSort}-[func]{quick_sort}
-    ```
-
-=== "Zig"
-
-    ```zig title="quick_sort.zig"
-    [class]{QuickSort}-[func]{quickSort}
     ```
 
 ## 11.5.2 &nbsp; アルゴリズムの特徴
@@ -520,14 +506,6 @@ comments: true
     [class]{QuickSortMedian}-[func]{partition}
     ```
 
-=== "Zig"
-
-    ```zig title="quick_sort.zig"
-    [class]{QuickSortMedian}-[func]{medianThree}
-
-    [class]{QuickSortMedian}-[func]{partition}
-    ```
-
 ## 11.5.5 &nbsp; 末尾再帰最適化
 
 **特定の入力では、クイックソートはより多くの空間を占有する可能性があります**。例えば、完全に順序付けられた入力配列を考えてみましょう。再帰でのサブ配列の長さを$m$とします。各ラウンドのピボット分割で、長さ$0$の左サブ配列と長さ$m - 1$の右サブ配列が生成されます。これは、再帰呼び出しごとに問題サイズが1つの要素のみ減少することを意味し、各レベルの再帰での削減が非常に小さくなります。
@@ -653,10 +631,4 @@ comments: true
 
     ```ruby title="quick_sort.rb"
     [class]{QuickSortTailCall}-[func]{quick_sort}
-    ```
-
-=== "Zig"
-
-    ```zig title="quick_sort.zig"
-    [class]{QuickSortTailCall}-[func]{quickSort}
     ```

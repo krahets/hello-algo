@@ -2,63 +2,63 @@
 comments: true
 ---
 
-# 15.3 &nbsp; Maximum capacity problem
+# 15.3 &nbsp; Max Capacity Problem
 
 !!! question
 
     Input an array $ht$, where each element represents the height of a vertical partition. Any two partitions in the array, along with the space between them, can form a container.
-    
-    The capacity of the container is the product of the height and the width (area), where the height is determined by the shorter partition, and the width is the difference in array indices between the two partitions.
-    
-    Please select two partitions in the array that maximize the container's capacity and return this maximum capacity. An example is shown in Figure 15-7.
 
-![Example data for the maximum capacity problem](max_capacity_problem.assets/max_capacity_example.png){ class="animation-figure" }
+    The capacity of the container equals the product of height and width (area), where the height is determined by the shorter partition, and the width is the difference in array indices between the two partitions.
 
-<p align="center"> Figure 15-7 &nbsp; Example data for the maximum capacity problem </p>
+    Please select two partitions in the array such that the capacity of the formed container is maximized, and return the maximum capacity. An example is shown in Figure 15-7.
 
-The container is formed by any two partitions, **therefore the state of this problem is represented by the indices of the two partitions, denoted as $[i, j]$**.
+![Example data for the max capacity problem](max_capacity_problem.assets/max_capacity_example.png){ class="animation-figure" }
 
-According to the problem statement, the capacity equals the product of height and width, where the height is determined by the shorter partition, and the width is the difference in array indices between the two partitions. The formula for capacity $cap[i, j]$ is:
+<p align="center"> Figure 15-7 &nbsp; Example data for the max capacity problem </p>
+
+The container is formed by any two partitions, **therefore the state of this problem is the indices of two partitions, denoted as $[i, j]$**.
+
+According to the problem description, capacity equals height multiplied by width, where height is determined by the shorter partition, and width is the difference in array indices between the two partitions. Let the capacity be $cap[i, j]$, then the calculation formula is:
 
 $$
 cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 $$
 
-Assuming the length of the array is $n$, the number of combinations of two partitions (total number of states) is $C_n^2 = \frac{n(n - 1)}{2}$. The most straightforward approach is to **enumerate all possible states**, resulting in a time complexity of $O(n^2)$.
+Let the array length be $n$, then the number of combinations of two partitions (total number of states) is $C_n^2 = \frac{n(n - 1)}{2}$. Most directly, **we can exhaustively enumerate all states** to find the maximum capacity, with time complexity $O(n^2)$.
 
-### 1. &nbsp; Determination of a greedy strategy
+### 1. &nbsp; Greedy Strategy Determination
 
-There is a more efficient solution to this problem. As shown in Figure 15-8, we select a state $[i, j]$ where the indices $i < j$ and the height $ht[i] < ht[j]$, meaning $i$ is the shorter partition, and $j$ is the taller one.
+This problem has a more efficient solution. As shown in Figure 15-8, select a state $[i, j]$ where index $i < j$ and height $ht[i] < ht[j]$, meaning $i$ is the short partition and $j$ is the long partition.
 
 ![Initial state](max_capacity_problem.assets/max_capacity_initial_state.png){ class="animation-figure" }
 
 <p align="center"> Figure 15-8 &nbsp; Initial state </p>
 
-As shown in Figure 15-9, **if we move the taller partition $j$ closer to the shorter partition $i$, the capacity will definitely decrease**.
+As shown in Figure 15-9, **if we now move the long partition $j$ closer to the short partition $i$, the capacity will definitely decrease**.
 
-This is because when moving the taller partition $j$, the width $j-i$ definitely decreases; and since the height is determined by the shorter partition, the height can only remain the same (if $i$ remains the shorter partition) or decrease (if the moved $j$ becomes the shorter partition).
+This is because after moving the long partition $j$, the width $j-i$ definitely decreases; and since height is determined by the short partition, the height can only remain unchanged ($i$ is still the short partition) or decrease (the moved $j$ becomes the short partition).
 
-![State after moving the taller partition inward](max_capacity_problem.assets/max_capacity_moving_long_board.png){ class="animation-figure" }
+![State after moving the long partition inward](max_capacity_problem.assets/max_capacity_moving_long_board.png){ class="animation-figure" }
 
-<p align="center"> Figure 15-9 &nbsp; State after moving the taller partition inward </p>
+<p align="center"> Figure 15-9 &nbsp; State after moving the long partition inward </p>
 
-Conversely, **we can only possibly increase the capacity by moving the shorter partition $i$ inward**. Although the width will definitely decrease, **the height may increase** (if the moved shorter partition $i$ becomes taller). For example, in Figure 15-10, the area increases after moving the shorter partition.
+Conversely, **we can only possibly increase capacity by contracting the short partition $i$ inward**. Because although width will definitely decrease, **height may increase** (the moved short partition $i$ may become taller). For example, in Figure 15-10, the area increases after moving the short partition.
 
-![State after moving the shorter partition inward](max_capacity_problem.assets/max_capacity_moving_short_board.png){ class="animation-figure" }
+![State after moving the short partition inward](max_capacity_problem.assets/max_capacity_moving_short_board.png){ class="animation-figure" }
 
-<p align="center"> Figure 15-10 &nbsp; State after moving the shorter partition inward </p>
+<p align="center"> Figure 15-10 &nbsp; State after moving the short partition inward </p>
 
-This leads us to the greedy strategy for this problem: initialize two pointers at the ends of the container, and in each round, move the pointer corresponding to the shorter partition inward until the two pointers meet.
+From this we can derive the greedy strategy for this problem: initialize two pointers at both ends of the container, and in each round contract the pointer corresponding to the short partition inward, until the two pointers meet.
 
-Figure 15-11 illustrate the execution of the greedy strategy.
+Figure 15-11 shows the execution process of the greedy strategy.
 
-1. Initially, the pointers $i$ and $j$ are positioned at the ends of the array.
-2. Calculate the current state's capacity $cap[i, j]$ and update the maximum capacity.
-3. Compare the heights of partitions $i$ and $j$, and move the shorter partition inward by one step.
-4. Repeat steps `2.` and `3.` until $i$ and $j$ meet.
+1. In the initial state, pointers $i$ and $j$ are at both ends of the array.
+2. Calculate the capacity of the current state $cap[i, j]$, and update the maximum capacity.
+3. Compare the heights of partition $i$ and partition $j$, and move the short partition inward by one position.
+4. Loop through steps `2.` and `3.` until $i$ and $j$ meet.
 
 === "<1>"
-    ![The greedy process for maximum capacity problem](max_capacity_problem.assets/max_capacity_greedy_step1.png){ class="animation-figure" }
+    ![Greedy process for the max capacity problem](max_capacity_problem.assets/max_capacity_greedy_step1.png){ class="animation-figure" }
 
 === "<2>"
     ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.png){ class="animation-figure" }
@@ -84,26 +84,26 @@ Figure 15-11 illustrate the execution of the greedy strategy.
 === "<9>"
     ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png){ class="animation-figure" }
 
-<p align="center"> Figure 15-11 &nbsp; The greedy process for maximum capacity problem </p>
+<p align="center"> Figure 15-11 &nbsp; Greedy process for the max capacity problem </p>
 
-### 2. &nbsp; Implementation
+### 2. &nbsp; Code Implementation
 
-The code loops at most $n$ times, **thus the time complexity is $O(n)$**.
+The code loops at most $n$ rounds, **therefore the time complexity is $O(n)$**.
 
-The variables $i$, $j$, and $res$ use a constant amount of extra space, **thus the space complexity is $O(1)$**.
+Variables $i$, $j$, and $res$ use a constant amount of extra space, **therefore the space complexity is $O(1)$**.
 
 === "Python"
 
     ```python title="max_capacity.py"
     def max_capacity(ht: list[int]) -> int:
-        """Maximum capacity: Greedy"""
-        # Initialize i, j, making them split the array at both ends
+        """Max capacity: Greedy algorithm"""
+        # Initialize i, j to be at both ends of the array
         i, j = 0, len(ht) - 1
-        # Initial maximum capacity is 0
+        # Initial max capacity is 0
         res = 0
         # Loop for greedy selection until the two boards meet
         while i < j:
-            # Update maximum capacity
+            # Update max capacity
             cap = min(ht[i], ht[j]) * (j - i)
             res = max(res, cap)
             # Move the shorter board inward
@@ -117,15 +117,15 @@ The variables $i$, $j$, and $res$ use a constant amount of extra space, **thus t
 === "C++"
 
     ```cpp title="max_capacity.cpp"
-    /* Maximum capacity: Greedy */
+    /* Max capacity: Greedy algorithm */
     int maxCapacity(vector<int> &ht) {
-        // Initialize i, j, making them split the array at both ends
+        // Initialize i, j to be at both ends of the array
         int i = 0, j = ht.size() - 1;
-        // Initial maximum capacity is 0
+        // Initial max capacity is 0
         int res = 0;
         // Loop for greedy selection until the two boards meet
         while (i < j) {
-            // Update maximum capacity
+            // Update max capacity
             int cap = min(ht[i], ht[j]) * (j - i);
             res = max(res, cap);
             // Move the shorter board inward
@@ -142,15 +142,15 @@ The variables $i$, $j$, and $res$ use a constant amount of extra space, **thus t
 === "Java"
 
     ```java title="max_capacity.java"
-    /* Maximum capacity: Greedy */
+    /* Max capacity: Greedy algorithm */
     int maxCapacity(int[] ht) {
-        // Initialize i, j, making them split the array at both ends
+        // Initialize i, j to be at both ends of the array
         int i = 0, j = ht.length - 1;
-        // Initial maximum capacity is 0
+        // Initial max capacity is 0
         int res = 0;
         // Loop for greedy selection until the two boards meet
         while (i < j) {
-            // Update maximum capacity
+            // Update max capacity
             int cap = Math.min(ht[i], ht[j]) * (j - i);
             res = Math.max(res, cap);
             // Move the shorter board inward
@@ -167,83 +167,274 @@ The variables $i$, $j$, and $res$ use a constant amount of extra space, **thus t
 === "C#"
 
     ```csharp title="max_capacity.cs"
-    [class]{max_capacity}-[func]{MaxCapacity}
+    /* Max capacity: Greedy algorithm */
+    int MaxCapacity(int[] ht) {
+        // Initialize i, j to be at both ends of the array
+        int i = 0, j = ht.Length - 1;
+        // Initial max capacity is 0
+        int res = 0;
+        // Loop for greedy selection until the two boards meet
+        while (i < j) {
+            // Update max capacity
+            int cap = Math.Min(ht[i], ht[j]) * (j - i);
+            res = Math.Max(res, cap);
+            // Move the shorter board inward
+            if (ht[i] < ht[j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="max_capacity.go"
-    [class]{}-[func]{maxCapacity}
+    /* Max capacity: Greedy algorithm */
+    func maxCapacity(ht []int) int {
+        // Initialize i, j to be at both ends of the array
+        i, j := 0, len(ht)-1
+        // Initial max capacity is 0
+        res := 0
+        // Loop for greedy selection until the two boards meet
+        for i < j {
+            // Update max capacity
+            capacity := int(math.Min(float64(ht[i]), float64(ht[j]))) * (j - i)
+            res = int(math.Max(float64(res), float64(capacity)))
+            // Move the shorter board inward
+            if ht[i] < ht[j] {
+                i++
+            } else {
+                j--
+            }
+        }
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="max_capacity.swift"
-    [class]{}-[func]{maxCapacity}
+    /* Max capacity: Greedy algorithm */
+    func maxCapacity(ht: [Int]) -> Int {
+        // Initialize i, j to be at both ends of the array
+        var i = ht.startIndex, j = ht.endIndex - 1
+        // Initial max capacity is 0
+        var res = 0
+        // Loop for greedy selection until the two boards meet
+        while i < j {
+            // Update max capacity
+            let cap = min(ht[i], ht[j]) * (j - i)
+            res = max(res, cap)
+            // Move the shorter board inward
+            if ht[i] < ht[j] {
+                i += 1
+            } else {
+                j -= 1
+            }
+        }
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="max_capacity.js"
-    [class]{}-[func]{maxCapacity}
+    /* Max capacity: Greedy algorithm */
+    function maxCapacity(ht) {
+        // Initialize i, j to be at both ends of the array
+        let i = 0,
+            j = ht.length - 1;
+        // Initial max capacity is 0
+        let res = 0;
+        // Loop for greedy selection until the two boards meet
+        while (i < j) {
+            // Update max capacity
+            const cap = Math.min(ht[i], ht[j]) * (j - i);
+            res = Math.max(res, cap);
+            // Move the shorter board inward
+            if (ht[i] < ht[j]) {
+                i += 1;
+            } else {
+                j -= 1;
+            }
+        }
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="max_capacity.ts"
-    [class]{}-[func]{maxCapacity}
+    /* Max capacity: Greedy algorithm */
+    function maxCapacity(ht: number[]): number {
+        // Initialize i, j to be at both ends of the array
+        let i = 0,
+            j = ht.length - 1;
+        // Initial max capacity is 0
+        let res = 0;
+        // Loop for greedy selection until the two boards meet
+        while (i < j) {
+            // Update max capacity
+            const cap: number = Math.min(ht[i], ht[j]) * (j - i);
+            res = Math.max(res, cap);
+            // Move the shorter board inward
+            if (ht[i] < ht[j]) {
+                i += 1;
+            } else {
+                j -= 1;
+            }
+        }
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="max_capacity.dart"
-    [class]{}-[func]{maxCapacity}
+    /* Max capacity: Greedy algorithm */
+    int maxCapacity(List<int> ht) {
+      // Initialize i, j to be at both ends of the array
+      int i = 0, j = ht.length - 1;
+      // Initial max capacity is 0
+      int res = 0;
+      // Loop for greedy selection until the two boards meet
+      while (i < j) {
+        // Update max capacity
+        int cap = min(ht[i], ht[j]) * (j - i);
+        res = max(res, cap);
+        // Move the shorter board inward
+        if (ht[i] < ht[j]) {
+          i++;
+        } else {
+          j--;
+        }
+      }
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="max_capacity.rs"
-    [class]{}-[func]{max_capacity}
+    /* Max capacity: Greedy algorithm */
+    fn max_capacity(ht: &[i32]) -> i32 {
+        // Initialize i, j to be at both ends of the array
+        let mut i = 0;
+        let mut j = ht.len() - 1;
+        // Initial max capacity is 0
+        let mut res = 0;
+        // Loop for greedy selection until the two boards meet
+        while i < j {
+            // Update max capacity
+            let cap = std::cmp::min(ht[i], ht[j]) * (j - i) as i32;
+            res = std::cmp::max(res, cap);
+            // Move the shorter board inward
+            if ht[i] < ht[j] {
+                i += 1;
+            } else {
+                j -= 1;
+            }
+        }
+        res
+    }
     ```
 
 === "C"
 
     ```c title="max_capacity.c"
-    [class]{}-[func]{maxCapacity}
+    /* Max capacity: Greedy algorithm */
+    int maxCapacity(int ht[], int htLength) {
+        // Initialize i, j to be at both ends of the array
+        int i = 0;
+        int j = htLength - 1;
+        // Initial max capacity is 0
+        int res = 0;
+        // Loop for greedy selection until the two boards meet
+        while (i < j) {
+            // Update max capacity
+            int capacity = myMin(ht[i], ht[j]) * (j - i);
+            res = myMax(res, capacity);
+            // Move the shorter board inward
+            if (ht[i] < ht[j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return res;
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin title="max_capacity.kt"
-    [class]{}-[func]{maxCapacity}
+    /* Max capacity: Greedy algorithm */
+    fun maxCapacity(ht: IntArray): Int {
+        // Initialize i, j to be at both ends of the array
+        var i = 0
+        var j = ht.size - 1
+        // Initial max capacity is 0
+        var res = 0
+        // Loop for greedy selection until the two boards meet
+        while (i < j) {
+            // Update max capacity
+            val cap = min(ht[i], ht[j]) * (j - i)
+            res = max(res, cap)
+            // Move the shorter board inward
+            if (ht[i] < ht[j]) {
+                i++
+            } else {
+                j--
+            }
+        }
+        return res
+    }
     ```
 
 === "Ruby"
 
     ```ruby title="max_capacity.rb"
-    [class]{}-[func]{max_capacity}
+    ### Maximum capacity: greedy ###
+    def max_capacity(ht)
+      # Initialize i, j to be at both ends of the array
+      i, j = 0, ht.length - 1
+      # Initial max capacity is 0
+      res = 0
+
+      # Loop for greedy selection until the two boards meet
+      while i < j
+        # Update max capacity
+        cap = [ht[i], ht[j]].min * (j - i)
+        res = [res, cap].max
+        # Move the shorter board inward
+        if ht[i] < ht[j]
+          i += 1
+        else
+          j -= 1
+        end
+      end
+
+      res
+    end
     ```
 
-=== "Zig"
+### 3. &nbsp; Correctness Proof
 
-    ```zig title="max_capacity.zig"
-    [class]{}-[func]{maxCapacity}
-    ```
+The reason greedy is faster than exhaustive enumeration is that each round of greedy selection "skips" some states.
 
-### 3. &nbsp; Proof of correctness
-
-The reason why the greedy method is faster than enumeration is that each round of greedy selection "skips" some states.
-
-For example, under the state $cap[i, j]$ where $i$ is the shorter partition and $j$ is the taller partition, greedily moving the shorter partition $i$ inward by one step leads to the "skipped" states shown in Figure 15-12. **This means that these states' capacities cannot be verified later**.
+For example, in state $cap[i, j]$ where $i$ is the short partition and $j$ is the long partition, if we greedily move the short partition $i$ inward by one position, the states shown in Figure 15-12 will be "skipped". **This means that the capacities of these states cannot be verified later**.
 
 $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![States skipped by moving the shorter partition](max_capacity_problem.assets/max_capacity_skipped_states.png){ class="animation-figure" }
+![States skipped by moving the short partition](max_capacity_problem.assets/max_capacity_skipped_states.png){ class="animation-figure" }
 
-<p align="center"> Figure 15-12 &nbsp; States skipped by moving the shorter partition </p>
+<p align="center"> Figure 15-12 &nbsp; States skipped by moving the short partition </p>
 
-It is observed that **these skipped states are actually all states where the taller partition $j$ is moved inward**. We have already proven that moving the taller partition inward will definitely decrease the capacity. Therefore, the skipped states cannot possibly be the optimal solution, **and skipping them does not lead to missing the optimal solution**.
+Observing carefully, **these skipped states are actually all the states obtained by moving the long partition $j$ inward**. We have already proven that moving the long partition inward will definitely decrease capacity. That is, the skipped states cannot possibly be the optimal solution, **skipping them will not cause us to miss the optimal solution**.
 
-The analysis shows that the operation of moving the shorter partition is "safe", and the greedy strategy is effective.
+The above analysis shows that the operation of moving the short partition is "safe", and the greedy strategy is effective.

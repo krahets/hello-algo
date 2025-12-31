@@ -134,12 +134,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 ![任意の種類の二分木の配列表現](array_representation_of_tree.assets/array_representation_with_empty.png){ class="animation-figure" }
 
 <p align="center"> 図 7-14 &nbsp; 任意の種類の二分木の配列表現 </p>
@@ -477,12 +471,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_binary_tree.rb"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_binary_tree.zig"
     [class]{ArrayBinaryTree}-[func]{}
     ```
 

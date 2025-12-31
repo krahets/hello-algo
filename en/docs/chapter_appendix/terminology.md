@@ -2,19 +2,19 @@
 comments: true
 ---
 
-# 16.3 &nbsp; Glossary
+# 16.3 &nbsp; Terminology Table
 
-Table 16-1 lists the important terms that appear in the book, and it is worth noting the following points.
+The following table lists important terms that appear in this book. It is worth noting the following points:
 
-- It is recommended to remember the English names of the terms to facilitate reading English literature.
-- Some terms have different names in Simplified and Traditional Chinese.
+- We recommend remembering the English names of terms to help with reading English literature.
+- Some terms have different names in Simplified Chinese and Traditional Chinese.
 
 <p align="center"> Table 16-1 &nbsp; Important Terms in Data Structures and Algorithms </p>
 
 <div class="center-table" markdown>
 
-| English                        | 简体中文       | 繁体中文       |
-| ------------------------------ | -------------- | -------------- |
+| English                        | Simplified Chinese | Traditional Chinese |
+| ------------------------------ | ------------------ | ------------------- |
 | algorithm                      | 算法           | 演算法         |
 | data structure                 | 数据结构       | 資料結構       |
 | code                           | 代码           | 程式碼         |

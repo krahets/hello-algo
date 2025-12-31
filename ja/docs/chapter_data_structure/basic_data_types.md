@@ -167,12 +167,3 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 様々な基本データ型を使用して配列を初期化
-    var numbers: [5]i32 = undefined;
-    var decimals: [5]f32 = undefined;
-    var characters: [5]u8 = undefined;
-    var bools: [5]bool = undefined;
-    ```

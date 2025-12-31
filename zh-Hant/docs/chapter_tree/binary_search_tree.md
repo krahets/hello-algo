@@ -338,30 +338,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="binary_search_tree.zig"
-    // 查詢節點
-    fn search(self: *Self, num: T) ?*inc.TreeNode(T) {
-        var cur = self.root;
-        // 迴圈查詢，越過葉節點後跳出
-        while (cur != null) {
-            // 目標節點在 cur 的右子樹中
-            if (cur.?.val < num) {
-                cur = cur.?.right;
-            // 目標節點在 cur 的左子樹中
-            } else if (cur.?.val > num) {
-                cur = cur.?.left;
-            // 找到目標節點，跳出迴圈
-            } else {
-                break;
-            }
-        }
-        // 返回目標節點
-        return cur;
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%85%83%E6%A8%B9%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%29%3A%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20%20%20%20%20self.right%20%3D%20None%0A%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E7%A9%BA%E6%A8%B9%0A%20%20%20%20%20%20%20%20self._root%20%3D%20None%0A%0A%20%20%20%20def%20search%28self%2C%20num%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%9F%A5%E8%A9%A2%E7%AF%80%E9%BB%9E%22%22%22%0A%20%20%20%20%20%20%20%20cur%20%3D%20self._root%0A%20%20%20%20%20%20%20%20%23%20%E8%BF%B4%E5%9C%88%E6%9F%A5%E8%A9%A2%EF%BC%8C%E8%B6%8A%E9%81%8E%E8%91%89%E7%AF%80%E9%BB%9E%E5%BE%8C%E8%B7%B3%E5%87%BA%0A%20%20%20%20%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E7%9B%AE%E6%A8%99%E7%AF%80%E9%BB%9E%E5%9C%A8%20cur%20%E7%9A%84%E5%8F%B3%E5%AD%90%E6%A8%B9%E4%B8%AD%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E7%9B%AE%E6%A8%99%E7%AF%80%E9%BB%9E%E5%9C%A8%20cur%20%E7%9A%84%E5%B7%A6%E5%AD%90%E6%A8%B9%E4%B8%AD%0A%20%20%20%20%20%20%20%20%20%20%20%20elif%20cur.val%20%3E%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%89%BE%E5%88%B0%E7%9B%AE%E6%A8%99%E7%AF%80%E9%BB%9E%EF%BC%8C%E8%B7%B3%E5%87%BA%E8%BF%B4%E5%9C%88%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20return%20cur%0A%0A%20%20%20%20def%20insert%28self%2C%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%8F%92%E5%85%A5%E7%AF%80%E9%BB%9E%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E8%8B%A5%E6%A8%B9%E7%82%BA%E7%A9%BA%EF%BC%8C%E5%89%87%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A0%B9%E7%AF%80%E9%BB%9E%0A%20%20%20%20%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%23%20%E8%BF%B4%E5%9C%88%E6%9F%A5%E8%A9%A2%EF%BC%8C%E8%B6%8A%E9%81%8E%E8%91%89%E7%AF%80%E9%BB%9E%E5%BE%8C%E8%B7%B3%E5%87%BA%0A%20%20%20%20%20%20%20%20cur%2C%20pre%20%3D%20self._root%2C%20None%0A%20%20%20%20%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%89%BE%E5%88%B0%E9%87%8D%E8%A4%87%E7%AF%80%E9%BB%9E%EF%BC%8C%E7%9B%B4%E6%8E%A5%E8%BF%94%E5%9B%9E%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE%E5%9C%A8%20cur%20%E7%9A%84%E5%8F%B3%E5%AD%90%E6%A8%B9%E4%B8%AD%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE%E5%9C%A8%20cur%20%E7%9A%84%E5%B7%A6%E5%AD%90%E6%A8%B9%E4%B8%AD%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%20%20%20%20%23%20%E6%8F%92%E5%85%A5%E7%AF%80%E9%BB%9E%0A%20%20%20%20%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9%0A%20%20%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20%20%20nums%20%3D%20%5B4%2C%202%2C%206%2C%201%2C%203%2C%205%2C%207%5D%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20bst.insert%28num%29%0A%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E7%AF%80%E9%BB%9E%0A%20%20%20%20node%20%3D%20bst.search%287%29%0A%20%20%20%20print%28%22%5Cn%E6%9F%A5%E8%A9%A2%E5%88%B0%E7%9A%84%E7%AF%80%E9%BB%9E%E7%89%A9%E4%BB%B6%E7%82%BA%3A%20%7B%7D%EF%BC%8C%E7%AF%80%E9%BB%9E%E5%80%BC%20%3D%20%7B%7D%22.format%28node%2C%20node.val%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -824,42 +800,6 @@ comments: true
         pre.left = node
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_tree.zig"
-    // 插入節點
-    fn insert(self: *Self, num: T) !void {
-        // 若樹為空，則初始化根節點
-        if (self.root == null) {
-            self.root = try self.mem_allocator.create(inc.TreeNode(T));
-            return;
-        }
-        var cur = self.root;
-        var pre: ?*inc.TreeNode(T) = null;
-        // 迴圈查詢，越過葉節點後跳出
-        while (cur != null) {
-            // 找到重複節點，直接返回
-            if (cur.?.val == num) return;
-            pre = cur;
-            // 插入位置在 cur 的右子樹中
-            if (cur.?.val < num) {
-                cur = cur.?.right;
-            // 插入位置在 cur 的左子樹中
-            } else {
-                cur = cur.?.left;
-            }
-        }
-        // 插入節點
-        var node = try self.mem_allocator.create(inc.TreeNode(T));
-        node.init(num);
-        if (pre.?.val < num) {
-            pre.?.right = node;
-        } else {
-            pre.?.left = node;
-        }
-    }
     ```
 
 ??? pythontutor "視覺化執行"
@@ -1646,56 +1586,6 @@ comments: true
         cur.val = tmp.val
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_tree.zig"
-    // 刪除節點
-    fn remove(self: *Self, num: T) void {
-        // 若樹為空，直接提前返回
-        if (self.root == null) return;
-        var cur = self.root;
-        var pre: ?*inc.TreeNode(T) = null;
-        // 迴圈查詢，越過葉節點後跳出
-        while (cur != null) {
-            // 找到待刪除節點，跳出迴圈
-            if (cur.?.val == num) break;
-            pre = cur;
-            // 待刪除節點在 cur 的右子樹中
-            if (cur.?.val < num) {
-                cur = cur.?.right;
-            // 待刪除節點在 cur 的左子樹中
-            } else {
-                cur = cur.?.left;
-            }
-        }
-        // 若無待刪除節點，則直接返回
-        if (cur == null) return;
-        // 子節點數量 = 0 or 1
-        if (cur.?.left == null or cur.?.right == null) {
-            // 當子節點數量 = 0 / 1 時， child = null / 該子節點
-            var child = if (cur.?.left != null) cur.?.left else cur.?.right;
-            // 刪除節點 cur
-            if (pre.?.left == cur) {
-                pre.?.left = child;
-            } else {
-                pre.?.right = child;
-            }
-        // 子節點數量 = 2
-        } else {
-            // 獲取中序走訪中 cur 的下一個節點
-            var tmp = cur.?.right;
-            while (tmp.?.left != null) {
-                tmp = tmp.?.left;
-            }
-            var tmp_val = tmp.?.val;
-            // 遞迴刪除節點 tmp
-            self.remove(tmp.?.val);
-            // 用 tmp 覆蓋 cur
-            cur.?.val = tmp_val;
-        }
-    }
     ```
 
 ??? pythontutor "視覺化執行"

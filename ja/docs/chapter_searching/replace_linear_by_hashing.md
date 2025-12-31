@@ -127,12 +127,6 @@ comments: true
     [class]{}-[func]{two_sum_brute_force}
     ```
 
-=== "Zig"
-
-    ```zig title="two_sum.zig"
-    [class]{}-[func]{twoSumBruteForce}
-    ```
-
 この方法の時間計算量は$O(n^2)$、空間計算量は$O(1)$で、大容量データでは非常に時間がかかる可能性があります。
 
 ## 10.4.2 &nbsp; ハッシュ探索：空間を時間と交換
@@ -268,12 +262,6 @@ comments: true
 
     ```ruby title="two_sum.rb"
     [class]{}-[func]{two_sum_hash_table}
-    ```
-
-=== "Zig"
-
-    ```zig title="two_sum.zig"
-    [class]{}-[func]{twoSumHashTable}
     ```
 
 この方法は、ハッシュ探索を使用することで時間計算量を$O(n^2)$から$O(n)$に削減し、実行時効率を大幅に向上させます。

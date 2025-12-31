@@ -116,12 +116,6 @@ comments: true
     [class]{}-[func]{for_loop}
     ```
 
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{forLoop}
-    ```
-
 以下の図はこの合計関数を表しています。
 
 ![Flowchart of the sum function](iteration_and_recursion.assets/iteration.png){ class="animation-figure" }
@@ -242,12 +236,6 @@ comments: true
     [class]{}-[func]{while_loop}
     ```
 
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{whileLoop}
-    ```
-
 **`while`ループは`for`ループよりも柔軟性を提供します**。特に、条件変数のカスタム初期化と各ステップでの変更が可能です。
 
 例えば、以下のコードでは、条件変数$i$が各ラウンドで2回更新されますが、これは`for`ループでは実装が不便です。
@@ -364,12 +352,6 @@ comments: true
     [class]{}-[func]{while_loop_ii}
     ```
 
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{whileLoopII}
-    ```
-
 全体的に、**`for`ループはより簡潔で、`while`ループはより柔軟です**。どちらも反復構造を実装できます。どちらを使用するかは、問題の具体的な要件に基づいて決定する必要があります。
 
 ### 3. &nbsp; ネストしたループ
@@ -482,12 +464,6 @@ comments: true
 
     ```ruby title="iteration.rb"
     [class]{}-[func]{nested_for_loop}
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{nestedForLoop}
     ```
 
 以下の図はこのネストしたループを表しています。
@@ -616,12 +592,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="recursion.rb"
-    [class]{}-[func]{recur}
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
     [class]{}-[func]{recur}
     ```
 
@@ -763,12 +733,6 @@ comments: true
     [class]{}-[func]{tail_recur}
     ```
 
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    [class]{}-[func]{tailRecur}
-    ```
-
 末尾再帰の実行プロセスは以下の図に示されています。通常の再帰と末尾再帰を比較すると、合計操作のポイントが異なります。
 
 - **通常の再帰**: 合計操作は「返却」フェーズで発生し、各レイヤーが返った後にもう一度合計が必要です。
@@ -898,12 +862,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="recursion.rb"
-    [class]{}-[func]{fib}
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
     [class]{}-[func]{fib}
     ```
 
@@ -1073,12 +1031,6 @@ comments: true
 
     ```ruby title="recursion.rb"
     [class]{}-[func]{for_loop_recur}
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    [class]{}-[func]{forLoopRecur}
     ```
 
 上記のコードを観察すると、再帰が反復に変換されたとき、コードはより複雑になります。反復と再帰はしばしば相互に変換できますが、2つの理由でそうすることが常に推奨されるわけではありません：

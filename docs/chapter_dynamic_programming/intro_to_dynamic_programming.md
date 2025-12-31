@@ -420,39 +420,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="climbing_stairs_backtrack.zig"
-    // 回溯
-    fn backtrack(choices: []i32, state: i32, n: i32, res: std.ArrayList(i32)) void {
-        // 当爬到第 n 阶时，方案数量加 1
-        if (state == n) {
-            res.items[0] = res.items[0] + 1;
-        }
-        // 遍历所有选择
-        for (choices) |choice| {
-            // 剪枝：不允许越过第 n 阶
-            if (state + choice > n) {
-                continue;
-            }
-            // 尝试：做出选择，更新状态
-            backtrack(choices, state + choice, n, res);
-            // 回退
-        }
-    }
-
-    // 爬楼梯：回溯
-    fn climbingStairsBacktrack(n: usize) !i32 {
-        var choices = [_]i32{ 1, 2 }; // 可选择向上爬 1 阶或 2 阶
-        var state: i32 = 0; // 从第 0 阶开始爬
-        var res = std.ArrayList(i32).init(std.heap.page_allocator);
-        defer res.deinit();
-        try res.append(0); // 使用 res[0] 记录方案数量
-        backtrack(&choices, state, @intCast(n), res);
-        return res.items[0];
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20backtrack%28choices%3A%20list%5Bint%5D,%20state%3A%20int,%20n%3A%20int,%20res%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%9B%9E%E6%BA%AF%22%22%22%0A%20%20%20%20%23%20%E5%BD%93%E7%88%AC%E5%88%B0%E7%AC%AC%20n%20%E9%98%B6%E6%97%B6%EF%BC%8C%E6%96%B9%E6%A1%88%E6%95%B0%E9%87%8F%E5%8A%A0%201%0A%20%20%20%20if%20state%20%3D%3D%20n%3A%0A%20%20%20%20%20%20%20%20res%5B0%5D%20%2B%3D%201%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E6%89%80%E6%9C%89%E9%80%89%E6%8B%A9%0A%20%20%20%20for%20choice%20in%20choices%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%89%AA%E6%9E%9D%EF%BC%9A%E4%B8%8D%E5%85%81%E8%AE%B8%E8%B6%8A%E8%BF%87%E7%AC%AC%20n%20%E9%98%B6%0A%20%20%20%20%20%20%20%20if%20state%20%2B%20choice%20%3E%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20continue%0A%20%20%20%20%20%20%20%20%23%20%E5%B0%9D%E8%AF%95%EF%BC%9A%E5%81%9A%E5%87%BA%E9%80%89%E6%8B%A9%EF%BC%8C%E6%9B%B4%E6%96%B0%E7%8A%B6%E6%80%81%0A%20%20%20%20%20%20%20%20backtrack%28choices,%20state%20%2B%20choice,%20n,%20res%29%0A%20%20%20%20%20%20%20%20%23%20%E5%9B%9E%E9%80%80%0A%0A%0Adef%20climbing_stairs_backtrack%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%88%AC%E6%A5%BC%E6%A2%AF%EF%BC%9A%E5%9B%9E%E6%BA%AF%22%22%22%0A%20%20%20%20choices%20%3D%20%5B1,%202%5D%20%20%23%20%E5%8F%AF%E9%80%89%E6%8B%A9%E5%90%91%E4%B8%8A%E7%88%AC%201%20%E9%98%B6%E6%88%96%202%20%E9%98%B6%0A%20%20%20%20state%20%3D%200%20%20%23%20%E4%BB%8E%E7%AC%AC%200%20%E9%98%B6%E5%BC%80%E5%A7%8B%E7%88%AC%0A%20%20%20%20res%20%3D%20%5B0%5D%20%20%23%20%E4%BD%BF%E7%94%A8%20res%5B0%5D%20%E8%AE%B0%E5%BD%95%E6%96%B9%E6%A1%88%E6%95%B0%E9%87%8F%0A%20%20%20%20backtrack%28choices,%20state,%20n,%20res%29%0A%20%20%20%20return%20res%5B0%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_backtrack%28n%29%0A%20%20%20%20print%28f%22%E7%88%AC%20%7Bn%7D%20%E9%98%B6%E6%A5%BC%E6%A2%AF%E5%85%B1%E6%9C%89%20%7Bres%7D%20%E7%A7%8D%E6%96%B9%E6%A1%88%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -726,26 +693,6 @@ $$
     def climbing_stairs_dfs(n)
       dfs(n)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_dfs.zig"
-    // 搜索
-    fn dfs(i: usize) i32 {
-        // 已知 dp[1] 和 dp[2] ，返回之
-        if (i == 1 or i == 2) {
-            return @intCast(i);
-        }
-        // dp[i] = dp[i-1] + dp[i-2]
-        var count = dfs(i - 1) + dfs(i - 2);
-        return count;
-    }
-
-    // 爬楼梯：搜索
-    fn climbingStairsDFS(comptime n: usize) i32 {
-        return dfs(n);
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -1115,34 +1062,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="climbing_stairs_dfs_mem.zig"
-    // 记忆化搜索
-    fn dfs(i: usize, mem: []i32) i32 {
-        // 已知 dp[1] 和 dp[2] ，返回之
-        if (i == 1 or i == 2) {
-            return @intCast(i);
-        }
-        // 若存在记录 dp[i] ，则直接返回之
-        if (mem[i] != -1) {
-            return mem[i];
-        }
-        // dp[i] = dp[i-1] + dp[i-2]
-        var count = dfs(i - 1, mem) + dfs(i - 2, mem);
-        // 记录 dp[i]
-        mem[i] = count;
-        return count;
-    }
-
-    // 爬楼梯：记忆化搜索
-    fn climbingStairsDFSMem(comptime n: usize) i32 {
-        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
-        var mem = [_]i32{ -1 } ** (n + 1);
-        return dfs(n, &mem);
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28i%3A%20int,%20mem%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2%22%22%22%0A%20%20%20%20%23%20%E5%B7%B2%E7%9F%A5%20dp%5B1%5D%20%E5%92%8C%20dp%5B2%5D%20%EF%BC%8C%E8%BF%94%E5%9B%9E%E4%B9%8B%0A%20%20%20%20if%20i%20%3D%3D%201%20or%20i%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20%23%20%E8%8B%A5%E5%AD%98%E5%9C%A8%E8%AE%B0%E5%BD%95%20dp%5Bi%5D%20%EF%BC%8C%E5%88%99%E7%9B%B4%E6%8E%A5%E8%BF%94%E5%9B%9E%E4%B9%8B%0A%20%20%20%20if%20mem%5Bi%5D%20!%3D%20-1%3A%0A%20%20%20%20%20%20%20%20return%20mem%5Bi%5D%0A%20%20%20%20%23%20dp%5Bi%5D%20%3D%20dp%5Bi-1%5D%20%2B%20dp%5Bi-2%5D%0A%20%20%20%20count%20%3D%20dfs%28i%20-%201,%20mem%29%20%2B%20dfs%28i%20-%202,%20mem%29%0A%20%20%20%20%23%20%E8%AE%B0%E5%BD%95%20dp%5Bi%5D%0A%20%20%20%20mem%5Bi%5D%20%3D%20count%0A%20%20%20%20return%20count%0A%0A%0Adef%20climbing_stairs_dfs_mem%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%88%AC%E6%A5%BC%E6%A2%AF%EF%BC%9A%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2%22%22%22%0A%20%20%20%20%23%20mem%5Bi%5D%20%E8%AE%B0%E5%BD%95%E7%88%AC%E5%88%B0%E7%AC%AC%20i%20%E9%98%B6%E7%9A%84%E6%96%B9%E6%A1%88%E6%80%BB%E6%95%B0%EF%BC%8C-1%20%E4%BB%A3%E8%A1%A8%E6%97%A0%E8%AE%B0%E5%BD%95%0A%20%20%20%20mem%20%3D%20%5B-1%5D%20*%20%28n%20%2B%201%29%0A%20%20%20%20return%20dfs%28n,%20mem%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_dfs_mem%28n%29%0A%20%20%20%20print%28f%22%E7%88%AC%20%7Bn%7D%20%E9%98%B6%E6%A5%BC%E6%A2%AF%E5%85%B1%E6%9C%89%20%7Bres%7D%20%E7%A7%8D%E6%96%B9%E6%A1%88%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -1419,28 +1338,6 @@ $$
     end
     ```
 
-=== "Zig"
-
-    ```zig title="climbing_stairs_dp.zig"
-    // 爬楼梯：动态规划
-    fn climbingStairsDP(comptime n: usize) i32 {
-        // 已知 dp[1] 和 dp[2] ，返回之
-        if (n == 1 or n == 2) {
-            return @intCast(n);
-        }
-        // 初始化 dp 表，用于存储子问题的解
-        var dp = [_]i32{-1} ** (n + 1);
-        // 初始状态：预设最小子问题的解
-        dp[1] = 1;
-        dp[2] = 2;
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for (3..n + 1) |i| {
-            dp[i] = dp[i - 1] + dp[i - 2];
-        }
-        return dp[n];
-    }
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20climbing_stairs_dp%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%88%AC%E6%A5%BC%E6%A2%AF%EF%BC%9A%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%20dp%20%E8%A1%A8%EF%BC%8C%E7%94%A8%E4%BA%8E%E5%AD%98%E5%82%A8%E5%AD%90%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%0A%20%20%20%20dp%20%3D%20%5B0%5D%20*%20%28n%20%2B%201%29%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E7%8A%B6%E6%80%81%EF%BC%9A%E9%A2%84%E8%AE%BE%E6%9C%80%E5%B0%8F%E5%AD%90%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%0A%20%20%20%20dp%5B1%5D,%20dp%5B2%5D%20%3D%201,%202%0A%20%20%20%20%23%20%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%EF%BC%9A%E4%BB%8E%E8%BE%83%E5%B0%8F%E5%AD%90%E9%97%AE%E9%A2%98%E9%80%90%E6%AD%A5%E6%B1%82%E8%A7%A3%E8%BE%83%E5%A4%A7%E5%AD%90%E9%97%AE%E9%A2%98%0A%20%20%20%20for%20i%20in%20range%283,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%20%3D%20dp%5Bi%20-%201%5D%20%2B%20dp%5Bi%20-%202%5D%0A%20%20%20%20return%20dp%5Bn%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%209%0A%0A%20%20%20%20res%20%3D%20climbing_stairs_dp%28n%29%0A%20%20%20%20print%28f%22%E7%88%AC%20%7Bn%7D%20%E9%98%B6%E6%A5%BC%E6%A2%AF%E5%85%B1%E6%9C%89%20%7Bres%7D%20%E7%A7%8D%E6%96%B9%E6%A1%88%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -1676,25 +1573,6 @@ $$
 
       b
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_dp.zig"
-    // 爬楼梯：空间优化后的动态规划
-    fn climbingStairsDPComp(comptime n: usize) i32 {
-        if (n == 1 or n == 2) {
-            return @intCast(n);
-        }
-        var a: i32 = 1;
-        var b: i32 = 2;
-        for (3..n + 1) |_| {
-            var tmp = b;
-            b = a + b;
-            a = tmp;
-        }
-        return b;
-    }
     ```
 
 ??? pythontutor "可视化运行"

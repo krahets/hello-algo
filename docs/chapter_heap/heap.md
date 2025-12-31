@@ -418,12 +418,6 @@ comments: true
     # Ruby 未提供内置 Heap 类
     ```
 
-=== "Zig"
-
-    ```zig title="heap.zig"
-
-    ```
-
 ??? pythontutor "可视化运行"
 
     <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B0%8F%E9%A1%B6%E5%A0%86%0A%20%20%20%20min_heap,%20flag%20%3D%20%5B%5D,%201%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A4%A7%E9%A1%B6%E5%A0%86%0A%20%20%20%20max_heap,%20flag%20%3D%20%5B%5D,%20-1%0A%20%20%20%20%0A%20%20%20%20%23%20Python%20%E7%9A%84%20heapq%20%E6%A8%A1%E5%9D%97%E9%BB%98%E8%AE%A4%E5%AE%9E%E7%8E%B0%E5%B0%8F%E9%A1%B6%E5%A0%86%0A%20%20%20%20%23%20%E8%80%83%E8%99%91%E5%B0%86%E2%80%9C%E5%85%83%E7%B4%A0%E5%8F%96%E8%B4%9F%E2%80%9D%E5%90%8E%E5%86%8D%E5%85%A5%E5%A0%86%EF%BC%8C%E8%BF%99%E6%A0%B7%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%B0%86%E5%A4%A7%E5%B0%8F%E5%85%B3%E7%B3%BB%E9%A2%A0%E5%80%92%EF%BC%8C%E4%BB%8E%E8%80%8C%E5%AE%9E%E7%8E%B0%E5%A4%A7%E9%A1%B6%E5%A0%86%0A%20%20%20%20%23%20%E5%9C%A8%E6%9C%AC%E7%A4%BA%E4%BE%8B%E4%B8%AD%EF%BC%8Cflag%20%3D%201%20%E6%97%B6%E5%AF%B9%E5%BA%94%E5%B0%8F%E9%A1%B6%E5%A0%86%EF%BC%8Cflag%20%3D%20-1%20%E6%97%B6%E5%AF%B9%E5%BA%94%E5%A4%A7%E9%A1%B6%E5%A0%86%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E5%A0%86%0A%20%20%20%20heapq.heappush%28max_heap,%20flag%20*%201%29%0A%20%20%20%20heapq.heappush%28max_heap,%20flag%20*%203%29%0A%20%20%20%20heapq.heappush%28max_heap,%20flag%20*%202%29%0A%20%20%20%20heapq.heappush%28max_heap,%20flag%20*%205%29%0A%20%20%20%20heapq.heappush%28max_heap,%20flag%20*%204%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%A0%86%E9%A1%B6%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20flag%20*%20max_heap%5B0%5D%20%23%205%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%A0%86%E9%A1%B6%E5%85%83%E7%B4%A0%E5%87%BA%E5%A0%86%0A%20%20%20%20%23%20%E5%87%BA%E5%A0%86%E5%85%83%E7%B4%A0%E4%BC%9A%E5%BD%A2%E6%88%90%E4%B8%80%E4%B8%AA%E4%BB%8E%E5%A4%A7%E5%88%B0%E5%B0%8F%E7%9A%84%E5%BA%8F%E5%88%97%0A%20%20%20%20val%20%3D%20flag%20*%20heapq.heappop%28max_heap%29%20%23%205%0A%20%20%20%20val%20%3D%20flag%20*%20heapq.heappop%28max_heap%29%20%23%204%0A%20%20%20%20val%20%3D%20flag%20*%20heapq.heappop%28max_heap%29%20%23%203%0A%20%20%20%20val%20%3D%20flag%20*%20heapq.heappop%28max_heap%29%20%23%202%0A%20%20%20%20val%20%3D%20flag%20*%20heapq.heappop%28max_heap%29%20%23%201%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E5%A0%86%E5%A4%A7%E5%B0%8F%0A%20%20%20%20size%20%3D%20len%28max_heap%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E5%A0%86%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20not%20max_heap%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%BE%93%E5%85%A5%E5%88%97%E8%A1%A8%E5%B9%B6%E5%BB%BA%E5%A0%86%0A%20%20%20%20min_heap%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20heapq.heapify%28min_heap%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
@@ -692,26 +686,6 @@ comments: true
     end
     ```
 
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    // 获取左子节点的索引
-    fn left(i: usize) usize {
-        return 2 * i + 1;
-    }
-
-    // 获取右子节点的索引
-    fn right(i: usize) usize {
-        return 2 * i + 2;
-    }
-
-    // 获取父节点的索引
-    fn parent(i: usize) usize {
-        // return (i - 1) / 2; // 向下整除
-        return @divFloor(i - 1, 2);
-    }
-    ```
-
 ### 2. &nbsp; 访问堆顶元素
 
 堆顶元素即为二叉树的根节点，也就是列表的首个元素：
@@ -830,15 +804,6 @@ comments: true
     def peek
       @max_heap[0]
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    // 访问堆顶元素
-    fn peek(self: *Self) T {
-        return self.max_heap.?.items[0];
-    }  
     ```
 
 ??? pythontutor "可视化运行"
@@ -1244,33 +1209,6 @@ comments: true
         i = p
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    // 元素入堆
-    fn push(self: *Self, val: T) !void {
-        // 添加节点
-        try self.max_heap.?.append(val);
-        // 从底至顶堆化
-        try self.siftUp(self.size() - 1);
-    }  
-
-    // 从节点 i 开始，从底至顶堆化
-    fn siftUp(self: *Self, i_: usize) !void {
-        var i = i_;
-        while (true) {
-            // 获取节点 i 的父节点
-            var p = parent(i);
-            // 当“越过根节点”或“节点无须修复”时，结束堆化
-            if (p < 0 or self.max_heap.?.items[i] <= self.max_heap.?.items[p]) break;
-            // 交换两节点
-            try self.swap(i, p);
-            // 循环向上堆化
-            i = p;
-        }
-    }
     ```
 
 ??? pythontutor "可视化运行"
@@ -1828,43 +1766,6 @@ comments: true
         i = ma
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    // 元素出堆
-    fn pop(self: *Self) !T {
-        // 判断处理
-        if (self.isEmpty()) unreachable;
-        // 交换根节点与最右叶节点（交换首元素与尾元素）
-        try self.swap(0, self.size() - 1);
-        // 删除节点
-        var val = self.max_heap.?.pop();
-        // 从顶至底堆化
-        try self.siftDown(0);
-        // 返回堆顶元素
-        return val;
-    } 
-
-    // 从节点 i 开始，从顶至底堆化
-    fn siftDown(self: *Self, i_: usize) !void {
-        var i = i_;
-        while (true) {
-            // 判断节点 i, l, r 中值最大的节点，记为 ma
-            var l = left(i);
-            var r = right(i);
-            var ma = i;
-            if (l < self.size() and self.max_heap.?.items[l] > self.max_heap.?.items[ma]) ma = l;
-            if (r < self.size() and self.max_heap.?.items[r] > self.max_heap.?.items[ma]) ma = r;
-            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
-            if (ma == i) break;
-            // 交换两节点
-            try self.swap(i, ma);
-            // 循环向下堆化
-            i = ma;
-        }
-    }
     ```
 
 ??? pythontutor "可视化运行"

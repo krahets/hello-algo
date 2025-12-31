@@ -122,14 +122,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 配列を初期化
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
-    ```
-
 ### 2. &nbsp; 要素へのアクセス
 
 配列内の要素は連続したメモリ空間に格納されるため、各要素のメモリアドレスを計算することが簡単になります。以下の図に示されている公式は、配列のメモリアドレス（特に、最初の要素のアドレス）と要素のインデックスを利用して、要素のメモリアドレスを決定するのに役立ちます。この計算により、目的の要素への直接アクセスが合理化されます。
@@ -238,12 +230,6 @@ comments: true
 
     ```ruby title="array.rb"
     [class]{}-[func]{random_access}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{randomAccess}
     ```
 
 ### 3. &nbsp; 要素の挿入
@@ -356,12 +342,6 @@ comments: true
     [class]{}-[func]{insert}
     ```
 
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{insert}
-    ```
-
 ### 4. &nbsp; 要素の削除
 
 同様に、以下の図に示すように、インデックス$i$の要素を削除するには、インデックス$i$に続くすべての要素を1つずつ前に移動する必要があります。
@@ -463,12 +443,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="array.rb"
-    [class]{}-[func]{remove}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
     [class]{}-[func]{remove}
     ```
 
@@ -590,12 +564,6 @@ comments: true
     [class]{}-[func]{traverse}
     ```
 
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{traverse}
-    ```
-
 ### 6. &nbsp; 要素の検索
 
 配列内の特定の要素を見つけることは、配列を反復し、各要素をチェックして目的の値と一致するかどうかを決定することを含みます。
@@ -696,12 +664,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="array.rb"
-    [class]{}-[func]{find}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
     [class]{}-[func]{find}
     ```
 
@@ -816,12 +778,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="array.rb"
-    [class]{}-[func]{extend}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
     [class]{}-[func]{extend}
     ```
 

@@ -340,12 +340,6 @@ comments: true
 
     ```
 
-=== "Zig"
-
-    ```zig title="deque.zig"
-
-    ```
-
 ## 5.3.2 &nbsp; 両端キューの実装 *
 
 両端キューの実装は通常のキューの実装と似ており、連結リストまたは配列を基盤となるデータ構造として使用できます。
@@ -845,14 +839,6 @@ comments: true
     [class]{LinkedListDeque}-[func]{}
     ```
 
-=== "Zig"
-
-    ```zig title="linkedlist_deque.zig"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
 ### 2. &nbsp; 配列に基づく実装
 
 下図に示すように、配列でキューを実装するのと同様に、循環配列を使って両端キューを実装することもできます。
@@ -1242,12 +1228,6 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_deque.rb"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_deque.zig"
     [class]{ArrayDeque}-[func]{}
     ```
 
