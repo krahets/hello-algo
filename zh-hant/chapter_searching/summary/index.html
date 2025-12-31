@@ -58,8 +58,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Fira Code"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -2645,6 +2645,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.6 &nbsp; 小結
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2661,6 +2679,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. &nbsp; 重點回顧
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -4266,6 +4314,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. &nbsp; 重點回顧
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4302,6 +4369,7 @@
 
 <!-- Page content -->
 <h1 id="106">10.6 &nbsp; 小結<a class="headerlink" href="#106" title="Permanent link">&para;</a></h1>
+<h3 id="1">1. &nbsp; 重點回顧<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>二分搜尋依賴資料的有序性，透過迴圈逐步縮減一半搜尋區間來進行查詢。它要求輸入資料有序，且僅適用於陣列或基於陣列實現的資料結構。</li>
 <li>暴力搜尋透過走訪資料結構來定位資料。線性搜尋適用於陣列和鏈結串列，廣度優先搜尋和深度優先搜尋適用於圖和樹。此類演算法通用性好，無須對資料進行預處理，但時間複雜度 <span class="arithmatex">\(O(n)\)</span> 較高。</li>
