@@ -36,6 +36,8 @@
 
 本書的繁體中文版由 Shyam-Chen 和 Dr-XYZ 審閱，英文版由 yuelinxin、K3v123、QiLOL、Phoenix0415、SamJin98、yanedie、RafaelCaso、pengchzn、thomasq0 和 magentaqin 審閱。正是因為他們的持續貢獻，這本書才能夠服務於更廣泛的讀者群體，感謝他們。
 
+本書的 ePub 電子書生成工具由 zhongfq 開發。感謝他的貢獻，為讀者提供了更加自由的閱讀方式。
+
 在本書的創作過程中，我得到了許多人的幫助。
 
 - 感謝我在公司的導師李汐博士，在一次暢談中你鼓勵我“快行動起來”，堅定了我寫這本書的決心；

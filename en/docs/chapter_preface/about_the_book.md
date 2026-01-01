@@ -36,6 +36,8 @@ The code review work for this book was completed by coderonion, curtishd, Gonglj
 
 The Traditional Chinese version of this book was reviewed by Shyam-Chen and Dr-XYZ, and the English version was reviewed by yuelinxin, K3v123, QiLOL, Phoenix0415, SamJin98, yanedie, RafaelCaso, pengchzn, thomasq0 and magentaqin. It is because of their continuous contributions that this book can serve a wider readership, and we thank them.
 
+The ePub ebook generation tool for this book was developed by zhongfq. We thank him for his contribution, which provides readers with a more flexible way to read.
+
 During the creation of this book, I received help from many people.
 
 - Thanks to my mentor at the company, Dr. Li Xi, who encouraged me to "take action quickly" during a conversation, strengthening my determination to write this book;
