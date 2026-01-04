@@ -34,7 +34,7 @@
 
 本書的程式碼審閱工作由 coderonion、curtishd、Gonglja、gvenusleo、hpstory、justin-tse、khoaxuantu、krahets、night-cruise、nuomi1、Reanon 和 rongyi 完成（按照首字母順序排列）。感謝他們付出的時間與精力，正是他們確保了各語言程式碼的規範與統一。
 
-本書的繁體中文版由 Shyam-Chen 和 Dr-XYZ 審閱，英文版由 yuelinxin、K3v123、QiLOL、Phoenix0415、SamJin98、yanedie、RafaelCaso、pengchzn、thomasq0 和 magentaqin 審閱。正是因為他們的持續貢獻，這本書才能夠服務於更廣泛的讀者群體，感謝他們。
+本書的繁體中文版由 Shyam-Chen 和 Dr-XYZ 審閱，英文版由 yuelinxin、K3v123、QiLOL、Phoenix0415、SamJin98、yanedie、RafaelCaso、pengchzn、thomasq0 和 magentaqin 審閱，日文版由 eltociear 審閱。正是因為他們的持續貢獻，這本書才能夠服務於更廣泛的讀者群體，感謝他們。
 
 本書的 ePub 電子書生成工具由 zhongfq 開發。感謝他的貢獻，為讀者提供了更加自由的閱讀方式。
 
