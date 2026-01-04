@@ -34,7 +34,7 @@ This book has been continuously improved through the joint efforts of many contr
 
 The code review work for this book was completed by coderonion, curtishd, Gonglja, gvenusleo, hpstory, justin-tse, khoaxuantu, krahets, night-cruise, nuomi1, Reanon and rongyi (in alphabetical order). Thanks to them for the time and effort they put in, it is they who ensure the standardization and unity of code in various languages.
 
-The Traditional Chinese version of this book was reviewed by Shyam-Chen and Dr-XYZ, and the English version was reviewed by yuelinxin, K3v123, QiLOL, Phoenix0415, SamJin98, yanedie, RafaelCaso, pengchzn, thomasq0 and magentaqin. It is because of their continuous contributions that this book can serve a wider readership, and we thank them.
+The Traditional Chinese version of this book was reviewed by Shyam-Chen and Dr-XYZ, the English version was reviewed by yuelinxin, K3v123, QiLOL, Phoenix0415, SamJin98, yanedie, RafaelCaso, pengchzn, thomasq0 and magentaqin, and the Japanese edition was reviewed by eltociear. It is because of their continuous contributions that this book can serve a wider readership, and we thank them.
 
 The ePub ebook generation tool for this book was developed by zhongfq. We thank him for his contribution, which provides readers with a more flexible way to read.
 
