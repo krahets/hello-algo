@@ -1,4 +1,5 @@
 {
+    "trailingSlash": true,
     "headers": [
         {
             "source": "(/en|/zh-hant)?/assets/javascripts/bundle.(.+).min.js",
