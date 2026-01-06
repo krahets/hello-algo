@@ -1,6 +1,6 @@
-# Binary tree
+# Binary Tree
 
-A <u>binary tree</u> is a non-linear data structure that represents the hierarchical relationship between ancestors and descendants, embodying the divide-and-conquer logic of "splitting into two". Similar to a linked list, the basic unit of a binary tree is a node, each containing a value, a reference to the left child node, and a reference to the right child node.
+A <u>binary tree</u> is a non-linear data structure that represents the derivation relationship between "ancestors" and "descendants" and embodies the divide-and-conquer logic of "one divides into two". Similar to a linked list, the basic unit of a binary tree is a node, and each node contains a value, a reference to its left child node, and a reference to its right child node.
 
 === "Python"
 
@@ -106,7 +106,7 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
         val: number;
         left: TreeNode | null;
         right: TreeNode | null;
-    
+
         constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val; // Node value
             this.left = left === undefined ? null : left; // Reference to left child node
@@ -189,45 +189,48 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
 === "Ruby"
 
     ```ruby title=""
+    ### Binary tree node class ###
+    class TreeNode
+      attr_accessor :val    # Node value
+      attr_accessor :left   # Reference to left child node
+      attr_accessor :right  # Reference to right child node
 
+      def initialize(val)
+        @val = val
+      end
+    end
     ```
 
-=== "Zig"
+Each node has two references (pointers), pointing respectively to the <u>left-child node</u> and <u>right-child node</u>. This node is called the <u>parent node</u> of these two child nodes. When given a node of a binary tree, we call the tree formed by this node's left child and all nodes below it the <u>left subtree</u> of this node. Similarly, the <u>right subtree</u> can be defined.
 
-    ```zig title=""
-
-    ```
-
-Each node has two references (pointers), pointing to the <u>left-child node</u> and <u>right-child node</u>, respectively. This node is called the <u>parent node</u> of these two child nodes. When given a node of a binary tree, we call the tree formed by this node's left child and all nodes under it the <u>left subtree</u> of this node. Similarly, the <u>right subtree</u> can be defined.
-
-**In a binary tree, except for leaf nodes, all other nodes contain child nodes and non-empty subtrees.** As shown in the figure below, if "Node 2" is considered as the parent node, then its left and right child nodes are "Node 4" and "Node 5," respectively. The left subtree is "the tree formed by Node 4 and all nodes under it," and the right subtree is "the tree formed by Node 5 and all nodes under it."
+**In a binary tree, except leaf nodes, all other nodes contain child nodes and non-empty subtrees.** As shown in the figure below, if "Node 2" is regarded as a parent node, its left and right child nodes are "Node 4" and "Node 5" respectively. The left subtree is formed by "Node 4" and all nodes beneath it, while the right subtree is formed by "Node 5" and all nodes beneath it.
 
 ![Parent Node, child Node, subtree](binary_tree.assets/binary_tree_definition.png)
 
-## Common terminology of binary trees
+## Common Terminology of Binary Trees
 
 The commonly used terminology of binary trees is shown in the figure below.
 
-- <u>Root node</u>: The node at the top level of the binary tree, which has no parent node.
-- <u>Leaf node</u>: A node with no children, both of its pointers point to `None`.
-- <u>Edge</u>: The line segment connecting two nodes, i.e., node reference (pointer).
-- The <u>level</u> of a node: Incrementing from top to bottom, with the root node's level being 1.
-- The <u>degree</u> of a node: The number of children a node has. In a binary tree, the degree can be 0, 1, or 2.
-- The <u>height</u> of a binary tree: The number of edges passed from the root node to the farthest leaf node.
-- The <u>depth</u> of a node: The number of edges passed from the root node to the node.
+- <u>Root node</u>: The node at the top level of a binary tree, which does not have a parent node.
+- <u>Leaf node</u>: A node that does not have any child nodes, with both of its pointers pointing to `None`.
+- <u>Edge</u>: A line segment that connects two nodes, representing a reference (pointer) between the nodes.
+- The <u>level</u> of a node: It increases from top to bottom, with the root node being at level 1.
+- The <u>degree</u> of a node: The number of child nodes that a node has. In a binary tree, the degree can be 0, 1, or 2.
+- The <u>height</u> of a binary tree: The number of edges from the root node to the farthest leaf node.
+- The <u>depth</u> of a node: The number of edges from the root node to the node.
 - The <u>height</u> of a node: The number of edges from the farthest leaf node to the node.
 
 ![Common Terminology of Binary Trees](binary_tree.assets/binary_tree_terminology.png)
 
 !!! tip
 
-    Please note that we typically define "height" and "depth" as "the number of edges traversed", but some problems or textbooks may define them as "the number of nodes traversed". In such cases, both height and depth need to be incremented by 1.
+    Please note that we usually define "height" and "depth" as "the number of edges traversed", but some questions or textbooks may define them as "the number of nodes traversed". In this case, both height and depth need to be incremented by 1.
 
-## Basic operations of binary trees
+## Basic Operations of Binary Trees
 
-### Initializing a binary tree
+### Initializing a Binary Tree
 
-Similar to a linked list, begin by initialize nodes, then construct references (pointers).
+Similar to a linked list, the initialization of a binary tree involves first creating the nodes and then establishing the references (pointers) between them.
 
 === "Python"
 
@@ -432,20 +435,25 @@ Similar to a linked list, begin by initialize nodes, then construct references (
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-
+    # Initializing a binary tree
+    # Initializing nodes
+    n1 = TreeNode.new(1)
+    n2 = TreeNode.new(2)
+    n3 = TreeNode.new(3)
+    n4 = TreeNode.new(4)
+    n5 = TreeNode.new(5)
+    # Linking references (pointers) between nodes
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
     ```
 
-=== "Zig"
-
-    ```zig title="binary_tree.zig"
-
-    ```
-
-??? pythontutor "Code visualization"
+??? pythontutor "Code Visualization"
 
     https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%8F%89%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%8A%82%E7%82%B9%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%EF%BC%88%E6%8C%87%E9%92%88%EF%BC%89%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-### Inserting and removing nodes
+### Inserting and Removing Nodes
 
 Similar to a linked list, inserting and removing nodes in a binary tree can be achieved by modifying pointers. The figure below provides an example.
 
@@ -594,28 +602,28 @@ Similar to a linked list, inserting and removing nodes in a binary tree can be a
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-
+    # Inserting and removing nodes
+    _p = TreeNode.new(0)
+    # Inserting node _p between n1 and n2
+    n1.left = _p
+    _p.left = n2
+    # Removing node _p
+    n1.left = n2
     ```
 
-=== "Zig"
-
-    ```zig title="binary_tree.zig"
-
-    ```
-
-??? pythontutor "Code visualization"
+??? pythontutor "Code Visualization"
 
     https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%8F%89%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%8A%82%E7%82%B9%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%EF%BC%88%E6%8C%87%E9%92%88%EF%BC%89%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%E6%8F%92%E5%85%A5%E4%B8%8E%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%0A%20%20%20%20p%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20%E5%9C%A8%20n1%20-%3E%20n2%20%E4%B8%AD%E9%97%B4%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9%20P%0A%20%20%20%20n1.left%20%3D%20p%0A%20%20%20%20p.left%20%3D%20n2%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%20P%0A%20%20%20%20n1.left%20%3D%20n2&cumulative=false&curInstr=37&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 !!! tip
 
-    It's important to note that inserting nodes may change the original logical structure of the binary tree, while removing nodes typically involves removing the node and all its subtrees. Therefore, in a binary tree, insertion and removal are usually performed through a coordinated set of operations to achieve meaningful outcomes.
+    It should be noted that inserting nodes may change the original logical structure of the binary tree, while removing nodes typically involves removing the node and all its subtrees. Therefore, in a binary tree, insertion and removal are usually performed through a set of operations to achieve meaningful outcomes.
 
-## Common types of binary trees
+## Common Types of Binary Trees
 
-### Perfect binary tree
+### Perfect Binary Tree
 
-As shown in the figure below, in a <u>perfect binary tree</u>, all levels of nodes are fully filled. In a perfect binary tree, the degree of leaf nodes is $0$, while the degree of all other nodes is $2$; if the tree's height is $h$, then the total number of nodes is $2^{h+1} - 1$, showing a standard exponential relationship, reflecting the common phenomenon of cell division in nature.
+As shown in the figure below, a <u>perfect binary tree</u> has all levels completely filled with nodes. In a perfect binary tree, leaf nodes have a degree of $0$, while all other nodes have a degree of $2$. If the tree height is $h$, the total number of nodes is $2^{h+1} - 1$, exhibiting a standard exponential relationship that reflects the common phenomenon of cell division in nature.
 
 !!! tip
 
@@ -623,34 +631,34 @@ As shown in the figure below, in a <u>perfect binary tree</u>, all levels of nod
 
 ![Perfect binary tree](binary_tree.assets/perfect_binary_tree.png)
 
-### Complete binary tree
+### Complete Binary Tree
 
-As shown in the figure below, a <u>complete binary tree</u> has only the bottom level nodes not fully filled, and the bottom level nodes are filled as far left as possible.
+As shown in the figure below, a <u>complete binary tree</u> only allows the bottom level to be incompletely filled, and the nodes at the bottom level must be filled continuously from left to right. Note that a perfect binary tree is also a complete binary tree.
 
 ![Complete binary tree](binary_tree.assets/complete_binary_tree.png)
 
-### Full binary tree
+### Full Binary Tree
 
-As shown in the figure below, a <u>full binary tree</u> has all nodes except leaf nodes having two children.
+As shown in the figure below, in a <u>full binary tree</u>, all nodes except leaf nodes have two child nodes.
 
 ![Full binary tree](binary_tree.assets/full_binary_tree.png)
 
-### Balanced binary tree
+### Balanced Binary Tree
 
-As shown in the figure below, in a <u>balanced binary tree</u>, the absolute difference in height between the left and right subtrees of any node does not exceed 1.
+As shown in the figure below, in a <u>balanced binary tree</u>, the absolute difference between the height of the left and right subtrees of any node does not exceed 1.
 
 ![Balanced binary tree](binary_tree.assets/balanced_binary_tree.png)
 
-## Degeneration of binary trees
+## Degeneration of Binary Trees
 
-The figure below shows the ideal and degenerate structures of binary trees. A binary tree becomes a "perfect binary tree" when every level is filled; while it degenerates into a "linked list" when all nodes are biased toward one side.
+The figure below shows the ideal and degenerate structures of binary trees. When every level of a binary tree is filled, it reaches the "perfect binary tree" state; when all nodes are biased toward one side, the binary tree degenerates into a "linked list".
 
-- The perfect binary tree is the ideal situation, fully leveraging the "divide and conquer" advantage of binary trees.
-- A linked list is another extreme, where operations become linear, degrading the time complexity to $O(n)$.
+- A perfect binary tree is the ideal case, fully leveraging the "divide and conquer" advantage of binary trees.
+- A linked list represents the other extreme, where all operations become linear operations with time complexity degrading to $O(n)$.
 
 ![The Best and Worst Structures of Binary Trees](binary_tree.assets/binary_tree_best_worst_cases.png)
 
-As shown in the table below, in the best and worst structures, the number of leaf nodes, total number of nodes, and height of the binary tree reach their maximum or minimum values.
+As shown in the table below, in the best and worst structures, the binary tree achieves either maximum or minimum values for leaf node count, total number of nodes, and height.
 
 <p align="center"> Table <id> &nbsp; The Best and Worst Structures of Binary Trees </p>
 

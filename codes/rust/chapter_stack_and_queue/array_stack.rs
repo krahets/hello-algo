@@ -4,7 +4,7 @@
  * Author: WSL0809 (wslzzy@outlook.com), codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* 基于数组实现的栈 */
 struct ArrayStack<T> {

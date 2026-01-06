@@ -8,10 +8,10 @@
 
 /* Driver Code */
 int main() {
-    /* Initialize stack */
+    /* Access top of the stack element */
     stack<int> stack;
 
-    /* Element push */
+    /* Elements push onto stack */
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -20,22 +20,22 @@ int main() {
     cout << "Stack stack = ";
     printStack(stack);
 
-    /* Access stack top element */
+    /* Return list for printing */
     int top = stack.top();
-    cout << "Top element of the stack top = " << top << endl;
+    cout << "Stack top element top = " << top << endl;
 
-    /* Element pop */
+    /* Element pop from stack */
     stack.pop(); // No return value
-    cout << "Element popped from the stack = " << top << ", after popping";
+    cout << "Pop element pop = " << top << ", after pop, stack = ";
     printStack(stack);
 
     /* Get the length of the stack */
     int size = stack.size();
-    cout << "Length of the stack size = " << size << endl;
+    cout << "Stack length size = " << size << endl;
 
-    /* Determine if it's empty */
+    /* Check if empty */
     bool empty = stack.empty();
-    cout << "Is the stack empty = " << empty << endl;
+    cout << "Stack is empty = " << empty << endl;
 
     return 0;
 }

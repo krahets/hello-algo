@@ -18,7 +18,7 @@ class ArrayHashMap:
 
     def __init__(self):
         """Constructor"""
-        # Initialize an array, containing 100 buckets
+        # Initialize array with 100 buckets
         self.buckets: list[Pair | None] = [None] * 100
 
     def hash_func(self, key: int) -> int:
@@ -26,7 +26,7 @@ class ArrayHashMap:
         index = key % 100
         return index
 
-    def get(self, key: int) -> str:
+    def get(self, key: int) -> str | None:
         """Query operation"""
         index: int = self.hash_func(key)
         pair: Pair = self.buckets[index]
@@ -35,7 +35,7 @@ class ArrayHashMap:
         return pair.val
 
     def put(self, key: int, val: str):
-        """Add operation"""
+        """Add and update operation"""
         pair = Pair(key, val)
         index: int = self.hash_func(key)
         self.buckets[index] = pair
@@ -43,7 +43,7 @@ class ArrayHashMap:
     def remove(self, key: int):
         """Remove operation"""
         index: int = self.hash_func(key)
-        # Set to None, representing removal
+        # Set to None to represent removal
         self.buckets[index] = None
 
     def entry_set(self) -> list[Pair]:
@@ -84,18 +84,18 @@ if __name__ == "__main__":
 
     # Add operation
     # Add key-value pair (key, value) to the hash table
-    hmap.put(12836, "Ha")
-    hmap.put(15937, "Luo")
-    hmap.put(16750, "Suan")
-    hmap.put(13276, "Fa")
-    hmap.put(10583, "Ya")
+    hmap.put(12836, "Xiao Ha")
+    hmap.put(15937, "Xiao Luo")
+    hmap.put(16750, "Xiao Suan")
+    hmap.put(13276, "Xiao Fa")
+    hmap.put(10583, "Xiao Ya")
     print("\nAfter adding, the hash table is\nKey -> Value")
     hmap.print()
 
     # Query operation
-    # Enter key to the hash table, get value
+    # Input key into the hash table to get value
     name = hmap.get(15937)
-    print("\nEnter student ID 15937, found name " + name)
+    print("\nInput student ID 15937, found name " + name)
 
     # Remove operation
     # Remove key-value pair (key, value) from the hash table
@@ -108,10 +108,10 @@ if __name__ == "__main__":
     for pair in hmap.entry_set():
         print(pair.key, "->", pair.val)
 
-    print("\nIndividually traverse keys Key")
+    print("\nTraverse keys only Key")
     for key in hmap.key_set():
         print(key)
 
-    print("\nIndividually traverse values Value")
+    print("\nTraverse values only Value")
     for val in hmap.value_set():
         print(val)

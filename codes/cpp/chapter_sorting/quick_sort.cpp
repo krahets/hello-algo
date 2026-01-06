@@ -84,7 +84,7 @@ class QuickSortMedian {
     }
 };
 
-/* 快速排序类（尾递归优化） */
+/* 快速排序类（递归深度优化） */
 class QuickSortTailCall {
   private:
     /* 哨兵划分 */
@@ -103,7 +103,7 @@ class QuickSortTailCall {
     }
 
   public:
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     static void quickSort(vector<int> &nums, int left, int right) {
         // 子数组长度为 1 时终止
         while (left < right) {
@@ -135,10 +135,10 @@ int main() {
     cout << "快速排序（中位基准数优化）完成后 nums = ";
     printVector(nums1);
 
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     vector<int> nums2 = {2, 4, 1, 0, 3, 5};
     QuickSortTailCall::quickSort(nums2, 0, nums2.size() - 1);
-    cout << "快速排序（尾递归优化）完成后 nums = ";
+    cout << "快速排序（递归深度优化）完成后 nums = ";
     printVector(nums2);
 
     return 0;

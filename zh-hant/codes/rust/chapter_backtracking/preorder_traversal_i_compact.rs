@@ -4,10 +4,8 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
-
+use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
 use std::{cell::RefCell, rc::Rc};
-use tree_node::{vec_to_tree, TreeNode};
 
 /* 前序走訪：例題一 */
 fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<TreeNode>>>) {

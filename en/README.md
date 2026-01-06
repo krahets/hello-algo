@@ -4,14 +4,16 @@
 </p>
 
 <p align="center">
-  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Noto+Sans+SC&weight=500&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo+!" alt="hello-algo-typing-svg" />
+  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Roboto&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo!" alt="hello-algo-typing-svg" />
   </br>
   Data structures and algorithms crash course with animated illustrations and off-the-shelf code
 </p>
 
 <p align="center">
   <a href="https://www.hello-algo.com/en/">
-    <img src="https://www.hello-algo.com/en/index.assets/btn_read_online_dark.svg" width="120"></a>
+    <img src="https://www.hello-algo.com/en/index.assets/btn_read_online_dark.svg" height="45"></a>
+  <a href="https://github.com/krahets/hello-algo/releases">
+    <img src="https://www.hello-algo.com/en/index.assets/btn_download_pdf_epub_dark.svg" height="45"></a>
 </p>
 
 <p align="center">
@@ -41,6 +43,8 @@
   <a href="https://github.com/krahets/hello-algo/blob/main/zh-hant/README.md">繁體中文</a>
   ｜
   English
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/ja/README.md">日本語</a>
 </p>
 
 ## The book
@@ -62,6 +66,15 @@ If you find this book helpful, please give it a Star :star: to support us, thank
 > "If I had 'Hello Algo' when I was learning data structures and algorithms, it would have been 10 times easier!"
 >
 > **—— Mu Li, Senior Principal Scientist, Amazon**
+
+## Special thanks
+
+<p align="left">
+  <a href="https://go.warp.dev/hello-algo">
+    <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500"></a>
+</p>
+
+[Warp is built for coding with multiple AI agents.](https://go.warp.dev/hello-algo)
 
 ## Contributing
 

@@ -4,7 +4,7 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* 计数排序 */
 // 简单实现，无法用于排序对象

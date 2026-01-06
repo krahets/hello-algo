@@ -185,26 +185,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 链表节点类
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 节点值
-            next: ?*Self = null, // 指向下一节点的指针
-
-            // 构造函数
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-            }
-        };
-    }
-    ```
-
 ## 链表常用操作
 
 ### 初始化链表
@@ -431,23 +411,6 @@
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // 初始化链表
-    // 初始化各个节点
-    var n0 = inc.ListNode(i32){.val = 1};
-    var n1 = inc.ListNode(i32){.val = 3};
-    var n2 = inc.ListNode(i32){.val = 2};
-    var n3 = inc.ListNode(i32){.val = 5};
-    var n4 = inc.ListNode(i32){.val = 4};
-    // 构建节点之间的引用
-    n0.next = &n1;
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
     ```
 
 ??? pythontutor "可视化运行"
@@ -715,28 +678,6 @@
         @prev = prev_node
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    // 双向链表节点类
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 节点值
-            next: ?*Self = null, // 指向后继节点的指针
-            prev: ?*Self = null, // 指向前驱节点的指针
-
-            // 构造函数
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-                self.prev = null;
-            }
-        };
-    }
     ```
 
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)

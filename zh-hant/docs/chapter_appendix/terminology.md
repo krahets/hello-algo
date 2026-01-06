@@ -50,6 +50,7 @@
 | front of the queue             | 队首           | 佇列首         |
 | rear of the queue              | 队尾           | 佇列尾         |
 | hash table                     | 哈希表         | 雜湊表         |
+| hash set                       | 哈希集合       | 雜湊集合       |
 | bucket                         | 桶             | 桶             |
 | hash function                  | 哈希函数       | 雜湊函式       |
 | hash collision                 | 哈希冲突       | 雜湊衝突       |

@@ -9,9 +9,7 @@ def counting_sort_naive(nums: list[int]):
     """計數排序"""
     # 簡單實現，無法用於排序物件
     # 1. 統計陣列最大元素 m
-    m = 0
-    for num in nums:
-        m = max(m, num)
+    m = max(nums)
     # 2. 統計各數字的出現次數
     # counter[num] 代表 num 的出現次數
     counter = [0] * (m + 1)

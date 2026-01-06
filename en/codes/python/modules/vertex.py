@@ -11,10 +11,10 @@ class Vertex:
 
 
 def vals_to_vets(vals: list[int]) -> list["Vertex"]:
-    """Input a list of values vals, return a list of vertices vets"""
+    """Input value list vals, return vertex list vets"""
     return [Vertex(val) for val in vals]
 
 
 def vets_to_vals(vets: list["Vertex"]) -> list[int]:
-    """Input a list of vertices vets, return a list of values vals"""
+    """Input vertex list vets, return value list vals"""
     return [vet.val for vet in vets]

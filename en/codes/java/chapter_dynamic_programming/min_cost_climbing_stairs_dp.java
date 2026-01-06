@@ -9,14 +9,14 @@ package chapter_dynamic_programming;
 import java.util.Arrays;
 
 public class min_cost_climbing_stairs_dp {
-    /* Climbing stairs with minimum cost: Dynamic programming */
+    /* Minimum cost climbing stairs: Dynamic programming */
     public static int minCostClimbingStairsDP(int[] cost) {
         int n = cost.length - 1;
         if (n == 1 || n == 2)
             return cost[n];
-        // Initialize dp table, used to store subproblem solutions
+        // Initialize dp table, used to store solutions to subproblems
         int[] dp = new int[n + 1];
-        // Initial state: preset the smallest subproblem solution
+        // Initial state: preset the solution to the smallest subproblem
         dp[1] = cost[1];
         dp[2] = cost[2];
         // State transition: gradually solve larger subproblems from smaller ones
@@ -26,7 +26,7 @@ public class min_cost_climbing_stairs_dp {
         return dp[n];
     }
 
-    /* Climbing stairs with minimum cost: Space-optimized dynamic programming */
+    /* Minimum cost climbing stairs: Space-optimized dynamic programming */
     public static int minCostClimbingStairsDPComp(int[] cost) {
         int n = cost.length - 1;
         if (n == 1 || n == 2)
@@ -42,12 +42,12 @@ public class min_cost_climbing_stairs_dp {
 
     public static void main(String[] args) {
         int[] cost = { 0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1 };
-        System.out.println(String.format("Input the cost list for stairs as %s", Arrays.toString(cost)));
+        System.out.println(String.format("Input staircase cost list is %s", Arrays.toString(cost)));
 
         int res = minCostClimbingStairsDP(cost);
-        System.out.println(String.format("Minimum cost to climb the stairs %d", res));
+        System.out.println(String.format("Minimum cost to climb staircase is %d", res));
 
         res = minCostClimbingStairsDPComp(cost);
-        System.out.println(String.format("Minimum cost to climb the stairs %d", res));
+        System.out.println(String.format("Minimum cost to climb staircase is %d", res));
     }
 }

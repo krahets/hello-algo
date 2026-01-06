@@ -4,13 +4,10 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
-
-use list_node::ListNode;
+use hello_algo_rust::include::{print_util, ListNode, TreeNode};
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
-use tree_node::TreeNode;
 
 /* 函式 */
 fn function() -> i32 {

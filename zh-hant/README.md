@@ -11,7 +11,9 @@
 
 <p align="center">
   <a href="https://www.hello-algo.com/zh-hant/">
-    <img src="https://www.hello-algo.com/zh-hant/index.assets/btn_read_online_dark.svg" width="145"></a>
+    <img src="https://www.hello-algo.com/zh-hant/index.assets/btn_read_online_dark.svg" height="45"></a>
+  <a href="https://github.com/krahets/hello-algo/releases">
+    <img src="https://www.hello-algo.com/zh-hant/index.assets/btn_download_pdf_epub_dark.svg" height="45"></a>
 </p>
 
 <p align="center">
@@ -41,6 +43,8 @@
   繁體中文
   ｜
   <a href="https://github.com/krahets/hello-algo/blob/main/en/README.md">English</a>
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/ja/README.md">日本語</a>
 </p>
 
 ## 關於本書
@@ -62,6 +66,17 @@
 > “如果我當年學資料結構與演算法的時候有《Hello 演算法》，學起來應該會簡單 10 倍！”
 >
 > **—— 李沐，亞馬遜資深首席科學家**
+
+## 鳴謝
+
+<p align="left">
+  <a href="https://go.warp.dev/hello-algo">
+    <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500"></a>
+</p>
+
+[Warp is built for coding with multiple AI agents.](https://go.warp.dev/hello-algo)
+
+強烈推薦 Warp 終端，高顏值 + 好用的 AI，體驗非常棒！
 
 ## 貢獻
 

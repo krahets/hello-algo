@@ -90,7 +90,7 @@ impl QuickSortMedian {
     }
 }
 
-/* 快速排序（尾递归优化） */
+/* 快速排序（递归深度优化） */
 struct QuickSortTailCall;
 
 impl QuickSortTailCall {
@@ -111,7 +111,7 @@ impl QuickSortTailCall {
         i // 返回基准数的索引
     }
 
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     pub fn quick_sort(mut left: i32, mut right: i32, nums: &mut [i32]) {
         // 子数组长度为 1 时终止
         while left < right {
@@ -141,8 +141,8 @@ fn main() {
     QuickSortMedian::quick_sort(0, (nums.len() - 1) as i32, &mut nums);
     println!("快速排序（中位基准数优化）完成后 nums = {:?}", nums);
 
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     let mut nums = [2, 4, 1, 0, 3, 5];
     QuickSortTailCall::quick_sort(0, (nums.len() - 1) as i32, &mut nums);
-    println!("快速排序（尾递归优化）完成后 nums = {:?}", nums);
+    println!("快速排序（递归深度优化）完成后 nums = {:?}", nums);
 }

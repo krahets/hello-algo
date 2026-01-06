@@ -8,7 +8,7 @@ Author: krahets (krahets@163.com)
 def backtrack(
     state: list[int], choices: list[int], selected: list[bool], res: list[list[int]]
 ):
-    """Backtracking algorithm: Permutation II"""
+    """Backtracking algorithm: Permutations II"""
     # When the state length equals the number of elements, record the solution
     if len(state) == len(choices):
         res.append(list(state))
@@ -18,19 +18,19 @@ def backtrack(
     for i, choice in enumerate(choices):
         # Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
         if not selected[i] and choice not in duplicated:
-            # Attempt: make a choice, update the state
-            duplicated.add(choice)  # Record selected element values
+            # Attempt: make choice, update state
+            duplicated.add(choice)  # Record the selected element value
             selected[i] = True
             state.append(choice)
             # Proceed to the next round of selection
             backtrack(state, choices, selected, res)
-            # Retract: undo the choice, restore to the previous state
+            # Backtrack: undo choice, restore to previous state
             selected[i] = False
             state.pop()
 
 
 def permutations_ii(nums: list[int]) -> list[list[int]]:
-    """Permutation II"""
+    """Permutations II"""
     res = []
     backtrack(state=[], choices=nums, selected=[False] * len(nums), res=res)
     return res

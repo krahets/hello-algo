@@ -24,7 +24,7 @@ class ArrayHashMap {
 
   public:
     ArrayHashMap() {
-        // Initialize an array, containing 100 buckets
+        // Initialize array with 100 buckets
         buckets = vector<Pair *>(100);
     }
 
@@ -107,4 +107,4 @@ class ArrayHashMap {
     }
 };
 
-// See test case in array_hash_map_test.cpp
+// See array_hash_map_test.cpp for test cases

@@ -74,10 +74,23 @@ int pop(ArrayQueue *queue) {
     return num;
 }
 
+/* 返回陣列用於列印 */
+int *toArray(ArrayQueue *queue, int *queSize) {
+    *queSize = queue->queSize;
+    int *res = (int *)calloc(queue->queSize, sizeof(int));
+    int j = queue->front;
+    for (int i = 0; i < queue->queSize; i++) {
+        res[i] = queue->nums[j % queue->queCapacity];
+        j++;
+    }
+    return res;
+}
+
 /* Driver Code */
 int main() {
     /* 初始化佇列 */
     int capacity = 10;
+    int queSize;
     ArrayQueue *queue = newArrayQueue(capacity);
 
     /* 元素入列 */
@@ -87,7 +100,7 @@ int main() {
     push(queue, 5);
     push(queue, 4);
     printf("佇列 queue = ");
-    printArray(queue->nums, queue->queSize);
+    printArray(toArray(queue, &queSize), queSize);
 
     /* 訪問佇列首元素 */
     int peekNum = peek(queue);
@@ -96,7 +109,7 @@ int main() {
     /* 元素出列 */
     peekNum = pop(queue);
     printf("出列元素 pop = %d ，出列後 queue = ", peekNum);
-    printArray(queue->nums, queue->queSize);
+    printArray(toArray(queue, &queSize), queSize);
 
     /* 獲取佇列的長度 */
     int queueSize = size(queue);
@@ -111,7 +124,7 @@ int main() {
         push(queue, i);
         pop(queue);
         printf("第 %d 輪入列 + 出列後 queue = ", i);
-        printArray(queue->nums, queue->queSize);
+        printArray(toArray(queue, &queSize), queSize);
     }
 
     // 釋放記憶體

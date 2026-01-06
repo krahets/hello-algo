@@ -9,32 +9,32 @@ package chapter_searching;
 class binary_search_insertion {
     /* Binary search for insertion point (no duplicate elements) */
     static int binarySearchInsertionSimple(int[] nums, int target) {
-        int i = 0, j = nums.length - 1; // Initialize double closed interval [0, n-1]
+        int i = 0, j = nums.length - 1; // Initialize closed interval [0, n-1]
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate midpoint index m
+            int m = i + (j - i) / 2; // Calculate the midpoint index m
             if (nums[m] < target) {
-                i = m + 1; // Target is in interval [m+1, j]
+                i = m + 1; // target is in the interval [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target is in interval [i, m-1]
+                j = m - 1; // target is in the interval [i, m-1]
             } else {
                 return m; // Found target, return insertion point m
             }
         }
-        // Did not find target, return insertion point i
+        // Target not found, return insertion point i
         return i;
     }
 
     /* Binary search for insertion point (with duplicate elements) */
     static int binarySearchInsertion(int[] nums, int target) {
-        int i = 0, j = nums.length - 1; // Initialize double closed interval [0, n-1]
+        int i = 0, j = nums.length - 1; // Initialize closed interval [0, n-1]
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate midpoint index m
+            int m = i + (j - i) / 2; // Calculate the midpoint index m
             if (nums[m] < target) {
-                i = m + 1; // Target is in interval [m+1, j]
+                i = m + 1; // target is in the interval [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target is in interval [i, m-1]
+                j = m - 1; // target is in the interval [i, m-1]
             } else {
-                j = m - 1; // First element less than target is in interval [i, m-1]
+                j = m - 1; // The first element less than target is in the interval [i, m-1]
             }
         }
         // Return insertion point i
@@ -48,7 +48,7 @@ class binary_search_insertion {
         // Binary search for insertion point
         for (int target : new int[] { 6, 9 }) {
             int index = binarySearchInsertionSimple(nums, target);
-            System.out.println("The insertion point index for element " + target + " is " + index);
+            System.out.println("Insertion point index for element " + target + " is " + index);
         }
 
         // Array with duplicate elements
@@ -57,7 +57,7 @@ class binary_search_insertion {
         // Binary search for insertion point
         for (int target : new int[] { 2, 6, 20 }) {
             int index = binarySearchInsertion(nums, target);
-            System.out.println("The insertion point index for element " + target + " is " + index);
+            System.out.println("Insertion point index for element " + target + " is " + index);
         }
     }
 }

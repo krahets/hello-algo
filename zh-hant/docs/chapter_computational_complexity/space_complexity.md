@@ -361,12 +361,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 ## 推算方法
 
 空間複雜度的推算方法與時間複雜度大致相同，只需將統計物件從“操作數量”轉為“使用空間大小”。
@@ -529,12 +523,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 **在遞迴函式中，需要注意統計堆疊幀空間**。觀察以下程式碼：
 
 === "Python"
@@ -572,7 +560,7 @@
     /* 遞迴的空間複雜度為 O(n) */
     void recur(int n) {
         if (n == 1) return;
-        return recur(n - 1);
+        recur(n - 1);
     }
     ```
 
@@ -592,7 +580,7 @@
     /* 遞迴的空間複雜度為 O(n) */
     void recur(int n) {
         if (n == 1) return;
-        return recur(n - 1);
+        recur(n - 1);
     }
     ```
 
@@ -721,7 +709,7 @@
     /* 遞迴的空間複雜度為 O(n) */
     void recur(int n) {
       if (n == 1) return;
-      return recur(n - 1);
+      recur(n - 1);
     }
     ```
 
@@ -763,7 +751,7 @@
     /* 遞迴的空間複雜度為 O(n) */
     void recur(int n) {
         if (n == 1) return;
-        return recur(n - 1);
+        recur(n - 1);
     }
     ```
 
@@ -805,12 +793,6 @@
         return if n == 1
         recur(n - 1)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 函式 `loop()` 和 `recur()` 的時間複雜度都為 $O(n)$ ，但空間複雜度不同。

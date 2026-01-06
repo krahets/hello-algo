@@ -25,7 +25,7 @@ void remove(ListNode *n0) {
     delete P;
 }
 
-/* Access the node at `index` in the linked list */
+/* Access the node at index index in the linked list */
 ListNode *access(ListNode *head, int index) {
     for (int i = 0; i < index; i++) {
         if (head == nullptr)
@@ -35,7 +35,7 @@ ListNode *access(ListNode *head, int index) {
     return head;
 }
 
-/* Search for the first node with value target in the linked list */
+/* Find the first node with value target in the linked list */
 int find(ListNode *head, int target) {
     int index = 0;
     while (head != nullptr) {
@@ -61,26 +61,26 @@ int main() {
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
-    cout << "The initialized linked list is" << endl;
+    cout << "Initialized linked list is" << endl;
     printLinkedList(n0);
 
     /* Insert node */
     insert(n0, new ListNode(0));
-    cout << "Linked list after inserting the node is" << endl;
+    cout << "Linked list after inserting node is" << endl;
     printLinkedList(n0);
 
     /* Remove node */
     remove(n0);
-    cout << "Linked list after removing the node is" << endl;
+    cout << "Linked list after removing node is" << endl;
     printLinkedList(n0);
 
     /* Access node */
     ListNode *node = access(n0, 3);
-    cout << "The value of the node at index 3 in the linked list = " << node->val << endl;
+    cout << "Value of node at index 3 in linked list = " << node->val << endl;
 
     /* Search node */
     int index = find(n0, 2);
-    cout << "The index of the node with value 2 in the linked list = " << index << endl;
+    cout << "Index of node with value 2 in linked list = " << index << endl;
 
     // Free memory
     freeMemoryLinkedList(n0);

@@ -1,6 +1,6 @@
 # Graph
 
-A <u>graph</u> is a type of nonlinear data structure, consisting of <u>vertices</u> and <u>edges</u>. A graph $G$ can be abstractly represented as a collection of a set of vertices $V$ and a set of edges $E$. The following example shows a graph containing 5 vertices and 7 edges.
+A <u>graph</u> is a nonlinear data structure consisting of <u>vertices</u> and <u>edges</u>. We can abstractly represent a graph $G$ as a set of vertices $V$ and a set of edges $E$. The following example shows a graph containing 5 vertices and 7 edges.
 
 $$
 \begin{aligned}
@@ -10,74 +10,74 @@ G & = \{ V, E \} \newline
 \end{aligned}
 $$
 
-If vertices are viewed as nodes and edges as references (pointers) connecting the nodes, graphs can be seen as a data structure that extends from linked lists. As shown in the figure below, **compared to linear relationships (linked lists) and divide-and-conquer relationships (trees), network relationships (graphs) are more complex due to their higher degree of freedom**.
+If we view vertices as nodes and edges as references (pointers) connecting the nodes, we can see graphs as a data structure extended from linked lists. As shown in the figure below, **compared to linear relationships (linked lists) and divide-and-conquer relationships (trees), network relationships (graphs) have a higher degree of freedom and are therefore more complex**.
 
-![Relationship between linked lists, trees, and graphs](graph.assets/linkedlist_tree_graph.png)
+![Relationships among linked lists, trees, and graphs](graph.assets/linkedlist_tree_graph.png)
 
-## Common types and terminologies of graphs
+## Common Types and Terminology of Graphs
 
-Graphs can be divided into  <u>undirected graphs</u> and <u>directed graphs</u> depending on whether edges have direction, as shown in the figure below.
+Graphs can be divided into <u>undirected graphs</u> and <u>directed graphs</u> based on whether edges have direction, as shown in the figure below.
 
-- In undirected graphs, edges represent a "bidirectional" connection between two vertices, for example, the "friends" in Facebook.
-- In directed graphs, edges have directionality, that is, the edges $A \rightarrow B$ and $A \leftarrow B$ are independent of each other. For example, the "follow" and "followed" relationship on Instagram or TikTok.
+- In undirected graphs, edges represent a "bidirectional" connection between two vertices, such as the "friend relationship" on WeChat or QQ.
+- In directed graphs, edges have directionality, meaning edges $A \rightarrow B$ and $A \leftarrow B$ are independent of each other, such as the "follow" and "be followed" relationships on Weibo or TikTok.
 
 ![Directed and undirected graphs](graph.assets/directed_graph.png)
 
-Depending on whether all vertices are connected, graphs can be divided into <u>connected graphs</u> and <u>disconnected graphs</u>, as shown in the figure below.
+Graphs can be divided into <u>connected graphs</u> and <u>disconnected graphs</u> based on whether all vertices are connected, as shown in the figure below.
 
-- For connected graphs, it is possible to reach any other vertex starting from an arbitrary vertex.
-- For disconnected graphs, there is at least one vertex that cannot be reached from an arbitrary starting vertex.
+- For connected graphs, starting from any vertex, all other vertices can be reached.
+- For disconnected graphs, starting from a certain vertex, at least one vertex cannot be reached.
 
 ![Connected and disconnected graphs](graph.assets/connected_graph.png)
 
-We can also add a weight variable to edges, resulting in <u>weighted graphs</u> as shown in the figure below. For example, in Instagram, the system sorts your follower and following list by the level of interaction between you and other users (likes, views, comments, etc.). Such an interaction network can be represented by a weighted graph.
+We can also add a "weight" variable to edges, resulting in <u>weighted graphs</u> as shown in the figure below. For example, in mobile games like "Honor of Kings", the system calculates the "intimacy" between players based on their shared game time, and such intimacy networks can be represented using weighted graphs.
 
 ![Weighted and unweighted graphs](graph.assets/weighted_graph.png)
 
 Graph data structures include the following commonly used terms.
 
-- <u>Adjacency</u>: When there is an edge connecting two vertices, these two vertices are said to be "adjacent". In the figure above, the adjacent vertices of vertex 1 are vertices 2, 3, and 5.
-- <u>Path</u>: The sequence of edges passed from vertex A to vertex B is called a path from A to B. In the figure above, the edge sequence 1-5-2-4 is a path from vertex 1 to vertex 4.
-- <u>Degree</u>: The number of edges a vertex has. For directed graphs, <u>in-degree</u> refers to how many edges point to the vertex, and <u>out-degree</u> refers to how many edges point out from the vertex.
+- <u>Adjacency</u>: When two vertices are connected by an edge, these two vertices are said to be "adjacent". In the figure above, the adjacent vertices of vertex 1 are vertices 2, 3, and 5.
+- <u>Path</u>: The sequence of edges from vertex A to vertex B is called a "path" from A to B. In the figure above, the edge sequence 1-5-2-4 is a path from vertex 1 to vertex 4.
+- <u>Degree</u>: The number of edges a vertex has. For directed graphs, <u>in-degree</u> indicates how many edges point to the vertex, and <u>out-degree</u> indicates how many edges point out from the vertex.
 
-## Representation of graphs
+## Representation of Graphs
 
-Common representations of graphs include "adjacency matrix" and "adjacency list". The following examples use undirected graphs.
+Common representations of graphs include "adjacency matrices" and "adjacency lists". The following uses undirected graphs as examples.
 
-### Adjacency matrix
+### Adjacency Matrix
 
-Let the number of vertices in the graph be $n$, the <u>adjacency matrix</u> uses an $n \times n$ matrix to represent the graph, where each row (column) represents a vertex, and the matrix elements represent edges, with $1$ or $0$ indicating whether there is an edge between two vertices.
+Given a graph with $n$ vertices, an <u>adjacency matrix</u> uses an $n \times n$ matrix to represent the graph, where each row (column) represents a vertex, and matrix elements represent edges, using $1$ or $0$ to indicate whether an edge exists between two vertices.
 
-As shown in the figure below, let the adjacency matrix be $M$, and the list of vertices be $V$, then the matrix element $M[i, j] = 1$ indicates there is an edge between vertex $V[i]$ and vertex $V[j]$, conversely $M[i, j] = 0$ indicates there is no edge between the two vertices.
+As shown in the figure below, let the adjacency matrix be $M$ and the vertex list be $V$. Then matrix element $M[i, j] = 1$ indicates that an edge exists between vertex $V[i]$ and vertex $V[j]$, whereas $M[i, j] = 0$ indicates no edge between the two vertices.
 
-![Representation of a graph with an adjacency matrix](graph.assets/adjacency_matrix.png)
+![Adjacency matrix representation of a graph](graph.assets/adjacency_matrix.png)
 
-Adjacency matrices have the following characteristics.
+Adjacency matrices have the following properties.
 
-- A vertex cannot be connected to itself, so the elements on the main diagonal of the adjacency matrix are meaningless.
-- For undirected graphs, edges in both directions are equivalent, thus the adjacency matrix is symmetric with regard to the main diagonal.
-- By replacing the elements of the adjacency matrix from $1$ and $0$ to weights, we can represent weighted graphs.
+- In simple graphs, vertices cannot connect to themselves, so the elements on the main diagonal of the adjacency matrix are meaningless.
+- For undirected graphs, edges in both directions are equivalent, so the adjacency matrix is symmetric about the main diagonal.
+- Replacing the elements of the adjacency matrix from $1$ and $0$ to weights allows representation of weighted graphs.
 
-When representing graphs with adjacency matrices, it is possible to directly access matrix elements to obtain edges, resulting in efficient operations of addition, deletion, lookup, and modification, all with a time complexity of $O(1)$. However, the space complexity of the matrix is $O(n^2)$, which consumes more memory.
+When using adjacency matrices to represent graphs, we can directly access matrix elements to obtain edges, resulting in highly efficient addition, deletion, lookup, and modification operations, all with a time complexity of $O(1)$. However, the space complexity of the matrix is $O(n^2)$, which consumes significant memory.
 
-### Adjacency list
+### Adjacency List
 
-The <u>adjacency list</u> uses $n$ linked lists to represent the graph, with each linked list node representing a vertex. The $i$-th linked list corresponds to vertex $i$ and contains all adjacent vertices (vertices connected to that vertex). The figure below shows an example of a graph stored using an adjacency list.
+An <u>adjacency list</u> uses $n$ linked lists to represent a graph, with linked list nodes representing vertices. The $i$-th linked list corresponds to vertex $i$ and stores all adjacent vertices of that vertex (vertices connected to that vertex). The figure below shows an example of a graph stored using an adjacency list.
 
-![Representation of a graph with an adjacency list](graph.assets/adjacency_list.png)
+![Adjacency list representation of a graph](graph.assets/adjacency_list.png)
 
-The adjacency list only stores actual edges, and the total number of edges is often much less than $n^2$, making it more space-efficient. However, finding edges in the adjacency list requires traversing the linked list, so its time efficiency is not as good as that of the adjacency matrix.
+Adjacency lists only store edges that actually exist, and the total number of edges is typically much less than $n^2$, making them more space-efficient. However, finding edges in an adjacency list requires traversing the linked list, so its time efficiency is inferior to that of adjacency matrices.
 
-Observing the figure above, **the structure of the adjacency list is very similar to the "chaining" in hash tables, hence we can use similar methods to optimize efficiency**. For example, when the linked list is long, it can be transformed into an AVL tree or red-black tree, thus optimizing the time efficiency from $O(n)$ to $O(\log n)$; the linked list can also be transformed into a hash table, thus reducing the time complexity to $O(1)$.
+Observing the figure above, **the structure of adjacency lists is very similar to "chaining" in hash tables, so we can adopt similar methods to optimize efficiency**. For example, when linked lists are long, they can be converted to AVL trees or red-black trees, thereby optimizing time efficiency from $O(n)$ to $O(\log n)$; linked lists can also be converted to hash tables, thereby reducing time complexity to $O(1)$.
 
-## Common applications of graphs
+## Common Applications of Graphs
 
-As shown in the table below, many real-world systems can be modeled with graphs, and corresponding problems can be reduced to graph computing problems.
+As shown in the table below, many real-world systems can be modeled using graphs, and corresponding problems can be reduced to graph computation problems.
 
 <p align="center"> Table <id> &nbsp; Common graphs in real life </p>
 
-|                 | Vertices         | Edges                                         | Graph Computing Problem          |
-| --------------- | ---------------- | --------------------------------------------- | -------------------------------- |
-| Social Networks | Users            | Follow / Followed                                   | Potential Following Recommendations |
-| Subway Lines    | Stations         | Connectivity Between Stations                 | Shortest Route Recommendations   |
-| Solar System    | Celestial Bodies | Gravitational Forces Between Celestial Bodies | Planetary Orbit Calculations     |
+|                | Vertices        | Edges                                  | Graph Computation Problem     |
+| -------------- | --------------- | -------------------------------------- | ----------------------------- |
+| Social network | Users           | Friend relationships                   | Potential friend recommendation |
+| Subway lines   | Stations        | Connectivity between stations          | Shortest route recommendation |
+| Solar system   | Celestial bodies | Gravitational forces between celestial bodies | Planetary orbit calculation   |

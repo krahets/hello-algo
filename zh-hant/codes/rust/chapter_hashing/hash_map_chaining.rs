@@ -13,10 +13,10 @@ struct Pair {
 
 /* 鏈式位址雜湊表 */
 struct HashMapChaining {
-    size: i32,
-    capacity: i32,
+    size: usize,
+    capacity: usize,
     load_thres: f32,
-    extend_ratio: i32,
+    extend_ratio: usize,
     buckets: Vec<Vec<Pair>>,
 }
 
@@ -34,7 +34,7 @@ impl HashMapChaining {
 
     /* 雜湊函式 */
     fn hash_func(&self, key: i32) -> usize {
-        key as usize % self.capacity as usize
+        key as usize % self.capacity
     }
 
     /* 負載因子 */
@@ -45,12 +45,11 @@ impl HashMapChaining {
     /* 刪除操作 */
     fn remove(&mut self, key: i32) -> Option<String> {
         let index = self.hash_func(key);
-        let bucket = &mut self.buckets[index];
 
         // 走訪桶，從中刪除鍵值對
-        for i in 0..bucket.len() {
-            if bucket[i].key == key {
-                let pair = bucket.remove(i);
+        for (i, p) in self.buckets[index].iter_mut().enumerate() {
+            if p.key == key {
+                let pair = self.buckets[index].remove(i);
                 self.size -= 1;
                 return Some(pair.val);
             }
@@ -63,7 +62,7 @@ impl HashMapChaining {
     /* 擴容雜湊表 */
     fn extend(&mut self) {
         // 暫存原雜湊表
-        let buckets_tmp = std::mem::replace(&mut self.buckets, vec![]);
+        let buckets_tmp = std::mem::take(&mut self.buckets);
 
         // 初始化擴容後的新雜湊表
         self.capacity *= self.extend_ratio;
@@ -97,30 +96,27 @@ impl HashMapChaining {
         }
 
         let index = self.hash_func(key);
-        let bucket = &mut self.buckets[index];
 
         // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
-        for pair in bucket {
+        for pair in self.buckets[index].iter_mut() {
             if pair.key == key {
                 pair.val = val;
                 return;
             }
         }
-        let bucket = &mut self.buckets[index];
 
         // 若無該 key ，則將鍵值對新增至尾部
         let pair = Pair { key, val };
-        bucket.push(pair);
+        self.buckets[index].push(pair);
         self.size += 1;
     }
 
     /* 查詢操作 */
     fn get(&self, key: i32) -> Option<&str> {
         let index = self.hash_func(key);
-        let bucket = &self.buckets[index];
 
         // 走訪桶，若找到 key ，則返回對應 val
-        for pair in bucket {
+        for pair in self.buckets[index].iter() {
             if pair.key == key {
                 return Some(&pair.val);
             }

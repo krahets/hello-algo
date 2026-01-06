@@ -52,7 +52,7 @@ class GraphAdjList {
     public void addVertex(Vertex vet) {
         if (adjList.containsKey(vet))
             return;
-        // Add a new linked list to the adjacency list
+        // Add a new linked list in the adjacency list
         adjList.put(vet, new ArrayList<>());
     }
 
@@ -60,15 +60,15 @@ class GraphAdjList {
     public void removeVertex(Vertex vet) {
         if (!adjList.containsKey(vet))
             throw new IllegalArgumentException();
-        // Remove the vertex vet's corresponding linked list from the adjacency list
+        // Remove the linked list corresponding to vertex vet in the adjacency list
         adjList.remove(vet);
-        // Traverse other vertices' linked lists, removing all edges containing vet
+        // Traverse the linked lists of other vertices and remove all edges containing vet
         for (List<Vertex> list : adjList.values()) {
             list.remove(vet);
         }
     }
 
-    /* Print the adjacency list */
+    /* Print adjacency list */
     public void print() {
         System.out.println("Adjacency list =");
         for (Map.Entry<Vertex, List<Vertex>> pair : adjList.entrySet()) {
@@ -82,36 +82,36 @@ class GraphAdjList {
 
 public class graph_adjacency_list {
     public static void main(String[] args) {
-        /* Initialize undirected graph */
+        /* Add edge */
         Vertex[] v = Vertex.valsToVets(new int[] { 1, 3, 2, 5, 4 });
         Vertex[][] edges = { { v[0], v[1] }, { v[0], v[3] }, { v[1], v[2] },
                              { v[2], v[3] }, { v[2], v[4] }, { v[3], v[4] } };
         GraphAdjList graph = new GraphAdjList(edges);
-        System.out.println("\nAfter initialization, the graph is");
+        System.out.println("\nAfter initialization, graph is");
         graph.print();
 
         /* Add edge */
-        // Vertices 1, 2 i.e., v[0], v[2]
+        // Vertices 1, 3 are v[0], v[1]
         graph.addEdge(v[0], v[2]);
-        System.out.println("\nAfter adding edge 1-2, the graph is");
+        System.out.println("\nAfter adding edge 1-2, graph is");
         graph.print();
 
         /* Remove edge */
-        // Vertices 1, 3 i.e., v[0], v[1]
+        // Vertex 3 is v[1]
         graph.removeEdge(v[0], v[1]);
-        System.out.println("\nAfter removing edge 1-3, the graph is");
+        System.out.println("\nAfter removing edge 1-3, graph is");
         graph.print();
 
         /* Add vertex */
         Vertex v5 = new Vertex(6);
         graph.addVertex(v5);
-        System.out.println("\nAfter adding vertex 6, the graph is");
+        System.out.println("\nAfter adding vertex 6, graph is");
         graph.print();
 
         /* Remove vertex */
-        // Vertex 3 i.e., v[1]
+        // Vertex 3 is v[1]
         graph.removeVertex(v[1]);
-        System.out.println("\nAfter removing vertex 3, the graph is");
+        System.out.println("\nAfter removing vertex 3, graph is");
         graph.print();
     }
 }

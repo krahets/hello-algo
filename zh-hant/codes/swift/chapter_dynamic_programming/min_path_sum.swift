@@ -105,19 +105,19 @@ enum MinPathSum {
 
         // 暴力搜尋
         var res = minPathSumDFS(grid: grid, i: n - 1, j: m - 1)
-        print("從左上角到右下角的做小路徑和為 \(res)")
+        print("從左上角到右下角的最小路徑和為 \(res)")
 
         // 記憶化搜尋
         var mem = Array(repeating: Array(repeating: -1, count: m), count: n)
         res = minPathSumDFSMem(grid: grid, mem: &mem, i: n - 1, j: m - 1)
-        print("從左上角到右下角的做小路徑和為 \(res)")
+        print("從左上角到右下角的最小路徑和為 \(res)")
 
         // 動態規劃
         res = minPathSumDP(grid: grid)
-        print("從左上角到右下角的做小路徑和為 \(res)")
+        print("從左上角到右下角的最小路徑和為 \(res)")
 
         // 空間最佳化後的動態規劃
         res = minPathSumDPComp(grid: grid)
-        print("從左上角到右下角的做小路徑和為 \(res)")
+        print("從左上角到右下角的最小路徑和為 \(res)")
     }
 }

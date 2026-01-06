@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* 列表类 */
 #[allow(dead_code)]
@@ -19,8 +19,7 @@ struct MyList {
 impl MyList {
     /* 构造方法 */
     pub fn new(capacity: usize) -> Self {
-        let mut vec = Vec::new();
-        vec.resize(capacity, 0);
+        let mut vec = vec![0; capacity];
         Self {
             arr: vec,
             capacity,
@@ -91,8 +90,8 @@ impl MyList {
             panic!("索引越界")
         };
         let num = self.arr[index];
-        // 将将索引 index 之后的元素都向前移动一位
-        for j in (index..self.size - 1) {
+        // 将索引 index 之后的元素都向前移动一位
+        for j in index..self.size - 1 {
             self.arr[j] = self.arr[j + 1];
         }
         // 更新元素数量
@@ -111,7 +110,7 @@ impl MyList {
     }
 
     /* 将列表转换为数组 */
-    pub fn to_array(&mut self) -> Vec<i32> {
+    pub fn to_array(&self) -> Vec<i32> {
         // 仅转换有效长度范围内的列表元素
         let mut arr = Vec::new();
         for i in 0..self.size {

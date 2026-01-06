@@ -45,7 +45,7 @@ impl GraphAdjMat {
         // 在鄰接矩陣中新增一行
         self.adj_mat.push(vec![0; n]);
         // 在鄰接矩陣中新增一列
-        for row in &mut self.adj_mat {
+        for row in self.adj_mat.iter_mut() {
             row.push(0);
         }
     }
@@ -60,7 +60,7 @@ impl GraphAdjMat {
         // 在鄰接矩陣中刪除索引 index 的行
         self.adj_mat.remove(index);
         // 在鄰接矩陣中刪除索引 index 的列
-        for row in &mut self.adj_mat {
+        for row in self.adj_mat.iter_mut() {
             row.remove(index);
         }
     }

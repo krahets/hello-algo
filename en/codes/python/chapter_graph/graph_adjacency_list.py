@@ -48,22 +48,22 @@ class GraphAdjList:
         """Add vertex"""
         if vet in self.adj_list:
             return
-        # Add a new linked list to the adjacency list
+        # Add a new linked list in the adjacency list
         self.adj_list[vet] = []
 
     def remove_vertex(self, vet: Vertex):
         """Remove vertex"""
         if vet not in self.adj_list:
             raise ValueError()
-        # Remove the vertex vet's corresponding linked list from the adjacency list
+        # Remove the linked list corresponding to vertex vet in the adjacency list
         self.adj_list.pop(vet)
-        # Traverse other vertices' linked lists, removing all edges containing vet
+        # Traverse the linked lists of other vertices and remove all edges containing vet
         for vertex in self.adj_list:
             if vet in self.adj_list[vertex]:
                 self.adj_list[vertex].remove(vet)
 
     def print(self):
-        """Print the adjacency list"""
+        """Print adjacency list"""
         print("Adjacency list =")
         for vertex in self.adj_list:
             tmp = [v.val for v in self.adj_list[vertex]]
@@ -87,13 +87,13 @@ if __name__ == "__main__":
     graph.print()
 
     # Add edge
-    # Vertices 1, 2 i.e., v[0], v[2]
+    # Vertices 1, 2 are v[0], v[2]
     graph.add_edge(v[0], v[2])
     print("\nAfter adding edge 1-2, the graph is")
     graph.print()
 
     # Remove edge
-    # Vertices 1, 3 i.e., v[0], v[1]
+    # Vertices 1, 3 are v[0], v[1]
     graph.remove_edge(v[0], v[1])
     print("\nAfter removing edge 1-3, the graph is")
     graph.print()
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     graph.print()
 
     # Remove vertex
-    # Vertex 3 i.e., v[1]
+    # Vertex 3 is v[1]
     graph.remove_vertex(v[1])
     print("\nAfter removing vertex 3, the graph is")
     graph.print()

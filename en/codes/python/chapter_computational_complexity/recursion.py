@@ -10,24 +10,24 @@ def recur(n: int) -> int:
     # Termination condition
     if n == 1:
         return 1
-    # Recursive: recursive call
+    # Recurse: recursive call
     res = recur(n - 1)
     # Return: return result
     return n + res
 
 
 def for_loop_recur(n: int) -> int:
-    """Simulate recursion with iteration"""
+    """Simulate recursion using iteration"""
     # Use an explicit stack to simulate the system call stack
     stack = []
     res = 0
-    # Recursive: recursive call
+    # Recurse: recursive call
     for i in range(n, 0, -1):
-        # Simulate "recursive" by "pushing onto the stack"
+        # Simulate "recurse" with "push"
         stack.append(i)
     # Return: return result
     while stack:
-        # Simulate "return" by "popping from the stack"
+        # Simulate "return" with "pop"
         res += stack.pop()
     # res = 1+2+3+...+n
     return res
@@ -43,7 +43,7 @@ def tail_recur(n, res):
 
 
 def fib(n: int) -> int:
-    """Fibonacci sequence: Recursion"""
+    """Fibonacci sequence: recursion"""
     # Termination condition f(1) = 0, f(2) = 1
     if n == 1 or n == 2:
         return n - 1
@@ -57,13 +57,13 @@ def fib(n: int) -> int:
 if __name__ == "__main__":
     n = 5
     res = recur(n)
-    print(f"\nRecursive function sum result res = {res}")
+    print(f"\nSum result of recursive function res = {res}")
 
     res = for_loop_recur(n)
-    print(f"\nSimulate recursion with iteration sum result res = {res}")
+    print(f"\nSum result of simulating recursion using iteration res = {res}")
 
     res = tail_recur(n, 0)
-    print(f"\nTail recursive function sum result res = {res}")
+    print(f"\nSum result of tail recursive function res = {res}")
 
     res = fib(n)
-    print(f"\nThe n th term of the Fibonacci sequence is {res}")
+    print(f"\nThe {n}th term of the Fibonacci sequence is {res}")

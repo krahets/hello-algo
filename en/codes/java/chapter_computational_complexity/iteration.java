@@ -10,7 +10,7 @@ public class iteration {
     /* for loop */
     static int forLoop(int n) {
         int res = 0;
-        // Loop sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -21,7 +21,7 @@ public class iteration {
     static int whileLoop(int n) {
         int res = 0;
         int i = 1; // Initialize condition variable
-        // Loop sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n
         while (i <= n) {
             res += i;
             i++; // Update condition variable
@@ -33,7 +33,7 @@ public class iteration {
     static int whileLoopII(int n) {
         int res = 0;
         int i = 1; // Initialize condition variable
-        // Loop sum 1, 4, 10, ...
+        // Sum 1, 4, 10, ...
         while (i <= n) {
             res += i;
             // Update condition variable
@@ -43,7 +43,7 @@ public class iteration {
         return res;
     }
 
-    /* Double for loop */
+    /* Nested for loop */
     static String nestedForLoop(int n) {
         StringBuilder res = new StringBuilder();
         // Loop i = 1, 2, ..., n-1, n
@@ -62,15 +62,15 @@ public class iteration {
         int res;
 
         res = forLoop(n);
-        System.out.println("\nSum result of the for loop res = " + res);
+        System.out.println("\nfor loop sum result res = " + res);
 
         res = whileLoop(n);
-        System.out.println("\nSum result of the while loop res = " + res);
+        System.out.println("\nwhile loop sum result res = " + res);
 
         res = whileLoopII(n);
-        System.out.println("\nSum result of the while loop (with two updates) res = " + res);
+        System.out.println("\nwhile loop (two updates) sum result res = " + res);
 
         String resStr = nestedForLoop(n);
-        System.out.println("\nResult of the double for loop traversal = " + resStr);
+        System.out.println("\nDouble for loop traversal result " + resStr);
     }
 }

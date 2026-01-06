@@ -4,7 +4,7 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::{print_util, tree_node};
 
 /* 数组表示下的二叉树类 */
 struct ArrayBinaryTree {
@@ -49,18 +49,11 @@ impl ArrayBinaryTree {
 
     /* 层序遍历 */
     fn level_order(&self) -> Vec<i32> {
-        let mut res = vec![];
-        // 直接遍历数组
-        for i in 0..self.size() {
-            if let Some(val) = self.val(i) {
-                res.push(val)
-            }
-        }
-        res
+        self.tree.iter().filter_map(|&x| x).collect()
     }
 
     /* 深度优先遍历 */
-    fn dfs(&self, i: i32, order: &str, res: &mut Vec<i32>) {
+    fn dfs(&self, i: i32, order: &'static str, res: &mut Vec<i32>) {
         if self.val(i).is_none() {
             return;
         }

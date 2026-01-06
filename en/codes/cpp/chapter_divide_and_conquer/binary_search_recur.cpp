@@ -8,20 +8,20 @@
 
 /* Binary search: problem f(i, j) */
 int dfs(vector<int> &nums, int target, int i, int j) {
-    // If the interval is empty, indicating no target element, return -1
+    // If the interval is empty, it means there is no target element, return -1
     if (i > j) {
         return -1;
     }
-    // Calculate midpoint index m
-    int m = i + (j - i) / 2;
+    // Calculate the midpoint index m
+    int m = (i + j) / 2;
     if (nums[m] < target) {
-        // Recursive subproblem f(m+1, j)
+        // Recursion subproblem f(m+1, j)
         return dfs(nums, target, m + 1, j);
     } else if (nums[m] > target) {
-        // Recursive subproblem f(i, m-1)
+        // Recursion subproblem f(i, m-1)
         return dfs(nums, target, i, m - 1);
     } else {
-        // Found the target element, thus return its index
+        // Found the target element, return its index
         return m;
     }
 }
@@ -29,7 +29,7 @@ int dfs(vector<int> &nums, int target, int i, int j) {
 /* Binary search */
 int binarySearch(vector<int> &nums, int target) {
     int n = nums.size();
-    // Solve problem f(0, n-1)
+    // Solve the problem f(0, n-1)
     return dfs(nums, target, 0, n - 1);
 }
 
@@ -38,9 +38,9 @@ int main() {
     int target = 6;
     vector<int> nums = {1, 3, 6, 8, 12, 15, 23, 26, 31, 35};
 
-    // Binary search (double closed interval)
+    // Binary search (closed interval on both sides)
     int index = binarySearch(nums, target);
-    cout << "Index of target element 6 =" << index << endl;
+    cout << "Index of target element 6 = " << index << endl;
 
     return 0;
 }

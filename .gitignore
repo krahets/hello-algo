@@ -1,7 +1,7 @@
 # macOS
 .DS_Store
 
-# Editor
+# editors
 .vscode/
 **/.idea
 
@@ -12,6 +12,3 @@
 /build
 /site
 /utils
-
-# test script
-test.sh

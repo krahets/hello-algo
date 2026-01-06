@@ -16,6 +16,7 @@ int digit(int num, int exp) {
 void countingSortDigit(int nums[], int size, int exp) {
     // 十進位制的位範圍為 0~9 ，因此需要長度為 10 的桶陣列
     int *counter = (int *)malloc((sizeof(int) * 10));
+    memset(counter, 0, sizeof(int) * 10); // 初始化為 0 以支持後續記憶體釋放
     // 統計 0~9 各數字的出現次數
     for (int i = 0; i < size; i++) {
         // 獲取 nums[i] 第 k 位，記為 d
@@ -39,13 +40,16 @@ void countingSortDigit(int nums[], int size, int exp) {
     for (int i = 0; i < size; i++) {
         nums[i] = res[i];
     }
+    // 釋放記憶體
+    free(res);
+    free(counter);
 }
 
 /* 基數排序 */
 void radixSort(int nums[], int size) {
     // 獲取陣列的最大元素，用於判斷最大位數
     int max = INT32_MIN;
-    for (size_t i = 0; i < size - 1; i++) {
+    for (int i = 0; i < size; i++) {
         if (nums[i] > max) {
             max = nums[i];
         }

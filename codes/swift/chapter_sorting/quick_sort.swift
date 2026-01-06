@@ -73,7 +73,7 @@ func quickSortMedian(nums: inout [Int], left: Int, right: Int) {
     quickSortMedian(nums: &nums, left: pivot + 1, right: right)
 }
 
-/* 快速排序（尾递归优化） */
+/* 快速排序（递归深度优化） */
 func quickSortTailCall(nums: inout [Int], left: Int, right: Int) {
     var left = left
     var right = right
@@ -106,9 +106,9 @@ enum QuickSort {
         quickSortMedian(nums: &nums1, left: nums1.startIndex, right: nums1.endIndex - 1)
         print("快速排序（中位基准数优化）完成后 nums1 = \(nums1)")
 
-        /* 快速排序（尾递归优化） */
+        /* 快速排序（递归深度优化） */
         var nums2 = [2, 4, 1, 0, 3, 5]
         quickSortTailCall(nums: &nums2, left: nums2.startIndex, right: nums2.endIndex - 1)
-        print("快速排序（尾递归优化）完成后 nums2 = \(nums2)")
+        print("快速排序（递归深度优化）完成后 nums2 = \(nums2)")
     }
 }

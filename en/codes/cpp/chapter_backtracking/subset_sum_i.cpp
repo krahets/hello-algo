@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* Backtracking algorithm: Subset Sum I */
+/* Backtracking algorithm: Subset sum I */
 void backtrack(vector<int> &state, int target, vector<int> &choices, int start, vector<vector<int>> &res) {
     // When the subset sum equals target, record the solution
     if (target == 0) {
@@ -14,23 +14,23 @@ void backtrack(vector<int> &state, int target, vector<int> &choices, int start, 
         return;
     }
     // Traverse all choices
-    // Pruning two: start traversing from start to avoid generating duplicate subsets
+    // Pruning 2: start traversing from start to avoid generating duplicate subsets
     for (int i = start; i < choices.size(); i++) {
-        // Pruning one: if the subset sum exceeds target, end the loop immediately
+        // Pruning 1: if the subset sum exceeds target, end the loop directly
         // This is because the array is sorted, and later elements are larger, so the subset sum will definitely exceed target
         if (target - choices[i] < 0) {
             break;
         }
-        // Attempt: make a choice, update target, start
+        // Attempt: make choice, update target, start
         state.push_back(choices[i]);
         // Proceed to the next round of selection
         backtrack(state, target - choices[i], choices, i, res);
-        // Retract: undo the choice, restore to the previous state
+        // Backtrack: undo choice, restore to previous state
         state.pop_back();
     }
 }
 
-/* Solve Subset Sum I */
+/* Solve subset sum I */
 vector<vector<int>> subsetSumI(vector<int> &nums, int target) {
     vector<int> state;              // State (subset)
     sort(nums.begin(), nums.end()); // Sort nums
@@ -50,7 +50,7 @@ int main() {
     cout << "Input array nums = ";
     printVector(nums);
     cout << "target = " << target << endl;
-    cout << "All subsets summing to " << target << "is" << endl;
+    cout << "All subsets with sum equal to " << target << " are res = " << endl;
     printVectorMatrix(res);
 
     return 0;

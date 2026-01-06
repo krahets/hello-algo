@@ -20,7 +20,7 @@ func TestMinPathSum(t *testing.T) {
 
 	// 暴力搜索
 	res := minPathSumDFS(grid, n-1, m-1)
-	fmt.Printf("从左上角到右下角的做小路径和为  %d\n", res)
+	fmt.Printf("从左上角到右下角的最小路径和为  %d\n", res)
 
 	// 记忆化搜索
 	mem := make([][]int, n)
@@ -31,13 +31,13 @@ func TestMinPathSum(t *testing.T) {
 		}
 	}
 	res = minPathSumDFSMem(grid, mem, n-1, m-1)
-	fmt.Printf("从左上角到右下角的做小路径和为  %d\n", res)
+	fmt.Printf("从左上角到右下角的最小路径和为  %d\n", res)
 
 	// 动态规划
 	res = minPathSumDP(grid)
-	fmt.Printf("从左上角到右下角的做小路径和为  %d\n", res)
+	fmt.Printf("从左上角到右下角的最小路径和为  %d\n", res)
 
 	// 空间优化后的动态规划
 	res = minPathSumDPComp(grid)
-	fmt.Printf("从左上角到右下角的做小路径和为  %d\n", res)
+	fmt.Printf("从左上角到右下角的最小路径和为  %d\n", res)
 }

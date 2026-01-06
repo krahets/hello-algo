@@ -14,7 +14,7 @@ from modules import ListNode, list_to_linked_list
 def hashing_search_array(hmap: dict[int, int], target: int) -> int:
     """Hash search (array)"""
     # Hash table's key: target element, value: index
-    # If the hash table does not contain this key, return -1
+    # If this key does not exist in the hash table, return -1
     return hmap.get(target, -1)
 
 
@@ -23,7 +23,7 @@ def hashing_search_linkedlist(
 ) -> ListNode | None:
     """Hash search (linked list)"""
     # Hash table's key: target element, value: node object
-    # If the hash table does not contain this key, return None
+    # If this key does not exist in the hash table, return None
     return hmap.get(target, None)
 
 
@@ -48,4 +48,4 @@ if __name__ == "__main__":
         map1[head.val] = head  # key: node value, value: node
         head = head.next
     node: ListNode = hashing_search_linkedlist(map1, target)
-    print("Target node value 3's corresponding node object is", node)
+    print("The corresponding node object for target node value 3 is", node)

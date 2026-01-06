@@ -74,10 +74,23 @@ int pop(ArrayQueue *queue) {
     return num;
 }
 
+/* 返回数组用于打印 */
+int *toArray(ArrayQueue *queue, int *queSize) {
+    *queSize = queue->queSize;
+    int *res = (int *)calloc(queue->queSize, sizeof(int));
+    int j = queue->front;
+    for (int i = 0; i < queue->queSize; i++) {
+        res[i] = queue->nums[j % queue->queCapacity];
+        j++;
+    }
+    return res;
+}
+
 /* Driver Code */
 int main() {
     /* 初始化队列 */
     int capacity = 10;
+    int queSize;
     ArrayQueue *queue = newArrayQueue(capacity);
 
     /* 元素入队 */
@@ -87,7 +100,7 @@ int main() {
     push(queue, 5);
     push(queue, 4);
     printf("队列 queue = ");
-    printArray(queue->nums, queue->queSize);
+    printArray(toArray(queue, &queSize), queSize);
 
     /* 访问队首元素 */
     int peekNum = peek(queue);
@@ -96,7 +109,7 @@ int main() {
     /* 元素出队 */
     peekNum = pop(queue);
     printf("出队元素 pop = %d ，出队后 queue = ", peekNum);
-    printArray(queue->nums, queue->queSize);
+    printArray(toArray(queue, &queSize), queSize);
 
     /* 获取队列的长度 */
     int queueSize = size(queue);
@@ -111,7 +124,7 @@ int main() {
         push(queue, i);
         pop(queue);
         printf("第 %d 轮入队 + 出队后 queue = ", i);
-        printArray(queue->nums, queue->queSize);
+        printArray(toArray(queue, &queSize), queSize);
     }
 
     // 释放内存

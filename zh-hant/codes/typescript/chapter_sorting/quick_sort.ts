@@ -113,7 +113,7 @@ class QuickSortMedian {
     }
 }
 
-/* 快速排序類別（尾遞迴最佳化） */
+/* 快速排序類別（遞迴深度最佳化） */
 class QuickSortTailCall {
     /* 元素交換 */
     swap(nums: number[], i: number, j: number): void {
@@ -140,7 +140,7 @@ class QuickSortTailCall {
         return i; // 返回基準數的索引
     }
 
-    /* 快速排序（尾遞迴最佳化） */
+    /* 快速排序（遞迴深度最佳化） */
     quickSort(nums: number[], left: number, right: number): void {
         // 子陣列長度為 1 時終止
         while (left < right) {
@@ -171,10 +171,10 @@ const quickSortMedian = new QuickSortMedian();
 quickSortMedian.quickSort(nums1, 0, nums1.length - 1);
 console.log('快速排序（中位基準數最佳化）完成後 nums =', nums1);
 
-/* 快速排序（尾遞迴最佳化） */
+/* 快速排序（遞迴深度最佳化） */
 const nums2 = [2, 4, 1, 0, 3, 5];
 const quickSortTailCall = new QuickSortTailCall();
 quickSortTailCall.quickSort(nums2, 0, nums2.length - 1);
-console.log('快速排序（尾遞迴最佳化）完成後 nums =', nums2);
+console.log('快速排序（遞迴深度最佳化）完成後 nums =', nums2);
 
 export {};

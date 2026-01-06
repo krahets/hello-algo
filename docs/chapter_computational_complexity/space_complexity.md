@@ -361,12 +361,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 ## 推算方法
 
 空间复杂度的推算方法与时间复杂度大致相同，只需将统计对象从“操作数量”转为“使用空间大小”。
@@ -529,12 +523,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 **在递归函数中，需要注意统计栈帧空间**。观察以下代码：
 
 === "Python"
@@ -572,7 +560,7 @@
     /* 递归的空间复杂度为 O(n) */
     void recur(int n) {
         if (n == 1) return;
-        return recur(n - 1);
+        recur(n - 1);
     }
     ```
 
@@ -592,7 +580,7 @@
     /* 递归的空间复杂度为 O(n) */
     void recur(int n) {
         if (n == 1) return;
-        return recur(n - 1);
+        recur(n - 1);
     }
     ```
 
@@ -721,7 +709,7 @@
     /* 递归的空间复杂度为 O(n) */
     void recur(int n) {
       if (n == 1) return;
-      return recur(n - 1);
+      recur(n - 1);
     }
     ```
 
@@ -763,7 +751,7 @@
     /* 递归的空间复杂度为 O(n) */
     void recur(int n) {
         if (n == 1) return;
-        return recur(n - 1);
+        recur(n - 1);
     }
     ```
 
@@ -805,12 +793,6 @@
         return if n == 1
         recur(n - 1)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 函数 `loop()` 和 `recur()` 的时间复杂度都为 $O(n)$ ，但空间复杂度不同。

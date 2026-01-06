@@ -4,9 +4,8 @@
  * Author: WSL0809 (wslzzy@outlook.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::ListNode;
 
-use crate::list_node::ListNode;
 use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
 

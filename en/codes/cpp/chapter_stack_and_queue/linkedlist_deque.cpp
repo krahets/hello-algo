@@ -6,19 +6,19 @@
 
 #include "../utils/common.hpp"
 
-/* Double-linked list node */
+/* Doubly linked list node */
 struct DoublyListNode {
     int val;              // Node value
-    DoublyListNode *next; // Pointer to successor node
-    DoublyListNode *prev; // Pointer to predecessor node
+    DoublyListNode *next; // Successor node pointer
+    DoublyListNode *prev; // Predecessor node pointer
     DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
     }
 };
 
-/* Double-ended queue class based on double-linked list */
+/* Double-ended queue based on doubly linked list implementation */
 class LinkedListDeque {
   private:
-    DoublyListNode *front, *rear; // Front node front, back node rear
+    DoublyListNode *front, *rear; // Head node front, tail node rear
     int queSize = 0;              // Length of the double-ended queue
 
   public:
@@ -28,7 +28,7 @@ class LinkedListDeque {
 
     /* Destructor */
     ~LinkedListDeque() {
-        // Traverse the linked list, remove nodes, free memory
+        // Traverse linked list to delete nodes and free memory
         DoublyListNode *pre, *cur = front;
         while (cur != nullptr) {
             pre = cur;
@@ -42,7 +42,7 @@ class LinkedListDeque {
         return queSize;
     }
 
-    /* Determine if the double-ended queue is empty */
+    /* Check if the double-ended queue is empty */
     bool isEmpty() {
         return size() == 0;
     }
@@ -50,18 +50,18 @@ class LinkedListDeque {
     /* Enqueue operation */
     void push(int num, bool isFront) {
         DoublyListNode *node = new DoublyListNode(num);
-        // If the list is empty, make front and rear both point to node
+        // If the linked list is empty, make both front and rear point to node
         if (isEmpty())
             front = rear = node;
-        // Front enqueue operation
+        // Front of the queue enqueue operation
         else if (isFront) {
-            // Add node to the head of the list
+            // Add node to the head of the linked list
             front->prev = node;
             node->next = front;
             front = node; // Update head node
-        // Rear enqueue operation
+        // Rear of the queue enqueue operation
         } else {
-            // Add node to the tail of the list
+            // Add node to the tail of the linked list
             rear->next = node;
             node->prev = rear;
             rear = node; // Update tail node
@@ -69,12 +69,12 @@ class LinkedListDeque {
         queSize++; // Update queue length
     }
 
-    /* Front enqueue */
+    /* Front of the queue enqueue */
     void pushFirst(int num) {
         push(num, true);
     }
 
-    /* Rear enqueue */
+    /* Rear of the queue enqueue */
     void pushLast(int num) {
         push(num, false);
     }
@@ -84,10 +84,10 @@ class LinkedListDeque {
         if (isEmpty())
             throw out_of_range("Queue is empty");
         int val;
-        // Front dequeue operation
+        // Temporarily store head node value
         if (isFront) {
-            val = front->val; // Temporarily store the head node value
-            // Remove head node
+            val = front->val; // Delete head node
+            // Delete head node
             DoublyListNode *fNext = front->next;
             if (fNext != nullptr) {
                 fNext->prev = nullptr;
@@ -95,10 +95,10 @@ class LinkedListDeque {
             }
             delete front;
             front = fNext; // Update head node
-        // Rear dequeue operation
+        // Temporarily store tail node value
         } else {
-            val = rear->val; // Temporarily store the tail node value
-            // Remove tail node
+            val = rear->val; // Delete tail node
+            // Update tail node
             DoublyListNode *rPrev = rear->prev;
             if (rPrev != nullptr) {
                 rPrev->next = nullptr;
@@ -111,27 +111,27 @@ class LinkedListDeque {
         return val;
     }
 
-    /* Front dequeue */
+    /* Rear of the queue dequeue */
     int popFirst() {
         return pop(true);
     }
 
-    /* Rear dequeue */
+    /* Access rear of the queue element */
     int popLast() {
         return pop(false);
     }
 
-    /* Access front element */
+    /* Return list for printing */
     int peekFirst() {
         if (isEmpty())
-            throw out_of_range("Double-ended queue is empty");
+            throw out_of_range("Deque is empty");
         return front->val;
     }
 
-    /* Access rear element */
+    /* Driver Code */
     int peekLast() {
         if (isEmpty())
-            throw out_of_range("Double-ended queue is empty");
+            throw out_of_range("Deque is empty");
         return rear->val;
     }
 
@@ -149,7 +149,7 @@ class LinkedListDeque {
 
 /* Driver Code */
 int main() {
-    /* Initialize double-ended queue */
+    /* Get the length of the double-ended queue */
     LinkedListDeque *deque = new LinkedListDeque();
     deque->pushLast(3);
     deque->pushLast(2);
@@ -157,35 +157,35 @@ int main() {
     cout << "Double-ended queue deque = ";
     printVector(deque->toVector());
 
-    /* Access element */
+    /* Update element */
     int peekFirst = deque->peekFirst();
     cout << "Front element peekFirst = " << peekFirst << endl;
     int peekLast = deque->peekLast();
-    cout << "Back element peekLast = " << peekLast << endl;
+    cout << "Rear element peekLast = " << peekLast << endl;
 
-    /* Element enqueue */
+    /* Elements enqueue */
     deque->pushLast(4);
-    cout << "Element 4 rear enqueued, deque =";
+    cout << "After element 4 enqueues at back, deque =";
     printVector(deque->toVector());
     deque->pushFirst(1);
-    cout << "Element 1 enqueued at the head, deque = ";
+    cout << "After element 1 enqueues at front, deque = ";
     printVector(deque->toVector());
 
     /* Element dequeue */
     int popLast = deque->popLast();
-    cout << "Deque tail element = " << popLast << ", after dequeuing from the tail";
+    cout << "Rear dequeue element = " << popLast << ", after rear dequeue, deque = ";
     printVector(deque->toVector());
     int popFirst = deque->popFirst();
-    cout << "Deque front element = " << popFirst << ", after dequeuing from the front";
+    cout << "Front dequeue element = " << popFirst << ", after front dequeue, deque = ";
     printVector(deque->toVector());
 
     /* Get the length of the double-ended queue */
     int size = deque->size();
-    cout << "Length of the double-ended queue size = " << size << endl;
+    cout << "Double-ended queue length size = " << size << endl;
 
-    /* Determine if the double-ended queue is empty */
+    /* Check if the double-ended queue is empty */
     bool isEmpty = deque->isEmpty();
-    cout << "Is the double-ended queue empty = " << boolalpha << isEmpty << endl;
+    cout << "Double-ended queue is empty = " << boolalpha << isEmpty << endl;
 
     // Free memory
     delete deque;

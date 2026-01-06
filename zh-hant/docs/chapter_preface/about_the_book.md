@@ -6,7 +6,7 @@
 - 源程式碼可一鍵執行，幫助讀者在練習中提升程式設計技能，瞭解演算法工作原理和資料結構底層實現。
 - 提倡讀者互助學習，歡迎大家在評論區提出問題與分享見解，在交流討論中共同進步。
 
-## 讀者物件
+## 目標讀者
 
 若你是演算法初學者，從未接觸過演算法，或者已經有一些刷題經驗，對資料結構與演算法有模糊的認識，在會與不會之間反覆橫跳，那麼本書正是為你量身定製的！
 
@@ -30,9 +30,13 @@
 
 ## 致謝
 
-本書在開源社群眾多貢獻者的共同努力下不斷完善。感謝每一位投入時間與精力的撰稿人，他們是（按照 GitHub 自動生成的順序）：krahets、Gonglja、nuomi1、codingonion、Reanon、justin-tse、hpstory、danielsss、curtishd、night-cruise、S-N-O-R-L-A-X、msk397、gvenusleo、RiverTwilight、gyt95、zhuoqinyue、Zuoxun、mingXta、hello-ikun、khoaxuantu、FangYuan33、GN-Yu、longsizhuo、mgisr、Cathay-Chen、guowei-gong、xBLACKICEx、K3v123、IsChristina、JoseHung、qualifier1024、pengchzn、Guanngxu、QiLOL、L-Super、WSL0809、Slone123c、lhxsm、yuan0221、what-is-me、rongyi、JeffersonHuang、longranger2、theNefelibatas、yuelinxin、xiongsp、nanlei、a16su、cy-by-side、gaofer、malone6、Wonderdch、hongyun-robot、XiaChuerwu、yd-j、bluebean-cloud、iron-irax、he-weilai、Nigh、MolDuM、Phoenix0415、XC-Zero、SamJin98、reeswell、NI-SW、Horbin-Magician、xjr7670、YangXuanyi、DullSword、iStig、qq909244296、jiaxianhua、wenjianmin、keshida、kilikilikid、lclc6、lwbaptx、luluxia、boloboloda、hts0000、gledfish、fbigm、echo1937、szu17dmy、dshlstarr、coderlef、czruby、beintentional、KeiichiKasai、xb534、ElaBosak233、baagod、zhouLion、yishangzhang、yi427、yabo083、weibk、wangwang105、th1nk3r-ing、tao363、4yDX3906、syd168、siqyka、selear、sdshaoda、noobcodemaker、chadyi、lyl625760、lucaswangdev、liuxjerry、0130w、shanghai-Jerry、JackYang-hellobobo、Javesun99、lipusheng、ShiMaRing、FreddieLi、FloranceYeh、Transmigration-zhou、fanchenggang、gltianwen、Dr-XYZ、curly210102、CuB3y0nd、youshaoXG、bubble9um、fanenr、52coder、foursevenlove、KorsChen、ZongYangL、hezhizhen、linzeyan、ZJKung、GaochaoZhu、yang-le、Evilrabbit520、Turing-1024-Lee、Suremotoo、Allen-Scai、Richard-Zhang1019、qingpeng9802、primexiao、nidhoggfgg、1ch0、MwumLi、ZnYang2018、hugtyftg、logan-qiu、psychelzh 和 Keynman 。
+本書在開源社群眾多貢獻者的共同努力下不斷完善。感謝每一位投入時間與精力的撰稿人，他們是（按照 GitHub 自動生成的順序）：krahets、coderonion、Gonglja、nuomi1、Reanon、justin-tse、hpstory、danielsss、curtishd、night-cruise、S-N-O-R-L-A-X、rongyi、msk397、gvenusleo、khoaxuantu、rivertwilight、K3v123、gyt95、zhuoqinyue、yuelinxin、Zuoxun、mingXta、Phoenix0415、FangYuan33、GN-Yu、longsizhuo、IsChristina、xBLACKICEx、guowei-gong、Cathay-Chen、pengchzn、QiLOL、magentaqin、hello-ikun、JoseHung、qualifier1024、thomasq0、sunshinesDL、L-Super、Guanngxu、Transmigration-zhou、WSL0809、Slone123c、lhxsm、yuan0221、what-is-me、Shyam-Chen、theNefelibatas、longranger2、codeberg-user、xiongsp、JeffersonHuang、prinpal、seven1240、Wonderdch、malone6、xiaomiusa87、gaofer、bluebean-cloud、a16su、SamJin98、hongyun-robot、nanlei、XiaChuerwu、yd-j、iron-irax、mgisr、steventimes、junminhong、heshuyue、danny900714、MolDuM、Nigh、Dr-XYZ、XC-Zero、reeswell、PXG-XPG、NI-SW、Horbin-Magician、Enlightenus、YangXuanyi、beatrix-chan、DullSword、xjr7670、jiaxianhua、qq909244296、iStig、boloboloda、hts0000、gledfish、wenjianmin、keshida、kilikilikid、lclc6、lwbaptx、linyejoe2、liuxjerry、llql1211、fbigm、echo1937、szu17dmy、dshlstarr、Yucao-cy、coderlef、czruby、bongbongbakudan、beintentional、ZongYangL、ZhongYuuu、ZhongGuanbin、hezhizhen、linzeyan、ZJKung、luluxia、xb534、ztkuaikuai、yw-1021、ElaBosak233、baagod、zhouLion、yishangzhang、yi427、yanedie、yabo083、weibk、wangwang105、th1nk3r-ing、tao363、4yDX3906、syd168、sslmj2020、smilelsb、siqyka、selear、sdshaoda、Xi-Row、popozhu、nuquist19、noobcodemaker、XiaoK29、chadyi、lyl625760、lucaswangdev、0130w、shanghai-Jerry、EJackYang、Javesun99、eltociear、lipusheng、KNChiu、BlindTerran、ShiMaRing、lovelock、FreddieLi、FloranceYeh、fanchenggang、gltianwen、goerll、nedchu、curly210102、CuB3y0nd、KraHsu、CarrotDLaw、youshaoXG、bubble9um、Asashishi、Asa0oo0o0o、fanenr、eagleanurag、akshiterate、52coder、foursevenlove、KorsChen、GaochaoZhu、hopkings2008、yang-le、realwujing、Evilrabbit520、Umer-Jahangir、Turing-1024-Lee、Suremotoo、paoxiaomooo、Chieko-Seren、Allen-Scai、ymmmas、Risuntsy、Richard-Zhang1019、RafaelCaso、qingpeng9802、primexiao、Urbaner3、zhongfq、nidhoggfgg、MwumLi、CreatorMetaSky、martinx、ZnYang2018、hugtyftg、logan-qiu、psychelzh、Keynman、KeiichiKasai 和 KawaiiAsh。
 
-本書的程式碼審閱工作由 codingonion、curtishd、Gonglja、gvenusleo、hpstory、justin-tse、khoaxuantu、krahets、night-cruise、nuomi1 和 Reanon 完成（按照首字母順序排列）。感謝他們付出的時間與精力，正是他們確保了各語言程式碼的規範與統一。
+本書的程式碼審閱工作由 coderonion、curtishd、Gonglja、gvenusleo、hpstory、justin-tse、khoaxuantu、krahets、night-cruise、nuomi1、Reanon 和 rongyi 完成（按照首字母順序排列）。感謝他們付出的時間與精力，正是他們確保了各語言程式碼的規範與統一。
+
+本書的繁體中文版由 Shyam-Chen 和 Dr-XYZ 審閱，英文版由 yuelinxin、K3v123、QiLOL、Phoenix0415、SamJin98、yanedie、RafaelCaso、pengchzn、thomasq0 和 magentaqin 審閱，日文版由 eltociear 審閱。正是因為他們的持續貢獻，這本書才能夠服務於更廣泛的讀者群體，感謝他們。
+
+本書的 ePub 電子書生成工具由 zhongfq 開發。感謝他的貢獻，為讀者提供了更加自由的閱讀方式。
 
 在本書的創作過程中，我得到了許多人的幫助。
 

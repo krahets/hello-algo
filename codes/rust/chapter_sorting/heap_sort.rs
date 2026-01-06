@@ -4,7 +4,7 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
 fn sift_down(nums: &mut [i32], n: usize, mut i: usize) {

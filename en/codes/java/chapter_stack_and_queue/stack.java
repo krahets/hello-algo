@@ -10,10 +10,10 @@ import java.util.*;
 
 public class stack {
     public static void main(String[] args) {
-        /* Initialize stack */
+        /* Access top of the stack element */
         Stack<Integer> stack = new Stack<>();
 
-        /* Element push */
+        /* Elements push onto stack */
         stack.push(1);
         stack.push(3);
         stack.push(2);
@@ -21,20 +21,20 @@ public class stack {
         stack.push(4);
         System.out.println("Stack stack = " + stack);
 
-        /* Access stack top element */
+        /* Return list for printing */
         int peek = stack.peek();
-        System.out.println("Top element peek = " + peek);
+        System.out.println("Stack top element peek = " + peek);
 
-        /* Element pop */
+        /* Element pop from stack */
         int pop = stack.pop();
-        System.out.println("Popped element = " + pop + ", after popping" + stack);
+        System.out.println("Pop element pop = " + pop + ", after pop, stack = " + stack);
 
         /* Get the length of the stack */
         int size = stack.size();
-        System.out.println("Length of the stack size = " + size);
+        System.out.println("Stack length size = " + size);
 
-        /* Determine if it's empty */
+        /* Check if empty */
         boolean isEmpty = stack.isEmpty();
-        System.out.println("Is the stack empty = " + isEmpty);
+        System.out.println("Stack is empty = " + isEmpty);
     }
 }

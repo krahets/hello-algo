@@ -12,7 +12,7 @@ class GraphAdjList {
     // Adjacency list, key: vertex, value: all adjacent vertices of that vertex
     unordered_map<Vertex *, vector<Vertex *>> adjList;
 
-    /* Remove a specified node from vector */
+    /* Remove specified node from vector */
     void remove(vector<Vertex *> &vec, Vertex *vet) {
         for (int i = 0; i < vec.size(); i++) {
             if (vec[i] == vet) {
@@ -59,7 +59,7 @@ class GraphAdjList {
     void addVertex(Vertex *vet) {
         if (adjList.count(vet))
             return;
-        // Add a new linked list to the adjacency list
+        // Add a new linked list in the adjacency list
         adjList[vet] = vector<Vertex *>();
     }
 
@@ -67,15 +67,15 @@ class GraphAdjList {
     void removeVertex(Vertex *vet) {
         if (!adjList.count(vet))
             throw invalid_argument("Vertex does not exist");
-        // Remove the vertex vet's corresponding linked list from the adjacency list
+        // Remove the linked list corresponding to vertex vet in the adjacency list
         adjList.erase(vet);
-        // Traverse other vertices' linked lists, removing all edges containing vet
+        // Traverse the linked lists of other vertices and remove all edges containing vet
         for (auto &adj : adjList) {
             remove(adj.second, vet);
         }
     }
 
-    /* Print the adjacency list */
+    /* Print adjacency list */
     void print() {
         cout << "Adjacency list =" << endl;
         for (auto &adj : adjList) {
@@ -87,4 +87,4 @@ class GraphAdjList {
     }
 };
 
-// See test case in graph_adjacency_list_test.cpp
+// See graph_adjacency_list_test.cpp for test cases

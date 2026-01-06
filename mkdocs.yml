@@ -9,18 +9,21 @@ site_dir: site
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
 edit_uri: tree/main/docs
-version: 1.1.0
+version: 1.3.0
 
 # Copyright
-copyright: Copyright &copy; 2024 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+copyright: Copyright &copy; 2026 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
 
 # Configuration
 theme:
   name: material
   custom_dir: build/overrides
   language: zh
+  font:
+    text: Noto Sans SC
+    code: JetBrains Mono
   features:
-    - announce.dismiss
+    # - announce.dismiss
     - content.action.edit
     # - content.action.view
     - content.code.annotate
@@ -56,9 +59,6 @@ theme:
       toggle:
         icon: material/theme-light-dark
         name: 浅色模式
-  font:
-    text: Noto Sans SC
-    code: Fira Code
   favicon: assets/images/favicon.png
   logo: assets/images/logo.svg
   icon:
@@ -77,6 +77,9 @@ extra:
     - name: English
       link: /en/
       lang: en
+    - name: 日本語
+      link: /ja/
+      lang: ja
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/krahets
@@ -142,7 +145,6 @@ markdown_extensions:
 
 extra_javascript:
   - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js
   # - javascripts/katex.js 
   # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  

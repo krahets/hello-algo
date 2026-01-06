@@ -13,23 +13,23 @@ int main() {
 
     /* Add operation */
     // Add key-value pair (key, value) to the hash table
-    map[12836] = "Ha";
-    map[15937] = "Luo";
-    map[16750] = "Suan";
-    map[13276] = "Fa";
-    map[10583] = "Ya";
-    cout << "\nAfter adding, the hash table is\nKey -> Value" << endl;
+    map[12836] = "Xiao Ha";
+    map[15937] = "Xiao Luo";
+    map[16750] = "Xiao Suan";
+    map[13276] = "Xiao Fa";
+    map[10583] = "Xiao Ya";
+    cout << "\nAfter adding is complete, hash table is\nKey -> Value" << endl;
     printHashMap(map);
 
     /* Query operation */
-    // Enter key to the hash table, get value
+    // Input key into hash table to get value
     string name = map[15937];
-    cout << "\nEnter student ID 15937, found name " << name << endl;
+    cout << "\nInput student ID 15937, query name " << name << endl;
 
     /* Remove operation */
-    // Remove key-value pair (key, value) from the hash table
+    // Remove key-value pair (key, value) from hash table
     map.erase(10583);
-    cout << "\nAfter removing 10583, the hash table is\nKey -> Value" << endl;
+    cout << "\nAfter removing 10583, hash table is\nKey -> Value" << endl;
     printHashMap(map);
 
     /* Traverse hash table */
@@ -37,7 +37,7 @@ int main() {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
-    cout << "\nIterate through Key->Value using an iterator" << endl;
+    cout << "\nTraverse Key->Value using iterator" << endl;
     for (auto iter = map.begin(); iter != map.end(); iter++) {
         cout << iter->first << "->" << iter->second << endl;
     }

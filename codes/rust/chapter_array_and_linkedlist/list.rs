@@ -3,8 +3,7 @@
  * Created Time: 2023-01-18
  * Author: xBLACICEx (xBLACKICEx@outlook.com), codingonion (coderonion@gmail.com)
  */
-
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* Driver Code */
 fn main() {

@@ -103,18 +103,18 @@ void main() {
 
 // 暴力搜尋
   int res = minPathSumDFS(grid, n - 1, m - 1);
-  print("從左上角到右下角的做小路徑和為 $res");
+  print("從左上角到右下角的最小路徑和為 $res");
 
 // 記憶化搜尋
   List<List<int>> mem = List.generate(n, (i) => List.filled(m, -1));
   res = minPathSumDFSMem(grid, mem, n - 1, m - 1);
-  print("從左上角到右下角的做小路徑和為 $res");
+  print("從左上角到右下角的最小路徑和為 $res");
 
 // 動態規劃
   res = minPathSumDP(grid);
-  print("從左上角到右下角的做小路徑和為 $res");
+  print("從左上角到右下角的最小路徑和為 $res");
 
 // 空間最佳化後的動態規劃
   res = minPathSumDPComp(grid);
-  print("從左上角到右下角的做小路徑和為 $res");
+  print("從左上角到右下角的最小路徑和為 $res");
 }

@@ -10,7 +10,7 @@ type quickSort struct{}
 // 快速排序（中位基準數最佳化）
 type quickSortMedian struct{}
 
-// 快速排序（尾遞迴最佳化）
+// 快速排序（遞迴深度最佳化）
 type quickSortTailCall struct{}
 
 /* 哨兵劃分 */
@@ -112,7 +112,7 @@ func (q *quickSortTailCall) partition(nums []int, left, right int) int {
 	return i // 返回基準數的索引
 }
 
-/* 快速排序（尾遞迴最佳化）*/
+/* 快速排序（遞迴深度最佳化）*/
 func (q *quickSortTailCall) quickSort(nums []int, left, right int) {
 	// 子陣列長度為 1 時終止
 	for left < right {

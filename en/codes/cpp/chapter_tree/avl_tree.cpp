@@ -19,13 +19,13 @@ class AVLTree {
     TreeNode *rightRotate(TreeNode *node) {
         TreeNode *child = node->left;
         TreeNode *grandChild = child->right;
-        // Rotate node to the right around child
+        // Using child as pivot, rotate node to the right
         child->right = node;
         node->left = grandChild;
         // Update node height
         updateHeight(node);
         updateHeight(child);
-        // Return the root of the subtree after rotation
+        // Return root node of subtree after rotation
         return child;
     }
 
@@ -33,19 +33,19 @@ class AVLTree {
     TreeNode *leftRotate(TreeNode *node) {
         TreeNode *child = node->right;
         TreeNode *grandChild = child->left;
-        // Rotate node to the left around child
+        // Using child as pivot, rotate node to the left
         child->left = node;
         node->right = grandChild;
         // Update node height
         updateHeight(node);
         updateHeight(child);
-        // Return the root of the subtree after rotation
+        // Return root node of subtree after rotation
         return child;
     }
 
-    /* Perform rotation operation to restore balance to the subtree */
+    /* Perform rotation operation to restore balance to this subtree */
     TreeNode *rotate(TreeNode *node) {
-        // Get the balance factor of node
+        // Get balance factor of node
         int _balanceFactor = balanceFactor(node);
         // Left-leaning tree
         if (_balanceFactor > 1) {
@@ -69,7 +69,7 @@ class AVLTree {
                 return leftRotate(node);
             }
         }
-        // Balanced tree, no rotation needed, return
+        // Balanced tree, no rotation needed, return directly
         return node;
     }
 
@@ -83,19 +83,19 @@ class AVLTree {
         else if (val > node->val)
             node->right = insertHelper(node->right, val);
         else
-            return node;    // Do not insert duplicate nodes, return
+            return node;    // Duplicate node not inserted, return directly
         updateHeight(node); // Update node height
-        /* 2. Perform rotation operation to restore balance to the subtree */
+        /* 2. Perform rotation operation to restore balance to this subtree */
         node = rotate(node);
-        // Return the root node of the subtree
+        // Return root node of subtree
         return node;
     }
 
-    /* Recursively remove node (helper method) */
+    /* Recursively delete node (helper method) */
     TreeNode *removeHelper(TreeNode *node, int val) {
         if (node == nullptr)
             return nullptr;
-        /* 1. Find and remove the node */
+        /* 1. Find node and delete */
         if (val < node->val)
             node->left = removeHelper(node->left, val);
         else if (val > node->val)
@@ -103,18 +103,18 @@ class AVLTree {
         else {
             if (node->left == nullptr || node->right == nullptr) {
                 TreeNode *child = node->left != nullptr ? node->left : node->right;
-                // Number of child nodes = 0, remove node and return
+                // Number of child nodes = 0, delete node directly and return
                 if (child == nullptr) {
                     delete node;
                     return nullptr;
                 }
-                // Number of child nodes = 1, remove node
+                // Number of child nodes = 1, delete node directly
                 else {
                     delete node;
                     node = child;
                 }
             } else {
-                // Number of child nodes = 2, remove the next node in in-order traversal and replace the current node with it
+                // Number of child nodes = 2, delete the next node in inorder traversal and replace current node with it
                 TreeNode *temp = node->right;
                 while (temp->left != nullptr) {
                     temp = temp->left;
@@ -125,9 +125,9 @@ class AVLTree {
             }
         }
         updateHeight(node); // Update node height
-        /* 2. Perform rotation operation to restore balance to the subtree */
+        /* 2. Perform rotation operation to restore balance to this subtree */
         node = rotate(node);
-        // Return the root node of the subtree
+        // Return root node of subtree
         return node;
     }
 
@@ -162,7 +162,7 @@ class AVLTree {
     /* Search node */
     TreeNode *search(int val) {
         TreeNode *cur = root;
-        // Loop find, break after passing leaf nodes
+        // Loop search, exit after passing leaf node
         while (cur != nullptr) {
             // Target node is in cur's right subtree
             if (cur->val < val)
@@ -170,7 +170,7 @@ class AVLTree {
             // Target node is in cur's left subtree
             else if (cur->val > val)
                 cur = cur->left;
-            // Found target node, break loop
+            // Found target node, exit loop
             else
                 break;
         }
@@ -190,23 +190,23 @@ class AVLTree {
 
 void testInsert(AVLTree &tree, int val) {
     tree.insert(val);
-    cout << "\nAfter inserting node " << val << ", the AVL tree is" << endl;
+    cout << "\nAfter inserting node " << val << ", AVL tree is" << endl;
     printTree(tree.root);
 }
 
 void testRemove(AVLTree &tree, int val) {
     tree.remove(val);
-    cout << "\nAfter removing node " << val << ", the AVL tree is" << endl;
+    cout << "\nAfter removing node " << val << ", AVL tree is" << endl;
     printTree(tree.root);
 }
 
 /* Driver Code */
 int main() {
-    /* Initialize empty AVL tree */
+    /* Please pay attention to how the AVL tree maintains balance after inserting nodes */
     AVLTree avlTree;
 
     /* Insert node */
-    // Notice how the AVL tree maintains balance after inserting nodes
+    // Delete nodes
     testInsert(avlTree, 1);
     testInsert(avlTree, 2);
     testInsert(avlTree, 3);
@@ -218,16 +218,16 @@ int main() {
     testInsert(avlTree, 10);
     testInsert(avlTree, 6);
 
-    /* Insert duplicate node */
+    /* Please pay attention to how the AVL tree maintains balance after deleting nodes */
     testInsert(avlTree, 7);
 
     /* Remove node */
-    // Notice how the AVL tree maintains balance after removing nodes
-    testRemove(avlTree, 8); // Remove node with degree 0
+    // Delete node with degree 1
+    testRemove(avlTree, 8); // Delete node with degree 2
     testRemove(avlTree, 5); // Remove node with degree 1
     testRemove(avlTree, 4); // Remove node with degree 2
 
     /* Search node */
     TreeNode *node = avlTree.search(7);
-    cout << "\nThe found node object is " << node << ", node value =" << node->val << endl;
+    cout << "\nFound node object is " << node << ", node value = " << node->val << endl;
 }

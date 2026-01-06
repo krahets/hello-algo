@@ -1,23 +1,23 @@
 # Summary
 
-### Key review
+### Key Review
 
-- The essence of the backtracking algorithm is an exhaustive search method, where the solution space is traversed deeply first to find solutions that meet the criteria. During the search, if a satisfying solution is found, it is recorded, until all solutions are found or the search is completed.
-- The search process of the backtracking algorithm includes trying and retreating. It uses depth-first search to explore various choices, and when a choice does not meet the constraint conditions, the previous choice is undone, reverting to the previous state, and other options are then continued to be tried. Trying and retreating are operations in opposite directions.
-- Backtracking problems usually contain multiple constraints, which can be used to perform pruning operations. Pruning can terminate unnecessary search branches early, greatly enhancing search efficiency.
-- Backtracking algorithms are mainly used to solve search problems and constraint satisfaction problems. Although combinatorial optimization problems can be solved using backtracking, there are often more efficient or effective solutions available.
-- The permutation problem aims to search for all possible permutations of a given set of elements. We use an array to record whether each element has been chosen, cutting off branches that repeatedly select the same element, ensuring each element is selected only once.
-- In permutation problems, if the set contains duplicate elements, the final result will include duplicate permutations. We need to restrict that identical elements can only be selected once in each round, which is usually implemented using a hash set.
-- The subset-sum problem aims to find all subsets in a given set that sum to a target value. The set does not distinguish the order of elements, but the search process outputs all ordered results, producing duplicate subsets. Before backtracking, we sort the data and set a variable to indicate the starting point of each round of traversal, thereby pruning the search branches that generate duplicate subsets.
-- For the subset-sum problem, equal elements in the array can produce duplicate sets. Using the precondition that the array is already sorted, we prune by determining if adjacent elements are equal, thus ensuring equal elements are only selected once per round.
-- The $n$ queens problem aims to find schemes to place $n$ queens on an $n \times n$ size chessboard in such a way that no two queens can attack each other. The constraints of the problem include row constraints, column constraints, main diagonal constraints, and secondary diagonal constraints. To meet the row constraint, we adopt a strategy of placing one queen per row, ensuring each row has one queen placed.
-- The handling of column constraints and diagonal constraints is similar. For column constraints, we use an array to record whether there is a queen in each column, thereby indicating whether the selected cell is legal. For diagonal constraints, we use two arrays to respectively record the presence of queens on the main and secondary diagonals; the challenge is in identifying the row and column index patterns that satisfy the same primary (secondary) diagonal.
+- The backtracking algorithm is fundamentally an exhaustive search method. It finds solutions that meet specified conditions by performing a depth-first traversal of the solution space. During the search process, when a solution satisfying the conditions is found, it is recorded. The search ends either after finding all solutions or when the traversal is complete.
+- The backtracking algorithm search process consists of two parts: attempting and backtracking. It tries various choices through depth-first search. When encountering situations that violate constraints, it reverts the previous choice, returns to the previous state, and continues exploring other options. Attempting and backtracking are operations in opposite directions.
+- Backtracking problems typically contain multiple constraints, which can be utilized to implement pruning operations. Pruning can terminate unnecessary search branches early, significantly improving search efficiency.
+- The backtracking algorithm is primarily used to solve search problems and constraint satisfaction problems. While combinatorial optimization problems can be solved with backtracking, there are often more efficient or better-performing solutions available.
+- The permutation problem aims to find all possible permutations of elements in a given set. We use an array to record whether each element has been selected, thereby pruning search branches that attempt to select the same element repeatedly, ensuring each element is selected exactly once.
+- In the permutation problem, if the set contains duplicate elements, the final result will contain duplicate permutations. We need to impose a constraint so that equal elements can only be selected once per round, which is typically achieved using a hash set.
+- The subset-sum problem aims to find all subsets of a given set that sum to a target value. Since the set is unordered but the search process outputs results in all orders, duplicate subsets are generated. We sort the data before backtracking and use a variable to indicate the starting point of each round's traversal, thereby pruning search branches that generate duplicate subsets.
+- For the subset-sum problem, equal elements in the array produce duplicate sets. We leverage the precondition that the array is sorted by checking whether adjacent elements are equal to implement pruning, ensuring that equal elements can only be selected once per round.
+- The $n$ queens problem aims to find placements of $n$ queens on an $n \times n$ chessboard such that no two queens can attack each other. The constraints of this problem include row constraints, column constraints, and main and anti-diagonal constraints. To satisfy row constraints, we adopt a row-by-row placement strategy, ensuring exactly one queen is placed in each row.
+- The handling of column constraints and diagonal constraints is similar. For column constraints, we use an array to record whether each column has a queen, thereby indicating whether a selected cell is valid. For diagonal constraints, we use two arrays to separately record whether queens exist on each main or anti-diagonal. The challenge lies in finding the row-column index pattern that characterizes cells on the same main (anti-)diagonal.
 
 ### Q & A
 
-**Q**: How can we understand the relationship between backtracking and recursion?
+**Q**: How should we understand the relationship between backtracking and recursion?
 
-Overall, backtracking is a "strategic algorithm," while recursion is more of a "tool."
+Overall, backtracking is an "algorithm strategy", while recursion is more like a "tool".
 
-- Backtracking algorithms are typically based on recursion. However, backtracking is one of the application scenarios of recursion, specifically in search problems.
-- The structure of recursion reflects the "sub-problem decomposition" problem-solving paradigm, commonly used in solving problems involving divide and conquer, backtracking, and dynamic programming (memoized recursion).
+- The backtracking algorithm is typically implemented based on recursion. However, backtracking is one application scenario of recursion and represents the application of recursion in search problems.
+- The structure of recursion embodies the "subproblem decomposition" problem-solving paradigm, commonly used to solve problems involving divide-and-conquer, backtracking, and dynamic programming (memoized recursion).

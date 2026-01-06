@@ -4,7 +4,7 @@
  * Author: WSL0809 (wslzzy@outlook.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* 選擇排序 */
 fn selection_sort(nums: &mut [i32]) {

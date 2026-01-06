@@ -65,6 +65,7 @@ void countingSort(int nums[], int size) {
     // 使用結果陣列 res 覆蓋原陣列 nums
     memcpy(nums, res, size * sizeof(int));
     // 5. 釋放記憶體
+    free(res);
     free(counter);
 }
 

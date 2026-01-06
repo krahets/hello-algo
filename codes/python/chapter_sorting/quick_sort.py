@@ -79,7 +79,7 @@ class QuickSortMedian:
 
 
 class QuickSortTailCall:
-    """快速排序类（尾递归优化）"""
+    """快速排序类（递归深度优化）"""
 
     def partition(self, nums: list[int], left: int, right: int) -> int:
         """哨兵划分"""
@@ -97,7 +97,7 @@ class QuickSortTailCall:
         return i  # 返回基准数的索引
 
     def quick_sort(self, nums: list[int], left: int, right: int):
-        """快速排序（尾递归优化）"""
+        """快速排序（递归深度优化）"""
         # 子数组长度为 1 时终止
         while left < right:
             # 哨兵划分操作
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     QuickSortMedian().quick_sort(nums1, 0, len(nums1) - 1)
     print("快速排序（中位基准数优化）完成后 nums =", nums1)
 
-    # 快速排序（尾递归优化）
+    # 快速排序（递归深度优化）
     nums2 = [2, 4, 1, 0, 3, 5]
     QuickSortTailCall().quick_sort(nums2, 0, len(nums2) - 1)
-    print("快速排序（尾递归优化）完成后 nums =", nums2)
+    print("快速排序（递归深度优化）完成后 nums =", nums2)
