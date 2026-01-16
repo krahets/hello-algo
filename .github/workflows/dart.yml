@@ -28,7 +28,7 @@ jobs:
         dart-sdk: [stable]
         code-dir: ["codes/dart", "en/codes/dart"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up Dart ${{ matrix.dart-sdk }}
         uses: dart-lang/setup-dart@v1
         with:
