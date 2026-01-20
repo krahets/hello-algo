@@ -410,4 +410,4 @@ name = "max_product_cutting"
 path = "chapter_greedy/max_product_cutting.rs"
 
 [dependencies]
-rand = "0.8.5"
+rand = "0.9.2"

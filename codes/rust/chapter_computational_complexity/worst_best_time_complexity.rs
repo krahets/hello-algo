@@ -6,14 +6,13 @@
 
 use hello_algo_rust::include::print_util;
 use rand::seq::SliceRandom;
-use rand::thread_rng;
 
 /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
 fn random_numbers(n: i32) -> Vec<i32> {
     // 生成数组 nums = { 1, 2, 3, ..., n }
     let mut nums = (1..=n).collect::<Vec<i32>>();
     // 随机打乱数组元素
-    nums.shuffle(&mut thread_rng());
+    nums.shuffle(&mut rand::rng());
     nums
 }
 
