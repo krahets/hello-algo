@@ -27,9 +27,9 @@ fn for_loop_recur(n: i32) -> i32 {
         stack.push(i);
     }
     // 归：返回结果
-    while !stack.is_empty() {
-        // 通过“出栈操作”模拟“归”
-        res += stack.pop().unwrap();
+    // 通过“出栈操作”模拟“归”
+    while let Some(i) = stack.pop() {
+        res += i;
     }
     // res = 1+2+3+...+n
     res
