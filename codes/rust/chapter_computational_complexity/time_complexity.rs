@@ -56,9 +56,7 @@ fn bubble_sort(nums: &mut [i32]) -> i32 {
         for j in 0..i {
             if nums[j] > nums[j + 1] {
                 // 交换 nums[j] 与 nums[j + 1]
-                let tmp = nums[j];
-                nums[j] = nums[j + 1];
-                nums[j + 1] = tmp;
+                nums.swap(j, j + 1);
                 count += 3; // 元素交换包含 3 个单元操作
             }
         }
@@ -73,7 +71,7 @@ fn exponential(n: i32) -> i32 {
     // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
     for _ in 0..n {
         for _ in 0..base {
-            count += 1
+            count += 1;
         }
         base *= 2;
     }
@@ -93,7 +91,7 @@ fn exp_recur(n: i32) -> i32 {
 fn logarithmic(mut n: i32) -> i32 {
     let mut count = 0;
     while n > 1 {
-        n = n / 2;
+        n /= 2;
         count += 1;
     }
     count
@@ -116,7 +114,7 @@ fn linear_log_recur(n: i32) -> i32 {
     for _ in 0..n {
         count += 1;
     }
-    return count;
+    count
 }
 
 /* 阶乘阶（递归实现） */
