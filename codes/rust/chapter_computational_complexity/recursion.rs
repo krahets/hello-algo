@@ -46,6 +46,7 @@ fn tail_recur(n: i32, res: i32) -> i32 {
 }
 
 /* 斐波那契数列：递归 */
+#[allow(clippy::let_and_return)]
 fn fib(n: i32) -> i32 {
     // 终止条件 f(1) = 0, f(2) = 1
     if n == 1 || n == 2 {
