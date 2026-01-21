@@ -5,80 +5,92 @@
  */
 
 /* 基于环形数组实现的队列 */
-struct ArrayQueue<T> {
-    nums: Vec<T>,      // 用于存储队列元素的数组
-    front: i32,        // 队首指针，指向队首元素
-    que_size: i32,     // 队列长度
-    que_capacity: i32, // 队列容量
+pub struct ArrayQueue<T> {
+    nums: Vec<T>,    // 用于存储队列元素的数组
+    front: usize,    // 队首指针，指向队首元素
+    size: usize,     // 队列长度
+    capacity: usize, // 队列容量
 }
 
-impl<T: Copy + Default> ArrayQueue<T> {
+impl<T> ArrayQueue<T> {
     /* 构造方法 */
-    fn new(capacity: i32) -> ArrayQueue<T> {
-        ArrayQueue {
-            nums: vec![T::default(); capacity as usize],
+    pub fn new(capacity: usize) -> ArrayQueue<T>
+    where
+        T: Default,
+    {
+        Self {
+            nums: (0..capacity).map(|_| T::default()).collect(),
             front: 0,
-            que_size: 0,
-            que_capacity: capacity,
+            size: 0,
+            capacity,
         }
     }
 
     /* 获取队列的容量 */
-    fn capacity(&self) -> i32 {
-        self.que_capacity
+    pub fn capacity(&self) -> usize {
+        self.capacity
     }
 
     /* 获取队列的长度 */
-    fn size(&self) -> i32 {
-        self.que_size
+    pub fn size(&self) -> usize {
+        self.size
     }
 
     /* 判断队列是否为空 */
-    fn is_empty(&self) -> bool {
-        self.que_size == 0
+    pub fn is_empty(&self) -> bool {
+        self.size == 0
     }
 
     /* 入队 */
-    fn push(&mut self, num: T) {
-        if self.que_size == self.capacity() {
-            println!("队列已满");
-            return;
+    pub fn push(&mut self, num: T) {
+        if self.size == self.capacity() {
+            panic!("队列已满");
         }
         // 计算队尾指针，指向队尾索引 + 1
         // 通过取余操作实现 rear 越过数组尾部后回到头部
-        let rear = (self.front + self.que_size) % self.que_capacity;
+        let rear = (self.front + self.size) % self.capacity;
         // 将 num 添加至队尾
-        self.nums[rear as usize] = num;
-        self.que_size += 1;
+        self.nums[rear] = num;
+        self.size += 1;
     }
 
     /* 出队 */
-    fn pop(&mut self) -> T {
-        let num = self.peek();
+    pub fn pop(&mut self) -> Option<T>
+    where
+        T: Clone,
+    {
+        if self.is_empty() {
+            return None;
+        }
+        let num = self.nums[self.front].clone();
         // 队首指针向后移动一位，若越过尾部，则返回到数组头部
-        self.front = (self.front + 1) % self.que_capacity;
-        self.que_size -= 1;
-        num
+        self.front = (self.front + 1) % self.capacity;
+        self.size -= 1;
+        Some(num)
     }
 
     /* 访问队首元素 */
-    fn peek(&self) -> T {
+    pub fn peek(&self) -> Option<&T> {
         if self.is_empty() {
-            panic!("index out of bounds");
+            return None;
         }
-        self.nums[self.front as usize]
+        Some(&self.nums[self.front])
     }
 
     /* 返回数组 */
-    fn to_vector(&self) -> Vec<T> {
-        let cap = self.que_capacity;
-        let mut j = self.front;
-        let mut arr = vec![T::default(); cap as usize];
-        for i in 0..self.que_size {
-            arr[i as usize] = self.nums[(j % cap) as usize];
-            j += 1;
+    pub fn to_array(&self) -> Vec<T>
+    where
+        T: Clone,
+    {
+        let mut res = Vec::with_capacity(self.size);
+        for index in self.front..(self.front + self.size) {
+            // 考虑存在不变式 `self.size <= self.capacity()`，
+            // 且 `self.size == 0` 时不会进入该循环，除零错误不会发生。
+            let index = index % self.capacity;
+            let num = self.nums[index].clone();
+            res.push(num);
         }
-        arr
+        res
     }
 }
 
@@ -94,18 +106,18 @@ fn main() {
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    println!("队列 queue = {:?}", queue.to_vector());
+    println!("队列 queue = {:?}", queue.to_array());
 
     /* 访问队首元素 */
-    let peek = queue.peek();
+    let peek = queue.peek().unwrap();
     println!("队首元素 peek = {}", peek);
 
     /* 元素出队 */
-    let pop = queue.pop();
+    let pop = queue.pop().unwrap();
     println!(
         "出队元素 pop = {:?},出队后 queue = {:?}",
         pop,
-        queue.to_vector()
+        queue.to_array()
     );
 
     /* 获取队列的长度 */
@@ -120,6 +132,6 @@ fn main() {
     for i in 0..10 {
         queue.push(i);
         queue.pop();
-        println!("第 {:?} 轮入队 + 出队后 queue = {:?}", i, queue.to_vector());
+        println!("第 {:?} 轮入队 + 出队后 queue = {:?}", i, queue.to_array());
     }
 }
