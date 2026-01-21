@@ -4,36 +4,36 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-use hello_algo_rust::include::{print_util, ListNode};
-
+use hello_algo_rust::include::print_util;
+use hello_algo_rust::linked_list::ListNode;
 use std::cell::RefCell;
 use std::rc::Rc;
 
 /* 基于链表实现的队列 */
-#[allow(dead_code)]
 pub struct LinkedListQueue<T> {
     front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点 front
     rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点 rear
-    que_size: usize,                         // 队列的长度
+    size: usize,                             // 队列的长度
 }
 
-impl<T: Copy> LinkedListQueue<T> {
+impl<T> LinkedListQueue<T> {
+    #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         Self {
             front: None,
             rear: None,
-            que_size: 0,
+            size: 0,
         }
     }
 
     /* 获取队列的长度 */
     pub fn size(&self) -> usize {
-        return self.que_size;
+        self.size
     }
 
     /* 判断队列是否为空 */
     pub fn is_empty(&self) -> bool {
-        return self.que_size == 0;
+        self.size == 0
     }
 
     /* 入队 */
@@ -52,23 +52,26 @@ impl<T: Copy> LinkedListQueue<T> {
                 self.rear = Some(new_rear);
             }
         }
-        self.que_size += 1;
+        self.size += 1;
     }
 
     /* 出队 */
-    pub fn pop(&mut self) -> Option<T> {
-        self.front.take().map(|old_front| {
-            match old_front.borrow_mut().next.take() {
-                Some(new_front) => {
-                    self.front = Some(new_front);
-                }
-                None => {
-                    self.rear.take();
-                }
+    pub fn pop(&mut self) -> Option<T>
+    where
+        T: Clone,
+    {
+        let old_front = self.front.take()?;
+        match old_front.borrow_mut().next.take() {
+            Some(new_front) => {
+                self.front = Some(new_front);
             }
-            self.que_size -= 1;
-            old_front.borrow().val
-        })
+            None => {
+                self.rear = None;
+            }
+        }
+        self.size -= 1;
+        let val = old_front.borrow().val.clone();
+        Some(val)
     }
 
     /* 访问队首元素 */
@@ -77,18 +80,18 @@ impl<T: Copy> LinkedListQueue<T> {
     }
 
     /* 将链表转化为 Array 并返回 */
-    pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
-        let mut res: Vec<T> = Vec::new();
-
-        fn recur<T: Copy>(cur: Option<&Rc<RefCell<ListNode<T>>>>, res: &mut Vec<T>) {
-            if let Some(cur) = cur {
-                res.push(cur.borrow().val);
-                recur(cur.borrow().next.as_ref(), res);
-            }
+    pub fn to_array(&self) -> Vec<T>
+    where
+        T: Clone,
+    {
+        let mut res = Vec::with_capacity(self.size);
+        let mut next = self.front.clone();
+        while let Some(node) = next {
+            let borrow = node.borrow();
+            let val = borrow.val.clone();
+            res.push(val);
+            next = borrow.next.clone();
         }
-
-        recur(head, &mut res);
-
         res
     }
 }
@@ -105,7 +108,7 @@ fn main() {
     queue.push(5);
     queue.push(4);
     print!("队列 queue = ");
-    print_util::print_array(&queue.to_array(queue.peek()));
+    print_util::print_array(&queue.to_array());
 
     /* 访问队首元素 */
     let peek = queue.peek().unwrap().borrow().val;
@@ -114,7 +117,7 @@ fn main() {
     /* 元素出队 */
     let pop = queue.pop().unwrap();
     print!("\n出队元素 pop = {}，出队后 queue = ", pop);
-    print_util::print_array(&queue.to_array(queue.peek()));
+    print_util::print_array(&queue.to_array());
 
     /* 获取队列的长度 */
     let size = queue.size();
