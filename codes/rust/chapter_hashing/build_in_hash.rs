@@ -4,12 +4,12 @@
  * Author: WSL0809 (wslzzy@outlook.com)
  */
 
-use hello_algo_rust::include::ListNode;
-
+use hello_algo_rust::linked_list::ListNode;
 use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
 
 /* Driver Code */
+#[allow(clippy::approx_constant)]
 fn main() {
     let num = 3;
     let mut num_hasher = DefaultHasher::new();

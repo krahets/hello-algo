@@ -4,30 +4,32 @@
  * Author: WSL0809 (wslzzy@outlook.com)
  */
 
+use std::mem;
+
 #[derive(Clone)]
 /* 键值对 */
-struct Pair {
-    key: i32,
-    val: String,
+pub struct Pair {
+    pub key: i32,
+    pub val: String,
 }
 
 /* 链式地址哈希表 */
-struct HashMapChaining {
+pub struct HashMapChaining {
     size: usize,
     capacity: usize,
-    load_thres: f32,
-    extend_ratio: usize,
     buckets: Vec<Vec<Pair>>,
 }
 
 impl HashMapChaining {
+    const LOAD_THRES: f64 = 2.0 / 3.0;
+    const EXTEND_RATIO: usize = 2;
+
     /* 构造方法 */
-    fn new() -> Self {
+    #[allow(clippy::new_without_default)]
+    pub fn new() -> Self {
         Self {
             size: 0,
             capacity: 4,
-            load_thres: 2.0 / 3.0,
-            extend_ratio: 2,
             buckets: vec![vec![]; 4],
         }
     }
@@ -38,20 +40,18 @@ impl HashMapChaining {
     }
 
     /* 负载因子 */
-    fn load_factor(&self) -> f32 {
-        self.size as f32 / self.capacity as f32
+    fn load_factor(&self) -> f64 {
+        self.size as f64 / self.capacity as f64
     }
 
-    /* 删除操作 */
-    fn remove(&mut self, key: i32) -> Option<String> {
+    /* 查询操作 */
+    pub fn get(&self, key: i32) -> Option<&str> {
         let index = self.hash_func(key);
 
-        // 遍历桶，从中删除键值对
-        for (i, p) in self.buckets[index].iter_mut().enumerate() {
-            if p.key == key {
-                let pair = self.buckets[index].remove(i);
-                self.size -= 1;
-                return Some(pair.val);
+        // 遍历桶，若找到 key ，则返回对应 val
+        for pair in self.buckets[index].iter() {
+            if pair.key == key {
+                return Some(&pair.val);
             }
         }
 
@@ -59,39 +59,10 @@ impl HashMapChaining {
         None
     }
 
-    /* 扩容哈希表 */
-    fn extend(&mut self) {
-        // 暂存原哈希表
-        let buckets_tmp = std::mem::take(&mut self.buckets);
-
-        // 初始化扩容后的新哈希表
-        self.capacity *= self.extend_ratio;
-        self.buckets = vec![Vec::new(); self.capacity as usize];
-        self.size = 0;
-
-        // 将键值对从原哈希表搬运至新哈希表
-        for bucket in buckets_tmp {
-            for pair in bucket {
-                self.put(pair.key, pair.val);
-            }
-        }
-    }
-
-    /* 打印哈希表 */
-    fn print(&self) {
-        for bucket in &self.buckets {
-            let mut res = Vec::new();
-            for pair in bucket {
-                res.push(format!("{} -> {}", pair.key, pair.val));
-            }
-            println!("{:?}", res);
-        }
-    }
-
     /* 添加操作 */
-    fn put(&mut self, key: i32, val: String) {
+    pub fn put(&mut self, key: i32, val: String) {
         // 当负载因子超过阈值时，执行扩容
-        if self.load_factor() > self.load_thres {
+        if self.load_factor() > Self::LOAD_THRES {
             self.extend();
         }
 
@@ -111,24 +82,56 @@ impl HashMapChaining {
         self.size += 1;
     }
 
-    /* 查询操作 */
-    fn get(&self, key: i32) -> Option<&str> {
+    /* 删除操作 */
+    pub fn remove(&mut self, key: i32) -> Option<String> {
         let index = self.hash_func(key);
 
-        // 遍历桶，若找到 key ，则返回对应 val
-        for pair in self.buckets[index].iter() {
+        // 遍历桶，从中删除键值对
+        for (i, pair) in self.buckets[index].iter_mut().enumerate() {
             if pair.key == key {
-                return Some(&pair.val);
+                let pair = self.buckets[index].remove(i);
+                self.size -= 1;
+                return Some(pair.val);
             }
         }
 
         // 若未找到 key ，则返回 None
         None
     }
+
+    /* 扩容哈希表 */
+    fn extend(&mut self) {
+        // 暂存原哈希表
+        let buckets = mem::take(&mut self.buckets);
+
+        // 初始化扩容后的新哈希表
+        self.capacity *= Self::EXTEND_RATIO;
+        self.buckets = vec![vec![]; self.capacity];
+        self.size = 0;
+
+        // 将键值对从原哈希表搬运至新哈希表
+        for bucket in buckets {
+            for pair in bucket {
+                self.put(pair.key, pair.val);
+            }
+        }
+    }
+
+    /* 打印哈希表 */
+    pub fn print(&self) {
+        for bucket in &self.buckets {
+            let capacity = bucket.len();
+            let mut res = Vec::with_capacity(capacity);
+            for pair in bucket {
+                res.push(format!("{} -> {}", pair.key, pair.val));
+            }
+            println!("{:?}", res);
+        }
+    }
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     /* 初始化哈希表 */
     let mut map = HashMapChaining::new();
 
@@ -145,11 +148,8 @@ pub fn main() {
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     println!(
-        "\n输入学号 13276,查询到姓名 {}",
-        match map.get(13276) {
-            Some(value) => value,
-            None => "Not a valid Key",
-        }
+        "\n输入学号 13276，查询到姓名 {}",
+        map.get(13276).unwrap_or("Not a valid Key")
     );
 
     /* 删除操作 */
