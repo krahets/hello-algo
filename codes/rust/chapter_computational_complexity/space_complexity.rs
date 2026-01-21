@@ -6,7 +6,8 @@
 
 #![allow(unused)]
 
-use hello_algo_rust::include::{ListNode, TreeNode, print_util};
+use hello_algo_rust::include::{TreeNode, print_util};
+use hello_algo_rust::linked_list::ListNode;
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
