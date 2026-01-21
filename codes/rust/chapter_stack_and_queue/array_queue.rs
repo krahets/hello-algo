@@ -4,6 +4,8 @@
  * Author: WSL0809 (wslzzy@outlook.com)
  */
 
+use std::fmt;
+
 /* 基于环形数组实现的队列 */
 pub struct ArrayQueue<T> {
     nums: Vec<T>,    // 用于存储队列元素的数组
@@ -94,6 +96,24 @@ impl<T> ArrayQueue<T> {
     }
 }
 
+impl<T> fmt::Display for ArrayQueue<T>
+where
+    T: fmt::Display,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "[")?;
+        if self.is_empty() {
+            return write!(f, "]");
+        }
+        write!(f, "{}", self.nums[self.front])?;
+        for index in (self.front + 1)..(self.front + self.size) {
+            let index = index % self.capacity;
+            write!(f, ", {}", self.nums[index])?;
+        }
+        write!(f, "]")
+    }
+}
+
 /* Driver Code */
 fn main() {
     /* 初始化队列 */
@@ -106,23 +126,19 @@ fn main() {
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    println!("队列 queue = {:?}", queue.to_array());
+    println!("队列 queue = {queue}");
 
     /* 访问队首元素 */
     let peek = queue.peek().unwrap();
-    println!("队首元素 peek = {}", peek);
+    println!("队首元素 peek = {peek}");
 
     /* 元素出队 */
     let pop = queue.pop().unwrap();
-    println!(
-        "出队元素 pop = {:?},出队后 queue = {:?}",
-        pop,
-        queue.to_array()
-    );
+    println!("出队元素 pop = {pop}，出队后 queue = {queue}");
 
     /* 获取队列的长度 */
     let size = queue.size();
-    println!("队列长度 size = {}", size);
+    println!("队列长度 size = {size}");
 
     /* 判断队列是否为空 */
     let is_empty = queue.is_empty();
@@ -132,6 +148,6 @@ fn main() {
     for i in 0..10 {
         queue.push(i);
         queue.pop();
-        println!("第 {:?} 轮入队 + 出队后 queue = {:?}", i, queue.to_array());
+        println!("第 {i} 轮入队 + 出队后 queue = {queue}");
     }
 }
