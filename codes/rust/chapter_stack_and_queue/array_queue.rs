@@ -8,10 +8,9 @@ use std::fmt;
 
 /* 基于环形数组实现的队列 */
 pub struct ArrayQueue<T> {
-    nums: Vec<T>,    // 用于存储队列元素的数组
-    front: usize,    // 队首指针，指向队首元素
-    size: usize,     // 队列长度
-    capacity: usize, // 队列容量
+    nums: Vec<T>, // 用于存储队列元素的数组
+    front: usize, // 队首指针，指向队首元素
+    size: usize,  // 队列长度
 }
 
 impl<T> ArrayQueue<T> {
@@ -24,13 +23,12 @@ impl<T> ArrayQueue<T> {
             nums: (0..capacity).map(|_| T::default()).collect(),
             front: 0,
             size: 0,
-            capacity,
         }
     }
 
     /* 获取队列的容量 */
     pub fn capacity(&self) -> usize {
-        self.capacity
+        self.nums.len()
     }
 
     /* 获取队列的长度 */
@@ -50,7 +48,7 @@ impl<T> ArrayQueue<T> {
         }
         // 计算队尾指针，指向队尾索引 + 1
         // 通过取余操作实现 rear 越过数组尾部后回到头部
-        let rear = (self.front + self.size) % self.capacity;
+        let rear = (self.front + self.size) % self.capacity();
         // 将 num 添加至队尾
         self.nums[rear] = num;
         self.size += 1;
@@ -66,7 +64,7 @@ impl<T> ArrayQueue<T> {
         }
         let num = self.nums[self.front].clone();
         // 队首指针向后移动一位，若越过尾部，则返回到数组头部
-        self.front = (self.front + 1) % self.capacity;
+        self.front = (self.front + 1) % self.capacity();
         self.size -= 1;
         Some(num)
     }
@@ -88,7 +86,7 @@ impl<T> ArrayQueue<T> {
         for index in self.front..(self.front + self.size) {
             // 考虑存在不变式 `self.size <= self.capacity()`，
             // 且 `self.size == 0` 时不会进入该循环，除零错误不会发生。
-            let index = index % self.capacity;
+            let index = index % self.capacity();
             let num = self.nums[index].clone();
             res.push(num);
         }
@@ -107,7 +105,7 @@ where
         }
         write!(f, "{}", self.nums[self.front])?;
         for index in (self.front + 1)..(self.front + self.size) {
-            let index = index % self.capacity;
+            let index = index % self.capacity();
             write!(f, ", {}", self.nums[index])?;
         }
         write!(f, "]")
