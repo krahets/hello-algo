@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-use hello_algo_rust::linked_list::ListNode;
+use hello_algo_rust::linked_list::{Display, ListNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
@@ -74,15 +74,14 @@ fn main() {
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
     n3.borrow_mut().next = Some(n4.clone());
-    println!("初始化的链表为 {}", n0.borrow());
+    println!("初始化的链表为 {}", n0.display_as_list());
 
     /* 插入节点 */
     insert(&n0, ListNode::new(0));
-    println!("插入节点后的链表为 {}", n0.borrow());
-
+    println!("插入节点后的链表为 {}", n0.display_as_list());
     /* 删除节点 */
     remove(&n0);
-    println!("删除节点后的链表为 {}", n0.borrow());
+    println!("删除节点后的链表为 {}", n0.display_as_list());
 
     /* 访问节点 */
     let node = access(&n0, 3).unwrap();

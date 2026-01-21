@@ -83,18 +83,87 @@ where
     }
 }
 
-impl<T> fmt::Display for ListNode<T>
+pub trait Display {
+    fn display_as_list(&self) -> impl fmt::Display;
+
+    fn display_as_array(&self) -> impl fmt::Display;
+}
+
+impl<T> Display for ListLink<T>
+where
+    T: fmt::Display,
+{
+    fn display_as_list(&self) -> impl fmt::Display {
+        let head = Some(self);
+        ListDisplay { head }
+    }
+
+    fn display_as_array(&self) -> impl fmt::Display {
+        let head = Some(self);
+        ArrayDisplay { head }
+    }
+}
+
+impl<T> Display for Option<ListLink<T>>
+where
+    T: fmt::Display,
+{
+    fn display_as_list(&self) -> impl fmt::Display {
+        let head = self.as_ref();
+        ListDisplay { head }
+    }
+
+    fn display_as_array(&self) -> impl fmt::Display {
+        let head = self.as_ref();
+        ArrayDisplay { head }
+    }
+}
+
+struct ListDisplay<'a, T> {
+    head: Option<&'a ListLink<T>>,
+}
+
+impl<T> fmt::Display for ListDisplay<'_, T>
 where
     T: fmt::Display,
 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}", self.val)?;
-        let mut next = self.next.clone();
+        let Some(head) = self.head else {
+            return Ok(());
+        };
+        let borrow = head.borrow();
+        write!(f, "{}", borrow.val)?;
+        let mut next = borrow.next.clone();
         while let Some(link) = next {
             let borrow = link.borrow();
             write!(f, " -> {}", borrow.val)?;
             next = borrow.next.clone();
         }
         Ok(())
+    }
+}
+
+struct ArrayDisplay<'a, T> {
+    head: Option<&'a ListLink<T>>,
+}
+
+impl<T> fmt::Display for ArrayDisplay<'_, T>
+where
+    T: fmt::Display,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "[")?;
+        let Some(head) = self.head else {
+            return write!(f, "]");
+        };
+        let borrow = head.borrow();
+        write!(f, "{}", borrow.val)?;
+        let mut next = borrow.next.clone();
+        while let Some(link) = next {
+            let borrow = link.borrow();
+            write!(f, ", {}", borrow.val)?;
+            next = borrow.next.clone();
+        }
+        write!(f, "]")
     }
 }
