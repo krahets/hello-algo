@@ -5,7 +5,7 @@
  */
 
 /* 键值对 */
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Clone)]
 pub struct Pair {
     pub key: i32,
     pub val: String,
