@@ -15,20 +15,19 @@ pub struct Pair {
 pub struct HashMapChaining {
     size: usize,
     capacity: usize,
-    load_thres: f32,
-    extend_ratio: usize,
     buckets: Vec<Vec<Pair>>,
 }
 
 impl HashMapChaining {
+    const LOAD_THRES: f64 = 2.0 / 3.0;
+    const EXTEND_RATIO: usize = 2;
+
     /* 构造方法 */
     #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         Self {
             size: 0,
             capacity: 4,
-            load_thres: 2.0 / 3.0,
-            extend_ratio: 2,
             buckets: vec![vec![]; 4],
         }
     }
@@ -39,8 +38,8 @@ impl HashMapChaining {
     }
 
     /* 负载因子 */
-    fn load_factor(&self) -> f32 {
-        self.size as f32 / self.capacity as f32
+    fn load_factor(&self) -> f64 {
+        self.size as f64 / self.capacity as f64
     }
 
     /* 查询操作 */
@@ -61,7 +60,7 @@ impl HashMapChaining {
     /* 添加操作 */
     pub fn put(&mut self, key: i32, val: String) {
         // 当负载因子超过阈值时，执行扩容
-        if self.load_factor() > self.load_thres {
+        if self.load_factor() > Self::LOAD_THRES {
             self.extend();
         }
 
@@ -104,7 +103,7 @@ impl HashMapChaining {
         let buckets_tmp = std::mem::take(&mut self.buckets);
 
         // 初始化扩容后的新哈希表
-        self.capacity *= self.extend_ratio;
+        self.capacity *= Self::EXTEND_RATIO;
         self.buckets = vec![Vec::new(); self.capacity];
         self.size = 0;
 
