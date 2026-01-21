@@ -64,14 +64,14 @@ fn main() {
     let mut res;
 
     res = recur(n);
-    println!("\n递归函数的求和结果 res = {res}");
+    println!("递归函数的求和结果 res = {res}");
 
     res = for_loop_recur(n);
-    println!("\n使用迭代模拟递归求和结果 res = {res}");
+    println!("使用迭代模拟递归求和结果 res = {res}");
 
     res = tail_recur(n, 0);
-    println!("\n尾递归函数的求和结果 res = {res}");
+    println!("尾递归函数的求和结果 res = {res}");
 
     res = fib(n);
-    println!("\n斐波那契数列的第 {n} 项为 {res}");
+    println!("斐波那契数列的第 {n} 项为 {res}");
 }
