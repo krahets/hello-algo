@@ -61,14 +61,14 @@ fn main() {
     let mut res;
 
     res = for_loop(n);
-    println!("\nfor 循环的求和结果 res = {res}");
+    println!("for 循环的求和结果 res = {res}");
 
     res = while_loop(n);
-    println!("\nwhile 循环的求和结果 res = {res}");
+    println!("while 循环的求和结果 res = {res}");
 
     res = while_loop_ii(n);
-    println!("\nwhile 循环（两次更新）求和结果 res = {res}");
+    println!("while 循环（两次更新）求和结果 res = {res}");
 
     let res = nested_for_loop(n);
-    println!("\n双层 for 循环的遍历结果 {res}");
+    println!("双层 for 循环的遍历结果 {res}");
 }
