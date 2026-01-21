@@ -8,20 +8,20 @@ use std::fmt;
 
 /* 列表类 */
 pub struct MyList {
-    arr: Vec<i32>,       // 数组（存储列表元素）
-    capacity: usize,     // 列表容量
-    size: usize,         // 列表长度（当前元素数量）
-    extend_ratio: usize, // 每次列表扩容的倍数
+    arr: Vec<i32>,   // 数组（存储列表元素）
+    capacity: usize, // 列表容量
+    size: usize,     // 列表长度（当前元素数量）
 }
 
 impl MyList {
+    const EXTEND_RATIO: usize = 2; // 每次列表扩容的倍数
+
     /* 构造方法 */
     pub fn new(capacity: usize) -> Self {
         Self {
             arr: vec![0; capacity],
             capacity,
             size: 0,
-            extend_ratio: 2,
         }
     }
 
@@ -104,7 +104,7 @@ impl MyList {
         let new_capacity = if self.capacity == 0 {
             4
         } else {
-            self.capacity * self.extend_ratio
+            self.capacity * Self::EXTEND_RATIO
         };
         self.arr.resize(new_capacity, 0);
         // 更新列表容量
