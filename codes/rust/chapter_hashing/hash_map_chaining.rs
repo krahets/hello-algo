@@ -4,6 +4,8 @@
  * Author: WSL0809 (wslzzy@outlook.com)
  */
 
+use std::mem;
+
 #[derive(Clone)]
 /* 键值对 */
 pub struct Pair {
@@ -85,8 +87,8 @@ impl HashMapChaining {
         let index = self.hash_func(key);
 
         // 遍历桶，从中删除键值对
-        for (i, p) in self.buckets[index].iter_mut().enumerate() {
-            if p.key == key {
+        for (i, pair) in self.buckets[index].iter_mut().enumerate() {
+            if pair.key == key {
                 let pair = self.buckets[index].remove(i);
                 self.size -= 1;
                 return Some(pair.val);
@@ -100,15 +102,15 @@ impl HashMapChaining {
     /* 扩容哈希表 */
     fn extend(&mut self) {
         // 暂存原哈希表
-        let buckets_tmp = std::mem::take(&mut self.buckets);
+        let buckets = mem::take(&mut self.buckets);
 
         // 初始化扩容后的新哈希表
         self.capacity *= Self::EXTEND_RATIO;
-        self.buckets = vec![Vec::new(); self.capacity];
+        self.buckets = vec![vec![]; self.capacity];
         self.size = 0;
 
         // 将键值对从原哈希表搬运至新哈希表
-        for bucket in buckets_tmp {
+        for bucket in buckets {
             for pair in bucket {
                 self.put(pair.key, pair.val);
             }
@@ -118,7 +120,8 @@ impl HashMapChaining {
     /* 打印哈希表 */
     pub fn print(&self) {
         for bucket in &self.buckets {
-            let mut res = Vec::new();
+            let capacity = bucket.len();
+            let mut res = Vec::with_capacity(capacity);
             for pair in bucket {
                 res.push(format!("{} -> {}", pair.key, pair.val));
             }
@@ -145,11 +148,8 @@ fn main() {
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     println!(
-        "\n输入学号 13276,查询到姓名 {}",
-        match map.get(13276) {
-            Some(value) => value,
-            None => "Not a valid Key",
-        }
+        "\n输入学号 13276，查询到姓名 {}",
+        map.get(13276).unwrap_or("Not a valid Key")
     );
 
     /* 删除操作 */
