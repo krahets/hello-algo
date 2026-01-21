@@ -4,71 +4,75 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-use hello_algo_rust::include::{print_util, ListNode};
-
+use hello_algo_rust::include::print_util;
+use hello_algo_rust::linked_list::ListNode;
 use std::cell::RefCell;
 use std::rc::Rc;
 
 /* 基于链表实现的栈 */
-#[allow(dead_code)]
 pub struct LinkedListStack<T> {
-    stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // 将头节点作为栈顶
-    stk_size: usize,                              // 栈的长度
+    peek: Option<Rc<RefCell<ListNode<T>>>>, // 将头节点作为栈顶
+    size: usize,                            // 栈的长度
 }
 
-impl<T: Copy> LinkedListStack<T> {
+impl<T> LinkedListStack<T> {
+    #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         Self {
-            stack_peek: None,
-            stk_size: 0,
+            peek: None,
+            size: 0,
         }
     }
 
     /* 获取栈的长度 */
     pub fn size(&self) -> usize {
-        return self.stk_size;
+        self.size
     }
 
     /* 判断栈是否为空 */
     pub fn is_empty(&self) -> bool {
-        return self.size() == 0;
+        self.size == 0
     }
 
     /* 入栈 */
     pub fn push(&mut self, num: T) {
         let node = ListNode::new(num);
-        node.borrow_mut().next = self.stack_peek.take();
-        self.stack_peek = Some(node);
-        self.stk_size += 1;
+        node.borrow_mut().next = self.peek.take();
+        self.peek = Some(node);
+        self.size += 1;
     }
 
     /* 出栈 */
-    pub fn pop(&mut self) -> Option<T> {
-        self.stack_peek.take().map(|old_head| {
-            self.stack_peek = old_head.borrow_mut().next.take();
-            self.stk_size -= 1;
-
-            old_head.borrow().val
-        })
+    pub fn pop(&mut self) -> Option<T>
+    where
+        T: Clone,
+    {
+        let peek = self.peek.take()?;
+        let val = peek.borrow().val.clone();
+        self.peek = peek.borrow_mut().next.take();
+        self.size -= 1;
+        Some(val)
     }
 
     /* 访问栈顶元素 */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
-        self.stack_peek.as_ref()
+        self.peek.as_ref()
     }
 
     /* 将 List 转化为 Array 并返回 */
-    pub fn to_array(&self) -> Vec<T> {
-        fn _to_array<T: Sized + Copy>(head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
-            if let Some(node) = head {
-                let mut nums = _to_array(node.borrow().next.as_ref());
-                nums.push(node.borrow().val);
-                return nums;
-            }
-            return Vec::new();
+    pub fn to_array(&self) -> Vec<T>
+    where
+        T: Clone,
+    {
+        let mut res = Vec::with_capacity(self.size);
+        let mut next = self.peek.clone();
+        while let Some(node) = next {
+            let borrow = node.borrow();
+            let val = borrow.val.clone();
+            res.push(val);
+            next = borrow.next.clone();
         }
-
-        _to_array(self.peek())
+        res
     }
 }
 
