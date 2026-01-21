@@ -4,9 +4,9 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-use hello_algo_rust::include::print_util;
-use hello_algo_rust::linked_list::ListNode;
+use hello_algo_rust::linked_list::{Display, ListNode};
 use std::cell::RefCell;
+use std::fmt;
 use std::rc::Rc;
 
 /* 基于链表实现的栈 */
@@ -76,6 +76,15 @@ impl<T> LinkedListStack<T> {
     }
 }
 
+impl<T> fmt::Display for LinkedListStack<T>
+where
+    T: fmt::Display,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.peek.display_as_array())
+    }
+}
+
 /* Driver Code */
 fn main() {
     /* 初始化栈 */
@@ -87,23 +96,21 @@ fn main() {
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    print!("栈 stack = ");
-    print_util::print_array(&stack.to_array());
+    println!("栈 stack = {stack}");
 
     /* 访问栈顶元素 */
     let peek = stack.peek().unwrap().borrow().val;
-    print!("\n栈顶元素 peek = {}", peek);
+    println!("栈顶元素 peek = {peek}");
 
     /* 元素出栈 */
     let pop = stack.pop().unwrap();
-    print!("\n出栈元素 pop = {}，出栈后 stack = ", pop);
-    print_util::print_array(&stack.to_array());
+    println!("出栈元素 pop = {pop}，出栈后 stack = {stack}");
 
     /* 获取栈的长度 */
     let size = stack.size();
-    print!("\n栈的长度 size = {}", size);
+    println!("栈的长度 size = {size}");
 
     /* 判断是否为空 */
     let is_empty = stack.is_empty();
-    print!("\n栈是否为空 = {}", is_empty);
+    println!("栈是否为空 = {is_empty}");
 }
