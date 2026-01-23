@@ -1,4 +1,3 @@
-```markdown
 ---
 comments: true
 icon: material/book-open-page-variant
@@ -96,4 +95,3 @@ status: new
 
 <!-- 🔴 俄文版缺失此段落 -->
 <!-- 中文原文：希望这本书能够帮助到你！ -->
-```

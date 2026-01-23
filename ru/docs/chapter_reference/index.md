@@ -1,4 +1,3 @@
-```markdown
 ---
 icon: material/bookshelf
 ---
@@ -24,4 +23,3 @@ icon: material/bookshelf
 [9] Gayle Laakmann McDowell. Cracking the Coding Interview: 189 Programming Questions and Solutions (6th Edition).
 
 [10] Aston Zhang, et al. Dive into Deep Learning.
-```
