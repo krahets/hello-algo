@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-use hello_algo_rust::linked_list::{Display, ListNode};
+use hello_algo_rust::linked_list::{LinkedList, ListNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
