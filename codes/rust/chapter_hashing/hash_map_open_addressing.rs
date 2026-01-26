@@ -3,8 +3,6 @@
  * Created Time: 2023-07-16
  * Author: WSL0809 (wslzzy@outlook.com), night-cruise (2586447362@qq.com)
  */
-#![allow(non_snake_case)]
-#![allow(unused)]
 
 use std::mem;
 
@@ -117,7 +115,7 @@ impl HashMapOpenAddressing {
         // 搜索 key 对应的桶索引
         let index = self.find_bucket(key);
         // 若找到键值对，则用删除标记覆盖它
-        if let Bucket::Occupied(pair) = &mut self.buckets[index] {
+        if let Bucket::Occupied(_) = &mut self.buckets[index] {
             self.buckets[index] = Bucket::Tombstone;
             self.size -= 1;
         }
@@ -171,17 +169,21 @@ fn main() {
     hashmap.put(13276, "小法".to_string());
     hashmap.put(10583, "小鸭".to_string());
 
-    println!("\n添加完成后，哈希表为\nKey -> Value");
+    println!("添加完成后，哈希表为\nKey -> Value");
     hashmap.print();
 
+    println!();
+
     /* 查询操作 */
-    // 向哈希表中输入键 key ，得到值 val
+    // 向哈希表中输入键 key，得到值 val
     let name = hashmap.get(13276).unwrap();
-    println!("\n输入学号 13276 ，查询到姓名 {}", name);
+    println!("输入学号 13276 ，查询到姓名 {name}");
+
+    println!();
 
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, val)
     hashmap.remove(16750);
-    println!("\n删除 16750 后，哈希表为\nKey -> Value");
+    println!("删除 16750 后，哈希表为\nKey -> Value");
     hashmap.print();
 }

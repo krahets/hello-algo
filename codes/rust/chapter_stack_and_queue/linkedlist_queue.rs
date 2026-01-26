@@ -11,8 +11,8 @@ use std::rc::Rc;
 
 /* 基于链表实现的队列 */
 pub struct LinkedListQueue<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点 front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点 rear
+    front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点
+    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点
     size: usize,                             // 队列的长度
 }
 

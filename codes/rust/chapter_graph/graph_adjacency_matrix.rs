@@ -7,17 +7,18 @@
 /* 基于邻接矩阵实现的无向图类型 */
 pub struct GraphAdjMat {
     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    pub vertices: Vec<i32>,
-    // 邻接矩阵，行列索引对应“顶点索引”
-    pub adj_mat: Vec<Vec<i32>>,
+    vertices: Vec<i32>,
+    // 邻接矩阵，元素值代表两顶点是否相邻，行列索引对应“顶点索引”
+    adj_mat: Vec<Vec<bool>>,
 }
 
 impl GraphAdjMat {
     /* 构造方法 */
     pub fn new(vertices: Vec<i32>, edges: Vec<[usize; 2]>) -> Self {
+        let capacity = vertices.len();
         let mut graph = GraphAdjMat {
-            vertices: vec![],
-            adj_mat: vec![],
+            vertices: Vec::with_capacity(capacity),
+            adj_mat: Vec::with_capacity(capacity),
         };
         // 添加顶点
         for val in vertices {
@@ -43,10 +44,10 @@ impl GraphAdjMat {
         // 向顶点列表中添加新顶点的值
         self.vertices.push(val);
         // 在邻接矩阵中添加一行
-        self.adj_mat.push(vec![0; n]);
+        self.adj_mat.push(vec![false; n]);
         // 在邻接矩阵中添加一列
         for row in self.adj_mat.iter_mut() {
-            row.push(0);
+            row.push(false);
         }
     }
 
@@ -73,20 +74,19 @@ impl GraphAdjMat {
             panic!("index error")
         }
         // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
-        self.adj_mat[i][j] = 1;
-        self.adj_mat[j][i] = 1;
+        self.adj_mat[i][j] = true;
+        self.adj_mat[j][i] = true;
     }
 
     /* 删除边 */
-    // 参数 i, j 对应 vertices 元素索引
     pub fn remove_edge(&mut self, i: usize, j: usize) {
         // 参数 i, j 对应 vertices 元素索引
         // 索引越界与相等处理
         if i >= self.size() || j >= self.size() || i == j {
             panic!("index error")
         }
-        self.adj_mat[i][j] = 0;
-        self.adj_mat[j][i] = 0;
+        self.adj_mat[i][j] = false;
+        self.adj_mat[j][i] = false;
     }
 
     /* 打印邻接矩阵 */
@@ -95,9 +95,18 @@ impl GraphAdjMat {
         println!("邻接矩阵 =");
         println!("[");
         for row in &self.adj_mat {
-            println!("  {:?},", row);
+            let mut iter = row.iter();
+            let Some(&first) = iter.next() else {
+                println!("  [],");
+                continue;
+            };
+            print!("  [{}", first as u8);
+            for &element in iter {
+                print!(", {}", element as u8);
+            }
+            println!("],");
         }
-        println!("]")
+        println!("]");
     }
 }
 
@@ -108,29 +117,37 @@ fn main() {
     let vertices = vec![1, 3, 2, 5, 4];
     let edges = vec![[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]];
     let mut graph = GraphAdjMat::new(vertices, edges);
-    println!("\n初始化后，图为");
+    println!("初始化后，图为");
     graph.print();
+
+    println!();
 
     /* 添加边 */
     // 顶点 1, 2 的索引分别为 0, 2
     graph.add_edge(0, 2);
-    println!("\n添加边 1-2 后，图为");
+    println!("添加边 1-2 后，图为");
     graph.print();
+
+    println!();
 
     /* 删除边 */
     // 顶点 1, 3 的索引分别为 0, 1
     graph.remove_edge(0, 1);
-    println!("\n删除边 1-3 后，图为");
+    println!("删除边 1-3 后，图为");
     graph.print();
+
+    println!();
 
     /* 添加顶点 */
     graph.add_vertex(6);
-    println!("\n添加顶点 6 后，图为");
+    println!("添加顶点 6 后，图为");
     graph.print();
+
+    println!();
 
     /* 删除顶点 */
     // 顶点 3 的索引为 1
     graph.remove_vertex(1);
-    println!("\n删除顶点 3 后，图为");
+    println!("删除顶点 3 后，图为");
     graph.print();
 }

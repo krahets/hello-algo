@@ -99,11 +99,10 @@ where
     T: fmt::Display,
 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "[")?;
         if self.is_empty() {
-            return write!(f, "]");
+            return write!(f, "[]");
         }
-        write!(f, "{}", self.nums[self.front])?;
+        write!(f, "[{}", self.nums[self.front])?;
         for index in (self.front + 1)..(self.front + self.size) {
             let index = index % self.capacity();
             write!(f, ", {}", self.nums[index])?;

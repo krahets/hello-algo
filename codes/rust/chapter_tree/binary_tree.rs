@@ -21,16 +21,15 @@ fn main() {
     n1.borrow_mut().right = Some(Rc::clone(&n3));
     n2.borrow_mut().left = Some(Rc::clone(&n4));
     n2.borrow_mut().right = Some(Rc::clone(&n5));
-    println!("\n初始化二叉树\n{}", n1.display());
+    println!("初始化二叉树\n{}", n1.display());
 
     // 插入节点与删除节点
     let p = TreeNode::new(0);
     // 在 n1 -> n2 中间插入节点 P
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
-    println!("\n插入节点 P 后\n{}", n1.display());
+    println!("插入节点 P 后\n{}", n1.display());
     // 删除节点 P
-    drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
-    println!("\n删除节点 P 后\n{}", n1.display());
+    println!("删除节点 P 后\n{}", n1.display());
 }

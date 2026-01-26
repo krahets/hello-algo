@@ -6,7 +6,7 @@
 
 /* Driver Code */
 #[allow(clippy::vec_init_then_push)]
-pub fn main() {
+fn main() {
     // 初始化栈
     // 在 rust 中，推荐将 Vec 当作栈来使用
     let mut stack: Vec<i32> = Vec::new();
@@ -17,7 +17,7 @@ pub fn main() {
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    println!("栈 stack = {stack:?} ");
+    println!("栈 stack = {stack:?}");
 
     // 访问栈顶元素
     let peek = stack.last().unwrap();

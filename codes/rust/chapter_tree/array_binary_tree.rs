@@ -4,94 +4,107 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-use hello_algo_rust::include::{print_util, tree_node};
+// TreeLink 不推荐在示例中直接使用，原因请参考维护指南
+use hello_algo_rust::binary_tree::{BinaryTree, TreeLink};
+use std::borrow::Cow;
 
 /* 数组表示下的二叉树类 */
-struct ArrayBinaryTree {
+pub struct ArrayBinaryTree {
     tree: Vec<Option<i32>>,
+}
+
+#[derive(Clone, Copy)]
+enum Order {
+    Pre,
+    In,
+    Post,
 }
 
 impl ArrayBinaryTree {
     /* 构造方法 */
-    fn new(arr: Vec<Option<i32>>) -> Self {
+    pub fn new(arr: Vec<Option<i32>>) -> Self {
         Self { tree: arr }
     }
 
     /* 列表容量 */
-    fn size(&self) -> i32 {
-        self.tree.len() as i32
+    pub fn size(&self) -> usize {
+        self.tree.len()
     }
 
     /* 获取索引为 i 节点的值 */
-    fn val(&self, i: i32) -> Option<i32> {
+    pub fn val(&self, i: usize) -> Option<i32> {
         // 若索引越界，则返回 None ，代表空位
-        if i < 0 || i >= self.size() {
-            None
-        } else {
-            self.tree[i as usize]
-        }
+        if i >= self.size() { None } else { self.tree[i] }
     }
 
     /* 获取索引为 i 节点的左子节点的索引 */
-    fn left(&self, i: i32) -> i32 {
+    pub fn left(&self, i: usize) -> usize {
         2 * i + 1
     }
 
     /* 获取索引为 i 节点的右子节点的索引 */
-    fn right(&self, i: i32) -> i32 {
+    pub fn right(&self, i: usize) -> usize {
         2 * i + 2
     }
 
     /* 获取索引为 i 节点的父节点的索引 */
-    fn parent(&self, i: i32) -> i32 {
+    pub fn parent(&self, i: usize) -> usize {
         (i - 1) / 2
     }
 
     /* 层序遍历 */
-    fn level_order(&self) -> Vec<i32> {
-        self.tree.iter().filter_map(|&x| x).collect()
+    pub fn level_order(&self) -> Vec<i32> {
+        self.tree.iter().filter_map(|x| *x).collect()
     }
 
     /* 深度优先遍历 */
-    fn dfs(&self, i: i32, order: &'static str, res: &mut Vec<i32>) {
-        if self.val(i).is_none() {
+    fn dfs(&self, i: usize, order: Order, res: &mut Vec<i32>) {
+        let Some(val) = self.val(i) else {
             return;
-        }
-        let val = self.val(i).unwrap();
-        // 前序遍历
-        if order == "pre" {
-            res.push(val);
-        }
-        self.dfs(self.left(i), order, res);
-        // 中序遍历
-        if order == "in" {
-            res.push(val);
-        }
-        self.dfs(self.right(i), order, res);
-        // 后序遍历
-        if order == "post" {
-            res.push(val);
+        };
+
+        match order {
+            // 前序遍历
+            Order::Pre => {
+                res.push(val);
+                self.dfs(self.left(i), order, res);
+                self.dfs(self.right(i), order, res);
+            }
+
+            // 中序遍历
+            Order::In => {
+                self.dfs(self.left(i), order, res);
+                res.push(val);
+                self.dfs(self.right(i), order, res);
+            }
+
+            // 后序遍历
+            Order::Post => {
+                self.dfs(self.left(i), order, res);
+                self.dfs(self.right(i), order, res);
+                res.push(val);
+            }
         }
     }
 
     /* 前序遍历 */
-    fn pre_order(&self) -> Vec<i32> {
+    pub fn pre_order(&self) -> Vec<i32> {
         let mut res = vec![];
-        self.dfs(0, "pre", &mut res);
+        self.dfs(0, Order::Pre, &mut res);
         res
     }
 
     /* 中序遍历 */
-    fn in_order(&self) -> Vec<i32> {
+    pub fn in_order(&self) -> Vec<i32> {
         let mut res = vec![];
-        self.dfs(0, "in", &mut res);
+        self.dfs(0, Order::In, &mut res);
         res
     }
 
     /* 后序遍历 */
-    fn post_order(&self) -> Vec<i32> {
+    pub fn post_order(&self) -> Vec<i32> {
         let mut res = vec![];
-        self.dfs(0, "post", &mut res);
+        self.dfs(0, Order::Post, &mut res);
         res
     }
 }
@@ -99,7 +112,6 @@ impl ArrayBinaryTree {
 /* Driver Code */
 fn main() {
     // 初始化二叉树
-    // 这里借助了一个从数组直接生成二叉树的函数
     let arr = vec![
         Some(1),
         Some(2),
@@ -118,22 +130,21 @@ fn main() {
         Some(15),
     ];
 
-    let root = tree_node::vec_to_tree(arr.clone()).unwrap();
-    println!("\n初始化二叉树\n");
+    let root = TreeLink::try_from_slice(&arr).ok();
+
+    fn repr(val: &Option<i32>) -> Cow<'static, str> {
+        if let Some(v) = val {
+            Cow::Owned(v.to_string())
+        } else {
+            Cow::Borrowed("null")
+        }
+    }
+
+    println!("初始化二叉树");
     println!("二叉树的数组表示：");
-    println!(
-        "[{}]",
-        arr.iter()
-            .map(|&val| if let Some(val) = val {
-                format!("{val}")
-            } else {
-                "null".to_string()
-            })
-            .collect::<Vec<String>>()
-            .join(", ")
-    );
+    println!("[{}]", arr.iter().map(repr).collect::<Vec<_>>().join(", "));
     println!("二叉树的链表表示：");
-    print_util::print_tree(&root);
+    println!("{}", root.display());
 
     // 数组表示下的二叉树类
     let abt = ArrayBinaryTree::new(arr);
@@ -143,50 +154,15 @@ fn main() {
     let l = abt.left(i);
     let r = abt.right(i);
     let p = abt.parent(i);
-    println!(
-        "\n当前节点的索引为 {} ，值为 {}",
-        i,
-        if let Some(val) = abt.val(i) {
-            format!("{val}")
-        } else {
-            "null".to_string()
-        }
-    );
-    println!(
-        "其左子节点的索引为 {} ，值为 {}",
-        l,
-        if let Some(val) = abt.val(l) {
-            format!("{val}")
-        } else {
-            "null".to_string()
-        }
-    );
-    println!(
-        "其右子节点的索引为 {} ，值为 {}",
-        r,
-        if let Some(val) = abt.val(r) {
-            format!("{val}")
-        } else {
-            "null".to_string()
-        }
-    );
-    println!(
-        "其父节点的索引为 {} ，值为 {}",
-        p,
-        if let Some(val) = abt.val(p) {
-            format!("{val}")
-        } else {
-            "null".to_string()
-        }
-    );
+    println!("当前节点的索引为 {i} ，值为 {}", repr(&abt.val(i)));
+    println!("其左子节点的索引为 {l} ，值为 {}", repr(&abt.val(l)));
+    println!("其右子节点的索引为 {r} ，值为 {}", repr(&abt.val(r)));
+    println!("其父节点的索引为 {p} ，值为 {}", repr(&abt.val(p)));
+    println!();
 
     // 遍历树
-    let mut res = abt.level_order();
-    println!("\n层序遍历为：{:?}", res);
-    res = abt.pre_order();
-    println!("前序遍历为：{:?}", res);
-    res = abt.in_order();
-    println!("中序遍历为：{:?}", res);
-    res = abt.post_order();
-    println!("后序遍历为：{:?}", res);
+    println!("层序遍历为：{:?}", abt.level_order());
+    println!("前序遍历为：{:?}", abt.pre_order());
+    println!("中序遍历为：{:?}", abt.in_order());
+    println!("后序遍历为：{:?}", abt.post_order());
 }

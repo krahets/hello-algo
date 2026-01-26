@@ -91,32 +91,42 @@ fn main() {
     map.put(16750, "小算".to_string());
     map.put(13276, "小法".to_string());
     map.put(10583, "小鸭".to_string());
-    println!("\n添加完成后，哈希表为\nKey -> Value");
+    println!("添加完成后，哈希表为\nKey -> Value");
     map.print();
 
+    println!();
+
     /* 查询操作 */
-    // 向哈希表中输入键 key ，得到值 value
+    // 向哈希表中输入键 key，得到值 value
     let name = map.get(15937).unwrap();
-    println!("\n输入学号 15937 ，查询到姓名 {name}");
+    println!("输入学号 15937 ，查询到姓名 {name}");
+
+    println!();
 
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.remove(10583);
-    println!("\n删除 10583 后，哈希表为\nKey -> Value");
+    println!("删除 10583 后，哈希表为\nKey -> Value");
     map.print();
 
+    println!();
+
     /* 遍历哈希表 */
-    println!("\n遍历键值对 Key -> Value");
+    println!("遍历键值对 Key -> Value");
     for pair in map.entry_set() {
         println!("{} -> {}", pair.key, pair.val);
     }
 
-    println!("\n单独遍历键 Key");
+    println!();
+
+    println!("单独遍历键 Key");
     for key in map.key_set() {
         println!("{key}");
     }
 
-    println!("\n单独遍历值 Value");
+    println!();
+
+    println!("单独遍历值 Value");
     for val in map.value_set() {
         println!("{val}");
     }

@@ -1,14 +1,14 @@
 //! 本模块定义了 [`Heap`] trait 以辅助堆的格式化输出。请注意，此 trait 不涉及任何实际的堆操作。
- //!
- //! 实现了 [`Heap`] 的类型有：
- //!
- //! - 标准库的 [`BinaryHeap<T>`]
- //! - 任意切片类型 `[T]`
- //!
- //! 此外，你可以在数组 `[T; N]`、向量 `Vec<T>` 及其他任何可以 unsize 为切片的类型上使用
- //! `<[T] as Heap>` 的所有方法，这得益于 Rust 的点操作符语法糖。详见 *[nomicon]*。
- //!
- //! [nomicon]: https://doc.rust-lang.org/stable/nomicon/dot-operator.html
+//!
+//! 实现了 [`Heap`] 的类型有：
+//!
+//! - 标准库的 [`BinaryHeap<T>`]
+//! - 任意切片类型 `[T]`
+//!
+//! 此外，你可以在数组 `[T; N]`、向量 `Vec<T>` 及其他任何可以 unsize 为切片的类型上使用
+//! `<[T] as Heap>` 的所有方法，这得益于 Rust 的点操作符语法糖。详见 *[nomicon]*。
+//!
+//! [nomicon]: https://doc.rust-lang.org/stable/nomicon/dot-operator.html
 
 use std::collections::BinaryHeap;
 use std::fmt;
@@ -74,13 +74,12 @@ where
     T: fmt::Display,
 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let mut iter = self.slice.iter();
-        let Some(first) = iter.next() else {
+        if self.slice.is_empty() {
             return write!(f, "[]");
-        };
-        write!(f, "[{first}")?;
-        for val in iter {
-            write!(f, ", {val}")?;
+        }
+        write!(f, "[{}", self.slice[0])?;
+        for index in 1..self.slice.len() {
+            write!(f, ", {}", self.slice[index])?;
         }
         write!(f, "]")
     }

@@ -10,9 +10,9 @@ use std::rc::Rc;
 
 /* 双向链表节点 */
 pub struct ListNode<T> {
-    pub val: T,                                 // 节点值
-    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点指针
-    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱节点指针
+    val: T,                                 // 节点值
+    next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点指针
+    prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱节点指针
 }
 
 impl<T> ListNode<T> {
@@ -27,8 +27,8 @@ impl<T> ListNode<T> {
 
 /* 基于双向链表实现的双向队列 */
 pub struct LinkedListDeque<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点 front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点 rear
+    front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点
+    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点
     size: usize,                             // 双向队列的长度
 }
 
@@ -67,7 +67,8 @@ impl<T> LinkedListDeque<T> {
                 Some(old_front) => {
                     old_front.borrow_mut().prev = Some(node.clone());
                     node.borrow_mut().next = Some(old_front);
-                    self.front = Some(node); // 更新头节点
+                    // 更新头节点
+                    self.front = Some(node);
                 }
             }
         }
@@ -83,11 +84,13 @@ impl<T> LinkedListDeque<T> {
                 Some(old_rear) => {
                     old_rear.borrow_mut().next = Some(node.clone());
                     node.borrow_mut().prev = Some(old_rear);
-                    self.rear = Some(node); // 更新尾节点
+                    // 更新尾节点
+                    self.rear = Some(node);
                 }
             }
         }
-        self.size += 1; // 更新队列长度
+        // 更新队列长度
+        self.size += 1;
     }
 
     /* 队首入队 */
@@ -191,12 +194,11 @@ where
     T: fmt::Display,
 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "[")?;
         let Some(front) = &self.front else {
-            return write!(f, "]");
+            return write!(f, "[]");
         };
         let borrow = front.borrow();
-        write!(f, "{}", borrow.val)?;
+        write!(f, "[{}", borrow.val)?;
         let mut next = borrow.next.clone();
         while let Some(link) = next {
             let borrow = link.borrow();

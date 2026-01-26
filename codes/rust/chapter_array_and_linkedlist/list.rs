@@ -5,7 +5,8 @@
  */
 
 /* Driver Code */
-#[allow(unused)]
+#[allow(unused_variables)]
+#[allow(unused_assignments)]
 #[allow(clippy::needless_range_loop)]
 fn main() {
     // 初始化列表
@@ -14,7 +15,7 @@ fn main() {
 
     // 访问元素
     let num = nums[1];
-    println!("\n访问索引 1 处的元素，得到 num = {num}");
+    println!("访问索引 1 处的元素，得到 num = {num}");
 
     // 更新元素
     nums[1] = 0;
@@ -45,17 +46,16 @@ fn main() {
     for i in 0..nums.len() {
         count += nums[i];
     }
+
     // 直接遍历列表元素
-    count = 0;
+    let mut count = 0;
     for x in &nums {
         count += x;
     }
 
     // 拼接两个列表
-    let mut nums1 = vec![6, 8, 7, 10, 9];
-    nums.append(&mut nums1); // append（移动） 之后 nums1 为空！
-
-    // nums.extend(&nums1);   // extend（借用） nums1 能继续使用
+    let nums1 = vec![6, 8, 7, 10, 9];
+    nums.extend(nums1);
     println!("将列表 nums1 拼接到 nums 之后，得到 nums = {nums:?}");
 
     // 排序列表

@@ -4,9 +4,9 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-pub use hello_algo_rust::include::{vals_to_vets, vets_to_vals, Vertex};
-
 use std::collections::HashMap;
+
+pub type Vertex = i32;
 
 /* 基于邻接表实现的无向图类型 */
 pub struct GraphAdjList {
@@ -31,7 +31,6 @@ impl GraphAdjList {
     }
 
     /* 获取顶点数量 */
-    #[allow(unused)]
     pub fn size(&self) -> usize {
         self.adj_list.len()
     }
@@ -47,7 +46,6 @@ impl GraphAdjList {
     }
 
     /* 删除边 */
-    #[allow(unused)]
     pub fn remove_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
             panic!("value error");
@@ -63,15 +61,11 @@ impl GraphAdjList {
 
     /* 添加顶点 */
     pub fn add_vertex(&mut self, vet: Vertex) {
-        if self.adj_list.contains_key(&vet) {
-            return;
-        }
         // 在邻接表中添加一个新链表
-        self.adj_list.insert(vet, vec![]);
+        self.adj_list.entry(vet).or_default();
     }
 
     /* 删除顶点 */
-    #[allow(unused)]
     pub fn remove_vertex(&mut self, vet: Vertex) {
         // 在邻接表中删除顶点 vet 对应的链表
         self.adj_list.remove(&vet);
@@ -85,17 +79,15 @@ impl GraphAdjList {
     pub fn print(&self) {
         println!("邻接表 =");
         for (vertex, list) in &self.adj_list {
-            let list = list.iter().map(|vertex| vertex.val).collect::<Vec<i32>>();
-            println!("{}: {:?},", vertex.val, list);
+            println!("{vertex}: {list:?},");
         }
     }
 }
 
 /* Driver Code */
-#[allow(unused)]
 fn main() {
     /* 初始化无向图 */
-    let v = vals_to_vets(vec![1, 3, 2, 5, 4]);
+    let v = [1, 3, 2, 5, 4];
     let edges = vec![
         [v[0], v[1]],
         [v[0], v[3]],
@@ -106,30 +98,38 @@ fn main() {
     ];
 
     let mut graph = GraphAdjList::new(edges);
-    println!("\n初始化后，图为");
+    println!("初始化后，图为");
     graph.print();
+
+    println!();
 
     /* 添加边 */
     // 顶点 1, 2 即 v[0], v[2]
     graph.add_edge(v[0], v[2]);
-    println!("\n添加边 1-2 后，图为");
+    println!("添加边 1-2 后，图为");
     graph.print();
+
+    println!();
 
     /* 删除边 */
     // 顶点 1, 3 即 v[0], v[1]
     graph.remove_edge(v[0], v[1]);
-    println!("\n删除边 1-3 后，图为");
+    println!("删除边 1-3 后，图为");
     graph.print();
 
+    println!();
+
     /* 添加顶点 */
-    let v5 = Vertex { val: 6 };
+    let v5 = 6;
     graph.add_vertex(v5);
-    println!("\n添加顶点 6 后，图为");
+    println!("添加顶点 6 后，图为");
     graph.print();
+
+    println!();
 
     /* 删除顶点 */
     // 顶点 3 即 v[1]
     graph.remove_vertex(v[1]);
-    println!("\n删除顶点 3 后，图为");
+    println!("删除顶点 3 后，图为");
     graph.print();
 }

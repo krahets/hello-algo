@@ -52,7 +52,7 @@ pub trait LinkedList {
         Self::Element: fmt::Display;
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct ListNode<T> {
     pub val: T,
     pub next: Option<ListLink<T>>,

@@ -7,7 +7,7 @@
 use rand::seq::SliceRandom;
 
 /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-fn random_numbers(n: i32) -> Vec<i32> {
+pub fn random_numbers(n: i32) -> Vec<i32> {
     // 生成数组 nums = { 1, 2, 3, ..., n }
     let mut nums = (1..=n).collect::<Vec<i32>>();
     // 随机打乱数组元素
@@ -18,7 +18,7 @@ fn random_numbers(n: i32) -> Vec<i32> {
 /* 查找数组 nums 中数字 1 所在索引 */
 #[allow(clippy::manual_find)]
 #[allow(clippy::needless_range_loop)]
-fn find_one(nums: &[i32]) -> Option<usize> {
+pub fn find_one(nums: &[i32]) -> Option<usize> {
     for i in 0..nums.len() {
         // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
         // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)

@@ -146,7 +146,7 @@ fn main() {
 
     count = quadratic(n);
     println!("平方阶的操作数量 = {count}");
-    let mut nums = (1..=n).rev().collect::<Vec<_>>(); // [n,n-1,...,2,1]
+    let mut nums = (1..=n).rev().collect::<Vec<_>>();
     count = bubble_sort(&mut nums);
     println!("平方阶（冒泡排序）的操作数量 = {count}");
 

@@ -4,7 +4,8 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-#![allow(unused)]
+#![allow(dead_code)]
+#![allow(unused_variables)]
 
 use hello_algo_rust::binary_tree::{BinaryTree, TreeNode};
 use hello_algo_rust::linked_list::ListNode;

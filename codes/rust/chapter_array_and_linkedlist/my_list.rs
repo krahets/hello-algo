@@ -102,6 +102,7 @@ impl MyList {
         // 如果原数组容量为 0，新建一个长度为 4 的新数组，否则新建一个长度为原数组 extend_ratio 倍的新数组；
         // 将原数组复制到新数组
         let new_capacity = if self.capacity == 0 {
+            // 先前实现没有考虑初始容量为 0 的情况，这会导致容量无法增长
             4
         } else {
             self.capacity * Self::EXTEND_RATIO
@@ -118,7 +119,6 @@ impl MyList {
     }
 }
 
-/* 实现列表的打印功能 */
 impl fmt::Display for MyList {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_list().entries(&self.arr[0..self.size]).finish()
