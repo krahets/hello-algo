@@ -14,7 +14,9 @@
 //! 这会导致内存泄露、迭代无法终止等系列问题。
 
 use std::cell::RefCell;
+use std::collections::HashMap;
 use std::fmt;
+use std::hash::Hash;
 use std::rc::Rc;
 
 mod link_impl;
@@ -85,5 +87,29 @@ impl<T> ListNode<T> {
 impl<T> From<ListNode<T>> for ListLink<T> {
     fn from(value: ListNode<T>) -> Self {
         Rc::new(RefCell::new(value))
+    }
+}
+
+impl<T> From<ListNode<T>> for HashMap<T, ListLink<T>>
+where
+    T: Clone + Eq + Hash,
+{
+    fn from(value: ListNode<T>) -> Self {
+        let mut map = HashMap::new();
+
+        let val = value.val.clone();
+        let mut next = value.next.clone();
+        let link = ListLink::from(value);
+        map.insert(val, link);
+
+        while let Some(link) = next {
+            let borrow = link.borrow();
+            let val = borrow.val.clone();
+            next = borrow.next.clone();
+            drop(borrow);
+            map.insert(val, link);
+        }
+
+        map
     }
 }
