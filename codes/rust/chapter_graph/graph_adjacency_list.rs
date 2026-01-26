@@ -4,29 +4,29 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 pub type Vertex = i32;
 
 /* 基于邻接表实现的无向图类型 */
 pub struct GraphAdjList {
     // 邻接表，key：顶点，value：该顶点的所有邻接顶点
-    pub adj_list: HashMap<Vertex, Vec<Vertex>>, // maybe HashSet<Vertex> for value part is better?
+    // 这里不使用 Vec，因为 HashSet 可以自动去重，且添加和删除顶点的时间复杂度为 O(1)。
+    // 而使用 Vec 时，如果不去重，添加顶点的时间复杂度为 O(1)，但空间开销会增大，如果去重，
+    // 添加顶点的时间复杂度为 O(n)，不管哪种情况，其删除顶点的时间复杂度都为 O(n)。
+    adj_list: HashMap<Vertex, HashSet<Vertex>>,
 }
 
 impl GraphAdjList {
     /* 构造方法 */
     pub fn new(edges: Vec<[Vertex; 2]>) -> Self {
-        let mut graph = GraphAdjList {
-            adj_list: HashMap::new(),
-        };
+        let adj_list = HashMap::new();
+        let mut graph = Self { adj_list };
         // 添加所有顶点和边
-        for edge in edges {
-            graph.add_vertex(edge[0]);
-            graph.add_vertex(edge[1]);
-            graph.add_edge(edge[0], edge[1]);
+        for [vet1, vet2] in edges {
+            // 添加边的时候会自动添加顶点
+            graph.add_edge(vet1, vet2);
         }
-
         graph
     }
 
@@ -35,28 +35,39 @@ impl GraphAdjList {
         self.adj_list.len()
     }
 
+    /* 获取顶点的所有邻居的引用 */
+    pub fn get(&self, vet: &Vertex) -> Option<&HashSet<Vertex>> {
+        self.adj_list.get(vet)
+    }
+
+    /* 获取顶点的所有邻居的可变引用 */
+    pub fn get_mut(&mut self, vet: &Vertex) -> Option<&mut HashSet<Vertex>> {
+        self.adj_list.get_mut(vet)
+    }
+
     /* 添加边 */
     pub fn add_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
-            panic!("value error");
+            // 相等时不应视为错误，而应视为 noop
+            return;
         }
         // 添加边 vet1 - vet2
-        self.adj_list.entry(vet1).or_default().push(vet2);
-        self.adj_list.entry(vet2).or_default().push(vet1);
+        self.adj_list.entry(vet1).or_default().insert(vet2);
+        self.adj_list.entry(vet2).or_default().insert(vet1);
     }
 
     /* 删除边 */
-    pub fn remove_edge(&mut self, vet1: Vertex, vet2: Vertex) {
+    pub fn remove_edge(&mut self, vet1: &Vertex, vet2: &Vertex) {
         if vet1 == vet2 {
-            panic!("value error");
+            return;
         }
         // 删除边 vet1 - vet2
-        self.adj_list
-            .entry(vet1)
-            .and_modify(|v| v.retain(|&e| e != vet2));
-        self.adj_list
-            .entry(vet2)
-            .and_modify(|v| v.retain(|&e| e != vet1));
+        if let Some(neighbors) = self.adj_list.get_mut(vet1) {
+            neighbors.remove(vet2);
+        }
+        if let Some(neighbors) = self.adj_list.get_mut(vet2) {
+            neighbors.remove(vet1);
+        }
     }
 
     /* 添加顶点 */
@@ -66,21 +77,39 @@ impl GraphAdjList {
     }
 
     /* 删除顶点 */
-    pub fn remove_vertex(&mut self, vet: Vertex) {
+    pub fn remove_vertex(&mut self, vet: &Vertex) {
         // 在邻接表中删除顶点 vet 对应的链表
-        self.adj_list.remove(&vet);
-        // 遍历其他顶点的链表，删除所有包含 vet 的边
-        for list in self.adj_list.values_mut() {
-            list.retain(|&v| v != vet);
+        if let Some(neighbors) = self.adj_list.remove(vet) {
+            for neighbor in &neighbors {
+                // 遍历 vet 的邻居，删除所有包含 vet 的边
+                if let Some(neighbors) = self.adj_list.get_mut(neighbor) {
+                    neighbors.remove(vet);
+                }
+            }
         }
     }
 
     /* 打印邻接表 */
     pub fn print(&self) {
-        println!("邻接表 =");
-        for (vertex, list) in &self.adj_list {
-            println!("{vertex}: {list:?},");
+        if self.adj_list.is_empty() {
+            println!("[]");
+            return;
         }
+        println!("[");
+        for (vet, neighbors) in &self.adj_list {
+            print!("  {vet}: ");
+            let mut iter = neighbors.iter();
+            let Some(first) = iter.next() else {
+                println!("[]");
+                continue;
+            };
+            print!("[{first}");
+            for neighbor in iter {
+                print!(", {neighbor}");
+            }
+            println!("]");
+        }
+        println!("]");
     }
 }
 
@@ -113,7 +142,7 @@ fn main() {
 
     /* 删除边 */
     // 顶点 1, 3 即 v[0], v[1]
-    graph.remove_edge(v[0], v[1]);
+    graph.remove_edge(&v[0], &v[1]);
     println!("删除边 1-3 后，图为");
     graph.print();
 
@@ -129,7 +158,7 @@ fn main() {
 
     /* 删除顶点 */
     // 顶点 3 即 v[1]
-    graph.remove_vertex(v[1]);
+    graph.remove_vertex(&v[1]);
     println!("删除顶点 3 后，图为");
     graph.print();
 }
