@@ -4,12 +4,11 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-use graph_adjacency_list::GraphAdjList;
 use std::collections::{HashSet, VecDeque};
 
-mod graph_adjacency_list;
-
 pub type Vertex = i32;
+
+type GraphAdjList = hello_algo_rust::graph_adjacency_list::GraphAdjList<Vertex>;
 
 /* 广度优先遍历 */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
@@ -28,7 +27,7 @@ pub fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
         res.push(vet);
 
         // 遍历该顶点的所有邻接顶点
-        if let Some(adj_vets) = graph.adj_list.get(&vet) {
+        if let Some(adj_vets) = graph.get(&vet) {
             for &adj_vet in adj_vets {
                 if visited.contains(&adj_vet) {
                     // 跳过已被访问的顶点
@@ -65,7 +64,7 @@ fn main() {
     ];
     let graph = GraphAdjList::new(edges);
     println!("初始化后，图为");
-    graph.print();
+    println!("{graph}");
 
     println!();
 

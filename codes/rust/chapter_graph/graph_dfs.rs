@@ -4,14 +4,11 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-use graph_adjacency_list::GraphAdjList;
 use std::collections::HashSet;
 
-// 不建议将其他 bin crate “挂载” 为模组，
-// 也不建议多个 bin crates 将同一个文件分别当作自己的模组。
-mod graph_adjacency_list;
-
 pub type Vertex = i32;
+
+type GraphAdjList = hello_algo_rust::graph_adjacency_list::GraphAdjList<Vertex>;
 
 /* 深度优先遍历辅助函数 */
 fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex>, vet: Vertex) {
@@ -20,7 +17,7 @@ fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex
     // 标记该顶点已被访问
     visited.insert(vet);
     // 遍历该顶点的所有邻接顶点
-    if let Some(adj_vets) = graph.adj_list.get(&vet) {
+    if let Some(adj_vets) = graph.get(&vet) {
         for &adj_vet in adj_vets {
             if visited.contains(&adj_vet) {
                 // 跳过已被访问的顶点
@@ -58,7 +55,7 @@ fn main() {
     ];
     let graph = GraphAdjList::new(edges);
     println!("初始化后，图为");
-    graph.print();
+    println!("{graph}");
 
     println!();
 
