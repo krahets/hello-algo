@@ -1,5 +1,6 @@
 use super::traverse::{InOrder, LevelOrder, LevelOrderIncludeNulls, PostOrder, PreOrder};
 use super::{BinaryTree, TreeLink, TreeNode};
+use crate::fmt::Write;
 use std::convert::Infallible;
 use std::fmt;
 use std::rc::Rc;
@@ -159,131 +160,16 @@ where
     T: fmt::Display,
 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        // 此实现不考虑节点值的字符串表示存在多行的情况。
-
         let Some(root) = self.root.cloned() else {
             return Ok(());
         };
-
-        // 需要额外一次后序遍历的开销。
-        // 如果不对外暴露节点并维持不变量，这行代码可以删除。
-        root.update_height();
-        let tree_height = root.borrow().height;
-        let mut node_width = 0;
-        let mut cache = vec![Vec::new(); tree_height + 1];
-        for (index, link) in LevelOrderIncludeNulls::new(root).enumerate() {
-            let depth = if index == usize::MAX {
-                usize::BITS as usize
+        let iter = LevelOrderIncludeNulls::new(root).map(|node| {
+            if let Some(node) = node {
+                format!("Some({})", node.borrow().val)
             } else {
-                (usize::BITS - 1 - (index + 1).leading_zeros()) as usize
-            };
-            if let Some(link) = link {
-                let borrow = link.borrow();
-                let node = format!("Some({})", borrow.val);
-                node_width = node.len().max(node_width);
-                cache[depth].push(node);
-            } else {
-                cache[depth].push(String::from("None"));
+                String::from("None")
             }
-        }
-        let half_node_width_left = node_width / 2;
-        let half_node_width_right = node_width - half_node_width_left;
-
-        #[derive(Clone, Default)]
-        struct Level {
-            branches: String,
-            nodes: String,
-        }
-
-        let mut margin = 0;
-        let mut gap = 2;
-        let mut levels = vec![Level::default(); tree_height + 1];
-        for (level, nodes) in levels.iter_mut().zip(cache).rev() {
-            if nodes.len() == 1 {
-                let root = &nodes[0];
-                let half_padding_left = (node_width - root.len()) / 2;
-                for _ in 0..(margin + half_padding_left) {
-                    level.nodes.push(' ');
-                }
-                level.nodes.push_str(root);
-                break;
-            }
-
-            let half_gap_left = gap / 2;
-            let half_gap_right = gap - half_gap_left;
-
-            let mut node_iter = nodes.iter();
-            let mut is_left;
-
-            // 处理当前层的第一个节点。
-            {
-                let node = node_iter.next().unwrap_or_else(|| unreachable!());
-                let padding = node_width - node.len();
-                let half_padding_left = padding / 2;
-                let half_padding_right = padding - half_padding_left;
-
-                for _ in 0..(margin + half_node_width_left) {
-                    level.branches.push(' ');
-                }
-                level.branches.push('┌');
-                for _ in 1..(half_node_width_right + half_gap_left) {
-                    level.branches.push('─');
-                }
-
-                for _ in 0..(margin + half_padding_left) {
-                    level.nodes.push(' ');
-                }
-                level.nodes.push_str(node);
-                for _ in 0..half_padding_right {
-                    level.nodes.push(' ');
-                }
-
-                is_left = false;
-            }
-
-            for node in node_iter {
-                let padding = node_width - node.len();
-                let half_padding_left = padding / 2;
-                let half_padding_right = padding - half_padding_left;
-
-                if is_left {
-                    for _ in 1..(half_node_width_right + gap + half_node_width_left) {
-                        level.branches.push(' ');
-                    }
-                    level.branches.push('┌');
-                    for _ in 1..(half_node_width_right + half_gap_left) {
-                        level.branches.push('─');
-                    }
-                } else {
-                    level.branches.push('┴');
-                    for _ in 1..(half_gap_right + half_node_width_left) {
-                        level.branches.push('─');
-                    }
-                    level.branches.push('┐');
-                }
-
-                for _ in 0..(gap + half_padding_left) {
-                    level.nodes.push(' ');
-                }
-                level.nodes.push_str(node);
-                for _ in 0..half_padding_right {
-                    level.nodes.push(' ');
-                }
-
-                is_left = !is_left;
-            }
-
-            margin += half_node_width_right + half_gap_left;
-            gap = gap * 2 + node_width;
-        }
-
-        for (depth, level) in levels.iter().enumerate() {
-            if depth > 0 {
-                writeln!(f, "{}", level.branches)?;
-            }
-            writeln!(f, "{}", level.nodes)?;
-        }
-
-        Ok(())
+        });
+        f.write_complete_binary_tree(iter)
     }
 }

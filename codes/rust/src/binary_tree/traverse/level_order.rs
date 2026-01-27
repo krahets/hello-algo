@@ -1,4 +1,4 @@
-use super::super::TreeLink;
+use super::super::{BinaryTree, TreeLink};
 use std::collections::VecDeque;
 
 #[derive(Debug, Clone)]
@@ -39,6 +39,9 @@ pub(crate) struct LevelOrderIncludeNulls<T> {
 
 impl<T> LevelOrderIncludeNulls<T> {
     pub(crate) fn new(root: TreeLink<T>) -> Self {
+        // 需要额外一次后序遍历的开销。
+        // 如果不对外暴露节点并保证不变量被维护，这行代码可以删除。
+        root.update_height();
         let height = root.borrow().height;
         let len = (1 << (height + 1)) - 1;
         let mut queue = VecDeque::new();
