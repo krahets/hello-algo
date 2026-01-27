@@ -4,6 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
+use hello_algo_rust::fmt::Write;
 use std::fmt;
 
 /* 基于环形数组实现的双向队列 */
@@ -136,15 +137,9 @@ where
     T: fmt::Display,
 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        if self.is_empty() {
-            return write!(f, "[]");
-        }
-        write!(f, "[{}", self.nums[self.front])?;
-        for index in (self.front + 1)..(self.front + self.size) {
-            let index = index % self.capacity();
-            write!(f, ", {}", self.nums[index])?;
-        }
-        write!(f, "]")
+        let iter =
+            (self.front..(self.front + self.size)).map(|index| &self.nums[index % self.capacity()]);
+        f.write_array(iter)
     }
 }
 

@@ -4,6 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
+use hello_algo_rust::fmt::Write;
 use std::fmt;
 
 /* 列表类 */
@@ -121,7 +122,7 @@ impl MyList {
 
 impl fmt::Display for MyList {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.debug_list().entries(&self.arr[0..self.size]).finish()
+        f.write_array(&self.arr[0..self.size])
     }
 }
 

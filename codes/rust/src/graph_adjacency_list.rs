@@ -1,3 +1,4 @@
+use crate::fmt::Write;
 use std::borrow::Borrow;
 use std::collections::{HashMap, HashSet};
 use std::fmt;
@@ -144,16 +145,8 @@ where
         writeln!(f, "[")?;
         for (v, neighbors) in &self.0 {
             write!(f, "  {v}: ")?;
-            let mut iter = neighbors.iter();
-            let Some(first) = iter.next() else {
-                writeln!(f, "[]")?;
-                continue;
-            };
-            write!(f, "[{first}")?;
-            for neighbor in iter {
-                write!(f, ", {neighbor}")?;
-            }
-            writeln!(f, "]")?;
+            f.write_array(neighbors.iter())?;
+            writeln!(f, ",")?;
         }
         writeln!(f, "]")
     }
