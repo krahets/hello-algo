@@ -4,14 +4,16 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com)、night-cruise (2586447362@qq.com)
  */
 
-use hello_algo_rust::binary_tree::{BinaryTree, TreeNode};
+use hello_algo_rust::binary_tree::BinaryTree;
 use std::cell::RefCell;
 use std::cmp::Ordering;
 use std::rc::Rc;
 
+pub type TreeNode = hello_algo_rust::binary_tree::TreeNode<i32>;
+
 /* 二叉搜索树 */
 pub struct BinarySearchTree {
-    root: Option<Rc<RefCell<TreeNode<i32>>>>,
+    root: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl BinarySearchTree {
@@ -23,12 +25,12 @@ impl BinarySearchTree {
     }
 
     /* 获取二叉树根节点 */
-    pub fn get_root(&self) -> Option<Rc<RefCell<TreeNode<i32>>>> {
+    pub fn get_root(&self) -> Option<Rc<RefCell<TreeNode>>> {
         self.root.clone()
     }
 
     /* 查找节点 */
-    pub fn search(&self, num: i32) -> Option<Rc<RefCell<TreeNode<i32>>>> {
+    pub fn search(&self, num: i32) -> Option<Rc<RefCell<TreeNode>>> {
         let mut cur = self.root.clone();
         // 循环查找，越过叶节点后跳出
         while let Some(node) = cur.clone() {

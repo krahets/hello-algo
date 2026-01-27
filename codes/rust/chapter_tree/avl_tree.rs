@@ -4,14 +4,16 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-use hello_algo_rust::binary_tree::{BinaryTree, TreeNode};
+use hello_algo_rust::binary_tree::BinaryTree;
 use std::cell::RefCell;
 use std::cmp::Ordering;
 use std::rc::Rc;
 
+pub type TreeNode = hello_algo_rust::binary_tree::TreeNode<i32>;
+
 /* AVL 树 */
 pub struct AVLTree {
-    root: Option<Rc<RefCell<TreeNode<i32>>>>, // 根节点
+    root: Option<Rc<RefCell<TreeNode>>>, // 根节点
 }
 
 impl AVLTree {
@@ -22,13 +24,13 @@ impl AVLTree {
     }
 
     /* 获取节点高度 */
-    pub fn height(node: Option<Rc<RefCell<TreeNode<i32>>>>) -> Option<usize> {
+    pub fn height(node: Option<Rc<RefCell<TreeNode>>>) -> Option<usize> {
         // 这里我们遵循 Rust 类型系统的惯例，定义空节点高度为 None ，叶节点高度为 Some(0)
         Some(node?.borrow().height)
     }
 
     /* 更新节点高度 */
-    fn update_height(node: Option<Rc<RefCell<TreeNode<i32>>>>) {
+    fn update_height(node: Option<Rc<RefCell<TreeNode>>>) {
         if let Some(node) = node {
             // 节点高度等于最高子树高度 + 1，如果没有子节点，则高度为 0
             let mut height = 0;
@@ -43,7 +45,7 @@ impl AVLTree {
     }
 
     /* 获取平衡因子 */
-    fn balance_factor(node: Option<Rc<RefCell<TreeNode<i32>>>>) -> i8 {
+    fn balance_factor(node: Option<Rc<RefCell<TreeNode>>>) -> i8 {
         // 节点平衡因子 = 左子树高度 - 右子树高度
         // 平衡时取值为 -1 、 0 或 1，失衡时取值为 -2 或 2，不会出现其他值
 
@@ -90,9 +92,7 @@ impl AVLTree {
     }
 
     /* 右旋操作 */
-    fn right_rotate(
-        node: Option<Rc<RefCell<TreeNode<i32>>>>,
-    ) -> Option<Rc<RefCell<TreeNode<i32>>>> {
+    fn right_rotate(node: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
         let node = node?;
         let child = node
             .borrow_mut()
@@ -111,7 +111,7 @@ impl AVLTree {
     }
 
     /* 左旋操作 */
-    fn left_rotate(node: Option<Rc<RefCell<TreeNode<i32>>>>) -> Option<Rc<RefCell<TreeNode<i32>>>> {
+    fn left_rotate(node: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
         let node = node?;
         let child = node
             .borrow_mut()
@@ -130,7 +130,7 @@ impl AVLTree {
     }
 
     /* 执行旋转操作，使该子树重新恢复平衡 */
-    fn rotate(node: Option<Rc<RefCell<TreeNode<i32>>>>) -> Option<Rc<RefCell<TreeNode<i32>>>> {
+    fn rotate(node: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
         // 获取节点 node 的平衡因子
         let balance_factor = Self::balance_factor(node.clone());
 
@@ -173,9 +173,9 @@ impl AVLTree {
 
     /* 递归插入节点（辅助方法） */
     fn insert_helper(
-        node: Option<Rc<RefCell<TreeNode<i32>>>>,
+        node: Option<Rc<RefCell<TreeNode>>>,
         val: i32,
-    ) -> Option<Rc<RefCell<TreeNode<i32>>>> {
+    ) -> Option<Rc<RefCell<TreeNode>>> {
         let Some(mut node) = node else {
             return Some(TreeNode::new(val));
         };
@@ -212,9 +212,9 @@ impl AVLTree {
 
     /* 递归删除节点（辅助方法） */
     fn remove_helper(
-        node: Option<Rc<RefCell<TreeNode<i32>>>>,
+        node: Option<Rc<RefCell<TreeNode>>>,
         val: i32,
-    ) -> Option<Rc<RefCell<TreeNode<i32>>>> {
+    ) -> Option<Rc<RefCell<TreeNode>>> {
         let mut node = node?;
 
         // 查找节点并删除
@@ -272,7 +272,7 @@ impl AVLTree {
     }
 
     /* 查找节点 */
-    pub fn search(&self, val: i32) -> Option<Rc<RefCell<TreeNode<i32>>>> {
+    pub fn search(&self, val: i32) -> Option<Rc<RefCell<TreeNode>>> {
         let mut cur = self.root.clone();
         // 循环查找，越过叶节点后跳出
         while let Some(current) = cur.clone() {

@@ -4,11 +4,11 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
 
-use hello_algo_rust::binary_tree::BinaryTree;
+use hello_algo_rust::binary_tree::{BinaryTree, TreeLink};
 use std::cell::RefCell;
 use std::rc::Rc;
 
-type TreeNode = hello_algo_rust::binary_tree::TreeNode<i32>;
+pub type TreeNode = hello_algo_rust::binary_tree::TreeNode<i32>;
 
 /* 前序遍历 */
 pub fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
@@ -70,16 +70,8 @@ pub fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 /* Driver Code */
 fn main() {
     /* 初始化二叉树 */
-    let array = [
-        Some(1),
-        Some(2),
-        Some(3),
-        Some(4),
-        Some(5),
-        Some(6),
-        Some(7),
-    ];
-    let root = Rc::<RefCell<TreeNode>>::try_from_array(array).ok();
+    let array = [1, 2, 3, 4, 5, 6, 7];
+    let root = TreeLink::try_from_array(array.map(Some)).ok();
     println!("初始化二叉树\n{}", root.display());
 
     let root = root.as_ref();

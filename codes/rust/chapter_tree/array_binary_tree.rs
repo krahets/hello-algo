@@ -59,9 +59,7 @@ impl ArrayBinaryTree {
 
     /* 深度优先遍历 */
     fn dfs(&self, i: usize, order: Order, res: &mut Vec<i32>) {
-        let Some(val) = self.val(i) else {
-            return;
-        };
+        let Some(val) = self.val(i) else { return };
 
         match order {
             // 前序遍历

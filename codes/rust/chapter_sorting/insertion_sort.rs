@@ -4,19 +4,25 @@
  * Author: xBLACKICEx (xBLACKICEx@outlook.com)
  */
 
-use hello_algo_rust::include::print_util;
-
 /* 插入排序 */
-fn insertion_sort(nums: &mut [i32]) {
+pub fn insertion_sort(nums: &mut [i32]) {
     // 外循环：已排序区间为 [0, i-1]
     for i in 1..nums.len() {
-        let (base, mut j) = (nums[i], (i - 1) as i32);
-        // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-        while j >= 0 && nums[j as usize] > base {
-            nums[(j + 1) as usize] = nums[j as usize]; // 将 nums[j] 向右移动一位
-            j -= 1;
+        let base = nums[i];
+        let mut j = i - 1;
+        // 内循环：将 base 插入到已排序区间 [0, i - 1] 中的正确位置
+        while nums[j] > base {
+            // 将 nums[j] 向右移动一位
+            nums[j + 1] = nums[j];
+            j = j.wrapping_sub(1);
+            // j 越界回绕，此时 [0, i - 1] 已全部左移，
+            // 索引 0 处逻辑上留空，可以直接插入 base
+            if j == usize::MAX {
+                break;
+            }
         }
-        nums[(j + 1) as usize] = base; // 将 base 赋值到正确位置
+        // 将 base 赋值到正确位置
+        nums[j.wrapping_add(1)] = base;
     }
 }
 
@@ -24,6 +30,5 @@ fn insertion_sort(nums: &mut [i32]) {
 fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     insertion_sort(&mut nums);
-    print!("插入排序完成后 nums = ");
-    print_util::print_array(&nums);
+    println!("插入排序完成后 nums = {nums:?}");
 }

@@ -5,13 +5,13 @@
  */
 
 /* 爬楼梯：动态规划 */
-fn climbing_stairs_dp(n: usize) -> i32 {
+pub fn climbing_stairs_dp(n: usize) -> usize {
     // 已知 dp[1] 和 dp[2] ，返回之
     if n == 1 || n == 2 {
-        return n as i32;
+        return n;
     }
     // 初始化 dp 表，用于存储子问题的解
-    let mut dp = vec![-1; n + 1];
+    let mut dp = vec![0; n + 1];
     // 初始状态：预设最小子问题的解
     dp[1] = 1;
     dp[2] = 2;
@@ -23,22 +23,20 @@ fn climbing_stairs_dp(n: usize) -> i32 {
 }
 
 /* 爬楼梯：空间优化后的动态规划 */
-fn climbing_stairs_dp_comp(n: usize) -> i32 {
+pub fn climbing_stairs_dp_comp(n: usize) -> usize {
     if n == 1 || n == 2 {
-        return n as i32;
+        return n;
     }
     let (mut a, mut b) = (1, 2);
     for _ in 3..=n {
-        let tmp = b;
-        b = a + b;
-        a = tmp;
+        (a, b) = (b, a + b);
     }
     b
 }
 
 /* Driver Code */
-pub fn main() {
-    let n: usize = 9;
+fn main() {
+    let n = 9;
 
     let res = climbing_stairs_dp(n);
     println!("爬 {n} 阶楼梯共有 {res} 种方案");

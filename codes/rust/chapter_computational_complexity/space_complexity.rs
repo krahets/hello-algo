@@ -7,11 +7,13 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 
-use hello_algo_rust::binary_tree::{BinaryTree, TreeNode};
+use hello_algo_rust::binary_tree::BinaryTree;
 use hello_algo_rust::linked_list::ListNode;
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
+
+type TreeNode = hello_algo_rust::binary_tree::TreeNode<i32>;
 
 /* 函数 */
 fn function() -> i32 {
@@ -75,7 +77,7 @@ fn quadratic_recur(n: usize) -> i32 {
 }
 
 /* 指数阶（建立满二叉树） */
-fn build_tree(n: usize) -> Option<Rc<RefCell<TreeNode<i32>>>> {
+fn build_tree(n: usize) -> Option<Rc<RefCell<TreeNode>>> {
     if n == 0 {
         return None;
     }
