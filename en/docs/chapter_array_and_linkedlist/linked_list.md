@@ -1,20 +1,20 @@
-# Linked list
+# Linked List
 
-Memory space is a shared resource among all programs. In a complex system environment, available memory can be dispersed throughout the memory space. We understand that the memory allocated for an array must be continuous. However, for very large arrays, finding a sufficiently large contiguous memory space might be challenging. This is where the flexible advantage of linked lists becomes evident.
+Memory space is a shared resource for all programs. In a complex system runtime environment, available memory space may be scattered throughout the memory. We know that the memory space for storing an array must be contiguous, and when the array is very large, the memory may not be able to provide such a large contiguous space. This is where the flexibility advantage of linked lists becomes apparent.
 
-A <u>linked list</u> is a linear data structure in which each element is a node object, and the nodes are interconnected through "references". These references hold the memory addresses of subsequent nodes, enabling navigation from one node to the next.
+A <u>linked list</u> is a linear data structure in which each element is a node object, and the nodes are connected through "references". A reference records the memory address of the next node, through which the next node can be accessed from the current node.
 
-The design of linked lists allows for their nodes to be distributed across memory locations without requiring contiguous memory addresses.
+The design of linked lists allows nodes to be stored scattered throughout the memory, and their memory addresses do not need to be contiguous.
 
 ![Linked list definition and storage method](linked_list.assets/linkedlist_definition.png)
 
-As shown in the figure above, we see that the basic building block of a linked list is the <u>node</u> object. Each node comprises two key components: the node's "value" and a "reference" to the next node.
+Observing the figure above, the basic unit of a linked list is a <u>node</u> object. Each node contains two pieces of data: the node's "value" and a "reference" to the next node.
 
-- The first node in a linked list is the "head node", and the final one is the "tail node".
-- The tail node points to "null", designated as `null` in Java, `nullptr` in C++, and `None` in Python.
-- In languages that support pointers, like C, C++, Go, and Rust, this "reference" is typically implemented as a "pointer".
+- The first node of a linked list is called the "head node", and the last node is called the "tail node".
+- The tail node points to "null", which is denoted as `null`, `nullptr`, and `None` in Java, C++, and Python, respectively.
+- In languages that support pointers, such as C, C++, Go, and Rust, the aforementioned "reference" should be replaced with "pointer".
 
-As the code below illustrates, a `ListNode` in a linked list, besides holding a value, must also maintain an additional reference (or pointer). Therefore, **a linked list occupies more memory space than an array when storing the same quantity of data.**.
+As shown in the following code, a linked list node `ListNode` contains not only a value but also an additional reference (pointer). Therefore, **linked lists occupy more memory space than arrays when storing the same amount of data**.
 
 === "Python"
 
@@ -162,39 +162,39 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Kotlin"
 
     ```kotlin title=""
-
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    // Linked list node class
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // Node value
-            next: ?*Self = null, // Pointer to the next node
-
-            // Constructor
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-            }
-        };
+    /* Linked list node class */
+    // Constructor
+    class ListNode(x: Int) {
+        val _val: Int = x          // Node value
+        val next: ListNode? = null // Reference to the next node
     }
     ```
 
-## Common operations on linked lists
+=== "Ruby"
 
-### Initializing a linked list
+    ```ruby title=""
+    # Linked list node class
+    class ListNode
+      attr_accessor :val  # Node value
+      attr_accessor :next # Reference to the next node
 
-Constructing a linked list is a two-step process: first, initializing each node object, and second, forming the reference links between the nodes. After initialization, we can traverse all nodes sequentially from the head node by following the `next` reference.
+      def initialize(val=0, next_node=nil)
+        @val = val
+        @next = next_node
+      end
+    end
+    ```
+
+## Common Linked List Operations
+
+### Initializing a Linked List
+
+Building a linked list involves two steps: first, initializing each node object; second, constructing the reference relationships between nodes. Once initialization is complete, we can traverse all nodes starting from the head node of the linked list through the reference `next`.
 
 === "Python"
 
     ```python title="linked_list.py"
-    # Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4
+    # Initialize linked list 1 -> 3 -> 2 -> 5 -> 4
     # Initialize each node
     n0 = ListNode(1)
     n1 = ListNode(3)
@@ -211,7 +211,7 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
+    /* Initialize linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize each node
     ListNode* n0 = new ListNode(1);
     ListNode* n1 = new ListNode(3);
@@ -228,7 +228,7 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "Java"
 
     ```java title="linked_list.java"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
+    /* Initialize linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize each node
     ListNode n0 = new ListNode(1);
     ListNode n1 = new ListNode(3);
@@ -245,7 +245,7 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
+    /* Initialize linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize each node
     ListNode n0 = new(1);
     ListNode n1 = new(3);
@@ -262,7 +262,7 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "Go"
 
     ```go title="linked_list.go"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
+    /* Initialize linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize each node
     n0 := NewListNode(1)
     n1 := NewListNode(3)
@@ -279,7 +279,7 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
+    /* Initialize linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize each node
     let n0 = ListNode(x: 1)
     let n1 = ListNode(x: 3)
@@ -296,7 +296,7 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
+    /* Initialize linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize each node
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
@@ -313,7 +313,7 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
+    /* Initialize linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize each node
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
@@ -330,7 +330,7 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
+    /* Initialize linked list 1 -> 3 -> 2 -> 5 -> 4 */\
     // Initialize each node
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
@@ -347,7 +347,7 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
+    /* Initialize linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize each node
     let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
     let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
@@ -365,7 +365,7 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "C"
 
     ```c title="linked_list.c"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
+    /* Initialize linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize each node
     ListNode* n0 = newListNode(1);
     ListNode* n1 = newListNode(3);
@@ -382,106 +382,121 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // Initialize linked list
+    /* Initialize linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize each node
-    var n0 = inc.ListNode(i32){.val = 1};
-    var n1 = inc.ListNode(i32){.val = 3};
-    var n2 = inc.ListNode(i32){.val = 2};
-    var n3 = inc.ListNode(i32){.val = 5};
-    var n4 = inc.ListNode(i32){.val = 4};
+    val n0 = ListNode(1)
+    val n1 = ListNode(3)
+    val n2 = ListNode(2)
+    val n3 = ListNode(5)
+    val n4 = ListNode(4)
     // Build references between nodes
-    n0.next = &n1;
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
+    n0.next = n1;
+    n1.next = n2;
+    n2.next = n3;
+    n3.next = n4;
     ```
 
-The array as a whole is a variable, for instance, the array `nums` includes elements like `nums[0]`, `nums[1]`, and so on, whereas a linked list is made up of several distinct node objects. **We typically refer to a linked list by its head node**, for example, the linked list in the previous code snippet is referred to as `n0`.
+=== "Ruby"
 
-### Inserting nodes
+    ```ruby title="linked_list.rb"
+    # Initialize linked list 1 -> 3 -> 2 -> 5 -> 4
+    # Initialize each node
+    n0 = ListNode.new(1)
+    n1 = ListNode.new(3)
+    n2 = ListNode.new(2)
+    n3 = ListNode.new(5)
+    n4 = ListNode.new(4)
+    # Build references between nodes
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
+    ```
 
-Inserting a node into a linked list is very easy. As shown in the figure below, let's assume we aim to insert a new node `P` between two adjacent nodes `n0` and `n1`. **This can be achieved by simply modifying two node references (pointers)**, with a time complexity of $O(1)$.
+??? pythontutor "Code Visualization"
 
-By comparison, inserting an element into an array has a time complexity of $O(n)$, which becomes less efficient when dealing with large data volumes.
+    https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-![Linked list node insertion example](linked_list.assets/linkedlist_insert_node.png)
+An array is a single variable; for example, an array `nums` contains elements `nums[0]`, `nums[1]`, etc. A linked list, however, is composed of multiple independent node objects. **We typically use the head node as the reference to the linked list**; for example, the linked list in the above code can be referred to as linked list `n0`.
+
+### Inserting a Node
+
+Inserting a node in a linked list is very easy. As shown in the figure below, suppose we want to insert a new node `P` between two adjacent nodes `n0` and `n1`. **We only need to change two node references (pointers)**, with a time complexity of $O(1)$.
+
+In contrast, the time complexity of inserting an element in an array is $O(n)$, which is inefficient when dealing with large amounts of data.
+
+![Example of inserting a node into a linked list](linked_list.assets/linkedlist_insert_node.png)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{insert}
 ```
 
-### Deleting nodes
+### Removing a Node
 
-As shown in the figure below, deleting a node from a linked list is also very easy, **involving only the modification of a single node's reference (pointer)**.
+As shown in the figure below, removing a node in a linked list is also very convenient. **We only need to change one node's reference (pointer)**.
 
-It's important to note that even though node `P` continues to point to `n1` after being deleted, it becomes inaccessible during linked list traversal. This effectively means that `P` is no longer a part of the linked list.
+Note that although node `P` still points to `n1` after the deletion operation is complete, the linked list can no longer access `P` when traversing, which means `P` no longer belongs to this linked list.
 
-![Linked list node deletion](linked_list.assets/linkedlist_remove_node.png)
+![Removing a node from a linked list](linked_list.assets/linkedlist_remove_node.png)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{remove}
 ```
 
-### Accessing nodes
+### Accessing a Node
 
-**Accessing nodes in a linked list is less efficient**. As previously mentioned, any element in an array can be accessed in $O(1)$ time. In contrast, with a linked list, the program involves starting from the head node and sequentially traversing through the nodes until the desired node is found. In other words, to access the $i$-th node in a linked list, the program must iterate through $i - 1$ nodes, resulting in a time complexity of $O(n)$.
+**Accessing nodes in a linked list is less efficient**. As mentioned in the previous section, we can access any element in an array in $O(1)$ time. This is not the case with linked lists. The program needs to start from the head node and traverse backward one by one until the target node is found. That is, accessing the $i$-th node in a linked list requires $i - 1$ iterations, with a time complexity of $O(n)$.
 
 ```src
 [file]{linked_list}-[class]{}-[func]{access}
 ```
 
-### Finding nodes
+### Finding a Node
 
-Traverse the linked list to locate a node whose value matches `target`, and then output the index of that node within the linked list. This procedure is also an example of linear search. The corresponding code is provided below:
+Traverse the linked list to find a node with value `target`, and output the index of that node in the linked list. This process is also a linear search. The code is shown below:
 
 ```src
 [file]{linked_list}-[class]{}-[func]{find}
 ```
 
-## Arrays vs. linked lists
+## Arrays vs. Linked Lists
 
-The table below summarizes the characteristics of arrays and linked lists, and it also compares their efficiencies in various operations. Because they utilize opposing storage strategies, their respective properties and operational efficiencies exhibit distinct contrasts.
+The table below summarizes the characteristics of arrays and linked lists and compares their operational efficiencies. Since they employ two opposite storage strategies, their various properties and operational efficiencies also exhibit contrasting characteristics.
 
-<p align="center"> Table <id> &nbsp; Efficiency comparison of arrays and linked lists </p>
+<p align="center"> Table <id> &nbsp; Comparison of array and linked list efficiencies </p>
 
-|                    | Arrays                                           | Linked Lists            |
-| ------------------ | ------------------------------------------------ | ----------------------- |
-| Storage            | Contiguous Memory Space                          | Dispersed Memory Space  |
-| Capacity Expansion | Fixed Length                                     | Flexible Expansion      |
-| Memory Efficiency  | Less Memory per Element, Potential Space Wastage | More Memory per Element |
-| Accessing Elements | $O(1)$                                           | $O(n)$                  |
-| Adding Elements    | $O(n)$                                           | $O(1)$                  |
-| Deleting Elements  | $O(n)$                                           | $O(1)$                  |
+|                        | Array                                         | Linked List                |
+| ---------------------- | --------------------------------------------- | -------------------------- |
+| Storage method         | Contiguous memory space                       | Scattered memory space     |
+| Capacity expansion     | Immutable length                              | Flexible expansion         |
+| Memory efficiency      | Elements occupy less memory, but space may be wasted | Elements occupy more memory |
+| Accessing an element   | $O(1)$                                        | $O(n)$                     |
+| Adding an element      | $O(n)$                                        | $O(1)$                     |
+| Removing an element    | $O(n)$                                        | $O(1)$                     |
 
-## Common types of linked lists
+## Common Types of Linked Lists
 
-As shown in the figure below, there are three common types of linked lists.
+As shown in the figure below, there are three common types of linked lists:
 
-- **Singly linked list**: This is the standard linked list described earlier. Nodes in a singly linked list include a value and a reference to the next node. The first node is known as the head node, and the last node, which points to null (`None`), is the tail node.
-- **Circular linked list**: This is formed when the tail node of a singly linked list points back to the head node, creating a loop. In a circular linked list, any node can function as the head node.
-- **Doubly linked list**: In contrast to a singly linked list, a doubly linked list maintains references in two directions. Each node contains references (pointer) to both its successor (the next node) and predecessor (the previous node). Although doubly linked lists offer more flexibility for traversing in either direction, they also consume more memory space.
+- **Singly linked list**: This is the ordinary linked list introduced earlier. The nodes of a singly linked list contain a value and a reference to the next node. We call the first node the head node and the last node the tail node, which points to null `None`.
+- **Circular linked list**: If we make the tail node of a singly linked list point to the head node (connecting the tail to the head), we get a circular linked list. In a circular linked list, any node can be viewed as the head node.
+- **Doubly linked list**: Compared to a singly linked list, a doubly linked list records references in both directions. The node definition of a doubly linked list includes references to both the successor node (next node) and the predecessor node (previous node). Compared to a singly linked list, a doubly linked list is more flexible and can traverse the linked list in both directions, but it also requires more memory space.
 
 === "Python"
 
     ```python title=""
     class ListNode:
-        """Bidirectional linked list node class"""
+        """Doubly linked list node class"""
         def __init__(self, val: int):
             self.val: int = val                # Node value
             self.next: ListNode | None = None  # Reference to the successor node
-            self.prev: ListNode | None = None  # Reference to a predecessor node
+            self.prev: ListNode | None = None  # Reference to the predecessor node
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Bidirectional linked list node structure */
+    /* Doubly linked list node structure */
     struct ListNode {
         int val;         // Node value
         ListNode *next;  // Pointer to the successor node
@@ -493,10 +508,10 @@ As shown in the figure below, there are three common types of linked lists.
 === "Java"
 
     ```java title=""
-    /* Bidirectional linked list node class */
+    /* Doubly linked list node class */
     class ListNode {
         int val;        // Node value
-        ListNode next;  // Reference to the next node
+        ListNode next;  // Reference to the successor node
         ListNode prev;  // Reference to the predecessor node
         ListNode(int x) { val = x; }  // Constructor
     }
@@ -505,10 +520,10 @@ As shown in the figure below, there are three common types of linked lists.
 === "C#"
 
     ```csharp title=""
-    /* Bidirectional linked list node class */
+    /* Doubly linked list node class */
     class ListNode(int x) {  // Constructor
         int val = x;    // Node value
-        ListNode next;  // Reference to the next node
+        ListNode next;  // Reference to the successor node
         ListNode prev;  // Reference to the predecessor node
     }
     ```
@@ -516,14 +531,14 @@ As shown in the figure below, there are three common types of linked lists.
 === "Go"
 
     ```go title=""
-    /* Bidirectional linked list node structure */
+    /* Doubly linked list node structure */
     type DoublyListNode struct {
         Val  int             // Node value
         Next *DoublyListNode // Pointer to the successor node
         Prev *DoublyListNode // Pointer to the predecessor node
     }
 
-    // NewDoublyListNode initialization
+    // NewDoublyListNode Initialization
     func NewDoublyListNode(val int) *DoublyListNode {
         return &DoublyListNode{
             Val:  val,
@@ -536,10 +551,10 @@ As shown in the figure below, there are three common types of linked lists.
 === "Swift"
 
     ```swift title=""
-    /* Bidirectional linked list node class */
+    /* Doubly linked list node class */
     class ListNode {
         var val: Int // Node value
-        var next: ListNode? // Reference to the next node
+        var next: ListNode? // Reference to the successor node
         var prev: ListNode? // Reference to the predecessor node
 
         init(x: Int) { // Constructor
@@ -551,7 +566,7 @@ As shown in the figure below, there are three common types of linked lists.
 === "JS"
 
     ```javascript title=""
-    /* Bidirectional linked list node class */
+    /* Doubly linked list node class */
     class ListNode {
         constructor(val, next, prev) {
             this.val = val  ===  undefined ? 0 : val;        // Node value
@@ -564,7 +579,7 @@ As shown in the figure below, there are three common types of linked lists.
 === "TS"
 
     ```typescript title=""
-    /* Bidirectional linked list node class */
+    /* Doubly linked list node class */
     class ListNode {
         val: number;
         next: ListNode | null;
@@ -580,11 +595,11 @@ As shown in the figure below, there are three common types of linked lists.
 === "Dart"
 
     ```dart title=""
-    /* Bidirectional linked list node class */
+    /* Doubly linked list node class */
     class ListNode {
         int val;        // Node value
-        ListNode next;  // Reference to the next node
-        ListNode prev;  // Reference to the predecessor node
+        ListNode? next;  // Reference to the successor node
+        ListNode? prev;  // Reference to the predecessor node
         ListNode(this.val, [this.next, this.prev]);  // Constructor
     }
     ```
@@ -595,15 +610,15 @@ As shown in the figure below, there are three common types of linked lists.
     use std::rc::Rc;
     use std::cell::RefCell;
 
-    /* Bidirectional linked list node type */
+    /* Doubly linked list node type */
     #[derive(Debug)]
     struct ListNode {
         val: i32, // Node value
-        next: Option<Rc<RefCell<ListNode>>>, // Pointer to successor node
-        prev: Option<Rc<RefCell<ListNode>>>, // Pointer to predecessor node
+        next: Option<Rc<RefCell<ListNode>>>, // Pointer to the successor node
+        prev: Option<Rc<RefCell<ListNode>>>, // Pointer to the predecessor node
     }
 
-    /* Constructors */
+    /* Constructor */
     impl ListNode {
         fn new(val: i32) -> Self {
             ListNode {
@@ -618,16 +633,16 @@ As shown in the figure below, there are three common types of linked lists.
 === "C"
 
     ```c title=""
-    /* Bidirectional linked list node structure */
+    /* Doubly linked list node structure */
     typedef struct ListNode {
         int val;               // Node value
         struct ListNode *next; // Pointer to the successor node
         struct ListNode *prev; // Pointer to the predecessor node
     } ListNode;
 
-    /* Constructors */
+    /* Constructor */
     ListNode *newListNode(int val) {
-        ListNode *node, *next;
+        ListNode *node;
         node = (ListNode *) malloc(sizeof(ListNode));
         node->val = val;
         node->next = NULL;
@@ -639,48 +654,49 @@ As shown in the figure below, there are three common types of linked lists.
 === "Kotlin"
 
     ```kotlin title=""
-
+    /* Doubly linked list node class */
+    // Constructor
+    class ListNode(x: Int) {
+        val _val: Int = x           // Node value
+        val next: ListNode? = null  // Reference to the successor node
+        val prev: ListNode? = null  // Reference to the predecessor node
+    }
     ```
 
-=== "Zig"
+=== "Ruby"
 
-    ```zig title=""
-    // Bidirectional linked list node class
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
+    ```ruby title=""
+    # Doubly linked list node class
+    class ListNode
+      attr_accessor :val    # Node value
+      attr_accessor :next   # Reference to the successor node
+      attr_accessor :prev   # Reference to the predecessor node
 
-            val: T = 0, // Node value
-            next: ?*Self = null, // Pointer to the successor node
-            prev: ?*Self = null, // Pointer to the predecessor node
-
-            // Constructor
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-                self.prev = null;
-            }
-        };
-    }
+      def initialize(val=0, next_node=nil, prev_node=nil)
+        @val = val
+        @next = next_node
+        @prev = prev_node
+      end
+    end
     ```
 
 ![Common types of linked lists](linked_list.assets/linkedlist_common_types.png)
 
-## Typical applications of linked lists
+## Typical Applications of Linked Lists
 
-Singly linked lists are frequently utilized in implementing stacks, queues, hash tables, and graphs.
+Singly linked lists are commonly used to implement stacks, queues, hash tables, and graphs.
 
-- **Stacks and queues**: In singly linked lists, if insertions and deletions occur at the same end, it behaves like a stack (last-in-first-out). Conversely, if insertions are at one end and deletions at the other, it functions like a queue (first-in-first-out).
-- **Hash tables**: Linked lists are used in chaining, a popular method for resolving hash collisions. Here, all collided elements are grouped into a linked list.
-- **Graphs**: Adjacency lists, a standard method for graph representation, associate each graph vertex with a linked list. This list contains elements that represent vertices connected to the corresponding vertex.
+- **Stacks and queues**: When insertion and deletion operations both occur at one end of the linked list, it exhibits last-in-first-out characteristics, corresponding to a stack. When insertion operations occur at one end of the linked list and deletion operations occur at the other end, it exhibits first-in-first-out characteristics, corresponding to a queue.
+- **Hash tables**: Separate chaining is one of the mainstream solutions for resolving hash collisions. In this approach, all colliding elements are placed in a linked list.
+- **Graphs**: An adjacency list is a common way to represent a graph, where each vertex in the graph is associated with a linked list, and each element in the linked list represents another vertex connected to that vertex.
 
-Doubly linked lists are ideal for scenarios requiring rapid access to preceding and succeeding elements.
+Doubly linked lists are commonly used in scenarios where quick access to the previous and next elements is needed.
 
-- **Advanced data structures**: In structures like red-black trees and B-trees, accessing a node's parent is essential. This is achieved by incorporating a reference to the parent node in each node, akin to a doubly linked list.
-- **Browser history**: In web browsers, doubly linked lists facilitate navigating the history of visited pages when users click forward or back.
-- **LRU algorithm**: Doubly linked lists are apt for Least Recently Used (LRU) cache eviction algorithms, enabling swift identification of the least recently used data and facilitating fast node addition and removal.
+- **Advanced data structures**: For example, in red-black trees and B-trees, we need to access the parent node of a node, which can be achieved by saving a reference to the parent node in the node, similar to a doubly linked list.
+- **Browser history**: In web browsers, when a user clicks the forward or backward button, the browser needs to know the previous and next web pages the user visited. The characteristics of doubly linked lists make this operation simple.
+- **LRU algorithm**: In cache eviction (LRU) algorithms, we need to quickly find the least recently used data and support quick addition and deletion of nodes. Using a doubly linked list is very suitable for this.
 
-Circular linked lists are ideal for applications that require periodic operations, such as resource scheduling in operating systems.
+Circular linked lists are commonly used in scenarios that require periodic operations, such as operating system resource scheduling.
 
-- **Round-robin scheduling algorithm**: In operating systems, the round-robin scheduling algorithm is a common CPU scheduling method, requiring cycling through a group of processes. Each process is assigned a time slice, and upon expiration, the CPU rotates to the next process. This cyclical operation can be efficiently realized using a circular linked list, allowing for a fair and time-shared system among all processes.
-- **Data buffers**: Circular linked lists are also used in data buffers, like in audio and video players, where the data stream is divided into multiple buffer blocks arranged in a circular fashion for seamless playback.
+- **Round-robin scheduling algorithm**: In operating systems, round-robin scheduling is a common CPU scheduling algorithm that needs to cycle through a set of processes. Each process is assigned a time slice, and when the time slice expires, the CPU switches to the next process. This cyclic operation can be implemented using a circular linked list.
+- **Data buffers**: In some data buffer implementations, circular linked lists may also be used. For example, in audio and video players, the data stream may be divided into multiple buffer blocks and placed in a circular linked list to achieve seamless playback.

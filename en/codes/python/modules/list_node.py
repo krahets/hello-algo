@@ -6,11 +6,11 @@ Author: krahets (krahets@163.com)
 
 
 class ListNode:
-    """LinkedList node class"""
+    """Linked list node class"""
 
     def __init__(self, val: int):
         self.val: int = val  # Node value
-        self.next: ListNode | None = None  # Reference to successor node
+        self.next: ListNode | None = None  # Reference to next node
 
 
 def list_to_linked_list(arr: list[int]) -> ListNode | None:

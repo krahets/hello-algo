@@ -8,39 +8,39 @@ import random
 
 
 def random_access(nums: list[int]) -> int:
-    """Random access to elements"""
+    """Random access to element"""
     # Randomly select a number from the interval [0, len(nums)-1]
     random_index = random.randint(0, len(nums) - 1)
-    # Retrieve and return a random element
+    # Retrieve and return the random element
     random_num = nums[random_index]
     return random_num
 
 
-# Note that Python's list is a dynamic array that can be extended
-# For ease of learning, this function treats the list as a static array
+# Please note that Python's list is a dynamic array and can be extended directly
+# For learning purposes, this function treats the list as an array with immutable length
 def extend(nums: list[int], enlarge: int) -> list[int]:
     """Extend array length"""
-    # Initialize an extended length array
+    # Initialize an array with extended length
     res = [0] * (len(nums) + enlarge)
     # Copy all elements from the original array to the new array
     for i in range(len(nums)):
         res[i] = nums[i]
-    # Return the new array after expansion
+    # Return the extended new array
     return res
 
 
 def insert(nums: list[int], num: int, index: int):
-    """Insert element num at `index`"""
-    # Move all elements after `index` one position backward
+    """Insert element num at index index in the array"""
+    # Move all elements at and after index index backward by one position
     for i in range(len(nums) - 1, index, -1):
         nums[i] = nums[i - 1]
-    # Assign num to the element at index
+    # Assign num to the element at index index
     nums[index] = num
 
 
 def remove(nums: list[int], index: int):
-    """Remove the element at `index`"""
-    # Move all elements after `index` one position forward
+    """Remove the element at index index"""
+    # Move all elements after index index forward by one position
     for i in range(index, len(nums) - 1):
         nums[i] = nums[i + 1]
 
@@ -51,17 +51,17 @@ def traverse(nums: list[int]):
     # Traverse array by index
     for i in range(len(nums)):
         count += nums[i]
-    # Traverse array elements
+    # Direct traversal of array elements
     for num in nums:
         count += num
-    # Traverse both data index and elements
+    # Traverse simultaneously data index and elements
     for i, num in enumerate(nums):
         count += nums[i]
         count += num
 
 
 def find(nums: list[int], target: int) -> int:
-    """Search for a specified element in the array"""
+    """Find the specified element in the array"""
     for i in range(len(nums)):
         if nums[i] == target:
             return i
@@ -70,7 +70,7 @@ def find(nums: list[int], target: int) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Initialize an array
+    # Initialize array
     arr = [0] * 5
     print("Array arr =", arr)
     nums = [1, 3, 2, 5, 4]
@@ -78,23 +78,23 @@ if __name__ == "__main__":
 
     # Random access
     random_num: int = random_access(nums)
-    print("Retrieve a random element in nums", random_num)
+    print("Get random element from nums", random_num)
 
     # Length extension
     nums: list[int] = extend(nums, 3)
-    print("Extend the array length to 8, resulting in nums =", nums)
+    print("Extend the array length to 8, get nums =", nums)
 
     # Insert element
     insert(nums, 6, 3)
-    print("Insert number 6 at index 3, resulting in nums =", nums)
+    print("Insert number 6 at index 3, get nums =", nums)
 
     # Remove element
     remove(nums, 2)
-    print("Remove the element at index 2, resulting in nums =", nums)
+    print("Remove the element at index 2, get nums =", nums)
 
     # Traverse array
     traverse(nums)
 
-    # Search for elements
+    # Find element
     index: int = find(nums, 3)
-    print("Search for element 3 in nums, resulting in index =", index)
+    print("Search for element 3 in nums, get index =", index)

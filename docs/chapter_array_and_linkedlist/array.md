@@ -126,14 +126,6 @@
     nums = [1, 3, 2, 5, 4]
     ```
 
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 初始化数组
-    const arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    const nums = [_]i32{ 1, 3, 2, 5, 4 };
-    ```
-
 === "Lua"
 
     ```lua title="array.lua"

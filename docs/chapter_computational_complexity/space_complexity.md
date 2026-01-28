@@ -361,12 +361,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 === "Lua"
 
     ```lua title=""
@@ -567,12 +561,6 @@
         b = Array.new(10000)            # O(1)
         nums = Array.new(n) if n > 10   # O(n)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 === "Lua"
@@ -859,12 +847,6 @@
         return if n == 1
         recur(n - 1)
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
     ```
 
 === "Lua"

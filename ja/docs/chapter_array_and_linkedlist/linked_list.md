@@ -165,26 +165,6 @@
 
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 連結リストノードクラス
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // ノード値
-            next: ?*Self = null, // 次のノードへのポインタ
-
-            // コンストラクタ
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-            }
-        };
-    }
-    ```
-
 ## 連結リストの一般的な操作
 
 ### 連結リストの初期化
@@ -383,23 +363,6 @@
 
     ```kotlin title="linked_list.kt"
 
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // 連結リストを初期化
-    // 各ノードを初期化
-    var n0 = inc.ListNode(i32){.val = 1};
-    var n1 = inc.ListNode(i32){.val = 3};
-    var n2 = inc.ListNode(i32){.val = 2};
-    var n3 = inc.ListNode(i32){.val = 5};
-    var n4 = inc.ListNode(i32){.val = 4};
-    // ノード間の参照を構築
-    n0.next = &n1;
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
     ```
 
 配列全体は1つの変数です。例えば、配列`nums`には`nums[0]`、`nums[1]`などの要素が含まれますが、連結リストは複数の異なるノードオブジェクトで構成されています。**通常、連結リストはそのヘッドノードで参照されます**。例えば、前のコードスニペットの連結リストは`n0`として参照されます。
@@ -640,28 +603,6 @@
 
     ```kotlin title=""
 
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    // 双方向連結リストノードクラス
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // ノード値
-            next: ?*Self = null, // 後続ノードへのポインタ
-            prev: ?*Self = null, // 前任ノードへのポインタ
-
-            // コンストラクタ
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-                self.prev = null;
-            }
-        };
-    }
     ```
 
 ![連結リストの一般的な種類](linked_list.assets/linkedlist_common_types.png)

@@ -16,14 +16,14 @@ int coinChangeDP(vector<int> &coins, int amt) {
     for (int a = 1; a <= amt; a++) {
         dp[0][a] = MAX;
     }
-    // State transition: the rest of the rows and columns
+    // State transition: rest of the rows and columns
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If exceeding the target amount, do not choose coin i
+                // If exceeds target amount, don't select coin i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // The smaller value between not choosing and choosing coin i
+                // The smaller value between not selecting and selecting coin i
                 dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
             }
         }
@@ -42,10 +42,10 @@ int coinChangeDPComp(vector<int> &coins, int amt) {
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If exceeding the target amount, do not choose coin i
+                // If exceeds target amount, don't select coin i
                 dp[a] = dp[a];
             } else {
-                // The smaller value between not choosing and choosing coin i
+                // The smaller value between not selecting and selecting coin i
                 dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1);
             }
         }
@@ -60,11 +60,11 @@ int main() {
 
     // Dynamic programming
     int res = coinChangeDP(coins, amt);
-    cout << "The minimum number of coins required to make up the target amount is " << res << endl;
+    cout << "Minimum number of coins needed to make target amount is " << res << endl;
 
     // Space-optimized dynamic programming
     res = coinChangeDPComp(coins, amt);
-    cout << "The minimum number of coins required to make up the target amount is " << res << endl;
+    cout << "Minimum number of coins needed to make target amount is " << res << endl;
 
     return 0;
 }

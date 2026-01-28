@@ -356,12 +356,6 @@
     is_empty = queue.empty?
     ```
 
-=== "Zig"
-
-    ```zig title="queue.zig"
-
-    ```
-
 === "Lua"
 
     ```lua title="queue.lua"

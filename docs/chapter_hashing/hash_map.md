@@ -313,12 +313,6 @@
     hmap.delete(10583)
     ```
 
-=== "Zig"
-
-    ```zig title="hash_map.zig"
-
-    ```
-
 === "Lua"
 
     ```lua title="hash_map.lua"
@@ -576,12 +570,6 @@
 
     # 单独遍历值 value
     hmap.values.each { |val| puts val }
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map.zig"
-
     ```
 
 === "Lua"

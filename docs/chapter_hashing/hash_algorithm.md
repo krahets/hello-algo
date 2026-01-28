@@ -399,12 +399,6 @@ $$
     # 节点对象 #<ListNode:0x000078133140ab70> 的哈希值为 4302940560806366381
     ```
 
-=== "Zig"
-
-    ```zig title="built_in_hash.zig"
-
-    ```
-
 === "Lua"
 
     ```lua title="built_in_hash.lua"

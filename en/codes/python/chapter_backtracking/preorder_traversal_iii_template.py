@@ -12,7 +12,7 @@ from modules import TreeNode, print_tree, list_to_tree
 
 
 def is_solution(state: list[TreeNode]) -> bool:
-    """Determine if the current state is a solution"""
+    """Check if the current state is a solution"""
     return state and state[-1].val == 7
 
 
@@ -22,7 +22,7 @@ def record_solution(state: list[TreeNode], res: list[list[TreeNode]]):
 
 
 def is_valid(state: list[TreeNode], choice: TreeNode) -> bool:
-    """Determine if the choice is legal under the current state"""
+    """Check if the choice is valid under the current state"""
     return choice is not None and choice.val != 3
 
 
@@ -39,20 +39,20 @@ def undo_choice(state: list[TreeNode], choice: TreeNode):
 def backtrack(
     state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]
 ):
-    """Backtracking algorithm: Example three"""
-    # Check if it's a solution
+    """Backtracking algorithm: Example 3"""
+    # Check if it is a solution
     if is_solution(state):
         # Record solution
         record_solution(state, res)
     # Traverse all choices
     for choice in choices:
-        # Pruning: check if the choice is legal
+        # Pruning: check if the choice is valid
         if is_valid(state, choice):
-            # Attempt: make a choice, update the state
+            # Attempt: make choice, update state
             make_choice(state, choice)
             # Proceed to the next round of selection
             backtrack(state, [choice.left, choice.right], res)
-            # Retract: undo the choice, restore to the previous state
+            # Backtrack: undo choice, restore to previous state
             undo_choice(state, choice)
 
 
@@ -66,6 +66,6 @@ if __name__ == "__main__":
     res = []
     backtrack(state=[], choices=[root], res=res)
 
-    print("\nOutput all root-to-node 7 paths, requiring paths not to include nodes with value 3")
+    print("\nOutput all paths from root node to node 7, excluding paths with nodes of value 3")
     for path in res:
         print([node.val for node in path])

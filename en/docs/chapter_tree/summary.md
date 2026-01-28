@@ -1,18 +1,18 @@
 # Summary
 
-### Key review
+### Key Review
 
-- A binary tree is a non-linear data structure that reflects the "divide and conquer" logic of splitting one into two. Each binary tree node contains a value and two pointers, which point to its left and right child nodes, respectively.
-- For a node in a binary tree, its left (right) child node and the tree formed below it are collectively called the node's left (right) subtree.
-- Terms related to binary trees include root node, leaf node, level, degree, edge, height, and depth.
-- The operations of initializing a binary tree, inserting nodes, and removing nodes are similar to those of linked list operations.
-- Common types of binary trees include perfect binary trees, complete binary trees, full binary trees, and balanced binary trees. The perfect binary tree represents the ideal state, while the linked list is the worst state after degradation.
-- A binary tree can be represented using an array by arranging the node values and empty slots in a level-order traversal sequence and implementing pointers based on the index mapping relationship between parent nodes and child nodes.
-- The level-order traversal of a binary tree is a breadth-first search method, which reflects a layer-by-layer traversal manner of "expanding circle by circle." It is usually implemented using a queue.
-- Pre-order, in-order, and post-order traversals are all depth-first search methods, reflecting the traversal manner of "going to the end first, then backtracking to continue." They are usually implemented using recursion.
-- A binary search tree is an efficient data structure for element searching, with the time complexity of search, insert, and remove operations all being $O(\log n)$. When a binary search tree degrades into a linked list, these time complexities deteriorate to $O(n)$.
-- An AVL tree, also known as a balanced binary search tree, ensures that the tree remains balanced after continuous node insertions and removals through rotation operations.
-- Rotation operations in an AVL tree include right rotation, left rotation, right-left rotation, and left-right rotation. After node insertion or removal, the AVL tree rebalances itself by performing these rotations in a bottom-up manner.
+- A binary tree is a non-linear data structure that embodies the divide-and-conquer logic of "one divides into two". Each binary tree node contains a value and two pointers, which respectively point to its left and right child nodes.
+- For a certain node in a binary tree, the tree formed by its left (right) child node and all nodes below is called the left (right) subtree of that node.
+- Related terminology of binary trees includes root node, leaf node, level, degree, edge, height, and depth.
+- The initialization, node insertion, and node removal operations of binary trees are similar to those of linked lists.
+- Common types of binary trees include perfect binary trees, complete binary trees, full binary trees, and balanced binary trees. The perfect binary tree is the ideal state, while the linked list is the worst state after degradation.
+- A binary tree can be represented using an array by arranging node values and empty slots in level-order traversal sequence, and implementing pointers based on the index mapping relationship between parent and child nodes.
+- Level-order traversal of a binary tree is a breadth-first search method, embodying a layer-by-layer traversal approach of "expanding outward circle by circle", typically implemented using a queue.
+- Preorder, inorder, and postorder traversals all belong to depth-first search, embodying a traversal approach of "first go to the end, then backtrack and continue", typically implemented using recursion.
+- A binary search tree is an efficient data structure for element searching, with search, insertion, and removal operations all having time complexity of $O(\log n)$. When a binary search tree degenerates into a linked list, all time complexities degrade to $O(n)$.
+- An AVL tree, also known as a balanced binary search tree, ensures the tree remains balanced after continuous node insertions and removals through rotation operations.
+- Rotation operations in AVL trees include right rotation, left rotation, left rotation then right rotation, and right rotation then left rotation. After inserting or removing nodes, AVL trees perform rotation operations from bottom to top to restore the tree to balance.
 
 ### Q & A
 
@@ -24,21 +24,21 @@ Yes, because height and depth are typically defined as "the number of edges pass
 
 Taking the binary search tree as an example, the operation of removing a node needs to be handled in three different scenarios, each requiring multiple steps of node operations.
 
-**Q**: Why are there three sequences: pre-order, in-order, and post-order for DFS traversal of a binary tree, and what are their uses?
+**Q**: Why does DFS traversal of binary trees have three orders: preorder, inorder, and postorder, and what are their uses?
 
-Similar to sequential and reverse traversal of arrays, pre-order, in-order, and post-order traversals are three methods of traversing a binary tree, allowing us to obtain a traversal result in a specific order. For example, in a binary search tree, since the node sizes satisfy `left child node value < root node value < right child node value`, we can obtain an ordered node sequence by traversing the tree in the "left $\rightarrow$ root $\rightarrow$ right" priority.
+Similar to forward and reverse traversal of arrays, preorder, inorder, and postorder traversals are three methods of binary tree traversal that allow us to obtain a traversal result in a specific order. For example, in a binary search tree, since nodes satisfy the relationship `left child node value < root node value < right child node value`, we only need to traverse the tree with the priority of "left $\rightarrow$ root $\rightarrow$ right" to obtain an ordered node sequence.
 
-**Q**: In a right rotation operation that deals with the relationship between the imbalance nodes `node`, `child`, `grand_child`, isn't the connection between `node` and its parent node and the original link of `node` lost after the right rotation?
+**Q**: In a right rotation operation handling the relationship between unbalanced nodes `node`, `child`, and `grand_child`, doesn't the connection between `node` and its parent node get lost after the right rotation?
 
-We need to view this problem from a recursive perspective. The `right_rotate(root)` operation passes the root node of the subtree and eventually returns the root node of the rotated subtree with `return child`. The connection between the subtree's root node and its parent node is established after this function returns, which is outside the scope of the right rotation operation's maintenance.
+We need to view this problem from a recursive perspective. The right rotation operation `right_rotate(root)` passes in the root node of the subtree and eventually returns the root node of the subtree after rotation with `return child`. The connection between the subtree's root node and its parent node is completed after the function returns, which is not within the maintenance scope of the right rotation operation.
 
 **Q**: In C++, functions are divided into `private` and `public` sections. What considerations are there for this? Why are the `height()` function and the `updateHeight()` function placed in `public` and `private`, respectively?
 
-It depends on the scope of the method's use. If a method is only used within the class, then it is designed to be `private`. For example, it makes no sense for users to call `updateHeight()` on their own, as it is just a step in the insertion or removal operations. However, `height()` is for accessing node height, similar to `vector.size()`, thus it is set to `public` for use.
+It mainly depends on the method's usage scope. If a method is only used within the class, then it is designed as `private`. For example, calling `updateHeight()` alone by the user makes no sense, as it is only a step in insertion or removal operations. However, `height()` is used to access node height, similar to `vector.size()`, so it is set to `public` for ease of use.
 
 **Q**: How do you build a binary search tree from a set of input data? Is the choice of root node very important?
 
-Yes, the method for building the tree is provided in the `build_tree()` method in the binary search tree code. As for the choice of the root node, we usually sort the input data and then select the middle element as the root node, recursively building the left and right subtrees. This approach maximizes the balance of the tree.
+Yes, the method for building a tree is provided in the `build_tree()` method in the binary search tree code. As for the choice of root node, we typically sort the input data, then select the middle element as the root node, and recursively build the left and right subtrees. This approach maximizes the tree's balance.
 
 **Q**: In Java, do you always have to use the `equals()` method for string comparison?
 
@@ -47,7 +47,7 @@ In Java, for primitive data types, `==` is used to compare whether the values of
 - `==`: Used to compare whether two variables point to the same object, i.e., whether their positions in memory are the same.
 - `equals()`: Used to compare whether the values of two objects are equal.
 
-Therefore, to compare values, we should use `equals()`. However, strings initialized with `String a = "hi"; String b = "hi";` are stored in the string constant pool and point to the same object, so `a == b` can also be used to compare the contents of two strings.
+Therefore, if we want to compare values, we should use `equals()`. However, strings initialized via `String a = "hi"; String b = "hi";` are stored in the string constant pool and point to the same object, so `a == b` can also be used to compare the contents of the two strings.
 
 **Q**: Before reaching the bottom level, is the number of nodes in the queue $2^h$ in breadth-first traversal?
 

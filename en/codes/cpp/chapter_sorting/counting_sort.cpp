@@ -14,7 +14,7 @@ void countingSortNaive(vector<int> &nums) {
     for (int num : nums) {
         m = max(m, num);
     }
-    // 2. Count the occurrence of each digit
+    // 2. Count the occurrence of each number
     // counter[num] represents the occurrence of num
     vector<int> counter(m + 1, 0);
     for (int num : nums) {
@@ -37,7 +37,7 @@ void countingSort(vector<int> &nums) {
     for (int num : nums) {
         m = max(m, num);
     }
-    // 2. Count the occurrence of each digit
+    // 2. Count the occurrence of each number
     // counter[num] represents the occurrence of num
     vector<int> counter(m + 1, 0);
     for (int num : nums) {
@@ -65,12 +65,12 @@ void countingSort(vector<int> &nums) {
 int main() {
     vector<int> nums = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
     countingSortNaive(nums);
-    cout << "After count sort (unable to sort objects), nums = ";
+    cout << "After counting sort (cannot sort objects) completes, nums = ";
     printVector(nums);
 
     vector<int> nums1 = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
     countingSort(nums1);
-    cout << "After count sort, nums1 = ";
+    cout << "After counting sort completes, nums1 = ";
     printVector(nums1);
 
     return 0;

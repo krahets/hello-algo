@@ -349,12 +349,6 @@
     is_empty = stack.empty?
     ```
 
-=== "Zig"
-
-    ```zig title="stack.zig"
-
-    ```
-
 === "Lua"
 
     ```lua title="stack.lua"

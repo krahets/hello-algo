@@ -10,9 +10,9 @@
 int climbingStairsDP(int n) {
     if (n == 1 || n == 2)
         return n;
-    // Initialize dp table, used to store subproblem solutions
+    // Initialize dp table, used to store solutions to subproblems
     vector<int> dp(n + 1);
-    // Initial state: preset the smallest subproblem solution
+    // Initial state: preset the solution to the smallest subproblem
     dp[1] = 1;
     dp[2] = 2;
     // State transition: gradually solve larger subproblems from smaller ones
@@ -40,10 +40,10 @@ int main() {
     int n = 9;
 
     int res = climbingStairsDP(n);
-    cout << "There are " << res << " solutions to climb " << n << " stairs" << endl;
+    cout << "Climbing " << n << " stairs has " << res << " solutions" << endl;
 
     res = climbingStairsDPComp(n);
-    cout << "There are " << res << " solutions to climb " << n << " stairs" << endl;
+    cout << "Climbing " << n << " stairs has " << res << " solutions" << endl;
 
     return 0;
 }

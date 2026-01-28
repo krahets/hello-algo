@@ -1,9 +1,9 @@
-# Divide and conquer
+# Divide and Conquer
 
-![Divide and Conquer](../assets/covers/chapter_divide_and_conquer.jpg)
+![Divide and conquer](../assets/covers/chapter_divide_and_conquer.jpg)
 
 !!! abstract
 
     Difficult problems are decomposed layer by layer, with each decomposition making them simpler.
 
-    Divide and conquer unveils a profound truth: begin with simplicity, and complexity dissolves.
+    Divide and conquer reveals an important truth: start with simplicity, and nothing remains complex.

@@ -1,31 +1,31 @@
-# Heap sort
+# Heap Sort
 
 !!! tip
 
     Before reading this section, please ensure you have completed the "Heap" chapter.
 
-<u>Heap sort</u> is an efficient sorting algorithm based on the heap data structure. We can implement heap sort using the "heap creation" and "element extraction" operations we have already learned.
+<u>Heap sort (heap sort)</u> is an efficient sorting algorithm based on the heap data structure. We can use the "build heap operation" and "element out-heap operation" that we have already learned to implement heap sort.
 
-1. Input the array and construct a min-heap, where the smallest element is at the top of the heap.
-2. Continuously perform the extraction operation, record the extracted elements sequentially to obtain a sorted list from smallest to largest.
+1. Input the array and build a min-heap, at which point the smallest element is at the heap top.
+2. Continuously perform the out-heap operation, record the out-heap elements in sequence, and an ascending sorted sequence can be obtained.
 
-Although the above method is feasible, it requires an additional array to store the popped elements, which is somewhat space-consuming. In practice, we usually use a more elegant implementation.
+Although the above method is feasible, it requires an additional array to save the popped elements, which is quite wasteful of space. In practice, we usually use a more elegant implementation method.
 
-## Algorithm flow
+## Algorithm Flow
 
-Suppose the array length is $n$, the heap sort process is as follows.
+Assume the array length is $n$. The flow of heap sort is shown in the figure below.
 
-1. Input the array and establish a max-heap. After this step, the largest element is positioned at the top of the heap.
-2. Swap the top element of the heap (the first element) with the heap's bottom element (the last element). Following this swap, reduce the heap's length by $1$ and increase the sorted elements count by $1$.
-3. Starting from the heap top, perform the sift-down operation from top to bottom. After the sift-down, the heap's property is restored.
-4. Repeat steps `2.` and `3.` Loop for $n - 1$ rounds to complete the sorting of the array.
+1. Input the array and build a max-heap. After completion, the largest element is at the heap top.
+2. Swap the heap top element (first element) with the heap bottom element (last element). After the swap is complete, reduce the heap length by $1$ and increase the count of sorted elements by $1$.
+3. Starting from the heap top element, perform top-to-bottom heapify operation (sift down). After heapify is complete, the heap property is restored.
+4. Loop through steps `2.` and `3.` After looping $n - 1$ rounds, the array sorting can be completed.
 
 !!! tip
 
-    In fact, the element extraction operation also includes steps `2.` and `3.`, with an additional step to pop (remove) the extracted element from the heap.
+    In fact, the element out-heap operation also includes steps `2.` and `3.`, with just an additional step to pop the element.
 
 === "<1>"
-    ![Heap sort process](heap_sort.assets/heap_sort_step1.png)
+    ![Heap sort steps](heap_sort.assets/heap_sort_step1.png)
 
 === "<2>"
     ![heap_sort_step2](heap_sort.assets/heap_sort_step2.png)
@@ -60,14 +60,14 @@ Suppose the array length is $n$, the heap sort process is as follows.
 === "<12>"
     ![heap_sort_step12](heap_sort.assets/heap_sort_step12.png)
 
-In the code implementation, we used the sift-down function `sift_down()` from the "Heap" chapter. It is important to note that since the heap's length decreases as the maximum element is extracted, we need to add a length parameter $n$ to the `sift_down()` function to specify the current effective length of the heap. The code is shown below:
+In the code implementation, we use the same top-to-bottom heapify function `sift_down()` from the "Heap" chapter. It is worth noting that since the heap length will decrease as the largest element is extracted, we need to add a length parameter $n$ to the `sift_down()` function to specify the current effective length of the heap. The code is as follows:
 
 ```src
 [file]{heap_sort}-[class]{}-[func]{heap_sort}
 ```
 
-## Algorithm characteristics
+## Algorithm Characteristics
 
-- **Time complexity is $O(n \log n)$, non-adaptive sort**: The heap creation uses $O(n)$ time. Extracting the largest element from the heap takes $O(\log n)$ time, looping for $n - 1$ rounds.
-- **Space complexity is $O(1)$, in-place sort**: A few pointer variables use $O(1)$ space. The element swapping and heapifying operations are performed on the original array.
-- **Non-stable sort**: The relative positions of equal elements may change during the swapping of the heap's top and bottom elements.
+- **Time complexity of $O(n \log n)$, non-adaptive sorting**: The build heap operation uses $O(n)$ time. Extracting the largest element from the heap has a time complexity of $O(\log n)$, looping a total of $n - 1$ rounds.
+- **Space complexity of $O(1)$, in-place sorting**: A few pointer variables use $O(1)$ space. Element swapping and heapify operations are both performed on the original array.
+- **Non-stable sorting**: When swapping the heap top element and heap bottom element, the relative positions of equal elements may change.

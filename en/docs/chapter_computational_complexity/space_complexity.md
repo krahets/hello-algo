@@ -1,130 +1,129 @@
-# Space complexity
+# Space Complexity
 
-<u>Space complexity</u> is used to measure the growth trend of the memory space occupied by an algorithm as the amount of data increases. This concept is very similar to time complexity, except that "running time" is replaced with "occupied memory space".
+<u>Space complexity</u> measures the growth trend of memory space occupied by an algorithm as the data size increases. This concept is very similar to time complexity, except that "running time" is replaced with "occupied memory space".
 
-## Space related to algorithms
+## Algorithm-Related Space
 
-The memory space used by an algorithm during its execution mainly includes the following types.
+The memory space used by an algorithm during execution mainly includes the following types.
 
 - **Input space**: Used to store the input data of the algorithm.
 - **Temporary space**: Used to store variables, objects, function contexts, and other data during the algorithm's execution.
 - **Output space**: Used to store the output data of the algorithm.
 
-Generally, the scope of space complexity statistics includes both "Temporary Space" and "Output Space".
+In general, the scope of space complexity statistics is "temporary space" plus "output space".
 
 Temporary space can be further divided into three parts.
 
 - **Temporary data**: Used to save various constants, variables, objects, etc., during the algorithm's execution.
-- **Stack frame space**: Used to save the context data of the called function. The system creates a stack frame at the top of the stack each time a function is called, and the stack frame space is released after the function returns.
-- **Instruction space**: Used to store compiled program instructions, which are usually negligible in actual statistics.
+- **Stack frame space**: Used to save the context data of called functions. The system creates a stack frame at the top of the stack each time a function is called, and the stack frame space is released after the function returns.
+- **Instruction space**: Used to save compiled program instructions, which are usually ignored in actual statistics.
 
-When analyzing the space complexity of a program, **we typically count the Temporary Data, Stack Frame Space, and Output Data**, as shown in the figure below.
+When analyzing the space complexity of a program, **we usually count three parts: temporary data, stack frame space, and output data**, as shown in the following figure.
 
-![Space types used in algorithms](space_complexity.assets/space_types.png)
+![Algorithm-related space](space_complexity.assets/space_types.png)
 
-The relevant code is as follows:
+The related code is as follows:
 
 === "Python"
 
     ```python title=""
     class Node:
-        """Classes"""
+        """Class"""
         def __init__(self, x: int):
-            self.val: int = x               # node value
-            self.next: Node | None = None   # reference to the next node
+            self.val: int = x              # Node value
+            self.next: Node | None = None  # Reference to the next node
 
     def function() -> int:
-        """Functions"""
-        # Perform certain operations...
+        """Function"""
+        # Perform some operations...
         return 0
 
-    def algorithm(n) -> int:    # input data
-        A = 0                   # temporary data (constant, usually in uppercase)
-        b = 0                   # temporary data (variable)
-        node = Node(0)          # temporary data (object)
-        c = function()          # Stack frame space (call function)
-        return A + b + c        # output data
+    def algorithm(n) -> int:  # Input data
+        A = 0                 # Temporary data (constant, usually represented by uppercase letters)
+        b = 0                 # Temporary data (variable)
+        node = Node(0)        # Temporary data (object)
+        c = function()        # Stack frame space (function call)
+        return A + b + c      # Output data
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Structures */
+    /* Structure */
     struct Node {
         int val;
         Node *next;
         Node(int x) : val(x), next(nullptr) {}
     };
 
-    /* Functions */
+    /* Function */
     int func() {
-        // Perform certain operations...
+        // Perform some operations...
         return 0;
     }
 
-    int algorithm(int n) {          // input data
-        const int a = 0;            // temporary data (constant)
-        int b = 0;                  // temporary data (variable)
-        Node* node = new Node(0);   // temporary data (object)
-        int c = func();             // stack frame space (call function)
-        return a + b + c;           // output data
+    int algorithm(int n) {        // Input data
+        const int a = 0;          // Temporary data (constant)
+        int b = 0;                // Temporary data (variable)
+        Node* node = new Node(0); // Temporary data (object)
+        int c = func();           // Stack frame space (function call)
+        return a + b + c;         // Output data
     }
     ```
 
 === "Java"
 
     ```java title=""
-    /* Classes */
+    /* Class */
     class Node {
         int val;
         Node next;
         Node(int x) { val = x; }
     }
-   
-    /* Functions */
+
+    /* Function */
     int function() {
-        // Perform certain operations...
+        // Perform some operations...
         return 0;
     }
-   
-    int algorithm(int n) {          // input data
-        final int a = 0;            // temporary data (constant)
-        int b = 0;                  // temporary data (variable)
-        Node node = new Node(0);    // temporary data (object)
-        int c = function();         // stack frame space (call function)
-        return a + b + c;           // output data
+
+    int algorithm(int n) {        // Input data
+        final int a = 0;          // Temporary data (constant)
+        int b = 0;                // Temporary data (variable)
+        Node node = new Node(0);  // Temporary data (object)
+        int c = function();       // Stack frame space (function call)
+        return a + b + c;         // Output data
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* Classes */
-    class Node {
-        int val;
+    /* Class */
+    class Node(int x) {
+        int val = x;
         Node next;
-        Node(int x) { val = x; }
     }
 
-    /* Functions */
+    /* Function */
     int Function() {
-        // Perform certain operations...
+        // Perform some operations...
         return 0;
     }
 
-    int Algorithm(int n) {  // input data
-        const int a = 0;    // temporary data (constant)
-        int b = 0;          // temporary data (variable)
-        Node node = new(0); // temporary data (object)
-        int c = Function(); // stack frame space (call function)
-        return a + b + c;   // output data
+    int Algorithm(int n) {        // Input data
+        const int a = 0;          // Temporary data (constant)
+        int b = 0;                // Temporary data (variable)
+        Node node = new(0);       // Temporary data (object)
+        int c = Function();       // Stack frame space (function call)
+        return a + b + c;         // Output data
     }
     ```
 
 === "Go"
 
     ```go title=""
-    /* Structures */
+    /* Structure */
     type node struct {
         val  int
         next *node
@@ -134,26 +133,26 @@ The relevant code is as follows:
     func newNode(val int) *node {
         return &node{val: val}
     }
-   
-    /* Functions */
+
+    /* Function */
     func function() int {
-        // Perform certain operations...
+        // Perform some operations...
         return 0
     }
 
-    func algorithm(n int) int { // input data
-        const a = 0             // temporary data (constant)
-        b := 0                  // temporary storage of data (variable)
-        newNode(0)              // temporary data (object)
-        c := function()         // stack frame space (call function)
-        return a + b + c        // output data
+    func algorithm(n int) int { // Input data
+        const a = 0             // Temporary data (constant)
+        b := 0                  // Temporary data (variable)
+        newNode(0)              // Temporary data (object)
+        c := function()         // Stack frame space (function call)
+        return a + b + c        // Output data
     }
     ```
 
 === "Swift"
 
     ```swift title=""
-    /* Classes */
+    /* Class */
     class Node {
         var val: Int
         var next: Node?
@@ -163,99 +162,99 @@ The relevant code is as follows:
         }
     }
 
-    /* Functions */
+    /* Function */
     func function() -> Int {
-        // Perform certain operations...
+        // Perform some operations...
         return 0
     }
 
-    func algorithm(n: Int) -> Int { // input data
-        let a = 0                   // temporary data (constant)
-        var b = 0                   // temporary data (variable)
-        let node = Node(x: 0)       // temporary data (object)
-        let c = function()          // stack frame space (call function)
-        return a + b + c            // output data
+    func algorithm(n: Int) -> Int { // Input data
+        let a = 0             // Temporary data (constant)
+        var b = 0             // Temporary data (variable)
+        let node = Node(x: 0) // Temporary data (object)
+        let c = function()    // Stack frame space (function call)
+        return a + b + c      // Output data
     }
     ```
 
 === "JS"
 
     ```javascript title=""
-    /* Classes */
+    /* Class */
     class Node {
         val;
         next;
         constructor(val) {
-            this.val = val === undefined ? 0 : val; // node value
-            this.next = null;                       // reference to the next node
+            this.val = val === undefined ? 0 : val; // Node value
+            this.next = null;                       // Reference to the next node
         }
     }
 
-    /* Functions */
+    /* Function */
     function constFunc() {
-        // Perform certain operations
+        // Perform some operations
         return 0;
     }
 
-    function algorithm(n) {         // input data
-        const a = 0;                // temporary data (constant)
-        let b = 0;                  // temporary data (variable)
-        const node = new Node(0);   // temporary data (object)
-        const c = constFunc();      // Stack frame space (calling function)
-        return a + b + c;           // output data
+    function algorithm(n) {       // Input data
+        const a = 0;              // Temporary data (constant)
+        let b = 0;                // Temporary data (variable)
+        const node = new Node(0); // Temporary data (object)
+        const c = constFunc();    // Stack frame space (function call)
+        return a + b + c;         // Output data
     }
     ```
 
 === "TS"
 
     ```typescript title=""
-    /* Classes */
+    /* Class */
     class Node {
         val: number;
         next: Node | null;
         constructor(val?: number) {
-            this.val = val === undefined ? 0 : val; // node value
-            this.next = null;                       // reference to the next node
+            this.val = val === undefined ? 0 : val; // Node value
+            this.next = null;                       // Reference to the next node
         }
     }
 
-    /* Functions */
+    /* Function */
     function constFunc(): number {
-        // Perform certain operations
+        // Perform some operations
         return 0;
     }
 
-    function algorithm(n: number): number { // input data
-        const a = 0;                        // temporary data (constant)
-        let b = 0;                          // temporary data (variable)
-        const node = new Node(0);           // temporary data (object)
-        const c = constFunc();              // Stack frame space (calling function)
-        return a + b + c;                   // output data
+    function algorithm(n: number): number { // Input data
+        const a = 0;                        // Temporary data (constant)
+        let b = 0;                          // Temporary data (variable)
+        const node = new Node(0);           // Temporary data (object)
+        const c = constFunc();              // Stack frame space (function call)
+        return a + b + c;                   // Output data
     }
     ```
 
 === "Dart"
 
     ```dart title=""
-    /* Classes */
+    /* Class */
     class Node {
       int val;
       Node next;
       Node(this.val, [this.next]);
     }
 
-    /* Functions */
+    /* Function */
     int function() {
-      // Perform certain operations...
+      // Perform some operations...
       return 0;
     }
 
-    int algorithm(int n) {  // input data
-      const int a = 0;      // temporary data (constant)
-      int b = 0;            // temporary data (variable)
-      Node node = Node(0);  // temporary data (object)
-      int c = function();   // stack frame space (call function)
-      return a + b + c;     // output data
+    int algorithm(int n) {  // Input data
+      const int a = 0;      // Temporary data (constant)
+      int b = 0;            // Temporary data (variable)
+      Node node = Node(0);  // Temporary data (object)
+      int c = function();   // Stack frame space (function call)
+      return a + b + c;     // Output data
     }
     ```
 
@@ -264,74 +263,114 @@ The relevant code is as follows:
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-   
-    /* Structures */
+
+    /* Structure */
     struct Node {
         val: i32,
         next: Option<Rc<RefCell<Node>>>,
     }
 
-    /* Constructor */
+    /* Create Node structure */
     impl Node {
         fn new(val: i32) -> Self {
             Self { val: val, next: None }
         }
     }
 
-    /* Functions */
-    fn function() -> i32 {     
-        // Perform certain operations...
+    /* Function */
+    fn function() -> i32 {
+        // Perform some operations...
         return 0;
     }
 
-    fn algorithm(n: i32) -> i32 {   // input data
-        const a: i32 = 0;           // temporary data (constant)
-        let mut b = 0;              // temporary data (variable)
-        let node = Node::new(0);    // temporary data (object)
-        let c = function();         // stack frame space (call function)
-        return a + b + c;           // output data
+    fn algorithm(n: i32) -> i32 {       // Input data
+        const a: i32 = 0;               // Temporary data (constant)
+        let mut b = 0;                  // Temporary data (variable)
+        let node = Node::new(0);        // Temporary data (object)
+        let c = function();             // Stack frame space (function call)
+        return a + b + c;               // Output data
     }
     ```
 
 === "C"
 
     ```c title=""
-    /* Functions */
+    /* Function */
     int func() {
-        // Perform certain operations...
+        // Perform some operations...
         return 0;
     }
 
-    int algorithm(int n) {  // input data
-        const int a = 0;    // temporary data (constant)
-        int b = 0;          // temporary data (variable)
-        int c = func();     // stack frame space (call function)
-        return a + b + c;   // output data
+    int algorithm(int n) { // Input data
+        const int a = 0;   // Temporary data (constant)
+        int b = 0;         // Temporary data (variable)
+        int c = func();    // Stack frame space (function call)
+        return a + b + c;  // Output data
     }
     ```
 
 === "Kotlin"
 
     ```kotlin title=""
+    /* Class */
+    class Node(var _val: Int) {
+        var next: Node? = null
+    }
 
+    /* Function */
+    fun function(): Int {
+        // Perform some operations...
+        return 0
+    }
+
+    fun algorithm(n: Int): Int { // Input data
+        val a = 0                // Temporary data (constant)
+        var b = 0                // Temporary data (variable)
+        val node = Node(0)       // Temporary data (object)
+        val c = function()       // Stack frame space (function call)
+        return a + b + c         // Output data
+    }
     ```
 
-=== "Zig"
+=== "Ruby"
 
-    ```zig title=""
+    ```ruby title=""
+    ### Class ###
+    class Node
+        attr_accessor :val      # Node value
+        attr_accessor :next     # Reference to the next node
 
+        def initialize(x)
+            @val = x
+        end
+    end
+
+    ### Function ###
+    def function
+        # Perform some operations...
+        0
+    end
+
+    ### Algorithm ###
+    def algorithm(n)        # Input data
+        a = 0               # Temporary data (constant)
+        b = 0               # Temporary data (variable)
+        node = Node.new(0)  # Temporary data (object)
+        c = function        # Stack frame space (function call)
+        a + b + c           # Output data
+    end
     ```
 
-## Calculation method
+## Calculation Method
 
-The method for calculating space complexity is roughly similar to that of time complexity, with the only change being the shift of the statistical object from "number of operations" to "size of used space".
+The calculation method for space complexity is roughly the same as for time complexity, except that the statistical object is changed from "number of operations" to "size of space used".
 
-However, unlike time complexity, **we usually only focus on the worst-case space complexity**. This is because memory space is a hard requirement, and we must ensure that there is enough memory space reserved under all input data.
+Unlike time complexity, **we usually only focus on the worst-case space complexity**. This is because memory space is a hard requirement, and we must ensure that sufficient memory space is reserved for all input data.
 
-Consider the following code, the term "worst-case" in worst-case space complexity has two meanings.
+Observe the following code. The "worst case" in worst-case space complexity has two meanings.
 
-1. **Based on the worst input data**: When $n < 10$, the space complexity is $O(1)$; but when $n > 10$, the initialized array `nums` occupies $O(n)$ space, thus the worst-case space complexity is $O(n)$.
-2. **Based on the peak memory used during the algorithm's execution**: For example, before executing the last line, the program occupies $O(1)$ space; when initializing the array `nums`, the program occupies $O(n)$ space, hence the worst-case space complexity is $O(n)$.
+1. **Based on the worst input data**: When $n < 10$, the space complexity is $O(1)$; but when $n > 10$, the initialized array `nums` occupies $O(n)$ space, so the worst-case space complexity is $O(n)$.
+2. **Based on the peak memory during algorithm execution**: For example, before executing the last line, the program occupies $O(1)$ space; when initializing the array `nums`, the program occupies $O(n)$ space, so the worst-case space complexity is $O(n)$.
 
 === "Python"
 
@@ -443,10 +482,10 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 
     ```rust title=""
     fn algorithm(n: i32) {
-        let a = 0;                           // O(1)
-        let b = [0; 10000];                  // O(1)
+        let a = 0;                              // O(1)
+        let b = [0; 10000];                     // O(1)
         if n > 10 {
-            let nums = vec![0; n as usize];  // O(n)
+            let nums = vec![0; n as usize];     // O(n)
         }
     }
     ```
@@ -465,31 +504,41 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 === "Kotlin"
 
     ```kotlin title=""
-
+    fun algorithm(n: Int) {
+        val a = 0                    // O(1)
+        val b = IntArray(10000)      // O(1)
+        if (n > 10) {
+            val nums = IntArray(n)   // O(n)
+        }
+    }
     ```
 
-=== "Zig"
+=== "Ruby"
 
-    ```zig title=""
-
+    ```ruby title=""
+    def algorithm(n)
+        a = 0                           # O(1)
+        b = Array.new(10000)            # O(1)
+        nums = Array.new(n) if n > 10   # O(n)
+    end
     ```
 
-**In recursive functions, stack frame space must be taken into count**. Consider the following code:
+**In recursive functions, it is necessary to count the stack frame space**. Observe the following code:
 
 === "Python"
 
     ```python title=""
     def function() -> int:
-        # Perform certain operations
+        # Perform some operations
         return 0
 
     def loop(n: int):
-        """Loop O(1)"""
+        """Loop has space complexity of O(1)"""
         for _ in range(n):
             function()
 
     def recur(n: int):
-        """Recursion O(n)"""
+        """Recursion has space complexity of O(n)"""
         if n == 1:
             return
         return recur(n - 1)
@@ -499,16 +548,16 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 
     ```cpp title=""
     int func() {
-        // Perform certain operations
+        // Perform some operations
         return 0;
     }
-    /* Cycle O(1) */
+    /* Loop has space complexity of O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* Recursion O(n) */
+    /* Recursion has space complexity of O(n) */
     void recur(int n) {
         if (n == 1) return;
         recur(n - 1);
@@ -519,16 +568,16 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 
     ```java title=""
     int function() {
-        // Perform certain operations
+        // Perform some operations
         return 0;
     }
-    /* Cycle O(1) */
+    /* Loop has space complexity of O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             function();
         }
     }
-    /* Recursion O(n) */
+    /* Recursion has space complexity of O(n) */
     void recur(int n) {
         if (n == 1) return;
         recur(n - 1);
@@ -539,16 +588,16 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 
     ```csharp title=""
     int Function() {
-        // Perform certain operations
+        // Perform some operations
         return 0;
     }
-    /* Cycle O(1) */
+    /* Loop has space complexity of O(1) */
     void Loop(int n) {
         for (int i = 0; i < n; i++) {
             Function();
         }
     }
-    /* Recursion O(n) */
+    /* Recursion has space complexity of O(n) */
     int Recur(int n) {
         if (n == 1) return 1;
         return Recur(n - 1);
@@ -559,18 +608,18 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 
     ```go title=""
     func function() int {
-        // Perform certain operations
+        // Perform some operations
         return 0
     }
-   
-    /* Cycle O(1) */
+
+    /* Loop has space complexity of O(1) */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
-   
-    /* Recursion O(n) */
+
+    /* Recursion has space complexity of O(n) */
     func recur(n int) {
         if n == 1 {
             return
@@ -584,18 +633,18 @@ Consider the following code, the term "worst-case" in worst-case space complexit
     ```swift title=""
     @discardableResult
     func function() -> Int {
-        // Perform certain operations
+        // Perform some operations
         return 0
     }
 
-    /* Cycle O(1) */
+    /* Loop has space complexity of O(1) */
     func loop(n: Int) {
         for _ in 0 ..< n {
             function()
         }
     }
 
-    /* Recursion O(n) */
+    /* Recursion has space complexity of O(n) */
     func recur(n: Int) {
         if n == 1 {
             return
@@ -608,16 +657,16 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 
     ```javascript title=""
     function constFunc() {
-        // Perform certain operations
+        // Perform some operations
         return 0;
     }
-    /* Cycle O(1) */
+    /* Loop has space complexity of O(1) */
     function loop(n) {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* Recursion O(n) */
+    /* Recursion has space complexity of O(n) */
     function recur(n) {
         if (n === 1) return;
         return recur(n - 1);
@@ -628,16 +677,16 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 
     ```typescript title=""
     function constFunc(): number {
-        // Perform certain operations
+        // Perform some operations
         return 0;
     }
-    /* Cycle O(1) */
+    /* Loop has space complexity of O(1) */
     function loop(n: number): void {
         for (let i = 0; i < n; i++) {
             constFunc();
         }
     }
-    /* Recursion O(n) */
+    /* Recursion has space complexity of O(n) */
     function recur(n: number): void {
         if (n === 1) return;
         return recur(n - 1);
@@ -648,16 +697,16 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 
     ```dart title=""
     int function() {
-      // Perform certain operations
+      // Perform some operations
       return 0;
     }
-    /* Cycle O(1) */
+    /* Loop has space complexity of O(1) */
     void loop(int n) {
       for (int i = 0; i < n; i++) {
         function();
       }
     }
-    /* Recursion O(n) */
+    /* Recursion has space complexity of O(n) */
     void recur(int n) {
       if (n == 1) return;
       recur(n - 1);
@@ -668,17 +717,17 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 
     ```rust title=""
     fn function() -> i32 {
-        // Perform certain operations
+        // Perform some operations
         return 0;
     }
-    /* Cycle O(1) */
+    /* Loop has space complexity of O(1) */
     fn loop(n: i32) {
         for i in 0..n {
             function();
         }
     }
-    /* Recursion O(n) */
-    void recur(n: i32) {
+    /* Recursion has space complexity of O(n) */
+    fn recur(n: i32) {
         if n == 1 {
             return;
         }
@@ -690,16 +739,16 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 
     ```c title=""
     int func() {
-        // Perform certain operations
+        // Perform some operations
         return 0;
     }
-    /* Cycle O(1) */
+    /* Loop has space complexity of O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             func();
         }
     }
-    /* Recursion O(n) */
+    /* Recursion has space complexity of O(n) */
     void recur(int n) {
         if (n == 1) return;
         recur(n - 1);
@@ -709,44 +758,72 @@ Consider the following code, the term "worst-case" in worst-case space complexit
 === "Kotlin"
 
     ```kotlin title=""
-
+    fun function(): Int {
+        // Perform some operations
+        return 0
+    }
+    /* Loop has space complexity of O(1) */
+    fun loop(n: Int) {
+        for (i in 0..<n) {
+            function()
+        }
+    }
+    /* Recursion has space complexity of O(n) */
+    fun recur(n: Int) {
+        if (n == 1) return
+        return recur(n - 1)
+    }
     ```
 
-=== "Zig"
+=== "Ruby"
 
-    ```zig title=""
+    ```ruby title=""
+    def function
+        # Perform some operations
+        0
+    end
 
+    ### Loop has space complexity of O(1) ###
+    def loop(n)
+        (0...n).each { function }
+    end
+
+    ### Recursion has space complexity of O(n) ###
+    def recur(n)
+        return if n == 1
+        recur(n - 1)
+    end
     ```
 
-The time complexity of both `loop()` and `recur()` functions is $O(n)$, but their space complexities differ.
+The time complexity of both functions `loop()` and `recur()` is $O(n)$, but their space complexities are different.
 
-- The `loop()` function calls `function()` $n$ times in a loop, where each iteration's `function()` returns and releases its stack frame space, so the space complexity remains $O(1)$.
-- The recursive function `recur()` will have $n$ instances of unreturned `recur()` existing simultaneously during its execution, thus occupying $O(n)$ stack frame space.
+- The function `loop()` calls `function()` $n$ times in a loop. In each iteration, `function()` returns and releases its stack frame space, so the space complexity remains $O(1)$.
+- The recursive function `recur()` has $n$ unreturned `recur()` instances existing simultaneously during execution, thus occupying $O(n)$ stack frame space.
 
-## Common types
+## Common Types
 
-Let the size of the input data be $n$, the figure below displays common types of space complexities (arranged from low to high).
+Let the input data size be $n$. The following figure shows common types of space complexity (arranged from low to high).
 
 $$
 \begin{aligned}
-& O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
-& \text{Constant} < \text{Logarithmic} < \text{Linear} < \text{Quadratic} < \text{Exponential}
+O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
+\text{Constant} < \text{Logarithmic} < \text{Linear} < \text{Quadratic} < \text{Exponential}
 \end{aligned}
 $$
 
 ![Common types of space complexity](space_complexity.assets/space_complexity_common_types.png)
 
-### Constant order $O(1)$
+### Constant Order $O(1)$
 
-Constant order is common in constants, variables, objects that are independent of the size of input data $n$.
+Constant order is common in constants, variables, and objects whose quantity is independent of the input data size $n$.
 
-Note that memory occupied by initializing variables or calling functions in a loop, which is released upon entering the next cycle, does not accumulate over space, thus the space complexity remains $O(1)$:
+It should be noted that memory occupied by initializing variables or calling functions in a loop is released when entering the next iteration, so it does not accumulate space, and the space complexity remains $O(1)$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{constant}
 ```
 
-### Linear order $O(n)$
+### Linear Order $O(n)$
 
 Linear order is common in arrays, linked lists, stacks, queues, etc., where the number of elements is proportional to $n$:
 
@@ -754,50 +831,50 @@ Linear order is common in arrays, linked lists, stacks, queues, etc., where the 
 [file]{space_complexity}-[class]{}-[func]{linear}
 ```
 
-As shown in the figure below, this function's recursive depth is $n$, meaning there are $n$ instances of unreturned `linear_recur()` function, using $O(n)$ size of stack frame space:
+As shown in the following figure, the recursion depth of this function is $n$, meaning that there are $n$ unreturned `linear_recur()` functions existing simultaneously, using $O(n)$ stack frame space:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{linear_recur}
 ```
 
-![Recursive function generating linear order space complexity](space_complexity.assets/space_complexity_recursive_linear.png)
+![Linear order space complexity generated by recursive function](space_complexity.assets/space_complexity_recursive_linear.png)
 
-### Quadratic order $O(n^2)$
+### Quadratic Order $O(n^2)$
 
-Quadratic order is common in matrices and graphs, where the number of elements is quadratic to $n$:
+Quadratic order is common in matrices and graphs, where the number of elements is quadratically related to $n$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic}
 ```
 
-As shown in the figure below, the recursive depth of this function is $n$, and in each recursive call, an array is initialized with lengths $n$, $n-1$, $\dots$, $2$, $1$, averaging $n/2$, thus overall occupying $O(n^2)$ space:
+As shown in the following figure, the recursion depth of this function is $n$, and an array is initialized in each recursive function with lengths of $n$, $n-1$, $\dots$, $2$, $1$, with an average length of $n / 2$, thus occupying $O(n^2)$ space overall:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
 ```
 
-![Recursive function generating quadratic order space complexity](space_complexity.assets/space_complexity_recursive_quadratic.png)
+![Quadratic order space complexity generated by recursive function](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
-### Exponential order $O(2^n)$
+### Exponential Order $O(2^n)$
 
-Exponential order is common in binary trees. Observe the figure below, a "full binary tree" with $n$ levels has $2^n - 1$ nodes, occupying $O(2^n)$ space:
+Exponential order is common in binary trees. Observe the following figure: a "full binary tree" with $n$ levels has $2^n - 1$ nodes, occupying $O(2^n)$ space:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{build_tree}
 ```
 
-![Full binary tree generating exponential order space complexity](space_complexity.assets/space_complexity_exponential.png)
+![Exponential order space complexity generated by full binary tree](space_complexity.assets/space_complexity_exponential.png)
 
-### Logarithmic order $O(\log n)$
+### Logarithmic Order $O(\log n)$
 
-Logarithmic order is common in divide-and-conquer algorithms. For example, in merge sort, an array of length $n$ is recursively divided in half each round, forming a recursion tree of height $\log n$, using $O(\log n)$ stack frame space.
+Logarithmic order is common in divide-and-conquer algorithms. For example, merge sort: given an input array of length $n$, each recursion divides the array in half from the midpoint, forming a recursion tree of height $\log n$, using $O(\log n)$ stack frame space.
 
-Another example is converting a number to a string. Given a positive integer $n$, its number of digits is $\log_{10} n + 1$, corresponding to the length of the string, thus the space complexity is $O(\log_{10} n + 1) = O(\log n)$.
+Another example is converting a number to a string. Given a positive integer $n$, it has $\lfloor \log_{10} n \rfloor + 1$ digits, i.e., the corresponding string length is $\lfloor \log_{10} n \rfloor + 1$, so the space complexity is $O(\log_{10} n + 1) = O(\log n)$.
 
-## Balancing time and space
+## Trading Time for Space
 
-Ideally, we aim for both time complexity and space complexity to be optimal. However, in practice, optimizing both simultaneously is often difficult.
+Ideally, we hope that both the time complexity and space complexity of an algorithm can reach optimal. However, in practice, optimizing both time complexity and space complexity simultaneously is usually very difficult.
 
-**Lowering time complexity usually comes at the cost of increased space complexity, and vice versa**. The approach of sacrificing memory space to improve algorithm speed is known as "space-time tradeoff"; the reverse is known as "time-space tradeoff".
+**Reducing time complexity usually comes at the cost of increasing space complexity, and vice versa**. The approach of sacrificing memory space to improve algorithm execution speed is called "trading space for time"; conversely, it is called "trading time for space".
 
-The choice depends on which aspect we value more. In most cases, time is more precious than space, so "space-time tradeoff" is often the more common strategy. Of course, controlling space complexity is also very important when dealing with large volumes of data.
+The choice of which approach depends on which aspect we value more. In most cases, time is more precious than space, so "trading space for time" is usually the more common strategy. Of course, when the data volume is very large, controlling space complexity is also very important.

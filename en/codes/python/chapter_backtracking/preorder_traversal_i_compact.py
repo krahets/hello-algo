@@ -12,7 +12,7 @@ from modules import TreeNode, print_tree, list_to_tree
 
 
 def pre_order(root: TreeNode):
-    """Pre-order traversal: Example one"""
+    """Preorder traversal: Example 1"""
     if root is None:
         return
     if root.val == 7:
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     print("\nInitialize binary tree")
     print_tree(root)
 
-    # Pre-order traversal
+    # Preorder traversal
     res = list[TreeNode]()
     pre_order(root)
 

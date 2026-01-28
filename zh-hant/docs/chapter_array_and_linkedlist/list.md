@@ -147,15 +147,6 @@
     nums = [1, 3, 2, 5, 4]
     ```
 
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 初始化串列
-    var nums = std.ArrayList(i32).init(std.heap.page_allocator);
-    defer nums.deinit();
-    try nums.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
-    ```
-
 ??? pythontutor "視覺化執行"
 
     https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20%23%20%E7%84%A1%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
@@ -285,16 +276,6 @@
     num = nums[1] # 訪問索引 1 處的元素
     # 更新元素
     nums[1] = 0 # 將索引 1 處的元素更新為 0
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 訪問元素
-    var num = nums.items[1]; // 訪問索引 1 處的元素
-
-    // 更新元素
-    nums.items[1] = 0; // 將索引 1 處的元素更新為 0
     ```
 
 ??? pythontutor "視覺化執行"
@@ -551,26 +532,6 @@
     nums.delete_at(3) # 刪除索引 3 處的元素
     ```
 
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 清空串列
-    nums.clearRetainingCapacity();
-
-    // 在尾部新增元素
-    try nums.append(1);
-    try nums.append(3);
-    try nums.append(2);
-    try nums.append(5);
-    try nums.append(4);
-
-    // 在中間插入元素
-    try nums.insert(3, 6); // 在索引 3 處插入數字 6
-
-    // 刪除元素
-    _ = nums.orderedRemove(3); // 刪除索引 3 處的元素
-    ```
-
 ??? pythontutor "視覺化執行"
 
     https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B8%85%E7%A9%BA%E4%B8%B2%E5%88%97%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E5%B0%BE%E9%83%A8%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%9C%A8%E4%B8%AD%E9%96%93%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.insert%283%2C%206%29%20%20%23%20%E5%9C%A8%E7%B4%A2%E5%BC%95%203%20%E8%99%95%E6%8F%92%E5%85%A5%E6%95%B8%E5%AD%97%206%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E5%85%83%E7%B4%A0%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E7%B4%A2%E5%BC%95%203%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
@@ -772,23 +733,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 透過索引走訪串列
-    var count: i32 = 0;
-    var i: i32 = 0;
-    while (i < nums.items.len) : (i += 1) {
-        count += nums[i];
-    }
-
-    // 直接走訪串列元素
-    count = 0;
-    for (nums.items) |num| {
-        count += num;
-    }
-    ```
-
 ??? pythontutor "視覺化執行"
 
     https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%8F%E9%81%8E%E7%B4%A2%E5%BC%95%E8%B5%B0%E8%A8%AA%E4%B8%B2%E5%88%97%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E7%9B%B4%E6%8E%A5%E8%B5%B0%E8%A8%AA%E4%B8%B2%E5%88%97%E5%85%83%E7%B4%A0%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
@@ -900,16 +844,6 @@
     nums += nums1
     ```
 
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 拼接兩個串列
-    var nums1 = std.ArrayList(i32).init(std.heap.page_allocator);
-    defer nums1.deinit();
-    try nums1.appendSlice(&[_]i32{ 6, 8, 7, 10, 9 });
-    try nums.insertSlice(nums.items.len, nums1.items); // 將串列 nums1 拼接到 nums 之後
-    ```
-
 ??? pythontutor "視覺化執行"
 
     https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%8B%BC%E6%8E%A5%E5%85%A9%E5%80%8B%E4%B8%B2%E5%88%97%0A%20%20%20%20nums1%20%3D%20%5B6%2C%208%2C%207%2C%2010%2C%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20%E5%B0%87%E4%B8%B2%E5%88%97%20nums1%20%E6%8B%BC%E6%8E%A5%E5%88%B0%20nums%20%E4%B9%8B%E5%BE%8C&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
@@ -1006,13 +940,6 @@
     ```ruby title="list.rb"
     # 排序串列
     nums = nums.sort { |a, b| a <=> b } # 排序後，串列元素從小到大排列
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 排序串列
-    std.sort.sort(i32, nums.items, {}, comptime std.sort.asc(i32));
     ```
 
 ??? pythontutor "視覺化執行"

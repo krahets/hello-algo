@@ -15,24 +15,24 @@ from graph_adjacency_list import GraphAdjList
 
 def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     """Breadth-first traversal"""
-    # Use adjacency list to represent the graph, to obtain all adjacent vertices of a specified vertex
+    # Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
     # Vertex traversal sequence
     res = []
-    # Hash set, used to record visited vertices
+    # Hash set for recording vertices that have been visited
     visited = set[Vertex]([start_vet])
     # Queue used to implement BFS
     que = deque[Vertex]([start_vet])
     # Starting from vertex vet, loop until all vertices are visited
     while len(que) > 0:
-        vet = que.popleft()  # Dequeue the vertex at the head of the queue
+        vet = que.popleft()  # Dequeue the front vertex
         res.append(vet)  # Record visited vertex
-        # Traverse all adjacent vertices of that vertex
+        # Traverse all adjacent vertices of this vertex
         for adj_vet in graph.adj_list[vet]:
             if adj_vet in visited:
-                continue  # Skip already visited vertices
+                continue  # Skip vertices that have been visited
             que.append(adj_vet)  # Only enqueue unvisited vertices
-            visited.add(adj_vet)  # Mark the vertex as visited
-    # Return the vertex traversal sequence
+            visited.add(adj_vet)  # Mark this vertex as visited
+    # Return vertex traversal sequence
     return res
 
 

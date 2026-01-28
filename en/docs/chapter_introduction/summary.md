@@ -1,22 +1,24 @@
 # Summary
 
-- Algorithms are ubiquitous in daily life and are not as inaccessible and complex as they might seem. In fact, we have already unconsciously learned many algorithms to solve various problems in life.
-- The principle of looking up a word in a dictionary is consistent with the binary search algorithm. The binary search algorithm embodies the important algorithmic concept of divide and conquer.
-- The process of organizing playing cards is very similar to the insertion sort algorithm. The insertion sort algorithm is suitable for sorting small datasets.
-- The steps of making change in currency essentially follow the greedy algorithm, where each step involves making the best possible choice at the moment.
-- An algorithm is a set of step-by-step instructions for solving a specific problem within a finite time, while a data structure defines how data is organized and stored in a computer.
-- Data structures and algorithms are closely linked. Data structures are the foundation of algorithms, and algorithms are the stage to utilize the functions of data structures.
-- We can compare data structures and algorithms to assembling building blocks. The blocks represent data, the shape and connection method of the blocks represent data structures, and the steps of assembling the blocks correspond to algorithms.
+### Key Review
+
+- Algorithms are ubiquitous in daily life and are not distant, esoteric knowledge. In fact, we have already learned many algorithms unconsciously and use them to solve problems big and small in life.
+- The principle of looking up a dictionary is consistent with the binary search algorithm. Binary search embodies the important algorithmic idea of divide and conquer.
+- The process of organizing playing cards is very similar to the insertion sort algorithm. Insertion sort is suitable for sorting small datasets.
+- The steps of making change are essentially a greedy algorithm, where the best choice is made at each step based on the current situation.
+- An algorithm is a set of instructions or operational steps that solves a specific problem within a finite amount of time, while a data structure is the way computers organize and store data.
+- Data structures and algorithms are closely connected. Data structures are the foundation of algorithms, and algorithms breathe life into data structures.
+- We can compare data structures and algorithms to assembling building blocks. The blocks represent data, the shape and connection method of the blocks represent the data structure, and the steps to assemble the blocks correspond to the algorithm.
 
 ### Q & A
 
-**Q**：As a programmer, I’ve rarely needed to implement algorithms manually in my daily work. Most commonly used algorithms are already built into programming languages and libraries, ready to use. Does this suggest that the problems we encounter in our work haven’t yet reached the level of complexity that demands custom algorithm design?
+**Q**: As a programmer, I have never used algorithms to solve problems in my daily work. Common algorithms are already encapsulated by programming languages and can be used directly. Does this mean that the problems in our work have not yet reached the level where algorithms are needed?
 
-If specific work skills are like the "moves" in martial arts, then fundamental subjects are more like "internal strength".
+If we compare specific work skills to "techniques" in martial arts, then fundamental subjects should be more like "internal skills".
 
-I believe the significance of learning algorithms (and other fundamental subjects) isn’t necessarily to implement them from scratch at work, but to enable more professional decision-making and problem-solving based on a solid understanding of the concepts. This, in turn, raises the overall quality of our work. For example, every programming language provides a built-in sorting function:
+I believe the significance of learning algorithms (and other fundamental subjects) is not to implement them from scratch at work, but rather to be able to make professional reactions and judgments when solving problems based on the knowledge learned, thereby improving the overall quality of work. Here is a simple example. Every programming language has a built-in sorting function:
 
-- If we have not learned data structures and algorithms, then given any data, we might just give it to this sorting function. It runs smoothly, has good performance, and seems to have no problems.
-- However, if we’ve studied algorithms, we understand that the time complexity of a built-in sorting function is typically $O(n \log n)$. Moreover, if the data consists of integers with a fixed number of digits (such as student IDs), we can apply a more efficient approach like radix sort, reducing the time complexity to  O(nk) , where  k  is the number of digits. When handling large volumes of data, the time saved can turn into significant value — lowering costs, improving user experience, and enhancing system performance.
+- If we have not studied data structures and algorithms, we might simply feed any given data to this sorting function. It runs smoothly with good performance, and there doesn't seem to be any problem.
+- But if we have studied algorithms, we would know that the time complexity of the built-in sorting function is $O(n \log n)$. However, if the given data consists of integers with a fixed number of digits (such as student IDs), we can use the more efficient "radix sort", reducing the time complexity to $O(nk)$, where $k$ is the number of digits. When the data volume is very large, the saved running time can create significant value (reduced costs, improved experience, etc.).
 
-In engineering, many problems are difficult to solve optimally; most are addressed with ‘near-optimal’ solutions. The difficulty of a problem depends not only on its inherent complexity but also on the knowledge and experience of the person tackling it. The deeper one’s expertise and experience, the more thorough the analysis, and the more elegantly the problem can be solved.
+In the field of engineering, a large number of problems are difficult to reach optimal solutions, and many problems are only solved "approximately". The difficulty of a problem depends on one hand on the nature of the problem itself, and on the other hand on the knowledge reserve of the person observing the problem. The more complete a person's knowledge and the more experience they have, the deeper their analysis of the problem will be, and the more elegantly the problem can be solved.

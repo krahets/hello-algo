@@ -1,95 +1,95 @@
-# Permutation problem
+# Permutations Problem
 
-The permutation problem is a typical application of the backtracking algorithm. It involves finding all possible arrangements (permutations) of elements from a given set, such as an array or a string.
+The permutations problem is a classic application of backtracking algorithms. It is defined as finding all possible arrangements of elements in a given collection (such as an array or string).
 
-The table below shows several examples, including input arrays and their corresponding permutations.
+The table below shows several example datasets, including input arrays and their corresponding permutations.
 
-<p align="center"> Table <id> &nbsp; Permutation examples </p>
+<p align="center"> Table <id> &nbsp; Permutations Examples </p>
 
-| Input array | Permutations                                                       |
+| Input Array | All Permutations                                                   |
 | :---------- | :----------------------------------------------------------------- |
 | $[1]$       | $[1]$                                                              |
 | $[1, 2]$    | $[1, 2], [2, 1]$                                                   |
 | $[1, 2, 3]$ | $[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]$ |
 
-## Cases without duplicate elements
+## Case with Distinct Elements
 
 !!! question
 
     Given an integer array with no duplicate elements, return all possible permutations.
 
-From a backtracking perspective, **we can view the process of generating permutations as a series of choices.** Suppose the input array is $[1, 2, 3]$. If we choose $1$ first, then $3$, and finally $2$, we get the permutation $[1, 3, 2]$. "Backtracking" means undoing a previous choice and exploring alternative options.
+From the perspective of backtracking algorithms, **we can imagine the process of generating permutations as the result of a series of choices**. Suppose the input array is $[1, 2, 3]$. If we first choose $1$, then choose $3$, and finally choose $2$, we obtain the permutation $[1, 3, 2]$. Backtracking means undoing a choice and then trying other choices.
 
-From a coding perspective, the candidate set `choices` consists of all elements in the input array, while `state` holds the elements selected so far. Since each element can only be chosen once, **all elements in `state` must be unique**.
+From the perspective of backtracking code, the candidate set `choices` consists of all elements in the input array, and the state `state` is the elements that have been chosen so far. Note that each element can only be chosen once, **therefore all elements in `state` should be unique**.
 
-As illustrated in the figure below, we can expand the search process into a recursive tree, where each node represents the current `state`. Starting from the root node, after three rounds of selections, we reach the leaf nodes—each corresponding to a permutation.
+As shown in the figure below, we can unfold the search process into a recursion tree, where each node in the tree represents the current state `state`. Starting from the root node, after three rounds of choices, we reach a leaf node, and each leaf node corresponds to a permutation.
 
-![Permutation recursive tree](permutations_problem.assets/permutations_i.png)
+![Recursion tree of permutations](permutations_problem.assets/permutations_i.png)
 
-### Repeated-choice pruning
+### Pruning Duplicate Choices
 
-To ensure each element is selected only once, we introduce a boolean array `selected`, where `selected[i]` indicates whether `choices[i]` has been chosen. We then base our pruning steps on this array:
+To ensure that each element is chosen only once, we consider introducing a boolean array `selected`, where `selected[i]` indicates whether `choices[i]` has been chosen. We implement the following pruning operation based on it.
 
-- After choosing `choice[i]`, set `selected[i]` to $\text{True}$ to mark it as chosen.
-- While iterating through `choices`, skip all elements marked as chosen (i.e., prune those branches).
+- After making a choice `choice[i]`, we set `selected[i]` to $\text{True}$, indicating that it has been chosen.
+- When traversing the candidate list `choices`, we skip all nodes that have been chosen, which is pruning.
 
-As shown in the figure below, suppose we choose 1 in the first round, then 3 in the second round, and finally 2 in the third round. We need to prune the branch for element 1 in the second round and the branches for elements 1 and 3 in the third round.
+As shown in the figure below, suppose we choose $1$ in the first round, $3$ in the second round, and $2$ in the third round. Then we need to prune the branch of element $1$ in the second round and prune the branches of elements $1$ and $3$ in the third round.
 
-![Permutation pruning example](permutations_problem.assets/permutations_i_pruning.png)
+![Pruning example of permutations](permutations_problem.assets/permutations_i_pruning.png)
 
-From the figure, we can see that this pruning process reduces the search space from $O(n^n)$ to $O(n!)$.
+Observing the above figure, we find that this pruning operation reduces the search space size from $O(n^n)$ to $O(n!)$.
 
-### Code implementation
+### Code Implementation
 
-With this understanding, we can "fill in the blanks" of our framework code. To keep the overall code concise, we won’t implement each part of the framework separately but instead expand everything in the `backtrack()` function:
+After understanding the above information, we can fill in the blanks in the template code. To shorten the overall code, we do not implement each function in the template separately, but instead unfold them in the `backtrack()` function:
 
 ```src
 [file]{permutations_i}-[class]{}-[func]{permutations_i}
 ```
 
-## Considering duplicate elements
+## Case with Duplicate Elements
 
 !!! question
 
-    Given an integer array**that may contain duplicate elements**, return all unique permutations.
+    Given an integer array that **may contain duplicate elements**, return all unique permutations.
 
-Suppose the input array is $[1, 1, 2]$. To distinguish between the two identical elements $1$, we label the second one as $\hat{1}$.
+Suppose the input array is $[1, 1, 2]$. To distinguish the two duplicate elements $1$, we denote the second $1$ as $\hat{1}$.
 
-As shown in the figure below, half of the permutations produced by this method are duplicates:
+As shown in the figure below, the method described above generates permutations where half are duplicates.
 
 ![Duplicate permutations](permutations_problem.assets/permutations_ii.png)
 
-So how can we eliminate these duplicate permutations? One direct approach is to use a hash set to remove duplicates after generating all permutations. However, this is less elegant **because branches that produce duplicates are inherently unnecessary and should be pruned in advance,** thus improving the algorithm’s efficiency.
+So how do we remove duplicate permutations? The most direct approach is to use a hash set to directly deduplicate the permutation results. However, this is not elegant because **the search branches that generate duplicate permutations are unnecessary and should be identified and pruned early**, which can further improve algorithm efficiency.
 
-### Equal-element pruning
+### Pruning Duplicate Elements
 
-Looking at the figure below, in the first round, choosing $1$ or $\hat{1}$ leads to the same permutations, so we prune $\hat{1}$.
+Observe the figure below. In the first round, choosing $1$ or choosing $\hat{1}$ is equivalent. All permutations generated under these two choices are duplicates. Therefore, we should prune $\hat{1}$.
 
-Similarly, after choosing $2$ in the first round, choosing $1$ or $\hat{1}$ in the second round also leads to duplicate branches, so we prune $\hat{1}$ then as well.
+Similarly, after choosing $2$ in the first round, the $1$ and $\hat{1}$ in the second round also produce duplicate branches, so the second round's $\hat{1}$ should also be pruned.
 
-Essentially, **our goal is to ensure that multiple identical elements are only selected once per round of choices.**
+Essentially, **our goal is to ensure that multiple equal elements are chosen only once in a certain round of choices**.
 
-![Duplicate permutations pruning](permutations_problem.assets/permutations_ii_pruning.png)
+![Pruning duplicate permutations](permutations_problem.assets/permutations_ii_pruning.png)
 
-### Code implementation
+### Code Implementation
 
-Based on the code from the previous problem, we introduce a hash set `duplicated` in each round. This set keeps track of elements we have already attempted, so we can prune duplicates:
+Building on the code from the previous problem, we consider opening a hash set `duplicated` in each round of choices to record which elements have been tried in this round, and prune duplicate elements:
 
 ```src
 [file]{permutations_ii}-[class]{}-[func]{permutations_ii}
 ```
 
-Assuming all elements are distinct, there are $n!$ (factorial) permutations of $n$ elements. Recording each result requires copying a list of length $n$, which takes $O(n)$ time. **Hence, the total time complexity is $O(n!n)$.**
+Assuming elements are pairwise distinct, there are $n!$ (factorial) permutations of $n$ elements. When recording results, we need to copy a list of length $n$, using $O(n)$ time. **Therefore, the time complexity is $O(n! \cdot n)$**.
 
-The maximum recursion depth is $n$, using $O(n)$ stack space. The `selected` array also requires $O(n)$ space. Because there can be up to $n$ separate `duplicated` sets at any one time, they collectively occupy $O(n^2)$ space. **Therefore, the space complexity is $O(n^2)$.**
+The maximum recursion depth is $n$, using $O(n)$ stack frame space. `selected` uses $O(n)$ space. At most $n$ `duplicated` sets exist simultaneously, using $O(n^2)$ space. **Therefore, the space complexity is $O(n^2)$**.
 
-### Comparing the two pruning methods
+### Comparison of Two Pruning Methods
 
-Although both `selected` and `duplicated` serve as pruning mechanisms, they target different issues:
+Note that although both `selected` and `duplicated` are used for pruning, they have different objectives.
 
-- **Repeated-choice pruning**(via `selected`): There is a single `selected` array for the entire search, indicating which elements are already in the current state. This prevents the same element from appearing more than once in `state`.
-- **Equal-element pruning**(via `duplicated`): Each call to the `backtrack` function uses its own `duplicated` set, recording which elements have already been chosen in that specific iteration (`for` loop). This ensures that equal elements are selected only once per round of choices.
+- **Pruning duplicate choices**: There is only one `selected` throughout the entire search process. It records which elements are included in the current state, and its purpose is to prevent an element from appearing repeatedly in `state`.
+- **Pruning duplicate elements**: Each round of choices (each `backtrack` function call) contains a `duplicated` set. It records which elements have been chosen in this round's iteration (the `for` loop), and its purpose is to ensure that equal elements are chosen only once.
 
-The figure below shows the scope of these two pruning strategies. Each node in the tree represents a choice; the path from the root to any leaf corresponds to one complete permutation.
+The figure below shows the effective scope of the two pruning conditions. Note that each node in the tree represents a choice, and the nodes on the path from the root to a leaf node form a permutation.
 
-![Scope of the two pruning conditions](permutations_problem.assets/permutations_ii_pruning_summary.png)
+![Effective scope of two pruning conditions](permutations_problem.assets/permutations_ii_pruning_summary.png)

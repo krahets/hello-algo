@@ -170,24 +170,6 @@
     data = [0, 0.0, 'a', false, ListNode(0)]
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    const hello = [5]u8{ 'h', 'e', 'l', 'l', 'o' };
-    // 以上程式碼展示了定義一個字面量陣列的方式，其中你可以選擇指明陣列的大小或者使用 _ 代替。使用 _ 時，Zig 會嘗試自動計算陣列的長度
-    
-    const matrix_4x4 = [4][4]f32{
-        [_]f32{ 1.0, 0.0, 0.0, 0.0 },
-        [_]f32{ 0.0, 1.0, 0.0, 1.0 },
-        [_]f32{ 0.0, 0.0, 1.0, 0.0 },
-        [_]f32{ 0.0, 0.0, 0.0, 1.0 },
-    };
-    // 多維陣列（矩陣）實際上就是巢狀陣列，我們很容易就可以建立一個多維陣列出來
-
-    const array = [_:0]u8{ 1, 2, 3, 4 };
-    // 定義一個哨兵終止陣列，本質上來說，這是為了相容 C 中的規定的字串結尾字元\0。我們使用語法 [N:x]T 來描述一個元素為型別 T，長度為 N 的陣列，在它對應 N 的索引處的值應該是 x
-    ```
-
 ??? pythontutor "視覺化執行"
 
     https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B9%BC%E7%AF%80%E9%BB%9E%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%A8%AE%E5%9F%BA%E6%9C%AC%E8%B3%87%E6%96%99%E5%9E%8B%E5%88%A5%E4%BE%86%E5%88%9D%E5%A7%8B%E5%8C%96%E9%99%A3%E5%88%97%0A%20%20%20%20numbers%20%3D%20%5B0%5D%20%2A%205%0A%20%20%20%20decimals%20%3D%20%5B0.0%5D%20%2A%205%0A%20%20%20%20%23%20Python%20%E7%9A%84%E5%AD%97%E5%85%83%E5%AF%A6%E9%9A%9B%E4%B8%8A%E6%98%AF%E9%95%B7%E5%BA%A6%E7%82%BA%201%20%E7%9A%84%E5%AD%97%E4%B8%B2%0A%20%20%20%20characters%20%3D%20%5B%270%27%5D%20%2A%205%0A%20%20%20%20bools%20%3D%20%5BFalse%5D%20%2A%205%0A%20%20%20%20%23%20Python%20%E7%9A%84%E4%B8%B2%E5%88%97%E5%8F%AF%E4%BB%A5%E8%87%AA%E7%94%B1%E5%84%B2%E5%AD%98%E5%90%84%E7%A8%AE%E5%9F%BA%E6%9C%AC%E8%B3%87%E6%96%99%E5%9E%8B%E5%88%A5%E5%92%8C%E7%89%A9%E4%BB%B6%E5%BC%95%E7%94%A8%0A%20%20%20%20data%20%3D%20%5B0%2C%200.0%2C%20%27a%27%2C%20False%2C%20ListNode%280%29%5D&cumulative=false&curInstr=12&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* Memoized search */
+/* Memoization search */
 int dfs(int i, vector<int> &mem) {
     // Known dp[1] and dp[2], return them
     if (i == 1 || i == 2)
         return i;
-    // If there is a record for dp[i], return it
+    // If record dp[i] exists, return it directly
     if (mem[i] != -1)
         return mem[i];
     // dp[i] = dp[i-1] + dp[i-2]
@@ -21,9 +21,9 @@ int dfs(int i, vector<int> &mem) {
     return count;
 }
 
-/* Climbing stairs: Memoized search */
+/* Climbing stairs: Memoization search */
 int climbingStairsDFSMem(int n) {
-    // mem[i] records the total number of solutions for climbing to the ith step, -1 means no record
+    // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
     vector<int> mem(n + 1, -1);
     return dfs(n, mem);
 }
@@ -33,7 +33,7 @@ int main() {
     int n = 9;
 
     int res = climbingStairsDFSMem(n);
-    cout << "There are " << res << " solutions to climb " << n << " stairs" << endl;
+    cout << "Climbing " << n << " stairs has " << res << " solutions" << endl;
 
     return 0;
 }

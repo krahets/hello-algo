@@ -199,7 +199,7 @@ template <typename T> void printDeque(deque<T> deque) {
 }
 
 /* Print hash table */
-// Define template parameters TKey and TValue to specify the types of key-value pairs
+// Define template parameters TKey and TValue to specify key-value pair types
 template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, TValue> map) {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';
@@ -216,12 +216,12 @@ template <typename T, typename S, typename C> S &Container(priority_queue<T, S, 
     return HackedQueue::Container(pq);
 }
 
-/* Print heap (Priority queue) */
+/* Print heap (priority queue) */
 template <typename T, typename S, typename C> void printHeap(priority_queue<T, S, C> &heap) {
     vector<T> vec = Container(heap);
-    cout << "Array representation of the heap:";
+    cout << "Heap array representation:";
     printVector(vec);
-    cout << "Tree representation of the heap:" << endl;
+    cout << "Heap tree representation:" << endl;
     TreeNode *root = vectorToTree(vec);
     printTree(root);
     freeMemoryTree(root);

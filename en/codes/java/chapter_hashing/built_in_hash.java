@@ -13,26 +13,26 @@ public class built_in_hash {
     public static void main(String[] args) {
         int num = 3;
         int hashNum = Integer.hashCode(num);
-        System.out.println("The hash value of integer " + num + " is " + hashNum);
+        System.out.println("Hash value of integer " + num + " is " + hashNum);
 
         boolean bol = true;
         int hashBol = Boolean.hashCode(bol);
-        System.out.println("The hash value of boolean " + bol + " is " + hashBol);
+        System.out.println("Hash value of boolean " + bol + " is " + hashBol);
 
         double dec = 3.14159;
         int hashDec = Double.hashCode(dec);
-        System.out.println("The hash value of decimal " + dec + " is " + hashDec);
+        System.out.println("Hash value of decimal " + dec + " is " + hashDec);
 
-        String str = "Hello algorithm";
+        String str = "Hello Algo";
         int hashStr = str.hashCode();
-        System.out.println("The hash value of string " + str + " is " + hashStr);
+        System.out.println("Hash value of string " + str + " is " + hashStr);
 
-        Object[] arr = { 12836, "Ha" };
+        Object[] arr = { 12836, "Xiao Ha" };
         int hashTup = Arrays.hashCode(arr);
-        System.out.println("The hash value of array " + Arrays.toString(arr) + " is " + hashTup);
+        System.out.println("Hash value of array " + Arrays.toString(arr) + " is " + hashTup);
 
         ListNode obj = new ListNode(0);
         int hashObj = obj.hashCode();
-        System.out.println("The hash value of node object " + obj + " is " + hashObj);
+        System.out.println("Hash value of node object " + obj + " is " + hashObj);
     }
 }

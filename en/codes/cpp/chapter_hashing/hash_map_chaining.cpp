@@ -6,7 +6,7 @@
 
 #include "./array_hash_map.cpp"
 
-/* Chained address hash table */
+/* Hash table with separate chaining */
 class HashMapChaining {
   private:
     int size;                       // Number of key-value pairs
@@ -44,31 +44,31 @@ class HashMapChaining {
     /* Query operation */
     string get(int key) {
         int index = hashFunc(key);
-        // Traverse the bucket, if the key is found, return the corresponding val
+        // Traverse bucket, if key is found, return corresponding val
         for (Pair *pair : buckets[index]) {
             if (pair->key == key) {
                 return pair->val;
             }
         }
-        // If key not found, return an empty string
+        // Return empty string if key not found
         return "";
     }
 
     /* Add operation */
     void put(int key, string val) {
-        // When the load factor exceeds the threshold, perform expansion
+        // When load factor exceeds threshold, perform expansion
         if (loadFactor() > loadThres) {
             extend();
         }
         int index = hashFunc(key);
-        // Traverse the bucket, if the specified key is encountered, update the corresponding val and return
+        // Traverse bucket, if specified key is encountered, update corresponding val and return
         for (Pair *pair : buckets[index]) {
             if (pair->key == key) {
                 pair->val = val;
                 return;
             }
         }
-        // If the key is not found, add the key-value pair to the end
+        // If key does not exist, append key-value pair to the end
         buckets[index].push_back(new Pair(key, val));
         size++;
     }
@@ -77,11 +77,11 @@ class HashMapChaining {
     void remove(int key) {
         int index = hashFunc(key);
         auto &bucket = buckets[index];
-        // Traverse the bucket, remove the key-value pair from it
+        // Traverse bucket and remove key-value pair from it
         for (int i = 0; i < bucket.size(); i++) {
             if (bucket[i]->key == key) {
                 Pair *tmp = bucket[i];
-                bucket.erase(bucket.begin() + i); // Remove key-value pair
+                bucket.erase(bucket.begin() + i); // Remove key-value pair from it
                 delete tmp;                       // Free memory
                 size--;
                 return;
@@ -89,16 +89,16 @@ class HashMapChaining {
         }
     }
 
-    /* Extend hash table */
+    /* Expand hash table */
     void extend() {
         // Temporarily store the original hash table
         vector<vector<Pair *>> bucketsTmp = buckets;
-        // Initialize the extended new hash table
+        // Initialize expanded new hash table
         capacity *= extendRatio;
         buckets.clear();
         buckets.resize(capacity);
         size = 0;
-        // Move key-value pairs from the original hash table to the new hash table
+        // Move key-value pairs from original hash table to new hash table
         for (auto &bucket : bucketsTmp) {
             for (Pair *pair : bucket) {
                 put(pair->key, pair->val);
@@ -127,23 +127,23 @@ int main() {
 
     /* Add operation */
     // Add key-value pair (key, value) to the hash table
-    map.put(12836, "Ha");
-    map.put(15937, "Luo");
-    map.put(16750, "Suan");
-    map.put(13276, "Fa");
-    map.put(10583, "Ya");
-    cout << "\nAfter adding, the hash table is\nKey -> Value" << endl;
+    map.put(12836, "Xiao Ha");
+    map.put(15937, "Xiao Luo");
+    map.put(16750, "Xiao Suan");
+    map.put(13276, "Xiao Fa");
+    map.put(10583, "Xiao Ya");
+    cout << "\nAfter adding is complete, hash table is\nKey -> Value" << endl;
     map.print();
 
     /* Query operation */
-    // Enter key to the hash table, get value
+    // Input key into hash table to get value
     string name = map.get(13276);
-    cout << "\nEnter student ID 13276, found name " << name << endl;
+    cout << "\nInput student ID 13276, query name " << name << endl;
 
     /* Remove operation */
-    // Remove key-value pair (key, value) from the hash table
+    // Remove key-value pair (key, value) from hash table
     map.remove(12836);
-    cout << "\nAfter removing 12836, the hash table is\nKey -> Value" << endl;
+    cout << "\nAfter removing 12836, hash table is\nKey -> Value" << endl;
     map.print();
 
     return 0;

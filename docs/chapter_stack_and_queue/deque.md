@@ -383,12 +383,6 @@
     is_empty = size.zero?
     ```
 
-=== "Zig"
-
-    ```zig title="deque.zig"
-
-    ```
-
 === "Lua"
 
     ```lua title="deque.lua"

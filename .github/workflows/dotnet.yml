@@ -5,11 +5,15 @@ name: .NET
 
 on:
   push:
-    branches: [ "main" ]
-    paths: ["codes/csharp/**/*.cs"]
+    branches: ["main"]
+    paths:
+      - "codes/csharp/**/*.cs"
+      - "en/codes/csharp/**/*.cs"
   pull_request:
-    branches: [ "main" ]
-    paths: ["codes/csharp/**/*.cs"]
+    branches: ["main"]
+    paths:
+      - "codes/csharp/**/*.cs"
+      - "en/codes/csharp/**/*.cs"
   workflow_dispatch:
 
 jobs:
@@ -18,22 +22,23 @@ jobs:
     runs-on: ${{ matrix.os }}
     defaults:
       run:
-        working-directory: codes/csharp/
+        working-directory: ${{ matrix.code-dir }}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         dotnet-version: ["8.0.x"]
+        code-dir: ["codes/csharp", "en/codes/csharp"]
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Setup .NET ${{ matrix.dotnet-version }}
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: ${{ matrix.dotnet-version }}
-    - name: Restore dependencies
-      run: dotnet restore hello-algo.csproj
-    - name: Build
-      run: dotnet build --no-restore hello-algo.csproj
-    - name: Test with dotnet
-      run: dotnet test hello-algo.csproj
+      - name: Setup .NET ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Restore dependencies
+        run: dotnet restore hello-algo.csproj
+      - name: Build
+        run: dotnet build --no-restore hello-algo.csproj
+      - name: Test with dotnet
+        run: dotnet test hello-algo.csproj

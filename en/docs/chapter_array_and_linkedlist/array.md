@@ -1,14 +1,14 @@
 # Array
 
-An <u>array</u> is a linear data structure that operates as a lineup of similar items, stored together in a computer's memory in contiguous spaces. It's like a sequence that maintains organized storage. Each item in this lineup has its unique 'spot' known as an <u>index</u>. Please refer to the figure below to observe how arrays work and grasp these key terms.
+An <u>array</u> is a linear data structure that stores elements of the same type in contiguous memory space. The position of an element in the array is called the element's <u>index</u>. The figure below illustrates the main concepts and storage method of arrays.
 
 ![Array definition and storage method](array.assets/array_definition.png)
 
-## Common operations on arrays
+## Common Array Operations
 
-### Initializing arrays
+### Initializing Arrays
 
-Arrays can be initialized in two ways depending on the needs: either without initial values or with specified initial values. When initial values are not specified, most programming languages will set the array elements to $0$:
+We can choose between two array initialization methods based on our needs: without initial values or with given initial values. When no initial values are specified, most programming languages will initialize array elements to $0$:
 
 === "Python"
 
@@ -25,7 +25,7 @@ Arrays can be initialized in two ways depending on the needs: either without ini
     // Stored on stack
     int arr[5];
     int nums[5] = { 1, 3, 2, 5, 4 };
-    // Stored on heap (manual memory release needed)
+    // Stored on heap (requires manual memory release)
     int* arr1 = new int[5];
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
@@ -51,9 +51,9 @@ Arrays can be initialized in two ways depending on the needs: either without ini
     ```go title="array.go"
     /* Initialize array */
     var arr [5]int
-    // In Go, specifying the length ([5]int) denotes an array, while not specifying it ([]int) denotes a slice.
-    // Since Go's arrays are designed to have compile-time fixed length, only constants can be used to specify the length.
-    // For convenience in implementing the extend() method, the Slice will be considered as an Array here.
+    // In Go, specifying length ([5]int) creates an array; not specifying length ([]int) creates a slice
+    // Since Go's arrays are designed to have their length determined at compile time, only constants can be used to specify the length
+    // For convenience in implementing the extend() method, slices are treated as arrays below
     nums := []int{1, 3, 2, 5, 4}
     ```
 
@@ -95,10 +95,10 @@ Arrays can be initialized in two ways depending on the needs: either without ini
     /* Initialize array */
     let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
     let slice: &[i32] = &[0; 5];
-    // In Rust, specifying the length ([i32; 5]) denotes an array, while not specifying it (&[i32]) denotes a slice.
-    // Since Rust's arrays are designed to have compile-time fixed length, only constants can be used to specify the length.
-    // Vectors are generally used as dynamic arrays in Rust.
-    // For convenience in implementing the extend() method, the vector will be considered as an array here.
+    // In Rust, specifying length ([i32; 5]) creates an array; not specifying length (&[i32]) creates a slice
+    // Since Rust's arrays are designed to have their length determined at compile time, only constants can be used to specify the length
+    // Vector is the type generally used as a dynamic array in Rust
+    // For convenience in implementing the extend() method, vectors are treated as arrays below
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
@@ -113,109 +113,115 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 === "Kotlin"
 
     ```kotlin title="array.kt"
-
+    /* Initialize array */
+    var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
+    var nums = intArrayOf(1, 3, 2, 5, 4)
     ```
 
-=== "Zig"
+=== "Ruby"
 
-    ```zig title="array.zig"
-    // Initialize array
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
+    ```ruby title="array.rb"
+    # Initialize array
+    arr = Array.new(5, 0)
+    nums = [1, 3, 2, 5, 4]
     ```
 
-### Accessing elements
+??? pythontutor "Code Visualization"
 
-Elements in an array are stored in contiguous memory spaces, making it simpler to compute each element's memory address. The formula shown in the Figure below aids in determining an element's memory address, utilizing the array's memory address (specifically, the first element's address) and the element's index. This computation streamlines direct access to the desired element.
+    https://pythontutor.com/render.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0Aarr%20%3D%20%5B0%5D%20*%205%20%20%23%20%5B%200,%200,%200,%200,%200%20%5D%0Anums%20%3D%20%5B1,%203,%202,%205,%204%5D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+
+### Accessing Elements
+
+Array elements are stored in contiguous memory space, which means calculating the memory address of array elements is very easy. Given the array's memory address (the memory address of the first element) and an element's index, we can use the formula shown in the figure below to calculate the element's memory address and directly access that element.
 
 ![Memory address calculation for array elements](array.assets/array_memory_location_calculation.png)
 
-As observed in the figure above, array indexing conventionally begins at $0$. While this might appear counterintuitive, considering counting usually starts at $1$, within the address calculation formula, **an index is essentially an offset from the memory address**. For the first element's address, this offset is $0$, validating its index as $0$.
+Observing the figure above, we find that the first element of an array has an index of $0$, which may seem counterintuitive since counting from $1$ would be more natural. However, from the perspective of the address calculation formula, **an index is essentially an offset from the memory address**. The address offset of the first element is $0$, so it is reasonable for its index to be $0$.
 
-Accessing elements in an array is highly efficient, allowing us to randomly access any element in $O(1)$ time.
+Accessing elements in an array is highly efficient; we can randomly access any element in the array in $O(1)$ time.
 
 ```src
 [file]{array}-[class]{}-[func]{random_access}
 ```
 
-### Inserting elements
+### Inserting Elements
 
-Array elements are tightly packed in memory, with no space available to accommodate additional data between them. As illustrated in the figure below, inserting an element in the middle of an array requires shifting all subsequent elements back by one position to create room for the new element.
+Array elements are stored "tightly adjacent" in memory, with no space between them to store any additional data. As shown in the figure below, if we want to insert an element in the middle of an array, we need to shift all elements after that position backward by one position, and then assign the value to that index.
 
-![Array element insertion example](array.assets/array_insert_element.png)
+![Example of inserting an element into an array](array.assets/array_insert_element.png)
 
-It's important to note that due to the fixed length of an array, inserting an element will unavoidably result in the loss of the last element in the array. Solutions to address this issue will be explored in the "List" chapter.
+It is worth noting that since the length of an array is fixed, inserting an element will inevitably cause the element at the end of the array to be "lost". We will leave the solution to this problem for discussion in the "List" chapter.
 
 ```src
 [file]{array}-[class]{}-[func]{insert}
 ```
 
-### Deleting elements
+### Removing Elements
 
-Similarly, as depicted in the figure below, to delete an element at index $i$, all elements following index $i$ must be moved forward by one position.
+Similarly, as shown in the figure below, to delete the element at index $i$, we need to shift all elements after index $i$ forward by one position.
 
-![Array element deletion example](array.assets/array_remove_element.png)
+![Example of removing an element from an array](array.assets/array_remove_element.png)
 
-Please note that after deletion, the former last element becomes "meaningless," hence requiring no specific modification.
+Note that after the deletion is complete, the original last element becomes "meaningless", so we do not need to specifically modify it.
 
 ```src
 [file]{array}-[class]{}-[func]{remove}
 ```
 
-In summary, the insertion and deletion operations in arrays present the following disadvantages:
+Overall, array insertion and deletion operations have the following drawbacks:
 
-- **High time complexity**: Both insertion and deletion in an array have an average time complexity of $O(n)$, where $n$ is the length of the array.
-- **Loss of elements**: Due to the fixed length of arrays, elements that exceed the array's capacity are lost during insertion.
-- **Waste of memory**: Initializing a longer array and utilizing only the front part results in "meaningless" end elements during insertion, leading to some wasted memory space.
+- **High time complexity**: The average time complexity for both insertion and deletion in arrays is $O(n)$, where $n$ is the length of the array.
+- **Loss of elements**: Since the length of an array is immutable, after inserting an element, elements that exceed the array's length will be lost.
+- **Memory waste**: We can initialize a relatively long array and only use the front portion, so that when inserting data, the lost elements at the end are "meaningless", but this causes some memory space to be wasted.
 
-### Traversing arrays
+### Traversing Arrays
 
-In most programming languages, we can traverse an array either by using indices or by directly iterating over each element:
+In most programming languages, we can traverse an array either by index or by directly iterating through each element in the array:
 
 ```src
 [file]{array}-[class]{}-[func]{traverse}
 ```
 
-### Finding elements
+### Finding Elements
 
-Locating a specific element within an array involves iterating through the array, checking each element to determine if it matches the desired value.
+Finding a specified element in an array requires traversing the array and checking whether the element value matches in each iteration; if it matches, output the corresponding index.
 
-Because arrays are linear data structures, this operation is commonly referred to as "linear search."
+Since an array is a linear data structure, the above search operation is called a "linear search".
 
 ```src
 [file]{array}-[class]{}-[func]{find}
 ```
 
-### Expanding arrays
+### Expanding Arrays
 
-In complex system environments, ensuring the availability of memory space after an array for safe capacity extension becomes challenging. Consequently, in most programming languages, **the length of an array is immutable**.
+In complex system environments, programs cannot guarantee that the memory space after an array is available, making it unsafe to expand the array's capacity. Therefore, in most programming languages, **the length of an array is immutable**.
 
-To expand an array,  it's necessary to create a larger array and then copy the elements from the original array. This operation has a time complexity of $O(n)$ and can be time-consuming for large arrays. The code are as follows:
+If we want to expand an array, we need to create a new, larger array and then copy the original array elements to the new array one by one. This is an $O(n)$ operation, which is very time-consuming when the array is large. The code is shown below:
 
 ```src
 [file]{array}-[class]{}-[func]{extend}
 ```
 
-## Advantages and limitations of arrays
+## Advantages and Limitations of Arrays
 
-Arrays are stored in contiguous memory spaces and consist of elements of the same type. This approach provides substantial prior information that systems can leverage to optimize the efficiency of data structure operations.
+Arrays are stored in contiguous memory space with elements of the same type. This approach contains rich prior information that the system can use to optimize the efficiency of data structure operations.
 
-- **High space efficiency**: Arrays allocate a contiguous block of memory for data, eliminating the need for additional structural overhead.
-- **Support for random access**: Arrays allow $O(1)$ time access to any element.
-- **Cache locality**: When accessing array elements, the computer not only loads them but also caches the surrounding data, utilizing high-speed cache to enchance subsequent operation speeds.
+- **High space efficiency**: Arrays allocate contiguous memory blocks for data without additional structural overhead.
+- **Support for random access**: Arrays allow accessing any element in $O(1)$ time.
+- **Cache locality**: When accessing array elements, the computer not only loads the element but also caches the surrounding data, thereby leveraging the cache to improve the execution speed of subsequent operations.
 
-However, continuous space storage is a double-edged sword, with the following limitations:
+Contiguous space storage is a double-edged sword with the following limitations:
 
-- **Low efficiency in insertion and deletion**: As arrays accumulate many elements, inserting or deleting elements requires shifting a large number of elements.
-- **Fixed length**: The length of an array is fixed after initialization. Expanding an array requires copying all data to a new array, incurring significant costs.
-- **Space wastage**: If the allocated array size exceeds the what is necessary, the extra space is wasted.
+- **Low insertion and deletion efficiency**: When an array has many elements, insertion and deletion operations require shifting a large number of elements.
+- **Immutable length**: After an array is initialized, its length is fixed. Expanding the array requires copying all data to a new array, which is very costly.
+- **Space waste**: If the allocated size of an array exceeds what is actually needed, the extra space is wasted.
 
-## Typical applications of arrays
+## Typical Applications of Arrays
 
-Arrays are fundamental and widely used data structures. They find frequent application in various algorithms and serve in the implementation of complex data structures.
+Arrays are a fundamental and common data structure, frequently used in various algorithms and for implementing various complex data structures.
 
-- **Random access**: Arrays are ideal for storing data when random sampling is required. By generating a random sequence based on indices, we can achieve random sampling efficiently.
-- **Sorting and searching**: Arrays are the most commonly used data structure for sorting and searching algorithms.  Techniques like quick sort, merge sort, binary search, etc., are primarily operate on arrays.
-- **Lookup tables**: Arrays serve as efficient lookup tables for quick element or relationship retrieval. For instance, mapping characters to ASCII codes becomes seamless by using the ASCII code values as indices and storing corresponding elements in the array.
-- **Machine learning**: Within the domain of neural networks, arrays play a pivotal role in executing crucial linear algebra operations involving vectors, matrices, and tensors. Arrays serve as the primary and most extensively used data structure in neural network programming.
-- **Data structure implementation**:  Arrays serve as the building blocks for implementing various data structures like stacks, queues, hash tables, heaps, graphs, etc. For instance, the adjacency matrix representation of a graph is essentially a two-dimensional array.
+- **Random access**: If we want to randomly sample some items, we can use an array to store them and generate a random sequence to implement random sampling based on indices.
+- **Sorting and searching**: Arrays are the most commonly used data structure for sorting and searching algorithms. Quick sort, merge sort, binary search, and others are primarily performed on arrays.
+- **Lookup tables**: When we need to quickly find an element or its corresponding relationship, we can use an array as a lookup table. For example, if we want to implement a mapping from characters to ASCII codes, we can use the ASCII code value of a character as an index, with the corresponding element stored at that position in the array.
+- **Machine learning**: Neural networks make extensive use of linear algebra operations between vectors, matrices, and tensors, all of which are constructed in the form of arrays. Arrays are the most commonly used data structure in neural network programming.
+- **Data structure implementation**: Arrays can be used to implement stacks, queues, hash tables, heaps, graphs, and other data structures. For example, the adjacency matrix representation of a graph is essentially a two-dimensional array.

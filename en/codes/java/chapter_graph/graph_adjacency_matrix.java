@@ -11,8 +11,8 @@ import java.util.*;
 
 /* Undirected graph class based on adjacency matrix */
 class GraphAdjMat {
-    List<Integer> vertices; // Vertex list, elements represent "vertex value", index represents "vertex index"
-    List<List<Integer>> adjMat; // Adjacency matrix, row and column indices correspond to "vertex index"
+    List<Integer> vertices; // Vertex list, where the element represents the "vertex value" and the index represents the "vertex index"
+    List<List<Integer>> adjMat; // Adjacency matrix, where the row and column indices correspond to the "vertex index"
 
     /* Constructor */
     public GraphAdjMat(int[] vertices, int[][] edges) {
@@ -23,7 +23,7 @@ class GraphAdjMat {
             addVertex(val);
         }
         // Add edge
-        // Edges elements represent vertex indices
+        // Note that the edges elements represent vertex indices, i.e., corresponding to the vertices element indices
         for (int[] e : edges) {
             addEdge(e[0], e[1]);
         }
@@ -37,7 +37,7 @@ class GraphAdjMat {
     /* Add vertex */
     public void addVertex(int val) {
         int n = size();
-        // Add new vertex value to the vertex list
+        // Add the value of the new vertex to the vertex list
         vertices.add(val);
         // Add a row to the adjacency matrix
         List<Integer> newRow = new ArrayList<>(n);
@@ -55,29 +55,29 @@ class GraphAdjMat {
     public void removeVertex(int index) {
         if (index >= size())
             throw new IndexOutOfBoundsException();
-        // Remove vertex at `index` from the vertex list
+        // Remove the vertex at index from the vertex list
         vertices.remove(index);
-        // Remove the row at `index` from the adjacency matrix
+        // Remove the row at index from the adjacency matrix
         adjMat.remove(index);
-        // Remove the column at `index` from the adjacency matrix
+        // Remove the column at index from the adjacency matrix
         for (List<Integer> row : adjMat) {
             row.remove(index);
         }
     }
 
     /* Add edge */
-    // Parameters i, j correspond to vertices element indices
+    // Parameters i, j correspond to the vertices element indices
     public void addEdge(int i, int j) {
         // Handle index out of bounds and equality
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
             throw new IndexOutOfBoundsException();
-        // In an undirected graph, the adjacency matrix is symmetric about the main diagonal, i.e., satisfies (i, j) == (j, i)
+        // In an undirected graph, the adjacency matrix is symmetric about the main diagonal, i.e., (i, j) == (j, i)
         adjMat.get(i).set(j, 1);
         adjMat.get(j).set(i, 1);
     }
 
     /* Remove edge */
-    // Parameters i, j correspond to vertices element indices
+    // Parameters i, j correspond to the vertices element indices
     public void removeEdge(int i, int j) {
         // Handle index out of bounds and equality
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
@@ -97,35 +97,35 @@ class GraphAdjMat {
 
 public class graph_adjacency_matrix {
     public static void main(String[] args) {
-        /* Initialize undirected graph */
-        // Edges elements represent vertex indices
+        /* Add edge */
+        // Note that the edges elements represent vertex indices, i.e., corresponding to the vertices element indices
         int[] vertices = { 1, 3, 2, 5, 4 };
         int[][] edges = { { 0, 1 }, { 0, 3 }, { 1, 2 }, { 2, 3 }, { 2, 4 }, { 3, 4 } };
         GraphAdjMat graph = new GraphAdjMat(vertices, edges);
-        System.out.println("\nAfter initialization, the graph is");
+        System.out.println("\nAfter initialization, graph is");
         graph.print();
 
         /* Add edge */
-        // Indices of vertices 1, 2 are 0, 2 respectively
+        // Add vertex
         graph.addEdge(0, 2);
-        System.out.println("\nAfter adding edge 1-2, the graph is");
+        System.out.println("\nAfter adding edge 1-2, graph is");
         graph.print();
 
         /* Remove edge */
-        // Indices of vertices 1, 3 are 0, 1 respectively
+        // Vertices 1, 3 have indices 0, 1 respectively
         graph.removeEdge(0, 1);
-        System.out.println("\nAfter removing edge 1-3, the graph is");
+        System.out.println("\nAfter removing edge 1-3, graph is");
         graph.print();
 
         /* Add vertex */
         graph.addVertex(6);
-        System.out.println("\nAfter adding vertex 6, the graph is");
+        System.out.println("\nAfter adding vertex 6, graph is");
         graph.print();
 
         /* Remove vertex */
-        // Index of vertex 3 is 1
+        // Vertex 3 has index 1
         graph.removeVertex(1);
-        System.out.println("\nAfter removing vertex 3, the graph is");
+        System.out.println("\nAfter removing vertex 3, graph is");
         graph.print();
     }
 }

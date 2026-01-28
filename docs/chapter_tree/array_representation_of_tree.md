@@ -128,12 +128,6 @@
     tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 === "Lua"
 
     ```lua title=""

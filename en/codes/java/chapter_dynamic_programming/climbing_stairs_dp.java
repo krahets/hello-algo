@@ -11,9 +11,9 @@ public class climbing_stairs_dp {
     public static int climbingStairsDP(int n) {
         if (n == 1 || n == 2)
             return n;
-        // Initialize dp table, used to store subproblem solutions
+        // Initialize dp table, used to store solutions to subproblems
         int[] dp = new int[n + 1];
-        // Initial state: preset the smallest subproblem solution
+        // Initial state: preset the solution to the smallest subproblem
         dp[1] = 1;
         dp[2] = 2;
         // State transition: gradually solve larger subproblems from smaller ones
@@ -40,9 +40,9 @@ public class climbing_stairs_dp {
         int n = 9;
 
         int res = climbingStairsDP(n);
-        System.out.println(String.format("There are %d solutions to climb %d stairs", res, n));
+        System.out.println(String.format("Climbing %d stairs has %d solutions", n, res));
 
         res = climbingStairsDPComp(n);
-        System.out.println(String.format("There are %d solutions to climb %d stairs", res, n));
+        System.out.println(String.format("Climbing %d stairs has %d solutions", n, res));
     }
 }

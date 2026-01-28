@@ -14,8 +14,8 @@ class Item:
 
 
 def fractional_knapsack(wgt: list[int], val: list[int], cap: int) -> int:
-    """Fractional knapsack: Greedy"""
-    # Create an item list, containing two properties: weight, value
+    """Fractional knapsack: Greedy algorithm"""
+    # Create item list with two attributes: weight, value
     items = [Item(w, v) for w, v in zip(wgt, val)]
     # Sort by unit value item.v / item.w from high to low
     items.sort(key=lambda item: item.v / item.w, reverse=True)
@@ -23,13 +23,13 @@ def fractional_knapsack(wgt: list[int], val: list[int], cap: int) -> int:
     res = 0
     for item in items:
         if item.w <= cap:
-            # If the remaining capacity is sufficient, put the entire item into the knapsack
+            # If remaining capacity is sufficient, put the entire current item into the knapsack
             res += item.v
             cap -= item.w
         else:
-            # If the remaining capacity is insufficient, put part of the item into the knapsack
+            # If remaining capacity is insufficient, put part of the current item into the knapsack
             res += (item.v / item.w) * cap
-            # No remaining capacity left, thus break the loop
+            # No remaining capacity, so break out of the loop
             break
     return res
 

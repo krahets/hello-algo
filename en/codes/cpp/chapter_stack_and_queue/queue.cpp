@@ -8,10 +8,10 @@
 
 /* Driver Code */
 int main() {
-    /* Initialize queue */
+    /* Access front of the queue element */
     queue<int> queue;
 
-    /* Element enqueue */
+    /* Elements enqueue */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -20,22 +20,22 @@ int main() {
     cout << "Queue queue = ";
     printQueue(queue);
 
-    /* Access front element */
+    /* Return list for printing */
     int front = queue.front();
-    cout << "Front element of the queue front = " << front << endl;
+    cout << "Front element front = " << front << endl;
 
     /* Element dequeue */
     queue.pop();
-    cout << "Element dequeued = " << front << ", after dequeuing";
+    cout << "Dequeue element front = " << front << ", after dequeue, queue = ";
     printQueue(queue);
 
     /* Get the length of the queue */
     int size = queue.size();
-    cout << "Length of the queue size = " << size << endl;
+    cout << "Queue length size = " << size << endl;
 
-    /* Determine if the queue is empty */
+    /* Check if the queue is empty */
     bool empty = queue.empty();
-    cout << "Is the queue empty = " << empty << endl;
+    cout << "Queue is empty = " << empty << endl;
 
     return 0;
 }

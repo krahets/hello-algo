@@ -1,41 +1,41 @@
-# Radix sort
+# Radix Sort
 
-The previous section introduced counting sort, which is suitable for scenarios where the data size $n$ is large but the data range $m$ is small. Suppose we need to sort $n = 10^6$ student IDs, where each ID is an $8$-digit number. This means the data range $m = 10^8$ is very large. Using counting sort in this case would require significant memory space. Radix sort can avoid this situation.
+The previous section introduced counting sort, which is suitable for situations where the data volume $n$ is large but the data range $m$ is small. Suppose we need to sort $n = 10^6$ student IDs, and the student ID is an 8-digit number, which means the data range $m = 10^8$ is very large. Using counting sort would require allocating a large amount of memory space, whereas radix sort can avoid this situation.
 
-<u>Radix sort</u> shares the same core concept as counting sort, which also sorts by counting the frequency of elements. Meanwhile, radix sort builds upon this by utilizing the progressive relationship between the digits of numbers. It processes and sorts the digits one at a time, achieving the final sorted order.
+<u>Radix sort (radix sort)</u> has a core idea consistent with counting sort, which also achieves sorting by counting quantities. Building on this, radix sort utilizes the progressive relationship between the digits of numbers, sorting each digit in turn to obtain the final sorting result.
 
-## Algorithm process
+## Algorithm Flow
 
-Taking the student ID data as an example, assume the least significant digit is the $1^{st}$ and the most significant is the $8^{th}$, the radix sort process is illustrated in the figure below.
+Taking student ID data as an example, assume the lowest digit is the $1$st digit and the highest digit is the $8$th digit. The flow of radix sort is shown in the figure below.
 
-1. Initialize digit $k = 1$.
-2. Perform "counting sort" on the $k^{th}$ digit of the student IDs. After completion, the data will be sorted from smallest to largest based on the $k^{th}$ digit.
-3. Increment $k$ by $1$, then return to step `2.` and continue iterating until all digits have been sorted, at which point the process ends.
+1. Initialize the digit $k = 1$.
+2. Perform "counting sort" on the $k$th digit of the student IDs. After completion, the data will be sorted from smallest to largest according to the $k$th digit.
+3. Increase $k$ by $1$, then return to step `2.` and continue iterating until all digits are sorted, at which point the process ends.
 
-![Radix sort algorithm process](radix_sort.assets/radix_sort_overview.png)
+![Radix sort algorithm flow](radix_sort.assets/radix_sort_overview.png)
 
-Below we dissect the code implementation. For a number $x$ in base $d$, to obtain its $k^{th}$ digit $x_k$, the following calculation formula can be used:
+Below we analyze the code implementation. For a $d$-base number $x$, to get its $k$th digit $x_k$, the following calculation formula can be used:
 
 $$
 x_k = \lfloor\frac{x}{d^{k-1}}\rfloor \bmod d
 $$
 
-Where $\lfloor a \rfloor$ denotes rounding down the floating point number $a$, and $\bmod \: d$ denotes taking the modulus of $d$. For student ID data, $d = 10$ and $k \in [1, 8]$.
+Where $\lfloor a \rfloor$ denotes rounding down the floating-point number $a$, and $\bmod \: d$ denotes taking the modulo (remainder) with respect to $d$. For student ID data, $d = 10$ and $k \in [1, 8]$.
 
-Additionally, we need to slightly modify the counting sort code to allow sorting based on the $k^{th}$ digit:
+Additionally, we need to slightly modify the counting sort code to make it sort based on the $k$th digit of the number:
 
 ```src
 [file]{radix_sort}-[class]{}-[func]{radix_sort}
 ```
 
-!!! question "Why start sorting from the least significant digit?"
+!!! question "Why start sorting from the lowest digit?"
 
-    In consecutive sorting rounds, the result of a later round will override the result of an earlier round. For example, if the result of the first round is $a < b$ and the second round is $a > b$, the second round's result will replace the first round's result. Since higher-order digits take precedence over lower-order digits, it makes sense to sort the lower digits before the higher digits.
+    In successive sorting rounds, the result of a later round will override the result of an earlier round. For example, if the first round result is $a < b$, while the second round result is $a > b$, then the second round's result will replace the first round's result. Since higher-order digits have higher priority than lower-order digits, we should sort the lower digits first and then sort the higher digits.
 
-## Algorithm characteristics
+## Algorithm Characteristics
 
-Compared to counting sort, radix sort is suitable for larger numerical ranges, **but it assumes that the data can be represented in a fixed number of digits, and the number of digits should not be too large**. For example, floating-point numbers are unsuitable for radix sort, as their digit count $k$ may be large, potentially leading to a time complexity $O(nk) \gg O(n^2)$.
+Compared to counting sort, radix sort is suitable for larger numerical ranges, **but the prerequisite is that the data must be representable in a fixed number of digits, and the number of digits should not be too large**. For example, floating-point numbers are not suitable for radix sort because their number of digits $k$ may be too large, potentially leading to time complexity $O(nk) \gg O(n^2)$.
 
-- **Time complexity is $O(nk)$, non-adaptive sorting**: Assuming the data size is $n$, the data is in base $d$, and the maximum number of digits is $k$, then sorting a single digit takes $O(n + d)$ time, and sorting all $k$ digits takes $O((n + d)k)$ time. Generally, both $d$ and $k$ are relatively small, leading to a time complexity approaching $O(n)$.
-- **Space complexity is $O(n + d)$, non-in-place sorting**: Like counting sort, radix sort relies on arrays `res` and `counter` of lengths $n$ and $d$ respectively.
-- **Stable sorting**: When counting sort is stable, radix sort is also stable; if counting sort is unstable, radix sort cannot ensure a correct sorting order.
+- **Time complexity of $O(nk)$, non-adaptive sorting**: Let the data volume be $n$, the data be in base $d$, and the maximum number of digits be $k$. Then performing counting sort on a certain digit uses $O(n + d)$ time, and sorting all $k$ digits uses $O((n + d)k)$ time. Typically, both $d$ and $k$ are relatively small, and the time complexity approaches $O(n)$.
+- **Space complexity of $O(n + d)$, non-in-place sorting**: Same as counting sort, radix sort requires auxiliary arrays `res` and `counter` of lengths $n$ and $d$.
+- **Stable sorting**: When counting sort is stable, radix sort is also stable; when counting sort is unstable, radix sort cannot guarantee obtaining correct sorting results.

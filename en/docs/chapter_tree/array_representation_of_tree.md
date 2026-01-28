@@ -1,22 +1,22 @@
-# Array representation of binary trees
+# Array Representation of Binary Trees
 
-Under the linked list representation, the storage unit of a binary tree is a node `TreeNode`, with nodes connected by pointers. The basic operations of binary trees under the linked list representation were introduced in the previous section.
+Under the linked list representation, the storage unit of a binary tree is a node `TreeNode`, and nodes are connected by pointers. The previous section introduced the basic operations of binary trees under the linked list representation.
 
 So, can we use an array to represent a binary tree? The answer is yes.
 
-## Representing perfect binary trees
+## Representing Perfect Binary Trees
 
 Let's analyze a simple case first. Given a perfect binary tree, we store all nodes in an array according to the order of level-order traversal, where each node corresponds to a unique array index.
 
-Based on the characteristics of level-order traversal, we can deduce a "mapping formula" between the index of a parent node and its children: **If a node's index is $i$, then the index of its left child is $2i + 1$ and the right child is $2i + 2$**. The figure below shows the mapping relationship between the indices of various nodes.
+Based on the characteristics of level-order traversal, we can derive a "mapping formula" between parent node index and child node indices: **If a node's index is $i$, then its left child index is $2i + 1$ and its right child index is $2i + 2$**. The figure below shows the mapping relationships between various node indices.
 
 ![Array representation of a perfect binary tree](array_representation_of_tree.assets/array_representation_binary_tree.png)
 
 **The mapping formula plays a role similar to the node references (pointers) in linked lists**. Given any node in the array, we can access its left (right) child node using the mapping formula.
 
-## Representing any binary tree
+## Representing Any Binary Tree
 
-Perfect binary trees are a special case; there are often many `None` values in the middle levels of a binary tree. Since the sequence of level-order traversal does not include these `None` values, we cannot solely rely on this sequence to deduce the number and distribution of `None` values. **This means that multiple binary tree structures can match the same level-order traversal sequence**.
+Perfect binary trees are a special case; in the middle levels of a binary tree, there are typically many `None` values. Since the level-order traversal sequence does not include these `None` values, we cannot infer the number and distribution of `None` values based on this sequence alone. **This means multiple binary tree structures can correspond to the same level-order traversal sequence**.
 
 As shown in the figure below, given a non-perfect binary tree, the above method of array representation fails.
 
@@ -117,24 +117,20 @@ To solve this problem, **we can consider explicitly writing out all `None` value
     ```kotlin title=""
     /* Array representation of a binary tree */
     // Using null to represent empty slots
-    val tree = mutableListOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
+    val tree = arrayOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
     ```
 
 === "Ruby"
 
     ```ruby title=""
-
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
+    ### Array representation of a binary tree ###
+    # Using nil to represent empty slots
+    tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
 ![Array representation of any type of binary tree](array_representation_of_tree.assets/array_representation_with_empty.png)
 
-It's worth noting that **complete binary trees are very suitable for array representation**. Recalling the definition of a complete binary tree, `None` appears only at the bottom level and towards the right, **meaning all `None` values definitely appear at the end of the level-order traversal sequence**.
+It's worth noting that **complete binary trees are very well-suited for array representation**. Recalling the definition of a complete binary tree, `None` only appears at the bottom level and towards the right, **meaning all `None` values must appear at the end of the level-order traversal sequence**.
 
 This means that when using an array to represent a complete binary tree, it's possible to omit storing all `None` values, which is very convenient. The figure below gives an example.
 
@@ -142,23 +138,23 @@ This means that when using an array to represent a complete binary tree, it's po
 
 The following code implements a binary tree based on array representation, including the following operations:
 
-- Given a node, obtain its value, left (right) child node, and parent node.
-- Obtain the pre-order, in-order, post-order, and level-order traversal sequences.
+- Given a certain node, obtain its value, left (right) child node, and parent node.
+- Obtain the preorder, inorder, postorder, and level-order traversal sequences.
 
 ```src
 [file]{array_binary_tree}-[class]{array_binary_tree}-[func]{}
 ```
 
-## Advantages and limitations
+## Advantages and Limitations
 
 The array representation of binary trees has the following advantages:
 
-- Arrays are stored in contiguous memory spaces, which is cache-friendly and allows for faster access and traversal.
+- Arrays are stored in contiguous memory space, which is cache-friendly, allowing faster access and traversal.
 - It does not require storing pointers, which saves space.
 - It allows random access to nodes.
 
 However, the array representation also has some limitations:
 
 - Array storage requires contiguous memory space, so it is not suitable for storing trees with a large amount of data.
-- Adding or deleting nodes requires array insertion and deletion operations, which are less efficient.
+- Adding or removing nodes requires array insertion and deletion operations, which have lower efficiency.
 - When there are many `None` values in the binary tree, the proportion of node data contained in the array is low, leading to lower space utilization.

@@ -2,11 +2,15 @@ name: TypeScript
 
 on:
   push:
-    branches: ['main']
-    paths: ['codes/typescript/**/*.ts']
+    branches: ["main"]
+    paths:
+      - "codes/typescript/**/*.ts"
+      - "en/codes/typescript/**/*.ts"
   pull_request:
-    branches: ['main']
-    paths: ['codes/typescript/**/*.ts']
+    branches: ["main"]
+    paths:
+      - "codes/typescript/**/*.ts"
+      - "en/codes/typescript/**/*.ts"
   workflow_dispatch:
 
 jobs:
@@ -15,12 +19,13 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
+        code-dir: ["codes/typescript", "en/codes/typescript"]
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
           node-version: 24.x
       - name: Install dependencies
-        run: cd codes/typescript && npm install
+        run: cd ${{ matrix.code-dir }} && npm install
       - name: Check TypeScript code
-        run: cd codes/typescript && npm run check
+        run: cd ${{ matrix.code-dir }} && npm run check

@@ -429,12 +429,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 === "Lua"
 
     ```lua title=""

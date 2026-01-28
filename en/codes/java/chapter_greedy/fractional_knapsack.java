@@ -21,9 +21,9 @@ class Item {
 }
 
 public class fractional_knapsack {
-    /* Fractional knapsack: Greedy */
+    /* Fractional knapsack: Greedy algorithm */
     static double fractionalKnapsack(int[] wgt, int[] val, int cap) {
-        // Create an item list, containing two properties: weight, value
+        // Create item list with two attributes: weight, value
         Item[] items = new Item[wgt.length];
         for (int i = 0; i < wgt.length; i++) {
             items[i] = new Item(wgt[i], val[i]);
@@ -34,13 +34,13 @@ public class fractional_knapsack {
         double res = 0;
         for (Item item : items) {
             if (item.w <= cap) {
-                // If the remaining capacity is sufficient, put the entire item into the knapsack
+                // If remaining capacity is sufficient, put the entire current item into the knapsack
                 res += item.v;
                 cap -= item.w;
             } else {
-                // If the remaining capacity is insufficient, put part of the item into the knapsack
+                // If remaining capacity is insufficient, put part of the current item into the knapsack
                 res += (double) item.v / item.w * cap;
-                // No remaining capacity left, thus break the loop
+                // No remaining capacity, so break out of the loop
                 break;
             }
         }
@@ -54,6 +54,6 @@ public class fractional_knapsack {
 
         // Greedy algorithm
         double res = fractionalKnapsack(wgt, val, cap);
-        System.out.println("The maximum value within the bag capacity is " + res);
+        System.out.println("Maximum item value not exceeding knapsack capacity is " + res);
     }
 }

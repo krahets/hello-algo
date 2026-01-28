@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://www.hello-algo.com/ja/">
-    <img src="https://www.hello-algo.com/en/index.assets/btn_read_online_dark.svg" width="120"></a>
+    <img src="https://www.hello-algo.com/en/index.assets/btn_read_online_dark.svg" height="45"></a>
 </p>
 
 <p align="center">

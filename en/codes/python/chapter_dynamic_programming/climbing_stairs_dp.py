@@ -9,9 +9,9 @@ def climbing_stairs_dp(n: int) -> int:
     """Climbing stairs: Dynamic programming"""
     if n == 1 or n == 2:
         return n
-    # Initialize dp table, used to store subproblem solutions
+    # Initialize dp table, used to store solutions to subproblems
     dp = [0] * (n + 1)
-    # Initial state: preset the smallest subproblem solution
+    # Initial state: preset the solution to the smallest subproblem
     dp[1], dp[2] = 1, 2
     # State transition: gradually solve larger subproblems from smaller ones
     for i in range(3, n + 1):
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     n = 9
 
     res = climbing_stairs_dp(n)
-    print(f"Climb {n} steps, there are {res} solutions in total")
+    print(f"Climbing {n} stairs has {res} solutions")
 
     res = climbing_stairs_dp_comp(n)
-    print(f"Climb {n} steps, there are {res} solutions in total")
+    print(f"Climbing {n} stairs has {res} solutions")

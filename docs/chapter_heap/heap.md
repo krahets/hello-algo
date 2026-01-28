@@ -408,12 +408,6 @@
     # Ruby 未提供内置 Heap 类
     ```
 
-=== "Zig"
-
-    ```zig title="heap.zig"
-
-    ```
-
 === "Lua"
 
     ```lua title="heap.lua"

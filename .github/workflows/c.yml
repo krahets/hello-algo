@@ -6,10 +6,18 @@ name: C
 on:
   push:
     branches: ["main"]
-    paths: ["codes/c/**/*.c", "codes/c/**/*.h"]
+    paths:
+      - "codes/c/**/*.c"
+      - "codes/c/**/*.h"
+      - "en/codes/c/**/*.c"
+      - "en/codes/c/**/*.h"
   pull_request:
     branches: ["main"]
-    paths: ["codes/c/**/*.c", "codes/c/**/*.h"]
+    paths:
+      - "codes/c/**/*.c"
+      - "codes/c/**/*.h"
+      - "en/codes/c/**/*.c"
+      - "en/codes/c/**/*.h"
   workflow_dispatch:
 
 jobs:
@@ -30,6 +38,7 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         build_type: [Release]
         c_compiler: [gcc, clang, cl]
+        code-dir: ["codes/c", "en/codes/c"]
         include:
           - os: windows-latest
             c_compiler: cl
@@ -55,18 +64,18 @@ jobs:
         # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
         # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
         run: >
-          cmake -B ${{ github.workspace }}/codes/c/build
+          cmake -B ${{ github.workspace }}/${{ matrix.code-dir }}/build
           -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
           -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-          -S ${{ github.workspace }}/codes/c
+          -S ${{ github.workspace }}/${{ matrix.code-dir }}
 
       - name: Build
         # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
-        run: cmake --build ${{ github.workspace }}/codes/c/build --config ${{ matrix.build_type }}
+        run: cmake --build ${{ github.workspace }}/${{ matrix.code-dir }}/build --config ${{ matrix.build_type }}
 
       - name: Test
-        working-directory: ${{ github.workspace }}/codes/c/build
+        working-directory: ${{ github.workspace }}/${{ matrix.code-dir }}/build
         # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
         # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
         run: ctest --build-config ${{ matrix.build_type }}

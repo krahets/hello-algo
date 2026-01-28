@@ -9,10 +9,10 @@ package chapter_stack_and_queue;
 import java.util.*;
 import utils.*;
 
-/* Stack class based on linked list */
+/* Stack based on linked list implementation */
 class LinkedListStack {
-    private ListNode stackPeek; // Use the head node as the top of the stack
-    private int stkSize = 0; // Length of the stack
+    private ListNode stackPeek; // Use head node as stack top
+    private int stkSize = 0; // Stack length
 
     public LinkedListStack() {
         stackPeek = null;
@@ -23,7 +23,7 @@ class LinkedListStack {
         return stkSize;
     }
 
-    /* Determine if the stack is empty */
+    /* Check if the stack is empty */
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -44,14 +44,14 @@ class LinkedListStack {
         return num;
     }
 
-    /* Access stack top element */
+    /* Return list for printing */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return stackPeek.val;
     }
 
-    /* Convert the List to Array and return */
+    /* Convert List to Array and return */
     public int[] toArray() {
         ListNode node = stackPeek;
         int[] res = new int[size()];
@@ -65,10 +65,10 @@ class LinkedListStack {
 
 public class linkedlist_stack {
     public static void main(String[] args) {
-        /* Initialize stack */
+        /* Access top of the stack element */
         LinkedListStack stack = new LinkedListStack();
 
-        /* Element push */
+        /* Elements push onto stack */
         stack.push(1);
         stack.push(3);
         stack.push(2);
@@ -76,20 +76,20 @@ public class linkedlist_stack {
         stack.push(4);
         System.out.println("Stack stack = " + Arrays.toString(stack.toArray()));
 
-        /* Access stack top element */
+        /* Return list for printing */
         int peek = stack.peek();
-        System.out.println("Top element peek = " + peek);
+        System.out.println("Stack top element peek = " + peek);
 
-        /* Element pop */
+        /* Element pop from stack */
         int pop = stack.pop();
-        System.out.println("Popped element = " + pop + ", after popping" + Arrays.toString(stack.toArray()));
+        System.out.println("Pop element pop = " + pop + ", after pop, stack = " + Arrays.toString(stack.toArray()));
 
         /* Get the length of the stack */
         int size = stack.size();
-        System.out.println("Length of the stack size = " + size);
+        System.out.println("Stack length size = " + size);
 
-        /* Determine if it's empty */
+        /* Check if empty */
         boolean isEmpty = stack.isEmpty();
-        System.out.println("Is the stack empty = " + isEmpty);
+        System.out.println("Stack is empty = " + isEmpty);
     }
 }

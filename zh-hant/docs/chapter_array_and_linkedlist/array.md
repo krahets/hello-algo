@@ -126,14 +126,6 @@
     nums = [1, 3, 2, 5, 4]
     ```
 
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 初始化陣列
-    const arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    const nums = [_]i32{ 1, 3, 2, 5, 4 };
-    ```
-
 ??? pythontutor "視覺化執行"
 
     https://pythontutor.com/render.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%99%A3%E5%88%97%0Aarr%20%3D%20%5B0%5D%20%2A%205%20%20%23%20%5B%200%2C%200%2C%200%2C%200%2C%200%20%5D%0Anums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

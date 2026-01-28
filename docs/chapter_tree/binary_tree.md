@@ -201,12 +201,6 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 === "Lua"
 
     ```lua title=""
@@ -479,12 +473,6 @@
     n2.right = n5
     ```
 
-=== "Zig"
-
-    ```zig title="binary_tree.zig"
-
-    ```
-
 === "Lua"
 
     ```lua title="binary_tree.lua"
@@ -666,12 +654,6 @@
     _p.left = n2
     # 删除节点
     n1.left = n2
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_tree.zig"
-
     ```
 
 === "Lua"

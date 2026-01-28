@@ -8,13 +8,13 @@
 
 /* Binary search for insertion point (with duplicate elements) */
 int binarySearchInsertion(const vector<int> &nums, int target) {
-    int i = 0, j = nums.size() - 1; // Initialize double closed interval [0, n-1]
+    int i = 0, j = nums.size() - 1; // Initialize closed interval [0, n-1]
     while (i <= j) {
-        int m = i + (j - i) / 2; // Calculate midpoint index m
+        int m = i + (j - i) / 2; // Calculate the midpoint index m
         if (nums[m] < target) {
-            i = m + 1; // Target is in interval [m+1, j]
+            i = m + 1; // target is in the interval [m+1, j]
         } else {
-            j = m - 1; // First element less than target is in interval [i, m-1]
+            j = m - 1; // The first element less than target is in the interval [i, m-1]
         }
     }
     // Return insertion point i
@@ -25,7 +25,7 @@ int binarySearchInsertion(const vector<int> &nums, int target) {
 int binarySearchLeftEdge(vector<int> &nums, int target) {
     // Equivalent to finding the insertion point of target
     int i = binarySearchInsertion(nums, target);
-    // Did not find target, thus return -1
+    // Target not found, return -1
     if (i == nums.size() || nums[i] != target) {
         return -1;
     }
@@ -39,7 +39,7 @@ int binarySearchRightEdge(vector<int> &nums, int target) {
     int i = binarySearchInsertion(nums, target + 1);
     // j points to the rightmost target, i points to the first element greater than target
     int j = i - 1;
-    // Did not find target, thus return -1
+    // Target not found, return -1
     if (j == -1 || nums[j] != target) {
         return -1;
     }
@@ -54,12 +54,12 @@ int main() {
     cout << "\nArray nums = ";
     printVector(nums);
 
-    // Binary search for left and right boundaries
+    // Binary search left and right boundaries
     for (int target : {6, 7}) {
         int index = binarySearchLeftEdge(nums, target);
-        cout << "The leftmost index of element " << target << " is " << index << endl;
+        cout << "Index of leftmost element " << target << " is " << index << endl;
         index = binarySearchRightEdge(nums, target);
-        cout << "The rightmost index of element " << target << " is " << index << endl;
+        cout << "Index of rightmost element " << target << " is " << index << endl;
     }
 
     return 0;
