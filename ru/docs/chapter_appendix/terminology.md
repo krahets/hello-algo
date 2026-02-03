@@ -1,9 +1,13 @@
 # Глоссарий
 
-В табл. 16.1 приведен англо-русский словарь важных терминов, встречающихся в книге. Он поможет вам в чтении англоязычной литературы.
+### 此处俄语版和中文版冲突
+В следующей таблице перечислены важные термины, встречающиеся в этой книге. Стоит отметить следующие:
 
-**Таблица 16.1.** Англо-русский словарь терминов
+- Рекомендуем запомнить английские названия терминов для удобства чтения англоязычной литературы.
 
+<p align="center"> Таблица <id> &nbsp; Англо-русский словарь терминов </p>
+
+### 表格出现排序和$问题
 | English                        | Русский                                                      |
 | ------------------------------ | ------------------------------------------------------------ |
 | algorithm                      | алгоритм                                                     |
@@ -21,7 +25,7 @@
 | recursion                      | рекурсия                                                     |
 | tail recursion                 | хвостовая рекурсия                                           |
 | recursion tree                 | дерево рекурсии                                              |
-| big-O notation                 | обозначение «О» большое                                      |
+| big-$O$ notation                 | обозначение «$О$» большое                                      |
 | asymptotic upper bound         | асимптотическая верхняя граница                              |
 | sign-magnitude                 | прямой код                                                   |
 | 1's complement                 | обратный код                                                 |
@@ -58,13 +62,14 @@
 | lazy deletion                  | ленивое удаление                                             |
 | binary tree                    | двоичное дерево                                              |
 | tree node                      | узел дерева                                                  |
-| root node                      | корневой узел                                                |
-| leaf node                      | листовой узел                                                |
-| parent node                    | родительский узел                                            |
 | left-child node                | левый дочерний узел                                          |
 | right-child node               | правый дочерний узел                                         |
+| parent node                    | родительский узел                                            |
 | left subtree                   | левое поддерево                                              |
 | right subtree                  | правое поддерево                                             |
+| root node                      | корневой узел                                                |
+| leaf node                      | листовой узел                                                |
+| edge                           | ребро                                                        |
 | level                          | уровень                                                      |
 | degree                         | степень                                                      |
 | height                         | высота                                                       |
@@ -74,12 +79,35 @@
 | full binary tree               | полное двоичное дерево                                       |
 | balanced binary tree           | сбалансированное двоичное дерево                             |
 | binary search tree             | двоичное дерево поиска                                       |
-| balanced binary search tree    | сбалансированное двоичное дерево поиска                      |
 | AVL tree                       | АВЛ-дерево                                                   |
 | red-black tree                 | красно-черное дерево                                         |
 | level-order traversal          | обход по уровням                                             |
 | breadth-first traversal        | обход в ширину                                               |
 | depth-first traversal          | обход в глубину                                              |
+| binary search                  | двоичный поиск                                               |
+| balanced binary search tree    | сбалансированное двоичное дерево поиска                      |
+| balance factor                 | фактор баланса                                               |
+| heap                           | куча                                                         |
+| max heap                       | максимальная куча                                            |
+| min heap                       | минимальная куча                                             |
+| priority queue                 | приоритетная очередь                                         |
+| heapify                        | упорядочивание кучи                                          |
+| top-$k$ problem                  | поиск $k$ наибольших элементов                                 |
+| graph                          | граф                                                         |
+| vertex                         | вершина                                                      |
+| undirected graph               | неориентированный граф                                       |
+| directed graph                 | ориентированный граф                                         |
+| connected graph                | связный граф                                                 |
+| disconnected graph             | несвязный граф                                               |
+| weighted graph                 | взвешенный граф                                              |
+| adjacency                      | смежность                                                    |
+| path                           | путь                                                         |
+| in-degree                      | входящая степень                                             |
+| out-degree                     | исходящая степень                                            |
+| adjacency matrix               | матрица смежности                                            |
+| adjacency list                 | список смежности                                             |
+| breadth-first search           | поиск в ширину                                               |
+| depth-first search             | поиск в глубину                                              |
 | binary search                  | двоичный поиск                                               |
 | searching algorithm            | алгоритм поиска                                              |
 | sorting algorithm              | алгоритм сортировки                                          |
@@ -101,33 +129,10 @@
 | pruning                        | обрезка                                                      |
 | permutations problem           | задача о перестановках                                       |
 | subset-sum problem             | задача о сумме подмножеств                                   |
-| n-queens problem               | задача об n ферзях                                           |
+| $n$-queens problem               | задача об $n$ ферзях                                           |
 | dynamic programming            | динамическое программирование                                |
 | initial state                  | начальное состояние                                          |
 | state-transition equation      | уравнение перехода состояния                                 |
 | knapsack problem               | задача о рюкзаке                                             |
 | edit distance problem          | задача расстояния редактирования                             |
 | greedy algorithm               | жадный алгоритм                                              |
-| graph                          | граф                                                         |
-| vertex                         | вершина                                                      |
-| edge                           | ребро                                                        |
-| adjacency                      | смежность                                                    |
-| path                           | путь                                                         |
-| in-degree                      | входящая степень                                             |
-| out-degree                     | исходящая степень                                            |
-| undirected graph               | неориентированный граф                                       |
-| directed graph                 | ориентированный граф                                         |
-| connected graph                | связный граф                                                 |
-| disconnected graph             | несвязный граф                                               |
-| weighted graph                 | взвешенный граф                                              |
-| adjacency matrix               | матрица смежности                                            |
-| adjacency list                 | список смежности                                             |
-| breadth-first search           | поиск в ширину                                               |
-| depth-first search             | поиск в глубину                                              |
-| heap                           | куча                                                         |
-| min heap                       | минимальная куча                                             |
-| max heap                       | максимальная куча                                            |
-| priority queue                 | приоритетная очередь                                         |
-| heapify                        | упорядочивание кучи                                          |
-| top-k problem                  | поиск k наибольших элементов                                 |
-| balance factor                 | фактор баланса                                               |
