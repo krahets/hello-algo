@@ -4,7 +4,8 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-use hello_algo_rust::include::print_util;
+use hello_algo_rust::fmt::Write;
+use std::fmt;
 
 /* 列表类 */
 pub struct MyList {
@@ -39,16 +40,16 @@ impl MyList {
     pub fn get(&self, index: usize) -> i32 {
         // 索引如果越界，则抛出异常，下同
         if index >= self.size {
-            panic!("索引越界")
-        };
+            panic!("索引越界");
+        }
         self.arr[index]
     }
 
     /* 更新元素 */
     pub fn set(&mut self, index: usize, num: i32) {
         if index >= self.size {
-            panic!("索引越界")
-        };
+            panic!("索引越界");
+        }
         self.arr[index] = num;
     }
 
@@ -66,8 +67,8 @@ impl MyList {
     /* 在中间插入元素 */
     pub fn insert(&mut self, index: usize, num: i32) {
         if index >= self.size() {
-            panic!("索引越界")
-        };
+            panic!("索引越界");
+        }
         // 元素数量超出容量时，触发扩容机制
         if self.size == self.capacity() {
             self.extend_capacity();
@@ -84,8 +85,8 @@ impl MyList {
     /* 删除元素 */
     pub fn remove(&mut self, index: usize) -> i32 {
         if index >= self.size() {
-            panic!("索引越界")
-        };
+            panic!("索引越界");
+        }
         let num = self.arr[index];
         // 将索引 index 之后的元素都向前移动一位
         for j in index..self.size - 1 {
@@ -115,53 +116,58 @@ impl MyList {
     /* 将列表转换为数组 */
     pub fn to_array(&self) -> Vec<i32> {
         // 仅转换有效长度范围内的列表元素
-        let mut arr = Vec::new();
-        for i in 0..self.size {
-            arr.push(self.get(i));
-        }
-        arr
+        self.arr[0..self.size].to_vec()
+    }
+}
+
+impl fmt::Display for MyList {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.write_array(&self.arr[0..self.size])
     }
 }
 
 /* Driver Code */
 fn main() {
     /* 初始化列表 */
-    let mut nums = MyList::new(10);
+    let mut nums = MyList::new(5);
     /* 在尾部添加元素 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
     nums.add(5);
     nums.add(4);
-    print!("列表 nums = ");
-    print_util::print_array(&nums.to_array());
-    print!(" ，容量 = {} ，长度 = {}", nums.capacity(), nums.size());
+    println!(
+        "列表 nums = {} ，容量 = {} ，长度 = {}",
+        nums,
+        nums.capacity(),
+        nums.size()
+    );
 
     /* 在中间插入元素 */
     nums.insert(3, 6);
-    print!("\n在索引 3 处插入数字 6 ，得到 nums = ");
-    print_util::print_array(&nums.to_array());
+    println!("在索引 3 处插入数字 6 ，得到 nums = {nums}");
 
     /* 删除元素 */
     nums.remove(3);
-    print!("\n删除索引 3 处的元素，得到 nums = ");
-    print_util::print_array(&nums.to_array());
+    println!("删除索引 3 处的元素，得到 nums = {nums}");
 
     /* 访问元素 */
     let num = nums.get(1);
-    println!("\n访问索引 1 处的元素，得到 num = {num}");
+    println!("访问索引 1 处的元素，得到 num = {num}");
 
     /* 更新元素 */
     nums.set(1, 0);
-    print!("将索引 1 处的元素更新为 0 ，得到 nums = ");
-    print_util::print_array(&nums.to_array());
+    println!("将索引 1 处的元素更新为 0 ，得到 nums = {nums}");
 
     /* 测试扩容机制 */
     for i in 0..10 {
         // 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
         nums.add(i);
     }
-    print!("\n扩容后的列表 nums = ");
-    print_util::print_array(&nums.to_array());
-    print!(" ，容量 = {} ，长度 = {}", nums.capacity(), nums.size());
+    println!(
+        "扩容后的列表 nums = {} ，容量 = {} ，长度 = {}",
+        nums,
+        nums.capacity(),
+        nums.size()
+    );
 }
