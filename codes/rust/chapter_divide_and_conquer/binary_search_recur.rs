@@ -13,13 +13,13 @@ fn dfs(nums: &[i32], target: i32, i: i32, j: i32) -> i32 {
     let m: i32 = i + (j - i) / 2;
     if nums[m as usize] < target {
         // 递归子问题 f(m+1, j)
-        return dfs(nums, target, m + 1, j);
+        dfs(nums, target, m + 1, j)
     } else if nums[m as usize] > target {
         // 递归子问题 f(i, m-1)
-        return dfs(nums, target, i, m - 1);
+        dfs(nums, target, i, m - 1)
     } else {
         // 找到目标元素，返回其索引
-        return m;
+        m
     }
 }
 
