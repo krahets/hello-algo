@@ -4,15 +4,15 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-use hello_algo_rust::include::{ListNode, print_util};
-
+use hello_algo_rust::linked_list::{LinkedList, ListNode};
 use std::cell::RefCell;
+use std::fmt;
 use std::rc::Rc;
 
 /* 基于链表实现的队列 */
 pub struct LinkedListQueue<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点 front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点 rear
+    front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点
+    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点
     size: usize,                             // 队列的长度
 }
 
@@ -96,6 +96,15 @@ impl<T> LinkedListQueue<T> {
     }
 }
 
+impl<T> fmt::Display for LinkedListQueue<T>
+where
+    T: fmt::Display,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.front.display_as_array())
+    }
+}
+
 /* Driver Code */
 fn main() {
     /* 初始化队列 */
@@ -107,23 +116,21 @@ fn main() {
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    print!("队列 queue = ");
-    print_util::print_array(&queue.to_array());
+    println!("队列 queue = {queue}");
 
     /* 访问队首元素 */
     let peek = queue.peek().as_ref().unwrap().borrow().val;
-    print!("\n队首元素 peek = {}", peek);
+    println!("队首元素 peek = {peek}");
 
     /* 元素出队 */
     let pop = queue.pop().unwrap();
-    print!("\n出队元素 pop = {}，出队后 queue = ", pop);
-    print_util::print_array(&queue.to_array());
+    println!("出队元素 pop = {pop}，出队后 queue = {queue}");
 
     /* 获取队列的长度 */
     let size = queue.size();
-    print!("\n队列长度 size = {}", size);
+    println!("队列长度 size = {size}");
 
     /* 判断队列是否为空 */
     let is_empty = queue.is_empty();
-    print!("\n队列是否为空 = {}", is_empty);
+    println!("队列是否为空 = {is_empty}");
 }
