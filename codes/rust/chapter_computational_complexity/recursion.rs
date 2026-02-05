@@ -51,10 +51,8 @@ fn fib(n: i32) -> i32 {
     if n == 1 || n == 2 {
         return n - 1;
     }
-    // 递归调用 f(n) = f(n-1) + f(n-2)
-    let res = fib(n - 1) + fib(n - 2);
-    // 返回结果
-    res
+    // 递归调用 f(n) = f(n-1) + f(n-2) 并返回结果
+    fib(n - 1) + fib(n - 2)
 }
 
 /* Driver Code */
@@ -63,14 +61,14 @@ fn main() {
     let mut res;
 
     res = recur(n);
-    println!("\n递归函数的求和结果 res = {res}");
+    println!("递归函数的求和结果 res = {res}");
 
     res = for_loop_recur(n);
-    println!("\n使用迭代模拟递归求和结果 res = {res}");
+    println!("使用迭代模拟递归求和结果 res = {res}");
 
     res = tail_recur(n, 0);
-    println!("\n尾递归函数的求和结果 res = {res}");
+    println!("尾递归函数的求和结果 res = {res}");
 
     res = fib(n);
-    println!("\n斐波那契数列的第 {n} 项为 {res}");
+    println!("斐波那契数列的第 {n} 项为 {res}");
 }
