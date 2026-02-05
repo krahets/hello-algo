@@ -5,7 +5,7 @@
  */
 
 /* 回溯 */
-fn backtrack(choices: &[i32], state: i32, n: i32, res: &mut [i32]) {
+fn backtrack(choices: &[u32], state: u32, n: u32, res: &mut Vec<u32>) {
     // 当爬到第 n 阶时，方案数量加 1
     if state == n {
         res[0] += 1;
@@ -23,18 +23,20 @@ fn backtrack(choices: &[i32], state: i32, n: i32, res: &mut [i32]) {
 }
 
 /* 爬楼梯：回溯 */
-pub fn climbing_stairs_backtrack(n: usize) -> i32 {
-    let choices = vec![1, 2]; // 可选择向上爬 1 阶或 2 阶
-    let state = 0; // 从第 0 阶开始爬
-    let mut res = Vec::new();
-    res.push(0); // 使用 res[0] 记录方案数量
-    backtrack(&choices, state, n as i32, &mut res);
+pub fn climbing_stairs_backtrack(n: u32) -> u32 {
+    // 可选择向上爬 1 阶或 2 阶
+    let choices = vec![1, 2];
+    // 从第 0 阶开始爬
+    let state = 0;
+    // 使用 res[0] 记录方案数量
+    let mut res = vec![0];
+    backtrack(&choices, state, n, &mut res);
     res[0]
 }
 
 /* Driver Code */
 fn main() {
-    let n: usize = 9;
+    let n = 9;
 
     let res = climbing_stairs_backtrack(n);
     println!("爬 {n} 阶楼梯共有 {res} 种方案");
