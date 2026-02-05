@@ -35,9 +35,7 @@ fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
         j += 1;
     }
     // 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
-    for k in 0..tmp_size {
-        nums[left + k] = tmp[k];
-    }
+    nums[left..(tmp_size + left)].copy_from_slice(&tmp[..tmp_size])
 }
 
 /* 归并排序 */
