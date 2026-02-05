@@ -5,10 +5,10 @@
  */
 
 /* 回溯 */
-fn backtrack(choices: &[u32], state: u32, n: u32, res: &mut Vec<u32>) {
+fn backtrack(choices: &[u32], state: u32, n: u32, res: &mut u32) {
     // 当爬到第 n 阶时，方案数量加 1
     if state == n {
-        res[0] += 1;
+        *res += 1;
     }
     // 遍历所有选择
     for &choice in choices {
@@ -25,13 +25,13 @@ fn backtrack(choices: &[u32], state: u32, n: u32, res: &mut Vec<u32>) {
 /* 爬楼梯：回溯 */
 pub fn climbing_stairs_backtrack(n: u32) -> u32 {
     // 可选择向上爬 1 阶或 2 阶
-    let choices = vec![1, 2];
+    let choices = [1, 2];
     // 从第 0 阶开始爬
     let state = 0;
-    // 使用 res[0] 记录方案数量
-    let mut res = vec![0];
+    // 使用 res 记录方案数量
+    let mut res = 0;
     backtrack(&choices, state, n, &mut res);
-    res[0]
+    res
 }
 
 /* Driver Code */
