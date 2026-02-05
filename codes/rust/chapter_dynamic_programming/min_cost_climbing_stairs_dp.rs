@@ -31,10 +31,8 @@ pub fn min_cost_climbing_stairs_dp_comp(cost: &[i32]) -> i32 {
         return cost[n];
     };
     let (mut a, mut b) = (cost[1], cost[2]);
-    for i in 3..=n {
-        let tmp = b;
-        b = cmp::min(a, tmp) + cost[i];
-        a = tmp;
+    for c in &cost[3..] {
+        (a, b) = (b, cmp::min(a, b) + c);
     }
     b
 }
