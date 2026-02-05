@@ -27,30 +27,29 @@ impl<T> ListNode<T> {
 }
 
 /* 基于双向链表实现的双向队列 */
-#[allow(dead_code)]
 pub struct LinkedListDeque<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点 front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点 rear
-    que_size: usize,                         // 双向队列的长度
+    front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点
+    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点
+    size: usize,                             // 双向队列的长度
 }
 
-impl<T: Copy> LinkedListDeque<T> {
+impl<T> LinkedListDeque<T> {
     pub fn new() -> Self {
         Self {
             front: None,
             rear: None,
-            que_size: 0,
+            size: 0,
         }
     }
 
     /* 获取双向队列的长度 */
     pub fn size(&self) -> usize {
-        return self.que_size;
+        return self.size;
     }
 
     /* 判断双向队列是否为空 */
     pub fn is_empty(&self) -> bool {
-        return self.que_size == 0;
+        return self.size == 0;
     }
 
     /* 入队操作 */
@@ -68,7 +67,8 @@ impl<T: Copy> LinkedListDeque<T> {
                 Some(old_front) => {
                     old_front.borrow_mut().prev = Some(node.clone());
                     node.borrow_mut().next = Some(old_front);
-                    self.front = Some(node); // 更新头节点
+                    // 更新头节点
+                    self.front = Some(node);
                 }
             }
         }
@@ -84,11 +84,13 @@ impl<T: Copy> LinkedListDeque<T> {
                 Some(old_rear) => {
                     old_rear.borrow_mut().next = Some(node.clone());
                     node.borrow_mut().prev = Some(old_rear);
-                    self.rear = Some(node); // 更新尾节点
+                    // 更新尾节点
+                    self.rear = Some(node);
                 }
             }
         }
-        self.que_size += 1; // 更新队列长度
+        // 更新队列长度
+        self.size += 1;
     }
 
     /* 队首入队 */
@@ -102,76 +104,91 @@ impl<T: Copy> LinkedListDeque<T> {
     }
 
     /* 出队操作 */
-    fn pop(&mut self, is_front: bool) -> Option<T> {
+    fn pop(&mut self, is_front: bool) -> Option<T>
+    where
+        T: Clone,
+    {
         // 若队列为空，直接返回 None
         if self.is_empty() {
             return None;
-        };
+        }
         // 队首出队操作
         if is_front {
-            self.front.take().map(|old_front| {
-                match old_front.borrow_mut().next.take() {
-                    Some(new_front) => {
-                        new_front.borrow_mut().prev.take();
-                        self.front = Some(new_front); // 更新头节点
-                    }
-                    None => {
-                        self.rear.take();
-                    }
+            let old_front = self.front.take()?;
+            match old_front.borrow_mut().next.take() {
+                Some(new_front) => {
+                    new_front.borrow_mut().prev = None;
+                    // 更新头节点
+                    self.front = Some(new_front);
                 }
-                self.que_size -= 1; // 更新队列长度
-                old_front.borrow().val
-            })
+                None => {
+                    self.rear = None;
+                }
+            }
+            // 更新队列长度
+            self.size -= 1;
+            let val = old_front.borrow().val.clone();
+            Some(val)
         }
         // 队尾出队操作
         else {
-            self.rear.take().map(|old_rear| {
-                match old_rear.borrow_mut().prev.take() {
-                    Some(new_rear) => {
-                        new_rear.borrow_mut().next.take();
-                        self.rear = Some(new_rear); // 更新尾节点
-                    }
-                    None => {
-                        self.front.take();
-                    }
+            let old_rear = self.rear.take()?;
+            match old_rear.borrow_mut().prev.take() {
+                Some(new_rear) => {
+                    new_rear.borrow_mut().next = None;
+                    // 更新尾节点
+                    self.rear = Some(new_rear);
                 }
-                self.que_size -= 1; // 更新队列长度
-                old_rear.borrow().val
-            })
+                None => {
+                    self.front = None;
+                }
+            }
+            // 更新队列长度
+            self.size -= 1;
+            let val = old_rear.borrow().val.clone();
+            Some(val)
         }
     }
 
     /* 队首出队 */
-    pub fn pop_first(&mut self) -> Option<T> {
-        return self.pop(true);
+    pub fn pop_first(&mut self) -> Option<T>
+    where
+        T: Clone,
+    {
+        self.pop(true)
     }
 
     /* 队尾出队 */
-    pub fn pop_last(&mut self) -> Option<T> {
-        return self.pop(false);
+    pub fn pop_last(&mut self) -> Option<T>
+    where
+        T: Clone,
+    {
+        self.pop(false)
     }
 
     /* 访问队首元素 */
-    pub fn peek_first(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
-        self.front.as_ref()
+    pub fn peek_first(&self) -> &Option<Rc<RefCell<ListNode<T>>>> {
+        &self.front
     }
 
     /* 访问队尾元素 */
-    pub fn peek_last(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
-        self.rear.as_ref()
+    pub fn peek_last(&self) -> &Option<Rc<RefCell<ListNode<T>>>> {
+        &self.rear
     }
 
     /* 返回数组用于打印 */
-    pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
-        let mut res: Vec<T> = Vec::new();
-        fn recur<T: Copy>(cur: Option<&Rc<RefCell<ListNode<T>>>>, res: &mut Vec<T>) {
-            if let Some(cur) = cur {
-                res.push(cur.borrow().val);
-                recur(cur.borrow().next.as_ref(), res);
-            }
+    pub fn to_array(&self) -> Vec<T>
+    where
+        T: Clone,
+    {
+        let mut res = Vec::with_capacity(self.size);
+        let mut next = self.front.clone();
+        while let Some(node) = next {
+            let borrow = node.borrow();
+            let val = borrow.val.clone();
+            res.push(val);
+            next = borrow.next.clone();
         }
-
-        recur(head, &mut res);
         res
     }
 }
@@ -184,29 +201,29 @@ fn main() {
     deque.push_last(2);
     deque.push_last(5);
     print!("双向队列 deque = ");
-    print_util::print_array(&deque.to_array(deque.peek_first()));
+    print_util::print_array(&deque.to_array());
 
     /* 访问元素 */
-    let peek_first = deque.peek_first().unwrap().borrow().val;
+    let peek_first = deque.peek_first().as_ref().unwrap().borrow().val;
     print!("\n队首元素 peek_first = {}", peek_first);
-    let peek_last = deque.peek_last().unwrap().borrow().val;
+    let peek_last = deque.peek_last().as_ref().unwrap().borrow().val;
     print!("\n队尾元素 peek_last = {}", peek_last);
 
     /* 元素入队 */
     deque.push_last(4);
     print!("\n元素 4 队尾入队后 deque = ");
-    print_util::print_array(&deque.to_array(deque.peek_first()));
+    print_util::print_array(&deque.to_array());
     deque.push_first(1);
     print!("\n元素 1 队首入队后 deque = ");
-    print_util::print_array(&deque.to_array(deque.peek_first()));
+    print_util::print_array(&deque.to_array());
 
     /* 元素出队 */
     let pop_last = deque.pop_last().unwrap();
     print!("\n队尾出队元素 = {}，队尾出队后 deque = ", pop_last);
-    print_util::print_array(&deque.to_array(deque.peek_first()));
+    print_util::print_array(&deque.to_array());
     let pop_first = deque.pop_first().unwrap();
     print!("\n队首出队元素 = {}，队首出队后 deque = ", pop_first);
-    print_util::print_array(&deque.to_array(deque.peek_first()));
+    print_util::print_array(&deque.to_array());
 
     /* 获取双向队列的长度 */
     let size = deque.size();
