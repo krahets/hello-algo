@@ -1,4 +1,4 @@
-/**
+/*
  * File: merge_sort.rs
  * Created Time: 2023-02-14
  * Author: xBLACKICEx (xBLACKICEx@outlook.com)

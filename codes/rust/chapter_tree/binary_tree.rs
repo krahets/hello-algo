@@ -1,8 +1,9 @@
-/**
+/*
  * File: binary_tree.rs
  * Created Time: 2023-02-27
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
+
 use std::rc::Rc;
 use hello_algo_rust::include::{print_util, TreeNode};
 

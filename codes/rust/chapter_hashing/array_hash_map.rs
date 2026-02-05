@@ -1,4 +1,4 @@
-/**
+/*
  * File: array_hash_map.rs
  * Created Time: 2023-2-18
  * Author: xBLACICEx (xBLACKICEx@outlook.com)
