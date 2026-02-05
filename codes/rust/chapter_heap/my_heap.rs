@@ -4,7 +4,7 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-use hello_algo_rust::include::print_util;
+use hello_algo_rust::heap::Heap;
 
 /* 大顶堆 */
 pub struct MaxHeap {
@@ -36,7 +36,8 @@ impl MaxHeap {
 
     /* 获取父节点的索引 */
     fn parent(i: usize) -> usize {
-        (i - 1) / 2 // 向下整除
+        // 向下整除
+        (i - 1) / 2
     }
 
     /* 交换元素 */
@@ -76,7 +77,7 @@ impl MaxHeap {
             }
             // 获取节点 i 的父节点
             let p = Self::parent(i);
-            // 当“节点无须修复”时，结束堆化
+            // 当节点无需修复时，结束堆化
             if self.max_heap[i] <= self.max_heap[p] {
                 break;
             }
@@ -88,10 +89,10 @@ impl MaxHeap {
     }
 
     /* 元素出堆 */
-    pub fn pop(&mut self) -> i32 {
+    pub fn pop(&mut self) -> Option<i32> {
         // 判空处理
         if self.is_empty() {
-            panic!("index out of bounds");
+            return None;
         }
         // 交换根节点与最右叶节点（交换首元素与尾元素）
         self.swap(0, self.size() - 1);
@@ -100,34 +101,37 @@ impl MaxHeap {
         // 从顶至底堆化
         self.sift_down(0);
         // 返回堆顶元素
-        val
+        Some(val)
     }
 
     /* 从节点 i 开始，从顶至底堆化 */
     fn sift_down(&mut self, mut i: usize) {
         loop {
-            // 判断节点 i, l, r 中值最大的节点，记为 ma
-            let (l, r, mut ma) = (Self::left(i), Self::right(i), i);
-            if l < self.size() && self.max_heap[l] > self.max_heap[ma] {
-                ma = l;
+            // 判断节点 i, l, r 中值最大的节点，记为 max
+            let l = Self::left(i);
+            let r = Self::right(i);
+            let mut max = i;
+            if l < self.size() && self.max_heap[l] > self.max_heap[max] {
+                max = l;
             }
-            if r < self.size() && self.max_heap[r] > self.max_heap[ma] {
-                ma = r;
+            if r < self.size() && self.max_heap[r] > self.max_heap[max] {
+                max = r;
             }
             // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
-            if ma == i {
+            if max == i {
                 break;
             }
             // 交换两节点
-            self.swap(i, ma);
+            self.swap(i, max);
             // 循环向下堆化
-            i = ma;
+            i = max;
         }
     }
 
     /* 打印堆（二叉树） */
     pub fn print(&self) {
-        print_util::print_heap(self.max_heap.clone());
+        println!("堆的数组表示：{}", self.max_heap.display_as_array());
+        println!("堆的树状表示：\n{}", self.max_heap.display_as_tree());
     }
 }
 
@@ -135,31 +139,31 @@ impl MaxHeap {
 fn main() {
     /* 初始化大顶堆 */
     let mut max_heap = MaxHeap::new(vec![9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-    println!("\n输入列表并建堆后");
+    println!("输入列表并建堆后");
     max_heap.print();
 
     /* 获取堆顶元素 */
     let peek = max_heap.peek();
     if let Some(peek) = peek {
-        println!("\n堆顶元素为 {}", peek);
+        println!("堆顶元素为 {peek}");
     }
 
     /* 元素入堆 */
     let val = 7;
     max_heap.push(val);
-    println!("\n元素 {} 入堆后", val);
+    println!("元素 {val} 入堆后");
     max_heap.print();
 
     /* 堆顶元素出堆 */
-    let peek = max_heap.pop();
-    println!("\n堆顶元素 {} 出堆后", peek);
+    let peek = max_heap.pop().unwrap();
+    println!("堆顶元素 {peek} 出堆后");
     max_heap.print();
 
     /* 获取堆大小 */
     let size = max_heap.size();
-    println!("\n堆元素数量为 {}", size);
+    println!("堆元素数量为 {size}");
 
     /* 判断堆是否为空 */
     let is_empty = max_heap.is_empty();
-    println!("\n堆是否为空 {}", is_empty);
+    println!("堆是否为空 {is_empty}");
 }
