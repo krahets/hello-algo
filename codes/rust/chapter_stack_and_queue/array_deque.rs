@@ -3,7 +3,10 @@
  * Created Time: 2023-03-11
  * Author: codingonion (coderonion@gmail.com)
  */
-use hello_algo_rust::include::print_util;
+
+use hello_algo_rust::fmt::Write;
+use std::fmt;
+
 /* 基于环形数组实现的双向队列 */
 pub struct ArrayDeque<T> {
     nums: Vec<T>, // 用于存储双向队列元素的数组
@@ -129,6 +132,17 @@ impl<T> ArrayDeque<T> {
     }
 }
 
+impl<T> fmt::Display for ArrayDeque<T>
+where
+    T: fmt::Display,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let iter =
+            (self.front..(self.front + self.size)).map(|index| &self.nums[index % self.capacity()]);
+        f.write_array(iter)
+    }
+}
+
 /* Driver Code */
 fn main() {
     /* 初始化双向队列 */
@@ -136,36 +150,31 @@ fn main() {
     deque.push_last(3);
     deque.push_last(2);
     deque.push_last(5);
-    print!("双向队列 deque = ");
-    print_util::print_array(&deque.to_array());
+    println!("双向队列 deque = {deque}");
 
     /* 访问元素 */
     let peek_first = deque.peek_first().unwrap();
-    print!("\n队首元素 peek_first = {}", peek_first);
+    println!("队首元素 peek_first = {peek_first}");
     let peek_last = deque.peek_last().unwrap();
-    print!("\n队尾元素 peek_last = {}", peek_last);
+    println!("队尾元素 peek_last = {peek_last}");
 
     /* 元素入队 */
     deque.push_last(4);
-    print!("\n元素 4 队尾入队后 deque = ");
-    print_util::print_array(&deque.to_array());
+    println!("元素 4 队尾入队后 deque = {deque}");
     deque.push_first(1);
-    print!("\n元素 1 队首入队后 deque = ");
-    print_util::print_array(&deque.to_array());
+    println!("元素 1 队首入队后 deque = {deque}");
 
     /* 元素出队 */
     let pop_last = deque.pop_last().unwrap();
-    print!("\n队尾出队元素 = {}，队尾出队后 deque = ", pop_last);
-    print_util::print_array(&deque.to_array());
+    println!("队尾出队元素 = {pop_last}，队尾出队后 deque = {deque}");
     let pop_first = deque.pop_first().unwrap();
-    print!("\n队首出队元素 = {}，队首出队后 deque = ", pop_first);
-    print_util::print_array(&deque.to_array());
+    println!("队首出队元素 = {pop_first}，队首出队后 deque = {deque}");
 
     /* 获取双向队列的长度 */
     let size = deque.size();
-    print!("\n双向队列长度 size = {}", size);
+    println!("双向队列长度 size = {size}");
 
     /* 判断双向队列是否为空 */
     let is_empty = deque.is_empty();
-    print!("\n双向队列是否为空 = {}", is_empty);
+    println!("双向队列是否为空 = {is_empty}");
 }
