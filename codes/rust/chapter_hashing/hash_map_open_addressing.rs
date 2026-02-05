@@ -6,9 +6,11 @@
 #![allow(non_snake_case)]
 #![allow(unused)]
 
-mod array_hash_map;
-
-use array_hash_map::Pair;
+#[derive(Clone, PartialEq)]
+pub struct Pair {
+    pub key: i32,
+    pub val: String,
+}
 
 /* 开放寻址哈希表 */
 pub struct HashMapOpenAddressing {
