@@ -13,6 +13,7 @@ pub struct ArrayStack<T> {
 
 impl<T> ArrayStack<T> {
     /* 初始化栈 */
+    #[allow(clippy::new_without_default)]
     pub fn new() -> ArrayStack<T> {
         ArrayStack::<T> {
             stack: Vec::<T>::new(),
