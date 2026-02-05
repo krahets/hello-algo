@@ -7,7 +7,6 @@
 use hello_algo_rust::include::print_util;
 
 /* 列表类 */
-#[allow(dead_code)]
 pub struct MyList {
     arr: Vec<i32>,       // 数组（存储列表元素）
     capacity: usize,     // 列表容量
@@ -15,13 +14,11 @@ pub struct MyList {
     extend_ratio: usize, // 每次列表扩容的倍数
 }
 
-#[allow(unused, unused_comparisons)]
 impl MyList {
     /* 构造方法 */
     pub fn new(capacity: usize) -> Self {
-        let mut vec = vec![0; capacity];
         Self {
-            arr: vec,
+            arr: vec![0; capacity],
             capacity,
             size: 0,
             extend_ratio: 2,
@@ -30,12 +27,12 @@ impl MyList {
 
     /* 获取列表长度（当前元素数量）*/
     pub fn size(&self) -> usize {
-        return self.size;
+        self.size
     }
 
     /* 获取列表容量 */
     pub fn capacity(&self) -> usize {
-        return self.capacity;
+        self.capacity
     }
 
     /* 访问元素 */
@@ -44,7 +41,7 @@ impl MyList {
         if index >= self.size {
             panic!("索引越界")
         };
-        return self.arr[index];
+        self.arr[index]
     }
 
     /* 更新元素 */
@@ -97,7 +94,7 @@ impl MyList {
         // 更新元素数量
         self.size -= 1;
         // 返回被删除的元素
-        return num;
+        num
     }
 
     /* 列表扩容 */
