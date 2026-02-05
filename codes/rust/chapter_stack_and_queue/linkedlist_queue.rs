@@ -10,7 +10,6 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 /* 基于链表实现的队列 */
-#[allow(dead_code)]
 pub struct LinkedListQueue<T> {
     front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点 front
     rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点 rear
@@ -18,6 +17,7 @@ pub struct LinkedListQueue<T> {
 }
 
 impl<T> LinkedListQueue<T> {
+    #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         Self {
             front: None,
@@ -28,12 +28,12 @@ impl<T> LinkedListQueue<T> {
 
     /* 获取队列的长度 */
     pub fn size(&self) -> usize {
-        return self.size;
+        self.size
     }
 
     /* 判断队列是否为空 */
     pub fn is_empty(&self) -> bool {
-        return self.size == 0;
+        self.size == 0
     }
 
     /* 入队 */
