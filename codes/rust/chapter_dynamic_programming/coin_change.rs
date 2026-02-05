@@ -27,7 +27,7 @@ pub fn coin_change_dp(coins: &[i32], amt: usize) -> i32 {
         }
     }
     if dp[n][amt] != max {
-        return dp[n][amt] as i32;
+        dp[n][amt] as i32
     } else {
         -1
     }
@@ -46,18 +46,13 @@ pub fn coin_change_dp_comp(coins: &[i32], amt: usize) -> i32 {
         for a in 1..=amt {
             if coins[i - 1] > a as i32 {
                 // 若超过目标金额，则不选硬币 i
-                dp[a] = dp[a];
             } else {
                 // 不选和选硬币 i 这两种方案的较小值
                 dp[a] = std::cmp::min(dp[a], dp[a - coins[i - 1] as usize] + 1);
             }
         }
     }
-    if dp[amt] != max {
-        return dp[amt] as i32;
-    } else {
-        -1
-    }
+    if dp[amt] != max { dp[amt] as i32 } else { -1 }
 }
 
 /* Driver Code */
