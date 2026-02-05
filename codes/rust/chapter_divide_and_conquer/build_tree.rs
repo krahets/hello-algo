@@ -67,12 +67,14 @@ pub fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNo
     }
 
     // 初始化哈希表，存储 inorder 元素到索引的映射
-    let mut inorder_map: HashMap<i32, usize> = HashMap::new();
-    for i in 0..inorder.len() {
-        inorder_map.insert(inorder[i], i);
-    }
-    let root = dfs(preorder, &inorder_map, 0, 0, inorder.len() - 1);
-    root
+    let inorder_map: HashMap<i32, usize> = inorder
+        .iter()
+        .enumerate()
+        .map(|(index, &value)| (value, index))
+        .collect();
+
+    // inorder.len() > 0，不会发生减法溢出
+    dfs(preorder, &inorder_map, 0, 0, inorder.len() - 1)
 }
 
 /* Driver Code */
