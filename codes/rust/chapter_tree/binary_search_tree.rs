@@ -21,6 +21,7 @@ pub struct BinarySearchTree {
 
 impl BinarySearchTree {
     /* 构造方法 */
+    #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         // 初始化空树
         Self { root: None }
