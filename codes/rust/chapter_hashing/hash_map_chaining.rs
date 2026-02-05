@@ -22,6 +22,7 @@ pub struct HashMapChaining {
 
 impl HashMapChaining {
     /* 构造方法 */
+    #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         Self {
             size: 0,
@@ -145,11 +146,8 @@ fn main() {
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     println!(
-        "\n输入学号 13276,查询到姓名 {}",
-        match map.get(13276) {
-            Some(value) => value,
-            None => "Not a valid Key",
-        }
+        "\n输入学号 13276，查询到姓名 {}",
+        map.get(13276).unwrap_or("Not a valid Key")
     );
 
     /* 删除操作 */
