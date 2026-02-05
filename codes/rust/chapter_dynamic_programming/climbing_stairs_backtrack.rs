@@ -8,7 +8,7 @@
 fn backtrack(choices: &[i32], state: i32, n: i32, res: &mut [i32]) {
     // 当爬到第 n 阶时，方案数量加 1
     if state == n {
-        res[0] = res[0] + 1;
+        res[0] += 1;
     }
     // 遍历所有选择
     for &choice in choices {
