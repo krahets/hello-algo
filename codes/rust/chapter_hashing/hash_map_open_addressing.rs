@@ -31,6 +31,7 @@ impl HashMapOpenAddressing {
     const EXTEND_RATIO: usize = 2; // 扩容倍数
 
     /* 构造方法 */
+    #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         Self {
             size: 0,
