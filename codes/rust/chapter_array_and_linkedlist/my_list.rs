@@ -99,8 +99,14 @@ impl MyList {
 
     /* 列表扩容 */
     pub fn extend_capacity(&mut self) {
-        // 新建一个长度为原数组 extend_ratio 倍的新数组，并将原数组复制到新数组
-        let new_capacity = self.capacity * self.extend_ratio;
+        // 如果原数组容量为 0，新建一个长度为 4 的新数组，否则新建一个长度为原数组 extend_ratio 倍的新数组；
+        // 将原数组复制到新数组
+        let new_capacity = if self.capacity == 0 {
+            // 先前实现没有考虑初始容量为 0 的情况，这会导致容量无法增长
+            4
+        } else {
+            self.capacity * self.extend_ratio
+        };
         self.arr.resize(new_capacity, 0);
         // 更新列表容量
         self.capacity = new_capacity;
