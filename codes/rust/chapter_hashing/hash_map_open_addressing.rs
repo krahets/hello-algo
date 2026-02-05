@@ -10,8 +10,6 @@ use std::mem;
 pub struct HashMapOpenAddressing {
     size: usize,          // 键值对数量
     capacity: usize,      // 哈希表容量
-    load_thres: f64,      // 触发扩容的负载因子阈值
-    extend_ratio: usize,  // 扩容倍数
     buckets: Vec<Bucket>, // 桶数组
 }
 
@@ -29,13 +27,14 @@ enum Bucket {
 }
 
 impl HashMapOpenAddressing {
+    const LOAD_THRES: f64 = 2.0 / 3.0; // 触发扩容的负载因子阈值
+    const EXTEND_RATIO: usize = 2; // 扩容倍数
+
     /* 构造方法 */
     pub fn new() -> Self {
         Self {
             size: 0,
             capacity: 4,
-            load_thres: 2.0 / 3.0,
-            extend_ratio: 2,
             buckets: vec![Bucket::Empty; 4],
         }
     }
@@ -94,7 +93,7 @@ impl HashMapOpenAddressing {
     /* 添加操作 */
     pub fn put(&mut self, key: i32, val: String) {
         // 当负载因子超过阈值时，执行扩容
-        if self.load_factor() > self.load_thres {
+        if self.load_factor() > Self::LOAD_THRES {
             self.extend();
         }
         // 搜索 key 对应的桶索引
@@ -126,7 +125,7 @@ impl HashMapOpenAddressing {
         // 暂存原哈希表
         let buckets = self.buckets.clone();
         // 初始化扩容后的新哈希表
-        self.capacity *= self.extend_ratio;
+        self.capacity *= Self::EXTEND_RATIO;
         self.buckets = vec![Bucket::Empty; self.capacity];
         self.size = 0;
 
