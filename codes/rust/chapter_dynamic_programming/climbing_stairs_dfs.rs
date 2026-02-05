@@ -11,8 +11,7 @@ fn dfs(i: usize) -> i32 {
         return i as i32;
     }
     // dp[i] = dp[i-1] + dp[i-2]
-    let count = dfs(i - 1) + dfs(i - 2);
-    count
+    dfs(i - 1) + dfs(i - 2)
 }
 
 /* 爬楼梯：搜索 */
