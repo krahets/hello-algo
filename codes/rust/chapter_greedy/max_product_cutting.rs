@@ -5,7 +5,7 @@
  */
 
 /* 最大切分乘积：贪心 */
-fn max_product_cutting(n: i32) -> i32 {
+pub fn max_product_cutting(n: i32) -> i32 {
     // 当 n <= 3 时，必须切分出一个 1
     if n <= 3 {
         return 1 * (n - 1);

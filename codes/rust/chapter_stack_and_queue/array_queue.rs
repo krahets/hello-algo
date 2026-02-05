@@ -5,7 +5,7 @@
  */
 
 /* 基于环形数组实现的队列 */
-struct ArrayQueue<T> {
+pub struct ArrayQueue<T> {
     nums: Vec<T>,      // 用于存储队列元素的数组
     front: i32,        // 队首指针，指向队首元素
     que_size: i32,     // 队列长度
@@ -14,7 +14,7 @@ struct ArrayQueue<T> {
 
 impl<T: Copy + Default> ArrayQueue<T> {
     /* 构造方法 */
-    fn new(capacity: i32) -> ArrayQueue<T> {
+    pub fn new(capacity: i32) -> ArrayQueue<T> {
         ArrayQueue {
             nums: vec![T::default(); capacity as usize],
             front: 0,
@@ -24,22 +24,22 @@ impl<T: Copy + Default> ArrayQueue<T> {
     }
 
     /* 获取队列的容量 */
-    fn capacity(&self) -> i32 {
+    pub fn capacity(&self) -> i32 {
         self.que_capacity
     }
 
     /* 获取队列的长度 */
-    fn size(&self) -> i32 {
+    pub fn size(&self) -> i32 {
         self.que_size
     }
 
     /* 判断队列是否为空 */
-    fn is_empty(&self) -> bool {
+    pub fn is_empty(&self) -> bool {
         self.que_size == 0
     }
 
     /* 入队 */
-    fn push(&mut self, num: T) {
+    pub fn push(&mut self, num: T) {
         if self.que_size == self.capacity() {
             println!("队列已满");
             return;
@@ -53,7 +53,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
     }
 
     /* 出队 */
-    fn pop(&mut self) -> T {
+    pub fn pop(&mut self) -> T {
         let num = self.peek();
         // 队首指针向后移动一位，若越过尾部，则返回到数组头部
         self.front = (self.front + 1) % self.que_capacity;
@@ -62,7 +62,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
     }
 
     /* 访问队首元素 */
-    fn peek(&self) -> T {
+    pub fn peek(&self) -> T {
         if self.is_empty() {
             panic!("index out of bounds");
         }
@@ -70,7 +70,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
     }
 
     /* 返回数组 */
-    fn to_vector(&self) -> Vec<T> {
+    pub fn to_vector(&self) -> Vec<T> {
         let cap = self.que_capacity;
         let mut j = self.front;
         let mut arr = vec![T::default(); cap as usize];

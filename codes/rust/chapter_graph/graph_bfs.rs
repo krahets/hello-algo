@@ -12,7 +12,7 @@ use std::collections::{HashSet, VecDeque};
 
 /* 广度优先遍历 */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
+pub fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
     // 顶点遍历序列
     let mut res = vec![];
     // 哈希集合，用于记录已被访问过的顶点

@@ -9,7 +9,7 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 /* 线性查找（数组） */
-fn linear_search_array(nums: &[i32], target: i32) -> i32 {
+pub fn linear_search_array(nums: &[i32], target: i32) -> i32 {
     // 遍历数组
     for (i, num) in nums.iter().enumerate() {
         // 找到目标元素，返回其索引
@@ -22,7 +22,7 @@ fn linear_search_array(nums: &[i32], target: i32) -> i32 {
 }
 
 /* 线性查找（链表） */
-fn linear_search_linked_list(
+pub fn linear_search_linked_list(
     head: Rc<RefCell<ListNode<i32>>>,
     target: i32,
 ) -> Option<Rc<RefCell<ListNode<i32>>>> {
@@ -39,7 +39,7 @@ fn linear_search_linked_list(
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let target = 3;
 
     /* 在数组中执行线性查找 */

@@ -9,7 +9,7 @@ mod binary_search_insertion;
 use binary_search_insertion::binary_search_insertion;
 
 /* 二分查找最左一个 target */
-fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
+pub fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
     // 等价于查找 target 的插入点
     let i = binary_search_insertion(nums, target);
     // 未找到 target ，返回 -1
@@ -21,7 +21,7 @@ fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
 }
 
 /* 二分查找最右一个 target */
-fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
+pub fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
     // 转化为查找最左一个 target + 1
     let i = binary_search_insertion(nums, target + 1);
     // j 指向最右一个 target ，i 指向首个大于 target 的元素

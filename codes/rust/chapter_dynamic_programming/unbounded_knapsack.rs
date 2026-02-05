@@ -5,7 +5,7 @@
  */
 
 /* 完全背包：动态规划 */
-fn unbounded_knapsack_dp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
+pub fn unbounded_knapsack_dp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     let n = wgt.len();
     // 初始化 dp 表
     let mut dp = vec![vec![0; cap + 1]; n + 1];
@@ -25,7 +25,7 @@ fn unbounded_knapsack_dp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
 }
 
 /* 完全背包：空间优化后的动态规划 */
-fn unbounded_knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
+pub fn unbounded_knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     let n = wgt.len();
     // 初始化 dp 表
     let mut dp = vec![0; cap + 1];
@@ -45,7 +45,7 @@ fn unbounded_knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let wgt = [1, 2, 3];
     let val = [5, 11, 15];
     let cap: usize = 4;

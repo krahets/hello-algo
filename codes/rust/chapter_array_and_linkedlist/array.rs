@@ -8,7 +8,7 @@ use hello_algo_rust::include::print_util;
 use rand::Rng;
 
 /* 随机访问元素 */
-fn random_access(nums: &[i32]) -> i32 {
+pub fn random_access(nums: &[i32]) -> i32 {
     // 在区间 [0, nums.len()) 中随机抽取一个数字
     let random_index = rand::rng().random_range(0..nums.len());
     // 获取并返回随机元素
@@ -17,7 +17,7 @@ fn random_access(nums: &[i32]) -> i32 {
 }
 
 /* 扩展数组长度 */
-fn extend(nums: &[i32], enlarge: usize) -> Vec<i32> {
+pub fn extend(nums: &[i32], enlarge: usize) -> Vec<i32> {
     // 初始化一个扩展长度后的数组
     let mut res: Vec<i32> = vec![0; nums.len() + enlarge];
     // 将原数组中的所有元素复制到新
@@ -28,7 +28,7 @@ fn extend(nums: &[i32], enlarge: usize) -> Vec<i32> {
 }
 
 /* 在数组的索引 index 处插入元素 num */
-fn insert(nums: &mut [i32], num: i32, index: usize) {
+pub fn insert(nums: &mut [i32], num: i32, index: usize) {
     // 把索引 index 以及之后的所有元素向后移动一位
     for i in (index + 1..nums.len()).rev() {
         nums[i] = nums[i - 1];
@@ -38,7 +38,7 @@ fn insert(nums: &mut [i32], num: i32, index: usize) {
 }
 
 /* 删除索引 index 处的元素 */
-fn remove(nums: &mut [i32], index: usize) {
+pub fn remove(nums: &mut [i32], index: usize) {
     // 把索引 index 之后的所有元素向前移动一位
     for i in index..nums.len() - 1 {
         nums[i] = nums[i + 1];
@@ -46,7 +46,7 @@ fn remove(nums: &mut [i32], index: usize) {
 }
 
 /* 遍历数组 */
-fn traverse(nums: &[i32]) {
+pub fn traverse(nums: &[i32]) {
     let mut _count = 0;
     // 通过索引遍历数组
     for i in 0..nums.len() {
@@ -60,7 +60,7 @@ fn traverse(nums: &[i32]) {
 }
 
 /* 在数组中查找指定元素 */
-fn find(nums: &[i32], target: i32) -> Option<usize> {
+pub fn find(nums: &[i32], target: i32) -> Option<usize> {
     for i in 0..nums.len() {
         if nums[i] == target {
             return Some(i);

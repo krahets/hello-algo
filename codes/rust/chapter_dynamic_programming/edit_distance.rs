@@ -5,7 +5,7 @@
  */
 
 /* 编辑距离：暴力搜索 */
-fn edit_distance_dfs(s: &str, t: &str, i: usize, j: usize) -> i32 {
+pub fn edit_distance_dfs(s: &str, t: &str, i: usize, j: usize) -> i32 {
     // 若 s 和 t 都为空，则返回 0
     if i == 0 && j == 0 {
         return 0;
@@ -31,7 +31,7 @@ fn edit_distance_dfs(s: &str, t: &str, i: usize, j: usize) -> i32 {
 }
 
 /* 编辑距离：记忆化搜索 */
-fn edit_distance_dfs_mem(s: &str, t: &str, mem: &mut Vec<Vec<i32>>, i: usize, j: usize) -> i32 {
+pub fn edit_distance_dfs_mem(s: &str, t: &str, mem: &mut Vec<Vec<i32>>, i: usize, j: usize) -> i32 {
     // 若 s 和 t 都为空，则返回 0
     if i == 0 && j == 0 {
         return 0;
@@ -62,7 +62,7 @@ fn edit_distance_dfs_mem(s: &str, t: &str, mem: &mut Vec<Vec<i32>>, i: usize, j:
 }
 
 /* 编辑距离：动态规划 */
-fn edit_distance_dp(s: &str, t: &str) -> i32 {
+pub fn edit_distance_dp(s: &str, t: &str) -> i32 {
     let (n, m) = (s.len(), t.len());
     let mut dp = vec![vec![0; m + 1]; n + 1];
     // 状态转移：首行首列
@@ -89,7 +89,7 @@ fn edit_distance_dp(s: &str, t: &str) -> i32 {
 }
 
 /* 编辑距离：空间优化后的动态规划 */
-fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
+pub fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
     let (n, m) = (s.len(), t.len());
     let mut dp = vec![0; m + 1];
     // 状态转移：首行
@@ -118,7 +118,7 @@ fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let s = "bag";
     let t = "pack";
     let (n, m) = (s.len(), t.len());

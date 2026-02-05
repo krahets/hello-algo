@@ -13,18 +13,18 @@ use std::rc::Rc;
 type OptionTreeNodeRc = Option<Rc<RefCell<TreeNode>>>;
 
 /* AVL 树 */
-struct AVLTree {
+pub struct AVLTree {
     root: OptionTreeNodeRc, // 根节点
 }
 
 impl AVLTree {
     /* 构造方法 */
-    fn new() -> Self {
+    pub fn new() -> Self {
         Self { root: None }
     }
 
     /* 获取节点高度 */
-    fn height(node: OptionTreeNodeRc) -> i32 {
+    pub fn height(node: OptionTreeNodeRc) -> i32 {
         // 空节点高度为 -1 ，叶节点高度为 0
         match node {
             Some(node) => node.borrow().height,
@@ -128,7 +128,7 @@ impl AVLTree {
     }
 
     /* 插入节点 */
-    fn insert(&mut self, val: i32) {
+    pub fn insert(&mut self, val: i32) {
         self.root = Self::insert_helper(self.root.clone(), val);
     }
 
@@ -167,7 +167,7 @@ impl AVLTree {
     }
 
     /* 删除节点 */
-    fn remove(&self, val: i32) {
+    pub fn remove(&self, val: i32) {
         Self::remove_helper(self.root.clone(), val);
     }
 
@@ -222,7 +222,7 @@ impl AVLTree {
     }
 
     /* 查找节点 */
-    fn search(&self, val: i32) -> OptionTreeNodeRc {
+    pub fn search(&self, val: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
         // 循环查找，越过叶节点后跳出
         while let Some(current) = cur.clone() {

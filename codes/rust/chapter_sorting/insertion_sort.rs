@@ -7,7 +7,7 @@
 use hello_algo_rust::include::print_util;
 
 /* 插入排序 */
-fn insertion_sort(nums: &mut [i32]) {
+pub fn insertion_sort(nums: &mut [i32]) {
     // 外循环：已排序区间为 [0, i-1]
     for i in 1..nums.len() {
         let (base, mut j) = (nums[i], (i - 1) as i32);

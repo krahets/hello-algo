@@ -5,7 +5,7 @@
  */
 
 /* 零钱兑换：贪心 */
-fn coin_change_greedy(coins: &[i32], mut amt: i32) -> i32 {
+pub fn coin_change_greedy(coins: &[i32], mut amt: i32) -> i32 {
     // 假设 coins 列表有序
     let mut i = coins.len() - 1;
     let mut count = 0;

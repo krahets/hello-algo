@@ -8,7 +8,7 @@ use hello_algo_rust::include::print_util;
 
 /* 列表类 */
 #[allow(dead_code)]
-struct MyList {
+pub struct MyList {
     arr: Vec<i32>,       // 数组（存储列表元素）
     capacity: usize,     // 列表容量
     size: usize,         // 列表长度（当前元素数量）

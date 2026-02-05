@@ -5,7 +5,7 @@
  */
 
 /* 零钱兑换 II：动态规划 */
-fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
+pub fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
     let n = coins.len();
     // 初始化 dp 表
     let mut dp = vec![vec![0; amt + 1]; n + 1];
@@ -29,7 +29,7 @@ fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
 }
 
 /* 零钱兑换 II：空间优化后的动态规划 */
-fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
+pub fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
     let n = coins.len();
     // 初始化 dp 表
     let mut dp = vec![0; amt + 1];
@@ -50,7 +50,7 @@ fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let coins = [1, 2, 5];
     let amt: usize = 5;
 

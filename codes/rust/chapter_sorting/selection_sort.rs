@@ -7,7 +7,7 @@
 use hello_algo_rust::include::print_util;
 
 /* 选择排序 */
-fn selection_sort(nums: &mut [i32]) {
+pub fn selection_sort(nums: &mut [i32]) {
     if nums.is_empty() {
         return;
     }
@@ -27,7 +27,7 @@ fn selection_sort(nums: &mut [i32]) {
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     selection_sort(&mut nums);
     print!("\n选择排序完成后 nums = ");

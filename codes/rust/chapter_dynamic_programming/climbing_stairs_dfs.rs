@@ -16,12 +16,12 @@ fn dfs(i: usize) -> i32 {
 }
 
 /* 爬楼梯：搜索 */
-fn climbing_stairs_dfs(n: usize) -> i32 {
+pub fn climbing_stairs_dfs(n: usize) -> i32 {
     dfs(n)
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let n: usize = 9;
 
     let res = climbing_stairs_dfs(n);

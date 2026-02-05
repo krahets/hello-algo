@@ -7,9 +7,9 @@
 /* 基于邻接矩阵实现的无向图类型 */
 pub struct GraphAdjMat {
     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    pub vertices: Vec<i32>,
+    vertices: Vec<i32>,
     // 邻接矩阵，行列索引对应“顶点索引”
-    pub adj_mat: Vec<Vec<i32>>,
+    adj_mat: Vec<Vec<i32>>,
 }
 
 impl GraphAdjMat {

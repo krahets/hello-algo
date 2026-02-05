@@ -9,7 +9,7 @@ use hello_algo_rust::include::print_util;
 use std::collections::VecDeque;
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     // 初始化队列
     let mut queue: VecDeque<i32> = VecDeque::new();
 

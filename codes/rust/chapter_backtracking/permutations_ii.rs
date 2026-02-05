@@ -33,14 +33,14 @@ fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &
 }
 
 /* 全排列 II */
-fn permutations_ii(nums: &mut [i32]) -> Vec<Vec<i32>> {
+pub fn permutations_ii(nums: &mut [i32]) -> Vec<Vec<i32>> {
     let mut res = Vec::new();
     backtrack(Vec::new(), nums, &mut vec![false; nums.len()], &mut res);
     res
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let mut nums = [1, 2, 2];
 
     let res = permutations_ii(&mut nums);

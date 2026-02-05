@@ -31,7 +31,7 @@ fn sift_down(nums: &mut [i32], n: usize, mut i: usize) {
 }
 
 /* 堆排序 */
-fn heap_sort(nums: &mut [i32]) {
+pub fn heap_sort(nums: &mut [i32]) {
     // 建堆操作：堆化除叶节点以外的其他所有节点
     for i in (0..nums.len() / 2).rev() {
         sift_down(nums, nums.len(), i);

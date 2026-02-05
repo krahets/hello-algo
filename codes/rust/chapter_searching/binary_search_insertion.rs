@@ -6,7 +6,7 @@
 #![allow(unused)]
 
 /* 二分查找插入点（无重复元素） */
-fn binary_search_insertion_simple(nums: &[i32], target: i32) -> i32 {
+pub fn binary_search_insertion_simple(nums: &[i32], target: i32) -> i32 {
     let (mut i, mut j) = (0, nums.len() as i32 - 1); // 初始化双闭区间 [0, n-1]
     while i <= j {
         let m = i + (j - i) / 2; // 计算中点索引 m

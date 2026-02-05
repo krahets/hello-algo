@@ -7,14 +7,14 @@
 use hello_algo_rust::include::print_util;
 
 /* 大顶堆 */
-struct MaxHeap {
+pub struct MaxHeap {
     // 使用 vector 而非数组，这样无须考虑扩容问题
     max_heap: Vec<i32>,
 }
 
 impl MaxHeap {
     /* 构造方法，根据输入列表建堆 */
-    fn new(nums: Vec<i32>) -> Self {
+    pub fn new(nums: Vec<i32>) -> Self {
         // 将列表元素原封不动添加进堆
         let mut heap = MaxHeap { max_heap: nums };
         // 堆化除叶节点以外的其他所有节点
@@ -45,22 +45,22 @@ impl MaxHeap {
     }
 
     /* 获取堆大小 */
-    fn size(&self) -> usize {
+    pub fn size(&self) -> usize {
         self.max_heap.len()
     }
 
     /* 判断堆是否为空 */
-    fn is_empty(&self) -> bool {
+    pub fn is_empty(&self) -> bool {
         self.max_heap.is_empty()
     }
 
     /* 访问堆顶元素 */
-    fn peek(&self) -> Option<i32> {
+    pub fn peek(&self) -> Option<i32> {
         self.max_heap.first().copied()
     }
 
     /* 元素入堆 */
-    fn push(&mut self, val: i32) {
+    pub fn push(&mut self, val: i32) {
         // 添加节点
         self.max_heap.push(val);
         // 从底至顶堆化
@@ -88,7 +88,7 @@ impl MaxHeap {
     }
 
     /* 元素出堆 */
-    fn pop(&mut self) -> i32 {
+    pub fn pop(&mut self) -> i32 {
         // 判空处理
         if self.is_empty() {
             panic!("index out of bounds");
@@ -126,7 +126,7 @@ impl MaxHeap {
     }
 
     /* 打印堆（二叉树） */
-    fn print(&self) {
+    pub fn print(&self) {
         print_util::print_heap(self.max_heap.clone());
     }
 }

@@ -7,7 +7,7 @@
 use hello_algo_rust::include::print_util;
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     // 初始化栈
     // 在 rust 中，推荐将 Vec 当作栈来使用
     let mut stack: Vec<i32> = Vec::new();

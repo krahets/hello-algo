@@ -7,7 +7,7 @@
 use hello_algo_rust::include::print_util;
 
 /* 桶排序 */
-fn bucket_sort(nums: &mut [f64]) {
+pub fn bucket_sort(nums: &mut [f64]) {
     // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
     let k = nums.len() / 2;
     let mut buckets = vec![vec![]; k];

@@ -6,13 +6,13 @@
 
 #[derive(Clone)]
 /* 键值对 */
-struct Pair {
-    key: i32,
-    val: String,
+pub struct Pair {
+    pub key: i32,
+    pub val: String,
 }
 
 /* 链式地址哈希表 */
-struct HashMapChaining {
+pub struct HashMapChaining {
     size: usize,
     capacity: usize,
     load_thres: f32,
@@ -22,7 +22,7 @@ struct HashMapChaining {
 
 impl HashMapChaining {
     /* 构造方法 */
-    fn new() -> Self {
+    pub fn new() -> Self {
         Self {
             size: 0,
             capacity: 4,
@@ -43,7 +43,7 @@ impl HashMapChaining {
     }
 
     /* 删除操作 */
-    fn remove(&mut self, key: i32) -> Option<String> {
+    pub fn remove(&mut self, key: i32) -> Option<String> {
         let index = self.hash_func(key);
 
         // 遍历桶，从中删除键值对
@@ -78,7 +78,7 @@ impl HashMapChaining {
     }
 
     /* 打印哈希表 */
-    fn print(&self) {
+    pub fn print(&self) {
         for bucket in &self.buckets {
             let mut res = Vec::new();
             for pair in bucket {
@@ -89,7 +89,7 @@ impl HashMapChaining {
     }
 
     /* 添加操作 */
-    fn put(&mut self, key: i32, val: String) {
+    pub fn put(&mut self, key: i32, val: String) {
         // 当负载因子超过阈值时，执行扩容
         if self.load_factor() > self.load_thres {
             self.extend();
@@ -112,7 +112,7 @@ impl HashMapChaining {
     }
 
     /* 查询操作 */
-    fn get(&self, key: i32) -> Option<&str> {
+    pub fn get(&self, key: i32) -> Option<&str> {
         let index = self.hash_func(key);
 
         // 遍历桶，若找到 key ，则返回对应 val
@@ -128,7 +128,7 @@ impl HashMapChaining {
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     /* 初始化哈希表 */
     let mut map = HashMapChaining::new();
 

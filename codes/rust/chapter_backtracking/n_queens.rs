@@ -39,7 +39,7 @@ fn backtrack(
 }
 
 /* 求解 n 皇后 */
-fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
+pub fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
     // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
     let mut state: Vec<Vec<String>> = vec![vec!["#".to_string(); n]; n];
     let mut cols = vec![false; n]; // 记录列是否有皇后
@@ -61,7 +61,7 @@ fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let n: usize = 4;
     let res = n_queens(n);
 

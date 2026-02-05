@@ -9,7 +9,7 @@ use hello_algo_rust::include::print_util;
 use std::collections::HashMap;
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     // 初始化哈希表
     let mut map = HashMap::new();
 

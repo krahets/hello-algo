@@ -5,7 +5,7 @@
  */
 
 /* 最小路径和：暴力搜索 */
-fn min_path_sum_dfs(grid: &Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
+pub fn min_path_sum_dfs(grid: &Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
     // 若为左上角单元格，则终止搜索
     if i == 0 && j == 0 {
         return grid[0][0];
@@ -22,7 +22,7 @@ fn min_path_sum_dfs(grid: &Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
 }
 
 /* 最小路径和：记忆化搜索 */
-fn min_path_sum_dfs_mem(grid: &Vec<Vec<i32>>, mem: &mut Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
+pub fn min_path_sum_dfs_mem(grid: &Vec<Vec<i32>>, mem: &mut Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
     // 若为左上角单元格，则终止搜索
     if i == 0 && j == 0 {
         return grid[0][0];
@@ -44,7 +44,7 @@ fn min_path_sum_dfs_mem(grid: &Vec<Vec<i32>>, mem: &mut Vec<Vec<i32>>, i: i32, j
 }
 
 /* 最小路径和：动态规划 */
-fn min_path_sum_dp(grid: &Vec<Vec<i32>>) -> i32 {
+pub fn min_path_sum_dp(grid: &Vec<Vec<i32>>) -> i32 {
     let (n, m) = (grid.len(), grid[0].len());
     // 初始化 dp 表
     let mut dp = vec![vec![0; m]; n];
@@ -67,7 +67,7 @@ fn min_path_sum_dp(grid: &Vec<Vec<i32>>) -> i32 {
 }
 
 /* 最小路径和：空间优化后的动态规划 */
-fn min_path_sum_dp_comp(grid: &Vec<Vec<i32>>) -> i32 {
+pub fn min_path_sum_dp_comp(grid: &Vec<Vec<i32>>) -> i32 {
     let (n, m) = (grid.len(), grid[0].len());
     // 初始化 dp 表
     let mut dp = vec![0; m];
@@ -89,7 +89,7 @@ fn min_path_sum_dp_comp(grid: &Vec<Vec<i32>>) -> i32 {
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let grid = vec![
         vec![1, 3, 1, 5],
         vec![2, 2, 4, 2],

@@ -33,7 +33,7 @@ fn dfs(
 }
 
 /* 构建二叉树 */
-fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
+pub fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
     // 初始化哈希表，存储 inorder 元素到索引的映射
     let mut inorder_map: HashMap<i32, i32> = HashMap::new();
     for i in 0..inorder.len() {

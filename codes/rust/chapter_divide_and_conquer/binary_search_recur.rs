@@ -24,14 +24,14 @@ fn dfs(nums: &[i32], target: i32, i: i32, j: i32) -> i32 {
 }
 
 /* 二分查找 */
-fn binary_search(nums: &[i32], target: i32) -> i32 {
+pub fn binary_search(nums: &[i32], target: i32) -> i32 {
     let n = nums.len() as i32;
     // 求解问题 f(0, n-1)
     dfs(nums, target, 0, n - 1)
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let target = 6;
     let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
 

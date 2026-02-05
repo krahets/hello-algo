@@ -7,40 +7,40 @@
 use hello_algo_rust::include::print_util;
 
 /* 基于数组实现的栈 */
-struct ArrayStack<T> {
+pub struct ArrayStack<T> {
     stack: Vec<T>,
 }
 
 impl<T> ArrayStack<T> {
     /* 初始化栈 */
-    fn new() -> ArrayStack<T> {
+    pub fn new() -> ArrayStack<T> {
         ArrayStack::<T> {
             stack: Vec::<T>::new(),
         }
     }
 
     /* 获取栈的长度 */
-    fn size(&self) -> usize {
+    pub fn size(&self) -> usize {
         self.stack.len()
     }
 
     /* 判断栈是否为空 */
-    fn is_empty(&self) -> bool {
+    pub fn is_empty(&self) -> bool {
         self.size() == 0
     }
 
     /* 入栈 */
-    fn push(&mut self, num: T) {
+    pub fn push(&mut self, num: T) {
         self.stack.push(num);
     }
 
     /* 出栈 */
-    fn pop(&mut self) -> Option<T> {
+    pub fn pop(&mut self) -> Option<T> {
         self.stack.pop()
     }
 
     /* 访问栈顶元素 */
-    fn peek(&self) -> Option<&T> {
+    pub fn peek(&self) -> Option<&T> {
         if self.is_empty() {
             panic!("栈为空")
         };
@@ -48,7 +48,7 @@ impl<T> ArrayStack<T> {
     }
 
     /* 返回 &Vec */
-    fn to_array(&self) -> &Vec<T> {
+    pub fn to_array(&self) -> &Vec<T> {
         &self.stack
     }
 }

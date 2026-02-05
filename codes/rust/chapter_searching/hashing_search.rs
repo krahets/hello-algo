@@ -10,14 +10,14 @@ use std::collections::HashMap;
 use std::rc::Rc;
 
 /* 哈希查找（数组） */
-fn hashing_search_array<'a>(map: &'a HashMap<i32, usize>, target: i32) -> Option<&'a usize> {
+pub fn hashing_search_array<'a>(map: &'a HashMap<i32, usize>, target: i32) -> Option<&'a usize> {
     // 哈希表的 key: 目标元素，value: 索引
     // 若哈希表中无此 key ，返回 None
     map.get(&target)
 }
 
 /* 哈希查找（链表） */
-fn hashing_search_linked_list(
+pub fn hashing_search_linked_list(
     map: &HashMap<i32, Rc<RefCell<ListNode<i32>>>>,
     target: i32,
 ) -> Option<&Rc<RefCell<ListNode<i32>>>> {
@@ -27,7 +27,7 @@ fn hashing_search_linked_list(
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let target = 3;
 
     /* 哈希查找（数组） */

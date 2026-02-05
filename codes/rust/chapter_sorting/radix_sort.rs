@@ -39,7 +39,7 @@ fn counting_sort_digit(nums: &mut [i32], exp: i32) {
 }
 
 /* 基数排序 */
-fn radix_sort(nums: &mut [i32]) {
+pub fn radix_sort(nums: &mut [i32]) {
     // 获取数组的最大元素，用于判断最大位数
     let m = *nums.into_iter().max().unwrap();
     // 按照从低位到高位的顺序遍历

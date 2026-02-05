@@ -17,7 +17,7 @@ impl Item {
 }
 
 /* 分数背包：贪心 */
-fn fractional_knapsack(wgt: &[i32], val: &[i32], mut cap: i32) -> f64 {
+pub fn fractional_knapsack(wgt: &[i32], val: &[i32], mut cap: i32) -> f64 {
     // 创建物品列表，包含两个属性：重量、价值
     let mut items = wgt
         .iter()

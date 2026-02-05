@@ -5,7 +5,7 @@
  */
 
 /* 快速排序 */
-struct QuickSort;
+pub struct QuickSort;
 
 impl QuickSort {
     /* 哨兵划分 */
@@ -40,7 +40,7 @@ impl QuickSort {
 }
 
 /* 快速排序（中位基准数优化） */
-struct QuickSortMedian;
+pub struct QuickSortMedian;
 
 impl QuickSortMedian {
     /* 选取三个候选元素的中位数 */
@@ -91,7 +91,7 @@ impl QuickSortMedian {
 }
 
 /* 快速排序（递归深度优化） */
-struct QuickSortTailCall;
+pub struct QuickSortTailCall;
 
 impl QuickSortTailCall {
     /* 哨兵划分 */

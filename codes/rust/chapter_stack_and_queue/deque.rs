@@ -8,7 +8,7 @@ use hello_algo_rust::include::print_util;
 use std::collections::VecDeque;
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     // 初始化双向队列
     let mut deque: VecDeque<i32> = VecDeque::new();
     deque.push_back(3);

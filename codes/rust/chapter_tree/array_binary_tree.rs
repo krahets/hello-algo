@@ -7,23 +7,23 @@
 use hello_algo_rust::include::{print_util, tree_node};
 
 /* 数组表示下的二叉树类 */
-struct ArrayBinaryTree {
+pub struct ArrayBinaryTree {
     tree: Vec<Option<i32>>,
 }
 
 impl ArrayBinaryTree {
     /* 构造方法 */
-    fn new(arr: Vec<Option<i32>>) -> Self {
+    pub fn new(arr: Vec<Option<i32>>) -> Self {
         Self { tree: arr }
     }
 
     /* 列表容量 */
-    fn size(&self) -> i32 {
+    pub fn size(&self) -> i32 {
         self.tree.len() as i32
     }
 
     /* 获取索引为 i 节点的值 */
-    fn val(&self, i: i32) -> Option<i32> {
+    pub fn val(&self, i: i32) -> Option<i32> {
         // 若索引越界，则返回 None ，代表空位
         if i < 0 || i >= self.size() {
             None
@@ -33,22 +33,22 @@ impl ArrayBinaryTree {
     }
 
     /* 获取索引为 i 节点的左子节点的索引 */
-    fn left(&self, i: i32) -> i32 {
+    pub fn left(&self, i: i32) -> i32 {
         2 * i + 1
     }
 
     /* 获取索引为 i 节点的右子节点的索引 */
-    fn right(&self, i: i32) -> i32 {
+    pub fn right(&self, i: i32) -> i32 {
         2 * i + 2
     }
 
     /* 获取索引为 i 节点的父节点的索引 */
-    fn parent(&self, i: i32) -> i32 {
+    pub fn parent(&self, i: i32) -> i32 {
         (i - 1) / 2
     }
 
     /* 层序遍历 */
-    fn level_order(&self) -> Vec<i32> {
+    pub fn level_order(&self) -> Vec<i32> {
         self.tree.iter().filter_map(|&x| x).collect()
     }
 
@@ -75,21 +75,21 @@ impl ArrayBinaryTree {
     }
 
     /* 前序遍历 */
-    fn pre_order(&self) -> Vec<i32> {
+    pub fn pre_order(&self) -> Vec<i32> {
         let mut res = vec![];
         self.dfs(0, "pre", &mut res);
         res
     }
 
     /* 中序遍历 */
-    fn in_order(&self) -> Vec<i32> {
+    pub fn in_order(&self) -> Vec<i32> {
         let mut res = vec![];
         self.dfs(0, "in", &mut res);
         res
     }
 
     /* 后序遍历 */
-    fn post_order(&self) -> Vec<i32> {
+    pub fn post_order(&self) -> Vec<i32> {
         let mut res = vec![];
         self.dfs(0, "post", &mut res);
         res

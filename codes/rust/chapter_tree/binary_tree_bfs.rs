@@ -11,7 +11,7 @@ use std::collections::VecDeque;
 use std::{cell::RefCell, rc::Rc};
 
 /* 层序遍历 */
-fn level_order(root: &Rc<RefCell<TreeNode>>) -> Vec<i32> {
+pub fn level_order(root: &Rc<RefCell<TreeNode>>) -> Vec<i32> {
     // 初始化队列，加入根节点
     let mut que = VecDeque::new();
     que.push_back(root.clone());

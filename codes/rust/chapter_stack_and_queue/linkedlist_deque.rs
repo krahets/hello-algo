@@ -11,9 +11,9 @@ use std::rc::Rc;
 
 /* 双向链表节点 */
 pub struct ListNode<T> {
-    pub val: T,                                 // 节点值
-    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点指针
-    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱节点指针
+    val: T,                                 // 节点值
+    next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点指针
+    prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱节点指针
 }
 
 impl<T> ListNode<T> {

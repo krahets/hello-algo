@@ -8,7 +8,7 @@ use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
 use std::{cell::RefCell, rc::Rc};
 
 /* 前序遍历：例题二 */
-fn pre_order(
+pub fn pre_order(
     res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
     path: &mut Vec<Rc<RefCell<TreeNode>>>,
     root: Option<&Rc<RefCell<TreeNode>>>,
@@ -31,7 +31,7 @@ fn pre_order(
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let root = vec_to_tree([1, 7, 3, 4, 5, 6, 7].map(|x| Some(x)).to_vec());
     println!("初始化二叉树");
     print_util::print_tree(root.as_ref().unwrap());

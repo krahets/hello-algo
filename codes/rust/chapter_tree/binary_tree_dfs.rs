@@ -11,7 +11,7 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 /* 前序遍历 */
-fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+pub fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut result = vec![];
 
     fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
@@ -29,7 +29,7 @@ fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 }
 
 /* 中序遍历 */
-fn in_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+pub fn in_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut result = vec![];
 
     fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
@@ -47,7 +47,7 @@ fn in_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 }
 
 /* 后序遍历 */
-fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+pub fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut result = vec![];
 
     fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {

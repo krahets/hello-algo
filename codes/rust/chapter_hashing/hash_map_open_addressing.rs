@@ -11,7 +11,7 @@ mod array_hash_map;
 use array_hash_map::Pair;
 
 /* 开放寻址哈希表 */
-struct HashMapOpenAddressing {
+pub struct HashMapOpenAddressing {
     size: usize,                // 键值对数量
     capacity: usize,            // 哈希表容量
     load_thres: f64,            // 触发扩容的负载因子阈值
@@ -22,7 +22,7 @@ struct HashMapOpenAddressing {
 
 impl HashMapOpenAddressing {
     /* 构造方法 */
-    fn new() -> Self {
+    pub fn new() -> Self {
         Self {
             size: 0,
             capacity: 4,
@@ -78,7 +78,7 @@ impl HashMapOpenAddressing {
     }
 
     /* 查询操作 */
-    fn get(&mut self, key: i32) -> Option<&str> {
+    pub fn get(&mut self, key: i32) -> Option<&str> {
         // 搜索 key 对应的桶索引
         let index = self.find_bucket(key);
         // 若找到键值对，则返回对应 val
@@ -90,7 +90,7 @@ impl HashMapOpenAddressing {
     }
 
     /* 添加操作 */
-    fn put(&mut self, key: i32, val: String) {
+    pub fn put(&mut self, key: i32, val: String) {
         // 当负载因子超过阈值时，执行扩容
         if self.load_factor() > self.load_thres {
             self.extend();
@@ -108,7 +108,7 @@ impl HashMapOpenAddressing {
     }
 
     /* 删除操作 */
-    fn remove(&mut self, key: i32) {
+    pub fn remove(&mut self, key: i32) {
         // 搜索 key 对应的桶索引
         let index = self.find_bucket(key);
         // 若找到键值对，则用删除标记覆盖它
@@ -138,7 +138,7 @@ impl HashMapOpenAddressing {
         }
     }
     /* 打印哈希表 */
-    fn print(&self) {
+    pub fn print(&self) {
         for pair in &self.buckets {
             if pair.is_none() {
                 println!("null");

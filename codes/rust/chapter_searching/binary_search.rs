@@ -5,7 +5,7 @@
  */
 
 /* 二分查找（双闭区间） */
-fn binary_search(nums: &[i32], target: i32) -> i32 {
+pub fn binary_search(nums: &[i32], target: i32) -> i32 {
     // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
     let mut i = 0;
     let mut j = nums.len() as i32 - 1;
@@ -28,7 +28,7 @@ fn binary_search(nums: &[i32], target: i32) -> i32 {
 }
 
 /* 二分查找（左闭右开区间） */
-fn binary_search_lcro(nums: &[i32], target: i32) -> i32 {
+pub fn binary_search_lcro(nums: &[i32], target: i32) -> i32 {
     // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     let mut i = 0;
     let mut j = nums.len() as i32;
@@ -51,7 +51,7 @@ fn binary_search_lcro(nums: &[i32], target: i32) -> i32 {
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let target = 6;
     let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
 

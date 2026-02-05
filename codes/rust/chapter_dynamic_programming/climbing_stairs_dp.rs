@@ -5,7 +5,7 @@
  */
 
 /* 爬楼梯：动态规划 */
-fn climbing_stairs_dp(n: usize) -> i32 {
+pub fn climbing_stairs_dp(n: usize) -> i32 {
     // 已知 dp[1] 和 dp[2] ，返回之
     if n == 1 || n == 2 {
         return n as i32;
@@ -23,7 +23,7 @@ fn climbing_stairs_dp(n: usize) -> i32 {
 }
 
 /* 爬楼梯：空间优化后的动态规划 */
-fn climbing_stairs_dp_comp(n: usize) -> i32 {
+pub fn climbing_stairs_dp_comp(n: usize) -> i32 {
     if n == 1 || n == 2 {
         return n as i32;
     }
@@ -37,7 +37,7 @@ fn climbing_stairs_dp_comp(n: usize) -> i32 {
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let n: usize = 9;
 
     let res = climbing_stairs_dp(n);

@@ -22,14 +22,14 @@ fn dfs(i: usize, mem: &mut [i32]) -> i32 {
 }
 
 /* 爬楼梯：记忆化搜索 */
-fn climbing_stairs_dfs_mem(n: usize) -> i32 {
+pub fn climbing_stairs_dfs_mem(n: usize) -> i32 {
     // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
     let mut mem = vec![-1; n + 1];
     dfs(n, &mut mem)
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let n: usize = 9;
 
     let res = climbing_stairs_dfs_mem(n);

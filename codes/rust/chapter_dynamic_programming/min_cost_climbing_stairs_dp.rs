@@ -7,7 +7,7 @@
 use std::cmp;
 
 /* 爬楼梯最小代价：动态规划 */
-fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
+pub fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
     let n = cost.len() - 1;
     if n == 1 || n == 2 {
         return cost[n];
@@ -25,7 +25,7 @@ fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
 }
 
 /* 爬楼梯最小代价：空间优化后的动态规划 */
-fn min_cost_climbing_stairs_dp_comp(cost: &[i32]) -> i32 {
+pub fn min_cost_climbing_stairs_dp_comp(cost: &[i32]) -> i32 {
     let n = cost.len() - 1;
     if n == 1 || n == 2 {
         return cost[n];
@@ -40,7 +40,7 @@ fn min_cost_climbing_stairs_dp_comp(cost: &[i32]) -> i32 {
 }
 
 /* Driver Code */
-pub fn main() {
+fn main() {
     let cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1];
     println!("输入楼梯的代价列表为 {:?}", &cost);
 
