@@ -17,6 +17,7 @@ pub struct LinkedListStack<T> {
 }
 
 impl<T> LinkedListStack<T> {
+    #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         Self {
             peek: None,
@@ -26,12 +27,12 @@ impl<T> LinkedListStack<T> {
 
     /* 获取栈的长度 */
     pub fn size(&self) -> usize {
-        return self.size;
+        self.size
     }
 
     /* 判断栈是否为空 */
     pub fn is_empty(&self) -> bool {
-        return self.size() == 0;
+        self.size == 0
     }
 
     /* 入栈 */
