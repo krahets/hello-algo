@@ -34,6 +34,7 @@ pub struct LinkedListDeque<T> {
 }
 
 impl<T> LinkedListDeque<T> {
+    #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         Self {
             front: None,
@@ -44,12 +45,12 @@ impl<T> LinkedListDeque<T> {
 
     /* 获取双向队列的长度 */
     pub fn size(&self) -> usize {
-        return self.size;
+        self.size
     }
 
     /* 判断双向队列是否为空 */
     pub fn is_empty(&self) -> bool {
-        return self.size == 0;
+        self.size == 0
     }
 
     /* 入队操作 */
