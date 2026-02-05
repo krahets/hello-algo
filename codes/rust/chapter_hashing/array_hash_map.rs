@@ -16,6 +16,7 @@ pub struct ArrayHashMap {
 }
 
 impl ArrayHashMap {
+    #[allow(clippy::new_without_default)]
     pub fn new() -> ArrayHashMap {
         // 初始化数组，包含 100 个桶
         Self {
