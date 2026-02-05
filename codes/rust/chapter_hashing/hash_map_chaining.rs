@@ -42,50 +42,19 @@ impl HashMapChaining {
         self.size as f32 / self.capacity as f32
     }
 
-    /* 删除操作 */
-    pub fn remove(&mut self, key: i32) -> Option<String> {
+    /* 查询操作 */
+    pub fn get(&self, key: i32) -> Option<&str> {
         let index = self.hash_func(key);
 
-        // 遍历桶，从中删除键值对
-        for (i, p) in self.buckets[index].iter_mut().enumerate() {
-            if p.key == key {
-                let pair = self.buckets[index].remove(i);
-                self.size -= 1;
-                return Some(pair.val);
+        // 遍历桶，若找到 key ，则返回对应 val
+        for pair in self.buckets[index].iter() {
+            if pair.key == key {
+                return Some(&pair.val);
             }
         }
 
         // 若未找到 key ，则返回 None
         None
-    }
-
-    /* 扩容哈希表 */
-    fn extend(&mut self) {
-        // 暂存原哈希表
-        let buckets_tmp = std::mem::take(&mut self.buckets);
-
-        // 初始化扩容后的新哈希表
-        self.capacity *= self.extend_ratio;
-        self.buckets = vec![Vec::new(); self.capacity as usize];
-        self.size = 0;
-
-        // 将键值对从原哈希表搬运至新哈希表
-        for bucket in buckets_tmp {
-            for pair in bucket {
-                self.put(pair.key, pair.val);
-            }
-        }
-    }
-
-    /* 打印哈希表 */
-    pub fn print(&self) {
-        for bucket in &self.buckets {
-            let mut res = Vec::new();
-            for pair in bucket {
-                res.push(format!("{} -> {}", pair.key, pair.val));
-            }
-            println!("{:?}", res);
-        }
     }
 
     /* 添加操作 */
@@ -111,19 +80,50 @@ impl HashMapChaining {
         self.size += 1;
     }
 
-    /* 查询操作 */
-    pub fn get(&self, key: i32) -> Option<&str> {
+    /* 删除操作 */
+    pub fn remove(&mut self, key: i32) -> Option<String> {
         let index = self.hash_func(key);
 
-        // 遍历桶，若找到 key ，则返回对应 val
-        for pair in self.buckets[index].iter() {
-            if pair.key == key {
-                return Some(&pair.val);
+        // 遍历桶，从中删除键值对
+        for (i, p) in self.buckets[index].iter_mut().enumerate() {
+            if p.key == key {
+                let pair = self.buckets[index].remove(i);
+                self.size -= 1;
+                return Some(pair.val);
             }
         }
 
         // 若未找到 key ，则返回 None
         None
+    }
+
+    /* 扩容哈希表 */
+    fn extend(&mut self) {
+        // 暂存原哈希表
+        let buckets_tmp = std::mem::take(&mut self.buckets);
+
+        // 初始化扩容后的新哈希表
+        self.capacity *= self.extend_ratio;
+        self.buckets = vec![Vec::new(); self.capacity];
+        self.size = 0;
+
+        // 将键值对从原哈希表搬运至新哈希表
+        for bucket in buckets_tmp {
+            for pair in bucket {
+                self.put(pair.key, pair.val);
+            }
+        }
+    }
+
+    /* 打印哈希表 */
+    pub fn print(&self) {
+        for bucket in &self.buckets {
+            let mut res = Vec::new();
+            for pair in bucket {
+                res.push(format!("{} -> {}", pair.key, pair.val));
+            }
+            println!("{:?}", res);
+        }
     }
 }
 
