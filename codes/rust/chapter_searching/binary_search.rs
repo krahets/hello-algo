@@ -24,7 +24,7 @@ pub fn binary_search(nums: &[i32], target: i32) -> i32 {
         }
     }
     // 未找到目标元素，返回 -1
-    return -1;
+    -1
 }
 
 /* 二分查找（左闭右开区间） */
@@ -47,7 +47,7 @@ pub fn binary_search_lcro(nums: &[i32], target: i32) -> i32 {
         }
     }
     // 未找到目标元素，返回 -1
-    return -1;
+    -1
 }
 
 /* Driver Code */
