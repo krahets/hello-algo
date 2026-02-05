@@ -19,6 +19,7 @@ pub struct AVLTree {
 
 impl AVLTree {
     /* 构造方法 */
+    #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         Self { root: None }
     }
