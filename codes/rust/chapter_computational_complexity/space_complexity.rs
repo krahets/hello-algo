@@ -19,7 +19,7 @@ fn function() -> i32 {
 }
 
 /* 常数阶 */
-fn constant(n: i32) {
+fn constant(n: usize) {
     // 常量、变量、对象占用 O(1) 空间
     const A: i32 = 0;
     let b = 0;
@@ -36,9 +36,9 @@ fn constant(n: i32) {
 }
 
 /* 线性阶 */
-fn linear(n: i32) {
+fn linear(n: usize) {
     // 长度为 n 的数组占用 O(n) 空间
-    let nums = vec![0; n as usize];
+    let nums = vec![0; n];
     // 长度为 n 的列表占用 O(n) 空间
     let mut nodes = Vec::new();
     for i in 0..n {
@@ -52,18 +52,18 @@ fn linear(n: i32) {
 }
 
 /* 线性阶（递归实现） */
-fn linear_recur(n: i32) {
+fn linear_recur(n: usize) {
     println!("递归 n = {}", n);
     if n == 1 {
         return;
-    };
+    }
     linear_recur(n - 1);
 }
 
 /* 平方阶 */
-fn quadratic(n: i32) {
+fn quadratic(n: usize) {
     // 矩阵占用 O(n^2) 空间
-    let num_matrix = vec![vec![0; n as usize]; n as usize];
+    let num_matrix = vec![vec![0; n]; n];
     // 二维列表占用 O(n^2) 空间
     let mut num_list = Vec::new();
     for _ in 0..n {
@@ -76,18 +76,18 @@ fn quadratic(n: i32) {
 }
 
 /* 平方阶（递归实现） */
-fn quadratic_recur(n: i32) -> i32 {
-    if n <= 0 {
+fn quadratic_recur(n: usize) -> i32 {
+    if n == 0 {
         return 0;
     };
     // 数组 nums 长度为 n, n-1, ..., 2, 1
-    let nums = vec![0; n as usize];
+    let nums = vec![0; n];
     println!("递归 n = {} 中的 nums 长度 = {}", n, nums.len());
     quadratic_recur(n - 1)
 }
 
 /* 指数阶（建立满二叉树） */
-fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
+fn build_tree(n: usize) -> Option<Rc<RefCell<TreeNode>>> {
     if n == 0 {
         return None;
     };
