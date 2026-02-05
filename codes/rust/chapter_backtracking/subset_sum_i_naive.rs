@@ -34,9 +34,12 @@ fn backtrack(
 
 /* 求解子集和 I（包含重复子集） */
 pub fn subset_sum_i_naive(nums: &[i32], target: i32) -> Vec<Vec<i32>> {
-    let mut state = Vec::new(); // 状态（子集）
-    let total = 0; // 子集和
-    let mut res = Vec::new(); // 结果列表（子集列表）
+    // 状态（子集）
+    let mut state = Vec::new();
+    // 子集和
+    let total = 0;
+    // 结果列表（子集列表）
+    let mut res = Vec::new();
     backtrack(&mut state, target, total, nums, &mut res);
     res
 }
@@ -48,7 +51,7 @@ fn main() {
 
     let res = subset_sum_i_naive(&nums, target);
 
-    println!("输入数组 nums = {:?}, target = {}", &nums, target);
-    println!("所有和等于 {} 的子集 res = {:?}", target, &res);
+    println!("输入数组 nums = {nums:?}, target = {target}");
+    println!("所有和等于 {target} 的子集 res = {res:?}");
     println!("请注意，该方法输出的结果包含重复集合");
 }
