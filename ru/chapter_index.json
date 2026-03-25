@@ -1,0 +1,90 @@
+{
+  "total_lines": 12637,
+  "chapters": [
+    {
+      "title": "Введение",
+      "start_line": 338,
+      "end_line": 675
+    },
+    {
+      "title": "Введение в алгоритмы",
+      "start_line": 676,
+      "end_line": 845
+    },
+    {
+      "title": "Анализ сложности",
+      "start_line": 846,
+      "end_line": 1927
+    },
+    {
+      "title": "Структуры данных",
+      "start_line": 1928,
+      "end_line": 2725
+    },
+    {
+      "title": "Массивы и списки",
+      "start_line": 2726,
+      "end_line": 3501
+    },
+    {
+      "title": "Стек и очередь",
+      "start_line": 3502,
+      "end_line": 4299
+    },
+    {
+      "title": "Хеш-таблицы",
+      "start_line": 4300,
+      "end_line": 5107
+    },
+    {
+      "title": "Деревья",
+      "start_line": 5108,
+      "end_line": 6187
+    },
+    {
+      "title": "Куча",
+      "start_line": 6188,
+      "end_line": 6625
+    },
+    {
+      "title": "Графы",
+      "start_line": 6626,
+      "end_line": 7173
+    },
+    {
+      "title": "Поиск",
+      "start_line": 7174,
+      "end_line": 7717
+    },
+    {
+      "title": "Сортировка",
+      "start_line": 7718,
+      "end_line": 8910
+    },
+    {
+      "title": "Разделяй и властвуй",
+      "start_line": 8911,
+      "end_line": 9422
+    },
+    {
+      "title": "Поиск с возвратом",
+      "start_line": 9423,
+      "end_line": 10284
+    },
+    {
+      "title": "Динамическое программирование",
+      "start_line": 10285,
+      "end_line": 11700
+    },
+    {
+      "title": "Жадность",
+      "start_line": 11701,
+      "end_line": 12194
+    },
+    {
+      "title": "Приложение",
+      "start_line": 12195,
+      "end_line": 12636
+    }
+  ]
+}
