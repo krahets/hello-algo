@@ -1,0 +1,130 @@
+// File: stack_test.go
+// Created Time: 2022-11-28
+// Author: Reanon (793584285@qq.com)
+
+package chapter_stack_and_queue
+
+import (
+	"fmt"
+	"testing"
+
+	. "github.com/krahets/hello-algo/pkg"
+)
+
+func TestStack(t *testing.T) {
+	/* Инициализировать стек */
+	// В Go рекомендуется использовать Slice как стек
+	var stack []int
+
+	/* Поместить элемент в стек */
+	stack = append(stack, 1)
+	stack = append(stack, 3)
+	stack = append(stack, 2)
+	stack = append(stack, 5)
+	stack = append(stack, 4)
+	fmt.Print("стек stack =")
+	PrintSlice(stack)
+
+	/* Получить верхний элемент стека */
+	peek := stack[len(stack)-1]
+	fmt.Println("вершина стекаэлемент peek =", peek)
+
+	/* Извлечь элемент из стека */
+	pop := stack[len(stack)-1]
+	stack = stack[:len(stack)-1]
+	fmt.Print("извлечение из стекаэлемент pop =", pop, ", извлечение из стекапосле stack =")
+	PrintSlice(stack)
+
+	/* Получить длину стека */
+	size := len(stack)
+	fmt.Println("Длина стека size =", size)
+
+	/* Проверить, пуста ли структура */
+	isEmpty := len(stack) == 0
+	fmt.Println("стекпуст ли =", isEmpty)
+}
+
+func TestArrayStack(t *testing.T) {
+	// Инициализировать стек, используя общий интерфейс
+	stack := newArrayStack()
+
+	// Поместить элемент в стек
+	stack.push(1)
+	stack.push(3)
+	stack.push(2)
+	stack.push(5)
+	stack.push(4)
+	fmt.Print("стек stack =")
+	PrintSlice(stack.toSlice())
+
+	// Получить верхний элемент стека
+	peek := stack.peek()
+	fmt.Println("вершина стекаэлемент peek =", peek)
+
+	// Извлечь элемент из стека
+	pop := stack.pop()
+	fmt.Print("извлечение из стекаэлемент pop =", pop, ", извлечение из стекапосле stack =")
+	PrintSlice(stack.toSlice())
+
+	// Получить длину стека
+	size := stack.size()
+	fmt.Println("Длина стека size =", size)
+
+	// Проверить, пуста ли структура
+	isEmpty := stack.isEmpty()
+	fmt.Println("стекпуст ли =", isEmpty)
+}
+
+func TestLinkedListStack(t *testing.T) {
+	// Инициализировать стек
+	stack := newLinkedListStack()
+	// Поместить элемент в стек
+	stack.push(1)
+	stack.push(3)
+	stack.push(2)
+	stack.push(5)
+	stack.push(4)
+	fmt.Print("стек stack =")
+	PrintList(stack.toList())
+
+	// Получить верхний элемент стека
+	peek := stack.peek()
+	fmt.Println("вершина стекаэлемент peek =", peek)
+
+	// Извлечь элемент из стека
+	pop := stack.pop()
+	fmt.Print("извлечение из стекаэлемент pop =", pop, ", извлечение из стекапосле stack =")
+	PrintList(stack.toList())
+
+	// Получить длину стека
+	size := stack.size()
+	fmt.Println("Длина стека size =", size)
+
+	// Проверить, пуста ли структура
+	isEmpty := stack.isEmpty()
+	fmt.Println("стекпуст ли =", isEmpty)
+}
+
+// BenchmarkArrayStack 8 ns/op in Mac M1 Pro
+func BenchmarkArrayStack(b *testing.B) {
+	stack := newArrayStack()
+	// use b.N for looping
+	for i := 0; i < b.N; i++ {
+		stack.push(777)
+	}
+	for i := 0; i < b.N; i++ {
+		stack.pop()
+	}
+}
+
+// BenchmarkLinkedListStack 65.02 ns/op in Mac M1 Pro
+func BenchmarkLinkedListStack(b *testing.B) {
+	stack := newLinkedListStack()
+	// use b.N for looping
+	for i := 0; i < b.N; i++ {
+		stack.push(777)
+	}
+	for i := 0; i < b.N; i++ {
+		stack.pop()
+	}
+}

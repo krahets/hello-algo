@@ -1,0 +1,127 @@
+/**
+ * File: graph_adjacency_matrix.cpp
+ * Created Time: 2023-02-09
+ * Author: what-is-me (whatisme@outlook.jp)
+ */
+
+#include "../utils/common.hpp"
+
+/* Класс неориентированного графа на основе матрицы смежности */
+class GraphAdjMat {
+    vector<int> vertices;       // Список вершин: элементы представляют «значения вершин», а индексы представляют «индексы вершин»
+    vector<vector<int>> adjMat; // Матрица смежности, индексы строк и столбцов соответствуют «индексам вершин»
+
+  public:
+    /* Конструктор */
+    GraphAdjMat(const vector<int> &vertices, const vector<vector<int>> &edges) {
+        // Добавить вершину
+        for (int val : vertices) {
+            addVertex(val);
+        }
+        // Добавить ребро
+        // Обратите внимание: элементы edges представляют индексы вершин, то есть соответствуют индексам элементов vertices
+        for (const vector<int> &edge : edges) {
+            addEdge(edge[0], edge[1]);
+        }
+    }
+
+    /* Получить количество вершин */
+    int size() const {
+        return vertices.size();
+    }
+
+    /* Добавить вершину */
+    void addVertex(int val) {
+        int n = size();
+        // Добавить значение новой вершины в список вершин
+        vertices.push_back(val);
+        // Добавить строку в матрицу смежности
+        adjMat.emplace_back(vector<int>(n, 0));
+        // Добавить столбец в матрицу смежности
+        for (vector<int> &row : adjMat) {
+            row.push_back(0);
+        }
+    }
+
+    /* Удалить вершину */
+    void removeVertex(int index) {
+        if (index >= size()) {
+            throw out_of_range("вершинане существует");
+        }
+        // Удалить вершину с индексом index из списка вершин
+        vertices.erase(vertices.begin() + index);
+        // Удалить строку с индексом index из матрицы смежности
+        adjMat.erase(adjMat.begin() + index);
+        // Удалить столбец с индексом index из матрицы смежности
+        for (vector<int> &row : adjMat) {
+            row.erase(row.begin() + index);
+        }
+    }
+
+    /* Добавить ребро */
+    // Параметры i и j соответствуют индексам элементов vertices
+    void addEdge(int i, int j) {
+        // Обработка выхода индекса за границы и случая равенства
+        if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
+            throw out_of_range("вершинане существует");
+        }
+        // В неориентированном графе матрица смежности симметрична относительно главной диагонали, то есть выполняется (i, j) == (j, i)
+        adjMat[i][j] = 1;
+        adjMat[j][i] = 1;
+    }
+
+    /* Удалить ребро */
+    // Параметры i и j соответствуют индексам элементов vertices
+    void removeEdge(int i, int j) {
+        // Обработка выхода индекса за границы и случая равенства
+        if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
+            throw out_of_range("вершинане существует");
+        }
+        adjMat[i][j] = 0;
+        adjMat[j][i] = 0;
+    }
+
+    /* Вывести матрицу смежности */
+    void print() {
+        cout << "список вершин =";
+        printVector(vertices);
+        cout << "матрица смежности =" << endl;
+        printVectorMatrix(adjMat);
+    }
+};
+
+/* Driver Code */
+int main() {
+    /* Инициализировать неориентированный граф */
+    // Обратите внимание: элементы edges представляют индексы вершин, то есть соответствуют индексам элементов vertices
+    vector<int> vertices = {1, 3, 2, 5, 4};
+    vector<vector<int>> edges = {{0, 1}, {0, 3}, {1, 2}, {2, 3}, {2, 4}, {3, 4}};
+    GraphAdjMat graph(vertices, edges);
+    cout << "\nПосле инициализации граф имеет вид" << endl;
+    graph.print();
+
+    /* Добавить ребро */
+    // Индексы вершин 1 и 2 равны 0 и 2 соответственно
+    graph.addEdge(0, 2);
+    cout << "\nДобавить ребро 1-2 после, графравно" << endl;
+    graph.print();
+
+    /* Удалить ребро */
+    // Индексы вершин 1 и 3 равны 0 и 1 соответственно
+    graph.removeEdge(0, 1);
+    cout << "\nУдалить ребро 1-3 после, графравно" << endl;
+    graph.print();
+
+    /* Добавить вершину */
+    graph.addVertex(6);
+    cout << "\nДобавить вершину 6 после, графравно" << endl;
+    graph.print();
+
+    /* Удалить вершину */
+    // Индекс вершины 3 равен 1
+    graph.removeVertex(1);
+    cout << "\nУдалить вершину 3 после, графравно" << endl;
+    graph.print();
+
+    return 0;
+}
