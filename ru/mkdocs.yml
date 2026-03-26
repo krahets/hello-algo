@@ -1,0 +1,179 @@
+# Config inheritance
+INHERIT: ../mkdocs.yml
+
+# Project information
+site_name: Hello Algo
+site_url: https://www.hello-algo.com/ru/
+site_description: "Учебник по структурам данных и алгоритмам с анимированными иллюстрациями и готовым к запуску кодом"
+docs_dir: ../build/ru/docs
+site_dir: ../site/ru
+# Repository
+edit_uri: tree/main/ru/docs
+version: 1.3.0
+
+# Configuration
+theme:
+  custom_dir: ../build/overrides
+  language: ru
+  font:
+    text: Noto Sans
+  palette:
+    - scheme: default
+      primary: white
+      accent: teal
+      toggle:
+        icon: material/theme-light-dark
+        name: Темная тема
+    - scheme: slate
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/theme-light-dark
+        name: Светлая тема
+
+extra:
+  status:
+    new: Недавно добавлено
+
+# Page tree
+nav:
+  - Перед началом:
+    - chapter_hello_algo/index.md
+  - Глава 0. Предисловие:
+    # [icon: material/book-open-outline]
+    - chapter_preface/index.md
+    - 0.1 Об этой книге: chapter_preface/about_the_book.md
+    - 0.2 Как пользоваться этой книгой: chapter_preface/suggestions.md
+    - 0.3 Резюме: chapter_preface/summary.md
+  - Глава 1. Знакомство с алгоритмами:
+    # [icon: material/calculator-variant-outline]
+    - chapter_introduction/index.md
+    - 1.1 Алгоритмы повсюду: chapter_introduction/algorithms_are_everywhere.md
+    - 1.2 Что такое структуры данных и алгоритмы: chapter_introduction/what_is_dsa.md
+    - 1.3 Резюме: chapter_introduction/summary.md
+  - Глава 2. Анализ сложности:
+    # [icon: material/timer-sand]
+    - chapter_computational_complexity/index.md
+    - 2.1 Оценка эффективности алгоритмов: chapter_computational_complexity/performance_evaluation.md
+    - 2.2 Итерация и рекурсия: chapter_computational_complexity/iteration_and_recursion.md
+    - 2.3 Временная сложность: chapter_computational_complexity/time_complexity.md
+    - 2.4 Пространственная сложность: chapter_computational_complexity/space_complexity.md
+    - 2.5 Резюме: chapter_computational_complexity/summary.md
+  - Глава 3. Структуры данных:
+    # [icon: material/shape-outline]
+    - chapter_data_structure/index.md
+    - 3.1 Классификация структур данных: chapter_data_structure/classification_of_data_structure.md
+    - 3.2 Базовые типы данных: chapter_data_structure/basic_data_types.md
+    - 3.3 Кодирование чисел *: chapter_data_structure/number_encoding.md
+    - 3.4 Кодирование символов *: chapter_data_structure/character_encoding.md
+    - 3.5 Резюме: chapter_data_structure/summary.md
+  - Глава 4. Массив и связный список:
+    # [icon: material/view-list-outline]
+    - chapter_array_and_linkedlist/index.md
+    - 4.1 Массив: chapter_array_and_linkedlist/array.md
+    - 4.2 Связный список: chapter_array_and_linkedlist/linked_list.md
+    - 4.3 Список: chapter_array_and_linkedlist/list.md
+    - 4.4 Память и кеш *: chapter_array_and_linkedlist/ram_and_cache.md
+    - 4.5 Резюме: chapter_array_and_linkedlist/summary.md
+  - Глава 5. Стек и очередь:
+    # [icon: material/stack-overflow]
+    - chapter_stack_and_queue/index.md
+    - 5.1 Стек: chapter_stack_and_queue/stack.md
+    - 5.2 Очередь: chapter_stack_and_queue/queue.md
+    - 5.3 Двусторонняя очередь: chapter_stack_and_queue/deque.md
+    - 5.4 Резюме: chapter_stack_and_queue/summary.md
+  - Глава 6. Хеширование:
+    # [icon: material/table-search]
+    - chapter_hashing/index.md
+    - 6.1 Хеш-таблица: chapter_hashing/hash_map.md
+    - 6.2 Хеш-коллизии: chapter_hashing/hash_collision.md
+    - 6.3 Хеш-алгоритмы: chapter_hashing/hash_algorithm.md
+    - 6.4 Резюме: chapter_hashing/summary.md
+  - Глава 7. Дерево:
+    # [icon: material/graph-outline]
+    - chapter_tree/index.md
+    - 7.1 Двоичное дерево: chapter_tree/binary_tree.md
+    - 7.2 Обход двоичного дерева: chapter_tree/binary_tree_traversal.md
+    - 7.3 Представление дерева массивом: chapter_tree/array_representation_of_tree.md
+    - 7.4 Двоичное дерево поиска: chapter_tree/binary_search_tree.md
+    - 7.5 AVL-дерево *: chapter_tree/avl_tree.md
+    - 7.6 Резюме: chapter_tree/summary.md
+  - Глава 8. Куча:
+    # [icon: material/family-tree]
+    - chapter_heap/index.md
+    - 8.1 Куча: chapter_heap/heap.md
+    - 8.2 Построение кучи: chapter_heap/build_heap.md
+    - 8.3 Задача Top-K: chapter_heap/top_k.md
+    - 8.4 Резюме: chapter_heap/summary.md
+  - Глава 9. Граф:
+    # [icon: material/graphql]
+    - chapter_graph/index.md
+    - 9.1 Граф: chapter_graph/graph.md
+    - 9.2 Базовые операции над графами: chapter_graph/graph_operations.md
+    - 9.3 Обход графа: chapter_graph/graph_traversal.md
+    - 9.4 Резюме: chapter_graph/summary.md
+  - Глава 10. Поиск:
+    # [icon: material/text-search]
+    - chapter_searching/index.md
+    - 10.1 Двоичный поиск: chapter_searching/binary_search.md
+    - 10.2 Точка вставки двоичного поиска: chapter_searching/binary_search_insertion.md
+    - 10.3 Граничные случаи двоичного поиска: chapter_searching/binary_search_edge.md
+    - 10.4 Стратегия оптимизации через хеширование: chapter_searching/replace_linear_by_hashing.md
+    - "10.5 Алгоритмы поиска: новый взгляд": chapter_searching/searching_algorithm_revisited.md
+    - 10.6 Резюме: chapter_searching/summary.md
+  - Глава 11. Сортировка:
+    # [icon: material/sort-ascending]
+    - chapter_sorting/index.md
+    - 11.1 Алгоритмы сортировки: chapter_sorting/sorting_algorithm.md
+    - 11.2 Сортировка выбором: chapter_sorting/selection_sort.md
+    - 11.3 Пузырьковая сортировка: chapter_sorting/bubble_sort.md
+    - 11.4 Сортировка вставкой: chapter_sorting/insertion_sort.md
+    - 11.5 Быстрая сортировка: chapter_sorting/quick_sort.md
+    - 11.6 Сортировка слиянием: chapter_sorting/merge_sort.md
+    - 11.7 Пирамидальная сортировка: chapter_sorting/heap_sort.md
+    - 11.8 Блочная сортировка: chapter_sorting/bucket_sort.md
+    - 11.9 Сортировка подсчетом: chapter_sorting/counting_sort.md
+    - 11.10 Поразрядная сортировка: chapter_sorting/radix_sort.md
+    - 11.11 Резюме: chapter_sorting/summary.md
+  - Глава 12. Разделяй и властвуй:
+    # [icon: material/set-split]
+    - chapter_divide_and_conquer/index.md
+    - 12.1 Алгоритмы разделяй и властвуй: chapter_divide_and_conquer/divide_and_conquer.md
+    - 12.2 Стратегия поиска разделяй и властвуй: chapter_divide_and_conquer/binary_search_recur.md
+    - 12.3 Задача построения двоичного дерева: chapter_divide_and_conquer/build_binary_tree_problem.md
+    - 12.4 Задача о Ханойской башне: chapter_divide_and_conquer/hanota_problem.md
+    - 12.5 Резюме: chapter_divide_and_conquer/summary.md
+  - Глава 13. Поиск с возвратом:
+    # [icon: material/map-marker-path]
+    - chapter_backtracking/index.md
+    - 13.1 Алгоритм поиска с возвратом: chapter_backtracking/backtracking_algorithm.md
+    - 13.2 Задача о перестановках: chapter_backtracking/permutations_problem.md
+    - 13.3 Задача о сумме подмножеств: chapter_backtracking/subset_sum_problem.md
+    - 13.4 Задача о $n$ ферзях: chapter_backtracking/n_queens_problem.md
+    - 13.5 Резюме: chapter_backtracking/summary.md
+  - Глава 14. Динамическое программирование:
+    # [icon: material/table-pivot]
+    - chapter_dynamic_programming/index.md
+    - 14.1 Введение в динамическое программирование: chapter_dynamic_programming/intro_to_dynamic_programming.md
+    - 14.2 Свойства задач динамического программирования: chapter_dynamic_programming/dp_problem_features.md
+    - 14.3 Подход к решению задач динамического программирования: chapter_dynamic_programming/dp_solution_pipeline.md
+    - 14.4 Задача о рюкзаке 0-1: chapter_dynamic_programming/knapsack_problem.md
+    - 14.5 Задача о неограниченном рюкзаке: chapter_dynamic_programming/unbounded_knapsack_problem.md
+    - 14.6 Задача о расстоянии редактирования: chapter_dynamic_programming/edit_distance_problem.md
+    - 14.7 Резюме: chapter_dynamic_programming/summary.md
+  - Глава 15. Жадность:
+    # [icon: material/head-heart-outline]
+    - chapter_greedy/index.md
+    - 15.1 Жадный алгоритм: chapter_greedy/greedy_algorithm.md
+    - 15.2 Задача о дробном рюкзаке: chapter_greedy/fractional_knapsack_problem.md
+    - 15.3 Задача о максимальной вместимости: chapter_greedy/max_capacity_problem.md
+    - 15.4 Задача о максимальном произведении разбиения: chapter_greedy/max_product_cutting_problem.md
+    - 15.5 Резюме: chapter_greedy/summary.md
+  - Глава 16. Приложение:
+    # [icon: material/help-circle-outline]
+    - chapter_appendix/index.md
+    - 16.1 Установка среды программирования: chapter_appendix/installation.md
+    - 16.2 Присоединяйтесь к созданию книги: chapter_appendix/contribution.md
+    - 16.3 Глоссарий: chapter_appendix/terminology.md
+  - Список литературы:
+    - chapter_reference/index.md
