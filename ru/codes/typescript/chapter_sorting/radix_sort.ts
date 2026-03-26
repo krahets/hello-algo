@@ -58,6 +58,6 @@ const nums = [
     30524779, 82060337, 63832996,
 ];
 radixSort(nums);
-console.log('Поразрядная сортировкапосле завершения nums =', nums);
+console.log('После поразрядной сортировки nums =', nums);
 
 export {};

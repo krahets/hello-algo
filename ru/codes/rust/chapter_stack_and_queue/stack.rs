@@ -36,5 +36,5 @@ pub fn main() {
 
     // Проверить, пуст ли стек
     let is_empty = stack.is_empty();
-    print!("\nстекпуст ли = {is_empty}");
+    print!("\nСтек пуст: {is_empty}");
 }

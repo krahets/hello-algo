@@ -14,7 +14,7 @@ function bucketSort(nums: number[]): void {
     }
     // 1. Распределить элементы массива по бакетам
     for (const num of nums) {
-        // Входданныедиапазонравно [0, 1), Использовать num * k отобразить виндексдиапазон [0, k-1]
+        // Диапазон входных данных равен [0, 1), использовать num * k для отображения в диапазон индексов [0, k-1]
         const i = Math.floor(num * k);
         // Добавить num в бакет i
         buckets[i].push(num);
@@ -36,6 +36,6 @@ function bucketSort(nums: number[]): void {
 /* Driver Code */
 const nums = [0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37];
 bucketSort(nums);
-console.log('Сортировка по бакетампосле завершения nums =', nums);
+console.log('После сортировки по бакетам nums =', nums);
 
 export {};

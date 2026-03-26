@@ -32,4 +32,4 @@ console.log('Длина стека size =', size);
 
 /* Проверить, пуста ли структура */
 const isEmpty = stack.length === 0;
-console.log('стекпуст ли =', isEmpty);
+console.log('Стек пуст:', isEmpty);

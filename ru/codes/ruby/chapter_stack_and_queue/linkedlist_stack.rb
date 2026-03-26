@@ -83,5 +83,5 @@ if __FILE__ == $0
 
   # Проверить, пуста ли структура
   is_empty = stack.is_empty?
-  puts "стекпуст ли = #{is_empty}"
+  puts "Стек пуст: #{is_empty}"
 end

@@ -65,6 +65,6 @@ enum CountingSort {
 
         var nums1 = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]
         countingSort(nums: &nums1)
-        print("Подсчетная сортировкапосле завершения nums1 = \(nums1)")
+        print("После сортировки подсчетом nums1 = \(nums1)")
     }
 }

@@ -125,12 +125,12 @@ class MaxHeap {
 if (import.meta.url.endsWith(process.argv[1])) {
     /* Инициализировать max-кучу */
     const maxHeap = new MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-    console.log('\nВходсписокипостроение кучипосле');
+    console.log('\nВходной список и построение кучипосле');
     maxHeap.print();
 
     /* Получить верхний элемент кучи */
     let peek = maxHeap.peek();
-    console.log(`\nвершина кучиэлементравно ${peek}`);
+    console.log(`\nЭлемент на вершине кучи равен ${peek}`);
 
     /* Добавить элемент в кучу */
     const val = 7;
@@ -149,7 +149,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
 
     /* Проверить, пуста ли куча */
     const isEmpty = maxHeap.isEmpty();
-    console.log(`\nкучапуст ли ${isEmpty}`);
+    console.log(`\nКуча пуста: ${isEmpty}`);
 }
 
 export { MaxHeap };

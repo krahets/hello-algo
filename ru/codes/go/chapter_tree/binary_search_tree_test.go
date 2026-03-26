@@ -25,7 +25,7 @@ func TestBinarySearchTree(t *testing.T) {
 
 	// Найти узел
 	node = bst.search(7)
-	fmt.Println("Найденныйузелобъектравно", node, ", значение узла =", node.Val)
+	fmt.Println("Найденный объект узла равен", node, ", значение узла =", node.Val)
 
 	// Вставить узел
 	bst.insert(16)

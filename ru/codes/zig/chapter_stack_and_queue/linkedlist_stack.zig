@@ -111,7 +111,7 @@ pub fn main() !void {
 
     // Проверить, пуст ли стек
     var is_empty = stack.isEmpty();
-    std.debug.print("\nстекпуст ли = {}",.{is_empty});
+    std.debug.print("\nСтек пуст: {}",.{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

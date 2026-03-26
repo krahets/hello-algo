@@ -39,14 +39,14 @@ class MyList {
     int get(int index) {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
         if (index < 0 || index >= size())
-            throw out_of_range("индексвыходит за границы");
+            throw out_of_range("индекс выходит за границы");
         return arr[index];
     }
 
     /* Обновить элемент */
     void set(int index, int num) {
         if (index < 0 || index >= size())
-            throw out_of_range("индексвыходит за границы");
+            throw out_of_range("индекс выходит за границы");
         arr[index] = num;
     }
 
@@ -63,7 +63,7 @@ class MyList {
     /* Вставить элемент в середину */
     void insert(int index, int num) {
         if (index < 0 || index >= size())
-            throw out_of_range("индексвыходит за границы");
+            throw out_of_range("индекс выходит за границы");
         // Если число элементов превышает вместимость, запустить механизм расширения
         if (size() == capacity())
             extendCapacity();
@@ -79,7 +79,7 @@ class MyList {
     /* Удалить элемент */
     int remove(int index) {
         if (index < 0 || index >= size())
-            throw out_of_range("индексвыходит за границы");
+            throw out_of_range("индекс выходит за границы");
         int num = arr[index];
         // Сдвинуть на одну позицию вперед все элементы после индекса index
         for (int j = index; j < size() - 1; j++) {

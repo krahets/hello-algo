@@ -43,11 +43,11 @@ fn bubble_sort_with_flag(nums: &mut [i32]) {
 pub fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     bubble_sort(&mut nums);
-    print!("Пузырьковая сортировкапосле завершения nums =");
+    print!("После пузырьковой сортировки nums =");
     print_util::print_array(&nums);
 
     let mut nums1 = [4, 1, 3, 1, 5, 2];
     bubble_sort_with_flag(&mut nums1);
-    print!("\nПузырьковая сортировкапосле завершения nums1 =");
+    print!("\nПосле пузырьковой сортировки nums1 =");
     print_util::print_array(&nums1);
 }

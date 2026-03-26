@@ -79,6 +79,6 @@ public class array_stack {
 
         /* Проверить, пуста ли структура */
         bool isEmpty = stack.IsEmpty();
-        Console.WriteLine("стекпуст ли =" + isEmpty);
+        Console.WriteLine("Стек пуст:" + isEmpty);
     }
 }

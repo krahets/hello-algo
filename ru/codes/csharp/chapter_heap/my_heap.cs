@@ -131,12 +131,12 @@ public class my_heap {
     public void Test() {
         /* Инициализировать max-кучу */
         MaxHeap maxHeap = new([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-        Console.WriteLine("\nВходсписокипостроение кучипосле");
+        Console.WriteLine("\nВходной список и построение кучипосле");
         maxHeap.Print();
 
         /* Получить верхний элемент кучи */
         int peek = maxHeap.Peek();
-        Console.WriteLine($"вершина кучиэлементравно {peek}");
+        Console.WriteLine($"Элемент на вершине кучи равен {peek}");
 
         /* Добавить элемент в кучу */
         int val = 7;
@@ -155,6 +155,6 @@ public class my_heap {
 
         /* Проверить, пуста ли куча */
         bool isEmpty = maxHeap.IsEmpty();
-        Console.WriteLine($"кучапуст ли {isEmpty}");
+        Console.WriteLine($"Куча пуста: {isEmpty}");
     }
 }

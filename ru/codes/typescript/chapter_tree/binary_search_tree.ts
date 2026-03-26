@@ -124,7 +124,7 @@ printTree(bst.getRoot());
 /* Найти узел */
 const node = bst.search(7);
 console.log(
-    '\nНайденныйузелобъектравно ' + node + ', значение узла = ' + (node ? node.val: 'null')
+    '\nНайденный объект узла равен ' + node + ', значение узла = ' + (node ? node.val: 'null')
 );
 
 /* Вставить узел */

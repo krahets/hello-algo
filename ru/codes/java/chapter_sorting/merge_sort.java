@@ -53,6 +53,6 @@ public class merge_sort {
         /* Сортировка слиянием */
         int[] nums = { 7, 3, 2, 6, 0, 1, 5, 4 };
         mergeSort(nums, 0, nums.length - 1);
-        System.out.println("Сортировка слияниемпосле завершения nums =" + Arrays.toString(nums));
+        System.out.println("После сортировки слиянием nums =" + Arrays.toString(nums));
     }
 }

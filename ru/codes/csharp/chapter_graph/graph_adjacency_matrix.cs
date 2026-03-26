@@ -114,24 +114,24 @@ public class graph_adjacency_matrix {
         /* Добавить ребро */
         // Индексы вершин 1 и 2 равны 0 и 2 соответственно
         graph.AddEdge(0, 2);
-        Console.WriteLine("\nДобавить ребро 1-2 после, графравно");
+        Console.WriteLine("\nПосле добавления ребра 1-2 граф имеет вид");
         graph.Print();
 
         /* Удалить ребро */
         // Индексы вершин 1 и 3 равны 0 и 1 соответственно
         graph.RemoveEdge(0, 1);
-        Console.WriteLine("\nУдалить ребро 1-3 после, графравно");
+        Console.WriteLine("\nПосле удаления ребра 1-3 граф имеет вид");
         graph.Print();
 
         /* Добавить вершину */
         graph.AddVertex(6);
-        Console.WriteLine("\nДобавить вершину 6 после, графравно");
+        Console.WriteLine("\nПосле добавления вершины 6 граф имеет вид");
         graph.Print();
 
         /* Удалить вершину */
         // Индекс вершины 3 равен 1
         graph.RemoveVertex(1);
-        Console.WriteLine("\nУдалить вершину 3 после, графравно");
+        Console.WriteLine("\nПосле удаления вершины 3 граф имеет вид");
         graph.Print();
     }
 }

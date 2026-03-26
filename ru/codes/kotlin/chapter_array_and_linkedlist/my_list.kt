@@ -32,14 +32,14 @@ class MyList {
     fun get(index: Int): Int {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException("индексвыходит за границы")
+            throw IndexOutOfBoundsException("индекс выходит за границы")
         return arr[index]
     }
 
     /* Обновить элемент */
     fun set(index: Int, num: Int) {
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException("индексвыходит за границы")
+            throw IndexOutOfBoundsException("индекс выходит за границы")
         arr[index] = num
     }
 
@@ -56,7 +56,7 @@ class MyList {
     /* Вставить элемент в середину */
     fun insert(index: Int, num: Int) {
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException("индексвыходит за границы")
+            throw IndexOutOfBoundsException("индекс выходит за границы")
         // Если число элементов превышает вместимость, запустить механизм расширения
         if (size == capacity())
             extendCapacity()
@@ -71,7 +71,7 @@ class MyList {
     /* Удалить элемент */
     fun remove(index: Int): Int {
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException("индексвыходит за границы")
+            throw IndexOutOfBoundsException("индекс выходит за границы")
         val num = arr[index]
         // Сдвинуть на одну позицию вперед все элементы после индекса index
         for (j in index..<size - 1)

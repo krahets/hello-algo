@@ -35,7 +35,7 @@ int main() {
 
     /* Проверить, пуста ли структура */
     bool empty = stack.empty();
-    cout << "стекпуст ли =" << empty << endl;
+    cout << "Стек пуст:" << empty << endl;
 
     return 0;
 }

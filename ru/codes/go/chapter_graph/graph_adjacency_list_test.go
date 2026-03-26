@@ -22,24 +22,24 @@ func TestGraphAdjList(t *testing.T) {
 	/* Добавить ребро */
 	// Вершины 1 и 2, то есть v[0] и v[2]
 	graph.addEdge(v[0], v[2])
-	fmt.Println("\nДобавить ребро 1-2 после, графравно")
+	fmt.Println("\nПосле добавления ребра 1-2 граф имеет вид")
 	graph.print()
 
 	/* Удалить ребро */
 	// Вершины 1 и 3, то есть v[0] и v[1]
 	graph.removeEdge(v[0], v[1])
-	fmt.Println("\nУдалить ребро 1-3 после, графравно")
+	fmt.Println("\nПосле удаления ребра 1-3 граф имеет вид")
 	graph.print()
 
 	/* Добавить вершину */
 	v5 := NewVertex(6)
 	graph.addVertex(v5)
-	fmt.Println("\nДобавить вершину 6 после, графравно")
+	fmt.Println("\nПосле добавления вершины 6 граф имеет вид")
 	graph.print()
 
 	/* Удалить вершину */
 	// Вершина 3, то есть v[1]
 	graph.removeVertex(v[1])
-	fmt.Println("\nУдалить вершину 3 после, графравно")
+	fmt.Println("\nПосле удаления вершины 3 граф имеет вид")
 	graph.print()
 }

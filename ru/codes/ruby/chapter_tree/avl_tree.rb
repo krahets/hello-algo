@@ -104,7 +104,7 @@ class AVLTree
     @root = insert_helper(@root, val)
   end
 
-  # ## рекурсиявставить узел(вспомогательный метод)###
+  # ## Рекурсивная вставка узла (вспомогательный метод)###
   def insert_helper(node, val)
     return TreeNode.new(val) if node.nil?
     # 1. Найти позицию вставки и вставить узел
@@ -127,7 +127,7 @@ class AVLTree
     @root = remove_helper(@root, val)
   end
 
-  # ## рекурсияУдалить узел(вспомогательный метод)###
+  # ## Рекурсивное удаление узла (вспомогательный метод)###
   def remove_helper(node, val)
     return if node.nil?
     # 1. Найти узел и удалить его
@@ -212,5 +212,5 @@ if __FILE__ == $0
   test_remove(avl_tree, 4) # Удалить узел степени 2
 
   result_node = avl_tree.search(7)
-  puts "\nНайденныйузелобъектравно #{result_node}, значение узла = #{result_node.val}"
+  puts "\nНайденный объект узла равен #{result_node}, значение узла = #{result_node.val}"
 end

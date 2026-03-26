@@ -30,6 +30,6 @@ public class selection_sort {
     public static void main(String[] args) {
         int[] nums = { 4, 1, 3, 1, 5, 2 };
         selectionSort(nums);
-        System.out.println("Сортировка выборомпосле завершения nums =" + Arrays.toString(nums));
+        System.out.println("После сортировки выбором nums =" + Arrays.toString(nums));
     }
 }

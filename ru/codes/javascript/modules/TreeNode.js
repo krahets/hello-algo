@@ -4,7 +4,7 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-/* двоичное деревоузел */
+/* узел двоичного дерева */
 class TreeNode {
     val; // Значение узла
     left; // Указатель левого дочернего узла

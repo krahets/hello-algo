@@ -42,7 +42,7 @@ impl MyList {
     pub fn get(&self, index: usize) -> i32 {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
         if index >= self.size {
-            panic!("индексвыходит за границы")
+            panic!("индекс выходит за границы")
         };
         return self.arr[index];
     }
@@ -50,7 +50,7 @@ impl MyList {
     /* Обновить элемент */
     pub fn set(&mut self, index: usize, num: i32) {
         if index >= self.size {
-            panic!("индексвыходит за границы")
+            panic!("индекс выходит за границы")
         };
         self.arr[index] = num;
     }
@@ -69,7 +69,7 @@ impl MyList {
     /* Вставить элемент в середину */
     pub fn insert(&mut self, index: usize, num: i32) {
         if index >= self.size() {
-            panic!("индексвыходит за границы")
+            panic!("индекс выходит за границы")
         };
         // Если число элементов превышает вместимость, запустить механизм расширения
         if self.size == self.capacity() {
@@ -87,7 +87,7 @@ impl MyList {
     /* Удалить элемент */
     pub fn remove(&mut self, index: usize) -> i32 {
         if index >= self.size() {
-            panic!("индексвыходит за границы")
+            panic!("индекс выходит за границы")
         };
         let num = self.arr[index];
         // Сдвинуть на одну позицию вперед все элементы после индекса index

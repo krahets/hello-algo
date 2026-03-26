@@ -12,7 +12,7 @@ class ArrayQueue {
     int *nums;       // Массив для хранения элементов очереди
     int front;       // Указатель front, указывающий на первый элемент очереди
     int queSize;     // Длина очереди
-    int queCapacity; // очередьвместимость
+    int queCapacity; // вместимость очереди
 
   public:
     ArrayQueue(int capacity) {
@@ -112,7 +112,7 @@ int main() {
 
     /* Проверить, пуста ли очередь */
     bool empty = queue->isEmpty();
-    cout << "очередьпуст ли =" << empty << endl;
+    cout << "Очередь пуста:" << empty << endl;
 
     /* Проверить кольцевой массив */
     for (int i = 0; i < 10; i++) {

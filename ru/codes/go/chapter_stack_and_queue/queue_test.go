@@ -42,7 +42,7 @@ func TestQueue(t *testing.T) {
 
 	/* Проверить, пуста ли очередь */
 	isEmpty := queue.Len() == 0
-	fmt.Println("очередьпуст ли =", isEmpty)
+	fmt.Println("Очередь пуста:", isEmpty)
 }
 
 func TestArrayQueue(t *testing.T) {

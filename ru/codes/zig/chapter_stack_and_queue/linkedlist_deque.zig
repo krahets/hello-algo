@@ -201,7 +201,7 @@ pub fn main() !void {
 
     // Проверить, пуста ли двусторонняя очередь
     var is_empty = deque.isEmpty();
-    std.debug.print("\nдвусторонняя очередьпуст ли = {}",.{is_empty});
+    std.debug.print("\nдвусторонняя Очередь пуста: {}",.{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

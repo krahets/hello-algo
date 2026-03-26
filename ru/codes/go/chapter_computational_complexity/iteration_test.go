@@ -19,7 +19,7 @@ func TestIteration(t *testing.T) {
 	fmt.Println("\nРезультат суммирования в цикле while res =", res)
 
 	res = whileLoopII(n)
-	fmt.Println("\nЦикл while (с двумя обновлениями)суммированиерезультат res =", res)
+	fmt.Println("\nЦикл while (с двумя обновлениями)результат суммирования res =", res)
 
 	resStr := nestedForLoop(n)
 	fmt.Println("\nРезультат обхода двойным циклом for", resStr)

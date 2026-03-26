@@ -149,7 +149,7 @@ int main() {
 
     /* Проверить, пуста ли куча */
     bool isEmpty = maxHeap.isEmpty();
-    cout << "\nкучапуст ли" << isEmpty << endl;
+    cout << "\nКуча пуста:" << isEmpty << endl;
 
     return 0;
 }

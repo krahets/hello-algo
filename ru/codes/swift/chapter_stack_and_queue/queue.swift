@@ -35,6 +35,6 @@ enum Queue {
 
         /* Проверить, пуста ли очередь */
         let isEmpty = queue.isEmpty
-        print("очередьпуст ли = \(isEmpty)")
+        print("Очередь пуста: \(isEmpty)")
     }
 }

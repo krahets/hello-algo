@@ -35,7 +35,7 @@ int main() {
 
     /* Проверить, пуста ли очередь */
     bool empty = queue.empty();
-    cout << "очередьпуст ли =" << empty << endl;
+    cout << "Очередь пуста:" << empty << endl;
 
     return 0;
 }

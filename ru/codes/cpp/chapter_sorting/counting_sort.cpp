@@ -70,7 +70,7 @@ int main() {
 
     vector<int> nums1 = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
     countingSort(nums1);
-    cout << "Подсчетная сортировкапосле завершения nums1 =";
+    cout << "После сортировки подсчетом nums1 =";
     printVector(nums1);
 
     return 0;

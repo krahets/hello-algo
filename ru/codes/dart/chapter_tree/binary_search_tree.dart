@@ -133,7 +133,7 @@ void main() {
 
   /* Найти узел */
   TreeNode? node = bst.search(7);
-  print("\nНайденныйузелобъектравно $node, значение узла = ${node?.val}");
+  print("\nНайденный объект узла равен $node, значение узла = ${node?.val}");
 
   /* Вставить узел */
   bst.insert(16);

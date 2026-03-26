@@ -47,6 +47,6 @@ public class heap_sort {
     public void Test() {
         int[] nums = [4, 1, 3, 1, 5, 2];
         HeapSort(nums);
-        Console.WriteLine("Сортировка кучейпосле завершения nums =" + string.Join(" ", nums));
+        Console.WriteLine("После сортировки кучей nums =" + string.Join(" ", nums));
     }
 }

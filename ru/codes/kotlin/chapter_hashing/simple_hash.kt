@@ -51,14 +51,14 @@ fun main() {
     val key = "Hello Algo"
 
     var hash = addHash(key)
-    println("Аддитивное хешированиезначение равно $hash")
+    println("Значение аддитивного хеширования равно $hash")
 
     hash = mulHash(key)
-    println("Мультипликативное хешированиезначение равно $hash")
+    println("Значение мультипликативного хеширования равно $hash")
 
     hash = xorHash(key)
-    println("XOR-хешированиезначение равно $hash")
+    println("Значение XOR-хеширования равно $hash")
 
     hash = rotHash(key)
-    println("Вращательное хешированиезначение равно $hash")
+    println("Значение вращательного хеширования равно $hash")
 }

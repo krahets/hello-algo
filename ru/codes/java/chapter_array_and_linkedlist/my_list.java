@@ -34,14 +34,14 @@ class MyList {
     public int get(int index) {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
         if (index < 0 || index >= size)
-            throw new IndexOutOfBoundsException("индексвыходит за границы");
+            throw new IndexOutOfBoundsException("индекс выходит за границы");
         return arr[index];
     }
 
     /* Обновить элемент */
     public void set(int index, int num) {
         if (index < 0 || index >= size)
-            throw new IndexOutOfBoundsException("индексвыходит за границы");
+            throw new IndexOutOfBoundsException("индекс выходит за границы");
         arr[index] = num;
     }
 
@@ -58,7 +58,7 @@ class MyList {
     /* Вставить элемент в середину */
     public void insert(int index, int num) {
         if (index < 0 || index >= size)
-            throw new IndexOutOfBoundsException("индексвыходит за границы");
+            throw new IndexOutOfBoundsException("индекс выходит за границы");
         // Если число элементов превышает вместимость, запустить механизм расширения
         if (size == capacity())
             extendCapacity();
@@ -74,7 +74,7 @@ class MyList {
     /* Удалить элемент */
     public int remove(int index) {
         if (index < 0 || index >= size)
-            throw new IndexOutOfBoundsException("индексвыходит за границы");
+            throw new IndexOutOfBoundsException("индекс выходит за границы");
         int num = arr[index];
         // Сдвинуть на одну позицию вперед все элементы после индекса index
         for (int j = index; j < size - 1; j++) {

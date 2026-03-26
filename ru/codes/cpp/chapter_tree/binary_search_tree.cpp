@@ -145,7 +145,7 @@ int main() {
 
     /* Найти узел */
     TreeNode *node = bst->search(7);
-    cout << endl << "Найденныйузелобъектравно" << node << ", значение узла =" << node->val << endl;
+    cout << endl << "Найденный объект узла равен" << node << ", значение узла =" << node->val << endl;
 
     /* Вставить узел */
     bst->insert(16);

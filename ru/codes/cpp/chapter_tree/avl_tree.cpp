@@ -73,7 +73,7 @@ class AVLTree {
         return node;
     }
 
-    /* рекурсиявставить узел(вспомогательный метод) */
+    /* Рекурсивная вставка узла (вспомогательный метод) */
     TreeNode *insertHelper(TreeNode *node, int val) {
         if (node == nullptr)
             return new TreeNode(val);
@@ -91,7 +91,7 @@ class AVLTree {
         return node;
     }
 
-    /* рекурсияУдалить узел(вспомогательный метод) */
+    /* Рекурсивное удаление узла (вспомогательный метод) */
     TreeNode *removeHelper(TreeNode *node, int val) {
         if (node == nullptr)
             return nullptr;
@@ -229,5 +229,5 @@ int main() {
 
     /* Найти узел */
     TreeNode *node = avlTree.search(7);
-    cout << "\nНайденныйузелобъектравно" << node << ", значение узла =" << node->val << endl;
+    cout << "\nНайденный объект узла равен" << node << ", значение узла =" << node->val << endl;
 }

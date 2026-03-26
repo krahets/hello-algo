@@ -72,6 +72,6 @@ public class counting_sort {
 
         int[] nums1 = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4];
         CountingSort(nums1);
-        Console.WriteLine("Подсчетная сортировкапосле завершения nums1 =" + string.Join(" ", nums));
+        Console.WriteLine("После сортировки подсчетом nums1 =" + string.Join(" ", nums));
     }
 }

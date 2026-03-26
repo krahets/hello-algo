@@ -45,7 +45,7 @@ pub fn main() !void {
 
     // Проверить, пуста ли двусторонняя очередь
     var is_empty = if (deque.len == 0) true else false;
-    std.debug.print("\nдвусторонняя очередьпуст ли = {}",.{is_empty});
+    std.debug.print("\nдвусторонняя Очередь пуста: {}",.{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

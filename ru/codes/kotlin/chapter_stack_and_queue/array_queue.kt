@@ -99,7 +99,7 @@ fun main() {
 
     /* Проверить, пуста ли очередь */
     val isEmpty = queue.isEmpty()
-    println("очередьпуст ли = $isEmpty")
+    println("Очередь пуста: $isEmpty")
 
     /* Проверить кольцевой массив */
     for (i in 0..9) {

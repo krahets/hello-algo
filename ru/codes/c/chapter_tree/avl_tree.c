@@ -115,7 +115,7 @@ TreeNode *rotate(TreeNode *node) {
     return node;
 }
 
-/* рекурсиявставить узел(вспомогательная функция) */
+/* Рекурсивная вставка узла (вспомогательная функция) */
 TreeNode *insertHelper(TreeNode *node, int val) {
     if (node == NULL) {
         return newTreeNode(val);
@@ -142,7 +142,7 @@ void insert(AVLTree *tree, int val) {
     tree->root = insertHelper(tree->root, val);
 }
 
-/* рекурсияУдалить узел(вспомогательная функция) */
+/* Рекурсивное удаление узла (вспомогательная функция) */
 TreeNode *removeHelper(TreeNode *node, int val) {
     TreeNode *child, *grandChild;
     if (node == NULL) {

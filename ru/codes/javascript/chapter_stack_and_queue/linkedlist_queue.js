@@ -96,4 +96,4 @@ console.log('Длина очереди size =' + size);
 
 /* Проверить, пуста ли очередь */
 const isEmpty = queue.isEmpty();
-console.log('очередьпуст ли =' + isEmpty);
+console.log('Очередь пуста:' + isEmpty);

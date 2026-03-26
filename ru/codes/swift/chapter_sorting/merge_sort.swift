@@ -60,6 +60,6 @@ enum MergeSort {
         /* Сортировка слиянием */
         var nums = [7, 3, 2, 6, 0, 1, 5, 4]
         mergeSort(nums: &nums, left: nums.startIndex, right: nums.endIndex - 1)
-        print("Сортировка слияниемпосле завершения nums = \(nums)")
+        print("После сортировки слиянием nums = \(nums)")
     }
 }

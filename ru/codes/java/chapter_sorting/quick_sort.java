@@ -143,7 +143,7 @@ public class quick_sort {
         /* Быстрая сортировка */
         int[] nums = { 2, 4, 1, 0, 3, 5 };
         QuickSort.quickSort(nums, 0, nums.length - 1);
-        System.out.println("Быстрая сортировкапосле завершения nums =" + Arrays.toString(nums));
+        System.out.println("После быстрой сортировки nums =" + Arrays.toString(nums));
 
         /* Быстрая сортировка (оптимизация с медианным опорным элементом) */
         int[] nums1 = { 2, 4, 1, 0, 3, 5 };

@@ -108,24 +108,24 @@ public class graph_adjacency_matrix {
         /* Добавить ребро */
         // Индексы вершин 1 и 2 равны 0 и 2 соответственно
         graph.addEdge(0, 2);
-        System.out.println("\nДобавить ребро 1-2 после, графравно");
+        System.out.println("\nПосле добавления ребра 1-2 граф имеет вид");
         graph.print();
 
         /* Удалить ребро */
         // Индексы вершин 1 и 3 равны 0 и 1 соответственно
         graph.removeEdge(0, 1);
-        System.out.println("\nУдалить ребро 1-3 после, графравно");
+        System.out.println("\nПосле удаления ребра 1-3 граф имеет вид");
         graph.print();
 
         /* Добавить вершину */
         graph.addVertex(6);
-        System.out.println("\nДобавить вершину 6 после, графравно");
+        System.out.println("\nПосле добавления вершины 6 граф имеет вид");
         graph.print();
 
         /* Удалить вершину */
         // Индекс вершины 3 равен 1
         graph.removeVertex(1);
-        System.out.println("\nУдалить вершину 3 после, графравно");
+        System.out.println("\nПосле удаления вершины 3 граф имеет вид");
         graph.print();
     }
 }

@@ -93,7 +93,7 @@ pub fn MaxHeap(comptime T: type) type {
 
         // Извлечение элемента из кучи
         pub fn pop(self: *Self) !T {
-            // Проверитьобработка
+            // Проверить обработку
             if (self.isEmpty()) unreachable;
             // Поменять местами корневой узел и крайний правый лист (первый и последний элементы)
             try self.swap(0, self.size() - 1);
@@ -155,12 +155,12 @@ pub fn main() !void {
     var max_heap = MaxHeap(i32){};
     try max_heap.init(std.heap.page_allocator, &[_]i32{ 9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2 });
     defer max_heap.deinit();
-    std.debug.print("\nВходсписокипостроение кучипосле\n",.{});
+    std.debug.print("\nВходной список и построение кучипосле\n",.{});
     try max_heap.print(mem_allocator);
 
     // Получить верхний элемент кучи
     var peek = max_heap.peek();
-    std.debug.print("\nвершина кучиэлементравно {}\n",.{peek});
+    std.debug.print("\nЭлемент на вершине кучи равен {}\n",.{peek});
 
     // Добавить элемент в кучу
     const val = 7;
@@ -179,7 +179,7 @@ pub fn main() !void {
 
     // Проверить, пуста ли куча
     var is_empty = max_heap.isEmpty();
-    std.debug.print("\nкучапуст ли {}\n",.{is_empty});
+    std.debug.print("\nКуча пуста: {}\n",.{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

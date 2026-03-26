@@ -37,7 +37,7 @@ pub fn main() !void {
 
     // Проверить, пуст ли стек
     var is_empty = if (stack.items.len == 0) true else false;
-    std.debug.print("\nстекпуст ли = {}",.{is_empty});
+    std.debug.print("\nСтек пуст: {}",.{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

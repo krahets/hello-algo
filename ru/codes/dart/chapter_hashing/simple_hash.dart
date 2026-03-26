@@ -49,14 +49,14 @@ void main() {
   String key = "Hello Algo";
 
   int hash = addHash(key);
-  print("Аддитивное хешированиезначение равно $hash");
+  print("Значение аддитивного хеширования равно $hash");
 
   hash = mulHash(key);
-  print("Мультипликативное хешированиезначение равно $hash");
+  print("Значение мультипликативного хеширования равно $hash");
 
   hash = xorHash(key);
-  print("XOR-хешированиезначение равно $hash");
+  print("Значение XOR-хеширования равно $hash");
 
   hash = rotHash(key);
-  print("Вращательное хешированиезначение равно $hash");
+  print("Значение вращательного хеширования равно $hash");
 }

@@ -73,6 +73,6 @@ public class counting_sort {
 
         int[] nums1 = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
         countingSort(nums1);
-        System.out.println("Подсчетная сортировкапосле завершения nums1 =" + Arrays.toString(nums1));
+        System.out.println("После сортировки подсчетом nums1 =" + Arrays.toString(nums1));
     }
 }

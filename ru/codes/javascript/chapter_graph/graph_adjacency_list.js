@@ -115,25 +115,25 @@ if (require.main === module) {
     /* Добавить ребро */
     // вершина 1, 2 то есть v0, v2
     graph.addEdge(v0, v2);
-    console.log('\nДобавить ребро 1-2 после, графравно');
+    console.log('\nПосле добавления ребра 1-2 граф имеет вид');
     graph.print();
 
     /* Удалить ребро */
     // вершина 1, 3 то есть v0, v1
     graph.removeEdge(v0, v1);
-    console.log('\nУдалить ребро 1-3 после, графравно');
+    console.log('\nПосле удаления ребра 1-3 граф имеет вид');
     graph.print();
 
     /* Добавить вершину */
     const v5 = new Vertex(6);
     graph.addVertex(v5);
-    console.log('\nДобавить вершину 6 после, графравно');
+    console.log('\nПосле добавления вершины 6 граф имеет вид');
     graph.print();
 
     /* Удалить вершину */
     // вершина 3 то есть v1
     graph.removeVertex(v1);
-    console.log('\nУдалить вершину 3 после, графравно');
+    console.log('\nПосле удаления вершины 3 граф имеет вид');
     graph.print();
 }
 

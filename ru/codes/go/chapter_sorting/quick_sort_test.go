@@ -14,7 +14,7 @@ func TestQuickSort(t *testing.T) {
 	q := quickSort{}
 	nums := []int{4, 1, 3, 1, 5, 2}
 	q.quickSort(nums, 0, len(nums)-1)
-	fmt.Println("Быстрая сортировкапосле завершения nums =", nums)
+	fmt.Println("После быстрой сортировки nums =", nums)
 }
 
 // Быстрая сортировка (оптимизация с медианным опорным элементом)

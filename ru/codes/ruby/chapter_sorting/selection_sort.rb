@@ -25,5 +25,5 @@ end
 if __FILE__ == $0
   nums = [4, 1, 3, 1, 5, 2]
   selection_sort(nums)
-  puts "Сортировка выборомпосле завершения nums = #{nums}"
+  puts "После сортировки выбором nums = #{nums}"
 end

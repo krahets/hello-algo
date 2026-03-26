@@ -35,6 +35,6 @@ public class stack {
 
         /* Проверить, пуста ли структура */
         bool isEmpty = stack.Count == 0;
-        Console.WriteLine("стекпуст ли =" + isEmpty);
+        Console.WriteLine("Стек пуст:" + isEmpty);
     }
 }

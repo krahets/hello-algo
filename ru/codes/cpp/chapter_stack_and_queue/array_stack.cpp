@@ -76,7 +76,7 @@ int main() {
 
     /* Проверить, пуста ли структура */
     bool empty = stack->isEmpty();
-    cout << "стекпуст ли =" << empty << endl;
+    cout << "Стек пуст:" << empty << endl;
 
     // Освободить память
     delete stack;

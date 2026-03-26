@@ -33,5 +33,5 @@ void main() {
 
   /* Проверить, пуста ли очередь */
   final bool isEmpty = queue.isEmpty;
-  print("очередьпуст ли = $isEmpty");
+  print("Очередь пуста: $isEmpty");
 }

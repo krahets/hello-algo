@@ -46,7 +46,7 @@ func TestDeque(t *testing.T) {
 
 	/* Проверить, пуста ли двусторонняя очередь */
 	isEmpty := deque.Len() == 0
-	fmt.Println("двусторонняя очередьпуст ли =", isEmpty)
+	fmt.Println("двусторонняя Очередь пуста:", isEmpty)
 }
 
 func TestArrayDeque(t *testing.T) {
@@ -89,7 +89,7 @@ func TestArrayDeque(t *testing.T) {
 
 	/* Проверить, пуста ли двусторонняя очередь */
 	isEmpty := deque.isEmpty()
-	fmt.Println("двусторонняя очередьпуст ли =", isEmpty)
+	fmt.Println("двусторонняя Очередь пуста:", isEmpty)
 }
 
 func TestLinkedListDeque(t *testing.T) {

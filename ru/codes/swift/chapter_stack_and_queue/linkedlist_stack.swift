@@ -91,6 +91,6 @@ enum _LinkedListStack {
 
         /* Проверить, пуста ли структура */
         let isEmpty = stack.isEmpty()
-        print("стекпуст ли = \(isEmpty)")
+        print("Стек пуст: \(isEmpty)")
     }
 }

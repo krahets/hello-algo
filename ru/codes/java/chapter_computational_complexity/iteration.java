@@ -68,7 +68,7 @@ public class iteration {
         System.out.println("\nРезультат суммирования в цикле while res =" + res);
 
         res = whileLoopII(n);
-        System.out.println("\nЦикл while (с двумя обновлениями)суммированиерезультат res =" + res);
+        System.out.println("\nЦикл while (с двумя обновлениями)результат суммирования res =" + res);
 
         String resStr = nestedForLoop(n);
         System.out.println("\nРезультат обхода двойным циклом for" + resStr);

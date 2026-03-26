@@ -101,6 +101,6 @@ public class linkedlist_queue {
 
         /* Проверить, пуста ли очередь */
         bool isEmpty = queue.IsEmpty();
-        Console.WriteLine("очередьпуст ли =" + isEmpty);
+        Console.WriteLine("Очередь пуста:" + isEmpty);
     }
 }

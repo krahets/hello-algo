@@ -42,10 +42,10 @@ public class bubble_sort {
     public void Test() {
         int[] nums = [4, 1, 3, 1, 5, 2];
         BubbleSort(nums);
-        Console.WriteLine("Пузырьковая сортировкапосле завершения nums =" + string.Join(",", nums));
+        Console.WriteLine("После пузырьковой сортировки nums =" + string.Join(",", nums));
 
         int[] nums1 = [4, 1, 3, 1, 5, 2];
         BubbleSortWithFlag(nums1);
-        Console.WriteLine("Пузырьковая сортировкапосле завершения nums1 =" + string.Join(",", nums1));
+        Console.WriteLine("После пузырьковой сортировки nums1 =" + string.Join(",", nums1));
     }
 }

@@ -121,7 +121,7 @@ pub fn main() !void {
 
     // Проверить, пуста ли очередь
     var is_empty = queue.isEmpty();
-    std.debug.print("\nочередьпуст ли = {}",.{is_empty});
+    std.debug.print("\nОчередь пуста: {}",.{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

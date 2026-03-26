@@ -4,7 +4,7 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## связный списокузелкласс ###
+# ## класс узла связного списка ###
 class ListNode
   attr_accessor :val  # Значение узла
   attr_accessor :next # Ссылка на следующий узел

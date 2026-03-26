@@ -31,5 +31,5 @@ void main() {
 
   /* Проверить, пуста ли структура */
   final bool isEmpty = stack.isEmpty;
-  print("стекпуст ли = $isEmpty");
+  print("Стек пуст: $isEmpty");
 }

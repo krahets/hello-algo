@@ -93,7 +93,7 @@ class AVLTree {
         root = InsertHelper(root, val);
     }
 
-    /* рекурсиявставить узел(вспомогательный метод) */
+    /* Рекурсивная вставка узла (вспомогательный метод) */
     TreeNode? InsertHelper(TreeNode? node, int val) {
         if (node == null) return new TreeNode(val);
         /* 1. Найти позицию вставки и вставить узел */
@@ -115,7 +115,7 @@ class AVLTree {
         root = RemoveHelper(root, val);
     }
 
-    /* рекурсияУдалить узел(вспомогательный метод) */
+    /* Рекурсивное удаление узла (вспомогательный метод) */
     TreeNode? RemoveHelper(TreeNode? node, int val) {
         if (node == null) return null;
         /* 1. Найти узел и удалить его */
@@ -211,6 +211,6 @@ public class avl_tree {
 
         /* Найти узел */
         TreeNode? node = avlTree.Search(7);
-        Console.WriteLine("\nНайденныйузелобъектравно" + node + ", значение узла =" + node?.val);
+        Console.WriteLine("\nНайденный объект узла равен" + node + ", значение узла =" + node?.val);
     }
 }

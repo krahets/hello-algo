@@ -170,6 +170,6 @@ public class linkedlist_deque {
 
         /* Проверить, пуста ли двусторонняя очередь */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("двусторонняя очередьпуст ли =" + isEmpty);
+        System.out.println("двусторонняя Очередь пуста:" + isEmpty);
     }
 }

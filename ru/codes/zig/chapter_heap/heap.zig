@@ -54,7 +54,7 @@ pub fn main() !void {
 
     // Получить верхний элемент кучи
     var peek = max_heap.peek().?;
-    std.debug.print("\nвершина кучиэлементравно {}\n",.{peek});
+    std.debug.print("\nЭлемент на вершине кучи равен {}\n",.{peek});
 
     // Извлечь верхний элемент из кучи
     try testPop(i32, mem_allocator, &max_heap);
@@ -69,11 +69,11 @@ pub fn main() !void {
 
     // Проверить, пуста ли куча
     var is_empty = if (max_heap.len == 0) true else false;
-    std.debug.print("\nкучапуст ли {}\n",.{is_empty});
+    std.debug.print("\nКуча пуста: {}\n",.{is_empty});
 
-    // Входсписокипостроение кучи
+    // Входной список и построение кучи
     try min_heap.addSlice(&[_]i32{ 1, 3, 2, 5, 4 });
-    std.debug.print("\nВходсписокипостроитьmin-кучапосле\n",.{});
+    std.debug.print("\nПосле построения min-кучи из входного списка\n",.{});
     try inc.PrintUtil.printHeap(i32, mem_allocator, min_heap);
 
     _ = try std.io.getStdIn().reader().readByte();

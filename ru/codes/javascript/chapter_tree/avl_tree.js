@@ -98,7 +98,7 @@ class AVLTree {
         this.root = this.#insertHelper(this.root, val);
     }
 
-    /* рекурсиявставить узел(вспомогательный метод) */
+    /* Рекурсивная вставка узла (вспомогательный метод) */
     #insertHelper(node, val) {
         if (node === null) return new TreeNode(val);
         /* 1. Найти позицию вставки и вставить узел */
@@ -118,7 +118,7 @@ class AVLTree {
         this.root = this.#removeHelper(this.root, val);
     }
 
-    /* рекурсияУдалить узел(вспомогательный метод) */
+    /* Рекурсивное удаление узла (вспомогательный метод) */
     #removeHelper(node, val) {
         if (node === null) return null;
         /* 1. Найти узел и удалить его */
@@ -205,4 +205,4 @@ testRemove(avlTree, 4); // Удалить узел степени 2
 
 /* Найти узел */
 const node = avlTree.search(7);
-console.log('\nНайденныйузелобъектравно', node, ', значение узла =' + node.val);
+console.log('\nНайденный объект узла равен', node, ', значение узла =' + node.val);

@@ -99,7 +99,7 @@ void main() {
 
   /* Проверить, пуста ли очередь */
   final bool isEmpty = queue.isEmpty();
-  print("очередьпуст ли = $isEmpty");
+  print("Очередь пуста: $isEmpty");
 
   /* Проверить кольцевой массив */
   for (int i = 0; i < 10; i++) {

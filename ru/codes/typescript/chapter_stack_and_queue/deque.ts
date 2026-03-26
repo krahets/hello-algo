@@ -41,6 +41,6 @@ console.log('Длина двусторонней очереди size =' + size);
 
 /* Проверить, пуста ли двусторонняя очередь */
 const isEmpty: boolean = size === 0;
-console.log('двусторонняя очередьпуст ли =' + isEmpty);
+console.log('двусторонняя Очередь пуста:' + isEmpty);
 
 export {};

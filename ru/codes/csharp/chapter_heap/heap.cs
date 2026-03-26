@@ -37,7 +37,7 @@ public class heap {
 
         /* Получить верхний элемент кучи */
         int peek = maxHeap.Peek();
-        Console.WriteLine($"вершина кучиэлементравно {peek}");
+        Console.WriteLine($"Элемент на вершине кучи равен {peek}");
 
         /* Извлечь верхний элемент из кучи */
         // Извлеченные из кучи элементы образуют последовательность от большего к меньшему
@@ -53,12 +53,12 @@ public class heap {
 
         /* Проверить, пуста ли куча */
         bool isEmpty = maxHeap.Count == 0;
-        Console.WriteLine($"кучапуст ли {isEmpty}");
+        Console.WriteLine($"Куча пуста: {isEmpty}");
 
-        /* Входсписокипостроение кучи */
+        /* Входной список и построение кучи */
         var list = new int[] { 1, 3, 2, 5, 4 };
         minHeap = new PriorityQueue<int, int>(list.Select(x => (x, x)));
-        Console.WriteLine("Входсписокипостроитьmin-кучапосле");
+        Console.WriteLine("После построения min-кучи из входного списка");
         PrintUtil.PrintHeap(minHeap);
     }
 }

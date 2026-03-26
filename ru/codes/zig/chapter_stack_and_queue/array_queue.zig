@@ -11,7 +11,7 @@ pub fn ArrayQueue(comptime T: type) type {
         const Self = @This();
 
         nums: []T = undefined,                          // Массив для хранения элементов очереди
-        cap: usize = 0,                                 // очередьвместимость
+        cap: usize = 0,                                 // вместимость очереди
         front: usize = 0,                               // Указатель front, указывающий на первый элемент очереди
         queSize: usize = 0,                             // Хвостовой указатель указывает на позицию хвоста + 1
         mem_arena: ?std.heap.ArenaAllocator = null,
@@ -125,7 +125,7 @@ pub fn main() !void {
 
     // Проверить, пуста ли очередь
     var is_empty = queue.isEmpty();
-    std.debug.print("\nочередьпуст ли = {}",.{is_empty});
+    std.debug.print("\nОчередь пуста: {}",.{is_empty});
 
     // Проверить кольцевой массив
     var i: i32 = 0;

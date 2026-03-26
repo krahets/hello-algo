@@ -120,7 +120,7 @@ printTree(bst.getRoot());
 
 /* Найти узел */
 const node = bst.search(7);
-console.log('\nНайденныйузелобъектравно' + node + ', значение узла =' + node.val);
+console.log('\nНайденный объект узла равен' + node + ', значение узла =' + node.val);
 
 /* Вставить узел */
 bst.insert(16);

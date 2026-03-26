@@ -16,5 +16,5 @@ func TestCountingSort(t *testing.T) {
 
 	nums1 := []int{1, 0, 1, 2, 0, 4, 0, 2, 2, 4}
 	countingSort(nums1)
-	fmt.Println("Подсчетная сортировкапосле завершения nums1 =", nums1)
+	fmt.Println("После сортировки подсчетом nums1 =", nums1)
 }

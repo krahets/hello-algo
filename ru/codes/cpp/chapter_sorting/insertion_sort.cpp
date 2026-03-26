@@ -24,7 +24,7 @@ void insertionSort(vector<int> &nums) {
 int main() {
     vector<int> nums = {4, 1, 3, 1, 5, 2};
     insertionSort(nums);
-    cout << "Сортировка вставкамипосле завершения nums =";
+    cout << "После сортировки вставками nums =";
     printVector(nums);
 
     return 0;

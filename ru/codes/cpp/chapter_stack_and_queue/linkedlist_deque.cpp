@@ -185,7 +185,7 @@ int main() {
 
     /* Проверить, пуста ли двусторонняя очередь */
     bool isEmpty = deque->isEmpty();
-    cout << "двусторонняя очередьпуст ли =" << boolalpha << isEmpty << endl;
+    cout << "двусторонняя Очередь пуста:" << boolalpha << isEmpty << endl;
 
     // Освободить память
     delete deque;

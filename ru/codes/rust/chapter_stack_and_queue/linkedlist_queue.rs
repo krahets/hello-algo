@@ -122,5 +122,5 @@ fn main() {
 
     /* Проверить, пуста ли очередь */
     let is_empty = queue.is_empty();
-    print!("\nочередьпуст ли = {}", is_empty);
+    print!("\nОчередь пуста: {}", is_empty);
 }

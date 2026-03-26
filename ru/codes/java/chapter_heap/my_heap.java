@@ -130,12 +130,12 @@ public class my_heap {
     public static void main(String[] args) {
         /* Инициализировать max-кучу */
         MaxHeap maxHeap = new MaxHeap(Arrays.asList(9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2));
-        System.out.println("\nВходсписокипостроение кучипосле");
+        System.out.println("\nВходной список и построение кучипосле");
         maxHeap.print();
 
         /* Получить верхний элемент кучи */
         int peek = maxHeap.peek();
-        System.out.format("\nвершина кучиэлементравно %d\n", peek);
+        System.out.format("\nЭлемент на вершине кучи равен %d\n", peek);
 
         /* Добавить элемент в кучу */
         int val = 7;
@@ -154,6 +154,6 @@ public class my_heap {
 
         /* Проверить, пуста ли куча */
         boolean isEmpty = maxHeap.isEmpty();
-        System.out.format("\nкучапуст ли %b\n", isEmpty);
+        System.out.format("\nКуча пуста: %b\n", isEmpty);
     }
 }

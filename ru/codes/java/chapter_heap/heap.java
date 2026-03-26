@@ -40,7 +40,7 @@ public class heap {
 
         /* Получить верхний элемент кучи */
         int peek = maxHeap.peek();
-        System.out.format("\nвершина кучиэлементравно %d\n", peek);
+        System.out.format("\nЭлемент на вершине кучи равен %d\n", peek);
 
         /* Извлечь верхний элемент из кучи */
         testPop(maxHeap);
@@ -55,12 +55,12 @@ public class heap {
 
         /* Проверить, пуста ли куча */
         boolean isEmpty = maxHeap.isEmpty();
-        System.out.format("\nкучапуст ли %b\n", isEmpty);
+        System.out.format("\nКуча пуста: %b\n", isEmpty);
 
-        /* Входсписокипостроение кучи */
+        /* Входной список и построение кучи */
         // Временная сложность равна O(n), а не O(nlogn)
         minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
-        System.out.println("\nВходсписокипостроитьmin-кучапосле");
+        System.out.println("\nПосле построения min-кучи из входного списка");
         PrintUtil.printHeap(minHeap);
     }
 }

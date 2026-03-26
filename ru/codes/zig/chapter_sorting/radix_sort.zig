@@ -70,7 +70,7 @@ pub fn main() !void {
     // Поразрядная сортировка
     var nums = [_]i32{ 23, 12, 3, 4, 788, 192 };
     try radixSort(&nums);
-    std.debug.print("Поразрядная сортировкапосле завершения nums =",.{});
+    std.debug.print("После поразрядной сортировки nums =",.{});
     inc.PrintUtil.printArray(i32, &nums);
     
     _ = try std.io.getStdIn().reader().readByte();

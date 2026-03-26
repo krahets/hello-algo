@@ -143,7 +143,7 @@ pub fn main() !void {
     // Быстрая сортировка
     var nums = [_]i32{ 2, 4, 1, 0, 3, 5 };
     QuickSort.quickSort(&nums, 0, nums.len - 1);
-    std.debug.print("Быстрая сортировкапосле завершения nums =",.{});
+    std.debug.print("После быстрой сортировки nums =",.{});
     inc.PrintUtil.printArray(i32, &nums);
 
     // Быстрая сортировка (оптимизация с медианным опорным элементом)

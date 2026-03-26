@@ -69,7 +69,7 @@ public class iteration {
         Console.WriteLine("\nРезультат суммирования в цикле while res =" + res);
 
         res = WhileLoopII(n);
-        Console.WriteLine("\nЦикл while (с двумя обновлениями)суммированиерезультат res =" + res);
+        Console.WriteLine("\nЦикл while (с двумя обновлениями)результат суммирования res =" + res);
 
         string resStr = NestedForLoop(n);
         Console.WriteLine("\nРезультат обхода двойным циклом for" + resStr);

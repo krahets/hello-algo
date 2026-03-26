@@ -59,4 +59,4 @@ if __name__ == "__main__":
 
     nums1 = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]
     counting_sort(nums1)
-    print(f"Подсчетная сортировкапосле завершения nums1 = {nums1}")
+    print(f"После сортировки подсчетом nums1 = {nums1}")

@@ -29,13 +29,13 @@ class MyList {
     /* Получить доступ к элементу */
     get(index) {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
-        if (index < 0 || index >= this.#size) throw new Error('индексвыходит за границы');
+        if (index < 0 || index >= this.#size) throw new Error('индекс выходит за границы');
         return this.#arr[index];
     }
 
     /* Обновить элемент */
     set(index, num) {
-        if (index < 0 || index >= this.#size) throw new Error('индексвыходит за границы');
+        if (index < 0 || index >= this.#size) throw new Error('индекс выходит за границы');
         this.#arr[index] = num;
     }
 
@@ -52,7 +52,7 @@ class MyList {
 
     /* Вставить элемент в середину */
     insert(index, num) {
-        if (index < 0 || index >= this.#size) throw new Error('индексвыходит за границы');
+        if (index < 0 || index >= this.#size) throw new Error('индекс выходит за границы');
         // Если число элементов превышает вместимость, запустить механизм расширения
         if (this.#size === this.#capacity) {
             this.extendCapacity();
@@ -68,7 +68,7 @@ class MyList {
 
     /* Удалить элемент */
     remove(index) {
-        if (index < 0 || index >= this.#size) throw new Error('индексвыходит за границы');
+        if (index < 0 || index >= this.#size) throw new Error('индекс выходит за границы');
         let num = this.#arr[index];
         // Сдвинуть на одну позицию вперед все элементы после индекса index
         for (let j = index; j < this.#size - 1; j++) {

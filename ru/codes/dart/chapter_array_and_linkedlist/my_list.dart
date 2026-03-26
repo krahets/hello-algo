@@ -24,13 +24,13 @@ class MyList {
 
   /* Получить доступ к элементу */
   int get(int index) {
-    if (index >= _size) throw RangeError('индексвыходит за границы');
+    if (index >= _size) throw RangeError('индекс выходит за границы');
     return _arr[index];
   }
 
   /* Обновить элемент */
   void set(int index, int _num) {
-    if (index >= _size) throw RangeError('индексвыходит за границы');
+    if (index >= _size) throw RangeError('индекс выходит за границы');
     _arr[index] = _num;
   }
 
@@ -45,7 +45,7 @@ class MyList {
 
   /* Вставить элемент в середину */
   void insert(int index, int _num) {
-    if (index >= _size) throw RangeError('индексвыходит за границы');
+    if (index >= _size) throw RangeError('индекс выходит за границы');
     // Если число элементов превышает вместимость, запустить механизм расширения
     if (_size == _capacity) extendCapacity();
     // Сдвинуть на одну позицию назад элемент с индексом index и все последующие элементы
@@ -59,7 +59,7 @@ class MyList {
 
   /* Удалить элемент */
   int remove(int index) {
-    if (index >= _size) throw RangeError('индексвыходит за границы');
+    if (index >= _size) throw RangeError('индекс выходит за границы');
     int _num = _arr[index];
     // Сдвинуть на одну позицию вперед все элементы после индекса index
     for (var j = index; j < _size - 1; j++) {

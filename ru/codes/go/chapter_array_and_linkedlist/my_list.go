@@ -36,7 +36,7 @@ func (l *myList) capacity() int {
 func (l *myList) get(index int) int {
 	// Если индекс выходит за границы, выбросить исключение; далее аналогично
 	if index < 0 || index >= l.arrSize {
-		panic("индексвыходит за границы")
+		panic("индекс выходит за границы")
 	}
 	return l.arr[index]
 }
@@ -44,7 +44,7 @@ func (l *myList) get(index int) int {
 /* Обновить элемент */
 func (l *myList) set(num, index int) {
 	if index < 0 || index >= l.arrSize {
-		panic("индексвыходит за границы")
+		panic("индекс выходит за границы")
 	}
 	l.arr[index] = num
 }
@@ -63,7 +63,7 @@ func (l *myList) add(num int) {
 /* Вставить элемент в середину */
 func (l *myList) insert(num, index int) {
 	if index < 0 || index >= l.arrSize {
-		panic("индексвыходит за границы")
+		panic("индекс выходит за границы")
 	}
 	// Если число элементов превышает вместимость, запустить механизм расширения
 	if l.arrSize == l.arrCapacity {
@@ -81,7 +81,7 @@ func (l *myList) insert(num, index int) {
 /* Удалить элемент */
 func (l *myList) remove(index int) int {
 	if index < 0 || index >= l.arrSize {
-		panic("индексвыходит за границы")
+		panic("индекс выходит за границы")
 	}
 	num := l.arr[index]
 	// Сдвинуть на одну позицию вперед все элементы после индекса index

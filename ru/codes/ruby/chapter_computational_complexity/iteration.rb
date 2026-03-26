@@ -72,7 +72,7 @@ if __FILE__ == $0
   puts "\nРезультат суммирования в цикле while res = #{res}"
 
   res = while_loop_ii(n)
-  puts "\nЦикл while (с двумя обновлениями)суммированиерезультат res = #{res}"
+  puts "\nЦикл while (с двумя обновлениями)результат суммирования res = #{res}"
 
   res = nested_for_loop(n)
   puts "\nРезультат обхода двойным циклом for #{res}"

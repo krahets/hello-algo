@@ -48,13 +48,13 @@ function rotHash(key: string): number {
 const key = 'Hello Algo';
 
 let hash = addHash(key);
-console.log('Аддитивное хешированиезначение равно' + hash);
+console.log('Значение аддитивного хеширования равно' + hash);
 
 hash = mulHash(key);
-console.log('Мультипликативное хешированиезначение равно' + hash);
+console.log('Значение мультипликативного хеширования равно' + hash);
 
 hash = xorHash(key);
-console.log('XOR-хешированиезначение равно' + hash);
+console.log('Значение XOR-хеширования равно' + hash);
 
 hash = rotHash(key);
-console.log('Вращательное хешированиезначение равно' + hash);
+console.log('Значение вращательного хеширования равно' + hash);

@@ -172,7 +172,7 @@ fn main() {
     /* Найти узел */
     let node = bst.search(7);
     println!(
-        "\nНайденныйузелобъектравно {:?}, значение узла = {}",
+        "\nНайденный объект узла равен {:?}, значение узла = {}",
         node.clone().unwrap(),
         node.clone().unwrap().borrow().val
     );

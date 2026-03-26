@@ -102,7 +102,7 @@ public class array_queue {
 
         /* Проверить, пуста ли очередь */
         bool isEmpty = queue.IsEmpty();
-        Console.WriteLine("очередьпуст ли =" + isEmpty);
+        Console.WriteLine("Очередь пуста:" + isEmpty);
 
         /* Проверить кольцевой массив */
         for (int i = 0; i < 10; i++) {

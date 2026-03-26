@@ -4,7 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* связный списокузел */
+/* узел связного списка */
 class ListNode {
     val: number;
     next: ListNode | null;

@@ -103,7 +103,7 @@ public class array_queue {
 
         /* Проверить, пуста ли очередь */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("очередьпуст ли =" + isEmpty);
+        System.out.println("Очередь пуста:" + isEmpty);
 
         /* Проверить кольцевой массив */
         for (int i = 0; i < 10; i++) {

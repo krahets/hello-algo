@@ -137,7 +137,7 @@ public class binary_search_tree {
 
         /* Найти узел */
         TreeNode node = bst.search(7);
-        System.out.println("\nНайденныйузелобъектравно" + node + ", значение узла =" + node.val);
+        System.out.println("\nНайденный объект узла равен" + node + ", значение узла =" + node.val);
 
         /* Вставить узел */
         bst.insert(16);

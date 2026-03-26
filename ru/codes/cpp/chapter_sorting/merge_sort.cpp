@@ -51,7 +51,7 @@ int main() {
     /* Сортировка слиянием */
     vector<int> nums = {7, 3, 2, 6, 0, 1, 5, 4};
     mergeSort(nums, 0, nums.size() - 1);
-    cout << "Сортировка слияниемпосле завершения nums =";
+    cout << "После сортировки слиянием nums =";
     printVector(nums);
 
     return 0;

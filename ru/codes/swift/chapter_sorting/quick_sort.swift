@@ -99,7 +99,7 @@ enum QuickSort {
         /* Быстрая сортировка */
         var nums = [2, 4, 1, 0, 3, 5]
         quickSort(nums: &nums, left: nums.startIndex, right: nums.endIndex - 1)
-        print("Быстрая сортировкапосле завершения nums = \(nums)")
+        print("После быстрой сортировки nums = \(nums)")
 
         /* Быстрая сортировка (оптимизация с медианным опорным элементом) */
         var nums1 = [2, 4, 1, 0, 3, 5]

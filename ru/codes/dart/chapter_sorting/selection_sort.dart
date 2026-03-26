@@ -25,5 +25,5 @@ void selectionSort(List<int> nums) {
 void main() {
   List<int> nums = [4, 1, 3, 1, 5, 2];
   selectionSort(nums);
-  print("Сортировка выборомпосле завершения nums = $nums");
+  print("После сортировки выбором nums = $nums");
 }

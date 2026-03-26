@@ -47,7 +47,7 @@ void heapSort(vector<int> &nums) {
 int main() {
     vector<int> nums = {4, 1, 3, 1, 5, 2};
     heapSort(nums);
-    cout << "Сортировка кучейпосле завершения nums =";
+    cout << "После сортировки кучей nums =";
     printVector(nums);
 
     return 0;

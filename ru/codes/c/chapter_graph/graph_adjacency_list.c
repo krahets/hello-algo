@@ -17,7 +17,7 @@ typedef struct AdjListNode {
 
 /* Класс неориентированного графа на основе списка смежности */
 typedef struct {
-    AdjListNode *heads[MAX_SIZE]; // узелмассив
+    AdjListNode *heads[MAX_SIZE]; // массив узлов
     int size;                     // Количество узлов
 } GraphAdjList;
 
@@ -61,7 +61,7 @@ AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
     return NULL;
 }
 
-/* Добавить ребровспомогательная функция */
+/* Добавить ребро (вспомогательная функция) */
 void addEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *node = (AdjListNode *)malloc(sizeof(AdjListNode));
     node->vertex = vet;
@@ -80,7 +80,7 @@ void addEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     addEdgeHelper(head2, vet1);
 }
 
-/* Удалить ребровспомогательная функция */
+/* Удалить ребро (вспомогательная функция) */
 void removeEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *pre = head;
     AdjListNode *cur = head->next;

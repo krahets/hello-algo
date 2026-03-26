@@ -139,7 +139,7 @@ public class binary_search_tree {
 
         /* Найти узел */
         TreeNode? node = bst.Search(7);
-        Console.WriteLine("\nНайденныйузелобъектравно" + node + ", значение узла =" + node?.val);
+        Console.WriteLine("\nНайденный объект узла равен" + node + ", значение узла =" + node?.val);
 
         /* Вставить узел */
         bst.Insert(16);

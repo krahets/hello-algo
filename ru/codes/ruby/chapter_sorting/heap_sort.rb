@@ -41,5 +41,5 @@ end
 if __FILE__ == $0
   nums = [4, 1, 3, 1, 5, 2]
   heap_sort(nums)
-  puts "Сортировка кучейпосле завершения nums = #{nums.inspect}"
+  puts "После сортировки кучей nums = #{nums.inspect}"
 end

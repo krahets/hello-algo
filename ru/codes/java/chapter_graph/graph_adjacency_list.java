@@ -93,25 +93,25 @@ public class graph_adjacency_list {
         /* Добавить ребро */
         // Вершины 1 и 2, то есть v[0] и v[2]
         graph.addEdge(v[0], v[2]);
-        System.out.println("\nДобавить ребро 1-2 после, графравно");
+        System.out.println("\nПосле добавления ребра 1-2 граф имеет вид");
         graph.print();
 
         /* Удалить ребро */
         // Вершины 1 и 3, то есть v[0] и v[1]
         graph.removeEdge(v[0], v[1]);
-        System.out.println("\nУдалить ребро 1-3 после, графравно");
+        System.out.println("\nПосле удаления ребра 1-3 граф имеет вид");
         graph.print();
 
         /* Добавить вершину */
         Vertex v5 = new Vertex(6);
         graph.addVertex(v5);
-        System.out.println("\nДобавить вершину 6 после, графравно");
+        System.out.println("\nПосле добавления вершины 6 граф имеет вид");
         graph.print();
 
         /* Удалить вершину */
         // Вершина 3, то есть v[1]
         graph.removeVertex(v[1]);
-        System.out.println("\nУдалить вершину 3 после, графравно");
+        System.out.println("\nПосле удаления вершины 3 граф имеет вид");
         graph.print();
     }
 }

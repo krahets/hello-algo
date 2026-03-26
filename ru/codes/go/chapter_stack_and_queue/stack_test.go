@@ -41,7 +41,7 @@ func TestStack(t *testing.T) {
 
 	/* Проверить, пуста ли структура */
 	isEmpty := len(stack) == 0
-	fmt.Println("стекпуст ли =", isEmpty)
+	fmt.Println("Стек пуст:", isEmpty)
 }
 
 func TestArrayStack(t *testing.T) {
@@ -72,7 +72,7 @@ func TestArrayStack(t *testing.T) {
 
 	// Проверить, пуста ли структура
 	isEmpty := stack.isEmpty()
-	fmt.Println("стекпуст ли =", isEmpty)
+	fmt.Println("Стек пуст:", isEmpty)
 }
 
 func TestLinkedListStack(t *testing.T) {
@@ -102,7 +102,7 @@ func TestLinkedListStack(t *testing.T) {
 
 	// Проверить, пуста ли структура
 	isEmpty := stack.isEmpty()
-	fmt.Println("стекпуст ли =", isEmpty)
+	fmt.Println("Стек пуст:", isEmpty)
 }
 
 // BenchmarkArrayStack 8 ns/op in Mac M1 Pro

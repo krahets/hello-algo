@@ -25,5 +25,5 @@ fun insertionSort(nums: IntArray) {
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     insertionSort(nums)
-    println("Сортировка вставкамипосле завершения nums = ${nums.contentToString()}")
+    println("После сортировки вставками nums = ${nums.contentToString()}")
 }

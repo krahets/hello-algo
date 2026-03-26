@@ -33,7 +33,7 @@ class MyList {
     func get(index: Int) -> Int {
         // Если индекс выходит за границы, выбросить ошибку; далее аналогично
         if index < 0 || index >= size() {
-            fatalError("индексвыходит за границы")
+            fatalError("индекс выходит за границы")
         }
         return arr[index]
     }
@@ -41,7 +41,7 @@ class MyList {
     /* Обновить элемент */
     func set(index: Int, num: Int) {
         if index < 0 || index >= size() {
-            fatalError("индексвыходит за границы")
+            fatalError("индекс выходит за границы")
         }
         arr[index] = num
     }
@@ -60,7 +60,7 @@ class MyList {
     /* Вставить элемент в середину */
     func insert(index: Int, num: Int) {
         if index < 0 || index >= size() {
-            fatalError("индексвыходит за границы")
+            fatalError("индекс выходит за границы")
         }
         // Если число элементов превышает вместимость, запустить механизм расширения
         if size() == capacity() {
@@ -79,7 +79,7 @@ class MyList {
     @discardableResult
     func remove(index: Int) -> Int {
         if index < 0 || index >= size() {
-            fatalError("индексвыходит за границы")
+            fatalError("индекс выходит за границы")
         }
         let num = arr[index]
         // Сдвинуть на одну позицию вперед все элементы после индекса index

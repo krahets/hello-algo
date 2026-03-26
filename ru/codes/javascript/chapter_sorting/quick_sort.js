@@ -146,7 +146,7 @@ class QuickSortTailCall {
 const nums = [2, 4, 1, 0, 3, 5];
 const quickSort = new QuickSort();
 quickSort.quickSort(nums, 0, nums.length - 1);
-console.log('Быстрая сортировкапосле завершения nums =', nums);
+console.log('После быстрой сортировки nums =', nums);
 
 /* Быстрая сортировка (оптимизация с медианным опорным элементом) */
 const nums1 = [2, 4, 1, 0, 3, 5];

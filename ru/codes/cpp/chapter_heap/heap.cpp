@@ -53,13 +53,13 @@ int main() {
 
     /* Проверить, пуста ли куча */
     bool isEmpty = maxHeap.empty();
-    cout << "\nкучапуст ли" << isEmpty << endl;
+    cout << "\nКуча пуста:" << isEmpty << endl;
 
-    /* Входсписокипостроение кучи */
+    /* Входной список и построение кучи */
     // Временная сложность равна O(n), а не O(nlogn)
     vector<int> input{1, 3, 2, 5, 4};
     priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
-    cout << "Входсписокипостроитьmin-кучапосле" << endl;
+    cout << "После построения min-кучи из входного списка" << endl;
     printHeap(minHeap);
 
     return 0;

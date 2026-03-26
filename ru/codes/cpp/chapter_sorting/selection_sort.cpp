@@ -27,7 +27,7 @@ int main() {
     vector<int> nums = {4, 1, 3, 1, 5, 2};
     selectionSort(nums);
 
-    cout << "Сортировка выборомпосле завершения nums =";
+    cout << "После сортировки выбором nums =";
     printVector(nums);
 
     return 0;

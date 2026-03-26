@@ -49,6 +49,6 @@ fn heap_sort(nums: &mut [i32]) {
 fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     heap_sort(&mut nums);
-    print!("Сортировка кучейпосле завершения nums =");
+    print!("После сортировки кучей nums =");
     print_util::print_array(&nums);
 }

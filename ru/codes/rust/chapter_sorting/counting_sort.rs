@@ -65,6 +65,6 @@ fn main() {
 
     let mut nums1 = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4];
     counting_sort(&mut nums1);
-    print!("\nПодсчетная сортировкапосле завершения nums1 =");
+    print!("\nПосле сортировки подсчетом nums1 =");
     print_util::print_array(&nums1);
 }

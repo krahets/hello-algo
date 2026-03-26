@@ -135,7 +135,7 @@ public class quick_sort {
         /* Быстрая сортировка */
         int[] nums = [2, 4, 1, 0, 3, 5];
         quickSort.QuickSort(nums, 0, nums.Length - 1);
-        Console.WriteLine("Быстрая сортировкапосле завершения nums =" + string.Join(",", nums));
+        Console.WriteLine("После быстрой сортировки nums =" + string.Join(",", nums));
 
         /* Быстрая сортировка (оптимизация с медианным опорным элементом) */
         int[] nums1 = [2, 4, 1, 0, 3, 5];

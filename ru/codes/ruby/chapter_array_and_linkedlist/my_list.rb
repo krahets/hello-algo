@@ -20,13 +20,13 @@ class MyList
   # ## Получить доступ к элементу ###
   def get(index)
     # Если индекс выходит за границы, выбросить исключение; далее аналогично
-    raise IndexError, "индексвыходит за границы" if index < 0 || index >= size
+    raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
     @arr[index]
   end
 
   # ## Получить доступ к элементу ###
   def set(index, num)
-    raise IndexError, "индексвыходит за границы" if index < 0 || index >= size
+    raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
     @arr[index] = num
   end
 
@@ -42,7 +42,7 @@ class MyList
 
   # ## Вставить элемент в середину ###
   def insert(index, num)
-    raise IndexError, "индексвыходит за границы" if index < 0 || index >= size
+    raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
 
     # Если число элементов превышает вместимость, запустить механизм расширения
     extend_capacity if size == capacity
@@ -59,7 +59,7 @@ class MyList
 
   # ## Удалить элемент ###
   def remove(index)
-    raise IndexError, "индексвыходит за границы" if index < 0 || index >= size
+    raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
     num = @arr[index]
 
     # Сдвинуть на одну позицию вперед все элементы после индекса index

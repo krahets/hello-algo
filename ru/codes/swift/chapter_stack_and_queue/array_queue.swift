@@ -101,7 +101,7 @@ enum _ArrayQueue {
 
         /* Проверить, пуста ли очередь */
         let isEmpty = queue.isEmpty()
-        print("очередьпуст ли = \(isEmpty)")
+        print("Очередь пуста: \(isEmpty)")
 
         /* Проверить кольцевой массив */
         for i in 0 ..< 10 {

@@ -20,7 +20,7 @@ pub fn BinarySearchTree(comptime T: type) type {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
                 self.mem_allocator = self.mem_arena.?.allocator();
             }
-            std.mem.sort(T, nums, {}, comptime std.sort.asc(T));   // Сортировкамассив
+            std.mem.sort(T, nums, {}, comptime std.sort.asc(T));   // Сортировать массив
             self.root = try self.buildTree(nums, 0, nums.len - 1);  // Построить двоичное дерево поиска
         }
 
@@ -37,7 +37,7 @@ pub fn BinarySearchTree(comptime T: type) type {
             var mid = i + (j - i) / 2;
             var node = try self.mem_allocator.create(inc.TreeNode(T));
             node.init(nums[mid]);
-            // рекурсияпостроитьлевое поддеревосуммаправое поддерево
+            // Рекурсивно построить левое и правое поддеревья
             if (mid >= 1) node.left = try self.buildTree(nums, i, mid - 1);
             node.right = try self.buildTree(nums, mid + 1, j);
             return node;
@@ -160,7 +160,7 @@ pub fn main() !void {
 
     // Найти узел
     var node = bst.search(7);
-    std.debug.print("\nНайденныйузелобъектравно {any}, значение узла = {}\n",.{node, node.?.val});
+    std.debug.print("\nНайденный объект узла равен {any}, значение узла = {}\n",.{node, node.?.val});
 
     // Вставить узел
     try bst.insert(16);

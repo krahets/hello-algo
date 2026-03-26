@@ -142,5 +142,5 @@ void main() {
 
   /* Проверить, пуста ли двусторонняя очередь */
   final bool isEmpty = deque.isEmpty();
-  print("двусторонняя очередьпуст ли = $isEmpty");
+  print("двусторонняя Очередь пуста: $isEmpty");
 }

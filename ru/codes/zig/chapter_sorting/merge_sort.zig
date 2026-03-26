@@ -60,7 +60,7 @@ pub fn main() !void {
     // Сортировка слиянием
     var nums = [_]i32{ 7, 3, 2, 6, 0, 1, 5, 4 };
     try mergeSort(&nums, 0, nums.len - 1);
-    std.debug.print("Сортировка слияниемпосле завершения nums =",.{});
+    std.debug.print("После сортировки слиянием nums =",.{});
     inc.PrintUtil.printArray(i32, &nums);
 
     _ = try std.io.getStdIn().reader().readByte();

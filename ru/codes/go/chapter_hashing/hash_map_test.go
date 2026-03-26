@@ -61,14 +61,14 @@ func TestSimpleHash(t *testing.T) {
 	key := "Hello Algo"
 
 	hash = addHash(key)
-	fmt.Println("Аддитивное хешированиезначение равно" + strconv.Itoa(hash))
+	fmt.Println("Значение аддитивного хеширования равно" + strconv.Itoa(hash))
 
 	hash = mulHash(key)
-	fmt.Println("Мультипликативное хешированиезначение равно" + strconv.Itoa(hash))
+	fmt.Println("Значение мультипликативного хеширования равно" + strconv.Itoa(hash))
 
 	hash = xorHash(key)
-	fmt.Println("XOR-хешированиезначение равно" + strconv.Itoa(hash))
+	fmt.Println("Значение XOR-хеширования равно" + strconv.Itoa(hash))
 
 	hash = rotHash(key)
-	fmt.Println("Вращательное хешированиезначение равно" + strconv.Itoa(hash))
+	fmt.Println("Значение вращательного хеширования равно" + strconv.Itoa(hash))
 }

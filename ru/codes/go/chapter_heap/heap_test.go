@@ -41,7 +41,7 @@ func TestHeap(t *testing.T) {
 
 	/* Получить верхний элемент кучи */
 	top := maxHeap.Top()
-	fmt.Printf("вершина кучиэлементравно %d\n", top)
+	fmt.Printf("Элемент на вершине кучи равен %d\n", top)
 
 	/* Извлечь верхний элемент из кучи */
 	testPop(maxHeap)
@@ -56,7 +56,7 @@ func TestHeap(t *testing.T) {
 
 	/* Проверить, пуста ли куча */
 	isEmpty := len(*maxHeap) == 0
-	fmt.Printf("кучапуст ли %t\n", isEmpty)
+	fmt.Printf("Куча пуста: %t\n", isEmpty)
 }
 
 func TestMyHeap(t *testing.T) {
@@ -68,7 +68,7 @@ func TestMyHeap(t *testing.T) {
 
 	/* Получить верхний элемент кучи */
 	peek := maxHeap.peek()
-	fmt.Printf("\nвершина кучиэлементравно %d\n", peek)
+	fmt.Printf("\nЭлемент на вершине кучи равен %d\n", peek)
 
 	/* Добавить элемент в кучу */
 	val := 7
@@ -87,7 +87,7 @@ func TestMyHeap(t *testing.T) {
 
 	/* Проверить, пуста ли куча */
 	isEmpty := maxHeap.isEmpty()
-	fmt.Printf("\nкучапуст ли %t\n", isEmpty)
+	fmt.Printf("\nКуча пуста: %t\n", isEmpty)
 }
 
 func TestTopKHeap(t *testing.T) {

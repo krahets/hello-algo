@@ -107,7 +107,7 @@ fun main() {
     /* Быстрая сортировка */
     val nums = intArrayOf(2, 4, 1, 0, 3, 5)
     quickSort(nums, 0, nums.size - 1)
-    println("Быстрая сортировкапосле завершения nums = ${nums.contentToString()}")
+    println("После быстрой сортировки nums = ${nums.contentToString()}")
 
     /* Быстрая сортировка (оптимизация с медианным опорным элементом) */
     val nums1 = intArrayOf(2, 4, 1, 0, 3, 5)

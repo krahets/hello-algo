@@ -6,7 +6,7 @@ Author: krahets (krahets@163.com)
 
 
 class ListNode:
-    """связный списокузелкласс"""
+    """Класс узла связного списка"""
 
     def __init__(self, val: int):
         self.val: int = val  # Значение узла

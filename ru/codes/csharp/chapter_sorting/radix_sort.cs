@@ -64,6 +64,6 @@ public class radix_sort {
         int[] nums = [ 10546151, 35663510, 42865989, 34862445, 81883077,
             88906420, 72429244, 30524779, 82060337, 63832996 ];
         RadixSort(nums);
-        Console.WriteLine("Поразрядная сортировкапосле завершения nums =" + string.Join(" ", nums));
+        Console.WriteLine("После поразрядной сортировки nums =" + string.Join(" ", nums));
     }
 }

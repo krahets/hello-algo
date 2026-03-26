@@ -99,6 +99,6 @@ public class linkedlist_queue {
 
         /* Проверить, пуста ли очередь */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("очередьпуст ли =" + isEmpty);
+        System.out.println("Очередь пуста:" + isEmpty);
     }
 }

@@ -132,12 +132,12 @@ class MaxHeap(nums: MutableList<Int>?) {
 fun main() {
     /* Инициализировать max-кучу */
     val maxHeap = MaxHeap(mutableListOf(9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2))
-    println("\nВходсписокипостроение кучипосле")
+    println("\nВходной список и построение кучипосле")
     maxHeap.print()
 
     /* Получить верхний элемент кучи */
     var peek = maxHeap.peek()
-    print("\nвершина кучиэлементравно $peek\n")
+    print("\nЭлемент на вершине кучи равен $peek\n")
 
     /* Добавить элемент в кучу */
     val _val = 7
@@ -156,5 +156,5 @@ fun main() {
 
     /* Проверить, пуста ли куча */
     val isEmpty = maxHeap.isEmpty()
-    print("\nкучапуст ли $isEmpty\n")
+    print("\nКуча пуста: $isEmpty\n")
 }

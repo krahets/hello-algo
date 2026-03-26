@@ -41,5 +41,5 @@ fun main() {
 
     /* Проверить, пуста ли двусторонняя очередь */
     val isEmpty = deque.isEmpty()
-    println("двусторонняя очередьпуст ли = $isEmpty")
+    println("двусторонняя Очередь пуста: $isEmpty")
 }

@@ -34,6 +34,6 @@ public class queue {
 
         /* Проверить, пуста ли очередь */
         bool isEmpty = queue.Count == 0;
-        Console.WriteLine("очередьпуст ли =" + isEmpty);
+        Console.WriteLine("Очередь пуста:" + isEmpty);
     }
 }

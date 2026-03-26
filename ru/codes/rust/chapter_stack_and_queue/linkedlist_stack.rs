@@ -101,5 +101,5 @@ fn main() {
 
     /* Проверить, пуста ли структура */
     let is_empty = stack.is_empty();
-    print!("\nстекпуст ли = {}", is_empty);
+    print!("\nСтек пуст: {}", is_empty);
 }

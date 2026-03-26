@@ -4,13 +4,13 @@
 
 package pkg
 
-// ListNode связный списокузел
+// ListNode: узел связного списка
 type ListNode struct {
 	Next *ListNode
 	Val  int
 }
 
-// NewListNode связный списокузелКонструктор
+// NewListNode: конструктор узла связного списка
 func NewListNode(v int) *ListNode {
 	return &ListNode{
 		Next: nil,

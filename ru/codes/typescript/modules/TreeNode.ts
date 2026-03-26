@@ -4,7 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* двоичное деревоузел */
+/* узел двоичного дерева */
 class TreeNode {
     val: number; // Значение узла
     height: number; // Высота узла

@@ -9,7 +9,7 @@ struct ArrayQueue<T> {
     nums: Vec<T>,      // Массив для хранения элементов очереди
     front: i32,        // Указатель front, указывающий на первый элемент очереди
     que_size: i32,     // Длина очереди
-    que_capacity: i32, // очередьвместимость
+    que_capacity: i32, // вместимость очереди
 }
 
 impl<T: Copy + Default> ArrayQueue<T> {
@@ -114,7 +114,7 @@ fn main() {
 
     /* Проверить, пуста ли очередь */
     let is_empty = queue.is_empty();
-    println!("очередьпуст ли = {}", is_empty);
+    println!("Очередь пуста: {}", is_empty);
 
     /* Проверить кольцевой массив */
     for i in 0..10 {

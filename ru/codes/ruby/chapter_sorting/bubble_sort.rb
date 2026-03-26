@@ -43,9 +43,9 @@ end
 if __FILE__ == $0
   nums = [4, 1, 3, 1, 5, 2]
   bubble_sort(nums)
-  puts "Пузырьковая сортировкапосле завершения nums = #{nums}"
+  puts "После пузырьковой сортировки nums = #{nums}"
 
   nums1 = [4, 1, 3, 1, 5, 2]
   bubble_sort_with_flag(nums1)
-  puts "Пузырьковая сортировкапосле завершения nums = #{nums1}"
+  puts "После пузырьковой сортировки nums = #{nums1}"
 end

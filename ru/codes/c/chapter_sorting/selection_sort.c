@@ -30,7 +30,7 @@ int main() {
 
     selectionSort(nums, n);
 
-    printf("Сортировка выборомпосле завершения nums =");
+    printf("После сортировки выбором nums =");
     printArray(nums, n);
 
     return 0;

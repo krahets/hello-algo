@@ -41,7 +41,7 @@ fun main() {
 
     /* Получить верхний элемент кучи */
     val peek = maxHeap.peek()
-    print("\nвершина кучиэлементравно $peek\n")
+    print("\nЭлемент на вершине кучи равен $peek\n")
 
     /* Извлечь верхний элемент из кучи */
     testPop(maxHeap)
@@ -56,11 +56,11 @@ fun main() {
 
     /* Проверить, пуста ли куча */
     val isEmpty = maxHeap.isEmpty()
-    print("\nкучапуст ли $isEmpty\n")
+    print("\nКуча пуста: $isEmpty\n")
 
-    /* Входсписокипостроение кучи */
+    /* Входной список и построение кучи */
     // Временная сложность равна O(n), а не O(nlogn)
     minHeap = PriorityQueue(mutableListOf<Int?>(1, 3, 2, 5, 4))
-    println("\nВходсписокипостроитьmin-кучапосле")
+    println("\nПосле построения min-кучи из входного списка")
     printHeap(minHeap)
 }

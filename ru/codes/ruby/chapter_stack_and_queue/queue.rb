@@ -34,5 +34,5 @@ if __FILE__ == $0
 
   # Проверить, пуста ли очередь
   is_empty = queue.empty?
-  puts "очередьпуст ли = #{is_empty}"
+  puts "Очередь пуста: #{is_empty}"
 end

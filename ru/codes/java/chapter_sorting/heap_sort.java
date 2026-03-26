@@ -52,6 +52,6 @@ public class heap_sort {
     public static void main(String[] args) {
         int[] nums = { 4, 1, 3, 1, 5, 2 };
         heapSort(nums);
-        System.out.println("Сортировка кучейпосле завершения nums =" + Arrays.toString(nums));
+        System.out.println("После сортировки кучей nums =" + Arrays.toString(nums));
     }
 }

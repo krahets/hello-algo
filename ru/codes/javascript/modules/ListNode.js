@@ -4,7 +4,7 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-/* связный списокузел */
+/* узел связного списка */
 class ListNode {
     val; // Значение узла
     next; // Ссылка на следующий узел (указатель)

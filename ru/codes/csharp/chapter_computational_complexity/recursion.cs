@@ -67,7 +67,7 @@ public class recursion {
         Console.WriteLine("\nРезультат суммирования рекурсивной функции res =" + res);
 
         res = ForLoopRecur(n);
-        Console.WriteLine("\nИмитировать рекурсию с помощью итерациисуммированиерезультат res =" + res);
+        Console.WriteLine("\nИмитировать рекурсию с помощью итерациирезультат суммирования res =" + res);
 
         res = TailRecur(n, 0);
         Console.WriteLine("\nРезультат суммирования хвостовой рекурсией res =" + res);

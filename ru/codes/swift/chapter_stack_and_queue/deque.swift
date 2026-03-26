@@ -39,6 +39,6 @@ enum Deque {
 
         /* Проверить, пуста ли двусторонняя очередь */
         let isEmpty = deque.isEmpty
-        print("двусторонняя очередьпуст ли = \(isEmpty)")
+        print("двусторонняя Очередь пуста: \(isEmpty)")
     }
 }

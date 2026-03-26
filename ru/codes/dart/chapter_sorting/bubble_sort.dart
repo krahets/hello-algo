@@ -43,9 +43,9 @@ void bubbleSortWithFlag(List<int> nums) {
 void main() {
   List<int> nums = [4, 1, 3, 1, 5, 2];
   bubbleSort(nums);
-  print("Пузырьковая сортировкапосле завершения nums = $nums");
+  print("После пузырьковой сортировки nums = $nums");
 
   List<int> nums1 = [4, 1, 3, 1, 5, 2];
   bubbleSortWithFlag(nums1);
-  print("Пузырьковая сортировкапосле завершения nums1 = $nums1");
+  print("После пузырьковой сортировки nums1 = $nums1");
 }

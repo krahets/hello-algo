@@ -17,7 +17,7 @@ typedef struct {
     char val[MAX_SIZE];
 } Pair;
 
-/* связный списокузел */
+/* узел связного списка */
 typedef struct Node {
     Pair *pair;
     struct Node *next;

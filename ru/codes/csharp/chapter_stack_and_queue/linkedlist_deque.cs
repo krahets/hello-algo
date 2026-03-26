@@ -172,6 +172,6 @@ public class linkedlist_deque {
 
         /* Проверить, пуста ли двусторонняя очередь */
         bool isEmpty = deque.IsEmpty();
-        Console.WriteLine("двусторонняя очередьпуст ли =" + isEmpty);
+        Console.WriteLine("двусторонняя Очередь пуста:" + isEmpty);
     }
 }

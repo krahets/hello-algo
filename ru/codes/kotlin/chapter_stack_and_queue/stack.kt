@@ -35,5 +35,5 @@ fun main() {
 
     /* Проверить, пуста ли структура */
     val isEmpty = stack.isEmpty()
-    println("стекпуст ли = $isEmpty")
+    println("Стек пуст: $isEmpty")
 }

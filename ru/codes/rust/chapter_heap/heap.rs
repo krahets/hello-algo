@@ -41,7 +41,7 @@ fn main() {
 
     /* Получить верхний элемент кучи */
     let peek = max_heap.peek().unwrap();
-    println!("\nвершина кучиэлементравно {}", peek);
+    println!("\nЭлемент на вершине кучи равен {}", peek);
 
     /* Извлечь верхний элемент из кучи */
     test_pop_max(&mut max_heap);
@@ -56,9 +56,9 @@ fn main() {
 
     /* Проверить, пуста ли куча */
     let is_empty = max_heap.is_empty();
-    println!("\nкучапуст ли {}", is_empty);
+    println!("\nКуча пуста: {}", is_empty);
 
-    /* Входсписокипостроение кучи */
+    /* Входной список и построение кучи */
     // Временная сложность равна O(n), а не O(nlogn)
     min_heap = BinaryHeap::from(
         vec![1, 3, 2, 5, 4]
@@ -66,6 +66,6 @@ fn main() {
             .map(|val| Reverse(val))
             .collect::<Vec<Reverse<i32>>>(),
     );
-    println!("\nВходсписокипостроитьmin-кучапосле");
+    println!("\nПосле построения min-кучи из входного списка");
     print_util::print_heap(min_heap.iter().map(|&val| val.0).collect());
 }

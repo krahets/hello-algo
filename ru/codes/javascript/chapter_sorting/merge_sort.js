@@ -49,4 +49,4 @@ function mergeSort(nums, left, right) {
 /* Driver Code */
 const nums = [7, 3, 2, 6, 0, 1, 5, 4];
 mergeSort(nums, 0, nums.length - 1);
-console.log('Сортировка слияниемпосле завершения nums =', nums);
+console.log('После сортировки слиянием nums =', nums);

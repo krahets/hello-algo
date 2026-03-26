@@ -111,7 +111,7 @@ int main() {
 
     /* Проверить, пуста ли очередь */
     bool empty = queue->isEmpty();
-    cout << "очередьпуст ли =" << empty << endl;
+    cout << "Очередь пуста:" << empty << endl;
 
     // Освободить память
     delete queue;

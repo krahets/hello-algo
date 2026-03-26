@@ -90,6 +90,6 @@ public class linkedlist_stack {
 
         /* Проверить, пуста ли структура */
         boolean isEmpty = stack.isEmpty();
-        System.out.println("стекпуст ли =" + isEmpty);
+        System.out.println("Стек пуст:" + isEmpty);
     }
 }

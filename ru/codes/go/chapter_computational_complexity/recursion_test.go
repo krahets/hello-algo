@@ -16,7 +16,7 @@ func TestRecursion(t *testing.T) {
 	fmt.Println("\nРезультат суммирования рекурсивной функции res =", res)
 
 	res = forLoopRecur(n)
-	fmt.Println("\nИмитировать рекурсию с помощью итерациисуммированиерезультат res =", res)
+	fmt.Println("\nИмитировать рекурсию с помощью итерациирезультат суммирования res =", res)
 
 	res = tailRecur(n, 0)
 	fmt.Println("\nРезультат суммирования хвостовой рекурсией res =", res)

@@ -152,7 +152,7 @@ enum _BinarySearchTree {
 
         /* Найти узел */
         let node = bst.search(num: 7)
-        print("\nНайденныйузелобъектравно \(node!), значение узла = \(node!.val)")
+        print("\nНайденный объект узла равен \(node!), значение узла = \(node!.val)")
 
         /* Вставить узел */
         bst.insert(num: 16)

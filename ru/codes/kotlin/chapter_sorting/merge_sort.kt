@@ -52,5 +52,5 @@ fun main() {
     /* Сортировка слиянием */
     val nums = intArrayOf(7, 3, 2, 6, 0, 1, 5, 4)
     mergeSort(nums, 0, nums.size - 1)
-    println("Сортировка слияниемпосле завершения nums = ${nums.contentToString()}")
+    println("После сортировки слиянием nums = ${nums.contentToString()}")
 }

@@ -52,4 +52,4 @@ def merge_sort(nums: list[int], left: int, right: int):
 if __name__ == "__main__":
     nums = [7, 3, 2, 6, 0, 1, 5, 4]
     merge_sort(nums, 0, len(nums) - 1)
-    print("Сортировка слияниемпосле завершения nums =", nums)
+    print("После сортировки слиянием nums =", nums)
