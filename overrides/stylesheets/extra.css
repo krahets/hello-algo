@@ -477,6 +477,16 @@ a:hover .text-button span {
   margin-bottom: 0.5em;
 }
 
+.translator-profile-div {
+  gap: 0.5em;
+}
+
+.translator-profile-cell {
+  flex: 0 0 auto;
+  margin: 0.5em 0;
+  min-width: 8.5em;
+}
+
 .giscus-container {
   width: 40em;
   max-width: 100%;
