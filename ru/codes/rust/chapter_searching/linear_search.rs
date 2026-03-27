@@ -10,7 +10,7 @@ use std::rc::Rc;
 
 /* Линейный поиск (массив) */
 fn linear_search_array(nums: &[i32], target: i32) -> i32 {
-    // Перебрать массив
+    // Обход массива
     for (i, num) in nums.iter().enumerate() {
         // Целевой элемент найден, вернуть его индекс
         if num == &target {
@@ -50,5 +50,5 @@ pub fn main() {
     /* Выполнить линейный поиск в связном списке */
     let head = ListNode::arr_to_linked_list(&nums);
     let node = linear_search_linked_list(head.unwrap(), target);
-    println!("Объект узла, соответствующий целевому значению 3, равен {:?}", node);
+    println!("Объект узла со значением 3 = {:?}", node);
 }

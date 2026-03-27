@@ -10,30 +10,30 @@ import java.util.*
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать стек */
+    /* Инициализация стека */
     val stack = Stack<Int>()
 
-    /* Поместить элемент в стек */
+    /* Помещение элемента в стек */
     stack.push(1)
     stack.push(3)
     stack.push(2)
     stack.push(5)
     stack.push(4)
-    println("стек stack = $stack")
+    println("Стек stack = $stack")
 
-    /* Получить верхний элемент стека */
+    /* Доступ к верхнему элементу стека */
     val peek = stack.peek()
-    println("вершина стекаэлемент peek = $peek")
+    println("Верхний элемент peek = $peek")
 
-    /* Извлечь элемент из стека */
+    /* Извлечение элемента из стека */
     val pop = stack.pop()
-    println("Элемент, извлеченный из стека, pop = $pop, stack после извлечения = $stack")
+    println("Извлеченный элемент pop = $pop, stack после извлечения = $stack")
 
-    /* Получить длину стека */
+    /* Получение длины стека */
     val size = stack.size
     println("Длина стека size = $size")
 
-    /* Проверить, пуста ли структура */
+    /* Проверка на пустоту */
     val isEmpty = stack.isEmpty()
-    println("стекпуст ли = $isEmpty")
+    println("Пуст ли стек = $isEmpty")
 }

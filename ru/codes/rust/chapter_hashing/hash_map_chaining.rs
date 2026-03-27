@@ -5,13 +5,13 @@
  */
 
 #[derive(Clone)]
-/* пара ключ-значение */
+/* Пара ключ-значение */
 struct Pair {
     key: i32,
     val: String,
 }
 
-/* Хеш-таблица с цепочечной адресацией */
+/* Хеш-таблица с цепочками */
 struct HashMapChaining {
     size: usize,
     capacity: usize,
@@ -46,7 +46,7 @@ impl HashMapChaining {
     fn remove(&mut self, key: i32) -> Option<String> {
         let index = self.hash_func(key);
 
-        // Обойти бакет и удалить из него пару ключ-значение
+        // Обойти корзину и удалить из нее пару ключ-значение
         for (i, p) in self.buckets[index].iter_mut().enumerate() {
             if p.key == key {
                 let pair = self.buckets[index].remove(i);
@@ -64,7 +64,7 @@ impl HashMapChaining {
         // Временно сохранить исходную хеш-таблицу
         let buckets_tmp = std::mem::take(&mut self.buckets);
 
-        // Инициализировать новую хеш-таблицу после расширения
+        // Инициализация новой хеш-таблицы после расширения
         self.capacity *= self.extend_ratio;
         self.buckets = vec![Vec::new(); self.capacity as usize];
         self.size = 0;
@@ -97,7 +97,7 @@ impl HashMapChaining {
 
         let index = self.hash_func(key);
 
-        // Обойти бакет; если встретился указанный key, обновить соответствующее val и вернуть результат
+        // Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
         for pair in self.buckets[index].iter_mut() {
             if pair.key == key {
                 pair.val = val;
@@ -115,7 +115,7 @@ impl HashMapChaining {
     fn get(&self, key: i32) -> Option<&str> {
         let index = self.hash_func(key);
 
-        // Обойти бакет; если найден key, вернуть соответствующее val
+        // Обойти корзину; если найден key, вернуть соответствующее val
         for pair in self.buckets[index].iter() {
             if pair.key == key {
                 return Some(&pair.val);
@@ -129,32 +129,28 @@ impl HashMapChaining {
 
 /* Driver Code */
 pub fn main() {
-    /* Инициализировать хеш-таблицу */
+    /* Инициализация хеш-таблицы */
     let mut map = HashMapChaining::new();
 
     /* Операция добавления */
-    // Добавить в хеш-таблицу пару ключ-значение (key, value)
+    // Добавить пару (key, value) в хеш-таблицу
     map.put(12836, "Сяо Ха".to_string());
     map.put(15937, "Сяо Ло".to_string());
     map.put(16750, "Сяо Суань".to_string());
     map.put(13276, "Сяо Фа".to_string());
-    map.put(10583, "Утенок".to_string());
-    println!("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
+    map.put(10583, "Сяо Я".to_string());
+    println!("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
     map.print();
 
     /* Операция поиска */
-    // Передать ключ key в хеш-таблицу и получить значение value
+    // Ввести в хеш-таблицу ключ key и получить значение value
     println!(
-        "\nВходномер 13276,найденоимя {}",
-        match map.get(13276) {
-            Some(value) => value,
-            None => "Not a valid Key",
-        }
+        "\nПо номеру 13276 найдено имя {}",\nmatch map.get(13276) {\n    Some(value) => value,\n    None => "Not a valid Key",\n}
     );
 
     /* Операция удаления */
-    // Удалить из хеш-таблицы пару ключ-значение (key, value)
+    // Удалить пару (key, value) из хеш-таблицы
     map.remove(12836);
-    println!("\nПосле удаления 12836 хеш-таблица выглядит так\nKey -> Value");
+    println!("\nПосле удаления 12836 хеш-таблица имеет вид\nКлюч -> Значение");
     map.print();
 }

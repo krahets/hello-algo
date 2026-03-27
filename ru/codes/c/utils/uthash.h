@@ -75,10 +75,10 @@ do {                                                                            
 #endif
 
 #ifndef uthash_malloc
-#define uthash_malloc(sz) malloc(sz)      /* malloc fcn */
+#define uthash_malloc(sz) malloc(sz)      /* malloc fcn                      */
 #endif
 #ifndef uthash_free
-#define uthash_free(ptr,sz) free(ptr)     /* free fcn */
+#define uthash_free(ptr,sz) free(ptr)     /* free fcn                        */
 #endif
 #ifndef uthash_bzero
 #define uthash_bzero(a,n) memset(a,'\0',n)
@@ -96,10 +96,10 @@ do {                                                                            
 #endif
 
 #ifndef uthash_noexpand_fyi
-#define uthash_noexpand_fyi(tbl)          /* can be defined to log noexpand */
+#define uthash_noexpand_fyi(tbl)          /* can be defined to log noexpand  */
 #endif
 #ifndef uthash_expand_fyi
-#define uthash_expand_fyi(tbl)            /* can be defined to log expands */
+#define uthash_expand_fyi(tbl)            /* can be defined to log expands   */
 #endif
 
 #ifndef HASH_NONFATAL_OOM
@@ -129,7 +129,7 @@ do {                                                                            
 #endif
 
 /* initial number of buckets */
-#define HASH_INITIAL_NUM_BUCKETS 32U     /* initial number of buckets */
+#define HASH_INITIAL_NUM_BUCKETS 32U     /* initial number of buckets        */
 #define HASH_INITIAL_NUM_BUCKETS_LOG2 5U /* lg2 of initial number of buckets */
 #define HASH_BKT_CAPACITY_THRESH 10U     /* expand when bucket count reaches */
 
@@ -766,7 +766,7 @@ do {                                                                            
   }                                                                              \
 } while (0)
 
-/* add an item to a bucket */
+/* add an item to a bucket  */
 #define HASH_ADD_TO_BKT(head,hh,addhh,oomed)                                     \
 do {                                                                             \
   UT_hash_bucket *_ha_head = &(head);                                            \
@@ -1097,7 +1097,7 @@ typedef struct UT_hash_table {
    UT_hash_bucket *buckets;
    unsigned num_buckets, log2_num_buckets;
    unsigned num_items;
-   struct UT_hash_handle *tail; /* tail hh in app order, for fast append */
+   struct UT_hash_handle *tail; /* tail hh in app order, for fast append    */
    ptrdiff_t hho; /* hash handle offset (byte pos of hash handle in element */
 
    /* in an ideal situation (all buckets used equally), no bucket would have
@@ -1128,13 +1128,13 @@ typedef struct UT_hash_table {
 
 typedef struct UT_hash_handle {
    struct UT_hash_table *tbl;
-   void *prev;                       /* prev element in app order */
-   void *next;                       /* next element in app order */
-   struct UT_hash_handle *hh_prev;   /* previous hh in bucket order */
-   struct UT_hash_handle *hh_next;   /* next hh in bucket order */
-   const void *key;                  /* ptr to enclosing struct's key */
-   unsigned keylen;                  /* enclosing struct's key len */
-   unsigned hashv;                   /* result of hash-fcn(key) */
+   void *prev;                       /* prev element in app order      */
+   void *next;                       /* next element in app order      */
+   struct UT_hash_handle *hh_prev;   /* previous hh in bucket order    */
+   struct UT_hash_handle *hh_next;   /* next hh in bucket order        */
+   const void *key;                  /* ptr to enclosing struct's key  */
+   unsigned keylen;                  /* enclosing struct's key len     */
+   unsigned hashv;                   /* result of hash-fcn(key)        */
 } UT_hash_handle;
 
 #endif /* UTHASH_H */

@@ -10,7 +10,7 @@ if __name__ == "__main__":
     # В Python нет встроенного класса стека, поэтому list можно использовать как стек
     stack: list[int] = []
 
-    # Поместить элемент в стек
+    # Помещение элемента в стек
     stack.append(1)
     stack.append(3)
     stack.append(2)
@@ -18,19 +18,19 @@ if __name__ == "__main__":
     stack.append(4)
     print("Стек stack =", stack)
 
-    # Получить верхний элемент стека
+    # Доступ к верхнему элементу стека
     peek: int = stack[-1]
-    print("Верхний элемент стека peek =", peek)
+    print("Верхний элемент peek =", peek)
 
-    # Извлечь элемент из стека
+    # Извлечение элемента из стека
     pop: int = stack.pop()
-    print("Извлеченный из стека элемент pop =", pop)
-    print("После извлечения stack =", stack)
+    print("Извлеченный элемент pop =", pop)
+    print("stack после извлечения =", stack)
 
-    # Получить длину стека
+    # Получение длины стека
     size: int = len(stack)
     print("Длина стека size =", size)
 
-    # Проверить, пуста ли структура
+    # Проверка на пустоту
     is_empty: bool = len(stack) == 0
     print("Пуст ли стек =", is_empty)

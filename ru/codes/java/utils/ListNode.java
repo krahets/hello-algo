@@ -6,7 +6,7 @@
 
 package utils;
 
-/* связный списокузел */
+/* Узел связного списка */
 public class ListNode {
     public int val;
     public ListNode next;

@@ -7,9 +7,9 @@
 namespace hello_algo.chapter_divide_and_conquer;
 
 public class build_tree {
-    /* Построение двоичного дерева: разделяй и властвуй */
+    /* Построить двоичное дерево: разделяй и властвуй */
     TreeNode? DFS(int[] preorder, Dictionary<int, int> inorderMap, int i, int l, int r) {
-        // Завершить, если диапазон поддерева пуст
+        // Завершить при пустом диапазоне поддерева
         if (r - l < 0)
             return null;
         // Инициализировать корневой узел
@@ -26,7 +26,7 @@ public class build_tree {
 
     /* Построить двоичное дерево */
     TreeNode? BuildTree(int[] preorder, int[] inorder) {
-        // Инициализировать хеш-таблицу для хранения отображения элементов inorder в индексы
+        // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
         Dictionary<int, int> inorderMap = [];
         for (int i = 0; i < inorder.Length; i++) {
             inorderMap.TryAdd(inorder[i], i);
@@ -39,7 +39,7 @@ public class build_tree {
     public void Test() {
         int[] preorder = [3, 9, 2, 1, 7];
         int[] inorder = [9, 3, 1, 2, 7];
-        Console.WriteLine("Прямой обход = " + string.Join(", ", preorder));
+        Console.WriteLine("Предварительный обход = " + string.Join(", ", preorder));
         Console.WriteLine("Симметричный обход = " + string.Join(", ", inorder));
 
         TreeNode? root = BuildTree(preorder, inorder);

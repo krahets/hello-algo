@@ -9,56 +9,56 @@ use hello_algo_rust::include::print_util;
 use std::{cmp::Reverse, collections::BinaryHeap};
 
 fn test_push_max(heap: &mut BinaryHeap<i32>, val: i32) {
-    heap.push(val); // Добавить элемент в кучу
-    println!("\nЭлемент {} после добавления в кучу", val);
+    heap.push(val); // Добавление элемента в кучу
+    println!("\nПосле добавления элемента {} в кучу", val);
     print_util::print_heap(heap.iter().map(|&val| val).collect());
 }
 
 fn test_pop_max(heap: &mut BinaryHeap<i32>) {
     let val = heap.pop().unwrap();
-    println!("\nвершина кучиЭлемент {} после извлечения из кучи", val);
+    println!("\nПосле извлечения элемента вершины кучи {}", val);
     print_util::print_heap(heap.iter().map(|&val| val).collect());
 }
 
 /* Driver Code */
 fn main() {
-    /* Инициализироватькуча */
-    // Инициализировать min-кучу
+    /* Инициализация кучи */
+    // Инициализация минимальной кучи
     #[allow(unused_assignments)]
     let mut min_heap = BinaryHeap::new();
-    // BinaryHeap в Rust является max-кучей; для min-кучи обычно оборачивают элементы в Reverse
-    // Инициализировать max-кучу
+    // BinaryHeap в Rust является максимальной кучей; для минимальной кучи обычно используют оболочку Reverse
+    // Инициализировать максимальную кучу
     let mut max_heap = BinaryHeap::new();
 
-    println!("\nСледующие тестовые примеры относятся к max-куче");
+    println!("\nНиже приведен тестовый пример для max-heap");
 
-    /* Добавить элемент в кучу */
+    /* Добавление элемента в кучу */
     test_push_max(&mut max_heap, 1);
     test_push_max(&mut max_heap, 3);
     test_push_max(&mut max_heap, 2);
     test_push_max(&mut max_heap, 5);
     test_push_max(&mut max_heap, 4);
 
-    /* Получить верхний элемент кучи */
+    /* Получение элемента с вершины кучи */
     let peek = max_heap.peek().unwrap();
-    println!("\nвершина кучиэлементравно {}", peek);
+    println!("\nЭлемент на вершине кучи = {}", peek);
 
-    /* Извлечь верхний элемент из кучи */
+    /* Извлечение элемента с вершины кучи */
     test_pop_max(&mut max_heap);
     test_pop_max(&mut max_heap);
     test_pop_max(&mut max_heap);
     test_pop_max(&mut max_heap);
     test_pop_max(&mut max_heap);
 
-    /* Получить размер кучи */
+    /* Получение размера кучи */
     let size = max_heap.len();
-    println!("\nКоличество элементов в куче равно {}", size);
+    println!("\nКоличество элементов в куче = {}", size);
 
-    /* Проверить, пуста ли куча */
+    /* Проверка, пуста ли куча */
     let is_empty = max_heap.is_empty();
-    println!("\nкучапуст ли {}", is_empty);
+    println!("\nПуста ли куча: {}", is_empty);
 
-    /* Входсписокипостроение кучи */
+    /* Построить кучу по входному списку */
     // Временная сложность равна O(n), а не O(nlogn)
     min_heap = BinaryHeap::from(
         vec![1, 3, 2, 5, 4]
@@ -66,6 +66,6 @@ fn main() {
             .map(|val| Reverse(val))
             .collect::<Vec<Reverse<i32>>>(),
     );
-    println!("\nПосле построения min-кучи по входному списку");
+    println!("\nПосле построения min-heap из входного списка");
     print_util::print_heap(min_heap.iter().map(|&val| val.0).collect());
 }

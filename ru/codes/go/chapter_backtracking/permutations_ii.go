@@ -11,18 +11,18 @@ func backtrackII(state *[]int, choices *[]int, selected *[]bool, res *[][]int) {
 		newState := append([]int{}, *state...)
 		*res = append(*res, newState)
 	}
-	// Перебрать все варианты выбора
+	// Перебор всех вариантов выбора
 	duplicated := make(map[int]struct{}, 0)
 	for i := 0; i < len(*choices); i++ {
 		choice := (*choices)[i]
-		// Отсечение: не допускается повторный выбор элемента и не допускается повторный выбор равных элементов
+		// Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
 		if _, ok := duplicated[choice]; !ok && !(*selected)[i] {
-			// Попытка: сделать выбор и обновить состояние
-			// Записатьвыбранныеэлементзначение
+			// Попробовать: сделать выбор, обновить состояние
+			// Записать значение уже выбранного элемента
 			duplicated[choice] = struct{}{}
 			(*selected)[i] = true
 			*state = append(*state, choice)
-			// Перейти к следующему варианту выбора
+			// Перейти к следующему выбору
 			backtrackII(state, choices, selected, res)
 			// Откат: отменить выбор и восстановить предыдущее состояние
 			(*selected)[i] = false

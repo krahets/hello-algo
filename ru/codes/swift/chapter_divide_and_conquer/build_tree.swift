@@ -6,9 +6,9 @@
 
 import utils
 
-/* Построение двоичного дерева: разделяй и властвуй */
+/* Построить двоичное дерево: разделяй и властвуй */
 func dfs(preorder: [Int], inorderMap: [Int: Int], i: Int, l: Int, r: Int) -> TreeNode? {
-    // Завершить, если диапазон поддерева пуст
+    // Завершить при пустом диапазоне поддерева
     if r - l < 0 {
         return nil
     }
@@ -26,7 +26,7 @@ func dfs(preorder: [Int], inorderMap: [Int: Int], i: Int, l: Int, r: Int) -> Tre
 
 /* Построить двоичное дерево */
 func buildTree(preorder: [Int], inorder: [Int]) -> TreeNode? {
-    // Инициализировать хеш-таблицу для хранения отображения элементов inorder в индексы
+    // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
     let inorderMap = inorder.enumerated().reduce(into: [:]) { $0[$1.element] = $1.offset }
     return dfs(preorder: preorder, inorderMap: inorderMap, i: inorder.startIndex, l: inorder.startIndex, r: inorder.endIndex - 1)
 }
@@ -37,7 +37,7 @@ enum BuildTree {
     static func main() {
         let preorder = [3, 9, 2, 1, 7]
         let inorder = [9, 3, 1, 2, 7]
-        print("Прямой обход = \(preorder)")
+        print("Предварительный обход = \(preorder)")
         print("Симметричный обход = \(inorder)")
 
         let root = buildTree(preorder: preorder, inorder: inorder)

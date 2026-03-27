@@ -8,17 +8,17 @@ namespace hello_algo.chapter_array_and_linkedlist;
 
 /* Класс списка */
 class MyList {
-    private int[] arr;           // Массив (хранит элементы списка)
+    private int[] arr;           // Массив (для хранения элементов списка)
     private int arrCapacity = 10;    // Вместимость списка
-    private int arrSize = 0;         // Длина списка (текущее количество элементов)
-    private readonly int extendRatio = 2;  // Коэффициент расширения списка при каждом увеличении
+    private int arrSize = 0;         // Длина списка (текущее число элементов)
+    private readonly int extendRatio = 2;  // Коэффициент увеличения списка при каждом расширении
 
     /* Конструктор */
     public MyList() {
         arr = new int[arrCapacity];
     }
 
-    /* Получить длину списка (текущее количество элементов) */
+    /* Получить длину списка (текущее число элементов) */
     public int Size() {
         return arrSize;
     }
@@ -28,57 +28,57 @@ class MyList {
         return arrCapacity;
     }
 
-    /* Получить доступ к элементу */
+    /* Доступ к элементу */
     public int Get(int index) {
-        // Если индекс выходит за границы, выбросить исключение; далее аналогично
+        // Если индекс выходит за границы, выбрасывается исключение; далее аналогично
         if (index < 0 || index >= arrSize)
-            throw new IndexOutOfRangeException("Индекс вне допустимого диапазона");
+            throw new IndexOutOfRangeException("индекс выходит за границы");
         return arr[index];
     }
 
-    /* Обновить элемент */
+    /* Обновление элемента */
     public void Set(int index, int num) {
         if (index < 0 || index >= arrSize)
-            throw new IndexOutOfRangeException("Индекс вне допустимого диапазона");
+            throw new IndexOutOfRangeException("индекс выходит за границы");
         arr[index] = num;
     }
 
-    /* Добавить элемент в конец */
+    /* Добавление элемента в конец */
     public void Add(int num) {
-        // Если число элементов превышает вместимость, запустить механизм расширения
+        // При превышении вместимости по числу элементов запускается расширение
         if (arrSize == arrCapacity)
             ExtendCapacity();
         arr[arrSize] = num;
-        // Обновить количество элементов
+        // Обновить число элементов
         arrSize++;
     }
 
-    /* Вставить элемент в середину */
+    /* Вставка элемента в середину */
     public void Insert(int index, int num) {
         if (index < 0 || index >= arrSize)
-            throw new IndexOutOfRangeException("Индекс вне допустимого диапазона");
-        // Если число элементов превышает вместимость, запустить механизм расширения
+            throw new IndexOutOfRangeException("индекс выходит за границы");
+        // При превышении вместимости по числу элементов запускается расширение
         if (arrSize == arrCapacity)
             ExtendCapacity();
-        // Сдвинуть на одну позицию назад элемент с индексом index и все последующие элементы
+        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
         for (int j = arrSize - 1; j >= index; j--) {
             arr[j + 1] = arr[j];
         }
         arr[index] = num;
-        // Обновить количество элементов
+        // Обновить число элементов
         arrSize++;
     }
 
-    /* Удалить элемент */
+    /* Удаление элемента */
     public int Remove(int index) {
         if (index < 0 || index >= arrSize)
-            throw new IndexOutOfRangeException("Индекс вне допустимого диапазона");
+            throw new IndexOutOfRangeException("индекс выходит за границы");
         int num = arr[index];
-        // Сдвинуть на одну позицию вперед все элементы после индекса index
+        // Сдвинуть все элементы после индекса index на одну позицию вперед
         for (int j = index; j < arrSize - 1; j++) {
             arr[j] = arr[j + 1];
         }
-        // Обновить количество элементов
+        // Обновить число элементов
         arrSize--;
         // Вернуть удаленный элемент
         return num;
@@ -88,13 +88,13 @@ class MyList {
     public void ExtendCapacity() {
         // Создать новый массив длиной arrCapacity * extendRatio и скопировать в него исходный массив
         Array.Resize(ref arr, arrCapacity * extendRatio);
-        // ОбновитьВместимость списка
+        // Обновить вместимость списка
         arrCapacity = arr.Length;
     }
 
     /* Преобразовать список в массив */
     public int[] ToArray() {
-        // Преобразовать только элементы списка в пределах действительной длины
+        // Преобразовывать только элементы списка в пределах фактической длины
         int[] arr = new int[arrSize];
         for (int i = 0; i < arrSize; i++) {
             arr[i] = Get(i);
@@ -106,39 +106,39 @@ class MyList {
 public class my_list {
     [Test]
     public void Test() {
-        /* Инициализировать список */
+        /* Инициализация списка */
         MyList nums = new();
-        /* Добавить элемент в конец */
+        /* Добавление элемента в конец */
         nums.Add(1);
         nums.Add(3);
         nums.Add(2);
         nums.Add(5);
         nums.Add(4);
         Console.WriteLine("Список nums = " + string.Join(",", nums.ToArray()) +
-                           ", вместимость =" + nums.Capacity() + ", длина =" + nums.Size());
+                           ", вместимость = " + nums.Capacity() + " , длина = " + nums.Size());
 
-        /* Вставить элемент в середину */
+        /* Вставка элемента в середину */
         nums.Insert(3, 6);
-        Console.WriteLine("После вставки числа 6 по индексу 3 получаем nums = " + string.Join(",", nums.ToArray()));
+        Console.WriteLine("После вставки числа 6 по индексу 3 nums = " + string.Join(",", nums.ToArray()));
 
-        /* Удалить элемент */
+        /* Удаление элемента */
         nums.Remove(3);
-        Console.WriteLine("После удаления элемента по индексу 3 получаем nums = " + string.Join(",", nums.ToArray()));
+        Console.WriteLine("После удаления элемента по индексу 3 nums = " + string.Join(",", nums.ToArray()));
 
-        /* Получить доступ к элементу */
+        /* Доступ к элементу */
         int num = nums.Get(1);
-        Console.WriteLine("обратиться киндекс 1 поэлемент, получаем num =" + num);
+        Console.WriteLine("Элемент по индексу 1: num = " + num);
 
-        /* Обновить элемент */
+        /* Обновление элемента */
         nums.Set(1, 0);
-        Console.WriteLine("После обновления элемента по индексу 1 на 0 получаем nums = " + string.Join(",", nums.ToArray()));
+        Console.WriteLine("После обновления элемента по индексу 1 до 0 nums = " + string.Join(",", nums.ToArray()));
 
-        /* Проверить механизм расширения */
+        /* Проверка механизма расширения */
         for (int i = 0; i < 10; i++) {
-            // При i = 5 длина списка превысит его вместимость, и тогда сработает механизм расширения
+            // При i = 5 длина списка превысит его вместимость, и в этот момент сработает механизм расширения
             nums.Add(i);
         }
-        Console.WriteLine("Список nums после расширения = " + string.Join(",", nums.ToArray()) +
-                           ", вместимость =" + nums.Capacity() + ", длина =" + nums.Size());
+        Console.WriteLine("Список nums после увеличения вместимости = " + string.Join(",", nums.ToArray()) +
+                           ", вместимость = " + nums.Capacity() + " , длина = " + nums.Size());
     }
 }

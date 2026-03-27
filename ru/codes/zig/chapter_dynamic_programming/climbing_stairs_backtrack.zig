@@ -6,13 +6,13 @@ const std = @import("std");
 
 // Бэктрекинг
 fn backtrack(choices: []i32, state: i32, n: i32, res: std.ArrayList(i32)) void {
-    // Когда подъем достигает n-й ступени, число решений увеличивается на 1
+    // Когда подъем достигает n-й ступени, число вариантов увеличивается на 1
     if (state == n) {
         res.items[0] = res.items[0] + 1;
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for (choices) |choice| {
-        // Отсечение: не позволять выходить за пределы n-й ступени
+        // Отсечение: нельзя выходить за n-ю ступень
         if (state + choice > n) {
             continue;
         }
@@ -38,7 +38,7 @@ pub fn main() !void {
     var n: usize = 9;
 
     var res = try climbingStairsBacktrack(n);
-    std.debug.print("Для подъема по лестнице из {} ступеней существует {} способов\n", .{ n, res });
+    std.debug.print("Количество способов подняться по лестнице из {} ступеней: {} вариантов\n", .{ n, res });
 
     _ = try std.io.getStdIn().reader().readByte();
 }

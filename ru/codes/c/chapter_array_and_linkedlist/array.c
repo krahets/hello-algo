@@ -8,7 +8,7 @@
 
 /* Случайный доступ к элементу */
 int randomAccess(int *nums, int size) {
-    // Случайно выбрать число в интервале [0, size)
+    // Случайным образом выбрать число из интервала [0, size)
     int randomIndex = rand() % size;
     // Получить и вернуть случайный элемент
     int randomNum = nums[randomIndex];
@@ -27,13 +27,13 @@ int *extend(int *nums, int size, int enlarge) {
     for (int i = size; i < size + enlarge; i++) {
         res[i] = 0;
     }
-    // Вернуть новый расширенный массив
+    // Вернуть новый массив после расширения
     return res;
 }
 
-/* Вставить элемент num в массив по индексу index */
+/* Вставить элемент num по индексу index в массив */
 void insert(int *nums, int size, int num, int index) {
-    // Сдвинуть индекс index и все последующие элементы на одну позицию назад
+    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
     for (int i = size - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
@@ -42,7 +42,7 @@ void insert(int *nums, int size, int num, int index) {
 }
 
 /* Удалить элемент по индексу index */
-// Обратите внимание: stdio.h уже использует ключевое слово remove
+// Внимание: stdio.h уже использует ключевое слово remove
 void removeItem(int *nums, int size, int index) {
     // Сдвинуть все элементы после индекса index на одну позицию вперед
     for (int i = index; i < size - 1; i++) {
@@ -50,10 +50,10 @@ void removeItem(int *nums, int size, int index) {
     }
 }
 
-/* Перебрать массив */
+/* Обход массива */
 void traverse(int *nums, int size) {
     int count = 0;
-    // Обходить массив по индексам
+    // Обход массива по индексам
     for (int i = 0; i < size; i++) {
         count += nums[i];
     }
@@ -70,7 +70,7 @@ int find(int *nums, int size, int target) {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать массив */
+    /* Инициализация массива */
     int size = 5;
     int arr[5];
     printf("Массив arr = ");
@@ -82,31 +82,31 @@ int main() {
 
     /* Случайный доступ */
     int randomNum = randomAccess(nums, size);
-    printf("Полученный случайный элемент из nums: %d", randomNum);
+    printf("Случайный элемент из nums = %d", randomNum);
 
     /* Расширение длины */
     int enlarge = 3;
     int *res = extend(nums, size, enlarge);
     size += enlarge;
-    printf("После расширения длины массива до 8 получаем nums = ");
+    printf("После увеличения длины массива до 8 nums = ");
     printArray(res, size);
 
-    /* Вставить элемент */
+    /* Вставка элемента */
     insert(res, size, 6, 3);
-    printf("После вставки числа 6 по индексу 3 получаем nums = ");
+    printf("После вставки числа 6 по индексу 3 nums = ");
     printArray(res, size);
 
-    /* Удалить элемент */
+    /* Удаление элемента */
     removeItem(res, size, 2);
-    printf("После удаления элемента по индексу 2 получаем nums = ");
+    printf("После удаления элемента по индексу 2 nums = ");
     printArray(res, size);
 
-    /* Перебрать массив */
+    /* Обход массива */
     traverse(res, size);
 
-    /* Найти элемент */
+    /* Поиск элемента */
     int index = find(res, size, 3);
-    printf("Поиск элемента 3 в res дает индекс = %d\n", index);
+    printf("Индекс элемента 3 в res = %d\n", index);
 
     /* Освободить память */
     free(res);

@@ -9,8 +9,8 @@
 /* Узел двусвязного списка */
 struct DoublyListNode {
     int val;              // Значение узла
-    DoublyListNode *next; // Указатель следующего узла
-    DoublyListNode *prev; // Указатель предыдущего узла
+    DoublyListNode *next; // Указатель на узел-преемник
+    DoublyListNode *prev; // Указатель на узел-предшественник
     DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
     }
 };
@@ -26,9 +26,9 @@ class LinkedListDeque {
     LinkedListDeque() : front(nullptr), rear(nullptr) {
     }
 
-    /* Деструктор */
+    /* Метод-деструктор */
     ~LinkedListDeque() {
-        // Обойти связный списокУдалить узел, Освободить память
+        // Обходить связный список, удалять узлы и освобождать память
         DoublyListNode *pre, *cur = front;
         while (cur != nullptr) {
             pre = cur;
@@ -37,44 +37,44 @@ class LinkedListDeque {
         }
     }
 
-    /* Получить длину двусторонней очереди */
+    /* Получение длины двусторонней очереди */
     int size() {
         return queSize;
     }
 
-    /* Проверить, пуста ли двусторонняя очередь */
+    /* Проверка, пуста ли двусторонняя очередь */
     bool isEmpty() {
         return size() == 0;
     }
 
-    /* Операция помещения в очередь */
+    /* Операция добавления в очередь */
     void push(int num, bool isFront) {
         DoublyListNode *node = new DoublyListNode(num);
         // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
         if (isEmpty())
             front = rear = node;
-        // Операция помещения в голову очереди
+        // Операция добавления в голову очереди
         else if (isFront) {
-            // Добавить node в голову связного списка
+            // Добавить node в голову списка
             front->prev = node;
             node->next = front;
             front = node; // Обновить головной узел
-        // Операция помещения в хвост очереди
+        // Операция добавления в хвост очереди
         } else {
-            // Добавить node в хвост связного списка
+            // Добавить node в хвост списка
             rear->next = node;
             node->prev = rear;
             rear = node; // Обновить хвостовой узел
         }
-        queSize++; // ОбновитьДлина очереди
+        queSize++; // Обновить длину очереди
     }
 
-    /* Поместить в голову очереди */
+    /* Добавление в голову очереди */
     void pushFirst(int num) {
         push(num, true);
     }
 
-    /* Поместить в хвост очереди */
+    /* Добавление в хвост очереди */
     void pushLast(int num) {
         push(num, false);
     }
@@ -82,7 +82,7 @@ class LinkedListDeque {
     /* Операция извлечения из очереди */
     int pop(bool isFront) {
         if (isEmpty())
-            throw out_of_range("Очередь пуста");
+            throw out_of_range("очередь пуста");
         int val;
         // Операция извлечения из головы очереди
         if (isFront) {
@@ -107,35 +107,35 @@ class LinkedListDeque {
             delete rear;
             rear = rPrev; // Обновить хвостовой узел
         }
-        queSize--; // ОбновитьДлина очереди
+        queSize--; // Обновить длину очереди
         return val;
     }
 
-    /* Извлечь из головы очереди */
+    /* Извлечение из головы очереди */
     int popFirst() {
         return pop(true);
     }
 
-    /* Извлечь из хвоста очереди */
+    /* Извлечение из хвоста очереди */
     int popLast() {
         return pop(false);
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     int peekFirst() {
         if (isEmpty())
-            throw out_of_range("Двусторонняя очередь пуста");
+            throw out_of_range("двусторонняя очередь пуста");
         return front->val;
     }
 
-    /* Обратиться к элементу в хвосте очереди */
+    /* Доступ к элементу в конце очереди */
     int peekLast() {
         if (isEmpty())
-            throw out_of_range("Двусторонняя очередь пуста");
+            throw out_of_range("двусторонняя очередь пуста");
         return rear->val;
     }
 
-    /* Вернуть массив для печати */
+    /* Вернуть массив для вывода */
     vector<int> toVector() {
         DoublyListNode *node = front;
         vector<int> res(size());
@@ -149,7 +149,7 @@ class LinkedListDeque {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать двустороннюю очередь */
+    /* Инициализация двусторонней очереди */
     LinkedListDeque *deque = new LinkedListDeque();
     deque->pushLast(3);
     deque->pushLast(2);
@@ -157,35 +157,35 @@ int main() {
     cout << "Двусторонняя очередь deque = ";
     printVector(deque->toVector());
 
-    /* Получить доступ к элементу */
+    /* Доступ к элементу */
     int peekFirst = deque->peekFirst();
-    cout << "голова очередиэлемент peekFirst =" << peekFirst << endl;
+    cout << "Первый элемент peekFirst = " << peekFirst << endl;
     int peekLast = deque->peekLast();
-    cout << "хвост очередиэлемент peekLast =" << peekLast << endl;
+    cout << "Последний элемент peekLast = " << peekLast << endl;
 
-    /* Поместить элемент в очередь */
+    /* Добавление элемента в очередь */
     deque->pushLast(4);
-    cout << "После помещения элемента 4 в хвост очереди deque =";
+    cout << "После добавления элемента 4 в хвост deque =";
     printVector(deque->toVector());
     deque->pushFirst(1);
-    cout << "После помещения элемента 1 в голову очереди deque = ";
+    cout << "После добавления элемента 1 в голову deque = ";
     printVector(deque->toVector());
 
-    /* Извлечь элемент из очереди */
+    /* Извлечение элемента из очереди */
     int popLast = deque->popLast();
-    cout << "Элемент, извлеченный из хвоста очереди = " << popLast << ", deque после извлечения из хвоста = ";
+    cout << "Извлеченный из хвоста элемент = " << popLast << ", deque после извлечения из хвоста = ";
     printVector(deque->toVector());
     int popFirst = deque->popFirst();
-    cout << "Элемент, извлеченный из головы очереди = " << popFirst << ", deque после извлечения из головы = ";
+    cout << "Извлеченный из головы элемент = " << popFirst << ", deque после извлечения из головы = ";
     printVector(deque->toVector());
 
-    /* Получить длину двусторонней очереди */
+    /* Получение длины двусторонней очереди */
     int size = deque->size();
     cout << "Длина двусторонней очереди size = " << size << endl;
 
-    /* Проверить, пуста ли двусторонняя очередь */
+    /* Проверка, пуста ли двусторонняя очередь */
     bool isEmpty = deque->isEmpty();
-    cout << "Двусторонняя очередь пуста: " << boolalpha << isEmpty << endl;
+    cout << "Пуста ли двусторонняя очередь = " << boolalpha << isEmpty << endl;
 
     // Освободить память
     delete deque;

@@ -7,7 +7,7 @@
 const { arrToTree } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
-/* Прямой обход: пример 1 */
+/* Предварительный обход: пример 1 */
 function preOrder(root, res) {
     if (root === null) {
         return;
@@ -22,12 +22,12 @@ function preOrder(root, res) {
 
 // Driver Code
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
-console.log('\nИнициализировать двоичное дерево');
+console.log('\nИнициализация двоичного дерева');
 printTree(root);
 
-// Прямой обход
+// Предварительный обход
 const res = [];
 preOrder(root, res);
 
-console.log('\nВывести все узлы со значением 7');
+console.log('\nВсе узлы со значением 7');
 console.log(res.map((node) => node.val));

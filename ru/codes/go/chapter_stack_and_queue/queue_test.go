@@ -13,11 +13,11 @@ import (
 )
 
 func TestQueue(t *testing.T) {
-	/* Инициализировать очередь */
+	/* Инициализация очереди */
 	// В Go list используется как очередь
 	queue := list.New()
 
-	/* Поместить элемент в очередь */
+	/* Добавление элемента в очередь */
 	queue.PushBack(1)
 	queue.PushBack(3)
 	queue.PushBack(2)
@@ -26,21 +26,21 @@ func TestQueue(t *testing.T) {
 	fmt.Print("Очередь queue = ")
 	PrintList(queue)
 
-	/* Получить элемент в начале очереди */
+	/* Доступ к элементу в начале очереди */
 	peek := queue.Front()
-	fmt.Println("голова очередиэлемент peek =", peek.Value)
+	fmt.Println("Первый элемент peek =", peek.Value)
 
-	/* Извлечь элемент из очереди */
+	/* Извлечение элемента из очереди */
 	pop := queue.Front()
 	queue.Remove(pop)
-	fmt.Print("Элемент, извлеченный из очереди, pop = ", pop.Value, ", queue после извлечения = ")
+	fmt.Print("Извлеченный элемент pop = ", pop.Value, ", queue после извлечения = ")
 	PrintList(queue)
 
-	/* Получить длину очереди */
+	/* Получение длины очереди */
 	size := queue.Len()
 	fmt.Println("Длина очереди size =", size)
 
-	/* Проверить, пуста ли очередь */
+	/* Проверка, пуста ли очередь */
 	isEmpty := queue.Len() == 0
 	fmt.Println("Пуста ли очередь =", isEmpty)
 }
@@ -54,7 +54,7 @@ func TestArrayQueue(t *testing.T) {
 		t.Errorf("want:%v,got:%v", nil, queue.pop())
 	}
 
-	// Поместить элемент в очередь
+	// Добавление элемента в очередь
 	queue.push(1)
 	queue.push(3)
 	queue.push(2)
@@ -63,28 +63,28 @@ func TestArrayQueue(t *testing.T) {
 	fmt.Print("Очередь queue = ")
 	PrintSlice(queue.toSlice())
 
-	// Получить элемент в начале очереди
+	// Доступ к элементу в начале очереди
 	peek := queue.peek()
-	fmt.Println("голова очередиэлемент peek =", peek)
+	fmt.Println("Первый элемент peek =", peek)
 
-	// Извлечь элемент из очереди
+	// Извлечение элемента из очереди
 	pop := queue.pop()
-	fmt.Print("Элемент, извлеченный из очереди, pop = ", pop, ", queue после извлечения = ")
+	fmt.Print("Извлеченный элемент pop = ", pop, ", queue после извлечения = ")
 	PrintSlice(queue.toSlice())
 
 	// Получить длину очереди
 	size := queue.size()
 	fmt.Println("Длина очереди size =", size)
 
-	// Проверить, пуста ли структура
+	// Проверка на пустоту
 	isEmpty := queue.isEmpty()
 	fmt.Println("Пуста ли очередь =", isEmpty)
 
-	/* Проверить кольцевой массив */
+	/* Проверка кольцевого массива */
 	for i := 0; i < 10; i++ {
 		queue.push(i)
 		queue.pop()
-		fmt.Print("После", i, "-й итерации enqueue + dequeue queue =")
+		fmt.Print("После ", i, "-го раунда операций enqueue и dequeue queue =")
 		PrintSlice(queue.toSlice())
 	}
 }
@@ -93,7 +93,7 @@ func TestLinkedListQueue(t *testing.T) {
 	// Инициализировать очередь
 	queue := newLinkedListQueue()
 
-	// Поместить элемент в очередь
+	// Добавление элемента в очередь
 	queue.push(1)
 	queue.push(3)
 	queue.push(2)
@@ -102,20 +102,20 @@ func TestLinkedListQueue(t *testing.T) {
 	fmt.Print("Очередь queue = ")
 	PrintList(queue.toList())
 
-	// Получить элемент в начале очереди
+	// Доступ к элементу в начале очереди
 	peek := queue.peek()
-	fmt.Println("голова очередиэлемент peek =", peek)
+	fmt.Println("Первый элемент peek =", peek)
 
-	// Извлечь элемент из очереди
+	// Извлечение элемента из очереди
 	pop := queue.pop()
-	fmt.Print("Элемент, извлеченный из очереди, pop = ", pop, ", queue после извлечения = ")
+	fmt.Print("Извлеченный элемент pop = ", pop, ", queue после извлечения = ")
 	PrintList(queue.toList())
 
 	// Получить длину очереди
 	size := queue.size()
 	fmt.Println("Длина очереди size =", size)
 
-	// Проверить, пуста ли структура
+	// Проверка на пустоту
 	isEmpty := queue.isEmpty()
 	fmt.Println("Пуста ли очередь =", isEmpty)
 }

@@ -17,7 +17,7 @@ struct Vertex {
     }
 };
 
-/* Входзначениесписок vals, Вернутьсписок вершин vets */
+/* На вход подается список значений vals, на выходе возвращается список вершин vets */
 vector<Vertex *> valsToVets(vector<int> vals) {
     vector<Vertex *> vets;
     for (int val : vals) {
@@ -26,7 +26,7 @@ vector<Vertex *> valsToVets(vector<int> vals) {
     return vets;
 }
 
-/* Входсписок вершин vets, Вернутьзначениесписок vals */
+/* На вход подается список вершин vets, на выходе возвращается список значений vals */
 vector<int> vetsToVals(vector<Vertex *> vets) {
     vector<int> vals;
     for (Vertex *vet : vets) {

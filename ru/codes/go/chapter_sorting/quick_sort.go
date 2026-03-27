@@ -7,24 +7,24 @@ package chapter_sorting
 // Быстрая сортировка
 type quickSort struct{}
 
-// Быстрая сортировка (оптимизация с медианным опорным элементом)
+// Быстрая сортировка (оптимизация медианным опорным элементом)
 type quickSortMedian struct{}
 
 // Быстрая сортировка (оптимизация глубины рекурсии)
 type quickSortTailCall struct{}
 
-/* Разбиение методом двух указателей */
+/* Разбиение с опорными указателями */
 func (q *quickSort) partition(nums []int, left, right int) int {
 	// Взять nums[left] в качестве опорного элемента
 	i, j := left, right
 	for i < j {
 		for i < j && nums[j] >= nums[left] {
-			j-- // Искать справа налево первый элемент, меньший опорного
+			j-- // Идти справа налево в поисках первого элемента меньше опорного
 		}
 		for i < j && nums[i] <= nums[left] {
-			i++ // Искать слева направо первый элемент, больший опорного
+			i++ // Идти слева направо в поисках первого элемента больше опорного
 		}
-		// Поменять элементы местами
+		// Обмен элементов
 		nums[i], nums[j] = nums[j], nums[i]
 	}
 	// Переместить опорный элемент на границу двух подмассивов
@@ -38,7 +38,7 @@ func (q *quickSort) quickSort(nums []int, left, right int) {
 	if left >= right {
 		return
 	}
-	// Разбиение методом двух указателей
+	// Разбиение с опорными указателями
 	pivot := q.partition(nums, left, right)
 	// Рекурсивно обработать левый и правый подмассивы
 	q.quickSort(nums, left, pivot-1)
@@ -57,22 +57,22 @@ func (q *quickSortMedian) medianThree(nums []int, left, mid, right int) int {
 	return right
 }
 
-/* Разбиение методом двух указателей (медиана трех) */
+/* Разбиение с опорными указателями (медиана трех) */
 func (q *quickSortMedian) partition(nums []int, left, right int) int {
 	// Взять nums[left] в качестве опорного элемента
 	med := q.medianThree(nums, left, (left+right)/2, right)
-	// Переместить медиану в самый левый конец массива
+	// Переместить медиану в крайний левый элемент массива
 	nums[left], nums[med] = nums[med], nums[left]
 	// Взять nums[left] в качестве опорного элемента
 	i, j := left, right
 	for i < j {
 		for i < j && nums[j] >= nums[left] {
-			j-- // Искать справа налево первый элемент, меньший опорного
+			j-- // Идти справа налево в поисках первого элемента меньше опорного
 		}
 		for i < j && nums[i] <= nums[left] {
-			i++ // Искать слева направо первый элемент, больший опорного
+			i++ // Идти слева направо в поисках первого элемента больше опорного
 		}
-		// Поменять элементы местами
+		// Обмен элементов
 		nums[i], nums[j] = nums[j], nums[i]
 	}
 	// Переместить опорный элемент на границу двух подмассивов
@@ -86,25 +86,25 @@ func (q *quickSortMedian) quickSort(nums []int, left, right int) {
 	if left >= right {
 		return
 	}
-	// Разбиение методом двух указателей
+	// Разбиение с опорными указателями
 	pivot := q.partition(nums, left, right)
 	// Рекурсивно обработать левый и правый подмассивы
 	q.quickSort(nums, left, pivot-1)
 	q.quickSort(nums, pivot+1, right)
 }
 
-/* Разбиение методом двух указателей */
+/* Разбиение с опорными указателями */
 func (q *quickSortTailCall) partition(nums []int, left, right int) int {
 	// Взять nums[left] в качестве опорного элемента
 	i, j := left, right
 	for i < j {
 		for i < j && nums[j] >= nums[left] {
-			j-- // Искать справа налево первый элемент, меньший опорного
+			j-- // Идти справа налево в поисках первого элемента меньше опорного
 		}
 		for i < j && nums[i] <= nums[left] {
-			i++ // Искать слева направо первый элемент, больший опорного
+			i++ // Идти слева направо в поисках первого элемента больше опорного
 		}
-		// Поменять элементы местами
+		// Обмен элементов
 		nums[i], nums[j] = nums[j], nums[i]
 	}
 	// Переместить опорный элемент на границу двух подмассивов
@@ -116,15 +116,15 @@ func (q *quickSortTailCall) partition(nums []int, left, right int) int {
 func (q *quickSortTailCall) quickSort(nums []int, left, right int) {
 	// Завершить, когда длина подмассива равна 1
 	for left < right {
-		// Операция разбиения методом двух указателей
+		// Операция разбиения с опорными указателями
 		pivot := q.partition(nums, left, right)
 		// Выполнить быструю сортировку для более короткого из двух подмассивов
 		if pivot-left < right-pivot {
 			q.quickSort(nums, left, pivot-1) // Рекурсивно отсортировать левый подмассив
-			left = pivot + 1                 // Оставшийся неотсортированный диапазон равен [pivot + 1, right]
+			left = pivot + 1                 // Оставшийся неотсортированный диапазон: [pivot + 1, right]
 		} else {
 			q.quickSort(nums, pivot+1, right) // Рекурсивно отсортировать правый подмассив
-			right = pivot - 1                 // Оставшийся неотсортированный диапазон равен [left, pivot - 1]
+			right = pivot - 1                 // Оставшийся неотсортированный диапазон: [left, pivot - 1]
 		}
 	}
 }

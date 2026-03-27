@@ -7,7 +7,7 @@
 use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
 use std::{cell::RefCell, rc::Rc};
 
-/* Прямой обход: пример 3 */
+/* Предварительный обход: пример 3 */
 fn pre_order(
     res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
     path: &mut Vec<Rc<RefCell<TreeNode>>>,
@@ -18,7 +18,7 @@ fn pre_order(
         return;
     }
     if let Some(node) = root {
-        // Попытаться
+        // Попытка
         path.push(node.clone());
         if node.borrow().val == 7 {
             // Записать решение
@@ -34,15 +34,15 @@ fn pre_order(
 /* Driver Code */
 pub fn main() {
     let root = vec_to_tree([1, 7, 3, 4, 5, 6, 7].map(|x| Some(x)).to_vec());
-    println!("Инициализировать двоичное дерево");
+    println!("Инициализация двоичного дерева");
     print_util::print_tree(root.as_ref().unwrap());
 
-    // Прямой обход
+    // Предварительный обход
     let mut path = Vec::new();
     let mut res = Vec::new();
     pre_order(&mut res, &mut path, root.as_ref());
 
-    println!("\nВывести все пути от корня до узла 7, путь не должен содержать узлы со значением 3");
+    println!("\nВсе пути от корня к узлу 7, не содержащие узлов со значением 3");
     for path in res {
         let mut vals = Vec::new();
         for node in path {

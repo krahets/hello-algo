@@ -9,14 +9,14 @@ import random
 
 def random_access(nums: list[int]) -> int:
     """Случайный доступ к элементу"""
-    # Случайно выбрать число в интервале [0, len(nums)-1]
+    # Случайным образом выбрать число из интервала [0, len(nums)-1]
     random_index = random.randint(0, len(nums) - 1)
     # Получить и вернуть случайный элемент
     random_num = nums[random_index]
     return random_num
 
 
-# Обратите внимание: list в Python является динамическим массивом и может расширяться напрямую
+# Обратите внимание: list в Python — это динамический массив, его можно расширять напрямую
 # Для удобства обучения в этой функции list рассматривается как массив неизменяемой длины
 def extend(nums: list[int], enlarge: int) -> list[int]:
     """Увеличить длину массива"""
@@ -25,13 +25,13 @@ def extend(nums: list[int], enlarge: int) -> list[int]:
     # Скопировать все элементы исходного массива в новый массив
     for i in range(len(nums)):
         res[i] = nums[i]
-    # Вернуть новый расширенный массив
+    # Вернуть новый массив после расширения
     return res
 
 
 def insert(nums: list[int], num: int, index: int):
-    """Вставить элемент num в массив по индексу index"""
-    # Сдвинуть индекс index и все последующие элементы на одну позицию назад
+    """Вставить элемент num по индексу index в массив"""
+    # Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
     for i in range(len(nums) - 1, index, -1):
         nums[i] = nums[i - 1]
     # Присвоить num элементу по индексу index
@@ -46,9 +46,9 @@ def remove(nums: list[int], index: int):
 
 
 def traverse(nums: list[int]):
-    """Перебрать массив"""
+    """Обход массива"""
     count = 0
-    # Обходить массив по индексам
+    # Обход массива по индексам
     for i in range(len(nums)):
         count += nums[i]
     # Непосредственно обходить элементы массива
@@ -70,31 +70,31 @@ def find(nums: list[int], target: int) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализировать массив
+    # Инициализация массива
     arr = [0] * 5
-    print("массив arr =", arr)
+    print("Массив arr =", arr)
     nums = [1, 3, 2, 5, 4]
     print("Массив nums =", nums)
 
     # Случайный доступ
     random_num: int = random_access(nums)
-    print("Полученный случайный элемент из nums", random_num)
+    print("Случайный элемент из nums =", random_num)
 
     # Расширение длины
     nums: list[int] = extend(nums, 3)
-    print("После расширения длины массива до 8 получаем nums =", nums)
+    print("После увеличения длины массива до 8 nums =", nums)
 
-    # Вставить элемент
+    # Вставка элемента
     insert(nums, 6, 3)
-    print("После вставки числа 6 по индексу 3 получаем nums =", nums)
+    print("После вставки числа 6 по индексу 3 nums =", nums)
 
-    # Удалить элемент
+    # Удаление элемента
     remove(nums, 2)
-    print("Удалитьиндекс 2 поэлемент, получаем nums =", nums)
+    print("После удаления элемента по индексу 2 nums =", nums)
 
-    # Перебрать массив
+    # Обход массива
     traverse(nums)
 
-    # Найти элемент
+    # Поиск элемента
     index: int = find(nums, 3)
-    print("Поиск элемента 3 в nums дает индекс =", index)
+    print("Поиск элемента 3 в nums: индекс =", index)

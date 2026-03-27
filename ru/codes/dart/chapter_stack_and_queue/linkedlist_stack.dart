@@ -8,19 +8,19 @@ import '../utils/list_node.dart';
 
 /* Стек на основе класса связного списка */
 class LinkedListStack {
-  ListNode? _stackPeek; // Считать головной узел вершиной стека
+  ListNode? _stackPeek; // Использовать головной узел как вершину стека
   int _stkSize = 0; // Длина стека
 
   LinkedListStack() {
     _stackPeek = null;
   }
 
-  /* Получить длину стека */
+  /* Получение длины стека */
   int size() {
     return _stkSize;
   }
 
-  /* Проверить, пуст ли стек */
+  /* Проверка, пуст ли стек */
   bool isEmpty() {
     return _stkSize == 0;
   }
@@ -41,10 +41,10 @@ class LinkedListStack {
     return _num;
   }
 
-  /* Получить верхний элемент стека */
+  /* Доступ к верхнему элементу стека */
   int peek() {
     if (_stackPeek == null) {
-      throw Exception("Стек пуст");
+      throw Exception("стек пуст");
     }
     return _stackPeek!.val;
   }
@@ -64,30 +64,30 @@ class LinkedListStack {
 
 /* Driver Code */
 void main() {
-  /* Инициализировать стек */
+  /* Инициализация стека */
   final LinkedListStack stack = LinkedListStack();
 
-  /* Поместить элемент в стек */
+  /* Помещение элемента в стек */
   stack.push(1);
   stack.push(3);
   stack.push(2);
   stack.push(5);
   stack.push(4);
-  print("стек stack = ${stack.toList()}");
+  print("Стек stack = ${stack.toList()}");
 
-  /* Получить верхний элемент стека */
+  /* Доступ к верхнему элементу стека */
   final int peek = stack.peek();
-  print("вершина стекаэлемент peek = $peek");
+  print("Верхний элемент peek = $peek");
 
-  /* Извлечь элемент из стека */
+  /* Извлечение элемента из стека */
   final int pop = stack.pop();
-  print("Элемент, извлеченный из стека, pop = $pop , stack после извлечения = ${stack.toList()}");
+  print("Извлеченный элемент pop = $pop, stack после извлечения = ${stack.toList()}");
 
-  /* Получить длину стека */
+  /* Получение длины стека */
   final int size = stack.size();
   print("Длина стека size = $size");
 
-  /* Проверить, пуста ли структура */
+  /* Проверка на пустоту */
   final bool isEmpty = stack.isEmpty();
-  print("стекпуст ли = $isEmpty");
+  print("Пуст ли стек = $isEmpty");
 }

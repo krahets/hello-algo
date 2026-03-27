@@ -10,19 +10,19 @@ import utils.*;
 
 public class binary_tree {
     public static void main(String[] args) {
-        /* Инициализировать двоичное дерево */
-        // Инициализироватьузел
+        /* Инициализация двоичного дерева */
+        // Инициализация узла
         TreeNode n1 = new TreeNode(1);
         TreeNode n2 = new TreeNode(2);
         TreeNode n3 = new TreeNode(3);
         TreeNode n4 = new TreeNode(4);
         TreeNode n5 = new TreeNode(5);
-        // Построить ссылки между узлами (указатели)
+        // Построить связи между узлами (указатели)
         n1.left = n2;
         n1.right = n3;
         n2.left = n4;
         n2.right = n5;
-        System.out.println("\nИнициализировать двоичное дерево\n");
+        System.out.println("\nИнициализация двоичного дерева\n");
         PrintUtil.printTree(n1);
 
         /* Вставка и удаление узлов */

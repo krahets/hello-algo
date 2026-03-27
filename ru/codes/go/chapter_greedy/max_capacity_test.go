@@ -14,5 +14,5 @@ func TestMaxCapacity(t *testing.T) {
 
 	// Жадный алгоритм
 	res := maxCapacity(ht)
-	fmt.Println("максимальныйвместимостьравно", res)
+	fmt.Println("Максимальная вместимость =", res)
 }

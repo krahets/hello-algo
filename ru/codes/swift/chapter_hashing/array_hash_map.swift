@@ -11,7 +11,7 @@ class ArrayHashMap {
     private var buckets: [Pair?]
 
     init() {
-        // Инициализировать массив, содержащий 100 бакетов
+        // Инициализировать массив, содержащий 100 корзин
         buckets = Array(repeating: nil, count: 100)
     }
 
@@ -38,7 +38,7 @@ class ArrayHashMap {
     /* Операция удаления */
     func remove(key: Int) {
         let index = hashFunc(key: key)
-        // Установить nil, обозначая удаление
+        // Присвоить nil, что означает удаление
         buckets[index] = nil
     }
 
@@ -69,40 +69,40 @@ class ArrayHashMap {
 enum _ArrayHashMap {
     /* Driver Code */
     static func main() {
-        /* Инициализировать хеш-таблицу */
+        /* Инициализация хеш-таблицы */
         let map = ArrayHashMap()
 
         /* Операция добавления */
-        // Добавить в хеш-таблицу пару ключ-значение (key, value)
+        // Добавить пару (key, value) в хеш-таблицу
         map.put(key: 12836, val: "Сяо Ха")
         map.put(key: 15937, val: "Сяо Ло")
         map.put(key: 16750, val: "Сяо Суань")
         map.put(key: 13276, val: "Сяо Фа")
-        map.put(key: 10583, val: "Утенок")
-        print("\nПосле добавления хеш-таблица выглядит так\nKey -> Value")
+        map.put(key: 10583, val: "Сяо Я")
+        print("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение")
         map.print()
 
         /* Операция поиска */
-        // Передать ключ key в хеш-таблицу и получить значение value
+        // Ввести в хеш-таблицу ключ key и получить значение value
         let name = map.get(key: 15937)!
-        print("\nПо номеру студента 15937 найдено имя \(name)")
+        print("\nДля номера 15937 найдено имя \(name)")
 
         /* Операция удаления */
-        // Удалить из хеш-таблицы пару ключ-значение (key, value)
+        // Удалить пару (key, value) из хеш-таблицы
         map.remove(key: 10583)
-        print("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value")
+        print("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение")
         map.print()
 
-        /* Перебрать хеш-таблицу */
-        print("\nПеребираем пары Key->Value")
+        /* Обход хеш-таблицы */
+        print("\nОтдельный обход пар ключ-значение")
         for pair in map.pairSet() {
             print("\(pair.key) -> \(pair.val)")
         }
-        print("\nОтдельно перебираем ключи Key")
+        print("\nОтдельный обход ключей")
         for key in map.keySet() {
             print(key)
         }
-        print("\nОтдельно перебираем значения Value")
+        print("\nОтдельный обход значений")
         for val in map.valueSet() {
             print(val)
         }

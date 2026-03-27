@@ -8,16 +8,16 @@
 struct QuickSort;
 
 impl QuickSort {
-    /* Разбиение методом двух указателей */
+    /* Разбиение с опорными указателями */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
         // Взять nums[left] в качестве опорного элемента
         let (mut i, mut j) = (left, right);
         while i < j {
             while i < j && nums[j] >= nums[left] {
-                j -= 1; // Искать справа налево первый элемент, меньший опорного
+                j -= 1; // Идти справа налево в поисках первого элемента меньше опорного
             }
             while i < j && nums[i] <= nums[left] {
-                i += 1; // Искать слева направо первый элемент, больший опорного
+                i += 1; // Идти слева направо в поисках первого элемента больше опорного
             }
             nums.swap(i, j); // Поменять эти два элемента местами
         }
@@ -31,7 +31,7 @@ impl QuickSort {
         if left >= right {
             return;
         }
-        // Разбиение методом двух указателей
+        // Разбиение с опорными указателями
         let pivot = Self::partition(nums, left as usize, right as usize) as i32;
         // Рекурсивно обработать левый и правый подмассивы
         Self::quick_sort(left, pivot - 1, nums);
@@ -39,7 +39,7 @@ impl QuickSort {
     }
 }
 
-/* Быстрая сортировка (оптимизация с медианным опорным элементом) */
+/* Быстрая сортировка (оптимизация медианным опорным элементом) */
 struct QuickSortMedian;
 
 impl QuickSortMedian {
@@ -55,20 +55,20 @@ impl QuickSortMedian {
         right
     }
 
-    /* Разбиение методом двух указателей (медиана трех) */
+    /* Разбиение с опорными указателями (медиана трех) */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
         // Выбрать медиану из трех кандидатов
         let med = Self::median_three(nums, left, (left + right) / 2, right);
-        // Переместить медиану в самый левый конец массива
+        // Переместить медиану в крайний левый элемент массива
         nums.swap(left, med);
         // Взять nums[left] в качестве опорного элемента
         let (mut i, mut j) = (left, right);
         while i < j {
             while i < j && nums[j] >= nums[left] {
-                j -= 1; // Искать справа налево первый элемент, меньший опорного
+                j -= 1; // Идти справа налево в поисках первого элемента меньше опорного
             }
             while i < j && nums[i] <= nums[left] {
-                i += 1; // Искать слева направо первый элемент, больший опорного
+                i += 1; // Идти слева направо в поисках первого элемента больше опорного
             }
             nums.swap(i, j); // Поменять эти два элемента местами
         }
@@ -82,7 +82,7 @@ impl QuickSortMedian {
         if left >= right {
             return;
         }
-        // Разбиение методом двух указателей
+        // Разбиение с опорными указателями
         let pivot = Self::partition(nums, left as usize, right as usize) as i32;
         // Рекурсивно обработать левый и правый подмассивы
         Self::quick_sort(left, pivot - 1, nums);
@@ -94,16 +94,16 @@ impl QuickSortMedian {
 struct QuickSortTailCall;
 
 impl QuickSortTailCall {
-    /* Разбиение методом двух указателей */
+    /* Разбиение с опорными указателями */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
         // Взять nums[left] в качестве опорного элемента
         let (mut i, mut j) = (left, right);
         while i < j {
             while i < j && nums[j] >= nums[left] {
-                j -= 1; // Искать справа налево первый элемент, меньший опорного
+                j -= 1; // Идти справа налево в поисках первого элемента меньше опорного
             }
             while i < j && nums[i] <= nums[left] {
-                i += 1; // Искать слева направо первый элемент, больший опорного
+                i += 1; // Идти слева направо в поисках первого элемента больше опорного
             }
             nums.swap(i, j); // Поменять эти два элемента местами
         }
@@ -115,15 +115,15 @@ impl QuickSortTailCall {
     pub fn quick_sort(mut left: i32, mut right: i32, nums: &mut [i32]) {
         // Завершить, когда длина подмассива равна 1
         while left < right {
-            // Операция разбиения методом двух указателей
+            // Операция разбиения с опорными указателями
             let pivot = Self::partition(nums, left as usize, right as usize) as i32;
             // Выполнить быструю сортировку для более короткого из двух подмассивов
             if pivot - left < right - pivot {
                 Self::quick_sort(left, pivot - 1, nums); // Рекурсивно отсортировать левый подмассив
-                left = pivot + 1; // Оставшийся неотсортированный диапазон равен [pivot + 1, right]
+                left = pivot + 1; // Оставшийся неотсортированный диапазон: [pivot + 1, right]
             } else {
                 Self::quick_sort(pivot + 1, right, nums); // Рекурсивно отсортировать правый подмассив
-                right = pivot - 1; // Оставшийся неотсортированный диапазон равен [left, pivot - 1]
+                right = pivot - 1; // Оставшийся неотсортированный диапазон: [left, pivot - 1]
             }
         }
     }
@@ -134,12 +134,12 @@ fn main() {
     /* Быстрая сортировка */
     let mut nums = [2, 4, 1, 0, 3, 5];
     QuickSort::quick_sort(0, (nums.len() - 1) as i32, &mut nums);
-    println!("Быстрая сортировкапосле завершения nums = {:?}", nums);
+    println!("После быстрой сортировки nums = {:?}", nums);
 
-    /* Быстрая сортировка (оптимизация с медианным опорным элементом) */
+    /* Быстрая сортировка (оптимизация медианным опорным элементом) */
     let mut nums = [2, 4, 1, 0, 3, 5];
     QuickSortMedian::quick_sort(0, (nums.len() - 1) as i32, &mut nums);
-    println!("После быстрой сортировки (оптимизация с медианным опорным элементом) nums = {:?}", nums);
+    println!("После быстрой сортировки (оптимизация медианным опорным элементом) nums = {:?}", nums);
 
     /* Быстрая сортировка (оптимизация глубины рекурсии) */
     let mut nums = [2, 4, 1, 0, 3, 5];

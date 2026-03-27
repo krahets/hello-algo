@@ -36,11 +36,11 @@ if __FILE__ == $0
   nums = [2, 7, 11, 15]
   target = 13
 
-  # ====== Driver Code ======
-  # метод 1
+  # ====== Основной код ======
+  # Метод 1
   res = two_sum_brute_force(nums, target)
-  puts "Метод 1 res = #{res}"
+  puts "Результат метода 1 res = #{res}"
   # Метод 2
   res = two_sum_hash_table(nums, target)
-  puts "Метод 2 res = #{res}"
+  puts "Результат метода 2 res = #{res}"
 end

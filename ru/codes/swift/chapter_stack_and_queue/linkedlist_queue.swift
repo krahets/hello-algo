@@ -8,20 +8,20 @@ import utils
 
 /* Очередь на основе связного списка */
 class LinkedListQueue {
-    private var front: ListNode? // головной узел
-    private var rear: ListNode? // хвостовой узел
+    private var front: ListNode? // Головной узел
+    private var rear: ListNode? // Хвостовой узел
     private var _size: Int
 
     init() {
         _size = 0
     }
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     func size() -> Int {
         _size
     }
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     func isEmpty() -> Bool {
         size() == 0
     }
@@ -30,7 +30,7 @@ class LinkedListQueue {
     func push(num: Int) {
         // Добавить num после хвостового узла
         let node = ListNode(x: num)
-        // Если очередь пуста, сделать так, чтобы головной и хвостовой узлы указывали на этот узел
+        // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
         if front == nil {
             front = node
             rear = node
@@ -53,15 +53,15 @@ class LinkedListQueue {
         return num
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     func peek() -> Int {
         if isEmpty() {
-            fatalError("Очередь пуста")
+            fatalError("очередь пуста")
         }
         return front!.val
     }
 
-    /* Преобразовать связный список в Array и вернуть его */
+    /* Преобразовать связный список в Array и вернуть */
     func toArray() -> [Int] {
         var node = front
         var res = Array(repeating: 0, count: size())
@@ -77,31 +77,31 @@ class LinkedListQueue {
 enum _LinkedListQueue {
     /* Driver Code */
     static func main() {
-        /* Инициализировать очередь */
+        /* Инициализация очереди */
         let queue = LinkedListQueue()
 
-        /* Поместить элемент в очередь */
+        /* Добавление элемента в очередь */
         queue.push(num: 1)
         queue.push(num: 3)
         queue.push(num: 2)
         queue.push(num: 5)
         queue.push(num: 4)
-        print("очередь queue = \(queue.toArray())")
+        print("Очередь queue = \(queue.toArray())")
 
-        /* Получить элемент в начале очереди */
+        /* Доступ к элементу в начале очереди */
         let peek = queue.peek()
-        print("голова очередиэлемент peek = \(peek)")
+        print("Первый элемент peek = \(peek)")
 
-        /* Извлечь элемент из очереди */
+        /* Извлечение элемента из очереди */
         let pop = queue.pop()
-        print("Элемент, извлеченный из очереди, pop = \(pop), queue после извлечения = \(queue.toArray())")
+        print("Извлеченный элемент pop = \(pop), queue после извлечения = \(queue.toArray())")
 
-        /* Получить длину очереди */
+        /* Получение длины очереди */
         let size = queue.size()
         print("Длина очереди size = \(size)")
 
-        /* Проверить, пуста ли очередь */
+        /* Проверка, пуста ли очередь */
         let isEmpty = queue.isEmpty()
-        print("Очередь пуста: \(isEmpty)")
+        print("Пуста ли очередь = \(isEmpty)")
     }
 }

@@ -8,7 +8,7 @@ pub const ListNode = ListUtil.ListNode;
 pub const TreeUtil = @import("TreeNode.zig");
 pub const TreeNode = TreeUtil.TreeNode;
 
-// Вывестиочередь
+// Вывести очередь
 pub fn printQueue(comptime T: type, queue: std.TailQueue(T)) void {
     var node = queue.first;
     std.debug.print("[", .{});

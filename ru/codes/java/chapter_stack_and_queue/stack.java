@@ -10,10 +10,10 @@ import java.util.*;
 
 public class stack {
     public static void main(String[] args) {
-        /* Инициализировать стек */
+        /* Инициализация стека */
         Stack<Integer> stack = new Stack<>();
 
-        /* Поместить элемент в стек */
+        /* Помещение элемента в стек */
         stack.push(1);
         stack.push(3);
         stack.push(2);
@@ -21,20 +21,20 @@ public class stack {
         stack.push(4);
         System.out.println("Стек stack = " + stack);
 
-        /* Получить верхний элемент стека */
+        /* Доступ к верхнему элементу стека */
         int peek = stack.peek();
-        System.out.println("вершина стекаэлемент peek =" + peek);
+        System.out.println("Верхний элемент peek = " + peek);
 
-        /* Извлечь элемент из стека */
+        /* Извлечение элемента из стека */
         int pop = stack.pop();
-        System.out.println("Элемент, извлеченный из стека, pop = " + pop + ", stack после извлечения = " + stack);
+        System.out.println("Извлеченный элемент pop = " + pop + ", stack после извлечения = " + stack);
 
-        /* Получить длину стека */
+        /* Получение длины стека */
         int size = stack.size();
-        System.out.println("Длина стека size =" + size);
+        System.out.println("Длина стека size = " + size);
 
-        /* Проверить, пуста ли структура */
+        /* Проверка на пустоту */
         boolean isEmpty = stack.isEmpty();
-        System.out.println("стекпуст ли =" + isEmpty);
+        System.out.println("Пуст ли стек = " + isEmpty);
     }
 }

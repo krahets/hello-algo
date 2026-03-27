@@ -39,13 +39,13 @@ public class preorder_traversal_iii_template {
             // Записать решение
             RecordSolution(state, res);
         }
-        // Перебрать все варианты выбора
+        // Перебор всех вариантов выбора
         foreach (TreeNode choice in choices) {
-            // Отсечение: проверить, допустим ли текущий выбор
+            // Отсечение: проверить допустимость выбора
             if (IsValid(state, choice)) {
                 // Попытка: сделать выбор и обновить состояние
                 MakeChoice(state, choice);
-                // Перейти к следующему варианту выбора
+                // Перейти к следующему выбору
                 Backtrack(state, [choice.left!, choice.right!], res);
                 // Откат: отменить выбор и восстановить предыдущее состояние
                 UndoChoice(state, choice);
@@ -56,7 +56,7 @@ public class preorder_traversal_iii_template {
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\nИнициализировать двоичное дерево");
+        Console.WriteLine("\nИнициализация двоичного дерева");
         PrintUtil.PrintTree(root);
 
         // Алгоритм бэктрекинга
@@ -64,7 +64,7 @@ public class preorder_traversal_iii_template {
         List<TreeNode> choices = [root!];
         Backtrack([], choices, res);
 
-        Console.WriteLine("\nВывести все пути от корня до узла 7, при этом путь не должен содержать узлы со значением 3");
+        Console.WriteLine("\nВсе пути от корня к узлу 7, в которых путь не содержит узлов со значением 3");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

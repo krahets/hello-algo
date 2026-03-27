@@ -27,7 +27,7 @@ pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     }
 }
 
-/* Обратиться к узлу связного списка с индексом index */
+/* Доступ к узлу связного списка по индексу index */
 pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCell<ListNode<T>>>> {
     fn dfs<T>(
         head: Option<&Rc<RefCell<ListNode<T>>>>,
@@ -47,7 +47,7 @@ pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCel
     dfs(Some(head).as_ref(), index)
 }
 
-/* Найти первый узел со значением target в связном списке */
+/* Найти в связном списке первый узел со значением target */
 pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
     fn find<T: PartialEq>(head: Option<&Rc<RefCell<ListNode<T>>>>, target: T, idx: i32) -> i32 {
         if let Some(node) = head {
@@ -65,8 +65,8 @@ pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
 
 /* Driver Code */
 fn main() {
-    /* Инициализироватьсвязный список */
-    // Инициализироватькаждый узел
+    /* Инициализация связного списка */
+    // Инициализация всех узлов
     let n0 = ListNode::new(1);
     let n1 = ListNode::new(3);
     let n2 = ListNode::new(2);
@@ -77,24 +77,24 @@ fn main() {
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
     n3.borrow_mut().next = Some(n4.clone());
-    print!("Инициализированный связный список:");
+    print!("Исходный связный список ");
     print_util::print_linked_list(&n0);
 
-    /* Вставить узел */
+    /* Вставка узла */
     insert(&n0, ListNode::new(0));
-    print!("Связный список после вставки узла:");
+    print!("Связный список после вставки узла ");
     print_util::print_linked_list(&n0);
 
-    /* Удалить узел */
+    /* Удаление узла */
     remove(&n0);
-    print!("Связный список после удаления узла:");
+    print!("Связный список после удаления узла ");
     print_util::print_linked_list(&n0);
 
-    /* Получить доступ к узлу */
+    /* Доступ к узлу */
     let node = access(n0.clone(), 3);
     println!("Значение узла по индексу 3 в связном списке = {}", node.unwrap().borrow().val);
 
-    /* Найти узел */
+    /* Поиск узла */
     let index = find(n0.clone(), 2);
     println!("Индекс узла со значением 2 в связном списке = {}", index);
 }

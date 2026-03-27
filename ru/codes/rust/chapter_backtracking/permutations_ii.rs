@@ -13,17 +13,17 @@ fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &
         res.push(state);
         return;
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     let mut duplicated = HashSet::<i32>::new();
     for i in 0..choices.len() {
         let choice = choices[i];
-        // Отсечение: не допускается повторный выбор элемента и не допускается повторный выбор равных элементов
+        // Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
         if !selected[i] && !duplicated.contains(&choice) {
             // Попытка: сделать выбор и обновить состояние
-            duplicated.insert(choice); // Записатьвыбранныеэлементзначение
+            duplicated.insert(choice); // Записать значения уже выбранных элементов
             selected[i] = true;
             state.push(choice);
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             backtrack(state.clone(), choices, selected, res);
             // Откат: отменить выбор и восстановить предыдущее состояние
             selected[i] = false;

@@ -22,7 +22,7 @@ public class linked_list {
         n0.next = n1;
     }
 
-    /* Обратиться к узлу связного списка с индексом index */
+    /* Доступ к узлу связного списка по индексу index */
     ListNode? Access(ListNode? head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -32,7 +32,7 @@ public class linked_list {
         return head;
     }
 
-    /* Найти первый узел со значением target в связном списке */
+    /* Найти в связном списке первый узел со значением target */
     int Find(ListNode? head, int target) {
         int index = 0;
         while (head != null) {
@@ -47,8 +47,8 @@ public class linked_list {
 
     [Test]
     public void Test() {
-        // Инициализироватьсвязный список
-        // Инициализироватькаждый узел
+        // Инициализация связного списка
+        // Инициализация всех узлов
         ListNode n0 = new(1);
         ListNode n1 = new(3);
         ListNode n2 = new(2);
@@ -59,21 +59,21 @@ public class linked_list {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        Console.WriteLine($"Инициализированный связный список: {n0}");
+        Console.WriteLine($"Исходный связный список: {n0}");
 
-        // Вставить узел
+        // Вставка узла
         Insert(n0, new ListNode(0));
-        Console.WriteLine($"Связный список после вставки узла:{n0}");
+        Console.WriteLine($"Связный список после вставки узла: {n0}");
 
-        // Удалить узел
+        // Удаление узла
         Remove(n0);
         Console.WriteLine($"Связный список после удаления узла: {n0}");
 
-        // Получить доступ к узлу
+        // Доступ к узлу
         ListNode? node = Access(n0, 3);
         Console.WriteLine($"Значение узла по индексу 3 в связном списке = {node?.val}");
 
-        // Найти узел
+        // Поиск узла
         int index = Find(n0, 2);
         Console.WriteLine($"Индекс узла со значением 2 в связном списке = {index}");
     }

@@ -10,7 +10,7 @@ namespace hello_algo.utils;
 public class Vertex(int val) {
     public int val = val;
 
-    /* Входзначениесписок vals, Вернутьсписок вершин vets */
+    /* На вход подается список значений vals, на выходе возвращается список вершин vets */
     public static Vertex[] ValsToVets(int[] vals) {
         Vertex[] vets = new Vertex[vals.Length];
         for (int i = 0; i < vals.Length; i++) {
@@ -19,7 +19,7 @@ public class Vertex(int val) {
         return vets;
     }
 
-    /* Входсписок вершин vets, Вернутьзначениесписок vals */
+    /* На вход подается список вершин vets, на выходе возвращается список значений vals */
     public static List<int> VetsToVals(List<Vertex> vets) {
         List<int> vals = [];
         foreach (Vertex vet in vets) {

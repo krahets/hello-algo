@@ -7,26 +7,26 @@
 namespace hello_algo.chapter_graph;
 
 public class graph_dfs {
-    /* обход в глубинувспомогательная функция */
+    /* Вспомогательная функция обхода в глубину */
     void DFS(GraphAdjList graph, HashSet<Vertex> visited, List<Vertex> res, Vertex vet) {
-        res.Add(vet);     // Записать посещенную вершину
-        visited.Add(vet); // Пометить эту вершину как посещенную
-        // Обойти все смежные вершины этой вершины
+        res.Add(vet);     // Отметить посещенную вершину
+        visited.Add(vet); // Отметить эту вершину как посещенную
+        // Обойти все смежные вершины данной вершины
         foreach (Vertex adjVet in graph.adjList[vet]) {
             if (visited.Contains(adjVet)) {
                 continue; // Пропустить уже посещенную вершину
             }
-            // Рекурсивно посетить смежные вершины
+            // Рекурсивно обходить смежные вершины
             DFS(graph, visited, res, adjVet);
         }
     }
 
     /* Обход в глубину */
-    // Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+    // Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
     List<Vertex> GraphDFS(GraphAdjList graph, Vertex startVet) {
         // Последовательность обхода вершин
         List<Vertex> res = [];
-        // Хеш-множество для записи уже посещенных вершин
+        // Хеш-множество для хранения уже посещенных вершин
         HashSet<Vertex> visited = [];
         DFS(graph, visited, res, startVet);
         return res;
@@ -34,7 +34,7 @@ public class graph_dfs {
 
     [Test]
     public void Test() {
-        /* Инициализировать неориентированный граф */
+        /* Инициализация неориентированного графа */
         Vertex[] v = Vertex.ValsToVets([0, 1, 2, 3, 4, 5, 6]);
         Vertex[][] edges =
         [
@@ -43,7 +43,7 @@ public class graph_dfs {
         ];
 
         GraphAdjList graph = new(edges);
-        Console.WriteLine("\nПосле инициализации граф имеет вид");
+        Console.WriteLine("\nГраф после инициализации");
         graph.Print();
 
         /* Обход в глубину */

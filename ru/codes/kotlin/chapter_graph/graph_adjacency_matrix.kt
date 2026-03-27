@@ -10,28 +10,28 @@ import utils.printMatrix
 
 /* Класс неориентированного графа на основе матрицы смежности */
 class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
-    val vertices = mutableListOf<Int>() // Список вершин: элементы представляют «значения вершин», а индексы представляют «индексы вершин»
-    val adjMat = mutableListOf<MutableList<Int>>() // Матрица смежности, индексы строк и столбцов соответствуют «индексам вершин»
+    val vertices = mutableListOf<Int>() // Список вершин: элементы представляют «значения вершин», а индексы — «индексы вершин»
+    val adjMat = mutableListOf<MutableList<Int>>() // Матрица смежности, где индексы строк и столбцов соответствуют «индексам вершин»
 
     /* Конструктор */
     init {
-        // Добавить вершину
+        // Добавление вершины
         for (vertex in vertices) {
             addVertex(vertex)
         }
-        // Добавить ребро
-        // Обратите внимание: элементы edges представляют индексы вершин, то есть соответствуют индексам элементов vertices
+        // Добавить ребра
+        // Обратите внимание: элементы edges представляют собой индексы вершин, то есть соответствуют индексам элементов vertices
         for (edge in edges) {
             addEdge(edge[0], edge[1])
         }
     }
 
-    /* Получить количество вершин */
+    /* Получить число вершин */
     fun size(): Int {
         return vertices.size
     }
 
-    /* Добавить вершину */
+    /* Добавление вершины */
     fun addVertex(_val: Int) {
         val n = size()
         // Добавить значение новой вершины в список вершин
@@ -48,7 +48,7 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
         }
     }
 
-    /* Удалить вершину */
+    /* Удаление вершины */
     fun removeVertex(index: Int) {
         if (index >= size())
             throw IndexOutOfBoundsException()
@@ -62,7 +62,7 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
         }
     }
 
-    /* Добавить ребро */
+    /* Добавление ребра */
     // Параметры i и j соответствуют индексам элементов vertices
     fun addEdge(i: Int, j: Int) {
         // Обработка выхода индекса за границы и случая равенства
@@ -73,7 +73,7 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
         adjMat[j][i] = 1
     }
 
-    /* Удалить ребро */
+    /* Удаление ребра */
     // Параметры i и j соответствуют индексам элементов vertices
     fun removeEdge(i: Int, j: Int) {
         // Обработка выхода индекса за границы и случая равенства
@@ -85,7 +85,7 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
 
     /* Вывести матрицу смежности */
     fun print() {
-        print("список вершин =")
+        print("Список вершин = ")
         println(vertices)
         println("Матрица смежности =")
         printMatrix(adjMat)
@@ -94,7 +94,7 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать неориентированный граф */
+    /* Инициализация неориентированного графа */
     // Обратите внимание: элементы edges представляют индексы вершин, то есть соответствуют индексам элементов vertices
     val vertices = intArrayOf(1, 3, 2, 5, 4)
     val edges = arrayOf(
@@ -106,29 +106,29 @@ fun main() {
         intArrayOf(3, 4)
     )
     val graph = GraphAdjMat(vertices, edges)
-    println("\nПосле инициализации граф имеет вид")
+    println("\nГраф после инициализации")
     graph.print()
 
-    /* Добавить ребро */
+    /* Добавление ребра */
     // Индексы вершин 1 и 2 равны 0 и 2 соответственно
     graph.addEdge(0, 2)
-    println("\nПосле добавления ребра 1-2 граф имеет вид")
+    println("\nГраф после добавления ребра 1-2")
     graph.print()
 
-    /* Удалить ребро */
+    /* Удаление ребра */
     // Индексы вершин 1 и 3 равны 0 и 1 соответственно
     graph.removeEdge(0, 1)
-    println("\nПосле удаления ребра 1-3 граф имеет вид")
+    println("\nГраф после удаления ребра 1-3")
     graph.print()
 
-    /* Добавить вершину */
+    /* Добавление вершины */
     graph.addVertex(6)
-    println("\nПосле добавления вершины 6 граф имеет вид")
+    println("\nГраф после добавления вершины 6")
     graph.print()
 
-    /* Удалить вершину */
+    /* Удаление вершины */
     // Индекс вершины 3 равен 1
     graph.removeVertex(1)
-    println("\nПосле удаления вершины 3 граф имеет вид")
+    println("\nГраф после удаления вершины 3")
     graph.print()
 }

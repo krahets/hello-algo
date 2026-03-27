@@ -10,30 +10,30 @@ import java.util.*
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать очередь */
+    /* Инициализация очереди */
     val queue = LinkedList<Int>()
 
-    /* Поместить элемент в очередь */
+    /* Добавление элемента в очередь */
     queue.offer(1)
     queue.offer(3)
     queue.offer(2)
     queue.offer(5)
     queue.offer(4)
-    println("очередь queue = $queue")
+    println("Очередь queue = $queue")
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     val peek = queue.peek()
-    println("голова очередиэлемент peek = $peek")
+    println("Первый элемент peek = $peek")
 
-    /* Извлечь элемент из очереди */
+    /* Извлечение элемента из очереди */
     val pop = queue.poll()
-    println("Элемент, извлеченный из очереди, pop = $pop, queue после извлечения = $queue")
+    println("Извлеченный элемент pop = $pop, queue после извлечения = $queue")
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     val size = queue.size
     println("Длина очереди size = $size")
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     val isEmpty = queue.isEmpty()
-    println("Очередь пуста: $isEmpty")
+    println("Пуста ли очередь = $isEmpty")
 }

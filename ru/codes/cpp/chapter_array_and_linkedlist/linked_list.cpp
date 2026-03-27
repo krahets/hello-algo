@@ -25,7 +25,7 @@ void remove(ListNode *n0) {
     delete P;
 }
 
-/* Обратиться к узлу связного списка с индексом index */
+/* Доступ к узлу связного списка по индексу index */
 ListNode *access(ListNode *head, int index) {
     for (int i = 0; i < index; i++) {
         if (head == nullptr)
@@ -35,7 +35,7 @@ ListNode *access(ListNode *head, int index) {
     return head;
 }
 
-/* Найти первый узел со значением target в связном списке */
+/* Найти в связном списке первый узел со значением target */
 int find(ListNode *head, int target) {
     int index = 0;
     while (head != nullptr) {
@@ -49,8 +49,8 @@ int find(ListNode *head, int target) {
 
 /* Driver Code */
 int main() {
-    /* Инициализироватьсвязный список */
-    // Инициализироватькаждый узел
+    /* Инициализация связного списка */
+    // Инициализация всех узлов
     ListNode *n0 = new ListNode(1);
     ListNode *n1 = new ListNode(3);
     ListNode *n2 = new ListNode(2);
@@ -61,26 +61,26 @@ int main() {
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
-    cout << "Инициализированный связный список:" << endl;
+    cout << "Инициализированный связный список" << endl;
     printLinkedList(n0);
 
-    /* Вставить узел */
+    /* Вставка узла */
     insert(n0, new ListNode(0));
-    cout << "Связный список после вставки узла:" << endl;
+    cout << "Связный список после вставки узла" << endl;
     printLinkedList(n0);
 
-    /* Удалить узел */
+    /* Удаление узла */
     remove(n0);
-    cout << "Связный список после удаления узла:" << endl;
+    cout << "Связный список после удаления узла" << endl;
     printLinkedList(n0);
 
-    /* Получить доступ к узлу */
+    /* Доступ к узлу */
     ListNode *node = access(n0, 3);
-    cout << "Значение узла по индексу 3 в связном списке =" << node->val << endl;
+    cout << "Значение узла по индексу 3 в связном списке = " << node->val << endl;
 
-    /* Найти узел */
+    /* Поиск узла */
     int index = find(n0, 2);
-    cout << "Индекс узла со значением 2 в связном списке =" << index << endl;
+    cout << "Индекс узла со значением 2 в связном списке = " << index << endl;
 
     // Освободить память
     freeMemoryLinkedList(n0);

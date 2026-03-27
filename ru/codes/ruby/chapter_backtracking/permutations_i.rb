@@ -12,14 +12,14 @@ def backtrack(state, choices, selected, res)
     return
   end
 
-  # Перебрать все варианты выбора
+  # Перебор всех вариантов выбора
   choices.each_with_index do |choice, i|
-    # Отсечение: не допускается повторный выбор элемента
+    # Отсечение: нельзя выбирать один и тот же элемент повторно
     unless selected[i]
       # Попытка: сделать выбор и обновить состояние
       selected[i] = true
       state << choice
-      # Перейти к следующему варианту выбора
+      # Перейти к следующему выбору
       backtrack(state, choices, selected, res)
       # Откат: отменить выбор и восстановить предыдущее состояние
       selected[i] = false

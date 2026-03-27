@@ -9,12 +9,12 @@ namespace hello_algo.chapter_dynamic_programming;
 public class climbing_stairs_backtrack {
     /* Бэктрекинг */
     void Backtrack(List<int> choices, int state, int n, List<int> res) {
-        // Когда подъем достигает n-й ступени, число решений увеличивается на 1
+        // Когда подъем достигает n-й ступени, число вариантов увеличивается на 1
         if (state == n)
             res[0]++;
-        // Перебрать все варианты выбора
+        // Перебор всех вариантов выбора
         foreach (int choice in choices) {
-            // Отсечение: не позволять выходить за пределы n-й ступени
+            // Отсечение: нельзя выходить за n-ю ступень
             if (state + choice > n)
                 continue;
             // Попытка: сделать выбор и обновить состояние
@@ -36,6 +36,6 @@ public class climbing_stairs_backtrack {
     public void Test() {
         int n = 9;
         int res = ClimbingStairsBacktrack(n);
-        Console.WriteLine($"Для подъема по лестнице из {n} ступеней существует {res} способов");
+        Console.WriteLine($"Количество способов подняться по лестнице из {n} ступеней = {res}");
     }
 }

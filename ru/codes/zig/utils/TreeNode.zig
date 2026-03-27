@@ -4,15 +4,15 @@
 
 const std = @import("std");
 
-// двоичное деревоузел
+// Узел двоичного дерева
 pub fn TreeNode(comptime T: type) type {
     return struct {
         const Self = @This();
 
         val: T = undefined, // Значение узла
         height: i32 = undefined, // Высота узла
-        left: ?*Self = null, // Указатель левого дочернего узла
-        right: ?*Self = null, // Указатель правого дочернего узла
+        left: ?*Self = null, // Указатель на левый дочерний узел
+        right: ?*Self = null, // Указатель на правый дочерний узел
 
         // Initialize a tree node with specific value
         pub fn init(self: *Self, x: i32) void {

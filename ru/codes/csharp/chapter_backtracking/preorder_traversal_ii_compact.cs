@@ -10,12 +10,12 @@ public class preorder_traversal_ii_compact {
     List<TreeNode> path = [];
     List<List<TreeNode>> res = [];
 
-    /* Прямой обход: пример 2 */
+    /* Предварительный обход: пример 2 */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
-        // Попытаться
+        // Попытка
         path.Add(root);
         if (root.val == 7) {
             // Записать решение
@@ -30,13 +30,13 @@ public class preorder_traversal_ii_compact {
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\nИнициализировать двоичное дерево");
+        Console.WriteLine("\nИнициализация двоичного дерева");
         PrintUtil.PrintTree(root);
 
-        // Прямой обход
+        // Предварительный обход
         PreOrder(root);
 
-        Console.WriteLine("\nВывести все пути от корня до узла 7");
+        Console.WriteLine("\nВсе пути от корня к узлу 7");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

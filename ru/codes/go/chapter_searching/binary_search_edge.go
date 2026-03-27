@@ -6,9 +6,9 @@ package chapter_searching
 
 /* Бинарный поиск самого левого target */
 func binarySearchLeftEdge(nums []int, target int) int {
-	// Эквивалентно поиску точки вставки для target
+	// Эквивалентно поиску точки вставки target
 	i := binarySearchInsertion(nums, target)
-	// Если target не найден, вернуть -1
+	// target не найден, вернуть -1
 	if i == len(nums) || nums[i] != target {
 		return -1
 	}
@@ -18,11 +18,11 @@ func binarySearchLeftEdge(nums []int, target int) int {
 
 /* Бинарный поиск самого правого target */
 func binarySearchRightEdge(nums []int, target int) int {
-	// Преобразовать задачу в поиск самого левого элемента target + 1
+	// Преобразовать задачу в поиск самого левого target + 1
 	i := binarySearchInsertion(nums, target+1)
-	// j указывает на самый правый target, а i указывает на первый элемент, больший target
+	// j указывает на самый правый target, а i — на первый элемент больше target
 	j := i - 1
-	// Если target не найден, вернуть -1
+	// target не найден, вернуть -1
 	if j == -1 || nums[j] != target {
 		return -1
 	}

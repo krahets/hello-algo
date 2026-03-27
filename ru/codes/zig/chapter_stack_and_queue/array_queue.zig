@@ -5,17 +5,17 @@
 const std = @import("std");
 const inc = @import("include");
 
-// Очередь на основе циклического массива
+// Очередь на основе кольцевого массива
 pub fn ArrayQueue(comptime T: type) type {
     return struct {
         const Self = @This();
 
         nums: []T = undefined,                          // Массив для хранения элементов очереди
-        cap: usize = 0,                                 // очередьвместимость
-        front: usize = 0,                               // Указатель front, указывающий на первый элемент очереди
-        queSize: usize = 0,                             // Хвостовой указатель указывает на позицию хвоста + 1
+        cap: usize = 0,                                 // Вместимость очереди
+        front: usize = 0,                               // Указатель head, указывающий на первый элемент очереди
+        queSize: usize = 0,                             // Указатель хвоста, указывающий на позицию после хвоста
         mem_arena: ?std.heap.ArenaAllocator = null,
-        mem_allocator: std.mem.Allocator = undefined,   // Распределитель памяти
+        mem_allocator: std.mem.Allocator = undefined,   // Аллокатор памяти
 
         // Конструктор (выделение памяти + инициализация массива)
         pub fn init(self: *Self, allocator: std.mem.Allocator, cap: usize) !void {
@@ -28,7 +28,7 @@ pub fn ArrayQueue(comptime T: type) type {
             @memset(self.nums, @as(T, 0));
         }
         
-        // Деструктор(Освободить память)
+        // Деструктор (освобождение памяти)
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -39,12 +39,12 @@ pub fn ArrayQueue(comptime T: type) type {
             return self.cap;
         }
 
-        // Получить длину очереди
+        // Получение длины очереди
         pub fn size(self: *Self) usize {
             return self.queSize;
         }
 
-        // Проверить, пуста ли очередь
+        // Проверка, пуста ли очередь
         pub fn isEmpty(self: *Self) bool {
             return self.queSize == 0;
         }
@@ -55,8 +55,8 @@ pub fn ArrayQueue(comptime T: type) type {
                 std.debug.print("Очередь заполнена\n", .{});
                 return;
             }
-            // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
-            // Операция взятия по модулю позволяет rear после выхода за конец массива вернуться к его началу
+            // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+            // С помощью операции взятия по модулю вернуть rear к началу после выхода за конец массива
             var rear = (self.front + self.queSize) % self.capacity();
             // Добавить num после хвостового узла
             self.nums[rear] = num;
@@ -66,21 +66,21 @@ pub fn ArrayQueue(comptime T: type) type {
         // Извлечь из очереди
         pub fn pop(self: *Self) T {
             var num = self.peek();
-            // Указатель головы очереди сдвигается на одну позицию вперед; если он выходит за конец, то возвращается в начало массива
+            // Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
             self.front = (self.front + 1) % self.capacity();
             self.queSize -= 1;
             return num;
         } 
 
-        // Получить элемент в начале очереди
+        // Доступ к элементу в начале очереди
         pub fn peek(self: *Self) T {
-            if (self.isEmpty()) @panic("Очередь пуста");
+            if (self.isEmpty()) @panic("очередь пуста");
             return self.nums[self.front];
         } 
 
-        // Вернутьмассив
+        // Вернуть массив
         pub fn toArray(self: *Self) ![]T {
-            // Преобразовать только элементы списка в пределах действительной длины
+            // Преобразовывать только элементы списка в пределах фактической длины
             var res = try self.mem_allocator.alloc(T, self.size());
             @memset(res, @as(T, 0));
             var i: usize = 0;
@@ -95,13 +95,13 @@ pub fn ArrayQueue(comptime T: type) type {
 
 // Driver Code
 pub fn main() !void {
-    // Инициализировать очередь
+    // Инициализация очереди
     var capacity: usize = 10;
     var queue = ArrayQueue(i32){};
     try queue.init(std.heap.page_allocator, capacity);
     defer queue.deinit();
 
-    // Поместить элемент в очередь
+    // Добавление элемента в очередь
     try queue.push(1);
     try queue.push(3);
     try queue.push(2);
@@ -110,29 +110,29 @@ pub fn main() !void {
     std.debug.print("Очередь queue = ", .{});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 
-    // Получить элемент в начале очереди
+    // Доступ к элементу в начале очереди
     var peek = queue.peek();
-    std.debug.print("\nголова очередиэлемент peek = {}", .{peek});
+    std.debug.print("\nЭлемент в начале очереди peek = {}", .{peek});
 
-    // Извлечь элемент из очереди
+    // Извлечение элемента из очереди
     var pop = queue.pop();
-    std.debug.print("\nЭлемент, извлеченный из очереди, pop = {}, queue после извлечения = ", .{pop});
+    std.debug.print("\nИзвлечен элемент pop = {}, очередь после извлечения queue = ", .{pop});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 
-    // Получить длину очереди
+    // Получение длины очереди
     var size = queue.size();
     std.debug.print("\nДлина очереди size = {}", .{size});
 
-    // Проверить, пуста ли очередь
+    // Проверка, пуста ли очередь
     var is_empty = queue.isEmpty();
-    std.debug.print("\nОчередь пуста: {}", .{is_empty});
+    std.debug.print("\nПуста ли очередь = {}", .{is_empty});
 
-    // Проверить кольцевой массив
+    // Проверка кольцевого массива
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
         try queue.push(i);
         _ = queue.pop();
-        std.debug.print("\nИтерация {}: после enqueue + dequeue queue =", .{i});
+        std.debug.print("\nПосле {}-го добавления и извлечения queue = ", .{i});
         inc.PrintUtil.printArray(i32, try queue.toArray());
     }
 

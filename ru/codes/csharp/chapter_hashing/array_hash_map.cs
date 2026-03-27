@@ -6,7 +6,7 @@
 
 namespace hello_algo.chapter_hashing;
 
-/* пара ключ-значение int->string */
+/* Пара ключ-значение int->string */
 class Pair(int key, string val) {
     public int key = key;
     public string val = val;
@@ -16,7 +16,7 @@ class Pair(int key, string val) {
 class ArrayHashMap {
     List<Pair?> buckets;
     public ArrayHashMap() {
-        // Инициализировать массив, содержащий 100 бакетов
+        // Инициализировать массив, содержащий 100 корзин
         buckets = [];
         for (int i = 0; i < 100; i++) {
             buckets.Add(null);
@@ -47,7 +47,7 @@ class ArrayHashMap {
     /* Операция удаления */
     public void Remove(int key) {
         int index = HashFunc(key);
-        // Установить null, обозначая удаление
+        // Присвоить null, что означает удаление
         buckets[index] = null;
     }
 
@@ -93,40 +93,40 @@ class ArrayHashMap {
 public class array_hash_map {
     [Test]
     public void Test() {
-        /* Инициализировать хеш-таблицу */
+        /* Инициализация хеш-таблицы */
         ArrayHashMap map = new();
 
         /* Операция добавления */
-        // Добавить в хеш-таблицу пару ключ-значение (key, value)
+        // Добавить пару (key, value) в хеш-таблицу
         map.Put(12836, "Сяо Ха");
         map.Put(15937, "Сяо Ло");
         map.Put(16750, "Сяо Суань");
         map.Put(13276, "Сяо Фа");
-        map.Put(10583, "Утенок");
-        Console.WriteLine("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
+        map.Put(10583, "Сяо Я");
+        Console.WriteLine("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
         map.Print();
 
         /* Операция поиска */
-        // Передать ключ key в хеш-таблицу и получить значение value
+        // Ввести в хеш-таблицу ключ key и получить значение value
         string? name = map.Get(15937);
-        Console.WriteLine("\nПо номеру студента 15937 найдено имя " + name);
+        Console.WriteLine("\nДля номера 15937 найдено имя " + name);
 
         /* Операция удаления */
-        // Удалить из хеш-таблицы пару ключ-значение (key, value)
+        // Удалить пару (key, value) из хеш-таблицы
         map.Remove(10583);
-        Console.WriteLine("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value");
+        Console.WriteLine("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение");
         map.Print();
 
-        /* Перебрать хеш-таблицу */
-        Console.WriteLine("\nПеребираем пары Key->Value");
+        /* Обход хеш-таблицы */
+        Console.WriteLine("\nОтдельный обход пар ключ-значение");
         foreach (Pair kv in map.PairSet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
         }
-        Console.WriteLine("\nОтдельно перебираем ключи Key");
+        Console.WriteLine("\nОтдельный обход ключей");
         foreach (int key in map.KeySet()) {
             Console.WriteLine(key);
         }
-        Console.WriteLine("\nОтдельно перебираем значения Value");
+        Console.WriteLine("\nОтдельный обход значений");
         foreach (string val in map.ValueSet()) {
             Console.WriteLine(val);
         }

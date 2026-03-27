@@ -11,7 +11,7 @@ import utils.printTree
 
 var res: MutableList<TreeNode>? = null
 
-/* Прямой обход: пример 1 */
+/* Предварительный обход: пример 1 */
 fun preOrder(root: TreeNode?) {
     if (root == null) {
         return
@@ -27,14 +27,14 @@ fun preOrder(root: TreeNode?) {
 /* Driver Code */
 fun main() {
     val root = TreeNode.listToTree(mutableListOf(1, 7, 3, 4, 5, 6, 7))
-    println("\nИнициализировать двоичное дерево")
+    println("\nИнициализация двоичного дерева")
     printTree(root)
 
-    // Прямой обход
+    // Предварительный обход
     res = mutableListOf()
     preOrder(root)
 
-    println("\nВывести все узлы со значением 7")
+    println("\nВсе узлы со значением 7")
     val vals = mutableListOf<Int>()
     for (node in res!!) {
         vals.add(node._val)

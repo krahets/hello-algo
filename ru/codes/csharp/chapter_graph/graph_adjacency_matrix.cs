@@ -8,30 +8,30 @@ namespace hello_algo.chapter_graph;
 
 /* Класс неориентированного графа на основе матрицы смежности */
 class GraphAdjMat {
-    List<int> vertices;     // Список вершин: элементы представляют «значения вершин», а индексы представляют «индексы вершин»
-    List<List<int>> adjMat; // Матрица смежности, индексы строк и столбцов соответствуют «индексам вершин»
+    List<int> vertices;     // Список вершин: элементы представляют «значения вершин», а индексы — «индексы вершин»
+    List<List<int>> adjMat; // Матрица смежности, где индексы строк и столбцов соответствуют «индексам вершин»
 
     /* Конструктор */
     public GraphAdjMat(int[] vertices, int[][] edges) {
         this.vertices = [];
         this.adjMat = [];
-        // Добавить вершину
+        // Добавление вершины
         foreach (int val in vertices) {
             AddVertex(val);
         }
-        // Добавить ребро
-        // Обратите внимание: элементы edges представляют индексы вершин, то есть соответствуют индексам элементов vertices
+        // Добавить ребра
+        // Обратите внимание: элементы edges представляют собой индексы вершин, то есть соответствуют индексам элементов vertices
         foreach (int[] e in edges) {
             AddEdge(e[0], e[1]);
         }
     }
 
-    /* Получить количество вершин */
+    /* Получить число вершин */
     int Size() {
         return vertices.Count;
     }
 
-    /* Добавить вершину */
+    /* Добавление вершины */
     public void AddVertex(int val) {
         int n = Size();
         // Добавить значение новой вершины в список вершин
@@ -48,7 +48,7 @@ class GraphAdjMat {
         }
     }
 
-    /* Удалить вершину */
+    /* Удаление вершины */
     public void RemoveVertex(int index) {
         if (index >= Size())
             throw new IndexOutOfRangeException();
@@ -62,7 +62,7 @@ class GraphAdjMat {
         }
     }
 
-    /* Добавить ребро */
+    /* Добавление ребра */
     // Параметры i и j соответствуют индексам элементов vertices
     public void AddEdge(int i, int j) {
         // Обработка выхода индекса за границы и случая равенства
@@ -73,7 +73,7 @@ class GraphAdjMat {
         adjMat[j][i] = 1;
     }
 
-    /* Удалить ребро */
+    /* Удаление ребра */
     // Параметры i и j соответствуют индексам элементов vertices
     public void RemoveEdge(int i, int j) {
         // Обработка выхода индекса за границы и случая равенства
@@ -85,7 +85,7 @@ class GraphAdjMat {
 
     /* Вывести матрицу смежности */
     public void Print() {
-        Console.Write("список вершин =");
+        Console.Write("Список вершин = ");
         PrintUtil.PrintList(vertices);
         Console.WriteLine("Матрица смежности =");
         PrintUtil.PrintMatrix(adjMat);
@@ -95,7 +95,7 @@ class GraphAdjMat {
 public class graph_adjacency_matrix {
     [Test]
     public void Test() {
-        /* Инициализировать неориентированный граф */
+        /* Инициализация неориентированного графа */
         // Обратите внимание: элементы edges представляют индексы вершин, то есть соответствуют индексам элементов vertices
         int[] vertices = [1, 3, 2, 5, 4];
         int[][] edges = 
@@ -108,30 +108,30 @@ public class graph_adjacency_matrix {
             [3, 4]
         ];
         GraphAdjMat graph = new(vertices, edges);
-        Console.WriteLine("\nПосле инициализации граф имеет вид");
+        Console.WriteLine("\nГраф после инициализации");
         graph.Print();
 
-        /* Добавить ребро */
+        /* Добавление ребра */
         // Индексы вершин 1 и 2 равны 0 и 2 соответственно
         graph.AddEdge(0, 2);
-        Console.WriteLine("\nПосле добавления ребра 1-2 граф имеет вид");
+        Console.WriteLine("\nГраф после добавления ребра 1-2");
         graph.Print();
 
-        /* Удалить ребро */
+        /* Удаление ребра */
         // Индексы вершин 1 и 3 равны 0 и 1 соответственно
         graph.RemoveEdge(0, 1);
-        Console.WriteLine("\nПосле удаления ребра 1-3 граф имеет вид");
+        Console.WriteLine("\nГраф после удаления ребра 1-3");
         graph.Print();
 
-        /* Добавить вершину */
+        /* Добавление вершины */
         graph.AddVertex(6);
-        Console.WriteLine("\nПосле добавления вершины 6 граф имеет вид");
+        Console.WriteLine("\nГраф после добавления вершины 6");
         graph.Print();
 
-        /* Удалить вершину */
+        /* Удаление вершины */
         // Индекс вершины 3 равен 1
         graph.RemoveVertex(1);
-        Console.WriteLine("\nПосле удаления вершины 3 граф имеет вид");
+        Console.WriteLine("\nГраф после удаления вершины 3");
         graph.Print();
     }
 }

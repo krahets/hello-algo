@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ## Проверить, является ли текущее состояние решением ###
+# ## Проверка, является ли текущее состояние решением ###
 def is_solution?(state)
   !state.empty? && state.last.val == 7
 end
@@ -17,7 +17,7 @@ def record_solution(state, res)
   res << state.dup
 end
 
-# ## Проверить, допустим ли этот выбор в текущем состоянии ###
+# ## Проверка допустимости этого выбора в текущем состоянии ###
 def is_valid?(state, choice)
   choice && choice.val != 3
 end
@@ -37,13 +37,13 @@ def backtrack(state, choices, res)
   # Проверить, является ли текущее состояние решением
   record_solution(state, res) if is_solution?(state)
 
-  # Перебрать все варианты выбора
+  # Перебор всех вариантов выбора
   for choice in choices
-    # Отсечение: проверить, допустим ли текущий выбор
+    # Отсечение: проверить допустимость выбора
     if is_valid?(state, choice)
       # Попытка: сделать выбор и обновить состояние
       make_choice(state, choice)
-      # Перейти к следующему варианту выбора
+      # Перейти к следующему выбору
       backtrack(state, [choice.left, choice.right], res)
       # Откат: отменить выбор и восстановить предыдущее состояние
       undo_choice(state, choice)
@@ -54,14 +54,14 @@ end
 ### Driver Code ###
 if __FILE__ == $0
   root = arr_to_tree([1, 7, 3, 4, 5, 6, 7])
-  puts "\nИнициализировать двоичное дерево"
+  puts "\nИнициализация двоичного дерева"
   print_tree(root)
 
   # Алгоритм бэктрекинга
   res = []
   backtrack([], [root], res)
 
-  puts "\nВывести все пути от корня до узла 7, при этом путь не должен содержать узлы со значением 3"
+  puts "\nВсе пути от корня к узлу 7, в которых путь не содержит узлов со значением 3"
   for path in res
     p path.map { |node| node.val }
   end

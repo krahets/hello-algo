@@ -7,40 +7,40 @@ const utils = @import("utils");
 
 // Driver Code
 pub fn run() !void {
-    // Инициализировать список
+    // Инициализация списка
     var nums = std.ArrayList(i32).init(std.heap.page_allocator);
     defer nums.deinit(); // Отложенное освобождение памяти
 
     try nums.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
     std.debug.print("Список nums = {}\n", .{utils.fmt.slice(nums.items)});
 
-    // Получить доступ к элементу
+    // Доступ к элементу
     const num = nums.items[1];
-    std.debug.print("обратиться киндекс 1 поэлемент, получаем num = {}\n", .{num});
+    std.debug.print("Элемент по индексу 1: num = {}\n", .{num});
 
-    // Обновить элемент
+    // Обновление элемента
     nums.items[1] = 0;
-    std.debug.print("После обновления элемента по индексу 1 на 0 получаем nums = {}\n", .{utils.fmt.slice(nums.items)});
+    std.debug.print("После обновления элемента по индексу 1 до 0 nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     // Очистить список
     nums.clearRetainingCapacity();
     std.debug.print("После очистки списка nums = {}\n", .{utils.fmt.slice(nums.items)});
 
-    // Добавить элемент в конец
+    // Добавление элемента в конец
     try nums.append(1);
     try nums.append(3);
     try nums.append(2);
     try nums.append(5);
     try nums.append(4);
-    std.debug.print("Добавитьэлементпосле nums = {}\n", .{utils.fmt.slice(nums.items)});
+    std.debug.print("После добавления элементов nums = {}\n", .{utils.fmt.slice(nums.items)});
 
-    // Вставить элемент в середину
+    // Вставка элемента в середину
     try nums.insert(3, 6);
-    std.debug.print("После вставки числа 6 по индексу 3 получаем nums = {}\n", .{utils.fmt.slice(nums.items)});
+    std.debug.print("После вставки числа 6 по индексу 3 nums = {}\n", .{utils.fmt.slice(nums.items)});
 
-    // Удалить элемент
+    // Удаление элемента
     _ = nums.orderedRemove(3);
-    std.debug.print("Удалитьиндекс 3 поэлемент, получаем nums = {}\n", .{utils.fmt.slice(nums.items)});
+    std.debug.print("После удаления элемента по индексу 3 nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     // Обходить список по индексам
     var count: i32 = 0;
@@ -60,7 +60,7 @@ pub fn run() !void {
     defer nums1.deinit();
     try nums1.appendSlice(&[_]i32{ 6, 8, 7, 10, 9 });
     try nums.insertSlice(nums.items.len, nums1.items);
-    std.debug.print("После присоединения списка nums1 к nums получаем nums = {}\n", .{utils.fmt.slice(nums.items)});
+    std.debug.print("После конкатенации списка nums1 к nums nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     // Отсортировать список
     std.mem.sort(i32, nums.items, {}, comptime std.sort.asc(i32));

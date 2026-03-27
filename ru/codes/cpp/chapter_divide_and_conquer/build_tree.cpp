@@ -6,9 +6,9 @@
 
 #include "../utils/common.hpp"
 
-/* Построение двоичного дерева: разделяй и властвуй */
+/* Построить двоичное дерево: разделяй и властвуй */
 TreeNode *dfs(vector<int> &preorder, unordered_map<int, int> &inorderMap, int i, int l, int r) {
-    // Завершить, если диапазон поддерева пуст
+    // Завершить при пустом диапазоне поддерева
     if (r - l < 0)
         return NULL;
     // Инициализировать корневой узел
@@ -25,7 +25,7 @@ TreeNode *dfs(vector<int> &preorder, unordered_map<int, int> &inorderMap, int i,
 
 /* Построить двоичное дерево */
 TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
-    // Инициализировать хеш-таблицу для хранения отображения элементов inorder в индексы
+    // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
     unordered_map<int, int> inorderMap;
     for (int i = 0; i < inorder.size(); i++) {
         inorderMap[inorder[i]] = i;
@@ -38,7 +38,7 @@ TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
 int main() {
     vector<int> preorder = {3, 9, 2, 1, 7};
     vector<int> inorder = {9, 3, 1, 2, 7};
-    cout << "Прямой обход = ";
+    cout << "Предварительный обход = ";
     printVector(preorder);
     cout << "Симметричный обход = ";
     printVector(inorder);

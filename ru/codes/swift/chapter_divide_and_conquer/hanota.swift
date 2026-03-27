@@ -6,9 +6,9 @@
 
 /* Переместить один диск */
 func move(src: inout [Int], tar: inout [Int]) {
-    // Взять верхний диск со стержня src
+    // Снять диск с вершины src
     let pan = src.popLast()!
-    // Поместить диск на вершину tar
+    // Положить диск на вершину tar
     tar.append(pan)
 }
 
@@ -30,8 +30,8 @@ func dfs(i: Int, src: inout [Int], buf: inout [Int], tar: inout [Int]) {
 /* Решить задачу Ханойской башни */
 func solveHanota(A: inout [Int], B: inout [Int], C: inout [Int]) {
     let n = A.count
-    // Конец списка соответствует вершине стержня
-    // Переместить n верхних дисков с src на C с помощью B
+    // Хвост списка соответствует вершине столбца
+    // Переместить верхние n дисков из src в C с помощью B
     dfs(i: n, src: &A, buf: &B, tar: &C)
 }
 
@@ -39,11 +39,11 @@ func solveHanota(A: inout [Int], B: inout [Int], C: inout [Int]) {
 enum Hanota {
     /* Driver Code */
     static func main() {
-        // Конец списка соответствует вершине стержня
+        // Хвост списка соответствует вершине столбца
         var A = [5, 4, 3, 2, 1]
         var B: [Int] = []
         var C: [Int] = []
-        print("В начальном состоянии:")
+        print("Исходное состояние:")
         print("A = \(A)")
         print("B = \(B)")
         print("C = \(C)")

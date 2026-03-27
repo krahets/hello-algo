@@ -15,7 +15,7 @@ fn function() -> i32 {
     return 0;
 }
 
-/* Константная сложность */
+/* Постоянная сложность */
 #[allow(unused)]
 fn constant(n: i32) {
     // Константы, переменные и объекты занимают O(1) памяти
@@ -27,7 +27,7 @@ fn constant(n: i32) {
     for i in 0..n {
         let c = 0;
     }
-    // Функция в цикле занимает O(1) памяти
+    // Функции в цикле занимают O(1) памяти
     for i in 0..n {
         function();
     }
@@ -36,14 +36,14 @@ fn constant(n: i32) {
 /* Линейная сложность */
 #[allow(unused)]
 fn linear(n: i32) {
-    // Массив длины n занимает пространство O(n)
+    // Массив длины n занимает O(n) памяти
     let mut nums = vec![0; n as usize];
-    // Список длины n занимает пространство O(n)
+    // Список длины n занимает O(n) памяти
     let mut nodes = Vec::new();
     for i in 0..n {
         nodes.push(ListNode::new(i))
     }
-    // Хеш-таблица длины n занимает пространство O(n)
+    // Хеш-таблица длины n занимает O(n) памяти
     let mut map = HashMap::new();
     for i in 0..n {
         map.insert(i, i.to_string());
@@ -52,7 +52,7 @@ fn linear(n: i32) {
 
 /* Линейная сложность (рекурсивная реализация) */
 fn linear_recur(n: i32) {
-    println!("Рекурсия: n = {}", n);
+    println!("Рекурсия n = {}", n);
     if n == 1 {
         return;
     };
@@ -62,9 +62,9 @@ fn linear_recur(n: i32) {
 /* Квадратичная сложность */
 #[allow(unused)]
 fn quadratic(n: i32) {
-    // Матрица занимает пространство O(n^2)
+    // Матрица занимает O(n^2) памяти
     let num_matrix = vec![vec![0; n as usize]; n as usize];
-    // Двумерный список занимает пространство O(n^2)
+    // Двумерный список занимает O(n^2) памяти
     let mut num_list = Vec::new();
     for i in 0..n {
         let mut tmp = Vec::new();
@@ -80,9 +80,9 @@ fn quadratic_recur(n: i32) -> i32 {
     if n <= 0 {
         return 0;
     };
-    // массив nums длинаравно n, n-1,..., 2, 1
+    // Длина массива nums равна n, n-1, ..., 2, 1
     let nums = vec![0; n as usize];
-    println!("Рекурсия: n = {}, длина nums = {}", n, nums.len());
+    println!("В рекурсии n = {} , длина nums = {}", n, nums.len());
     return quadratic_recur(n - 1);
 }
 
@@ -100,7 +100,7 @@ fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
 /* Driver Code */
 fn main() {
     let n = 5;
-    // Константная сложность
+    // Постоянная сложность
     constant(n);
     // Линейная сложность
     linear(n);

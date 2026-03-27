@@ -16,7 +16,7 @@ public class space_complexity {
         return 0;
     }
 
-    /* Константная сложность */
+    /* Постоянная сложность */
     static void constant(int n) {
         // Константы, переменные и объекты занимают O(1) памяти
         final int a = 0;
@@ -27,7 +27,7 @@ public class space_complexity {
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // Функция в цикле занимает O(1) памяти
+        // Функции в цикле занимают O(1) памяти
         for (int i = 0; i < n; i++) {
             function();
         }
@@ -35,14 +35,14 @@ public class space_complexity {
 
     /* Линейная сложность */
     static void linear(int n) {
-        // Массив длины n занимает пространство O(n)
+        // Массив длины n занимает O(n) памяти
         int[] nums = new int[n];
-        // Список длины n занимает пространство O(n)
+        // Список длины n занимает O(n) памяти
         List<ListNode> nodes = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             nodes.add(new ListNode(i));
         }
-        // Хеш-таблица длины n занимает пространство O(n)
+        // Хеш-таблица длины n занимает O(n) памяти
         Map<Integer, String> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
             map.put(i, String.valueOf(i));
@@ -51,7 +51,7 @@ public class space_complexity {
 
     /* Линейная сложность (рекурсивная реализация) */
     static void linearRecur(int n) {
-        System.out.println("Рекурсия: n = " + n);
+        System.out.println("Рекурсия n = " + n);
         if (n == 1)
             return;
         linearRecur(n - 1);
@@ -59,9 +59,9 @@ public class space_complexity {
 
     /* Квадратичная сложность */
     static void quadratic(int n) {
-        // Матрица занимает пространство O(n^2)
+        // Матрица занимает O(n^2) памяти
         int[][] numMatrix = new int[n][n];
-        // Двумерный список занимает пространство O(n^2)
+        // Двумерный список занимает O(n^2) памяти
         List<List<Integer>> numList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             List<Integer> tmp = new ArrayList<>();
@@ -76,9 +76,9 @@ public class space_complexity {
     static int quadraticRecur(int n) {
         if (n <= 0)
             return 0;
-        // массив nums длинаравно n, n-1,..., 2, 1
+        // Длина массива nums равна n, n-1, ..., 2, 1
         int[] nums = new int[n];
-        System.out.println("Рекурсия: n = " + n + ", длина nums = " + nums.length);
+        System.out.println("В рекурсии n = " + n + ", длина nums = " + nums.length);
         return quadraticRecur(n - 1);
     }
 
@@ -95,7 +95,7 @@ public class space_complexity {
     /* Driver Code */
     public static void main(String[] args) {
         int n = 5;
-        // Константная сложность
+        // Постоянная сложность
         constant(n);
         // Линейная сложность
         linear(n);

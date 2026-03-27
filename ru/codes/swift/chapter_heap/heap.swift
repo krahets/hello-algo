@@ -9,13 +9,13 @@ import utils
 
 func testPush(heap: inout Heap<Int>, val: Int) {
     heap.insert(val)
-    print("\nЭлемент \(val) после добавления в кучу\n")
+    print("\nПосле добавления элемента \(val) в кучу\n")
     PrintUtil.printHeap(queue: heap.unordered)
 }
 
 func testPop(heap: inout Heap<Int>) {
     let val = heap.removeMax()
-    print("\nвершина кучиЭлемент \(val) после извлечения из кучи\n")
+    print("\nПосле извлечения элемента вершины кучи \(val)\n")
     PrintUtil.printHeap(queue: heap.unordered)
 }
 
@@ -23,40 +23,40 @@ func testPop(heap: inout Heap<Int>) {
 enum _Heap {
     /* Driver Code */
     static func main() {
-        /* Инициализироватькуча */
-        // Тип Heap в Swift поддерживает и max-кучу, и min-кучу
+        /* Инициализация кучи */
+        // Тип Heap в Swift одновременно поддерживает максимальную и минимальную кучу
         var heap = Heap<Int>()
 
-        /* Добавить элемент в кучу */
+        /* Добавление элемента в кучу */
         testPush(heap: &heap, val: 1)
         testPush(heap: &heap, val: 3)
         testPush(heap: &heap, val: 2)
         testPush(heap: &heap, val: 5)
         testPush(heap: &heap, val: 4)
 
-        /* Получить верхний элемент кучи */
+        /* Получение элемента с вершины кучи */
         let peek = heap.max()
-        print("\nвершина кучиэлементравно \(peek!)\n")
+        print("\nЭлемент на вершине кучи = \(peek!)\n")
 
-        /* Извлечь верхний элемент из кучи */
+        /* Извлечение элемента с вершины кучи */
         testPop(heap: &heap)
         testPop(heap: &heap)
         testPop(heap: &heap)
         testPop(heap: &heap)
         testPop(heap: &heap)
 
-        /* Получить размер кучи */
+        /* Получение размера кучи */
         let size = heap.count
-        print("\nКоличество элементов в куче равно \(size)\n")
+        print("\nКоличество элементов в куче = \(size)\n")
 
-        /* Проверить, пуста ли куча */
+        /* Проверка, пуста ли куча */
         let isEmpty = heap.isEmpty
-        print("\nкучапуст ли \(isEmpty)\n")
+        print("\nПуста ли куча: \(isEmpty)\n")
 
-        /* Входсписокипостроение кучи */
+        /* Построить кучу по входному списку */
         // Временная сложность равна O(n), а не O(nlogn)
         let heap2 = Heap([1, 3, 2, 5, 4])
-        print("\nВходсписокипостроитькучапосле")
+        print("\nПосле построения кучи из входного списка")
         PrintUtil.printHeap(queue: heap2.unordered)
     }
 }

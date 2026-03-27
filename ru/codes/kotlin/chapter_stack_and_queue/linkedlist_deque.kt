@@ -9,8 +9,8 @@ package chapter_stack_and_queue
 /* Узел двусвязного списка */
 class ListNode(var _val: Int) {
     // Значение узла
-    var next: ListNode? = null // Ссылка на следующий узел
-    var prev: ListNode? = null // Ссылка на предыдущий узел
+    var next: ListNode? = null // Ссылка на узел-преемник
+    var prev: ListNode? = null // Ссылка на узел-предшественник
 }
 
 /* Двусторонняя очередь на основе двусвязного списка */
@@ -19,45 +19,45 @@ class LinkedListDeque {
     private var rear: ListNode? = null // Хвостовой узел rear
     private var queSize: Int = 0 // Длина двусторонней очереди
 
-    /* Получить длину двусторонней очереди */
+    /* Получение длины двусторонней очереди */
     fun size(): Int {
         return queSize
     }
 
-    /* Проверить, пуста ли двусторонняя очередь */
+    /* Проверка, пуста ли двусторонняя очередь */
     fun isEmpty(): Boolean {
         return size() == 0
     }
 
-    /* Операция помещения в очередь */
+    /* Операция добавления в очередь */
     fun push(num: Int, isFront: Boolean) {
         val node = ListNode(num)
         // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
         if (isEmpty()) {
             rear = node
             front = rear
-            // Операция помещения в голову очереди
+            // Операция добавления в голову очереди
         } else if (isFront) {
-            // Добавить node в голову связного списка
+            // Добавить node в голову списка
             front?.prev = node
             node.next = front
             front = node // Обновить головной узел
-            // Операция помещения в хвост очереди
+            // Операция добавления в хвост очереди
         } else {
-            // Добавить node в хвост связного списка
+            // Добавить node в хвост списка
             rear?.next = node
             node.prev = rear
             rear = node // Обновить хвостовой узел
         }
-        queSize++ // ОбновитьДлина очереди
+        queSize++ // Обновить длину очереди
     }
 
-    /* Поместить в голову очереди */
+    /* Добавление в голову очереди */
     fun pushFirst(num: Int) {
         push(num, true)
     }
 
-    /* Поместить в хвост очереди */
+    /* Добавление в хвост очереди */
     fun pushLast(num: Int) {
         push(num, false)
     }
@@ -88,33 +88,33 @@ class LinkedListDeque {
             }
             rear = rPrev // Обновить хвостовой узел
         }
-        queSize-- // ОбновитьДлина очереди
+        queSize-- // Обновить длину очереди
         return _val
     }
 
-    /* Извлечь из головы очереди */
+    /* Извлечение из головы очереди */
     fun popFirst(): Int {
         return pop(true)
     }
 
-    /* Извлечь из хвоста очереди */
+    /* Извлечение из хвоста очереди */
     fun popLast(): Int {
         return pop(false)
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     fun peekFirst(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return front!!._val
     }
 
-    /* Обратиться к элементу в хвосте очереди */
+    /* Доступ к элементу в конце очереди */
     fun peekLast(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return rear!!._val
     }
 
-    /* Вернуть массив для печати */
+    /* Вернуть массив для вывода */
     fun toArray(): IntArray {
         var node = front
         val res = IntArray(size())
@@ -128,36 +128,36 @@ class LinkedListDeque {
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать двустороннюю очередь */
+    /* Инициализация двусторонней очереди */
     val deque = LinkedListDeque()
     deque.pushLast(3)
     deque.pushLast(2)
     deque.pushLast(5)
-    println("двусторонняя очередь deque = ${deque.toArray().contentToString()}")
+    println("Двусторонняя очередь deque = ${deque.toArray().contentToString()}")
 
-    /* Получить доступ к элементу */
+    /* Доступ к элементу */
     val peekFirst = deque.peekFirst()
-    println("голова очередиэлемент peekFirst = $peekFirst")
+    println("Первый элемент peekFirst = $peekFirst")
     val peekLast = deque.peekLast()
-    println("хвост очередиэлемент peekLast = $peekLast")
+    println("Последний элемент peekLast = $peekLast")
 
-    /* Поместить элемент в очередь */
+    /* Добавление элемента в очередь */
     deque.pushLast(4)
-    println("После помещения элемента 4 в хвост очереди deque = ${deque.toArray().contentToString()}")
+    println("После добавления элемента 4 в хвост deque = ${deque.toArray().contentToString()}")
     deque.pushFirst(1)
-    println("После помещения элемента 1 в голову очереди deque = ${deque.toArray().contentToString()}")
+    println("После добавления элемента 1 в голову deque = ${deque.toArray().contentToString()}")
 
-    /* Извлечь элемент из очереди */
+    /* Извлечение элемента из очереди */
     val popLast = deque.popLast()
-    println("Элемент, извлеченный из хвоста очереди = ${popLast}, deque после извлечения из хвоста = ${deque.toArray().contentToString()}")
+    println("Извлеченный из хвоста элемент = ${popLast}, deque после извлечения из хвоста = ${deque.toArray().contentToString()}")
     val popFirst = deque.popFirst()
-    println("Элемент, извлеченный из головы очереди = ${popFirst}, deque после извлечения из головы = ${deque.toArray().contentToString()}")
+    println("Извлеченный из головы элемент = ${popFirst}, deque после извлечения из головы = ${deque.toArray().contentToString()}")
 
-    /* Получить длину двусторонней очереди */
+    /* Получение длины двусторонней очереди */
     val size = deque.size()
     println("Длина двусторонней очереди size = $size")
 
-    /* Проверить, пуста ли двусторонняя очередь */
+    /* Проверка, пуста ли двусторонняя очередь */
     val isEmpty = deque.isEmpty()
-    println("Двусторонняя очередь пуста: $isEmpty")
+    println("Пуста ли двусторонняя очередь = $isEmpty")
 }

@@ -19,16 +19,16 @@ func TestBinarySearch(t *testing.T) {
 	actual := binarySearch(nums, target)
 	fmt.Println("Индекс целевого элемента 6 =", actual)
 	if actual != expected {
-		t.Errorf("Индекс целевого элемента 6 = %d, должен быть %d", actual, expected)
+		t.Errorf("Индекс целевого элемента 6 = %d, должно быть %d", actual, expected)
 	}
 }
 
 func TestBinarySearchEdge(t *testing.T) {
 	// Массив с повторяющимися элементами
 	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
-	fmt.Println("\nМассив nums = ", nums)
+	fmt.Println("\nМассив nums =", nums)
 
-	// Бинарный поиск левой и правой границ
+	// Бинарный поиск левой и правой границы
 	for _, target := range []int{6, 7} {
 		index := binarySearchLeftEdge(nums, target)
 		fmt.Println("Индекс самого левого элемента", target, "равен", index)
@@ -43,19 +43,19 @@ func TestBinarySearchInsertion(t *testing.T) {
 	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
 	fmt.Println("Массив nums =", nums)
 
-	// Найти точку вставки бинарным поиском
+	// Бинарный поиск точки вставки
 	for _, target := range []int{6, 9} {
 		index := binarySearchInsertionSimple(nums, target)
-		fmt.Println("Индекс точки вставки элемента", target, "равен", index)
+		fmt.Println("Индекс позиции вставки элемента", target, "равен", index)
 	}
 
 	// Массив с повторяющимися элементами
 	nums = []int{1, 3, 6, 6, 6, 6, 6, 10, 12, 15}
 	fmt.Println("\nМассив nums =", nums)
 
-	// Найти точку вставки бинарным поиском
+	// Бинарный поиск точки вставки
 	for _, target := range []int{2, 6, 20} {
 		index := binarySearchInsertion(nums, target)
-		fmt.Println("Индекс точки вставки элемента", target, "равен", index)
+		fmt.Println("Индекс позиции вставки элемента", target, "равен", index)
 	}
 }

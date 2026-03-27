@@ -23,7 +23,7 @@ function remove(n0) {
     n0.next = n1;
 }
 
-/* Обратиться к узлу связного списка с индексом index */
+/* Доступ к узлу связного списка по индексу index */
 function access(head, index) {
     for (let i = 0; i < index; i++) {
         if (!head) {
@@ -34,7 +34,7 @@ function access(head, index) {
     return head;
 }
 
-/* Найти первый узел со значением target в связном списке */
+/* Найти в связном списке первый узел со значением target */
 function find(head, target) {
     let index = 0;
     while (head !== null) {
@@ -48,8 +48,8 @@ function find(head, target) {
 }
 
 /* Driver Code */
-/* Инициализироватьсвязный список */
-// Инициализироватькаждый узел
+/* Инициализация связного списка */
+// Инициализация всех узлов
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
 const n2 = new ListNode(2);
@@ -60,23 +60,23 @@ n0.next = n1;
 n1.next = n2;
 n2.next = n3;
 n3.next = n4;
-console.log('Инициализированный связный список:');
+console.log('Исходный связный список');
 printLinkedList(n0);
 
-/* Вставить узел */
+/* Вставка узла */
 insert(n0, new ListNode(0));
-console.log('Связный список после вставки узла:');
+console.log('Связный список после вставки узла');
 printLinkedList(n0);
 
-/* Удалить узел */
+/* Удаление узла */
 remove(n0);
-console.log('Связный список после удаления узла:');
+console.log('Связный список после удаления узла');
 printLinkedList(n0);
 
-/* Получить доступ к узлу */
+/* Доступ к узлу */
 const node = access(n0, 3);
-console.log('Значение узла по индексу 3 в связном списке =' + node.val);
+console.log('Значение узла по индексу 3 в связном списке = ' + node.val);
 
-/* Найти узел */
+/* Поиск узла */
 const index = find(n0, 2);
-console.log('Индекс узла со значением 2 в связном списке =' + index);
+console.log('Индекс узла со значением 2 в связном списке = ' + index);

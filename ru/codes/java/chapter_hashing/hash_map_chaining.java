@@ -9,13 +9,13 @@ package chapter_hashing;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Хеш-таблица с цепочечной адресацией */
+/* Хеш-таблица с цепочками */
 class HashMapChaining {
-    int size; // Количество пар ключ-значение
+    int size; // Число пар ключ-значение
     int capacity; // Вместимость хеш-таблицы
-    double loadThres; // Порог коэффициента загрузки, запускающий расширение
+    double loadThres; // Порог коэффициента загрузки для запуска расширения
     int extendRatio; // Коэффициент расширения
-    List<List<Pair>> buckets; // Массив бакетов
+    List<List<Pair>> buckets; // Массив корзин
 
     /* Конструктор */
     public HashMapChaining() {
@@ -43,7 +43,7 @@ class HashMapChaining {
     String get(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // Обойти бакет; если найден key, вернуть соответствующее val
+        // Обойти корзину; если найден key, вернуть соответствующее val
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 return pair.val;
@@ -61,7 +61,7 @@ class HashMapChaining {
         }
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // Обойти бакет; если встретился указанный key, обновить соответствующее val и вернуть результат
+        // Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 pair.val = val;
@@ -78,7 +78,7 @@ class HashMapChaining {
     void remove(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // Обойти бакет и удалить из него пару ключ-значение
+        // Обойти корзину и удалить из нее пару ключ-значение
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 bucket.remove(pair);
@@ -92,7 +92,7 @@ class HashMapChaining {
     void extend() {
         // Временно сохранить исходную хеш-таблицу
         List<List<Pair>> bucketsTmp = buckets;
-        // Инициализировать новую хеш-таблицу после расширения
+        // Инициализация новой хеш-таблицы после расширения
         capacity *= extendRatio;
         buckets = new ArrayList<>(capacity);
         for (int i = 0; i < capacity; i++) {
@@ -121,28 +121,28 @@ class HashMapChaining {
 
 public class hash_map_chaining {
     public static void main(String[] args) {
-        /* Инициализировать хеш-таблицу */
+        /* Инициализация хеш-таблицы */
         HashMapChaining map = new HashMapChaining();
 
         /* Операция добавления */
-        // Добавить в хеш-таблицу пару ключ-значение (key, value)
+        // Добавить пару (key, value) в хеш-таблицу
         map.put(12836, "Сяо Ха");
         map.put(15937, "Сяо Ло");
         map.put(16750, "Сяо Суань");
         map.put(13276, "Сяо Фа");
-        map.put(10583, "Утенок");
-        System.out.println("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
+        map.put(10583, "Сяо Я");
+        System.out.println("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
         map.print();
 
         /* Операция поиска */
-        // Передать ключ key в хеш-таблицу и получить значение value
+        // Ввести в хеш-таблицу ключ key и получить значение value
         String name = map.get(13276);
-        System.out.println("\nПо номеру студента 13276 найдено имя " + name);
+        System.out.println("\nДля номера 13276 найдено имя " + name);
 
         /* Операция удаления */
-        // Удалить из хеш-таблицы пару ключ-значение (key, value)
+        // Удалить пару (key, value) из хеш-таблицы
         map.remove(12836);
-        System.out.println("\nПосле удаления 12836 хеш-таблица выглядит так\nKey -> Value");
+        System.out.println("\nПосле удаления 12836 хеш-таблица имеет вид\nКлюч -> Значение");
         map.print();
     }
 }

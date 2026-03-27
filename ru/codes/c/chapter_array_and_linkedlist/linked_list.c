@@ -14,7 +14,7 @@ void insert(ListNode *n0, ListNode *P) {
 }
 
 /* Удалить первый узел после узла n0 в связном списке */
-// Обратите внимание: stdio.h уже использует ключевое слово remove
+// Внимание: stdio.h уже использует ключевое слово remove
 void removeItem(ListNode *n0) {
     if (!n0->next)
         return;
@@ -26,7 +26,7 @@ void removeItem(ListNode *n0) {
     free(P);
 }
 
-/* Обратиться к узлу связного списка с индексом index */
+/* Доступ к узлу связного списка по индексу index */
 ListNode *access(ListNode *head, int index) {
     for (int i = 0; i < index; i++) {
         if (head == NULL)
@@ -36,7 +36,7 @@ ListNode *access(ListNode *head, int index) {
     return head;
 }
 
-/* Найти первый узел со значением target в связном списке */
+/* Найти в связном списке первый узел со значением target */
 int find(ListNode *head, int target) {
     int index = 0;
     while (head) {
@@ -50,8 +50,8 @@ int find(ListNode *head, int target) {
 
 /* Driver Code */
 int main() {
-    /* Инициализироватьсвязный список */
-    // Инициализироватькаждый узел
+    /* Инициализация связного списка */
+    // Инициализация всех узлов
     ListNode *n0 = newListNode(1);
     ListNode *n1 = newListNode(3);
     ListNode *n2 = newListNode(2);
@@ -62,24 +62,24 @@ int main() {
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
-    printf("Инициализированный связный список:\r\n");
+    printf("Инициализированный связный список\r\n");
     printLinkedList(n0);
 
-    /* Вставить узел */
+    /* Вставка узла */
     insert(n0, newListNode(0));
-    printf("Связный список после вставки узла:\r\n");
+    printf("Связный список после вставки узла\r\n");
     printLinkedList(n0);
 
-    /* Удалить узел */
+    /* Удаление узла */
     removeItem(n0);
-    printf("Связный список после удаления узла:\r\n");
+    printf("Связный список после удаления узла\r\n");
     printLinkedList(n0);
 
-    /* Получить доступ к узлу */
+    /* Доступ к узлу */
     ListNode *node = access(n0, 3);
     printf("Значение узла по индексу 3 в связном списке = %d\r\n", node->val);
 
-    /* Найти узел */
+    /* Поиск узла */
     int index = find(n0, 2);
     printf("Индекс узла со значением 2 в связном списке = %d\r\n", index);
 

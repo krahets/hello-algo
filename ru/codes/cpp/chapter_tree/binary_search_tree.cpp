@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* двоичное дерево поиска */
+/* Двоичное дерево поиска */
 class BinarySearchTree {
   private:
     TreeNode *root;
@@ -18,7 +18,7 @@ class BinarySearchTree {
         root = nullptr;
     }
 
-    /* Деструктор */
+    /* Метод-деструктор */
     ~BinarySearchTree() {
         freeMemoryTree(root);
     }
@@ -28,10 +28,10 @@ class BinarySearchTree {
         return root;
     }
 
-    /* Найти узел */
+    /* Поиск узла */
     TreeNode *search(int num) {
         TreeNode *cur = root;
-        // Выполнять поиск в цикле и выйти после прохождения листового узла
+        // Искать в цикле и выйти после прохода за листовой узел
         while (cur != nullptr) {
             // Целевой узел находится в правом поддереве cur
             if (cur->val < num)
@@ -47,7 +47,7 @@ class BinarySearchTree {
         return cur;
     }
 
-    /* Вставить узел */
+    /* Вставка узла */
     void insert(int num) {
         // Если дерево пусто, инициализировать корневой узел
         if (root == nullptr) {
@@ -55,9 +55,9 @@ class BinarySearchTree {
             return;
         }
         TreeNode *cur = root, *pre = nullptr;
-        // Выполнять поиск в цикле и выйти после прохождения листового узла
+        // Искать в цикле и выйти после прохода за листовой узел
         while (cur != nullptr) {
-            // Найти дублирующийся узел и сразу вернуть результат
+            // Найти повторяющийся узел и сразу вернуть
             if (cur->val == num)
                 return;
             pre = cur;
@@ -68,7 +68,7 @@ class BinarySearchTree {
             else
                 cur = cur->left;
         }
-        // Вставить узел
+        // Вставка узла
         TreeNode *node = new TreeNode(num);
         if (pre->val < num)
             pre->right = node;
@@ -76,31 +76,31 @@ class BinarySearchTree {
             pre->left = node;
     }
 
-    /* Удалить узел */
+    /* Удаление узла */
     void remove(int num) {
-        // Если дерево пусто, сразу вернуть результат
+        // Если дерево пусто, сразу вернуть
         if (root == nullptr)
             return;
         TreeNode *cur = root, *pre = nullptr;
-        // Выполнять поиск в цикле и выйти после прохождения листового узла
+        // Искать в цикле и выйти после прохода за листовой узел
         while (cur != nullptr) {
             // Найти узел для удаления и выйти из цикла
             if (cur->val == num)
                 break;
             pre = cur;
-            // Удаляемый узел находится в правом поддереве cur
+            // Узел для удаления находится в правом поддереве cur
             if (cur->val < num)
                 cur = cur->right;
-            // Удаляемый узел находится в левом поддереве cur
+            // Узел для удаления находится в левом поддереве cur
             else
                 cur = cur->left;
         }
-        // Если узла для удаления нет, сразу вернуть результат
+        // Если узел для удаления отсутствует, сразу вернуть
         if (cur == nullptr)
             return;
         // Число дочерних узлов = 0 или 1
         if (cur->left == nullptr || cur->right == nullptr) {
-            // Когда число дочерних узлов равно 0 / 1, child = nullptr / этот дочерний узел
+            // Когда число дочерних узлов = 0 / 1, child = nullptr / этот дочерний узел
             TreeNode *child = cur->left != nullptr ? cur->left : cur->right;
             // Удалить узел cur
             if (cur != root) {
@@ -109,7 +109,7 @@ class BinarySearchTree {
                 else
                     pre->right = child;
             } else {
-                // Если удаляемый узел является корневым, заново назначить корневой узел
+                // Если удаляемый узел является корнем, заново назначить корневой узел
                 root = child;
             }
             // Освободить память
@@ -125,7 +125,7 @@ class BinarySearchTree {
             int tmpVal = tmp->val;
             // Рекурсивно удалить узел tmp
             remove(tmp->val);
-            // Заменить cur значением tmp
+            // Перезаписать cur значением tmp
             cur->val = tmpVal;
         }
     }
@@ -133,26 +133,26 @@ class BinarySearchTree {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать двоичное дерево поиска */
+    /* Инициализация двоичного дерева поиска */
     BinarySearchTree *bst = new BinarySearchTree();
-    // Обратите внимание: разные порядки вставки порождают разные двоичные деревья, а данная последовательность может породить совершенное двоичное дерево
+    // Обратите внимание: разные порядки вставки порождают разные двоичные деревья; данная последовательность может построить совершенное двоичное дерево
     vector<int> nums = {8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15};
     for (int num : nums) {
         bst->insert(num);
     }
-    cout << endl << "Инициализированное двоичное дерево:\n" << endl;
+    cout << endl << "Исходное двоичное дерево\n" << endl;
     printTree(bst->getRoot());
 
-    /* Найти узел */
+    /* Поиск узла */
     TreeNode *node = bst->search(7);
-    cout << endl << "Найденныйузелобъектравно" << node << ", значение узла =" << node->val << endl;
+    cout << endl << "Найденный объект узла = " << node << ", значение узла = " << node->val << endl;
 
-    /* Вставить узел */
+    /* Вставка узла */
     bst->insert(16);
     cout << endl << "После вставки узла 16 двоичное дерево имеет вид\n" << endl;
     printTree(bst->getRoot());
 
-    /* Удалить узел */
+    /* Удаление узла */
     bst->remove(1);
     cout << endl << "После удаления узла 1 двоичное дерево имеет вид\n" << endl;
     printTree(bst->getRoot());

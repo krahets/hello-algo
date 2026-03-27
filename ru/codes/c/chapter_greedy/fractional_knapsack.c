@@ -12,7 +12,7 @@ typedef struct {
     int v; // Стоимость предмета
 } Item;
 
-/* Сортировать по плотности стоимости */
+/* Отсортировать по удельной стоимости */
 int sortByValueDensity(const void *a, const void *b) {
     Item *t1 = (Item *)a;
     Item *t2 = (Item *)b;
@@ -32,11 +32,11 @@ float fractionalKnapsack(int wgt[], int val[], int itemCount, int cap) {
     float res = 0.0;
     for (int i = 0; i < itemCount; i++) {
         if (items[i].w <= cap) {
-            // Если оставшейся вместимости достаточно, поместить текущий предмет в рюкзак целиком
+            // Если оставшейся вместимости достаточно, положить в рюкзак текущий предмет целиком
             res += items[i].v;
             cap -= items[i].w;
         } else {
-            // Если оставшейся вместимости недостаточно, поместить в рюкзак часть текущего предмета
+            // Если оставшейся вместимости недостаточно, положить в рюкзак часть текущего предмета
             res += (float)cap / items[i].w * items[i].v;
             cap = 0;
             break;

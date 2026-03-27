@@ -6,7 +6,7 @@
 
 /* Сортировка вставками */
 func insertionSort(nums: inout [Int]) {
-    // Внешний цикл: отсортированный диапазон равен [0, i-1]
+    // Внешний цикл: отсортированный диапазон [0, i-1]
     for i in nums.indices.dropFirst() {
         let base = nums[i]
         var j = i - 1
@@ -25,6 +25,6 @@ enum InsertionSort {
     static func main() {
         var nums = [4, 1, 3, 1, 5, 2]
         insertionSort(nums: &nums)
-        print("Сортировка вставкамипосле завершения nums = \(nums)")
+        print("После сортировки вставками nums = \(nums)")
     }
 }

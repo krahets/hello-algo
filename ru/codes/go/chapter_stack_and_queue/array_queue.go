@@ -4,15 +4,15 @@
 
 package chapter_stack_and_queue
 
-/* Очередь на основе циклического массива */
+/* Очередь на основе кольцевого массива */
 type arrayQueue struct {
 	nums        []int // Массив для хранения элементов очереди
-	front       int   // Указатель front, указывающий на первый элемент очереди
+	front       int   // Указатель head, указывающий на первый элемент очереди
 	queSize     int   // Длина очереди
 	queCapacity int   // Вместимость очереди (то есть максимальное число элементов)
 }
 
-/* Инициализировать очередь */
+/* Инициализация очереди */
 func newArrayQueue(queCapacity int) *arrayQueue {
 	return &arrayQueue{
 		nums:        make([]int, queCapacity),
@@ -22,26 +22,26 @@ func newArrayQueue(queCapacity int) *arrayQueue {
 	}
 }
 
-/* Получить длину очереди */
+/* Получение длины очереди */
 func (q *arrayQueue) size() int {
 	return q.queSize
 }
 
-/* Проверить, пуста ли очередь */
+/* Проверка, пуста ли очередь */
 func (q *arrayQueue) isEmpty() bool {
 	return q.queSize == 0
 }
 
 /* Поместить в очередь */
 func (q *arrayQueue) push(num int) {
-	// Когда rear == queCapacity, очередь считается заполненной
+	// Когда rear == queCapacity, очередь заполнена
 	if q.queSize == q.queCapacity {
 		return
 	}
-	// Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
-	// Операция взятия по модулю позволяет rear после выхода за конец массива вернуться к его началу
+	// Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+	// С помощью операции взятия по модулю вернуть rear к началу после выхода за конец массива
 	rear := (q.front + q.queSize) % q.queCapacity
-	// Добавить num в конец очереди
+	// Добавить num в хвост очереди
 	q.nums[rear] = num
 	q.queSize++
 }
@@ -53,13 +53,13 @@ func (q *arrayQueue) pop() any {
 		return nil
 	}
 
-	// Указатель головы очереди сдвигается на одну позицию вперед; если он выходит за конец, то возвращается в начало массива
+	// Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
 	q.front = (q.front + 1) % q.queCapacity
 	q.queSize--
 	return num
 }
 
-/* Получить элемент в начале очереди */
+/* Доступ к элементу в начале очереди */
 func (q *arrayQueue) peek() any {
 	if q.isEmpty() {
 		return nil

@@ -14,88 +14,88 @@ import (
 )
 
 func testPush(h *intHeap, val int) {
-	// Вызвать функцию heap.Interface для добавления элемента
+	// Вызвать функции heap.Interface для добавления элемента
 	heap.Push(h, val)
-	fmt.Printf("\nЭлемент %d после добавления в кучу \n", val)
+	fmt.Printf("\nПосле добавления элемента %d в кучу\n", val)
 	PrintHeap(*h)
 }
 
 func testPop(h *intHeap) {
-	// Вызвать функцию heap.Interface для удаления элемента
+	// Вызвать функции heap.Interface для удаления элемента
 	val := heap.Pop(h)
-	fmt.Printf("\nвершина кучиЭлемент %d после извлечения из кучи \n", val)
+	fmt.Printf("\nПосле извлечения элемента вершины кучи %d\n", val)
 	PrintHeap(*h)
 }
 
 func TestHeap(t *testing.T) {
-	/* Инициализироватькуча */
-	// Инициализировать max-кучу
+	/* Инициализация кучи */
+	// Инициализация максимальной кучи
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
-	/* Добавить элемент в кучу */
+	/* Добавление элемента в кучу */
 	testPush(maxHeap, 1)
 	testPush(maxHeap, 3)
 	testPush(maxHeap, 2)
 	testPush(maxHeap, 5)
 	testPush(maxHeap, 4)
 
-	/* Получить верхний элемент кучи */
+	/* Получение элемента с вершины кучи */
 	top := maxHeap.Top()
-	fmt.Printf("вершина кучиэлементравно %d\n", top)
+	fmt.Printf("Элемент на вершине кучи = %d\n", top)
 
-	/* Извлечь верхний элемент из кучи */
+	/* Извлечение элемента с вершины кучи */
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
 
-	/* Получить размер кучи */
+	/* Получение размера кучи */
 	size := len(*maxHeap)
-	fmt.Printf("Количество элементов в куче равно %d\n", size)
+	fmt.Printf("Количество элементов в куче = %d\n", size)
 
-	/* Проверить, пуста ли куча */
+	/* Проверка, пуста ли куча */
 	isEmpty := len(*maxHeap) == 0
-	fmt.Printf("кучапуст ли %t\n", isEmpty)
+	fmt.Printf("Пуста ли куча: %t\n", isEmpty)
 }
 
 func TestMyHeap(t *testing.T) {
-	/* Инициализироватькуча */
-	// Инициализировать max-кучу
+	/* Инициализация кучи */
+	// Инициализация максимальной кучи
 	maxHeap := newMaxHeap([]any{9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2})
-	fmt.Printf("После построения кучи по входному массиву\n")
+	fmt.Printf("После построения кучи из входного массива\n")
 	maxHeap.print()
 
-	/* Получить верхний элемент кучи */
+	/* Получение элемента с вершины кучи */
 	peek := maxHeap.peek()
-	fmt.Printf("\nЭлемент на вершине кучи равен %d\n", peek)
+	fmt.Printf("\nЭлемент на вершине кучи = %d\n", peek)
 
-	/* Добавить элемент в кучу */
+	/* Добавление элемента в кучу */
 	val := 7
 	maxHeap.push(val)
-	fmt.Printf("\nЭлемент %d после добавления в кучу\n", val)
+	fmt.Printf("\nПосле добавления элемента %d в кучу\n", val)
 	maxHeap.print()
 
-	/* Извлечь верхний элемент из кучи */
+	/* Извлечение элемента с вершины кучи */
 	peek = maxHeap.pop()
-	fmt.Printf("\nПосле извлечения верхнего элемента %d из кучи\n", peek)
+	fmt.Printf("\nПосле извлечения элемента вершины кучи %d\n", peek)
 	maxHeap.print()
 
-	/* Получить размер кучи */
+	/* Получение размера кучи */
 	size := maxHeap.size()
-	fmt.Printf("\nКоличество элементов в куче равно %d\n", size)
+	fmt.Printf("\nКоличество элементов в куче = %d\n", size)
 
-	/* Проверить, пуста ли куча */
+	/* Проверка, пуста ли куча */
 	isEmpty := maxHeap.isEmpty()
-	fmt.Printf("\nкучапуст ли %t\n", isEmpty)
+	fmt.Printf("\nПуста ли куча: %t\n", isEmpty)
 }
 
 func TestTopKHeap(t *testing.T) {
-	/* Инициализироватькуча */
-	// Инициализировать max-кучу
+	/* Инициализация кучи */
+	// Инициализация максимальной кучи
 	nums := []int{1, 7, 6, 3, 2}
 	k := 3
 	res := topKHeap(nums, k)
-	fmt.Printf("Наибольшие " + strconv.Itoa(k) + " элементов:")
+	fmt.Printf("Наибольшие " + strconv.Itoa(k) + " элементов")
 	PrintHeap(*res)
 }

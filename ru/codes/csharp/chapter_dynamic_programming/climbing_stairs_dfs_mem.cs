@@ -9,15 +9,15 @@ namespace hello_algo.chapter_dynamic_programming;
 public class climbing_stairs_dfs_mem {
     /* Поиск с мемоизацией */
     int DFS(int i, int[] mem) {
-        // Если значения dp[1] и dp[2] уже известны, вернуть их
+        // dp[1] и dp[2] уже известны, вернуть их
         if (i == 1 || i == 2)
             return i;
-        // Если запись dp[i] уже существует, сразу вернуть ее
+        // Если запись dp[i] существует, сразу вернуть ее
         if (mem[i] != -1)
             return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
         int count = DFS(i - 1, mem) + DFS(i - 2, mem);
-        // Записать dp[i]
+        // Сохранить dp[i]
         mem[i] = count;
         return count;
     }
@@ -34,6 +34,6 @@ public class climbing_stairs_dfs_mem {
     public void Test() {
         int n = 9;
         int res = ClimbingStairsDFSMem(n);
-        Console.WriteLine($"Для подъема по лестнице из {n} ступеней существует {res} способов");
+        Console.WriteLine($"Количество способов подняться по лестнице из {n} ступеней = {res}");
     }
 }

@@ -11,9 +11,9 @@ import java.util.*;
 public class hanota {
     /* Переместить один диск */
     static void move(List<Integer> src, List<Integer> tar) {
-        // Взять верхний диск со стержня src
+        // Снять диск с вершины src
         Integer pan = src.remove(src.size() - 1);
-        // Поместить диск на вершину tar
+        // Положить диск на вершину tar
         tar.add(pan);
     }
 
@@ -40,11 +40,11 @@ public class hanota {
     }
 
     public static void main(String[] args) {
-        // Конец списка соответствует вершине стержня
+        // Хвост списка соответствует вершине столбца
         List<Integer> A = new ArrayList<>(Arrays.asList(5, 4, 3, 2, 1));
         List<Integer> B = new ArrayList<>();
         List<Integer> C = new ArrayList<>();
-        System.out.println("В начальном состоянии:");
+        System.out.println("Исходное состояние:");
         System.out.println("A = " + A);
         System.out.println("B = " + B);
         System.out.println("C = " + C);

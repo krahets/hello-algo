@@ -8,7 +8,7 @@ import 'dart:collection';
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* Обход по уровням */
+/* Обход в ширину */
 List<int> levelOrder(TreeNode? root) {
   // Инициализировать очередь и добавить корневой узел
   Queue<TreeNode?> queue = Queue();
@@ -18,21 +18,21 @@ List<int> levelOrder(TreeNode? root) {
   while (queue.isNotEmpty) {
     TreeNode? node = queue.removeFirst(); // Извлечение из очереди
     res.add(node!.val); // Сохранить значение узла
-    if (node.left != null) queue.add(node.left); // Поместить левого потомка в очередь
-    if (node.right != null) queue.add(node.right); // Поместить правого потомка в очередь
+    if (node.left != null) queue.add(node.left); // Поместить левый дочерний узел в очередь
+    if (node.right != null) queue.add(node.right); // Поместить правый дочерний узел в очередь
   }
   return res;
 }
 
 /* Driver Code */
 void main() {
-  /* Инициализировать двоичное дерево */
-  // Здесь используется функция, которая напрямую строит двоичное дерево из массива
+  /* Инициализация двоичного дерева */
+  // Здесь используется функция, напрямую строящая двоичное дерево из массива
   TreeNode? root = listToTree([1, 2, 3, 4, 5, 6, 7]);
-  print("\nИнициализировать двоичное дерево\n");
+  print("\nИнициализация двоичного дерева\n");
   printTree(root);
 
-  // Обход по уровням
+  // Обход в ширину
   List<int> res = levelOrder(root);
-  print("\nПоследовательность узлов при обходе по уровням = $res");
+  print("\nПоследовательность печати узлов при обходе в ширину = $res");
 }

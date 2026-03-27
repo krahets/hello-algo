@@ -7,16 +7,16 @@
 /* Узел двусвязного списка */
 class ListNode {
   int val; // Значение узла
-  ListNode? next; // Ссылка на следующий узел
-  ListNode? prev; // Ссылка на предыдущий узел
+  ListNode? next; // Ссылка на узел-преемник
+  ListNode? prev; // Ссылка на узел-предшественник
 
   ListNode(this.val, {this.next, this.prev});
 }
 
 /* Двусторонняя очередь на основе двусвязного списка */
 class LinkedListDeque {
-  late ListNode? _front; // головной узел _front
-  late ListNode? _rear; // хвостовой узел _rear
+  late ListNode? _front; // Головной узел _front
+  late ListNode? _rear; // Хвостовой узел _rear
   int _queSize = 0; // Длина двусторонней очереди
 
   LinkedListDeque() {
@@ -24,44 +24,44 @@ class LinkedListDeque {
     this._rear = null;
   }
 
-  /* ПолучитьДлина двусторонней очереди */
+  /* Получить длину двусторонней очереди */
   int size() {
     return this._queSize;
   }
 
-  /* Проверить, пуста ли двусторонняя очередь */
+  /* Проверка, пуста ли двусторонняя очередь */
   bool isEmpty() {
     return size() == 0;
   }
 
-  /* Операция помещения в очередь */
+  /* Операция добавления в очередь */
   void push(int _num, bool isFront) {
     final ListNode node = ListNode(_num);
     if (isEmpty()) {
-      // Если связный список пуст, сделать так, чтобы и _front, и _rear указывали на node
+      // Если связный список пуст, пусть _front и _rear оба указывают на node
       _front = _rear = node;
     } else if (isFront) {
-      // Операция помещения в голову очереди
-      // Добавить node в голову связного списка
+      // Операция добавления в голову очереди
+      // Добавить node в начало связного списка
       _front!.prev = node;
       node.next = _front;
       _front = node; // Обновить головной узел
     } else {
-      // Операция помещения в хвост очереди
-      // Добавить node в хвост связного списка
+      // Операция добавления в хвост очереди
+      // Добавить node в конец связного списка
       _rear!.next = node;
       node.prev = _rear;
       _rear = node; // Обновить хвостовой узел
     }
-    _queSize++; // ОбновитьДлина очереди
+    _queSize++; // Обновить длину очереди
   }
 
-  /* Поместить в голову очереди */
+  /* Добавление в голову очереди */
   void pushFirst(int _num) {
     push(_num, true);
   }
 
-  /* Поместить в хвост очереди */
+  /* Добавление в хвост очереди */
   void pushLast(int _num) {
     push(_num, false);
   }
@@ -94,31 +94,31 @@ class LinkedListDeque {
       }
       _rear = rPrev; // Обновить хвостовой узел
     }
-    _queSize--; // ОбновитьДлина очереди
+    _queSize--; // Обновить длину очереди
     return val;
   }
 
-  /* Извлечь из головы очереди */
+  /* Извлечение из головы очереди */
   int? popFirst() {
     return pop(true);
   }
 
-  /* Извлечь из хвоста очереди */
+  /* Извлечение из хвоста очереди */
   int? popLast() {
     return pop(false);
   }
 
-  /* Получить элемент в начале очереди */
+  /* Доступ к элементу в начале очереди */
   int? peekFirst() {
     return _front?.val;
   }
 
-  /* Обратиться к элементу в хвосте очереди */
+  /* Доступ к элементу в конце очереди */
   int? peekLast() {
     return _rear?.val;
   }
 
-  /* Вернуть массив для печати */
+  /* Вернуть массив для вывода */
   List<int> toArray() {
     ListNode? node = _front;
     final List<int> res = [];
@@ -132,36 +132,36 @@ class LinkedListDeque {
 
 /* Driver Code */
 void main() {
-  /* Инициализировать двустороннюю очередь */
+  /* Инициализация двусторонней очереди */
   final LinkedListDeque deque = LinkedListDeque();
   deque.pushLast(3);
   deque.pushLast(2);
   deque.pushLast(5);
-  print("двусторонняя очередь deque = ${deque.toArray()}");
+  print("Двусторонняя очередь deque = ${deque.toArray()}");
 
-  /* Получить доступ к элементу */
+  /* Доступ к элементу */
   int? peekFirst = deque.peekFirst();
-  print("голова очередиэлемент peekFirst = $peekFirst");
+  print("Первый элемент peekFirst = $peekFirst");
   int? peekLast = deque.peekLast();
-  print("хвост очередиэлемент peekLast = $peekLast");
+  print("Последний элемент peekLast = $peekLast");
 
-  /* Поместить элемент в очередь */
+  /* Добавление элемента в очередь */
   deque.pushLast(4);
-  print("После помещения элемента 4 в хвост очереди deque = ${deque.toArray()}");
+  print("После добавления элемента 4 в хвост deque = ${deque.toArray()}");
   deque.pushFirst(1);
-  print("После помещения элемента 1 в голову очереди deque = ${deque.toArray()}");
+  print("После добавления элемента 1 в голову deque = ${deque.toArray()}");
 
-  /* Извлечь элемент из очереди */
+  /* Извлечение элемента из очереди */
   int? popLast = deque.popLast();
-  print("Элемент, извлеченный из хвоста очереди = $popLast , deque после извлечения из хвоста = ${deque.toArray()}");
+  print("Извлеченный из хвоста элемент = $popLast, deque после извлечения из хвоста = ${deque.toArray()}");
   int? popFirst = deque.popFirst();
-  print("Элемент, извлеченный из головы очереди = $popFirst , deque после извлечения из головы = ${deque.toArray()}");
+  print("Извлеченный из головы элемент = $popFirst, deque после извлечения из головы = ${deque.toArray()}");
 
-  /* Получить длину двусторонней очереди */
+  /* Получение длины двусторонней очереди */
   int size = deque.size();
   print("Длина двусторонней очереди size = $size");
 
-  /* Проверить, пуста ли двусторонняя очередь */
+  /* Проверка, пуста ли двусторонняя очередь */
   bool isEmpty = deque.isEmpty();
-  print("Двусторонняя очередь пуста: $isEmpty");
+  print("Пуста ли двусторонняя очередь = $isEmpty");
 }

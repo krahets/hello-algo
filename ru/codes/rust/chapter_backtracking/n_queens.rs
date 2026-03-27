@@ -14,7 +14,7 @@ fn backtrack(
     diags1: &mut [bool],
     diags2: &mut [bool],
 ) {
-    // Когда все строки заполнены, записать решение
+    // Когда все строки уже обработаны, записать решение
     if row == n {
         res.push(state.clone());
         return;
@@ -24,27 +24,27 @@ fn backtrack(
         // Вычислить главную и побочную диагонали, соответствующие этой клетке
         let diag1 = row + n - 1 - col;
         let diag2 = row + col;
-        // Отсечение: не допускается наличие ферзя в этом столбце, на главной диагонали или на побочной диагонали
+        // Отсечение: в столбце, главной диагонали и побочной диагонали этой клетки не должно быть ферзей
         if !cols[col] && !diags1[diag1] && !diags2[diag2] {
-            // Попытка: разместить ферзя в этой клетке
+            // Попытка: поставить ферзя в эту клетку
             state[row][col] = "Q".into();
             (cols[col], diags1[diag1], diags2[diag2]) = (true, true, true);
             // Перейти к размещению следующей строки
             backtrack(row + 1, n, state, res, cols, diags1, diags2);
-            // Откат: восстановить эту клетку в пустое состояние
+            // Откат: восстановить эту клетку как пустую
             state[row][col] = "#".into();
             (cols[col], diags1[diag1], diags2[diag2]) = (false, false, false);
         }
     }
 }
 
-/* Решить задачу n ферзей */
+/* Решить задачу о n ферзях */
 fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
-    // Инициализировать доску размера n*n, где 'Q' обозначает ферзя, а '#' обозначает пустую клетку
+    // Инициализировать доску размера n*n, где 'Q' обозначает ферзя, а '#' — пустую клетку
     let mut state: Vec<Vec<String>> = vec![vec!["#".to_string(); n]; n];
-    let mut cols = vec![false; n]; // Записать, есть ли ферзь в столбце
-    let mut diags1 = vec![false; 2 * n - 1]; // Записать, есть ли ферзь на главной диагонали
-    let mut diags2 = vec![false; 2 * n - 1]; // Записать, есть ли ферзь на побочной диагонали
+    let mut cols = vec![false; n]; // Отмечать, есть ли ферзь в столбце
+    let mut diags1 = vec![false; 2 * n - 1]; // Отмечать наличие ферзя на главной диагонали
+    let mut diags2 = vec![false; 2 * n - 1]; // Отмечать наличие ферзя на побочной диагонали
     let mut res: Vec<Vec<Vec<String>>> = Vec::new();
 
     backtrack(
@@ -65,7 +65,7 @@ pub fn main() {
     let n: usize = 4;
     let res = n_queens(n);
 
-    println!("Входдоскаразмерравно {n}");
+    println!("Размер входной доски = {n}");
     println!("Количество способов расстановки ферзей: {}", res.len());
     for state in res.iter() {
         println!("--------------------");

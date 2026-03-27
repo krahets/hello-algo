@@ -10,7 +10,7 @@ import utils.ListNode
 
 /* Линейный поиск (массив) */
 fun linearSearchArray(nums: IntArray, target: Int): Int {
-    // Перебрать массив
+    // Обход массива
     for (i in nums.indices) {
         // Целевой элемент найден, вернуть его индекс
         if (nums[i] == target)
@@ -46,5 +46,5 @@ fun main() {
     /* Выполнить линейный поиск в связном списке */
     val head = ListNode.arrToLinkedList(nums)
     val node = linearSearchLinkedList(head, target)
-    println("Объект узла, соответствующий целевому значению 3, равен $node")
+    println("Объект узла со значением 3 = $node")
 }

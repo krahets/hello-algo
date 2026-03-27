@@ -8,7 +8,7 @@ import { type TreeNode } from '../modules/TreeNode';
 import { arrToTree } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
-/* Прямой обход: пример 1 */
+/* Предварительный обход: пример 1 */
 function preOrder(root: TreeNode | null, res: TreeNode[]): void {
     if (root === null) {
         return;
@@ -23,10 +23,10 @@ function preOrder(root: TreeNode | null, res: TreeNode[]): void {
 
 // Driver Code
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
-console.log('\nИнициализировать двоичное дерево');
+console.log('\nИнициализация двоичного дерева');
 printTree(root);
 
-// Прямой обход
+// Предварительный обход
 const res: TreeNode[] = [];
 preOrder(root, res);
 

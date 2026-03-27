@@ -7,12 +7,12 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ## Прямой обход: пример 3 ###
+# ## Предварительный обход: пример 3 ###
 def pre_order(root)
   # Отсечение
   return if !root || root.val == 3
 
-  # Попытаться
+  # Попытка
   $path.append(root)
 
   # Записать решение
@@ -28,14 +28,14 @@ end
 ### Driver Code ###
 if __FILE__ == $0
   root = arr_to_tree([1, 7, 3, 4, 5, 6, 7])
-  puts "\nИнициализировать двоичное дерево"
+  puts "\nИнициализация двоичного дерева"
   print_tree(root)
 
-  # Прямой обход
+  # Предварительный обход
   $path, $res = [], []
   pre_order(root)
 
-  puts "\nВывести все пути от корня до узла 7, путь не должен содержать узлы со значением 3"
+  puts "\nВсе пути от корня к узлу 7, не содержащие узлов со значением 3"
   for path in $res
     p path.map { |node| node.val }
   end

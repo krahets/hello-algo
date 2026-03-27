@@ -7,7 +7,7 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* Прямой обход: пример 1 */
+/* Предварительный обход: пример 1 */
 void preOrder(TreeNode? root, List<TreeNode> res) {
   if (root == null) {
     return;
@@ -23,13 +23,13 @@ void preOrder(TreeNode? root, List<TreeNode> res) {
 /* Driver Code */
 void main() {
   TreeNode? root = listToTree([1, 7, 3, 4, 5, 6, 7]);
-  print("\nИнициализировать двоичное дерево");
+  print("\nИнициализация двоичного дерева");
   printTree(root);
 
-  // Прямой обход
+  // Предварительный обход
   List<TreeNode> res = [];
   preOrder(root, res);
 
-  print("\nВывести все узлы со значением 7");
+  print("\nВсе узлы со значением 7");
   print(List.generate(res.length, (i) => res[i].val));
 }

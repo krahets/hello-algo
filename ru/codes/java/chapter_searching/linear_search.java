@@ -11,7 +11,7 @@ import utils.*;
 public class linear_search {
     /* Линейный поиск (массив) */
     static int linearSearchArray(int[] nums, int target) {
-        // Перебрать массив
+        // Обход массива
         for (int i = 0; i < nums.length; i++) {
             // Целевой элемент найден, вернуть его индекс
             if (nums[i] == target)
@@ -45,6 +45,6 @@ public class linear_search {
         /* Выполнить линейный поиск в связном списке */
         ListNode head = ListNode.arrToLinkedList(nums);
         ListNode node = linearSearchLinkedList(head, target);
-        System.out.println("Объект узла, соответствующий целевому значению 3, равен " + node);
+        System.out.println("Объект узла со значением 3 = " + node);
     }
 }

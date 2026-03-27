@@ -9,7 +9,7 @@
 /* Класс неориентированного графа на основе списка смежности */
 class GraphAdjList {
   public:
-    // Список смежности, key: вершина, value: все смежные с ней вершины
+    // Список смежности, где key — вершина, а value — все смежные ей вершины
     unordered_map<Vertex *, vector<Vertex *>> adjList;
 
     /* Удалить указанный узел из vector */
@@ -32,42 +32,42 @@ class GraphAdjList {
         }
     }
 
-    /* Получить количество вершин */
+    /* Получить число вершин */
     int size() {
         return adjList.size();
     }
 
-    /* Добавить ребро */
+    /* Добавление ребра */
     void addEdge(Vertex *vet1, Vertex *vet2) {
         if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-            throw invalid_argument("не существуетвершина");
+            throw invalid_argument("вершина не существует");
         // Добавить ребро vet1 - vet2
         adjList[vet1].push_back(vet2);
         adjList[vet2].push_back(vet1);
     }
 
-    /* Удалить ребро */
+    /* Удаление ребра */
     void removeEdge(Vertex *vet1, Vertex *vet2) {
         if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-            throw invalid_argument("не существуетвершина");
+            throw invalid_argument("вершина не существует");
         // Удалить ребро vet1 - vet2
         remove(adjList[vet1], vet2);
         remove(adjList[vet2], vet1);
     }
 
-    /* Добавить вершину */
+    /* Добавление вершины */
     void addVertex(Vertex *vet) {
         if (adjList.count(vet))
             return;
-        // Добавить новый связный список в список смежности
+        // Добавить новый список в список смежности
         adjList[vet] = vector<Vertex *>();
     }
 
-    /* Удалить вершину */
+    /* Удаление вершины */
     void removeVertex(Vertex *vet) {
         if (!adjList.count(vet))
-            throw invalid_argument("не существуетвершина");
-        // Удалить из списка смежности связный список, соответствующий вершине vet
+            throw invalid_argument("вершина не существует");
+        // Удалить из списка смежности список, соответствующий вершине vet
         adjList.erase(vet);
         // Обойти списки других вершин и удалить все ребра, содержащие vet
         for (auto &adj : adjList) {

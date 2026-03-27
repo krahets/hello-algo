@@ -23,7 +23,7 @@ func (abt *arrayBinaryTree) size() int {
 
 /* Получить значение узла с индексом i */
 func (abt *arrayBinaryTree) val(i int) any {
-	// Если индекс выходит за границы, вернуть null, обозначающий пустую клетку
+	// Если индекс выходит за границы, вернуть null, обозначающий пустую позицию
 	if i < 0 || i >= abt.size() {
 		return nil
 	}
@@ -45,10 +45,10 @@ func (abt *arrayBinaryTree) parent(i int) int {
 	return (i - 1) / 2
 }
 
-/* Обход по уровням */
+/* Обход в ширину */
 func (abt *arrayBinaryTree) levelOrder() []any {
 	var res []any
-	// Непосредственно обойти массив
+	// Непосредственно обходить массив
 	for i := 0; i < abt.size(); i++ {
 		if abt.val(i) != nil {
 			res = append(res, abt.val(i))
@@ -59,11 +59,11 @@ func (abt *arrayBinaryTree) levelOrder() []any {
 
 /* Обход в глубину */
 func (abt *arrayBinaryTree) dfs(i int, order string, res *[]any) {
-	// Если это пустая клетка, вернуть результат
+	// Если это пустая позиция, вернуть
 	if abt.val(i) == nil {
 		return
 	}
-	// Прямой обход
+	// Предварительный обход
 	if order == "pre" {
 		*res = append(*res, abt.val(i))
 	}
@@ -79,7 +79,7 @@ func (abt *arrayBinaryTree) dfs(i int, order string, res *[]any) {
 	}
 }
 
-/* Прямой обход */
+/* Предварительный обход */
 func (abt *arrayBinaryTree) preOrder() []any {
 	var res []any
 	abt.dfs(0, "pre", &res)

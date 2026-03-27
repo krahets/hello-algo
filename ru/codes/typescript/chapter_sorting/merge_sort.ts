@@ -6,14 +6,14 @@
 
 /* Объединить левый и правый подмассивы */
 function merge(nums: number[], left: number, mid: number, right: number): void {
-    // Диапазон левого подмассива равен [left, mid], а правого подмассива равен [mid+1, right]
+    // Диапазон левого подмассива: [left, mid], диапазон правого подмассива: [mid+1, right]
     // Создать временный массив tmp для хранения результата слияния
     const tmp = new Array(right - left + 1);
     // Инициализировать начальные индексы левого и правого подмассивов
     let i = left,
         j = mid + 1,
         k = 0;
-    // Пока в левом и правом подмассивах еще есть элементы, сравнивать их и копировать меньший элемент во временный массив
+    // Пока в левом и правом подмассивах еще есть элементы, сравнивать их и копировать меньший во временный массив
     while (i <= mid && j <= right) {
         if (nums[i] <= nums[j]) {
             tmp[k++] = nums[i++];
@@ -28,7 +28,7 @@ function merge(nums: number[], left: number, mid: number, right: number): void {
     while (j <= right) {
         tmp[k++] = nums[j++];
     }
-    // Скопировать элементы из временного массива tmp обратно в соответствующий диапазон исходного массива nums
+    // Скопировать элементы временного массива tmp обратно в соответствующий диапазон исходного массива nums
     for (k = 0; k < tmp.length; k++) {
         nums[left + k] = tmp[k];
     }
@@ -49,6 +49,6 @@ function mergeSort(nums: number[], left: number, right: number): void {
 /* Driver Code */
 const nums = [7, 3, 2, 6, 0, 1, 5, 4];
 mergeSort(nums, 0, nums.length - 1);
-console.log('Сортировка слияниемпосле завершения nums =', nums);
+console.log('После завершения сортировки слиянием nums =', nums);
 
 export {};

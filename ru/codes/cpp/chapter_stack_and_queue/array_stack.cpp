@@ -12,12 +12,12 @@ class ArrayStack {
     vector<int> stack;
 
   public:
-    /* Получить длину стека */
+    /* Получение длины стека */
     int size() {
         return stack.size();
     }
 
-    /* Проверить, пуст ли стек */
+    /* Проверка, пуст ли стек */
     bool isEmpty() {
         return stack.size() == 0;
     }
@@ -34,10 +34,10 @@ class ArrayStack {
         return num;
     }
 
-    /* Получить верхний элемент стека */
+    /* Доступ к верхнему элементу стека */
     int top() {
         if (isEmpty())
-            throw out_of_range("Стек пуст");
+            throw out_of_range("стек пуст");
         return stack.back();
     }
 
@@ -49,10 +49,10 @@ class ArrayStack {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать стек */
+    /* Инициализация стека */
     ArrayStack *stack = new ArrayStack();
 
-    /* Поместить элемент в стек */
+    /* Помещение элемента в стек */
     stack->push(1);
     stack->push(3);
     stack->push(2);
@@ -61,22 +61,22 @@ int main() {
     cout << "Стек stack = ";
     printVector(stack->toVector());
 
-    /* Получить верхний элемент стека */
+    /* Доступ к верхнему элементу стека */
     int top = stack->top();
-    cout << "Элемент на вершине стека top = " << top << endl;
+    cout << "Верхний элемент top = " << top << endl;
 
-    /* Извлечь элемент из стека */
+    /* Извлечение элемента из стека */
     top = stack->pop();
-    cout << "Элемент, извлеченный из стека, pop = " << top << ", stack после извлечения = ";
+    cout << "Извлеченный элемент pop = " << top << ", stack после извлечения = ";
     printVector(stack->toVector());
 
-    /* Получить длину стека */
+    /* Получение длины стека */
     int size = stack->size();
-    cout << "Длина стека size =" << size << endl;
+    cout << "Длина стека size = " << size << endl;
 
-    /* Проверить, пуста ли структура */
+    /* Проверка на пустоту */
     bool empty = stack->isEmpty();
-    cout << "стекпуст ли =" << empty << endl;
+    cout << "Пуст ли стек = " << empty << endl;
 
     // Освободить память
     delete stack;

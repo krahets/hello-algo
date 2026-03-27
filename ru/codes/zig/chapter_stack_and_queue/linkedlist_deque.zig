@@ -11,8 +11,8 @@ pub fn ListNode(comptime T: type) type {
         const Self = @This();
         
         val: T = undefined,     // Значение узла
-        next: ?*Self = null,    // Указатель следующего узла
-        prev: ?*Self = null,    // Указатель предыдущего узла
+        next: ?*Self = null,    // Указатель на узел-преемник
+        prev: ?*Self = null,    // Указатель на узел-предшественник
 
         // Initialize a list node with specific value
         pub fn init(self: *Self, x: i32) void {
@@ -32,7 +32,7 @@ pub fn LinkedListDeque(comptime T: type) type {
         rear: ?*ListNode(T) = null,                     // Хвостовой узел rear
         que_size: usize = 0,                             // Длина двусторонней очереди
         mem_arena: ?std.heap.ArenaAllocator = null,
-        mem_allocator: std.mem.Allocator = undefined,   // Распределитель памяти
+        mem_allocator: std.mem.Allocator = undefined,   // Аллокатор памяти
 
         // Конструктор (выделение памяти + инициализация очереди)
         pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
@@ -45,23 +45,23 @@ pub fn LinkedListDeque(comptime T: type) type {
             self.que_size = 0;
         }
 
-        // Деструктор(Освободить память)
+        // Деструктор (освобождение памяти)
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
         }
 
-        // Получить длину двусторонней очереди
+        // Получение длины двусторонней очереди
         pub fn size(self: *Self) usize {
             return self.que_size;
         }
 
-        // Проверить, пуста ли двусторонняя очередь
+        // Проверка, пуста ли двусторонняя очередь
         pub fn isEmpty(self: *Self) bool {
             return self.size() == 0;
         }
 
-        // Операция помещения в очередь
+        // Операция добавления в очередь
         pub fn push(self: *Self, num: T, is_front: bool) !void {
             var node = try self.mem_allocator.create(ListNode(T));
             node.init(num);
@@ -69,35 +69,35 @@ pub fn LinkedListDeque(comptime T: type) type {
             if (self.isEmpty()) {
                 self.front = node;
                 self.rear = node;
-            // Операция помещения в голову очереди
+            // Операция добавления в голову очереди
             } else if (is_front) {
-                // Добавить node в голову связного списка
+                // Добавить node в голову списка
                 self.front.?.prev = node;
                 node.next = self.front;
                 self.front = node;  // Обновить головной узел
-            // Операция помещения в хвост очереди
+            // Операция добавления в хвост очереди
             } else {
-                // Добавить node в хвост связного списка
+                // Добавить node в хвост списка
                 self.rear.?.next = node;
                 node.prev = self.rear;
                 self.rear = node;   // Обновить хвостовой узел
             }
-            self.que_size += 1;      // ОбновитьДлина очереди
+            self.que_size += 1;      // Обновить длину очереди
         } 
 
-        // Поместить в голову очереди
+        // Добавление в голову очереди
         pub fn pushFirst(self: *Self, num: T) !void {
             try self.push(num, true);
         } 
 
-        // Поместить в хвост очереди
+        // Добавление в хвост очереди
         pub fn pushLast(self: *Self, num: T) !void {
             try self.push(num, false);
         } 
         
         // Операция извлечения из очереди
         pub fn pop(self: *Self, is_front: bool) T {
-            if (self.isEmpty()) @panic("Двусторонняя очередь пуста");
+            if (self.isEmpty()) @panic("двусторонняя очередь пуста");
             var val: T = undefined;
             // Операция извлечения из головы очереди
             if (is_front) {
@@ -120,33 +120,33 @@ pub fn LinkedListDeque(comptime T: type) type {
                 }
                 self.rear = rPrev;          // Обновить хвостовой узел
             }
-            self.que_size -= 1;              // ОбновитьДлина очереди
+            self.que_size -= 1;              // Обновить длину очереди
             return val;
         } 
 
-        // Извлечь из головы очереди
+        // Извлечение из головы очереди
         pub fn popFirst(self: *Self) T {
             return self.pop(true);
         } 
 
-        // Извлечь из хвоста очереди
+        // Извлечение из хвоста очереди
         pub fn popLast(self: *Self) T {
             return self.pop(false);
         } 
 
-        // Получить элемент в начале очереди
+        // Доступ к элементу в начале очереди
         pub fn peekFirst(self: *Self) T {
-            if (self.isEmpty()) @panic("Двусторонняя очередь пуста");
+            if (self.isEmpty()) @panic("двусторонняя очередь пуста");
             return self.front.?.val;
         }  
 
-        // Обратиться к элементу в хвосте очереди
+        // Доступ к элементу в конце очереди
         pub fn peekLast(self: *Self) T {
-            if (self.isEmpty()) @panic("Двусторонняя очередь пуста");
+            if (self.isEmpty()) @panic("двусторонняя очередь пуста");
             return self.rear.?.val;
         }
 
-        // Вернуть массив для печати
+        // Вернуть массив для вывода
         pub fn toArray(self: *Self) ![]T {
             var node = self.front;
             var res = try self.mem_allocator.alloc(T, self.size());
@@ -163,7 +163,7 @@ pub fn LinkedListDeque(comptime T: type) type {
 
 // Driver Code
 pub fn main() !void {
-    // Инициализировать двустороннюю очередь
+    // Инициализация двусторонней очереди
     var deque = LinkedListDeque(i32){};
     try deque.init(std.heap.page_allocator);
     defer deque.deinit();
@@ -173,35 +173,35 @@ pub fn main() !void {
     std.debug.print("Двусторонняя очередь deque = ", .{});
     inc.PrintUtil.printArray(i32, try deque.toArray());
 
-    // Получить доступ к элементу
+    // Доступ к элементу
     var peek_first = deque.peekFirst();
-    std.debug.print("\nголова очередиэлемент peek_first = {}", .{peek_first});
+    std.debug.print("\nЭлемент в начале очереди peek_first = {}", .{peek_first});
     var peek_last = deque.peekLast();
-    std.debug.print("\nхвост очередиэлемент peek_last = {}", .{peek_last});
+    std.debug.print("\nЭлемент в конце очереди peek_last = {}", .{peek_last});
 
-    // Поместить элемент в очередь
+    // Добавление элемента в очередь
     try deque.pushLast(4);
-    std.debug.print("\nПосле помещения элемента 4 в хвост очереди deque = ", .{});
+    std.debug.print("\nПосле добавления элемента 4 в хвост deque = ", .{});
     inc.PrintUtil.printArray(i32, try deque.toArray());
     try deque.pushFirst(1);
-    std.debug.print("\nПосле помещения элемента 1 в голову очереди deque = ", .{});
+    std.debug.print("\nПосле добавления элемента 1 в голову deque = ", .{});
     inc.PrintUtil.printArray(i32, try deque.toArray());
 
-    // Извлечь элемент из очереди
+    // Извлечение элемента из очереди
     var pop_last = deque.popLast();
-    std.debug.print("\nЭлемент, извлеченный из хвоста очереди = {}, deque после извлечения из хвоста = ", .{pop_last});
+    std.debug.print("\nИзвлечен элемент из хвоста = {}, deque после извлечения из хвоста = ", .{pop_last});
     inc.PrintUtil.printArray(i32, try deque.toArray());
     var pop_first = deque.popFirst();
-    std.debug.print("\nЭлемент, извлеченный из головы очереди = {}, deque после извлечения из головы = ", .{pop_first});
+    std.debug.print("\nИзвлечен элемент из головы = {}, deque после извлечения из головы = ", .{pop_first});
     inc.PrintUtil.printArray(i32, try deque.toArray());
 
-    // Получить длину двусторонней очереди
+    // Получение длины двусторонней очереди
     var size = deque.size();
     std.debug.print("\nДлина двусторонней очереди size = {}", .{size});
 
-    // Проверить, пуста ли двусторонняя очередь
+    // Проверка, пуста ли двусторонняя очередь
     var is_empty = deque.isEmpty();
-    std.debug.print("\nДвусторонняя очередь пуста: {}", .{is_empty});
+    std.debug.print("\nПуста ли двусторонняя очередь = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

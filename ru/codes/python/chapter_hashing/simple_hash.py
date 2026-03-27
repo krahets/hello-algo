@@ -33,7 +33,7 @@ def xor_hash(key: str) -> int:
 
 
 def rot_hash(key: str) -> int:
-    """Вращательное хеширование"""
+    """Хеширование с циклическим сдвигом"""
     hash = 0
     modulus = 1000000007
     for c in key:
@@ -46,13 +46,13 @@ if __name__ == "__main__":
     key = "Hello Algo"
 
     hash = add_hash(key)
-    print(f"Аддитивное хешированиезначениеравно {hash}")
+    print(f"Хеш-сумма сложением = {hash}")
 
     hash = mul_hash(key)
-    print(f"Мультипликативное хешированиезначениеравно {hash}")
+    print(f"Хеш-сумма умножением = {hash}")
 
     hash = xor_hash(key)
-    print(f"XOR-хешированиезначениеравно {hash}")
+    print(f"Хеш-сумма XOR = {hash}")
 
     hash = rot_hash(key)
-    print(f"Вращательное хешированиезначениеравно {hash}")
+    print(f"Хеш-сумма с циклическим сдвигом = {hash}")

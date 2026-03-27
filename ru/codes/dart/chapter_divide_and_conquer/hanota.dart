@@ -6,9 +6,9 @@
 
 /* Переместить один диск */
 void move(List<int> src, List<int> tar) {
-  // Взять верхний диск со стержня src
+  // Снять диск с вершины src
   int pan = src.removeLast();
-  // Поместить диск на вершину tar
+  // Положить диск на вершину tar
   tar.add(pan);
 }
 
@@ -36,11 +36,11 @@ void solveHanota(List<int> A, List<int> B, List<int> C) {
 
 /* Driver Code */
 void main() {
-  // Конец списка соответствует вершине стержня
+  // Хвост списка соответствует вершине столбца
   List<int> A = [5, 4, 3, 2, 1];
   List<int> B = [];
   List<int> C = [];
-  print("В начальном состоянии:");
+  print("Исходное состояние:");
   print("A = $A");
   print("B = $B");
   print("C = $C");

@@ -6,7 +6,7 @@
 
 /* Случайный доступ к элементу */
 func randomAccess(nums: [Int]) -> Int {
-    // Случайно выбрать число в интервале [0, nums.count)
+    // Случайным образом выбрать число из интервала [0, nums.count)
     let randomIndex = nums.indices.randomElement()!
     // Получить и вернуть случайный элемент
     let randomNum = nums[randomIndex]
@@ -21,13 +21,13 @@ func extend(nums: [Int], enlarge: Int) -> [Int] {
     for i in nums.indices {
         res[i] = nums[i]
     }
-    // Вернуть новый расширенный массив
+    // Вернуть новый массив после расширения
     return res
 }
 
-/* Вставить элемент num в массив по индексу index */
+/* Вставить элемент num по индексу index в массив */
 func insert(nums: inout [Int], num: Int, index: Int) {
-    // Сдвинуть индекс index и все последующие элементы на одну позицию назад
+    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
     for i in nums.indices.dropFirst(index).reversed() {
         nums[i] = nums[i - 1]
     }
@@ -43,10 +43,10 @@ func remove(nums: inout [Int], index: Int) {
     }
 }
 
-/* Перебрать массив */
+/* Обход массива */
 func traverse(nums: [Int]) {
     var count = 0
-    // Обходить массив по индексам
+    // Обход массива по индексам
     for i in nums.indices {
         count += nums[i]
     }
@@ -75,33 +75,33 @@ func find(nums: [Int], target: Int) -> Int {
 enum _Array {
     /* Driver Code */
     static func main() {
-        /* Инициализировать массив */
+        /* Инициализация массива */
         let arr = Array(repeating: 0, count: 5)
-        print("массив arr = \(arr)")
+        print("Массив arr = \(arr)")
         var nums = [1, 3, 2, 5, 4]
         print("Массив nums = \(nums)")
 
         /* Случайный доступ */
         let randomNum = randomAccess(nums: nums)
-        print("Полученный случайный элемент из nums \(randomNum)")
+        print("Случайный элемент из nums = \(randomNum)")
 
         /* Расширение длины */
         nums = extend(nums: nums, enlarge: 3)
-        print("После расширения длины массива до 8 получаем nums = \(nums)")
+        print("После увеличения длины массива до 8 nums = \(nums)")
 
-        /* Вставить элемент */
+        /* Вставка элемента */
         insert(nums: &nums, num: 6, index: 3)
-        print("После вставки числа 6 по индексу 3 получаем nums = \(nums)")
+        print("После вставки числа 6 по индексу 3 nums = \(nums)")
 
-        /* Удалить элемент */
+        /* Удаление элемента */
         remove(nums: &nums, index: 2)
-        print("Удалитьиндекс 2 поэлемент, получаем nums = \(nums)")
+        print("После удаления элемента по индексу 2 nums = \(nums)")
 
-        /* Перебрать массив */
+        /* Обход массива */
         traverse(nums: nums)
 
-        /* Найти элемент */
+        /* Поиск элемента */
         let index = find(nums: nums, target: 3)
-        print("Поиск элемента 3 в nums дает индекс = \(index)")
+        print("Поиск элемента 3 в nums: индекс = \(index)")
     }
 }

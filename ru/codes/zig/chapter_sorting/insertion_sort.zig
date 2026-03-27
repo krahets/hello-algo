@@ -7,7 +7,7 @@ const inc = @import("include");
 
 // Сортировка вставками
 fn insertionSort(nums: []i32) void {
-    // Внешний цикл: отсортированный диапазон равен [0, i-1]
+    // Внешний цикл: отсортированный диапазон [0, i-1]
     var i: usize = 1;
     while (i < nums.len) : (i += 1) {
         var base = nums[i];

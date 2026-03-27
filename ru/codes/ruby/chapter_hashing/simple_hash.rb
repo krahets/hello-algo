@@ -34,7 +34,7 @@ def xor_hash(key)
   hash % modulus
 end
 
-# ## Вращательное хеширование ###
+# ## Хеширование с циклическим сдвигом ###
 def rot_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -49,14 +49,14 @@ if __FILE__ == $0
   key = "Hello Algo"
 
   hash = add_hash(key)
-  puts "Аддитивное хешированиезначениеравно #{hash}"
+  puts "Хеш-сумма сложением = #{hash}"
 
   hash = mul_hash(key)
-  puts "Мультипликативное хешированиезначениеравно #{hash}"
+  puts "Хеш-сумма умножением = #{hash}"
 
   hash = xor_hash(key)
-  puts "XOR-хешированиезначениеравно #{hash}"
+  puts "Хеш-сумма XOR = #{hash}"
 
   hash = rot_hash(key)
-  puts "Вращательное хешированиезначениеравно #{hash}"
+  puts "Хеш-сумма с циклическим сдвигом = #{hash}"
 end

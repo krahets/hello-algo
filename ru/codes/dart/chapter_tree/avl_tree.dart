@@ -18,7 +18,7 @@ class AVLTree {
 
   /* Получить высоту узла */
   int height(TreeNode? node) {
-    // Высота пустого узла равна -1, а высота листа равна 0
+    // Высота пустого узла равна -1, высота листового узла равна 0
     return node == null ? -1 : node.height;
   }
 
@@ -30,17 +30,17 @@ class AVLTree {
 
   /* Получить коэффициент баланса */
   int balanceFactor(TreeNode? node) {
-    // Баланс-фактор пустого узла равен 0
+    // Коэффициент баланса пустого узла равен 0
     if (node == null) return 0;
-    // Баланс-фактор узла = высота левого поддерева - высота правого поддерева
+    // Коэффициент баланса узла = высота левого поддерева - высота правого поддерева
     return height(node.left) - height(node.right);
   }
 
-  /* Операция правого поворота */
+  /* Операция правого вращения */
   TreeNode? rightRotate(TreeNode? node) {
     TreeNode? child = node!.left;
     TreeNode? grandChild = child!.right;
-    // Используя child как опорную точку, выполнить правый поворот node
+    // Выполнить правое вращение узла node вокруг child
     child.right = node;
     node.left = grandChild;
     // Обновить высоту узла
@@ -50,11 +50,11 @@ class AVLTree {
     return child;
   }
 
-  /* Операция левого поворота */
+  /* Операция левого вращения */
   TreeNode? leftRotate(TreeNode? node) {
     TreeNode? child = node!.right;
     TreeNode? grandChild = child!.left;
-    // Используя child как опорную точку, выполнить левый поворот node
+    // Выполнить левое вращение узла node вокруг child
     child.left = node;
     node.right = grandChild;
     // Обновить высоту узла
@@ -64,17 +64,17 @@ class AVLTree {
     return child;
   }
 
-  /* Выполнить поворот, чтобы восстановить баланс этого поддерева */
+  /* Выполнить вращение, чтобы снова сбалансировать поддерево */
   TreeNode? rotate(TreeNode? node) {
     // Получить коэффициент баланса узла node
     int factor = balanceFactor(node);
     // Левосторонне перекошенное дерево
     if (factor > 1) {
       if (balanceFactor(node!.left) >= 0) {
-        // Правый поворот
+        // Правое вращение
         return rightRotate(node);
       } else {
-        // Сначала выполнить левый поворот, затем правый
+        // Сначала левое вращение, затем правое
         node.left = leftRotate(node.left);
         return rightRotate(node);
       }
@@ -82,24 +82,24 @@ class AVLTree {
     // Правосторонне перекошенное дерево
     if (factor < -1) {
       if (balanceFactor(node!.right) <= 0) {
-        // Левый поворот
+        // Левое вращение
         return leftRotate(node);
       } else {
-        // Сначала выполнить правый поворот, затем левый
+        // Сначала правое вращение, затем левое
         node.right = rightRotate(node.right);
         return leftRotate(node);
       }
     }
-    // Дерево сбалансировано, вращение не требуется, можно сразу вернуть результат
+    // Дерево сбалансировано, вращение не требуется, вернуть сразу
     return node;
   }
 
-  /* Вставить узел */
+  /* Вставка узла */
   void insert(int val) {
     root = insertHelper(root, val);
   }
 
-  /* рекурсиявставить узел(вспомогательный метод) */
+  /* Рекурсивная вставка узла (вспомогательный метод) */
   TreeNode? insertHelper(TreeNode? node, int val) {
     if (node == null) return TreeNode(val);
     /* 1. Найти позицию вставки и вставить узел */
@@ -108,20 +108,20 @@ class AVLTree {
     else if (val > node.val)
       node.right = insertHelper(node.right, val);
     else
-      return node; // Дублирующийся узел не вставлять, сразу вернуть результат
+      return node; // Повторяющийся узел не вставлять, сразу вернуть
     updateHeight(node); // Обновить высоту узла
-    /* 2. Выполнить вращение, чтобы снова сбалансировать это поддерево */
+    /* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
     node = rotate(node);
     // Вернуть корневой узел поддерева
     return node;
   }
 
-  /* Удалить узел */
+  /* Удаление узла */
   void remove(int val) {
     root = removeHelper(root, val);
   }
 
-  /* рекурсияУдалить узел(вспомогательный метод) */
+  /* Рекурсивное удаление узла (вспомогательный метод) */
   TreeNode? removeHelper(TreeNode? node, int val) {
     if (node == null) return null;
     /* 1. Найти узел и удалить его */
@@ -132,14 +132,14 @@ class AVLTree {
     else {
       if (node.left == null || node.right == null) {
         TreeNode? child = node.left ?? node.right;
-        // Если число дочерних узлов равно 0, сразу удалить node и вернуть результат
+        // Число дочерних узлов = 0, удалить node и сразу вернуть
         if (child == null)
           return null;
-        // Если число дочерних узлов равно 1, сразу удалить node
+        // Число дочерних узлов = 1, удалить node напрямую
         else
           node = child;
       } else {
-        // Если число дочерних узлов равно 2, удалить следующий узел симметричного обхода и заменить им текущий узел
+        // Число дочерних узлов = 2, удалить следующий по симметричному обходу узел и заменить им текущий узел
         TreeNode? temp = node.right;
         while (temp!.left != null) {
           temp = temp.left;
@@ -149,16 +149,16 @@ class AVLTree {
       }
     }
     updateHeight(node); // Обновить высоту узла
-    /* 2. Выполнить вращение, чтобы снова сбалансировать это поддерево */
+    /* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
     node = rotate(node);
     // Вернуть корневой узел поддерева
     return node;
   }
 
-  /* Найти узел */
+  /* Поиск узла */
   TreeNode? search(int val) {
     TreeNode? cur = root;
-    // Выполнять поиск в цикле и выйти после прохождения листового узла
+    // Искать в цикле и выйти после прохода за листовой узел
     while (cur != null) {
       // Целевой узел находится в правом поддереве cur
       if (val < cur.val)
@@ -188,10 +188,10 @@ void testRemove(AVLTree tree, int val) {
 
 /* Driver Code */
 void main() {
-  /* Инициализировать пустое AVL-дерево */
+  /* Инициализация пустого AVL-дерева */
   AVLTree avlTree = AVLTree();
-  /* Вставить узел */
-  // Обратите внимание на то, как AVL-дерево сохраняет баланс после вставки узла
+  /* Вставка узла */
+  // Обратите внимание, как AVL-дерево сохраняет баланс после вставки узла
   testInsert(avlTree, 1);
   testInsert(avlTree, 2);
   testInsert(avlTree, 3);
@@ -203,16 +203,16 @@ void main() {
   testInsert(avlTree, 10);
   testInsert(avlTree, 6);
 
-  /* Вставить повторяющийся узел */
+  /* Вставка повторяющегося узла */
   testInsert(avlTree, 7);
 
-  /* Удалить узел */
-  // Обратите внимание на то, как AVL-дерево сохраняет баланс после удаления узла
-  testRemove(avlTree, 8); // Удалить узел степени 0
-  testRemove(avlTree, 5); // Удалить узел степени 1
-  testRemove(avlTree, 4); // Удалить узел степени 2
+  /* Удаление узла */
+  // Обратите внимание, как AVL-дерево сохраняет баланс после удаления узла
+  testRemove(avlTree, 8); // Удаление узла степени 0
+  testRemove(avlTree, 5); // Удаление узла степени 1
+  testRemove(avlTree, 4); // Удаление узла степени 2
 
-  /* Найти узел */
+  /* Поиск узла */
   TreeNode? node = avlTree.search(7);
-  print("\nНайденныйузелобъектравно $node, значение узла = ${node!.val}");
+  print("\nНайденный объект узла = $node, значение узла = ${node!.val}");
 }

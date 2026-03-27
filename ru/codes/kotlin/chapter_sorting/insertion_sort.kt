@@ -8,7 +8,7 @@ package chapter_sorting
 
 /* Сортировка вставками */
 fun insertionSort(nums: IntArray) {
-    // Внешний цикл: уже отсортированные элементы равны 1, 2, ..., n
+    // Внешний цикл: отсортированные элементы равны 1, 2, ..., n
     for (i in nums.indices) {
         val base = nums[i]
         var j = i - 1
@@ -25,5 +25,5 @@ fun insertionSort(nums: IntArray) {
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     insertionSort(nums)
-    println("Сортировка вставкамипосле завершения nums = ${nums.contentToString()}")
+    println("После сортировки вставками nums = ${nums.contentToString()}")
 }

@@ -7,7 +7,7 @@ const inc = @import("include");
 
 // Линейный поиск (массив)
 fn linearSearchArray(comptime T: type, nums: std.ArrayList(T), target: T) T {
-    // Перебрать массив
+    // Обход массива
     for (nums.items, 0..) |num, i| {
         // Найти целевой элемент и вернуть его индекс
         if (num == target) {
@@ -47,7 +47,7 @@ pub fn main() !void {
     const mem_allocator = mem_arena.allocator();
     var head = try inc.ListUtil.listToLinkedList(i32, mem_allocator, nums);
     var node = linearSearchLinkedList(i32, head, target);
-    std.debug.print("Объект узла, соответствующий целевому значению 3, равен ", .{});
+    std.debug.print("Объект узла со значением 3 = ", .{});
     try inc.PrintUtil.printLinkedList(i32, node);
 
     _ = try std.io.getStdIn().reader().readByte();

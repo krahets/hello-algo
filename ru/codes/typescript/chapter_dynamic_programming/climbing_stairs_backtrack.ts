@@ -11,11 +11,11 @@ function backtrack(
     n: number,
     res: Map<0, any>
 ): void {
-    // Когда подъем достигает n-й ступени, число решений увеличивается на 1
+    // Когда подъем достигает n-й ступени, число вариантов увеличивается на 1
     if (state === n) res.set(0, res.get(0) + 1);
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for (const choice of choices) {
-        // Отсечение: не позволять выходить за пределы n-й ступени
+        // Отсечение: нельзя выходить за n-ю ступень
         if (state + choice > n) continue;
         // Попытка: сделать выбор и обновить состояние
         backtrack(choices, state + choice, n, res);
@@ -36,6 +36,6 @@ function climbingStairsBacktrack(n: number): number {
 /* Driver Code */
 const n = 9;
 const res = climbingStairsBacktrack(n);
-console.log(`Для подъема по лестнице из ${n} ступеней существует ${res} способов`);
+console.log(`Количество способов подняться по лестнице из ${n} ступеней = ${res} вариантов`);
 
 export {};

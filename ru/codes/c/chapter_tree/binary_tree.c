@@ -8,19 +8,19 @@
 
 /* Driver Code */
 int main() {
-    /* Инициализировать двоичное дерево */
-    // Инициализироватьузел
+    /* Инициализация двоичного дерева */
+    // Инициализация узла
     TreeNode *n1 = newTreeNode(1);
     TreeNode *n2 = newTreeNode(2);
     TreeNode *n3 = newTreeNode(3);
     TreeNode *n4 = newTreeNode(4);
     TreeNode *n5 = newTreeNode(5);
-    // Построить ссылки между узлами (указатели)
+    // Построить связи между узлами (указатели)
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
     n2->right = n5;
-    printf("Инициализировать двоичное дерево\n");
+    printf("Инициализация двоичного дерева\n");
     printTree(n1);
 
     /* Вставка и удаление узлов */

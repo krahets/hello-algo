@@ -8,9 +8,9 @@ package chapter_divide_and_conquer.hanota
 
 /* Переместить один диск */
 fun move(src: MutableList<Int>, tar: MutableList<Int>) {
-    // Взять верхний диск со стержня src
+    // Снять диск с вершины src
     val pan = src.removeAt(src.size - 1)
-    // Поместить диск на вершину tar
+    // Положить диск на вершину tar
     tar.add(pan)
 }
 
@@ -38,11 +38,11 @@ fun solveHanota(A: MutableList<Int>, B: MutableList<Int>, C: MutableList<Int>) {
 
 /* Driver Code */
 fun main() {
-    // Конец списка соответствует вершине стержня
+    // Хвост списка соответствует вершине столбца
     val A = mutableListOf(5, 4, 3, 2, 1)
     val B = mutableListOf<Int>()
     val C = mutableListOf<Int>()
-    println("В начальном состоянии:")
+    println("Исходное состояние:")
     println("A = $A")
     println("B = $B")
     println("C = $C")

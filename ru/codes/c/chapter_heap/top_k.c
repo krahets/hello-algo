@@ -6,7 +6,7 @@
 
 #include "my_heap.c"
 
-/* Добавить элемент в кучу */
+/* Добавление элемента в кучу */
 void pushMinHeap(MaxHeap *maxHeap, int val) {
     // Инвертировать знак элемента
     push(maxHeap, -val);
@@ -18,15 +18,15 @@ int popMinHeap(MaxHeap *maxHeap) {
     return -pop(maxHeap);
 }
 
-/* Обратиться к элементу на вершине кучи */
+/* Доступ к элементу на вершине кучи */
 int peekMinHeap(MaxHeap *maxHeap) {
     // Инвертировать знак элемента
     return -peek(maxHeap);
 }
 
-/* Извлечь элемент из кучи */
+/* Извлечь элементы из кучи */
 int *getMinHeap(MaxHeap *maxHeap) {
-    // Инвертировать знак всех элементов в куче и сохранить их в массив res
+    // Инвертировать все элементы кучи и записать их в массив res
     int *res = (int *)malloc(maxHeap->size * sizeof(int));
     for (int i = 0; i < maxHeap->size; i++) {
         res[i] = -maxHeap->data[i];
@@ -36,17 +36,17 @@ int *getMinHeap(MaxHeap *maxHeap) {
 
 // Функция поиска k наибольших элементов массива на основе кучи
 int *topKHeap(int *nums, int sizeNums, int k) {
-    // Инициализировать min-кучу
-    // Обратите внимание: мы инвертируем знак всех элементов в куче, чтобы имитировать min-кучу с помощью max-кучи
+    // Инициализация минимальной кучи
+    // Обратите внимание: мы инвертируем все элементы кучи, чтобы с помощью максимальной кучи имитировать минимальную
     int *empty = (int *)malloc(0);
     MaxHeap *maxHeap = newMaxHeap(empty, 0);
     // Поместить первые k элементов массива в кучу
     for (int i = 0; i < k; i++) {
         pushMinHeap(maxHeap, nums[i]);
     }
-    // Начиная с k+1-го элемента, поддерживать длину кучи равной k
+    // Начиная с элемента k+1, поддерживать длину кучи равной k
     for (int i = k; i < sizeNums; i++) {
-        // Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент
+        // Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу
         if (nums[i] > peekMinHeap(maxHeap)) {
             popMinHeap(maxHeap);
             pushMinHeap(maxHeap, nums[i]);

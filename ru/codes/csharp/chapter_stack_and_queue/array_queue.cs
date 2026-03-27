@@ -6,10 +6,10 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* Очередь на основе циклического массива */
+/* Очередь на основе кольцевого массива */
 class ArrayQueue {
     int[] nums;  // Массив для хранения элементов очереди
-    int front;   // Указатель front, указывающий на первый элемент очереди
+    int front;   // Указатель head, указывающий на первый элемент очереди
     int queSize; // Длина очереди
 
     public ArrayQueue(int capacity) {
@@ -22,12 +22,12 @@ class ArrayQueue {
         return nums.Length;
     }
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     public int Size() {
         return queSize;
     }
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     public bool IsEmpty() {
         return queSize == 0;
     }
@@ -38,10 +38,10 @@ class ArrayQueue {
             Console.WriteLine("Очередь заполнена");
             return;
         }
-        // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
-        // Операция взятия по модулю позволяет rear после выхода за конец массива вернуться к его началу
+        // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+        // С помощью операции взятия по модулю вернуть rear к началу после выхода за конец массива
         int rear = (front + queSize) % Capacity();
-        // Добавить num в конец очереди
+        // Добавить num в хвост очереди
         nums[rear] = num;
         queSize++;
     }
@@ -49,22 +49,22 @@ class ArrayQueue {
     /* Извлечь из очереди */
     public int Pop() {
         int num = Peek();
-        // Указатель головы очереди сдвигается на одну позицию вперед; если он выходит за конец, то возвращается в начало массива
+        // Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
         front = (front + 1) % Capacity();
         queSize--;
         return num;
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return nums[front];
     }
 
-    /* Вернутьмассив */
+    /* Вернуть массив */
     public int[] ToArray() {
-        // Преобразовать только элементы списка в пределах действительной длины
+        // Преобразовывать только элементы списка в пределах фактической длины
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[j % this.Capacity()];
@@ -76,11 +76,11 @@ class ArrayQueue {
 public class array_queue {
     [Test]
     public void Test() {
-        /* Инициализировать очередь */
+        /* Инициализация очереди */
         int capacity = 10;
         ArrayQueue queue = new(capacity);
 
-        /* Поместить элемент в очередь */
+        /* Добавление элемента в очередь */
         queue.Push(1);
         queue.Push(3);
         queue.Push(2);
@@ -88,27 +88,27 @@ public class array_queue {
         queue.Push(4);
         Console.WriteLine("Очередь queue = " + string.Join(",", queue.ToArray()));
 
-        /* Получить элемент в начале очереди */
+        /* Доступ к элементу в начале очереди */
         int peek = queue.Peek();
-        Console.WriteLine("голова очередиэлемент peek =" + peek);
+        Console.WriteLine("Первый элемент peek = " + peek);
 
-        /* Извлечь элемент из очереди */
+        /* Извлечение элемента из очереди */
         int pop = queue.Pop();
-        Console.WriteLine("Элемент, извлеченный из очереди, pop = " + pop + ", queue после извлечения = " + string.Join(",", queue.ToArray()));
+        Console.WriteLine("Извлеченный элемент pop = " + pop + ", queue после извлечения = " + string.Join(",", queue.ToArray()));
 
-        /* Получить длину очереди */
+        /* Получение длины очереди */
         int size = queue.Size();
-        Console.WriteLine("Длина очереди size =" + size);
+        Console.WriteLine("Длина очереди size = " + size);
 
-        /* Проверить, пуста ли очередь */
+        /* Проверка, пуста ли очередь */
         bool isEmpty = queue.IsEmpty();
-        Console.WriteLine("Очередь пуста: " + isEmpty);
+        Console.WriteLine("Пуста ли очередь = " + isEmpty);
 
-        /* Проверить кольцевой массив */
+        /* Проверка кольцевого массива */
         for (int i = 0; i < 10; i++) {
             queue.Push(i);
             queue.Pop();
-            Console.WriteLine("Итерация" + i + ": после enqueue + dequeue queue =" + string.Join(",", queue.ToArray()));
+            Console.WriteLine("После " + i + "-го раунда операций enqueue и dequeue queue = " + string.Join(",", queue.ToArray()));
         }
     }
 }

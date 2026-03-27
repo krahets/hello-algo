@@ -10,39 +10,39 @@ import java.util.*;
 
 public class list {
     public static void main(String[] args) {
-        /* Инициализировать список */
-        // Обратите внимание: тип элементов массива здесь Integer[], то есть обертка для int[]
+        /* Инициализация списка */
+        // Обратите внимание: тип элементов массива int[] — это обертка Integer[]
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
         System.out.println("Список nums = " + nums);
 
-        /* Получить доступ к элементу */
+        /* Доступ к элементу */
         int num = nums.get(1);
-        System.out.println("обратиться киндекс 1 поэлемент, получаем num =" + num);
+        System.out.println("Элемент по индексу 1: num = " + num);
 
-        /* Обновить элемент */
+        /* Обновление элемента */
         nums.set(1, 0);
-        System.out.println("После обновления элемента по индексу 1 на 0 получаем nums = " + nums);
+        System.out.println("После обновления элемента по индексу 1 до 0 nums = " + nums);
 
         /* Очистить список */
         nums.clear();
         System.out.println("После очистки списка nums = " + nums);
 
-        /* Добавить элемент в конец */
+        /* Добавление элемента в конец */
         nums.add(1);
         nums.add(3);
         nums.add(2);
         nums.add(5);
         nums.add(4);
-        System.out.println("Добавитьэлементпосле nums =" + nums);
+        System.out.println("После добавления элементов nums = " + nums);
 
-        /* Вставить элемент в середину */
+        /* Вставка элемента в середину */
         nums.add(3, 6);
-        System.out.println("После вставки числа 6 по индексу 3 получаем nums = " + nums);
+        System.out.println("После вставки числа 6 по индексу 3 nums = " + nums);
 
-        /* Удалить элемент */
+        /* Удаление элемента */
         nums.remove(3);
-        System.out.println("После удаления элемента по индексу 3 получаем nums = " + nums);
+        System.out.println("После удаления элемента по индексу 3 nums = " + nums);
 
         /* Обходить список по индексам */
         int count = 0;
@@ -57,7 +57,7 @@ public class list {
         /* Объединить два списка */
         List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
         nums.addAll(nums1);
-        System.out.println("После присоединения списка nums1 к nums получаем nums = " + nums);
+        System.out.println("После конкатенации списка nums1 к nums nums = " + nums);
 
         /* Отсортировать список */
         Collections.sort(nums);

@@ -25,7 +25,7 @@ class ArrayBinaryTree {
 
     /* Получить значение узла с индексом i */
     val(i: number): number | null {
-        // Если индекс выходит за границы, вернуть null, обозначающий пустую клетку
+        // Если индекс выходит за границы, вернуть null, обозначающий пустую позицию
         if (i < 0 || i >= this.size()) return null;
         return this.#tree[i];
     }
@@ -45,10 +45,10 @@ class ArrayBinaryTree {
         return Math.floor((i - 1) / 2); // Округление вниз при делении
     }
 
-    /* Обход по уровням */
+    /* Обход в ширину */
     levelOrder(): number[] {
         let res = [];
-        // Непосредственно обойти массив
+        // Непосредственно обходить массив
         for (let i = 0; i < this.size(); i++) {
             if (this.val(i) !== null) res.push(this.val(i));
         }
@@ -57,9 +57,9 @@ class ArrayBinaryTree {
 
     /* Обход в глубину */
     #dfs(i: number, order: Order, res: (number | null)[]): void {
-        // Если это пустая клетка, вернуть результат
+        // Если это пустая позиция, вернуть
         if (this.val(i) === null) return;
-        // Прямой обход
+        // Предварительный обход
         if (order === 'pre') res.push(this.val(i));
         this.#dfs(this.left(i), order, res);
         // Симметричный обход
@@ -69,7 +69,7 @@ class ArrayBinaryTree {
         if (order === 'post') res.push(this.val(i));
     }
 
-    /* Прямой обход */
+    /* Предварительный обход */
     preOrder(): (number | null)[] {
         const res = [];
         this.#dfs(0, 'pre', res);
@@ -93,7 +93,7 @@ class ArrayBinaryTree {
 
 /* Driver Code */
 // Инициализировать двоичное дерево
-// Здесь используется функция, которая напрямую строит двоичное дерево из массива
+// Здесь используется функция, напрямую строящая двоичное дерево из массива
 const arr = Array.of(
     1,
     2,
@@ -113,7 +113,7 @@ const arr = Array.of(
 );
 
 const root = arrToTree(arr);
-console.log('\nИнициализировать двоичное дерево\n');
+console.log('\nИнициализация двоичного дерева\n');
 console.log('Массивное представление двоичного дерева:');
 console.log(arr);
 console.log('Связное представление двоичного дерева:');
@@ -122,30 +122,30 @@ printTree(root);
 // Класс двоичного дерева в массивном представлении
 const abt = new ArrayBinaryTree(arr);
 
-// Получить доступ к узлу
+// Доступ к узлу
 const i = 1;
 const l = abt.left(i);
 const r = abt.right(i);
 const p = abt.parent(i);
-console.log('\nИндекс текущего узла равен ' + i + ', значение равно' + abt.val(i));
+console.log('\nТекущий индекс узла = ' + i + ', значение = ' + abt.val(i));
 console.log(
-    'Индекс его левого дочернего узла равен ' + l + ', значение равно' + (l === null ? 'null' : abt.val(l))
+    'Индекс левого дочернего узла = ' + l + ', значение = ' + (l === null ? 'null' : abt.val(l))
 );
 console.log(
-    'Индекс его правого дочернего узла равен ' + r + ', значение равно' + (r === null ? 'null' : abt.val(r))
+    'Индекс правого дочернего узла = ' + r + ', значение = ' + (r === null ? 'null' : abt.val(r))
 );
 console.log(
-    'Индекс его родительского узла равен ' + p + ', значение равно' + (p === null ? 'null' : abt.val(p))
+    'Индекс родительского узла = ' + p + ', значение = ' + (p === null ? 'null' : abt.val(p))
 );
 
-// Обойти дерево
+// Обходить дерево
 let res = abt.levelOrder();
-console.log('\nРезультат обхода по уровням: ' + res);
+console.log('\nОбход в ширину: ' + res);
 res = abt.preOrder();
-console.log('прямой обходравно:' + res);
+console.log('Предварительный обход: ' + res);
 res = abt.inOrder();
 console.log('Симметричный обход: ' + res);
 res = abt.postOrder();
-console.log('обратный обходравно:' + res);
+console.log('Обратный обход: ' + res);
 
 export {};

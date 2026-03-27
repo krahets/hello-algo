@@ -9,11 +9,11 @@ namespace hello_algo.chapter_stack_and_queue;
 public class deque {
     [Test]
     public void Test() {
-        /* Инициализировать двустороннюю очередь */
-        // В C# связный список LinkedList можно использовать как двустороннюю очередь
+        /* Инициализация двусторонней очереди */
+        // В C# связный список LinkedList рассматривается как двусторонняя очередь
         LinkedList<int> deque = new();
 
-        /* Поместить элемент в очередь */
+        /* Добавление элемента в очередь */
         deque.AddLast(2);   // Добавить в хвост очереди
         deque.AddLast(5);
         deque.AddLast(4);
@@ -21,24 +21,24 @@ public class deque {
         deque.AddFirst(1);
         Console.WriteLine("Двусторонняя очередь deque = " + string.Join(",", deque));
 
-        /* Получить доступ к элементу */
-        int? peekFirst = deque.First?.Value;  // голова очередиэлемент
-        Console.WriteLine("голова очередиэлемент peekFirst =" + peekFirst);
-        int? peekLast = deque.Last?.Value;    // хвост очередиэлемент
-        Console.WriteLine("хвост очередиэлемент peekLast =" + peekLast);
+        /* Доступ к элементу */
+        int? peekFirst = deque.First?.Value;  // Элемент в голове очереди
+        Console.WriteLine("Первый элемент peekFirst = " + peekFirst);
+        int? peekLast = deque.Last?.Value;    // Элемент в хвосте очереди
+        Console.WriteLine("Последний элемент peekLast = " + peekLast);
 
-        /* Извлечь элемент из очереди */
-        deque.RemoveFirst();  // голова очередиИзвлечь элемент из очереди
-        Console.WriteLine("deque после извлечения из головы = " + string.Join(",", deque));
-        deque.RemoveLast();   // хвост очередиИзвлечь элемент из очереди
-        Console.WriteLine("deque после извлечения из хвоста = " + string.Join(",", deque));
+        /* Извлечение элемента из очереди */
+        deque.RemoveFirst();  // Извлечь элемент из головы очереди
+        Console.WriteLine("После извлечения элемента из головы deque = " + string.Join(",", deque));
+        deque.RemoveLast();   // Извлечь элемент из хвоста очереди
+        Console.WriteLine("После извлечения элемента из хвоста deque = " + string.Join(",", deque));
 
-        /* Получить длину двусторонней очереди */
+        /* Получение длины двусторонней очереди */
         int size = deque.Count;
         Console.WriteLine("Длина двусторонней очереди size = " + size);
 
-        /* Проверить, пуста ли двусторонняя очередь */
+        /* Проверка, пуста ли двусторонняя очередь */
         bool isEmpty = deque.Count == 0;
-        Console.WriteLine("Двусторонняя очередь пуста: " + isEmpty);
+        Console.WriteLine("Пуста ли двусторонняя очередь = " + isEmpty);
     }
 }

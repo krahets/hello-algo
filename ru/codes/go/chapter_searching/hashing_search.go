@@ -8,8 +8,8 @@ import . "github.com/krahets/hello-algo/pkg"
 
 /* Хеш-поиск (массив) */
 func hashingSearchArray(m map[int]int, target int) int {
-	// У хеш-таблицы key: целевой элемент, value: индекс
-	// Если такого key в хеш-таблице нет, вернуть -1
+	// key хеш-таблицы: целевой элемент, value: индекс
+	// Если такого key нет в хеш-таблице, вернуть -1
 	if index, ok := m[target]; ok {
 		return index
 	} else {
@@ -19,7 +19,7 @@ func hashingSearchArray(m map[int]int, target int) int {
 
 /* Хеш-поиск (связный список) */
 func hashingSearchLinkedList(m map[int]*ListNode, target int) *ListNode {
-	// У хеш-таблицы key: целевое значение узла, value: объект узла
+	// key хеш-таблицы: значение целевого узла, value: объект узла
 	// Если такого key нет в хеш-таблице, вернуть nil
 	if node, ok := m[target]; ok {
 		return node

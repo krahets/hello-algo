@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// Предположим, что существует не более 1000 перестановок, элементмаксимальныйравно 1000
+// Предположить, что существует не более 1000 перестановок, а максимальный элемент равен 1000
 #define MAX_SIZE 1000
 
 /* Алгоритм бэктрекинга: все перестановки II */
@@ -20,17 +20,17 @@ void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *s
         (*resSize)++;
         return;
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     bool duplicated[MAX_SIZE] = {false};
     for (int i = 0; i < choicesSize; i++) {
         int choice = choices[i];
-        // Отсечение: не допускается повторный выбор элемента и не допускается повторный выбор равных элементов
+        // Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
         if (!selected[i] && !duplicated[choice]) {
             // Попытка: сделать выбор и обновить состояние
-            duplicated[choice] = true; // Записатьвыбранныеэлементзначение
+            duplicated[choice] = true; // Записать значения уже выбранных элементов
             selected[i] = true;
             state[stateSize] = choice;
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             backtrack(state, stateSize + 1, choices, choicesSize, selected, res, resSize);
             // Откат: отменить выбор и восстановить предыдущее состояние
             selected[i] = false;

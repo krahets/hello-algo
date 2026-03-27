@@ -4,20 +4,20 @@
 
 package chapter_heap
 
-// В Go целочисленную max-кучу можно построить, реализовав heap.Interface
-// Для реализации heap.Interface также нужно реализовать sort.Interface
+// В Go можно построить максимальную кучу для целых чисел, реализовав heap.Interface
+// Для реализации heap.Interface одновременно требуется реализовать sort.Interface
 type intHeap []any
 
 // Функция Push интерфейса heap.Interface, реализующая добавление элемента в кучу
 func (h *intHeap) Push(x any) {
-	// Push и Pop используют pointer receiver
+	// Push и Pop используют pointer receiver в качестве параметра
 	// Потому что они не только изменяют содержимое среза, но и меняют его длину.
 	*h = append(*h, x.(int))
 }
 
-// Функция Pop интерфейса heap.Interface, реализующая извлечение верхнего элемента кучи
+// Функция Pop интерфейса heap.Interface, реализующая извлечение элемента с вершины кучи
 func (h *intHeap) Pop() any {
-	// Элемент, подлежащий извлечению из кучи, хранится в конце
+	// Элемент, который нужно удалить из кучи, хранится в конце
 	last := (*h)[len(*h)-1]
 	*h = (*h)[:len(*h)-1]
 	return last
@@ -30,7 +30,7 @@ func (h *intHeap) Len() int {
 
 // Функция Less интерфейса sort.Interface
 func (h *intHeap) Less(i, j int) bool {
-	// Если реализуется min-куча, знак сравнения нужно заменить на «меньше»
+	// При реализации минимальной кучи нужно изменить знак сравнения на «меньше»
 	return (*h)[i].(int) > (*h)[j].(int)
 }
 
@@ -39,7 +39,7 @@ func (h *intHeap) Swap(i, j int) {
 	(*h)[i], (*h)[j] = (*h)[j], (*h)[i]
 }
 
-// Top Получить верхний элемент кучи
+// Top: получить элемент на вершине кучи
 func (h *intHeap) Top() any {
 	return (*h)[0]
 }

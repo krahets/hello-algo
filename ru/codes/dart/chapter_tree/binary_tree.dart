@@ -8,19 +8,19 @@ import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
 void main() {
-  /* Инициализировать двоичное дерево */
-  // Узел для удобной работы
+  /* Инициализация двоичного дерева */
+  // Инициализировать узлы дерева
   TreeNode n1 = TreeNode(1);
   TreeNode n2 = TreeNode(2);
   TreeNode n3 = TreeNode(3);
   TreeNode n4 = TreeNode(4);
   TreeNode n5 = TreeNode(5);
-  // Построить ссылки между узлами (указатели)
+  // Построить связи между узлами (указатели)
   n1.left = n2;
   n1.right = n3;
   n2.left = n4;
   n2.right = n5;
-  print("\nИнициализировать двоичное дерево\n");
+  print("\nИнициализация двоичного дерева\n");
   printTree(n1);
 
   /* Вставка и удаление узлов */

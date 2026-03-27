@@ -12,8 +12,8 @@ use std::rc::Rc;
 /* Узел двусвязного списка */
 pub struct ListNode<T> {
     pub val: T,                                 // Значение узла
-    pub next: Option<Rc<RefCell<ListNode<T>>>>, // Указатель следующего узла
-    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Указатель предыдущего узла
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на узел-преемник
+    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на узел-предшественник
 }
 
 impl<T> ListNode<T> {
@@ -43,20 +43,20 @@ impl<T: Copy> LinkedListDeque<T> {
         }
     }
 
-    /* Получить длину двусторонней очереди */
+    /* Получение длины двусторонней очереди */
     pub fn size(&self) -> usize {
         return self.que_size;
     }
 
-    /* Проверить, пуста ли двусторонняя очередь */
+    /* Проверка, пуста ли двусторонняя очередь */
     pub fn is_empty(&self) -> bool {
         return self.que_size == 0;
     }
 
-    /* Операция помещения в очередь */
+    /* Операция добавления в очередь */
     fn push(&mut self, num: T, is_front: bool) {
         let node = ListNode::new(num);
-        // Операция помещения в голову очереди
+        // Операция добавления в голову очереди
         if is_front {
             match self.front.take() {
                 // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
@@ -64,7 +64,7 @@ impl<T: Copy> LinkedListDeque<T> {
                     self.rear = Some(node.clone());
                     self.front = Some(node);
                 }
-                // Добавить node в голову связного списка
+                // Добавить node в голову списка
                 Some(old_front) => {
                     old_front.borrow_mut().prev = Some(node.clone());
                     node.borrow_mut().next = Some(old_front);
@@ -72,7 +72,7 @@ impl<T: Copy> LinkedListDeque<T> {
                 }
             }
         }
-        // Операция помещения в хвост очереди
+        // Операция добавления в хвост очереди
         else {
             match self.rear.take() {
                 // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
@@ -80,7 +80,7 @@ impl<T: Copy> LinkedListDeque<T> {
                     self.front = Some(node.clone());
                     self.rear = Some(node);
                 }
-                // Добавить node в хвост связного списка
+                // Добавить node в хвост списка
                 Some(old_rear) => {
                     old_rear.borrow_mut().next = Some(node.clone());
                     node.borrow_mut().prev = Some(old_rear);
@@ -88,15 +88,15 @@ impl<T: Copy> LinkedListDeque<T> {
                 }
             }
         }
-        self.que_size += 1; // ОбновитьДлина очереди
+        self.que_size += 1; // Обновить длину очереди
     }
 
-    /* Поместить в голову очереди */
+    /* Добавление в голову очереди */
     pub fn push_first(&mut self, num: T) {
         self.push(num, true);
     }
 
-    /* Поместить в хвост очереди */
+    /* Добавление в хвост очереди */
     pub fn push_last(&mut self, num: T) {
         self.push(num, false);
     }
@@ -119,7 +119,7 @@ impl<T: Copy> LinkedListDeque<T> {
                         self.rear.take();
                     }
                 }
-                self.que_size -= 1; // ОбновитьДлина очереди
+                self.que_size -= 1; // Обновить длину очереди
                 old_front.borrow().val
             })
         }
@@ -135,33 +135,33 @@ impl<T: Copy> LinkedListDeque<T> {
                         self.front.take();
                     }
                 }
-                self.que_size -= 1; // ОбновитьДлина очереди
+                self.que_size -= 1; // Обновить длину очереди
                 old_rear.borrow().val
             })
         }
     }
 
-    /* Извлечь из головы очереди */
+    /* Извлечение из головы очереди */
     pub fn pop_first(&mut self) -> Option<T> {
         return self.pop(true);
     }
 
-    /* Извлечь из хвоста очереди */
+    /* Извлечение из хвоста очереди */
     pub fn pop_last(&mut self) -> Option<T> {
         return self.pop(false);
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     pub fn peek_first(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.front.as_ref()
     }
 
-    /* Обратиться к элементу в хвосте очереди */
+    /* Доступ к элементу в конце очереди */
     pub fn peek_last(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.rear.as_ref()
     }
 
-    /* Вернуть массив для печати */
+    /* Вернуть массив для вывода */
     pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
         let mut res: Vec<T> = Vec::new();
         fn recur<T: Copy>(cur: Option<&Rc<RefCell<ListNode<T>>>>, res: &mut Vec<T>) {
@@ -178,7 +178,7 @@ impl<T: Copy> LinkedListDeque<T> {
 
 /* Driver Code */
 fn main() {
-    /* Инициализировать двустороннюю очередь */
+    /* Инициализация двусторонней очереди */
     let mut deque = LinkedListDeque::new();
     deque.push_last(3);
     deque.push_last(2);
@@ -186,33 +186,33 @@ fn main() {
     print!("Двусторонняя очередь deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
-    /* Получить доступ к элементу */
+    /* Доступ к элементу */
     let peek_first = deque.peek_first().unwrap().borrow().val;
-    print!("\nголова очередиэлемент peek_first = {}", peek_first);
+    print!("\nПервый элемент peek_first = {}", peek_first);
     let peek_last = deque.peek_last().unwrap().borrow().val;
-    print!("\nхвост очередиэлемент peek_last = {}", peek_last);
+    print!("\nПоследний элемент peek_last = {}", peek_last);
 
-    /* Поместить элемент в очередь */
+    /* Добавление элемента в очередь */
     deque.push_last(4);
-    print!("\nПосле помещения элемента 4 в хвост очереди deque = ");
+    print!("\nПосле добавления элемента 4 в хвост deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
     deque.push_first(1);
-    print!("\nПосле помещения элемента 1 в голову очереди deque = ");
+    print!("\nПосле добавления элемента 1 в голову deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
-    /* Извлечь элемент из очереди */
+    /* Извлечение элемента из очереди */
     let pop_last = deque.pop_last().unwrap();
-    print!("\nЭлемент, извлеченный из хвоста очереди = {}, deque после извлечения из хвоста = ", pop_last);
+    print!("\nИзвлеченный из хвоста элемент = {}, deque после извлечения из хвоста = ", pop_last);
     print_util::print_array(&deque.to_array(deque.peek_first()));
     let pop_first = deque.pop_first().unwrap();
-    print!("\nЭлемент, извлеченный из головы очереди = {}, deque после извлечения из головы = ", pop_first);
+    print!("\nИзвлеченный из головы элемент = {}, deque после извлечения из головы = ", pop_first);
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
-    /* Получить длину двусторонней очереди */
+    /* Получение длины двусторонней очереди */
     let size = deque.size();
     print!("\nДлина двусторонней очереди size = {}", size);
 
-    /* Проверить, пуста ли двусторонняя очередь */
+    /* Проверка, пуста ли двусторонняя очередь */
     let is_empty = deque.is_empty();
-    print!("\nДвусторонняя очередь пуста: {}", is_empty);
+    print!("\nПуста ли двусторонняя очередь = {}", is_empty);
 }

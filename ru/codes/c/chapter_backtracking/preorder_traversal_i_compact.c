@@ -6,13 +6,13 @@
 
 #include "../utils/common.h"
 
-// Предположим, что длина результата не превышает 100
+// Предположить, что длина результата не превышает 100
 #define MAX_SIZE 100
 
 TreeNode *res[MAX_SIZE];
 int resSize = 0;
 
-/* Прямой обход: пример 1 */
+/* Предварительный обход: пример 1 */
 void preOrder(TreeNode *root) {
     if (root == NULL) {
         return;
@@ -29,10 +29,10 @@ void preOrder(TreeNode *root) {
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));
-    printf("\nИнициализировать двоичное дерево\n");
+    printf("\nИнициализация двоичного дерева\n");
     printTree(root);
 
-    // Прямой обход
+    // Предварительный обход
     preOrder(root);
 
     printf("\nВывести все узлы со значением 7\n");

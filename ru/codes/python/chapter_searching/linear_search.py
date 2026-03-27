@@ -13,7 +13,7 @@ from modules import ListNode, list_to_linked_list
 
 def linear_search_array(nums: list[int], target: int) -> int:
     """Линейный поиск (массив)"""
-    # Перебрать массив
+    # Обход массива
     for i in range(len(nums)):
         if nums[i] == target:  # Целевой элемент найден, вернуть его индекс
             return i
@@ -42,4 +42,4 @@ if __name__ == "__main__":
     # Выполнить линейный поиск в связном списке
     head: ListNode = list_to_linked_list(nums)
     node: ListNode | None = linear_search_linkedlist(head, target)
-    print("Объект узла, соответствующий целевому значению 3, равен", node)
+    print("Объект узла со значением 3 =", node)

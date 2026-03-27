@@ -20,16 +20,16 @@ class LinkedListQueue {
     }
 
     ~LinkedListQueue() {
-        // Обойти связный списокУдалить узел, Освободить память
+        // Обходить связный список, удалять узлы и освобождать память
         freeMemoryLinkedList(front);
     }
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     int size() {
         return queSize;
     }
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     bool isEmpty() {
         return queSize == 0;
     }
@@ -38,7 +38,7 @@ class LinkedListQueue {
     void push(int num) {
         // Добавить num после хвостового узла
         ListNode *node = new ListNode(num);
-        // Если очередь пуста, сделать так, чтобы головной и хвостовой узлы указывали на этот узел
+        // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
         if (front == nullptr) {
             front = node;
             rear = node;
@@ -63,10 +63,10 @@ class LinkedListQueue {
         return num;
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     int peek() {
         if (size() == 0)
-            throw out_of_range("Очередь пуста");
+            throw out_of_range("очередь пуста");
         return front->val;
     }
 
@@ -84,10 +84,10 @@ class LinkedListQueue {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать очередь */
+    /* Инициализация очереди */
     LinkedListQueue *queue = new LinkedListQueue();
 
-    /* Поместить элемент в очередь */
+    /* Добавление элемента в очередь */
     queue->push(1);
     queue->push(3);
     queue->push(2);
@@ -96,22 +96,22 @@ int main() {
     cout << "Очередь queue = ";
     printVector(queue->toVector());
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     int peek = queue->peek();
-    cout << "голова очередиэлемент peek =" << peek << endl;
+    cout << "Первый элемент peek = " << peek << endl;
 
-    /* Извлечь элемент из очереди */
+    /* Извлечение элемента из очереди */
     peek = queue->pop();
-    cout << "Элемент, извлеченный из очереди, pop = " << peek << ", queue после извлечения = ";
+    cout << "Извлеченный элемент pop = " << peek << ", queue после извлечения = ";
     printVector(queue->toVector());
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     int size = queue->size();
-    cout << "Длина очереди size =" << size << endl;
+    cout << "Длина очереди size = " << size << endl;
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     bool empty = queue->isEmpty();
-    cout << "Очередь пуста: " << empty << endl;
+    cout << "Пуста ли очередь = " << empty << endl;
 
     // Освободить память
     delete queue;

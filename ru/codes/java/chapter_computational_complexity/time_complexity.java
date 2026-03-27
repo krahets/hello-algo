@@ -7,7 +7,7 @@
 package chapter_computational_complexity;
 
 public class time_complexity {
-    /* Константная сложность */
+    /* Постоянная сложность */
     static int constant(int n) {
         int count = 0;
         int size = 100000;
@@ -49,9 +49,9 @@ public class time_complexity {
     /* Квадратичная сложность (пузырьковая сортировка) */
     static int bubbleSort(int[] nums) {
         int count = 0; // Счетчик
-        // Внешний цикл: неотсортированный диапазон равен [0, i]
+        // Внешний цикл: неотсортированный диапазон [0, i]
         for (int i = nums.length - 1; i > 0; i--) {
-            // Внутренний цикл: переместить максимальный элемент из диапазона [0, i] в его правый конец
+            // Внутренний цикл: переместить максимальный элемент неотсортированного диапазона [0, i] в его правый конец
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Поменять местами nums[j] и nums[j + 1]
@@ -119,7 +119,7 @@ public class time_complexity {
         if (n == 0)
             return 1;
         int count = 0;
-        // От одного разветвиться на n
+        // Из одного получается n
         for (int i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
@@ -128,40 +128,40 @@ public class time_complexity {
 
     /* Driver Code */
     public static void main(String[] args) {
-        // Можно изменить n и запустить программу, чтобы увидеть, как меняется число операций при разных типах сложности
+        // Можно изменить n и запустить программу, чтобы увидеть, как меняется число операций при разных сложностях
         int n = 8;
-        System.out.println("Размер входных данных n =" + n);
+        System.out.println("Размер входных данных n = " + n);
 
         int count = constant(n);
-        System.out.println("Количество операций константной сложности = " + count);
+        System.out.println("Число операций константной сложности = " + count);
 
         count = linear(n);
-        System.out.println("Количество операций линейной сложности =" + count);
+        System.out.println("Число операций линейной сложности = " + count);
         count = arrayTraversal(new int[n]);
-        System.out.println("Количество операций линейной сложности (обход массива) =" + count);
+        System.out.println("Число операций линейной сложности (обход массива) = " + count);
 
         count = quadratic(n);
-        System.out.println("Количество операций квадратичной сложности = " + count);
+        System.out.println("Число операций квадратичной сложности = " + count);
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
             nums[i] = n - i; // [n,n-1,...,2,1]
         count = bubbleSort(nums);
-        System.out.println("Количество операций квадратичной сложности (пузырьковая сортировка) = " + count);
+        System.out.println("Число операций квадратичной сложности (пузырьковая сортировка) = " + count);
 
         count = exponential(n);
-        System.out.println("Количество операций экспоненциальной сложности (итеративная реализация) = " + count);
+        System.out.println("Число операций экспоненциальной сложности (итеративная реализация) = " + count);
         count = expRecur(n);
-        System.out.println("Количество операций экспоненциальной сложности (рекурсивная реализация) = " + count);
+        System.out.println("Число операций экспоненциальной сложности (рекурсивная реализация) = " + count);
 
         count = logarithmic(n);
-        System.out.println("Количество операций логарифмической сложности (итеративная реализация) = " + count);
+        System.out.println("Число операций логарифмической сложности (итеративная реализация) = " + count);
         count = logRecur(n);
-        System.out.println("Количество операций логарифмической сложности (рекурсивная реализация) = " + count);
+        System.out.println("Число операций логарифмической сложности (рекурсивная реализация) = " + count);
 
         count = linearLogRecur(n);
-        System.out.println("Количество операций линейно-логарифмической сложности (рекурсивная реализация) =" + count);
+        System.out.println("Число операций линейно-логарифмической сложности (рекурсивная реализация) = " + count);
 
         count = factorialRecur(n);
-        System.out.println("Количество операций факториальной сложности (рекурсивная реализация) =" + count);
+        System.out.println("Число операций факториальной сложности (рекурсивная реализация) = " + count);
     }
 }

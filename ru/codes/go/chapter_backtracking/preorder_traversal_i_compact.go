@@ -8,7 +8,7 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* Прямой обход: пример 1 */
+/* Предварительный обход: пример 1 */
 func preOrderI(root *TreeNode, res *[]*TreeNode) {
 	if root == nil {
 		return

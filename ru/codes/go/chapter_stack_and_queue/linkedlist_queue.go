@@ -14,7 +14,7 @@ type linkedListQueue struct {
 	data *list.List
 }
 
-/* Инициализировать очередь */
+/* Инициализация очереди */
 func newLinkedListQueue() *linkedListQueue {
 	return &linkedListQueue{
 		data: list.New(),
@@ -36,7 +36,7 @@ func (s *linkedListQueue) pop() any {
 	return e.Value
 }
 
-/* Получить элемент в начале очереди */
+/* Доступ к элементу в начале очереди */
 func (s *linkedListQueue) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,12 +45,12 @@ func (s *linkedListQueue) peek() any {
 	return e.Value
 }
 
-/* Получить длину очереди */
+/* Получение длины очереди */
 func (s *linkedListQueue) size() int {
 	return s.data.Len()
 }
 
-/* Проверить, пуста ли очередь */
+/* Проверка, пуста ли очередь */
 func (s *linkedListQueue) isEmpty() bool {
 	return s.data.Len() == 0
 }

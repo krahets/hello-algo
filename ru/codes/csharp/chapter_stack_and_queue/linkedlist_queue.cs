@@ -16,12 +16,12 @@ class LinkedListQueue {
         rear = null;
     }
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     public int Size() {
         return queSize;
     }
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     public bool IsEmpty() {
         return Size() == 0;
     }
@@ -30,7 +30,7 @@ class LinkedListQueue {
     public void Push(int num) {
         // Добавить num после хвостового узла
         ListNode node = new(num);
-        // Если очередь пуста, сделать так, чтобы головной и хвостовой узлы указывали на этот узел
+        // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
         if (front == null) {
             front = node;
             rear = node;
@@ -51,14 +51,14 @@ class LinkedListQueue {
         return num;
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return front!.val;
     }
 
-    /* Преобразовать связный список в Array и вернуть его */
+    /* Преобразовать связный список в Array и вернуть */
     public int[] ToArray() {
         if (front == null)
             return [];
@@ -76,10 +76,10 @@ class LinkedListQueue {
 public class linkedlist_queue {
     [Test]
     public void Test() {
-        /* Инициализировать очередь */
+        /* Инициализация очереди */
         LinkedListQueue queue = new();
 
-        /* Поместить элемент в очередь */
+        /* Добавление элемента в очередь */
         queue.Push(1);
         queue.Push(3);
         queue.Push(2);
@@ -87,20 +87,20 @@ public class linkedlist_queue {
         queue.Push(4);
         Console.WriteLine("Очередь queue = " + string.Join(",", queue.ToArray()));
 
-        /* Получить элемент в начале очереди */
+        /* Доступ к элементу в начале очереди */
         int peek = queue.Peek();
-        Console.WriteLine("голова очередиэлемент peek =" + peek);
+        Console.WriteLine("Первый элемент peek = " + peek);
 
-        /* Извлечь элемент из очереди */
+        /* Извлечение элемента из очереди */
         int pop = queue.Pop();
-        Console.WriteLine("Элемент, извлеченный из очереди, pop = " + pop + ", queue после извлечения = " + string.Join(",", queue.ToArray()));
+        Console.WriteLine("Извлеченный элемент pop = " + pop + ", queue после извлечения = " + string.Join(",", queue.ToArray()));
 
-        /* Получить длину очереди */
+        /* Получение длины очереди */
         int size = queue.Size();
-        Console.WriteLine("Длина очереди size =" + size);
+        Console.WriteLine("Длина очереди size = " + size);
 
-        /* Проверить, пуста ли очередь */
+        /* Проверка, пуста ли очередь */
         bool isEmpty = queue.IsEmpty();
-        Console.WriteLine("Очередь пуста: " + isEmpty);
+        Console.WriteLine("Пуста ли очередь = " + isEmpty);
     }
 }

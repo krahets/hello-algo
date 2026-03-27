@@ -26,7 +26,7 @@ func removeItem(n0 *ListNode) {
 	n0.Next = n1
 }
 
-/* Обратиться к узлу связного списка с индексом index */
+/* Доступ к узлу связного списка по индексу index */
 func access(head *ListNode, index int) *ListNode {
 	for i := 0; i < index; i++ {
 		if head == nil {
@@ -37,7 +37,7 @@ func access(head *ListNode, index int) *ListNode {
 	return head
 }
 
-/* Найти первый узел со значением target в связном списке */
+/* Найти в связном списке первый узел со значением target */
 func findNode(head *ListNode, target int) int {
 	index := 0
 	for head != nil {

@@ -11,11 +11,11 @@ import utils.*;
 
 public class graph_bfs {
     /* Обход в ширину */
-    // Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+    // Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
     static List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
         // Последовательность обхода вершин
         List<Vertex> res = new ArrayList<>();
-        // Хеш-множество для записи уже посещенных вершин
+        // Хеш-множество для хранения уже посещенных вершин
         Set<Vertex> visited = new HashSet<>();
         visited.add(startVet);
         // Очередь используется для реализации BFS
@@ -23,14 +23,14 @@ public class graph_bfs {
         que.offer(startVet);
         // Начиная с вершины vet, продолжать цикл, пока не будут посещены все вершины
         while (!que.isEmpty()) {
-            Vertex vet = que.poll(); // Извлечь из очереди вершину из головы
-            res.add(vet);            // Записать посещенную вершину
-            // Обойти все смежные вершины этой вершины
+            Vertex vet = que.poll(); // Извлечь головную вершину из очереди
+            res.add(vet);            // Отметить посещенную вершину
+            // Обойти все смежные вершины данной вершины
             for (Vertex adjVet : graph.adjList.get(vet)) {
                 if (visited.contains(adjVet))
                     continue;        // Пропустить уже посещенную вершину
                 que.offer(adjVet);   // Помещать в очередь только непосещенные вершины
-                visited.add(adjVet); // Пометить эту вершину как посещенную
+                visited.add(adjVet); // Отметить эту вершину как посещенную
             }
         }
         // Вернуть последовательность обхода вершин
@@ -38,13 +38,13 @@ public class graph_bfs {
     }
 
     public static void main(String[] args) {
-        /* Инициализировать неориентированный граф */
+        /* Инициализация неориентированного графа */
         Vertex[] v = Vertex.valsToVets(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
         Vertex[][] edges = { { v[0], v[1] }, { v[0], v[3] }, { v[1], v[2] }, { v[1], v[4] },
                              { v[2], v[5] }, { v[3], v[4] }, { v[3], v[6] }, { v[4], v[5] },
                              { v[4], v[7] }, { v[5], v[8] }, { v[6], v[7] }, { v[7], v[8] } };
         GraphAdjList graph = new GraphAdjList(edges);
-        System.out.println("\nПосле инициализации граф имеет вид");
+        System.out.println("\nГраф после инициализации");
         graph.print();
 
         /* Обход в ширину */

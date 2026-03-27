@@ -7,7 +7,7 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* Построение двоичного дерева: разделяй и властвуй */
+/* Построить двоичное дерево: разделяй и властвуй */
 TreeNode? dfs(
   List<int> preorder,
   Map<int, int> inorderMap,
@@ -15,7 +15,7 @@ TreeNode? dfs(
   int l,
   int r,
 ) {
-  // Завершить, если диапазон поддерева пуст
+  // Завершить при пустом диапазоне поддерева
   if (r - l < 0) {
     return null;
   }
@@ -33,7 +33,7 @@ TreeNode? dfs(
 
 /* Построить двоичное дерево */
 TreeNode? buildTree(List<int> preorder, List<int> inorder) {
-  // Инициализировать хеш-таблицу для хранения отображения элементов inorder в индексы
+  // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
   Map<int, int> inorderMap = {};
   for (int i = 0; i < inorder.length; i++) {
     inorderMap[inorder[i]] = i;
@@ -46,7 +46,7 @@ TreeNode? buildTree(List<int> preorder, List<int> inorder) {
 void main() {
   List<int> preorder = [3, 9, 2, 1, 7];
   List<int> inorder = [9, 3, 1, 2, 7];
-  print("Прямой обход = $preorder");
+  print("Предварительный обход = $preorder");
   print("Симметричный обход = $inorder");
 
   TreeNode? root = buildTree(preorder, inorder);

@@ -11,13 +11,13 @@
 
 /* Структура узла */
 typedef struct AdjListNode {
-    Vertex *vertex;           // вершина
-    struct AdjListNode *next; // Следующий узел
+    Vertex *vertex;           // Вершина
+    struct AdjListNode *next; // Узел-преемник
 } AdjListNode;
 
 /* Класс неориентированного графа на основе списка смежности */
 typedef struct {
-    AdjListNode *heads[MAX_SIZE]; // узелмассив
+    AdjListNode *heads[MAX_SIZE]; // Массив узлов
     int size;                     // Количество узлов
 } GraphAdjList;
 
@@ -61,7 +61,7 @@ AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
     return NULL;
 }
 
-/* Добавить ребровспомогательная функция */
+/* Вспомогательная функция добавления ребра */
 void addEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *node = (AdjListNode *)malloc(sizeof(AdjListNode));
     node->vertex = vet;
@@ -70,7 +70,7 @@ void addEdgeHelper(AdjListNode *head, Vertex *vet) {
     head->next = node;
 }
 
-/* Добавить ребро */
+/* Добавление ребра */
 void addEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     AdjListNode *head1 = findNode(graph, vet1);
     AdjListNode *head2 = findNode(graph, vet2);
@@ -80,11 +80,11 @@ void addEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     addEdgeHelper(head2, vet1);
 }
 
-/* Удалить ребровспомогательная функция */
+/* Вспомогательная функция удаления ребра */
 void removeEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *pre = head;
     AdjListNode *cur = head->next;
-    // Найти в связном списке узел, соответствующий vet
+    // Искать в связном списке узел, соответствующий vet
     while (cur != NULL && cur->vertex != vet) {
         pre = cur;
         cur = cur->next;
@@ -97,7 +97,7 @@ void removeEdgeHelper(AdjListNode *head, Vertex *vet) {
     free(cur);
 }
 
-/* Удалить ребро */
+/* Удаление ребра */
 void removeEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     AdjListNode *head1 = findNode(graph, vet1);
     AdjListNode *head2 = findNode(graph, vet2);
@@ -107,21 +107,21 @@ void removeEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     removeEdgeHelper(head2, head1->vertex);
 }
 
-/* Добавить вершину */
+/* Добавление вершины */
 void addVertex(GraphAdjList *graph, Vertex *vet) {
     assert(graph != NULL && graph->size < MAX_SIZE);
     AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
     head->vertex = vet;
     head->next = NULL;
-    // Добавить новый связный список в список смежности
+    // Добавить новый список в список смежности
     graph->heads[graph->size++] = head;
 }
 
-/* Удалить вершину */
+/* Удаление вершины */
 void removeVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *node = findNode(graph, vet);
     assert(node != NULL);
-    // Удалить из списка смежности связный список, соответствующий вершине vet
+    // Удалить из списка смежности список, соответствующий вершине vet
     AdjListNode *cur = node, *pre = NULL;
     while (cur) {
         pre = cur;
@@ -142,7 +142,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
             }
         }
     }
-    // Сдвинуть вершины после этой вершины вперед, чтобы заполнить пустое место
+    // Сдвинуть вершины после данной вперед, чтобы заполнить образовавшийся пробел
     int i;
     for (i = 0; i < graph->size; i++) {
         if (graph->heads[i] == node)
@@ -157,7 +157,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
 
 /* Вывести список смежности */
 void printGraph(const GraphAdjList *graph) {
-    printf("Список смежности = \n");
+    printf("Список смежности =\n");
     for (int i = 0; i < graph->size; ++i) {
         AdjListNode *node = graph->heads[i];
         printf("%d: [", node->vertex->val);

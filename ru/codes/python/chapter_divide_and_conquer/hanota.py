@@ -7,9 +7,9 @@ Author: krahets (krahets@163.com)
 
 def move(src: list[int], tar: list[int]):
     """Переместить один диск"""
-    # Взять верхний диск со стержня src
+    # Снять диск с вершины src
     pan = src.pop()
-    # Поместить диск на вершину tar
+    # Положить диск на вершину tar
     tar.append(pan)
 
 
@@ -36,11 +36,11 @@ def solve_hanota(A: list[int], B: list[int], C: list[int]):
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Конец списка соответствует вершине стержня
+    # Хвост списка соответствует вершине столбца
     A = [5, 4, 3, 2, 1]
     B = []
     C = []
-    print("В начальном состоянии:")
+    print("Исходное состояние:")
     print(f"A = {A}")
     print(f"B = {B}")
     print(f"C = {C}")

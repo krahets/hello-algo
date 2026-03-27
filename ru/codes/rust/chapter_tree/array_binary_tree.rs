@@ -24,7 +24,7 @@ impl ArrayBinaryTree {
 
     /* Получить значение узла с индексом i */
     fn val(&self, i: i32) -> Option<i32> {
-        // Если индекс выходит за границы, вернуть None, обозначающий пустую клетку
+        // Если индекс выходит за границы, вернуть None, обозначающий пустую позицию
         if i < 0 || i >= self.size() {
             None
         } else {
@@ -47,7 +47,7 @@ impl ArrayBinaryTree {
         (i - 1) / 2
     }
 
-    /* Обход по уровням */
+    /* Обход в ширину */
     fn level_order(&self) -> Vec<i32> {
         self.tree.iter().filter_map(|&x| x).collect()
     }
@@ -58,7 +58,7 @@ impl ArrayBinaryTree {
             return;
         }
         let val = self.val(i).unwrap();
-        // Прямой обход
+        // Предварительный обход
         if order == "pre" {
             res.push(val);
         }
@@ -74,7 +74,7 @@ impl ArrayBinaryTree {
         }
     }
 
-    /* Прямой обход */
+    /* Предварительный обход */
     fn pre_order(&self) -> Vec<i32> {
         let mut res = vec![];
         self.dfs(0, "pre", &mut res);
@@ -99,7 +99,7 @@ impl ArrayBinaryTree {
 /* Driver Code */
 fn main() {
     // Инициализировать двоичное дерево
-    // Здесь используется функция, которая напрямую строит двоичное дерево из массива
+    // Здесь используется функция, напрямую строящая двоичное дерево из массива
     let arr = vec![
         Some(1),
         Some(2),
@@ -119,7 +119,7 @@ fn main() {
     ];
 
     let root = tree_node::vec_to_tree(arr.clone()).unwrap();
-    println!("\nИнициализировать двоичное дерево\n");
+    println!("\nИнициализация двоичного дерева\n");
     println!("Массивное представление двоичного дерева:");
     println!(
         "[{}]",
@@ -138,22 +138,16 @@ fn main() {
     // Класс двоичного дерева в массивном представлении
     let abt = ArrayBinaryTree::new(arr);
 
-    // Получить доступ к узлу
+    // Доступ к узлу
     let i = 1;
     let l = abt.left(i);
     let r = abt.right(i);
     let p = abt.parent(i);
     println!(
-        "\nИндекс текущего узла равен {}, значение равно {}",
-        i,
-        if let Some(val) = abt.val(i) {
-            format!("{val}")
-        } else {
-            "null".to_string()
-        }
+        "\nТекущий индекс узла = {}, значение = {}",\ni,\nif let Some(val) = abt.val(i) {\n    format!("{val}")\n} else {\n    "null".to_string()\n}
     );
     println!(
-        "Индекс его левого дочернего узла равен {}, значение равно {}",
+        "Индекс левого дочернего узла = {}, значение = {}",
         l,
         if let Some(val) = abt.val(l) {
             format!("{val}")
@@ -162,7 +156,7 @@ fn main() {
         }
     );
     println!(
-        "Индекс его правого дочернего узла равен {}, значение равно {}",
+        "Индекс правого дочернего узла = {}, значение = {}",
         r,
         if let Some(val) = abt.val(r) {
             format!("{val}")
@@ -171,7 +165,7 @@ fn main() {
         }
     );
     println!(
-        "Индекс его родительского узла равен {}, значение равно {}",
+        "Индекс родительского узла = {}, значение = {}",
         p,
         if let Some(val) = abt.val(p) {
             format!("{val}")
@@ -180,13 +174,13 @@ fn main() {
         }
     );
 
-    // Обойти дерево
+    // Обходить дерево
     let mut res = abt.level_order();
-    println!("\nобход по уровнямравно: {:?}", res);
+    println!("\nОбход в ширину: {:?}", res);
     res = abt.pre_order();
-    println!("прямой обходравно: {:?}", res);
+    println!("Предварительный обход: {:?}", res);
     res = abt.in_order();
-    println!("симметричный обходравно: {:?}", res);
+    println!("Симметричный обход: {:?}", res);
     res = abt.post_order();
-    println!("обратный обходравно: {:?}", res);
+    println!("Обратный обход: {:?}", res);
 }

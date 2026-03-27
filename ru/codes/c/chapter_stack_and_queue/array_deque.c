@@ -6,18 +6,18 @@
 
 #include "../utils/common.h"
 
-/* Двусторонняя очередь на основе циклического массива */
+/* Двусторонняя очередь на основе кольцевого массива */
 typedef struct {
     int *nums;       // Массив для хранения элементов очереди
-    int front;       // Указатель front, указывающий на первый элемент очереди
-    int queSize;     // Хвостовой указатель указывает на позицию хвоста + 1
-    int queCapacity; // очередьвместимость
+    int front;       // Указатель head, указывающий на первый элемент очереди
+    int queSize;     // Указатель хвоста, указывающий на позицию после хвоста
+    int queCapacity; // Вместимость очереди
 } ArrayDeque;
 
 /* Конструктор */
 ArrayDeque *newArrayDeque(int capacity) {
     ArrayDeque *deque = (ArrayDeque *)malloc(sizeof(ArrayDeque));
-    // Инициализировать массив
+    // Инициализация массива
     deque->queCapacity = capacity;
     deque->nums = (int *)malloc(sizeof(int) * deque->queCapacity);
     deque->front = deque->queSize = 0;
@@ -35,59 +35,59 @@ int capacity(ArrayDeque *deque) {
     return deque->queCapacity;
 }
 
-/* Получить длину двусторонней очереди */
+/* Получение длины двусторонней очереди */
 int size(ArrayDeque *deque) {
     return deque->queSize;
 }
 
-/* Проверить, пуста ли двусторонняя очередь */
+/* Проверка, пуста ли двусторонняя очередь */
 bool empty(ArrayDeque *deque) {
     return deque->queSize == 0;
 }
 
-/* Вычислить индекс циклического массива */
+/* Вычислить индекс в кольцевом массиве */
 int dequeIndex(ArrayDeque *deque, int i) {
-    // С помощью операции взятия по модулю соединить начало и конец массива
-    // Когда i выходит за конец массива, вернуться к началу
-    // Когда i выходит за начало массива, вернуться к концу
+    // С помощью операции взятия остатка соединить начало и конец массива
+    // Когда i выходит за хвост массива, вернуться к началу
+    // Когда i выходит за голову массива, вернуться к концу
     return ((i + capacity(deque)) % capacity(deque));
 }
 
-/* Поместить в голову очереди */
+/* Добавление в голову очереди */
 void pushFirst(ArrayDeque *deque, int num) {
     if (deque->queSize == capacity(deque)) {
-        printf("Двусторонняя очередь заполнена\r\n");
+        printf("Дек заполнен\r\n");
         return;
     }
-    // Указатель головы очереди сдвигается на одну позицию влево
-    // С помощью операции взятия по модулю front после выхода за начало массива возвращается к его концу
+    // Указатель головы сместить влево на одну позицию
+    // С помощью операции взятия остатка реализовать возврат front к хвосту после выхода за начало массива
     deque->front = dequeIndex(deque, deque->front - 1);
     // Добавить num в голову очереди
     deque->nums[deque->front] = num;
     deque->queSize++;
 }
 
-/* Поместить в хвост очереди */
+/* Добавление в хвост очереди */
 void pushLast(ArrayDeque *deque, int num) {
     if (deque->queSize == capacity(deque)) {
-        printf("Двусторонняя очередь заполнена\r\n");
+        printf("Дек заполнен\r\n");
         return;
     }
-    // Вычислить указатель хвоста, указывающий на индекс за последним элементом
+    // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
     int rear = dequeIndex(deque, deque->front + deque->queSize);
-    // Добавить num в конец очереди
+    // Добавить num в хвост очереди
     deque->nums[rear] = num;
     deque->queSize++;
 }
 
-/* Получить элемент в начале очереди */
+/* Доступ к элементу в начале очереди */
 int peekFirst(ArrayDeque *deque) {
     // Ошибка доступа: двусторонняя очередь пуста
     assert(empty(deque) == 0);
     return deque->nums[deque->front];
 }
 
-/* Обратиться к элементу в хвосте очереди */
+/* Доступ к элементу в конце очереди */
 int peekLast(ArrayDeque *deque) {
     // Ошибка доступа: двусторонняя очередь пуста
     assert(empty(deque) == 0);
@@ -95,23 +95,23 @@ int peekLast(ArrayDeque *deque) {
     return deque->nums[last];
 }
 
-/* Извлечь из головы очереди */
+/* Извлечение из головы очереди */
 int popFirst(ArrayDeque *deque) {
     int num = peekFirst(deque);
-    // Указатель головы очереди сдвигается на одну позицию вперед
+    // Указатель головы сдвигается на одну позицию назад
     deque->front = dequeIndex(deque, deque->front + 1);
     deque->queSize--;
     return num;
 }
 
-/* Извлечь из хвоста очереди */
+/* Извлечение из хвоста очереди */
 int popLast(ArrayDeque *deque) {
     int num = peekLast(deque);
     deque->queSize--;
     return num;
 }
 
-/* Вернуть массив для печати */
+/* Вернуть массив для вывода */
 int *toArray(ArrayDeque *deque, int *queSize) {
     *queSize = deque->queSize;
     int *res = (int *)calloc(deque->queSize, sizeof(int));
@@ -125,45 +125,45 @@ int *toArray(ArrayDeque *deque, int *queSize) {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать очередь */
+    /* Инициализация очереди */
     int capacity = 10;
     int queSize;
     ArrayDeque *deque = newArrayDeque(capacity);
     pushLast(deque, 3);
     pushLast(deque, 2);
     pushLast(deque, 5);
-    printf("Двусторонняя очередь deque = ");
+    printf("Дек deque = ");
     printArray(toArray(deque, &queSize), queSize);
 
-    /* Получить доступ к элементу */
+    /* Доступ к элементу */
     int peekFirstNum = peekFirst(deque);
-    printf("Первый элемент дека peekFirst = %d\r\n", peekFirstNum);
+    printf("Элемент в голове peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("хвост очередиэлемент peekLast = %d\r\n", peekLastNum);
+    printf("Элемент в хвосте peekLast = %d\r\n", peekLastNum);
 
-    /* Поместить элемент в очередь */
+    /* Добавление элемента в очередь */
     pushLast(deque, 4);
-    printf("После помещения элемента 4 в хвост очереди deque = ");
+    printf("После вставки элемента 4 в хвост дек = ");
     printArray(toArray(deque, &queSize), queSize);
     pushFirst(deque, 1);
-    printf("После помещения элемента 1 в голову очереди deque = ");
+    printf("После вставки элемента 1 в голову дек = ");
     printArray(toArray(deque, &queSize), queSize);
 
-    /* Извлечь элемент из очереди */
+    /* Извлечение элемента из очереди */
     int popLastNum = popLast(deque);
-    printf("Элемент, извлеченный из хвоста очереди = %d, deque после извлечения из хвоста = ", popLastNum);
+    printf("Извлечен элемент из хвоста = %d, дек после извлечения из хвоста = ", popLastNum);
     printArray(toArray(deque, &queSize), queSize);
     int popFirstNum = popFirst(deque);
-    printf("Элемент, извлеченный из головы очереди = %d, deque после извлечения из головы = ", popFirstNum);
+    printf("Извлечен элемент из головы = %d, дек после извлечения из головы = ", popFirstNum);
     printArray(toArray(deque, &queSize), queSize);
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     int dequeSize = size(deque);
-    printf("Длина двусторонней очереди size = %d\r\n", dequeSize);
+    printf("Длина дека size = %d\r\n", dequeSize);
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     bool isEmpty = empty(deque);
-    printf("Очередь пуста: %s\r\n", isEmpty ? "true" : "false");
+    printf("Пуста ли очередь = %s\r\n", isEmpty ? "true" : "false");
 
     // Освободить память
     delArrayDeque(deque);

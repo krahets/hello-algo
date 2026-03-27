@@ -17,7 +17,7 @@ struct Trunk<'a, 'b> {
     str: Cell<&'b str>,
 }
 
-/* Вывестимассив */
+/* Вывести массив */
 pub fn print_array<T: Display>(nums: &[T]) {
     print!("[");
     if nums.len() > 0 {
@@ -36,7 +36,7 @@ pub fn print_hash_map<TKey: Display, TValue: Display>(map: &HashMap<TKey, TValue
     }
 }
 
-/* Вывестиочередь(двусторонняя очередь) */
+/* Вывести очередь (двустороннюю очередь) */
 pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
     print!("[");
     let iter = queue.iter();
@@ -95,7 +95,7 @@ fn show_trunks(trunk: Option<&Trunk>) {
 
 /* Вывести кучу */
 pub fn print_heap(heap: Vec<i32>) {
-    println!("Массивное представление кучи:{:?}", heap);
+    println!("Массивное представление кучи: {:?}", heap);
     println!("Древовидное представление кучи:");
     if let Some(root) = vec_to_tree(heap.into_iter().map(|val| Some(val)).collect()) {
         print_tree(&root);

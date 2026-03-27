@@ -118,8 +118,8 @@ pub fn TreeFormatter(comptime T: type) type {
             try printTree(root.?.left, &trunk, false, writer);
         }
 
-        // Вывестидвоичное дерево
-        // This tree printer is borrowed from TECHIE DELIGHT
+        // Вывести двоичное дерево
+        // Этот вывод дерева заимствован из TECHIE DELIGHT
         // https://www.techiedelight.com/c-program-print-binary-tree/
         const Trunk = struct {
             prev: ?*Trunk = null,

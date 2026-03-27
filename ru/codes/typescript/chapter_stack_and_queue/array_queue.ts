@@ -4,10 +4,10 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-/* Очередь на основе циклического массива */
+/* Очередь на основе кольцевого массива */
 class ArrayQueue {
     private nums: number[]; // Массив для хранения элементов очереди
-    private front: number; // Указатель front, указывающий на первый элемент очереди
+    private front: number; // Указатель head, указывающий на первый элемент очереди
     private queSize: number; // Длина очереди
 
     constructor(capacity: number) {
@@ -20,12 +20,12 @@ class ArrayQueue {
         return this.nums.length;
     }
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     get size(): number {
         return this.queSize;
     }
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     isEmpty(): boolean {
         return this.queSize === 0;
     }
@@ -36,10 +36,10 @@ class ArrayQueue {
             console.log('Очередь заполнена');
             return;
         }
-        // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
-        // Операция взятия по модулю позволяет rear после выхода за конец массива вернуться к его началу
+        // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+        // С помощью операции взятия по модулю вернуть rear к началу после выхода за конец массива
         const rear = (this.front + this.queSize) % this.capacity;
-        // Добавить num в конец очереди
+        // Добавить num в хвост очереди
         this.nums[rear] = num;
         this.queSize++;
     }
@@ -47,21 +47,21 @@ class ArrayQueue {
     /* Извлечь из очереди */
     pop(): number {
         const num = this.peek();
-        // Указатель головы очереди сдвигается на одну позицию вперед; если он выходит за конец, то возвращается в начало массива
+        // Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
         this.front = (this.front + 1) % this.capacity;
         this.queSize--;
         return num;
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     peek(): number {
-        if (this.isEmpty()) throw new Error('Очередь пуста');
+        if (this.isEmpty()) throw new Error('очередь пуста');
         return this.nums[this.front];
     }
 
     /* Вернуть Array */
     toArray(): number[] {
-        // Преобразовать только элементы списка в пределах действительной длины
+        // Преобразовывать только элементы списка в пределах фактической длины
         const arr = new Array(this.size);
         for (let i = 0, j = this.front; i < this.size; i++, j++) {
             arr[i] = this.nums[j % this.capacity];
@@ -71,11 +71,11 @@ class ArrayQueue {
 }
 
 /* Driver Code */
-/* Инициализировать очередь */
+/* Инициализация очереди */
 const capacity = 10;
 const queue = new ArrayQueue(capacity);
 
-/* Поместить элемент в очередь */
+/* Добавление элемента в очередь */
 queue.push(1);
 queue.push(3);
 queue.push(2);
@@ -83,27 +83,27 @@ queue.push(5);
 queue.push(4);
 console.log('Очередь queue =', queue.toArray());
 
-/* Получить элемент в начале очереди */
+/* Доступ к элементу в начале очереди */
 const peek = queue.peek();
-console.log('голова очередиэлемент peek =' + peek);
+console.log('Элемент в начале очереди peek = ' + peek);
 
-/* Извлечь элемент из очереди */
+/* Извлечение элемента из очереди */
 const pop = queue.pop();
-console.log('Элемент, извлеченный из очереди, pop = ' + pop + ', queue после извлечения =', queue.toArray());
+console.log('Извлечен элемент pop = ' + pop + ', очередь после извлечения queue =', queue.toArray());
 
-/* Получить длину очереди */
+/* Получение длины очереди */
 const size = queue.size;
-console.log('Длина очереди size =' + size);
+console.log('Длина очереди size = ' + size);
 
-/* Проверить, пуста ли очередь */
+/* Проверка, пуста ли очередь */
 const isEmpty = queue.isEmpty();
-console.log('Очередь пуста: ' + isEmpty);
+console.log('Пуста ли очередь = ' + isEmpty);
 
-/* Проверить кольцевой массив */
+/* Проверка кольцевого массива */
 for (let i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    console.log('Итерация' + i + 'после enqueue + dequeue queue =', queue.toArray());
+    console.log('После ' + i + '-го добавления и извлечения queue =', queue.toArray());
 }
 
 export {};

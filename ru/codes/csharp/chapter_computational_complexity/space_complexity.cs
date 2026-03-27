@@ -13,7 +13,7 @@ public class space_complexity {
         return 0;
     }
 
-    /* Константная сложность */
+    /* Постоянная сложность */
     void Constant(int n) {
         // Константы, переменные и объекты занимают O(1) памяти
         int a = 0;
@@ -24,7 +24,7 @@ public class space_complexity {
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // Функция в цикле занимает O(1) памяти
+        // Функции в цикле занимают O(1) памяти
         for (int i = 0; i < n; i++) {
             Function();
         }
@@ -32,14 +32,14 @@ public class space_complexity {
 
     /* Линейная сложность */
     void Linear(int n) {
-        // Массив длины n занимает пространство O(n)
+        // Массив длины n занимает O(n) памяти
         int[] nums = new int[n];
-        // Список длины n занимает пространство O(n)
+        // Список длины n занимает O(n) памяти
         List<ListNode> nodes = [];
         for (int i = 0; i < n; i++) {
             nodes.Add(new ListNode(i));
         }
-        // Хеш-таблица длины n занимает пространство O(n)
+        // Хеш-таблица длины n занимает O(n) памяти
         Dictionary<int, string> map = [];
         for (int i = 0; i < n; i++) {
             map.Add(i, i.ToString());
@@ -48,16 +48,16 @@ public class space_complexity {
 
     /* Линейная сложность (рекурсивная реализация) */
     void LinearRecur(int n) {
-        Console.WriteLine("Рекурсия: n = " + n);
+        Console.WriteLine("Рекурсия n = " + n);
         if (n == 1) return;
         LinearRecur(n - 1);
     }
 
     /* Квадратичная сложность */
     void Quadratic(int n) {
-        // Матрица занимает пространство O(n^2)
+        // Матрица занимает O(n^2) памяти
         int[,] numMatrix = new int[n, n];
-        // Двумерный список занимает пространство O(n^2)
+        // Двумерный список занимает O(n^2) памяти
         List<List<int>> numList = [];
         for (int i = 0; i < n; i++) {
             List<int> tmp = [];
@@ -72,7 +72,7 @@ public class space_complexity {
     int QuadraticRecur(int n) {
         if (n <= 0) return 0;
         int[] nums = new int[n];
-        Console.WriteLine("Рекурсия: n = " + n + ", длина nums = " + nums.Length);
+        Console.WriteLine("В рекурсии n = " + n + ", длина nums = " + nums.Length);
         return QuadraticRecur(n - 1);
     }
 
@@ -89,7 +89,7 @@ public class space_complexity {
     [Test]
     public void Test() {
         int n = 5;
-        // Константная сложность
+        // Постоянная сложность
         Constant(n);
         // Линейная сложность
         Linear(n);

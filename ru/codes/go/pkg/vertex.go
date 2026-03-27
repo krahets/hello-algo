@@ -4,12 +4,12 @@
 
 package pkg
 
-// Vertex вершинакласс
+// Vertex: класс вершины
 type Vertex struct {
 	Val int
 }
 
-// NewVertex вершинаКонструктор
+// NewVertex: конструктор вершины
 func NewVertex(val int) Vertex {
 	return Vertex{
 		Val: val,

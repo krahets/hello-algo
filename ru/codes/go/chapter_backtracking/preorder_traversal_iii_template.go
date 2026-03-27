@@ -40,13 +40,13 @@ func backtrackIII(state *[]*TreeNode, choices *[]*TreeNode, res *[][]*TreeNode) 
 		// Записать решение
 		recordSolution(state, res)
 	}
-	// Перебрать все варианты выбора
+	// Перебор всех вариантов выбора
 	for _, choice := range *choices {
-		// Отсечение: проверить, допустим ли текущий выбор
+		// Отсечение: проверить допустимость выбора
 		if isValid(state, choice) {
 			// Попытка: сделать выбор и обновить состояние
 			makeChoice(state, choice)
-			// Перейти к следующему варианту выбора
+			// Перейти к следующему выбору
 			temp := make([]*TreeNode, 0)
 			temp = append(temp, choice.Left, choice.Right)
 			backtrackIII(state, &temp, res)

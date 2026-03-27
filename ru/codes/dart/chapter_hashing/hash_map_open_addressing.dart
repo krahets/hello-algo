@@ -8,12 +8,12 @@ import 'array_hash_map.dart';
 
 /* Хеш-таблица с открытой адресацией */
 class HashMapOpenAddressing {
-  late int _size; // Количество пар ключ-значение
+  late int _size; // Число пар ключ-значение
   int _capacity = 4; // Вместимость хеш-таблицы
-  double _loadThres = 2.0 / 3.0; // Порог коэффициента загрузки, запускающий расширение
+  double _loadThres = 2.0 / 3.0; // Порог коэффициента загрузки для запуска расширения
   int _extendRatio = 2; // Коэффициент расширения
-  late List<Pair?> _buckets; // Массив бакетов
-  Pair _TOMBSTONE = Pair(-1, "-1"); // Метка удаления
+  late List<Pair?> _buckets; // Массив корзин
+  Pair _TOMBSTONE = Pair(-1, "-1"); // Удалить метку
 
   /* Конструктор */
   HashMapOpenAddressing() {
@@ -31,27 +31,27 @@ class HashMapOpenAddressing {
     return _size / _capacity;
   }
 
-  /* Найти индекс корзины, соответствующей ключу key */
+  /* Найти индекс корзины, соответствующий key */
   int findBucket(int key) {
     int index = hashFunc(key);
     int firstTombstone = -1;
-    // Выполнять линейное пробирование и остановиться при встрече с пустым бакетом
+    // Выполнять линейное пробирование и завершить при встрече с пустой корзиной
     while (_buckets[index] != null) {
-      // Если встретился key, вернуть соответствующий индекс бакета
+      // Если встретился key, вернуть соответствующий индекс корзины
       if (_buckets[index]!.key == key) {
-        // Если ранее встретилась метка удаления, переместить пару ключ-значение в этот индекс
+        // Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
         if (firstTombstone != -1) {
           _buckets[firstTombstone] = _buckets[index];
           _buckets[index] = _TOMBSTONE;
-          return firstTombstone; // Вернуть индекс бакета после перемещения
+          return firstTombstone; // Вернуть индекс корзины после перемещения
         }
-        return index; // Вернуть индекс бакета
+        return index; // Вернуть индекс корзины
       }
       // Записать первую встретившуюся метку удаления
       if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
         firstTombstone = index;
       }
-      // Вычислить индекс бакета; при выходе за конец вернуться к началу
+      // Вычислить индекс корзины; при выходе за конец вернуться к началу
       index = (index + 1) % _capacity;
     }
     // Если key не существует, вернуть индекс точки добавления
@@ -60,13 +60,13 @@ class HashMapOpenAddressing {
 
   /* Операция поиска */
   String? get(int key) {
-    // Найти индекс корзины, соответствующей ключу key
+    // Найти индекс корзины, соответствующий key
     int index = findBucket(key);
     // Если пара ключ-значение найдена, вернуть соответствующее val
     if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
       return _buckets[index]!.val;
     }
-    // Если пара ключ-значение не существует, вернуть null
+    // Если пары ключ-значение не существует, вернуть null
     return null;
   }
 
@@ -76,23 +76,23 @@ class HashMapOpenAddressing {
     if (loadFactor() > _loadThres) {
       extend();
     }
-    // Найти индекс корзины, соответствующей ключу key
+    // Найти индекс корзины, соответствующий key
     int index = findBucket(key);
-    // Если пара ключ-значение найдена, перезаписать val и вернуть результат
+    // Если пара ключ-значение найдена, перезаписать val и вернуть
     if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
       _buckets[index]!.val = val;
       return;
     }
-    // Если пара ключ-значение не существует, добавить ее
+    // Если пары ключ-значение нет, добавить ее
     _buckets[index] = new Pair(key, val);
     _size++;
   }
 
   /* Операция удаления */
   void remove(int key) {
-    // Найти индекс корзины, соответствующей ключу key
+    // Найти индекс корзины, соответствующий key
     int index = findBucket(key);
-    // Если пара ключ-значение найдена, пометить ее меткой удаления
+    // Если пара ключ-значение найдена, заменить ее меткой удаления
     if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
       _buckets[index] = _TOMBSTONE;
       _size--;
@@ -103,7 +103,7 @@ class HashMapOpenAddressing {
   void extend() {
     // Временно сохранить исходную хеш-таблицу
     List<Pair?> bucketsTmp = _buckets;
-    // Инициализировать новую хеш-таблицу после расширения
+    // Инициализация новой хеш-таблицы после расширения
     _capacity *= _extendRatio;
     _buckets = List.generate(_capacity, (index) => null);
     _size = 0;
@@ -131,27 +131,27 @@ class HashMapOpenAddressing {
 
 /* Driver Code */
 void main() {
-  /* Инициализировать хеш-таблицу */
+  /* Инициализация хеш-таблицы */
   HashMapOpenAddressing map = HashMapOpenAddressing();
 
   /* Операция добавления */
-  // Добавить в хеш-таблицу пару ключ-значение (key, value)
+  // Добавить пару (key, value) в хеш-таблицу
   map.put(12836, "Сяо Ха");
   map.put(15937, "Сяо Ло");
   map.put(16750, "Сяо Суань");
   map.put(13276, "Сяо Фа");
-  map.put(10583, "Утенок");
-  print("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
+  map.put(10583, "Сяо Я");
+  print("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
   map.printHashMap();
 
   /* Операция поиска */
-  // Передать ключ key в хеш-таблицу и получить значение value
+  // Ввести в хеш-таблицу ключ key и получить значение value
   String? name = map.get(13276);
-  print("\nПо номеру студента 13276 найдено имя $name");
+  print("\nДля номера 13276 найдено имя $name");
 
   /* Операция удаления */
-  // Удалить из хеш-таблицы пару ключ-значение (key, value)
+  // Удалить пару (key, value) из хеш-таблицы
   map.remove(16750);
-  print("\nПосле удаления 16750 хеш-таблица выглядит так\nKey -> Value");
+  print("\nПосле удаления 16750 хеш-таблица имеет вид\nКлюч -> Значение");
   map.printHashMap();
 }

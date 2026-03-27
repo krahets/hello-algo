@@ -10,28 +10,28 @@ use graph_adjacency_list::GraphAdjList;
 use graph_adjacency_list::{vals_to_vets, vets_to_vals, Vertex};
 use std::collections::HashSet;
 
-/* обход в глубинувспомогательная функция */
+/* Вспомогательная функция обхода в глубину */
 fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex>, vet: Vertex) {
-    res.push(vet); // Записать посещенную вершину
-    visited.insert(vet); // Пометить эту вершину как посещенную
-                         // Обойти все смежные вершины этой вершины
+    res.push(vet); // Отметить посещенную вершину
+    visited.insert(vet); // Отметить эту вершину как посещенную
+                         // Обойти все смежные вершины данной вершины
     if let Some(adj_vets) = graph.adj_list.get(&vet) {
         for &adj_vet in adj_vets {
             if visited.contains(&adj_vet) {
                 continue; // Пропустить уже посещенную вершину
             }
-            // Рекурсивно посетить смежные вершины
+            // Рекурсивно обходить смежные вершины
             dfs(graph, visited, res, adj_vet);
         }
     }
 }
 
 /* Обход в глубину */
-// Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
 fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
     // Последовательность обхода вершин
     let mut res = vec![];
-    // Хеш-множество для записи уже посещенных вершин
+    // Хеш-множество для хранения уже посещенных вершин
     let mut visited = HashSet::new();
     dfs(&graph, &mut visited, &mut res, start_vet);
 
@@ -40,7 +40,7 @@ fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
 
 /* Driver Code */
 fn main() {
-    /* Инициализировать неориентированный граф */
+    /* Инициализация неориентированного графа */
     let v = vals_to_vets(vec![0, 1, 2, 3, 4, 5, 6]);
     let edges = vec![
         [v[0], v[1]],
@@ -51,7 +51,7 @@ fn main() {
         [v[5], v[6]],
     ];
     let graph = GraphAdjList::new(edges);
-    println!("\nПосле инициализации граф имеет вид");
+    println!("\nГраф после инициализации");
     graph.print();
 
     /* Обход в глубину */

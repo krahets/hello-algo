@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class array {
     /* Случайный доступ к элементу */
     static int randomAccess(int[] nums) {
-        // Случайно выбрать число в интервале [0, nums.length)
+        // Случайным образом выбрать число из интервала [0, nums.length)
         int randomIndex = ThreadLocalRandom.current().nextInt(0, nums.length);
         // Получить и вернуть случайный элемент
         int randomNum = nums[randomIndex];
@@ -27,13 +27,13 @@ public class array {
         for (int i = 0; i < nums.length; i++) {
             res[i] = nums[i];
         }
-        // Вернуть новый расширенный массив
+        // Вернуть новый массив после расширения
         return res;
     }
 
-    /* Вставить элемент num в массив по индексу index */
+    /* Вставить элемент num по индексу index в массив */
     static void insert(int[] nums, int num, int index) {
-        // Сдвинуть индекс index и все последующие элементы на одну позицию назад
+        // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
         for (int i = nums.length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
@@ -49,10 +49,10 @@ public class array {
         }
     }
 
-    /* Перебрать массив */
+    /* Обход массива */
     static void traverse(int[] nums) {
         int count = 0;
-        // Обходить массив по индексам
+        // Обход массива по индексам
         for (int i = 0; i < nums.length; i++) {
             count += nums[i];
         }
@@ -73,7 +73,7 @@ public class array {
 
     /* Driver Code */
     public static void main(String[] args) {
-        /* Инициализировать массив */
+        /* Инициализация массива */
         int[] arr = new int[5];
         System.out.println("Массив arr = " + Arrays.toString(arr));
         int[] nums = { 1, 3, 2, 5, 4 };
@@ -81,25 +81,25 @@ public class array {
 
         /* Случайный доступ */
         int randomNum = randomAccess(nums);
-        System.out.println("Полученный случайный элемент из nums " + randomNum);
+        System.out.println("Случайный элемент из nums = " + randomNum);
 
         /* Расширение длины */
         nums = extend(nums, 3);
-        System.out.println("После расширения длины массива до 8 получаем nums = " + Arrays.toString(nums));
+        System.out.println("После увеличения длины массива до 8 nums = " + Arrays.toString(nums));
 
-        /* Вставить элемент */
+        /* Вставка элемента */
         insert(nums, 6, 3);
-        System.out.println("После вставки числа 6 по индексу 3 получаем nums = " + Arrays.toString(nums));
+        System.out.println("После вставки числа 6 по индексу 3 nums = " + Arrays.toString(nums));
 
-        /* Удалить элемент */
+        /* Удаление элемента */
         remove(nums, 2);
-        System.out.println("После удаления элемента по индексу 2 получаем nums = " + Arrays.toString(nums));
+        System.out.println("После удаления элемента по индексу 2 nums = " + Arrays.toString(nums));
 
-        /* Перебрать массив */
+        /* Обход массива */
         traverse(nums);
 
-        /* Найти элемент */
+        /* Поиск элемента */
         int index = find(nums, 3);
-        System.out.println("Поиск элемента 3 в nums дает индекс = " + index);
+        System.out.println("Поиск элемента 3 в nums: индекс = " + index);
     }
 }

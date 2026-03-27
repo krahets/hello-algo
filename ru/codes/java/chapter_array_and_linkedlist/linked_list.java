@@ -26,7 +26,7 @@ public class linked_list {
         n0.next = n1;
     }
 
-    /* Обратиться к узлу связного списка с индексом index */
+    /* Доступ к узлу связного списка по индексу index */
     static ListNode access(ListNode head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -36,7 +36,7 @@ public class linked_list {
         return head;
     }
 
-    /* Найти первый узел со значением target в связном списке */
+    /* Найти в связном списке первый узел со значением target */
     static int find(ListNode head, int target) {
         int index = 0;
         while (head != null) {
@@ -50,8 +50,8 @@ public class linked_list {
 
     /* Driver Code */
     public static void main(String[] args) {
-        /* Инициализироватьсвязный список */
-        // Инициализироватькаждый узел
+        /* Инициализация связного списка */
+        // Инициализация всех узлов
         ListNode n0 = new ListNode(1);
         ListNode n1 = new ListNode(3);
         ListNode n2 = new ListNode(2);
@@ -62,25 +62,25 @@ public class linked_list {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        System.out.println("Инициализированный связный список:");
+        System.out.println("Исходный связный список");
         PrintUtil.printLinkedList(n0);
 
-        /* Вставить узел */
+        /* Вставка узла */
         insert(n0, new ListNode(0));
-        System.out.println("Связный список после вставки узла:");
+        System.out.println("Связный список после вставки узла");
         PrintUtil.printLinkedList(n0);
 
-        /* Удалить узел */
+        /* Удаление узла */
         remove(n0);
-        System.out.println("Связный список после удаления узла:");
+        System.out.println("Связный список после удаления узла");
         PrintUtil.printLinkedList(n0);
 
-        /* Получить доступ к узлу */
+        /* Доступ к узлу */
         ListNode node = access(n0, 3);
-        System.out.println("Значение узла по индексу 3 в связном списке =" + node.val);
+        System.out.println("Значение узла по индексу 3 в связном списке = " + node.val);
 
-        /* Найти узел */
+        /* Поиск узла */
         int index = find(n0, 2);
-        System.out.println("Индекс узла со значением 2 в связном списке =" + index);
+        System.out.println("Индекс узла со значением 2 в связном списке = " + index);
     }
 }

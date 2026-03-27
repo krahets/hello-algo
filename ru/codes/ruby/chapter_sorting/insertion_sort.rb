@@ -7,7 +7,7 @@ Author: Cy (3739004@gmail.com), Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 # ## Сортировка вставками ###
 def insertion_sort(nums)
   n = nums.length
-  # Внешний цикл: отсортированный диапазон равен [0, i-1]
+  # Внешний цикл: отсортированный диапазон [0, i-1]
   for i in 1...n
     base = nums[i]
     j = i - 1
@@ -23,4 +23,4 @@ end
 ### Driver Code ###
 nums = [4, 1, 3, 1, 5, 2]
 insertion_sort(nums)
-puts "Сортировка вставкамипосле завершения nums = #{nums}"
+puts "После сортировки вставками nums = #{nums}"

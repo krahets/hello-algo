@@ -9,13 +9,13 @@ namespace hello_algo.chapter_stack_and_queue;
 /* Узел двусвязного списка */
 public class ListNode(int val) {
     public int val = val;       // Значение узла
-    public ListNode? next = null; // Ссылка на следующий узел
-    public ListNode? prev = null; // Ссылка на предыдущий узел
+    public ListNode? next = null; // Ссылка на узел-преемник
+    public ListNode? prev = null; // Ссылка на узел-предшественник
 }
 
 /* Двусторонняя очередь на основе двусвязного списка */
 public class LinkedListDeque {
-    ListNode? front, rear; // головной узел front, хвостовой узел rear
+    ListNode? front, rear; // Головной узел front, хвостовой узел rear
     int queSize = 0;      // Длина двусторонней очереди
 
     public LinkedListDeque() {
@@ -23,17 +23,17 @@ public class LinkedListDeque {
         rear = null;
     }
 
-    /* Получить длину двусторонней очереди */
+    /* Получение длины двусторонней очереди */
     public int Size() {
         return queSize;
     }
 
-    /* Проверить, пуста ли двусторонняя очередь */
+    /* Проверка, пуста ли двусторонняя очередь */
     public bool IsEmpty() {
         return Size() == 0;
     }
 
-    /* Операция помещения в очередь */
+    /* Операция добавления в очередь */
     void Push(int num, bool isFront) {
         ListNode node = new(num);
         // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
@@ -41,30 +41,30 @@ public class LinkedListDeque {
             front = node;
             rear = node;
         }
-        // Операция помещения в голову очереди
+        // Операция добавления в голову очереди
         else if (isFront) {
-            // Добавить node в голову связного списка
+            // Добавить node в голову списка
             front!.prev = node;
             node.next = front;
             front = node; // Обновить головной узел
         }
-        // Операция помещения в хвост очереди
+        // Операция добавления в хвост очереди
         else {
-            // Добавить node в хвост связного списка
+            // Добавить node в хвост списка
             rear!.next = node;
             node.prev = rear;
             rear = node;  // Обновить хвостовой узел
         }
 
-        queSize++; // ОбновитьДлина очереди
+        queSize++; // Обновить длину очереди
     }
 
-    /* Поместить в голову очереди */
+    /* Добавление в голову очереди */
     public void PushFirst(int num) {
         Push(num, true);
     }
 
-    /* Поместить в хвост очереди */
+    /* Добавление в хвост очереди */
     public void PushLast(int num) {
         Push(num, false);
     }
@@ -97,35 +97,35 @@ public class LinkedListDeque {
             rear = rPrev;    // Обновить хвостовой узел
         }
 
-        queSize--; // ОбновитьДлина очереди
+        queSize--; // Обновить длину очереди
         return val;
     }
 
-    /* Извлечь из головы очереди */
+    /* Извлечение из головы очереди */
     public int? PopFirst() {
         return Pop(true);
     }
 
-    /* Извлечь из хвоста очереди */
+    /* Извлечение из хвоста очереди */
     public int? PopLast() {
         return Pop(false);
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     public int? PeekFirst() {
         if (IsEmpty())
             throw new Exception();
         return front?.val;
     }
 
-    /* Обратиться к элементу в хвосте очереди */
+    /* Доступ к элементу в конце очереди */
     public int? PeekLast() {
         if (IsEmpty())
             throw new Exception();
         return rear?.val;
     }
 
-    /* Вернуть массив для печати */
+    /* Вернуть массив для вывода */
     public int?[] ToArray() {
         ListNode? node = front;
         int?[] res = new int?[Size()];
@@ -141,37 +141,37 @@ public class LinkedListDeque {
 public class linkedlist_deque {
     [Test]
     public void Test() {
-        /* Инициализировать двустороннюю очередь */
+        /* Инициализация двусторонней очереди */
         LinkedListDeque deque = new();
         deque.PushLast(3);
         deque.PushLast(2);
         deque.PushLast(5);
         Console.WriteLine("Двусторонняя очередь deque = " + string.Join(" ", deque.ToArray()));
 
-        /* Получить доступ к элементу */
+        /* Доступ к элементу */
         int? peekFirst = deque.PeekFirst();
-        Console.WriteLine("голова очередиэлемент peekFirst =" + peekFirst);
+        Console.WriteLine("Первый элемент peekFirst = " + peekFirst);
         int? peekLast = deque.PeekLast();
-        Console.WriteLine("хвост очередиэлемент peekLast =" + peekLast);
+        Console.WriteLine("Последний элемент peekLast = " + peekLast);
 
-        /* Поместить элемент в очередь */
+        /* Добавление элемента в очередь */
         deque.PushLast(4);
-        Console.WriteLine("После помещения элемента 4 в хвост очереди deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("После добавления элемента 4 в хвост deque = " + string.Join(" ", deque.ToArray()));
         deque.PushFirst(1);
-        Console.WriteLine("После помещения элемента 1 в голову очереди deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("После добавления элемента 1 в голову deque = " + string.Join(" ", deque.ToArray()));
 
-        /* Извлечь элемент из очереди */
+        /* Извлечение элемента из очереди */
         int? popLast = deque.PopLast();
-        Console.WriteLine("Элемент, извлеченный из хвоста очереди = " + popLast + ", deque после извлечения из хвоста = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Извлеченный из хвоста элемент = " + popLast + ", deque после извлечения из хвоста = " + string.Join(" ", deque.ToArray()));
         int? popFirst = deque.PopFirst();
-        Console.WriteLine("Элемент, извлеченный из головы очереди = " + popFirst + ", deque после извлечения из головы = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Извлеченный из головы элемент = " + popFirst + ", deque после извлечения из головы = " + string.Join(" ", deque.ToArray()));
 
-        /* Получить длину двусторонней очереди */
+        /* Получение длины двусторонней очереди */
         int size = deque.Size();
         Console.WriteLine("Длина двусторонней очереди size = " + size);
 
-        /* Проверить, пуста ли двусторонняя очередь */
+        /* Проверка, пуста ли двусторонняя очередь */
         bool isEmpty = deque.IsEmpty();
-        Console.WriteLine("Двусторонняя очередь пуста: " + isEmpty);
+        Console.WriteLine("Пуста ли двусторонняя очередь = " + isEmpty);
     }
 }

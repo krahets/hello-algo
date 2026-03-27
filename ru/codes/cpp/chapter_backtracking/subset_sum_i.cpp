@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* Алгоритм бэктрекинга: сумма подмножества I */
+/* Алгоритм бэктрекинга: сумма подмножеств I */
 void backtrack(vector<int> &state, int target, vector<int> &choices, int start, vector<vector<int>> &res) {
     // Если сумма подмножества равна target, записать решение
     if (target == 0) {
@@ -14,27 +14,27 @@ void backtrack(vector<int> &state, int target, vector<int> &choices, int start, 
         return;
     }
     // Обойти все варианты выбора
-    // Отсечение 2: начинать обход с start, чтобы избежать генерации дублирующихся подмножеств
+    // Отсечение 2: начинать обход с start, чтобы избежать генерации повторяющихся подмножеств
     for (int i = start; i < choices.size(); i++) {
-        // Отсечение 1: если сумма подмножества превышает target, сразу завершить цикл
-        // Это связано с тем, что массив уже отсортирован, последующие элементы больше, поэтому сумма подмножества обязательно превысит target
+        // Отсечение 1: если сумма подмножества превышает target, немедленно завершить цикл
+        // Это связано с тем, что массив уже отсортирован, следующие элементы больше, и сумма подмножества точно превысит target
         if (target - choices[i] < 0) {
             break;
         }
-        // Попытка: сделать выбор и обновить target, start
+        // Попытка: сделать выбор и обновить target и start
         state.push_back(choices[i]);
-        // Перейти к следующему варианту выбора
+        // Перейти к следующему выбору
         backtrack(state, target - choices[i], choices, i, res);
         // Откат: отменить выбор и восстановить предыдущее состояние
         state.pop_back();
     }
 }
 
-/* Решить задачу суммы подмножества I */
+/* Решить задачу суммы подмножеств I */
 vector<vector<int>> subsetSumI(vector<int> &nums, int target) {
     vector<int> state;              // Состояние (подмножество)
     sort(nums.begin(), nums.end()); // Отсортировать nums
-    int start = 0;                  // Обход начальной вершины
+    int start = 0;                  // Стартовая вершина обхода
     vector<vector<int>> res;        // Список результатов (список подмножеств)
     backtrack(state, target, nums, start, res);
     return res;
@@ -50,7 +50,7 @@ int main() {
     cout << "Входной массив nums = ";
     printVector(nums);
     cout << "target = " << target << endl;
-    cout << "Все подмножества res с суммой " << target << " = " << endl;
+    cout << "Все подмножества с суммой " << target << ": " << endl;
     printVectorMatrix(res);
 
     return 0;

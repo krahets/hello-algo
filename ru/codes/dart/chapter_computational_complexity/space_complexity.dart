@@ -17,7 +17,7 @@ int function() {
   return 0;
 }
 
-/* Константная сложность */
+/* Постоянная сложность */
 void constant(int n) {
   // Константы, переменные и объекты занимают O(1) памяти
   final int a = 0;
@@ -28,7 +28,7 @@ void constant(int n) {
   for (var i = 0; i < n; i++) {
     int c = 0;
   }
-  // Функция в цикле занимает O(1) памяти
+  // Функции в цикле занимают O(1) памяти
   for (var i = 0; i < n; i++) {
     function();
   }
@@ -36,14 +36,14 @@ void constant(int n) {
 
 /* Линейная сложность */
 void linear(int n) {
-  // Массив длины n занимает пространство O(n)
+  // Массив длины n занимает O(n) памяти
   List<int> nums = List.filled(n, 0);
-  // Список длины n занимает пространство O(n)
+  // Список длины n занимает O(n) памяти
   List<ListNode> nodes = [];
   for (var i = 0; i < n; i++) {
     nodes.add(ListNode(i));
   }
-  // Хеш-таблица длины n занимает пространство O(n)
+  // Хеш-таблица длины n занимает O(n) памяти
   Map<int, String> map = HashMap();
   for (var i = 0; i < n; i++) {
     map.putIfAbsent(i, () => i.toString());
@@ -52,16 +52,16 @@ void linear(int n) {
 
 /* Линейная сложность (рекурсивная реализация) */
 void linearRecur(int n) {
-  print('Рекурсия: n = $n');
+  print('Рекурсия n = $n');
   if (n == 1) return;
   linearRecur(n - 1);
 }
 
 /* Квадратичная сложность */
 void quadratic(int n) {
-  // Матрица занимает пространство O(n^2)
+  // Матрица занимает O(n^2) памяти
   List<List<int>> numMatrix = List.generate(n, (_) => List.filled(n, 0));
-  // Двумерный список занимает пространство O(n^2)
+  // Двумерный список занимает O(n^2) памяти
   List<List<int>> numList = [];
   for (var i = 0; i < n; i++) {
     List<int> tmp = [];
@@ -76,7 +76,7 @@ void quadratic(int n) {
 int quadraticRecur(int n) {
   if (n <= 0) return 0;
   List<int> nums = List.filled(n, 0);
-  print('Рекурсия: n = $n, длина nums = ${nums.length}');
+  print('В рекурсии n = $n длина nums = ${nums.length}');
   return quadraticRecur(n - 1);
 }
 
@@ -92,7 +92,7 @@ TreeNode? buildTree(int n) {
 /* Driver Code */
 void main() {
   int n = 5;
-  // Константная сложность
+  // Постоянная сложность
   constant(n);
   // Линейная сложность
   linear(n);

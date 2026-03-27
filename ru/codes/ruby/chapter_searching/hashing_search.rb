@@ -8,14 +8,14 @@ require_relative '../utils/list_node'
 
 # ## Хеш-поиск (массив) ###
 def hashing_search_array(hmap, target)
-  # У хеш-таблицы key: целевой элемент, value: индекс
-  # Если такого key в хеш-таблице нет, вернуть -1
+  # key хеш-таблицы: целевой элемент, value: индекс
+  # Если такого key нет в хеш-таблице, вернуть -1
   hmap[target] || -1
 end
 
 # ## Хеш-поиск (связный список) ###
 def hashing_search_linkedlist(hmap, target)
-  # У хеш-таблицы key: целевой элемент, value: объект узла
+  # key хеш-таблицы: целевой элемент, value: объект узла
   # Если такого key нет в хеш-таблице, вернуть None
   hmap[target] || nil
 end
@@ -26,7 +26,7 @@ if __FILE__ == $0
 
   # Хеш-поиск (массив)
   nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
-  # Инициализировать хеш-таблицу
+  # Инициализация хеш-таблицы
   map0 = {}
   for i in 0...nums.length
     map0[nums[i]] = i # key: элемент, value: индекс
@@ -36,12 +36,12 @@ if __FILE__ == $0
 
   # Хеш-поиск (связный список)
   head = arr_to_linked_list(nums)
-  # Инициализировать хеш-таблицу
+  # Инициализация хеш-таблицы
   map1 = {}
   while head
     map1[head.val] = head
     head = head.next
   end
   node = hashing_search_linkedlist(map1, target)
-  puts "Объект узла, соответствующий целевому значению 3, равен #{node}"
+  puts "Объект узла со значением 3 = #{node}"
 end

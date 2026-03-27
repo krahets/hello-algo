@@ -5,11 +5,11 @@
  */
 
 /* Driver Code */
-/* Инициализировать стек */
+/* Инициализация стека */
 // В JavaScript нет встроенного класса стека, поэтому Array можно использовать как стек
 const stack = [];
 
-/* Поместить элемент в стек */
+/* Помещение элемента в стек */
 stack.push(1);
 stack.push(3);
 stack.push(2);
@@ -17,19 +17,19 @@ stack.push(5);
 stack.push(4);
 console.log('Стек stack =', stack);
 
-/* Получить верхний элемент стека */
+/* Доступ к верхнему элементу стека */
 const peek = stack[stack.length - 1];
-console.log('Верхний элемент стека peek =', peek);
+console.log('Верхний элемент peek =', peek);
 
-/* Извлечь элемент из стека */
+/* Извлечение элемента из стека */
 const pop = stack.pop();
-console.log('Извлеченный из стека элемент pop =', pop);
-console.log('После извлечения stack =', stack);
+console.log('Извлеченный элемент pop =', pop);
+console.log('stack после извлечения =', stack);
 
-/* Получить длину стека */
+/* Получение длины стека */
 const size = stack.length;
 console.log('Длина стека size =', size);
 
-/* Проверить, пуста ли структура */
+/* Проверка на пустоту */
 const isEmpty = stack.length === 0;
 console.log('Пуст ли стек =', isEmpty);

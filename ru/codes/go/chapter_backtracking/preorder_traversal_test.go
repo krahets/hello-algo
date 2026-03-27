@@ -12,16 +12,16 @@ import (
 )
 
 func TestPreorderTraversalICompact(t *testing.T) {
-	/* Инициализировать двоичное дерево */
+	/* Инициализация двоичного дерева */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\nИнициализировать двоичное дерево")
+	fmt.Println("\nИнициализация двоичного дерева")
 	PrintTree(root)
 
-	// Прямой обход
+	// Предварительный обход
 	res := make([]*TreeNode, 0)
 	preOrderI(root, &res)
 
-	fmt.Println("\nВывести все узлы со значением 7")
+	fmt.Println("\nВсе узлы со значением 7")
 	for _, node := range res {
 		fmt.Printf("%v ", node.Val)
 	}
@@ -29,17 +29,17 @@ func TestPreorderTraversalICompact(t *testing.T) {
 }
 
 func TestPreorderTraversalIICompact(t *testing.T) {
-	/* Инициализировать двоичное дерево */
+	/* Инициализация двоичного дерева */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\nИнициализировать двоичное дерево")
+	fmt.Println("\nИнициализация двоичного дерева")
 	PrintTree(root)
 
-	// Прямой обход
+	// Предварительный обход
 	path := make([]*TreeNode, 0)
 	res := make([][]*TreeNode, 0)
 	preOrderII(root, &res, &path)
 
-	fmt.Println("\nВывести все пути от корня до узла 7")
+	fmt.Println("\nВсе пути от корня к узлу 7")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -49,17 +49,17 @@ func TestPreorderTraversalIICompact(t *testing.T) {
 }
 
 func TestPreorderTraversalIIICompact(t *testing.T) {
-	/* Инициализировать двоичное дерево */
+	/* Инициализация двоичного дерева */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\nИнициализировать двоичное дерево")
+	fmt.Println("\nИнициализация двоичного дерева")
 	PrintTree(root)
 
-	// Прямой обход
+	// Предварительный обход
 	path := make([]*TreeNode, 0)
 	res := make([][]*TreeNode, 0)
 	preOrderIII(root, &res, &path)
 
-	fmt.Println("\nВывести все пути от корня до узла 7, путь не должен содержать узлы со значением 3")
+	fmt.Println("\nВсе пути от корня к узлу 7, не содержащие узлов со значением 3")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -69,9 +69,9 @@ func TestPreorderTraversalIIICompact(t *testing.T) {
 }
 
 func TestPreorderTraversalIIITemplate(t *testing.T) {
-	/* Инициализировать двоичное дерево */
+	/* Инициализация двоичного дерева */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\nИнициализировать двоичное дерево")
+	fmt.Println("\nИнициализация двоичного дерева")
 	PrintTree(root)
 
 	// Алгоритм бэктрекинга
@@ -81,7 +81,7 @@ func TestPreorderTraversalIIITemplate(t *testing.T) {
 	choices = append(choices, root)
 	backtrackIII(&state, &choices, &res)
 
-	fmt.Println("\nВывести все пути от корня до узла 7, путь не должен содержать узлы со значением 3")
+	fmt.Println("\nВсе пути от корня к узлу 7, не содержащие узлов со значением 3")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)

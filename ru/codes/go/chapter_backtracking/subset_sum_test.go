@@ -17,10 +17,10 @@ func TestSubsetSumINaive(t *testing.T) {
 	target := 9
 	res := subsetSumINaive(nums, target)
 
-	fmt.Printf("target = " + strconv.Itoa(target) + ", Входмассив nums =")
+	fmt.Printf("target = " + strconv.Itoa(target) + ", входной массив nums = ")
 	PrintSlice(nums)
 
-	fmt.Println("Все подмножества res с суммой " + strconv.Itoa(target) + " = ")
+	fmt.Println("Все подмножества с суммой " + strconv.Itoa(target) + ": res = ")
 	for i := range res {
 		PrintSlice(res[i])
 	}
@@ -32,10 +32,10 @@ func TestSubsetSumI(t *testing.T) {
 	target := 9
 	res := subsetSumI(nums, target)
 
-	fmt.Printf("target = " + strconv.Itoa(target) + ", Входмассив nums =")
+	fmt.Printf("target = " + strconv.Itoa(target) + ", входной массив nums = ")
 	PrintSlice(nums)
 
-	fmt.Println("Все подмножества res с суммой " + strconv.Itoa(target) + " = ")
+	fmt.Println("Все подмножества с суммой " + strconv.Itoa(target) + ": res = ")
 	for i := range res {
 		PrintSlice(res[i])
 	}
@@ -46,10 +46,10 @@ func TestSubsetSumII(t *testing.T) {
 	target := 9
 	res := subsetSumII(nums, target)
 
-	fmt.Printf("target = " + strconv.Itoa(target) + ", Входмассив nums =")
+	fmt.Printf("target = " + strconv.Itoa(target) + ", входной массив nums = ")
 	PrintSlice(nums)
 
-	fmt.Println("Все подмножества res с суммой " + strconv.Itoa(target) + " = ")
+	fmt.Println("Все подмножества с суммой " + strconv.Itoa(target) + ": res = ")
 	for i := range res {
 		PrintSlice(res[i])
 	}

@@ -14,7 +14,7 @@ pub fn LinkedListQueue(comptime T: type) type {
         rear: ?*inc.ListNode(T) = null,                 // Хвостовой узел rear
         que_size: usize = 0,                            // Длина очереди
         mem_arena: ?std.heap.ArenaAllocator = null,
-        mem_allocator: std.mem.Allocator = undefined,   // Распределитель памяти
+        mem_allocator: std.mem.Allocator = undefined,   // Аллокатор памяти
 
         // Конструктор (выделение памяти + инициализация очереди)
         pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
@@ -27,25 +27,25 @@ pub fn LinkedListQueue(comptime T: type) type {
             self.que_size = 0;
         }
 
-        // Деструктор(Освободить память)
+        // Деструктор (освобождение памяти)
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
         }
 
-        // Получить длину очереди
+        // Получение длины очереди
         pub fn size(self: *Self) usize {
             return self.que_size;
         }
 
-        // Проверить, пуста ли очередь
+        // Проверка, пуста ли очередь
         pub fn isEmpty(self: *Self) bool {
             return self.size() == 0;
         }
 
-        // Получить элемент в начале очереди
+        // Доступ к элементу в начале очереди
         pub fn peek(self: *Self) T {
-            if (self.size() == 0) @panic("Очередь пуста");
+            if (self.size() == 0) @panic("очередь пуста");
             return self.front.?.val;
         }  
 
@@ -54,7 +54,7 @@ pub fn LinkedListQueue(comptime T: type) type {
             // Добавить num после хвостового узла
             var node = try self.mem_allocator.create(inc.ListNode(T));
             node.init(num);
-            // Если очередь пуста, сделать так, чтобы головной и хвостовой узлы указывали на этот узел
+            // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
             if (self.front == null) {
                 self.front = node;
                 self.rear = node;
@@ -92,12 +92,12 @@ pub fn LinkedListQueue(comptime T: type) type {
 
 // Driver Code
 pub fn main() !void {
-    // Инициализировать очередь
+    // Инициализация очереди
     var queue = LinkedListQueue(i32){};
     try queue.init(std.heap.page_allocator);
     defer queue.deinit();
 
-    // Поместить элемент в очередь
+    // Добавление элемента в очередь
     try queue.push(1);
     try queue.push(3);
     try queue.push(2);
@@ -106,22 +106,22 @@ pub fn main() !void {
     std.debug.print("Очередь queue = ", .{});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 
-    // Получить элемент в начале очереди
+    // Доступ к элементу в начале очереди
     var peek = queue.peek();
-    std.debug.print("\nголова очередиэлемент peek = {}", .{peek});
+    std.debug.print("\nЭлемент в начале очереди peek = {}", .{peek});
 
-    // Извлечь элемент из очереди
+    // Извлечение элемента из очереди
     var pop = queue.pop();
-    std.debug.print("\nЭлемент, извлеченный из очереди, pop = {}, queue после извлечения = ", .{pop});
+    std.debug.print("\nИзвлечен элемент pop = {}, очередь после извлечения queue = ", .{pop});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 
-    // Получить длину очереди
+    // Получение длины очереди
     var size = queue.size();
     std.debug.print("\nДлина очереди size = {}", .{size});
 
-    // Проверить, пуста ли очередь
+    // Проверка, пуста ли очередь
     var is_empty = queue.isEmpty();
-    std.debug.print("\nОчередь пуста: {}", .{is_empty});
+    std.debug.print("\nПуста ли очередь = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

@@ -22,7 +22,7 @@ int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
     return NULL;
 }
 
-/* хеш-таблица */
+/* Хеш-таблица */
 typedef struct {
     int key;
     int val;
@@ -36,7 +36,7 @@ HashTable *find(HashTable *h, int key) {
     return tmp;
 }
 
-/* хеш-таблицаэлементВставка */
+/* Вставка элемента в хеш-таблицу */
 void insert(HashTable **h, int key, int val) {
     HashTable *t = find(*h, key);
     if (t == NULL) {
@@ -73,13 +73,13 @@ int main() {
     // ====== Driver Code ======
     int returnSize;
     int *res = twoSumBruteForce(nums, sizeof(nums) / sizeof(int), target, &returnSize);
-    // метод 1
-    printf("Метод 1 res = ");
+    // Метод 1
+    printf("Способ 1: res = ");
     printArray(res, returnSize);
 
     // Метод 2
     res = twoSumHashTable(nums, sizeof(nums) / sizeof(int), target, &returnSize);
-    printf("Метод 2 res = ");
+    printf("Способ 2: res = ");
     printArray(res, returnSize);
 
     return 0;

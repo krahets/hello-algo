@@ -21,7 +21,7 @@ class ArrayBinaryTree {
 
   /* Получить значение узла с индексом i */
   int? val(int i) {
-    // Если индекс выходит за границы, вернуть null, обозначающий пустую клетку
+    // Если индекс выходит за границы, вернуть null, обозначающий пустую позицию
     if (i < 0 || i >= size()) {
       return null;
     }
@@ -43,7 +43,7 @@ class ArrayBinaryTree {
     return (i - 1) ~/ 2;
   }
 
-  /* Обход по уровням */
+  /* Обход в ширину */
   List<int> levelOrder() {
     List<int> res = [];
     for (int i = 0; i < size(); i++) {
@@ -56,11 +56,11 @@ class ArrayBinaryTree {
 
   /* Обход в глубину */
   void dfs(int i, String order, List<int?> res) {
-    // Если это пустая клетка, вернуть результат
+    // Если это пустая позиция, вернуть
     if (val(i) == null) {
       return;
     }
-    // Прямой обход
+    // Предварительный обход
     if (order == 'pre') {
       res.add(val(i));
     }
@@ -76,7 +76,7 @@ class ArrayBinaryTree {
     }
   }
 
-  /* Прямой обход */
+  /* Предварительный обход */
   List<int?> preOrder() {
     List<int?> res = [];
     dfs(0, 'pre', res);
@@ -101,7 +101,7 @@ class ArrayBinaryTree {
 /* Driver Code */
 void main() {
   // Инициализировать двоичное дерево
-  // Здесь используется функция, которая напрямую строит двоичное дерево из массива
+  // Здесь используется функция, напрямую строящая двоичное дерево из массива
   List<int?> arr = [
     1,
     2,
@@ -121,7 +121,7 @@ void main() {
   ];
 
   TreeNode? root = listToTree(arr);
-  print("\nИнициализировать двоичное дерево\n");
+  print("\nИнициализация двоичного дерева\n");
   print("Массивное представление двоичного дерева:");
   print(arr);
   print("Связное представление двоичного дерева:");
@@ -130,23 +130,23 @@ void main() {
   // Класс двоичного дерева в массивном представлении
   ArrayBinaryTree abt = ArrayBinaryTree(arr);
 
-  // Получить доступ к узлу
+  // Доступ к узлу
   int i = 1;
   int? l = abt.left(i);
   int? r = abt.right(i);
   int? p = abt.parent(i);
-  print("\nИндекс текущего узла равен $i, значение равно ${abt.val(i)}");
-  print("Индекс его левого дочернего узла равен $l, значение равно ${(l == null ?"null" : abt.val(l))}");
-  print("Индекс его правого дочернего узла равен $r, значение равно ${(r == null ?"null" : abt.val(r))}");
-  print("Индекс его родительского узла равен $p, значение равно ${(p == null ?"null" : abt.val(p))}");
+  print("\nТекущий узел: индекс = $i, значение = ${abt.val(i)}");
+  print("Индекс левого дочернего узла = $l, значение = ${(l == null ? "null" : abt.val(l))}");
+  print("Индекс правого дочернего узла = $r, значение = ${(r == null ? "null" : abt.val(r))}");
+  print("Индекс родительского узла = $p, значение = ${(p == null ? "null" : abt.val(p))}");
 
-  // Обойти дерево
+  // Обходить дерево
   List<int?> res = abt.levelOrder();
-  print("\nобход по уровнямравно: $res");
+  print("\nОбход в ширину = $res");
   res = abt.preOrder();
-  print("прямой обходравно $res");
+  print("Предварительный обход = $res");
   res = abt.inOrder();
-  print("симметричный обходравно $res");
+  print("Симметричный обход = $res");
   res = abt.postOrder();
-  print("обратный обходравно $res");
+  print("Обратный обход = $res");
 }

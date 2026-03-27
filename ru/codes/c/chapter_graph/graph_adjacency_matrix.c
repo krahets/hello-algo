@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// Предположим, что максимальное число вершин равно 100
+// Предположить, что максимальное число вершин равно 100
 #define MAX_SIZE 100
 
 /* Структура неориентированного графа на основе матрицы смежности */
@@ -33,10 +33,10 @@ void delGraphAdjMat(GraphAdjMat *graph) {
     free(graph);
 }
 
-/* Добавить вершину */
+/* Добавление вершины */
 void addVertex(GraphAdjMat *graph, int val) {
     if (graph->size == MAX_SIZE) {
-        fprintf(stderr, "Количество вершин графа достигло максимума\n");
+        fprintf(stderr, "Количество вершин графа уже достигло максимума\n");
         return;
     }
     // Добавить n-ю вершину и обнулить n-ю строку и столбец
@@ -48,10 +48,10 @@ void addVertex(GraphAdjMat *graph, int val) {
     graph->size++;
 }
 
-/* Удалить вершину */
+/* Удаление вершины */
 void removeVertex(GraphAdjMat *graph, int index) {
     if (index < 0 || index >= graph->size) {
-        fprintf(stderr, "Индекс вершины выходит за границы\n");
+        fprintf(stderr, "индекс вершины выходит за границы\n");
         return;
     }
     // Удалить вершину с индексом index из списка вершин
@@ -73,22 +73,22 @@ void removeVertex(GraphAdjMat *graph, int index) {
     graph->size--;
 }
 
-/* Добавить ребро */
+/* Добавление ребра */
 // Параметры i и j соответствуют индексам элементов vertices
 void addEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
-        fprintf(stderr, "Индексы ребра выходят за границы или равны друг другу\n");
+        fprintf(stderr, "индексы ребра выходят за границы или совпадают\n");
         return;
     }
     graph->adjMat[i][j] = 1;
     graph->adjMat[j][i] = 1;
 }
 
-/* Удалить ребро */
+/* Удаление ребра */
 // Параметры i и j соответствуют индексам элементов vertices
 void removeEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
-        fprintf(stderr, "Индексы ребра выходят за границы или равны друг другу\n");
+        fprintf(stderr, "индексы ребра выходят за границы или совпадают\n");
         return;
     }
     graph->adjMat[i][j] = 0;
@@ -97,9 +97,9 @@ void removeEdge(GraphAdjMat *graph, int i, int j) {
 
 /* Вывести матрицу смежности */
 void printGraphAdjMat(GraphAdjMat *graph) {
-    printf("список вершин =");
+    printf("Список вершин = ");
     printArray(graph->vertices, graph->size);
-    printf("Матрица смежности = \n");
+    printf("Матрица смежности =\n");
     for (int i = 0; i < graph->size; i++) {
         printArray(graph->adjMat[i], graph->size);
     }
@@ -107,7 +107,7 @@ void printGraphAdjMat(GraphAdjMat *graph) {
 
 /* Driver Code */
 int main() {
-    // Инициализировать неориентированный граф
+    // Инициализация неориентированного графа
     GraphAdjMat *graph = newGraphAdjMat();
     int vertices[] = {1, 3, 2, 5, 4};
     for (int i = 0; i < 5; i++) {
@@ -120,24 +120,24 @@ int main() {
     printf("\nПосле инициализации граф имеет вид\n");
     printGraphAdjMat(graph);
 
-    /* Добавить ребро */
+    /* Добавление ребра */
     // Индексы вершин 1 и 2 равны 0 и 2 соответственно
     addEdge(graph, 0, 2);
     printf("\nПосле добавления ребра 1-2 граф имеет вид\n");
     printGraphAdjMat(graph);
 
-    /* Удалить ребро */
+    /* Удаление ребра */
     // Индексы вершин 1 и 3 равны 0 и 1 соответственно
     removeEdge(graph, 0, 1);
     printf("\nПосле удаления ребра 1-3 граф имеет вид\n");
     printGraphAdjMat(graph);
 
-    /* Добавить вершину */
+    /* Добавление вершины */
     addVertex(graph, 6);
     printf("\nПосле добавления вершины 6 граф имеет вид\n");
     printGraphAdjMat(graph);
 
-    /* Удалить вершину */
+    /* Удаление вершины */
     // Индекс вершины 3 равен 1
     removeVertex(graph, 1);
     printf("\nПосле удаления вершины 3 граф имеет вид\n");

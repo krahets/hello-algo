@@ -7,36 +7,36 @@
 import 'dart:collection';
 
 void main() {
-  /* Инициализировать двустороннюю очередь */
+  /* Инициализация двусторонней очереди */
   final Queue<int> deque = Queue();
   deque.addFirst(3);
   deque.addLast(2);
   deque.addLast(5);
-  print("двусторонняя очередь deque = $deque");
+  print("Двусторонняя очередь deque = $deque");
 
-  /* Получить доступ к элементу */
+  /* Доступ к элементу */
   final int peekFirst = deque.first;
-  print("голова очередиэлемент peekFirst = $peekFirst");
+  print("Первый элемент peekFirst = $peekFirst");
   final int peekLast = deque.last;
-  print("хвост очередиэлемент peekLast = $peekLast");
+  print("Последний элемент peekLast = $peekLast");
 
-  /* Поместить элемент в очередь */
+  /* Добавление элемента в очередь */
   deque.addLast(4);
-  print("После помещения элемента 4 в хвост очереди deque = $deque");
+  print("После добавления элемента 4 в хвост deque = $deque");
   deque.addFirst(1);
-  print("После помещения элемента 1 в голову очереди deque = $deque");
+  print("После добавления элемента 1 в голову deque = $deque");
 
-  /* Извлечь элемент из очереди */
+  /* Извлечение элемента из очереди */
   final int popLast = deque.removeLast();
-  print("Элемент, извлеченный из хвоста очереди = $popLast , deque после извлечения из хвоста = $deque");
+  print("Извлеченный из хвоста элемент = $popLast, deque после извлечения из хвоста = $deque");
   final int popFirst = deque.removeFirst();
-  print("Элемент, извлеченный из головы очереди = $popFirst , deque после извлечения из головы = $deque");
+  print("Извлеченный из головы элемент = $popFirst, deque после извлечения из головы = $deque");
 
-  /* Получить длину двусторонней очереди */
+  /* Получение длины двусторонней очереди */
   final int size = deque.length;
   print("Длина двусторонней очереди size = $size");
 
-  /* Проверить, пуста ли двусторонняя очередь */
+  /* Проверка, пуста ли двусторонняя очередь */
   final bool isEmpty = deque.isEmpty;
-  print("Двусторонняя очередь пуста: $isEmpty");
+  print("Пуста ли двусторонняя очередь = $isEmpty");
 }

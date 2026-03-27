@@ -21,7 +21,7 @@ class ArrayBinaryTree {
 
     /* Получить значение узла с индексом i */
     int val(int i) {
-        // Если индекс выходит за границы, вернуть INT_MAX, обозначающий пустую клетку
+        // Если индекс выходит за границы, вернуть INT_MAX, обозначающий пустую позицию
         if (i < 0 || i >= size())
             return INT_MAX;
         return tree[i];
@@ -42,10 +42,10 @@ class ArrayBinaryTree {
         return (i - 1) / 2;
     }
 
-    /* Обход по уровням */
+    /* Обход в ширину */
     vector<int> levelOrder() {
         vector<int> res;
-        // Непосредственно обойти массив
+        // Непосредственно обходить массив
         for (int i = 0; i < size(); i++) {
             if (val(i) != INT_MAX)
                 res.push_back(val(i));
@@ -53,7 +53,7 @@ class ArrayBinaryTree {
         return res;
     }
 
-    /* Прямой обход */
+    /* Предварительный обход */
     vector<int> preOrder() {
         vector<int> res;
         dfs(0, "pre", res);
@@ -79,10 +79,10 @@ class ArrayBinaryTree {
 
     /* Обход в глубину */
     void dfs(int i, string order, vector<int> &res) {
-        // Если это пустая клетка, вернуть результат
+        // Если это пустая позиция, вернуть
         if (val(i) == INT_MAX)
             return;
-        // Прямой обход
+        // Предварительный обход
         if (order == "pre")
             res.push_back(val(i));
         dfs(left(i), order, res);
@@ -99,10 +99,10 @@ class ArrayBinaryTree {
 /* Driver Code */
 int main() {
     // Инициализировать двоичное дерево
-    // Использовать INT_MAX обозначаетпустая ячейка nullptr
+    // Использовать INT_MAX для обозначения пустой позиции nullptr
     vector<int> arr = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     TreeNode *root = vectorToTree(arr);
-    cout << "\nИнициализировать двоичное дерево\n";
+    cout << "\nИнициализация двоичного дерева\n";
     cout << "Массивное представление двоичного дерева:\n";
     printVector(arr);
     cout << "Связное представление двоичного дерева:\n";
@@ -111,20 +111,20 @@ int main() {
     // Класс двоичного дерева в массивном представлении
     ArrayBinaryTree abt(arr);
 
-    // Получить доступ к узлу
+    // Доступ к узлу
     int i = 1;
     int l = abt.left(i), r = abt.right(i), p = abt.parent(i);
-    cout << "\nИндекс текущего узла равен " << i << ", значение равно " << abt.val(i) << "\n";
-    cout << "Индекс его левого дочернего узла равен " << l << ", значение равно " << (abt.val(l) != INT_MAX ? to_string(abt.val(l)) : "nullptr") << "\n";
-    cout << "Индекс его правого дочернего узла равен " << r << ", значение равно " << (abt.val(r) != INT_MAX ? to_string(abt.val(r)) : "nullptr") << "\n";
-    cout << "Индекс его родительского узла равен " << p << ", значение равно " << (abt.val(p) != INT_MAX ? to_string(abt.val(p)) : "nullptr") << "\n";
+    cout << "\nТекущий узел: индекс = " << i << ", значение = " << abt.val(i) << "\n";
+    cout << "Индекс левого дочернего узла = " << l << ", значение = " << (abt.val(l) != INT_MAX ? to_string(abt.val(l)) : "nullptr") << "\n";
+    cout << "Индекс правого дочернего узла = " << r << ", значение = " << (abt.val(r) != INT_MAX ? to_string(abt.val(r)) : "nullptr") << "\n";
+    cout << "Индекс родительского узла = " << p << ", значение = " << (abt.val(p) != INT_MAX ? to_string(abt.val(p)) : "nullptr") << "\n";
 
-    // Обойти дерево
+    // Обходить дерево
     vector<int> res = abt.levelOrder();
-    cout << "\nОбход по уровням: ";
+    cout << "\nОбход в ширину: ";
     printVector(res);
     res = abt.preOrder();
-    cout << "Прямой обход: ";
+    cout << "Предварительный обход: ";
     printVector(res);
     res = abt.inOrder();
     cout << "Симметричный обход: ";

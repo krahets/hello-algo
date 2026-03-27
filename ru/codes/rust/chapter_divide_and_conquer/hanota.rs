@@ -8,9 +8,9 @@
 
 /* Переместить один диск */
 fn move_pan(src: &mut Vec<i32>, tar: &mut Vec<i32>) {
-    // Взять верхний диск со стержня src
+    // Снять диск с вершины src
     let pan = src.pop().unwrap();
-    // Поместить диск на вершину tar
+    // Положить диск на вершину tar
     tar.push(pan);
 }
 
@@ -41,7 +41,7 @@ pub fn main() {
     let mut A = vec![5, 4, 3, 2, 1];
     let mut B = Vec::new();
     let mut C = Vec::new();
-    println!("В начальном состоянии:");
+    println!("Исходное состояние:");
     println!("A = {:?}", A);
     println!("B = {:?}", B);
     println!("C = {:?}", C);

@@ -8,7 +8,7 @@ package chapter_dynamic_programming
 
 /* Поиск */
 fun dfs(i: Int): Int {
-    // Если значения dp[1] и dp[2] уже известны, вернуть их
+    // dp[1] и dp[2] уже известны, вернуть их
     if (i == 1 || i == 2) return i
     // dp[i] = dp[i-1] + dp[i-2]
     val count = dfs(i - 1) + dfs(i - 2)
@@ -25,5 +25,5 @@ fun main() {
     val n = 9
 
     val res = climbingStairsDFS(n)
-    println("Для подъема по лестнице из $n ступеней существует $res способов")
+    println("Количество способов подняться по лестнице из $n ступеней = $res")
 }

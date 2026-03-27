@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* пара ключ-значение */
+/* Пара ключ-значение */
 struct Pair {
   public:
     int key;
@@ -24,7 +24,7 @@ class ArrayHashMap {
 
   public:
     ArrayHashMap() {
-        // Инициализировать массив, содержащий 100 бакетов
+        // Инициализировать массив, содержащий 100 корзин
         buckets = vector<Pair *>(100);
     }
 
@@ -61,7 +61,7 @@ class ArrayHashMap {
     /* Операция удаления */
     void remove(int key) {
         int index = hashFunc(key);
-        // Освободить память и установить nullptr
+        // Освободить память и присвоить nullptr
         delete buckets[index];
         buckets[index] = nullptr;
     }

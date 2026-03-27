@@ -12,46 +12,46 @@ import (
 func TestClimbingStairsBacktrack(t *testing.T) {
 	n := 9
 	res := climbingStairsBacktrack(n)
-	fmt.Printf("Для подъема по лестнице из %d ступеней существует %d способов\n", n, res)
+	fmt.Printf("Количество способов подняться по лестнице из %d ступеней: %d\n", n, res)
 }
 
 func TestClimbingStairsDFS(t *testing.T) {
 	n := 9
 	res := climbingStairsDFS(n)
-	fmt.Printf("Для подъема по лестнице из %d ступеней существует %d способов\n", n, res)
+	fmt.Printf("Количество способов подняться по лестнице из %d ступеней: %d\n", n, res)
 }
 
 func TestClimbingStairsDFSMem(t *testing.T) {
 	n := 9
 	res := climbingStairsDFSMem(n)
-	fmt.Printf("Для подъема по лестнице из %d ступеней существует %d способов\n", n, res)
+	fmt.Printf("Количество способов подняться по лестнице из %d ступеней: %d\n", n, res)
 }
 
 func TestClimbingStairsDP(t *testing.T) {
 	n := 9
 	res := climbingStairsDP(n)
-	fmt.Printf("Для подъема по лестнице из %d ступеней существует %d способов\n", n, res)
+	fmt.Printf("Количество способов подняться по лестнице из %d ступеней: %d\n", n, res)
 }
 
 func TestClimbingStairsDPComp(t *testing.T) {
 	n := 9
 	res := climbingStairsDPComp(n)
-	fmt.Printf("Для подъема по лестнице из %d ступеней существует %d способов\n", n, res)
+	fmt.Printf("Количество способов подняться по лестнице из %d ступеней: %d\n", n, res)
 }
 
 func TestClimbingStairsConstraintDP(t *testing.T) {
 	n := 9
 	res := climbingStairsConstraintDP(n)
-	fmt.Printf("Для подъема по лестнице из %d ступеней существует %d способов\n", n, res)
+	fmt.Printf("Количество способов подняться по лестнице из %d ступеней: %d\n", n, res)
 }
 
 func TestMinCostClimbingStairsDPComp(t *testing.T) {
 	cost := []int{0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1}
-	fmt.Printf("Список стоимостей ступеней: %v\n", cost)
+	fmt.Printf("Список стоимостей ступеней = %v\n", cost)
 
 	res := minCostClimbingStairsDP(cost)
-	fmt.Printf("Минимальная стоимость подъема по лестнице равна %d\n", res)
+	fmt.Printf("Минимальная стоимость подъема по лестнице = %d\n", res)
 
 	res = minCostClimbingStairsDPComp(cost)
-	fmt.Printf("Минимальная стоимость подъема по лестнице равна %d\n", res)
+	fmt.Printf("Минимальная стоимость подъема по лестнице = %d\n", res)
 }

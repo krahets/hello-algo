@@ -36,7 +36,7 @@ fun xorHash(key: String): Int {
     return hash and MODULUS
 }
 
-/* Вращательное хеширование */
+/* Хеширование с циклическим сдвигом */
 fun rotHash(key: String): Int {
     var hash = 0L
     val MODULUS = 1000000007
@@ -51,14 +51,14 @@ fun main() {
     val key = "Hello Algo"
 
     var hash = addHash(key)
-    println("Аддитивное хешированиезначениеравно $hash")
+    println("Хеш-сумма сложением = $hash")
 
     hash = mulHash(key)
-    println("Мультипликативное хешированиезначениеравно $hash")
+    println("Хеш-сумма умножением = $hash")
 
     hash = xorHash(key)
-    println("XOR-хешированиезначениеравно $hash")
+    println("Хеш-сумма XOR = $hash")
 
     hash = rotHash(key)
-    println("Вращательное хешированиезначениеравно $hash")
+    println("Хеш-сумма с циклическим сдвигом = $hash")
 }

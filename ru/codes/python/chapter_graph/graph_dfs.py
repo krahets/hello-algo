@@ -13,23 +13,23 @@ from graph_adjacency_list import GraphAdjList
 
 
 def dfs(graph: GraphAdjList, visited: set[Vertex], res: list[Vertex], vet: Vertex):
-    """обход в глубинувспомогательная функция"""
-    res.append(vet)  # Записать посещенную вершину
-    visited.add(vet)  # Пометить эту вершину как посещенную
-    # Обойти все смежные вершины этой вершины
+    """Вспомогательная функция обхода в глубину"""
+    res.append(vet)  # Отметить посещенную вершину
+    visited.add(vet)  # Отметить эту вершину как посещенную
+    # Обойти все смежные вершины данной вершины
     for adjVet in graph.adj_list[vet]:
         if adjVet in visited:
             continue  # Пропустить уже посещенную вершину
-        # Рекурсивно посетить смежные вершины
+        # Рекурсивно обходить смежные вершины
         dfs(graph, visited, res, adjVet)
 
 
 def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     """Обход в глубину"""
-    # Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+    # Использовать список смежности для представления графа, чтобы получать все смежные вершины заданной вершины
     # Последовательность обхода вершин
     res = []
-    # Хеш-множество для записи уже посещенных вершин
+    # Хеш-множество для хранения уже посещенных вершин
     visited = set[Vertex]()
     dfs(graph, visited, res, start_vet)
     return res
@@ -37,7 +37,7 @@ def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализировать неориентированный граф
+    # Инициализация неориентированного графа
     v = vals_to_vets([0, 1, 2, 3, 4, 5, 6])
     edges = [
         [v[0], v[1]],
@@ -48,7 +48,7 @@ if __name__ == "__main__":
         [v[5], v[6]],
     ]
     graph = GraphAdjList(edges)
-    print("\nПосле инициализации граф имеет вид")
+    print("\nГраф после инициализации")
     graph.print()
 
     # Обход в глубину

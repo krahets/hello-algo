@@ -7,38 +7,38 @@
 import { Vertex } from '../modules/Vertex';
 import { GraphAdjList } from './graph_adjacency_list';
 
-/* обход в глубинувспомогательная функция */
+/* Вспомогательная функция обхода в глубину */
 function dfs(
     graph: GraphAdjList,
     visited: Set<Vertex>,
     res: Vertex[],
     vet: Vertex
 ): void {
-    res.push(vet); // Записать посещенную вершину
-    visited.add(vet); // Пометить эту вершину как посещенную
-    // Обойти все смежные вершины этой вершины
+    res.push(vet); // Отметить посещенную вершину
+    visited.add(vet); // Отметить эту вершину как посещенную
+    // Обойти все смежные вершины данной вершины
     for (const adjVet of graph.adjList.get(vet)) {
         if (visited.has(adjVet)) {
             continue; // Пропустить уже посещенную вершину
         }
-        // Рекурсивно посетить смежные вершины
+        // Рекурсивно обходить смежные вершины
         dfs(graph, visited, res, adjVet);
     }
 }
 
 /* Обход в глубину */
-// Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
 function graphDFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
     // Последовательность обхода вершин
     const res: Vertex[] = [];
-    // Хеш-множество для записи уже посещенных вершин
+    // Хеш-множество для хранения уже посещенных вершин
     const visited: Set<Vertex> = new Set();
     dfs(graph, visited, res, startVet);
     return res;
 }
 
 /* Driver Code */
-/* Инициализировать неориентированный граф */
+/* Инициализация неориентированного графа */
 const v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6]);
 const edges = [
     [v[0], v[1]],

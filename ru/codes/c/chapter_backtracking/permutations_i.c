@@ -20,15 +20,15 @@ void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *s
         (*resSize)++;
         return;
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for (int i = 0; i < choicesSize; i++) {
         int choice = choices[i];
-        // Отсечение: не допускается повторный выбор элемента
+        // Отсечение: нельзя выбирать один и тот же элемент повторно
         if (!selected[i]) {
             // Попытка: сделать выбор и обновить состояние
             selected[i] = true;
             state[stateSize] = choice;
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             backtrack(state, stateSize + 1, choices, choicesSize, selected, res, resSize);
             // Откат: отменить выбор и восстановить предыдущее состояние
             selected[i] = false;

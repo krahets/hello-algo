@@ -6,26 +6,26 @@
 
 /* Класс быстрой сортировки */
 class QuickSort {
-    /* Поменять элементы местами */
+    /* Обмен элементов */
     swap(nums: number[], i: number, j: number): void {
         let tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
-    /* Разбиение методом двух указателей */
+    /* Разбиение с опорными указателями */
     partition(nums: number[], left: number, right: number): number {
         // Взять nums[left] в качестве опорного элемента
         let i = left,
             j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left]) {
-                j -= 1; // Искать справа налево первый элемент, меньший опорного
+                j -= 1; // Идти справа налево в поисках первого элемента меньше опорного
             }
             while (i < j && nums[i] <= nums[left]) {
-                i += 1; // Искать слева направо первый элемент, больший опорного
+                i += 1; // Идти слева направо в поисках первого элемента больше опорного
             }
-            // Поменять элементы местами
+            // Обмен элементов
             this.swap(nums, i, j); // Поменять эти два элемента местами
         }
         this.swap(nums, i, left); // Переместить опорный элемент на границу двух подмассивов
@@ -38,7 +38,7 @@ class QuickSort {
         if (left >= right) {
             return;
         }
-        // Разбиение методом двух указателей
+        // Разбиение с опорными указателями
         const pivot = this.partition(nums, left, right);
         // Рекурсивно обработать левый и правый подмассивы
         this.quickSort(nums, left, pivot - 1);
@@ -48,7 +48,7 @@ class QuickSort {
 
 /* Класс быстрой сортировки (оптимизация медианным опорным элементом) */
 class QuickSortMedian {
-    /* Поменять элементы местами */
+    /* Обмен элементов */
     swap(nums: number[], i: number, j: number): void {
         let tmp = nums[i];
         nums[i] = nums[j];
@@ -72,7 +72,7 @@ class QuickSortMedian {
         return right;
     }
 
-    /* Разбиение методом двух указателей (медиана трех) */
+    /* Разбиение с опорными указателями (медиана трех) */
     partition(nums: number[], left: number, right: number): number {
         // Выбрать медиану из трех кандидатов
         let med = this.medianThree(
@@ -81,17 +81,17 @@ class QuickSortMedian {
             Math.floor((left + right) / 2),
             right
         );
-        // Переместить медиану в самый левый конец массива
+        // Переместить медиану в крайний левый элемент массива
         this.swap(nums, left, med);
         // Взять nums[left] в качестве опорного элемента
         let i = left,
             j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left]) {
-                j--; // Искать справа налево первый элемент, меньший опорного
+                j--; // Идти справа налево в поисках первого элемента меньше опорного
             }
             while (i < j && nums[i] <= nums[left]) {
-                i++; // Искать слева направо первый элемент, больший опорного
+                i++; // Идти слева направо в поисках первого элемента больше опорного
             }
             this.swap(nums, i, j); // Поменять эти два элемента местами
         }
@@ -105,7 +105,7 @@ class QuickSortMedian {
         if (left >= right) {
             return;
         }
-        // Разбиение методом двух указателей
+        // Разбиение с опорными указателями
         const pivot = this.partition(nums, left, right);
         // Рекурсивно обработать левый и правый подмассивы
         this.quickSort(nums, left, pivot - 1);
@@ -115,24 +115,24 @@ class QuickSortMedian {
 
 /* Класс быстрой сортировки (оптимизация глубины рекурсии) */
 class QuickSortTailCall {
-    /* Поменять элементы местами */
+    /* Обмен элементов */
     swap(nums: number[], i: number, j: number): void {
         let tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
-    /* Разбиение методом двух указателей */
+    /* Разбиение с опорными указателями */
     partition(nums: number[], left: number, right: number): number {
         // Взять nums[left] в качестве опорного элемента
         let i = left,
             j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left]) {
-                j--; // Искать справа налево первый элемент, меньший опорного
+                j--; // Идти справа налево в поисках первого элемента меньше опорного
             }
             while (i < j && nums[i] <= nums[left]) {
-                i++; // Искать слева направо первый элемент, больший опорного
+                i++; // Идти слева направо в поисках первого элемента больше опорного
             }
             this.swap(nums, i, j); // Поменять эти два элемента местами
         }
@@ -144,15 +144,15 @@ class QuickSortTailCall {
     quickSort(nums: number[], left: number, right: number): void {
         // Завершить, когда длина подмассива равна 1
         while (left < right) {
-            // Операция разбиения методом двух указателей
+            // Операция разбиения с опорными указателями
             let pivot = this.partition(nums, left, right);
             // Выполнить быструю сортировку для более короткого из двух подмассивов
             if (pivot - left < right - pivot) {
                 this.quickSort(nums, left, pivot - 1); // Рекурсивно отсортировать левый подмассив
-                left = pivot + 1; // Оставшийся неотсортированный диапазон равен [pivot + 1, right]
+                left = pivot + 1; // Оставшийся неотсортированный диапазон: [pivot + 1, right]
             } else {
                 this.quickSort(nums, pivot + 1, right); // Рекурсивно отсортировать правый подмассив
-                right = pivot - 1; // Оставшийся неотсортированный диапазон равен [left, pivot - 1]
+                right = pivot - 1; // Оставшийся неотсортированный диапазон: [left, pivot - 1]
             }
         }
     }
@@ -163,18 +163,18 @@ class QuickSortTailCall {
 const nums = [2, 4, 1, 0, 3, 5];
 const quickSort = new QuickSort();
 quickSort.quickSort(nums, 0, nums.length - 1);
-console.log('Быстрая сортировкапосле завершения nums =', nums);
+console.log('После завершения быстрой сортировки nums =', nums);
 
-/* Быстрая сортировка (оптимизация с медианным опорным элементом) */
+/* Быстрая сортировка (оптимизация медианным опорным элементом) */
 const nums1 = [2, 4, 1, 0, 3, 5];
 const quickSortMedian = new QuickSortMedian();
 quickSortMedian.quickSort(nums1, 0, nums1.length - 1);
-console.log('После быстрой сортировки (оптимизация с медианным опорным элементом) nums =', nums1);
+console.log('После завершения быстрой сортировки (оптимизация медианным опорным элементом) nums1 =', nums1);
 
 /* Быстрая сортировка (оптимизация глубины рекурсии) */
 const nums2 = [2, 4, 1, 0, 3, 5];
 const quickSortTailCall = new QuickSortTailCall();
 quickSortTailCall.quickSort(nums2, 0, nums2.length - 1);
-console.log('После быстрой сортировки (оптимизация глубины рекурсии) nums =', nums2);
+console.log('После завершения быстрой сортировки (оптимизация глубины рекурсии) nums2 =', nums2);
 
 export {};

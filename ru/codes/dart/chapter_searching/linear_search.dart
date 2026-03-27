@@ -8,7 +8,7 @@ import '../utils/list_node.dart';
 
 /* Линейный поиск (массив) */
 int linearSearchArray(List<int> nums, int target) {
-  // Перебрать массив
+  // Обход массива
   for (int i = 0; i < nums.length; i++) {
     // Целевой элемент найден, вернуть его индекс
     if (nums[i] == target) {
@@ -43,5 +43,5 @@ void main() {
   /* Выполнить линейный поиск в связном списке */
   ListNode? head = listToLinkedList(nums);
   ListNode? node = linearSearchList(head, target);
-  print('Объект узла, соответствующий целевому значению 3, равен $node');
+  print('Объект узла со значением 3 = $node');
 }

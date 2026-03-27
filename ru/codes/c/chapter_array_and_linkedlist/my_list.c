@@ -8,7 +8,7 @@
 
 /* Класс списка */
 typedef struct {
-    int *arr;        // Массив (хранит элементы списка)
+    int *arr;        // Массив (для хранения элементов списка)
     int capacity;    // Вместимость списка
     int size;        // Размер списка
     int extendRatio; // Коэффициент расширения списка при каждом увеличении
@@ -32,7 +32,7 @@ void delMyList(MyList *nums) {
     free(nums);
 }
 
-/* Получитьсписокдлина */
+/* Получить длину списка */
 int size(MyList *nums) {
     return nums->size;
 }
@@ -42,33 +42,33 @@ int capacity(MyList *nums) {
     return nums->capacity;
 }
 
-/* Получить доступ к элементу */
+/* Доступ к элементу */
 int get(MyList *nums, int index) {
     assert(index >= 0 && index < nums->size);
     return nums->arr[index];
 }
 
-/* Обновить элемент */
+/* Обновление элемента */
 void set(MyList *nums, int index, int num) {
     assert(index >= 0 && index < nums->size);
     nums->arr[index] = num;
 }
 
-/* Добавить элемент в конец */
+/* Добавление элемента в конец */
 void add(MyList *nums, int num) {
     if (size(nums) == capacity(nums)) {
-        extendCapacity(nums); // расширение
+        extendCapacity(nums); // Расширение емкости
     }
     nums->arr[size(nums)] = num;
     nums->size++;
 }
 
-/* Вставить элемент в середину */
+/* Вставка элемента в середину */
 void insert(MyList *nums, int index, int num) {
     assert(index >= 0 && index < size(nums));
-    // Если число элементов превышает вместимость, запустить механизм расширения
+    // При превышении вместимости по числу элементов запускается расширение
     if (size(nums) == capacity(nums)) {
-        extendCapacity(nums); // расширение
+        extendCapacity(nums); // Расширение емкости
     }
     for (int i = size(nums); i > index; --i) {
         nums->arr[i] = nums->arr[i - 1];
@@ -77,8 +77,8 @@ void insert(MyList *nums, int index, int num) {
     nums->size++;
 }
 
-/* Удалить элемент */
-// Обратите внимание: stdio.h уже использует ключевое слово remove
+/* Удаление элемента */
+// Внимание: stdio.h уже использует ключевое слово remove
 int removeItem(MyList *nums, int index) {
     assert(index >= 0 && index < size(nums));
     int num = nums->arr[index];
@@ -96,7 +96,7 @@ void extendCapacity(MyList *nums) {
     int *extend = (int *)malloc(sizeof(int) * newCapacity);
     int *temp = nums->arr;
 
-    // Скопировать старые данные в новые данные
+    // Скопировать старые данные в новые
     for (int i = 0; i < size(nums); i++)
         extend[i] = nums->arr[i];
 
@@ -115,9 +115,9 @@ int *toArray(MyList *nums) {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать список */
+    /* Инициализация списка */
     MyList *nums = newMyList();
-    /* Добавить элемент в конец */
+    /* Добавление элемента в конец */
     add(nums, 1);
     add(nums, 3);
     add(nums, 2);
@@ -127,32 +127,32 @@ int main() {
     printArray(toArray(nums), size(nums));
     printf("Вместимость = %d, длина = %d\n", capacity(nums), size(nums));
 
-    /* Вставить элемент в середину */
+    /* Вставка элемента в середину */
     insert(nums, 3, 6);
-    printf("После вставки числа 6 по индексу 3 получаем nums = ");
+    printf("После вставки числа 6 по индексу 3 nums = ");
     printArray(toArray(nums), size(nums));
 
-    /* Удалить элемент */
+    /* Удаление элемента */
     removeItem(nums, 3);
-    printf("После удаления элемента по индексу 3 получаем nums = ");
+    printf("После удаления элемента по индексу 3 nums = ");
     printArray(toArray(nums), size(nums));
 
-    /* Получить доступ к элементу */
+    /* Доступ к элементу */
     int num = get(nums, 1);
-    printf("обратиться киндекс 1 поэлемент, получаем num = %d\n", num);
+    printf("Элемент по индексу 1: num = %d\n", num);
 
-    /* Обновить элемент */
+    /* Обновление элемента */
     set(nums, 1, 0);
-    printf("После обновления элемента по индексу 1 на 0 получаем nums = ");
+    printf("После обновления элемента по индексу 1 на 0 nums = ");
     printArray(toArray(nums), size(nums));
 
-    /* Проверить механизм расширения */
+    /* Проверка механизма расширения */
     for (int i = 0; i < 10; i++) {
-        // При i = 5 длина списка превысит его вместимость, и тогда сработает механизм расширения
+        // При i = 5 длина списка превысит его вместимость, и в этот момент сработает механизм расширения
         add(nums, i);
     }
 
-    printf("Список nums после расширения = ");
+    printf("После расширения список nums = ");
     printArray(toArray(nums), size(nums));
     printf("Вместимость = %d, длина = %d\n", capacity(nums), size(nums));
 

@@ -11,7 +11,7 @@ use std::rc::Rc;
 
 /* Хеш-поиск (массив) */
 fn hashing_search_array<'a>(map: &'a HashMap<i32, usize>, target: i32) -> Option<&'a usize> {
-    // У хеш-таблицы key: целевой элемент, value: индекс
+    // key хеш-таблицы: целевой элемент, value: индекс
     // Если такого key нет в хеш-таблице, вернуть None
     map.get(&target)
 }
@@ -21,7 +21,7 @@ fn hashing_search_linked_list(
     map: &HashMap<i32, Rc<RefCell<ListNode<i32>>>>,
     target: i32,
 ) -> Option<&Rc<RefCell<ListNode<i32>>>> {
-    // У хеш-таблицы key: целевое значение узла, value: объект узла
+    // key хеш-таблицы: значение целевого узла, value: объект узла
     // Если такого key нет в хеш-таблице, вернуть None
     map.get(&target)
 }
@@ -32,7 +32,7 @@ pub fn main() {
 
     /* Хеш-поиск (массив) */
     let nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
-    // Инициализировать хеш-таблицу
+    // Инициализация хеш-таблицы
     let mut map = HashMap::new();
     for (i, num) in nums.iter().enumerate() {
         map.insert(*num, i); // key: элемент, value: индекс
@@ -46,5 +46,5 @@ pub fn main() {
     // let mut map1 = HashMap::new();
     let map1 = ListNode::linked_list_to_hashmap(head);
     let node = hashing_search_linked_list(&map1, target);
-    println!("Объект узла, соответствующий целевому значению 3, равен {:?}", node);
+    println!("Объект узла со значением 3 = {:?}", node);
 }

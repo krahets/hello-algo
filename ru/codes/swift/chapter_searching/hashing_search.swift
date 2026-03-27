@@ -8,15 +8,15 @@ import utils
 
 /* Хеш-поиск (массив) */
 func hashingSearchArray(map: [Int: Int], target: Int) -> Int {
-    // У хеш-таблицы key: целевой элемент, value: индекс
-    // Если такого key в хеш-таблице нет, вернуть -1
+    // key хеш-таблицы: целевой элемент, value: индекс
+    // Если такого key нет в хеш-таблице, вернуть -1
     return map[target, default: -1]
 }
 
 /* Хеш-поиск (связный список) */
 func hashingSearchLinkedList(map: [Int: ListNode], target: Int) -> ListNode? {
-    // У хеш-таблицы key: целевое значение узла, value: объект узла
-    // Если такого key в хеш-таблице нет, вернуть null
+    // key хеш-таблицы: значение целевого узла, value: объект узла
+    // Если такого key нет в хеш-таблице, вернуть null
     return map[target]
 }
 
@@ -28,7 +28,7 @@ enum HashingSearch {
 
         /* Хеш-поиск (массив) */
         let nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
-        // Инициализировать хеш-таблицу
+        // Инициализация хеш-таблицы
         var map: [Int: Int] = [:]
         for i in nums.indices {
             map[nums[i]] = i // key: элемент, value: индекс
@@ -38,13 +38,13 @@ enum HashingSearch {
 
         /* Хеш-поиск (связный список) */
         var head = ListNode.arrToLinkedList(arr: nums)
-        // Инициализировать хеш-таблицу
+        // Инициализация хеш-таблицы
         var map1: [Int: ListNode] = [:]
         while head != nil {
             map1[head!.val] = head! // key: значение узла, value: узел
             head = head?.next
         }
         let node = hashingSearchLinkedList(map: map1, target: target)
-        print("Объект узла, соответствующий целевому значению 3, равен \(node!)")
+        print("Объект узла со значением 3 = \(node!)")
     }
 }

@@ -10,12 +10,12 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* Обход по уровням */
+/* Обход в ширину */
 func levelOrder(root *TreeNode) []any {
 	// Инициализировать очередь и добавить корневой узел
 	queue := list.New()
 	queue.PushBack(root)
-	// Инициализировать срез для сохранения последовательности обхода
+	// Инициализировать срез для хранения последовательности обхода
 	nums := make([]any, 0)
 	for queue.Len() > 0 {
 		// Извлечение из очереди
@@ -23,11 +23,11 @@ func levelOrder(root *TreeNode) []any {
 		// Сохранить значение узла
 		nums = append(nums, node.Val)
 		if node.Left != nil {
-			// Поместить левого потомка в очередь
+			// Поместить левый дочерний узел в очередь
 			queue.PushBack(node.Left)
 		}
 		if node.Right != nil {
-			// Поместить правого потомка в очередь
+			// Поместить правый дочерний узел в очередь
 			queue.PushBack(node.Right)
 		}
 	}

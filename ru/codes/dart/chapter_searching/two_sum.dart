@@ -6,7 +6,7 @@
 
 import 'dart:collection';
 
-/* метод 1: полный перебор */
+/* Способ 1: полный перебор */
 List<int> twoSumBruteForce(List<int> nums, int target) {
   int size = nums.length;
   // Два вложенных цикла, временная сложность O(n^2)
@@ -18,7 +18,7 @@ List<int> twoSumBruteForce(List<int> nums, int target) {
   return [0];
 }
 
-/* Метод 2: вспомогательная хеш-таблица */
+/* Способ 2: вспомогательная хеш-таблица */
 List<int> twoSumHashTable(List<int> nums, int target) {
   int size = nums.length;
   // Вспомогательная хеш-таблица, пространственная сложность O(n)
@@ -39,11 +39,11 @@ void main() {
   List<int> nums = [2, 7, 11, 15];
   int target = 13;
 
-  // ====== Driver Code ======
-  // метод 1
+  // ====== Основной код ======
+  // Метод 1
   List<int> res = twoSumBruteForce(nums, target);
-  print('Метод 1 res = $res');
+  print('Результат метода 1 res = $res');
   // Метод 2
   res = twoSumHashTable(nums, target);
-  print('Метод 2 res = $res');
+  print('Результат метода 2 res = $res');
 }

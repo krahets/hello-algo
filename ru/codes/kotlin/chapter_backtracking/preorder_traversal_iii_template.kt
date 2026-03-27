@@ -45,13 +45,13 @@ fun backtrack(
         // Записать решение
         recordSolution(state, res)
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for (choice in choices) {
-        // Отсечение: проверить, допустим ли текущий выбор
+        // Отсечение: проверить допустимость выбора
         if (isValid(state, choice)) {
             // Попытка: сделать выбор и обновить состояние
             makeChoice(state, choice)
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             backtrack(state, mutableListOf(choice!!.left, choice.right), res)
             // Откат: отменить выбор и восстановить предыдущее состояние
             undoChoice(state, choice)
@@ -62,14 +62,14 @@ fun backtrack(
 /* Driver Code */
 fun main() {
     val root = TreeNode.listToTree(mutableListOf(1, 7, 3, 4, 5, 6, 7))
-    println("\nИнициализировать двоичное дерево")
+    println("\nИнициализация двоичного дерева")
     printTree(root)
 
     // Алгоритм бэктрекинга
     val res = mutableListOf<MutableList<TreeNode?>?>()
     backtrack(mutableListOf(), mutableListOf(root), res)
 
-    println("\nВывести все пути от корня до узла 7, при этом путь не должен содержать узлы со значением 3")
+    println("\nВсе пути от корня к узлу 7, в которых путь не содержит узлов со значением 3")
     for (path in res) {
         val vals = mutableListOf<Int>()
         for (node in path!!) {

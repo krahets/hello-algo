@@ -8,7 +8,7 @@ import { ListNode, arrToLinkedList } from '../modules/ListNode';
 
 /* Линейный поиск (массив) */
 function linearSearchArray(nums: number[], target: number): number {
-    // Перебрать массив
+    // Обход массива
     for (let i = 0; i < nums.length; i++) {
         // Целевой элемент найден, вернуть его индекс
         if (nums[i] === target) {
@@ -47,6 +47,6 @@ console.log('Индекс целевого элемента 3 =', index);
 /* Выполнить линейный поиск в связном списке */
 const head = arrToLinkedList(nums);
 const node = linearSearchLinkedList(head, target);
-console.log('Объект узла, соответствующий целевому значению 3, равен', node);
+console.log('Объект узла со значением 3 =', node);
 
 export {};

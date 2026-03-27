@@ -13,11 +13,11 @@ public class binary_tree_dfs {
     // Инициализировать список для хранения последовательности обхода
     static ArrayList<Integer> list = new ArrayList<>();
 
-    /* Прямой обход */
+    /* Предварительный обход */
     static void preOrder(TreeNode root) {
         if (root == null)
             return;
-        // Порядок обхода: корневой узел -> левое поддерево -> правое поддерево
+        // Порядок обхода: корень -> левое поддерево -> правое поддерево
         list.add(root.val);
         preOrder(root.left);
         preOrder(root.right);
@@ -27,7 +27,7 @@ public class binary_tree_dfs {
     static void inOrder(TreeNode root) {
         if (root == null)
             return;
-        // Порядок обхода: левое поддерево -> корневой узел -> правое поддерево
+        // Порядок обхода: левое поддерево -> корень -> правое поддерево
         inOrder(root.left);
         list.add(root.val);
         inOrder(root.right);
@@ -37,32 +37,32 @@ public class binary_tree_dfs {
     static void postOrder(TreeNode root) {
         if (root == null)
             return;
-        // Порядок обхода: левое поддерево -> правое поддерево -> корневой узел
+        // Порядок обхода: левое поддерево -> правое поддерево -> корень
         postOrder(root.left);
         postOrder(root.right);
         list.add(root.val);
     }
 
     public static void main(String[] args) {
-        /* Инициализировать двоичное дерево */
-        // Здесь используется функция, которая напрямую строит двоичное дерево из массива
+        /* Инициализация двоичного дерева */
+        // Здесь используется функция, напрямую строящая двоичное дерево из массива
         TreeNode root = TreeNode.listToTree(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
-        System.out.println("\nИнициализировать двоичное дерево\n");
+        System.out.println("\nИнициализация двоичного дерева\n");
         PrintUtil.printTree(root);
 
-        /* Прямой обход */
+        /* Предварительный обход */
         list.clear();
         preOrder(root);
-        System.out.println("\nПоследовательность узлов при прямом обходе = " + list);
+        System.out.println("\nПоследовательность печати узлов при предварительном обходе = " + list);
 
         /* Симметричный обход */
         list.clear();
         inOrder(root);
-        System.out.println("\nПоследовательность узлов при симметричном обходе = " + list);
+        System.out.println("\nПоследовательность печати узлов при симметричном обходе = " + list);
 
         /* Обратный обход */
         list.clear();
         postOrder(root);
-        System.out.println("\nПоследовательность узлов при обратном обходе = " + list);
+        System.out.println("\nПоследовательность печати узлов при обратном обходе = " + list);
     }
 }

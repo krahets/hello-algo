@@ -8,7 +8,7 @@ const Allocator = std.mem.Allocator;
 // Цикл for
 fn forLoop(n: usize) i32 {
     var res: i32 = 0;
-    // В цикле вычислить сумму 1, 2, ..., n-1, n
+    // Циклическое суммирование 1, 2, ..., n-1, n
     for (1..n + 1) |i| {
         res += @intCast(i);
     }
@@ -18,21 +18,21 @@ fn forLoop(n: usize) i32 {
 // Цикл while
 fn whileLoop(n: i32) i32 {
     var res: i32 = 0;
-    var i: i32 = 1; // Инициализировать управляющую переменную
-    // В цикле вычислить сумму 1, 2, ..., n-1, n
+    var i: i32 = 1; // Инициализация условной переменной
+    // Циклическое суммирование 1, 2, ..., n-1, n
     while (i <= n) : (i += 1) {
         res += @intCast(i);
     }
     return res;
 }
 
-// Цикл while (с двумя обновлениями)
+// Цикл while (двойное обновление)
 fn whileLoopII(n: i32) i32 {
     var res: i32 = 0;
-    var i: i32 = 1; // Инициализировать управляющую переменную
-    // В цикле вычислить сумму 1, 4, 10, ...
+    var i: i32 = 1; // Инициализация условной переменной
+    // Циклическое суммирование 1, 4, 10, ...
     while (i <= n) : ({
-        // Обновить управляющую переменную
+        // Обновить условную переменную
         i += 1;
         i *= 2;
     }) {
@@ -46,9 +46,9 @@ fn nestedForLoop(allocator: Allocator, n: usize) ![]const u8 {
     var res = std.ArrayList(u8).init(allocator);
     defer res.deinit();
     var buffer: [20]u8 = undefined;
-    // Цикл i = 1, 2, ..., n-1, n
+    // Цикл по i = 1, 2, ..., n-1, n
     for (1..n + 1) |i| {
-        // Цикл j = 1, 2, ..., n-1, n
+        // Цикл по j = 1, 2, ..., n-1, n
         for (1..n + 1) |j| {
             const str = try std.fmt.bufPrint(&buffer, "({d}, {d}), ", .{ i, j });
             try res.appendSlice(str);
@@ -73,10 +73,10 @@ pub fn run() !void {
     std.debug.print("Результат суммирования в цикле while res = {}\n", .{res});
 
     res = whileLoopII(n);
-    std.debug.print("Цикл while (с двумя обновлениями)суммированиерезультат res = {}\n", .{res});
+    std.debug.print("Результат суммирования в цикле while (двойное обновление) res = {}\n", .{res});
 
     const resStr = try nestedForLoop(allocator, n);
-    std.debug.print("Результат обхода двойным циклом for {s}\n", .{resStr});
+    std.debug.print("Результат обхода в двойном цикле for {s}\n", .{resStr});
     allocator.free(resStr);
 
     std.debug.print("\n", .{});

@@ -8,7 +8,7 @@
 
 /* Сортировка вставками */
 void insertionSort(vector<int> &nums) {
-    // Внешний цикл: отсортированный диапазон равен [0, i-1]
+    // Внешний цикл: отсортированный диапазон [0, i-1]
     for (int i = 1; i < nums.size(); i++) {
         int base = nums[i], j = i - 1;
         // Внутренний цикл: вставить base в правильную позицию отсортированного диапазона [0, i-1]
@@ -24,7 +24,7 @@ void insertionSort(vector<int> &nums) {
 int main() {
     vector<int> nums = {4, 1, 3, 1, 5, 2};
     insertionSort(nums);
-    cout << "После завершения сортировки вставками nums = ";
+    cout << "После сортировки вставками nums = ";
     printVector(nums);
 
     return 0;

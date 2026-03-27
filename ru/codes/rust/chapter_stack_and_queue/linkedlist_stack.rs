@@ -12,7 +12,7 @@ use std::rc::Rc;
 /* Стек на основе связного списка */
 #[allow(dead_code)]
 pub struct LinkedListStack<T> {
-    stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // Считать головной узел вершиной стека
+    stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // Использовать головной узел как вершину стека
     stk_size: usize,                              // Длина стека
 }
 
@@ -24,12 +24,12 @@ impl<T: Copy> LinkedListStack<T> {
         }
     }
 
-    /* Получить длину стека */
+    /* Получение длины стека */
     pub fn size(&self) -> usize {
         return self.stk_size;
     }
 
-    /* Проверить, пуст ли стек */
+    /* Проверка, пуст ли стек */
     pub fn is_empty(&self) -> bool {
         return self.size() == 0;
     }
@@ -52,12 +52,12 @@ impl<T: Copy> LinkedListStack<T> {
         })
     }
 
-    /* Получить верхний элемент стека */
+    /* Доступ к верхнему элементу стека */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.stack_peek.as_ref()
     }
 
-    /* Преобразовать List в Array и вернуть его */
+    /* Преобразовать List в Array и вернуть */
     pub fn to_array(&self) -> Vec<T> {
         fn _to_array<T: Sized + Copy>(head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
             if let Some(node) = head {
@@ -74,10 +74,10 @@ impl<T: Copy> LinkedListStack<T> {
 
 /* Driver Code */
 fn main() {
-    /* Инициализировать стек */
+    /* Инициализация стека */
     let mut stack = LinkedListStack::new();
 
-    /* Поместить элемент в стек */
+    /* Помещение элемента в стек */
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -86,20 +86,20 @@ fn main() {
     print!("Стек stack = ");
     print_util::print_array(&stack.to_array());
 
-    /* Получить верхний элемент стека */
+    /* Доступ к верхнему элементу стека */
     let peek = stack.peek().unwrap().borrow().val;
-    print!("\nвершина стекаэлемент peek = {}", peek);
+    print!("\nВерхний элемент peek = {}", peek);
 
-    /* Извлечь элемент из стека */
+    /* Извлечение элемента из стека */
     let pop = stack.pop().unwrap();
-    print!("\nЭлемент, извлеченный из стека, pop = {}, stack после извлечения = ", pop);
+    print!("\nИзвлеченный элемент pop = {}, stack после извлечения = ", pop);
     print_util::print_array(&stack.to_array());
 
-    /* Получить длину стека */
+    /* Получение длины стека */
     let size = stack.size();
     print!("\nДлина стека size = {}", size);
 
-    /* Проверить, пуста ли структура */
+    /* Проверка на пустоту */
     let is_empty = stack.is_empty();
-    print!("\nстекпуст ли = {}", is_empty);
+    print!("\nПуст ли стек = {}", is_empty);
 }

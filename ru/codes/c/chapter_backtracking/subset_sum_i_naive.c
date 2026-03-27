@@ -18,7 +18,7 @@ int res[MAX_RES_SIZE][MAX_SIZE];
 int resColSizes[MAX_RES_SIZE];
 int resSize = 0;
 
-/* Алгоритм бэктрекинга: сумма подмножества I */
+/* Алгоритм бэктрекинга: сумма подмножеств I */
 void backtrack(int target, int total, int *choices, int choicesSize) {
     // Если сумма подмножества равна target, записать решение
     if (total == target) {
@@ -28,24 +28,24 @@ void backtrack(int target, int total, int *choices, int choicesSize) {
         resColSizes[resSize++] = stateSize;
         return;
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for (int i = 0; i < choicesSize; i++) {
         // Отсечение: если сумма подмножества превышает target, пропустить этот выбор
         if (total + choices[i] > target) {
             continue;
         }
-        // Попытка: сделать выбор и обновить сумму элементов total
+        // Попытка: сделать выбор и обновить элемент и total
         state[stateSize++] = choices[i];
-        // Перейти к следующему варианту выбора
+        // Перейти к следующему выбору
         backtrack(target, total + choices[i], choices, choicesSize);
         // Откат: отменить выбор и восстановить предыдущее состояние
         stateSize--;
     }
 }
 
-/* Решить задачу суммы подмножества I (включая повторяющиеся подмножества) */
+/* Решить задачу суммы подмножеств I (с повторяющимися подмножествами) */
 void subsetSumINaive(int *nums, int numsSize, int target) {
-    resSize = 0; // Инициализировать количество решений нулем
+    resSize = 0; // Инициализировать число решений нулем
     backtrack(target, 0, nums, numsSize);
 }
 
@@ -60,7 +60,7 @@ int main() {
     printf("Входной массив nums = ");
     printArray(nums, numsSize);
     printf("target = %d\n", target);
-    printf("Все подмножества res с суммой %d = \n", target);
+    printf("Все подмножества с суммой %d: \n", target);
     for (int i = 0; i < resSize; i++) {
         printArray(res[i], resColSizes[i]);
     }

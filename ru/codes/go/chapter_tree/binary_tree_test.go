@@ -12,29 +12,29 @@ import (
 )
 
 func TestBinaryTree(t *testing.T) {
-	/* Инициализировать двоичное дерево */
-	// Инициализироватьузел
+	/* Инициализация двоичного дерева */
+	// Инициализация узла
 	n1 := NewTreeNode(1)
 	n2 := NewTreeNode(2)
 	n3 := NewTreeNode(3)
 	n4 := NewTreeNode(4)
 	n5 := NewTreeNode(5)
-	// Построить ссылки между узлами (указатели)
+	// Построить связи между узлами (указатели)
 	n1.Left = n2
 	n1.Right = n3
 	n2.Left = n4
 	n2.Right = n5
-	fmt.Println("Инициализировать двоичное дерево")
+	fmt.Println("Инициализация двоичного дерева")
 	PrintTree(n1)
 
 	/* Вставка и удаление узлов */
-	// Вставить узел
+	// Вставка узла
 	p := NewTreeNode(0)
 	n1.Left = p
 	p.Left = n2
 	fmt.Println("После вставки узла P")
 	PrintTree(n1)
-	// Удалить узел
+	// Удаление узла
 	n1.Left = n2
 	fmt.Println("После удаления узла P")
 	PrintTree(n1)

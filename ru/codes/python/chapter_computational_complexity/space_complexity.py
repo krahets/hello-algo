@@ -18,7 +18,7 @@ def function() -> int:
 
 
 def constant(n: int):
-    """Константная сложность"""
+    """Постоянная сложность"""
     # Константы, переменные и объекты занимают O(1) памяти
     a = 0
     nums = [0] * 10000
@@ -26,16 +26,16 @@ def constant(n: int):
     # Переменные в цикле занимают O(1) памяти
     for _ in range(n):
         c = 0
-    # Функция в цикле занимает O(1) памяти
+    # Функции в цикле занимают O(1) памяти
     for _ in range(n):
         function()
 
 
 def linear(n: int):
     """Линейная сложность"""
-    # Список длины n занимает пространство O(n)
+    # Список длины n занимает O(n) памяти
     nums = [0] * n
-    # Хеш-таблица длины n занимает пространство O(n)
+    # Хеш-таблица длины n занимает O(n) памяти
     hmap = dict[int, str]()
     for i in range(n):
         hmap[i] = str(i)
@@ -43,7 +43,7 @@ def linear(n: int):
 
 def linear_recur(n: int):
     """Линейная сложность (рекурсивная реализация)"""
-    print("Рекурсия: n =", n)
+    print("Рекурсия n =", n)
     if n == 1:
         return
     linear_recur(n - 1)
@@ -51,7 +51,7 @@ def linear_recur(n: int):
 
 def quadratic(n: int):
     """Квадратичная сложность"""
-    # Двумерный список занимает пространство O(n^2)
+    # Двумерный список занимает O(n^2) памяти
     num_matrix = [[0] * n for _ in range(n)]
 
 
@@ -59,7 +59,7 @@ def quadratic_recur(n: int) -> int:
     """Квадратичная сложность (рекурсивная реализация)"""
     if n <= 0:
         return 0
-    # массив nums длинаравно n, n-1,..., 2, 1
+    # Длина массива nums равна n, n-1, ..., 2, 1
     nums = [0] * n
     return quadratic_recur(n - 1)
 
@@ -77,7 +77,7 @@ def build_tree(n: int) -> TreeNode | None:
 """Driver Code"""
 if __name__ == "__main__":
     n = 5
-    # Константная сложность
+    # Постоянная сложность
     constant(n)
     # Линейная сложность
     linear(n)

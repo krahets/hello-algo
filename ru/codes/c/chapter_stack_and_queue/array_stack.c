@@ -29,12 +29,12 @@ void delArrayStack(ArrayStack *stack) {
     free(stack);
 }
 
-/* Получить длину стека */
+/* Получение длины стека */
 int size(ArrayStack *stack) {
     return stack->size;
 }
 
-/* Проверить, пуст ли стек */
+/* Проверка, пуст ли стек */
 bool isEmpty(ArrayStack *stack) {
     return stack->size == 0;
 }
@@ -42,17 +42,17 @@ bool isEmpty(ArrayStack *stack) {
 /* Поместить в стек */
 void push(ArrayStack *stack, int num) {
     if (stack->size == MAX_SIZE) {
-        printf("стекзаполнен\n");
+        printf("Стек заполнен\n");
         return;
     }
     stack->data[stack->size] = num;
     stack->size++;
 }
 
-/* Получить верхний элемент стека */
+/* Доступ к верхнему элементу стека */
 int peek(ArrayStack *stack) {
     if (stack->size == 0) {
-        printf("Стек пуст\n");
+        printf("стек пуст\n");
         return INT_MAX;
     }
     return stack->data[stack->size - 1];
@@ -67,10 +67,10 @@ int pop(ArrayStack *stack) {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать стек */
+    /* Инициализация стека */
     ArrayStack *stack = newArrayStack();
 
-    /* Поместить элемент в стек */
+    /* Помещение элемента в стек */
     push(stack, 1);
     push(stack, 3);
     push(stack, 2);
@@ -79,20 +79,20 @@ int main() {
     printf("Стек stack = ");
     printArray(stack->data, stack->size);
 
-    /* Получить верхний элемент стека */
+    /* Доступ к верхнему элементу стека */
     int val = peek(stack);
-    printf("Элемент на вершине стека top = %d\n", val);
+    printf("Верхний элемент стека top = %d\n", val);
 
-    /* Извлечь элемент из стека */
+    /* Извлечение элемента из стека */
     val = pop(stack);
-    printf("Элемент, извлеченный из стека, pop = %d , stack после извлечения = ", val);
+    printf("Извлечен элемент из стека pop = %d, стек после извлечения = ", val);
     printArray(stack->data, stack->size);
 
-    /* Получить длину стека */
+    /* Получение длины стека */
     int size = stack->size;
     printf("Длина стека size = %d\n", size);
 
-    /* Проверить, пуста ли структура */
+    /* Проверка на пустоту */
     bool empty = isEmpty(stack);
     printf("Пуст ли стек = %s\n", empty ? "true" : "false");
 

@@ -6,11 +6,11 @@
 
 /* Бинарный поиск точки вставки (без повторяющихся элементов) */
 func binarySearchInsertionSimple(nums: [Int], target: Int) -> Int {
-    // Инициализировать закрытый интервал [0, n-1]
+    // Инициализировать двусторонне замкнутый интервал [0, n-1]
     var i = nums.startIndex
     var j = nums.endIndex - 1
     while i <= j {
-        let m = i + (j - i) / 2 // Вычислить средний индекс m
+        let m = i + (j - i) / 2 // Вычислить индекс середины m
         if nums[m] < target {
             i = m + 1 // target находится в интервале [m+1, j]
         } else if nums[m] > target {
@@ -19,23 +19,23 @@ func binarySearchInsertionSimple(nums: [Int], target: Int) -> Int {
             return m // Найти target и вернуть точку вставки m
         }
     }
-    // Если target не найден, вернуть точку вставки i
+    // target не найден, вернуть точку вставки i
     return i
 }
 
-/* Бинарный поиск точки вставки (при наличии повторяющихся элементов) */
+/* Бинарный поиск точки вставки (с повторяющимися элементами) */
 public func binarySearchInsertion(nums: [Int], target: Int) -> Int {
-    // Инициализировать закрытый интервал [0, n-1]
+    // Инициализировать двусторонне замкнутый интервал [0, n-1]
     var i = nums.startIndex
     var j = nums.endIndex - 1
     while i <= j {
-        let m = i + (j - i) / 2 // Вычислить средний индекс m
+        let m = i + (j - i) / 2 // Вычислить индекс середины m
         if nums[m] < target {
             i = m + 1 // target находится в интервале [m+1, j]
         } else if nums[m] > target {
             j = m - 1 // target находится в интервале [i, m-1]
         } else {
-            j = m - 1 // Первый элемент, меньший target, находится в интервале [i, m-1]
+            j = m - 1 // Первый элемент меньше target находится в интервале [i, m-1]
         }
     }
     // Вернуть точку вставки i
@@ -51,19 +51,19 @@ enum BinarySearchInsertion {
         // Массив без повторяющихся элементов
         var nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
         print("\nМассив nums = \(nums)")
-        // Найти точку вставки бинарным поиском
+        // Бинарный поиск точки вставки
         for target in [6, 9] {
             let index = binarySearchInsertionSimple(nums: nums, target: target)
-            print("Индекс точки вставки элемента \(target) равен \(index)")
+            print("Индекс позиции вставки элемента \(target) равен \(index)")
         }
 
         // Массив с повторяющимися элементами
         nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
         print("\nМассив nums = \(nums)")
-        // Найти точку вставки бинарным поиском
+        // Бинарный поиск точки вставки
         for target in [2, 6, 20] {
             let index = binarySearchInsertion(nums: nums, target: target)
-            print("Индекс точки вставки элемента \(target) равен \(index)")
+            print("Индекс позиции вставки элемента \(target) равен \(index)")
         }
     }
 }

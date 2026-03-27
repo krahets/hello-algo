@@ -8,7 +8,7 @@ public class array {
     /* Случайный доступ к элементу */
     int RandomAccess(int[] nums) {
         Random random = new();
-        // Случайно выбрать число в интервале [0, nums.Length)
+        // Случайным образом выбрать число из интервала [0, nums.Length)
         int randomIndex = random.Next(nums.Length);
         // Получить и вернуть случайный элемент
         int randomNum = nums[randomIndex];
@@ -23,13 +23,13 @@ public class array {
         for (int i = 0; i < nums.Length; i++) {
             res[i] = nums[i];
         }
-        // Вернуть новый расширенный массив
+        // Вернуть новый массив после расширения
         return res;
     }
 
-    /* Вставить элемент num в массив по индексу index */
+    /* Вставить элемент num по индексу index в массив */
     void Insert(int[] nums, int num, int index) {
-        // Сдвинуть индекс index и все последующие элементы на одну позицию назад
+        // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
         for (int i = nums.Length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
@@ -45,10 +45,10 @@ public class array {
         }
     }
 
-    /* Перебрать массив */
+    /* Обход массива */
     void Traverse(int[] nums) {
         int count = 0;
-        // Обходить массив по индексам
+        // Обход массива по индексам
         for (int i = 0; i < nums.Length; i++) {
             count += nums[i];
         }
@@ -67,7 +67,7 @@ public class array {
         return -1;
     }
 
-    /* Вспомогательная функция: преобразование массива в строку */
+    /* Вспомогательная функция: преобразовать массив в строку */
     string ToString(int[] nums) {
         return string.Join(",", nums);
     }
@@ -75,7 +75,7 @@ public class array {
 
     [Test]
     public void Test() {
-        // Инициализировать массив
+        // Инициализация массива
         int[] arr = new int[5];
         Console.WriteLine("Массив arr = " + ToString(arr));
         int[] nums = [1, 3, 2, 5, 4];
@@ -83,25 +83,25 @@ public class array {
 
         // Случайный доступ
         int randomNum = RandomAccess(nums);
-        Console.WriteLine("Полученный случайный элемент из nums " + randomNum);
+        Console.WriteLine("Случайный элемент из nums = " + randomNum);
 
         // Расширение длины
         nums = Extend(nums, 3);
-        Console.WriteLine("После расширения длины массива до 8 получаем nums = " + ToString(nums));
+        Console.WriteLine("После увеличения длины массива до 8 nums = " + ToString(nums));
 
-        // Вставить элемент
+        // Вставка элемента
         Insert(nums, 6, 3);
-        Console.WriteLine("После вставки числа 6 по индексу 3 получаем nums = " + ToString(nums));
+        Console.WriteLine("После вставки числа 6 по индексу 3 nums = " + ToString(nums));
 
-        // Удалить элемент
+        // Удаление элемента
         Remove(nums, 2);
-        Console.WriteLine("После удаления элемента по индексу 2 получаем nums = " + ToString(nums));
+        Console.WriteLine("После удаления элемента по индексу 2 nums = " + ToString(nums));
 
-        // Перебрать массив
+        // Обход массива
         Traverse(nums);
 
-        // Найти элемент
+        // Поиск элемента
         int index = Find(nums, 3);
-        Console.WriteLine("Поиск элемента 3 в nums дает индекс = " + index);
+        Console.WriteLine("Поиск элемента 3 в nums: индекс = " + index);
     }
 }

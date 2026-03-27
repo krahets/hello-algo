@@ -19,7 +19,7 @@ class Trunk {
 };
 
 public class PrintUtil {
-    /* Вывестиматрица(Array) */
+    /* Вывести матрицу (Array) */
     public static <T> void printMatrix(T[][] matrix) {
         System.out.println("[");
         for (T[] row : matrix) {
@@ -28,7 +28,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /* Вывестиматрица(List) */
+    /* Вывести матрицу (List) */
     public static <T> void printMatrix(List<List<T>> matrix) {
         System.out.println("[");
         for (List<T> row : matrix) {
@@ -53,8 +53,8 @@ public class PrintUtil {
     }
 
     /**
- * Вывестидвоичное дерево
- * This tree printer is borrowed from TECHIE DELIGHT
+ * Вывести двоичное дерево
+ * Этот вывод дерева заимствован из TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
     public static void printTree(TreeNode root, Trunk prev, boolean isRight) {
@@ -104,7 +104,7 @@ public class PrintUtil {
         }
     }
 
-    /* Вывести кучу(очередь с приоритетом) */
+    /* Вывести кучу (приоритетную очередь) */
     public static void printHeap(Queue<Integer> queue) {
         List<Integer> list = new ArrayList<>(queue);
         System.out.print("Массивное представление кучи:");

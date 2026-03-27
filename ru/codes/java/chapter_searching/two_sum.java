@@ -42,12 +42,12 @@ public class two_sum {
         int[] nums = { 2, 7, 11, 15 };
         int target = 13;
 
-        // ====== Driver Code ======
-        // метод 1
+        // ====== Основной код ======
+        // Метод 1
         int[] res = twoSumBruteForce(nums, target);
-        System.out.println("Метод 1 res = " + Arrays.toString(res));
+        System.out.println("Результат метода 1 res = " + Arrays.toString(res));
         // Метод 2
         res = twoSumHashTable(nums, target);
-        System.out.println("Метод 2 res = " + Arrays.toString(res));
+        System.out.println("Результат метода 2 res = " + Arrays.toString(res));
     }
 }

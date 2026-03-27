@@ -4,7 +4,7 @@ Created Time: 2024-04-25
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## вершинакласс ###
+# ## Класс вершины ###
 class Vertex
   attr_accessor :val
 
@@ -13,12 +13,12 @@ class Vertex
   end
 end
 
-# ## Входзначениесписок vals, Вернутьсписок вершин vets ###
+# ## На вход подается список значений vals, на выходе возвращается список вершин vets ###
 def vals_to_vets(vals)
   Array.new(vals.length) { |i| Vertex.new(vals[i]) }
 end
 
-# ## Входсписок вершин vets, Вернутьзначениесписок vals ###
+# ## На вход подается список вершин vets, на выходе возвращается список значений vals ###
 def vets_to_vals(vets)
   Array.new(vets.length) { |i| vets[i].val }
 end

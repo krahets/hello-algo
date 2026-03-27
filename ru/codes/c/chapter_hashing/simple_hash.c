@@ -37,7 +37,7 @@ int xorHash(char *key) {
     return hash & MODULUS;
 }
 
-/* Вращательное хеширование */
+/* Хеширование с циклическим сдвигом */
 int rotHash(char *key) {
     long long hash = 0;
     const int MODULUS = 1000000007;
@@ -53,16 +53,16 @@ int main() {
     char *key = "Hello Algo";
 
     int hash = addHash(key);
-    printf("Аддитивное хеш-значение равно %d\n", hash);
+    printf("Хеш суммы = %d\n", hash);
 
     hash = mulHash(key);
-    printf("Мультипликативное хеш-значение равно %d\n", hash);
+    printf("Хеш произведения = %d\n", hash);
 
     hash = xorHash(key);
-    printf("XOR-хеш равен %d\n", hash);
+    printf("XOR-хеш = %d\n", hash);
 
     hash = rotHash(key);
-    printf("Вращательное хешированиезначениеравно %d\n", hash);
+    printf("Хеш с циклическим сдвигом = %d\n", hash);
 
     return 0;
 }

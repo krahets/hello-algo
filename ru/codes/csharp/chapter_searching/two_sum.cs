@@ -41,12 +41,12 @@ public class two_sum {
         int[] nums = [2, 7, 11, 15];
         int target = 13;
 
-        // ====== Driver Code ======
-        // метод 1
+        // ====== Основной код ======
+        // Метод 1
         int[] res = TwoSumBruteForce(nums, target);
-        Console.WriteLine("Метод 1 res = " + string.Join(",", res));
+        Console.WriteLine("Результат метода 1 res = " + string.Join(",", res));
         // Метод 2
         res = TwoSumHashTable(nums, target);
-        Console.WriteLine("Метод 2 res = " + string.Join(",", res));
+        Console.WriteLine("Результат метода 2 res = " + string.Join(",", res));
     }
 }

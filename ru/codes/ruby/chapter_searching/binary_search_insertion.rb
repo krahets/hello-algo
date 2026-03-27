@@ -6,11 +6,11 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 # ## Бинарный поиск точки вставки (без повторяющихся элементов) ###
 def binary_search_insertion_simple(nums, target)
-  # Инициализировать закрытый интервал [0, n-1]
+  # Инициализировать двусторонне замкнутый интервал [0, n-1]
   i, j = 0, nums.length - 1
 
   while i <= j
-    # Вычислить средний индекс m
+    # Вычислить индекс середины m
     m = (i + j) / 2
 
     if nums[m] < target
@@ -22,16 +22,16 @@ def binary_search_insertion_simple(nums, target)
     end
   end
 
-  i # Если target не найден, вернуть точку вставки i
+  i # target не найден, вернуть точку вставки i
 end
 
-# ## Бинарный поиск точки вставки (при наличии повторяющихся элементов) ###
+# ## Бинарный поиск точки вставки (с повторяющимися элементами) ###
 def binary_search_insertion(nums, target)
-  # Инициализировать закрытый интервал [0, n-1]
+  # Инициализировать двусторонне замкнутый интервал [0, n-1]
   i, j = 0, nums.length - 1
 
   while i <= j
-    # Вычислить средний индекс m
+    # Вычислить индекс середины m
     m = (i + j) / 2
 
     if nums[m] < target
@@ -39,7 +39,7 @@ def binary_search_insertion(nums, target)
     elsif nums[m] > target
       j = m - 1 # target находится в интервале [i, m-1]
     else
-      j = m - 1 # Первый элемент, меньший target, находится в интервале [i, m-1]
+      j = m - 1 # Первый элемент меньше target находится в интервале [i, m-1]
     end
   end
 
@@ -51,18 +51,18 @@ if __FILE__ == $0
   # Массив без повторяющихся элементов
   nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
   puts "\nМассив nums = #{nums}"
-  # Найти точку вставки бинарным поиском
+  # Бинарный поиск точки вставки
   for target in [6, 9]
     index = binary_search_insertion_simple(nums, target)
-    puts "Индекс точки вставки элемента #{target} равен #{index}"
+    puts "Индекс позиции вставки элемента #{target}: #{index}"
   end
 
   # Массив с повторяющимися элементами
   nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
   puts "\nМассив nums = #{nums}"
-  # Найти точку вставки бинарным поиском
+  # Бинарный поиск точки вставки
   for target in [2, 6, 20]
     index = binary_search_insertion(nums, target)
-    puts "Индекс точки вставки элемента #{target} равен #{index}"
+    puts "Индекс позиции вставки элемента #{target}: #{index}"
   end
 end

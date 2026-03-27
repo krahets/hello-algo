@@ -6,7 +6,7 @@ package chapter_sorting
 
 /* Сортировка вставками */
 func insertionSort(nums []int) {
-	// Внешний цикл: отсортированный диапазон равен [0, i-1]
+	// Внешний цикл: отсортированный диапазон [0, i-1]
 	for i := 1; i < len(nums); i++ {
 		base := nums[i]
 		j := i - 1

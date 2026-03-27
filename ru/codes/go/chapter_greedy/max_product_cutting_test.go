@@ -13,5 +13,5 @@ func TestMaxProductCutting(t *testing.T) {
 	n := 58
 	// Жадный алгоритм
 	res := maxProductCutting(n)
-	fmt.Println("максимальное произведение разбиенияравно", res)
+	fmt.Println("Максимальное произведение после разрезания =", res)
 }

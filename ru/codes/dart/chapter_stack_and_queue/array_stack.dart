@@ -11,12 +11,12 @@ class ArrayStack {
     _stack = [];
   }
 
-  /* Получить длину стека */
+  /* Получение длины стека */
   int size() {
     return _stack.length;
   }
 
-  /* Проверить, пуст ли стек */
+  /* Проверка, пуст ли стек */
   bool isEmpty() {
     return _stack.isEmpty;
   }
@@ -29,15 +29,15 @@ class ArrayStack {
   /* Извлечь из стека */
   int pop() {
     if (isEmpty()) {
-      throw Exception("Стек пуст");
+      throw Exception("стек пуст");
     }
     return _stack.removeLast();
   }
 
-  /* Получить верхний элемент стека */
+  /* Доступ к верхнему элементу стека */
   int peek() {
     if (isEmpty()) {
-      throw Exception("Стек пуст");
+      throw Exception("стек пуст");
     }
     return _stack.last;
   }
@@ -48,30 +48,30 @@ class ArrayStack {
 
 /* Driver Code */
 void main() {
-  /* Инициализировать стек */
+  /* Инициализация стека */
   final ArrayStack stack = ArrayStack();
 
-  /* Поместить элемент в стек */
+  /* Помещение элемента в стек */
   stack.push(1);
   stack.push(3);
   stack.push(2);
   stack.push(5);
   stack.push(4);
-  print("стек stack = ${stack.toArray()}");
+  print("Стек stack = ${stack.toArray()}");
 
-  /* Получить верхний элемент стека */
+  /* Доступ к верхнему элементу стека */
   final int peek = stack.peek();
-  print("вершина стекаэлемент peek = $peek");
+  print("Верхний элемент peek = $peek");
 
-  /* Извлечь элемент из стека */
+  /* Извлечение элемента из стека */
   final int pop = stack.pop();
-  print("Элемент, извлеченный из стека, pop = $pop , stack после извлечения = ${stack.toArray()}");
+  print("Извлеченный элемент pop = $pop, stack после извлечения = ${stack.toArray()}");
 
-  /* Получить длину стека */
+  /* Получение длины стека */
   final int size = stack.size();
   print("Длина стека size = $size");
 
-  /* Проверить, пуста ли структура */
+  /* Проверка на пустоту */
   final bool isEmpty = stack.isEmpty();
-  print("стекпуст ли = $isEmpty");
+  print("Пуст ли стек = $isEmpty");
 }

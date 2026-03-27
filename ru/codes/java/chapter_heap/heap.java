@@ -11,56 +11,56 @@ import java.util.*;
 
 public class heap {
     public static void testPush(Queue<Integer> heap, int val) {
-        heap.offer(val); // Добавить элемент в кучу
-        System.out.format("\nЭлемент %d после добавления в кучу\n", val);
+        heap.offer(val); // Добавление элемента в кучу
+        System.out.format("\nПосле добавления элемента %d в кучу\n", val);
         PrintUtil.printHeap(heap);
     }
 
     public static void testPop(Queue<Integer> heap) {
-        int val = heap.poll(); // Извлечь верхний элемент из кучи
-        System.out.format("\nПосле извлечения верхнего элемента %d из кучи\n", val);
+        int val = heap.poll(); // Извлечение элемента с вершины кучи
+        System.out.format("\nПосле удаления элемента %d с вершины кучи\n", val);
         PrintUtil.printHeap(heap);
     }
 
     public static void main(String[] args) {
-        /* Инициализироватькуча */
-        // Инициализировать min-кучу
+        /* Инициализация кучи */
+        // Инициализация минимальной кучи
         Queue<Integer> minHeap = new PriorityQueue<>();
-        // Инициализировать max-кучу (достаточно изменить Comparator с помощью lambda-выражения)
+        // Инициализация максимальной кучи (достаточно изменить Comparator с помощью lambda-выражения)
         Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
-        System.out.println("\nСледующие тестовые примеры относятся к max-куче");
+        System.out.println("\nНиже приведен тестовый пример для max-heap");
 
-        /* Добавить элемент в кучу */
+        /* Добавление элемента в кучу */
         testPush(maxHeap, 1);
         testPush(maxHeap, 3);
         testPush(maxHeap, 2);
         testPush(maxHeap, 5);
         testPush(maxHeap, 4);
 
-        /* Получить верхний элемент кучи */
+        /* Получение элемента с вершины кучи */
         int peek = maxHeap.peek();
-        System.out.format("\nЭлемент на вершине кучи равен %d\n", peek);
+        System.out.format("\nЭлемент на вершине кучи = %d\n", peek);
 
-        /* Извлечь верхний элемент из кучи */
+        /* Извлечение элемента с вершины кучи */
         testPop(maxHeap);
         testPop(maxHeap);
         testPop(maxHeap);
         testPop(maxHeap);
         testPop(maxHeap);
 
-        /* Получить размер кучи */
+        /* Получение размера кучи */
         int size = maxHeap.size();
-        System.out.format("\nКоличество элементов в куче равно %d\n", size);
+        System.out.format("\nКоличество элементов в куче = %d\n", size);
 
-        /* Проверить, пуста ли куча */
+        /* Проверка, пуста ли куча */
         boolean isEmpty = maxHeap.isEmpty();
-        System.out.format("\nкучапуст ли %b\n", isEmpty);
+        System.out.format("\nПуста ли куча: %b\n", isEmpty);
 
-        /* Входсписокипостроение кучи */
+        /* Построить кучу по входному списку */
         // Временная сложность равна O(n), а не O(nlogn)
         minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
-        System.out.println("\nПосле построения min-кучи по входному списку");
+        System.out.println("\nПосле построения min-heap из входного списка");
         PrintUtil.printHeap(minHeap);
     }
 }

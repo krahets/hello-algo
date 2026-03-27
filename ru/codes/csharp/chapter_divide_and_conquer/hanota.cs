@@ -9,10 +9,10 @@ namespace hello_algo.chapter_divide_and_conquer;
 public class hanota {
     /* Переместить один диск */
     void Move(List<int> src, List<int> tar) {
-        // Взять верхний диск со стержня src
+        // Снять диск с вершины src
         int pan = src[^1];
         src.RemoveAt(src.Count - 1);
-        // Поместить диск на вершину tar
+        // Положить диск на вершину tar
         tar.Add(pan);
     }
 
@@ -40,11 +40,11 @@ public class hanota {
 
     [Test]
     public void Test() {
-        // Конец списка соответствует вершине стержня
+        // Хвост списка соответствует вершине столбца
         List<int> A = [5, 4, 3, 2, 1];
         List<int> B = [];
         List<int> C = [];
-        Console.WriteLine("В начальном состоянии:");
+        Console.WriteLine("Исходное состояние:");
         Console.WriteLine("A = " + string.Join(", ", A));
         Console.WriteLine("B = " + string.Join(", ", B));
         Console.WriteLine("C = " + string.Join(", ", C));

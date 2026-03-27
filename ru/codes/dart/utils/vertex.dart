@@ -9,7 +9,7 @@ class Vertex {
   int val;
   Vertex(this.val);
 
-  /* Входзначениесписок vals, Вернутьсписок вершин vets */
+  /* На вход подается список значений vals, на выходе возвращается список вершин vets */
   static List<Vertex> valsToVets(List<int> vals) {
     List<Vertex> vets = [];
     for (int i in vals) {
@@ -18,7 +18,7 @@ class Vertex {
     return vets;
   }
 
-  /* Входсписок вершин vets, Вернутьзначениесписок vals */
+  /* На вход подается список вершин vets, на выходе возвращается список значений vals */
   static List<int> vetsToVals(List<Vertex> vets) {
     List<int> vals = [];
     for (Vertex vet in vets) {

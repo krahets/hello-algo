@@ -10,9 +10,9 @@ pub fn AVLTree(comptime T: type) type {
     return struct {
         const Self = @This();
 
-        root: ?*inc.TreeNode(T) = null,                 // корневой узел
+        root: ?*inc.TreeNode(T) = null,                 // Корневой узел
         mem_arena: ?std.heap.ArenaAllocator = null,
-        mem_allocator: std.mem.Allocator = undefined,   // Распределитель памяти
+        mem_allocator: std.mem.Allocator = undefined,   // Аллокатор памяти
 
         // Конструктор
         pub fn init(self: *Self, allocator: std.mem.Allocator) void {
@@ -22,7 +22,7 @@ pub fn AVLTree(comptime T: type) type {
             }
         }
 
-        // Деструктор
+        // Метод-деструктор
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -31,7 +31,7 @@ pub fn AVLTree(comptime T: type) type {
         // Получить высоту узла
         fn height(self: *Self, node: ?*inc.TreeNode(T)) i32 {
             _ = self;
-            // Высота пустого узла равна -1, а высота листа равна 0
+            // Высота пустого узла равна -1, высота листового узла равна 0
             return if (node == null) -1 else node.?.height;
         }
 
@@ -43,17 +43,17 @@ pub fn AVLTree(comptime T: type) type {
 
         // Получить коэффициент баланса
         fn balanceFactor(self: *Self, node: ?*inc.TreeNode(T)) i32 {
-            // Баланс-фактор пустого узла равен 0
+            // Коэффициент баланса пустого узла равен 0
             if (node == null) return 0;
-            // Баланс-фактор узла = высота левого поддерева - высота правого поддерева
+            // Коэффициент баланса узла = высота левого поддерева - высота правого поддерева
             return self.height(node.?.left) - self.height(node.?.right);
         }
 
-        // Операция правого поворота
+        // Операция правого вращения
         fn rightRotate(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
             var child = node.?.left;
             var grandChild = child.?.right;
-            // Используя child как опорную точку, выполнить правый поворот node
+            // Выполнить правое вращение узла node вокруг child
             child.?.right = node;
             node.?.left = grandChild;
             // Обновить высоту узла
@@ -63,11 +63,11 @@ pub fn AVLTree(comptime T: type) type {
             return child;
         }
 
-        // Операция левого поворота
+        // Операция левого вращения
         fn leftRotate(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
             var child = node.?.right;
             var grandChild = child.?.left;
-            // Используя child как опорную точку, выполнить левый поворот node
+            // Выполнить левое вращение узла node вокруг child
             child.?.left = node;
             node.?.right = grandChild;
             // Обновить высоту узла
@@ -77,17 +77,17 @@ pub fn AVLTree(comptime T: type) type {
             return child;
         }
 
-        // Выполнить поворот, чтобы восстановить баланс этого поддерева
+        // Выполнить вращение, чтобы снова сбалансировать поддерево
         fn rotate(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
             // Получить коэффициент баланса узла node
             var balance_factor = self.balanceFactor(node);
             // Левосторонне перекошенное дерево
             if (balance_factor > 1) {
                 if (self.balanceFactor(node.?.left) >= 0) {
-                    // Правый поворот
+                    // Правое вращение
                     return self.rightRotate(node);
                 } else {
-                    // Сначала выполнить левый поворот, затем правый
+                    // Сначала левое вращение, затем правое
                     node.?.left = self.leftRotate(node.?.left);
                     return self.rightRotate(node);
                 }
@@ -95,24 +95,24 @@ pub fn AVLTree(comptime T: type) type {
             // Правосторонне перекошенное дерево
             if (balance_factor < -1) {
                 if (self.balanceFactor(node.?.right) <= 0) {
-                    // Левый поворот
+                    // Левое вращение
                     return self.leftRotate(node);
                 } else {
-                    // Сначала выполнить правый поворот, затем левый
+                    // Сначала правое вращение, затем левое
                     node.?.right = self.rightRotate(node.?.right);
                     return self.leftRotate(node);
                 }
             }
-            // Дерево сбалансировано, вращение не требуется, можно сразу вернуть результат
+            // Дерево сбалансировано, вращение не требуется, вернуть сразу
             return node;
         }
 
-        // Вставить узел
+        // Вставка узла
         fn insert(self: *Self, val: T) !void {
             self.root = (try self.insertHelper(self.root, val)).?;
         }
 
-        // рекурсиявставить узел(вспомогательный метод)
+        // Рекурсивная вставка узла (вспомогательный метод)
         fn insertHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) !?*inc.TreeNode(T) {
             var node = node_;
             if (node == null) {
@@ -126,21 +126,21 @@ pub fn AVLTree(comptime T: type) type {
             } else if (val > node.?.val) {
                 node.?.right = try self.insertHelper(node.?.right, val);
             } else {
-                return node;            // Дублирующийся узел не вставлять, сразу вернуть результат
+                return node;            // Повторяющийся узел не вставлять, сразу вернуть
             }
             self.updateHeight(node);    // Обновить высоту узла
-            // 2. Выполнить вращение, чтобы снова сбалансировать это поддерево
+            // 2. Выполнить вращение, чтобы снова сбалансировать поддерево
             node = self.rotate(node);
             // Вернуть корневой узел поддерева
             return node;
         }
 
-        // Удалить узел
+        // Удаление узла
         fn remove(self: *Self, val: T) void {
            self.root = self.removeHelper(self.root, val).?;
         }
 
-        // рекурсияУдалить узел(вспомогательный метод)
+        // Рекурсивное удаление узла (вспомогательный метод)
         fn removeHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) ?*inc.TreeNode(T) {
             var node = node_;
             if (node == null) return null;
@@ -152,15 +152,15 @@ pub fn AVLTree(comptime T: type) type {
             } else {
                 if (node.?.left == null or node.?.right == null) {
                     var child = if (node.?.left != null) node.?.left else node.?.right;
-                    // Если число дочерних узлов равно 0, сразу удалить node и вернуть результат
+                    // Число дочерних узлов = 0, удалить node и сразу вернуть
                     if (child == null) {
                         return null;
-                    // Если число дочерних узлов равно 1, сразу удалить node
+                    // Число дочерних узлов = 1, удалить node напрямую
                     } else {
                         node = child;
                     }
                 } else {
-                    // Если число дочерних узлов равно 2, удалить следующий узел симметричного обхода и заменить им текущий узел
+                    // Число дочерних узлов = 2, удалить следующий по симметричному обходу узел и заменить им текущий узел
                     var temp = node.?.right;
                     while (temp.?.left != null) {
                         temp = temp.?.left;
@@ -170,16 +170,16 @@ pub fn AVLTree(comptime T: type) type {
                 }
             }
             self.updateHeight(node); // Обновить высоту узла
-            // 2. Выполнить вращение, чтобы снова сбалансировать это поддерево
+            // 2. Выполнить вращение, чтобы снова сбалансировать поддерево
             node = self.rotate(node);
             // Вернуть корневой узел поддерева
             return node;
         }
 
-        // Найти узел
+        // Поиск узла
         fn search(self: *Self, val: T) ?*inc.TreeNode(T) {
             var cur = self.root;
-            // Выполнять поиск в цикле и выйти после прохождения листового узла
+            // Искать в цикле и выйти после прохода за листовой узел
             while (cur != null) {
                 // Целевой узел находится в правом поддереве cur
                 if (cur.?.val < val) {
@@ -214,13 +214,13 @@ pub fn testRemove(comptime T: type, tree_: *AVLTree(T), val: T) void {
 
 // Driver Code
 pub fn main() !void {
-    // Инициализировать пустое AVL-дерево
+    // Инициализация пустого AVL-дерева
     var avl_tree = AVLTree(i32){};
     avl_tree.init(std.heap.page_allocator);
     defer avl_tree.deinit();
 
     // Вставка узла
-    // Обратите внимание на то, как AVL-дерево сохраняет баланс после вставки узла
+    // Обратите внимание, как AVL-дерево сохраняет баланс после вставки узла
     try testInsert(i32, &avl_tree, 1);
     try testInsert(i32, &avl_tree, 2);
     try testInsert(i32, &avl_tree, 3);
@@ -232,18 +232,18 @@ pub fn main() !void {
     try testInsert(i32, &avl_tree, 10);
     try testInsert(i32, &avl_tree, 6);
 
-    // Вставить повторяющийся узел
+    // Вставка повторяющегося узла
     try testInsert(i32, &avl_tree, 7);
 
     // Удаление узла
-    // Обратите внимание на то, как AVL-дерево сохраняет баланс после удаления узла
-    testRemove(i32, &avl_tree, 8); // Удалить узел степени 0
-    testRemove(i32, &avl_tree, 5); // Удалить узел степени 1
-    testRemove(i32, &avl_tree, 4); // Удалить узел степени 2
+    // Обратите внимание, как AVL-дерево сохраняет баланс после удаления узла
+    testRemove(i32, &avl_tree, 8); // Удаление узла степени 0
+    testRemove(i32, &avl_tree, 5); // Удаление узла степени 1
+    testRemove(i32, &avl_tree, 4); // Удаление узла степени 2
 
-    // Найти узел
+    // Поиск узла
     var node = avl_tree.search(7).?;
-    std.debug.print("\nНайденныйузелобъектравно {any}, значение узла = {}\n", .{node, node.val});
+    std.debug.print("\nНайденный объект узла = {any}, значение узла = {}\n", .{node, node.val});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

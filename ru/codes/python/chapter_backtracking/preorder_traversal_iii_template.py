@@ -44,13 +44,13 @@ def backtrack(
     if is_solution(state):
         # Записать решение
         record_solution(state, res)
-    # Перебрать все варианты выбора
+    # Перебор всех вариантов выбора
     for choice in choices:
-        # Отсечение: проверить, допустим ли текущий выбор
+        # Отсечение: проверить допустимость выбора
         if is_valid(state, choice):
             # Попытка: сделать выбор и обновить состояние
             make_choice(state, choice)
-            # Перейти к следующему варианту выбора
+            # Перейти к следующему выбору
             backtrack(state, [choice.left, choice.right], res)
             # Откат: отменить выбор и восстановить предыдущее состояние
             undo_choice(state, choice)
@@ -59,13 +59,13 @@ def backtrack(
 """Driver Code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
-    print("\nИнициализировать двоичное дерево")
+    print("\nИнициализация двоичного дерева")
     print_tree(root)
 
     # Алгоритм бэктрекинга
     res = []
     backtrack(state=[], choices=[root], res=res)
 
-    print("\nВывести все пути от корня до узла 7, при этом путь не должен содержать узлы со значением 3")
+    print("\nВсе пути от корня к узлу 7, в которых путь не содержит узлов со значением 3")
     for path in res:
         print([node.val for node in path])

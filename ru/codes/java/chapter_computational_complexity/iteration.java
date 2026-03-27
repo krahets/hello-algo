@@ -10,7 +10,7 @@ public class iteration {
     /* Цикл for */
     static int forLoop(int n) {
         int res = 0;
-        // В цикле вычислить сумму 1, 2, ..., n-1, n
+        // Циклическое суммирование 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -20,23 +20,23 @@ public class iteration {
     /* Цикл while */
     static int whileLoop(int n) {
         int res = 0;
-        int i = 1; // Инициализировать управляющую переменную
-        // В цикле вычислить сумму 1, 2, ..., n-1, n
+        int i = 1; // Инициализация условной переменной
+        // Циклическое суммирование 1, 2, ..., n-1, n
         while (i <= n) {
             res += i;
-            i++; // Обновить управляющую переменную
+            i++; // Обновить условную переменную
         }
         return res;
     }
 
-    /* Цикл while (с двумя обновлениями) */
+    /* Цикл while (двойное обновление) */
     static int whileLoopII(int n) {
         int res = 0;
-        int i = 1; // Инициализировать управляющую переменную
-        // В цикле вычислить сумму 1, 4, 10, ...
+        int i = 1; // Инициализация условной переменной
+        // Циклическое суммирование 1, 4, 10, ...
         while (i <= n) {
             res += i;
-            // Обновить управляющую переменную
+            // Обновить условную переменную
             i++;
             i *= 2;
         }
@@ -46,9 +46,9 @@ public class iteration {
     /* Двойной цикл for */
     static String nestedForLoop(int n) {
         StringBuilder res = new StringBuilder();
-        // Цикл i = 1, 2, ..., n-1, n
+        // Цикл по i = 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
-            // Цикл j = 1, 2, ..., n-1, n
+            // Цикл по j = 1, 2, ..., n-1, n
             for (int j = 1; j <= n; j++) {
                 res.append("(" + i + ", " + j + "), ");
             }
@@ -68,9 +68,9 @@ public class iteration {
         System.out.println("\nРезультат суммирования в цикле while res = " + res);
 
         res = whileLoopII(n);
-        System.out.println("\nРезультат суммирования в цикле while (с двумя обновлениями) res = " + res);
+        System.out.println("\nРезультат суммирования в цикле while (двойное обновление) res = " + res);
 
         String resStr = nestedForLoop(n);
-        System.out.println("\nРезультат обхода двойным циклом for " + resStr);
+        System.out.println("\nРезультат обхода в двойном цикле for " + resStr);
     }
 }

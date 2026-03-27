@@ -28,7 +28,7 @@ func function() int {
 	return 0
 }
 
-/* Константная сложность */
+/* Постоянная сложность */
 func spaceConstant(n int) {
 	// Константы, переменные и объекты занимают O(1) памяти
 	const a = 0
@@ -40,7 +40,7 @@ func spaceConstant(n int) {
 	for i := 0; i < n; i++ {
 		c = 0
 	}
-	// Функция в цикле занимает O(1) памяти
+	// Функции в цикле занимают O(1) памяти
 	for i := 0; i < n; i++ {
 		function()
 	}
@@ -52,14 +52,14 @@ func spaceConstant(n int) {
 
 /* Линейная сложность */
 func spaceLinear(n int) {
-	// Массив длины n занимает пространство O(n)
+	// Массив длины n занимает O(n) памяти
 	_ = make([]int, n)
-	// Список длины n занимает пространство O(n)
+	// Список длины n занимает O(n) памяти
 	var nodes []*node
 	for i := 0; i < n; i++ {
 		nodes = append(nodes, newNode(i))
 	}
-	// Хеш-таблица длины n занимает пространство O(n)
+	// Хеш-таблица длины n занимает O(n) памяти
 	m := make(map[int]string, n)
 	for i := 0; i < n; i++ {
 		m[i] = strconv.Itoa(i)
@@ -68,7 +68,7 @@ func spaceLinear(n int) {
 
 /* Линейная сложность (рекурсивная реализация) */
 func spaceLinearRecur(n int) {
-	fmt.Println("Рекурсия: n =", n)
+	fmt.Println("Рекурсия n =", n)
 	if n == 1 {
 		return
 	}
@@ -77,7 +77,7 @@ func spaceLinearRecur(n int) {
 
 /* Квадратичная сложность */
 func spaceQuadratic(n int) {
-	// Матрица занимает пространство O(n^2)
+	// Матрица занимает O(n^2) памяти
 	numMatrix := make([][]int, n)
 	for i := 0; i < n; i++ {
 		numMatrix[i] = make([]int, n)
@@ -90,7 +90,7 @@ func spaceQuadraticRecur(n int) int {
 		return 0
 	}
 	nums := make([]int, n)
-	fmt.Printf("Рекурсия: n = %d, длина nums = %d \n", n, len(nums))
+	fmt.Printf("В рекурсии n = %d, длина nums = %d\n", n, len(nums))
 	return spaceQuadraticRecur(n - 1)
 }
 

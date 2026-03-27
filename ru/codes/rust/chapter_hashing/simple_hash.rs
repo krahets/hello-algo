@@ -40,7 +40,7 @@ fn xor_hash(key: &str) -> i32 {
     (hash & MODULUS) as i32
 }
 
-/* Вращательное хеширование */
+/* Хеширование с циклическим сдвигом */
 fn rot_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -57,14 +57,14 @@ fn main() {
     let key = "Hello Algo";
 
     let hash = add_hash(key);
-    println!("Аддитивное хешированиезначениеравно {hash}");
+    println!("Хеш-сумма сложением = {hash}");
 
     let hash = mul_hash(key);
-    println!("Мультипликативное хешированиезначениеравно {hash}");
+    println!("Хеш-сумма умножением = {hash}");
 
     let hash = xor_hash(key);
-    println!("XOR-хешированиезначениеравно {hash}");
+    println!("Хеш-сумма XOR = {hash}");
 
     let hash = rot_hash(key);
-    println!("Вращательное хешированиезначениеравно {hash}");
+    println!("Хеш-сумма с циклическим сдвигом = {hash}");
 }

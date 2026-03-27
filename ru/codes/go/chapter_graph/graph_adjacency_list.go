@@ -14,7 +14,7 @@ import (
 
 /* Класс неориентированного графа на основе списка смежности */
 type graphAdjList struct {
-	// Список смежности, key: вершина, value: все смежные с ней вершины
+	// Список смежности, где key — вершина, а value — все смежные ей вершины
 	adjList map[Vertex][]Vertex
 }
 
@@ -32,24 +32,24 @@ func newGraphAdjList(edges [][]Vertex) *graphAdjList {
 	return g
 }
 
-/* Получить количество вершин */
+/* Получить число вершин */
 func (g *graphAdjList) size() int {
 	return len(g.adjList)
 }
 
-/* Добавить ребро */
+/* Добавление ребра */
 func (g *graphAdjList) addEdge(vet1 Vertex, vet2 Vertex) {
 	_, ok1 := g.adjList[vet1]
 	_, ok2 := g.adjList[vet2]
 	if !ok1 || !ok2 || vet1 == vet2 {
 		panic("error")
 	}
-	// Добавить ребро vet1 - vet2, добавить анонимную struct{},
+	// Добавить ребро vet1 - vet2, добавив анонимную struct{}
 	g.adjList[vet1] = append(g.adjList[vet1], vet2)
 	g.adjList[vet2] = append(g.adjList[vet2], vet1)
 }
 
-/* Удалить ребро */
+/* Удаление ребра */
 func (g *graphAdjList) removeEdge(vet1 Vertex, vet2 Vertex) {
 	_, ok1 := g.adjList[vet1]
 	_, ok2 := g.adjList[vet2]
@@ -61,23 +61,23 @@ func (g *graphAdjList) removeEdge(vet1 Vertex, vet2 Vertex) {
 	g.adjList[vet2] = DeleteSliceElms(g.adjList[vet2], vet1)
 }
 
-/* Добавить вершину */
+/* Добавление вершины */
 func (g *graphAdjList) addVertex(vet Vertex) {
 	_, ok := g.adjList[vet]
 	if ok {
 		return
 	}
-	// Добавить новый связный список в список смежности
+	// Добавить новый список в список смежности
 	g.adjList[vet] = make([]Vertex, 0)
 }
 
-/* Удалить вершину */
+/* Удаление вершины */
 func (g *graphAdjList) removeVertex(vet Vertex) {
 	_, ok := g.adjList[vet]
 	if !ok {
 		panic("error")
 	}
-	// Удалить из списка смежности связный список, соответствующий вершине vet
+	// Удалить из списка смежности список, соответствующий вершине vet
 	delete(g.adjList, vet)
 	// Обойти списки других вершин и удалить все ребра, содержащие vet
 	for v, list := range g.adjList {

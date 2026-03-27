@@ -6,7 +6,7 @@
 
 const { MaxHeap } = require('./my_heap');
 
-/* Добавить элемент в кучу */
+/* Добавление элемента в кучу */
 function pushMinHeap(maxHeap, val) {
     // Инвертировать знак элемента
     maxHeap.push(-val);
@@ -18,13 +18,13 @@ function popMinHeap(maxHeap) {
     return -maxHeap.pop();
 }
 
-/* Обратиться к элементу на вершине кучи */
+/* Доступ к элементу на вершине кучи */
 function peekMinHeap(maxHeap) {
     // Инвертировать знак элемента
     return -maxHeap.peek();
 }
 
-/* Извлечь элемент из кучи */
+/* Извлечь элементы из кучи */
 function getMinHeap(maxHeap) {
     // Инвертировать знак элемента
     return maxHeap.getMaxHeap().map((num) => -num);
@@ -32,22 +32,22 @@ function getMinHeap(maxHeap) {
 
 /* Найти k наибольших элементов массива с помощью кучи */
 function topKHeap(nums, k) {
-    // Инициализировать min-кучу
-    // Обратите внимание: мы инвертируем знак всех элементов в куче, чтобы имитировать min-кучу с помощью max-кучи
+    // Инициализация минимальной кучи
+    // Обратите внимание: мы инвертируем все элементы кучи, чтобы с помощью максимальной кучи имитировать минимальную
     const maxHeap = new MaxHeap([]);
     // Поместить первые k элементов массива в кучу
     for (let i = 0; i < k; i++) {
         pushMinHeap(maxHeap, nums[i]);
     }
-    // Начиная с k+1-го элемента, поддерживать длину кучи равной k
+    // Начиная с элемента k+1, поддерживать длину кучи равной k
     for (let i = k; i < nums.length; i++) {
-        // Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент
+        // Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу
         if (nums[i] > peekMinHeap(maxHeap)) {
             popMinHeap(maxHeap);
             pushMinHeap(maxHeap, nums[i]);
         }
     }
-    // Вернутьэлемент в куче
+    // Вернуть элементы кучи
     return getMinHeap(maxHeap);
 }
 
@@ -55,4 +55,4 @@ function topKHeap(nums, k) {
 const nums = [1, 7, 6, 3, 2];
 const k = 3;
 const res = topKHeap(nums, k);
-console.log(`Наибольшие ${k} элементов:`, res);
+console.log(`Наибольшие ${k} элементов`, res);

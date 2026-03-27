@@ -26,7 +26,7 @@ fun remove(n0: ListNode?) {
     n0.next = n1
 }
 
-/* Обратиться к узлу связного списка с индексом index */
+/* Доступ к узлу связного списка по индексу index */
 fun access(head: ListNode?, index: Int): ListNode? {
     var h = head
     for (i in 0..<index) {
@@ -37,7 +37,7 @@ fun access(head: ListNode?, index: Int): ListNode? {
     return h
 }
 
-/* Найти первый узел со значением target в связном списке */
+/* Найти в связном списке первый узел со значением target */
 fun find(head: ListNode?, target: Int): Int {
     var index = 0
     var h = head
@@ -52,8 +52,8 @@ fun find(head: ListNode?, target: Int): Int {
 
 /* Driver Code */
 fun main() {
-    /* Инициализироватьсвязный список */
-    // Инициализироватькаждый узел
+    /* Инициализация связного списка */
+    // Инициализация всех узлов
     val n0 = ListNode(1)
     val n1 = ListNode(3)
     val n2 = ListNode(2)
@@ -65,24 +65,24 @@ fun main() {
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    println("Инициализированный связный список:")
+    println("Исходный связный список")
     printLinkedList(n0)
 
-    /* Вставить узел */
+    /* Вставка узла */
     insert(n0, ListNode(0))
-    println("Связный список после вставки узла:")
+    println("Связный список после вставки узла")
     printLinkedList(n0)
 
-    /* Удалить узел */
+    /* Удаление узла */
     remove(n0)
-    println("Связный список после удаления узла:")
+    println("Связный список после удаления узла")
     printLinkedList(n0)
 
-    /* Получить доступ к узлу */
+    /* Доступ к узлу */
     val node = access(n0, 3)!!
     println("Значение узла по индексу 3 в связном списке = ${node._val}")
 
-    /* Найти узел */
+    /* Поиск узла */
     val index = find(n0, 2)
     println("Индекс узла со значением 2 в связном списке = $index")
 }

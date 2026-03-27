@@ -17,7 +17,7 @@ public class ArrayBinaryTree(List<int?> arr) {
 
     /* Получить значение узла с индексом i */
     public int? Val(int i) {
-        // Если индекс выходит за границы, вернуть null, обозначающий пустую клетку
+        // Если индекс выходит за границы, вернуть null, обозначающий пустую позицию
         if (i < 0 || i >= Size())
             return null;
         return tree[i];
@@ -38,10 +38,10 @@ public class ArrayBinaryTree(List<int?> arr) {
         return (i - 1) / 2;
     }
 
-    /* Обход по уровням */
+    /* Обход в ширину */
     public List<int> LevelOrder() {
         List<int> res = [];
-        // Непосредственно обойти массив
+        // Непосредственно обходить массив
         for (int i = 0; i < Size(); i++) {
             if (Val(i).HasValue)
                 res.Add(Val(i)!.Value);
@@ -51,10 +51,10 @@ public class ArrayBinaryTree(List<int?> arr) {
 
     /* Обход в глубину */
     void DFS(int i, string order, List<int> res) {
-        // Если это пустая клетка, вернуть результат
+        // Если это пустая позиция, вернуть
         if (!Val(i).HasValue)
             return;
-        // Прямой обход
+        // Предварительный обход
         if (order == "pre")
             res.Add(Val(i)!.Value);
         DFS(Left(i), order, res);
@@ -67,7 +67,7 @@ public class ArrayBinaryTree(List<int?> arr) {
             res.Add(Val(i)!.Value);
     }
 
-    /* Прямой обход */
+    /* Предварительный обход */
     public List<int> PreOrder() {
         List<int> res = [];
         DFS(0, "pre", res);
@@ -93,11 +93,11 @@ public class array_binary_tree {
     [Test]
     public void Test() {
         // Инициализировать двоичное дерево
-        // Здесь используется функция, которая напрямую строит двоичное дерево из массива
+        // Здесь используется функция, напрямую строящая двоичное дерево из массива
         List<int?> arr = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
 
         TreeNode? root = TreeNode.ListToTree(arr);
-        Console.WriteLine("\nИнициализировать двоичное дерево\n");
+        Console.WriteLine("\nИнициализация двоичного дерева\n");
         Console.WriteLine("Массивное представление двоичного дерева:");
         Console.WriteLine(arr.PrintList());
         Console.WriteLine("Связное представление двоичного дерева:");
@@ -106,24 +106,24 @@ public class array_binary_tree {
         // Класс двоичного дерева в массивном представлении
         ArrayBinaryTree abt = new(arr);
 
-        // Получить доступ к узлу
+        // Доступ к узлу
         int i = 1;
         int l = abt.Left(i);
         int r = abt.Right(i);
         int p = abt.Parent(i);
-        Console.WriteLine("\nИндекс текущего узла равен " + i + ", значение равно" + abt.Val(i));
-        Console.WriteLine("Индекс его левого дочернего узла равен " + l + ", значение равно" + (abt.Val(l).HasValue ? abt.Val(l) : "null"));
-        Console.WriteLine("Индекс его правого дочернего узла равен " + r + ", значение равно" + (abt.Val(r).HasValue ? abt.Val(r) : "null"));
-        Console.WriteLine("Индекс его родительского узла равен " + p + ", значение равно" + (abt.Val(p).HasValue ? abt.Val(p) : "null"));
+        Console.WriteLine("\nТекущий узел: индекс = " + i + " , значение = " + abt.Val(i));
+        Console.WriteLine("Индекс левого дочернего узла = " + l + " , значение = " + (abt.Val(l).HasValue ? abt.Val(l) : "null"));
+        Console.WriteLine("Индекс правого дочернего узла = " + r + " , значение = " + (abt.Val(r).HasValue ? abt.Val(r) : "null"));
+        Console.WriteLine("Индекс родительского узла = " + p + " , значение = " + (abt.Val(p).HasValue ? abt.Val(p) : "null"));
 
-        // Обойти дерево
+        // Обходить дерево
         List<int> res = abt.LevelOrder();
-        Console.WriteLine("\nРезультат обхода по уровням: " + res.PrintList());
+        Console.WriteLine("\nОбход в ширину = " + res.PrintList());
         res = abt.PreOrder();
-        Console.WriteLine("прямой обходравно:" + res.PrintList());
+        Console.WriteLine("Предварительный обход = " + res.PrintList());
         res = abt.InOrder();
-        Console.WriteLine("Симметричный обход: " + res.PrintList());
+        Console.WriteLine("Симметричный обход = " + res.PrintList());
         res = abt.PostOrder();
-        Console.WriteLine("обратный обходравно:" + res.PrintList());
+        Console.WriteLine("Обратный обход = " + res.PrintList());
     }
 }

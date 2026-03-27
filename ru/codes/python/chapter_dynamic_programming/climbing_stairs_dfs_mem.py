@@ -7,15 +7,15 @@ Author: krahets (krahets@163.com)
 
 def dfs(i: int, mem: list[int]) -> int:
     """Поиск с мемоизацией"""
-    # Если значения dp[1] и dp[2] уже известны, вернуть их
+    # dp[1] и dp[2] уже известны, вернуть их
     if i == 1 or i == 2:
         return i
-    # Если запись dp[i] уже существует, сразу вернуть ее
+    # Если запись dp[i] существует, сразу вернуть ее
     if mem[i] != -1:
         return mem[i]
     # dp[i] = dp[i-1] + dp[i-2]
     count = dfs(i - 1, mem) + dfs(i - 2, mem)
-    # Записать dp[i]
+    # Сохранить dp[i]
     mem[i] = count
     return count
 
@@ -32,4 +32,4 @@ if __name__ == "__main__":
     n = 9
 
     res = climbing_stairs_dfs_mem(n)
-    print(f"Для подъема по лестнице из {n} ступеней существует {res} способов")
+    print(f"Количество способов подняться по лестнице из {n} ступеней = {res}")

@@ -33,21 +33,21 @@ void delLinkedListQueue(LinkedListQueue *queue) {
     free(queue);
 }
 
-/* Получить длину очереди */
+/* Получение длины очереди */
 int size(LinkedListQueue *queue) {
     return queue->queSize;
 }
 
-/* Проверить, пуста ли очередь */
+/* Проверка, пуста ли очередь */
 bool empty(LinkedListQueue *queue) {
     return (size(queue) == 0);
 }
 
 /* Поместить в очередь */
 void push(LinkedListQueue *queue, int num) {
-    // Добавить node у хвостового узла
+    // Добавить node в хвост
     ListNode *node = newListNode(num);
-    // Если очередь пуста, сделать так, чтобы головной и хвостовой узлы указывали на этот узел
+    // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
     if (queue->front == NULL) {
         queue->front = node;
         queue->rear = node;
@@ -60,7 +60,7 @@ void push(LinkedListQueue *queue, int num) {
     queue->queSize++;
 }
 
-/* Получить элемент в начале очереди */
+/* Доступ к элементу в начале очереди */
 int peek(LinkedListQueue *queue) {
     assert(size(queue) && queue->front);
     return queue->front->val;
@@ -76,10 +76,10 @@ int pop(LinkedListQueue *queue) {
     return num;
 }
 
-/* Вывестиочередь */
+/* Вывести очередь */
 void printLinkedListQueue(LinkedListQueue *queue) {
     int *arr = malloc(sizeof(int) * queue->queSize);
-    // Скопировать данные из связного списка в массив
+    // Скопировать данные связного списка в массив
     int i;
     ListNode *node;
     for (i = 0, node = queue->front; i < queue->queSize; i++) {
@@ -92,10 +92,10 @@ void printLinkedListQueue(LinkedListQueue *queue) {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать очередь */
+    /* Инициализация очереди */
     LinkedListQueue *queue = newLinkedListQueue();
 
-    /* Поместить элемент в очередь */
+    /* Добавление элемента в очередь */
     push(queue, 1);
     push(queue, 3);
     push(queue, 2);
@@ -104,22 +104,22 @@ int main() {
     printf("Очередь queue = ");
     printLinkedListQueue(queue);
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     int peekNum = peek(queue);
-    printf("Элемент в голове очереди peek = %d\r\n", peekNum);
+    printf("Элемент в голове peek = %d\r\n", peekNum);
 
-    /* Извлечь элемент из очереди */
+    /* Извлечение элемента из очереди */
     peekNum = pop(queue);
-    printf("Элемент, извлеченный из очереди, pop = %d , queue после извлечения = ", peekNum);
+    printf("Извлечен элемент из очереди pop = %d, очередь после извлечения = ", peekNum);
     printLinkedListQueue(queue);
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     int queueSize = size(queue);
     printf("Длина очереди size = %d\r\n", queueSize);
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     bool isEmpty = empty(queue);
-    printf("Очередь пуста: %s\r\n", isEmpty ? "true" : "false");
+    printf("Пуста ли очередь = %s\r\n", isEmpty ? "true" : "false");
 
     // Освободить память
     delLinkedListQueue(queue);

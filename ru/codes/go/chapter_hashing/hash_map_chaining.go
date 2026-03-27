@@ -10,13 +10,13 @@ import (
 	"strings"
 )
 
-/* Хеш-таблица с цепочечной адресацией */
+/* Хеш-таблица с цепочками */
 type hashMapChaining struct {
-	size        int      // Количество пар ключ-значение
+	size        int      // Число пар ключ-значение
 	capacity    int      // Вместимость хеш-таблицы
-	loadThres   float64  // Порог коэффициента загрузки, запускающий расширение
+	loadThres   float64  // Порог коэффициента загрузки для запуска расширения
 	extendRatio int      // Коэффициент расширения
-	buckets     [][]pair // Массив бакетов
+	buckets     [][]pair // Массив корзин
 }
 
 /* Конструктор */
@@ -48,7 +48,7 @@ func (m *hashMapChaining) loadFactor() float64 {
 func (m *hashMapChaining) get(key int) string {
 	idx := m.hashFunc(key)
 	bucket := m.buckets[idx]
-	// Обойти бакет; если найден key, вернуть соответствующее val
+	// Обойти корзину; если найден key, вернуть соответствующее val
 	for _, p := range bucket {
 		if p.key == key {
 			return p.val
@@ -65,7 +65,7 @@ func (m *hashMapChaining) put(key int, val string) {
 		m.extend()
 	}
 	idx := m.hashFunc(key)
-	// Обойти бакет; если встретился указанный key, обновить соответствующее val и вернуть результат
+	// Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
 	for i := range m.buckets[idx] {
 		if m.buckets[idx][i].key == key {
 			m.buckets[idx][i].val = val
@@ -84,10 +84,10 @@ func (m *hashMapChaining) put(key int, val string) {
 /* Операция удаления */
 func (m *hashMapChaining) remove(key int) {
 	idx := m.hashFunc(key)
-	// Обойти бакет и удалить из него пару ключ-значение
+	// Обойти корзину и удалить из нее пару ключ-значение
 	for i, p := range m.buckets[idx] {
 		if p.key == key {
-			// срезУдалить
+			// Удаление из среза
 			m.buckets[idx] = append(m.buckets[idx][:i], m.buckets[idx][i+1:]...)
 			m.size -= 1
 			break
@@ -103,7 +103,7 @@ func (m *hashMapChaining) extend() {
 		tmpBuckets[i] = make([]pair, len(m.buckets[i]))
 		copy(tmpBuckets[i], m.buckets[i])
 	}
-	// Инициализировать новую хеш-таблицу после расширения
+	// Инициализация новой хеш-таблицы после расширения
 	m.capacity *= m.extendRatio
 	m.buckets = make([][]pair, m.capacity)
 	for i := 0; i < m.capacity; i++ {

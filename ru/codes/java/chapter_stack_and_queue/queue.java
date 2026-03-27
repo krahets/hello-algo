@@ -10,10 +10,10 @@ import java.util.*;
 
 public class queue {
     public static void main(String[] args) {
-        /* Инициализировать очередь */
+        /* Инициализация очереди */
         Queue<Integer> queue = new LinkedList<>();
 
-        /* Поместить элемент в очередь */
+        /* Добавление элемента в очередь */
         queue.offer(1);
         queue.offer(3);
         queue.offer(2);
@@ -21,20 +21,20 @@ public class queue {
         queue.offer(4);
         System.out.println("Очередь queue = " + queue);
 
-        /* Получить элемент в начале очереди */
+        /* Доступ к элементу в начале очереди */
         int peek = queue.peek();
-        System.out.println("голова очередиэлемент peek =" + peek);
+        System.out.println("Первый элемент peek = " + peek);
 
-        /* Извлечь элемент из очереди */
+        /* Извлечение элемента из очереди */
         int pop = queue.poll();
-        System.out.println("Элемент, извлеченный из очереди, pop = " + pop + ", queue после извлечения = " + queue);
+        System.out.println("Извлеченный элемент pop = " + pop + ", queue после извлечения = " + queue);
 
-        /* Получить длину очереди */
+        /* Получение длины очереди */
         int size = queue.size();
-        System.out.println("Длина очереди size =" + size);
+        System.out.println("Длина очереди size = " + size);
 
-        /* Проверить, пуста ли очередь */
+        /* Проверка, пуста ли очередь */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("Очередь пуста: " + isEmpty);
+        System.out.println("Пуста ли очередь = " + isEmpty);
     }
 }

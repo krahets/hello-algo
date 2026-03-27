@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* Алгоритм бэктрекинга: сумма подмножества I */
+/* Алгоритм бэктрекинга: сумма подмножеств I */
 fn backtrack(
     state: &mut Vec<i32>,
     target: i32,
@@ -17,25 +17,25 @@ fn backtrack(
         res.push(state.clone());
         return;
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for i in 0..choices.len() {
         // Отсечение: если сумма подмножества превышает target, пропустить этот выбор
         if total + choices[i] > target {
             continue;
         }
-        // Попытка: сделать выбор и обновить сумму элементов total
+        // Попытка: сделать выбор и обновить элемент и total
         state.push(choices[i]);
-        // Перейти к следующему варианту выбора
+        // Перейти к следующему выбору
         backtrack(state, target, total + choices[i], choices, res);
         // Откат: отменить выбор и восстановить предыдущее состояние
         state.pop();
     }
 }
 
-/* Решить задачу суммы подмножества I (включая повторяющиеся подмножества) */
+/* Решить задачу суммы подмножеств I (с повторяющимися подмножествами) */
 fn subset_sum_i_naive(nums: &[i32], target: i32) -> Vec<Vec<i32>> {
     let mut state = Vec::new(); // Состояние (подмножество)
-    let total = 0; // подмножествосумма
+    let total = 0; // Сумма подмножеств
     let mut res = Vec::new(); // Список результатов (список подмножеств)
     backtrack(&mut state, target, total, nums, &mut res);
     res
@@ -49,6 +49,6 @@ pub fn main() {
     let res = subset_sum_i_naive(&nums, target);
 
     println!("Входной массив nums = {:?}, target = {}", &nums, target);
-    println!("Все подмножества с суммой {} res = {:?}", target, &res);
+    println!("Все подмножества с суммой {}: res = {:?}", target, &res);
     println!("Обратите внимание: результат этого метода содержит повторяющиеся множества");
 }

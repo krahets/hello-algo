@@ -4,7 +4,7 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## связный списокузелкласс ###
+# ## Класс узла связного списка ###
 class ListNode
   attr_accessor :val  # Значение узла
   attr_accessor :next # Ссылка на следующий узел
@@ -15,7 +15,7 @@ class ListNode
   end
 end
 
-# ## Десериализовать список в связный список ###
+# ## Десериализация списка в связный список ###
 def arr_to_linked_list(arr)
   head = current = ListNode.new(arr[0])
 
@@ -27,7 +27,7 @@ def arr_to_linked_list(arr)
   head
 end
 
-# ## Сериализовать связный список в список ###
+# ## Сериализация связного списка в список ###
 def linked_list_to_arr(head)
   arr = []
 

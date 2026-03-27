@@ -10,7 +10,7 @@ import (
 
 /* Линейный поиск (массив) */
 func linearSearchArray(nums []int, target int) int {
-	// Перебрать массив
+	// Обход массива
 	for i := 0; i < len(nums); i++ {
 		// Целевой элемент найден, вернуть его индекс
 		if nums[i] == target {

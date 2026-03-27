@@ -8,7 +8,7 @@ import utils
 
 /* Линейный поиск (массив) */
 func linearSearchArray(nums: [Int], target: Int) -> Int {
-    // Перебрать массив
+    // Обход массива
     for i in nums.indices {
         // Целевой элемент найден, вернуть его индекс
         if nums[i] == target {
@@ -48,6 +48,6 @@ enum LinearSearch {
         /* Выполнить линейный поиск в связном списке */
         let head = ListNode.arrToLinkedList(arr: nums)
         let node = linearSearchLinkedList(head: head, target: target)
-        print("Объект узла, соответствующий целевому значению 3, равен \(node!)")
+        print("Объект узла со значением 3 = \(node!)")
     }
 }

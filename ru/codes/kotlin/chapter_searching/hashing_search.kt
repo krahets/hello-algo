@@ -10,14 +10,14 @@ import utils.ListNode
 
 /* Хеш-поиск (массив) */
 fun hashingSearchArray(map: Map<Int?, Int>, target: Int): Int {
-    // У хеш-таблицы key: целевой элемент, _val: индекс
+    // key хеш-таблицы: целевой элемент, _val: индекс
     // Если такого key нет в хеш-таблице, вернуть -1
     return map.getOrDefault(target, -1)
 }
 
 /* Хеш-поиск (связный список) */
 fun hashingSearchLinkedList(map: Map<Int?, ListNode?>, target: Int): ListNode? {
-    // У хеш-таблицы key: целевое значение узла, _val: объект узла
+    // key хеш-таблицы: значение целевого узла, _val: объект узла
     // Если такого key нет в хеш-таблице, вернуть null
     return map.getOrDefault(target, null)
 }
@@ -28,7 +28,7 @@ fun main() {
 
     /* Хеш-поиск (массив) */
     val nums = intArrayOf(1, 5, 3, 2, 4, 7, 5, 9, 10, 8)
-    // Инициализировать хеш-таблицу
+    // Инициализация хеш-таблицы
     val map = HashMap<Int?, Int>()
     for (i in nums.indices) {
         map[nums[i]] = i // key: элемент, _val: индекс
@@ -38,12 +38,12 @@ fun main() {
 
     /* Хеш-поиск (связный список) */
     var head = ListNode.arrToLinkedList(nums)
-    // Инициализировать хеш-таблицу
+    // Инициализация хеш-таблицы
     val map1 = HashMap<Int?, ListNode?>()
     while (head != null) {
         map1[head._val] = head // key: значение узла, _val: узел
         head = head.next
     }
     val node = hashingSearchLinkedList(map1, target)
-    println("Объект узла, соответствующий целевому значению 3, равен $node")
+    println("Объект узла со значением 3 = $node")
 }

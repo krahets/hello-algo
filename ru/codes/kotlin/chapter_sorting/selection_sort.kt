@@ -9,7 +9,7 @@ package chapter_sorting
 /* Сортировка выбором */
 fun selectionSort(nums: IntArray) {
     val n = nums.size
-    // Внешний цикл: неотсортированный диапазон равен [i, n-1]
+    // Внешний цикл: неотсортированный диапазон [i, n-1]
     for (i in 0..<n - 1) {
         var k = i
         // Внутренний цикл: найти минимальный элемент в неотсортированном диапазоне
@@ -17,7 +17,7 @@ fun selectionSort(nums: IntArray) {
             if (nums[j] < nums[k])
                 k = j // Записать индекс минимального элемента
         }
-        // Поменять местами этот минимальный элемент с первым элементом неотсортированного диапазона
+        // Поменять этот минимальный элемент местами с первым элементом неотсортированного диапазона
         val temp = nums[i]
         nums[i] = nums[k]
         nums[k] = temp
@@ -28,5 +28,5 @@ fun selectionSort(nums: IntArray) {
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     selectionSort(nums)
-    println("Сортировка выборомпосле завершения nums = ${nums.contentToString()}")
+    println("После сортировки выбором nums = ${nums.contentToString()}")
 }

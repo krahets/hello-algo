@@ -13,8 +13,8 @@ func TestNQueens(t *testing.T) {
 	n := 4
 	res := nQueens(n)
 
-	fmt.Println("Входдоскаразмерравно", n)
-	fmt.Println("Количество способов расстановки ферзей: ", len(res), "")
+	fmt.Println("Размер входной доски =", n)
+	fmt.Println("Количество способов расстановки ферзей:", len(res))
 	for _, state := range res {
 		fmt.Println("--------------------")
 		for _, row := range state {

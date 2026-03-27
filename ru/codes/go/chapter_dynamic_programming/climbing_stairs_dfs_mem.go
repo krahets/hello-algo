@@ -6,17 +6,17 @@ package chapter_dynamic_programming
 
 /* Поиск с мемоизацией */
 func dfsMem(i int, mem []int) int {
-	// Если значения dp[1] и dp[2] уже известны, вернуть их
+	// dp[1] и dp[2] уже известны, вернуть их
 	if i == 1 || i == 2 {
 		return i
 	}
-	// Если запись dp[i] уже существует, сразу вернуть ее
+	// Если запись dp[i] существует, сразу вернуть ее
 	if mem[i] != -1 {
 		return mem[i]
 	}
 	// dp[i] = dp[i-1] + dp[i-2]
 	count := dfsMem(i-1, mem) + dfsMem(i-2, mem)
-	// Записать dp[i]
+	// Сохранить dp[i]
 	mem[i] = count
 	return count
 }

@@ -10,57 +10,57 @@ import utils.printHeap
 import java.util.*
 
 fun testPush(heap: Queue<Int>, _val: Int) {
-    heap.offer(_val) // Добавить элемент в кучу
-    print("\nЭлемент $_val после добавления в кучу\n")
+    heap.offer(_val) // Добавление элемента в кучу
+    print("\nПосле добавления элемента $_val в кучу\n")
     printHeap(heap)
 }
 
 fun testPop(heap: Queue<Int>) {
-    val _val = heap.poll() // Извлечь верхний элемент из кучи
-    print("\nвершина кучиЭлемент $_val после извлечения из кучи\n")
+    val _val = heap.poll() // Извлечение элемента с вершины кучи
+    print("\nПосле извлечения элемента вершины кучи $_val\n")
     printHeap(heap)
 }
 
 /* Driver Code */
 fun main() {
-    /* Инициализироватькуча */
-    // Инициализировать min-кучу
+    /* Инициализация кучи */
+    // Инициализация минимальной кучи
     var minHeap = PriorityQueue<Int>()
 
-    // Инициализировать max-кучу (достаточно изменить Comparator с помощью lambda-выражения)
+    // Инициализация максимальной кучи (достаточно изменить Comparator с помощью lambda-выражения)
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
 
-    println("\nСледующие тестовые примеры относятся к max-куче")
+    println("\nНиже приведен тестовый пример для max-heap")
 
-    /* Добавить элемент в кучу */
+    /* Добавление элемента в кучу */
     testPush(maxHeap, 1)
     testPush(maxHeap, 3)
     testPush(maxHeap, 2)
     testPush(maxHeap, 5)
     testPush(maxHeap, 4)
 
-    /* Получить верхний элемент кучи */
+    /* Получение элемента с вершины кучи */
     val peek = maxHeap.peek()
-    print("\nвершина кучиэлементравно $peek\n")
+    print("\nЭлемент на вершине кучи = $peek\n")
 
-    /* Извлечь верхний элемент из кучи */
+    /* Извлечение элемента с вершины кучи */
     testPop(maxHeap)
     testPop(maxHeap)
     testPop(maxHeap)
     testPop(maxHeap)
     testPop(maxHeap)
 
-    /* Получить размер кучи */
+    /* Получение размера кучи */
     val size = maxHeap.size
-    print("\nКоличество элементов в куче равно $size\n")
+    print("\nКоличество элементов в куче = $size\n")
 
-    /* Проверить, пуста ли куча */
+    /* Проверка, пуста ли куча */
     val isEmpty = maxHeap.isEmpty()
-    print("\nкучапуст ли $isEmpty\n")
+    print("\nПуста ли куча: $isEmpty\n")
 
-    /* Входсписокипостроение кучи */
+    /* Построить кучу по входному списку */
     // Временная сложность равна O(n), а не O(nlogn)
     minHeap = PriorityQueue(mutableListOf<Int?>(1, 3, 2, 5, 4))
-    println("\nПосле построения min-кучи по входному списку")
+    println("\nПосле построения min-heap из входного списка")
     printHeap(minHeap)
 }

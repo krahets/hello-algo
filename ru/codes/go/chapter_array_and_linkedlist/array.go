@@ -10,7 +10,7 @@ import (
 
 /* Случайный доступ к элементу */
 func randomAccess(nums []int) (randomNum int) {
-	// Случайно выбрать число в интервале [0, nums.length)
+	// Случайным образом выбрать число из интервала [0, nums.length)
 	randomIndex := rand.Intn(len(nums))
 	// Получить и вернуть случайный элемент
 	randomNum = nums[randomIndex]
@@ -25,13 +25,13 @@ func extend(nums []int, enlarge int) []int {
 	for i, num := range nums {
 		res[i] = num
 	}
-	// Вернуть новый расширенный массив
+	// Вернуть новый массив после расширения
 	return res
 }
 
-/* Вставить элемент num в массив по индексу index */
+/* Вставить элемент num по индексу index в массив */
 func insert(nums []int, num int, index int) {
-	// Сдвинуть индекс index и все последующие элементы на одну позицию назад
+	// Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
 	for i := len(nums) - 1; i > index; i-- {
 		nums[i] = nums[i-1]
 	}
@@ -47,10 +47,10 @@ func remove(nums []int, index int) {
 	}
 }
 
-/* Перебрать массив */
+/* Обход массива */
 func traverse(nums []int) {
 	count := 0
-	// Обходить массив по индексам
+	// Обход массива по индексам
 	for i := 0; i < len(nums); i++ {
 		count += nums[i]
 	}

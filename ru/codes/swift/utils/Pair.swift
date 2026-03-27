@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* пара ключ-значение */
+/* Пара ключ-значение */
 public class Pair: Equatable {
     public var key: Int
     public var val: String

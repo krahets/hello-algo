@@ -4,10 +4,10 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-/* Двусторонняя очередь на основе циклического массива */
+/* Двусторонняя очередь на основе кольцевого массива */
 class ArrayDeque {
     private nums: number[]; // Массив для хранения элементов двусторонней очереди
-    private front: number; // Указатель front, указывающий на первый элемент очереди
+    private front: number; // Указатель head, указывающий на первый элемент очереди
     private queSize: number; // Длина двусторонней очереди
 
     /* Конструктор */
@@ -22,74 +22,74 @@ class ArrayDeque {
         return this.nums.length;
     }
 
-    /* Получить длину двусторонней очереди */
+    /* Получение длины двусторонней очереди */
     size(): number {
         return this.queSize;
     }
 
-    /* Проверить, пуста ли двусторонняя очередь */
+    /* Проверка, пуста ли двусторонняя очередь */
     isEmpty(): boolean {
         return this.queSize === 0;
     }
 
-    /* Вычислить индекс циклического массива */
+    /* Вычислить индекс в кольцевом массиве */
     index(i: number): number {
-        // Сделать начало и конец массива циклически связанными с помощью операции взятия по модулю
-        // Когда i выходит за конец массива, он возвращается к началу
-        // Когда i выходит за начало массива, он возвращается к концу
+        // С помощью операции взятия по модулю соединить начало и конец массива
+        // Когда i выходит за конец массива, он возвращается в начало
+        // Когда i выходит за начало массива, он возвращается в конец
         return (i + this.capacity()) % this.capacity();
     }
 
-    /* Поместить в голову очереди */
+    /* Добавление в голову очереди */
     pushFirst(num: number): void {
         if (this.queSize === this.capacity()) {
             console.log('Двусторонняя очередь заполнена');
             return;
         }
-        // Указатель головы очереди сдвигается на одну позицию влево
-        // Операция взятия по модулю позволяет front после выхода за начало массива вернуться к его концу
+        // Указатель головы сдвигается на одну позицию влево
+        // С помощью операции взятия по модулю front после выхода за начало массива возвращается в хвост
         this.front = this.index(this.front - 1);
         // Добавить num в голову очереди
         this.nums[this.front] = num;
         this.queSize++;
     }
 
-    /* Поместить в хвост очереди */
+    /* Добавление в хвост очереди */
     pushLast(num: number): void {
         if (this.queSize === this.capacity()) {
             console.log('Двусторонняя очередь заполнена');
             return;
         }
-        // Вычислить указатель хвоста, указывающий на индекс за последним элементом
+        // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
         const rear: number = this.index(this.front + this.queSize);
-        // Добавить num в конец очереди
+        // Добавить num в хвост очереди
         this.nums[rear] = num;
         this.queSize++;
     }
 
-    /* Извлечь из головы очереди */
+    /* Извлечение из головы очереди */
     popFirst(): number {
         const num: number = this.peekFirst();
-        // Указатель головы очереди сдвигается на одну позицию вперед
+        // Указатель головы сдвигается на одну позицию назад
         this.front = this.index(this.front + 1);
         this.queSize--;
         return num;
     }
 
-    /* Извлечь из хвоста очереди */
+    /* Извлечение из хвоста очереди */
     popLast(): number {
         const num: number = this.peekLast();
         this.queSize--;
         return num;
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     peekFirst(): number {
         if (this.isEmpty()) throw new Error('The Deque Is Empty.');
         return this.nums[this.front];
     }
 
-    /* Обратиться к элементу в хвосте очереди */
+    /* Доступ к элементу в конце очереди */
     peekLast(): number {
         if (this.isEmpty()) throw new Error('The Deque Is Empty.');
         // Вычислить индекс хвостового элемента
@@ -97,9 +97,9 @@ class ArrayDeque {
         return this.nums[last];
     }
 
-    /* Вернуть массив для печати */
+    /* Вернуть массив для вывода */
     toArray(): number[] {
-        // Преобразовать только элементы списка в пределах действительной длины
+        // Преобразовывать только элементы списка в пределах фактической длины
         const res: number[] = [];
         for (let i = 0, j = this.front; i < this.queSize; i++, j++) {
             res[i] = this.nums[this.index(j)];
@@ -109,50 +109,50 @@ class ArrayDeque {
 }
 
 /* Driver Code */
-/* Инициализировать двустороннюю очередь */
+/* Инициализация двусторонней очереди */
 const capacity = 5;
 const deque: ArrayDeque = new ArrayDeque(capacity);
 deque.pushLast(3);
 deque.pushLast(2);
 deque.pushLast(5);
-console.log('двусторонняя очередь deque = [' + deque.toArray() + ']');
+console.log('Двусторонняя очередь deque = [' + deque.toArray() + ']');
 
-/* Получить доступ к элементу */
+/* Доступ к элементу */
 const peekFirst = deque.peekFirst();
-console.log('голова очередиэлемент peekFirst =' + peekFirst);
+console.log('Элемент в начале очереди peekFirst = ' + peekFirst);
 const peekLast = deque.peekLast();
-console.log('хвост очередиэлемент peekLast =' + peekLast);
+console.log('Элемент в конце очереди peekLast = ' + peekLast);
 
-/* Поместить элемент в очередь */
+/* Добавление элемента в очередь */
 deque.pushLast(4);
-console.log('После помещения элемента 4 в хвост очереди deque = [' + deque.toArray() + ']');
+console.log('После добавления элемента 4 в хвост deque = [' + deque.toArray() + ']');
 deque.pushFirst(1);
-console.log('После помещения элемента 1 в голову очереди deque = [' + deque.toArray() + ']');
+console.log('После добавления элемента 1 в голову deque = [' + deque.toArray() + ']');
 
-/* Извлечь элемент из очереди */
+/* Извлечение элемента из очереди */
 const popLast = deque.popLast();
 console.log(
-    'Элемент, извлеченный из хвоста очереди = ' +
+    'Извлеченный из хвоста элемент = ' +
         popLast +
-        ', Извлечь из хвоста очередипосле deque = [' +
+        ', deque после извлечения из хвоста = [' +
         deque.toArray() +
         ']'
 );
 const popFirst = deque.popFirst();
 console.log(
-    'Элемент, извлеченный из головы очереди = ' +
+    'Извлеченный из головы элемент = ' +
         popFirst +
-        ', Извлечь из головы очередипосле deque = [' +
+        ', deque после извлечения из головы = [' +
         deque.toArray() +
         ']'
 );
 
-/* Получить длину двусторонней очереди */
+/* Получение длины двусторонней очереди */
 const size = deque.size();
 console.log('Длина двусторонней очереди size = ' + size);
 
-/* Проверить, пуста ли двусторонняя очередь */
+/* Проверка, пуста ли двусторонняя очередь */
 const isEmpty = deque.isEmpty();
-console.log('Двусторонняя очередь пуста: ' + isEmpty);
+console.log('Пуста ли двусторонняя очередь = ' + isEmpty);
 
 export {};

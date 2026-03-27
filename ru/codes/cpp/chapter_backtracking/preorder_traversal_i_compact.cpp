@@ -8,7 +8,7 @@
 
 vector<TreeNode *> res;
 
-/* Прямой обход: пример 1 */
+/* Предварительный обход: пример 1 */
 void preOrder(TreeNode *root) {
     if (root == nullptr) {
         return;
@@ -24,10 +24,10 @@ void preOrder(TreeNode *root) {
 /* Driver Code */
 int main() {
     TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
-    cout << "\nИнициализировать двоичное дерево" << endl;
+    cout << "\nИнициализация двоичного дерева" << endl;
     printTree(root);
 
-    // Прямой обход
+    // Предварительный обход
     preOrder(root);
 
     cout << "\nВывести все узлы со значением 7" << endl;

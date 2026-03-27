@@ -6,14 +6,14 @@
 
 #include "./array_hash_map.cpp"
 
-/* Хеш-таблица с цепочечной адресацией */
+/* Хеш-таблица с цепочками */
 class HashMapChaining {
   private:
-    int size;                       // Количество пар ключ-значение
+    int size;                       // Число пар ключ-значение
     int capacity;                   // Вместимость хеш-таблицы
-    double loadThres;               // Порог коэффициента загрузки, запускающий расширение
+    double loadThres;               // Порог коэффициента загрузки для запуска расширения
     int extendRatio;                // Коэффициент расширения
-    vector<vector<Pair *>> buckets; // Массив бакетов
+    vector<vector<Pair *>> buckets; // Массив корзин
 
   public:
     /* Конструктор */
@@ -21,7 +21,7 @@ class HashMapChaining {
         buckets.resize(capacity);
     }
 
-    /* Деструктор */
+    /* Метод-деструктор */
     ~HashMapChaining() {
         for (auto &bucket : buckets) {
             for (Pair *pair : bucket) {
@@ -44,7 +44,7 @@ class HashMapChaining {
     /* Операция поиска */
     string get(int key) {
         int index = hashFunc(key);
-        // Обойти бакет; если найден key, вернуть соответствующее val
+        // Обойти корзину; если найден key, вернуть соответствующее val
         for (Pair *pair : buckets[index]) {
             if (pair->key == key) {
                 return pair->val;
@@ -61,7 +61,7 @@ class HashMapChaining {
             extend();
         }
         int index = hashFunc(key);
-        // Обойти бакет; если встретился указанный key, обновить соответствующее val и вернуть результат
+        // Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
         for (Pair *pair : buckets[index]) {
             if (pair->key == key) {
                 pair->val = val;
@@ -77,11 +77,11 @@ class HashMapChaining {
     void remove(int key) {
         int index = hashFunc(key);
         auto &bucket = buckets[index];
-        // Обойти бакет и удалить из него пару ключ-значение
+        // Обойти корзину и удалить из нее пару ключ-значение
         for (int i = 0; i < bucket.size(); i++) {
             if (bucket[i]->key == key) {
                 Pair *tmp = bucket[i];
-                bucket.erase(bucket.begin() + i); // из негоУдалитьпара ключ-значение
+                bucket.erase(bucket.begin() + i); // Удалить из него пару ключ-значение
                 delete tmp;                       // Освободить память
                 size--;
                 return;
@@ -93,7 +93,7 @@ class HashMapChaining {
     void extend() {
         // Временно сохранить исходную хеш-таблицу
         vector<vector<Pair *>> bucketsTmp = buckets;
-        // Инициализировать новую хеш-таблицу после расширения
+        // Инициализация новой хеш-таблицы после расширения
         capacity *= extendRatio;
         buckets.clear();
         buckets.resize(capacity);
@@ -122,28 +122,28 @@ class HashMapChaining {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать хеш-таблицу */
+    /* Инициализация хеш-таблицы */
     HashMapChaining map = HashMapChaining();
 
     /* Операция добавления */
-    // Добавить в хеш-таблицу пару ключ-значение (key, value)
+    // Добавить пару (key, value) в хеш-таблицу
     map.put(12836, "Сяо Ха");
     map.put(15937, "Сяо Ло");
     map.put(16750, "Сяо Суань");
     map.put(13276, "Сяо Фа");
-    map.put(10583, "Утенок");
-    cout << "\nПосле добавления хеш-таблица выглядит так\nKey -> Value" << endl;
+    map.put(10583, "Сяо Я");
+    cout << "\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение" << endl;
     map.print();
 
     /* Операция поиска */
-    // Передать ключ key в хеш-таблицу и получить значение value
+    // Ввести в хеш-таблицу ключ key и получить значение value
     string name = map.get(13276);
-    cout << "\nПо номеру студента 13276 найдено имя " << name << endl;
+    cout << "\nДля студенческого номера 13276 найдено имя " << name << endl;
 
     /* Операция удаления */
-    // Удалить из хеш-таблицы пару ключ-значение (key, value)
+    // Удалить пару (key, value) из хеш-таблицы
     map.remove(12836);
-    cout << "\nПосле удаления 12836 хеш-таблица выглядит так\nKey -> Value" << endl;
+    cout << "\nПосле удаления 12836 хеш-таблица имеет вид\nКлюч -> Значение" << endl;
     map.print();
 
     return 0;

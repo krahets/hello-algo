@@ -24,7 +24,7 @@ func remove(n0: ListNode) {
     n0.next = n1
 }
 
-/* Обратиться к узлу связного списка с индексом index */
+/* Доступ к узлу связного списка по индексу index */
 func access(head: ListNode, index: Int) -> ListNode? {
     var head: ListNode? = head
     for _ in 0 ..< index {
@@ -36,7 +36,7 @@ func access(head: ListNode, index: Int) -> ListNode? {
     return head
 }
 
-/* Найти первый узел со значением target в связном списке */
+/* Найти в связном списке первый узел со значением target */
 func find(head: ListNode, target: Int) -> Int {
     var head: ListNode? = head
     var index = 0
@@ -54,8 +54,8 @@ func find(head: ListNode, target: Int) -> Int {
 enum LinkedList {
     /* Driver Code */
     static func main() {
-        /* Инициализироватьсвязный список */
-        // Инициализироватькаждый узел
+        /* Инициализация связного списка */
+        // Инициализация всех узлов
         let n0 = ListNode(x: 1)
         let n1 = ListNode(x: 3)
         let n2 = ListNode(x: 2)
@@ -66,24 +66,24 @@ enum LinkedList {
         n1.next = n2
         n2.next = n3
         n3.next = n4
-        print("Инициализированный связный список:")
+        print("Исходный связный список")
         PrintUtil.printLinkedList(head: n0)
 
-        /* Вставить узел */
+        /* Вставка узла */
         insert(n0: n0, P: ListNode(x: 0))
-        print("Связный список после вставки узла:")
+        print("Связный список после вставки узла")
         PrintUtil.printLinkedList(head: n0)
 
-        /* Удалить узел */
+        /* Удаление узла */
         remove(n0: n0)
-        print("Связный список после удаления узла:")
+        print("Связный список после удаления узла")
         PrintUtil.printLinkedList(head: n0)
 
-        /* Получить доступ к узлу */
+        /* Доступ к узлу */
         let node = access(head: n0, index: 3)
         print("Значение узла по индексу 3 в связном списке = \(node!.val)")
 
-        /* Найти узел */
+        /* Поиск узла */
         let index = find(head: n0, target: 2)
         print("Индекс узла со значением 2 в связном списке = \(index)")
     }

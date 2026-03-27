@@ -11,30 +11,30 @@ import java.util.*;
 
 /* Класс неориентированного графа на основе матрицы смежности */
 class GraphAdjMat {
-    List<Integer> vertices; // Список вершин: элементы представляют «значения вершин», а индексы представляют «индексы вершин»
-    List<List<Integer>> adjMat; // Матрица смежности, индексы строк и столбцов соответствуют «индексам вершин»
+    List<Integer> vertices; // Список вершин: элементы представляют «значения вершин», а индексы — «индексы вершин»
+    List<List<Integer>> adjMat; // Матрица смежности, где индексы строк и столбцов соответствуют «индексам вершин»
 
     /* Конструктор */
     public GraphAdjMat(int[] vertices, int[][] edges) {
         this.vertices = new ArrayList<>();
         this.adjMat = new ArrayList<>();
-        // Добавить вершину
+        // Добавление вершины
         for (int val : vertices) {
             addVertex(val);
         }
-        // Добавить ребро
-        // Обратите внимание: элементы edges представляют индексы вершин, то есть соответствуют индексам элементов vertices
+        // Добавить ребра
+        // Обратите внимание: элементы edges представляют собой индексы вершин, то есть соответствуют индексам элементов vertices
         for (int[] e : edges) {
             addEdge(e[0], e[1]);
         }
     }
 
-    /* Получить количество вершин */
+    /* Получить число вершин */
     public int size() {
         return vertices.size();
     }
 
-    /* Добавить вершину */
+    /* Добавление вершины */
     public void addVertex(int val) {
         int n = size();
         // Добавить значение новой вершины в список вершин
@@ -51,7 +51,7 @@ class GraphAdjMat {
         }
     }
 
-    /* Удалить вершину */
+    /* Удаление вершины */
     public void removeVertex(int index) {
         if (index >= size())
             throw new IndexOutOfBoundsException();
@@ -65,7 +65,7 @@ class GraphAdjMat {
         }
     }
 
-    /* Добавить ребро */
+    /* Добавление ребра */
     // Параметры i и j соответствуют индексам элементов vertices
     public void addEdge(int i, int j) {
         // Обработка выхода индекса за границы и случая равенства
@@ -76,7 +76,7 @@ class GraphAdjMat {
         adjMat.get(j).set(i, 1);
     }
 
-    /* Удалить ребро */
+    /* Удаление ребра */
     // Параметры i и j соответствуют индексам элементов vertices
     public void removeEdge(int i, int j) {
         // Обработка выхода индекса за границы и случая равенства
@@ -88,7 +88,7 @@ class GraphAdjMat {
 
     /* Вывести матрицу смежности */
     public void print() {
-        System.out.print("список вершин =");
+        System.out.print("Список вершин = ");
         System.out.println(vertices);
         System.out.println("Матрица смежности =");
         PrintUtil.printMatrix(adjMat);
@@ -97,35 +97,35 @@ class GraphAdjMat {
 
 public class graph_adjacency_matrix {
     public static void main(String[] args) {
-        /* Инициализировать неориентированный граф */
+        /* Инициализация неориентированного графа */
         // Обратите внимание: элементы edges представляют индексы вершин, то есть соответствуют индексам элементов vertices
         int[] vertices = { 1, 3, 2, 5, 4 };
         int[][] edges = { { 0, 1 }, { 0, 3 }, { 1, 2 }, { 2, 3 }, { 2, 4 }, { 3, 4 } };
         GraphAdjMat graph = new GraphAdjMat(vertices, edges);
-        System.out.println("\nПосле инициализации граф имеет вид");
+        System.out.println("\nГраф после инициализации");
         graph.print();
 
-        /* Добавить ребро */
+        /* Добавление ребра */
         // Индексы вершин 1 и 2 равны 0 и 2 соответственно
         graph.addEdge(0, 2);
-        System.out.println("\nПосле добавления ребра 1-2 граф имеет вид");
+        System.out.println("\nГраф после добавления ребра 1-2");
         graph.print();
 
-        /* Удалить ребро */
+        /* Удаление ребра */
         // Индексы вершин 1 и 3 равны 0 и 1 соответственно
         graph.removeEdge(0, 1);
-        System.out.println("\nПосле удаления ребра 1-3 граф имеет вид");
+        System.out.println("\nГраф после удаления ребра 1-3");
         graph.print();
 
-        /* Добавить вершину */
+        /* Добавление вершины */
         graph.addVertex(6);
-        System.out.println("\nПосле добавления вершины 6 граф имеет вид");
+        System.out.println("\nГраф после добавления вершины 6");
         graph.print();
 
-        /* Удалить вершину */
+        /* Удаление вершины */
         // Индекс вершины 3 равен 1
         graph.removeVertex(1);
-        System.out.println("\nПосле удаления вершины 3 граф имеет вид");
+        System.out.println("\nГраф после удаления вершины 3");
         graph.print();
     }
 }

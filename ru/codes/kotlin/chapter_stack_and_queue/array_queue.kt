@@ -6,10 +6,10 @@
 
 package chapter_stack_and_queue
 
-/* Очередь на основе циклического массива */
+/* Очередь на основе кольцевого массива */
 class ArrayQueue(capacity: Int) {
     private val nums: IntArray = IntArray(capacity) // Массив для хранения элементов очереди
-    private var front: Int = 0 // Указатель front, указывающий на первый элемент очереди
+    private var front: Int = 0 // Указатель head, указывающий на первый элемент очереди
     private var queSize: Int = 0 // Длина очереди
 
     /* Получить вместимость очереди */
@@ -17,12 +17,12 @@ class ArrayQueue(capacity: Int) {
         return nums.size
     }
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     fun size(): Int {
         return queSize
     }
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     fun isEmpty(): Boolean {
         return queSize == 0
     }
@@ -33,10 +33,10 @@ class ArrayQueue(capacity: Int) {
             println("Очередь заполнена")
             return
         }
-        // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
-        // Операция взятия по модулю позволяет rear после выхода за конец массива вернуться к его началу
+        // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+        // С помощью операции взятия по модулю вернуть rear к началу после выхода за конец массива
         val rear = (front + queSize) % capacity()
-        // Добавить num в конец очереди
+        // Добавить num в хвост очереди
         nums[rear] = num
         queSize++
     }
@@ -44,21 +44,21 @@ class ArrayQueue(capacity: Int) {
     /* Извлечь из очереди */
     fun pop(): Int {
         val num = peek()
-        // Указатель головы очереди сдвигается на одну позицию вперед; если он выходит за конец, то возвращается в начало массива
+        // Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
         front = (front + 1) % capacity()
         queSize--
         return num
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return nums[front]
     }
 
-    /* Вернутьмассив */
+    /* Вернуть массив */
     fun toArray(): IntArray {
-        // Преобразовать только элементы списка в пределах действительной длины
+        // Преобразовывать только элементы списка в пределах фактической длины
         val res = IntArray(queSize)
         var i = 0
         var j = front
@@ -73,38 +73,38 @@ class ArrayQueue(capacity: Int) {
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать очередь */
+    /* Инициализация очереди */
     val capacity = 10
     val queue = ArrayQueue(capacity)
 
-    /* Поместить элемент в очередь */
+    /* Добавление элемента в очередь */
     queue.push(1)
     queue.push(3)
     queue.push(2)
     queue.push(5)
     queue.push(4)
-    println("очередь queue = ${queue.toArray().contentToString()}")
+    println("Очередь queue = ${queue.toArray().contentToString()}")
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     val peek = queue.peek()
-    println("голова очередиэлемент peek = $peek")
+    println("Первый элемент peek = $peek")
 
-    /* Извлечь элемент из очереди */
+    /* Извлечение элемента из очереди */
     val pop = queue.pop()
-    println("Элемент, извлеченный из очереди, pop = ${pop}, queue после извлечения =  ${queue.toArray().contentToString()}")
+    println("Извлеченный элемент pop = ${pop}, queue после извлечения = ${queue.toArray().contentToString()}")
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     val size = queue.size()
     println("Длина очереди size = $size")
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     val isEmpty = queue.isEmpty()
-    println("Очередь пуста: $isEmpty")
+    println("Пуста ли очередь = $isEmpty")
 
-    /* Проверить кольцевой массив */
+    /* Проверка кольцевого массива */
     for (i in 0..9) {
         queue.push(i)
         queue.pop()
-        println("Итерация $i: после enqueue + dequeue queue = ${queue.toArray().contentToString()}")
+        println("После $i-го раунда операций enqueue и dequeue queue = ${queue.toArray().contentToString()}")
     }
 }

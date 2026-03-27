@@ -14,14 +14,14 @@ class AVLTree
     @root = nil
   end
 
-  # ## Получить корневой узел двоичного дерева ###
+  # ## Получение корневого узла двоичного дерева ###
   def get_root
     @root
   end
 
   # ## Получить высоту узла ###
   def height(node)
-    # Высота пустого узла равна -1, а высота листа равна 0
+    # Высота пустого узла равна -1, высота листового узла равна 0
     return node.height unless node.nil?
 
     -1
@@ -35,18 +35,18 @@ class AVLTree
 
   # ## Получить коэффициент баланса ###
   def balance_factor(node)
-    # Баланс-фактор пустого узла равен 0
+    # Коэффициент баланса пустого узла равен 0
     return 0 if node.nil?
 
-    # Баланс-фактор узла = высота левого поддерева - высота правого поддерева
+    # Коэффициент баланса узла = высота левого поддерева - высота правого поддерева
     height(node.left) - height(node.right)
   end
 
-  # ## Операция правого поворота ###
+  # ## Операция правого вращения ###
   def right_rotate(node)
     child = node.left
     grand_child = child.right
-    # Используя child как опорную точку, выполнить правый поворот node
+    # Выполнить правое вращение узла node вокруг child
     child.right = node
     node.left = grand_child
     # Обновить высоту узла
@@ -56,11 +56,11 @@ class AVLTree
     child
   end
 
-  # ## Операция левого поворота ###
+  # ## Операция левого вращения ###
   def left_rotate(node)
     child = node.right
     grand_child = child.left
-    # Используя child как опорную точку, выполнить левый поворот node
+    # Выполнить левое вращение узла node вокруг child
     child.left = node
     node.right = grand_child
     # Обновить высоту узла
@@ -70,41 +70,41 @@ class AVLTree
     child
   end
 
-  # ## Выполнить поворот, чтобы восстановить баланс этого поддерева ###
+  # ## Выполнить вращение, чтобы снова сбалансировать поддерево ###
   def rotate(node)
     # Получить коэффициент баланса узла node
     balance_factor = balance_factor(node)
-    # Левое поддерево
+    # Обойти левое поддерево
     if balance_factor > 1
       if balance_factor(node.left) >= 0
-        # Правый поворот
+        # Правое вращение
         return right_rotate(node)
       else
-        # Сначала выполнить левый поворот, затем правый
+        # Сначала левое вращение, затем правое
         node.left = left_rotate(node.left)
         return right_rotate(node)
       end
-    # Правое поддерево
+    # Правостороннее дерево обхода
     elsif balance_factor < -1
       if balance_factor(node.right) <= 0
-        # Левый поворот
+        # Левое вращение
         return left_rotate(node)
       else
-        # Сначала выполнить правый поворот, затем левый
+        # Сначала правое вращение, затем левое
         node.right = right_rotate(node.right)
         return left_rotate(node)
       end
     end
-    # Дерево сбалансировано, вращение не требуется, можно сразу вернуть результат
+    # Дерево сбалансировано, вращение не требуется, вернуть сразу
     node
   end
 
-  # ## вставить узел ###
+  # ## Вставка узла ###
   def insert(val)
     @root = insert_helper(@root, val)
   end
 
-  # ## рекурсиявставить узел(вспомогательный метод)###
+  # ## Рекурсивная вставка узла (вспомогательный метод) ###
   def insert_helper(node, val)
     return TreeNode.new(val) if node.nil?
     # 1. Найти позицию вставки и вставить узел
@@ -113,21 +113,21 @@ class AVLTree
     elsif val > node.val
       node.right = insert_helper(node.right, val)
     else
-      # Дублирующийся узел не вставлять, сразу вернуть результат
+      # Повторяющийся узел не вставлять, сразу вернуть
       return node
     end
     # Обновить высоту узла
     update_height(node)
-    # 2. Выполнить вращение, чтобы снова сбалансировать это поддерево
+    # 2. Выполнить вращение, чтобы снова сбалансировать поддерево
     rotate(node)
   end
 
-  # ## Удалить узел ###
+  # ## Удаление узла ###
   def remove(val)
     @root = remove_helper(@root, val)
   end
 
-  # ## рекурсияУдалить узел(вспомогательный метод)###
+  # ## Рекурсивное удаление узла (вспомогательный метод) ###
   def remove_helper(node, val)
     return if node.nil?
     # 1. Найти узел и удалить его
@@ -138,12 +138,12 @@ class AVLTree
     else
       if node.left.nil? || node.right.nil?
         child = node.left || node.right
-        # Если число дочерних узлов равно 0, сразу удалить node и вернуть результат
+        # Число дочерних узлов = 0, удалить node и сразу вернуть
         return if child.nil?
-        # Если число дочерних узлов равно 1, сразу удалить node
+        # Число дочерних узлов = 1, удалить node напрямую
         node = child
       else
-        # Если число дочерних узлов равно 2, удалить следующий узел симметричного обхода и заменить им текущий узел
+        # Число дочерних узлов = 2, удалить следующий по симметричному обходу узел и заменить им текущий узел
         temp = node.right
         while !temp.left.nil?
           temp = temp.left
@@ -154,14 +154,14 @@ class AVLTree
     end
     # Обновить высоту узла
     update_height(node)
-    # 2. Выполнить вращение, чтобы снова сбалансировать это поддерево
+    # 2. Выполнить вращение, чтобы снова сбалансировать поддерево
     rotate(node)
   end
 
-  # ## Найти узел ###
+  # ## Поиск узла ###
   def search(val)
     cur = @root
-    # Выполнять поиск в цикле и выйти после прохождения листового узла
+    # Искать в цикле и выйти после прохода за листовой узел
     while !cur.nil?
       # Целевой узел находится в правом поддереве cur
       if cur.val < val
@@ -183,34 +183,34 @@ end
 if __FILE__ == $0
   def test_insert(tree, val)
     tree.insert(val)
-    puts "\nПосле вставки узла #{val} AVL-дерево имеет вид"
+    puts "\nAVL-дерево после вставки узла #{val}:"
     print_tree(tree.get_root)
   end
 
   def test_remove(tree, val)
     tree.remove(val)
-    puts "\nПосле удаления узла #{val} AVL-дерево имеет вид"
+    puts "\nAVL-дерево после удаления узла #{val}:"
     print_tree(tree.get_root)
   end
 
-  # Инициализировать пустое AVL-дерево
+  # Инициализация пустого AVL-дерева
   avl_tree = AVLTree.new
 
   # Вставка узла
-  # Обратите внимание на то, как AVL-дерево сохраняет баланс после вставки узла
+  # Обратите внимание, как AVL-дерево сохраняет баланс после вставки узла
   for val in [1, 2, 3, 4, 5, 8, 7, 9, 10, 6]
     test_insert(avl_tree, val)
   end
 
-  # Вставить повторяющийся узел
+  # Вставка повторяющегося узла
   test_insert(avl_tree, 7)
 
   # Удаление узла
-  # Обратите внимание на то, как AVL-дерево сохраняет баланс после удаления узла
-  test_remove(avl_tree, 8) # Удалить узел степени 0
-  test_remove(avl_tree, 5) # Удалить узел степени 1
-  test_remove(avl_tree, 4) # Удалить узел степени 2
+  # Обратите внимание, как AVL-дерево сохраняет баланс после удаления узла
+  test_remove(avl_tree, 8) # Удаление узла степени 0
+  test_remove(avl_tree, 5) # Удаление узла степени 1
+  test_remove(avl_tree, 4) # Удаление узла степени 2
 
   result_node = avl_tree.search(7)
-  puts "\nНайденныйузелобъектравно #{result_node}, значение узла = #{result_node.val}"
+  puts "\nНайденный объект узла = #{result_node}, значение узла = #{result_node.val}"
 end

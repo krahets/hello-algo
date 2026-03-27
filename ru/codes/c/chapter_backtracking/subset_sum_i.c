@@ -18,7 +18,7 @@ int res[MAX_RES_SIZE][MAX_SIZE];
 int resColSizes[MAX_RES_SIZE];
 int resSize = 0;
 
-/* Алгоритм бэктрекинга: сумма подмножества I */
+/* Алгоритм бэктрекинга: сумма подмножеств I */
 void backtrack(int target, int *choices, int choicesSize, int start) {
     // Если сумма подмножества равна target, записать решение
     if (target == 0) {
@@ -29,17 +29,17 @@ void backtrack(int target, int *choices, int choicesSize, int start) {
         return;
     }
     // Обойти все варианты выбора
-    // Отсечение 2: начинать обход с start, чтобы избежать генерации дублирующихся подмножеств
+    // Отсечение 2: начинать обход с start, чтобы избежать генерации повторяющихся подмножеств
     for (int i = start; i < choicesSize; i++) {
-        // Отсечение 1: если сумма подмножества превышает target, сразу завершить цикл
-        // Это связано с тем, что массив уже отсортирован, последующие элементы больше, поэтому сумма подмножества обязательно превысит target
+        // Отсечение 1: если сумма подмножества превышает target, немедленно завершить цикл
+        // Это связано с тем, что массив уже отсортирован, следующие элементы больше, и сумма подмножества точно превысит target
         if (target - choices[i] < 0) {
             break;
         }
-        // Попытка: сделать выбор и обновить target, start
+        // Попытка: сделать выбор и обновить target и start
         state[stateSize] = choices[i];
         stateSize++;
-        // Перейти к следующему варианту выбора
+        // Перейти к следующему выбору
         backtrack(target - choices[i], choices, choicesSize, i);
         // Откат: отменить выбор и восстановить предыдущее состояние
         stateSize--;
@@ -51,10 +51,10 @@ int cmp(const void *a, const void *b) {
     return (*(int *)a - *(int *)b);
 }
 
-/* Решить задачу суммы подмножества I */
+/* Решить задачу суммы подмножеств I */
 void subsetSumI(int *nums, int numsSize, int target) {
     qsort(nums, numsSize, sizeof(int), cmp); // Отсортировать nums
-    int start = 0;                           // Обход начальной вершины
+    int start = 0;                           // Стартовая вершина обхода
     backtrack(target, nums, numsSize, start);
 }
 
@@ -69,7 +69,7 @@ int main() {
     printf("Входной массив nums = ");
     printArray(nums, numsSize);
     printf("target = %d\n", target);
-    printf("Все подмножества res с суммой %d = \n", target);
+    printf("Все подмножества с суммой %d: \n", target);
     for (int i = 0; i < resSize; ++i) {
         printArray(res[i], resColSizes[i]);
     }

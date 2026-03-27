@@ -13,11 +13,11 @@ class ArrayStack:
         self._stack: list[int] = []
 
     def size(self) -> int:
-        """Получить длину стека"""
+        """Получение длины стека"""
         return len(self._stack)
 
     def is_empty(self) -> bool:
-        """Проверить, пуст ли стек"""
+        """Проверка, пуст ли стек"""
         return self.size() == 0
 
     def push(self, item: int):
@@ -27,13 +27,13 @@ class ArrayStack:
     def pop(self) -> int:
         """Извлечь из стека"""
         if self.is_empty():
-            raise IndexError("Стек пуст")
+            raise IndexError("стек пуст")
         return self._stack.pop()
 
     def peek(self) -> int:
-        """Получить верхний элемент стека"""
+        """Доступ к верхнему элементу стека"""
         if self.is_empty():
-            raise IndexError("Стек пуст")
+            raise IndexError("стек пуст")
         return self._stack[-1]
 
     def to_list(self) -> list[int]:
@@ -43,10 +43,10 @@ class ArrayStack:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализировать стек
+    # Инициализация стека
     stack = ArrayStack()
 
-    # Поместить элемент в стек
+    # Помещение элемента в стек
     stack.push(1)
     stack.push(3)
     stack.push(2)
@@ -54,19 +54,19 @@ if __name__ == "__main__":
     stack.push(4)
     print("Стек stack =", stack.to_list())
 
-    # Получить верхний элемент стека
+    # Доступ к верхнему элементу стека
     peek: int = stack.peek()
-    print("Верхний элемент стека peek =", peek)
+    print("Верхний элемент peek =", peek)
 
-    # Извлечь элемент из стека
+    # Извлечение элемента из стека
     pop: int = stack.pop()
-    print("Извлеченный из стека элемент pop =", pop)
-    print("После извлечения stack =", stack.to_list())
+    print("Извлеченный элемент pop =", pop)
+    print("stack после извлечения =", stack.to_list())
 
-    # Получить длину стека
+    # Получение длины стека
     size: int = stack.size()
     print("Длина стека size =", size)
 
-    # Проверить, пуста ли структура
+    # Проверка на пустоту
     is_empty: bool = stack.is_empty()
     print("Пуст ли стек =", is_empty)

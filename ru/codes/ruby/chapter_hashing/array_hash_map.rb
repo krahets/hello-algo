@@ -4,7 +4,7 @@ Created Time: 2024-04-13
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## пара ключ-значение ###
+# ## Пара ключ-значение ###
 class Pair
   attr_accessor :key, :val
 
@@ -18,7 +18,7 @@ end
 class ArrayHashMap
   # ## Конструктор ###
   def initialize
-    # Инициализировать массив, содержащий 100 бакетов
+    # Инициализировать массив, содержащий 100 корзин
     @buckets = Array.new(100)
   end
 
@@ -46,7 +46,7 @@ class ArrayHashMap
   # ## Операция удаления ###
   def remove(key)
     index = hash_func(key)
-    # Установить nil, обозначая удаление
+    # Присвоить nil, что означает удаление
     @buckets[index] = nil
   end
 
@@ -79,42 +79,42 @@ end
 
 ### Driver Code ###
 if __FILE__ == $0
-  # Инициализировать хеш-таблицу
+  # Инициализация хеш-таблицы
   hmap = ArrayHashMap.new
 
   # Операция добавления
-  # Добавить в хеш-таблицу пару ключ-значение (key, value)
+  # Добавить пару (key, value) в хеш-таблицу
   hmap.put(12836, "Сяо Ха")
   hmap.put(15937, "Сяо Ло")
   hmap.put(16750, "Сяо Суань")
   hmap.put(13276, "Сяо Фа")
-  hmap.put(10583, "Утенок")
-  puts "\nПосле добавления хеш-таблица выглядит так\nKey -> Value"
+  hmap.put(10583, "Сяо Я")
+  puts "\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение"
   hmap.print
 
   # Операция поиска
-  # Ввести ключ key в хеш-таблицу и получить значение value
+  # По ключу key получить из хеш-таблицы значение value
   name = hmap.get(15937)
-  puts "\nПо номеру студента 15937 найдено имя #{name}"
+  puts "\nДля номера 15937 найдено имя #{name}"
 
   # Операция удаления
   # Удалить пару значений (key, value) из хеш-таблицы
   hmap.remove(10583)
-  puts "\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value"
+  puts "\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение"
   hmap.print
 
-  # Перебрать хеш-таблицу
-  puts "\nПеребираем пары Key->Value"
+  # Обход хеш-таблицы
+  puts "\nОтдельный обход пар ключ-значение"
   for pair in hmap.entry_set
     puts "#{pair.key} -> #{pair.val}"
   end
 
-  puts "\nОтдельный обход ключей Key"
+  puts "\nОтдельный обход ключей"
   for key in hmap.key_set
     puts key
   end
 
-  puts "\nОтдельно перебираем значения Value"
+  puts "\nОтдельный обход значений"
   for val in hmap.value_set
     puts val
   end

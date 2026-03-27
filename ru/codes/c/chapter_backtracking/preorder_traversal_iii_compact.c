@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// Предположим, что длина результата суммы пути не превышает 100
+// Предположим, что длина пути и результата не превышает 100
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
@@ -14,13 +14,13 @@ TreeNode *path[MAX_SIZE];
 TreeNode *res[MAX_RES_SIZE][MAX_SIZE];
 int pathSize = 0, resSize = 0;
 
-/* Прямой обход: пример 3 */
+/* Предварительный обход: пример 3 */
 void preOrder(TreeNode *root) {
     // Отсечение
     if (root == NULL || root->val == 3) {
         return;
     }
-    // Попытаться
+    // Попытка
     path[pathSize++] = root;
     if (root->val == 7) {
         // Записать решение
@@ -39,13 +39,13 @@ void preOrder(TreeNode *root) {
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));
-    printf("\nИнициализировать двоичное дерево\n");
+    printf("\nИнициализация двоичного дерева\n");
     printTree(root);
 
-    // Прямой обход
+    // Предварительный обход
     preOrder(root);
 
-    printf("\nВывести все пути от корня до узла 7, требуя, чтобы путь не содержал узлы со значением 3\n");
+    printf("\nВывести все пути от корня к узлу 7, не содержащие узлов со значением 3\n");
     for (int i = 0; i < resSize; ++i) {
         int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;

@@ -15,7 +15,7 @@ class TreeNode(
     var left: TreeNode? = null // Ссылка на левый дочерний узел
     var right: TreeNode? = null // Ссылка на правый дочерний узел
 
-    // Правила сериализации см.:
+    // Правила кодирования сериализации см.:
     // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
     // Массивное представление двоичного дерева:
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]

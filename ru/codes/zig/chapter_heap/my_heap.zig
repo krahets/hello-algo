@@ -12,7 +12,7 @@ pub fn MaxHeap(comptime T: type) type {
         
         max_heap: ?std.ArrayList(T) = null,      // Использовать список вместо массива, чтобы не учитывать проблему расширения
 
-        // Конструктор, создающий кучу по входному списку
+        // Конструктор, строящий кучу по входному списку
         pub fn init(self: *Self, allocator: std.mem.Allocator, nums: []const T) !void {
             if (self.max_heap != null) return;
             self.max_heap = std.ArrayList(T).init(allocator);
@@ -25,7 +25,7 @@ pub fn MaxHeap(comptime T: type) type {
             }
         }
 
-        // Деструктор, Освободить память
+        // Деструктор, освободить память
         pub fn deinit(self: *Self) void {
             if (self.max_heap != null) self.max_heap.?.deinit();
         }
@@ -42,7 +42,7 @@ pub fn MaxHeap(comptime T: type) type {
 
         // Получить индекс родительского узла
         fn parent(i: usize) usize {
-            // return (i - 1) / 2; // Округление вниз при делении
+            // return (i - 1) / 2; // округление вниз при делении
             return @divFloor(i - 1, 2);
         }
 
@@ -53,26 +53,26 @@ pub fn MaxHeap(comptime T: type) type {
             try self.max_heap.?.replaceRange(j, 1, &[_]T{tmp});
         }
 
-        // Получить размер кучи
+        // Получение размера кучи
         pub fn size(self: *Self) usize {
             return self.max_heap.?.items.len;
         }
 
-        // Проверить, пуста ли куча
+        // Проверка, пуста ли куча
         pub fn isEmpty(self: *Self) bool {
             return self.size() == 0;
         }
 
-        // Обратиться к элементу на вершине кучи
+        // Доступ к элементу на вершине кучи
         pub fn peek(self: *Self) T {
             return self.max_heap.?.items[0];
         }  
 
-        // Добавить элемент в кучу
+        // Добавление элемента в кучу
         pub fn push(self: *Self, val: T) !void {
-            // Добавить узел
+            // Добавление узла
             try self.max_heap.?.append(val);
-            // Выполнить heapify снизу вверх
+            // Просеивание снизу вверх
             try self.siftUp(self.size() - 1);
         }  
 
@@ -80,28 +80,28 @@ pub fn MaxHeap(comptime T: type) type {
         fn siftUp(self: *Self, i_: usize) !void {
             var i = i_;
             while (true) {
-                // Получить родительский узел для узла i
+                // Получение родительского узла для узла i
                 var p = parent(i);
-                // Завершить просеивание, когда произошел выход за корень или узел не нуждается в исправлении
+                // Завершить heapify, когда «корневой узел уже пройден» или «узел не требует исправления»
                 if (p < 0 or self.max_heap.?.items[i] <= self.max_heap.?.items[p]) break;
-                // Поменять местами два узла
+                // Поменять два узла местами
                 try self.swap(i, p);
-                // Циклически выполнять просеивание вверх
+                // Циклическое просеивание вверх
                 i = p;
             }
         }
 
         // Извлечение элемента из кучи
         pub fn pop(self: *Self) !T {
-            // Проверитьобработка
+            // Обработка проверки
             if (self.isEmpty()) unreachable;
-            // Поменять местами корневой узел и крайний правый лист (первый и последний элементы)
+            // Поменять корневой узел с самым правым листом местами (поменять первый и последний элементы)
             try self.swap(0, self.size() - 1);
-            // Удалить узел
+            // Удаление узла
             var val = self.max_heap.?.pop();
-            // Выполнить heapify сверху вниз
+            // Просеивание сверху вниз
             try self.siftDown(0);
-            // Вернуть элемент на вершине кучи
+            // Вернуть элемент с вершины кучи
             return val;
         } 
 
@@ -115,11 +115,11 @@ pub fn MaxHeap(comptime T: type) type {
                 var ma = i;
                 if (l < self.size() and self.max_heap.?.items[l] > self.max_heap.?.items[ma]) ma = l;
                 if (r < self.size() and self.max_heap.?.items[r] > self.max_heap.?.items[ma]) ma = r;
-                // Если узел i уже максимален или индексы l и r выходят за границы, дальнейшая heapify не требуется
+                // Если узел i уже максимален или индексы l и r вне границ, дальнейшее просеивание не требуется, выйти
                 if (ma == i) break;
-                // Поменять местами два узла
+                // Поменять два узла местами
                 try self.swap(i, ma);
-                // Циклически выполнять просеивание вниз
+                // Циклическое просеивание вниз
                 i = ma;
             }
         }
@@ -133,7 +133,7 @@ pub fn MaxHeap(comptime T: type) type {
             return lessThan(context, a, b).invert();
         }
 
-        // Вывести кучу (в виде двоичного дерева)
+        // Вывести кучу (двоичное дерево)
         pub fn print(self: *Self, mem_allocator: std.mem.Allocator) !void {
             const PQgt = std.PriorityQueue(T, void, greaterThan);
             var queue = PQgt.init(std.heap.page_allocator, {});
@@ -146,40 +146,40 @@ pub fn MaxHeap(comptime T: type) type {
 
 // Driver Code
 pub fn main() !void {
-    // Инициализировать распределитель памяти
+    // Инициализация аллокатора памяти
     var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     defer mem_arena.deinit();
     const mem_allocator = mem_arena.allocator();
 
-    // Инициализировать max-кучу
+    // Инициализация максимальной кучи
     var max_heap = MaxHeap(i32){};
     try max_heap.init(std.heap.page_allocator, &[_]i32{ 9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2 });
     defer max_heap.deinit();
-    std.debug.print("\nВходсписокипостроение кучипосле\n", .{});
+    std.debug.print("\nПосле построения кучи из входного списка\n", .{});
     try max_heap.print(mem_allocator);
 
-    // Получить верхний элемент кучи
+    // Получение элемента с вершины кучи
     var peek = max_heap.peek();
-    std.debug.print("\nвершина кучиэлементравно {}\n", .{peek});
+    std.debug.print("\nЭлемент на вершине кучи = {}\n", .{peek});
 
-    // Добавить элемент в кучу
+    // Добавление элемента в кучу
     const val = 7;
     try max_heap.push(val);
-    std.debug.print("\nЭлемент {} после добавления в кучу\n", .{val});
+    std.debug.print("\nПосле добавления элемента {} в кучу\n", .{val});
     try max_heap.print(mem_allocator);
 
-    // Извлечь верхний элемент из кучи
+    // Извлечение элемента с вершины кучи
     peek = try max_heap.pop();
-    std.debug.print("\nвершина кучиЭлемент {} после извлечения из кучи\n", .{peek});
+    std.debug.print("\nПосле извлечения элемента вершины кучи {}\n", .{peek});
     try max_heap.print(mem_allocator);
 
     // Получить размер кучи
     var size = max_heap.size();
-    std.debug.print("\nКоличество элементов в куче равно {}", .{size});
+    std.debug.print("\nКоличество элементов в куче = {}", .{size});
 
-    // Проверить, пуста ли куча
+    // Проверка, пуста ли куча
     var is_empty = max_heap.isEmpty();
-    std.debug.print("\nкучапуст ли {}\n", .{is_empty});
+    std.debug.print("\nПуста ли куча: {}\n", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

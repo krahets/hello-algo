@@ -4,7 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## двоичное деревоузелкласс ###
+# ## Класс узла двоичного дерева ###
 class TreeNode
   attr_accessor :val    # Значение узла
   attr_accessor :height # Высота узла
@@ -17,7 +17,7 @@ class TreeNode
   end
 end
 
-# ## Десериализовать список в двоичное дерево: рекурсия ###
+# ## Десериализация списка в двоичное дерево: рекурсия ###
 def arr_to_tree_dfs(arr, i)
   # Если индекс выходит за длину массива или соответствующий элемент равен nil, вернуть nil
   return if i < 0 || i >= arr.length || arr[i].nil?
@@ -29,12 +29,12 @@ def arr_to_tree_dfs(arr, i)
   root
 end
 
-# ## Десериализовать список в двоичное дерево ###
+# ## Десериализация списка в двоичное дерево ###
 def arr_to_tree(arr)
   arr_to_tree_dfs(arr, 0)
 end
 
-# ## Сериализовать двоичное дерево в список: рекурсия ###
+# ## Сериализация двоичного дерева в список: рекурсия ###
 def tree_to_arr_dfs(root, i, res)
   return if root.nil?
 
@@ -45,7 +45,7 @@ def tree_to_arr_dfs(root, i, res)
   tree_to_arr_dfs(root.right, 2 * i + 2, res)
 end
 
-# ## Сериализовать двоичное дерево в список ###
+# ## Сериализация двоичного дерева в список ###
 def tree_to_arr(root)
   res = []
   tree_to_arr_dfs(root, 0, res)

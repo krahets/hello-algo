@@ -10,38 +10,38 @@ use std::collections::HashMap;
 
 /* Driver Code */
 pub fn main() {
-    // Инициализировать хеш-таблицу
+    // Инициализация хеш-таблицы
     let mut map = HashMap::new();
 
     // Операция добавления
-    // Добавить в хеш-таблицу пару ключ-значение (key, value)
+    // Добавить пару (key, value) в хеш-таблицу
     map.insert(12836, "Сяо Ха");
     map.insert(15937, "Сяо Ло");
     map.insert(16750, "Сяо Суань");
     map.insert(13276, "Сяо Фа");
-    map.insert(10583, "Утенок");
-    println!("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
+    map.insert(10583, "Сяо Я");
+    println!("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
     print_util::print_hash_map(&map);
 
     // Операция поиска
     // Передать ключ key в хеш-таблицу и получить значение value
     let name = map.get(&15937).copied().unwrap();
-    println!("\nПо номеру студента 15937 найдено имя {name}");
+    println!("\nДля номера 15937 найдено имя {name}");
 
     // Операция удаления
-    // Удалить из хеш-таблицы пару ключ-значение (key, value)
+    // Удалить пару (key, value) из хеш-таблицы
     _ = map.remove(&10583);
-    println!("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value");
+    println!("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение");
     print_util::print_hash_map(&map);
 
-    // Перебрать хеш-таблицу
-    println!("\nПеребираем пары Key->Value");
+    // Обход хеш-таблицы
+    println!("\nОтдельный обход пар ключ-значение");
     print_util::print_hash_map(&map);
-    println!("\nОтдельно перебираем ключи Key");
+    println!("\nОтдельный обход ключей");
     for key in map.keys() {
         println!("{key}");
     }
-    println!("\nОтдельно перебираем значения value");
+    println!("\nОтдельный обход значений");
     for value in map.values() {
         println!("{value}");
     }

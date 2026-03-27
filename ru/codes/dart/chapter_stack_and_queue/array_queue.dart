@@ -4,10 +4,10 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Очередь на основе циклического массива */
+/* Очередь на основе кольцевого массива */
 class ArrayQueue {
   late List<int> _nums; // Массив для хранения элементов очереди
-  late int _front; // Указатель front, указывающий на первый элемент очереди
+  late int _front; // Указатель head, указывающий на первый элемент очереди
   late int _queSize; // Длина очереди
 
   ArrayQueue(int capacity) {
@@ -20,12 +20,12 @@ class ArrayQueue {
     return _nums.length;
   }
 
-  /* Получить длину очереди */
+  /* Получение длины очереди */
   int size() {
     return _queSize;
   }
 
-  /* Проверить, пуста ли очередь */
+  /* Проверка, пуста ли очередь */
   bool isEmpty() {
     return _queSize == 0;
   }
@@ -35,10 +35,10 @@ class ArrayQueue {
     if (_queSize == capaCity()) {
       throw Exception("Очередь заполнена");
     }
-    // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
-    // Операция взятия по модулю позволяет rear после выхода за конец массива вернуться к его началу
+    // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+    // С помощью операции взятия по модулю вернуть rear к началу после выхода за конец массива
     int rear = (_front + _queSize) % capaCity();
-    // Чтобы изменить _num Добавить в хвост очереди
+    // Добавить _num в хвост очереди
     _nums[rear] = _num;
     _queSize++;
   }
@@ -46,23 +46,23 @@ class ArrayQueue {
   /* Извлечь из очереди */
   int pop() {
     int _num = peek();
-    // Указатель головы очереди сдвигается на одну позицию вперед; если он выходит за конец, то возвращается в начало массива
+    // Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
     _front = (_front + 1) % capaCity();
     _queSize--;
     return _num;
   }
 
-  /* Получить элемент в начале очереди */
+  /* Доступ к элементу в начале очереди */
   int peek() {
     if (isEmpty()) {
-      throw Exception("Очередь пуста");
+      throw Exception("очередь пуста");
     }
     return _nums[_front];
   }
 
   /* Вернуть Array */
   List<int> toArray() {
-    // Преобразовать только элементы списка в пределах действительной длины
+    // Преобразовывать только элементы списка в пределах фактической длины
     final List<int> res = List.filled(_queSize, 0);
     for (int i = 0, j = _front; i < _queSize; i++, j++) {
       res[i] = _nums[j % capaCity()];
@@ -73,38 +73,38 @@ class ArrayQueue {
 
 /* Driver Code */
 void main() {
-  /* Инициализировать очередь */
+  /* Инициализация очереди */
   final int capacity = 10;
   final ArrayQueue queue = ArrayQueue(capacity);
 
-  /* Поместить элемент в очередь */
+  /* Добавление элемента в очередь */
   queue.push(1);
   queue.push(3);
   queue.push(2);
   queue.push(5);
   queue.push(4);
-  print("очередь queue = ${queue.toArray()}");
+  print("Очередь queue = ${queue.toArray()}");
 
-  /* Получить элемент в начале очереди */
+  /* Доступ к элементу в начале очереди */
   final int peek = queue.peek();
-  print("голова очередиэлемент peek = $peek");
+  print("Первый элемент peek = $peek");
 
-  /* Извлечь элемент из очереди */
+  /* Извлечение элемента из очереди */
   final int pop = queue.pop();
-  print("Элемент, извлеченный из очереди, pop = $pop , queue после извлечения = ${queue.toArray()}");
+  print("Извлеченный элемент pop = $pop, queue после извлечения = ${queue.toArray()}");
 
-  /* ПолучитьДлина очереди */
+  /* Получить длину очереди */
   final int size = queue.size();
   print("Длина очереди size = $size");
 
-  /* Проверить, пуста ли очередь */
+  /* Проверка, пуста ли очередь */
   final bool isEmpty = queue.isEmpty();
-  print("Очередь пуста: $isEmpty");
+  print("Пуста ли очередь = $isEmpty");
 
-  /* Проверить кольцевой массив */
+  /* Проверка кольцевого массива */
   for (int i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    print("Итерация $i: после enqueue + dequeue queue = ${queue.toArray()}");
+    print("После $i-го раунда операций enqueue и dequeue queue = ${queue.toArray()}");
   }
 }

@@ -11,8 +11,8 @@ class ListNode:
     def __init__(self, val: int):
         """Конструктор"""
         self.val: int = val
-        self.next: ListNode | None = None  # Ссылка на следующий узел
-        self.prev: ListNode | None = None  # Ссылка на предыдущий узел
+        self.next: ListNode | None = None  # Ссылка на узел-преемник
+        self.prev: ListNode | None = None  # Ссылка на узел-предшественник
 
 
 class LinkedListDeque:
@@ -25,45 +25,45 @@ class LinkedListDeque:
         self._size: int = 0  # Длина двусторонней очереди
 
     def size(self) -> int:
-        """Получить длину двусторонней очереди"""
+        """Получение длины двусторонней очереди"""
         return self._size
 
     def is_empty(self) -> bool:
-        """Проверить, пуста ли двусторонняя очередь"""
+        """Проверка, пуста ли двусторонняя очередь"""
         return self._size == 0
 
     def push(self, num: int, is_front: bool):
-        """Операция помещения в очередь"""
+        """Операция добавления в очередь"""
         node = ListNode(num)
         # Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
         if self.is_empty():
             self._front = self._rear = node
-        # Операция помещения в голову очереди
+        # Операция добавления в голову очереди
         elif is_front:
-            # Добавить node в голову связного списка
+            # Добавить node в голову списка
             self._front.prev = node
             node.next = self._front
             self._front = node  # Обновить головной узел
-        # Операция помещения в хвост очереди
+        # Операция добавления в хвост очереди
         else:
-            # Добавить node в хвост связного списка
+            # Добавить node в хвост списка
             self._rear.next = node
             node.prev = self._rear
             self._rear = node  # Обновить хвостовой узел
-        self._size += 1  # ОбновитьДлина очереди
+        self._size += 1  # Обновить длину очереди
 
     def push_first(self, num: int):
-        """Поместить в голову очереди"""
+        """Добавление в голову очереди"""
         self.push(num, True)
 
     def push_last(self, num: int):
-        """Поместить в хвост очереди"""
+        """Добавление в хвост очереди"""
         self.push(num, False)
 
     def pop(self, is_front: bool) -> int:
         """Операция извлечения из очереди"""
         if self.is_empty():
-            raise IndexError("Двусторонняя очередь пуста")
+            raise IndexError("двусторонняя очередь пуста")
         # Операция извлечения из головы очереди
         if is_front:
             val: int = self._front.val  # Временно сохранить значение головного узла
@@ -82,31 +82,31 @@ class LinkedListDeque:
                 rprev.next = None
                 self._rear.prev = None
             self._rear = rprev  # Обновить хвостовой узел
-        self._size -= 1  # ОбновитьДлина очереди
+        self._size -= 1  # Обновить длину очереди
         return val
 
     def pop_first(self) -> int:
-        """Извлечь из головы очереди"""
+        """Извлечение из головы очереди"""
         return self.pop(True)
 
     def pop_last(self) -> int:
-        """Извлечь из хвоста очереди"""
+        """Извлечение из хвоста очереди"""
         return self.pop(False)
 
     def peek_first(self) -> int:
-        """Получить элемент в начале очереди"""
+        """Доступ к элементу в начале очереди"""
         if self.is_empty():
-            raise IndexError("Двусторонняя очередь пуста")
+            raise IndexError("двусторонняя очередь пуста")
         return self._front.val
 
     def peek_last(self) -> int:
-        """Обратиться к элементу в хвосте очереди"""
+        """Доступ к элементу в конце очереди"""
         if self.is_empty():
-            raise IndexError("Двусторонняя очередь пуста")
+            raise IndexError("двусторонняя очередь пуста")
         return self._rear.val
 
     def to_array(self) -> list[int]:
-        """Вернуть массив для печати"""
+        """Вернуть массив для вывода"""
         node = self._front
         res = [0] * self.size()
         for i in range(self.size()):
@@ -117,35 +117,35 @@ class LinkedListDeque:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализировать двустороннюю очередь
+    # Инициализация двусторонней очереди
     deque = LinkedListDeque()
     deque.push_last(3)
     deque.push_last(2)
     deque.push_last(5)
     print("Двусторонняя очередь deque =", deque.to_array())
 
-    # Получить доступ к элементу
+    # Доступ к элементу
     peek_first: int = deque.peek_first()
-    print("Элемент в начале очереди peek_first =", peek_first)
+    print("Первый элемент peek_first =", peek_first)
     peek_last: int = deque.peek_last()
-    print("Элемент в конце очереди peek_last =", peek_last)
+    print("Последний элемент peek_last =", peek_last)
 
-    # Поместить элемент в очередь
+    # Добавление элемента в очередь
     deque.push_last(4)
-    print("После помещения элемента 4 в хвост очереди deque =", deque.to_array())
+    print("После добавления элемента 4 в хвост deque =", deque.to_array())
     deque.push_first(1)
-    print("После помещения элемента 1 в голову очереди deque =", deque.to_array())
+    print("После добавления элемента 1 в голову deque =", deque.to_array())
 
-    # Извлечь элемент из очереди
+    # Извлечение элемента из очереди
     pop_last: int = deque.pop_last()
-    print("Элемент, извлеченный из хвоста очереди =", pop_last, ", deque после извлечения из хвоста =", deque.to_array())
+    print("Извлеченный из хвоста элемент =", pop_last, ", deque после извлечения из хвоста =", deque.to_array())
     pop_first: int = deque.pop_first()
-    print("Элемент, извлеченный из головы очереди =", pop_first, ", deque после извлечения из головы =", deque.to_array())
+    print("Извлеченный из головы элемент =", pop_first, ", deque после извлечения из головы =", deque.to_array())
 
-    # Получить длину двусторонней очереди
+    # Получение длины двусторонней очереди
     size: int = deque.size()
     print("Длина двусторонней очереди size =", size)
 
-    # Проверить, пуста ли двусторонняя очередь
+    # Проверка, пуста ли двусторонняя очередь
     is_empty: bool = deque.is_empty()
     print("Пуста ли двусторонняя очередь =", is_empty)

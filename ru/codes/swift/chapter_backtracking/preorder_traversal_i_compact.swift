@@ -8,7 +8,7 @@ import utils
 
 var res: [TreeNode] = []
 
-/* Прямой обход: пример 1 */
+/* Предварительный обход: пример 1 */
 func preOrder(root: TreeNode?) {
     guard let root = root else {
         return
@@ -26,14 +26,14 @@ enum PreorderTraversalICompact {
     /* Driver Code */
     static func main() {
         let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
-        print("\nИнициализировать двоичное дерево")
+        print("\nИнициализация двоичного дерева")
         PrintUtil.printTree(root: root)
 
-        // Прямой обход
+        // Предварительный обход
         res = []
         preOrder(root: root)
 
-        print("\nВывести все узлы со значением 7")
+        print("\nВсе узлы со значением 7")
         var vals: [Int] = []
         for node in res {
             vals.append(node.val)

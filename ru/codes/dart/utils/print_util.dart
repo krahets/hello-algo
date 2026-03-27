@@ -16,7 +16,7 @@ class Trunk {
   Trunk(this.prev, this.str);
 }
 
-/* Вывестиматрица (Array) */
+/* Вывести матрицу (Array) */
 void printMatrix(List<List<int>> matrix) {
   print("[");
   for (List<int> row in matrix) {
@@ -38,8 +38,8 @@ void printLinkedList(ListNode? head) {
 }
 
 /**
- * Вывестидвоичное дерево
- * This tree printer is borrowed from TECHIE DELIGHT
+ * Вывести двоичное дерево
+ * Этот вывод дерева заимствован из TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTree(TreeNode? root, [Trunk? prev = null, bool isRight = false]) {
@@ -83,7 +83,7 @@ void showTrunks(Trunk? p) {
 
 /* Вывести кучу */
 void printHeap(List<int> heap) {
-  print("Массивное представление кучи:$heap");
+  print("Массивное представление кучи: $heap");
   print("Древовидное представление кучи:");
   TreeNode? root = listToTree(heap);
   printTree(root);

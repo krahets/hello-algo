@@ -7,7 +7,7 @@
 use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
 use std::{cell::RefCell, rc::Rc};
 
-/* Прямой обход: пример 1 */
+/* Предварительный обход: пример 1 */
 fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<TreeNode>>>) {
     if root.is_none() {
         return;
@@ -25,14 +25,14 @@ fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<Tree
 /* Driver Code */
 pub fn main() {
     let root = vec_to_tree([1, 7, 3, 4, 5, 6, 7].map(|x| Some(x)).to_vec());
-    println!("Инициализировать двоичное дерево");
+    println!("Инициализация двоичного дерева");
     print_util::print_tree(root.as_ref().unwrap());
 
-    // Прямой обход
+    // Предварительный обход
     let mut res = Vec::new();
     pre_order(&mut res, root.as_ref());
 
-    println!("\nВывести все узлы со значением 7");
+    println!("\nВсе узлы со значением 7");
     let mut vals = Vec::new();
     for node in res {
         vals.push(node.borrow().val)

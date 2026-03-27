@@ -8,8 +8,8 @@ import '../utils/list_node.dart';
 
 /* Очередь на основе связного списка */
 class LinkedListQueue {
-  ListNode? _front; // головной узел _front
-  ListNode? _rear; // хвостовой узел _rear
+  ListNode? _front; // Головной узел _front
+  ListNode? _rear; // Хвостовой узел _rear
   int _queSize = 0; // Длина очереди
 
   LinkedListQueue() {
@@ -17,12 +17,12 @@ class LinkedListQueue {
     _rear = null;
   }
 
-  /* Получить длину очереди */
+  /* Получение длины очереди */
   int size() {
     return _queSize;
   }
 
-  /* Проверить, пуста ли очередь */
+  /* Проверка, пуста ли очередь */
   bool isEmpty() {
     return _queSize == 0;
   }
@@ -31,7 +31,7 @@ class LinkedListQueue {
   void push(int _num) {
     // Добавить _num после хвостового узла
     final node = ListNode(_num);
-    // Если очередь пуста, сделать так, чтобы головной и хвостовой узлы указывали на этот узел
+    // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
     if (_front == null) {
       _front = node;
       _rear = node;
@@ -52,15 +52,15 @@ class LinkedListQueue {
     return _num;
   }
 
-  /* Получить элемент в начале очереди */
+  /* Доступ к элементу в начале очереди */
   int peek() {
     if (_queSize == 0) {
-      throw Exception('Очередь пуста');
+      throw Exception('очередь пуста');
     }
     return _front!.val;
   }
 
-  /* Преобразовать связный список в Array и вернуть его */
+  /* Преобразовать связный список в Array и вернуть */
   List<int> toArray() {
     ListNode? node = _front;
     final List<int> queue = [];
@@ -74,30 +74,30 @@ class LinkedListQueue {
 
 /* Driver Code */
 void main() {
-  /* Инициализировать очередь */
+  /* Инициализация очереди */
   final queue = LinkedListQueue();
 
-  /* Поместить элемент в очередь */
+  /* Добавление элемента в очередь */
   queue.push(1);
   queue.push(3);
   queue.push(2);
   queue.push(5);
   queue.push(4);
-  print("очередь queue = ${queue.toArray()}");
+  print("Очередь queue = ${queue.toArray()}");
 
-  /* Получить элемент в начале очереди */
+  /* Доступ к элементу в начале очереди */
   final int peek = queue.peek();
-  print("голова очередиэлемент peek = $peek");
+  print("Первый элемент peek = $peek");
 
-  /* Извлечь элемент из очереди */
+  /* Извлечение элемента из очереди */
   final int pop = queue.pop();
-  print("Элемент, извлеченный из очереди, pop = $pop , queue после извлечения = ${queue.toArray()}");
+  print("Извлеченный элемент pop = $pop, queue после извлечения = ${queue.toArray()}");
 
-  /* Получить длину очереди */
+  /* Получение длины очереди */
   final int size = queue.size();
   print("Длина очереди size = $size");
 
-  /* Проверить, пуста ли очередь */
+  /* Проверка, пуста ли очередь */
   final bool isEmpty = queue.isEmpty();
-  print("Очередь пуста: $isEmpty");
+  print("Пуста ли очередь = $isEmpty");
 }

@@ -17,12 +17,12 @@ class LinkedListQueue {
         this.rear = null;
     }
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     get size(): number {
         return this.queSize;
     }
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     isEmpty(): boolean {
         return this.size === 0;
     }
@@ -31,7 +31,7 @@ class LinkedListQueue {
     push(num: number): void {
         // Добавить num после хвостового узла
         const node = new ListNode(num);
-        // Если очередь пуста, сделать так, чтобы головной и хвостовой узлы указывали на этот узел
+        // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
         if (!this.front) {
             this.front = node;
             this.rear = node;
@@ -46,20 +46,20 @@ class LinkedListQueue {
     /* Извлечь из очереди */
     pop(): number {
         const num = this.peek();
-        if (!this.front) throw new Error('Очередь пуста');
+        if (!this.front) throw new Error('очередь пуста');
         // Удалить головной узел
         this.front = this.front.next;
         this.queSize--;
         return num;
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     peek(): number {
-        if (this.size === 0) throw new Error('Очередь пуста');
+        if (this.size === 0) throw new Error('очередь пуста');
         return this.front!.val;
     }
 
-    /* Преобразовать связный список в Array и вернуть его */
+    /* Преобразовать связный список в Array и вернуть */
     toArray(): number[] {
         let node = this.front;
         const res = new Array<number>(this.size);
@@ -72,10 +72,10 @@ class LinkedListQueue {
 }
 
 /* Driver Code */
-/* Инициализировать очередь */
+/* Инициализация очереди */
 const queue = new LinkedListQueue();
 
-/* Поместить элемент в очередь */
+/* Добавление элемента в очередь */
 queue.push(1);
 queue.push(3);
 queue.push(2);
@@ -83,20 +83,20 @@ queue.push(5);
 queue.push(4);
 console.log('Очередь queue = ' + queue.toArray());
 
-/* Получить элемент в начале очереди */
+/* Доступ к элементу в начале очереди */
 const peek = queue.peek();
-console.log('голова очередиэлемент peek =' + peek);
+console.log('Элемент в начале очереди peek = ' + peek);
 
-/* Извлечь элемент из очереди */
+/* Извлечение элемента из очереди */
 const pop = queue.pop();
-console.log('Элемент, извлеченный из очереди, pop = ' + pop + ', queue после извлечения = ' + queue.toArray());
+console.log('Извлечен элемент pop = ' + pop + ', очередь после извлечения queue = ' + queue.toArray());
 
-/* Получить длину очереди */
+/* Получение длины очереди */
 const size = queue.size;
-console.log('Длина очереди size =' + size);
+console.log('Длина очереди size = ' + size);
 
-/* Проверить, пуста ли очередь */
+/* Проверка, пуста ли очередь */
 const isEmpty = queue.isEmpty();
-console.log('Очередь пуста: ' + isEmpty);
+console.log('Пуста ли очередь = ' + isEmpty);
 
 export {};

@@ -6,11 +6,11 @@
 
 /* Бинарный поиск: задача f(i, j) */
 function dfs(nums: number[], target: number, i: number, j: number): number {
-    // Если диапазон пуст, это означает отсутствие целевого элемента, поэтому вернуть -1
+    // Если интервал пуст, целевой элемент отсутствует, вернуть -1
     if (i > j) {
         return -1;
     }
-    // Вычислить средний индекс m
+    // Вычислить индекс середины m
     const m = i + ((j - i) >> 1);
     if (nums[m] < target) {
         // Рекурсивная подзадача f(m+1, j)
@@ -34,7 +34,7 @@ function binarySearch(nums: number[], target: number): number {
 /* Driver Code */
 const target = 6;
 const nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
-// Бинарный поиск (двусторонний закрытый интервал)
+// Бинарный поиск (двусторонне замкнутый интервал)
 const index = binarySearch(nums, target);
 console.log(`Индекс целевого элемента 6 = ${index}`);
 

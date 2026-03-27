@@ -18,8 +18,8 @@ def dfs(
     l: int,
     r: int,
 ) -> TreeNode | None:
-    """Построение двоичного дерева: разделяй и властвуй"""
-    # Завершить, если диапазон поддерева пуст
+    """Построить двоичное дерево: разделяй и властвуй"""
+    # Завершить при пустом диапазоне поддерева
     if r - l < 0:
         return None
     # Инициализировать корневой узел
@@ -36,7 +36,7 @@ def dfs(
 
 def build_tree(preorder: list[int], inorder: list[int]) -> TreeNode | None:
     """Построить двоичное дерево"""
-    # Инициализировать хеш-таблицу для хранения отображения элементов inorder в индексы
+    # Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
     inorder_map = {val: i for i, val in enumerate(inorder)}
     root = dfs(preorder, inorder_map, 0, 0, len(inorder) - 1)
     return root
@@ -46,7 +46,7 @@ def build_tree(preorder: list[int], inorder: list[int]) -> TreeNode | None:
 if __name__ == "__main__":
     preorder = [3, 9, 2, 1, 7]
     inorder = [9, 3, 1, 2, 7]
-    print(f"Прямой обход = {preorder}")
+    print(f"Предварительный обход = {preorder}")
     print(f"Симметричный обход = {inorder}")
 
     root = build_tree(preorder, inorder)

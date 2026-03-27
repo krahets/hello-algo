@@ -22,12 +22,12 @@ Queue *newQueue() {
     return q;
 }
 
-/* Проверить, пуста ли очередь */
+/* Проверка, пуста ли очередь */
 int isEmpty(Queue *q) {
     return q->size == 0;
 }
 
-/* Операция помещения в очередь */
+/* Операция добавления в очередь */
 void enqueue(Queue *q, Vertex *vet) {
     q->vertices[q->rear] = vet;
     q->rear = (q->rear + 1) % MAX_SIZE;
@@ -42,9 +42,9 @@ Vertex *dequeue(Queue *q) {
     return vet;
 }
 
-/* Проверить, посещалась ли вершина */
+/* Проверить, была ли вершина уже посещена */
 int isVisited(Vertex **visited, int size, Vertex *vet) {
-    // Найти узел обходом за время O(n)
+    // Искать узел обходом за O(n) времени
     for (int i = 0; i < size; i++) {
         if (visited[i] == vet)
             return 1;
@@ -53,7 +53,7 @@ int isVisited(Vertex **visited, int size, Vertex *vet) {
 }
 
 /* Обход в ширину */
-// Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
 void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize, Vertex **visited, int *visitedSize) {
     // Очередь используется для реализации BFS
     Queue *queue = newQueue();
@@ -61,15 +61,15 @@ void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize,
     visited[(*visitedSize)++] = startVet;
     // Начиная с вершины vet, продолжать цикл, пока не будут посещены все вершины
     while (!isEmpty(queue)) {
-        Vertex *vet = dequeue(queue); // Извлечь из очереди вершину из головы
-        res[(*resSize)++] = vet;      // Записать посещенную вершину
-        // Обойти все смежные вершины этой вершины
+        Vertex *vet = dequeue(queue); // Извлечь головную вершину из очереди
+        res[(*resSize)++] = vet;      // Отметить посещенную вершину
+        // Обойти все смежные вершины данной вершины
         AdjListNode *node = findNode(graph, vet);
         while (node != NULL) {
             // Пропустить уже посещенную вершину
             if (!isVisited(visited, *visitedSize, node->vertex)) {
                 enqueue(queue, node->vertex);             // Помещать в очередь только непосещенные вершины
-                visited[(*visitedSize)++] = node->vertex; // Пометить эту вершину как посещенную
+                visited[(*visitedSize)++] = node->vertex; // Отметить эту вершину как посещенную
             }
             node = node->next;
         }
@@ -80,7 +80,7 @@ void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize,
 
 /* Driver Code */
 int main() {
-    // Инициализировать неориентированный граф
+    // Инициализация неориентированного графа
     int vals[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     int size = sizeof(vals) / sizeof(vals[0]);
     Vertex **v = valsToVets(vals, size);
@@ -98,7 +98,7 @@ int main() {
     printf("\nПосле инициализации граф имеет вид\n");
     printGraph(graph);
 
-    // обход в ширину
+    // Обход в ширину
     // Последовательность обхода вершин
     Vertex *res[MAX_SIZE];
     int resSize = 0;
@@ -106,7 +106,7 @@ int main() {
     Vertex *visited[MAX_SIZE];
     int visitedSize = 0;
     graphBFS(graph, v[0], res, &resSize, visited, &visitedSize);
-    printf("\nПоследовательность вершин при обходе в ширину (BFS):\n");
+    printf("\nПоследовательность вершин при обходе в ширину (BFS)\n");
     printArray(vetsToVals(res, resSize), resSize);
 
     // Освободить память

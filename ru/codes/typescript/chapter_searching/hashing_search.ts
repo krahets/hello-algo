@@ -8,8 +8,8 @@ import { ListNode, arrToLinkedList } from '../modules/ListNode';
 
 /* Хеш-поиск (массив) */
 function hashingSearchArray(map: Map<number, number>, target: number): number {
-    // У хеш-таблицы key: целевой элемент, value: индекс
-    // Если такого key в хеш-таблице нет, вернуть -1
+    // key хеш-таблицы: целевой элемент, value: индекс
+    // Если такого key нет в хеш-таблице, вернуть -1
     return map.has(target) ? (map.get(target) as number) : -1;
 }
 
@@ -18,8 +18,8 @@ function hashingSearchLinkedList(
     map: Map<number, ListNode>,
     target: number
 ): ListNode | null {
-    // У хеш-таблицы key: целевое значение узла, value: объект узла
-    // Если такого key в хеш-таблице нет, вернуть null
+    // key хеш-таблицы: значение целевого узла, value: объект узла
+    // Если такого key нет в хеш-таблице, вернуть null
     return map.has(target) ? (map.get(target) as ListNode) : null;
 }
 
@@ -28,7 +28,7 @@ const target = 3;
 
 /* Хеш-поиск (массив) */
 const nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
-// Инициализировать хеш-таблицу
+// Инициализация хеш-таблицы
 const map = new Map();
 for (let i = 0; i < nums.length; i++) {
     map.set(nums[i], i); // key: элемент, value: индекс
@@ -38,13 +38,13 @@ console.log('Индекс целевого элемента 3 = ' + index);
 
 /* Хеш-поиск (связный список) */
 let head = arrToLinkedList(nums);
-// Инициализировать хеш-таблицу
+// Инициализация хеш-таблицы
 const map1 = new Map();
 while (head != null) {
     map1.set(head.val, head); // key: значение узла, value: узел
     head = head.next;
 }
 const node = hashingSearchLinkedList(map1, target);
-console.log('Объект узла, соответствующий целевому значению 3, равен', node);
+console.log('Объект узла со значением 3 =', node);
 
 export {};

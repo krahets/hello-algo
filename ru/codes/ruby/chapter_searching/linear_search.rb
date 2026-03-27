@@ -8,7 +8,7 @@ require_relative '../utils/list_node'
 
 # ## Линейный поиск (массив) ###
 def linear_search_array(nums, target)
-  # Перебрать массив
+  # Обход массива
   for i in 0...nums.length
     return i if nums[i] == target # Целевой элемент найден, вернуть его индекс
   end
@@ -40,5 +40,5 @@ if __FILE__ == $0
   # Выполнить линейный поиск в связном списке
   head = arr_to_linked_list(nums)
   node = linear_search_linkedlist(head, target)
-  puts "Объект узла, соответствующий целевому значению 3, равен #{node}"
+  puts "Объект узла со значением 3 = #{node}"
 end

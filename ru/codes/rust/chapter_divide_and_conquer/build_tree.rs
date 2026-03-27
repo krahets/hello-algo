@@ -8,7 +8,7 @@ use hello_algo_rust::include::{print_util, TreeNode};
 use std::collections::HashMap;
 use std::{cell::RefCell, rc::Rc};
 
-/* Построение двоичного дерева: разделяй и властвуй */
+/* Построить двоичное дерево: разделяй и властвуй */
 fn dfs(
     preorder: &[i32],
     inorder_map: &HashMap<i32, i32>,
@@ -16,7 +16,7 @@ fn dfs(
     l: i32,
     r: i32,
 ) -> Option<Rc<RefCell<TreeNode>>> {
-    // Завершить, если диапазон поддерева пуст
+    // Завершить при пустом диапазоне поддерева
     if r - l < 0 {
         return None;
     }
@@ -34,7 +34,7 @@ fn dfs(
 
 /* Построить двоичное дерево */
 fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
-    // Инициализировать хеш-таблицу для хранения отображения элементов inorder в индексы
+    // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
     let mut inorder_map: HashMap<i32, i32> = HashMap::new();
     for i in 0..inorder.len() {
         inorder_map.insert(inorder[i], i as i32);
@@ -47,8 +47,8 @@ fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>
 fn main() {
     let preorder = [3, 9, 2, 1, 7];
     let inorder = [9, 3, 1, 2, 7];
-    println!("Симметричный обход = {:?}", preorder);
-    println!("Прямой обход = {:?}", inorder);
+    println!("Предварительный обход = {:?}", preorder);
+    println!("Симметричный обход = {:?}", inorder);
 
     let root = build_tree(&preorder, &inorder);
     println!("Построенное двоичное дерево:");

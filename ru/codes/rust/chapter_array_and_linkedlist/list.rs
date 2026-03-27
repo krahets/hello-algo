@@ -7,18 +7,18 @@ use hello_algo_rust::include::print_util;
 
 /* Driver Code */
 fn main() {
-    // Инициализировать список
+    // Инициализация списка
     let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     print!("Список nums = ");
     print_util::print_array(&nums);
 
-    // Получить доступ к элементу
+    // Доступ к элементу
     let num = nums[1];
-    println!("\nобратиться киндекс 1 поэлемент, получаем num = {num}");
+    println!("\nЭлемент по индексу 1: num = {num}");
 
-    // Обновить элемент
+    // Обновление элемента
     nums[1] = 0;
-    print!("После обновления элемента по индексу 1 на 0 получаем nums = ");
+    print!("После обновления элемента по индексу 1 до 0 nums = ");
     print_util::print_array(&nums);
 
     // Очистить список
@@ -26,23 +26,23 @@ fn main() {
     print!("\nПосле очистки списка nums = ");
     print_util::print_array(&nums);
 
-    // Добавить элемент в конец
+    // Добавление элемента в конец
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
-    print!("\nДобавитьэлементпосле nums =");
+    print!("\nПосле добавления элементов nums = ");
     print_util::print_array(&nums);
 
-    // Вставить элемент в середину
+    // Вставка элемента в середину
     nums.insert(3, 6);
-    print!("\nПосле вставки числа 6 по индексу 3 получаем nums =");
+    print!("\nПосле вставки числа 6 по индексу 3 nums = ");
     print_util::print_array(&nums);
 
-    // Удалить элемент
+    // Удаление элемента
     nums.remove(3);
-    print!("\nУдалитьиндекс 3 поэлемент, получаем nums =");
+    print!("\nПосле удаления элемента по индексу 3 nums = ");
     print_util::print_array(&nums);
 
     // Обходить список по индексам
@@ -61,7 +61,7 @@ fn main() {
     nums.append(&mut nums1); // После append (перемещение) nums1 становится пустым!
 
     // nums.extend(&nums1);   // extend (заимствование), nums1 можно продолжать использовать
-    print!("\nПосле присоединения списка nums1 к nums получаем nums =");
+    print!("\nПосле конкатенации списка nums1 к nums nums = ");
     print_util::print_array(&nums);
 
     // Отсортировать список

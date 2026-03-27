@@ -7,7 +7,7 @@ const utils = @import("utils");
 
 // Случайный доступ к элементу
 pub fn randomAccess(nums: []const i32) i32 {
-    // Случайно выбрать целое число в интервале [0, nums.len)
+    // Случайным образом выбрать целое число из интервала [0, nums.len)
     const random_index = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
     // Получить и вернуть случайный элемент
     const randomNum = nums[random_index];
@@ -23,13 +23,13 @@ pub fn extend(allocator: std.mem.Allocator, nums: []const i32, enlarge: usize) !
     // Скопировать все элементы исходного массива в новый массив
     std.mem.copyForwards(i32, res, nums);
 
-    // Вернуть новый расширенный массив
+    // Вернуть новый массив после расширения
     return res;
 }
 
-// Вставить элемент num в массив по индексу index
+// Вставить элемент num по индексу index в массив
 pub fn insert(nums: []i32, num: i32, index: usize) void {
-    // Сдвинуть индекс index и все последующие элементы на одну позицию назад
+    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
     var i = nums.len - 1;
     while (i > index) : (i -= 1) {
         nums[i] = nums[i - 1];
@@ -47,11 +47,11 @@ pub fn remove(nums: []i32, index: usize) void {
     }
 }
 
-// Перебрать массив
+// Обход массива
 pub fn traverse(nums: []const i32) void {
     var count: i32 = 0;
 
-    // Обходить массив по индексам
+    // Обход массива по индексам
     var i: usize = 0;
     while (i < nums.len) : (i += 1) {
         count += nums[i];
@@ -80,44 +80,44 @@ pub fn find(nums: []i32, target: i32) i32 {
 
 // Driver Code
 pub fn run() !void {
-    // Инициализировать массив
+    // Инициализация массива
     const arr = [_]i32{0} ** 5;
-    std.debug.print("массив arr = {}\n", .{utils.fmt.slice(&arr)});
+    std.debug.print("Массив arr = {}\n", .{utils.fmt.slice(&arr)});
 
-    // массивсрез
+    // Срез массива
     var array = [_]i32{ 1, 3, 2, 5, 4 };
     var known_at_runtime_zero: usize = 0;
     _ = &known_at_runtime_zero;
-    var nums = array[known_at_runtime_zero..array.len]; // Преобразовать указатель в срез с помощью runtime-переменной known_at_runtime_zero
+    var nums = array[known_at_runtime_zero..array.len]; // Превратить указатель в срез через известную во время выполнения переменную known_at_runtime_zero
     std.debug.print("Массив nums = {}\n", .{utils.fmt.slice(nums)});
 
     // Случайный доступ
     const randomNum = randomAccess(nums);
-    std.debug.print("Полученный случайный элемент из nums {}\n", .{randomNum});
+    std.debug.print("Случайный элемент из nums = {}\n", .{randomNum});
 
-    // Инициализировать распределитель памяти
+    // Инициализация аллокатора памяти
     var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     defer arena.deinit();
     const allocator = arena.allocator();
 
     // Расширение длины
     nums = try extend(allocator, nums, 3);
-    std.debug.print("После расширения длины массива до 8 получаем nums = {}\n", .{utils.fmt.slice(nums)});
+    std.debug.print("После расширения длины массива до 8 nums = {}\n", .{utils.fmt.slice(nums)});
 
-    // Вставить элемент
+    // Вставка элемента
     insert(nums, 6, 3);
-    std.debug.print("После вставки числа 6 по индексу 3 получаем nums = {}\n", .{utils.fmt.slice(nums)});
+    std.debug.print("После вставки числа 6 по индексу 3 nums = {}\n", .{utils.fmt.slice(nums)});
 
-    // Удалить элемент
+    // Удаление элемента
     remove(nums, 2);
-    std.debug.print("Удалитьиндекс 2 поэлемент, получаем nums = {}\n", .{utils.fmt.slice(nums)});
+    std.debug.print("После удаления элемента по индексу 2 nums = {}\n", .{utils.fmt.slice(nums)});
 
-    // Перебрать массив
+    // Обход массива
     traverse(nums);
 
-    // Найти элемент
+    // Поиск элемента
     const index = find(nums, 3);
-    std.debug.print("Поиск элемента 3 в nums дает индекс = {}\n", .{index});
+    std.debug.print("Поиск элемента 3 в nums: индекс = {}\n", .{index});
 
     std.debug.print("\n", .{});
 }

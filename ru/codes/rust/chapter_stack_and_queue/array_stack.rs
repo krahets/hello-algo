@@ -12,19 +12,19 @@ struct ArrayStack<T> {
 }
 
 impl<T> ArrayStack<T> {
-    /* Инициализировать стек */
+    /* Инициализация стека */
     fn new() -> ArrayStack<T> {
         ArrayStack::<T> {
             stack: Vec::<T>::new(),
         }
     }
 
-    /* Получить длину стека */
+    /* Получение длины стека */
     fn size(&self) -> usize {
         self.stack.len()
     }
 
-    /* Проверить, пуст ли стек */
+    /* Проверка, пуст ли стек */
     fn is_empty(&self) -> bool {
         self.size() == 0
     }
@@ -39,10 +39,10 @@ impl<T> ArrayStack<T> {
         self.stack.pop()
     }
 
-    /* Получить верхний элемент стека */
+    /* Доступ к верхнему элементу стека */
     fn peek(&self) -> Option<&T> {
         if self.is_empty() {
-            panic!("Стек пуст")
+            panic!("стек пуст")
         };
         self.stack.last()
     }
@@ -55,10 +55,10 @@ impl<T> ArrayStack<T> {
 
 /* Driver Code */
 fn main() {
-    // Инициализировать стек
+    // Инициализация стека
     let mut stack = ArrayStack::<i32>::new();
 
-    // Поместить элемент в стек
+    // Помещение элемента в стек
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -67,20 +67,20 @@ fn main() {
     print!("Стек stack = ");
     print_util::print_array(stack.to_array());
 
-    // Получить верхний элемент стека
+    // Доступ к верхнему элементу стека
     let peek = stack.peek().unwrap();
-    print!("\nвершина стекаэлемент peek = {}", peek);
+    print!("\nВерхний элемент peek = {}", peek);
 
-    // Извлечь элемент из стека
+    // Извлечение элемента из стека
     let pop = stack.pop().unwrap();
-    print!("\nЭлемент, извлеченный из стека, pop = {pop}, stack после извлечения = ");
+    print!("\nИзвлеченный элемент pop = {pop}, stack после извлечения = ");
     print_util::print_array(stack.to_array());
 
-    // Получить длину стека
+    // Получение длины стека
     let size = stack.size();
     print!("\nДлина стека size = {size}");
 
-    // Проверить, пуста ли структура
+    // Проверка на пустоту
     let is_empty = stack.is_empty();
-    print!("\nстекпуст ли = {is_empty}");
+    print!("\nПуст ли стек = {is_empty}");
 }

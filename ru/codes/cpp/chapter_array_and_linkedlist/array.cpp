@@ -8,7 +8,7 @@
 
 /* Случайный доступ к элементу */
 int randomAccess(int *nums, int size) {
-    // Случайно выбрать число в интервале [0, size)
+    // Случайным образом выбрать число из интервала [0, size)
     int randomIndex = rand() % size;
     // Получить и вернуть случайный элемент
     int randomNum = nums[randomIndex];
@@ -25,13 +25,13 @@ int *extend(int *nums, int size, int enlarge) {
     }
     // Освободить память
     delete[] nums;
-    // Вернуть новый расширенный массив
+    // Вернуть новый массив после расширения
     return res;
 }
 
-/* Вставить элемент num в массив по индексу index */
+/* Вставить элемент num по индексу index в массив */
 void insert(int *nums, int size, int num, int index) {
-    // Сдвинуть индекс index и все последующие элементы на одну позицию назад
+    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
     for (int i = size - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
@@ -47,10 +47,10 @@ void remove(int *nums, int size, int index) {
     }
 }
 
-/* Перебрать массив */
+/* Обход массива */
 void traverse(int *nums, int size) {
     int count = 0;
-    // Обходить массив по индексам
+    // Обход массива по индексам
     for (int i = 0; i < size; i++) {
         count += nums[i];
     }
@@ -67,7 +67,7 @@ int find(int *nums, int size, int target) {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать массив */
+    /* Инициализация массива */
     int size = 5;
     int *arr = new int[size];
     cout << "Массив arr = ";
@@ -79,31 +79,31 @@ int main() {
 
     /* Случайный доступ */
     int randomNum = randomAccess(nums, size);
-    cout << "Полученный случайный элемент из nums " << randomNum << endl;
+    cout << "Случайный элемент из nums = " << randomNum << endl;
 
     /* Расширение длины */
     int enlarge = 3;
     nums = extend(nums, size, enlarge);
     size += enlarge;
-    cout << "После расширения длины массива до 8 получаем nums = ";
+    cout << "После увеличения длины массива до 8 nums = ";
     printArray(nums, size);
 
-    /* Вставить элемент */
+    /* Вставка элемента */
     insert(nums, size, 6, 3);
-    cout << "После вставки числа 6 по индексу 3 получаем nums = ";
+    cout << "После вставки числа 6 по индексу 3 nums = ";
     printArray(nums, size);
 
-    /* Удалить элемент */
+    /* Удаление элемента */
     remove(nums, size, 2);
-    cout << "После удаления элемента по индексу 2 получаем nums = ";
+    cout << "После удаления элемента по индексу 2 nums = ";
     printArray(nums, size);
 
-    /* Перебрать массив */
+    /* Обход массива */
     traverse(nums, size);
 
-    /* Найти элемент */
+    /* Поиск элемента */
     int index = find(nums, size, 3);
-    cout << "Поиск элемента 3 в nums дает индекс = " << index << endl;
+    cout << "Индекс элемента 3 в nums = " << index << endl;
 
     // Освободить память
     delete[] arr;

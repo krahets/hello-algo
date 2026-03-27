@@ -39,7 +39,7 @@ macro_rules! op_vec {
     };
 }
 
-// Правила сериализации см.:
+// Правила кодирования сериализации см.:
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
 // Массивное представление двоичного дерева:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]

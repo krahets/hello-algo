@@ -8,39 +8,39 @@ import "fmt"
 
 /* Класс неориентированного графа на основе матрицы смежности */
 type graphAdjMat struct {
-	// Список вершин: элементы представляют «значения вершин», а индексы представляют «индексы вершин»
+	// Список вершин: элементы представляют «значения вершин», а индексы — «индексы вершин»
 	vertices []int
-	// Матрица смежности, индексы строк и столбцов соответствуют «индексам вершин»
+	// Матрица смежности, где индексы строк и столбцов соответствуют «индексам вершин»
 	adjMat [][]int
 }
 
 /* Конструктор */
 func newGraphAdjMat(vertices []int, edges [][]int) *graphAdjMat {
-	// Добавить вершину
+	// Добавление вершины
 	n := len(vertices)
 	adjMat := make([][]int, n)
 	for i := range adjMat {
 		adjMat[i] = make([]int, n)
 	}
-	// Инициализироватьграф
+	// Инициализировать граф
 	g := &graphAdjMat{
 		vertices: vertices,
 		adjMat:   adjMat,
 	}
-	// Добавить ребро
-	// Обратите внимание: элементы edges представляют индексы вершин, то есть соответствуют индексам элементов vertices
+	// Добавить ребра
+	// Обратите внимание: элементы edges представляют собой индексы вершин, то есть соответствуют индексам элементов vertices
 	for i := range edges {
 		g.addEdge(edges[i][0], edges[i][1])
 	}
 	return g
 }
 
-/* Получить количество вершин */
+/* Получить число вершин */
 func (g *graphAdjMat) size() int {
 	return len(g.vertices)
 }
 
-/* Добавить вершину */
+/* Добавление вершины */
 func (g *graphAdjMat) addVertex(val int) {
 	n := g.size()
 	// Добавить значение новой вершины в список вершин
@@ -54,7 +54,7 @@ func (g *graphAdjMat) addVertex(val int) {
 	}
 }
 
-/* Удалить вершину */
+/* Удаление вершины */
 func (g *graphAdjMat) removeVertex(index int) {
 	if index >= g.size() {
 		return
@@ -69,7 +69,7 @@ func (g *graphAdjMat) removeVertex(index int) {
 	}
 }
 
-/* Добавить ребро */
+/* Добавление ребра */
 // Параметры i и j соответствуют индексам элементов vertices
 func (g *graphAdjMat) addEdge(i, j int) {
 	// Обработка выхода индекса за границы и случая равенства
@@ -81,7 +81,7 @@ func (g *graphAdjMat) addEdge(i, j int) {
 	g.adjMat[j][i] = 1
 }
 
-/* Удалить ребро */
+/* Удаление ребра */
 // Параметры i и j соответствуют индексам элементов vertices
 func (g *graphAdjMat) removeEdge(i, j int) {
 	// Обработка выхода индекса за границы и случая равенства
@@ -94,7 +94,7 @@ func (g *graphAdjMat) removeEdge(i, j int) {
 
 /* Вывести матрицу смежности */
 func (g *graphAdjMat) print() {
-	fmt.Printf("\tсписок вершин = %v\n", g.vertices)
+	fmt.Printf("\tСписок вершин = %v\n", g.vertices)
 	fmt.Printf("\tМатрица смежности = \n")
 	for i := range g.adjMat {
 		fmt.Printf("\t\t\t%v\n", g.adjMat[i])

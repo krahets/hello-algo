@@ -11,26 +11,26 @@ public class built_in_hash {
     public void Test() {
         int num = 3;
         int hashNum = num.GetHashCode();
-        Console.WriteLine("Хеш-значение целого числа " + num + " равно " + hashNum);
+        Console.WriteLine("Хеш-значение целого числа " + num + " = " + hashNum);
 
         bool bol = true;
         int hashBol = bol.GetHashCode();
-        Console.WriteLine("Хеш-значение логического значения " + bol + " равно " + hashBol);
+        Console.WriteLine("Хеш-значение булева значения " + bol + " = " + hashBol);
 
         double dec = 3.14159;
         int hashDec = dec.GetHashCode();
-        Console.WriteLine("Хеш-значение десятичного числа " + dec + " равно " + hashDec);
+        Console.WriteLine("Хеш-значение десятичного числа " + dec + " = " + hashDec);
 
         string str = "Hello Algo";
         int hashStr = str.GetHashCode();
-        Console.WriteLine("Хеш-значение строки " + str + " равно " + hashStr);
+        Console.WriteLine("Хеш-значение строки " + str + " = " + hashStr);
 
         object[] arr = [12836, "Сяо Ха"];
         int hashTup = arr.GetHashCode();
-        Console.WriteLine("массив [" + string.Join(", ", arr) + "] равно" + hashTup);
+        Console.WriteLine("Хеш-значение массива [" + string.Join(", ", arr) + "] = " + hashTup);
 
         ListNode obj = new(0);
         int hashObj = obj.GetHashCode();
-        Console.WriteLine("объект узла" + obj + " равно " + hashObj);
+        Console.WriteLine("Хеш-значение объекта узла " + obj + " = " + hashObj);
     }
 }

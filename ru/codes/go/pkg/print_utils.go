@@ -11,20 +11,20 @@ import (
 	"strings"
 )
 
-// PrintSlice Вывестисрез
+// PrintSlice: вывести срез
 func PrintSlice[T any](nums []T) {
 	fmt.Printf("%v", nums)
 	fmt.Println()
 }
 
-// PrintList Вывестисписок
+// PrintList: вывести список
 func PrintList(list *list.List) {
 	if list.Len() == 0 {
 		fmt.Print("[]\n")
 		return
 	}
 	e := list.Front()
-	// Принудительное преобразование в string повлияет на эффективность
+	// Преобразование к string повлияет на эффективность
 	fmt.Print("[")
 	for e.Next() != nil {
 		fmt.Print(e.Value, " ")
@@ -33,14 +33,14 @@ func PrintList(list *list.List) {
 	fmt.Print(e.Value, "]\n")
 }
 
-// PrintMap Вывести хеш-таблицу
+// PrintMap: вывести хеш-таблицу
 func PrintMap[K comparable, V any](m map[K]V) {
 	for key, value := range m {
 		fmt.Println(key, "->", value)
 	}
 }
 
-// PrintHeap Вывестикуча
+// PrintHeap: вывести кучу
 func PrintHeap(h []any) {
 	fmt.Printf("Массивное представление кучи:")
 	fmt.Printf("%v", h)
@@ -49,7 +49,7 @@ func PrintHeap(h []any) {
 	PrintTree(root)
 }
 
-// PrintLinkedList Вывестисвязный список
+// PrintLinkedList: вывести связный список
 func PrintLinkedList(node *ListNode) {
 	if node == nil {
 		return
@@ -63,13 +63,13 @@ func PrintLinkedList(node *ListNode) {
 	fmt.Println(builder.String())
 }
 
-// PrintTree Вывестидвоичное дерево
+// PrintTree: вывести двоичное дерево
 func PrintTree(root *TreeNode) {
 	printTreeHelper(root, nil, false)
 }
 
-// printTreeHelper Вывестидвоичное дерево
-// This tree printer is borrowed from TECHIE DELIGHT
+// printTreeHelper: вывести двоичное дерево
+// Этот вывод дерева заимствован из TECHIE DELIGHT
 // https://www.techiedelight.com/c-program-print-binary-tree/
 func printTreeHelper(root *TreeNode, prev *trunk, isRight bool) {
 	if root == nil {

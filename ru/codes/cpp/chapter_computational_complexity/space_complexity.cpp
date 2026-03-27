@@ -12,7 +12,7 @@ int func() {
     return 0;
 }
 
-/* Константная сложность */
+/* Постоянная сложность */
 void constant(int n) {
     // Константы, переменные и объекты занимают O(1) памяти
     const int a = 0;
@@ -23,7 +23,7 @@ void constant(int n) {
     for (int i = 0; i < n; i++) {
         int c = 0;
     }
-    // Функция в цикле занимает O(1) памяти
+    // Функции в цикле занимают O(1) памяти
     for (int i = 0; i < n; i++) {
         func();
     }
@@ -31,14 +31,14 @@ void constant(int n) {
 
 /* Линейная сложность */
 void linear(int n) {
-    // Массив длины n занимает пространство O(n)
+    // Массив длины n занимает O(n) памяти
     vector<int> nums(n);
-    // Список длины n занимает пространство O(n)
+    // Список длины n занимает O(n) памяти
     vector<ListNode> nodes;
     for (int i = 0; i < n; i++) {
         nodes.push_back(ListNode(i));
     }
-    // Хеш-таблица длины n занимает пространство O(n)
+    // Хеш-таблица длины n занимает O(n) памяти
     unordered_map<int, string> map;
     for (int i = 0; i < n; i++) {
         map[i] = to_string(i);
@@ -47,7 +47,7 @@ void linear(int n) {
 
 /* Линейная сложность (рекурсивная реализация) */
 void linearRecur(int n) {
-    cout << "Рекурсия: n = " << n << endl;
+    cout << "Рекурсия n = " << n << endl;
     if (n == 1)
         return;
     linearRecur(n - 1);
@@ -55,7 +55,7 @@ void linearRecur(int n) {
 
 /* Квадратичная сложность */
 void quadratic(int n) {
-    // Двумерный список занимает пространство O(n^2)
+    // Двумерный список занимает O(n^2) памяти
     vector<vector<int>> numMatrix;
     for (int i = 0; i < n; i++) {
         vector<int> tmp;
@@ -71,7 +71,7 @@ int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     vector<int> nums(n);
-    cout << "Рекурсия: n = " << n << ", длина nums = " << nums.size() << endl;
+    cout << "Рекурсия n = " << n << " , длина nums = " << nums.size() << endl;
     return quadraticRecur(n - 1);
 }
 
@@ -88,7 +88,7 @@ TreeNode *buildTree(int n) {
 /* Driver Code */
 int main() {
     int n = 5;
-    // Константная сложность
+    // Постоянная сложность
     constant(n);
     // Линейная сложность
     linear(n);

@@ -12,15 +12,15 @@ from chapter_hashing.array_hash_map import Pair
 
 
 class HashMapChaining:
-    """Хеш-таблица с цепочечной адресацией"""
+    """Хеш-таблица с цепочками"""
 
     def __init__(self):
         """Конструктор"""
-        self.size = 0  # Количество пар ключ-значение
+        self.size = 0  # Число пар ключ-значение
         self.capacity = 4  # Вместимость хеш-таблицы
-        self.load_thres = 2.0 / 3.0  # Порог коэффициента загрузки, запускающий расширение
+        self.load_thres = 2.0 / 3.0  # Порог коэффициента загрузки для запуска расширения
         self.extend_ratio = 2  # Коэффициент расширения
-        self.buckets = [[] for _ in range(self.capacity)]  # Массив бакетов
+        self.buckets = [[] for _ in range(self.capacity)]  # Массив корзин
 
     def hash_func(self, key: int) -> int:
         """Хеш-функция"""
@@ -34,7 +34,7 @@ class HashMapChaining:
         """Операция поиска"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # Обойти бакет; если найден key, вернуть соответствующее val
+        # Обойти корзину; если найден key, вернуть соответствующее val
         for pair in bucket:
             if pair.key == key:
                 return pair.val
@@ -48,7 +48,7 @@ class HashMapChaining:
             self.extend()
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # Обойти бакет; если встретился указанный key, обновить соответствующее val и вернуть результат
+        # Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
         for pair in bucket:
             if pair.key == key:
                 pair.val = val
@@ -62,7 +62,7 @@ class HashMapChaining:
         """Операция удаления"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # Обойти бакет и удалить из него пару ключ-значение
+        # Обойти корзину и удалить из нее пару ключ-значение
         for pair in bucket:
             if pair.key == key:
                 bucket.remove(pair)
@@ -73,7 +73,7 @@ class HashMapChaining:
         """Расширить хеш-таблицу"""
         # Временно сохранить исходную хеш-таблицу
         buckets = self.buckets
-        # Инициализировать новую хеш-таблицу после расширения
+        # Инициализация новой хеш-таблицы после расширения
         self.capacity *= self.extend_ratio
         self.buckets = [[] for _ in range(self.capacity)]
         self.size = 0
@@ -93,26 +93,26 @@ class HashMapChaining:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализировать хеш-таблицу
+    # Инициализация хеш-таблицы
     hashmap = HashMapChaining()
 
     # Операция добавления
-    # Добавить в хеш-таблицу пару ключ-значение (key, value)
+    # Добавить пару (key, value) в хеш-таблицу
     hashmap.put(12836, "Сяо Ха")
     hashmap.put(15937, "Сяо Ло")
     hashmap.put(16750, "Сяо Суань")
     hashmap.put(13276, "Сяо Фа")
-    hashmap.put(10583, "Утенок")
-    print("\nПосле добавления хеш-таблица выглядит так\n[Key1 -> Value1, Key2 -> Value2, ...]")
+    hashmap.put(10583, "Сяо Я")
+    print("\nПосле завершения добавления хеш-таблица имеет вид\n[Key1 -> Value1, Key2 -> Value2, ...]")
     hashmap.print()
 
     # Операция поиска
     # Передать ключ key в хеш-таблицу и получить значение value
     name = hashmap.get(13276)
-    print("\nПо номеру студента 13276 найдено имя " + name)
+    print("\nДля номера 13276 найдено имя " + name)
 
     # Операция удаления
-    # Удалить из хеш-таблицы пару ключ-значение (key, value)
+    # Удалить пару (key, value) из хеш-таблицы
     hashmap.remove(12836)
-    print("\nПосле удаления 12836 хеш-таблица выглядит так\n[Key1 -> Value1, Key2 -> Value2, ...]")
+    print("\nПосле удаления 12836 хеш-таблица имеет вид\n[Key1 -> Value1, Key2 -> Value2, ...]")
     hashmap.print()

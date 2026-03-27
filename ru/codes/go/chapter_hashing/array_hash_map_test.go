@@ -10,42 +10,42 @@ import (
 )
 
 func TestArrayHashMap(t *testing.T) {
-	/* Инициализировать хеш-таблицу */
+	/* Инициализация хеш-таблицы */
 	hmap := newArrayHashMap()
 
 	/* Операция добавления */
-	// Добавить в хеш-таблицу пару ключ-значение (key, value)
+	// Добавить пару (key, value) в хеш-таблицу
 	hmap.put(12836, "Сяо Ха")
 	hmap.put(15937, "Сяо Ло")
 	hmap.put(16750, "Сяо Суань")
 	hmap.put(13276, "Сяо Фа")
-	hmap.put(10583, "Утенок")
-	fmt.Println("\nПосле добавления хеш-таблица выглядит так\nKey -> Value")
+	hmap.put(10583, "Сяо Я")
+	fmt.Println("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение")
 	hmap.print()
 
 	/* Операция поиска */
-	// Передать ключ key в хеш-таблицу и получить значение value
+	// Ввести в хеш-таблицу ключ key и получить значение value
 	name := hmap.get(15937)
-	fmt.Println("\nПо номеру студента 15937 найдено имя " + name)
+	fmt.Println("\nДля номера 15937 найдено имя " + name)
 
 	/* Операция удаления */
-	// Удалить из хеш-таблицы пару ключ-значение (key, value)
+	// Удалить пару (key, value) из хеш-таблицы
 	hmap.remove(10583)
-	fmt.Println("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value")
+	fmt.Println("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение")
 	hmap.print()
 
-	/* Перебрать хеш-таблицу */
-	fmt.Println("\nПеребираем пары Key->Value")
+	/* Обход хеш-таблицы */
+	fmt.Println("\nОтдельный обход пар ключ-значение")
 	for _, kv := range hmap.pairSet() {
 		fmt.Println(kv.key, " -> ", kv.val)
 	}
 
-	fmt.Println("\nОтдельно перебираем ключи Key")
+	fmt.Println("\nОтдельный обход ключей")
 	for _, key := range hmap.keySet() {
 		fmt.Println(key)
 	}
 
-	fmt.Println("\nОтдельно перебираем значения Value")
+	fmt.Println("\nОтдельный обход значений")
 	for _, val := range hmap.valueSet() {
 		fmt.Println(val)
 	}

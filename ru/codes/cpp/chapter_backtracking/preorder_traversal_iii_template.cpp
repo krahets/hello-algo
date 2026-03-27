@@ -38,13 +38,13 @@ void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<ve
         // Записать решение
         recordSolution(state, res);
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for (TreeNode *choice : choices) {
-        // Отсечение: проверить, допустим ли текущий выбор
+        // Отсечение: проверить допустимость выбора
         if (isValid(state, choice)) {
             // Попытка: сделать выбор и обновить состояние
             makeChoice(state, choice);
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             vector<TreeNode *> nextChoices{choice->left, choice->right};
             backtrack(state, nextChoices, res);
             // Откат: отменить выбор и восстановить предыдущее состояние
@@ -56,7 +56,7 @@ void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<ve
 /* Driver Code */
 int main() {
     TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
-    cout << "\nИнициализировать двоичное дерево" << endl;
+    cout << "\nИнициализация двоичного дерева" << endl;
     printTree(root);
 
     // Алгоритм бэктрекинга
@@ -65,7 +65,7 @@ int main() {
     vector<vector<TreeNode *>> res;
     backtrack(state, choices, res);
 
-    cout << "\nВывести все пути от корня до узла 7, при этом путь не должен содержать узлы со значением 3" << endl;
+    cout << "\nВывести все пути от корня к узлу 7, не содержащие узлов со значением 3" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {

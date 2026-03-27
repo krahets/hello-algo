@@ -4,7 +4,7 @@
  * Author: xBLACICEx (xBLACKICEx@outlook.com)
  */
 
-/* пара ключ-значение */
+/* Пара ключ-значение */
 #[derive(Debug, Clone, PartialEq)]
 pub struct Pair {
     pub key: i32,
@@ -17,7 +17,7 @@ pub struct ArrayHashMap {
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
-        // Инициализировать массив, содержащий 100 бакетов
+        // Инициализировать массив, содержащий 100 корзин
         Self {
             buckets: vec![None; 100],
         }
@@ -46,7 +46,7 @@ impl ArrayHashMap {
     /* Операция удаления */
     pub fn remove(&mut self, key: i32) {
         let index = self.hash_func(key);
-        // Установить None, обозначая удаление
+        // Присвоить None, что означает удаление
         self.buckets[index] = None;
     }
 
@@ -83,41 +83,41 @@ impl ArrayHashMap {
 }
 
 fn main() {
-    /* Инициализировать хеш-таблицу */
+    /* Инициализация хеш-таблицы */
     let mut map = ArrayHashMap::new();
     /* Операция добавления */
-    // Добавить пару ключ-значение (key, value) в хеш-таблицу
+    // Добавить пару (key, value) в хеш-таблицу
     map.put(12836, "Сяо Ха");
     map.put(15937, "Сяо Ло");
     map.put(16750, "Сяо Суань");
     map.put(13276, "Сяо Фа");
-    map.put(10583, "Утенок");
-    println!("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
+    map.put(10583, "Сяо Я");
+    println!("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
     map.print();
 
     /* Операция поиска */
-    // Передать ключ key в хеш-таблицу и получить значение value
+    // Ввести в хеш-таблицу ключ key и получить значение value
     let name = map.get(15937).unwrap();
-    println!("\nПо номеру студента 15937 найдено имя {}", name);
+    println!("\nДля номера 15937 найдено имя {}", name);
 
     /* Операция удаления */
-    // Удалить из хеш-таблицы пару ключ-значение (key, value)
+    // Удалить пару (key, value) из хеш-таблицы
     map.remove(10583);
-    println!("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value");
+    println!("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение");
     map.print();
 
-    /* Перебрать хеш-таблицу */
-    println!("\nПеребираем пары Key->Value");
+    /* Обход хеш-таблицы */
+    println!("\nОтдельный обход пар ключ-значение");
     for pair in map.entry_set() {
         println!("{} -> {}", pair.key, pair.val);
     }
 
-    println!("\nОтдельно перебираем ключи Key");
+    println!("\nОтдельный обход ключей");
     for key in map.key_set() {
         println!("{}", key);
     }
 
-    println!("\nОтдельно перебираем значения Value");
+    println!("\nОтдельный обход значений");
     for val in map.value_set() {
         println!("{}", val);
     }

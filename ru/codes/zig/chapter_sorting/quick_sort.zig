@@ -8,21 +8,21 @@ const inc = @import("include");
 // Класс быстрой сортировки
 const QuickSort = struct {
 
-    // Поменять элементы местами
+    // Обмен элементов
     pub fn swap(nums: []i32, i: usize, j: usize) void {
         var tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
-    // Разбиение методом двух указателей
+    // Разбиение с опорными указателями
     pub fn partition(nums: []i32, left: usize, right: usize) usize {
         // Взять nums[left] в качестве опорного элемента
         var i = left;
         var j = right;
         while (i < j) {
-            while (i < j and nums[j] >= nums[left]) j -= 1; // Искать справа налево первый элемент, меньший опорного
-            while (i < j and nums[i] <= nums[left]) i += 1; // Искать слева направо первый элемент, больший опорного
+            while (i < j and nums[j] >= nums[left]) j -= 1; // Идти справа налево в поисках первого элемента меньше опорного
+            while (i < j and nums[i] <= nums[left]) i += 1; // Идти слева направо в поисках первого элемента больше опорного
             swap(nums, i, j);   // Поменять эти два элемента местами
         }
         swap(nums, i, left);    // Переместить опорный элемент на границу двух подмассивов
@@ -33,7 +33,7 @@ const QuickSort = struct {
     pub fn quickSort(nums: []i32, left: usize, right: usize) void {
         // Завершить рекурсию, когда длина подмассива равна 1
         if (left >= right) return;
-        // Разбиение методом двух указателей
+        // Разбиение с опорными указателями
         var pivot = partition(nums, left, right);
         // Рекурсивно обработать левый и правый подмассивы
         quickSort(nums, left, pivot - 1);
@@ -44,7 +44,7 @@ const QuickSort = struct {
 // Класс быстрой сортировки (оптимизация медианным опорным элементом)
 const QuickSortMedian = struct {
 
-    // Поменять элементы местами
+    // Обмен элементов
     pub fn swap(nums: []i32, i: usize, j: usize) void {
         var tmp = nums[i];
         nums[i] = nums[j];
@@ -63,18 +63,18 @@ const QuickSortMedian = struct {
         return right;
     }
 
-    // Разбиение методом двух указателей (медиана трех)
+    // Разбиение с опорными указателями (медиана трех)
     pub fn partition(nums: []i32, left: usize, right: usize) usize {
         // Выбрать медиану из трех кандидатов
         var med = medianThree(nums, left, (left + right) / 2, right);
-        // Переместить медиану в самый левый конец массива
+        // Переместить медиану в крайний левый элемент массива
         swap(nums, left, med);
         // Взять nums[left] в качестве опорного элемента
         var i = left;
         var j = right;
         while (i < j) {
-            while (i < j and nums[j] >= nums[left]) j -= 1; // Искать справа налево первый элемент, меньший опорного
-            while (i < j and nums[i] <= nums[left]) i += 1; // Искать слева направо первый элемент, больший опорного
+            while (i < j and nums[j] >= nums[left]) j -= 1; // Идти справа налево в поисках первого элемента меньше опорного
+            while (i < j and nums[i] <= nums[left]) i += 1; // Идти слева направо в поисках первого элемента больше опорного
             swap(nums, i, j);   // Поменять эти два элемента местами
         }
         swap(nums, i, left);    // Переместить опорный элемент на границу двух подмассивов
@@ -85,7 +85,7 @@ const QuickSortMedian = struct {
     pub fn quickSort(nums: []i32, left: usize, right: usize) void {
         // Завершить рекурсию, когда длина подмассива равна 1
         if (left >= right) return;
-        // Разбиение методом двух указателей
+        // Разбиение с опорными указателями
         var pivot = partition(nums, left, right);
         if (pivot == 0) return;
         // Рекурсивно обработать левый и правый подмассивы
@@ -97,21 +97,21 @@ const QuickSortMedian = struct {
 // Класс быстрой сортировки (оптимизация глубины рекурсии)
 const QuickSortTailCall = struct {
 
-    // Поменять элементы местами
+    // Обмен элементов
     pub fn swap(nums: []i32, i: usize, j: usize) void {
         var tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
-    // Разбиение методом двух указателей
+    // Разбиение с опорными указателями
     pub fn partition(nums: []i32, left: usize, right: usize) usize {
         // Взять nums[left] в качестве опорного элемента
         var i = left;
         var j = right;
         while (i < j) {
-            while (i < j and nums[j] >= nums[left]) j -= 1; // Искать справа налево первый элемент, меньший опорного
-            while (i < j and nums[i] <= nums[left]) i += 1; // Искать слева направо первый элемент, больший опорного
+            while (i < j and nums[j] >= nums[left]) j -= 1; // Идти справа налево в поисках первого элемента меньше опорного
+            while (i < j and nums[i] <= nums[left]) i += 1; // Идти слева направо в поисках первого элемента больше опорного
             swap(nums, i, j);   // Поменять эти два элемента местами
         }
         swap(nums, i, left);    // Переместить опорный элемент на границу двух подмассивов
@@ -124,15 +124,15 @@ const QuickSortTailCall = struct {
         var right = right_;
         // Завершить рекурсию, когда длина подмассива равна 1
         while (left < right) {
-            // Операция разбиения методом двух указателей
+            // Операция разбиения с опорными указателями
             var pivot = partition(nums, left, right);
             // Выполнить быструю сортировку для более короткого из двух подмассивов
             if (pivot - left < right - pivot) {
                 quickSort(nums, left, pivot - 1);   // Рекурсивно отсортировать левый подмассив
-                left = pivot + 1;                   // Оставшийся неотсортированный диапазон равен [pivot + 1, right]
+                left = pivot + 1;                   // Оставшийся неотсортированный диапазон: [pivot + 1, right]
             } else {
                 quickSort(nums, pivot + 1, right);  // Рекурсивно отсортировать правый подмассив
-                right = pivot - 1;                  // Оставшийся неотсортированный диапазон равен [left, pivot - 1]
+                right = pivot - 1;                  // Оставшийся неотсортированный диапазон: [left, pivot - 1]
             }
         }
     }
@@ -146,16 +146,16 @@ pub fn main() !void {
     std.debug.print("После завершения быстрой сортировки nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums);
 
-    // Быстрая сортировка (оптимизация с медианным опорным элементом)
+    // Быстрая сортировка (оптимизация медианным опорным элементом)
     var nums1 = [_]i32{ 2, 4, 1, 0, 3, 5 };
     QuickSortMedian.quickSort(&nums1, 0, nums1.len - 1);
-    std.debug.print("\nПосле быстрой сортировки (оптимизация с медианным опорным элементом) nums = ", .{});
+    std.debug.print("\nПосле завершения быстрой сортировки (оптимизация медианным опорным элементом) nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums1);
 
     // Быстрая сортировка (оптимизация глубины рекурсии)
     var nums2 = [_]i32{ 2, 4, 1, 0, 3, 5 };
     QuickSortTailCall.quickSort(&nums2, 0, nums2.len - 1);
-    std.debug.print("\nПосле быстрой сортировки (оптимизация глубины рекурсии) nums = ", .{});
+    std.debug.print("\nПосле завершения быстрой сортировки (оптимизация глубины рекурсии) nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums2);
     
     _ = try std.io.getStdIn().reader().readByte();

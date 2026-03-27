@@ -12,16 +12,16 @@ def backtrack(state, choices, selected, res)
     return
   end
 
-  # Перебрать все варианты выбора
+  # Перебор всех вариантов выбора
   duplicated = Set.new
   choices.each_with_index do |choice, i|
-    # Отсечение: не допускается повторный выбор элемента и не допускается повторный выбор равных элементов
+    # Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
     if !selected[i] && !duplicated.include?(choice)
       # Попытка: сделать выбор и обновить состояние
       duplicated.add(choice)
       selected[i] = true
       state << choice
-      # Перейти к следующему варианту выбора
+      # Перейти к следующему выбору
       backtrack(state, choices, selected, res)
       # Откат: отменить выбор и восстановить предыдущее состояние
       selected[i] = false

@@ -9,7 +9,7 @@ package chapter_computational_complexity.iteration
 /* Цикл for */
 fun forLoop(n: Int): Int {
     var res = 0
-    // В цикле вычислить сумму 1, 2, ..., n-1, n
+    // Циклическое суммирование 1, 2, ..., n-1, n
     for (i in 1..n) {
         res += i
     }
@@ -19,23 +19,23 @@ fun forLoop(n: Int): Int {
 /* Цикл while */
 fun whileLoop(n: Int): Int {
     var res = 0
-    var i = 1 // Инициализировать управляющую переменную
-    // В цикле вычислить сумму 1, 2, ..., n-1, n
+    var i = 1 // Инициализация условной переменной
+    // Циклическое суммирование 1, 2, ..., n-1, n
     while (i <= n) {
         res += i
-        i++ // Обновить управляющую переменную
+        i++ // Обновить условную переменную
     }
     return res
 }
 
-/* Цикл while (с двумя обновлениями) */
+/* Цикл while (двойное обновление) */
 fun whileLoopII(n: Int): Int {
     var res = 0
-    var i = 1 // Инициализировать управляющую переменную
-    // В цикле вычислить сумму 1, 4, 10, ...
+    var i = 1 // Инициализация условной переменной
+    // Циклическое суммирование 1, 4, 10, ...
     while (i <= n) {
         res += i
-        // Обновить управляющую переменную
+        // Обновить условную переменную
         i++
         i *= 2
     }
@@ -45,9 +45,9 @@ fun whileLoopII(n: Int): Int {
 /* Двойной цикл for */
 fun nestedForLoop(n: Int): String {
     val res = StringBuilder()
-    // Цикл i = 1, 2, ..., n-1, n
+    // Цикл по i = 1, 2, ..., n-1, n
     for (i in 1..n) {
-        // Цикл j = 1, 2, ..., n-1, n
+        // Цикл по j = 1, 2, ..., n-1, n
         for (j in 1..n) {
             res.append(" ($i, $j), ")
         }
@@ -67,8 +67,8 @@ fun main() {
     println("\nРезультат суммирования в цикле while res = $res")
 
     res = whileLoopII(n)
-    println("\nРезультат суммирования в цикле while (с двумя обновлениями) res = $res")
+    println("\nРезультат суммирования в цикле while (двойное обновление) res = $res")
 
     val resStr = nestedForLoop(n)
-    println("\nРезультат обхода двойным циклом for $resStr")
+    println("\nРезультат обхода в двойном цикле for $resStr")
 }

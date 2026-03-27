@@ -11,15 +11,15 @@ fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &
         res.push(state);
         return;
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for i in 0..choices.len() {
         let choice = choices[i];
-        // Отсечение: не допускается повторный выбор элемента
+        // Отсечение: нельзя выбирать один и тот же элемент повторно
         if !selected[i] {
             // Попытка: сделать выбор и обновить состояние
             selected[i] = true;
             state.push(choice);
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             backtrack(state.clone(), choices, selected, res);
             // Откат: отменить выбор и восстановить предыдущее состояние
             selected[i] = false;

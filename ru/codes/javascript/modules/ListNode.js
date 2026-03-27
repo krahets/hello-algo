@@ -4,10 +4,10 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-/* связный списокузел */
+/* Узел связного списка */
 class ListNode {
     val; // Значение узла
-    next; // Ссылка на следующий узел (указатель)
+    next; // Ссылка (указатель) на следующий узел
     constructor(val, next) {
         this.val = val === undefined ? 0 : val;
         this.next = next === undefined ? null : next;

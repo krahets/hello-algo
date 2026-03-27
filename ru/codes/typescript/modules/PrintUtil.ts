@@ -28,8 +28,8 @@ class Trunk {
 }
 
 /**
- * Вывестидвоичное дерево
- * This tree printer is borrowed from TECHIE DELIGHT
+ * Вывести двоичное дерево
+ * Этот вывод дерева заимствован из TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 function printTree(root: TreeNode | null) {

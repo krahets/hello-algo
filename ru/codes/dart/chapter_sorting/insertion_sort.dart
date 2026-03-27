@@ -6,7 +6,7 @@
 
 /* Сортировка вставками */
 void insertionSort(List<int> nums) {
-  // Внешний цикл: отсортированный диапазон равен [0, i-1]
+  // Внешний цикл: отсортированный диапазон [0, i-1]
   for (int i = 1; i < nums.length; i++) {
     int base = nums[i], j = i - 1;
     // Внутренний цикл: вставить base в правильную позицию отсортированного диапазона [0, i-1]
@@ -22,5 +22,5 @@ void insertionSort(List<int> nums) {
 void main() {
   List<int> nums = [4, 1, 3, 1, 5, 2];
   insertionSort(nums);
-  print("Сортировка вставкамипосле завершения nums = $nums");
+  print("После сортировки вставками nums = $nums");
 }

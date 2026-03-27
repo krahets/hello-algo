@@ -13,12 +13,12 @@ public class preorder_traversal_ii_compact {
     static List<TreeNode> path;
     static List<List<TreeNode>> res;
 
-    /* Прямой обход: пример 2 */
+    /* Предварительный обход: пример 2 */
     static void preOrder(TreeNode root) {
         if (root == null) {
             return;
         }
-        // Попытаться
+        // Попытка
         path.add(root);
         if (root.val == 7) {
             // Записать решение
@@ -32,15 +32,15 @@ public class preorder_traversal_ii_compact {
 
     public static void main(String[] args) {
         TreeNode root = TreeNode.listToTree(Arrays.asList(1, 7, 3, 4, 5, 6, 7));
-        System.out.println("\nИнициализировать двоичное дерево");
+        System.out.println("\nИнициализация двоичного дерева");
         PrintUtil.printTree(root);
 
-        // Прямой обход
+        // Предварительный обход
         path = new ArrayList<>();
         res = new ArrayList<>();
         preOrder(root);
 
-        System.out.println("\nВывести все пути от корня до узла 7");
+        System.out.println("\nВсе пути от корня к узлу 7");
         for (List<TreeNode> path : res) {
             List<Integer> vals = new ArrayList<>();
             for (TreeNode node : path) {

@@ -14,15 +14,15 @@ public class permutations_i {
             res.Add(new List<int>(state));
             return;
         }
-        // Перебрать все варианты выбора
+        // Перебор всех вариантов выбора
         for (int i = 0; i < choices.Length; i++) {
             int choice = choices[i];
-            // Отсечение: не допускается повторный выбор элемента
+            // Отсечение: нельзя выбирать один и тот же элемент повторно
             if (!selected[i]) {
                 // Попытка: сделать выбор и обновить состояние
                 selected[i] = true;
                 state.Add(choice);
-                // Перейти к следующему варианту выбора
+                // Перейти к следующему выбору
                 Backtrack(state, choices, selected, res);
                 // Откат: отменить выбор и восстановить предыдущее состояние
                 selected[i] = false;

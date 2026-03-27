@@ -9,11 +9,11 @@ const utils = @import("utils");
 const MyList = struct {
     const Self = @This();
 
-    items: []i32, // Массив (хранит элементы списка)
+    items: []i32, // Массив (для хранения элементов списка)
     capacity: usize, // Вместимость списка
-    allocator: std.mem.Allocator, // Распределитель памяти
+    allocator: std.mem.Allocator, // Аллокатор памяти
 
-    extend_ratio: usize = 2, // Коэффициент расширения списка при каждом увеличении
+    extend_ratio: usize = 2, // Коэффициент увеличения списка при каждом расширении
 
     // Конструктор (выделение памяти + инициализация списка)
     pub fn init(allocator: std.mem.Allocator) Self {
@@ -24,24 +24,24 @@ const MyList = struct {
         };
     }
 
-    // Деструктор(Освободить память)
+    // Деструктор (освобождение памяти)
     pub fn deinit(self: Self) void {
         self.allocator.free(self.allocatedSlice());
     }
 
-    // Добавить элемент в конец
+    // Добавление элемента в конец
     pub fn add(self: *Self, item: i32) !void {
-        // Если число элементов превышает вместимость, запустить механизм расширения
+        // При превышении вместимости по числу элементов запускается расширение
         const newlen = self.items.len + 1;
         try self.ensureTotalCapacity(newlen);
 
-        // Обновить элемент
+        // Обновление элемента
         self.items.len += 1;
         const new_item_ptr = &self.items[self.items.len - 1];
         new_item_ptr.* = item;
     }
 
-    // Получить длину списка (текущее количество элементов)
+    // Получить длину списка (текущее число элементов)
     pub fn getSize(self: *Self) usize {
         return self.items.len;
     }
@@ -51,35 +51,35 @@ const MyList = struct {
         return self.capacity;
     }
 
-    // Получить доступ к элементу
+    // Доступ к элементу
     pub fn get(self: *Self, index: usize) i32 {
-        // Если индекс выходит за границы, выбросить исключение; далее аналогично
+        // Если индекс выходит за границы, выбрасывается исключение; далее аналогично
         if (index < 0 or index >= self.items.len) {
-            @panic("Индекс вне допустимого диапазона");
+            @panic("индекс выходит за границы");
         }
         return self.items[index];
     }
 
-    // Обновить элемент
+    // Обновление элемента
     pub fn set(self: *Self, index: usize, num: i32) void {
-        // Если индекс выходит за границы, выбросить исключение; далее аналогично
+        // Если индекс выходит за границы, выбрасывается исключение; далее аналогично
         if (index < 0 or index >= self.items.len) {
-            @panic("Индекс вне допустимого диапазона");
+            @panic("индекс выходит за границы");
         }
         self.items[index] = num;
     }
 
-    // Вставить элемент в середину
+    // Вставка элемента в середину
     pub fn insert(self: *Self, index: usize, item: i32) !void {
         if (index < 0 or index >= self.items.len) {
-            @panic("Индекс вне допустимого диапазона");
+            @panic("индекс выходит за границы");
         }
 
-        // Если число элементов превышает вместимость, запустить механизм расширения
+        // При превышении вместимости по числу элементов запускается расширение
         const newlen = self.items.len + 1;
         try self.ensureTotalCapacity(newlen);
 
-        // Сдвинуть на одну позицию назад элемент с индексом index и все последующие элементы
+        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
         self.items.len += 1;
         var i = self.items.len - 1;
         while (i >= index) : (i -= 1) {
@@ -88,12 +88,12 @@ const MyList = struct {
         self.items[index] = item;
     }
 
-    // Удалить элемент
+    // Удаление элемента
     pub fn remove(self: *Self, index: usize) i32 {
         if (index < 0 or index >= self.getSize()) {
-            @panic("Индекс вне допустимого диапазона");
+            @panic("индекс выходит за границы");
         }
-        // Сдвинуть на одну позицию вперед все элементы после индекса index
+        // Сдвинуть все элементы после индекса index на одну позицию вперед
         const item = self.items[index];
         var i = index;
         while (i < self.items.len - 1) : (i += 1) {
@@ -164,62 +164,46 @@ pub fn run() !void {
     defer _ = gpa.deinit();
     const allocator = gpa.allocator();
 
-    // Инициализировать список
+    // Инициализация списка
     var nums = MyList.init(allocator);
     // Отложенное освобождение памяти
     defer nums.deinit();
 
-    // Добавить элемент в конец
+    // Добавление элемента в конец
     try nums.add(1);
     try nums.add(3);
     try nums.add(2);
     try nums.add(5);
     try nums.add(4);
-    std.debug.print("Список nums = {}, вместимость = {}, длина = {}\n", .{
-        utils.fmt.slice(nums.items),
-        nums.getCapacity(),
-        nums.getSize(),
-    });
+    std.debug.print("Список nums = {}, вместимость = {}, длина = {}\n", .{\n    utils.fmt.slice(nums.items),\n    nums.getCapacity(),\n    nums.getSize(),\n});
 
-    // Вставить элемент в середину
+    // Вставка элемента в середину
     try nums.insert(3, 6);
     std.debug.print(
-        "После вставки числа 6 по индексу 3 получаем nums = {}\n",
-        .{utils.fmt.slice(nums.items)},
-    );
+        "После вставки числа 6 по индексу 3 получаем nums = {}\n",\n    .{utils.fmt.slice(nums.items)},\n);
 
-    // Удалить элемент
+    // Удаление элемента
     _ = nums.remove(3);
     std.debug.print(
-        "Удалитьиндекс 3 поэлемент, получаем nums = {}\n",
-        .{utils.fmt.slice(nums.items)},
-    );
+        "После удаления элемента по индексу 3 получаем nums = {}\n",\n    .{utils.fmt.slice(nums.items)},\n);
 
-    // Получить доступ к элементу
+    // Доступ к элементу
     const num = nums.get(1);
-    std.debug.print("обратиться киндекс 1 поэлемент, получаем num = {}\n", .{num});
+    std.debug.print("Элемент по индексу 1: num = {}\n", .{num});
 
-    // Обновить элемент
+    // Обновление элемента
     nums.set(1, 0);
     std.debug.print(
-        "После обновления элемента по индексу 1 на 0 получаем nums = {}\n",
-        .{utils.fmt.slice(nums.items)},
-    );
+        "После обновления элемента по индексу 1 значением 0 получаем nums = {}\n",\n    .{utils.fmt.slice(nums.items)},\n);
 
-    // Проверить механизм расширения
+    // Проверка механизма расширения
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
-        // При i = 5 длина списка превысит его вместимость, и тогда сработает механизм расширения
+        // При i = 5 длина списка превысит его вместимость, и в этот момент сработает механизм расширения
         try nums.add(i);
     }
     std.debug.print(
-        "Список nums после расширения = {}, вместимость = {}, длина = {}\n",
-        .{
-            utils.fmt.slice(nums.items),
-            nums.getCapacity(),
-            nums.getSize(),
-        },
-    );
+        "Список nums после увеличения вместимости = {}, вместимость = {}, длина = {}\n",\n    .{\n        utils.fmt.slice(nums.items),\n        nums.getCapacity(),\n        nums.getSize(),\n    },\n);
 
     std.debug.print("\n", .{});
 }

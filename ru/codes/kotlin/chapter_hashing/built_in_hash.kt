@@ -12,25 +12,25 @@ import utils.ListNode
 fun main() {
     val num = 3
     val hashNum = num.hashCode()
-    println("Хеш-значение целого числа $num равно $hashNum")
+    println("Хеш-значение целого числа $num = $hashNum")
 
     val bol = true
     val hashBol = bol.hashCode()
-    println("Хеш-значение логического значения $bol равно $hashBol")
+    println("Хеш-значение булева значения $bol = $hashBol")
 
     val dec = 3.14159
     val hashDec = dec.hashCode()
-    println("Хеш-значение десятичного числа $dec равно $hashDec")
+    println("Хеш-значение десятичного числа $dec = $hashDec")
 
     val str = "Hello Algo"
     val hashStr = str.hashCode()
-    println("Хеш-значение строки $str равно $hashStr")
+    println("Хеш-значение строки $str = $hashStr")
 
     val arr = arrayOf<Any>(12836, "Сяо Ха")
     val hashTup = arr.contentHashCode()
-    println("массив ${arr.contentToString()} равно $hashTup")
+    println("Хеш-значение массива ${arr.contentToString()} = $hashTup")
 
     val obj = ListNode(0)
     val hashObj = obj.hashCode()
-    println("объект узла $obj равно $hashObj")
+    println("Хеш-значение объекта узла $obj = $hashObj")
 }

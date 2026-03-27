@@ -8,10 +8,10 @@
 
 /* Переместить один диск */
 void move(vector<int> &src, vector<int> &tar) {
-    // Взять верхний диск со стержня src
+    // Снять диск с вершины src
     int pan = src.back();
     src.pop_back();
-    // Поместить диск на вершину tar
+    // Положить диск на вершину tar
     tar.push_back(pan);
 }
 
@@ -39,12 +39,12 @@ void solveHanota(vector<int> &A, vector<int> &B, vector<int> &C) {
 
 /* Driver Code */
 int main() {
-    // Конец списка соответствует вершине стержня
+    // Хвост списка соответствует вершине столбца
     vector<int> A = {5, 4, 3, 2, 1};
     vector<int> B = {};
     vector<int> C = {};
 
-    cout << "В начальном состоянии:\n";
+    cout << "Начальное состояние:\n";
     cout << "A =";
     printVector(A);
     cout << "B =";

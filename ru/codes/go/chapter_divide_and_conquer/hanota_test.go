@@ -13,14 +13,14 @@ import (
 )
 
 func TestHanota(t *testing.T) {
-	// Конец списка соответствует вершине стержня
+	// Хвост списка соответствует вершине столбца
 	A := list.New()
 	for i := 5; i > 0; i-- {
 		A.PushBack(i)
 	}
 	B := list.New()
 	C := list.New()
-	fmt.Println("В начальном состоянии:")
+	fmt.Println("Исходное состояние:")
 	fmt.Print("A = ")
 	PrintList(A)
 	fmt.Print("B = ")

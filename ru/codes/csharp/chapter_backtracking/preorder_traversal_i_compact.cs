@@ -9,7 +9,7 @@ namespace hello_algo.chapter_backtracking;
 public class preorder_traversal_i_compact {
     List<TreeNode> res = [];
 
-    /* Прямой обход: пример 1 */
+    /* Предварительный обход: пример 1 */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
@@ -25,13 +25,13 @@ public class preorder_traversal_i_compact {
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\nИнициализировать двоичное дерево");
+        Console.WriteLine("\nИнициализация двоичного дерева");
         PrintUtil.PrintTree(root);
 
-        // Прямой обход
+        // Предварительный обход
         PreOrder(root);
 
-        Console.WriteLine("\nВывести все узлы со значением 7");
+        Console.WriteLine("\nВсе узлы со значением 7");
         PrintUtil.PrintList(res.Select(p => p.val).ToList());
     }
 }

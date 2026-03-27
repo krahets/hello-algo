@@ -7,11 +7,11 @@ const inc = @import("include");
 
 // Driver Code
 pub fn main() !void {
-    // Инициализировать двустороннюю очередь
+    // Инициализация двусторонней очереди
     const L = std.TailQueue(i32);
     var deque = L{};  
 
-    // Поместить элемент в очередь
+    // Добавление элемента в очередь
     var node1 = L.Node{ .data = 2 };
     var node2 = L.Node{ .data = 5 };
     var node3 = L.Node{ .data = 4 };
@@ -25,27 +25,27 @@ pub fn main() !void {
     std.debug.print("Двусторонняя очередь deque = ", .{});
     inc.PrintUtil.printQueue(i32, deque);
 
-    // Получить доступ к элементу
-    var peek_first = deque.first.?.data; // голова очередиэлемент
-    std.debug.print("\nголова очередиэлемент peek_first = {}", .{peek_first});
-    var peek_last = deque.last.?.data;   // хвост очередиэлемент
-    std.debug.print("\nхвост очередиэлемент peek_last = {}", .{peek_last});
+    // Доступ к элементу
+    var peek_first = deque.first.?.data; // Элемент в голове очереди
+    std.debug.print("\nЭлемент в начале очереди peek_first = {}", .{peek_first});
+    var peek_last = deque.last.?.data;   // Элемент в хвосте очереди
+    std.debug.print("\nЭлемент в конце очереди peek_last = {}", .{peek_last});
 
-    // Извлечь элемент из очереди
-    var pop_first = deque.popFirst().?.data;    // голова очередиИзвлечь элемент из очереди
-    std.debug.print("\nЭлемент, извлеченный из головы очереди, pop_first = {}, deque после извлечения из головы = ", .{pop_first});
+    // Извлечение элемента из очереди
+    var pop_first = deque.popFirst().?.data;    // Извлечь элемент из головы очереди
+    std.debug.print("\nИзвлечен элемент из головы pop_first = {}, deque после извлечения из головы = ", .{pop_first});
     inc.PrintUtil.printQueue(i32, deque);
-    var pop_last = deque.pop().?.data;          // хвост очередиИзвлечь элемент из очереди
-    std.debug.print("\nЭлемент, извлеченный из хвоста очереди, pop_last = {}, deque после извлечения из хвоста = ", .{pop_last});
+    var pop_last = deque.pop().?.data;          // Извлечь элемент из хвоста очереди
+    std.debug.print("\nИзвлечен элемент из хвоста pop_last = {}, deque после извлечения из хвоста = ", .{pop_last});
     inc.PrintUtil.printQueue(i32, deque);
 
-    // Получить длину двусторонней очереди
+    // Получение длины двусторонней очереди
     var size = deque.len;
     std.debug.print("\nДлина двусторонней очереди size = {}", .{size});
 
-    // Проверить, пуста ли двусторонняя очередь
+    // Проверка, пуста ли двусторонняя очередь
     var is_empty = if (deque.len == 0) true else false;
-    std.debug.print("\nДвусторонняя очередь пуста: {}", .{is_empty});
+    std.debug.print("\nПуста ли двусторонняя очередь = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

@@ -6,7 +6,7 @@ const std = @import("std");
 
 // Поиск
 fn dfs(i: usize) i32 {
-    // Если значения dp[1] и dp[2] уже известны, вернуть их
+    // dp[1] и dp[2] уже известны, вернуть их
     if (i == 1 or i == 2) {
         return @intCast(i);
     }
@@ -25,7 +25,7 @@ pub fn main() !void {
     comptime var n: usize = 9;
 
     var res = climbingStairsDFS(n);
-    std.debug.print("Для подъема по лестнице из {} ступеней существует {} способов\n", .{ n, res });
+    std.debug.print("Количество способов подняться по лестнице из {} ступеней: {} вариантов\n", .{ n, res });
 
     _ = try std.io.getStdIn().reader().readByte();
 }

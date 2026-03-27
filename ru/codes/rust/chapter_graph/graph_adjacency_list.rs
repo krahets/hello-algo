@@ -10,7 +10,7 @@ use std::collections::HashMap;
 
 /* Тип неориентированного графа на основе списка смежности */
 pub struct GraphAdjList {
-    // Список смежности, key: вершина, value: все смежные с ней вершины
+    // Список смежности, где key — вершина, а value — все смежные ей вершины
     pub adj_list: HashMap<Vertex, Vec<Vertex>>, // maybe HashSet<Vertex> for value part is better?
 }
 
@@ -30,13 +30,13 @@ impl GraphAdjList {
         graph
     }
 
-    /* Получить количество вершин */
+    /* Получить число вершин */
     #[allow(unused)]
     pub fn size(&self) -> usize {
         self.adj_list.len()
     }
 
-    /* Добавить ребро */
+    /* Добавление ребра */
     pub fn add_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
             panic!("value error");
@@ -46,7 +46,7 @@ impl GraphAdjList {
         self.adj_list.entry(vet2).or_default().push(vet1);
     }
 
-    /* Удалить ребро */
+    /* Удаление ребра */
     #[allow(unused)]
     pub fn remove_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
@@ -61,19 +61,19 @@ impl GraphAdjList {
             .and_modify(|v| v.retain(|&e| e != vet1));
     }
 
-    /* Добавить вершину */
+    /* Добавление вершины */
     pub fn add_vertex(&mut self, vet: Vertex) {
         if self.adj_list.contains_key(&vet) {
             return;
         }
-        // Добавить новый связный список в список смежности
+        // Добавить новый список в список смежности
         self.adj_list.insert(vet, vec![]);
     }
 
-    /* Удалить вершину */
+    /* Удаление вершины */
     #[allow(unused)]
     pub fn remove_vertex(&mut self, vet: Vertex) {
-        // Удалить из списка смежности связный список, соответствующий вершине vet
+        // Удалить из списка смежности список, соответствующий вершине vet
         self.adj_list.remove(&vet);
         // Обойти списки других вершин и удалить все ребра, содержащие vet
         for list in self.adj_list.values_mut() {
@@ -94,7 +94,7 @@ impl GraphAdjList {
 /* Driver Code */
 #[allow(unused)]
 fn main() {
-    /* Инициализировать неориентированный граф */
+    /* Инициализация неориентированного графа */
     let v = vals_to_vets(vec![1, 3, 2, 5, 4]);
     let edges = vec![
         [v[0], v[1]],
@@ -106,30 +106,30 @@ fn main() {
     ];
 
     let mut graph = GraphAdjList::new(edges);
-    println!("\nПосле инициализации граф имеет вид");
+    println!("\nГраф после инициализации");
     graph.print();
 
-    /* Добавить ребро */
-    // Вершины 1 и 2, то есть v[0] и v[2]
+    /* Добавление ребра */
+    // Вершины 1 и 2 соответствуют v[0] и v[2]
     graph.add_edge(v[0], v[2]);
-    println!("\nПосле добавления ребра 1-2 граф имеет вид");
+    println!("\nГраф после добавления ребра 1-2");
     graph.print();
 
-    /* Удалить ребро */
-    // Вершины 1 и 3, то есть v[0] и v[1]
+    /* Удаление ребра */
+    // Вершины 1 и 3 соответствуют v[0] и v[1]
     graph.remove_edge(v[0], v[1]);
-    println!("\nПосле удаления ребра 1-3 граф имеет вид");
+    println!("\nГраф после удаления ребра 1-3");
     graph.print();
 
-    /* Добавить вершину */
+    /* Добавление вершины */
     let v5 = Vertex { val: 6 };
     graph.add_vertex(v5);
-    println!("\nПосле добавления вершины 6 граф имеет вид");
+    println!("\nГраф после добавления вершины 6");
     graph.print();
 
-    /* Удалить вершину */
-    // Вершина 3, то есть v[1]
+    /* Удаление вершины */
+    // Вершина 3 соответствует v[1]
     graph.remove_vertex(v[1]);
-    println!("\nПосле удаления вершины 3 граф имеет вид");
+    println!("\nГраф после удаления вершины 3");
     graph.print();
 }

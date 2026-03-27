@@ -4,7 +4,7 @@
  * Author: yuan0221 (yl1452491917@gmail.com), krahets (krahets@163.com)
  */
 
-/* пара ключ-значение Number -> String */
+/* Пара ключ-значение Number -> String */
 class Pair {
     constructor(key, val) {
         this.key = key;
@@ -14,21 +14,21 @@ class Pair {
 
 /* Хеш-таблица с открытой адресацией */
 class HashMapOpenAddressing {
-    #size; // Количество пар ключ-значение
+    #size; // Число пар ключ-значение
     #capacity; // Вместимость хеш-таблицы
-    #loadThres; // Порог коэффициента загрузки, запускающий расширение
+    #loadThres; // Порог коэффициента загрузки для запуска расширения
     #extendRatio; // Коэффициент расширения
-    #buckets; // Массив бакетов
-    #TOMBSTONE; // Метка удаления
+    #buckets; // Массив корзин
+    #TOMBSTONE; // Удалить метку
 
     /* Конструктор */
     constructor() {
-        this.#size = 0; // Количество пар ключ-значение
+        this.#size = 0; // Число пар ключ-значение
         this.#capacity = 4; // Вместимость хеш-таблицы
-        this.#loadThres = 2.0 / 3.0; // Порог коэффициента загрузки, запускающий расширение
+        this.#loadThres = 2.0 / 3.0; // Порог коэффициента загрузки для запуска расширения
         this.#extendRatio = 2; // Коэффициент расширения
-        this.#buckets = Array(this.#capacity).fill(null); // Массив бакетов
-        this.#TOMBSTONE = new Pair(-1, '-1'); // Метка удаления
+        this.#buckets = Array(this.#capacity).fill(null); // Массив корзин
+        this.#TOMBSTONE = new Pair(-1, '-1'); // Удалить метку
     }
 
     /* Хеш-функция */
@@ -41,21 +41,21 @@ class HashMapOpenAddressing {
         return this.#size / this.#capacity;
     }
 
-    /* Найти индекс корзины, соответствующей ключу key */
+    /* Найти индекс корзины, соответствующий key */
     #findBucket(key) {
         let index = this.#hashFunc(key);
         let firstTombstone = -1;
-        // Выполнять линейное пробирование и остановиться при встрече с пустым бакетом
+        // Выполнять линейное пробирование и завершить при встрече с пустой корзиной
         while (this.#buckets[index] !== null) {
-            // Если встретился key, вернуть соответствующий индекс бакета
+            // Если встретился key, вернуть соответствующий индекс корзины
             if (this.#buckets[index].key === key) {
-                // Если ранее встретилась метка удаления, переместить пару ключ-значение в этот индекс
+                // Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
                 if (firstTombstone !== -1) {
                     this.#buckets[firstTombstone] = this.#buckets[index];
                     this.#buckets[index] = this.#TOMBSTONE;
-                    return firstTombstone; // Вернуть индекс бакета после перемещения
+                    return firstTombstone; // Вернуть индекс корзины после перемещения
                 }
-                return index; // Вернуть индекс бакета
+                return index; // Вернуть индекс корзины
             }
             // Записать первую встретившуюся метку удаления
             if (
@@ -64,7 +64,7 @@ class HashMapOpenAddressing {
             ) {
                 firstTombstone = index;
             }
-            // Вычислить индекс бакета; при выходе за конец вернуться к началу
+            // Вычислить индекс корзины; при выходе за конец вернуться к началу
             index = (index + 1) % this.#capacity;
         }
         // Если key не существует, вернуть индекс точки добавления
@@ -73,7 +73,7 @@ class HashMapOpenAddressing {
 
     /* Операция поиска */
     get(key) {
-        // Найти индекс корзины, соответствующей ключу key
+        // Найти индекс корзины, соответствующий key
         const index = this.#findBucket(key);
         // Если пара ключ-значение найдена, вернуть соответствующее val
         if (
@@ -82,7 +82,7 @@ class HashMapOpenAddressing {
         ) {
             return this.#buckets[index].val;
         }
-        // Если пара ключ-значение не существует, вернуть null
+        // Если пары ключ-значение не существует, вернуть null
         return null;
     }
 
@@ -92,9 +92,9 @@ class HashMapOpenAddressing {
         if (this.#loadFactor() > this.#loadThres) {
             this.#extend();
         }
-        // Найти индекс корзины, соответствующей ключу key
+        // Найти индекс корзины, соответствующий key
         const index = this.#findBucket(key);
-        // Если пара ключ-значение найдена, перезаписать val и вернуть результат
+        // Если пара ключ-значение найдена, перезаписать val и вернуть
         if (
             this.#buckets[index] !== null &&
             this.#buckets[index] !== this.#TOMBSTONE
@@ -102,16 +102,16 @@ class HashMapOpenAddressing {
             this.#buckets[index].val = val;
             return;
         }
-        // Если пара ключ-значение не существует, добавить ее
+        // Если пары ключ-значение нет, добавить ее
         this.#buckets[index] = new Pair(key, val);
         this.#size++;
     }
 
     /* Операция удаления */
     remove(key) {
-        // Найти индекс корзины, соответствующей ключу key
+        // Найти индекс корзины, соответствующий key
         const index = this.#findBucket(key);
-        // Если пара ключ-значение найдена, пометить ее меткой удаления
+        // Если пара ключ-значение найдена, заменить ее меткой удаления
         if (
             this.#buckets[index] !== null &&
             this.#buckets[index] !== this.#TOMBSTONE
@@ -125,7 +125,7 @@ class HashMapOpenAddressing {
     #extend() {
         // Временно сохранить исходную хеш-таблицу
         const bucketsTmp = this.#buckets;
-        // Инициализировать новую хеш-таблицу после расширения
+        // Инициализация новой хеш-таблицы после расширения
         this.#capacity *= this.#extendRatio;
         this.#buckets = Array(this.#capacity).fill(null);
         this.#size = 0;
@@ -152,26 +152,26 @@ class HashMapOpenAddressing {
 }
 
 /* Driver Code */
-// Инициализировать хеш-таблицу
+// Инициализация хеш-таблицы
 const hashmap = new HashMapOpenAddressing();
 
 // Операция добавления
-// Добавить пару ключ-значение (key, val) в хеш-таблицу
+// Добавить пару (key, val) в хеш-таблицу
 hashmap.put(12836, 'Сяо Ха');
 hashmap.put(15937, 'Сяо Ло');
 hashmap.put(16750, 'Сяо Суань');
 hashmap.put(13276, 'Сяо Фа');
-hashmap.put(10583, 'Утенок');
-console.log('\nПосле добавления хеш-таблица выглядит так\nKey -> Value');
+hashmap.put(10583, 'Сяо Я');
+console.log('\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение');
 hashmap.print();
 
 // Операция поиска
-// Ввести ключ key в хеш-таблицу и получить значение val
+// Передать ключ key в хеш-таблицу и получить значение val
 const name = hashmap.get(13276);
-console.log('\nПо номеру студента 13276 найдено имя ' + name);
+console.log('\nДля номера 13276 найдено имя ' + name);
 
 // Операция удаления
-// Удалить пару ключ-значение (key, val) из хеш-таблицы
+// Удалить пару (key, val) из хеш-таблицы
 hashmap.remove(16750);
-console.log('\nПосле удаления 16750 хеш-таблица выглядит так\nKey -> Value');
+console.log('\nПосле удаления 16750 хеш-таблица имеет вид\nКлюч -> Значение');
 hashmap.print();

@@ -8,9 +8,9 @@
 
 #define MAX_SIZE 5000
 
-/* Max-куча */
+/* Максимальная куча */
 typedef struct {
-    // size обозначает фактическое количество элементов
+    // size обозначает фактическое число элементов
     int size;
     // Использовать массив с заранее выделенной памятью, чтобы избежать расширения
     int data[MAX_SIZE];
@@ -23,7 +23,7 @@ int parent(MaxHeap *maxHeap, int i);
 
 /* Конструктор, строящий кучу по срезу */
 MaxHeap *newMaxHeap(int nums[], int size) {
-    // всеДобавить элемент в кучу
+    // Поместить все элементы в кучу
     MaxHeap *maxHeap = (MaxHeap *)malloc(sizeof(MaxHeap));
     maxHeap->size = size;
     memcpy(maxHeap->data, nums, size * sizeof(int));
@@ -52,7 +52,7 @@ int right(MaxHeap *maxHeap, int i) {
 
 /* Получить индекс родительского узла */
 int parent(MaxHeap *maxHeap, int i) {
-    return (i - 1) / 2; // Округлить вниз
+    return (i - 1) / 2; // Округление вниз
 }
 
 /* Поменять элементы местами */
@@ -62,33 +62,33 @@ void swap(MaxHeap *maxHeap, int i, int j) {
     maxHeap->data[j] = temp;
 }
 
-/* Получить размер кучи */
+/* Получение размера кучи */
 int size(MaxHeap *maxHeap) {
     return maxHeap->size;
 }
 
-/* Проверить, пуста ли куча */
+/* Проверка, пуста ли куча */
 int isEmpty(MaxHeap *maxHeap) {
     return maxHeap->size == 0;
 }
 
-/* Обратиться к элементу на вершине кучи */
+/* Доступ к элементу на вершине кучи */
 int peek(MaxHeap *maxHeap) {
     return maxHeap->data[0];
 }
 
-/* Добавить элемент в кучу */
+/* Добавление элемента в кучу */
 void push(MaxHeap *maxHeap, int val) {
-    // В обычной ситуации не следует добавлять так много узлов
+    // По умолчанию не следует добавлять так много узлов
     if (maxHeap->size == MAX_SIZE) {
         printf("heap is full!");
         return;
     }
-    // Добавить узел
+    // Добавление узла
     maxHeap->data[maxHeap->size] = val;
     maxHeap->size++;
 
-    // Выполнить heapify снизу вверх
+    // Просеивание снизу вверх
     siftUp(maxHeap, maxHeap->size - 1);
 }
 
@@ -99,15 +99,15 @@ int pop(MaxHeap *maxHeap) {
         printf("heap is empty!");
         return INT_MAX;
     }
-    // Поменять местами корневой узел и крайний правый лист (первый и последний элементы)
+    // Поменять корневой узел с самым правым листом местами (поменять первый и последний элементы)
     swap(maxHeap, 0, size(maxHeap) - 1);
-    // Удалить узел
+    // Удаление узла
     int val = maxHeap->data[maxHeap->size - 1];
     maxHeap->size--;
-    // Выполнить heapify сверху вниз
+    // Просеивание сверху вниз
     siftDown(maxHeap, 0);
 
-    // Вернуть элемент на вершине кучи
+    // Вернуть элемент с вершины кучи
     return val;
 }
 
@@ -124,13 +124,13 @@ void siftDown(MaxHeap *maxHeap, int i) {
         if (r < size(maxHeap) && maxHeap->data[r] > maxHeap->data[max]) {
             max = r;
         }
-        // Если узел i уже максимален или индексы l и r выходят за границы, дальнейшая heapify не требуется
+        // Если узел i уже максимален или индексы l и r вне границ, дальнейшее просеивание не требуется, выйти
         if (max == i) {
             break;
         }
-        // Поменять местами два узла
+        // Поменять два узла местами
         swap(maxHeap, i, max);
-        // Циклически выполнять просеивание вниз
+        // Циклическое просеивание вниз
         i = max;
     }
 }
@@ -138,15 +138,15 @@ void siftDown(MaxHeap *maxHeap, int i) {
 /* Начиная с узла i, выполнить просеивание снизу вверх */
 void siftUp(MaxHeap *maxHeap, int i) {
     while (true) {
-        // Получить родительский узел для узла i
+        // Получение родительского узла для узла i
         int p = parent(maxHeap, i);
-        // Завершить просеивание, когда произошел выход за корень или узел не нуждается в исправлении
+        // Завершить heapify, когда «корневой узел уже пройден» или «узел не требует исправления»
         if (p < 0 || maxHeap->data[i] <= maxHeap->data[p]) {
             break;
         }
-        // Поменять местами два узла
+        // Поменять два узла местами
         swap(maxHeap, i, p);
-        // Циклически выполнять просеивание вверх
+        // Циклическое просеивание вверх
         i = p;
     }
 }

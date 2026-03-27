@@ -11,16 +11,16 @@ func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: 
         res.append(state)
         return
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     var duplicated: Set<Int> = []
     for (i, choice) in choices.enumerated() {
-        // Отсечение: не допускается повторный выбор элемента и не допускается повторный выбор равных элементов
+        // Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
         if !selected[i], !duplicated.contains(choice) {
             // Попытка: сделать выбор и обновить состояние
-            duplicated.insert(choice) // Записатьвыбранныеэлементзначение
+            duplicated.insert(choice) // Записать значения уже выбранных элементов
             selected[i] = true
             state.append(choice)
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             backtrack(state: &state, choices: choices, selected: &selected, res: &res)
             // Откат: отменить выбор и восстановить предыдущее состояние
             selected[i] = false

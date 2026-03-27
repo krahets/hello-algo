@@ -19,25 +19,25 @@ pub fn ArrayStack(comptime T: type) type {
             }
         }
 
-        // Деструктор(Освободить память)
+        // Деструктор (освобождение памяти)
         pub fn deinit(self: *Self) void {
             if (self.stack == null) return;
             self.stack.?.deinit();
         }
 
-        // Получить длину стека
+        // Получение длины стека
         pub fn size(self: *Self) usize {
             return self.stack.?.items.len;
         }
 
-        // Проверить, пуст ли стек
+        // Проверка, пуст ли стек
         pub fn isEmpty(self: *Self) bool {
             return self.size() == 0;
         }
 
-        // Получить верхний элемент стека
+        // Доступ к верхнему элементу стека
         pub fn peek(self: *Self) T {
-            if (self.isEmpty()) @panic("Стек пуст");
+            if (self.isEmpty()) @panic("стек пуст");
             return self.stack.?.items[self.size() - 1];
         }  
 
@@ -61,13 +61,13 @@ pub fn ArrayStack(comptime T: type) type {
 
 // Driver Code
 pub fn main() !void {
-    // Инициализировать стек
+    // Инициализация стека
     var stack = ArrayStack(i32){};
     stack.init(std.heap.page_allocator);
     // Отложенное освобождение памяти
     defer stack.deinit();
 
-    // Поместить элемент в стек
+    // Помещение элемента в стек
     try stack.push(1);
     try stack.push(3);
     try stack.push(2);
@@ -76,22 +76,22 @@ pub fn main() !void {
     std.debug.print("Стек stack = ", .{});
     inc.PrintUtil.printList(i32, stack.toList());
 
-    // Получить верхний элемент стека
+    // Доступ к верхнему элементу стека
     var peek = stack.peek();
-    std.debug.print("\nвершина стекаэлемент peek = {}", .{peek});
+    std.debug.print("\nВерхний элемент стека peek = {}", .{peek});
 
-    // Извлечь элемент из стека
+    // Извлечение элемента из стека
     var top = stack.pop();
-    std.debug.print("\nЭлемент, извлеченный из стека, pop = {}, stack после извлечения = ", .{top});
+    std.debug.print("\nИзвлечен элемент pop = {}, стек после извлечения stack = ", .{top});
     inc.PrintUtil.printList(i32, stack.toList());
 
-    // Получить длину стека
+    // Получение длины стека
     var size = stack.size();
     std.debug.print("\nДлина стека size = {}", .{size});
 
-    // Проверить, пуст ли стек
+    // Проверка, пуст ли стек
     var is_empty = stack.isEmpty();
-    std.debug.print("\nстекпуст ли = {}", .{is_empty});
+    std.debug.print("\nПуст ли стек = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

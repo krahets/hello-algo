@@ -11,11 +11,11 @@ use graph_adjacency_list::{vals_to_vets, vets_to_vals, Vertex};
 use std::collections::{HashSet, VecDeque};
 
 /* Обход в ширину */
-// Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
 fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
     // Последовательность обхода вершин
     let mut res = vec![];
-    // Хеш-множество для записи уже посещенных вершин
+    // Хеш-множество для хранения уже посещенных вершин
     let mut visited = HashSet::new();
     visited.insert(start_vet);
     // Очередь используется для реализации BFS
@@ -23,16 +23,16 @@ fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
     que.push_back(start_vet);
     // Начиная с вершины vet, продолжать цикл, пока не будут посещены все вершины
     while let Some(vet) = que.pop_front() {
-        res.push(vet); // Записать посещенную вершину
+        res.push(vet); // Отметить посещенную вершину
 
-        // Обойти все смежные вершины этой вершины
+        // Обойти все смежные вершины данной вершины
         if let Some(adj_vets) = graph.adj_list.get(&vet) {
             for &adj_vet in adj_vets {
                 if visited.contains(&adj_vet) {
                     continue; // Пропустить уже посещенную вершину
                 }
                 que.push_back(adj_vet); // Помещать в очередь только непосещенные вершины
-                visited.insert(adj_vet); // Пометить эту вершину как посещенную
+                visited.insert(adj_vet); // Отметить эту вершину как посещенную
             }
         }
     }
@@ -42,7 +42,7 @@ fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
 
 /* Driver Code */
 fn main() {
-    /* Инициализировать неориентированный граф */
+    /* Инициализация неориентированного графа */
     let v = vals_to_vets(vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     let edges = vec![
         [v[0], v[1]],
@@ -59,7 +59,7 @@ fn main() {
         [v[7], v[8]],
     ];
     let graph = GraphAdjList::new(edges);
-    println!("\nПосле инициализации граф имеет вид");
+    println!("\nГраф после инициализации");
     graph.print();
 
     /* Обход в ширину */

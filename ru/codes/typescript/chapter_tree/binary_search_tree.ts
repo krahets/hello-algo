@@ -7,7 +7,7 @@
 import { TreeNode } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
-/* двоичное дерево поиска */
+/* Двоичное дерево поиска */
 class BinarySearchTree {
     private root: TreeNode | null;
 
@@ -22,10 +22,10 @@ class BinarySearchTree {
         return this.root;
     }
 
-    /* Найти узел */
+    /* Поиск узла */
     search(num: number): TreeNode | null {
         let cur = this.root;
-        // Выполнять поиск в цикле и выйти после прохождения листового узла
+        // Искать в цикле и выйти после прохода за листовой узел
         while (cur !== null) {
             // Целевой узел находится в правом поддереве cur
             if (cur.val < num) cur = cur.right;
@@ -38,7 +38,7 @@ class BinarySearchTree {
         return cur;
     }
 
-    /* Вставить узел */
+    /* Вставка узла */
     insert(num: number): void {
         // Если дерево пусто, инициализировать корневой узел
         if (this.root === null) {
@@ -47,9 +47,9 @@ class BinarySearchTree {
         }
         let cur: TreeNode | null = this.root,
             pre: TreeNode | null = null;
-        // Выполнять поиск в цикле и выйти после прохождения листового узла
+        // Искать в цикле и выйти после прохода за листовой узел
         while (cur !== null) {
-            // Найти дублирующийся узел и сразу вернуть результат
+            // Найти повторяющийся узел и сразу вернуть
             if (cur.val === num) return;
             pre = cur;
             // Позиция вставки находится в правом поддереве cur
@@ -57,33 +57,33 @@ class BinarySearchTree {
             // Позиция вставки находится в левом поддереве cur
             else cur = cur.left;
         }
-        // Вставить узел
+        // Вставка узла
         const node = new TreeNode(num);
         if (pre!.val < num) pre!.right = node;
         else pre!.left = node;
     }
 
-    /* Удалить узел */
+    /* Удаление узла */
     remove(num: number): void {
-        // Если дерево пусто, сразу вернуть результат
+        // Если дерево пусто, сразу вернуть
         if (this.root === null) return;
         let cur: TreeNode | null = this.root,
             pre: TreeNode | null = null;
-        // Выполнять поиск в цикле и выйти после прохождения листового узла
+        // Искать в цикле и выйти после прохода за листовой узел
         while (cur !== null) {
             // Найти узел для удаления и выйти из цикла
             if (cur.val === num) break;
             pre = cur;
-            // Удаляемый узел находится в правом поддереве cur
+            // Узел для удаления находится в правом поддереве cur
             if (cur.val < num) cur = cur.right;
-            // Удаляемый узел находится в левом поддереве cur
+            // Узел для удаления находится в левом поддереве cur
             else cur = cur.left;
         }
-        // Если узла для удаления нет, сразу вернуть результат
+        // Если узел для удаления отсутствует, сразу вернуть
         if (cur === null) return;
         // Число дочерних узлов = 0 или 1
         if (cur.left === null || cur.right === null) {
-            // Когда число дочерних узлов равно 0 / 1, child = null / этот дочерний узел
+            // Когда число дочерних узлов = 0 / 1, child = null / этот дочерний узел
             const child: TreeNode | null =
                 cur.left !== null ? cur.left : cur.right;
             // Удалить узел cur
@@ -91,7 +91,7 @@ class BinarySearchTree {
                 if (pre!.left === cur) pre!.left = child;
                 else pre!.right = child;
             } else {
-                // Если удаляемый узел является корневым, заново назначить корневой узел
+                // Если удаляемый узел является корнем, заново назначить корневой узел
                 this.root = child;
             }
         }
@@ -104,35 +104,35 @@ class BinarySearchTree {
             }
             // Рекурсивно удалить узел tmp
             this.remove(tmp!.val);
-            // Заменить cur значением tmp
+            // Перезаписать cur значением tmp
             cur.val = tmp!.val;
         }
     }
 }
 
 /* Driver Code */
-/* Инициализировать двоичное дерево поиска */
+/* Инициализация двоичного дерева поиска */
 const bst = new BinarySearchTree();
-// Обратите внимание: разные порядки вставки порождают разные двоичные деревья, а данная последовательность может породить совершенное двоичное дерево
+// Обратите внимание: разные порядки вставки порождают разные двоичные деревья; данная последовательность может построить совершенное двоичное дерево
 const nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];
 for (const num of nums) {
     bst.insert(num);
 }
-console.log('\nИнициализированное двоичное дерево имеет вид\n');
+console.log('\nИнициализированное двоичное дерево\n');
 printTree(bst.getRoot());
 
-/* Найти узел */
+/* Поиск узла */
 const node = bst.search(7);
 console.log(
-    '\nНайденныйузелобъектравно' + node + ', значение узла =' + (node ? node.val : 'null')
+    '\nНайденный объект узла = ' + node + ', значение узла = ' + (node ? node.val : 'null')
 );
 
-/* Вставить узел */
+/* Вставка узла */
 bst.insert(16);
 console.log('\nПосле вставки узла 16 двоичное дерево имеет вид\n');
 printTree(bst.getRoot());
 
-/* Удалить узел */
+/* Удаление узла */
 bst.remove(1);
 console.log('\nПосле удаления узла 1 двоичное дерево имеет вид\n');
 printTree(bst.getRoot());

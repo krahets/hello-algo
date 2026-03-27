@@ -34,7 +34,7 @@ function xorHash(key: string): number {
     return hash % MODULUS;
 }
 
-/* Вращательное хеширование */
+/* Хеширование с циклическим сдвигом */
 function rotHash(key: string): number {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -48,13 +48,13 @@ function rotHash(key: string): number {
 const key = 'Hello Algo';
 
 let hash = addHash(key);
-console.log('Аддитивное хешированиезначениеравно' + hash);
+console.log('Хеш-значение по сложению = ' + hash);
 
 hash = mulHash(key);
-console.log('Мультипликативное хешированиезначениеравно' + hash);
+console.log('Хеш-значение по умножению = ' + hash);
 
 hash = xorHash(key);
-console.log('XOR-хешированиезначениеравно' + hash);
+console.log('Хеш-значение по XOR = ' + hash);
 
 hash = rotHash(key);
-console.log('Вращательное хешированиезначениеравно' + hash);
+console.log('Хеш-значение по циклическому сдвигу = ' + hash);

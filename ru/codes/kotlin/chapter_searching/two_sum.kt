@@ -39,11 +39,11 @@ fun main() {
     val nums = intArrayOf(2, 7, 11, 15)
     val target = 13
 
-    // ====== Driver Code ======
-    // метод 1
+    // ====== Основной код ======
+    // Метод 1
     var res = twoSumBruteForce(nums, target)
-    println("Метод 1 res = ${res.contentToString()}")
+    println("Результат метода 1 res = ${res.contentToString()}")
     // Метод 2
     res = twoSumHashTable(nums, target)
-    println("Метод 2 res = ${res.contentToString()}")
+    println("Результат метода 2 res = ${res.contentToString()}")
 }

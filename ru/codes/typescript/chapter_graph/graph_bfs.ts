@@ -8,26 +8,26 @@ import { GraphAdjList } from './graph_adjacency_list';
 import { Vertex } from '../modules/Vertex';
 
 /* Обход в ширину */
-// Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
 function graphBFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
     // Последовательность обхода вершин
     const res: Vertex[] = [];
-    // Хеш-множество для записи уже посещенных вершин
+    // Хеш-множество для хранения уже посещенных вершин
     const visited: Set<Vertex> = new Set();
     visited.add(startVet);
     // Очередь используется для реализации BFS
     const que = [startVet];
     // Начиная с вершины vet, продолжать цикл, пока не будут посещены все вершины
     while (que.length) {
-        const vet = que.shift(); // Извлечь из очереди вершину из головы
-        res.push(vet); // Записать посещенную вершину
-        // Обойти все смежные вершины этой вершины
+        const vet = que.shift(); // Извлечь головную вершину из очереди
+        res.push(vet); // Отметить посещенную вершину
+        // Обойти все смежные вершины данной вершины
         for (const adjVet of graph.adjList.get(vet) ?? []) {
             if (visited.has(adjVet)) {
                 continue; // Пропустить уже посещенную вершину
             }
-            que.push(adjVet); // Помещать в очередь только непосещенные узлы
-            visited.add(adjVet); // Пометить эту вершину как посещенную
+            que.push(adjVet); // Помещать в очередь только непосещенные вершины
+            visited.add(adjVet); // Отметить эту вершину как посещенную
         }
     }
     // Вернуть последовательность обхода вершин
@@ -35,7 +35,7 @@ function graphBFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
 }
 
 /* Driver Code */
-/* Инициализировать неориентированный граф */
+/* Инициализация неориентированного графа */
 const v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 const edges = [
     [v[0], v[1]],

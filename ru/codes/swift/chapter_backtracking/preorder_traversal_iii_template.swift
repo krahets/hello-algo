@@ -37,13 +37,13 @@ func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNo
     if isSolution(state: state) {
         recordSolution(state: state, res: &res)
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for choice in choices {
-        // Отсечение: проверить, допустим ли текущий выбор
+        // Отсечение: проверить допустимость выбора
         if isValid(state: state, choice: choice) {
             // Попытка: сделать выбор и обновить состояние
             makeChoice(state: &state, choice: choice)
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             backtrack(state: &state, choices: [choice.left, choice.right].compactMap { $0 }, res: &res)
             // Откат: отменить выбор и восстановить предыдущее состояние
             undoChoice(state: &state, choice: choice)
@@ -56,7 +56,7 @@ enum PreorderTraversalIIITemplate {
     /* Driver Code */
     static func main() {
         let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
-        print("\nИнициализировать двоичное дерево")
+        print("\nИнициализация двоичного дерева")
         PrintUtil.printTree(root: root)
 
         // Алгоритм бэктрекинга
@@ -64,7 +64,7 @@ enum PreorderTraversalIIITemplate {
         var res: [[TreeNode]] = []
         backtrack(state: &state, choices: [root].compactMap { $0 }, res: &res)
 
-        print("\nВывести все пути от корня до узла 7, путь не должен содержать узлы со значением 3")
+        print("\nВсе пути от корня к узлу 7, не содержащие узлов со значением 3")
         for path in res {
             var vals: [Int] = []
             for node in path {

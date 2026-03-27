@@ -8,7 +8,7 @@
 
 #define MAX_SIZE 100
 
-/* Обход по уровням */
+/* Обход в ширину */
 int *levelOrder(TreeNode *root, int *size) {
     /* Вспомогательная очередь */
     int front, rear;
@@ -23,7 +23,7 @@ int *levelOrder(TreeNode *root, int *size) {
     // Добавить корневой узел
     queue[rear++] = root;
     // Инициализировать список для хранения последовательности обхода
-    /* вспомогательный массив */
+    /* Вспомогательный массив */
     arr = (int *)malloc(sizeof(int) * MAX_SIZE);
     // Указатель на массив
     index = 0;
@@ -33,11 +33,11 @@ int *levelOrder(TreeNode *root, int *size) {
         // Сохранить значение узла
         arr[index++] = node->val;
         if (node->left != NULL) {
-            // Поместить левого потомка в очередь
+            // Поместить левый дочерний узел в очередь
             queue[rear++] = node->left;
         }
         if (node->right != NULL) {
-            // Поместить правого потомка в очередь
+            // Поместить правый дочерний узел в очередь
             queue[rear++] = node->right;
         }
     }
@@ -45,22 +45,22 @@ int *levelOrder(TreeNode *root, int *size) {
     *size = index;
     arr = realloc(arr, sizeof(int) * (*size));
 
-    // Освободить пространство вспомогательного массива
+    // Освободить память вспомогательного массива
     free(queue);
     return arr;
 }
 
 /* Driver Code */
 int main() {
-    /* Инициализировать двоичное дерево */
-    // Здесь используется функция, которая напрямую строит двоичное дерево из массива
+    /* Инициализация двоичного дерева */
+    // Здесь используется функция, напрямую строящая двоичное дерево из массива
     int nums[] = {1, 2, 3, 4, 5, 6, 7};
     int size = sizeof(nums) / sizeof(int);
     TreeNode *root = arrayToTree(nums, size);
-    printf("Инициализировать двоичное дерево\n");
+    printf("Инициализация двоичного дерева\n");
     printTree(root);
 
-    /* Обход по уровням */
+    /* Обход в ширину */
     // Нужно передать длину массива
     int *arr = levelOrder(root, &size);
     printf("Последовательность узлов при обходе по уровням = ");

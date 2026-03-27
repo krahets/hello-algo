@@ -10,7 +10,7 @@ import java.util.*
 
 class Trunk(var prev: Trunk?, var str: String)
 
-/* Вывестиматрица(Array) */
+/* Вывести матрицу (Array) */
 fun <T> printMatrix(matrix: Array<Array<T>>) {
     println("[")
     for (row in matrix) {
@@ -19,7 +19,7 @@ fun <T> printMatrix(matrix: Array<Array<T>>) {
     println("]")
 }
 
-/* Вывестиматрица(List) */
+/* Вывести матрицу (List) */
 fun <T> printMatrix(matrix: MutableList<MutableList<T>>) {
     println("[")
     for (row in matrix) {
@@ -45,8 +45,8 @@ fun printTree(root: TreeNode?) {
 }
 
 /**
- * Вывестидвоичное дерево
- * This tree printer is borrowed from TECHIE DELIGHT
+ * Вывести двоичное дерево
+ * Этот вывод дерева заимствован из TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 fun printTree(root: TreeNode?, prev: Trunk?, isRight: Boolean) {

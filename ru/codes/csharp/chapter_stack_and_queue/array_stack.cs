@@ -10,16 +10,16 @@ namespace hello_algo.chapter_stack_and_queue;
 class ArrayStack {
     List<int> stack;
     public ArrayStack() {
-        // Инициализировать список (динамический массив)
+        // Инициализация списка (динамического массива)
         stack = [];
     }
 
-    /* Получить длину стека */
+    /* Получение длины стека */
     public int Size() {
         return stack.Count;
     }
 
-    /* Проверить, пуст ли стек */
+    /* Проверка, пуст ли стек */
     public bool IsEmpty() {
         return Size() == 0;
     }
@@ -38,14 +38,14 @@ class ArrayStack {
         return val;
     }
 
-    /* Получить верхний элемент стека */
+    /* Доступ к верхнему элементу стека */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return stack[Size() - 1];
     }
 
-    /* Преобразовать List в Array и вернуть его */
+    /* Преобразовать List в Array и вернуть */
     public int[] ToArray() {
         return [.. stack];
     }
@@ -54,10 +54,10 @@ class ArrayStack {
 public class array_stack {
     [Test]
     public void Test() {
-        /* Инициализировать стек */
+        /* Инициализация стека */
         ArrayStack stack = new();
 
-        /* Поместить элемент в стек */
+        /* Помещение элемента в стек */
         stack.Push(1);
         stack.Push(3);
         stack.Push(2);
@@ -65,20 +65,20 @@ public class array_stack {
         stack.Push(4);
         Console.WriteLine("Стек stack = " + string.Join(",", stack.ToArray()));
 
-        /* Получить верхний элемент стека */
+        /* Доступ к верхнему элементу стека */
         int peek = stack.Peek();
-        Console.WriteLine("вершина стекаэлемент peek =" + peek);
+        Console.WriteLine("Верхний элемент peek = " + peek);
 
-        /* Извлечь элемент из стека */
+        /* Извлечение элемента из стека */
         int pop = stack.Pop();
-        Console.WriteLine("Элемент, извлеченный из стека, pop = " + pop + ", stack после извлечения = " + string.Join(",", stack.ToArray()));
+        Console.WriteLine("Извлеченный элемент pop = " + pop + ", stack после извлечения = " + string.Join(",", stack.ToArray()));
 
-        /* Получить длину стека */
+        /* Получение длины стека */
         int size = stack.Size();
-        Console.WriteLine("Длина стека size =" + size);
+        Console.WriteLine("Длина стека size = " + size);
 
-        /* Проверить, пуста ли структура */
+        /* Проверка на пустоту */
         bool isEmpty = stack.IsEmpty();
-        Console.WriteLine("стекпуст ли =" + isEmpty);
+        Console.WriteLine("Пуст ли стек = " + isEmpty);
     }
 }

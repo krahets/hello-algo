@@ -14,17 +14,17 @@ public class permutations_ii {
             res.Add(new List<int>(state));
             return;
         }
-        // Перебрать все варианты выбора
+        // Перебор всех вариантов выбора
         HashSet<int> duplicated = [];
         for (int i = 0; i < choices.Length; i++) {
             int choice = choices[i];
-            // Отсечение: не допускается повторный выбор элемента и не допускается повторный выбор равных элементов
+            // Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
             if (!selected[i] && !duplicated.Contains(choice)) {
                 // Попытка: сделать выбор и обновить состояние
-                duplicated.Add(choice); // Записатьвыбранныеэлементзначение
+                duplicated.Add(choice); // Записать значения уже выбранных элементов
                 selected[i] = true;
                 state.Add(choice);
-                // Перейти к следующему варианту выбора
+                // Перейти к следующему выбору
                 Backtrack(state, choices, selected, res);
                 // Откат: отменить выбор и восстановить предыдущее состояние
                 selected[i] = false;

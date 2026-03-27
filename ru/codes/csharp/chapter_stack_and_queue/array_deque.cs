@@ -6,10 +6,10 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* Двусторонняя очередь на основе циклического массива */
+/* Двусторонняя очередь на основе кольцевого массива */
 public class ArrayDeque {
     int[] nums;  // Массив для хранения элементов двусторонней очереди
-    int front;   // Указатель front, указывающий на первый элемент очереди
+    int front;   // Указатель head, указывающий на первый элемент очереди
     int queSize; // Длина двусторонней очереди
 
     /* Конструктор */
@@ -23,68 +23,68 @@ public class ArrayDeque {
         return nums.Length;
     }
 
-    /* Получить длину двусторонней очереди */
+    /* Получение длины двусторонней очереди */
     public int Size() {
         return queSize;
     }
 
-    /* Проверить, пуста ли двусторонняя очередь */
+    /* Проверка, пуста ли двусторонняя очередь */
     public bool IsEmpty() {
         return queSize == 0;
     }
 
-    /* Вычислить индекс циклического массива */
+    /* Вычислить индекс в кольцевом массиве */
     int Index(int i) {
-        // Сделать начало и конец массива циклически связанными с помощью операции взятия по модулю
-        // Когда i выходит за конец массива, он возвращается к началу
-        // Когда i выходит за начало массива, он возвращается к концу
+        // С помощью операции взятия по модулю соединить начало и конец массива
+        // Когда i выходит за конец массива, он возвращается в начало
+        // Когда i выходит за начало массива, он возвращается в конец
         return (i + Capacity()) % Capacity();
     }
 
-    /* Поместить в голову очереди */
+    /* Добавление в голову очереди */
     public void PushFirst(int num) {
         if (queSize == Capacity()) {
             Console.WriteLine("Двусторонняя очередь заполнена");
             return;
         }
-        // Указатель головы очереди сдвигается на одну позицию влево
-        // Операция взятия по модулю позволяет front после выхода за начало массива вернуться к его концу
+        // Указатель головы сдвигается на одну позицию влево
+        // С помощью операции взятия по модулю front после выхода за начало массива возвращается в хвост
         front = Index(front - 1);
         // Добавить num в голову очереди
         nums[front] = num;
         queSize++;
     }
 
-    /* Поместить в хвост очереди */
+    /* Добавление в хвост очереди */
     public void PushLast(int num) {
         if (queSize == Capacity()) {
             Console.WriteLine("Двусторонняя очередь заполнена");
             return;
         }
-        // Вычислить указатель хвоста, указывающий на индекс за последним элементом
+        // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
         int rear = Index(front + queSize);
-        // Добавить num в конец очереди
+        // Добавить num в хвост очереди
         nums[rear] = num;
         queSize++;
     }
 
-    /* Извлечь из головы очереди */
+    /* Извлечение из головы очереди */
     public int PopFirst() {
         int num = PeekFirst();
-        // Указатель головы очереди сдвигается на одну позицию вперед
+        // Указатель головы сдвигается на одну позицию назад
         front = Index(front + 1);
         queSize--;
         return num;
     }
 
-    /* Извлечь из хвоста очереди */
+    /* Извлечение из хвоста очереди */
     public int PopLast() {
         int num = PeekLast();
         queSize--;
         return num;
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     public int PeekFirst() {
         if (IsEmpty()) {
             throw new InvalidOperationException();
@@ -92,7 +92,7 @@ public class ArrayDeque {
         return nums[front];
     }
 
-    /* Обратиться к элементу в хвосте очереди */
+    /* Доступ к элементу в конце очереди */
     public int PeekLast() {
         if (IsEmpty()) {
             throw new InvalidOperationException();
@@ -102,9 +102,9 @@ public class ArrayDeque {
         return nums[last];
     }
 
-    /* Вернуть массив для печати */
+    /* Вернуть массив для вывода */
     public int[] ToArray() {
-        // Преобразовать только элементы списка в пределах действительной длины
+        // Преобразовывать только элементы списка в пределах фактической длины
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[Index(j)];
@@ -116,37 +116,37 @@ public class ArrayDeque {
 public class array_deque {
     [Test]
     public void Test() {
-        /* Инициализировать двустороннюю очередь */
+        /* Инициализация двусторонней очереди */
         ArrayDeque deque = new(10);
         deque.PushLast(3);
         deque.PushLast(2);
         deque.PushLast(5);
         Console.WriteLine("Двусторонняя очередь deque = " + string.Join(" ", deque.ToArray()));
 
-        /* Получить доступ к элементу */
+        /* Доступ к элементу */
         int peekFirst = deque.PeekFirst();
-        Console.WriteLine("голова очередиэлемент peekFirst =" + peekFirst);
+        Console.WriteLine("Первый элемент peekFirst = " + peekFirst);
         int peekLast = deque.PeekLast();
-        Console.WriteLine("хвост очередиэлемент peekLast =" + peekLast);
+        Console.WriteLine("Последний элемент peekLast = " + peekLast);
 
-        /* Поместить элемент в очередь */
+        /* Добавление элемента в очередь */
         deque.PushLast(4);
-        Console.WriteLine("После помещения элемента 4 в хвост очереди deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("После добавления элемента 4 в хвост deque = " + string.Join(" ", deque.ToArray()));
         deque.PushFirst(1);
-        Console.WriteLine("После помещения элемента 1 в голову очереди deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("После добавления элемента 1 в голову deque = " + string.Join(" ", deque.ToArray()));
 
-        /* Извлечь элемент из очереди */
+        /* Извлечение элемента из очереди */
         int popLast = deque.PopLast();
-        Console.WriteLine("Элемент, извлеченный из хвоста очереди = " + popLast + ", deque после извлечения из хвоста = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Извлеченный из хвоста элемент = " + popLast + ", deque после извлечения из хвоста = " + string.Join(" ", deque.ToArray()));
         int popFirst = deque.PopFirst();
-        Console.WriteLine("Элемент, извлеченный из головы очереди = " + popFirst + ", deque после извлечения из головы = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Извлеченный из головы элемент = " + popFirst + ", deque после извлечения из головы = " + string.Join(" ", deque.ToArray()));
 
-        /* Получить длину двусторонней очереди */
+        /* Получение длины двусторонней очереди */
         int size = deque.Size();
         Console.WriteLine("Длина двусторонней очереди size = " + size);
 
-        /* Проверить, пуста ли двусторонняя очередь */
+        /* Проверка, пуста ли двусторонняя очередь */
         bool isEmpty = deque.IsEmpty();
-        Console.WriteLine("Двусторонняя очередь пуста: " + isEmpty);
+        Console.WriteLine("Пуста ли двусторонняя очередь = " + isEmpty);
     }
 }

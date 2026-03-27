@@ -42,7 +42,7 @@ func xorHash(key string) int {
 	return hash & modulus
 }
 
-/* Вращательное хеширование */
+/* Хеширование с циклическим сдвигом */
 func rotHash(key string) int {
 	var hash int64
 	var modulus int64

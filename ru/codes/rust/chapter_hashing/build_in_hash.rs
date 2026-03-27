@@ -15,35 +15,35 @@ fn main() {
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
     let hash_num = num_hasher.finish();
-    println!("Хеш-значение целого числа {} равно {}", num, hash_num);
+    println!("Хеш-значение целого числа {} = {}", num, hash_num);
 
     let bol = true;
     let mut bol_hasher = DefaultHasher::new();
     bol.hash(&mut bol_hasher);
     let hash_bol = bol_hasher.finish();
-    println!("Хеш-значение логического значения {} равно {}", bol, hash_bol);
+    println!("Хеш-значение булева значения {} = {}", bol, hash_bol);
 
     let dec: f32 = 3.14159;
     let mut dec_hasher = DefaultHasher::new();
     dec.to_bits().hash(&mut dec_hasher);
     let hash_dec = dec_hasher.finish();
-    println!("Хеш-значение десятичного числа {} равно {}", dec, hash_dec);
+    println!("Хеш-значение десятичного числа {} = {}", dec, hash_dec);
 
     let str = "Hello Algo";
     let mut str_hasher = DefaultHasher::new();
     str.hash(&mut str_hasher);
     let hash_str = str_hasher.finish();
-    println!("Хеш-значение строки {} равно {}", str, hash_str);
+    println!("Хеш-значение строки {} = {}", str, hash_str);
 
     let arr = (&12836, &"Сяо Ха");
     let mut tup_hasher = DefaultHasher::new();
     arr.hash(&mut tup_hasher);
     let hash_tup = tup_hasher.finish();
-    println!("Хеш-значение кортежа {:?} равно {}", arr, hash_tup);
+    println!("Хеш-значение кортежа {:?} = {}", arr, hash_tup);
 
     let node = ListNode::new(42);
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("Хеш-значение объекта узла {:?} равно {}", node, hash);
+    println!("Хеш-значение объекта узла {:?} = {}", node, hash);
 }

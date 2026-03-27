@@ -10,38 +10,38 @@ public class list {
     [Test]
     public void Test() {
 
-        /* Инициализировать список */
+        /* Инициализация списка */
         int[] numbers = [1, 3, 2, 5, 4];
         List<int> nums = [.. numbers];
         Console.WriteLine("Список nums = " + string.Join(",", nums));
 
-        /* Получить доступ к элементу */
+        /* Доступ к элементу */
         int num = nums[1];
-        Console.WriteLine("обратиться киндекс 1 поэлемент, получаем num =" + num);
+        Console.WriteLine("Элемент по индексу 1: num = " + num);
 
-        /* Обновить элемент */
+        /* Обновление элемента */
         nums[1] = 0;
-        Console.WriteLine("После обновления элемента по индексу 1 на 0 получаем nums = " + string.Join(",", nums));
+        Console.WriteLine("После обновления элемента по индексу 1 до 0 nums = " + string.Join(",", nums));
 
         /* Очистить список */
         nums.Clear();
         Console.WriteLine("После очистки списка nums = " + string.Join(",", nums));
 
-        /* Добавить элемент в конец */
+        /* Добавление элемента в конец */
         nums.Add(1);
         nums.Add(3);
         nums.Add(2);
         nums.Add(5);
         nums.Add(4);
-        Console.WriteLine("Добавитьэлементпосле nums =" + string.Join(",", nums));
+        Console.WriteLine("После добавления элементов nums = " + string.Join(",", nums));
 
-        /* Вставить элемент в середину */
+        /* Вставка элемента в середину */
         nums.Insert(3, 6);
-        Console.WriteLine("После вставки числа 6 по индексу 3 получаем nums = " + string.Join(",", nums));
+        Console.WriteLine("После вставки числа 6 по индексу 3 nums = " + string.Join(",", nums));
 
-        /* Удалить элемент */
+        /* Удаление элемента */
         nums.RemoveAt(3);
-        Console.WriteLine("После удаления элемента по индексу 3 получаем nums = " + string.Join(",", nums));
+        Console.WriteLine("После удаления элемента по индексу 3 nums = " + string.Join(",", nums));
 
         /* Обходить список по индексам */
         int count = 0;
@@ -57,10 +57,10 @@ public class list {
         /* Объединить два списка */
         List<int> nums1 = [6, 8, 7, 10, 9];
         nums.AddRange(nums1);
-        Console.WriteLine("После присоединения списка nums1 к nums получаем nums = " + string.Join(",", nums));
+        Console.WriteLine("После конкатенации списка nums1 к nums nums = " + string.Join(",", nums));
 
         /* Отсортировать список */
-        nums.Sort(); // Сортировкапосле, списокэлементрасположены по возрастанию
+        nums.Sort(); // После сортировки элементы списка располагаются по возрастанию
         Console.WriteLine("После сортировки списка nums = " + string.Join(",", nums));
     }
 }

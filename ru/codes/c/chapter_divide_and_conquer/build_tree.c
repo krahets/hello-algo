@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-// Предположим, что все элементы меньше 1000
+// Предположить, что все элементы меньше 1000
 #define MAX_SIZE 1000
 
-/* Построение двоичного дерева: разделяй и властвуй */
+/* Построить двоичное дерево: разделяй и властвуй */
 TreeNode *dfs(int *preorder, int *inorderMap, int i, int l, int r, int size) {
-    // Завершить, если диапазон поддерева пуст
+    // Завершить при пустом диапазоне поддерева
     if (r - l < 0)
         return NULL;
     // Инициализировать корневой узел
@@ -31,7 +31,7 @@ TreeNode *dfs(int *preorder, int *inorderMap, int i, int l, int r, int size) {
 
 /* Построить двоичное дерево */
 TreeNode *buildTree(int *preorder, int preorderSize, int *inorder, int inorderSize) {
-    // Инициализировать хеш-таблицу для хранения отображения элементов inorder в индексы
+    // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
     int *inorderMap = (int *)malloc(sizeof(int) * MAX_SIZE);
     for (int i = 0; i < inorderSize; i++) {
         inorderMap[inorder[i]] = i;
@@ -47,7 +47,7 @@ int main() {
     int inorder[] = {9, 3, 1, 2, 7};
     int preorderSize = sizeof(preorder) / sizeof(preorder[0]);
     int inorderSize = sizeof(inorder) / sizeof(inorder[0]);
-    printf("Прямой обход = ");
+    printf("Предварительный обход = ");
     printArray(preorder, preorderSize);
     printf("Симметричный обход = ");
     printArray(inorder, inorderSize);

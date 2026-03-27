@@ -11,16 +11,16 @@ function backtrack(state, choices, selected, res) {
         res.push([...state]);
         return;
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     const duplicated = new Set();
     choices.forEach((choice, i) => {
-        // Отсечение: не допускается повторный выбор элемента и не допускается повторный выбор равных элементов
+        // Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
         if (!selected[i] && !duplicated.has(choice)) {
             // Попытка: сделать выбор и обновить состояние
-            duplicated.add(choice); // Записатьвыбранныеэлементзначение
+            duplicated.add(choice); // Записать значения уже выбранных элементов
             selected[i] = true;
             state.push(choice);
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             backtrack(state, choices, selected, res);
             // Откат: отменить выбор и восстановить предыдущее состояние
             selected[i] = false;

@@ -12,10 +12,10 @@ import (
 )
 
 func TestAVLTree(t *testing.T) {
-	/* Инициализировать пустое AVL-дерево */
+	/* Инициализация пустого AVL-дерева */
 	tree := newAVLTree()
-	/* Вставить узел */
-	// Обратите внимание на то, как AVL-дерево сохраняет баланс после вставки узла
+	/* Вставка узла */
+	// Обратите внимание, как AVL-дерево сохраняет баланс после вставки узла
 	testInsert(tree, 1)
 	testInsert(tree, 2)
 	testInsert(tree, 3)
@@ -27,28 +27,28 @@ func TestAVLTree(t *testing.T) {
 	testInsert(tree, 10)
 	testInsert(tree, 6)
 
-	/* Вставить повторяющийся узел */
+	/* Вставка повторяющегося узла */
 	testInsert(tree, 7)
 
-	/* Удалить узел */
-	// Обратите внимание на то, как AVL-дерево сохраняет баланс после удаления узла
-	testRemove(tree, 8) // Удалить узел степени 0
-	testRemove(tree, 5) // Удалить узел степени 1
-	testRemove(tree, 4) // Удалить узел степени 2
+	/* Удаление узла */
+	// Обратите внимание, как AVL-дерево сохраняет баланс после удаления узла
+	testRemove(tree, 8) // Удаление узла степени 0
+	testRemove(tree, 5) // Удаление узла степени 1
+	testRemove(tree, 4) // Удаление узла степени 2
 
-	/* Найти узел */
+	/* Поиск узла */
 	node := tree.search(7)
-	fmt.Printf("\nНайденныйузелобъектравно %#v, значение узла = %d \n", node, node.Val)
+	fmt.Printf("\nНайденный объект узла = %#v, значение узла = %d\n", node, node.Val)
 }
 
 func testInsert(tree *aVLTree, val int) {
 	tree.insert(val)
-	fmt.Printf("\nПосле вставки узла %d AVL-дерево имеет вид \n", val)
+	fmt.Printf("\nПосле вставки узла %d AVL-дерево имеет вид\n", val)
 	PrintTree(tree.root)
 }
 
 func testRemove(tree *aVLTree, val int) {
 	tree.remove(val)
-	fmt.Printf("\nПосле удаления узла %d AVL-дерево имеет вид \n", val)
+	fmt.Printf("\nПосле удаления узла %d AVL-дерево имеет вид\n", val)
 	PrintTree(tree.root)
 }

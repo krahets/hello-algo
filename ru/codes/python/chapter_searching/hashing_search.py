@@ -13,8 +13,8 @@ from modules import ListNode, list_to_linked_list
 
 def hashing_search_array(hmap: dict[int, int], target: int) -> int:
     """Хеш-поиск (массив)"""
-    # У хеш-таблицы key: целевой элемент, value: индекс
-    # Если такого key в хеш-таблице нет, вернуть -1
+    # key хеш-таблицы: целевой элемент, value: индекс
+    # Если такого key нет в хеш-таблице, вернуть -1
     return hmap.get(target, -1)
 
 
@@ -22,7 +22,7 @@ def hashing_search_linkedlist(
     hmap: dict[int, ListNode], target: int
 ) -> ListNode | None:
     """Хеш-поиск (связный список)"""
-    # У хеш-таблицы key: целевой элемент, value: объект узла
+    # key хеш-таблицы: целевой элемент, value: объект узла
     # Если такого key нет в хеш-таблице, вернуть None
     return hmap.get(target, None)
 
@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     # Хеш-поиск (массив)
     nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
-    # Инициализировать хеш-таблицу
+    # Инициализация хеш-таблицы
     map0 = dict[int, int]()
     for i in range(len(nums)):
         map0[nums[i]] = i  # key: элемент, value: индекс
@@ -42,10 +42,10 @@ if __name__ == "__main__":
 
     # Хеш-поиск (связный список)
     head: ListNode = list_to_linked_list(nums)
-    # Инициализировать хеш-таблицу
+    # Инициализация хеш-таблицы
     map1 = dict[int, ListNode]()
     while head:
         map1[head.val] = head  # key: значение узла, value: узел
         head = head.next
     node: ListNode = hashing_search_linkedlist(map1, target)
-    print("Объект узла, соответствующий целевому значению 3, равен", node)
+    print("Объект узла со значением 3 =", node)

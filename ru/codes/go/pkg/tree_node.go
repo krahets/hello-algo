@@ -4,7 +4,7 @@
 
 package pkg
 
-// TreeNode двоичное деревоузел
+// TreeNode: узел двоичного дерева
 type TreeNode struct {
 	Val    any       // Значение узла
 	Height int       // Высота узла
@@ -12,7 +12,7 @@ type TreeNode struct {
 	Right  *TreeNode // Ссылка на правый дочерний узел
 }
 
-// NewTreeNode двоичное деревоузелКонструктор
+// NewTreeNode: конструктор узла двоичного дерева
 func NewTreeNode(v any) *TreeNode {
 	return &TreeNode{
 		Val:    v,
@@ -22,26 +22,26 @@ func NewTreeNode(v any) *TreeNode {
 	}
 }
 
-// сериализоватьправила кодированиясм.:
+// Правила кодирования сериализации см.:
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// Массивное представление двоичного дерева:
+// Представление двоичного дерева массивом:
 // [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
-// Связное представление двоичного дерева:
+// Представление двоичного дерева связным списком:
 //
 // /——— 15
 // /——— 7
 // /——— 3
-// | \——— 6
-// | \——— 12
+// |    \——— 6
+// |        \——— 12
 //
 // ——— 1
 //
 // \——— 2
-// | /——— 9
+// |    /——— 9
 // \——— 4
 // \——— 8
 
-// SliceToTreeDFS Десериализовать список в двоичное дерево: рекурсия
+// SliceToTreeDFS десериализует список в двоичное дерево: рекурсия
 func SliceToTreeDFS(arr []any, i int) *TreeNode {
 	if i < 0 || i >= len(arr) || arr[i] == nil {
 		return nil

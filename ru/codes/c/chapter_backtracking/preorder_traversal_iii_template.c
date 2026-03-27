@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// Предположим, что длина результата суммы пути не превышает 100
+// Предположим, что длина пути и результата не превышает 100
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
@@ -49,14 +49,14 @@ void backtrack(TreeNode *choices[2]) {
         // Записать решение
         recordSolution();
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for (int i = 0; i < 2; i++) {
         TreeNode *choice = choices[i];
-        // Отсечение: проверить, допустим ли текущий выбор
+        // Отсечение: проверить допустимость выбора
         if (isValid(choice)) {
             // Попытка: сделать выбор и обновить состояние
             makeChoice(choice);
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             TreeNode *nextChoices[2] = {choice->left, choice->right};
             backtrack(nextChoices);
             // Откат: отменить выбор и восстановить предыдущее состояние
@@ -69,14 +69,14 @@ void backtrack(TreeNode *choices[2]) {
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));
-    printf("\nИнициализировать двоичное дерево\n");
+    printf("\nИнициализация двоичного дерева\n");
     printTree(root);
 
     // Алгоритм бэктрекинга
     TreeNode *choices[2] = {root, NULL};
     backtrack(choices);
 
-    printf("\nВывести все пути от корня до узла 7, требуя, чтобы путь не содержал узлы со значением 3\n");
+    printf("\nВывести все пути от корня к узлу 7, не содержащие узлов со значением 3\n");
     for (int i = 0; i < resSize; ++i) {
         int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;

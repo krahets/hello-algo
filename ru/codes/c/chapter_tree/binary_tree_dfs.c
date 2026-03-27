@@ -11,11 +11,11 @@
 // Вспомогательный массив для хранения последовательности обхода
 int arr[MAX_SIZE];
 
-/* Прямой обход */
+/* Предварительный обход */
 void preOrder(TreeNode *root, int *size) {
     if (root == NULL)
         return;
-    // Порядок обхода: корневой узел -> левое поддерево -> правое поддерево
+    // Порядок обхода: корень -> левое поддерево -> правое поддерево
     arr[(*size)++] = root->val;
     preOrder(root->left, size);
     preOrder(root->right, size);
@@ -25,7 +25,7 @@ void preOrder(TreeNode *root, int *size) {
 void inOrder(TreeNode *root, int *size) {
     if (root == NULL)
         return;
-    // Порядок обхода: левое поддерево -> корневой узел -> правое поддерево
+    // Порядок обхода: левое поддерево -> корень -> правое поддерево
     inOrder(root->left, size);
     arr[(*size)++] = root->val;
     inOrder(root->right, size);
@@ -35,7 +35,7 @@ void inOrder(TreeNode *root, int *size) {
 void postOrder(TreeNode *root, int *size) {
     if (root == NULL)
         return;
-    // Порядок обхода: левое поддерево -> правое поддерево -> корневой узел
+    // Порядок обхода: левое поддерево -> правое поддерево -> корень
     postOrder(root->left, size);
     postOrder(root->right, size);
     arr[(*size)++] = root->val;
@@ -43,19 +43,19 @@ void postOrder(TreeNode *root, int *size) {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать двоичное дерево */
-    // Здесь используется функция, которая напрямую строит двоичное дерево из массива
+    /* Инициализация двоичного дерева */
+    // Здесь используется функция, напрямую строящая двоичное дерево из массива
     int nums[] = {1, 2, 3, 4, 5, 6, 7};
     int size = sizeof(nums) / sizeof(int);
     TreeNode *root = arrayToTree(nums, size);
-    printf("Инициализировать двоичное дерево\n");
+    printf("Инициализация двоичного дерева\n");
     printTree(root);
 
-    /* Прямой обход */
-    // Инициализироватьвспомогательный массив
+    /* Предварительный обход */
+    // Инициализация вспомогательного массива
     size = 0;
     preOrder(root, &size);
-    printf("Последовательность узлов при прямом обходе = ");
+    printf("Последовательность узлов при предварительном обходе = ");
     printArray(arr, size);
 
     /* Симметричный обход */

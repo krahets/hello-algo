@@ -8,19 +8,19 @@ import { ListNode } from '../modules/ListNode';
 
 /* Стек на основе связного списка */
 class LinkedListStack {
-    private stackPeek: ListNode | null; // Считать головной узел вершиной стека
+    private stackPeek: ListNode | null; // Использовать головной узел как вершину стека
     private stkSize: number = 0; // Длина стека
 
     constructor() {
         this.stackPeek = null;
     }
 
-    /* Получить длину стека */
+    /* Получение длины стека */
     get size(): number {
         return this.stkSize;
     }
 
-    /* Проверить, пуст ли стек */
+    /* Проверка, пуст ли стек */
     isEmpty(): boolean {
         return this.size === 0;
     }
@@ -36,19 +36,19 @@ class LinkedListStack {
     /* Извлечь из стека */
     pop(): number {
         const num = this.peek();
-        if (!this.stackPeek) throw new Error('Стек пуст');
+        if (!this.stackPeek) throw new Error('стек пуст');
         this.stackPeek = this.stackPeek.next;
         this.stkSize--;
         return num;
     }
 
-    /* Получить верхний элемент стека */
+    /* Доступ к верхнему элементу стека */
     peek(): number {
-        if (!this.stackPeek) throw new Error('Стек пуст');
+        if (!this.stackPeek) throw new Error('стек пуст');
         return this.stackPeek.val;
     }
 
-    /* Преобразовать связный список в Array и вернуть его */
+    /* Преобразовать связный список в Array и вернуть */
     toArray(): number[] {
         let node = this.stackPeek;
         const res = new Array<number>(this.size);
@@ -61,10 +61,10 @@ class LinkedListStack {
 }
 
 /* Driver Code */
-/* Инициализировать стек */
+/* Инициализация стека */
 const stack = new LinkedListStack();
 
-/* Поместить элемент в стек */
+/* Помещение элемента в стек */
 stack.push(1);
 stack.push(3);
 stack.push(2);
@@ -72,20 +72,20 @@ stack.push(5);
 stack.push(4);
 console.log('Стек stack = ' + stack.toArray());
 
-/* Получить верхний элемент стека */
+/* Доступ к верхнему элементу стека */
 const peek = stack.peek();
-console.log('вершина стекаэлемент peek =' + peek);
+console.log('Верхний элемент стека peek = ' + peek);
 
-/* Извлечь элемент из стека */
+/* Извлечение элемента из стека */
 const pop = stack.pop();
-console.log('Элемент, извлеченный из стека, pop = ' + pop + ', stack после извлечения = ' + stack.toArray());
+console.log('Извлечен элемент pop = ' + pop + ', стек после извлечения stack = ' + stack.toArray());
 
-/* Получить длину стека */
+/* Получение длины стека */
 const size = stack.size;
-console.log('Длина стека size =' + size);
+console.log('Длина стека size = ' + size);
 
-/* Проверить, пуста ли структура */
+/* Проверка на пустоту */
 const isEmpty = stack.isEmpty();
-console.log('стекпуст ли =' + isEmpty);
+console.log('Пуст ли стек = ' + isEmpty);
 
 export {};

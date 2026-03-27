@@ -18,12 +18,12 @@ class LinkedListQueue {
         rear = null;
     }
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     public int size() {
         return queSize;
     }
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -32,7 +32,7 @@ class LinkedListQueue {
     public void push(int num) {
         // Добавить num после хвостового узла
         ListNode node = new ListNode(num);
-        // Если очередь пуста, сделать так, чтобы головной и хвостовой узлы указывали на этот узел
+        // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
         if (front == null) {
             front = node;
             rear = node;
@@ -53,14 +53,14 @@ class LinkedListQueue {
         return num;
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return front.val;
     }
 
-    /* Преобразовать связный список в Array и вернуть его */
+    /* Преобразовать связный список в Array и вернуть */
     public int[] toArray() {
         ListNode node = front;
         int[] res = new int[size()];
@@ -74,10 +74,10 @@ class LinkedListQueue {
 
 public class linkedlist_queue {
     public static void main(String[] args) {
-        /* Инициализировать очередь */
+        /* Инициализация очереди */
         LinkedListQueue queue = new LinkedListQueue();
 
-        /* Поместить элемент в очередь */
+        /* Добавление элемента в очередь */
         queue.push(1);
         queue.push(3);
         queue.push(2);
@@ -85,20 +85,20 @@ public class linkedlist_queue {
         queue.push(4);
         System.out.println("Очередь queue = " + Arrays.toString(queue.toArray()));
 
-        /* Получить элемент в начале очереди */
+        /* Доступ к элементу в начале очереди */
         int peek = queue.peek();
-        System.out.println("голова очередиэлемент peek =" + peek);
+        System.out.println("Первый элемент peek = " + peek);
 
-        /* Извлечь элемент из очереди */
+        /* Извлечение элемента из очереди */
         int pop = queue.pop();
-        System.out.println("Элемент, извлеченный из очереди, pop = " + pop + ", queue после извлечения = " + Arrays.toString(queue.toArray()));
+        System.out.println("Извлеченный элемент pop = " + pop + ", queue после извлечения = " + Arrays.toString(queue.toArray()));
 
-        /* Получить длину очереди */
+        /* Получение длины очереди */
         int size = queue.size();
-        System.out.println("Длина очереди size =" + size);
+        System.out.println("Длина очереди size = " + size);
 
-        /* Проверить, пуста ли очередь */
+        /* Проверка, пуста ли очередь */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("Очередь пуста: " + isEmpty);
+        System.out.println("Пуста ли очередь = " + isEmpty);
     }
 }

@@ -23,7 +23,7 @@ void remove(ListNode n0) {
   n0.next = n1;
 }
 
-/* Обратиться к узлу связного списка с индексом index */
+/* Доступ к узлу связного списка по индексу index */
 ListNode? access(ListNode? head, int index) {
   for (var i = 0; i < index; i++) {
     if (head == null) return null;
@@ -32,7 +32,7 @@ ListNode? access(ListNode? head, int index) {
   return head;
 }
 
-/* Найти первый узел со значением target в связном списке */
+/* Найти в связном списке первый узел со значением target */
 int find(ListNode? head, int target) {
   int index = 0;
   while (head != null) {
@@ -47,8 +47,8 @@ int find(ListNode? head, int target) {
 
 /* Driver Code */
 void main() {
-  // Инициализироватьсвязный список
-  // Инициализироватькаждый узел
+  // Инициализация связного списка
+  // Инициализация всех узлов
   ListNode n0 = ListNode(1);
   ListNode n1 = ListNode(3);
   ListNode n2 = ListNode(2);
@@ -60,24 +60,24 @@ void main() {
   n2.next = n3;
   n3.next = n4;
 
-  print('Инициализированный связный список:');
+  print('Исходный связный список');
   printLinkedList(n0);
 
-  /* Вставить узел */
+  /* Вставка узла */
   insert(n0, ListNode(0));
-  print('Связный список после вставки узла:');
+  print('Связный список после вставки узла');
   printLinkedList(n0);
 
-  /* Удалить узел */
+  /* Удаление узла */
   remove(n0);
-  print('Связный список после удаления узла:');
+  print('Связный список после удаления узла');
   printLinkedList(n0);
 
-  /* Получить доступ к узлу */
+  /* Доступ к узлу */
   ListNode? node = access(n0, 3);
   print('Значение узла по индексу 3 в связном списке = ${node!.val}');
 
-  /* Найти узел */
+  /* Поиск узла */
   int index = find(n0, 2);
   print('Индекс узла со значением 2 в связном списке = $index');
 }

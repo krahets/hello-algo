@@ -8,7 +8,7 @@ import . "github.com/krahets/hello-algo/pkg"
 
 /* AVL-дерево */
 type aVLTree struct {
-	// корневой узел
+	// Корневой узел
 	root *TreeNode
 }
 
@@ -18,7 +18,7 @@ func newAVLTree() *aVLTree {
 
 /* Получить высоту узла */
 func (t *aVLTree) height(node *TreeNode) int {
-	// Высота пустого узла равна -1, а высота листа равна 0
+	// Высота пустого узла равна -1, высота листового узла равна 0
 	if node != nil {
 		return node.Height
 	}
@@ -39,19 +39,19 @@ func (t *aVLTree) updateHeight(node *TreeNode) {
 
 /* Получить коэффициент баланса */
 func (t *aVLTree) balanceFactor(node *TreeNode) int {
-	// Баланс-фактор пустого узла равен 0
+	// Коэффициент баланса пустого узла равен 0
 	if node == nil {
 		return 0
 	}
-	// Баланс-фактор узла = высота левого поддерева - высота правого поддерева
+	// Коэффициент баланса узла = высота левого поддерева - высота правого поддерева
 	return t.height(node.Left) - t.height(node.Right)
 }
 
-/* Операция правого поворота */
+/* Операция правого вращения */
 func (t *aVLTree) rightRotate(node *TreeNode) *TreeNode {
 	child := node.Left
 	grandChild := child.Right
-	// Используя child как опорную точку, выполнить правый поворот node
+	// Выполнить правое вращение узла node вокруг child
 	child.Right = node
 	node.Left = grandChild
 	// Обновить высоту узла
@@ -61,11 +61,11 @@ func (t *aVLTree) rightRotate(node *TreeNode) *TreeNode {
 	return child
 }
 
-/* Операция левого поворота */
+/* Операция левого вращения */
 func (t *aVLTree) leftRotate(node *TreeNode) *TreeNode {
 	child := node.Right
 	grandChild := child.Left
-	// Используя child как опорную точку, выполнить левый поворот node
+	// Выполнить левое вращение узла node вокруг child
 	child.Left = node
 	node.Right = grandChild
 	// Обновить высоту узла
@@ -75,18 +75,18 @@ func (t *aVLTree) leftRotate(node *TreeNode) *TreeNode {
 	return child
 }
 
-/* Выполнить поворот, чтобы восстановить баланс этого поддерева */
+/* Выполнить вращение, чтобы снова сбалансировать поддерево */
 func (t *aVLTree) rotate(node *TreeNode) *TreeNode {
 	// Получить коэффициент баланса узла node
-	// В Go рекомендуется использовать короткие переменные, здесь bf означает t.balanceFactor
+	// В Go рекомендуется использовать короткие имена переменных, здесь bf обозначает t.balanceFactor
 	bf := t.balanceFactor(node)
 	// Левосторонне перекошенное дерево
 	if bf > 1 {
 		if t.balanceFactor(node.Left) >= 0 {
-			// Правый поворот
+			// Правое вращение
 			return t.rightRotate(node)
 		} else {
-			// Сначала выполнить левый поворот, затем правый
+			// Сначала левое вращение, затем правое
 			node.Left = t.leftRotate(node.Left)
 			return t.rightRotate(node)
 		}
@@ -94,24 +94,24 @@ func (t *aVLTree) rotate(node *TreeNode) *TreeNode {
 	// Правосторонне перекошенное дерево
 	if bf < -1 {
 		if t.balanceFactor(node.Right) <= 0 {
-			// Левый поворот
+			// Левое вращение
 			return t.leftRotate(node)
 		} else {
-			// Сначала выполнить правый поворот, затем левый
+			// Сначала правое вращение, затем левое
 			node.Right = t.rightRotate(node.Right)
 			return t.leftRotate(node)
 		}
 	}
-	// Дерево сбалансировано, вращение не требуется, можно сразу вернуть результат
+	// Дерево сбалансировано, вращение не требуется, вернуть сразу
 	return node
 }
 
-/* Вставить узел */
+/* Вставка узла */
 func (t *aVLTree) insert(val int) {
 	t.root = t.insertHelper(t.root, val)
 }
 
-/* рекурсиявставить узел(вспомогательная функция) */
+/* Рекурсивная вставка узла (вспомогательная функция) */
 func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return NewTreeNode(val)
@@ -122,23 +122,23 @@ func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 	} else if val > node.Val.(int) {
 		node.Right = t.insertHelper(node.Right, val)
 	} else {
-		// Дублирующийся узел не вставлять, сразу вернуть результат
+		// Повторяющийся узел не вставлять, сразу вернуть
 		return node
 	}
 	// Обновить высоту узла
 	t.updateHeight(node)
-	/* 2. Выполнить вращение, чтобы снова сбалансировать это поддерево */
+	/* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
 	node = t.rotate(node)
 	// Вернуть корневой узел поддерева
 	return node
 }
 
-/* Удалить узел */
+/* Удаление узла */
 func (t *aVLTree) remove(val int) {
 	t.root = t.removeHelper(t.root, val)
 }
 
-/* рекурсияУдалить узел(вспомогательная функция) */
+/* Рекурсивное удаление узла (вспомогательная функция) */
 func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return nil
@@ -155,14 +155,14 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 				child = node.Right
 			}
 			if child == nil {
-				// Если число дочерних узлов равно 0, сразу удалить node и вернуть результат
+				// Число дочерних узлов = 0, удалить node и сразу вернуть
 				return nil
 			} else {
-				// Если число дочерних узлов равно 1, сразу удалить node
+				// Число дочерних узлов = 1, удалить node напрямую
 				node = child
 			}
 		} else {
-			// Если число дочерних узлов равно 2, удалить следующий узел симметричного обхода и заменить им текущий узел
+			// Число дочерних узлов = 2, удалить следующий по симметричному обходу узел и заменить им текущий узел
 			temp := node.Right
 			for temp.Left != nil {
 				temp = temp.Left
@@ -173,16 +173,16 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	}
 	// Обновить высоту узла
 	t.updateHeight(node)
-	/* 2. Выполнить вращение, чтобы снова сбалансировать это поддерево */
+	/* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
 	node = t.rotate(node)
 	// Вернуть корневой узел поддерева
 	return node
 }
 
-/* Найти узел */
+/* Поиск узла */
 func (t *aVLTree) search(val int) *TreeNode {
 	cur := t.root
-	// Выполнять поиск в цикле и выйти после прохождения листового узла
+	// Искать в цикле и выйти после прохода за листовой узел
 	for cur != nil {
 		if cur.Val.(int) < val {
 			// Целевой узел находится в правом поддереве cur

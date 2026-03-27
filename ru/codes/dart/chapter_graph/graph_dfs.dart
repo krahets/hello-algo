@@ -7,21 +7,21 @@
 import '../utils/vertex.dart';
 import 'graph_adjacency_list.dart';
 
-/* обход в глубинувспомогательная функция */
+/* Вспомогательная функция обхода в глубину */
 void dfs(
   GraphAdjList graph,
   Set<Vertex> visited,
   List<Vertex> res,
   Vertex vet,
 ) {
-  res.add(vet); // Записать посещенную вершину
-  visited.add(vet); // Пометить эту вершину как посещенную
-  // Обойти все смежные вершины этой вершины
+  res.add(vet); // Отметить посещенную вершину
+  visited.add(vet); // Отметить эту вершину как посещенную
+  // Обойти все смежные вершины данной вершины
   for (Vertex adjVet in graph.adjList[vet]!) {
     if (visited.contains(adjVet)) {
       continue; // Пропустить уже посещенную вершину
     }
-    // Рекурсивно посетить смежные вершины
+    // Рекурсивно обходить смежные вершины
     dfs(graph, visited, res, adjVet);
   }
 }
@@ -30,7 +30,7 @@ void dfs(
 List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
   // Последовательность обхода вершин
   List<Vertex> res = [];
-  // Хеш-множество для записи уже посещенных вершин
+  // Хеш-множество для хранения уже посещенных вершин
   Set<Vertex> visited = {};
   dfs(graph, visited, res, startVet);
   return res;
@@ -38,7 +38,7 @@ List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
 
 /* Driver Code */
 void main() {
-  /* Инициализировать неориентированный граф */
+  /* Инициализация неориентированного графа */
   List<Vertex> v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6]);
   List<List<Vertex>> edges = [
     [v[0], v[1]],
@@ -49,7 +49,7 @@ void main() {
     [v[5], v[6]],
   ];
   GraphAdjList graph = GraphAdjList(edges);
-  print("\nПосле инициализации граф имеет вид");
+  print("\nГраф после инициализации");
   graph.printAdjList();
 
   /* Обход в глубину */

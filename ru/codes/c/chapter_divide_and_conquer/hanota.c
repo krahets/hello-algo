@@ -11,11 +11,11 @@
 
 /* Переместить один диск */
 void move(int *src, int *srcSize, int *tar, int *tarSize) {
-    // Взять верхний диск со стержня src
+    // Снять диск с вершины src
     int pan = src[*srcSize - 1];
     src[*srcSize - 1] = 0;
     (*srcSize)--;
-    // Поместить диск на вершину tar
+    // Положить диск на вершину tar
     tar[*tarSize] = pan;
     (*tarSize)++;
 }
@@ -43,7 +43,7 @@ void solveHanota(int *A, int *ASize, int *B, int *BSize, int *C, int *CSize) {
 
 /* Driver Code */
 int main() {
-    // Конец списка соответствует вершине стержня
+    // Хвост списка соответствует вершине столбца
     int a[] = {5, 4, 3, 2, 1};
     int b[MAX_SIZE] = {0};
     int c[MAX_SIZE] = {0};
@@ -52,7 +52,7 @@ int main() {
     int BSize = 0;
     int CSize = 0;
 
-    printf("\nВ начальном состоянии:");
+    printf("\nНачальное состояние:");
     printf("\nA = ");
     printArray(a, ASize);
     printf("B = ");

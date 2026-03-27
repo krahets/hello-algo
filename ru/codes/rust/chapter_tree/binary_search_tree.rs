@@ -14,7 +14,7 @@ use hello_algo_rust::include::TreeNode;
 
 type OptionTreeNodeRc = Option<Rc<RefCell<TreeNode>>>;
 
-/* двоичное дерево поиска */
+/* Двоичное дерево поиска */
 pub struct BinarySearchTree {
     root: OptionTreeNodeRc,
 }
@@ -31,10 +31,10 @@ impl BinarySearchTree {
         self.root.clone()
     }
 
-    /* Найти узел */
+    /* Поиск узла */
     pub fn search(&self, num: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
-        // Выполнять поиск в цикле и выйти после прохождения листового узла
+        // Искать в цикле и выйти после прохода за листовой узел
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
                 // Целевой узел находится в правом поддереве cur
@@ -50,7 +50,7 @@ impl BinarySearchTree {
         cur
     }
 
-    /* Вставить узел */
+    /* Вставка узла */
     pub fn insert(&mut self, num: i32) {
         // Если дерево пусто, инициализировать корневой узел
         if self.root.is_none() {
@@ -59,10 +59,10 @@ impl BinarySearchTree {
         }
         let mut cur = self.root.clone();
         let mut pre = None;
-        // Выполнять поиск в цикле и выйти после прохождения листового узла
+        // Искать в цикле и выйти после прохода за листовой узел
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // Найти дублирующийся узел и сразу вернуть результат
+                // Найти повторяющийся узел и сразу вернуть
                 Ordering::Equal => return,
                 // Позиция вставки находится в правом поддереве cur
                 Ordering::Greater => {
@@ -76,7 +76,7 @@ impl BinarySearchTree {
                 }
             }
         }
-        // Вставить узел
+        // Вставка узла
         let pre = pre.unwrap();
         let node = Some(TreeNode::new(num));
         if num > pre.borrow().val {
@@ -86,32 +86,32 @@ impl BinarySearchTree {
         }
     }
 
-    /* Удалить узел */
+    /* Удаление узла */
     pub fn remove(&mut self, num: i32) {
-        // Если дерево пусто, сразу вернуть результат
+        // Если дерево пусто, сразу вернуть
         if self.root.is_none() {
             return;
         }
         let mut cur = self.root.clone();
         let mut pre = None;
-        // Выполнять поиск в цикле и выйти после прохождения листового узла
+        // Искать в цикле и выйти после прохода за листовой узел
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
                 // Найти узел для удаления и выйти из цикла
                 Ordering::Equal => break,
-                // Удаляемый узел находится в правом поддереве cur
+                // Узел для удаления находится в правом поддереве cur
                 Ordering::Greater => {
                     pre = cur.clone();
                     cur = node.borrow().right.clone();
                 }
-                // Удаляемый узел находится в левом поддереве cur
+                // Узел для удаления находится в левом поддереве cur
                 Ordering::Less => {
                     pre = cur.clone();
                     cur = node.borrow().left.clone();
                 }
             }
         }
-        // Если узла для удаления нет, сразу вернуть результат
+        // Если узел для удаления отсутствует, сразу вернуть
         if cur.is_none() {
             return;
         }
@@ -120,7 +120,7 @@ impl BinarySearchTree {
         match (left_child.clone(), right_child.clone()) {
             // Число дочерних узлов = 0 или 1
             (None, None) | (Some(_), None) | (None, Some(_)) => {
-                // Когда число дочерних узлов равно 0 / 1, child = nullptr / этот дочерний узел
+                // Когда число дочерних узлов = 0 / 1, child = nullptr / этот дочерний узел
                 let child = left_child.or(right_child);
                 let pre = pre.unwrap();
                 // Удалить узел cur
@@ -132,7 +132,7 @@ impl BinarySearchTree {
                         pre.borrow_mut().right = child;
                     }
                 } else {
-                    // Если удаляемый узел является корневым, заново назначить корневой узел
+                    // Если удаляемый узел является корнем, заново назначить корневой узел
                     self.root = child;
                 }
             }
@@ -150,7 +150,7 @@ impl BinarySearchTree {
                 let tmp_val = tmp.unwrap().borrow().val;
                 // Рекурсивно удалить узел tmp
                 self.remove(tmp_val);
-                // Заменить cur значением tmp
+                // Перезаписать cur значением tmp
                 cur.borrow_mut().val = tmp_val;
             }
         }
@@ -159,30 +159,28 @@ impl BinarySearchTree {
 
 /* Driver Code */
 fn main() {
-    /* Инициализировать двоичное дерево поиска */
+    /* Инициализация двоичного дерева поиска */
     let mut bst = BinarySearchTree::new();
-    // Обратите внимание: разные порядки вставки порождают разные двоичные деревья, а данная последовательность может породить совершенное двоичное дерево
+    // Обратите внимание: разные порядки вставки порождают разные двоичные деревья; данная последовательность может построить совершенное двоичное дерево
     let nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];
     for &num in &nums {
         bst.insert(num);
     }
-    println!("\nИнициализированное двоичное дерево имеет вид\n");
+    println!("\nИсходное двоичное дерево\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
 
     /* Найти узел */
     let node = bst.search(7);
     println!(
-        "\nНайденныйузелобъектравно {:?}, значение узла = {}",
-        node.clone().unwrap(),
-        node.clone().unwrap().borrow().val
+        "\nНайденный объект узла = {:?}, значение узла = {}",\nnode.clone().unwrap(),\nnode.clone().unwrap().borrow().val
     );
 
-    /* Вставить узел */
+    /* Вставка узла */
     bst.insert(16);
     println!("\nПосле вставки узла 16 двоичное дерево имеет вид\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
 
-    /* Удалить узел */
+    /* Удаление узла */
     bst.remove(1);
     println!("\nПосле удаления узла 1 двоичное дерево имеет вид\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());

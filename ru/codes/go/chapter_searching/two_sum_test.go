@@ -14,11 +14,11 @@ func TestTwoSum(t *testing.T) {
 	nums := []int{2, 7, 11, 15}
 	target := 13
 
-	// ====== Driver Code ======
+	// ====== Основной код ======
 	// Метод 1: решение полным перебором
 	res := twoSumBruteForce(nums, target)
-	fmt.Println("Метод 1 res =", res)
-	// метод 2: хеш-таблица
+	fmt.Println("Результат метода 1 res =", res)
+	// Способ 2: хеш-таблица
 	res = twoSumHashTable(nums, target)
-	fmt.Println("Метод 2 res =", res)
+	fmt.Println("Результат метода 2 res =", res)
 }

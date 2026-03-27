@@ -7,7 +7,7 @@
 const { arrToTree } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
-/* Обход по уровням */
+/* Обход в ширину */
 function levelOrder(root) {
     // Инициализировать очередь и добавить корневой узел
     const queue = [root];
@@ -16,19 +16,19 @@ function levelOrder(root) {
     while (queue.length) {
         let node = queue.shift(); // Извлечение из очереди
         list.push(node.val); // Сохранить значение узла
-        if (node.left) queue.push(node.left); // Поместить левого потомка в очередь
-        if (node.right) queue.push(node.right); // Поместить правого потомка в очередь
+        if (node.left) queue.push(node.left); // Поместить левый дочерний узел в очередь
+        if (node.right) queue.push(node.right); // Поместить правый дочерний узел в очередь
     }
     return list;
 }
 
 /* Driver Code */
-/* Инициализировать двоичное дерево */
-// Здесь используется функция, которая напрямую строит двоичное дерево из массива
+/* Инициализация двоичного дерева */
+// Здесь используется функция, напрямую строящая двоичное дерево из массива
 const root = arrToTree([1, 2, 3, 4, 5, 6, 7]);
-console.log('\nИнициализировать двоичное дерево\n');
+console.log('\nИнициализация двоичного дерева\n');
 printTree(root);
 
-/* Обход по уровням */
+/* Обход в ширину */
 const list = levelOrder(root);
-console.log('\nПоследовательность узлов при обходе по уровням = ' + list);
+console.log('\nПоследовательность печати узлов при обходе в ширину = ' + list);

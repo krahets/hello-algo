@@ -13,7 +13,7 @@ pub fn main() !void {
     // Отложенное освобождение памяти
     defer stack.deinit();
 
-    // Поместить элемент в стек
+    // Помещение элемента в стек
     try stack.append(1);
     try stack.append(3);
     try stack.append(2);
@@ -22,22 +22,22 @@ pub fn main() !void {
     std.debug.print("Стек stack = ", .{});
     inc.PrintUtil.printList(i32, stack);
 
-    // Получить верхний элемент стека
+    // Доступ к верхнему элементу стека
     var peek = stack.items[stack.items.len - 1];
-    std.debug.print("\nвершина стекаэлемент peek = {}", .{peek});
+    std.debug.print("\nВерхний элемент стека peek = {}", .{peek});
 
-    // Извлечь элемент из стека
+    // Извлечение элемента из стека
     var pop = stack.pop();
-    std.debug.print("\nЭлемент, извлеченный из стека, pop = {}, stack после извлечения = ", .{pop});
+    std.debug.print("\nИзвлечен элемент pop = {}, стек после извлечения stack = ", .{pop});
     inc.PrintUtil.printList(i32, stack);
 
-    // Получить длину стека
+    // Получение длины стека
     var size = stack.items.len;
     std.debug.print("\nДлина стека size = {}", .{size});
 
-    // Проверить, пуст ли стек
+    // Проверка, пуст ли стек
     var is_empty = if (stack.items.len == 0) true else false;
-    std.debug.print("\nстекпуст ли = {}", .{is_empty});
+    std.debug.print("\nПуст ли стек = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

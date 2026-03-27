@@ -16,7 +16,7 @@ fun function(): Int {
     return 0
 }
 
-/* Константная сложность */
+/* Постоянная сложность */
 fun constant(n: Int) {
     // Константы, переменные и объекты занимают O(1) памяти
     val a = 0
@@ -27,7 +27,7 @@ fun constant(n: Int) {
     for (i in 0..<n) {
         val c = 0
     }
-    // Функция в цикле занимает O(1) памяти
+    // Функции в цикле занимают O(1) памяти
     for (i in 0..<n) {
         function()
     }
@@ -35,14 +35,14 @@ fun constant(n: Int) {
 
 /* Линейная сложность */
 fun linear(n: Int) {
-    // Массив длины n занимает пространство O(n)
+    // Массив длины n занимает O(n) памяти
     val nums = Array(n) { 0 }
-    // Список длины n занимает пространство O(n)
+    // Список длины n занимает O(n) памяти
     val nodes = mutableListOf<ListNode>()
     for (i in 0..<n) {
         nodes.add(ListNode(i))
     }
-    // Хеш-таблица длины n занимает пространство O(n)
+    // Хеш-таблица длины n занимает O(n) памяти
     val map = mutableMapOf<Int, String>()
     for (i in 0..<n) {
         map[i] = i.toString()
@@ -51,7 +51,7 @@ fun linear(n: Int) {
 
 /* Линейная сложность (рекурсивная реализация) */
 fun linearRecur(n: Int) {
-    println("Рекурсия: n = $n")
+    println("Рекурсия n = $n")
     if (n == 1)
         return
     linearRecur(n - 1)
@@ -59,9 +59,9 @@ fun linearRecur(n: Int) {
 
 /* Квадратичная сложность */
 fun quadratic(n: Int) {
-    // Матрица занимает пространство O(n^2)
+    // Матрица занимает O(n^2) памяти
     val numMatrix = arrayOfNulls<Array<Int>?>(n)
-    // Двумерный список занимает пространство O(n^2)
+    // Двумерный список занимает O(n^2) памяти
     val numList = mutableListOf<MutableList<Int>>()
     for (i in 0..<n) {
         val tmp = mutableListOf<Int>()
@@ -76,9 +76,9 @@ fun quadratic(n: Int) {
 tailrec fun quadraticRecur(n: Int): Int {
     if (n <= 0)
         return 0
-    // массив nums длинаравно n, n-1,..., 2, 1
+    // Длина массива nums равна n, n-1, ..., 2, 1
     val nums = Array(n) { 0 }
-    println("Рекурсия: n = $n, длина nums = ${nums.size}")
+    println("В рекурсии n = $n длина nums = ${nums.size}")
     return quadraticRecur(n - 1)
 }
 
@@ -95,7 +95,7 @@ fun buildTree(n: Int): TreeNode? {
 /* Driver Code */
 fun main() {
     val n = 5
-    // Константная сложность
+    // Постоянная сложность
     constant(n)
     // Линейная сложность
     linear(n)

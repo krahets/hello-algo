@@ -8,7 +8,7 @@ import { type TreeNode } from '../modules/TreeNode';
 import { arrToTree } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
-/* Прямой обход: пример 2 */
+/* Предварительный обход: пример 2 */
 function preOrder(
     root: TreeNode | null,
     path: TreeNode[],
@@ -17,7 +17,7 @@ function preOrder(
     if (root === null) {
         return;
     }
-    // Попытаться
+    // Попытка
     path.push(root);
     if (root.val === 7) {
         // Записать решение
@@ -31,15 +31,15 @@ function preOrder(
 
 // Driver Code
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
-console.log('\nИнициализировать двоичное дерево');
+console.log('\nИнициализация двоичного дерева');
 printTree(root);
 
-// Прямой обход
+// Предварительный обход
 const path: TreeNode[] = [];
 const res: TreeNode[][] = [];
 preOrder(root, path, res);
 
-console.log('\nВывести все пути от корня до узла 7');
+console.log('\nВывести все пути от корня к узлу 7');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

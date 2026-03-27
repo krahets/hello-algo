@@ -14,12 +14,12 @@ class LinkedListQueue(
     private var queSize: Int = 0
 ) {
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     fun size(): Int {
         return queSize
     }
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     fun isEmpty(): Boolean {
         return size() == 0
     }
@@ -28,7 +28,7 @@ class LinkedListQueue(
     fun push(num: Int) {
         // Добавить num после хвостового узла
         val node = ListNode(num)
-        // Если очередь пуста, сделать так, чтобы головной и хвостовой узлы указывали на этот узел
+        // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
         if (front == null) {
             front = node
             rear = node
@@ -49,13 +49,13 @@ class LinkedListQueue(
         return num
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return front!!._val
     }
 
-    /* Преобразовать связный список в Array и вернуть его */
+    /* Преобразовать связный список в Array и вернуть */
     fun toArray(): IntArray {
         var node = front
         val res = IntArray(size())
@@ -69,30 +69,30 @@ class LinkedListQueue(
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать очередь */
+    /* Инициализация очереди */
     val queue = LinkedListQueue()
 
-    /* Поместить элемент в очередь */
+    /* Добавление элемента в очередь */
     queue.push(1)
     queue.push(3)
     queue.push(2)
     queue.push(5)
     queue.push(4)
-    println("очередь queue = ${queue.toArray().contentToString()}")
+    println("Очередь queue = ${queue.toArray().contentToString()}")
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     val peek = queue.peek()
-    println("голова очередиэлемент peek = $peek")
+    println("Первый элемент peek = $peek")
 
-    /* Извлечь элемент из очереди */
+    /* Извлечение элемента из очереди */
     val pop = queue.pop()
-    println("Элемент, извлеченный из очереди, pop = $pop, queue после извлечения = ${queue.toArray().contentToString()}")
+    println("Извлеченный элемент pop = $pop, queue после извлечения = ${queue.toArray().contentToString()}")
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     val size = queue.size()
     println("Длина очереди size = $size")
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     val isEmpty = queue.isEmpty()
-    println("Очередь пуста: $isEmpty")
+    println("Пуста ли очередь = $isEmpty")
 }

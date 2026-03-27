@@ -13,7 +13,7 @@ from collections import deque
 
 
 def level_order(root: TreeNode | None) -> list[int]:
-    """Обход по уровням"""
+    """Обход в ширину"""
     # Инициализировать очередь и добавить корневой узел
     queue: deque[TreeNode] = deque()
     queue.append(root)
@@ -23,20 +23,20 @@ def level_order(root: TreeNode | None) -> list[int]:
         node: TreeNode = queue.popleft()  # Извлечение из очереди
         res.append(node.val)  # Сохранить значение узла
         if node.left is not None:
-            queue.append(node.left)  # Поместить левого потомка в очередь
+            queue.append(node.left)  # Поместить левый дочерний узел в очередь
         if node.right is not None:
-            queue.append(node.right)  # Поместить правого потомка в очередь
+            queue.append(node.right)  # Поместить правый дочерний узел в очередь
     return res
 
 
 """Driver Code"""
 if __name__ == "__main__":
     # Инициализировать двоичное дерево
-    # Здесь используется функция, которая напрямую строит двоичное дерево из массива
+    # Здесь используется функция, напрямую строящая двоичное дерево из массива
     root: TreeNode = list_to_tree(arr=[1, 2, 3, 4, 5, 6, 7])
-    print("\nИнициализировать двоичное дерево\n")
+    print("\nИнициализация двоичного дерева\n")
     print_tree(root)
 
-    # Обход по уровням
+    # Обход в ширину
     res: list[int] = level_order(root)
-    print("\nПоследовательность узлов при обходе по уровням = ", res)
+    print("\nПоследовательность печати узлов при обходе в ширину = ", res)

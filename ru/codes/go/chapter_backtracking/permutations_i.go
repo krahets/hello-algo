@@ -11,15 +11,15 @@ func backtrackI(state *[]int, choices *[]int, selected *[]bool, res *[][]int) {
 		newState := append([]int{}, *state...)
 		*res = append(*res, newState)
 	}
-	// Перебрать все варианты выбора
+	// Перебор всех вариантов выбора
 	for i := 0; i < len(*choices); i++ {
 		choice := (*choices)[i]
-		// Отсечение: не допускается повторный выбор элемента
+		// Отсечение: нельзя выбирать один и тот же элемент повторно
 		if !(*selected)[i] {
 			// Попытка: сделать выбор и обновить состояние
 			(*selected)[i] = true
 			*state = append(*state, choice)
-			// Перейти к следующему варианту выбора
+			// Перейти к следующему выбору
 			backtrackI(state, choices, selected, res)
 			// Откат: отменить выбор и восстановить предыдущее состояние
 			(*selected)[i] = false

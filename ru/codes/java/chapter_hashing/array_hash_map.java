@@ -8,7 +8,7 @@ package chapter_hashing;
 
 import java.util.*;
 
-/* пара ключ-значение */
+/* Пара ключ-значение */
 class Pair {
     public int key;
     public String val;
@@ -24,7 +24,7 @@ class ArrayHashMap {
     private List<Pair> buckets;
 
     public ArrayHashMap() {
-        // Инициализировать массив, содержащий 100 бакетов
+        // Инициализировать массив, содержащий 100 корзин
         buckets = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             buckets.add(null);
@@ -56,7 +56,7 @@ class ArrayHashMap {
     /* Операция удаления */
     public void remove(int key) {
         int index = hashFunc(key);
-        // Установить null, обозначая удаление
+        // Присвоить null, что означает удаление
         buckets.set(index, null);
     }
 
@@ -100,40 +100,40 @@ class ArrayHashMap {
 
 public class array_hash_map {
     public static void main(String[] args) {
-        /* Инициализировать хеш-таблицу */
+        /* Инициализация хеш-таблицы */
         ArrayHashMap map = new ArrayHashMap();
 
         /* Операция добавления */
-        // Добавить в хеш-таблицу пару ключ-значение (key, value)
+        // Добавить пару (key, value) в хеш-таблицу
         map.put(12836, "Сяо Ха");
         map.put(15937, "Сяо Ло");
         map.put(16750, "Сяо Суань");
         map.put(13276, "Сяо Фа");
-        map.put(10583, "Утенок");
-        System.out.println("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
+        map.put(10583, "Сяо Я");
+        System.out.println("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
         map.print();
 
         /* Операция поиска */
-        // Передать ключ key в хеш-таблицу и получить значение value
+        // Ввести в хеш-таблицу ключ key и получить значение value
         String name = map.get(15937);
-        System.out.println("\nПо номеру студента 15937 найдено имя " + name);
+        System.out.println("\nДля номера 15937 найдено имя " + name);
 
         /* Операция удаления */
-        // Удалить из хеш-таблицы пару ключ-значение (key, value)
+        // Удалить пару (key, value) из хеш-таблицы
         map.remove(10583);
-        System.out.println("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value");
+        System.out.println("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение");
         map.print();
 
-        /* Перебрать хеш-таблицу */
-        System.out.println("\nПеребираем пары Key->Value");
+        /* Обход хеш-таблицы */
+        System.out.println("\nОтдельный обход пар ключ-значение");
         for (Pair kv : map.pairSet()) {
             System.out.println(kv.key + " -> " + kv.val);
         }
-        System.out.println("\nОтдельно перебираем ключи Key");
+        System.out.println("\nОтдельный обход ключей");
         for (int key : map.keySet()) {
             System.out.println(key);
         }
-        System.out.println("\nОтдельно перебираем значения Value");
+        System.out.println("\nОтдельный обход значений");
         for (String val : map.valueSet()) {
             System.out.println(val);
         }

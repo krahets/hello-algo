@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* Структура двоичного дерева в массивном представлении */
+/* Структура двоичного дерева в представлении массивом */
 typedef struct {
     int *tree;
     int size;
@@ -34,7 +34,7 @@ int size(ArrayBinaryTree *abt) {
 
 /* Получить значение узла с индексом i */
 int val(ArrayBinaryTree *abt, int i) {
-    // Если индекс выходит за границы, вернуть INT_MAX, обозначающий пустую клетку
+    // Если индекс выходит за границы, вернуть INT_MAX, обозначающий пустую позицию
     if (i < 0 || i >= size(abt))
         return INT_MAX;
     return abt->tree[i];
@@ -55,11 +55,11 @@ int parent(int i) {
     return (i - 1) / 2;
 }
 
-/* Обход по уровням */
+/* Обход в ширину */
 int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
     int *res = (int *)malloc(sizeof(int) * size(abt));
     int index = 0;
-    // Непосредственно обойти массив
+    // Непосредственно обходить массив
     for (int i = 0; i < size(abt); i++) {
         if (val(abt, i) != INT_MAX)
             res[index++] = val(abt, i);
@@ -70,10 +70,10 @@ int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
 
 /* Обход в глубину */
 void dfs(ArrayBinaryTree *abt, int i, char *order, int *res, int *index) {
-    // Если это пустая клетка, вернуть результат
+    // Если это пустая позиция, вернуть
     if (val(abt, i) == INT_MAX)
         return;
-    // Прямой обход
+    // Предварительный обход
     if (strcmp(order, "pre") == 0)
         res[(*index)++] = val(abt, i);
     dfs(abt, left(i), order, res, index);
@@ -86,7 +86,7 @@ void dfs(ArrayBinaryTree *abt, int i, char *order, int *res, int *index) {
         res[(*index)++] = val(abt, i);
 }
 
-/* Прямой обход */
+/* Предварительный обход */
 int *preOrder(ArrayBinaryTree *abt, int *returnSize) {
     int *res = (int *)malloc(sizeof(int) * size(abt));
     int index = 0;
@@ -116,11 +116,11 @@ int *postOrder(ArrayBinaryTree *abt, int *returnSize) {
 /* Driver Code */
 int main() {
     // Инициализировать двоичное дерево
-    // Использовать INT_MAX обозначаетпустая ячейка NULL
+    // Использовать INT_MAX для обозначения пустой позиции NULL
     int arr[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     int arrSize = sizeof(arr) / sizeof(arr[0]);
     TreeNode *root = arrayToTree(arr, arrSize);
-    printf("\nИнициализировать двоичное дерево\n");
+    printf("\nИнициализация двоичного дерева\n");
     printf("Массивное представление двоичного дерева:\n");
     printArray(arr, arrSize);
     printf("Связное представление двоичного дерева:\n");
@@ -128,15 +128,15 @@ int main() {
 
     ArrayBinaryTree *abt = newArrayBinaryTree(arr, arrSize);
 
-    // Получить доступ к узлу
+    // Доступ к узлу
     int i = 1;
     int l = left(i), r = right(i), p = parent(i);
-    printf("\nИндекс текущего узла равен %d, значение равно %d\n", i, val(abt, i));
-    printf("Индекс его левого дочернего узла равен %d, значение равно %d\n", l, l < arrSize ? val(abt, l) : INT_MAX);
-    printf("Индекс его правого дочернего узла равен %d, значение равно %d\n", r, r < arrSize ? val(abt, r) : INT_MAX);
-    printf("Индекс его родительского узла равен %d, значение равно %d\n", p, p < arrSize ? val(abt, p) : INT_MAX);
+    printf("\nТекущий индекс узла = %d, значение = %d\n", i, val(abt, i));
+    printf("Индекс левого дочернего узла = %d, значение = %d\n", l, l < arrSize ? val(abt, l) : INT_MAX);
+    printf("Индекс правого дочернего узла = %d, значение = %d\n", r, r < arrSize ? val(abt, r) : INT_MAX);
+    printf("Индекс родительского узла = %d, значение = %d\n", p, p < arrSize ? val(abt, p) : INT_MAX);
 
-    // Обойти дерево
+    // Обходить дерево
     int returnSize;
     int *res;
 
@@ -146,7 +146,7 @@ int main() {
     free(res);
 
     res = preOrder(abt, &returnSize);
-    printf("Прямой обход: ");
+    printf("Предварительный обход: ");
     printArray(res, returnSize);
     free(res);
 

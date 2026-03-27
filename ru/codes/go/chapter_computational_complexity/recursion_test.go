@@ -13,14 +13,14 @@ import (
 func TestRecursion(t *testing.T) {
 	n := 5
 	res := recur(n)
-	fmt.Println("\nРезультат суммирования рекурсивной функции res = ", res)
+	fmt.Println("\nРезультат суммирования в рекурсивной функции res = ", res)
 
 	res = forLoopRecur(n)
-	fmt.Println("\nИмитировать рекурсию с помощью итерациисуммированиерезультат res =", res)
+	fmt.Println("\nРезультат суммирования при имитации рекурсии итерацией res = ", res)
 
 	res = tailRecur(n, 0)
-	fmt.Println("\nРезультат суммирования хвостовой рекурсией res = ", res)
+	fmt.Println("\nРезультат суммирования в хвостовой рекурсии res = ", res)
 
 	res = fib(n)
-	fmt.Println("\n", n, "-й элемент последовательности Фибоначчи равен", res)
+	fmt.Println("\nЧлен последовательности Фибоначчи с номером", n, "=", res)
 }

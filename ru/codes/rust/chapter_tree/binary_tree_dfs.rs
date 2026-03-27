@@ -10,13 +10,13 @@ use hello_algo_rust::op_vec;
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* Прямой обход */
+/* Предварительный обход */
 fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut result = vec![];
 
     fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
         if let Some(node) = root {
-            // Порядок обхода: корневой узел -> левое поддерево -> правое поддерево
+            // Порядок обхода: корень -> левое поддерево -> правое поддерево
             let node = node.borrow();
             res.push(node.val);
             dfs(node.left.as_ref(), res);
@@ -34,7 +34,7 @@ fn in_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 
     fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
         if let Some(node) = root {
-            // Порядок обхода: левое поддерево -> корневой узел -> правое поддерево
+            // Порядок обхода: левое поддерево -> корень -> правое поддерево
             let node = node.borrow();
             dfs(node.left.as_ref(), res);
             res.push(node.val);
@@ -52,7 +52,7 @@ fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 
     fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
         if let Some(node) = root {
-            // Порядок обхода: левое поддерево -> правое поддерево -> корневой узел
+            // Порядок обхода: левое поддерево -> правое поддерево -> корень
             let node = node.borrow();
             dfs(node.left.as_ref(), res);
             dfs(node.right.as_ref(), res);
@@ -67,21 +67,21 @@ fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 
 /* Driver Code */
 fn main() {
-    /* Инициализировать двоичное дерево */
-    // Здесь используется функция, которая напрямую строит двоичное дерево из массива
+    /* Инициализация двоичного дерева */
+    // Здесь используется функция, напрямую строящая двоичное дерево из массива
     let root = vec_to_tree(op_vec![1, 2, 3, 4, 5, 6, 7]);
-    println!("Инициализировать двоичное дерево\n");
+    println!("Инициализация двоичного дерева\n");
     print_util::print_tree(root.as_ref().unwrap());
 
-    /* Прямой обход */
+    /* Предварительный обход */
     let vec = pre_order(root.as_ref());
-    println!("\nПоследовательность узлов при прямом обходе = {:?}", vec);
+    println!("\nПоследовательность печати узлов при предварительном обходе = {:?}", vec);
 
     /* Симметричный обход */
     let vec = in_order(root.as_ref());
-    println!("\nПоследовательность узлов при симметричном обходе = {:?}", vec);
+    println!("\nПоследовательность печати узлов при симметричном обходе = {:?}", vec);
 
     /* Обратный обход */
     let vec = post_order(root.as_ref());
-    print!("\nПоследовательность узлов при обратном обходе = {:?}", vec);
+    print!("\nПоследовательность печати узлов при обратном обходе = {:?}", vec);
 }

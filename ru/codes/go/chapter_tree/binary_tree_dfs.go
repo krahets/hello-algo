@@ -10,12 +10,12 @@ import (
 
 var nums []any
 
-/* Прямой обход */
+/* Предварительный обход */
 func preOrder(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	// Порядок обхода: корневой узел -> левое поддерево -> правое поддерево
+	// Порядок обхода: корень -> левое поддерево -> правое поддерево
 	nums = append(nums, node.Val)
 	preOrder(node.Left)
 	preOrder(node.Right)
@@ -26,7 +26,7 @@ func inOrder(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	// Порядок обхода: левое поддерево -> корневой узел -> правое поддерево
+	// Порядок обхода: левое поддерево -> корень -> правое поддерево
 	inOrder(node.Left)
 	nums = append(nums, node.Val)
 	inOrder(node.Right)
@@ -37,7 +37,7 @@ func postOrder(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	// Порядок обхода: левое поддерево -> правое поддерево -> корневой узел
+	// Порядок обхода: левое поддерево -> правое поддерево -> корень
 	postOrder(node.Left)
 	postOrder(node.Right)
 	nums = append(nums, node.Val)

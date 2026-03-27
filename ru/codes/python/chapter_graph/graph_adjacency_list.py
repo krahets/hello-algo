@@ -16,7 +16,7 @@ class GraphAdjList:
 
     def __init__(self, edges: list[list[Vertex]]):
         """Конструктор"""
-        # Список смежности, key: вершина, value: все смежные с ней вершины
+        # Список смежности, где key — вершина, а value — все смежные ей вершины
         self.adj_list = dict[Vertex, list[Vertex]]()
         # Добавить все вершины и ребра
         for edge in edges:
@@ -25,11 +25,11 @@ class GraphAdjList:
             self.add_edge(edge[0], edge[1])
 
     def size(self) -> int:
-        """Получить количество вершин"""
+        """Получить число вершин"""
         return len(self.adj_list)
 
     def add_edge(self, vet1: Vertex, vet2: Vertex):
-        """Добавить ребро"""
+        """Добавление ребра"""
         if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
             raise ValueError()
         # Добавить ребро vet1 - vet2
@@ -37,7 +37,7 @@ class GraphAdjList:
         self.adj_list[vet2].append(vet1)
 
     def remove_edge(self, vet1: Vertex, vet2: Vertex):
-        """Удалить ребро"""
+        """Удаление ребра"""
         if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
             raise ValueError()
         # Удалить ребро vet1 - vet2
@@ -45,17 +45,17 @@ class GraphAdjList:
         self.adj_list[vet2].remove(vet1)
 
     def add_vertex(self, vet: Vertex):
-        """Добавить вершину"""
+        """Добавление вершины"""
         if vet in self.adj_list:
             return
-        # Добавить новый связный список в список смежности
+        # Добавить новый список в список смежности
         self.adj_list[vet] = []
 
     def remove_vertex(self, vet: Vertex):
-        """Удалить вершину"""
+        """Удаление вершины"""
         if vet not in self.adj_list:
             raise ValueError()
-        # Удалить из списка смежности связный список, соответствующий вершине vet
+        # Удалить из списка смежности список, соответствующий вершине vet
         self.adj_list.pop(vet)
         # Обойти списки других вершин и удалить все ребра, содержащие vet
         for vertex in self.adj_list:
@@ -72,7 +72,7 @@ class GraphAdjList:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализировать неориентированный граф
+    # Инициализация неориентированного графа
     v = vals_to_vets([1, 3, 2, 5, 4])
     edges = [
         [v[0], v[1]],
@@ -83,29 +83,29 @@ if __name__ == "__main__":
         [v[3], v[4]],
     ]
     graph = GraphAdjList(edges)
-    print("\nПосле инициализации граф имеет вид")
+    print("\nГраф после инициализации")
     graph.print()
 
     # Добавить ребро
-    # вершина 1, 2 то есть v[0], v[2]
+    # Вершины 1 и 2, то есть v[0] и v[2]
     graph.add_edge(v[0], v[2])
-    print("\nПосле добавления ребра 1-2 граф имеет вид")
+    print("\nГраф после добавления ребра 1-2")
     graph.print()
 
     # Удалить ребро
-    # вершина 1, 3 то есть v[0], v[1]
+    # Вершины 1 и 3 соответствуют v[0] и v[1]
     graph.remove_edge(v[0], v[1])
-    print("\nПосле удаления ребра 1-3 граф имеет вид")
+    print("\nГраф после удаления ребра 1-3")
     graph.print()
 
-    # Добавить вершину
+    # Добавление вершины
     v5 = Vertex(6)
     graph.add_vertex(v5)
-    print("\nПосле добавления вершины 6 граф имеет вид")
+    print("\nГраф после добавления вершины 6")
     graph.print()
 
-    # Удалить вершину
-    # вершина 3 то есть v[1]
+    # Удаление вершины
+    # Вершина 3 соответствует v[1]
     graph.remove_vertex(v[1])
-    print("\nПосле удаления вершины 3 граф имеет вид")
+    print("\nГраф после удаления вершины 3")
     graph.print()

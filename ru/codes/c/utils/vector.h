@@ -14,12 +14,12 @@ extern "C" {
 /* Определить тип вектора */
 typedef struct vector {
     int size;     // Текущий размер вектора
-    int capacity; // Текущая вместимость вектора
+    int capacity; // Текущая емкость вектора
     int depth;    // Текущая глубина вектора
     void **data;  // Массив указателей на данные
 } vector;
 
-/* Сконструировать вектор */
+/* Создать вектор */
 vector *newVector() {
     vector *v = malloc(sizeof(vector));
     v->size = 0;
@@ -29,7 +29,7 @@ vector *newVector() {
     return v;
 }
 
-/* Сконструировать вектор, задав размер и значение элементов по умолчанию */
+/* Создать вектор, указав размер и значение элементов по умолчанию */
 vector *_newVector(int size, void *elem, int elemSize) {
     vector *v = malloc(sizeof(vector));
     v->size = size;
@@ -63,7 +63,7 @@ void delVector(vector *v) {
     }
 }
 
-/* Добавить элемент (копированием) в конец вектора */
+/* Добавить элемент в конец вектора (копированием) */
 void vectorPushback(vector *v, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         v->capacity *= 2;
@@ -96,13 +96,13 @@ int vectorSize(vector *v) {
     return v->size;
 }
 
-/* Получить хвостовой элемент вектора */
+/* Получить последний элемент вектора */
 void *vectorBack(vector *v) {
     int n = v->size;
     return n > 0 ? v->data[n - 1] : NULL;
 }
 
-/* Получить головной элемент вектора */
+/* Получить первый элемент вектора */
 void *vectorFront(vector *v) {
     return v->size > 0 ? v->data[0] : NULL;
 }
@@ -128,19 +128,19 @@ void vectorSet(vector *v, int pos, void *elem, int elemSize) {
     v->data[pos] = tmp;
 }
 
-/* Расширить вектор */
+/* Расширение вектора */
 void vectorExpand(vector *v) {
     v->capacity *= 2;
     v->data = realloc(v->data, v->capacity * sizeof(void *));
 }
 
-/* Сократить вектор */
+/* Сжатие вектора */
 void vectorShrink(vector *v) {
     v->capacity /= 2;
     v->data = realloc(v->data, v->capacity * sizeof(void *));
 }
 
-/* Вставить элемент в вектор по индексу pos */
+/* Вставить элемент по индексу pos в вектор */
 void vectorInsert(vector *v, int pos, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         vectorExpand(v);
@@ -165,7 +165,7 @@ void vectorErase(vector *v, int pos) {
     }
 }
 
-/* Поменять элементы вектора местами */
+/* Обмен элементов вектора */
 void vectorSwap(vector *v, int i, int j) {
     void *tmp = v->data[i];
     v->data[i] = v->data[j];
@@ -199,13 +199,13 @@ bool vectorEqual(vector *v1, vector *v2) {
     return true;
 }
 
-/* Отсортировать элементы внутри вектора */
+/* Отсортировать содержимое вектора */
 void vectorSort(vector *v, int (*cmp)(const void *, const void *)) {
     qsort(v->data, v->size, sizeof(void *), cmp);
 }
 
-/* Функция вывода, в которую нужно передать функцию печати переменной */
-/* Сейчас поддерживается вывод только vector глубины 1 */
+/* Функция печати: нужно передать функцию для вывода значения переменной */
+/* В настоящее время поддерживается только вывод vector глубины 1 */
 void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     if (v) {
         if (v->depth == 0) {
@@ -235,7 +235,7 @@ void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     }
 }
 
-/* Сейчас поддерживается вывод только vector глубины 2 */
+/* В настоящее время поддерживается только вывод vector глубины 2 */
 void printVectorMatrix(vector *vv, void (*printFunc)(vector *v, void *p)) {
     printf("[\n");
     for (int i = 0; i < vv->size; i++) {

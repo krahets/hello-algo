@@ -40,14 +40,14 @@ int main() {
     vector<int> nums = {2, 7, 11, 15};
     int target = 13;
 
-    // ====== Driver Code ======
-    // метод 1
+    // ====== Основной код ======
+    // Метод 1
     vector<int> res = twoSumBruteForce(nums, target);
-    cout << "Метод 1 res = ";
+    cout << "Результат метода 1 res = ";
     printVector(res);
     // Метод 2
     res = twoSumHashTable(nums, target);
-    cout << "Метод 2 res = ";
+    cout << "Результат метода 2 res = ";
     printVector(res);
 
     return 0;

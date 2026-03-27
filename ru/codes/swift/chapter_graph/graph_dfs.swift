@@ -7,26 +7,26 @@
 import graph_adjacency_list_target
 import utils
 
-/* обход в глубинувспомогательная функция */
+/* Вспомогательная функция обхода в глубину */
 func dfs(graph: GraphAdjList, visited: inout Set<Vertex>, res: inout [Vertex], vet: Vertex) {
-    res.append(vet) // Записать посещенную вершину
-    visited.insert(vet) // Пометить эту вершину как посещенную
-    // Обойти все смежные вершины этой вершины
+    res.append(vet) // Отметить посещенную вершину
+    visited.insert(vet) // Отметить эту вершину как посещенную
+    // Обойти все смежные вершины данной вершины
     for adjVet in graph.adjList[vet] ?? [] {
         if visited.contains(adjVet) {
             continue // Пропустить уже посещенную вершину
         }
-        // Рекурсивно посетить смежные вершины
+        // Рекурсивно обходить смежные вершины
         dfs(graph: graph, visited: &visited, res: &res, vet: adjVet)
     }
 }
 
 /* Обход в глубину */
-// Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
 func graphDFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
     // Последовательность обхода вершин
     var res: [Vertex] = []
-    // Хеш-множество для записи уже посещенных вершин
+    // Хеш-множество для хранения уже посещенных вершин
     var visited: Set<Vertex> = []
     dfs(graph: graph, visited: &visited, res: &res, vet: startVet)
     return res
@@ -36,14 +36,14 @@ func graphDFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
 enum GraphDFS {
     /* Driver Code */
     static func main() {
-        /* Инициализировать неориентированный граф */
+        /* Инициализация неориентированного графа */
         let v = Vertex.valsToVets(vals: [0, 1, 2, 3, 4, 5, 6])
         let edges = [
             [v[0], v[1]], [v[0], v[3]], [v[1], v[2]],
             [v[2], v[5]], [v[4], v[5]], [v[5], v[6]],
         ]
         let graph = GraphAdjList(edges: edges)
-        print("\nПосле инициализации граф имеет вид")
+        print("\nГраф после инициализации")
         graph.print()
 
         /* Обход в глубину */

@@ -11,7 +11,7 @@
 /* Алгоритм бэктрекинга: n ферзей */
 void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int *resSize, bool cols[MAX_SIZE],
                bool diags1[2 * MAX_SIZE - 1], bool diags2[2 * MAX_SIZE - 1]) {
-    // Когда все строки заполнены, записать решение
+    // Когда все строки уже обработаны, записать решение
     if (row == n) {
         res[*resSize] = (char **)malloc(sizeof(char *) * n);
         for (int i = 0; i < n; ++i) {
@@ -26,33 +26,33 @@ void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int 
         // Вычислить главную и побочную диагонали, соответствующие этой клетке
         int diag1 = row - col + n - 1;
         int diag2 = row + col;
-        // Отсечение: не допускается наличие ферзя в этом столбце, на главной диагонали или на побочной диагонали
+        // Отсечение: в столбце, главной диагонали и побочной диагонали этой клетки не должно быть ферзей
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-            // Попытка: разместить ферзя в этой клетке
+            // Попытка: поставить ферзя в эту клетку
             state[row][col] = 'Q';
             cols[col] = diags1[diag1] = diags2[diag2] = true;
             // Перейти к размещению следующей строки
             backtrack(row + 1, n, state, res, resSize, cols, diags1, diags2);
-            // Откат: восстановить эту клетку в пустое состояние
+            // Откат: восстановить эту клетку как пустую
             state[row][col] = '#';
             cols[col] = diags1[diag1] = diags2[diag2] = false;
         }
     }
 }
 
-/* Решить задачу n ферзей */
+/* Решить задачу о n ферзях */
 char ***nQueens(int n, int *returnSize) {
     char state[MAX_SIZE][MAX_SIZE];
-    // Инициализировать доску размера n*n, где 'Q' обозначает ферзя, а '#' обозначает пустую клетку
+    // Инициализировать доску размера n*n, где 'Q' обозначает ферзя, а '#' — пустую клетку
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             state[i][j] = '#';
         }
         state[i][n] = '\0';
     }
-    bool cols[MAX_SIZE] = {false};           // Записать, есть ли ферзь в столбце
-    bool diags1[2 * MAX_SIZE - 1] = {false}; // Записать, есть ли ферзь на главной диагонали
-    bool diags2[2 * MAX_SIZE - 1] = {false}; // Записать, есть ли ферзь на побочной диагонали
+    bool cols[MAX_SIZE] = {false};           // Отмечать, есть ли ферзь в столбце
+    bool diags1[2 * MAX_SIZE - 1] = {false}; // Отмечать наличие ферзя на главной диагонали
+    bool diags2[2 * MAX_SIZE - 1] = {false}; // Отмечать наличие ферзя на побочной диагонали
 
     char ***res = (char ***)malloc(sizeof(char **) * MAX_SIZE);
     *returnSize = 0;
@@ -66,7 +66,7 @@ int main() {
     int returnSize;
     char ***res = nQueens(n, &returnSize);
 
-    printf("Входдоскаразмерравно%d\n", n);
+    printf("Размер входной доски = %d\n", n);
     printf("Количество способов расстановки ферзей: %d\n", returnSize);
     for (int i = 0; i < returnSize; ++i) {
         for (int j = 0; j < n; ++j) {

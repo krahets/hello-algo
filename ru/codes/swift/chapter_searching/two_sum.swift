@@ -38,12 +38,12 @@ enum LeetcodeTwoSum {
         // ======= Test Case =======
         let nums = [2, 7, 11, 15]
         let target = 13
-        // ====== Driver Code ======
-        // метод 1
+        // ====== Основной код ======
+        // Метод 1
         var res = twoSumBruteForce(nums: nums, target: target)
-        print("Метод 1 res = \(res)")
+        print("Результат метода 1 res = \(res)")
         // Метод 2
         res = twoSumHashTable(nums: nums, target: target)
-        print("Метод 2 res = \(res)")
+        print("Результат метода 2 res = \(res)")
     }
 }

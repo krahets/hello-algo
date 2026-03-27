@@ -64,7 +64,7 @@ fn buildExeModuleFromChapterDirEntry(
     const zig_file_path = try std.fs.path.join(b.allocator, &[_][]const u8{ chapter_dir_name, chapter_dir_entry.name });
     const zig_file_name = chapter_dir_entry.name[0 .. chapter_dir_entry.name.len - 4]; // abstract zig file name from xxx.zig
 
-    // Здесь временно добавлены только разделы про массивы и связные списки; после завершения правок будет открыто все
+    // Здесь временно добавлены только главы про массивы и связные списки; после доработки будут открыты все
     const new_algo_names = [_][]const u8{
         "array",
         "linked_list",

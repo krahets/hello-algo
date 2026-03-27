@@ -44,14 +44,14 @@ pub fn main() !void {
     var nums = [_]i32{ 2, 7, 11, 15 };
     var target: i32 = 9;
 
-    // ====== Driver Code ======
-    // метод 1
+    // ====== Основной код ======
+    // Метод 1
     var res = twoSumBruteForce(&nums, target).?;
-    std.debug.print("Метод 1 res = ", .{});
+    std.debug.print("Метод 1: res = ", .{});
     inc.PrintUtil.printArray(i32, &res); 
     // Метод 2
     res = (try twoSumHashTable(&nums, target)).?;
-    std.debug.print("\nметод 2 res =", .{});
+    std.debug.print("\nМетод 2: res = ", .{});
     inc.PrintUtil.printArray(i32, &res); 
 
     _ = try std.io.getStdIn().reader().readByte();

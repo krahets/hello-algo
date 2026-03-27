@@ -37,7 +37,7 @@ public class simple_hash {
         return hash & MODULUS;
     }
 
-    /* Вращательное хеширование */
+    /* Хеширование с циклическим сдвигом */
     static int rotHash(String key) {
         long hash = 0;
         final int MODULUS = 1000000007;
@@ -51,15 +51,15 @@ public class simple_hash {
         String key = "Hello Algo";
 
         int hash = addHash(key);
-        System.out.println("Аддитивное хешированиезначениеравно" + hash);
+        System.out.println("Хеш-сумма сложением = " + hash);
 
         hash = mulHash(key);
-        System.out.println("Мультипликативное хешированиезначениеравно" + hash);
+        System.out.println("Хеш-сумма умножением = " + hash);
 
         hash = xorHash(key);
-        System.out.println("XOR-хешированиезначениеравно" + hash);
+        System.out.println("Хеш-сумма XOR = " + hash);
 
         hash = rotHash(key);
-        System.out.println("Вращательное хешированиезначениеравно" + hash);
+        System.out.println("Хеш-сумма с циклическим сдвигом = " + hash);
     }
 }

@@ -24,7 +24,7 @@ class ArrayBinaryTree:
 
     def val(self, i: int) -> int | None:
         """Получить значение узла с индексом i"""
-        # Если индекс выходит за границы, вернуть None, обозначающий пустую клетку
+        # Если индекс выходит за границы, вернуть None, обозначающий пустую позицию
         if i < 0 or i >= self.size():
             return None
         return self._tree[i]
@@ -42,9 +42,9 @@ class ArrayBinaryTree:
         return (i - 1) // 2
 
     def level_order(self) -> list[int]:
-        """Обход по уровням"""
+        """Обход в ширину"""
         self.res = []
-        # Непосредственно обойти массив
+        # Непосредственно обходить массив
         for i in range(self.size()):
             if self.val(i) is not None:
                 self.res.append(self.val(i))
@@ -54,7 +54,7 @@ class ArrayBinaryTree:
         """Обход в глубину"""
         if self.val(i) is None:
             return
-        # Прямой обход
+        # Предварительный обход
         if order == "pre":
             self.res.append(self.val(i))
         self.dfs(self.left(i), order)
@@ -67,7 +67,7 @@ class ArrayBinaryTree:
             self.res.append(self.val(i))
 
     def pre_order(self) -> list[int]:
-        """Прямой обход"""
+        """Предварительный обход"""
         self.res = []
         self.dfs(0, order="pre")
         return self.res
@@ -88,10 +88,10 @@ class ArrayBinaryTree:
 """Driver Code"""
 if __name__ == "__main__":
     # Инициализировать двоичное дерево
-    # Здесь используется функция, которая напрямую строит двоичное дерево из массива
+    # Здесь используется функция, напрямую строящая двоичное дерево из массива
     arr = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     root = list_to_tree(arr)
-    print("\nИнициализировать двоичное дерево\n")
+    print("\nИнициализация двоичного дерева\n")
     print("Массивное представление двоичного дерева:")
     print(arr)
     print("Связное представление двоичного дерева:")
@@ -100,20 +100,20 @@ if __name__ == "__main__":
     # Класс двоичного дерева в массивном представлении
     abt = ArrayBinaryTree(arr)
 
-    # Получить доступ к узлу
+    # Доступ к узлу
     i = 1
     l, r, p = abt.left(i), abt.right(i), abt.parent(i)
-    print(f"\nИндекс текущего узла равен {i}, значение равно {abt.val(i)}")
-    print(f"Индекс его левого дочернего узла равен {l}, значение равно {abt.val(l)}")
-    print(f"Индекс его правого дочернего узла равен {r}, значение равно {abt.val(r)}")
-    print(f"Индекс его родительского узла равен {p}, значение равно {abt.val(p)}")
+    print(f"\nТекущий узел: индекс = {i}, значение = {abt.val(i)}")
+    print(f"Индекс левого дочернего узла = {l}, значение = {abt.val(l)}")
+    print(f"Индекс правого дочернего узла = {r}, значение = {abt.val(r)}")
+    print(f"Индекс родительского узла = {p}, значение = {abt.val(p)}")
 
-    # Обойти дерево
+    # Обходить дерево
     res = abt.level_order()
-    print("\nРезультат обхода по уровням: ", res)
+    print("\nОбход в ширину:", res)
     res = abt.pre_order()
-    print("прямой обходравно:", res)
+    print("Предварительный обход:", res)
     res = abt.in_order()
-    print("Симметричный обход: ", res)
+    print("Симметричный обход:", res)
     res = abt.post_order()
-    print("обратный обходравно:", res)
+    print("Обратный обход:", res)

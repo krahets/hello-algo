@@ -14,7 +14,7 @@ function constFunc() {
     return 0;
 }
 
-/* Константная сложность */
+/* Постоянная сложность */
 function constant(n) {
     // Константы, переменные и объекты занимают O(1) памяти
     const a = 0;
@@ -25,7 +25,7 @@ function constant(n) {
     for (let i = 0; i < n; i++) {
         const c = 0;
     }
-    // Функция в цикле занимает O(1) памяти
+    // Функции в цикле занимают O(1) памяти
     for (let i = 0; i < n; i++) {
         constFunc();
     }
@@ -33,14 +33,14 @@ function constant(n) {
 
 /* Линейная сложность */
 function linear(n) {
-    // Массив длины n занимает пространство O(n)
+    // Массив длины n занимает O(n) памяти
     const nums = new Array(n);
-    // Список длины n занимает пространство O(n)
+    // Список длины n занимает O(n) памяти
     const nodes = [];
     for (let i = 0; i < n; i++) {
         nodes.push(new ListNode(i));
     }
-    // Хеш-таблица длины n занимает пространство O(n)
+    // Хеш-таблица длины n занимает O(n) памяти
     const map = new Map();
     for (let i = 0; i < n; i++) {
         map.set(i, i.toString());
@@ -49,18 +49,18 @@ function linear(n) {
 
 /* Линейная сложность (рекурсивная реализация) */
 function linearRecur(n) {
-    console.log(`Рекурсия: n = ${n}`);
+    console.log(`Рекурсия n = ${n}`);
     if (n === 1) return;
     linearRecur(n - 1);
 }
 
 /* Квадратичная сложность */
 function quadratic(n) {
-    // Матрица занимает пространство O(n^2)
+    // Матрица занимает O(n^2) памяти
     const numMatrix = Array(n)
         .fill(null)
         .map(() => Array(n).fill(null));
-    // Двумерный список занимает пространство O(n^2)
+    // Двумерный список занимает O(n^2) памяти
     const numList = [];
     for (let i = 0; i < n; i++) {
         const tmp = [];
@@ -75,7 +75,7 @@ function quadratic(n) {
 function quadraticRecur(n) {
     if (n <= 0) return 0;
     const nums = new Array(n);
-    console.log(`Рекурсия: n = ${n}, длина nums = ${nums.length}`);
+    console.log(`В рекурсии n = ${n} длина nums = ${nums.length}`);
     return quadraticRecur(n - 1);
 }
 
@@ -90,7 +90,7 @@ function buildTree(n) {
 
 /* Driver Code */
 const n = 5;
-// Константная сложность
+// Постоянная сложность
 constant(n);
 // Линейная сложность
 linear(n);

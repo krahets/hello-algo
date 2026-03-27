@@ -12,7 +12,7 @@ class GraphAdjList
   
   # ## Конструктор ###
   def initialize(edges)
-    # Список смежности, key: вершина, value: все смежные с ней вершины
+    # Список смежности, где key — вершина, а value — все смежные ей вершины
     @adj_list = {}
     # Добавить все вершины и ребра
     for edge in edges
@@ -22,12 +22,12 @@ class GraphAdjList
     end
   end
 
-  # ## Получить количество вершин ###
+  # ## Получение числа вершин ###
   def size
     @adj_list.length
   end
 
-  # ## Добавить ребро ###
+  # ## Добавление ребра ###
   def add_edge(vet1, vet2)
     raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
 
@@ -35,7 +35,7 @@ class GraphAdjList
     @adj_list[vet2] << vet1
   end
 
-  # ## Удалить ребро ###
+  # ## Удаление ребра ###
   def remove_edge(vet1, vet2)
     raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
 
@@ -44,19 +44,19 @@ class GraphAdjList
     @adj_list[vet2].delete(vet1)
   end
 
-  # ## Добавить вершину ###
+  # ## Добавление вершины ###
   def add_vertex(vet)
     return if @adj_list.include?(vet)
 
-    # Добавить новый связный список в список смежности
+    # Добавить новый список в список смежности
     @adj_list[vet] = []
   end
 
-  # ## Удалить вершину ###
+  # ## Удаление вершины ###
   def remove_vertex(vet)
     raise ArgumentError unless @adj_list.include?(vet)
 
-    # Удалить из списка смежности связный список, соответствующий вершине vet
+    # Удалить из списка смежности список, соответствующий вершине vet
     @adj_list.delete(vet)
     # Обойти списки других вершин и удалить все ребра, содержащие vet
     for vertex in @adj_list
@@ -76,7 +76,7 @@ end
 
 ### Driver Code ###
 if __FILE__ == $0
-  # Инициализировать неориентированный граф
+  # Инициализация неориентированного графа
   v = vals_to_vets([1, 3, 2, 5, 4])
   edges = [
     [v[0], v[1]],
@@ -87,30 +87,30 @@ if __FILE__ == $0
     [v[3], v[4]],
   ]
   graph = GraphAdjList.new(edges)
-  puts "\nПосле инициализации граф имеет вид"
+  puts "\nГраф после инициализации"
   graph.__print__
 
   # Добавить ребро
-  # вершина 1, 2 то есть v[0], v[2]
+  # Вершины 1 и 2, то есть v[0] и v[2]
   graph.add_edge(v[0], v[2])
-  puts "\nПосле добавления ребра 1-2 граф имеет вид"
+  puts "\nГраф после добавления ребра 1-2"
   graph.__print__
 
   # Удалить ребро
-  # вершина 1, 3 то есть v[0], v[1]
+  # Вершины 1 и 3 соответствуют v[0], v[1]
   graph.remove_edge(v[0], v[1])
-  puts "\nПосле удаления ребра 1-3 граф имеет вид"
+  puts "\nГраф после удаления ребра 1-3"
   graph.__print__
 
-  # Добавить вершину
+  # Добавление вершины
   v5 = Vertex.new(6)
   graph.add_vertex(v5)
-  puts "\nПосле добавления вершины 6 граф имеет вид"
+  puts "\nГраф после добавления вершины 6"
   graph.__print__
 
-  # Удалить вершину
-  # вершина 3 то есть v[1]
+  # Удаление вершины
+  # Вершина 3 соответствует v[1]
   graph.remove_vertex(v[1])
-  puts "\nПосле удаления вершины 3 граф имеет вид"
+  puts "\nГраф после удаления вершины 3"
   graph.__print__
 end

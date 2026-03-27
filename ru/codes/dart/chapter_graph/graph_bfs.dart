@@ -11,10 +11,10 @@ import 'graph_adjacency_list.dart';
 
 /* Обход в ширину */
 List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
-  // Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+  // Использовать список смежности для представления графа, чтобы получать все смежные вершины заданной вершины
   // Последовательность обхода вершин
   List<Vertex> res = [];
-  // Хеш-множество для записи уже посещенных вершин
+  // Хеш-множество для хранения уже посещенных вершин
   Set<Vertex> visited = {};
   visited.add(startVet);
   // Очередь используется для реализации BFS
@@ -22,15 +22,15 @@ List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
   que.add(startVet);
   // Начиная с вершины vet, продолжать цикл, пока не будут посещены все вершины
   while (que.isNotEmpty) {
-    Vertex vet = que.removeFirst(); // Извлечь из очереди вершину из головы
-    res.add(vet); // Записать посещенную вершину
-    // Обойти все смежные вершины этой вершины
+    Vertex vet = que.removeFirst(); // Извлечь головную вершину из очереди
+    res.add(vet); // Отметить посещенную вершину
+    // Обойти все смежные вершины данной вершины
     for (Vertex adjVet in graph.adjList[vet]!) {
       if (visited.contains(adjVet)) {
         continue; // Пропустить уже посещенную вершину
       }
       que.add(adjVet); // Помещать в очередь только непосещенные вершины
-      visited.add(adjVet); // Пометить эту вершину как посещенную
+      visited.add(adjVet); // Отметить эту вершину как посещенную
     }
   }
   // Вернуть последовательность обхода вершин
@@ -39,7 +39,7 @@ List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
 
 /* Dirver Code */
 void main() {
-  /* Инициализировать неориентированный граф */
+  /* Инициализация неориентированного графа */
   List<Vertex> v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
   List<List<Vertex>> edges = [
     [v[0], v[1]],
@@ -56,7 +56,7 @@ void main() {
     [v[7], v[8]],
   ];
   GraphAdjList graph = GraphAdjList(edges);
-  print("\nПосле инициализации граф имеет вид");
+  print("\nГраф после инициализации");
   graph.printAdjList();
 
   /* Обход в ширину */

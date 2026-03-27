@@ -21,7 +21,7 @@ pub fn remove(comptime T: type, n0: *ListNode(T)) void {
     n0.next = n1;
 }
 
-// Обратиться к узлу связного списка с индексом index
+// Доступ к узлу связного списка по индексу index
 pub fn access(comptime T: type, node: *ListNode(T), index: i32) ?*ListNode(T) {
     var head: ?*ListNode(T) = node;
     var i: i32 = 0;
@@ -35,7 +35,7 @@ pub fn access(comptime T: type, node: *ListNode(T), index: i32) ?*ListNode(T) {
     return head;
 }
 
-// Найти первый узел со значением target в связном списке
+// Найти в связном списке первый узел со значением target
 pub fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
     var head: ?*ListNode(T) = node;
     var index: i32 = 0;
@@ -49,7 +49,7 @@ pub fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
 
 // Driver Code
 pub fn run() void {
-    // Инициализироватькаждый узел
+    // Инициализация всех узлов
     var n0 = ListNode(i32){ .val = 1 };
     var n1 = ListNode(i32){ .val = 3 };
     var n2 = ListNode(i32){ .val = 2 };
@@ -61,38 +61,28 @@ pub fn run() void {
     n2.next = &n3;
     n3.next = &n4;
     std.debug.print(
-        "Инициализированный связный список: {}\n",
-        .{utils.fmt.linkedList(i32, &n0)},
-    );
+        "Инициализированный связный список = {}\n",\n    .{utils.fmt.linkedList(i32, &n0)},\n);
 
-    // Вставить узел
+    // Вставка узла
     var tmp = ListNode(i32){ .val = 0 };
     insert(i32, &n0, &tmp);
     std.debug.print(
-        "Связный список после вставки узла: {}\n",
-        .{utils.fmt.linkedList(i32, &n0)},
-    );
+        "Связный список после вставки узла = {}\n",\n    .{utils.fmt.linkedList(i32, &n0)},\n);
 
-    // Удалить узел
+    // Удаление узла
     remove(i32, &n0);
     std.debug.print(
-        "Связный список после удаления узла:{}\n",
-        .{utils.fmt.linkedList(i32, &n0)},
-    );
+        "Связный список после удаления узла = {}\n",\n    .{utils.fmt.linkedList(i32, &n0)},\n);
 
-    // Получить доступ к узлу
+    // Доступ к узлу
     const node = access(i32, &n0, 3);
     std.debug.print(
-        "Значение узла по индексу 3 в связном списке = {}\n",
-        .{node.?.val},
-    );
+        "Значение узла по индексу 3 в связном списке = {}\n",\n    .{node.?.val},\n);
 
-    // Найти узел
+    // Поиск узла
     const index = find(i32, &n0, 2);
     std.debug.print(
-        "Индекс узла со значением 2 в связном списке = {}\n",
-        .{index},
-    );
+        "Индекс узла со значением 2 в связном списке = {}\n",\n    .{index},\n);
 
     std.debug.print("\n", .{});
 }

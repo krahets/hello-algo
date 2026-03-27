@@ -6,7 +6,7 @@
 
 /* Сортировка вставками */
 function insertionSort(nums) {
-    // Внешний цикл: отсортированный диапазон равен [0, i-1]
+    // Внешний цикл: отсортированный диапазон [0, i-1]
     for (let i = 1; i < nums.length; i++) {
         let base = nums[i],
             j = i - 1;
@@ -22,4 +22,4 @@ function insertionSort(nums) {
 /* Driver Code */
 const nums = [4, 1, 3, 1, 5, 2];
 insertionSort(nums);
-console.log('Сортировка вставкамипосле завершения nums =', nums);
+console.log('После сортировки вставками nums =', nums);

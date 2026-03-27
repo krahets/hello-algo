@@ -6,9 +6,9 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-# ## Очередь на основе головы связного списка ###
+# ## Очередь на основе связного списка ###
 class LinkedListQueue
-  # ## Получить длину очереди ###
+  # ## Получение длины очереди ###
   attr_reader :size
 
   # ## Конструктор ###
@@ -18,12 +18,12 @@ class LinkedListQueue
     @size = 0
   end
 
-  # ## Проверить, пуста ли очередь ###
+  # ## Проверка, пуста ли очередь ###
   def is_empty?
     @front.nil?
   end
 
-  # ## помещение в очередь ###
+  # ## Добавление в очередь ###
   def push(num)
     # Добавить num после хвостового узла
     node = ListNode.new(num)
@@ -41,7 +41,7 @@ class LinkedListQueue
     @size += 1
   end
 
-  # ## извлечение из очереди ###
+  # ## Извлечение из очереди ###
   def pop
     num = peek
     # Удалить головной узел
@@ -50,9 +50,9 @@ class LinkedListQueue
     num
   end
 
-  # ## Получить элемент в начале очереди ###
+  # ## Доступ к элементу в начале очереди ###
   def peek
-    raise IndexError, 'Очередь пуста' if is_empty?
+    raise IndexError, 'очередь пуста' if is_empty?
 
     @front.val
   end
@@ -71,7 +71,7 @@ end
 
 ### Driver Code ###
 if __FILE__ == $0
-  # Инициализировать очередь
+  # Инициализация очереди
   queue = LinkedListQueue.new
 
   # Элемент помещается в очередь
@@ -80,22 +80,22 @@ if __FILE__ == $0
   queue.push(2)
   queue.push(5)
   queue.push(4)
-  puts "очередь queue = #{queue.to_array}"
+  puts "Очередь queue = #{queue.to_array}"
 
-  # Получить элемент в начале очереди
+  # Доступ к элементу в начале очереди
   peek = queue.peek
-  puts "голова очередиэлемент front = #{peek}"
+  puts "Первый элемент front = #{peek}"
 
-  # Извлечь элемент из очереди
+  # Извлечение элемента из очереди
   pop_front = queue.pop
-  puts "Элемент, извлеченный из очереди, pop = #{pop_front}"
+  puts "Извлеченный элемент pop = #{pop_front}"
   puts "queue после извлечения = #{queue.to_array}"
 
-  # Получить длину очереди
+  # Получение длины очереди
   size = queue.size
   puts "Длина очереди size = #{size}"
 
-  # Проверить, пуста ли очередь
+  # Проверка, пуста ли очередь
   is_empty = queue.is_empty?
-  puts "Очередь пуста: #{is_empty}"
+  puts "Пуста ли очередь = #{is_empty}"
 end

@@ -10,7 +10,7 @@ class ListNode:
 
     def __init__(self, val: int):
         self.val: int = val  # Значение узла
-        self.next: ListNode | None = None  # Ссылка на следующий узел
+        self.next: ListNode | None = None  # Ссылка на узел-преемник
 
 
 def list_to_linked_list(arr: list[int]) -> ListNode | None:

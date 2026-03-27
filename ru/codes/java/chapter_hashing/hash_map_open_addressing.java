@@ -8,12 +8,12 @@ package chapter_hashing;
 
 /* Хеш-таблица с открытой адресацией */
 class HashMapOpenAddressing {
-    private int size; // Количество пар ключ-значение
+    private int size; // Число пар ключ-значение
     private int capacity = 4; // Вместимость хеш-таблицы
-    private final double loadThres = 2.0 / 3.0; // Порог коэффициента загрузки, запускающий расширение
+    private final double loadThres = 2.0 / 3.0; // Порог коэффициента загрузки для запуска расширения
     private final int extendRatio = 2; // Коэффициент расширения
-    private Pair[] buckets; // Массив бакетов
-    private final Pair TOMBSTONE = new Pair(-1, "-1"); // Метка удаления
+    private Pair[] buckets; // Массив корзин
+    private final Pair TOMBSTONE = new Pair(-1, "-1"); // Удалить метку
 
     /* Конструктор */
     public HashMapOpenAddressing() {
@@ -31,27 +31,27 @@ class HashMapOpenAddressing {
         return (double) size / capacity;
     }
 
-    /* Найти индекс корзины, соответствующей ключу key */
+    /* Найти индекс корзины, соответствующий key */
     private int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
-        // Выполнять линейное пробирование и остановиться при встрече с пустым бакетом
+        // Выполнять линейное пробирование и завершить при встрече с пустой корзиной
         while (buckets[index] != null) {
-            // Если встретился key, вернуть соответствующий индекс бакета
+            // Если встретился key, вернуть соответствующий индекс корзины
             if (buckets[index].key == key) {
-                // Если ранее встретилась метка удаления, переместить пару ключ-значение в этот индекс
+                // Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index];
                     buckets[index] = TOMBSTONE;
-                    return firstTombstone; // Вернуть индекс бакета после перемещения
+                    return firstTombstone; // Вернуть индекс корзины после перемещения
                 }
-                return index; // Вернуть индекс бакета
+                return index; // Вернуть индекс корзины
             }
             // Записать первую встретившуюся метку удаления
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index;
             }
-            // Вычислить индекс бакета; при выходе за конец вернуться к началу
+            // Вычислить индекс корзины; при выходе за конец вернуться к началу
             index = (index + 1) % capacity;
         }
         // Если key не существует, вернуть индекс точки добавления
@@ -60,13 +60,13 @@ class HashMapOpenAddressing {
 
     /* Операция поиска */
     public String get(int key) {
-        // Найти индекс корзины, соответствующей ключу key
+        // Найти индекс корзины, соответствующий key
         int index = findBucket(key);
         // Если пара ключ-значение найдена, вернуть соответствующее val
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             return buckets[index].val;
         }
-        // Если пара ключ-значение не существует, вернуть null
+        // Если пары ключ-значение не существует, вернуть null
         return null;
     }
 
@@ -76,23 +76,23 @@ class HashMapOpenAddressing {
         if (loadFactor() > loadThres) {
             extend();
         }
-        // Найти индекс корзины, соответствующей ключу key
+        // Найти индекс корзины, соответствующий key
         int index = findBucket(key);
-        // Если пара ключ-значение найдена, перезаписать val и вернуть результат
+        // Если пара ключ-значение найдена, перезаписать val и вернуть
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index].val = val;
             return;
         }
-        // Если пара ключ-значение не существует, добавить ее
+        // Если пары ключ-значение нет, добавить ее
         buckets[index] = new Pair(key, val);
         size++;
     }
 
     /* Операция удаления */
     public void remove(int key) {
-        // Найти индекс корзины, соответствующей ключу key
+        // Найти индекс корзины, соответствующий key
         int index = findBucket(key);
-        // Если пара ключ-значение найдена, пометить ее меткой удаления
+        // Если пара ключ-значение найдена, заменить ее меткой удаления
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index] = TOMBSTONE;
             size--;
@@ -103,7 +103,7 @@ class HashMapOpenAddressing {
     private void extend() {
         // Временно сохранить исходную хеш-таблицу
         Pair[] bucketsTmp = buckets;
-        // Инициализировать новую хеш-таблицу после расширения
+        // Инициализация новой хеш-таблицы после расширения
         capacity *= extendRatio;
         buckets = new Pair[capacity];
         size = 0;
@@ -131,28 +131,28 @@ class HashMapOpenAddressing {
 
 public class hash_map_open_addressing {
     public static void main(String[] args) {
-        // Инициализировать хеш-таблицу
+        // Инициализация хеш-таблицы
         HashMapOpenAddressing hashmap = new HashMapOpenAddressing();
 
         // Операция добавления
-        // Добавить пару ключ-значение (key, val) в хеш-таблицу
+        // Добавить пару (key, val) в хеш-таблицу
         hashmap.put(12836, "Сяо Ха");
         hashmap.put(15937, "Сяо Ло");
         hashmap.put(16750, "Сяо Суань");
         hashmap.put(13276, "Сяо Фа");
-        hashmap.put(10583, "Утенок");
-        System.out.println("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
+        hashmap.put(10583, "Сяо Я");
+        System.out.println("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
         hashmap.print();
 
         // Операция поиска
-        // Ввести ключ key в хеш-таблицу и получить значение val
+        // Передать ключ key в хеш-таблицу и получить значение val
         String name = hashmap.get(13276);
-        System.out.println("\nПо номеру студента 13276 найдено имя " + name);
+        System.out.println("\nДля номера 13276 найдено имя " + name);
 
         // Операция удаления
-        // Удалить пару ключ-значение (key, val) из хеш-таблицы
+        // Удалить пару (key, val) из хеш-таблицы
         hashmap.remove(16750);
-        System.out.println("\nПосле удаления 16750 хеш-таблица выглядит так\nKey -> Value");
+        System.out.println("\nПосле удаления 16750 хеш-таблица имеет вид\nКлюч -> Значение");
         hashmap.print();
     }
 }

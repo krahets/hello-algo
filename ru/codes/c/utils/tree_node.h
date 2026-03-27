@@ -15,12 +15,12 @@ extern "C" {
 
 #define MAX_NODE_SIZE 5000
 
-/* структура узла двоичного дерева */
+/* Структура узла двоичного дерева */
 typedef struct TreeNode {
     int val;                // Значение узла
     int height;             // Высота узла
-    struct TreeNode *left;  // Указатель левого дочернего узла
-    struct TreeNode *right; // Указатель правого дочернего узла
+    struct TreeNode *left;  // Указатель на левый дочерний узел
+    struct TreeNode *right; // Указатель на правый дочерний узел
 } TreeNode;
 
 /* Конструктор */
@@ -35,7 +35,7 @@ TreeNode *newTreeNode(int val) {
     return node;
 }
 
-// Правила сериализации см.:
+// Правила кодирования сериализации см.:
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
 // Массивное представление двоичного дерева:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]

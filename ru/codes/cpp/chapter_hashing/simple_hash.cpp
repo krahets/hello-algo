@@ -36,7 +36,7 @@ int xorHash(string key) {
     return hash & MODULUS;
 }
 
-/* Вращательное хеширование */
+/* Хеширование с циклическим сдвигом */
 int rotHash(string key) {
     long long hash = 0;
     const int MODULUS = 1000000007;
@@ -51,16 +51,16 @@ int main() {
     string key = "Hello Algo";
 
     int hash = addHash(key);
-    cout << "Аддитивное хешированиезначениеравно" << hash << endl;
+    cout << "Хеш суммы = " << hash << endl;
 
     hash = mulHash(key);
-    cout << "Мультипликативное хешированиезначениеравно" << hash << endl;
+    cout << "Хеш произведения = " << hash << endl;
 
     hash = xorHash(key);
-    cout << "XOR-хешированиезначениеравно" << hash << endl;
+    cout << "XOR-хеш = " << hash << endl;
 
     hash = rotHash(key);
-    cout << "Вращательное хешированиезначениеравно" << hash << endl;
+    cout << "Хеш с циклическим сдвигом = " << hash << endl;
 
     return 0;
 }

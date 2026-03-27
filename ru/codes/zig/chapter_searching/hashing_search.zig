@@ -7,16 +7,16 @@ const inc = @import("include");
 
 // Хеш-поиск (массив)
 fn hashingSearchArray(comptime T: type, map: std.AutoHashMap(T, T), target: T) T {
-    // У хеш-таблицы key: целевой элемент, value: индекс
-    // Если такого key в хеш-таблице нет, вернуть -1
+    // key хеш-таблицы: целевой элемент, value: индекс
+    // Если такого key нет в хеш-таблице, вернуть -1
     if (map.getKey(target) == null) return -1;
     return map.get(target).?;
 }
 
 // Хеш-поиск (связный список)
 fn hashingSearchLinkedList(comptime T: type, map: std.AutoHashMap(T, *inc.ListNode(T)), target: T) ?*inc.ListNode(T) {
-    // У хеш-таблицы key: целевое значение узла, value: объект узла
-    // Если такого key в хеш-таблице нет, вернуть null
+    // key хеш-таблицы: значение целевого узла, value: объект узла
+    // Если такого key нет в хеш-таблице, вернуть null
     if (map.getKey(target) == null) return null;
     return map.get(target);
 }
@@ -27,7 +27,7 @@ pub fn main() !void {
 
     // Хеш-поиск (массив)
     var nums = [_]i32{ 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 };
-    // Инициализировать хеш-таблицу
+    // Инициализация хеш-таблицы
     var map = std.AutoHashMap(i32, i32).init(std.heap.page_allocator);
     defer map.deinit();
     for (nums, 0..) |num, i| {
@@ -41,7 +41,7 @@ pub fn main() !void {
     defer mem_arena.deinit();
     const mem_allocator = mem_arena.allocator();
     var head = try inc.ListUtil.arrToLinkedList(i32, mem_allocator, &nums);
-    // Инициализировать хеш-таблицу
+    // Инициализация хеш-таблицы
     var map1 = std.AutoHashMap(i32, *inc.ListNode(i32)).init(std.heap.page_allocator);
     defer map1.deinit();
     while (head != null) {
@@ -49,7 +49,7 @@ pub fn main() !void {
         head = head.?.next;
     }
     var node = hashingSearchLinkedList(i32, map1, target);
-    std.debug.print("Объект узла, соответствующий целевому значению 3, равен ", .{});
+    std.debug.print("Объект узла со значением 3 = ", .{});
     try inc.PrintUtil.printLinkedList(i32, node);
 
     _ = try std.io.getStdIn().reader().readByte();

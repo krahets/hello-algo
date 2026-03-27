@@ -8,19 +8,19 @@ import utils
 
 /* Стек на основе связного списка */
 class LinkedListStack {
-    private var _peek: ListNode? // Считать головной узел вершиной стека
+    private var _peek: ListNode? // Использовать головной узел как вершину стека
     private var _size: Int // Длина стека
 
     init() {
         _size = 0
     }
 
-    /* Получить длину стека */
+    /* Получение длины стека */
     func size() -> Int {
         _size
     }
 
-    /* Проверить, пуст ли стек */
+    /* Проверка, пуст ли стек */
     func isEmpty() -> Bool {
         size() == 0
     }
@@ -42,15 +42,15 @@ class LinkedListStack {
         return num
     }
 
-    /* Получить верхний элемент стека */
+    /* Доступ к верхнему элементу стека */
     func peek() -> Int {
         if isEmpty() {
-            fatalError("Стек пуст")
+            fatalError("стек пуст")
         }
         return _peek!.val
     }
 
-    /* Преобразовать List в Array и вернуть его */
+    /* Преобразовать List в Array и вернуть */
     func toArray() -> [Int] {
         var node = _peek
         var res = Array(repeating: 0, count: size())
@@ -66,31 +66,31 @@ class LinkedListStack {
 enum _LinkedListStack {
     /* Driver Code */
     static func main() {
-        /* Инициализировать стек */
+        /* Инициализация стека */
         let stack = LinkedListStack()
 
-        /* Поместить элемент в стек */
+        /* Помещение элемента в стек */
         stack.push(num: 1)
         stack.push(num: 3)
         stack.push(num: 2)
         stack.push(num: 5)
         stack.push(num: 4)
-        print("стек stack = \(stack.toArray())")
+        print("Стек stack = \(stack.toArray())")
 
-        /* Получить верхний элемент стека */
+        /* Доступ к верхнему элементу стека */
         let peek = stack.peek()
-        print("вершина стекаэлемент peek = \(peek)")
+        print("Верхний элемент peek = \(peek)")
 
-        /* Извлечь элемент из стека */
+        /* Извлечение элемента из стека */
         let pop = stack.pop()
-        print("Элемент, извлеченный из стека, pop = \(pop), stack после извлечения = \(stack.toArray())")
+        print("Извлеченный элемент pop = \(pop), stack после извлечения = \(stack.toArray())")
 
-        /* Получить длину стека */
+        /* Получение длины стека */
         let size = stack.size()
         print("Длина стека size = \(size)")
 
-        /* Проверить, пуста ли структура */
+        /* Проверка на пустоту */
         let isEmpty = stack.isEmpty()
-        print("стекпуст ли = \(isEmpty)")
+        print("Пуст ли стек = \(isEmpty)")
     }
 }

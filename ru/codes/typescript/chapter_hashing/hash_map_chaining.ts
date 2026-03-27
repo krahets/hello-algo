@@ -4,7 +4,7 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* пара ключ-значение Number -> String */
+/* Пара ключ-значение Number -> String */
 class Pair {
     key: number;
     val: string;
@@ -14,13 +14,13 @@ class Pair {
     }
 }
 
-/* Хеш-таблица с цепочечной адресацией */
+/* Хеш-таблица с цепочками */
 class HashMapChaining {
-    #size: number; // Количество пар ключ-значение
+    #size: number; // Число пар ключ-значение
     #capacity: number; // Вместимость хеш-таблицы
-    #loadThres: number; // Порог коэффициента загрузки, запускающий расширение
+    #loadThres: number; // Порог коэффициента загрузки для запуска расширения
     #extendRatio: number; // Коэффициент расширения
-    #buckets: Pair[][]; // Массив бакетов
+    #buckets: Pair[][]; // Массив корзин
 
     /* Конструктор */
     constructor() {
@@ -45,7 +45,7 @@ class HashMapChaining {
     get(key: number): string | null {
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
-        // Обойти бакет; если найден key, вернуть соответствующее val
+        // Обойти корзину; если найден key, вернуть соответствующее val
         for (const pair of bucket) {
             if (pair.key === key) {
                 return pair.val;
@@ -63,7 +63,7 @@ class HashMapChaining {
         }
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
-        // Обойти бакет; если встретился указанный key, обновить соответствующее val и вернуть результат
+        // Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
         for (const pair of bucket) {
             if (pair.key === key) {
                 pair.val = val;
@@ -80,7 +80,7 @@ class HashMapChaining {
     remove(key: number): void {
         const index = this.#hashFunc(key);
         let bucket = this.#buckets[index];
-        // Обойти бакет и удалить из него пару ключ-значение
+        // Обойти корзину и удалить из нее пару ключ-значение
         for (let i = 0; i < bucket.length; i++) {
             if (bucket[i].key === key) {
                 bucket.splice(i, 1);
@@ -94,7 +94,7 @@ class HashMapChaining {
     #extend(): void {
         // Временно сохранить исходную хеш-таблицу
         const bucketsTmp = this.#buckets;
-        // Инициализировать новую хеш-таблицу после расширения
+        // Инициализация новой хеш-таблицы после расширения
         this.#capacity *= this.#extendRatio;
         this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
         this.#size = 0;
@@ -119,28 +119,28 @@ class HashMapChaining {
 }
 
 /* Driver Code */
-/* Инициализировать хеш-таблицу */
+/* Инициализация хеш-таблицы */
 const map = new HashMapChaining();
 
 /* Операция добавления */
-// Добавить в хеш-таблицу пару ключ-значение (key, value)
+// Добавить пару (key, value) в хеш-таблицу
 map.put(12836, 'Сяо Ха');
 map.put(15937, 'Сяо Ло');
 map.put(16750, 'Сяо Суань');
 map.put(13276, 'Сяо Фа');
-map.put(10583, 'Утенок');
-console.log('\nПосле добавления хеш-таблица выглядит так\nKey -> Value');
+map.put(10583, 'Сяо Я');
+console.log('\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение');
 map.print();
 
 /* Операция поиска */
-// Передать ключ key в хеш-таблицу и получить значение value
+// Ввести в хеш-таблицу ключ key и получить значение value
 const name = map.get(13276);
-console.log('\nПо номеру студента 13276 найдено имя ' + name);
+console.log('\nПо номеру 13276 найдено имя ' + name);
 
 /* Операция удаления */
-// Удалить из хеш-таблицы пару ключ-значение (key, value)
+// Удалить пару (key, value) из хеш-таблицы
 map.remove(12836);
-console.log('\nПосле удаления 12836 хеш-таблица выглядит так\nKey -> Value');
+console.log('\nПосле удаления 12836 хеш-таблица имеет вид\nКлюч -> Значение');
 map.print();
 
 export {};

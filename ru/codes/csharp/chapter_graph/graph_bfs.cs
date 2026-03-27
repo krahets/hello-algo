@@ -8,25 +8,25 @@ namespace hello_algo.chapter_graph;
 
 public class graph_bfs {
     /* Обход в ширину */
-    // Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+    // Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
     List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
         // Последовательность обхода вершин
         List<Vertex> res = [];
-        // Хеш-множество для записи уже посещенных вершин
+        // Хеш-множество для хранения уже посещенных вершин
         HashSet<Vertex> visited = [startVet];
         // Очередь используется для реализации BFS
         Queue<Vertex> que = new();
         que.Enqueue(startVet);
         // Начиная с вершины vet, продолжать цикл, пока не будут посещены все вершины
         while (que.Count > 0) {
-            Vertex vet = que.Dequeue(); // Извлечь из очереди вершину из головы
-            res.Add(vet);               // Записать посещенную вершину
+            Vertex vet = que.Dequeue(); // Извлечь головную вершину из очереди
+            res.Add(vet);               // Отметить посещенную вершину
             foreach (Vertex adjVet in graph.adjList[vet]) {
                 if (visited.Contains(adjVet)) {
                     continue;          // Пропустить уже посещенную вершину
                 }
                 que.Enqueue(adjVet);   // Помещать в очередь только непосещенные вершины
-                visited.Add(adjVet);   // Пометить эту вершину как посещенную
+                visited.Add(adjVet);   // Отметить эту вершину как посещенную
             }
         }
 
@@ -36,7 +36,7 @@ public class graph_bfs {
 
     [Test]
     public void Test() {
-        /* Инициализировать неориентированный граф */
+        /* Инициализация неориентированного графа */
         Vertex[] v = Vertex.ValsToVets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
         Vertex[][] edges =
         [
@@ -47,7 +47,7 @@ public class graph_bfs {
         ];
 
         GraphAdjList graph = new(edges);
-        Console.WriteLine("\nПосле инициализации граф имеет вид");
+        Console.WriteLine("\nГраф после инициализации");
         graph.Print();
 
         /* Обход в ширину */

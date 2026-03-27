@@ -8,32 +8,32 @@
 enum Stack {
     /* Driver Code */
     static func main() {
-        /* Инициализировать стек */
+        /* Инициализация стека */
         // В Swift нет встроенного класса стека, поэтому Array можно использовать как стек
         var stack: [Int] = []
 
-        /* Поместить элемент в стек */
+        /* Помещение элемента в стек */
         stack.append(1)
         stack.append(3)
         stack.append(2)
         stack.append(5)
         stack.append(4)
-        print("стек stack = \(stack)")
+        print("Стек stack = \(stack)")
 
-        /* Получить верхний элемент стека */
+        /* Доступ к верхнему элементу стека */
         let peek = stack.last!
-        print("вершина стекаэлемент peek = \(peek)")
+        print("Верхний элемент peek = \(peek)")
 
-        /* Извлечь элемент из стека */
+        /* Извлечение элемента из стека */
         let pop = stack.removeLast()
-        print("Элемент, извлеченный из стека, pop = \(pop), stack после извлечения = \(stack)")
+        print("Извлеченный элемент pop = \(pop), stack после извлечения = \(stack)")
 
-        /* Получить длину стека */
+        /* Получение длины стека */
         let size = stack.count
         print("Длина стека size = \(size)")
 
-        /* Проверить, пуста ли структура */
+        /* Проверка на пустоту */
         let isEmpty = stack.isEmpty
-        print("стекпуст ли = \(isEmpty)")
+        print("Пуст ли стек = \(isEmpty)")
     }
 }

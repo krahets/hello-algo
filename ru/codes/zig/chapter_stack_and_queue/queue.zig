@@ -7,11 +7,11 @@ const inc = @import("include");
 
 // Driver Code
 pub fn main() !void {
-    // Инициализировать очередь
+    // Инициализация очереди
     const L = std.TailQueue(i32);
     var queue = L{};  
 
-    // Поместить элемент в очередь
+    // Добавление элемента в очередь
     var node1 = L.Node{ .data = 1 };
     var node2 = L.Node{ .data = 3 };
     var node3 = L.Node{ .data = 2 };
@@ -25,22 +25,22 @@ pub fn main() !void {
     std.debug.print("Очередь queue = ", .{});
     inc.PrintUtil.printQueue(i32, queue);
 
-    // Получить элемент в начале очереди
+    // Доступ к элементу в начале очереди
     var peek = queue.first.?.data;
-    std.debug.print("\nголова очередиэлемент peek = {}", .{peek});
+    std.debug.print("\nЭлемент в начале очереди peek = {}", .{peek});
 
-    // Извлечь элемент из очереди
+    // Извлечение элемента из очереди
     var pop = queue.popFirst().?.data;
-    std.debug.print("\nЭлемент, извлеченный из очереди, pop = {}, queue после извлечения = ", .{pop});
+    std.debug.print("\nИзвлечен элемент pop = {}, очередь после извлечения queue = ", .{pop});
     inc.PrintUtil.printQueue(i32, queue);
 
-    // Получить длину очереди
+    // Получение длины очереди
     var size = queue.len;
     std.debug.print("\nДлина очереди size = {}", .{size});
 
-    // Проверить, пуста ли очередь
+    // Проверка, пуста ли очередь
     var is_empty = if (queue.len == 0) true else false;
-    std.debug.print("\nОчередь пуста: {}", .{is_empty});
+    std.debug.print("\nПуста ли очередь = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

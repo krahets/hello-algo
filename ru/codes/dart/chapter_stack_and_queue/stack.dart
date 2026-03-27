@@ -5,31 +5,31 @@
  */
 
 void main() {
-  /* Инициализировать стек */
+  /* Инициализация стека */
   // В Dart нет встроенного класса стека, поэтому List можно использовать как стек
   final List<int> stack = [];
 
-  /* Поместить элемент в стек */
+  /* Помещение элемента в стек */
   stack.add(1);
   stack.add(3);
   stack.add(2);
   stack.add(5);
   stack.add(4);
-  print("стек stack = $stack");
+  print("Стек stack = $stack");
 
-  /* Получить верхний элемент стека */
+  /* Доступ к верхнему элементу стека */
   final int peek = stack.last;
-  print("вершина стекаэлемент peek = $peek");
+  print("Верхний элемент peek = $peek");
 
-  /* Извлечь элемент из стека */
+  /* Извлечение элемента из стека */
   final int pop = stack.removeLast();
-  print("Элемент, извлеченный из стека, pop = $pop , stack после извлечения = $stack");
+  print("Извлеченный элемент pop = $pop, stack после извлечения = $stack");
 
-  /* Получить длину стека */
+  /* Получение длины стека */
   final int size = stack.length;
   print("Длина стека size = $size");
 
-  /* Проверить, пуста ли структура */
+  /* Проверка на пустоту */
   final bool isEmpty = stack.isEmpty;
-  print("стекпуст ли = $isEmpty");
+  print("Пуст ли стек = $isEmpty");
 }

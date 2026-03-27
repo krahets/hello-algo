@@ -13,7 +13,7 @@ func function() -> Int {
     return 0
 }
 
-/* Константная сложность */
+/* Постоянная сложность */
 func constant(n: Int) {
     // Константы, переменные и объекты занимают O(1) памяти
     let a = 0
@@ -24,7 +24,7 @@ func constant(n: Int) {
     for _ in 0 ..< n {
         let c = 0
     }
-    // Функция в цикле занимает O(1) памяти
+    // Функции в цикле занимают O(1) памяти
     for _ in 0 ..< n {
         function()
     }
@@ -32,17 +32,17 @@ func constant(n: Int) {
 
 /* Линейная сложность */
 func linear(n: Int) {
-    // Массив длины n занимает пространство O(n)
+    // Массив длины n занимает O(n) памяти
     let nums = Array(repeating: 0, count: n)
-    // Список длины n занимает пространство O(n)
+    // Список длины n занимает O(n) памяти
     let nodes = (0 ..< n).map { ListNode(x: $0) }
-    // Хеш-таблица длины n занимает пространство O(n)
+    // Хеш-таблица длины n занимает O(n) памяти
     let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
 }
 
 /* Линейная сложность (рекурсивная реализация) */
 func linearRecur(n: Int) {
-    print("Рекурсия: n = \(n)")
+    print("Рекурсия n = \(n)")
     if n == 1 {
         return
     }
@@ -51,7 +51,7 @@ func linearRecur(n: Int) {
 
 /* Квадратичная сложность */
 func quadratic(n: Int) {
-    // Двумерный список занимает пространство O(n^2)
+    // Двумерный список занимает O(n^2) памяти
     let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
 }
 
@@ -61,9 +61,9 @@ func quadraticRecur(n: Int) -> Int {
     if n <= 0 {
         return 0
     }
-    // массив nums длинаравно n, n-1,..., 2, 1
+    // Длина массива nums равна n, n-1, ..., 2, 1
     let nums = Array(repeating: 0, count: n)
-    print("Рекурсия: n = \(n), длина nums = \(nums.count)")
+    print("В рекурсии n = \(n), длина nums = \(nums.count)")
     return quadraticRecur(n: n - 1)
 }
 
@@ -83,7 +83,7 @@ enum SpaceComplexity {
     /* Driver Code */
     static func main() {
         let n = 5
-        // Константная сложность
+        // Постоянная сложность
         constant(n: n)
         // Линейная сложность
         linear(n: n)

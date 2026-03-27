@@ -5,7 +5,7 @@
 const std = @import("std");
 const inc = @import("include");
 
-// пара ключ-значение
+// Пара ключ-значение
 const Pair = struct {
     key: usize = undefined,
     val: []const u8 = undefined,
@@ -29,7 +29,7 @@ pub fn ArrayHashMap(comptime T: type) type {
         // Конструктор
         pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
             self.mem_allocator = allocator;
-            // Инициализировать бакет (массив) длиной 100
+            // Инициализировать корзину (массив) длиной 100
             self.bucket = std.ArrayList(?T).init(self.mem_allocator);
             var i: i32 = 0;
             while (i < 100) : (i += 1) {
@@ -65,7 +65,7 @@ pub fn ArrayHashMap(comptime T: type) type {
         // Операция удаления
         pub fn remove(self: *Self, key: usize) !void {
             var index = hashFunc(key);
-            // Установить null, обозначая удаление
+            // Присвоить null, что означает удаление
             self.bucket.?.items[index] = null;
         }       
 
@@ -112,46 +112,46 @@ pub fn ArrayHashMap(comptime T: type) type {
 
 // Driver Code
 pub fn main() !void {
-    // Инициализировать хеш-таблицу
+    // Инициализация хеш-таблицы
     var map = ArrayHashMap(Pair){};
     try map.init(std.heap.page_allocator);
     defer map.deinit();
 
     // Операция добавления
-    // Добавить в хеш-таблицу пару ключ-значение (key, value)
+    // Добавить пару (key, value) в хеш-таблицу
     try map.put(12836, "Сяо Ха");
     try map.put(15937, "Сяо Ло");
     try map.put(16750, "Сяо Суань");
     try map.put(13276, "Сяо Фа");
-    try map.put(10583, "Утенок");
-    std.debug.print("\nПосле добавления хеш-таблица имеет вид\nKey -> Value\n", .{});
+    try map.put(10583, "Сяо Я");
+    std.debug.print("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение\n", .{});
     try map.print();
 
     // Операция поиска
     // Передать ключ key в хеш-таблицу и получить значение value
     var name = map.get(15937);
-    std.debug.print("\nПо номеру студента 15937 найдено имя {s}\n", .{name});
+    std.debug.print("\nПо номеру 15937 найдено имя {s}\n", .{name});
 
     // Операция удаления
-    // Удалить из хеш-таблицы пару ключ-значение (key, value)
+    // Удалить пару (key, value) из хеш-таблицы
     try map.remove(10583);
-    std.debug.print("\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value\n", .{});
+    std.debug.print("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение\n", .{});
     try map.print();
     
-    // Перебрать хеш-таблицу
-    std.debug.print("\nОбход пар ключ-значение Key->Value\n", .{});
+    // Обход хеш-таблицы
+    std.debug.print("\nОтдельный обход пар ключ-значение\n", .{});
     var entry_set = try map.pairSet();
     for (entry_set.items) |kv| {
         std.debug.print("{} -> {s}\n", .{kv.key, kv.val});
     }
     defer entry_set.deinit();
-    std.debug.print("\nОтдельный обход ключей Key\n", .{});
+    std.debug.print("\nОтдельный обход ключей\n", .{});
     var key_set = try map.keySet();
     for (key_set.items) |key| {
         std.debug.print("{}\n", .{key});
     }
     defer key_set.deinit();
-    std.debug.print("\nОтдельно перебираем значения value\n", .{});
+    std.debug.print("\nОтдельный обход значений\n", .{});
     var value_set = try map.valueSet();
     for (value_set.items) |val| {
         std.debug.print("{s}\n", .{val});

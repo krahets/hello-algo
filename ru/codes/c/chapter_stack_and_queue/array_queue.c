@@ -6,18 +6,18 @@
 
 #include "../utils/common.h"
 
-/* Очередь на основе циклического массива */
+/* Очередь на основе кольцевого массива */
 typedef struct {
     int *nums;       // Массив для хранения элементов очереди
-    int front;       // Указатель front, указывающий на первый элемент очереди
-    int queSize;     // Хвостовой указатель указывает на позицию хвоста + 1
-    int queCapacity; // очередьвместимость
+    int front;       // Указатель head, указывающий на первый элемент очереди
+    int queSize;     // Указатель хвоста, указывающий на позицию после хвоста
+    int queCapacity; // Вместимость очереди
 } ArrayQueue;
 
 /* Конструктор */
 ArrayQueue *newArrayQueue(int capacity) {
     ArrayQueue *queue = (ArrayQueue *)malloc(sizeof(ArrayQueue));
-    // Инициализировать массив
+    // Инициализация массива
     queue->queCapacity = capacity;
     queue->nums = (int *)malloc(sizeof(int) * queue->queCapacity);
     queue->front = queue->queSize = 0;
@@ -35,17 +35,17 @@ int capacity(ArrayQueue *queue) {
     return queue->queCapacity;
 }
 
-/* Получить длину очереди */
+/* Получение длины очереди */
 int size(ArrayQueue *queue) {
     return queue->queSize;
 }
 
-/* Проверить, пуста ли очередь */
+/* Проверка, пуста ли очередь */
 bool empty(ArrayQueue *queue) {
     return queue->queSize == 0;
 }
 
-/* Получить элемент в начале очереди */
+/* Доступ к элементу в начале очереди */
 int peek(ArrayQueue *queue) {
     assert(size(queue) != 0);
     return queue->nums[queue->front];
@@ -57,10 +57,10 @@ void push(ArrayQueue *queue, int num) {
         printf("Очередь заполнена\r\n");
         return;
     }
-    // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
-    // Операция взятия по модулю позволяет rear после выхода за конец массива вернуться к его началу
+    // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+    // С помощью операции взятия по модулю вернуть rear к началу после выхода за конец массива
     int rear = (queue->front + queue->queSize) % queue->queCapacity;
-    // Добавить num в конец очереди
+    // Добавить num в хвост очереди
     queue->nums[rear] = num;
     queue->queSize++;
 }
@@ -68,13 +68,13 @@ void push(ArrayQueue *queue, int num) {
 /* Извлечь из очереди */
 int pop(ArrayQueue *queue) {
     int num = peek(queue);
-    // Указатель головы очереди сдвигается на одну позицию вперед; если он выходит за конец, то возвращается в начало массива
+    // Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
     queue->front = (queue->front + 1) % queue->queCapacity;
     queue->queSize--;
     return num;
 }
 
-/* Вернуть массив для печати */
+/* Вернуть массив для вывода */
 int *toArray(ArrayQueue *queue, int *queSize) {
     *queSize = queue->queSize;
     int *res = (int *)calloc(queue->queSize, sizeof(int));
@@ -88,12 +88,12 @@ int *toArray(ArrayQueue *queue, int *queSize) {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать очередь */
+    /* Инициализация очереди */
     int capacity = 10;
     int queSize;
     ArrayQueue *queue = newArrayQueue(capacity);
 
-    /* Поместить элемент в очередь */
+    /* Добавление элемента в очередь */
     push(queue, 1);
     push(queue, 3);
     push(queue, 2);
@@ -102,28 +102,28 @@ int main() {
     printf("Очередь queue = ");
     printArray(toArray(queue, &queSize), queSize);
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     int peekNum = peek(queue);
-    printf("Элемент в голове очереди peek = %d\r\n", peekNum);
+    printf("Элемент в голове peek = %d\r\n", peekNum);
 
-    /* Извлечь элемент из очереди */
+    /* Извлечение элемента из очереди */
     peekNum = pop(queue);
-    printf("Элемент, извлеченный из очереди, pop = %d , queue после извлечения = ", peekNum);
+    printf("Извлечен элемент из очереди pop = %d, очередь после извлечения = ", peekNum);
     printArray(toArray(queue, &queSize), queSize);
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     int queueSize = size(queue);
     printf("Длина очереди size = %d\r\n", queueSize);
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     bool isEmpty = empty(queue);
-    printf("Очередь пуста: %s\r\n", isEmpty ? "true" : "false");
+    printf("Пуста ли очередь = %s\r\n", isEmpty ? "true" : "false");
 
-    /* Проверить кольцевой массив */
+    /* Проверка кольцевого массива */
     for (int i = 0; i < 10; i++) {
         push(queue, i);
         pop(queue);
-        printf("После %d-й итерации enqueue + dequeue queue = ", i);
+        printf("После %d-го цикла enqueue + dequeue queue = ", i);
         printArray(toArray(queue, &queSize), queSize);
     }
 

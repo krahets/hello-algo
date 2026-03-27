@@ -13,7 +13,7 @@ fn function() i32 {
     return 0;
 }
 
-// Константная сложность
+// Постоянная сложность
 fn constant(n: i32) void {
     // Константы, переменные и объекты занимают O(1) памяти
     const a: i32 = 0;
@@ -26,7 +26,7 @@ fn constant(n: i32) void {
         const c: i32 = 0;
         _ = c;
     }
-    // Функция в цикле занимает O(1) памяти
+    // Функции в цикле занимают O(1) памяти
     i = 0;
     while (i < n) : (i += 1) {
         _ = function();
@@ -39,16 +39,16 @@ fn constant(n: i32) void {
 
 // Линейная сложность
 fn linear(comptime n: i32) !void {
-    // Массив длины n занимает пространство O(n)
+    // Массив длины n занимает O(n) памяти
     const nums = [_]i32{0} ** n;
-    // Список длины n занимает пространство O(n)
+    // Список длины n занимает O(n) памяти
     var nodes = std.ArrayList(i32).init(std.heap.page_allocator);
     defer nodes.deinit();
     var i: i32 = 0;
     while (i < n) : (i += 1) {
         try nodes.append(i);
     }
-    // Хеш-таблица длины n занимает пространство O(n)
+    // Хеш-таблица длины n занимает O(n) памяти
     var map = std.AutoArrayHashMap(i32, []const u8).init(std.heap.page_allocator);
     defer map.deinit();
     var j: i32 = 0;
@@ -62,14 +62,14 @@ fn linear(comptime n: i32) !void {
 
 // Линейная сложность (рекурсивная реализация)
 fn linearRecur(comptime n: i32) void {
-    std.debug.print("Рекурсия: n = {}\n", .{n});
+    std.debug.print("Рекурсия n = {}\n", .{n});
     if (n == 1) return;
     linearRecur(n - 1);
 }
 
 // Квадратичная сложность
 fn quadratic(n: i32) !void {
-    // Двумерный список занимает пространство O(n^2)
+    // Двумерный список занимает O(n^2) памяти
     var nodes = std.ArrayList(std.ArrayList(i32)).init(std.heap.page_allocator);
     defer nodes.deinit();
     var i: i32 = 0;
@@ -88,7 +88,7 @@ fn quadratic(n: i32) !void {
 fn quadraticRecur(comptime n: i32) i32 {
     if (n <= 0) return 0;
     const nums = [_]i32{0} ** n;
-    std.debug.print("Рекурсия: n = {}, длина nums = {}\n", .{ n, nums.len });
+    std.debug.print("В рекурсии n = {} длина nums = {}\n", .{ n, nums.len });
     return quadraticRecur(n - 1);
 }
 
@@ -117,7 +117,7 @@ pub fn run() !void {
     const allocator = gpa.allocator();
 
     const n: i32 = 5;
-    // Константная сложность
+    // Постоянная сложность
     constant(n);
     // Линейная сложность
     try linear(n);

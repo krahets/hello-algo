@@ -26,12 +26,12 @@ impl<T: Copy> LinkedListQueue<T> {
         }
     }
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     pub fn size(&self) -> usize {
         return self.que_size;
     }
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     pub fn is_empty(&self) -> bool {
         return self.que_size == 0;
     }
@@ -46,7 +46,7 @@ impl<T: Copy> LinkedListQueue<T> {
                 old_rear.borrow_mut().next = Some(new_rear.clone());
                 self.rear = Some(new_rear);
             }
-            // Если очередь пуста, сделать так, чтобы головной и хвостовой узлы указывали на этот узел
+            // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
             None => {
                 self.front = Some(new_rear.clone());
                 self.rear = Some(new_rear);
@@ -71,12 +71,12 @@ impl<T: Copy> LinkedListQueue<T> {
         })
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.front.as_ref()
     }
 
-    /* Преобразовать связный список в Array и вернуть его */
+    /* Преобразовать связный список в Array и вернуть */
     pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
         let mut res: Vec<T> = Vec::new();
 
@@ -95,10 +95,10 @@ impl<T: Copy> LinkedListQueue<T> {
 
 /* Driver Code */
 fn main() {
-    /* Инициализировать очередь */
+    /* Инициализация очереди */
     let mut queue = LinkedListQueue::new();
 
-    /* Поместить элемент в очередь */
+    /* Добавление элемента в очередь */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -107,20 +107,20 @@ fn main() {
     print!("Очередь queue = ");
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     let peek = queue.peek().unwrap().borrow().val;
-    print!("\nголова очередиэлемент peek = {}", peek);
+    print!("\nПервый элемент peek = {}", peek);
 
-    /* Извлечь элемент из очереди */
+    /* Извлечение элемента из очереди */
     let pop = queue.pop().unwrap();
-    print!("\nЭлемент, извлеченный из очереди, pop = {}, queue после извлечения = ", pop);
+    print!("\nИзвлеченный элемент pop = {}, queue после извлечения = ", pop);
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     let size = queue.size();
     print!("\nДлина очереди size = {}", size);
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     let is_empty = queue.is_empty();
-    print!("\nОчередь пуста: {}", is_empty);
+    print!("\nПуста ли очередь = {}", is_empty);
 }

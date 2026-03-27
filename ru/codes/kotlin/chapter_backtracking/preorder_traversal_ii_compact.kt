@@ -12,12 +12,12 @@ import utils.printTree
 var path: MutableList<TreeNode>? = null
 var res: MutableList<MutableList<TreeNode>>? = null
 
-/* Прямой обход: пример 2 */
+/* Предварительный обход: пример 2 */
 fun preOrder(root: TreeNode?) {
     if (root == null) {
         return
     }
-    // Попытаться
+    // Попытка
     path!!.add(root)
     if (root._val == 7) {
         // Записать решение
@@ -32,15 +32,15 @@ fun preOrder(root: TreeNode?) {
 /* Driver Code */
 fun main() {
     val root = TreeNode.listToTree(mutableListOf(1, 7, 3, 4, 5, 6, 7))
-    println("\nИнициализировать двоичное дерево")
+    println("\nИнициализация двоичного дерева")
     printTree(root)
 
-    // Прямой обход
+    // Предварительный обход
     path = mutableListOf()
     res = mutableListOf()
     preOrder(root)
 
-    println("\nВывести все пути от корня до узла 7")
+    println("\nВсе пути от корня к узлу 7")
     for (path in res!!) {
         val _vals = mutableListOf<Int>()
         for (node in path) {

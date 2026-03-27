@@ -44,7 +44,7 @@ string strRepeat(string str, int n) {
     return os.str();
 }
 
-/* Вывестимассив */
+/* Вывести массив */
 template <typename T> void printArray(T *arr, int n) {
     cout << "[";
     for (int i = 0; i < n - 1; i++) {
@@ -61,12 +61,12 @@ template <typename T> string getVectorString(vector<T> &list) {
     return "[" + strJoin(", ", list) + "]";
 }
 
-/* Вывестисписок */
+/* Вывести список */
 template <typename T> void printVector(vector<T> list) {
     cout << getVectorString(list) << '\n';
 }
 
-/* Вывестиматрица */
+/* Вывести матрицу */
 template <typename T> void printVectorMatrix(vector<vector<T>> &matrix) {
     cout << "[" << '\n';
     for (vector<T> &list : matrix)
@@ -104,8 +104,8 @@ void showTrunks(Trunk *p) {
 }
 
 /**
- * Вывестидвоичное дерево
- * This tree printer is borrowed from TECHIE DELIGHT
+ * Вывести двоичное дерево
+ * Этот вывод дерева заимствован из TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTree(TreeNode *root, Trunk *prev, bool isRight) {
@@ -144,7 +144,7 @@ void printTree(TreeNode *root) {
     printTree(root, nullptr, false);
 }
 
-/* Вывестистек */
+/* Вывести стек */
 template <typename T> void printStack(stack<T> stk) {
     // Reverse the input stack
     stack<T> tmp;
@@ -166,7 +166,7 @@ template <typename T> void printStack(stack<T> stk) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* Вывестиочередь */
+/* Вывести очередь */
 template <typename T> void printQueue(queue<T> queue) {
     // Generate the string to print
     ostringstream s;
@@ -182,7 +182,7 @@ template <typename T> void printQueue(queue<T> queue) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* Вывестидвусторонняя очередь */
+/* Вывести двустороннюю очередь */
 template <typename T> void printDeque(deque<T> deque) {
     // Generate the string to print
     ostringstream s;
@@ -199,7 +199,7 @@ template <typename T> void printDeque(deque<T> deque) {
 }
 
 /* Вывести хеш-таблицу */
-// Определить параметры шаблона TKey и TValue для задания типа пары ключ-значение
+// Определить параметры шаблона TKey и TValue для указания типов пары ключ-значение
 template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, TValue> map) {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';
@@ -216,7 +216,7 @@ template <typename T, typename S, typename C> S &Container(priority_queue<T, S, 
     return HackedQueue::Container(pq);
 }
 
-/* Вывести кучу(очередь с приоритетом) */
+/* Вывести кучу (приоритетную очередь) */
 template <typename T, typename S, typename C> void printHeap(priority_queue<T, S, C> &heap) {
     vector<T> vec = Container(heap);
     cout << "Массивное представление кучи:";

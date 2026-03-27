@@ -8,13 +8,13 @@ package chapter_greedy
 
 /* Размен монет: жадный алгоритм */
 fun coinChangeGreedy(coins: IntArray, amt: Int): Int {
-    // Предположим, что список coins упорядочен
+    // Предположить, что список coins упорядочен
     var am = amt
     var i = coins.size - 1
     var count = 0
-    // Повторять жадный выбор, пока не останется суммы
+    // Циклически выполнять жадный выбор, пока не останется суммы
     while (am > 0) {
-        // Найти монету, которая меньше оставшейся суммы и ближе всего к ней
+        // Найти монету, которая меньше остатка суммы и наиболее к нему близка
         while (i > 0 && coins[i] > am) {
             i--
         }
@@ -28,26 +28,26 @@ fun coinChangeGreedy(coins: IntArray, amt: Int): Int {
 
 /* Driver Code */
 fun main() {
-    // Жадный подход: позволяет гарантированно найти глобально оптимальное решение
+    // Жадный подход: гарантирует нахождение глобально оптимального решения
     var coins = intArrayOf(1, 5, 10, 20, 50, 100)
     var amt = 186
     var res = coinChangeGreedy(coins, amt)
     println("\ncoins = ${coins.contentToString()}, amt = $amt")
-    println("Для получения $amt минимальное число монет равно $res")
+    println("Минимальное число монет для набора суммы $amt = $res")
 
     // Жадный подход: не гарантирует нахождение глобально оптимального решения
     coins = intArrayOf(1, 20, 50)
     amt = 60
     res = coinChangeGreedy(coins, amt)
     println("\ncoins = ${coins.contentToString()}, amt = $amt")
-    println("Для получения $amt минимальное число монет равно $res")
-    println("Фактически минимальное необходимое количество равно 3, то есть 20 + 20 + 20")
+    println("Минимальное число монет для набора суммы $amt = $res")
+    println("На самом деле минимум равен 3: 20 + 20 + 20")
 
     // Жадный подход: не гарантирует нахождение глобально оптимального решения
     coins = intArrayOf(1, 49, 50)
     amt = 98
     res = coinChangeGreedy(coins, amt)
     println("\ncoins = ${coins.contentToString()}, amt = $amt")
-    println("Для получения $amt минимальное число монет равно $res")
-    println("Фактически минимальное необходимое количество равно 2, то есть 49 + 49")
+    println("Минимальное число монет для набора суммы $amt = $res")
+    println("На самом деле минимум равен 2: 49 + 49")
 }

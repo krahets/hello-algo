@@ -11,8 +11,8 @@ import java.util.*;
 /* Узел двусвязного списка */
 class ListNode {
     int val; // Значение узла
-    ListNode next; // Ссылка на следующий узел
-    ListNode prev; // Ссылка на предыдущий узел
+    ListNode next; // Ссылка на узел-преемник
+    ListNode prev; // Ссылка на узел-предшественник
 
     ListNode(int val) {
         this.val = val;
@@ -29,44 +29,44 @@ class LinkedListDeque {
         front = rear = null;
     }
 
-    /* Получить длину двусторонней очереди */
+    /* Получение длины двусторонней очереди */
     public int size() {
         return queSize;
     }
 
-    /* Проверить, пуста ли двусторонняя очередь */
+    /* Проверка, пуста ли двусторонняя очередь */
     public boolean isEmpty() {
         return size() == 0;
     }
 
-    /* Операция помещения в очередь */
+    /* Операция добавления в очередь */
     private void push(int num, boolean isFront) {
         ListNode node = new ListNode(num);
         // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
         if (isEmpty())
             front = rear = node;
-        // Операция помещения в голову очереди
+        // Операция добавления в голову очереди
         else if (isFront) {
-            // Добавить node в голову связного списка
+            // Добавить node в голову списка
             front.prev = node;
             node.next = front;
             front = node; // Обновить головной узел
-        // Операция помещения в хвост очереди
+        // Операция добавления в хвост очереди
         } else {
-            // Добавить node в хвост связного списка
+            // Добавить node в хвост списка
             rear.next = node;
             node.prev = rear;
             rear = node; // Обновить хвостовой узел
         }
-        queSize++; // ОбновитьДлина очереди
+        queSize++; // Обновить длину очереди
     }
 
-    /* Поместить в голову очереди */
+    /* Добавление в голову очереди */
     public void pushFirst(int num) {
         push(num, true);
     }
 
-    /* Поместить в хвост очереди */
+    /* Добавление в хвост очереди */
     public void pushLast(int num) {
         push(num, false);
     }
@@ -97,35 +97,35 @@ class LinkedListDeque {
             }
             rear = rPrev; // Обновить хвостовой узел
         }
-        queSize--; // ОбновитьДлина очереди
+        queSize--; // Обновить длину очереди
         return val;
     }
 
-    /* Извлечь из головы очереди */
+    /* Извлечение из головы очереди */
     public int popFirst() {
         return pop(true);
     }
 
-    /* Извлечь из хвоста очереди */
+    /* Извлечение из хвоста очереди */
     public int popLast() {
         return pop(false);
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     public int peekFirst() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return front.val;
     }
 
-    /* Обратиться к элементу в хвосте очереди */
+    /* Доступ к элементу в конце очереди */
     public int peekLast() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return rear.val;
     }
 
-    /* Вернуть массив для печати */
+    /* Вернуть массив для вывода */
     public int[] toArray() {
         ListNode node = front;
         int[] res = new int[size()];
@@ -139,37 +139,37 @@ class LinkedListDeque {
 
 public class linkedlist_deque {
     public static void main(String[] args) {
-        /* Инициализировать двустороннюю очередь */
+        /* Инициализация двусторонней очереди */
         LinkedListDeque deque = new LinkedListDeque();
         deque.pushLast(3);
         deque.pushLast(2);
         deque.pushLast(5);
         System.out.println("Двусторонняя очередь deque = " + Arrays.toString(deque.toArray()));
 
-        /* Получить доступ к элементу */
+        /* Доступ к элементу */
         int peekFirst = deque.peekFirst();
-        System.out.println("голова очередиэлемент peekFirst =" + peekFirst);
+        System.out.println("Первый элемент peekFirst = " + peekFirst);
         int peekLast = deque.peekLast();
-        System.out.println("хвост очередиэлемент peekLast =" + peekLast);
+        System.out.println("Последний элемент peekLast = " + peekLast);
 
-        /* Поместить элемент в очередь */
+        /* Добавление элемента в очередь */
         deque.pushLast(4);
-        System.out.println("После помещения элемента 4 в хвост очереди deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("После добавления элемента 4 в хвост deque = " + Arrays.toString(deque.toArray()));
         deque.pushFirst(1);
-        System.out.println("После помещения элемента 1 в голову очереди deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("После добавления элемента 1 в голову deque = " + Arrays.toString(deque.toArray()));
 
-        /* Извлечь элемент из очереди */
+        /* Извлечение элемента из очереди */
         int popLast = deque.popLast();
-        System.out.println("Элемент, извлеченный из хвоста очереди = " + popLast + ", deque после извлечения из хвоста = " + Arrays.toString(deque.toArray()));
+        System.out.println("Извлеченный из хвоста элемент = " + popLast + ", deque после извлечения из хвоста = " + Arrays.toString(deque.toArray()));
         int popFirst = deque.popFirst();
-        System.out.println("Элемент, извлеченный из головы очереди = " + popFirst + ", deque после извлечения из головы = " + Arrays.toString(deque.toArray()));
+        System.out.println("Извлеченный из головы элемент = " + popFirst + ", deque после извлечения из головы = " + Arrays.toString(deque.toArray()));
 
-        /* Получить длину двусторонней очереди */
+        /* Получение длины двусторонней очереди */
         int size = deque.size();
         System.out.println("Длина двусторонней очереди size = " + size);
 
-        /* Проверить, пуста ли двусторонняя очередь */
+        /* Проверка, пуста ли двусторонняя очередь */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("Двусторонняя очередь пуста: " + isEmpty);
+        System.out.println("Пуста ли двусторонняя очередь = " + isEmpty);
     }
 }

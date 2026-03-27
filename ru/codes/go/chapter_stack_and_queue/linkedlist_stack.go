@@ -14,7 +14,7 @@ type linkedListStack struct {
 	data *list.List
 }
 
-/* Инициализировать стек */
+/* Инициализация стека */
 func newLinkedListStack() *linkedListStack {
 	return &linkedListStack{
 		data: list.New(),
@@ -36,7 +36,7 @@ func (s *linkedListStack) pop() any {
 	return e.Value
 }
 
-/* Получить верхний элемент стека */
+/* Доступ к верхнему элементу стека */
 func (s *linkedListStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,12 +45,12 @@ func (s *linkedListStack) peek() any {
 	return e.Value
 }
 
-/* Получить длину стека */
+/* Получение длины стека */
 func (s *linkedListStack) size() int {
 	return s.data.Len()
 }
 
-/* Проверить, пуст ли стек */
+/* Проверка, пуст ли стек */
 func (s *linkedListStack) isEmpty() bool {
 	return s.data.Len() == 0
 }

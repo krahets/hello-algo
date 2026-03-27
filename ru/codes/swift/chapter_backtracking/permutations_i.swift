@@ -11,14 +11,14 @@ func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: 
         res.append(state)
         return
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for (i, choice) in choices.enumerated() {
-        // Отсечение: не допускается повторный выбор элемента
+        // Отсечение: нельзя выбирать один и тот же элемент повторно
         if !selected[i] {
             // Попытка: сделать выбор и обновить состояние
             selected[i] = true
             state.append(choice)
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             backtrack(state: &state, choices: choices, selected: &selected, res: &res)
             // Откат: отменить выбор и восстановить предыдущее состояние
             selected[i] = false

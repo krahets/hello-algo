@@ -4,7 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Алгоритм бэктрекинга: сумма подмножества I */
+/* Алгоритм бэктрекинга: сумма подмножеств I */
 void backtrack(
   List<int> state,
   int target,
@@ -17,25 +17,25 @@ void backtrack(
     res.add(List.from(state));
     return;
   }
-  // Перебрать все варианты выбора
+  // Перебор всех вариантов выбора
   for (int i = 0; i < choices.length; i++) {
     // Отсечение: если сумма подмножества превышает target, пропустить этот выбор
     if (total + choices[i] > target) {
       continue;
     }
-    // Попытка: сделать выбор и обновить сумму элементов total
+    // Попытка: сделать выбор и обновить элемент и total
     state.add(choices[i]);
-    // Перейти к следующему варианту выбора
+    // Перейти к следующему выбору
     backtrack(state, target, total + choices[i], choices, res);
     // Откат: отменить выбор и восстановить предыдущее состояние
     state.removeLast();
   }
 }
 
-/* Решить задачу суммы подмножества I (включая повторяющиеся подмножества) */
+/* Решить задачу суммы подмножеств I (с повторяющимися подмножествами) */
 List<List<int>> subsetSumINaive(List<int> nums, int target) {
   List<int> state = []; // Состояние (подмножество)
-  int total = 0; // элементсумма
+  int total = 0; // Сумма элементов
   List<List<int>> res = []; // Список результатов (список подмножеств)
   backtrack(state, target, total, nums, res);
   return res;
@@ -49,6 +49,6 @@ void main() {
   List<List<int>> res = subsetSumINaive(nums, target);
 
   print("Входной массив nums = $nums, target = $target");
-  print("Все подмножества с суммой $target res = $res");
+  print("Все подмножества с суммой $target: res = $res");
   print("Обратите внимание: результат этого метода содержит повторяющиеся множества");
 }

@@ -40,13 +40,13 @@ fn main() {
     let nums = vec![2, 7, 11, 15];
     let target = 13;
 
-    // ====== Driver Code ======
-    // метод 1
+    // ====== Основной код ======
+    // Метод 1
     let res = two_sum_brute_force(&nums, target).unwrap();
-    print!("Метод 1 res = ");
+    print!("Результат метода 1 res = ");
     print_util::print_array(&res);
     // Метод 2
     let res = two_sum_hash_table(&nums, target).unwrap();
-    print!("\nметод 2 res =");
+    print!("\nРезультат метода 2 res = ");
     print_util::print_array(&res);
 }

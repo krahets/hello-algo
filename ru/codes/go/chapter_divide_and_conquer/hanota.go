@@ -8,11 +8,11 @@ import "container/list"
 
 /* Переместить один диск */
 func move(src, tar *list.List) {
-	// Взять верхний диск со стержня src
+	// Снять диск с вершины src
 	pan := src.Back()
-	// Поместить диск на вершину tar
+	// Положить диск на вершину tar
 	tar.PushBack(pan.Value)
-	// Снять верхний диск со src
+	// Убрать верхний диск из src
 	src.Remove(pan)
 }
 

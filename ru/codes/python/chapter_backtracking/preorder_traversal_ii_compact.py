@@ -12,10 +12,10 @@ from modules import TreeNode, print_tree, list_to_tree
 
 
 def pre_order(root: TreeNode):
-    """Прямой обход: пример 2"""
+    """Предварительный обход: пример 2"""
     if root is None:
         return
-    # Попытаться
+    # Попытка
     path.append(root)
     if root.val == 7:
         # Записать решение
@@ -29,14 +29,14 @@ def pre_order(root: TreeNode):
 """Driver Code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
-    print("\nИнициализировать двоичное дерево")
+    print("\nИнициализация двоичного дерева")
     print_tree(root)
 
-    # Прямой обход
+    # Предварительный обход
     path = list[TreeNode]()
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\nВывести все пути от корня до узла 7")
+    print("\nВсе пути от корня к узлу 7")
     for path in res:
         print([node.val for node in path])

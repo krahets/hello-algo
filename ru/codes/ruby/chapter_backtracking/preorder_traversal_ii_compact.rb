@@ -7,11 +7,11 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ## Прямой обход: пример 2 ###
+# ## Предварительный обход: пример 2 ###
 def pre_order(root)
   return unless root
 
-  # Попытаться
+  # Попытка
   $path << root
 
   # Записать решение
@@ -27,14 +27,14 @@ end
 ### Driver Code ###
 if __FILE__ == $0
   root = arr_to_tree([1, 7, 3, 4, 5, 6, 7])
-  puts "\nИнициализировать двоичное дерево"
+  puts "\nИнициализация двоичного дерева"
   print_tree(root)
 
-  # Прямой обход
+  # Предварительный обход
   $path, $res = [], []
   pre_order(root)
 
-  puts "\nВывести все пути от корня до узла 7"
+  puts "\nВсе пути от корня к узлу 7"
   for path in $res
     p path.map { |node| node.val }
   end

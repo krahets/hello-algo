@@ -6,13 +6,13 @@ package chapter_stack_and_queue
 
 /* Стек на основе массива */
 type arrayStack struct {
-	data []int // данные
+	data []int // Данные
 }
 
-/* Инициализировать стек */
+/* Инициализация стека */
 func newArrayStack() *arrayStack {
 	return &arrayStack{
-		// Установить длину стека равной 0, а вместимость равной 16
+		// Установить длину стека равной 0, а емкость равной 16
 		data: make([]int, 0, 16),
 	}
 }
@@ -22,14 +22,14 @@ func (s *arrayStack) size() int {
 	return len(s.data)
 }
 
-/* стекпуст ли */
+/* Пуст ли стек */
 func (s *arrayStack) isEmpty() bool {
 	return s.size() == 0
 }
 
 /* Поместить в стек */
 func (s *arrayStack) push(v int) {
-	// Срез будет автоматически расширяться
+	// Срез автоматически расширяется
 	s.data = append(s.data, v)
 }
 
@@ -40,7 +40,7 @@ func (s *arrayStack) pop() any {
 	return val
 }
 
-/* Получитьвершина стекаэлемент */
+/* Получить элемент на вершине стека */
 func (s *arrayStack) peek() any {
 	if s.isEmpty() {
 		return nil

@@ -8,7 +8,7 @@
 
 /* Линейный поиск (массив) */
 int linearSearchArray(vector<int> &nums, int target) {
-    // Перебрать массив
+    // Обход массива
     for (int i = 0; i < nums.size(); i++) {
         // Целевой элемент найден, вернуть его индекс
         if (nums[i] == target)
@@ -43,7 +43,7 @@ int main() {
     /* Выполнить линейный поиск в связном списке */
     ListNode *head = vecToLinkedList(nums);
     ListNode *node = linearSearchLinkedList(head, target);
-    cout << "Объект узла, соответствующий целевому значению 3, равен " << node << endl;
+    cout << "Объект узла со значением 3 = " << node << endl;
 
     return 0;
 }

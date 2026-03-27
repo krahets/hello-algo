@@ -33,10 +33,10 @@ if __name__ == "__main__":
     nums = [2, 7, 11, 15]
     target = 13
 
-    # ====== Driver Code ======
-    # метод 1
+    # ====== Основной код ======
+    # Метод 1
     res: list[int] = two_sum_brute_force(nums, target)
-    print("Метод 1 res =", res)
+    print("Результат метода 1 res =", res)
     # Метод 2
     res: list[int] = two_sum_hash_table(nums, target)
-    print("Метод 2 res =", res)
+    print("Результат метода 2 res =", res)

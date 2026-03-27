@@ -10,11 +10,11 @@ import utils.Vertex
 import java.util.*
 
 /* Обход в ширину */
-// Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
 fun graphBFS(graph: GraphAdjList, startVet: Vertex): MutableList<Vertex?> {
     // Последовательность обхода вершин
     val res = mutableListOf<Vertex?>()
-    // Хеш-множество для записи уже посещенных вершин
+    // Хеш-множество для хранения уже посещенных вершин
     val visited = HashSet<Vertex>()
     visited.add(startVet)
     // Очередь используется для реализации BFS
@@ -22,14 +22,14 @@ fun graphBFS(graph: GraphAdjList, startVet: Vertex): MutableList<Vertex?> {
     que.offer(startVet)
     // Начиная с вершины vet, продолжать цикл, пока не будут посещены все вершины
     while (!que.isEmpty()) {
-        val vet = que.poll() // Извлечь из очереди вершину из головы
-        res.add(vet)         // Записать посещенную вершину
-        // Обойти все смежные вершины этой вершины
+        val vet = que.poll() // Извлечь головную вершину из очереди
+        res.add(vet)         // Отметить посещенную вершину
+        // Обойти все смежные вершины данной вершины
         for (adjVet in graph.adjList[vet]!!) {
             if (visited.contains(adjVet))
                 continue        // Пропустить уже посещенную вершину
             que.offer(adjVet)   // Помещать в очередь только непосещенные вершины
-            visited.add(adjVet) // Пометить эту вершину как посещенную
+            visited.add(adjVet) // Отметить эту вершину как посещенную
         }
     }
     // Вернуть последовательность обхода вершин
@@ -38,7 +38,7 @@ fun graphBFS(graph: GraphAdjList, startVet: Vertex): MutableList<Vertex?> {
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать неориентированный граф */
+    /* Инициализация неориентированного графа */
     val v = Vertex.valsToVets(intArrayOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
     val edges = arrayOf(
         arrayOf(v[0], v[1]),
@@ -55,7 +55,7 @@ fun main() {
         arrayOf(v[7], v[8])
     )
     val graph = GraphAdjList(edges)
-    println("\nПосле инициализации граф имеет вид")
+    println("\nГраф после инициализации")
     graph.print()
 
     /* Обход в ширину */

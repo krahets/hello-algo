@@ -9,7 +9,7 @@ namespace hello_algo.chapter_sorting;
 public class insertion_sort {
     /* Сортировка вставками */
     void InsertionSort(int[] nums) {
-        // Внешний цикл: отсортированный диапазон равен [0, i-1]
+        // Внешний цикл: отсортированный диапазон [0, i-1]
         for (int i = 1; i < nums.Length; i++) {
             int bas = nums[i], j = i - 1;
             // Внутренний цикл: вставить base в правильную позицию отсортированного диапазона [0, i-1]
@@ -25,6 +25,6 @@ public class insertion_sort {
     public void Test() {
         int[] nums = [4, 1, 3, 1, 5, 2];
         InsertionSort(nums);
-        Console.WriteLine("После завершения сортировки вставками nums = " + string.Join(",", nums));
+        Console.WriteLine("После сортировки вставками nums = " + string.Join(",", nums));
     }
 }

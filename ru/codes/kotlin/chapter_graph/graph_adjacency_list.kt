@@ -10,7 +10,7 @@ import utils.Vertex
 
 /* Класс неориентированного графа на основе списка смежности */
 class GraphAdjList(edges: Array<Array<Vertex?>>) {
-    // Список смежности, key: вершина, value: все смежные с ней вершины
+    // Список смежности, где key — вершина, а value — все смежные ей вершины
     val adjList = HashMap<Vertex, MutableList<Vertex>>()
 
     /* Конструктор */
@@ -23,12 +23,12 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
         }
     }
 
-    /* Получить количество вершин */
+    /* Получить число вершин */
     fun size(): Int {
         return adjList.size
     }
 
-    /* Добавить ребро */
+    /* Добавление ребра */
     fun addEdge(vet1: Vertex, vet2: Vertex) {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
             throw IllegalArgumentException()
@@ -37,7 +37,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
         adjList[vet2]?.add(vet1)
     }
 
-    /* Удалить ребро */
+    /* Удаление ребра */
     fun removeEdge(vet1: Vertex, vet2: Vertex) {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
             throw IllegalArgumentException()
@@ -46,19 +46,19 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
         adjList[vet2]?.remove(vet1)
     }
 
-    /* Добавить вершину */
+    /* Добавление вершины */
     fun addVertex(vet: Vertex) {
         if (adjList.containsKey(vet))
             return
-        // Добавить новый связный список в список смежности
+        // Добавить новый список в список смежности
         adjList[vet] = mutableListOf()
     }
 
-    /* Удалить вершину */
+    /* Удаление вершины */
     fun removeVertex(vet: Vertex) {
         if (!adjList.containsKey(vet))
             throw IllegalArgumentException()
-        // Удалить из списка смежности связный список, соответствующий вершине vet
+        // Удалить из списка смежности список, соответствующий вершине vet
         adjList.remove(vet)
         // Обойти списки других вершин и удалить все ребра, содержащие vet
         for (list in adjList.values) {
@@ -81,7 +81,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать неориентированный граф */
+    /* Инициализация неориентированного графа */
     val v = Vertex.valsToVets(intArrayOf(1, 3, 2, 5, 4))
     val edges = arrayOf(
         arrayOf(v[0], v[1]),
@@ -92,30 +92,30 @@ fun main() {
         arrayOf(v[3], v[4])
     )
     val graph = GraphAdjList(edges)
-    println("\nПосле инициализации граф имеет вид")
+    println("\nГраф после инициализации")
     graph.print()
 
-    /* Добавить ребро */
-    // Вершины 1 и 2, то есть v[0] и v[2]
+    /* Добавление ребра */
+    // Вершины 1 и 2 соответствуют v[0] и v[2]
     graph.addEdge(v[0]!!, v[2]!!)
-    println("\nПосле добавления ребра 1-2 граф имеет вид")
+    println("\nГраф после добавления ребра 1-2")
     graph.print()
 
-    /* Удалить ребро */
-    // Вершины 1 и 3, то есть v[0] и v[1]
+    /* Удаление ребра */
+    // Вершины 1 и 3 соответствуют v[0] и v[1]
     graph.removeEdge(v[0]!!, v[1]!!)
-    println("\nПосле удаления ребра 1-3 граф имеет вид")
+    println("\nГраф после удаления ребра 1-3")
     graph.print()
 
-    /* Добавить вершину */
+    /* Добавление вершины */
     val v5 = Vertex(6)
     graph.addVertex(v5)
-    println("\nПосле добавления вершины 6 граф имеет вид")
+    println("\nГраф после добавления вершины 6")
     graph.print()
 
-    /* Удалить вершину */
-    // Вершина 3, то есть v[1]
+    /* Удаление вершины */
+    // Вершина 3 соответствует v[1]
     graph.removeVertex(v[1]!!)
-    println("\nПосле удаления вершины 3 граф имеет вид")
+    println("\nГраф после удаления вершины 3")
     graph.print()
 }

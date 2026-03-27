@@ -11,12 +11,12 @@ import java.util.*;
 public class climbing_stairs_backtrack {
     /* Бэктрекинг */
     public static void backtrack(List<Integer> choices, int state, int n, List<Integer> res) {
-        // Когда подъем достигает n-й ступени, число решений увеличивается на 1
+        // Когда подъем достигает n-й ступени, число вариантов увеличивается на 1
         if (state == n)
             res.set(0, res.get(0) + 1);
-        // Перебрать все варианты выбора
+        // Перебор всех вариантов выбора
         for (Integer choice : choices) {
-            // Отсечение: не позволять выходить за пределы n-й ступени
+            // Отсечение: нельзя выходить за n-ю ступень
             if (state + choice > n)
                 continue;
             // Попытка: сделать выбор и обновить состояние
@@ -39,6 +39,6 @@ public class climbing_stairs_backtrack {
         int n = 9;
 
         int res = climbingStairsBacktrack(n);
-        System.out.println(String.format("Для подъема по лестнице из %d ступеней существует %d способов", n, res));
+        System.out.println(String.format("Количество способов подняться по лестнице из %d ступеней: %d", n, res));
     }
 }

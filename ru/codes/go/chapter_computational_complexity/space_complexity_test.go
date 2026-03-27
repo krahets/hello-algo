@@ -12,7 +12,7 @@ import (
 
 func TestSpaceComplexity(t *testing.T) {
 	n := 5
-	// Константная сложность
+	// Постоянная сложность
 	spaceConstant(n)
 	// Линейная сложность
 	spaceLinear(n)

@@ -35,15 +35,15 @@ function twoSumHashTable(nums: number[], target: number): number[] {
 }
 
 /* Driver Code */
-// метод 1
+// Метод 1
 const nums = [2, 7, 11, 15],
     target = 13;
 
 let res = twoSumBruteForce(nums, target);
-console.log('Метод 1 res = ', res);
+console.log('Метод 1: res = ', res);
 
 // Метод 2
 res = twoSumHashTable(nums, target);
-console.log('Метод 2 res = ', res);
+console.log('Метод 2: res = ', res);
 
 export {};

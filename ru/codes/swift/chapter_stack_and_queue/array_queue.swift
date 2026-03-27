@@ -4,14 +4,14 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Очередь на основе циклического массива */
+/* Очередь на основе кольцевого массива */
 class ArrayQueue {
     private var nums: [Int] // Массив для хранения элементов очереди
-    private var front: Int // Указатель front, указывающий на первый элемент очереди
+    private var front: Int // Указатель head, указывающий на первый элемент очереди
     private var _size: Int // Длина очереди
 
     init(capacity: Int) {
-        // Инициализировать массив
+        // Инициализация массива
         nums = Array(repeating: 0, count: capacity)
         front = 0
         _size = 0
@@ -22,12 +22,12 @@ class ArrayQueue {
         nums.count
     }
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     func size() -> Int {
         _size
     }
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     func isEmpty() -> Bool {
         size() == 0
     }
@@ -38,10 +38,10 @@ class ArrayQueue {
             print("Очередь заполнена")
             return
         }
-        // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
-        // Операция взятия по модулю позволяет rear после выхода за конец массива вернуться к его началу
+        // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+        // С помощью операции взятия по модулю вернуть rear к началу после выхода за конец массива
         let rear = (front + size()) % capacity()
-        // Добавить num в конец очереди
+        // Добавить num в хвост очереди
         nums[rear] = num
         _size += 1
     }
@@ -50,23 +50,23 @@ class ArrayQueue {
     @discardableResult
     func pop() -> Int {
         let num = peek()
-        // Указатель головы очереди сдвигается на одну позицию вперед; если он выходит за конец, то возвращается в начало массива
+        // Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
         front = (front + 1) % capacity()
         _size -= 1
         return num
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     func peek() -> Int {
         if isEmpty() {
-            fatalError("Очередь пуста")
+            fatalError("очередь пуста")
         }
         return nums[front]
     }
 
-    /* Вернутьмассив */
+    /* Вернуть массив */
     func toArray() -> [Int] {
-        // Преобразовать только элементы списка в пределах действительной длины
+        // Преобразовывать только элементы списка в пределах фактической длины
         (front ..< front + size()).map { nums[$0 % capacity()] }
     }
 }
@@ -75,39 +75,39 @@ class ArrayQueue {
 enum _ArrayQueue {
     /* Driver Code */
     static func main() {
-        /* Инициализировать очередь */
+        /* Инициализация очереди */
         let capacity = 10
         let queue = ArrayQueue(capacity: capacity)
 
-        /* Поместить элемент в очередь */
+        /* Добавление элемента в очередь */
         queue.push(num: 1)
         queue.push(num: 3)
         queue.push(num: 2)
         queue.push(num: 5)
         queue.push(num: 4)
-        print("очередь queue = \(queue.toArray())")
+        print("Очередь queue = \(queue.toArray())")
 
-        /* Получить элемент в начале очереди */
+        /* Доступ к элементу в начале очереди */
         let peek = queue.peek()
-        print("голова очередиэлемент peek = \(peek)")
+        print("Первый элемент peek = \(peek)")
 
-        /* Извлечь элемент из очереди */
+        /* Извлечение элемента из очереди */
         let pop = queue.pop()
-        print("Элемент, извлеченный из очереди, pop = \(pop), queue после извлечения = \(queue.toArray())")
+        print("Извлеченный элемент pop = \(pop), queue после извлечения = \(queue.toArray())")
 
-        /* Получить длину очереди */
+        /* Получение длины очереди */
         let size = queue.size()
         print("Длина очереди size = \(size)")
 
-        /* Проверить, пуста ли очередь */
+        /* Проверка, пуста ли очередь */
         let isEmpty = queue.isEmpty()
-        print("Очередь пуста: \(isEmpty)")
+        print("Пуста ли очередь = \(isEmpty)")
 
-        /* Проверить кольцевой массив */
+        /* Проверка кольцевого массива */
         for i in 0 ..< 10 {
             queue.push(num: i)
             queue.pop()
-            print("Итерация \(i): после enqueue + dequeue queue = \(queue.toArray())")
+            print("После \(i)-го раунда операций enqueue и dequeue queue = \(queue.toArray())")
         }
     }
 }

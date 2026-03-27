@@ -10,19 +10,19 @@ function minCostClimbingStairsDP(cost: Array<number>): number {
     if (n === 1 || n === 2) {
         return cost[n];
     }
-    // Инициализировать таблицу dp для хранения решений подзадач
+    // Инициализация таблицы dp для хранения решений подзадач
     const dp = new Array(n + 1);
-    // Начальное состояние: заранее задать решения для наименьших подзадач
+    // Начальное состояние: заранее задать решения наименьших подзадач
     dp[1] = cost[1];
     dp[2] = cost[2];
-    // Переход состояния: последовательно решать более крупные подзадачи, исходя из меньших
+    // Переход состояний: постепенное решение больших подзадач через меньшие
     for (let i = 3; i <= n; i++) {
         dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];
     }
     return dp[n];
 }
 
-/* Минимальная стоимость подъема по лестнице: динамическое программирование с оптимизацией по памяти */
+/* Минимальная стоимость подъема по лестнице: динамическое программирование с оптимизацией памяти */
 function minCostClimbingStairsDPComp(cost: Array<number>): number {
     const n = cost.length - 1;
     if (n === 1 || n === 2) {
@@ -40,12 +40,12 @@ function minCostClimbingStairsDPComp(cost: Array<number>): number {
 
 /* Driver Code */
 const cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1];
-console.log(`Список стоимостей ступеней: ${cost}`);
+console.log(`Стоимость подъема по ступеням: ${cost}`);
 
 let res = minCostClimbingStairsDP(cost);
-console.log(`Минимальная стоимость подъема по лестнице равна: ${res}`);
+console.log(`Минимальная стоимость подъема по лестнице = ${res}`);
 
 res = minCostClimbingStairsDPComp(cost);
-console.log(`Минимальная стоимость подъема по лестнице равна: ${res}`);
+console.log(`Минимальная стоимость подъема по лестнице = ${res}`);
 
 export {};

@@ -10,7 +10,7 @@ import 'dart:math';
 
 /* Случайный доступ к элементу */
 int randomAccess(List<int> nums) {
-  // Случайно выбрать число в интервале [0, nums.length)
+  // Случайным образом выбрать число из интервала [0, nums.length)
   int randomIndex = Random().nextInt(nums.length);
   // Получить и вернуть случайный элемент
   int randomNum = nums[randomIndex];
@@ -25,13 +25,13 @@ List<int> extend(List<int> nums, int enlarge) {
   for (var i = 0; i < nums.length; i++) {
     res[i] = nums[i];
   }
-  // Вернуть новый расширенный массив
+  // Вернуть новый массив после расширения
   return res;
 }
 
-/* Вставить элемент _num по индексу index массива */
+/* Вставить элемент _num по индексу index в массив */
 void insert(List<int> nums, int _num, int index) {
-  // Сдвинуть индекс index и все последующие элементы на одну позицию назад
+  // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
   for (var i = nums.length - 1; i > index; i--) {
     nums[i] = nums[i - 1];
   }
@@ -47,10 +47,10 @@ void remove(List<int> nums, int index) {
   }
 }
 
-/* Перебрать массивэлемент */
+/* Перебрать элементы массива */
 void traverse(List<int> nums) {
   int count = 0;
-  // Обходить массив по индексам
+  // Обход массива по индексам
   for (var i = 0; i < nums.length; i++) {
     count += nums[i];
   }
@@ -58,7 +58,7 @@ void traverse(List<int> nums) {
   for (int _num in nums) {
     count += _num;
   }
-  // Обойти массив с помощью метода forEach
+  // Перебрать массив методом forEach
   nums.forEach((_num) {
     count += _num;
   });
@@ -74,32 +74,32 @@ int find(List<int> nums, int target) {
 
 /* Driver Code */
 void main() {
-  /* Инициализировать массив */
+  /* Инициализация массива */
   var arr = List.filled(5, 0);
-  print('массив arr = $arr');
+  print('Массив arr = $arr');
   List<int> nums = [1, 3, 2, 5, 4];
   print('Массив nums = $nums');
 
   /* Случайный доступ */
   int randomNum = randomAccess(nums);
-  print('Полученный случайный элемент из nums $randomNum');
+  print('Случайный элемент из nums = $randomNum');
 
   /* Расширение длины */
   nums = extend(nums, 3);
-  print('После расширения длины массива до 8 получаем nums = $nums');
+  print('После увеличения длины массива до 8 nums = $nums');
 
-  /* Вставить элемент */
+  /* Вставка элемента */
   insert(nums, 6, 3);
-  print("После вставки числа 6 по индексу 3 получаем nums = $nums");
+  print('После вставки числа 6 по индексу 3 nums = $nums');
 
-  /* Удалить элемент */
+  /* Удаление элемента */
   remove(nums, 2);
-  print("Удалитьиндекс 2 поэлемент, получаем nums = $nums");
+  print('После удаления элемента по индексу 2 nums = $nums');
 
-  /* Перебрать массив */
+  /* Обход массива */
   traverse(nums);
 
-  /* Найти элемент */
+  /* Поиск элемента */
   int index = find(nums, 3);
-  print("Поиск элемента 3 в nums дает индекс = $index");
+  print('Поиск элемента 3 в nums: индекс = $index');
 }

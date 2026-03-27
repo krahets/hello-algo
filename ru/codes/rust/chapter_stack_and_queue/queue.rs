@@ -10,10 +10,10 @@ use std::collections::VecDeque;
 
 /* Driver Code */
 pub fn main() {
-    // Инициализировать очередь
+    // Инициализация очереди
     let mut queue: VecDeque<i32> = VecDeque::new();
 
-    // Поместить элемент в очередь
+    // Добавление элемента в очередь
     queue.push_back(1);
     queue.push_back(3);
     queue.push_back(2);
@@ -22,20 +22,20 @@ pub fn main() {
     print!("Очередь queue = ");
     print_util::print_queue(&queue);
 
-    // Получить элемент в начале очереди
+    // Доступ к элементу в начале очереди
     let peek = queue.front().unwrap();
-    println!("\nголова очередиэлемент peek = {peek}");
+    println!("\nПервый элемент peek = {peek}");
 
-    // Извлечь элемент из очереди
+    // Извлечение элемента из очереди
     let pop = queue.pop_front().unwrap();
-    print!("Элемент, извлеченный из очереди, pop = {pop}, queue после извлечения = ");
+    print!("Извлеченный элемент pop = {pop}, queue после извлечения = ");
     print_util::print_queue(&queue);
 
-    // Получить длину очереди
+    // Получение длины очереди
     let size = queue.len();
     print!("\nДлина очереди size = {size}");
 
-    // Проверить, пуста ли очередь
+    // Проверка, пуста ли очередь
     let is_empty = queue.is_empty();
-    print!("\nОчередь пуста: {is_empty}");
+    print!("\nПуста ли очередь = {is_empty}");
 }

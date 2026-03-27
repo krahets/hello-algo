@@ -8,30 +8,30 @@ package chapter_graph
 
 import utils.Vertex
 
-/* обход в глубинувспомогательная функция */
+/* Вспомогательная функция обхода в глубину */
 fun dfs(
     graph: GraphAdjList,
     visited: MutableSet<Vertex?>,
     res: MutableList<Vertex?>,
     vet: Vertex?
 ) {
-    res.add(vet)     // Записать посещенную вершину
-    visited.add(vet) // Пометить эту вершину как посещенную
-    // Обойти все смежные вершины этой вершины
+    res.add(vet)     // Отметить посещенную вершину
+    visited.add(vet) // Отметить эту вершину как посещенную
+    // Обойти все смежные вершины данной вершины
     for (adjVet in graph.adjList[vet]!!) {
         if (visited.contains(adjVet))
             continue  // Пропустить уже посещенную вершину
-        // Рекурсивно посетить смежные вершины
+        // Рекурсивно обходить смежные вершины
         dfs(graph, visited, res, adjVet)
     }
 }
 
 /* Обход в глубину */
-// Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
 fun graphDFS(graph: GraphAdjList, startVet: Vertex?): MutableList<Vertex?> {
     // Последовательность обхода вершин
     val res = mutableListOf<Vertex?>()
-    // Хеш-множество для записи уже посещенных вершин
+    // Хеш-множество для хранения уже посещенных вершин
     val visited = HashSet<Vertex?>()
     dfs(graph, visited, res, startVet)
     return res
@@ -39,7 +39,7 @@ fun graphDFS(graph: GraphAdjList, startVet: Vertex?): MutableList<Vertex?> {
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать неориентированный граф */
+    /* Инициализация неориентированного графа */
     val v = Vertex.valsToVets(intArrayOf(0, 1, 2, 3, 4, 5, 6))
     val edges = arrayOf(
         arrayOf(v[0], v[1]),
@@ -50,7 +50,7 @@ fun main() {
         arrayOf(v[5], v[6])
     )
     val graph = GraphAdjList(edges)
-    println("\nПосле инициализации граф имеет вид")
+    println("\nГраф после инициализации")
     graph.print()
 
     /* Обход в глубину */

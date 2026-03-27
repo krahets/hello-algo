@@ -16,12 +16,12 @@ class HashMapOpenAddressing:
 
     def __init__(self):
         """Конструктор"""
-        self.size = 0  # Количество пар ключ-значение
+        self.size = 0  # Число пар ключ-значение
         self.capacity = 4  # Вместимость хеш-таблицы
-        self.load_thres = 2.0 / 3.0  # Порог коэффициента загрузки, запускающий расширение
+        self.load_thres = 2.0 / 3.0  # Порог коэффициента загрузки для запуска расширения
         self.extend_ratio = 2  # Коэффициент расширения
-        self.buckets: list[Pair | None] = [None] * self.capacity  # Массив бакетов
-        self.TOMBSTONE = Pair(-1, "-1")  # Метка удаления
+        self.buckets: list[Pair | None] = [None] * self.capacity  # Массив корзин
+        self.TOMBSTONE = Pair(-1, "-1")  # Удалить метку
 
     def hash_func(self, key: int) -> int:
         """Хеш-функция"""
@@ -32,30 +32,30 @@ class HashMapOpenAddressing:
         return self.size / self.capacity
 
     def find_bucket(self, key: int) -> int:
-        """Найти индекс корзины, соответствующей ключу key"""
+        """Найти индекс корзины, соответствующий key"""
         index = self.hash_func(key)
         first_tombstone = -1
-        # Выполнять линейное пробирование и остановиться при встрече с пустым бакетом
+        # Выполнять линейное пробирование и завершить при встрече с пустой корзиной
         while self.buckets[index] is not None:
-            # Если встретился key, вернуть соответствующий индекс бакета
+            # Если встретился key, вернуть соответствующий индекс корзины
             if self.buckets[index].key == key:
-                # Если ранее встретилась метка удаления, переместить пару ключ-значение в этот индекс
+                # Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
                 if first_tombstone != -1:
                     self.buckets[first_tombstone] = self.buckets[index]
                     self.buckets[index] = self.TOMBSTONE
-                    return first_tombstone  # Вернуть индекс бакета после перемещения
-                return index  # Вернуть индекс бакета
+                    return first_tombstone  # Вернуть индекс корзины после перемещения
+                return index  # Вернуть индекс корзины
             # Записать первую встретившуюся метку удаления
             if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
                 first_tombstone = index
-            # Вычислить индекс бакета; при выходе за конец вернуться к началу
+            # Вычислить индекс корзины; при выходе за конец вернуться к началу
             index = (index + 1) % self.capacity
         # Если key не существует, вернуть индекс точки добавления
         return index if first_tombstone == -1 else first_tombstone
 
     def get(self, key: int) -> str:
         """Операция поиска"""
-        # Найти индекс корзины, соответствующей ключу key
+        # Найти индекс корзины, соответствующий key
         index = self.find_bucket(key)
         # Если пара ключ-значение найдена, вернуть соответствующее val
         if self.buckets[index] not in [None, self.TOMBSTONE]:
@@ -68,21 +68,21 @@ class HashMapOpenAddressing:
         # Когда коэффициент загрузки превышает порог, выполнить расширение
         if self.load_factor() > self.load_thres:
             self.extend()
-        # Найти индекс корзины, соответствующей ключу key
+        # Найти индекс корзины, соответствующий key
         index = self.find_bucket(key)
-        # Если пара ключ-значение найдена, перезаписать val и вернуть результат
+        # Если пара ключ-значение найдена, перезаписать val и вернуть
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             self.buckets[index].val = val
             return
-        # Если пара ключ-значение не существует, добавить ее
+        # Если пары ключ-значение нет, добавить ее
         self.buckets[index] = Pair(key, val)
         self.size += 1
 
     def remove(self, key: int):
         """Операция удаления"""
-        # Найти индекс корзины, соответствующей ключу key
+        # Найти индекс корзины, соответствующий key
         index = self.find_bucket(key)
-        # Если пара ключ-значение найдена, пометить ее меткой удаления
+        # Если пара ключ-значение найдена, заменить ее меткой удаления
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             self.buckets[index] = self.TOMBSTONE
             self.size -= 1
@@ -91,7 +91,7 @@ class HashMapOpenAddressing:
         """Расширить хеш-таблицу"""
         # Временно сохранить исходную хеш-таблицу
         buckets_tmp = self.buckets
-        # Инициализировать новую хеш-таблицу после расширения
+        # Инициализация новой хеш-таблицы после расширения
         self.capacity *= self.extend_ratio
         self.buckets = [None] * self.capacity
         self.size = 0
@@ -113,26 +113,26 @@ class HashMapOpenAddressing:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализировать хеш-таблицу
+    # Инициализация хеш-таблицы
     hashmap = HashMapOpenAddressing()
 
     # Операция добавления
-    # Добавить пару ключ-значение (key, val) в хеш-таблицу
+    # Добавить пару (key, val) в хеш-таблицу
     hashmap.put(12836, "Сяо Ха")
     hashmap.put(15937, "Сяо Ло")
     hashmap.put(16750, "Сяо Суань")
     hashmap.put(13276, "Сяо Фа")
-    hashmap.put(10583, "Утенок")
-    print("\nПосле добавления хеш-таблица выглядит так\nKey -> Value")
+    hashmap.put(10583, "Сяо Я")
+    print("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение")
     hashmap.print()
 
     # Операция поиска
-    # Ввести ключ key в хеш-таблицу и получить значение val
+    # Передать ключ key в хеш-таблицу и получить значение val
     name = hashmap.get(13276)
-    print("\nПо номеру студента 13276 найдено имя " + name)
+    print("\nДля номера 13276 найдено имя " + name)
 
     # Операция удаления
-    # Удалить пару ключ-значение (key, val) из хеш-таблицы
+    # Удалить пару (key, val) из хеш-таблицы
     hashmap.remove(16750)
-    print("\nПосле удаления 16750 хеш-таблица выглядит так\nKey -> Value")
+    print("\nПосле удаления 16750 хеш-таблица имеет вид\nКлюч -> Значение")
     hashmap.print()

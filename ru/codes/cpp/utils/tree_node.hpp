@@ -11,7 +11,7 @@
 
 using namespace std;
 
-/* структура узла двоичного дерева */
+/* Структура узла двоичного дерева */
 struct TreeNode {
     int val{};
     int height = 0;
@@ -23,7 +23,7 @@ struct TreeNode {
     }
 };
 
-// Правила сериализации см.:
+// Правила кодирования сериализации см.:
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
 // Массивное представление двоичного дерева:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]

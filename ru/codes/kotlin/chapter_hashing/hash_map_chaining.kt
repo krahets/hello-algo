@@ -6,13 +6,13 @@
 
 package chapter_hashing
 
-/* Хеш-таблица с цепочечной адресацией */
+/* Хеш-таблица с цепочками */
 class HashMapChaining {
-    var size: Int // Количество пар ключ-значение
+    var size: Int // Число пар ключ-значение
     var capacity: Int // Вместимость хеш-таблицы
-    val loadThres: Double // Порог коэффициента загрузки, запускающий расширение
+    val loadThres: Double // Порог коэффициента загрузки для запуска расширения
     val extendRatio: Int // Коэффициент расширения
-    var buckets: MutableList<MutableList<Pair>> // Массив бакетов
+    var buckets: MutableList<MutableList<Pair>> // Массив корзин
 
     /* Конструктор */
     init {
@@ -40,7 +40,7 @@ class HashMapChaining {
     fun get(key: Int): String? {
         val index = hashFunc(key)
         val bucket = buckets[index]
-        // Обойти бакет; если найден key, вернуть соответствующее val
+        // Обойти корзину; если найден key, вернуть соответствующее val
         for (pair in bucket) {
             if (pair.key == key) return pair._val
         }
@@ -56,7 +56,7 @@ class HashMapChaining {
         }
         val index = hashFunc(key)
         val bucket = buckets[index]
-        // Обойти бакет; если встретился указанный key, обновить соответствующее val и вернуть результат
+        // Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
         for (pair in bucket) {
             if (pair.key == key) {
                 pair._val = _val
@@ -73,7 +73,7 @@ class HashMapChaining {
     fun remove(key: Int) {
         val index = hashFunc(key)
         val bucket = buckets[index]
-        // Обойти бакет и удалить из него пару ключ-значение
+        // Обойти корзину и удалить из нее пару ключ-значение
         for (pair in bucket) {
             if (pair.key == key) {
                 bucket.remove(pair)
@@ -87,9 +87,9 @@ class HashMapChaining {
     fun extend() {
         // Временно сохранить исходную хеш-таблицу
         val bucketsTmp = buckets
-        // Инициализировать новую хеш-таблицу после расширения
+        // Инициализация новой хеш-таблицы после расширения
         capacity *= extendRatio
-        // MutableList не имеет фиксированного размера
+        // mutablelist не имеет фиксированного размера
         buckets = mutableListOf()
         for (i in 0..<capacity) {
             buckets.add(mutableListOf())
@@ -119,27 +119,27 @@ class HashMapChaining {
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать хеш-таблицу */
+    /* Инициализация хеш-таблицы */
     val map = HashMapChaining()
 
     /* Операция добавления */
-    // Добавить в хеш-таблицу пару ключ-значение (key, value)
+    // Добавить пару (key, value) в хеш-таблицу
     map.put(12836, "Сяо Ха")
     map.put(15937, "Сяо Ло")
     map.put(16750, "Сяо Суань")
     map.put(13276, "Сяо Фа")
-    map.put(10583, "Утенок")
-    println("\nПосле добавления хеш-таблица выглядит так\nKey -> Value")
+    map.put(10583, "Сяо Я")
+    println("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение")
     map.print()
 
     /* Операция поиска */
-    // Передать ключ key в хеш-таблицу и получить значение value
+    // Ввести в хеш-таблицу ключ key и получить значение value
     val name = map.get(13276)
-    println("\nПо номеру студента 13276 найдено имя $name")
+    println("\nДля номера 13276 найдено имя $name")
 
     /* Операция удаления */
-    // Удалить из хеш-таблицы пару ключ-значение (key, value)
+    // Удалить пару (key, value) из хеш-таблицы
     map.remove(12836)
-    println("\nПосле удаления 12836 хеш-таблица выглядит так\nKey -> Value")
+    println("\nПосле удаления 12836 хеш-таблица имеет вид\nКлюч -> Значение")
     map.print()
 }

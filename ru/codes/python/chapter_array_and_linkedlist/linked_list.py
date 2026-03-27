@@ -29,7 +29,7 @@ def remove(n0: ListNode):
 
 
 def access(head: ListNode, index: int) -> ListNode | None:
-    """Обратиться к узлу связного списка с индексом index"""
+    """Доступ к узлу связного списка по индексу index"""
     for _ in range(index):
         if not head:
             return None
@@ -38,7 +38,7 @@ def access(head: ListNode, index: int) -> ListNode | None:
 
 
 def find(head: ListNode, target: int) -> int:
-    """Найти первый узел со значением target в связном списке"""
+    """Найти в связном списке первый узел со значением target"""
     index = 0
     while head:
         if head.val == target:
@@ -50,8 +50,8 @@ def find(head: ListNode, target: int) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализироватьсвязный список
-    # Инициализироватькаждый узел
+    # Инициализация связного списка
+    # Инициализация всех узлов
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)
@@ -62,24 +62,24 @@ if __name__ == "__main__":
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    print("Инициализированный связный список:")
+    print("Исходный связный список")
     print_linked_list(n0)
 
-    # Вставить узел
+    # Вставка узла
     p = ListNode(0)
     insert(n0, p)
-    print("Связный список после вставки узла:")
+    print("Связный список после вставки узла")
     print_linked_list(n0)
 
-    # Удалить узел
+    # Удаление узла
     remove(n0)
-    print("Связный список после удаления узла:")
+    print("Связный список после удаления узла")
     print_linked_list(n0)
 
-    # Получить доступ к узлу
+    # Доступ к узлу
     node: ListNode = access(n0, 3)
     print("Значение узла по индексу 3 в связном списке = {}".format(node.val))
 
-    # Найти узел
+    # Поиск узла
     index: int = find(n0, 2)
     print("Индекс узла со значением 2 в связном списке = {}".format(index))

@@ -13,14 +13,14 @@ def backtrack(
     if len(state) == len(choices):
         res.append(list(state))
         return
-    # Перебрать все варианты выбора
+    # Перебор всех вариантов выбора
     for i, choice in enumerate(choices):
-        # Отсечение: не допускается повторный выбор элемента
+        # Отсечение: нельзя выбирать один и тот же элемент повторно
         if not selected[i]:
             # Попытка: сделать выбор и обновить состояние
             selected[i] = True
             state.append(choice)
-            # Перейти к следующему варианту выбора
+            # Перейти к следующему выбору
             backtrack(state, choices, selected, res)
             # Откат: отменить выбор и восстановить предыдущее состояние
             selected[i] = False

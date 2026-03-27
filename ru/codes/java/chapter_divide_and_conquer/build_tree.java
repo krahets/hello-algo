@@ -10,9 +10,9 @@ import utils.*;
 import java.util.*;
 
 public class build_tree {
-    /* Построение двоичного дерева: разделяй и властвуй */
+    /* Построить двоичное дерево: разделяй и властвуй */
     static TreeNode dfs(int[] preorder, Map<Integer, Integer> inorderMap, int i, int l, int r) {
-        // Завершить, если диапазон поддерева пуст
+        // Завершить при пустом диапазоне поддерева
         if (r - l < 0)
             return null;
         // Инициализировать корневой узел
@@ -29,7 +29,7 @@ public class build_tree {
 
     /* Построить двоичное дерево */
     static TreeNode buildTree(int[] preorder, int[] inorder) {
-        // Инициализировать хеш-таблицу для хранения отображения элементов inorder в индексы
+        // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
         Map<Integer, Integer> inorderMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
             inorderMap.put(inorder[i], i);
@@ -41,7 +41,7 @@ public class build_tree {
     public static void main(String[] args) {
         int[] preorder = { 3, 9, 2, 1, 7 };
         int[] inorder = { 9, 3, 1, 2, 7 };
-        System.out.println("Прямой обход = " + Arrays.toString(preorder));
+        System.out.println("Предварительный обход = " + Arrays.toString(preorder));
         System.out.println("Симметричный обход = " + Arrays.toString(inorder));
 
         TreeNode root = buildTree(preorder, inorder);

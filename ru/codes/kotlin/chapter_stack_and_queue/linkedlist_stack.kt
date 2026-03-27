@@ -8,16 +8,16 @@ package chapter_stack_and_queue
 
 /* Стек на основе связного списка */
 class LinkedListStack(
-    private var stackPeek: ListNode? = null, // Считать головной узел вершиной стека
+    private var stackPeek: ListNode? = null, // Использовать головной узел как вершину стека
     private var stkSize: Int = 0 // Длина стека
 ) {
 
-    /* Получить длину стека */
+    /* Получение длины стека */
     fun size(): Int {
         return stkSize
     }
 
-    /* Проверить, пуст ли стек */
+    /* Проверка, пуст ли стек */
     fun isEmpty(): Boolean {
         return size() == 0
     }
@@ -38,13 +38,13 @@ class LinkedListStack(
         return num
     }
 
-    /* Получить верхний элемент стека */
+    /* Доступ к верхнему элементу стека */
     fun peek(): Int? {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return stackPeek?._val
     }
 
-    /* Преобразовать List в Array и вернуть его */
+    /* Преобразовать List в Array и вернуть */
     fun toArray(): IntArray {
         var node = stackPeek
         val res = IntArray(size())
@@ -58,30 +58,30 @@ class LinkedListStack(
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать стек */
+    /* Инициализация стека */
     val stack = LinkedListStack()
 
-    /* Поместить элемент в стек */
+    /* Помещение элемента в стек */
     stack.push(1)
     stack.push(3)
     stack.push(2)
     stack.push(5)
     stack.push(4)
-    println("стек stack = ${stack.toArray().contentToString()}")
+    println("Стек stack = ${stack.toArray().contentToString()}")
 
-    /* Получить верхний элемент стека */
+    /* Доступ к верхнему элементу стека */
     val peek = stack.peek()!!
-    println("вершина стекаэлемент peek = $peek")
+    println("Верхний элемент peek = $peek")
 
-    /* Извлечь элемент из стека */
+    /* Извлечение элемента из стека */
     val pop = stack.pop()!!
-    println("Элемент, извлеченный из стека, pop = $pop, stack после извлечения = ${stack.toArray().contentToString()}")
+    println("Извлеченный элемент pop = $pop, stack после извлечения = ${stack.toArray().contentToString()}")
 
-    /* Получить длину стека */
+    /* Получение длины стека */
     val size = stack.size()
     println("Длина стека size = $size")
 
-    /* Проверить, пуста ли структура */
+    /* Проверка на пустоту */
     val isEmpty = stack.isEmpty()
-    println("стекпуст ли = $isEmpty")
+    println("Пуст ли стек = $isEmpty")
 }

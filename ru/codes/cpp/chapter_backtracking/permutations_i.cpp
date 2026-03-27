@@ -13,15 +13,15 @@ void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &sel
         res.push_back(state);
         return;
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for (int i = 0; i < choices.size(); i++) {
         int choice = choices[i];
-        // Отсечение: не допускается повторный выбор элемента
+        // Отсечение: нельзя выбирать один и тот же элемент повторно
         if (!selected[i]) {
             // Попытка: сделать выбор и обновить состояние
             selected[i] = true;
             state.push_back(choice);
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             backtrack(state, choices, selected, res);
             // Откат: отменить выбор и восстановить предыдущее состояние
             selected[i] = false;

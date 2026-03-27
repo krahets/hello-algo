@@ -43,13 +43,13 @@ void backtrack(
     // Записать решение
     recordSolution(state, res);
   }
-  // Перебрать все варианты выбора
+  // Перебор всех вариантов выбора
   for (TreeNode? choice in choices) {
-    // Отсечение: проверить, допустим ли текущий выбор
+    // Отсечение: проверить допустимость выбора
     if (isValid(state, choice)) {
       // Попытка: сделать выбор и обновить состояние
       makeChoice(state, choice);
-      // Перейти к следующему варианту выбора
+      // Перейти к следующему выбору
       backtrack(state, [choice!.left, choice.right], res);
       // Откат: отменить выбор и восстановить предыдущее состояние
       undoChoice(state, choice);
@@ -60,13 +60,13 @@ void backtrack(
 /* Driver Code */
 void main() {
   TreeNode? root = listToTree([1, 7, 3, 4, 5, 6, 7]);
-  print("\nИнициализировать двоичное дерево");
+  print("\nИнициализация двоичного дерева");
   printTree(root);
 
   // Алгоритм бэктрекинга
   List<List<TreeNode>> res = [];
   backtrack([], [root!], res);
-  print("\nВывести все пути от корня до узла 7, при этом путь не должен содержать узлы со значением 3");
+  print("\nВсе пути от корня к узлу 7, в которых путь не содержит узлов со значением 3");
   for (List<TreeNode> path in res) {
     print(List.from(path.map((e) => e.val)));
   }

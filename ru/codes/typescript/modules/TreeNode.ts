@@ -4,12 +4,12 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* двоичное деревоузел */
+/* Узел двоичного дерева */
 class TreeNode {
     val: number; // Значение узла
     height: number; // Высота узла
-    left: TreeNode | null; // Указатель левого дочернего узла
-    right: TreeNode | null; // Указатель правого дочернего узла
+    left: TreeNode | null; // Указатель на левый дочерний узел
+    right: TreeNode | null; // Указатель на правый дочерний узел
     constructor(
         val?: number,
         height?: number,

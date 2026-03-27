@@ -6,9 +6,9 @@
 
 /* Переместить один диск */
 function move(src: number[], tar: number[]): void {
-    // Взять верхний диск со стержня src
+    // Снять диск с вершины src
     const pan = src.pop();
-    // Поместить диск на вершину tar
+    // Положить диск на вершину tar
     tar.push(pan);
 }
 
@@ -35,11 +35,11 @@ function solveHanota(A: number[], B: number[], C: number[]): void {
 }
 
 /* Driver Code */
-// Конец списка соответствует вершине стержня
+// Хвост списка соответствует вершине столбца
 const A = [5, 4, 3, 2, 1];
 const B = [];
 const C = [];
-console.log('В начальном состоянии:');
+console.log('Начальное состояние:');
 console.log(`A = ${JSON.stringify(A)}`);
 console.log(`B = ${JSON.stringify(B)}`);
 console.log(`C = ${JSON.stringify(C)}`);

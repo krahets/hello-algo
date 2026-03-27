@@ -6,20 +6,20 @@
 
 /* Класс быстрой сортировки */
 class QuickSort {
-  /* Поменять элементы местами */
+  /* Обмен элементов */
   static void _swap(List<int> nums, int i, int j) {
     int tmp = nums[i];
     nums[i] = nums[j];
     nums[j] = tmp;
   }
 
-  /* Разбиение методом двух указателей */
+  /* Разбиение с опорными указателями */
   static int _partition(List<int> nums, int left, int right) {
     // Взять nums[left] в качестве опорного элемента
     int i = left, j = right;
     while (i < j) {
-      while (i < j && nums[j] >= nums[left]) j--; // Искать справа налево первый элемент, меньший опорного
-      while (i < j && nums[i] <= nums[left]) i++; // Искать слева направо первый элемент, больший опорного
+      while (i < j && nums[j] >= nums[left]) j--; // Идти справа налево в поисках первого элемента меньше опорного
+      while (i < j && nums[i] <= nums[left]) i++; // Идти слева направо в поисках первого элемента больше опорного
       _swap(nums, i, j); // Поменять эти два элемента местами
     }
     _swap(nums, i, left); // Переместить опорный элемент на границу двух подмассивов
@@ -30,7 +30,7 @@ class QuickSort {
   static void quickSort(List<int> nums, int left, int right) {
     // Завершить рекурсию, когда длина подмассива равна 1
     if (left >= right) return;
-    // Разбиение методом двух указателей
+    // Разбиение с опорными указателями
     int pivot = _partition(nums, left, right);
     // Рекурсивно обработать левый и правый подмассивы
     quickSort(nums, left, pivot - 1);
@@ -40,7 +40,7 @@ class QuickSort {
 
 /* Класс быстрой сортировки (оптимизация медианным опорным элементом) */
 class QuickSortMedian {
-  /* Поменять элементы местами */
+  /* Обмен элементов */
   static void _swap(List<int> nums, int i, int j) {
     int tmp = nums[i];
     nums[i] = nums[j];
@@ -57,17 +57,17 @@ class QuickSortMedian {
     return right;
   }
 
-  /* Разбиение методом двух указателей (медиана трех) */
+  /* Разбиение с опорными указателями (медиана трех) */
   static int _partition(List<int> nums, int left, int right) {
     // Выбрать медиану из трех кандидатов
     int med = _medianThree(nums, left, (left + right) ~/ 2, right);
-    // Переместить медиану в самый левый конец массива
+    // Переместить медиану в крайний левый элемент массива
     _swap(nums, left, med);
     // Взять nums[left] в качестве опорного элемента
     int i = left, j = right;
     while (i < j) {
-      while (i < j && nums[j] >= nums[left]) j--; // Искать справа налево первый элемент, меньший опорного
-      while (i < j && nums[i] <= nums[left]) i++; // Искать слева направо первый элемент, больший опорного
+      while (i < j && nums[j] >= nums[left]) j--; // Идти справа налево в поисках первого элемента меньше опорного
+      while (i < j && nums[i] <= nums[left]) i++; // Идти слева направо в поисках первого элемента больше опорного
       _swap(nums, i, j); // Поменять эти два элемента местами
     }
     _swap(nums, i, left); // Переместить опорный элемент на границу двух подмассивов
@@ -78,7 +78,7 @@ class QuickSortMedian {
   static void quickSort(List<int> nums, int left, int right) {
     // Завершить рекурсию, когда длина подмассива равна 1
     if (left >= right) return;
-    // Разбиение методом двух указателей
+    // Разбиение с опорными указателями
     int pivot = _partition(nums, left, right);
     // Рекурсивно обработать левый и правый подмассивы
     quickSort(nums, left, pivot - 1);
@@ -88,20 +88,20 @@ class QuickSortMedian {
 
 /* Класс быстрой сортировки (оптимизация глубины рекурсии) */
 class QuickSortTailCall {
-  /* Поменять элементы местами */
+  /* Обмен элементов */
   static void _swap(List<int> nums, int i, int j) {
     int tmp = nums[i];
     nums[i] = nums[j];
     nums[j] = tmp;
   }
 
-  /* Разбиение методом двух указателей */
+  /* Разбиение с опорными указателями */
   static int _partition(List<int> nums, int left, int right) {
     // Взять nums[left] в качестве опорного элемента
     int i = left, j = right;
     while (i < j) {
-      while (i < j && nums[j] >= nums[left]) j--; // Искать справа налево первый элемент, меньший опорного
-      while (i < j && nums[i] <= nums[left]) i++; // Искать слева направо первый элемент, больший опорного
+      while (i < j && nums[j] >= nums[left]) j--; // Идти справа налево в поисках первого элемента меньше опорного
+      while (i < j && nums[i] <= nums[left]) i++; // Идти слева направо в поисках первого элемента больше опорного
       _swap(nums, i, j); // Поменять эти два элемента местами
     }
     _swap(nums, i, left); // Переместить опорный элемент на границу двух подмассивов
@@ -112,15 +112,15 @@ class QuickSortTailCall {
   static void quickSort(List<int> nums, int left, int right) {
     // Завершить, когда длина подмассива равна 1
     while (left < right) {
-      // Операция разбиения методом двух указателей
+      // Операция разбиения с опорными указателями
       int pivot = _partition(nums, left, right);
       // Выполнить быструю сортировку для более короткого из двух подмассивов
       if (pivot - left < right - pivot) {
         quickSort(nums, left, pivot - 1); // Рекурсивно отсортировать левый подмассив
-        left = pivot + 1; // Оставшийся неотсортированный диапазон равен [pivot + 1, right]
+        left = pivot + 1; // Оставшийся неотсортированный диапазон: [pivot + 1, right]
       } else {
         quickSort(nums, pivot + 1, right); // Рекурсивно отсортировать правый подмассив
-        right = pivot - 1; // Оставшийся неотсортированный диапазон равен [left, pivot - 1]
+        right = pivot - 1; // Оставшийся неотсортированный диапазон: [left, pivot - 1]
       }
     }
   }
@@ -131,12 +131,12 @@ void main() {
   /* Быстрая сортировка */
   List<int> nums = [2, 4, 1, 0, 3, 5];
   QuickSort.quickSort(nums, 0, nums.length - 1);
-  print("Быстрая сортировкапосле завершения nums = $nums");
+  print("После быстрой сортировки nums = $nums");
 
-  /* Быстрая сортировка (оптимизация с медианным опорным элементом) */
+  /* Быстрая сортировка (оптимизация медианным опорным элементом) */
   List<int> nums1 = [2, 4, 1, 0, 3, 5];
   QuickSortMedian.quickSort(nums1, 0, nums1.length - 1);
-  print("После быстрой сортировки (оптимизация с медианным опорным элементом) nums1 = $nums1");
+  print("После быстрой сортировки (оптимизация медианным опорным элементом) nums1 = $nums1");
 
   /* Быстрая сортировка (оптимизация глубины рекурсии) */
   List<int> nums2 = [2, 4, 1, 0, 3, 5];

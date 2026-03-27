@@ -4,7 +4,7 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-/* связный списокузел */
+/* Узел связного списка */
 class ListNode {
   int val;
   ListNode? next;

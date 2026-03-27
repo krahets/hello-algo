@@ -7,25 +7,25 @@
 #include "../utils/common.hpp"
 #include "./graph_adjacency_list.cpp"
 
-/* обход в глубинувспомогательная функция */
+/* Вспомогательная функция обхода в глубину */
 void dfs(GraphAdjList &graph, unordered_set<Vertex *> &visited, vector<Vertex *> &res, Vertex *vet) {
-    res.push_back(vet);   // Записать посещенную вершину
-    visited.emplace(vet); // Пометить эту вершину как посещенную
-    // Обойти все смежные вершины этой вершины
+    res.push_back(vet);   // Отметить посещенную вершину
+    visited.emplace(vet); // Отметить эту вершину как посещенную
+    // Обойти все смежные вершины данной вершины
     for (Vertex *adjVet : graph.adjList[vet]) {
         if (visited.count(adjVet))
             continue; // Пропустить уже посещенную вершину
-        // Рекурсивно посетить смежные вершины
+        // Рекурсивно обходить смежные вершины
         dfs(graph, visited, res, adjVet);
     }
 }
 
 /* Обход в глубину */
-// Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
 vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
     // Последовательность обхода вершин
     vector<Vertex *> res;
-    // Хеш-множество для записи уже посещенных вершин
+    // Хеш-множество для хранения уже посещенных вершин
     unordered_set<Vertex *> visited;
     dfs(graph, visited, res, startVet);
     return res;
@@ -33,7 +33,7 @@ vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать неориентированный граф */
+    /* Инициализация неориентированного графа */
     vector<Vertex *> v = valsToVets(vector<int>{0, 1, 2, 3, 4, 5, 6});
     vector<vector<Vertex *>> edges = {{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]},
                                       {v[2], v[5]}, {v[4], v[5]}, {v[5], v[6]}};

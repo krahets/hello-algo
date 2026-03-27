@@ -6,17 +6,17 @@
 
 #include "../utils/common.hpp"
 
-/* Очередь на основе циклического массива */
+/* Очередь на основе кольцевого массива */
 class ArrayQueue {
   private:
     int *nums;       // Массив для хранения элементов очереди
-    int front;       // Указатель front, указывающий на первый элемент очереди
+    int front;       // Указатель head, указывающий на первый элемент очереди
     int queSize;     // Длина очереди
-    int queCapacity; // очередьвместимость
+    int queCapacity; // Вместимость очереди
 
   public:
     ArrayQueue(int capacity) {
-        // Инициализировать массив
+        // Инициализация массива
         nums = new int[capacity];
         queCapacity = capacity;
         front = queSize = 0;
@@ -31,12 +31,12 @@ class ArrayQueue {
         return queCapacity;
     }
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     int size() {
         return queSize;
     }
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     bool isEmpty() {
         return size() == 0;
     }
@@ -47,10 +47,10 @@ class ArrayQueue {
             cout << "Очередь заполнена" << endl;
             return;
         }
-        // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
-        // Операция взятия по модулю позволяет rear после выхода за конец массива вернуться к его началу
+        // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+        // С помощью операции взятия по модулю вернуть rear к началу после выхода за конец массива
         int rear = (front + queSize) % queCapacity;
-        // Добавить num в конец очереди
+        // Добавить num в хвост очереди
         nums[rear] = num;
         queSize++;
     }
@@ -58,22 +58,22 @@ class ArrayQueue {
     /* Извлечь из очереди */
     int pop() {
         int num = peek();
-        // Указатель головы очереди сдвигается на одну позицию вперед; если он выходит за конец, то возвращается в начало массива
+        // Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
         front = (front + 1) % queCapacity;
         queSize--;
         return num;
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     int peek() {
         if (isEmpty())
-            throw out_of_range("Очередь пуста");
+            throw out_of_range("очередь пуста");
         return nums[front];
     }
 
     /* Преобразовать массив в Vector и вернуть */
     vector<int> toVector() {
-        // Преобразовать только элементы списка в пределах действительной длины
+        // Преобразовывать только элементы списка в пределах фактической длины
         vector<int> arr(queSize);
         for (int i = 0, j = front; i < queSize; i++, j++) {
             arr[i] = nums[j % queCapacity];
@@ -84,11 +84,11 @@ class ArrayQueue {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать очередь */
+    /* Инициализация очереди */
     int capacity = 10;
     ArrayQueue *queue = new ArrayQueue(capacity);
 
-    /* Поместить элемент в очередь */
+    /* Добавление элемента в очередь */
     queue->push(1);
     queue->push(3);
     queue->push(2);
@@ -97,28 +97,28 @@ int main() {
     cout << "Очередь queue = ";
     printVector(queue->toVector());
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     int peek = queue->peek();
-    cout << "голова очередиэлемент peek =" << peek << endl;
+    cout << "Первый элемент peek = " << peek << endl;
 
-    /* Извлечь элемент из очереди */
+    /* Извлечение элемента из очереди */
     peek = queue->pop();
-    cout << "Элемент, извлеченный из очереди, pop = " << peek << ", queue после извлечения = ";
+    cout << "Извлеченный элемент pop = " << peek << ", queue после извлечения = ";
     printVector(queue->toVector());
 
-    /* Получить длину очереди */
+    /* Получение длины очереди */
     int size = queue->size();
-    cout << "Длина очереди size =" << size << endl;
+    cout << "Длина очереди size = " << size << endl;
 
-    /* Проверить, пуста ли очередь */
+    /* Проверка, пуста ли очередь */
     bool empty = queue->isEmpty();
-    cout << "Очередь пуста: " << empty << endl;
+    cout << "Пуста ли очередь = " << empty << endl;
 
-    /* Проверить кольцевой массив */
+    /* Проверка кольцевого массива */
     for (int i = 0; i < 10; i++) {
         queue->push(i);
         queue->pop();
-        cout << "Итерация" << i << ": после enqueue + dequeue queue =";
+        cout << "После " << i << "-го раунда операций enqueue и dequeue queue = ";
         printVector(queue->toVector());
     }
 

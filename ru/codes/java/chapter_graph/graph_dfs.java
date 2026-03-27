@@ -10,37 +10,37 @@ import java.util.*;
 import utils.*;
 
 public class graph_dfs {
-    /* обход в глубинувспомогательная функция */
+    /* Вспомогательная функция обхода в глубину */
     static void dfs(GraphAdjList graph, Set<Vertex> visited, List<Vertex> res, Vertex vet) {
-        res.add(vet);     // Записать посещенную вершину
-        visited.add(vet); // Пометить эту вершину как посещенную
-        // Обойти все смежные вершины этой вершины
+        res.add(vet);     // Отметить посещенную вершину
+        visited.add(vet); // Отметить эту вершину как посещенную
+        // Обойти все смежные вершины данной вершины
         for (Vertex adjVet : graph.adjList.get(vet)) {
             if (visited.contains(adjVet))
                 continue; // Пропустить уже посещенную вершину
-            // Рекурсивно посетить смежные вершины
+            // Рекурсивно обходить смежные вершины
             dfs(graph, visited, res, adjVet);
         }
     }
 
     /* Обход в глубину */
-    // Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+    // Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
     static List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
         // Последовательность обхода вершин
         List<Vertex> res = new ArrayList<>();
-        // Хеш-множество для записи уже посещенных вершин
+        // Хеш-множество для хранения уже посещенных вершин
         Set<Vertex> visited = new HashSet<>();
         dfs(graph, visited, res, startVet);
         return res;
     }
 
     public static void main(String[] args) {
-        /* Инициализировать неориентированный граф */
+        /* Инициализация неориентированного графа */
         Vertex[] v = Vertex.valsToVets(new int[] { 0, 1, 2, 3, 4, 5, 6 });
         Vertex[][] edges = { { v[0], v[1] }, { v[0], v[3] }, { v[1], v[2] },
                              { v[2], v[5] }, { v[4], v[5] }, { v[5], v[6] } };
         GraphAdjList graph = new GraphAdjList(edges);
-        System.out.println("\nПосле инициализации граф имеет вид");
+        System.out.println("\nГраф после инициализации");
         graph.print();
 
         /* Обход в глубину */

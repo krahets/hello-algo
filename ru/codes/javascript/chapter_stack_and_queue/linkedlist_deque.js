@@ -6,8 +6,8 @@
 
 /* Узел двусвязного списка */
 class ListNode {
-    prev; // Ссылка на предыдущий узел (указатель)
-    next; // Ссылка на следующий узел (указатель)
+    prev; // Ссылка на узел-предшественник (указатель)
+    next; // Ссылка на узел-преемник (указатель)
     val; // Значение узла
 
     constructor(val) {
@@ -29,7 +29,7 @@ class LinkedListDeque {
         this.#queSize = 0;
     }
 
-    /* Операция помещения в хвост очереди */
+    /* Операция добавления в хвост очереди */
     pushLast(val) {
         const node = new ListNode(val);
         // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
@@ -37,7 +37,7 @@ class LinkedListDeque {
             this.#front = node;
             this.#rear = node;
         } else {
-            // Добавить node в хвост связного списка
+            // Добавить node в хвост списка
             this.#rear.next = node;
             node.prev = this.#rear;
             this.#rear = node; // Обновить хвостовой узел
@@ -45,7 +45,7 @@ class LinkedListDeque {
         this.#queSize++;
     }
 
-    /* Операция помещения в голову очереди */
+    /* Операция добавления в голову очереди */
     pushFirst(val) {
         const node = new ListNode(val);
         // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
@@ -53,7 +53,7 @@ class LinkedListDeque {
             this.#front = node;
             this.#rear = node;
         } else {
-            // Добавить node в голову связного списка
+            // Добавить node в голову списка
             this.#front.prev = node;
             node.next = this.#front;
             this.#front = node; // Обновить головной узел
@@ -95,27 +95,27 @@ class LinkedListDeque {
         return value;
     }
 
-    /* Обратиться к элементу в хвосте очереди */
+    /* Доступ к элементу в конце очереди */
     peekLast() {
         return this.#queSize === 0 ? null : this.#rear.val;
     }
 
-    /* Получить элемент в начале очереди */
+    /* Доступ к элементу в начале очереди */
     peekFirst() {
         return this.#queSize === 0 ? null : this.#front.val;
     }
 
-    /* Получить длину двусторонней очереди */
+    /* Получение длины двусторонней очереди */
     size() {
         return this.#queSize;
     }
 
-    /* Проверить, пуста ли двусторонняя очередь */
+    /* Проверка, пуста ли двусторонняя очередь */
     isEmpty() {
         return this.#queSize === 0;
     }
 
-    /* Вывестидвусторонняя очередь */
+    /* Вывести двустороннюю очередь */
     print() {
         const arr = [];
         let temp = this.#front;
@@ -128,40 +128,40 @@ class LinkedListDeque {
 }
 
 /* Driver Code */
-/* Инициализировать двустороннюю очередь */
+/* Инициализация двусторонней очереди */
 const linkedListDeque = new LinkedListDeque();
 linkedListDeque.pushLast(3);
 linkedListDeque.pushLast(2);
 linkedListDeque.pushLast(5);
-console.log('двусторонняя очередь linkedListDeque =');
+console.log('Двусторонняя очередь linkedListDeque = ');
 linkedListDeque.print();
 
-/* Получить доступ к элементу */
+/* Доступ к элементу */
 const peekFirst = linkedListDeque.peekFirst();
-console.log('голова очередиэлемент peekFirst =' + peekFirst);
+console.log('Первый элемент peekFirst = ' + peekFirst);
 const peekLast = linkedListDeque.peekLast();
-console.log('хвост очередиэлемент peekLast =' + peekLast);
+console.log('Последний элемент peekLast = ' + peekLast);
 
-/* Поместить элемент в очередь */
+/* Добавление элемента в очередь */
 linkedListDeque.pushLast(4);
-console.log('После помещения элемента 4 в хвост очереди linkedListDeque = ');
+console.log('После добавления элемента 4 в хвост linkedListDeque = ');
 linkedListDeque.print();
 linkedListDeque.pushFirst(1);
-console.log('После помещения элемента 1 в голову очереди linkedListDeque = ');
+console.log('После добавления элемента 1 в голову linkedListDeque = ');
 linkedListDeque.print();
 
-/* Извлечь элемент из очереди */
+/* Извлечение элемента из очереди */
 const popLast = linkedListDeque.popLast();
-console.log('Элемент, извлеченный из хвоста очереди = ' + popLast + '，linkedListDeque после извлечения из хвоста = ');
+console.log('Извлеченный из хвоста элемент = ' + popLast + ', linkedListDeque после извлечения из хвоста = ');
 linkedListDeque.print();
 const popFirst = linkedListDeque.popFirst();
-console.log('Элемент, извлеченный из головы очереди = ' + popFirst + '，linkedListDeque после извлечения из головы = ');
+console.log('Извлеченный из головы элемент = ' + popFirst + ', linkedListDeque после извлечения из головы = ');
 linkedListDeque.print();
 
-/* Получить длину двусторонней очереди */
+/* Получение длины двусторонней очереди */
 const size = linkedListDeque.size();
 console.log('Длина двусторонней очереди size = ' + size);
 
-/* Проверить, пуста ли двусторонняя очередь */
+/* Проверка, пуста ли двусторонняя очередь */
 const isEmpty = linkedListDeque.isEmpty();
-console.log('Двусторонняя очередь пуста: ' + isEmpty);
+console.log('Пуста ли двусторонняя очередь = ' + isEmpty);

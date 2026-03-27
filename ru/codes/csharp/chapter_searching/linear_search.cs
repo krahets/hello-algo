@@ -9,7 +9,7 @@ namespace hello_algo.chapter_searching;
 public class linear_search {
     /* Линейный поиск (массив) */
     int LinearSearchArray(int[] nums, int target) {
-        // Перебрать массив
+        // Обход массива
         for (int i = 0; i < nums.Length; i++) {
             // Целевой элемент найден, вернуть его индекс
             if (nums[i] == target)
@@ -44,6 +44,6 @@ public class linear_search {
         /* Выполнить линейный поиск в связном списке */
         ListNode? head = ListNode.ArrToLinkedList(nums);
         ListNode? node = LinearSearchLinkedList(head, target);
-        Console.WriteLine("Объект узла, соответствующий целевому значению 3, равен " + node);
+        Console.WriteLine("Объект узла со значением 3 = " + node);
     }
 }

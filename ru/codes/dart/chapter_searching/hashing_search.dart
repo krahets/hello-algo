@@ -9,8 +9,8 @@ import '../utils/list_node.dart';
 
 /* Хеш-поиск (массив) */
 int hashingSearchArray(Map<int, int> map, int target) {
-  // У хеш-таблицы key: целевой элемент, value: индекс
-  // Если такого key в хеш-таблице нет, вернуть -1
+  // key хеш-таблицы: целевой элемент, value: индекс
+  // Если такого key нет в хеш-таблице, вернуть -1
   if (!map.containsKey(target)) {
     return -1;
   }
@@ -19,8 +19,8 @@ int hashingSearchArray(Map<int, int> map, int target) {
 
 /* Хеш-поиск (связный список) */
 ListNode? hashingSearchLinkedList(Map<int, ListNode> map, int target) {
-  // У хеш-таблицы key: целевое значение узла, value: объект узла
-  // Если такого key в хеш-таблице нет, вернуть null
+  // key хеш-таблицы: значение целевого узла, value: объект узла
+  // Если такого key нет в хеш-таблице, вернуть null
   if (!map.containsKey(target)) {
     return null;
   }
@@ -33,7 +33,7 @@ void main() {
 
   /* Хеш-поиск (массив) */
   List<int> nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
-  // Инициализировать хеш-таблицу
+  // Инициализация хеш-таблицы
   Map<int, int> map = HashMap();
   for (int i = 0; i < nums.length; i++) {
     map.putIfAbsent(nums[i], () => i); // key: элемент, value: индекс
@@ -43,12 +43,12 @@ void main() {
 
   /* Хеш-поиск (связный список) */
   ListNode? head = listToLinkedList(nums);
-  // Инициализировать хеш-таблицу
+  // Инициализация хеш-таблицы
   Map<int, ListNode> map1 = HashMap();
   while (head != null) {
     map1.putIfAbsent(head.val, () => head!); // key: значение узла, value: узел
     head = head.next;
   }
   ListNode? node = hashingSearchLinkedList(map1, target);
-  print('Объект узла, соответствующий целевому значению 3, равен $node');
+  print('Объект узла со значением 3 = $node');
 }

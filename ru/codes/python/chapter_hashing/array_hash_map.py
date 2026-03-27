@@ -6,7 +6,7 @@ Author: msk397 (machangxinq@gmail.com)
 
 
 class Pair:
-    """пара ключ-значение"""
+    """Пара ключ-значение"""
 
     def __init__(self, key: int, val: str):
         self.key = key
@@ -18,7 +18,7 @@ class ArrayHashMap:
 
     def __init__(self):
         """Конструктор"""
-        # Инициализировать массив, содержащий 100 бакетов
+        # Инициализировать массив, содержащий 100 корзин
         self.buckets: list[Pair | None] = [None] * 100
 
     def hash_func(self, key: int) -> int:
@@ -43,7 +43,7 @@ class ArrayHashMap:
     def remove(self, key: int):
         """Операция удаления"""
         index: int = self.hash_func(key)
-        # Установить None, обозначая удаление
+        # Присвоить None, что означает удаление
         self.buckets[index] = None
 
     def entry_set(self) -> list[Pair]:
@@ -79,39 +79,39 @@ class ArrayHashMap:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализировать хеш-таблицу
+    # Инициализация хеш-таблицы
     hmap = ArrayHashMap()
 
     # Операция добавления
-    # Добавить в хеш-таблицу пару ключ-значение (key, value)
+    # Добавить пару (key, value) в хеш-таблицу
     hmap.put(12836, "Сяо Ха")
     hmap.put(15937, "Сяо Ло")
     hmap.put(16750, "Сяо Суань")
     hmap.put(13276, "Сяо Фа")
-    hmap.put(10583, "Утенок")
-    print("\nПосле добавления хеш-таблица выглядит так\nKey -> Value")
+    hmap.put(10583, "Сяо Я")
+    print("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение")
     hmap.print()
 
     # Операция поиска
     # Передать ключ key в хеш-таблицу и получить значение value
     name = hmap.get(15937)
-    print("\nПо номеру студента 15937 найдено имя " + name)
+    print("\nДля номера 15937 найдено имя " + name)
 
     # Операция удаления
-    # Удалить из хеш-таблицы пару ключ-значение (key, value)
+    # Удалить пару (key, value) из хеш-таблицы
     hmap.remove(10583)
-    print("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value")
+    print("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение")
     hmap.print()
 
-    # Перебрать хеш-таблицу
-    print("\nПеребираем пары Key->Value")
+    # Обход хеш-таблицы
+    print("\nОтдельный обход пар ключ-значение")
     for pair in hmap.entry_set():
         print(pair.key, "->", pair.val)
 
-    print("\nОтдельно перебираем ключи Key")
+    print("\nОтдельный обход ключей")
     for key in hmap.key_set():
         print(key)
 
-    print("\nОтдельно перебираем значения Value")
+    print("\nОтдельный обход значений")
     for val in hmap.value_set():
         print(val)

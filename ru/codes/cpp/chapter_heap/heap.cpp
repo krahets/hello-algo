@@ -7,7 +7,7 @@
 #include "../utils/common.hpp"
 
 void testPush(priority_queue<int> &heap, int val) {
-    heap.push(val); // Добавить элемент в кучу
+    heap.push(val); // Добавление элемента в кучу
     cout << "\nПосле добавления элемента " << val << " в кучу" << endl;
     printHeap(heap);
 }
@@ -21,45 +21,45 @@ void testPop(priority_queue<int> &heap) {
 
 /* Driver Code */
 int main() {
-    /* Инициализироватькуча */
-    // Инициализировать min-кучу
+    /* Инициализация кучи */
+    // Инициализировать минимальную кучу
     // priority_queue<int, vector<int>, greater<int>> minHeap;
-    // Инициализировать max-кучу
+    // Инициализировать максимальную кучу
     priority_queue<int, vector<int>, less<int>> maxHeap;
 
-    cout << "\nСледующие тестовые примеры относятся к max-куче" << endl;
+    cout << "\nНиже приведены тестовые примеры для max-heap" << endl;
 
-    /* Добавить элемент в кучу */
+    /* Добавление элемента в кучу */
     testPush(maxHeap, 1);
     testPush(maxHeap, 3);
     testPush(maxHeap, 2);
     testPush(maxHeap, 5);
     testPush(maxHeap, 4);
 
-    /* Получить верхний элемент кучи */
+    /* Получение элемента с вершины кучи */
     int peek = maxHeap.top();
-    cout << "\nЭлемент на вершине кучи равен " << peek << endl;
+    cout << "\nВерхний элемент кучи = " << peek << endl;
 
-    /* Извлечь верхний элемент из кучи */
+    /* Извлечение элемента с вершины кучи */
     testPop(maxHeap);
     testPop(maxHeap);
     testPop(maxHeap);
     testPop(maxHeap);
     testPop(maxHeap);
 
-    /* Получить размер кучи */
+    /* Получение размера кучи */
     int size = maxHeap.size();
-    cout << "\nКоличество элементов в куче равно " << size << endl;
+    cout << "\nКоличество элементов в куче = " << size << endl;
 
-    /* Проверить, пуста ли куча */
+    /* Проверка, пуста ли куча */
     bool isEmpty = maxHeap.empty();
-    cout << "\nкучапуст ли" << isEmpty << endl;
+    cout << "\nПуста ли куча: " << isEmpty << endl;
 
-    /* Входсписокипостроение кучи */
+    /* Построить кучу по входному списку */
     // Временная сложность равна O(n), а не O(nlogn)
     vector<int> input{1, 3, 2, 5, 4};
     priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
-    cout << "Входсписокипостроитьmin-кучапосле" << endl;
+    cout << "После построения min-heap из входного списка" << endl;
     printHeap(minHeap);
 
     return 0;

@@ -12,7 +12,7 @@ pub fn main() {
     // В Rust рекомендуется использовать Vec как стек
     let mut stack: Vec<i32> = Vec::new();
 
-    // Поместить элемент в стек
+    // Помещение элемента в стек
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -21,20 +21,20 @@ pub fn main() {
     print!("Стек stack = ");
     print_util::print_array(&stack);
 
-    // Получить верхний элемент стека
+    // Доступ к верхнему элементу стека
     let peek = stack.last().unwrap();
-    print!("\nвершина стекаэлемент peek = {peek}");
+    print!("\nВерхний элемент peek = {peek}");
 
-    // Извлечь элемент из стека
+    // Извлечение элемента из стека
     let pop = stack.pop().unwrap();
-    print!("\nЭлемент, извлеченный из стека, pop = {pop}, stack после извлечения = ");
+    print!("\nИзвлеченный элемент pop = {pop}, stack после извлечения = ");
     print_util::print_array(&stack);
 
-    // Получить длину стека
+    // Получение длины стека
     let size = stack.len();
     print!("\nДлина стека size = {size}");
 
-    // Проверить, пуст ли стек
+    // Проверка, пуст ли стек
     let is_empty = stack.is_empty();
-    print!("\nстекпуст ли = {is_empty}");
+    print!("\nПуст ли стек = {is_empty}");
 }

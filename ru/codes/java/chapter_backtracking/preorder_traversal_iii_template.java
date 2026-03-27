@@ -42,13 +42,13 @@ public class preorder_traversal_iii_template {
             // Записать решение
             recordSolution(state, res);
         }
-        // Перебрать все варианты выбора
+        // Перебор всех вариантов выбора
         for (TreeNode choice : choices) {
-            // Отсечение: проверить, допустим ли текущий выбор
+            // Отсечение: проверить допустимость выбора
             if (isValid(state, choice)) {
                 // Попытка: сделать выбор и обновить состояние
                 makeChoice(state, choice);
-                // Перейти к следующему варианту выбора
+                // Перейти к следующему выбору
                 backtrack(state, Arrays.asList(choice.left, choice.right), res);
                 // Откат: отменить выбор и восстановить предыдущее состояние
                 undoChoice(state, choice);
@@ -58,14 +58,14 @@ public class preorder_traversal_iii_template {
 
     public static void main(String[] args) {
         TreeNode root = TreeNode.listToTree(Arrays.asList(1, 7, 3, 4, 5, 6, 7));
-        System.out.println("\nИнициализировать двоичное дерево");
+        System.out.println("\nИнициализация двоичного дерева");
         PrintUtil.printTree(root);
 
         // Алгоритм бэктрекинга
         List<List<TreeNode>> res = new ArrayList<>();
         backtrack(new ArrayList<>(), Arrays.asList(root), res);
 
-        System.out.println("\nВывести все пути от корня до узла 7, при этом путь не должен содержать узлы со значением 3");
+        System.out.println("\nВсе пути от корня к узлу 7, в которых путь не содержит узлов со значением 3");
         for (List<TreeNode> path : res) {
             List<Integer> vals = new ArrayList<>();
             for (TreeNode node : path) {

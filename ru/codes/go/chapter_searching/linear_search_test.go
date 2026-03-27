@@ -22,5 +22,5 @@ func TestLinearSearch(t *testing.T) {
 	// Выполнить линейный поиск в связном списке
 	head := ArrayToLinkedList(nums)
 	node := linearSearchLinkedList(head, target)
-	fmt.Println("Объект узла, соответствующий целевому значению 3, равен", node)
+	fmt.Println("Объект узла со значением 3 =", node)
 }

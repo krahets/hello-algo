@@ -6,7 +6,7 @@
 
 public class ListNode: Hashable {
     public var val: Int // Значение узла
-    public var next: ListNode? // Ссылка на следующий узел
+    public var next: ListNode? // Ссылка на узел-преемник
 
     public init(x: Int) {
         val = x

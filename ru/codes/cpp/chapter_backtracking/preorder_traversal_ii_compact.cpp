@@ -9,12 +9,12 @@
 vector<TreeNode *> path;
 vector<vector<TreeNode *>> res;
 
-/* Прямой обход: пример 2 */
+/* Предварительный обход: пример 2 */
 void preOrder(TreeNode *root) {
     if (root == nullptr) {
         return;
     }
-    // Попытаться
+    // Попытка
     path.push_back(root);
     if (root->val == 7) {
         // Записать решение
@@ -29,13 +29,13 @@ void preOrder(TreeNode *root) {
 /* Driver Code */
 int main() {
     TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
-    cout << "\nИнициализировать двоичное дерево" << endl;
+    cout << "\nИнициализация двоичного дерева" << endl;
     printTree(root);
 
-    // Прямой обход
+    // Предварительный обход
     preOrder(root);
 
-    cout << "\nВывести все пути от корня до узла 7" << endl;
+    cout << "\nВывести все пути от корня к узлу 7" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {

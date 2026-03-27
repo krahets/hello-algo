@@ -21,18 +21,18 @@ class LinkedListQueue:
         self._size: int = 0
 
     def size(self) -> int:
-        """Получить длину очереди"""
+        """Получение длины очереди"""
         return self._size
 
     def is_empty(self) -> bool:
-        """Проверить, пуста ли очередь"""
+        """Проверка, пуста ли очередь"""
         return self._size == 0
 
     def push(self, num: int):
         """Поместить в очередь"""
         # Добавить num после хвостового узла
         node = ListNode(num)
-        # Если очередь пуста, сделать так, чтобы головной и хвостовой узлы указывали на этот узел
+        # Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
         if self._front is None:
             self._front = node
             self._rear = node
@@ -51,9 +51,9 @@ class LinkedListQueue:
         return num
 
     def peek(self) -> int:
-        """Получить элемент в начале очереди"""
+        """Доступ к элементу в начале очереди"""
         if self.is_empty():
-            raise IndexError("Очередь пуста")
+            raise IndexError("очередь пуста")
         return self._front.val
 
     def to_list(self) -> list[int]:
@@ -68,10 +68,10 @@ class LinkedListQueue:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализировать очередь
+    # Инициализация очереди
     queue = LinkedListQueue()
 
-    # Поместить элемент в очередь
+    # Добавление элемента в очередь
     queue.push(1)
     queue.push(3)
     queue.push(2)
@@ -79,19 +79,19 @@ if __name__ == "__main__":
     queue.push(4)
     print("Очередь queue =", queue.to_list())
 
-    # Получить элемент в начале очереди
+    # Доступ к элементу в начале очереди
     peek: int = queue.peek()
-    print("Элемент в начале очереди front =", peek)
+    print("Первый элемент front =", peek)
 
-    # Извлечь элемент из очереди
+    # Извлечение элемента из очереди
     pop_front: int = queue.pop()
-    print("Извлеченный из очереди элемент pop =", pop_front)
-    print("После извлечения queue =", queue.to_list())
+    print("Извлеченный элемент pop =", pop_front)
+    print("queue после извлечения =", queue.to_list())
 
-    # Получить длину очереди
+    # Получение длины очереди
     size: int = queue.size()
     print("Длина очереди size =", size)
 
-    # Проверить, пуста ли очередь
+    # Проверка, пуста ли очередь
     is_empty: bool = queue.is_empty()
     print("Пуста ли очередь =", is_empty)

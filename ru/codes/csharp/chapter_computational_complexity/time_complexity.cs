@@ -41,7 +41,7 @@ public class time_complexity {
         }
     }
 
-    /* Константная сложность */
+    /* Постоянная сложность */
     int Constant(int n) {
         int count = 0;
         int size = 100000;
@@ -83,9 +83,9 @@ public class time_complexity {
     /* Квадратичная сложность (пузырьковая сортировка) */
     int BubbleSort(int[] nums) {
         int count = 0;  // Счетчик
-        // Внешний цикл: неотсортированный диапазон равен [0, i]
+        // Внешний цикл: неотсортированный диапазон [0, i]
         for (int i = nums.Length - 1; i > 0; i--) {
-            // Внутренний цикл: переместить максимальный элемент из диапазона [0, i] в его правый конец
+            // Внутренний цикл: переместить максимальный элемент неотсортированного диапазона [0, i] в его правый конец
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Поменять местами nums[j] и nums[j + 1]
@@ -147,7 +147,7 @@ public class time_complexity {
     int FactorialRecur(int n) {
         if (n == 0) return 1;
         int count = 0;
-        // От одного разветвиться на n
+        // Из одного получается n
         for (int i = 0; i < n; i++) {
             count += FactorialRecur(n - 1);
         }
@@ -156,40 +156,40 @@ public class time_complexity {
 
     [Test]
     public void Test() {
-        // Можно изменить n и запустить программу, чтобы увидеть, как меняется число операций при разных типах сложности
+        // Можно изменить n и запустить программу, чтобы увидеть, как меняется число операций при разных сложностях
         int n = 8;
-        Console.WriteLine("Размер входных данных n =" + n);
+        Console.WriteLine("Размер входных данных n = " + n);
 
         int count = Constant(n);
-        Console.WriteLine("Количество операций константной сложности = " + count);
+        Console.WriteLine("Число операций константной сложности = " + count);
 
         count = Linear(n);
-        Console.WriteLine("Количество операций линейной сложности =" + count);
+        Console.WriteLine("Число операций линейной сложности = " + count);
         count = ArrayTraversal(new int[n]);
-        Console.WriteLine("Количество операций линейной сложности (обход массива) =" + count);
+        Console.WriteLine("Число операций линейной сложности (обход массива) = " + count);
 
         count = Quadratic(n);
-        Console.WriteLine("Количество операций квадратичной сложности = " + count);
+        Console.WriteLine("Число операций квадратичной сложности = " + count);
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
             nums[i] = n - i;  // [n,n-1,...,2,1]
         count = BubbleSort(nums);
-        Console.WriteLine("Количество операций квадратичной сложности (пузырьковая сортировка) = " + count);
+        Console.WriteLine("Число операций квадратичной сложности (пузырьковая сортировка) = " + count);
 
         count = Exponential(n);
-        Console.WriteLine("Количество операций экспоненциальной сложности (итеративная реализация) = " + count);
+        Console.WriteLine("Число операций экспоненциальной сложности (итеративная реализация) = " + count);
         count = ExpRecur(n);
-        Console.WriteLine("Количество операций экспоненциальной сложности (рекурсивная реализация) = " + count);
+        Console.WriteLine("Число операций экспоненциальной сложности (рекурсивная реализация) = " + count);
 
         count = Logarithmic(n);
-        Console.WriteLine("Количество операций логарифмической сложности (итеративная реализация) = " + count);
+        Console.WriteLine("Число операций логарифмической сложности (итеративная реализация) = " + count);
         count = LogRecur(n);
-        Console.WriteLine("Количество операций логарифмической сложности (рекурсивная реализация) = " + count);
+        Console.WriteLine("Число операций логарифмической сложности (рекурсивная реализация) = " + count);
 
         count = LinearLogRecur(n);
-        Console.WriteLine("Количество операций линейно-логарифмической сложности (рекурсивная реализация) =" + count);
+        Console.WriteLine("Число операций линейно-логарифмической сложности (рекурсивная реализация) = " + count);
 
         count = FactorialRecur(n);
-        Console.WriteLine("Количество операций факториальной сложности (рекурсивная реализация) =" + count);
+        Console.WriteLine("Число операций факториальной сложности (рекурсивная реализация) = " + count);
     }
 }

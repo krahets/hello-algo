@@ -9,9 +9,9 @@
 // Предположим, что максимальное число узлов равно 100
 #define MAX_SIZE 100
 
-/* Проверить, посещалась ли вершина */
+/* Проверить, была ли вершина уже посещена */
 int isVisited(Vertex **res, int size, Vertex *vet) {
-    // Найти узел обходом за время O(n)
+    // Искать узел обходом за O(n) времени
     for (int i = 0; i < size; i++) {
         if (res[i] == vet) {
             return 1;
@@ -20,16 +20,16 @@ int isVisited(Vertex **res, int size, Vertex *vet) {
     return 0;
 }
 
-/* обход в глубинувспомогательная функция */
+/* Вспомогательная функция обхода в глубину */
 void dfs(GraphAdjList *graph, Vertex **res, int *resSize, Vertex *vet) {
-    // Записать посещенную вершину
+    // Отметить посещенную вершину
     res[(*resSize)++] = vet;
-    // Обойти все смежные вершины этой вершины
+    // Обойти все смежные вершины данной вершины
     AdjListNode *node = findNode(graph, vet);
     while (node != NULL) {
         // Пропустить уже посещенную вершину
         if (!isVisited(res, *resSize, node->vertex)) {
-            // Рекурсивно посетить смежные вершины
+            // Рекурсивно обходить смежные вершины
             dfs(graph, res, resSize, node->vertex);
         }
         node = node->next;
@@ -37,14 +37,14 @@ void dfs(GraphAdjList *graph, Vertex **res, int *resSize, Vertex *vet) {
 }
 
 /* Обход в глубину */
-// Использовать список смежности для представления графа, чтобы получать все соседние вершины заданной вершины
+// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
 void graphDFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize) {
     dfs(graph, res, resSize, startVet);
 }
 
 /* Driver Code */
 int main() {
-    // Инициализировать неориентированный граф
+    // Инициализация неориентированного графа
     int vals[] = {0, 1, 2, 3, 4, 5, 6};
     int size = sizeof(vals) / sizeof(vals[0]);
     Vertex **v = valsToVets(vals, size);
@@ -65,7 +65,7 @@ int main() {
     Vertex *res[MAX_SIZE];
     int resSize = 0;
     graphDFS(graph, v[0], res, &resSize);
-    printf("\nПоследовательность вершин при обходе в глубину (DFS):\n");
+    printf("\nПоследовательность вершин при обходе в глубину (DFS)\n");
     printArray(vetsToVals(res, resSize), resSize);
 
     // Освободить память

@@ -21,17 +21,17 @@ func newLinkedListDeque() *linkedListDeque {
 	}
 }
 
-/* голова очередиПоместить элемент в очередь */
+/* Поместить элемент в голову очереди */
 func (s *linkedListDeque) pushFirst(value any) {
 	s.data.PushFront(value)
 }
 
-/* хвост очередиПоместить элемент в очередь */
+/* Поместить элемент в хвост очереди */
 func (s *linkedListDeque) pushLast(value any) {
 	s.data.PushBack(value)
 }
 
-/* голова очередиИзвлечь элемент из очереди */
+/* Извлечь элемент из головы очереди */
 func (s *linkedListDeque) popFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -41,7 +41,7 @@ func (s *linkedListDeque) popFirst() any {
 	return e.Value
 }
 
-/* хвост очередиИзвлечь элемент из очереди */
+/* Извлечь элемент из хвоста очереди */
 func (s *linkedListDeque) popLast() any {
 	if s.isEmpty() {
 		return nil
@@ -51,7 +51,7 @@ func (s *linkedListDeque) popLast() any {
 	return e.Value
 }
 
-/* Получить элемент в начале очереди */
+/* Доступ к элементу в начале очереди */
 func (s *linkedListDeque) peekFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -60,7 +60,7 @@ func (s *linkedListDeque) peekFirst() any {
 	return e.Value
 }
 
-/* Обратиться к элементу в хвосте очереди */
+/* Доступ к элементу в конце очереди */
 func (s *linkedListDeque) peekLast() any {
 	if s.isEmpty() {
 		return nil
@@ -69,12 +69,12 @@ func (s *linkedListDeque) peekLast() any {
 	return e.Value
 }
 
-/* Получить длину очереди */
+/* Получение длины очереди */
 func (s *linkedListDeque) size() int {
 	return s.data.Len()
 }
 
-/* Проверить, пуста ли очередь */
+/* Проверка, пуста ли очередь */
 func (s *linkedListDeque) isEmpty() bool {
 	return s.data.Len() == 0
 }

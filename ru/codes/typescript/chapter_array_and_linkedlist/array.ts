@@ -6,7 +6,7 @@
 
 /* Случайный доступ к элементу */
 function randomAccess(nums: number[]): number {
-    // Случайно выбрать число в интервале [0, nums.length)
+    // Случайным образом выбрать число из интервала [0, nums.length)
     const random_index = Math.floor(Math.random() * nums.length);
     // Получить и вернуть случайный элемент
     const random_num = nums[random_index];
@@ -14,7 +14,7 @@ function randomAccess(nums: number[]): number {
 }
 
 /* Увеличить длину массива */
-// Обратите внимание: Array в TypeScript является динамическим массивом и может расширяться напрямую
+// Обратите внимание: Array в TypeScript — это динамический массив, его можно расширять напрямую
 // Для удобства обучения в этой функции Array рассматривается как массив неизменяемой длины
 function extend(nums: number[], enlarge: number): number[] {
     // Инициализировать массив увеличенной длины
@@ -23,13 +23,13 @@ function extend(nums: number[], enlarge: number): number[] {
     for (let i = 0; i < nums.length; i++) {
         res[i] = nums[i];
     }
-    // Вернуть новый расширенный массив
+    // Вернуть новый массив после расширения
     return res;
 }
 
-/* Вставить элемент num в массив по индексу index */
+/* Вставить элемент num по индексу index в массив */
 function insert(nums: number[], num: number, index: number): void {
-    // Сдвинуть индекс index и все последующие элементы на одну позицию назад
+    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
     for (let i = nums.length - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
@@ -45,10 +45,10 @@ function remove(nums: number[], index: number): void {
     }
 }
 
-/* Перебрать массив */
+/* Обход массива */
 function traverse(nums: number[]): void {
     let count = 0;
-    // Обходить массив по индексам
+    // Обход массива по индексам
     for (let i = 0; i < nums.length; i++) {
         count += nums[i];
     }
@@ -69,33 +69,33 @@ function find(nums: number[], target: number): number {
 }
 
 /* Driver Code */
-/* Инициализировать массив */
+/* Инициализация массива */
 const arr: number[] = new Array(5).fill(0);
-console.log('массив arr =', arr);
+console.log('Массив arr =', arr);
 let nums: number[] = [1, 3, 2, 5, 4];
 console.log('Массив nums =', nums);
 
 /* Случайный доступ */
 let random_num = randomAccess(nums);
-console.log('Полученный случайный элемент из nums', random_num);
+console.log('Случайный элемент из nums =', random_num);
 
 /* Расширение длины */
 nums = extend(nums, 3);
-console.log('После расширения длины массива до 8 получаем nums =', nums);
+console.log('После расширения длины массива до 8 nums =', nums);
 
-/* Вставить элемент */
+/* Вставка элемента */
 insert(nums, 6, 3);
-console.log('После вставки числа 6 по индексу 3 получаем nums =', nums);
+console.log('После вставки числа 6 по индексу 3 nums =', nums);
 
-/* Удалить элемент */
+/* Удаление элемента */
 remove(nums, 2);
-console.log('Удалитьиндекс 2 поэлемент, получаем nums =', nums);
+console.log('После удаления элемента по индексу 2 nums =', nums);
 
-/* Перебрать массив */
+/* Обход массива */
 traverse(nums);
 
-/* Найти элемент */
+/* Поиск элемента */
 let index = find(nums, 3);
-console.log('Поиск элемента 3 в nums дает индекс =', index);
+console.log('Поиск элемента 3 в nums: индекс =', index);
 
 export {};

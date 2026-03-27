@@ -46,13 +46,13 @@ fn backtrack(
         // Записать решение
         record_solution(state, res);
     }
-    // Перебрать все варианты выбора
+    // Перебор всех вариантов выбора
     for &choice in choices.iter() {
-        // Отсечение: проверить, допустим ли текущий выбор
+        // Отсечение: проверить допустимость выбора
         if is_valid(state, choice) {
             // Попытка: сделать выбор и обновить состояние
             make_choice(state, choice.unwrap().clone());
-            // Перейти к следующему варианту выбора
+            // Перейти к следующему выбору
             backtrack(
                 state,
                 &vec![
@@ -70,14 +70,14 @@ fn backtrack(
 /* Driver Code */
 pub fn main() {
     let root = vec_to_tree([1, 7, 3, 4, 5, 6, 7].map(|x| Some(x)).to_vec());
-    println!("Инициализировать двоичное дерево");
+    println!("Инициализация двоичного дерева");
     print_util::print_tree(root.as_ref().unwrap());
 
     // Алгоритм бэктрекинга
     let mut res = Vec::new();
     backtrack(&mut Vec::new(), &mut vec![root.as_ref()], &mut res);
 
-    println!("\nВывести все пути от корня до узла 7, при этом путь не должен содержать узлы со значением 3");
+    println!("\nВсе пути от корня к узлу 7, в которых путь не содержит узлов со значением 3");
     for path in res {
         let mut vals = Vec::new();
         for node in path {

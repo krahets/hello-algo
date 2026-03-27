@@ -10,12 +10,12 @@ import (
 
 /* Хеш-таблица с открытой адресацией */
 type hashMapOpenAddressing struct {
-	size        int     // Количество пар ключ-значение
+	size        int     // Число пар ключ-значение
 	capacity    int     // Вместимость хеш-таблицы
-	loadThres   float64 // Порог коэффициента загрузки, запускающий расширение
+	loadThres   float64 // Порог коэффициента загрузки для запуска расширения
 	extendRatio int     // Коэффициент расширения
-	buckets     []*pair // Массив бакетов
-	TOMBSTONE   *pair   // Метка удаления
+	buckets     []*pair // Массив корзин
+	TOMBSTONE   *pair   // Удалить метку
 }
 
 /* Конструктор */
@@ -37,27 +37,27 @@ func (h *hashMapOpenAddressing) hashFunc(key int) int {
 
 /* Коэффициент загрузки */
 func (h *hashMapOpenAddressing) loadFactor() float64 {
-	return float64(h.size) / float64(h.capacity) // ВычислитьтекущийКоэффициент загрузки
+	return float64(h.size) / float64(h.capacity) // Вычислить текущий коэффициент загрузки
 }
 
-/* Найти индекс корзины, соответствующей ключу key */
+/* Найти индекс корзины, соответствующий key */
 func (h *hashMapOpenAddressing) findBucket(key int) int {
 	index := h.hashFunc(key) // Получить начальный индекс
-	firstTombstone := -1     // Записать позицию первого встреченного TOMBSTONE
+	firstTombstone := -1     // Запомнить положение первого TOMBSTONE
 	for h.buckets[index] != nil {
 		if h.buckets[index].key == key {
 			if firstTombstone != -1 {
-				// Если ранее встретилась метка удаления, переместить пару ключ-значение в этот индекс
+				// Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
 				h.buckets[firstTombstone] = h.buckets[index]
 				h.buckets[index] = h.TOMBSTONE
-				return firstTombstone // Вернуть индекс бакета после перемещения
+				return firstTombstone // Вернуть индекс корзины после перемещения
 			}
 			return index // Вернуть найденный индекс
 		}
 		if firstTombstone == -1 && h.buckets[index] == h.TOMBSTONE {
-			firstTombstone = index // Записать позицию первой встретившейся метки удаления
+			firstTombstone = index // Запомнить положение первой метки удаления
 		}
-		index = (index + 1) % h.capacity // Линейное пробирование: при выходе за конец вернуться к началу
+		index = (index + 1) % h.capacity // Линейное пробирование: при выходе за хвост вернуться к началу
 	}
 	// Если key не существует, вернуть индекс точки добавления
 	if firstTombstone != -1 {
@@ -68,7 +68,7 @@ func (h *hashMapOpenAddressing) findBucket(key int) int {
 
 /* Операция поиска */
 func (h *hashMapOpenAddressing) get(key int) string {
-	index := h.findBucket(key) // Найти индекс корзины, соответствующей ключу key
+	index := h.findBucket(key) // Найти индекс корзины, соответствующий key
 	if h.buckets[index] != nil && h.buckets[index] != h.TOMBSTONE {
 		return h.buckets[index].val // Если пара ключ-значение найдена, вернуть соответствующее val
 	}
@@ -80,9 +80,9 @@ func (h *hashMapOpenAddressing) put(key int, val string) {
 	if h.loadFactor() > h.loadThres {
 		h.extend() // Когда коэффициент загрузки превышает порог, выполнить расширение
 	}
-	index := h.findBucket(key) // Найти индекс корзины, соответствующей ключу key
+	index := h.findBucket(key) // Найти индекс корзины, соответствующий key
 	if h.buckets[index] == nil || h.buckets[index] == h.TOMBSTONE {
-		h.buckets[index] = &pair{key, val} // Если пара ключ-значение не существует, добавить ее
+		h.buckets[index] = &pair{key, val} // Если пары ключ-значение нет, добавить ее
 		h.size++
 	} else {
 		h.buckets[index].val = val // Если пара ключ-значение найдена, перезаписать val
@@ -91,9 +91,9 @@ func (h *hashMapOpenAddressing) put(key int, val string) {
 
 /* Операция удаления */
 func (h *hashMapOpenAddressing) remove(key int) {
-	index := h.findBucket(key) // Найти индекс корзины, соответствующей ключу key
+	index := h.findBucket(key) // Найти индекс корзины, соответствующий key
 	if h.buckets[index] != nil && h.buckets[index] != h.TOMBSTONE {
-		h.buckets[index] = h.TOMBSTONE // Если пара ключ-значение найдена, пометить ее меткой удаления
+		h.buckets[index] = h.TOMBSTONE // Если пара ключ-значение найдена, заменить ее меткой удаления
 		h.size--
 	}
 }
@@ -101,8 +101,8 @@ func (h *hashMapOpenAddressing) remove(key int) {
 /* Расширить хеш-таблицу */
 func (h *hashMapOpenAddressing) extend() {
 	oldBuckets := h.buckets               // Временно сохранить исходную хеш-таблицу
-	h.capacity *= h.extendRatio           // Обновитьвместимость
-	h.buckets = make([]*pair, h.capacity) // Инициализировать новую хеш-таблицу после расширения
+	h.capacity *= h.extendRatio           // Обновить емкость
+	h.buckets = make([]*pair, h.capacity) // Инициализация новой хеш-таблицы после расширения
 	h.size = 0                            // Сбросить размер
 	// Перенести пары ключ-значение из исходной хеш-таблицы в новую
 	for _, pair := range oldBuckets {
