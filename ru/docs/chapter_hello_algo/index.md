@@ -18,7 +18,7 @@ icon: material/rocket-launch-outline
 ![Hello Algo](../assets/covers/chapter_hello_algo.jpg){ class="cover-image" }
 
 <div style="text-align: center;">
-    <h2 style="margin-top: 0.8em; margin-bottom: 0.8em;">Hello, алгоритмы!</h2>
+    <h2 style="margin-top: 0.8em; margin-bottom: 0.8em;">Hello, Алго!</h2>
 </div>
 
 Появление компьютеров радикально изменило мир. Благодаря высокой вычислительной скорости и отличной программируемости они стали идеальной средой для исполнения алгоритмов и обработки данных. Реалистичная графика в играх, интеллектуальные решения в автономном вождении, впечатляющие партии AlphaGo и естественное взаимодействие ChatGPT: все это изящные проявления алгоритмов на компьютере.
