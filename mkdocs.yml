@@ -80,6 +80,9 @@ extra:
     - name: 日本語
       link: /ja/
       lang: ja
+    - name: Русский
+      link: /ru/
+      lang: ru
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/krahets

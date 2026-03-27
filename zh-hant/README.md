@@ -45,6 +45,8 @@
   <a href="https://github.com/krahets/hello-algo/blob/main/en/README.md">English</a>
   ｜
   <a href="https://github.com/krahets/hello-algo/blob/main/ja/README.md">日本語</a>
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/ru/README.md">Русский</a>
 </p>
 
 ## 關於本書
