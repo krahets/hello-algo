@@ -43,7 +43,7 @@ class ArrayDeque {
     /* Поместить в голову очереди */
     pushFirst(num) {
         if (this.#queSize === this.capacity()) {
-            console.log('двусторонняя очередьзаполнен');
+            console.log('Двусторонняя очередь заполнена');
             return;
         }
         // Указатель головы очереди сдвигается на одну позицию влево
@@ -57,7 +57,7 @@ class ArrayDeque {
     /* Поместить в хвост очереди */
     pushLast(num) {
         if (this.#queSize === this.capacity()) {
-            console.log('двусторонняя очередьзаполнен');
+            console.log('Двусторонняя очередь заполнена');
             return;
         }
         // Вычислить указатель хвоста, указывающий на индекс за последним элементом
@@ -119,9 +119,9 @@ console.log('двусторонняя очередь deque = [' + deque.toArray(
 
 /* Получить доступ к элементу */
 const peekFirst = deque.peekFirst();
-console.log('элемент в голове очереди peekFirst =' + peekFirst);
+console.log('голова очередиэлемент peekFirst =' + peekFirst);
 const peekLast = deque.peekLast();
-console.log('элемент в хвосте очереди peekLast =' + peekLast);
+console.log('хвост очередиэлемент peekLast =' + peekLast);
 
 /* Поместить элемент в очередь */
 deque.pushLast(4);
@@ -132,25 +132,25 @@ console.log('После помещения элемента 1 в голову о
 /* Извлечь элемент из очереди */
 const popLast = deque.popLast();
 console.log(
-    'Элемент, извлеченный из хвоста очереди, = ' +
+    'Элемент, извлеченный из хвоста очереди = ' +
         popLast +
-        ', deque после извлечения из хвоста = [' +
+        ', Извлечь из хвоста очередипосле deque = [' +
         deque.toArray() +
         ']'
 );
 const popFirst = deque.popFirst();
 console.log(
-    'Элемент, извлеченный из головы очереди, = ' +
+    'Элемент, извлеченный из головы очереди = ' +
         popFirst +
-        ', deque после извлечения из головы = [' +
+        ', Извлечь из головы очередипосле deque = [' +
         deque.toArray() +
         ']'
 );
 
 /* Получить длину двусторонней очереди */
 const size = deque.size();
-console.log('Длина двусторонней очереди size =' + size);
+console.log('Длина двусторонней очереди size = ' + size);
 
 /* Проверить, пуста ли двусторонняя очередь */
 const isEmpty = deque.isEmpty();
-console.log('двусторонняя Очередь пуста:' + isEmpty);
+console.log('Двусторонняя очередь пуста: ' + isEmpty);

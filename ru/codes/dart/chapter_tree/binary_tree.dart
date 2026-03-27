@@ -28,10 +28,10 @@ void main() {
   // Вставить узел p между n1 -> n2
   n1.left = p;
   p.left = n2;
-  print("\nвставить узел P после\n");
+  print("\nПосле вставки узла P\n");
   printTree(n1);
   // Удалить узел P
   n1.left = n2;
-  print("\nУдалить узел P после\n");
+  print("\nПосле удаления узла P\n");
   printTree(n1);
 }

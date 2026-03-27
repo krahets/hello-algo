@@ -28,7 +28,7 @@ class Trunk {
 }
 
 /**
- * Вывести двоичное дерево
+ * Вывестидвоичное дерево
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */

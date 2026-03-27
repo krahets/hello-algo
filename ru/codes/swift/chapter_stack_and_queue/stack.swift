@@ -26,7 +26,7 @@ enum Stack {
 
         /* Извлечь элемент из стека */
         let pop = stack.removeLast()
-        print("извлечение из стекаэлемент pop = \(pop), извлечение из стекапосле stack = \(stack)")
+        print("Элемент, извлеченный из стека, pop = \(pop), stack после извлечения = \(stack)")
 
         /* Получить длину стека */
         let size = stack.count
@@ -34,6 +34,6 @@ enum Stack {
 
         /* Проверить, пуста ли структура */
         let isEmpty = stack.isEmpty
-        print("Стек пуст: \(isEmpty)")
+        print("стекпуст ли = \(isEmpty)")
     }
 }

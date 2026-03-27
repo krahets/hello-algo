@@ -28,5 +28,5 @@ fun selectionSort(nums: IntArray) {
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     selectionSort(nums)
-    println("После сортировки выбором nums = ${nums.contentToString()}")
+    println("Сортировка выборомпосле завершения nums = ${nums.contentToString()}")
 }

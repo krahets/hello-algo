@@ -75,31 +75,31 @@ public class array {
     public static void main(String[] args) {
         /* Инициализировать массив */
         int[] arr = new int[5];
-        System.out.println("массив arr =" + Arrays.toString(arr));
+        System.out.println("Массив arr = " + Arrays.toString(arr));
         int[] nums = { 1, 3, 2, 5, 4 };
-        System.out.println("массив nums =" + Arrays.toString(nums));
+        System.out.println("Массив nums = " + Arrays.toString(nums));
 
         /* Случайный доступ */
         int randomNum = randomAccess(nums);
-        System.out.println("Полученный случайный элемент из nums" + randomNum);
+        System.out.println("Полученный случайный элемент из nums " + randomNum);
 
         /* Расширение длины */
         nums = extend(nums, 3);
-        System.out.println("После расширения длины массива до 8 получаем nums =" + Arrays.toString(nums));
+        System.out.println("После расширения длины массива до 8 получаем nums = " + Arrays.toString(nums));
 
         /* Вставить элемент */
         insert(nums, 6, 3);
-        System.out.println("После вставки числа 6 по индексу 3 получаем nums =" + Arrays.toString(nums));
+        System.out.println("После вставки числа 6 по индексу 3 получаем nums = " + Arrays.toString(nums));
 
         /* Удалить элемент */
         remove(nums, 2);
-        System.out.println("После удаления элемента по индексу 2 получаем nums =" + Arrays.toString(nums));
+        System.out.println("После удаления элемента по индексу 2 получаем nums = " + Arrays.toString(nums));
 
         /* Перебрать массив */
         traverse(nums);
 
         /* Найти элемент */
         int index = find(nums, 3);
-        System.out.println("Поиск элемента 3 в nums дает индекс =" + index);
+        System.out.println("Поиск элемента 3 в nums дает индекс = " + index);
     }
 }

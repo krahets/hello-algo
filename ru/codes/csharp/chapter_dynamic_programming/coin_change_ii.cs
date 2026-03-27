@@ -59,10 +59,10 @@ public class coin_change_ii {
 
         // Динамическое программирование
         int res = CoinChangeIIDP(coins, amt);
-        Console.WriteLine("Количество комбинаций монет для получения целевой суммы равно" + res);
+        Console.WriteLine("Количество комбинаций монет для получения целевой суммы равно " + res);
 
         // Динамическое программирование с оптимизацией по памяти
         res = CoinChangeIIDPComp(coins, amt);
-        Console.WriteLine("Количество комбинаций монет для получения целевой суммы равно" + res);
+        Console.WriteLine("Количество комбинаций монет для получения целевой суммы равно " + res);
     }
 }

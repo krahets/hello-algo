@@ -40,6 +40,6 @@ public class binary_search_recur {
 
         // Бинарный поиск (двусторонний закрытый интервал)
         int index = binarySearch(nums, target);
-        System.out.println("Индекс целевого элемента 6 =" + index);
+        System.out.println("Индекс целевого элемента 6 = " + index);
     }
 }

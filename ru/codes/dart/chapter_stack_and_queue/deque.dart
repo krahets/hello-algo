@@ -16,9 +16,9 @@ void main() {
 
   /* Получить доступ к элементу */
   final int peekFirst = deque.first;
-  print("элемент в голове очереди peekFirst = $peekFirst");
+  print("голова очередиэлемент peekFirst = $peekFirst");
   final int peekLast = deque.last;
-  print("элемент в хвосте очереди peekLast = $peekLast");
+  print("хвост очередиэлемент peekLast = $peekLast");
 
   /* Поместить элемент в очередь */
   deque.addLast(4);
@@ -28,9 +28,9 @@ void main() {
 
   /* Извлечь элемент из очереди */
   final int popLast = deque.removeLast();
-  print("Элемент, извлеченный из хвоста очереди, = $popLast, deque после извлечения из хвоста = $deque");
+  print("Элемент, извлеченный из хвоста очереди = $popLast , deque после извлечения из хвоста = $deque");
   final int popFirst = deque.removeFirst();
-  print("Элемент, извлеченный из головы очереди, = $popFirst, deque после извлечения из головы = $deque");
+  print("Элемент, извлеченный из головы очереди = $popFirst , deque после извлечения из головы = $deque");
 
   /* Получить длину двусторонней очереди */
   final int size = deque.length;
@@ -38,5 +38,5 @@ void main() {
 
   /* Проверить, пуста ли двусторонняя очередь */
   final bool isEmpty = deque.isEmpty;
-  print("двусторонняя Очередь пуста: $isEmpty");
+  print("Двусторонняя очередь пуста: $isEmpty");
 }

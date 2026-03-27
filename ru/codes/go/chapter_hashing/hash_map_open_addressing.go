@@ -101,7 +101,7 @@ func (h *hashMapOpenAddressing) remove(key int) {
 /* Расширить хеш-таблицу */
 func (h *hashMapOpenAddressing) extend() {
 	oldBuckets := h.buckets               // Временно сохранить исходную хеш-таблицу
-	h.capacity *= h.extendRatio           // Обновить вместимость
+	h.capacity *= h.extendRatio           // Обновитьвместимость
 	h.buckets = make([]*pair, h.capacity) // Инициализировать новую хеш-таблицу после расширения
 	h.size = 0                            // Сбросить размер
 	// Перенести пары ключ-значение из исходной хеш-таблицы в новую

@@ -42,13 +42,13 @@ fn minCostClimbingStairsDPComp(cost: []i32) i32 {
 // Driver Code
 pub fn main() !void {
     comptime var cost = [_]i32{ 0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1 };
-    std.debug.print("Список стоимостей ступеней: {any}\n",.{cost});
+    std.debug.print("Список стоимостей ступеней: {any}\n", .{cost});
 
     var res = minCostClimbingStairsDP(&cost);
-    std.debug.print("Список стоимостей ступеней: {}\n",.{res});
+    std.debug.print("Список стоимостей ступеней: {}\n", .{res});
 
     res = minCostClimbingStairsDPComp(&cost);
-    std.debug.print("Список стоимостей ступеней: {}\n",.{res});
+    std.debug.print("Список стоимостей ступеней: {}\n", .{res});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

@@ -12,7 +12,7 @@ import utils.printTree
 /* Driver Code */
 fun main() {
     /* Инициализировать двоичное дерево */
-    // Инициализировать узел
+    // Инициализироватьузел
     val n1 = TreeNode(1)
     val n2 = TreeNode(2)
     val n3 = TreeNode(3)
@@ -31,10 +31,10 @@ fun main() {
     // Вставить узел P между n1 -> n2
     n1.left = P
     P.left = n2
-    println("\nвставить узел P после\n")
+    println("\nПосле вставки узла P\n")
     printTree(n1)
     // Удалить узел P
     n1.left = n2
-    println("\nУдалить узел P после\n")
+    println("\nПосле удаления узла P\n")
     printTree(n1)
 }

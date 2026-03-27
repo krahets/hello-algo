@@ -49,10 +49,10 @@ public class binary_search {
 
         /* Бинарный поиск (двусторонний закрытый интервал) */
         int index = binarySearch(nums, target);
-        System.out.println("Индекс целевого элемента 6 =" + index);
+        System.out.println("Индекс целевого элемента 6 = " + index);
 
         /* Бинарный поиск (левый закрытый, правый открытый интервал) */
         index = binarySearchLCRO(nums, target);
-        System.out.println("Индекс целевого элемента 6 =" + index);
+        System.out.println("Индекс целевого элемента 6 = " + index);
     }
 }

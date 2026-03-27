@@ -31,7 +31,7 @@ for (let i = 0; i < nums.length; i++) {
     map.set(nums[i], i); // key: элемент, value: индекс
 }
 const index = hashingSearchArray(map, target);
-console.log('Индекс целевого элемента 3 =' + index);
+console.log('Индекс целевого элемента 3 = ' + index);
 
 /* Хеш-поиск (связный список) */
 let head = arrToLinkedList(nums);

@@ -95,7 +95,7 @@ class AVLTree {
         root = insertHelper(node: root, val: val)
     }
 
-    /* Рекурсивная вставка узла (вспомогательный метод) */
+    /* рекурсиявставить узел(вспомогательный метод) */
     private func insertHelper(node: TreeNode?, val: Int) -> TreeNode? {
         var node = node
         if node == nil {
@@ -121,7 +121,7 @@ class AVLTree {
         root = removeHelper(node: root, val: val)
     }
 
-    /* Рекурсивное удаление узла (вспомогательный метод) */
+    /* рекурсияУдалить узел(вспомогательный метод) */
     private func removeHelper(node: TreeNode?, val: Int) -> TreeNode? {
         var node = node
         if node == nil {
@@ -225,6 +225,6 @@ enum _AVLTree {
 
         /* Найти узел */
         let node = avlTree.search(val: 7)
-        print("\nНайденный объект узла равен \(node!), значение узла = \(node!.val)")
+        print("\nНайденныйузелобъектравно \(node!), значение узла = \(node!.val)")
     }
 }

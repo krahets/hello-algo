@@ -22,25 +22,25 @@ pub fn main() !void {
     queue.append(&node3);
     queue.append(&node4);
     queue.append(&node5);
-    std.debug.print("очередь queue =",.{});
+    std.debug.print("Очередь queue = ", .{});
     inc.PrintUtil.printQueue(i32, queue);
 
     // Получить элемент в начале очереди
     var peek = queue.first.?.data;
-    std.debug.print("\nэлемент в голове очереди peek = {}",.{peek});
+    std.debug.print("\nголова очередиэлемент peek = {}", .{peek});
 
     // Извлечь элемент из очереди
     var pop = queue.popFirst().?.data;
-    std.debug.print("\nЭлемент, извлеченный из очереди, pop = {}, queue после извлечения =",.{pop});
+    std.debug.print("\nЭлемент, извлеченный из очереди, pop = {}, queue после извлечения = ", .{pop});
     inc.PrintUtil.printQueue(i32, queue);
 
     // Получить длину очереди
     var size = queue.len;
-    std.debug.print("\nДлина очереди size = {}",.{size});
+    std.debug.print("\nДлина очереди size = {}", .{size});
 
     // Проверить, пуста ли очередь
     var is_empty = if (queue.len == 0) true else false;
-    std.debug.print("\nОчередь пуста: {}",.{is_empty});
+    std.debug.print("\nОчередь пуста: {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

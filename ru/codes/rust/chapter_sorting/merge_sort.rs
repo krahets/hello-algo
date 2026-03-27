@@ -62,5 +62,5 @@ fn main() {
     let mut nums = [7, 3, 2, 6, 0, 1, 5, 4];
     let right = nums.len() - 1;
     merge_sort(&mut nums, 0, right);
-    println!("После сортировки слиянием nums = {:?}", nums);
+    println!("Сортировка слияниемпосле завершения nums = {:?}", nums);
 }

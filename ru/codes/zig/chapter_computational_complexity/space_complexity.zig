@@ -62,7 +62,7 @@ fn linear(comptime n: i32) !void {
 
 // Линейная сложность (рекурсивная реализация)
 fn linearRecur(comptime n: i32) void {
-    std.debug.print("рекурсия n = {}\n",.{n});
+    std.debug.print("Рекурсия: n = {}\n", .{n});
     if (n == 1) return;
     linearRecur(n - 1);
 }
@@ -88,7 +88,7 @@ fn quadratic(n: i32) !void {
 fn quadraticRecur(comptime n: i32) i32 {
     if (n <= 0) return 0;
     const nums = [_]i32{0} ** n;
-    std.debug.print("рекурсия n = {} в nums длина = {}\n",.{ n, nums.len });
+    std.debug.print("Рекурсия: n = {}, длина nums = {}\n", .{ n, nums.len });
     return quadraticRecur(n - 1);
 }
 

@@ -51,6 +51,6 @@ pub fn main() {
 
     let res = subset_sum_i(&mut nums, target);
 
-    println!("Входмассив nums = {:?}, target = {}", &nums, target);
+    println!("Входной массив nums = {:?}, target = {}", &nums, target);
     println!("Все подмножества с суммой {} res = {:?}", target, &res);
 }

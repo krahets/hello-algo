@@ -33,14 +33,14 @@ public class coin_change_greedy {
         int amt = 186;
         int res = CoinChangeGreedy(coins, amt);
         Console.WriteLine("\ncoins = " + coins.PrintList() + ", amt = " + amt);
-        Console.WriteLine("Для получения" + amt + "минимальное число монет равно" + res);
+        Console.WriteLine("Минимальное число монет, необходимое для получения " + amt + ", равно " + res);
 
         // Жадный подход: не гарантирует нахождение глобально оптимального решения
         coins = [1, 20, 50];
         amt = 60;
         res = CoinChangeGreedy(coins, amt);
         Console.WriteLine("\ncoins = " + coins.PrintList() + ", amt = " + amt);
-        Console.WriteLine("Для получения" + amt + "минимальное число монет равно" + res);
+        Console.WriteLine("Минимальное число монет, необходимое для получения " + amt + ", равно " + res);
         Console.WriteLine("Фактически минимальное необходимое количество равно 3, то есть 20 + 20 + 20");
 
         // Жадный подход: не гарантирует нахождение глобально оптимального решения
@@ -48,7 +48,7 @@ public class coin_change_greedy {
         amt = 98;
         res = CoinChangeGreedy(coins, amt);
         Console.WriteLine("\ncoins = " + coins.PrintList() + ", amt = " + amt);
-        Console.WriteLine("Для получения" + amt + "минимальное число монет равно" + res);
+        Console.WriteLine("Минимальное число монет, необходимое для получения " + amt + ", равно " + res);
         Console.WriteLine("Фактически минимальное необходимое количество равно 2, то есть 49 + 49");
     }
 }

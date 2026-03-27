@@ -19,7 +19,7 @@ class Trunk {
 };
 
 public class PrintUtil {
-    /* Вывести матрицу (Array) */
+    /* Вывестиматрица(Array) */
     public static <T> void printMatrix(T[][] matrix) {
         System.out.println("[");
         for (T[] row : matrix) {
@@ -28,7 +28,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /* Вывести матрицу (List) */
+    /* Вывестиматрица(List) */
     public static <T> void printMatrix(List<List<T>> matrix) {
         System.out.println("[");
         for (List<T> row : matrix) {
@@ -53,7 +53,7 @@ public class PrintUtil {
     }
 
     /**
- * Вывести двоичное дерево
+ * Вывестидвоичное дерево
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */

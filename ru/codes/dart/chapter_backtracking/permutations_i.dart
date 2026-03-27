@@ -46,6 +46,6 @@ void main() {
 
   List<List<int>> res = permutationsI(nums);
 
-  print("Входмассив nums = $nums");
+  print("Входной массив nums = $nums");
   print("Все перестановки res = $res");
 }

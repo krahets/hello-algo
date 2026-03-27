@@ -30,7 +30,7 @@ class ArrayQueue(capacity: Int) {
     /* Поместить в очередь */
     fun push(num: Int) {
         if (queSize == capacity()) {
-            println("очередьзаполнен")
+            println("Очередь заполнена")
             return
         }
         // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
@@ -87,11 +87,11 @@ fun main() {
 
     /* Получить элемент в начале очереди */
     val peek = queue.peek()
-    println("элемент в голове очереди peek = $peek")
+    println("голова очередиэлемент peek = $peek")
 
     /* Извлечь элемент из очереди */
     val pop = queue.pop()
-    println("Элемент, извлеченный из очереди, pop = ${pop}, queue после извлечения = ${queue.toArray().contentToString()}")
+    println("Элемент, извлеченный из очереди, pop = ${pop}, queue после извлечения =  ${queue.toArray().contentToString()}")
 
     /* Получить длину очереди */
     val size = queue.size()

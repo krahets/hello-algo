@@ -47,7 +47,7 @@ public class permutations_ii {
 
         List<List<Integer>> res = permutationsII(nums);
 
-        System.out.println("Входмассив nums =" + Arrays.toString(nums));
-        System.out.println("Все перестановки res =" + res);
+        System.out.println("Входной массив nums = " + Arrays.toString(nums));
+        System.out.println("Все перестановки res = " + res);
     }
 }

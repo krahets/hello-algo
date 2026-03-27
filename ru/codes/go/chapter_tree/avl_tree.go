@@ -111,7 +111,7 @@ func (t *aVLTree) insert(val int) {
 	t.root = t.insertHelper(t.root, val)
 }
 
-/* Рекурсивная вставка узла (вспомогательная функция) */
+/* рекурсиявставить узел(вспомогательная функция) */
 func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return NewTreeNode(val)
@@ -138,7 +138,7 @@ func (t *aVLTree) remove(val int) {
 	t.root = t.removeHelper(t.root, val)
 }
 
-/* Рекурсивное удаление узла (вспомогательная функция) */
+/* рекурсияУдалить узел(вспомогательная функция) */
 func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return nil

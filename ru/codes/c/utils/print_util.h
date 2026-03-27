@@ -18,7 +18,7 @@
 extern "C" {
 #endif
 
-/* Вывести массив */
+/* Вывестимассив */
 void printArray(int arr[], int size) {
     if (arr == NULL || size == 0) {
         printf("[]");
@@ -31,7 +31,7 @@ void printArray(int arr[], int size) {
     printf("%d]\n", arr[size - 1]);
 }
 
-/* Вывести массив */
+/* Вывестимассив */
 void printArrayFloat(float arr[], int size) {
     if (arr == NULL || size == 0) {
         printf("[]");
@@ -78,7 +78,7 @@ void showTrunks(Trunk *trunk) {
 }
 
 /**
- * Вывести двоичное дерево
+ * Вывестидвоичное дерево
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */

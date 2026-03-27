@@ -43,7 +43,7 @@ fn main() {
     // ====== Driver Code ======
     // метод 1
     let res = two_sum_brute_force(&nums, target).unwrap();
-    print!("метод 1 res =");
+    print!("Метод 1 res = ");
     print_util::print_array(&res);
     // Метод 2
     let res = two_sum_hash_table(&nums, target).unwrap();

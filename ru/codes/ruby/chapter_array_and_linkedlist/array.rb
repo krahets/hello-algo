@@ -81,7 +81,7 @@ if __FILE__ == $0
   arr = Array.new(5, 0)
   puts "массив arr = #{arr}"
   nums = [1, 3, 2, 5, 4]
-  puts "массив nums = #{nums}"
+  puts "Массив nums = #{nums}"
 
   # Случайный доступ
   random_num = random_access(nums)
@@ -97,7 +97,7 @@ if __FILE__ == $0
 
   # Удалить элемент
   remove(nums, 2)
-  puts "После удаления элемента по индексу 2 получаем nums = #{nums}"
+  puts "Удалитьиндекс 2 поэлемент, получаем nums = #{nums}"
 
   # Перебрать массив
   traverse(nums)

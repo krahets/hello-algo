@@ -71,7 +71,7 @@ public class GraphAdjList {
 
     /* Вывести список смежности */
     public func print() {
-        Swift.print("список смежности =")
+        Swift.print("Список смежности =")
         for (vertex, list) in adjList {
             let list = list.map { $0.val }
             Swift.print("\(vertex.val): \(list),")

@@ -9,7 +9,7 @@ use hello_algo_rust::include::{print_util, TreeNode};
 /* Driver Code */
 fn main() {
     /* Инициализировать двоичное дерево */
-    // Инициализировать узел
+    // Инициализироватьузел
     let n1 = TreeNode::new(1);
     let n2 = TreeNode::new(2);
     let n3 = TreeNode::new(3);
@@ -28,11 +28,11 @@ fn main() {
     // Вставить узел P между n1 -> n2
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
-    println!("\nвставить узел P после\n");
+    println!("\nПосле вставки узла P\n");
     print_util::print_tree(&n1);
     // Удалить узел P
     drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
-    println!("\nУдалить узел P после\n");
+    println!("\nПосле удаления узла P\n");
     print_util::print_tree(&n1);
 }

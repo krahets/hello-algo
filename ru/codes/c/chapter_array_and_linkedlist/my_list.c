@@ -32,7 +32,7 @@ void delMyList(MyList *nums) {
     free(nums);
 }
 
-/* Получить длину списка */
+/* Получитьсписокдлина */
 int size(MyList *nums) {
     return nums->size;
 }
@@ -129,7 +129,7 @@ int main() {
 
     /* Вставить элемент в середину */
     insert(nums, 3, 6);
-    printf("После вставки числа 6 в индекс 3 получаем nums = ");
+    printf("После вставки числа 6 по индексу 3 получаем nums = ");
     printArray(toArray(nums), size(nums));
 
     /* Удалить элемент */

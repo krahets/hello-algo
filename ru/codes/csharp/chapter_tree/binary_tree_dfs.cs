@@ -46,14 +46,14 @@ public class binary_tree_dfs {
 
         list.Clear();
         PreOrder(root);
-        Console.WriteLine("\nПоследовательность узлов при прямом обходе =" + string.Join(",", list));
+        Console.WriteLine("\nПоследовательность узлов при прямом обходе = " + string.Join(",", list));
 
         list.Clear();
         InOrder(root);
-        Console.WriteLine("\nПоследовательность узлов при симметричном обходе =" + string.Join(",", list));
+        Console.WriteLine("\nПоследовательность узлов при симметричном обходе = " + string.Join(",", list));
 
         list.Clear();
         PostOrder(root);
-        Console.WriteLine("\nПоследовательность узлов при обратном обходе =" + string.Join(",", list));
+        Console.WriteLine("\nПоследовательность узлов при обратном обходе = " + string.Join(",", list));
     }
 }

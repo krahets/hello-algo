@@ -43,8 +43,8 @@ public class worst_best_time_complexity {
             int n = 100;
             int[] nums = randomNumbers(n);
             int index = findOne(nums);
-            System.out.println("\nПосле перемешивания массива [ 1, 2,..., n ] =" + Arrays.toString(nums));
-            System.out.println("Индекс числа 1 равен" + index);
+            System.out.println("\nПосле перемешивания массива [ 1, 2, ..., n ] = " + Arrays.toString(nums));
+            System.out.println("Индекс числа 1 равен " + index);
         }
     }
 }

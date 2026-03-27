@@ -32,7 +32,7 @@ class ArrayStack {
     @discardableResult
     func pop() -> Int {
         if isEmpty() {
-            fatalError("стекпуст")
+            fatalError("Стек пуст")
         }
         return stack.removeLast()
     }
@@ -40,7 +40,7 @@ class ArrayStack {
     /* Получить верхний элемент стека */
     func peek() -> Int {
         if isEmpty() {
-            fatalError("стекпуст")
+            fatalError("Стек пуст")
         }
         return stack.last!
     }
@@ -72,7 +72,7 @@ enum _ArrayStack {
 
         /* Извлечь элемент из стека */
         let pop = stack.pop()
-        print("извлечение из стекаэлемент pop = \(pop), извлечение из стекапосле stack = \(stack.toArray())")
+        print("Элемент, извлеченный из стека, pop = \(pop), stack после извлечения = \(stack.toArray())")
 
         /* Получить длину стека */
         let size = stack.size()
@@ -80,6 +80,6 @@ enum _ArrayStack {
 
         /* Проверить, пуста ли структура */
         let isEmpty = stack.isEmpty()
-        print("Стек пуст: \(isEmpty)")
+        print("стекпуст ли = \(isEmpty)")
     }
 }

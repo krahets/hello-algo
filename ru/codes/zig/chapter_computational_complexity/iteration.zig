@@ -67,16 +67,16 @@ pub fn run() !void {
     var res: i32 = 0;
 
     res = forLoop(n);
-    std.debug.print("Результат суммирования в цикле for res = {}\n",.{res});
+    std.debug.print("Результат суммирования в цикле for res = {}\n", .{res});
 
     res = whileLoop(n);
-    std.debug.print("Результат суммирования в цикле while res = {}\n",.{res});
+    std.debug.print("Результат суммирования в цикле while res = {}\n", .{res});
 
     res = whileLoopII(n);
-    std.debug.print("Цикл while (с двумя обновлениями)результат суммирования res = {}\n",.{res});
+    std.debug.print("Цикл while (с двумя обновлениями)суммированиерезультат res = {}\n", .{res});
 
     const resStr = try nestedForLoop(allocator, n);
-    std.debug.print("Результат обхода двойным циклом for {s}\n",.{resStr});
+    std.debug.print("Результат обхода двойным циклом for {s}\n", .{resStr});
     allocator.free(resStr);
 
     std.debug.print("\n", .{});

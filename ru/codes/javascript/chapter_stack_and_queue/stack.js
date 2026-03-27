@@ -15,16 +15,16 @@ stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
-console.log('стек stack =', stack);
+console.log('Стек stack =', stack);
 
 /* Получить верхний элемент стека */
 const peek = stack[stack.length - 1];
-console.log('вершина стекаэлемент peek =', peek);
+console.log('Верхний элемент стека peek =', peek);
 
 /* Извлечь элемент из стека */
 const pop = stack.pop();
-console.log('извлечение из стекаэлемент pop =', pop);
-console.log('извлечение из стекапосле stack =', stack);
+console.log('Извлеченный из стека элемент pop =', pop);
+console.log('После извлечения stack =', stack);
 
 /* Получить длину стека */
 const size = stack.length;
@@ -32,4 +32,4 @@ console.log('Длина стека size =', size);
 
 /* Проверить, пуста ли структура */
 const isEmpty = stack.length === 0;
-console.log('Стек пуст:', isEmpty);
+console.log('Пуст ли стек =', isEmpty);

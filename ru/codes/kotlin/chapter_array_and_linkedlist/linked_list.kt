@@ -52,8 +52,8 @@ fun find(head: ListNode?, target: Int): Int {
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать связный список */
-    // Инициализировать каждый узел
+    /* Инициализироватьсвязный список */
+    // Инициализироватькаждый узел
     val n0 = ListNode(1)
     val n1 = ListNode(3)
     val n2 = ListNode(2)

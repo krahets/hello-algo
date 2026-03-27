@@ -45,7 +45,7 @@ function subsetSumINaive(nums: number[], target: number): number[][] {
 const nums = [3, 4, 5];
 const target = 9;
 const res = subsetSumINaive(nums, target);
-console.log(`Входмассив nums = ${JSON.stringify(nums)}, target = ${target}`);
+console.log(`Входной массив nums = ${JSON.stringify(nums)}, target = ${target}`);
 console.log(`Все подмножества с суммой ${target} res = ${JSON.stringify(res)}`);
 console.log('Обратите внимание: результат этого метода содержит повторяющиеся множества');
 

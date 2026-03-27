@@ -35,7 +35,7 @@ class ArrayQueue {
     /* Поместить в очередь */
     public void Push(int num) {
         if (queSize == Capacity()) {
-            Console.WriteLine("очередьзаполнен");
+            Console.WriteLine("Очередь заполнена");
             return;
         }
         // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
@@ -86,15 +86,15 @@ public class array_queue {
         queue.Push(2);
         queue.Push(5);
         queue.Push(4);
-        Console.WriteLine("очередь queue =" + string.Join(",", queue.ToArray()));
+        Console.WriteLine("Очередь queue = " + string.Join(",", queue.ToArray()));
 
         /* Получить элемент в начале очереди */
         int peek = queue.Peek();
-        Console.WriteLine("элемент в голове очереди peek =" + peek);
+        Console.WriteLine("голова очередиэлемент peek =" + peek);
 
         /* Извлечь элемент из очереди */
         int pop = queue.Pop();
-        Console.WriteLine("Элемент, извлеченный из очереди, pop =" + pop + ", queue после извлечения =" + string.Join(",", queue.ToArray()));
+        Console.WriteLine("Элемент, извлеченный из очереди, pop = " + pop + ", queue после извлечения = " + string.Join(",", queue.ToArray()));
 
         /* Получить длину очереди */
         int size = queue.Size();
@@ -102,7 +102,7 @@ public class array_queue {
 
         /* Проверить, пуста ли очередь */
         bool isEmpty = queue.IsEmpty();
-        Console.WriteLine("Очередь пуста:" + isEmpty);
+        Console.WriteLine("Очередь пуста: " + isEmpty);
 
         /* Проверить кольцевой массив */
         for (int i = 0; i < 10; i++) {

@@ -42,7 +42,7 @@ int binarySearchInsertion(List<int> nums, int target) {
 void main() {
   // Массив без повторяющихся элементов
   List<int> nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
-  print("\nмассив nums = $nums");
+  print("\nМассив nums = $nums");
   // Найти точку вставки бинарным поиском
   for (int target in [6, 9]) {
     int index = binarySearchInsertionSimple(nums, target);
@@ -51,7 +51,7 @@ void main() {
 
   // Массив с повторяющимися элементами
   nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
-  print("\nмассив nums = $nums");
+  print("\nМассив nums = $nums");
   // Найти точку вставки бинарным поиском
   for (int target in [2, 6, 20]) {
     int index = binarySearchInsertion(nums, target);

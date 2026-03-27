@@ -48,12 +48,12 @@ fn bubbleSortWithFlag(nums: []i32) void {
 pub fn main() !void {
     var nums = [_]i32{ 4, 1, 3, 1, 5, 2 };
     bubbleSort(&nums);
-    std.debug.print("После пузырьковой сортировки nums =",.{});
+    std.debug.print("Пузырьковая сортировкапосле завершения nums =", .{});
     inc.PrintUtil.printArray(i32, &nums);
 
     var nums1 = [_]i32{ 4, 1, 3, 1, 5, 2 };
     bubbleSortWithFlag(&nums1);
-    std.debug.print("\nПосле пузырьковой сортировки nums1 =",.{});
+    std.debug.print("\nПузырьковая сортировкапосле завершения nums1 =", .{});
     inc.PrintUtil.printArray(i32, &nums1);
     
     _ = try std.io.getStdIn().reader().readByte();

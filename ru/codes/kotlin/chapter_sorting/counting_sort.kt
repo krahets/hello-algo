@@ -76,5 +76,5 @@ fun main() {
 
     val nums1 = intArrayOf(1, 0, 1, 2, 0, 4, 0, 2, 2, 4)
     countingSort(nums1)
-    println("После сортировки подсчетом nums1 = ${nums1.contentToString()}")
+    println("Подсчетная сортировкапосле завершения nums1 = ${nums1.contentToString()}")
 }

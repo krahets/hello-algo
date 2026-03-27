@@ -22,17 +22,17 @@ func TestStack(t *testing.T) {
 	stack = append(stack, 2)
 	stack = append(stack, 5)
 	stack = append(stack, 4)
-	fmt.Print("стек stack =")
+	fmt.Print("Стек stack = ")
 	PrintSlice(stack)
 
 	/* Получить верхний элемент стека */
 	peek := stack[len(stack)-1]
-	fmt.Println("вершина стекаэлемент peek =", peek)
+	fmt.Println("Верхний элемент стека peek =", peek)
 
 	/* Извлечь элемент из стека */
 	pop := stack[len(stack)-1]
 	stack = stack[:len(stack)-1]
-	fmt.Print("извлечение из стекаэлемент pop =", pop, ", извлечение из стекапосле stack =")
+	fmt.Print("Элемент, извлеченный из стека, pop = ", pop, ", stack после извлечения = ")
 	PrintSlice(stack)
 
 	/* Получить длину стека */
@@ -41,7 +41,7 @@ func TestStack(t *testing.T) {
 
 	/* Проверить, пуста ли структура */
 	isEmpty := len(stack) == 0
-	fmt.Println("Стек пуст:", isEmpty)
+	fmt.Println("Пуст ли стек =", isEmpty)
 }
 
 func TestArrayStack(t *testing.T) {
@@ -54,16 +54,16 @@ func TestArrayStack(t *testing.T) {
 	stack.push(2)
 	stack.push(5)
 	stack.push(4)
-	fmt.Print("стек stack =")
+	fmt.Print("Стек stack = ")
 	PrintSlice(stack.toSlice())
 
 	// Получить верхний элемент стека
 	peek := stack.peek()
-	fmt.Println("вершина стекаэлемент peek =", peek)
+	fmt.Println("Верхний элемент стека peek =", peek)
 
 	// Извлечь элемент из стека
 	pop := stack.pop()
-	fmt.Print("извлечение из стекаэлемент pop =", pop, ", извлечение из стекапосле stack =")
+	fmt.Print("Элемент, извлеченный из стека, pop = ", pop, ", stack после извлечения = ")
 	PrintSlice(stack.toSlice())
 
 	// Получить длину стека
@@ -72,7 +72,7 @@ func TestArrayStack(t *testing.T) {
 
 	// Проверить, пуста ли структура
 	isEmpty := stack.isEmpty()
-	fmt.Println("Стек пуст:", isEmpty)
+	fmt.Println("Пуст ли стек =", isEmpty)
 }
 
 func TestLinkedListStack(t *testing.T) {
@@ -84,16 +84,16 @@ func TestLinkedListStack(t *testing.T) {
 	stack.push(2)
 	stack.push(5)
 	stack.push(4)
-	fmt.Print("стек stack =")
+	fmt.Print("Стек stack = ")
 	PrintList(stack.toList())
 
 	// Получить верхний элемент стека
 	peek := stack.peek()
-	fmt.Println("вершина стекаэлемент peek =", peek)
+	fmt.Println("Верхний элемент стека peek =", peek)
 
 	// Извлечь элемент из стека
 	pop := stack.pop()
-	fmt.Print("извлечение из стекаэлемент pop =", pop, ", извлечение из стекапосле stack =")
+	fmt.Print("Элемент, извлеченный из стека, pop = ", pop, ", stack после извлечения = ")
 	PrintList(stack.toList())
 
 	// Получить длину стека
@@ -102,7 +102,7 @@ func TestLinkedListStack(t *testing.T) {
 
 	// Проверить, пуста ли структура
 	isEmpty := stack.isEmpty()
-	fmt.Println("Стек пуст:", isEmpty)
+	fmt.Println("Пуст ли стек =", isEmpty)
 }
 
 // BenchmarkArrayStack 8 ns/op in Mac M1 Pro

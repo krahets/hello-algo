@@ -16,13 +16,13 @@ fn greaterThan(context: void, a: i32, b: i32) std.math.Order {
 
 fn testPush(comptime T: type, mem_allocator: std.mem.Allocator, heap: anytype, val: T) !void {
     try heap.add(val);  // Добавить элемент в кучу
-    std.debug.print("\nЭлемент {} после добавления в кучу\n",.{val});
+    std.debug.print("\nЭлемент {} после добавления в кучу\n", .{val});
     try inc.PrintUtil.printHeap(T, mem_allocator, heap);
 }
 
 fn testPop(comptime T: type, mem_allocator: std.mem.Allocator, heap: anytype) !void {
     var val = heap.remove();    // Извлечь верхний элемент из кучи
-    std.debug.print("\nвершина кучиЭлемент {} после извлечения из кучи\n",.{val});
+    std.debug.print("\nвершина кучиЭлемент {} после извлечения из кучи\n", .{val});
     try inc.PrintUtil.printHeap(T, mem_allocator, heap);
 }
 
@@ -33,7 +33,7 @@ pub fn main() !void {
     defer mem_arena.deinit();
     const mem_allocator = mem_arena.allocator();
 
-    // Инициализировать кучу
+    // Инициализироватькуча
     // Инициализировать min-кучу
     const PQlt = std.PriorityQueue(i32, void, lessThan);
     var min_heap = PQlt.init(std.heap.page_allocator, {});
@@ -43,7 +43,7 @@ pub fn main() !void {
     var max_heap = PQgt.init(std.heap.page_allocator, {});
     defer max_heap.deinit();
 
-    std.debug.print("\nНиже приведены тестовые примеры max-кучи",.{});
+    std.debug.print("\nСледующие тестовые примеры относятся к max-куче", .{});
 
     // Добавить элемент в кучу
     try testPush(i32, mem_allocator, &max_heap, 1);
@@ -54,7 +54,7 @@ pub fn main() !void {
 
     // Получить верхний элемент кучи
     var peek = max_heap.peek().?;
-    std.debug.print("\nЭлемент на вершине кучи равен {}\n",.{peek});
+    std.debug.print("\nвершина кучиэлементравно {}\n", .{peek});
 
     // Извлечь верхний элемент из кучи
     try testPop(i32, mem_allocator, &max_heap);
@@ -65,15 +65,15 @@ pub fn main() !void {
 
     // Получить размер кучи
     var size = max_heap.len;
-    std.debug.print("\nКоличество элементов в куче равно {}\n",.{size});
+    std.debug.print("\nКоличество элементов в куче равно {}\n", .{size});
 
     // Проверить, пуста ли куча
     var is_empty = if (max_heap.len == 0) true else false;
-    std.debug.print("\nКуча пуста: {}\n",.{is_empty});
+    std.debug.print("\nкучапуст ли {}\n", .{is_empty});
 
-    // Входной список и построение кучи
+    // Входсписокипостроение кучи
     try min_heap.addSlice(&[_]i32{ 1, 3, 2, 5, 4 });
-    std.debug.print("\nПосле построения min-кучи из входного списка\n",.{});
+    std.debug.print("\nВходсписокипостроитьmin-кучапосле\n", .{});
     try inc.PrintUtil.printHeap(i32, mem_allocator, min_heap);
 
     _ = try std.io.getStdIn().reader().readByte();

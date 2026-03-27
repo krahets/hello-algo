@@ -11,7 +11,7 @@ fun main() {
     /* Инициализировать список */
     // Изменяемое множество
     val nums = mutableListOf(1, 3, 2, 5, 4)
-    println("список nums = $nums")
+    println("Список nums = $nums")
 
     /* Получить доступ к элементу */
     val num = nums[1]
@@ -23,7 +23,7 @@ fun main() {
 
     /* Очистить список */
     nums.clear()
-    println("Очистить списокпосле nums = $nums")
+    println("После очистки списка nums = $nums")
 
     /* Добавить элемент в конец */
     nums.add(1)
@@ -31,7 +31,7 @@ fun main() {
     nums.add(2)
     nums.add(5)
     nums.add(4)
-    println("После добавления элемента nums = $nums")
+    println("Добавитьэлементпосле nums = $nums")
 
     /* Вставить элемент в середину */
     nums.add(3, 6)
@@ -39,7 +39,7 @@ fun main() {
 
     /* Удалить элемент */
     nums.removeAt(3)
-    println("После удаления элемента по индексу 3 получаем nums = $nums")
+    println("Удалитьиндекс 3 поэлемент, получаем nums = $nums")
 
     /* Обходить список по индексам */
     var count = 0
@@ -59,5 +59,5 @@ fun main() {
 
     /* Отсортировать список */
     nums.sort()
-    println("Отсортировать списокпосле nums = $nums")
+    println("После сортировки списка nums = $nums")
 }

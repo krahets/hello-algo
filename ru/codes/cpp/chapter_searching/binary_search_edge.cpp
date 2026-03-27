@@ -51,7 +51,7 @@ int binarySearchRightEdge(vector<int> &nums, int target) {
 int main() {
     // Массив с повторяющимися элементами
     vector<int> nums = {1, 3, 6, 6, 6, 6, 6, 10, 12, 15};
-    cout << "\nмассив nums =";
+    cout << "\nМассив nums = ";
     printVector(nums);
 
     // Бинарный поиск левой и правой границ

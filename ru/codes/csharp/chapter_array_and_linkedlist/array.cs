@@ -77,17 +77,17 @@ public class array {
     public void Test() {
         // Инициализировать массив
         int[] arr = new int[5];
-        Console.WriteLine("массив arr =" + ToString(arr));
+        Console.WriteLine("Массив arr = " + ToString(arr));
         int[] nums = [1, 3, 2, 5, 4];
-        Console.WriteLine("массив nums =" + ToString(nums));
+        Console.WriteLine("Массив nums = " + ToString(nums));
 
         // Случайный доступ
         int randomNum = RandomAccess(nums);
-        Console.WriteLine("Полученный случайный элемент из nums" + randomNum);
+        Console.WriteLine("Полученный случайный элемент из nums " + randomNum);
 
         // Расширение длины
         nums = Extend(nums, 3);
-        Console.WriteLine("После расширения длины массива до 8 получаем nums =" + ToString(nums));
+        Console.WriteLine("После расширения длины массива до 8 получаем nums = " + ToString(nums));
 
         // Вставить элемент
         Insert(nums, 6, 3);
@@ -95,13 +95,13 @@ public class array {
 
         // Удалить элемент
         Remove(nums, 2);
-        Console.WriteLine("После удаления элемента по индексу 2 получаем nums =" + ToString(nums));
+        Console.WriteLine("После удаления элемента по индексу 2 получаем nums = " + ToString(nums));
 
         // Перебрать массив
         Traverse(nums);
 
         // Найти элемент
         int index = Find(nums, 3);
-        Console.WriteLine("Поиск элемента 3 в nums дает индекс =" + index);
+        Console.WriteLine("Поиск элемента 3 в nums дает индекс = " + index);
     }
 }

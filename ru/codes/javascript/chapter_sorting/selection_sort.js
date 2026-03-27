@@ -24,4 +24,4 @@ function selectionSort(nums) {
 /* Driver Code */
 const nums = [4, 1, 3, 1, 5, 2];
 selectionSort(nums);
-console.log('После сортировки выбором nums =', nums);
+console.log('Сортировка выборомпосле завершения nums =', nums);

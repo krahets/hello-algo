@@ -49,7 +49,7 @@ function linear(n: number): void {
 
 /* Линейная сложность (рекурсивная реализация) */
 function linearRecur(n: number): void {
-    console.log(`рекурсия n = ${n}`);
+    console.log(`Рекурсия: n = ${n}`);
     if (n === 1) return;
     linearRecur(n - 1);
 }
@@ -75,7 +75,7 @@ function quadratic(n: number): void {
 function quadraticRecur(n: number): number {
     if (n <= 0) return 0;
     const nums = new Array(n);
-    console.log(`рекурсия n = ${n} в nums длина = ${nums.length}`);
+    console.log(`Рекурсия: n = ${n}, длина nums = ${nums.length}`);
     return quadraticRecur(n - 1);
 }
 

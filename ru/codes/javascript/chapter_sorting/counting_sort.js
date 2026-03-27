@@ -62,4 +62,4 @@ console.log('После завершения подсчетной сортиро
 
 const nums1 = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4];
 countingSort(nums1);
-console.log('После сортировки подсчетом nums1 =', nums1);
+console.log('Подсчетная сортировкапосле завершения nums1 =', nums1);

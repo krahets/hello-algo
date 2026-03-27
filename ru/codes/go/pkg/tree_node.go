@@ -4,7 +4,7 @@
 
 package pkg
 
-// TreeNode узел двоичного дерева
+// TreeNode двоичное деревоузел
 type TreeNode struct {
 	Val    any       // Значение узла
 	Height int       // Высота узла
@@ -12,7 +12,7 @@ type TreeNode struct {
 	Right  *TreeNode // Ссылка на правый дочерний узел
 }
 
-// NewTreeNode конструктор узла двоичного дерева
+// NewTreeNode двоичное деревоузелКонструктор
 func NewTreeNode(v any) *TreeNode {
 	return &TreeNode{
 		Val:    v,

@@ -21,7 +21,7 @@ public class heap {
 
     [Test]
     public void Test() {
-        /* Инициализировать кучу */
+        /* Инициализироватькуча */
         // Инициализировать min-кучу
         PriorityQueue<int, int> minHeap = new();
         // Инициализировать max-кучу (достаточно изменить Comparer с помощью lambda-выражения)
@@ -37,7 +37,7 @@ public class heap {
 
         /* Получить верхний элемент кучи */
         int peek = maxHeap.Peek();
-        Console.WriteLine($"Элемент на вершине кучи равен {peek}");
+        Console.WriteLine($"вершина кучиэлементравно {peek}");
 
         /* Извлечь верхний элемент из кучи */
         // Извлеченные из кучи элементы образуют последовательность от большего к меньшему
@@ -53,12 +53,12 @@ public class heap {
 
         /* Проверить, пуста ли куча */
         bool isEmpty = maxHeap.Count == 0;
-        Console.WriteLine($"Куча пуста: {isEmpty}");
+        Console.WriteLine($"кучапуст ли {isEmpty}");
 
-        /* Входной список и построение кучи */
+        /* Входсписокипостроение кучи */
         var list = new int[] { 1, 3, 2, 5, 4 };
         minHeap = new PriorityQueue<int, int>(list.Select(x => (x, x)));
-        Console.WriteLine("После построения min-кучи из входного списка");
+        Console.WriteLine("Входсписокипостроитьmin-кучапосле");
         PrintUtil.PrintHeap(minHeap);
     }
 }

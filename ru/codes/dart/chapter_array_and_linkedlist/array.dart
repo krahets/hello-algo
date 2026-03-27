@@ -78,7 +78,7 @@ void main() {
   var arr = List.filled(5, 0);
   print('массив arr = $arr');
   List<int> nums = [1, 3, 2, 5, 4];
-  print('массив nums = $nums');
+  print('Массив nums = $nums');
 
   /* Случайный доступ */
   int randomNum = randomAccess(nums);
@@ -94,7 +94,7 @@ void main() {
 
   /* Удалить элемент */
   remove(nums, 2);
-  print("После удаления элемента по индексу 2 получаем nums = $nums");
+  print("Удалитьиндекс 2 поэлемент, получаем nums = $nums");
 
   /* Перебрать массив */
   traverse(nums);

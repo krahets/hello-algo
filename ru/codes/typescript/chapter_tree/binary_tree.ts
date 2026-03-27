@@ -8,7 +8,7 @@ import { TreeNode } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
 /* Инициализировать двоичное дерево */
-// Инициализировать узел
+// Инициализироватьузел
 let n1 = new TreeNode(1),
     n2 = new TreeNode(2),
     n3 = new TreeNode(3),
@@ -27,11 +27,11 @@ const P = new TreeNode(0);
 // Вставить узел P между n1 -> n2
 n1.left = P;
 P.left = n2;
-console.log('\nвставить узел P после\n');
+console.log('\nПосле вставки узла P\n');
 printTree(n1);
 // Удалить узел P
 n1.left = n2;
-console.log('\nУдалить узел P после\n');
+console.log('\nПосле удаления узла P\n');
 printTree(n1);
 
 export {};

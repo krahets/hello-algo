@@ -19,16 +19,16 @@ pub fn main() {
     queue.push_back(2);
     queue.push_back(5);
     queue.push_back(4);
-    print!("очередь queue =");
+    print!("Очередь queue = ");
     print_util::print_queue(&queue);
 
     // Получить элемент в начале очереди
     let peek = queue.front().unwrap();
-    println!("\nэлемент в голове очереди peek = {peek}");
+    println!("\nголова очередиэлемент peek = {peek}");
 
     // Извлечь элемент из очереди
     let pop = queue.pop_front().unwrap();
-    print!("Элемент, извлеченный из очереди, pop = {pop}, queue после извлечения =");
+    print!("Элемент, извлеченный из очереди, pop = {pop}, queue после извлечения = ");
     print_util::print_queue(&queue);
 
     // Получить длину очереди

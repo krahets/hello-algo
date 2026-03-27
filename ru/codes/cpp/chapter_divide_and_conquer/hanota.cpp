@@ -54,7 +54,7 @@ int main() {
 
     solveHanota(A, B, C);
 
-    cout << "После завершения перемещения дисков:\n" ;
+    cout << "После завершения перемещения дисков:\n";
     cout << "A =";
     printVector(A);
     cout << "B =";

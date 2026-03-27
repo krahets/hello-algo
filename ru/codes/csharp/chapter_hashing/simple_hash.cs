@@ -52,15 +52,15 @@ public class simple_hash {
         string key = "Hello Algo";
 
         int hash = AddHash(key);
-        Console.WriteLine("Значение аддитивного хеширования равно" + hash);
+        Console.WriteLine("Аддитивное хешированиезначениеравно" + hash);
 
         hash = MulHash(key);
-        Console.WriteLine("Значение мультипликативного хеширования равно" + hash);
+        Console.WriteLine("Мультипликативное хешированиезначениеравно" + hash);
 
         hash = XorHash(key);
-        Console.WriteLine("Значение XOR-хеширования равно" + hash);
+        Console.WriteLine("XOR-хешированиезначениеравно" + hash);
 
         hash = RotHash(key);
-        Console.WriteLine("Значение вращательного хеширования равно" + hash);
+        Console.WriteLine("Вращательное хешированиезначениеравно" + hash);
     }
 }

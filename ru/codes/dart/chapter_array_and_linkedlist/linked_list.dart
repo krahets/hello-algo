@@ -47,8 +47,8 @@ int find(ListNode? head, int target) {
 
 /* Driver Code */
 void main() {
-  // Инициализировать связный список
-  // Инициализировать каждый узел
+  // Инициализироватьсвязный список
+  // Инициализироватькаждый узел
   ListNode n0 = ListNode(1);
   ListNode n1 = ListNode(3);
   ListNode n2 = ListNode(2);

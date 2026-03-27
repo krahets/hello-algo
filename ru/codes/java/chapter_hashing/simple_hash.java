@@ -51,15 +51,15 @@ public class simple_hash {
         String key = "Hello Algo";
 
         int hash = addHash(key);
-        System.out.println("Значение аддитивного хеширования равно" + hash);
+        System.out.println("Аддитивное хешированиезначениеравно" + hash);
 
         hash = mulHash(key);
-        System.out.println("Значение мультипликативного хеширования равно" + hash);
+        System.out.println("Мультипликативное хешированиезначениеравно" + hash);
 
         hash = xorHash(key);
-        System.out.println("Значение XOR-хеширования равно" + hash);
+        System.out.println("XOR-хешированиезначениеравно" + hash);
 
         hash = rotHash(key);
-        System.out.println("Значение вращательного хеширования равно" + hash);
+        System.out.println("Вращательное хешированиезначениеравно" + hash);
     }
 }

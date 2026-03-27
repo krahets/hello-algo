@@ -21,13 +21,13 @@ void testPop(priority_queue<int> &heap) {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать кучу */
+    /* Инициализироватькуча */
     // Инициализировать min-кучу
     // priority_queue<int, vector<int>, greater<int>> minHeap;
     // Инициализировать max-кучу
     priority_queue<int, vector<int>, less<int>> maxHeap;
 
-    cout << "\nНиже приведены тестовые примеры max-кучи" << endl;
+    cout << "\nСледующие тестовые примеры относятся к max-куче" << endl;
 
     /* Добавить элемент в кучу */
     testPush(maxHeap, 1);
@@ -53,13 +53,13 @@ int main() {
 
     /* Проверить, пуста ли куча */
     bool isEmpty = maxHeap.empty();
-    cout << "\nКуча пуста:" << isEmpty << endl;
+    cout << "\nкучапуст ли" << isEmpty << endl;
 
-    /* Входной список и построение кучи */
+    /* Входсписокипостроение кучи */
     // Временная сложность равна O(n), а не O(nlogn)
     vector<int> input{1, 3, 2, 5, 4};
     priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
-    cout << "После построения min-кучи из входного списка" << endl;
+    cout << "Входсписокипостроитьmin-кучапосле" << endl;
     printHeap(minHeap);
 
     return 0;

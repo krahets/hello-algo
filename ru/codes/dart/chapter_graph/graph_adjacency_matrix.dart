@@ -86,7 +86,7 @@ class GraphAdjMat {
   /* Вывести матрицу смежности */
   void printAdjMat() {
     print("список вершин = $vertices");
-    print("матрица смежности =");
+    print("Матрица смежности = ");
     printMatrix(adjMat);
   }
 }

@@ -18,32 +18,32 @@ int main() {
     map.put(16750, "Сяо Суань");
     map.put(13276, "Сяо Фа");
     map.put(10583, "Утенок");
-    cout << "\nПосле добавления хеш-таблица имеет вид\nKey -> Value" << endl;
+    cout << "\nПосле добавления хеш-таблица выглядит так\nKey -> Value" << endl;
     map.print();
 
     /* Операция поиска */
     // Передать ключ key в хеш-таблицу и получить значение value
     string name = map.get(15937);
-    cout << "\nВведен номер 15937, найдено имя " << name << endl;
+    cout << "\nПо номеру студента 15937 найдено имя " << name << endl;
 
     /* Операция удаления */
     // Удалить из хеш-таблицы пару ключ-значение (key, value)
     map.remove(10583);
-    cout << "\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value" << endl;
+    cout << "\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value" << endl;
     map.print();
 
     /* Перебрать хеш-таблицу */
-    cout << "\nОбойтипара ключ-значение Key->Value" << endl;
+    cout << "\nПеребираем пары Key->Value" << endl;
     for (auto kv : map.pairSet()) {
         cout << kv->key << " -> " << kv->val << endl;
     }
 
-    cout << "\nОтдельный обход ключей Key" << endl;
+    cout << "\nОтдельно перебираем ключи Key" << endl;
     for (auto key : map.keySet()) {
         cout << key << endl;
     }
 
-    cout << "\nОтдельный обход значений Value" << endl;
+    cout << "\nОтдельно перебираем значения Value" << endl;
     for (auto val : map.valueSet()) {
         cout << val << endl;
     }

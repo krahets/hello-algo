@@ -67,7 +67,7 @@ enum Iteration {
         print("\nРезультат суммирования в цикле while res = \(res)")
 
         res = whileLoopII(n: n)
-        print("\nЦикл while (с двумя обновлениями)результат суммирования res = \(res)")
+        print("\nЦикл while (с двумя обновлениями)суммированиерезультат res = \(res)")
 
         let resStr = nestedForLoop(n: n)
         print("\nРезультат обхода двойным циклом for \(resStr)")

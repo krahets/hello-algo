@@ -23,7 +23,7 @@ void main() {
 
   /* Извлечь элемент из стека */
   final int pop = stack.removeLast();
-  print("извлечение из стекаэлемент pop = $pop, извлечение из стекапосле stack = $stack");
+  print("Элемент, извлеченный из стека, pop = $pop , stack после извлечения = $stack");
 
   /* Получить длину стека */
   final int size = stack.length;
@@ -31,5 +31,5 @@ void main() {
 
   /* Проверить, пуста ли структура */
   final bool isEmpty = stack.isEmpty;
-  print("Стек пуст: $isEmpty");
+  print("стекпуст ли = $isEmpty");
 }

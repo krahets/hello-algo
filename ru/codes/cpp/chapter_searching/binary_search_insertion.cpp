@@ -44,7 +44,7 @@ int binarySearchInsertion(vector<int> &nums, int target) {
 int main() {
     // Массив без повторяющихся элементов
     vector<int> nums = {1, 3, 6, 8, 12, 15, 23, 26, 31, 35};
-    cout << "\nмассив nums =";
+    cout << "\nМассив nums = ";
     printVector(nums);
     // Найти точку вставки бинарным поиском
     for (int target : {6, 9}) {
@@ -54,7 +54,7 @@ int main() {
 
     // Массив с повторяющимися элементами
     nums = {1, 3, 6, 6, 6, 6, 6, 10, 12, 15};
-    cout << "\nмассив nums =";
+    cout << "\nМассив nums = ";
     printVector(nums);
     // Найти точку вставки бинарным поиском
     for (int target : {2, 6, 20}) {

@@ -62,7 +62,7 @@ int main() {
     printf("XOR-хеш равен %d\n", hash);
 
     hash = rotHash(key);
-    printf("Значение вращательного хеширования равно %d\n", hash);
+    printf("Вращательное хешированиезначениеравно %d\n", hash);
 
     return 0;
 }

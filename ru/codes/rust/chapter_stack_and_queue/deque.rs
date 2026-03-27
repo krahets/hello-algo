@@ -14,29 +14,29 @@ pub fn main() {
     deque.push_back(3);
     deque.push_back(2);
     deque.push_back(5);
-    print!("двусторонняя очередь deque =");
+    print!("Двусторонняя очередь deque = ");
     print_util::print_queue(&deque);
 
     // Получить доступ к элементу
     let peek_first = deque.front().unwrap();
-    print!("\nэлемент в голове очереди peekFirst = {peek_first}");
+    print!("\nголова очередиэлемент peekFirst = {peek_first}");
     let peek_last = deque.back().unwrap();
-    print!("\nэлемент в хвосте очереди peekLast = {peek_last}");
+    print!("\nхвост очередиэлемент peekLast = {peek_last}");
 
     /* Поместить элемент в очередь */
     deque.push_back(4);
-    print!("\nПосле помещения элемента 4 в хвост очереди deque =");
+    print!("\nПосле помещения элемента 4 в хвост очереди deque = ");
     print_util::print_queue(&deque);
     deque.push_front(1);
-    print!("\nПосле помещения элемента 1 в голову очереди deque =");
+    print!("\nПосле помещения элемента 1 в голову очереди deque = ");
     print_util::print_queue(&deque);
 
     // Извлечь элемент из очереди
     let pop_last = deque.pop_back().unwrap();
-    print!("\nЭлемент, извлеченный из хвоста очереди, = {pop_last}, deque после извлечения из хвоста =");
+    print!("\nЭлемент, извлеченный из хвоста очереди = {pop_last}, deque после извлечения из хвоста = ");
     print_util::print_queue(&deque);
     let pop_first = deque.pop_front().unwrap();
-    print!("\nЭлемент, извлеченный из головы очереди, = {pop_first}, deque после извлечения из головы =");
+    print!("\nЭлемент, извлеченный из головы очереди = {pop_first}, deque после извлечения из головы = ");
     print_util::print_queue(&deque);
 
     // Получить длину двусторонней очереди
@@ -45,5 +45,5 @@ pub fn main() {
 
     // Проверить, пуста ли двусторонняя очередь
     let is_empty = deque.is_empty();
-    print!("\nдвусторонняя Очередь пуста: {is_empty}");
+    print!("\nДвусторонняя очередь пуста: {is_empty}");
 }

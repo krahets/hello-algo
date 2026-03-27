@@ -4,7 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## класс узла двоичного дерева ###
+# ## двоичное деревоузелкласс ###
 class TreeNode
   attr_accessor :val    # Значение узла
   attr_accessor :height # Высота узла

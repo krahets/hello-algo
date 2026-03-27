@@ -46,8 +46,8 @@ def build_tree(preorder: list[int], inorder: list[int]) -> TreeNode | None:
 if __name__ == "__main__":
     preorder = [3, 9, 2, 1, 7]
     inorder = [9, 3, 1, 2, 7]
-    print(f"прямой обход = {preorder}")
-    print(f"симметричный обход = {inorder}")
+    print(f"Прямой обход = {preorder}")
+    print(f"Симметричный обход = {inorder}")
 
     root = build_tree(preorder, inorder)
     print("Построенное двоичное дерево:")

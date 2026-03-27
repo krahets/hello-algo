@@ -57,6 +57,6 @@ fun main() {
     val target = 9
     val res = subsetSumII(nums, target)
 
-    println("Входмассив nums = ${nums.contentToString()}, target = $target")
+    println("Входной массив nums = ${nums.contentToString()}, target = $target")
     println("Все подмножества с суммой $target res = $res")
 }

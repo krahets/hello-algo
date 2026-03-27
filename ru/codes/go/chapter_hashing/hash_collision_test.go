@@ -20,18 +20,18 @@ func TestHashMapChaining(t *testing.T) {
 	hmap.put(16750, "Сяо Суань")
 	hmap.put(13276, "Сяо Фа")
 	hmap.put(10583, "Утенок")
-	fmt.Println("\nПосле добавления хеш-таблица имеет вид\nKey -> Value")
+	fmt.Println("\nПосле добавления хеш-таблица выглядит так\nKey -> Value")
 	hmap.print()
 
 	/* Операция поиска */
 	// Передать ключ key в хеш-таблицу и получить значение value
 	name := hmap.get(15937)
-	fmt.Println("\nВходномер 15937, найденоимя", name)
+	fmt.Println("\nПо номеру студента 15937 найдено имя", name)
 
 	/* Операция удаления */
 	// Удалить из хеш-таблицы пару ключ-значение (key, value)
 	hmap.remove(12836)
-	fmt.Println("\nПосле удаления 12836 хеш-таблица имеет вид\nKey -> Value")
+	fmt.Println("\nПосле удаления 12836 хеш-таблица выглядит так\nKey -> Value")
 	hmap.print()
 }
 
@@ -46,17 +46,17 @@ func TestHashMapOpenAddressing(t *testing.T) {
 	hmap.put(16750, "Сяо Суань")
 	hmap.put(13276, "Сяо Фа")
 	hmap.put(10583, "Утенок")
-	fmt.Println("\nПосле добавления хеш-таблица имеет вид\nKey -> Value")
+	fmt.Println("\nПосле добавления хеш-таблица выглядит так\nKey -> Value")
 	hmap.print()
 
 	/* Операция поиска */
 	// Передать ключ key в хеш-таблицу и получить значение value
 	name := hmap.get(13276)
-	fmt.Println("\nВходномер 13276, найденоимя", name)
+	fmt.Println("\nПо номеру студента 13276 найдено имя ", name)
 
 	/* Операция удаления */
 	// Удалить из хеш-таблицы пару ключ-значение (key, value)
 	hmap.remove(16750)
-	fmt.Println("\nПосле удаления 16750 хеш-таблица имеет вид\nKey -> Value")
+	fmt.Println("\nПосле удаления 16750 хеш-таблица выглядит так\nKey -> Value")
 	hmap.print()
 }

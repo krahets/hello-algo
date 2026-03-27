@@ -119,21 +119,21 @@ public class edit_distance {
 
         // Полный перебор
         int res = editDistanceDFS(s, t, n, m);
-        System.out.println("Чтобы изменить" + s + "на" + t + ", требуется минимум" + res + "шагов редактирования");
+        System.out.println("Чтобы изменить " + s + " на " + t + ", требуется минимум " + res + "шагов редактирования");
 
         // Поиск с мемоизацией
         int[][] mem = new int[n + 1][m + 1];
         for (int[] row : mem)
             Arrays.fill(row, -1);
         res = editDistanceDFSMem(s, t, mem, n, m);
-        System.out.println("Чтобы изменить" + s + "на" + t + ", требуется минимум" + res + "шагов редактирования");
+        System.out.println("Чтобы изменить " + s + " на " + t + ", требуется минимум " + res + "шагов редактирования");
 
         // Динамическое программирование
         res = editDistanceDP(s, t);
-        System.out.println("Чтобы изменить" + s + "на" + t + ", требуется минимум" + res + "шагов редактирования");
+        System.out.println("Чтобы изменить " + s + " на " + t + ", требуется минимум " + res + "шагов редактирования");
 
         // Динамическое программирование с оптимизацией по памяти
         res = editDistanceDPComp(s, t);
-        System.out.println("Чтобы изменить" + s + "на" + t + ", требуется минимум" + res + "шагов редактирования");
+        System.out.println("Чтобы изменить " + s + " на " + t + ", требуется минимум " + res + "шагов редактирования");
     }
 }

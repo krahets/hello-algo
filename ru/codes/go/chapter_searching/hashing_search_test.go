@@ -21,7 +21,7 @@ func TestHashingSearch(t *testing.T) {
 		m[nums[i]] = i
 	}
 	index := hashingSearchArray(m, target)
-	fmt.Println("Индекс целевого элемента 3 =", index)
+	fmt.Println("Индекс целевого элемента 3 = ", index)
 
 	/* Хеш-поиск (связный список) */
 	head := ArrayToLinkedList(nums)
@@ -32,5 +32,5 @@ func TestHashingSearch(t *testing.T) {
 		head = head.Next
 	}
 	node := hashingSearchLinkedList(m1, target)
-	fmt.Println("Объект узла, соответствующий целевому значению 3, равен", node)
+	fmt.Println("Объект узла, соответствующий целевому значению 3, равен ", node)
 }

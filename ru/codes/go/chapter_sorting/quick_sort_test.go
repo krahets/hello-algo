@@ -14,7 +14,7 @@ func TestQuickSort(t *testing.T) {
 	q := quickSort{}
 	nums := []int{4, 1, 3, 1, 5, 2}
 	q.quickSort(nums, 0, len(nums)-1)
-	fmt.Println("После быстрой сортировки nums =", nums)
+	fmt.Println("После завершения быстрой сортировки nums = ", nums)
 }
 
 // Быстрая сортировка (оптимизация с медианным опорным элементом)
@@ -22,7 +22,7 @@ func TestQuickSortMedian(t *testing.T) {
 	q := quickSortMedian{}
 	nums := []int{4, 1, 3, 1, 5, 2}
 	q.quickSort(nums, 0, len(nums)-1)
-	fmt.Println("Быстрая сортировка (оптимизация с медианным опорным элементом)после завершения nums =", nums)
+	fmt.Println("После быстрой сортировки (оптимизация с медианным опорным элементом) nums = ", nums)
 }
 
 // Быстрая сортировка (оптимизация глубины рекурсии)
@@ -30,5 +30,5 @@ func TestQuickSortTailCall(t *testing.T) {
 	q := quickSortTailCall{}
 	nums := []int{4, 1, 3, 1, 5, 2}
 	q.quickSort(nums, 0, len(nums)-1)
-	fmt.Println("Быстрая сортировка (оптимизация глубины рекурсии)после завершения nums =", nums)
+	fmt.Println("После быстрой сортировки (оптимизация глубины рекурсии) nums = ", nums)
 }

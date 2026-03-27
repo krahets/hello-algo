@@ -53,7 +53,7 @@ int main() {
     vector<vector<vector<string>>> res = nQueens(n);
 
     cout << "Входдоскаразмерравно" << n << endl;
-    cout << "Количество схем размещения ферзей равно" << res.size() << "видов" << endl;
+    cout << "Количество способов расстановки ферзей: " << res.size() << "" << endl;
     for (const vector<vector<string>> &state : res) {
         cout << "--------------------" << endl;
         for (const vector<string> &row : state) {

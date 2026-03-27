@@ -28,13 +28,13 @@ class ArrayStack {
 
     /* Извлечь из стека */
     pop(): number | undefined {
-        if (this.isEmpty()) throw new Error('стекпуст');
+        if (this.isEmpty()) throw new Error('Стек пуст');
         return this.stack.pop();
     }
 
     /* Получить верхний элемент стека */
     top(): number | undefined {
-        if (this.isEmpty()) throw new Error('стекпуст');
+        if (this.isEmpty()) throw new Error('Стек пуст');
         return this.stack[this.stack.length - 1];
     }
 
@@ -54,16 +54,16 @@ stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
-console.log('стек stack =');
+console.log('Стек stack = ');
 console.log(stack.toArray());
 
 /* Получить верхний элемент стека */
 const top = stack.top();
-console.log('вершина стекаэлемент top =' + top);
+console.log('Элемент на вершине стека top = ' + top);
 
 /* Извлечь элемент из стека */
 const pop = stack.pop();
-console.log('извлечение из стекаэлемент pop =' + pop + ', извлечение из стекапосле stack =');
+console.log('Элемент, извлеченный из стека, pop = ' + pop + ', stack после извлечения = ');
 console.log(stack.toArray());
 
 /* Получить длину стека */
@@ -72,6 +72,6 @@ console.log('Длина стека size =' + size);
 
 /* Проверить, пуста ли структура */
 const isEmpty = stack.isEmpty();
-console.log('Стек пуст:' + isEmpty);
+console.log('стекпуст ли =' + isEmpty);
 
 export {};

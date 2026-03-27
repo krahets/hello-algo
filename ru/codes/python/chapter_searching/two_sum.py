@@ -36,7 +36,7 @@ if __name__ == "__main__":
     # ====== Driver Code ======
     # метод 1
     res: list[int] = two_sum_brute_force(nums, target)
-    print("метод 1 res =", res)
+    print("Метод 1 res =", res)
     # Метод 2
     res: list[int] = two_sum_hash_table(nums, target)
-    print("метод 2 res =", res)
+    print("Метод 2 res =", res)

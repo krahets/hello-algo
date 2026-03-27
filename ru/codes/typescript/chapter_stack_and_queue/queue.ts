@@ -15,16 +15,16 @@ queue.push(3);
 queue.push(2);
 queue.push(5);
 queue.push(4);
-console.log('очередь queue =', queue);
+console.log('Очередь queue =', queue);
 
 /* Получить элемент в начале очереди */
 const peek = queue[0];
-console.log('элемент в голове очереди peek =', peek);
+console.log('голова очередиэлемент peek =', peek);
 
 /* Извлечь элемент из очереди */
 // В основе лежит массив, поэтому временная сложность метода shift() равна O(n)
 const pop = queue.shift();
-console.log('Элемент, извлеченный из очереди, pop =', pop, ', queue после извлечения =', queue);
+console.log('Извлеченный из очереди элемент pop =', pop, ', queue после извлечения = ', queue);
 
 /* Получить длину очереди */
 const size = queue.length;
@@ -32,6 +32,6 @@ console.log('Длина очереди size =', size);
 
 /* Проверить, пуста ли очередь */
 const isEmpty = queue.length === 0;
-console.log('Очередь пуста:', isEmpty);
+console.log('Очередь пуста: ', isEmpty);
 
 export {};

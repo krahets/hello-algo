@@ -55,7 +55,7 @@ const MyList = struct {
     pub fn get(self: *Self, index: usize) i32 {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
         if (index < 0 or index >= self.items.len) {
-            @panic("индекс выходит за границы");
+            @panic("Индекс вне допустимого диапазона");
         }
         return self.items[index];
     }
@@ -64,7 +64,7 @@ const MyList = struct {
     pub fn set(self: *Self, index: usize, num: i32) void {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
         if (index < 0 or index >= self.items.len) {
-            @panic("индекс выходит за границы");
+            @panic("Индекс вне допустимого диапазона");
         }
         self.items[index] = num;
     }
@@ -72,7 +72,7 @@ const MyList = struct {
     // Вставить элемент в середину
     pub fn insert(self: *Self, index: usize, item: i32) !void {
         if (index < 0 or index >= self.items.len) {
-            @panic("индекс выходит за границы");
+            @panic("Индекс вне допустимого диапазона");
         }
 
         // Если число элементов превышает вместимость, запустить механизм расширения
@@ -91,7 +91,7 @@ const MyList = struct {
     // Удалить элемент
     pub fn remove(self: *Self, index: usize) i32 {
         if (index < 0 or index >= self.getSize()) {
-            @panic("индекс выходит за границы");
+            @panic("Индекс вне допустимого диапазона");
         }
         // Сдвинуть на одну позицию вперед все элементы после индекса index
         const item = self.items[index];
@@ -175,10 +175,10 @@ pub fn run() !void {
     try nums.add(2);
     try nums.add(5);
     try nums.add(4);
-    std.debug.print("список nums = {}, вместимость = {}, длина = {}\n",.{
-    utils.fmt.slice(nums.items),
-    nums.getCapacity(),
-    nums.getSize(),
+    std.debug.print("Список nums = {}, вместимость = {}, длина = {}\n", .{
+        utils.fmt.slice(nums.items),
+        nums.getCapacity(),
+        nums.getSize(),
     });
 
     // Вставить элемент в середину
@@ -191,13 +191,13 @@ pub fn run() !void {
     // Удалить элемент
     _ = nums.remove(3);
     std.debug.print(
-        "После удаления элемента по индексу 3 получаем nums = {}\n",
+        "Удалитьиндекс 3 поэлемент, получаем nums = {}\n",
         .{utils.fmt.slice(nums.items)},
     );
 
     // Получить доступ к элементу
     const num = nums.get(1);
-    std.debug.print("обратиться киндекс 1 поэлемент, получаем num = {}\n",.{num});
+    std.debug.print("обратиться киндекс 1 поэлемент, получаем num = {}\n", .{num});
 
     // Обновить элемент
     nums.set(1, 0);

@@ -28,7 +28,7 @@ class ArrayQueue
 
   # ## помещение в очередь ###
   def push(num)
-    raise IndexError, 'очередьзаполнен' if size == capacity
+    raise IndexError, 'Очередь заполнена' if size == capacity
 
     # Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
     # Операция взятия по модулю позволяет rear после выхода за конец массива вернуться к его началу
@@ -49,7 +49,7 @@ class ArrayQueue
 
   # ## Получить элемент в начале очереди ###
   def peek
-    raise IndexError, 'очередьпуст' if is_empty?
+    raise IndexError, 'Очередь пуста' if is_empty?
 
     @nums[@front]
   end
@@ -83,7 +83,7 @@ if __FILE__ == $0
 
   # Получить элемент в начале очереди
   peek = queue.peek
-  puts "элемент в голове очереди peek = #{peek}"
+  puts "голова очередиэлемент peek = #{peek}"
 
   # Извлечь элемент из очереди
   pop = queue.pop

@@ -11,7 +11,7 @@ import utils.*;
 public class binary_tree {
     public static void main(String[] args) {
         /* Инициализировать двоичное дерево */
-        // Инициализировать узел
+        // Инициализироватьузел
         TreeNode n1 = new TreeNode(1);
         TreeNode n2 = new TreeNode(2);
         TreeNode n3 = new TreeNode(3);
@@ -30,11 +30,11 @@ public class binary_tree {
         // Вставить узел P между n1 -> n2
         n1.left = P;
         P.left = n2;
-        System.out.println("\nвставить узел P после\n");
+        System.out.println("\nПосле вставки узла P\n");
         PrintUtil.printTree(n1);
         // Удалить узел P
         n1.left = n2;
-        System.out.println("\nУдалить узел P после\n");
+        System.out.println("\nПосле удаления узла P\n");
         PrintUtil.printTree(n1);
     }
 }

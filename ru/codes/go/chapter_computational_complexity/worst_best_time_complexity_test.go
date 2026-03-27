@@ -14,7 +14,7 @@ func TestWorstBestTimeComplexity(t *testing.T) {
 		n := 100
 		nums := randomNumbers(n)
 		index := findOne(nums)
-		fmt.Println("\nПосле перемешивания массива [ 1, 2, ..., n ] =", nums)
+		fmt.Println("\nПосле перемешивания массива [ 1, 2, ..., n ] получаем =", nums)
 		fmt.Println("Индекс числа 1 равен", index)
 	}
 }

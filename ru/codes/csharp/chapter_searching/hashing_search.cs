@@ -34,7 +34,7 @@ public class hashing_search {
             map[nums[i]] = i;  // key: элемент, value: индекс
         }
         int index = HashingSearchArray(map, target);
-        Console.WriteLine("Индекс целевого элемента 3 =" + index);
+        Console.WriteLine("Индекс целевого элемента 3 = " + index);
 
         /* Хеш-поиск (связный список) */
         ListNode? head = ListNode.ArrToLinkedList(nums);
@@ -45,6 +45,6 @@ public class hashing_search {
             head = head.next;
         }
         ListNode? node = HashingSearchLinkedList(map1, target);
-        Console.WriteLine("Объект узла, соответствующий целевому значению 3, равен" + node);
+        Console.WriteLine("Объект узла, соответствующий целевому значению 3, равен " + node);
     }
 }

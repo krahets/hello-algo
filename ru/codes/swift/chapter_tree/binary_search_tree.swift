@@ -147,12 +147,12 @@ enum _BinarySearchTree {
         for num in nums {
             bst.insert(num: num)
         }
-        print("\nИнициализированное двоичное дерево:\n")
+        print("\nИнициализированное двоичное дерево имеет вид\n")
         PrintUtil.printTree(root: bst.getRoot())
 
         /* Найти узел */
         let node = bst.search(num: 7)
-        print("\nНайденный объект узла равен \(node!), значение узла = \(node!.val)")
+        print("\nНайденныйузелобъектравно \(node!), значение узла = \(node!.val)")
 
         /* Вставить узел */
         bst.insert(num: 16)

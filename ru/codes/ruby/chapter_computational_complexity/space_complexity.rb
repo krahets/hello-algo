@@ -41,7 +41,7 @@ end
 
 # ## Линейная сложность (рекурсивная реализация)###
 def linear_recur(n)
-  puts "рекурсия n = #{n}"
+  puts "Рекурсия: n = #{n}"
   return if n == 1
   linear_recur(n - 1)
 end

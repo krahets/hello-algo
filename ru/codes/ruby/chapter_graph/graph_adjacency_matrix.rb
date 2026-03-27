@@ -76,7 +76,7 @@ class GraphAdjMat
   # ## Вывести матрицу смежности ###
   def __print__
     puts "список вершин = #{@vertices}"
-    puts 'матрица смежности ='
+    puts 'Матрица смежности ='
     print_matrix(@adj_mat)
   end
 end

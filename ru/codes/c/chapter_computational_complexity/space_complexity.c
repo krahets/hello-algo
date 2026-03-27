@@ -73,7 +73,7 @@ void linear(int n) {
 
 /* Линейная сложность (рекурсивная реализация) */
 void linearRecur(int n) {
-    printf("рекурсия n = %d\r\n", n);
+    printf("Рекурсия: n = %d\r\n", n);
     if (n == 1)
         return;
     linearRecur(n - 1);
@@ -103,7 +103,7 @@ int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     int *nums = malloc(sizeof(int) * n);
-    printf("рекурсия n = %d в nums длина = %d\r\n", n, n);
+    printf("Рекурсия: n = %d, длина nums = %d\r\n", n, n);
     int res = quadraticRecur(n - 1);
     free(nums);
     return res;

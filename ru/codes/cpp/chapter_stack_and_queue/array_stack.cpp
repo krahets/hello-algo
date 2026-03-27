@@ -37,7 +37,7 @@ class ArrayStack {
     /* Получить верхний элемент стека */
     int top() {
         if (isEmpty())
-            throw out_of_range("стекпуст");
+            throw out_of_range("Стек пуст");
         return stack.back();
     }
 
@@ -58,7 +58,7 @@ int main() {
     stack->push(2);
     stack->push(5);
     stack->push(4);
-    cout << "стек stack =";
+    cout << "Стек stack = ";
     printVector(stack->toVector());
 
     /* Получить верхний элемент стека */
@@ -67,7 +67,7 @@ int main() {
 
     /* Извлечь элемент из стека */
     top = stack->pop();
-    cout << "извлечение из стекаэлемент pop =" << top << ", извлечение из стекапосле stack =";
+    cout << "Элемент, извлеченный из стека, pop = " << top << ", stack после извлечения = ";
     printVector(stack->toVector());
 
     /* Получить длину стека */
@@ -76,7 +76,7 @@ int main() {
 
     /* Проверить, пуста ли структура */
     bool empty = stack->isEmpty();
-    cout << "Стек пуст:" << empty << endl;
+    cout << "стекпуст ли =" << empty << endl;
 
     // Освободить память
     delete stack;

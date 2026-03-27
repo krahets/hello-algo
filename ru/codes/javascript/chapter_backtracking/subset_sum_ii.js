@@ -47,5 +47,5 @@ function subsetSumII(nums, target) {
 const nums = [4, 4, 5];
 const target = 9;
 const res = subsetSumII(nums, target);
-console.log(`Входмассив nums = ${JSON.stringify(nums)}, target = ${target}`);
+console.log(`Входной массив nums = ${JSON.stringify(nums)}, target = ${target}`);
 console.log(`Все подмножества с суммой ${target} res = ${JSON.stringify(res)}`);

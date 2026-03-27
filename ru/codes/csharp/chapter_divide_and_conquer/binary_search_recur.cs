@@ -41,6 +41,6 @@ public class binary_search_recur {
 
         // Бинарный поиск (двусторонний закрытый интервал)
         int index = BinarySearch(nums, target);
-        Console.WriteLine("Индекс целевого элемента 6 =" + index);
+        Console.WriteLine("Индекс целевого элемента 6 = " + index);
     }
 }

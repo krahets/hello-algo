@@ -25,6 +25,6 @@ enum InsertionSort {
     static func main() {
         var nums = [4, 1, 3, 1, 5, 2]
         insertionSort(nums: &nums)
-        print("После сортировки вставками nums = \(nums)")
+        print("Сортировка вставкамипосле завершения nums = \(nums)")
     }
 }

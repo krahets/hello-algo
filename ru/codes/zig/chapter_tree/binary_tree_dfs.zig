@@ -45,19 +45,19 @@ pub fn main() !void {
     // Здесь используется функция, которая напрямую строит двоичное дерево из массива
     var nums = [_]i32{1, 2, 3, 4, 5, 6, 7};
     var root = try inc.TreeUtil.arrToTree(i32, mem_allocator, &nums);
-    std.debug.print("Инициализировать двоичное дерево\n",.{});
+    std.debug.print("Инициализировать двоичное дерево\n", .{});
     try inc.PrintUtil.printTree(root, null, false);
 
     // Прямой обход
     list.clearRetainingCapacity();
     try preOrder(i32, root);
-    std.debug.print("\nПоследовательность узлов при прямом обходе =",.{});
+    std.debug.print("\nПоследовательность узлов при прямом обходе = ", .{});
     inc.PrintUtil.printList(i32, list);
 
     // Симметричный обход
     list.clearRetainingCapacity();
     try inOrder(i32, root);
-    std.debug.print("\nПоследовательность узлов при симметричном обходе =",.{});
+    std.debug.print("\nПоследовательность узлов при симметричном обходе = ", .{});
     inc.PrintUtil.printList(i32, list);
 
     // Обратный обход

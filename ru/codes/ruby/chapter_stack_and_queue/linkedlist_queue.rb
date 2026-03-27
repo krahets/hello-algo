@@ -52,7 +52,7 @@ class LinkedListQueue
 
   # ## Получить элемент в начале очереди ###
   def peek
-    raise IndexError, 'очередьпуст' if is_empty?
+    raise IndexError, 'Очередь пуста' if is_empty?
 
     @front.val
   end
@@ -84,7 +84,7 @@ if __FILE__ == $0
 
   # Получить элемент в начале очереди
   peek = queue.peek
-  puts "элемент в голове очереди front = #{peek}"
+  puts "голова очередиэлемент front = #{peek}"
 
   # Извлечь элемент из очереди
   pop_front = queue.pop

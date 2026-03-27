@@ -42,7 +42,7 @@ impl<T> ArrayStack<T> {
     /* Получить верхний элемент стека */
     fn peek(&self) -> Option<&T> {
         if self.is_empty() {
-            panic!("стекпуст")
+            panic!("Стек пуст")
         };
         self.stack.last()
     }
@@ -64,7 +64,7 @@ fn main() {
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    print!("стек stack =");
+    print!("Стек stack = ");
     print_util::print_array(stack.to_array());
 
     // Получить верхний элемент стека
@@ -73,7 +73,7 @@ fn main() {
 
     // Извлечь элемент из стека
     let pop = stack.pop().unwrap();
-    print!("\nизвлечение из стекаэлемент pop = {pop}, извлечение из стекапосле stack =");
+    print!("\nЭлемент, извлеченный из стека, pop = {pop}, stack после извлечения = ");
     print_util::print_array(stack.to_array());
 
     // Получить длину стека
@@ -82,5 +82,5 @@ fn main() {
 
     // Проверить, пуста ли структура
     let is_empty = stack.is_empty();
-    print!("\nСтек пуст: {is_empty}");
+    print!("\nстекпуст ли = {is_empty}");
 }

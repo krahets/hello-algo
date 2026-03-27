@@ -99,16 +99,16 @@ enum QuickSort {
         /* Быстрая сортировка */
         var nums = [2, 4, 1, 0, 3, 5]
         quickSort(nums: &nums, left: nums.startIndex, right: nums.endIndex - 1)
-        print("После быстрой сортировки nums = \(nums)")
+        print("Быстрая сортировкапосле завершения nums = \(nums)")
 
         /* Быстрая сортировка (оптимизация с медианным опорным элементом) */
         var nums1 = [2, 4, 1, 0, 3, 5]
         quickSortMedian(nums: &nums1, left: nums1.startIndex, right: nums1.endIndex - 1)
-        print("Быстрая сортировка (оптимизация с медианным опорным элементом)после завершения nums1 = \(nums1)")
+        print("После быстрой сортировки (оптимизация с медианным опорным элементом) nums1 = \(nums1)")
 
         /* Быстрая сортировка (оптимизация глубины рекурсии) */
         var nums2 = [2, 4, 1, 0, 3, 5]
         quickSortTailCall(nums: &nums2, left: nums2.startIndex, right: nums2.endIndex - 1)
-        print("Быстрая сортировка (оптимизация глубины рекурсии)после завершения nums2 = \(nums2)")
+        print("После быстрой сортировки (оптимизация глубины рекурсии) nums2 = \(nums2)")
     }
 }

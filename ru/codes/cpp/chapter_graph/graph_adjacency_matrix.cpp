@@ -85,7 +85,7 @@ class GraphAdjMat {
     void print() {
         cout << "список вершин =";
         printVector(vertices);
-        cout << "матрица смежности =" << endl;
+        cout << "Матрица смежности =" << endl;
         printVectorMatrix(adjMat);
     }
 };

@@ -68,7 +68,7 @@ func spaceLinear(n int) {
 
 /* Линейная сложность (рекурсивная реализация) */
 func spaceLinearRecur(n int) {
-	fmt.Println("рекурсия n =", n)
+	fmt.Println("Рекурсия: n =", n)
 	if n == 1 {
 		return
 	}
@@ -90,7 +90,7 @@ func spaceQuadraticRecur(n int) int {
 		return 0
 	}
 	nums := make([]int, n)
-	fmt.Printf("рекурсия n = %d в nums длина = %d \n", n, len(nums))
+	fmt.Printf("Рекурсия: n = %d, длина nums = %d \n", n, len(nums))
 	return spaceQuadraticRecur(n - 1)
 }
 

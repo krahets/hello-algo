@@ -14,7 +14,7 @@ public class list {
         // Обратите внимание: тип элементов массива здесь Integer[], то есть обертка для int[]
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
-        System.out.println("список nums =" + nums);
+        System.out.println("Список nums = " + nums);
 
         /* Получить доступ к элементу */
         int num = nums.get(1);
@@ -22,11 +22,11 @@ public class list {
 
         /* Обновить элемент */
         nums.set(1, 0);
-        System.out.println("После обновления элемента по индексу 1 на 0 получаем nums =" + nums);
+        System.out.println("После обновления элемента по индексу 1 на 0 получаем nums = " + nums);
 
         /* Очистить список */
         nums.clear();
-        System.out.println("Очистить списокпосле nums =" + nums);
+        System.out.println("После очистки списка nums = " + nums);
 
         /* Добавить элемент в конец */
         nums.add(1);
@@ -34,15 +34,15 @@ public class list {
         nums.add(2);
         nums.add(5);
         nums.add(4);
-        System.out.println("После добавления элемента nums =" + nums);
+        System.out.println("Добавитьэлементпосле nums =" + nums);
 
         /* Вставить элемент в середину */
         nums.add(3, 6);
-        System.out.println("После вставки числа 6 по индексу 3 получаем nums =" + nums);
+        System.out.println("После вставки числа 6 по индексу 3 получаем nums = " + nums);
 
         /* Удалить элемент */
         nums.remove(3);
-        System.out.println("После удаления элемента по индексу 3 получаем nums =" + nums);
+        System.out.println("После удаления элемента по индексу 3 получаем nums = " + nums);
 
         /* Обходить список по индексам */
         int count = 0;
@@ -57,10 +57,10 @@ public class list {
         /* Объединить два списка */
         List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
         nums.addAll(nums1);
-        System.out.println("После присоединения списка nums1 к nums получаем nums =" + nums);
+        System.out.println("После присоединения списка nums1 к nums получаем nums = " + nums);
 
         /* Отсортировать список */
         Collections.sort(nums);
-        System.out.println("Отсортировать списокпосле nums =" + nums);
+        System.out.println("После сортировки списка nums = " + nums);
     }
 }

@@ -67,7 +67,7 @@ public class GraphAdjList {
 
     /* Вывести список смежности */
     public void Print() {
-        Console.WriteLine("список смежности =");
+        Console.WriteLine("Список смежности =");
         foreach (KeyValuePair<Vertex, List<Vertex>> pair in adjList) {
             List<int> tmp = [];
             foreach (Vertex vertex in pair.Value)

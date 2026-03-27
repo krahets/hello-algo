@@ -77,7 +77,7 @@ class GraphAdjList {
 
     /* Вывести список смежности */
     void print() {
-        cout << "список смежности =" << endl;
+        cout << "Список смежности =" << endl;
         for (auto &adj : adjList) {
             const auto &key = adj.first;
             const auto &vec = adj.second;

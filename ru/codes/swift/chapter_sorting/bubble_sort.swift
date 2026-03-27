@@ -42,10 +42,10 @@ enum BubbleSort {
     static func main() {
         var nums = [4, 1, 3, 1, 5, 2]
         bubbleSort(nums: &nums)
-        print("После пузырьковой сортировки nums = \(nums)")
+        print("Пузырьковая сортировкапосле завершения nums = \(nums)")
 
         var nums1 = [4, 1, 3, 1, 5, 2]
         bubbleSortWithFlag(nums: &nums1)
-        print("После пузырьковой сортировки nums1 = \(nums1)")
+        print("Пузырьковая сортировкапосле завершения nums1 = \(nums1)")
     }
 }

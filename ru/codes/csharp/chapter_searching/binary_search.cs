@@ -50,10 +50,10 @@ public class binary_search {
 
         /* Бинарный поиск (двусторонний закрытый интервал) */
         int index = BinarySearch(nums, target);
-        Console.WriteLine("Индекс целевого элемента 6 =" + index);
+        Console.WriteLine("Индекс целевого элемента 6 = " + index);
 
         /* Бинарный поиск (левый закрытый, правый открытый интервал) */
         index = BinarySearchLCRO(nums, target);
-        Console.WriteLine("Индекс целевого элемента 6 =" + index);
+        Console.WriteLine("Индекс целевого элемента 6 = " + index);
     }
 }

@@ -80,7 +80,7 @@ int main() {
     int nums1[] = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
     int size1 = sizeof(nums1) / sizeof(int);
     countingSort(nums1, size1);
-    printf("После сортировки подсчетом nums1 =");
+    printf("Подсчетная сортировкапосле завершения nums1 =");
     printArray(nums1, size1);
 
     return 0;

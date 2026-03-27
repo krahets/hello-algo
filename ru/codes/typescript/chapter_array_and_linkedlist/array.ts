@@ -73,7 +73,7 @@ function find(nums: number[], target: number): number {
 const arr: number[] = new Array(5).fill(0);
 console.log('массив arr =', arr);
 let nums: number[] = [1, 3, 2, 5, 4];
-console.log('массив nums =', nums);
+console.log('Массив nums =', nums);
 
 /* Случайный доступ */
 let random_num = randomAccess(nums);
@@ -89,7 +89,7 @@ console.log('После вставки числа 6 по индексу 3 пол
 
 /* Удалить элемент */
 remove(nums, 2);
-console.log('После удаления элемента по индексу 2 получаем nums =', nums);
+console.log('Удалитьиндекс 2 поэлемент, получаем nums =', nums);
 
 /* Перебрать массив */
 traverse(nums);

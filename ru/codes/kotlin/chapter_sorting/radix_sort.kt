@@ -64,5 +64,5 @@ fun main() {
         88906420, 72429244, 30524779, 82060337, 63832996
     )
     radixSort(nums)
-    println("После поразрядной сортировки nums = ${nums.contentToString()}")
+    println("Поразрядная сортировкапосле завершения nums = ${nums.contentToString()}")
 }

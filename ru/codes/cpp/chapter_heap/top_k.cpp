@@ -31,7 +31,7 @@ int main() {
     int k = 3;
 
     priority_queue<int, vector<int>, greater<int>> res = topKHeap(nums, k);
-    cout << "Наибольшие" << k << "элементов:";
+    cout << "Наибольшие " << k << "элементов:";
     printHeap(res);
 
     return 0;

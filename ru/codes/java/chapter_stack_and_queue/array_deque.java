@@ -46,7 +46,7 @@ class ArrayDeque {
     /* Поместить в голову очереди */
     public void pushFirst(int num) {
         if (queSize == capacity()) {
-            System.out.println("двусторонняя очередьзаполнен");
+            System.out.println("Двусторонняя очередь заполнена");
             return;
         }
         // Указатель головы очереди сдвигается на одну позицию влево
@@ -60,7 +60,7 @@ class ArrayDeque {
     /* Поместить в хвост очереди */
     public void pushLast(int num) {
         if (queSize == capacity()) {
-            System.out.println("двусторонняя очередьзаполнен");
+            System.out.println("Двусторонняя очередь заполнена");
             return;
         }
         // Вычислить указатель хвоста, указывающий на индекс за последним элементом
@@ -120,32 +120,32 @@ public class array_deque {
         deque.pushLast(3);
         deque.pushLast(2);
         deque.pushLast(5);
-        System.out.println("двусторонняя очередь deque =" + Arrays.toString(deque.toArray()));
+        System.out.println("Двусторонняя очередь deque = " + Arrays.toString(deque.toArray()));
 
         /* Получить доступ к элементу */
         int peekFirst = deque.peekFirst();
-        System.out.println("элемент в голове очереди peekFirst =" + peekFirst);
+        System.out.println("голова очередиэлемент peekFirst =" + peekFirst);
         int peekLast = deque.peekLast();
-        System.out.println("элемент в хвосте очереди peekLast =" + peekLast);
+        System.out.println("хвост очередиэлемент peekLast =" + peekLast);
 
         /* Поместить элемент в очередь */
         deque.pushLast(4);
-        System.out.println("После помещения элемента 4 в хвост очереди deque =" + Arrays.toString(deque.toArray()));
+        System.out.println("После помещения элемента 4 в хвост очереди deque = " + Arrays.toString(deque.toArray()));
         deque.pushFirst(1);
-        System.out.println("После помещения элемента 1 в голову очереди deque =" + Arrays.toString(deque.toArray()));
+        System.out.println("После помещения элемента 1 в голову очереди deque = " + Arrays.toString(deque.toArray()));
 
         /* Извлечь элемент из очереди */
         int popLast = deque.popLast();
-        System.out.println("Элемент, извлеченный из хвоста очереди, =" + popLast + ", deque после извлечения из хвоста =" + Arrays.toString(deque.toArray()));
+        System.out.println("Элемент, извлеченный из хвоста очереди = " + popLast + ", deque после извлечения из хвоста = " + Arrays.toString(deque.toArray()));
         int popFirst = deque.popFirst();
-        System.out.println("Элемент, извлеченный из головы очереди, =" + popFirst + ", deque после извлечения из головы =" + Arrays.toString(deque.toArray()));
+        System.out.println("Элемент, извлеченный из головы очереди = " + popFirst + ", deque после извлечения из головы = " + Arrays.toString(deque.toArray()));
 
         /* Получить длину двусторонней очереди */
         int size = deque.size();
-        System.out.println("Длина двусторонней очереди size =" + size);
+        System.out.println("Длина двусторонней очереди size = " + size);
 
         /* Проверить, пуста ли двусторонняя очередь */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("двусторонняя Очередь пуста:" + isEmpty);
+        System.out.println("Двусторонняя очередь пуста: " + isEmpty);
     }
 }

@@ -46,8 +46,8 @@ public class subset_sum_i_naive {
 
         List<List<Integer>> res = subsetSumINaive(nums, target);
 
-        System.out.println("Входмассив nums =" + Arrays.toString(nums) + ", target = " + target);
-        System.out.println("Все подмножества с суммой" + target + "res =" + res);
+        System.out.println("Входной массив nums = " + Arrays.toString(nums) + ", target = " + target);
+        System.out.println("Все подмножества res с суммой " + target + " = " + res);
         System.out.println("Обратите внимание: результат этого метода содержит повторяющиеся множества");
     }
 }

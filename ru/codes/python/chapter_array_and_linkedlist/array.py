@@ -74,7 +74,7 @@ if __name__ == "__main__":
     arr = [0] * 5
     print("массив arr =", arr)
     nums = [1, 3, 2, 5, 4]
-    print("массив nums =", nums)
+    print("Массив nums =", nums)
 
     # Случайный доступ
     random_num: int = random_access(nums)
@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
     # Удалить элемент
     remove(nums, 2)
-    print("После удаления элемента по индексу 2 получаем nums =", nums)
+    print("Удалитьиндекс 2 поэлемент, получаем nums =", nums)
 
     # Перебрать массив
     traverse(nums)

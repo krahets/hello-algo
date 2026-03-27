@@ -28,7 +28,7 @@ if __name__ == "__main__":
     # Извлечь элемент из очереди
     pop: int = que.popleft()
     print("Извлеченный из очереди элемент pop =", pop)
-    print("que после извлечения =", que)
+    print("que после извлечения = ", que)
 
     # Получить длину очереди
     size: int = len(que)

@@ -111,18 +111,18 @@ public class array_binary_tree {
         int l = abt.Left(i);
         int r = abt.Right(i);
         int p = abt.Parent(i);
-        Console.WriteLine("\nИндекс текущего узла равен" + i + ", значение равно" + abt.Val(i));
-        Console.WriteLine("Индекс его левого дочернего узла равен" + l + ", значение равно" + (abt.Val(l).HasValue ? abt.Val(l): "null"));
-        Console.WriteLine("Индекс его правого дочернего узла равен" + r + ", значение равно" + (abt.Val(r).HasValue ? abt.Val(r): "null"));
-        Console.WriteLine("Индекс его родительского узла равен" + p + ", значение равно" + (abt.Val(p).HasValue ? abt.Val(p): "null"));
+        Console.WriteLine("\nИндекс текущего узла равен " + i + ", значение равно" + abt.Val(i));
+        Console.WriteLine("Индекс его левого дочернего узла равен " + l + ", значение равно" + (abt.Val(l).HasValue ? abt.Val(l) : "null"));
+        Console.WriteLine("Индекс его правого дочернего узла равен " + r + ", значение равно" + (abt.Val(r).HasValue ? abt.Val(r) : "null"));
+        Console.WriteLine("Индекс его родительского узла равен " + p + ", значение равно" + (abt.Val(p).HasValue ? abt.Val(p) : "null"));
 
         // Обойти дерево
         List<int> res = abt.LevelOrder();
-        Console.WriteLine("\nобход по уровнямравно:" + res.PrintList());
+        Console.WriteLine("\nРезультат обхода по уровням: " + res.PrintList());
         res = abt.PreOrder();
         Console.WriteLine("прямой обходравно:" + res.PrintList());
         res = abt.InOrder();
-        Console.WriteLine("симметричный обходравно:" + res.PrintList());
+        Console.WriteLine("Симметричный обход: " + res.PrintList());
         res = abt.PostOrder();
         Console.WriteLine("обратный обходравно:" + res.PrintList());
     }

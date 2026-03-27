@@ -62,15 +62,15 @@ public class iteration {
         int res;
 
         res = forLoop(n);
-        System.out.println("\nРезультат суммирования в цикле for res =" + res);
+        System.out.println("\nРезультат суммирования в цикле for res = " + res);
 
         res = whileLoop(n);
-        System.out.println("\nРезультат суммирования в цикле while res =" + res);
+        System.out.println("\nРезультат суммирования в цикле while res = " + res);
 
         res = whileLoopII(n);
-        System.out.println("\nЦикл while (с двумя обновлениями)результат суммирования res =" + res);
+        System.out.println("\nРезультат суммирования в цикле while (с двумя обновлениями) res = " + res);
 
         String resStr = nestedForLoop(n);
-        System.out.println("\nРезультат обхода двойным циклом for" + resStr);
+        System.out.println("\nРезультат обхода двойным циклом for " + resStr);
     }
 }

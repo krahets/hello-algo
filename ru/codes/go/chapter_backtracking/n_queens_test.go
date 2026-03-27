@@ -14,7 +14,7 @@ func TestNQueens(t *testing.T) {
 	res := nQueens(n)
 
 	fmt.Println("Входдоскаразмерравно", n)
-	fmt.Println("Количество схем размещения ферзей равно", len(res), "видов")
+	fmt.Println("Количество способов расстановки ферзей: ", len(res), "")
 	for _, state := range res {
 		fmt.Println("--------------------")
 		for _, row := range state {

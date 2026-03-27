@@ -14,7 +14,7 @@ import (
 func TestList(t *testing.T) {
 	/* Инициализировать список */
 	nums := []int{1, 3, 2, 5, 4}
-	fmt.Println("список nums =", nums)
+	fmt.Println("Список nums =", nums)
 
 	/* Получить доступ к элементу */
 	num := nums[1] // обратиться киндекс 1 поэлемент
@@ -26,7 +26,7 @@ func TestList(t *testing.T) {
 
 	/* Очистить список */
 	nums = nil
-	fmt.Println("Очистить списокпосле nums =", nums)
+	fmt.Println("После очистки списка nums =", nums)
 
 	/* Добавить элемент в конец */
 	nums = append(nums, 1)
@@ -34,15 +34,15 @@ func TestList(t *testing.T) {
 	nums = append(nums, 2)
 	nums = append(nums, 5)
 	nums = append(nums, 4)
-	fmt.Println("После добавления элемента nums =", nums)
+	fmt.Println("Добавитьэлементпосле nums =", nums)
 
 	/* Вставить элемент в середину */
 	nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Вставить число 6 по индексу 3
 	fmt.Println("После вставки числа 6 по индексу 3 получаем nums =", nums)
 
 	/* Удалить элемент */
-	nums = append(nums[:3], nums[4:]...) // Удалить элемент по индексу 3
-	fmt.Println("После удаления элемента по индексу 3 получаем nums =", nums)
+	nums = append(nums[:3], nums[4:]...) // Удалитьиндекс 3 поэлемент
+	fmt.Println("Удалитьиндекс 3 поэлемент, получаем nums =", nums)
 
 	/* Обходить список по индексам */
 	count := 0
@@ -62,5 +62,5 @@ func TestList(t *testing.T) {
 
 	/* Отсортировать список */
 	sort.Ints(nums) // Сортировкапосле, списокэлементрасположены по возрастанию
-	fmt.Println("Отсортировать списокпосле nums =", nums)
+	fmt.Println("После сортировки списка nums =", nums)
 }

@@ -8,7 +8,7 @@ pub const ListNode = ListUtil.ListNode;
 pub const TreeUtil = @import("TreeNode.zig");
 pub const TreeNode = TreeUtil.TreeNode;
 
-// Вывести очередь
+// Вывестиочередь
 pub fn printQueue(comptime T: type, queue: std.TailQueue(T)) void {
     var node = queue.first;
     std.debug.print("[", .{});
@@ -34,7 +34,7 @@ pub fn printHashMap(comptime TKey: type, comptime TValue: type, map: std.AutoHas
 pub fn printHeap(comptime T: type, mem_allocator: std.mem.Allocator, queue: anytype) !void {
     var arr = queue.items;
     var len = queue.len;
-    std.debug.print("Массивное представление кучи:",.{});
+    std.debug.print("Массивное представление кучи:", .{});
     printArray(T, arr[0..len]);
     std.debug.print("\nДревовидное представление кучи:\n", .{});
     var root = try TreeUtil.arrToTree(T, mem_allocator, arr[0..len]);

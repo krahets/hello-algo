@@ -23,33 +23,33 @@ func TestHashMap(t *testing.T) {
 	hmap[16750] = "Сяо Суань"
 	hmap[13276] = "Сяо Фа"
 	hmap[10583] = "Утенок"
-	fmt.Println("\nПосле добавления хеш-таблица имеет вид\nKey -> Value")
+	fmt.Println("\nПосле добавления хеш-таблица выглядит так\nKey -> Value")
 	PrintMap(hmap)
 
 	/* Операция поиска */
 	// Передать ключ key в хеш-таблицу и получить значение value
 	name := hmap[15937]
-	fmt.Println("\nВходномер 15937, найденоимя", name)
+	fmt.Println("\nПо номеру студента 15937 найдено имя ", name)
 
 	/* Операция удаления */
 	// Удалить из хеш-таблицы пару ключ-значение (key, value)
 	delete(hmap, 10583)
-	fmt.Println("\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value")
+	fmt.Println("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value")
 	PrintMap(hmap)
 
 	/* Перебрать хеш-таблицу */
 	// Обойтипара ключ-значение key->value
-	fmt.Println("\nОбойтипара ключ-значение Key->Value")
+	fmt.Println("\nПеребираем пары Key->Value")
 	for key, value := range hmap {
 		fmt.Println(key, "->", value)
 	}
 	// отдельноОбойтиключ key
-	fmt.Println("\nотдельноОбойтиключ Key")
+	fmt.Println("\nОтдельно перебираем ключи Key")
 	for key := range hmap {
 		fmt.Println(key)
 	}
 	// отдельноОбойтизначение value
-	fmt.Println("\nотдельноОбойтизначение Value")
+	fmt.Println("\nОтдельно перебираем значения Value")
 	for _, value := range hmap {
 		fmt.Println(value)
 	}
@@ -61,14 +61,14 @@ func TestSimpleHash(t *testing.T) {
 	key := "Hello Algo"
 
 	hash = addHash(key)
-	fmt.Println("Значение аддитивного хеширования равно" + strconv.Itoa(hash))
+	fmt.Println("Аддитивное хешированиезначениеравно" + strconv.Itoa(hash))
 
 	hash = mulHash(key)
-	fmt.Println("Значение мультипликативного хеширования равно" + strconv.Itoa(hash))
+	fmt.Println("Мультипликативное хешированиезначениеравно" + strconv.Itoa(hash))
 
 	hash = xorHash(key)
-	fmt.Println("Значение XOR-хеширования равно" + strconv.Itoa(hash))
+	fmt.Println("XOR-хешированиезначениеравно" + strconv.Itoa(hash))
 
 	hash = rotHash(key)
-	fmt.Println("Значение вращательного хеширования равно" + strconv.Itoa(hash))
+	fmt.Println("Вращательное хешированиезначениеравно" + strconv.Itoa(hash))
 }

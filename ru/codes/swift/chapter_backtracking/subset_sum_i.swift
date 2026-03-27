@@ -47,7 +47,7 @@ enum SubsetSumI {
 
         let res = subsetSumI(nums: nums, target: target)
 
-        print("Входмассив nums = \(nums), target = \(target)")
+        print("Входной массив nums = \(nums), target = \(target)")
         print("Все подмножества с суммой \(target) res = \(res)")
     }
 }

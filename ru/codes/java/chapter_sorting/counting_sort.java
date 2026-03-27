@@ -69,10 +69,10 @@ public class counting_sort {
     public static void main(String[] args) {
         int[] nums = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
         countingSortNaive(nums);
-        System.out.println("После завершения подсчетной сортировки (не подходит для сортируемых объектов) nums =" + Arrays.toString(nums));
+        System.out.println("После завершения подсчетной сортировки (не подходит для сортируемых объектов) nums = " + Arrays.toString(nums));
 
         int[] nums1 = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
         countingSort(nums1);
-        System.out.println("После сортировки подсчетом nums1 =" + Arrays.toString(nums1));
+        System.out.println("Подсчетная сортировкапосле завершения nums1 =" + Arrays.toString(nums1));
     }
 }

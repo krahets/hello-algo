@@ -54,8 +54,8 @@ func find(head: ListNode, target: Int) -> Int {
 enum LinkedList {
     /* Driver Code */
     static func main() {
-        /* Инициализировать связный список */
-        // Инициализировать каждый узел
+        /* Инициализироватьсвязный список */
+        // Инициализироватькаждый узел
         let n0 = ListNode(x: 1)
         let n1 = ListNode(x: 3)
         let n2 = ListNode(x: 2)

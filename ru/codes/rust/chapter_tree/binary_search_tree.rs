@@ -166,13 +166,13 @@ fn main() {
     for &num in &nums {
         bst.insert(num);
     }
-    println!("\nИнициализированное двоичное дерево:\n");
+    println!("\nИнициализированное двоичное дерево имеет вид\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
 
     /* Найти узел */
     let node = bst.search(7);
     println!(
-        "\nНайденный объект узла равен {:?}, значение узла = {}",
+        "\nНайденныйузелобъектравно {:?}, значение узла = {}",
         node.clone().unwrap(),
         node.clone().unwrap().borrow().val
     );

@@ -51,6 +51,6 @@ public class merge_sort {
         /* Сортировка слиянием */
         int[] nums = [7, 3, 2, 6, 0, 1, 5, 4];
         MergeSort(nums, 0, nums.Length - 1);
-        Console.WriteLine("После сортировки слиянием nums =" + string.Join(",", nums));
+        Console.WriteLine("После завершения сортировки слиянием nums = " + string.Join(",", nums));
     }
 }

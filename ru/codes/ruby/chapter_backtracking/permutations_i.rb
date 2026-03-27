@@ -41,6 +41,6 @@ if __FILE__ == $0
 
   res = permutations_i(nums)
 
-  puts "Входмассив nums = #{nums}"
+  puts "Входной массив nums = #{nums}"
   puts "Все перестановки res = #{res}"
 end

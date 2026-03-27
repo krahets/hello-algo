@@ -17,7 +17,7 @@ typedef struct {
     char val[MAX_SIZE];
 } Pair;
 
-/* узел связного списка */
+/* связный списокузел */
 typedef struct Node {
     Pair *pair;
     struct Node *next;
@@ -150,7 +150,7 @@ void removeItem(HashMapChaining *hashMap, int key) {
     Node *pre = NULL;
     while (cur) {
         if (cur->pair->key == key) {
-            // из него удалить пару ключ-значение
+            // из негоУдалитьпара ключ-значение
             if (pre) {
                 pre->next = cur->next;
             } else {
@@ -198,7 +198,7 @@ int main() {
     /* Операция поиска */
     // Передать ключ key в хеш-таблицу и получить значение value
     char *name = get(hashMap, 13276);
-    printf("\nВведен номер 13276, найдено имя %s\n", name);
+    printf("\nПо номеру студента 13276 найдено имя %s\n", name);
 
     /* Операция удаления */
     // Удалить из хеш-таблицы пару ключ-значение (key, value)

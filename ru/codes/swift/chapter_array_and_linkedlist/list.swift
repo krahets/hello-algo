@@ -10,7 +10,7 @@ enum List {
     static func main() {
         /* Инициализировать список */
         var nums = [1, 3, 2, 5, 4]
-        print("список nums = \(nums)")
+        print("Список nums = \(nums)")
 
         /* Получить доступ к элементу */
         let num = nums[1]
@@ -22,7 +22,7 @@ enum List {
 
         /* Очистить список */
         nums.removeAll()
-        print("Очистить списокпосле nums = \(nums)")
+        print("После очистки списка nums = \(nums)")
 
         /* Добавить элемент в конец */
         nums.append(1)
@@ -30,7 +30,7 @@ enum List {
         nums.append(2)
         nums.append(5)
         nums.append(4)
-        print("После добавления элемента nums = \(nums)")
+        print("Добавитьэлементпосле nums = \(nums)")
 
         /* Вставить элемент в середину */
         nums.insert(6, at: 3)
@@ -38,7 +38,7 @@ enum List {
 
         /* Удалить элемент */
         nums.remove(at: 3)
-        print("После удаления элемента по индексу 3 получаем nums = \(nums)")
+        print("Удалитьиндекс 3 поэлемент, получаем nums = \(nums)")
 
         /* Обходить список по индексам */
         var count = 0
@@ -58,6 +58,6 @@ enum List {
 
         /* Отсортировать список */
         nums.sort()
-        print("Отсортировать списокпосле nums = \(nums)")
+        print("После сортировки списка nums = \(nums)")
     }
 }

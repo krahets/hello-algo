@@ -9,7 +9,7 @@ const inc = @import("include");
 // Интервал левого подмассива [left, mid]
 // Интервал правого подмассива [mid + 1, right]
 fn merge(nums: []i32, left: usize, mid: usize, right: usize) !void {
-    // Инициализировать вспомогательный массив
+    // Инициализироватьвспомогательный массив
     var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     defer mem_arena.deinit();
     const mem_allocator = mem_arena.allocator();
@@ -60,7 +60,7 @@ pub fn main() !void {
     // Сортировка слиянием
     var nums = [_]i32{ 7, 3, 2, 6, 0, 1, 5, 4 };
     try mergeSort(&nums, 0, nums.len - 1);
-    std.debug.print("После сортировки слиянием nums =",.{});
+    std.debug.print("После завершения сортировки слиянием nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums);
 
     _ = try std.io.getStdIn().reader().readByte();

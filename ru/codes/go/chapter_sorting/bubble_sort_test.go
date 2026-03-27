@@ -12,9 +12,9 @@ import (
 func TestBubbleSort(t *testing.T) {
 	nums := []int{4, 1, 3, 1, 5, 2}
 	bubbleSort(nums)
-	fmt.Println("После пузырьковой сортировки nums =", nums)
+	fmt.Println("Пузырьковая сортировкапосле завершения nums =", nums)
 
 	nums1 := []int{4, 1, 3, 1, 5, 2}
 	bubbleSortWithFlag(nums1)
-	fmt.Println("После пузырьковой сортировки nums1 =", nums1)
+	fmt.Println("Пузырьковая сортировкапосле завершения nums1 =", nums1)
 }

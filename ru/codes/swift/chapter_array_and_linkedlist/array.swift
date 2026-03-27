@@ -79,7 +79,7 @@ enum _Array {
         let arr = Array(repeating: 0, count: 5)
         print("массив arr = \(arr)")
         var nums = [1, 3, 2, 5, 4]
-        print("массив nums = \(nums)")
+        print("Массив nums = \(nums)")
 
         /* Случайный доступ */
         let randomNum = randomAccess(nums: nums)
@@ -95,7 +95,7 @@ enum _Array {
 
         /* Удалить элемент */
         remove(nums: &nums, index: 2)
-        print("После удаления элемента по индексу 2 получаем nums = \(nums)")
+        print("Удалитьиндекс 2 поэлемент, получаем nums = \(nums)")
 
         /* Перебрать массив */
         traverse(nums: nums)

@@ -35,7 +35,7 @@ function binarySearchRightEdge(nums, target) {
 /* Driver Code */
 // Массив с повторяющимися элементами
 const nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
-console.log('\nмассив nums =' + nums);
+console.log('\nМассив nums = ' + nums);
 // Бинарный поиск левой и правой границ
 for (const target of [6, 7]) {
     let index = binarySearchLeftEdge(nums, target);

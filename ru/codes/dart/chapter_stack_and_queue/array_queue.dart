@@ -33,7 +33,7 @@ class ArrayQueue {
   /* Поместить в очередь */
   void push(int _num) {
     if (_queSize == capaCity()) {
-      throw Exception("очередьзаполнен");
+      throw Exception("Очередь заполнена");
     }
     // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
     // Операция взятия по модулю позволяет rear после выхода за конец массива вернуться к его началу
@@ -55,7 +55,7 @@ class ArrayQueue {
   /* Получить элемент в начале очереди */
   int peek() {
     if (isEmpty()) {
-      throw Exception("очередьпуст");
+      throw Exception("Очередь пуста");
     }
     return _nums[_front];
   }
@@ -87,13 +87,13 @@ void main() {
 
   /* Получить элемент в начале очереди */
   final int peek = queue.peek();
-  print("элемент в голове очереди peek = $peek");
+  print("голова очередиэлемент peek = $peek");
 
   /* Извлечь элемент из очереди */
   final int pop = queue.pop();
-  print("Элемент, извлеченный из очереди, pop = $pop, queue после извлечения = ${queue.toArray()}");
+  print("Элемент, извлеченный из очереди, pop = $pop , queue после извлечения = ${queue.toArray()}");
 
-  /* Получить длину очереди */
+  /* ПолучитьДлина очереди */
   final int size = queue.size();
   print("Длина очереди size = $size");
 

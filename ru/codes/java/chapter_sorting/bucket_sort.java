@@ -19,7 +19,7 @@ public class bucket_sort {
         }
         // 1. Распределить элементы массива по бакетам
         for (float num : nums) {
-            // Диапазон входных данных равен [0, 1), использовать num * k для отображения в диапазон индексов [0, k-1]
+            // Входданныедиапазонравно [0, 1), Использовать num * k отобразить виндексдиапазон [0, k-1]
             int i = (int) (num * k);
             // Добавить num в бакет i
             buckets.get(i).add(num);
@@ -39,9 +39,9 @@ public class bucket_sort {
     }
 
     public static void main(String[] args) {
-        // Пусть входные данные являются числами с плавающей точкой, диапазон равен [0, 1)
+        // ПустьВходданныеравночисла с плавающей точкой, диапазонравно [0, 1)
         float[] nums = { 0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f };
         bucketSort(nums);
-        System.out.println("После сортировки по бакетам nums =" + Arrays.toString(nums));
+        System.out.println("Сортировка по бакетампосле завершения nums =" + Arrays.toString(nums));
     }
 }

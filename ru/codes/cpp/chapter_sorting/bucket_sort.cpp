@@ -13,7 +13,7 @@ void bucketSort(vector<float> &nums) {
     vector<vector<float>> buckets(k);
     // 1. Распределить элементы массива по бакетам
     for (float num : nums) {
-        // Диапазон входных данных равен [0, 1), использовать num * k для отображения в диапазон индексов [0, k-1]
+        // Входданныедиапазонравно [0, 1), Использовать num * k отобразить виндексдиапазон [0, k-1]
         int i = num * k;
         // Добавить num в бакет bucket_idx
         buckets[i].push_back(num);
@@ -34,10 +34,10 @@ void bucketSort(vector<float> &nums) {
 
 /* Driver Code */
 int main() {
-    // Пусть входные данные являются числами с плавающей точкой, диапазон равен [0, 1)
+    // ПустьВходданныеравночисла с плавающей точкой, диапазонравно [0, 1)
     vector<float> nums = {0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f};
     bucketSort(nums);
-    cout << "После сортировки по бакетам nums =";
+    cout << "Сортировка по бакетампосле завершения nums =";
     printVector(nums);
 
     return 0;

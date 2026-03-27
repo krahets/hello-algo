@@ -135,16 +135,16 @@ public class quick_sort {
         /* Быстрая сортировка */
         int[] nums = [2, 4, 1, 0, 3, 5];
         quickSort.QuickSort(nums, 0, nums.Length - 1);
-        Console.WriteLine("После быстрой сортировки nums =" + string.Join(",", nums));
+        Console.WriteLine("После завершения быстрой сортировки nums = " + string.Join(",", nums));
 
         /* Быстрая сортировка (оптимизация с медианным опорным элементом) */
         int[] nums1 = [2, 4, 1, 0, 3, 5];
         QuickSortMedian.QuickSort(nums1, 0, nums1.Length - 1);
-        Console.WriteLine("Быстрая сортировка (оптимизация с медианным опорным элементом)после завершения nums1 =" + string.Join(",", nums1));
+        Console.WriteLine("После быстрой сортировки (оптимизация с медианным опорным элементом) nums1 = " + string.Join(",", nums1));
 
         /* Быстрая сортировка (оптимизация глубины рекурсии) */
         int[] nums2 = [2, 4, 1, 0, 3, 5];
         QuickSortTailCall.QuickSort(nums2, 0, nums2.Length - 1);
-        Console.WriteLine("Быстрая сортировка (оптимизация глубины рекурсии)после завершения nums2 =" + string.Join(",", nums2));
+        Console.WriteLine("После быстрой сортировки (оптимизация глубины рекурсии) nums2 = " + string.Join(",", nums2));
     }
 }

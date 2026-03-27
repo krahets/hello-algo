@@ -20,30 +20,30 @@ enum HashMap {
         map[16750] = "Сяо Суань"
         map[13276] = "Сяо Фа"
         map[10583] = "Утенок"
-        print("\nПосле добавления хеш-таблица имеет вид\nKey -> Value")
+        print("\nПосле добавления хеш-таблица выглядит так\nKey -> Value")
         PrintUtil.printHashMap(map: map)
 
         /* Операция поиска */
         // Передать ключ key в хеш-таблицу и получить значение value
         let name = map[15937]!
-        print("\nВходномер 15937, найденоимя \(name)")
+        print("\nПо номеру студента 15937 найдено имя \(name)")
 
         /* Операция удаления */
         // Удалить из хеш-таблицы пару ключ-значение (key, value)
         map.removeValue(forKey: 10583)
-        print("\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value")
+        print("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value")
         PrintUtil.printHashMap(map: map)
 
         /* Перебрать хеш-таблицу */
-        print("\nОбойтипара ключ-значение Key->Value")
+        print("\nПеребираем пары Key->Value")
         for (key, value) in map {
             print("\(key) -> \(value)")
         }
-        print("\nотдельноОбойтиключ Key")
+        print("\nОтдельно перебираем ключи Key")
         for key in map.keys {
             print(key)
         }
-        print("\nотдельноОбойтизначение Value")
+        print("\nОтдельно перебираем значения Value")
         for value in map.values {
             print(value)
         }

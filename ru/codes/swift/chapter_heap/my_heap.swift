@@ -134,12 +134,12 @@ enum MyHeap {
     static func main() {
         /* Инициализировать max-кучу */
         let maxHeap = MaxHeap(nums: [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2])
-        print("\nВходной список и построение кучипосле")
+        print("\nПосле построения кучи по входному списку")
         maxHeap.print()
 
         /* Получить верхний элемент кучи */
         var peek = maxHeap.peek()
-        print("\nЭлемент на вершине кучи равен \(peek)")
+        print("\nвершина кучиэлементравно \(peek)")
 
         /* Добавить элемент в кучу */
         let val = 7
@@ -158,6 +158,6 @@ enum MyHeap {
 
         /* Проверить, пуста ли куча */
         let isEmpty = maxHeap.isEmpty()
-        print("\nКуча пуста: \(isEmpty)")
+        print("\nкучапуст ли \(isEmpty)")
     }
 }

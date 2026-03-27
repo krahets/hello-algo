@@ -59,7 +59,7 @@ def backtrack(
 """Driver Code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
-    print("\nИнициализируем двоичное дерево")
+    print("\nИнициализировать двоичное дерево")
     print_tree(root)
 
     # Алгоритм бэктрекинга

@@ -25,6 +25,6 @@ public class insertion_sort {
     public void Test() {
         int[] nums = [4, 1, 3, 1, 5, 2];
         InsertionSort(nums);
-        Console.WriteLine("После сортировки вставками nums =" + string.Join(",", nums));
+        Console.WriteLine("После завершения сортировки вставками nums = " + string.Join(",", nums));
     }
 }

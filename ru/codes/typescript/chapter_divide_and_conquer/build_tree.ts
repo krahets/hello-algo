@@ -43,8 +43,8 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
 /* Driver Code */
 const preorder = [3, 9, 2, 1, 7];
 const inorder = [9, 3, 1, 2, 7];
-console.log('прямой обход =' + JSON.stringify(preorder));
-console.log('симметричный обход =' + JSON.stringify(inorder));
+console.log('Прямой обход = ' + JSON.stringify(preorder));
+console.log('Симметричный обход = ' + JSON.stringify(inorder));
 const root = buildTree(preorder, inorder);
 console.log('Построенное двоичное дерево:');
 printTree(root);

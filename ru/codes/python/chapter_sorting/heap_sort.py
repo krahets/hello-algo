@@ -42,4 +42,4 @@ def heap_sort(nums: list[int]):
 if __name__ == "__main__":
     nums = [4, 1, 3, 1, 5, 2]
     heap_sort(nums)
-    print("После сортировки кучей nums =", nums)
+    print("Сортировка кучейпосле завершения nums =", nums)

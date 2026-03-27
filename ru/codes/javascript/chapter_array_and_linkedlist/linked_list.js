@@ -48,8 +48,8 @@ function find(head, target) {
 }
 
 /* Driver Code */
-/* Инициализировать связный список */
-// Инициализировать каждый узел
+/* Инициализироватьсвязный список */
+// Инициализироватькаждый узел
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
 const n2 = new ListNode(2);

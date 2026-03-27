@@ -54,7 +54,7 @@ public class subset_sum_ii {
 
         List<List<Integer>> res = subsetSumII(nums, target);
 
-        System.out.println("Входмассив nums =" + Arrays.toString(nums) + ", target = " + target);
-        System.out.println("Все подмножества с суммой" + target + "res =" + res);
+        System.out.println("Входной массив nums = " + Arrays.toString(nums) + ", target = " + target);
+        System.out.println("Все подмножества res с суммой " + target + " = " + res);
     }
 }

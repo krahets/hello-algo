@@ -104,16 +104,16 @@ fn main() {
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    print!("очередь queue =");
+    print!("Очередь queue = ");
     print_util::print_array(&queue.to_array(queue.peek()));
 
     /* Получить элемент в начале очереди */
     let peek = queue.peek().unwrap().borrow().val;
-    print!("\nэлемент в голове очереди peek = {}", peek);
+    print!("\nголова очередиэлемент peek = {}", peek);
 
     /* Извлечь элемент из очереди */
     let pop = queue.pop().unwrap();
-    print!("\nЭлемент, извлеченный из очереди, pop = {}, queue после извлечения =", pop);
+    print!("\nЭлемент, извлеченный из очереди, pop = {}, queue после извлечения = ", pop);
     print_util::print_array(&queue.to_array(queue.peek()));
 
     /* Получить длину очереди */

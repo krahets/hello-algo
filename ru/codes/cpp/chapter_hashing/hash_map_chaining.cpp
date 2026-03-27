@@ -81,7 +81,7 @@ class HashMapChaining {
         for (int i = 0; i < bucket.size(); i++) {
             if (bucket[i]->key == key) {
                 Pair *tmp = bucket[i];
-                bucket.erase(bucket.begin() + i); // из него удалить пару ключ-значение
+                bucket.erase(bucket.begin() + i); // из негоУдалитьпара ключ-значение
                 delete tmp;                       // Освободить память
                 size--;
                 return;
@@ -132,18 +132,18 @@ int main() {
     map.put(16750, "Сяо Суань");
     map.put(13276, "Сяо Фа");
     map.put(10583, "Утенок");
-    cout << "\nПосле добавления хеш-таблица имеет вид\nKey -> Value" << endl;
+    cout << "\nПосле добавления хеш-таблица выглядит так\nKey -> Value" << endl;
     map.print();
 
     /* Операция поиска */
     // Передать ключ key в хеш-таблицу и получить значение value
     string name = map.get(13276);
-    cout << "\nВведен номер 13276, найдено имя " << name << endl;
+    cout << "\nПо номеру студента 13276 найдено имя " << name << endl;
 
     /* Операция удаления */
     // Удалить из хеш-таблицы пару ключ-значение (key, value)
     map.remove(12836);
-    cout << "\nПосле удаления 12836 хеш-таблица имеет вид\nKey -> Value" << endl;
+    cout << "\nПосле удаления 12836 хеш-таблица выглядит так\nKey -> Value" << endl;
     map.print();
 
     return 0;

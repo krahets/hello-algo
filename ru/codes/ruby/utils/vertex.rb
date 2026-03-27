@@ -13,12 +13,12 @@ class Vertex
   end
 end
 
-# ## Вход: список значений vals; вернуть список вершин vets ###
+# ## Входзначениесписок vals, Вернутьсписок вершин vets ###
 def vals_to_vets(vals)
   Array.new(vals.length) { |i| Vertex.new(vals[i]) }
 end
 
-# ## Вход: список вершин vets; вернуть список значений vals ###
+# ## Входсписок вершин vets, Вернутьзначениесписок vals ###
 def vets_to_vals(vets)
   Array.new(vets.length) { |i| vets[i].val }
 end

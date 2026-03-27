@@ -32,14 +32,14 @@ class MyList {
     fun get(index: Int): Int {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException("индекс выходит за границы")
+            throw IndexOutOfBoundsException("Индекс вне допустимого диапазона")
         return arr[index]
     }
 
     /* Обновить элемент */
     fun set(index: Int, num: Int) {
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException("индекс выходит за границы")
+            throw IndexOutOfBoundsException("Индекс вне допустимого диапазона")
         arr[index] = num
     }
 
@@ -56,7 +56,7 @@ class MyList {
     /* Вставить элемент в середину */
     fun insert(index: Int, num: Int) {
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException("индекс выходит за границы")
+            throw IndexOutOfBoundsException("Индекс вне допустимого диапазона")
         // Если число элементов превышает вместимость, запустить механизм расширения
         if (size == capacity())
             extendCapacity()
@@ -71,7 +71,7 @@ class MyList {
     /* Удалить элемент */
     fun remove(index: Int): Int {
         if (index < 0 || index >= size)
-            throw IndexOutOfBoundsException("индекс выходит за границы")
+            throw IndexOutOfBoundsException("Индекс вне допустимого диапазона")
         val num = arr[index]
         // Сдвинуть на одну позицию вперед все элементы после индекса index
         for (j in index..<size - 1)
@@ -86,7 +86,7 @@ class MyList {
     fun extendCapacity() {
         // Создать новый массив длиной в extendRatio раз больше исходного и скопировать в него исходный массив
         arr = arr.copyOf(capacity() * extendRatio)
-        // Обновить вместимость списка
+        // ОбновитьВместимость списка
         capacity = arr.size
     }
 
@@ -112,7 +112,7 @@ fun main() {
     nums.add(2)
     nums.add(5)
     nums.add(4)
-    println("список nums = ${nums.toArray().contentToString()}, вместимость = ${nums.capacity()}, длина = ${nums.size()}")
+    println("Список nums = ${nums.toArray().contentToString()}, вместимость = ${nums.capacity()}, длина = ${nums.size()}")
 
     /* Вставить элемент в середину */
     nums.insert(3, 6)
@@ -120,7 +120,7 @@ fun main() {
 
     /* Удалить элемент */
     nums.remove(3)
-    println("После удаления элемента по индексу 3 получаем nums = ${nums.toArray().contentToString()}")
+    println("Удалитьиндекс 3 поэлемент, получаем nums = ${nums.toArray().contentToString()}")
 
     /* Получить доступ к элементу */
     val num = nums.get(1)

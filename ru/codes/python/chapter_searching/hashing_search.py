@@ -48,4 +48,4 @@ if __name__ == "__main__":
         map1[head.val] = head  # key: значение узла, value: узел
         head = head.next
     node: ListNode = hashing_search_linkedlist(map1, target)
-    print("Узел, соответствующий значению 3, равен", node)
+    print("Объект узла, соответствующий целевому значению 3, равен", node)

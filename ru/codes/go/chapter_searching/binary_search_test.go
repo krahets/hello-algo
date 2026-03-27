@@ -26,7 +26,7 @@ func TestBinarySearch(t *testing.T) {
 func TestBinarySearchEdge(t *testing.T) {
 	// Массив с повторяющимися элементами
 	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
-	fmt.Println("\nмассив nums =", nums)
+	fmt.Println("\nМассив nums = ", nums)
 
 	// Бинарный поиск левой и правой границ
 	for _, target := range []int{6, 7} {
@@ -41,7 +41,7 @@ func TestBinarySearchEdge(t *testing.T) {
 func TestBinarySearchInsertion(t *testing.T) {
 	// Массив без повторяющихся элементов
 	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
-	fmt.Println("массив nums =", nums)
+	fmt.Println("Массив nums =", nums)
 
 	// Найти точку вставки бинарным поиском
 	for _, target := range []int{6, 9} {
@@ -51,7 +51,7 @@ func TestBinarySearchInsertion(t *testing.T) {
 
 	// Массив с повторяющимися элементами
 	nums = []int{1, 3, 6, 6, 6, 6, 6, 10, 12, 15}
-	fmt.Println("\nмассив nums =", nums)
+	fmt.Println("\nМассив nums =", nums)
 
 	// Найти точку вставки бинарным поиском
 	for _, target := range []int{2, 6, 20} {

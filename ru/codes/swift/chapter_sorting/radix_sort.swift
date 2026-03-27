@@ -74,6 +74,6 @@ enum RadixSort {
             63_832_996,
         ]
         radixSort(nums: &nums)
-        print("После поразрядной сортировки nums = \(nums)")
+        print("Поразрядная сортировкапосле завершения nums = \(nums)")
     }
 }

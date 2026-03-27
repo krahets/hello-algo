@@ -161,7 +161,7 @@ public class time_complexity {
         Console.WriteLine("Размер входных данных n =" + n);
 
         int count = Constant(n);
-        Console.WriteLine("Количество операций константной сложности =" + count);
+        Console.WriteLine("Количество операций константной сложности = " + count);
 
         count = Linear(n);
         Console.WriteLine("Количество операций линейной сложности =" + count);
@@ -169,22 +169,22 @@ public class time_complexity {
         Console.WriteLine("Количество операций линейной сложности (обход массива) =" + count);
 
         count = Quadratic(n);
-        Console.WriteLine("Количество операций квадратичной сложности =" + count);
+        Console.WriteLine("Количество операций квадратичной сложности = " + count);
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
             nums[i] = n - i;  // [n,n-1,...,2,1]
         count = BubbleSort(nums);
-        Console.WriteLine("Количество операций квадратичной сложности (пузырьковая сортировка) =" + count);
+        Console.WriteLine("Количество операций квадратичной сложности (пузырьковая сортировка) = " + count);
 
         count = Exponential(n);
-        Console.WriteLine("Количество операций экспоненциальной сложности (итеративная реализация) =" + count);
+        Console.WriteLine("Количество операций экспоненциальной сложности (итеративная реализация) = " + count);
         count = ExpRecur(n);
-        Console.WriteLine("Количество операций экспоненциальной сложности (рекурсивная реализация) =" + count);
+        Console.WriteLine("Количество операций экспоненциальной сложности (рекурсивная реализация) = " + count);
 
         count = Logarithmic(n);
-        Console.WriteLine("Количество операций логарифмической сложности (итеративная реализация) =" + count);
+        Console.WriteLine("Количество операций логарифмической сложности (итеративная реализация) = " + count);
         count = LogRecur(n);
-        Console.WriteLine("Количество операций логарифмической сложности (рекурсивная реализация) =" + count);
+        Console.WriteLine("Количество операций логарифмической сложности (рекурсивная реализация) = " + count);
 
         count = LinearLogRecur(n);
         Console.WriteLine("Количество операций линейно-логарифмической сложности (рекурсивная реализация) =" + count);

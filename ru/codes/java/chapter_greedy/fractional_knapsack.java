@@ -54,6 +54,6 @@ public class fractional_knapsack {
 
         // Жадный алгоритм
         double res = fractionalKnapsack(wgt, val, cap);
-        System.out.println("Максимальная стоимость предметов, не превышающая вместимость рюкзака, равна" + res);
+        System.out.println("Максимальная стоимость предметов, не превышающая вместимость рюкзака, равна " + res);
     }
 }

@@ -8,7 +8,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 if __FILE__ == $0
   # Инициализировать список
   nums = [1, 3, 2, 5, 4]
-  puts "список nums = #{nums}"
+  puts "Список nums = #{nums}"
 
   # Получить доступ к элементу
   num = nums[1]
@@ -20,7 +20,7 @@ if __FILE__ == $0
 
   # Очистить список
   nums.clear
-  puts "Очистить списокпосле nums = #{nums}"
+  puts "После очистки списка nums = #{nums}"
 
   # Добавить элемент в конец
   nums << 1
@@ -28,7 +28,7 @@ if __FILE__ == $0
   nums << 2
   nums << 5
   nums << 4
-  puts "После добавления элемента nums = #{nums}"
+  puts "Добавитьэлементпосле nums = #{nums}"
 
   # Вставить элемент в середину
   nums.insert(3, 6)
@@ -36,7 +36,7 @@ if __FILE__ == $0
 
   # Удалить элемент
   nums.delete_at(3)
-  puts "После удаления элемента по индексу 3 получаем nums = #{nums}"
+  puts "Удалитьиндекс 3 поэлемент, получаем nums = #{nums}"
 
   # Обходить список по индексам
   count = 0
@@ -56,5 +56,5 @@ if __FILE__ == $0
   puts "После присоединения списка nums1 к nums получаем nums = #{nums}"
 
   nums = nums.sort { |a, b| a <=> b }
-  puts "Отсортировать списокпосле nums = #{nums}"
+  puts "После сортировки списка nums = #{nums}"
 end

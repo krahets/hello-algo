@@ -51,7 +51,7 @@ fun linear(n: Int) {
 
 /* Линейная сложность (рекурсивная реализация) */
 fun linearRecur(n: Int) {
-    println("рекурсия n = $n")
+    println("Рекурсия: n = $n")
     if (n == 1)
         return
     linearRecur(n - 1)
@@ -78,7 +78,7 @@ tailrec fun quadraticRecur(n: Int): Int {
         return 0
     // массив nums длинаравно n, n-1,..., 2, 1
     val nums = Array(n) { 0 }
-    println("рекурсия n = $n в nums длина = ${nums.size}")
+    println("Рекурсия: n = $n, длина nums = ${nums.size}")
     return quadraticRecur(n - 1)
 }
 

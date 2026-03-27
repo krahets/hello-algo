@@ -23,7 +23,7 @@ fun main() {
 
     /* Получить элемент в начале очереди */
     val peek = queue.peek()
-    println("элемент в голове очереди peek = $peek")
+    println("голова очередиэлемент peek = $peek")
 
     /* Извлечь элемент из очереди */
     val pop = queue.poll()

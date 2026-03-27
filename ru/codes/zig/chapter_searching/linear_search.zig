@@ -39,7 +39,7 @@ pub fn main() !void {
     defer nums.deinit();
     try nums.appendSlice(&[_]i32{ 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 });
     var index = linearSearchArray(i32, nums, target);
-    std.debug.print("Индекс целевого элемента 3 = {}\n",.{index});
+    std.debug.print("Индекс целевого элемента 3 = {}\n", .{index});
 
     // Выполнить линейный поиск в связном списке
     var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
@@ -47,7 +47,7 @@ pub fn main() !void {
     const mem_allocator = mem_arena.allocator();
     var head = try inc.ListUtil.listToLinkedList(i32, mem_allocator, nums);
     var node = linearSearchLinkedList(i32, head, target);
-    std.debug.print("Объект узла, соответствующий целевому значению 3, равен",.{});
+    std.debug.print("Объект узла, соответствующий целевому значению 3, равен ", .{});
     try inc.PrintUtil.printLinkedList(i32, node);
 
     _ = try std.io.getStdIn().reader().readByte();

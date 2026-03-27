@@ -54,11 +54,11 @@ pub fn main() !void {
 
     // Бинарный поиск (двусторонний закрытый интервал)
     var index = binarySearch(i32, nums, target);
-    std.debug.print("Индекс целевого элемента 6 = {}\n",.{index});
+    std.debug.print("Индекс целевого элемента 6 = {}\n", .{index});
 
     // Бинарный поиск (левый закрытый, правый открытый интервал)
     index = binarySearchLCRO(i32, nums, target);
-    std.debug.print("Индекс целевого элемента 6 = {}\n",.{index});
+    std.debug.print("Индекс целевого элемента 6 = {}\n", .{index});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

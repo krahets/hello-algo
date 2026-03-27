@@ -9,7 +9,7 @@
 /* Driver Code */
 int main() {
     /* Инициализировать двоичное дерево */
-    // Инициализировать узел
+    // Инициализироватьузел
     TreeNode *n1 = newTreeNode(1);
     TreeNode *n2 = newTreeNode(2);
     TreeNode *n3 = newTreeNode(3);

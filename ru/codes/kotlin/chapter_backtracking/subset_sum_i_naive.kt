@@ -49,7 +49,7 @@ fun main() {
     val target = 9
     val res = subsetSumINaive(nums, target)
 
-    println("Входмассив nums = ${nums.contentToString()}, target = $target")
+    println("Входной массив nums = ${nums.contentToString()}, target = $target")
     println("Все подмножества с суммой $target res = $res")
     println("Обратите внимание: результат этого метода содержит повторяющиеся множества")
 }

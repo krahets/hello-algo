@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
     # Получить элемент в начале очереди
     peek: int = queue.peek()
-    print("элемент в голове очереди front =", peek)
+    print("Элемент в начале очереди front =", peek)
 
     # Извлечь элемент из очереди
     pop_front: int = queue.pop()

@@ -44,8 +44,8 @@ public class permutations_i {
 
         List<List<int>> res = PermutationsI(nums);
 
-        Console.WriteLine("Входмассив nums =" + string.Join(", ", nums));
-        Console.WriteLine("Все перестановки res =");
+        Console.WriteLine("Входной массив nums = " + string.Join(", ", nums));
+        Console.WriteLine("Все перестановки res = ");
         foreach (List<int> permutation in res) {
             PrintUtil.PrintList(permutation);
         }

@@ -12,9 +12,9 @@ import (
 func TestCountingSort(t *testing.T) {
 	nums := []int{1, 0, 1, 2, 0, 4, 0, 2, 2, 4}
 	countingSortNaive(nums)
-	fmt.Println("После завершения подсчетной сортировки (не подходит для сортируемых объектов) nums =", nums)
+	fmt.Println("После завершения подсчетной сортировки (не подходит для сортируемых объектов) nums = ", nums)
 
 	nums1 := []int{1, 0, 1, 2, 0, 4, 0, 2, 2, 4}
 	countingSort(nums1)
-	fmt.Println("После сортировки подсчетом nums1 =", nums1)
+	fmt.Println("Подсчетная сортировкапосле завершения nums1 =", nums1)
 }

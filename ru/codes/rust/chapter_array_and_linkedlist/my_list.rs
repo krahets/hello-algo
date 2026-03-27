@@ -42,7 +42,7 @@ impl MyList {
     pub fn get(&self, index: usize) -> i32 {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
         if index >= self.size {
-            panic!("индекс выходит за границы")
+            panic!("Индекс вне допустимого диапазона")
         };
         return self.arr[index];
     }
@@ -50,7 +50,7 @@ impl MyList {
     /* Обновить элемент */
     pub fn set(&mut self, index: usize, num: i32) {
         if index >= self.size {
-            panic!("индекс выходит за границы")
+            panic!("Индекс вне допустимого диапазона")
         };
         self.arr[index] = num;
     }
@@ -69,7 +69,7 @@ impl MyList {
     /* Вставить элемент в середину */
     pub fn insert(&mut self, index: usize, num: i32) {
         if index >= self.size() {
-            panic!("индекс выходит за границы")
+            panic!("Индекс вне допустимого диапазона")
         };
         // Если число элементов превышает вместимость, запустить механизм расширения
         if self.size == self.capacity() {
@@ -87,7 +87,7 @@ impl MyList {
     /* Удалить элемент */
     pub fn remove(&mut self, index: usize) -> i32 {
         if index >= self.size() {
-            panic!("индекс выходит за границы")
+            panic!("Индекс вне допустимого диапазона")
         };
         let num = self.arr[index];
         // Сдвинуть на одну позицию вперед все элементы после индекса index
@@ -105,7 +105,7 @@ impl MyList {
         // Создать новый массив длиной в extend_ratio раз больше исходного и скопировать в него исходный массив
         let new_capacity = self.capacity * self.extend_ratio;
         self.arr.resize(new_capacity, 0);
-        // Обновить вместимость списка
+        // ОбновитьВместимость списка
         self.capacity = new_capacity;
     }
 
@@ -130,7 +130,7 @@ fn main() {
     nums.add(2);
     nums.add(5);
     nums.add(4);
-    print!("список nums =");
+    print!("Список nums = ");
     print_util::print_array(&nums.to_array());
     print!(", вместимость = {}, длина = {}", nums.capacity(), nums.size());
 
@@ -141,7 +141,7 @@ fn main() {
 
     /* Удалить элемент */
     nums.remove(3);
-    print!("\nПосле удаления элемента по индексу 3 получаем nums =");
+    print!("\nУдалитьиндекс 3 поэлемент, получаем nums =");
     print_util::print_array(&nums.to_array());
 
     /* Получить доступ к элементу */
@@ -150,7 +150,7 @@ fn main() {
 
     /* Обновить элемент */
     nums.set(1, 0);
-    print!("После обновления элемента по индексу 1 на 0 получаем nums =");
+    print!("После обновления элемента по индексу 1 на 0 получаем nums = ");
     print_util::print_array(&nums.to_array());
 
     /* Проверить механизм расширения */

@@ -19,7 +19,7 @@ public class stack {
         stack.Push(5);
         stack.Push(4);
         // Обратите внимание: stack.ToArray() дает последовательность в обратном порядке, то есть индекс 0 соответствует вершине стека
-        Console.WriteLine("стек stack =" + string.Join(",", stack));
+        Console.WriteLine("Стек stack = " + string.Join(",", stack));
 
         /* Получить верхний элемент стека */
         int peek = stack.Peek();
@@ -27,7 +27,7 @@ public class stack {
 
         /* Извлечь элемент из стека */
         int pop = stack.Pop();
-        Console.WriteLine("извлечение из стекаэлемент pop =" + pop + ", извлечение из стекапосле stack =" + string.Join(",", stack));
+        Console.WriteLine("Элемент, извлеченный из стека, pop = " + pop + ", stack после извлечения = " + string.Join(",", stack));
 
         /* Получить длину стека */
         int size = stack.Count;
@@ -35,6 +35,6 @@ public class stack {
 
         /* Проверить, пуста ли структура */
         bool isEmpty = stack.Count == 0;
-        Console.WriteLine("Стек пуст:" + isEmpty);
+        Console.WriteLine("стекпуст ли =" + isEmpty);
     }
 }

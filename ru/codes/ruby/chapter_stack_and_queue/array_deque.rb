@@ -29,7 +29,7 @@ class ArrayDeque
   # ## Поместить в голову очереди ###
   def push_first(num)
     if size == capacity
-      puts 'двусторонняя очередьзаполнен'
+      puts 'Двусторонняя очередь заполнена'
       return
     end
 
@@ -44,7 +44,7 @@ class ArrayDeque
   # ## Поместить в хвост очереди ###
   def push_last(num)
     if size == capacity
-      puts 'двусторонняя очередьзаполнен'
+      puts 'Двусторонняя очередь заполнена'
       return
     end
 
@@ -73,14 +73,14 @@ class ArrayDeque
 
   # ## Получить элемент в начале очереди ###
   def peek_first
-    raise IndexError, 'двусторонняя очередьпуст' if is_empty?
+    raise IndexError, 'Двусторонняя очередь пуста' if is_empty?
 
     @nums[@front]
   end
 
   # ## Обратиться к элементу в хвосте очереди ###
   def peek_last
-    raise IndexError, 'двусторонняя очередьпуст' if is_empty?
+    raise IndexError, 'Двусторонняя очередь пуста' if is_empty?
 
     # Вычислить индекс хвостового элемента
     last = index(@front + size - 1)
@@ -119,9 +119,9 @@ if __FILE__ == $0
 
   # Получить доступ к элементу
   peek_first = deque.peek_first
-  puts "элемент в голове очереди peek_first = #{peek_first}"
+  puts "голова очередиэлемент peek_first = #{peek_first}"
   peek_last = deque.peek_last
-  puts "элемент в хвосте очереди peek_last = #{peek_last}"
+  puts "хвост очередиэлемент peek_last = #{peek_last}"
 
   # Поместить элемент в очередь
   deque.push_last(4)
@@ -131,9 +131,9 @@ if __FILE__ == $0
 
   # Извлечь элемент из очереди
   pop_last = deque.pop_last
-  puts "Элемент, извлеченный из хвоста очереди, = #{pop_last}, deque после извлечения из хвоста = #{deque.to_array}"
+  puts "Элемент, извлеченный из хвоста очереди = #{pop_last}, deque после извлечения из хвоста = #{deque.to_array}"
   pop_first = deque.pop_first
-  puts "Элемент, извлеченный из хвоста очереди, = #{pop_first}, deque после извлечения из хвоста = #{deque.to_array}"
+  puts "Элемент, извлеченный из хвоста очереди = #{pop_first}, deque после извлечения из хвоста = #{deque.to_array}"
 
   # Получить длину двусторонней очереди
   size = deque.size
@@ -141,5 +141,5 @@ if __FILE__ == $0
 
   # Проверить, пуста ли двусторонняя очередь
   is_empty = deque.is_empty?
-  puts "двусторонняя Очередь пуста: #{is_empty}"
+  puts "Двусторонняя очередь пуста: #{is_empty}"
 end

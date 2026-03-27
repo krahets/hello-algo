@@ -38,9 +38,9 @@ TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
 int main() {
     vector<int> preorder = {3, 9, 2, 1, 7};
     vector<int> inorder = {9, 3, 1, 2, 7};
-    cout << "прямой обход =";
+    cout << "Прямой обход = ";
     printVector(preorder);
-    cout << "симметричный обход =";
+    cout << "Симметричный обход = ";
     printVector(inorder);
 
     TreeNode *root = buildTree(preorder, inorder);

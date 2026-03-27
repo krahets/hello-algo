@@ -87,7 +87,7 @@ class GraphAdjMat {
     func print() {
         Swift.print("список вершин =", terminator: "")
         Swift.print(vertices)
-        Swift.print("матрица смежности =")
+        Swift.print("Матрица смежности =")
         PrintUtil.printMatrix(matrix: adjMat)
     }
 }

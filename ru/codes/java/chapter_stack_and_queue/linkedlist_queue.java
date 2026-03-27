@@ -83,15 +83,15 @@ public class linkedlist_queue {
         queue.push(2);
         queue.push(5);
         queue.push(4);
-        System.out.println("очередь queue =" + Arrays.toString(queue.toArray()));
+        System.out.println("Очередь queue = " + Arrays.toString(queue.toArray()));
 
         /* Получить элемент в начале очереди */
         int peek = queue.peek();
-        System.out.println("элемент в голове очереди peek =" + peek);
+        System.out.println("голова очередиэлемент peek =" + peek);
 
         /* Извлечь элемент из очереди */
         int pop = queue.pop();
-        System.out.println("Элемент, извлеченный из очереди, pop =" + pop + ", queue после извлечения =" + Arrays.toString(queue.toArray()));
+        System.out.println("Элемент, извлеченный из очереди, pop = " + pop + ", queue после извлечения = " + Arrays.toString(queue.toArray()));
 
         /* Получить длину очереди */
         int size = queue.size();
@@ -99,6 +99,6 @@ public class linkedlist_queue {
 
         /* Проверить, пуста ли очередь */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("Очередь пуста:" + isEmpty);
+        System.out.println("Очередь пуста: " + isEmpty);
     }
 }

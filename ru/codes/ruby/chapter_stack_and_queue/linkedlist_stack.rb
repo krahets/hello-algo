@@ -38,7 +38,7 @@ class LinkedListStack
 
   # ## Получить верхний элемент стека ###
   def peek
-    raise IndexError, 'стекпуст' if is_empty?
+    raise IndexError, 'Стек пуст' if is_empty?
 
     @peek.val
   end
@@ -74,8 +74,8 @@ if __FILE__ == $0
 
   # Извлечь элемент из стека
   pop = stack.pop
-  puts "извлечение из стекаэлемент pop = #{pop}"
-  puts "извлечение из стекапосле stack = #{stack.to_array}"
+  puts "Элемент, извлеченный из стека, pop = #{pop}"
+  puts "stack после извлечения = #{stack.to_array}"
 
   # Получить длину стека
   size = stack.size
@@ -83,5 +83,5 @@ if __FILE__ == $0
 
   # Проверить, пуста ли структура
   is_empty = stack.is_empty?
-  puts "Стек пуст: #{is_empty}"
+  puts "стекпуст ли = #{is_empty}"
 end

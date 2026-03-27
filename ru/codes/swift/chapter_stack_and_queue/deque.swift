@@ -22,9 +22,9 @@ enum Deque {
 
         /* Получить доступ к элементу */
         let peekFirst = deque.first!
-        print("элемент в голове очереди peekFirst = \(peekFirst)")
+        print("голова очередиэлемент peekFirst = \(peekFirst)")
         let peekLast = deque.last!
-        print("элемент в хвосте очереди peekLast = \(peekLast)")
+        print("хвост очередиэлемент peekLast = \(peekLast)")
 
         /* Извлечь элемент из очереди */
         // При использовании Array для имитации временная сложность popFirst равна O(n)
@@ -39,6 +39,6 @@ enum Deque {
 
         /* Проверить, пуста ли двусторонняя очередь */
         let isEmpty = deque.isEmpty
-        print("двусторонняя Очередь пуста: \(isEmpty)")
+        print("Двусторонняя очередь пуста: \(isEmpty)")
     }
 }

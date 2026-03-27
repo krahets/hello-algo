@@ -44,7 +44,7 @@ class LinkedListStack {
   /* Получить верхний элемент стека */
   int peek() {
     if (_stackPeek == null) {
-      throw Exception("стекпуст");
+      throw Exception("Стек пуст");
     }
     return _stackPeek!.val;
   }
@@ -81,7 +81,7 @@ void main() {
 
   /* Извлечь элемент из стека */
   final int pop = stack.pop();
-  print("извлечение из стекаэлемент pop = $pop, извлечение из стекапосле stack = ${stack.toList()}");
+  print("Элемент, извлеченный из стека, pop = $pop , stack после извлечения = ${stack.toList()}");
 
   /* Получить длину стека */
   final int size = stack.size();
@@ -89,5 +89,5 @@ void main() {
 
   /* Проверить, пуста ли структура */
   final bool isEmpty = stack.isEmpty();
-  print("Стек пуст: $isEmpty");
+  print("стекпуст ли = $isEmpty");
 }

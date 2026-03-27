@@ -47,11 +47,11 @@ pub fn main() !void {
     // ====== Driver Code ======
     // метод 1
     var res = twoSumBruteForce(&nums, target).?;
-    std.debug.print("метод 1 res =",.{});
+    std.debug.print("Метод 1 res = ", .{});
     inc.PrintUtil.printArray(i32, &res); 
     // Метод 2
     res = (try twoSumHashTable(&nums, target)).?;
-    std.debug.print("\nметод 2 res =",.{});
+    std.debug.print("\nметод 2 res =", .{});
     inc.PrintUtil.printArray(i32, &res); 
 
     _ = try std.io.getStdIn().reader().readByte();

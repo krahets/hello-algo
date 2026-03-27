@@ -63,7 +63,7 @@ public class array_stack {
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        Console.WriteLine("стек stack =" + string.Join(",", stack.ToArray()));
+        Console.WriteLine("Стек stack = " + string.Join(",", stack.ToArray()));
 
         /* Получить верхний элемент стека */
         int peek = stack.Peek();
@@ -71,7 +71,7 @@ public class array_stack {
 
         /* Извлечь элемент из стека */
         int pop = stack.Pop();
-        Console.WriteLine("извлечение из стекаэлемент pop =" + pop + ", извлечение из стекапосле stack =" + string.Join(",", stack.ToArray()));
+        Console.WriteLine("Элемент, извлеченный из стека, pop = " + pop + ", stack после извлечения = " + string.Join(",", stack.ToArray()));
 
         /* Получить длину стека */
         int size = stack.Size();
@@ -79,6 +79,6 @@ public class array_stack {
 
         /* Проверить, пуста ли структура */
         bool isEmpty = stack.IsEmpty();
-        Console.WriteLine("Стек пуст:" + isEmpty);
+        Console.WriteLine("стекпуст ли =" + isEmpty);
     }
 }

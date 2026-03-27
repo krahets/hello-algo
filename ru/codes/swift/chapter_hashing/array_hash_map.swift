@@ -79,30 +79,30 @@ enum _ArrayHashMap {
         map.put(key: 16750, val: "Сяо Суань")
         map.put(key: 13276, val: "Сяо Фа")
         map.put(key: 10583, val: "Утенок")
-        print("\nПосле добавления хеш-таблица имеет вид\nKey -> Value")
+        print("\nПосле добавления хеш-таблица выглядит так\nKey -> Value")
         map.print()
 
         /* Операция поиска */
         // Передать ключ key в хеш-таблицу и получить значение value
         let name = map.get(key: 15937)!
-        print("\nВходномер 15937, найденоимя \(name)")
+        print("\nПо номеру студента 15937 найдено имя \(name)")
 
         /* Операция удаления */
         // Удалить из хеш-таблицы пару ключ-значение (key, value)
         map.remove(key: 10583)
-        print("\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value")
+        print("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value")
         map.print()
 
         /* Перебрать хеш-таблицу */
-        print("\nОбойтипара ключ-значение Key->Value")
+        print("\nПеребираем пары Key->Value")
         for pair in map.pairSet() {
             print("\(pair.key) -> \(pair.val)")
         }
-        print("\nотдельноОбойтиключ Key")
+        print("\nОтдельно перебираем ключи Key")
         for key in map.keySet() {
             print(key)
         }
-        print("\nотдельноОбойтизначение Value")
+        print("\nОтдельно перебираем значения Value")
         for val in map.valueSet() {
             print(val)
         }

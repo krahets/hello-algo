@@ -38,7 +38,7 @@ fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
 fn main() {
     // Массив с повторяющимися элементами
     let nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
-    println!("\nмассив nums = {:?}", nums);
+    println!("\nМассив nums = {:?}", nums);
 
     // Бинарный поиск левой и правой границ
     for target in [6, 7] {

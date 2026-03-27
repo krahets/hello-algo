@@ -47,6 +47,6 @@ public class fractional_knapsack {
 
         // Жадный алгоритм
         double res = FractionalKnapsack(wgt, val, cap);
-        Console.WriteLine("Максимальная стоимость предметов, не превышающая вместимость рюкзака, равна" + res);
+        Console.WriteLine("Максимальная стоимость предметов, не превышающая вместимость рюкзака, равна " + res);
     }
 }

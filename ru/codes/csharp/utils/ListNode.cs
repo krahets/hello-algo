@@ -4,7 +4,7 @@
 
 namespace hello_algo.utils;
 
-/* узел связного списка */
+/* связный списокузел */
 public class ListNode(int x) {
     public int val = x;
     public ListNode? next;

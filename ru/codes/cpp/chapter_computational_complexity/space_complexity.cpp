@@ -47,7 +47,7 @@ void linear(int n) {
 
 /* Линейная сложность (рекурсивная реализация) */
 void linearRecur(int n) {
-    cout << "рекурсия n =" << n << endl;
+    cout << "Рекурсия: n = " << n << endl;
     if (n == 1)
         return;
     linearRecur(n - 1);
@@ -71,7 +71,7 @@ int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     vector<int> nums(n);
-    cout << "рекурсия n =" << n << "в nums длина =" << nums.size() << endl;
+    cout << "Рекурсия: n = " << n << ", длина nums = " << nums.size() << endl;
     return quadraticRecur(n - 1);
 }
 

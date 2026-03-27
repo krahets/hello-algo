@@ -45,7 +45,7 @@ public class binary_search_insertion {
     public void Test() {
         // Массив без повторяющихся элементов
         int[] nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
-        Console.WriteLine("\nмассив nums =" + nums.PrintList());
+        Console.WriteLine("\nМассив nums = " + nums.PrintList());
         // Найти точку вставки бинарным поиском
         foreach (int target in new int[] { 6, 9 }) {
             int index = BinarySearchInsertionSimple(nums, target);
@@ -54,7 +54,7 @@ public class binary_search_insertion {
 
         // Массив с повторяющимися элементами
         nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
-        Console.WriteLine("\nмассив nums =" + nums.PrintList());
+        Console.WriteLine("\nМассив nums = " + nums.PrintList());
         // Найти точку вставки бинарным поиском
         foreach (int target in new int[] { 2, 6, 20 }) {
             int index = BinarySearchInsertion(nums, target);

@@ -78,7 +78,7 @@ class GraphAdjMat:
     def print(self):
         """Вывести матрицу смежности"""
         print("список вершин =", self.vertices)
-        print("матрица смежности =")
+        print("Матрица смежности =")
         print_matrix(self.adj_mat)
 
 
@@ -89,7 +89,7 @@ if __name__ == "__main__":
     vertices = [1, 3, 2, 5, 4]
     edges = [[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]]
     graph = GraphAdjMat(vertices, edges)
-    print("\nПосле инициализации граф выглядит так")
+    print("\nПосле инициализации граф имеет вид")
     graph.print()
 
     # Добавить ребро

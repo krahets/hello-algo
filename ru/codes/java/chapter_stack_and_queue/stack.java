@@ -19,7 +19,7 @@ public class stack {
         stack.push(2);
         stack.push(5);
         stack.push(4);
-        System.out.println("стек stack =" + stack);
+        System.out.println("Стек stack = " + stack);
 
         /* Получить верхний элемент стека */
         int peek = stack.peek();
@@ -27,7 +27,7 @@ public class stack {
 
         /* Извлечь элемент из стека */
         int pop = stack.pop();
-        System.out.println("извлечение из стекаэлемент pop =" + pop + ", извлечение из стекапосле stack =" + stack);
+        System.out.println("Элемент, извлеченный из стека, pop = " + pop + ", stack после извлечения = " + stack);
 
         /* Получить длину стека */
         int size = stack.size();
@@ -35,6 +35,6 @@ public class stack {
 
         /* Проверить, пуста ли структура */
         boolean isEmpty = stack.isEmpty();
-        System.out.println("Стек пуст:" + isEmpty);
+        System.out.println("стекпуст ли =" + isEmpty);
     }
 }

@@ -47,7 +47,7 @@ int main() {
 
     vector<vector<int>> res = subsetSumI(nums, target);
 
-    cout << "Входмассив nums =";
+    cout << "Входной массив nums = ";
     printVector(nums);
     cout << "target = " << target << endl;
     cout << "Все подмножества res с суммой " << target << " = " << endl;

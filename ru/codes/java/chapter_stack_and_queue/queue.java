@@ -19,15 +19,15 @@ public class queue {
         queue.offer(2);
         queue.offer(5);
         queue.offer(4);
-        System.out.println("очередь queue =" + queue);
+        System.out.println("Очередь queue = " + queue);
 
         /* Получить элемент в начале очереди */
         int peek = queue.peek();
-        System.out.println("элемент в голове очереди peek =" + peek);
+        System.out.println("голова очередиэлемент peek =" + peek);
 
         /* Извлечь элемент из очереди */
         int pop = queue.poll();
-        System.out.println("Элемент, извлеченный из очереди, pop =" + pop + ", queue после извлечения =" + queue);
+        System.out.println("Элемент, извлеченный из очереди, pop = " + pop + ", queue после извлечения = " + queue);
 
         /* Получить длину очереди */
         int size = queue.size();
@@ -35,6 +35,6 @@ public class queue {
 
         /* Проверить, пуста ли очередь */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("Очередь пуста:" + isEmpty);
+        System.out.println("Очередь пуста: " + isEmpty);
     }
 }

@@ -44,7 +44,7 @@ enum SubsetSumINaive {
 
         let res = subsetSumINaive(nums: nums, target: target)
 
-        print("Входмассив nums = \(nums), target = \(target)")
+        print("Входной массив nums = \(nums), target = \(target)")
         print("Все подмножества с суммой \(target) res = \(res)")
         print("Обратите внимание: результат этого метода содержит повторяющиеся множества")
     }

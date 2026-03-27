@@ -56,7 +56,7 @@ class LinkedListQueue {
     /* Получить элемент в начале очереди */
     func peek() -> Int {
         if isEmpty() {
-            fatalError("очередьпуст")
+            fatalError("Очередь пуста")
         }
         return front!.val
     }
@@ -90,7 +90,7 @@ enum _LinkedListQueue {
 
         /* Получить элемент в начале очереди */
         let peek = queue.peek()
-        print("элемент в голове очереди peek = \(peek)")
+        print("голова очередиэлемент peek = \(peek)")
 
         /* Извлечь элемент из очереди */
         let pop = queue.pop()

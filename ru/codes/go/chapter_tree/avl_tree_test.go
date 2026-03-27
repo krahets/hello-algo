@@ -38,7 +38,7 @@ func TestAVLTree(t *testing.T) {
 
 	/* Найти узел */
 	node := tree.search(7)
-	fmt.Printf("\nНайденный объект узла равен %#v, значение узла = %d \n", node, node.Val)
+	fmt.Printf("\nНайденныйузелобъектравно %#v, значение узла = %d \n", node, node.Val)
 }
 
 func testInsert(tree *aVLTree, val int) {

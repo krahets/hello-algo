@@ -64,7 +64,7 @@ class GraphAdjList:
 
     def print(self):
         """Вывести список смежности"""
-        print("список смежности =")
+        print("Список смежности =")
         for vertex in self.adj_list:
             tmp = [v.val for v in self.adj_list[vertex]]
             print(f"{vertex.val}: {tmp},")
@@ -83,7 +83,7 @@ if __name__ == "__main__":
         [v[3], v[4]],
     ]
     graph = GraphAdjList(edges)
-    print("\nПосле инициализации граф выглядит так")
+    print("\nПосле инициализации граф имеет вид")
     graph.print()
 
     # Добавить ребро

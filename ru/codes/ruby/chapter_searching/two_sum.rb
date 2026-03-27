@@ -39,8 +39,8 @@ if __FILE__ == $0
   # ====== Driver Code ======
   # метод 1
   res = two_sum_brute_force(nums, target)
-  puts "метод 1 res = #{res}"
+  puts "Метод 1 res = #{res}"
   # Метод 2
   res = two_sum_hash_table(nums, target)
-  puts "метод 2 res = #{res}"
+  puts "Метод 2 res = #{res}"
 end

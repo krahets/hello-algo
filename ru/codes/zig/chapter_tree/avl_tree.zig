@@ -112,7 +112,7 @@ pub fn AVLTree(comptime T: type) type {
             self.root = (try self.insertHelper(self.root, val)).?;
         }
 
-        // Рекурсивная вставка узла (вспомогательный метод)
+        // рекурсиявставить узел(вспомогательный метод)
         fn insertHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) !?*inc.TreeNode(T) {
             var node = node_;
             if (node == null) {
@@ -140,7 +140,7 @@ pub fn AVLTree(comptime T: type) type {
            self.root = self.removeHelper(self.root, val).?;
         }
 
-        // Рекурсивное удаление узла (вспомогательный метод)
+        // рекурсияУдалить узел(вспомогательный метод)
         fn removeHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) ?*inc.TreeNode(T) {
             var node = node_;
             if (node == null) return null;
@@ -201,14 +201,14 @@ pub fn AVLTree(comptime T: type) type {
 pub fn testInsert(comptime T: type, tree_: *AVLTree(T), val: T) !void {
     var tree = tree_;
     try tree.insert(val);
-    std.debug.print("\nПосле вставки узла {} AVL-дерево имеет вид\n",.{val});
+    std.debug.print("\nПосле вставки узла {} AVL-дерево имеет вид\n", .{val});
     try inc.PrintUtil.printTree(tree.root, null, false);
 }
 
 pub fn testRemove(comptime T: type, tree_: *AVLTree(T), val: T) void {
     var tree = tree_;
     tree.remove(val);
-    std.debug.print("\nПосле удаления узла {} AVL-дерево имеет вид\n",.{val});
+    std.debug.print("\nПосле удаления узла {} AVL-дерево имеет вид\n", .{val});
     try inc.PrintUtil.printTree(tree.root, null, false);
 }
 
@@ -243,7 +243,7 @@ pub fn main() !void {
 
     // Найти узел
     var node = avl_tree.search(7).?;
-    std.debug.print("\nНайденный объект узла равен {any}, значение узла = {}\n",.{node, node.val});
+    std.debug.print("\nНайденныйузелобъектравно {any}, значение узла = {}\n", .{node, node.val});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

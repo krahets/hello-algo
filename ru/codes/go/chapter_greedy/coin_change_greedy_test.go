@@ -15,14 +15,14 @@ func TestCoinChangeGreedy(t *testing.T) {
 	amt := 186
 	res := coinChangeGreedy(coins, amt)
 	fmt.Printf("coins = %v, amt = %d\n", coins, amt)
-	fmt.Printf("Для получения %d минимальное число монет равно %d\n", amt, res)
+	fmt.Printf("Минимальное число монет, необходимое для набора %d, равно %d\n", amt, res)
 
 	// Жадный подход: не гарантирует нахождение глобально оптимального решения
 	coins = []int{1, 20, 50}
 	amt = 60
 	res = coinChangeGreedy(coins, amt)
 	fmt.Printf("coins = %v, amt = %d\n", coins, amt)
-	fmt.Printf("Для получения %d минимальное число монет равно %d\n", amt, res)
+	fmt.Printf("Минимальное число монет, необходимое для набора %d, равно %d\n", amt, res)
 	fmt.Println("Фактически минимальное необходимое количество равно 3, то есть 20 + 20 + 20")
 
 	// Жадный подход: не гарантирует нахождение глобально оптимального решения
@@ -30,6 +30,6 @@ func TestCoinChangeGreedy(t *testing.T) {
 	amt = 98
 	res = coinChangeGreedy(coins, amt)
 	fmt.Printf("coins = %v, amt = %d\n", coins, amt)
-	fmt.Printf("Для получения %d минимальное число монет равно %d\n", amt, res)
+	fmt.Printf("Минимальное число монет, необходимое для набора %d, равно %d\n", amt, res)
 	fmt.Println("Фактически минимальное необходимое количество равно 2, то есть 49 + 49")
 }

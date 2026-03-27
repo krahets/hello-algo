@@ -43,7 +43,7 @@ pub fn LinkedListStack(comptime T: type) type {
 
         // Получить верхний элемент стека
         pub fn peek(self: *Self) T {
-            if (self.size() == 0) @panic("стекпуст");
+            if (self.size() == 0) @panic("Стек пуст");
             return self.stack_top.?.val;
         }  
 
@@ -93,25 +93,25 @@ pub fn main() !void {
     try stack.push(2);
     try stack.push(5);
     try stack.push(4);
-    std.debug.print("стек stack =",.{});
+    std.debug.print("Стек stack = ", .{});
     inc.PrintUtil.printArray(i32, try stack.toArray());
 
     // Получить верхний элемент стека
     var peek = stack.peek();
-    std.debug.print("\nвершина стекаэлемент top = {}",.{peek});
+    std.debug.print("\nвершина стекаэлемент top = {}", .{peek});
 
     // Извлечь элемент из стека
     var pop = stack.pop();
-    std.debug.print("\nизвлечение из стекаэлемент pop = {}, извлечение из стекапосле stack =",.{pop});
+    std.debug.print("\nЭлемент, извлеченный из стека, pop = {}, stack после извлечения = ", .{pop});
     inc.PrintUtil.printArray(i32, try stack.toArray());
 
     // Получить длину стека
     var size = stack.size();
-    std.debug.print("\nДлина стека size = {}",.{size});
+    std.debug.print("\nДлина стека size = {}", .{size});
 
     // Проверить, пуст ли стек
     var is_empty = stack.isEmpty();
-    std.debug.print("\nСтек пуст: {}",.{is_empty});
+    std.debug.print("\nстекпуст ли = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

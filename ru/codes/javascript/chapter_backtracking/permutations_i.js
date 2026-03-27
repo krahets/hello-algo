@@ -38,5 +38,5 @@ function permutationsI(nums) {
 const nums = [1, 2, 3];
 const res = permutationsI(nums);
 
-console.log(`Входмассив nums = ${JSON.stringify(nums)}`);
+console.log(`Входной массив nums = ${JSON.stringify(nums)}`);
 console.log(`Все перестановки res = ${JSON.stringify(res)}`);

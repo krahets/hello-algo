@@ -16,13 +16,13 @@ deque.push(4);
 // Обратите внимание: поскольку это массив, временная сложность метода unshift() равна O(n)
 deque.unshift(3);
 deque.unshift(1);
-console.log('двусторонняя очередь deque =', deque);
+console.log('Двусторонняя очередь deque = ', deque);
 
 /* Получить доступ к элементу */
 const peekFirst = deque[0];
-console.log('элемент в голове очереди peekFirst =' + peekFirst);
+console.log('голова очередиэлемент peekFirst =' + peekFirst);
 const peekLast = deque[deque.length - 1];
-console.log('элемент в хвосте очереди peekLast =' + peekLast);
+console.log('хвост очередиэлемент peekLast =' + peekLast);
 
 /* Извлечь элемент из очереди */
 // Обратите внимание: поскольку это массив, временная сложность метода shift() равна O(n)
@@ -32,13 +32,13 @@ console.log(
 );
 const popBack = deque.pop();
 console.log(
-    'Элемент, извлеченный из хвоста очереди, popBack = ' + popBack + ', deque после извлечения из хвоста = ' + deque
+    '队尾出队元素 popBack = ' + popBack + ', deque после извлечения из хвоста = ' + deque
 );
 
 /* Получить длину двусторонней очереди */
 const size = deque.length;
-console.log('Длина двусторонней очереди size =' + size);
+console.log('Длина двусторонней очереди size = ' + size);
 
 /* Проверить, пуста ли двусторонняя очередь */
 const isEmpty = size === 0;
-console.log('двусторонняя Очередь пуста:' + isEmpty);
+console.log('Двусторонняя очередь пуста: ' + isEmpty);

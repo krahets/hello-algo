@@ -24,8 +24,8 @@ if __FILE__ == $0
 
   # Извлечь элемент из стека
   pop = stack.pop
-  puts "извлечение из стекаэлемент pop = #{pop}"
-  puts "извлечение из стекапосле stack = #{stack}"
+  puts "Элемент, извлеченный из стека, pop = #{pop}"
+  puts "stack после извлечения = #{stack}"
 
   # Получить длину стека
   size = stack.length
@@ -33,5 +33,5 @@ if __FILE__ == $0
 
   # Проверить, пуста ли структура
   is_empty = stack.empty?
-  puts "Стек пуст: #{is_empty}"
+  puts "стекпуст ли = #{is_empty}"
 end

@@ -45,7 +45,7 @@ int main() {
 
     vector<vector<int>> res = permutationsI(nums);
 
-    cout << "Входмассив nums =";
+    cout << "Входной массив nums = ";
     printVector(nums);
     cout << "Все перестановки res = ";
     printVectorMatrix(res);

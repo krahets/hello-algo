@@ -39,14 +39,14 @@ class MyList {
     int get(int index) {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
         if (index < 0 || index >= size())
-            throw out_of_range("индекс выходит за границы");
+            throw out_of_range("Индекс вне допустимого диапазона");
         return arr[index];
     }
 
     /* Обновить элемент */
     void set(int index, int num) {
         if (index < 0 || index >= size())
-            throw out_of_range("индекс выходит за границы");
+            throw out_of_range("Индекс вне допустимого диапазона");
         arr[index] = num;
     }
 
@@ -63,7 +63,7 @@ class MyList {
     /* Вставить элемент в середину */
     void insert(int index, int num) {
         if (index < 0 || index >= size())
-            throw out_of_range("индекс выходит за границы");
+            throw out_of_range("Индекс вне допустимого диапазона");
         // Если число элементов превышает вместимость, запустить механизм расширения
         if (size() == capacity())
             extendCapacity();
@@ -79,7 +79,7 @@ class MyList {
     /* Удалить элемент */
     int remove(int index) {
         if (index < 0 || index >= size())
-            throw out_of_range("индекс выходит за границы");
+            throw out_of_range("Индекс вне допустимого диапазона");
         int num = arr[index];
         // Сдвинуть на одну позицию вперед все элементы после индекса index
         for (int j = index; j < size() - 1; j++) {
@@ -127,7 +127,7 @@ int main() {
     nums->add(2);
     nums->add(5);
     nums->add(4);
-    cout << "список nums =";
+    cout << "Список nums = ";
     vector<int> vec = nums->toVector();
     printVector(vec);
     cout << "вместимость =" << nums->capacity() << ", длина =" << nums->size() << endl;
@@ -140,7 +140,7 @@ int main() {
 
     /* Удалить элемент */
     nums->remove(3);
-    cout << "После удаления элемента по индексу 3 получаем nums =";
+    cout << "После удаления элемента по индексу 3 получаем nums = ";
     vec = nums->toVector();
     printVector(vec);
 

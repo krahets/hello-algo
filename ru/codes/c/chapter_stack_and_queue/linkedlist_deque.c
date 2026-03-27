@@ -85,7 +85,7 @@ void push(LinkedListDeque *deque, int num, bool isFront) {
         node->prev = deque->rear;
         deque->rear = node;
     }
-    deque->queSize++; // Обновить длину очереди
+    deque->queSize++; // ОбновитьДлина очереди
 }
 
 /* Поместить в голову очереди */
@@ -137,7 +137,7 @@ int pop(LinkedListDeque *deque, bool isFront) {
         delDoublyListNode(deque->rear);
         deque->rear = rPrev; // Обновить хвостовой узел
     }
-    deque->queSize--; // Обновить длину очереди
+    deque->queSize--; // ОбновитьДлина очереди
     return val;
 }
 
@@ -151,7 +151,7 @@ int popLast(LinkedListDeque *deque) {
     return pop(deque, false);
 }
 
-/* Вывести очередь */
+/* Вывестиочередь */
 void printLinkedListDeque(LinkedListDeque *deque) {
     int *arr = malloc(sizeof(int) * deque->queSize);
     // Скопировать данные из связного списка в массив
@@ -179,22 +179,22 @@ int main() {
     int peekFirstNum = peekFirst(deque);
     printf("Первый элемент дека peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("элемент в голове очереди peekLast = %d\r\n", peekLastNum);
+    printf("голова очередиэлемент peekLast = %d\r\n", peekLastNum);
 
     /* Поместить элемент в очередь */
     pushLast(deque, 4);
-    printf("После добавления элемента 4 в хвост deque =");
+    printf("После помещения элемента 4 в хвост очереди deque =");
     printLinkedListDeque(deque);
     pushFirst(deque, 1);
-    printf("После добавления элемента 1 в голову deque =");
+    printf("После помещения элемента 1 в голову очереди deque =");
     printLinkedListDeque(deque);
 
     /* Извлечь элемент из очереди */
     int popLastNum = popLast(deque);
-    printf("Элемент, извлеченный из хвоста очереди, popLast = %d, deque после извлечения из хвоста =", popLastNum);
+    printf("Элемент, извлеченный из хвоста очереди, popLast = %d , deque после извлечения из хвоста = ", popLastNum);
     printLinkedListDeque(deque);
     int popFirstNum = popFirst(deque);
-    printf("Элемент, извлеченный из головы очереди, popFirst = %d, deque после извлечения из головы =", popFirstNum);
+    printf("Элемент, извлеченный из головы очереди, popFirst = %d , deque после извлечения из головы = ", popFirstNum);
     printLinkedListDeque(deque);
 
     /* Получить длину очереди */
@@ -203,7 +203,7 @@ int main() {
 
     /* Проверить, пуста ли очередь */
     bool isEmpty = empty(deque);
-    printf("Пуста ли двусторонняя очередь = %s\r\n", isEmpty ? "true" : "false");
+    printf("Двусторонняя очередь пуста: %s\r\n", isEmpty ? "true" : "false");
 
     // Освободить память
     delLinkedListdeque(deque);

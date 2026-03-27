@@ -17,8 +17,8 @@ func TestTwoSum(t *testing.T) {
 	// ====== Driver Code ======
 	// Метод 1: решение полным перебором
 	res := twoSumBruteForce(nums, target)
-	fmt.Println("метод 1 res =", res)
+	fmt.Println("Метод 1 res =", res)
 	// метод 2: хеш-таблица
 	res = twoSumHashTable(nums, target)
-	fmt.Println("метод 2 res =", res)
+	fmt.Println("Метод 2 res =", res)
 }

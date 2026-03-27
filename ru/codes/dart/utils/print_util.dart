@@ -16,7 +16,7 @@ class Trunk {
   Trunk(this.prev, this.str);
 }
 
-/* Вывести матрицу (Array) */
+/* Вывестиматрица (Array) */
 void printMatrix(List<List<int>> matrix) {
   print("[");
   for (List<int> row in matrix) {
@@ -38,7 +38,7 @@ void printLinkedList(ListNode? head) {
 }
 
 /**
- * Вывести двоичное дерево
+ * Вывестидвоичное дерево
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */

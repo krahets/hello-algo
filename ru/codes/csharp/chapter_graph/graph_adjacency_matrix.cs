@@ -87,7 +87,7 @@ class GraphAdjMat {
     public void Print() {
         Console.Write("список вершин =");
         PrintUtil.PrintList(vertices);
-        Console.WriteLine("матрица смежности =");
+        Console.WriteLine("Матрица смежности =");
         PrintUtil.PrintMatrix(adjMat);
     }
 }

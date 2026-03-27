@@ -42,4 +42,4 @@ if __name__ == "__main__":
     # Выполнить линейный поиск в связном списке
     head: ListNode = list_to_linked_list(nums)
     node: ListNode | None = linear_search_linkedlist(head, target)
-    print("Узел, соответствующий значению 3, равен", node)
+    print("Объект узла, соответствующий целевому значению 3, равен", node)

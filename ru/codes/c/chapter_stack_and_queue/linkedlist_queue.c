@@ -76,7 +76,7 @@ int pop(LinkedListQueue *queue) {
     return num;
 }
 
-/* Вывести очередь */
+/* Вывестиочередь */
 void printLinkedListQueue(LinkedListQueue *queue) {
     int *arr = malloc(sizeof(int) * queue->queSize);
     // Скопировать данные из связного списка в массив
@@ -110,7 +110,7 @@ int main() {
 
     /* Извлечь элемент из очереди */
     peekNum = pop(queue);
-    printf("Извлеченный элемент pop = %d, после извлечения queue = ", peekNum);
+    printf("Элемент, извлеченный из очереди, pop = %d , queue после извлечения = ", peekNum);
     printLinkedListQueue(queue);
 
     /* Получить длину очереди */
@@ -119,7 +119,7 @@ int main() {
 
     /* Проверить, пуста ли очередь */
     bool isEmpty = empty(queue);
-    printf("Пуста ли очередь = %s\r\n", isEmpty ? "true" : "false");
+    printf("Очередь пуста: %s\r\n", isEmpty ? "true" : "false");
 
     // Освободить память
     delLinkedListQueue(queue);

@@ -121,16 +121,16 @@ int main() {
 
     // Обойти дерево
     vector<int> res = abt.levelOrder();
-    cout << "\nобход по уровнямравно:";
+    cout << "\nОбход по уровням: ";
     printVector(res);
     res = abt.preOrder();
-    cout << "прямой обходравно:";
+    cout << "Прямой обход: ";
     printVector(res);
     res = abt.inOrder();
-    cout << "симметричный обходравно:";
+    cout << "Симметричный обход: ";
     printVector(res);
     res = abt.postOrder();
-    cout << "обратный обходравно:";
+    cout << "Обратный обход: ";
     printVector(res);
 
     return 0;

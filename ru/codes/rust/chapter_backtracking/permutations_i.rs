@@ -41,6 +41,6 @@ pub fn main() {
 
     let res = permutations_i(&mut nums);
 
-    println!("Входмассив nums = {:?}", &nums);
+    println!("Входной массив nums = {:?}", &nums);
     println!("Все перестановки res = {:?}", &res);
 }

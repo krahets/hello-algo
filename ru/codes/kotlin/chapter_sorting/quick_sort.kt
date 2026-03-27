@@ -107,15 +107,15 @@ fun main() {
     /* Быстрая сортировка */
     val nums = intArrayOf(2, 4, 1, 0, 3, 5)
     quickSort(nums, 0, nums.size - 1)
-    println("После быстрой сортировки nums = ${nums.contentToString()}")
+    println("Быстрая сортировкапосле завершения nums = ${nums.contentToString()}")
 
     /* Быстрая сортировка (оптимизация с медианным опорным элементом) */
     val nums1 = intArrayOf(2, 4, 1, 0, 3, 5)
     quickSortMedian(nums1, 0, nums1.size - 1)
-    println("Быстрая сортировка (оптимизация с медианным опорным элементом)после завершения nums1 = ${nums1.contentToString()}")
+    println("После быстрой сортировки (оптимизация с медианным опорным элементом) nums1 = ${nums1.contentToString()}")
 
     /* Быстрая сортировка (оптимизация глубины рекурсии) */
     val nums2 = intArrayOf(2, 4, 1, 0, 3, 5)
     quickSortTailCall(nums2, 0, nums2.size - 1)
-    println("Быстрая сортировка (оптимизация глубины рекурсии)после завершения nums2 = ${nums2.contentToString()}")
+    println("После быстрой сортировки (оптимизация глубины рекурсии) nums2 = ${nums2.contentToString()}")
 }

@@ -20,7 +20,7 @@ pub fn BinarySearchTree(comptime T: type) type {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
                 self.mem_allocator = self.mem_arena.?.allocator();
             }
-            std.mem.sort(T, nums, {}, comptime std.sort.asc(T));   // Сортировать массив
+            std.mem.sort(T, nums, {}, comptime std.sort.asc(T));   // Сортировкамассив
             self.root = try self.buildTree(nums, 0, nums.len - 1);  // Построить двоичное дерево поиска
         }
 
@@ -37,7 +37,7 @@ pub fn BinarySearchTree(comptime T: type) type {
             var mid = i + (j - i) / 2;
             var node = try self.mem_allocator.create(inc.TreeNode(T));
             node.init(nums[mid]);
-            // Рекурсивно построить левое и правое поддеревья
+            // рекурсияпостроитьлевое поддеревосуммаправое поддерево
             if (mid >= 1) node.left = try self.buildTree(nums, i, mid - 1);
             node.right = try self.buildTree(nums, mid + 1, j);
             return node;
@@ -155,27 +155,27 @@ pub fn main() !void {
     var bst = BinarySearchTree(i32){};
     try bst.init(std.heap.page_allocator, &nums);
     defer bst.deinit();
-    std.debug.print("Инициализированное двоичное дерево:\n",.{});
+    std.debug.print("Инициализированное двоичное дерево:\n", .{});
     try inc.PrintUtil.printTree(bst.getRoot(), null, false);
 
     // Найти узел
     var node = bst.search(7);
-    std.debug.print("\nНайденный объект узла равен {any}, значение узла = {}\n",.{node, node.?.val});
+    std.debug.print("\nНайденныйузелобъектравно {any}, значение узла = {}\n", .{node, node.?.val});
 
     // Вставить узел
     try bst.insert(16);
-    std.debug.print("\nПосле вставки узла 16 двоичное дерево имеет вид\n",.{});
+    std.debug.print("\nПосле вставки узла 16 двоичное дерево имеет вид\n", .{});
     try inc.PrintUtil.printTree(bst.getRoot(), null, false);
 
     // Удалить узел
     bst.remove(1);
-    std.debug.print("\nПосле удаления узла 1 двоичное дерево имеет вид\n",.{});
+    std.debug.print("\nПосле удаления узла 1 двоичное дерево имеет вид\n", .{});
     try inc.PrintUtil.printTree(bst.getRoot(), null, false);
     bst.remove(2);
-    std.debug.print("\nПосле удаления узла 2 двоичное дерево имеет вид\n",.{});
+    std.debug.print("\nПосле удаления узла 2 двоичное дерево имеет вид\n", .{});
     try inc.PrintUtil.printTree(bst.getRoot(), null, false);
     bst.remove(4);
-    std.debug.print("\nПосле удаления узла 4 двоичное дерево имеет вид\n",.{});
+    std.debug.print("\nПосле удаления узла 4 двоичное дерево имеет вид\n", .{});
     try inc.PrintUtil.printTree(bst.getRoot(), null, false);
 
     _ = try std.io.getStdIn().reader().readByte();

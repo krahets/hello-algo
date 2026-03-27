@@ -23,17 +23,17 @@ func TestQueue(t *testing.T) {
 	queue.PushBack(2)
 	queue.PushBack(5)
 	queue.PushBack(4)
-	fmt.Print("очередь queue =")
+	fmt.Print("Очередь queue = ")
 	PrintList(queue)
 
 	/* Получить элемент в начале очереди */
 	peek := queue.Front()
-	fmt.Println("элемент в голове очереди peek =", peek.Value)
+	fmt.Println("голова очередиэлемент peek =", peek.Value)
 
 	/* Извлечь элемент из очереди */
 	pop := queue.Front()
 	queue.Remove(pop)
-	fmt.Print("Элемент, извлеченный из очереди, pop =", pop.Value, ", queue после извлечения =")
+	fmt.Print("Элемент, извлеченный из очереди, pop = ", pop.Value, ", queue после извлечения = ")
 	PrintList(queue)
 
 	/* Получить длину очереди */
@@ -42,7 +42,7 @@ func TestQueue(t *testing.T) {
 
 	/* Проверить, пуста ли очередь */
 	isEmpty := queue.Len() == 0
-	fmt.Println("Очередь пуста:", isEmpty)
+	fmt.Println("Пуста ли очередь =", isEmpty)
 }
 
 func TestArrayQueue(t *testing.T) {
@@ -60,16 +60,16 @@ func TestArrayQueue(t *testing.T) {
 	queue.push(2)
 	queue.push(5)
 	queue.push(4)
-	fmt.Print("очередь queue =")
+	fmt.Print("Очередь queue = ")
 	PrintSlice(queue.toSlice())
 
 	// Получить элемент в начале очереди
 	peek := queue.peek()
-	fmt.Println("элемент в голове очереди peek =", peek)
+	fmt.Println("голова очередиэлемент peek =", peek)
 
 	// Извлечь элемент из очереди
 	pop := queue.pop()
-	fmt.Print("Элемент, извлеченный из очереди, pop =", pop, ", queue после извлечения =")
+	fmt.Print("Элемент, извлеченный из очереди, pop = ", pop, ", queue после извлечения = ")
 	PrintSlice(queue.toSlice())
 
 	// Получить длину очереди
@@ -99,16 +99,16 @@ func TestLinkedListQueue(t *testing.T) {
 	queue.push(2)
 	queue.push(5)
 	queue.push(4)
-	fmt.Print("очередь queue =")
+	fmt.Print("Очередь queue = ")
 	PrintList(queue.toList())
 
 	// Получить элемент в начале очереди
 	peek := queue.peek()
-	fmt.Println("элемент в голове очереди peek =", peek)
+	fmt.Println("голова очередиэлемент peek =", peek)
 
 	// Извлечь элемент из очереди
 	pop := queue.pop()
-	fmt.Print("Элемент, извлеченный из очереди, pop =", pop, ", queue после извлечения =")
+	fmt.Print("Элемент, извлеченный из очереди, pop = ", pop, ", queue после извлечения = ")
 	PrintList(queue.toList())
 
 	// Получить длину очереди

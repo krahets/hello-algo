@@ -131,18 +131,18 @@ public class hash_map_chaining {
         map.put(16750, "Сяо Суань");
         map.put(13276, "Сяо Фа");
         map.put(10583, "Утенок");
-        System.out.println("\nПосле добавления хеш-таблица имеет вид\nKey -> Value");
+        System.out.println("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
         map.print();
 
         /* Операция поиска */
         // Передать ключ key в хеш-таблицу и получить значение value
         String name = map.get(13276);
-        System.out.println("\nВходномер 13276, найденоимя" + name);
+        System.out.println("\nПо номеру студента 13276 найдено имя " + name);
 
         /* Операция удаления */
         // Удалить из хеш-таблицы пару ключ-значение (key, value)
         map.remove(12836);
-        System.out.println("\nПосле удаления 12836 хеш-таблица имеет вид\nKey -> Value");
+        System.out.println("\nПосле удаления 12836 хеш-таблица выглядит так\nKey -> Value");
         map.print();
     }
 }

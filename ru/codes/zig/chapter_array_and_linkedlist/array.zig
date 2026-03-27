@@ -82,18 +82,18 @@ pub fn find(nums: []i32, target: i32) i32 {
 pub fn run() !void {
     // Инициализировать массив
     const arr = [_]i32{0} ** 5;
-    std.debug.print("массив arr = {}\n",.{utils.fmt.slice(&arr)});
+    std.debug.print("массив arr = {}\n", .{utils.fmt.slice(&arr)});
 
     // массивсрез
     var array = [_]i32{ 1, 3, 2, 5, 4 };
     var known_at_runtime_zero: usize = 0;
     _ = &known_at_runtime_zero;
     var nums = array[known_at_runtime_zero..array.len]; // Преобразовать указатель в срез с помощью runtime-переменной known_at_runtime_zero
-    std.debug.print("массив nums = {}\n",.{utils.fmt.slice(nums)});
+    std.debug.print("Массив nums = {}\n", .{utils.fmt.slice(nums)});
 
     // Случайный доступ
     const randomNum = randomAccess(nums);
-    std.debug.print("Полученный случайный элемент из nums {}\n",.{randomNum});
+    std.debug.print("Полученный случайный элемент из nums {}\n", .{randomNum});
 
     // Инициализировать распределитель памяти
     var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
@@ -102,22 +102,22 @@ pub fn run() !void {
 
     // Расширение длины
     nums = try extend(allocator, nums, 3);
-    std.debug.print("После расширения длины массива до 8 получаем nums = {}\n",.{utils.fmt.slice(nums)});
+    std.debug.print("После расширения длины массива до 8 получаем nums = {}\n", .{utils.fmt.slice(nums)});
 
     // Вставить элемент
     insert(nums, 6, 3);
-    std.debug.print("После вставки числа 6 по индексу 3 получаем nums = {}\n",.{utils.fmt.slice(nums)});
+    std.debug.print("После вставки числа 6 по индексу 3 получаем nums = {}\n", .{utils.fmt.slice(nums)});
 
     // Удалить элемент
     remove(nums, 2);
-    std.debug.print("После удаления элемента по индексу 2 получаем nums = {}\n",.{utils.fmt.slice(nums)});
+    std.debug.print("Удалитьиндекс 2 поэлемент, получаем nums = {}\n", .{utils.fmt.slice(nums)});
 
     // Перебрать массив
     traverse(nums);
 
     // Найти элемент
     const index = find(nums, 3);
-    std.debug.print("Поиск элемента 3 в nums дает индекс = {}\n",.{index});
+    std.debug.print("Поиск элемента 3 в nums дает индекс = {}\n", .{index});
 
     std.debug.print("\n", .{});
 }

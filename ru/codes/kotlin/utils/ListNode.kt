@@ -6,7 +6,7 @@
 
 package utils
 
-/* узел связного списка */
+/* связный списокузел */
 class ListNode(var _val: Int) {
     var next: ListNode? = null
 

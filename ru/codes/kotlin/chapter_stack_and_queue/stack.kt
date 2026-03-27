@@ -27,7 +27,7 @@ fun main() {
 
     /* Извлечь элемент из стека */
     val pop = stack.pop()
-    println("извлечение из стекаэлемент pop = $pop, извлечение из стекапосле stack = $stack")
+    println("Элемент, извлеченный из стека, pop = $pop, stack после извлечения = $stack")
 
     /* Получить длину стека */
     val size = stack.size
@@ -35,5 +35,5 @@ fun main() {
 
     /* Проверить, пуста ли структура */
     val isEmpty = stack.isEmpty()
-    println("Стек пуст: $isEmpty")
+    println("стекпуст ли = $isEmpty")
 }

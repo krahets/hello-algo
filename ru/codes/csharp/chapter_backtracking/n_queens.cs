@@ -65,7 +65,7 @@ public class n_queens {
         List<List<List<string>>> res = NQueens(n);
 
         Console.WriteLine("Входдоскаразмерравно" + n);
-        Console.WriteLine("Количество схем размещения ферзей равно" + res.Count + "видов");
+        Console.WriteLine("Количество способов расстановки ферзей: " + res.Count + "");
         foreach (List<List<string>> state in res) {
             Console.WriteLine("--------------------");
             foreach (List<string> row in state) {

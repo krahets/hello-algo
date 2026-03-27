@@ -47,10 +47,10 @@ void bucketSort(float nums[], int n) {
 
 /* Driver Code */
 int main() {
-    // Пусть входные данные являются числами с плавающей точкой, диапазон равен [0, 1)
+    // ПустьВходданныеравночисла с плавающей точкой, диапазонравно [0, 1)
     float nums[SIZE] = {0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f};
     bucketSort(nums, SIZE);
-    printf("После сортировки по бакетам nums =");
+    printf("Сортировка по бакетампосле завершения nums =");
     printArrayFloat(nums, SIZE);
 
     return 0;

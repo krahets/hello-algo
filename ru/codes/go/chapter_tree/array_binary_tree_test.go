@@ -37,11 +37,11 @@ func TestArrayBinaryTree(t *testing.T) {
 
 	// Обойти дерево
 	res := abt.levelOrder()
-	fmt.Println("\nобход по уровнямравно:", res)
+	fmt.Println("\nРезультат обхода по уровням: ", res)
 	res = abt.preOrder()
 	fmt.Println("прямой обходравно:", res)
 	res = abt.inOrder()
-	fmt.Println("симметричный обходравно:", res)
+	fmt.Println("Симметричный обход: ", res)
 	res = abt.postOrder()
 	fmt.Println("обратный обходравно:", res)
 }

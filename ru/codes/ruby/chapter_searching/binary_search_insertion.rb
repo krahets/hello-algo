@@ -50,7 +50,7 @@ end
 if __FILE__ == $0
   # Массив без повторяющихся элементов
   nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
-  puts "\nмассив nums = #{nums}"
+  puts "\nМассив nums = #{nums}"
   # Найти точку вставки бинарным поиском
   for target in [6, 9]
     index = binary_search_insertion_simple(nums, target)
@@ -59,7 +59,7 @@ if __FILE__ == $0
 
   # Массив с повторяющимися элементами
   nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
-  puts "\nмассив nums = #{nums}"
+  puts "\nМассив nums = #{nums}"
   # Найти точку вставки бинарным поиском
   for target in [2, 6, 20]
     index = binary_search_insertion(nums, target)

@@ -63,15 +63,15 @@ public class iteration {
         int res;
 
         res = ForLoop(n);
-        Console.WriteLine("\nРезультат суммирования в цикле for res =" + res);
+        Console.WriteLine("\nРезультат суммирования в цикле for res = " + res);
 
         res = WhileLoop(n);
-        Console.WriteLine("\nРезультат суммирования в цикле while res =" + res);
+        Console.WriteLine("\nРезультат суммирования в цикле while res = " + res);
 
         res = WhileLoopII(n);
-        Console.WriteLine("\nЦикл while (с двумя обновлениями)результат суммирования res =" + res);
+        Console.WriteLine("\nРезультат суммирования в цикле while (с двумя обновлениями) res = " + res);
 
         string resStr = NestedForLoop(n);
-        Console.WriteLine("\nРезультат обхода двойным циклом for" + resStr);
+        Console.WriteLine("\nРезультат обхода двойным циклом for " + resStr);
     }
 }

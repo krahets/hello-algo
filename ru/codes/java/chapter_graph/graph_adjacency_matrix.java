@@ -90,7 +90,7 @@ class GraphAdjMat {
     public void print() {
         System.out.print("список вершин =");
         System.out.println(vertices);
-        System.out.println("матрица смежности =");
+        System.out.println("Матрица смежности =");
         PrintUtil.printMatrix(adjMat);
     }
 }

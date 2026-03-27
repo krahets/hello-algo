@@ -36,6 +36,6 @@ printTree(root);
 
 /* Обход по уровням */
 const list = levelOrder(root);
-console.log('\nПоследовательность узлов при обходе по уровням =' + list);
+console.log('\nПоследовательность узлов при обходе по уровням = ' + list);
 
 export {};

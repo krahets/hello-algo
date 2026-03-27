@@ -68,7 +68,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
 
     /* Вывести список смежности */
     fun print() {
-        println("список смежности =")
+        println("Список смежности =")
         for (pair in adjList.entries) {
             val tmp = mutableListOf<Int>()
             for (vertex in pair.value) {

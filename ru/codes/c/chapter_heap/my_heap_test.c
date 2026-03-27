@@ -8,7 +8,7 @@
 
 /* Driver Code */
 int main() {
-    /* Инициализировать кучу */
+    /* Инициализироватькуча */
     // Инициализировать max-кучу
     int nums[] = {9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2};
     MaxHeap *maxHeap = newMaxHeap(nums, sizeof(nums) / sizeof(int));

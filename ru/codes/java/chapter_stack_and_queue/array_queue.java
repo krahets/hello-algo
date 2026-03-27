@@ -37,7 +37,7 @@ class ArrayQueue {
     /* Поместить в очередь */
     public void push(int num) {
         if (queSize == capacity()) {
-            System.out.println("очередьзаполнен");
+            System.out.println("Очередь заполнена");
             return;
         }
         // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
@@ -87,15 +87,15 @@ public class array_queue {
         queue.push(2);
         queue.push(5);
         queue.push(4);
-        System.out.println("очередь queue =" + Arrays.toString(queue.toArray()));
+        System.out.println("Очередь queue = " + Arrays.toString(queue.toArray()));
 
         /* Получить элемент в начале очереди */
         int peek = queue.peek();
-        System.out.println("элемент в голове очереди peek =" + peek);
+        System.out.println("голова очередиэлемент peek =" + peek);
 
         /* Извлечь элемент из очереди */
         int pop = queue.pop();
-        System.out.println("Элемент, извлеченный из очереди, pop =" + pop + ", queue после извлечения =" + Arrays.toString(queue.toArray()));
+        System.out.println("Элемент, извлеченный из очереди, pop = " + pop + ", queue после извлечения = " + Arrays.toString(queue.toArray()));
 
         /* Получить длину очереди */
         int size = queue.size();
@@ -103,7 +103,7 @@ public class array_queue {
 
         /* Проверить, пуста ли очередь */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("Очередь пуста:" + isEmpty);
+        System.out.println("Очередь пуста: " + isEmpty);
 
         /* Проверить кольцевой массив */
         for (int i = 0; i < 10; i++) {

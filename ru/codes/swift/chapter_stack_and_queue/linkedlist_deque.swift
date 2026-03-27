@@ -57,7 +57,7 @@ class LinkedListDeque {
             node.prev = rear
             rear = node // Обновить хвостовой узел
         }
-        _size += 1 // Обновить длину очереди
+        _size += 1 // ОбновитьДлина очереди
     }
 
     /* Поместить в голову очереди */
@@ -73,7 +73,7 @@ class LinkedListDeque {
     /* Операция извлечения из очереди */
     private func pop(isFront: Bool) -> Int {
         if isEmpty() {
-            fatalError("двусторонняя очередьпуст")
+            fatalError("Двусторонняя очередь пуста")
         }
         let val: Int
         // Операция извлечения из головы очереди
@@ -98,7 +98,7 @@ class LinkedListDeque {
             }
             rear = rPrev // Обновить хвостовой узел
         }
-        _size -= 1 // Обновить длину очереди
+        _size -= 1 // ОбновитьДлина очереди
         return val
     }
 
@@ -115,7 +115,7 @@ class LinkedListDeque {
     /* Получить элемент в начале очереди */
     func peekFirst() -> Int {
         if isEmpty() {
-            fatalError("двусторонняя очередьпуст")
+            fatalError("Двусторонняя очередь пуста")
         }
         return front!.val
     }
@@ -123,7 +123,7 @@ class LinkedListDeque {
     /* Обратиться к элементу в хвосте очереди */
     func peekLast() -> Int {
         if isEmpty() {
-            fatalError("двусторонняя очередьпуст")
+            fatalError("Двусторонняя очередь пуста")
         }
         return rear!.val
     }
@@ -153,9 +153,9 @@ enum _LinkedListDeque {
 
         /* Получить доступ к элементу */
         let peekFirst = deque.peekFirst()
-        print("элемент в голове очереди peekFirst = \(peekFirst)")
+        print("голова очередиэлемент peekFirst = \(peekFirst)")
         let peekLast = deque.peekLast()
-        print("элемент в хвосте очереди peekLast = \(peekLast)")
+        print("хвост очередиэлемент peekLast = \(peekLast)")
 
         /* Поместить элемент в очередь */
         deque.pushLast(num: 4)
@@ -165,9 +165,9 @@ enum _LinkedListDeque {
 
         /* Извлечь элемент из очереди */
         let popLast = deque.popLast()
-        print("Элемент, извлеченный из хвоста очереди, = \(popLast), deque после извлечения из хвоста = \(deque.toArray())")
+        print("Элемент, извлеченный из хвоста очереди = \(popLast), deque после извлечения из хвоста = \(deque.toArray())")
         let popFirst = deque.popFirst()
-        print("Элемент, извлеченный из головы очереди, = \(popFirst), deque после извлечения из головы = \(deque.toArray())")
+        print("Элемент, извлеченный из головы очереди = \(popFirst), deque после извлечения из головы = \(deque.toArray())")
 
         /* Получить длину двусторонней очереди */
         let size = deque.size()
@@ -175,6 +175,6 @@ enum _LinkedListDeque {
 
         /* Проверить, пуста ли двусторонняя очередь */
         let isEmpty = deque.isEmpty()
-        print("двусторонняя Очередь пуста: \(isEmpty)")
+        print("Двусторонняя очередь пуста: \(isEmpty)")
     }
 }

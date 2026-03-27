@@ -48,7 +48,7 @@ const n = 4;
 const res = nQueens(n);
 
 console.log(`Входдоскаразмерравно ${n}`);
-console.log(`Количество схем размещения ферзей равно ${res.length} видов`);
+console.log(`Количество способов расстановки ферзей: ${res.length}`);
 res.forEach((state) => {
     console.log('--------------------');
     state.forEach((row) => console.log(row));

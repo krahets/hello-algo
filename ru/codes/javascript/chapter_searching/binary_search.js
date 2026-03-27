@@ -53,8 +53,8 @@ const nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
 
 /* Бинарный поиск (двусторонний закрытый интервал) */
 let index = binarySearch(nums, target);
-console.log('Индекс целевого элемента 6 =' + index);
+console.log('Индекс целевого элемента 6 = ' + index);
 
 /* Бинарный поиск (левый закрытый, правый открытый интервал) */
 index = binarySearchLCRO(nums, target);
-console.log('Индекс целевого элемента 6 =' + index);
+console.log('Индекс целевого элемента 6 = ' + index);

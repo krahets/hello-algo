@@ -142,18 +142,18 @@ public class hash_map_open_addressing {
         map.Put(16750, "Сяо Суань");
         map.Put(13276, "Сяо Фа");
         map.Put(10583, "Утенок");
-        Console.WriteLine("\nПосле добавления хеш-таблица имеет вид\nKey -> Value");
+        Console.WriteLine("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
         map.Print();
 
         /* Операция поиска */
         // Передать ключ key в хеш-таблицу и получить значение value
         string? name = map.Get(13276);
-        Console.WriteLine("\nВходномер 13276, найденоимя" + name);
+        Console.WriteLine("\nПо номеру студента 13276 найдено имя " + name);
 
         /* Операция удаления */
         // Удалить из хеш-таблицы пару ключ-значение (key, value)
         map.Remove(16750);
-        Console.WriteLine("\nПосле удаления 16750 хеш-таблица имеет вид\nKey -> Value");
+        Console.WriteLine("\nПосле удаления 16750 хеш-таблица выглядит так\nKey -> Value");
         map.Print();
     }
 }

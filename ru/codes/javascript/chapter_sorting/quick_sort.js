@@ -146,16 +146,16 @@ class QuickSortTailCall {
 const nums = [2, 4, 1, 0, 3, 5];
 const quickSort = new QuickSort();
 quickSort.quickSort(nums, 0, nums.length - 1);
-console.log('После быстрой сортировки nums =', nums);
+console.log('Быстрая сортировкапосле завершения nums =', nums);
 
 /* Быстрая сортировка (оптимизация с медианным опорным элементом) */
 const nums1 = [2, 4, 1, 0, 3, 5];
 const quickSortMedian = new QuickSortMedian();
 quickSortMedian.quickSort(nums1, 0, nums1.length - 1);
-console.log('Быстрая сортировка (оптимизация с медианным опорным элементом)после завершения nums =', nums1);
+console.log('После быстрой сортировки (оптимизация с медианным опорным элементом) nums =', nums1);
 
 /* Быстрая сортировка (оптимизация глубины рекурсии) */
 const nums2 = [2, 4, 1, 0, 3, 5];
 const quickSortTailCall = new QuickSortTailCall();
 quickSortTailCall.quickSort(nums2, 0, nums2.length - 1);
-console.log('Быстрая сортировка (оптимизация глубины рекурсии)после завершения nums =', nums2);
+console.log('После быстрой сортировки (оптимизация глубины рекурсии) nums =', nums2);

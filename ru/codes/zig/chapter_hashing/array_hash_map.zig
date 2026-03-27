@@ -124,34 +124,34 @@ pub fn main() !void {
     try map.put(16750, "Сяо Суань");
     try map.put(13276, "Сяо Фа");
     try map.put(10583, "Утенок");
-    std.debug.print("\nПосле добавления хеш-таблица имеет вид\nKey -> Value\n",.{});
+    std.debug.print("\nПосле добавления хеш-таблица имеет вид\nKey -> Value\n", .{});
     try map.print();
 
     // Операция поиска
     // Передать ключ key в хеш-таблицу и получить значение value
     var name = map.get(15937);
-    std.debug.print("\nВходномер 15937, найденоимя {s}\n",.{name});
+    std.debug.print("\nПо номеру студента 15937 найдено имя {s}\n", .{name});
 
     // Операция удаления
     // Удалить из хеш-таблицы пару ключ-значение (key, value)
     try map.remove(10583);
-    std.debug.print("\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value\n",.{});
+    std.debug.print("\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value\n", .{});
     try map.print();
     
     // Перебрать хеш-таблицу
-    std.debug.print("\nОбойтипара ключ-значение Key->Value\n",.{});
+    std.debug.print("\nОбход пар ключ-значение Key->Value\n", .{});
     var entry_set = try map.pairSet();
     for (entry_set.items) |kv| {
         std.debug.print("{} -> {s}\n", .{kv.key, kv.val});
     }
     defer entry_set.deinit();
-    std.debug.print("\nотдельноОбойтиключ Key\n",.{});
+    std.debug.print("\nОтдельный обход ключей Key\n", .{});
     var key_set = try map.keySet();
     for (key_set.items) |key| {
         std.debug.print("{}\n", .{key});
     }
     defer key_set.deinit();
-    std.debug.print("\nотдельноОбойтизначение value\n",.{});
+    std.debug.print("\nОтдельно перебираем значения value\n", .{});
     var value_set = try map.valueSet();
     for (value_set.items) |val| {
         std.debug.print("{s}\n", .{val});

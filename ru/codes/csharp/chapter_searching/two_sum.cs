@@ -44,9 +44,9 @@ public class two_sum {
         // ====== Driver Code ======
         // метод 1
         int[] res = TwoSumBruteForce(nums, target);
-        Console.WriteLine("метод 1 res =" + string.Join(",", res));
+        Console.WriteLine("Метод 1 res = " + string.Join(",", res));
         // Метод 2
         res = TwoSumHashTable(nums, target);
-        Console.WriteLine("метод 2 res =" + string.Join(",", res));
+        Console.WriteLine("Метод 2 res = " + string.Join(",", res));
     }
 }

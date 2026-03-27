@@ -53,16 +53,16 @@ public class binary_tree_dfs {
         /* Прямой обход */
         list.clear();
         preOrder(root);
-        System.out.println("\nПоследовательность узлов при прямом обходе =" + list);
+        System.out.println("\nПоследовательность узлов при прямом обходе = " + list);
 
         /* Симметричный обход */
         list.clear();
         inOrder(root);
-        System.out.println("\nПоследовательность узлов при симметричном обходе =" + list);
+        System.out.println("\nПоследовательность узлов при симметричном обходе = " + list);
 
         /* Обратный обход */
         list.clear();
         postOrder(root);
-        System.out.println("\nПоследовательность узлов при обратном обходе =" + list);
+        System.out.println("\nПоследовательность узлов при обратном обходе = " + list);
     }
 }

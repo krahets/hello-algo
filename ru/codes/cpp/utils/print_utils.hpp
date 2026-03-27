@@ -44,7 +44,7 @@ string strRepeat(string str, int n) {
     return os.str();
 }
 
-/* Вывести массив */
+/* Вывестимассив */
 template <typename T> void printArray(T *arr, int n) {
     cout << "[";
     for (int i = 0; i < n - 1; i++) {
@@ -61,12 +61,12 @@ template <typename T> string getVectorString(vector<T> &list) {
     return "[" + strJoin(", ", list) + "]";
 }
 
-/* Вывести список */
+/* Вывестисписок */
 template <typename T> void printVector(vector<T> list) {
     cout << getVectorString(list) << '\n';
 }
 
-/* Вывести матрицу */
+/* Вывестиматрица */
 template <typename T> void printVectorMatrix(vector<vector<T>> &matrix) {
     cout << "[" << '\n';
     for (vector<T> &list : matrix)
@@ -104,7 +104,7 @@ void showTrunks(Trunk *p) {
 }
 
 /**
- * Вывести двоичное дерево
+ * Вывестидвоичное дерево
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
@@ -144,7 +144,7 @@ void printTree(TreeNode *root) {
     printTree(root, nullptr, false);
 }
 
-/* Вывести стек */
+/* Вывестистек */
 template <typename T> void printStack(stack<T> stk) {
     // Reverse the input stack
     stack<T> tmp;
@@ -166,7 +166,7 @@ template <typename T> void printStack(stack<T> stk) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* Вывести очередь */
+/* Вывестиочередь */
 template <typename T> void printQueue(queue<T> queue) {
     // Generate the string to print
     ostringstream s;
@@ -182,7 +182,7 @@ template <typename T> void printQueue(queue<T> queue) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* Вывести двустороннюю очередь */
+/* Вывестидвусторонняя очередь */
 template <typename T> void printDeque(deque<T> deque) {
     // Generate the string to print
     ostringstream s;

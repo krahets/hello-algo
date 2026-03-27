@@ -13,7 +13,7 @@ public class list {
         /* Инициализировать список */
         int[] numbers = [1, 3, 2, 5, 4];
         List<int> nums = [.. numbers];
-        Console.WriteLine("список nums =" + string.Join(",", nums));
+        Console.WriteLine("Список nums = " + string.Join(",", nums));
 
         /* Получить доступ к элементу */
         int num = nums[1];
@@ -25,7 +25,7 @@ public class list {
 
         /* Очистить список */
         nums.Clear();
-        Console.WriteLine("Очистить списокпосле nums =" + string.Join(",", nums));
+        Console.WriteLine("После очистки списка nums = " + string.Join(",", nums));
 
         /* Добавить элемент в конец */
         nums.Add(1);
@@ -33,7 +33,7 @@ public class list {
         nums.Add(2);
         nums.Add(5);
         nums.Add(4);
-        Console.WriteLine("После добавления элемента nums =" + string.Join(",", nums));
+        Console.WriteLine("Добавитьэлементпосле nums =" + string.Join(",", nums));
 
         /* Вставить элемент в середину */
         nums.Insert(3, 6);
@@ -41,7 +41,7 @@ public class list {
 
         /* Удалить элемент */
         nums.RemoveAt(3);
-        Console.WriteLine("После удаления элемента по индексу 3 получаем nums =" + string.Join(",", nums));
+        Console.WriteLine("После удаления элемента по индексу 3 получаем nums = " + string.Join(",", nums));
 
         /* Обходить список по индексам */
         int count = 0;
@@ -57,10 +57,10 @@ public class list {
         /* Объединить два списка */
         List<int> nums1 = [6, 8, 7, 10, 9];
         nums.AddRange(nums1);
-        Console.WriteLine("После присоединения списка nums1 к nums получаем nums =" + string.Join(",", nums));
+        Console.WriteLine("После присоединения списка nums1 к nums получаем nums = " + string.Join(",", nums));
 
         /* Отсортировать список */
         nums.Sort(); // Сортировкапосле, списокэлементрасположены по возрастанию
-        Console.WriteLine("Отсортировать списокпосле nums =" + string.Join(",", nums));
+        Console.WriteLine("После сортировки списка nums = " + string.Join(",", nums));
     }
 }

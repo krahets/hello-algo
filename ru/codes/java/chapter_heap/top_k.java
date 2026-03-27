@@ -34,7 +34,7 @@ public class top_k {
         int k = 3;
 
         Queue<Integer> res = topKHeap(nums, k);
-        System.out.println("Наибольшие" + k + "элементов:");
+        System.out.println("Наибольшие " + k + " элементов:");
         PrintUtil.printHeap(res);
     }
 }

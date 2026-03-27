@@ -45,9 +45,9 @@ public class two_sum {
         // ====== Driver Code ======
         // метод 1
         int[] res = twoSumBruteForce(nums, target);
-        System.out.println("метод 1 res =" + Arrays.toString(res));
+        System.out.println("Метод 1 res = " + Arrays.toString(res));
         // Метод 2
         res = twoSumHashTable(nums, target);
-        System.out.println("метод 2 res =" + Arrays.toString(res));
+        System.out.println("Метод 2 res = " + Arrays.toString(res));
     }
 }

@@ -98,31 +98,31 @@ map.set(15937, 'Сяо Ло');
 map.set(16750, 'Сяо Суань');
 map.set(13276, 'Сяо Фа');
 map.set(10583, 'Утенок');
-console.info('\nПосле добавления хеш-таблица имеет вид\nKey -> Value');
+console.info('\nПосле добавления хеш-таблица выглядит так\nKey -> Value');
 map.print();
 
 /* Операция поиска */
 // Передать ключ key в хеш-таблицу и получить значение value
 let name = map.get(15937);
-console.info('\nВходномер 15937, найденоимя ' + name);
+console.info('\nПо номеру студента 15937 найдено имя ' + name);
 
 /* Операция удаления */
 // Удалить из хеш-таблицы пару ключ-значение (key, value)
 map.delete(10583);
-console.info('\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value');
+console.info('\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value');
 map.print();
 
 /* Перебрать хеш-таблицу */
-console.info('\nОбойтипара ключ-значение Key->Value');
+console.info('\nПеребираем пары Key->Value');
 for (const pair of map.entries()) {
     if (!pair) continue;
     console.info(pair.key + ' -> ' + pair.val);
 }
-console.info('\nотдельноОбойтиключ Key');
+console.info('\nОтдельно перебираем ключи Key');
 for (const key of map.keys()) {
     console.info(key);
 }
-console.info('\nотдельноОбойтизначение Value');
+console.info('\nОтдельно перебираем значения Value');
 for (const val of map.values()) {
     console.info(val);
 }

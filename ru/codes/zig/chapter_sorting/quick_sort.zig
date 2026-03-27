@@ -143,19 +143,19 @@ pub fn main() !void {
     // Быстрая сортировка
     var nums = [_]i32{ 2, 4, 1, 0, 3, 5 };
     QuickSort.quickSort(&nums, 0, nums.len - 1);
-    std.debug.print("После быстрой сортировки nums =",.{});
+    std.debug.print("После завершения быстрой сортировки nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums);
 
     // Быстрая сортировка (оптимизация с медианным опорным элементом)
     var nums1 = [_]i32{ 2, 4, 1, 0, 3, 5 };
     QuickSortMedian.quickSort(&nums1, 0, nums1.len - 1);
-    std.debug.print("\nБыстрая сортировка (оптимизация с медианным опорным элементом)после завершения nums =",.{});
+    std.debug.print("\nПосле быстрой сортировки (оптимизация с медианным опорным элементом) nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums1);
 
     // Быстрая сортировка (оптимизация глубины рекурсии)
     var nums2 = [_]i32{ 2, 4, 1, 0, 3, 5 };
     QuickSortTailCall.quickSort(&nums2, 0, nums2.len - 1);
-    std.debug.print("\nБыстрая сортировка (оптимизация глубины рекурсии)после завершения nums =",.{});
+    std.debug.print("\nПосле быстрой сортировки (оптимизация глубины рекурсии) nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums2);
     
     _ = try std.io.getStdIn().reader().readByte();

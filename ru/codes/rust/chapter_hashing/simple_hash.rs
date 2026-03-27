@@ -57,14 +57,14 @@ fn main() {
     let key = "Hello Algo";
 
     let hash = add_hash(key);
-    println!("Значение аддитивного хеширования равно {hash}");
+    println!("Аддитивное хешированиезначениеравно {hash}");
 
     let hash = mul_hash(key);
-    println!("Значение мультипликативного хеширования равно {hash}");
+    println!("Мультипликативное хешированиезначениеравно {hash}");
 
     let hash = xor_hash(key);
-    println!("Значение XOR-хеширования равно {hash}");
+    println!("XOR-хешированиезначениеравно {hash}");
 
     let hash = rot_hash(key);
-    println!("Значение вращательного хеширования равно {hash}");
+    println!("Вращательное хешированиезначениеравно {hash}");
 }

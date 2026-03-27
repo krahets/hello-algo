@@ -10,7 +10,7 @@ require_relative '../utils/print_util'
 ### Driver Code ###
 if __FILE__ == $0
   # Инициализировать двоичное дерево
-  # Инициализировать узел
+  # Инициализироватьузел
   n1 = TreeNode.new(1)
   n2 = TreeNode.new(2)
   n3 = TreeNode.new(3)
@@ -29,10 +29,10 @@ if __FILE__ == $0
   # Вставить узел _p между n1 -> n2
   n1.left = _p
   _p.left = n2
-  puts "\nвставить узел _p после\n\n"
+  puts "\nПосле вставки узла _p\n\n"
   print_tree(n1)
   # Удалить узел
   n1.left = n2
-  puts "\nУдалить узел _p после\n\n"
+  puts "\nПосле удаления узла _p\n\n"
   print_tree(n1)
 end

@@ -18,18 +18,18 @@ public class heap {
 
     public static void testPop(Queue<Integer> heap) {
         int val = heap.poll(); // Извлечь верхний элемент из кучи
-        System.out.format("\nвершина кучиЭлемент %d после извлечения из кучи\n", val);
+        System.out.format("\nПосле извлечения верхнего элемента %d из кучи\n", val);
         PrintUtil.printHeap(heap);
     }
 
     public static void main(String[] args) {
-        /* Инициализировать кучу */
+        /* Инициализироватькуча */
         // Инициализировать min-кучу
         Queue<Integer> minHeap = new PriorityQueue<>();
         // Инициализировать max-кучу (достаточно изменить Comparator с помощью lambda-выражения)
         Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
-        System.out.println("\nНиже приведены тестовые примеры max-кучи");
+        System.out.println("\nСледующие тестовые примеры относятся к max-куче");
 
         /* Добавить элемент в кучу */
         testPush(maxHeap, 1);
@@ -55,12 +55,12 @@ public class heap {
 
         /* Проверить, пуста ли куча */
         boolean isEmpty = maxHeap.isEmpty();
-        System.out.format("\nКуча пуста: %b\n", isEmpty);
+        System.out.format("\nкучапуст ли %b\n", isEmpty);
 
-        /* Входной список и построение кучи */
+        /* Входсписокипостроение кучи */
         // Временная сложность равна O(n), а не O(nlogn)
         minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
-        System.out.println("\nПосле построения min-кучи из входного списка");
+        System.out.println("\nПосле построения min-кучи по входному списку");
         PrintUtil.printHeap(minHeap);
     }
 }

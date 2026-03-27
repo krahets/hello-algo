@@ -24,13 +24,13 @@ class MyList {
 
   /* Получить доступ к элементу */
   int get(int index) {
-    if (index >= _size) throw RangeError('индекс выходит за границы');
+    if (index >= _size) throw RangeError('Индекс вне допустимого диапазона');
     return _arr[index];
   }
 
   /* Обновить элемент */
   void set(int index, int _num) {
-    if (index >= _size) throw RangeError('индекс выходит за границы');
+    if (index >= _size) throw RangeError('Индекс вне допустимого диапазона');
     _arr[index] = _num;
   }
 
@@ -45,7 +45,7 @@ class MyList {
 
   /* Вставить элемент в середину */
   void insert(int index, int _num) {
-    if (index >= _size) throw RangeError('индекс выходит за границы');
+    if (index >= _size) throw RangeError('Индекс вне допустимого диапазона');
     // Если число элементов превышает вместимость, запустить механизм расширения
     if (_size == _capacity) extendCapacity();
     // Сдвинуть на одну позицию назад элемент с индексом index и все последующие элементы
@@ -59,7 +59,7 @@ class MyList {
 
   /* Удалить элемент */
   int remove(int index) {
-    if (index >= _size) throw RangeError('индекс выходит за границы');
+    if (index >= _size) throw RangeError('Индекс вне допустимого диапазона');
     int _num = _arr[index];
     // Сдвинуть на одну позицию вперед все элементы после индекса index
     for (var j = index; j < _size - 1; j++) {
@@ -79,7 +79,7 @@ class MyList {
     List.copyRange(_newNums, 0, _arr);
     // Обновить ссылку _arr
     _arr = _newNums;
-    // Обновить вместимость списка
+    // ОбновитьВместимость списка
     _capacity = _arr.length;
   }
 
@@ -112,7 +112,7 @@ void main() {
 
   /* Удалить элемент */
   nums.remove(3);
-  print('После удаления элемента по индексу 3 получаем nums = ${nums.toArray()}');
+  print('Удалитьиндекс 3 поэлемент, получаем nums = ${nums.toArray()}');
 
   /* Получить доступ к элементу */
   int _num = nums.get(1);

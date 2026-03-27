@@ -98,7 +98,7 @@ class AVLTree:
         self._root = self.insert_helper(self._root, val)
 
     def insert_helper(self, node: TreeNode | None, val: int) -> TreeNode:
-        """Рекурсивная вставка узла (вспомогательный метод)"""
+        """рекурсиявставить узел(вспомогательный метод)"""
         if node is None:
             return TreeNode(val)
         # 1. Найти позицию вставки и вставить узел
@@ -119,7 +119,7 @@ class AVLTree:
         self._root = self.remove_helper(self._root, val)
 
     def remove_helper(self, node: TreeNode | None, val: int) -> TreeNode | None:
-        """Рекурсивное удаление узла (вспомогательный метод)"""
+        """рекурсияУдалить узел(вспомогательный метод)"""
         if node is None:
             return None
         # 1. Найти узел и удалить его

@@ -20,30 +20,30 @@ public class hash_map {
             { 13276, "Сяо Фа" },
             { 10583, "Утенок" }
         };
-        Console.WriteLine("\nПосле добавления хеш-таблица имеет вид\nKey -> Value");
+        Console.WriteLine("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
         PrintUtil.PrintHashMap(map);
 
         /* Операция поиска */
         // Передать ключ key в хеш-таблицу и получить значение value
         string name = map[15937];
-        Console.WriteLine("\nВходномер 15937, найденоимя" + name);
+        Console.WriteLine("\nПо номеру студента 15937 найдено имя " + name);
 
         /* Операция удаления */
         // Удалить из хеш-таблицы пару ключ-значение (key, value)
         map.Remove(10583);
-        Console.WriteLine("\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value");
+        Console.WriteLine("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value");
         PrintUtil.PrintHashMap(map);
 
         /* Перебрать хеш-таблицу */
-        Console.WriteLine("\nОбойтипара ключ-значение Key->Value");
+        Console.WriteLine("\nПеребираем пары Key->Value");
         foreach (var kv in map) {
             Console.WriteLine(kv.Key + " -> " + kv.Value);
         }
-        Console.WriteLine("\nотдельноОбойтиключ Key");
+        Console.WriteLine("\nОтдельно перебираем ключи Key");
         foreach (int key in map.Keys) {
             Console.WriteLine(key);
         }
-        Console.WriteLine("\nотдельноОбойтизначение Value");
+        Console.WriteLine("\nОтдельно перебираем значения Value");
         foreach (string val in map.Values) {
             Console.WriteLine(val);
         }

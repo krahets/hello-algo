@@ -29,7 +29,7 @@ class ArrayStack {
   /* Извлечь из стека */
   int pop() {
     if (isEmpty()) {
-      throw Exception("стекпуст");
+      throw Exception("Стек пуст");
     }
     return _stack.removeLast();
   }
@@ -37,7 +37,7 @@ class ArrayStack {
   /* Получить верхний элемент стека */
   int peek() {
     if (isEmpty()) {
-      throw Exception("стекпуст");
+      throw Exception("Стек пуст");
     }
     return _stack.last;
   }
@@ -65,7 +65,7 @@ void main() {
 
   /* Извлечь элемент из стека */
   final int pop = stack.pop();
-  print("извлечение из стекаэлемент pop = $pop, извлечение из стекапосле stack = ${stack.toArray()}");
+  print("Элемент, извлеченный из стека, pop = $pop , stack после извлечения = ${stack.toArray()}");
 
   /* Получить длину стека */
   final int size = stack.size();
@@ -73,5 +73,5 @@ void main() {
 
   /* Проверить, пуста ли структура */
   final bool isEmpty = stack.isEmpty();
-  print("Стек пуст: $isEmpty");
+  print("стекпуст ли = $isEmpty");
 }

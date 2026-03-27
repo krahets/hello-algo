@@ -66,7 +66,7 @@ class GraphAdjList
 
   # ## Вывести список смежности ###
   def __print__
-    puts 'список смежности ='
+    puts 'Список смежности ='
     for vertex in @adj_list
       tmp = @adj_list[vertex.first].map { |v| v.val }
       puts "#{vertex.first.val}: #{tmp},"

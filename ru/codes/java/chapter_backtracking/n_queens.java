@@ -66,7 +66,7 @@ public class n_queens {
         List<List<List<String>>> res = nQueens(n);
 
         System.out.println("Входдоскаразмерравно" + n);
-        System.out.println("Количество схем размещения ферзей равно" + res.size() + "видов");
+        System.out.println("Количество способов расстановки ферзей: " + res.size() + "");
         for (List<List<String>> state : res) {
             System.out.println("--------------------");
             for (List<String> row : state) {

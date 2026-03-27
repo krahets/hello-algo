@@ -22,7 +22,7 @@ func newGraphAdjMat(vertices []int, edges [][]int) *graphAdjMat {
 	for i := range adjMat {
 		adjMat[i] = make([]int, n)
 	}
-	// Инициализировать граф
+	// Инициализироватьграф
 	g := &graphAdjMat{
 		vertices: vertices,
 		adjMat:   adjMat,
@@ -95,7 +95,7 @@ func (g *graphAdjMat) removeEdge(i, j int) {
 /* Вывести матрицу смежности */
 func (g *graphAdjMat) print() {
 	fmt.Printf("\tсписок вершин = %v\n", g.vertices)
-	fmt.Printf("\tматрица смежности = \n")
+	fmt.Printf("\tМатрица смежности = \n")
 	for i := range g.adjMat {
 		fmt.Printf("\t\t\t%v\n", g.adjMat[i])
 	}

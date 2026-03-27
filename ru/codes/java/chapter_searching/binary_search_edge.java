@@ -36,7 +36,7 @@ public class binary_search_edge {
     public static void main(String[] args) {
         // Массив с повторяющимися элементами
         int[] nums = { 1, 3, 6, 6, 6, 6, 6, 10, 12, 15 };
-        System.out.println("\nмассив nums =" + java.util.Arrays.toString(nums));
+        System.out.println("\nМассив nums = " + java.util.Arrays.toString(nums));
 
         // Бинарный поиск левой и правой границ
         for (int target : new int[] { 6, 7 }) {

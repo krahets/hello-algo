@@ -49,7 +49,7 @@ pub fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
 
 // Driver Code
 pub fn run() void {
-    // Инициализировать каждый узел
+    // Инициализироватькаждый узел
     var n0 = ListNode(i32){ .val = 1 };
     var n1 = ListNode(i32){ .val = 3 };
     var n2 = ListNode(i32){ .val = 2 };

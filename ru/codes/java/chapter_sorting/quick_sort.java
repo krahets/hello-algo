@@ -143,16 +143,16 @@ public class quick_sort {
         /* Быстрая сортировка */
         int[] nums = { 2, 4, 1, 0, 3, 5 };
         QuickSort.quickSort(nums, 0, nums.length - 1);
-        System.out.println("После быстрой сортировки nums =" + Arrays.toString(nums));
+        System.out.println("После завершения быстрой сортировки nums = " + Arrays.toString(nums));
 
         /* Быстрая сортировка (оптимизация с медианным опорным элементом) */
         int[] nums1 = { 2, 4, 1, 0, 3, 5 };
         QuickSortMedian.quickSort(nums1, 0, nums1.length - 1);
-        System.out.println("Быстрая сортировка (оптимизация с медианным опорным элементом)после завершения nums1 =" + Arrays.toString(nums1));
+        System.out.println("После быстрой сортировки (оптимизация с медианным опорным элементом) nums1 = " + Arrays.toString(nums1));
 
         /* Быстрая сортировка (оптимизация глубины рекурсии) */
         int[] nums2 = { 2, 4, 1, 0, 3, 5 };
         QuickSortTailCall.quickSort(nums2, 0, nums2.length - 1);
-        System.out.println("Быстрая сортировка (оптимизация глубины рекурсии)после завершения nums2 =" + Arrays.toString(nums2));
+        System.out.println("После быстрой сортировки (оптимизация глубины рекурсии) nums2 = " + Arrays.toString(nums2));
     }
 }

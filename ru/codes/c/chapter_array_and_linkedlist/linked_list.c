@@ -50,8 +50,8 @@ int find(ListNode *head, int target) {
 
 /* Driver Code */
 int main() {
-    /* Инициализировать связный список */
-    // Инициализировать каждый узел
+    /* Инициализироватьсвязный список */
+    // Инициализироватькаждый узел
     ListNode *n0 = newListNode(1);
     ListNode *n1 = newListNode(3);
     ListNode *n2 = newListNode(2);

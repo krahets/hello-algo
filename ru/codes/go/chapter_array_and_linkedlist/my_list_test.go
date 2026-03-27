@@ -19,7 +19,7 @@ func TestMyList(t *testing.T) {
 	nums.add(2)
 	nums.add(5)
 	nums.add(4)
-	fmt.Printf("список nums = %v, вместимость = %v, длина = %v\n", nums.toArray(), nums.capacity(), nums.size())
+	fmt.Printf("Список nums = %v, вместимость = %v, длина = %v\n", nums.toArray(), nums.capacity(), nums.size())
 
 	/* Вставить элемент в середину */
 	nums.insert(6, 3)
@@ -27,7 +27,7 @@ func TestMyList(t *testing.T) {
 
 	/* Удалить элемент */
 	nums.remove(3)
-	fmt.Printf("После удаления элемента по индексу 3 получаем nums = %v\n", nums.toArray())
+	fmt.Printf("Удалитьиндекс 3 поэлемент, получаем nums = %v\n", nums.toArray())
 
 	/* Получить доступ к элементу */
 	num := nums.get(1)

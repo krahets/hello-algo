@@ -92,7 +92,7 @@ impl GraphAdjMat {
     /* Вывести матрицу смежности */
     pub fn print(&self) {
         println!("список вершин = {:?}", self.vertices);
-        println!("матрица смежности =");
+        println!("Матрица смежности =");
         println!("[");
         for row in &self.adj_mat {
             println!("  {:?},", row);

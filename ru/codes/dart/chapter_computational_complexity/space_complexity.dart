@@ -52,7 +52,7 @@ void linear(int n) {
 
 /* Линейная сложность (рекурсивная реализация) */
 void linearRecur(int n) {
-  print('рекурсия n = $n');
+  print('Рекурсия: n = $n');
   if (n == 1) return;
   linearRecur(n - 1);
 }
@@ -76,7 +76,7 @@ void quadratic(int n) {
 int quadraticRecur(int n) {
   if (n <= 0) return 0;
   List<int> nums = List.filled(n, 0);
-  print('рекурсия n = $n в nums длина = ${nums.length}');
+  print('Рекурсия: n = $n, длина nums = ${nums.length}');
   return quadraticRecur(n - 1);
 }
 

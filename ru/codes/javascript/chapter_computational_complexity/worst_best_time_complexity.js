@@ -39,5 +39,5 @@ for (let i = 0; i < 10; i++) {
     const nums = randomNumbers(n);
     const index = findOne(nums);
     console.log('\nПосле перемешивания массива [ 1, 2,..., n ] = [' + nums.join(', ') + ']');
-    console.log('Индекс числа 1 равен' + index);
+    console.log('Индекс числа 1 равен ' + index);
 }

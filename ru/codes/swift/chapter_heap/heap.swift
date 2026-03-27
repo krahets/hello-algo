@@ -23,7 +23,7 @@ func testPop(heap: inout Heap<Int>) {
 enum _Heap {
     /* Driver Code */
     static func main() {
-        /* Инициализировать кучу */
+        /* Инициализироватькуча */
         // Тип Heap в Swift поддерживает и max-кучу, и min-кучу
         var heap = Heap<Int>()
 
@@ -36,7 +36,7 @@ enum _Heap {
 
         /* Получить верхний элемент кучи */
         let peek = heap.max()
-        print("\nЭлемент на вершине кучи равен \(peek!)\n")
+        print("\nвершина кучиэлементравно \(peek!)\n")
 
         /* Извлечь верхний элемент из кучи */
         testPop(heap: &heap)
@@ -51,12 +51,12 @@ enum _Heap {
 
         /* Проверить, пуста ли куча */
         let isEmpty = heap.isEmpty
-        print("\nКуча пуста: \(isEmpty)\n")
+        print("\nкучапуст ли \(isEmpty)\n")
 
-        /* Входной список и построение кучи */
+        /* Входсписокипостроение кучи */
         // Временная сложность равна O(n), а не O(nlogn)
         let heap2 = Heap([1, 3, 2, 5, 4])
-        print("\nПосле построения кучи из входного списка")
+        print("\nВходсписокипостроитькучапосле")
         PrintUtil.printHeap(queue: heap2.unordered)
     }
 }

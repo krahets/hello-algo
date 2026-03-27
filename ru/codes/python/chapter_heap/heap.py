@@ -63,7 +63,7 @@ if __name__ == "__main__":
     is_empty: bool = not max_heap
     print(f"\nПуста ли куча: {is_empty}")
 
-    # Входной список и построение кучи
+    # Входсписокипостроение кучи
     # Временная сложность равна O(n), а не O(nlogn)
     min_heap = [1, 3, 2, 5, 4]
     heapq.heapify(min_heap)

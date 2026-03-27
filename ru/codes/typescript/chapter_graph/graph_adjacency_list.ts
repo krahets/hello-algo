@@ -81,7 +81,7 @@ class GraphAdjList {
 
     /* Вывести список смежности */
     print(): void {
-        console.log('список смежности =');
+        console.log('Список смежности =');
         for (const [key, value] of this.adjList.entries()) {
             const tmp = [];
             for (const vertex of value) {

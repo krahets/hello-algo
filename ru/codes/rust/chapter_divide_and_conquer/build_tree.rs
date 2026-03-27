@@ -47,8 +47,8 @@ fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>
 fn main() {
     let preorder = [3, 9, 2, 1, 7];
     let inorder = [9, 3, 1, 2, 7];
-    println!("симметричный обход = {:?}", preorder);
-    println!("прямой обход = {:?}", inorder);
+    println!("Симметричный обход = {:?}", preorder);
+    println!("Прямой обход = {:?}", inorder);
 
     let root = build_tree(&preorder, &inorder);
     println!("Построенное двоичное дерево:");

@@ -35,6 +35,6 @@ public class binary_tree_bfs {
         PrintUtil.PrintTree(root);
 
         List<int> list = LevelOrder(root!);
-        Console.WriteLine("\nПоследовательность узлов при обходе по уровням =" + string.Join(",", list));
+        Console.WriteLine("\nПоследовательность узлов при обходе по уровням = " + string.Join(",", list));
     }
 }

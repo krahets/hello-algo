@@ -51,7 +51,7 @@ public class space_complexity {
 
     /* Линейная сложность (рекурсивная реализация) */
     static void linearRecur(int n) {
-        System.out.println("рекурсия n =" + n);
+        System.out.println("Рекурсия: n = " + n);
         if (n == 1)
             return;
         linearRecur(n - 1);
@@ -78,7 +78,7 @@ public class space_complexity {
             return 0;
         // массив nums длинаравно n, n-1,..., 2, 1
         int[] nums = new int[n];
-        System.out.println("рекурсия n =" + n + "в nums длина =" + nums.length);
+        System.out.println("Рекурсия: n = " + n + ", длина nums = " + nums.length);
         return quadraticRecur(n - 1);
     }
 

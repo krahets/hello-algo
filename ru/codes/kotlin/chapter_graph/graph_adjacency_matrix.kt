@@ -87,7 +87,7 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     fun print() {
         print("список вершин =")
         println(vertices)
-        println("матрица смежности =")
+        println("Матрица смежности =")
         printMatrix(adjMat)
     }
 }

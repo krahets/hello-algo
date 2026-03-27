@@ -29,13 +29,13 @@ class MyList {
     /* Получить доступ к элементу */
     get(index) {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
-        if (index < 0 || index >= this.#size) throw new Error('индекс выходит за границы');
+        if (index < 0 || index >= this.#size) throw new Error('Индекс вне допустимого диапазона');
         return this.#arr[index];
     }
 
     /* Обновить элемент */
     set(index, num) {
-        if (index < 0 || index >= this.#size) throw new Error('индекс выходит за границы');
+        if (index < 0 || index >= this.#size) throw new Error('Индекс вне допустимого диапазона');
         this.#arr[index] = num;
     }
 
@@ -52,7 +52,7 @@ class MyList {
 
     /* Вставить элемент в середину */
     insert(index, num) {
-        if (index < 0 || index >= this.#size) throw new Error('индекс выходит за границы');
+        if (index < 0 || index >= this.#size) throw new Error('Индекс вне допустимого диапазона');
         // Если число элементов превышает вместимость, запустить механизм расширения
         if (this.#size === this.#capacity) {
             this.extendCapacity();
@@ -68,7 +68,7 @@ class MyList {
 
     /* Удалить элемент */
     remove(index) {
-        if (index < 0 || index >= this.#size) throw new Error('индекс выходит за границы');
+        if (index < 0 || index >= this.#size) throw new Error('Индекс вне допустимого диапазона');
         let num = this.#arr[index];
         // Сдвинуть на одну позицию вперед все элементы после индекса index
         for (let j = index; j < this.#size - 1; j++) {
@@ -86,7 +86,7 @@ class MyList {
         this.#arr = this.#arr.concat(
             new Array(this.capacity() * (this.#extendRatio - 1))
         );
-        // Обновить вместимость списка
+        // ОбновитьВместимость списка
         this.#capacity = this.#arr.length;
     }
 
@@ -121,7 +121,7 @@ console.log(`После вставки числа 6 по индексу 3 пол
 
 /* Удалить элемент */
 nums.remove(3);
-console.log(`После удаления элемента по индексу 3 получаем nums = ${nums.toArray()}`);
+console.log(`Удалитьиндекс 3 поэлемент, получаем nums = ${nums.toArray()}`);
 
 /* Получить доступ к элементу */
 const num = nums.get(1);

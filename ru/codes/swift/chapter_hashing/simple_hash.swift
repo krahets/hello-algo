@@ -59,15 +59,15 @@ enum SimpleHash {
         let key = "Hello Algo"
 
         var hash = addHash(key: key)
-        print("Значение аддитивного хеширования равно \(hash)")
+        print("Аддитивное хешированиезначениеравно \(hash)")
 
         hash = mulHash(key: key)
-        print("Значение мультипликативного хеширования равно \(hash)")
+        print("Мультипликативное хешированиезначениеравно \(hash)")
 
         hash = xorHash(key: key)
-        print("Значение XOR-хеширования равно \(hash)")
+        print("XOR-хешированиезначениеравно \(hash)")
 
         hash = rotHash(key: key)
-        print("Значение вращательного хеширования равно \(hash)")
+        print("Вращательное хешированиезначениеравно \(hash)")
     }
 }

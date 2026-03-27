@@ -22,7 +22,7 @@ fn test_pop_max(heap: &mut BinaryHeap<i32>) {
 
 /* Driver Code */
 fn main() {
-    /* Инициализировать кучу */
+    /* Инициализироватькуча */
     // Инициализировать min-кучу
     #[allow(unused_assignments)]
     let mut min_heap = BinaryHeap::new();
@@ -30,7 +30,7 @@ fn main() {
     // Инициализировать max-кучу
     let mut max_heap = BinaryHeap::new();
 
-    println!("\nНиже приведены тестовые примеры max-кучи");
+    println!("\nСледующие тестовые примеры относятся к max-куче");
 
     /* Добавить элемент в кучу */
     test_push_max(&mut max_heap, 1);
@@ -41,7 +41,7 @@ fn main() {
 
     /* Получить верхний элемент кучи */
     let peek = max_heap.peek().unwrap();
-    println!("\nЭлемент на вершине кучи равен {}", peek);
+    println!("\nвершина кучиэлементравно {}", peek);
 
     /* Извлечь верхний элемент из кучи */
     test_pop_max(&mut max_heap);
@@ -56,9 +56,9 @@ fn main() {
 
     /* Проверить, пуста ли куча */
     let is_empty = max_heap.is_empty();
-    println!("\nКуча пуста: {}", is_empty);
+    println!("\nкучапуст ли {}", is_empty);
 
-    /* Входной список и построение кучи */
+    /* Входсписокипостроение кучи */
     // Временная сложность равна O(n), а не O(nlogn)
     min_heap = BinaryHeap::from(
         vec![1, 3, 2, 5, 4]
@@ -66,6 +66,6 @@ fn main() {
             .map(|val| Reverse(val))
             .collect::<Vec<Reverse<i32>>>(),
     );
-    println!("\nПосле построения min-кучи из входного списка");
+    println!("\nПосле построения min-кучи по входному списку");
     print_util::print_heap(min_heap.iter().map(|&val| val.0).collect());
 }

@@ -12,19 +12,19 @@ pub fn run() !void {
     defer nums.deinit(); // Отложенное освобождение памяти
 
     try nums.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
-    std.debug.print("список nums = {}\n",.{utils.fmt.slice(nums.items)});
+    std.debug.print("Список nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     // Получить доступ к элементу
     const num = nums.items[1];
-    std.debug.print("обратиться киндекс 1 поэлемент, получаем num = {}\n",.{num});
+    std.debug.print("обратиться киндекс 1 поэлемент, получаем num = {}\n", .{num});
 
     // Обновить элемент
     nums.items[1] = 0;
-    std.debug.print("После обновления элемента по индексу 1 на 0 получаем nums = {}\n",.{utils.fmt.slice(nums.items)});
+    std.debug.print("После обновления элемента по индексу 1 на 0 получаем nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     // Очистить список
     nums.clearRetainingCapacity();
-    std.debug.print("Очистить списокпосле nums = {}\n",.{utils.fmt.slice(nums.items)});
+    std.debug.print("После очистки списка nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     // Добавить элемент в конец
     try nums.append(1);
@@ -32,15 +32,15 @@ pub fn run() !void {
     try nums.append(2);
     try nums.append(5);
     try nums.append(4);
-    std.debug.print("После добавления элемента nums = {}\n",.{utils.fmt.slice(nums.items)});
+    std.debug.print("Добавитьэлементпосле nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     // Вставить элемент в середину
     try nums.insert(3, 6);
-    std.debug.print("После вставки числа 6 по индексу 3 получаем nums = {}\n",.{utils.fmt.slice(nums.items)});
+    std.debug.print("После вставки числа 6 по индексу 3 получаем nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     // Удалить элемент
     _ = nums.orderedRemove(3);
-    std.debug.print("После удаления элемента по индексу 3 получаем nums = {}\n",.{utils.fmt.slice(nums.items)});
+    std.debug.print("Удалитьиндекс 3 поэлемент, получаем nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     // Обходить список по индексам
     var count: i32 = 0;
@@ -60,11 +60,11 @@ pub fn run() !void {
     defer nums1.deinit();
     try nums1.appendSlice(&[_]i32{ 6, 8, 7, 10, 9 });
     try nums.insertSlice(nums.items.len, nums1.items);
-    std.debug.print("После присоединения списка nums1 к nums получаем nums = {}\n",.{utils.fmt.slice(nums.items)});
+    std.debug.print("После присоединения списка nums1 к nums получаем nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     // Отсортировать список
     std.mem.sort(i32, nums.items, {}, comptime std.sort.asc(i32));
-    std.debug.print("Отсортировать списокпосле nums = {}\n",.{utils.fmt.slice(nums.items)});
+    std.debug.print("После сортировки списка nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     std.debug.print("\n", .{});
 }

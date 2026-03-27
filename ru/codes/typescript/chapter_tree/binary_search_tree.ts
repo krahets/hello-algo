@@ -118,13 +118,13 @@ const nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];
 for (const num of nums) {
     bst.insert(num);
 }
-console.log('\nИнициализированное двоичное дерево:\n');
+console.log('\nИнициализированное двоичное дерево имеет вид\n');
 printTree(bst.getRoot());
 
 /* Найти узел */
 const node = bst.search(7);
 console.log(
-    '\nНайденный объект узла равен ' + node + ', значение узла = ' + (node ? node.val: 'null')
+    '\nНайденныйузелобъектравно' + node + ', значение узла =' + (node ? node.val : 'null')
 );
 
 /* Вставить узел */

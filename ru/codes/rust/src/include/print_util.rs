@@ -17,7 +17,7 @@ struct Trunk<'a, 'b> {
     str: Cell<&'b str>,
 }
 
-/* Вывести массив */
+/* Вывестимассив */
 pub fn print_array<T: Display>(nums: &[T]) {
     print!("[");
     if nums.len() > 0 {
@@ -36,7 +36,7 @@ pub fn print_hash_map<TKey: Display, TValue: Display>(map: &HashMap<TKey, TValue
     }
 }
 
-/* Вывести очередь (двусторонняя очередь) */
+/* Вывестиочередь(двусторонняя очередь) */
 pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
     print!("[");
     let iter = queue.iter();

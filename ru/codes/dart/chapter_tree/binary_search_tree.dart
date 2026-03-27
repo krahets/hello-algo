@@ -128,12 +128,12 @@ void main() {
   for (int _num in nums) {
     bst.insert(_num);
   }
-  print("\nИнициализированное двоичное дерево:\n");
+  print("\nИнициализированное двоичное дерево имеет вид\n");
   printTree(bst.getRoot());
 
   /* Найти узел */
   TreeNode? node = bst.search(7);
-  print("\nНайденный объект узла равен $node, значение узла = ${node?.val}");
+  print("\nНайденныйузелобъектравно $node, значение узла = ${node?.val}");
 
   /* Вставить узел */
   bst.insert(16);

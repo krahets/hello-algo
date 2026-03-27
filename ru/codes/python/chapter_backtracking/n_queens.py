@@ -55,7 +55,7 @@ if __name__ == "__main__":
     res = n_queens(n)
 
     print(f"Входдоскаразмерравно {n}")
-    print(f"Количество схем размещения ферзей равно {len(res)} видов")
+    print(f"Количество способов расстановки ферзей: {len(res)}")
     for state in res:
         print("--------------------")
         for row in state:

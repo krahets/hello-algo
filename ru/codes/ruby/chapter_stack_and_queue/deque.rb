@@ -21,16 +21,16 @@ if __FILE__ == $0
 
   # Получить доступ к элементу
   peek_first = deque.first
-  puts "элемент в голове очереди peek_first = #{peek_first}"
+  puts "голова очередиэлемент peek_first = #{peek_first}"
   peek_last = deque.last
-  puts "элемент в хвосте очереди peek_last = #{peek_last}"
+  puts "хвост очередиэлемент peek_last = #{peek_last}"
 
   # Извлечь элемент из очереди
   # Обратите внимание: поскольку это массив, временная сложность метода Array#shift равна O(n)
   pop_front = deque.shift
   puts "Элемент, извлеченный из головы очереди, pop_front = #{pop_front}, deque после извлечения из головы = #{deque}"
   pop_back = deque.pop
-  puts "Элемент, извлеченный из хвоста очереди, pop_back = #{pop_back}, deque после извлечения из хвоста = #{deque}"
+  puts "Элемент, извлеченный из хвоста очереди, pop_back = #{pop_back}, 队尾出队后 deque = #{deque}"
 
   # Получить длину двусторонней очереди
   size = deque.length
@@ -38,5 +38,5 @@ if __FILE__ == $0
 
   # Проверить, пуста ли двусторонняя очередь
   is_empty = size.zero?
-  puts "двусторонняя Очередь пуста: #{is_empty}"
+  puts "Двусторонняя очередь пуста: #{is_empty}"
 end

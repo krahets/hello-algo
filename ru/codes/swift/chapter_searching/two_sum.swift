@@ -41,9 +41,9 @@ enum LeetcodeTwoSum {
         // ====== Driver Code ======
         // метод 1
         var res = twoSumBruteForce(nums: nums, target: target)
-        print("метод 1 res = \(res)")
+        print("Метод 1 res = \(res)")
         // Метод 2
         res = twoSumHashTable(nums: nums, target: target)
-        print("метод 2 res = \(res)")
+        print("Метод 2 res = \(res)")
     }
 }

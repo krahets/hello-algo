@@ -45,7 +45,7 @@ func (q *arrayDeque) index(i int) int {
 /* Поместить в голову очереди */
 func (q *arrayDeque) pushFirst(num int) {
 	if q.queSize == q.queCapacity {
-		fmt.Println("двусторонняя очередьзаполнен")
+		fmt.Println("Двусторонняя очередь заполнена")
 		return
 	}
 	// Указатель головы очереди сдвигается на одну позицию влево
@@ -59,7 +59,7 @@ func (q *arrayDeque) pushFirst(num int) {
 /* Поместить в хвост очереди */
 func (q *arrayDeque) pushLast(num int) {
 	if q.queSize == q.queCapacity {
-		fmt.Println("двусторонняя очередьзаполнен")
+		fmt.Println("Двусторонняя очередь заполнена")
 		return
 	}
 	// Вычислить указатель хвоста, указывающий на индекс за последним элементом

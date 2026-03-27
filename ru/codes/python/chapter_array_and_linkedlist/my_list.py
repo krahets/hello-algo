@@ -75,7 +75,7 @@ class MyList:
         """Расширение списка"""
         # Создать новый массив длиной в _extend_ratio раз больше исходного массива и скопировать в него исходный массив
         self._arr = self._arr + [0] * self.capacity() * (self._extend_ratio - 1)
-        # Обновить вместимость списка
+        # ОбновитьВместимость списка
         self._capacity = len(self._arr)
 
     def to_array(self) -> list[int]:
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     nums.add(2)
     nums.add(5)
     nums.add(4)
-    print(f"список nums = {nums.to_array()}, вместимость = {nums.capacity()}, длина = {nums.size()}")
+    print(f"Список nums = {nums.to_array()} ，容量 = {nums.capacity()} ，长度 = {nums.size()}")
 
     # Вставить элемент в середину
     nums.insert(6, index=3)
@@ -101,7 +101,7 @@ if __name__ == "__main__":
 
     # Удалить элемент
     nums.remove(3)
-    print("После удаления элемента по индексу 3 получаем nums =", nums.to_array())
+    print("Удалитьиндекс 3 поэлемент, получаем nums =", nums.to_array())
 
     # Получить доступ к элементу
     num = nums.get(1)

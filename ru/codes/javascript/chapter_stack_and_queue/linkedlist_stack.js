@@ -43,7 +43,7 @@ class LinkedListStack {
 
     /* Получить верхний элемент стека */
     peek() {
-        if (!this.#stackPeek) throw new Error('стекпуст');
+        if (!this.#stackPeek) throw new Error('Стек пуст');
         return this.#stackPeek.val;
     }
 
@@ -69,7 +69,7 @@ stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
-console.log('стек stack =' + stack.toArray());
+console.log('Стек stack = ' + stack.toArray());
 
 /* Получить верхний элемент стека */
 const peek = stack.peek();
@@ -77,7 +77,7 @@ console.log('вершина стекаэлемент peek =' + peek);
 
 /* Извлечь элемент из стека */
 const pop = stack.pop();
-console.log('извлечение из стекаэлемент pop =' + pop + ', извлечение из стекапосле stack =' + stack.toArray());
+console.log('Элемент, извлеченный из стека, pop = ' + pop + ', stack после извлечения = ' + stack.toArray());
 
 /* Получить длину стека */
 const size = stack.size;
@@ -85,4 +85,4 @@ console.log('Длина стека size =' + size);
 
 /* Проверить, пуста ли структура */
 const isEmpty = stack.isEmpty();
-console.log('Стек пуст:' + isEmpty);
+console.log('стекпуст ли =' + isEmpty);

@@ -48,7 +48,7 @@ pub fn main() {
 
     let res = subset_sum_i_naive(&nums, target);
 
-    println!("Входмассив nums = {:?}, target = {}", &nums, target);
+    println!("Входной массив nums = {:?}, target = {}", &nums, target);
     println!("Все подмножества с суммой {} res = {:?}", target, &res);
     println!("Обратите внимание: результат этого метода содержит повторяющиеся множества");
 }

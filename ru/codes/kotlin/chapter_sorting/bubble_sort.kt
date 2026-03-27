@@ -45,9 +45,9 @@ fun bubbleSortWithFlag(nums: IntArray) {
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     bubbleSort(nums)
-    println("После пузырьковой сортировки nums = ${nums.contentToString()}")
+    println("Пузырьковая сортировкапосле завершения nums = ${nums.contentToString()}")
 
     val nums1 = intArrayOf(4, 1, 3, 1, 5, 2)
     bubbleSortWithFlag(nums1)
-    println("После пузырьковой сортировки nums1 = ${nums1.contentToString()}")
+    println("Пузырьковая сортировкапосле завершения nums1 = ${nums1.contentToString()}")
 }

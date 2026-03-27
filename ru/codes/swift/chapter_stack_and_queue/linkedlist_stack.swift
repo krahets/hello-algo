@@ -45,7 +45,7 @@ class LinkedListStack {
     /* Получить верхний элемент стека */
     func peek() -> Int {
         if isEmpty() {
-            fatalError("стекпуст")
+            fatalError("Стек пуст")
         }
         return _peek!.val
     }
@@ -83,7 +83,7 @@ enum _LinkedListStack {
 
         /* Извлечь элемент из стека */
         let pop = stack.pop()
-        print("извлечение из стекаэлемент pop = \(pop), извлечение из стекапосле stack = \(stack.toArray())")
+        print("Элемент, извлеченный из стека, pop = \(pop), stack после извлечения = \(stack.toArray())")
 
         /* Получить длину стека */
         let size = stack.size()
@@ -91,6 +91,6 @@ enum _LinkedListStack {
 
         /* Проверить, пуста ли структура */
         let isEmpty = stack.isEmpty()
-        print("Стек пуст: \(isEmpty)")
+        print("стекпуст ли = \(isEmpty)")
     }
 }

@@ -16,7 +16,7 @@ if __name__ == "__main__":
     stack.append(2)
     stack.append(5)
     stack.append(4)
-    print("стек stack =", stack)
+    print("Стек stack =", stack)
 
     # Получить верхний элемент стека
     peek: int = stack[-1]

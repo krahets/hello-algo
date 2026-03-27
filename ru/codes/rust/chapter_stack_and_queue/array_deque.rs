@@ -47,7 +47,7 @@ impl<T: Copy + Default> ArrayDeque<T> {
     /* Поместить в голову очереди */
     pub fn push_first(&mut self, num: T) {
         if self.que_size == self.capacity() {
-            println!("двусторонняя очередьзаполнен");
+            println!("Двусторонняя очередь заполнена");
             return;
         }
         // Указатель головы очереди сдвигается на одну позицию влево
@@ -61,7 +61,7 @@ impl<T: Copy + Default> ArrayDeque<T> {
     /* Поместить в хвост очереди */
     pub fn push_last(&mut self, num: T) {
         if self.que_size == self.capacity() {
-            println!("двусторонняя очередьзаполнен");
+            println!("Двусторонняя очередь заполнена");
             return;
         }
         // Вычислить указатель хвоста, указывающий на индекс за последним элементом
@@ -90,7 +90,7 @@ impl<T: Copy + Default> ArrayDeque<T> {
     /* Получить элемент в начале очереди */
     fn peek_first(&self) -> T {
         if self.is_empty() {
-            panic!("двусторонняя очередьпуст")
+            panic!("Двусторонняя очередь пуста")
         };
         self.nums[self.front]
     }
@@ -98,7 +98,7 @@ impl<T: Copy + Default> ArrayDeque<T> {
     /* Обратиться к элементу в хвосте очереди */
     fn peek_last(&self) -> T {
         if self.is_empty() {
-            panic!("двусторонняя очередьпуст")
+            panic!("Двусторонняя очередь пуста")
         };
         // Вычислить индекс хвостового элемента
         let last = self.index(self.front as i32 + self.que_size as i32 - 1);
@@ -125,29 +125,29 @@ fn main() {
     deque.push_last(3);
     deque.push_last(2);
     deque.push_last(5);
-    print!("двусторонняя очередь deque =");
+    print!("Двусторонняя очередь deque = ");
     print_util::print_array(&deque.to_array());
 
     /* Получить доступ к элементу */
     let peek_first = deque.peek_first();
-    print!("\nэлемент в голове очереди peek_first = {}", peek_first);
+    print!("\nголова очередиэлемент peek_first = {}", peek_first);
     let peek_last = deque.peek_last();
-    print!("\nэлемент в хвосте очереди peek_last = {}", peek_last);
+    print!("\nхвост очередиэлемент peek_last = {}", peek_last);
 
     /* Поместить элемент в очередь */
     deque.push_last(4);
-    print!("\nПосле помещения элемента 4 в хвост очереди deque =");
+    print!("\nПосле помещения элемента 4 в хвост очереди deque = ");
     print_util::print_array(&deque.to_array());
     deque.push_first(1);
-    print!("\nПосле помещения элемента 1 в голову очереди deque =");
+    print!("\nПосле помещения элемента 1 в голову очереди deque = ");
     print_util::print_array(&deque.to_array());
 
     /* Извлечь элемент из очереди */
     let pop_last = deque.pop_last();
-    print!("\nЭлемент, извлеченный из хвоста очереди, = {}, deque после извлечения из хвоста =", pop_last);
+    print!("\nЭлемент, извлеченный из хвоста очереди = {}, deque после извлечения из хвоста = ", pop_last);
     print_util::print_array(&deque.to_array());
     let pop_first = deque.pop_first();
-    print!("\nЭлемент, извлеченный из головы очереди, = {}, deque после извлечения из головы =", pop_first);
+    print!("\nЭлемент, извлеченный из головы очереди = {}, deque после извлечения из головы = ", pop_first);
     print_util::print_array(&deque.to_array());
 
     /* Получить длину двусторонней очереди */
@@ -156,5 +156,5 @@ fn main() {
 
     /* Проверить, пуста ли двусторонняя очередь */
     let is_empty = deque.is_empty();
-    print!("\nдвусторонняя Очередь пуста: {}", is_empty);
+    print!("\nДвусторонняя очередь пуста: {}", is_empty);
 }

@@ -51,5 +51,5 @@ fun heapSort(nums: IntArray) {
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     heapSort(nums)
-    println("После сортировки кучей nums = ${nums.contentToString()}")
+    println("Сортировка кучейпосле завершения nums = ${nums.contentToString()}")
 }

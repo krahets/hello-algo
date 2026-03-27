@@ -8,7 +8,7 @@ const inc = @import("include");
 // Driver Code
 pub fn main() !void {
     // Инициализировать двоичное дерево
-    // Инициализировать узел
+    // Инициализироватьузел
     var n1 = inc.TreeNode(i32){ .val = 1 };
     var n2 = inc.TreeNode(i32){ .val = 2 };
     var n3 = inc.TreeNode(i32){ .val = 3 };
@@ -19,7 +19,7 @@ pub fn main() !void {
     n1.right = &n3;
     n2.left = &n4;
     n2.right = &n5;
-    std.debug.print("Инициализировать двоичное дерево\n",.{});
+    std.debug.print("Инициализировать двоичное дерево\n", .{});
     try inc.PrintUtil.printTree(&n1, null, false);
 
     // Вставка и удаление узлов
@@ -27,11 +27,11 @@ pub fn main() !void {
     // Вставить узел P между n1 -> n2
     n1.left = &p;
     p.left = &n2;
-    std.debug.print("вставить узел P после\n",.{});
+    std.debug.print("После вставки узла P\n", .{});
     try inc.PrintUtil.printTree(&n1, null, false);
     // Удалить узел
     n1.left = &n2;
-    std.debug.print("Удалить узел P после\n",.{});
+    std.debug.print("После удаления узла P\n", .{});
     try inc.PrintUtil.printTree(&n1, null, false);
 
     _ = try std.io.getStdIn().reader().readByte();

@@ -20,12 +20,12 @@ public class Vertex: Hashable {
         hasher.combine(val)
     }
 
-    /* Вход: список значений vals; вернуть список вершин vets */
+    /* Входзначениесписок vals, Вернутьсписок вершин vets */
     public static func valsToVets(vals: [Int]) -> [Vertex] {
         vals.map { Vertex(val: $0) }
     }
 
-    /* Вход: список вершин vets; вернуть список значений vals */
+    /* Входсписок вершин vets, Вернутьзначениесписок vals */
     public static func vetsToVals(vets: [Vertex]) -> [Int] {
         vets.map { $0.val }
     }

@@ -54,16 +54,16 @@ printTree(root);
 /* Прямой обход */
 list.length = 0;
 preOrder(root);
-console.log('\nПоследовательность узлов при прямом обходе =' + list);
+console.log('\nПоследовательность узлов при прямом обходе = ' + list);
 
 /* Симметричный обход */
 list.length = 0;
 inOrder(root);
-console.log('\nПоследовательность узлов при симметричном обходе =' + list);
+console.log('\nПоследовательность узлов при симметричном обходе = ' + list);
 
 /* Обратный обход */
 list.length = 0;
 postOrder(root);
-console.log('\nПоследовательность узлов при обратном обходе =' + list);
+console.log('\nПоследовательность узлов при обратном обходе = ' + list);
 
 export {};

@@ -24,7 +24,7 @@ class LinkedListDeque {
     this._rear = null;
   }
 
-  /* Получить длину двусторонней очереди */
+  /* ПолучитьДлина двусторонней очереди */
   int size() {
     return this._queSize;
   }
@@ -53,7 +53,7 @@ class LinkedListDeque {
       node.prev = _rear;
       _rear = node; // Обновить хвостовой узел
     }
-    _queSize++; // Обновить длину очереди
+    _queSize++; // ОбновитьДлина очереди
   }
 
   /* Поместить в голову очереди */
@@ -94,7 +94,7 @@ class LinkedListDeque {
       }
       _rear = rPrev; // Обновить хвостовой узел
     }
-    _queSize--; // Обновить длину очереди
+    _queSize--; // ОбновитьДлина очереди
     return val;
   }
 
@@ -141,9 +141,9 @@ void main() {
 
   /* Получить доступ к элементу */
   int? peekFirst = deque.peekFirst();
-  print("элемент в голове очереди peekFirst = $peekFirst");
+  print("голова очередиэлемент peekFirst = $peekFirst");
   int? peekLast = deque.peekLast();
-  print("элемент в хвосте очереди peekLast = $peekLast");
+  print("хвост очередиэлемент peekLast = $peekLast");
 
   /* Поместить элемент в очередь */
   deque.pushLast(4);
@@ -153,9 +153,9 @@ void main() {
 
   /* Извлечь элемент из очереди */
   int? popLast = deque.popLast();
-  print("Элемент, извлеченный из хвоста очереди, = $popLast, deque после извлечения из хвоста = ${deque.toArray()}");
+  print("Элемент, извлеченный из хвоста очереди = $popLast , deque после извлечения из хвоста = ${deque.toArray()}");
   int? popFirst = deque.popFirst();
-  print("Элемент, извлеченный из головы очереди, = $popFirst, deque после извлечения из головы = ${deque.toArray()}");
+  print("Элемент, извлеченный из головы очереди = $popFirst , deque после извлечения из головы = ${deque.toArray()}");
 
   /* Получить длину двусторонней очереди */
   int size = deque.size();
@@ -163,5 +163,5 @@ void main() {
 
   /* Проверить, пуста ли двусторонняя очередь */
   bool isEmpty = deque.isEmpty();
-  print("двусторонняя Очередь пуста: $isEmpty");
+  print("Двусторонняя очередь пуста: $isEmpty");
 }

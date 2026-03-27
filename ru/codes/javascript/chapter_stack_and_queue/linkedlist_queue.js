@@ -54,7 +54,7 @@ class LinkedListQueue {
 
     /* Получить элемент в начале очереди */
     peek() {
-        if (this.size === 0) throw new Error('очередьпуст');
+        if (this.size === 0) throw new Error('Очередь пуста');
         return this.#front.val;
     }
 
@@ -80,15 +80,15 @@ queue.push(3);
 queue.push(2);
 queue.push(5);
 queue.push(4);
-console.log('очередь queue =' + queue.toArray());
+console.log('Очередь queue = ' + queue.toArray());
 
 /* Получить элемент в начале очереди */
 const peek = queue.peek();
-console.log('элемент в голове очереди peek =' + peek);
+console.log('голова очередиэлемент peek =' + peek);
 
 /* Извлечь элемент из очереди */
 const pop = queue.pop();
-console.log('Элемент, извлеченный из очереди, pop =' + pop + ', queue после извлечения =' + queue.toArray());
+console.log('Элемент, извлеченный из очереди, pop = ' + pop + ', queue после извлечения = ' + queue.toArray());
 
 /* Получить длину очереди */
 const size = queue.size;
@@ -96,4 +96,4 @@ console.log('Длина очереди size =' + size);
 
 /* Проверить, пуста ли очередь */
 const isEmpty = queue.isEmpty();
-console.log('Очередь пуста:' + isEmpty);
+console.log('Очередь пуста: ' + isEmpty);

@@ -55,7 +55,7 @@ class LinkedListQueue {
   /* Получить элемент в начале очереди */
   int peek() {
     if (_queSize == 0) {
-      throw Exception('очередьпуст');
+      throw Exception('Очередь пуста');
     }
     return _front!.val;
   }
@@ -87,11 +87,11 @@ void main() {
 
   /* Получить элемент в начале очереди */
   final int peek = queue.peek();
-  print("элемент в голове очереди peek = $peek");
+  print("голова очередиэлемент peek = $peek");
 
   /* Извлечь элемент из очереди */
   final int pop = queue.pop();
-  print("Элемент, извлеченный из очереди, pop = $pop, queue после извлечения = ${queue.toArray()}");
+  print("Элемент, извлеченный из очереди, pop = $pop , queue после извлечения = ${queue.toArray()}");
 
   /* Получить длину очереди */
   final int size = queue.size();

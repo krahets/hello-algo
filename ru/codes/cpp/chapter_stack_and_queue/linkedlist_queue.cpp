@@ -66,7 +66,7 @@ class LinkedListQueue {
     /* Получить элемент в начале очереди */
     int peek() {
         if (size() == 0)
-            throw out_of_range("очередьпуст");
+            throw out_of_range("Очередь пуста");
         return front->val;
     }
 
@@ -93,16 +93,16 @@ int main() {
     queue->push(2);
     queue->push(5);
     queue->push(4);
-    cout << "очередь queue =";
+    cout << "Очередь queue = ";
     printVector(queue->toVector());
 
     /* Получить элемент в начале очереди */
     int peek = queue->peek();
-    cout << "элемент в голове очереди peek =" << peek << endl;
+    cout << "голова очередиэлемент peek =" << peek << endl;
 
     /* Извлечь элемент из очереди */
     peek = queue->pop();
-    cout << "Элемент, извлеченный из очереди, pop =" << peek << ", queue после извлечения =";
+    cout << "Элемент, извлеченный из очереди, pop = " << peek << ", queue после извлечения = ";
     printVector(queue->toVector());
 
     /* Получить длину очереди */
@@ -111,7 +111,7 @@ int main() {
 
     /* Проверить, пуста ли очередь */
     bool empty = queue->isEmpty();
-    cout << "Очередь пуста:" << empty << endl;
+    cout << "Очередь пуста: " << empty << endl;
 
     // Освободить память
     delete queue;

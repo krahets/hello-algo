@@ -10,7 +10,7 @@
 int main() {
     /* Инициализировать список */
     vector<int> nums = {1, 3, 2, 5, 4};
-    cout << "список nums =";
+    cout << "Список nums = ";
     printVector(nums);
 
     /* Получить доступ к элементу */
@@ -24,7 +24,7 @@ int main() {
 
     /* Очистить список */
     nums.clear();
-    cout << "Очистить списокпосле nums =";
+    cout << "После очистки списка nums = ";
     printVector(nums);
 
     /* Добавить элемент в конец */
@@ -33,7 +33,7 @@ int main() {
     nums.push_back(2);
     nums.push_back(5);
     nums.push_back(4);
-    cout << "После добавления элемента nums =";
+    cout << "Добавитьэлементпосле nums =";
     printVector(nums);
 
     /* Вставить элемент в середину */
@@ -43,7 +43,7 @@ int main() {
 
     /* Удалить элемент */
     nums.erase(nums.begin() + 3);
-    cout << "После удаления элемента по индексу 3 получаем nums =";
+    cout << "После удаления элемента по индексу 3 получаем nums = ";
     printVector(nums);
 
     /* Обходить список по индексам */
@@ -65,7 +65,7 @@ int main() {
 
     /* Отсортировать список */
     sort(nums.begin(), nums.end());
-    cout << "Отсортировать списокпосле nums =";
+    cout << "После сортировки списка nums = ";
     printVector(nums);
 
     return 0;

@@ -67,7 +67,7 @@ int main() {
     char ***res = nQueens(n, &returnSize);
 
     printf("Входдоскаразмерравно%d\n", n);
-    printf("Количество схем размещения ферзей равно %d\n", returnSize);
+    printf("Количество способов расстановки ферзей: %d\n", returnSize);
     for (int i = 0; i < returnSize; ++i) {
         for (int j = 0; j < n; ++j) {
             printf("[");

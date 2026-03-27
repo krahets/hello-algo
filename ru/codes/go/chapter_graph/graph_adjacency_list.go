@@ -88,7 +88,7 @@ func (g *graphAdjList) removeVertex(vet Vertex) {
 /* Вывести список смежности */
 func (g *graphAdjList) print() {
 	var builder strings.Builder
-	fmt.Printf("список смежности = \n")
+	fmt.Printf("Список смежности = \n")
 	for k, v := range g.adjList {
 		builder.WriteString("\t\t" + strconv.Itoa(k.Val) + ": ")
 		for _, vet := range v {

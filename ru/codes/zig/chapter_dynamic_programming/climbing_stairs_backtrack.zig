@@ -38,7 +38,7 @@ pub fn main() !void {
     var n: usize = 9;
 
     var res = try climbingStairsBacktrack(n);
-    std.debug.print("Для подъема по лестнице из {} ступеней существует {} способов\n",.{ n, res });
+    std.debug.print("Для подъема по лестнице из {} ступеней существует {} способов\n", .{ n, res });
 
     _ = try std.io.getStdIn().reader().readByte();
 }

@@ -44,12 +44,12 @@ void bubbleSortWithFlag(vector<int> &nums) {
 int main() {
     vector<int> nums = {4, 1, 3, 1, 5, 2};
     bubbleSort(nums);
-    cout << "После пузырьковой сортировки nums =";
+    cout << "Пузырьковая сортировкапосле завершения nums =";
     printVector(nums);
 
     vector<int> nums1 = {4, 1, 3, 1, 5, 2};
     bubbleSortWithFlag(nums1);
-    cout << "После пузырьковой сортировки nums1 =";
+    cout << "Пузырьковая сортировкапосле завершения nums1 =";
     printVector(nums1);
 
     return 0;

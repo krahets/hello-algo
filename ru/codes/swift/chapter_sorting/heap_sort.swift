@@ -50,6 +50,6 @@ enum HeapSort {
     static func main() {
         var nums = [4, 1, 3, 1, 5, 2]
         heapSort(nums: &nums)
-        print("После сортировки кучей nums = \(nums)")
+        print("Сортировка кучейпосле завершения nums = \(nums)")
     }
 }

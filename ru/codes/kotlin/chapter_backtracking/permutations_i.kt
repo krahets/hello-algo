@@ -48,6 +48,6 @@ fun main() {
 
     val res = permutationsI(nums)
 
-    println("Входмассив nums = ${nums.contentToString()}")
+    println("Входной массив nums = ${nums.contentToString()}")
     println("Все перестановки res = $res")
 }

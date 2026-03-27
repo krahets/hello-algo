@@ -70,11 +70,11 @@ int main() {
     /* Инициализировать массив */
     int size = 5;
     int *arr = new int[size];
-    cout << "массив arr =";
+    cout << "Массив arr = ";
     printArray(arr, size);
 
     int *nums = new int[size]{1, 3, 2, 5, 4};
-    cout << "массив nums =";
+    cout << "Массив nums = ";
     printArray(nums, size);
 
     /* Случайный доступ */
@@ -95,7 +95,7 @@ int main() {
 
     /* Удалить элемент */
     remove(nums, size, 2);
-    cout << "После удаления элемента по индексу 2 получаем nums =";
+    cout << "После удаления элемента по индексу 2 получаем nums = ";
     printArray(nums, size);
 
     /* Перебрать массив */

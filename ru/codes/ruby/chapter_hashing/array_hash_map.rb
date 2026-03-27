@@ -89,22 +89,22 @@ if __FILE__ == $0
   hmap.put(16750, "Сяо Суань")
   hmap.put(13276, "Сяо Фа")
   hmap.put(10583, "Утенок")
-  puts "\nПосле добавления хеш-таблица имеет вид\nKey -> Value"
+  puts "\nПосле добавления хеш-таблица выглядит так\nKey -> Value"
   hmap.print
 
   # Операция поиска
   # Ввести ключ key в хеш-таблицу и получить значение value
   name = hmap.get(15937)
-  puts "\nВходномер 15937, найденоимя #{name}"
+  puts "\nПо номеру студента 15937 найдено имя #{name}"
 
   # Операция удаления
   # Удалить пару значений (key, value) из хеш-таблицы
   hmap.remove(10583)
-  puts "\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value"
+  puts "\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value"
   hmap.print
 
   # Перебрать хеш-таблицу
-  puts "\nОбойтипара ключ-значение Key->Value"
+  puts "\nПеребираем пары Key->Value"
   for pair in hmap.entry_set
     puts "#{pair.key} -> #{pair.val}"
   end
@@ -114,7 +114,7 @@ if __FILE__ == $0
     puts key
   end
 
-  puts "\nотдельноОбойтизначение Value"
+  puts "\nОтдельно перебираем значения Value"
   for val in hmap.value_set
     puts val
   end

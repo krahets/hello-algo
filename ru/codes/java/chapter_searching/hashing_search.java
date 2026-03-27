@@ -35,7 +35,7 @@ public class hashing_search {
             map.put(nums[i], i); // key: элемент, value: индекс
         }
         int index = hashingSearchArray(map, target);
-        System.out.println("Индекс целевого элемента 3 =" + index);
+        System.out.println("Индекс целевого элемента 3 = " + index);
 
         /* Хеш-поиск (связный список) */
         ListNode head = ListNode.arrToLinkedList(nums);
@@ -46,6 +46,6 @@ public class hashing_search {
             head = head.next;
         }
         ListNode node = hashingSearchLinkedList(map1, target);
-        System.out.println("Объект узла, соответствующий целевому значению 3, равен" + node);
+        System.out.println("Объект узла, соответствующий целевому значению 3, равен " + node);
     }
 }

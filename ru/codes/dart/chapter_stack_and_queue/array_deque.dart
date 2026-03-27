@@ -42,7 +42,7 @@ class ArrayDeque {
   /* Поместить в голову очереди */
   void pushFirst(int _num) {
     if (_queSize == capacity()) {
-      throw Exception("двусторонняя очередьзаполнен");
+      throw Exception("Двусторонняя очередь заполнена");
     }
     // Указатель головы очереди сдвигается на одну позицию влево
     // С помощью операции взятия по модулю _front после выхода за начало массива возвращается к его концу
@@ -55,7 +55,7 @@ class ArrayDeque {
   /* Поместить в хвост очереди */
   void pushLast(int _num) {
     if (_queSize == capacity()) {
-      throw Exception("двусторонняя очередьзаполнен");
+      throw Exception("Двусторонняя очередь заполнена");
     }
     // Вычислить указатель хвоста, указывающий на индекс за последним элементом
     int rear = index(_front + _queSize);
@@ -83,7 +83,7 @@ class ArrayDeque {
   /* Получить элемент в начале очереди */
   int peekFirst() {
     if (isEmpty()) {
-      throw Exception("двусторонняя очередьпуст");
+      throw Exception("Двусторонняя очередь пуста");
     }
     return _nums[_front];
   }
@@ -91,7 +91,7 @@ class ArrayDeque {
   /* Обратиться к элементу в хвосте очереди */
   int peekLast() {
     if (isEmpty()) {
-      throw Exception("двусторонняя очередьпуст");
+      throw Exception("Двусторонняя очередь пуста");
     }
     // Вычислить индекс хвостового элемента
     int last = index(_front + _queSize - 1);
@@ -120,9 +120,9 @@ void main() {
 
   /* Получить доступ к элементу */
   final int peekFirst = deque.peekFirst();
-  print("элемент в голове очереди peekFirst = $peekFirst");
+  print("голова очередиэлемент peekFirst = $peekFirst");
   final int peekLast = deque.peekLast();
-  print("элемент в хвосте очереди peekLast = $peekLast");
+  print("хвост очередиэлемент peekLast = $peekLast");
 
   /* Поместить элемент в очередь */
   deque.pushLast(4);
@@ -132,9 +132,9 @@ void main() {
 
   /* Извлечь элемент из очереди */
   final int popLast = deque.popLast();
-  print("Элемент, извлеченный из хвоста очереди, = $popLast, deque после извлечения из хвоста = ${deque.toArray()}");
+  print("Элемент, извлеченный из хвоста очереди = $popLast , deque после извлечения из хвоста = ${deque.toArray()}");
   final int popFirst = deque.popFirst();
-  print("Элемент, извлеченный из головы очереди, = $popFirst, deque после извлечения из головы = ${deque.toArray()}");
+  print("Элемент, извлеченный из головы очереди = $popFirst , deque после извлечения из головы = ${deque.toArray()}");
 
   /* Получить длину двусторонней очереди */
   final int size = deque.size();
@@ -142,5 +142,5 @@ void main() {
 
   /* Проверить, пуста ли двусторонняя очередь */
   final bool isEmpty = deque.isEmpty();
-  print("двусторонняя Очередь пуста: $isEmpty");
+  print("Двусторонняя очередь пуста: $isEmpty");
 }

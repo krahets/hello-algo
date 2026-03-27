@@ -46,7 +46,7 @@ fun binarySearchInsertion(nums: IntArray, target: Int): Int {
 fun main() {
     // Массив без повторяющихся элементов
     var nums = intArrayOf(1, 3, 6, 8, 12, 15, 23, 26, 31, 35)
-    println("\nмассив nums = ${nums.contentToString()}")
+    println("\nМассив nums = ${nums.contentToString()}")
     // Найти точку вставки бинарным поиском
     for (target in intArrayOf(6, 9)) {
         val index = binarySearchInsertionSimple(nums, target)
@@ -55,7 +55,7 @@ fun main() {
 
     // Массив с повторяющимися элементами
     nums = intArrayOf(1, 3, 6, 6, 6, 6, 6, 10, 12, 15)
-    println("\nмассив nums = ${nums.contentToString()}")
+    println("\nМассив nums = ${nums.contentToString()}")
 
     // Найти точку вставки бинарным поиском
     for (target in intArrayOf(2, 6, 20)) {

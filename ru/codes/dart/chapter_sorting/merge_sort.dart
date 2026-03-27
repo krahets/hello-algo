@@ -48,5 +48,5 @@ void main() {
   /* Сортировка слиянием */
   List<int> nums = [7, 3, 2, 6, 0, 1, 5, 4];
   mergeSort(nums, 0, nums.length - 1);
-  print("После сортировки слиянием nums = $nums");
+  print("Сортировка слияниемпосле завершения nums = $nums");
 }

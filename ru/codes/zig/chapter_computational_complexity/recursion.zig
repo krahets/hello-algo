@@ -4,7 +4,7 @@
 
 const std = @import("std");
 
-// Рекурсивная функция
+// рекурсияФункция
 fn recur(n: i32) i32 {
     // Условие завершения
     if (n == 1) {
@@ -37,7 +37,7 @@ fn forLoopRecur(comptime n: i32) i32 {
     return res;
 }
 
-// Хвостовая Рекурсивная функция
+// Хвостовая рекурсияФункция
 fn tailRecur(n: i32, res: i32) i32 {
     // Условие завершения
     if (n == 0) {
@@ -65,16 +65,16 @@ pub fn run() void {
     var res: i32 = 0;
 
     res = recur(n);
-    std.debug.print("Результат суммирования рекурсивной функции res = {}\n",.{recur(n)});
+    std.debug.print("Результат суммирования рекурсивной функции res = {}\n", .{recur(n)});
 
     res = forLoopRecur(n);
     std.debug.print("Результат суммирования при имитации рекурсии итерацией res = {}\n", .{forLoopRecur(n)});
 
     res = tailRecur(n, 0);
-    std.debug.print("Результат суммирования хвостовой рекурсией res = {}\n",.{tailRecur(n, 0)});
+    std.debug.print("Результат суммирования хвостовой рекурсией res = {}\n", .{tailRecur(n, 0)});
 
     res = fib(n);
-    std.debug.print("{}-й элемент последовательности Фибоначчи равен {}\n",.{ n, fib(n) });
+    std.debug.print("{}-й элемент последовательности Фибоначчи равен {}\n", .{ n, fib(n) });
 
     std.debug.print("\n", .{});
 }

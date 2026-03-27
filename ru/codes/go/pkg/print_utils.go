@@ -11,13 +11,13 @@ import (
 	"strings"
 )
 
-// PrintSlice Вывести срез
+// PrintSlice Вывестисрез
 func PrintSlice[T any](nums []T) {
 	fmt.Printf("%v", nums)
 	fmt.Println()
 }
 
-// PrintList Вывести список
+// PrintList Вывестисписок
 func PrintList(list *list.List) {
 	if list.Len() == 0 {
 		fmt.Print("[]\n")
@@ -40,7 +40,7 @@ func PrintMap[K comparable, V any](m map[K]V) {
 	}
 }
 
-// PrintHeap Вывести кучу
+// PrintHeap Вывестикуча
 func PrintHeap(h []any) {
 	fmt.Printf("Массивное представление кучи:")
 	fmt.Printf("%v", h)
@@ -49,7 +49,7 @@ func PrintHeap(h []any) {
 	PrintTree(root)
 }
 
-// PrintLinkedList Вывести связный список
+// PrintLinkedList Вывестисвязный список
 func PrintLinkedList(node *ListNode) {
 	if node == nil {
 		return
@@ -63,12 +63,12 @@ func PrintLinkedList(node *ListNode) {
 	fmt.Println(builder.String())
 }
 
-// PrintTree Вывести двоичное дерево
+// PrintTree Вывестидвоичное дерево
 func PrintTree(root *TreeNode) {
 	printTreeHelper(root, nil, false)
 }
 
-// printTreeHelper Вывести двоичное дерево
+// printTreeHelper Вывестидвоичное дерево
 // This tree printer is borrowed from TECHIE DELIGHT
 // https://www.techiedelight.com/c-program-print-binary-tree/
 func printTreeHelper(root *TreeNode, prev *trunk, isRight bool) {

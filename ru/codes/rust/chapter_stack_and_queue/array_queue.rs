@@ -9,7 +9,7 @@ struct ArrayQueue<T> {
     nums: Vec<T>,      // Массив для хранения элементов очереди
     front: i32,        // Указатель front, указывающий на первый элемент очереди
     que_size: i32,     // Длина очереди
-    que_capacity: i32, // вместимость очереди
+    que_capacity: i32, // очередьвместимость
 }
 
 impl<T: Copy + Default> ArrayQueue<T> {
@@ -41,7 +41,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
     /* Поместить в очередь */
     fn push(&mut self, num: T) {
         if self.que_size == self.capacity() {
-            println!("очередьзаполнен");
+            println!("Очередь заполнена");
             return;
         }
         // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
@@ -98,12 +98,12 @@ fn main() {
 
     /* Получить элемент в начале очереди */
     let peek = queue.peek();
-    println!("элемент в голове очереди peek = {}", peek);
+    println!("голова очередиэлемент peek = {}", peek);
 
     /* Извлечь элемент из очереди */
     let pop = queue.pop();
     println!(
-        "Элемент, извлеченный из очереди, pop = {:?},queue после извлечения = {:?}",
+        "извлечение из очередиэлемент pop = {:?},извлечение из очередипосле queue = {:?}",
         pop,
         queue.to_vector()
     );

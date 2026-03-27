@@ -46,4 +46,4 @@ function heapSort(nums) {
 /* Driver Code */
 const nums = [4, 1, 3, 1, 5, 2];
 heapSort(nums);
-console.log('После сортировки кучей nums =', nums);
+console.log('Сортировка кучейпосле завершения nums =', nums);

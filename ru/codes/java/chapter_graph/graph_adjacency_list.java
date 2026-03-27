@@ -70,7 +70,7 @@ class GraphAdjList {
 
     /* Вывести список смежности */
     public void print() {
-        System.out.println("список смежности =");
+        System.out.println("Список смежности =");
         for (Map.Entry<Vertex, List<Vertex>> pair : adjList.entrySet()) {
             List<Integer> tmp = new ArrayList<>();
             for (Vertex vertex : pair.getValue())

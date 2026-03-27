@@ -43,7 +43,7 @@ def linear(n: int):
 
 def linear_recur(n: int):
     """Линейная сложность (рекурсивная реализация)"""
-    print("рекурсия n =", n)
+    print("Рекурсия: n =", n)
     if n == 1:
         return
     linear_recur(n - 1)

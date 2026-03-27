@@ -19,7 +19,7 @@ func newBinarySearchTree() *binarySearchTree {
 	return bst
 }
 
-/* Получить корневой узел */
+/* Получитькорневой узел */
 func (bst *binarySearchTree) getRoot() *TreeNode {
 	return bst.root
 }
@@ -136,7 +136,7 @@ func (bst *binarySearchTree) remove(num int) {
 	}
 }
 
-/* Вывести двоичное дерево поиска */
+/* Вывестидвоичное дерево поиска */
 func (bst *binarySearchTree) print() {
 	PrintTree(bst.root)
 }

@@ -24,6 +24,6 @@ fn insertion_sort(nums: &mut [i32]) {
 fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     insertion_sort(&mut nums);
-    print!("После сортировки вставками nums =");
+    print!("После завершения сортировки вставками nums = ");
     print_util::print_array(&nums);
 }

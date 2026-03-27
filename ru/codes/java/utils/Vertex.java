@@ -16,7 +16,7 @@ public class Vertex {
         this.val = val;
     }
 
-    /* Вход: список значений vals; вернуть список вершин vets */
+    /* Входзначениесписок vals, Вернутьсписок вершин vets */
     public static Vertex[] valsToVets(int[] vals) {
         Vertex[] vets = new Vertex[vals.length];
         for (int i = 0; i < vals.length; i++) {
@@ -25,7 +25,7 @@ public class Vertex {
         return vets;
     }
 
-    /* Вход: список вершин vets; вернуть список значений vals */
+    /* Входсписок вершин vets, Вернутьзначениесписок vals */
     public static List<Integer> vetsToVals(List<Vertex> vets) {
         List<Integer> vals = new ArrayList<>();
         for (Vertex vet : vets) {

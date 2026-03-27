@@ -33,7 +33,7 @@ pub fn main() !void {
     comptime var n: usize = 9;
 
     var res = climbingStairsDFSMem(n);
-    std.debug.print("Для подъема по лестнице из {} ступеней существует {} способов\n",.{ n, res });
+    std.debug.print("Для подъема по лестнице из {} ступеней существует {} способов\n", .{ n, res });
 
     _ = try std.io.getStdIn().reader().readByte();
 }

@@ -36,7 +36,7 @@ fun binarySearchRightEdge(nums: IntArray, target: Int): Int {
 fun main() {
     // Массив с повторяющимися элементами
     val nums = intArrayOf(1, 3, 6, 6, 6, 6, 6, 10, 12, 15)
-    println("\nмассив nums = ${nums.contentToString()}")
+    println("\nМассив nums = ${nums.contentToString()}")
 
     // Бинарный поиск левой и правой границ
     for (target in intArrayOf(6, 7)) {

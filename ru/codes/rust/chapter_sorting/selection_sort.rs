@@ -30,6 +30,6 @@ fn selection_sort(nums: &mut [i32]) {
 pub fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     selection_sort(&mut nums);
-    print!("\nПосле сортировки выбором nums =");
+    print!("\nСортировка выборомпосле завершения nums =");
     print_util::print_array(&nums);
 }

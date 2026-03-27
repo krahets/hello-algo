@@ -42,7 +42,7 @@ func linear(n: Int) {
 
 /* Линейная сложность (рекурсивная реализация) */
 func linearRecur(n: Int) {
-    print("рекурсия n = \(n)")
+    print("Рекурсия: n = \(n)")
     if n == 1 {
         return
     }
@@ -63,7 +63,7 @@ func quadraticRecur(n: Int) -> Int {
     }
     // массив nums длинаравно n, n-1,..., 2, 1
     let nums = Array(repeating: 0, count: n)
-    print("рекурсия n = \(n) в nums длина = \(nums.count)")
+    print("Рекурсия: n = \(n), длина nums = \(nums.count)")
     return quadraticRecur(n: n - 1)
 }
 

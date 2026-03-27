@@ -34,7 +34,7 @@ pub fn main() !void {
         try map.put(num, @as(i32, @intCast(i)));    // key: элемент, value: индекс
     }
     var index = hashingSearchArray(i32, map, target);
-    std.debug.print("Индекс целевого элемента 3 = {}\n",.{index});
+    std.debug.print("Индекс целевого элемента 3 = {}\n", .{index});
 
     // Хеш-поиск (связный список)
     var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
@@ -49,7 +49,7 @@ pub fn main() !void {
         head = head.?.next;
     }
     var node = hashingSearchLinkedList(i32, map1, target);
-    std.debug.print("Объект узла, соответствующий целевому значению 3, равен",.{});
+    std.debug.print("Объект узла, соответствующий целевому значению 3, равен ", .{});
     try inc.PrintUtil.printLinkedList(i32, node);
 
     _ = try std.io.getStdIn().reader().readByte();

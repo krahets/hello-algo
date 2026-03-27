@@ -36,7 +36,7 @@ func (l *myList) capacity() int {
 func (l *myList) get(index int) int {
 	// Если индекс выходит за границы, выбросить исключение; далее аналогично
 	if index < 0 || index >= l.arrSize {
-		panic("индекс выходит за границы")
+		panic("Индекс вне допустимого диапазона")
 	}
 	return l.arr[index]
 }
@@ -44,7 +44,7 @@ func (l *myList) get(index int) int {
 /* Обновить элемент */
 func (l *myList) set(num, index int) {
 	if index < 0 || index >= l.arrSize {
-		panic("индекс выходит за границы")
+		panic("Индекс вне допустимого диапазона")
 	}
 	l.arr[index] = num
 }
@@ -63,7 +63,7 @@ func (l *myList) add(num int) {
 /* Вставить элемент в середину */
 func (l *myList) insert(num, index int) {
 	if index < 0 || index >= l.arrSize {
-		panic("индекс выходит за границы")
+		panic("Индекс вне допустимого диапазона")
 	}
 	// Если число элементов превышает вместимость, запустить механизм расширения
 	if l.arrSize == l.arrCapacity {
@@ -81,7 +81,7 @@ func (l *myList) insert(num, index int) {
 /* Удалить элемент */
 func (l *myList) remove(index int) int {
 	if index < 0 || index >= l.arrSize {
-		panic("индекс выходит за границы")
+		panic("Индекс вне допустимого диапазона")
 	}
 	num := l.arr[index]
 	// Сдвинуть на одну позицию вперед все элементы после индекса index
@@ -98,7 +98,7 @@ func (l *myList) remove(index int) int {
 func (l *myList) extendCapacity() {
 	// Создать новый массив длиной в extendRatio раз больше исходного и скопировать в него исходный массив
 	l.arr = append(l.arr, make([]int, l.arrCapacity*(l.extendRatio-1))...)
-	// Обновить вместимость списка
+	// ОбновитьВместимость списка
 	l.arrCapacity = len(l.arr)
 }
 

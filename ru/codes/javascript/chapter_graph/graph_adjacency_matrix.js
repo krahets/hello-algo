@@ -88,7 +88,7 @@ class GraphAdjMat {
     /* Вывести матрицу смежности */
     print() {
         console.log('список вершин =', this.vertices);
-        console.log('матрица смежности =', this.adjMat);
+        console.log('Матрица смежности =', this.adjMat);
     }
 }
 

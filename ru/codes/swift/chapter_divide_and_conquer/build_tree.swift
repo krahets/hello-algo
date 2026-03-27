@@ -37,8 +37,8 @@ enum BuildTree {
     static func main() {
         let preorder = [3, 9, 2, 1, 7]
         let inorder = [9, 3, 1, 2, 7]
-        print("прямой обход = \(preorder)")
-        print("симметричный обход = \(inorder)")
+        print("Прямой обход = \(preorder)")
+        print("Симметричный обход = \(inorder)")
 
         let root = buildTree(preorder: preorder, inorder: inorder)
         print("Построенное двоичное дерево:")

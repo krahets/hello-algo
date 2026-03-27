@@ -21,13 +21,13 @@ void main() {
 
   /* Получить элемент в начале очереди */
   final int peek = queue.first;
-  print("элемент в голове очереди peek = $peek");
+  print("голова очередиэлемент peek = $peek");
 
   /* Извлечь элемент из очереди */
   final int pop = queue.removeFirst();
-  print("Элемент, извлеченный из очереди, pop = $pop, queue после извлечения = $queue");
+  print("Элемент, извлеченный из очереди, pop = $pop , queue после извлечения = $queue");
 
-  /* Получить длину очереди */
+  /* ПолучитьДлина очереди */
   final int size = queue.length;
   print("Длина очереди size = $size");
 

@@ -24,7 +24,7 @@ fn insertionSort(nums: []i32) void {
 pub fn main() !void {
     var nums = [_]i32{ 4, 1, 3, 1, 5, 2 };
     insertionSort(&nums);
-    std.debug.print("После сортировки вставками nums =",.{});
+    std.debug.print("После завершения сортировки вставками nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums);
     
     _ = try std.io.getStdIn().reader().readByte();

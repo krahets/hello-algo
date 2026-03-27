@@ -50,8 +50,8 @@ public class linked_list {
 
     /* Driver Code */
     public static void main(String[] args) {
-        /* Инициализировать связный список */
-        // Инициализировать каждый узел
+        /* Инициализироватьсвязный список */
+        // Инициализироватькаждый узел
         ListNode n0 = new ListNode(1);
         ListNode n1 = new ListNode(3);
         ListNode n2 = new ListNode(2);

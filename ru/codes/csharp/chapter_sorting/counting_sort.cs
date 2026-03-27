@@ -68,10 +68,10 @@ public class counting_sort {
     public void Test() {
         int[] nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4];
         CountingSortNaive(nums);
-        Console.WriteLine("После завершения подсчетной сортировки (не подходит для сортируемых объектов) nums =" + string.Join(" ", nums));
+        Console.WriteLine("После завершения подсчетной сортировки (не подходит для сортируемых объектов) nums = " + string.Join(" ", nums));
 
         int[] nums1 = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4];
         CountingSort(nums1);
-        Console.WriteLine("После сортировки подсчетом nums1 =" + string.Join(" ", nums));
+        Console.WriteLine("Подсчетная сортировкапосле завершения nums1 =" + string.Join(" ", nums));
     }
 }

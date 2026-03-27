@@ -44,13 +44,13 @@ pub fn main() !void {
     // Здесь используется функция, которая напрямую строит двоичное дерево из массива
     var nums = [_]i32{1, 2, 3, 4, 5, 6, 7};
     var root = try inc.TreeUtil.arrToTree(i32, mem_allocator, &nums);
-    std.debug.print("Инициализировать двоичное дерево\n",.{});
+    std.debug.print("Инициализировать двоичное дерево\n", .{});
     try inc.PrintUtil.printTree(root, null, false);
 
     // Обход по уровням
     var list = try levelOrder(i32, mem_allocator, root.?);
     defer list.deinit();
-    std.debug.print("\nПоследовательность узлов при обходе по уровням =",.{});
+    std.debug.print("\nПоследовательность узлов при обходе по уровням = ", .{});
     inc.PrintUtil.printList(i32, list);
 
     _ = try std.io.getStdIn().reader().readByte();

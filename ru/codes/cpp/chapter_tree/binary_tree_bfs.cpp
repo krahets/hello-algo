@@ -35,7 +35,7 @@ int main() {
 
     /* Обход по уровням */
     vector<int> vec = levelOrder(root);
-    cout << endl << "Последовательность узлов при обходе по уровням =";
+    cout << endl << "Последовательность узлов при обходе по уровням = ";
     printVector(vec);
 
     return 0;

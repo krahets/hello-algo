@@ -64,7 +64,7 @@ res = whileLoop(n);
 console.log(`Результат суммирования в цикле while res = ${res}`);
 
 res = whileLoopII(n);
-console.log(`Цикл while (с двумя обновлениями)результат суммирования res = ${res}`);
+console.log(`Цикл while (с двумя обновлениями)суммированиерезультат res = ${res}`);
 
 const resStr = nestedForLoop(n);
 console.log(`Результат обхода двойным циклом for ${resStr}`);

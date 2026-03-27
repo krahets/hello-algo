@@ -45,7 +45,7 @@ void push(LinkedListStack *s, int num) {
     ListNode *node = (ListNode *)malloc(sizeof(ListNode));
     node->next = s->top; // Обновить поле указателя нового узла
     node->val = num;     // Обновить поле данных нового узла
-    s->top = node;       // Обновить вершину стека
+    s->top = node;       // Обновитьвершина стека
     s->size++;           // Обновить размер стека
 }
 
@@ -90,7 +90,7 @@ int main() {
 
     /* Извлечь элемент из стека */
     val = pop(stack);
-    printf("Извлеченный из стека элемент pop = %d, после извлечения stack =  ", val);
+    printf("Элемент, извлеченный из стека, pop = %d, 出栈后 stack =  ", val);
     printLinkedList(stack->top);
 
     /* Получить длину стека */

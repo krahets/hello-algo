@@ -52,7 +52,7 @@ fn linear(n: i32) {
 
 /* Линейная сложность (рекурсивная реализация) */
 fn linear_recur(n: i32) {
-    println!("рекурсия n = {}", n);
+    println!("Рекурсия: n = {}", n);
     if n == 1 {
         return;
     };
@@ -82,7 +82,7 @@ fn quadratic_recur(n: i32) -> i32 {
     };
     // массив nums длинаравно n, n-1,..., 2, 1
     let nums = vec![0; n as usize];
-    println!("рекурсия n = {} в nums длина = {}", n, nums.len());
+    println!("Рекурсия: n = {}, длина nums = {}", n, nums.len());
     return quadratic_recur(n - 1);
 }
 

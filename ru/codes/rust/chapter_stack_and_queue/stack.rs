@@ -18,7 +18,7 @@ pub fn main() {
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    print!("стек stack =");
+    print!("Стек stack = ");
     print_util::print_array(&stack);
 
     // Получить верхний элемент стека
@@ -27,7 +27,7 @@ pub fn main() {
 
     // Извлечь элемент из стека
     let pop = stack.pop().unwrap();
-    print!("\nизвлечение из стекаэлемент pop = {pop}, извлечение из стекапосле stack =");
+    print!("\nЭлемент, извлеченный из стека, pop = {pop}, stack после извлечения = ");
     print_util::print_array(&stack);
 
     // Получить длину стека
@@ -36,5 +36,5 @@ pub fn main() {
 
     // Проверить, пуст ли стек
     let is_empty = stack.is_empty();
-    print!("\nСтек пуст: {is_empty}");
+    print!("\nстекпуст ли = {is_empty}");
 }

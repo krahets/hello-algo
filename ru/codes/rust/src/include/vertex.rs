@@ -16,12 +16,12 @@ impl From<i32> for Vertex {
     }
 }
 
-/* Вход: список значений vals; вернуть список вершин vets */
+/* Входзначениесписок vals, Вернутьсписок вершин vets */
 pub fn vals_to_vets(vals: Vec<i32>) -> Vec<Vertex> {
     vals.into_iter().map(|val| val.into()).collect()
 }
 
-/* Вход: список вершин vets; вернуть список значений vals */
+/* Входсписок вершин vets, Вернутьзначениесписок vals */
 pub fn vets_to_vals(vets: Vec<Vertex>) -> Vec<i32> {
     vets.into_iter().map(|vet| vet.val).collect()
 }

@@ -71,7 +71,7 @@ class GraphAdjList {
 
   /* Вывести список смежности */
   void printAdjList() {
-    print("список смежности =");
+    print("Список смежности =");
     adjList.forEach((key, value) {
       List<int> tmp = [];
       for (Vertex vertex in value) {

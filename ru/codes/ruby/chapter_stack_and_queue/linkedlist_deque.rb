@@ -52,7 +52,7 @@ class LinkedListDeque
       node.prev = @rear
       @rear = node # Обновить хвостовой узел
     end
-    @size += 1 # Обновить длину очереди
+    @size += 1 # ОбновитьДлина очереди
   end
 
   # ## Поместить в голову очереди ###
@@ -67,7 +67,7 @@ class LinkedListDeque
 
   # ## Операция извлечения из очереди ###
   def pop(is_front)
-    raise IndexError, 'двусторонняя очередьпуст' if is_empty?
+    raise IndexError, 'Двусторонняя очередь пуста' if is_empty?
 
     # Операция извлечения из головы очереди
     if is_front
@@ -90,7 +90,7 @@ class LinkedListDeque
       end
       @rear = rprev # Обновить хвостовой узел
     end
-    @size -= 1 # Обновить длину очереди
+    @size -= 1 # ОбновитьДлина очереди
 
     val
   end
@@ -107,14 +107,14 @@ class LinkedListDeque
 
   # ## Получить элемент в начале очереди ###
   def peek_first
-    raise IndexError, 'двусторонняя очередьпуст' if is_empty?
+    raise IndexError, 'Двусторонняя очередь пуста' if is_empty?
 
     @front.val
   end
 
   # ## Обратиться к элементу в хвосте очереди ###
   def peek_last
-    raise IndexError, 'двусторонняя очередьпуст' if is_empty?
+    raise IndexError, 'Двусторонняя очередь пуста' if is_empty?
 
     @rear.val
   end
@@ -142,9 +142,9 @@ if __FILE__ == $0
 
   # Получить доступ к элементу
   peek_first = deque.peek_first
-  puts "элемент в голове очереди peek_first = #{peek_first}"
+  puts "голова очередиэлемент peek_first = #{peek_first}"
   peek_last = deque.peek_last
-  puts "элемент в голове очереди peek_last = #{peek_last}"
+  puts "голова очередиэлемент peek_last = #{peek_last}"
 
   # Поместить элемент в очередь
   deque.push_last(4)
@@ -154,9 +154,9 @@ if __FILE__ == $0
 
   # Извлечь элемент из очереди
   pop_last = deque.pop_last
-  puts "Элемент, извлеченный из хвоста очереди, = #{pop_last}, deque после извлечения из хвоста = #{deque.to_array}"
+  puts "Элемент, извлеченный из хвоста очереди = #{pop_last}, deque после извлечения из хвоста = #{deque.to_array}"
   pop_first = deque.pop_first
-  puts "Элемент, извлеченный из головы очереди, = #{pop_first}, deque после извлечения из головы = #{deque.to_array}"
+  puts "Элемент, извлеченный из головы очереди = #{pop_first}, deque после извлечения из головы = #{deque.to_array}"
 
   # Получить длину двусторонней очереди
   size = deque.size
@@ -164,5 +164,5 @@ if __FILE__ == $0
 
   # Проверить, пуста ли двусторонняя очередь
   is_empty = deque.is_empty?
-  puts "двусторонняя Очередь пуста: #{is_empty}"
+  puts "Двусторонняя очередь пуста: #{is_empty}"
 end

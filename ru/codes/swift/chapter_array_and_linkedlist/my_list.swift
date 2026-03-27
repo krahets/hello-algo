@@ -33,7 +33,7 @@ class MyList {
     func get(index: Int) -> Int {
         // Если индекс выходит за границы, выбросить ошибку; далее аналогично
         if index < 0 || index >= size() {
-            fatalError("индекс выходит за границы")
+            fatalError("Индекс вне допустимого диапазона")
         }
         return arr[index]
     }
@@ -41,7 +41,7 @@ class MyList {
     /* Обновить элемент */
     func set(index: Int, num: Int) {
         if index < 0 || index >= size() {
-            fatalError("индекс выходит за границы")
+            fatalError("Индекс вне допустимого диапазона")
         }
         arr[index] = num
     }
@@ -60,7 +60,7 @@ class MyList {
     /* Вставить элемент в середину */
     func insert(index: Int, num: Int) {
         if index < 0 || index >= size() {
-            fatalError("индекс выходит за границы")
+            fatalError("Индекс вне допустимого диапазона")
         }
         // Если число элементов превышает вместимость, запустить механизм расширения
         if size() == capacity() {
@@ -79,7 +79,7 @@ class MyList {
     @discardableResult
     func remove(index: Int) -> Int {
         if index < 0 || index >= size() {
-            fatalError("индекс выходит за границы")
+            fatalError("Индекс вне допустимого диапазона")
         }
         let num = arr[index]
         // Сдвинуть на одну позицию вперед все элементы после индекса index
@@ -96,7 +96,7 @@ class MyList {
     func extendCapacity() {
         // Создать новый массив длиной в extendRatio раз больше исходного и скопировать в него исходный массив
         arr = arr + Array(repeating: 0, count: capacity() * (extendRatio - 1))
-        // Обновить вместимость списка
+        // ОбновитьВместимость списка
         _capacity = arr.count
     }
 
@@ -118,7 +118,7 @@ enum _MyList {
         nums.add(num: 2)
         nums.add(num: 5)
         nums.add(num: 4)
-        print("список nums = \(nums.toArray()), вместимость = \(nums.capacity()), длина = \(nums.size())")
+        print("Список nums = \(nums.toArray()), вместимость = \(nums.capacity()), длина = \(nums.size())")
 
         /* Вставить элемент в середину */
         nums.insert(index: 3, num: 6)
@@ -126,7 +126,7 @@ enum _MyList {
 
         /* Удалить элемент */
         nums.remove(index: 3)
-        print("После удаления элемента по индексу 3 получаем nums = \(nums.toArray())")
+        print("Удалитьиндекс 3 поэлемент, получаем nums = \(nums.toArray())")
 
         /* Получить доступ к элементу */
         let num = nums.get(index: 1)

@@ -43,11 +43,11 @@ int main() {
     // ====== Driver Code ======
     // метод 1
     vector<int> res = twoSumBruteForce(nums, target);
-    cout << "метод 1 res =";
+    cout << "Метод 1 res = ";
     printVector(res);
     // Метод 2
     res = twoSumHashTable(nums, target);
-    cout << "метод 2 res =";
+    cout << "Метод 2 res = ";
     printVector(res);
 
     return 0;

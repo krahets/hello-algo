@@ -127,24 +127,24 @@ const i = 1;
 const l = abt.left(i);
 const r = abt.right(i);
 const p = abt.parent(i);
-console.log('\nИндекс текущего узла равен' + i + ', значение равно' + abt.val(i));
+console.log('\nИндекс текущего узла равен ' + i + ', значение равно' + abt.val(i));
 console.log(
-    'Индекс его левого дочернего узла равен ' + l + ', значение равно ' + (l === null ? 'null': abt.val(l))
+    'Индекс его левого дочернего узла равен ' + l + ', значение равно' + (l === null ? 'null' : abt.val(l))
 );
 console.log(
-    'Индекс его правого дочернего узла равен ' + r + ', значение равно ' + (r === null ? 'null': abt.val(r))
+    'Индекс его правого дочернего узла равен ' + r + ', значение равно' + (r === null ? 'null' : abt.val(r))
 );
 console.log(
-    'Индекс его родительского узла равен ' + p + ', значение равно ' + (p === null ? 'null': abt.val(p))
+    'Индекс его родительского узла равен ' + p + ', значение равно' + (p === null ? 'null' : abt.val(p))
 );
 
 // Обойти дерево
 let res = abt.levelOrder();
-console.log('\nобход по уровнямравно:' + res);
+console.log('\nРезультат обхода по уровням: ' + res);
 res = abt.preOrder();
 console.log('прямой обходравно:' + res);
 res = abt.inOrder();
-console.log('симметричный обходравно:' + res);
+console.log('Симметричный обход: ' + res);
 res = abt.postOrder();
 console.log('обратный обходравно:' + res);
 

@@ -38,7 +38,7 @@ enum BinarySearchEdge {
     static func main() {
         // Массив с повторяющимися элементами
         let nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
-        print("\nмассив nums = \(nums)")
+        print("\nМассив nums = \(nums)")
 
         // Бинарный поиск левой и правой границ
         for target in [6, 7] {

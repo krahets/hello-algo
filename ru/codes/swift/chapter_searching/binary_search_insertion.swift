@@ -50,7 +50,7 @@ enum BinarySearchInsertion {
     static func main() {
         // Массив без повторяющихся элементов
         var nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
-        print("\nмассив nums = \(nums)")
+        print("\nМассив nums = \(nums)")
         // Найти точку вставки бинарным поиском
         for target in [6, 9] {
             let index = binarySearchInsertionSimple(nums: nums, target: target)
@@ -59,7 +59,7 @@ enum BinarySearchInsertion {
 
         // Массив с повторяющимися элементами
         nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
-        print("\nмассив nums = \(nums)")
+        print("\nМассив nums = \(nums)")
         // Найти точку вставки бинарным поиском
         for target in [2, 6, 20] {
             let index = binarySearchInsertion(nums: nums, target: target)

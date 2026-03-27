@@ -65,8 +65,8 @@ pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
 
 /* Driver Code */
 fn main() {
-    /* Инициализировать связный список */
-    // Инициализировать каждый узел
+    /* Инициализироватьсвязный список */
+    // Инициализироватькаждый узел
     let n0 = ListNode::new(1);
     let n1 = ListNode::new(3);
     let n2 = ListNode::new(2);

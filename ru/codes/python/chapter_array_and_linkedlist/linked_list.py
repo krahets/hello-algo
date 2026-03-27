@@ -50,8 +50,8 @@ def find(head: ListNode, target: int) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализировать связный список
-    # Инициализировать каждый узел
+    # Инициализироватьсвязный список
+    # Инициализироватькаждый узел
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)

@@ -83,7 +83,7 @@ impl GraphAdjList {
 
     /* Вывести список смежности */
     pub fn print(&self) {
-        println!("список смежности =");
+        println!("Список смежности =");
         for (vertex, list) in &self.adj_list {
             let list = list.iter().map(|vertex| vertex.val).collect::<Vec<i32>>();
             println!("{}: {:?},", vertex.val, list);

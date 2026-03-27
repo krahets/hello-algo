@@ -42,8 +42,8 @@ function bubbleSortWithFlag(nums) {
 /* Driver Code */
 const nums = [4, 1, 3, 1, 5, 2];
 bubbleSort(nums);
-console.log('После пузырьковой сортировки nums =', nums);
+console.log('После завершения пузырьковой сортировки nums =', nums);
 
 const nums1 = [4, 1, 3, 1, 5, 2];
 bubbleSortWithFlag(nums1);
-console.log('После пузырьковой сортировки nums =', nums1);
+console.log('После завершения пузырьковой сортировки nums =', nums1);

@@ -11,7 +11,7 @@ class Vertex {
         this.val = val;
     }
 
-    /* Вход: список значений vals; вернуть список вершин vets */
+    /* Входзначениесписок vals, Вернутьсписок вершин vets */
     public static valsToVets(vals: number[]): Vertex[] {
         const vets: Vertex[] = [];
         for (let i = 0; i < vals.length; i++) {
@@ -20,7 +20,7 @@ class Vertex {
         return vets;
     }
 
-    /* Вход: список вершин vets; вернуть список значений vals */
+    /* Входсписок вершин vets, Вернутьзначениесписок vals */
     public static vetsToVals(vets: Vertex[]): number[] {
         const vals: number[] = [];
         for (const vet of vets) {

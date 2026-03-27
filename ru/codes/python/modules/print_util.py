@@ -9,7 +9,7 @@ from .list_node import ListNode, linked_list_to_list
 
 
 def print_matrix(mat: list[list[int]]):
-    """Вывести матрицу"""
+    """Вывестиматрица"""
     s = []
     for arr in mat:
         s.append("  " + str(arr))
@@ -39,7 +39,7 @@ def print_tree(
     root: TreeNode | None, prev: Trunk | None = None, is_right: bool = False
 ):
     """
-Вывести двоичное дерево
+Вывестидвоичное дерево
 This tree printer is borrowed from TECHIE DELIGHT
 https://www.techiedelight.com/c-program-print-binary-tree/
 """

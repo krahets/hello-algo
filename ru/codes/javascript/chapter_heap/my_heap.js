@@ -126,12 +126,12 @@ class MaxHeap {
 if (require.main === module) {
     /* Инициализировать max-кучу */
     const maxHeap = new MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-    console.log('\nВходной список и построение кучипосле');
+    console.log('\nПосле построения кучи по входному списку');
     maxHeap.print();
 
     /* Получить верхний элемент кучи */
     let peek = maxHeap.peek();
-    console.log(`\nЭлемент на вершине кучи равен ${peek}`);
+    console.log(`\nвершина кучиэлементравно ${peek}`);
 
     /* Добавить элемент в кучу */
     let val = 7;
@@ -150,7 +150,7 @@ if (require.main === module) {
 
     /* Проверить, пуста ли куча */
     let isEmpty = maxHeap.isEmpty();
-    console.log(`\nКуча пуста: ${isEmpty}`);
+    console.log(`\nкучапуст ли ${isEmpty}`);
 }
 
 module.exports = {

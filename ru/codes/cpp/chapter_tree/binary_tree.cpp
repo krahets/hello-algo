@@ -9,7 +9,7 @@
 /* Driver Code */
 int main() {
     /* Инициализировать двоичное дерево */
-    // Инициализировать узел
+    // Инициализироватьузел
     TreeNode *n1 = new TreeNode(1);
     TreeNode *n2 = new TreeNode(2);
     TreeNode *n3 = new TreeNode(3);
@@ -28,12 +28,12 @@ int main() {
     // Вставить узел P между n1 -> n2
     n1->left = P;
     P->left = n2;
-    cout << endl << "вставить узел P после\n" << endl;
+    cout << endl << "После вставки узла P\n" << endl;
     printTree(n1);
     // Удалить узел P
     n1->left = n2;
     delete P; // Освободить память
-    cout << endl << "Удалить узел P после\n" << endl;
+    cout << endl << "После удаления узла P\n" << endl;
     printTree(n1);
 
     // Освободить память

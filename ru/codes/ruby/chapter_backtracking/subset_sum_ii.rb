@@ -46,6 +46,6 @@ if __FILE__ == $0
   target = 9
   res = subset_sum_ii(nums, target)
 
-  puts "Входмассив nums = #{nums}, target = #{target}"
+  puts "Входной массив nums = #{nums}, target = #{target}"
   puts "Все подмножества с суммой #{target}: #{res}"
 end

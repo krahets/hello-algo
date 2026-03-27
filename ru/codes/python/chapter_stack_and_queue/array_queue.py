@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
     # Получить элемент в начале очереди
     peek: int = queue.peek()
-    print("элемент в голове очереди peek =", peek)
+    print("голова очередиэлемент peek =", peek)
 
     # Извлечь элемент из очереди
     pop: int = queue.pop()

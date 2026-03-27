@@ -82,7 +82,7 @@ pub fn LinkedListDeque(comptime T: type) type {
                 node.prev = self.rear;
                 self.rear = node;   // Обновить хвостовой узел
             }
-            self.que_size += 1;      // Обновить длину очереди
+            self.que_size += 1;      // ОбновитьДлина очереди
         } 
 
         // Поместить в голову очереди
@@ -97,7 +97,7 @@ pub fn LinkedListDeque(comptime T: type) type {
         
         // Операция извлечения из очереди
         pub fn pop(self: *Self, is_front: bool) T {
-            if (self.isEmpty()) @panic("двусторонняя очередьпуст");
+            if (self.isEmpty()) @panic("Двусторонняя очередь пуста");
             var val: T = undefined;
             // Операция извлечения из головы очереди
             if (is_front) {
@@ -120,7 +120,7 @@ pub fn LinkedListDeque(comptime T: type) type {
                 }
                 self.rear = rPrev;          // Обновить хвостовой узел
             }
-            self.que_size -= 1;              // Обновить длину очереди
+            self.que_size -= 1;              // ОбновитьДлина очереди
             return val;
         } 
 
@@ -136,13 +136,13 @@ pub fn LinkedListDeque(comptime T: type) type {
 
         // Получить элемент в начале очереди
         pub fn peekFirst(self: *Self) T {
-            if (self.isEmpty()) @panic("двусторонняя очередьпуст");
+            if (self.isEmpty()) @panic("Двусторонняя очередь пуста");
             return self.front.?.val;
         }  
 
         // Обратиться к элементу в хвосте очереди
         pub fn peekLast(self: *Self) T {
-            if (self.isEmpty()) @panic("двусторонняя очередьпуст");
+            if (self.isEmpty()) @panic("Двусторонняя очередь пуста");
             return self.rear.?.val;
         }
 
@@ -170,38 +170,38 @@ pub fn main() !void {
     try deque.pushLast(3);
     try deque.pushLast(2);
     try deque.pushLast(5);
-    std.debug.print("двусторонняя очередь deque =",.{});
+    std.debug.print("Двусторонняя очередь deque = ", .{});
     inc.PrintUtil.printArray(i32, try deque.toArray());
 
     // Получить доступ к элементу
     var peek_first = deque.peekFirst();
-    std.debug.print("\nэлемент в голове очереди peek_first = {}",.{peek_first});
+    std.debug.print("\nголова очередиэлемент peek_first = {}", .{peek_first});
     var peek_last = deque.peekLast();
-    std.debug.print("\nэлемент в хвосте очереди peek_last = {}",.{peek_last});
+    std.debug.print("\nхвост очередиэлемент peek_last = {}", .{peek_last});
 
     // Поместить элемент в очередь
     try deque.pushLast(4);
-    std.debug.print("\nПосле помещения элемента 4 в хвост очереди deque =",.{});
+    std.debug.print("\nПосле помещения элемента 4 в хвост очереди deque = ", .{});
     inc.PrintUtil.printArray(i32, try deque.toArray());
     try deque.pushFirst(1);
-    std.debug.print("\nПосле помещения элемента 1 в голову очереди deque =",.{});
+    std.debug.print("\nПосле помещения элемента 1 в голову очереди deque = ", .{});
     inc.PrintUtil.printArray(i32, try deque.toArray());
 
     // Извлечь элемент из очереди
     var pop_last = deque.popLast();
-    std.debug.print("\nЭлемент, извлеченный из хвоста очереди, = {}, deque после извлечения из хвоста =",.{pop_last});
+    std.debug.print("\nЭлемент, извлеченный из хвоста очереди = {}, deque после извлечения из хвоста = ", .{pop_last});
     inc.PrintUtil.printArray(i32, try deque.toArray());
     var pop_first = deque.popFirst();
-    std.debug.print("\nЭлемент, извлеченный из головы очереди, = {}, deque после извлечения из головы =",.{pop_first});
+    std.debug.print("\nЭлемент, извлеченный из головы очереди = {}, deque после извлечения из головы = ", .{pop_first});
     inc.PrintUtil.printArray(i32, try deque.toArray());
 
     // Получить длину двусторонней очереди
     var size = deque.size();
-    std.debug.print("\nДлина двусторонней очереди size = {}",.{size});
+    std.debug.print("\nДлина двусторонней очереди size = {}", .{size});
 
     // Проверить, пуста ли двусторонняя очередь
     var is_empty = deque.isEmpty();
-    std.debug.print("\nдвусторонняя Очередь пуста: {}",.{is_empty});
+    std.debug.print("\nДвусторонняя очередь пуста: {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

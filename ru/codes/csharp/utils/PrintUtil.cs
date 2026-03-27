@@ -12,7 +12,7 @@ public class Trunk(Trunk? prev, string str) {
 };
 
 public static class PrintUtil {
-    /* Вывести список */
+    /* Вывестисписок */
     public static void PrintList<T>(IList<T> list) {
         Console.WriteLine("[" + string.Join(", ", list) + "]");
     }
@@ -21,7 +21,7 @@ public static class PrintUtil {
         return $"[ {string.Join(", ", list.Select(x => x?.ToString() ?? "null"))} ]";
     }
 
-    /* Вывести матрицу (Array) */
+    /* Вывестиматрица (Array) */
     public static void PrintMatrix<T>(T[][] matrix) {
         Console.WriteLine("[");
         foreach (T[] row in matrix) {
@@ -30,7 +30,7 @@ public static class PrintUtil {
         Console.WriteLine("]");
     }
 
-    /* Вывести матрицу (List) */
+    /* Вывестиматрица (List) */
     public static void PrintMatrix<T>(List<List<T>> matrix) {
         Console.WriteLine("[");
         foreach (List<T> row in matrix) {
@@ -50,7 +50,7 @@ public static class PrintUtil {
     }
 
     /**
- * Вывести двоичное дерево
+ * Вывестидвоичное дерево
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
@@ -116,7 +116,7 @@ public static class PrintUtil {
         PrintTree(tree);
     }
 
-    /* Вывести очередь с приоритетом */
+    /* Вывестиочередь с приоритетом */
     public static void PrintHeap(PriorityQueue<int, int> queue) {
         var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
         Console.Write("Массивное представление кучи:");

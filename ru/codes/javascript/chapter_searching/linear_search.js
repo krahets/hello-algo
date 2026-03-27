@@ -39,9 +39,9 @@ const target = 3;
 /* Выполнить линейный поиск в массиве */
 const nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
 const index = linearSearchArray(nums, target);
-console.log('Индекс целевого элемента 3 =' + index);
+console.log('Индекс целевого элемента 3 = ' + index);
 
 /* Выполнить линейный поиск в связном списке */
 const head = arrToLinkedList(nums);
 const node = linearSearchLinkedList(head, target);
-console.log('Объект узла, соответствующий целевому значению 3, равен', node);
+console.log('Объект узла, соответствующий целевому значению 3, равен ', node);

@@ -67,7 +67,7 @@ fn main() {
     println!("\nРезультат суммирования в цикле while res = {res}");
 
     res = while_loop_ii(n);
-    println!("\nЦикл while (с двумя обновлениями)результат суммирования res = {}", res);
+    println!("\nЦикл while (с двумя обновлениями)суммированиерезультат res = {}", res);
 
     let res = nested_for_loop(n);
     println!("\nРезультат обхода двойным циклом for {res}");

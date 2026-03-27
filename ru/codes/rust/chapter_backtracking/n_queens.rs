@@ -66,7 +66,7 @@ pub fn main() {
     let res = n_queens(n);
 
     println!("Входдоскаразмерравно {n}");
-    println!("Количество схем размещения ферзей равно {} видов", res.len());
+    println!("Количество способов расстановки ферзей: {}", res.len());
     for state in res.iter() {
         println!("--------------------");
         for row in state.iter() {

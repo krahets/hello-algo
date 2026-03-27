@@ -49,6 +49,6 @@ fun main() {
     val nums = intArrayOf(1, 2, 2)
     val res = permutationsII(nums)
 
-    println("Входмассив nums = ${nums.contentToString()}")
+    println("Входной массив nums = ${nums.contentToString()}")
     println("Все перестановки res = $res")
 }

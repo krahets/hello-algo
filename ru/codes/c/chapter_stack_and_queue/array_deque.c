@@ -11,7 +11,7 @@ typedef struct {
     int *nums;       // Массив для хранения элементов очереди
     int front;       // Указатель front, указывающий на первый элемент очереди
     int queSize;     // Хвостовой указатель указывает на позицию хвоста + 1
-    int queCapacity; // вместимость очереди
+    int queCapacity; // очередьвместимость
 } ArrayDeque;
 
 /* Конструктор */
@@ -139,22 +139,22 @@ int main() {
     int peekFirstNum = peekFirst(deque);
     printf("Первый элемент дека peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("элемент в хвосте очереди peekLast = %d\r\n", peekLastNum);
+    printf("хвост очередиэлемент peekLast = %d\r\n", peekLastNum);
 
     /* Поместить элемент в очередь */
     pushLast(deque, 4);
-    printf("После добавления элемента 4 в хвост deque = ");
+    printf("После помещения элемента 4 в хвост очереди deque = ");
     printArray(toArray(deque, &queSize), queSize);
     pushFirst(deque, 1);
-    printf("После добавления элемента 1 в голову deque = ");
+    printf("После помещения элемента 1 в голову очереди deque = ");
     printArray(toArray(deque, &queSize), queSize);
 
     /* Извлечь элемент из очереди */
     int popLastNum = popLast(deque);
-    printf("Элемент, извлеченный из хвоста очереди, = %d, deque после извлечения из хвоста =", popLastNum);
+    printf("Элемент, извлеченный из хвоста очереди = %d, deque после извлечения из хвоста = ", popLastNum);
     printArray(toArray(deque, &queSize), queSize);
     int popFirstNum = popFirst(deque);
-    printf("Элемент, извлеченный из головы очереди, = %d, deque после извлечения из головы =", popFirstNum);
+    printf("Элемент, извлеченный из головы очереди = %d, deque после извлечения из головы = ", popFirstNum);
     printArray(toArray(deque, &queSize), queSize);
 
     /* Получить длину очереди */
@@ -163,7 +163,7 @@ int main() {
 
     /* Проверить, пуста ли очередь */
     bool isEmpty = empty(deque);
-    printf("Пуста ли очередь = %s\r\n", isEmpty ? "true" : "false");
+    printf("Очередь пуста: %s\r\n", isEmpty ? "true" : "false");
 
     // Освободить память
     delArrayDeque(deque);

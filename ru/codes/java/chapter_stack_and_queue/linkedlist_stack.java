@@ -74,7 +74,7 @@ public class linkedlist_stack {
         stack.push(2);
         stack.push(5);
         stack.push(4);
-        System.out.println("стек stack =" + Arrays.toString(stack.toArray()));
+        System.out.println("Стек stack = " + Arrays.toString(stack.toArray()));
 
         /* Получить верхний элемент стека */
         int peek = stack.peek();
@@ -82,7 +82,7 @@ public class linkedlist_stack {
 
         /* Извлечь элемент из стека */
         int pop = stack.pop();
-        System.out.println("извлечение из стекаэлемент pop =" + pop + ", извлечение из стекапосле stack =" + Arrays.toString(stack.toArray()));
+        System.out.println("Элемент, извлеченный из стека, pop = " + pop + ", stack после извлечения = " + Arrays.toString(stack.toArray()));
 
         /* Получить длину стека */
         int size = stack.size();
@@ -90,6 +90,6 @@ public class linkedlist_stack {
 
         /* Проверить, пуста ли структура */
         boolean isEmpty = stack.isEmpty();
-        System.out.println("Стек пуст:" + isEmpty);
+        System.out.println("стекпуст ли =" + isEmpty);
     }
 }

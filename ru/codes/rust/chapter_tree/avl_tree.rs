@@ -132,7 +132,7 @@ impl AVLTree {
         self.root = Self::insert_helper(self.root.clone(), val);
     }
 
-    /* Рекурсивная вставка узла (вспомогательный метод) */
+    /* рекурсиявставить узел(вспомогательный метод) */
     fn insert_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
@@ -171,7 +171,7 @@ impl AVLTree {
         Self::remove_helper(self.root.clone(), val);
     }
 
-    /* Рекурсивное удаление узла (вспомогательный метод) */
+    /* рекурсияУдалить узел(вспомогательный метод) */
     fn remove_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
@@ -289,7 +289,7 @@ fn main() {
     let node = avl_tree.search(7);
     if let Some(node) = node {
         println!(
-            "\nНайденный объект узла равен {:?}, значение узла = {}",
+            "\nНайденныйузелобъектравно {:?}, значение узла = {}",
             &*node.borrow(),
             node.borrow().val
         );

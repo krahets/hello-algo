@@ -49,7 +49,7 @@ class LinkedListDeque {
             node.prev = rear
             rear = node // Обновить хвостовой узел
         }
-        queSize++ // Обновить длину очереди
+        queSize++ // ОбновитьДлина очереди
     }
 
     /* Поместить в голову очереди */
@@ -88,7 +88,7 @@ class LinkedListDeque {
             }
             rear = rPrev // Обновить хвостовой узел
         }
-        queSize-- // Обновить длину очереди
+        queSize-- // ОбновитьДлина очереди
         return _val
     }
 
@@ -137,9 +137,9 @@ fun main() {
 
     /* Получить доступ к элементу */
     val peekFirst = deque.peekFirst()
-    println("элемент в голове очереди peekFirst = $peekFirst")
+    println("голова очередиэлемент peekFirst = $peekFirst")
     val peekLast = deque.peekLast()
-    println("элемент в хвосте очереди peekLast = $peekLast")
+    println("хвост очередиэлемент peekLast = $peekLast")
 
     /* Поместить элемент в очередь */
     deque.pushLast(4)
@@ -149,9 +149,9 @@ fun main() {
 
     /* Извлечь элемент из очереди */
     val popLast = deque.popLast()
-    println("Элемент, извлеченный из хвоста очереди, = ${popLast}, deque после извлечения из хвоста = ${deque.toArray().contentToString()}")
+    println("Элемент, извлеченный из хвоста очереди = ${popLast}, deque после извлечения из хвоста = ${deque.toArray().contentToString()}")
     val popFirst = deque.popFirst()
-    println("Элемент, извлеченный из головы очереди, = ${popFirst}, deque после извлечения из головы = ${deque.toArray().contentToString()}")
+    println("Элемент, извлеченный из головы очереди = ${popFirst}, deque после извлечения из головы = ${deque.toArray().contentToString()}")
 
     /* Получить длину двусторонней очереди */
     val size = deque.size()
@@ -159,5 +159,5 @@ fun main() {
 
     /* Проверить, пуста ли двусторонняя очередь */
     val isEmpty = deque.isEmpty()
-    println("двусторонняя Очередь пуста: $isEmpty")
+    println("Двусторонняя очередь пуста: $isEmpty")
 }

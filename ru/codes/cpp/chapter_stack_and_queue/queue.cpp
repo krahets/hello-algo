@@ -17,16 +17,16 @@ int main() {
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    cout << "очередь queue =";
+    cout << "Очередь queue = ";
     printQueue(queue);
 
     /* Получить элемент в начале очереди */
     int front = queue.front();
-    cout << "элемент в голове очереди front =" << front << endl;
+    cout << "голова очередиэлемент front =" << front << endl;
 
     /* Извлечь элемент из очереди */
     queue.pop();
-    cout << "Элемент, извлеченный из очереди, front =" << front << ", queue после извлечения =";
+    cout << "Элемент, извлеченный из очереди, front = " << front << ", queue после извлечения = ";
     printQueue(queue);
 
     /* Получить длину очереди */
@@ -35,7 +35,7 @@ int main() {
 
     /* Проверить, пуста ли очередь */
     bool empty = queue.empty();
-    cout << "Очередь пуста:" << empty << endl;
+    cout << "Очередь пуста: " << empty << endl;
 
     return 0;
 }

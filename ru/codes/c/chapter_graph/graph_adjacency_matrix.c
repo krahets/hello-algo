@@ -99,7 +99,7 @@ void removeEdge(GraphAdjMat *graph, int i, int j) {
 void printGraphAdjMat(GraphAdjMat *graph) {
     printf("список вершин =");
     printArray(graph->vertices, graph->size);
-    printf("матрица смежности =\n");
+    printf("Матрица смежности = \n");
     for (int i = 0; i < graph->size; i++) {
         printArray(graph->adjMat[i], graph->size);
     }

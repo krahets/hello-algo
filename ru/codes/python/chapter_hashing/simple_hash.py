@@ -46,13 +46,13 @@ if __name__ == "__main__":
     key = "Hello Algo"
 
     hash = add_hash(key)
-    print(f"Значение аддитивного хеширования равно {hash}")
+    print(f"Аддитивное хешированиезначениеравно {hash}")
 
     hash = mul_hash(key)
-    print(f"Значение мультипликативного хеширования равно {hash}")
+    print(f"Мультипликативное хешированиезначениеравно {hash}")
 
     hash = xor_hash(key)
-    print(f"Значение XOR-хеширования равно {hash}")
+    print(f"XOR-хешированиезначениеравно {hash}")
 
     hash = rot_hash(key)
-    print(f"Значение вращательного хеширования равно {hash}")
+    print(f"Вращательное хешированиезначениеравно {hash}")

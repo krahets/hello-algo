@@ -50,7 +50,7 @@ class LinkedListDeque:
             self._rear.next = node
             node.prev = self._rear
             self._rear = node  # Обновить хвостовой узел
-        self._size += 1  # Обновить длину очереди
+        self._size += 1  # ОбновитьДлина очереди
 
     def push_first(self, num: int):
         """Поместить в голову очереди"""
@@ -82,7 +82,7 @@ class LinkedListDeque:
                 rprev.next = None
                 self._rear.prev = None
             self._rear = rprev  # Обновить хвостовой узел
-        self._size -= 1  # Обновить длину очереди
+        self._size -= 1  # ОбновитьДлина очереди
         return val
 
     def pop_first(self) -> int:
@@ -132,15 +132,15 @@ if __name__ == "__main__":
 
     # Поместить элемент в очередь
     deque.push_last(4)
-    print("После добавления элемента 4 в конец deque =", deque.to_array())
+    print("После помещения элемента 4 в хвост очереди deque =", deque.to_array())
     deque.push_first(1)
-    print("После добавления элемента 1 в начало deque =", deque.to_array())
+    print("После помещения элемента 1 в голову очереди deque =", deque.to_array())
 
     # Извлечь элемент из очереди
     pop_last: int = deque.pop_last()
-    print("Элемент, извлеченный с конца =", pop_last, ", после извлечения с конца deque =", deque.to_array())
+    print("Элемент, извлеченный из хвоста очереди =", pop_last, ", deque после извлечения из хвоста =", deque.to_array())
     pop_first: int = deque.pop_first()
-    print("Элемент, извлеченный с начала =", pop_first, ", после извлечения с начала deque =", deque.to_array())
+    print("Элемент, извлеченный из головы очереди =", pop_first, ", deque после извлечения из головы =", deque.to_array())
 
     # Получить длину двусторонней очереди
     size: int = deque.size()

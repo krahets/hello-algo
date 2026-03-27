@@ -37,8 +37,8 @@ end
 if __FILE__ == $0
   preorder = [3, 9, 2, 1, 7]
   inorder = [9, 3, 1, 2, 7]
-  puts "прямой обход = #{preorder}"
-  puts "симметричный обход = #{inorder}"
+  puts "Прямой обход = #{preorder}"
+  puts "Симметричный обход = #{inorder}"
 
   root = build_tree(preorder, inorder)
   puts "Построенное двоичное дерево:"

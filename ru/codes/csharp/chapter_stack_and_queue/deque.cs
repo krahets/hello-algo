@@ -19,26 +19,26 @@ public class deque {
         deque.AddLast(4);
         deque.AddFirst(3);  // Добавить в голову очереди
         deque.AddFirst(1);
-        Console.WriteLine("двусторонняя очередь deque =" + string.Join(",", deque));
+        Console.WriteLine("Двусторонняя очередь deque = " + string.Join(",", deque));
 
         /* Получить доступ к элементу */
-        int? peekFirst = deque.First?.Value;  // элемент в голове очереди
-        Console.WriteLine("элемент в голове очереди peekFirst =" + peekFirst);
-        int? peekLast = deque.Last?.Value;    // элемент в хвосте очереди
-        Console.WriteLine("элемент в хвосте очереди peekLast =" + peekLast);
+        int? peekFirst = deque.First?.Value;  // голова очередиэлемент
+        Console.WriteLine("голова очередиэлемент peekFirst =" + peekFirst);
+        int? peekLast = deque.Last?.Value;    // хвост очередиэлемент
+        Console.WriteLine("хвост очередиэлемент peekLast =" + peekLast);
 
         /* Извлечь элемент из очереди */
         deque.RemoveFirst();  // голова очередиИзвлечь элемент из очереди
-        Console.WriteLine("deque после извлечения элемента из головы =" + string.Join(",", deque));
+        Console.WriteLine("deque после извлечения из головы = " + string.Join(",", deque));
         deque.RemoveLast();   // хвост очередиИзвлечь элемент из очереди
-        Console.WriteLine("deque после извлечения элемента из хвоста =" + string.Join(",", deque));
+        Console.WriteLine("deque после извлечения из хвоста = " + string.Join(",", deque));
 
         /* Получить длину двусторонней очереди */
         int size = deque.Count;
-        Console.WriteLine("Длина двусторонней очереди size =" + size);
+        Console.WriteLine("Длина двусторонней очереди size = " + size);
 
         /* Проверить, пуста ли двусторонняя очередь */
         bool isEmpty = deque.Count == 0;
-        Console.WriteLine("двусторонняя Очередь пуста:" + isEmpty);
+        Console.WriteLine("Двусторонняя очередь пуста: " + isEmpty);
     }
 }

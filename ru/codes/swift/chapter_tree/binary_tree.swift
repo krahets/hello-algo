@@ -11,7 +11,7 @@ enum BinaryTree {
     /* Driver Code */
     static func main() {
         /* Инициализировать двоичное дерево */
-        // Инициализировать узел
+        // Инициализироватьузел
         let n1 = TreeNode(x: 1)
         let n2 = TreeNode(x: 2)
         let n3 = TreeNode(x: 3)
@@ -30,11 +30,11 @@ enum BinaryTree {
         // Вставить узел P между n1 -> n2
         n1.left = P
         P.left = n2
-        print("\nвставить узел P после\n")
+        print("\nПосле вставки узла P\n")
         PrintUtil.printTree(root: n1)
         // Удалить узел P
         n1.left = n2
-        print("\nУдалить узел P после\n")
+        print("\nПосле удаления узла P\n")
         PrintUtil.printTree(root: n1)
     }
 }

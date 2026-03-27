@@ -37,6 +37,6 @@ public class binary_tree_bfs {
 
         /* Обход по уровням */
         List<Integer> list = levelOrder(root);
-        System.out.println("\nПоследовательность узлов при обходе по уровням =" + list);
+        System.out.println("\nПоследовательность узлов при обходе по уровням = " + list);
     }
 }

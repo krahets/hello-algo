@@ -13,14 +13,14 @@ import (
 func TestIteration(t *testing.T) {
 	n := 5
 	res := forLoop(n)
-	fmt.Println("\nРезультат суммирования в цикле for res =", res)
+	fmt.Println("\nРезультат суммирования в цикле for res = ", res)
 
 	res = whileLoop(n)
-	fmt.Println("\nРезультат суммирования в цикле while res =", res)
+	fmt.Println("\nРезультат суммирования в цикле while res = ", res)
 
 	res = whileLoopII(n)
-	fmt.Println("\nЦикл while (с двумя обновлениями)результат суммирования res =", res)
+	fmt.Println("\nРезультат суммирования в цикле while (с двумя обновлениями) res = ", res)
 
 	resStr := nestedForLoop(n)
-	fmt.Println("\nРезультат обхода двойным циклом for", resStr)
+	fmt.Println("\nРезультат обхода двойным циклом for ", resStr)
 }

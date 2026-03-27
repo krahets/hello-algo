@@ -85,7 +85,7 @@ int main() {
 
     /* Извлечь элемент из стека */
     val = pop(stack);
-    printf("Извлеченный из стека элемент pop = %d, после извлечения stack = ", val);
+    printf("Элемент, извлеченный из стека, pop = %d , stack после извлечения = ", val);
     printArray(stack->data, stack->size);
 
     /* Получить длину стека */

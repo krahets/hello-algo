@@ -17,7 +17,7 @@ int main() {
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    cout << "стек stack =";
+    cout << "Стек stack = ";
     printStack(stack);
 
     /* Получить верхний элемент стека */
@@ -26,7 +26,7 @@ int main() {
 
     /* Извлечь элемент из стека */
     stack.pop(); // Без возвращаемого значения
-    cout << "извлечение из стекаэлемент pop =" << top << ", извлечение из стекапосле stack =";
+    cout << "Элемент, извлеченный из стека, pop = " << top << ", stack после извлечения = ";
     printStack(stack);
 
     /* Получить длину стека */
@@ -35,7 +35,7 @@ int main() {
 
     /* Проверить, пуста ли структура */
     bool empty = stack.empty();
-    cout << "Стек пуст:" << empty << endl;
+    cout << "стекпуст ли =" << empty << endl;
 
     return 0;
 }

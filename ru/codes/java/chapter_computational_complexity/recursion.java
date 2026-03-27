@@ -65,15 +65,15 @@ public class recursion {
         int res;
 
         res = recur(n);
-        System.out.println("\nРезультат суммирования рекурсивной функции res =" + res);
+        System.out.println("\nРезультат суммирования рекурсивной функции res = " + res);
 
         res = forLoopRecur(n);
-        System.out.println("\nИмитировать рекурсию с помощью итерациирезультат суммирования res =" + res);
+        System.out.println("\nИмитировать рекурсию с помощью итерациисуммированиерезультат res =" + res);
 
         res = tailRecur(n, 0);
-        System.out.println("\nРезультат суммирования хвостовой рекурсией res =" + res);
+        System.out.println("\nРезультат суммирования хвостовой рекурсией res = " + res);
 
         res = fib(n);
-        System.out.println("\n" + n + "-й элемент последовательности Фибоначчи равен" + res);
+        System.out.println("\n" + n + "-й элемент последовательности Фибоначчи равен " + res);
     }
 }

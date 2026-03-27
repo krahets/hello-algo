@@ -42,8 +42,8 @@ public class worst_best_time_complexity {
             int n = 100;
             int[] nums = RandomNumbers(n);
             int index = FindOne(nums);
-            Console.WriteLine("\nПосле перемешивания массива [ 1, 2,..., n ] =" + string.Join(",", nums));
-            Console.WriteLine("Индекс числа 1 равен" + index);
+            Console.WriteLine("\nПосле перемешивания массива [ 1, 2, ..., n ] = " + string.Join(",", nums));
+            Console.WriteLine("Индекс числа 1 равен " + index);
         }
     }
 }

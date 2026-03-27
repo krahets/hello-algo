@@ -135,13 +135,13 @@ impl MaxHeap {
 fn main() {
     /* Инициализировать max-кучу */
     let mut max_heap = MaxHeap::new(vec![9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-    println!("\nВходной список и построение кучипосле");
+    println!("\nПосле построения кучи по входному списку");
     max_heap.print();
 
     /* Получить верхний элемент кучи */
     let peek = max_heap.peek();
     if let Some(peek) = peek {
-        println!("\nЭлемент на вершине кучи равен {}", peek);
+        println!("\nвершина кучиэлементравно {}", peek);
     }
 
     /* Добавить элемент в кучу */
@@ -161,5 +161,5 @@ fn main() {
 
     /* Проверить, пуста ли куча */
     let is_empty = max_heap.is_empty();
-    println!("\nКуча пуста: {}", is_empty);
+    println!("\nкучапуст ли {}", is_empty);
 }

@@ -66,7 +66,7 @@ class LinkedListDeque {
             node->prev = rear;
             rear = node; // Обновить хвостовой узел
         }
-        queSize++; // Обновить длину очереди
+        queSize++; // ОбновитьДлина очереди
     }
 
     /* Поместить в голову очереди */
@@ -82,7 +82,7 @@ class LinkedListDeque {
     /* Операция извлечения из очереди */
     int pop(bool isFront) {
         if (isEmpty())
-            throw out_of_range("очередьпуст");
+            throw out_of_range("Очередь пуста");
         int val;
         // Операция извлечения из головы очереди
         if (isFront) {
@@ -107,7 +107,7 @@ class LinkedListDeque {
             delete rear;
             rear = rPrev; // Обновить хвостовой узел
         }
-        queSize--; // Обновить длину очереди
+        queSize--; // ОбновитьДлина очереди
         return val;
     }
 
@@ -124,14 +124,14 @@ class LinkedListDeque {
     /* Получить элемент в начале очереди */
     int peekFirst() {
         if (isEmpty())
-            throw out_of_range("двусторонняя очередьпуст");
+            throw out_of_range("Двусторонняя очередь пуста");
         return front->val;
     }
 
     /* Обратиться к элементу в хвосте очереди */
     int peekLast() {
         if (isEmpty())
-            throw out_of_range("двусторонняя очередьпуст");
+            throw out_of_range("Двусторонняя очередь пуста");
         return rear->val;
     }
 
@@ -154,29 +154,29 @@ int main() {
     deque->pushLast(3);
     deque->pushLast(2);
     deque->pushLast(5);
-    cout << "двусторонняя очередь deque =";
+    cout << "Двусторонняя очередь deque = ";
     printVector(deque->toVector());
 
     /* Получить доступ к элементу */
     int peekFirst = deque->peekFirst();
-    cout << "элемент в голове очереди peekFirst =" << peekFirst << endl;
+    cout << "голова очередиэлемент peekFirst =" << peekFirst << endl;
     int peekLast = deque->peekLast();
-    cout << "элемент в хвосте очереди peekLast =" << peekLast << endl;
+    cout << "хвост очередиэлемент peekLast =" << peekLast << endl;
 
     /* Поместить элемент в очередь */
     deque->pushLast(4);
     cout << "После помещения элемента 4 в хвост очереди deque =";
     printVector(deque->toVector());
     deque->pushFirst(1);
-    cout << "После помещения элемента 1 в голову очереди deque =";
+    cout << "После помещения элемента 1 в голову очереди deque = ";
     printVector(deque->toVector());
 
     /* Извлечь элемент из очереди */
     int popLast = deque->popLast();
-    cout << "Элемент, извлеченный из хвоста очереди, =" << popLast << ", deque после извлечения из хвоста =";
+    cout << "Элемент, извлеченный из хвоста очереди = " << popLast << ", deque после извлечения из хвоста = ";
     printVector(deque->toVector());
     int popFirst = deque->popFirst();
-    cout << "Элемент, извлеченный из головы очереди, =" << popFirst << ", deque после извлечения из головы =";
+    cout << "Элемент, извлеченный из головы очереди = " << popFirst << ", deque после извлечения из головы = ";
     printVector(deque->toVector());
 
     /* Получить длину двусторонней очереди */
@@ -185,7 +185,7 @@ int main() {
 
     /* Проверить, пуста ли двусторонняя очередь */
     bool isEmpty = deque->isEmpty();
-    cout << "двусторонняя Очередь пуста:" << boolalpha << isEmpty << endl;
+    cout << "Двусторонняя очередь пуста: " << boolalpha << isEmpty << endl;
 
     // Освободить память
     delete deque;

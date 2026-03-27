@@ -4,7 +4,7 @@
 
 const std = @import("std");
 
-// узел связного списка
+// связный списокузел
 pub fn ListNode(comptime T: type) type {
     return struct {
         const Self = @This();

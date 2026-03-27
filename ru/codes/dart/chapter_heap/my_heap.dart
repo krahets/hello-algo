@@ -123,12 +123,12 @@ class MaxHeap {
 void main() {
   /* Инициализировать max-кучу */
   MaxHeap maxHeap = MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-  print("\nВходной список и построение кучипосле");
+  print("\nПосле построения кучи по входному списку");
   maxHeap.print();
 
   /* Получить верхний элемент кучи */
   int peek = maxHeap.peek();
-  print("\nЭлемент на вершине кучи равен $peek");
+  print("\nвершина кучиэлементравно $peek");
 
   /* Добавить элемент в кучу */
   int val = 7;
@@ -147,5 +147,5 @@ void main() {
 
   /* Проверить, пуста ли куча */
   bool isEmpty = maxHeap.isEmpty();
-  print("\nКуча пуста: $isEmpty");
+  print("\nкучапуст ли $isEmpty");
 }

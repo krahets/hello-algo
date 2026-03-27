@@ -39,8 +39,8 @@ public class build_tree {
     public void Test() {
         int[] preorder = [3, 9, 2, 1, 7];
         int[] inorder = [9, 3, 1, 2, 7];
-        Console.WriteLine("прямой обход =" + string.Join(", ", preorder));
-        Console.WriteLine("симметричный обход =" + string.Join(", ", inorder));
+        Console.WriteLine("Прямой обход = " + string.Join(", ", preorder));
+        Console.WriteLine("Симметричный обход = " + string.Join(", ", inorder));
 
         TreeNode? root = BuildTree(preorder, inorder);
         Console.WriteLine("Построенное двоичное дерево:");

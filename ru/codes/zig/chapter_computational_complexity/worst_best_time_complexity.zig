@@ -35,10 +35,10 @@ pub fn run() void {
         const n: usize = 100;
         var nums = randomNumbers(n);
         const index = findOne(&nums);
-        std.debug.print("После перемешивания массива [ 1, 2,..., n ] =",.{});
+        std.debug.print("После перемешивания массива [ 1, 2,..., n ] =", .{});
         std.debug.print("{}\n", .{utils.fmt.slice(nums)});
 
-        std.debug.print("Индекс числа 1 равен {}\n",.{index});
+        std.debug.print("Индекс числа 1 равен {}\n", .{index});
     }
 
     std.debug.print("\n", .{});

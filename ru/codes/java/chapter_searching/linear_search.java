@@ -40,11 +40,11 @@ public class linear_search {
         /* Выполнить линейный поиск в массиве */
         int[] nums = { 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 };
         int index = linearSearchArray(nums, target);
-        System.out.println("Индекс целевого элемента 3 =" + index);
+        System.out.println("Индекс целевого элемента 3 = " + index);
 
         /* Выполнить линейный поиск в связном списке */
         ListNode head = ListNode.arrToLinkedList(nums);
         ListNode node = linearSearchLinkedList(head, target);
-        System.out.println("Объект узла, соответствующий целевому значению 3, равен" + node);
+        System.out.println("Объект узла, соответствующий целевому значению 3, равен " + node);
     }
 }

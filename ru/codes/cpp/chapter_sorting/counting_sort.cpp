@@ -65,12 +65,12 @@ void countingSort(vector<int> &nums) {
 int main() {
     vector<int> nums = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
     countingSortNaive(nums);
-    cout << "После завершения подсчетной сортировки (не подходит для сортируемых объектов) nums =";
+    cout << "После завершения подсчетной сортировки (не подходит для сортируемых объектов) nums = ";
     printVector(nums);
 
     vector<int> nums1 = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
     countingSort(nums1);
-    cout << "После сортировки подсчетом nums1 =";
+    cout << "Подсчетная сортировкапосле завершения nums1 =";
     printVector(nums1);
 
     return 0;

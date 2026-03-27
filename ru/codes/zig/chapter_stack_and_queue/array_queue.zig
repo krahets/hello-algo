@@ -11,7 +11,7 @@ pub fn ArrayQueue(comptime T: type) type {
         const Self = @This();
 
         nums: []T = undefined,                          // Массив для хранения элементов очереди
-        cap: usize = 0,                                 // вместимость очереди
+        cap: usize = 0,                                 // очередьвместимость
         front: usize = 0,                               // Указатель front, указывающий на первый элемент очереди
         queSize: usize = 0,                             // Хвостовой указатель указывает на позицию хвоста + 1
         mem_arena: ?std.heap.ArenaAllocator = null,
@@ -52,7 +52,7 @@ pub fn ArrayQueue(comptime T: type) type {
         // Поместить в очередь
         pub fn push(self: *Self, num: T) !void {
             if (self.size() == self.capacity()) {
-                std.debug.print("очередьзаполнен\n",.{});
+                std.debug.print("Очередь заполнена\n", .{});
                 return;
             }
             // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
@@ -74,7 +74,7 @@ pub fn ArrayQueue(comptime T: type) type {
 
         // Получить элемент в начале очереди
         pub fn peek(self: *Self) T {
-            if (self.isEmpty()) @panic("очередьпуст");
+            if (self.isEmpty()) @panic("Очередь пуста");
             return self.nums[self.front];
         } 
 
@@ -107,32 +107,32 @@ pub fn main() !void {
     try queue.push(2);
     try queue.push(5);
     try queue.push(4);
-    std.debug.print("очередь queue =",.{});
+    std.debug.print("Очередь queue = ", .{});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 
     // Получить элемент в начале очереди
     var peek = queue.peek();
-    std.debug.print("\nэлемент в голове очереди peek = {}",.{peek});
+    std.debug.print("\nголова очередиэлемент peek = {}", .{peek});
 
     // Извлечь элемент из очереди
     var pop = queue.pop();
-    std.debug.print("\nЭлемент, извлеченный из очереди, pop = {}, queue после извлечения =",.{pop});
+    std.debug.print("\nЭлемент, извлеченный из очереди, pop = {}, queue после извлечения = ", .{pop});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 
     // Получить длину очереди
     var size = queue.size();
-    std.debug.print("\nДлина очереди size = {}",.{size});
+    std.debug.print("\nДлина очереди size = {}", .{size});
 
     // Проверить, пуста ли очередь
     var is_empty = queue.isEmpty();
-    std.debug.print("\nОчередь пуста: {}",.{is_empty});
+    std.debug.print("\nОчередь пуста: {}", .{is_empty});
 
     // Проверить кольцевой массив
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
         try queue.push(i);
         _ = queue.pop();
-        std.debug.print("\nИтерация {}: после enqueue + dequeue queue =",.{i});
+        std.debug.print("\nИтерация {}: после enqueue + dequeue queue =", .{i});
         inc.PrintUtil.printArray(i32, try queue.toArray());
     }
 

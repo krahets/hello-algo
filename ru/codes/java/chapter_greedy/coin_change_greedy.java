@@ -34,14 +34,14 @@ public class coin_change_greedy {
         int amt = 186;
         int res = coinChangeGreedy(coins, amt);
         System.out.println("\ncoins = " + Arrays.toString(coins) + ", amt = " + amt);
-        System.out.println("Для получения" + amt + "минимальное число монет равно" + res);
+        System.out.println("Минимальное число монет, необходимое для получения " + amt + ", равно " + res);
 
         // Жадный подход: не гарантирует нахождение глобально оптимального решения
         coins = new int[] { 1, 20, 50 };
         amt = 60;
         res = coinChangeGreedy(coins, amt);
         System.out.println("\ncoins = " + Arrays.toString(coins) + ", amt = " + amt);
-        System.out.println("Для получения" + amt + "минимальное число монет равно" + res);
+        System.out.println("Минимальное число монет, необходимое для получения " + amt + ", равно " + res);
         System.out.println("Фактически минимальное необходимое количество равно 3, то есть 20 + 20 + 20");
 
         // Жадный подход: не гарантирует нахождение глобально оптимального решения
@@ -49,7 +49,7 @@ public class coin_change_greedy {
         amt = 98;
         res = coinChangeGreedy(coins, amt);
         System.out.println("\ncoins = " + Arrays.toString(coins) + ", amt = " + amt);
-        System.out.println("Для получения" + amt + "минимальное число монет равно" + res);
+        System.out.println("Минимальное число монет, необходимое для получения " + amt + ", равно " + res);
         System.out.println("Фактически минимальное необходимое количество равно 2, то есть 49 + 49");
     }
 }

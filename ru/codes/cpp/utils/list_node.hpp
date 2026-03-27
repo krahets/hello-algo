@@ -11,7 +11,7 @@
 
 using namespace std;
 
-/* узел связного списка */
+/* связный списокузел */
 struct ListNode {
     int val;
     ListNode *next;

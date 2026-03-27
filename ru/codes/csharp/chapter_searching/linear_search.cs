@@ -39,11 +39,11 @@ public class linear_search {
         /* Выполнить линейный поиск в массиве */
         int[] nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
         int index = LinearSearchArray(nums, target);
-        Console.WriteLine("Индекс целевого элемента 3 =" + index);
+        Console.WriteLine("Индекс целевого элемента 3 = " + index);
 
         /* Выполнить линейный поиск в связном списке */
         ListNode? head = ListNode.ArrToLinkedList(nums);
         ListNode? node = LinearSearchLinkedList(head, target);
-        Console.WriteLine("Объект узла, соответствующий целевому значению 3, равен" + node);
+        Console.WriteLine("Объект узла, соответствующий целевому значению 3, равен " + node);
     }
 }

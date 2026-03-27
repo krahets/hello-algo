@@ -59,7 +59,7 @@ if __name__ == "__main__":
     print(f"\nРезультат суммирования в цикле while res = {res}")
 
     res = while_loop_ii(n)
-    print(f"\nЦикл while (с двумя обновлениями)результат суммирования res = {res}")
+    print(f"\nЦикл while (с двумя обновлениями)суммированиерезультат res = {res}")
 
     res = nested_for_loop(n)
     print(f"\nРезультат обхода двойным циклом for {res}")

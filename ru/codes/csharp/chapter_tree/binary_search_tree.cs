@@ -134,12 +134,12 @@ public class binary_search_tree {
             bst.Insert(num);
         }
 
-        Console.WriteLine("\nИнициализированное двоичное дерево:\n");
+        Console.WriteLine("\nИнициализированное двоичное дерево имеет вид\n");
         PrintUtil.PrintTree(bst.GetRoot());
 
         /* Найти узел */
         TreeNode? node = bst.Search(7);
-        Console.WriteLine("\nНайденный объект узла равен" + node + ", значение узла =" + node?.val);
+        Console.WriteLine("\nНайденныйузелобъектравно" + node + ", значение узла =" + node?.val);
 
         /* Вставить узел */
         bst.Insert(16);

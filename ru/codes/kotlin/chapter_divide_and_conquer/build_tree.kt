@@ -46,8 +46,8 @@ fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
 fun main() {
     val preorder = intArrayOf(3, 9, 2, 1, 7)
     val inorder = intArrayOf(9, 3, 1, 2, 7)
-    println("прямой обход = ${preorder.contentToString()}")
-    println("симметричный обход = ${inorder.contentToString()}")
+    println("Прямой обход = ${preorder.contentToString()}")
+    println("Симметричный обход = ${inorder.contentToString()}")
 
     val root = buildTree(preorder, inorder)
     println("Построенное двоичное дерево:")

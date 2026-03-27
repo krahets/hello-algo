@@ -34,14 +34,14 @@ class MyList {
     public int get(int index) {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
         if (index < 0 || index >= size)
-            throw new IndexOutOfBoundsException("индекс выходит за границы");
+            throw new IndexOutOfBoundsException("Индекс вне допустимого диапазона");
         return arr[index];
     }
 
     /* Обновить элемент */
     public void set(int index, int num) {
         if (index < 0 || index >= size)
-            throw new IndexOutOfBoundsException("индекс выходит за границы");
+            throw new IndexOutOfBoundsException("Индекс вне допустимого диапазона");
         arr[index] = num;
     }
 
@@ -58,7 +58,7 @@ class MyList {
     /* Вставить элемент в середину */
     public void insert(int index, int num) {
         if (index < 0 || index >= size)
-            throw new IndexOutOfBoundsException("индекс выходит за границы");
+            throw new IndexOutOfBoundsException("Индекс вне допустимого диапазона");
         // Если число элементов превышает вместимость, запустить механизм расширения
         if (size == capacity())
             extendCapacity();
@@ -74,7 +74,7 @@ class MyList {
     /* Удалить элемент */
     public int remove(int index) {
         if (index < 0 || index >= size)
-            throw new IndexOutOfBoundsException("индекс выходит за границы");
+            throw new IndexOutOfBoundsException("Индекс вне допустимого диапазона");
         int num = arr[index];
         // Сдвинуть на одну позицию вперед все элементы после индекса index
         for (int j = index; j < size - 1; j++) {
@@ -90,7 +90,7 @@ class MyList {
     public void extendCapacity() {
         // Создать новый массив длиной в extendRatio раз больше исходного и скопировать в него исходный массив
         arr = Arrays.copyOf(arr, capacity() * extendRatio);
-        // Обновить вместимость списка
+        // ОбновитьВместимость списка
         capacity = arr.length;
     }
 
@@ -117,16 +117,16 @@ public class my_list {
         nums.add(2);
         nums.add(5);
         nums.add(4);
-        System.out.println("список nums =" + Arrays.toString(nums.toArray()) +
-        ", вместимость =" + nums.capacity() + ", длина =" + nums.size());
+        System.out.println("Список nums = " + Arrays.toString(nums.toArray()) +
+                ", вместимость =" + nums.capacity() + ", длина =" + nums.size());
 
         /* Вставить элемент в середину */
         nums.insert(3, 6);
-        System.out.println("После вставки числа 6 по индексу 3 получаем nums =" + Arrays.toString(nums.toArray()));
+        System.out.println("После вставки числа 6 по индексу 3 получаем nums = " + Arrays.toString(nums.toArray()));
 
         /* Удалить элемент */
         nums.remove(3);
-        System.out.println("После удаления элемента по индексу 3 получаем nums =" + Arrays.toString(nums.toArray()));
+        System.out.println("После удаления элемента по индексу 3 получаем nums = " + Arrays.toString(nums.toArray()));
 
         /* Получить доступ к элементу */
         int num = nums.get(1);
@@ -134,14 +134,14 @@ public class my_list {
 
         /* Обновить элемент */
         nums.set(1, 0);
-        System.out.println("После обновления элемента по индексу 1 на 0 получаем nums =" + Arrays.toString(nums.toArray()));
+        System.out.println("После обновления элемента по индексу 1 на 0 получаем nums = " + Arrays.toString(nums.toArray()));
 
         /* Проверить механизм расширения */
         for (int i = 0; i < 10; i++) {
             // При i = 5 длина списка превысит его вместимость, и тогда сработает механизм расширения
             nums.add(i);
         }
-        System.out.println("Список nums после расширения =" + Arrays.toString(nums.toArray()) +
-        ", вместимость =" + nums.capacity() + ", длина =" + nums.size());
+        System.out.println("Список nums после расширения = " + Arrays.toString(nums.toArray()) +
+                ", вместимость =" + nums.capacity() + ", длина =" + nums.size());
     }
 }

@@ -35,7 +35,7 @@ fn main() {
         let n = 100;
         let nums = random_numbers(n);
         let index = find_one(&nums).unwrap();
-        print!("\nПосле перемешивания массива [ 1, 2,..., n ] =");
+        print!("\nПосле перемешивания массива [ 1, 2, ..., n ] = ");
         print_util::print_array(&nums);
         println!("\nИндекс числа 1 равен {}", index);
     }

@@ -35,7 +35,7 @@ class ArrayQueue {
     /* Поместить в очередь */
     func push(num: Int) {
         if size() == capacity() {
-            print("очередьзаполнен")
+            print("Очередь заполнена")
             return
         }
         // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
@@ -59,7 +59,7 @@ class ArrayQueue {
     /* Получить элемент в начале очереди */
     func peek() -> Int {
         if isEmpty() {
-            fatalError("очередьпуст")
+            fatalError("Очередь пуста")
         }
         return nums[front]
     }
@@ -89,7 +89,7 @@ enum _ArrayQueue {
 
         /* Получить элемент в начале очереди */
         let peek = queue.peek()
-        print("элемент в голове очереди peek = \(peek)")
+        print("голова очередиэлемент peek = \(peek)")
 
         /* Извлечь элемент из очереди */
         let pop = queue.pop()

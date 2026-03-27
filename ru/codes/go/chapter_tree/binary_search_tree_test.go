@@ -19,13 +19,13 @@ func TestBinarySearchTree(t *testing.T) {
 	fmt.Println("\nИнициализированное двоичное дерево::")
 	bst.print()
 
-	// Получить корневой узел
+	// Получитькорневой узел
 	node := bst.getRoot()
 	fmt.Println("\nКорневой узел двоичного дерева:", node.Val)
 
 	// Найти узел
 	node = bst.search(7)
-	fmt.Println("Найденный объект узла равен", node, ", значение узла =", node.Val)
+	fmt.Println("Найденныйузелобъектравно", node, ", значение узла =", node.Val)
 
 	// Вставить узел
 	bst.insert(16)

@@ -40,7 +40,7 @@ if __FILE__ == $0
   target = 9
   res = subset_sum_i_naive(nums, target)
 
-  puts "Входмассив nums = #{nums}, target = #{target}"
+  puts "Входной массив nums = #{nums}, target = #{target}"
   puts "Все подмножества с суммой #{target}: #{res}"
   puts "Обратите внимание: результат этого метода содержит повторяющиеся множества"
 end

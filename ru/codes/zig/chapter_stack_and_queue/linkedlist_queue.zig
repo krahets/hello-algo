@@ -45,7 +45,7 @@ pub fn LinkedListQueue(comptime T: type) type {
 
         // Получить элемент в начале очереди
         pub fn peek(self: *Self) T {
-            if (self.size() == 0) @panic("очередьпуст");
+            if (self.size() == 0) @panic("Очередь пуста");
             return self.front.?.val;
         }  
 
@@ -103,25 +103,25 @@ pub fn main() !void {
     try queue.push(2);
     try queue.push(5);
     try queue.push(4);
-    std.debug.print("очередь queue =",.{});
+    std.debug.print("Очередь queue = ", .{});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 
     // Получить элемент в начале очереди
     var peek = queue.peek();
-    std.debug.print("\nэлемент в голове очереди peek = {}",.{peek});
+    std.debug.print("\nголова очередиэлемент peek = {}", .{peek});
 
     // Извлечь элемент из очереди
     var pop = queue.pop();
-    std.debug.print("\nЭлемент, извлеченный из очереди, pop = {}, queue после извлечения =",.{pop});
+    std.debug.print("\nЭлемент, извлеченный из очереди, pop = {}, queue после извлечения = ", .{pop});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 
     // Получить длину очереди
     var size = queue.size();
-    std.debug.print("\nДлина очереди size = {}",.{size});
+    std.debug.print("\nДлина очереди size = {}", .{size});
 
     // Проверить, пуста ли очередь
     var is_empty = queue.isEmpty();
-    std.debug.print("\nОчередь пуста: {}",.{is_empty});
+    std.debug.print("\nОчередь пуста: {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

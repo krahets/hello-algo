@@ -19,31 +19,31 @@ pub fn main() !void {
     try map.put(16750, "Сяо Суань");
     try map.put(13276, "Сяо Фа");
     try map.put(10583, "Утенок");
-    std.debug.print("\nПосле добавления хеш-таблица имеет вид\nKey -> Value\n",.{});
+    std.debug.print("\nПосле добавления хеш-таблица имеет вид\nKey -> Value\n", .{});
     inc.PrintUtil.printHashMap(i32, []const u8, map);
 
     // Операция поиска
     // Передать ключ key в хеш-таблицу и получить значение value
     var name = map.get(15937).?;
-    std.debug.print("\nВходномер 15937, найденоимя {s}\n",.{name});
+    std.debug.print("\nПо номеру студента 15937 найдено имя {s}\n", .{name});
 
     // Операция удаления
     // Удалить из хеш-таблицы пару ключ-значение (key, value)
     _ = map.remove(10583);
-    std.debug.print("\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value\n",.{});
+    std.debug.print("\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value\n", .{});
     inc.PrintUtil.printHashMap(i32, []const u8, map);
 
     // Перебрать хеш-таблицу
-    std.debug.print("\nОбойтипара ключ-значение Key->Value\n",.{});
+    std.debug.print("\nОбход пар ключ-значение Key->Value\n", .{});
     inc.PrintUtil.printHashMap(i32, []const u8, map);
 
-    std.debug.print("\nотдельноОбойтиключ Key\n",.{});
+    std.debug.print("\nОтдельный обход ключей Key\n", .{});
     var it = map.iterator();
     while (it.next()) |kv| {
         std.debug.print("{}\n", .{kv.key_ptr.*});
     }
 
-    std.debug.print("\nотдельноОбойтизначение value\n",.{});
+    std.debug.print("\nОтдельно перебираем значения value\n", .{});
     it = map.iterator();
     while (it.next()) |kv| {
         std.debug.print("{s}\n", .{kv.value_ptr.*});

@@ -11,7 +11,7 @@ typedef struct {
     int *nums;       // Массив для хранения элементов очереди
     int front;       // Указатель front, указывающий на первый элемент очереди
     int queSize;     // Хвостовой указатель указывает на позицию хвоста + 1
-    int queCapacity; // вместимость очереди
+    int queCapacity; // очередьвместимость
 } ArrayQueue;
 
 /* Конструктор */
@@ -54,7 +54,7 @@ int peek(ArrayQueue *queue) {
 /* Поместить в очередь */
 void push(ArrayQueue *queue, int num) {
     if (size(queue) == capacity(queue)) {
-        printf("очередьзаполнен\r\n");
+        printf("Очередь заполнена\r\n");
         return;
     }
     // Вычислить указатель хвоста очереди, указывающий на индекс хвоста + 1
@@ -108,7 +108,7 @@ int main() {
 
     /* Извлечь элемент из очереди */
     peekNum = pop(queue);
-    printf("Извлеченный элемент pop = %d, после извлечения queue = ", peekNum);
+    printf("Элемент, извлеченный из очереди, pop = %d , queue после извлечения = ", peekNum);
     printArray(toArray(queue, &queSize), queSize);
 
     /* Получить длину очереди */
@@ -117,7 +117,7 @@ int main() {
 
     /* Проверить, пуста ли очередь */
     bool isEmpty = empty(queue);
-    printf("Пуста ли очередь = %s\r\n", isEmpty ? "true" : "false");
+    printf("Очередь пуста: %s\r\n", isEmpty ? "true" : "false");
 
     /* Проверить кольцевой массив */
     for (int i = 0; i < 10; i++) {

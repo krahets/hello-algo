@@ -162,16 +162,16 @@ hashmap.put(15937, 'Сяо Ло');
 hashmap.put(16750, 'Сяо Суань');
 hashmap.put(13276, 'Сяо Фа');
 hashmap.put(10583, 'Утенок');
-console.log('\nПосле добавления хеш-таблица имеет вид\nKey -> Value');
+console.log('\nПосле добавления хеш-таблица выглядит так\nKey -> Value');
 hashmap.print();
 
 // Операция поиска
 // Ввести ключ key в хеш-таблицу и получить значение val
 const name = hashmap.get(13276);
-console.log('\nВходномер 13276, найденоимя' + name);
+console.log('\nПо номеру студента 13276 найдено имя ' + name);
 
 // Операция удаления
 // Удалить пару ключ-значение (key, val) из хеш-таблицы
 hashmap.remove(16750);
-console.log('\nПосле удаления 16750 хеш-таблица имеет вид\nKey -> Value');
+console.log('\nПосле удаления 16750 хеш-таблица выглядит так\nKey -> Value');
 hashmap.print();

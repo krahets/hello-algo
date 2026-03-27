@@ -56,7 +56,7 @@ enum NQueens {
         let res = nQueens(n: n)
 
         print("Входдоскаразмерравно \(n)")
-        print("Количество схем размещения ферзей равно \(res.count) видов")
+        print("Количество способов расстановки ферзей: \(res.count)")
         for state in res {
             print("--------------------")
             for row in state {

@@ -118,18 +118,18 @@ public class array_binary_tree {
         Integer l = abt.left(i);
         Integer r = abt.right(i);
         Integer p = abt.parent(i);
-        System.out.println("\nИндекс текущего узла равен" + i + ", значение равно" + abt.val(i));
-        System.out.println("Индекс его левого дочернего узла равен" + l + ", значение равно" + (l == null ? "null": abt.val(l)));
-        System.out.println("Индекс его правого дочернего узла равен" + r + ", значение равно" + (r == null ? "null": abt.val(r)));
-        System.out.println("Индекс его родительского узла равен" + p + ", значение равно" + (p == null ? "null": abt.val(p)));
+        System.out.println("\nИндекс текущего узла равен " + i + ", значение равно" + abt.val(i));
+        System.out.println("Индекс его левого дочернего узла равен " + l + ", значение равно" + (l == null ? "null" : abt.val(l)));
+        System.out.println("Индекс его правого дочернего узла равен " + r + ", значение равно" + (r == null ? "null" : abt.val(r)));
+        System.out.println("Индекс его родительского узла равен " + p + ", значение равно" + (p == null ? "null" : abt.val(p)));
 
         // Обойти дерево
         List<Integer> res = abt.levelOrder();
-        System.out.println("\nобход по уровнямравно:" + res);
+        System.out.println("\nРезультат обхода по уровням: " + res);
         res = abt.preOrder();
         System.out.println("прямой обходравно:" + res);
         res = abt.inOrder();
-        System.out.println("симметричный обходравно:" + res);
+        System.out.println("Симметричный обход: " + res);
         res = abt.postOrder();
         System.out.println("обратный обходравно:" + res);
     }

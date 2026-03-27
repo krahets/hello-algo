@@ -40,7 +40,7 @@ func (s *arrayStack) pop() any {
 	return val
 }
 
-/* Получить элемент на вершине стека */
+/* Получитьвершина стекаэлемент */
 func (s *arrayStack) peek() any {
 	if s.isEmpty() {
 		return nil

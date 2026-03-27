@@ -4,7 +4,7 @@
 
 const std = @import("std");
 
-// узел двоичного дерева
+// двоичное деревоузел
 pub fn TreeNode(comptime T: type) type {
     return struct {
         const Self = @This();

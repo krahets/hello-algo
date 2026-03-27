@@ -132,12 +132,12 @@ fun main() {
     for (num in nums) {
         bst.insert(num)
     }
-    println("\nИнициализированное двоичное дерево:\n")
+    println("\nИнициализированное двоичное дерево имеет вид\n")
     printTree(bst.getRoot())
 
     /* Найти узел */
     val node = bst.search(7)
-    println("Найденный объект узла равен $node, значение узла = ${node?._val}")
+    println("Найденныйузелобъектравно $node, значение узла = ${node?._val}")
 
     /* Вставить узел */
     bst.insert(16)

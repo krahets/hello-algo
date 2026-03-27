@@ -42,8 +42,8 @@ fun main() {
     // ====== Driver Code ======
     // метод 1
     var res = twoSumBruteForce(nums, target)
-    println("метод 1 res = ${res.contentToString()}")
+    println("Метод 1 res = ${res.contentToString()}")
     // Метод 2
     res = twoSumHashTable(nums, target)
-    println("метод 2 res = ${res.contentToString()}")
+    println("Метод 2 res = ${res.contentToString()}")
 }

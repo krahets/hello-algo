@@ -48,7 +48,7 @@ public class space_complexity {
 
     /* Линейная сложность (рекурсивная реализация) */
     void LinearRecur(int n) {
-        Console.WriteLine("рекурсия n =" + n);
+        Console.WriteLine("Рекурсия: n = " + n);
         if (n == 1) return;
         LinearRecur(n - 1);
     }
@@ -72,7 +72,7 @@ public class space_complexity {
     int QuadraticRecur(int n) {
         if (n <= 0) return 0;
         int[] nums = new int[n];
-        Console.WriteLine("рекурсия n =" + n + "в nums длина =" + nums.Length);
+        Console.WriteLine("Рекурсия: n = " + n + ", длина nums = " + nums.Length);
         return QuadraticRecur(n - 1);
     }
 

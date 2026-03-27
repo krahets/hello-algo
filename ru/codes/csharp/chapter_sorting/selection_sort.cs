@@ -27,6 +27,6 @@ public class selection_sort {
     public void Test() {
         int[] nums = [4, 1, 3, 1, 5, 2];
         SelectionSort(nums);
-        Console.WriteLine("После сортировки выбором nums =" + string.Join(" ", nums));
+        Console.WriteLine("Сортировка выборомпосле завершения nums =" + string.Join(" ", nums));
     }
 }

@@ -42,8 +42,8 @@ void main() {
   // ====== Driver Code ======
   // метод 1
   List<int> res = twoSumBruteForce(nums, target);
-  print('метод 1 res = $res');
+  print('Метод 1 res = $res');
   // Метод 2
   res = twoSumHashTable(nums, target);
-  print('метод 2 res = $res');
+  print('Метод 2 res = $res');
 }

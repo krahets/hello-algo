@@ -75,7 +75,7 @@ fun main() {
     val arr = IntArray(5)
     println("массив arr = ${arr.contentToString()}")
     var nums = intArrayOf(1, 3, 2, 5, 4)
-    println("массив nums = ${nums.contentToString()}")
+    println("Массив nums = ${nums.contentToString()}")
 
     /* Случайный доступ */
     val randomNum: Int = randomAccess(nums)
@@ -91,7 +91,7 @@ fun main() {
 
     /* Удалить элемент */
     remove(nums, 2)
-    println("После удаления элемента по индексу 2 получаем nums = ${nums.contentToString()}")
+    println("Удалитьиндекс 2 поэлемент, получаем nums = ${nums.contentToString()}")
 
     /* Перебрать массив */
     traverse(nums)

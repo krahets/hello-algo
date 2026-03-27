@@ -32,14 +32,14 @@ class MyList {
     public int Get(int index) {
         // Если индекс выходит за границы, выбросить исключение; далее аналогично
         if (index < 0 || index >= arrSize)
-            throw new IndexOutOfRangeException("индекс выходит за границы");
+            throw new IndexOutOfRangeException("Индекс вне допустимого диапазона");
         return arr[index];
     }
 
     /* Обновить элемент */
     public void Set(int index, int num) {
         if (index < 0 || index >= arrSize)
-            throw new IndexOutOfRangeException("индекс выходит за границы");
+            throw new IndexOutOfRangeException("Индекс вне допустимого диапазона");
         arr[index] = num;
     }
 
@@ -56,7 +56,7 @@ class MyList {
     /* Вставить элемент в середину */
     public void Insert(int index, int num) {
         if (index < 0 || index >= arrSize)
-            throw new IndexOutOfRangeException("индекс выходит за границы");
+            throw new IndexOutOfRangeException("Индекс вне допустимого диапазона");
         // Если число элементов превышает вместимость, запустить механизм расширения
         if (arrSize == arrCapacity)
             ExtendCapacity();
@@ -72,7 +72,7 @@ class MyList {
     /* Удалить элемент */
     public int Remove(int index) {
         if (index < 0 || index >= arrSize)
-            throw new IndexOutOfRangeException("индекс выходит за границы");
+            throw new IndexOutOfRangeException("Индекс вне допустимого диапазона");
         int num = arr[index];
         // Сдвинуть на одну позицию вперед все элементы после индекса index
         for (int j = index; j < arrSize - 1; j++) {
@@ -88,7 +88,7 @@ class MyList {
     public void ExtendCapacity() {
         // Создать новый массив длиной arrCapacity * extendRatio и скопировать в него исходный массив
         Array.Resize(ref arr, arrCapacity * extendRatio);
-        // Обновить вместимость списка
+        // ОбновитьВместимость списка
         arrCapacity = arr.Length;
     }
 
@@ -114,8 +114,8 @@ public class my_list {
         nums.Add(2);
         nums.Add(5);
         nums.Add(4);
-        Console.WriteLine("список nums =" + string.Join(",", nums.ToArray()) +
-        ", вместимость =" + nums.Capacity() + ", длина =" + nums.Size());
+        Console.WriteLine("Список nums = " + string.Join(",", nums.ToArray()) +
+                           ", вместимость =" + nums.Capacity() + ", длина =" + nums.Size());
 
         /* Вставить элемент в середину */
         nums.Insert(3, 6);
@@ -123,7 +123,7 @@ public class my_list {
 
         /* Удалить элемент */
         nums.Remove(3);
-        Console.WriteLine("После удаления элемента по индексу 3 получаем nums =" + string.Join(",", nums.ToArray()));
+        Console.WriteLine("После удаления элемента по индексу 3 получаем nums = " + string.Join(",", nums.ToArray()));
 
         /* Получить доступ к элементу */
         int num = nums.Get(1);
@@ -138,7 +138,7 @@ public class my_list {
             // При i = 5 длина списка превысит его вместимость, и тогда сработает механизм расширения
             nums.Add(i);
         }
-        Console.WriteLine("Список nums после расширения =" + string.Join(",", nums.ToArray()) +
-        ", вместимость =" + nums.Capacity() + ", длина =" + nums.Size());
+        Console.WriteLine("Список nums после расширения = " + string.Join(",", nums.ToArray()) +
+                           ", вместимость =" + nums.Capacity() + ", длина =" + nums.Size());
     }
 }

@@ -46,8 +46,8 @@ TreeNode? buildTree(List<int> preorder, List<int> inorder) {
 void main() {
   List<int> preorder = [3, 9, 2, 1, 7];
   List<int> inorder = [9, 3, 1, 2, 7];
-  print("прямой обход = $preorder");
-  print("симметричный обход = $inorder");
+  print("Прямой обход = $preorder");
+  print("Симметричный обход = $inorder");
 
   TreeNode? root = buildTree(preorder, inorder);
   print("Построенное двоичное дерево:");

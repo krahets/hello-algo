@@ -23,14 +23,14 @@ fun testPop(heap: Queue<Int>) {
 
 /* Driver Code */
 fun main() {
-    /* Инициализировать кучу */
+    /* Инициализироватькуча */
     // Инициализировать min-кучу
     var minHeap = PriorityQueue<Int>()
 
     // Инициализировать max-кучу (достаточно изменить Comparator с помощью lambda-выражения)
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
 
-    println("\nНиже приведены тестовые примеры max-кучи")
+    println("\nСледующие тестовые примеры относятся к max-куче")
 
     /* Добавить элемент в кучу */
     testPush(maxHeap, 1)
@@ -41,7 +41,7 @@ fun main() {
 
     /* Получить верхний элемент кучи */
     val peek = maxHeap.peek()
-    print("\nЭлемент на вершине кучи равен $peek\n")
+    print("\nвершина кучиэлементравно $peek\n")
 
     /* Извлечь верхний элемент из кучи */
     testPop(maxHeap)
@@ -56,11 +56,11 @@ fun main() {
 
     /* Проверить, пуста ли куча */
     val isEmpty = maxHeap.isEmpty()
-    print("\nКуча пуста: $isEmpty\n")
+    print("\nкучапуст ли $isEmpty\n")
 
-    /* Входной список и построение кучи */
+    /* Входсписокипостроение кучи */
     // Временная сложность равна O(n), а не O(nlogn)
     minHeap = PriorityQueue(mutableListOf<Int?>(1, 3, 2, 5, 4))
-    println("\nПосле построения min-кучи из входного списка")
+    println("\nПосле построения min-кучи по входному списку")
     printHeap(minHeap)
 }

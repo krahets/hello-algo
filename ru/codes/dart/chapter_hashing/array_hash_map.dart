@@ -102,25 +102,25 @@ void main() {
   map.put(16750, "Сяо Суань");
   map.put(13276, "Сяо Фа");
   map.put(10583, "Утенок");
-  print("\nПосле добавления хеш-таблица имеет вид\nKey -> Value");
+  print("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
   map.printHashMap();
 
   /* Операция поиска */
   // Передать ключ key в хеш-таблицу и получить значение value
   String? name = map.get(15937);
-  print("\nВходномер 15937, найденоимя $name");
+  print("\nПо номеру студента 15937 найдено имя $name");
 
   /* Операция удаления */
   // Удалить из хеш-таблицы пару ключ-значение (key, value)
   map.remove(10583);
-  print("\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value");
+  print("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value");
   map.printHashMap();
 
   /* Перебрать хеш-таблицу */
-  print("\nОбойтипара ключ-значение Key->Value");
+  print("\nПеребираем пары Key->Value");
   map.pairSet().forEach((kv) => print("${kv.key} -> ${kv.val}"));
-  print("\nотдельноОбойтиключ Key");
+  print("\nОтдельно перебираем ключи Key");
   map.keySet().forEach((key) => print("$key"));
-  print("\nотдельноОбойтизначение Value");
+  print("\nОтдельно перебираем значения Value");
   map.values().forEach((val) => print("$val"));
 }

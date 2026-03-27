@@ -47,8 +47,8 @@ public class linked_list {
 
     [Test]
     public void Test() {
-        // Инициализировать связный список
-        // Инициализировать каждый узел
+        // Инициализироватьсвязный список
+        // Инициализироватькаждый узел
         ListNode n0 = new(1);
         ListNode n1 = new(3);
         ListNode n2 = new(2);

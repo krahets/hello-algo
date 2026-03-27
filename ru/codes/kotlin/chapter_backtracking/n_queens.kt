@@ -75,7 +75,7 @@ fun main() {
     val res = nQueens(n)
 
     println("Входдоскаразмерравно $n")
-    println("Количество схем размещения ферзей равно ${res.size} видов")
+    println("Количество способов расстановки ферзей: ${res.size}")
     for (state in res) {
         println("--------------------")
         for (row in state!!) {

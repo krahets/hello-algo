@@ -23,4 +23,4 @@ end
 ### Driver Code ###
 nums = [4, 1, 3, 1, 5, 2]
 insertion_sort(nums)
-puts "После сортировки вставками nums = #{nums}"
+puts "Сортировка вставкамипосле завершения nums = #{nums}"

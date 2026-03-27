@@ -141,18 +141,18 @@ public class hash_map_open_addressing {
         hashmap.put(16750, "Сяо Суань");
         hashmap.put(13276, "Сяо Фа");
         hashmap.put(10583, "Утенок");
-        System.out.println("\nПосле добавления хеш-таблица имеет вид\nKey -> Value");
+        System.out.println("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
         hashmap.print();
 
         // Операция поиска
         // Ввести ключ key в хеш-таблицу и получить значение val
         String name = hashmap.get(13276);
-        System.out.println("\nВходномер 13276, найденоимя" + name);
+        System.out.println("\nПо номеру студента 13276 найдено имя " + name);
 
         // Операция удаления
         // Удалить пару ключ-значение (key, val) из хеш-таблицы
         hashmap.remove(16750);
-        System.out.println("\nПосле удаления 16750 хеш-таблица имеет вид\nKey -> Value");
+        System.out.println("\nПосле удаления 16750 хеш-таблица выглядит так\nKey -> Value");
         hashmap.print();
     }
 }

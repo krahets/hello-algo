@@ -14,7 +14,7 @@ from modules import TreeNode, print_tree
 """Driver Code"""
 if __name__ == "__main__":
     # Инициализировать двоичное дерево
-    # Инициализировать узел
+    # Инициализироватьузел
     n1 = TreeNode(val=1)
     n2 = TreeNode(val=2)
     n3 = TreeNode(val=3)
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     n1.right = n3
     n2.left = n4
     n2.right = n5
-    print("\nИнициализируем двоичное дерево\n")
+    print("\nИнициализировать двоичное дерево\n")
     print_tree(n1)
 
     # Вставка и удаление узлов

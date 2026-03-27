@@ -41,8 +41,8 @@ public class build_tree {
     public static void main(String[] args) {
         int[] preorder = { 3, 9, 2, 1, 7 };
         int[] inorder = { 9, 3, 1, 2, 7 };
-        System.out.println("прямой обход =" + Arrays.toString(preorder));
-        System.out.println("симметричный обход =" + Arrays.toString(inorder));
+        System.out.println("Прямой обход = " + Arrays.toString(preorder));
+        System.out.println("Симметричный обход = " + Arrays.toString(inorder));
 
         TreeNode root = buildTree(preorder, inorder);
         System.out.println("Построенное двоичное дерево:");

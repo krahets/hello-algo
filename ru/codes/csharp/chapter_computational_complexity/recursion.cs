@@ -64,15 +64,15 @@ public class recursion {
         int res;
 
         res = Recur(n);
-        Console.WriteLine("\nРезультат суммирования рекурсивной функции res =" + res);
+        Console.WriteLine("\nРезультат суммирования рекурсивной функции res = " + res);
 
         res = ForLoopRecur(n);
-        Console.WriteLine("\nИмитировать рекурсию с помощью итерациирезультат суммирования res =" + res);
+        Console.WriteLine("\nИмитировать рекурсию с помощью итерациисуммированиерезультат res =" + res);
 
         res = TailRecur(n, 0);
-        Console.WriteLine("\nРезультат суммирования хвостовой рекурсией res =" + res);
+        Console.WriteLine("\nРезультат суммирования хвостовой рекурсией res = " + res);
 
         res = Fib(n);
-        Console.WriteLine("\n" + n + "-й элемент последовательности Фибоначчи равен" + res);
+        Console.WriteLine("\n" + n + "-й элемент последовательности Фибоначчи равен " + res);
     }
 }

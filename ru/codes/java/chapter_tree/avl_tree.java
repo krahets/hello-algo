@@ -96,7 +96,7 @@ class AVLTree {
         root = insertHelper(root, val);
     }
 
-    /* Рекурсивная вставка узла (вспомогательный метод) */
+    /* рекурсиявставить узел(вспомогательный метод) */
     private TreeNode insertHelper(TreeNode node, int val) {
         if (node == null)
             return new TreeNode(val);
@@ -119,7 +119,7 @@ class AVLTree {
         root = removeHelper(root, val);
     }
 
-    /* Рекурсивное удаление узла (вспомогательный метод) */
+    /* рекурсияУдалить узел(вспомогательный метод) */
     private TreeNode removeHelper(TreeNode node, int val) {
         if (node == null)
             return null;
@@ -215,6 +215,6 @@ public class avl_tree {
 
         /* Найти узел */
         TreeNode node = avlTree.search(7);
-        System.out.println("\nНайденный объект узла равен" + node + ", значение узла =" + node.val);
+        System.out.println("\nНайденныйузелобъектравно" + node + ", значение узла =" + node.val);
     }
 }

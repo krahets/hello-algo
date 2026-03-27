@@ -17,21 +17,21 @@ int main() {
     deque.push_back(4);
     deque.push_front(3);
     deque.push_front(1);
-    cout << "двусторонняя очередь deque =";
+    cout << "Двусторонняя очередь deque = ";
     printDeque(deque);
 
     /* Получить доступ к элементу */
     int front = deque.front();
-    cout << "элемент в голове очереди front =" << front << endl;
+    cout << "голова очередиэлемент front =" << front << endl;
     int back = deque.back();
-    cout << "элемент в хвосте очереди back =" << back << endl;
+    cout << "хвост очередиэлемент back =" << back << endl;
 
     /* Извлечь элемент из очереди */
     deque.pop_front();
-    cout << "Элемент, извлеченный из головы очереди, popFront =" << front << ", deque после извлечения из головы =";
+    cout << "Элемент, извлеченный из головы очереди, popFront = " << front << ", deque после извлечения из головы = ";
     printDeque(deque);
     deque.pop_back();
-    cout << "Элемент, извлеченный из хвоста очереди, popLast =" << back << ", deque после извлечения из хвоста =";
+    cout << "Элемент, извлеченный из хвоста очереди, popLast = " << back << ", deque после извлечения из хвоста = ";
     printDeque(deque);
 
     /* Получить длину двусторонней очереди */
@@ -40,7 +40,7 @@ int main() {
 
     /* Проверить, пуста ли двусторонняя очередь */
     bool empty = deque.empty();
-    cout << "двусторонняя Очередь пуста:" << empty << endl;
+    cout << "Двусторонняя очередь пуста: " << empty << endl;
 
     return 0;
 }

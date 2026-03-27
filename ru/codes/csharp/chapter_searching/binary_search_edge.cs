@@ -37,7 +37,7 @@ public class binary_search_edge {
     public void Test() {
         // Массив с повторяющимися элементами
         int[] nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
-        Console.WriteLine("\nмассив nums =" + nums.PrintList());
+        Console.WriteLine("\nМассив nums = " + nums.PrintList());
 
         // Бинарный поиск левой и правой границ
         foreach (int target in new int[] { 6, 7 }) {

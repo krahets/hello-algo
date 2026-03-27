@@ -83,7 +83,7 @@ fn main() {
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    print!("стек stack =");
+    print!("Стек stack = ");
     print_util::print_array(&stack.to_array());
 
     /* Получить верхний элемент стека */
@@ -92,7 +92,7 @@ fn main() {
 
     /* Извлечь элемент из стека */
     let pop = stack.pop().unwrap();
-    print!("\nизвлечение из стекаэлемент pop = {}, извлечение из стекапосле stack =", pop);
+    print!("\nЭлемент, извлеченный из стека, pop = {}, stack после извлечения = ", pop);
     print_util::print_array(&stack.to_array());
 
     /* Получить длину стека */
@@ -101,5 +101,5 @@ fn main() {
 
     /* Проверить, пуста ли структура */
     let is_empty = stack.is_empty();
-    print!("\nСтек пуст: {}", is_empty);
+    print!("\nстекпуст ли = {}", is_empty);
 }

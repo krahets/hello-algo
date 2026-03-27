@@ -65,7 +65,7 @@ void main() {
   int n = 4;
   List<List<List<String>>> res = nQueens(n);
   print("Входдоскаразмерравно $n");
-  print("Количество схем размещения ферзей равно ${res.length} видов");
+  print("Количество способов расстановки ферзей: ${res.length}");
   for (List<List<String>> state in res) {
     print("--------------------");
     for (List<String> row in state) {

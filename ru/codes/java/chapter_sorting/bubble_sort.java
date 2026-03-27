@@ -48,10 +48,10 @@ public class bubble_sort {
     public static void main(String[] args) {
         int[] nums = { 4, 1, 3, 1, 5, 2 };
         bubbleSort(nums);
-        System.out.println("После пузырьковой сортировки nums =" + Arrays.toString(nums));
+        System.out.println("Пузырьковая сортировкапосле завершения nums =" + Arrays.toString(nums));
 
         int[] nums1 = { 4, 1, 3, 1, 5, 2 };
         bubbleSortWithFlag(nums1);
-        System.out.println("После пузырьковой сортировки nums1 =" + Arrays.toString(nums1));
+        System.out.println("Пузырьковая сортировкапосле завершения nums1 =" + Arrays.toString(nums1));
     }
 }

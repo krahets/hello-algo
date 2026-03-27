@@ -20,28 +20,28 @@ pub fn main() {
     map.insert(16750, "Сяо Суань");
     map.insert(13276, "Сяо Фа");
     map.insert(10583, "Утенок");
-    println!("\nПосле добавления хеш-таблица имеет вид\nKey -> Value");
+    println!("\nПосле добавления хеш-таблица выглядит так\nKey -> Value");
     print_util::print_hash_map(&map);
 
     // Операция поиска
     // Передать ключ key в хеш-таблицу и получить значение value
     let name = map.get(&15937).copied().unwrap();
-    println!("\nВходномер 15937, найденоимя {name}");
+    println!("\nПо номеру студента 15937 найдено имя {name}");
 
     // Операция удаления
     // Удалить из хеш-таблицы пару ключ-значение (key, value)
     _ = map.remove(&10583);
-    println!("\nПосле удаления 10583 хеш-таблица имеет вид\nKey -> Value");
+    println!("\nПосле удаления 10583 хеш-таблица выглядит так\nKey -> Value");
     print_util::print_hash_map(&map);
 
     // Перебрать хеш-таблицу
-    println!("\nОбойтипара ключ-значение Key->Value");
+    println!("\nПеребираем пары Key->Value");
     print_util::print_hash_map(&map);
-    println!("\nотдельноОбойтиключ Key");
+    println!("\nОтдельно перебираем ключи Key");
     for key in map.keys() {
         println!("{key}");
     }
-    println!("\nотдельноОбойтизначение value");
+    println!("\nОтдельно перебираем значения value");
     for value in map.values() {
         println!("{value}");
     }

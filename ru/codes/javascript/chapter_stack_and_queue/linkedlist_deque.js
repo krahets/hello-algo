@@ -115,7 +115,7 @@ class LinkedListDeque {
         return this.#queSize === 0;
     }
 
-    /* Вывести двустороннюю очередь */
+    /* Вывестидвусторонняя очередь */
     print() {
         const arr = [];
         let temp = this.#front;
@@ -138,30 +138,30 @@ linkedListDeque.print();
 
 /* Получить доступ к элементу */
 const peekFirst = linkedListDeque.peekFirst();
-console.log('элемент в голове очереди peekFirst =' + peekFirst);
+console.log('голова очередиэлемент peekFirst =' + peekFirst);
 const peekLast = linkedListDeque.peekLast();
-console.log('элемент в хвосте очереди peekLast =' + peekLast);
+console.log('хвост очередиэлемент peekLast =' + peekLast);
 
 /* Поместить элемент в очередь */
 linkedListDeque.pushLast(4);
-console.log('После помещения элемента 4 в хвост очереди linkedListDeque =');
+console.log('После помещения элемента 4 в хвост очереди linkedListDeque = ');
 linkedListDeque.print();
 linkedListDeque.pushFirst(1);
-console.log('После помещения элемента 1 в голову очереди linkedListDeque =');
+console.log('После помещения элемента 1 в голову очереди linkedListDeque = ');
 linkedListDeque.print();
 
 /* Извлечь элемент из очереди */
 const popLast = linkedListDeque.popLast();
-console.log('Элемент, извлеченный из хвоста очереди, =' + popLast + ', linkedListDeque после извлечения из хвоста =');
+console.log('Элемент, извлеченный из хвоста очереди = ' + popLast + '，linkedListDeque после извлечения из хвоста = ');
 linkedListDeque.print();
 const popFirst = linkedListDeque.popFirst();
-console.log('Элемент, извлеченный из головы очереди, =' + popFirst + ', linkedListDeque после извлечения из головы =');
+console.log('Элемент, извлеченный из головы очереди = ' + popFirst + '，linkedListDeque после извлечения из головы = ');
 linkedListDeque.print();
 
 /* Получить длину двусторонней очереди */
 const size = linkedListDeque.size();
-console.log('Длина двусторонней очереди size =' + size);
+console.log('Длина двусторонней очереди size = ' + size);
 
 /* Проверить, пуста ли двусторонняя очередь */
 const isEmpty = linkedListDeque.isEmpty();
-console.log('двусторонняя Очередь пуста:' + isEmpty);
+console.log('Двусторонняя очередь пуста: ' + isEmpty);

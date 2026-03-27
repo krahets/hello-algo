@@ -58,6 +58,6 @@ fn main() {
         63832996,
     ];
     radix_sort(&mut nums);
-    print!("После поразрядной сортировки nums =");
+    print!("После завершения поразрядной сортировки nums = ");
     print_util::print_array(&nums);
 }

@@ -19,9 +19,9 @@ fun main() {
 
     /* Получить доступ к элементу */
     val peekFirst = deque.peekFirst()
-    println("элемент в голове очереди peekFirst = $peekFirst")
+    println("голова очередиэлемент peekFirst = $peekFirst")
     val peekLast = deque.peekLast()
-    println("элемент в хвосте очереди peekLast = $peekLast")
+    println("хвост очередиэлемент peekLast = $peekLast")
 
     /* Поместить элемент в очередь */
     deque.offerLast(4)
@@ -31,9 +31,9 @@ fun main() {
 
     /* Извлечь элемент из очереди */
     val popLast = deque.pollLast()
-    println("Элемент, извлеченный из хвоста очереди, = $popLast, deque после извлечения из хвоста = $deque")
+    println("Элемент, извлеченный из хвоста очереди = $popLast, deque после извлечения из хвоста = $deque")
     val popFirst = deque.pollFirst()
-    println("Элемент, извлеченный из головы очереди, = $popFirst, deque после извлечения из головы = $deque")
+    println("Элемент, извлеченный из головы очереди = $popFirst, deque после извлечения из головы = $deque")
 
     /* Получить длину двусторонней очереди */
     val size = deque.size
@@ -41,5 +41,5 @@ fun main() {
 
     /* Проверить, пуста ли двусторонняя очередь */
     val isEmpty = deque.isEmpty()
-    println("двусторонняя Очередь пуста: $isEmpty")
+    println("Двусторонняя очередь пуста: $isEmpty")
 }

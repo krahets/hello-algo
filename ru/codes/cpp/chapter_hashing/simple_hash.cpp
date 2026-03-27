@@ -51,16 +51,16 @@ int main() {
     string key = "Hello Algo";
 
     int hash = addHash(key);
-    cout << "Значение аддитивного хеширования равно" << hash << endl;
+    cout << "Аддитивное хешированиезначениеравно" << hash << endl;
 
     hash = mulHash(key);
-    cout << "Значение мультипликативного хеширования равно" << hash << endl;
+    cout << "Мультипликативное хешированиезначениеравно" << hash << endl;
 
     hash = xorHash(key);
-    cout << "Значение XOR-хеширования равно" << hash << endl;
+    cout << "XOR-хешированиезначениеравно" << hash << endl;
 
     hash = rotHash(key);
-    cout << "Значение вращательного хеширования равно" << hash << endl;
+    cout << "Вращательное хешированиезначениеравно" << hash << endl;
 
     return 0;
 }

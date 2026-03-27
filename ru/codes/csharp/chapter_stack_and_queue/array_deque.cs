@@ -44,7 +44,7 @@ public class ArrayDeque {
     /* Поместить в голову очереди */
     public void PushFirst(int num) {
         if (queSize == Capacity()) {
-            Console.WriteLine("двусторонняя очередьзаполнен");
+            Console.WriteLine("Двусторонняя очередь заполнена");
             return;
         }
         // Указатель головы очереди сдвигается на одну позицию влево
@@ -58,7 +58,7 @@ public class ArrayDeque {
     /* Поместить в хвост очереди */
     public void PushLast(int num) {
         if (queSize == Capacity()) {
-            Console.WriteLine("двусторонняя очередьзаполнен");
+            Console.WriteLine("Двусторонняя очередь заполнена");
             return;
         }
         // Вычислить указатель хвоста, указывающий на индекс за последним элементом
@@ -121,32 +121,32 @@ public class array_deque {
         deque.PushLast(3);
         deque.PushLast(2);
         deque.PushLast(5);
-        Console.WriteLine("двусторонняя очередь deque =" + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Двусторонняя очередь deque = " + string.Join(" ", deque.ToArray()));
 
         /* Получить доступ к элементу */
         int peekFirst = deque.PeekFirst();
-        Console.WriteLine("элемент в голове очереди peekFirst =" + peekFirst);
+        Console.WriteLine("голова очередиэлемент peekFirst =" + peekFirst);
         int peekLast = deque.PeekLast();
-        Console.WriteLine("элемент в хвосте очереди peekLast =" + peekLast);
+        Console.WriteLine("хвост очередиэлемент peekLast =" + peekLast);
 
         /* Поместить элемент в очередь */
         deque.PushLast(4);
-        Console.WriteLine("После помещения элемента 4 в хвост очереди deque =" + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("После помещения элемента 4 в хвост очереди deque = " + string.Join(" ", deque.ToArray()));
         deque.PushFirst(1);
-        Console.WriteLine("После помещения элемента 1 в голову очереди deque =" + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("После помещения элемента 1 в голову очереди deque = " + string.Join(" ", deque.ToArray()));
 
         /* Извлечь элемент из очереди */
         int popLast = deque.PopLast();
-        Console.WriteLine("Элемент, извлеченный из хвоста очереди, =" + popLast + ", deque после извлечения из хвоста =" + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Элемент, извлеченный из хвоста очереди = " + popLast + ", deque после извлечения из хвоста = " + string.Join(" ", deque.ToArray()));
         int popFirst = deque.PopFirst();
-        Console.WriteLine("Элемент, извлеченный из головы очереди, =" + popFirst + ", deque после извлечения из головы =" + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Элемент, извлеченный из головы очереди = " + popFirst + ", deque после извлечения из головы = " + string.Join(" ", deque.ToArray()));
 
         /* Получить длину двусторонней очереди */
         int size = deque.Size();
-        Console.WriteLine("Длина двусторонней очереди size =" + size);
+        Console.WriteLine("Длина двусторонней очереди size = " + size);
 
         /* Проверить, пуста ли двусторонняя очередь */
         bool isEmpty = deque.IsEmpty();
-        Console.WriteLine("двусторонняя Очередь пуста:" + isEmpty);
+        Console.WriteLine("Двусторонняя очередь пуста: " + isEmpty);
     }
 }
