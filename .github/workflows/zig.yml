@@ -1,0 +1,39 @@
+name: Zig
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "codes/zig/**/*.zig"
+      - "codes/zig/build.zig"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "codes/zig/**/*.zig"
+      - "codes/zig/build.zig"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: true
+
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: mlugg/setup-zig@v1
+        with:
+          version: "0.14.1"
+
+      - name: Build
+        working-directory: codes/zig
+        run: zig build
+
+      - name: Test
+        working-directory: codes/zig
+        run: zig build test
