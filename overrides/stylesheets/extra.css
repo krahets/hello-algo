@@ -29,23 +29,29 @@
 }
 
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #22272e;
+  --theme-dark-base: #1E1E1E;
+  --theme-dark-mantle: #1A1A1A;
+  --theme-dark-crust: #171717;
+  --hero-starfield-bg-color: var(--theme-dark-base);
+
+  --md-primary-fg-color: var(--theme-dark-base);
   --md-primary-bg-color: #adbac7;
 
   --md-default-fg-color: #adbac7;
-  --md-default-bg-color: #22272e;
+  --md-default-bg-color: var(--theme-dark-base);
 
-  --md-body-bg-color: #22272e;
-  --md-header-bg-color: rgba(34, 39, 46, 0.8);
+  --md-body-bg-color: var(--theme-dark-mantle);
+  --md-header-bg-color: rgba(26, 26, 26, 0.8);
 
   --md-code-fg-color: #adbac7;
-  --md-code-bg-color: #1d2126;
+  --md-code-bg-color: var(--theme-dark-crust);
 
   --md-accent-fg-color: #aaa;
 
   --md-admonition-fg-color: #adbac7;
 
   --md-footer-fg-color: #adbac7;
+  --md-footer-bg-color: var(--theme-dark-mantle);
 
   --md-typeset-color: #adbac7;
   --md-typeset-a-color: #52bbb1;
@@ -53,7 +59,7 @@
   --md-typeset-btn-color: #52bbb1;
   --md-typeset-btn-hover-color: #55aea6;
 
-  --md-admonition-pythontutor-color: #30363f;
+  --md-admonition-pythontutor-color: var(--theme-dark-crust);
 }
 
 [data-md-color-scheme="slate"][data-md-color-primary="black"],
@@ -74,6 +80,36 @@
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   /* Safari */
   background-color: var(--md-header-bg-color);
+}
+
+[data-md-color-scheme="slate"] .md-footer,
+[data-md-color-scheme="slate"] .md-footer__inner {
+  background-color: var(--theme-dark-mantle);
+  color: var(--md-footer-fg-color);
+}
+
+[data-md-color-scheme="slate"] .md-footer-meta {
+  background-color: var(--theme-dark-crust);
+  color: var(--md-footer-fg-color);
+}
+
+[data-md-color-scheme="slate"] .md-footer__link {
+  background-color: var(--theme-dark-crust);
+  color: var(--md-footer-fg-color);
+}
+
+[data-md-color-scheme="slate"] .md-footer__link:hover {
+  background-color: var(--theme-dark-base);
+}
+
+[data-md-color-scheme="slate"] .md-footer__title,
+[data-md-color-scheme="slate"] .md-footer__direction,
+[data-md-color-scheme="slate"] .md-footer__button,
+[data-md-color-scheme="slate"] .md-copyright,
+[data-md-color-scheme="slate"] .md-copyright a,
+[data-md-color-scheme="slate"] .md-social,
+[data-md-color-scheme="slate"] .md-social__link {
+  color: var(--md-footer-fg-color);
 }
 
 /* https://github.com/squidfunk/mkdocs-material/issues/4832#issuecomment-1374891676 */
@@ -477,6 +513,16 @@ a:hover .text-button span {
   margin-bottom: 0.5em;
 }
 
+.translator-profile-div {
+  gap: 0.5em;
+}
+
+.translator-profile-cell {
+  flex: 0 0 auto;
+  margin: 0.5em 0;
+  min-width: 8.5em;
+}
+
 .giscus-container {
   width: 40em;
   max-width: 100%;
@@ -559,6 +605,7 @@ a:hover .text-button span {
   width: 100%;
   height: 100%;
   z-index: 0;
+  background-color: var(--hero-starfield-bg-color, transparent);
 }
 
 .starfield-origin {
