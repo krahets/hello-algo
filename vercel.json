@@ -2,7 +2,7 @@
     "trailingSlash": true,
     "headers": [
         {
-            "source": "(/en|/zh-hant)?/assets/javascripts/bundle.(.+).min.js",
+            "source": "(/en|/zh-hant|/ja|/ru)?/assets/javascripts/bundle.(.+).min.js",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -11,7 +11,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/assets/javascripts/workers/search.(.+).min.js",
+            "source": "(/en|/zh-hant|/ja|/ru)?/assets/javascripts/workers/search.(.+).min.js",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -20,7 +20,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/assets/javascripts/glightbox.min.js",
+            "source": "(/en|/zh-hant|/ja|/ru)?/assets/stylesheets/(.+).css",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -29,7 +29,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/assets/stylesheets/(.+).css",
+            "source": "(/en|/zh-hant|/ja|/ru)?/javascripts/mathjax.js",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -38,7 +38,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/javascripts/mathjax.js",
+            "source": "(/en|/zh-hant|/ja|/ru)?/assets/images/(.+).(svg|png)",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -47,7 +47,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/assets/images/(.+).(svg|png)",
+            "source": "(/en|/zh-hant|/ja|/ru)?/stylesheets/extra.css",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -56,7 +56,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/stylesheets/extra.css",
+            "source": "(/en|/zh-hant|/ja|/ru)?/search.json",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -65,7 +65,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/search/search_index.json",
+            "source": "(/en|/zh-hant|/ja|/ru)?/chapter_(.+)/(.+)\\.assets/(.+)\\.(png|jpg|svg|gif|webp|ico)",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -74,7 +74,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/chapter_(.+)/(.+)\\.assets/(.+)\\.(png|jpg|svg|gif|webp|ico)",
+            "source": "(/en|/zh-hant|/ja|/ru)?/(.+)\\.assets/(.+)\\.(png|jpg|svg|gif|webp|ico)",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -83,16 +83,7 @@
             ]
         },
         {
-            "source": "(/en|/zh-hant)?/(.+)\\.assets/(.+)\\.(png|jpg|svg|gif|webp|ico)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=2592000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "(/en|/zh-hant)?/assets/(hero|covers|avatar)/(.+)\\.(png|jpg|svg|gif|webp|ico)",
+            "source": "(/en|/zh-hant|/ja|/ru)?/assets/(hero|covers|avatar)/(.+)\\.(png|jpg|svg|gif|webp|ico)",
             "headers": [
                 {
                     "key": "Cache-Control",

@@ -11,40 +11,43 @@
     <link href="/en/" hreflang="en" rel="alternate"/>
     <link href="/ja/" hreflang="ja" rel="alternate"/>
     <link href="/ru/" hreflang="ru" rel="alternate"/>
-    <link href="assets/images/favicon.png" rel="icon"/>
-    <meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
+    <link href="./assets/images/favicon.png" rel="icon"/>
+    <meta content="zensical-0.0.29" name="generator"/>
     <title>
       Hello 演算法
     </title>
-    <link href="assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-    <link href="assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+    <link href="./assets/stylesheets/modern/main.6f2fbb28.min.css" rel="stylesheet"/>
+    <link href="./assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
     <style>
       :root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}
     </style>
-    <link href="stylesheets/extra.css" rel="stylesheet"/>
+    <link href="./stylesheets/extra.css" rel="stylesheet"/>
     <script>
-      __md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}
+      __md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(("__palette"===e?"/":a.pathname)+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(("__palette"===e?"/":_.pathname)+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)
     </script>
   </head>
   <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr" style="background-color: var(--md-body-bg-color);">
     <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
     <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-    <label class="md-overlay" for="__drawer">
+    <label aria-label="導航" class="md-overlay" for="__drawer">
     </label>
     <div data-md-component="skip">
+      <a class="md-skip" href="#__skip">
+        跳轉至
+      </a>
     </div>
     <div data-md-color-primary="black" data-md-color-scheme="slate" data-md-component="announce">
     </div>
     <header class="md-header md-header--landing" data-md-color-primary="black" data-md-color-scheme="slate" data-md-component="header">
       <nav aria-label="頁首" class="md-header__inner md-grid">
-        <a aria-label="Hello 演算法" class="md-header__button md-logo" data-md-component="logo" href="." title="Hello 演算法">
-          <img alt="logo" src="assets/images/logo.svg"/>
+        <a aria-label="Hello 演算法" class="md-header__button md-logo" data-md-component="logo" href="" title="Hello 演算法">
+          <img alt="Hello 演算法" src="./assets/images/logo.svg"/>
         </a>
-        <label class="md-header__button md-icon" for="__drawer">
-          <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z">
+        <label aria-label="導航" class="md-header__button md-icon" for="__drawer">
+          <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 5h16M4 12h16M4 19h16">
             </path>
           </svg>
         </label>
@@ -68,8 +71,8 @@
         <div class="md-header__option">
           <div class="md-select">
             <button aria-label="選擇語言" class="md-header__button md-icon">
-              <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z">
+              <svg class="lucide lucide-languages" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6">
                 </path>
               </svg>
             </button>
@@ -109,7 +112,7 @@
             <div class="md-source__icon md-icon">
               <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                 <!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.-->
-                <path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2">
+                <path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2" fill="currentColor">
                 </path>
               </svg>
             </div>
@@ -668,8 +671,8 @@
               <div class="md-sidebar__inner">
                 <nav aria-label="導航" class="md-nav md-nav--primary" data-md-level="0">
                   <label class="md-nav__title" for="__drawer">
-                    <a aria-label="Hello 演算法" class="md-nav__button md-logo" data-md-component="logo" href="." title="Hello 演算法">
-                      <img alt="logo" src="assets/images/logo.svg"/>
+                    <a aria-label="Hello 演算法" class="md-nav__button md-logo" data-md-component="logo" href="" title="Hello 演算法">
+                      <img alt="Hello 演算法" src="./assets/images/logo.svg"/>
                     </a>
                     Hello 演算法
                   </label>
@@ -678,7 +681,7 @@
                       <div class="md-source__icon md-icon">
                         <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                           <!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.-->
-                          <path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2">
+                          <path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2" fill="currentColor">
                           </path>
                         </svg>
                       </div>
@@ -691,7 +694,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_hello_algo/">
+                        <a class="md-nav__link" href="./chapter_hello_algo/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83s-2.05.78-2.83 0m-5.66 7.07-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76-1.42-1.41L2 20.59zm0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z">
                             </path>
@@ -714,7 +717,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_preface/">
+                        <a class="md-nav__link" href="./chapter_preface/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 4H3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M3 19V6h8v13zm18 0h-8V6h8zm-7-9.5h6V11h-6zm0 2.5h6v1.5h-6zm0 2.5h6V16h-6z">
                             </path>
@@ -736,21 +739,21 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_preface/about_the_book/">
+                            <a class="md-nav__link" href="./chapter_preface/about_the_book/">
                               <span class="md-ellipsis">
                                 0.1   關於本書
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_preface/suggestions/">
+                            <a class="md-nav__link" href="./chapter_preface/suggestions/">
                               <span class="md-ellipsis">
                                 0.2   如何使用本書
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_preface/summary/">
+                            <a class="md-nav__link" href="./chapter_preface/summary/">
                               <span class="md-ellipsis">
                                 0.3   小結
                               </span>
@@ -762,7 +765,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_introduction/">
+                        <a class="md-nav__link" href="./chapter_introduction/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14zM6.2 7.7h5v1.5h-5zm6.8 8.1h5v1.5h-5zm0-2.6h5v1.5h-5zM8 18h1.5v-2h2v-1.5h-2v-2H8v2H6V16h2zm6.1-7.1 1.4-1.4 1.4 1.4 1.1-1-1.4-1.4L18 7.1 16.9 6l-1.4 1.4L14.1 6 13 7.1l1.4 1.4L13 9.9z">
                             </path>
@@ -784,21 +787,21 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_introduction/algorithms_are_everywhere/">
+                            <a class="md-nav__link" href="./chapter_introduction/algorithms_are_everywhere/">
                               <span class="md-ellipsis">
                                 1.1   演算法無處不在
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_introduction/what_is_dsa/">
+                            <a class="md-nav__link" href="./chapter_introduction/what_is_dsa/">
                               <span class="md-ellipsis">
                                 1.2   演算法是什麼
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_introduction/summary/">
+                            <a class="md-nav__link" href="./chapter_introduction/summary/">
                               <span class="md-ellipsis">
                                 1.3   小結
                               </span>
@@ -810,7 +813,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_computational_complexity/">
+                        <a class="md-nav__link" href="./chapter_computational_complexity/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4zm10 14.5-4-4-4 4V20h8zm-4-5 4-4V4H8v3.5zM10 6h4v.75l-2 2-2-2z">
                             </path>
@@ -832,35 +835,35 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_computational_complexity/performance_evaluation/">
+                            <a class="md-nav__link" href="./chapter_computational_complexity/performance_evaluation/">
                               <span class="md-ellipsis">
                                 2.1   演算法效率評估
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_computational_complexity/iteration_and_recursion/">
+                            <a class="md-nav__link" href="./chapter_computational_complexity/iteration_and_recursion/">
                               <span class="md-ellipsis">
                                 2.2   迭代與遞迴
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_computational_complexity/time_complexity/">
+                            <a class="md-nav__link" href="./chapter_computational_complexity/time_complexity/">
                               <span class="md-ellipsis">
                                 2.3   時間複雜度
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_computational_complexity/space_complexity/">
+                            <a class="md-nav__link" href="./chapter_computational_complexity/space_complexity/">
                               <span class="md-ellipsis">
                                 2.4   空間複雜度
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_computational_complexity/summary/">
+                            <a class="md-nav__link" href="./chapter_computational_complexity/summary/">
                               <span class="md-ellipsis">
                                 2.5   小結
                               </span>
@@ -872,7 +875,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_data_structure/">
+                        <a class="md-nav__link" href="./chapter_data_structure/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11 13.5v8H3v-8zm-2 2H5v4h4zM12 2l5.5 9h-11zm0 3.86L10.08 9h3.84zM17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5">
                             </path>
@@ -894,35 +897,35 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_data_structure/classification_of_data_structure/">
+                            <a class="md-nav__link" href="./chapter_data_structure/classification_of_data_structure/">
                               <span class="md-ellipsis">
                                 3.1   資料結構分類
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_data_structure/basic_data_types/">
+                            <a class="md-nav__link" href="./chapter_data_structure/basic_data_types/">
                               <span class="md-ellipsis">
                                 3.2   基本資料型別
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_data_structure/number_encoding/">
+                            <a class="md-nav__link" href="./chapter_data_structure/number_encoding/">
                               <span class="md-ellipsis">
                                 3.3   數字編碼 *
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_data_structure/character_encoding/">
+                            <a class="md-nav__link" href="./chapter_data_structure/character_encoding/">
                               <span class="md-ellipsis">
                                 3.4   字元編碼 *
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_data_structure/summary/">
+                            <a class="md-nav__link" href="./chapter_data_structure/summary/">
                               <span class="md-ellipsis">
                                 3.5   小結
                               </span>
@@ -934,7 +937,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_array_and_linkedlist/">
+                        <a class="md-nav__link" href="./chapter_array_and_linkedlist/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M3 5v14h17V5zm4 2v2H5V7zm-2 6v-2h2v2zm0 2h2v2H5zm13 2H9v-2h9zm0-4H9v-2h9zm0-4H9V7h9z">
                             </path>
@@ -956,28 +959,28 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_array_and_linkedlist/array/">
+                            <a class="md-nav__link" href="./chapter_array_and_linkedlist/array/">
                               <span class="md-ellipsis">
                                 4.1   陣列
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_array_and_linkedlist/linked_list/">
+                            <a class="md-nav__link" href="./chapter_array_and_linkedlist/linked_list/">
                               <span class="md-ellipsis">
                                 4.2   鏈結串列
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_array_and_linkedlist/list/">
+                            <a class="md-nav__link" href="./chapter_array_and_linkedlist/list/">
                               <span class="md-ellipsis">
                                 4.3   串列
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_array_and_linkedlist/ram_and_cache/">
+                            <a class="md-nav__link" href="./chapter_array_and_linkedlist/ram_and_cache/">
                               <span class="md-ellipsis">
                                 4.4   記憶體與快取 *
                               </span>
@@ -986,7 +989,7 @@
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_array_and_linkedlist/summary/">
+                            <a class="md-nav__link" href="./chapter_array_and_linkedlist/summary/">
                               <span class="md-ellipsis">
                                 4.5   小結
                               </span>
@@ -998,7 +1001,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_stack_and_queue/">
+                        <a class="md-nav__link" href="./chapter_stack_and_queue/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38zM6.77 14.32l.37-1.76 8.79 1.85-.37 1.76zm1.16-4.21.76-1.61 8.14 3.78-.76 1.62zm2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37zm4.45-4.25L20 9.08l-1.44 1.07-5.36-7.21zM6.59 18.41v-1.8h8.98v1.8z">
                             </path>
@@ -1020,28 +1023,28 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_stack_and_queue/stack/">
+                            <a class="md-nav__link" href="./chapter_stack_and_queue/stack/">
                               <span class="md-ellipsis">
                                 5.1   堆疊
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_stack_and_queue/queue/">
+                            <a class="md-nav__link" href="./chapter_stack_and_queue/queue/">
                               <span class="md-ellipsis">
                                 5.2   佇列
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_stack_and_queue/deque/">
+                            <a class="md-nav__link" href="./chapter_stack_and_queue/deque/">
                               <span class="md-ellipsis">
                                 5.3   雙向佇列
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_stack_and_queue/summary/">
+                            <a class="md-nav__link" href="./chapter_stack_and_queue/summary/">
                               <span class="md-ellipsis">
                                 5.4   小結
                               </span>
@@ -1053,7 +1056,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_hashing/">
+                        <a class="md-nav__link" href="./chapter_hashing/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21zm-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54zM19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2">
                             </path>
@@ -1075,28 +1078,28 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_hashing/hash_map/">
+                            <a class="md-nav__link" href="./chapter_hashing/hash_map/">
                               <span class="md-ellipsis">
                                 6.1   雜湊表
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_hashing/hash_collision/">
+                            <a class="md-nav__link" href="./chapter_hashing/hash_collision/">
                               <span class="md-ellipsis">
                                 6.2   雜湊衝突
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_hashing/hash_algorithm/">
+                            <a class="md-nav__link" href="./chapter_hashing/hash_algorithm/">
                               <span class="md-ellipsis">
                                 6.3   雜湊演算法
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_hashing/summary/">
+                            <a class="md-nav__link" href="./chapter_hashing/summary/">
                               <span class="md-ellipsis">
                                 6.4   小結
                               </span>
@@ -1108,7 +1111,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_tree/">
+                        <a class="md-nav__link" href="./chapter_tree/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M19.5 17c-.14 0-.26 0-.39.04L17.5 13.8c.45-.45.75-1.09.75-1.8a2.5 2.5 0 0 0-2.5-2.5c-.14 0-.25 0-.4.04L13.74 6.3c.47-.46.76-1.09.76-1.8a2.5 2.5 0 0 0-5 0c0 .7.29 1.34.76 1.79L8.65 9.54c-.15-.04-.26-.04-.4-.04a2.5 2.5 0 0 0-2.5 2.5c0 .71.29 1.34.75 1.79l-1.61 3.25C4.76 17 4.64 17 4.5 17a2.5 2.5 0 0 0 0 5A2.5 2.5 0 0 0 7 19.5c0-.7-.29-1.34-.76-1.79l1.62-3.25c.14.04.26.04.39.04s.25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0A2.5 2.5 0 0 0 12 17c-.13 0-.26 0-.39.04L10 13.8c.45-.45.75-1.09.75-1.8 0-.7-.29-1.33-.75-1.79l1.61-3.25c.13.04.26.04.39.04s.26 0 .39-.04L14 10.21a2.5 2.5 0 0 0 1.75 4.29c.13 0 .25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0-2.5-2.5m-15 3.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m8.5-1c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1M7.25 12c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1M11 4.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m3.75 7.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m4.75 8.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1">
                             </path>
@@ -1130,42 +1133,42 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_tree/binary_tree/">
+                            <a class="md-nav__link" href="./chapter_tree/binary_tree/">
                               <span class="md-ellipsis">
                                 7.1   二元樹
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_tree/binary_tree_traversal/">
+                            <a class="md-nav__link" href="./chapter_tree/binary_tree_traversal/">
                               <span class="md-ellipsis">
                                 7.2   二元樹走訪
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_tree/array_representation_of_tree/">
+                            <a class="md-nav__link" href="./chapter_tree/array_representation_of_tree/">
                               <span class="md-ellipsis">
                                 7.3   二元樹陣列表示
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_tree/binary_search_tree/">
+                            <a class="md-nav__link" href="./chapter_tree/binary_search_tree/">
                               <span class="md-ellipsis">
                                 7.4   二元搜尋樹
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_tree/avl_tree/">
+                            <a class="md-nav__link" href="./chapter_tree/avl_tree/">
                               <span class="md-ellipsis">
                                 7.5   AVL *
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_tree/summary/">
+                            <a class="md-nav__link" href="./chapter_tree/summary/">
                               <span class="md-ellipsis">
                                 7.6   小結
                               </span>
@@ -1177,7 +1180,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_heap/">
+                        <a class="md-nav__link" href="./chapter_heap/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 1a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 11 5.79V7H7a2 2 0 0 0-2 2v.71A2.5 2.5 0 0 0 3.5 12 2.5 2.5 0 0 0 5 14.29V15H4a2 2 0 0 0-2 2v1.21A2.5 2.5 0 0 0 .5 20.5 2.5 2.5 0 0 0 3 23a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 4 18.21V17h4v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 9 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17a2 2 0 0 0-2-2H7v-.71A2.5 2.5 0 0 0 8.5 12 2.5 2.5 0 0 0 7 9.71V9h10v.71A2.5 2.5 0 0 0 15.5 12a2.5 2.5 0 0 0 1.5 2.29V15h-1a2 2 0 0 0-2 2v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 15 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17h4v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 21 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17a2 2 0 0 0-2-2h-1v-.71A2.5 2.5 0 0 0 20.5 12 2.5 2.5 0 0 0 19 9.71V9a2 2 0 0 0-2-2h-4V5.79a2.5 2.5 0 0 0 1.5-2.29A2.5 2.5 0 0 0 12 1m0 1.5a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M6 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m12 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M3 19.5a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1">
                             </path>
@@ -1199,28 +1202,28 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_heap/heap/">
+                            <a class="md-nav__link" href="./chapter_heap/heap/">
                               <span class="md-ellipsis">
                                 8.1   堆積
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_heap/build_heap/">
+                            <a class="md-nav__link" href="./chapter_heap/build_heap/">
                               <span class="md-ellipsis">
                                 8.2   建堆積操作
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_heap/top_k/">
+                            <a class="md-nav__link" href="./chapter_heap/top_k/">
                               <span class="md-ellipsis">
                                 8.3   Top-k 問題
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_heap/summary/">
+                            <a class="md-nav__link" href="./chapter_heap/summary/">
                               <span class="md-ellipsis">
                                 8.4   小結
                               </span>
@@ -1232,7 +1235,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_graph/">
+                        <a class="md-nav__link" href="./chapter_graph/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="m12 5.37-.44-.06L6 14.9c.24.21.4.48.47.78h11.06c.07-.3.23-.57.47-.78l-5.56-9.59zM6.6 16.53l4.28 2.53c.29-.27.69-.43 1.12-.43s.83.16 1.12.43l4.28-2.53zM12 22a1.68 1.68 0 0 1-1.68-1.68l.09-.56-4.3-2.55c-.31.36-.76.58-1.27.58a1.68 1.68 0 0 1-1.68-1.68c0-.79.53-1.45 1.26-1.64V9.36c-.83-.11-1.47-.82-1.47-1.68A1.68 1.68 0 0 1 4.63 6c.55 0 1.03.26 1.34.66l4.41-2.53-.06-.45c0-.93.75-1.68 1.68-1.68s1.68.75 1.68 1.68l-.06.45 4.41 2.53c.31-.4.79-.66 1.34-.66a1.68 1.68 0 0 1 1.68 1.68c0 .86-.64 1.57-1.47 1.68v5.11c.73.19 1.26.85 1.26 1.64a1.68 1.68 0 0 1-1.68 1.68c-.51 0-.96-.22-1.27-.58l-4.3 2.55.09.56A1.68 1.68 0 0 1 12 22M10.8 4.86 6.3 7.44l.02.24c0 .71-.44 1.32-1.06 1.57l.03 5.25zm2.4 0 5.51 9.64.03-5.25c-.62-.25-1.06-.86-1.06-1.57l.02-.24z">
                             </path>
@@ -1254,28 +1257,28 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_graph/graph/">
+                            <a class="md-nav__link" href="./chapter_graph/graph/">
                               <span class="md-ellipsis">
                                 9.1   圖
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_graph/graph_operations/">
+                            <a class="md-nav__link" href="./chapter_graph/graph_operations/">
                               <span class="md-ellipsis">
                                 9.2   圖基礎操作
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_graph/graph_traversal/">
+                            <a class="md-nav__link" href="./chapter_graph/graph_traversal/">
                               <span class="md-ellipsis">
                                 9.3   圖的走訪
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_graph/summary/">
+                            <a class="md-nav__link" href="./chapter_graph/summary/">
                               <span class="md-ellipsis">
                                 9.4   小結
                               </span>
@@ -1287,7 +1290,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_12" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_searching/">
+                        <a class="md-nav__link" href="./chapter_searching/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4zM3 16v-2h6v2zm0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1z">
                             </path>
@@ -1309,42 +1312,42 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_searching/binary_search/">
+                            <a class="md-nav__link" href="./chapter_searching/binary_search/">
                               <span class="md-ellipsis">
                                 10.1   二分搜尋
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_searching/binary_search_insertion/">
+                            <a class="md-nav__link" href="./chapter_searching/binary_search_insertion/">
                               <span class="md-ellipsis">
                                 10.2   二分搜尋插入點
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_searching/binary_search_edge/">
+                            <a class="md-nav__link" href="./chapter_searching/binary_search_edge/">
                               <span class="md-ellipsis">
                                 10.3   二分搜尋邊界
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_searching/replace_linear_by_hashing/">
+                            <a class="md-nav__link" href="./chapter_searching/replace_linear_by_hashing/">
                               <span class="md-ellipsis">
                                 10.4   雜湊最佳化策略
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_searching/searching_algorithm_revisited/">
+                            <a class="md-nav__link" href="./chapter_searching/searching_algorithm_revisited/">
                               <span class="md-ellipsis">
                                 10.5   重識搜尋演算法
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_searching/summary/">
+                            <a class="md-nav__link" href="./chapter_searching/summary/">
                               <span class="md-ellipsis">
                                 10.6   小結
                               </span>
@@ -1356,7 +1359,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_13" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_sorting/">
+                        <a class="md-nav__link" href="./chapter_sorting/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M19 17h3l-4 4-4-4h3V3h2M2 17h10v2H2M6 5v2H2V5m0 6h7v2H2z">
                             </path>
@@ -1378,77 +1381,77 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_sorting/sorting_algorithm/">
+                            <a class="md-nav__link" href="./chapter_sorting/sorting_algorithm/">
                               <span class="md-ellipsis">
                                 11.1   排序演算法
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_sorting/selection_sort/">
+                            <a class="md-nav__link" href="./chapter_sorting/selection_sort/">
                               <span class="md-ellipsis">
                                 11.2   選擇排序
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_sorting/bubble_sort/">
+                            <a class="md-nav__link" href="./chapter_sorting/bubble_sort/">
                               <span class="md-ellipsis">
                                 11.3   泡沫排序
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_sorting/insertion_sort/">
+                            <a class="md-nav__link" href="./chapter_sorting/insertion_sort/">
                               <span class="md-ellipsis">
                                 11.4   插入排序
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_sorting/quick_sort/">
+                            <a class="md-nav__link" href="./chapter_sorting/quick_sort/">
                               <span class="md-ellipsis">
                                 11.5   快速排序
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_sorting/merge_sort/">
+                            <a class="md-nav__link" href="./chapter_sorting/merge_sort/">
                               <span class="md-ellipsis">
                                 11.6   合併排序
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_sorting/heap_sort/">
+                            <a class="md-nav__link" href="./chapter_sorting/heap_sort/">
                               <span class="md-ellipsis">
                                 11.7   堆積排序
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_sorting/bucket_sort/">
+                            <a class="md-nav__link" href="./chapter_sorting/bucket_sort/">
                               <span class="md-ellipsis">
                                 11.8   桶排序
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_sorting/counting_sort/">
+                            <a class="md-nav__link" href="./chapter_sorting/counting_sort/">
                               <span class="md-ellipsis">
                                 11.9   計數排序
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_sorting/radix_sort/">
+                            <a class="md-nav__link" href="./chapter_sorting/radix_sort/">
                               <span class="md-ellipsis">
                                 11.10   基數排序
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_sorting/summary/">
+                            <a class="md-nav__link" href="./chapter_sorting/summary/">
                               <span class="md-ellipsis">
                                 11.11   小結
                               </span>
@@ -1460,7 +1463,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_14" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_divide_and_conquer/">
+                        <a class="md-nav__link" href="./chapter_divide_and_conquer/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17 7v2h5V7zM2 9v6h5V9zm10 0v2H9v2h3v2l3-3zm5 2v2h5v-2zm0 4v2h5v-2z">
                             </path>
@@ -1482,35 +1485,35 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_divide_and_conquer/divide_and_conquer/">
+                            <a class="md-nav__link" href="./chapter_divide_and_conquer/divide_and_conquer/">
                               <span class="md-ellipsis">
                                 12.1   分治演算法
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_divide_and_conquer/binary_search_recur/">
+                            <a class="md-nav__link" href="./chapter_divide_and_conquer/binary_search_recur/">
                               <span class="md-ellipsis">
                                 12.2   分治搜尋策略
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_divide_and_conquer/build_binary_tree_problem/">
+                            <a class="md-nav__link" href="./chapter_divide_and_conquer/build_binary_tree_problem/">
                               <span class="md-ellipsis">
                                 12.3   構建樹問題
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_divide_and_conquer/hanota_problem/">
+                            <a class="md-nav__link" href="./chapter_divide_and_conquer/hanota_problem/">
                               <span class="md-ellipsis">
                                 12.4   河內塔問題
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_divide_and_conquer/summary/">
+                            <a class="md-nav__link" href="./chapter_divide_and_conquer/summary/">
                               <span class="md-ellipsis">
                                 12.5   小結
                               </span>
@@ -1522,7 +1525,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_15" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_backtracking/">
+                        <a class="md-nav__link" href="./chapter_backtracking/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M18 15a3 3 0 0 1 3 3 3 3 0 0 1-3 3 2.99 2.99 0 0 1-2.83-2H14v-2h1.17c.41-1.17 1.52-2 2.83-2m0 2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m0-9a1.43 1.43 0 0 0 1.43-1.43 1.43 1.43 0 1 0-2.86 0A1.43 1.43 0 0 0 18 8m0-5.43a4 4 0 0 1 4 4C22 9.56 18 14 18 14s-4-4.44-4-7.43a4 4 0 0 1 4-4M8.83 17H10v2H8.83A2.99 2.99 0 0 1 6 21a3 3 0 0 1-3-3c0-1.31.83-2.42 2-2.83V14h2v1.17c.85.3 1.53.98 1.83 1.83M6 17a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1M6 3a3 3 0 0 1 3 3c0 1.31-.83 2.42-2 2.83V10H5V8.83A2.99 2.99 0 0 1 3 6a3 3 0 0 1 3-3m0 2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m5 14v-2h2v2zm-4-6H5v-2h2z">
                             </path>
@@ -1544,35 +1547,35 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_backtracking/backtracking_algorithm/">
+                            <a class="md-nav__link" href="./chapter_backtracking/backtracking_algorithm/">
                               <span class="md-ellipsis">
                                 13.1   回溯演算法
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_backtracking/permutations_problem/">
+                            <a class="md-nav__link" href="./chapter_backtracking/permutations_problem/">
                               <span class="md-ellipsis">
                                 13.2   全排列問題
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_backtracking/subset_sum_problem/">
+                            <a class="md-nav__link" href="./chapter_backtracking/subset_sum_problem/">
                               <span class="md-ellipsis">
                                 13.3   子集和問題
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_backtracking/n_queens_problem/">
+                            <a class="md-nav__link" href="./chapter_backtracking/n_queens_problem/">
                               <span class="md-ellipsis">
                                 13.4   N 皇后問題
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_backtracking/summary/">
+                            <a class="md-nav__link" href="./chapter_backtracking/summary/">
                               <span class="md-ellipsis">
                                 13.5   小結
                               </span>
@@ -1584,7 +1587,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_16" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_dynamic_programming/">
+                        <a class="md-nav__link" href="./chapter_dynamic_programming/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22 15h-2v3c0 1.11-.89 2-2 2h-3v2l-3-3 3-3v2h3v-3h-2l3-3zm0-11v4c0 1.1-.9 2-2 2H10v10c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2M4 8h4V4H4zm0 2v4h4v-4zm4 10v-4H4v4zm6-12V4h-4v4zm6-4h-4v4h4z">
                             </path>
@@ -1606,49 +1609,49 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_dynamic_programming/intro_to_dynamic_programming/">
+                            <a class="md-nav__link" href="./chapter_dynamic_programming/intro_to_dynamic_programming/">
                               <span class="md-ellipsis">
                                 14.1   初探動態規劃
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_dynamic_programming/dp_problem_features/">
+                            <a class="md-nav__link" href="./chapter_dynamic_programming/dp_problem_features/">
                               <span class="md-ellipsis">
                                 14.2   DP 問題特性
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_dynamic_programming/dp_solution_pipeline/">
+                            <a class="md-nav__link" href="./chapter_dynamic_programming/dp_solution_pipeline/">
                               <span class="md-ellipsis">
                                 14.3   DP 解題思路
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_dynamic_programming/knapsack_problem/">
+                            <a class="md-nav__link" href="./chapter_dynamic_programming/knapsack_problem/">
                               <span class="md-ellipsis">
                                 14.4   0-1 背包問題
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_dynamic_programming/unbounded_knapsack_problem/">
+                            <a class="md-nav__link" href="./chapter_dynamic_programming/unbounded_knapsack_problem/">
                               <span class="md-ellipsis">
                                 14.5   完全背包問題
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_dynamic_programming/edit_distance_problem/">
+                            <a class="md-nav__link" href="./chapter_dynamic_programming/edit_distance_problem/">
                               <span class="md-ellipsis">
                                 14.6   編輯距離問題
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_dynamic_programming/summary/">
+                            <a class="md-nav__link" href="./chapter_dynamic_programming/summary/">
                               <span class="md-ellipsis">
                                 14.7   小結
                               </span>
@@ -1660,7 +1663,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_17" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_greedy/">
+                        <a class="md-nav__link" href="./chapter_greedy/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13 3c3.88 0 7 3.14 7 7 0 2.8-1.63 5.19-4 6.31V21H9v-3H8c-1.11 0-2-.89-2-2v-3H4.5c-.42 0-.66-.5-.42-.81L6 9.66A7.003 7.003 0 0 1 13 3m0-2C8.41 1 4.61 4.42 4.06 8.9L2.5 11h-.03l-.02.03c-.55.76-.62 1.76-.19 2.59.36.69 1 1.17 1.74 1.32V16c0 1.85 1.28 3.42 3 3.87V23h11v-5.5c2.5-1.67 4-4.44 4-7.5 0-4.97-4.04-9-9-9m4 7.83c0 1.54-1.36 2.77-3.42 4.64L13 14l-.58-.53C10.36 11.6 9 10.37 9 8.83c0-1.2.96-2.19 2.16-2.2h.04c.69 0 1.35.31 1.8.83.45-.52 1.11-.83 1.8-.83 1.2-.01 2.2.96 2.2 2.16z">
                             </path>
@@ -1682,35 +1685,35 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_greedy/greedy_algorithm/">
+                            <a class="md-nav__link" href="./chapter_greedy/greedy_algorithm/">
                               <span class="md-ellipsis">
                                 15.1   貪婪演算法
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_greedy/fractional_knapsack_problem/">
+                            <a class="md-nav__link" href="./chapter_greedy/fractional_knapsack_problem/">
                               <span class="md-ellipsis">
                                 15.2   分數背包問題
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_greedy/max_capacity_problem/">
+                            <a class="md-nav__link" href="./chapter_greedy/max_capacity_problem/">
                               <span class="md-ellipsis">
                                 15.3   最大容量問題
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_greedy/max_product_cutting_problem/">
+                            <a class="md-nav__link" href="./chapter_greedy/max_product_cutting_problem/">
                               <span class="md-ellipsis">
                                 15.4   最大切分乘積問題
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_greedy/summary/">
+                            <a class="md-nav__link" href="./chapter_greedy/summary/">
                               <span class="md-ellipsis">
                                 15.5   小結
                               </span>
@@ -1722,7 +1725,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_18" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_appendix/">
+                        <a class="md-nav__link" href="./chapter_appendix/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11 18h2v-2h-2zm1-16A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-14a4 4 0 0 0-4 4h2a2 2 0 0 1 2-2 2 2 0 0 1 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5a4 4 0 0 0-4-4">
                             </path>
@@ -1744,21 +1747,21 @@
                         </label>
                         <ul class="md-nav__list" data-md-scrollfix="">
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_appendix/installation/">
+                            <a class="md-nav__link" href="./chapter_appendix/installation/">
                               <span class="md-ellipsis">
                                 16.1   程式設計環境安裝
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_appendix/contribution/">
+                            <a class="md-nav__link" href="./chapter_appendix/contribution/">
                               <span class="md-ellipsis">
                                 16.2   一起參與創作
                               </span>
                             </a>
                           </li>
                           <li class="md-nav__item">
-                            <a class="md-nav__link" href="chapter_appendix/terminology/">
+                            <a class="md-nav__link" href="./chapter_appendix/terminology/">
                               <span class="md-ellipsis">
                                 16.3   術語表
                               </span>
@@ -1770,7 +1773,7 @@
                     <li class="md-nav__item md-nav__item--nested">
                       <input class="md-nav__toggle md-toggle" id="__nav_19" type="checkbox"/>
                       <div class="md-nav__link md-nav__container">
-                        <a class="md-nav__link" href="chapter_reference/">
+                        <a class="md-nav__link" href="./chapter_reference/">
                           <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z">
                             </path>
@@ -1817,8 +1820,10 @@
           </script>
         </div>
         <button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-          <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z">
+          <svg class="lucide lucide-circle-arrow-up" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10">
+            </circle>
+            <path d="m16 12-4-4-4 4M12 16V8">
             </path>
           </svg>
           回到頂部
@@ -1841,21 +1846,21 @@
               <a class="md-social__link" href="https://github.com/krahets" rel="noopener" target="_blank" title="github.com">
                 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                   <!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.-->
-                  <path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2">
+                  <path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2" fill="currentColor">
                   </path>
                 </svg>
               </a>
               <a class="md-social__link" href="https://twitter.com/krahets" rel="noopener" target="_blank" title="twitter.com">
                 <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
                   <!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.-->
-                  <path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z">
+                  <path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z" fill="currentColor">
                   </path>
                 </svg>
               </a>
               <a class="md-social__link" href="https://leetcode.cn/u/jyd/" rel="noopener" target="_blank" title="leetcode.cn">
                 <svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
                   <!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.-->
-                  <path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z">
+                  <path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z" fill="currentColor">
                   </path>
                 </svg>
               </a>
@@ -1869,20 +1874,32 @@
       </div>
     </div>
     <script id="__config" type="application/json">
-      {"annotate": null, "base": ".", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u62f7\u8c9d", "clipboard.copy": "\u62f7\u8c9d", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u627e\u5230\u7b26\u5408\u689d\u4ef6\u7684\u7d50\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u689d\u4ef6\u7684\u7d50\u679c", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u689d\u4ef6\u7684\u7d50\u679c", "search.result.placeholder": "\u9375\u5165\u4ee5\u958b\u59cb\u6aa2\u7d22", "search.result.term.missing": "\u7f3a\u5931", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}
+      {"annotate":null,"base":"./","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"./assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"已拷貝","clipboard.copy":"拷貝","search.result.more.one":"此頁尚有 1 個符合的項目","search.result.more.other":"此頁尚有 # 個符合的項目","search.result.none":"沒有找到符合條件的結果","search.result.one":"找到 1 个符合條件的結果","search.result.other":"找到 # 個符合條件的結果","search.result.placeholder":"鍵入以開始檢索","search.result.term.missing":"缺失","select.version":"選擇版本"},"version":null}
     </script>
-    <script src="assets/javascripts/bundle.79ae519e.min.js">
+    <script src="./assets/javascripts/bundle.c2b142ea.min.js">
     </script>
-    <script src="javascripts/mathjax.js">
+    <script src="./javascripts/mathjax.js">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
+    </script>
+    <script>
+      (() => {
+                const applyLandingPalette = () => {
+                        if (!document.querySelector('.md-header--landing')) return;
+                        document.body.setAttribute('data-md-color-scheme', 'slate');
+                        document.body.setAttribute('data-md-color-primary', 'black');
+                        document.body.setAttribute('data-md-color-accent', 'teal');
+                };
+                applyLandingPalette();
+                document.addEventListener('DOMContentLoaded', applyLandingPalette, { once: true });
+        })();
     </script>
     <script src="javascripts/starfield.js">
     </script>
     <script>
       Starfield.setup({
                 starColor: "rgb(186, 228, 224)",
-                canvasColor: "rgb(34, 39, 46)",
+                canvasColor: "rgb(30, 30, 30)",
                 numStars: 700,
                 hueJitter: 120,
                 trailLength: 0.5,

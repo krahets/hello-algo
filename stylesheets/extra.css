@@ -16,8 +16,6 @@
 
   --md-accent-fg-color: #999;
 
-  --md-admonition-fg-color: #1d1d20;
-
   --md-typeset-color: #1d1d20;
   --md-typeset-a-color: #349890;
 
@@ -29,23 +27,27 @@
 }
 
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #22272e;
+  --theme-dark-base: #1E1E1E;
+  --theme-dark-mantle: #1A1A1A;
+  --theme-dark-crust: #171717;
+  --hero-starfield-bg-color: var(--theme-dark-base);
+
+  --md-primary-fg-color: var(--theme-dark-base);
   --md-primary-bg-color: #adbac7;
 
   --md-default-fg-color: #adbac7;
-  --md-default-bg-color: #22272e;
+  --md-default-bg-color: var(--theme-dark-base);
 
-  --md-body-bg-color: #22272e;
-  --md-header-bg-color: rgba(34, 39, 46, 0.8);
+  --md-body-bg-color: var(--theme-dark-mantle);
+  --md-header-bg-color: rgba(26, 26, 26, 0.8);
 
   --md-code-fg-color: #adbac7;
-  --md-code-bg-color: #1d2126;
+  --md-code-bg-color: var(--theme-dark-crust);
 
   --md-accent-fg-color: #aaa;
 
-  --md-admonition-fg-color: #adbac7;
-
   --md-footer-fg-color: #adbac7;
+  --md-footer-bg-color: var(--theme-dark-mantle);
 
   --md-typeset-color: #adbac7;
   --md-typeset-a-color: #52bbb1;
@@ -53,7 +55,7 @@
   --md-typeset-btn-color: #52bbb1;
   --md-typeset-btn-hover-color: #55aea6;
 
-  --md-admonition-pythontutor-color: #30363f;
+  --md-admonition-pythontutor-color: var(--theme-dark-crust);
 }
 
 [data-md-color-scheme="slate"][data-md-color-primary="black"],
@@ -61,19 +63,34 @@
   --md-typeset-a-color: #52bbb1;
 }
 
-[data-md-color-primary="black"] .md-header {
-  background-color: var(--md-header-bg-color);
+[data-md-color-scheme="slate"] .md-footer,
+[data-md-color-scheme="slate"] .md-footer__inner {
+  background-color: var(--theme-dark-mantle);
+  color: var(--md-footer-fg-color);
 }
 
-.md-header--shadow,
-.md-header--landing {
-  box-shadow: none;
-  transition: none;
-  backdrop-filter: saturate(180%) blur(20px);
-  /* Gaussian blur */
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  /* Safari */
-  background-color: var(--md-header-bg-color);
+[data-md-color-scheme="slate"] .md-footer-meta {
+  background-color: var(--theme-dark-crust);
+  color: var(--md-footer-fg-color);
+}
+
+[data-md-color-scheme="slate"] .md-footer__link {
+  background-color: var(--theme-dark-crust);
+  color: var(--md-footer-fg-color);
+}
+
+[data-md-color-scheme="slate"] .md-footer__link:hover {
+  background-color: var(--theme-dark-base);
+}
+
+[data-md-color-scheme="slate"] .md-footer__title,
+[data-md-color-scheme="slate"] .md-footer__direction,
+[data-md-color-scheme="slate"] .md-footer__button,
+[data-md-color-scheme="slate"] .md-copyright,
+[data-md-color-scheme="slate"] .md-copyright a,
+[data-md-color-scheme="slate"] .md-social,
+[data-md-color-scheme="slate"] .md-social__link {
+  color: var(--md-footer-fg-color);
 }
 
 /* https://github.com/squidfunk/mkdocs-material/issues/4832#issuecomment-1374891676 */
@@ -165,6 +182,15 @@ body {
   max-height: 25rem;
 }
 
+/* Keep code block scrollbar hover neutral instead of accent-colored */
+.md-typeset pre>code:hover {
+  scrollbar-color: var(--md-default-fg-color--lighter) transparent;
+}
+
+.md-typeset pre>code::-webkit-scrollbar-thumb:hover {
+  background-color: var(--md-default-fg-color--lighter);
+}
+
 /* Make the picture not glare in dark theme */
 [data-md-color-scheme="slate"] .md-typeset img,
 [data-md-color-scheme="slate"] .md-typeset svg,
@@ -190,11 +216,6 @@ body {
   margin-bottom: 1.5625em;
 }
 
-.md-typeset .admonition:focus-within,
-.md-typeset details:focus-within {
-  box-shadow: var(--md-shadow-z1);
-}
-
 .md-typeset .pythontutor>.admonition-title,
 .md-typeset .pythontutor>summary {
   background-color: var(--md-code-bg-color);
@@ -205,11 +226,6 @@ body {
   background-color: rgb(55, 118, 171);
   -webkit-mask-image: var(--md-admonition-icon--pythontutor);
   mask-image: var(--md-admonition-icon--pythontutor);
-}
-
-.md-typeset .admonition-title:before,
-.md-typeset summary:before {
-  width: 1.25em;
 }
 
 /* code block tabs */
@@ -477,6 +493,16 @@ a:hover .text-button span {
   margin-bottom: 0.5em;
 }
 
+.translator-profile-div {
+  gap: 0.5em;
+}
+
+.translator-profile-cell {
+  flex: 0 0 auto;
+  margin: 0.5em 0;
+  min-width: 8.5em;
+}
+
 .giscus-container {
   width: 40em;
   max-width: 100%;
@@ -559,6 +585,7 @@ a:hover .text-button span {
   width: 100%;
   height: 100%;
   z-index: 0;
+  background-color: var(--hero-starfield-bg-color, transparent);
 }
 
 .starfield-origin {
@@ -567,4 +594,178 @@ a:hover .text-button span {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-/*! update cache: 20260329022109 */
+
+/* Zensical-specific adjustments merged into the main stylesheet. */
+:root>* {
+  --md-accent-fg-color: var(--md-typeset-a-color);
+  --md-admonition-pythontutor-color: var(--md-code-bg-color);
+  --hello-algo-sidebar-width: 13rem;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-accent-fg-color: var(--md-typeset-a-color);
+  --md-admonition-pythontutor-color: var(--md-code-bg-color);
+  --md-body-bg-color: var(--md-default-bg-color);
+  --md-default-bg-color--light: rgb(30 30 30 / 0.8);
+}
+
+[data-md-color-scheme="slate"] .md-typeset details.pythontutor[open]> :not(summary),
+[data-md-color-scheme="slate"] .md-typeset details.pythontutor[open]> :not(summary) :is(p, li, strong, em, sub, sup, code, a) {
+  background-color: #f5f5f5;
+  color: #1d1d20;
+}
+
+body {
+  background-color: var(--md-default-bg-color);
+}
+
+html:has(body[data-md-color-scheme="slate"]) {
+  background-color: #1e1e1e;
+}
+
+html:has(body[data-md-color-scheme="default"]) {
+  background-color: #ffffff;
+}
+
+.home-div[data-md-color-scheme="default"],
+.home-div[data-md-color-scheme="default"] h1,
+.home-div[data-md-color-scheme="default"] h2,
+.home-div[data-md-color-scheme="default"] h3,
+.home-div[data-md-color-scheme="default"] h4,
+.home-div[data-md-color-scheme="default"] h5,
+.home-div[data-md-color-scheme="default"] h6 {
+  color: var(--md-default-fg-color);
+}
+
+.home-div[data-md-color-scheme="slate"],
+.home-div[data-md-color-scheme="slate"] h1,
+.home-div[data-md-color-scheme="slate"] h2,
+.home-div[data-md-color-scheme="slate"] h3,
+.home-div[data-md-color-scheme="slate"] h4,
+.home-div[data-md-color-scheme="slate"] h5,
+.home-div[data-md-color-scheme="slate"] h6 {
+  color: var(--md-default-fg-color);
+}
+
+.home-div .intro-quote {
+  color: var(--md-default-fg-color--light) !important;
+}
+
+.reading-media+p {
+  margin-top: 1em !important;
+}
+
+.md-typeset .admonition-title:before,
+.md-typeset summary:before,
+.md-typeset summary:after {
+  top: 50%;
+}
+
+.md-typeset .admonition-title:before,
+.md-typeset summary:before {
+  transform: translateY(-50%);
+}
+
+.md-typeset summary:after {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.md-typeset details[open]>summary:after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.md-nav__link[for] {
+  color: inherit !important;
+}
+
+.md-nav__link[for].md-nav__link--active {
+  color: var(--md-accent-fg-color) !important;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-grid {
+    max-width: calc(61rem + 2 * (var(--hello-algo-sidebar-width) - 12.1rem));
+  }
+
+  .md-sidebar--primary,
+  .md-sidebar--secondary {
+    width: var(--hello-algo-sidebar-width);
+  }
+
+  [dir="ltr"] .md-sidebar__inner {
+    padding-right: calc(100% - (var(--hello-algo-sidebar-width) - 0.6rem));
+  }
+
+  [dir="rtl"] .md-sidebar__inner {
+    padding-left: calc(100% - (var(--hello-algo-sidebar-width) - 0.6rem));
+  }
+}
+
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  scrollbar-color: var(--md-default-fg-color--lighter) transparent;
+}
+
+.md-sidebar--primary .md-sidebar__scrollwrap::-webkit-scrollbar-thumb,
+.md-sidebar--primary .md-sidebar__scrollwrap::-webkit-scrollbar-thumb:hover {
+  background-color: var(--md-default-fg-color--lighter);
+}
+
+.md-footer,
+.md-footer__inner,
+.md-footer-meta,
+.md-footer__link,
+.md-footer__link:hover {
+  background-color: var(--md-default-bg-color);
+}
+
+.md-footer {
+  border-top: 0.05rem solid var(--md-default-fg-color--lightest);
+}
+
+[data-md-color-scheme="slate"] .md-footer,
+[data-md-color-scheme="slate"] .md-footer__inner,
+[data-md-color-scheme="slate"] .md-footer-meta,
+[data-md-color-scheme="slate"] .md-footer__link,
+[data-md-color-scheme="slate"] .md-footer__link:hover {
+  background-color: var(--md-default-bg-color);
+}
+
+.md-banner {
+  background-color: var(--md-default-bg-color);
+}
+
+.md-typeset .admonition.pythontutor,
+.md-typeset details.pythontutor,
+.md-typeset .pythontutor>.admonition-title,
+.md-typeset .pythontutor>summary {
+  background-color: var(--md-code-bg-color);
+}
+
+.md-typeset .pythontutor>.admonition-title::before,
+.md-typeset .pythontutor>summary::before,
+.md-typeset .pythontutor>summary::after {
+  top: 50%;
+}
+
+.md-typeset .pythontutor>.admonition-title::before,
+.md-typeset .pythontutor>summary::before {
+  transform: translateY(-50%);
+}
+
+.md-typeset .pythontutor>summary::after {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.md-typeset details[open].pythontutor>summary::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.md-typeset a:not(.md-button) {
+  text-decoration: none;
+}
+
+.md-typeset a:not(.md-button):hover,
+.md-typeset a:not(.md-button):focus-visible {
+  text-decoration: underline;
+}
+/*! update cache: 20260329050436 */
