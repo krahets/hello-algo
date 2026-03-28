@@ -8,7 +8,7 @@ require 'set'
 require_relative './graph_adjacency_list'
 require_relative '../utils/vertex'
 
-# ## Вспомогательная функция обхода в глубину ###
+### Вспомогательная функция обхода в глубину ###
 def dfs(graph, visited, res, vet)
   res << vet # Отметить посещенную вершину
   visited.add(vet) # Отметить эту вершину как посещенную
@@ -20,7 +20,7 @@ def dfs(graph, visited, res, vet)
   end
 end
 
-# ## Обход в глубину ###
+### Обход в глубину ###
 def graph_dfs(graph, start_vet)
   # Использовать список смежности для представления графа, чтобы получать все смежные вершины заданной вершины
   # Последовательность обхода вершин

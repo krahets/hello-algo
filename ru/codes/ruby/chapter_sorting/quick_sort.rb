@@ -4,10 +4,10 @@ Created Time: 2024-04-01
 Author: Cy (3739004@gmail.com), Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Класс быстрой сортировки ###
+### Класс быстрой сортировки ###
 class QuickSort
   class << self
-    # ## Разбиение с опорными указателями ###
+    ### Разбиение с опорными указателями ###
     def partition(nums, left, right)
       # Взять nums[left] в качестве опорного элемента
       i, j = left, right
@@ -26,7 +26,7 @@ class QuickSort
       i # Вернуть индекс опорного элемента
     end
 
-    # ## Класс быстрой сортировки ###
+    ### Класс быстрой сортировки ###
     def quick_sort(nums, left, right)
       # Рекурсивно обрабатывать, пока длина подмассива не станет равной 1
       if left < right
@@ -44,7 +44,7 @@ end
 # ## Класс быстрой сортировки (оптимизация медианой) ###
 class QuickSortMedian
   class << self
-    # ## Выбрать медиану из трех кандидатов ###
+    ### Выбрать медиану из трех кандидатов ###
     def median_three(nums, left, mid, right)
       # Выбрать медиану из трех кандидатов
       _l, _m, _r = nums[left], nums[mid], nums[right]
@@ -77,7 +77,7 @@ class QuickSortMedian
       i # Вернуть индекс опорного элемента
     end
 
-    # ## Быстрая сортировка ###
+    ### Быстрая сортировка ###
     def quick_sort(nums, left, right)
       # Рекурсивно обрабатывать, пока длина подмассива не станет равной 1
       if left < right
@@ -95,7 +95,7 @@ end
 # ## Класс быстрой сортировки (оптимизация глубины рекурсии) ###
 class QuickSortTailCall
   class << self
-    # ## Разбиение с опорными указателями ###
+    ### Разбиение с опорными указателями ###
     def partition(nums, left, right)
       # Использовать nums[left] как опорный элемент
       i = left

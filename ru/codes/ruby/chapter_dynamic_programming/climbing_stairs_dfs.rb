@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Поиск ###
+### Поиск ###
 def dfs(i)
   # dp[1] и dp[2] уже известны, вернуть их
   return i if i == 1 || i == 2
@@ -12,7 +12,7 @@ def dfs(i)
   dfs(i - 1) + dfs(i - 2)
 end
 
-# ## Подъем по лестнице: поиск ###
+### Подъем по лестнице: поиск ###
 def climbing_stairs_dfs(n)
   dfs(n)
 end

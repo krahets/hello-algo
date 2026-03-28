@@ -4,7 +4,7 @@ Created Time: 2024-05-21
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Алгоритм бэктрекинга: n ферзей ###
+### Алгоритм бэктрекинга: n ферзей ###
 def backtrack(row, n, state, res, cols, diags1, diags2)
   # Когда все строки уже обработаны, записать решение
   if row == n
@@ -31,7 +31,7 @@ def backtrack(row, n, state, res, cols, diags1, diags2)
   end
 end
 
-# ## Решить задачу о n ферзях ###
+### Решить задачу о n ферзях ###
 def n_queens(n)
   # Инициализировать доску размера n*n, где 'Q' обозначает ферзя, а '#' — пустую клетку
   state = Array.new(n) { Array.new(n, "#") }

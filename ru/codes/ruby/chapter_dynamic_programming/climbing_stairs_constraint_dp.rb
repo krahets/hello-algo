@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Подъем по лестнице с ограничениями: динамическое программирование ###
+### Подъем по лестнице с ограничениями: динамическое программирование ###
 def climbing_stairs_constraint_dp(n)
   return 1 if n == 1 || n == 2
 

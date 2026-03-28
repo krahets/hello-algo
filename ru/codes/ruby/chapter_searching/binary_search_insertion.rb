@@ -4,7 +4,7 @@ Created Time: 2024-04-09
 Author: Blue Bean (lonnnnnnner@gmail.com)
 =end
 
-# ## Бинарный поиск точки вставки (без повторяющихся элементов) ###
+### Бинарный поиск точки вставки (без повторяющихся элементов) ###
 def binary_search_insertion_simple(nums, target)
   # Инициализировать двусторонне замкнутый интервал [0, n-1]
   i, j = 0, nums.length - 1
@@ -25,7 +25,7 @@ def binary_search_insertion_simple(nums, target)
   i # target не найден, вернуть точку вставки i
 end
 
-# ## Бинарный поиск точки вставки (с повторяющимися элементами) ###
+### Бинарный поиск точки вставки (с повторяющимися элементами) ###
 def binary_search_insertion(nums, target)
   # Инициализировать двусторонне замкнутый интервал [0, n-1]
   i, j = 0, nums.length - 1

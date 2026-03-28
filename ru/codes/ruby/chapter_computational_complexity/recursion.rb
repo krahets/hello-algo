@@ -4,7 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Рекурсия ###
+### Рекурсия ###
 def recur(n)
   # Условие завершения
   return 1 if n == 1
@@ -14,7 +14,7 @@ def recur(n)
   n + res
 end
 
-# ## Имитация рекурсии итерацией ###
+### Имитация рекурсии итерацией ###
 def for_loop_recur(n)
   # Использовать явный стек для имитации системного стека вызовов
   stack = []
@@ -34,7 +34,7 @@ def for_loop_recur(n)
   res
 end
 
-# ## Хвостовая рекурсия ###
+### Хвостовая рекурсия ###
 def tail_recur(n, res)
   # Условие завершения
   return res if n == 0
@@ -42,7 +42,7 @@ def tail_recur(n, res)
   tail_recur(n - 1, res + n)
 end
 
-# ## Последовательность Фибоначчи: рекурсия ###
+### Последовательность Фибоначчи: рекурсия ###
 def fib(n)
   # Условие завершения: f(1) = 0, f(2) = 1
   return n - 1 if n == 1 || n == 2

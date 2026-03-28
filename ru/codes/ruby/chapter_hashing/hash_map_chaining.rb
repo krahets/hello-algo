@@ -6,9 +6,9 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative './array_hash_map'
 
-# ## Хеш-таблица с цепочками ###
+### Хеш-таблица с цепочками ###
 class HashMapChaining
-  # ## Конструктор ###
+  ### Конструктор ###
   def initialize
     @size = 0 # Число пар ключ-значение
     @capacity = 4 # Вместимость хеш-таблицы
@@ -17,17 +17,17 @@ class HashMapChaining
     @buckets = Array.new(@capacity) { [] } # Массив корзин
   end
 
-  # ## Хеш-функция ###
+  ### Хеш-функция ###
   def hash_func(key)
     key % @capacity
   end
 
-  # ## Коэффициент загрузки ###
+  ### Коэффициент загрузки ###
   def load_factor
     @size / @capacity
   end
 
-  # ## Операция поиска ###
+  ### Операция поиска ###
   def get(key)
     index = hash_func(key)
     bucket = @buckets[index]
@@ -39,7 +39,7 @@ class HashMapChaining
     nil
   end
 
-  # ## Операция добавления ###
+  ### Операция добавления ###
   def put(key, val)
     # Когда коэффициент загрузки превышает порог, выполнить расширение
     extend if load_factor > @load_thres
@@ -58,7 +58,7 @@ class HashMapChaining
     @size += 1
   end
 
-  # ## Операция удаления ###
+  ### Операция удаления ###
   def remove(key)
     index = hash_func(key)
     bucket = @buckets[index]
@@ -72,7 +72,7 @@ class HashMapChaining
     end
   end
 
-  # ## Расширение хеш-таблицы ###
+  ### Расширение хеш-таблицы ###
   def extend
     # Временно сохранить исходную хеш-таблицу
     buckets = @buckets
@@ -88,7 +88,7 @@ class HashMapChaining
     end
   end
 
-  # ## Вывести хеш-таблицу ###
+  ### Вывести хеш-таблицу ###
   def print
     for bucket in @buckets
       res = []

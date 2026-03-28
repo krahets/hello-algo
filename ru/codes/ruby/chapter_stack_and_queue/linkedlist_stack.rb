@@ -6,21 +6,21 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-# ## Стек на основе связного списка ###
+### Стек на основе связного списка ###
 class LinkedListStack
   attr_reader :size
 
-  # ## Конструктор ###
+  ### Конструктор ###
   def initialize
     @size = 0
   end
 
-  # ## Проверка, пуст ли стек ###
+  ### Проверка, пуст ли стек ###
   def is_empty?
     @peek.nil?
   end
 
-  # ## Помещение в стек ###
+  ### Помещение в стек ###
   def push(val)
     node = ListNode.new(val)
     node.next = @peek
@@ -28,7 +28,7 @@ class LinkedListStack
     @size += 1
   end
 
-  # ## Извлечение из стека ###
+  ### Извлечение из стека ###
   def pop
     num = peek
     @peek = @peek.next
@@ -36,14 +36,14 @@ class LinkedListStack
     num
   end
 
-  # ## Доступ к верхнему элементу стека ###
+  ### Доступ к верхнему элементу стека ###
   def peek
     raise IndexError, 'стек пуст' if is_empty?
 
     @peek.val
   end
 
-  # ## Преобразовать связный список в Array и вернуть ###
+  ### Преобразовать связный список в Array и вернуть ###
   def to_array
     arr = []
     node = @peek

@@ -6,24 +6,24 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-# ## Очередь на основе связного списка ###
+### Очередь на основе связного списка ###
 class LinkedListQueue
-  # ## Получение длины очереди ###
+  ### Получение длины очереди ###
   attr_reader :size
 
-  # ## Конструктор ###
+  ### Конструктор ###
   def initialize
     @front = nil  # Головной узел front
     @rear = nil   # Хвостовой узел rear
     @size = 0
   end
 
-  # ## Проверка, пуста ли очередь ###
+  ### Проверка, пуста ли очередь ###
   def is_empty?
     @front.nil?
   end
 
-  # ## Добавление в очередь ###
+  ### Добавление в очередь ###
   def push(num)
     # Добавить num после хвостового узла
     node = ListNode.new(num)
@@ -41,7 +41,7 @@ class LinkedListQueue
     @size += 1
   end
 
-  # ## Извлечение из очереди ###
+  ### Извлечение из очереди ###
   def pop
     num = peek
     # Удалить головной узел
@@ -50,14 +50,14 @@ class LinkedListQueue
     num
   end
 
-  # ## Доступ к элементу в начале очереди ###
+  ### Доступ к элементу в начале очереди ###
   def peek
     raise IndexError, 'очередь пуста' if is_empty?
 
     @front.val
   end
 
-  # ## Преобразовать связный список в Array и вернуть ###
+  ### Преобразовать связный список в Array и вернуть ###
   def to_array
     queue = []
     temp = @front

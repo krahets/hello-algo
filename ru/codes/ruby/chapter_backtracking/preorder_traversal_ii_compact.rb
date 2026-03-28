@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ## Предварительный обход: пример 2 ###
+### Предварительный обход: пример 2 ###
 def pre_order(root)
   return unless root
 

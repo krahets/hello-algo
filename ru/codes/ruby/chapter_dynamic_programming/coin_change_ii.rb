@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Размен монет II: динамическое программирование ###
+### Размен монет II: динамическое программирование ###
 def coin_change_ii_dp(coins, amt)
   n = coins.length
   # Инициализация таблицы dp
@@ -26,7 +26,7 @@ def coin_change_ii_dp(coins, amt)
   dp[n][amt]
 end
 
-# ## Размен монет II: динамическое программирование с оптимизацией памяти ###
+### Размен монет II: динамическое программирование с оптимизацией памяти ###
 def coin_change_ii_dp_comp(coins, amt)
   n = coins.length
   # Инициализация таблицы dp

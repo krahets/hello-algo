@@ -6,14 +6,14 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative "./tree_node"
 
-# ## Вывести матрицу ###
+### Вывести матрицу ###
 def print_matrix(mat)
   s = []
   mat.each { |arr| s << " #{arr.to_s}" }
   puts "[\n#{s.join(",\n")}\n]"
 end
 
-# ## Вывести связный список ###
+### Вывести связный список ###
 def print_linked_list(head)
   list = []
   while head
@@ -39,8 +39,8 @@ def show_trunk(p)
   print p.str
 end
 
-# ## Вывести двоичное дерево ###
-# Этот вывод дерева заимствован из TECHIE DELIGHT
+### Вывести двоичное дерево ###
+# This tree printer is borrowed from TECHIE DELIGHT
 # https://www.techiedelight.com/c-program-print-binary-tree/
 def print_tree(root, prev=nil, is_right=false)
   return if root.nil?
@@ -66,12 +66,12 @@ def print_tree(root, prev=nil, is_right=false)
   print_tree(root.left, trunk, false)
 end
 
-# ## Вывести хеш-таблицу ###
+### Вывести хеш-таблицу ###
 def print_hash_map(hmap)
   hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 end
 
-# ## Вывести кучу ###
+### Вывести кучу ###
 def print_heap(heap)
   puts "Массивное представление кучи:#{heap}"
   puts "Древовидное представление кучи:"

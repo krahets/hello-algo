@@ -6,14 +6,14 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative '../utils/list_node'
 
-# ## Хеш-поиск (массив) ###
+### Хеш-поиск (массив) ###
 def hashing_search_array(hmap, target)
   # key хеш-таблицы: целевой элемент, value: индекс
   # Если такого key нет в хеш-таблице, вернуть -1
   hmap[target] || -1
 end
 
-# ## Хеш-поиск (связный список) ###
+### Хеш-поиск (связный список) ###
 def hashing_search_linkedlist(hmap, target)
   # key хеш-таблицы: целевой элемент, value: объект узла
   # Если такого key нет в хеш-таблице, вернуть None

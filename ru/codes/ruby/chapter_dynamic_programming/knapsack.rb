@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Рюкзак 0-1: полный перебор ###
+### Рюкзак 0-1: полный перебор ###
 def knapsack_dfs(wgt, val, i, c)
   # Если все предметы уже рассмотрены или в рюкзаке не осталось места, вернуть стоимость 0
   return 0 if i == 0 || c == 0
@@ -17,7 +17,7 @@ def knapsack_dfs(wgt, val, i, c)
   [no, yes].max
 end
 
-# ## Рюкзак 0-1: поиск с мемоизацией ###
+### Рюкзак 0-1: поиск с мемоизацией ###
 def knapsack_dfs_mem(wgt, val, mem, i, c)
   # Если все предметы уже рассмотрены или в рюкзаке не осталось места, вернуть стоимость 0
   return 0 if i == 0 || c == 0
@@ -32,7 +32,7 @@ def knapsack_dfs_mem(wgt, val, mem, i, c)
   mem[i][c] = [no, yes].max
 end
 
-# ## Рюкзак 0-1: динамическое программирование ###
+### Рюкзак 0-1: динамическое программирование ###
 def knapsack_dp(wgt, val, cap)
   n = wgt.length
   # Инициализация таблицы dp
@@ -52,7 +52,7 @@ def knapsack_dp(wgt, val, cap)
   dp[n][cap]
 end
 
-# ## Рюкзак 0-1: динамическое программирование с оптимизацией памяти ###
+### Рюкзак 0-1: динамическое программирование с оптимизацией памяти ###
 def knapsack_dp_comp(wgt, val, cap)
   n = wgt.length
   # Инициализация таблицы dp

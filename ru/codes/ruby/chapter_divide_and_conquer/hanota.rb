@@ -4,7 +4,7 @@ Created Time: 2024-05-13
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Переместить один диск ###
+### Переместить один диск ###
 def move(src, tar)
   # Снять диск с вершины src
   pan = src.pop
@@ -12,7 +12,7 @@ def move(src, tar)
   tar << pan
 end
 
-# ## Решить задачу Ханойской башни f(i) ###
+### Решить задачу Ханойской башни f(i) ###
 def dfs(i, src, buf, tar)
   # Если в src остался только один диск, сразу переместить его в tar
   if i == 1
@@ -28,7 +28,7 @@ def dfs(i, src, buf, tar)
   dfs(i - 1, buf, src, tar)
 end
 
-# ## Решить задачу Ханойской башни ###
+### Решить задачу Ханойской башни ###
 def solve_hanota(_A, _B, _C)
   n = _A.length
   # Переместить верхние n дисков из A в C с помощью B

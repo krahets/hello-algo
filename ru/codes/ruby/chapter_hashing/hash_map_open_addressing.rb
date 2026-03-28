@@ -6,11 +6,11 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative './array_hash_map'
 
-# ## Хеш-таблица с открытой адресацией ###
+### Хеш-таблица с открытой адресацией ###
 class HashMapOpenAddressing
   TOMBSTONE = Pair.new(-1, '-1') # Удалить метку
 
-  # ## Конструктор ###
+  ### Конструктор ###
   def initialize
     @size = 0 # Число пар ключ-значение
     @capacity = 4 # Вместимость хеш-таблицы
@@ -19,17 +19,17 @@ class HashMapOpenAddressing
     @buckets = Array.new(@capacity) # Массив корзин
   end
 
-  # ## Хеш-функция ###
+  ### Хеш-функция ###
   def hash_func(key)
     key % @capacity
   end
 
-  # ## Коэффициент загрузки ###
+  ### Коэффициент загрузки ###
   def load_factor
     @size / @capacity
   end
 
-  # ## Найти индекс корзины, соответствующий key ###
+  ### Найти индекс корзины, соответствующий key ###
   def find_bucket(key)
     index = hash_func(key)
     first_tombstone = -1
@@ -54,7 +54,7 @@ class HashMapOpenAddressing
     first_tombstone == -1 ? index : first_tombstone
   end
 
-  # ## Операция поиска ###
+  ### Операция поиска ###
   def get(key)
     # Найти индекс корзины, соответствующий key
     index = find_bucket(key)
@@ -64,7 +64,7 @@ class HashMapOpenAddressing
     nil
   end
 
-  # ## Операция добавления ###
+  ### Операция добавления ###
   def put(key, val)
     # Когда коэффициент загрузки превышает порог, выполнить расширение
     extend if load_factor > @load_thres
@@ -80,7 +80,7 @@ class HashMapOpenAddressing
     @size += 1
   end
 
-  # ## Операция удаления ###
+  ### Операция удаления ###
   def remove(key)
     # Найти индекс корзины, соответствующий key
     index = find_bucket(key)
@@ -91,7 +91,7 @@ class HashMapOpenAddressing
     end
   end
 
-  # ## Расширение хеш-таблицы ###
+  ### Расширение хеш-таблицы ###
   def extend
     # Временно сохранить исходную хеш-таблицу
     buckets_tmp = @buckets
@@ -105,7 +105,7 @@ class HashMapOpenAddressing
     end
   end
 
-  # ## Вывести хеш-таблицу ###
+  ### Вывести хеш-таблицу ###
   def print
     for pair in @buckets
       if pair.nil?

@@ -4,7 +4,7 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Случайный доступ к элементу ###
+### Случайный доступ к элементу ###
 def random_access(nums)
   # Случайным образом выбрать число из интервала [0, nums.length)
   random_index = Random.rand(0...nums.length)
@@ -14,9 +14,9 @@ def random_access(nums)
 end
 
 
-# ## Увеличить длину массива ###
-# Обратите внимание: Array в Ruby является динамическим массивом и может быть расширен напрямую
-# Для удобства обучения эта функция рассматривает Array как массив неизменяемой длины
+### Увеличить длину массива ###
+# Обратите внимание: Array в Ruby является динамическим массивом и может расширяться напрямую
+# Для удобства обучения в этой функции Array рассматривается как массив неизменяемой длины
 def extend(nums, enlarge)
   # Инициализировать массив увеличенной длины
   res = Array.new(nums.length + enlarge, 0)
@@ -30,7 +30,7 @@ def extend(nums, enlarge)
   res
 end
 
-# ## Вставка элемента num по индексу index в массив ###
+### Вставка элемента num по индексу index в массив ###
 def insert(nums, num, index)
   # Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
   for i in (nums.length - 1).downto(index + 1)
@@ -42,7 +42,7 @@ def insert(nums, num, index)
 end
 
 
-# ## Удаление элемента по индексу index ###
+### Удаление элемента по индексу index ###
 def remove(nums, index)
   # Сдвинуть все элементы после индекса index на одну позицию вперед
   for i in index...(nums.length - 1)
@@ -50,7 +50,7 @@ def remove(nums, index)
   end
 end
 
-# ## Обход массива ###
+### Обход массива ###
 def traverse(nums)
   count = 0
 
@@ -65,7 +65,7 @@ def traverse(nums)
   end
 end
 
-# ## Поиск заданного элемента в массиве ###
+### Поиск заданного элемента в массиве ###
 def find(nums, target)
   for i in 0...nums.length
     return i if nums[i] == target

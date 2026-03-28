@@ -7,20 +7,20 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ## Двоичное дерево поиска ###
+### Двоичное дерево поиска ###
 class BinarySearchTree
-  # ## Конструктор ###
+  ### Конструктор ###
   def initialize
     # Инициализировать пустое дерево
     @root = nil
   end
 
-  # ## Получение корневого узла двоичного дерева ###
+  ### Получение корневого узла двоичного дерева ###
   def get_root
     @root
   end
 
-  # ## Поиск узла ###
+  ### Поиск узла ###
   def search(num)
     cur = @root
 
@@ -41,7 +41,7 @@ class BinarySearchTree
     cur
   end
 
-  # ## Вставка узла ###
+  ### Вставка узла ###
   def insert(num)
     # Если дерево пусто, инициализировать корневой узел
     if @root.nil?
@@ -74,7 +74,7 @@ class BinarySearchTree
     end
   end
 
-  # ## Удаление узла ###
+  ### Удаление узла ###
   def remove(num)
     # Если дерево пусто, сразу вернуть
     return if @root.nil?

@@ -7,19 +7,19 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ## AVL-дерево ###
+### AVL-дерево ###
 class AVLTree
-  # ## Конструктор ###
+  ### Конструктор ###
   def initialize
     @root = nil
   end
 
-  # ## Получение корневого узла двоичного дерева ###
+  ### Получение корневого узла двоичного дерева ###
   def get_root
     @root
   end
 
-  # ## Получить высоту узла ###
+  ### Получить высоту узла ###
   def height(node)
     # Высота пустого узла равна -1, высота листового узла равна 0
     return node.height unless node.nil?
@@ -27,13 +27,13 @@ class AVLTree
     -1
   end
 
-  # ## Обновить высоту узла ###
+  ### Обновить высоту узла ###
   def update_height(node)
     # Высота узла равна высоте более высокого поддерева + 1
     node.height = [height(node.left), height(node.right)].max + 1
   end
 
-  # ## Получить коэффициент баланса ###
+  ### Получить коэффициент баланса ###
   def balance_factor(node)
     # Коэффициент баланса пустого узла равен 0
     return 0 if node.nil?
@@ -42,7 +42,7 @@ class AVLTree
     height(node.left) - height(node.right)
   end
 
-  # ## Операция правого вращения ###
+  ### Операция правого вращения ###
   def right_rotate(node)
     child = node.left
     grand_child = child.right
@@ -56,7 +56,7 @@ class AVLTree
     child
   end
 
-  # ## Операция левого вращения ###
+  ### Операция левого вращения ###
   def left_rotate(node)
     child = node.right
     grand_child = child.left
@@ -70,7 +70,7 @@ class AVLTree
     child
   end
 
-  # ## Выполнить вращение, чтобы снова сбалансировать поддерево ###
+  ### Выполнить вращение, чтобы снова сбалансировать поддерево ###
   def rotate(node)
     # Получить коэффициент баланса узла node
     balance_factor = balance_factor(node)
@@ -99,7 +99,7 @@ class AVLTree
     node
   end
 
-  # ## Вставка узла ###
+  ### Вставка узла ###
   def insert(val)
     @root = insert_helper(@root, val)
   end
@@ -122,7 +122,7 @@ class AVLTree
     rotate(node)
   end
 
-  # ## Удаление узла ###
+  ### Удаление узла ###
   def remove(val)
     @root = remove_helper(@root, val)
   end
@@ -158,7 +158,7 @@ class AVLTree
     rotate(node)
   end
 
-  # ## Поиск узла ###
+  ### Поиск узла ###
   def search(val)
     cur = @root
     # Искать в цикле и выйти после прохода за листовой узел

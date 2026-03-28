@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Полный рюкзак: динамическое программирование ###
+### Полный рюкзак: динамическое программирование ###
 def unbounded_knapsack_dp(wgt, val, cap)
   n = wgt.length
   # Инициализация таблицы dp
