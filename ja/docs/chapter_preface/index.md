@@ -15,6 +15,6 @@ icon: material/book-open-outline
 
 ## 章の内容
 
-- [0.1 &nbsp; この本について](about_the_book.md)
+- [0.1 &nbsp; 本書について](about_the_book.md)
 - [0.2 &nbsp; 本書の使い方](suggestions.md)
 - [0.3 &nbsp; まとめ](summary.md)

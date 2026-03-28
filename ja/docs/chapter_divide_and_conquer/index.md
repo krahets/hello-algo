@@ -17,6 +17,6 @@ icon: material/set-split
 
 - [12.1 &nbsp; 分割統治アルゴリズム](divide_and_conquer.md)
 - [12.2 &nbsp; 分割統治探索戦略](binary_search_recur.md)
-- [12.3 &nbsp; 二分木構築問題](build_binary_tree_problem.md)
+- [12.3 &nbsp; 木の構築問題](build_binary_tree_problem.md)
 - [12.4 &nbsp; ハノイの塔問題](hanota_problem.md)
 - [12.5 &nbsp; まとめ](summary.md)

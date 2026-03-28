@@ -16,7 +16,7 @@ icon: material/map-marker-path
 ## 章の内容
 
 - [13.1 &nbsp; バックトラッキングアルゴリズム](backtracking_algorithm.md)
-- [13.2 &nbsp; 順列問題](permutations_problem.md)
+- [13.2 &nbsp; 全順列問題](permutations_problem.md)
 - [13.3 &nbsp; 部分集合和問題](subset_sum_problem.md)
 - [13.4 &nbsp; Nクイーン問題](n_queens_problem.md)
 - [13.5 &nbsp; まとめ](summary.md)

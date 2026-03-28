@@ -17,7 +17,7 @@ icon: material/graph-outline
 
 - [7.1 &nbsp; 二分木](binary_tree.md)
 - [7.2 &nbsp; 二分木の走査](binary_tree_traversal.md)
-- [7.3 &nbsp; 木の配列表現](array_representation_of_tree.md)
+- [7.3 &nbsp; 二分木の配列表現](array_representation_of_tree.md)
 - [7.4 &nbsp; 二分探索木](binary_search_tree.md)
 - [7.5 &nbsp; AVL木 *](avl_tree.md)
 - [7.6 &nbsp; まとめ](summary.md)

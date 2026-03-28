@@ -15,7 +15,7 @@ icon: material/timer-sand
 
 ## 章の内容
 
-- [2.1 &nbsp; アルゴリズム効率評価](performance_evaluation.md)
+- [2.1 &nbsp; アルゴリズムの効率評価](performance_evaluation.md)
 - [2.2 &nbsp; 反復と再帰](iteration_and_recursion.md)
 - [2.3 &nbsp; 時間計算量](time_complexity.md)
 - [2.4 &nbsp; 空間計算量](space_complexity.md)

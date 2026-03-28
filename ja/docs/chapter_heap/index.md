@@ -16,6 +16,6 @@ icon: material/family-tree
 ## 章の内容
 
 - [8.1 &nbsp; ヒープ](heap.md)
-- [8.2 &nbsp; ヒープの構築](build_heap.md)
-- [8.3 &nbsp; Top-k問題](top_k.md)
+- [8.2 &nbsp; ヒープ構築操作](build_heap.md)
+- [8.3 &nbsp; Top-k 問題](top_k.md)
 - [8.4 &nbsp; まとめ](summary.md)

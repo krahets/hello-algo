@@ -16,8 +16,8 @@ icon: material/text-search
 ## 章の内容
 
 - [10.1 &nbsp; 二分探索](binary_search.md)
-- [10.2 &nbsp; 二分探索挿入点](binary_search_insertion.md)
+- [10.2 &nbsp; 二分探索の挿入点](binary_search_insertion.md)
 - [10.3 &nbsp; 二分探索の境界](binary_search_edge.md)
 - [10.4 &nbsp; ハッシュ最適化戦略](replace_linear_by_hashing.md)
-- [10.5 &nbsp; 探索アルゴリズム再考](searching_algorithm_revisited.md)
+- [10.5 &nbsp; 探索アルゴリズムの再認識](searching_algorithm_revisited.md)
 - [10.6 &nbsp; まとめ](summary.md)

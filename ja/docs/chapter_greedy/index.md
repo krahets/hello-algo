@@ -18,5 +18,5 @@ icon: material/head-heart-outline
 - [15.1 &nbsp; 貪欲アルゴリズム](greedy_algorithm.md)
 - [15.2 &nbsp; 分数ナップサック問題](fractional_knapsack_problem.md)
 - [15.3 &nbsp; 最大容量問題](max_capacity_problem.md)
-- [15.4 &nbsp; 最大積切断問題](max_product_cutting_problem.md)
+- [15.4 &nbsp; 最大積分割問題](max_product_cutting_problem.md)
 - [15.5 &nbsp; まとめ](summary.md)

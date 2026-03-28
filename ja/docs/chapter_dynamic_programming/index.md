@@ -15,10 +15,10 @@ icon: material/table-pivot
 
 ## 章の内容
 
-- [14.1 &nbsp; 動的プログラミング入門](intro_to_dynamic_programming.md)
-- [14.2 &nbsp; DP問題の特性](dp_problem_features.md)
-- [14.3 &nbsp; DP問題解決アプローチ](dp_solution_pipeline.md)
+- [14.1 &nbsp; 動的計画法の初歩](intro_to_dynamic_programming.md)
+- [14.2 &nbsp; DP 問題の特性](dp_problem_features.md)
+- [14.3 &nbsp; DP の解法の考え方](dp_solution_pipeline.md)
 - [14.4 &nbsp; 0-1ナップサック問題](knapsack_problem.md)
-- [14.5 &nbsp; 無制限ナップサック問題](unbounded_knapsack_problem.md)
+- [14.5 &nbsp; 完全ナップサック問題](unbounded_knapsack_problem.md)
 - [14.6 &nbsp; 編集距離問題](edit_distance_problem.md)
 - [14.7 &nbsp; まとめ](summary.md)

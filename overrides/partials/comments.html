@@ -8,12 +8,21 @@
   {% elif config.theme.language == 'en' %}
     {% set comm = "Feel free to drop your insights, questions or suggestions" %}
     {% set lang = "en" %}
+  {% elif config.theme.language == 'ja' %}
+    {% set comm = "ご意見、ご質問、ご提案があればぜひコメントしてください" %}
+    {% set lang = "ja" %}
+  {% elif config.theme.language == 'ru' %}
+    {% set comm = "Оставляйте свои идеи, вопросы и предложения в комментариях" %}
+    {% set lang = "ru" %}
   {% endif %}
-  
+
+  <!-- Check-in button above comments -->
+  {% include "partials/checkin.html" ignore missing %}
+
   <h5 align="center" id="__comments">{{ comm }}</h5>
 
   <!-- Insert generated snippet here -->
-  <script 
+  <script
     src="https://giscus.app/client.js"
     data-repo="krahets/hello-algo"
     data-repo-id="R_kgDOIXtSqw"
@@ -22,7 +31,7 @@
     data-mapping="pathname"
     data-strict="1"
     data-reactions-enabled="1"
-    data-emit-metadata="0"
+    data-emit-metadata="1"
     data-input-position="top"
     data-theme="light"
     data-lang="{{ lang }}"
