@@ -4,7 +4,7 @@ Created Time: 2024-05-13
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Бинарный поиск: задача f(i, j) ###
+### Бинарный поиск: задача f(i, j) ###
 def dfs(nums, target, i, j)
   # Если интервал пуст, целевой элемент отсутствует, вернуть -1
   return -1 if i > j
@@ -24,7 +24,7 @@ def dfs(nums, target, i, j)
   end
 end
 
-# ## Бинарный поиск ###
+### Бинарный поиск ###
 def binary_search(nums, target)
   n = nums.length
   # Решить задачу f(0, n-1)

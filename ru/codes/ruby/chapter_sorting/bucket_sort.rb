@@ -4,7 +4,7 @@ Created Time: 2024-04-17
 Author: Martin Xu (martin.xus@gmail.com)
 =end
 
-# ## Сортировка корзинами ###
+### Сортировка корзинами ###
 def bucket_sort(nums)
   # Инициализировать k = n/2 корзин, предполагая распределение 2 элементов в каждую корзину
   k = nums.length / 2

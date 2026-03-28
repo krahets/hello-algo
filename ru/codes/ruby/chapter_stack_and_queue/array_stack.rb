@@ -4,43 +4,43 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Стек на основе массива ###
+### Стек на основе массива ###
 class ArrayStack
-  # ## Конструктор ###
+  ### Конструктор ###
   def initialize
     @stack = []
   end
 
-  # ## Получить длину стека ###
+  ### Получить длину стека ###
   def size
     @stack.length
   end
 
-  # ## Проверка, пуст ли стек ###
+  ### Проверка, пуст ли стек ###
   def is_empty?
     @stack.empty?
   end
 
-  # ## Помещение в стек ###
+  ### Помещение в стек ###
   def push(item)
     @stack << item
   end
 
-  # ## Извлечение из стека ###
+  ### Извлечение из стека ###
   def pop
     raise IndexError, 'стек пуст' if is_empty?
 
     @stack.pop
   end
 
-  # ## Доступ к верхнему элементу стека ###
+  ### Доступ к верхнему элементу стека ###
   def peek
     raise IndexError, 'стек пуст' if is_empty?
 
     @stack.last
   end
 
-  # ## Вернуть список для вывода ###
+  ### Вернуть список для вывода ###
   def to_array
     @stack
   end

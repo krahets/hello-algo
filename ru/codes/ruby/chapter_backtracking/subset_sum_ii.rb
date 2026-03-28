@@ -4,7 +4,7 @@ Created Time: 2024-05-22
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Алгоритм бэктрекинга: сумма подмножеств II ###
+### Алгоритм бэктрекинга: сумма подмножеств II ###
 def backtrack(state, target, choices, start, res)
   # Если сумма подмножества равна target, записать решение
   if target.zero?
@@ -30,7 +30,7 @@ def backtrack(state, target, choices, start, res)
   end
 end
 
-# ## Решить задачу суммы подмножеств II ###
+### Решить задачу суммы подмножеств II ###
 def subset_sum_ii(nums, target)
   state = [] # Состояние (подмножество)
   nums.sort! # Отсортировать nums

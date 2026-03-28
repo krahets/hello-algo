@@ -6,7 +6,7 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative './binary_search_insertion'
 
-# ## Бинарный поиск самого левого target ###
+### Бинарный поиск самого левого target ###
 def binary_search_left_edge(nums, target)
   # Эквивалентно поиску точки вставки target
   i = binary_search_insertion(nums, target)
@@ -17,7 +17,7 @@ def binary_search_left_edge(nums, target)
   i # Найти target и вернуть индекс i
 end
 
-# ## Бинарный поиск самого правого target ###
+### Бинарный поиск самого правого target ###
 def binary_search_right_edge(nums, target)
   # Преобразовать задачу в поиск самого левого target + 1
   i = binary_search_insertion(nums, target + 1)

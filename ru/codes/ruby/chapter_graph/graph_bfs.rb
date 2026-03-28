@@ -8,7 +8,7 @@ require 'set'
 require_relative './graph_adjacency_list'
 require_relative '../utils/vertex'
 
-# ## Обход в ширину ###
+### Обход в ширину ###
 def graph_bfs(graph, start_vet)
   # Использовать список смежности для представления графа, чтобы получать все смежные вершины заданной вершины
   # Последовательность обхода вершин

@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Минимальная стоимость подъема по лестнице: динамическое программирование ###
+### Минимальная стоимость подъема по лестнице: динамическое программирование ###
 def min_cost_climbing_stairs_dp(cost)
   n = cost.length - 1
   return cost[n] if n == 1 || n == 2

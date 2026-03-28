@@ -7,32 +7,32 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ## Проверка, является ли текущее состояние решением ###
+### Проверка, является ли текущее состояние решением ###
 def is_solution?(state)
   !state.empty? && state.last.val == 7
 end
 
-# ## Записать решение ###
+### Записать решение ###
 def record_solution(state, res)
   res << state.dup
 end
 
-# ## Проверка допустимости этого выбора в текущем состоянии ###
+### Проверка допустимости этого выбора в текущем состоянии ###
 def is_valid?(state, choice)
   choice && choice.val != 3
 end
 
-# ## Обновить состояние ###
+### Обновить состояние ###
 def make_choice(state, choice)
   state << choice
 end
 
-# ## Восстановить состояние ###
+### Восстановить состояние ###
 def undo_choice(state, choice)
   state.pop
 end
 
-# ## Алгоритм бэктрекинга: пример 3 ###
+### Алгоритм бэктрекинга: пример 3 ###
 def backtrack(state, choices, res)
   # Проверить, является ли текущее состояние решением
   record_solution(state, res) if is_solution?(state)

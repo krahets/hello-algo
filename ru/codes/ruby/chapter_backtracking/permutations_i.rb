@@ -4,7 +4,7 @@ Created Time: 2024-05-22
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Алгоритм бэктрекинга: все перестановки I ###
+### Алгоритм бэктрекинга: все перестановки I ###
 def backtrack(state, choices, selected, res)
   # Когда длина состояния равна числу элементов, записать решение
   if state.length == choices.length
@@ -28,7 +28,7 @@ def backtrack(state, choices, selected, res)
   end
 end
 
-# ## Все перестановки I ###
+### Все перестановки I ###
 def permutations_i(nums)
   res = []
   backtrack([], nums, Array.new(nums.length, false), res)

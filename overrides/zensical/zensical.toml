@@ -1,0 +1,20 @@
+[project]
+extra_css = [
+  "stylesheets/extra.css",
+]
+
+[project.theme]
+features = [
+  "content.action.edit",
+  "content.code.annotate",
+  "content.code.copy",
+  "content.tabs.link",
+  "content.tooltips",
+  "navigation.indexes",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  "search.share",
+  "search.suggest",
+  "toc.follow",
+]

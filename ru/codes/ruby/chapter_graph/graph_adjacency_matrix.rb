@@ -6,10 +6,10 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/print_util'
 
-# ## Класс неориентированного графа на основе матрицы смежности ###
+### Класс неориентированного графа на основе матрицы смежности ###
 class GraphAdjMat
   def initialize(vertices, edges)
-    # ## Конструктор ###
+    ### Конструктор ###
     # Список вершин: элементы представляют «значения вершин», а индексы — «индексы вершин»
     @vertices = []
     # Матрица смежности, где индексы строк и столбцов соответствуют «индексам вершин»
@@ -21,12 +21,12 @@ class GraphAdjMat
     edges.each { |e| add_edge(e[0], e[1]) }
   end
 
-  # ## Получение числа вершин ###
+  ### Получение числа вершин ###
   def size
     @vertices.length
   end
 
-  # ## Добавление вершины ###
+  ### Добавление вершины ###
   def add_vertex(val)
     n = size
     # Добавить значение новой вершины в список вершин
@@ -38,7 +38,7 @@ class GraphAdjMat
     @adj_mat.each { |row| row << 0 }
   end
 
-  # ## Удаление вершины ###
+  ### Удаление вершины ###
   def remove_vertex(index)
     raise IndexError if index >= size
 
@@ -50,7 +50,7 @@ class GraphAdjMat
     @adj_mat.each { |row| row.delete_at(index) }
   end
 
-  # ## Добавление ребра ###
+  ### Добавление ребра ###
   def add_edge(i, j)
     # Параметры i и j соответствуют индексам элементов vertices
     # Обработка выхода индекса за границы и случая равенства
@@ -62,7 +62,7 @@ class GraphAdjMat
     @adj_mat[j][i] = 1
   end
 
-  # ## Удаление ребра ###
+  ### Удаление ребра ###
   def remove_edge(i, j)
     # Параметры i и j соответствуют индексам элементов vertices
     # Обработка выхода индекса за границы и случая равенства
@@ -73,7 +73,7 @@ class GraphAdjMat
     @adj_mat[j][i] = 0
   end
 
-  # ## Вывести матрицу смежности ###
+  ### Вывести матрицу смежности ###
   def __print__
     puts "Список вершин = #{@vertices}"
     puts 'Матрица смежности ='

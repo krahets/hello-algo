@@ -8,13 +8,13 @@ require_relative '../utils/list_node'
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ## Функция ###
+### Функция ###
 def function
   # Выполнить некоторые операции
   0
 end
 
-# ## Постоянная сложность ###
+### Постоянная сложность ###
 def constant(n)
   # Константы, переменные и объекты занимают O(1) памяти
   a = 0
@@ -27,7 +27,7 @@ def constant(n)
   (0...n).each { function }
 end
 
-# ## Линейная сложность ###
+### Линейная сложность ###
 def linear(n)
   # Список длины n занимает O(n) памяти
   nums = Array.new(n, 0)
@@ -46,7 +46,7 @@ def linear_recur(n)
   linear_recur(n - 1)
 end
 
-# ## Квадратичная сложность ###
+### Квадратичная сложность ###
 def quadratic(n)
   # Двумерный список занимает O(n^2) памяти
   Array.new(n) { Array.new(n, 0) }

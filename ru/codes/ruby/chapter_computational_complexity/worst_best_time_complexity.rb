@@ -4,7 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Создать массив с элементами: 1, 2, ..., n в случайном порядке ###
+### Создать массив с элементами: 1, 2, ..., n в случайном порядке ###
 def random_numbers(n)
   # Создать массив nums =: 1, 2, 3, ..., n
   nums = Array.new(n) { |i| i + 1 }
@@ -12,7 +12,7 @@ def random_numbers(n)
   nums.shuffle!
 end
 
-# ## Найти индекс числа 1 в массиве nums ###
+### Найти индекс числа 1 в массиве nums ###
 def find_one(nums)
   for i in 0...nums.length
     # Когда элемент 1 находится в начале массива, достигается лучшая временная сложность O(1)

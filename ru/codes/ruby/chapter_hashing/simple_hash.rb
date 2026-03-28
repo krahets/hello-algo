@@ -4,7 +4,7 @@ Created Time: 2024-04-14
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Аддитивное хеширование ###
+### Аддитивное хеширование ###
 def add_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -14,7 +14,7 @@ def add_hash(key)
   hash % modulus
 end
 
-# ## Мультипликативное хеширование ###
+### Мультипликативное хеширование ###
 def mul_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -24,7 +24,7 @@ def mul_hash(key)
   hash % modulus
 end
 
-# ## XOR-хеширование ###
+### XOR-хеширование ###
 def xor_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -34,7 +34,7 @@ def xor_hash(key)
   hash % modulus
 end
 
-# ## Хеширование с циклическим сдвигом ###
+### Хеширование с циклическим сдвигом ###
 def rot_hash(key)
   hash = 0
   modulus = 1_000_000_007

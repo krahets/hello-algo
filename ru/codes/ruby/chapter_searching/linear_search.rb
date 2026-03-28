@@ -6,7 +6,7 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative '../utils/list_node'
 
-# ## Линейный поиск (массив) ###
+### Линейный поиск (массив) ###
 def linear_search_array(nums, target)
   # Обход массива
   for i in 0...nums.length
@@ -16,7 +16,7 @@ def linear_search_array(nums, target)
   -1 # Целевой элемент не найден, вернуть -1
 end
 
-# ## Линейный поиск (связный список) ###
+### Линейный поиск (связный список) ###
 def linear_search_linkedlist(head, target)
   # Обойти связный список
   while head

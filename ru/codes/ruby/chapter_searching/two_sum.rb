@@ -4,7 +4,7 @@ Created Time: 2024-04-09
 Author: Blue Bean (lonnnnnnner@gmail.com)
 =end
 
-# ## Метод 1: полный перебор ###
+### Метод 1: полный перебор ###
 def two_sum_brute_force(nums, target)
   # Два вложенных цикла, временная сложность O(n^2)
   for i in 0...(nums.length - 1)
@@ -16,7 +16,7 @@ def two_sum_brute_force(nums, target)
   []
 end
 
-# ## Метод 2: вспомогательная хеш-таблица ###
+### Метод 2: вспомогательная хеш-таблица ###
 def two_sum_hash_table(nums, target)
   # Вспомогательная хеш-таблица, пространственная сложность O(n)
   dic = {}

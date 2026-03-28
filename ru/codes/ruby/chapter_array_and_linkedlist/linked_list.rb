@@ -7,15 +7,15 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/list_node'
 require_relative '../utils/print_util'
 
-# ## Вставка узла _p после узла n0 в связном списке ###
-# В Ruby `p` — встроенная функция, а `P` — константа, поэтому вместо этого можно использовать `_p`
+### Вставка узла _p после узла n0 в связном списке ###
+# В Ruby `p` является встроенной функцией, а `P` — константой, поэтому вместо них можно использовать `_p`
 def insert(n0, _p)
   n1 = n0.next
   _p.next = n1
   n0.next = _p
 end
 
-# ## Удаление первого узла после узла n0 в связном списке ###
+### Удаление первого узла после узла n0 в связном списке ###
 def remove(n0)
   return if n0.next.nil?
 
@@ -25,7 +25,7 @@ def remove(n0)
   n0.next = n1
 end
 
-# ## Доступ к узлу связного списка по индексу index ###
+### Доступ к узлу связного списка по индексу index ###
 def access(head, index)
   for i in 0...index
     return nil if head.nil?
@@ -35,7 +35,7 @@ def access(head, index)
   head
 end
 
-# ## Поиск первого узла со значением target в связном списке ###
+### Поиск первого узла со значением target в связном списке ###
 def find(head, target)
   index = 0
   while head

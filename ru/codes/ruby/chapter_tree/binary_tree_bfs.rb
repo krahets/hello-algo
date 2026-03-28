@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ## Обход в ширину ###
+### Обход в ширину ###
 def level_order(root)
   # Инициализировать очередь и добавить корневой узел
   queue = [root]

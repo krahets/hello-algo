@@ -4,7 +4,7 @@ Created Time: 2024-05-02
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Пузырьковая сортировка ###
+### Пузырьковая сортировка ###
 def bubble_sort(nums)
   n = nums.length
   # Внешний цикл: неотсортированный диапазон [0, i]

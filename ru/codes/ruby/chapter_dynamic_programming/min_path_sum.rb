@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Минимальная сумма пути: полный перебор ###
+### Минимальная сумма пути: полный перебор ###
 def min_path_sum_dfs(grid, i, j)
   # Если это верхняя левая ячейка, завершить поиск
   return grid[i][j] if i == 0 && j == 0
@@ -17,7 +17,7 @@ def min_path_sum_dfs(grid, i, j)
   [left, up].min + grid[i][j]
 end
 
-# ## Минимальная сумма пути: поиск с мемоизацией ###
+### Минимальная сумма пути: поиск с мемоизацией ###
 def min_path_sum_dfs_mem(grid, mem, i, j)
   # Если это верхняя левая ячейка, завершить поиск
   return grid[0][0] if i == 0 && j == 0
@@ -32,7 +32,7 @@ def min_path_sum_dfs_mem(grid, mem, i, j)
   mem[i][j] = [left, up].min + grid[i][j]
 end
 
-# ## Минимальная сумма пути: динамическое программирование ###
+### Минимальная сумма пути: динамическое программирование ###
 def min_path_sum_dp(grid)
   n, m = grid.length, grid.first.length
   # Инициализация таблицы dp
@@ -51,7 +51,7 @@ def min_path_sum_dp(grid)
   dp[n -1][m -1]
 end
 
-# ## Минимальная сумма пути: динамическое программирование с оптимизацией памяти ###
+### Минимальная сумма пути: динамическое программирование с оптимизацией памяти ###
 def min_path_sum_dp_comp(grid)
   n, m = grid.length, grid.first.length
   # Инициализация таблицы dp

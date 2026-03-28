@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ## Построить двоичное дерево: разделяй и властвуй ###
+### Построить двоичное дерево: разделяй и властвуй ###
 def dfs(preorder, inorder_map, i, l, r)
   # Завершить при пустом диапазоне поддерева
   return if r - l < 0
@@ -25,7 +25,7 @@ def dfs(preorder, inorder_map, i, l, r)
   root
 end
 
-# ## Построить двоичное дерево ###
+### Построить двоичное дерево ###
 def build_tree(preorder, inorder)
   # Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
   inorder_map = {}

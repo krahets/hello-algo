@@ -6,11 +6,11 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/vertex'
 
-# ## Класс неориентированного графа на основе списка смежности ###
+### Класс неориентированного графа на основе списка смежности ###
 class GraphAdjList
   attr_reader :adj_list
   
-  # ## Конструктор ###
+  ### Конструктор ###
   def initialize(edges)
     # Список смежности, где key — вершина, а value — все смежные ей вершины
     @adj_list = {}
@@ -22,12 +22,12 @@ class GraphAdjList
     end
   end
 
-  # ## Получение числа вершин ###
+  ### Получение числа вершин ###
   def size
     @adj_list.length
   end
 
-  # ## Добавление ребра ###
+  ### Добавление ребра ###
   def add_edge(vet1, vet2)
     raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
 
@@ -35,7 +35,7 @@ class GraphAdjList
     @adj_list[vet2] << vet1
   end
 
-  # ## Удаление ребра ###
+  ### Удаление ребра ###
   def remove_edge(vet1, vet2)
     raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
 
@@ -44,7 +44,7 @@ class GraphAdjList
     @adj_list[vet2].delete(vet1)
   end
 
-  # ## Добавление вершины ###
+  ### Добавление вершины ###
   def add_vertex(vet)
     return if @adj_list.include?(vet)
 
@@ -52,7 +52,7 @@ class GraphAdjList
     @adj_list[vet] = []
   end
 
-  # ## Удаление вершины ###
+  ### Удаление вершины ###
   def remove_vertex(vet)
     raise ArgumentError unless @adj_list.include?(vet)
 
@@ -64,7 +64,7 @@ class GraphAdjList
     end
   end
 
-  # ## Вывести список смежности ###
+  ### Вывести список смежности ###
   def __print__
     puts 'Список смежности ='
     for vertex in @adj_list

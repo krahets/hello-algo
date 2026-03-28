@@ -4,7 +4,7 @@ Created Time: 2024-05-07
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Максимальное произведение разрезания: жадный алгоритм ###
+### Максимальное произведение разрезания: жадный алгоритм ###
 def max_product_cutting(n)
   # Когда n <= 3, обязательно нужно выделить одну 1
   return 1 * (n - 1) if n <= 3

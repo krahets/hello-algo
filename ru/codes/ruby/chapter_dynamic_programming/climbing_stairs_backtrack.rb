@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Бэктрекинг ###
+### Бэктрекинг ###
 def backtrack(choices, state, n, res)
   # Когда подъем достигает n-й ступени, число вариантов увеличивается на 1
   res[0] += 1 if state == n
@@ -19,7 +19,7 @@ def backtrack(choices, state, n, res)
   # Откат
 end
 
-# ## Подъем по лестнице: бэктрекинг ###
+### Подъем по лестнице: бэктрекинг ###
 def climbing_stairs_backtrack(n)
   choices = [1, 2] # Можно подняться на 1 или 2 ступени
   state = 0 # Начать подъем с 0-й ступени

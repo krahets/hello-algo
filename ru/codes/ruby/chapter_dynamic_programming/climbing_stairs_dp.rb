@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Подъем по лестнице: динамическое программирование ###
+### Подъем по лестнице: динамическое программирование ###
 def climbing_stairs_dp(n)
   return n  if n == 1 || n == 2
 
@@ -18,7 +18,7 @@ def climbing_stairs_dp(n)
   dp[n]
 end
 
-# ## Подъем по лестнице: динамическое программирование с оптимизацией памяти ###
+### Подъем по лестнице: динамическое программирование с оптимизацией памяти ###
 def climbing_stairs_dp_comp(n)
   return n if n == 1 || n == 2
 

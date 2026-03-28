@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Редакционное расстояние: полный перебор ###
+### Редакционное расстояние: полный перебор ###
 def edit_distance_dfs(s, t, i, j)
   # Если s и t пусты, вернуть 0
   return 0 if i == 0 && j == 0
@@ -41,7 +41,7 @@ def edit_distance_dfs_mem(s, t, mem, i, j)
   mem[i][j] = [insert, delete, replace].min + 1
 end
 
-# ## Редакционное расстояние: динамическое программирование ###
+### Редакционное расстояние: динамическое программирование ###
 def edit_distance_dp(s, t)
   n, m = s.length, t.length
   dp = Array.new(n + 1) { Array.new(m + 1, 0) }
@@ -63,7 +63,7 @@ def edit_distance_dp(s, t)
   dp[n][m]
 end
 
-# ## Редакционное расстояние: динамическое программирование с оптимизацией памяти ###
+### Редакционное расстояние: динамическое программирование с оптимизацией памяти ###
 def edit_distance_dp_comp(s, t)
   n, m = s.length, t.length
   dp = Array.new(m + 1, 0)

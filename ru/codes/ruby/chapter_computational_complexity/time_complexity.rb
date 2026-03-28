@@ -4,7 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# ## Постоянная сложность ###
+### Постоянная сложность ###
 def constant(n)
   count = 0
   size = 100000
@@ -14,7 +14,7 @@ def constant(n)
   count
 end
 
-# ## Линейная сложность ###
+### Линейная сложность ###
 def linear(n)
   count = 0
   (0...n).each { count += 1 }
@@ -33,7 +33,7 @@ def array_traversal(nums)
   count
 end
 
-# ## Квадратичная сложность ###
+### Квадратичная сложность ###
 def quadratic(n)
   count = 0
 
@@ -106,7 +106,7 @@ def log_recur(n)
   log_recur(n / 2) + 1
 end
 
-# ## Линейно-логарифмическая сложность ###
+### Линейно-логарифмическая сложность ###
 def linear_log_recur(n)
   return 1 unless n > 1
 

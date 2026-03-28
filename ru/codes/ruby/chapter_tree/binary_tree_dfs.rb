@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-# ## Предварительный обход ###
+### Предварительный обход ###
 def pre_order(root)
   return if root.nil?
 
@@ -17,7 +17,7 @@ def pre_order(root)
   pre_order(root.right)
 end
 
-# ## Симметричный обход ###
+### Симметричный обход ###
 def in_order(root)
   return if root.nil?
 
@@ -27,7 +27,7 @@ def in_order(root)
   in_order(root.right)
 end
 
-# ## Обратный обход ###
+### Обратный обход ###
 def post_order(root)
   return if root.nil?
 
