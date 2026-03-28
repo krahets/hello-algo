@@ -1245,28 +1245,19 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_binary_tree.rb"
-    =begin
-    File: array_binary_tree.rb
-    Created Time: 2024-04-17
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Класс двоичного дерева в массивном представлении ###
+    ### Класс двоичного дерева в массивном представлении ###
     class ArrayBinaryTree
-      # ## Конструктор ###
+      ### Конструктор ###
       def initialize(arr)
         @tree = arr.to_a
       end
 
-      # ## Вместимость списка ###
+      ### Вместимость списка ###
       def size
         @tree.length
       end
 
-      # ## Получить значение узла с индексом i ###
+      ### Получить значение узла с индексом i ###
       def val(i)
         # Если индекс выходит за границы, вернуть nil, обозначающий пустую ячейку
         return if i < 0 || i >= size
@@ -1274,22 +1265,22 @@ comments: true
         @tree[i]
       end
 
-      # ## Получить индекс левого дочернего узла узла с индексом i ###
+      ### Получить индекс левого дочернего узла узла с индексом i ###
       def left(i)
         2 * i + 1
       end
 
-      # ## Получить индекс правого дочернего узла узла с индексом i ###
+      ### Получить индекс правого дочернего узла узла с индексом i ###
       def right(i)
         2 * i + 2
       end
 
-      # ## Получить индекс родительского узла узла с индексом i ###
+      ### Получить индекс родительского узла узла с индексом i ###
       def parent(i)
         (i - 1) / 2
       end
 
-      # ## Обход в ширину ###
+      ### Обход в ширину ###
       def level_order
         @res = []
 
@@ -1301,7 +1292,7 @@ comments: true
         @res
       end
 
-      # ## Обход в глубину ###
+      ### Обход в глубину ###
       def dfs(i, order)
         return if val(i).nil?
         # Предварительный обход
@@ -1314,21 +1305,21 @@ comments: true
         @res << val(i) if order == :post
       end
 
-      # ## Предварительный обход ###
+      ### Предварительный обход ###
       def pre_order
         @res = []
         dfs(0, :pre)
         @res
       end
 
-      # ## Симметричный обход ###
+      ### Симметричный обход ###
       def in_order
         @res = []
         dfs(0, :in)
         @res
       end
 
-      # ## Обратный обход ###
+      ### Обратный обход ###
       def post_order
         @res = []
         dfs(0, :post)

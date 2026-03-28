@@ -212,15 +212,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_edge.rb"
-    =begin
-    File: binary_search_edge.rb
-    Created Time: 2024-04-09
-    Author: Blue Bean (lonnnnnnner@gmail.com)
-    =end
-
-    require_relative './binary_search_insertion'
-
-    # ## Бинарный поиск самого левого target ###
+    ### Бинарный поиск самого левого target ###
     def binary_search_left_edge(nums, target)
       # Эквивалентно поиску точки вставки target
       i = binary_search_insertion(nums, target)
@@ -472,26 +464,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_edge.rb"
-    =begin
-    File: binary_search_edge.rb
-    Created Time: 2024-04-09
-    Author: Blue Bean (lonnnnnnner@gmail.com)
-    =end
-
-    require_relative './binary_search_insertion'
-
-    # ## Бинарный поиск самого левого target ###
-    def binary_search_left_edge(nums, target)
-      # Эквивалентно поиску точки вставки target
-      i = binary_search_insertion(nums, target)
-
-      # target не найден, вернуть -1
-      return -1 if i == nums.length || nums[i] != target
-
-      i # Найти target и вернуть индекс i
-    end
-
-    # ## Бинарный поиск самого правого target ###
+    ### Бинарный поиск самого правого target ###
     def binary_search_right_edge(nums, target)
       # Преобразовать задачу в поиск самого левого target + 1
       i = binary_search_insertion(nums, target + 1)

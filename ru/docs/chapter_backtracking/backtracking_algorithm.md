@@ -220,16 +220,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="preorder_traversal_i_compact.rb"
-    =begin
-    File: preorder_traversal_i_compact.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Предварительный обход: пример 1 ###
+    ### Предварительный обход: пример 1 ###
     def pre_order(root)
       return unless root
 
@@ -534,16 +525,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="preorder_traversal_ii_compact.rb"
-    =begin
-    File: preorder_traversal_ii_compact.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Предварительный обход: пример 2 ###
+    ### Предварительный обход: пример 2 ###
     def pre_order(root)
       return unless root
 
@@ -896,16 +878,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="preorder_traversal_iii_compact.rb"
-    =begin
-    File: preorder_traversal_iii_compact.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Предварительный обход: пример 3 ###
+    ### Предварительный обход: пример 3 ###
     def pre_order(root)
       # Отсечение
       return if !root || root.val == 3
@@ -1906,161 +1879,32 @@ comments: true
 === "Ruby"
 
     ```ruby title="preorder_traversal_iii_template.rb"
-    =begin
-    File: preorder_traversal_iii_template.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Проверка, является ли текущее состояние решением ###
+    ### Проверка, является ли текущее состояние решением ###
     def is_solution?(state)
       !state.empty? && state.last.val == 7
     end
 
-    =begin
-    File: preorder_traversal_iii_template.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Проверка, является ли текущее состояние решением ###
-    def is_solution?(state)
-      !state.empty? && state.last.val == 7
-    end
-
-    # ## Записать решение ###
+    ### Записать решение ###
     def record_solution(state, res)
       res << state.dup
     end
 
-    =begin
-    File: preorder_traversal_iii_template.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Проверка, является ли текущее состояние решением ###
-    def is_solution?(state)
-      !state.empty? && state.last.val == 7
-    end
-
-    # ## Записать решение ###
-    def record_solution(state, res)
-      res << state.dup
-    end
-
-    # ## Проверка допустимости этого выбора в текущем состоянии ###
+    ### Проверка допустимости этого выбора в текущем состоянии ###
     def is_valid?(state, choice)
       choice && choice.val != 3
     end
 
-    =begin
-    File: preorder_traversal_iii_template.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Проверка, является ли текущее состояние решением ###
-    def is_solution?(state)
-      !state.empty? && state.last.val == 7
-    end
-
-    # ## Записать решение ###
-    def record_solution(state, res)
-      res << state.dup
-    end
-
-    # ## Проверка допустимости этого выбора в текущем состоянии ###
-    def is_valid?(state, choice)
-      choice && choice.val != 3
-    end
-
-    # ## Обновить состояние ###
+    ### Обновить состояние ###
     def make_choice(state, choice)
       state << choice
     end
 
-    =begin
-    File: preorder_traversal_iii_template.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Проверка, является ли текущее состояние решением ###
-    def is_solution?(state)
-      !state.empty? && state.last.val == 7
-    end
-
-    # ## Записать решение ###
-    def record_solution(state, res)
-      res << state.dup
-    end
-
-    # ## Проверка допустимости этого выбора в текущем состоянии ###
-    def is_valid?(state, choice)
-      choice && choice.val != 3
-    end
-
-    # ## Обновить состояние ###
-    def make_choice(state, choice)
-      state << choice
-    end
-
-    # ## Восстановить состояние ###
+    ### Восстановить состояние ###
     def undo_choice(state, choice)
       state.pop
     end
 
-    =begin
-    File: preorder_traversal_iii_template.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Проверка, является ли текущее состояние решением ###
-    def is_solution?(state)
-      !state.empty? && state.last.val == 7
-    end
-
-    # ## Записать решение ###
-    def record_solution(state, res)
-      res << state.dup
-    end
-
-    # ## Проверка допустимости этого выбора в текущем состоянии ###
-    def is_valid?(state, choice)
-      choice && choice.val != 3
-    end
-
-    # ## Обновить состояние ###
-    def make_choice(state, choice)
-      state << choice
-    end
-
-    # ## Восстановить состояние ###
-    def undo_choice(state, choice)
-      state.pop
-    end
-
-    # ## Алгоритм бэктрекинга: пример 3 ###
+    ### Алгоритм бэктрекинга: пример 3 ###
     def backtrack(state, choices, res)
       # Проверить, является ли текущее состояние решением
       record_solution(state, res) if is_solution?(state)

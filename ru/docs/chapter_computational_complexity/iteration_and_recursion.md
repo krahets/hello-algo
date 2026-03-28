@@ -185,13 +185,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="iteration.rb"
-    =begin
-    File: iteration.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com), Cy (9738314@gmail.com)
-    =end
-
-    # ## Цикл for ###
+    ### Цикл for ###
     def for_loop(n)
       res = 0
 
@@ -419,25 +413,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="iteration.rb"
-    =begin
-    File: iteration.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com), Cy (9738314@gmail.com)
-    =end
-
-    # ## Цикл for ###
-    def for_loop(n)
-      res = 0
-
-      # Циклическое суммирование 1, 2, ..., n-1, n
-      for i in 1..n
-        res += i
-      end
-
-      res
-    end
-
-    # ## Цикл while ###
+    ### Цикл while ###
     def while_loop(n)
       res = 0
       i = 1 # Инициализация условной переменной
@@ -680,39 +656,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="iteration.rb"
-    =begin
-    File: iteration.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com), Cy (9738314@gmail.com)
-    =end
-
-    # ## Цикл for ###
-    def for_loop(n)
-      res = 0
-
-      # Циклическое суммирование 1, 2, ..., n-1, n
-      for i in 1..n
-        res += i
-      end
-
-      res
-    end
-
-    # ## Цикл while ###
-    def while_loop(n)
-      res = 0
-      i = 1 # Инициализация условной переменной
-
-      # Циклическое суммирование 1, 2, ..., n-1, n
-      while i <= n
-        res += i
-        i += 1 # Обновить условную переменную
-      end
-
-      res
-    end
-
-    # ## Цикл while (двойное обновление) ###
+    ### Цикл while (двойное обновление) ###
     def while_loop_ii(n)
       res = 0
       i = 1 # Инициализация условной переменной
@@ -948,55 +892,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="iteration.rb"
-    =begin
-    File: iteration.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com), Cy (9738314@gmail.com)
-    =end
-
-    # ## Цикл for ###
-    def for_loop(n)
-      res = 0
-
-      # Циклическое суммирование 1, 2, ..., n-1, n
-      for i in 1..n
-        res += i
-      end
-
-      res
-    end
-
-    # ## Цикл while ###
-    def while_loop(n)
-      res = 0
-      i = 1 # Инициализация условной переменной
-
-      # Циклическое суммирование 1, 2, ..., n-1, n
-      while i <= n
-        res += i
-        i += 1 # Обновить условную переменную
-      end
-
-      res
-    end
-
-    # ## Цикл while (двойное обновление) ###
-    def while_loop_ii(n)
-      res = 0
-      i = 1 # Инициализация условной переменной
-
-      # Циклическое суммирование 1, 4, 10, ...
-      while i <= n
-        res += i
-        # Обновить условную переменную
-        i += 1
-        i *= 2
-      end
-
-      res
-    end
-
-    # ## Двойной цикл for ###
+    ### Двойной цикл for ###
     def nested_for_loop(n)
       res = ""
 
@@ -1224,13 +1120,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="recursion.rb"
-    =begin
-    File: recursion.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Рекурсия ###
+    ### Рекурсия ###
     def recur(n)
       # Условие завершения
       return 1 if n == 1
@@ -1445,43 +1335,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="recursion.rb"
-    =begin
-    File: recursion.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Рекурсия ###
-    def recur(n)
-      # Условие завершения
-      return 1 if n == 1
-      # Рекурсия: рекурсивный вызов
-      res = recur(n - 1)
-      # Возврат: вернуть результат
-      n + res
-    end
-
-    # ## Имитация рекурсии итерацией ###
-    def for_loop_recur(n)
-      # Использовать явный стек для имитации системного стека вызовов
-      stack = []
-      res = 0
-
-      # Рекурсия: рекурсивный вызов
-      for i in n.downto(0)
-        # Имитировать «рекурсию» с помощью операции помещения в стек
-        stack << i
-      end
-      # Возврат: вернуть результат
-      while !stack.empty?
-        res += stack.pop
-      end
-
-      # res = 1+2+3+...+n
-      res
-    end
-
-    # ## Хвостовая рекурсия ###
+    ### Хвостовая рекурсия ###
     def tail_recur(n, res)
       # Условие завершения
       return res if n == 0
@@ -1705,51 +1559,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="recursion.rb"
-    =begin
-    File: recursion.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Рекурсия ###
-    def recur(n)
-      # Условие завершения
-      return 1 if n == 1
-      # Рекурсия: рекурсивный вызов
-      res = recur(n - 1)
-      # Возврат: вернуть результат
-      n + res
-    end
-
-    # ## Имитация рекурсии итерацией ###
-    def for_loop_recur(n)
-      # Использовать явный стек для имитации системного стека вызовов
-      stack = []
-      res = 0
-
-      # Рекурсия: рекурсивный вызов
-      for i in n.downto(0)
-        # Имитировать «рекурсию» с помощью операции помещения в стек
-        stack << i
-      end
-      # Возврат: вернуть результат
-      while !stack.empty?
-        res += stack.pop
-      end
-
-      # res = 1+2+3+...+n
-      res
-    end
-
-    # ## Хвостовая рекурсия ###
-    def tail_recur(n, res)
-      # Условие завершения
-      return res if n == 0
-      # Хвостовой рекурсивный вызов
-      tail_recur(n - 1, res + n)
-    end
-
-    # ## Последовательность Фибоначчи: рекурсия ###
+    ### Последовательность Фибоначчи: рекурсия ###
     def fib(n)
       # Условие завершения: f(1) = 0, f(2) = 1
       return n - 1 if n == 1 || n == 2
@@ -2084,23 +1894,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="recursion.rb"
-    =begin
-    File: recursion.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Рекурсия ###
-    def recur(n)
-      # Условие завершения
-      return 1 if n == 1
-      # Рекурсия: рекурсивный вызов
-      res = recur(n - 1)
-      # Возврат: вернуть результат
-      n + res
-    end
-
-    # ## Имитация рекурсии итерацией ###
+    ### Имитация рекурсии итерацией ###
     def for_loop_recur(n)
       # Использовать явный стек для имитации системного стека вызовов
       stack = []

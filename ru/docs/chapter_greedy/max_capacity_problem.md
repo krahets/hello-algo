@@ -397,13 +397,7 @@ $$
 === "Ruby"
 
     ```ruby title="max_capacity.rb"
-    =begin
-    File: max_capacity.rb
-    Created Time: 2024-05-07
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Максимальная вместимость: жадный алгоритм ###
+    ### Максимальная вместимость: жадный алгоритм ###
     def max_capacity(ht)
       # Инициализировать i и j так, чтобы они располагались по двум концам массива
       i, j = 0, ht.length - 1

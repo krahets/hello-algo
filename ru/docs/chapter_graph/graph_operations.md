@@ -1130,18 +1130,10 @@ comments: true
 === "Ruby"
 
     ```ruby title="graph_adjacency_matrix.rb"
-    =begin
-    File: graph_adjacency_matrix.rb
-    Created Time: 2024-04-25
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/print_util'
-
-    # ## Класс неориентированного графа на основе матрицы смежности ###
+    ### Класс неориентированного графа на основе матрицы смежности ###
     class GraphAdjMat
       def initialize(vertices, edges)
-        # ## Конструктор ###
+        ### Конструктор ###
         # Список вершин: элементы представляют «значения вершин», а индексы — «индексы вершин»
         @vertices = []
         # Матрица смежности, где индексы строк и столбцов соответствуют «индексам вершин»
@@ -1153,12 +1145,12 @@ comments: true
         edges.each { |e| add_edge(e[0], e[1]) }
       end
 
-      # ## Получение числа вершин ###
+      ### Получение числа вершин ###
       def size
         @vertices.length
       end
 
-      # ## Добавление вершины ###
+      ### Добавление вершины ###
       def add_vertex(val)
         n = size
         # Добавить значение новой вершины в список вершин
@@ -1170,7 +1162,7 @@ comments: true
         @adj_mat.each { |row| row << 0 }
       end
 
-      # ## Удаление вершины ###
+      ### Удаление вершины ###
       def remove_vertex(index)
         raise IndexError if index >= size
 
@@ -1182,7 +1174,7 @@ comments: true
         @adj_mat.each { |row| row.delete_at(index) }
       end
 
-      # ## Добавление ребра ###
+      ### Добавление ребра ###
       def add_edge(i, j)
         # Параметры i и j соответствуют индексам элементов vertices
         # Обработка выхода индекса за границы и случая равенства
@@ -1194,7 +1186,7 @@ comments: true
         @adj_mat[j][i] = 1
       end
 
-      # ## Удаление ребра ###
+      ### Удаление ребра ###
       def remove_edge(i, j)
         # Параметры i и j соответствуют индексам элементов vertices
         # Обработка выхода индекса за границы и случая равенства
@@ -1205,7 +1197,7 @@ comments: true
         @adj_mat[j][i] = 0
       end
 
-      # ## Вывести матрицу смежности ###
+      ### Вывести матрицу смежности ###
       def __print__
         puts "Список вершин = #{@vertices}"
         puts 'Матрица смежности ='
@@ -2303,19 +2295,11 @@ comments: true
 === "Ruby"
 
     ```ruby title="graph_adjacency_list.rb"
-    =begin
-    File: graph_adjacency_list.rb
-    Created Time: 2024-04-25
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/vertex'
-
-    # ## Класс неориентированного графа на основе списка смежности ###
+    ### Класс неориентированного графа на основе списка смежности ###
     class GraphAdjList
       attr_reader :adj_list
       
-      # ## Конструктор ###
+      ### Конструктор ###
       def initialize(edges)
         # Список смежности, где key — вершина, а value — все смежные ей вершины
         @adj_list = {}
@@ -2327,12 +2311,12 @@ comments: true
         end
       end
 
-      # ## Получение числа вершин ###
+      ### Получение числа вершин ###
       def size
         @adj_list.length
       end
 
-      # ## Добавление ребра ###
+      ### Добавление ребра ###
       def add_edge(vet1, vet2)
         raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
 
@@ -2340,7 +2324,7 @@ comments: true
         @adj_list[vet2] << vet1
       end
 
-      # ## Удаление ребра ###
+      ### Удаление ребра ###
       def remove_edge(vet1, vet2)
         raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
 
@@ -2349,7 +2333,7 @@ comments: true
         @adj_list[vet2].delete(vet1)
       end
 
-      # ## Добавление вершины ###
+      ### Добавление вершины ###
       def add_vertex(vet)
         return if @adj_list.include?(vet)
 
@@ -2357,7 +2341,7 @@ comments: true
         @adj_list[vet] = []
       end
 
-      # ## Удаление вершины ###
+      ### Удаление вершины ###
       def remove_vertex(vet)
         raise ArgumentError unless @adj_list.include?(vet)
 
@@ -2369,7 +2353,7 @@ comments: true
         end
       end
 
-      # ## Вывести список смежности ###
+      ### Вывести список смежности ###
       def __print__
         puts 'Список смежности ='
         for vertex in @adj_list

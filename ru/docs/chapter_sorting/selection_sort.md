@@ -306,13 +306,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="selection_sort.rb"
-    =begin
-    File: selection_sort.rb
-    Created Time: 2024-05-03
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Сортировка выбором ###
+    ### Сортировка выбором ###
     def selection_sort(nums)
       n = nums.length
       # Внешний цикл: неотсортированный диапазон [i, n-1]

@@ -310,13 +310,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="coin_change_greedy.rb"
-    =begin
-    File: coin_change_greedy.rb
-    Created Time: 2024-05-07
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Размен монет: жадный алгоритм ###
+    ### Размен монет: жадный алгоритм ###
     def coin_change_greedy(coins, amt)
       # Предположить, что список coins упорядочен
       i = coins.length - 1

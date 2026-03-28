@@ -253,13 +253,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="insertion_sort.rb"
-    =begin
-    File: insertion_sort.rb
-    Created Time: 2024-04-02
-    Author: Cy (3739004@gmail.com), Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Сортировка вставками ###
+    ### Сортировка вставками ###
     def insertion_sort(nums)
       n = nums.length
       # Внешний цикл: отсортированный диапазон [0, i-1]

@@ -340,13 +340,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="counting_sort.rb"
-    =begin
-    File: counting_sort.rb
-    Created Time: 2024-05-02
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Сортировка подсчетом ###
+    ### Сортировка подсчетом ###
     def counting_sort_naive(nums)
       # Простая реализация, не подходит для сортировки объектов
       # 1. Найти максимальный элемент массива m
@@ -857,33 +851,7 @@ $$
 === "Ruby"
 
     ```ruby title="counting_sort.rb"
-    =begin
-    File: counting_sort.rb
-    Created Time: 2024-05-02
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Сортировка подсчетом ###
-    def counting_sort_naive(nums)
-      # Простая реализация, не подходит для сортировки объектов
-      # 1. Найти максимальный элемент массива m
-      m = 0
-      nums.each { |num| m = [m, num].max }
-      # 2. Подсчитать число появлений каждой цифры
-      # counter[num] обозначает число появлений num
-      counter = Array.new(m + 1, 0)
-      nums.each { |num| counter[num] += 1 }
-      # 3. Обойти counter и заполнить исходный массив nums элементами
-      i = 0
-      for num in 0...(m + 1)
-        (0...counter[num]).each do
-          nums[i] = num
-          i += 1
-        end
-      end
-    end
-
-    # ## Сортировка подсчетом ###
+    ### Сортировка подсчетом ###
     def counting_sort(nums)
       # Полная реализация, позволяет сортировать объекты и является стабильной сортировкой
       # 1. Найти максимальный элемент массива m

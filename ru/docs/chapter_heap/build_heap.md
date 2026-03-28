@@ -311,19 +311,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-  =begin
-  File: my_heap.rb
-  Created Time: 2024-04-19
-  Author: Blue Bean (lonnnnnnner@gmail.com)
-  =end
-
-  require_relative '../utils/print_util'
-
-  # ## Максимальная куча ###
-  class MaxHeap
-    attr_reader :max_heap
-
-    # ## Конструктор, строящий кучу по входному списку ###
+    ### Конструктор, строящий кучу по входному списку ###
     def initialize(nums)
       # Добавить элементы списка в кучу без изменений
       @max_heap = nums

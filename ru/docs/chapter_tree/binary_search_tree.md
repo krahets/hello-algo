@@ -316,29 +316,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_tree.rb"
-  =begin
-  File: binary_search_tree.rb
-  Created Time: 2024-04-18
-  Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-  =end
-
-  require_relative '../utils/tree_node'
-  require_relative '../utils/print_util'
-
-  # ## Двоичное дерево поиска ###
-  class BinarySearchTree
-    # ## Конструктор ###
-    def initialize
-      # Инициализировать пустое дерево
-      @root = nil
-    end
-
-    # ## Получение корневого узла двоичного дерева ###
-    def get_root
-      @root
-    end
-
-    # ## Поиск узла ###
+    ### Поиск узла ###
     def search(num)
       cur = @root
 
@@ -790,50 +768,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_tree.rb"
-  =begin
-  File: binary_search_tree.rb
-  Created Time: 2024-04-18
-  Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-  =end
-
-  require_relative '../utils/tree_node'
-  require_relative '../utils/print_util'
-
-  # ## Двоичное дерево поиска ###
-  class BinarySearchTree
-    # ## Конструктор ###
-    def initialize
-      # Инициализировать пустое дерево
-      @root = nil
-    end
-
-    # ## Получение корневого узла двоичного дерева ###
-    def get_root
-      @root
-    end
-
-    # ## Поиск узла ###
-    def search(num)
-      cur = @root
-
-      # Искать в цикле и выйти после прохода за листовой узел
-      while !cur.nil?
-        # Целевой узел находится в правом поддереве cur
-        if cur.val < num
-          cur = cur.right
-        # Целевой узел находится в левом поддереве cur
-        elsif cur.val > num
-          cur = cur.left
-        # Найти целевой узел и выйти из цикла
-        else
-          break
-        end
-      end
-
-      cur
-    end
-
-    # ## Вставка узла ###
+    ### Вставка узла ###
     def insert(num)
       # Если дерево пусто, инициализировать корневой узел
       if @root.nil?
@@ -1600,83 +1535,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_search_tree.rb"
-  =begin
-  File: binary_search_tree.rb
-  Created Time: 2024-04-18
-  Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-  =end
-
-  require_relative '../utils/tree_node'
-  require_relative '../utils/print_util'
-
-  # ## Двоичное дерево поиска ###
-  class BinarySearchTree
-    # ## Конструктор ###
-    def initialize
-      # Инициализировать пустое дерево
-      @root = nil
-    end
-
-    # ## Получение корневого узла двоичного дерева ###
-    def get_root
-      @root
-    end
-
-    # ## Поиск узла ###
-    def search(num)
-      cur = @root
-
-      # Искать в цикле и выйти после прохода за листовой узел
-      while !cur.nil?
-        # Целевой узел находится в правом поддереве cur
-        if cur.val < num
-          cur = cur.right
-        # Целевой узел находится в левом поддереве cur
-        elsif cur.val > num
-          cur = cur.left
-        # Найти целевой узел и выйти из цикла
-        else
-          break
-        end
-      end
-
-      cur
-    end
-
-    # ## Вставка узла ###
-    def insert(num)
-      # Если дерево пусто, инициализировать корневой узел
-      if @root.nil?
-        @root = TreeNode.new(num)
-        return
-      end
-
-      # Искать в цикле и выйти после прохода за листовой узел
-      cur, pre = @root, nil
-      while !cur.nil?
-        # Найти повторяющийся узел и сразу вернуть
-        return if cur.val == num
-
-        pre = cur
-        # Позиция вставки находится в правом поддереве cur
-        if cur.val < num
-          cur = cur.right
-        # Позиция вставки находится в левом поддереве cur
-        else
-          cur = cur.left
-        end
-      end
-
-      # Вставка узла
-      node = TreeNode.new(num)
-      if pre.val < num
-        pre.right = node
-      else
-        pre.left = node
-      end
-    end
-
-    # ## Удаление узла ###
+    ### Удаление узла ###
     def remove(num)
       # Если дерево пусто, сразу вернуть
       return if @root.nil?

@@ -304,13 +304,7 @@ $$
 === "Ruby"
 
     ```ruby title="min_cost_climbing_stairs_dp.rb"
-    =begin
-    File: min_cost_climbing_stairs_dp.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Минимальная стоимость подъема по лестнице: динамическое программирование ###
+    ### Минимальная стоимость подъема по лестнице: динамическое программирование ###
     def min_cost_climbing_stairs_dp(cost)
       n = cost.length - 1
       return cost[n] if n == 1 || n == 2
@@ -564,13 +558,7 @@ $$
 === "Ruby"
 
     ```ruby title="min_cost_climbing_stairs_dp.rb"
-    =begin
-    File: min_cost_climbing_stairs_dp.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Минимальная стоимость подъема по лестнице: динамическое программирование ###
+    ### Минимальная стоимость подъема по лестнице: динамическое программирование ###
     def min_cost_climbing_stairs_dp(cost)
       n = cost.length - 1
       return cost[n] if n == 1 || n == 2
@@ -935,13 +923,7 @@ $$
 === "Ruby"
 
     ```ruby title="climbing_stairs_constraint_dp.rb"
-    =begin
-    File: climbing_stairs_constraint_dp.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Подъем по лестнице с ограничениями: динамическое программирование ###
+    ### Подъем по лестнице с ограничениями: динамическое программирование ###
     def climbing_stairs_constraint_dp(n)
       return 1 if n == 1 || n == 2
 

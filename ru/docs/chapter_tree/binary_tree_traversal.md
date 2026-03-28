@@ -318,16 +318,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_tree_bfs.rb"
-    =begin
-    File: binary_tree_bfs.rb
-    Created Time: 2024-04-18
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Обход в ширину ###
+    ### Обход в ширину ###
     def level_order(root)
       # Инициализировать очередь и добавить корневой узел
       queue = [root]
@@ -797,16 +788,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_tree_dfs.rb"
-    =begin
-    File: binary_tree_dfs.rb
-    Created Time: 2024-04-18
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Предварительный обход ###
+    ### Предварительный обход ###
     def pre_order(root)
       return if root.nil?
 
@@ -816,26 +798,7 @@ comments: true
       pre_order(root.right)
     end
 
-    =begin
-    File: binary_tree_dfs.rb
-    Created Time: 2024-04-18
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Предварительный обход ###
-    def pre_order(root)
-      return if root.nil?
-
-      # Порядок обхода: корень -> левое поддерево -> правое поддерево
-      $res << root.val
-      pre_order(root.left)
-      pre_order(root.right)
-    end
-
-    # ## Симметричный обход ###
+    ### Симметричный обход ###
     def in_order(root)
       return if root.nil?
 
@@ -845,36 +808,7 @@ comments: true
       in_order(root.right)
     end
 
-    =begin
-    File: binary_tree_dfs.rb
-    Created Time: 2024-04-18
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/tree_node'
-    require_relative '../utils/print_util'
-
-    # ## Предварительный обход ###
-    def pre_order(root)
-      return if root.nil?
-
-      # Порядок обхода: корень -> левое поддерево -> правое поддерево
-      $res << root.val
-      pre_order(root.left)
-      pre_order(root.right)
-    end
-
-    # ## Симметричный обход ###
-    def in_order(root)
-      return if root.nil?
-
-      # Порядок обхода: левое поддерево -> корень -> правое поддерево
-      in_order(root.left)
-      $res << root.val
-      in_order(root.right)
-    end
-
-    # ## Обратный обход ###
+    ### Обратный обход ###
     def post_order(root)
       return if root.nil?
 

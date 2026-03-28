@@ -1677,13 +1677,7 @@ index = hash(key) % capacity
 === "Ruby"
 
     ```ruby title="array_hash_map.rb"
-    =begin
-    File: array_hash_map.rb
-    Created Time: 2024-04-13
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Пара ключ-значение ###
+    ### Пара ключ-значение ###
     class Pair
       attr_accessor :key, :val
 
@@ -1693,36 +1687,20 @@ index = hash(key) % capacity
       end
     end
 
-    =begin
-    File: array_hash_map.rb
-    Created Time: 2024-04-13
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Пара ключ-значение ###
-    class Pair
-      attr_accessor :key, :val
-
-      def initialize(key, val)
-        @key = key
-        @val = val
-      end
-    end
-
-    # ## Хеш-таблица на основе массива ###
+    ### Хеш-таблица на основе массива ###
     class ArrayHashMap
-      # ## Конструктор ###
+      ### Конструктор ###
       def initialize
         # Инициализировать массив, содержащий 100 корзин
         @buckets = Array.new(100)
       end
 
-      # ## Хеш-функция ###
+      ### Хеш-функция ###
       def hash_func(key)
         index = key % 100
       end
 
-      # ## Операция поиска ###
+      ### Операция поиска ###
       def get(key)
         index = hash_func(key)
         pair = @buckets[index]
@@ -1731,42 +1709,42 @@ index = hash(key) % capacity
         pair.val
       end
 
-      # ## Операция добавления ###
+      ### Операция добавления ###
       def put(key, val)
         pair = Pair.new(key, val)
         index = hash_func(key)
         @buckets[index] = pair
       end
 
-      # ## Операция удаления ###
+      ### Операция удаления ###
       def remove(key)
         index = hash_func(key)
         # Присвоить nil, что означает удаление
         @buckets[index] = nil
       end
 
-      # ## Получить все пары ключ-значение ###
+      ### Получить все пары ключ-значение ###
       def entry_set
         result = []
         @buckets.each { |pair| result << pair unless pair.nil? }
         result
       end
 
-      # ## Получить все ключи ###
+      ### Получить все ключи ###
       def key_set
         result = []
         @buckets.each { |pair| result << pair.key unless pair.nil? }
         result
       end
 
-      # ## Получить все значения ###
+      ### Получить все значения ###
       def value_set
         result = []
         @buckets.each { |pair| result << pair.val unless pair.nil? }
         result
       end
 
-      # ## Вывести хеш-таблицу ###
+      ### Вывести хеш-таблицу ###
       def print
         @buckets.each { |pair| puts "#{pair.key} -> #{pair.val}" unless pair.nil? }
       end

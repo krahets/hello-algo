@@ -496,13 +496,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="fractional_knapsack.rb"
-    =begin
-    File: fractional_knapsack.rb
-    Created Time: 2024-05-07
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Предмет ###
+    ### Предмет ###
     class Item
       attr_accessor :w # Вес предмета
       attr_accessor :v # Стоимость предмета
@@ -513,24 +507,7 @@ comments: true
       end
     end
 
-    =begin
-    File: fractional_knapsack.rb
-    Created Time: 2024-05-07
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Предмет ###
-    class Item
-      attr_accessor :w # Вес предмета
-      attr_accessor :v # Стоимость предмета
-
-      def initialize(w, v)
-        @w = w
-        @v = v
-      end
-    end
-
-    # ## Дробный рюкзак: жадный алгоритм ###
+    ### Дробный рюкзак: жадный алгоритм ###
     def fractional_knapsack(wgt, val, cap)
       # Создать список предметов с двумя свойствами: вес и стоимость
       items = wgt.each_with_index.map { |w, i| Item.new(w, val[i]) }

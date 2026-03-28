@@ -1109,29 +1109,21 @@ comments: true
 === "Ruby"
 
     ```ruby title="linkedlist_stack.rb"
-    =begin
-    File: linkedlist_stack.rb
-    Created Time: 2024-04-06
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/list_node'
-
-    # ## Стек на основе связного списка ###
+    ### Стек на основе связного списка ###
     class LinkedListStack
       attr_reader :size
 
-      # ## Конструктор ###
+      ### Конструктор ###
       def initialize
         @size = 0
       end
 
-      # ## Проверка, пуст ли стек ###
+      ### Проверка, пуст ли стек ###
       def is_empty?
         @peek.nil?
       end
 
-      # ## Помещение в стек ###
+      ### Помещение в стек ###
       def push(val)
         node = ListNode.new(val)
         node.next = @peek
@@ -1139,7 +1131,7 @@ comments: true
         @size += 1
       end
 
-      # ## Извлечение из стека ###
+      ### Извлечение из стека ###
       def pop
         num = peek
         @peek = @peek.next
@@ -1147,14 +1139,14 @@ comments: true
         num
       end
 
-      # ## Доступ к верхнему элементу стека ###
+      ### Доступ к верхнему элементу стека ###
       def peek
         raise IndexError, 'стек пуст' if is_empty?
 
         @peek.val
       end
 
-      # ## Преобразовать связный список в Array и вернуть ###
+      ### Преобразовать связный список в Array и вернуть ###
       def to_array
         arr = []
         node = @peek
@@ -1766,49 +1758,43 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_stack.rb"
-    =begin
-    File: array_stack.rb
-    Created Time: 2024-04-06
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Стек на основе массива ###
+    ### Стек на основе массива ###
     class ArrayStack
-      # ## Конструктор ###
+      ### Конструктор ###
       def initialize
         @stack = []
       end
 
-      # ## Получить длину стека ###
+      ### Получить длину стека ###
       def size
         @stack.length
       end
 
-      # ## Проверка, пуст ли стек ###
+      ### Проверка, пуст ли стек ###
       def is_empty?
         @stack.empty?
       end
 
-      # ## Помещение в стек ###
+      ### Помещение в стек ###
       def push(item)
         @stack << item
       end
 
-      # ## Извлечение из стека ###
+      ### Извлечение из стека ###
       def pop
         raise IndexError, 'стек пуст' if is_empty?
 
         @stack.pop
       end
 
-      # ## Доступ к верхнему элементу стека ###
+      ### Доступ к верхнему элементу стека ###
       def peek
         raise IndexError, 'стек пуст' if is_empty?
 
         @stack.last
       end
 
-      # ## Вернуть список для вывода ###
+      ### Вернуть список для вывода ###
       def to_array
         @stack
       end

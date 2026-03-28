@@ -669,31 +669,13 @@ $$
 === "Ruby"
 
     ```ruby title="radix_sort.rb"
-    =begin
-    File: radix_sort.rb
-    Created Time: 2024-05-03
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Получить k-й разряд элемента num, где exp = 10^(k-1) ###
+    ### Получить k-й разряд элемента num, где exp = 10^(k-1) ###
     def digit(num, exp)
       # Передача exp вместо k позволяет избежать повторного выполнения дорогостоящих вычислений степени
       (num / exp) % 10
     end
 
-    =begin
-    File: radix_sort.rb
-    Created Time: 2024-05-03
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Получить k-й разряд элемента num, где exp = 10^(k-1) ###
-    def digit(num, exp)
-      # Передача exp вместо k позволяет избежать повторного выполнения дорогостоящих вычислений степени
-      (num / exp) % 10
-    end
-
-    # ## Сортировка подсчетом (сортировка по k-му разряду nums) ###
+    ### Сортировка подсчетом (сортировка по k-му разряду nums) ###
     def counting_sort_digit(nums, exp)
       # Разряды десятичной системы лежат в диапазоне 0~9, поэтому нужен массив корзин длины 10
       counter = Array.new(10, 0)
@@ -717,43 +699,7 @@ $$
       (0...n).each { |i| nums[i] = res[i] }
     end
 
-    =begin
-    File: radix_sort.rb
-    Created Time: 2024-05-03
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Получить k-й разряд элемента num, где exp = 10^(k-1) ###
-    def digit(num, exp)
-      # Передача exp вместо k позволяет избежать повторного выполнения дорогостоящих вычислений степени
-      (num / exp) % 10
-    end
-
-    # ## Сортировка подсчетом (сортировка по k-му разряду nums) ###
-    def counting_sort_digit(nums, exp)
-      # Разряды десятичной системы лежат в диапазоне 0~9, поэтому нужен массив корзин длины 10
-      counter = Array.new(10, 0)
-      n = nums.length
-      # Подсчитать число появлений каждой цифры от 0 до 9
-      for i in 0...n
-        d = digit(nums[i], exp) # Получить k-й разряд nums[i], обозначив его как d
-        counter[d] += 1 # Подсчитать число появлений цифры d
-      end
-      # Вычислить префиксные суммы и преобразовать «число появлений» в «индекс массива»
-      (1...10).each { |i| counter[i] += counter[i - 1] }
-      # Выполняя обратный проход, заполнить res элементами по статистике в корзинах
-      res = Array.new(n, 0)
-      for i in (n - 1).downto(0)
-        d = digit(nums[i], exp)
-        j = counter[d] - 1 # Получить индекс j цифры d в массиве
-        res[j] = nums[i] # Поместить текущий элемент по индексу j
-        counter[d] -= 1 # Уменьшить количество d на 1
-      end
-      # Перезаписать исходный массив nums результатом
-      (0...n).each { |i| nums[i] = res[i] }
-    end
-
-    # ## Поразрядная сортировка ###
+    ### Поразрядная сортировка ###
     def radix_sort(nums)
       # Получить максимальный элемент массива, чтобы определить максимальное число разрядов
       m = nums.max

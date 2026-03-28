@@ -669,98 +669,17 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-  =begin
-  File: my_heap.rb
-  Created Time: 2024-04-19
-  Author: Blue Bean (lonnnnnnner@gmail.com)
-  =end
-
-  require_relative '../utils/print_util'
-
-  # ## Максимальная куча ###
-  class MaxHeap
-    attr_reader :max_heap
-
-    # ## Конструктор, строящий кучу по входному списку ###
-    def initialize(nums)
-      # Добавить элементы списка в кучу без изменений
-      @max_heap = nums
-      # Выполнить heapify для всех узлов, кроме листовых
-      parent(size - 1).downto(0) do |i|
-        sift_down(i)
-      end
-    end
-
-    # ## Получить индекс левого дочернего узла ###
+    ### Получить индекс левого дочернего узла ###
     def left(i)
       2 * i + 1
     end
 
-  =begin
-  File: my_heap.rb
-  Created Time: 2024-04-19
-  Author: Blue Bean (lonnnnnnner@gmail.com)
-  =end
-
-  require_relative '../utils/print_util'
-
-  # ## Максимальная куча ###
-  class MaxHeap
-    attr_reader :max_heap
-
-    # ## Конструктор, строящий кучу по входному списку ###
-    def initialize(nums)
-      # Добавить элементы списка в кучу без изменений
-      @max_heap = nums
-      # Выполнить heapify для всех узлов, кроме листовых
-      parent(size - 1).downto(0) do |i|
-        sift_down(i)
-      end
-    end
-
-    # ## Получить индекс левого дочернего узла ###
-    def left(i)
-      2 * i + 1
-    end
-
-    # ## Получить индекс правого дочернего узла ###
+    ### Получить индекс правого дочернего узла ###
     def right(i)
       2 * i + 2
     end
 
-  =begin
-  File: my_heap.rb
-  Created Time: 2024-04-19
-  Author: Blue Bean (lonnnnnnner@gmail.com)
-  =end
-
-  require_relative '../utils/print_util'
-
-  # ## Максимальная куча ###
-  class MaxHeap
-    attr_reader :max_heap
-
-    # ## Конструктор, строящий кучу по входному списку ###
-    def initialize(nums)
-      # Добавить элементы списка в кучу без изменений
-      @max_heap = nums
-      # Выполнить heapify для всех узлов, кроме листовых
-      parent(size - 1).downto(0) do |i|
-        sift_down(i)
-      end
-    end
-
-    # ## Получить индекс левого дочернего узла ###
-    def left(i)
-      2 * i + 1
-    end
-
-    # ## Получить индекс правого дочернего узла ###
-    def right(i)
-      2 * i + 2
-    end
-
-    # ## Получить индекс родительского узла ###
+    ### Получить индекс родительского узла ###
     def parent(i)
       (i - 1) / 2     # Округление вниз при делении
     end
@@ -880,59 +799,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-  =begin
-  File: my_heap.rb
-  Created Time: 2024-04-19
-  Author: Blue Bean (lonnnnnnner@gmail.com)
-  =end
-
-  require_relative '../utils/print_util'
-
-  # ## Максимальная куча ###
-  class MaxHeap
-    attr_reader :max_heap
-
-    # ## Конструктор, строящий кучу по входному списку ###
-    def initialize(nums)
-      # Добавить элементы списка в кучу без изменений
-      @max_heap = nums
-      # Выполнить heapify для всех узлов, кроме листовых
-      parent(size - 1).downto(0) do |i|
-        sift_down(i)
-      end
-    end
-
-    # ## Получить индекс левого дочернего узла ###
-    def left(i)
-      2 * i + 1
-    end
-
-    # ## Получить индекс правого дочернего узла ###
-    def right(i)
-      2 * i + 2
-    end
-
-    # ## Получить индекс родительского узла ###
-    def parent(i)
-      (i - 1) / 2     # Округление вниз при делении
-    end
-
-    # ## Обмен элементов ###
-    def swap(i, j)
-      @max_heap[i], @max_heap[j] = @max_heap[j], @max_heap[i]
-    end
-
-    # ## Получить размер кучи ###
-    def size
-      @max_heap.length
-    end
-
-    # ## Проверка, пуста ли куча ###
-    def is_empty?
-      size == 0
-    end
-
-    # ## Доступ к элементу на вершине кучи ###
+    ### Доступ к элементу на вершине кучи ###
     def peek
       @max_heap[0]
     end
@@ -1320,64 +1187,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-  =begin
-  File: my_heap.rb
-  Created Time: 2024-04-19
-  Author: Blue Bean (lonnnnnnner@gmail.com)
-  =end
-
-  require_relative '../utils/print_util'
-
-  # ## Максимальная куча ###
-  class MaxHeap
-    attr_reader :max_heap
-
-    # ## Конструктор, строящий кучу по входному списку ###
-    def initialize(nums)
-      # Добавить элементы списка в кучу без изменений
-      @max_heap = nums
-      # Выполнить heapify для всех узлов, кроме листовых
-      parent(size - 1).downto(0) do |i|
-        sift_down(i)
-      end
-    end
-
-    # ## Получить индекс левого дочернего узла ###
-    def left(i)
-      2 * i + 1
-    end
-
-    # ## Получить индекс правого дочернего узла ###
-    def right(i)
-      2 * i + 2
-    end
-
-    # ## Получить индекс родительского узла ###
-    def parent(i)
-      (i - 1) / 2     # Округление вниз при делении
-    end
-
-    # ## Обмен элементов ###
-    def swap(i, j)
-      @max_heap[i], @max_heap[j] = @max_heap[j], @max_heap[i]
-    end
-
-    # ## Получить размер кучи ###
-    def size
-      @max_heap.length
-    end
-
-    # ## Проверка, пуста ли куча ###
-    def is_empty?
-      size == 0
-    end
-
-    # ## Доступ к элементу на вершине кучи ###
-    def peek
-      @max_heap[0]
-    end
-
-    # ## Добавление элемента в кучу ###
+    ### Добавление элемента в кучу ###
     def push(val)
       # Добавление узла
       @max_heap << val
@@ -1385,72 +1195,7 @@ comments: true
       sift_up(size - 1)
     end
 
-  =begin
-  File: my_heap.rb
-  Created Time: 2024-04-19
-  Author: Blue Bean (lonnnnnnner@gmail.com)
-  =end
-
-  require_relative '../utils/print_util'
-
-  # ## Максимальная куча ###
-  class MaxHeap
-    attr_reader :max_heap
-
-    # ## Конструктор, строящий кучу по входному списку ###
-    def initialize(nums)
-      # Добавить элементы списка в кучу без изменений
-      @max_heap = nums
-      # Выполнить heapify для всех узлов, кроме листовых
-      parent(size - 1).downto(0) do |i|
-        sift_down(i)
-      end
-    end
-
-    # ## Получить индекс левого дочернего узла ###
-    def left(i)
-      2 * i + 1
-    end
-
-    # ## Получить индекс правого дочернего узла ###
-    def right(i)
-      2 * i + 2
-    end
-
-    # ## Получить индекс родительского узла ###
-    def parent(i)
-      (i - 1) / 2     # Округление вниз при делении
-    end
-
-    # ## Обмен элементов ###
-    def swap(i, j)
-      @max_heap[i], @max_heap[j] = @max_heap[j], @max_heap[i]
-    end
-
-    # ## Получить размер кучи ###
-    def size
-      @max_heap.length
-    end
-
-    # ## Проверка, пуста ли куча ###
-    def is_empty?
-      size == 0
-    end
-
-    # ## Доступ к элементу на вершине кучи ###
-    def peek
-      @max_heap[0]
-    end
-
-    # ## Добавление элемента в кучу ###
-    def push(val)
-      # Добавление узла
-      @max_heap << val
-      # Просеивание снизу вверх
-      sift_up(size - 1)
-    end
-
-    # ## Начиная с узла i, выполнить просеивание снизу вверх ###
+    ### Начиная с узла i, выполнить просеивание снизу вверх ###
     def sift_up(i)
       loop do
         # Получение родительского узла для узла i
@@ -1989,86 +1734,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_heap.rb"
-  =begin
-  File: my_heap.rb
-  Created Time: 2024-04-19
-  Author: Blue Bean (lonnnnnnner@gmail.com)
-  =end
-
-  require_relative '../utils/print_util'
-
-  # ## Максимальная куча ###
-  class MaxHeap
-    attr_reader :max_heap
-
-    # ## Конструктор, строящий кучу по входному списку ###
-    def initialize(nums)
-      # Добавить элементы списка в кучу без изменений
-      @max_heap = nums
-      # Выполнить heapify для всех узлов, кроме листовых
-      parent(size - 1).downto(0) do |i|
-        sift_down(i)
-      end
-    end
-
-    # ## Получить индекс левого дочернего узла ###
-    def left(i)
-      2 * i + 1
-    end
-
-    # ## Получить индекс правого дочернего узла ###
-    def right(i)
-      2 * i + 2
-    end
-
-    # ## Получить индекс родительского узла ###
-    def parent(i)
-      (i - 1) / 2     # Округление вниз при делении
-    end
-
-    # ## Обмен элементов ###
-    def swap(i, j)
-      @max_heap[i], @max_heap[j] = @max_heap[j], @max_heap[i]
-    end
-
-    # ## Получить размер кучи ###
-    def size
-      @max_heap.length
-    end
-
-    # ## Проверка, пуста ли куча ###
-    def is_empty?
-      size == 0
-    end
-
-    # ## Доступ к элементу на вершине кучи ###
-    def peek
-      @max_heap[0]
-    end
-
-    # ## Добавление элемента в кучу ###
-    def push(val)
-      # Добавление узла
-      @max_heap << val
-      # Просеивание снизу вверх
-      sift_up(size - 1)
-    end
-
-    # ## Начиная с узла i, выполнить просеивание снизу вверх ###
-    def sift_up(i)
-      loop do
-        # Получение родительского узла для узла i
-        p = parent(i)
-        # Завершить heapify, когда «корневой узел уже пройден» или «узел не требует исправления»
-        break if p < 0 || @max_heap[i] <= @max_heap[p]
-        # Поменять два узла местами
-        swap(i, p)
-        # Циклическое просеивание вверх
-        i = p
-      end
-    end
-
-    # ## Извлечение элемента из кучи ###
+    ### Извлечение элемента из кучи ###
     def pop
       # Обработка пустого случая
       raise IndexError, "куча пуста" if is_empty?
@@ -2082,100 +1748,7 @@ comments: true
       val
     end
 
-  =begin
-  File: my_heap.rb
-  Created Time: 2024-04-19
-  Author: Blue Bean (lonnnnnnner@gmail.com)
-  =end
-
-  require_relative '../utils/print_util'
-
-  # ## Максимальная куча ###
-  class MaxHeap
-    attr_reader :max_heap
-
-    # ## Конструктор, строящий кучу по входному списку ###
-    def initialize(nums)
-      # Добавить элементы списка в кучу без изменений
-      @max_heap = nums
-      # Выполнить heapify для всех узлов, кроме листовых
-      parent(size - 1).downto(0) do |i|
-        sift_down(i)
-      end
-    end
-
-    # ## Получить индекс левого дочернего узла ###
-    def left(i)
-      2 * i + 1
-    end
-
-    # ## Получить индекс правого дочернего узла ###
-    def right(i)
-      2 * i + 2
-    end
-
-    # ## Получить индекс родительского узла ###
-    def parent(i)
-      (i - 1) / 2     # Округление вниз при делении
-    end
-
-    # ## Обмен элементов ###
-    def swap(i, j)
-      @max_heap[i], @max_heap[j] = @max_heap[j], @max_heap[i]
-    end
-
-    # ## Получить размер кучи ###
-    def size
-      @max_heap.length
-    end
-
-    # ## Проверка, пуста ли куча ###
-    def is_empty?
-      size == 0
-    end
-
-    # ## Доступ к элементу на вершине кучи ###
-    def peek
-      @max_heap[0]
-    end
-
-    # ## Добавление элемента в кучу ###
-    def push(val)
-      # Добавление узла
-      @max_heap << val
-      # Просеивание снизу вверх
-      sift_up(size - 1)
-    end
-
-    # ## Начиная с узла i, выполнить просеивание снизу вверх ###
-    def sift_up(i)
-      loop do
-        # Получение родительского узла для узла i
-        p = parent(i)
-        # Завершить heapify, когда «корневой узел уже пройден» или «узел не требует исправления»
-        break if p < 0 || @max_heap[i] <= @max_heap[p]
-        # Поменять два узла местами
-        swap(i, p)
-        # Циклическое просеивание вверх
-        i = p
-      end
-    end
-
-    # ## Извлечение элемента из кучи ###
-    def pop
-      # Обработка пустого случая
-      raise IndexError, "куча пуста" if is_empty?
-      # Поменять корневой узел с самым правым листом местами (поменять первый и последний элементы)
-      swap(0, size - 1)
-      # Удаление узла
-      val = @max_heap.pop
-      # Просеивание сверху вниз
-      sift_down(0)
-      # Вернуть элемент с вершины кучи
-      val
-    end
-
-    # ## Начиная с узла i, выполнить просеивание сверху вниз ###
+    ### Начиная с узла i, выполнить просеивание сверху вниз ###
     def sift_down(i)
       loop do
         # Определить узел с максимальным значением среди i, l и r и обозначить его как ma

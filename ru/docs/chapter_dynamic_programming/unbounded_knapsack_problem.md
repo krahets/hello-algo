@@ -350,13 +350,7 @@ $$
 === "Ruby"
 
     ```ruby title="unbounded_knapsack.rb"
-    =begin
-    File: unbounded_knapsack.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Полный рюкзак: динамическое программирование ###
+    ### Полный рюкзак: динамическое программирование ###
     def unbounded_knapsack_dp(wgt, val, cap)
       n = wgt.length
       # Инициализация таблицы dp
@@ -709,13 +703,7 @@ $$
 === "Ruby"
 
     ```ruby title="unbounded_knapsack.rb"
-    =begin
-    File: unbounded_knapsack.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Полный рюкзак: динамическое программирование ###
+    ### Полный рюкзак: динамическое программирование ###
     def unbounded_knapsack_dp(wgt, val, cap)
       n = wgt.length
       # Инициализация таблицы dp
@@ -735,7 +723,7 @@ $$
       dp[n][cap]
     end
 
-    # ## Полный рюкзак: динамическое программирование с оптимизацией памяти ##3
+    ### Полный рюкзак: динамическое программирование с оптимизацией памяти ##3
     def unbounded_knapsack_dp_comp(wgt, val, cap)
       n = wgt.length
       # Инициализация таблицы dp
@@ -1180,13 +1168,7 @@ $$
 === "Ruby"
 
     ```ruby title="coin_change.rb"
-    =begin
-    File: coin_change.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Размен монет: динамическое программирование ###
+    ### Размен монет: динамическое программирование ###
     def coin_change_dp(coins, amt)
       n = coins.length
       _MAX = amt + 1
@@ -1601,36 +1583,7 @@ $$
 === "Ruby"
 
     ```ruby title="coin_change.rb"
-    =begin
-    File: coin_change.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Размен монет: динамическое программирование ###
-    def coin_change_dp(coins, amt)
-      n = coins.length
-      _MAX = amt + 1
-      # Инициализация таблицы dp
-      dp = Array.new(n + 1) { Array.new(amt + 1, 0) }
-      # Переход состояний: первая строка и первый столбец
-      (1...(amt + 1)).each { |a| dp[0][a] = _MAX }
-      # Переход состояний: остальные строки и столбцы
-      for i in 1...(n + 1)
-        for a in 1...(amt + 1)
-          if coins[i - 1] > a
-            # Если целевая сумма превышена, монету i не выбирать
-            dp[i][a] = dp[i - 1][a]
-          else
-            # Меньшее из двух решений: не брать или взять монету i
-            dp[i][a] = [dp[i - 1][a], dp[i][a - coins[i - 1]] + 1].min
-          end
-        end
-      end
-      dp[n][amt] != _MAX ? dp[n][amt] : -1
-    end
-
-    # ## Размен монет: динамическое программирование с оптимизацией памяти ###
+    ### Размен монет: динамическое программирование с оптимизацией памяти ###
     def coin_change_dp_comp(coins, amt)
       n = coins.length
       _MAX = amt + 1
@@ -2033,13 +1986,7 @@ $$
 === "Ruby"
 
     ```ruby title="coin_change_ii.rb"
-    =begin
-    File: coin_change_ii.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Размен монет II: динамическое программирование ###
+    ### Размен монет II: динамическое программирование ###
     def coin_change_ii_dp(coins, amt)
       n = coins.length
       # Инициализация таблицы dp
@@ -2375,35 +2322,7 @@ $$
 === "Ruby"
 
     ```ruby title="coin_change_ii.rb"
-    =begin
-    File: coin_change_ii.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Размен монет II: динамическое программирование ###
-    def coin_change_ii_dp(coins, amt)
-      n = coins.length
-      # Инициализация таблицы dp
-      dp = Array.new(n + 1) { Array.new(amt + 1, 0) }
-      # Инициализация первого столбца
-      (0...(n + 1)).each { |i| dp[i][0] = 1 }
-      # Переход состояний
-      for i in 1...(n + 1)
-        for a in 1...(amt + 1)
-          if coins[i - 1] > a
-            # Если целевая сумма превышена, монету i не выбирать
-            dp[i][a] = dp[i - 1][a]
-          else
-            # Сумма двух решений: не брать или взять монету i
-            dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
-          end
-        end
-      end
-      dp[n][amt]
-    end
-
-    # ## Размен монет II: динамическое программирование с оптимизацией памяти ###
+    ### Размен монет II: динамическое программирование с оптимизацией памяти ###
     def coin_change_ii_dp_comp(coins, amt)
       n = coins.length
       # Инициализация таблицы dp

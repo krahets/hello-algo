@@ -470,13 +470,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="subset_sum_i_naive.rb"
-    =begin
-    File: subset_sum_i_naive.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Алгоритм бэктрекинга: сумма подмножеств I ###
+    ### Алгоритм бэктрекинга: сумма подмножеств I ###
     def backtrack(state, target, total, choices, res)
       # Если сумма подмножества равна target, записать решение
       if total == target
@@ -497,34 +491,7 @@ comments: true
       end
     end
 
-    =begin
-    File: subset_sum_i_naive.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Алгоритм бэктрекинга: сумма подмножеств I ###
-    def backtrack(state, target, total, choices, res)
-      # Если сумма подмножества равна target, записать решение
-      if total == target
-        res << state.dup
-        return
-      end
-
-      # Перебор всех вариантов выбора
-      for i in 0...choices.length
-        # Отсечение: если сумма подмножества превышает target, пропустить этот выбор
-        next if total + choices[i] > target
-        # Попытка: сделать выбор и обновить элемент и total
-        state << choices[i]
-        # Перейти к следующему выбору
-        backtrack(state, target, total + choices[i], choices, res)
-        # Откат: отменить выбор и восстановить предыдущее состояние
-        state.pop
-      end
-    end
-
-    # ## Решить задачу суммы подмножеств I (с повторяющимися подмножествами) ###
+    ### Решить задачу суммы подмножеств I (с повторяющимися подмножествами) ###
     def subset_sum_i_naive(nums, target)
       state = [] # Состояние (подмножество)
       total = 0 # Сумма подмножеств
@@ -1062,13 +1029,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="subset_sum_i.rb"
-    =begin
-    File: subset_sum_i.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Алгоритм бэктрекинга: сумма подмножеств I ###
+    ### Алгоритм бэктрекинга: сумма подмножеств I ###
     def backtrack(state, target, choices, start, res)
       # Если сумма подмножества равна target, записать решение
       if target.zero?
@@ -1090,35 +1051,7 @@ comments: true
       end
     end
 
-    =begin
-    File: subset_sum_i.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Алгоритм бэктрекинга: сумма подмножеств I ###
-    def backtrack(state, target, choices, start, res)
-      # Если сумма подмножества равна target, записать решение
-      if target.zero?
-        res << state.dup
-        return
-      end
-      # Обойти все варианты выбора
-      # Отсечение 2: начинать обход с start, чтобы избежать генерации повторяющихся подмножеств
-      for i in start...choices.length
-        # Отсечение 1: если сумма подмножества превышает target, немедленно завершить цикл
-        # Это связано с тем, что массив уже отсортирован, следующие элементы больше, и сумма подмножества точно превысит target
-        break if target - choices[i] < 0
-        # Попытка: сделать выбор и обновить target и start
-        state << choices[i]
-        # Перейти к следующему выбору
-        backtrack(state, target - choices[i], choices, i, res)
-        # Откат: отменить выбор и восстановить предыдущее состояние
-        state.pop
-      end
-    end
-
-    # ## Решить задачу суммы подмножеств I ###
+    ### Решить задачу суммы подмножеств I ###
     def subset_sum_i(nums, target)
       state = [] # Состояние (подмножество)
       nums.sort! # Отсортировать nums
@@ -1703,13 +1636,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="subset_sum_ii.rb"
-    =begin
-    File: subset_sum_ii.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Алгоритм бэктрекинга: сумма подмножеств II ###
+    ### Алгоритм бэктрекинга: сумма подмножеств II ###
     def backtrack(state, target, choices, start, res)
       # Если сумма подмножества равна target, записать решение
       if target.zero?
@@ -1735,39 +1662,7 @@ comments: true
       end
     end
 
-    =begin
-    File: subset_sum_ii.rb
-    Created Time: 2024-05-22
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Алгоритм бэктрекинга: сумма подмножеств II ###
-    def backtrack(state, target, choices, start, res)
-      # Если сумма подмножества равна target, записать решение
-      if target.zero?
-        res << state.dup
-        return
-      end
-
-      # Обойти все варианты выбора
-      # Отсечение 2: начинать обход с start, чтобы избежать генерации повторяющихся подмножеств
-      # Отсечение 3: начинать обход с start, чтобы избежать повторного выбора одного и того же элемента
-      for i in start...choices.length
-        # Отсечение 1: если сумма подмножества превышает target, немедленно завершить цикл
-        # Это связано с тем, что массив уже отсортирован, следующие элементы больше, и сумма подмножества точно превысит target
-        break if target - choices[i] < 0
-        # Отсечение 4: если этот элемент равен элементу слева, значит ветвь поиска повторяется, ее нужно сразу пропустить
-        next if i > start && choices[i] == choices[i - 1]
-        # Попытка: сделать выбор и обновить target и start
-        state << choices[i]
-        # Перейти к следующему выбору
-        backtrack(state, target - choices[i], choices, i + 1, res)
-        # Откат: отменить выбор и восстановить предыдущее состояние
-        state.pop
-      end
-    end
-
-    # ## Решить задачу суммы подмножеств II ###
+    ### Решить задачу суммы подмножеств II ###
     def subset_sum_ii(nums, target)
       state = [] # Состояние (подмножество)
       nums.sort! # Отсортировать nums

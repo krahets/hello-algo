@@ -2198,18 +2198,12 @@ comments: true
 === "Ruby"
 
     ```ruby title="my_list.rb"
-    =begin
-    File: my_list.rb
-    Created Time: 2024-03-18
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Класс списка ###
+    ### Класс списка ###
     class MyList
       attr_reader :size       # Получить длину списка (текущее число элементов)
       attr_reader :capacity   # Получить вместимость списка
 
-      # ## Конструктор ###
+      ### Конструктор ###
       def initialize
         @capacity = 10
         @size = 0
@@ -2217,20 +2211,20 @@ comments: true
         @arr = Array.new(capacity)
       end
 
-      # ## Доступ к элементу ###
+      ### Доступ к элементу ###
       def get(index)
         # Если индекс выходит за границы, выбрасывается исключение; далее аналогично
         raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
         @arr[index]
       end
 
-      # ## Доступ к элементу ###
+      ### Доступ к элементу ###
       def set(index, num)
         raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
         @arr[index] = num
       end
 
-      # ## Добавление элемента в конец ###
+      ### Добавление элемента в конец ###
       def add(num)
         # При превышении вместимости по числу элементов запускается расширение
         extend_capacity if size == capacity
@@ -2240,7 +2234,7 @@ comments: true
         @size += 1
       end
 
-      # ## Вставка элемента в середину ###
+      ### Вставка элемента в середину ###
       def insert(index, num)
         raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
 
@@ -2257,7 +2251,7 @@ comments: true
         @size += 1
       end
 
-      # ## Удаление элемента ###
+      ### Удаление элемента ###
       def remove(index)
         raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
         num = @arr[index]
@@ -2274,7 +2268,7 @@ comments: true
         num
       end
 
-      # ## Расширение списка ###
+      ### Расширение списка ###
       def extend_capacity
         # Создать новый массив длиной в extend_ratio раз больше исходного и скопировать в него исходный массив
         arr = @arr.dup + Array.new(capacity * (@extend_ratio - 1))
@@ -2282,7 +2276,7 @@ comments: true
         @capacity = arr.length
       end
 
-      # ## Преобразование списка в массив ###
+      ### Преобразование списка в массив ###
       def to_array
         sz = size
         # Преобразовывать только элементы списка в пределах фактической длины

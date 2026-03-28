@@ -324,13 +324,7 @@ $$
 === "Ruby"
 
     ```ruby title="knapsack.rb"
-    =begin
-    File: knapsack.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Рюкзак 0-1: полный перебор ###
+    ### Рюкзак 0-1: полный перебор ###
     def knapsack_dfs(wgt, val, i, c)
       # Если все предметы уже рассмотрены или в рюкзаке не осталось места, вернуть стоимость 0
       return 0 if i == 0 || c == 0
@@ -696,26 +690,7 @@ $$
 === "Ruby"
 
     ```ruby title="knapsack.rb"
-    =begin
-    File: knapsack.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Рюкзак 0-1: полный перебор ###
-    def knapsack_dfs(wgt, val, i, c)
-      # Если все предметы уже рассмотрены или в рюкзаке не осталось места, вернуть стоимость 0
-      return 0 if i == 0 || c == 0
-      # Если вместимость рюкзака превышена, можно только не класть предмет в рюкзак
-      return knapsack_dfs(wgt, val, i - 1, c) if wgt[i - 1] > c
-      # Вычислить максимальную стоимость для случаев, когда предмет i не кладут и кладут
-      no = knapsack_dfs(wgt, val, i - 1, c)
-      yes = knapsack_dfs(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1]
-      # Вернуть вариант с большей стоимостью из двух возможных
-      [no, yes].max
-    end
-
-    # ## Рюкзак 0-1: поиск с мемоизацией ###
+    ### Рюкзак 0-1: поиск с мемоизацией ###
     def knapsack_dfs_mem(wgt, val, mem, i, c)
       # Если все предметы уже рассмотрены или в рюкзаке не осталось места, вернуть стоимость 0
       return 0 if i == 0 || c == 0
@@ -1061,41 +1036,7 @@ $$
 === "Ruby"
 
     ```ruby title="knapsack.rb"
-    =begin
-    File: knapsack.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Рюкзак 0-1: полный перебор ###
-    def knapsack_dfs(wgt, val, i, c)
-      # Если все предметы уже рассмотрены или в рюкзаке не осталось места, вернуть стоимость 0
-      return 0 if i == 0 || c == 0
-      # Если вместимость рюкзака превышена, можно только не класть предмет в рюкзак
-      return knapsack_dfs(wgt, val, i - 1, c) if wgt[i - 1] > c
-      # Вычислить максимальную стоимость для случаев, когда предмет i не кладут и кладут
-      no = knapsack_dfs(wgt, val, i - 1, c)
-      yes = knapsack_dfs(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1]
-      # Вернуть вариант с большей стоимостью из двух возможных
-      [no, yes].max
-    end
-
-    # ## Рюкзак 0-1: поиск с мемоизацией ###
-    def knapsack_dfs_mem(wgt, val, mem, i, c)
-      # Если все предметы уже рассмотрены или в рюкзаке не осталось места, вернуть стоимость 0
-      return 0 if i == 0 || c == 0
-      # Если запись уже есть, вернуть сразу
-      return mem[i][c] if mem[i][c] != -1
-      # Если вместимость рюкзака превышена, можно только не класть предмет в рюкзак
-      return knapsack_dfs_mem(wgt, val, mem, i - 1, c) if wgt[i - 1] > c
-      # Вычислить максимальную стоимость для случаев, когда предмет i не кладут и кладут
-      no = knapsack_dfs_mem(wgt, val, mem, i - 1, c)
-      yes = knapsack_dfs_mem(wgt, val, mem, i - 1, c - wgt[i - 1]) + val[i - 1]
-      # Сохранить и вернуть вариант с большей стоимостью из двух решений
-      mem[i][c] = [no, yes].max
-    end
-
-    # ## Рюкзак 0-1: динамическое программирование ###
+    ### Рюкзак 0-1: динамическое программирование ###
     def knapsack_dp(wgt, val, cap)
       n = wgt.length
       # Инициализация таблицы dp
@@ -1476,61 +1417,7 @@ $$
 === "Ruby"
 
     ```ruby title="knapsack.rb"
-    =begin
-    File: knapsack.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Рюкзак 0-1: полный перебор ###
-    def knapsack_dfs(wgt, val, i, c)
-      # Если все предметы уже рассмотрены или в рюкзаке не осталось места, вернуть стоимость 0
-      return 0 if i == 0 || c == 0
-      # Если вместимость рюкзака превышена, можно только не класть предмет в рюкзак
-      return knapsack_dfs(wgt, val, i - 1, c) if wgt[i - 1] > c
-      # Вычислить максимальную стоимость для случаев, когда предмет i не кладут и кладут
-      no = knapsack_dfs(wgt, val, i - 1, c)
-      yes = knapsack_dfs(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1]
-      # Вернуть вариант с большей стоимостью из двух возможных
-      [no, yes].max
-    end
-
-    # ## Рюкзак 0-1: поиск с мемоизацией ###
-    def knapsack_dfs_mem(wgt, val, mem, i, c)
-      # Если все предметы уже рассмотрены или в рюкзаке не осталось места, вернуть стоимость 0
-      return 0 if i == 0 || c == 0
-      # Если запись уже есть, вернуть сразу
-      return mem[i][c] if mem[i][c] != -1
-      # Если вместимость рюкзака превышена, можно только не класть предмет в рюкзак
-      return knapsack_dfs_mem(wgt, val, mem, i - 1, c) if wgt[i - 1] > c
-      # Вычислить максимальную стоимость для случаев, когда предмет i не кладут и кладут
-      no = knapsack_dfs_mem(wgt, val, mem, i - 1, c)
-      yes = knapsack_dfs_mem(wgt, val, mem, i - 1, c - wgt[i - 1]) + val[i - 1]
-      # Сохранить и вернуть вариант с большей стоимостью из двух решений
-      mem[i][c] = [no, yes].max
-    end
-
-    # ## Рюкзак 0-1: динамическое программирование ###
-    def knapsack_dp(wgt, val, cap)
-      n = wgt.length
-      # Инициализация таблицы dp
-      dp = Array.new(n + 1) { Array.new(cap + 1, 0) }
-      # Переход состояний
-      for i in 1...(n + 1)
-        for c in 1...(cap + 1)
-          if wgt[i - 1] > c
-            # Если вместимость рюкзака превышена, предмет i не выбирать
-            dp[i][c] = dp[i - 1][c]
-          else
-            # Большее из двух решений: не брать или взять предмет i
-            dp[i][c] = [dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1]].max
-          end
-        end
-      end
-      dp[n][cap]
-    end
-
-    # ## Рюкзак 0-1: динамическое программирование с оптимизацией памяти ###
+    ### Рюкзак 0-1: динамическое программирование с оптимизацией памяти ###
     def knapsack_dp_comp(wgt, val, cap)
       n = wgt.length
       # Инициализация таблицы dp

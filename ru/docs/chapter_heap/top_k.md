@@ -437,39 +437,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="top_k.rb"
-    =begin
-    File: top_k.rb
-    Created Time: 2024-04-19
-    Author: Blue Bean (lonnnnnnner@gmail.com)
-    =end
-
-    require_relative "./my_heap"
-
-    # ## Добавление элемента в кучу ###
-    def push_min_heap(heap, val)
-      # Инвертировать знак элемента
-      heap.push(-val)
-    end
-
-    # ## Извлечение элемента из кучи ###
-    def pop_min_heap(heap)
-      # Инвертировать знак элемента
-      -heap.pop
-    end
-
-    # ## Доступ к элементу на вершине кучи ###
-    def peek_min_heap(heap)
-      # Инвертировать знак элемента
-      -heap.peek
-    end
-
-    # ## Извлечение элементов из кучи ###
-    def get_min_heap(heap)
-      # Инвертировать все элементы кучи
-      heap.max_heap.map { |x| -x }
-    end
-
-    # ## Поиск k наибольших элементов массива с помощью кучи ###
+    ### Поиск k наибольших элементов массива с помощью кучи ###
     def top_k_heap(nums, k)
       # Инициализация минимальной кучи
       # Обратите внимание: мы инвертируем все элементы кучи, чтобы с помощью максимальной кучи имитировать минимальную

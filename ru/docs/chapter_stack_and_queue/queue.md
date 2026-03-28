@@ -1246,32 +1246,24 @@ comments: true
 === "Ruby"
 
     ```ruby title="linkedlist_queue.rb"
-    =begin
-    File: linkedlist_queue.rb
-    Created Time: 2024-04-06
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/list_node'
-
-    # ## Очередь на основе связного списка ###
+    ### Очередь на основе связного списка ###
     class LinkedListQueue
-      # ## Получение длины очереди ###
+      ### Получение длины очереди ###
       attr_reader :size
 
-      # ## Конструктор ###
+      ### Конструктор ###
       def initialize
         @front = nil  # Головной узел front
         @rear = nil   # Хвостовой узел rear
         @size = 0
       end
 
-      # ## Проверка, пуста ли очередь ###
+      ### Проверка, пуста ли очередь ###
       def is_empty?
         @front.nil?
       end
 
-      # ## Добавление в очередь ###
+      ### Добавление в очередь ###
       def push(num)
         # Добавить num после хвостового узла
         node = ListNode.new(num)
@@ -1289,7 +1281,7 @@ comments: true
         @size += 1
       end
 
-      # ## Извлечение из очереди ###
+      ### Извлечение из очереди ###
       def pop
         num = peek
         # Удалить головной узел
@@ -1298,14 +1290,14 @@ comments: true
         num
       end
 
-      # ## Доступ к элементу в начале очереди ###
+      ### Доступ к элементу в начале очереди ###
       def peek
         raise IndexError, 'очередь пуста' if is_empty?
 
         @front.val
       end
 
-      # ## Преобразовать связный список в Array и вернуть ###
+      ### Преобразовать связный список в Array и вернуть ###
       def to_array
         queue = []
         temp = @front
@@ -2228,35 +2220,29 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_queue.rb"
-    =begin
-    File: array_queue.rb
-    Created Time: 2024-04-05
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Очередь на основе кольцевого массива ###
+    ### Очередь на основе кольцевого массива ###
     class ArrayQueue
-      # ## Получение длины очереди ###
+      ### Получение длины очереди ###
       attr_reader :size
 
-      # ## Конструктор ###
+      ### Конструктор ###
       def initialize(size)
         @nums = Array.new(size, 0) # Массив для хранения элементов очереди
         @front = 0 # Указатель head, указывающий на первый элемент очереди
         @size = 0 # Длина очереди
       end
 
-      # ## Получить вместимость очереди ###
+      ### Получить вместимость очереди ###
       def capacity
         @nums.length
       end
 
-      # ## Проверка, пуста ли очередь ###
+      ### Проверка, пуста ли очередь ###
       def is_empty?
         size.zero?
       end
 
-      # ## Добавление в очередь ###
+      ### Добавление в очередь ###
       def push(num)
         raise IndexError, 'очередь заполнена' if size == capacity
 
@@ -2268,7 +2254,7 @@ comments: true
         @size += 1
       end
 
-      # ## Извлечение из очереди ###
+      ### Извлечение из очереди ###
       def pop
         num = peek
         # Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
@@ -2277,14 +2263,14 @@ comments: true
         num
       end
 
-      # ## Доступ к элементу в начале очереди ###
+      ### Доступ к элементу в начале очереди ###
       def peek
         raise IndexError, 'очередь пуста' if is_empty?
 
         @nums[@front]
       end
 
-      # ## Вернуть список для вывода ###
+      ### Вернуть список для вывода ###
       def to_array
         res = Array.new(size, 0)
         j = @front

@@ -395,13 +395,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="climbing_stairs_backtrack.rb"
-    =begin
-    File: climbing_stairs_backtrack.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Бэктрекинг ###
+    ### Бэктрекинг ###
     def backtrack(choices, state, n, res)
       # Когда подъем достигает n-й ступени, число вариантов увеличивается на 1
       res[0] += 1 if state == n
@@ -416,28 +410,7 @@ comments: true
       # Откат
     end
 
-    =begin
-    File: climbing_stairs_backtrack.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Бэктрекинг ###
-    def backtrack(choices, state, n, res)
-      # Когда подъем достигает n-й ступени, число вариантов увеличивается на 1
-      res[0] += 1 if state == n
-      # Перебор всех вариантов выбора
-      for choice in choices
-        # Отсечение: нельзя выходить за n-ю ступень
-        next if state + choice > n
-
-        # Попытка: сделать выбор и обновить состояние
-        backtrack(choices, state + choice, n, res)
-      end
-      # Откат
-    end
-
-    # ## Подъем по лестнице: бэктрекинг ###
+    ### Подъем по лестнице: бэктрекинг ###
     def climbing_stairs_backtrack(n)
       choices = [1, 2] # Можно подняться на 1 или 2 ступени
       state = 0 # Начать подъем с 0-й ступени
@@ -708,13 +681,7 @@ $$
 === "Ruby"
 
     ```ruby title="climbing_stairs_dfs.rb"
-    =begin
-    File: climbing_stairs_dfs.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Поиск ###
+    ### Поиск ###
     def dfs(i)
       # dp[1] и dp[2] уже известны, вернуть их
       return i if i == 1 || i == 2
@@ -722,21 +689,7 @@ $$
       dfs(i - 1) + dfs(i - 2)
     end
 
-    =begin
-    File: climbing_stairs_dfs.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Поиск ###
-    def dfs(i)
-      # dp[1] и dp[2] уже известны, вернуть их
-      return i if i == 1 || i == 2
-      # dp[i] = dp[i-1] + dp[i-2]
-      dfs(i - 1) + dfs(i - 2)
-    end
-
-    # ## Подъем по лестнице: поиск ###
+    ### Подъем по лестнице: поиск ###
     def climbing_stairs_dfs(n)
       dfs(n)
     end
@@ -1088,13 +1041,7 @@ $$
 === "Ruby"
 
     ```ruby title="climbing_stairs_dfs_mem.rb"
-    =begin
-    File: climbing_stairs_dfs_mem.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Поиск с мемоизацией ###
+    ### Поиск с мемоизацией ###
     def dfs(i, mem)
       # dp[1] и dp[2] уже известны, вернуть их
       return i if i == 1 || i == 2
@@ -1107,26 +1054,7 @@ $$
       mem[i] = count
     end
 
-    =begin
-    File: climbing_stairs_dfs_mem.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Поиск с мемоизацией ###
-    def dfs(i, mem)
-      # dp[1] и dp[2] уже известны, вернуть их
-      return i if i == 1 || i == 2
-      # Если запись dp[i] существует, сразу вернуть ее
-      return mem[i] if mem[i] != -1
-
-      # dp[i] = dp[i-1] + dp[i-2]
-      count = dfs(i - 1, mem) + dfs(i - 2, mem)
-      # Сохранить dp[i]
-      mem[i] = count
-    end
-
-    # ## Подъем по лестнице: поиск с мемоизацией ###
+    ### Подъем по лестнице: поиск с мемоизацией ###
     def climbing_stairs_dfs_mem(n)
       # mem[i] хранит число способов подняться на i-ю ступень, -1 означает отсутствие записи
       mem = Array.new(n + 1, -1)
@@ -1395,13 +1323,7 @@ $$
 === "Ruby"
 
     ```ruby title="climbing_stairs_dp.rb"
-    =begin
-    File: climbing_stairs_dp.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Подъем по лестнице: динамическое программирование ###
+    ### Подъем по лестнице: динамическое программирование ###
     def climbing_stairs_dp(n)
       return n  if n == 1 || n == 2
 
@@ -1642,27 +1564,7 @@ $$
 === "Ruby"
 
     ```ruby title="climbing_stairs_dp.rb"
-    =begin
-    File: climbing_stairs_dp.rb
-    Created Time: 2024-05-29
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Подъем по лестнице: динамическое программирование ###
-    def climbing_stairs_dp(n)
-      return n  if n == 1 || n == 2
-
-      # Инициализация таблицы dp для хранения решений подзадач
-      dp = Array.new(n + 1, 0)
-      # Начальное состояние: заранее задать решения наименьших подзадач
-      dp[1], dp[2] = 1, 2
-      # Переход состояний: постепенное решение больших подзадач через меньшие
-      (3...(n + 1)).each { |i| dp[i] = dp[i - 1] + dp[i - 2] }
-
-      dp[n]
-    end
-
-    # ## Подъем по лестнице: динамическое программирование с оптимизацией памяти ###
+    ### Подъем по лестнице: динамическое программирование с оптимизацией памяти ###
     def climbing_stairs_dp_comp(n)
       return n if n == 1 || n == 2
 

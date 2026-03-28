@@ -2025,54 +2025,36 @@ comments: true
     Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
     =end
 
-    # ## Узел двусвязного списка
+    ### Узел двусвязного списка
     class ListNode
       attr_accessor :val
       attr_accessor :next # Ссылка на узел-преемник
       attr_accessor :prev # Ссылка на узел-предшественник
 
-      # ## Конструктор ###
+      ### Конструктор ###
       def initialize(val)
         @val = val
       end
     end
 
-    =begin
-    File: linkedlist_deque.rb
-    Created Time: 2024-04-06
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Узел двусвязного списка
-    class ListNode
-      attr_accessor :val
-      attr_accessor :next # Ссылка на узел-преемник
-      attr_accessor :prev # Ссылка на узел-предшественник
-
-      # ## Конструктор ###
-      def initialize(val)
-        @val = val
-      end
-    end
-
-    # ## Двусторонняя очередь на основе двусвязного списка ###
+    ### Двусторонняя очередь на основе двусвязного списка ###
     class LinkedListDeque
-      # ## Получение длины двусторонней очереди ###
+      ### Получение длины двусторонней очереди ###
       attr_reader :size
 
-      # ## Конструктор ###
+      ### Конструктор ###
       def initialize
         @front = nil  # Головной узел front
         @rear = nil   # Хвостовой узел rear
         @size = 0     # Длина двусторонней очереди
       end
 
-      # ## Проверка, пуста ли двусторонняя очередь ###
+      ### Проверка, пуста ли двусторонняя очередь ###
       def is_empty?
         size.zero?
       end
 
-      # ## Операция добавления в очередь ###
+      ### Операция добавления в очередь ###
       def push(num, is_front)
         node = ListNode.new(num)
         # Если связный список пуст, пусть front и rear оба указывают на node
@@ -2094,17 +2076,17 @@ comments: true
         @size += 1 # Обновить длину очереди
       end
 
-      # ## Добавление в голову очереди ###
+      ### Добавление в голову очереди ###
       def push_first(num)
         push(num, true)
       end
 
-      # ## Добавление в хвост очереди ###
+      ### Добавление в хвост очереди ###
       def push_last(num)
         push(num, false)
       end
 
-      # ## Операция извлечения из очереди ###
+      ### Операция извлечения из очереди ###
       def pop(is_front)
         raise IndexError, 'двусторонняя очередь пуста' if is_empty?
 
@@ -2134,31 +2116,31 @@ comments: true
         val
       end
 
-      # ## Извлечение из головы очереди ###
+      ### Извлечение из головы очереди ###
       def pop_first
         pop(true)
       end
 
-      # ## Извлечение из головы очереди ###
+      ### Извлечение из головы очереди ###
       def pop_last
         pop(false)
       end
 
-      # ## Доступ к элементу в начале очереди ###
+      ### Доступ к элементу в начале очереди ###
       def peek_first
         raise IndexError, 'двусторонняя очередь пуста' if is_empty?
 
         @front.val
       end
 
-      # ## Доступ к элементу в хвосте очереди ###
+      ### Доступ к элементу в хвосте очереди ###
       def peek_last
         raise IndexError, 'двусторонняя очередь пуста' if is_empty?
 
         @rear.val
       end
 
-      # ## Вернуть массив для вывода ###
+      ### Вернуть массив для вывода ###
       def to_array
         node = @front
         res = Array.new(size, 0)
@@ -3514,35 +3496,29 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_deque.rb"
-    =begin
-    File: array_deque.rb
-    Created Time: 2024-04-05
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Двусторонняя очередь на основе кольцевого массива ###
+    ### Двусторонняя очередь на основе кольцевого массива ###
     class ArrayDeque
-      # ## Получение длины двусторонней очереди ###
+      ### Получение длины двусторонней очереди ###
       attr_reader :size
 
-      # ## Конструктор ###
+      ### Конструктор ###
       def initialize(capacity)
         @nums = Array.new(capacity, 0)
         @front = 0
         @size = 0
       end
 
-      # ## Получить вместимость двусторонней очереди ###
+      ### Получить вместимость двусторонней очереди ###
       def capacity
         @nums.length
       end
 
-      # ## Проверка, пуста ли двусторонняя очередь ###
+      ### Проверка, пуста ли двусторонняя очередь ###
       def is_empty?
         size.zero?
       end
 
-      # ## Добавление в голову очереди ###
+      ### Добавление в голову очереди ###
       def push_first(num)
         if size == capacity
           puts 'Двусторонняя очередь заполнена'
@@ -3557,7 +3533,7 @@ comments: true
         @size += 1
       end
 
-      # ## Добавление в хвост очереди ###
+      ### Добавление в хвост очереди ###
       def push_last(num)
         if size == capacity
           puts 'Двусторонняя очередь заполнена'
@@ -3571,7 +3547,7 @@ comments: true
         @size += 1
       end
 
-      # ## Извлечение из головы очереди ###
+      ### Извлечение из головы очереди ###
       def pop_first
         num = peek_first
         # Указатель головы сдвигается на одну позицию назад
@@ -3580,21 +3556,21 @@ comments: true
         num
       end
 
-      # ## Извлечение из хвоста очереди ###
+      ### Извлечение из хвоста очереди ###
       def pop_last
         num = peek_last
         @size -= 1
         num
       end
 
-      # ## Доступ к элементу в начале очереди ###
+      ### Доступ к элементу в начале очереди ###
       def peek_first
         raise IndexError, 'двусторонняя очередь пуста' if is_empty?
 
         @nums[@front]
       end
 
-      # ## Доступ к элементу в хвосте очереди ###
+      ### Доступ к элементу в хвосте очереди ###
       def peek_last
         raise IndexError, 'двусторонняя очередь пуста' if is_empty?
 
@@ -3603,7 +3579,7 @@ comments: true
         @nums[last]
       end
 
-      # ## Вернуть массив для вывода ###
+      ### Вернуть массив для вывода ###
       def to_array
         # Преобразовывать только элементы списка в пределах фактической длины
         res = []
@@ -3615,7 +3591,7 @@ comments: true
 
       private
 
-      # ## Вычислить индекс в кольцевом массиве ###
+      ### Вычислить индекс в кольцевом массиве ###
       def index(i)
         # С помощью операции взятия по модулю соединить начало и конец массива
         # Когда i выходит за конец массива, он возвращается в начало

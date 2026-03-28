@@ -570,16 +570,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    =begin
-    File: linked_list.rb
-    Created Time: 2024-03-18
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/list_node'
-    require_relative '../utils/print_util'
-
-    # ## Вставка узла _p после узла n0 в связном списке ###
+    ### Вставка узла _p после узла n0 в связном списке ###
     # В Ruby `p` — встроенная функция, а `P` — константа, поэтому вместо этого можно использовать `_p`
     def insert(n0, _p)
       n1 = n0.next
@@ -780,24 +771,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    =begin
-    File: linked_list.rb
-    Created Time: 2024-03-18
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/list_node'
-    require_relative '../utils/print_util'
-
-    # ## Вставка узла _p после узла n0 в связном списке ###
-    # В Ruby `p` — встроенная функция, а `P` — константа, поэтому вместо этого можно использовать `_p`
-    def insert(n0, _p)
-      n1 = n0.next
-      _p.next = n1
-      n0.next = _p
-    end
-
-    # ## Удаление первого узла после узла n0 в связном списке ###
+    ### Удаление первого узла после узла n0 в связном списке ###
     def remove(n0)
       return if n0.next.nil?
 
@@ -1001,34 +975,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    =begin
-    File: linked_list.rb
-    Created Time: 2024-03-18
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/list_node'
-    require_relative '../utils/print_util'
-
-    # ## Вставка узла _p после узла n0 в связном списке ###
-    # В Ruby `p` — встроенная функция, а `P` — константа, поэтому вместо этого можно использовать `_p`
-    def insert(n0, _p)
-      n1 = n0.next
-      _p.next = n1
-      n0.next = _p
-    end
-
-    # ## Удаление первого узла после узла n0 в связном списке ###
-    def remove(n0)
-      return if n0.next.nil?
-
-      # n0 -> remove_node -> n1
-      remove_node = n0.next
-      n1 = remove_node.next
-      n0.next = n1
-    end
-
-    # ## Доступ к узлу связного списка по индексу index ###
+    ### Доступ к узлу связного списка по индексу index ###
     def access(head, index)
       for i in 0...index
         return nil if head.nil?
@@ -1252,44 +1199,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    =begin
-    File: linked_list.rb
-    Created Time: 2024-03-18
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require_relative '../utils/list_node'
-    require_relative '../utils/print_util'
-
-    # ## Вставка узла _p после узла n0 в связном списке ###
-    # В Ruby `p` — встроенная функция, а `P` — константа, поэтому вместо этого можно использовать `_p`
-    def insert(n0, _p)
-      n1 = n0.next
-      _p.next = n1
-      n0.next = _p
-    end
-
-    # ## Удаление первого узла после узла n0 в связном списке ###
-    def remove(n0)
-      return if n0.next.nil?
-
-      # n0 -> remove_node -> n1
-      remove_node = n0.next
-      n1 = remove_node.next
-      n0.next = n1
-    end
-
-    # ## Доступ к узлу связного списка по индексу index ###
-    def access(head, index)
-      for i in 0...index
-        return nil if head.nil?
-        head = head.next
-      end
-
-      head
-    end
-
-    # ## Поиск первого узла со значением target в связном списке ###
+    ### Поиск первого узла со значением target в связном списке ###
     def find(head, target)
       index = 0
       while head

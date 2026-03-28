@@ -1182,13 +1182,7 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    =begin
-    File: time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Постоянная сложность ###
+    ### Постоянная сложность ###
     def constant(n)
       count = 0
       size = 100000
@@ -1357,23 +1351,7 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    =begin
-    File: time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Постоянная сложность ###
-    def constant(n)
-      count = 0
-      size = 100000
-
-      (0...size).each { count += 1 }
-
-      count
-    end
-
-    # ## Линейная сложность ###
+    ### Линейная сложность ###
     def linear(n)
       count = 0
       (0...n).each { count += 1 }
@@ -1557,30 +1535,7 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    =begin
-    File: time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Постоянная сложность ###
-    def constant(n)
-      count = 0
-      size = 100000
-
-      (0...size).each { count += 1 }
-
-      count
-    end
-
-    # ## Линейная сложность ###
-    def linear(n)
-      count = 0
-      (0...n).each { count += 1 }
-      count
-    end
-
-    # ## Линейная сложность (обход массива) ###
+    ### Линейная сложность (обход массива) ###
     def array_traversal(nums)
       count = 0
 
@@ -1796,42 +1751,7 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    =begin
-    File: time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Постоянная сложность ###
-    def constant(n)
-      count = 0
-      size = 100000
-
-      (0...size).each { count += 1 }
-
-      count
-    end
-
-    # ## Линейная сложность ###
-    def linear(n)
-      count = 0
-      (0...n).each { count += 1 }
-      count
-    end
-
-    # ## Линейная сложность (обход массива) ###
-    def array_traversal(nums)
-      count = 0
-
-      # Число итераций пропорционально длине массива
-      for num in nums
-        count += 1
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность ###
+    ### Квадратичная сложность ###
     def quadratic(n)
       count = 0
 
@@ -2133,56 +2053,7 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    =begin
-    File: time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Постоянная сложность ###
-    def constant(n)
-      count = 0
-      size = 100000
-
-      (0...size).each { count += 1 }
-
-      count
-    end
-
-    # ## Линейная сложность ###
-    def linear(n)
-      count = 0
-      (0...n).each { count += 1 }
-      count
-    end
-
-    # ## Линейная сложность (обход массива) ###
-    def array_traversal(nums)
-      count = 0
-
-      # Число итераций пропорционально длине массива
-      for num in nums
-        count += 1
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность ###
-    def quadratic(n)
-      count = 0
-
-      # Число итераций квадратично зависит от размера данных n
-      for i in 0...n
-        for j in 0...n
-          count += 1
-        end
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность (пузырьковая сортировка) ###
+    ### Квадратичная сложность (пузырьковая сортировка) ###
     def bubble_sort(nums)
       count = 0  # Счетчик
 
@@ -2438,77 +2309,7 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    =begin
-    File: time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Постоянная сложность ###
-    def constant(n)
-      count = 0
-      size = 100000
-
-      (0...size).each { count += 1 }
-
-      count
-    end
-
-    # ## Линейная сложность ###
-    def linear(n)
-      count = 0
-      (0...n).each { count += 1 }
-      count
-    end
-
-    # ## Линейная сложность (обход массива) ###
-    def array_traversal(nums)
-      count = 0
-
-      # Число итераций пропорционально длине массива
-      for num in nums
-        count += 1
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность ###
-    def quadratic(n)
-      count = 0
-
-      # Число итераций квадратично зависит от размера данных n
-      for i in 0...n
-        for j in 0...n
-          count += 1
-        end
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность (пузырьковая сортировка) ###
-    def bubble_sort(nums)
-      count = 0  # Счетчик
-
-      # Внешний цикл: неотсортированный диапазон [0, i]
-      for i in (nums.length - 1).downto(0)
-        # Внутренний цикл: переместить максимальный элемент неотсортированного диапазона [0, i] в его правый конец
-        for j in 0...i
-          if nums[j] > nums[j + 1]
-            # Поменять местами nums[j] и nums[j + 1]
-            tmp = nums[j]
-            nums[j] = nums[j + 1]
-            nums[j + 1] = tmp
-            count += 3 # Обмен элементов включает 3 элементарные операции
-          end
-        end
-      end
-
-      count
-    end
-
-    # ## Экспоненциальная сложность (итеративная реализация) ###
+    ### Экспоненциальная сложность (итеративная реализация) ###
     def exponential(n)
       count, base = 0, 1
 
@@ -2668,91 +2469,7 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    =begin
-    File: time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Постоянная сложность ###
-    def constant(n)
-      count = 0
-      size = 100000
-
-      (0...size).each { count += 1 }
-
-      count
-    end
-
-    # ## Линейная сложность ###
-    def linear(n)
-      count = 0
-      (0...n).each { count += 1 }
-      count
-    end
-
-    # ## Линейная сложность (обход массива) ###
-    def array_traversal(nums)
-      count = 0
-
-      # Число итераций пропорционально длине массива
-      for num in nums
-        count += 1
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность ###
-    def quadratic(n)
-      count = 0
-
-      # Число итераций квадратично зависит от размера данных n
-      for i in 0...n
-        for j in 0...n
-          count += 1
-        end
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность (пузырьковая сортировка) ###
-    def bubble_sort(nums)
-      count = 0  # Счетчик
-
-      # Внешний цикл: неотсортированный диапазон [0, i]
-      for i in (nums.length - 1).downto(0)
-        # Внутренний цикл: переместить максимальный элемент неотсортированного диапазона [0, i] в его правый конец
-        for j in 0...i
-          if nums[j] > nums[j + 1]
-            # Поменять местами nums[j] и nums[j + 1]
-            tmp = nums[j]
-            nums[j] = nums[j + 1]
-            nums[j + 1] = tmp
-            count += 3 # Обмен элементов включает 3 элементарные операции
-          end
-        end
-      end
-
-      count
-    end
-
-    # ## Экспоненциальная сложность (итеративная реализация) ###
-    def exponential(n)
-      count, base = 0, 1
-
-      # На каждом шаге клетка делится надвое, образуя последовательность 1, 2, 4, 8, ..., 2^(n-1)
-      (0...n).each do
-        (0...base).each { count += 1 }
-        base *= 2
-      end
-
-      # count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-      count
-    end
-
-    # ## Экспоненциальная сложность (рекурсивная реализация) ###
+    ### Экспоненциальная сложность (рекурсивная реализация) ###
     def exp_recur(n)
       return 1 if n == 1
       exp_recur(n - 1) + exp_recur(n - 1) + 1
@@ -2943,97 +2660,7 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    =begin
-    File: time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Постоянная сложность ###
-    def constant(n)
-      count = 0
-      size = 100000
-
-      (0...size).each { count += 1 }
-
-      count
-    end
-
-    # ## Линейная сложность ###
-    def linear(n)
-      count = 0
-      (0...n).each { count += 1 }
-      count
-    end
-
-    # ## Линейная сложность (обход массива) ###
-    def array_traversal(nums)
-      count = 0
-
-      # Число итераций пропорционально длине массива
-      for num in nums
-        count += 1
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность ###
-    def quadratic(n)
-      count = 0
-
-      # Число итераций квадратично зависит от размера данных n
-      for i in 0...n
-        for j in 0...n
-          count += 1
-        end
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность (пузырьковая сортировка) ###
-    def bubble_sort(nums)
-      count = 0  # Счетчик
-
-      # Внешний цикл: неотсортированный диапазон [0, i]
-      for i in (nums.length - 1).downto(0)
-        # Внутренний цикл: переместить максимальный элемент неотсортированного диапазона [0, i] в его правый конец
-        for j in 0...i
-          if nums[j] > nums[j + 1]
-            # Поменять местами nums[j] и nums[j + 1]
-            tmp = nums[j]
-            nums[j] = nums[j + 1]
-            nums[j + 1] = tmp
-            count += 3 # Обмен элементов включает 3 элементарные операции
-          end
-        end
-      end
-
-      count
-    end
-
-    # ## Экспоненциальная сложность (итеративная реализация) ###
-    def exponential(n)
-      count, base = 0, 1
-
-      # На каждом шаге клетка делится надвое, образуя последовательность 1, 2, 4, 8, ..., 2^(n-1)
-      (0...n).each do
-        (0...base).each { count += 1 }
-        base *= 2
-      end
-
-      # count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-      count
-    end
-
-    # ## Экспоненциальная сложность (рекурсивная реализация) ###
-    def exp_recur(n)
-      return 1 if n == 1
-      exp_recur(n - 1) + exp_recur(n - 1) + 1
-    end
-
-    # ## Логарифмическая сложность (итеративная реализация) ###
+    ### Логарифмическая сложность (итеративная реализация) ###
     def logarithmic(n)
       count = 0
 
@@ -3190,109 +2817,7 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    =begin
-    File: time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Постоянная сложность ###
-    def constant(n)
-      count = 0
-      size = 100000
-
-      (0...size).each { count += 1 }
-
-      count
-    end
-
-    # ## Линейная сложность ###
-    def linear(n)
-      count = 0
-      (0...n).each { count += 1 }
-      count
-    end
-
-    # ## Линейная сложность (обход массива) ###
-    def array_traversal(nums)
-      count = 0
-
-      # Число итераций пропорционально длине массива
-      for num in nums
-        count += 1
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность ###
-    def quadratic(n)
-      count = 0
-
-      # Число итераций квадратично зависит от размера данных n
-      for i in 0...n
-        for j in 0...n
-          count += 1
-        end
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность (пузырьковая сортировка) ###
-    def bubble_sort(nums)
-      count = 0  # Счетчик
-
-      # Внешний цикл: неотсортированный диапазон [0, i]
-      for i in (nums.length - 1).downto(0)
-        # Внутренний цикл: переместить максимальный элемент неотсортированного диапазона [0, i] в его правый конец
-        for j in 0...i
-          if nums[j] > nums[j + 1]
-            # Поменять местами nums[j] и nums[j + 1]
-            tmp = nums[j]
-            nums[j] = nums[j + 1]
-            nums[j + 1] = tmp
-            count += 3 # Обмен элементов включает 3 элементарные операции
-          end
-        end
-      end
-
-      count
-    end
-
-    # ## Экспоненциальная сложность (итеративная реализация) ###
-    def exponential(n)
-      count, base = 0, 1
-
-      # На каждом шаге клетка делится надвое, образуя последовательность 1, 2, 4, 8, ..., 2^(n-1)
-      (0...n).each do
-        (0...base).each { count += 1 }
-        base *= 2
-      end
-
-      # count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-      count
-    end
-
-    # ## Экспоненциальная сложность (рекурсивная реализация) ###
-    def exp_recur(n)
-      return 1 if n == 1
-      exp_recur(n - 1) + exp_recur(n - 1) + 1
-    end
-
-    # ## Логарифмическая сложность (итеративная реализация) ###
-    def logarithmic(n)
-      count = 0
-
-      while n > 1
-        n /= 2
-        count += 1
-      end
-
-      count
-    end
-
-    # ## Логарифмическая сложность (рекурсивная реализация) ###
+    ### Логарифмическая сложность (рекурсивная реализация) ###
     def log_recur(n)
       return 0 unless n > 1
       log_recur(n / 2) + 1
@@ -3502,115 +3027,7 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    =begin
-    File: time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Постоянная сложность ###
-    def constant(n)
-      count = 0
-      size = 100000
-
-      (0...size).each { count += 1 }
-
-      count
-    end
-
-    # ## Линейная сложность ###
-    def linear(n)
-      count = 0
-      (0...n).each { count += 1 }
-      count
-    end
-
-    # ## Линейная сложность (обход массива) ###
-    def array_traversal(nums)
-      count = 0
-
-      # Число итераций пропорционально длине массива
-      for num in nums
-        count += 1
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность ###
-    def quadratic(n)
-      count = 0
-
-      # Число итераций квадратично зависит от размера данных n
-      for i in 0...n
-        for j in 0...n
-          count += 1
-        end
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность (пузырьковая сортировка) ###
-    def bubble_sort(nums)
-      count = 0  # Счетчик
-
-      # Внешний цикл: неотсортированный диапазон [0, i]
-      for i in (nums.length - 1).downto(0)
-        # Внутренний цикл: переместить максимальный элемент неотсортированного диапазона [0, i] в его правый конец
-        for j in 0...i
-          if nums[j] > nums[j + 1]
-            # Поменять местами nums[j] и nums[j + 1]
-            tmp = nums[j]
-            nums[j] = nums[j + 1]
-            nums[j + 1] = tmp
-            count += 3 # Обмен элементов включает 3 элементарные операции
-          end
-        end
-      end
-
-      count
-    end
-
-    # ## Экспоненциальная сложность (итеративная реализация) ###
-    def exponential(n)
-      count, base = 0, 1
-
-      # На каждом шаге клетка делится надвое, образуя последовательность 1, 2, 4, 8, ..., 2^(n-1)
-      (0...n).each do
-        (0...base).each { count += 1 }
-        base *= 2
-      end
-
-      # count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-      count
-    end
-
-    # ## Экспоненциальная сложность (рекурсивная реализация) ###
-    def exp_recur(n)
-      return 1 if n == 1
-      exp_recur(n - 1) + exp_recur(n - 1) + 1
-    end
-
-    # ## Логарифмическая сложность (итеративная реализация) ###
-    def logarithmic(n)
-      count = 0
-
-      while n > 1
-        n /= 2
-        count += 1
-      end
-
-      count
-    end
-
-    # ## Логарифмическая сложность (рекурсивная реализация) ###
-    def log_recur(n)
-      return 0 unless n > 1
-      log_recur(n / 2) + 1
-    end
-
-    # ## Линейно-логарифмическая сложность ###
+    ### Линейно-логарифмическая сложность ###
     def linear_log_recur(n)
       return 1 unless n > 1
 
@@ -3835,125 +3252,7 @@ $$
 === "Ruby"
 
     ```ruby title="time_complexity.rb"
-    =begin
-    File: time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Постоянная сложность ###
-    def constant(n)
-      count = 0
-      size = 100000
-
-      (0...size).each { count += 1 }
-
-      count
-    end
-
-    # ## Линейная сложность ###
-    def linear(n)
-      count = 0
-      (0...n).each { count += 1 }
-      count
-    end
-
-    # ## Линейная сложность (обход массива) ###
-    def array_traversal(nums)
-      count = 0
-
-      # Число итераций пропорционально длине массива
-      for num in nums
-        count += 1
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность ###
-    def quadratic(n)
-      count = 0
-
-      # Число итераций квадратично зависит от размера данных n
-      for i in 0...n
-        for j in 0...n
-          count += 1
-        end
-      end
-
-      count
-    end
-
-    # ## Квадратичная сложность (пузырьковая сортировка) ###
-    def bubble_sort(nums)
-      count = 0  # Счетчик
-
-      # Внешний цикл: неотсортированный диапазон [0, i]
-      for i in (nums.length - 1).downto(0)
-        # Внутренний цикл: переместить максимальный элемент неотсортированного диапазона [0, i] в его правый конец
-        for j in 0...i
-          if nums[j] > nums[j + 1]
-            # Поменять местами nums[j] и nums[j + 1]
-            tmp = nums[j]
-            nums[j] = nums[j + 1]
-            nums[j + 1] = tmp
-            count += 3 # Обмен элементов включает 3 элементарные операции
-          end
-        end
-      end
-
-      count
-    end
-
-    # ## Экспоненциальная сложность (итеративная реализация) ###
-    def exponential(n)
-      count, base = 0, 1
-
-      # На каждом шаге клетка делится надвое, образуя последовательность 1, 2, 4, 8, ..., 2^(n-1)
-      (0...n).each do
-        (0...base).each { count += 1 }
-        base *= 2
-      end
-
-      # count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-      count
-    end
-
-    # ## Экспоненциальная сложность (рекурсивная реализация) ###
-    def exp_recur(n)
-      return 1 if n == 1
-      exp_recur(n - 1) + exp_recur(n - 1) + 1
-    end
-
-    # ## Логарифмическая сложность (итеративная реализация) ###
-    def logarithmic(n)
-      count = 0
-
-      while n > 1
-        n /= 2
-        count += 1
-      end
-
-      count
-    end
-
-    # ## Логарифмическая сложность (рекурсивная реализация) ###
-    def log_recur(n)
-      return 0 unless n > 1
-      log_recur(n / 2) + 1
-    end
-
-    # ## Линейно-логарифмическая сложность ###
-    def linear_log_recur(n)
-      return 1 unless n > 1
-
-      count = linear_log_recur(n / 2) + linear_log_recur(n / 2)
-      (0...n).each { count += 1 }
-
-      count
-    end
-
-    # ## Факториальная сложность (рекурсивная реализация) ###
+    ### Факториальная сложность (рекурсивная реализация) ###
     def factorial_recur(n)
       return 1 if n == 0
 
@@ -4339,13 +3638,7 @@ $$
 === "Ruby"
 
     ```ruby title="worst_best_time_complexity.rb"
-    =begin
-    File: worst_best_time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Создать массив с элементами: 1, 2, ..., n в случайном порядке ###
+    ### Создать массив с элементами: 1, 2, ..., n в случайном порядке ###
     def random_numbers(n)
       # Создать массив nums =: 1, 2, 3, ..., n
       nums = Array.new(n) { |i| i + 1 }
@@ -4353,21 +3646,7 @@ $$
       nums.shuffle!
     end
 
-    =begin
-    File: worst_best_time_complexity.rb
-    Created Time: 2024-03-30
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    # ## Создать массив с элементами: 1, 2, ..., n в случайном порядке ###
-    def random_numbers(n)
-      # Создать массив nums =: 1, 2, 3, ..., n
-      nums = Array.new(n) { |i| i + 1 }
-      # Случайно перемешать элементы массива
-      nums.shuffle!
-    end
-
-    # ## Найти индекс числа 1 в массиве nums ###
+    ### Найти индекс числа 1 в массиве nums ###
     def find_one(nums)
       for i in 0...nums.length
         # Когда элемент 1 находится в начале массива, достигается лучшая временная сложность O(1)

@@ -450,17 +450,7 @@ BFS обычно реализуется с помощью очереди, код
 === "Ruby"
 
     ```ruby title="graph_bfs.rb"
-    =begin
-    File: graph_bfs.rb
-    Created Time: 2024-04-25
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require 'set'
-    require_relative './graph_adjacency_list'
-    require_relative '../utils/vertex'
-
-    # ## Обход в ширину ###
+    ### Обход в ширину ###
     def graph_bfs(graph, start_vet)
       # Использовать список смежности для представления графа, чтобы получать все смежные вершины заданной вершины
       # Последовательность обхода вершин
@@ -921,17 +911,7 @@ BFS обычно реализуется с помощью очереди, код
 === "Ruby"
 
     ```ruby title="graph_dfs.rb"
-    =begin
-    File: graph_dfs.rb
-    Created Time: 2024-04-25
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require 'set'
-    require_relative './graph_adjacency_list'
-    require_relative '../utils/vertex'
-
-    # ## Вспомогательная функция обхода в глубину ###
+    ### Вспомогательная функция обхода в глубину ###
     def dfs(graph, visited, res, vet)
       res << vet # Отметить посещенную вершину
       visited.add(vet) # Отметить эту вершину как посещенную
@@ -943,29 +923,7 @@ BFS обычно реализуется с помощью очереди, код
       end
     end
 
-    =begin
-    File: graph_dfs.rb
-    Created Time: 2024-04-25
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    require 'set'
-    require_relative './graph_adjacency_list'
-    require_relative '../utils/vertex'
-
-    # ## Вспомогательная функция обхода в глубину ###
-    def dfs(graph, visited, res, vet)
-      res << vet # Отметить посещенную вершину
-      visited.add(vet) # Отметить эту вершину как посещенную
-      # Обойти все смежные вершины данной вершины
-      for adj_vet in graph.adj_list[vet]
-        next if visited.include?(adj_vet) # Пропустить уже посещенную вершину
-        # Рекурсивно обходить смежные вершины
-        dfs(graph, visited, res, adj_vet)
-      end
-    end
-
-    # ## Обход в глубину ###
+    ### Обход в глубину ###
     def graph_dfs(graph, start_vet)
       # Использовать список смежности для представления графа, чтобы получать все смежные вершины заданной вершины
       # Последовательность обхода вершин
