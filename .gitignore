@@ -1,12 +1,7 @@
-# macOS
 .DS_Store
 
-# editors
 .vscode/
-**/.idea
-
-# mkdocs files
-.cache/
+/node_modules
 
 # build
 /build
