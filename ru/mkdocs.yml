@@ -16,7 +16,7 @@ theme:
   custom_dir: ../build/overrides
   language: ru
   font:
-    text: Noto Sans
+    text: PT Sans
   palette:
     - scheme: default
       primary: white

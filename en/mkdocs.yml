@@ -16,7 +16,7 @@ theme:
   custom_dir: ../build/overrides
   language: en
   font:
-    text: Lato
+    text: Inter
   palette:
     - scheme: default
       primary: white
