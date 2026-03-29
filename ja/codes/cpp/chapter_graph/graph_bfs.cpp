@@ -7,34 +7,34 @@
 #include "../utils/common.hpp"
 #include "./graph_adjacency_list.cpp"
 
-/* 幅優先走査 */
-// 隣接リストを使用してグラフを表現し、指定された頂点のすべての隣接頂点を取得
+/* 幅優先探索 */
+// グラフを隣接リストで表し、指定した頂点の隣接頂点をすべて取得できるようにする
 vector<Vertex *> graphBFS(GraphAdjList &graph, Vertex *startVet) {
-    // 頂点走査順序
+    // 頂点の走査順序
     vector<Vertex *> res;
-    // ハッシュセット、訪問済み頂点を記録するために使用
+    // 訪問済み頂点を記録するためのハッシュ集合
     unordered_set<Vertex *> visited = {startVet};
-    // BFSを実装するために使用されるキュー
+    // BFS の実装にキューを用いる
     queue<Vertex *> que;
     que.push(startVet);
-    // 頂点vetから開始し、すべての頂点が訪問されるまでループ
+    // 頂点 vet を起点に、すべての頂点を訪問し終えるまで繰り返す
     while (!que.empty()) {
         Vertex *vet = que.front();
-        que.pop();          // キューの先頭の頂点をデキュー
-        res.push_back(vet); // 訪問済み頂点を記録
-        // その頂点のすべての隣接頂点を走査
+        que.pop();          // 先頭の頂点をデキュー
+        res.push_back(vet); // 訪問した頂点を記録
+        // この頂点のすべての隣接頂点を走査
         for (auto adjVet : graph.adjList[vet]) {
             if (visited.count(adjVet))
-                continue;            // すでに訪問済みの頂点をスキップ
-            que.push(adjVet);        // 未訪問の頂点のみをエンキュー
-            visited.emplace(adjVet); // 頂点を訪問済みとしてマーク
+                continue;            // 訪問済みの頂点をスキップ
+            que.push(adjVet);        // 未訪問の頂点のみをキューに追加
+            visited.emplace(adjVet); // この頂点を訪問済みにする
         }
     }
-    // 頂点走査順序を返す
+    // 頂点の走査順を返す
     return res;
 }
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     /* 無向グラフを初期化 */
     vector<Vertex *> v = valsToVets({0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
@@ -42,15 +42,15 @@ int main() {
                                       {v[2], v[5]}, {v[3], v[4]}, {v[3], v[6]}, {v[4], v[5]},
                                       {v[4], v[7]}, {v[5], v[8]}, {v[6], v[7]}, {v[7], v[8]}};
     GraphAdjList graph(edges);
-    cout << "\n初期化後、グラフは\n";
+    cout << "\n初期化後、グラフは\\n";
     graph.print();
 
-    /* 幅優先走査 */
+    /* 幅優先探索 */
     vector<Vertex *> res = graphBFS(graph, v[0]);
-    cout << "\n幅優先走査（BFS）の頂点順序は" << endl;
+    cout << "\n幅優先探索（BFS）の頂点順序は" << endl;
     printVector(vetsToVals(res));
 
-    // メモリを解放
+    // メモリを解放する
     for (Vertex *vet : v) {
         delete vet;
     }

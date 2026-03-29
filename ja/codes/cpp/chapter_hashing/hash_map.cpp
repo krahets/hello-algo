@@ -6,38 +6,38 @@
 
 #include "../utils/common.hpp"
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     /* ハッシュテーブルを初期化 */
     unordered_map<int, string> map;
 
     /* 追加操作 */
-    // キー値ペア(key, value)をハッシュテーブルに追加
-    map[12836] = "Ha";
-    map[15937] = "Luo";
-    map[16750] = "Suan";
-    map[13276] = "Fa";
-    map[10583] = "Ya";
-    cout << "\nAfter adding, the hash table is\nKey -> Value" << endl;
+    // ハッシュテーブルにキーと値のペア (key, value) を追加
+    map[12836] = "シャオハー";
+    map[15937] = "シャオルオ";
+    map[16750] = "シャオスワン";
+    map[13276] = "シャオファー";
+    map[10583] = "シャオヤー";
+    cout << "\n追加完了後、ハッシュテーブルは\nKey -> Value" << endl;
     printHashMap(map);
 
-    /* クエリ操作 */
-    // ハッシュテーブルにキーを入力、値を取得
+    /* 検索操作 */
+    // キー key をハッシュテーブルに渡し、値 value を取得
     string name = map[15937];
-    cout << "\nEnter student ID 15937, found name " << name << endl;
+    cout << "\n学籍番号 15937 を入力すると、氏名 " << name << endl;
 
     /* 削除操作 */
-    // ハッシュテーブルからキー値ペア(key, value)を削除
+    // ハッシュテーブルからキーと値のペア (key, value) を削除
     map.erase(10583);
-    cout << "\nAfter removing 10583, the hash table is\nKey -> Value" << endl;
+    cout << "\n10583 を削除した後、ハッシュテーブルは\nKey -> Value" << endl;
     printHashMap(map);
 
     /* ハッシュテーブルを走査 */
-    cout << "\nTraverse key-value pairs Key->Value" << endl;
+    cout << "\nキーと値のペア Key->Value を走査" << endl;
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
-    cout << "\nIterate through Key->Value using an iterator" << endl;
+    cout << "\nイテレータで Key->Value を走査" << endl;
     for (auto iter = map.begin(); iter != map.end(); iter++) {
         cout << iter->first << "->" << iter->second << endl;
     }

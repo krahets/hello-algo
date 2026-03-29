@@ -8,8 +8,8 @@ Author: krahets (krahets@163.com)
 def backtrack(
     state: list[int], choices: list[int], selected: list[bool], res: list[list[int]]
 ):
-    """バックトラッキングアルゴリズム：順列 I"""
-    # 状態の長さが要素数と等しいとき、解を記録
+    """バックトラッキング：順列 I"""
+    # 状態の長さが要素数に等しければ、解を記録
     if len(state) == len(choices):
         res.append(list(state))
         return
@@ -17,24 +17,24 @@ def backtrack(
     for i, choice in enumerate(choices):
         # 枝刈り：要素の重複選択を許可しない
         if not selected[i]:
-            # 試行：選択を行い、状態を更新
+            # 試行: 選択を行い、状態を更新
             selected[i] = True
             state.append(choice)
-            # 次の選択ラウンドに進む
+            # 次の選択へ進む
             backtrack(state, choices, selected, res)
-            # 撤回：選択を取り消し、前の状態に復元
+            # バックトラック：選択を取り消し、前の状態に戻す
             selected[i] = False
             state.pop()
 
 
 def permutations_i(nums: list[int]) -> list[list[int]]:
-    """順列 I"""
+    """全順列 I"""
     res = []
     backtrack(state=[], choices=nums, selected=[False] * len(nums), res=res)
     return res
 
 
-"""ドライバーコード"""
+"""Driver Code"""
 if __name__ == "__main__":
     nums = [1, 2, 3]
 

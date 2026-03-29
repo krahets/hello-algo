@@ -16,35 +16,35 @@ if __name__ == "__main__":
     hmap = dict[int, str]()
 
     # 追加操作
-    # キー値ペア (key, value) をハッシュテーブルに追加
-    hmap[12836] = "Ha"
-    hmap[15937] = "Luo"
-    hmap[16750] = "Suan"
-    hmap[13276] = "Fa"
-    hmap[10583] = "Ya"
-    print("\n追加後、ハッシュテーブルは\nKey -> Value")
+    # ハッシュテーブルにキーと値の組 (key, value) を追加する
+    hmap[12836] = "シャオハー"
+    hmap[15937] = "シャオルオ"
+    hmap[16750] = "シャオスワン"
+    hmap[13276] = "シャオファー"
+    hmap[10583] = "シャオヤー"
+    print("\n追加完了後、ハッシュテーブルは\nKey -> Value")
     print_dict(hmap)
 
-    # 照会操作
-    # ハッシュテーブルにキーを入力し、値を取得
+    # 検索操作
+    # ハッシュテーブルにキー key を入力し、値 value を取得する
     name: str = hmap[15937]
-    print("\n学生ID 15937 を入力、名前 " + name + " が見つかりました")
+    print("\n学籍番号 15937 を入力すると、氏名は " + name)
 
     # 削除操作
-    # ハッシュテーブルからキー値ペア (key, value) を削除
+    # ハッシュテーブルからキーと値の組 (key, value) を削除する
     hmap.pop(10583)
-    print("\n10583 を削除後、ハッシュテーブルは\nKey -> Value")
+    print("\n10583 を削除した後、ハッシュテーブルは\nKey -> Value")
     print_dict(hmap)
 
     # ハッシュテーブルを走査
-    print("\nキー値ペアを走査 Key->Value")
+    print("\nキーと値のペア Key->Value を走査")
     for key, value in hmap.items():
         print(key, "->", value)
 
-    print("\nキーを個別に走査 Key")
+    print("\nキー Key を個別に走査")
     for key in hmap.keys():
         print(key)
 
-    print("\n値を個別に走査 Value")
+    print("\n値 Value を個別に走査")
     for val in hmap.values():
         print(val)

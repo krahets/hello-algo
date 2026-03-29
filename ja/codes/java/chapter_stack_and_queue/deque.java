@@ -15,32 +15,32 @@ public class deque {
         deque.offerLast(3);
         deque.offerLast(2);
         deque.offerLast(5);
-        System.out.println("両端キュー deque = " + deque);
+        System.out.println("双方向キュー deque = " + deque);
 
-        /* 要素へのアクセス */
+        /* 要素にアクセス */
         int peekFirst = deque.peekFirst();
         System.out.println("先頭要素 peekFirst = " + peekFirst);
         int peekLast = deque.peekLast();
         System.out.println("末尾要素 peekLast = " + peekLast);
 
-        /* 要素のエンキュー */
+        /* 要素をエンキュー */
         deque.offerLast(4);
-        System.out.println("要素4を末尾にエンキュー、deque = " + deque);
+        System.out.println("要素 4 を末尾にエンキューした後の deque = " + deque);
         deque.offerFirst(1);
-        System.out.println("要素1を先頭にエンキュー、deque = " + deque);
+        System.out.println("要素 1 を先頭にエンキューした後の deque = " + deque);
 
-        /* 要素のデキュー */
+        /* 要素をデキュー */
         int popLast = deque.pollLast();
-        System.out.println("両端キュー末尾要素 = " + popLast + "、末尾からデキュー後 " + deque);
+        System.out.println("末尾からデキューした要素 = " + popLast + "、末尾からデキューした後の deque = " + deque);
         int popFirst = deque.pollFirst();
-        System.out.println("両端キュー先頭要素 = " + popFirst + "、先頭からデキュー後 " + deque);
+        System.out.println("先頭からデキューした要素 = " + popFirst + "、先頭からデキューした後の deque = " + deque);
 
         /* 両端キューの長さを取得 */
         int size = deque.size();
-        System.out.println("両端キューの長さ size = " + size);
+        System.out.println("双方向キューの長さ size = " + size);
 
         /* 両端キューが空かどうかを判定 */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("両端キューが空か = " + isEmpty);
+        System.out.println("双方向キューが空かどうか = " + isEmpty);
     }
 }

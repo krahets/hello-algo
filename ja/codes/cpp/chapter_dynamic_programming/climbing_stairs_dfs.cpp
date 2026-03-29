@@ -6,9 +6,9 @@
 
 #include "../utils/common.hpp"
 
-/* 探索 */
+/* 検索 */
 int dfs(int i) {
-    // 既知の dp[1] と dp[2] を返す
+    // dp[1] と dp[2] は既知なので返す
     if (i == 1 || i == 2)
         return i;
     // dp[i] = dp[i-1] + dp[i-2]
@@ -21,12 +21,12 @@ int climbingStairsDFS(int n) {
     return dfs(n);
 }
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     int n = 9;
 
     int res = climbingStairsDFS(n);
-    cout << n << "段の階段を登る解は" << res << "通りです" << endl;
+    cout << "階段を " << n << " 段上る方法は全部で " << res << " 通り" << endl;
 
     return 0;
 }

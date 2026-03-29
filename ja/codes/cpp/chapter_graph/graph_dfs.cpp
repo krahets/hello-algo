@@ -7,31 +7,31 @@
 #include "../utils/common.hpp"
 #include "./graph_adjacency_list.cpp"
 
-/* 深さ優先走査ヘルパー関数 */
+/* 深さ優先走査の補助関数 */
 void dfs(GraphAdjList &graph, unordered_set<Vertex *> &visited, vector<Vertex *> &res, Vertex *vet) {
-    res.push_back(vet);   // 訪問済み頂点を記録
-    visited.emplace(vet); // 頂点を訪問済みとしてマーク
-    // その頂点のすべての隣接頂点を走査
+    res.push_back(vet);   // 訪問した頂点を記録
+    visited.emplace(vet); // この頂点を訪問済みにする
+    // この頂点のすべての隣接頂点を走査
     for (Vertex *adjVet : graph.adjList[vet]) {
         if (visited.count(adjVet))
-            continue; // すでに訪問済みの頂点をスキップ
+            continue; // 訪問済みの頂点をスキップ
         // 隣接頂点を再帰的に訪問
         dfs(graph, visited, res, adjVet);
     }
 }
 
-/* 深さ優先走査 */
-// 隣接リストを使用してグラフを表現し、指定された頂点のすべての隣接頂点を取得
+/* 深さ優先探索 */
+// グラフを隣接リストで表し、指定した頂点の隣接頂点をすべて取得できるようにする
 vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
-    // 頂点走査順序
+    // 頂点の走査順序
     vector<Vertex *> res;
-    // ハッシュセット、訪問済み頂点を記録するために使用
+    // 訪問済み頂点を記録するためのハッシュ集合
     unordered_set<Vertex *> visited;
     dfs(graph, visited, res, startVet);
     return res;
 }
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     /* 無向グラフを初期化 */
     vector<Vertex *> v = valsToVets(vector<int>{0, 1, 2, 3, 4, 5, 6});
@@ -41,12 +41,12 @@ int main() {
     cout << "\n初期化後、グラフは" << endl;
     graph.print();
 
-    /* 深さ優先走査 */
+    /* 深さ優先探索 */
     vector<Vertex *> res = graphDFS(graph, v[0]);
-    cout << "\n深さ優先走査（DFS）の頂点順序は" << endl;
+    cout << "\n深さ優先探索（DFS）の頂点順序は" << endl;
     printVector(vetsToVals(res));
 
-    // メモリを解放
+    // メモリを解放する
     for (Vertex *vet : v) {
         delete vet;
     }

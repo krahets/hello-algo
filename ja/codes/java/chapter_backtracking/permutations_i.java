@@ -9,9 +9,9 @@ package chapter_backtracking;
 import java.util.*;
 
 public class permutations_i {
-    /* バックトラッキングアルゴリズム：順列 I */
+    /* バックトラッキング：順列 I */
     public static void backtrack(List<Integer> state, int[] choices, boolean[] selected, List<List<Integer>> res) {
-        // 状態の長さが要素数と等しくなったら、解を記録
+        // 状態の長さが要素数に等しければ、解を記録
         if (state.size() == choices.length) {
             res.add(new ArrayList<Integer>(state));
             return;
@@ -19,21 +19,21 @@ public class permutations_i {
         // すべての選択肢を走査
         for (int i = 0; i < choices.length; i++) {
             int choice = choices[i];
-            // 剪定：要素の重複選択を許可しない
+            // 枝刈り：要素の重複選択を許可しない
             if (!selected[i]) {
-                // 試行：選択を行い、状態を更新
+                // 試行: 選択を行い、状態を更新
                 selected[i] = true;
                 state.add(choice);
-                // 次のラウンドの選択に進む
+                // 次の選択へ進む
                 backtrack(state, choices, selected, res);
-                // 回退：選択を取り消し、前の状態に復元
+                // バックトラック：選択を取り消し、前の状態に戻す
                 selected[i] = false;
                 state.remove(state.size() - 1);
             }
         }
     }
 
-    /* 順列 I */
+    /* 全順列 I */
     static List<List<Integer>> permutationsI(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         backtrack(new ArrayList<Integer>(), nums, new boolean[nums.length], res);

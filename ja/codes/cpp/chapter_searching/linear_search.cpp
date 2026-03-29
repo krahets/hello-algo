@@ -10,40 +10,40 @@
 int linearSearchArray(vector<int> &nums, int target) {
     // 配列を走査
     for (int i = 0; i < nums.size(); i++) {
-        // ターゲット要素が見つかったため、そのインデックスを返す
+        // 目標要素が見つかったらそのインデックスを返す
         if (nums[i] == target)
             return i;
     }
-    // ターゲット要素が見つからなかったため、-1を返す
+    // 目標要素が見つからなければ -1 を返す
     return -1;
 }
 
 /* 線形探索（連結リスト） */
 ListNode *linearSearchLinkedList(ListNode *head, int target) {
-    // リストを走査
+    // 連結リストを走査
     while (head != nullptr) {
-        // ターゲットノードが見つかった場合、それを返す
+        // 対象ノードが見つかったら、それを返す
         if (head->val == target)
             return head;
         head = head->next;
     }
-    // ターゲットノードが見つからない場合、nullptrを返す
+    // 対象ノードが見つからない場合は `nullptr` を返す
     return nullptr;
 }
 
-/* ドライバコード */
+/* Driver Code */
 int main() {
     int target = 3;
 
-    /* 配列で線形探索を実行 */
+    /* 配列で線形探索を行う */
     vector<int> nums = {1, 5, 3, 2, 4, 7, 5, 9, 10, 8};
     int index = linearSearchArray(nums, target);
-    cout << "ターゲット要素3のインデックスは " << index << " です" << endl;
+    cout << "対象要素 3 のインデックス = " << index << endl;
 
-    /* 連結リストで線形探索を実行 */
+    /* 連結リストで線形探索を行う */
     ListNode *head = vecToLinkedList(nums);
     ListNode *node = linearSearchLinkedList(head, target);
-    cout << "ターゲットノード値3に対応するノードオブジェクトは " << node << " です" << endl;
+    cout << "対象ノード値 3 に対応するノードオブジェクトは " << node << endl;
 
     return 0;
 }

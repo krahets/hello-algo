@@ -6,8 +6,8 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 """Driver Code"""
 if __name__ == "__main__":
-    # スタックを初期化
-    # Pythonには組み込みのスタッククラスはありませんが、リストをスタックとして使用できます
+    # スタックを初期化する
+    # Python には組み込みのスタッククラスがないため、list をスタックとして使える
     stack: list[int] = []
 
     # 要素をプッシュ
@@ -18,14 +18,14 @@ if __name__ == "__main__":
     stack.append(4)
     print("スタック stack =", stack)
 
-    # スタックトップ要素にアクセス
+    # スタックトップの要素にアクセス
     peek: int = stack[-1]
     print("スタックトップ要素 peek =", peek)
 
     # 要素をポップ
     pop: int = stack.pop()
-    print("ポップされた要素 pop =", pop)
-    print("ポップ後のスタック =", stack)
+    print("ポップした要素 pop =", pop)
+    print("ポップ後 stack =", stack)
 
     # スタックの長さを取得
     size: int = len(stack)

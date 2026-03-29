@@ -8,26 +8,26 @@ import math
 
 
 def max_product_cutting(n: int) -> int:
-    """切断の最大積：貪欲法"""
-    # n <= 3 の場合、1 を切り出す必要がある
+    """最大切断積：貪欲法"""
+    # n <= 3 のときは、必ず 1 を切り出す
     if n <= 3:
         return 1 * (n - 1)
-    # 貪欲的に 3 を切り出す、a は 3 の個数、b は余り
+    # 貪欲に 3 を切り出し、a を 3 の個数、b を余りとする
     a, b = n // 3, n % 3
     if b == 1:
-        # 余りが 1 の場合、1 * 3 のペアを 2 * 2 に変換
+        # 余りが 1 のときは、1 * 3 を 2 * 2 に変える
         return int(math.pow(3, a - 1)) * 2 * 2
     if b == 2:
-        # 余りが 2 の場合、何もしない
+        # 余りが 2 のときは、そのままにする
         return int(math.pow(3, a)) * 2
-    # 余りが 0 の場合、何もしない
+    # 余りが 0 のときは、そのままにする
     return int(math.pow(3, a))
 
 
-"""ドライバーコード"""
+"""Driver Code"""
 if __name__ == "__main__":
     n = 58
 
-    # 貪欲アルゴリズム
+    # 貪欲法
     res = max_product_cutting(n)
-    print(f"切断の最大積は {res}")
+    print(f"最大分割積は {res}")

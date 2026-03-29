@@ -6,8 +6,8 @@ Author: krahets (krahets@163.com)
 
 
 def two_sum_brute_force(nums: list[int], target: int) -> list[int]:
-    """方法一：ブルートフォース列挙"""
-    # 二重ループ、時間計算量は O(n^2)
+    """方法 1：総当たり列挙"""
+    # 2重ループのため、時間計算量は O(n^2)
     for i in range(len(nums) - 1):
         for j in range(i + 1, len(nums)):
             if nums[i] + nums[j] == target:
@@ -16,10 +16,10 @@ def two_sum_brute_force(nums: list[int], target: int) -> list[int]:
 
 
 def two_sum_hash_table(nums: list[int], target: int) -> list[int]:
-    """方法二：補助ハッシュテーブル"""
-    # 補助ハッシュテーブル、空間計算量は O(n)
+    """方法 2：補助ハッシュテーブル"""
+    # 補助ハッシュテーブルを使用し、空間計算量は O(n)
     dic = {}
-    # 単一ループ、時間計算量は O(n)
+    # 単一ループで、時間計算量は O(n)
     for i in range(len(nums)):
         if target - nums[i] in dic:
             return [dic[target - nums[i]], i]
@@ -27,16 +27,16 @@ def two_sum_hash_table(nums: list[int], target: int) -> list[int]:
     return []
 
 
-"""ドライバーコード"""
+"""Driver Code"""
 if __name__ == "__main__":
-    # ======= テストケース =======
+    # ======= Test Case =======
     nums = [2, 7, 11, 15]
     target = 13
 
-    # ====== ドライバーコード ======
-    # 方法一
+    # ====== Driver Code ======
+    # 方法 1
     res: list[int] = two_sum_brute_force(nums, target)
-    print("方法一の結果 =", res)
-    # 方法二
+    print("方法1 res =", res)
+    # 方法 2
     res: list[int] = two_sum_hash_table(nums, target)
-    print("方法二の結果 =", res)
+    print("方法2 res =", res)

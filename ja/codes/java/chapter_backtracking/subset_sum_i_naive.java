@@ -9,33 +9,33 @@ package chapter_backtracking;
 import java.util.*;
 
 public class subset_sum_i_naive {
-    /* バックトラッキングアルゴリズム：部分集合和 I */
+    /* バックトラッキング：部分和 I */
     static void backtrack(List<Integer> state, int target, int total, int[] choices, List<List<Integer>> res) {
-        // 部分集合の和がtargetと等しいとき、解を記録
+        // 部分集合の和が target に等しければ、解を記録
         if (total == target) {
             res.add(new ArrayList<>(state));
             return;
         }
         // すべての選択肢を走査
         for (int i = 0; i < choices.length; i++) {
-            // 剪定：部分集合の和がtargetを超えた場合、その選択をスキップ
+            // 枝刈り：部分和が target を超える場合はその選択をスキップする
             if (total + choices[i] > target) {
                 continue;
             }
-            // 試行：選択を行い、要素とtotalを更新
+            // 試行：選択を行い、要素と total を更新する
             state.add(choices[i]);
-            // 次のラウンドの選択に進む
+            // 次の選択へ進む
             backtrack(state, target, total + choices[i], choices, res);
-            // 回退：選択を取り消し、前の状態に復元
+            // バックトラック：選択を取り消し、前の状態に戻す
             state.remove(state.size() - 1);
         }
     }
 
-    /* 部分集合和 I を解く（重複する部分集合を含む） */
+    /* 部分和 I を解く（重複部分集合を含む） */
     static List<List<Integer>> subsetSumINaive(int[] nums, int target) {
         List<Integer> state = new ArrayList<>(); // 状態（部分集合）
-        int total = 0; // 部分集合の和
-        List<List<Integer>> res = new ArrayList<>(); // 結果リスト（部分集合リスト）
+        int total = 0; // 部分和
+        List<List<Integer>> res = new ArrayList<>(); // 結果リスト（部分集合のリスト）
         backtrack(state, target, total, nums, res);
         return res;
     }
@@ -47,7 +47,7 @@ public class subset_sum_i_naive {
         List<List<Integer>> res = subsetSumINaive(nums, target);
 
         System.out.println("入力配列 nums = " + Arrays.toString(nums) + ", target = " + target);
-        System.out.println("和が " + target + " のすべての部分集合 res = " + res);
-        System.out.println("この方法の結果には重複する集合が含まれています");
+        System.out.println("和が " + target + " に等しいすべての部分集合 res = " + res);
+        System.out.println("注意: この方法の出力結果には重複した集合が含まれます");
     }
 }

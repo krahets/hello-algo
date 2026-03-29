@@ -12,67 +12,67 @@ from modules import TreeNode, print_tree
 
 
 class AVLTree:
-    """AVL木"""
+    """AVL 木"""
 
     def __init__(self):
         """コンストラクタ"""
         self._root = None
 
     def get_root(self) -> TreeNode | None:
-        """二分木のルートノードを取得"""
+        """二分木の根ノードを取得"""
         return self._root
 
     def height(self, node: TreeNode | None) -> int:
         """ノードの高さを取得"""
-        # 空ノードの高さは-1、葉ノードの高さは0
+        # 空ノードの高さは -1、葉ノードの高さは 0
         if node is not None:
             return node.height
         return -1
 
     def update_height(self, node: TreeNode | None):
-        """ノードの高さを更新"""
-        # ノードの高さ = 最も高い部分木の高さ + 1
+        """ノードの高さを更新する"""
+        # ノードの高さは最も高い部分木の高さ + 1 に等しい
         node.height = max([self.height(node.left), self.height(node.right)]) + 1
 
     def balance_factor(self, node: TreeNode | None) -> int:
-        """バランス因子を取得"""
-        # 空ノードのバランス因子は0
+        """平衡係数を取得"""
+        # 空ノードの平衡係数は 0
         if node is None:
             return 0
-        # ノードのバランス因子 = 左部分木の高さ - 右部分木の高さ
+        # ノードの平衡係数 = 左部分木の高さ - 右部分木の高さ
         return self.height(node.left) - self.height(node.right)
 
     def right_rotate(self, node: TreeNode | None) -> TreeNode | None:
-        """右回転操作"""
+        """右回転"""
         child = node.left
         grand_child = child.right
-        # childを中心にnodeを右に回転
+        # child を支点として node を右回転させる
         child.right = node
         node.left = grand_child
-        # ノードの高さを更新
+        # ノードの高さを更新する
         self.update_height(node)
         self.update_height(child)
-        # 回転後の部分木のルートを返す
+        # 回転後の部分木の根ノードを返す
         return child
 
     def left_rotate(self, node: TreeNode | None) -> TreeNode | None:
-        """左回転操作"""
+        """左回転"""
         child = node.right
         grand_child = child.left
-        # childを中心にnodeを左に回転
+        # child を支点として node を左回転させる
         child.left = node
         node.right = grand_child
-        # ノードの高さを更新
+        # ノードの高さを更新する
         self.update_height(node)
         self.update_height(child)
-        # 回転後の部分木のルートを返す
+        # 回転後の部分木の根ノードを返す
         return child
 
     def rotate(self, node: TreeNode | None) -> TreeNode | None:
-        """回転操作を実行して部分木のバランスを復元"""
-        # nodeのバランス因子を取得
+        """回転操作を行い、この部分木の平衡を回復する"""
+        # ノード node の平衡係数を取得
         balance_factor = self.balance_factor(node)
-        # 左偏り木
+        # 左に偏った木
         if balance_factor > 1:
             if self.balance_factor(node.left) >= 0:
                 # 右回転
@@ -81,7 +81,7 @@ class AVLTree:
                 # 左回転してから右回転
                 node.left = self.left_rotate(node.left)
                 return self.right_rotate(node)
-        # 右偏り木
+        # 右に偏った木
         elif balance_factor < -1:
             if self.balance_factor(node.right) <= 0:
                 # 左回転
@@ -90,7 +90,7 @@ class AVLTree:
                 # 右回転してから左回転
                 node.right = self.right_rotate(node.right)
                 return self.left_rotate(node)
-        # バランスの取れた木、回転不要、戻る
+        # 平衡木なので回転不要、そのまま返す
         return node
 
     def insert(self, val):
@@ -98,20 +98,20 @@ class AVLTree:
         self._root = self.insert_helper(self._root, val)
 
     def insert_helper(self, node: TreeNode | None, val: int) -> TreeNode:
-        """再帰的にノードを挿入（ヘルパーメソッド）"""
+        """ノードを再帰的に挿入する（補助メソッド）"""
         if node is None:
             return TreeNode(val)
-        # 1. 挿入位置を見つけてノードを挿入
+        # 1. 挿入位置を探索してノードを挿入
         if val < node.val:
             node.left = self.insert_helper(node.left, val)
         elif val > node.val:
             node.right = self.insert_helper(node.right, val)
         else:
-            # 重複ノードは挿入しない、戻る
+            # 重複ノードは挿入せず、そのまま返す
             return node
-        # ノードの高さを更新
+        # ノードの高さを更新する
         self.update_height(node)
-        # 2. 回転操作を実行して部分木のバランスを復元
+        # 2. 回転操作を行い、部分木の平衡を回復する
         return self.rotate(node)
 
     def remove(self, val: int):
@@ -119,10 +119,10 @@ class AVLTree:
         self._root = self.remove_helper(self._root, val)
 
     def remove_helper(self, node: TreeNode | None, val: int) -> TreeNode | None:
-        """再帰的にノードを削除（ヘルパーメソッド）"""
+        """ノードを再帰的に削除する（補助メソッド）"""
         if node is None:
             return None
-        # 1. ノードを見つけて削除
+        # 1. ノードを探索して削除
         if val < node.val:
             node.left = self.remove_helper(node.left, val)
         elif val > node.val:
@@ -130,71 +130,71 @@ class AVLTree:
         else:
             if node.left is None or node.right is None:
                 child = node.left or node.right
-                # 子ノード数 = 0、ノードを削除して戻る
+                # 子ノード数 = 0 の場合、node をそのまま削除して返す
                 if child is None:
                     return None
-                # 子ノード数 = 1、ノードを削除
+                # 子ノード数 = 1 の場合、node をそのまま削除する
                 else:
                     node = child
             else:
-                # 子ノード数 = 2、中順走査の次のノードを削除し、それで現在のノードを置き換え
+                # 子ノード数 = 2 の場合、中順走査の次のノードを削除し、そのノードで現在のノードを置き換える
                 temp = node.right
                 while temp.left is not None:
                     temp = temp.left
                 node.right = self.remove_helper(node.right, temp.val)
                 node.val = temp.val
-        # ノードの高さを更新
+        # ノードの高さを更新する
         self.update_height(node)
-        # 2. 回転操作を実行して部分木のバランスを復元
+        # 2. 回転操作を行い、部分木の平衡を回復する
         return self.rotate(node)
 
     def search(self, val: int) -> TreeNode | None:
         """ノードを探索"""
         cur = self._root
-        # ループで探索、葉ノードを通過した後にブレーク
+        # ループで探索し、葉ノードを越えたら抜ける
         while cur is not None:
-            # ターゲットノードはcurの右部分木にある
+            # 目標ノードは cur の右部分木にある
             if cur.val < val:
                 cur = cur.right
-            # ターゲットノードはcurの左部分木にある
+            # 目標ノードは cur の左部分木にある
             elif cur.val > val:
                 cur = cur.left
-            # ターゲットノードを発見、ループをブレーク
+            # 目標ノードが見つかったらループを抜ける
             else:
                 break
-        # ターゲットノードを返す
+        # 目標ノードを返す
         return cur
 
 
-"""ドライバコード"""
+"""Driver Code"""
 if __name__ == "__main__":
 
     def test_insert(tree: AVLTree, val: int):
         tree.insert(val)
-        print("\nノード {} を挿入後、AVL木は".format(val))
+        print("\nノード {} を挿入した後、AVL 木は".format(val))
         print_tree(tree.get_root())
 
     def test_remove(tree: AVLTree, val: int):
         tree.remove(val)
-        print("\nノード {} を削除後、AVL木は".format(val))
+        print("\nノード {} を削除した後、AVL 木は".format(val))
         print_tree(tree.get_root())
 
-    # 空のAVL木を初期化
+    # 空の AVL 木を初期化する
     avl_tree = AVLTree()
 
-    # ノードを挿入
-    # AVL木がノード挿入後にバランスを維持する様子に注目
+    # ノードを挿入する
+    # ノード挿入後に AVL 木がどのように平衡を保つかに注目
     for val in [1, 2, 3, 4, 5, 8, 7, 9, 10, 6]:
         test_insert(avl_tree, val)
 
-    # 重複ノードを挿入
+    # 重複ノードを挿入する
     test_insert(avl_tree, 7)
 
-    # ノードを削除
-    # AVL木がノード削除後にバランスを維持する様子に注目
-    test_remove(avl_tree, 8)  # 次数0のノードを削除
-    test_remove(avl_tree, 5)  # 次数1のノードを削除
-    test_remove(avl_tree, 4)  # 次数2のノードを削除
+    # ノードを削除する
+    # ノード削除後に AVL 木がどのように平衡を保つかに注目
+    test_remove(avl_tree, 8)  # 次数 0 のノードを削除する
+    test_remove(avl_tree, 5)  # 次数 1 のノードを削除する
+    test_remove(avl_tree, 4)  # 次数 2 のノードを削除する
 
     result_node = avl_tree.search(7)
-    print("\n発見されたノードオブジェクト: {}、ノードの値 = {}".format(result_node, result_node.val))
+    print("\n見つかったノードオブジェクトは {}、ノードの値 = {}".format(result_node, result_node.val))

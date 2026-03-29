@@ -21,13 +21,13 @@ public class queue {
         queue.offer(4);
         System.out.println("キュー queue = " + queue);
 
-        /* 先頭要素にアクセス */
+        /* キュー先頭の要素にアクセス */
         int peek = queue.peek();
         System.out.println("先頭要素 peek = " + peek);
 
         /* 要素をデキュー */
         int pop = queue.poll();
-        System.out.println("デキューした要素 = " + pop + "、デキュー後 " + queue);
+        System.out.println("デキューした要素 pop = " + pop + "、デキュー後の queue = " + queue);
 
         /* キューの長さを取得 */
         int size = queue.size();
@@ -35,6 +35,6 @@ public class queue {
 
         /* キューが空かどうかを判定 */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("キューが空か = " + isEmpty);
+        System.out.println("キューが空かどうか = " + isEmpty);
     }
 }

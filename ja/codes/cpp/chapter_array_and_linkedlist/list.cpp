@@ -6,25 +6,25 @@
 
 #include "../utils/common.hpp"
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     /* リストを初期化 */
     vector<int> nums = {1, 3, 2, 5, 4};
-    cout << "List nums = ";
+    cout << "リスト nums = ";
     printVector(nums);
 
     /* 要素にアクセス */
     int num = nums[1];
-    cout << "Access the element at index 1, obtained num = " << num << endl;
+    cout << "インデックス 1 の要素にアクセスすると、num = " << num << endl;
 
     /* 要素を更新 */
     nums[1] = 0;
-    cout << "Update the element at index 1 to 0, resulting in nums = ";
+    cout << "インデックス 1 の要素を 0 に更新すると、nums = ";
     printVector(nums);
 
-    /* リストをクリア */
+    /* リストを空にする */
     nums.clear();
-    cout << "After clearing the list, nums = ";
+    cout << "リストを空にした後の nums = ";
     printVector(nums);
 
     /* 末尾に要素を追加 */
@@ -33,39 +33,39 @@ int main() {
     nums.push_back(2);
     nums.push_back(5);
     nums.push_back(4);
-    cout << "After adding elements, nums = ";
+    cout << "要素追加後の nums = ";
     printVector(nums);
 
     /* 中間に要素を挿入 */
     nums.insert(nums.begin() + 3, 6);
-    cout << "Insert the number 6 at index 3, resulting in nums = ";
+    cout << "インデックス 3 に数値 6 を挿入し、nums = ";
     printVector(nums);
 
     /* 要素を削除 */
     nums.erase(nums.begin() + 3);
-    cout << "Remove the element at index 3, resulting in nums = ";
+    cout << "インデックス 3 の要素を削除すると、nums = ";
     printVector(nums);
 
-    /* インデックスによるリストの走査 */
+    /* インデックスでリストを走査 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums[i];
     }
-    /* リスト要素の走査 */
+    /* リスト要素を直接走査 */
     count = 0;
     for (int x : nums) {
         count += x;
     }
 
-    /* 2つのリストを連結 */
+    /* 2 つのリストを連結する */
     vector<int> nums1 = {6, 8, 7, 10, 9};
     nums.insert(nums.end(), nums1.begin(), nums1.end());
-    cout << "Concatenate list nums1 to nums, resulting in nums = ";
+    cout << "リスト nums1 を nums の後ろに連結すると、nums = ";
     printVector(nums);
 
     /* リストをソート */
     sort(nums.begin(), nums.end());
-    cout << "After sorting the list, nums = ";
+    cout << "リストをソートした後の nums = ";
     printVector(nums);
 
     return 0;
