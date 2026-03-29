@@ -9,10 +9,10 @@ package chapter_searching;
 import java.util.*;
 
 public class two_sum {
-    /* 方法一: 暴力列挙 */
+    /* 方法 1：総当たり列挙 */
     static int[] twoSumBruteForce(int[] nums, int target) {
         int size = nums.length;
-        // 二重ループ、時間計算量は O(n^2)
+        // 2重ループのため、時間計算量は O(n^2)
         for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {
                 if (nums[i] + nums[j] == target)
@@ -22,12 +22,12 @@ public class two_sum {
         return new int[0];
     }
 
-    /* 方法二: 補助ハッシュテーブル */
+    /* 方法 2：補助ハッシュテーブル */
     static int[] twoSumHashTable(int[] nums, int target) {
         int size = nums.length;
-        // 補助ハッシュテーブル、空間計算量は O(n)
+        // 補助ハッシュテーブルを使用し、空間計算量は O(n)
         Map<Integer, Integer> dic = new HashMap<>();
-        // 単一層ループ、時間計算量は O(n)
+        // 単一ループで、時間計算量は O(n)
         for (int i = 0; i < size; i++) {
             if (dic.containsKey(target - nums[i])) {
                 return new int[] { dic.get(target - nums[i]), i };
@@ -38,16 +38,16 @@ public class two_sum {
     }
 
     public static void main(String[] args) {
-        // ======= テストケース =======
+        // ======= Test Case =======
         int[] nums = { 2, 7, 11, 15 };
         int target = 13;
 
-        // ====== ドライバーコード ======
-        // 方法一
+        // ====== Driver Code ======
+        // 方法 1
         int[] res = twoSumBruteForce(nums, target);
-        System.out.println("方法一 res = " + Arrays.toString(res));
-        // 方法二
+        System.out.println("方法1 res = " + Arrays.toString(res));
+        // 方法 2
         res = twoSumHashTable(nums, target);
-        System.out.println("方法二 res = " + Arrays.toString(res));
+        System.out.println("方法2 res = " + Arrays.toString(res));
     }
 }

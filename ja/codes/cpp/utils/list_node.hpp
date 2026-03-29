@@ -19,7 +19,7 @@ struct ListNode {
     }
 };
 
-/* 配列を連結リストに逆シリアル化する */
+/* リストを連結リストにデシリアライズする */
 ListNode *vecToLinkedList(vector<int> list) {
     ListNode *dum = new ListNode(0);
     ListNode *head = dum;
@@ -30,9 +30,9 @@ ListNode *vecToLinkedList(vector<int> list) {
     return dum->next;
 }
 
-/* 連結リストに割り当てられたメモリを解放する */
+/* 連結リストに割り当てたメモリを解放する */
 void freeMemoryLinkedList(ListNode *cur) {
-    // メモリを解放
+    // メモリを解放する
     ListNode *pre;
     while (cur != nullptr) {
         pre = cur;

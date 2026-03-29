@@ -12,14 +12,14 @@ from chapter_hashing.array_hash_map import Pair
 
 
 class HashMapChaining:
-    """チェーンアドレス法ハッシュテーブル"""
+    """チェイン法ハッシュテーブル"""
 
     def __init__(self):
         """コンストラクタ"""
-        self.size = 0  # キー値ペアの数
-        self.capacity = 4  # ハッシュテーブルの容量
-        self.load_thres = 2.0 / 3.0  # 拡張をトリガーする負荷率の閾値
-        self.extend_ratio = 2  # 拡張の倍数
+        self.size = 0  # キーと値のペア数
+        self.capacity = 4  # ハッシュテーブル容量
+        self.load_thres = 2.0 / 3.0  # リサイズを発動する負荷率のしきい値
+        self.extend_ratio = 2  # 拡張倍率
         self.buckets = [[] for _ in range(self.capacity)]  # バケット配列
 
     def hash_func(self, key: int) -> int:
@@ -31,29 +31,29 @@ class HashMapChaining:
         return self.size / self.capacity
 
     def get(self, key: int) -> str | None:
-        """照会操作"""
+        """検索操作"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # バケットを走査し、キーが見つかれば対応する val を返す
+        # バケットを走査し、key が見つかれば対応する val を返す
         for pair in bucket:
             if pair.key == key:
                 return pair.val
-        # キーが見つからない場合、None を返す
+        # key が見つからない場合は None を返す
         return None
 
     def put(self, key: int, val: str):
         """追加操作"""
-        # 負荷率が閾値を超えた場合、拡張を実行
+        # 負荷率がしきい値を超えたら、リサイズを実行
         if self.load_factor() > self.load_thres:
             self.extend()
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # バケットを走査し、指定されたキーに遭遇した場合、対応する val を更新して返す
+        # バケットを走査し、指定した key が見つかれば対応する val を更新して返す
         for pair in bucket:
             if pair.key == key:
                 pair.val = val
                 return
-        # キーが見つからない場合、キー値ペアを末尾に追加
+        # その key が存在しなければ、キーと値のペアを末尾に追加
         pair = Pair(key, val)
         bucket.append(pair)
         self.size += 1
@@ -62,7 +62,7 @@ class HashMapChaining:
         """削除操作"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # バケットを走査し、その中からキー値ペアを削除
+        # バケットを走査してキーと値のペアを削除
         for pair in bucket:
             if pair.key == key:
                 bucket.remove(pair)
@@ -71,13 +71,13 @@ class HashMapChaining:
 
     def extend(self):
         """ハッシュテーブルを拡張"""
-        # 元のハッシュテーブルを一時的に保存
+        # 元のハッシュテーブルを一時保存
         buckets = self.buckets
-        # 拡張された新しいハッシュテーブルを初期化
+        # リサイズ後の新しいハッシュテーブルを初期化
         self.capacity *= self.extend_ratio
         self.buckets = [[] for _ in range(self.capacity)]
         self.size = 0
-        # 元のハッシュテーブルから新しいハッシュテーブルにキー値ペアを移動
+        # キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルへ移す
         for bucket in buckets:
             for pair in bucket:
                 self.put(pair.key, pair.val)
@@ -97,22 +97,22 @@ if __name__ == "__main__":
     hashmap = HashMapChaining()
 
     # 追加操作
-    # キー値ペア (key, value) をハッシュテーブルに追加
-    hashmap.put(12836, "Ha")
-    hashmap.put(15937, "Luo")
-    hashmap.put(16750, "Suan")
-    hashmap.put(13276, "Fa")
-    hashmap.put(10583, "Ya")
-    print("\n追加後、ハッシュテーブルは\n[Key1 -> Value1, Key2 -> Value2, ...]")
+    # ハッシュテーブルにキーと値の組 (key, value) を追加する
+    hashmap.put(12836, "シャオハー")
+    hashmap.put(15937, "シャオルオ")
+    hashmap.put(16750, "シャオスワン")
+    hashmap.put(13276, "シャオファー")
+    hashmap.put(10583, "シャオヤー")
+    print("\n追加完了後、ハッシュテーブルは\n[Key1 -> Value1, Key2 -> Value2, ...]")
     hashmap.print()
 
-    # 照会操作
-    # ハッシュテーブルにキーを入力し、値を取得
+    # 検索操作
+    # ハッシュテーブルにキー key を入力し、値 value を取得する
     name = hashmap.get(13276)
-    print("\n学生ID 13276 を入力、名前 " + name + " が見つかりました")
+    print("\n学籍番号 13276 を入力すると、氏名は " + name)
 
     # 削除操作
-    # ハッシュテーブルからキー値ペア (key, value) を削除
+    # ハッシュテーブルからキーと値の組 (key, value) を削除する
     hashmap.remove(12836)
-    print("\n12836 を削除後、ハッシュテーブルは\n[Key1 -> Value1, Key2 -> Value2, ...]")
+    print("\n12836 を削除した後、ハッシュテーブルは\n[Key1 -> Value1, Key2 -> Value2, ...]")
     hashmap.print()

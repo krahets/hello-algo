@@ -11,7 +11,7 @@ import utils.*;
 
 /* 隣接リストに基づく無向グラフクラス */
 class GraphAdjList {
-    // 隣接リスト、キー: 頂点、値: その頂点のすべての隣接頂点
+    // 隣接リスト。key は頂点、value はその頂点に隣接する全頂点
     Map<Vertex, List<Vertex>> adjList;
 
     /* コンストラクタ */
@@ -52,7 +52,7 @@ class GraphAdjList {
     public void addVertex(Vertex vet) {
         if (adjList.containsKey(vet))
             return;
-        // 隣接リストに新しい連結リストを追加
+        // 隣接リストに新しいリストを追加
         adjList.put(vet, new ArrayList<>());
     }
 
@@ -60,9 +60,9 @@ class GraphAdjList {
     public void removeVertex(Vertex vet) {
         if (!adjList.containsKey(vet))
             throw new IllegalArgumentException();
-        // 隣接リストから頂点 vet に対応する連結リストを削除
+        // 隣接リストから頂点 vet に対応するリストを削除
         adjList.remove(vet);
-        // 他の頂点の連結リストを走査し、vet を含むすべての辺を削除
+        // 他の頂点のリストを走査し、vet を含むすべての辺を削除
         for (List<Vertex> list : adjList.values()) {
             list.remove(vet);
         }
@@ -87,31 +87,31 @@ public class graph_adjacency_list {
         Vertex[][] edges = { { v[0], v[1] }, { v[0], v[3] }, { v[1], v[2] },
                              { v[2], v[3] }, { v[2], v[4] }, { v[3], v[4] } };
         GraphAdjList graph = new GraphAdjList(edges);
-        System.out.println("\n初期化後、グラフは");
+        System.out.println("\n初期化後のグラフ");
         graph.print();
 
         /* 辺を追加 */
-        // 頂点 1、2、すなわち v[0]、v[2]
+        // 頂点 1, 2 は v[0], v[2]
         graph.addEdge(v[0], v[2]);
-        System.out.println("\n辺 1-2 を追加後、グラフは");
+        System.out.println("\n辺 1-2 を追加した後のグラフ");
         graph.print();
 
         /* 辺を削除 */
-        // 頂点 1、3、すなわち v[0]、v[1]
+        // 頂点 1, 3 は v[0], v[1]
         graph.removeEdge(v[0], v[1]);
-        System.out.println("\n辺 1-3 を削除後、グラフは");
+        System.out.println("\n辺 1-3 を削除した後のグラフ");
         graph.print();
 
         /* 頂点を追加 */
         Vertex v5 = new Vertex(6);
         graph.addVertex(v5);
-        System.out.println("\n頂点 6 を追加後、グラフは");
+        System.out.println("\n頂点 6 を追加した後のグラフ");
         graph.print();
 
         /* 頂点を削除 */
-        // 頂点 3、すなわち v[1]
+        // 頂点 3 は v[1]
         graph.removeVertex(v[1]);
-        System.out.println("\n頂点 3 を削除後、グラフは");
+        System.out.println("\n頂点 3 を削除すると、グラフは");
         graph.print();
     }
 }

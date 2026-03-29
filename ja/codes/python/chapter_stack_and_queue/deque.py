@@ -8,35 +8,35 @@ from collections import deque
 
 """Driver Code"""
 if __name__ == "__main__":
-    # 双端キューを初期化
+    # 両端キューを初期化
     deq: deque[int] = deque()
 
     # 要素をエンキュー
-    deq.append(2)  # 後端に追加
+    deq.append(2)  # 末尾に追加する
     deq.append(5)
     deq.append(4)
-    deq.appendleft(3)  # 前端に追加
+    deq.appendleft(3)  # 先頭に追加する
     deq.appendleft(1)
-    print("双端キュー deque =", deq)
+    print("両端キュー deque =", deq)
 
     # 要素にアクセス
-    front: int = deq[0]  # 前端要素
-    print("前端要素 front =", front)
-    rear: int = deq[-1]  # 後端要素
-    print("後端要素 rear =", rear)
+    front: int = deq[0]  # 先頭要素
+    print("先頭要素 front =", front)
+    rear: int = deq[-1]  # 末尾要素
+    print("末尾要素 rear =", rear)
 
     # 要素をデキュー
-    pop_front: int = deq.popleft()  # 前端要素のデキュー
-    print("前端でデキューされた要素 pop_front =", pop_front)
-    print("前端デキュー後のデック =", deq)
-    pop_rear: int = deq.pop()  # 後端要素のデキュー
-    print("後端でデキューされた要素 pop_rear =", pop_rear)
-    print("後端デキュー後のデック =", deq)
+    pop_front: int = deq.popleft()  # 先頭要素を取り出す
+    print("先頭から取り出した要素  pop_front =", pop_front)
+    print("先頭から取り出した後 deque =", deq)
+    pop_rear: int = deq.pop()  # 末尾要素を取り出す
+    print("末尾から取り出した要素  pop_rear =", pop_rear)
+    print("末尾から取り出した後 deque =", deq)
 
-    # 双端キューの長さを取得
+    # 両端キューの長さを取得
     size: int = len(deq)
-    print("双端キューの長さ size =", size)
+    print("両端キューの長さ size =", size)
 
-    # 双端キューが空かどうかを判定
+    # 両端キューが空かどうかを判定
     is_empty: bool = len(deq) == 0
-    print("双端キューが空かどうか =", is_empty)
+    print("両端キューが空かどうか =", is_empty)

@@ -8,8 +8,8 @@
 
 /* 隣接行列に基づく無向グラフクラス */
 class GraphAdjMat {
-    vector<int> vertices;       // 頂点リスト、要素は「頂点値」を表し、インデックスは「頂点インデックス」を表す
-    vector<vector<int>> adjMat; // 隣接行列、行と列のインデックスは「頂点インデックス」に対応
+    vector<int> vertices;       // 頂点リスト。要素は「頂点値」、インデックスは「頂点インデックス」を表す
+    vector<vector<int>> adjMat; // 隣接行列。行・列のインデックスは「頂点インデックス」に対応
 
   public:
     /* コンストラクタ */
@@ -19,7 +19,7 @@ class GraphAdjMat {
             addVertex(val);
         }
         // 辺を追加
-        // 辺の要素は頂点インデックスを表す
+        // 注意：edges の各要素は頂点インデックスを表し、vertices の要素インデックスに対応する
         for (const vector<int> &edge : edges) {
             addEdge(edge[0], edge[1]);
         }
@@ -33,11 +33,11 @@ class GraphAdjMat {
     /* 頂点を追加 */
     void addVertex(int val) {
         int n = size();
-        // 頂点リストに新しい頂点値を追加
+        // 頂点リストに新しい頂点の値を追加
         vertices.push_back(val);
-        // 隣接行列に行を追加
+        // 隣接行列に 1 行追加
         adjMat.emplace_back(vector<int>(n, 0));
-        // 隣接行列に列を追加
+        // 隣接行列に 1 列追加
         for (vector<int> &row : adjMat) {
             row.push_back(0);
         }
@@ -46,42 +46,42 @@ class GraphAdjMat {
     /* 頂点を削除 */
     void removeVertex(int index) {
         if (index >= size()) {
-            throw out_of_range("Vertex does not exist");
+            throw out_of_range("頂点が存在しません");
         }
-        // 頂点リストから`index`の頂点を削除
+        // 頂点リストから index の頂点を削除する
         vertices.erase(vertices.begin() + index);
-        // 隣接行列から`index`の行を削除
+        // 隣接行列で index 行を削除する
         adjMat.erase(adjMat.begin() + index);
-        // 隣接行列から`index`の列を削除
+        // 隣接行列で index 列を削除する
         for (vector<int> &row : adjMat) {
             row.erase(row.begin() + index);
         }
     }
 
     /* 辺を追加 */
-    // パラメータi、jは頂点要素のインデックスに対応
+    // 引数 i, j は vertices の要素インデックスに対応する
     void addEdge(int i, int j) {
-        // インデックス範囲外と等価性を処理
+        // インデックスの範囲外と等値の処理
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
-            throw out_of_range("Vertex does not exist");
+            throw out_of_range("頂点が存在しません");
         }
-        // 無向グラフでは、隣接行列は主対角線について対称、即ち(i, j) == (j, i)を満たす
+        // 無向グラフでは、隣接行列は主対角線に関して対称、すなわち (i, j) == (j, i) を満たす
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
     }
 
     /* 辺を削除 */
-    // パラメータi、jは頂点要素のインデックスに対応
+    // 引数 i, j は vertices の要素インデックスに対応する
     void removeEdge(int i, int j) {
-        // インデックス範囲外と等価性を処理
+        // インデックスの範囲外と等値の処理
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
-            throw out_of_range("Vertex does not exist");
+            throw out_of_range("頂点が存在しません");
         }
         adjMat[i][j] = 0;
         adjMat[j][i] = 0;
     }
 
-    /* 隣接行列を印刷 */
+    /* 隣接行列を出力 */
     void print() {
         cout << "頂点リスト = ";
         printVector(vertices);
@@ -90,10 +90,10 @@ class GraphAdjMat {
     }
 };
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     /* 無向グラフを初期化 */
-    // 辺の要素は頂点インデックスを表す
+    // edges の要素は頂点インデックス、すなわち vertices の要素インデックスに対応する点に注意
     vector<int> vertices = {1, 3, 2, 5, 4};
     vector<vector<int>> edges = {{0, 1}, {0, 3}, {1, 2}, {2, 3}, {2, 4}, {3, 4}};
     GraphAdjMat graph(vertices, edges);
@@ -101,26 +101,26 @@ int main() {
     graph.print();
 
     /* 辺を追加 */
-    // 頂点1、2のインデックスはそれぞれ0、2
+    // 頂点 1, 2 のインデックスはそれぞれ 0, 2
     graph.addEdge(0, 2);
-    cout << "\n辺 1-2 を追加後、グラフは" << endl;
+    cout << "\n辺 1-2 を追加した後、グラフは" << endl;
     graph.print();
 
     /* 辺を削除 */
-    // 頂点1、3のインデックスはそれぞれ0、1
+    // 頂点 1, 3 のインデックスはそれぞれ 0, 1
     graph.removeEdge(0, 1);
-    cout << "\n辺 1-3 を削除後、グラフは" << endl;
+    cout << "\n辺 1-3 を削除した後、グラフは" << endl;
     graph.print();
 
     /* 頂点を追加 */
     graph.addVertex(6);
-    cout << "\n頂点 6 を追加後、グラフは" << endl;
+    cout << "\n頂点 6 を追加した後、グラフは" << endl;
     graph.print();
 
     /* 頂点を削除 */
-    // 頂点3のインデックスは1
+    // 頂点 3 のインデックスは 1
     graph.removeVertex(1);
-    cout << "\n頂点 3 を削除後、グラフは" << endl;
+    cout << "\n頂点 3 を削除した後、グラフは" << endl;
     graph.print();
 
     return 0;

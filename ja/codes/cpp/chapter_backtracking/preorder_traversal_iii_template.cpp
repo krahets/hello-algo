@@ -16,7 +16,7 @@ void recordSolution(vector<TreeNode *> &state, vector<vector<TreeNode *>> &res) 
     res.push_back(state);
 }
 
-/* 現在の状態下で選択が合法かどうかを判定 */
+/* 現在の状態で、この選択が有効かどうかを判定 */
 bool isValid(vector<TreeNode *> &state, TreeNode *choice) {
     return choice != nullptr && choice->val != 3;
 }
@@ -26,47 +26,46 @@ void makeChoice(vector<TreeNode *> &state, TreeNode *choice) {
     state.push_back(choice);
 }
 
-/* 状態を復元 */
+/* 状態を元に戻す */
 void undoChoice(vector<TreeNode *> &state, TreeNode *choice) {
     state.pop_back();
 }
 
-/* バックトラッキングアルゴリズム：例３ */
+/* バックトラッキング：例題 3 */
 void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<vector<TreeNode *>> &res) {
-    // 解かどうかをチェック
+    // 解かどうかを確認
     if (isSolution(state)) {
         // 解を記録
         recordSolution(state, res);
     }
     // すべての選択肢を走査
     for (TreeNode *choice : choices) {
-        // 剪定：選択が合法かどうかをチェック
+        // 枝刈り：選択が妥当かを確認する
         if (isValid(state, choice)) {
-            // 試行：選択を行い、状態を更新
+            // 試行: 選択を行い、状態を更新
             makeChoice(state, choice);
-            // 次のラウンドの選択に進む
+            // 次の選択へ進む
             vector<TreeNode *> nextChoices{choice->left, choice->right};
             backtrack(state, nextChoices, res);
-            // 回退：選択を取り消し、前の状態に復元
+            // バックトラック：選択を取り消し、前の状態に戻す
             undoChoice(state, choice);
         }
     }
 }
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
-    vector<int> arr = {1, 7, 3, 4, 5, 6, 7};
-    TreeNode *root = vecToTree(arr);
+    TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
     cout << "\n二分木を初期化" << endl;
     printTree(root);
 
-    // バックトラッキングアルゴリズム
+    // バックトラッキング法
     vector<TreeNode *> state;
     vector<TreeNode *> choices = {root};
     vector<vector<TreeNode *>> res;
     backtrack(state, choices, res);
 
-    cout << "\nルートからノード7までのすべてのパスを出力、パスには値3のノードを含まないことが要求される" << endl;
+    cout << "\n根ノードからノード 7 までのすべての経路を出力し、経路に値 3 のノードを含めない" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {
@@ -74,6 +73,4 @@ int main() {
         }
         printVector(vals);
     }
-
-    return 0;
 }

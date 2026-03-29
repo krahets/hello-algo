@@ -13,12 +13,12 @@ public class preorder_traversal_ii_compact {
     static List<TreeNode> path;
     static List<List<TreeNode>> res;
 
-    /* 前順走査：例２ */
+    /* 前順走査：例題 2 */
     static void preOrder(TreeNode root) {
         if (root == null) {
             return;
         }
-        // 試行
+        // 試す
         path.add(root);
         if (root.val == 7) {
             // 解を記録
@@ -26,7 +26,7 @@ public class preorder_traversal_ii_compact {
         }
         preOrder(root.left);
         preOrder(root.right);
-        // 回退
+        // バックトラック
         path.remove(path.size() - 1);
     }
 
@@ -35,12 +35,12 @@ public class preorder_traversal_ii_compact {
         System.out.println("\n二分木を初期化");
         PrintUtil.printTree(root);
 
-        // 前順走査
+        // 先行順走査
         path = new ArrayList<>();
         res = new ArrayList<>();
         preOrder(root);
 
-        System.out.println("\nルートからノード7までのすべてのパスを出力");
+        System.out.println("\n根ノードからノード 7 までのすべての経路を出力");
         for (List<TreeNode> path : res) {
             List<Integer> vals = new ArrayList<>();
             for (TreeNode node : path) {

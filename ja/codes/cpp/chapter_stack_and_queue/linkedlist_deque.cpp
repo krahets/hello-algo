@@ -8,17 +8,17 @@
 
 /* 双方向連結リストノード */
 struct DoublyListNode {
-    int val;              // ノードの値
-    DoublyListNode *next; // 後続ノードへのポインタ
-    DoublyListNode *prev; // 前続ノードへのポインタ
+    int val;              // ノード値
+    DoublyListNode *next; // 後継ノードへのポインタ
+    DoublyListNode *prev; // 前駆ノードへのポインタ
     DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
     }
 };
 
-/* 双方向連結リストに基づく両端キュークラス */
+/* 双方向連結リストベースの両端キュー */
 class LinkedListDeque {
   private:
-    DoublyListNode *front, *rear; // 先頭ノードfront、末尾ノードrear
+    DoublyListNode *front, *rear; // 先頭ノード front、末尾ノード rear
     int queSize = 0;              // 両端キューの長さ
 
   public:
@@ -26,9 +26,9 @@ class LinkedListDeque {
     LinkedListDeque() : front(nullptr), rear(nullptr) {
     }
 
-    /* デストラクタ */
+    /* デストラクタメソッド */
     ~LinkedListDeque() {
-        // 連結リストを走査、ノードを削除、メモリを解放
+        // 連結リストを走査してノードを削除し、メモリを解放する
         DoublyListNode *pre, *cur = front;
         while (cur != nullptr) {
             pre = cur;
@@ -50,31 +50,31 @@ class LinkedListDeque {
     /* エンキュー操作 */
     void push(int num, bool isFront) {
         DoublyListNode *node = new DoublyListNode(num);
-        // リストが空の場合、frontとrearの両方をnodeに向ける
+        // 連結リストが空なら、front と rear の両方を node に向ける
         if (isEmpty())
             front = rear = node;
-        // 先頭エンキュー操作
+        // 先頭へのエンキュー操作
         else if (isFront) {
-            // ノードをリストの先頭に追加
+            // node を連結リストの先頭に追加
             front->prev = node;
             node->next = front;
-            front = node; // 先頭ノードを更新
-        // 末尾エンキュー操作
+            front = node; // 先頭ノードを更新する
+        // 末尾へのエンキュー操作
         } else {
-            // ノードをリストの末尾に追加
+            // node を連結リストの末尾に追加
             rear->next = node;
             node->prev = rear;
-            rear = node; // 末尾ノードを更新
+            rear = node; // 末尾ノードを更新する
         }
-        queSize++; // キュー長を更新
+        queSize++; // キューの長さを更新
     }
 
-    /* 先頭エンキュー */
+    /* キュー先頭にエンキュー */
     void pushFirst(int num) {
         push(num, true);
     }
 
-    /* 末尾エンキュー */
+    /* キュー末尾にエンキュー */
     void pushLast(int num) {
         push(num, false);
     }
@@ -82,9 +82,9 @@ class LinkedListDeque {
     /* デキュー操作 */
     int pop(bool isFront) {
         if (isEmpty())
-            throw out_of_range("Queue is empty");
+            throw out_of_range("キューが空です");
         int val;
-        // 先頭デキュー操作
+        // キュー先頭からの取り出し
         if (isFront) {
             val = front->val; // 先頭ノードの値を一時保存
             // 先頭ノードを削除
@@ -94,8 +94,8 @@ class LinkedListDeque {
                 front->next = nullptr;
             }
             delete front;
-            front = fNext; // 先頭ノードを更新
-        // 末尾デキュー操作
+            front = fNext; // 先頭ノードを更新する
+        // キュー末尾からの取り出し
         } else {
             val = rear->val; // 末尾ノードの値を一時保存
             // 末尾ノードを削除
@@ -105,37 +105,37 @@ class LinkedListDeque {
                 rear->prev = nullptr;
             }
             delete rear;
-            rear = rPrev; // 末尾ノードを更新
+            rear = rPrev; // 末尾ノードを更新する
         }
-        queSize--; // キュー長を更新
+        queSize--; // キューの長さを更新
         return val;
     }
 
-    /* 先頭デキュー */
+    /* キュー先頭からデキュー */
     int popFirst() {
         return pop(true);
     }
 
-    /* 末尾デキュー */
+    /* キュー末尾からデキュー */
     int popLast() {
         return pop(false);
     }
 
-    /* 先頭要素にアクセス */
+    /* キュー先頭の要素にアクセス */
     int peekFirst() {
         if (isEmpty())
-            throw out_of_range("Double-ended queue is empty");
+            throw out_of_range("両端キューが空です");
         return front->val;
     }
 
-    /* 末尾要素にアクセス */
+    /* キュー末尾の要素にアクセス */
     int peekLast() {
         if (isEmpty())
-            throw out_of_range("Double-ended queue is empty");
+            throw out_of_range("両端キューが空です");
         return rear->val;
     }
 
-    /* 印刷用に配列を返却 */
+    /* 出力用の配列を返す */
     vector<int> toVector() {
         DoublyListNode *node = front;
         vector<int> res(size());
@@ -147,47 +147,47 @@ class LinkedListDeque {
     }
 };
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     /* 両端キューを初期化 */
     LinkedListDeque *deque = new LinkedListDeque();
     deque->pushLast(3);
     deque->pushLast(2);
     deque->pushLast(5);
-    cout << "Double-ended queue deque = ";
+    cout << "両端キュー deque = ";
     printVector(deque->toVector());
 
     /* 要素にアクセス */
     int peekFirst = deque->peekFirst();
-    cout << "Front element peekFirst = " << peekFirst << endl;
+    cout << "先頭要素 peekFirst = " << peekFirst << endl;
     int peekLast = deque->peekLast();
-    cout << "Back element peekLast = " << peekLast << endl;
+    cout << "末尾要素 peekLast = " << peekLast << endl;
 
-    /* 要素エンキュー */
+    /* 要素をエンキュー */
     deque->pushLast(4);
-    cout << "Element 4 rear enqueued, deque =";
+    cout << "要素 4 を末尾に追加した後の deque =";
     printVector(deque->toVector());
     deque->pushFirst(1);
-    cout << "Element 1 enqueued at the head, deque = ";
+    cout << "要素 1 を先頭に追加した後 deque = ";
     printVector(deque->toVector());
 
-    /* 要素デキュー */
+    /* 要素をデキュー */
     int popLast = deque->popLast();
-    cout << "Deque tail element = " << popLast << ", after dequeuing from the tail";
+    cout << "末尾から取り出した要素 = " << popLast << "、末尾から取り出した後 deque = ";
     printVector(deque->toVector());
     int popFirst = deque->popFirst();
-    cout << "Deque front element = " << popFirst << ", after dequeuing from the front";
+    cout << "先頭から取り出した要素 = " << popFirst << "、先頭から取り出した後 deque = ";
     printVector(deque->toVector());
 
     /* 両端キューの長さを取得 */
     int size = deque->size();
-    cout << "Length of the double-ended queue size = " << size << endl;
+    cout << "両端キューの長さ size = " << size << endl;
 
     /* 両端キューが空かどうかを判定 */
     bool isEmpty = deque->isEmpty();
-    cout << "Is the double-ended queue empty = " << boolalpha << isEmpty << endl;
+    cout << "両端キューが空かどうか = " << boolalpha << isEmpty << endl;
 
-    // メモリを解放
+    // メモリを解放する
     delete deque;
 
     return 0;

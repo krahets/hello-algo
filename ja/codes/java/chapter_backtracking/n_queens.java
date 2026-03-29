@@ -9,10 +9,10 @@ package chapter_backtracking;
 import java.util.*;
 
 public class n_queens {
-    /* バックトラッキングアルゴリズム：n クイーン */
+    /* バックトラッキング：N クイーン */
     public static void backtrack(int row, int n, List<List<String>> state, List<List<List<String>>> res,
             boolean[] cols, boolean[] diags1, boolean[] diags2) {
-        // すべての行が配置されたら、解を記録
+        // すべての行への配置が完了したら、解を記録する
         if (row == n) {
             List<List<String>> copyState = new ArrayList<>();
             for (List<String> sRow : state) {
@@ -23,26 +23,26 @@ public class n_queens {
         }
         // すべての列を走査
         for (int col = 0; col < n; col++) {
-            // セルに対応する主対角線と副対角線を計算
+            // このマスに対応する主対角線と副対角線を計算
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // 剪定：セルの列、主対角線、副対角線にクイーンを配置することを許可しない
+            // 枝刈り：そのマスの列、主対角線、副対角線にクイーンがあってはならない
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // 試行：セルにクイーンを配置
+                // 試行：そのマスにクイーンを置く
                 state.get(row).set(col, "Q");
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
-                // 次の行を配置
+                // 次の行に配置する
                 backtrack(row + 1, n, state, res, cols, diags1, diags2);
-                // 回退：セルを空のスポットに復元
+                // 戻す：そのマスを空きマスに戻す
                 state.get(row).set(col, "#");
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
         }
     }
 
-    /* n クイーンを解く */
+    /* N クイーンを解く */
     public static List<List<List<String>>> nQueens(int n) {
-        // n*n サイズのチェスボードを初期化、'Q' はクイーンを表し、'#' は空のスポットを表す
+        // n*n の盤面を初期化する。'Q' はクイーン、'#' は空きマスを表す
         List<List<String>> state = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             List<String> row = new ArrayList<>();
@@ -51,9 +51,9 @@ public class n_queens {
             }
             state.add(row);
         }
-        boolean[] cols = new boolean[n]; // クイーンのある列を記録
-        boolean[] diags1 = new boolean[2 * n - 1]; // クイーンのある主対角線を記録
-        boolean[] diags2 = new boolean[2 * n - 1]; // クイーンのある副対角線を記録
+        boolean[] cols = new boolean[n]; // 列にクイーンがあるか記録
+        boolean[] diags1 = new boolean[2 * n - 1]; // 主対角線にクイーンがあるかを記録
+        boolean[] diags2 = new boolean[2 * n - 1]; // 副対角線にクイーンがあるかを記録
         List<List<List<String>>> res = new ArrayList<>();
 
         backtrack(0, n, state, res, cols, diags1, diags2);
@@ -65,8 +65,8 @@ public class n_queens {
         int n = 4;
         List<List<List<String>>> res = nQueens(n);
 
-        System.out.println("チェスボードの次元を " + n + " として入力");
-        System.out.println("クイーン配置解の総数 = " + res.size());
+        System.out.println("盤面の縦横サイズは " + n);
+        System.out.println("クイーンの配置方法は全部で " + res.size() + " 通り");
         for (List<List<String>> state : res) {
             System.out.println("--------------------");
             for (List<String> row : state) {

@@ -19,7 +19,7 @@ class Trunk {
 };
 
 public class PrintUtil {
-    /* 行列を印刷 (配列) */
+    /* 行列を出力する（Array） */
     public static <T> void printMatrix(T[][] matrix) {
         System.out.println("[");
         for (T[] row : matrix) {
@@ -28,7 +28,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /* 行列を印刷 (リスト) */
+    /* 行列を出力する（List） */
     public static <T> void printMatrix(List<List<T>> matrix) {
         System.out.println("[");
         for (List<T> row : matrix) {
@@ -37,7 +37,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /* 連結リストを印刷 */
+    /* 連結リストを出力 */
     public static void printLinkedList(ListNode head) {
         List<String> list = new ArrayList<>();
         while (head != null) {
@@ -47,16 +47,16 @@ public class PrintUtil {
         System.out.println(String.join(" -> ", list));
     }
 
-    /* 二分木を印刷 */
+    /* 二分木を出力 */
     public static void printTree(TreeNode root) {
         printTree(root, null, false);
     }
 
     /**
-     * 二分木を印刷
-     * この木プリンターはTECHIE DELIGHTから借用
-     * https://www.techiedelight.com/c-program-print-binary-tree/
-     */
+ * 二分木を出力
+ * This tree printer is borrowed from TECHIE DELIGHT
+ * https://www.techiedelight.com/c-program-print-binary-tree/
+ */
     public static void printTree(TreeNode root, Trunk prev, boolean isRight) {
         if (root == null) {
             return;
@@ -97,19 +97,19 @@ public class PrintUtil {
         System.out.print(p.str);
     }
 
-    /* ハッシュテーブルを印刷 */
+    /* ハッシュテーブルを出力 */
     public static <K, V> void printHashMap(Map<K, V> map) {
         for (Map.Entry<K, V> kv : map.entrySet()) {
             System.out.println(kv.getKey() + " -> " + kv.getValue());
         }
     }
 
-    /* ヒープを印刷 (優先度キュー) */
+    /* ヒープ（優先度付きキュー）を出力する */
     public static void printHeap(Queue<Integer> queue) {
         List<Integer> list = new ArrayList<>(queue);
-        System.out.print("ヒープの配列表現:");
+        System.out.print("ヒープの配列表現：");
         System.out.println(list);
-        System.out.println("ヒープの木表現:");
+        System.out.println("ヒープの木構造表現：");
         TreeNode root = TreeNode.listToTree(list);
         printTree(root);
     }

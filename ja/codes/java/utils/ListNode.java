@@ -15,7 +15,7 @@ public class ListNode {
         val = x;
     }
 
-    /* リストを連結リストにデシリアライズ */
+    /* リストを連結リストにデシリアライズする */
     public static ListNode arrToLinkedList(int[] arr) {
         ListNode dum = new ListNode(0);
         ListNode head = dum;

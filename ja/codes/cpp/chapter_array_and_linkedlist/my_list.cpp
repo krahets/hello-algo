@@ -10,9 +10,9 @@
 class MyList {
   private:
     int *arr;             // 配列（リスト要素を格納）
-    int arrCapacity = 10; // リストの容量
+    int arrCapacity = 10; // リスト容量
     int arrSize = 0;      // リストの長さ（現在の要素数）
-    int extendRatio = 2;   // リスト拡張時の倍率
+    int extendRatio = 2;   // リスト拡張時の増加倍率
 
   public:
     /* コンストラクタ */
@@ -20,39 +20,39 @@ class MyList {
         arr = new int[arrCapacity];
     }
 
-    /* デストラクタ */
+    /* デストラクタメソッド */
     ~MyList() {
         delete[] arr;
     }
 
-    /* リストの長さを取得（現在の要素数）*/
+    /* リストの長さを取得（現在の要素数） */
     int size() {
         return arrSize;
     }
 
-    /* リストの容量を取得 */
+    /* リスト容量を取得する */
     int capacity() {
         return arrCapacity;
     }
 
     /* 要素にアクセス */
     int get(int index) {
-        // インデックスが範囲外の場合、例外をスロー（以下同様）
+        // インデックスが範囲外なら例外を送出する。以下同様
         if (index < 0 || index >= size())
-            throw out_of_range("Index out of bounds");
+            throw out_of_range("インデックスが範囲外");
         return arr[index];
     }
 
     /* 要素を更新 */
     void set(int index, int num) {
         if (index < 0 || index >= size())
-            throw out_of_range("Index out of bounds");
+            throw out_of_range("インデックスが範囲外");
         arr[index] = num;
     }
 
     /* 末尾に要素を追加 */
     void add(int num) {
-        // 要素数が容量を超えた場合、拡張メカニズムをトリガー
+        // 要素数が容量を超えると、拡張機構が発動する
         if (size() == capacity())
             extendCapacity();
         arr[size()] = num;
@@ -63,11 +63,11 @@ class MyList {
     /* 中間に要素を挿入 */
     void insert(int index, int num) {
         if (index < 0 || index >= size())
-            throw out_of_range("Index out of bounds");
-        // 要素数が容量を超えた場合、拡張メカニズムをトリガー
+            throw out_of_range("インデックスが範囲外");
+        // 要素数が容量を超えると、拡張機構が発動する
         if (size() == capacity())
             extendCapacity();
-        // `index`より後のすべての要素を1つ後ろに移動
+        // index 以降の要素をすべて 1 つ後ろへずらす
         for (int j = size() - 1; j >= index; j--) {
             arr[j + 1] = arr[j];
         }
@@ -79,36 +79,36 @@ class MyList {
     /* 要素を削除 */
     int remove(int index) {
         if (index < 0 || index >= size())
-            throw out_of_range("Index out of bounds");
+            throw out_of_range("インデックスが範囲外");
         int num = arr[index];
-        // `index`より後のすべての要素を1つ前に移動
+        // インデックス index より後の要素をすべて 1 つ前に移動する
         for (int j = index; j < size() - 1; j++) {
             arr[j] = arr[j + 1];
         }
         // 要素数を更新
         arrSize--;
-        // 削除された要素を返却
+        // 削除された要素を返す
         return num;
     }
 
-    /* リストを拡張 */
+    /* リストの拡張 */
     void extendCapacity() {
-        // 元の配列のextendRatio倍の長さで新しい配列を作成
+        // 元の配列の `extendRatio` 倍の長さを持つ新しい配列を作成する
         int newCapacity = capacity() * extendRatio;
         int *tmp = arr;
         arr = new int[newCapacity];
-        // 元の配列のすべての要素を新しい配列にコピー
+        // 元の配列の全要素を新しい配列にコピー
         for (int i = 0; i < size(); i++) {
             arr[i] = tmp[i];
         }
-        // メモリを解放
+        // メモリを解放する
         delete[] tmp;
         arrCapacity = newCapacity;
     }
 
-    /* リストをVectorに変換して印刷用に使用 */
+    /* 出力用にリストを Vector に変換 */
     vector<int> toVector() {
-        // 有効な長さ範囲内の要素のみを変換
+        // 有効長の範囲内のリスト要素のみを変換
         vector<int> vec(size());
         for (int i = 0; i < size(); i++) {
             vec[i] = arr[i];
@@ -117,7 +117,7 @@ class MyList {
     }
 };
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
     /* リストを初期化 */
     MyList *nums = new MyList();
@@ -127,44 +127,44 @@ int main() {
     nums->add(2);
     nums->add(5);
     nums->add(4);
-    cout << "List nums = ";
+    cout << "リスト nums = ";
     vector<int> vec = nums->toVector();
     printVector(vec);
-    cout << "Capacity = " << nums->capacity() << ", length = " << nums->size() << endl;
+    cout << "容量 = " << nums->capacity() << " ，長さ = " << nums->size() << endl;
 
     /* 中間に要素を挿入 */
     nums->insert(3, 6);
-    cout << "Insert the number 6 at index 3, resulting in nums = ";
+    cout << "インデックス 3 に数値 6 を挿入し、nums = ";
     vec = nums->toVector();
     printVector(vec);
 
     /* 要素を削除 */
     nums->remove(3);
-    cout << "Remove the element at index 3, resulting in nums = ";
+    cout << "インデックス 3 の要素を削除すると、nums = ";
     vec = nums->toVector();
     printVector(vec);
 
     /* 要素にアクセス */
     int num = nums->get(1);
-    cout << "Access the element at index 1, obtained num = " << num << endl;
+    cout << "インデックス 1 の要素にアクセスすると、num = " << num << endl;
 
     /* 要素を更新 */
     nums->set(1, 0);
-    cout << "Update the element at index 1 to 0, resulting in nums = ";
+    cout << "インデックス 1 の要素を 0 に更新すると、nums = ";
     vec = nums->toVector();
     printVector(vec);
 
-    /* 拡張メカニズムをテスト */
+    /* 拡張機構をテストする */
     for (int i = 0; i < 10; i++) {
-        // i = 5の時、リストの長さがリストの容量を超え、この時点で拡張メカニズムがトリガーされる
+        // i = 5 のとき、リスト長が容量を超えるため、この時点で拡張機構が発動する
         nums->add(i);
     }
-    cout << "After extending, list nums = ";
+    cout << "拡張後のリスト nums = ";
     vec = nums->toVector();
     printVector(vec);
-    cout << "Capacity = " << nums->capacity() << ", length = " << nums->size() << endl;
+    cout << "容量 = " << nums->capacity() << " ，長さ = " << nums->size() << endl;
 
-    // メモリを解放
+    // メモリを解放する
     delete nums;
 
     return 0;

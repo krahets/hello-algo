@@ -8,7 +8,7 @@ package chapter_tree;
 
 import utils.*;
 
-/* AVL木 */
+/* AVL 木 */
 class AVLTree {
     TreeNode root; // 根ノード
 
@@ -18,76 +18,76 @@ class AVLTree {
         return node == null ? -1 : node.height;
     }
 
-    /* ノードの高さを更新 */
+    /* ノードの高さを更新する */
     private void updateHeight(TreeNode node) {
-        // ノードの高さは最も高い部分木の高さ + 1
+        // ノードの高さは最も高い部分木の高さ + 1 に等しい
         node.height = Math.max(height(node.left), height(node.right)) + 1;
     }
 
-    /* 平衡因子を取得 */
+    /* 平衡係数を取得 */
     public int balanceFactor(TreeNode node) {
-        // 空ノードの平衡因子は 0
+        // 空ノードの平衡係数は 0
         if (node == null)
             return 0;
-        // ノードの平衡因子 = 左部分木の高さ - 右部分木の高さ
+        // ノードの平衡係数 = 左部分木の高さ - 右部分木の高さ
         return height(node.left) - height(node.right);
     }
 
-    /* 右回転操作 */
+    /* 右回転 */
     private TreeNode rightRotate(TreeNode node) {
         TreeNode child = node.left;
         TreeNode grandChild = child.right;
-        // child を軸として node を右に回転
+        // child を支点として node を右回転させる
         child.right = node;
         node.left = grandChild;
-        // ノードの高さを更新
+        // ノードの高さを更新する
         updateHeight(node);
         updateHeight(child);
-        // 回転後の部分木の根を返す
+        // 回転後の部分木の根ノードを返す
         return child;
     }
 
-    /* 左回転操作 */
+    /* 左回転 */
     private TreeNode leftRotate(TreeNode node) {
         TreeNode child = node.right;
         TreeNode grandChild = child.left;
-        // child を軸として node を左に回転
+        // child を支点として node を左回転させる
         child.left = node;
         node.right = grandChild;
-        // ノードの高さを更新
+        // ノードの高さを更新する
         updateHeight(node);
         updateHeight(child);
-        // 回転後の部分木の根を返す
+        // 回転後の部分木の根ノードを返す
         return child;
     }
 
-    /* 回転操作を実行して部分木の平衡を回復 */
+    /* 回転操作を行い、この部分木の平衡を回復する */
     private TreeNode rotate(TreeNode node) {
-        // node の平衡因子を取得
+        // ノード node の平衡係数を取得
         int balanceFactor = balanceFactor(node);
-        // 左傾斜の木
+        // 左に偏った木
         if (balanceFactor > 1) {
             if (balanceFactor(node.left) >= 0) {
                 // 右回転
                 return rightRotate(node);
             } else {
-                // 先に左回転、その後右回転
+                // 左回転してから右回転
                 node.left = leftRotate(node.left);
                 return rightRotate(node);
             }
         }
-        // 右傾斜の木
+        // 右に偏った木
         if (balanceFactor < -1) {
             if (balanceFactor(node.right) <= 0) {
                 // 左回転
                 return leftRotate(node);
             } else {
-                // 先に右回転、その後左回転
+                // 右回転してから左回転
                 node.right = rightRotate(node.right);
                 return leftRotate(node);
             }
         }
-        // 平衡木、回転は不要、戻る
+        // 平衡木なので回転不要、そのまま返す
         return node;
     }
 
@@ -96,19 +96,19 @@ class AVLTree {
         root = insertHelper(root, val);
     }
 
-    /* 再帰的にノードを挿入（補助メソッド） */
+    /* ノードを再帰的に挿入する（補助メソッド） */
     private TreeNode insertHelper(TreeNode node, int val) {
         if (node == null)
             return new TreeNode(val);
-        /* 1. 挿入位置を見つけてノードを挿入 */
+        /* 1. 挿入位置を探索してノードを挿入 */
         if (val < node.val)
             node.left = insertHelper(node.left, val);
         else if (val > node.val)
             node.right = insertHelper(node.right, val);
         else
-            return node; // 重複ノードは挿入しない、戻る
-        updateHeight(node); // ノードの高さを更新
-        /* 2. 回転操作を実行して部分木の平衡を回復 */
+            return node; // 重複ノードは挿入せず、そのまま返す
+        updateHeight(node); // ノードの高さを更新する
+        /* 2. 回転操作を行い、部分木の平衡を回復する */
         node = rotate(node);
         // 部分木の根ノードを返す
         return node;
@@ -119,11 +119,11 @@ class AVLTree {
         root = removeHelper(root, val);
     }
 
-    /* 再帰的にノードを削除（補助メソッド） */
+    /* ノードを再帰的に削除する（補助メソッド） */
     private TreeNode removeHelper(TreeNode node, int val) {
         if (node == null)
             return null;
-        /* 1. ノードを見つけて削除 */
+        /* 1. ノードを探索して削除 */
         if (val < node.val)
             node.left = removeHelper(node.left, val);
         else if (val > node.val)
@@ -131,14 +131,14 @@ class AVLTree {
         else {
             if (node.left == null || node.right == null) {
                 TreeNode child = node.left != null ? node.left : node.right;
-                // 子ノード数 = 0、ノードを削除して戻る
+                // 子ノード数 = 0 の場合、node をそのまま削除して返す
                 if (child == null)
                     return null;
-                // 子ノード数 = 1、ノードを削除
+                // 子ノード数 = 1 の場合、node をそのまま削除する
                 else
                     node = child;
             } else {
-                // 子ノード数 = 2、中順走査の次のノードを削除し、現在のノードをそれで置き換える
+                // 子ノード数 = 2 の場合、中順走査の次のノードを削除し、そのノードで現在のノードを置き換える
                 TreeNode temp = node.right;
                 while (temp.left != null) {
                     temp = temp.left;
@@ -147,29 +147,29 @@ class AVLTree {
                 node.val = temp.val;
             }
         }
-        updateHeight(node); // ノードの高さを更新
-        /* 2. 回転操作を実行して部分木の平衡を回復 */
+        updateHeight(node); // ノードの高さを更新する
+        /* 2. 回転操作を行い、部分木の平衡を回復する */
         node = rotate(node);
         // 部分木の根ノードを返す
         return node;
     }
 
-    /* ノードを検索 */
+    /* ノードを探索 */
     public TreeNode search(int val) {
         TreeNode cur = root;
-        // ループで検索、葉ノードを通過後に終了
+        // ループで探索し、葉ノードを越えたら抜ける
         while (cur != null) {
-            // 対象ノードは cur の右部分木にある
+            // 目標ノードは cur の右部分木にある
             if (cur.val < val)
                 cur = cur.right;
-            // 対象ノードは cur の左部分木にある
+            // 目標ノードは cur の左部分木にある
             else if (cur.val > val)
                 cur = cur.left;
-            // 対象ノードを見つけた、ループを終了
+            // 目標ノードが見つかったらループを抜ける
             else
                 break;
         }
-        // 対象ノードを返す
+        // 目標ノードを返す
         return cur;
     }
 }
@@ -177,22 +177,22 @@ class AVLTree {
 public class avl_tree {
     static void testInsert(AVLTree tree, int val) {
         tree.insert(val);
-        System.out.println("\nノード " + val + " を挿入後、AVL木は ");
+        System.out.println("\nノード " + val + " を挿入した後、AVL 木は");
         PrintUtil.printTree(tree.root);
     }
 
     static void testRemove(AVLTree tree, int val) {
         tree.remove(val);
-        System.out.println("\nノード " + val + " を削除後、AVL木は ");
+        System.out.println("\nノード " + val + " を削除した後、AVL 木は");
         PrintUtil.printTree(tree.root);
     }
 
     public static void main(String[] args) {
-        /* 空のAVL木を初期化 */
+        /* 空の AVL 木を初期化する */
         AVLTree avlTree = new AVLTree();
 
         /* ノードを挿入 */
-        // ノード挿入後にAVL木がどのように平衡を保つかを確認
+        // ノード挿入後に AVL 木がどのように平衡を保つかに注目してほしい
         testInsert(avlTree, 1);
         testInsert(avlTree, 2);
         testInsert(avlTree, 3);
@@ -204,17 +204,17 @@ public class avl_tree {
         testInsert(avlTree, 10);
         testInsert(avlTree, 6);
 
-        /* 重複ノードを挿入 */
+        /* 重複ノードを挿入する */
         testInsert(avlTree, 7);
 
         /* ノードを削除 */
-        // ノード削除後にAVL木がどのように平衡を保つかを確認
-        testRemove(avlTree, 8); // 次数 0 のノードを削除
-        testRemove(avlTree, 5); // 次数 1 のノードを削除
-        testRemove(avlTree, 4); // 次数 2 のノードを削除
+        // ノード削除後に AVL 木がどのように平衡を保つかに注目してほしい
+        testRemove(avlTree, 8); // 次数 0 のノードを削除する
+        testRemove(avlTree, 5); // 次数 1 のノードを削除する
+        testRemove(avlTree, 4); // 次数 2 のノードを削除する
 
         /* ノードを検索 */
         TreeNode node = avlTree.search(7);
-        System.out.println("\n見つかったノードオブジェクトは " + node + "、ノードの値 = " + node.val);
+        System.out.println("\n見つかったノードオブジェクトは " + node + "、ノード値 = " + node.val);
     }
 }
