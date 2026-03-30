@@ -515,6 +515,11 @@ a:hover .text-button span {
   text-align: center;
 }
 
+.profile-cell a:hover b,
+.profile-cell a:focus-visible b {
+  text-decoration: underline;
+}
+
 .profile-img {
   width: 5em;
   border-radius: 50%;
