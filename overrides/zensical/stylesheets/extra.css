@@ -158,7 +158,7 @@ html:has(body[data-md-color-scheme="default"]) {
   border-radius: 0.3rem;
   display: block;
   margin: 0 auto;
-  box-shadow: 0 0.08rem 0.35rem rgb(0 0 0 / 0.12);
+  box-shadow: 0 0.03rem 0.16rem rgb(0 0 0 / 0.07);
 }
 
 .cover-image {
@@ -167,7 +167,7 @@ html:has(body[data-md-color-scheme="default"]) {
   border-radius: 0.3rem;
   display: block;
   margin: 0 auto;
-  box-shadow: 0 0.08rem 0.35rem rgb(0 0 0 / 0.12);
+  box-shadow: 0 0.03rem 0.16rem rgb(0 0 0 / 0.07);
 }
 
 .center-table {
