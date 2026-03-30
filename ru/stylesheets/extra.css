@@ -328,6 +328,10 @@ html:has(body[data-md-color-scheme="default"]) {
   text-align: center;
 }
 
+.home-div--black {
+  background-color: #101010;
+}
+
 .home-div[data-md-color-scheme="default"],
 .home-div[data-md-color-scheme="default"] h1,
 .home-div[data-md-color-scheme="default"] h2,
@@ -709,4 +713,4 @@ a:hover .device-on-hover {
     flex: 1 1 30%;
   }
 }
-/*! update cache: 20260331062402 */
+/*! update cache: 20260331064830 */
