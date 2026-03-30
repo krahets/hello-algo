@@ -6,9 +6,9 @@ Author: krahets (krahets@163.com)
 
 
 def sift_down(nums: list[int], n: int, i: int):
-    """ヒープの長さが n、ノード i から上から下へヒープ化を開始"""
+    """ヒープの長さは n。ノード i から下方向にヒープ化"""
     while True:
-        # i、l、r の中で最大のノードを判定し、ma とする
+        # ノード i, l, r のうち値が最大のノードを ma とする
         l = 2 * i + 1
         r = 2 * i + 2
         ma = i
@@ -16,30 +16,30 @@ def sift_down(nums: list[int], n: int, i: int):
             ma = l
         if r < n and nums[r] > nums[ma]:
             ma = r
-        # ノード i が最大または l、r のインデックスが範囲外の場合、さらなるヒープ化は不要、ループを抜ける
+        # ノード i が最大、またはインデックス l, r が範囲外なら、ヒープ化は不要なので抜ける
         if ma == i:
             break
-        # 2つのノードを交換
+        # 2 つのノードを交換
         nums[i], nums[ma] = nums[ma], nums[i]
-        # 下向きにヒープ化をループ
+        # ループで上から下へヒープ化
         i = ma
 
 
 def heap_sort(nums: list[int]):
     """ヒープソート"""
-    # ヒープ構築操作：葉ノード以外のすべてのノードをヒープ化
+    # ヒープ構築：葉ノード以外のすべてのノードをヒープ化する
     for i in range(len(nums) // 2 - 1, -1, -1):
         sift_down(nums, len(nums), i)
-    # ヒープから最大要素を抽出し、n-1 回繰り返す
+    # ヒープから最大要素を取り出し、n-1 回繰り返す
     for i in range(len(nums) - 1, 0, -1):
-        # ルートノードと最も右の葉ノードを交換（最初の要素と最後の要素を交換）
+        # 根ノードと最も右の葉ノードを交換（先頭要素と末尾要素を交換）
         nums[0], nums[i] = nums[i], nums[0]
-        # ルートノードから上から下へヒープ化を開始
+        # 根ノードを起点に、上から下へヒープ化
         sift_down(nums, i, 0)
 
 
-"""ドライバーコード"""
+"""Driver Code"""
 if __name__ == "__main__":
     nums = [4, 1, 3, 1, 5, 2]
     heap_sort(nums)
-    print("ヒープソート完了 nums =", nums)
+    print("ヒープソート完了後 nums =", nums)

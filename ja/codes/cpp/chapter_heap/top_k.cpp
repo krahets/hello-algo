@@ -6,17 +6,17 @@
 
 #include "../utils/common.hpp"
 
-/* ヒープを使用して配列内の最大k個の要素を見つける */
+/* ヒープに基づいて配列中の最大の k 個の要素を探す */
 priority_queue<int, vector<int>, greater<int>> topKHeap(vector<int> &nums, int k) {
     // 最小ヒープを初期化
     priority_queue<int, vector<int>, greater<int>> heap;
-    // 配列の最初のk個の要素をヒープに入力
+    // 配列の先頭 k 個の要素をヒープに追加
     for (int i = 0; i < k; i++) {
         heap.push(nums[i]);
     }
-    // k+1番目の要素から、ヒープの長さをkに保つ
+    // k+1 番目の要素から開始し、ヒープ長を k に保つ
     for (int i = k; i < nums.size(); i++) {
-        // 現在の要素がヒープの先頭要素より大きい場合、ヒープの先頭要素を削除し、現在の要素をヒープに入力
+        // 現在の要素がヒープ先頭より大きければ、ヒープ先頭を取り出して現在の要素を追加する
         if (nums[i] > heap.top()) {
             heap.pop();
             heap.push(nums[i]);
@@ -25,13 +25,13 @@ priority_queue<int, vector<int>, greater<int>> topKHeap(vector<int> &nums, int k
     return heap;
 }
 
-// ドライバーコード
+// Driver Code
 int main() {
     vector<int> nums = {1, 7, 6, 3, 2};
     int k = 3;
 
     priority_queue<int, vector<int>, greater<int>> res = topKHeap(nums, k);
-    cout << "最大 " << k << " 個の要素は:";
+    cout << "最大の " << k << " 個の要素は: ";
     printHeap(res);
 
     return 0;

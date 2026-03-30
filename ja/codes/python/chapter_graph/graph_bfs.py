@@ -14,29 +14,29 @@ from graph_adjacency_list import GraphAdjList
 
 
 def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
-    """幅優先走査"""
-    # 隣接リストを使用してグラフを表現し、指定された頂点のすべての隣接頂点を取得
-    # 頂点走査シーケンス
+    """幅優先探索"""
+    # 指定した頂点の隣接頂点をすべて取得できるよう、隣接リストでグラフを表現する
+    # 頂点の走査順序
     res = []
-    # ハッシュセット、訪問済み頂点を記録するために使用
+    # 訪問済み頂点を記録するためのハッシュ集合
     visited = set[Vertex]([start_vet])
-    # BFSを実装するために使用されるキュー
+    # BFS の実装にキューを用いる
     que = deque[Vertex]([start_vet])
-    # 頂点vetから開始し、すべての頂点が訪問されるまでループ
+    # 頂点 vet を起点に、すべての頂点を訪問し終えるまで繰り返す
     while len(que) > 0:
-        vet = que.popleft()  # キューの先頭の頂点をデキュー
-        res.append(vet)  # 訪問済み頂点を記録
-        # その頂点のすべての隣接頂点を走査
+        vet = que.popleft()  # 先頭の頂点をデキュー
+        res.append(vet)  # 訪問した頂点を記録
+        # この頂点のすべての隣接頂点を走査
         for adj_vet in graph.adj_list[vet]:
             if adj_vet in visited:
-                continue  # 既に訪問済みの頂点をスキップ
-            que.append(adj_vet)  # 未訪問の頂点のみをエンキュー
-            visited.add(adj_vet)  # 頂点を訪問済みとしてマーク
-    # 頂点走査シーケンスを返す
+                continue  # 訪問済みの頂点をスキップ
+            que.append(adj_vet)  # 未訪問の頂点のみをキューに追加
+            visited.add(adj_vet)  # この頂点を訪問済みにする
+    # 頂点の走査順を返す
     return res
 
 
-"""ドライバコード"""
+"""Driver Code"""
 if __name__ == "__main__":
     # 無向グラフを初期化
     v = vals_to_vets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     print("\n初期化後、グラフは")
     graph.print()
 
-    # 幅優先走査
+    # 幅優先探索
     res = graph_bfs(graph, v[0])
-    print("\n幅優先走査（BFS）の頂点シーケンスは")
+    print("\n幅優先探索（BFS）の頂点順序は")
     print(vets_to_vals(res))

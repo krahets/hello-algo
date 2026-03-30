@@ -11,7 +11,7 @@ import java.util.*;
 /* 二分木ノードクラス */
 public class TreeNode {
     public int val; // ノード値
-    public int height; // ノード高さ
+    public int height; // ノードの高さ
     public TreeNode left; // 左子ノードへの参照
     public TreeNode right; // 右子ノードへの参照
 
@@ -20,23 +20,23 @@ public class TreeNode {
         val = x;
     }
 
-    // シリアライゼーション符号化ルールについては、次を参照：
+    // シリアライズの符号化規則は以下を参照:
     // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-    // 二分木の配列表現：
+    // 二分木の配列表現:
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-    // 二分木の連結リスト表現：
-    //             /——— 15
-    //         /——— 7
-    //     /——— 3
-    //    |    \——— 6
-    //    |        \——— 12
+    // 二分木の連結リスト表現:
+    // /——— 15
+    // /——— 7
+    // /——— 3
+    // |    \——— 6
+    // |        \——— 12
     // ——— 1
-    //     \——— 2
-    //        |    /——— 9
-    //         \——— 4
-    //             \——— 8
+    // \——— 2
+    // |    /——— 9
+    // \——— 4
+    // \——— 8
 
-    /* リストを二分木にデシリアライズ：再帰的 */
+    /* リストを二分木にデシリアライズする: 再帰 */
     private static TreeNode listToTreeDFS(List<Integer> arr, int i) {
         if (i < 0 || i >= arr.size() || arr.get(i) == null) {
             return null;
@@ -47,12 +47,12 @@ public class TreeNode {
         return root;
     }
 
-    /* リストを二分木にデシリアライズ */
+    /* リストを二分木にデシリアライズする */
     public static TreeNode listToTree(List<Integer> arr) {
         return listToTreeDFS(arr, 0);
     }
 
-    /* 二分木をリストにシリアライズ：再帰的 */
+    /* 二分木をリストにシリアライズする: 再帰 */
     private static void treeToListDFS(TreeNode root, int i, List<Integer> res) {
         if (root == null)
             return;
@@ -64,7 +64,7 @@ public class TreeNode {
         treeToListDFS(root.right, 2 * i + 2, res);
     }
 
-    /* 二分木をリストにシリアライズ */
+    /* 二分木をリストにシリアライズする */
     public static List<Integer> treeToList(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         treeToListDFS(root, 0, res);

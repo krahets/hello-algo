@@ -6,7 +6,7 @@ Author: krahets (krahets@163.com)
 
 
 class ArrayDeque:
-    """循環配列ベースの双端キュークラス"""
+    """循環配列ベースの両端キュー"""
 
     def __init__(self, capacity: int):
         """コンストラクタ"""
@@ -15,78 +15,78 @@ class ArrayDeque:
         self._size: int = 0
 
     def capacity(self) -> int:
-        """双端キューの容量を取得"""
+        """両端キューの容量を取得"""
         return len(self._nums)
 
     def size(self) -> int:
-        """双端キューの長さを取得"""
+        """両端キューの長さを取得"""
         return self._size
 
     def is_empty(self) -> bool:
-        """双端キューが空かどうかを判定"""
+        """両端キューが空かどうかを判定"""
         return self._size == 0
 
     def index(self, i: int) -> int:
         """循環配列のインデックスを計算"""
-        # モジュロ演算によって循環配列を実装
-        # i が配列の末尾を超えた場合、先頭に戻る
-        # i が配列の先頭を超えた場合、末尾に戻る
+        # 剰余演算により配列の先頭と末尾をつなげる
+        # i が配列の末尾を越えたら先頭に戻る
+        # i が配列の先頭を越えて前に出たら末尾に戻る
         return (i + self.capacity()) % self.capacity()
 
     def push_first(self, num: int):
-        """前端エンキュー"""
+        """キュー先頭にエンキュー"""
         if self._size == self.capacity():
-            print("双端キューが満杯です")
+            print("両端キューがいっぱいです")
             return
-        # フロントポインタを左に1つ移動
-        # モジュロ演算によってフロントが配列の先頭を超えて末尾に戻ることを実装
+        # 先頭ポインタを左に 1 つ移動する
+        # 剰余演算により、front が配列先頭を越えた後に末尾へ戻るようにする
         self._front = self.index(self._front - 1)
-        # num を前端に追加
+        # num をキュー先頭に追加
         self._nums[self._front] = num
         self._size += 1
 
     def push_last(self, num: int):
-        """後端エンキュー"""
+        """キュー末尾にエンキュー"""
         if self._size == self.capacity():
-            print("双端キューが満杯です")
+            print("両端キューがいっぱいです")
             return
-        # リアポインタを計算、リアインデックス + 1 を指す
+        # キュー末尾ポインタを計算し、末尾インデックス + 1 を指す
         rear = self.index(self._front + self._size)
-        # num を後端に追加
+        # num をキュー末尾に追加
         self._nums[rear] = num
         self._size += 1
 
     def pop_first(self) -> int:
-        """前端デキュー"""
+        """キュー先頭からデキュー"""
         num = self.peek_first()
-        # フロントポインタを1つ後ろに移動
+        # 先頭ポインタを 1 つ後ろへ進める
         self._front = self.index(self._front + 1)
         self._size -= 1
         return num
 
     def pop_last(self) -> int:
-        """後端デキュー"""
+        """キュー末尾からデキュー"""
         num = self.peek_last()
         self._size -= 1
         return num
 
     def peek_first(self) -> int:
-        """前端要素にアクセス"""
+        """キュー先頭の要素にアクセス"""
         if self.is_empty():
-            raise IndexError("Double-ended queue is empty")
+            raise IndexError("両端キューが空です")
         return self._nums[self._front]
 
     def peek_last(self) -> int:
-        """後端要素にアクセス"""
+        """キュー末尾の要素にアクセス"""
         if self.is_empty():
-            raise IndexError("Double-ended queue is empty")
-        # 後端要素のインデックスを計算
+            raise IndexError("両端キューが空です")
+        # 末尾要素のインデックスを計算
         last = self.index(self._front + self._size - 1)
         return self._nums[last]
 
     def to_array(self) -> list[int]:
         """出力用の配列を返す"""
-        # 有効な長さ範囲内の要素のみを変換
+        # 有効長の範囲内のリスト要素のみを変換
         res = []
         for i in range(self._size):
             res.append(self._nums[self.index(self._front + i)])
@@ -95,35 +95,35 @@ class ArrayDeque:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # 双端キューを初期化
+    # 両端キューを初期化
     deque = ArrayDeque(10)
     deque.push_last(3)
     deque.push_last(2)
     deque.push_last(5)
-    print("双端キュー deque =", deque.to_array())
+    print("両端キュー deque =", deque.to_array())
 
     # 要素にアクセス
     peek_first: int = deque.peek_first()
-    print("前端要素 peek_first =", peek_first)
+    print("先頭要素 peek_first =", peek_first)
     peek_last: int = deque.peek_last()
-    print("後端要素 peek_last =", peek_last)
+    print("末尾要素 peek_last =", peek_last)
 
     # 要素をエンキュー
     deque.push_last(4)
-    print("要素 4 を後端エンキュー、deque =", deque.to_array())
+    print("要素 4 を末尾に追加した後 deque =", deque.to_array())
     deque.push_first(1)
-    print("要素 1 を前端エンキュー、deque =", deque.to_array())
+    print("要素 1 を先頭に追加した後 deque =", deque.to_array())
 
     # 要素をデキュー
     pop_last: int = deque.pop_last()
-    print("後端でデキューされた要素 =", pop_last, "、後端デキュー後の deque =", deque.to_array())
+    print("末尾から取り出した要素 =", pop_last, "、末尾から取り出した後 deque =", deque.to_array())
     pop_first: int = deque.pop_first()
-    print("前端でデキューされた要素 =", pop_first, "、前端デキュー後の deque =", deque.to_array())
+    print("先頭から取り出した要素 =", pop_first, "、先頭から取り出した後 deque =", deque.to_array())
 
-    # 双端キューの長さを取得
+    # 両端キューの長さを取得
     size: int = deque.size()
-    print("双端キューの長さ size =", size)
+    print("両端キューの長さ size =", size)
 
-    # 双端キューが空かどうかを判定
+    # 両端キューが空かどうかを判定
     is_empty: bool = deque.is_empty()
-    print("双端キューが空かどうか =", is_empty)
+    print("両端キューが空かどうか =", is_empty)

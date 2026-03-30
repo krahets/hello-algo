@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* キー値ペア */
+/* キーと値の組 */
 struct Pair {
   public:
     int key;
@@ -17,19 +17,19 @@ struct Pair {
     }
 };
 
-/* 配列実装に基づくハッシュテーブル */
+/* 配列ベースのハッシュテーブル */
 class ArrayHashMap {
   private:
     vector<Pair *> buckets;
 
   public:
     ArrayHashMap() {
-        // 配列を初期化、100個のバケットを含む
+        // 100 個のバケットを含む配列を初期化
         buckets = vector<Pair *>(100);
     }
 
     ~ArrayHashMap() {
-        // メモリを解放
+        // メモリを解放する
         for (const auto &bucket : buckets) {
             delete bucket;
         }
@@ -42,7 +42,7 @@ class ArrayHashMap {
         return index;
     }
 
-    /* クエリ操作 */
+    /* 検索操作 */
     string get(int key) {
         int index = hashFunc(key);
         Pair *pair = buckets[index];
@@ -61,12 +61,12 @@ class ArrayHashMap {
     /* 削除操作 */
     void remove(int key) {
         int index = hashFunc(key);
-        // メモリを解放してnullptrに設定
+        // メモリを解放して nullptr に設定する
         delete buckets[index];
         buckets[index] = nullptr;
     }
 
-    /* すべてのキー値ペアを取得 */
+    /* すべてのキーと値のペアを取得 */
     vector<Pair *> pairSet() {
         vector<Pair *> pairSet;
         for (Pair *pair : buckets) {
@@ -99,7 +99,7 @@ class ArrayHashMap {
         return valueSet;
     }
 
-    /* ハッシュテーブルを印刷 */
+    /* ハッシュテーブルを出力 */
     void print() {
         for (Pair *kv : pairSet()) {
             cout << kv->key << " -> " << kv->val << endl;
@@ -107,4 +107,4 @@ class ArrayHashMap {
     }
 };
 
-// テストケースはarray_hash_map_test.cppを参照
+// テストケースは `array_hash_map_test.cpp` を参照

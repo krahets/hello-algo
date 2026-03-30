@@ -8,10 +8,10 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* 配列に基づくキュークラス */
+/* 循環配列ベースのキュー */
 class ArrayQueue {
-    private int[] nums; // 要素を格納する配列
-    private int front; // キューヘッドポインタ、最初の要素を指す
+    private int[] nums; // キュー要素を格納する配列
+    private int front; // 先頭ポインタ。先頭要素を指す
     private int queSize; // キューの長さ
 
     public ArrayQueue(int capacity) {
@@ -37,13 +37,13 @@ class ArrayQueue {
     /* エンキュー */
     public void push(int num) {
         if (queSize == capacity()) {
-            System.out.println("キューが満杯です");
+            System.out.println("キューは満杯です");
             return;
         }
-        // リアポインタを計算：front + queSize
-        // モジュロ操作により rear が配列の長さを超えることを回避
+        // 末尾ポインタを計算し、末尾インデックス + 1 を指す
+        // 剰余演算により、rear が配列末尾を越えた後に先頭へ戻るようにする
         int rear = (front + queSize) % capacity();
-        // 要素をキューリアに追加
+        // num をキュー末尾に追加
         nums[rear] = num;
         queSize++;
     }
@@ -51,13 +51,13 @@ class ArrayQueue {
     /* デキュー */
     public int pop() {
         int num = peek();
-        // キューヘッドポインタを後ろに1つ移動、モジュロ操作により範囲を超えることを回避
+        // 先頭ポインタを1つ後ろへ進め、末尾を越えたら配列先頭に戻す
         front = (front + 1) % capacity();
         queSize--;
         return num;
     }
 
-    /* キューヘッド要素にアクセス */
+    /* キュー先頭の要素にアクセス */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
@@ -66,7 +66,7 @@ class ArrayQueue {
 
     /* 配列を返す */
     public int[] toArray() {
-        // front から開始して queSize 個の要素のみをコピー
+        // 有効長の範囲内のリスト要素のみを変換
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[j % capacity()];
@@ -89,26 +89,27 @@ public class array_queue {
         queue.push(4);
         System.out.println("キュー queue = " + Arrays.toString(queue.toArray()));
 
-        /* キューヘッド要素にアクセス */
+        /* キュー先頭の要素にアクセス */
         int peek = queue.peek();
-        System.out.println("キューヘッド要素 peek = " + peek);
+        System.out.println("先頭要素 peek = " + peek);
 
         /* 要素をデキュー */
         int pop = queue.pop();
-        System.out.println("デキューした要素 = " + pop + "、デキュー後 " + Arrays.toString(queue.toArray()));
+        System.out.println("デキューした要素 pop = " + pop + "、デキュー後の queue = " + Arrays.toString(queue.toArray()));
 
         /* キューの長さを取得 */
         int size = queue.size();
         System.out.println("キューの長さ size = " + size);
 
-        /* 空かどうかを判定 */
+        /* キューが空かどうかを判定 */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("キューが空か = " + isEmpty);
+        System.out.println("キューが空かどうか = " + isEmpty);
 
-        /* 連続エンキューのテスト */
+        /* 循環配列をテストする */
         for (int i = 0; i < 10; i++) {
             queue.push(i);
+            queue.pop();
+            System.out.println("第 " + i + " ラウンドのエンキュー + デキュー後の queue = " + Arrays.toString(queue.toArray()));
         }
-        System.out.println("連続エンキュー後 queue = " + Arrays.toString(queue.toArray()));
     }
 }

@@ -12,7 +12,7 @@ from modules import ListNode
 
 
 class LinkedListStack:
-    """連結リストベースのスタッククラス"""
+    """連結リストベースのスタック"""
 
     def __init__(self):
         """コンストラクタ"""
@@ -42,13 +42,13 @@ class LinkedListStack:
         return num
 
     def peek(self) -> int:
-        """スタックトップ要素にアクセス"""
+        """スタックトップの要素にアクセス"""
         if self.is_empty():
-            raise IndexError("Stack is empty")
+            raise IndexError("スタックが空です")
         return self._peek.val
 
     def to_list(self) -> list[int]:
-        """出力用のリストに変換"""
+        """表示用にリストへ変換"""
         arr = []
         node = self._peek
         while node:
@@ -71,14 +71,14 @@ if __name__ == "__main__":
     stack.push(4)
     print("スタック stack =", stack.to_list())
 
-    # スタックトップ要素にアクセス
+    # スタックトップの要素にアクセス
     peek: int = stack.peek()
     print("スタックトップ要素 peek =", peek)
 
     # 要素をポップ
     pop: int = stack.pop()
-    print("ポップされた要素 pop =", pop)
-    print("ポップ後のスタック =", stack.to_list())
+    print("ポップした要素 pop =", pop)
+    print("ポップ後 stack =", stack.to_list())
 
     # スタックの長さを取得
     size: int = stack.size()

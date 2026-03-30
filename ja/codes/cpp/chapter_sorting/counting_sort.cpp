@@ -6,21 +6,21 @@
 
 #include "../utils/common.hpp"
 
-/* カウントソート */
-// 簡単な実装、オブジェクトのソートには使用できない
+/* 計数ソート */
+// 簡易実装のため、オブジェクトのソートには使えない
 void countingSortNaive(vector<int> &nums) {
-    // 1. 配列の最大要素mを統計
+    // 1. 配列の最大要素 m を求める
     int m = 0;
     for (int num : nums) {
         m = max(m, num);
     }
-    // 2. 各数字の出現回数を統計
-    // counter[num]はnumの出現回数を表す
+    // 2. 各数値の出現回数を数える
+    // counter[num] は num の出現回数を表す
     vector<int> counter(m + 1, 0);
     for (int num : nums) {
         counter[num]++;
     }
-    // 3. counterを走査し、各要素を元の配列numsに戻す
+    // 3. counter を走査し、各要素を元の配列 nums に書き戻す
     int i = 0;
     for (int num = 0; num < m + 1; num++) {
         for (int j = 0; j < counter[num]; j++, i++) {
@@ -29,48 +29,48 @@ void countingSortNaive(vector<int> &nums) {
     }
 }
 
-/* カウントソート */
-// 完全な実装、オブジェクトのソートが可能で安定ソート
+/* 計数ソート */
+// 完全な実装で、オブジェクトをソートでき、かつ安定ソートである
 void countingSort(vector<int> &nums) {
-    // 1. 配列の最大要素mを統計
+    // 1. 配列の最大要素 m を求める
     int m = 0;
     for (int num : nums) {
         m = max(m, num);
     }
-    // 2. 各数字の出現回数を統計
-    // counter[num]はnumの出現回数を表す
+    // 2. 各数値の出現回数を数える
+    // counter[num] は num の出現回数を表す
     vector<int> counter(m + 1, 0);
     for (int num : nums) {
         counter[num]++;
     }
-    // 3. counterの前缀和を計算し、「出現回数」を「末尾インデックス」に変換
-    // counter[num]-1はnumがresで現れる最後のインデックス
+    // 3. counter の累積和を求めて、「出現回数」を「末尾インデックス」に変換する
+    // つまり counter[num]-1 は、num が res に最後に現れるインデックス
     for (int i = 0; i < m; i++) {
         counter[i + 1] += counter[i];
     }
-    // 4. numsを逆順で走査し、各要素を結果配列resに配置
-    // 結果を記録する配列resを初期化
+    // 4. nums を逆順に走査し、各要素を結果配列 res に格納する
+    // 結果を記録するための配列 res を初期化
     int n = nums.size();
     vector<int> res(n);
     for (int i = n - 1; i >= 0; i--) {
         int num = nums[i];
-        res[counter[num] - 1] = num; // numを対応するインデックスに配置
-        counter[num]--;              // 前缀和を1減らし、numを配置する次のインデックスを取得
+        res[counter[num] - 1] = num; // num を対応するインデックスに配置
+        counter[num]--;              // 累積和を 1 減らして、次に num を配置するインデックスを得る
     }
-    // 結果配列resで元の配列numsを上書き
+    // 結果配列 res で元の配列 nums を上書きする
     nums = res;
 }
 
-/* ドライバコード */
+/* Driver Code */
 int main() {
     vector<int> nums = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
     countingSortNaive(nums);
-    cout << "カウントソート（オブジェクトソート不可）後、nums = ";
+    cout << "カウントソート（オブジェクトはソートできない）完了後 nums = ";
     printVector(nums);
 
     vector<int> nums1 = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
     countingSort(nums1);
-    cout << "カウントソート後、nums1 = ";
+    cout << "カウントソート完了後 nums1 = ";
     printVector(nums1);
 
     return 0;

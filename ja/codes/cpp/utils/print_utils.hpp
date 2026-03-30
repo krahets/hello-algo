@@ -13,7 +13,7 @@
 #include <sstream>
 #include <string>
 
-/* ベクター内の要素を検索する */
+/* Find an element in a vector */
 template <typename T> int vecFind(const vector<T> &vec, T ele) {
     int j = INT_MAX;
     for (int i = 0; i < vec.size(); i++) {
@@ -24,7 +24,7 @@ template <typename T> int vecFind(const vector<T> &vec, T ele) {
     return j;
 }
 
-/* ベクターを区切り文字で連結する */
+/* Concatenate a vector with a delim */
 template <typename T> string strJoin(const string &delim, const T &vec) {
     ostringstream s;
     for (const auto &i : vec) {
@@ -36,7 +36,7 @@ template <typename T> string strJoin(const string &delim, const T &vec) {
     return s.str();
 }
 
-/* 文字列をn回繰り返す */
+/* Repeat a string for n times */
 string strRepeat(string str, int n) {
     ostringstream os;
     for (int i = 0; i < n; i++)
@@ -44,7 +44,7 @@ string strRepeat(string str, int n) {
     return os.str();
 }
 
-/* 配列を印刷する */
+/* 配列を出力する */
 template <typename T> void printArray(T *arr, int n) {
     cout << "[";
     for (int i = 0; i < n - 1; i++) {
@@ -56,17 +56,17 @@ template <typename T> void printArray(T *arr, int n) {
         cout << "]" << endl;
 }
 
-/* ベクター文字列オブジェクトを取得する */
+/* Get the Vector String object */
 template <typename T> string getVectorString(vector<T> &list) {
     return "[" + strJoin(", ", list) + "]";
 }
 
-/* リストを印刷する */
+/* リストを出力する */
 template <typename T> void printVector(vector<T> list) {
     cout << getVectorString(list) << '\n';
 }
 
-/* 行列を印刷する */
+/* 行列を出力する */
 template <typename T> void printVectorMatrix(vector<vector<T>> &matrix) {
     cout << "[" << '\n';
     for (vector<T> &list : matrix)
@@ -74,7 +74,7 @@ template <typename T> void printVectorMatrix(vector<vector<T>> &matrix) {
     cout << "]" << '\n';
 }
 
-/* 連結リストを印刷する */
+/* 連結リストを出力 */
 void printLinkedList(ListNode *head) {
     vector<int> list;
     while (head != nullptr) {
@@ -104,8 +104,8 @@ void showTrunks(Trunk *p) {
 }
 
 /**
- * 二分木を印刷する
- * この木プリンターはTECHIE DELIGHTから借用しました
+ * 二分木を出力
+ * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTree(TreeNode *root, Trunk *prev, bool isRight) {
@@ -139,20 +139,20 @@ void printTree(TreeNode *root, Trunk *prev, bool isRight) {
     printTree(root->left, &trunk, false);
 }
 
-/* 二分木を印刷する */
+/* 二分木を出力 */
 void printTree(TreeNode *root) {
     printTree(root, nullptr, false);
 }
 
-/* スタックを印刷する */
+/* スタックを出力 */
 template <typename T> void printStack(stack<T> stk) {
-    // 入力スタックを逆順にする
+    // Reverse the input stack
     stack<T> tmp;
     while (!stk.empty()) {
         tmp.push(stk.top());
         stk.pop();
     }
-    // 印刷する文字列を生成
+    // Generate the string to print
     ostringstream s;
     bool flag = true;
     while (!tmp.empty()) {
@@ -166,9 +166,9 @@ template <typename T> void printStack(stack<T> stk) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* キューを印刷する */
+/* キューを出力する */
 template <typename T> void printQueue(queue<T> queue) {
-    // 印刷する文字列を生成
+    // Generate the string to print
     ostringstream s;
     bool flag = true;
     while (!queue.empty()) {
@@ -182,9 +182,9 @@ template <typename T> void printQueue(queue<T> queue) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* デックを印刷する */
+/* 両端キューを出力する */
 template <typename T> void printDeque(deque<T> deque) {
-    // 印刷する文字列を生成
+    // Generate the string to print
     ostringstream s;
     bool flag = true;
     while (!deque.empty()) {
@@ -198,15 +198,15 @@ template <typename T> void printDeque(deque<T> deque) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* ハッシュテーブルを印刷する */
-// キー値ペアの型を指定するためにテンプレートパラメータTKeyとTValueを定義
+/* ハッシュテーブルを出力 */
+// キーと値の型を指定するためのテンプレート引数 TKey と TValue を定義
 template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, TValue> map) {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';
     }
 }
 
-/* priority_queueコンテナの基礎となるストレージを公開する */
+/* Expose the underlying storage of the priority_queue container */
 template <typename T, typename S, typename C> S &Container(priority_queue<T, S, C> &pq) {
     struct HackedQueue : private priority_queue<T, S, C> {
         static S &Container(priority_queue<T, S, C> &pq) {
@@ -216,12 +216,12 @@ template <typename T, typename S, typename C> S &Container(priority_queue<T, S, 
     return HackedQueue::Container(pq);
 }
 
-/* ヒープ（優先度付きキュー）を印刷する */
+/* ヒープ（優先度付きキュー）を出力する */
 template <typename T, typename S, typename C> void printHeap(priority_queue<T, S, C> &heap) {
     vector<T> vec = Container(heap);
-    cout << "ヒープの配列表現:";
+    cout << "ヒープの配列表現：";
     printVector(vec);
-    cout << "ヒープの木表現:" << endl;
+    cout << "ヒープの木構造表現：" << endl;
     TreeNode *root = vectorToTree(vec);
     printTree(root);
     freeMemoryTree(root);

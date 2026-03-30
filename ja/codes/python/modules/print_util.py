@@ -9,7 +9,7 @@ from .list_node import ListNode, linked_list_to_list
 
 
 def print_matrix(mat: list[list[int]]):
-    """行列を出力"""
+    """行列を出力する"""
     s = []
     for arr in mat:
         s.append("  " + str(arr))
@@ -39,10 +39,10 @@ def print_tree(
     root: TreeNode | None, prev: Trunk | None = None, is_right: bool = False
 ):
     """
-    二分木を出力
-    この木プリンタはTECHIE DELIGHTから借用
-    https://www.techiedelight.com/c-program-print-binary-tree/
-    """
+二分木を出力
+This tree printer is borrowed from TECHIE DELIGHT
+https://www.techiedelight.com/c-program-print-binary-tree/
+"""
     if root is None:
         return
 
@@ -75,7 +75,7 @@ def print_dict(hmap: dict):
 
 def print_heap(heap: list[int]):
     """ヒープを出力"""
-    print("ヒープの配列表現:", heap)
-    print("ヒープの木表現:")
+    print("ヒープの配列表現：", heap)
+    print("ヒープの木構造表示：")
     root: TreeNode | None = list_to_tree(heap)
     print_tree(root)

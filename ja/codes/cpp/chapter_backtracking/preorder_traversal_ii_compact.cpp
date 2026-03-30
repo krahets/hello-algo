@@ -9,12 +9,12 @@
 vector<TreeNode *> path;
 vector<vector<TreeNode *>> res;
 
-/* 前順走査：例２ */
+/* 前順走査：例題 2 */
 void preOrder(TreeNode *root) {
     if (root == nullptr) {
         return;
     }
-    // 試行
+    // 試す
     path.push_back(root);
     if (root->val == 7) {
         // 解を記録
@@ -22,23 +22,20 @@ void preOrder(TreeNode *root) {
     }
     preOrder(root->left);
     preOrder(root->right);
-    // 回退
+    // バックトラック
     path.pop_back();
 }
 
-/* ドライバーコード */
+/* Driver Code */
 int main() {
-    vector<int> arr = {1, 7, 3, 4, 5, 6, 7};
-    TreeNode *root = vecToTree(arr);
+    TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
     cout << "\n二分木を初期化" << endl;
     printTree(root);
 
-    // 前順走査
-    path.clear();
-    res.clear();
+    // 先行順走査
     preOrder(root);
 
-    cout << "\nルートからノード7までのすべてのパスを出力" << endl;
+    cout << "\n根ノードからノード 7 までのすべての経路を出力" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {
@@ -46,6 +43,4 @@ int main() {
         }
         printVector(vals);
     }
-
-    return 0;
 }

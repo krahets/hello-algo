@@ -16,46 +16,46 @@ class BinarySearchTree:
 
     def __init__(self):
         """コンストラクタ"""
-        # 空の木を初期化
+        # 空の木を初期化する
         self._root = None
 
     def get_root(self) -> TreeNode | None:
-        """二分木のルートノードを取得"""
+        """二分木の根ノードを取得"""
         return self._root
 
     def search(self, num: int) -> TreeNode | None:
         """ノードを探索"""
         cur = self._root
-        # ループで探索、葉ノードを通過した後にブレーク
+        # ループで探索し、葉ノードを越えたら抜ける
         while cur is not None:
-            # ターゲットノードはcurの右部分木にある
+            # 目標ノードは cur の右部分木にある
             if cur.val < num:
                 cur = cur.right
-            # ターゲットノードはcurの左部分木にある
+            # 目標ノードは cur の左部分木にある
             elif cur.val > num:
                 cur = cur.left
-            # ターゲットノードを発見、ループをブレーク
+            # 目標ノードが見つかったらループを抜ける
             else:
                 break
         return cur
 
     def insert(self, num: int):
         """ノードを挿入"""
-        # 木が空の場合、ルートノードを初期化
+        # 木が空なら、根ノードを初期化する
         if self._root is None:
             self._root = TreeNode(num)
             return
-        # ループで探索、葉ノードを通過した後にブレーク
+        # ループで探索し、葉ノードを越えたら抜ける
         cur, pre = self._root, None
         while cur is not None:
-            # 重複ノードを発見したため、戻る
+            # 重複ノードが見つかったら、直ちに返す
             if cur.val == num:
                 return
             pre = cur
-            # 挿入位置はcurの右部分木にある
+            # 挿入位置は cur の右部分木にある
             if cur.val < num:
                 cur = cur.right
-            # 挿入位置はcurの左部分木にある
+            # 挿入位置は cur の左部分木にある
             else:
                 cur = cur.left
         # ノードを挿入
@@ -67,80 +67,80 @@ class BinarySearchTree:
 
     def remove(self, num: int):
         """ノードを削除"""
-        # 木が空の場合、戻る
+        # 木が空なら、そのまま早期リターンする
         if self._root is None:
             return
-        # ループで探索、葉ノードを通過した後にブレーク
+        # ループで探索し、葉ノードを越えたら抜ける
         cur, pre = self._root, None
         while cur is not None:
-            # 削除するノードを発見、ループをブレーク
+            # 削除対象のノードが見つかったら、ループを抜ける
             if cur.val == num:
                 break
             pre = cur
-            # 削除するノードはcurの右部分木にある
+            # 削除対象ノードは cur の右部分木にある
             if cur.val < num:
                 cur = cur.right
-            # 削除するノードはcurの左部分木にある
+            # 削除対象ノードは cur の左部分木にある
             else:
                 cur = cur.left
-        # 削除するノードが存在しない場合、戻る
+        # 削除対象ノードがなければそのまま返す
         if cur is None:
             return
 
-        # 子ノード数 = 0 または 1
+        # 子ノード数 = 0 or 1
         if cur.left is None or cur.right is None:
-            # 子ノード数 = 0/1の場合、child = null/その子ノード
+            # 子ノード数が 0 / 1 のとき、child = null / その子ノード
             child = cur.left or cur.right
-            # ノードcurを削除
+            # ノード cur を削除する
             if cur != self._root:
                 if pre.left == cur:
                     pre.left = child
                 else:
                     pre.right = child
             else:
-                # 削除されるノードがルートの場合、ルートを再割り当て
+                # 削除ノードが根ノードなら、根ノードを再設定
                 self._root = child
         # 子ノード数 = 2
         else:
-            # curの中順走査の次のノードを取得
+            # 中順走査における cur の次ノードを取得
             tmp: TreeNode = cur.right
             while tmp.left is not None:
                 tmp = tmp.left
-            # 再帰的にノードtmpを削除
+            # ノード tmp を再帰的に削除
             self.remove(tmp.val)
-            # curをtmpで置き換え
+            # tmp で cur を上書きする
             cur.val = tmp.val
 
 
-"""ドライバコード"""
+"""Driver Code"""
 if __name__ == "__main__":
     # 二分探索木を初期化
     bst = BinarySearchTree()
     nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15]
-    # 注意：異なる挿入順序により、様々な木構造が生成される可能性がある。この特定のシーケンスは完全二分木を作成する
+    # 注意：挿入順序が異なると異なる二分木が生成される。このシーケンスからは完全二分木を生成できる
     for num in nums:
         bst.insert(num)
-    print("\n初期化された二分木は\n")
+    print("\n初期化した二分木は\n")
     print_tree(bst.get_root())
 
     # ノードを探索
     node = bst.search(7)
-    print("\n発見されたノードオブジェクト: {}, ノードの値 = {}".format(node, node.val))
+    print("\n見つかったノードオブジェクトは: {}、ノードの値 = {}".format(node, node.val))
 
     # ノードを挿入
     bst.insert(16)
-    print("\nノード16を挿入後の二分木は\n")
+    print("\nノード 16 を挿入した後、二分木は\n")
     print_tree(bst.get_root())
 
     # ノードを削除
     bst.remove(1)
-    print("\nノード1を削除後の二分木は\n")
+    print("\nノード 1 を削除した後、二分木は\n")
     print_tree(bst.get_root())
 
     bst.remove(2)
-    print("\nノード2を削除後の二分木は\n")
+    print("\nノード 2 を削除した後、二分木は\n")
     print_tree(bst.get_root())
 
     bst.remove(4)
-    print("\nノード4を削除後の二分木は\n")
+    print("\nノード 4 を削除した後、二分木は\n")
     print_tree(bst.get_root())

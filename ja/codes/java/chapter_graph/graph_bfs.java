@@ -10,30 +10,30 @@ import java.util.*;
 import utils.*;
 
 public class graph_bfs {
-    /* 幅優先走査 */
-    // 隣接リストを使用してグラフを表現し、指定した頂点のすべての隣接頂点を取得
+    /* 幅優先探索 */
+    // グラフを隣接リストで表し、指定した頂点の隣接頂点をすべて取得できるようにする
     static List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
-        // 頂点走査順序
+        // 頂点の走査順序
         List<Vertex> res = new ArrayList<>();
-        // ハッシュセット、訪問済みの頂点を記録するために使用
+        // 訪問済み頂点を記録するためのハッシュ集合
         Set<Vertex> visited = new HashSet<>();
         visited.add(startVet);
-        // BFS を実装するために使用するキュー
+        // BFS の実装にキューを用いる
         Queue<Vertex> que = new LinkedList<>();
         que.offer(startVet);
-        // 頂点 vet から開始し、すべての頂点が訪問されるまでループ
+        // 頂点 vet を起点に、すべての頂点を訪問し終えるまで繰り返す
         while (!que.isEmpty()) {
-            Vertex vet = que.poll(); // キューの先頭の頂点をデキュー
+            Vertex vet = que.poll(); // 先頭の頂点をデキュー
             res.add(vet);            // 訪問した頂点を記録
-            // その頂点のすべての隣接頂点を走査
+            // この頂点のすべての隣接頂点を走査
             for (Vertex adjVet : graph.adjList.get(vet)) {
                 if (visited.contains(adjVet))
-                    continue;        // すでに訪問済みの頂点をスキップ
-                que.offer(adjVet);   // 未訪問の頂点のみをエンキュー
-                visited.add(adjVet); // 頂点を訪問済みとしてマーク
+                    continue;        // 訪問済みの頂点をスキップ
+                que.offer(adjVet);   // 未訪問の頂点のみをキューに追加
+                visited.add(adjVet); // この頂点を訪問済みにする
             }
         }
-        // 頂点走査順序を返す
+        // 頂点の走査順を返す
         return res;
     }
 
@@ -44,12 +44,12 @@ public class graph_bfs {
                              { v[2], v[5] }, { v[3], v[4] }, { v[3], v[6] }, { v[4], v[5] },
                              { v[4], v[7] }, { v[5], v[8] }, { v[6], v[7] }, { v[7], v[8] } };
         GraphAdjList graph = new GraphAdjList(edges);
-        System.out.println("\n初期化後、グラフは");
+        System.out.println("\n初期化後のグラフ");
         graph.print();
 
-        /* 幅優先走査 */
+        /* 幅優先探索 */
         List<Vertex> res = graphBFS(graph, v[0]);
-        System.out.println("\n幅優先走査 (BFS) の頂点順序は");
+        System.out.println("\n幅優先探索（BFS）の頂点列は");
         System.out.println(Vertex.vetsToVals(res));
     }
 }

@@ -6,12 +6,14 @@
 <p align="center">
   <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Noto+Sans+JP&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello,+%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0+!" alt="hello-algo-typing-svg" />
   </br>
-  アニメーションで図解、ワンクリック実行のデータ構造とアルゴリズム入門講座
+  アニメーション図解とワンクリック実行コードで学べる、データ構造とアルゴリズムの入門書
 </p>
 
 <p align="center">
   <a href="https://www.hello-algo.com/ja/">
     <img src="https://www.hello-algo.com/en/index.assets/btn_read_online_dark.svg" height="45"></a>
+  <a href="https://github.com/krahets/hello-algo/releases">
+    <img src="https://www.hello-algo.com/en/index.assets/btn_download_pdf_epub_dark.svg" height="45"></a>
 </p>
 
 <p align="center">
@@ -43,51 +45,51 @@
   <a href="https://github.com/krahets/hello-algo/blob/main/en/README.md">English</a>
   ｜
   日本語
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/ru/README.md">Русский</a>
 </p>
 
 ## この本について
 
-このオープンソースプロジェクトは、データ構造とアルゴリズムの無料で初心者向けの入門講座を作成することを目的としています。
+本プロジェクトは、無料かつオープンソースで、初心者にもやさしいデータ構造とアルゴリズムの入門書を作ることを目的としています。
 
-- アニメーションによる図解、わかりやすい内容、なめらかな学習曲線により、初心者がデータ構造とアルゴリズムの「知識マップ」を探索できます。
-- ワンクリックでコードを実行でき、読者のプログラミングスキルを向上させ、アルゴリズムの動作原理とデータ構造の基礎となる実装を理解できます。
-- 教えることで学ぶことを促進し、質問や洞察を自由に共有してください。議論を通じて一緒に成長しましょう。
+- 全編をアニメーション図解で構成し、わかりやすい内容と無理のない学習曲線によって、初学者がデータ構造とアルゴリズムの知識地図をたどれるようにしています。
+- ソースコードはワンクリックで実行でき、演習を通してプログラミング力を高めながら、アルゴリズムの動作原理とデータ構造の内部実装を理解できます。
+- 学び合いを大切にしており、コメント欄での質問や知見の共有を歓迎します。議論を通じて一緒に成長していきましょう。
 
-この本が役立つと思われた場合は、スター :star: を付けてサポートしてください。ありがとうございます！
+本書が役に立ったら、ページ右上の Star :star: で応援していただけると嬉しいです。ありがとうございます。
 
 ## 推薦の言葉
 
-> データ構造とアルゴリズムに関するわかりやすい本で、読者が頭と手を使って学ぶように導きます。アルゴリズム初心者に強くお勧めします！
+> 「平易でわかりやすいデータ構造・アルゴリズム入門書であり、読者を頭と手の両方を使う学びへと導いてくれます。アルゴリズム初学者に強く薦めます。」
 >
-> **—— 邓俊辉，清華大学コンピュータサイエンス技術学部**
+> **—— 邓俊辉，清華大学計算機科学技術学部教授**
 
-> データ構造とアルゴリズムを学んでいたときに『Hello Algo』があったなら、10 倍簡単だったでしょう！
+> 「もし当時『Hello Algo』があれば、データ構造とアルゴリズムの学習は 10 倍は楽だったはずです！」
 >
-> **—— 李沐，Amazon シニアプリンシパルサイエンティスト**
+> **—— 李沐，Amazon シニア・プリンシパル・サイエンティスト**
 
-## 特別な感謝
+## 謝辞
 
 <p align="left">
   <a href="https://go.warp.dev/hello-algo">
     <img src="https://github.com/warpdotdev/brand-assets/blob/main/Github/Sponsor/Warp-Github-LG-02.png" alt="Warp-Github-LG-02" width="500"></a>
 </p>
 
-[Warp は複数の AI エージェントと共にコーディングするために構築されています。](https://go.warp.dev/hello-algo)
+[Warp は複数の AI エージェントとともにコーディングするために作られています。](https://go.warp.dev/hello-algo)
+
+Warp ターミナルは、洗練された UI と使いやすい AI を兼ね備えており、非常に優れた体験を提供してくれます。
 
 ## 貢献
 
-> [!Important]
->
-> 日本語版の翻訳作業へのご参加を歓迎します！詳細は [CONTRIBUTING.md](CONTRIBUTING.md) をご覧ください。
+本書は現在も継続的に更新されており、読者により良い学習コンテンツを届けるため、プロジェクトへの参加を歓迎しています。
 
-このオープンソースブックは継続的に更新されており、読者により良い学習コンテンツを提供するため、このプロジェクトへの参加を歓迎します。
+- [内容の修正](https://www.hello-algo.com/ja/chapter_appendix/contribution/)：文法ミス、内容の欠落、表現の曖昧さ、無効なリンク、コードのバグなどがあれば、修正またはコメント欄でのご指摘をお願いします。
+- [コードの移植](https://github.com/krahets/hello-algo/issues/15)：Python、Java、C++、Go、JavaScript など、現在対応している 12 言語のコード整備への貢献をお待ちしています。
 
-- [内容の修正](https://www.hello-algo.com/ja/chapter_appendix/contribution/)：文法エラー、内容の欠落、曖昧さ、無効なリンク、コードのバグなど、コメントセクションで間違いを修正したり指摘したりしてください。
-- [コードの移植](https://github.com/krahets/hello-algo/issues/15)：さまざまなプログラミング言語でのご貢献をお待ちしています。現在、Python、Java、C++、Go、JavaScript を含む 12 言語をサポートしています。
+ご意見・ご提案を歓迎します。ご不明点があれば Issue を作成するか、WeChat の `krahets-jyd` までご連絡ください。
 
-貴重なご提案とフィードバックを歓迎します。ご質問がある場合は、Issues を提出するか、WeChat：`krahets-jyd` でお問い合わせください。
-
-この本のすべての貢献者に感謝を捧げたいと思います。彼らの無私の献身により、この本がより良いものになりました。貢献者の皆様：
+本書をより良いものにしてくれた、すべての執筆・貢献者の皆さんに感謝します。無私の協力によって、このオープンソース書籍は支えられています。
 
 <p align="left">
     <a href="https://github.com/krahets/hello-algo/graphs/contributors">
@@ -97,4 +99,4 @@
 
 ## ライセンス
 
-このリポジトリ内のテキスト、コード、画像、写真、動画は [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) の下でライセンスされています。
+このリポジトリに含まれるテキスト、コード、画像、写真、動画は、[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) の下でライセンスされています。
