@@ -6520,7 +6520,7 @@
 <a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="p">;</span><span class="w">       </span><span class="c1">// 用于存储队列元素的数组</span>
 <a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">front</span><span class="p">;</span><span class="w">       </span><span class="c1">// 队首指针，指向队首元素</span>
-<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">queSize</span><span class="p">;</span><span class="w">     </span><span class="c1">// 尾指针，指向队尾 + 1</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">queSize</span><span class="p">;</span><span class="w">     </span><span class="c1">// 当前队列的元素数量</span>
 <a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">queCapacity</span><span class="p">;</span><span class="w"> </span><span class="c1">// 队列容量</span>
 <a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="p">}</span><span class="w"> </span><span class="n">ArrayQueue</span><span class="p">;</span>
 <a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>
@@ -6846,7 +6846,7 @@ aria-label="页脚"
     /* Set palette on initial load */
     var palette = __md_get("__palette")
     if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate" ? "dark_dimmed" : "light"
+      var theme = palette.color.scheme === "slate" ? "noborder_dark" : "noborder_light"
       giscus.setAttribute("data-theme", theme) 
     }
 
@@ -6856,7 +6856,7 @@ aria-label="页脚"
       ref.addEventListener("change", function() {
         var palette = __md_get("__palette")
         if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate" ? "dark_dimmed" : "light"
+          var theme = palette.color.scheme === "slate" ? "noborder_dark" : "noborder_light"
 
           /* Instruct Giscus to change theme */
           var frame = document.querySelector(".giscus-frame")

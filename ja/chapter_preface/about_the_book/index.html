@@ -4520,7 +4520,7 @@ aria-label="フッター"
     /* Set palette on initial load */
     var palette = __md_get("__palette")
     if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate" ? "dark_dimmed" : "light"
+      var theme = palette.color.scheme === "slate" ? "noborder_dark" : "noborder_light"
       giscus.setAttribute("data-theme", theme) 
     }
 
@@ -4530,7 +4530,7 @@ aria-label="フッター"
       ref.addEventListener("change", function() {
         var palette = __md_get("__palette")
         if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate" ? "dark_dimmed" : "light"
+          var theme = palette.color.scheme === "slate" ? "noborder_dark" : "noborder_light"
 
           /* Instruct Giscus to change theme */
           var frame = document.querySelector(".giscus-frame")

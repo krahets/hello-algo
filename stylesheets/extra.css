@@ -495,11 +495,6 @@ a:hover .text-button span {
   text-align: center;
 }
 
-.profile-cell a:hover b,
-.profile-cell a:focus-visible b {
-  text-decoration: underline;
-}
-
 .profile-img {
   width: 5em;
   border-radius: 50%;
@@ -781,4 +776,4 @@ html:has(body[data-md-color-scheme="default"]) {
 .md-typeset a:not(.md-button):focus-visible {
   text-decoration: underline;
 }
-/*! update cache: 20260330081538 */
+/*! update cache: 20260331044007 */
