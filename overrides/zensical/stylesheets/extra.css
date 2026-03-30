@@ -415,19 +415,50 @@ html:has(body[data-md-color-scheme="default"]) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.38em;
   margin: 0 0.1em;
-  padding: 0.6em 1.3em;
-  border: none;
+  padding: 0.72em 1.18em;
+  border: 1px solid rgb(255 255 255 / 0.24);
   border-radius: 10em;
-  background-color: var(--md-typeset-btn-color);
-  color: var(--md-primary-fg-color) !important;
+  background-color: rgb(24 24 24 / 0.2);
+  color: rgb(232 241 240) !important;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  min-width: 7.2em;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  box-shadow:
+    0 0.3rem 1rem rgb(0 0 0 / 0.16);
+  transition:
+    color 0.15s ease-out,
+    background-color 0.15s ease-out,
+    border-color 0.15s ease-out,
+    box-shadow 0.15s ease-out;
+  backdrop-filter: saturate(115%) blur(0.18rem);
+  -webkit-backdrop-filter: saturate(115%) blur(0.18rem);
 }
 
 .rounded-button:hover {
-  background-color: var(--md-typeset-btn-hover-color);
+  background-color: rgb(255 255 255 / 0.2);
+  border-color: rgb(255 255 255 / 0.34);
+  color: rgb(244 249 248) !important;
+  box-shadow:
+    0 0.4rem 1.2rem rgb(0 0 0 / 0.18);
+  text-decoration: none;
+}
+
+.heading-div .rounded-button:first-of-type {
+  border-color: rgb(160 223 217 / 0.42);
+  background-color: rgb(42 104 99 / 0.2);
+  color: rgb(233 245 243) !important;
+}
+
+.heading-div .rounded-button:first-of-type:hover {
+  background-color: rgb(82 187 177 / 0.28);
+  border-color: rgb(186 228 223 / 0.38);
+  color: rgb(242 249 248) !important;
 }
 
 .rounded-button span {
@@ -439,7 +470,7 @@ html:has(body[data-md-color-scheme="default"]) {
   width: auto;
   height: 1.2em;
   margin-right: 0.5em;
-  fill: var(--md-primary-fg-color);
+  fill: currentColor;
 }
 
 .reading-media {
