@@ -119,7 +119,7 @@ nav:
     - 10.2 Двоичный поиск точки вставки: chapter_searching/binary_search_insertion.md
     - 10.3 Двоичный поиск границ: chapter_searching/binary_search_edge.md
     - 10.4 Стратегии оптимизации хеширования: chapter_searching/replace_linear_by_hashing.md
-    - "10.5 Переосмысление алгоритмов поиска": chapter_searching/searching_algorithm_revisited.md
+    - 10.5 Переосмысление алгоритмов поиска: chapter_searching/searching_algorithm_revisited.md
     - 10.6 Резюме: chapter_searching/summary.md
   - Глава 11. Сортировка:
     # [icon: material/sort-ascending]
@@ -138,8 +138,8 @@ nav:
   - Глава 12. Разделяй и властвуй:
     # [icon: material/set-split]
     - chapter_divide_and_conquer/index.md
-    - '12.1 Стратегия "разделяй и властвуй"': chapter_divide_and_conquer/divide_and_conquer.md
-    - '12.2 Поисковая стратегия "разделяй и властвуй"': chapter_divide_and_conquer/binary_search_recur.md
+    - 12.1 Стратегия разделяй и властвуй: chapter_divide_and_conquer/divide_and_conquer.md
+    - 12.2 Поисковая стратегия разделяй и властвуй: chapter_divide_and_conquer/binary_search_recur.md
     - 12.3 Задача построения двоичного дерева: chapter_divide_and_conquer/build_binary_tree_problem.md
     - 12.4 Задача о Ханойской башне: chapter_divide_and_conquer/hanota_problem.md
     - 12.5 Резюме: chapter_divide_and_conquer/summary.md
