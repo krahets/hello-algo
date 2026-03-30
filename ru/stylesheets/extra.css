@@ -375,6 +375,14 @@ a:hover .text-button span {
   font-weight: normal;
 }
 
+.hero-div--en {
+  font-size: min(1.65vh, 2.3vw);
+}
+
+.hero-div--ru {
+  font-size: min(1.45vh, 2vw);
+}
+
 .hero-bg {
   height: 100%;
   width: 100%;
@@ -485,6 +493,11 @@ a:hover .text-button span {
   flex: 1 1 15%;
   margin: 1em 0;
   text-align: center;
+}
+
+.profile-cell a:hover b,
+.profile-cell a:focus-visible b {
+  text-decoration: underline;
 }
 
 .profile-img {
@@ -768,4 +781,4 @@ html:has(body[data-md-color-scheme="default"]) {
 .md-typeset a:not(.md-button):focus-visible {
   text-decoration: underline;
 }
-/*! update cache: 20260329054803 */
+/*! update cache: 20260330081625 */
