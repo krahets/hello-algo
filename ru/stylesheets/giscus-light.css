@@ -1,3 +1,5 @@
+@import url("https://giscus.app/themes/light.css");
+
 /* Limit long giscus comments so they don't dominate the page. */
 .gsc-comment-content {
   max-height: 16rem;
@@ -24,4 +26,4 @@
     max-height: 12rem;
   }
 }
-/*! update cache: 20260401001145 */
+/*! update cache: 20260401001527 */
