@@ -32,7 +32,7 @@
   gap: 0.55rem;
   width: 100%;
   margin: 0 auto;
-  padding: 0.2rem 0.3rem;
+  padding: 0.14rem 0.3rem;
   border-radius: 0;
   background: color-mix(in srgb, var(--md-code-bg-color) 97.5%, var(--md-default-fg-color) 2.5%);
   box-sizing: border-box;
@@ -50,19 +50,22 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 1.75rem;
-  min-width: 1.75rem;
-  padding: 0.24rem;
+  min-height: 1.64rem;
+  min-width: 1.64rem;
+  padding: 0.1rem;
   border: 0;
   background: transparent;
   border-radius: 999px;
   color: var(--md-default-fg-color);
   cursor: pointer;
-  transition: color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
 }
 
 .animation-controls__button:hover,
 .animation-controls__button:focus-visible {
+  background: color-mix(in srgb, var(--md-code-bg-color) 92%, var(--md-default-fg-color) 8%);
   color: var(--md-accent-fg-color);
 }
 
@@ -134,6 +137,11 @@
   background: color-mix(in srgb, var(--md-code-bg-color) 91%, black 9%);
 }
 
+[data-md-color-scheme="slate"] .animation-controls__button:hover,
+[data-md-color-scheme="slate"] .animation-controls__button:focus-visible {
+  background: color-mix(in srgb, var(--md-code-bg-color) 92%, white 8%);
+}
+
 [data-md-color-scheme="slate"] .md-typeset .tabbed-set[data-auto-slide="true"] {
   background: var(--md-code-bg-color);
   box-shadow: 0 0.2rem 0.75rem rgb(0 0 0 / 0.18);
@@ -148,7 +156,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     gap: 0.32rem;
-    padding: 0.16rem 0.22rem;
+    padding: 0.11rem 0.22rem;
   }
 
   .animation-controls__nav {
@@ -157,9 +165,9 @@
   }
 
   .animation-controls__button {
-    min-width: 1.56rem;
-    min-height: 1.56rem;
-    padding: 0.18rem;
+    min-width: 1.48rem;
+    min-height: 1.48rem;
+    padding: 0.08rem;
   }
 
   .animation-controls__page {

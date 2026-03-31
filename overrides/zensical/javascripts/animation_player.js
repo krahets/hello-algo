@@ -1,6 +1,7 @@
 (() => {
   const ANIMATION_LABEL_PATTERN = /^<\d+>$/;
-  const AUTO_SLIDE_INTERVAL_MS = 1000;
+  const AUTO_SLIDE_INITIAL_DELAY_MS = 1000;
+  const AUTO_SLIDE_INTERVAL_MS = 1500;
   const PLAY_LABEL = "播放幻灯片";
   const PAUSE_LABEL = "暂停幻灯片";
   const SVG_NS = "http://www.w3.org/2000/svg";
@@ -140,7 +141,8 @@
     const state = {
       inputs,
       currentIndex: getCheckedIndex(inputs),
-      timerId: null,
+      intervalId: null,
+      timeoutId: null,
       isPlaying: false,
     };
 
@@ -159,9 +161,13 @@
     };
 
     const stop = () => {
-      if (state.timerId !== null) {
-        window.clearInterval(state.timerId);
-        state.timerId = null;
+      if (state.timeoutId !== null) {
+        window.clearTimeout(state.timeoutId);
+        state.timeoutId = null;
+      }
+      if (state.intervalId !== null) {
+        window.clearInterval(state.intervalId);
+        state.intervalId = null;
       }
       state.isPlaying = false;
       updatePlayButton();
@@ -186,9 +192,13 @@
       }
       state.isPlaying = true;
       updatePlayButton();
-      state.timerId = window.setInterval(() => {
+      state.timeoutId = window.setTimeout(() => {
         step(1);
-      }, AUTO_SLIDE_INTERVAL_MS);
+        state.timeoutId = null;
+        state.intervalId = window.setInterval(() => {
+          step(1);
+        }, AUTO_SLIDE_INTERVAL_MS);
+      }, AUTO_SLIDE_INITIAL_DELAY_MS);
     };
 
     playButton.addEventListener("click", () => {
