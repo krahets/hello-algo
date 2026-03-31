@@ -573,7 +573,7 @@ a:hover .device-on-hover {
 }
 
 .intro-text svg path {
-  fill: #3b3b3b;
+  fill: var(--md-primary-bg-color);
 }
 
 .endor-text {

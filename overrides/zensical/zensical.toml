@@ -17,7 +17,6 @@ features = [
   "content.tabs.link",
   "content.tooltips",
   "navigation.indexes",
-  "navigation.top",
   "navigation.tracking",
   "search.highlight",
   "search.share",
