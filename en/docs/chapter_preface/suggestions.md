@@ -137,10 +137,8 @@
 
     // Content comment, used to explain code in detail
 
-    /**
-     * Multi-line
-     * comment
-     */
+    // Multi-line
+    // comment
     ```
 
 === "C"
