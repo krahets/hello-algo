@@ -399,19 +399,19 @@
 
 Как показано на рисунках ниже, мы рассматриваем головной и хвостовой узлы двусвязного списка как голову и хвост двусторонней очереди и одновременно реализуем функции добавления и удаления узлов с обеих сторон.
 
-=== "LinkedListDeque"
+=== "<1>"
     ![Операции enqueue и dequeue для двусторонней очереди на связном списке](deque.assets/linkedlist_deque_step1.png)
 
-=== "push_last()"
+=== "<2>"
     ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.png)
 
-=== "push_first()"
+=== "<3>"
     ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.png)
 
-=== "pop_last()"
+=== "<4>"
     ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.png)
 
-=== "pop_first()"
+=== "<5>"
     ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.png)
 
 Код реализации приведен ниже:
@@ -424,19 +424,19 @@
 
 Как показано на рисунках ниже, аналогично реализации обычной очереди на массиве мы также можем использовать кольцевой массив для реализации двусторонней очереди.
 
-=== "ArrayDeque"
+=== "<1>"
     ![Операции enqueue и dequeue для двусторонней очереди на массиве](deque.assets/array_deque_step1.png)
 
-=== "push_last()"
+=== "<2>"
     ![array_deque_push_last](deque.assets/array_deque_step2_push_last.png)
 
-=== "push_first()"
+=== "<3>"
     ![array_deque_push_first](deque.assets/array_deque_step3_push_first.png)
 
-=== "pop_last()"
+=== "<4>"
     ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.png)
 
-=== "pop_first()"
+=== "<5>"
     ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.png)
 
 На основе реализации обычной очереди нужно лишь добавить методы добавления в голову очереди и удаления из хвоста:

@@ -368,13 +368,13 @@ To implement a queue, we need a data structure that allows adding elements at on
 
 As shown in the figure below, we can treat the "head node" and "tail node" of a linked list as the "front" and "rear" of the queue, respectively, with the rule that nodes can only be added at the rear and removed from the front.
 
-=== "LinkedListQueue"
+=== "<1>"
     ![Enqueue and dequeue operations in linked list implementation of queue](queue.assets/linkedlist_queue_step1.png)
 
-=== "push()"
+=== "<2>"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png)
 
-=== "pop()"
+=== "<3>"
     ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png)
 
 Below is the code for implementing a queue using a linked list:
@@ -396,13 +396,13 @@ Based on this design, **the valid interval containing elements in the array is `
 
 As you can see, both enqueue and dequeue operations require only one operation, with a time complexity of $O(1)$.
 
-=== "ArrayQueue"
+=== "<1>"
     ![Enqueue and dequeue operations in array implementation of queue](queue.assets/array_queue_step1.png)
 
-=== "push()"
+=== "<2>"
     ![array_queue_push](queue.assets/array_queue_step2_push.png)
 
-=== "pop()"
+=== "<3>"
     ![array_queue_pop](queue.assets/array_queue_step3_pop.png)
 
 You may notice a problem: as we continuously enqueue and dequeue, both `front` and `rear` move to the right. **When they reach the end of the array, they cannot continue moving**. To solve this problem, we can treat the array as a "circular array" with head and tail connected.

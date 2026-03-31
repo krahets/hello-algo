@@ -365,13 +365,13 @@ When implementing a stack using a linked list, we can treat the head node of the
 
 As shown in the figure below, for the push operation, we simply insert an element at the head of the linked list. This node insertion method is called the "head insertion method." For the pop operation, we just need to remove the head node from the linked list.
 
-=== "LinkedListStack"
+=== "<1>"
     ![Push and pop operations in linked list implementation of stack](stack.assets/linkedlist_stack_step1.png)
 
-=== "push()"
+=== "<2>"
     ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.png)
 
-=== "pop()"
+=== "<3>"
     ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.png)
 
 Below is sample code for implementing a stack based on a linked list:
@@ -384,13 +384,13 @@ Below is sample code for implementing a stack based on a linked list:
 
 When implementing a stack using an array, we can treat the end of the array as the top of the stack. As shown in the figure below, push and pop operations correspond to adding and removing elements at the end of the array, both with a time complexity of $O(1)$.
 
-=== "ArrayStack"
+=== "<1>"
     ![Push and pop operations in array implementation of stack](stack.assets/array_stack_step1.png)
 
-=== "push()"
+=== "<2>"
     ![array_stack_push](stack.assets/array_stack_step2_push.png)
 
-=== "pop()"
+=== "<3>"
     ![array_stack_pop](stack.assets/array_stack_step3_pop.png)
 
 Since elements pushed onto the stack may increase continuously, we can use a dynamic array, which eliminates the need to handle array expansion ourselves. Here is the sample code:
