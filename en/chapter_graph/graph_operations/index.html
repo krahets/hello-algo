@@ -72,6 +72,8 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../stylesheets/animation_player.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(("__palette"===e?"/":a.pathname)+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(("__palette"===e?"/":_.pathname)+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -4386,7 +4388,7 @@
 <li><strong>Removing a vertex</strong>: Delete a row and a column in the adjacency matrix. The worst case occurs when removing the first row and column, requiring <span class="arithmatex">\((n-1)^2\)</span> elements to be "moved up and to the left", thus using <span class="arithmatex">\(O(n^2)\)</span> time.</li>
 <li><strong>Initialization</strong>: Pass in <span class="arithmatex">\(n\)</span> vertices, initialize a vertex list <code>vertices</code> of length <span class="arithmatex">\(n\)</span>, using <span class="arithmatex">\(O(n)\)</span> time; initialize an adjacency matrix <code>adjMat</code> of size <span class="arithmatex">\(n \times n\)</span>, using <span class="arithmatex">\(O(n^2)\)</span> time.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Initialize adjacency matrix</label><label for="__tabbed_1_2">Add an edge</label><label for="__tabbed_1_3">Remove an edge</label><label for="__tabbed_1_4">Add a vertex</label><label for="__tabbed_1_5">Remove a vertex</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="Initialization, adding and removing edges, adding and removing vertices in adjacency matrix" class="animation-figure" src="../graph_operations.assets/adjacency_matrix_step1_initialization.png" /></p>
@@ -5567,7 +5569,7 @@
 <li><strong>Removing a vertex</strong>: Traverse the entire adjacency list and remove all edges containing the specified vertex, using <span class="arithmatex">\(O(n + m)\)</span> time.</li>
 <li><strong>Initialization</strong>: Create <span class="arithmatex">\(n\)</span> vertices and <span class="arithmatex">\(2m\)</span> edges in the adjacency list, using <span class="arithmatex">\(O(n + m)\)</span> time.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Initialize adjacency list</label><label for="__tabbed_3_2">Add an edge</label><label for="__tabbed_3_3">Remove an edge</label><label for="__tabbed_3_4">Add a vertex</label><label for="__tabbed_3_5">Remove a vertex</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label><label for="__tabbed_3_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="Initialization, adding and removing edges, adding and removing vertices in adjacency list" class="animation-figure" src="../graph_operations.assets/adjacency_list_step1_initialization.png" /></p>
@@ -6961,6 +6963,8 @@ aria-label="Footer"
         <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+      
+        <script src="../../javascripts/animation_player.js"></script>
       
     
   </body>

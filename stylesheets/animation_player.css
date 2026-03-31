@@ -1,0 +1,179 @@
+.md-typeset .tabbed-set[data-auto-slide="true"] {
+  margin-bottom: 1.5em;
+  overflow: hidden;
+  border-radius: 0.45rem;
+  background: var(--md-default-bg-color);
+  box-shadow: 0 0.12rem 0.45rem var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .tabbed-set[data-auto-slide="true"] > .tabbed-labels {
+  display: none;
+}
+
+.md-typeset .tabbed-set[data-auto-slide="true"] > .tabbed-content {
+  margin-top: 0;
+  margin-bottom: 0;
+  background: var(--md-default-bg-color);
+}
+
+.md-typeset .tabbed-set[data-auto-slide="true"] > .tabbed-content > .tabbed-block > p {
+  margin: 0;
+}
+
+.md-typeset .tabbed-set[data-auto-slide="true"] .animation-figure {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.animation-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.14rem 0.3rem;
+  border-radius: 0;
+  background: color-mix(in srgb, var(--md-code-bg-color) 97.5%, var(--md-default-fg-color) 2.5%);
+  box-sizing: border-box;
+}
+
+.animation-controls__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.03rem;
+  margin-left: auto;
+  padding-left: 0.36rem;
+}
+
+.animation-controls__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.64rem;
+  min-width: 1.64rem;
+  padding: 0.1rem;
+  border: 0;
+  background: transparent;
+  border-radius: 999px;
+  color: var(--md-default-fg-color);
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.animation-controls__button:hover,
+.animation-controls__button:focus-visible {
+  background: color-mix(in srgb, var(--md-code-bg-color) 92%, var(--md-default-fg-color) 8%);
+  color: var(--md-accent-fg-color);
+}
+
+.animation-controls__play {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.animation-controls__play-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.72rem;
+  height: 0.72rem;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+
+.animation-controls__play-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
+.animation-controls__play-glyph .animation-controls__play-icon {
+  transform: translateX(0.04rem);
+}
+
+.animation-controls__play.is-playing .animation-controls__play-glyph {
+  width: 0.6rem;
+}
+
+.animation-controls__play.is-playing .animation-controls__play-glyph .animation-controls__play-icon {
+  transform: none;
+}
+
+.animation-controls__nav-icon {
+  width: 0.72rem;
+  height: 0.72rem;
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
+.animation-controls__page {
+  min-width: 2.25rem;
+  padding: 0 0.01rem;
+  color: var(--md-typeset-color);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  text-align: center;
+}
+
+.animation-controls__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+[data-md-color-scheme="slate"] .animation-controls {
+  background: color-mix(in srgb, var(--md-code-bg-color) 91%, black 9%);
+}
+
+[data-md-color-scheme="slate"] .animation-controls__button:hover,
+[data-md-color-scheme="slate"] .animation-controls__button:focus-visible {
+  background: color-mix(in srgb, var(--md-code-bg-color) 92%, white 8%);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tabbed-set[data-auto-slide="true"] {
+  background: var(--md-code-bg-color);
+  box-shadow: 0 0.2rem 0.75rem rgb(0 0 0 / 0.18);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tabbed-set[data-auto-slide="true"] > .tabbed-content {
+  background: var(--md-code-bg-color);
+}
+
+@media screen and (max-width: 44.9375em) {
+  .animation-controls {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0.32rem;
+    padding: 0.11rem 0.22rem;
+  }
+
+  .animation-controls__nav {
+    gap: 0.02rem;
+    padding-left: 0.16rem;
+  }
+
+  .animation-controls__button {
+    min-width: 1.48rem;
+    min-height: 1.48rem;
+    padding: 0.08rem;
+  }
+
+  .animation-controls__page {
+    min-width: 2rem;
+    padding: 0;
+    font-size: 0.7rem;
+  }
+}
+/*! update cache: 20260331211843 */

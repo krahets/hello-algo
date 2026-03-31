@@ -72,6 +72,8 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../stylesheets/animation_player.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(("__palette"===e?"/":a.pathname)+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(("__palette"===e?"/":_.pathname)+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -4794,7 +4796,7 @@
 <p>To implement a queue, we need a data structure that allows adding elements at one end and removing elements at the other end. Both linked lists and arrays meet this requirement.</p>
 <h3 id="1-linked-list-implementation">1. &nbsp; Linked List Implementation<a class="headerlink" href="#1-linked-list-implementation" title="Permanent link">&para;</a></h3>
 <p>As shown in Figure 5-5, we can treat the "head node" and "tail node" of a linked list as the "front" and "rear" of the queue, respectively, with the rule that nodes can only be added at the rear and removed from the front.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListQueue</label><label for="__tabbed_2_2">push()</label><label for="__tabbed_2_3">pop()</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="Enqueue and dequeue operations in linked list implementation of queue" class="animation-figure" src="../queue.assets/linkedlist_queue_step1.png" /></p>
@@ -5716,7 +5718,7 @@
 <li>Dequeue operation: Simply increase <code>front</code> by 1 and decrease <code>size</code> by 1.</li>
 </ul>
 <p>As you can see, both enqueue and dequeue operations require only one operation, with a time complexity of <span class="arithmatex">\(O(1)\)</span>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ArrayQueue</label><label for="__tabbed_4_2">push()</label><label for="__tabbed_4_3">pop()</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="Enqueue and dequeue operations in array implementation of queue" class="animation-figure" src="../queue.assets/array_queue_step1.png" /></p>
@@ -6875,6 +6877,8 @@ aria-label="Footer"
         <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+      
+        <script src="../../javascripts/animation_player.js"></script>
       
     
   </body>

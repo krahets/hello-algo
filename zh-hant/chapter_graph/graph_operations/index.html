@@ -72,6 +72,8 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../stylesheets/animation_player.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(("__palette"===e?"/":a.pathname)+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(("__palette"===e?"/":_.pathname)+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -4394,7 +4396,7 @@
 <li><strong>刪除頂點</strong>：在鄰接矩陣中刪除一行一列。當刪除首行首列時達到最差情況，需要將 <span class="arithmatex">\((n-1)^2\)</span> 個元素“向左上移動”，從而使用 <span class="arithmatex">\(O(n^2)\)</span> 時間。</li>
 <li><strong>初始化</strong>：傳入 <span class="arithmatex">\(n\)</span> 個頂點，初始化長度為 <span class="arithmatex">\(n\)</span> 的頂點串列 <code>vertices</code> ，使用 <span class="arithmatex">\(O(n)\)</span> 時間；初始化 <span class="arithmatex">\(n \times n\)</span> 大小的鄰接矩陣 <code>adjMat</code> ，使用 <span class="arithmatex">\(O(n^2)\)</span> 時間。</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">初始化鄰接矩陣</label><label for="__tabbed_1_2">新增邊</label><label for="__tabbed_1_3">刪除邊</label><label for="__tabbed_1_4">新增頂點</label><label for="__tabbed_1_5">刪除頂點</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="鄰接矩陣的初始化、增刪邊、增刪頂點" class="animation-figure" src="../graph_operations.assets/adjacency_matrix_step1_initialization.png" /></p>
@@ -5580,7 +5582,7 @@
 <li><strong>刪除頂點</strong>：需走訪整個鄰接表，刪除包含指定頂點的所有邊，使用 <span class="arithmatex">\(O(n + m)\)</span> 時間。</li>
 <li><strong>初始化</strong>：在鄰接表中建立 <span class="arithmatex">\(n\)</span> 個頂點和 <span class="arithmatex">\(2m\)</span> 條邊，使用 <span class="arithmatex">\(O(n + m)\)</span> 時間。</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">初始化鄰接表</label><label for="__tabbed_3_2">新增邊</label><label for="__tabbed_3_3">刪除邊</label><label for="__tabbed_3_4">新增頂點</label><label for="__tabbed_3_5">刪除頂點</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label><label for="__tabbed_3_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="鄰接表的初始化、增刪邊、增刪頂點" class="animation-figure" src="../graph_operations.assets/adjacency_list_step1_initialization.png" /></p>
@@ -6979,6 +6981,8 @@ aria-label="頁脚"
         <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+      
+        <script src="../../javascripts/animation_player.js"></script>
       
     
   </body>

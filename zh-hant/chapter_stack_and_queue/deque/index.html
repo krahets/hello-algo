@@ -72,6 +72,8 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../stylesheets/animation_player.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(("__palette"===e?"/":a.pathname)+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(("__palette"===e?"/":_.pathname)+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -4844,7 +4846,7 @@
 <p>回顧上一節內容，我們使用普通單向鏈結串列來實現佇列，因為它可以方便地刪除頭節點（對應出列操作）和在尾節點後新增新節點（對應入列操作）。</p>
 <p>對於雙向佇列而言，頭部和尾部都可以執行入列和出列操作。換句話說，雙向佇列需要實現另一個對稱方向的操作。為此，我們採用“雙向鏈結串列”作為雙向佇列的底層資料結構。</p>
 <p>如圖 5-8 所示，我們將雙向鏈結串列的頭節點和尾節點視為雙向佇列的佇列首和佇列尾，同時實現在兩端新增和刪除節點的功能。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListDeque</label><label for="__tabbed_2_2">push_last()</label><label for="__tabbed_2_3">push_first()</label><label for="__tabbed_2_4">pop_last()</label><label for="__tabbed_2_5">pop_first()</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="基於鏈結串列實現雙向佇列的入列出列操作" class="animation-figure" src="../deque.assets/linkedlist_deque_step1.png" /></p>
@@ -6571,7 +6573,7 @@
 </div>
 <h3 id="2">2. &nbsp; 基於陣列的實現<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>如圖 5-9 所示，與基於陣列實現佇列類似，我們也可以使用環形陣列來實現雙向佇列。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:5"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ArrayDeque</label><label for="__tabbed_4_2">push_last()</label><label for="__tabbed_4_3">push_first()</label><label for="__tabbed_4_4">pop_last()</label><label for="__tabbed_4_5">pop_first()</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:5"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="基於陣列實現雙向佇列的入列出列操作" class="animation-figure" src="../deque.assets/array_deque_step1.png" /></p>
@@ -8214,6 +8216,8 @@ aria-label="頁脚"
         <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+      
+        <script src="../../javascripts/animation_player.js"></script>
       
     
   </body>

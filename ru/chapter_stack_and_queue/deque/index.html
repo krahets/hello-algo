@@ -72,6 +72,8 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../stylesheets/animation_player.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(("__palette"===e?"/":a.pathname)+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(("__palette"===e?"/":_.pathname)+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -4835,7 +4837,7 @@
 <p>Вспомним предыдущий раздел: там мы использовали обычный односвязный список для реализации очереди, потому что он позволяет удобно удалять головной узел, что соответствует операции <code>dequeue</code> , и добавлять новый узел после хвостового узла, что соответствует операции <code>enqueue</code> .</p>
 <p>Для двусторонней очереди и голова, и хвост допускают операции добавления и удаления элементов. Иначе говоря, двусторонняя очередь требует реализации еще одного симметричного направления операций. Поэтому в качестве базовой структуры данных двусторонней очереди удобно использовать двусвязный список.</p>
 <p>Как показано на рисунках ниже, мы рассматриваем головной и хвостовой узлы двусвязного списка как голову и хвост двусторонней очереди и одновременно реализуем функции добавления и удаления узлов с обеих сторон.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListDeque</label><label for="__tabbed_2_2">push_last()</label><label for="__tabbed_2_3">push_first()</label><label for="__tabbed_2_4">pop_last()</label><label for="__tabbed_2_5">pop_first()</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="Операции enqueue и dequeue для двусторонней очереди на связном списке" class="animation-figure" src="../deque.assets/linkedlist_deque_step1.png" /></p>
@@ -6562,7 +6564,7 @@
 </div>
 <h3 id="2">2. &nbsp; Реализация на основе массива<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>Как показано на рисунках ниже, аналогично реализации обычной очереди на массиве мы также можем использовать кольцевой массив для реализации двусторонней очереди.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:5"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ArrayDeque</label><label for="__tabbed_4_2">push_last()</label><label for="__tabbed_4_3">push_first()</label><label for="__tabbed_4_4">pop_last()</label><label for="__tabbed_4_5">pop_first()</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:5"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="Операции enqueue и dequeue для двусторонней очереди на массиве" class="animation-figure" src="../deque.assets/array_deque_step1.png" /></p>
@@ -8205,6 +8207,8 @@ aria-label="Нижний колонтитул"
         <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+      
+        <script src="../../javascripts/animation_player.js"></script>
       
     
   </body>

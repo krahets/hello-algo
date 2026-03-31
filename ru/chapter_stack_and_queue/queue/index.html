@@ -72,6 +72,8 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../stylesheets/animation_player.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(("__palette"===e?"/":a.pathname)+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(("__palette"===e?"/":_.pathname)+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -4793,7 +4795,7 @@
 <p>Чтобы реализовать очередь, нам нужна такая структура данных, которая позволяет добавлять элементы с одного конца и удалять их с другого; и связный список, и массив этим требованиям удовлетворяют.</p>
 <h3 id="1">1. &nbsp; Реализация на основе связного списка<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>Как показано на рисунке 5-5, мы можем рассматривать головной узел и хвостовой узел связного списка как голову очереди и хвост очереди соответственно, договорившись, что добавлять узлы можно только в хвост, а удалять - только из головы.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListQueue</label><label for="__tabbed_2_2">push()</label><label for="__tabbed_2_3">pop()</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="Операции enqueue и dequeue в реализации очереди на связном списке" class="animation-figure" src="../queue.assets/linkedlist_queue_step1.png" /></p>
@@ -5720,7 +5722,7 @@
 <li>Операция <code>dequeue</code>: просто увеличить <code>front</code> на 1 и уменьшить <code>size</code> на 1.</li>
 </ul>
 <p>Можно увидеть, что и <code>enqueue</code> , и <code>dequeue</code> требуют всего одной операции, а значит обе имеют временную сложность <span class="arithmatex">\(O(1)\)</span> .</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ArrayQueue</label><label for="__tabbed_4_2">push()</label><label for="__tabbed_4_3">pop()</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="Операции enqueue и dequeue в реализации очереди на массиве" class="animation-figure" src="../queue.assets/array_queue_step1.png" /></p>
@@ -6884,6 +6886,8 @@ aria-label="Нижний колонтитул"
         <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+      
+        <script src="../../javascripts/animation_player.js"></script>
       
     
   </body>

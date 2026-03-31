@@ -72,6 +72,8 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../stylesheets/animation_player.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(("__palette"===e?"/":a.pathname)+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(("__palette"===e?"/":_.pathname)+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -4809,7 +4811,7 @@
 <h3 id="1">1. &nbsp; Реализация на основе связного списка<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>Если реализовывать стек на основе связного списка, то головной узел списка можно рассматривать как вершину стека, а хвостовой - как основание.</p>
 <p>Как показано на рисунке 5-2, для операции <code>push</code> достаточно вставить элемент в голову связного списка. Такой способ вставки называется вставкой в голову. Для операции <code>pop</code> достаточно удалить головной узел из списка.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListStack</label><label for="__tabbed_2_2">push()</label><label for="__tabbed_2_3">pop()</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="Операции push и pop в реализации стека на связном списке" class="animation-figure" src="../stack.assets/linkedlist_stack_step1.png" /></p>
@@ -5581,7 +5583,7 @@
 </details>
 <h3 id="2">2. &nbsp; Реализация на основе массива<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>Если реализовывать стек на основе массива, то хвост массива можно рассматривать как вершину стека. Как показано на рисунке 5-3, операции <code>push</code> и <code>pop</code> соответствуют добавлению элемента в конец массива и удалению элемента из конца, обе имеют временную сложность <span class="arithmatex">\(O(1)\)</span> .</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ArrayStack</label><label for="__tabbed_4_2">push()</label><label for="__tabbed_4_3">pop()</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="Операции push и pop в реализации стека на массиве" class="animation-figure" src="../stack.assets/array_stack_step1.png" /></p>
@@ -6435,6 +6437,8 @@ aria-label="Нижний колонтитул"
         <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+      
+        <script src="../../javascripts/animation_player.js"></script>
       
     
   </body>

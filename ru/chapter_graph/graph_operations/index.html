@@ -72,6 +72,8 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../stylesheets/animation_player.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(("__palette"===e?"/":a.pathname)+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(("__palette"===e?"/":_.pathname)+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -4386,7 +4388,7 @@
 <li><strong>Удаление вершины</strong>: из матрицы смежности удаляется строка и столбец. При удалении первой строки и первого столбца достигается худший случай, когда требуется "сдвинуть влево вверх" <span class="arithmatex">\((n-1)^2\)</span> элементов, поэтому используется <span class="arithmatex">\(O(n^2)\)</span> времени.</li>
 <li><strong>Инициализация</strong>: передаются <span class="arithmatex">\(n\)</span> вершин, затем инициализируется список вершин <code>vertices</code> длины <span class="arithmatex">\(n\)</span> , что требует <span class="arithmatex">\(O(n)\)</span> времени; после этого инициализируется матрица смежности <code>adjMat</code> размера <span class="arithmatex">\(n \times n\)</span> , что требует <span class="arithmatex">\(O(n^2)\)</span> времени.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Инициализация матрицы смежности</label><label for="__tabbed_1_2">Добавление ребра</label><label for="__tabbed_1_3">Удаление ребра</label><label for="__tabbed_1_4">Добавление вершины</label><label for="__tabbed_1_5">Удаление вершины</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="Инициализация матрицы смежности, добавление и удаление ребер и вершин" class="animation-figure" src="../graph_operations.assets/adjacency_matrix_step1_initialization.png" /></p>
@@ -5572,7 +5574,7 @@
 <li><strong>Удаление вершины</strong>: требуется пройти по всему списку смежности и удалить все ребра, содержащие указанную вершину; это требует <span class="arithmatex">\(O(n + m)\)</span> времени.</li>
 <li><strong>Инициализация</strong>: в списке смежности создаются <span class="arithmatex">\(n\)</span> вершин и <span class="arithmatex">\(2m\)</span> ребер; это требует <span class="arithmatex">\(O(n + m)\)</span> времени.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Инициализация списка смежности</label><label for="__tabbed_3_2">Добавление ребра</label><label for="__tabbed_3_3">Удаление ребра</label><label for="__tabbed_3_4">Добавление вершины</label><label for="__tabbed_3_5">Удаление вершины</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label><label for="__tabbed_3_5">&lt;5&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="Инициализация списка смежности, добавление и удаление ребер и вершин" class="animation-figure" src="../graph_operations.assets/adjacency_list_step1_initialization.png" /></p>
@@ -6971,6 +6973,8 @@ aria-label="Нижний колонтитул"
         <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+      
+        <script src="../../javascripts/animation_player.js"></script>
       
     
   </body>
