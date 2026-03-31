@@ -11,19 +11,19 @@ Given an undirected graph with $n$ vertices, the various operations are implemen
 - **Removing a vertex**: Delete a row and a column in the adjacency matrix. The worst case occurs when removing the first row and column, requiring $(n-1)^2$ elements to be "moved up and to the left", thus using $O(n^2)$ time.
 - **Initialization**: Pass in $n$ vertices, initialize a vertex list `vertices` of length $n$, using $O(n)$ time; initialize an adjacency matrix `adjMat` of size $n \times n$, using $O(n^2)$ time.
 
-=== "Initialize adjacency matrix"
+=== "<1>"
     ![Initialization, adding and removing edges, adding and removing vertices in adjacency matrix](graph_operations.assets/adjacency_matrix_step1_initialization.png)
 
-=== "Add an edge"
+=== "<2>"
     ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.png)
 
-=== "Remove an edge"
+=== "<3>"
     ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.png)
 
-=== "Add a vertex"
+=== "<4>"
     ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.png)
 
-=== "Remove a vertex"
+=== "<5>"
     ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png)
 
 The following is the implementation code for graphs represented using an adjacency matrix:
@@ -42,19 +42,19 @@ Given an undirected graph with a total of $n$ vertices and $m$ edges, the variou
 - **Removing a vertex**: Traverse the entire adjacency list and remove all edges containing the specified vertex, using $O(n + m)$ time.
 - **Initialization**: Create $n$ vertices and $2m$ edges in the adjacency list, using $O(n + m)$ time.
 
-=== "Initialize adjacency list"
+=== "<1>"
     ![Initialization, adding and removing edges, adding and removing vertices in adjacency list](graph_operations.assets/adjacency_list_step1_initialization.png)
 
-=== "Add an edge"
+=== "<2>"
     ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.png)
 
-=== "Remove an edge"
+=== "<3>"
     ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.png)
 
-=== "Add a vertex"
+=== "<4>"
     ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.png)
 
-=== "Remove a vertex"
+=== "<5>"
     ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.png)
 
 The following is the adjacency list code implementation. Compared to the figure above, the actual code has the following differences.

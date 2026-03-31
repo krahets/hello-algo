@@ -11,19 +11,19 @@
 - **删除顶点**：在邻接矩阵中删除一行一列。当删除首行首列时达到最差情况，需要将 $(n-1)^2$ 个元素“向左上移动”，从而使用 $O(n^2)$ 时间。
 - **初始化**：传入 $n$ 个顶点，初始化长度为 $n$ 的顶点列表 `vertices` ，使用 $O(n)$ 时间；初始化 $n \times n$ 大小的邻接矩阵 `adjMat` ，使用 $O(n^2)$ 时间。
 
-=== "初始化邻接矩阵"
+=== "<1>"
     ![邻接矩阵的初始化、增删边、增删顶点](graph_operations.assets/adjacency_matrix_step1_initialization.png)
 
-=== "添加边"
+=== "<2>"
     ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.png)
 
-=== "删除边"
+=== "<3>"
     ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.png)
 
-=== "添加顶点"
+=== "<4>"
     ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.png)
 
-=== "删除顶点"
+=== "<5>"
     ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png)
 
 以下是基于邻接矩阵表示图的实现代码：
@@ -42,19 +42,19 @@
 - **删除顶点**：需遍历整个邻接表，删除包含指定顶点的所有边，使用 $O(n + m)$ 时间。
 - **初始化**：在邻接表中创建 $n$ 个顶点和 $2m$ 条边，使用 $O(n + m)$ 时间。
 
-=== "初始化邻接表"
+=== "<1>"
     ![邻接表的初始化、增删边、增删顶点](graph_operations.assets/adjacency_list_step1_initialization.png)
 
-=== "添加边"
+=== "<2>"
     ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.png)
 
-=== "删除边"
+=== "<3>"
     ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.png)
 
-=== "添加顶点"
+=== "<4>"
     ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.png)
 
-=== "删除顶点"
+=== "<5>"
     ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.png)
 
 以下是邻接表的代码实现。对比上图，实际代码有以下不同。

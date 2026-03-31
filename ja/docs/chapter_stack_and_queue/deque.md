@@ -399,19 +399,19 @@
 
 次の図に示すように、双方向連結リストの先頭ノードと末尾ノードを両端キューの先頭と末尾と見なし、両端でノードを追加および削除する機能を実現します。
 
-=== "LinkedListDeque"
+=== "<1>"
     ![連結リストによる両端キューのエンキューとデキュー](deque.assets/linkedlist_deque_step1.png)
 
-=== "push_last()"
+=== "<2>"
     ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.png)
 
-=== "push_first()"
+=== "<3>"
     ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.png)
 
-=== "pop_last()"
+=== "<4>"
     ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.png)
 
-=== "pop_first()"
+=== "<5>"
     ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.png)
 
 実装コードは次のとおりです：
@@ -424,19 +424,19 @@
 
 次の図に示すように、配列によるキュー実装と同様に、循環配列を使って両端キューを実装することもできます。
 
-=== "ArrayDeque"
+=== "<1>"
     ![配列による両端キューのエンキューとデキュー](deque.assets/array_deque_step1.png)
 
-=== "push_last()"
+=== "<2>"
     ![array_deque_push_last](deque.assets/array_deque_step2_push_last.png)
 
-=== "push_first()"
+=== "<3>"
     ![array_deque_push_first](deque.assets/array_deque_step3_push_first.png)
 
-=== "pop_last()"
+=== "<4>"
     ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.png)
 
-=== "pop_first()"
+=== "<5>"
     ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.png)
 
 キュー実装を土台として、「先頭へのエンキュー」と「末尾からのデキュー」のメソッドを追加するだけで済みます：

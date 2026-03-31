@@ -11,19 +11,19 @@
 - **Удаление вершины**: из матрицы смежности удаляется строка и столбец. При удалении первой строки и первого столбца достигается худший случай, когда требуется "сдвинуть влево вверх" $(n-1)^2$ элементов, поэтому используется $O(n^2)$ времени.
 - **Инициализация**: передаются $n$ вершин, затем инициализируется список вершин `vertices` длины $n$ , что требует $O(n)$ времени; после этого инициализируется матрица смежности `adjMat` размера $n \times n$ , что требует $O(n^2)$ времени.
 
-=== "Инициализация матрицы смежности"
+=== "<1>"
     ![Инициализация матрицы смежности, добавление и удаление ребер и вершин](graph_operations.assets/adjacency_matrix_step1_initialization.png)
 
-=== "Добавление ребра"
+=== "<2>"
     ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.png)
 
-=== "Удаление ребра"
+=== "<3>"
     ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.png)
 
-=== "Добавление вершины"
+=== "<4>"
     ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.png)
 
-=== "Удаление вершины"
+=== "<5>"
     ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png)
 
 Ниже приведен код реализации графа на основе матрицы смежности:
@@ -42,19 +42,19 @@
 - **Удаление вершины**: требуется пройти по всему списку смежности и удалить все ребра, содержащие указанную вершину; это требует $O(n + m)$ времени.
 - **Инициализация**: в списке смежности создаются $n$ вершин и $2m$ ребер; это требует $O(n + m)$ времени.
 
-=== "Инициализация списка смежности"
+=== "<1>"
     ![Инициализация списка смежности, добавление и удаление ребер и вершин](graph_operations.assets/adjacency_list_step1_initialization.png)
 
-=== "Добавление ребра"
+=== "<2>"
     ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.png)
 
-=== "Удаление ребра"
+=== "<3>"
     ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.png)
 
-=== "Добавление вершины"
+=== "<4>"
     ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.png)
 
-=== "Удаление вершины"
+=== "<5>"
     ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.png)
 
 Ниже приведен код списка смежности. По сравнению с рисунками выше, реальная реализация имеет следующие отличия.
