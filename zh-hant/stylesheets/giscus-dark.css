@@ -1,29 +1,27 @@
 @import url("https://giscus.app/themes/noborder_dark.css");
 
 /* Limit long giscus comments so they don't dominate the page. */
-.gsc-comment-content {
-  max-height: 16rem;
+.gsc-comment-content,
+.gsc-reply-content {
+  max-height: 32rem;
   overflow-y: auto;
   overscroll-behavior: contain;
   padding-inline-end: 0.5rem;
 }
 
-.gsc-comment-content::-webkit-scrollbar {
+.gsc-comment-content::-webkit-scrollbar,
+.gsc-reply-content::-webkit-scrollbar {
   width: 0.35rem;
 }
 
-.gsc-comment-content::-webkit-scrollbar-thumb {
+.gsc-comment-content::-webkit-scrollbar-thumb,
+.gsc-reply-content::-webkit-scrollbar-thumb {
   background: rgba(230, 237, 243, 0.24);
   border-radius: 999px;
 }
 
-.gsc-comment-content::-webkit-scrollbar-track {
+.gsc-comment-content::-webkit-scrollbar-track,
+.gsc-reply-content::-webkit-scrollbar-track {
   background: transparent;
 }
-
-@media (max-width: 48rem) {
-  .gsc-comment-content {
-    max-height: 12rem;
-  }
-}
-/*! update cache: 20260401001452 */
+/*! update cache: 20260401004128 */
