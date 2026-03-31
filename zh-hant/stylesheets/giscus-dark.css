@@ -1,5 +1,21 @@
 @import url("https://giscus.app/themes/noborder_dark.css");
 
+.gsc-comment-box-buttons .btn-primary {
+  border-radius: 999px !important;
+  border-color: transparent !important;
+  background-color: #52bbb1 !important;
+  color: #1e1e1e !important;
+  box-shadow: none !important;
+}
+
+.gsc-comment-box-buttons .btn-primary:hover:not(:disabled) {
+  background-color: #7acfc7 !important;
+}
+
+.gsc-comment-box-buttons .btn-primary:disabled {
+  opacity: 0.62;
+}
+
 /* Limit long giscus comments so they don't dominate the page. */
 .gsc-comment-content,
 .gsc-reply-content {
@@ -24,4 +40,4 @@
 .gsc-reply-content::-webkit-scrollbar-track {
   background: transparent;
 }
-/*! update cache: 20260401005551 */
+/*! update cache: 20260401010443 */

@@ -1,31 +1,31 @@
 @import url("https://giscus.app/themes/light.css");
 
 main {
-  --color-border-default: rgba(29, 29, 32, 0.12);
-  --color-border-muted: rgba(29, 29, 32, 0.08);
+  --color-border-default: rgba(29, 29, 32, 0.08);
+  --color-border-muted: rgba(29, 29, 32, 0.05);
   --color-accent-fg: #349890;
   --color-btn-primary-text: #ffffff;
-  --color-btn-primary-bg: #55aea6;
-  --color-btn-primary-hover-bg: #52bbb1;
+  --color-btn-primary-bg: #52bbb1;
+  --color-btn-primary-hover-bg: #7acfc7;
   --color-btn-primary-border: rgba(52, 152, 144, 0.2);
   --color-btn-primary-hover-border: rgba(52, 152, 144, 0.24);
 }
 
 .border,
 .color-border-primary {
-  border-color: rgba(29, 29, 32, 0.1) !important;
+  border-color: rgba(29, 29, 32, 0.07) !important;
 }
 
 .gsc-comment-box-buttons .btn-primary {
   border-radius: 999px !important;
   border-color: transparent !important;
-  background-color: #55aea6 !important;
+  background-color: #52bbb1 !important;
   color: #ffffff !important;
   box-shadow: none !important;
 }
 
 .gsc-comment-box-buttons .btn-primary:hover:not(:disabled) {
-  background-color: #52bbb1 !important;
+  background-color: #7acfc7 !important;
 }
 
 .gsc-comment-box-buttons .btn-primary:disabled {
@@ -56,4 +56,4 @@ main {
 .gsc-reply-content::-webkit-scrollbar-track {
   background: transparent;
 }
-/*! update cache: 20260401005602 */
+/*! update cache: 20260401010455 */
